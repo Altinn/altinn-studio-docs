@@ -48,7 +48,7 @@ Example:
 
 ```json
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout-sets.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
   "sets": [
     {
       "id": "form-a",

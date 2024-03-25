@@ -12,9 +12,9 @@ This can be useful if you want to expose your organization's own APIs via an app
 On this page, an example of using an external open API to enrich form data is presented. 
 [The example app is available in Altinn Studio](https://altinn.studio/repos/ttd/consume-api-example).
 
-The API used is [RestCountries v3](https://restcountries.com/#api-endpoints-v3), 
-and it's the endpoint `https://restcountries.com/v3.1/name/{country}` we will use.
-The endpoint returns metadata about the provided country. 
+We will be using the [RestCountries v3](https://restcountries.com/#api-endpoints-v3) API, 
+and more specifically the endpoint `https://restcountries.com/v3.1/name/{country}`.
+This endpoint returns metadata about the provided country. 
 
 You may test the API in your browser and study the response: [https://restcountries.com/v3.1/name/Norway](https://restcountries.com/v3.1/name/Norway).
 
@@ -29,7 +29,7 @@ This can be done manually, or by using available online tools.
 
 In this example, the response object is quite large and contains much more data than we are interested in. 
 
-Here is an abbreviated version of the response object for Norway
+Here is an abbreviated version of the response object for Norway:
 ```json {linenos=false,hl_lines=[9,10,11,13]}
 [
 	{
@@ -66,7 +66,7 @@ Here is an abbreviated version of the response object for Norway
 ]
 ```
 
-In the application we are only interested in the data in the highlighted lines, 
+In the application we are only interested in the data in the lines highlighted: 
 capital and region. We create a minimal response object that only contains the properties we are interested in. 
 
 In the folder _App/models_ a new file `Country.cs` is created.
@@ -188,7 +188,7 @@ namespace Altinn.App.client
 
 ```
 
-At the top of the file you find a reference to all the namespaces the class depends on
+At the top of the file you find a reference to all the namespaces the class depends on.
 
 ```cs
 using System;
@@ -202,7 +202,7 @@ using Altinn.App.models;
 using Microsoft.Extensions.Logging;
 ```
 
-Further, we define the class and which interface it inherits from
+Further, we define the class and which interface it inherits from.
 
 ```cs
 public class CountryClient : ICountryClient
@@ -223,7 +223,7 @@ The underscore before the name is simply a naming convention and does not have a
 - __serializerOptions_ will be instantiated and configured in the constructor to support deserialization of the API
   response
 
-Further in the class, the constructor is defined
+Further in the class, the constructor is defined.
 
 ```cs
 public CountryClient(HttpClient client, ILogger<ICountryClient> logger)
@@ -274,7 +274,7 @@ If the statusCode is not one that indicates success, a log entry is made and _nu
 
 ## Registering the client in the application
 
-Once the interface and client is implemented, it should be registered in _App/Program.cs_ (.NET 6) or _App/Startup.cs_ (.NET 5),
+Once the interface and client is implemented, it should be registered in _App/Program.cs_ (.NET&nbsp;6) or _App/Startup.cs_ (.NET&nbsp;5),
 to make it available to use in the application.
 
 In the `Program.cs` class, the line below is included. In addition, `using Altinn.App.client;` and `using Altinn.App.AppLogic.DataProcessing;` is added at the top of the file.
@@ -360,15 +360,15 @@ If you attempt to build the application at this point, an error will occur.
 DataProcessingHandler is instantiated in App.cs,
 so all dependencies must be included in this file and included in the initialization of DataProcessingHandler.
 
-In the file _App/logic/App.cs_, the following changes are made
+In the file _App/logic/App.cs_, the following changes are made.
 
-- Add a reference to the namespace of the client at the top of the file
+- Add a reference to the namespace of the client at the top of the file.
   ```cs
   using Altinn.App.client;
   ```
 - Inject `ICountryClient` as the last element of the App.cs-constructor.
   
-    This is done in line 14
+    This is done in line 14:
     ```cs {linenos=inline,hl_lines=[14]}
     public App(
         IAppResources appResourcesService,
@@ -398,7 +398,7 @@ In the file _App/logic/App.cs_, the following changes are made
             httpContextAccessor)
     ```
 
-- Include countryClient in the initialization of DataProcessingHandler 
+- Include countryClient in the initialization of DataProcessingHandler.
     ```cs
     _dataProcessingHandler = new DataProcessingHandler(countryClient);
     ```
@@ -406,8 +406,8 @@ In the file _App/logic/App.cs_, the following changes are made
 
 ## Caching of response data
 
-One drawback of the example as it now stands is that a request will be made to the API every time 
-a piece of the form data i updated.
+One drawback of the example as it now stands, is that a request will be made to the API every time 
+any of the form data is updated.
 
 It is a reasonable assumption that a country's capital and region will not change frequently.
 If information about Norway is retrieved, we can store this in the application for a period of time, 

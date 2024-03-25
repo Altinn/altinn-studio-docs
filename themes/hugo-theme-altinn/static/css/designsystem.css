@@ -9943,14 +9943,13 @@ h1,
 
 h2,
 .a-h2 {
-  font-family: "DIN-medium";
+  font-family: "DIN-bold";
   font-weight: normal;
-  margin-bottom: 12px; }
-  @media (min-width: 768px) {
-    h2,
-    .a-h2 {
-      font-family: "DIN-reg";
-      font-weight: normal; } }
+  margin-bottom: 12px;
+}
+p.a-leadText + h2 { /* ToC header */ 
+  font-family: "DIN-reg";
+}
 
 h3,
 .a-h3,

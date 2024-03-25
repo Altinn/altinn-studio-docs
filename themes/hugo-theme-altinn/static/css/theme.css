@@ -817,7 +817,13 @@ td {
 }
 .bullet-content {
     margin-left: 4.55rem;
-}   
+}
+
+.footnotes ol li p {
+    display: inline;
+    font-size: smaller;
+}
+
 .tooltipped:after {
     position: absolute;
     z-index: 1000000;

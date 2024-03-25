@@ -75,6 +75,7 @@ Eksempel oppsett av `layout-sets.json` hvor `Task_1` er et datasteg, og `Task_2`
 
 ```json
 {
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
   "sets": [
     {
       "id": "simple",
@@ -96,7 +97,7 @@ Eksempel `formLayout.json` som presenterer data som brukeren fylte ut i data-ste
 
 ```json
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       {
@@ -281,6 +282,7 @@ App/ui/layout-sets.json
 
 ```json {hl_lines=[4,6]}
 {
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
   "sets": [
     {
       "id": "custom-receipt",
@@ -303,7 +305,7 @@ App/ui/custom-receipt/Settings.json
 
 ```json
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
     "order": ["side1", "side2"]
   }
@@ -324,7 +326,7 @@ App/ui/custom-receipt/layouts/side1.json
 
 ```json
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       {
@@ -399,7 +401,7 @@ Sluttresultatet i appen:
 
 ### Tilpasse tekster for enkel kvittering (Simple Receipt)
 
-Simple receipt er et konsept som er relevant for de applikasjonene som har aktivert `AutoDeleteOnProcessEnd: True` i `applicationmetadata.json` filen. For mer informasjon om hva dette innebærer [les her](https://docs.altinn.studio/nb/app/development/configuration/process/auto-delete/).
+Simple receipt er et konsept som er relevant for de applikasjonene som har aktivert `AutoDeleteOnProcessEnd: True` i `applicationmetadata.json` filen. For mer informasjon om hva dette innebærer [les her](/nb/app/development/configuration/process/auto-delete/).
 
 Tekstene i denne kvitteringen kan også overskrives ved å manuelt legge til hver definerte tekstnøkkel i appens tekstressursfil. Mer informasjon om hvordan dette gjøres finnes [her](../../../ux/texts).
 Følgende avsnitt viser en oversikt over hvilke tekster som kan tilpasses.

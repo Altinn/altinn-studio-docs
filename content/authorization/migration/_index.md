@@ -1,5 +1,5 @@
 ---
-title: Fremdriftplaner for modernisering av Altinn Autorisasjon
+title: Fremdriftsplaner for modernisering av Altinn Autorisasjon
 linktitle: Fremdriftsplan
 description: Her finner du informasjon om hvordan vi har tenkt å migrere Altinn Autorisasjon fra Altinn 2 til Altinn 3 plattformen
 tags: [architecture, plan, authorization]
