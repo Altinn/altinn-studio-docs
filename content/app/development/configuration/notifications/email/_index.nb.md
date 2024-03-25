@@ -12,9 +12,8 @@ Interfacet definerer en metode som brukes til å bestille en e-postvarsling fra 
 ### Kodeeksempel
 
 Under ser vi et eksempel hvor vi prøver å sende e-postvarsling når en bruker har startet utfylling av skjema, ved hjelp av `IProcessTaskStart`.
-Koden for registrering av `EmailOnStart` i `Program.cs` er utelatt for korthets skyld.
 
-```csharp
+```csharp file=EmailOnStart.cs
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -32,6 +31,7 @@ public class EmailOnStart(ILogger<EmailOnStart> logger, IEmailNotificationClient
 {
     public async Task Start(string taskId, Instance instance, Dictionary<string, string> prefill)
     {
+        // "Task_1" er navnet på skjema-steget i bpmn-prosessen
         if (taskId != "Task_1")
             return;
 
@@ -47,15 +47,30 @@ public class EmailOnStart(ILogger<EmailOnStart> logger, IEmailNotificationClient
             using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
             var orderResult = await emailNotificationClient.Order(order, cts.Token);
             logger.LogInformation(
-                "Task started, email sent to {Number} - OrderId={OrderId}",
+                "Task started, email sent to {EmailAddress} - OrderId={OrderId}",
                 order.Recipients[0].EmailAddress,
                 orderResult.OrderId
             );
         }
-        catch (Exception e)
+        catch (EmailNotificationException e)
         {
             logger.LogError(e, "Error sending email on task start");
         }
     }
+}
+```
+
+Deretter må vi registrere klassen `EmailOnStart` som `IProcessTaskStart` i `Program.cs`.
+
+```csharp file=Program.cs
+using Altinn.App.Core;
+using Altinn.App.Core.Features;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+    services.AddSingleton<IProcessTaskStart, EmailOnStart>();
 }
 ```

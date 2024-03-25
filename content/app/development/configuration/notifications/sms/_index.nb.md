@@ -12,9 +12,8 @@ Interfacet definerer en metode som brukes til å bestille en SMS-varsling fra [A
 ### Kodeeksempel
 
 Under ser vi et eksempel hvor vi prøver å sende SMS-varsling når en bruker har startet utfylling av skjema, ved hjelp av `IProcessTaskStart`.
-Koden for registrering av `SmsOnStart` i `Program.cs` er utelatt for korthets skyld.
 
-```csharp
+```csharp file=SmsOnStart.cs
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -32,6 +31,7 @@ public class SmsOnStart(ILogger<SmsOnStart> logger, ISmsNotificationClient smsNo
 {
     public async Task Start(string taskId, Instance instance, Dictionary<string, string> prefill)
     {
+        // "Task_1" er navnet på skjema-steget i bpmn-prosessen
         if (taskId != "Task_1")
             return;
 
@@ -47,15 +47,30 @@ public class SmsOnStart(ILogger<SmsOnStart> logger, ISmsNotificationClient smsNo
             using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
             var orderResult = await smsNotificationClient.Order(order, default);
             logger.LogInformation(
-                "Task started, SMS sent to {Number} - OrderId={OrderId}",
+                "Task started, SMS sent to {MobileNumber} - OrderId={OrderId}",
                 order.Recipients[0].MobileNumber,
                 orderResult.OrderId
             );
         }
-        catch (Exception e)
+        catch (SmsNotificationException e)
         {
             logger.LogError(e, "Error sending SMS on task start");
         }
     }
+}
+```
+
+Deretter må vi registrere klassen `SmsOnStart` som `IProcessTaskStart` i `Program.cs`.
+
+```csharp file=Program.cs
+using Altinn.App.Core;
+using Altinn.App.Core.Features;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+    services.AddSingleton<IProcessTaskStart, SmsOnStart>();
 }
 ```

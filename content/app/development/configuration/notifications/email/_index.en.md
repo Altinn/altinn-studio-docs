@@ -12,9 +12,8 @@ The interface defines a method used to order an email notification from the [Alt
 ### Code example
 
 Below we see an example of trying to send an email notification when a user starts to fill out a form, by using the `IProcessTaskStart` interface.
-The code for registration of `EmailOnStart` in `Program.cs` has been omitted for brevity.
 
-```csharp
+```csharp file=EmailOnStart.cs
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -32,6 +31,7 @@ public class EmailOnStart(ILogger<EmailOnStart> logger, IEmailNotificationClient
 {
     public async Task Start(string taskId, Instance instance, Dictionary<string, string> prefill)
     {
+        // "Task_1" is the name of the schema step in the bpmn process
         if (taskId != "Task_1")
             return;
 
@@ -47,15 +47,30 @@ public class EmailOnStart(ILogger<EmailOnStart> logger, IEmailNotificationClient
             using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
             var orderResult = await emailNotificationClient.Order(order, cts.Token);
             logger.LogInformation(
-                "Task started, email sent to {Number} - OrderId={OrderId}",
+                "Task started, email sent to {EmailAddress} - OrderId={OrderId}",
                 order.Recipients[0].EmailAddress,
                 orderResult.OrderId
             );
         }
-        catch (Exception e)
+        catch (EmailNotificationException e)
         {
             logger.LogError(e, "Error sending email on task start");
         }
     }
+}
+```
+
+Then we have to register the `EmailOnStart` class as `IProcessTaskStart` in `Program.cs`.
+
+```csharp file=Program.cs
+using Altinn.App.Core;
+using Altinn.App.Core.Features;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+    services.AddSingleton<IProcessTaskStart, EmailOnStart>();
 }
 ```
