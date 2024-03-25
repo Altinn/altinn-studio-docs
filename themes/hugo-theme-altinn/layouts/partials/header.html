@@ -95,6 +95,9 @@
                 {{- if .Params.titleSup -}}
                   <sup>{{.Params.titleSup}}</sup>
                 {{- end -}}
+                {{- if .Params.SubTitle -}}
+                  <div class="subtitle" style="font-size: 75%; font-family: DIN-reg; margin-top: 0.25em;">{{.Params.SubTitle}}</div>
+                {{- end -}}
               </h1>
               <p class="a-leadText" id="leadText">{{.Description}}</p>
             {{- end -}}
