@@ -871,7 +871,7 @@ Uttrykk kan brukes til å vise/skjule hele sider. I eksempelet under vil hele si
 
 ```json
 {
-   "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
    "data": {
       "hidden": ["or",
          ["equals", ["component", "hasComplaints"], "no"],

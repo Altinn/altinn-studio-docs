@@ -2,7 +2,7 @@
 title: Send notifications
 linktitle: Send notifications
 description: "Service owners and internal Altinn systems can send notifications to individuals in a personal 
-capacity or a proffesional capacity thoguh a role they have within an organisation. The contact point for the 
+capacity or a professional capacity though a role they have within an organisation. The contact point for the 
 recipient does not need to be known, as Altinn has access to a wide range 
 of registries to retrieve contact information given an organisation number or a national identity number." 
 tags: [notifications]
@@ -14,15 +14,15 @@ toc: true
 ## Combining notification channels
 
 {{% notice info %}}
-Per November '23 only one communication chanel is supported. 
-Once multiple channels are provided, it will be possible to comnine notification channels for a single order request.
+Per January '24 it is not possible to combine notification channels for a single order request.
+This functionality can be expected in the first half of '24. 
 {{% /notice %}}
 
 ## Registries used for recipient addresses
 
 When sending a notification through Altinn the sender can provide the contact details (email 
 or SMS). In addition to this, Altinn uses a set of registries to retrieve the contact details
-if noen have been provided by the sender. 
+if none have been provided by the sender. 
 
 __The common contact register (Kontakt- og reservasjonsregisteret)__
 

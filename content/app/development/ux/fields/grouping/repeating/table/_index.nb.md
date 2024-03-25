@@ -73,6 +73,20 @@ Eksempel:
 
 ![Eksempel for kolonne options](column-options-example.png "Eksempel for kolonne options")
 
+## Sticky tabell headere
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v4 (App Frontend)">}}
+
+Tabell-headerene kan gjøres "sticky" ved å sette `stickyHeaders`-egenskapen til true. Dette vil få hodene til å sitte fast
+øverst på tabellen ved scrolling. Dette kan være nyttig for tabeller med mange rader, der headerene ikke lenger er
+synlige når man scroller nedover tabellen.
+
+![Eksempel for sticky header](sticky-header.gif "Eksempel for sticky header")
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
 ## Visning av komponenter direkte i tabellen
 
 Det er mulig å tillate redigering av komponenter direkte i tabellen. Dette kan gjøres ved å

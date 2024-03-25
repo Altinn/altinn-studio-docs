@@ -137,5 +137,5 @@ provided they have obtained authorization through Maskinporten:
 ## Guidelines for usage
 
 
-[Please reference our user guide on how and when to use Altinn Notitifcations](send-notifications/get-started/user-guide/)
+[Please reference our user guide on how and when to use Altinn Notifications](send-notifications/get-started/user-guide/)
 

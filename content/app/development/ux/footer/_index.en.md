@@ -16,7 +16,7 @@ The footer is defined in the `footer .json` file under `App/ui`. This file is si
 
 ```json
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/footer.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/footer.schema.v1.json",
   "footer": [
     {
       "type": "Link",

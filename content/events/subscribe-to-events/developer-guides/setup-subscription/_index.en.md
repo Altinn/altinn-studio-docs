@@ -156,5 +156,5 @@ curl \
 
 #### 401 Unauthorized
 ```json
-"Not authorized to create a subscription with subject /org/989271156"
+"Not authorized to create a subscription with subject /organisation/989271156"
 ```

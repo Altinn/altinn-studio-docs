@@ -52,8 +52,10 @@
 				{{ (printf "</h%d>" $numn)|safeHTML }}
 			{{- else -}}
 				{{ (printf "<%s>" $.style)|safeHTML }}
-				<a href="{{.RelPermalink}}">{{ .Title }}</a>
-				<p>{{.Description}}</p>
+				<a href="{{.RelPermalink}}">{{ .Title }}</a>{{- if .Params.SubTitle -}}<span> - {{.Params.SubTitle}}</span>{{- end -}}
+				{{- if .Description -}}
+					<p>{{.Description}}</p>
+				{{- end -}}
 				{{ (printf "</%s>" $.style)|safeHTML }}
 			{{- end -}}
 

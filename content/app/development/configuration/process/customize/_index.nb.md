@@ -5,16 +5,18 @@ description: Hvordan tilpasse visninger i forskjellige steg av en prosess.
 toc: true
 ---
 
-En applikasjon vil ha en prosess som brukeren av applikasjonen vil følge. 
-Avhengig av hvilken type steg brukeren er i, vil forskjellige ting vises. 
+En applikasjon vil ha en prosess som brukeren av applikasjonen vil følge.
+Avhengig av hvilken type steg brukeren er i, vil forskjellige ting vises.
 Denne siden vil forklare hvordan visningen til de forskjellige stegene kan tilpasses.
 
 ## Data (tilsvarer utfyllingssteg i Altinn II)
+
 I denne prosess-task-typen vises skjema som kan fylles ut.  
 Skjema kan redigeres ved bruk av [UI editoren](/nb/app/getting-started) eller ved å endre `FormLayout.json` direkte.
 
 ## Bekreftelse (Confirmation)
-I denne prosess-task-typen vises noen standard-tekster, og bruker kan velge å *bekrefte* for å gå videre.
+
+I denne prosess-task-typen vises noen standard-tekster, og bruker kan velge å _bekrefte_ for å gå videre.
 
 Tekstene kan overstyres, ved at man legger inn tekstnøkkel som hører til hver tekst i språkfilene for appen. Info
 om hvordan dette gjøres finner du [her](../../../ux/texts). Se under for oversikt over de forskjellige tekstnøklene som kan
@@ -32,7 +34,6 @@ overstyres.
 | 4                         | confirm.answers     |
 | 5                         | confirm.attachments |
 | 6                         | confirm.button_text |
-
 
 Eksempel på overstyrte tekster i filen `resources.nb.json`:
 
@@ -74,23 +75,20 @@ Eksempel oppsett av `layout-sets.json` hvor `Task_1` er et datasteg, og `Task_2`
 
 ```json
 {
-    "sets": [
-      {
-        "id": "simple",
-        "dataType": "simple",
-        "tasks": [
-          "Task_1"
-        ]
-      },
-      {
-        "id": "custom-confirmation",
-        "dataType": "simple",
-        "tasks": [
-          "Task_2"
-        ]
-      }
-    ]
-  }
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
+  "sets": [
+    {
+      "id": "simple",
+      "dataType": "simple",
+      "tasks": ["Task_1"]
+    },
+    {
+      "id": "custom-confirmation",
+      "dataType": "simple",
+      "tasks": ["Task_2"]
+    }
+  ]
+}
 ```
 
 Legg merke til at konfigurasjonen for settet til `Task_2` referer til data typen til `Task_1`.
@@ -99,7 +97,7 @@ Eksempel `formLayout.json` som presenterer data som brukeren fylte ut i data-ste
 
 ```json
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       {
@@ -163,6 +161,7 @@ Sluttresultatet i appen:
 For et komplett oppsett av denne muligheten kan du se vår [eksempel applikasjon.](https://altinn.studio/repos/ttd/custom-view-confirm)
 
 ## Tilbakemelding (Feedback)
+
 Dette er et prosesssteg hvor applikasjonseier vil sjekke utfylte data for å generere en tilbakemelding før alle data kan arkiveres.
 
 Tekstene på siden kan overstyres ved at man legger inn tekstnøkler som hører til hver tekst i språkfilene for appen. Info om hvordan dette gjøres finner du [her](../../../ux/texts). Se under for oversikt over de forskjellige tekstnøklene som kan overstyres.
@@ -171,10 +170,10 @@ Tekstene på siden kan overstyres ved at man legger inn tekstnøkler som hører 
 
 ### Overstyre tekster
 
-| Tekst nr. (se bilde over) | Tekstnøkkel       |
-| ------------------------- | ----------------- |
-| 1                         | feedback.title    |
-| 2                         | feedback.body     |
+| Tekst nr. (se bilde over) | Tekstnøkkel    |
+| ------------------------- | -------------- |
+| 1                         | feedback.title |
+| 2                         | feedback.body  |
 
 Eksempel på overstyrte tekster i filen `resources.nb.json`:
 
@@ -190,7 +189,8 @@ Eksempel på overstyrte tekster i filen `resources.nb.json`:
 ```
 
 ## Kvittering (Receipt)
-I denne prosess-task-typen er prosessen ferdig og noen standardtekster vises. 
+
+I denne prosess-task-typen er prosessen ferdig og noen standardtekster vises.
 
 Tekstene kan overstyres, ved at man legger inn tekstnøkkel som hører til hver tekst i språkfilene for appen. Info om hvordan dette gjøres finner du [her](../../../ux/texts).
 
@@ -201,13 +201,12 @@ Dersom den reelle mottakeren av skjemaet er en annen organisasjon enn organisasj
 ![Kvitterings-visningen](receipt-step.png "Tekster som kan endres/overstyres i kvitterings-visningen")
 
 | Tekst nr. (se bilde over) | Tekstnøkkel             |
-|---------------------------|-------------------------|
+| ------------------------- | ----------------------- |
 | 1                         | receipt.receipt         |
 | 2                         | receipt.title           |
 | 3                         | receipt.subtitle        |
 | 4                         | receipt.body            |
 | 5                         | receipt.title_submitted |
-
 
 Eksempel på overstyrte tekster i filen `resources.nb.json`:
 
@@ -242,33 +241,92 @@ Dette resulterer i følgende visning:
 
 ### Custom form layout
 
-{{%notice warning%}}
-Dette er en midlertidig fremgangsmåte for å fleksibelt bygge kvitteringssiden på samme måte som andre skjemasider. Når støtte for layout-sets blir tilgjengelig i Altinn Studio vil tilpasning av kvittering skje på tilsvarende måte som for bekreftelsessiden.
-{{%/notice%}}
+En egendefinert kvitteringsvisning kan nå lages på samme måte som alle andre skjemasider. Funksjonaliteten vil også
+innen kort tid bli tilgjengelig i Altinn Studio.
 
-En egendefinert kvitteringsside kan nå lages på samme måte som alle andre skjemasider. Funksjonaliteten vil også innen kort tid bli tilgjengelig i Altinn Studio. 
+For å lage en egendefinert kvitteringsvisning lager du en ny sidegruppe (layout set). Denne sidegruppen fungerer helt likt
+som alle andre sidetyper. Innenfor sidegruppen kan du opprette en mappe `layouts` og her definere alle sider du ønsker at
+skal inngå i kvitteringsvisningen (Ja, kvitteringsvisning støtter flere sider!). Inne i sidegruppen må du også lage
+`Settings.json`, hvor du kan definere rekkefølgen på sidene i kvitteringsvisningen.
 
-Bygg layoutfilen på vanlig måte og referer til navnet på denne layoutfilen i `settings.json` med nøkkelen `receiptLayoutName`. Se eksempelet under for en layout med filnavnet `kvittering.json`.
+For at appen skal forstå at denne sidegruppen skal brukes som kvitteringsvisning må du referere til navnet på sidegruppen
+i `layout-sets.json`. Legg til en ny sidegruppe med `id` som referer til navnet på sidegruppen din, og legg til
+nøkkelverdien `"CustomReceipt"` i `tasks`-arrayet til sidegruppen. I tillegg kan du spesifisere hvilken datamodell som
+skal være tilgjengelig i kvitteringsvisningen ved å legge til nøkkelen `dataType` med navnet på datamodellen du vil støtte.
 
-```json
+Her er et fullt eksempel hvor vi har en sidegruppe med navnet `custom-receipt` som skal brukes som kvitteringsvisning:
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Mappestruktur">}}
+
+```
+|- App/
+  |- ui/
+    |- layout-sets.json
+    |- custom-receipt/
+      |- layouts/
+        |- side1.json
+        |- side2.json
+      |- Settings.json
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Kode">}}
+
+{{<code-title>}}
+App/ui/layout-sets.json
+{{</code-title>}}
+
+```json {hl_lines=[4,6]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
-  "pages": {
-    "order": [
-      "side1",
-      "side2",
-      "side3"
-    ]
-  },
-  "receiptLayoutName": "kvittering"
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
+  "sets": [
+    {
+      "id": "custom-receipt",
+      "dataType": "fields",
+      "tasks": ["CustomReceipt"]
+    }
+  ]
 }
 ```
 
-Eksempel på en egendefinert layoutfil for kvittering:
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Kode">}}
+
+{{<code-title>}}
+App/ui/custom-receipt/Settings.json
+{{</code-title>}}
 
 ```json
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+  "pages": {
+    "order": ["side1", "side2"]
+  }
+}
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+Eksempel på en egendefinert layoutfil for kvittering:
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Kode">}}
+
+{{<code-title>}}
+App/ui/custom-receipt/layouts/side1.json
+{{</code-title>}}
+
+```json
+{
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       {
@@ -311,7 +369,7 @@ Eksempel på en egendefinert layoutfil for kvittering:
       {
         "id": "ReceiptInstanceInformation",
         "type": "InstanceInformation",
-        "elements":{
+        "elements": {
           "dateSent": false
         }
       },
@@ -334,24 +392,27 @@ Eksempel på en egendefinert layoutfil for kvittering:
 }
 ```
 
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
 Sluttresultatet i appen:
 
 ![Custom kvitteringsvisning](custom-receipt.png "Custom kvitteringsvisning")
 
 ### Tilpasse tekster for enkel kvittering (Simple Receipt)
 
-Simple receipt er et konsept som er relevant for de applikasjonene som har aktivert `AutoDeleteOnProcessEnd: True` i `applicationmetadata.json` filen. For mer informasjon om hva dette innebærer [les her](https://docs.altinn.studio/nb/app/development/configuration/process/auto-delete/).
+Simple receipt er et konsept som er relevant for de applikasjonene som har aktivert `AutoDeleteOnProcessEnd: True` i `applicationmetadata.json` filen. For mer informasjon om hva dette innebærer [les her](/nb/app/development/configuration/process/auto-delete/).
 
 Tekstene i denne kvitteringen kan også overskrives ved å manuelt legge til hver definerte tekstnøkkel i appens tekstressursfil. Mer informasjon om hvordan dette gjøres finnes [her](../../../ux/texts).
 Følgende avsnitt viser en oversikt over hvilke tekster som kan tilpasses.
 
 ![Enkel kvitteringsvisning](simple-receipt-step.png "Tekster som kan endres/overstyres i kvitteringsvisningen")
 
-| Tekst # (se bilde over)   | Tekstnøkkel             |
-|---------------------------|-------------------------|
-| 1                         | receipt.receipt         |
-| 2                         | receipt.title           |
-| 3                         | receipt.body_simple     |
+| Tekst # (se bilde over) | Tekstnøkkel         |
+| ----------------------- | ------------------- |
+| 1                       | receipt.receipt     |
+| 2                       | receipt.title       |
+| 3                       | receipt.body_simple |
 
 Eksempel på overstyrte tekster i filen `resources.nb.json`:
 

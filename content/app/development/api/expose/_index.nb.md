@@ -1,5 +1,5 @@
 ---
-title: Eksponere APIer fra en app
+title: Eksponere API fra en app
 linktitle: Eksponere
 description: Man kan legge til flere API enn det som er definert som standard API for applikasjoner utviklet i Altinn Studio.
 toc: false
@@ -10,13 +10,13 @@ Applikasjonene som utvikles i Altinn Studio baserer seg i dag på [ASP.NET Core]
 Dette gir høy fleksibiltet til å endre og modifisere applikasjonene.
 
 
-## Legge til API kontroller
+## Legge til en API-kontroller
 
-For å kunne eksponere et nytt API i applikasjonen må det legges til en eller flere API kontrollere. 
+For å kunne eksponere et nytt API i en applikasjon, må det legges til én eller flere API-kontrollere. 
 
 
-Nedenfor vises et eksempel fra en API controller som er lagt til i en gitt app. 
-Her settes det opp hvilken path API skal lytte på og logikken. 
+Nedenfor vises et eksempel fra en API-kontroller som er lagt til i en gitt app. 
+Her settes det opp hvilken path API skal lytte på, og logikken knyttet til dette.
 
 
 ```C# {linenos=false,hl_lines=[8,11]}
@@ -39,7 +39,7 @@ namespace Altinn.App.Api.Controllers
 }
 ```
 
-![Test av API i nettleser](apiresponse1.png "API respons")
+![Test av API i nettleser](apiresponse1.png "API-respons")
 
 Koden kan ses i [dette repositoriet](https://altinn.studio/repos/ttd/mva/src/branch/master/App/controllers/CustomApiController.cs). 
 

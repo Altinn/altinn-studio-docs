@@ -161,15 +161,15 @@ This can be done in the text resource files:
 ```json
 [
   {
-    "id": "question-1",
+    "id": "question1",
     "value": "Gjør du leksene dine?"
   },
   {
-    "id": "question-2",
+    "id": "question2",
     "value": "Fungerer kalkulatoren din?"
   },
   {
-    "id": "question-3",
+    "id": "question3",
     "value": "Er pulten din ryddig?"
   },
   {

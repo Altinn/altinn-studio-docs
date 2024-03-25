@@ -150,6 +150,58 @@ __Content:__
      for a given notification and operation id for the last status check.
 {{% /expandsmall %}}
 
+### Emails
+
+<!--New expand-->
+{{% expandsmall id="altinn.notifications.sms.queue" header="altinn.notifications.sms.queue" %}}
+
+__Description:__ A topic dedicated to sms that are completed and ready to be sent to out.
+
+__Event trigger:__ All required information has been retrieved and populated to the sms
+
+__Producer:__ Altinn Notifications, SmsNotificationService 
+
+__Content:__ 
+
+- Format: json
+- Data structure: [Sms](https://github.com/Altinn/altinn-notifications-sms/blob/main/src/Altinn.Notifications.Sms.Core/Sending/Sms.cs)
+- Description: An sms with all required properties present
+{{% /expandsmall %}}
+
+<!--New expand-->
+{{% expandsmall id="altinn.notifications.sms.queue.retry" header="altinn.notifications.sms.queue.retry" %}}
+
+__Description:__ A topic dedicated to sms messages that are completed and ready to be sent to out where at least
+one previous attempt of sending the sms has failed.
+
+__Event trigger:__ Initial attempt to send the sms has failed due to an unknown or intermittent reason.
+
+__Producer:__ Altinn Notifications Sms, SendSmsQueueConsumer  
+
+__Content:__ 
+
+- Format: json
+- Data structure: [Sms](https://github.com/Altinn/altinn-notifications-sms/blob/main/src/Altinn.Notifications.Sms.Core/Sending/Sms.cs)
+- Description: An sms with all required properties present.
+{{% /expandsmall %}}
+
+<!--New expand-->
+{{% expandsmall id="altinn.notifications.sms.status.updated" header="altinn.notifications.sms.status.updated" %}}
+
+__Description:__ A topic dedicated to hold updates on the send status of an sms notification
+
+__Event trigger:__ An update on the progress of sending an sms notification has been received from Link Mobility.
+
+__Producer:__ Altinn Notifications Sms, StatusService
+
+__Content:__ 
+
+- Format: json
+- Data structure: [SendOperationResult](https://github.com/Altinn/altinn-notifications-sms/blob/main/src/Altinn.Notifications.Sms.Core/Status/SendOperationResult.cs)
+- Description: An object containing the [SmsSendResult](https://github.com/Altinn/altinn-notifications-sms/blob/main/src/Altinn.Notifications.Sms.Core/Status/SmsSendResult.cs) 
+     for a given notification and gatewatyreference to Link Mobility for the transaction.
+{{% /expandsmall %}}
+
 ### Platform services
 
 <!--New expand-->
@@ -166,7 +218,7 @@ __Content:__
 
 - Format: json
 - Data structure: [GenericServiceUpdate](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Core\Models/AltinnServiceUpdate/GenericServiceUpdate.cs)
-- Description: An object contaning an Altinn service update of a schema specified in the payload.
+- Description: An object containing an Altinn service update of a schema specified in the payload.
 {{% /expandsmall %}}
 
 ## Cluster configuration

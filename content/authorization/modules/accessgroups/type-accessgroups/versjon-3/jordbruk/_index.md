@@ -10,19 +10,26 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 
  
 ![Jordbruk, skogbruk, jakt, fiske og akvakultur](jsjfa.jpg "Jordbruk, skogbruk, jakt, fiske og akvakultur")
-- **Jordbruk, skogbruk, jakt, fiske og akvakultur:** Denne fullmakten gir tilgang til alle tjenester som angår jordbruk, skogbruk, jakt, fiske og akvakultur.
-	- **Planteproduksjon og dyrehold:** Denne fullmakten gir tilgang til alle tjenester knyttet til planteproduksjon og dyrehold.
-    - **Jakt og viltstell:** Denne fullmakten gir tilgang til alle tjenester knyttet til jakt og viltstell.
-    - **Skogbruk:** Denne fullmakten gir tilgang til alle tjenester knyttet til skogbruk.
-    - **Fiske:** Denne fullmakten gir tilgang til alle tjenester knyttet til fiske.
-    - **Akvakultur:** Denne fullmakten gir tilgang til alle tjenester knyttet til akvakultur og fiskeoppdrett.
+- **Jordbruk, skogbruk, jakt, fiske og akvakultur:** Denne underkategorien inneholder tilgangspakker alle tjenester som angår jordbruk, skogbruk, jakt, fiske og akvakultur.
+	- **Jordbruk, dyrehold og reindrift:** Denne underkategorien inneholder tilgangspakker til tjenester knyttet til jordbruk, dyrehold og reindrift.
+		- **Jordbruk:** Denne tilgangspakken gir tilgang til tjenester knyttet til jordbruk. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. **urn:altinn:accesspackage:jordbruk**
+   		- **Dyrehold:** Denne tilgangspakken gir tilgang til tjenester knyttet til dyrehold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  **urn:altinn:accesspackage:dyrehold**
+   		- **Reindrift:** Denne tilgangspakken gir tilgang til tjenester knyttet til reindrift. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  **urn:altinn:accesspackage:reindrift**
+   		
+     - **Jakt og viltstell:** Denne tilgangspakken gir fullmakter til tjenester knyttet til jakt og viltstell. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. **urn:altinn:accesspackage:jaktogviltstell**
+     - **Skogbruk:** Denne tilgangspakken gir fullmakter til tjenester knyttet til skogbruk. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. **urn:altinn:accesspackage:skogbruk**
+     - **Fiske:** Denne tilgangspakken gir fullmakter til tjenester knyttet til fiske. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  **urn:altinn:accesspackage:fiske**
+     - **Akvakultur:** Denne tilgangspakken gir fullmakter til tjenester knyttet til akvakultur og fiskeoppdrett. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. **urn:altinn:accesspackage:akvakultur**
 
 
 ## Egenskaper ved tilgangspakkene
 |Navn tillgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
 |---|---|---|---|
 |Jordbruk, skogbruk, jakt, fiske og akvakultur| ja|nei||
-|Planteproduksjon og dyrehold|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Jordbruk, dyrehold og reindrift| ja|nei||
+|Jordbruk|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Dyrehold|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
+|Reindrift|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Jakt og viltstell|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Skogbruk|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 |Fiske|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|

@@ -81,6 +81,9 @@ Each notification will include the following properties:
 | Failed                        | The email was not sent due to an unspecified failure.|
 | Failed_RecipientNotIdentified | The email was not sent because the recipient's email address was not found. |
 | Failed_InvalidEmailFormat     | The email was not sent because the recipient’s email address is in an invalid format. |    
+| Failed_Bounced                | The email hard bounced, which may have happened because the email address does not exist or the domain is invalid. |
+| Failed_FilteredSpam           | The email was was identified as spam, and was rejected or blocked (not quarantined).|
+| Failed_Quarantined            | The email was quarantined (as spam, bulk mail, or phising).|
 
 ## Examples
 

@@ -260,9 +260,9 @@ You can set the component to `readOnly` in one of two ways:
 App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines=["12"]}
+```json {linenos=false,hl_lines=["12"]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       {
@@ -336,12 +336,13 @@ and confirm that the correct fields are prefilled.
 
 {{<expandlarge id="info-page-solution" header="Add info page">}}
 
+{{% markdown %}}
 In this step, we have added a simple info page with an image and text.
 
-![Screenshot info page. Image](screenshot-info-page-1.png "Info page")
+![Screenshot of the info page. Image](screenshot-info-page-1.png "Info page")
+{{% /markdown %}}
 
 {{<content-version-selector classes="border-box">}}
-
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
 ### Components
@@ -394,9 +395,9 @@ We have placed the image and heading side by side using the `grid` property (hig
 App/ui/layouts/info.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines=["15-17", "28-30"]}
+```json {linenos=false,hl_lines=["15-17", "28-30"]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       {
@@ -436,8 +437,6 @@ App/ui/layouts/info.json
       {
         "id": "NavigationButtons-hateTR",
         "type": "NavigationButtons",
-        "componentType": "NavigationButtons",
-        "dataModelBindings": {},
         "showBackButton": true,
         "textResourceBindings": {
           "next": "navigation.next",
@@ -457,6 +456,7 @@ App/config/texts/resource.nb.json
 
 ```json
 {
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/text-resources/text-resources.schema.v1.json",
   "language": "nb",
   "resources": [
     ...
@@ -482,6 +482,7 @@ App/config/texts/resource.nb.json
 
 {{<expandlarge id="alternative-workflow-solution" header="Alternative workflow">}}
 
+{{% markdown %}}
 In this solution, we have chosen radio buttons for the info page where users must specify whether they meet the requirements to use the form. The option 'No' has been pre-selected, so users must actively choose to use the form.
 
 You can use checkboxes or dropdown menus as an alternative to radio buttons.
@@ -491,6 +492,7 @@ You can use checkboxes or dropdown menus as an alternative to radio buttons.
 We have added a new page to show users who don't meet the service requirements (track 1).
 
 ![Screenshot of alternative workflow: this form is not for you](side-ikke-for-deg-screenshot.png "New page: This form is not for you")
+{{% /markdown %}}
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
@@ -499,13 +501,13 @@ We have added a new page to show users who don't meet the service requirements (
 See *Code* for dynamic tracks logic.
 {{% /notice %}}
 
-#### Radio buttons
+### Radio buttons
 
 ![Components on the info page. Image](screenshot-info-page-layout-2.png "New radio buttons component on the info page")
 
 ![Radio button settings. Image](screenshot-radio-buttons-settings.png "Radio buttons settings")
 
-#### New Page
+### New Page
 
 New page for *Track 1*.
 
@@ -519,15 +521,15 @@ New page for *Track 1*.
 
 <br>
 
-#### Radio buttons
+### Radio buttons
 
 {{< code-title >}}
 App/ui/layouts/info.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines=["6-27"]}
+```json {linenos=false,hl_lines=["6-27"]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       ...
@@ -559,7 +561,7 @@ App/ui/layouts/info.json
 }
 ```
 
-#### New page 'Not for You' and dynamic tracks logic
+### New page 'Not for You' and dynamic tracks logic
 
 We have added a new page to show users who don't meet the service requirements.
  One way to achieve this is by hiding the page if the user confirms that they *can* use the service.
@@ -572,9 +574,9 @@ As an option, you can test the value of the field directly (`["dataModel", "Innf
 App/ui/layouts/ikke-for-deg.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines="4-11"}
+```json {linenos=false,hl_lines="4-11"}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "hidden": [
       "equals",
@@ -595,8 +597,6 @@ App/ui/layouts/ikke-for-deg.json
       {
         "id": "NavigationButtons-azt7sj",
         "type": "NavigationButtons",
-        "componentType": "NavigationButtons",
-        "dataModelBindings": {},
         "showBackButton": true,
         "textResourceBindings": {
           "back": "navigation.back"
@@ -614,9 +614,9 @@ This page will be hidden when the option for *not* meeting the service requireme
 App/ui/layouts/innflytterPersonalia.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines=["4-11"]}
+```json {linenos=false,hl_lines=["4-11"]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "hidden": [
       "equals",
@@ -628,9 +628,12 @@ App/ui/layouts/innflytterPersonalia.json
     ],
     "layout": [
       ...
+    ]
+  }
+}
 ```
 
-#### Exclude page from PDF
+### Exclude page from PDF
 
 We do not want to include the 'Not for You' page when generating a PDF file.
 Configure the `excludeFromPdf` property in `Settings.json` to exclude pages from pdf.
@@ -639,9 +642,9 @@ Configure the `excludeFromPdf` property in `Settings.json` to exclude pages from
 App/Settings.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines="9"}
+```json {linenos=false,hl_lines="9"}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
     "order": [
       "info",
@@ -653,7 +656,7 @@ App/Settings.json
 }
 ```
 
-#### Text resources (nb)
+### Text resources (nb)
 
 New text resources:
 
@@ -661,8 +664,9 @@ New text resources:
 App/config/texts/resource.nb.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines=["5-20"]}
+```json {linenos=false,hl_lines=["5-20"]}
 {
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/text-resources/text-resources.schema.v1.json",
   "language": "nb",
   "resources": [
     ...
@@ -722,7 +726,7 @@ New button:
 {{</content-version-container>}}
 {{<content-version-container version-label="Code">}}
 
-#### Updated Data Page
+### Updated Data Page
 
 * The components for name and age have been set to `readOnly`.
 * Some components are aligned side by side.
@@ -735,9 +739,9 @@ For a complete solution, please refer to the [Module 2 source code](https://alti
 App/ui/layouts/innflytterPersonalia.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines=["20", "24-26", "35", "39-41", "45-52"]}
+```json {linenos=false,hl_lines=["20", "24-26", "35", "39-41", "45-52"]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "hidden": [
       "equals",
@@ -794,7 +798,7 @@ App/ui/layouts/innflytterPersonalia.json
 }
 ```
 
-#### Prefilling
+### Prefilling
 
 We have created a prefill file, `datamodel.prefill.json`, and configured prefilling of personal information (except age):
 
@@ -802,25 +806,24 @@ We have created a prefill file, `datamodel.prefill.json`, and configured prefill
 App/models/datamodel.prefill.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines=[""]}
+```json {linenos=false,hl_lines=[""]}
 {
-    "$schema": "https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json",
-    "allowOverwrite": true,
-    "ER": {
-    },
-    "DSF": {
-        "FirstName": "Innflytter.Fornavn",
-        "MiddleName": "Innflytter.Mellomnavn",
-        "LastName": "Innflytter.Etternavn",
-        "TelephoneNumber": "Innflytter.Kontaktinformasjon.Telefonnummer"
-    },
-    "UserProfile": {
-        "Email": "Innflytter.Kontaktinformasjon.Epost"
-    }
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/prefill/prefill.schema.v1.json",
+  "allowOverwrite": true,
+  "ER": {},
+  "DSF": {
+    "FirstName": "Innflytter.Fornavn",
+    "MiddleName": "Innflytter.Mellomnavn",
+    "LastName": "Innflytter.Etternavn",
+    "TelephoneNumber": "Innflytter.Kontaktinformasjon.Telefonnummer"
+  },
+  "UserProfile": {
+    "Email": "Innflytter.Kontaktinformasjon.Epost"
+  }
 }
 ```
 
-#### Age Calculation and Prefilling
+### Age Calculation and Prefilling
 
 For custom prefilling of age, we created the file `InstantiationProcessor.cs` in the `logic/Instantiation` directory (we also created the optional `Instantiation` directory).
 The `DataCreation` method retrieves the personal identification number from the instance passed to it. It then uses the number to calculate the age using the `CalculateAge` method (omitted, refer to code assistance under [Prefilling](#prefill) in the task description).

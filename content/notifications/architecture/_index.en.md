@@ -20,7 +20,17 @@ The following diagram illustrates the overall data flow.
 
 ## Process flow between microservices and Kafka topics
 
-![Topics](notifications-topic.drawio.svg "Illustration of the data flow including Kafka Topics")
+{{% expandlarge id="notifications-topic-process-order" header="Flow chart for order processing" %}}
+![Topics](flowchart-order-process.drawio.svg "Flow chart including Kafka topics for order processing")
+{{% /expandlarge %}}
+
+{{% expandlarge id="notifications-topic-process-email" header="Flow chart for email notification processing" %}}
+![Topics](flowchart-email-notifications-process.drawio.svg "Flow chart including Kafka topics for email notification processing")
+{{% /expandlarge %}}
+
+{{% expandlarge id="notifications-topic-process-sms" header="Flow chart for sms notification processing" %}}
+![Topics](flowchart-sms-notifications-process.drawio.svg "Flow chart including Kafka topics for sms notification processing")
+{{% /expandlarge %}}
 
 ## System and service dependencies 
 ### Internal
@@ -29,7 +39,7 @@ The following diagram illustrates the overall data flow.
 
 
 {{% notice info %}}
-The number of internal dependencies for Notifications is currenlty quite limited, 
+The number of internal dependencies for Notifications is currently quite limited, 
 but during 2024 we expect the services below to be utilized by Notifications. 
 - **Altinn Storage**: used to retrieve status for Altinn app instances to evaluate send conditions
 - **Altinn Profile**: used to retrieve recipient information 

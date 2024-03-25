@@ -103,7 +103,7 @@ In that case, all users, both with and without roles, will have permission to pe
 - Only the user who owns the instance should be able to submit the form, even if others may have the required roles.
 
 To ensure that only the user who owns the instance can submit the form, we can add validation that checks if
- the partyId of the current user matches the partyId (see [InstanceOwner](/api/models/instance/#instanceowner)) of the owner of the instance for the task with the ID "Task_2"
+ the `partyId` of the current user matches the `partyId` (see [InstanceOwner](/api/models/instance/#instanceowner)) of the owner of the instance for the task with the ID "Task_2"
   (which is the confirmation step). If they do not match, it adds an error message to the validation results.
    The error message will be displayed on the screen, and the process flow will be halted.
 
@@ -263,6 +263,7 @@ App/config/texts/resources.nb.json
 
 ```json
 {
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/text-resources/text-resources.schema.v1.json",
   "language": "nb",
   "resources": [
     ...
@@ -288,6 +289,7 @@ App/config/texts/resources.nb.json
 
 ```json
 {
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/text-resources/text-resources.schema.v1.json",
   "language": "nb",
   "resources": [
     ...
