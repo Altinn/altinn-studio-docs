@@ -33,7 +33,7 @@ More information about the principles can be found at https://docs.altinn.studio
 
 ## Third-party vendors and supply chains
 
-![Frameworks and technologies](https://docs.altinn.studio/technology/tools/tech-map.png "Figure 3 - Frameworks and technologies used in Altinn 3")
+![Frameworks and technologies](/technology/tools/tech-map.png "Figure 3 - Frameworks and technologies used in Altinn 3")
 
 Altinn 3 is based on open source code and uses several third-party libraries and products.
 These libraries, in turn, use other libraries, which again use other libraries, and so on.
