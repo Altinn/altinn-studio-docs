@@ -79,6 +79,7 @@ App/ui/layout-sets.json
 
 ```json {hl_lines=[4,6]}
 {
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
   "sets": [
     {
       "id": "custom-receipt",
@@ -101,7 +102,7 @@ App/ui/custom-receipt/Settings.json
 
 ```json
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
     "order": ["page1", "page2"]
   }
@@ -159,6 +160,9 @@ Unless the user changes this setting, they will be prompted with the following p
 Showing and hiding pages using [tracks](/app/development/ux/pages/tracks/) (calculate page order) is no longer supported.
 This also means that the trigger `calculatePageOrder` no longer has any effect and should be removed from any components where it is used.
 Instead, you should use dynamic expressions on the `hidden` property of a layout page to determine whether pages should be visible or hidden.
+
+To opt-in for an automatic AI-generated Pull Request to help you migrate from the old tracks feature, see the [Opt-in to Altinn AI for tracks migration](/community/changelog/app-frontend/v4/migrating-from-v3/#opt-in-to-altinn-ai-for-tracks-migration).
+
 See the [documentation on dynamic expressions](/app/development/logic/expressions/#showhide-entire-pages) for more information.
 
 ## Data model schema validation works for more data models
@@ -567,12 +571,12 @@ Where `showValidations` contains a set of validation types to check; this can be
 - `All`
 
 This causes validations to become visible immediately when they occur.
-Because of this, you may want to make sure that any custom validation code you have written does not produce a validation error when the field is empty, 
+Because of this, you may want to make sure that any custom validation code you have written does not produce a validation error when the field is empty,
 as this will cause the validation to be shown immediately when the user enters the page.
 If leaving the field empty is invalid, please mark the field as required instead of validating that with custom code.
 
-**Note**: `"showValidations": ["AllExceptRequired"]` is the default value if the property is not set. 
-Meaning that all validations except for `Required` valdiations will be shown immediately. 
+**Note**: `"showValidations": ["AllExceptRequired"]` is the default value if the property is not set.
+Meaning that all validations except for `Required` valdiations will be shown immediately.
 This also includes any custom validations implemented in the backend which previously needed `"triggers": ["validation"]` to be set on the component.
 To avoid showing certain types of validations immediately, you can override the `showValidations` property on the component.
 

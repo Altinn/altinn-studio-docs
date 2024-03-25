@@ -15,8 +15,8 @@ This is work in progress.
 ## General
 Altinn solutions for Authentication and Authorization are described under:
 
-* [Altinn Authentication](https://docs.altinn.studio/authentication/)  
-* [Altinn Authorization](https://docs.altinn.studio/authorization/).
+* [Altinn Authentication](/authentication/)  
+* [Altinn Authorization](/authorization/).
 
 ## Authentication
 

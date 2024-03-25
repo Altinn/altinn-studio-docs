@@ -141,7 +141,7 @@ Dette vil resultere i visning av en feilmelding som dette:
 
 {{% notice warning %}} 
 Hvis du vil finne mer informasjon om hvordan du endrer standardtekster, kan du gå til
-[Tilpasse visninger av steg](https://docs.altinn.studio/nb/app/development/configuration/process/customize/)
+[Tilpasse visninger av steg](/nb/app/development/configuration/process/customize/)
 {{% /notice %}}
 
 ## Variabler i tekster

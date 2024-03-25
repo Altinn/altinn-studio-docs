@@ -19,7 +19,9 @@ TBD
 
 ## Virus check
 
-- Configurable per transfer via intitalization
+When a file is uploaded to Broker, it undergoes a scan by Microsoft Defender Antivirus. 
+If no viruses are detected, the file is promptly published and made available for download by recipients. However, in cases where a virus is found or the scan fails, the file is removed, and the transfer status is updated to provide detailed information regarding the scan failure.
+
 
 ## In-transit protection
 

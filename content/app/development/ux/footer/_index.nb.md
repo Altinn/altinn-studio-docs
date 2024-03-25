@@ -16,7 +16,7 @@ Bunnteksten defineres i `footer.json` filen under `App/ui`. Denne filen ligner p
 
 ```json
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/footer.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/footer.schema.v1.json",
   "footer": [
     {
       "type": "Link",

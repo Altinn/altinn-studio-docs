@@ -82,13 +82,14 @@ App/ui/layout-sets.json
 
 ```json
 {
-    "sets": [
-      {
-        "id": "stateless",
-        "dataType": "Stateless-model"
-      }
-    ]
-  }
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
+  "sets": [
+    {
+      "id": "stateless",
+      "dataType": "Stateless-model"
+    }
+  ]
+}
 ```
 
 In the example above, the layout-set `stateless` is referring to the datamodel `Stateless-model`.

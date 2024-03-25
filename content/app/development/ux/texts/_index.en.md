@@ -142,7 +142,7 @@ This will result in an error message displaying this:
 
 {{% notice warning %}} 
 If you would like to find more information about how to change default texts you can go to
-[Customize Views of Steps](https://docs.altinn.studio/app/development/configuration/process/customize/)
+[Customize Views of Steps](/app/development/configuration/process/customize/)
 {{% /notice %}}
 
 ## Variables in texts
