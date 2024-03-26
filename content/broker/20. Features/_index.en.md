@@ -1,32 +1,32 @@
 ---
-title: Altinn 3 Broker Requirements
-linktitle: Requirements
-description: Altinn 3 Broker Requirements
+title: Altinn 3 Broker Capabilities and Features
+linktitle: Capabilities and Features
+description: Altinn 3 Broker Capabilities and Features
 tags: [architecture, solution]
 toc: true
-weight: 20
+weight: 15
 ---
 
-{{<notice warning>}} <!-- info -->
-This is work in progress
-{{</notice>}}
 
-## Value streams
+## Value stream analysis
 
-Description TBD?
+Description TBD...
 
 [{{< figure src="./image3.png" title="Figure 3: ..." alt="Alt-text">}}](https://altinn.github.io/ark/models/archi-all/?view=id-10895c7502b84511bb272d77e91ecb00)
 
 
-## High-level summary of capabilities and features
+## High-level summary of capabilities
 
 Description: TBD
 
 {{< figure src="./image4.png" title="Figure 4: ..." alt="Alt-text">}}
 
 
+## Features
 For further breakdown into features and more fine-granulated user
 stories, see <https://github.com/orgs/Altinn/projects/54/views/11>.
+
+
 
 ## Non-functional requirements
 

@@ -1,15 +1,11 @@
 ---
 title: Altinn Broker Introduction
 linktitle: Introduction
-description: Introduction to the Altinn Broker Service
+description: Introduction to the Altinn Broker Service.
 tags: [architecture, solution]
 toc: true
 weight: 10
 ---
-
-{{<notice warning>}} <!-- info -->
-This is work in progress.
-{{</notice>}}
 
 ## What is Altinn Broker?
 
@@ -72,7 +68,7 @@ benefits are:
 
 ## Context Overview
 
-The following diagram shows the main features, information flow and integration options of Altinn 3 Broker.
+The following diagram illustrates the main features, information flow and integration options of Altinn 3 Broker.
 The following diagram shows the main features, information flow and integration options of Altinn 3 Broker.
 
 [{{< figure src="./image2.png" title="Figure 2: Altinn Broker Context Diagram" alt="Alt-text">}}](https://altinn.github.io/ark/models/archi-all/?view=id-5824a04f89d04341aba661be649270b4)
