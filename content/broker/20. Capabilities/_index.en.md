@@ -10,12 +10,17 @@ weight: 15
 
 ## Value stream analysis
 
-Description TBD...
+The following value stream model indicates how the required capabilities and features of Altinn Broker matches the needs and requirements of the users, i.e. data providers (senders) and data consumers (recepients) respectively.
 
+<!--
 [{{< figure src="./image3.png" title="Figure 3: ..." alt="Alt-text">}}](https://altinn.github.io/ark/models/archi-all/?view=id-10895c7502b84511bb272d77e91ecb00)
+-->
 
+[{{< figure src="./Altinn 3 Broker value streams, high level.png" title="Figure 3: ..." alt="Alt-text">}}](https://altinn.github.io/ark/models/archi-all/?view=id-10895c7502b84511bb272d77e91ecb00)
 
-## High-level summary of capabilities
+Altinn 3 Broker value streams, high level
+
+## High-level system capabilities
 
 Description: TBD
 
