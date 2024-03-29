@@ -10,26 +10,36 @@ weight: 15
 
 ## Value stream analysis
 
-The following value stream model indicates how the required capabilities and features of Altinn Broker matches the needs and requirements of the users, i.e. data providers (senders) and data consumers (recepients) respectively.
+To see the required capabilities of the Altinn Broker solution, 
+we start by considering the user needs at  various stages. 
+Value stream analysis is a common practice for this.
 
-<!--
-[{{< figure src="./image3.png" title="Figure 3: ..." alt="Alt-text">}}](https://altinn.github.io/ark/models/archi-all/?view=id-10895c7502b84511bb272d77e91ecb00)
--->
+The following model shows corresponding value stream stages for Altinn Broker and the respective users.
 
-[{{< figure src="./Altinn 3 Broker value streams, high level.png" title="Figure 3: ..." alt="Alt-text">}}](https://altinn.github.io/ark/models/archi-all/?view=id-10895c7502b84511bb272d77e91ecb00)
+[{{< figure src="./Altinn 3 Broker high level value streams (en).png" title="Figure: Altinn 3 Broker high level value streams" alt="Alt-text">}}](https://altinn.github.io/ark/models/archi-all/?view=id-10895c7502b84511bb272d77e91ecb00)
 
-Altinn 3 Broker value streams, high level
+The model differs between user roles of senders (data providers),  recepients (data consumers), and service owners. 
 
+## High-level user capabilities
+The following model expresses user needs as capabilities, 
+i.e. what do users need to be capable of with respect to data exchange over a solution 
+like Altinn 3 Broker for managend file trasnfer.
+
+Figure. TBD.
+ 
 ## High-level system capabilities
+The required system capabilities of Altinn 3 Broker must  match the needs and capabilities of the users. 
+The system capabilities does not have to be one-to-one to user capabilities, though in many cases this will be the case.
 
-Description: TBD
+The following model shows the high-level system capabilities for each value stream stage. 
 
-{{< figure src="./image4.png" title="Figure 4: ..." alt="Alt-text">}}
+{{< figure src="./Altinn 3 Broker System Capabilities (en).png" title="Figure 4: Altinn 3 Broker System Capabilities" alt="Alt-text">}}
+
 
 
 ## Features
-For further breakdown into features and more fine-granulated user
-stories, see <https://github.com/orgs/Altinn/projects/54/views/11>.
+For further breakdown of the high-level systen capabilities into features and more fine-granulated user
+stories as basis for implementation, see <https://github.com/orgs/Altinn/projects/54/views/11>.
 
 
 
