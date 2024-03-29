@@ -41,6 +41,7 @@ Explanation:
 * Each File Transfer Event relates to one File Transfer Process, and consequently only one File, however any number of events may occur for the same File Transfer Process.
 
 
+
 ## Terms
 
 The following table gives brief descriptions of the main terms used to describe
@@ -65,7 +66,7 @@ Altinn 3 Broker. Also see https://docs.altinn.studio/technology/terms/ and <http
 | Process                        | A series of actions or steps taken to achieve a particular end.                                                                                                                                                                                                                                                      |
 | Recipient                      | An individual or entity that receives a message, package, or service from a sender. Also see Data Consumer. |
 | Sender                         | An individual or entity that initiates the transmission of a message or data to one or more recipients. Also see Data Provider. |
-| Service Owner                  | In the context of Altinn, a 'service owner' refers to an entity responsible for the development, management, and maintenance of a particular service within the Altinn platform.  |
+| Service Owner                  | In the context of Altinn, a 'service owner' refers to an entity responsible for the development, management, and maintenance of a particular service within the Altinn platform. |
 | User Journey                   | A 'user journey' is a visual or narrative representation of a user's interactions with a product or service from start to finish. |
 
 <!--
