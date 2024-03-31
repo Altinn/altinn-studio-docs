@@ -18,31 +18,18 @@ Explanation to the diagram:
 * The main service provided by Altinn Broker is managed file transfer from one sender (provider) to one or more recepients (consumers) with intermediary storage of files and metadata.
 * File Upload and File Download services are configurable.
 * All features are accessible to End User Systems via APIs.
-* Human End Users communicate with Altinn Broker via GUIs provided by either their custom End User Systems or GUI-s provided ny Altinn Broker. Note: Service owners may choose to leverage Altinn Studio for building GUIs.
+* Human End Users communicate with Altinn Broker via GUIs provided by either their custom End User Systems or GUI-s provided ny Altinn Broker. 
+  _Note: Service owners may choose to leverage Altinn Studio for building GUIs._
 * End User Systems may be triggered by events via notifications to [Webhooks](https://en.wikipedia.org/wiki/Webhook). The same events may alternatively be detected by polling the APIs, 
   however supporting Webhooks in the End User Systems is recommended over API polling.
 * Service Owners configure the services and receive usage reports, invoices and other information according to the agreed service levels.
-* Data Providers upload files and receive status updates.
-* Data Consumers receive notifications about available files and download files, and they give status information about download processes (confirming successful download being the regular case).
-
-## Conceptual information model
-
-A high level conceptual information model for Altinn 3 Broker is shown in the below figure. This model is used as basis for the more detailed imformation model of Altinn Broker _Metadata Storage_.
-
-{{< figure src="./Altinn 3 Broker Metadata - basic, conceptual.png" title="Figure: Conceptual information model" alt="Alt-text">}}
-
-Explanation:
-
-* The overall File Transfer Process includes exactly one Upload Process by a Sender and one or more Download Processes corresponding to the number of Recipients.
-* Each File Transfer Process considers one File only. The same applies for each Upload Process and Download Process. 
-* The same File may be used in several File Transfer Processes and consequently in several Download Processes.
-* Only one Upload Process per File is considered. Note that if the same file is uploaded more than once, Altinn Broker will  consider the files as different and assign different identifiers.
-* Notifications about File Transfer Events are given to Senders and Recepients depending on subscription setup. E.g. recepients may be notified about new messages, and senders may be notified about delivery events. 
-* Each File Transfer Event relates to one File Transfer Process, and consequently only one File, however any number of events may occur for the same File Transfer Process.
+* Senders upload files and receive status updates about processing and delivery to recepients.
+* Recepients receive notifications about available files.
+* Recepients confirm successful downloads. 
 
 
 
-## Terms
+## Terminology
 
 The following table gives brief descriptions of the main terms used to describe
 Altinn 3 Broker. Also see https://docs.altinn.studio/technology/terms/ and <https://data.norge.no/concepts>.
@@ -104,3 +91,54 @@ A longer list of terms. kept as a comment until further:
 | User Journey                   | A 'user journey' is a visual or narrative representation of a user's interactions with a product or service from start to finish. |
 
 -->
+
+
+## Conceptual information model
+
+A high level conceptual information model for Altinn 3 Broker is shown in the below figure. 
+This model is used as basis for the more detailed information model of Altinn Broker _Metadata Storage_.
+
+{{< figure src="./Altinn 3 Broker Metadata - basic, conceptual.png" title="Figure: Conceptual information model" alt="Alt-text">}}
+
+Explanation:
+
+* The overall File Transfer Process includes exactly one Upload Process by a Sender and one or more Download Processes corresponding to the number of Recipients.
+* Each File Transfer Process considers one File only. The same applies for each Upload Process and Download Process. 
+* The same File may be used in several File Transfer Processes and consequently in several Download Processes.
+* Only one Upload Process per File is considered. Note that if the same file is uploaded more than once, Altinn Broker will  consider the files as different and assign different identifiers.
+* Notifications about File Transfer Events are given to Senders and Recepients depending on subscription setup. E.g. recepients may be notified about new messages, and senders may be notified about delivery events. 
+* Each File Transfer Event relates to one File Transfer Process, and consequently only one File, however any number of events may occur for the same File Transfer Process.
+
+
+## Transfer process
+
+The overall transfer process is depicted by the following model. It shows the main states and state transitions of the overall file transfer process,
+as relevant for Altinn Broker and status reporting to the sender.
+
+{{< figure src="./Altinn 3 Broker File Transfer Process State Machine (en).png" title="Figure: Altinn 3 Broker File Transfer Process" alt="Alt-text">}}
+
+
+1. __Initialized__: The transfer prosess is initialized by the sender. _Note: This state machine description does not consider preceeding events. 
+The file transfer could e.g. be a reply to a single request from a single party, 
+or it could be a publication to an y number of known or unknown subscribers._
+
+1. __Upload in Progress__: Large files may take time to upload. Altinn Broker will keep track of the progress.
+
+1. __UploadProcessing__: Uploaded files are validated and checked for viruses.
+
+1. __Cancelled__: Altinn Broker supports cancelling of file transfers 
+as long as no download process has started. 
+
+1. __Published__:Ready for downloads.
+   
+2. __Downloads Initiated__:One or more recepients has started downloading.
+
+3. __TransferFailed__: The overall transfer process failed, for some reason, either during upload, upload processing or during download by one or more repepients.
+  
+4. __AllConfirmedDownloaded__: All required recepients have confirmed download.
+
+5. __Deleted__: The uploaded file has been purged. This could be upon specific request by the sender, 
+                or upon agreed criteria for purging, e.g. when all required recepients have confirmed download.
+                Note that the concept allows for files to stay in the Altinn Broker File Store for an extended period of time,
+                to support file sharing for other purposes than a specific file transfer process.
+

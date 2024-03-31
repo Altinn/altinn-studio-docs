@@ -8,28 +8,37 @@ weight: 15
 ---
 
 
-## Value stream analysis
+## Value streams as basis for capability definitions
 
+The following model shows value stream stages for Altinn Broker and the main types of users. i.e. senders (data providers),  recepients (data consumers), and service owners.
+
+
+{{< figure src="./Altinn 3 Broker high level value streams (en ).png" title="Figure: Altinn 3 Broker high level value streams" alt="Alt-text">}}
+
+<!--
+[{{< figure src="./Altinn 3 Broker high level value streams (en ).png" title="Figure: Altinn 3 Broker high level value streams" alt="Alt-text">}}](https://altinn.github.io/ark/models/archi-all/?view=id-10895c7502b84511bb272d77e91ecb00)
+-->
+
+<!--
+{{< figure src="./Altinn 3 Broker high level value streams (no).png" title="Figur: Altinn Broker verdistrømmer" alt="Alt-text">}}
+-->
+
+Defining capabilities within value stream stages gives context to the capabilities. This is considered a best practice by many enterprise architects.
+
+## High-level user capabilities sorted om value stream stages
 To see the required capabilities of the Altinn Broker solution, 
-we start by considering the user needs at  various stages. 
-Value stream analysis is a common practice for this.
+we start by considering the user needs. 
 
-The following model shows corresponding value stream stages for Altinn Broker and the respective users.
 
-[{{< figure src="./Altinn 3 Broker high level value streams (en).png" title="Figure: Altinn 3 Broker high level value streams" alt="Alt-text">}}](https://altinn.github.io/ark/models/archi-all/?view=id-10895c7502b84511bb272d77e91ecb00)
-
-The model differs between user roles of senders (data providers),  recepients (data consumers), and service owners. 
-
-## High-level user capabilities
 The following model expresses user needs as capabilities, 
 i.e. what do users need to be capable of with respect to data exchange over a solution 
 like Altinn 3 Broker for managend file trasnfer.
 
 Figure. TBD.
  
-## High-level system capabilities
+## High-level system capabilities sorted om value stream stages
 The required system capabilities of Altinn 3 Broker must  match the needs and capabilities of the users. 
-The system capabilities does not have to be one-to-one to user capabilities, though in many cases this will be the case.
+The system capabilities does not have to be one-to-one to user capabilities, though this may as well be so in many cases.
 
 The following model shows the high-level system capabilities for each value stream stage. 
 
