@@ -7,10 +7,13 @@ toc: true
 weight: 30
 ---
 
+
+
+
 ## Overview of Altinn 3 Broker external interfaces
 The following figure indicates the main system interfaces of Altinn 3 Broker:
 
-{{< figure src="./image7.png" title="Figure 7: ..." alt="Alt-text">}}
+{{< figure src="./Altinn 3 Broker Standalone Interfaces Overview.png" title="Figure: Altinn 3 Broker Standalone Interfaces Overview" alt="Altinn 3 Broker Standalone Interfaces Overview">}}
 
 
 <!--
@@ -33,11 +36,16 @@ but relies om End User System GUIs.
 
 __Interfaces for runtime operation:__
 
-* API for individual file transfers, including upload, download and status monitoring
+* [API for individual file transfers, including upload, download and status monitoring](#altinn-3-broker-api-for-individual-file-transfers)
+
+
 
 __Interfaces for historical data and statistics:__
 
 * API for historical data and statistics
+
+
+
 
 
 <!--
@@ -60,21 +68,41 @@ Altinn 3 Broker does not currently provide a GUI for file transfer operations, b
 
 -->
 
-## Detailed interface specifications
+## Altinn 3 Broker API for individual file transfers
+
+### Altinn 3 Broker Application services
+
+An overview of the application services of Altinn 3 Broker is given in the following figure:
+
+{{< figure src="./Altinn 3 Broker Application Services.png" title="Figure: Altinn 3 Broker Application Services" alt="Altinn 3 Broker Application Services">}}
+
+Each of these application services correspond to a _path_ in the [Altinn 3 Broker OpenAPI specification][Altinn 3 Broker OpenAPI specifications].
+
 
 ### Altinn Broker File Transfer REST API 
 
-See [Altinn 3 Broker OpenAPI v1 specifications](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-v1.json).
+See [Altinn 3 Broker OpenAPI specification][Altinn 3 Broker OpenAPI specifications].
 
 ### Event notifications (machine-to-machine)
 
-Notifications about new messages and other events are delivered to webhook subscribers.
+Notifications about new messages and other events are delivered to webhook subscribers. 
+The specific events are specified as part of the [Altinn 3 Broker OpenAPI specification][Altinn 3 Broker OpenAPI specifications]. 
 
+Summary:
+
+* filetransferinitialized: Information about a new file transfer
+* filedeleted: The file has been deleted from Broker
+* fileneverconfirmeddownloaded: File was never confirmed downloaded by a recipient
+* uploadprocessing: File has been uploaded and is being processed
+* published: File has finished processing and is ready for download
+* uploadfailed: An upload failed either during upload or processing
+* downloadconfirmed: A recipient confirmed their download
+* allconfirmeddownloaded: All recipients have confirmed the download
+* 
 Also see:
 
 * [Description of the Events capabilities in Altinn 3](https://docs.altinn.studio/events/)
 * [How-to guide on setting up a subscription for events](https://docs.altinn.studio/events/subscribe-to-events/developer-guides/setup-subscription/)
-* Altinn 3 Broker events and payload specifications: TBD
 
 
 <!--
@@ -99,11 +127,11 @@ Considerations:
 
 
 ### End user notifications (email, SMS)
-Notifications to end users about new messages, files, and other events are sent via the ALtinn Notification Service.
+Notifications to end users about new messages, files, and other events are sent via the Altinn Notification Service.
 
 Also see:
 
-1. [Description of notification capabilities in Altinn 3](https://docs.altinn.studio/notifications/)
+* [Description of notification capabilities in Altinn 3](https://docs.altinn.studio/notifications/)
 
 
 ## Scenario descriptions
@@ -112,36 +140,47 @@ Also see:
 
 The follow sequence diagram shows the typical "happy path" message sequence:  
 
-<img src="./Altinn 3 Broker API Sequence Diagram.png" alt="Et bilde som inneholder tekst, skjermbilde, Parallell, diagram Automatisk generert beskrivelse" />
+<img src="./Altinn 3 Broker API Sequence Diagram (en).png" alt="Et bilde som inneholder tekst, skjermbilde, Parallell, diagram Automatisk generert beskrivelse" />
 
 <!--
 Note: Explanations for each arrow should match the online, clickable Archi version.
 Issue: How to link to the specific OpenAPI specification of this particular API call?
 -->
 
-In the sequence diagram, some of the message parameters are indicated, however refer to 
-[the OpenApi specifications](http://localhost:1313/broker/40.-system-interfaces/#altinn-broker-file-transfer-rest-api) 
-for the complete and correct documentation. Here's a high level description of the message flow:
+For a summary of each message in the sequence diagram; see [Altinn 3 application services (paths)](#altinn-3-broker-application-services).
 
-1. InitalizeTransfer (id, type, options): Initialize a new file transfer, indicating a message id, the type of message (Altinn resourceid) and any non-default selection of options.
-2. UploadFile (fileId, protocol): Upload a file to the Broker filestore for an already initialized file transfer operation.
-3. NewFileUploaded: ...
-4. CheckIfAvailableFiles:
-5. ListFiles (new):
-6. FileLlist (fileIds):
-7. DownloadRequest (fileId):
-8. DownloadConfirmation:
-9. TransferCompleted (fileId): 
-10. GetFileStatus (fileId):
-11. FileStatusOverview (fileId):
-12. GetFileStatusDetailed: 
-13. FileStatusDetails (fileId):
+Note that, in the sequence diagram, only some of the message parameters are indicated, however refer to 
+the [Altinn 3 Broker OpenAPI specification][Altinn 3 Broker OpenAPI specifications] 
+for the complete documentation of parameters.
+
+
+
+<!--
+Here's a high level description of the message flow:
 
 <span class="mark">Note: Details regarding authentication and
 authorization not shown here.</span>
 
+
+<!-- 4. CheckIfAvailableFiles: --
+
+1. InitalizeTransfer (id, type, options): Initialize a new file transfer, indicating a message id, the type of message (Altinn resourceid) and any non-default selection of options.
+2. UploadFile (fileId, protocol): Upload a file to the Broker filestore for an already initialized file transfer operation.
+3. NewFileUploaded: ...
+5. ListFiles (new):
+6. FileList (fileIds):
+7. DownloadRequest (fileId):
+8. DownloadConfirmation:
+9.  TransferCompleted (fileId): 
+10. GetFileStatus (fileId):
+11. FileStatusOverview (fileId):
+12. GetFileStatusDetailed: 
+13. FileStatusDetails (fileId):
+-->
+
+<!--
 ### Exception scenarios
-The followoing 
+The following ... TBD ..
 
 1. Failing upload
 2. Failing download
@@ -154,3 +193,10 @@ The followoing
     Reporting sequence –provider fetching statistics
     Reporting sequence –consumer fetching statistics
     File storage purging
+
+-->
+
+
+<!-- References within this document: -->
+[Altinn 3 Broker OpenAPI specifications]: https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-v1.json
+

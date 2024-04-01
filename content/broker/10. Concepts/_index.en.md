@@ -93,6 +93,10 @@ A longer list of terms. kept as a comment until further:
 
 -->
 
+Notes: 
+* In the context of Altinn Broker, the terms _Data Provider_ and _Sender_ may be assumed to mean the same.
+* In the context of Altinn Broker, the terms _Data Consumer_ and _Recepient_ may be assumed to mean the same.
+  <!-- are used interchangeably. -->
 
 ## Conceptual information model
 

@@ -48,7 +48,6 @@ The following model shows the high-level system capabilities for each value stre
 {{< figure src="./Altinn 3 Broker System Capabilities (en).png" title="Figure: Altinn 3 Broker System Capabilities" alt="Alt-text">}}
 
 
-
 ## Features
 For further breakdown of the high-level capabilities into features, see the [Altinn Broker epics on Github](https://github.com/orgs/Altinn/projects/54/views/11).
 
