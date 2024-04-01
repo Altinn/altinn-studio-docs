@@ -154,3 +154,16 @@ Siste konfigurasjon som trengs er å legge til `secure`-boolean på den aktuelle
         "secure": true
       }
 ```
+
+
+### Kombinere kodelister
+Noen ganger kan man ha ønske om å lage en kodeliste som er en kombinasjon av flere ulike kodelister. Et typisk eksempel er hvis man bruker et kodelistebibliotek og ønsker å legge til alternativ for for å ikke svare. (Eg. en kodeliste med fylker som mangler valg for "utlandet")
+
+Fra og med version 8.0.1 kan du bruke `AddJoinedAppOptions` til å kombinenere kodelister på denne måten.
+
+```C#
+services.AddSSBClassificationCodelistProvider("fylker");
+services.AddJoinedAppOptions("fylker-med-utland", "fylker", "utland");
+```
+
+Listen ``"utland"`` må være en egen liste. Enten registrert som en `IAppOptionsProvider` eller med en `.json` fil i `App/options/`.

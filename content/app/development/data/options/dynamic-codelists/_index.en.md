@@ -154,3 +154,15 @@ The final configuration needed is the `secure`-boolean on the component. Example
         "secure": true
       }
 ```
+
+### Combining code lists
+Sometimes you might want to make a code list that combines multiple code lists. A typical example might be a code list from a library, that needs an extra empty value. (Eg. a list of norwegian counties that does not allow selection of abroad).
+
+From version 8.0.1, you can use the `AddJoinedAppOptions` to do this without writing custom code.
+
+```C#
+services.AddSSBClassificationCodelistProvider("fylker");
+services.AddJoinedAppOptions("fylker-med-utland", "fylker", "utland");
+```
+
+The list `"utland"` must be another registrered list. Either an `IAppOptionsProvider` or a `.json` file in `App/options/`.
