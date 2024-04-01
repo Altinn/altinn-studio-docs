@@ -1,7 +1,7 @@
 ---
 title: Altinn Broker Concepts
 linktitle: Concepts
-description: Altinn 3 Broker Concepts and terms.
+description: Altinn 3 Broker Concepts and Terminology.
 tags: [architecture, solution]
 toc: true
 weight: 10
@@ -37,6 +37,7 @@ Altinn 3 Broker. Also see https://docs.altinn.studio/technology/terms/ and <http
 | **Term**                       | **Explanation**                                                                                                                                                                                                                                          |
 |--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Broker                         | A 'broker' facilitates transactions, negotiations, or agreements between two parties, such as buyers and sellers, or providers and consumers. |
+| Customer                       | In the context of Altinn, 'customer' is  associated with 'service owner'. |
 | Data Consumer                  | A 'data consumer' is an individual or system that uses data provided by data sources or services. Also see 'recepient.
 | Data Holder                    | ‘Data holder’ means a legal person, including public sector bodies and international organisations, or a natural person who is not a data subject with respect to the specific data in question, which, in accordance with applicable law, has the right to grant access to or to share certain personal data or non-personal data. |
 | Data Provider                  | A 'data provider' is an entity that supplies or grants access to data.  Also see 'sender. |
