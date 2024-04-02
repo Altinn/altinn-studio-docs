@@ -65,29 +65,29 @@ Tilbakemelding kan du sende på e-post til servicedesk@altinn.no innen 1.8 2023.
 
 # Forslag til tilgangspakker på nivå 1: 
 ## tilgangspakker relevant for mange/alle virksomheter
-1. [Skatt, avgift, regnskap og toll](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-skatt-avgiff-regnskap-og-toll)
-2. [Personale](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-personale)
-3. [Miljø, ulykke og sikkerhet](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-miljø-ulykke-og-sikkerhet)
-4. [Grunnlag for virksomheten](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-grunnlag-for-virksomheten)
-5. [Integrasjoner og API-er](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-integrasjoner-og-api-er)
-6. [Administrere tilganger](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-administrere-tilganger)
+1. [Skatt, avgift, regnskap og toll](/authorization/modules/accessgroups/type-accessgroups/versjon-1/#nivå-1-skatt-avgiff-regnskap-og-toll)
+2. [Personale](/authorization/modules/accessgroups/type-accessgroups/versjon-1/#nivå-1-personale)
+3. [Miljø, ulykke og sikkerhet](/authorization/modules/accessgroups/type-accessgroups/versjon-1/#nivå-1-miljø-ulykke-og-sikkerhet)
+4. [Grunnlag for virksomheten](/authorization/modules/accessgroups/type-accessgroups/versjon-1/#nivå-1-grunnlag-for-virksomheten)
+5. [Integrasjoner og API-er](/authorization/modules/accessgroups/type-accessgroups/versjon-1/#nivå-1-integrasjoner-og-api-er)
+6. [Administrere tilganger](/authorization/modules/accessgroups/type-accessgroups/versjon-1/#nivå-1-administrere-tilganger)
 
 ## Bransjespesifikke tilgangspakker
-7. [Jordbruk, skogbruk, jakt, fiske og akvakultur](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-jordbruk-skogbruk-jakt-fiske-og-akvakultur)
-8. [Bygg, anlegg og eiendom](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-bygg-anlegg-og-eiendom)
-9. [Transport og lagring](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-transport-og-lagring)
-10. [Helse, pleie, omsorg og vern](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-helse-pleie-omsorg-og-vern)
-11. [Oppvekst og utdanning](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-oppvekst-og-utdanning)
-12. [Energi, vann, avløp og avfall](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-energi-vann-avløp-og-avfall)
-13. [Industrier](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå1-industrier)
-14. [Kultur og frivillighet](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-kultur-og-frivillighet)
-15. [Handel, overnatting og servering](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå1-handel-overnatting-og-servering)
-16. [Andre tjenesteytende næringer](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#nivå-1-andre-tjenesteytende-næringer)
+7. [Jordbruk, skogbruk, jakt, fiske og akvakultur](/authorization/modules/accessgroups/type-accessgroups/versjon-1/#nivå-1-jordbruk-skogbruk-jakt-fiske-og-akvakultur)
+8. [Bygg, anlegg og eiendom](/authorization/modules/accessgroups/type-accessgroups/versjon-1/#nivå-1-bygg-anlegg-og-eiendom)
+9. [Transport og lagring](/authorization/modules/accessgroups/type-accessgroups/versjon-1/#nivå-1-transport-og-lagring)
+10. [Helse, pleie, omsorg og vern](/authorization/modules/accessgroups/type-accessgroups/versjon-1/#nivå-1-helse-pleie-omsorg-og-vern)
+11. [Oppvekst og utdanning](/authorization/modules/accessgroups/type-accessgroups/versjon-1/#nivå-1-oppvekst-og-utdanning)
+12. [Energi, vann, avløp og avfall](/authorization/modules/accessgroups/type-accessgroups/versjon-1/#nivå-1-energi-vann-avløp-og-avfall)
+13. [Industrier](/authorization/modules/accessgroups/type-accessgroups/versjon-1/#nivå1-industrier)
+14. [Kultur og frivillighet](/authorization/modules/accessgroups/type-accessgroups/versjon-1/#nivå-1-kultur-og-frivillighet)
+15. [Handel, overnatting og servering](/authorization/modules/accessgroups/type-accessgroups/versjon-1/#nivå1-handel-overnatting-og-servering)
+16. [Andre tjenesteytende næringer](/authorization/modules/accessgroups/type-accessgroups/versjon-1/#nivå-1-andre-tjenesteytende-næringer)
 
 ## Andre spesialiserte tilgangspakker
-17. [tilgangspakker for regnskapsførere](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#tilgangspakker-for-regnskapsførere)
-18. [tilgangspakker for revisor](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#tilgangspakker-for-revisor)
-19. [tilgangspakker for konkursbo](https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/#tilgangspakker-for-konkursbo)
+17. [tilgangspakker for regnskapsførere](/authorization/modules/accessgroups/type-accessgroups/versjon-1/#tilgangspakker-for-regnskapsførere)
+18. [tilgangspakker for revisor](/authorization/modules/accessgroups/type-accessgroups/versjon-1/#tilgangspakker-for-revisor)
+19. [tilgangspakker for konkursbo](/authorization/modules/accessgroups/type-accessgroups/versjon-1/#tilgangspakker-for-konkursbo)
 
 ## Nivå 1: Skatt, avgiff, regnskap og toll
 Tilgangspakken er nyttig for alle virksomheter som er skatte- og regnskapspliktige.

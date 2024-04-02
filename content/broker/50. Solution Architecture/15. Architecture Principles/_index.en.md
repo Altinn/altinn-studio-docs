@@ -4,7 +4,7 @@ linktitle: Architecture Principles
 description: Altinn 3 Broker Architecture Principles
 tags: [architecture, solution]
 toc: true
-weight: 30
+weight: 40
 ---
 
 {{<notice warning>}} <!-- info -->

@@ -48,7 +48,7 @@ Kommunen ønsker å samle inn følgende data om innflyttere:
   - Telefon
 - Arbeids-/bransjeerfaring
   - Sektor (privat/offentlig)
-  - Bransje ([standardliste med bransjer](https://docs.altinn.studio/nb/app/app-dev-course/industry.json))
+  - Bransje ([standardliste med bransjer](/nb/app/app-dev-course/industry.json))
 {{% /expandlarge %}}
 
 {{% expandlarge id="tekster-expandable" header="Tekster" %}}

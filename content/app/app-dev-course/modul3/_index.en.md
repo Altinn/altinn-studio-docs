@@ -83,7 +83,7 @@ for the organization in Altinn Studio.
 
 ### Useful documentation
 - [Deploy app to test environment](/app/testing/deploy/#deploy-av-app-til-testmiljø)
-- [Access control for the organization in Altinn Studio](/app/guides/access-management/studio/#tilgangsstyring-for-organisasjonen)
+- [Access control for the organization in Altinn Studio](/app/guides/access-management/studio/#access-management-for-the-organization)
 
 ### Knowledge check
 - Is it possible to have two versions of one application in TT02 at the same time?

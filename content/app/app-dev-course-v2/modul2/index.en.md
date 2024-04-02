@@ -101,7 +101,7 @@ I tillegg må utvikleren som skal gjennomføre publiseringen inneha [rollen Depl
 ### Nyttig dokumentasjon
 
 - [Publisere app til testmiljø](/nb/app/testing/deploy/#deploy-av-app-til-testmiljø)
-- [Tilgangsstyring for organisasjon i Altinn Studio](/nb/app/guides/access-management/studio/#tilgangsstyring-for-organisasjonen)
+- [Tilgangsstyring for organisasjon i Altinn Studio](/app/guides/access-management/studio/#access-management-for-the-organization)
 
 ### Forståelsessjekk
 {{% expandsmall id="m3t1q1" header="Er det mulig å ha to versjoner av en applikasjon i TT02 samtidig?" %}}
