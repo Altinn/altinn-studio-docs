@@ -200,6 +200,3 @@ The following ... TBD ..
 
 <!-- References within this document: -->
 [Altinn 3 Broker OpenAPI specifications]: https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-v1.json
-
-
-* Spesifisere cloud event body i OpenAPI spec
