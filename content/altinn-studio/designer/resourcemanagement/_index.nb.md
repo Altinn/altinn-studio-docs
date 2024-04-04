@@ -33,6 +33,13 @@ I Altinn Studio kan tjenesteeiere gjøre følgende for selvstendige ressurser:
 
 ## Migrere ressurser fra Altinn 2
 
+- Man kan velge å opprette ressurs basert på lenketjenester i Altinn 2. 
+- Man får da opprettet ressurs med eksisterende metadata og policy
+
+## Gruppe styrt tilgang
+
+- Tilgang til funksjonalitet er styrt via grupper i Altinn Studio
+
 
 ## Skjermbilder
 
