@@ -104,6 +104,7 @@ Also see:
 * [Description of the Events capabilities in Altinn 3](https://docs.altinn.studio/events/)
 * [How-to guide on setting up a subscription for events](https://docs.altinn.studio/events/subscribe-to-events/developer-guides/setup-subscription/)
 
+All the events are as minimal as possible, and as such the only information provided about the specific event is the file transfer id. This can be found in the ResourceInstance field in the CloudEvent.
 
 <!--
 Webhooks are a way for an app or a service to provide real-time information to other apps or services. They are used to trigger automatic reactions or notifications when specific events occur. Essentially, a webhook sends an HTTP POST request to a specified URL in response to an event — for example, when a new record is added to a database, or a user completes a purchase.
@@ -199,4 +200,3 @@ The following ... TBD ..
 
 <!-- References within this document: -->
 [Altinn 3 Broker OpenAPI specifications]: https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-v1.json
-
