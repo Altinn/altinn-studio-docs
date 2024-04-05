@@ -164,3 +164,33 @@ public class FillAction : IUserAction
 Handlingene utføres i den rekkefølgen de er definert i actions-egenskapen til CustomButton-komponenten. 
 Hvis en ServerAction returnerer en liste med ClientActions, vil disse bli utført etter at server-siden 
 handlingen er ferdig, og før neste handling i listen utføres. Du kan lenke sammen så mange handlinger du vil.
+
+## Instrukser for å legge til serverAction i ønsket prosesssteg
+
+1. Legge til serverAction i process.bpmn-filen: Åpne process.bpmn-filen for å legge til serverAction i ønsket prosesssteg, for eksempel "Task_1":
+   ```xml
+    <bpmn:task id="Task_1" name="Utfylling">
+      <bpmn:incoming>SequenceFlow_1n56yn5</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1oot28q</bpmn:outgoing>
+      <bpmn:extensionElements>
+        <altinn:taskExtension>
+          <altinn:taskType>data</altinn:taskType>
+          <altinn:actions>
+            <altinn:action type="serverAction">fill</altinn:action>
+          </altinn:actions>
+        </altinn:taskExtension>
+      </bpmn:extensionElements>
+    </bpmn:task>
+   ```
+
+2. Legge til serverAction id i ønsket steg i policy.xml-filen:
+Gå til policy.xml-filen for å legge til serverAction id på ønsket steg, for eksempel "Task_1":
+
+   ```xml
+        <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+            <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">fill</xacml:AttributeValue>
+            <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+          </xacml:Match>
+        </xacml:AllOf>
+   ```
+   
