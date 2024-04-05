@@ -13,7 +13,10 @@ Each DevOps team has a Security Champion/Security Coordinator with special focus
 The Security Coordinator also participates in the security group in the BOD department at Digdir, where issues and areas are discussed.
 The development process is continuously improved.
 
-![Secure DevOps](devops.png "Figure 2 - Secure DevOps")
+<figure>
+<object title="Secure DevOps" data="devops.svg" type="image/svg+xml"></object>
+<figcaption>Figure 2 - Secure DevOps</figcaption>
+</figure>
 
 To be able to put the developers in focus, the use of security tools and automation is preferred where possible.
 This includes integration with [security tools](/community/contributing/handbook/securecoding/) in

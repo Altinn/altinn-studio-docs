@@ -1,126 +1,148 @@
 ---
 title: Secure DevOps
-description: Security is an important concern in all the phases of the DevOps cycle for Altinn 3.
-tags: [development, routing]
-toc: true
+description: Security is an important concern in all phases of the DevOps cycle.
+tags: [development]
+toc: false
 weight: 100
 ---
 
-Having a Secure DevOps process requires that security is built into the applications, the process, the infrastructure, and the configuration, and more.
+Having a Secure DevOps process requires that security is built into the applications, the process, the infrastructure,
+and the configuration, and more.
 
-![Secure DevOps phases](devops.png "Secure DevOps phases")
+<figure>
+<object title="Secure DevOps phases" data="/security/whitepaper/development/devops.svg" type="image/svg+xml"></object>
+<figcaption>Secure DevOps phases (clickable)</figcaption>
+</figure>
 
-Below you find information on what kind of tools, patterns, and processes we follow to make sure we think about application and infrastructure security for all phases.
+Below you find information on what kind of tools, patterns, and processes we follow to make sure we think about
+application and infrastructure security for all phases.
 
 ## Planning phase
+During the planning phase, the requirements for features are gathered. Already in this phase, we identify changes that
+need special security considerations. Typically this is done as part of grooming to reach [Definition
+of Ready](/community/devops/definition-of-ready/).
 
-During the planning phase, the requirements for features are gathered.
-Already in this phase, we identify changes that need special security considerations. Typical this is done as part of grooming.
-We mark our security-related features and bugs to a [specific label.](https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Akind%2Fsecurity)
-Details of security-related issues are in many cases kept out of GitHub.
+We mark our security-related features and bugs with the label
+[kind/security](https://github.com/search?q=org%3AAltinn+label%3Akind%2Fsecurity&type=issues).  
+If [threat modeling](https://owasp.org/www-community/Threat_Modeling) is deemed necessary, the label
+[tm/yes](https://github.com/search?q=org%3AAltinn+label%3Atm%2Fyes&type=issues) is used to indicate this.
+
+Details of security-related issues and threat modeling are in many cases kept out of GitHub.
+
 
 ## Code phase
-
 During the development of a feature, we have several processes and tools to help us creating secure code.
 
 ### Development checklists
+We have a development checklists that ensures that developers and reviewers consider the different security aspects.
 
-We have a development checklist that ensures that developers and reviewers consider the different security aspects.
-
-[See checklist.](checklist)
+See [checklist](checklist).
 
 ### IDE and tools
-
 We use both Visual Studio and Visual Studio Code. Those provide us with tools for static code analysis.
 
-- StyleCop analyzes C# source code to enforce a set of style and consistency rules. [See project](https://github.com/DotNetAnalyzers/StyleCopAnalyzers)
-- [Code Analysis](https://docs.microsoft.com/en-us/visualstudio/code-quality/roslyn-analyzers-overview?view=vs-2019) verifies the code after a [ruleset defined by Altinn](https://github.com/Altinn/altinn-studio/blob/master/Altinn3.ruleset)
+- StyleCop analyzes C# source code to enforce a set of style and consistency rules. [See
+  project](https://github.com/DotNetAnalyzers/StyleCopAnalyzers)
+- [Code Analysis](https://docs.microsoft.com/en-us/visualstudio/code-quality/roslyn-analyzers-overview?view=vs-2019)
+  verifies the code after a [ruleset defined by
+  Altinn](https://github.com/Altinn/altinn-studio/blob/master/Altinn3.ruleset)
 
 ### Unit and integration tests
+As part of the coding process unit and integration-tests are created. Besides, to cover functionality, many of them
+cover security aspects like authentication and authorization.
 
-As part of the coding process unit and integration-tests are created. Besides, to cover functionality,
-many of them cover security aspects like authentication and authorization.
 
 ## Build phase
-
-Once a developer has finished coding a feature he/she creates a pull request in our repository.
+Once a developer has finished coding a feature he/she must create a
+[pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
 ### Peer Reviews
+All pull requests require peer review from at least one other team member.
 
-All pull requests require peer review from at least one team member from the Altinn DevOps team.
-
-[See active pull requests.](https://github.com/Altinn/altinn-studio/pulls)
+See [active pull requests](https://github.com/search?q=org%3AAltinn++&type=pullrequests&state=open).
 
 ### Run Unit and integration tests
+As part of the build pipelines, all unit and integration tests are run. This makes sure that security functionality has
+not been broken.
 
-As part of the build pipelines, all unit and integration tests are run. This makes sure that security functionality has not been broken.
-
-### Static code analysis
-
-#### Sonar Cloud
-
-Every pull request is analyzed by [Sonar Cloud](https://www.sonarcloud.io/github)
-
-Sonar Cloud analyzes the code by a [defined rule set](https://sonarcloud.io/organizations/altinn/rules) and checks the code against OWASP Top 10, SANS Top 25 and the Co
-
-We have defined some [quality gates](https://sonarcloud.io/organizations/altinn/quality_gates/show/3829) that the code need to adhere to to be able to merging pull request in to master. 
-
-Our current active issues are available [here](https://sonarcloud.io/organizations/altinn/issues?resolved=false).
-
-#### LGTM
-
-[LGTM](https://github.com/marketplace/lgtm) is a code analysis platform for identifying vulnerabilities and preventing them from reaching production.
+### CodeQL
+[CodeQL](https://codeql.github.com/) is a code analysis platform for identifying vulnerabilities and preventing
+them from reaching production.
 
 This is run for every pull request.
 
-### Test
+### Sonar Cloud
+Every pull request is analyzed by [Sonar Cloud](https://www.sonarcloud.io/github).
 
+Sonar Cloud analyzes the code by a [defined rule set](https://sonarcloud.io/organizations/altinn/rules) and checks the
+code against OWASP Top 10 and SANS Top 25.
+
+We have defined some [quality gates](https://sonarcloud.io/organizations/altinn/quality_gates/show/3829) that the code
+need to adhere to to be able to merging pull request in to master. Our current active issues are available
+[here](https://sonarcloud.io/organizations/altinn/issues?resolved=false).
+
+### Secret scanning
+[Secret scanning](https://docs.github.com/en/code-security/secret-scanning/about-secret-scanning) in GitHub is used to
+prevent secrets from being committed to the source code accidentally.
+
+
+## Test phase
 Each feature added to our platform is tested.
 
 - Integration tested with positive and negative tests for access control where possible
 - Manual functional tests
 - Manual security testing for selected features
 
-#### Dynamic code analysis.
+### Dynamic code analysis.
+We use different tools to perform dynamic code analysis.
 
-We use different tools to perform dynamic code analysis. 
-
-Some of the tools are
+Some of the tools are:
 
 - [HCL AppScan](https://www.hcltechsw.com/products/appscan)
 
-We also regulary use third party secyurity companies to go through our code.
+We also regulary use third party security companies to go through our code and
+perform [pen testing](https://en.wikipedia.org/wiki/Penetration_test).
 
 
-### Release phase
+## Release phase
+Releases are created automatically using [Github Actions](https://github.com/features/actions), and the configuration
+for this is part of each product repository.
 
-Releases are created automatically. For Test environments, every build is deployed automatically.
-For the Application Test environment and production, we deploy once a week. Those releases are created automatically.
-Deploy are needs to be approved by one team member.
+Release notes should also be
+[generated automatically](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes).
 
-### Deploy phase
 
-All deployment is done with an automated tool like Azure Pipelines reducing the risk for misconfiguration.
+## Deploy phase
+Deployment of the code to test and production environments are done automatically using [Github
+Actions](https://github.com/features/actions), and the configuration for this is part of each product repository.
 
-Applications are deployed to Azure Kubernetes Services that has standard policies defined with a focus on the reduction of risk.
-Read more about  [Secure DevOps with AKS.](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/secure-devops-for-kubernetes)
+Applications and products are deployed as containers to either
+[Azure Kubernetes Services](https://learn.microsoft.com/en-us/azure/aks/concepts-security) or
+[Azure Container Apps](https://azure.microsoft.com/en-us/products/container-apps).
 
-### Operate phase
 
-When the different applications are in production the DevOps team make sure that everything works as expected
+## Operate phase
+When the different applications are in production the DevOps team make sure that everything works as expected.
 
-We have different tools to identify security threats for our running applications.
 
-- Application Insights presents log and traffic information making it possible to detect different types of attacks
--  X
--  y
+## Monitor phase
+During the monitor phase, the team follows up on how the different solutions are working and identifying improvements
+and changes.
 
-### Monitor phase
+We use different tools to identify security threats for our running applications.
 
-During the monitor phase, the team follows up on how the different solutions are working and identifying improvements and changes.
+- [Application Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) presents log
+and traffic information making it possible to detect different types of attacks
+- [Sentinel](https://azure.microsoft.com/nb-no/products/microsoft-sentinel) is used to monitor the infrastructure and
+[anomaly detection](https://en.wikipedia.org/wiki/Anomaly_detection)
+- ...
 
-#### Dependency updates
+### Dependency updates
 
-We use [Dependabot](https://dependabot.com/) and [WhiteSource Bolt](https://www.whitesourcesoftware.com/free-developer-tools/bolt/) to monitor updates for dependencies.
+We use [Renovate](https://docs.renovatebot.com/) and
+[Dependabot](https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)
+to monitor updates for dependencies.
 
-[It creates pull request in a mirror repository](https://github.com/alt-how/altinn-studio/pulls)
+These tools can automatically create pull requests with updates in each repository, and each team merges these.
+
+{{<children />}}
