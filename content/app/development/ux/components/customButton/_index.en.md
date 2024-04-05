@@ -163,3 +163,34 @@ public class FillAction : IUserAction
 The actions are executed in the order they are defined in the `actions` property of the `CustomButton` component.
 If a `ServerAction` returns a list of `ClientAction`s, these will be executed after the server-side action has finished,
 and before the next action in the list is executed. You can chain as many actions as you want together.
+
+## Instructions for Adding serverAction to Desired Process Step
+
+1. Adding serverAction to "Task_1" in the process.bpmn file:
+Open the process.bpmn file and add serverAction to the desired process step, such as "Task_1":
+   ```xml
+    <bpmn:task id="Task_1" name="Utfylling">
+      <bpmn:incoming>SequenceFlow_1n56yn5</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1oot28q</bpmn:outgoing>
+      <bpmn:extensionElements>
+        <altinn:taskExtension>
+          <altinn:taskType>data</altinn:taskType>
+          <altinn:actions>
+            <altinn:action type="serverAction">fill</altinn:action>
+          </altinn:actions>
+        </altinn:taskExtension>
+      </bpmn:extensionElements>
+    </bpmn:task>
+   ```
+
+
+2. Adding serverAction id to desired step in the policy.xml file:
+Navigate to the policy.xml file to add the serverAction id to the desired step, such as "Task_1":
+
+   ```xml
+        <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+            <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">fill</xacml:AttributeValue>
+            <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+          </xacml:Match>
+        </xacml:AllOf>
+   ```
