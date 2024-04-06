@@ -16,7 +16,11 @@ benefits compared to alternative ad-hoc peer-to-peer file transfer
 solutions typically built on file transfer protocol (FTP), 
 hypertext transfer protocol (HTTP) or secure file transfer protocol (SFTP).
 
-{{< figure src="./image1.png" title="Figure 1: Main use case of Altinn Broker illustrated. File F1 is conveyed from a provider to one or more consumers via intermediate storage" alt="Alt-text">}}
+![Main use case of Altinn Broker illustrated](./broker-pattern-1-n.png "Main use case of Altinn Broker illustrated: File F1 is conveyed from a provider to one or more consumers via intermediate storage.")
+
+<!--
+{{< figure src="./broker-pattern-1-n.png" title="Main use case of Altinn Broker illustrated. File F1 is conveyed from a provider to one or more consumers via intermediate storage" alt="Main use case of Altinn Broker illustrated">}}
+-->
 
 While transfer of individual files is the main use case and original purpose of
 Altinn Broker, Altinn 3 Broker has been designed with some more advanced
@@ -66,4 +70,17 @@ benefits are:
 
 - Advanced monitoring: With the in-built support for adding metadata to file transfers, 
 - it is possible to analyse file transfer sequences between multiple actors involved in e.g. a case management process.
+
+## How to get started?
+
+Information about how to get started is given in the following role spesific user guides:
+
+
+- [Developer's User Guide](../user-guides#developers-user-guide)
+
+- [Service Owner's User Guide](../user-guides/#service-owners-user-guide)
+
+- [Sender's User Guide](../user-guides/#senders-user-guide).
+
+- [Recipient’s User Guide](../user-guides/#recipients-user-guide).
 
