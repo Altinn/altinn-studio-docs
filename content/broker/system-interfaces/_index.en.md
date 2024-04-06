@@ -13,7 +13,7 @@ weight: 30
 ## Overview of Altinn 3 Broker external interfaces
 The following figure indicates the main system interfaces of Altinn 3 Broker:
 
-{{< figure src="./Altinn 3 Broker Standalone Interfaces Overview.png" title="Figure: Altinn 3 Broker Standalone Interfaces Overview" alt="Altinn 3 Broker Standalone Interfaces Overview">}}
+![Altinn 3 Broker Standalone Interfaces Overview](altinn3-broker-standalone-interfaces-overview.en.png "Altinn 3 Broker Standalone Interfaces Overview")
 
 
 <!--
@@ -74,7 +74,7 @@ Altinn 3 Broker does not currently provide a GUI for file transfer operations, b
 
 An overview of the application services of Altinn 3 Broker is given in the following figure:
 
-{{< figure src="./Altinn 3 Broker Application Services.png" title="Figure: Altinn 3 Broker Application Services" alt="Altinn 3 Broker Application Services">}}
+![Altinn 3 Broker Application Services](altinn3-broker-application-services.en.png "Altinn 3 Broker Application Services")
 
 Each of these application services correspond to a _path_ in the [Altinn 3 Broker OpenAPI specification][Altinn 3 Broker OpenAPI specifications].
 
@@ -140,7 +140,7 @@ Also see:
 
 The follow sequence diagram shows the typical "happy path" message sequence:  
 
-<img src="./Altinn 3 Broker API Sequence Diagram (en).png" alt="Et bilde som inneholder tekst, skjermbilde, Parallell, diagram Automatisk generert beskrivelse" />
+![Altinn 3 Broker File Transfer Sequence Diagram](altinn3-broker-file-transfer-sequence-diagram.en.png "Altinn 3 Broker File Transfer Sequence Diagram")
 
 <!--
 Note: Explanations for each arrow should match the online, clickable Archi version.
@@ -149,11 +149,9 @@ Issue: How to link to the specific OpenAPI specification of this particular API 
 
 For a summary of each message in the sequence diagram; see [Altinn 3 application services (paths)](#altinn-3-broker-application-services).
 
-Note that, in the sequence diagram, only some of the message parameters are indicated, however refer to 
-the [Altinn 3 Broker OpenAPI specification][Altinn 3 Broker OpenAPI specifications] 
+Note that, in the sequence diagram, only some of the message parameters are indicated.
+Refer to the [Altinn 3 Broker OpenAPI specification][Altinn 3 Broker OpenAPI specifications] 
 for the complete documentation of parameters.
-
-
 
 <!--
 Here's a high level description of the message flow:
