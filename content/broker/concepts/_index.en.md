@@ -11,7 +11,11 @@ weight: 10
 
 The following diagram gives a high level overview of Altinn 3 Broker actors, services and information flow.
 
+![Altinn Broker Context Diagram](altinn3-broker-context-diagram.en.png "Altinn Broker Context Diagram")
+
+<!--
 [{{< figure src="./image2.png" title="Figure: Altinn Broker Context Diagram" alt="Alt-text">}}](https://altinn.github.io/ark/models/archi-all/?view=id-5824a04f89d04341aba661be649270b4)
+-->
 
 Explanation to the diagram:
 
@@ -103,7 +107,7 @@ Notes:
 A high level conceptual information model for Altinn 3 Broker is shown in the below figure. 
 This model is used as basis for the more detailed information model of Altinn Broker _Metadata Storage_.
 
-{{< figure src="./Altinn 3 Broker Metadata - basic, conceptual.png" title="Figure: Conceptual information model" alt="Alt-text">}}
+![Altinn 3 Broker High Level Conceptual Information Model](altinn3-broker-highlevel-conceptual-information-model.en.png "Altinn 3 Broker High Level Conceptual Information Model")
 
 Explanation:
 
@@ -115,35 +119,46 @@ Explanation:
 * Each File Transfer Event relates to one File Transfer Process, and consequently only one File, however any number of events may occur for the same File Transfer Process.
 
 
-## Transfer process
+## File Transfer Process States
 
 The overall transfer process is depicted by the following model. It shows the main states and state transitions of the overall file transfer process,
 as relevant for Altinn Broker and status reporting to the sender.
 
-{{< figure src="./Altinn 3 Broker File Transfer Process State Machine (en).png" title="Figure: Altinn 3 Broker File Transfer Process" alt="Alt-text">}}
+![Altinn Broker File Transfer Processes and States](altinn3-broker-file-transfer-states.en.png "Altinn Broker File Transfer Processes and States")
 
 
-1. __Initialized__: The transfer prosess is initialized by the sender. _Note: This state machine description does not consider preceeding events. 
+The above figure depicts a _Finite State Machine_ with the following states:
+
+* __Initialized__: The transfer prosess is initialized by the sender. _Note: This state machine description does not consider preceeding events. 
 The file transfer could e.g. be a reply to a single request from a single party, 
 or it could be a publication to an y number of known or unknown subscribers._
 
-1. __Upload in Progress__: Large files may take time to upload. Altinn Broker will keep track of the progress.
+* __Upload in Progress__: Large files may take time to upload. Altinn Broker will keep track of the progress.
 
-1. __UploadProcessing__: Uploaded files are validated and checked for viruses.
+* __Upload Processing__: Uploaded files are validated and checked for viruses.
 
-1. __Cancelled__: Altinn Broker supports cancelling of file transfers 
+* __Cancelled__: Altinn Broker supports cancelling of file transfers 
 as long as no download process has started. 
 
-1. __Published__:Ready for downloads.
+* __Published__: Ready for downloads.
    
-2. __Downloads Initiated__:One or more recepients has started downloading.
+* __Downloads Initiated__:One or more recepients has started downloading.
 
-3. __TransferFailed__: The overall transfer process failed, for some reason, either during upload, upload processing or during download by one or more repepients.
+* __TransferFailed__: The overall transfer process failed, for some reason, either during upload, upload processing or during download by one or more repepients.
   
-4. __AllConfirmedDownloaded__: All required recepients have confirmed download.
+* __All Confirmed Downloaded__: All required recepients have confirmed download.
 
-5. __Deleted__: The uploaded file has been purged. This could be upon specific request by the sender, 
-                or upon agreed criteria for purging, e.g. when all required recepients have confirmed download.
-                Note that the concept allows for files to stay in the Altinn Broker File Store for an extended period of time,
-                to support file sharing for other purposes than a specific file transfer process.
+* __Deleted__: The uploaded file has been purged. This could be upon specific request by the sender, 
+                or upon agreed criteria for purging, 
+                e.g. when all required recepients have confirmed download.
+                Note that the concept allows for files to remain in Altinn Broker File Store,
+                to support file sharing for other purposes than a single file transfer process. 
+                In such cases, the process ends when the file has been uploaded and published, 
+                with separate processes for downloading and purging.
+
+<!-- 
+Erik's note per 2024-04-06: Capabilities and features for general file sharing yet to be specified.
+-->
+
+
 

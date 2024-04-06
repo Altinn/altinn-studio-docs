@@ -1,57 +1,68 @@
 ---
-title: Altinn 3 Broker Requirements and Capabilities
-linktitle: Requirements and Capabilities
-description: Altinn 3 Broker Requirements and Capabilities
+title: Altinn 3 Broker Capabilities
+linktitle: Capabilities
+description: Altinn 3 Broker Capabilities and Features.
 tags: [architecture, solution]
 toc: true
 weight: 15
 ---
 
 
-## Value streams as basis for capability definitions
+## Organization of capabilities - value stream stages
 
-The following model shows value stream stages for Altinn Broker and the main types of users. i.e. senders (data providers),  recepients (data consumers), and service owners.
+Defining capabilities and features within value stream stages gives context to 
+the naming and descriptions of the capabilities. 
+The following figure shows a value stream model for Altinn Broker and the main types of users, 
+i.e. senders (data providers),  recepients (data consumers), and service owners.
 
-
-{{< figure src="./Altinn 3 Broker high level value streams (en ).png" title="Figure: Altinn 3 Broker high level value streams" alt="Alt-text">}}
-
+![Altinn 3 Broker high level value stream stages](altinn3-broker-value-stream-model.en.png "Altinn 3 Broker high level value stream stages")
 <!--
 [{{< figure src="./Altinn 3 Broker high level value streams (en ).png" title="Figure: Altinn 3 Broker high level value streams" alt="Alt-text">}}](https://altinn.github.io/ark/models/archi-all/?view=id-10895c7502b84511bb272d77e91ecb00)
 -->
 
+
+
+## High level user needs 
+To see the capabilities required by the Altinn Broker solution, 
+we start by considering the user needs.
+The following diagram expresses the high level user needs for each value stream stage.
+
+![High Level User Needs for Managed File Transfer](high-level-user-needs-for-managed-file-transfer.en.png "High Level User Needs for Managed File Transfer")
+
+The user needs are here expressed as high level user stories, or epics, 
+corresponding to user capabilities, 
+i.e. what the users need to be capable of.
+
 <!--
-{{< figure src="./Altinn 3 Broker high level value streams (no).png" title="Figur: Altinn Broker verdistrømmer" alt="Alt-text">}}
+_Note: This way of expressing used needs as  high level user stories, or epics, 
+is in line with by common frameworks for  agile development. See e.g. [the Scaled Agile Framework for Enterprises (SAFe)](https://scaledagileframework.com/)._
 -->
 
-Defining capabilities within value stream stages gives context to the naming and descriptions. This is considered a best practice by many enterprise architects.
+Examples of how to read the diagram:
 
-## High-level user capabilities sorted om value stream stages
-To see the required capabilities of the Altinn Broker solution, 
-we start by considering the user requirements. 
-
-
-The following model expresses user requirements  as capabilities, 
-i.e. what users need to be capable of with respect to file transfers. 
-
-_Note: This way of expressing capabilities resembles high level user stories, or epics, 
-as prescribed by common frameworks for  agile development. See e.g. [the Scaled Agile Framework for Enterprises (SAFe)](https://scaledagileframework.com/)._
-
-{{< figure src="./Altinn 3 Broker User Epics (en).png" title="Figure: Altinn 3 Broker User Capabilities" alt="Alt-text">}}
-
- 
-## High-level system capabilities sorted on value stream stages
-The required system capabilities of Altinn 3 Broker must  match the needs and required capabilities of the users. 
-This does not mean that the system capabilities has to match capabilities on a on-to-one basis, though this may as well be so in many cases.
-
-The following model shows the high-level system capabilities for each value stream stage. 
-
-{{< figure src="./Altinn 3 Broker System Capabilities (en).png" title="Figure: Altinn 3 Broker System Capabilities" alt="Alt-text">}}
+* As a Service Owner, I need (the ability) to facilitate secure and user friendly solutions for transfer of large files.
+* As a Sender, I need (the ability) to send large files to one or more recipients.
 
 
-## Features
-For further breakdown of the high-level capabilities into features, see the [Altinn Broker epics on Github](https://github.com/orgs/Altinn/projects/54/views/11).
+## High-level system capabilities
+The following model shows the high-level system capabilities for each value stream stage, 
+corresponding to the high user needs as expressed in the previous section. 
+
+_Note: The system capabilities does not need to match the user epics (or capabilities) 
+on a on-to-one basis, 
+though this may as well be so in many cases._
+
+
+![Altinn 3 Broker High Level Capabilities](altinn3-broker-high-level-capabilities.en.png "Altinn 3 Broker High Level Capabilities")
+
+<!-- Erik TO_DO: Diagram with mapping from user needs (or user capabilities) to system capabilities -->
+
+
+## System features
+For further breakdown of the high-level system capabilities into features, see the [Altinn Broker epics on Github](https://github.com/orgs/Altinn/projects/54/views/11).
 
 _Note: Documentation of the breakdown into features is planned to also be included here._
+
 
 
 ## Non-functional requirements
