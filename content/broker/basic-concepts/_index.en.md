@@ -1,7 +1,7 @@
 ---
 title: Altinn Broker Concepts
-linktitle: Concepts
-description: Altinn 3 Broker Concepts and Terminology.
+linktitle: Basic Concepts
+description: Altinn 3 Broker terminology and basic concepts.
 tags: [architecture, solution]
 toc: true
 weight: 10
@@ -18,6 +18,7 @@ The following diagram gives a high level overview of Altinn 3 Broker actors, ser
 -->
 
 Explanation to the diagram:
+
 
 * The main service provided by Altinn Broker is managed file transfer from one sender (provider) to one or more recepients (consumers) with intermediary storage of files and metadata.
 * File Upload and File Download services are configurable.
