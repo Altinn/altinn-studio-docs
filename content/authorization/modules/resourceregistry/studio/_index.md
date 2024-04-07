@@ -1,0 +1,40 @@
+---
+title: Ressurs Admin Altinn Studio
+linktitle: Ressurs Admin
+description: Ressursregisteret tilbyr API for alle typer håndtering av ressurser. I tilegg kan man  som del av Altinn studio kan administrere ressursene.
+tags: [architecture, security, authorization, xacml]
+weight: 3
+---
+
+Ressursene håndteres som filer i et repo for hver tjenesteeier. 
+
+Hvis tjenesteeier har opprettet repo {org}-resources+- så vil dashboard for ressurser være tilgjengelig på forsiden av Altinn Studio. Brukere som tilhører en gruppe som har tilgang til repo kan gjøre endringer på ressurser.
+
+![Create](resourcedashboard_1.jpg)
+
+
+Fra Dashboardet så kan man opprette ressurser. Ressursene kan gis et navn samt en id. 
+Denne id
+
+![Create](create_1.jpg)
+
+For at ressursene skal være gyldig må forskjellig typer informasjon fylles ut for alle Altinns hovedspråk. Bokmål, nynorsk og engelsk. Dette for at informasjonen skal kunne presenteres på riktig språk avhengig av brukers preferanse.
+
+![Create](props_1.jpg)
+
+
+![Create](props_2.jpg)
+
+
+For å kunne publisere ressurser til resssursregisteret gjelder følgende
+
+1. Ressursen må være synkronisert med GIT repository. Det er ikke mulig å publisere en ressurs som ikke er sjekket inn.
+2. Må ha et oppdatert versjonsr
+3. Må tilhøre publiseringsgruppen for TT02 eller Produksjon.
+
+
+
+![Create](publish_1.jpg)
+
+
+Når ressursen er publisert 
