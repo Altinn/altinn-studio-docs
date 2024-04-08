@@ -103,7 +103,7 @@ here's a summary of how these components relates to and serves Altinn 3 Broker:
 * [Altinn Notifications](../../notifications/). Notifications to human end users via e-mail and sms.
 * [Altinn Events](../../events/). Notifications to webhooks in End User Systems.
 * [Altinn Studio](../../altinn-studio/). Applications and user interface for self service configuration of the solutions.
-* [Altinn Billing](...). Invoicing of customers.
+* Altinn Billing. Invoicing of customers.
 
 ## Transition Architecture - Altinn 2 to Altinn 3
 
