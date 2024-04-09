@@ -141,7 +141,7 @@ ensure that data of European customers will only be stored and processed within 
 
 As of January 30, 2023, Microsoft has confirmed that it is no longer necessary to transfer data out of the EEA in
 connection with multi-factor authentication (MFA). It is only if one chooses phone call verification with a custom
-greeting, that this will be serviced from the USA. This is not used by Digdir and our employees or consultants.
+greeting, that this will be serviced from the USA[^9]. This is not used by Digdir and our employees or consultants.
 
 Following this, Digdir assumes that the authentication process in Azure does not lead to the transfer of personal data
 out of the EEA.
@@ -201,3 +201,4 @@ necessary in a democratic society – assessed based on the context of the perso
 [Commercial Support Subprocessors from Official Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=50426)
 [^7]: https://nsm.no/aktuelt/risiko-2024-nasjonal-sikkerhet-er-et-felles-ansvar
 [^8]: https://learn.microsoft.com/en-us/azure/security/fundamentals/customer-lockbox-overview
+[^9]: https://learn.microsoft.com/en-us/entra/identity/authentication/concept-mfa-data-residency
