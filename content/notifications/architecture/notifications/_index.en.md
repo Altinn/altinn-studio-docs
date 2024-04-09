@@ -82,6 +82,15 @@ is implemented and used by all services that publish to Kafka.
 
 [Please reference the Kafka architecture section for a closer description of the Kafka setup.](../kafka/)
 
+### REST clients
+
+**Altinn APIs:**
+
+The Notification microservice implements multiple API clients for the Altinn API.
+The clients are used to retrieve recipient data.
+
+- [ProfileClient](https://github.com/Altinn/altinn-notifications/tree/main/src/Altinn.Notifications.Integrations/Profile) 
+  consumes Altinn Profile's internal API to retrieve or check the existence contact points for recipients.
 
 ## Cron jobs
 
@@ -125,7 +134,8 @@ Find descriptions of key dependencies below.
 | --------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------ |
 | Altinn Authorization        | Authorizes access to the API                         | [Repository](https://github.com/altinn/altinn-authorization)       |
 | Altinn Notifications Email* | Service for sending emails related to a notification | [Repository](https://github.com/altinn/altinn-notifications-email) |
-| Altinn Notifications Sms*   | Service for sending sms related to a notification    | [Repository](https://github.com/altinn/altinn-notifications-sms) |
+| Altinn Notifications Sms*   | Service for sending sms related to a notification    | [Repository](https://github.com/altinn/altinn-notifications-sms)   |
+| Altinn Profile              | Provides contact details for individuals             | [Repository](https://github.com/altinn/altinn-profile)             |
 
 \*Functional dependency to enable the full functionality of Altinn Notifications.
 
