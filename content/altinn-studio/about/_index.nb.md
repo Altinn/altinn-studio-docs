@@ -4,7 +4,7 @@ description: Overordnet beskrivelse av Altinn Studio
 aliases:
 - /nb/altinn-studio/
 - /nb/teknologi/altinnstudio/solutions/altinn-studio/
-weight: 1
+weight: 10
 ---
 
 Altinn Studio er et verktøy for å effektivt realisere digitale tjenester. Vi tilbyr:

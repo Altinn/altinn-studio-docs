@@ -4,7 +4,7 @@ description: High-level description of Altinn Studio
 aliases:
 - /altinn-studio/
 - /technology/altinnstudio/solutions/altinn-studio/
-weight: 1
+weight: 10
 ---
 
 Altinn Studio is a tool for efficiently realizing digital services. We offer:
