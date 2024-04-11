@@ -106,22 +106,22 @@ Eksempelet som brukes i veiledningen under baserer seg på følgende skjema:
 4. Vi skal nå sjekke om _verdien i feltet "Alder"_ er mindre enn 18. 
    - I _Første operand_ skal vi velge datamodellfeltet `alder` som verdi. Dette gjør vi ved å velge "Datamodell" fra 
      listen som heter "Type", og feltet "alder" fra listen som heter "Datamodellfelt".
-     ![Velg datamodellfeltet "alder" som første operand](./first-operand.png)
+     ![Velg datamodellfeltet "alder" som første operand](first-operand.png)
    - I _Operator_ skal vi velge funksjonen "er mindre enn".
-     ![Velg operator "mindre enn"](./operator.png)
+     ![Velg operator "mindre enn"](operator.png)
    - I _Andre operand_ skal vi velge verdien vi skal sammenligne mot. I dette tilfellet et _tall_ (velg "Tall" i Type-listen)
      som har verdi `18` (skriv inn 18 i Verdi-feltet).
-     ![Sett verdien vi skal sammenligne mot](./second-operand.png)
+     ![Sett verdien vi skal sammenligne mot](second-operand.png)
 
 5. Klikk på "Lagre og lukk" for å lagre underuttrykket.
-  ![Klikk på "Lagre og lukk"](./save-sub-expression.png)
+  ![Klikk på "Lagre og lukk"](save-sub-expression.png)
 
 6. Vi skal nå sjekke om feltet "Alder" er tomt. Klikk på "Legg til underuttrykk" og påse at det nye underuttrykket er satt
   opp med en _OG_-kobling til det første uttrykket for å sikre at begge må oppfylles. Følg stegene i punkt 4 på nytt, men:
   - I _Operator_, velg "Er lik" i stedet for "Mindre enn"
   - I _Andre operand_, velg "Ikke satt" i stedet for "Datamodell" i type-listen. Det skal ikke settes opp noe mer på den 
     andre operanden.
-    ![Gjenta oppsettet for det andre underuttrykket](./second-sub-expression.png)
+    ![Gjenta oppsettet for det andre underuttrykket](second-sub-expression.png)
 
 7. Test dynamikk i forhåndsvisningen og se at:
    - "Send inn"-knappen er skjult når det ikke står noe i "Alder"-feltet
