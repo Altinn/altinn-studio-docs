@@ -14,12 +14,16 @@ Din Altinn Studio bruker er personlig for deg og kan knyttes til en eller flere 
 
 1. Gå til [altinn.studio](https://altinn.studio) og klikk på "Logg inn".
    ![Innlogging](velkommen.png "Velkommen")
+   
 2. Velg å logge inn med GitHub.
    ![Login](login-as.png "Logg inn")
+
 3. Logg inn på GitHub hvis du ikke allerede er innlogget.
    ![GitHub innlogging](github-login.png "GitHub innlogging")
+
 4. Godkjenn at Altinn Studio bruker din GitHub-konto for å logge inn.
    ![Autoriser Github](authorize-altinn.png "Autoriser GitHub")
+
 5. Lage en Altinn Studio bruker ved å fylle ut brukernavn, epost, passord, en captcha og klikk på “Fullfør”.  
    Brukeren i Altinn Studio vil bli koblet til din GitHub-bruker og du er klar for å begynne arbeide med din første applikasjon.
    ![Registrer lokal bruker i Altinn Studio](register-gitea.png "Registrer lokal bruker i Altinn Studio")
