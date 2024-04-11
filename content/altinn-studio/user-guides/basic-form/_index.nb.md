@@ -112,15 +112,20 @@ Komponentene som kan brukes i skjema er fordelt på 3 kategorier:
 
 {{% expandlarge id="configure-access-rules" header="Konfigurere tilgangsregler" %}}
 
-{{% notice info %}}
-Vi jobber med å forenkle dette oppsettet, da det mange regler å forholde seg til i tjeneste-malen. Vi anbefaler at man følger
-oppskriften under enn så lenge. Beskrivelsene i denne seksjonen vil bli oppdatert fortløpende når vi gjør endringer.
+{{% notice warning %}}
+Dette steget _må_ ikke gjennomføres for å få en fungerende tjeneste ut til test-miljø, men man må ta stilling til 
+hvem som skal ha tilgang til tjenesten før den produksjonssettes.
 {{% /notice %}}
 
 Når man oppretter en ny tjeneste, kommer denne med et sett med tilgangsregler. Disse styrer hvem som skal ha tilgang til 
 de forskjellige delene av tjenesten. Det oppsettet som kommer med tjenesten er et oppsett som vil fungere for de aller
 fleste enkle tjenester. _Det er likevel viktig at man tar stilling til hva slags roller en sluttbruker må ha for å kunne
 ta i bruk tjenesten_. 
+
+{{% notice info %}}
+Vi jobber med å forenkle dette oppsettet, da det mange regler å forholde seg til i tjeneste-malen. Vi anbefaler at man følger
+oppskriften under enn så lenge. Beskrivelsene i denne seksjonen vil bli oppdatert fortløpende når vi gjør endringer.
+{{% /notice %}}
 
 Dagens mal tillater alle brukere med Altinn-rollene:
 -  **Daglig leder (DAGL)** - dette er en rolle man kan ha for en _bedrift_.
