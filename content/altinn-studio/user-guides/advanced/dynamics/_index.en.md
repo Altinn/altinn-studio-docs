@@ -2,6 +2,7 @@
 title: Dynamikk
 description: Brukerveiledning for å sette opp dynamikk i skjema i Altinn Studio
 weight: 10
+hidden: true
 ---
 
 Denne dokumentasjonen vil beskrive hvordan du kan sette opp dynamikk i skjema ved å sette opp uttrykk med 
@@ -71,7 +72,7 @@ Brukes til å sette sammen flere underuttrykk.
 - **ELLER**: Minst ett av underuttrykkene må være oppfylt.
 {{%/expandsmall%}}
 
-## Bygging av uttrykk i Altinn Studio
+<!-- ## Bygging av uttrykk i Altinn Studio
 
 Fremgangsmåten under tar utgangspunkt i at du er:
 - Inne på "Lage"-siden for en tjeneste
@@ -126,7 +127,7 @@ Eksempelet som brukes i veiledningen under baserer seg på følgende skjema:
 7. Test dynamikk i forhåndsvisningen og se at:
    - "Send inn"-knappen er skjult når det ikke står noe i "Alder"-feltet
    -  Dersom du skriver inn f.eks. 20 i feltet "Alder", så dukker "Send inn"-knappen opp
-   -  Dersom du skriver inn f.eks. 12 i felter "Alder" så blir "Send inn"-knappen borte
+   -  Dersom du skriver inn f.eks. 12 i felter "Alder" så blir "Send inn"-knappen borte -->
 
 
 <!-- {{% expandlarge header="Komplekse uttrykk" id="komplekse-uttrykk"%}}
