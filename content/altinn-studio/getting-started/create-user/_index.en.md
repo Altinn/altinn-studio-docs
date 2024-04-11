@@ -13,25 +13,25 @@ Your Altinn Studio user is personal to you and can be linked to one or more orga
 {{% expandlarge id="lag-bruker-med-github-brukernavn" header="Create user with GitHub" %}}
 
 1. Go to [altinn.studio](https://altinn.studio) and click "Logg inn".
-   ![Welcome](velkommen.png "Welcome")
+   ![Welcome](./velkommen.png "Welcome")
 2. Choose to log in with GitHub.
-   ![Login](login-as.png "Log inn")
+   ![Login](./login-as.png "Log inn")
 3. Provide your GitHub credentials if prompted.
-   ![GitHub login](github-login.png "GitHub login")
+   ![GitHub login](./github-login.png "GitHub login")
 4. Authorize Altinn Studio to use your GitHub account to log in.
-   ![Authorize Github](authorize-altinn.png "Authorize GitHub")
+   ![Authorize Github](./authorize-altinn.png "Authorize GitHub")
 5. Create an Altinn Studio user by filling in username, email, password, a captcha and click "Fullfør".
    The user in Altinn Studio will be connected to your GitHub user and you are ready to start working on your first application.
-   ![Register user in Altinn Studio](register-gitea.png "Register user in Altinn Studio")
+   ![Register user in Altinn Studio](./register-gitea.png "Register user in Altinn Studio")
 
 {{% /expandlarge %}}
 
 {{% expandlarge id="lag-en-bruker-med-epostadresse-uten-github" header="Create user with email address" %}}
 
-1. Go to [altinn.studio](https://altinn.studio) and click "Opprett ny bruker".
-   ![Welcome](velkommen.png "Welcome")
+1. Go to [altinn.studio](./https://altinn.studio) and click "Opprett ny bruker".
+   ![Welcome](./velkommen.png "Welcome")
 2. Create an Altinn Studio user by filling in username, email, password, and click "Fullfør". You are now ready to start working on your first application.
-   ![Register user in Altinn Studio](register-gitea.png "Register user in Altinn Studio")
+   ![Register user in Altinn Studio](./register-gitea.png "Register user in Altinn Studio")
 
 {{% /expandlarge %}}
 
