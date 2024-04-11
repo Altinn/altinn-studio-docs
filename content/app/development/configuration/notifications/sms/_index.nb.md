@@ -40,7 +40,7 @@ public class SmsOnStart(ILogger<SmsOnStart> logger, ISmsNotificationClient smsNo
             var order = new SmsNotification
             {
                 SenderNumber = "<sender>",
-                Body = "Du har started innfylling av skjema",
+                Body = "Du har startet innfylling av skjema",
                 SendersReference = "<min-skjema-ref>",
                 Recipients = [new("0047XXXXXXXX")],
             };
