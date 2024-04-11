@@ -55,11 +55,11 @@ finnes i dokumentert i [Sikkerhet i Altinn 3](../../whitepaper).
 
 
 ## 3.3 Bruk av databehandler og underdatabehandlere
-I henhold til inngåtte avtaler er Microsoft Azure databehandler for Digdir for behandling av personopplysninger hvor
+I henhold til inngåtte avtaler er Microsoft databehandler for Digdir for behandling av personopplysninger hvor
 Digdir er behandlingsansvarlig. For de behandlingene hvor Digdir er å betrakte som databehandler for en tjenesteeier, er
-Microsoft Azure underdatabehandler.
+Microsoft underdatabehandler.
 
-Microsoft Azure, i liket med de andre store internasjonale skyleverandørene, gjør omfattende bruk av underleverandører
+Microsoft, i liket med de andre store internasjonale skyleverandørene, gjør omfattende bruk av underleverandører
 og tredjeparter, for eksempel i form av support-sentre forskjellige steder i verden[^6]. Standardvilkårene er innrettet
 slik at kunden forhåndssamtykker generelt (ved å inngå avtalen) til at leverandøren kan benytte slike underleverandører
 / underdatabehandlere.
