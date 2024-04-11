@@ -10,12 +10,12 @@ Tilbake til [hovedoversikt](/authorization/modules/accessgroups/type-accessgroup
 
 ![Transport og lagring](tl3.jpg "Transport og lagring")
 - **Transport og lagring:** Denne fullmakten gir tilgang til alle tjenester som angår transport og lagring inkludert passasjer og godstransport, samt post- og kurervirksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
-	- **Veitransport:** (mangler)	
-	- **Transport i rør** (mangler)
-	- **Sjøfart:** Denne fullmakten gir tilgang til alle tjenester knyttet til skipsarbeidstakere og fartøy til sjøs. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
-	- **Lufttransport:** Denne fullmakten gir tilgang til alle tjenester knyttet til luftfartøy og romfartøy. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
-	- **Jernbanetransport:** Denne fullmakten gir tilgang til alle tjenester knyttet til jernbane, inkludert trikk, T-bane og sporvogn. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
-	- **Lagring og andre tjenester tilknyttet transport:** Denne fullmakten gir tilgang til alle tjenester knyttet til  lagring og hjelpetjenester i forbindelse med transport, samt post- og kurervirksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
+	- **Veitransport:** (mangler)	 **urn:altinn:accesspackage:veitransport**
+	- **Transport i rør** (mangler)  **urn:altinn:accesspackage:transportiror**
+	- **Sjøfart:** Denne fullmakten gir tilgang til alle tjenester knyttet til skipsarbeidstakere og fartøy til sjøs. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. **urn:altinn:accesspackage:sjofart**
+	- **Lufttransport:** Denne fullmakten gir tilgang til alle tjenester knyttet til luftfartøy og romfartøy. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. **urn:altinn:accesspackage:lufttransport**
+	- **Jernbanetransport:** Denne fullmakten gir tilgang til alle tjenester knyttet til jernbane, inkludert trikk, T-bane og sporvogn. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. **urn:altinn:accesspackage:jernbanetransport**
+	- **Lagring og andre tjenester tilknyttet transport:** Denne fullmakten gir tilgang til alle tjenester knyttet til  lagring og hjelpetjenester i forbindelse med transport, samt post- og kurervirksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. **urn:altinn:accesspackage:lagringogandretjenestertilknyttettransport**
 
 
 ## Egenskaper ved tilgangspakkene

@@ -37,6 +37,21 @@ This is in __bold__ using double underscores.
 This is also in **bold**, using double asterisk.
 ```
 
+### Line breaks
+
+With markdown this is done with `\n`, which denotes a _new line_. To actually display the text as a new paragraph,
+two line breaks must be used. F.ex.;
+
+```markdown
+This is a text.\n\nThis is a text on the next line. 
+```
+
+Alternatively you could use html instead:
+
+```markdown
+This is a text.<br/>This is a text on the next line. 
+```
+
 ### Links
 
 Simple links can use markdown syntax:
@@ -142,7 +157,7 @@ This will result in an error message displaying this:
 
 {{% notice warning %}} 
 If you would like to find more information about how to change default texts you can go to
-[Customize Views of Steps](https://docs.altinn.studio/app/development/configuration/process/customize/)
+[Customize Views of Steps](/app/development/configuration/process/customize/)
 {{% /notice %}}
 
 ## Variables in texts

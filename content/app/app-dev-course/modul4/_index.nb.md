@@ -169,9 +169,9 @@ og du skal kunne validere at komponentene presenterer forventede dataverdier.
 App/ui/layouts/Arbeidsforhold.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines="5-23"}
+```json {linenos=false,hl_lines="5-23"}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       {
@@ -279,7 +279,7 @@ App/Program.cs
 App/ui/layouts/arbeidsforhold.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines="13-15"}
+```json {linenos=false,hl_lines="13-15"}
 ...
       {
         "id": "Checkboxes-bransje",
@@ -390,7 +390,7 @@ App/Program.cs
 App/ui/layouts/arbeidsforhold.json
 {{< /code-title >}}
 
-```json{hl_lines="8"}
+```json {hl_lines="8"}
 ...
 {
    "id": "info-it-kompteanse",

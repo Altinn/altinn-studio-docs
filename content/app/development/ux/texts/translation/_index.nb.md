@@ -61,7 +61,7 @@ I tillegg må tekstene fra eksemplet over være definert for at nedtreksmenyen s
 
 ```json
 {
-    "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+    "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
     "components": {
       "excludeFromPdf": [...]
     },

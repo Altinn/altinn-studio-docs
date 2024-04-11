@@ -18,7 +18,7 @@ Tilbakemelding kan du sende på e-post til servicedesk@altinn.no innen 1.8 2023.
  
 Veien videre: 
 Når første versjon av de nye tilgangsgruppene er avklart må tjenesteeier oppdatere autorisasjonsregler for ALLE tjenester som benytter Altinn som autorisasjonsløsning. Vi forventer at dette må gjøres i siste kvartal 2023. Det vil bli utarbeidet veiledningsmateriale for denne jobben. 
-Nye tilgangspakker lanseres for sluttbrukere i forbindelse med at vi utvikler ny brukerflate for tilgangsstyring til virksomheter. Du kan lese mer om dette [her:](https://docs.altinn.studio/technology/solutions/altinn-platform/authorization/migration/#nye-tilgangspakker-og-ny-brukerflate-for-tilgangsstyring-for-virksomheter)
+Nye tilgangspakker lanseres for sluttbrukere i forbindelse med at vi utvikler ny brukerflate for tilgangsstyring til virksomheter. Du kan lese mer om dette [her:](/authorization/migration/new-accessgroups/)
  
 Hvis dere har spørsmål eller ønsker å diskutere forslagene med oss så ta kontakt på epost eller via [Slack](https://join.slack.com/share/enQtNTMwOTE5NzUxMDkzMS0zM2Q0ZGVjNTM4YTBlNjcyMDBlMmE3ODY1Y2YzMGM5M2JjZDY5MGNhY2QzY2ZkMjNiNDU1Y2M1OTRhNjVhZTY5)
  

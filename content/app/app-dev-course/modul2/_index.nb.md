@@ -267,9 +267,9 @@ Komponenten kan settes til `readOnly` på én av to måter:
 App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines=["12"]}
+```json {linenos=false,hl_lines=["12"]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       {
@@ -403,9 +403,9 @@ Vi har plassert bildet og overskriften ved siden av hverandre ved hjelp av `grid
 App/ui/layouts/info.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines=["15-17", "28-30"]}
+```json {linenos=false,hl_lines=["15-17", "28-30"]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       {
@@ -445,8 +445,6 @@ App/ui/layouts/info.json
       {
         "id": "NavigationButtons-hateTR",
         "type": "NavigationButtons",
-        "componentType": "NavigationButtons",
-        "dataModelBindings": {},
         "showBackButton": true,
         "textResourceBindings": {
           "next": "navigation.next",
@@ -466,6 +464,7 @@ App/config/texts/resource.nb.json
 
 ```json
 {
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/text-resources/text-resources.schema.v1.json",
   "language": "nb",
   "resources": [
     ...
@@ -534,9 +533,9 @@ Ny side for *Spor 1*.
 App/ui/layouts/info.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines=["6-27"]}
+```json {linenos=false,hl_lines=["6-27"]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       ...
@@ -581,9 +580,9 @@ Som et alternativ kan du teste verdien til feltet direkte (`["dataModel", "Innfl
 App/ui/layouts/ikke-for-deg.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines="4-11"}
+```json {linenos=false,hl_lines="4-11"}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "hidden": [
       "equals",
@@ -604,8 +603,6 @@ App/ui/layouts/ikke-for-deg.json
       {
         "id": "NavigationButtons-azt7sj",
         "type": "NavigationButtons",
-        "componentType": "NavigationButtons",
-        "dataModelBindings": {},
         "showBackButton": true,
         "textResourceBindings": {
           "back": "navigation.back"
@@ -623,9 +620,9 @@ Tilsvarende logikk er lagt til for skjemasiden.
 App/ui/layouts/innflytterPersonalia.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines=["4-11"]}
+```json {linenos=false,hl_lines=["4-11"]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "hidden": [
       "equals",
@@ -651,9 +648,9 @@ Vi ønsker ikke å inkludere siden 'Ikke for deg' dersom det skal genereres en p
 App/Settings.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines="9"}
+```json {linenos=false,hl_lines="9"}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
     "order": [
       "info",
@@ -673,8 +670,9 @@ Nye tekstressurser:
 App/config/texts/resource.nb.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines=["5-20"]}
+```json {linenos=false,hl_lines=["6-21"]}
 {
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/text-resources/text-resources.schema.v1.json",
   "language": "nb",
   "resources": [
     ...
@@ -747,9 +745,9 @@ Koden under viser et eksempel med noen av de endrede komponentene.
 App/ui/layouts/innflytterPersonalia.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines=["20", "24-26", "35", "39-41", "45-52"]}
+```json {linenos=false,hl_lines=["20", "24-26", "35", "39-41", "45-52"]}
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "hidden": [
       "equals",
@@ -814,21 +812,20 @@ Vi har opprettet filen `datamodel.prefill.json` og konfigurert forhåndsutfyllin
 App/models/datamodel.prefill.json
 {{< /code-title >}}
 
-```json{linenos=false,hl_lines=[""]}
+```json {linenos=false,hl_lines=[""]}
 {
-    "$schema": "https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json",
-    "allowOverwrite": true,
-    "ER": {
-    },
-    "DSF": {
-        "FirstName": "Innflytter.Fornavn",
-        "MiddleName": "Innflytter.Mellomnavn",
-        "LastName": "Innflytter.Etternavn",
-        "TelephoneNumber": "Innflytter.Kontaktinformasjon.Telefonnummer"
-    },
-    "UserProfile": {
-        "Email": "Innflytter.Kontaktinformasjon.Epost"
-    }
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/prefill/prefill.schema.v1.json",
+  "allowOverwrite": true,
+  "ER": {},
+  "DSF": {
+    "FirstName": "Innflytter.Fornavn",
+    "MiddleName": "Innflytter.Mellomnavn",
+    "LastName": "Innflytter.Etternavn",
+    "TelephoneNumber": "Innflytter.Kontaktinformasjon.Telefonnummer"
+  },
+  "UserProfile": {
+    "Email": "Innflytter.Kontaktinformasjon.Epost",
+  }
 }
 ```
 

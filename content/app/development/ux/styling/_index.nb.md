@@ -30,7 +30,7 @@ For å sidestille komponenter horisontalt må man gjøre noen små endringer i f
 ```json
  {
      {
-        "id": "input-felt-1",
+        "id": "input-felt1",
         "type": "Input",
         ... 
         "grid": {
@@ -38,7 +38,7 @@ For å sidestille komponenter horisontalt må man gjøre noen små endringer i f
         }
       },
       {
-        "id": "input-felt-2",
+        "id": "input-felt2",
         "type": "Input",
         ...
         "grid": {
@@ -62,7 +62,7 @@ Om man i eksempelet over hadde ønsket at komponentene skulle ta hele bredden fr
 ```json
  {
      {
-        "id": "input-felt-1",
+        "id": "input-felt1",
         "type": "Input",
         ... 
         "grid": {
@@ -72,7 +72,7 @@ Om man i eksempelet over hadde ønsket at komponentene skulle ta hele bredden fr
         }
       },
       {
-        "id": "input-felt-2",
+        "id": "input-felt2",
         "type": "Input",
         ...
         "grid": {
@@ -111,7 +111,7 @@ Her vil det da være mulig å styre bredden til både ytterste grid og den inner
 ```json
 {
      {
-        "id": "input-felt-1",
+        "id": "input-felt1",
         "type": "Input",
         ... 
         "grid": {
@@ -145,7 +145,7 @@ et slikt layout på de minste skjermene, så bruk gjerne `md`
 ```json
 {
      {
-        "id": "input-felt-1",
+        "id": "input-felt1",
         "type": "Input",
         ... 
         "grid": {

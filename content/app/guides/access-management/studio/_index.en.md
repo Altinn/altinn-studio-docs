@@ -4,96 +4,88 @@ linktitle: Studio
 description: How to configure access for teams in Altinn Studio.
 toc: true
 weight: 200
-tags: [translate-to-english]
 ---
 
-## Tilgangsstyring for organisasjonen
+## Access Management for the Organization
 
-Som eier av en organisasjon i Altinn Studio har man mulighet til å konfigurere tilgangene til 
-de øvrige brukerne knyttet til organisasjonen. Dette gjøres via Gitea på følgende lenke: https://altinn.studio/repos/org/{organisasjonens kortnavn}/teams/
+As the owner of an organization in Altinn Studio, you have the ability to configure the access for other users
+associated with the organization. This is done via Gitea at the following link:
+https://altinn.studio/repos/org/{org}/teams/ Remember to replace `{org}`.
 
-Det er definert fire standard team som legger føringer for hva en bruker har tillatelse til å gjøre innad i en organisasjon i Altinn Studio.
-Ved behov kan man som eier kan man legge til/fjerne brukere i team, opprette nye team og endre konfigurasjon på eksisterende team.
+Four standard teams have been defined that set guidelines for what a user is allowed to do within an organization in
+Altinn Studio. If necessary, as an owner, you can add/remove users in teams, create new teams, and change configurations
+of existing teams.
 
 ### Owners
+Members of this team can be considered as administrators for the organization. 
+They will be able to manage access control for all teams and repositories related to the organization.
 
-#### Beskrivelse
+As a member of this team, you can:
 
-  Medlemmer i dette teamet kan tenkes på som administrator for organisasjonen. 
-  De vil kunne administrere tilgangsstyringen for alle team og repositories knyttet til organisasjonen.
+- create/delete teams 
+- add and remove users in various teams
+- change configuration for teams
 
-  Som medlem i dette teamet kan man blant annet:
-  - opprette/slette team 
-  - legge til og fjerne brukere i ulike team
-  - endre konfigurasjon for team
-
-#### Konfigurasjon
-  
-  Dette teamet ligger inne som standard i alle organisasjoner og det er ikke mulig å endre konfigurasjonen for dette teamet.
+#### Configuration
+This team is standard in all organizations and it is not possible to change the configuration for this team.
 
 ### Deploy-Production
-#### Beskrivelse
+Members of this team can deploy applications to the production environment.
 
-  Medlemmer i dette teamet kan deploye applikasjoner til produksjonsmiljøet.
+Other rights can be freely defined by owners.
+The default configuration includes rights for:
 
-  Øvrige rettigheter kan defineres fritt av owners.
-  Default konfigurasjon inkluderer rettigheter for: 
-  - Lesetilgang i samtlige repositories
-  - Kan _ikke_ opprette nye repositories 
-  - Full tilgang til alle områder i Gitea
+- Read access in all repositories
+- Cannot create new repositories 
+- Full access to all areas in Gitea
 
-#### Konfigurasjon
+#### Configuration
+The configuration of this team can be adjusted by owners as needed, 
+the ability to deploy to the production environment is not dependent on the rest of the config.
 
-  Konfigurasjonen av dette teamet kan justeres av owners etter behov, 
-  muligheten til å deploye til produksjonsmiljø er ikke avhengig av øvrig config. 
-  
-  Standard konfigurasjon for teamet inkluderer rettigheter til å
-  - Lese samtlige repositories
-  - Aksessere alle områder i Gitea
+The standard configuration for the team includes rights to:
+
+- Read all repositories
+- Access all areas in Gitea
 
 ### Deploy-TT02
+Members of this team can deploy applications to the test environment.
 
-#### Beskrivelse
+Other rights can be freely defined by owners.
+The default configuration includes rights for:
 
-  Medlemmer i dette teamet kan deploye applikasjoner til testmiljøet.
+- Read access in all repositories
+- Cannot create new repositories 
+- Full access to all areas in Gitea
 
-  Øvrige rettigheter kan defineres fritt av owners.
-  Default konfigurasjon inkluderer rettigheter for: 
-  - Lesetilgang i samtlige repositories
-  - Kan _ikke_ opprette nye repositories 
-  - Full tilgang til alle områder i Gitea
+#### Configuration
 
-#### Konfigurasjon
-
-  Konfigurasjonen av dette teamet kan justeres av owners etter behov, 
-  muligheten til å deploye til testmiljø er ikke avhengig av øvrig config. 
+  The configuration of this team can be adjusted by owners as needed, 
+  the ability to deploy to the test environment is not dependent on the rest of the config.
   
-  Standard konfigurasjon for teamet inkluderer rettigheter til å
-  - Lese samtlige repositories
-  - Aksessere alle områder i Gitea
+  The standard configuration for the team includes rights to:
+  - Read all repositories
+  - Access all areas in Gitea
 
 ### Devs
+Members of this team work on developing applications and have access to all repositories.
 
-#### Beskrivelse
+#### Configuration
+The configuration of this team can be adjusted by owners as needed,
+depending on how much freedom you want the app developer to have.
+Note that it is possible to specify which repository(ies) the team should have access to.
 
-  Medlemmer i dette teamet jobber med å utvikle applikasjoner og har tilgang til samtlige repositories.
+The standard configuration for the team includes rights to:
 
-#### Konfigurasjon
+- Create new repositories
+- Write to all repositories
+- Access all areas in Gitea
 
-  Konfigurasjonen av dette teamet kan justeres av owners etter behov,
-  avhengig av hvor mye frihet man ønsker at apputvikleren skal ha.
-  Merk at det blant annet er mulig å spesifisere hvilke(t) repository teamet skal ha tilgang til.
-  
-  Standard konfigurasjon for teamet inkluderer rettigheter til å
-  - Opprette nye repositories
-  - Skrive til samtlige repositories
-  - Aksessere alle områder i Gitea
+## Access Management for Repository
 
-## Tilgangsstyring for repository
+An administrator for the organization can also control who has access to each repository. This is done by going to the
+repository in Gitea, and navigating to the `Collaboration` tab under `Settings`. Access can be granted to both teams and
+individual users. To maintain oversight, we primarily recommend setting up teams for access control. To give a team
+access, search for it and click `Add Team`.
 
-En administrator for organisasjonen kan også styre hvem som har tilgang til det enkelte repository.
-Det gjøres ved at man går til repositoryet i Gitea, og går til fanen `Collaboration` under `Innstillinger`.
-Tilgang kan gis både til team og enkeltbrukere. For å holde oversikt anbefaler vi primært å sette opp
-team for tilgangsstyring. For å gi et team tilgang, søk det fram og klikk `Add Team`.
-
-![Styre tilgang på repository](access-management-repository.png "Styre tilgang til et enkelt repository")
+![Manage access on repository](access-management-repository.png "Managing access to an individual repository")

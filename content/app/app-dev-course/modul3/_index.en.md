@@ -6,7 +6,14 @@ tags: [apps, training, build, deploy, test ]
 weight: 20
 ---
 {{% notice warning %}}
- This module requires that you are part of an [organization](/app/getting-started/create-user/#join-an-organization) with an enabled test environment for Altinn Apps. If this is not the case, move on to the [next module](../modul4/).
+ This module requires that you are part of an [organization](/app/getting-started/create-user/#join-an-organization) with an enabled test environment for Altinn Apps. If this is not the case, move on to the [next module](../modul4/). 
+ <br><br>
+ If you have a personal application registered that you would like to move to an organization, 
+ [you can ask for access to an organization by asking an administrator or the service desk](/app/getting-started/create-user/#join-an-organization).
+
+ When you have access to an organization with enabled test environments, the application can be moved by following these steps:
+ 1. Move the repository for the application in Gitea to your organization via the "Settings" menu on the Gitea-page.
+ 2. Update the `id` and `org`-fields in the `App/config/applicationmetadata.json`-file, so that they refer to the new organization 
 {{% /notice %}}
 
 
@@ -76,7 +83,7 @@ for the organization in Altinn Studio.
 
 ### Useful documentation
 - [Deploy app to test environment](/app/testing/deploy/#deploy-av-app-til-testmiljø)
-- [Access control for the organization in Altinn Studio](/app/guides/access-management/studio/#tilgangsstyring-for-organisasjonen)
+- [Access control for the organization in Altinn Studio](/app/guides/access-management/studio/#access-management-for-the-organization)
 
 ### Knowledge check
 - Is it possible to have two versions of one application in TT02 at the same time?
@@ -94,7 +101,8 @@ It is in the format _{org}.apps.tt02.altinn.no/{org}/{app}_
 Unless you're already logged in with a user this link will bring you to Altinn's login page.
 Your organization should have access to a set of test users, use one of these to log in.
 
-Internal users in Digdir should use one of the test users found in [the test data set](https://pedia.altinn.cloud/testing/testdata/datasets/).
+Internal users in Digdir can use the "TestID" electronic ID, which lets you generate a random personal ID,
+or retrieve credentials from [the internal Altinn 3 testing dataset](https://pedia.altinn.cloud/altinn-3/testing/test-data/).
 
 **Test the different tracks and pages to confirm that the behaviour is as expected.**
 

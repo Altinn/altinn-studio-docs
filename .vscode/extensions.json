@@ -2,6 +2,7 @@
   "recommendations": [
     "github.vscode-pull-request-github",
     "yzhang.markdown-all-in-one",
-    "hediet.vscode-drawio"
+    "hediet.vscode-drawio",
+    "stkb.rewrap"
   ]
 }
