@@ -75,7 +75,7 @@ Altinn lagrer kopi av flere grunndataregisteropplysninger i Altinn II. Tjenester
 fra Altinn II, ved for eksempel preutfylling av skjema og andre tjenester.
 
 - **Folkeregisteret**  
-Opplysninger fra Folkeregisteret i henhold til tillatelse fra Skattedirektoratet og lov om
+Opplysninger fra Folkeregisteret i henhold til tillatelse fra Skattedirektoratet, folkeregisterloven og lov om
 Digitaliseringsdirektoratets tilgang til taushetsbelagte folkeregisteropplysninger : Navn, identifikasjonsnummer,
 statsborgerskap, sivilstand, familierelasjon, status, dødsfall, bostedsadresse, oppholdsadresse, postadresse,
 postadresse i utlandet, adressebeskyttelse.
