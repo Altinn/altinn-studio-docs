@@ -2,7 +2,6 @@
 title: Om Altinn Studio
 description: Overordnet beskrivelse av Altinn Studio
 aliases:
-- /nb/altinn-studio/
 - /nb/teknologi/altinnstudio/solutions/altinn-studio/
 weight: 10
 ---
