@@ -39,6 +39,11 @@ Din Altinn Studio bruker er personlig for deg og kan knyttes til en eller flere 
 
 {{% /expandlarge %}}
 
+Etter at konto er aktivert, trykk på logoen øverst til venstre på siden for å navigere til ditt tjeneste-dashboard.
+Du er nå klar til å lage din første tjeneste.
+
+![Tjeneste-dashboard ved første innlogging](./empty-dashboard.png?width=500 "Tjeneste-dashboard ved første innlogging")
+
 ## Bli del av en organisasjon
 
 Organisasjoner i Altinn Studio eier applikasjonene og gjør det mulig for flere innen samme organisasjon å samarbeide.

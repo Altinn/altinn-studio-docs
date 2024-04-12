@@ -35,6 +35,11 @@ Your Altinn Studio user is personal to you and can be linked to one or more orga
 
 {{% /expandlarge %}}
 
+After your account is activated, click on the logo at the top left of the page to navigate to your service dashboard.
+You are now ready to create your first service.
+
+![Service dashboard upon first login](./empty-dashboard.png?width=500 "Service dashboard upon first login")
+
 ## Join an organization
 
 Organizations in Altinn Studio own the applications and enable collaboration between people within the organization.
