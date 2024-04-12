@@ -115,7 +115,7 @@ Eksempelet som brukes i veiledningen under baserer seg på følgende skjema:
      ![Sett verdien vi skal sammenligne mot](second-operand.png "Sett verdien vi skal sammenligne mot")
 
 5. Klikk på "Lagre og lukk" for å lagre underuttrykket.
-  ![Klikk på "Lagre og lukk"](save-sub-expression.png "Klikk på Lagre og lukk")
+  ![Klikk på "Lagre og lukk"](save-first-sub-expression.png "Klikk på Lagre og lukk")
 
 6. Vi skal nå sjekke om feltet "Alder" er tomt. Klikk på "Legg til underuttrykk" og påse at det nye underuttrykket er satt
   opp med en _OG_-kobling til det første uttrykket for å sikre at begge må oppfylles. Følg stegene i punkt 4 på nytt, men:
