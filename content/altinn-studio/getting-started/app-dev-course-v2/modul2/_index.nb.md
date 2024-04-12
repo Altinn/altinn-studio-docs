@@ -88,5 +88,5 @@ Da vil alle brukere, både med og uten roller, ha tillatelse til å utføre _con
 I denne modulen har du utvidet applikasjonen din med et bekreftelsessteg og lagt til autorisasjonsregler knyttet til prosessteget.
 
 {{% center %}}
-[<< Forrige modul](../modul4/)
+[<< Forrige modul](../modul1/)      [Neste modul >>](../modul3/)
 {{% /center %}}

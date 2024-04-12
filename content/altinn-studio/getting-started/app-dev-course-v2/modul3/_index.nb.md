@@ -137,5 +137,5 @@ I denne modulen har du opprettet en informasjonsside med tekster og bilde. Du ha
 som styrer når visse felter vises/skjules basert på brukerens valg.
 
 {{% center %}}
-[<< Forrige modul (modul 2)](../modul2/)      [Neste modul (modul 4) >>](../modul4/)
+[<< Forrige modul](../modul2/)      [Neste modul >>](../modul4/)
 {{% /center %}}

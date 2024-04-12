@@ -161,5 +161,5 @@ I denne modulen har du satt opp preutfylling av data, bygget og publisert applik
 logget inn i Altinn med en testbruker og testet applikasjonen din.
 
 {{% center %}}
-[<< Forrige modul (modul 1)](../modul1/)      [Neste modul (modul 3) >>](../modul3/)
+[<< Forrige modul](../modul4/)
 {{% /center %}}

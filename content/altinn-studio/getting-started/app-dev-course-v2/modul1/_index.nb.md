@@ -172,5 +172,5 @@ I denne modulen har du opprettet en tjeneste i Altinn Studio,
 lagd en datamodell og satt opp et skjema som kobler komponenter til feltene i datamodellen.
 
 {{% center %}}
-[Neste modul (modul 2) >>](../modul2/)
+[Neste modul >>](../modul2/)
 {{% /center %}}

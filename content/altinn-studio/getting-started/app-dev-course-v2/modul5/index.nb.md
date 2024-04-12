@@ -1,9 +1,9 @@
 ---
-title: Modul 2
+title: Modul 5
 description: Forhåndsutfylling, bygg og publisering
-linktitle: Modul 2
+linktitle: Modul 5
 tags: [apps, training, prefill, sporvalg]
-weight: 20
+weight: 50
 ---
 I denne modulen skal du sette opp forhåndsutfylling av personopplysninger. Du skal så bygge 
 og publisere tjenesten til testmiljø for å teste at den fungerer som forventet.
@@ -161,5 +161,5 @@ I denne modulen har du satt opp preutfylling av data, bygget og publisert tjenes
 logget inn i Altinn med en testbruker og testet tjenesten din.
 
 {{% center %}}
-[<< Forrige modul (modul 1)](../modul1/)      [Neste modul (modul 3) >>](../modul3/)
+[<< Forrige modul](../modul4/) 
 {{% /center %}}
