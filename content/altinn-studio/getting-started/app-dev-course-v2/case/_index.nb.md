@@ -48,7 +48,7 @@ Kommunen ønsker å samle inn følgende data om innflyttere:
   - Telefon
 - Arbeids-/bransjeerfaring
   - Sektor (privat/offentlig)
-  - Bransje ([standardliste med bransjer](/nb/app/app-dev-course/industry.json))
+  - Bransje ([standardliste med bransjer](../industry.json))
 {{% /expandlarge %}}
 
 {{% expandlarge id="tekster-expandable" header="Tekster" %}}
@@ -69,9 +69,9 @@ Følgende er det ønskelig at reflekteres i tjenesten:
  - Tekststørrelser
  - Formatering av tekst
 
-[Skisse på informasjonsside](/app/app-dev-course/modul2/infoside_tilflyttere.pdf)
+[Skisse på informasjonsside](../modul2/infoside_tilflyttere.pdf)
 
-!["Sogndal kommunevåpen"](/app/app-dev-course/modul2/kommune-logo.png "Et bilde av Sogndals kommunevåpen som kan benyttes i tjenesten" )
+!["Sogndal kommunevåpen"](../modul2/kommune-logo.png "Et bilde av Sogndals kommunevåpen som kan benyttes i tjenesten" )
 
 {{% /expandlarge %}}
 

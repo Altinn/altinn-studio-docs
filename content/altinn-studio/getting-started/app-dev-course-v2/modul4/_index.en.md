@@ -111,7 +111,7 @@ navnet på filen (må ende med `.json`) i filstien.
 
 ### Nyttig dokumentasjon
 
-- [Statiske kodelister](/nb/app/development/data/options/static-codelists)
+- [Statiske kodelister](/nb/altinn-studio/user-guides/advanced/options/static-codelists)
 
 {{% /expandlarge %}}
 

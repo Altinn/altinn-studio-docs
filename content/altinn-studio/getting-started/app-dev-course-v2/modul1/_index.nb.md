@@ -20,24 +20,23 @@ opp et enkelt skjema basert på kravene fra Sogndal kommune.
 
 {{% expandlarge id="opprette-ny-tjeneste" header="Opprette ny tjeneste" %}}
 
-Tjenester opprettes fra [Altinn Studio Dashboard](/nb/app/getting-started/navigation/dashboard/).
-
 ### Krav fra kommunen
 
 Tjenesten må ha en beskrivende ID som gjør det enkelt å finne den igjen blant det store antallet
 tjenesteer Sogndal kommune har i Altinn Studio.
 
 {{% notice info %}}
-Dersom du skal teste appen i et [testmiljø](/nb/app/testing/deploy/) (beskrevet i [Modul 3](/nb/app/app-dev-course/modul3/)) må du velge en organisasjon som eier.
-Du må ha [tilgang til organisasjonen](/nb/app/getting-started/create-user/#bli-del-av-en-organisasjon) og organisasjonen må ha tilgang til et testmiljø.
+Dersom du skal teste appen i et [testmiljø](/nb/app/testing/deploy/) (beskrevet i [Modul 5](/nb/altinn-studio/app-dev-course-v2/modul5/)) må du velge en organisasjon som eier.
+Du må ha [tilgang til organisasjonen](/nb/altinn-studio/getting-started/create-user/#bli-del-av-en-organisasjon) og organisasjonen må ha tilgang til et testmiljø.
  {{% /notice %}}
 
 ### Oppgaver
 
-1. [Opprett tjeneste i Altinn Studio](/nb/app/getting-started/create-app/)
+1. Opprett tjeneste i Altinn Studio
 
 ### Nyttig dokumentasjon
 
+- [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/user-guides/simple-form)
 - [Navigere Altinn Studio](/nb/app/getting-started/navigation)
 - [Altinn Studio Dashboard](/nb/app/getting-started/navigation/dashboard/)
 
@@ -70,6 +69,7 @@ sentrale filområdet til tjenesten. Dette gjøres via menyen helt til høyre ved
  
 ### Nyttig dokumentasjon
 
+- [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/user-guides/simple-form)
 - [Innstillinger-menyen](/nb/app/getting-started/create-app/settings/#om-applikasjonen)
 {{% /expandlarge %}}
 
@@ -123,6 +123,7 @@ tekst-felter, og ev. bruke heltall der det gir mening.
 
 ### Nyttig dokumentasjon
 
+- [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/user-guides/simple-form)
 - [Altinn Studio Datamodellering](/nb/app/getting-started/create-app/datamodel)
 
 {{% /expandlarge %}}
@@ -160,7 +161,7 @@ Husk å laste opp endringer når du jobber i Designer så de reflekteres i det s
 
 ### Nyttig dokumentasjon
 
-- [Hvordan bygge et skjema med UI editor i Altinn Studio](/nb/app/getting-started/)
+- [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/user-guides/simple-form)
 - [Tilgjengelige komponenter i Altinn Studio](/altinn-studio/designer/build-app/ui-designer/components/)
 - [Retningslinjer for bruk av komponenter](/nb/app/guides/design/guidelines/components/)
 
