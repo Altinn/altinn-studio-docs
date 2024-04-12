@@ -6,26 +6,26 @@ tags: [apps, training, datamodel, texts]
 weight: 10
 ---
 
-I denne modulen skal du opprette selve applikasjonen, sette opp noen enkle innstillinger, lage en datamodell og sette 
+I denne modulen skal du opprette selve tjenesten, sette opp noen enkle innstillinger, lage en datamodell og sette 
 opp et enkelt skjema basert på kravene fra Sogndal kommune.
 
 **Temaer som dekkes i denne modulen:**
 
-- Opprette ny applikasjon
+- Opprette ny tjeneste
 - Lage datamodell
 - Legge til skjemakomponenter og koble dem til datamodell
 - Redigering av tekster i skjema
 
 ## Oppgaver
 
-{{% expandlarge id="opprette-ny-applikasjon" header="Opprette ny applikasjon" %}}
+{{% expandlarge id="opprette-ny-tjeneste" header="Opprette ny tjeneste" %}}
 
-Applikasjoner opprettes fra [Altinn Studio Dashboard](/nb/app/getting-started/navigation/dashboard/).
+Tjenester opprettes fra [Altinn Studio Dashboard](/nb/app/getting-started/navigation/dashboard/).
 
 ### Krav fra kommunen
 
-Applikasjonen må ha en beskrivende ID som gjør det enkelt å finne den igjen blant det store antallet
-applikasjoner Sogndal kommune har i Altinn Studio.
+Tjenesten må ha en beskrivende ID som gjør det enkelt å finne den igjen blant det store antallet
+tjenesteer Sogndal kommune har i Altinn Studio.
 
 {{% notice info %}}
 Dersom du skal teste appen i et [testmiljø](/nb/app/testing/deploy/) (beskrevet i [Modul 3](/nb/app/app-dev-course/modul3/)) må du velge en organisasjon som eier.
@@ -34,7 +34,7 @@ Du må ha [tilgang til organisasjonen](/nb/app/getting-started/create-user/#bli-
 
 ### Oppgaver
 
-1. [Opprett applikasjon i Altinn Studio](/nb/app/getting-started/create-app/)
+1. [Opprett tjeneste i Altinn Studio](/nb/app/getting-started/create-app/)
 
 ### Nyttig dokumentasjon
 
@@ -44,27 +44,27 @@ Du må ha [tilgang til organisasjonen](/nb/app/getting-started/create-user/#bli-
 {{% /expandlarge %}}
 
 {{% expandlarge id="oppdatere-app-tittel" header="Sett en tittel for tjenesten" %}}
-Applikasjonen har en id som identifiserer den, men mangler en beskrivende tittel. 
+Tjenesten har en id som identifiserer den, men mangler en beskrivende tittel. 
 Tittel kan endres i "Innstillinger"-menyen til venstre i toppmenyen.
 
 ### Krav fra kommunen
-- Det er viktig at applikasjonens visningsnavn klinger godt og er beskrivende for tjenesten.
+- Det er viktig at tjenestens visningsnavn klinger godt og er beskrivende for tjenesten.
 
 ### Oppgaver
 
-1. Endre visningstittel til applikasjonen.
-2. Last opp dine endringer til det sentrale filområdet til applikasjonen ved å trykke på "Last opp 
+1. Endre visningstittel til tjenesten.
+2. Last opp dine endringer til det sentrale filområdet til tjenesten ved å trykke på "Last opp 
 dine endringer" til høyre i toppmenyen.
-  a. Skriv inn en beskrivende melding om hva som er gjort, f.eks. "Opprettet applikasjon og endret tittel"
+  a. Skriv inn en beskrivende melding om hva som er gjort, f.eks. "Opprettet tjeneste og endret tittel"
 
 {{% notice info %}}
-Det er lurt å laste opp endringer jevnlig. Når du jobber med en applikasjon i Altinn Studio jobber du med
+Det er lurt å laste opp endringer jevnlig. Når du jobber med en tjeneste i Altinn Studio jobber du med
 en kopi som er tilgjengelig kun for din bruker. Ved å laste opp endringene lagres de sentralt og kan hentes
 ut av andre.
 
-Fordi du jobber på en egen kopi av applikasjonen kan du prøve deg litt frem, det er ikke farlig å gjøre feil! 
-Er du misfornøyd med de siste endringene kan du slette de og tilbakestille applikasjonen til det som ligger i det
-sentrale filområdet til applikasjonen. Dette gjøres via menyen helt til høyre ved siden av 
+Fordi du jobber på en egen kopi av tjenesten kan du prøve deg litt frem, det er ikke farlig å gjøre feil! 
+Er du misfornøyd med de siste endringene kan du slette de og tilbakestille tjenesten til det som ligger i det
+sentrale filområdet til tjenesten. Dette gjøres via menyen helt til høyre ved siden av 
 "Last opp dine endringer". Velg så lokale endringer, og "slett lokale endringer".
 {{% /notice %}}
  
@@ -84,7 +84,7 @@ Med Altinn Studios [verktøy for datamodellering](/nb/app/development/data/data-
 I denne oppgaven skal du lage en enkel modell fra bunnen av.
 
 Merk at en helt enkel datamodell med noen eksempel-felter nå er en del av malen som lastes inn når 
-man oppretter en applikasjon.
+man oppretter en tjeneste.
 
 ### Krav fra kommunen
 
@@ -104,7 +104,7 @@ Kommunen ønsker i første omgang å samle inn følgende data om innflyttere:
 
 ### Oppgaver
 
-1. Naviger til Datamodell-verktøyet og se at det ligger en datamodell der som ble lastet inn da applikasjonen
+1. Naviger til Datamodell-verktøyet og se at det ligger en datamodell der som ble lastet inn da tjenesten
 ble opprettet. Datamodellen inneholder 3 eksempel-felter.
 2. Klikk på det første feltet, `property1`. Det dukker da opp en del redigeringsmuligheter i høyre-panelet.
 3. Endre navnet på feltet `property1` til `fornavn`, og huk av for at det skal være påkrevd.
@@ -118,7 +118,7 @@ _Velg "Heltall" fra menyen._
 3. Fortsett på denne måten til du har lagt til alle feltene som kommunen ber om. Du kan anta at alle felter skal være 
 tekst-felter, og ev. bruke heltall der det gir mening. 
 1.  Når alle feltene er lagt til, klikk på "Generer modeller" i menylinjen til datamodell-verktøyet.
-  Dette sikrer at alle modell-filer som applikasjonen lages ut fra modellen du har bygd opp.
+  Dette sikrer at alle modell-filer som tjenesten lages ut fra modellen du har bygd opp.
 1.  Pass på å _laste opp dine endringer_ når du er ferdig. 
 
 ### Nyttig dokumentasjon
@@ -156,7 +156,7 @@ Skjemaet innhenter personlig informasjon om tilflytteren og skal ha følgende ko
    - Alle skjemafelter må knyttes til tilhørende felt i datamodellen - dette gjør du i "Datamodellknytninger"-seksjonen
       i høyre-panelet.
 
-Husk å laste opp endringer når du jobber i Designer så de reflekteres i det sentrale filområdet til applikasjonen.
+Husk å laste opp endringer når du jobber i Designer så de reflekteres i det sentrale filområdet til tjenesten.
 
 ### Nyttig dokumentasjon
 
@@ -168,7 +168,7 @@ Husk å laste opp endringer når du jobber i Designer så de reflekteres i det s
 
 ## Oppsummering
 
-I denne modulen har du opprettet en applikasjon i Altinn Studio,
+I denne modulen har du opprettet en tjeneste i Altinn Studio,
 lagd en datamodell og satt opp et skjema som kobler komponenter til feltene i datamodellen.
 
 {{% center %}}

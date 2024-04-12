@@ -5,10 +5,10 @@ linktitle: Modul 3
 tags: [apps, training, datamodel, texts]
 weight: 30
 ---
-I denne modulen skal du videreutvikle applikasjonen du laget i [Modul 1](../modul1) med blant annet en ny side og dynamisk skjuling av felter.
+I denne modulen skal du videreutvikle tjenesten du laget i [Modul 1](../modul1) med blant annet en ny side og dynamisk skjuling av felter.
 
 Denne modulen vil i all hovedsak foregå i Altinn Studio designer, men noen oppdateringer vil også trenge at vi oppdaterer
-filene til applikasjonen direkte i det sentrale filområdet til applikasjonen.
+filene til tjenesten direkte i det sentrale filområdet til tjenesten.
 
 **Temaer som dekkes i denne modulen:**
 
@@ -22,9 +22,9 @@ filene til applikasjonen direkte i det sentrale filområdet til applikasjonen.
 {{% expandlarge id="legge-til-infoside" header="Legge til infoside" %}}
 
 For skjemaer der det samles inn eller gis mye informasjon
-kan det forbedre brukeropplevelsen dersom man deler applikasjonen opp i flere sider.
+kan det forbedre brukeropplevelsen dersom man deler tjenesten opp i flere sider.
 
-La oss se nærmere på hvordan man kan opprette en ny side i applikasjonen
+La oss se nærmere på hvordan man kan opprette en ny side i tjenesten
 som vises _før_ brukeren kommer til første datainnsamlingsside som ble laget i Modul 1.
 
 Opprettelse og administrasjon av flere sider kan gjøres i [Altinn Studio Designer](/nb/app/getting-started/), 
@@ -41,7 +41,7 @@ Informasjonssiden bør gjenspeile følgende elementer:
  - tekststørrelser
  - formatering av tekst
 
-Du kan bruke følgende bilde av Sogndals kommunevåpen i applikasjonen:
+Du kan bruke følgende bilde av Sogndals kommunevåpen i tjenesten:
 
 !["Sogndal kommunevåpen"](kommune-logo.png )
 
@@ -54,7 +54,7 @@ Du kan bruke følgende bilde av Sogndals kommunevåpen i applikasjonen:
 ### Nyttig dokumentasjon
 
 - [Formatering av tekst](/nb/app/development/ux/texts/#formatering-av-tekster)
-- [Hvordan legge til bilder i en applikasjon](/nb/app/development/ux/components/images/)
+- [Hvordan legge til bilder i en tjeneste](/nb/app/development/ux/components/images/)
 - [Sidestilte komponenter](/nb/app/development/ux/styling/#sidestilte-komponenter-grid)
 - [Filoppsett ved flere sider](/nb/app/development/ux/pages/)
 - [Administrere rekkefølge på flere sider](/nb/app/development/ux/pages/navigation/#rekkefølge)
@@ -69,10 +69,10 @@ Alle tekstressurser støtter Markdown og dermed HTML-notasjon. Du kan derfor ben
 
 {{% expandlarge id="sporvalg" header="Dynamisk vis/skjul av felter" %}}
 
-I mange tilfeller er det ønskelig å kontrollere hvilke deler av applikasjonen som er synlige basert på brukerens respons.
+I mange tilfeller er det ønskelig å kontrollere hvilke deler av tjenesten som er synlige basert på brukerens respons.
 For eksempel kan det være relevant å hoppe over noen av spørsmålene i et skjema hvis svaret er åpenbart eller irrelevant basert på tidligere svar.
 
-I denne oppgaven vil du sette opp dynamiske uttrykk i applikasjonen for å vise og skjule ulike felter basert på brukerens respons.
+I denne oppgaven vil du sette opp dynamiske uttrykk i tjenesten for å vise og skjule ulike felter basert på brukerens respons.
 
 ### Krav fra kommunen
 

@@ -6,12 +6,12 @@ tags: [apps, training, prefill, sporvalg]
 weight: 20
 ---
 I denne modulen skal du sette opp forhåndsutfylling av personopplysninger. Du skal så bygge 
-og publisere applikasjonen til testmiljø for å teste at den fungerer som forventet.
+og publisere tjenesten til testmiljø for å teste at den fungerer som forventet.
 
 **Temaer som dekkes av denne modulen:**
 - Sette opp preutfylling av felter
-- Bygge applikasjon
-- Publisering av applikasjon til testmiljø
+- Bygge tjeneste
+- Publisering av tjeneste til testmiljø
 
 {{% expandlarge id="prefill" header="Forhåndsutfylling av personopplysninger" %}}
 
@@ -42,14 +42,14 @@ Denne oppgaven fokuserer på den første siden for datainnsamling og har som må
 3. Konfigurer innstillinger for felter som ikke skal kunne endres av brukeren.
 
 {{% notice info %}}
-**Merk:** Applikasjonen publiseres til testmiljø for at forhåndsutfyllinger skal vises.
+**Merk:** Tjenesten publiseres til testmiljø for at forhåndsutfyllinger skal vises.
 {{% /notice %}}
 
 ### Nyttig dokumentasjon
 - [Forhåndsutfylling fra nasjonale registre og brukerprofil](/nb/app/development/data/prefill/config/#prefill-fra-nasjonale-register-og-brukerprofil)
 - [Tilgjengelige kilder og verdier for forhåndsutfylling](/nb/app/development/data/prefill/config/#tilgjengelige-prefill-verdier)
 - [Bonus: Egendefinert forhåndsutfylling](/nb/app/development/data/prefill/custom)
-- [Instance](/nb/api/models/instance/#instance) - Metadata for applikasjonen.
+- [Instance](/nb/api/models/instance/#instance) - Metadata for tjenesten.
 
 ### Forståelsessjekk
 
@@ -62,20 +62,20 @@ Ja, en standardkomponent med forhåndsutfylt data vil i utgangspunktet være red
 Komponenten kan settes til `readOnly` ved å huke av ved "Det skal ikke være mulig å svare (read only)" for den aktuelle komponenten i Altinn Studio.
 
 
-Alternativt kan man kjøre valideringer av dataen på serversiden for å verifisere at dataen i feltet matcher dataen fra forhåndsutfyllingskilden. Dette kan gjøres i prosesserings- eller valideringslogikken til applikasjonen.
+Alternativt kan man kjøre valideringer av dataen på serversiden for å verifisere at dataen i feltet matcher dataen fra forhåndsutfyllingskilden. Dette kan gjøres i prosesserings- eller valideringslogikken til tjenesten.
 {{% /expandsmall %}}
 
 {{% /expandlarge %}}
 
-{{% expandlarge id="bygge-applikasjon" header="Bygge applikasjon" %}}
+{{% expandlarge id="bygge-tjeneste" header="Bygge tjeneste" %}}
 
-Når man refererer til å bygge en applikasjon i Altinn Studio,
-betyr dette å opprette en versjon av applikasjonens nåværende tilstand
+Når man refererer til å bygge en tjeneste i Altinn Studio,
+betyr dette å opprette en versjon av tjenestens nåværende tilstand
 som kan publiseres til ett eller flere miljø.
 
 ### Oppgaver
 
-1. Opprett et nytt bygg for applikasjonen med versjonsnr `0.0.1`
+1. Opprett et nytt bygg for tjenesten med versjonsnr `0.0.1`
 og legg til en beskrivende kommentar om hva versjonen inneholder.
 
 ### Nyttig dokumentasjon
@@ -83,20 +83,20 @@ og legg til en beskrivende kommentar om hva versjonen inneholder.
 
 {{% /expandlarge %}}
 
-{{% expandlarge id="publisere-applikasjon" header="Publisere applikasjon" %}}
+{{% expandlarge id="publisere-tjeneste" header="Publisere tjeneste" %}}
 
-Ved å publisere en applikasjon til testmiljø vil man kunne teste alle integrasjoner.
-I tillegg benyttes TT02 ofte til å verifisere at en applikasjon oppfører seg som forventet
+Ved å publisere en tjeneste til testmiljø vil man kunne teste alle integrasjoner.
+I tillegg benyttes TT02 ofte til å verifisere at en tjeneste oppfører seg som forventet
 før man produksjonssetter den.
 
 {{% notice info %}}
-For å kunne publisere en applikasjon til TT02 må organisasjonen som eier den ha et app-cluster i testmiljøet.
+For å kunne publisere en tjeneste til TT02 må organisasjonen som eier den ha et app-cluster i testmiljøet.
 I tillegg må utvikleren som skal gjennomføre publiseringen inneha [rollen Deploy-TT02](/nb/app/guides/access-management/studio/#deploy-tt02).
 {{% /notice %}}
 
 ### Oppgaver
 
-1. Publiser applikasjonen din til TT02.
+1. Publiser tjenesten din til TT02.
 
 ### Nyttig dokumentasjon
 
@@ -104,40 +104,40 @@ I tillegg må utvikleren som skal gjennomføre publiseringen inneha [rollen Depl
 - [Tilgangsstyring for organisasjon i Altinn Studio](/nb/app/guides/access-management/studio/#tilgangsstyring-for-organisasjonen)
 
 ### Forståelsessjekk
-{{% expandsmall id="m3t1q1" header="Er det mulig å ha to versjoner av en applikasjon i TT02 samtidig?" %}}
+{{% expandsmall id="m3t1q1" header="Er det mulig å ha to versjoner av en tjeneste i TT02 samtidig?" %}}
 
-Nei, det er kun mulig å ha én versjon av applikasjonen ute i et miljø av gangen.
-Publiserer man en annen versjon, vil eksisterende versjon av applikasjonen overskrives.
+Nei, det er kun mulig å ha én versjon av tjenesten ute i et miljø av gangen.
+Publiserer man en annen versjon, vil eksisterende versjon av tjenesten overskrives.
 {{% /expandsmall %}}
 
-{{% expandsmall id="m3t1q2" header="Hva skjer hvis man publiserer samme versjon av applikasjonen til miljøet en gang til?" %}}
+{{% expandsmall id="m3t1q2" header="Hva skjer hvis man publiserer samme versjon av tjenesten til miljøet en gang til?" %}}
 
 Da vil alle operasjoner i forbindelse med publisering kjøres om igjen.
 Ressurstekster og annen metadata lagres i Altinn Plattform,
-og publiserings-pipeline for å rulle ut applikasjonen i clusteret vil og kjøre.
+og publiserings-pipeline for å rulle ut tjenesten i clusteret vil og kjøre.
 
 Det vil dog ikke bli spunnet opp nye poder i forbindelse med dette da det ikke er noen reelle endringer på
 tjenesten som kjører i miljøet.
 {{% /expandsmall %}}
 
-{{% expandsmall id="m3t1q3" header="Vil applikasjonen være tilgjengelig umiddelbart etter publisering?" %}}
+{{% expandsmall id="m3t1q3" header="Vil tjenesten være tilgjengelig umiddelbart etter publisering?" %}}
 
 Ja, tjenesten vil være tilgjengelig umiddelbart etter publisering.
-Dersom status er grønn i Altinn Studio skal du kunne nå applikasjonen.
+Dersom status er grønn i Altinn Studio skal du kunne nå tjenesten.
 {{% /expandsmall %}}
 
-{{% expandsmall id="m3t1q4" header="Er det mulig å fjerne en applikasjon fra miljøet hvis den først er blitt publisert?" %}}
+{{% expandsmall id="m3t1q4" header="Er det mulig å fjerne en tjeneste fra miljøet hvis den først er blitt publisert?" %}}
 
-Det er foreløpig ikke mulig for en tjenesteeier å selv fjerne en applikasjon fra et miljø når den først er publisert.
+Det er foreløpig ikke mulig for en tjenesteeier å selv fjerne en tjeneste fra et miljø når den først er publisert.
  Det jobbes med å få på plass denne funksjonaliteten.
-Ønsker du å fjerne en publisert applikasjon må du inntil videre kontakte support.
+Ønsker du å fjerne en publisert tjeneste må du inntil videre kontakte support.
 {{% /expandsmall %}}
 
 {{% /expandlarge %}}
 
-{{% expandlarge id="instansiere-i-tt02" header="Teste applikasjonen i TT02" %}}
+{{% expandlarge id="instansiere-i-tt02" header="Teste tjenesten i TT02" %}}
 
-På siden for publisering finner du direktelenken til applikasjonen din.
+På siden for publisering finner du direktelenken til tjenesten din.
 Den er på formatet `<org>.apps.tt02.altinn.no/<org>/<app>`.
 
 Med mindre du er logget inn med en bruker fra før av vil denne lenken ta deg til innloggingssiden til Altinn.
@@ -157,8 +157,8 @@ Logg inn med en testbruker fra organisasjonen din eller benytt deg av [Tenors te
 
 ## Oppsummering
 
-I denne modulen har du satt opp preutfylling av data, bygget og publisert applikasjonen din til testmiljøet TT02,
-logget inn i Altinn med en testbruker og testet applikasjonen din.
+I denne modulen har du satt opp preutfylling av data, bygget og publisert tjenesten din til testmiljøet TT02,
+logget inn i Altinn med en testbruker og testet tjenesten din.
 
 {{% center %}}
 [<< Forrige modul (modul 1)](../modul1/)      [Neste modul (modul 3) >>](../modul3/)
