@@ -16,7 +16,7 @@ Den gamle versjonen av kurset (med alle moduler) ligger [her](../../../app/app-d
 Introkurset er delt opp i 7 moduler og dekker et fiktivt case for Sogndal kommune.
 Hver modul har en beskrivelse av oppgaven og lenker til relevant dokumentasjon.
 
-Du kan velge å utføre oppgavene i [Altinn Studio Designer](../getting-started) 
+Du kan velge å utføre oppgavene i [Altinn Studio Designer](../) 
 (grafisk brukergrensesnitt med dra-og-slipp) eller i et [lokalt utviklingsmiljø](/nb/app/getting-started/local-dev) 
 (krever noe teknisk kompetanse).
 Du kan også kombinere disse fremgangsmåtene.

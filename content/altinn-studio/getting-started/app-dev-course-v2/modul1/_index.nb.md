@@ -26,7 +26,7 @@ Tjenesten må ha en beskrivende ID som gjør det enkelt å finne den igjen blant
 tjenesteer Sogndal kommune har i Altinn Studio.
 
 {{% notice info %}}
-Dersom du skal teste appen i et [testmiljø](/nb/app/testing/deploy/) (beskrevet i [Modul 5](/nb/altinn-studio/app-dev-course-v2/modul5/)) må du velge en organisasjon som eier.
+Dersom du skal teste appen i et [testmiljø](/nb/app/testing/deploy/) (beskrevet i [Modul 5](/nb/altinn-studio/getting-started/app-dev-course-v2/modul5/)) må du velge en organisasjon som eier.
 Du må ha [tilgang til organisasjonen](/nb/altinn-studio/getting-started/create-user/#bli-del-av-en-organisasjon) og organisasjonen må ha tilgang til et testmiljø.
  {{% /notice %}}
 
@@ -36,7 +36,7 @@ Du må ha [tilgang til organisasjonen](/nb/altinn-studio/getting-started/create-
 
 ### Nyttig dokumentasjon
 
-- [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/user-guides/simple-form)
+- [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/user-guides/basic-form)
 - [Navigere Altinn Studio](/nb/app/getting-started/navigation)
 - [Altinn Studio Dashboard](/nb/app/getting-started/navigation/dashboard/)
 
@@ -69,7 +69,7 @@ sentrale filområdet til tjenesten. Dette gjøres via menyen helt til høyre ved
  
 ### Nyttig dokumentasjon
 
-- [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/user-guides/simple-form)
+- [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/user-guides/basic-form)
 - [Innstillinger-menyen](/nb/app/getting-started/create-app/settings/#om-applikasjonen)
 {{% /expandlarge %}}
 
@@ -123,7 +123,7 @@ tekst-felter, og ev. bruke heltall der det gir mening.
 
 ### Nyttig dokumentasjon
 
-- [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/user-guides/simple-form)
+- [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/user-guides/basic-form)
 - [Altinn Studio Datamodellering](/nb/app/getting-started/create-app/datamodel)
 
 {{% /expandlarge %}}
@@ -161,7 +161,7 @@ Husk å laste opp endringer når du jobber i Designer så de reflekteres i det s
 
 ### Nyttig dokumentasjon
 
-- [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/user-guides/simple-form)
+- [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/user-guides/basic-form)
 - [Tilgjengelige komponenter i Altinn Studio](/altinn-studio/designer/build-app/ui-designer/components/)
 - [Retningslinjer for bruk av komponenter](/nb/app/guides/design/guidelines/components/)
 
