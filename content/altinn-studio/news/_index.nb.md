@@ -4,7 +4,7 @@ description: Nyheter i Altinn Studio
 weight: 40
 ---
 
-## Kommende
+### Kommende
 
 <div style="display: flex; flex-direction: row; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
     {{<news-card 
@@ -27,7 +27,7 @@ weight: 40
     >}}
 </div>
 
-## Levert
+### Levert
 
 <div style="display: flex; flex-direction: row; justify-content: flex-start; gap: 20px; flex-wrap: wrap;">
     {{<news-card
