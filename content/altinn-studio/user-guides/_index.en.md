@@ -1,6 +1,6 @@
 ---
-title: Brukerveiledning
-description: Brukerveiledninger i Altinn Studio
+title: User guides
+description: User guides in Altinn Studio
 weight: 24
 ---
 

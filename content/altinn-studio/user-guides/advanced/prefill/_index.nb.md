@@ -1,13 +1,10 @@
 ---
-title: Forhåndsutfylling
-description: Brukerveiledning for å sette opp forhåndsutfylling i skjema i Altinn Studio
-weight: 20
+title: Preutfylling
+linktitle: Preutfylling
+description: Preutfylling av en instans med data
+weight: 10
 ---
+Altinn tilbyr i dag tre fremgangsmåter for å preutfylle data i en app for en sluttbruker.
+Disse metodene kan kombineres fritt for å oppnå ønsket resultat
 
-Dynamikk brukes til å styre oppførsel i skjema basert på hva brukeren oppgir av informasjon. Vi bruker _dynamiske uttrykk_
-til å styre denne oppførselen.
-
-Følgende innstillinger kan settes ved hjelp av dynamiske uttrykk:
-- Om et felt skal vises eller skjules
-- Om et felt er påkrevd eller ikke
-- Om et felt er skrivebeskyttet eller ikke.
+{{<children />}}
