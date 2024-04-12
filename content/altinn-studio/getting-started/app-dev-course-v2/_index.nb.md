@@ -2,13 +2,17 @@
 title: Introkurs
 description: Bygg en applikasjon med Altinn Studio
 tags: [apps, build, deploy, training]
-hidden: true
 ---
+
+{{% notice warning %}}
+Dette kurset er under oppgradering. Kun 5 av de 7 modulene er tilgjengelig på denne oppdaterte versjonen foreløpig. 
+Den gamle versjonen av kurset (med alle moduler) ligger [her](../../../app/app-dev-course/).
+{{% /notice %}}
 
 Introkurset er delt opp i 7 moduler og dekker et fiktivt case for Sogndal kommune.
 Hver modul har en beskrivelse av oppgaven og lenker til relevant dokumentasjon.
 
-Du kan velge å utføre oppgavene i [Altinn Studio Designer](/nb/app/getting-started) 
+Du kan velge å utføre oppgavene i [Altinn Studio Designer](../) 
 (grafisk brukergrensesnitt med dra-og-slipp) eller i et [lokalt utviklingsmiljø](/nb/app/getting-started/local-dev) 
 (krever noe teknisk kompetanse).
 Du kan også kombinere disse fremgangsmåtene.
@@ -22,12 +26,7 @@ samt testing av applikasjonen lokalt og i testmiljø.
 
 ## Før du starter
 
-Før du kan bygge en applikasjon er det en del ting som må være på plass. Gå gjennom følgende punkter fra
-**[Kom i gang](/nb/app/getting-started)** (vent med de resterende stegene til [Modul 1](/nb/app/app-dev-course/modul1)):
-
-1. [Opprett bruker](/nb/app/getting-started/create-user)
-2. [Lær å navigere Altinn Studio](/nb/app/getting-started/navigation)
-3. [Gjør deg kjent med Altinn Studio Designer](/nb/app/getting-started)
+Før du kan komme i gang må du [opprette en bruker](../create-user/) i Altinn Studio.
 
 Les gjennom kravspesifikasjonene til Sogndal kommune og jobb deg gjennom modul for modul.
 

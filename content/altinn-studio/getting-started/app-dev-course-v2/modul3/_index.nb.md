@@ -27,7 +27,7 @@ kan det forbedre brukeropplevelsen dersom man deler tjenesten opp i flere sider.
 La oss se nærmere på hvordan man kan opprette en ny side i tjenesten
 som vises _før_ brukeren kommer til første datainnsamlingsside som ble laget i Modul 1.
 
-Opprettelse og administrasjon av flere sider kan gjøres i [Altinn Studio Designer](/nb/app/getting-started/), 
+Opprettelse og administrasjon av flere sider kan gjøres i Altinn Studio Designer, 
 ved å trykke på "Legg til side" i skjemaoversikten.
 
 ### Krav fra kommunen
@@ -137,5 +137,5 @@ I denne modulen har du opprettet en informasjonsside med tekster og bilde. Du ha
 som styrer når visse felter vises/skjules basert på brukerens valg.
 
 {{% center %}}
-[<< Forrige modul (modul 2)](../modul2/)      [Neste modul (modul 4) >>](../modul4/)
+[<< Forrige modul](../modul2/)      [Neste modul >>](../modul4/)
 {{% /center %}}

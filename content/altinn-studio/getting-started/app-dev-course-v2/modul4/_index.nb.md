@@ -6,7 +6,8 @@ tags: [apps, training, options, kodelister, dynamikk ]
 weight: 40
 ---
 
-I denne modulen skal du utvide applikasjonen du har laget i foregående moduler for å støtte enda fler av [kravene til Sogndal kommune](../case/#requirements-from-the-municipality).
+I denne modulen skal du utvide tjenesten du har laget i foregående moduler for å støtte enda fler av [kravene til Sogndal kommune](../case/#krav-fra-kommunen).
+
 
 **Temaer som dekkes i denne modulen:**
 
@@ -17,7 +18,7 @@ I denne modulen skal du utvide applikasjonen du har laget i foregående moduler 
 
 {{% expandlarge id="options-expandable" header="Innsamling av arbeidsopplysninger" %}}
 
-I mange applikasjoner er det behov for å gi brukeren et sett med svaralternativer for et datafelt.
+I mange tjenester er det behov for å gi brukeren et sett med svaralternativer for et datafelt.
 Svaralternativene refereres til som _kodelister_ eller _options_.
 
 I Altinn Studio er alternativer støttet av komponentene [radioknapper](/nb/app/development/ux/components/radiobuttons/), 
@@ -29,7 +30,7 @@ I Altinn Studio er alternativer støttet av komponentene [radioknapper](/nb/app/
 Det er tre måter å sette opp kodelister (legge til alternativer) i Altinn:
  1. Ved å legg til alternativer manuelt for komponenten via Altinn Studio.
  2. Ved å la komponenten hente alternativer fra en statisk json-fil.
- 3. Ved å generere alternativer dynamisk med applikasjonslogikk.
+ 3. Ved å generere alternativer dynamisk med tjenestequlogikk.
 {{% /notice %}}
 
 I denne oppgaven skal du få prøve deg de første to metodene.
@@ -44,7 +45,7 @@ Blant dataen de ønsker å samle inn er hvilken **sektor** og **bransje** tilfly
 2. Opprett en ny skjemaside for å samle inn data om arbeidsforhold.
 3. Legg til en **radioknapp**-komponent for _Sektor_ og opprett svaralternativene `Offentlig` og `Privat` manuelt.
 4. Last ned den statiske kodelisten for bransjer [industry.json](../industry.json)
-5. Last opp filen `industry.json` i applikasjonens filområde. Detaljer for hvordan dette gjøres ligger i neste avsnitt.
+5. Last opp filen `industry.json` i tjenestens filområde. Detaljer for hvordan dette gjøres ligger i neste avsnitt.
 6. Legg til en **avkrysningsboks** for _Bransje_. Velg "Bruk kodeliste" i konfigurasjonen, og velg `industry` fra nedtrekkslisten.
 7. Legg til en ny statisk kodeliste _manuelt_. Dette gjøres på veldig lik måte som opplasting av kodeliste-fil, se detaljer under.
     - Bruk svaralternativene:
@@ -67,13 +68,13 @@ komponenter der det ikke er mange alternativer, og alternativene ikke skal gjenb
 {{% /expandsmall %}}
 
 {{% expandsmall id="how-to-add-codelist" header="Laste opp statisk kodeliste" %}}
-Kodelister er nyttige der man ønsker å hente alternativer utenfor applikasjonen (f.eks. via api) eller har:
+Kodelister er nyttige der man ønsker å hente alternativer utenfor tjenesten (f.eks. via api) eller har:
 - mange alternativer
 - et felles sett med alternativer som skal brukes av flere komponenter
 
 En kodeliste kan defineres i kode (beskrives ikke her), eller kan legges inn som en statisk fil.
 
-For å legge til en statisk kodeliste, må man inn i applikasjonens sentrale filområde og laste opp filen som 
+For å legge til en statisk kodeliste, må man inn i tjenestens sentrale filområde og laste opp filen som 
 inneholder kodelisten.
 {{% notice warning %}}
 Pass på at du har _lastet opp dine endringer_ fra Studio GUI før du gjør dette!
@@ -81,7 +82,7 @@ Pass på at du har _lastet opp dine endringer_ fra Studio GUI før du gjør dett
 Øverst til høyre i toppmenyen ser du ditt navn/brukernavn og et sirkel-ikon. Klikk på navnet ditt for å åpne profilmenyen.
 ![Profilmenyen](./profile-menu.png "Profilmenyen")
 
-I profilmenyen, velg "Åpne repository" for å åpne filområdet for applikasjonen i en ny fane.
+I profilmenyen, velg "Åpne repository" for å åpne filområdet for tjenesten i en ny fane.
 Naviger inn i mappen som heter `App`, og trykk på "Legg til fil/Add file" --> "Last opp fil/Upload file".
 
 ![Last opp fil](./repo-add-file.png "Last opp fil")
@@ -99,7 +100,7 @@ Til slutt navigerer du tilbake til fanen med skjemaet, og trykker på "Hent endr
 Du vil da få lastet inn endringene du gjorde på filområdet, og kodelisten er nå tilgjengelig for flervalgskomponentene.
 
 {{% notice info %}}
-Om du allerede har en `options`-mappe i applikasjonen din, navigerer du inn i den. Så følger du de samme stegene som over,
+Om du allerede har en `options`-mappe i tjenesten din, navigerer du inn i den. Så følger du de samme stegene som over,
 men du skriver ikke inn `options` i filstien da du allerede har mappen på plass.
 
 Om du ønsker å kopiere inn/skrive inn en kodeliste direkte kan du gjøre dette på samme måte. Du velger bare da "Ny fil"
@@ -111,7 +112,7 @@ navnet på filen (må ende med `.json`) i filstien.
 
 ### Nyttig dokumentasjon
 
-- [Statiske kodelister](/nb/app/development/data/options/static-codelists)
+- [Statiske kodelister](/nb/altinn-studio/user-guides/advanced/options/static-codelists)
 
 {{% /expandlarge %}}
 
@@ -152,7 +153,7 @@ I denne modulen har du lagt til nedtrekksliste, radioknapp og avkrysningsbokser 
 I tillegg har du lagt til dynamikk som viser ulike alternativer basert på tidligere valg.
 
 
-*Husk å laste opp dine endringer så de lagres på applikasjonens sentrale filområde.*
+*Husk å laste opp dine endringer så de lagres på tjenestens sentrale filområde.*
 
 
 {{% center %}}
