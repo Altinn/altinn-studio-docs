@@ -30,7 +30,7 @@ _In the future, this file will not be stored in the application and will only be
 ### Data models for organizations
 
 Data models for organizations are located in Altinn Studio's [repos][1].
- To access these, log in with am Altinn Studio user.
+ To access these, log in with an Altinn Studio user.
   If this is your first time using Altinn Studio, you need to [create a user][2].
 
 The data models are located in the `<org>-datamodels` repository, where `<org>` is the organization you belong to. 
