@@ -138,9 +138,9 @@ Dynamic expressions are currently available for use in these properties, as defi
 | [Repeating groups](../../ux/fields/grouping/repeating)                                                                                 | `edit.deleteButton`           | [Boolean](#boolean-values) | ✅       | ❌      |  
 | [Repeating groups](../../ux/fields/grouping/repeating)                                                                                 | `edit.alertOnDelete`          | [Boolean](#boolean-values) | ✅       | ❌      |  
 | [Repeating groups](../../ux/fields/grouping/repeating)                                                                                 | `edit.saveAndNextButton`      | [Boolean](#boolean-values) | ✅       | ❌      |  
-| [RadioButtons](../../ux/components/radiobuttons), [Checkboxes](../../ux/components/checkbox), [Dropdown](../../ux/components/dropdown) | `source.label`                | [Streng](#strings)         | ✅       | ❌      |
-| [RadioButtons](../../ux/components/radiobuttons), [Checkboxes](../../ux/components/checkbox), [Dropdown](../../ux/components/dropdown) | `source.description`          | [Streng](#strings)         | ✅       | ❌      |
-| [RadioButtons](../../ux/components/radiobuttons), [Checkboxes](../../ux/components/checkbox), [Dropdown](../../ux/components/dropdown) | `source.helpText`             | [Streng](#strings)         | ✅       | ❌      |
+| [RadioButtons](../../ux/components/radiobuttons), [Checkboxes](../../ux/components/checkbox), [Dropdown](../../ux/components/dropdown) | `source.label`                | [String](#strings)         | ✅       | ❌      |
+| [RadioButtons](../../ux/components/radiobuttons), [Checkboxes](../../ux/components/checkbox), [Dropdown](../../ux/components/dropdown) | `source.description`          | [String](#strings)         | ✅       | ❌      |
+| [RadioButtons](../../ux/components/radiobuttons), [Checkboxes](../../ux/components/checkbox), [Dropdown](../../ux/components/dropdown) | `source.helpText`             | [String](#strings)         | ✅       | ❌      |
 | All                                                                                                                                    | `textResourceBindings.[*]` \* | [String](#strings)         | ✅       | ❌      |                                                   
 
 \* = The values that can be overridden with textResourceBindings vary from component to component, but will work wherever
