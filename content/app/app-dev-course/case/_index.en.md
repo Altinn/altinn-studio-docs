@@ -109,7 +109,7 @@ Based on the answer, the user will be sent to either _Track 1_ or _Track 2_.
 {{% expandlarge id="prefill-expandable" header="Requirements" %}}
 
 - The following should be prefilled for the user:
-  - First name: Innflytter.fornavn
+  - First name: Innflytter.Fornavn
   - Middle name: Innflytter.Mellomnavn
   - Last name: Innflytter.Etternavn
   - Email: Innflytter.Kontaktinformasjon.Epost
