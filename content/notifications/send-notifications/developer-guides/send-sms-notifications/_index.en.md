@@ -102,7 +102,7 @@ The result object describing the result of the recipient lookup containing the p
     details for selected notification channel were not identified
 
 
-|   Status   |                                   Description                                    |
+|   Status   |                                   Description                |
 | :--------: | :----------------------------------------------------------: |
 | Success | The recipient lookup was successful for all recipients.         |
 | PartialSuccess | The recipient lookup was successful for some recipients. |
