@@ -4,13 +4,13 @@ linktitle: Developer guides
 description: How to get started with Altinn 3 Broker, for developers
 tags: [Broker, guide]
 toc: true
-weight: 20
 ---
 
 {{<children />}}
 
+
 {{% notice warning  %}}
-This section of the documentation is a work in progress.
+This section of the documentation is a work in progress. 
 There are sections with missing or only partial documentation.
 {{% /notice %}}
 

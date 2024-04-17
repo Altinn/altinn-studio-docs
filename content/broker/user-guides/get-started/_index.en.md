@@ -9,8 +9,9 @@ weight: 10
 
 {{<children />}}
 
+
 {{% notice warning  %}}
-This section of the documentation is a work in progress.
+This section of the documentation is a work in progress. 
 There are sections with missing or only partial documentation.
 {{% /notice %}}
 
@@ -44,6 +45,10 @@ Contact the Service owner for the Broker Resource and ask for access to the Reso
 You are now ready to start integrating against the Broker APIs, see the [developer guides](../developer-guides/) for next steps.
 
 ## Service Owner specific steps
+
+In order to use events/webhooks for a broker resource, you need to setup a subscription for the given resource. This subscription is used to configure the endpoint where the events published by broker end up. You can read more about how to setup an Events subscription in Altinn Events here.
+
+## Service Owner's User Guide
 
 {{% notice warning  %}}
 This process will be simplyfied through a future update in Altinn Studio.
