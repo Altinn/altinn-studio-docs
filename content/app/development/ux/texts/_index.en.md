@@ -37,6 +37,21 @@ This is in __bold__ using double underscores.
 This is also in **bold**, using double asterisk.
 ```
 
+### Line breaks
+
+With markdown this is done with `\n`, which denotes a _new line_. To actually display the text as a new paragraph,
+two line breaks must be used. F.ex.;
+
+```markdown
+This is a text.\n\nThis is a text on the next line. 
+```
+
+Alternatively you could use html instead:
+
+```markdown
+This is a text.<br/>This is a text on the next line. 
+```
+
 ### Links
 
 Simple links can use markdown syntax:

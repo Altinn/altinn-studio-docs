@@ -55,11 +55,11 @@ finnes i dokumentert i [Sikkerhet i Altinn 3](../../whitepaper).
 
 
 ## 3.3 Bruk av databehandler og underdatabehandlere
-I henhold til inngåtte avtaler er Microsoft Azure databehandler for Digdir for behandling av personopplysninger hvor
+I henhold til inngåtte avtaler er Microsoft databehandler for Digdir for behandling av personopplysninger hvor
 Digdir er behandlingsansvarlig. For de behandlingene hvor Digdir er å betrakte som databehandler for en tjenesteeier, er
-Microsoft Azure underdatabehandler.
+Microsoft underdatabehandler.
 
-Microsoft Azure, i liket med de andre store internasjonale skyleverandørene, gjør omfattende bruk av underleverandører
+Microsoft, i liket med de andre store internasjonale skyleverandørene, gjør omfattende bruk av underleverandører
 og tredjeparter, for eksempel i form av support-sentre forskjellige steder i verden[^6]. Standardvilkårene er innrettet
 slik at kunden forhåndssamtykker generelt (ved å inngå avtalen) til at leverandøren kan benytte slike underleverandører
 / underdatabehandlere.
@@ -144,7 +144,7 @@ sørge for at europeiske kunder sine data kun skal bli lagret og prosessert inne
 
 Microsoft har pr. 30. januar 2023 gått ut og bekreftet at det nå ikke er nødvendig å overføre data ut av EØS i
 forbindelse med flerfaktor-autentisering (Multifactor Authentication eller MFA). Det er bare om man velger
-telefonoppringning med egen hilsen, at dette vil betjenes fra USA. Dette er ikke i bruk av Digdir og våre ansatte eller
+telefonoppringning med egen hilsen, at dette vil betjenes fra USA[^9]. Dette er ikke i bruk av Digdir og våre ansatte eller
 konsulenter.
 
 Etter dette legger Digdir til grunn at autentiseringsprosessen i Azure ikke medfører overføring av personopplysninger ut
@@ -203,3 +203,4 @@ i et demokratisk samfunn – vurdert ut ifra konteksten til personopplysningene 
 [Commercial Support Subprocessors from Official Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=50426)
 [^7]: https://nsm.no/aktuelt/risiko-2024-nasjonal-sikkerhet-er-et-felles-ansvar
 [^8]: https://learn.microsoft.com/en-us/azure/security/fundamentals/customer-lockbox-overview
+[^9]: https://learn.microsoft.com/nb-no/entra/identity/authentication/concept-mfa-data-residency

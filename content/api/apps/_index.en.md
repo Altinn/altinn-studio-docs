@@ -1,7 +1,7 @@
 ---
 title: App API
 linktitle: App
-description: The default APIs exposed by apps in Altinn 3.
+description: The default APIs exposed by apps in Altinn 3
 toc: false
 tags: [api]
 aliases:
@@ -24,6 +24,6 @@ https://{org}.apps.tt02.altinn.no/{org}/{appname}
 https://{org}.apps.altinn.no/{org}/{appname}
 ```
 
-The URL identifies the application owner specific hostname using the short name **org**, and the identifier of the app consisting of both the application owner short name and the name of the app; **org/appname**. 
+The URL identifies the application owner specific hostname using the short name (**org**), and the identifier of the app consisting of both the application owner short name and the name of the app (**org/appname**). 
 
 {{<children />}}

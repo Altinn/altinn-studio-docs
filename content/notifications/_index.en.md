@@ -62,7 +62,7 @@ Reasons to consider using Altinn Notifications for communication with Norwegian 
 
 - #### Notification
 
-  A _notification_ is the one instance of an email or SMS that is sent to a single recipient.
+  A _notification_ is the single instance of an email or SMS that is sent to a single recipient.
 
   Here is an example of a set of notifications related to an order:
 

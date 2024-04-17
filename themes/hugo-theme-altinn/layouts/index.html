@@ -3,11 +3,8 @@
 		<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fa fa-bars"></i> {{T "Navigation"}}</a>
 	</span>
 {{if .Site.Home.Content }} 
-	{{ $regExpIn := "<p><img src=\"([^\"]+)\" alt=\"([^\"]+)\" title=\"([^\"]+)\" /></p>" }}
-	{{ $regExpOut := "<figure><a href=\"$1\"><img src=\"$1\" alt=\"$2\" title=\"$3\" /></a><figcaption><em>$3</em></figcaption></figure>" }}
-	{{ $finalContent := .Site.Home.Content | replaceRE $regExpIn $regExpOut | safeHTML }}
-	{{ $finalContent }}
-{{else}}         
+	{{ .Site.Home.Content | safeHTML }}
+{{else}}
 	{{if eq .Site.Language.Lang "fr"}}
 		<h1>Personaliser la page d'accueil</h1>
 		<p>
@@ -28,5 +25,5 @@
 		</ul>
 	{{end}}
 	<p><i class="fa fa-heart fa-4x"></i></p>
-{{ end }}  
+{{ end }}
 {{ partial "footer.html" . }}
