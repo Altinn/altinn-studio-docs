@@ -177,7 +177,7 @@ when used in an `if`. Read more about this in the sections on [if](#func-if) and
 
 {{% /expandlarge %}}
 
-### Testing, feilsøking og utvikling av uttrykk
+### Testing, feilsøking og utvikling av uttrykk 
 
 ### Testing, Debugging, and Developing Expressions  
   
@@ -240,35 +240,38 @@ Here we find the closest `age` component `age-1`, which is _36_, Kari's age.
 
 These functions are available for use in expressions:
 
-| Function Name                                 | Parameters                                         | Return Value                         | Frontend | Backend |  
-| --------------------------------------------- | -------------------------------------------------- | ------------------------------------ | -------- | ------- |  
-| [`equals`](#func-equals)                      | [String](#strings), [String](#strings)             | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`notEquals`](#func-equals)                   | [String](#strings), [String](#strings)             | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`not`](#func-not)                            | [Boolean](#boolean-values)                         | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`greaterThan`](#func-gt)                     | [Number](#numbers), [Number](#numbers)             | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`greaterThanEq`](#func-gt)                   | [Number](#numbers), [Number](#numbers)             | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`lessThan`](#func-gt)                        | [Number](#numbers), [Number](#numbers)             | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`lessThanEq`](#func-gt)                      | [Number](#numbers), [Number](#numbers)             | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`concat`](#func-concat)                      | None or multiple [strings](#strings)               | [String](#strings)                   | ✅       | ✅      |  
-| [`and`](#func-and)                            | One or more [boolean values](#boolean-values)      | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`or`](#func-and)                             | One or more [boolean values](#boolean-values)      | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`if`](#func-if)                              | [See detailed description](#func-if)               | [See detailed description](#func-if) | ✅       | ✅      |  
-| [`contains`](#func-contains-not-contains)     | [String](#strings), [String](#strings)             | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`notContains`](#func-contains-not-contains)  | [String](#strings), [String](#strings)             | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`commaContains`](#func-commaContains)        | [String](#strings), [String](#strings)             | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`startsWith`](#func-starts-ends-with)        | [String](#strings), [String](#strings)             | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`endsWith`](#func-starts-ends-with)          | [String](#strings), [String](#strings)             | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`lowerCase`](#func-lowerCase-upperCase)      | [String](#strings)                                 | [String](#strings)                   | ✅       | ✅      |  
-| [`upperCase`](#func-lowerCase-upperCase)      | [String](#strings)                                 | [String](#strings)                   | ✅       | ✅      |  
-| [`stringLength`](#func-stringLength)          | [String](#strings)                                 | [Number](#numbers)                   | ✅       | ✅      |  
-| [`text`](#func-text)                          | [String](#strings)                                 | [String](#strings)                   | ✅       | ❌      |  
-| [`language`](#func-language)                  | None                                               | [String](#strings)                   | ✅       | ❌      |  
-| [`displayValue`](#func-displayValue)          | [String](#strings)                                 | [String](#strings)                   | ✅       | ❌      |  
-| [`round`](#func-round)                        | [Number](#numbers), optional [Number](#numbers)    | [String](#strings)                   | ✅       | ✅      |  
-| [`instanceContext`](#func-instancecontext)    | [String](#strings)                                 | [String](#strings)                   | ✅       | ✅      |  
-| [`frontendSettings`](#func-frontendsettings)  | [String](#strings)                                 | [String](#strings)                   | ✅       | ✅      |  
-| [`dataModel`](#func-datamodel)                | [String](#strings)                                 | [String](#strings)                   | ✅       | ✅      |  
-| [`component`](#func-component)                | [String](#strings)                                 | [String](#strings)                   | ✅       | ✅      |  
+| Function Name                                | Parameters                                                                                       | Return Value                         | Frontend | Backend |  
+|----------------------------------------------|--------------------------------------------------------------------------------------------------| ------------------------------------ | -------- | ------- |  
+| [`equals`](#func-equals)                     | [String](#strings), [String](#strings)                                                           | [Boolean](#boolean-values)           | ✅       | ✅      |  
+| [`notEquals`](#func-equals)                  | [String](#strings), [String](#strings)                                                           | [Boolean](#boolean-values)           | ✅       | ✅      |  
+| [`not`](#func-not)                           | [Boolean](#boolean-values)                                                                       | [Boolean](#boolean-values)           | ✅       | ✅      |  
+| [`greaterThan`](#func-gt)                    | [Number](#numbers), [Number](#numbers)                                                           | [Boolean](#boolean-values)           | ✅       | ✅      |  
+| [`greaterThanEq`](#func-gt)                  | [Number](#numbers), [Number](#numbers)                                                           | [Boolean](#boolean-values)           | ✅       | ✅      |  
+| [`lessThan`](#func-gt)                       | [Number](#numbers), [Number](#numbers)                                                           | [Boolean](#boolean-values)           | ✅       | ✅      |  
+| [`lessThanEq`](#func-gt)                     | [Number](#numbers), [Number](#numbers)                                                           | [Boolean](#boolean-values)           | ✅       | ✅      |  
+| [`concat`](#func-concat)                     | None or multiple [strings](#strings)                                                             | [String](#strings)                   | ✅       | ✅      |  
+| [`and`](#func-and)                           | One or more [boolean values](#boolean-values)                                                    | [Boolean](#boolean-values)           | ✅       | ✅      |  
+| [`or`](#func-and)                            | One or more [boolean values](#boolean-values)                                                    | [Boolean](#boolean-values)           | ✅       | ✅      |  
+| [`if`](#func-if)                             | [See detailed description](#func-if)                                                             | [See detailed description](#func-if) | ✅       | ✅      |  
+| [`contains`](#func-contains-not-contains)    | [String](#strings), [String](#strings)                                                           | [Boolean](#boolean-values)           | ✅       | ✅      |  
+| [`notContains`](#func-contains-not-contains) | [String](#strings), [String](#strings)                                                           | [Boolean](#boolean-values)           | ✅       | ✅      |  
+| [`commaContains`](#func-commaContains)       | [String](#strings), [String](#strings)                                                           | [Boolean](#boolean-values)           | ✅       | ✅      |  
+| [`startsWith`](#func-starts-ends-with)       | [String](#strings), [String](#strings)                                                           | [Boolean](#boolean-values)           | ✅       | ✅      |  
+| [`endsWith`](#func-starts-ends-with)         | [String](#strings), [String](#strings)                                                           | [Boolean](#boolean-values)           | ✅       | ✅      |  
+| [`lowerCase`](#func-lowerCase-upperCase)     | [String](#strings)                                                                               | [String](#strings)                   | ✅       | ✅      |  
+| [`upperCase`](#func-lowerCase-upperCase)     | [String](#strings)                                                                               | [String](#strings)                   | ✅       | ✅      |  
+| [`stringLength`](#func-stringLength)         | [String](#strings)                                                                               | [Number](#numbers)                   | ✅       | ✅      |  
+| [`text`](#func-text)                         | [String](#strings)                                                                               | [String](#strings)                   | ✅       | ❌      |  
+| [`language`](#func-language)                 | None                                                                                             | [String](#strings)                   | ✅       | ❌      |  
+| [`displayValue`](#func-displayValue)         | [String](#strings)                                                                               | [String](#strings)                   | ✅       | ❌      |  
+| [`round`](#func-round)                       | [Number](#numbers), optional [Number](#numbers)                                                  | [String](#strings)                   | ✅       | ✅      |  
+| [`instanceContext`](#func-instancecontext)   | [String](#strings)                                                                               | [String](#strings)                   | ✅       | ✅      |  
+| [`frontendSettings`](#func-frontendsettings) | [String](#strings)                                                                               | [String](#strings)                   | ✅       | ✅      |  
+| [`dataModel`](#func-datamodel)               | [String](#strings)                                                                               | [String](#strings)                   | ✅       | ✅      |  
+| [`component`](#func-component)               | [String](#strings)                                                                               | [String](#strings)                   | ✅       | ✅      |  
+| [`formatDate`](#func-formatDate)             | [String](#strings), optional [String](#strings)                                                  | [String](#strings)                   | ✅       | ❌      |  
+| [`linkToPage`](#func-linkToPage)                 | [String](#strings), [String](#strings) | [String](#strings)                   | ✅       | ❌      |  
+| [`linkToComponent`](#func-linkToComponent)                 | [String](#strings), [String](#strings) | [String](#strings)                   | ✅       | ❌      |  
 
 Detailed descriptions and examples
 
@@ -725,7 +728,7 @@ of the expression within the context of [repeating groups](../../ux/fields/group
 component in the current row before looking up through the page structure. 
 {{% /expandlarge %}}
 
-{{% expandlarge id="func-formatDate" header="formatDate" %}}
+{{% expandlarge id="func-formatDate" header="formatDate" %}} 
 
 The formatDate function takes a date as its first argument, and a format as its second argument. The date argument is a
 string, while the format argument is an optional string that supports some tokens in
@@ -775,6 +778,38 @@ Example:
 ["formatDate", "2023-10-30T14:54:00.000Z", "HH:mm"]
 ```
 Would result in `14:54`
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-linkToPage" header="linkToPage" %}}
+The `linkToPage` function can be used to create links that can be used inside text in a form. It is meant to create links 
+that point to a specific page of the form. Clicking this link will navigate directly to the specified page.
+
+The function takes 2 arguments. The first argument is the link text which will be visible for the user. The second argument
+is the id of the page the link should point to. 
+
+
+```json
+["linkToPage", "Specify your name", "page1"]
+```
+Would result in `<a href="#/instance/<party-id>/<instance-id>/<TaskId>/page1">Specify your name</a>`
+When clicked, this link will take the user to the specified page.
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-linkToComponent" header="linkToComponent" %}}
+The `linkToComponent` function can be used to create links that can be used inside text in a form. It is meant to create links 
+that point to a specific component of the form. Clicking this link will navigate directly to the component, giving it focus.
+
+The function takes 2 arguments. The first argument is the link text which will be visible for the user. The second argument
+is the id of the component the link should point to. 
+
+
+```json
+["linkToComponent", "Specify your name", "inputMyName"]
+```
+Would result in `<a href="#/instance/<party-id>/<instance-id>/<TaskId>/<PageId>?focusNodeId=inputMyName">Specify your name</a>`
+When clicked, this link will take the user to the page the component is on and focus on the specified component.
 
 {{% /expandlarge %}}
 
