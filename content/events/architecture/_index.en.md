@@ -27,10 +27,12 @@ When an event retrieval request is received, it will respond with results from t
 ## System and service dependencies 
 ### Internal
 - **Altinn Authorization**: used to authorize access to endpoints
+- **Altinn Register**: used to support lookup on alternative subject
 
 ### External
 - [**Azure Kubernetes Services**](https://azure.microsoft.com/en-us/products/kubernetes-service): hosts the docker containers for microservices and cron jobs 
   in a fully managed Kubernetes cluster
 - [**PostgreSQL**](https://www.postgresql.org/): used for storage
 - [**Azure Functions**](https://docs.microsoft.com/en-us/azure/azure-functions/): used internally to process and forward incoming cloud events to subscriber webhooks. 
+- [**Azure Queue Storage**](https://azure.microsoft.com/en-us/products/storage/queues): hosts the queues used to decouple the processing for incoming events
 
