@@ -14,7 +14,7 @@ toc: true
 ## Combining notification channels
 
 {{% notice info %}}
-Per April '24 it is not possible to combine notification channels for a single order request.
+As of April '24 it is not possible to combine notification channels for a single order request.
 This functionality can be expected in the first half of '24. 
 {{% /notice %}}
 
