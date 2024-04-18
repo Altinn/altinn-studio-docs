@@ -73,6 +73,17 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "Ocp-Apim-Subscription-Key",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": ""
           }
         ],
         "responses": {
@@ -143,6 +154,17 @@
               "type": "boolean",
               "default": false
             }
+          },
+          {
+            "name": "Ocp-Apim-Subscription-Key",
+            "in": "header",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": ""
           }
         ],
         "requestBody": {
@@ -245,7 +267,7 @@
         ],
         "type": "object",
         "properties": {
-          "id": {
+          "type": {
             "type": "string"
           },
           "value": {
@@ -279,7 +301,7 @@
           "personId": {
             "type": "string",
             "nullable": true,
-            "example": "138155237"
+            "example": "01017012345"
           },
           "type": {
             "$ref": "#/components/schemas/AuthorizedPartyType"
@@ -300,6 +322,13 @@
           "onlyHierarchyElementWithNoAccess": {
             "type": "boolean",
             "example": false
+          },
+          "authorizedResources": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": ["app_org_appname", "someresourceid"]
+            }
           },
           "authorizedRoles": {
             "type": "array",

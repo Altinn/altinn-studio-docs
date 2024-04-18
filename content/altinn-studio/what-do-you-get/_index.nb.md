@@ -1,7 +1,7 @@
 ---
 title: Hva får du?
 description: Overordnet beskrivelse av hva du får ut av boksen med Altinn Studio
-weight: 2
+weight: 20
 ---
 
 ## Tilgjengelige tjenester
