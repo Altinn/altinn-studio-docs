@@ -149,7 +149,7 @@ parts of the solution.
 ### Unit tests
 The unit test projects are is available on GitHub.
 - [Altinn.Platform.Events.Tests](https://github.com/Altinn/altinn-events/tree/main/test/Altinn.Events.Tests)
-- [Altinn.Platform.Events.Functions.Tests](Altinn.Platform.Events.Functions.Tests)
+- [Altinn.Platform.Events.Functions.Tests](https://github.com/Altinn/altinn-events/tree/main/test/Altinn.Platform.Events.Functions.Tests)
 
 ### Integration tests
 No integration tests using external components haeve ben implemented for this solution.
