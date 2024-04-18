@@ -1,7 +1,7 @@
 ---
 title: What do you get?
 description: High-level description of what Altinn Studio provides out-of-the-box
-weight: 2
+weight: 20
 ---
 
 ## Accessible services

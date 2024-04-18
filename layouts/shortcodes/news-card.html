@@ -1,0 +1,10 @@
+<div style="border: 2px solid #022F51; border-radius: 5px; height: 250px; width: 300px; padding: 24px;">
+    <div style="display: flex; flex-direction: column; justify-content: flex-start; height: 200px">
+        <div style="height: 30px;"><h4>{{ .Get "title" }}</h4></div>
+        <div><p style="height: 130px; overflow-y: scroll; scrollbar-color: grey transparent;">{{ .Get "content" }}<p></div>
+        <div style="display: flex; flex-direction: row; justify-content: space-between;">
+            <a href="{{ .Get "githubUrl"}}">Github</a>
+            <div style="background-color: #cff0ff; border-radius: 5px; padding-left: 12px; padding-right: 12px; width: 90px;">{{ .Get "timeline" }}</div>
+        </div>
+    </div>
+</div>
