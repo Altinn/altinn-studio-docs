@@ -4,7 +4,7 @@ linktitle: Developer guides
 description: How to get started with Altinn 3 Broker, for developers
 tags: [Broker, guide]
 toc: true
-weight: 10
+weight: 20
 ---
 
 {{<children />}}
@@ -67,7 +67,3 @@ As such, you should implement Event subscriptions to make your process optimized
 
 For all operations you will need to Authenticate using your Maskinporten Client then acquire an Altinn Token from [Altinn Authentication](https://docs.altinn.studio/authentication/architecture/accesstoken/).
 Use the Altinn Token as a Bearer token for all Broker API requests along with the APIM subscription key as a header with the key `Ocp-Apim-Subscription-Key`.
-
-## Set up Event Subscriptions
-
-In order to use events/webhooks for a Broker resource, you need to setup a subscription for the given resource. This subscription is used to configure the endpoint where the events published by broker end up. [You can read more about how to setup an Events subscription in Altinn Events here](/content/events/subscribe-to-events/developer-guides/setup-subscription/).

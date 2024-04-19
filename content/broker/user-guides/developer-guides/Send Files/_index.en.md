@@ -15,6 +15,8 @@ This section of the documentation is a work in progress, and as such currently m
 
 Here are the detailed API operations and events you will be using when sending files.
 
+See also our [swagger page](/api/broker/spec/).
+
 ## Operation: Initialize FileTransfer
 
 **Endpoint:** POST /broker/api/v1/filetransfer/
@@ -50,7 +52,7 @@ If malware was detected, the event `no.altinn.broker.uploadfailed` is instead pu
 
 ## Operation: Get FileTransfer
 
-Get a simple overview of the file transfer with current status.
+Get a simple overview of the file transfer with current status and recipient status.
 
 ## Operation: Get FileTransferDetails
 
@@ -58,4 +60,13 @@ Get a detailed view of the file transfer, including detailed File Transfer and R
 
 ## Event: no.altinn.broker.downloadconfirmed
 
+*TODO: Example Event*
+
+This event is triggered when a recipient has confirmed the download has completed successfully.
+
 ## Event: no.altinn.broker.allconfirmeddownloaded
+
+*TODO: Example Event*
+
+This event is triggered when all the recipient has confirmed the download has completed.
+Depending on the Broker Service settings, this may lead to the file being deleted automatically.
