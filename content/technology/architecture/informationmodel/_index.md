@@ -15,8 +15,22 @@ aliases:
 
 
 
+
+
 ## Altinn Authorization
 
 | Term| Description |
 |-----|------|
-|Role | A Altinn role is a relationship betweens organizations and organizations, organizations and persons and persons and persons. The relationships either existr |
+|Altin Role | A Altinn role is a relationship betweens organizations and organizations, organizations and persons and persons and persons. The relationships either existr |
+
+
+
+## Altinn Register
+
+
+| Term| Description |
+|-----|------|
+| Party |  |
+| Organization |  |
+| Person |  |
+| SelfIdentifedUser |  |
