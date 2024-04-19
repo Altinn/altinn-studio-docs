@@ -14,7 +14,7 @@ This section of the documentation is a work in progress.
 There are sections with missing or only partial documentation.
 {{% /notice %}}
 
-Due to the differente distinct roles for which an enterprise may interact with Altinn Broker, namely:
+Due to the different distinct roles for which an enterprise may interact with Altinn Broker, namely:
 
 - Sender
 - Receiver

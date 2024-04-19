@@ -12,7 +12,7 @@ weight: 20
 {{% notice warning  %}}
 This process will be simplified through a future update in Altinn Studio.
 
-Particularly Steps 4 and 5 will be performed through GUI instead of requiring direct API Calls.
+Particularly Steps 4-6 will be performed through GUI instead of requiring direct API Calls.
 {{% /notice %}}
 
 ## 1. Get started as service owner in Altinn
@@ -24,7 +24,7 @@ This step is only necessary for new enterprises that have not yet established th
 
 ## 2. Perform common steps for API Key and Maskinporten Client
 
-Perform steps [1](/#1-get-an-altinn-broker-api-key) and [2](/#2-register-your-maskinporten-client-with-correct-scopes) under common steps mentioned above.
+Perform steps [1](../common-steps/_index.en.md#1-get-an-altinn-api-key) and [2](../common-steps/_index.en.md#2-register-your-maskinporten-client-with-correct-scopes) under common steps mentioned above.
 
 ## 3. Register a Resource in Altinn Resource Registry
 
@@ -58,6 +58,10 @@ Using the ID of the resource you created in step 3;
 PUT /broker/api/v1/resource/{{resource_id}}
 
 Example "Update Resource" in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json)
+
+## 6. Grant access to Senders and Receipients to the Resource
+
+Currently this has to be done manually by updating the policy defined in step 3, but will in the future be done using GUI.
 
 ## How to migrate from  Altinn 2 to Altinn 3
 
