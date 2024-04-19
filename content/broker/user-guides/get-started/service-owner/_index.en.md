@@ -24,7 +24,7 @@ This step is only necessary for new enterprises that have not yet established th
 
 ## 2. Perform common steps for API Key and Maskinporten Client
 
-Perform steps [1](../common-steps/_index.en.md#1-get-an-altinn-api-key) and [2](../common-steps/_index.en.md#2-register-your-maskinporten-client-with-correct-scopes) under common steps mentioned above.
+Perform steps 1 and 2 of the [Common Get started steps](../common-steps) if you have not already done so.
 
 ## 3. Register a Resource in Altinn Resource Registry
 
@@ -59,7 +59,7 @@ PUT /broker/api/v1/resource/{{resource_id}}
 
 Example "Update Resource" in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json)
 
-## 6. Grant access to Senders and Receipients to the Resource
+## 6. Grant access to Senders and Recipients to the Resource
 
 Currently this has to be done manually by updating the policy defined in step 3, but will in the future be done using GUI.
 

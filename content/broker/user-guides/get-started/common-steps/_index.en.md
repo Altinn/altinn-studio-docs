@@ -31,7 +31,7 @@ Register your Maskinporten client(s) to authenticate with the Broker API, assign
 - `altinn:broker.write` - For clients sending files.
 - `altinn:broker.read` - For clients receiving files.
 
-These scopes are maintained by Altinn and are required to be authorized for the appropriate API operations, and as such are independent of the [access set by Service Owners](../service-owner/_index.en.md#6-grant-access-to-senders-and-receipients-to-the-resource) for the specific Broker Service Resource.
+These scopes are maintained by Altinn and are required to be authorized for the appropriate API operations, and as such are independent of the [access set by Service Owners](../service-owner/_index.en.md#6-grant-access-to-senders-and-recipients-to-the-resource) for the specific Broker Service Resource.
 
 Use Samarbeidsportalen self-service for registration. [Here's a detailed guide](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web#selvbetjening-som-api-konsument).
 
@@ -67,8 +67,8 @@ This subscription is used to configure the endpoint where the events published b
 You will need to set up filters on at least:
 
 - sourceFilter
-  - TT02: https://platform.tt02.altinn.no/broker/api/v1/file
-  - PROD: https://platform.altinn.no/broker/api/v1/file
+  - TT02: <https://platform.tt02.altinn.no/broker/api/v1/file>
+  - PROD: <https://platform.altinn.no/broker/api/v1/file>
 - resourceFilter
   - "urn:altinn:resource:" + The Resource Id for the Broker Resource
 
