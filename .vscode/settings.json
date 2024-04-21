@@ -30,4 +30,4 @@
     "workbench.editor.customLabels.patterns": {
         "content/**/*index.*md": "${dirname}/${filename}.${extname}"
     }
-    
+}
