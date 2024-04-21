@@ -39,7 +39,7 @@
                 <a class="a-nav-link a-hvr-underline " href="{{ with .Site.GetPage `/technology`}}{{.RelPermalink}}{{end}}">tech</a>
               </li>
               <li class="nav-item d-none d-md-block">
-                <button class="a-collapse-title nav-link adocs-toggle-search" type="button" data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent">
+                <button class="a-collapse-title nav-link adocs-toggle-search" type="button" data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent" onclick="setTimeout(function(){getElementById('search-by').focus();}, 10); return true;">
                     <span>
                         <i class="ai ai-search" aria-hidden="true">
                           <span class="sr-only">{{T "search"}}</span></i>
