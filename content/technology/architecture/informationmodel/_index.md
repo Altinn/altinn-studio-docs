@@ -16,13 +16,14 @@ aliases:
 
 | Term| Description |
 |-----|------|
-| Altin Role | A Altinn role is a relationship betweens organizations and organizations, organizations and persons and persons and persons. The relationships either exist because it is implisitt given throug ER roles.   |
-| Policy  |  A policy containes rules for accesssing a app or a resource. Defined by the app developer / resource owner.  |
+| Access Package | An access package is a named and categorized “container” to which resource owners can add rights through policies. See an [overview of packages and categories](/authorization/modules/accessgroups/type-accessgroups/). | 
+| Altinn Role | A Altinn role is a relationship between organizations and organizations, organizations and persons, and persons and persons. The relationships exist because ER roles implicitly give them through or users have explicitly delegated them.  Altinn will discontinue Altinn Roles from the solution in 2026  |
+| Policy  |  A policy contains rules for accessing an app or a resource. The app developer or resource owner defines it. Altinn uses XACML as a policy format. Read more about the [policy format](/app/development/configuration/authorization/). |
 | Rule  | A rule defines different operations on resources / apps.   |
-| Delegation | A delegation is when a user gives rights to a person, system or organization. A delegation gives rights throug delegated roles, delegated accessPacakges or delegated single rights throug a delegation policy |
-| Delegation Policy |  A policy created by end user when they delegates rigts to other users/organizations  | 
-| Resource | A resource is metadata about a digital or analog service that a resource owner wants to use [Altinn Authorization](/authorization/modules/pdp/) for access control. When defining a service in [Altinn Resource Registry](/authorization/modules/resourceregistry/) with a policy Altinn PDP can be used to controll access |
-| Access List | A access list defines entites that can access a resource if resource requires access list access |
+| Delegation | A delegation is when a user gives rights to a person, system, or organization. A delegation gives rights through delegated roles, delegated access Packages, or delegated single rights through a delegation policy. |
+| Delegation Policy | A policy created by end-users when they delegate rights to other users/organizations. | 
+| Resource | A resource is metadata about a digital or analog service that a resource owner wants to use [Altinn Authorization](/authorization/modules/pdp/) for access control. When defining a service as a resource in [Altinn Resource Registry](/authorization/modules/resourceregistry/) with a policy, resource owners can use Altinn PDP to control access to external solutions.  |
+| Access List | An access list defines entities that can access a resource if the resource requires access list access. |
 
 
 ## Altinn Register
@@ -42,7 +43,7 @@ aliases:
 | Term| Description |
 |-----|------|
 | App | An application is created in Altinn Studio.  |
-| App Repository | App Repository |
+| App Repository | The app repository is the source control repository where the source code and configuration for an Altinn app is stored. A new repo is created for each app created in Altinn Studio |
 
 ## Altinn Events
 
