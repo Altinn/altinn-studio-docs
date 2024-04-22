@@ -2,7 +2,7 @@
 title: Altinn 3 Broker Future Extensions 
 linktitle: Possible Future Extensions 
 description: Altinn 3 Broker Anticipated and Possible Future Extensions 
-tags: [architecture, solution]
+tags: []
 toc: true
 weight: 90
 ---

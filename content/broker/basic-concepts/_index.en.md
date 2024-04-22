@@ -1,8 +1,8 @@
 ---
-title: Altinn Broker Concepts
+title: Altinn Broker Basic Concepts
 linktitle: Basic Concepts
 description: Altinn 3 Broker terminology and basic concepts.
-tags: [architecture, solution]
+tags: []
 toc: true
 weight: 10
 ---

@@ -2,7 +2,7 @@
 title: Altinn 3 Broker Advanced Use Cases 
 linktitle: Advanced Use Cases 
 description: Altinn 3 Broker Advanced Use Cases 
-tags: [architecture, solution]
+tags: []
 toc: true
 weight: 60
 ---

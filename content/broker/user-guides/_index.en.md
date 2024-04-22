@@ -2,7 +2,7 @@
 title: Altinn 3 Broker User Guides
 linktitle: User Guides
 description: How to get started with Altinn 3 Broker, for service owners, users and developers
-tags: [Broker, guide]
+tags: []
 toc: true
 weight: 80
 ---
