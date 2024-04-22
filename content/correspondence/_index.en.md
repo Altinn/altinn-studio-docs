@@ -7,10 +7,6 @@ toc: false
 weight: 1
 ---
 
-{{<notice warning>}} <!-- info -->
-This is work in progress
-{{</notice>}}
-
 {{<children />}}
 
 

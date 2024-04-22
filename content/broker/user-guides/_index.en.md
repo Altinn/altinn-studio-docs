@@ -2,13 +2,12 @@
 title: Altinn 3 Broker User Guides
 linktitle: User Guides
 description: How to get started with Altinn 3 Broker, for service owners, users and developers
-tags: [Broker, guide]
+tags: []
 toc: true
 weight: 80
 ---
 
 {{<children />}}
-
 
 <!-- 2024-04-06, Erik: Vurder å gi guides per "value stream stage", 
                  med egne kapitler for hvert stage, dvs. Onboarding, osv.  
