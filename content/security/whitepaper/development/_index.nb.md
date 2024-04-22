@@ -12,7 +12,10 @@ Hvert DevOps-team har en Security Champion/Sikkerhetskoordinator med spesielt fo
 Sikkerhetskoordinatoren deltar også i faggruppen sikkerhet i avdelingen BOD i Digdir, der problemstillinger og områder diskuteres.
 Utviklingsprosessen blir kontinuering forbedret.
 
-![Secure DevOps](devops.png "Figur 2 - Secure DevOps")
+<figure>
+<object title="Sikker DevOps" data="devops.svg" type="image/svg+xml"></object>
+<figcaption>Figur 2 - Sikker DevOps</figcaption>
+</figure>
 
 For å kunne sette utviklerne i fokus foretrekkes bruk av sikkerhetsverktøy og automatisering der dette er mulig.
 Dette er f.eks. integrasjon med [sikkerhetsverktøy](/community/contributing/handbook/securecoding/) i

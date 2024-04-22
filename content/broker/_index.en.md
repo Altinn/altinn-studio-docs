@@ -1,16 +1,10 @@
 ---
 title: Altinn 3 Broker
 linktitle: Broker
-description: Altinn 3 Broker offers managed file transfers between providers and consumers.  
-tags: [architecture, solution]
+description: Altinn 3 Broker offers managed file transfer with support for large files and advanced features for information security, status monitoring and quality of service.
+tags: []
 toc: false
 weight: 1
 ---
 
-{{<notice warning>}} <!-- info -->
-This is work in progress
-{{</notice>}}
-
 {{<children />}}
-
-

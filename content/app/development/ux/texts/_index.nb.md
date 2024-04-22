@@ -34,6 +34,20 @@ Dette er __fet tekst__ laget med understrek.
 Dette er også **fet tekst**, men laget med stjerner!
 ```
 
+### Linjeskift
+ 
+Med markdown gjøres dette med `\n` som markerer et linjeskift. For at det faktisk skal vises som et nytt avsnitt
+i en tekst må man ha 2 linjeskift etter hverandre i teksten. F.eks.:
+
+```markdown
+Dette er en tekst.\n\nDette er en tekst på neste linje. 
+```
+
+Alternativt kan man her bruke _html_:
+```markdown
+Dette er en tekst.<br/>Dette er en tekst på neste linje.
+```
+
 ### Lenker
 
 Enkle lenker kan bruke markdown-syntaks:

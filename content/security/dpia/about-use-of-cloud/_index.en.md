@@ -53,11 +53,11 @@ More information about security and the configuration of Altinn's use of Azure i
 3](../../whitepaper).
 
 ## 3.3 Use of Data Processors and Sub-processors
-According to the agreements entered into, Microsoft Azure is a data processor for Digdir for the processing of personal
+According to the agreements entered into, Microsoft is a data processor for Digdir for the processing of personal
 data where Digdir is the data controller. For those processes where Digdir is considered a data processor for a service
-owner, Microsoft Azure is a sub-processor.
+owner, Microsoft is a sub-processor.
 
-Microsoft Azure, like the other major international cloud providers, makes extensive use of subcontractors and third
+Microsoft, like the other major international cloud providers, makes extensive use of subcontractors and third
 parties, for example, in the form of support centers in various places in the world[^6]. The standard terms are arranged
 so that the customer consents in general (by entering into the agreement) to the provider using such
 subcontractors/sub-processors.
@@ -141,7 +141,7 @@ ensure that data of European customers will only be stored and processed within 
 
 As of January 30, 2023, Microsoft has confirmed that it is no longer necessary to transfer data out of the EEA in
 connection with multi-factor authentication (MFA). It is only if one chooses phone call verification with a custom
-greeting, that this will be serviced from the USA. This is not used by Digdir and our employees or consultants.
+greeting, that this will be serviced from the USA[^9]. This is not used by Digdir and our employees or consultants.
 
 Following this, Digdir assumes that the authentication process in Azure does not lead to the transfer of personal data
 out of the EEA.
@@ -201,3 +201,4 @@ necessary in a democratic society – assessed based on the context of the perso
 [Commercial Support Subprocessors from Official Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=50426)
 [^7]: https://nsm.no/aktuelt/risiko-2024-nasjonal-sikkerhet-er-et-felles-ansvar
 [^8]: https://learn.microsoft.com/en-us/azure/security/fundamentals/customer-lockbox-overview
+[^9]: https://learn.microsoft.com/en-us/entra/identity/authentication/concept-mfa-data-residency

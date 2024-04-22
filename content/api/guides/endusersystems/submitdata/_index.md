@@ -10,27 +10,27 @@ hidden: false
 
 ## Overordnet om Altinn og sluttbrukersystem
 
-På Altinn plattformen utvikler forskjellige etater og andre offentlige aktører tjenester som skal benyttes av innbyggere eller næringsliv.
+På Altinn-plattformen utvikler forskjellige etater og andre offentlige aktører tjenester som skal benyttes av innbyggere eller næringsliv.
 
-Tjenestene kan være enkle tjenester hvor man må rapportere ut en begrenset mengde med data, til komplekse tjenester med flere typer datalementer over flere prosessteg.
+Tjenestene kan være enkle tjenester hvor man må rapportere en begrenset mengde med data, til komplekse tjenester med flere typer datalementer over flere prosessteg.
 
 En viktig egenskap med tjenester utviklet i Altinn er at hver tjeneste tilbyr et sett med API som kan benyttes for maskin til maskininnsending av data fra sluttbrukersystem. 
 
 Et sluttbrukersystem er i denne kontekst programvare som utfører oppgaver på vegne av sluttbruker (innbygger/næringsliv). Enten fullstendig automatisert eller kontrollert av en sluttbruker.
 
-I dag er det ca 50% av dataene som blir rapportert til Altinn som blir send på denne måten fra over 100 forskjellige programvareløsninger.
+I dag er det ca. 50% av dataene som blir rapportert til Altinn som blir sendt på denne måten fra over 100 forskjellige programvareløsninger.
 
-## Hva er en Altinn tjeneste
+## Hva er en Altinn-tjeneste?
 
-En tjeneste består av en applikasjon som er tilgjengelig i Altinns infrastruktur. Denne applikasjonen har et sett med konfigurasjon som beskriver data som tjenesten skal motta eller sende ut samt hvilken prosess tjenesten har.
+En tjeneste består av en applikasjon som er tilgjengelig i Altinns infrastruktur. Denne applikasjonen har et sett med konfigurasjoner som beskriver data som tjenesten skal motta eller sende ut samt hvilken prosess tjenesten har.
 
-Eksempler på tjenester utviklet på den nye Altinn 3 plattformen finner du [her](/app/launched-apps/).
+Eksempler på tjenester utviklet på den nye Altinn 3-plattformen finner du [her](/app/launched-apps/).
 
-## Hvilke typer data er det tjenestene eksponerer/mottar via API
+## Hvilke typer data er det tjenestene eksponerer/mottar via API?
 
-Den typiske Altinn tjenesten har definert en skjemamodell som beskriver de dataene som gjelder den aktuelle tjenesten.
+Den typiske Altinn-tjenesten har definert en skjemamodell som beskriver de dataene som gjelder den aktuelle tjenesten.
 
-Denne modellen er spesifisert av den tjenesteeieren som har laget tjenesten. En tjeneste kan i tilegg til en ellere flere skjemamodeller også har definerte sett med vedleggsdata som skal vedlegges.
+Denne modellen er spesifisert av den tjenesteeieren som har laget tjenesten. En tjeneste kan i tilegg til en ellere flere skjemamodeller også ha definerte sett med vedleggsdata som skal vedlegges.
 
 ## Overordnet prosess for innsending
 
@@ -43,7 +43,7 @@ Diagrammet nedenfor viser den overordnede flyten i kommunikasjon mellom et slutt
 
 ### Forutsetninger
 
-For sluttbrukersystemer hvor sluttbrukere skal logge inn ved å bruke id porten, så må sluttbrukersystemet ha klient registrert som api_klient i ID-porten. Dokumentasjon om hvordan man registrerer klient finner man [her](https://docs.digdir.no/docs/idporten/oidc/oidc_func_clientreg).
+For sluttbrukersystemer hvor sluttbrukere skal logge inn ved å bruke ID-porten må sluttbrukersystemet ha klient registrert som api_klient i ID-porten. Dokumentasjon om hvordan man registrerer klient finner man [her](https://docs.digdir.no/docs/idporten/oidc/oidc_func_clientreg).
 
 ### Pålogging & scopes
 
@@ -51,28 +51,28 @@ For pålogging må sluttbrukersystem sende sluttbruker til ID-porten for pålogg
 
 Scope det må spørres om er altinn:instances.read og altinn:instances.write
 
-Disse scopene gir mulighet for kalle alle apper i Altinn 3.
+Disse scopene gir mulighet for å kalle alle apper i Altinn 3.
 
 Som del av påloggingsprosessen vil sluttbrukersystemet få tilgang til et access_token med informasjon om sluttbruker.
 
-Se detaljert påloggingsprosess med ID-porten og skjembilde sluttbruker blir presentert [her](/api/authentication/id-porten/).
+Se detaljert påloggingsprosess med ID-porten og skjermbildet som sluttbruker blir presentert for, [her](/api/authentication/id-porten/).
 
-### Innveksling av access_token til Altinn token
+### Innveksling av access_token til Altinn Token
 
 Neste steg i prosessen er å veksle access_token fra ID-porten til et Altinn Token.
 
-Et Altinn Token kan benyttes mot alle tjeneste applikasjoner og relevante felleskomponenter.
+Et Altinn Token kan benyttes mot alle tjenesteapplikasjoner og relevante felleskomponenter.
 
 Innveksling skjer mot [Autentiserings API](/api/authentication/spec/).
 
 Innvekslingen skjer ved at man setter Access Token fra ID-porten som et Bearer token i authorization headeren og gjør et GET kall mot innvekslingsendepunktet
-hvor "id-porten" er brukt som tokenprovider.
+hvor "id-porten" er brukt som token provider.
 
 Detaljert beskrivelse av innveksling med ID-porten token finner du [her](/api/authentication/id-porten/).
 
 ### Instansiering og innsending av data
 
-Når man har et gyldig token kan man instansiere (opprette tjeneste instans) og sende inn data for den digitale tjenesten.
+Når man har et gyldig token kan man instansiere (opprette tjenesteinstans) og sende inn data for den digitale tjenesten.
 
 Det er i hovedsak to flyter man kan velge her.
 
@@ -92,7 +92,7 @@ Dette kallet går mot [Instance API](/api/apps/instances/#create-instance) på a
     },
    }
 ```
-Resultatet er en instans med skjemdata som igjen inneholder standard data og prefill data konfigurert av tjenesteeier.
+Resultatet er en instans med skjemdata som igjen inneholder standard data og prefilldata konfigurert av tjenesteeier.
 
 ```json
 {
@@ -159,8 +159,8 @@ Resultatet er en instans med skjemdata som igjen inneholder standard data og pre
 }
 ```
 
-System kan velge å laste ned data via data API for å legge til egne data eller eventuelt bare overskrive skjema som ble opprettet
-under instansiering. Det må brukes id for automopprettet skjema for å overskrive.
+System kan velge å laste ned data via data-API for å legge til egne data eller eventuelt bare overskrive skjema som ble opprettet
+under instansiering. Det må brukes ID for autoopprettet skjema for å overskrive.
 
 PUT grensesnitt for data benyttes for å overskrive data. Data kan sendes som XML eller JSON.
 
@@ -168,17 +168,17 @@ Dette avhenger av hvordan skjemedefinisjonen er delt av tjeensteeier.
 
 #### Instansiering med multipart formdata
 
-Denne måten å instansiere på gjør at man sender inn informasjon om avgiver, samt data i samme API kall. Instans delen er som i eksempelet over.
+Denne måten å instansiere på gjør at man sender inn informasjon om avgiver, samt data, i ett og samme API-kall. Instansdelen er som i eksempelet over.
 
-Skjemadata kan være i XML format (mest vanlig til nå) eller JSON format. 
+Skjemadata kan være i XML-format (mest vanlig til nå) eller JSON-format. 
 
-Typisk vil tjenesteeier kommuniserere XSD/JSON Schema dokumentasjon til sluttbrukersystemleverandører via egne kanaler. 
+Typisk vil tjenesteeier kommuniserere XSD/JSON Schema dokumentasjon til sluttbrukersystemleverandører via [Altinn digitalisering](https://www.altinndigital.no/produkter/altinn-api-for-datasystem/tjenesteoversikt/) eller via egne kanaler. 
 
 Eksempel på slike kanaler er nettsted for [Skattemeldingen tjeneste](https://github.com/Skatteetaten/skattemeldingen) og [MVA tjeneste](https://skatteetaten.github.io/mva-meldingen/)
 
-I tilegg til skjemadata kan det være en eller flere filvedlegg.
+I tilegg til skjemadata kan det være ett eller flere filvedlegg.
 
-Eksempelet nedefor viser multiparm/form-data med instance informasjon, skjemadata (model1) og vedlegsdata (certificate).
+Eksempelet nedenfor viser multipart/form-data med instance-informasjon, skjemadata (model1) og vedleggsdata (certificate).
 
 ```http {linenos=false,hl_lines=[5,10,15]}
 Content-Type: multipart/form-data; boundary="abcdefg"
@@ -206,23 +206,23 @@ Content-Disposition: form-data; name="certificate"; filename=certificate.pdf
 
 ### Fullføring av prosess
 
-I det skjemadata og vedleggsdata er komplett utfylt kan sluttbrukersystemet fullføre applikasjonsprosessen.
+Idet skjemadata og vedleggsdata er komplett utfylt kan sluttbrukersystemet fullføre applikasjonsprosessen.
 
-En prosess kan bestå av en til flere steg. Typisk består en prosesssflyt av et steg hvor man laster opp data og et nytt prosessteg hvor man bekrefter data.
+En prosess kan bestå av ett til flere steg. Typisk består en prosesssflyt av et steg hvor man laster opp data og et nytt prosessteg hvor man bekrefter data.
 
-For et sluttbrukersystem betyr det følgende opersjoner må gjennomføres før prosess er komplett.
+For et sluttbrukersystem betyr det at følgende opersjoner må gjennomføres før prosess er komplett:
 
 #### Bekrefte Next på datasteg
 
-Ved å sende put på [NEXT](/api/apps/process/#complete-and-move-to-next-task) på prosess API
+Ved å sende PUT på [NEXT](/api/apps/process/#complete-and-move-to-next-task) på prosess-API
 vil tjenesten validere data og sende prosessen videre til bekreftelse.
 
 Ved feil på data vil man få en feilmelding.
 
-Man kan da kalle [validerings API](/api/apps/validation/#validate-stored-instance) for å få detaljer om feil.
+Man kan da kalle [validerings-API](/api/apps/validation/#validate-stored-instance) for å få detaljer om feil.
 
 #### Bekrefte Next på bekreftelsesteg
 
-Når data er validert ok vil tjenesten ligge til bekreftelse. Ved å gjøre et ekstra put kall til next i denne tilstanden blir tjenesten fullført.
+Når data er validert OK vil tjenesten ligge til bekreftelse. Ved å gjøre et ekstra PUT-kall til NEXT i denne tilstanden blir tjenesten fullført.
 
 Tjenesteeier blir da varslet om at prosessen er fullført og kan behandle data videre.
