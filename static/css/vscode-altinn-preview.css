@@ -63,6 +63,9 @@ pre {
   border-radius: 7px !important;
   white-space: pre-wrap;
 }
+pre code, pre code span {
+  background: #000 !important;
+}
 code {
   font-family: "Consolas", menlo, monospacef;
   font-size: 74% !important;

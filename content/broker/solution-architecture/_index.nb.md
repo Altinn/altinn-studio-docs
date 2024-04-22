@@ -31,7 +31,7 @@ These high level principals apply.
 
 ### General Altinn 3 Architecture Principles
 
-The [Altinn 3 Architecture Principles](../../technology/architecture/principles) apply.
+The [Altinn 3 Architecture Principles](/principles) apply.
 
 <!--
 ### Architecture Principles for Messaging and Data Sharing
@@ -81,7 +81,7 @@ The following figure gives a high level solution overview.
 ![Altinn 3 Broker High Level Solution Overview](altinn3-broker-highlevel-solution-overview.en.png "Altinn 3 Broker High Level Solution Overview")
 
 This diagram expands on 
-the [basic context overview](../basic-concepts#context-overview) 
+the [basic context overview](../basic-concepts#kontekstoversikt---aktører-og-informasjonsflyt) 
 by indicating the involved building blocks.
 
 <!--
@@ -100,10 +100,10 @@ here's a summary of how these components relates to and serves Altinn 3 Broker:
 * [Maskinporten](https://www.digdir.no/felleslosninger/maskinporten/869): Authentication and authorization of machines (End User Systems). 
   Authorization features are realized in cooperation with the Altinn Authorization component.
 * [Altinn Authorization](../../authorization/). Register services resources and authorize access.
-* [Altinn Notifications](../../notifications/). Notifications to human end users via e-mail and sms.
-* [Altinn Events](../../events/). Notifications to webhooks in End User Systems.
+* Altinn Notifications. Notifications to human end users via e-mail and sms.
+* Altinn Events. Notifications to webhooks in End User Systems.
 * [Altinn Studio](../../altinn-studio/). Applications and user interface for self service configuration of the solutions.
-* [Altinn Billing](...). Invoicing of customers.
+* Altinn Billing. Invoicing of customers.
 
 ## Transition Architecture - Altinn 2 to Altinn 3
 
@@ -157,7 +157,7 @@ Learn](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-en
 ## Metadata storage
 
 The following information model details the
-[conceptual information model under basic concepts](../basic-concepts#conceptual-information-model).
+[conceptual information model under basic concepts](../basic-concepts#konseptuell-informasjonsmodell).
 
 ![Altinn 3 Broker Metadata Storage Information Model](altinn3-broker-metadata-storage-information-model.en.png "Altinn 3 Broker Metadata Storage Information Model")
 
@@ -182,11 +182,11 @@ TBD.
 ### Notifications to human end users
 
 Notifications to human recipients are supported by e-mail and sms, 
-see [Altinn Notifications](../../notifications/).
+see Altinn Notifications.
 
 ### Notifications to End User Systems
 
-End User Systems may register custom webhooks for receiving events; see [Altinn Events](../../events/).
+End User Systems may register custom webhooks for receiving events; see Altinn Events.
 
 See [the Altinn 3 Broker OpenAPI specification](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-v1.json) 
 for the evnets 
