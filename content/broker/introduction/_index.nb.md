@@ -54,10 +54,7 @@ Noen av de viktigste fordelene er:
 
 Informasjon om hvordan komme i gang er gitt i følgende rollespesifikke brukerveiledninger: 
 
-- [Veiledning for utviklere](../user-guides#developers-user-guide)
-
-- [Veiledning for tjenesteeiere](../user-guides/#service-owners-user-guide)
-
-- [Veiledning for avsendere (tilbydere)](../user-guides/#senders-user-guide).
-
-- [Veiledning for mottakere (konsumenter)](../user-guides/#recipients-user-guide).
+- [Veiledning for utviklere](../user-guides#veiledning-for-utviklere)
+- [Veiledning for tjenesteeiere](../user-guides/#veiledning-for-tjenesteeiere)
+- [Veiledning for avsendere (tilbydere)](../user-guides/#veiledning-for-avsendere-tilbydere).
+- [Veiledning for mottakere (konsumenter)](../user-guides/#veiledning-for-mottakere-konsumenter).
