@@ -2,7 +2,7 @@
 title: System Interfaces
 linktitle: System Interfaces
 description: Altinn 3 Broker System Interfaces 
-tags: [architecture, solution]
+tags: []
 toc: true
 weight: 30
 ---

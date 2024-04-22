@@ -1,59 +1,56 @@
 ---
-title: Altinn 3 Broker Capabilities
-linktitle: Capabilities
-description: Altinn 3 Broker Capabilities and Features.
-tags: [architecture, solution]
+title: Altinn 3 Formidling funksjonalitet
+linktitle: Funksjonalitet
+description: Altinn 3 Formidling funksjonalitet
+tags: []
 toc: true
 weight: 15
 ---
 
+## Verdistrømanalyse
 
-## Organization of capabilities - value stream stages
+Å definere funksjonelle egenskaper innenfor verdistrømsteg 
+gir kontekst til navngivning og beskrivelser av egenskapene. 
+Figuren nedenfor viser en verdistrømmodell for Altinn Formidling og hovedtypene av brukere, 
+dvs. avsendere (datatilbydere), mottakere (datakonsumenter) og tjenesteeiere.
 
-Defining capabilities and features within value stream stages gives context to 
-the naming and descriptions of the capabilities. 
-The following figure shows a value stream model for Altinn Broker and the main types of users, 
-i.e. senders (data providers),  recepients (data consumers), and service owners.
 
-![Altinn 3 Broker high level value stream stages](altinn3-broker-value-stream-model.en.png "Altinn 3 Broker high level value stream stages")
+![Altinn 3 Formidling høy-nivå verdistrøm](altinn3-broker-value-stream-model.nb.png "Altinn 3 Formidling høy-nivå verdistrøm")
 <!--
 [{{< figure src="./Altinn 3 Broker high level value streams (en ).png" title="Figure: Altinn 3 Broker high level value streams" alt="Alt-text">}}](https://altinn.github.io/ark/models/archi-all/?view=id-10895c7502b84511bb272d77e91ecb00)
 -->
 
 
 
-## High level user needs 
-To see the capabilities required by the Altinn Broker solution, 
-we start by considering the user needs.
-The following diagram expresses the high level user needs for each value stream stage.
+## Overordnede brukerbehov
+For å se hvilke egenskaper som kreves av Altinn Broker-løsningen, starter vi med å vurdere brukernes behov. 
+Følgende diagram uttrykker de overordnede brukerbehovene for hvert verdistrømsteg.
 
-![High Level User Needs for Managed File Transfer](high-level-user-needs-for-managed-file-transfer.en.png "High Level User Needs for Managed File Transfer")
+![Høy-nivå brukerbehov for styrt filoverføring](high-level-user-needs-for-managed-file-transfer.nb.png "Høy-nivå brukerbehov for styrt filoverføring")
 
-The user needs are here expressed as high level user stories, or epics, 
-corresponding to user capabilities, 
-i.e. what the users need to be capable of.
+Brukerbehovene er her uttrykt som overordnede brukerhistorier, eller epos, 
+som tilsvarer "brukerkapabilitter", dvs. hva brukerne trenger å være i stand til.
 
 <!--
 _Note: This way of expressing used needs as  high level user stories, or epics, 
 is in line with by common frameworks for  agile development. See e.g. [the Scaled Agile Framework for Enterprises (SAFe)](https://scaledagileframework.com/)._
 -->
 
-Examples of how to read the diagram:
+Eksempler på hvordan man leser diagrammet:
 
-* As a Service Owner, I need (the ability) to facilitate secure and user friendly solutions for transfer of large files.
-* As a Sender, I need (the ability) to send large files to one or more recipients.
-
-
-## High-level system capabilities
-The following model shows the high-level system capabilities for each value stream stage, 
-corresponding to the high user needs as expressed in the previous section. 
-
-_Note: The system capabilities does not need to match the user epics (or capabilities) 
-on a on-to-one basis, 
-though this may as well be so in many cases._
+* Som en tjenesteeier trenger jeg (evnen) til å tilrettelegge brukervennlige løsninger for å sende og motta store filer.
+* Som en avsender trenger jeg (evnen) til å sende store  filer til en eller flere mottakere .
 
 
-![Altinn 3 Broker High Level Capabilities](altinn3-broker-high-level-capabilities.en.png "Altinn 3 Broker High Level Capabilities")
+##  Overordnet systemfunksjonalitet
+
+Følgende modell viser overordnede systemkapabiliteter, tilsvarende overordnede brukerbehov som beskrevet i forrige avsnitt.
+
+
+_Merk: Systemkapabiliteter trenger ikke å matche brukerepos (eller brukerkapabiliteter) én-til-én, 
+selv om dette ofte kan være tilfeller._
+
+![Altinn 3 Broker High Level Capabilities](altinn3-broker-high-level-capabilities.nb.png "Altinn 3 Broker High Level Capabilities")
 
 <!-- Erik TO_DO: Diagram with mapping from user needs (or user capabilities) to system capabilities -->
 

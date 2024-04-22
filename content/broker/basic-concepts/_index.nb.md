@@ -1,161 +1,118 @@
 ---
-title: Altinn Broker Concepts
-linktitle: Basic Concepts
-description: Altinn 3 Broker terminology and basic concepts.
-tags: [architecture, solution]
+title: Altinn Formidling grunnleggende konsepter og begreper
+linktitle: Konsepter og begreper
+description: Altinn 3 Formidling grunnleggende konsepter og begreper.
+tags: []
 toc: true
 weight: 10
 ---
 
-## Context overview
-
-The following diagram gives a high level overview of Altinn 3 Broker actors, services and information flow.
-
-![Altinn Broker Context Diagram](altinn3-broker-context-diagram.en.png "Altinn Broker Context Diagram")
-
-<!--
-[{{< figure src="./image2.png" title="Figure: Altinn Broker Context Diagram" alt="Alt-text">}}](https://altinn.github.io/ark/models/archi-all/?view=id-5824a04f89d04341aba661be649270b4)
--->
-
-Explanation to the diagram:
+## Kontekstoversikt - aktører og informasjonsflyt
 
 
-* The main service provided by Altinn Broker is managed file transfer from one sender (provider) to one or more recepients (consumers) with intermediary storage of files and metadata.
-* File Upload and File Download services are configurable.
-* All features are accessible to End User Systems via APIs.
-* Human End Users communicate with Altinn Broker via GUIs provided by either their custom End User Systems or GUI-s provided ny Altinn Broker. 
-  _Note: Service owners may choose to leverage Altinn Studio for building GUIs._
-* End User Systems may be triggered by events via notifications to [Webhooks](https://en.wikipedia.org/wiki/Webhook). The same events may alternatively be detected by polling the APIs, 
-  however supporting Webhooks in the End User Systems is recommended over API polling.
-* Service Owners configure the services and receive usage reports, invoices and other information according to the agreed service levels.
-* Senders upload files and receive status updates about processing and delivery to recepients.
-* Recepients receive notifications about available files.
-* Recepients confirm successful downloads. 
+Følgende diagram gir en høy-nivå oversikt over aktører, tjenester og informasjonsflyt i Altinn 3 Formidling.
 
 
+![Altinn Formidling kontekstoversikt](altinn3-broker-context-diagram.nb.png "Altinn Formidling kontekstoversikt")
 
-## Terminology
 
-The following table gives brief descriptions of the main terms used to describe
-Altinn 3 Broker. Also see https://docs.altinn.studio/technology/terms/ and <https://data.norge.no/concepts>.
+Forklaring til diagrammet:
 
-| **Term**                       | **Explanation**                                                                                                                                                                                                                                          |
-|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Broker                         | A 'broker' facilitates transactions, negotiations, or agreements between two parties, such as buyers and sellers, or providers and consumers. |
-| Customer                       | In the context of Altinn, 'customer' is  associated with 'service owner'. |
-| Data Consumer                  | A 'data consumer' is an individual or system that uses data provided by data sources or services. Also see 'recepient.
-| Data Holder                    | ‘Data holder’ means a legal person, including public sector bodies and international organisations, or a natural person who is not a data subject with respect to the specific data in question, which, in accordance with applicable law, has the right to grant access to or to share certain personal data or non-personal data. |
-| Data Provider                  | A 'data provider' is an entity that supplies or grants access to data.  Also see 'sender. |
-| Document                       | A 'document' refers to any form of recorded content, whether in digital or paper format, used to communicate, store, or present information, ranging from text and images to diagrams and multimedia. It serves various purposes, including legal evidence, historical records, educational material, or business transactions, facilitating the sharing and preservation of knowledge.                                                                                                                                                                                                                                                      |
-| End user                       | An 'end user' is the final consumer of the services in questions, typically human users through a graphical user interface (GUI).  |
-| End user system                | An 'end user system' provides the services and user interface for end users. |
-| File                           | A digital container used to store, manage, and manipulate data on a computer system or network. It can consist of text, images, audio, video, or other types of data, and is typically organized within a file system that allows for easy retrieval and access. |
-| File transfer                  | The process of moving or copying data over a computer network or through data storage devices.                                                                                                                                                                                                                                                      |
-| File transfer broker           | A 'file transfer broker' is a system or service that acts as an intermediary to facilitate the secure and efficient exchange of files between different parties or systems. Also see 'message broker'. |
-| Intermediary                   | An 'intermediary' is an entity that acts as a middleman or mediator between two parties in a transaction or communication process. |
-| Managed File Transfer (MFT)    | 'Managed file transfer' is a solution or service that facilitates and manages the secure transfer of data between systems. It provides a more reliable and secure alternative to traditional file transfer methods, by ensuring the encryption of data in transit and at rest, and offering better management and monitoring capabilities. |
-| Message Broker                 | A ‘message broker’ is a system or service that acts as an intermediary to facilitate message exchange between different parties or systems. |
-| On-premise                     | 'On-premise' means installation and operation of software and technology infrastructure directly within an organization's physical facilities, rather than hosted remotely or in the cloud. |
-| Process                        | A series of actions or steps taken to achieve a particular end.                                                                                                                                                                                                                                                      |
-| Recipient                      | An individual or entity that receives a message, package, or service from a sender. Also see Data Consumer. |
-| Sender                         | An individual or entity that initiates the transmission of a message or data to one or more recipients. Also see Data Provider. |
-| Service Owner                  | In the context of Altinn, a 'service owner' refers to an entity responsible for the development, management, and maintenance of a particular service within the Altinn platform. |
-| User Journey                   | A 'user journey' is a visual or narrative representation of a user's interactions with a product or service from start to finish. |
+* Hovedtjenesten levert av Altinn Broker er styrt filoverføring fra en avsender (tilbyder) til en eller flere mottakere (konsumenter), med mellomlagring av filer og metadata.
+* Opplasting og nedlasting av filer er konfigurerbare tjenester.
+* Alle funksjoner er tilgjengelige for sluttbrukersystemer via API-er.
+* Menneskelige sluttbrukere kommuniserer med Altinn Broker via grafiske brukergrensesnitt (GUI) levert enten av deres tilpassede sluttbrukersystemer eller GUI-er levert av Altinn Broker.
+  _Merk: Tjenesteeiere kan velge å utnytte Altinn Studio for å bygge GUI-er._
+* Sluttbrukersystemer kan trigges av hendelser via varslinger til [Webhooks](https://en.wikipedia.org/wiki/Webhook). De samme hendelsene kan alternativt oppdages ved å spørre API-ene, men det anbefales å støtte Webhooks i sluttbrukersystemene fremfor API-spørringer.
+* Tjenesteeiere konfigurerer tjenestene og mottar bruksrapporter, fakturaer og annen informasjon i henhold til de avtalte tjenestenivåene.
+* Avsendere laster opp filer og mottar statusoppdateringer om behandling og levering til mottakere.
+* Mottakere mottar varsler om tilgjengelige filer.
+* Mottakere bekrefter vellykkede nedlastinger.
 
-<!--
 
-A longer list of terms. kept as a comment until further: 
+## Begreper
 
-| **Term**                       | **Explanation**                                                                                                                                                                                                                                          |
-|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Case                           | TBD                                                                                                                                                                                                                                                      |
-| Case folder                    | TBD                                                                                                                                                                                                                                                      |
-| Case management                | TBD                                                                                                                                                                                                                                                      |
-| Cloud                          | TBD                                                                                                                                                                                                                                                      |
-| Consumer                       | TBD                                                                                                                                                                                                                                                      |
-| Data Broker                    | TBD                                                                                                                                                                                                                                                      |
-| Data Holder                    | ‘Data holder’ means a legal person, including public sector bodies and international organisations, or a natural person who is not a data subject with respect to the specific data in question, which, in accordance with applicable Union or national law, has the right to grant access to or to share certain personal data or non-personal data. |
-| Dialog                         | A 'dialog' is a conversation between two or more people or entities, typically characterized by an exchange of ideas, information, or sentiments.                                                                                                                                                                                                                                                      |
-| Document                       | A 'document' refers to any form of recorded content, whether in digital or paper format, used to communicate, store, or present information, ranging from text and images to diagrams and multimedia. It serves various purposes, including legal evidence, historical records, educational material, or business transactions, facilitating the sharing and preservation of knowledge.                                                                                                                                                                                                                                                      |
-| End-to-end process             | TBD                                                                                                                                                                                                                                                      |
-| End user                       | TBD                                                                                                                                                                                                                                                      |
-| End user system                | TBD                                                                                                                                                                                                                                                      |
-| Enterprise                     | TBD. Note: Virtual enterprise, end-to-end processes and seamless services                                                                                                                                                                                |
-| File                           | A digital container used to store, manage, and manipulate data on a computer system or network. It can consist of text, images, audio, video, or other types of data, and is typically organized within a file system that allows for easy retrieval and access. |
-| File transfer                  | The process of moving or copying data over a computer network or through data storage devices.                                                                                                                                                                                                                                                      |
-| Graphical User Interface (GUI) | A visual interface that allows human users to interact with electronic devices using icons, buttons, and other graphical elements instead of text-based command lines. |
-| Intermediary                   | an entity that acts as a middleman or mediator between two parties in a transaction or communication process. |
-| Managed File Transfer (MFT)    | A solution or service that facilitates and manages the secure transfer of data between systems. It provides a more reliable and secure alternative to traditional file transfer methods, by ensuring the encryption of data in transit and at rest, and offering better management and monitoring capabilities. |
-| Message Broker                 | A solution or service that enables communication between different applications by translating and routing messages. |
-| On-premise                     | Installation and operation of software and technology infrastructure directly within an organization's physical facilities, rather than hosted remotely or in the cloud.                                                                                                                                                                                                                                                      |
-| Process                        | A series of actions or steps taken to achieve a particular end.                                                                                                                                                                                                                                                      |
-| Provider                       |                                                                                                                                                                                                                                                |
-| Recipient                      | An individual or entity that receives a message, package, or service from a sender. |
-| Seamless services              | TBD                                                                                                                                                                                                                                                      |
-| Sender                         | An individual or entity that initiates the transmission of a message or data to one or more recipients. |
-| Service-based Routing          | See https://www.ehelse.no/standardisering/om-standardisering-i-e-helse/tjenestebasert-adressering                                                                                                                                                                                                                                                      |
-| User Journey                   | A 'user journey' is a visual or narrative representation of a user's interactions with a product or service from start to finish. |
+Her følger en tabell som gir korte beskrivelser av hovedbegrepene som brukes for å beskrive Altinn 3 Formidling. 
+Se også https://docs.altinn.studio/technology/terms/ og <https://data.norge.no/concepts>.
 
--->
+| **Begrep**                       | **Forklaring**                                                                                                                                                                                                                                          |
+|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Avsender                         | En person eller enhet som initierer overføringen av en melding eller data til en eller flere mottakere. Se også Datatilbyder. |
+| Brukerreise                      | En 'brukerreise' er en visuell eller narrativ representasjon av en brukers interaksjoner med et produkt eller en tjeneste fra start til slutt. |
+| Dataholder                       | ‘Dataholder’ betyr en juridisk person eller en fysisk person som med hensyn til aktuelle data, i henhold til gjeldende lov, har rett til å gi tilgang til eller dele visse opplysninger, herunder personopplysninger. |
+| Datakonsument                    | En 'datakonsument' er en person eller et system som bruker data levert av datakilder eller tjenester. Se også 'mottaker'. |
+| Datatilbyder                     | En 'datatilbyder' er en enhet som leverer eller gir tilgang til data. Se også 'avsender'. |
+| Dokument                         | Et 'dokument' refererer til enhver form for registrert innhold, enten i digitalt format eller papirformat, brukt til å kommunisere, lagre eller presentere informasjon, i spennet fra ustrukturt til strukturert og tekst til multimedia. Det tjener ulike formål, inkludert juridisk bevis, historiske poster, utdanningsmateriell eller forretningstransaksjoner. |
+| Fil                              | En 'fil' er en digital beholder brukt til å lagre, håndtere og manipulere data på et datamaskinsystem eller nettverk. Det kan bestå av tekst, bilder, lyd, video eller andre typer data, og er typisk organisert innenfor et filsystem som tillater enkel henting og tilgang. |
+| Filoverføring                    | Prosessen med å flytte eller kopiere data over et datanettverk eller gjennom datalagringsenheter. |
+| Filoverføringsmegler             | En 'filoverføringsmegler' er et system eller en tjeneste som fungerer som en mellommann for å legge til rette for sikker og effektiv utveksling av filer mellom ulike parter eller systemer. Se også 'meldingsmegler'. |
+| Formilder                        | En 'formidler' er her å oppfatte som en 'megler' mellom tilbydere og konsumenter av data. |
+| Kunde                            | I sammenhengen av Altinn, er 'kunde' assosiert med 'tjenesteeier'. |
+| Megler                           | En 'megler' ('broker' på engelsk) legger til rette for og formidler transaksjoner, forhandlinger eller avtaler mellom to eller flere parter, som kjøpere og selgere, eller tilbydere og konsumenter. |
+| Mellommann                       | En 'mellommann' er en enhet som fungerer som en megler eller formidler mellom to parter i en transaksjon eller kommunikasjonsprosess. |
+| Meldingsmegler                   | En ‘meldingsmegler’ er et system eller en tjeneste som fungerer som en mellommann for å legge til rette for meldingsutveksling mellom ulike parter eller systemer. |
+| Mottaker                         | En person eller enhet som mottar en melding, pakke eller tjeneste fra en avsender. Se også Dataforbruker. |
+| Om-premise                        | 'On-premise' betyr installasjon og drift av programvare og teknologiinfrastruktur direkte innenfor en organisasjons fysiske fasiliteter, i stedet for vertskap eksternt eller i skyen. |
+| Prosess                          | En rekke handlinger eller trinn for å oppnå et bestemt mål. |
+| Sluttbruker                      | En 'sluttbruker' er den endelige forbrukeren av aktuelle tjenester, typisk menneskelige brukere gjennom et grafisk brukergrensesnitt (GUI). |
+| Sluttbrukersystem                | Et 'sluttbrukersystem' tilbyr tjenester og brukergrensesnitt for sluttbrukere. |
+| Styrt Filoverføring (MFT)        | 'Styrt filoverføring' er en løsning eller tjeneste som legger til rette for og håndterer sikker overføring av data mellom systemer. Den tilbyr et mer pålitelig og sikkert alternativ til tradisjonelle filoverføringsmetoder, ved å sikre kryptering av data under overføring og i hvile, og tilbyr bedre håndterings- og overvåkningsmuligheter. |
+| Tjenesteeier                     | I sammenhengen av Altinn, refererer en 'tjenesteeier' til en enhet ansvarlig for utvikling, håndtering og vedlikehold av en spesifikk tjeneste innenfor Altinn-plattformen. |
 
-Notes: 
-* In the context of Altinn Broker, the terms _Data Provider_ and _Sender_ may be assumed to mean the same.
-* In the context of Altinn Broker, the terms _Data Consumer_ and _Recepient_ may be assumed to mean the same.
+
+Merk: 
+* I kontekst av Altinn Formidling, benyttes begrepene _datatilbyder_ og _avsender_ om det samme.
+* I kontekst av Altinn Formidling, benyttes begrepene _datakonsument_ og _mottaker_ om det samme.
   <!-- are used interchangeably. -->
 
-## Conceptual information model
+## Konseptuell informasjonsmodell
 
-A high level conceptual information model for Altinn 3 Broker is shown in the below figure. 
-This model is used as basis for the more detailed information model of Altinn Broker _Metadata Storage_.
+En høy-nivå konseptuell informasjonsmodell for Altinn 3 Broker er vist i figuren nedenfor.
 
-![Altinn 3 Broker High Level Conceptual Information Model](altinn3-broker-highlevel-conceptual-information-model.en.png "Altinn 3 Broker High Level Conceptual Information Model")
-
-Explanation:
-
-* The overall File Transfer Process includes exactly one Upload Process by a Sender and one or more Download Processes corresponding to the number of Recipients.
-* Each File Transfer Process considers one File only. The same applies for each Upload Process and Download Process. 
-* The same File may be used in several File Transfer Processes and consequently in several Download Processes.
-* Only one Upload Process per File is considered. Note that if the same file is uploaded more than once, Altinn Broker will  consider the files as different and assign different identifiers.
-* Notifications about File Transfer Events are given to Senders and Recepients depending on subscription setup. E.g. recepients may be notified about new messages, and senders may be notified about delivery events. 
-* Each File Transfer Event relates to one File Transfer Process, and consequently only one File, however any number of events may occur for the same File Transfer Process.
+![Altinn 3 Formidling høy-nivå konseptuell informasjonsmodell](altinn3-broker-highlevel-conceptual-information-model.nb.png "Altinn 3 Formidling høy-nivå konseptuell informasjonsmodell")
 
 
-## File Transfer Process States
+Forklaring:
 
-The overall transfer process is depicted by the following model. It shows the main states and state transitions of the overall file transfer process,
-as relevant for Altinn Broker and status reporting to the sender.
+* Den overordnede filoverføringsprosessen inkluderer nøyaktig én opplastingsprosess av en avsender og én eller flere nedlastingsprosesser tilsvarende antall mottakere.
+* Hver filoverføringsprosess vurderer kun én fil. Det samme gjelder for hver opplastingsprosess og nedlastingsprosess.
+* Den samme filen kan brukes i flere filoverføringsprosesser og dermed i flere nedlastingsprosesser.
+* Kun én opplastingsprosess per fil betraktes. Merk at hvis samme fil lastes opp mer enn én gang, vil Altinn Broker betrakte filene som forskjellige og tildele forskjellige identifikatorer.
+* Varsler om hendelser i filoverføringsprosessen gis til avsendere og mottakere avhengig av abonnementsoppsett. F.eks. kan mottakere bli varslet om nye meldinger, og avsendere kan bli varslet om leveringshendelser.
+* Hver hendelse i filoverføringsprosessen relaterer seg til én filoverføringsprosess, og dermed kun én fil, men et hvilket som helst antall hendelser kan inntreffe for samme filoverføringsprosess.
 
-![Altinn Broker File Transfer Processes and States](altinn3-broker-file-transfer-states.en.png "Altinn Broker File Transfer Processes and States")
+## Tilstandsdiagram for filoverføringsprosessen
 
+Den overordnede overføringsprosessen vises i følgende modell. 
+Her vises de viktigste tilstandene og tilstandsovergangene for den samlede filoverføringsprosessen, 
+slik det er relevant for Altinn Formidling og statusrapportering til avsenderen.
 
-The above figure depicts a _Finite State Machine_ with the following states:
+![Prosesser og tilstander for filoverføring i Altinn Formidling](altinn3-broker-file-transfer-states.nb.png "Prosesser og tilstander for filoverføring i Altinn Formidling")
 
-* __Initialized__: The transfer prosess is initialized by the sender. _Note: This state machine description does not consider preceeding events. 
-The file transfer could e.g. be a reply to a single request from a single party, 
-or it could be a publication to an y number of known or unknown subscribers._
+Figuren over fremstiller en _Endelig Tilstandsmaskin_ med følgende tilstander:
 
-* __Upload in Progress__: Large files may take time to upload. Altinn Broker will keep track of the progress.
+* __Initialisert__: Overføringsprosessen er initialisert av avsenderen. _Merk: Denne tilstandsmaskinbeskrivelsen tar ikke hensyn til foregående hendelser. Filoverføringen kunne for eksempel være et svar på en enkelt forespørsel fra en enkelt part, eller det kunne være en publisering til et y antall kjente eller ukjente abonnenter._
 
-* __Upload Processing__: Uploaded files are validated and checked for viruses.
+* __Opplasting pågår__: Store filer kan ta tid å laste opp. Altinn Broker vil holde styr på fremgangen.
 
-* erik  ver.2    __Cancelled__: Altinn Broker supports cancelling of file transfers 
-as long as no download process has started. 
+* __Sjekk av opplasting__: Opplastede filer valideres og sjekkes for virus.
 
-* __Published__: Ready for downloads.
-   
-* __Downloads Initiated__:One or more recepients has started downloading.
+* __Avbrutt__: Altinn Broker støtter avbrytelse av filoverføringer så lenge ingen nedlastingsprosess har startet.
 
-* __TransferFailed__: The overall transfer process failed, for some reason, either during upload, upload processing or during download by one or more repepients.
-  
-* __All Confirmed Downloaded__: All required recepients have confirmed download.
+* __Publisert__: Klar for nedlastinger.
 
-* __Deleted__: The uploaded file has been purged. This could be upon specific request by the sender, 
-                or upon agreed criteria for purging, 
-                e.g. when all required recepients have confirmed download.
-                Note that the concept allows for files to remain in Altinn Broker File Store,
-                to support file sharing for other purposes than a single file transfer process. 
-                In such cases, the process ends when the file has been uploaded and published, 
-                with separate processes for downloading and purging.
+* __Nedlastinger initiert__: En eller flere mottakere har startet nedlastingen.
+
+* __Overføring feilet__: Den samlede overføringsprosessen mislyktes, av en eller annen grunn, enten under opplasting, behandling av opplasting eller under nedlasting av en eller flere mottakere.
+
+* __Alle bekreftet nedlastet__: Alle nødvendige mottakere har bekreftet nedlastingen.
+
+* __Slettet__: Den opplastede filen har blitt slettet. 
+ Dette kan være på spesifikk forespørsel fra avsenderen, 
+ eller etter avtalte kriterier for sanering, 
+ f.eks. når alle nødvendige mottakere har bekreftet nedlastingen. 
+ Merk at konseptet tillater at filer forblir i _Altinn Broker File Store_, for å støtte fildeling for andre formål enn en enkelt filoverføringsprosess. I slike tilfeller avsluttes prosessen når filen har blitt lastet opp og publisert, med separate prosesser for nedlasting og fjerning.
+
 
 <!-- 
 Erik's note per 2024-04-06: Capabilities and features for general file sharing yet to be specified.

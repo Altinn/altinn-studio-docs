@@ -1,86 +1,63 @@
 ---
-title: Altinn Broker Introduction
-linktitle: Introduction
-description: Introduction to the Altinn Broker Service.
-tags: [architecture, solution]
+title: Altinn Broker Introduksjon
+linktitle: Introduksjon
+description: Introduksjon til Altinn Formidling.
+tags: []
 toc: true
 weight: 1
 ---
 
-## What is Altinn Broker?
+## Hva er Altinn Formidling?
 
-The main use case for Altinn Broker is Managed File Transfer (MFT). It
-facilitates secure transmission of files of any size from one sender
-to one or more recepients. As such, it offers many
-benefits compared to alternative ad-hoc peer-to-peer file transfer
-solutions typically built on file transfer protocol (FTP), 
-hypertext transfer protocol (HTTP) or secure file transfer protocol (SFTP).
-
-![Main use case of Altinn Broker illustrated](./broker-pattern-1-n.png "Main use case of Altinn Broker illustrated: File F1 is conveyed from a provider to one or more consumers via intermediate storage.")
-
-<!--
-{{< figure src="./broker-pattern-1-n.png" title="Main use case of Altinn Broker illustrated. File F1 is conveyed from a provider to one or more consumers via intermediate storage" alt="Main use case of Altinn Broker illustrated">}}
--->
-
-While transfer of individual files is the main use case and original purpose of
-Altinn Broker, Altinn 3 Broker has been designed with some more advanced
-use cases and possible future extensions in mind. Advanced
-use cases and possible extensions are further described in separate
-sections.
-
-## Benefits of Altinn Broker 
-
-Compared to alternatives such as e.g., email, FTP or peer-to-peer file
-transfers, Altinn Broker offers a number of benefits. Some of the main
-benefits are:
-
-- Managed service: Take the burden off Service owners and their solution
-  vendors - security, maintenance, certified compliance with relevant
-  vendors - security, maintenance, certified compliance with relevant
-  legislation and regulations.
-
-- Fault tolerance and resilience: Altinn Broker will support fault
-  tolerant delivery of very large files (several gigabytes and possibly
-  terabytes). [^1]
-
-- Scalability and availability: Cloud hosting, DDOS protection.
-
-- Connect to any system or user: Senders and recipients are de-coupled
-  by separate upload and download processes; thus, each side is free to
-  choose the preferred protocol for upload and download.
-
-- Support for several patterns and addressing schemes: One-to-one,
-  one-to-many, content-based routing, and pub-sub.
-
-- Real-Time Data Transfer: Altinn Broker use APIs and system events to
-  trigger uploads and downloads.
-
-- Observability and Auditability: End-to-end visibility of all activity, 
-  so you know the who, what, where, and when of data transfers. Quickly
-  access file-transfer logs and analytics to audit transfer activity
-  whenever needed.
-
-- Advanced monitoring: With the in-built support for adding metadata to file transfers, 
-  it is possible to analyse file transfer sequences between multiple actors involved in e.g. a case management process. 
-
-- Observability and Auditability: End-to-end visibility of all activity, 
-  so you know the who, what, where, and when of data transfers. Quickly
-  access file-transfer logs and analytics to audit transfer activity
-  whenever needed.
-
-- Advanced monitoring: With the in-built support for adding metadata to file transfers, 
-- it is possible to analyse file transfer sequences between multiple actors involved in e.g. a case management process.
-
-## How to get started?
-
-Information about how to get started is given in the following role spesific user guides:
+Hovedbruksområdet for Altinn Broker er styrt filoverføring (Managed File Transfer - MFT), 
+med sikker overføring av filer av vilkårlig størrelse 
+fra én avsender til en eller flere mottakere. 
+Styrt filoverføring gir flere fordeler sammenlignet med alternative 
+ad-hoc peer-to-peer filoverføringsløsninger, 
+som vanligvis er basert på filoverføringsprotokoll (FTP), 
+hypertext transfer protocol (HTTP) eller secure file transfer protocol (SFTP).
 
 
+![Hovedbruksområdet til Altinn Broker illustrert](./broker-pattern-1-n.nb.png "Hovedbruksområdet til  Altinn Broker illustrert: Fil F1 formidles fra en avsender til en eller flere mottakere via mellomlagring i Altinn Formidling (Broker).")
 
-- [Developer's User Guide](../user-guides#developers-user-guide)
+Selv om overføring av individuelle filer er hovedbruksområdet 
+og det opprinnelige formålet med Altinn Broker, 
+er Altinn 3 Broker designet med noen mer avanserte bruksområder 
+og mulige fremtidige utvidelser i tankene. 
+Avanserte bruksområder og mulige utvidelser er ytterligere beskrevet i separate seksjoner.
 
-- [Service Owner's User Guide](../user-guides/#service-owners-user-guide)
 
-- [Sender's User Guide](../user-guides/#senders-user-guide).
+## Fordeler Altinn Formidling for styrt filoverføring
 
-- [Recipient’s User Guide](../user-guides/#recipients-user-guide).
+Sammenlignet med alternativer som for eksempel e-post, FTP eller peer-to-peer filoverføringer, 
+tilbyr Altinn Broker en rekke fordeler. 
+Noen av de viktigste fordelene er:
+
+- Styrt tjeneste: Tar byrden fra tjenesteeiere og deres løsningsleverandører - sikkerhet, vedlikehold, sertifisert overholdelse av relevant lovgivning og forskrifter.
+
+- Feiltoleranse og robusthet: Altinn Broker er planlagt å støtte feiltolerant levering av svært store filer.
+
+- Skalerbarhet og tilgjengelighet: Skyhosting, DDOS-beskyttelse.
+
+- Koble til ethvert system eller bruker: Sendere og mottakere er adskilt gjennom separate opplastnings- og nedlastningsprosesser; dermed er hver side fri til å velge foretrukket protokoll for opplasting og nedlasting.
+
+- Støtte for flere mønstre og adresseringsskjemaer: En-til-en, en-til-mange, innholdsbasert ruting og pub-sub.
+
+- Overføring av data i sanntid: Altinn Broker bruker API-er og systemhendelser for å utløse opplastninger og nedlastninger.
+
+- Observabilitet og revisjonsdyktighet: Ende-til-ende synlighet av all aktivitet, så du vet hvem, hva, hvor og når for dataoverføringer. Rask tilgang til loggføringer av filoverføringer og analyser for å revidere overføringsaktivitet når det er nødvendig.
+
+- Avansert monitorering: Den innebygde støtten for å legge til metadata til filoverføringer muliggjør analyse av filoverføringssekvenser mellom flere aktører i ende-til-ende prosesser.
+
+
+## Hvordan komme i gang?
+
+Informasjon om hvordan komme i gang er gitt i følgende rollespesifikke brukerveiledninger: 
+
+- [Veiledning for utviklere](../user-guides#developers-user-guide)
+
+- [Veiledning for tjenesteeiere](../user-guides/#service-owners-user-guide)
+
+- [Veiledning for avsendere (tilbydere)](../user-guides/#senders-user-guide).
+
+- [Veiledning for mottakere (konsumenter)](../user-guides/#recipients-user-guide).
