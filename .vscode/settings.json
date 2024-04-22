@@ -25,7 +25,7 @@
     "markdown.styles": [
         "static/css/vscode-altinn-preview.css"
     ],
-    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.colorTheme": "Visual Studio Light",
     "workbench.editor.customLabels.enabled": true,
     "workbench.editor.customLabels.patterns": {
         "content/**/*index.*md": "${dirname}/${filename}.${extname}"

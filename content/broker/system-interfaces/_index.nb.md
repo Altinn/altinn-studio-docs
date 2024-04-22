@@ -1,56 +1,52 @@
 ---
-title: System Interfaces
-linktitle: System Interfaces
-description: Altinn 3 Broker System Interfaces 
+title: Systemgrensesnitt
+linktitle: Systemgrensesnitt
+description: Altinn 3 Formidling Systemgrensesnitt
 tags: []
 toc: true
 weight: 30
 ---
 
+## Oversikt over Altinn 3 Formidling eksterne grensesnitt
+Følgende figur indikerer de viktigste systemgrensesnittene for Altinn 3 Formidling som selvstendig løsning (uten Dialogporten):
 
-
-
-## Overview of Altinn 3 Broker external interfaces
-The following figure indicates the main system interfaces of Altinn 3 Broker:
-
-![Altinn 3 Broker Standalone Interfaces Overview](altinn3-broker-standalone-interfaces-overview.en.png "Altinn 3 Broker Standalone Interfaces Overview")
-
+![Oversiktover eksterne grensesnitt for Altinn 3 Formidling som selvstendig løsning](altinn3-broker-standalone-interfaces-overview.nb.png "Oversiktover eksterne grensesnitt for Altinn 3 Formidling som selvstendig løsning")
 
 <!--
 *TIP: The details of the interfaces are not shown by the image as
 such, however the image hyperlinks to a clickable web version with further details.*
 -->
 
-__Interfaces for design time configuration of services and options:__
+__Grensesnitt for konfigurering av tjenester og alternativer i designfasen:__
 
 <!-- Erik, lenke til API/Swagger-spec. også for API for configuration of Altinn Broker -->
 
-* API for configuration of Altinn Broker
-* API for configuration of Maskinporten (authentication and course-grained authorization)
-* API for configuration of Altinn Authorization (fine-grained authorization)
-* API for setup of event subscriptions via Altinn Events
-* GUI for configuration of Altinn Broker
-* GUI for configuration of  Maskinporten
-* GUI for configuration of Altinn Authorization Erik [13:39] Fatland, Ragnar Inge
+* API for konfigurering av Altinn Broker
+* API for konfigurering av Maskinporten (autentisering og grovkornet autorisasjon)
+* API for konfigurering av Altinn Autorisasjon (finkornet autorisasjon)
+* API for oppsett av hendelsesabonnementer via Altinn Hendelser
+* GUI for konfigurering av Altinn Broker
+* GUI for konfigurering av Maskinporten
+* GUI for konfigurering av Altinn Autorisasjon
+
+<!--
+  Erik [13:39] Fatland, Ragnar Inge
 https://docs.altinn.studio/authorization/modules/resourceregistry/studio/
 Ressurs Admin Altinn Studio – Altinn
 Ressursregisteret tilbyr API for alle typer håndtering av ressurser. I tilegg kan man  som del av Altinn studio kan administrere ressursene.
+-->
 
-    _Note_: Altinn 3 Broker does not currently provide a GUI for file transfer operations, 
-but relies om End User System GUIs.
-
-__Interfaces for runtime operation:__
-
-* [API for individual file transfers, including upload, download and status monitoring](#altinn-3-broker-api-for-individual-file-transfers)
+_Merk: Altinn 3 Broker tilbyr inntli videre ikke et eget GUI for filoverføringsoperasjoner, 
+men overlater dette til sluttbrukersystemene._
 
 
+__Grensesnitt for kjøretidsoperasjoner:__
 
-__Interfaces for historical data and statistics:__
+* API for individuelle filoverføringer, inkludert opplasting, nedlasting og statusovervåking
 
-* API for historical data and statistics
+__Grensesnitt for historiske data og statistikk:__
 
-
-
+* API for historiske data og statistikk
 
 
 <!--
@@ -73,27 +69,28 @@ Altinn 3 Broker does not currently provide a GUI for file transfer operations, b
 
 -->
 
-## Altinn 3 Broker API for individual file transfers
+## Altinn 3 Formidling API for filoverføring av enkeltfiler
 
-### Altinn 3 Broker Application services
+### Altinn 3 Formidling applikasjonstjenester
 
-An overview of the application services of Altinn 3 Broker is given in the following figure:
+En oversikt over applikasjonstjenestene til Altinn 3 Formidling gis av følgende figur:
 
-![Altinn 3 Broker Application Services](altinn3-broker-application-services.en.png "Altinn 3 Broker Application Services")
+![Altinn 3 Formidling applikasjonstjenester](altinn3-broker-application-services.en.png "Altinn 3 Formidling applikasjonstjenester")
 
-Each of these application services correspond to a _path_ in the [Altinn 3 Broker OpenAPI specification][Altinn 3 Broker OpenAPI specifications].
+Hver av disse applikasjonstjenestene tilsvarer en _path_ i [Altinn 3 Formidling OpenAPI specification][Altinn 3 Broker OpenAPI specifications].
 
 
-### Altinn Broker File Transfer REST API 
+### Altinn Formidling REST API for filoverføring
 
-See [Altinn 3 Broker OpenAPI specification][Altinn 3 Broker OpenAPI specifications].
+Se [Altinn 3 Formidling OpenAPI spesifikasjon][Altinn 3 Broker OpenAPI specifications].
 
-### Event notifications (machine-to-machine)
+### Notifikasjoner om hendelser - maskin-til-maskin
 
-Notifications about new messages and other events are delivered to webhook subscribers. 
-The specific events are specified as part of the [Altinn 3 Broker OpenAPI specification][Altinn 3 Broker OpenAPI specifications]. 
+Varsler om nye meldinger og andre hendelser leveres til abonnenter av webhooks. 
+De spesifikke hendelsene er spesifisert som en del av 
+[Altinn 3 Formidling OpenAPI spesifikasjon][Altinn 3 Broker OpenAPI specifications]. 
 
-Summary:
+Oppsummering:
 
 * filetransferinitialized: Information about a new file transfer
 * filedeleted: The file has been deleted from Broker
