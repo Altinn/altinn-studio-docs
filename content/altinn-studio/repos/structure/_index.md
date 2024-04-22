@@ -46,8 +46,6 @@ Under arbeid... Her må det gjøres en større opprydding i filstrukturen.
 │  │  │      ├── {{<icon name="fa-code">}} Chart.yaml  
 │  │  │      └── {{<icon name="fa-code">}} values.yaml  
 │  │  ├──  {{<icon name="fa-folder-open">}} Implementation  
-│  │  │   ├──  {{<icon name="fa-folder-open">}} Calculation   
-│  │  │   │   └── {{<icon name="fa-code">}} [CalculationHandler.cs](calculationhandler)   
 │  │  │   ├── {{<icon name="fa-code">}} [InstantiationHandler.cs](instantiationhandler)  
 │  │  │   ├── {{<icon name="fa-code">}} [ServiceImplementation.cs](serviceimplementation)  
 │  │  │   └── {{<icon name="fa-code">}} [ValidationHandler.cs](validationhandler)  

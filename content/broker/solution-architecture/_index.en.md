@@ -2,7 +2,7 @@
 title: Altinn 3 Broker Solution Architecture
 linktitle:  Solution Architecture
 description: Altinn 3 Broker solution architecture for basic use cases of Managed File Transfers.
-tags: [architecture, solution]
+tags: []
 toc: true
 weight: 50
 ---
@@ -31,7 +31,7 @@ These high level principals apply.
 
 ### General Altinn 3 Architecture Principles
 
-The [Altinn 3 Architecture Principles](../../technology/architecture/principles) apply.
+The [Altinn 3 Architecture Principles](/principles) apply.
 
 <!--
 ### Architecture Principles for Messaging and Data Sharing
