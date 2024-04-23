@@ -12,11 +12,10 @@ There are two ways to edit and test your changes to the docs:
 1. Open the page you want to change at https://docs.altinn.studio and click the *"Edit page on GitHub"*-link at the
    bottom to open [github.dev](https://docs.github.com/en/codespaces/the-githubdev-web-based-editor) (Visual Studio
    Code) in your browser
-2. Open preview and do your changes ![Open
-   preview](https://code.visualstudio.com/assets/docs/languages/Markdown/md-dynamic-preview.gif "Open preview")
-3. When happy, [push your
-   changes](https://github.com/Altinn/altinn-studio-docs/blob/master/CONTRIBUTING.md#push-your-changes-to-github)
-
+2. Open preview and do your changes  
+   ![](https://code.visualstudio.com/assets/docs/languages/Markdown/md-dynamic-preview.gif)
+3. When happy with your changes, add description (1), Commit & Push (2) and create a pull request (3)
+   ![image](https://github.com/Altinn/altinn-studio-docs/assets/6088624/c1b90855-c570-4cfe-af79-729d1d30c3a9)
 
 ## Running Hugo locally
 > When doing larger changes, restructuring and refactoring, changes in layouts, code, etc.
