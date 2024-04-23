@@ -1268,7 +1268,7 @@
           {
             "name": "X-Ai-InstanceOwnerIdentifier",
             "in": "header",
-            "description": "Instance owner identifier, i.e. Person:PersonNumber, Organisation:OrganisationNumber.",
+            "description": "Instance owner identifier, i.e. Person:14817697543, Organisation:313541479.",
             "schema": {
               "type": "string"
             }
