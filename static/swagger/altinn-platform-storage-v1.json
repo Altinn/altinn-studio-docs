@@ -1266,6 +1266,14 @@
             }
           },
           {
+            "name": "X-Ai-InstanceOwnerIdentifier",
+            "in": "header",
+            "description": "Instance owner identifier, i.e. Person:PersonNumber, Organisation:OrganisationNumber.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "lastChanged",
             "in": "query",
             "description": "Last changed date.",
