@@ -33,12 +33,14 @@ The authorization is Attribute-based and uses XACML 3.0.
 
 The Events component allows apps and other producers to publish events. Consumers can subscribe to events.
 
-[Learn more about Altinn Events](events)
+[Learn more about Altinn Events](/events)
 
 
 ## Notifications
 
 The Notifications components allow notifying users. 
+
+[Learn more about Altinn Notifications](/notifications)
 
 ## PDF
 
