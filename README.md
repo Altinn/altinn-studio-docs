@@ -14,8 +14,10 @@ There are two ways to edit and test your changes to the docs:
    Code) in your browser
 2. Open preview and do your changes  
    ![](https://code.visualstudio.com/assets/docs/languages/Markdown/md-dynamic-preview.gif)
-3. When happy with your changes, add description (1), Commit & Push (2) and create a pull request (3)
-   ![image](https://github.com/Altinn/altinn-studio-docs/assets/6088624/c1b90855-c570-4cfe-af79-729d1d30c3a9)
+3. When happy with your changes, add a message (1), Commit & Push (2) and create a Pull Request (3).  
+   ![image](https://github.com/Altinn/altinn-studio-docs/assets/6088624/c1b90855-c570-4cfe-af79-729d1d30c3a9)  
+   (if you're on the master branch, you'll first be asked to name a new branch)
+
 
 ## Running Hugo locally
 > When doing larger changes, restructuring and refactoring, changes in layouts, code, etc.
