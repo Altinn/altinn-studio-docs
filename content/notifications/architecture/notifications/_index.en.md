@@ -48,7 +48,8 @@ followed by a diagram showing the relation between the tables.
 | smsnotifications   | Holds metadata for each sms notification along with recipient contact details                  |
 | resourcelimitlog   | Keeps track of resource limits outages for dependent systems e.g. Azure Communication services |
 
-![Diagram of Notifications Database](dbmodel.drawio.svg "Diagram of Notifications Database")
+<!--Schema extracted through pgAdmin using ERD tool for schema-->
+![Diagram of Notifications Database](db-schema.png "Diagram of Notifications Database")
 
 
 ## Integrations 

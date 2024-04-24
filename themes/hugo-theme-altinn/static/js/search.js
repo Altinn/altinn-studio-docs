@@ -8,7 +8,7 @@ var client = window.ElasticAppSearch.createClient({
 
 //Define elastic search options
 var searchOptions = {
-    search_fields: { title: {}, meta_description: {}, meta_keywords: {}, headings: {}, body_content: {} },
+    search_fields: { title: {}, meta_description: {}, headings: {}, body_content: {}, url_path: {} },
     result_fields: { id: { raw: {} }, title: { raw: {} }, meta_description: { raw: {} }, url: { raw: {} }, url_path: { raw: {} } },
     analytics: {
         tags: ["docs-altinn-studio-search"]
@@ -28,16 +28,16 @@ function search(query, done) {
     client.search(query, searchOptions)
         .then(resultList => {
             result = resultList.rawResults
-                .filter(res => {
+                /*.filter(res => {
                     if ($("#all-langs").is(":checked")) {
                         return true;
                     }
                     else if (language == "nb") {
-                        return res._meta.engine == "docs-altinn-studio-nb"
+                        return res._meta.engine == "docs-altinn-studio-nb";
                     } else {
-                        return res._meta.engine == "docs-altinn-studio-en"
+                        return res._meta.engine == "docs-altinn-studio-en";
                     }
-                })
+                })*/
                 .map(res => {
                     res.requestId = resultList.info.meta.request_id;
                     res.query = query;
@@ -100,8 +100,9 @@ $(document).ready(function () {
             if (suggestion.title) {
                 title = suggestion.title.raw.replace(" – Altinn", "");
             }
-
-            li.innerHTML = '<div><b>' + title + '</b> <img src="/images/' + lang + '.svg" alt="" style="height: 0.75em; vertical-align:baseline;"/></div><div><i>' + text + '</i></div>';
+            if (lang && title) {
+                li.innerHTML = `<div><b>${title}</b> <img src="/images/${lang}.svg" alt="" style="height: 0.75em; vertical-align:baseline;"/></div><div><i>${text}</i></div>`;
+            }
         },
         limit: 30
     });

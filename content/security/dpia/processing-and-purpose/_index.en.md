@@ -72,7 +72,7 @@ Altinn stores a copy of several basic data registry information in Altinn II. Se
 data from Altinn II, for example, for prefilling forms and other services.
 
 - **The National Population Register**  
-Information from the National Population Register in accordance with permission from the Norwegian Tax Administration and the law
+Information from the National Population Register in accordance with permission from the Norwegian Tax Administration, National Register Act and the law
 on the Digitalisation Agency's access to confidential National Population Register information: Name, identification number,
 citizenship, marital status, family relationships, status, deaths, residential address, temporary address, postal
 address, postal address abroad, address protection.

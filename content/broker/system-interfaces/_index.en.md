@@ -2,7 +2,7 @@
 title: System Interfaces
 linktitle: System Interfaces
 description: Altinn 3 Broker System Interfaces 
-tags: [architecture, solution]
+tags: []
 toc: true
 weight: 30
 ---
@@ -23,13 +23,18 @@ such, however the image hyperlinks to a clickable web version with further detai
 
 __Interfaces for design time configuration of services and options:__
 
+<!-- Erik, lenke til API/Swagger-spec. også for API for configuration of Altinn Broker -->
+
 * API for configuration of Altinn Broker
 * API for configuration of Maskinporten (authentication and course-grained authorization)
 * API for configuration of Altinn Authorization (fine-grained authorization)
 * API for setup of event subscriptions via Altinn Events
 * GUI for configuration of Altinn Broker
 * GUI for configuration of  Maskinporten
-* GUI for configuration of Altinn Authorization
+* GUI for configuration of Altinn Authorization Erik [13:39] Fatland, Ragnar Inge
+https://docs.altinn.studio/authorization/modules/resourceregistry/studio/
+Ressurs Admin Altinn Studio – Altinn
+Ressursregisteret tilbyr API for alle typer håndtering av ressurser. I tilegg kan man  som del av Altinn studio kan administrere ressursene.
 
     _Note_: Altinn 3 Broker does not currently provide a GUI for file transfer operations, 
 but relies om End User System GUIs.
@@ -198,3 +203,4 @@ The following ... TBD ..
 <!-- References within this document: -->
 [Altinn 3 Broker OpenAPI specifications]: https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-v1.json
 
+<!-- Erik, lenk til Swagger-spec. : -->

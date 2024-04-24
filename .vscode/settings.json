@@ -6,11 +6,28 @@
         "editor.rulers": [ 120 ],
 	    "files.trimTrailingWhitespace": false
     },
-    "cSpell.language": "en, nb",
-    "cSpell.words": [
-        "Altinn",
-        "apputvikler",
-        "linktitle",
-        "Maskinporten"
-    ]
+    "breadcrumbs.enabled": true,
+    "githubRepositories.autoFetch.enabled": true,
+    "git.autofetch": true,
+    "git.branchProtection": [
+        "master",
+        "main"
+    ],
+    "git.branchProtectionPrompt": "alwaysCommitToNewBranch",
+    "git.enableSmartCommit": true,
+    "git.pullBeforeCheckout": true,
+    "editor.fontLigatures": true,
+    "editor.glyphMargin": false,
+    "editor.minimap.enabled": false,
+    "explorer.compactFolders": false,
+    "markdown.preview.breaks": false,
+    "markdown.preview.markEditorSelection": false,
+    "markdown.styles": [
+        "static/css/vscode-altinn-preview.css"
+    ],
+    "workbench.colorTheme": "Visual Studio Light",
+    "workbench.editor.customLabels.enabled": true,
+    "workbench.editor.customLabels.patterns": {
+        "content/**/*index.*md": "${dirname}/${filename}.${extname}"
+    }
 }
