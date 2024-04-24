@@ -45,19 +45,13 @@ See an [example policy](https://github.com/Altinn/altinn-broker/blob/main/Test/A
 
 Now the time has come to configure the Broker component itself, first by configuring your organization as a Service Owner in the Broker Config Store.
 
-POST /broker/api/v1/serviceowner
-
-Example "Register Service Owner" in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json)
+Call the API operation [initialize service owner in broker api](../../developer-guides/Service-Owner/#operation-initialize-service-owner-in-broker-api).
 
 ## 5. Configure your existing Resource in Broker
 
 Now to configure the specific Broker configuration for the Resource.
 
-Using the ID of the resource you created in step 3;
-
-PUT /broker/api/v1/resource/{{resource_id}}
-
-Example "Update Resource" in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json)
+Using the ID of the resource you created in step 3, call the API operation to [configure resource](../../developer-guides/Service-Owner/#operation-configure-resource-in-broker-api).
 
 ## 6. Grant access to Senders and Recipients to the Resource
 

@@ -17,17 +17,100 @@ Here are the detailed operations and events you will be using when Receiving fil
 
 ## Operation: Get FileTransfers
 
-This operation should be used sparingly, as you should instead focus on the webhook/Event `no.altinn.broker.published` to notify you of FileTransfers available for you.
+**Endpoint:** GET /broker/api/v1/filetransfer/<filters>
+
+Allows you to search for file transfers according to set filteres, and returns a list of FileTransferIds matching the search criteria.
+You can then use these Ids to [get FileTransfer Overview](#operation-get-filetransfer-overview) and [download](#operation-downloadfile).
+
+{{% notice warning  %}}
+This operation should be used sparingly, as you should instead focus on the webhook/Event [published](#event-noaltinnbrokerpublished) to notify you of FileTransfers available for you.
+{{% /notice %}}
+
+**Request:** Filters specified in the url:
+
+- resourceId - resource id of the broker resource, Required.
+- status - current status of the File Transfer.
+- recipientstatus - current status for you as recipient.
+- from - DateTimeOffset to filter from.
+- to - DateTimeOffset to filter to.
+
+When searching for files you have not downloaded as a recipient specify the following:
+
+- resourceId - resource id of the broker resource
+- status = "published"
+- recipientstatus = "initialized"
+
+**Response:** A list of FileTransferIds in GUID format.
+
+**Example:**
+
+'Broker\search' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json)
+
+**Events triggered:** None.
 
 ## Operation: Get FileTransfer Overview
 
+**Endpoint:** GET /broker/api/v1/filetransfer/{filestransferid}
+
+Get a simple overview of the file transfer with relevant metadata and current status and recipient status.
+You can use either the filetransferid from the [published](#event-noaltinnbrokerpublished) event or from the [search](#operation-get-filetransfers).
+
+**Response:** A JSON-serialized version of [FileTransferOverviewExt](https://github.com/Altinn/altinn-broker/blob/main/src/Altinn.Broker.API/Models/FileTransferOverviewExt.cs).
+
+**Events triggered:** none.
+
+**Example:** 'Broker\{fileTransferId}\overview' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json)
+
 ## Operation: DownloadFile
 
-Download the file content as a binary stream.
+**Endpoint:** GET /broker/api/v1/filetransfer/{filestransferid}/download
+
+Download the file data as a stream using the FileTransferId received from overview].
+
+**Request**: FileTransferID specified in url, and the data as a stream.
+
+**Return**: A binary stream containing the file data.
+
+**Events triggered**: none
+
+**Example:** 'Broker\{fileTransferId}\download' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json)
 
 ## Operation: ConfirmDownloaded
 
-Must be used to confirm that the File data has been downloaded and confirmed successful.
+After you have downloaded and successfully processed the file, you must use this operation to notify the solution that the file has been successfully delivered.
 This will update the status of the File Transfer, and potentially delete the file data according to the settings on the Broker Resource.
 
-Publishes the event: `no.altinn.broker.downloadconfirmed`.
+**Endpoint:** POST /broker/api/v1/filetransfer/{filestransferid}/confirmdownload
+
+Upload the file data as a stream using the FileTransferId received in InitializeFileTransfer.
+
+**Request**: FileTransferID specified in url.
+
+**Return**: HTTP 200 if successfully completed.
+
+**Events triggered**:
+
+- [downloadconfirmed](#event-noaltinnbrokerdownloadconfirmed).
+
+**Example:** 'Broker\{fileTransferId}\confirm download' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json)
+
+## Event: no.altinn.broker.published
+
+This event is triggered when when the async uploadprocessing step has completed successfully.
+
+As a recipient you can then use the *FileTransferId* specified in the *resourceinstance* to start downloading the metadata and file data.
+
+## Event: no.altinn.broker.downloadconfirmed
+
+This event is triggered when you have confirmed the download has completed successfully, and it is also sent to the Sender.
+You do not need to perform actions, but it is an addition confirmation that the ConfirmDownload has gone successfully.
+
+TODO: How do we inform the sender about which recipient has confirmed?
+
+## Event: no.altinn.broker.fileneverconfirmeddownloaded
+
+This event is triggered on the ExpiryTime of the FileTransfer in the case that one or more recipients have not confirmed the download of the file.
+This may indicate that either the recipient has been unaware of the filetransfer or that they have downloaded but neglected to call the ConfirmDownload.
+This event is also sent to the Recipient(s) that have not confirmed the download.
+
+We suggest using the data supplied in the [get details](#operation-get-filetransfer-details) to investigate the recipient's actions.
