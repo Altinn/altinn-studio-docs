@@ -146,6 +146,43 @@ Diagrammet nedenfor viser hvordan et sluttbrukersystem kan autentisere seg når 
 
 ```
 
+
+## Hvordan ta i bruk
+
+Nedenfor finner du en beskrivelse på hva som trengs for å ta i bruk systembruker. Beskrivelsen er basert på
+at API tilbyder bruker Altinn Autorisasjon for tilgangstyring av API.
+
+### API tilbydere
+
+Som API tilbyder kreves følgende for å kunne bruke systembruker
+
+- API må definieres i Maskinporten. Nødvendig scope opprettes
+- API configures til å validere JWT token fra Maskinporten
+- Ett policy enforcment punkt implementeres/konfigureres for API endepunkt. PEP sitt ansvar er å bygge opp en XACML autorisasjosnforespørsel til Altinn autorisasjon som inneholder informasjon om ressurs som aksesseres (ressursid i Altinn ressursregister), action og systembrukerinfo fra JWT token
+- Ressurs opprettes Altinn Resource Registry som skal benyttes for å autorisere tilgang.
+
+### Tjenesteeiere Altinn Apps
+
+Hypotesen er at det er minimalt hva som må gjøres for systembrukere i Altinn Apps.
+
+TODO: Avklare dette endelig
+
+### Systemleverandører
+
+For systemleverandører må følgende utføres
+
+- Registrere klient i maskinporten.
+- Få tilgang til systemregister. Hva som kreves for å få tilgang til systemregisterer er under avklaring.
+- Registrere system i systemregistereret med nødvendig informasjon som navn, beskrivelse og informasjon om hvilke tilganger system trenger for en part for å fungere. Tilgangene beskrives som tilgangspakker eller enkelttilganger. I første versjon vil det kun være enkelttilganger. Klientid fra maskinporten må registreres på system.
+- Informere kunder om at de må opprette systembruker og knytte det til systemet de leverer
+- Informere kunder om rettighetene systemet krever.
+- Opprett maskinporten med JWT grand
+
+### Sluttbrukere
+
+
+
+
 ## Detaljerte issues
 
 Dette jobbes det med i flere issues på Github
