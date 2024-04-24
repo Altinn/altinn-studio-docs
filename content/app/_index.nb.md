@@ -52,7 +52,7 @@ Opprett og rediger applikasjoner i Altinn Studio.
 |   |   |   |   |   |
 |---|---|---|---|---|
 | [App Events](/nb/app/development/logic/events)  | [Generelt](/nb/app/development/logic/generic)  | [Tjenester](/nb/app/development/logic/services)  | [Dataprosessering](/nb/app/development/logic/dataprocessing)  | [Dynamikk](/nb/app/development/logic/dynamic)  |
-|  [Instansiering](/nb/app/development/logic/instantiation)  | [Kalkuleringer](/nb/app/development/logic/calculation)  | [Uttrykk](/nb/app/development/logic/expressions)  | [Validering](/nb/app/development/logic/validation)  |
+|  [Instansiering](/nb/app/development/logic/instantiation) | [Uttrykk](/nb/app/development/logic/expressions)  | [Validering](/nb/app/development/logic/validation)  |
 
 ### [API](/nb/app/development/api)
 

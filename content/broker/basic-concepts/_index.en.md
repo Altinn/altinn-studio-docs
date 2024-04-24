@@ -1,8 +1,8 @@
 ---
-title: Altinn Broker Concepts
+title: Altinn Broker Basic Concepts
 linktitle: Basic Concepts
 description: Altinn 3 Broker terminology and basic concepts.
-tags: [architecture, solution]
+tags: []
 toc: true
 weight: 10
 ---
@@ -138,7 +138,7 @@ or it could be a publication to an y number of known or unknown subscribers._
 
 * __Upload Processing__: Uploaded files are validated and checked for viruses.
 
-* __Cancelled__: Altinn Broker supports cancelling of file transfers 
+* erik  ver.2    __Cancelled__: Altinn Broker supports cancelling of file transfers 
 as long as no download process has started. 
 
 * __Published__: Ready for downloads.

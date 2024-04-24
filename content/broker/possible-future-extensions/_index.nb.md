@@ -4,7 +4,7 @@ linktitle: Possible Future Extensions
 description: Altinn 3 Broker Anticipated and Possible Future Extensions 
 tags: []
 toc: true
-weight: 100
+weight: 90
 ---
 
 {{<notice warning>}} <!-- info -->

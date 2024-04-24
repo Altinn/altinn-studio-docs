@@ -135,7 +135,7 @@ This task focuses on the first data collection page, aiming to streamline the us
 ### Requirements of the municipality
 
 - You should configure prefilling for the following values:
-  - First name: `Innflytter.fornavn`
+  - First name: `Innflytter.Fornavn`
   - Middle name: `Innflytter.Mellomnavn`
   - Last name: `Innflytter.Etternavn`
   - Email: `Innflytter.Kontaktinformasjon.Epost`
