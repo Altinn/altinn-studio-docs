@@ -112,5 +112,3 @@ TODO: How do we inform the sender about which recipient has confirmed?
 This event is triggered on the ExpiryTime of the FileTransfer in the case that one or more recipients have not confirmed the download of the file.
 This may indicate that either the recipient has been unaware of the filetransfer or that they have downloaded but neglected to call the ConfirmDownload.
 This event is also sent to the Recipient(s) that have not confirmed the download.
-
-We suggest using the data supplied in the [get details](#operation-get-filetransfer-details) to investigate the recipient's actions.
