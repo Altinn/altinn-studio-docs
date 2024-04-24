@@ -5,10 +5,7 @@ description: Altinn Studio, Altinn Apps and Altinn Platform has a modern cloud n
 aliases:
 ---
 
-
-
 ![Altinn Information model](informationmodel.drawio.svg)
-
 
 [Full screen](informationmodel.drawio.svg)
 
@@ -25,9 +22,7 @@ aliases:
 | Resource | A resource is metadata about a digital or analog service that a resource owner wants to use [Altinn Authorization](/authorization/modules/pdp/) for access control. When defining a service as a resource in [Altinn Resource Registry](/authorization/modules/resourceregistry/) with a policy, resource owners can use Altinn PDP to control access to external solutions.  |
 | Access List | An access list defines entities that can access a resource if the resource requires access list access. |
 
-
 ## Altinn Register
-
 
 | Term| Description |
 |-----|------|
@@ -35,8 +30,6 @@ aliases:
 | Organization | Organization from entity register.  Organizations offers roles to persons and other organizations.  |
 | Person | Person from folkeregister. |
 | SelfIdentifedUser | Created in Altinn by user that does not have a identity number in Norway. |
-
-
 
 ## Altinn Studio
 
@@ -60,7 +53,7 @@ aliases:
 |-----|------|
 | Instance | An instance works as a form of envelope or folder where data can be collected and exchanged between the user and owner of the application. The instance document is a way for Altinn and external parties to track the state of one specific data exchange.  |
 | Data element | The data element model is the main model for metadata related to a specific data element. A data element can be any data associated with an instance. The two most common type of data is the actual form data and attachments. |
-| Instance Events |  )  |
+| Instance Events |  Instance events contains information about changes on instances. [Read more](/technology/solutions/altinn-platform/storage/#instanceevent)  |
 
 ### Altinn Notifications
 

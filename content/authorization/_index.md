@@ -31,19 +31,14 @@ The below drawing show all aspects that control who and what rights a user or or
 
 ### Access control Altinn Apps
 
-Applications created in Altinn Studio, is based on an application template that is integrated with Altinn Authorization. This means that out from the box
-these application has preconfigured settings related to authorization.
+Altinn Studio bases applications created in Altinn Studio on an application template setup with Altinn Authorization. This setup means these applications have preconfigured authorization settings that are out of the box.
 
-- Each App needs to define a policy that defines who can access an appliaction and what the user can do. 
-- Each API in template is configured with a policy enforcement point that verifies that API caller is authorized to perform operations on applications. As exmample the API to read data is [configured to have "read" access](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Api/Controllers/DataController.cs#L252) while the API to save data for an application [requires "write" access](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Api/Controllers/DataController.cs#L309).
-- The App template uses Altinn platform components like storage that is preconfigured authorize access based on policy defined.
+- Each App needs to define a policy determining who can access an application and what the user can do. 
+- Each API in the template is configured with a policy enforcement point that verifies that the API caller is authorized to perform operations on applications. For example, the API to read data is [configured to have "read" access](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Api/Controllers/DataController.cs#L252) while the API to save data for an application [requires "write" access](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Api/Controllers/DataController.cs#L309).
+- The app template uses Altinn platform components like preconfigured storage that authorize access based on the defined policy.
 
 
 ### Access control Altinn Resource Registry Resources
 
-Resources in Altinn Resource registry is metadata pointing to a digital service implemented outside of the Altinn Platform. The service owner
-defines the resource with attributes like name and description and creates a XACML policy for that resource. When users access the digital service, the
-policy enforcement point in that digital service do a call to Altinn Authorization to verify if user is authorized to access. 
-
-
+Resources in the Altinn Resource registry are metadata pointing to a digital service implemented outside the Altinn Platform. The service owner defines the resource with attributes like name and description and creates a XACML policy for that resource. When users access the digital service, the Policy enforcement points out that the digital service calls Altinn Authorization to verify if the user is authorized to access it. 
 
