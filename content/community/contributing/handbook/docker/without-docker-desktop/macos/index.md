@@ -3,7 +3,13 @@ title: Install Docker without Docker Desktop on macOS
 linktitle: macOS
 tags: [development]
 weight: 100
+toc: true
 ---
+
+{{<notice warning>}}
+⚠️ TODO: This page is outdated. Should be updated now that Podman 5 supports the native Apple hypervisor (applehv).  
+https://github.com/containers/podman/releases/tag/v5.0.0
+{{</notice>}}
 
 ## Prerequisites
 
@@ -28,7 +34,7 @@ You can install Homebrew by visiting https://brew.sh/.
 
 ### Install Docker
 
-```
+```shell
 brew install docker
 ```
 
@@ -38,17 +44,17 @@ brew install docker
 
 ### Install Docker Compose
 
-```
+```shell
 brew install docker-compose
 ```
 
 Then configure `docker-compose` as a Docker plugin so you can use `docker compose` as a command.
 
-```
+```shell
 mkdir -p ~/.docker/cli-plugins
 ```
 
-```
+```shell
 ln -sfn $HOMEBREW_PREFIX/opt/docker-compose/bin/docker-compose ~/.docker/cli-plugins/docker-compose
 ```
 
@@ -56,7 +62,7 @@ ln -sfn $HOMEBREW_PREFIX/opt/docker-compose/bin/docker-compose ~/.docker/cli-plu
 
 The credential helper allows you to use the macOS Keychain as the credential store for remote container repos instead of Docker Desktop.
 
-```
+```shell
 brew install docker-credential-helper
 ```
 
@@ -65,7 +71,7 @@ brew install docker-credential-helper
 Docker does not run natively on macOS as it is based on Linux containers.
 You need Colima to run Docker in a Linux virtual machine.
 
-```
+```shell
 brew install colima
 ```
 
@@ -73,11 +79,11 @@ brew install colima
 
 Edit the Docker configuration file as follows:
 
-```
+```shell
 nano ~/.docker/config.json
 ```
 
-```
+```json
 {
         "auths": {},
         "credsStore": "osxkeychain",
@@ -87,25 +93,25 @@ nano ~/.docker/config.json
 
 ### Start Colima
 
-```
+```shell
 colima start --cpu 2 --memory 4 --disk 60
 ```
 
 To check that the virtual machine is running
 
-```
+```shell
 colima ls
 ```
 
 To check that the current Docker context is set to Colima
 
-```
+```shell
 docker context ls
 ```
 
 If you want Colima to start automatically when you start your mac
 
-```
+```shell
 brew services restart colima
 ```
 
@@ -121,7 +127,7 @@ https://podman-desktop.io/
 
 Some applications, like Podman Desktop, try to attach directly to the Docker socket at `/var/run/docker.sock` instead of respecting the active configuration for the current context. As a result, we'll need to set up a hard symlink pointing to Colima socket to the expected Docker socket location.
 
-```
+```shell
 sudo ln -sf $HOME/.colima/default/docker.sock /var/run/docker.sock
 ```
 
@@ -131,7 +137,7 @@ sudo ln -sf $HOME/.colima/default/docker.sock /var/run/docker.sock
 
 or
 
-```
+```shell
 export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
 ```
 
@@ -147,7 +153,7 @@ Ensure that you created the symlink described in [Linking the Colima socket to t
 
 If build fails with this error `The command '/bin/sh -c yarn build' returned a non-zero code: 1`, try increasing the memory of the VM:
 
-```
+```shell
 colima start --cpu 2 --memory 4 --disk 60
 ```
 
@@ -159,7 +165,7 @@ I still experience some issues for which I have not yet found a solution.
 
 The symlink keeps getting deleted when restarting my mac and needs to be manually recreated by running this command:
 
-```
+```shell
 sudo ln ~/.colima/default/docker.sock /var/run
 ```
 
@@ -168,7 +174,7 @@ sudo ln ~/.colima/default/docker.sock /var/run
 The PostgresSQL database keeps getting corrupted when shutting down my Mac.
 I tried increasing the waiting time, without success:
 
-```
+```shell
 docker-compose up -d -t 20
 ```
 
@@ -184,13 +190,13 @@ Uninstall colima
 ⚠️ This will delete all your Docker volumes.
 {{</notice>}}
 
-```
+```shell
 brew uninstall colima
 ```
 
 Delete .colima folder
 
-```
+```shell
 rm -rf $HOME/.colima
 ```
 
@@ -198,12 +204,11 @@ Restart your machine
 
 Reinstall colima
 
-```
+```shell
 brew install colima
 ```
 
 ## Resources
 
 - https://dev.to/elliotalexander/how-to-use-docker-without-docker-desktop-on-macos-217m
-
 - https://github.com/abiosoft/colima/blob/main/docs/FAQ.md

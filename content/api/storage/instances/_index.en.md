@@ -57,6 +57,10 @@ Filter instances based on whether they are soft deleted.
 Filter instances based on whether they are hard deleted. 
 Note that hard deleted instances are only included if an application owner retrieves instances, and the results may include deleted drafts. 
 
+### Header input parameter
+- **X-Ai-InstanceOwnerIdentifier** (string)  
+Filter instances based on the person number or organisation number, i.e  Person:14817697543, Organisation:313541479. This header input parameter was introduced because the appearance of the person number or organisation number in a URL was not desired.
+
 **Some examples**:
 
 Get all instances of application *org/app*, that is at process task with id *Task_2* (which is Submit, see process definition), and has last changed date greater than *2019-05-01*.

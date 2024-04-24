@@ -1,15 +1,14 @@
 ---
-title: Formidlingstjeneste
+title: Altinn 3 Formidling (Broker)
 linktitle: Formidling
-description: Produktet kan brukes til å sende dokumenter eller store datamengder mellom offentlige virksomheter eller mellom offentlige og private virksomheter.
-tags: [architecture, solution]
+description: Altinn 3 Formidling ('Broker' på engelsk) tilbyr styrt filoverførig med støtte for store filer og avansert funksjonalitet for informasjonssikerhet, statusmonitorerin og tjenestekvalitet.   
+tags: []
 toc: false
 weight: 1
 ---
-*Siden er under utvikling*
 
-For å utvikle løsningen trenger du både å tilrettelegge egne systemer for sending av data, og utvikle selve tjenesten i Altinns tjenesteutviklingsløsning.
-Tidlig i prosessen vil vi råde deg til å tenke på hvordan du skal sende ut dokumentene eller dataene til brukerne.
+{{<notice warning>}} <!-- info -->
+Norsk oversettelse er i arbeid.
+{{</notice>}}
 
-Du kan velge mellom å sende fra maskin til maskin eller fra maskin til portal, for eksempel ved at brukerne mottar dokumentene i innboksen på altinn.no.
-
+{{<children />}}

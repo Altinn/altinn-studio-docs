@@ -109,7 +109,7 @@ A tree view of the data model can be opened to see a visual representation of th
 
 All models uploaded in the tool for an app or the organization's repository (`<org>-datamodels`) are available from the drop-down list in the toolbar.
 XSDs that exist in a repository but do not have any associated model files (JSONSchema) will also appear in the list. See the next
-section for more information.s
+section for more information.
 
 ### Specific to Organization-Level Data Modeling
 
