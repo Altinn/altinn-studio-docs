@@ -53,11 +53,11 @@ More information about security and the configuration of Altinn's use of Azure i
 3](../../whitepaper).
 
 ## 3.3 Use of Data Processors and Sub-processors
-According to the agreements entered into, Microsoft Azure is a data processor for Digdir for the processing of personal
+According to the agreements entered into, Microsoft is a data processor for Digdir for the processing of personal
 data where Digdir is the data controller. For those processes where Digdir is considered a data processor for a service
-owner, Microsoft Azure is a sub-processor.
+owner, Microsoft is a sub-processor.
 
-Microsoft Azure, like the other major international cloud providers, makes extensive use of subcontractors and third
+Microsoft, like the other major international cloud providers, makes extensive use of subcontractors and third
 parties, for example, in the form of support centers in various places in the world[^6]. The standard terms are arranged
 so that the customer consents in general (by entering into the agreement) to the provider using such
 subcontractors/sub-processors.
