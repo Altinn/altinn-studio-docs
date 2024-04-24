@@ -71,7 +71,7 @@ Altinn 3 Broker does not currently provide a GUI for file transfer operations, b
 
 ## Altinn 3 Formidling API for filoverføring av enkeltfiler
 
-### Altinn 3 Formidling applikasjonstjenester
+### Altinn 3 Formidling applikasjonstjenester {#altinn-3-broker-application-services}
 
 En oversikt over applikasjonstjenestene til Altinn 3 Formidling gis av følgende figur:
 
