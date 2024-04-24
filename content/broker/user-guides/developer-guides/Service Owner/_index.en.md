@@ -12,7 +12,7 @@ weight: 30
 This section of the documentation is a work in progress, and as such currently makes extensive reference to external sources, as well as describing more scenarios.
 {{% /notice %}}
 
-## Operation: Initialize Service OWner in Broker API
+## Operation: Initialize Service Owner in Broker API
 
 **Endpoint:** POST /broker/api/v1/serviceowner
 
