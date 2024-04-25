@@ -1,10 +1,10 @@
 ---
-title: Altinn 3 Broker Future Extensions 
-linktitle: Possible Future Extensions 
-description: Altinn 3 Broker Anticipated and Possible Future Extensions 
+title: Mulige framtidige utvidelser
+linktitle: Mulige utvidelser
+description: Altinn 3 Formidling mulige framtidige utvidelser
 tags: []
 toc: true
-weight: 90
+weight: 80
 ---
 
 {{<notice warning>}} <!-- info -->
