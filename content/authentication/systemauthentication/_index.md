@@ -207,7 +207,7 @@ Første leveranse inneholder følgende funksjonalitet
 
 - Støtte for egendefinert system
 
-### Leverasnse 4
+### Leveranse 4
 
 - Støtte for leverandør - hjelper - kunde forhold (f.eks systemleverandør - regnskapsfører - regnskapskunde)
 
