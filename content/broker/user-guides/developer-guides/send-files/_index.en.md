@@ -35,7 +35,7 @@ This operation initializes a File Transfer, including validating basic metadata 
 
 ## Operation: UploadStreamed
 
-**Endpoint:** POST /broker/api/v1/filetransfer/{filestransferid}/Upload
+**Endpoint:** POST /broker/api/v1/filetransfer/{fileTransferId}/Upload
 
 Upload the file data as a stream using the FileTransferId received in InitializeFileTransfer.
 
@@ -53,7 +53,7 @@ Upload the file data as a stream using the FileTransferId received in Initialize
 
 ## Operation: Get FileTransfer Overview
 
-**Endpoint:** GET /broker/api/v1/filetransfer/{filestransferid}
+**Endpoint:** GET /broker/api/v1/filetransfer/{fileTransferId}
 
 Get a simple overview of the file transfer with current status and recipient status.
 
@@ -65,7 +65,7 @@ Get a simple overview of the file transfer with current status and recipient sta
 
 ## Operation: Get FileTransfer Details
 
-**Endpoint:** GET /broker/api/v1/filetransfer/{filestransferid}/details
+**Endpoint:** GET /broker/api/v1/filetransfer/{fileTransferId}/details
 
 Get a detailed view of the file transfer, including detailed File Transfer and Recipient Statuses. Useful for troubleshooting, but should be used sparingly.
 
@@ -102,13 +102,13 @@ This event is triggered when a recipient has confirmed the download has complete
 
 ## Event: no.altinn.broker.allconfirmeddownloaded
 
-This event is triggered when all the recipients has confirmed the download has completed. If the filetransfer has a single recipient, this will be published at the same time as downloadconfirmed.
+This event is triggered when all the recipients has confirmed the download has completed. If the FileTransfer has a single recipient, this will be published at the same time as downloadconfirmed.
 Depending on the Broker Service settings, this may lead to the file being deleted automatically.
 
 ## Event: no.altinn.broker.fileneverconfirmeddownloaded
 
 This event is triggered on the ExpiryTime of the FileTransfer in the case that one or more recipients have not confirmed the download of the file.
-This may indicate that either the recipient has been unaware of the filetransfer or that they have downloaded but neglected to call the ConfirmDownload.
+This may indicate that either the recipient has been unaware of the FileTransfer or that they have downloaded but neglected to call the ConfirmDownload.
 This event is also sent to the Recipient(s) that have not confirmed the download.
 
 We suggest using the data supplied in the [get details](#operation-get-filetransfer-details) to investigate the actions.
