@@ -4,13 +4,12 @@ linktitle: Possible Future Extensions
 description: Altinn 3 Broker Anticipated and Possible Future Extensions 
 tags: []
 toc: true
-weight: 90
+weight: 80
 ---
 
 {{<notice warning>}} <!-- info -->
 This is work in progress
 {{</notice>}}
-
 
 ## Extension: Dialogporten integration
 

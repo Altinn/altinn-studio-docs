@@ -1,5 +1,5 @@
 ---
-title: Altinn Formidling grunnleggende konsepter og begreper
+title: Grunnleggende konsepter og begreper
 linktitle: Konsepter og begreper
 description: Altinn 3 Formidling grunnleggende konsepter og begreper.
 tags: []
