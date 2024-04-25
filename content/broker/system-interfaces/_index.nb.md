@@ -78,7 +78,7 @@ En oversikt over operasjoner i Altinn 3 Formidling API gis av følgende figur:
 Merk: Navnene på API-operasjonene er ikke oversatt til norsk, for å unngå misforståelser opp mot tekniske OpenAPI-spesifikasjoner.
 {{</notice>}}
 
-![Altinn 3 Formidling applikasjonstjenester](altinn3-broker-application-services.en.png "Altinn 3 Formidling applikasjonstjenester")
+![Altinn 3 Formidling applikasjonstjenester](altinn3-broker-application-services.nb.png "Altinn 3 Formidling applikasjonstjenester")
 
 Hver av disse applikasjonstjenestene tilsvarer en _path_ i [Altinn 3 Formidling OpenAPI spesifikasjon][Altinn 3 Broker OpenAPI specifications].
 
