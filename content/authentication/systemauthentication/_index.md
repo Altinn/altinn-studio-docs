@@ -13,7 +13,7 @@ Under arbeid. Ting kan endres. Vi tar gjerne imot innspill.
 Samlet sett har ca 50% av trafikken av skjema kommet fra APi, hvor enkelte tjenester har omtrent 100%. 
 For Altinn 3 utvikles det nye mekanismer som kan benyttes for autentisering og autorisasjon av maskin til maskin integrasjon
 
-## Systembruker for virksomhet
+## Systembruker for virksomhet (aka systemintegrasjon)
 
 Maskinporten er sentral i det nye konseptet. Alle som skal kalle API som den nye systembrukeren må autentisere seg mot maskinporten for å få et systembrukertoken. 
 
@@ -62,6 +62,7 @@ Det vil også beskrive hvilke system / leverandør som får tilgang til denne sy
 
 Ved å akseptere opprettes systembrukeren og den fås de nødvendige rettigheter.
 
+![Illustration](illustration4b.png "Konseptskisse: Leverandørstyrt opprettelse av systembruker")
 
 Det er også forventet at man vil få kunne mulighet til be om flere rettigheter til systembruker basert på samme prinsipp.
 
@@ -77,18 +78,13 @@ Brukerne vil kunne opprette nye brukere og knytte mot systemer/leverandører
 
 ![Illustration](illustration2.png "Administrasjon av systembrukere")
 
-Systembrukerne kan tildeles rettigheter. Ved å forhåndsdefinere hvilke rettigheter et system trenger til å fungere kan man i Altinn presentere dette i sammenheng med rettighetsdelegering
-
-![Illustration](illustration6.png "Tildeling av rettigheter")
-
-
-![Illustration](illustration7.png "Tildeling av rettigheter")
-
-
-For virksomheter som bruker egenutviklet system vil man kunne definere integrasjoner i Maskinporten fra Altinns profil.
-
+Systemleverandøren må forhåndsdefinere hvilke rettigheter systemet trengs delegeres til systembrukeren. 
 
 ![Illustration](illustration3.png "Opprettelse av integrasjon")
+
+
+![Illustration](illustration3b.png "Opprettelse av integrasjon")
+
 
 ## Teknisk flyt autentisering/autorisasjon
 
