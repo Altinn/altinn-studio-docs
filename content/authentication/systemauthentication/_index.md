@@ -19,13 +19,14 @@ Maskinporten er sentral i det nye konseptet. Alle som skal kalle API som den nye
 
 Det som skiller et systembrukertoken og et vanlig maskinporten token er at man  i tillegg til informasjon om virksomheten som har autentisert seg så finner man informasjon om systembruker og system.
 
-Systembrukeren opprettes av den aktøren som ønsker å benytte et sluttbrukersystem for å integrere mot Altinn. Systembrukeren knyttes mot valgt system/systemleverandør og tildeles nødvendige rettigheter. 
+Systembrukeren opprettes av den aktøren som ønsker å benytte et sluttbrukersystem for å integrere mot Altinn eller andre offentlige løsninger. Systembrukeren knyttes mot valgt system/systemleverandør og tildeles nødvendige rettigheter. 
 
 ### Eksempel
 
-Rørlegger Hansen & Sønner AS oppretter systembrukeren «Regnskap og MVA» og velger det å knytte systembrukeren til systemet «Regnskap 123»   fra  Bedrfiftshjelp AS. 
+Rørlegger Hansen & Sønner AS oppretter systembrukeren «Regnskap og MVA» og velger det å knytte systembrukeren til systemet «Regnskap 123»  fra  Bedriftstshjelp AS. 
 
-I tillegg gis systembrukeren rettigheten til tjenesten «MVA» fra Skatteetaten og tjenesten «Årsregnskap» fra Brønnøysundregistrene. 
+Bedriftshjelp AS har registrert at "Regnskap og MVA" krever rettighet for tjenestene "MVA" og "Årsregnskap". 
+Dette aksepterer Hansen & Sønner AS når de oppretter systembrukeren.
 
 Med dette oppsettet vil Bedriftshjelp AS kunne autentisere seg mot maskinporten og be om å få et systembrukertoken for systembrukeren til Rørlegger Hansen & Sønner AS for sitt system. 
 
@@ -44,6 +45,8 @@ Registeret vil inneholde navn og beskrivelse på systemet i tilegg til hvilke re
 Denne informasjonen vil benyttes for å hjelpe sluttbruker til å gi riktig rettigheter til systembrukere som opprettes. 
 
 Systemleverandører vil kunne bruke informasjonen i registret til å forhåndsutfylle informasjon for leverandørstyrt opprettelse av systembruker. 
+
+Som del av systeminformasjonen må systemleverandører
 
 ### Leverandørstyrt opprettelse av systembruker
 
@@ -181,6 +184,32 @@ For systemleverandører må følgende utføres
 ### Sluttbrukere
 
 
+## Leveranseplan
+
+Systembruker vil leveres som del av flere leveranser. 
+
+
+### Leveranse 1
+
+Første leveranse inneholder følgende funksjonalitet
+
+- Systemregister hvor systemer vil måtte registreres på bestilling. Knytningen mellom clientid i maskinporten og system registrereres som informasjon 
+- Manuell opprettelse av systembruker/integrasjon via Altinn Profil for sluttbruker
+- Opprettelse av systembrukertoken via maskinporten
+- Støtter systemleverandør - kundeforhold
+
+
+### Leveranse 2
+
+- Leverandørstyrt opprettelse av systembruker / systemintegasjon
+
+### Leveranse 3
+
+- Støtte for egendefinert system
+
+### Leverasnse 4
+
+- Støtte for leverandør - hjelper - kunde forhold (f.eks systemleverandør - regnskapsfører - regnskapskunde)
 
 
 ## Detaljerte issues
