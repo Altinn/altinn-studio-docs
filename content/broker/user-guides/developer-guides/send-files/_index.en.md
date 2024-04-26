@@ -17,7 +17,7 @@ Here are the detailed API operations and events you will be using when sending f
 
 See also our [swagger page](/api/broker/spec/).
 
-## Operation: Initialize FileTransfer
+## Operation: Initialize FileTransfer {#operation-initialize-filetransfer}
 
 **Endpoint:** POST /broker/api/v1/filetransfer/
 
@@ -29,11 +29,11 @@ This operation initializes a File Transfer, including validating basic metadata 
 
 **Events triggered**:
 
-- Once completed, the event [filetransferinitialized](#event-noaltinnbrokerfiletransferinitialized) is published to the sender, indicating the File Transfer has been successfully initialized.
+- Once completed, the event [filetransferinitialized](#event-filetransferinitialized) is published to the sender, indicating the File Transfer has been successfully initialized.
 
 **Example:** 'Broker\Intitialize' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json)
 
-## Operation: UploadStreamed
+## Operation: UploadStreamed {#operation-uploadStreamed}
 
 **Endpoint:** POST /broker/api/v1/filetransfer/{fileTransferId}/Upload
 
@@ -45,13 +45,13 @@ Upload the file data as a stream using the FileTransferId received in Initialize
 
 **Events triggered**:
 
-- On completion, event [uploadprocessing](#event-noaltinnbrokeruploadprocessing) is published, and an async job will run to check the file data for malware.
-- Once upload processing has successfully completed, the event [published](#event-noaltinnbrokerpublished) is published, and the file is available for download.
-  - If malware was detected, the event [uploadfailed](#event-noaltinnbrokeruploadfailed) is instead published.
+- On completion, event [uploadprocessing](#event-uploadprocessing) is published, and an async job will run to check the file data for malware.
+- Once upload processing has successfully completed, the event [published](#event-published) is published, and the file is available for download.
+  - If malware was detected, the event [uploadfailed](#event-uploadfailed) is instead published.
 
 **Example:** 'Broker\{fileTransferId}\upload' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json)
 
-## Operation: Get FileTransfer Overview
+## Operation: Get FileTransfer Overview {#operation-get-filetransfer-overview}
 
 **Endpoint:** GET /broker/api/v1/filetransfer/{fileTransferId}
 
@@ -77,35 +77,35 @@ Get a detailed view of the file transfer, including detailed File Transfer and R
 
 **Example:** 'Broker\{fileTransferId}\details' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json)
 
-## Event: no.altinn.broker.filetransferinitialized
+## Event: no.altinn.broker.filetransferinitialized {#event-filetransferinitialized}
 
 This event is triggered when the Initialize operation has completed successfully.
 As a Sender you can now upload your file data.
 
-## Event: no.altinn.broker.uploadprocessing
+## Event: no.altinn.broker.uploadprocessing {#event-uploadprocessing}
 
 This event is triggered when the upload operation has completed successfully, and the file data is awaiting upload processing.
 Until you receive either uploadfailed or published, no actions need to be completed.
 
-## Event: no.altinn.broker.uploadfailed
+## Event: no.altinn.broker.uploadfailed {#event-uploadfailed}
 
 This event is triggered if either the upload or uploadprocessing steps fail. We advise you call [get overview](#operation-get-filetransfer-overview) to check the full error text before attempting a new upload.
 
-## Event: no.altinn.broker.published
+## Event: no.altinn.broker.published {#event-published}
 
 This event is triggered when when the async uploadprocessing step has completed successfully.
 As a Sender you do not need to perform any additional actions.
 
-## Event: no.altinn.broker.downloadconfirmed
+## Event: no.altinn.broker.downloadconfirmed {#event-downloadconfirmed}
 
 This event is triggered when a recipient has confirmed the download has completed successfully.
 
-## Event: no.altinn.broker.allconfirmeddownloaded
+## Event: no.altinn.broker.allconfirmeddownloaded {#event-allconfirmeddownloaded}
 
 This event is triggered when all the recipients has confirmed the download has completed. If the FileTransfer has a single recipient, this will be published at the same time as downloadconfirmed.
 Depending on the Broker Service settings, this may lead to the file being deleted automatically.
 
-## Event: no.altinn.broker.fileneverconfirmeddownloaded
+## Event: no.altinn.broker.fileneverconfirmeddownloaded {#event-fileneverconfirmeddownloaded}
 
 This event is triggered on the ExpiryTime of the FileTransfer in the case that one or more recipients have not confirmed the download of the file.
 This may indicate that either the recipient has been unaware of the FileTransfer or that they have downloaded but neglected to call the ConfirmDownload.
@@ -113,7 +113,7 @@ This event is also sent to the Recipient(s) that have not confirmed the download
 
 We suggest using the data supplied in the [get details](#operation-get-filetransfer-details) to investigate the actions.
 
-## Event: no.altinn.broker.filedeleted
+## Event: no.altinn.broker.filedeleted {#event-filedeleted}
 
 This event is triggered by the file cleanup process at the time of either the Expiry of the file, or due to all recipients having Confirmed their download.
 

@@ -28,31 +28,7 @@ Swagger for the File Transfer API is hosted [here](/api/broker/spec/).
 
 To understand how the Broker API operates, including its dependencies and configuration steps, refer to the information below:
 
-TODO: Replace with sequence diagram
-
-```mermaid
-sequenceDiagram
-    participant TE as TE/You
-    participant Maskinporten as Maskinporten
-    participant ResourceRegistry as Resource Registry
-    participant Events as Events
-    participant SBS as SBS/client
-    participant Broker as Broker
-    participant Authorization as Authorization
-
-    TE->>+Maskinporten: 1. Register clients
-    TE->>+ResourceRegistry: 2. Register resource with auth policy
-    TE->>+Events: 3. Set up event subscription
-    TE->>+SBS: Configure SBS/client
-    loop Each Broker request
-        SBS->>+Authorization: Get token (note: usually cached)
-        SBS->>+Broker: Initialize FileTransfer etc.
-        Broker->>+Authorization: Authorize request
-        Authorization->>+ResourceRegistry: Retrieve policy
-        Broker->>+Events: Publish event
-        Events->>-SBS: Push event/webhook
-    end
-```
+TODO: Replace with proper sequence diagram.
 
 You need to have performed the steps in [Get started](../get-started/) to setup the Access requirements.
 
@@ -67,7 +43,4 @@ As such, you should implement Event subscriptions to make your process optimized
 
 For all operations you will need to Authenticate using your Maskinporten Client then acquire an Altinn Token from [Altinn Authentication](https://docs.altinn.studio/authentication/architecture/accesstoken/).
 
-{{% notice warning  %}}
-SUBJECT TO CHANGE
 Use the Altinn Token as a Bearer token for all Broker API requests along with the APIM subscription key as a header with the key `Ocp-Apim-Subscription-Key`.
-{{% /notice %}}
