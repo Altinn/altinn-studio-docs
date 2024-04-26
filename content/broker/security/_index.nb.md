@@ -1,7 +1,7 @@
 ---
-title: Information Security
-linktitle: Security
-description: Altinn 3 Broker Information Security
+title: Informasjonssikkerhet
+linktitle: Sikkerhet
+description: Altinn 3 Formidling informasjonssikkerhet
 tags: []
 toc: true
 weight: 55

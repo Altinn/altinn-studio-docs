@@ -1,18 +1,19 @@
 ---
-title: Altinn 3 Broker Solution Architecture
-linktitle:  Solution Architecture
-description: Altinn 3 Broker solution architecture for basic use cases of Managed File Transfers.
+title: Grunnleggende løsningsarkitektur
+linktitle:  Løsningsarkitektur
+description: Altinn 3 Formidling grunnleggende løsningsarkitektur
 tags: []
 toc: true
 weight: 50
 ---
 
 {{<notice info>}} <!-- info -->
-The solution architecture described here is the foundation architecture for Altinn Broker,
-as relevant for the basic use cases of managed file transfers. 
-Further descriptions of the solution architecture related to advanced use cases
-and possible future extensions 
-will build on this foundation architecture.
+
+Løsningsarkitekturen beskrevet her er grunnarkitekturen for Altinn Broker, 
+slik den er relevant for de grunnleggende brukstilfellene av styrte filoverføringer. 
+Ytterligere beskrivelser av løsningsarkitekturen relatert til avanserte brukstilfeller 
+og mulige fremtidige utvidelser vil bygge på denne grunnarkitekturen.
+
 {{</notice>}}
 
 
@@ -20,7 +21,7 @@ will build on this foundation architecture.
 {{<children />}}  
 -->
 
-## Guiding Architecture Principles
+## Veiledende arkitekturprinsipper
 
 ### Overarching architectural principles for digitization of the public sector
 

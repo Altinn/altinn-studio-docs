@@ -4,7 +4,7 @@ linktitle: User Guides
 description: How to get started with Altinn 3 Broker, for service owners, users and developers
 tags: []
 toc: true
-weight: 80
+weight: 90
 ---
 
 {{<children />}}
