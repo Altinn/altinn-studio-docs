@@ -180,7 +180,7 @@ Eksempel på en enkel layout med et read only tekst felt og en signeringsknapp k
 
 For at brukere skal få lov til å signere må det defineres en regel i `App/config/authorization/policy.xml` som gir brukerne rettigheter til på signere på det nye prosesssteget.
 
-Denne regelen må da definere at brukerene som skal kunne signere har rettighetene _read_, _write_ og _sign_ på steget der det signering skal utføres.
+Denne regelen må da definere at brukerene som skal kunne signere har rettighetene _read_, _write_ og _sign_ på steget der signering skal utføres.
 
 Eksempel på en autorisasjonsregel som gir disse tilgangene for _DAGL_-rollen på prosess steg med id _Task_2_:
 
