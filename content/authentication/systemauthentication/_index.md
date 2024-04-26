@@ -13,11 +13,11 @@ Under arbeid. Ting kan endres. Vi tar gjerne imot innspill.
 Samlet sett har ca 50% av trafikken av skjema kommet fra APi, hvor enkelte tjenester har omtrent 100%. 
 For Altinn 3 utvikles det nye mekanismer som kan benyttes for autentisering og autorisasjon av maskin til maskin integrasjon
 
-## Systembruker for virksomhet
+## Systembruker for virksomhet (aka systemintegrasjon)
 
 Maskinporten er sentral i det nye konseptet. Alle som skal kalle API som den nye systembrukeren må autentisere seg mot maskinporten for å få et systembrukertoken. 
 
-Det som skiller et systembrukertoken og et vanlig maskinporten token er at man  i tillegg til informasjon om virksomheten som har autentisert seg så finner man informasjon om systembruker og system.
+Det som skiller et systembrukertoken og et vanlig maskinportentoken, er at man i tillegg til informasjon om virksomheten som har autentisert seg, så finner man informasjon om systembruker og system.
 
 Systembrukeren opprettes av den aktøren som ønsker å benytte et sluttbrukersystem for å integrere mot Altinn eller andre offentlige løsninger. Systembrukeren knyttes mot valgt system/systemleverandør og tildeles nødvendige rettigheter. 
 
@@ -38,7 +38,7 @@ Tokenet man da får vil kunne benyttes direkte mot Altinns API eller andre som v
 
 Som del av nytt konsept etableres det et systemregister i Altinn.  Systemregisteret vil inneholde oversikt over systemer tilbudet av systemleverandører. 
 
-Systemleverandører vil få tilgang til kunne administrere systemene de leverer i registeret. 
+Systemleverandører vil få tilgang til kunne administrere systemene de leverer i registeret via API. 
 
 Registeret vil inneholde navn og beskrivelse på systemet i tilegg til hvilke rettigheter som kreves av systemet for å kunne fungere.  
 
@@ -46,7 +46,7 @@ Denne informasjonen vil benyttes for å hjelpe sluttbruker til å gi riktig rett
 
 Systemleverandører vil kunne bruke informasjonen i registret til å forhåndsutfylle informasjon for leverandørstyrt opprettelse av systembruker. 
 
-Som del av systeminformasjonen må systemleverandører
+Som del av systeminformasjonen må systemleverandører oppgi clientID. 
 
 ### Leverandørstyrt opprettelse av systembruker
 
@@ -55,13 +55,14 @@ En viktig egenskap med nytt konsept er at det skal være lettere for systemlever
 Systemleverandøren vil kunne opprette et forespørsel for sin kunde på opprettelse av systembruker samt tildeling av nødvendige rettigheter. 
 Dette kan minne om hvordan man i dag kan samtykke til å dele inntektsinformasjon til banker. 
 
-Brukeren blir da presentert et forenklet GUI som beskriver at systembruker vil opprettes og at det vil tildeles rettigheter. 
+Brukeren blir da presentert et forenklet GUI som beskriver at systembruker/systemintegrasjon vil opprettes og at det vil tildeles rettigheter. 
 Det vil også beskrive hvilke system / leverandør som får tilgang til denne systembrukeren. 
 
 ![Illustration](illustration4.png "Konseptskisse: Leverandørstyrt opprettelse av systembruker")
 
 Ved å akseptere opprettes systembrukeren og den fås de nødvendige rettigheter.
 
+![Illustration](illustration4b.png "Konseptskisse: Leverandørstyrt opprettelse av systembruker")
 
 Det er også forventet at man vil få kunne mulighet til be om flere rettigheter til systembruker basert på samme prinsipp.
 
@@ -69,7 +70,7 @@ Det er også forventet at man vil få kunne mulighet til be om flere rettigheter
 
 Virksomheter vil kunne administrere sine systembrukere fra Altinn Profill. 
 
-Man vil kunne opprette systembrukere, deaktivere dem, endre rettigheter og endre tilkoblet system/systemtilbyder.
+Man vil kunne opprette systembrukere og deaktivere dem.
 
 ![Illustration](illustration1.png "Administrasjon av systembrukere")
 
@@ -77,18 +78,13 @@ Brukerne vil kunne opprette nye brukere og knytte mot systemer/leverandører
 
 ![Illustration](illustration2.png "Administrasjon av systembrukere")
 
-Systembrukerne kan tildeles rettigheter. Ved å forhåndsdefinere hvilke rettigheter et system trenger til å fungere kan man i Altinn presentere dette i sammenheng med rettighetsdelegering
-
-![Illustration](illustration6.png "Tildeling av rettigheter")
-
-
-![Illustration](illustration7.png "Tildeling av rettigheter")
-
-
-For virksomheter som bruker egenutviklet system vil man kunne definere integrasjoner i Maskinporten fra Altinns profil.
-
+Systemleverandøren må forhåndsdefinere hvilke rettigheter systemet trengs delegeres til systembrukeren. 
 
 ![Illustration](illustration3.png "Opprettelse av integrasjon")
+
+
+![Illustration](illustration3b.png "Opprettelse av integrasjon")
+
 
 ## Teknisk flyt autentisering/autorisasjon
 
@@ -183,7 +179,6 @@ For systemleverandører må følgende utføres
 
 ### Sluttbrukere
 
-
 ## Leveranseplan
 
 Systembruker vil leveres som del av flere leveranser. 
@@ -197,6 +192,7 @@ Første leveranse inneholder følgende funksjonalitet
 - Manuell opprettelse av systembruker/integrasjon via Altinn Profil for sluttbruker
 - Opprettelse av systembrukertoken via maskinporten
 - Støtter systemleverandør - kundeforhold
+- Det er mulig å be om enkeltilganger til ressurser i ressursregisteret.
 
 
 ### Leveranse 2
@@ -207,9 +203,14 @@ Første leveranse inneholder følgende funksjonalitet
 
 - Støtte for egendefinert system
 
-### Leverasnse 4
+### Leveranse 4
+
+- Støtte for å gi tilgangspakker til systembrukere
+
+### Leveranse 5
 
 - Støtte for leverandør - hjelper - kunde forhold (f.eks systemleverandør - regnskapsfører - regnskapskunde)
+
 
 
 ## Detaljerte issues
