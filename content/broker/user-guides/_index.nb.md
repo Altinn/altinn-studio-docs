@@ -1,9 +1,9 @@
 ---
-title: Altinn 3 Formidling brukerveiledninger
+title: Brukerveiledninger
 linktitle: Brukerveiledninger
-description: Hvordan komme i gang med Altinn 3 Formidling, for utviklere tjenesteeiere og sluttbrukere
+description: Hvordan komme i gang med Altinn 3 Formidling, for utviklere tjenesteeiere og sluttbrukere?
 toc: true
-weight: 80
+weight: 90
 ---
 
 {{<children />}}

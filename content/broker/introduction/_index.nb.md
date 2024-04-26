@@ -1,5 +1,5 @@
 ---
-title: Altinn Broker Introduksjon
+title: Introduksjon
 linktitle: Introduksjon
 description: Introduksjon til Altinn Formidling.
 tags: []
@@ -8,6 +8,7 @@ weight: 1
 ---
 
 ## Hva er Altinn Formidling?
+
 
 Hovedbruksområdet for Altinn Broker er styrt filoverføring (Managed File Transfer - MFT), 
 med sikker overføring av filer av vilkårlig størrelse 

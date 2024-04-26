@@ -1,7 +1,7 @@
 ---
-title: Altinn 3 Formidling funksjonalitet
+title: Funksjonalitet og egenskaper
 linktitle: Funksjonalitet
-description: Altinn 3 Formidling funksjonalitet
+description: Altinn 3 Formidling funksjonalitet og egenskaper
 tags: []
 toc: true
 weight: 15
