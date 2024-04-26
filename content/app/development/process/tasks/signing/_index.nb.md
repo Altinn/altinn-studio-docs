@@ -58,7 +58,7 @@ Datatypene er definert i filen App/config/applicationmetadata.json.
 
 I eksemplet med signeringoppgaven ovenfor definerer den at alle dataelementer som er tilknyttet datatypen "Modell", skal være en del av signaturen.
 
-Hvis applikasjonen også har en datatypen "attachments", der brukeren legger ved ekstra filer som utvikleren ønsker å være en del av signeringobjektet, bør <altinn:signatureConfig> se slik ut:
+Hvis applikasjonen også har datatypen "attachments", der brukeren legger ved ekstra filer som utvikleren ønsker å være en del av signeringobjektet, bør <altinn:signatureConfig> se slik ut:
 
 ```xml
 <altinn:signatureConfig>
@@ -72,7 +72,7 @@ Hvis applikasjonen også har en datatypen "attachments", der brukeren legger ved
 
 ### Konfigurere hvor signaturobjektet skal lagres
 
-Et signaturobjekt krever også en datatypen der det skal lagres når det er generert. Dette er definert i `<altinn:signatureDataTyep>`, og må også være definert i `App/config/applicationmetadata.json`.
+Et signaturobjekt krever også en datatype der det skal lagres når det er generert. Dette er definert i `<altinn:signatureDataType>`, og må også være definert i `App/config/applicationmetadata.json`.
 
 Eksempel på en applicationmetadata.json-fil med en signaturdatatypen kalt "signatur":
 
@@ -138,15 +138,15 @@ Eksempel på en applicationmetadata.json-fil med en signaturdatatypen kalt "sign
 
 ### Design layout for signeringssteget
 
-Signerings steget trenger en layout som definerer hva som skal vises til brukeren. Dette gjøres via en egen layoutset som i sin tur knyttes til signering prosesssteget (`Task_2 i vårt eksemepel`)
+Signeringssteget trenger en layout som definerer hva som skal vises til brukeren. Dette gjøres via en egen layoutset som i sin tur knyttes til signering prosesssteget (`Task_2 i vårt eksempel`)
 
 Hvis du har en v3 applikasjon uten layoutset se [Flere skjema i samme app (layout-sets)](../../../ux/pages/layout-sets/) for hvordan dette settes opp.
 
-Opprett en ny mappe i `App/ui/` med navnet som beskriver denne layoutseten, f.eks. _signering_. I denne mappen oppretter du så filen `Settings.json` og en mappe med navn `layouts`. 
+Opprett en ny mappe i `App/ui/` med navnet som beskriver dette layoutsettet, f.eks. _signering_. I denne mappen oppretter du så filen `Settings.json` og en mappe med navn `layouts`. 
 
 I `layouts` mappen opprettes filer som definerer hvordan sider i dette layoutsettet skal se ut. Det eneste komponenten som en signering layout må ha er en [`ActionButton`](../../../ux/components/actionbutton/) med `"action": "sign"` som definerer at når brukeren trykker på denne så utfører han action sign når han flytter prosessen videre.
 
-Eksempel på en enkel layout med et read only tekst felt og en signerings knapp kan se sånn her ut:
+Eksempel på en enkel layout med et read only tekst felt og en signeringsknapp kan se sånn her ut:
 
 ```json
 {
@@ -180,9 +180,9 @@ Eksempel på en enkel layout med et read only tekst felt og en signerings knapp 
 
 For at brukere skal få lov til å signere må det defineres en regel i `App/config/authorization/policy.xml` som gir brukerne rettigheter til på signere på det nye prosesssteget.
 
-Denne regel må da definere at brukerne som skal kunne signere har lov rettighetene _read_, _write_ og _sign_ på steget som har signer.
+Denne regelen må da definere at brukerene som skal kunne signere har rettighetene _read_, _write_ og _sign_ på steget der det signering skal utføres.
 
-Eksempel på en autorisasjon regel som gir disse tilgange for _DAGL_ rollen på prosess steg med id _Task_2_ 
+Eksempel på en autorisasjonsregel som gir disse tilgangene for _DAGL_-rollen på prosess steg med id _Task_2_:
 
 ```xml
 <xacml:Rule RuleId="urn:altinn:example:ruleid:7" Effect="Permit">
@@ -240,7 +240,7 @@ Eksempel på en autorisasjon regel som gir disse tilgange for _DAGL_ rollen på 
 
 Hvis en applikasjon har flere signeringstrinn, kan du sørge for at én person ikke kan signere begge trinnene selv om de har nødvendige roller.
 
-For eksempel, hvis to styremedlemmer skal signere, men samme person ikke kan utføre begge signeringstrinnene.
+For eksempel hvis to styremedlemmer skal signere, men samme person ikke kan utføre begge signeringstrinnene.
 
 For å konfigurere dette må vi legge til det første signaturdataobjektet i listen `<altinn:uniqueFromSignaturesInDataTypes>` for signeringoppgave to:
 
@@ -300,7 +300,7 @@ I tillegg har Task_3s `<altinn:signatureConfig>` definert at den skal være unik
 
 Hvis det skal være mulig å avslå å signere og for eksempel sende instansen tilbake til forrige steg kan dette gjøres ved å legge til en `reject` action på dette prosesssteget.
 
-Denne legges da til i autorisasjons regelen og det defineres en egen ActionButton som knyttes til action `reject`.
+Denne legges da til i autorisasjonsregelen og det defineres en egen ActionButton som knyttes til action `reject`.
 
 Se [Kontroller proess flyt](../../flowcontrol/) for mer informasjon.
 
