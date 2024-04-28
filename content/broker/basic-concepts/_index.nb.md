@@ -67,7 +67,7 @@ Merk:
 
 ## Konseptuell informasjonsmodell
 
-En høy-nivå konseptuell informasjonsmodell for Altinn 3 Broker er vist i figuren nedenfor.
+En høy-nivå konseptuell informasjonsmodell for Altinn 3 Formidling er vist i figuren nedenfor.
 
 ![Altinn 3 Formidling høy-nivå konseptuell informasjonsmodell](altinn3-broker-highlevel-conceptual-information-model.nb.png "Altinn 3 Formidling høy-nivå konseptuell informasjonsmodell")
 
