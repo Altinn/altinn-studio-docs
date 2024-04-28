@@ -10,8 +10,9 @@ weight: 1
 Under arbeid. Ting kan endres. Vi tar gjerne imot innspill.
 {{</notice>}}
 
-Samlet sett har ca 50% av trafikken av skjema kommet fra APi, hvor enkelte tjenester har omtrent 100%. 
-For Altinn 3 utvikles det nye mekanismer som kan benyttes for autentisering og autorisasjon av maskin til maskin integrasjon
+Samlet sett har ca 50% av trafikken av skjema kommet fra APi, hvor enkelte tjenester har omtrent 100% andel fra sluttbrukersystem. 
+
+Det utvikles nå nye mekanismer som kan benyttes for autentisering og autorisasjon av maskin til maskin integrasjon på Altinn plattformen og andre offentlige API.
 
 ## Systembruker for virksomhet (aka systemintegrasjon)
 
@@ -36,7 +37,7 @@ Tokenet man da får vil kunne benyttes direkte mot Altinns API eller andre som v
 
 ### Systemregister
 
-Som del av nytt konsept etableres det et systemregister i Altinn.  Systemregisteret vil inneholde oversikt over systemer tilbudet av systemleverandører. 
+Som del av nytt konsept etableres det et systemregister i Altinn. Systemregisteret vil inneholde oversikt over systemer tilbudet av systemleverandører. 
 
 Systemleverandører vil få tilgang til kunne administrere systemene de leverer i registeret via API. 
 
@@ -46,7 +47,7 @@ Denne informasjonen vil benyttes for å hjelpe sluttbruker til å gi riktig rett
 
 Systemleverandører vil kunne bruke informasjonen i registret til å forhåndsutfylle informasjon for leverandørstyrt opprettelse av systembruker. 
 
-Som del av systeminformasjonen må systemleverandører oppgi clientID. 
+Som del av systeminformasjonen må systemleverandører oppgi clientID fra  Maskinporten for å definere hvilke maskinporten integrasjoner som skal kunne autentisere seg som systemet. 
 
 ### Leverandørstyrt opprettelse av systembruker
 
@@ -177,6 +178,32 @@ For systemleverandører må følgende utføres
 - Informere kunder om rettighetene systemet krever.
 - Opprett maskinporten med JWT grand
 
+```json
+{
+    "SystemTypeId": "bedriftsguru_superbusiness",
+    "SystemVendor": "991825827",
+    "ClientIds": [
+        "f381cbb8-1e5c-4017-977d-f9029e2ee7ca",
+        "4349ee94-98a4-49be-8db3-bd60937fcdd4"
+    ],
+    "RequiredResourceRights": [
+        "app_skd_mva",
+        "app_nav_sykemelding"
+    ],
+    "Title":{
+        "en": "Bedriftsuguru SuperBusiness",
+        "nb": "Bedriftsuguru SuperBusiness",
+        "nn": "Bedriftsuguru SuperBusiness"
+    },
+    "Description":{
+        "en": "This is our best product. It helps you with everything. ",
+        "nb": "Dette er vårt beste produkt. Få hjelp til alt",
+        "nn": "Dette er vårt beste produkt. Få hjelp til alt"
+    }
+}
+
+```
+
 ### Sluttbrukere
 
 ## Leveranseplan
@@ -201,16 +228,15 @@ Første leveranse inneholder følgende funksjonalitet
 
 ### Leveranse 3
 
-- Støtte for egendefinert system
+- Støtte for å gi tilgangspakker til systembrukere
 
 ### Leveranse 4
 
-- Støtte for å gi tilgangspakker til systembrukere
+- Støtte for leverandør - hjelper - kunde forhold (f.eks systemleverandør - regnskapsfører - regnskapskunde)
 
 ### Leveranse 5
 
-- Støtte for leverandør - hjelper - kunde forhold (f.eks systemleverandør - regnskapsfører - regnskapskunde)
-
+- Støtte for egenutviklet system
 
 
 ## Detaljerte issues
