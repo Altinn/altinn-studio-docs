@@ -227,8 +227,6 @@ TBD
 ## Avregning og fakturering
 TBD
 
-
-
 ## Sikkerhetskontroller {#security-controls}
 
 {{<notice warning>}} <!-- info -->
