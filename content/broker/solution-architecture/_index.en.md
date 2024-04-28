@@ -1,5 +1,5 @@
 ---
-title: Altinn 3 Broker Solution Architecture
+title: Solution Architecture
 linktitle:  Solution Architecture
 description: Altinn 3 Broker solution architecture for basic use cases of Managed File Transfers.
 tags: []
@@ -58,7 +58,7 @@ here are some important considerations for the Altinn 3 Broker solution architet
   
 * __Future readiness in general__. The international landscape of regulations, standards, technologies  and solutions 
   is evolving. The solution architecture should take this into account, and prepare for 
-  compliance, interoperability and reuse. Examples: [Semenatic Web](https://en.wikipedia.org/wiki/Semantic_Web)
+  compliance, interoperability and reuse. Examples: [Semantic Web](https://en.wikipedia.org/wiki/Semantic_Web)
   and [Linked Data](https://en.wikipedia.org/wiki/Linked_data), 
   [Self Souvereign Identity](https://en.wikipedia.org/wiki/Self-sovereign_identity) and 
   [Verifiable Credentials](https://en.wikipedia.org/wiki/Verifiable_credentials).
@@ -66,7 +66,11 @@ here are some important considerations for the Altinn 3 Broker solution architet
 * __Compliance with EU regulations and standards__. 
   European regulations and standards for data sharing will apply for Norway in the coming years.
   Compliance will be mandated, and interoperability will be essential for cross border value chains. 
-  See e.g. the [Data Spaces Support Center knowledge base](https://dssc.eu/page/knowledge-base) 
+  See e.g. [Digdir's overview of EU legislation for data sharing](https://www.digdir.no/datadeling/oversikt-over-eu-regelverk-om-deling-og-bruk-av-data/3251)
+and [Data Spaces Support Center om "Regulatory Compliance"](https://dssc.eu/space/BVE/357074696/Regulatory+Compliance)
+  
+  
+  the [Data Spaces Support Center knowledge base](https://dssc.eu/page/knowledge-base) 
 
 
 <!--

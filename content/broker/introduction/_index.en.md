@@ -1,5 +1,5 @@
 ---
-title: Altinn Broker Introduction
+title: Introduction
 linktitle: Introduction
 description: Introduction to the Altinn Broker Service.
 tags: []
