@@ -8,7 +8,10 @@ weight: 1
 ---
 
 {{<notice warning>}} <!-- info -->
-Norsk oversettelse er i arbeid.
+Merk: Det kan inntil videre være problemer med
+lenking fra norsk dokumentasjon av Altinn Formidling til enkelte andre Altinn-komponenter.
+Dette skyldes at noen av Altinn-komponentene  foreløpig mangler norsk oversettelse.
 {{</notice>}}
+
 
 {{<children />}}

@@ -106,39 +106,42 @@ Her gis et sammendrag av hvordan disse komponentene forholder seg til og tjener 
 * [Altinn Authorization](../../authorization/). Registrer tjenesteressurser og autoriser tilgang.
 * Altinn Notifications. Varsler til menneskelige sluttbrukere via e-post og SMS.
 * Altinn Events. Varsler til webhooks i sluttbrukersystemer.
-* [Altinn Studio](../../altinn-studio/). Applikasjoner og brukergrensesnitt for selvbetjeningskonfigurasjon av løsningene.
-* Altinn Billing. Fakturering av kunder.
+* [Altinn Studio](../../altinn-studio/). Verktøy for utvikling av digitale tjenester for innbyggere og virksomheter. Brukes også til applikasjoner og brukergrensesnitt for selvbetjent konfigurasjon av løsningskomponenenter i Altinn.
 
-## Transition Architecture - Altinn 2 to Altinn 3
+<!-- * Altinn Fakturering. Fakturering av kunder. -->
 
-### General
-Two migration options are supported for migration of Altinn Broker services - 
-_hard shift_ and _soft switch_.
+## Overgangsarkitektur - Altinn 2 til Altinn 3
 
-### Hard shift from Altinn 2 to Altinn 3 for all users of a service
+### Generelt
+To migreringsalternativer støttes for migrering av Altinn Broker-tjenester -
+_hard overgang_ og _myk overgang_.
 
- With the _Hard shift_ option, all users and End User Systems make a coordinated shift to Altinn 3. 
+### Hard overgang fra Altinn 2 til Altinn 3 for alle brukere av en tjeneste
 
-This option is recommended in cases where such a   coordinated shift is feasible. No transition solution is needed and all features of Altinn 3 may be used 
-as soon as the shift has been made.
+Med alternativet _Hard overgang_ må alle brukere og sluttbrukersystemer gjøre en koordinert og samtidig overgang til Altinn 3.
 
-Uploaded files are stored om Altinn 2 Broker File Storage up until the shift. 
+Dette alternativet anbefales i tilfeller hvor en slik koordinert overgang er gjennomførbar. 
+Ingen overgangsløsning er nødvendig, 
+og alle funksjoner i Altinn 3 kan brukes så snart overgangen er gjennomført.
 
-![Altinn 3 Broker Migration Option - Hard Shift](altinn3-broker-migration-option-hardshift.en.png "Altinn 3 Broker Migration Option - Hard Shift")
+Opplastede filer lagres i Altinn 2 Formidling Fillager frem til overgangen.
 
-_Note: In this case, it is assumed that Altinn 2 Broker files have been purged 
-and are not needed in Altinn 3 Broker. 
-However, if required, it will be possible to move files from Altinn 2 to Altinn 3 Broker File Storage after the transition._
+![Altinn 3 Formidling migreringsopsjon - hard overgang](altinn3-broker-migration-option-hardshift.nb.png "Altinn 3 Formidling migreringsopsjon - hard overgang")
 
-### Soft shift from Altinn 2 to Altinn 3
+_Merk: I dette tilfellet antas det at filer fra Altinn 2 Broker er slettet
+og ikke behøves i Altinn 3 Broker.
+Hvis nødvendig, vil det likevel være mulig å flytte filer 
+fra Altinn 2 til Altinn 3 Broker Fillager etter overgangen._
 
-With the _Soft shift_ option, users and End User Systems shift to Altinn 3 on an
-individual basis, when ready. 
-The transition solution bridges between Altinn 2 and Altinn 3.
+### Myk overgang fra Altinn 2 to Altinn 3
 
-During the transition period, uploaded files will always be stored on Altinn 3 Broker Storage.
+Med alternativet _Myk_ overgang gjør brukere og sluttbrukersystemer 
+overgangen til Altinn 3 på individuell basis, når de er klare.
+Overgangsløsningen fungerer som en bro mellom Altinn 2 og Altinn 3.
 
-![Altinn 3 Broker Migration Option - Soft Shift](altinn3-broker-migration-option-softshift.en.png "Altinn 3 Broker Migration Option - Soft Shift")
+I overgangsperioden vil opplastede filer alltid lagres i Altinn 3 Formidling Fillager.
+
+![Altinn 3 Formidling migreringsopsjon - myk overgang](altinn3-broker-migration-option-softshift.nb.png "Altinn 3 Formidling migreringsopsjon - myk overgang")
 
 <!--
 ### Solution Details
@@ -150,132 +153,142 @@ TBD by Ragnar?
 TBD by Ragnar?
 -->
 
-## File storage
+## Fillager
 
-Broker File Storage is based MS Azure Blob Storage.
+Altinn 3 Formidling Fillager er basert på Microsoft Azure Blob Storage.
 
-Stored Files are always encrypted; ref. [Azure Storage encryption for
+Lagrede filer vil bestandig være krypterte; ref. [Azure Storage encryption for
 data at rest \| Microsoft
 Learn](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption).
 
-## Metadata storage
+## Metadatalager
 
-The following information model details the
-[conceptual information model under basic concepts](../basic-concepts#konseptuell-informasjonsmodell).
+Følgende informasjonsmodell detaljerer 
+[den konseptuelle informasjonsmodellen under _grunnleggende konsepter_:](../basic-concepts#konseptuell-informasjonsmodell).
 
-![Altinn 3 Broker Metadata Storage Information Model](altinn3-broker-metadata-storage-information-model.en.png "Altinn 3 Broker Metadata Storage Information Model")
+![Altinn 3 Broker Metadata Storage Information Model](altinn3-broker-metadata-storage-information-model.nb.png "Altinn 3 Broker Metadata Storage Information Model")
 
-## Addressing and Routing
+## Adressering og ruting
+De grunnleggende adresserings- og ruteringsmekanismene for Altinn 3 Formidling er:
 
-The basic Altinn 3 Broker adressing amd routing mechanisms are:
+* Spesifikk adressering av mottakere
+* Abonnementsbasert adressering og ruting
 
-* Specific adressing of recipients
-* Addressing via subscription
+_Merk: Ytterligere adresseringsfunksjoner vurderes, slik som kriterier basert på rolle, tjeneste og kontekst._
 
-_Note: Further adressing capabilities are considered, including criteria based om role, service and context._
 
-### Specific adressing of recipients
+### Spesifikk adressering av mottakere
 TBD.
 
-### Addressing via subscription
+### Abonnementsbasert adressering og ruting
 TBD.
 
 
-## Notifications
+## Varsling
 
-### Notifications to human end users
+### Varsler til menneskelige sluttbrukere
 
-Notifications to human recipients are supported by e-mail and sms, 
-see Altinn Notifications.
-
-### Notifications to End User Systems
-
-End User Systems may register custom webhooks for receiving events; see Altinn Events.
-
-See [the Altinn 3 Broker OpenAPI specification](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-v1.json) 
-for the evnets 
-
-<!-- 
-Erik: The specific events supported, ref. the Broker OpenAPI...
+Varsler til menneskelige sluttbrukere via e-post og sms
+er realisert via [Varslingskomponenten i Altinn](../../notifications/).
+<!-- Erik, 20024-04-28: 
+This link doesn't work due to missing translation of the Notfications component documentation 
 -->
+
+### Varsler til sluttbrukersystemer
+
+Altinn Formidling baserer seg på støtten i [Altinn Events](../../events/) for å sende varsler
+til _webhooks_ i sluttbrukersystemene.
+
+Det må da settes opp abonnementer i [Altinn Events](../../events/), 
+med tilgangsstyring av aktuelle tjenesteressurser i [Altinn Autorisasjon](../../authorization/).
+
+Se også [Altinn 3 Broker OpenAPI specification](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-v1.json) 
+for spesifikasjon av  hendelser som støttes av Altinn Formidling.
+
 
 
 ## API Management
 
-Azure API Management (APIM) plays a vital role in enhancing the security, management, and operational insights of Altinn API's. By placing APIM in front of the broker service, we can leverage a range of capabilities to ensure secure, efficient, and scalable file transfer operations. We run on an APIM instance that is shared with other platform services in Altinn.
+[Azure API Management (APIM)](https://azure.microsoft.com/en-us/products/api-management) benyttes for skalering, operasjonell innsikt
+og sikring av Altinn Formidling API-er.
 
-## Logging and Monitoring
+Altinn Formidling kjører på en APIM-instans som deles med andre plattformtjenester i Altinn.
+
+## Logging og monitorering
 TBD
 
-## Clearing and Billing
+## Avregning og fakturering
 TBD
 
 
 
-## Security Controls
+## Sikkerhetskontroller
 
 {{<notice warning>}} <!-- info -->
-The documentation of security contols is work in progress
+Dokumentasjonen av sikkerhetskontroller er under arbeid.
 {{</notice>}}
 
 
-### Authentication and Authorization
+### Autentisering og Autorisasjon
 
-TBD: Maskinporten and Altinn Authorization...
+TBD: Maskinporten og Altinn Autorisasjon...
 
-### Checksum
+### Sjekksum
 
 TBD
 
-### Virus check
+### Viruskontroll
 
-When a file is uploaded to Broker, it undergoes a scan by Microsoft Defender Antivirus. 
-If no viruses are detected, the file is promptly published and made available for download by recipients. However, in cases where a virus is found or the scan fails, the file is removed, and the transfer status is updated to provide detailed information regarding the scan failure.
+Når en fil lastes opp til Altinn Formidling, skannes den av Microsoft Defender Antivirus.
+Hvis det ikke oppdages virus, publiseres filen umiddelbart 
+og gjøres tilgjengelig for nedlasting av mottakere. 
+Imidlertid, i tilfeller der det oppdages et virus eller skanningen mislykkes, 
+fjernes filen, og overføringsstatusen oppdateres 
+for å gi detaljert informasjon om skanningsfeilen.
 
 
-### In-transit protection
+### Beskyttelse under overføring
 
-Encrypted file transfers with TLS/HTTPS.
+Krypterte filoverføringer med TLS/HTTPS.
 
-### At rest protection
+### Beskyttelse under lagring
 
-Encrypted Broker File Storage; ref. [Azure Storage encryption for data
-at rest \| Microsoft
+Kryptert lagring av filer i Altinn 3 Formidling Fillager; ref. [Azure Storage-kryptering for data
+i ro \| Microsoft
 Learn](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption).
 
-Encrypted Broker Metadata Storage, Metadata storage using the PostgreSQL Database. Details TBD.
+Kryptert lagring av metadata i Altinn 3 Formidling Metadatalager...
+Metadata lagring ved bruk av PostgreSQL-databasen...
 
-TBD: Specific encryption solution... firewall,  V-net... 
+TBD: Spesifikk krypteringsløsning... brannmur, V-net...
 
-
-### Alternative file storage solutions
+### Alternative lagringsløsninger for filer
 
 TBD
 
-### DDoS attack prevention
+### Forebygging av DDoS-angrep
 
-DDoS attack prevention via Azure API Management.
+DDoS-angrepsforebygging via Azure API Management.
 
 ### Hosting
 
-Private cloud hosting
+* Privat sky-hosting
+* On-premise hosting 
 
-On-premises hosting
+### Kodepraksiser
 
-### Coding practices
+TBD  Åpen kildekode...
 
-TBD Open source
+### Nøkkelhvelv
 
-### Key Vault
+Azure Key Vault, Private nøkler, intern... identiteter (skjulte tokens); hemmeligheter,  Altinn autentisering
 
-Azure Key Vault, Private keys, internals... identities (hidden tokens); secrets,  Altinn authentication
-
-### Penetration testing
+### Penetrasjonstesting
 
 TBD
 
-## Further Solution Resources
 
-![Digdir Solution Resources for Altinn 3 Broker](digdir-solution-resources-for-altinn3-broker.en.png "Digdir Solution Resources for Altinn 3 Broker")
+## Ytterligere løsningsressurser
 
+![Digdir løsningsressurser for Altinn 3 Formidling](digdir-solution-resources-for-altinn3-broker.en.png "Digdir-løsningsressurser for Altinn 3 Formidling")
 

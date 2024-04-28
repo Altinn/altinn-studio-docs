@@ -167,7 +167,7 @@ The following information model details the
 
 ## Addressing and Routing
 
-The basic Altinn 3 Broker adressing amd routing mechanisms are:
+The basic Altinn 3 Broker adressing and routing mechanisms are:
 
 * Specific adressing of recipients
 * Addressing via subscription
@@ -185,24 +185,23 @@ TBD.
 
 ### Notifications to human end users
 
-Notifications to human recipients are supported by e-mail and sms, 
-see [Altinn Notifications](../../notifications/).
+For notifications to human recipients via e-mail and sms,
+Altinn Broker uses the [Altinn Notifications](../../notifications/) component.
 
 ### Notifications to End User Systems
 
 End User Systems may register custom webhooks for receiving events; see [Altinn Events](../../events/).
 
 See [the Altinn 3 Broker OpenAPI specification](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-v1.json) 
-for the evnets 
-
-<!-- 
-Erik: The specific events supported, ref. the Broker OpenAPI...
--->
+for specification of the supported events.
 
 
 ## API Management
 
-Azure API Management (APIM) plays a vital role in enhancing the security, management, and operational insights of Altinn API's. By placing APIM in front of the broker service, we can leverage a range of capabilities to ensure secure, efficient, and scalable file transfer operations. We run on an APIM instance that is shared with other platform services in Altinn.
+[Azure API Management (APIM)](https://azure.microsoft.com/en-us/products/api-management) 
+is used for scaling, operational insights, and securing Altinn Broker APIs.
+
+Altinn Broker runs on an APIM instance that is shared with other platform services in Altinn.
 
 ## Logging and Monitoring
 TBD
@@ -215,7 +214,7 @@ TBD
 ## Security Controls
 
 {{<notice warning>}} <!-- info -->
-The documentation of security contols is work in progress
+The documentation of security controls is work in progress
 {{</notice>}}
 
 
