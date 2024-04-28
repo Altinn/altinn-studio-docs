@@ -177,6 +177,27 @@ For systemleverandører må følgende utføres
 - Informere kunder om rettighetene systemet krever.
 - Opprett maskinporten med JWT grand
 
+```json
+{
+    "SystemTypeId": "BedriftsGuru Superskatt",
+    "SystemVendor": "991825827",
+    "ClientIds": [
+        "f381cbb8-1e5c-4017-977d-f9029e2ee7ca",
+        "4349ee94-98a4-49be-8db3-bd60937fcdd4"
+    ],
+    "RequiredResourceRights": [
+        "app_skd_mva",
+        "app_nav_sykemelding"
+    ],
+    "Description":{
+        "en": "This is our best product. It helps you with everything. ",
+        "nb": "Dette er vårt beste produkt. Få hjelp til alt",
+        "nn": "Dette er vårt beste produkt. Få hjelp til alt"
+    }
+}
+
+```
+
 ### Sluttbrukere
 
 ## Leveranseplan
