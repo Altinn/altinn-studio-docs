@@ -1,5 +1,5 @@
 ---
-title: Grunnleggende løsningsarkitektur
+title: Løsningsarkitektur
 linktitle:  Løsningsarkitektur
 description: Altinn 3 Formidling grunnleggende løsningsarkitektur
 tags: []
@@ -21,18 +21,18 @@ og mulige fremtidige utvidelser vil bygge på denne grunnarkitekturen.
 {{<children />}}  
 -->
 
-## Veiledende arkitekturprinsipper
+## Arkitekturprinsipper
 
-### Overarching architectural principles for digitization of the public sector
+### Overordnede arkitekturprinsipper for digitalisering av offentlig sektor
 
-[The overarching architectural principles for digitization of the public sector](https://www.digdir.no/digital-samhandling/overordnede-arkitekturprinsipper/1065>) in Norway are a support for work with enterprise architecture and are intended to contribute to increased interoperability across enterprises and sectors.
-
-These high level principals apply.
+[Overordnede arkitekturprinsipper for digitalisering av offentlig sektor](https://www.digdir.no/digital-samhandling/overordnede-arkitekturprinsipper/1065>) 
+i Norge skal være en støtte til arbeid med virksomhetsarkitektur og bidra til økt samhandlingsevne på tvers av virksomheter og sektorer.
+Disse prinsippene gjelder.
 
 
 ### General Altinn 3 Architecture Principles
 
-The [Altinn 3 Architecture Principles](/principles) apply.
+[Altinn 3 arkitekturprinsipper ](/principles) gjelder.
 
 <!--
 ### Architecture Principles for Messaging and Data Sharing
@@ -43,68 +43,71 @@ Architecture principles for these product groups are under construction.
 -->
 
 
-### Further considerations
+### Ytterligere betraktninger
 
-Altinn 3 Broker is one of several Digdir products within the product groups for 
-Messaging and Data Sharing. 
-_Architecture principles for these product groups are under construction._
+Altinn 3 Formidling er ett av flere Digdir-produkter innen områdene meldingsutveksling og datadeling.
+Tilpassede arkitekturprinsipper for disse områdene er under utvikling.
+I påvente av arkitekturprinsipper for de relevante produktområdene,
+følger her noen betraktninger for løsningsarkitekturen til Altinn 3 Broker.
 
-Pending architecture principles for the relevant procuct areas, 
-here are some important considerations for the Altinn 3 Broker solution architeture:
+__Støtte for lokal hosting og datalagring.__
+Grunnet bekymringer knyttet til informasjonssikkerhet, 
+kan noen kunder og brukere ha problemer med å akseptere hosting eller lagring på en skyplattform valgt av Altinn.
+Løsningsarkitekturen bør derfor tillate lokal hosting og lagring for kunder og brukere som ønsker det.
 
-* __Support for on-premise hosting and data storage__. 
-  Due to information security concerns, some customers will not tolerate cloud hosting and storage 
-  on the cloud platform chosen by Altinn.
-  The solution architecture should therefore allow for on premise hosting and storage on a per customer basis.
-  
-* __Future readiness in general__. The international landscape of regulations, standards, technologies  and solutions 
-  is evolving. The solution architecture should take this into account, and prepare for 
-  compliance, interoperability and reuse. Examples: [Semenatic Web](https://en.wikipedia.org/wiki/Semantic_Web)
-  and [Linked Data](https://en.wikipedia.org/wiki/Linked_data), 
-  [Self Souvereign Identity](https://en.wikipedia.org/wiki/Self-sovereign_identity) and 
-  [Verifiable Credentials](https://en.wikipedia.org/wiki/Verifiable_credentials).
+__Framtidssikker arkitektur__. 
 
-* __Compliance with EU regulations and standards__. 
-  European regulations and standards for data sharing will apply for Norway in the coming years.
-  Compliance will be mandated, and interoperability will be essential for cross border value chains. 
-  See e.g. the [Data Spaces Support Center knowledge base](https://dssc.eu/page/knowledge-base) 
+* Det internasjonale landskapet av forskrifter, standarder, teknologier og løsninger
+er i endring. Løsningsarkitekturen bør ta hensyn til dette, og forberede for
+samsvar, samhandling og gjenbruk.
+Eksempler:
+[Semantisk web](https://en.wikipedia.org/wiki/Semantic_Web),
+[lenkede data](https://en.wikipedia.org/wiki/Linked_data),
+[selvstyrt identitet](https://en.wikipedia.org/wiki/Self-sovereign_identity) og
+ ["verifiable credentials"](https://en.wikipedia.org/wiki/Verifiable_credentials).
 
+* __Etterlevelse av EU-regler og -standarder__. 
+Europeiske regler og standarder for datadeling vil gjelde for Norge i de kommende årene.
+Etterlevelse vil være påkrevd, og  samhandling vil være essensielt for grensekryssende verdikjeder.
+Se f.eks. [Digdirs oversikt over EU-regelverk om deling og bruk av data](https://www.digdir.no/datadeling/oversikt-over-eu-regelverk-om-deling-og-bruk-av-data/3251)
+og [Data Spaces Support Center om "Regulatory Compliance"](https://dssc.eu/space/BVE/357074696/Regulatory+Compliance)
 
 <!--
 * Multi-channel and omni-channel support
 -->
 
 
-## High Level Solution Overview – main building blocks
+## Overordnet løsningsarkitektur - byggeklosser
 
-The following figure gives a high level solution overview.
+Følgende figur gir en oversikt over byggeklossene i overordnet løsningsarktitektur for Altinn 3 Formidling.
 
-![Altinn 3 Broker High Level Solution Overview](altinn3-broker-highlevel-solution-overview.en.png "Altinn 3 Broker High Level Solution Overview")
+![Byggeklosser i Altinn 3 Formidling - overordnet løsningsarkitektur](altinn3-broker-highlevel-solution-overview.nb.png "Byggeklosser i Altinn 3 Formidling - overordnet løsningsarkitektur")
 
-This diagram expands on 
-the [basic context overview](../basic-concepts#kontekstoversikt---aktører-og-informasjonsflyt) 
-by indicating the involved building blocks.
+
+Dette diagrammet bygger videre på 
+[den overordnede kontekstoversikten](../basic-concepts#kontekstoversikt---aktører-og-informasjonsflyt) 
+ved å angi de viktigste Digdir-løsningene.
 
 <!--
 [context diagram](../../1.%20Introduction/image2.png) of 
 the [introduction](../../1.%20Introduction/_index.en.md) by indicating the involved building blocks. 
 -->
 
-The Altinn application components (right side) realize the functionality as indicated by the 
-high level application services (bottom). 
-The exact mapping between services and conponents is not shown in this, high level diagram.
+Applikasjonskomponenter i form av Digdir-løsninger (på høyre side) realiserer funksjonaliteten 
+som indikert av  applikasjonstjenestene (nederst).
+Den eksakte tilordningen mellom tjenester og komponenter er ikke vist i dette høynivådiagrammet.
 
-In addition to general descriptions of each of the application components given elsewhere, 
-here's a summary of how these components relates to and serves Altinn 3 Broker:
+Generelle beskrivelser av hver av disse applikasjonskomponentene  gitt andre steder. 
+Her gis et sammendrag av hvordan disse komponentene forholder seg til og tjener Altinn 3 Broker:
 
-* [ID-porten](https://www.digdir.no/felleslosninger/id-porten/864): Auhentication of human end users.
-* [Maskinporten](https://www.digdir.no/felleslosninger/maskinporten/869): Authentication and authorization of machines (End User Systems). 
-  Authorization features are realized in cooperation with the Altinn Authorization component.
-* [Altinn Authorization](../../authorization/). Register services resources and authorize access.
-* Altinn Notifications. Notifications to human end users via e-mail and sms.
-* Altinn Events. Notifications to webhooks in End User Systems.
-* [Altinn Studio](../../altinn-studio/). Applications and user interface for self service configuration of the solutions.
-* Altinn Billing. Invoicing of customers.
+* [ID-porten](https://www.digdir.no/felleslosninger/id-porten/864): Autentisering av menneskelige sluttbrukere.
+* [Maskinporten](https://www.digdir.no/felleslosninger/maskinporten/869): Autentisering og autorisering av 
+  maskiner (sluttbrukersystemer). Autorisasjonsfunksjonene realiseres i samarbeid med Altinn-autorisasjonskomponenten.
+* [Altinn Authorization](../../authorization/). Registrer tjenesteressurser og autoriser tilgang.
+* Altinn Notifications. Varsler til menneskelige sluttbrukere via e-post og SMS.
+* Altinn Events. Varsler til webhooks i sluttbrukersystemer.
+* [Altinn Studio](../../altinn-studio/). Applikasjoner og brukergrensesnitt for selvbetjeningskonfigurasjon av løsningene.
+* Altinn Billing. Fakturering av kunder.
 
 ## Transition Architecture - Altinn 2 to Altinn 3
 

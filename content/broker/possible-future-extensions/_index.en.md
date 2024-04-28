@@ -1,5 +1,5 @@
 ---
-title: Altinn 3 Broker Future Extensions 
+title: Broker Future Extensions 
 linktitle: Possible Future Extensions 
 description: Altinn 3 Broker Anticipated and Possible Future Extensions 
 tags: []
