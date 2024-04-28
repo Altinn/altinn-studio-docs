@@ -229,7 +229,7 @@ TBD
 
 
 
-## Sikkerhetskontroller
+## Sikkerhetskontroller {#security-controls}
 
 {{<notice warning>}} <!-- info -->
 Dokumentasjonen av sikkerhetskontroller er under arbeid.
