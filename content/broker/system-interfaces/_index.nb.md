@@ -144,7 +144,7 @@ Se også:
 
 ### Ende-til-ende typisk sekvens
 
-Følgende sekvensdiagram viser tyisk "happy path" meldingssekvens:  
+Følgende sekvensdiagram viser typisk "happy path" meldingssekvens:  
 
 {{<notice warning>}} <!-- info -->
 Merk: Meldingsnavnene er ikke oversatt til norsk, for å unngå misforståelser opp mot tekniske spesifikasjoner.
