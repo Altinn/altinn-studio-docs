@@ -188,18 +188,25 @@ TBD.
 
 ### Varsler til menneskelige sluttbrukere
 
-Varsler til menneskelige sluttbrukere via e-post og sms
-er realisert via [Varslingskomponenten i Altinn](../../notifications/).
-<!-- Erik, 20024-04-28: 
-This link doesn't work due to missing translation of the Notfications component documentation 
+<!--  Erik 2024-04-28: 
+Altinn Notifications mangler norsk oversettelse , så bruk url i stedet for relativ lenke så lenge
+Relativ lenke: [Varslingskomponenten i Altinn](../../notifications/)
 -->
+
+Varsler til menneskelige sluttbrukere via e-post og sms
+er realisert via [Varslingskomponenten i Altinn](https://docs.altinn.studio/notifications/).
+
 
 ### Varsler til sluttbrukersystemer
 
-Altinn Formidling baserer seg på støtten i [Altinn Events](../../events/) for å sende varsler
-til _webhooks_ i sluttbrukersystemene.
+<!--  Erik 2024-04-28: 
+Altinn Events mangler norsk oversettelse , så bruk url i stedet for relativ lenke så lenge
+Relativ lenke: [Altinn Events](../../events/)
+-->
+Altinn Formidling baserer seg på støtten i [Altinn Events](https://docs.altinn.studio/events/)
+for å sende varsler til _webhooks_ i sluttbrukersystemene.
 
-Det må da settes opp abonnementer i [Altinn Events](../../events/), 
+Det må da settes opp abonnementer i [Altinn Events](https://docs.altinn.studio/events/), 
 med tilgangsstyring av aktuelle tjenesteressurser i [Altinn Autorisasjon](../../authorization/).
 
 Se også [Altinn 3 Broker OpenAPI specification](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-v1.json) 
@@ -288,7 +295,7 @@ Azure Key Vault, Private nøkler, intern... identiteter (skjulte tokens); hemmel
 TBD
 
 
-## Ytterligere løsningsressurser
+## Oversikt over relaterte  løsninger
 
 ![Digdir løsningsressurser for Altinn 3 Formidling](digdir-solution-resources-for-altinn3-broker.en.png "Digdir-løsningsressurser for Altinn 3 Formidling")
 
