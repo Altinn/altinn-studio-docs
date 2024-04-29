@@ -109,6 +109,17 @@ here's a summary of how these components relates to and serves Altinn 3 Broker:
 * [Altinn Studio](../../altinn-studio/). Applications and user interface for self service configuration of the solutions.
 * Altinn Billing. Invoicing of customers.
 
+## Related soltions
+
+An overview of related solutions is provided in the following diagram.
+This serves as a starting point for assessing interaction with, as well as the use and reuse of, other solutions
+in the detailed solution architecture for Altinn Broker.
+The most relevant solutions are highlighted in bold.
+
+![Digdir Solution Resources for Altinn 3 Broker](digdir-solution-resources-for-altinn3-broker.en.png "Digdir Solution Resources for Altinn 3 Broker")
+
+
+
 ## Transition Architecture - Altinn 2 to Altinn 3
 
 ### General

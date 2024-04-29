@@ -16,7 +16,6 @@ og mulige fremtidige utvidelser vil bygge på denne grunnarkitekturen.
 
 {{</notice>}}
 
-
 <!--
 {{<children />}}  
 -->
@@ -77,9 +76,9 @@ og [Data Spaces Support Center om "Regulatory Compliance"](https://dssc.eu/space
 -->
 
 
-## Overordnet løsningsarkitektur - byggeklosser
+## Overordnet løsningsarkitektur
 
-Følgende figur gir en oversikt over byggeklossene i overordnet løsningsarktitektur for Altinn 3 Formidling.
+Følgende figur gir en oversikt over de vikigste byggeklossene i overordnet løsningsarktitektur for Altinn 3 Formidling.
 
 ![Byggeklosser i Altinn 3 Formidling - overordnet løsningsarkitektur](altinn3-broker-highlevel-solution-overview.nb.png "Byggeklosser i Altinn 3 Formidling - overordnet løsningsarkitektur")
 
@@ -87,17 +86,10 @@ Følgende figur gir en oversikt over byggeklossene i overordnet løsningsarktite
 Dette diagrammet bygger videre på 
 [den overordnede kontekstoversikten](../basic-concepts#kontekstoversikt---aktører-og-informasjonsflyt) 
 ved å angi de viktigste Digdir-løsningene.
-
-<!--
-[context diagram](../../1.%20Introduction/image2.png) of 
-the [introduction](../../1.%20Introduction/_index.en.md) by indicating the involved building blocks. 
--->
-
 Applikasjonskomponenter i form av Digdir-løsninger (på høyre side) realiserer funksjonaliteten 
 som indikert av  applikasjonstjenestene (nederst).
-Den eksakte tilordningen mellom tjenester og komponenter er ikke vist i dette høynivådiagrammet.
-
-Generelle beskrivelser av hver av disse applikasjonskomponentene  gitt andre steder. 
+<!--Den eksakte tilordningen mellom tjenester og komponenter er ikke vist i dette høynivådiagrammet.-->
+Generelle beskrivelser av hver applikasjonskomponent er gitt andre steder. 
 Her gis et sammendrag av hvordan disse komponentene forholder seg til og tjener Altinn 3 Broker:
 
 * [ID-porten](https://www.digdir.no/felleslosninger/id-porten/864): Autentisering av menneskelige sluttbrukere.
@@ -109,6 +101,16 @@ Her gis et sammendrag av hvordan disse komponentene forholder seg til og tjener 
 * [Altinn Studio](../../altinn-studio/). Verktøy for utvikling av digitale tjenester for innbyggere og virksomheter. Brukes også til applikasjoner og brukergrensesnitt for selvbetjent konfigurasjon av løsningskomponenenter i Altinn.
 
 <!-- * Altinn Fakturering. Fakturering av kunder. -->
+
+## Relaterte løsninger
+
+En oversikt over relaterte løsninger er gitt i følgende diagram. 
+Dette er et utgangspunkt for å vurdere samspill med, samt bruk og gjenbruk av, andre løsninger
+i den detaljerte løsningsarkitekturen for Altinn Formidling. 
+De mest relevante løsningene er angitt med uthevet skrift.
+
+![Relaterte løsninger](digdir-solution-resources-for-altinn3-broker.en.png "Relaterte løsninger")
+
 
 ## Overgangsarkitektur - Altinn 2 til Altinn 3
 
@@ -164,7 +166,9 @@ Learn](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-en
 ## Metadatalager
 
 Følgende informasjonsmodell detaljerer 
-[den konseptuelle informasjonsmodellen under _grunnleggende konsepter_:](../basic-concepts#konseptuell-informasjonsmodell).
+[den konseptuelle informasjonsmodellen under _grunnleggende konsepter_:](../basic-concepts#konseptuell-informasjonsmodell). 
+Her angis hvilke data som lagres, som utgangspunkt for vurdering av behov for 
+sikkerhetskontroller.
 
 ![Altinn 3 Broker Metadata Storage Information Model](altinn3-broker-metadata-storage-information-model.nb.png "Altinn 3 Broker Metadata Storage Information Model")
 
@@ -174,8 +178,9 @@ De grunnleggende adresserings- og ruteringsmekanismene for Altinn 3 Formidling e
 * Spesifikk adressering av mottakere
 * Abonnementsbasert adressering og ruting
 
-_Merk: Ytterligere adresseringsfunksjoner vurderes, slik som kriterier basert på rolle, tjeneste og kontekst._
+<!-- _Merk: Ytterligere adresseringsfunksjoner vurderes, slik som kriterier basert på rolle, tjeneste og kontekst._ -->
 
+Disse mekanismene beskrives nærmere i det følgende.
 
 ### Spesifikk adressering av mottakere
 TBD.
@@ -213,13 +218,17 @@ Se også [Altinn 3 Broker OpenAPI specification](https://github.com/Altinn/altin
 for spesifikasjon av  hendelser som støttes av Altinn Formidling.
 
 
-
 ## API Management
 
 [Azure API Management (APIM)](https://azure.microsoft.com/en-us/products/api-management) benyttes for skalering, operasjonell innsikt
 og sikring av Altinn Formidling API-er.
 
 Altinn Formidling kjører på en APIM-instans som deles med andre plattformtjenester i Altinn.
+
+
+## Nettverksvirtualisering
+
+Nettverksvirtualisering er realisert gjennom Microsoft Azure VNet, eller Virtual Network.
 
 ## Logging og monitorering
 TBD
@@ -232,6 +241,22 @@ TBD
 {{<notice warning>}} <!-- info -->
 Dokumentasjonen av sikkerhetskontroller er under arbeid.
 {{</notice>}}
+
+
+### Sikkerhetskontroller gjennom Azure API Management
+
+* Autentisering og Autorisasjon: APIM støtter flere metoder for autentisering og autorisasjon, inkludert OAuth 2.0, OpenID Connect, og Azure Active Directory, som hjelper til med å kontrollere hvem som kan få tilgang til APIene.
+* Rate Limiting og Quotas: Disse funksjonene begrenser antall forespørsler en bruker kan sende til et API i en gitt tidsperiode, noe som hjelper til med å beskytte APIer mot overbelastningsangrep og misbruk.
+* IP-filtrering: APIM tillater konfigurering av tillatte eller blokkerte IP-adresser, som gir en ekstra lag med sikkerhet ved å begrense hvem som kan sende forespørsler til APIene.
+* Policyer for transformasjon og validering: APIM lar deg definere policyer som kan endre innkommende og utgående forespørsler eller validere forespørsler og svar, noe som bidrar til å sikre at dataene som behandles er korrekte og sikre.
+* Beskyttelse mot trusler: Selv om ikke på samme nivå som dedikerte sikkerhetsløsninger, tilbyr APIM noen evner til å identifisere og blokkere potensielt skadelige forespørsler, som de som kan være en del av et SQL-injeksjonsangrep.
+
+### Sikkerhetskontroller gjennom Azure VNet
+
+* Isolasjon: Ved å virtualisere nettverkene kan organisasjoner skille sine utviklings-, test- og produksjonsmiljøer, eller forskjellige applikasjonsstacks. Dette hindrer uautorisert tilgang og datalekkasje mellom systemer.
+* Segmentering: Nettverkssegmentering gjør det mulig å kontrollere trafikkflyten mellom nettverkssegmentene strengt, noe som reduserer angrepsflaten ved å begrense en angripers evne til å bevege seg lateral i nettverket.
+* Tilgangskontroll: Implementering av sikkerhetstiltak som nettverkssikkerhetsgrupper (NSGs) og brannmurer innen et VNet tillater detaljert styring av tilgangsregler og policyer på nettverksnivå, basert på behovene til hvert segment.
+* Sikker kommunikasjon: Ved å benytte VPN (Virtual Private Network) og andre krypteringsmekanismer, kan nettverksvirtualisering sikre dataene som overføres mellom forskjellige deler av nettverket eller mellom skyen og on-premises infrastruktur.
 
 
 ### Autentisering og Autorisasjon
@@ -292,8 +317,4 @@ Azure Key Vault, Private nøkler, intern... identiteter (skjulte tokens); hemmel
 
 TBD
 
-
-## Oversikt over relaterte  løsninger
-
-![Digdir løsningsressurser for Altinn 3 Formidling](digdir-solution-resources-for-altinn3-broker.en.png "Digdir-løsningsressurser for Altinn 3 Formidling")
 
