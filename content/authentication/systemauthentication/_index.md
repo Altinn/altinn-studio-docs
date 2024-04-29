@@ -135,11 +135,11 @@ Diagrammet nedenfor viser hvordan et fagsystem kan autentisere seg når systembr
     "ID" : "0192:910753614"
   },
   "authorization_details": [ {
-     "type": "urn:altinn:systemuserorgno",
-     "part": "0192:999888777",      
-     "systemuser": "12ffc244-e86e-4d7e-9016-cfd0c1ab8b6d",  // Used for authorization
-     "systemid": "f9e58561-a165-4e26-85ed-fe9da8d2325a"  // Identifies the software
-   }
+    "type": "urn:altinn:systemuser",
+    "systemuser_id": [ "a_unique_identifier_for_the_systemuser" ], 
+    "systemuser_org": {"authority" : "iso6523-actorid-upis",  "ID": "0192:999888777" },
+    "system_id": "a_unique_identifier_for_the_system",
+  }]
   "scope" : "digdir:dialogporten skatteetaten:mva",
   "exp" : 1578924303,
   "iat" : 1578923303,
