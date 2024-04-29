@@ -193,11 +193,11 @@ For systemleverandører må følgende utføres
      "resource": [
       {
         "id": "urn:altinn:org",
-        "value": "ttd"
+        "value": "skd"
       },
       {
         "id": "urn:altinn:app",
-        "value": "apps-test"
+        "value": "mva"
       },
       {
         "id": "urn:altinn:task",
@@ -205,16 +205,16 @@ For systemleverandører må følgende utføres
       }
     ],
     "action": "read"
-    }
+    },
      {
      "resource": [
       {
         "id": "urn:altinn:org",
-        "value": "ttd"
+        "value": "skd"
       },
       {
         "id": "urn:altinn:app",
-        "value": "apps-test"
+        "value": "mva"
       },
       {
         "id": "urn:altinn:task",
@@ -222,6 +222,19 @@ For systemleverandører må følgende utføres
       }
     ],
     "action": "write"
+    },
+     {
+     "resource": [
+      {
+        "id": "urn:altinn:org",
+        "value": "skd"
+      },
+      {
+        "id": "urn:altinn:app",
+        "value": "kravogbetaling"
+      }
+    ],
+    "action": "read"
     }
     ],
     "Title":{
