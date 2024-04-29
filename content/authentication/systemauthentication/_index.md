@@ -147,7 +147,7 @@ Diagrammet nedenfor viser hvordan et fagsystem kan autentisere seg når systembr
 }
 
 ```
-
+Se også dokumentasjon hos [Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker). 
 
 ## Hvordan ta i bruk
 
