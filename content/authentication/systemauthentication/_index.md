@@ -1,6 +1,6 @@
 ---
 title: API autentisering
-description: En stor del av bruken av Altinn er via API fra sluttbrukersystemer. Dette er programvare som har integrert seg Altinns API og man fra programvare kan f.eks. sende inn skjema eller hente ut meldinger av forskjellig art. 
+description: En stor del av bruken av Altinn er via API fra fagsystemer. Dette er programvare som har integrert seg Altinns API og man fra programvare kan f.eks. sende inn skjema eller hente ut meldinger av forskjellig art. 
 tags: [platform, authentication]
 toc: false
 weight: 1
@@ -10,7 +10,7 @@ weight: 1
 Under arbeid. Ting kan endres. Vi tar gjerne imot innspill.
 {{</notice>}}
 
-Samlet sett har ca 50% av trafikken av skjema kommet fra APi, hvor enkelte tjenester har omtrent 100% andel fra sluttbrukersystem. 
+Samlet sett har ca 50% av trafikken av skjema kommet fra APi, hvor enkelte tjenester har omtrent 100% andel fra fagsystem. 
 
 Det utvikles nå nye mekanismer som kan benyttes for autentisering og autorisasjon av maskin til maskin integrasjon på Altinn plattformen og andre offentlige API.
 
@@ -20,7 +20,7 @@ Maskinporten er sentral i det nye konseptet. Alle som skal kalle API som den nye
 
 Det som skiller et systembrukertoken og et vanlig maskinportentoken, er at man i tillegg til informasjon om virksomheten som har autentisert seg, så finner man informasjon om systembruker og system.
 
-Systembrukeren opprettes av den aktøren som ønsker å benytte et sluttbrukersystem for å integrere mot Altinn eller andre offentlige løsninger. Systembrukeren knyttes mot valgt system/systemleverandør og tildeles nødvendige rettigheter. 
+Systembrukeren opprettes av den aktøren som ønsker å benytte et fagsystem for å integrere mot Altinn eller andre offentlige løsninger. Systembrukeren knyttes mot valgt system/systemleverandør og tildeles nødvendige rettigheter. 
 
 ### Eksempel
 
@@ -89,7 +89,7 @@ Systemleverandøren må forhåndsdefinere hvilke rettigheter systemet trengs del
 
 ## Teknisk flyt autentisering/autorisasjon
 
-Diagrammet nedenfor viser hvordan et sluttbrukersystem kan autentisere seg når systembruker er opprettet og knyttet.
+Diagrammet nedenfor viser hvordan et fagsystem kan autentisere seg når systembruker er opprettet og knyttet.
 
 1. Sluttbrukersystemet kaller Maskinporten med et JWT Grant hvor man oppgir hvem som er kunde samt nøkkel/clientinformasjon
 2. Maskinporten verifiserer mot Altinn at kunden har gitt systemet som er knyttet mot klienten tilgang
@@ -109,11 +109,13 @@ Diagrammet nedenfor viser hvordan et sluttbrukersystem kan autentisere seg når 
 
   "scope": "digdir:dialogporten skatteetaten:mva"
 
-  "authorization_details": [ {
-     "type": "urn:altinn:systemuserorgno",
-     "part": "0192:999888777",     
-   }
-  ]
+   "authorization_details": [ {
+    "type": "urn:altinn:systemuser",
+    "systemuser_org": {
+       "authority" : "iso6523-actorid-upis",  
+       "ID": "0192:999888777"  
+    }
+}]
 }
 
 ```
@@ -133,11 +135,11 @@ Diagrammet nedenfor viser hvordan et sluttbrukersystem kan autentisere seg når 
     "ID" : "0192:910753614"
   },
   "authorization_details": [ {
-     "type": "urn:altinn:systemuserorgno",
-     "part": "0192:999888777",      
-     "systemuser": "12ffc244-e86e-4d7e-9016-cfd0c1ab8b6d",  // Used for authorization
-     "systemid": "f9e58561-a165-4e26-85ed-fe9da8d2325a"  // Identifies the software
-   }
+    "type": "urn:altinn:systemuser",
+    "systemuser_id": [ "a_unique_identifier_for_the_systemuser" ], 
+    "systemuser_org": {"authority" : "iso6523-actorid-upis",  "ID": "0192:999888777" },
+    "system_id": "a_unique_identifier_for_the_system",
+  }]
   "scope" : "digdir:dialogporten skatteetaten:mva",
   "exp" : 1578924303,
   "iat" : 1578923303,
@@ -145,7 +147,7 @@ Diagrammet nedenfor viser hvordan et sluttbrukersystem kan autentisere seg når 
 }
 
 ```
-
+Se også dokumentasjon hos [Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker). 
 
 ## Hvordan ta i bruk
 
@@ -187,8 +189,53 @@ For systemleverandører må følgende utføres
         "4349ee94-98a4-49be-8db3-bd60937fcdd4"
     ],
     "RequiredResourceRights": [
-        "app_skd_mva",
-        "app_nav_sykemelding"
+        {
+     "resource": [
+      {
+        "id": "urn:altinn:org",
+        "value": "skd"
+      },
+      {
+        "id": "urn:altinn:app",
+        "value": "mva"
+      },
+      {
+        "id": "urn:altinn:task",
+        "value": "Task_1"
+      }
+    ],
+    "action": "read"
+    },
+     {
+     "resource": [
+      {
+        "id": "urn:altinn:org",
+        "value": "skd"
+      },
+      {
+        "id": "urn:altinn:app",
+        "value": "mva"
+      },
+      {
+        "id": "urn:altinn:task",
+        "value": "Task_1"
+      }
+    ],
+    "action": "write"
+    },
+     {
+     "resource": [
+      {
+        "id": "urn:altinn:org",
+        "value": "skd"
+      },
+      {
+        "id": "urn:altinn:app",
+        "value": "kravogbetaling"
+      }
+    ],
+    "action": "read"
+    }
     ],
     "Title":{
         "en": "Bedriftsuguru SuperBusiness",
@@ -215,28 +262,54 @@ Systembruker vil leveres som del av flere leveranser.
 
 Første leveranse inneholder følgende funksjonalitet
 
-- Systemregister hvor systemer vil måtte registreres på bestilling. Knytningen mellom clientid i maskinporten og system registrereres som informasjon 
-- Manuell opprettelse av systembruker/integrasjon via Altinn Profil for sluttbruker
-- Opprettelse av systembrukertoken via maskinporten
-- Støtter systemleverandør - kundeforhold
-- Det er mulig å be om enkeltilganger til ressurser i ressursregisteret.
+#### Ressurseier​
 
+- Oppretter generisk autorisasjonsressurs i Ressursregister​
+- Melder inn nødvendige tilgangspakker til Digdir​
+- Tillater “Enterprise bruker”​
+- Integrere mot PDP​
+
+#### Fagsystem​
+
+- Melder inn navn, enkeltrettighet(er), beskrivelse​
+- Digdir legger inn i Systemregister​
+
+#### Virksomhet​
+
+- Sluttbrukerstyrt opprettelse
 
 ### Leveranse 2
 
-- Leverandørstyrt opprettelse av systembruker / systemintegasjon
+#### Fagsystem​
+
+- API for systemregister administrasjon​
+- Leverandørstyrt flyt 
 
 ### Leveranse 3
 
-- Støtte for å gi tilgangspakker til systembrukere
+#### Fagsystem​
+
+- Legge til/fjerne rettigheter på system ​
+
+#### Virksomhet​
+
+- Varsling og godkjenning av endrede rettigheter
 
 ### Leveranse 4
 
-- Støtte for leverandør - hjelper - kunde forhold (f.eks systemleverandør - regnskapsfører - regnskapskunde)
+#### Fagsystem​
+
+- Legge til nødvendige tilgangspakker​
+
+#### Virksomhet​
+
+- Godkjenne endrede rettighetsbehov
 
 ### Leveranse 5
 
-- Støtte for egenutviklet system
+#### Virksomhet​
+
+- Støtte for leverandør – hjelper – kunde forhold
 
 
 ## Detaljerte issues
