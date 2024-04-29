@@ -225,9 +225,11 @@ TBD
 ## Security Controls {#security-controls}
 
 {{<notice warning>}} <!-- info -->
-The documentation of security controls is work in progress
+The documentation of security controls is work in progress, 
+first in Norwegian, then to be translated to English.
 {{</notice>}}
 
+<!--
 
 ### Authentication and Authorization
 
@@ -289,3 +291,4 @@ TBD
 ![Digdir Solution Resources for Altinn 3 Broker](digdir-solution-resources-for-altinn3-broker.en.png "Digdir Solution Resources for Altinn 3 Broker")
 
 
+-->

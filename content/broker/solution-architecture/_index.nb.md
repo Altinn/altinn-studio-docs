@@ -109,7 +109,7 @@ Dette er et utgangspunkt for å vurdere samspill med, samt bruk og gjenbruk av, 
 i den detaljerte løsningsarkitekturen for Altinn Formidling. 
 De mest relevante løsningene er angitt med uthevet skrift.
 
-![Relaterte løsninger](digdir-solution-resources-for-altinn3-broker.en.png "Relaterte løsninger")
+![Relaterte løsninger](digdir-solution-resources-for-altinn3-broker.nb.png "Relaterte løsninger")
 
 
 ## Overgangsarkitektur - Altinn 2 til Altinn 3
@@ -228,13 +228,13 @@ Altinn Formidling kjører på en APIM-instans som deles med andre plattformtjene
 
 ## Nettverksvirtualisering
 
-Nettverksvirtualisering er realisert gjennom Microsoft Azure VNet, eller Virtual Network.
+Nettverksvirtualisering er realisert gjennom Microsoft Azure VNet.
 
 ## Logging og monitorering
-TBD
+TBD (avklaringer i arbeid vår 2024).
 
 ## Avregning og fakturering
-TBD
+TBD (avklaringer i arbeid vår 2024).
 
 ## Sikkerhetskontroller {#security-controls}
 
@@ -245,27 +245,37 @@ Dokumentasjonen av sikkerhetskontroller er under arbeid.
 
 ### Sikkerhetskontroller gjennom Azure API Management
 
-* Autentisering og Autorisasjon: APIM støtter flere metoder for autentisering og autorisasjon, inkludert OAuth 2.0, OpenID Connect, og Azure Active Directory, som hjelper til med å kontrollere hvem som kan få tilgang til APIene.
-* Rate Limiting og Quotas: Disse funksjonene begrenser antall forespørsler en bruker kan sende til et API i en gitt tidsperiode, noe som hjelper til med å beskytte APIer mot overbelastningsangrep og misbruk.
-* IP-filtrering: APIM tillater konfigurering av tillatte eller blokkerte IP-adresser, som gir en ekstra lag med sikkerhet ved å begrense hvem som kan sende forespørsler til APIene.
-* Policyer for transformasjon og validering: APIM lar deg definere policyer som kan endre innkommende og utgående forespørsler eller validere forespørsler og svar, noe som bidrar til å sikre at dataene som behandles er korrekte og sikre.
-* Beskyttelse mot trusler: Selv om ikke på samme nivå som dedikerte sikkerhetsløsninger, tilbyr APIM noen evner til å identifisere og blokkere potensielt skadelige forespørsler, som de som kan være en del av et SQL-injeksjonsangrep.
+* Rate Limiting og Quotas: Disse funksjonene begrenser antall forespørsler 
+  en bruker kan sende til et API i en gitt tidsperiode, 
+  noe som hjelper til med å beskytte APIer mot overbelastningsangrep og misbruk.
+* IP-filtrering: APIM tillater konfigurering av tillatte eller blokkerte IP-adresser, 
+  som gir en ekstra lag med sikkerhet ved å begrense hvem som kan sende forespørsler til APIene.
+* Beskyttelse mot angrep: Selv om ikke på samme nivå som dedikerte sikkerhetsløsninger, 
+  tilbyr APIM noen kapabiliteter for å identifisere og blokkere potensielt skadelige forespørsler 
+  og angrep som  SQL-injeksjonsangrep.
 
 ### Sikkerhetskontroller gjennom Azure VNet
 
-* Isolasjon: Ved å virtualisere nettverkene kan organisasjoner skille sine utviklings-, test- og produksjonsmiljøer, eller forskjellige applikasjonsstacks. Dette hindrer uautorisert tilgang og datalekkasje mellom systemer.
-* Segmentering: Nettverkssegmentering gjør det mulig å kontrollere trafikkflyten mellom nettverkssegmentene strengt, noe som reduserer angrepsflaten ved å begrense en angripers evne til å bevege seg lateral i nettverket.
-* Tilgangskontroll: Implementering av sikkerhetstiltak som nettverkssikkerhetsgrupper (NSGs) og brannmurer innen et VNet tillater detaljert styring av tilgangsregler og policyer på nettverksnivå, basert på behovene til hvert segment.
-* Sikker kommunikasjon: Ved å benytte VPN (Virtual Private Network) og andre krypteringsmekanismer, kan nettverksvirtualisering sikre dataene som overføres mellom forskjellige deler av nettverket eller mellom skyen og on-premises infrastruktur.
+* Isolasjon: Ved å virtualisere nettverkene kan vi skille 
+  utviklings-, test- og produksjonsmiljøer, eller forskjellige applikasjonsstacks. 
+  Dette hindrer uautorisert tilgang og datalekkasje mellom systemer.
+* Segmentering: Nettverkssegmentering gjør det mulig å kontrollere trafikkflyten mellom nettverkssegmentene strengt,
+   noe som reduserer angrepsflaten ved å begrense en angripers evne til å bevege seg lateralt i nettverket.
+* Tilgangskontroll: Implementering av sikkerhetstiltak som nettverkssikkerhetsgrupper (NSGs) 
+  og brannmurer innen et VNet tillater detaljert styring av tilgangsregler og policyer på nettverksnivå, 
+  basert på behovene til hvert segment.
+* Sikker kommunikasjon: Ved å benytte VPN (Virtual Private Network) og andre krypteringsmekanismer, 
+  kan nettverksvirtualisering sikre dataene som overføres mellom forskjellige deler av nettverket 
+  eller mellom skyen og on-premises infrastruktur.
 
 
 ### Autentisering og Autorisasjon
 
-TBD: Maskinporten og Altinn Autorisasjon...
+I arbeid. <!-- Erik: Maskinporten og Altinn Autorisasjon -->
 
 ### Sjekksum
 
-TBD
+I arbeid. <!-- Roar -->
 
 ### Viruskontroll
 
@@ -279,9 +289,12 @@ for å gi detaljert informasjon om skanningsfeilen.
 
 ### Beskyttelse under overføring
 
-Krypterte filoverføringer med TLS/HTTPS.
+Krypterte filoverføringer med TLS/HTTPS. gjøres av avsender
 
 ### Beskyttelse under lagring
+
+<!-- Brannmur på databasen??? -->
+
 
 Kryptert lagring av filer i Altinn 3 Formidling Fillager; ref. [Azure Storage-kryptering for data
 i ro \| Microsoft
