@@ -109,11 +109,13 @@ Diagrammet nedenfor viser hvordan et fagsystem kan autentisere seg når systembr
 
   "scope": "digdir:dialogporten skatteetaten:mva"
 
-  "authorization_details": [ {
-     "type": "urn:altinn:systemuserorgno",
-     "part": "0192:999888777",     
-   }
-  ]
+   "authorization_details": [ {
+    "type": "urn:altinn:systemuser",
+    "systemuser_org": {
+       "authority" : "iso6523-actorid-upis",  
+       "ID": "0192:999888777"  
+    }
+}]
 }
 
 ```
