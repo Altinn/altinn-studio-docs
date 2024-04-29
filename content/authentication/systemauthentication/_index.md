@@ -189,7 +189,24 @@ For systemleverandører må følgende utføres
         "4349ee94-98a4-49be-8db3-bd60937fcdd4"
     ],
     "RequiredResourceRights": [
-        "app_skd_mva",
+        "app_skd_mva": [
+          {
+          "Task": "Task1",
+           "Action": "Read"
+          },
+           {
+          "Task": "Task1",
+           "Action": "Write"
+          },
+           {
+          "Task": "Task2",
+           "Action": "Read"
+          },
+           {
+          "Task": "Task2",
+           "Action": "Confirm"
+          }
+        ],
         "app_nav_sykemelding"
     ],
     "Title":{
