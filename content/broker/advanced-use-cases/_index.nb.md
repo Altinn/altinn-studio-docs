@@ -1,7 +1,7 @@
 ---
-title: Altinn 3 Broker Advanced Use Cases 
-linktitle: Advanced Use Cases 
-description: Altinn 3 Broker Advanced Use Cases 
+title: Avanserte brukstilfeller
+linktitle: Avanserte brukstilfeller 
+description: Altinn 3 Formidling avanserte brukstilfeller
 tags: []
 toc: true
 weight: 60

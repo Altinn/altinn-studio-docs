@@ -69,20 +69,19 @@ Altinn 3 Broker does not currently provide a GUI for file transfer operations, b
 
 -->
 
-## Altinn 3 Formidling API for filoverføring av enkeltfiler
+## Altinn 3 Formidling applikasjonstjenester
 
-### Altinn 3 Formidling applikasjonstjenester {#altinn-3-broker-application-services}
+### API-operasjoner {#altinn-3-broker-application-services}
+En oversikt over operasjoner i Altinn 3 Formidling API gis av følgende figur:
 
-En oversikt over applikasjonstjenestene til Altinn 3 Formidling gis av følgende figur:
+{{<notice warning>}} <!-- info -->
+Merk: Navnene på API-operasjonene er ikke oversatt til norsk, for å unngå misforståelser opp mot tekniske OpenAPI-spesifikasjoner.
+{{</notice>}}
 
-![Altinn 3 Formidling applikasjonstjenester](altinn3-broker-application-services.en.png "Altinn 3 Formidling applikasjonstjenester")
+![Altinn 3 Formidling applikasjonstjenester](altinn3-broker-application-services.nb.png "Altinn 3 Formidling applikasjonstjenester")
 
-Hver av disse applikasjonstjenestene tilsvarer en _path_ i [Altinn 3 Formidling OpenAPI specification][Altinn 3 Broker OpenAPI specifications].
+Hver av disse applikasjonstjenestene tilsvarer en _path_ i [Altinn 3 Formidling OpenAPI spesifikasjon][Altinn 3 Broker OpenAPI specifications].
 
-
-### Altinn Formidling REST API for filoverføring
-
-Se [Altinn 3 Formidling OpenAPI spesifikasjon][Altinn 3 Broker OpenAPI specifications].
 
 ### Notifikasjoner om hendelser - maskin-til-maskin
 
@@ -92,19 +91,23 @@ De spesifikke hendelsene er spesifisert som en del av
 
 Oppsummering:
 
-* filetransferinitialized: Information about a new file transfer
-* filedeleted: The file has been deleted from Broker
-* fileneverconfirmeddownloaded: File was never confirmed downloaded by a recipient
-* uploadprocessing: File has been uploaded and is being processed
-* published: File has finished processing and is ready for download
-* uploadfailed: An upload failed either during upload or processing
-* downloadconfirmed: A recipient confirmed their download
-* allconfirmeddownloaded: All recipients have confirmed the download
-* 
-Also see:
+{{<notice warning>}} <!-- info -->
+Merk: Navnene på hendelsene er ikke oversatt til norsk, for å unngå misforståelser opp mot tekniske spesifikasjoner.
+{{</notice>}}
 
-* [Description of the Events capabilities in Altinn 3](https://docs.altinn.studio/events/)
-* [How-to guide on setting up a subscription for events](https://docs.altinn.studio/events/subscribe-to-events/developer-guides/setup-subscription/)
+* filetransferinitialized: Informasjom om en ny filoverføring
+* filedeleted: Filen har blitt slettet fra Altinn Formidling
+* fileneverconfirmeddownloaded: Filen har ikke blitt bekreftet nedlastet av noen mottaker
+* uploadprocessing: Filen har blitt opplastet til Altinn Formidling, og blir kontrollert
+* published: Filen er ferdig opplstet og kontrollert, og er klar for nedlasting
+* uploadfailed: Filopplasting eller kontroll feilet
+* downloadconfirmed: En eller flere mottakere har bekreftet vellykket nedlasting
+* allconfirmeddownloaded: Alle aktuelle mottakere har bekreftet vellykket nedlasting
+* 
+Se også:
+
+* [Funksjonalitet for notifikasjon om hendelser i Altinn 3](https://docs.altinn.studio/events/)
+* [Veiledning for oppsett av abonnement på notifikasjon om hendelser i Altinn 3](https://docs.altinn.studio/events/subscribe-to-events/developer-guides/setup-subscription/)
 
 
 <!--
@@ -128,32 +131,40 @@ Considerations:
 -->
 
 
-### End user notifications (email, SMS)
-Notifications to end users about new messages, files, and other events are sent via the Altinn Notification Service.
+### Varsling til sluttbrukere via e-post og SMS
 
-Also see:
+Varsler til sluttbrukere om nye meldinger, filer og andre hendelser sendes via Altinns varslingstjeneste.
 
-* [Description of notification capabilities in Altinn 3](https://docs.altinn.studio/notifications/)
+Se også:
+
+* [Altinn 3 varsling](https://docs.altinn.studio/notifications/)
 
 
-## Scenario descriptions
+## Scenariobeskrivelser
 
-### End-to-end typical sequence
+### Ende-til-ende typisk sekvens
 
-The follow sequence diagram shows the typical "happy path" message sequence:  
+Følgende sekvensdiagram viser typisk "happy path" meldingssekvens:  
 
-![Altinn 3 Broker File Transfer Sequence Diagram](altinn3-broker-file-transfer-sequence-diagram.en.png "Altinn 3 Broker File Transfer Sequence Diagram")
+{{<notice warning>}} <!-- info -->
+Merk: Meldingsnavnene er ikke oversatt til norsk, for å unngå misforståelser opp mot tekniske spesifikasjoner.
+{{</notice>}}
+
+![Sekvensdiagram for Altinn 3 Broker filoverføring (happy path)](altinn3-broker-file-transfer-sequence-diagram.nb.png "Sekvensdiagram for Altinn 3 Broker filoverføring (happy path)")
 
 <!--
 Note: Explanations for each arrow should match the online, clickable Archi version.
 Issue: How to link to the specific OpenAPI specification of this particular API call?
 -->
 
-For a summary of each message in the sequence diagram; see [Altinn 3 application services (paths)](#altinn-3-broker-application-services).
 
-Note that, in the sequence diagram, only some of the message parameters are indicated.
-Refer to the [Altinn 3 Broker OpenAPI specification][Altinn 3 Broker OpenAPI specifications] 
-for the complete documentation of parameters.
+Meldingene i dette sekvensdiagrammet er realisert som API-kall til applikasjonstjenester.
+Se [Altinn 3 applikasjonstjenester](#altinn-3-broker-application-services) for 
+dokumentasjon av de aktuelle applikasjonstjenestene (API-kallene).
+
+Legg merke til at dette sekvensdiagrammet bare viser utvalgte meldingsparametre.
+Se [Altinn 3 Formidling OpenAPI spesifikasjonen][Altinn 3 Broker OpenAPI specifications] 
+for den komplette dokumentasjonen av parametre.
 
 <!--
 Here's a high level description of the message flow:
@@ -167,15 +178,15 @@ authorization not shown here.</span>
 1. InitalizeTransfer (id, type, options): Initialize a new file transfer, indicating a message id, the type of message (Altinn resourceid) and any non-default selection of options.
 2. UploadFile (fileId, protocol): Upload a file to the Broker filestore for an already initialized file transfer operation.
 3. NewFileUploaded: ...
-5. ListFiles (new):
-6. FileList (fileIds):
-7. DownloadRequest (fileId):
-8. DownloadConfirmation:
-9.  TransferCompleted (fileId): 
-10. GetFileStatus (fileId):
-11. FileStatusOverview (fileId):
-12. GetFileStatusDetailed: 
-13. FileStatusDetails (fileId):
+4. ListFiles (new):
+5. FileList (fileIds):
+6. DownloadRequest (fileId):
+7. DownloadConfirmation:
+8.  TransferCompleted (fileId): 
+9.  GetFileStatus (fileId):
+10. FileStatusOverview (fileId):
+11. GetFileStatusDetailed: 
+12. FileStatusDetails (fileId):
 -->
 
 <!--
