@@ -103,7 +103,7 @@ This event is triggered when a recipient has confirmed the download has complete
 ## Event: no.altinn.broker.allconfirmeddownloaded {#event-allconfirmeddownloaded}
 
 This event is triggered when all the recipients has confirmed the download has completed. If the FileTransfer has a single recipient, this will be published at the same time as downloadconfirmed.
-Depending on the Broker Service settings, this may lead to the file being deleted automatically.
+Depending on the Broker Service settings, this may lead to the file being purged automatically.
 
 ## Event: no.altinn.broker.fileneverconfirmeddownloaded {#event-fileneverconfirmeddownloaded}
 
@@ -113,7 +113,7 @@ This event is also sent to the Recipient(s) that have not confirmed the download
 
 We suggest using the data supplied in the [get details](#operation-get-filetransfer-details) to investigate the actions.
 
-## Event: no.altinn.broker.filedeleted {#event-filedeleted}
+## Event: no.altinn.broker.filedpurged {#event-filepurged}
 
 This event is triggered by the file cleanup process at the time of either the Expiry of the file, or due to all recipients having Confirmed their download.
 

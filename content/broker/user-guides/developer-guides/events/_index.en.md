@@ -37,7 +37,7 @@ All Events published by Altinn Broker follow the same pattern:
 }
 ```
 
-## Event Subscription
+## Event Subscription {#event-subcription}
 
 This subscription is used to configure the endpoint where the events published by broker end up. [You can read more about how to setup an Events subscription in Altinn Events here](/events/subscribe-to-events/developer-guides/setup-subscription/).
 
@@ -51,9 +51,9 @@ You are required to set up the following filters:
 - alternativesubjectfilter
   - "/organisation/(organisation number for your organisation)
 
-Alternativesubjectfilter is used to restrict the event to only the authorized sender or recipient for that particular event, this ensures security and reduces visibility.
+*Alternativesubjectfilter* is used to restrict the event to only the authorized sender or recipient for that particular event, this ensures security and reduces visibility.
 
-Resourceinstance will always be the same as the FileTransferId of the FileTransfer.
+*Resourceinstance* will always be the same as the FileTransferId of the FileTransfer.
 
 In addition you may wish to use filters for Type, so that you receive the event types you are interested in/can perform actions on.
 If you do not specify a Type Filter you will receive all the different types of events if you have access to them.

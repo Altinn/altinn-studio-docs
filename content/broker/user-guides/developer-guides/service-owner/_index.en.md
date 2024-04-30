@@ -12,7 +12,7 @@ weight: 30
 This section of the documentation is a work in progress, and as such currently makes extensive reference to external sources, as well as describing more scenarios.
 {{% /notice %}}
 
-## Operation: Initialize Service Owner in Broker API
+## Operation: Initialize Service Owner in Broker API {#initialize-service-owner-in-broker-api}
 
 **Endpoint:** POST /broker/api/v1/serviceowner
 
@@ -26,7 +26,7 @@ This operation configures your organization as a Service Owner in the Broker Con
 
 **Example:** "Register Service Owner" in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
 
-## Operation: Get Service Owner Config from Broker API
+## Operation: Get Service Owner Config from Broker API {#get-service-owner-config-from-broker-api}
 
 **Endpoint:** GET /broker/api/v1/serviceowner
 
@@ -40,7 +40,7 @@ This gets the configuration of your as a Service Owner in the Broker Config Stor
 
 **Example:** "Register Service Owner" in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
 
-## Operation: Configure resource in Broker API
+## Operation: Configure resource in Broker API {#configure-resource-in-broker-api}
 
 **Endpoint:** PUT broker/api/v1/resource{resourceId}"
 
