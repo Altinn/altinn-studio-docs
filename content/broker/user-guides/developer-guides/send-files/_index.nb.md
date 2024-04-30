@@ -63,7 +63,7 @@ Få en enkel oversikt over filoverføringen med gjeldende status og mottakerstat
 
 **Eksempel**: 'Broker\{fileTransferId}\overview' i vår [PostMan-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json)
 
-## Operasjon: Hent Filoverføringsdetaljer
+## Operasjon: Hent Filoverføringsdetaljer {#operation-get-filetransfer-details}
 
 **Endepunkt:** GET /broker/api/v1/filetransfer/{fileTransferId}/details
 
@@ -90,6 +90,11 @@ Frem til du mottar enten uploadfailed eller published, trenger ingen handlinger 
 ## Hendelse: no.altinn.broker.uploadfailed {#event-uploadfailed}
 
 Denne hendelsen utløses hvis enten opplastings- eller opplastingsbehandlingsstegene mislykkes. Vi anbefaler deg å kalle [get overview](#operation-get-filetransfer-overview) for å sjekke hvilke feilmeldinger som ble gitt.
+
+## Hendelse: no.altinn.broker.published {#event-published}
+
+Denne hendelsen utløses når den asynkrone opplastingsprosessen har blitt fullført vellykket.
+Som avsender trenger du ikke å utføre noen ekstra handlinger.
 
 ## Hendelse: no.altinn.broker.downloadconfirmed {#event-downloadconfirmed}
 

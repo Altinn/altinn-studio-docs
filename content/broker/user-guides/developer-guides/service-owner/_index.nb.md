@@ -12,7 +12,7 @@ weight: 30
 Denne delen av dokumentasjonen er under arbeid, og inneholder derfor omfattende referanser til eksterne kilder, samt beskrivelser av flere scenarier.
 {{% /notice %}}
 
-## Operasjon: Initialiser Tjenesteeier i Broker API {#initialize-service-owner-in-broker-api}
+## Operasjon: Initialiser Tjenesteeier i Broker API {#operation-initialize-service-owner-in-broker-api}
 
 **Endepunkt:** POST /broker/api/v1/serviceowner
 
@@ -26,7 +26,7 @@ Denne operasjonen konfigurerer organisasjonen din som en Tjenesteeier i Broker C
 
 **Eksempel**: "Register Service Owner" i vår [PostMan-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
 
-## Operasjon: Hent Tjenesteeierkonfigurasjon fra Broker API {#get-service-owner-config-from-broker-api}
+## Operasjon: Hent Tjenesteeierkonfigurasjon fra Broker API {#operation-get-service-owner-config-from-broker-api}
 
 **Endepunkt:** GET /broker/api/v1/serviceowner
 
@@ -40,7 +40,7 @@ Dette henter konfigurasjonen for organisasjonen din som en Tjenesteeier i Broker
 
 **Eksempel**: "Registrer Tjenesteeier" i vår [PostMan-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
 
-## Operasjon: Konfigurer ressurs i Broker API
+## Operasjon: Konfigurer ressurs i Broker API {#operation-configure-resource-in-broker-api}
 
 **Endepunkt:** PUT broker/api/v1/resource{resourceId}"
 

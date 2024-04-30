@@ -63,7 +63,7 @@ Get a simple overview of the file transfer with current status and recipient sta
 
 **Example:** 'Broker\{fileTransferId}\overview' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json)
 
-## Operation: Get FileTransfer Details
+## Operation: Get FileTransfer Details {#operation-get-filetransfer-details}
 
 **Endpoint:** GET /broker/api/v1/filetransfer/{fileTransferId}/details
 

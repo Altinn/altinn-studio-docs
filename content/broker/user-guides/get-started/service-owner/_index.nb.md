@@ -27,7 +27,7 @@ Utfør steg 1 og 2 i [Felles kom i gang-steg](../common-steps) hvis du ikke alle
 
 ## 3. Registrer en ressurs i Altinn ressursregister {#register-a-resource-in-altinn-resource-registry}
 
-Alle filer som sendes med Broker, er tilknyttet en ressurs/tjeneste/"tjenesteressurs". Se [Ressursregister](../../../../authorization/modules/resourceregistry/).
+Alle filer som sendes med Broker, er tilknyttet en ressurs/tjeneste/"tjenesteressurs". Se [Ressursregister](../../../../authorization/modules/resourceregistry/_index.en.md).
 Ressurser kan registreres via Altinn Studio, og brukes for tilgangsregler og tilgangslister.
 Politikken din må konfigureres slik at de tillater handlingene:
 
@@ -60,7 +60,7 @@ Bruk ID-en til ressursen du opprettet i trinn 3, og kall API-operasjonen for å 
 
 For øyeblikket må dette gjøres manuelt ved å oppdatere policy som er definert i trinn 3, men vil i fremtiden bli gjort ved hjelp av GUI i Ressurs Rettighets Register.
 
-TODO: Dokumenter hvordan man gjør dette i [Ressurs rettighets register](../../../../authorization/modules/resourceregistry/rrr/)?
+TODO: Dokumenter hvordan man gjør dette i [Ressurs rettighets register](../../../../authorization/modules/resourceregistry)?
 
 ## Hvordan migrere fra Altinn 2 til Altinn 3 {#how-to-migrate-from-Altinn-2-to-Altinn-3}
 
