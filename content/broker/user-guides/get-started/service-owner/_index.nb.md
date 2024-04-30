@@ -27,7 +27,7 @@ Utfør steg 1 og 2 i [Felles kom i gang-steg](../common-steps) hvis du ikke alle
 
 ## 3. Registrer en ressurs i Altinn ressursregister {#register-a-resource-in-altinn-resource-registry}
 
-Alle filer som sendes med Broker, er tilknyttet en ressurs/tjeneste/"tjenesteressurs". Se [Ressursregister](../../../../authorization/modules/resourceregistry/_index.en.md).
+Alle filer som sendes med Broker, er tilknyttet en ressurs/tjeneste/"tjenesteressurs". Se [Ressursregister](../../../../authorization/modules/resourceregistry/).
 Ressurser kan registreres via Altinn Studio, og brukes for tilgangsregler og tilgangslister.
 Politikken din må konfigureres slik at de tillater handlingene:
 
@@ -39,7 +39,7 @@ For å sette opp en ressurs som fungerer raskt, kan du bruke vår [Postman-samli
 
 Her er en [eksempelpolicy](ExamplePolicy.xml).
 
-Merk at denne eksempelpolicyen angir en påkrevd brukerrolle "DAGL" for brukeren som har tilgang til ressursen, og krever bruk av [Ressursrettighetsregister](../../../../authorization/modules/resourceregistry/rrr/) for å gi tilgang til spesifikke organisasjoner.
+Merk at denne eksempelpolicyen angir en påkrevd brukerrolle "DAGL" for brukeren som har tilgang til ressursen, og krever bruk av [Ressursrettighetsregister](../../../../authorization/modules/resourceregistry/) (gå til engelsk språk for å se dokumentasjon for RRR) for å gi tilgang til spesifikke organisasjoner.
 En bruker med denne tilgangen kan deretter delegere tilgangen til bedriftsbrukeren/systembrukeren
 
 **TIPS**: Verifiser konfigurasjonene dine ved hjelp av [Postman-samlingen](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json), og erstatt testtokenene med dine egne Altinn-token (Se forespørselen "Logg inn i Maskinporten (Initialiser)" i Authenticator-mappen).
@@ -60,7 +60,7 @@ Bruk ID-en til ressursen du opprettet i trinn 3, og kall API-operasjonen for å 
 
 For øyeblikket må dette gjøres manuelt ved å oppdatere policy som er definert i trinn 3, men vil i fremtiden bli gjort ved hjelp av GUI i Ressurs Rettighets Register.
 
-TODO: Dokumenter hvordan man gjør dette i [Ressurs rettighets register](../../../../authorization/modules/resourceregistry)?
+TODO: Dokumenter hvordan man gjør dette i [Ressurs rettighets register](../../../../authorization/modules/resourceregistry) når det finnes norskspråklig dokumentasjon.
 
 ## Hvordan migrere fra Altinn 2 til Altinn 3 {#how-to-migrate-from-Altinn-2-to-Altinn-3}
 
