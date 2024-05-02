@@ -28,7 +28,7 @@ Swagger for the File Transfer API is hosted [here](/api/broker/spec/).
 
 To understand how the Broker API operates, including its dependencies and configuration steps, refer to the information below:
 
-TODO: Replace with proper sequence diagram.
+![Altinn Broker Setup Sequence](Altinn-broker-setup-sequence.png "Altinn-broker-setup-sequence")
 
 You need to have performed the steps in [Get started](../get-started/) to setup the Access requirements.
 

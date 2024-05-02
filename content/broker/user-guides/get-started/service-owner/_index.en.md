@@ -41,11 +41,11 @@ To setup a resource that works quickly, you can use our [Postman collection](htt
 Here is an [example policy](ExamplePolicy.xml).
 
 Note that this example policy sets a required user role "DAGL" for the user that has access to the resource, and requires the use of [Resource Rights Registry](../../../../authorization/modules/resourceregistry/rrr/) to grant access to specific organisations.
-A user with that access can then delegate the access to the enterprise user / System user
+A user with that access can then delegate the access to the enterprise user / system user
 
 **TIP**: Verify your configurations using the [Postman collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json), substituting the test tokens with your own Altinn tokens (See "Login to Maskinporten (Initialize)" request in Authenticator folder).
 
-## 4. Register yourself as a Service owner in Broker API {#register-yourself-as-a-service-owner-in-broker-api}
+## 4. Register yourself as a Service Owner in Broker API {#register-yourself-as-a-service-owner-in-broker-api}
 
 Now the time has come to configure the Broker component itself, first by configuring your organization as a Service Owner in the Broker Config Store.
 

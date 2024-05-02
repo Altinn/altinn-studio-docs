@@ -28,7 +28,7 @@ Swagger for filoverførings-APIet er vert [her](/api/broker/spec/).
 
 For å forstå hvordan Broker-APIet fungerer, inkludert avhengighetene og konfigurasjonsstegene, henvises det til informasjonen nedenfor:
 
-TODO: Erstatt med riktig sekvensdiagram.
+![Altinn Broker oppsett-sekvens](Altinn-broker-setup-sequence.png "Altinn-broker-oppsett-sekvens")
 
 Du må ha utført stegene i [Kom i gang](../get-started/) for å sette opp tilgangskravene.
 
