@@ -33,7 +33,7 @@ Politikken din må konfigureres slik at de tillater handlingene:
 
 - "subscribe" for alle, - dette brukes for hendelser.
 - "read" for mottakere
-- "write" for sendere.
+- "write" for avsendere.
 
 For å sette opp en ressurs som fungerer raskt, kan du bruke vår [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json) og kjøre forespørslene "Create resource" og "Create resource policy" med en token som har omfanget "altinn:resourceregistry/resource.write".
 
@@ -56,7 +56,7 @@ Deretter må man konfigurere den spesifikke Broker-konfigurasjonen for ressursen
 
 Bruk ID-en til ressursen du opprettet i trinn 3, og kall API-operasjonen for å [konfigurere ressurs](../../developer-guides/service-owner/#operation-initialize-service-owner-in-broker-api).
 
-## 6. Gi tilgang til sendere og mottakere til ressursen {#grant-access-to-senders-and-recipients-to-the-resource}
+## 6. Gi tilgang til avsendere og mottakere til ressursen {#grant-access-to-senders-and-recipients-to-the-resource}
 
 For øyeblikket må dette gjøres manuelt ved å oppdatere policy som er definert i trinn 3, men vil i fremtiden bli gjort ved hjelp av GUI i Ressurs Rettighets Register.
 

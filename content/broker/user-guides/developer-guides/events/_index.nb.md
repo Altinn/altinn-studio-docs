@@ -28,7 +28,7 @@ Alle hendelser publisert av Altinn Broker følger det samme mønsteret:
  "id": "1faa107f-3c0a-4fa6-9fce-7cee8838e258",
  "resource": "urn:altinn:resource:altinn-broker-test-resource-1",
  "resourceinstance": "da4ceacc-ad44-4e54-99b6-b58e3c13c785",
- "source": "https://platform.tt02.altinn.no/broker/api/v1/file",
+ "source": "https://platform.tt02.altinn.no/broker/api/v1/filetransfer",
  "specversion": "1.0",
  "type": "no.altinn.broker.Published",
  "subject": "/party/50015641",
@@ -44,8 +44,8 @@ Dette abonnementet brukes til å konfigurere endepunktet der hendelsene som publ
 Du må sette opp følgende filtre:
 
 - sourceFilter
-  - TT02: <https://platform.tt02.altinn.no/broker/api/v1/file>
-  - PROD: <https://platform.altinn.no/broker/api/v1/file>
+  - TT02: <https://platform.tt02.altinn.no/broker/api/v1/filetransfer>
+  - PROD: <https://platform.altinn.no/broker/api/v1/filetransfer>
 - resourceFilter
   - "urn:altinn:resource:" + Ressurs-IDen for Broker-ressursen
 - alternativesubjectfilter

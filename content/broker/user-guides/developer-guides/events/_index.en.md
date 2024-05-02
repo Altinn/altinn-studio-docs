@@ -28,7 +28,7 @@ All Events published by Altinn Broker follow the same pattern:
  "id": "1faa107f-3c0a-4fa6-9fce-7cee8838e258",
  "resource": "urn:altinn:resource:altinn-broker-test-resource-1",
  "resourceinstance": "da4ceacc-ad44-4e54-99b6-b58e3c13c785",
- "source": "https://platform.tt02.altinn.no/broker/api/v1/file",
+ "source": "https://platform.tt02.altinn.no/broker/api/v1/filetransfer",
  "specversion": "1.0",
  "type": "no.altinn.broker.Published",
  "subject": "/party/50015641",
@@ -44,8 +44,8 @@ This subscription is used to configure the endpoint where the events published b
 You are required to set up the following filters:
 
 - sourceFilter
-  - TT02: <https://platform.tt02.altinn.no/broker/api/v1/file>
-  - PROD: <https://platform.altinn.no/broker/api/v1/file>
+  - TT02: <https://platform.tt02.altinn.no/broker/api/v1/filetransfer>
+  - PROD: <https://platform.altinn.no/broker/api/v1/filetransfer>
 - resourceFilter
   - "urn:altinn:resource:" + The Resource Id for the Broker Resource
 - alternativesubjectfilter
@@ -64,6 +64,7 @@ If you do not specify a Type Filter you will receive all the different types of 
 - `no.altinn.broker.uploadprocessing`
 - `no.altinn.broker.uploadfailed`
 - `no.altinn.broker.allconfirmeddownloaded`
+- `no.altinn.broker.filepurged`
 
 **For both Senders And Recipients:**
 

@@ -11,9 +11,9 @@ weight: 90
 
 På grunn av de ulike distinkte rollene som et foretak kan samhandle med Altinn Formidling, har vi delt inn veiledningene inn i flere deler for kurant rolle:
 
-- Sender/Sender
+- Sender/Avsender
 - Recipient/Mottaker
-- SericeOwner/Tjenesteeier
+- ServiceOwner/Tjenesteeier
 
 Et foretak kan ha én, eller en kombinasjon av alle tre rollene i henhold til konteksten.
 
