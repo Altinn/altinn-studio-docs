@@ -120,7 +120,7 @@ Explanation:
 * Each File Transfer Event relates to one File Transfer Process, and consequently only one File, however any number of events may occur for the same File Transfer Process.
 
 
-## File Transfer Process States
+## File Transfer Process States {#file-transfer-process-states}
 
 The overall transfer process is depicted by the following model. It shows the main states and state transitions of the overall file transfer process,
 as relevant for Altinn Broker and status reporting to the sender.
