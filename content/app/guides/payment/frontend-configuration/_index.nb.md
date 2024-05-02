@@ -1,6 +1,6 @@
 ---
-title: Frontend configuration 
-description: Follow these steps to start developing apps in Altinn Studio.
+title: Frontend konfigurasjon 
+description: Følg disse stegene for å konfigurere frontenden din for betaling.
 weight: 3
 ---
 ### 1. Legg til betalingslayout
