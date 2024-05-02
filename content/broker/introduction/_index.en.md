@@ -67,14 +67,4 @@ benefits are:
 
 ## How to get started?
 
-Information about how to get started is given in the following role spesific user guides:
-
-
-
-- [Developer's User Guide](../user-guides#developers-user-guide)
-
-- [Service Owner's User Guide](../user-guides/#service-owners-user-guide)
-
-- [Sender's User Guide](../user-guides/#senders-user-guide).
-
-- [Recipient’s User Guide](../user-guides/#recipients-user-guide).
+Information about how to get started can be found here in the [User guides](../user-guides/)

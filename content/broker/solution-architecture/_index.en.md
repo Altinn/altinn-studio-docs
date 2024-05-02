@@ -163,7 +163,7 @@ TBD by Ragnar?
 
 ## File storage
 
-Broker File Storage is based MS Azure Blob Storage.
+Broker File Storage is based MS Azure Blob Storage, and isolated to a storage account per Service Owner.
 
 Stored Files are always encrypted; ref. [Azure Storage encryption for
 data at rest \| Microsoft
