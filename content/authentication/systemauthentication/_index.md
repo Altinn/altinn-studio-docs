@@ -35,6 +35,9 @@ Tokenet man da får vil kunne benyttes direkte mot Altinns API eller andre som v
 
 ## Løsningsbeskrivelse
 
+
+![Concept](concept.drawio.svg)
+
 ### Systemregister
 
 Som del av nytt konsept etableres det et systemregister i Altinn. Systemregisteret vil inneholde oversikt over systemer tilbudet av systemleverandører. 
