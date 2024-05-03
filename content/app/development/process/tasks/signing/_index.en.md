@@ -74,7 +74,7 @@ If the application also has a datatype with attachments  named `attachments` whe
 
 ### Configure where to store the signature object
 
-A signature object also requires a dataType where it should be stored once generated. This is defined in the `<altinn:signatureDataTyep>` and also needs to be defined in `App/config/applicationmetadata.json`
+A signature object also requires a dataType where it should be stored once generated. This is defined in the `<altinn:signatureDataType>` and also needs to be defined in `App/config/applicationmetadata.json`
 
 Example of a applicationmetadata.json with a signature datatype named signature:
 
