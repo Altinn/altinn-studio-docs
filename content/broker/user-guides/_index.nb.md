@@ -1,46 +1,24 @@
 ---
 title: Brukerveiledninger
 linktitle: Brukerveiledninger
-description: Hvordan komme i gang med Altinn 3 Formidling, for utviklere tjenesteeiere og sluttbrukere?
+description: Hvordan komme i gang med Altinn 3 Formidling
+tags: [Broker, guide]
 toc: true
 weight: 90
 ---
 
 {{<children />}}
 
-<!-- 2024-04-06, Erik: Vurder å gi guides per "value stream stage", 
-                 med egne kapitler for hvert stage, dvs. Onboarding, osv.  
--->
-## Veiledning for utviklere
+På grunn av de ulike distinkte rollene som et foretak kan samhandle med Altinn Formidling, har vi delt inn veiledningene inn i flere deler for kurant rolle:
 
-Se [readme fil på github](https://github.com/Altinn/altinn-broker/blob/main/README.md) for en introduksjon  til Altinn 3 Broker for utviklere (kun på engelsk).
-Her finner du også [Getting started guide for developers](https://github.com/Altinn/altinn-broker/blob/main/docs/get-started.md).
+- Sender/Avsender
+- Recipient/Mottaker
+- ServiceOwner/Tjenesteeier
 
-## Veiledning for tjenesteeiere
+Et foretak kan ha én, eller en kombinasjon av alle tre rollene i henhold til konteksten.
 
-### Hvordan komme i gang med Altinn Formidling som tjenesteeier
+**Tjenesteeiere** eier konfigurasjonen og datalagringen for Broker-tjenesteressursen, og vil opprettholde tilgangsrettighetene for sin spesifikke ressurs i Altinn Resource Rights Registry.
 
-For å komme i gang med Altinn Formidling, må din virksomhet først være registrert som tjenesteeier i Altinn.
-Dette steget er kun nødvendig for nye virksomheter som ennå ikke har etablert seg som tjenesteeiere 
-på Altinn plattformen. Se [steg-for steg veiledning for å komme i gang med Altinn](https://www.altinndigital.no/kom-i-gang/guide-kom-i-gang-med-altinn/).
+De fleste foretak vil ha *Sender* og/eller *Mottaker*, mens *Tjenesteeiere* ofte vil ha alle tre.
 
-Videre veiledning: TBD.
-
-<!-- NO:
-Bli tjenesteeier: For å komme i gang med Altinn Broker må din virksomhet være registrert som tjenesteeier i Altinn. For en detaljert guide om hvordan din virksomhet kan bli tjenesteeier i Altinn, gå til veiledningen: Kom i gang med Altinn. Her finner du steg-for-steg veiledning.
-Dette steget er kun nødvendig for nye virksomheter som ennå ikke har etablert seg som tjenesteeiere på Altinn plattformen. Som eksisterende tjenesteeier kan dere fortsette direkte med de neste stegene for å ta i bruk Altinn Broker. 
--->
-
-### Hvordan migrere fra Altinn 2 to Altinn 3
-TBD.
-
-
-
-## Veiledning for avsendere (tilbydere)
-
-TBD.
-
-## Veiledning for mottakere (konsumenter)
-
-TBD.
-
+Som sådan må Tjenesteeiere ta ekstra skritt for å sette opp og definere sin Broker-ressurs.
