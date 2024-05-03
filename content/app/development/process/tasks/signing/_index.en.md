@@ -334,6 +334,12 @@ Once the user performs the sign action a signature object will be stored as data
 
 If multiple dataElements are signed they will be added to the `dataElementSignatures` list.
 
-The field `sha256Hash` contains a base64 encoded sha256Hash generated from the data stored in Altinn at the time of signing.
-The `signeeInfo` object hold the information about who performed the signing.
+The field `sha256Hash` contains a hexadecimal encoded SHA256 hash generated from the data stored in Altinn at the time of signing.
+The `signeeInfo` object holds the information about who performed the signing.
 
+### Verifying the SHA256 hash
+The hash value, also referred to as a `digest`, is the output from the SHA256 hashing method. In the example above, the digest has been produced from a file belonging to a specific data element. In other words: the fingerprint of the file the user has signed.
+
+To verify the signature, an independent SHA256 hash of the same file should be produced and then compared to the stored value. If the two values are identical, the file remains unchanged and the signature is valid.
+
+Additional information regarding Altinn's implementation of the SHA256 hashing algorithm and digest can be found on [Github](https://github.com/Altinn/altinn-storage/blob/afa8f921231afc485c17b8f4226f6d8e2333b3dd/src/Storage/Services/DataService.cs#L57). In essence, the digest is a SHA256 hash of the file in question, formatted as a lowercase hexadecimal string without delimiters. 

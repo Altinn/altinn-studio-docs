@@ -330,5 +330,12 @@ Når brukeren utfører signeringen, vil et signeringobjekt bli lagret som dataty
 
 Hvis flere dataelementer er signert, vil de bli lagt til i listen `dataElementSignatures`.
 
-Feltet `sha256Hash` inneholder en base64-kodet SHA256-hash generert fra dataene som er lagret i Altinn på tidspunktet for signeringen.
+Feltet `sha256Hash` inneholder en heksadesimal-kodet SHA256 hash generert fra dataene som er lagret i Altinn på tidspunktet for signeringen.
 Objektet `signeeInfo` inneholder informasjonen om hvem som utførte signeringen.
+
+### Verifisering av SHA256 hash
+Også kalt en `digest`, denne verdien er resultatet fra SHA256 hash metoden. I eksempelet over har metoden blitt kjørt på en fil som tilhører et spesifikt dataelement, det vil si filen man har signert.
+
+Det å verifisere signaturen i etterkant går i prinsippet ut på å sammenligne oppgitt `sha256Hash` med en uavhengig SHA256 beregning av samme fil. Hvis verdiene er identiske betyr det at filen brukeren har signert ikke har endret seg, og at signaturen fremdeles er gyldig.
+
+Mer informasjon om Altinn sin implementering av denne utregningen finnes på [Github](https://github.com/Altinn/altinn-storage/blob/afa8f921231afc485c17b8f4226f6d8e2333b3dd/src/Storage/Services/DataService.cs#L57). Kort oppsummert må man generere en SHA256 verdi av filen man vil sammenligne, deretter formattere denne verdien som en heksadesimal streng uten bindestreker og med kun små bokstaver. 
