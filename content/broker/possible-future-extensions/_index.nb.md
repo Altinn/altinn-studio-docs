@@ -8,10 +8,10 @@ weight: 80
 ---
 
 {{<notice warning>}} <!-- info -->
-This is work in progress
+Dokumentasjon av mulige framtidige utvidelser er i arbeid.
 {{</notice>}}
 
-
+<!--
 ## Extension: Dialogporten integration
 
 ### Extension: Solution Overview
@@ -28,3 +28,6 @@ TBD
 Files may be correlated to form virtual case folders, possibly with multiple
 providers and consumers collaborating on a common case or end-to-end
 process crossing organization boundaries (seamless services).
+
+
+-->

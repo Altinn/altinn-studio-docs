@@ -1,7 +1,7 @@
 ---
 title: Introduction
 linktitle: Introduction
-description: Introduction to the Altinn Broker Service.
+description: Introduction to the Altinn 3 Broker Service.
 tags: []
 toc: true
 weight: 1

@@ -1,7 +1,7 @@
 ---
 title: Introduksjon
 linktitle: Introduksjon
-description: Introduksjon til Altinn Formidling.
+description: Introduksjon til Altinn 3 Formidling.
 tags: []
 toc: true
 weight: 1
