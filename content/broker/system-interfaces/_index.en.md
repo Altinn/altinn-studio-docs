@@ -41,9 +41,7 @@ but relies om End User System GUIs.
 
 __Interfaces for runtime operation:__
 
-* [API for individual file transfers, including upload, download and status monitoring](#altinn-3-broker-api-for-individual-file-transfers)
-
-
+* API for individual file transfers, including upload, download and status monitoring
 
 __Interfaces for historical data and statistics:__
 
