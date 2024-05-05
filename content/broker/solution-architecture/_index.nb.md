@@ -104,13 +104,12 @@ Her gis et sammendrag av hvordan disse komponentene forholder seg til og tjener 
 
 ## Relaterte løsninger
 
-En oversikt over relaterte løsninger er gitt i følgende diagram. 
-Dette er et utgangspunkt for å vurdere samspill med, samt bruk og gjenbruk av, andre løsninger
-i den detaljerte løsningsarkitekturen for Altinn Formidling. 
+En oversikt over relaterte løsninger er gitt i følgende diagram.
 De mest relevante løsningene er angitt med uthevet skrift.
+Dette er et utgangspunkt for å vurdere samspill med, samt bruk og gjenbruk av, andre løsningskomponenter 
+i løsningsarkitekturen for Altinn Formidling.  
 
 ![Relaterte løsninger](digdir-solution-resources-for-altinn3-broker.nb.png "Relaterte løsninger")
-
 
 ## Overgangsarkitektur - Altinn 2 til Altinn 3
 
@@ -176,17 +175,46 @@ sikkerhetskontroller.
 De grunnleggende adresserings- og ruteringsmekanismene for Altinn 3 Formidling er:
 
 * Spesifikk adressering av mottakere
-* Abonnementsbasert adressering og ruting
+* Abonnementsbasert adressering
 
 <!-- _Merk: Ytterligere adresseringsfunksjoner vurderes, slik som kriterier basert på rolle, tjeneste og kontekst._ -->
 
-Disse mekanismene beskrives nærmere i det følgende.
+Løsningene for disse mekanismee beskrives nærmere i det følgende.
 
 ### Spesifikk adressering av mottakere
-TBD.
 
-### Abonnementsbasert adressering og ruting
-TBD.
+Avsender gir inn en liste med en eller flere mottakere
+ved initalisering av ny filoveføring (API-kall). For hver mottaker angis om nedlasting er påkrevd.
+
+Altinn Formidling sender notifikasjoner (varsler) gjennom webhooks til hver mottaker (sluttbrukersystem)
+gjennom Altinn Events 
+straks filen er ferdig opplastet og kontrollert, 
+for de sluttbrukersystemene som abonnerer på slike varsler.
+
+Mottakere kan også polle Altinn Formidling for oversikt over tilgjengelige filer for nedlasting.
+
+Rettigheter til nedlasting av filer som er lagret i Altinn Fillager settes opp og kontrolleres
+gjennom Altinn Autorisasjon.
+
+
+### Abonnementsbasert adressering
+
+Abonnementsbasert adressering gjøres gjennom Altinn Events.
+
+Løsningen tilsvarer notifikasjon (varsling) gjennom webhooks til spesifikt adresserte mottakere.
+
+* I begge tilfeller vil mottaker kunne laste ned fil fra angitt fillager og rapportere status.
+* Rettigheter til nedlasting av filer som er lagret i Altinn Fillager settes opp og kontrolleres
+gjennom Altinn Autorisasjon.
+* Selv om det i utgangspunktet ikke er kjent for avsender hvem som er mottakere,
+  kan Altinn Formidling avgjøre dette ved å se på oppsettet av abonnementer.
+* Logikk for statusrapportering og sanering av filer kan gjøres helt tilsvarende og bygge på samme kode,
+  forutsatt at det i oppsettet er angitt om nedlasting er påkrevd.
+
+
+
+
+
 
 
 ## Varsling
@@ -238,10 +266,123 @@ TBD (avklaringer i arbeid vår 2024).
 
 ## Sikkerhetskontroller {#security-controls}
 
-{{<notice warning>}} <!-- info -->
-Dokumentasjonen av sikkerhetskontroller er under arbeid.
-{{</notice>}}
+### Autentisering og Autorisasjon
 
+Autentisering og autorisasjon støttes gjennom Maskinporten og Altinn Autorisasjon.
+
+Dette beskytter særlig mot følgende trusler:
+
+* Uautorisert tilgang: Autentisering hjelper til med å sikre at bare legitimerte brukere kan få tilgang til systemet ved å verifisere deres identitet. Dette kan forebygge tilgang av uautoriserte brukere, inkludert hackere eller andre med ondsinnede hensikter.
+* Identitetstyvery: Autentiseringstiltak som tofaktorautentisering (2FA) og multifaktorautentisering (MFA) kan redusere risikoen for identitetstyveri. Disse metodene krever mer enn bare brukernavn og passord for å bekrefte identiteten til en bruker.
+* Privilegiumeskalering: Autorisasjon sørger for at brukere bare har tilgang til de ressursene og funksjonene som er nødvendige for deres roller. Dette hindrer brukere fra å utføre handlinger utenfor deres tillatte privilegier, noe som kan beskytte mot interne trusler og feilaktig bruk av systemet.
+* Session Hijacking: Sterke autentiseringsteknikker kan også bidra til å forhindre session hijacking, der en angriper tar over en brukersesjon etter at autentiseringen er gjennomført.
+* Datalekkasjer: Ved å sørge for at bare autoriserte brukere har tilgang til sensitiv informasjon, reduserer man risikoen for utilsiktet eller ondsinnet spredning av konfidensielle data.
+
+### Sjekksumkontroll
+Altinn Formidling kontrollerer opplastede filer ved å sammenlikne sjekksum angitt av avsender med 
+sjekksum generert ved mottak.
+
+Kontroll av sjekksum kan også gjøres av mottakers sluttbrukersystem.
+
+Forutsatt at mottatt sjekksum er korrekt, sikrer dette integriteten
+til både opplastede og nedlastede filer.
+
+Sjekksummens integritet sikres gjennom kryptering, både under overføring og lagring.
+
+Se også:
+
+* [Beskyttelse under overføring](#in-transit-protection)
+* [Beskyttelse under lagring](#at-rest-protection)
+
+### Viruskontroll
+
+Når en fil lastes opp til Altinn Formidling, skannes den av Microsoft Defender Antivirus.
+Hvis det ikke oppdages virus, publiseres filen umiddelbart
+og gjøres tilgjengelig for nedlasting av mottakere.
+
+Imidlertid, i tilfeller der det oppdages et virus eller skanningen mislykkes, 
+fjernes filen, og overføringsstatusen oppdateres
+for å gi detaljert informasjon om skanningsfeilen.
+
+### Beskyttelse under overføring {#in-transit-protection}
+
+Filoverføringer krypteres og sendes via TLS/HTTPS, både fra avsender mot Altinn Formidling
+og fra Altinn Formidling mot mottakere.
+
+### Beskyttelse under lagring {#at-rest-protection}
+
+#### Altinn Formidling Fillager
+
+<!-- Brannmur på databasen??? -->
+
+Kryptert lagring av filer i Altinn 3 Formidling Fillager gjøres gjennom  [Azure Storage encryption for data
+at rest \| Microsoft Learn](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption).
+
+Kryptert lagring av metadata i Altinn 3 Formidling Metadatalager gjøres gjennom
+funksjoner i PostgreSQL-databasen.
+
+<!-- @Roar: Mer spesifikt om dette -  krypteringsløsning... brannmur, V-net... -->
+
+#### Støtte for alternative lagringsløsninger
+
+Avsendere kan velge å peke til egne lagringsløsninger i stedet for å laste opp filer
+til Altinn 3 Formidling Fillager.
+
+### Forebygging av DDoS-angrep
+
+Forebygging av DDoS-angrep gjøres via Azure API Management.
+
+### Alternativ hosting og skyleverandør
+
+Som alternativ til default Altinn hosting, kan programvaren hostes ut fra tjenesteiers valg,
+enten i form av egen (privat) sky-hosting eller on-premise hosting.
+
+Løsnigens sikkerhet er dermed ikke begrenset av Altinns valg av hosting- og skyleverandør.
+
+### God kodepraksis
+
+God kodepraksis er grunnleggende for å styrke informasjonssikkerheten i programvareutvikling.
+Altinn Formidling følger retningslinjer for god kodepraksis i Altinn.
+Disse bidrar til å sikre programvarens integritet og beskytte mot sikkerhetstrusler.  
+
+<!--
+Aktuelle kodepraksiser som bidrar til å sikre programvarens integritet og beskytte mot sikkerhetstrusler:
+
+* Minste privilegiums prinsipp: Utviklere bør designe programvare slik at hvert komponent, prosess og bruker har de minst mulige privilegiene som er nødvendige for å utføre sine funksjoner. Dette begrenser skadepotensialet dersom et sikkerhetsbrudd skulle oppstå.
+* Inputvalidering: All brukerinnsendt data bør valideres både på klient- og serversiden for å hindre vanlige angrep som SQL-injeksjon og cross-site scripting (XSS). Validering innebærer å sjekke at inndata er av riktig type, lengde, format og innenfor forventede grenser.
+* Feilhåndtering: Sikker og konsistent feilhåndtering er viktig. Programmet bør ikke lekke sensitiv informasjon gjennom feilmeldinger eller loggfiler. Unngå å bruke generiske eller uklare feilmeldinger som kan gi angripere innsikt i systemets struktur.
+* Kryptering: Bruk sterk kryptering for å beskytte data i hvile og overføring. Dette inkluderer bruk av HTTPS for webapplikasjoner, samt sikring av databaser og lagringsmedier.
+* Regelmessig oppdatering og patching: Hold alle systemer, biblioteker og avhengigheter oppdaterte med de siste sikkerhetspatchene for å beskytte mot kjente sårbarheter.
+* Kodegjennomgang og parprogrammering: Regelmessig kodegjennomgang og parprogrammering kan hjelpe med å identifisere og rette sikkerhetsrelaterte feil før de blir implementert i produksjon. Dette inkluderer å sjekke for logiske feil, uventede sideeffekter og andre sikkerhetsbrister.
+* Bruk av sikkerhetsvurderingsverktøy: Automatiserte verktøy som statisk og dynamisk kodeanalyse kan hjelpe med å oppdage potensielle sikkerhetssvakheter i koden. Disse verktøyene bør integreres i utviklingsprosessen.
+* Sikkerhetsopplæring for utviklere: Kontinuerlig opplæring og bevisstgjøring om de nyeste sikkerhetstruslene og beste praksiser er avgjørende for å hjelpe utviklere med å skrive sikrere kode.
+* Bruk av trygge og velprøvde biblioteker: Foretrekk å bruke velprøvde biblioteker og rammeverk med et sterkt fokus på sikkerhet, i stedet for å skrive egen kode for komplekse funksjoner, særlig når det gjelder kryptering og autentisering.
+-->
+
+### Åpen kildekode
+
+Altinn Formidling kode er åpen kildekode.
+
+Fra et sikkerhetsperspektiv fungerer åpen kildekode  som en sikkerhetskontroll 
+gjennom det som ofte kalles "sikkerhet gjennom gjennomsiktighet." Noen av fordelene er:
+
+* Forbedret sikkerhetsgjennomgang: Flere øyne på koden kan øke sannsynligheten for å oppdage feil og sårbarheter.
+* Raskere feilretting: Et aktivt fellesskap kan bidra til raskere patching av sikkerhetshull.
+* Økt tillit: Brukere og organisasjoner kan selv vurdere sikkerheten i koden, noe som kan øke tilliten til programvaren.
+
+### Nøkkelhvelv
+
+Azure Key Vault er en skylagringstjeneste fra Microsoft som tilbyr
+sikker håndtering av krypteringsnøkler,
+noe som er sentralt for å beskytte sensitiv informasjon.
+Her er en kort oppsummering av funksjonaliteten relatert til nøkkelhåndtering i Azure Key Vault
+med fokus på sikkerhetskontroller:
+
+* Sentralisert nøkkelhåndtering: Key Vault tillater opprettelse, lagring, og administrasjon av krypteringsnøkler i et sikkert miljø. Dette inkluderer funksjoner for import og eksport av nøkler, noe som gir fleksibilitet i håndtering av nøkler på tvers av ulike miljøer.
+* Automatisert nøkkelrotering: Nøkkelrotering er en viktig sikkerhetspraksis for å redusere risikoen for nøkkelkompromittering. Azure Key Vault støtter automatisering av nøkkelrotering, hvor gamle nøkler automatisk erstattes med nye på en sikker måte uten å forstyrre applikasjonens funksjonalitet.
+* Tilgangskontroll: Integrert med Azure Active Directory, gir Key Vault detaljerte tilgangskontroller som bestemmer hvilke brukere eller systemer som kan se, bruke, eller administrere nøklene. Dette styrker sikkerheten ved å begrense tilgang til nøkler til bare autoriserte entiteter.
+* Sikkerhet og Overvåking: Alle operasjoner på nøkler, inkludert tilgang og modifikasjoner, logges for å tilby fullstendig revisjonsspor. Integrering med Azure Security Center muliggjør avansert overvåking og varsling for sikkerhetstrusler.
+* Kryptering av data i ro: Nøklene lagres i hvile ved bruk av sterk kryptering, sikret av enten Microsofts administrerte nøkler eller brukeradministrerte nøkler. Dette sikrer at nøklene er beskyttet mot uautorisert tilgang og datalekkasjer.
 
 ### Sikkerhetskontroller gjennom Azure API Management
 
@@ -268,66 +409,8 @@ Dokumentasjonen av sikkerhetskontroller er under arbeid.
   kan nettverksvirtualisering sikre dataene som overføres mellom forskjellige deler av nettverket 
   eller mellom skyen og on-premises infrastruktur.
 
-
-### Autentisering og Autorisasjon
-
-I arbeid. <!-- Erik: Maskinporten og Altinn Autorisasjon -->
-
-### Sjekksum
-
-I arbeid. <!-- Roar -->
-
-### Viruskontroll
-
-Når en fil lastes opp til Altinn Formidling, skannes den av Microsoft Defender Antivirus.
-Hvis det ikke oppdages virus, publiseres filen umiddelbart 
-og gjøres tilgjengelig for nedlasting av mottakere. 
-Imidlertid, i tilfeller der det oppdages et virus eller skanningen mislykkes, 
-fjernes filen, og overføringsstatusen oppdateres 
-for å gi detaljert informasjon om skanningsfeilen.
-
-
-### Beskyttelse under overføring
-
-Krypterte filoverføringer med TLS/HTTPS. gjøres av avsender
-
-### Beskyttelse under lagring
-
-<!-- Brannmur på databasen??? -->
-
-
-Kryptert lagring av filer i Altinn 3 Formidling Fillager; ref. [Azure Storage-kryptering for data
-i ro \| Microsoft
-Learn](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption).
-
-Kryptert lagring av metadata i Altinn 3 Formidling Metadatalager...
-Metadata lagring ved bruk av PostgreSQL-databasen...
-
-TBD: Spesifikk krypteringsløsning... brannmur, V-net...
-
-### Alternative lagringsløsninger for filer
-
-TBD
-
-### Forebygging av DDoS-angrep
-
-DDoS-angrepsforebygging via Azure API Management.
-
-### Hosting
-
-* Privat sky-hosting
-* On-premise hosting 
-
-### Kodepraksiser
-
-TBD  Åpen kildekode...
-
-### Nøkkelhvelv
-
-Azure Key Vault, Private nøkler, intern... identiteter (skjulte tokens); hemmeligheter,  Altinn autentisering
-
 ### Penetrasjonstesting
 
-TBD
-
-
+Grundig penetrasjonstesting (pen testing) benyttes for å
+teste robustheten til systemets sikkerhetsmekanismer og oppdage eventuelle sikkerhetshull
+før de kan bli utnyttet av ondsinnede aktører.

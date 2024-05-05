@@ -73,9 +73,8 @@ Altinn 3 Broker does not currently provide a GUI for file transfer operations, b
 
 -->
 
-## Altinn 3 Broker API for individual file transfers
 
-### Altinn 3 Broker Application services
+## API operations {#altinn-3-broker-application-services}
 
 An overview of the application services of Altinn 3 Broker is given in the following figure:
 
@@ -84,11 +83,7 @@ An overview of the application services of Altinn 3 Broker is given in the follo
 Each of these application services correspond to a _path_ in the [Altinn 3 Broker OpenAPI specification][Altinn 3 Broker OpenAPI specifications].
 
 
-### Altinn Broker File Transfer REST API 
-
-See [Altinn 3 Broker OpenAPI specification][Altinn 3 Broker OpenAPI specifications].
-
-### Event notifications (machine-to-machine)
+## Event notifications (machine-to-machine)
 
 Notifications about new messages and other events are delivered to webhook subscribers. 
 The specific events are specified as part of the [Altinn 3 Broker OpenAPI specification][Altinn 3 Broker OpenAPI specifications]. 
@@ -131,7 +126,7 @@ Considerations:
 -->
 
 
-### End user notifications (email, SMS)
+## End user notifications (email, SMS)
 Notifications to end users about new messages, files, and other events are sent via the Altinn Notification Service.
 
 Also see:
