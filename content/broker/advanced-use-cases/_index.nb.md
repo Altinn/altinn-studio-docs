@@ -1,15 +1,17 @@
 ---
-title: Altinn 3 Broker Advanced Use Cases 
-linktitle: Advanced Use Cases 
-description: Altinn 3 Broker Advanced Use Cases 
+title: Avanserte brukstilfeller
+linktitle: Avanserte brukstilfeller 
+description: Altinn 3 Formidling avanserte brukstilfeller
 tags: []
 toc: true
 weight: 60
 ---
 
 {{<notice warning>}} <!-- info -->
-This is work in progress
+Dokumentasjon av avanserte brukstilfeller er i arbeid.
 {{</notice>}}
+
+<!--
 
 ## Many-to-many Brokering
 
@@ -45,3 +47,5 @@ TBD
 Files may be correlated to form virtual case folders, possibly with multiple
 providers and consumers collaborating on a common case or end-to-end
 process crossing organization boundaries (seamless services).
+
+-->
