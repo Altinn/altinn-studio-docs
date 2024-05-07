@@ -156,7 +156,7 @@ curl --location 'https://platform.altinn.no/notifications/api/v1/orders/email' \
 
 #### 202 Accepted
 
-In the case lookup of recipients contact details or reservation status is required for an order, 
+In cases where reservation check or address lookup of recipients is required for an order, 
 the initial result of the lookup will be included in the response. This includes
 a list containing national identity number for all reserved persons and a list containing national identity number
 or organisation number for the recipients we could not find contact details for. 
