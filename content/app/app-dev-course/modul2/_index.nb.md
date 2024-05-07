@@ -42,7 +42,7 @@ Informasjonssiden bør gjenspeile følgende elementer:
 
 Du kan bruke følgende bilde av Sogndals kommunevåpen i applikasjonen:
 
-!["Sogndal kommunevåpen"](kommune-logo.png )
+!["Sogndal kommunevåpen"](../resources/kommune-logo.png )
 
 ### Oppgaver
 
