@@ -76,9 +76,9 @@ Følgende er det ønskelig at reflekteres i tjenesten:
  - Tekststørrelser
  - Formatering av tekst
 
-[Skisse på informasjonsside](../modul2/infoside_tilflyttere.pdf)
+[Skisse på informasjonsside](../resources/infoside_tilflyttere.pdf)
 
-!["Sogndal kommunevåpen"](../modul2/kommune-logo.png "Et bilde av Sogndals kommunevåpen som kan benyttes i tjenesten" )
+!["Sogndal kommunevåpen"](../resources/kommune-logo.png "Et bilde av Sogndals kommunevåpen som kan benyttes i tjenesten" )
 
 {{% /expandlarge %}}
 
