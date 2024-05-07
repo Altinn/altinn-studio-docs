@@ -287,7 +287,7 @@ Det er mulig å ekskludere enkeltkomponenter inne i en gruppe ved å bruke `excl
 
 {{%notice warning%}}
 
-Forhåndsvisningen gjelder kun dersom du bruker ny PDF generering (v7.5+). Se [ovenfor](#ny-pdf-generering) for mer informasjon.
+Forhåndsvisningen gjelder kun dersom du bruker ny PDF generering (v7.5+).
 
 {{% /notice%}}
 

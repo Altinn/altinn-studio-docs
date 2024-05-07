@@ -285,7 +285,7 @@ It is possible to exclude child components from a group by using the `excludedCh
 
 {{%notice warning%}}
 
-This preview is only applicable to the new PDF generation method (v7.5+). See [above](#new-pdf-generation) for more information.
+This preview is only applicable to the new PDF generation method (v7.5+).
 
 {{% /notice%}}
 
