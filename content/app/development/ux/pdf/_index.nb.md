@@ -4,8 +4,12 @@ description: Hvordan konfigurere generering av PDF
 weight: 50
 ---
 
-{{%notice warning%}}
-## Ny PDF-generering
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v8">}}
+I versjon 8 av nuget pakkene (Altinn.App.Api and Altinn.App.Core) er den nye pdf generatoren eneste mulighet.
+{{</content-version-container>}}
+{{<content-version-container version-label="v7">}}
+
 ### Aktivere ny PDF-generering
 Fra og med versjon 7.5 av nuget-pakkene (Altinn.App.Api og Altinn.App.Core) er det lansert en ny måte å generere PDF-er på. Denne nye måten kan skrus av og på ved å legge til følgende seksjon og innstilling i _appsettings.json_.
 
@@ -17,21 +21,8 @@ Fra og med versjon 7.5 av nuget-pakkene (Altinn.App.Api og Altinn.App.Core) er d
 
 Dette vil sørge for at den nye PDF-tjenesten kalles. Denne aksepterer en URL som peker tilbake til en automatisk generert side i appen. Siden bygges opp og danner grunnlaget for PDF-en. Grensesnittet `IPdfFormatter` som dokumentert nedenfor er fortsatt relevant hvis du trenger spesiallogikk for å skjule komponenter/sider fra PDF-en.
 
-### Innstillinger
-Selv om standardinnstillingene for den nye tjenesten skal være nok for de fleste applikasjoner, kan de overstyres ved å legge til en PdfGeneratorSettings-seksjon i _appsettings.json_ (standardinnstillinger vises under).
-
-```json
-  "PdfGeneratorSettings": {
-    "ServiceEndpointUri": "https://{org}.apps.{hostName}/{appId}/#/instance/{instanceId}",
-    "AppPdfPageUriTemplate": "https://{org}.apps.{hostName}/{appId}/#/instance/{instanceId}?pdf=1",
-    "WaitForSelector": "#readyForPrint",
-    "WaitForTime": 5000
-  }
-```
-
-Hvis WaitForSelector er satt så blir WaitForTime ignorert. WaitForSelector sikrer at siden er ferdig oppbygd og presentert før PDF-en genereres.
-
-{{% /notice%}}
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 Det er to ulike måter å konfigurere PDF-genereringen på:
 
@@ -311,3 +302,16 @@ Det er mulig å se en forhåndsvisning av hvordan den genererte PDF-en kommer ti
    <br><br>
    ![Utviklerverktøyet, skjermbilde](preview-button.png) 
 
+## Innstillinger
+Selv om standardinnstillingene for den nye tjenesten skal være nok for de fleste applikasjoner, kan de overstyres ved å legge til en PdfGeneratorSettings-seksjon i _appsettings.json_ (standardinnstillinger vises under).
+
+```json
+  "PdfGeneratorSettings": {
+    "ServiceEndpointUri": "https://{org}.apps.{hostName}/{appId}/#/instance/{instanceId}",
+    "AppPdfPageUriTemplate": "https://{org}.apps.{hostName}/{appId}/#/instance/{instanceId}?pdf=1",
+    "WaitForSelector": "#readyForPrint",
+    "WaitForTime": 5000
+  }
+```
+
+Hvis WaitForSelector er satt så blir WaitForTime ignorert. WaitForSelector sikrer at siden er ferdig oppbygd og presentert før PDF-en genereres.
