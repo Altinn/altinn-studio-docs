@@ -38,7 +38,8 @@ Du kan bruke følgende bilde av Sogndals kommunevåpen i tjenesten:
     dukket opp navigasjonsknapper på denne. Åpne `infoside` igjen for å fortsette.
 3. Klikk på meny-ikonet (tre prikker) ved siden av sidenavnet `infoside` og velg "Flytt opp".
     - Se at den nye siden nå flytter seg til øverst i skjemaoversikten. 
-4. Legg til en Bilde-komoponent fra komponentoversikten til venstre ved å dra den inn i `infoside`.
+4. Legg til en Bilde-komoponent fra komponentoversikten til venstre ved å dra den inn i `infoside`. Denne ligger 
+    under "Standard"-listen med komponenter.
 5. Åpne "Innhold"-seksjonen i konfigurasjonskolonnen. 
 6. Under "Innstillinger for bilde", i feltet "Kilde", lim inn [lenken til bildet](../resources/kommune-logo.png)
 
