@@ -33,7 +33,7 @@ as well as detailed in the notification after requested send time.
 The recipient lookup result reflects the situation at a specific point in time. 
 If the requested send time is significantly later than the time of ordering - the final lookup may have a different result. 
 The status of a notification order should therefore always be checked after the requested send time 
-to confirm whether or not notifications were successfully generated, sent and delivered.
+to confirm whether notifications were successfully generated, sent and delivered.
 {{% /notice %}}
 
 
