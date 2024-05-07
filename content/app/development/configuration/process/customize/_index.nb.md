@@ -347,7 +347,7 @@ App/ui/custom-receipt/layouts/side1.json
         "dataModelBindings": {},
         "image": {
           "src": {
-            "nb": "https://docs.altinn.studio/app/app-dev-course/resources/kommune-logo.png"
+            "nb": "https://docs.altinn.studio/app/app-dev-course/modul2/kommune-logo.png"
           },
           "width": "100%",
           "align": "flex-start"

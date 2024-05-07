@@ -40,7 +40,7 @@ The information page should reflect the following elements:
 
 You can use the following image of the Sogndal Municipality Coat of Arms in the application:
 
-![Sogndal Municipality Coat of Arms](../resources/kommune-logo.png)
+![Sogndal Municipality Coat of Arms](kommune-logo.png)
 
 ### Tasks
 1. Add a new page. Give it an appropriate name and position it before the form page you created in Module 1.
