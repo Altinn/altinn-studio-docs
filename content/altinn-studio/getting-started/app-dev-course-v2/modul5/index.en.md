@@ -20,7 +20,7 @@ Altinn gir fordelen av å ha lett tilgjengelig [metadata](/nb/api/models/instanc
 Ved hjelp av forhåndsutfylling kan vi hente brukerdata og fylle ut felt sømløst.
 Dette reduserer behovet for manuell inntasting av data, spesielt for standardopplysninger som navn, adresser og e-postadresser.
 
-Du kan integrere data fra Altinns [forhåndsutfyllingskilder](/nb/altinn-studio/guides/advanced/prefill/config/#tilgjengelige-prefill-verdier) direkte i appen ved å tilordne dataene til spesifikke felt i datamodellen. Dette automatiserer utfylling av felt under opprettelse av skjema. Du kan også integrere egendefinerte løsninger for forhåndsutfylling.
+Du kan integrere data fra Altinns [forhåndsutfyllingskilder](/nb/altinn-studio/guides/prefill/config/#tilgjengelige-prefill-verdier) direkte i appen ved å tilordne dataene til spesifikke felt i datamodellen. Dette automatiserer utfylling av felt under opprettelse av skjema. Du kan også integrere egendefinerte løsninger for forhåndsutfylling.
 
 Denne oppgaven fokuserer på den første siden for datainnsamling og har som mål å effektivisere brukeropplevelsen ved å forhåndsutfylle brukerens personalia.
 
@@ -38,8 +38,8 @@ Denne oppgaven fokuserer på den første siden for datainnsamling og har som må
 
 ### Oppgaver
 
-1. Opprett en [fil for forhåndsutfylling](/nb/altinn-studio/guides/advanced/prefill/config/#oppsett-av-prefill-i-applikasjons-repository).
-2. Konfigurer forhåndsutfylling for verdier tilgjengelig i Altinns [forhåndsutfyllingskilder](/nb/altinn-studio/guides/advanced/prefill/config/#tilgjengelige-prefill-verdier)
+1. Opprett en [fil for forhåndsutfylling](/nb/altinn-studio/guides/prefill/config/#oppsett-av-prefill-i-applikasjons-repository).
+2. Konfigurer forhåndsutfylling for verdier tilgjengelig i Altinns [forhåndsutfyllingskilder](/nb/altinn-studio/guides/prefill/config/#tilgjengelige-prefill-verdier)
 3. Konfigurer innstillinger for felter som ikke skal kunne endres av brukeren.
 
 {{% notice info %}}
@@ -47,9 +47,9 @@ Denne oppgaven fokuserer på den første siden for datainnsamling og har som må
 {{% /notice %}}
 
 ### Nyttig dokumentasjon
-- [Forhåndsutfylling fra nasjonale registre og brukerprofil](/nb/altinn-studio/guides/advanced/prefill/config/#prefill-fra-nasjonale-register-og-brukerprofil)
-- [Tilgjengelige kilder og verdier for forhåndsutfylling](/nb/altinn-studio/guides/advanced/prefill/config/#tilgjengelige-prefill-verdier)
-- [Bonus: Egendefinert forhåndsutfylling](/nb/altinn-studio/guides/advanced/prefill/custom)
+- [Forhåndsutfylling fra nasjonale registre og brukerprofil](/nb/altinn-studio/guides/prefill/config/#prefill-fra-nasjonale-register-og-brukerprofil)
+- [Tilgjengelige kilder og verdier for forhåndsutfylling](/nb/altinn-studio/guides/prefill/config/#tilgjengelige-prefill-verdier)
+- [Bonus: Egendefinert forhåndsutfylling](/nb/altinn-studio/guides/prefill/custom)
 - [Instance](/nb/api/models/instance/#instance) - Metadata for applikasjonen.
 
 ### Forståelsessjekk
