@@ -26,7 +26,7 @@ of ordering a request and at the requested send time.
 
 The entity ordering the notification is responsible to checking whether the notification 
 will be sent or not, as recipient lookup results are shared in the response of the order request
-as well as detailed in the in the notification after requested send time. 
+as well as detailed in the notification after requested send time. 
 
 ### Recipient lookup result 
 {{% notice warning  %}}
