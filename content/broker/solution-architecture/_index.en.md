@@ -1,5 +1,5 @@
 ---
-title: Altinn 3 Broker Solution Architecture
+title: Solution Architecture
 linktitle:  Solution Architecture
 description: Altinn 3 Broker solution architecture for basic use cases of Managed File Transfers.
 tags: []
@@ -58,7 +58,7 @@ here are some important considerations for the Altinn 3 Broker solution architet
   
 * __Future readiness in general__. The international landscape of regulations, standards, technologies  and solutions 
   is evolving. The solution architecture should take this into account, and prepare for 
-  compliance, interoperability and reuse. Examples: [Semenatic Web](https://en.wikipedia.org/wiki/Semantic_Web)
+  compliance, interoperability and reuse. Examples: [Semantic Web](https://en.wikipedia.org/wiki/Semantic_Web)
   and [Linked Data](https://en.wikipedia.org/wiki/Linked_data), 
   [Self Souvereign Identity](https://en.wikipedia.org/wiki/Self-sovereign_identity) and 
   [Verifiable Credentials](https://en.wikipedia.org/wiki/Verifiable_credentials).
@@ -66,7 +66,11 @@ here are some important considerations for the Altinn 3 Broker solution architet
 * __Compliance with EU regulations and standards__. 
   European regulations and standards for data sharing will apply for Norway in the coming years.
   Compliance will be mandated, and interoperability will be essential for cross border value chains. 
-  See e.g. the [Data Spaces Support Center knowledge base](https://dssc.eu/page/knowledge-base) 
+  See e.g. [Digdir's overview of EU legislation for data sharing](https://www.digdir.no/datadeling/oversikt-over-eu-regelverk-om-deling-og-bruk-av-data/3251)
+and [Data Spaces Support Center om "Regulatory Compliance"](https://dssc.eu/space/BVE/357074696/Regulatory+Compliance)
+  
+  
+  the [Data Spaces Support Center knowledge base](https://dssc.eu/page/knowledge-base) 
 
 
 <!--
@@ -104,6 +108,17 @@ here's a summary of how these components relates to and serves Altinn 3 Broker:
 * [Altinn Events](../../events/). Notifications to webhooks in End User Systems.
 * [Altinn Studio](../../altinn-studio/). Applications and user interface for self service configuration of the solutions.
 * Altinn Billing. Invoicing of customers.
+
+## Related solutions
+
+An overview of related solutions is provided in the following diagram.
+This serves as a starting point for assessing interaction with, as well as the use and reuse of, other solutions
+in the detailed solution architecture for Altinn Broker.
+The most relevant solutions are highlighted in bold.
+
+![Digdir Solution Resources for Altinn 3 Broker](digdir-solution-resources-for-altinn3-broker.en.png "Digdir Solution Resources for Altinn 3 Broker")
+
+
 
 ## Transition Architecture - Altinn 2 to Altinn 3
 
@@ -148,7 +163,7 @@ TBD by Ragnar?
 
 ## File storage
 
-Broker File Storage is based MS Azure Blob Storage.
+Broker File Storage is based MS Azure Blob Storage, and isolated to a storage account per Service Owner.
 
 Stored Files are always encrypted; ref. [Azure Storage encryption for
 data at rest \| Microsoft
@@ -163,7 +178,7 @@ The following information model details the
 
 ## Addressing and Routing
 
-The basic Altinn 3 Broker adressing amd routing mechanisms are:
+The basic Altinn 3 Broker adressing and routing mechanisms are:
 
 * Specific adressing of recipients
 * Addressing via subscription
@@ -181,24 +196,23 @@ TBD.
 
 ### Notifications to human end users
 
-Notifications to human recipients are supported by e-mail and sms, 
-see [Altinn Notifications](../../notifications/).
+For notifications to human recipients via e-mail and sms,
+Altinn Broker uses the [Altinn Notifications](../../notifications/) component.
 
 ### Notifications to End User Systems
 
 End User Systems may register custom webhooks for receiving events; see [Altinn Events](../../events/).
 
 See [the Altinn 3 Broker OpenAPI specification](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-v1.json) 
-for the evnets 
-
-<!-- 
-Erik: The specific events supported, ref. the Broker OpenAPI...
--->
+for specification of the supported events.
 
 
 ## API Management
 
-Azure API Management (APIM) plays a vital role in enhancing the security, management, and operational insights of Altinn API's. By placing APIM in front of the broker service, we can leverage a range of capabilities to ensure secure, efficient, and scalable file transfer operations. We run on an APIM instance that is shared with other platform services in Altinn.
+[Azure API Management (APIM)](https://azure.microsoft.com/en-us/products/api-management) 
+is used for scaling, operational insights, and securing Altinn Broker APIs.
+
+Altinn Broker runs on an APIM instance that is shared with other platform services in Altinn.
 
 ## Logging and Monitoring
 TBD
@@ -208,12 +222,42 @@ TBD
 
 
 
-## Security Controls
+## Security Controls {#security-controls}
 
 {{<notice warning>}} <!-- info -->
-The documentation of security contols is work in progress
+The documentation of security controls is work in progress, 
+first in Norwegian, then to be translated to English.
 {{</notice>}}
 
+## Security Controls via Azure API Management
+
+### Security Controls via Azure VNet
+
+### Authentication and Authorization
+
+### Checksum control
+
+### Virus check
+
+### In-transit protection {#in-transit-protection}
+
+### At rest protection {#at-rest-protection}
+
+#### Altinn Broker File Storage
+
+#### Support for custom storage solutions
+
+### DDoS attack prevention
+
+### Hosting options
+
+### Coding practices
+
+### Key Vault
+
+### Penetration testing
+
+<!--
 
 ### Authentication and Authorization
 
@@ -275,3 +319,4 @@ TBD
 ![Digdir Solution Resources for Altinn 3 Broker](digdir-solution-resources-for-altinn3-broker.en.png "Digdir Solution Resources for Altinn 3 Broker")
 
 
+-->

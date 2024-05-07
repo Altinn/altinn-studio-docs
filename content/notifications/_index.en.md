@@ -43,8 +43,8 @@ Reasons to consider using Altinn Notifications for communication with Norwegian 
         {
           "emailAddress": "testuser_1@altinn.no"
         },
-          {
-          "emailAddress": "testuser_2@altinn.no"
+        {
+          "nationalIdentityNumber":"11876995923"
         }
       ],
       "emailTemplate": {
@@ -76,7 +76,8 @@ Reasons to consider using Altinn Notifications for communication with Norwegian 
             {
                 "id": "a141753c-557f-4bce-95fd-8fc715ca9a40",
                 "succeeded": true,
-                "recipient": {
+                "recipient": 
+                {
                     "emailAddress": "testuser_1@altinn.no"
                 },
                 "sendStatus": {
@@ -88,8 +89,11 @@ Reasons to consider using Altinn Notifications for communication with Norwegian 
                {
                 "id": "a9d159e2-6a89-4440-80da-7f2a99c775f4",
                 "succeeded": true,
-                "recipient": {
-                    "emailAddress": "testuser_2@altinn.no"
+                "recipient": 
+                {
+                    "nationalIdentityNumber":"11876995923",
+                    "emailAddress": "testuser_2@altinn.no",
+                    "isReserved": false
                 },
                 "sendStatus": {
                     "status": "Sending",

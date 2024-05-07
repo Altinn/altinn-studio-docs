@@ -17,8 +17,8 @@ as one of the five leading digital government technology platforms in the world.
 ![Gartner](gartner.png "Gartner")
 
 The current platform is used by over 90% of the Norwegian population and almost 100% 
-of the businesses. Over 65 agencies and municipalities host their solutions in the Altinn platform,
-and private sector in Norway reports that they're [saving over 15 billion NOK each year because of Altinn](https://www.digdir.no/digitale-felleslosninger/altinn-gir-rekordinnsparing-naeringslivet/1912).
+of the businesses. Over [70 agencies and municipalities](https://info.altinn.no/en/about-altinn/the-altinn-co-operation/) host their solutions in the Altinn platform,
+and private sector in Norway reports that they're [saving over 15 billion NOK each year because of Altinn](https://www-digdir-no.translate.goog/digitale-felleslosninger/altinn-gir-rekordinnsparing-naeringslivet/1912?_x_tr_sl=no&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp) (google translate).
 
 The current platform has almost 1000 active solutions supporting different user scenarios.  
 Examples of solutions in the current platform is: Tax reporting, aircraft incident reporting, correspondence services from health department, lookup service in to the business register and many many more.
@@ -47,7 +47,7 @@ There are many reasons to use Altinn 3 to build and host your digital services.
 - Reuse of data, UX, APIs and functionality
 - A known platform for end users
 - Highly scalable and secure infrastructure
-- [Open source](https://github.com/Altinn/altinn-studio)
+- [Open source](open-source)
 - Access to almost all citizens and businesses in Norway
 
 ## When was Altinn 3 launched?
