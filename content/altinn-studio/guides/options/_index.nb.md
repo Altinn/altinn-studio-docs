@@ -17,6 +17,26 @@ Dette gjøres ved å legge til feltet optionsId som referer til hvilken option (
 {
   "id": "dropdown-komponent",
   "type": "Dropdown",
+  "dataModelBindings": {
+    "simpleBinding": "soknad.nyGaranti.loyvetype"
+  },
+  "optionsId": "biler"
+}
+```
+
+### Lagre label verdi i datamodellen
+Noen ganger ønsker man å lagre den viste verdien på brukerens språk i datamodellen for enklere å kunne bruke de lagrede dataene til å lagre enkle visninger uten å være avhengig av å gjøre et nytt oppslag for å få en visningsvennlig verdi. Det kan også brukes for å huske hva brukeren faktisk har sett når han valgte i tilfelle man endrer ordlyd for en verdi og vil ha logg for hva brukeren har sett.
+
+Dette gjøres ved å ha en egen ``dataModelBindings`` med navnet ``"label":`` i tillegg til en ``"simpleBinding":``.
+
+```json
+{
+  "id": "dropdown-komponent",
+  "type": "Dropdown",
+  "dataModelBindings": {
+    "simpleBinding": "soknad.nyGaranti.loyvetype",
+    "label":"soknad.nyGaranti.loyvetypeLabel"
+  },
   "optionsId": "biler"
 }
 ```
@@ -116,27 +136,6 @@ For nøsta repeterende grupper vil man følge det samme mønsteret, men med en e
 
 For et komplett eksempel kan du se vår [demo app.](https://altinn.studio/repos/ttd/dynamic-options-rep)
 
-{{%notice warning%}}
-**Gjelder applikasjoner som benytter versjon 7.4.0 eller eldre av nuget pakkene** - se https://github.com/Altinn/app-lib-dotnet/release
-
-<br>
-
-Under PDF-generering vil appen prøve å kalle det samme options-endepunktet som app-frontend gjør.
-Vi har foreløpig en svakhet ved at eventuelle mapping-parametere ikke blir inkludert i denne forespørselen, se issue [#7903.](https://github.com/Altinn/altinn-studio/issues/7903)
-
-En mulig workaround her er å returnere en tom array i det PDF-generatoren spør om options med tomme query-parametere, eksempel:
-
-```c#
-string someArg = keyValuePairs.GetValueOrDefault("someArg");
-string someOtherArg = keyValuePairs.GetValueOrDefault("someOtherArg");
-
-if (string.IsNullOrEmpty(someArg) || string.IsNullOrEmpty(someOtherArg)) {
-    return await Task.FromResult(new List<AppOption>());
-}
-```
-
-Merk at dette vil resultere i at PDF vil vise verdien valgt og ikke label som sluttbrukers svar.
-{{% /notice%}}
 
 ### Lagre metadata for parametrene som ble brukt til å hente options
 
