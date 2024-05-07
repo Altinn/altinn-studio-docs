@@ -109,7 +109,7 @@ here's a summary of how these components relates to and serves Altinn 3 Broker:
 * [Altinn Studio](../../altinn-studio/). Applications and user interface for self service configuration of the solutions.
 * Altinn Billing. Invoicing of customers.
 
-## Related soltions
+## Related solutions
 
 An overview of related solutions is provided in the following diagram.
 This serves as a starting point for assessing interaction with, as well as the use and reuse of, other solutions
@@ -163,7 +163,7 @@ TBD by Ragnar?
 
 ## File storage
 
-Broker File Storage is based MS Azure Blob Storage.
+Broker File Storage is based MS Azure Blob Storage, and isolated to a storage account per Service Owner.
 
 Stored Files are always encrypted; ref. [Azure Storage encryption for
 data at rest \| Microsoft
@@ -225,9 +225,39 @@ TBD
 ## Security Controls {#security-controls}
 
 {{<notice warning>}} <!-- info -->
-The documentation of security controls is work in progress
+The documentation of security controls is work in progress, 
+first in Norwegian, then to be translated to English.
 {{</notice>}}
 
+## Security Controls via Azure API Management
+
+### Security Controls via Azure VNet
+
+### Authentication and Authorization
+
+### Checksum control
+
+### Virus check
+
+### In-transit protection {#in-transit-protection}
+
+### At rest protection {#at-rest-protection}
+
+#### Altinn Broker File Storage
+
+#### Support for custom storage solutions
+
+### DDoS attack prevention
+
+### Hosting options
+
+### Coding practices
+
+### Key Vault
+
+### Penetration testing
+
+<!--
 
 ### Authentication and Authorization
 
@@ -289,3 +319,4 @@ TBD
 ![Digdir Solution Resources for Altinn 3 Broker](digdir-solution-resources-for-altinn3-broker.en.png "Digdir Solution Resources for Altinn 3 Broker")
 
 
+-->

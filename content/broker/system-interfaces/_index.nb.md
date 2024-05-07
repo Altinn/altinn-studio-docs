@@ -69,9 +69,7 @@ Altinn 3 Broker does not currently provide a GUI for file transfer operations, b
 
 -->
 
-## Altinn 3 Formidling applikasjonstjenester
-
-### API-operasjoner {#altinn-3-broker-application-services}
+## API-operasjoner {#altinn-3-broker-application-services}
 En oversikt over operasjoner i Altinn 3 Formidling API gis av følgende figur:
 
 {{<notice warning>}} <!-- info -->
@@ -83,7 +81,7 @@ Merk: Navnene på API-operasjonene er ikke oversatt til norsk, for å unngå mis
 Hver av disse applikasjonstjenestene tilsvarer en _path_ i [Altinn 3 Formidling OpenAPI spesifikasjon][Altinn 3 Broker OpenAPI specifications].
 
 
-### Notifikasjoner om hendelser - maskin-til-maskin
+## Notifikasjoner om hendelser - maskin-til-maskin
 
 Varsler om nye meldinger og andre hendelser leveres til abonnenter av webhooks. 
 De spesifikke hendelsene er spesifisert som en del av 
@@ -131,7 +129,7 @@ Considerations:
 -->
 
 
-### Varsling til sluttbrukere via e-post og SMS
+## Varsling til sluttbrukere via e-post og SMS
 
 Varsler til sluttbrukere om nye meldinger, filer og andre hendelser sendes via Altinns varslingstjeneste.
 
