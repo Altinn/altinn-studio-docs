@@ -67,4 +67,4 @@ benefits are:
 
 ## How to get started?
 
-Information about how to get started can be found here in the [User guides](../guides/)
+Information about how to get started can be found here in the [User guides](../user-guides/)

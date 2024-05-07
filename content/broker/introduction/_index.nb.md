@@ -52,4 +52,4 @@ Noen av de viktigste fordelene er:
 
 ## Hvordan komme i gang?
 
-Informasjon om hvordan du kommer i gang finner du her i [Brukerveiledningene](../guides/).
+Informasjon om hvordan du kommer i gang finner du her i [Brukerveiledningene](../user-guides/).
