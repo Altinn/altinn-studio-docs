@@ -1,26 +1,26 @@
 ---
 title: v8
-description: Oversikt over endringer introdusert i v8 av Altinn.App.* pakkene og applikasjonsmalen.
+description: Oversikt over endringer introdusert i v8 av Altinn.App.*-pakkene og applikasjonsmalen.
 weight: 94
 ---
 
-## Hvorfor versjon 8
+## Hvorfor versjon 8?
 V8 er en omskriving av prosessmotoren i apper for å støtte mer avanserte prosessflyter og signering.
 For de fleste eksisterende apper er endringene i prosessmotoren bare synlige i filen `App/config/process/process.bpmn`.
 
 Vi benyttet også anledningen til å flytte alle grensesnitt fra `Altinn.App.Core.Interfaces` til mer beskrivende navnerom under `Altinn.App.Core.Internal`.
-Noen av disse grensesnittene har fått nye navn. For eksempel har `Altinn.App.Core.Interfaces.IData` blitt flyttet og omdøpt til: `Altinn.App.Core.Internal.Data.IDataClient`
+Noen av disse grensesnittene har fått nye navn. For eksempel har `Altinn.App.Core.Interfaces.IData` blitt flyttet og omdøpt til `Altinn.App.Core.Internal.Data.IDataClient`.
 
 ## Betydelige endringer
 
 ### Endringer i process.bpmn
 
 #### Altinn-namespace endret
-Tidligere var navnerommet for Altinn `http://altinn.no`, dette har nå blitt endret til `http://altinn.no/process`
+Tidligere var navnerommet for Altinn `http://altinn.no`. Dette har nå blitt endret til `http://altinn.no/process`.
 
-Dette finnes øverst i process.bpmn-filen.
+Dette finnes øverst i `process.bpmn`-filen.
 
-Gammel process.bpmn:
+Gammel `process.bpmn`:
 ```xml {hl_lines=[4]}
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions id="Altinn_SingleDataTask_Process_Definition"
@@ -35,7 +35,7 @@ targetNamespace="http://bpmn.io/schema/bpmn" >
 </bpmn:definitions>
 ```
 
-Ny process.bpmn:
+Ny `process.bpmn`:
 ```xml {hl_lines=[4]}
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions id="Altinn_SingleDataTask_Process_Definition"
@@ -51,7 +51,7 @@ targetNamespace="http://bpmn.io/schema/bpmn" >
 ```
 
 #### TaskType-definisjon flyttet til bpmn:extensionElements
-Frem til versjon 8 av pakken ble taskType definert direkte på `<bpmn:task>`-elementet.
+Frem til versjon 8 av pakken, ble taskType definert direkte på `<bpmn:task>`-elementet.
 For å følge BPMN-spesifikasjonen bedre, har dette blitt flyttet til `<bpmn:extensionElements>`-elementet.
 
 ```xml {hl_lines=[1]}
@@ -79,7 +79,7 @@ Dette ser kanskje mer omfattende ut, men ettersom vi trenger å spesifisere fler
 
 #### Bekreftelsesoppgaver må definere handlingen "confirm"
 Tidligere la bekreftelsesoppgaver implisitt til en bekreftelseshandling for brukeren (som gjorde at bekreft-knappen ble aktivert i brukergrensesnittet).
-Med introduksjonen av handlinger på prosessoppgaver må utvikleren nå definere handlingen "confirm" på bekreftelsesoppgaver.
+Med introduksjonen av handlinger på prosessoppgaver, må utvikleren nå definere handlingen "confirm" på bekreftelsesoppgaver.
 
 Gammel bekreftelsesoppgave:
 ```xml
@@ -105,11 +105,11 @@ Ny bekreftelsesoppgave:
 </bpmn:task>
 ```
 
-### Ny versjon av dotnet
-Løsningen har blitt oppdatert til å bruke den nyeste LTS-versjonen av dotnet, .NET 8.0.
-Dette må bli oppdatert i prosjektfilen og i Dockerfile.
+### Ny versjon av .NET
+Løsningen har blitt oppdatert til å bruke den nyeste LTS-versjonen av .NET, 8.0.
+Dette må oppdateres i prosjektfilen og i `Dockerfile`.
 
-Gammel Dockerfile:
+Gammel `Dockerfile`:
 ```Dockerfile {hl_lines=[1,11]}
 FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine AS build
 WORKDIR /App
@@ -126,7 +126,7 @@ EXPOSE 5005
 WORKDIR /App
 ```
 
-Ny Dockerfile:
+Ny `Dockerfile`:
 ```Dockerfile {hl_lines=[1,11]}
 FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine AS build
 WORKDIR /App
@@ -145,8 +145,8 @@ COPY --from=build /app_output .
 ENV ASPNETCORE_URLS=
 ```
 
-For en komplett oversikt over endringer i Dockerfile, se
-[her](https://github.com/Altinn/app-template-dotnet/commit/d13946262286542564445779e87b75c4bbb2cdaf#diff-51767e9b1bad3f38294e90b0aaadd99ee89bb126f426b22bb8f5e199c6c69bc6).
+For en komplett oversikt over endringer i `Dockerfile`, [se
+her](https://github.com/Altinn/app-template-dotnet/commit/d13946262286542564445779e87b75c4bbb2cdaf#diff-51767e9b1bad3f38294e90b0aaadd99ee89bb126f426b22bb8f5e199c6c69bc6).
 
 ### Endringer i grensesnitt for klienter og tjenester
 Klienter og tjenester vi leverer for å kommunisere med kjernetjenestene våre, som lagring og hemmeligheter, har blitt flyttet og omdøpt for å tydeliggjøre hvilke de samhandler med.
@@ -176,9 +176,9 @@ Klienter og tjenester vi leverer for å kommunisere med kjernetjenestene våre, 
 | Altinn.App.Core.Interface | ITaskEvents           | Altinn.App.Core.Internal.Process     | ITaskEvents           | |
 | Altinn.App.Core.Interface | IUserTokenProvider    | Altinn.App.Core.Internal.Auth        | IUserTokenProvider    | |
 
-Alle de gamle grensesnittene er markert som utdaterte (Obsolete) og vil generere kompileringstidsfeil med henvisning til hvilke grensesnitt du bør bruke i stedet.
+Alle de gamle grensesnittene er markert som utdaterte (Obsolete), og vil generere kompileringstidsfeil med henvisning til hvilke grensesnitt du bør bruke i stedet.
 
-## Hva er nytt
+## Hva er nytt?
 
 ### Støtte for signering av oppgaver
 V8 støtter definisjon av signering av oppgaver i prosessdefinisjonen.
@@ -189,6 +189,6 @@ For å se hvordan signering av oppgaver defineres, kan du se [signeringsdokument
 Det er nå mulig å ta beslutninger om prosessflyt ved hjelp av uttrykk i prosessdefinisjonen.
 For å se hvordan du kan bruke uttrykk for å diktere prosessflyt, se [bruk av uttrykk for å diktere prosessflyt]() 
 
-### Egendefinerte handlinger i prosess oppgaver
-Egendefinerte handlinger gjør det mulig å opprette egendefinerte handlinger som kan brukes til å flytte prosessen videre. Disse handlingene kan autoriseres separat, brukes i uttrykk inni prosessdefinisjonen for å endre hvordan prosessen flyter, og utføre egendefinert kode før prosessen flyttes til neste oppgave.
+### Egendefinerte handlinger i prosessoppgaver
+Egendefinerte handlinger gjør det mulig å opprette egendefinerte handlinger som kan brukes til å flytte prosessen videre. Disse handlingene kan autoriseres separat, brukes i uttrykk inne i prosessdefinisjonen for å endre hvordan prosessen flyter, og utføre egendefinert kode før prosessen flyttes til neste oppgave.
 For å se hvordan du kan bruke egendefinerte prosesshandlinger, se [definere egendefinerte handlinger i prosessoppgaver]()

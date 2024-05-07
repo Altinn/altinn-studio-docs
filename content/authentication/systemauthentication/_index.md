@@ -35,6 +35,9 @@ Tokenet man da får vil kunne benyttes direkte mot Altinns API eller andre som v
 
 ## Løsningsbeskrivelse
 
+
+![Concept](concept.drawio.svg)
+
 ### Systemregister
 
 Som del av nytt konsept etableres det et systemregister i Altinn. Systemregisteret vil inneholde oversikt over systemer tilbudet av systemleverandører. 
@@ -163,6 +166,60 @@ Som API tilbyder kreves følgende for å kunne bruke systembruker
 - Ett policy enforcment punkt implementeres/konfigureres for API endepunkt. PEP sitt ansvar er å bygge opp en XACML autorisasjosnforespørsel til Altinn autorisasjon som inneholder informasjon om ressurs som aksesseres (ressursid i Altinn ressursregister), action og systembrukerinfo fra JWT token
 - Ressurs opprettes Altinn Resource Registry som skal benyttes for å autorisere tilgang.
 
+
+#### Autorisasjonsforespørsel
+
+Følgende viser eksempel på autorisasjonsforespørsel fra API tilbyder til Altinn Autorisasjon. Basert på XACML JSON Profil
+
+```json
+{
+  "Request": {
+    "ReturnPolicyIdList": true,
+    "AccessSubject": [
+      {
+        "Attribute": [
+          {
+            "AttributeId": "urn:altinn:systemuser",
+            "Value": "12ffc244-e86e-4d7e-9016-cfd0c1ab8b6d"
+          },
+         {
+            "AttributeId": "scope",
+            "Value": "digdir:dialogporten skatteetaten:mva"
+          }
+        ]
+      }
+    ],
+    "Action": [
+      {
+        "Attribute": [
+          {
+            "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+            "Value": "read",
+            "DataType": "http://www.w3.org/2001/XMLSchema#string"
+          }
+        ]
+      }
+    ],
+    "Resource": [
+      {
+        "Attribute": [
+          {
+            "AttributeId": "urn:altinn:resource",
+            "Value": "mva_dialog"
+          },
+          {
+            "AttributeId": "urn:altinn:organization",
+            "Value": "91234124352"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+```
+
+
 ### Tjenesteeiere Altinn Apps
 
 Hypotesen er at det er minimalt hva som må gjøres for systembrukere i Altinn Apps.
@@ -189,8 +246,53 @@ For systemleverandører må følgende utføres
         "4349ee94-98a4-49be-8db3-bd60937fcdd4"
     ],
     "RequiredResourceRights": [
-        "app_skd_mva",
-        "app_nav_sykemelding"
+        {
+     "resource": [
+      {
+        "id": "urn:altinn:org",
+        "value": "skd"
+      },
+      {
+        "id": "urn:altinn:app",
+        "value": "mva"
+      },
+      {
+        "id": "urn:altinn:task",
+        "value": "Task_1"
+      }
+    ],
+    "action": "read"
+    },
+     {
+     "resource": [
+      {
+        "id": "urn:altinn:org",
+        "value": "skd"
+      },
+      {
+        "id": "urn:altinn:app",
+        "value": "mva"
+      },
+      {
+        "id": "urn:altinn:task",
+        "value": "Task_1"
+      }
+    ],
+    "action": "write"
+    },
+     {
+     "resource": [
+      {
+        "id": "urn:altinn:org",
+        "value": "skd"
+      },
+      {
+        "id": "urn:altinn:app",
+        "value": "kravogbetaling"
+      }
+    ],
+    "action": "read"
+    }
     ],
     "Title":{
         "en": "Bedriftsuguru SuperBusiness",
