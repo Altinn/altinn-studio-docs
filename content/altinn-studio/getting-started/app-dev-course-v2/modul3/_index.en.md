@@ -6,7 +6,7 @@ tags: [apps, training, datamodel, texts]
 weight: 30
 hidden: true
 ---
-I denne modulen skal du videreutvikle tjenesten du laget i [Modul 1](../modul1) med blant annet en ny side og dynamisk skjuling av felter.
+I denne modulen skal du videreutvikle tjenesten du laget i [Modul 1]() med blant annet en ny side og dynamisk skjuling av felter.
 
 Denne modulen vil i all hovedsak foregå i Altinn Studio designer, men noen oppdateringer vil også trenge at vi oppdaterer
 filene til tjenesten direkte i det sentrale filområdet til tjenesten.
@@ -35,7 +35,7 @@ ved å trykke på "Legg til side" i skjemaoversikten.
 
 Siden Sogndal kommune vil samle inn en betydelig mengde data i denne tjenesten, må de klargjøre hvem skjemaet 
 er ment for og hvordan de vil bruke dataene. Noen i kommunen har laget et 
-[utkast til en informasjonsside](infoside_tilflyttere.pdf) for dette formålet.
+[utkast til en informasjonsside](../resources/infoside_tilflyttere.pdf) for dette formålet.
 
 Informasjonssiden bør gjenspeile følgende elementer:
  - plassering av bilder
@@ -44,13 +44,13 @@ Informasjonssiden bør gjenspeile følgende elementer:
 
 Du kan bruke følgende bilde av Sogndals kommunevåpen i tjenesten:
 
-!["Sogndal kommunevåpen"](kommune-logo.png )
+!["Sogndal kommunevåpen"](../resources/kommune-logo.png )
 
 ### Oppgaver
 
 1. Legg til en ny side. Gi den et passende navn og plasser den foran skjemasiden du opprettet i Modul 1.
 2. [Legg til bilde](/nb/app/development/ux/components/image/#legg-til-komponent) av Sogndals kommunevåpen.
-3. Legg til tekst i henhold til [skisse](infoside_tilflyttere.pdf).
+3. Legg til tekst i henhold til [skisse](..resources/infoside_tilflyttere.pdf).
 
 ### Nyttig dokumentasjon
 
