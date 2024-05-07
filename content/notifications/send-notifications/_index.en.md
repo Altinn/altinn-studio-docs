@@ -37,7 +37,7 @@ to confirm whether or not notifications were successfully generated, sent and de
 {{% /notice %}}
 
 
-The _recipient lookup result_ provides insight in the probability of Altinn being able to send the notification
+The _recipient lookup result_ provides insight into the probability of Altinn being able to send the notification
 to the recipients stated in the order. By checking the contents of this object after posting an order alternative
 measures can be taken before the requested send time if there are reserved persons or recipients where no contact details can be found. 
 
