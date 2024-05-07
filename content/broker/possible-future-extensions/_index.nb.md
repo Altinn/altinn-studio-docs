@@ -1,17 +1,17 @@
 ---
-title: Altinn 3 Broker Future Extensions 
-linktitle: Possible Future Extensions 
-description: Altinn 3 Broker Anticipated and Possible Future Extensions 
+title: Mulige framtidige utvidelser
+linktitle: Mulige utvidelser
+description: Altinn 3 Formidling mulige framtidige utvidelser
 tags: []
 toc: true
-weight: 90
+weight: 80
 ---
 
 {{<notice warning>}} <!-- info -->
-This is work in progress
+Dokumentasjon av mulige framtidige utvidelser er i arbeid.
 {{</notice>}}
 
-
+<!--
 ## Extension: Dialogporten integration
 
 ### Extension: Solution Overview
@@ -28,3 +28,6 @@ TBD
 Files may be correlated to form virtual case folders, possibly with multiple
 providers and consumers collaborating on a common case or end-to-end
 process crossing organization boundaries (seamless services).
+
+
+-->

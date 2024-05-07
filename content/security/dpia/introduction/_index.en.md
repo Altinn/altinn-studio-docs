@@ -36,7 +36,7 @@ Digdir was established on January 1, 2020, following a merger of Altinn and Difi
 management of Altinn and decides how the technical solution should be further developed.
 
 Altinn started as a collaboration between the Tax Administration, Statistics Norway, and the Brønnøysund Register Centre
-in 2002, and was meant to be an ALTernative reporting channel for economic data. Altinn was officially opened by
+in 2002, and was meant to be an alternative reporting channel for economic data. Altinn was officially opened by
 former Finance Minister Per-Kristian Foss and Minister of Trade and Industry Ansgar Gabrielsen on December 4, 2003.
 
 Since the portal www.altinn.no was launched, it has been growing continuously. The collaboration has been significantly

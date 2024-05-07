@@ -6,7 +6,7 @@ description: "A user guide for the notification service"
 ---
 
 {{% notice info %}}
-We are working on providing you with new and updated guidelines on usage of Altinn Notification. 
+We are working on providing you with new and updated guidelines on usage of Altinn Notifications. 
 In the meantime existing guidelines for sending notifications through Altinn 2 also apply to Altinn Notifications. 
 
 
