@@ -162,7 +162,7 @@ Noen ganger kan man ha ønske om å lage en kodeliste som er en kombinasjon av f
 Fra og med version 8.0.1 kan du bruke `AddJoinedAppOptions` til å kombinenere kodelister på denne måten.
 
 ```C#
-services.AddSSBClassificationCodelistProvider("fylker");
+services.AddSSBClassificationCodelistProvider("fylker", Classification.Counties);
 services.AddJoinedAppOptions("fylker-med-utland", "fylker", "utland");
 ```
 

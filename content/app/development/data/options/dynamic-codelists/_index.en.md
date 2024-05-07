@@ -161,7 +161,7 @@ Sometimes you might want to make a code list that combines multiple code lists. 
 From version 8.0.1, you can use the `AddJoinedAppOptions` to do this without writing custom code.
 
 ```C#
-services.AddSSBClassificationCodelistProvider("fylker");
+services.AddSSBClassificationCodelistProvider("fylker", Classification.Counties);
 services.AddJoinedAppOptions("fylker-med-utland", "fylker", "utland");
 ```
 
