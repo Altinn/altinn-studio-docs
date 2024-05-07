@@ -3,7 +3,7 @@ title: Code lists (options)
 linktitle: Code lists
 description: How to configure Options / Code lists for an app?
 toc: true
-weight: 300
+weight: 40
 ---
 
 Altinn offers two different ways an application can use code lists - static and dynamic. Both is primarily exposed
