@@ -46,8 +46,6 @@ The Notifications components allow notifying users.
 
 The PDF component is responsible for generating PDF printouts for submitted instances of an app.
 
-[Learn more about Altinn PDF](pdf)
-
 ## Profile
 
 The Profile component gives profile information for users in Altinn.
