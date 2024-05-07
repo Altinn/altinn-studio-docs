@@ -38,7 +38,7 @@ to confirm whether notifications were successfully generated, sent and delivered
 
 
 The _recipient lookup result_ provides insight into the probability of Altinn being able to send the notification
-to the recipients stated in the order. By checking the contents of this object after posting an order alternative
+to the recipients stated in the order. By checking the contents of this object, alternative
 measures can be taken before the requested send time if there are reserved persons or recipients where no contact details can be found. 
 
 |    Property    |                                                  Description                                                   |
