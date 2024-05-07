@@ -82,7 +82,7 @@ weight: 1
                     </a>
                 </li>
                 <li class="a-dotted a-clickable a-list-hasRowLink">
-                    <a href="user-guides/basic-form" class="a-list-rowLink">
+                    <a href="guides/basic-form" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
                                 User guide - simple form

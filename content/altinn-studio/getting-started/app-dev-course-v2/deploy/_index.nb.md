@@ -69,7 +69,7 @@ minutter.
 
 
 ### Nyttig dokumentasjon
-- [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/user-guides/basic-form)
+- [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/guides/basic-form)
 
 ## Oppsummering
 

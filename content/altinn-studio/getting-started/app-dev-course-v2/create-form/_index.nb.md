@@ -46,7 +46,7 @@ Husk å laste opp endringer når du jobber i Designer så de reflekteres i det s
 
 ### Nyttig dokumentasjon
 
-- [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/user-guides/basic-form)
+- [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/guides/basic-form)
 - [Tilgjengelige komponenter i Altinn Studio](/altinn-studio/designer/build-app/ui-designer/components/)
 - [Retningslinjer for bruk av komponenter](/nb/app/guides/design/guidelines/components/)
 
