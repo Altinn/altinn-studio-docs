@@ -4,6 +4,7 @@ description: Forhåndsutfylling, bygg og publisering
 linktitle: Modul 2
 tags: [apps, training, prefill, sporvalg]
 weight: 20
+hidden: true
 ---
 I denne modulen skal du sette opp forhåndsutfylling av personopplysninger. Du skal så bygge 
 og publisere applikasjonen til testmiljø for å teste at den fungerer som forventet.

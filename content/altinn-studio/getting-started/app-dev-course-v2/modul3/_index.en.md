@@ -4,6 +4,7 @@ description: Kontroller og dynamikk
 linktitle: Modul 3
 tags: [apps, training, datamodel, texts]
 weight: 30
+hidden: true
 ---
 I denne modulen skal du videreutvikle tjenesten du laget i [Modul 1](../modul1) med blant annet en ny side og dynamisk skjuling av felter.
 

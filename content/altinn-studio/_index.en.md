@@ -1,6 +1,6 @@
 ---
 title: Altinn Studio
-description: Altinn Studio - Ditt verktøy for utvikling av digitale tjenester til innbyggere og næringsliv
+description: Altinn Studio - Your tool for developing digital services for citizens and businesses
 aliases:
 - /nb/altinn-studio/
 - /nb/teknologi/altinnstudio/solutions/altinn-studio/

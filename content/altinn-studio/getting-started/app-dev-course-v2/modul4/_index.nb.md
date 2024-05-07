@@ -4,6 +4,7 @@ description: Legge til kodelister
 linktitle: Modul 4
 tags: [apps, training, options, kodelister, dynamikk ]
 weight: 40
+hidden: true
 ---
 
 I denne modulen skal du utvide tjenesten du har laget i foregående moduler for å støtte enda fler av [kravene til Sogndal kommune](../case/#krav-fra-kommunen).

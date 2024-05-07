@@ -4,6 +4,7 @@ description: Legge til bekreftelsessteg og autorisasjon
 linktitle: Modul 2
 # tags: [apps, training, process, policy, autorisasjon, confirmation, bekreftelsessteg, validering ]
 weight: 20
+hidden: true
 ---
 
 I denne modulen skal du legge til et prosessteg i applikasjonen.

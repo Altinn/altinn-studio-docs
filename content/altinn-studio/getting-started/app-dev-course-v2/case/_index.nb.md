@@ -3,9 +3,16 @@ title: Casebeskrivelse
 description: Beskrivelse av kommunens krav og ønsker til tjenesten.
 linktitle: Case
 tags: [apps, case, training]
-weight: 10
-hidden: true
+weight: 1
 ---
+{{% notice info %}}
+**TL;DR:** Under følger en beskrivelse av det fiktivet caset vi skal bruke i dette kurset - en tjenete Sogndal kommune
+kan bruke for å kartlegge informasjon om tilflyttere til kommunen. 
+<br/>
+<br/>
+Les gjerne gjennom beskrivelsen under for å danne en oversikt over kravene. For hver modul vil vi også gjenta kravene som er relevante for modulen, slik at det skal være
+enkelt å vite hva målet er i hver modul.
+{{% /notice %}}
 
 Sogndal kommune trenger sårt flere unge mennesker og ønsker å bli en
 attraktiv kommune for unge voksne og andre i etableringsfasen.
