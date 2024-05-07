@@ -30,7 +30,7 @@ as well as detailed in the in the notification after requested send time.
 
 ### Recipient lookup result 
 {{% notice warning  %}}
-The recipient lookup result reflects the case a specific point in time. 
+The recipient lookup result reflects the situation at a specific point in time. 
 If the requested send time if significantly later than the time of ordering - the final lookup may have a different result. 
 The status of a notification order should therefore always be checked after the requested send time 
 to confirm whether or not notifications were successfully generated, sent and delivered.
