@@ -27,7 +27,6 @@ If you do not already possess an API Key for the Maskinporten Client(s) you inte
 
 Register your Maskinporten client(s) to authenticate with the Broker API, assigning them relevant scopes:
 
-- `altinn:authorization:pdp` - Required for all broker API clients for authorization access.
 - `altinn:broker.write` - For clients sending files.
 - `altinn:broker.read` - For clients receiving files.
 
