@@ -1,8 +1,8 @@
 ---
 title: Technical Overview
 linktitle: Technical Overview
-description: The Altinn 3 Broker Transition Solution allows service owners who own broker services in Altinn 2 to point those services towards Altinn 3 using an internal Altinn 2 bridge.   
-tags: [architecture, solution]
+description: The Altinn 3 Broker Transition Solution allows service owners who own broker services in Altinn 2 to point those services towards Altinn 3 using an internal Altinn 2 bridge.
+tags: [architecture, solution, broker, transition]
 toc: false
 weight: 1
 ---
@@ -36,6 +36,7 @@ When the Altinn 3 Broker Transition Solution feature is enabled in Altinn 2, the
 2. End users that use these services will then transmit data to Altinn 3 instead of Altinn 2 data stores.
 3. Files that were available in Altinn 2 for the Broker Service will no longer be available.
 4. All new files and status changes will occur in the Altinn 3 Broker Service Solution.
+5. ServiceOwners with transitioned Broker Services will have to manage access rights in both Altinn 3 and Altinn 2 simultaneously, as these are not automatically synchronized.
 
 {{<children />}}
 

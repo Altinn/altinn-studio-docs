@@ -1,8 +1,8 @@
 ---
 title: How To Get Started
 linktitle: How To Get Started
-description: How to get started using the Broker Transition solution from Altinn 2 to Altinn 3   
-tags: [architecture, solution]
+description: How to get started using the Broker Transition solution from Altinn 2 to Altinn 3
+tags: [solution, broker, transition, guide]
 toc: false
 weight: 1
 ---
@@ -10,10 +10,14 @@ weight: 1
 ## ServiceOwners
 In order to use the Broker Transition solution in Altinn 2 to create, upload and retrieve file metadata, a service owner must complete the following steps.
 1. Have an existing Altinn 2 Broker Service.
-2. Have or create a corresponding Altinn 3 Broker Resource.
-3. Request a transition setup from the Altinn 2 Service to the Altinn 3 Resource. 
-4. <!-- TODO: Set up of rights for the Altinn 3 Resource>
+2. Have or create a corresponding Altinn 3 Broker Resource. 
+See how to get started with Altinn Broker here: TODO: Add link to Get Started
+3. <!-- TODO: Set up of rights for the Altinn 3 Resource>
 <!-- TODO: Should we have links here to the different services used by service owners to create the different services? -->
+4. Request a transition setup from the Altinn 2 Service to the Altinn 3 Resource. Determine the date for when this should go live. (To minimize the risk of orphaned data in Altinn 2 storage)
+5. Go live with transition solution while encouraging consumers to migrate to Altinn Broker.
+6. Once all consumers have migrated to Altinn Broker, decommission the Altinn 2 Broker Service.
+
 
 ### Additional Service Owner information
 After a service owner requests that an Altinn 2 service transition to an Altinn 3 Resource, 
@@ -23,6 +27,7 @@ is set up to transition to Altinn 3.
 
 ## EndUsers
 For end users, there is very little technical difference between using an Altinn 2 Broker service and a Broker service that has been transitioned to Altinn 3.
+But all consumers should have their technical team go through this documentation to determine if the changes in the Transition solution require changes to their implementation or code.
 
 Functionally, the files transferred will no longer contain a manifest, and receipts will no longer have a Receipt Id.
 

@@ -1,8 +1,8 @@
 ---
 title: Usage
 linktitle: Usage
-description: How to use the Altinn 3 Broker Transition solution.   
-tags: [architecture, solution]
+description: How to use the Altinn 3 Broker Transition solution.
+tags: [architecture, solution, broker, guide, transition]
 toc: false
 weight: 1
 ---
