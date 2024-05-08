@@ -1,5 +1,5 @@
 ---
-title: Altinn Formidling grunnleggende konsepter og begreper
+title: Grunnleggende konsepter og begreper
 linktitle: Konsepter og begreper
 description: Altinn 3 Formidling grunnleggende konsepter og begreper.
 tags: []
@@ -67,7 +67,7 @@ Merk:
 
 ## Konseptuell informasjonsmodell
 
-En høy-nivå konseptuell informasjonsmodell for Altinn 3 Broker er vist i figuren nedenfor.
+En høy-nivå konseptuell informasjonsmodell for Altinn 3 Formidling er vist i figuren nedenfor.
 
 ![Altinn 3 Formidling høy-nivå konseptuell informasjonsmodell](altinn3-broker-highlevel-conceptual-information-model.nb.png "Altinn 3 Formidling høy-nivå konseptuell informasjonsmodell")
 
@@ -81,7 +81,7 @@ Forklaring:
 * Varsler om hendelser i filoverføringsprosessen gis til avsendere og mottakere avhengig av abonnementsoppsett. F.eks. kan mottakere bli varslet om nye meldinger, og avsendere kan bli varslet om leveringshendelser.
 * Hver hendelse i filoverføringsprosessen relaterer seg til én filoverføringsprosess, og dermed kun én fil, men et hvilket som helst antall hendelser kan inntreffe for samme filoverføringsprosess.
 
-## Tilstandsdiagram for filoverføringsprosessen
+## Tilstandsdiagram for filoverføringsprosessen {#file-transfer-process-states}
 
 Den overordnede overføringsprosessen vises i følgende modell. 
 Her vises de viktigste tilstandene og tilstandsovergangene for den samlede filoverføringsprosessen, 

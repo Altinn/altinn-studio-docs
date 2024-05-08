@@ -4,6 +4,7 @@ description: Legge til bekreftelsessteg og autorisasjon
 linktitle: Modul 5
 # tags: [apps, training, process, policy, autorisasjon, confirmation, bekreftelsessteg, validering ]
 weight: 50
+hidden: true
 ---
 
 I denne modulen skal du legge til et prosessteg i applikasjonen.
@@ -87,6 +88,9 @@ Da vil alle brukere, både med og uten roller, ha tillatelse til å utføre _con
 
 I denne modulen har du utvidet applikasjonen din med et bekreftelsessteg og lagt til autorisasjonsregler knyttet til prosessteget.
 
-{{% center %}}
-[<< Forrige modul](../modul1/)      [Neste modul >>](../modul3/)
-{{% /center %}}
+{{<navigation-buttons
+  urlBack="../create-service"
+  textBack="<< Forrige modul"
+  urlNext="../datamodel"
+  textNext="Neste modul >>"
+>}}
