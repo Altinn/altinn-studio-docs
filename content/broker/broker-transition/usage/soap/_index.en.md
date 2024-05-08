@@ -57,11 +57,11 @@ No functional difference in the call. The reply will contain a pseudo-receipt ge
 Since the Upload, and Upload processing of the file is an asynchronous process in Altinn 3, the immediate Receipt status received from the call will not necessarily reflect the final state of the file.
 Altinn 2 SOAP Broker Service offers no function that allows end users to verify that a file has been successfully processed and is ready for download for recipients.
 
-If possible, you should consider adding steps that make calls to [Get File Details](/content/broker/broker-transition/usage/rest/_index.en.md#get-file-receipt-outbox-sender) to ensure that the file has been successfully processed.
+If possible, you should consider adding steps that make calls to [Get File Receipt](../rest/#get-file-receipt-outbox-sender) to ensure that the file has been successfully processed.
 If you do not wish to implement REST, a work around is implementing a request that retrieves available files for the recipients to ensure that the file you uploaded has been made available.
 {{% /notice %}}
 
-##### Verify that Uploaded File has been made available for download
+##### Verify that Uploaded File has been made available for download via SOAP
 
 Step 1: Initiate file transfer
 ```XML
