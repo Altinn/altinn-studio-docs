@@ -1,13 +1,14 @@
 ---
-title: Altinn Broker Introduksjon
+title: Introduksjon
 linktitle: Introduksjon
-description: Introduksjon til Altinn Formidling.
+description: Introduksjon til Altinn 3 Formidling.
 tags: []
 toc: true
 weight: 1
 ---
 
 ## Hva er Altinn Formidling?
+
 
 Hovedbruksområdet for Altinn Broker er styrt filoverføring (Managed File Transfer - MFT), 
 med sikker overføring av filer av vilkårlig størrelse 
@@ -49,12 +50,6 @@ Noen av de viktigste fordelene er:
 
 - Avansert monitorering: Den innebygde støtten for å legge til metadata til filoverføringer muliggjør analyse av filoverføringssekvenser mellom flere aktører i ende-til-ende prosesser.
 
-
 ## Hvordan komme i gang?
 
-Informasjon om hvordan komme i gang er gitt i følgende rollespesifikke brukerveiledninger: 
-
-- [Veiledning for utviklere](../user-guides#veiledning-for-utviklere)
-- [Veiledning for tjenesteeiere](../user-guides/#veiledning-for-tjenesteeiere)
-- [Veiledning for avsendere (tilbydere)](../user-guides/#veiledning-for-avsendere-tilbydere).
-- [Veiledning for mottakere (konsumenter)](../user-guides/#veiledning-for-mottakere-konsumenter).
+Informasjon om hvordan du kommer i gang finner du her i [Brukerveiledningene](../user-guides/).

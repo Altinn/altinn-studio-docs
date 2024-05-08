@@ -2,11 +2,11 @@ public
 *.exe
 *.doc
 *.docx
+*.pptx
 *.db
 .vs
 .DS_Store
 .idea
 .hugo_build.lock
+hugo
 *.swp
-README.md config.toml content i18n layouts public renovate.json resources static themes
-*~*.pptx
