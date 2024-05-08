@@ -1,8 +1,8 @@
 ---
 title: Usage Rest
 linktitle: Usage Rest
-description: Difference in Rest operation usage between Altinn 2 and Altinn 3 transitioned services.   
-tags: [architecture, solution]
+description: Difference in Rest operation usage between Altinn 2 and Altinn 3 transitioned services.
+tags: [solution, broker, guide, transition]
 toc: false
 weight: 1
 ---
@@ -52,13 +52,49 @@ BrokerServiceDescription example
 
 #### Differences
 
-The new call will not require a file list, and the returned receipt will not be a real receipt, but a pseudo-receipt built from
-the Altinn 3 Broker File metadata.
+The transition service does not use the FileList property. No change is necessary from the End User implementation, but a NULL value will be accepted, and any values submitted will be discarded by the transition service. 
+The returned receipt will not be a real receipt, but a pseudo-receipt built from the Altinn 3 Broker File metadata.
 {{% notice warning  %}}
 Since the Upload, and Upload processing of the file is an asynchronous process in Altinn 3, the immediate Receipt status received from the call will not necessarily reflect the final state of the file.
+In addition, the Rest implementation of Altinn 2 Broker services synchronized the initiation and upload of the file, as a result of this the File Status requests do not include statuses for Failed files, 
+since these would not historically be created in the first place. 
 
-If possible, you should consider adding steps that make calls to [Get File Details](#get-file-details-outbox-sender) to ensure that the file has been successfully processed.
+If possible, you should therefore consider adding steps that make calls to [Get File Receipt](#get-file-receipt-outbox-sender) to ensure that the file has been successfully processed.
 {{% /notice %}}
+
+Example of immediately returned status from InitiateAndUploadFile call:
+```JSON
+{
+    "ServiceCode": "4947",
+    "ServiceEditionCode": 4678,
+    "FileName": "Altinn2FileName",
+    "FileReference": "1540b8dd-bb90-42d1-a95e-12e097823070",
+    "FileSize": 123,
+    "FileStatus": "Initialized",
+    "ReceiptID": 0,
+    "Sender": "312903369",
+    "SentDate": "2024-04-26T13:17:33.911",
+    "SendersReference": "SendersReferenceValue"
+}
+```
+
+Example of returned status from a subsequent GetFileDetails calls
+```JSON
+{
+    "ServiceCode": "4947",
+    "ServiceEditionCode": 4678,
+    "FileName": "Altinn2FileName",
+    "FileReference": "1540b8dd-bb90-42d1-a95e-12e097823070",
+    "FileSize": 123,
+    "FileStatus": "Uploaded",
+    "ReceiptID": 0,
+    "Sender": "312903369",
+    "SentDate": "2024-04-26T13:17:33.911",
+    "SendersReference": "SendersReferenceValue"
+}
+```
+
+Uploaded state here means that the file has been processed OK. A FileStatus of "Initialized" indicates that the file has not finished processing, or that processing encountered an error, as Altinn 2 Rest File Details does not implement error messaging.
 
 ### Get File Details outbox (sender)
 
@@ -86,24 +122,130 @@ ApiKey: myKey
 Content-Type: application/zip
 ```
 
-#### Example Receipt
+#### Example Receipt Sender
 ```JSON
 {
     "ReceiptID": 0,
     "ParentReceiptID": null,
-    "LastChanged": "2024-04-24T09:23:40.806",
+    "LastChanged": "2024-05-08T12:14:52.313",
     "Status": "Ok",
-    "Text": "Upload of file 92a29085-5a63-4fc5-a294-bc2d4a331433 was successful. Recipients can now download the file.",
+    "Text": "Upload of file 0ed44efb-f397-43a7-883a-4be634c902f1 was successful. Recipients can now download the file.",
     "SendersReference": null,
     "ServiceOwnerPartyReference": null,
     "PartyReference": "312903369",
     "ReceiptHistory": null,
-    "SubReceipts": null
+    "SubReceipts": [
+        {
+            "ReceiptID": 0,
+            "ParentReceiptID": null,
+            "LastChanged": "2024-05-08T12:14:52.313",
+            "Status": "Ok",
+            "Text": "A file has been made available for download.",
+            "SendersReference": null,
+            "ServiceOwnerPartyReference": null,
+            "PartyReference": "313559017",
+            "ReceiptHistory": null,
+            "SubReceipts": null
+        },
+        {
+            "ReceiptID": 0,
+            "ParentReceiptID": null,
+            "LastChanged": "2024-05-08T12:14:52.313",
+            "Status": "Ok",
+            "Text": "A file has been made available for download.",
+            "SendersReference": null,
+            "ServiceOwnerPartyReference": null,
+            "PartyReference": "314126866",
+            "ReceiptHistory": null,
+            "SubReceipts": null
+        }
+    ]
 }
 ```
+
+
+#### Example Receipt Sender - File fails during processing
+In the event of a file upload failing during processing, the immediate result will not show that the file has been rejected:
+
+##### Immediate Result of InstantiateAndUpload
+```JSON
+{
+    "ServiceCode": "4947",
+    "ServiceEditionCode": 4678,
+    "FileName": "Altinn2FileName",
+    "FileReference": "37de0fef-1cf6-46eb-bf18-c5c7df24ba4f",
+    "FileSize": 68,
+    "FileStatus": "Initialized",
+    "ReceiptID": 0,
+    "Sender": "312903369",
+    "SentDate": "2024-05-08T12:33:14.752",
+    "SendersReference": "test123"
+}
+```
+
+##### GetFileDetails
+A secondary call to will show that the file is Initialized, as the Altinn 2 Rest implementation of Broker was entirely synchronous, and therefore does not implement showing Failed statuses, as these could never be returned.
+```JSON
+{
+    "ServiceCode": "4947",
+    "ServiceEditionCode": 4678,
+    "FileName": "Altinn2FileName",
+    "FileReference": "37de0fef-1cf6-46eb-bf18-c5c7df24ba4f",
+    "FileSize": 68,
+    "FileStatus": "Initialized",
+    "ReceiptID": 0,
+    "Sender": "312903369",
+    "SentDate": "2024-05-08T12:33:14.752",
+    "SendersReference": "test123"
+}
+```
+
+##### GetReceipt
+In order to see a reference to the actual processing error, it is therefore necessary to check the Receipt call for Altinn 2 Rest API.
+And a Rest Receipt request will return details regarding the processing error:
+```JSON
+{
+    "ReceiptID": 0,
+    "ParentReceiptID": null,
+    "LastChanged": "2024-05-08T12:33:14.819",
+    "Status": "Rejected",
+    "Text": "Malware scan failed: Malicious. Extra details: {\"MalwareNamesFound\":[\"Virus:DOS/EICAR_Test_File\"],\"Sha256\":\"275A021BBFB6489E54D471899F7DB9D1663FC695EC2FE2A2C4538AABF651FD0F\",\"NotScannedReason\":\"\"}",
+    "SendersReference": null,
+    "ServiceOwnerPartyReference": null,
+    "PartyReference": "312903369",
+    "ReceiptHistory": null,
+    "SubReceipts": [
+        {
+            "ReceiptID": 0,
+            "ParentReceiptID": null,
+            "LastChanged": "2024-05-08T12:33:14.819",
+            "Status": "Rejected",
+            "Text": "File failed during upload processing in Altinn 3.",
+            "SendersReference": null,
+            "ServiceOwnerPartyReference": null,
+            "PartyReference": "313559017",
+            "ReceiptHistory": null,
+            "SubReceipts": null
+        },
+        {
+            "ReceiptID": 0,
+            "ParentReceiptID": null,
+            "LastChanged": "2024-05-08T12:33:14.819",
+            "Status": "Rejected",
+            "Text": "File failed during upload processing in Altinn 3.",
+            "SendersReference": null,
+            "ServiceOwnerPartyReference": null,
+            "PartyReference": "314126866",
+            "ReceiptHistory": null,
+            "SubReceipts": null
+        }
+    ]
+}
+```
+
 #### Differences
 
-For Altinn 3 transitioned services the receipt is a pseudo receipt built from Altinn 3 Broker File metadata. The pseudo receipt will not contain subreceipts for the recipients.
+For Altinn 3 transitioned services the receipt is a pseudo receipt built from Altinn 3 Broker File metadata.
 
 ## Inbox (recipient)
 
@@ -139,7 +281,7 @@ Content-Type: application/zip
 {
     "ReceiptID": 0,
     "ParentReceiptID": null,
-    "LastChanged": "2024-04-24T09:23:40.806",
+    "LastChanged": "2024-05-08T12:14:52.288",
     "Status": "Ok",
     "Text": "A file has been made available for download.",
     "SendersReference": null,
@@ -151,7 +293,7 @@ Content-Type: application/zip
 ```
 
 #### Differences
-The inbox operation will by default retrieve a list of Altinn 2 files. In order to retrieve Altinn 3 files, the service code and the service edition code parameters must be supplied.
+The inbox operation will by default retrieve a list of Altinn 2 files. If no service code/service edition code is supplied, the operation will only list files from Altinn 2.
 The receipt will not have a ReceiptId, ParentReceiptId, SendersReference or ReceiptHistory.
 
 ### Get File Details inbox (recipient)
@@ -181,7 +323,7 @@ Content-Type: application/zip
 For Altinn 3 transitioned services the receipt is a pseudo receipt built from Altinn 3 Broker File metadata.
 
 ### Download
-This operation downloads the file. It does not differ between transitioned and non-transitioned Altinn 2 services.
+This operation downloads the file data. It does not differ between transitioned and non-transitioned Altinn 2 services.
 
 Header
 ```HTTP
