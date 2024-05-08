@@ -14,7 +14,7 @@ av verdens fem ledende plattformer for digitale myndigheter.
 ![Gartner](gartner.png "Gartner")
 
 Plattformen brukes av over 90 % av den norske befolknigen og nær 100 % av alle virksomheter.  
-Mer enn 65 etater, fylkeskommuner og kommuner bruker Altinn som platform for sine tjenester, og 
+Mer enn [70 etater, fylkeskommuner og kommuner](https://info.altinn.no/om-altinn/om-altinn-samarbeidet/) bruker Altinn som platform for sine tjenester, og 
 næringslivet rapporterer at [bruken av Altinn sparer bedrifter for over 15 milliarder per år](https://www.digdir.no/digitale-felleslosninger/altinn-gir-rekordinnsparing-naeringslivet/1912).
 
 Det finnes nær 1000 aktive tjenester på plattformen som dekker ulike bruksscenarier.  

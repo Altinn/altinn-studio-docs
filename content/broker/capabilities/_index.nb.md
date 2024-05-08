@@ -1,7 +1,7 @@
 ---
-title: Altinn 3 Formidling funksjonalitet
+title: Funksjonalitet og egenskaper
 linktitle: Funksjonalitet
-description: Altinn 3 Formidling funksjonalitet
+description: Altinn 3 Formidling funksjonalitet og egenskaper
 tags: []
 toc: true
 weight: 15
@@ -42,8 +42,8 @@ Eksempler på hvordan man leser diagrammet:
 * Som en avsender trenger jeg (evnen) til å sende store  filer til en eller flere mottakere .
 
 
-##  Overordnet systemfunksjonalitet
-
+##  Overordnet systemfunksjonalitet (kapabiliteter)
+ 
 Følgende modell viser overordnede systemkapabiliteter, tilsvarende overordnede brukerbehov som beskrevet i forrige avsnitt.
 
 
@@ -55,89 +55,84 @@ selv om dette ofte kan være tilfeller._
 <!-- Erik TO_DO: Diagram with mapping from user needs (or user capabilities) to system capabilities -->
 
 
-## System features
-For further breakdown of the high-level system capabilities into features, see the [Altinn Broker epics on Github](https://github.com/orgs/Altinn/projects/54/views/11).
+## Detaljert funksjonalitet (features)
 
-_Note: Documentation of the breakdown into features is planned to also be included here._
+For nedbrytning av overordnede kapabiliteter til mer detaljert funksjonalitet (features), se under [Altinn Broker _features_ på Github](https://github.com/orgs/Altinn/projects/54/views/11).
 
-
-
-## Non-functional requirements
-
-Performance Requirements:
-
-- Support for storage and transfer of large files. _Note: Exact file size specifications TBD._
-- High throughput to handle large volumes of data transactions efficiently.
-- Low latency in data processing and transmission.
-
-Scalability:
-
-- Ability to scale up or down based on the demand and number of users.
-- Support for horizontal and vertical scaling strategies.
-
-Availability and Reliability:
-
-- High availability, aiming for near 100% uptime.
-- Robust failover and redundancy mechanisms to ensure continuous  operation.
-- Reliable file transfers. _Note: Detailed requirements TBD._
-
-Security:
-
-- Strong encryption for data in transit and at rest.
-- Comprehensive access control and authentication mechanisms.
-- Regular security audits and compliance with relevant data protection regulations.
-
-Maintainability and Upgradability:
-
-- Ease of maintenance and updates without significant downtime.
-- Modular design to facilitate updates and integration of new features.
-
-Disaster Recovery and Data Backup:
-
-- Effective disaster recovery plan to handle system failures.
-- Regular data backups and secure storage solutions.
-
-Usability:
-
-- User-friendly interface for both administrators and end-users.
-- Comprehensive documentation and user support.
-
-Interoperability:
-
-- Compatibility with various data formats and systems used by businesses
-  and government agencies.
-- APIs for integration with external systems and services.
-
-Compliance and Legal Requirements:
-
-- Adherence to national and international standards and regulations.
-- Regular compliance audits and updates as per legal changes.
-
-Monitoring and Logging:
-
-- Extensive monitoring of system performance and security.
-- Detailed logging of transactions and user activities for audit
-  purposes.
-
-Data Integrity and Quality:
-
-- Mechanisms to ensure the accuracy and consistency of data.
-- Validation checks to maintain data quality.
-
-Load Balancing:
-
-- Effective distribution of workload across servers and resources.
-- Load balancing to optimize resource use and maximize throughput.
-
-Environmental and Operational Conditions:
-
-- Designed to operate under the specified environmental conditions
-  (e.g., data center temperature and humidity).
-- Consideration for operational conditions like power consumption and
-  cooling requirements.
+_Merk: Dokumentasjon av nedbrytning til "features" er planlagt her._
 
 
-Also see:
+## Ikke-funksjonelle krav
 
-1. [Altinn Studio Non-Functional Requirements](https://docs.altinn.studio/technology/architecture/requirements/non_functional/)
-2. Further descriptions regarding information security in separate sections.
+Ytelseskrav:
+
+* Støtte for lagring og overføring av store filer. _Merk: Tallfesting TBD._
+* Høy gjennomstrømming for å effektivt håndtere stort påtrykk. _Merk: Tallfesting TBD._
+* Lav forsinkelse i databehandling og -overføring. _Merk: Tallfesting TBD._
+
+Skalerbarhet:
+
+* Evne til å skalere opp eller ned basert på etterspørsel og antall brukere.
+* Støtte for strategier for horisontal og vertikal skalering.
+
+Tilgjengelighet og pålitelighet:
+
+* Høy tilgjengelighet, med mål om nær 100% oppetid.
+* Robuste mekanismer for failover og redundans for å sikre kontinuerlig drift.
+* Pålitelig filoverføring. _Merk: Detaljerte krav TBD._
+
+Sikkerhet:
+
+* Sterk kryptering for data under overføring og "data at rest".
+* Sterk autentisering og tilgangsstyring.
+* Regelmessige sikkerhetsrevisjoner og overholdelse av relevante databeskyttelsesforskrifter.
+
+Vedlikehold og oppgradering:
+
+* Enkel vedlikehold og oppdateringer uten betydelig nedetid.
+* Modulært design for å lette oppdateringer og integrering av nye funksjoner.
+
+Katastrofegjenoppretting og backup:
+
+* Effektiv plan for katastrofegjenoppretting for å håndtere systemfeil.
+* Regelmessige databackuper og sikre lagringsløsninger.
+
+Brukervennlighet:
+
+* Brukervennlig grensesnitt for både administratorer og sluttbrukere.
+* Omfattende dokumentasjon og brukerstøtte.
+
+Interoperabilitet:
+
+* Kompatibilitet med ulike dataformater og systemer brukt av bedrifter og offentlige etater.
+* API-er for integrasjon med eksterne systemer og tjenester.
+
+Etterlevelse og juridiske krav:
+
+* Overholdelse av nasjonale og internasjonale standarder og forskrifter.
+* Regelmessige revisjoner av overholdelse og oppdateringer i henhold til juridiske endringer.
+
+Overvåking og logging:
+
+* Omfattende overvåking av systemytelse og sikkerhet.
+* Detaljert logging av transaksjoner og brukeraktiviteter for revisjonsformål.
+
+Dataintegritet og kvalitet:
+
+* Mekanismer for å sikre nøyaktighet og konsistens i data.
+* Valideringssjekker for å opprettholde datakvalitet.
+
+Lastbalansering:
+
+* Effektiv fordeling av arbeidsbelastning over servere og ressurser.
+* Lastbalansering for å optimalisere ressursbruk og maksimere gjennomstrømming.
+
+Miljømessige og operasjonelle forhold:
+
+* Designet for å operere under spesifiserte miljøforhold (f.eks., temperatur og fuktighet i datasenteret).
+* Hensyn til operasjonelle forhold som strømforbruk og kjølekrav.
+
+Se også:
+
+* [Altinn Studio Non-Functional Requirements](https://docs.altinn.studio/technology/architecture/requirements/non_functional/)
+* Separate kapitler om informasjonssikkerhet. <!-- Erik: kryssreferanse! -->

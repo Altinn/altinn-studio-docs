@@ -4,23 +4,23 @@ description: Overview of changes introduced in v8 of the Altinn.App.* packages
 weight: 94
 ---
 
-## Why version 8
+## Why version 8?
 V8 is a rewrite of the process engine in apps to support more advanced process flows and signing.
 For most existing apps the changes to the process engine are only visible in the `App/config/process/process.bpmn` file.
 
-We also took the opertunity to move alle interfaces from `Altinn.App.Core.Interfaces`  to more description namespaces under `Altinn.App.Core.Internal`. 
-Some of these interfaces have been renamed. For example has the `Altinn.App.Core.Interfaces.IData` has been moved and renamed to: `Altinn.App.Core.Internal.Data.IDataClient`
+We also took the opportunity to move all interfaces from `Altinn.App.Core.Interfaces`  to more descriptive namespaces under `Altinn.App.Core.Internal`. 
+Some of these interfaces have been renamed. For example, the `Altinn.App.Core.Interfaces.IData` has been moved and renamed to `Altinn.App.Core.Internal.Data.IDataClient`.
 
 ## Breaking changes
 
 ### Changes in process.bpmn
 
-#### altinn namespace changed
-Previously the name space altinn was `http://altinn.no` this has now been changed to `http://altinn.no/process`
+#### Altinn namespace changed
+Previously the name space for Altinn was `http://altinn.no`. This has now been changed to `http://altinn.no/process`.
 
-This is located in the top of the process.bpmn file.
+This is located at the top of the process.bpmn file.
 
-Old process.bpmn:
+Old `process.bpmn`:
 ```xml {hl_lines=[4]}
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions id="Altinn_SingleDataTask_Process_Definition"
@@ -35,7 +35,7 @@ targetNamespace="http://bpmn.io/schema/bpmn" >
 </bpmn:definitions>
 ```
 
-New process.bpmn:
+New `process.bpmn`:
 ```xml {hl_lines=[4]}
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions id="Altinn_SingleDataTask_Process_Definition"
@@ -51,8 +51,8 @@ targetNamespace="http://bpmn.io/schema/bpmn" >
 ```
 
 #### TaskType definition moved to bpmn:extensionElements
-Up until v8 of the nuget taskType was defined direcly on the `<bpmn:task>` element.
-To adhere more to the bpmn specification this has been moved to `<bpmn:extensionElements>` element.
+Up until v8 of the NuGet package, taskType was defined directly on the `<bpmn:task>` element.
+To adhere closer to the BPMN specification, this has been moved to `<bpmn:extensionElements>` element.
 
 ```xml {hl_lines=[1]}
 <bpmn:task id="Task_1" name="Utfylling" altinn:tasktype="data">
@@ -73,12 +73,12 @@ To adhere more to the bpmn specification this has been moved to `<bpmn:extension
 </bpmn:task>
 ```
 
-This looks and is more verbose, but as we need to specify more options for signing we opted to move all our custom configuration into the same section.
+This appears more verbose, but since we need to specify more options for signing, we opted to move all our custom configuration into the same section.
 
 
-#### Confirmation tasks needs to define action confirm
-Previously confirms tasks implicitly added a confirm aciton for the user (enabling the Confirm button in the UI)
-With the introduction of actions on process tasks the developer needs to define the aciton `confirm` on confirmation tasks
+#### Confirmation tasks needs to define the confirm action
+Previously, confirmation tasks implicitly added a confirm action for the user (enabling the Confirm button in the UI).
+With the introduction of actions on process tasks, the developer needs to define the `confirm` action on confirmation tasks.
 
 Old confirmation task:
 ```xml
@@ -104,11 +104,11 @@ New confirmation task:
 </bpmn:task>
 ```
 
-### New dotnet version
-The solution has been updated to use the newest LTS version of dotnet, .NET 8.0
-This needs to be updated in the project file and in the Dockerfile.
+### New .NET version
+The solution has been updated to use the newest LTS version of .NET, 8.0.
+This needs to be updated in the project file and in the `Dockerfile`.
 
-Old Dockerfile:
+Old `Dockerfile`:
 ```Dockerfile {hl_lines=[1,11]}
 FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine AS build
 WORKDIR /App
@@ -125,7 +125,7 @@ EXPOSE 5005
 WORKDIR /App
 ```
 
-New Dockerfile:
+New `Dockerfile`:
 ```Dockerfile {hl_lines=[1,11]}
 FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine AS build
 WORKDIR /App
@@ -142,13 +142,13 @@ EXPOSE 5005
 WORKDIR /App
 ```
 
-For a complete view of the changes in Dockerfile, see
-[diff on github](https://github.com/Altinn/app-template-dotnet/commit/d13946262286542564445779e87b75c4bbb2cdaf#diff-51767e9b1bad3f38294e90b0aaadd99ee89bb126f426b22bb8f5e199c6c69bc6).
+For a complete overview of the changes in the `Dockerfile`, see [the
+diff on github](https://github.com/Altinn/app-template-dotnet/commit/d13946262286542564445779e87b75c4bbb2cdaf#diff-51767e9b1bad3f38294e90b0aaadd99ee89bb126f426b22bb8f5e199c6c69bc6).
 
 ### Changes to interfaces for clients and services
-Clients and services we provide to communicate with the core services we provide like storage and secrets have been moved and rename to make it more clearly what they interact with.
+Clients and services we provide that communicate with our core services, like storage and secrets, have been moved and renamed to make it more clear what they interact with.
 
-#### Moved/Renamed interfaces and their new location
+#### Moved/renamed interfaces and their new location
 
 | Old namespace             | Old name           | New namespace                 | New name   | Notes |
 | ------------------------- | ------------------ | ---------------------------------- | --------------------- | ----- |
@@ -173,23 +173,23 @@ Clients and services we provide to communicate with the core services we provide
 | Altinn.App.Core.Interface | ITaskEvents        | Altinn.App.Core.Internal.Process   | ITaskEvents           | |
 | Altinn.App.Core.Interface | IUserTokenProvider | Altinn.App.Core.Internal.Auth      | IUserTokenProvider    | |
 
-All the old interfaces are marked as Obsolete and will generate compiletime errors with reference to what interface you should use in its place.
+All the old interfaces are marked as Obsolete and will generate compile time errors with reference to what interface you should use in its place.
 
-## Whats new
+## What's new?
 
 ### Support for signing tasks
-V8 support defining signing tasks in the process definition.
+V8 supports defining signing tasks in the process definition.
 v8.0.0 supports sequential signing steps with the possibility to define that signing tasks needs to be completed by unique users.
-To see how signing tasks are define please see the [signing documentation under process]()
+To see how signing tasks are define please see the [signing documentation under process]().
 
-### Support for expressions in process definition
-Its now possible to make process flow decisions using expressions in the process definition.
-To see how you can leverage expressions to dictate process flow see [using expressions to dictate process flow]() 
+### Support for expressions in the process definition
+It is now possible to make process flow decisions using expressions in the process definition.
+To see how you can leverage expressions to dictate process flow, see [using expressions to dictate process flow]().
 
 ### Custom process actions
-Custom actions makes it possible to create custom actions for moving the process along. These actions can be authorized separatly, used in expressions inside the process definition to change how the process flows and execute custom code before the process is moved to the next task.
-To see how you can use custom process actions see [defining custom actions in process tasks](../../../../app/development/process/actions/process-actions)
+Custom actions make it possible to create custom actions for moving the process along. These actions can be authorized separately, used in expressions inside the process definition to change how the process flows and execute custom code before the process is moved to the next task.
+To see how you can use custom process actions, see [defining custom actions in process tasks](../../../../app/development/process/actions/process-actions).
 
 ### Custom server actions
-Custom server actions makes it possible to create custom actions that can be executed from the UI without moving the process. These actions can be authorized separatly and execute custom code.
-To see how you can use custom server actions see [defining custom actions in process tasks](../../../../app/development/process/actions/serveraction/)
+Custom server actions make it possible to create custom actions that can be executed from the UI without moving the process. These actions can be authorized separately and execute custom code.
+To see how you can use custom server actions, see [defining custom actions in process tasks](../../../../app/development/process/actions/serveraction/).

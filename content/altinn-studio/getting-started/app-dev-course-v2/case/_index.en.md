@@ -70,9 +70,9 @@ The following is desirable to be similar in the application:
  - Text size
  - Formatting of text
 
-[Sketch of information page](../modul2/infoside_tilflyttere.pdf)
+[Sketch of information page](../resources/infoside_tilflyttere.pdf)
 
-!["Sogndal coats of arms"](../modul2/kommune-logo.png "A picture of the coats of arms of Sogndal that may be used in the application." )
+!["Sogndal coats of arms"](../resources/kommune-logo.png "A picture of the coats of arms of Sogndal that may be used in the application." )
 
 {{% /expandlarge %}}
 
