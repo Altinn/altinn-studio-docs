@@ -4,6 +4,7 @@ description: Legge til kodelister
 linktitle: Modul 4
 tags: [apps, training, options, kodelister, dynamikk ]
 weight: 40
+hidden: true
 ---
 
 I denne modulen skal du utvide applikasjonen du har laget i foregående moduler for å støtte enda fler av [kravene til Sogndal kommune](../case/#requirements-from-the-municipality).
@@ -111,7 +112,7 @@ navnet på filen (må ende med `.json`) i filstien.
 
 ### Nyttig dokumentasjon
 
-- [Statiske kodelister](/nb/altinn-studio/user-guides/advanced/options/static-codelists)
+- [Statiske kodelister](/nb/altinn-studio/guides/options/static-codelists)
 
 {{% /expandlarge %}}
 

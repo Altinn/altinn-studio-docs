@@ -1,7 +1,7 @@
 ---
 title: Dynamikk
 description: Brukerveiledning for å sette opp dynamikk i skjema i Altinn Studio
-weight: 10
+weight: 20
 ---
 
 {{% notice warning %}}
