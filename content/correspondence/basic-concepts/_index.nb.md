@@ -28,11 +28,12 @@ Altinn 3 Melding støtter også mønstre for en-til-mange meldingsutveksling.
 
 ![En-til-mange meldingsutveksling](./altinn3-correspondence-pattern-1-n-messaging.nb.png "En-til-mange meldingsutveksling")
 
-
 ## Konseptuell informasjonsmodell
 
 TBD.
 
+<!--
 ## Tilstandsmaskinbeskrivelse {#message-transfer-state-machine}
 
 TBD.
+-->

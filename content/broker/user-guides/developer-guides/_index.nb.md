@@ -34,7 +34,7 @@ Du må ha utført stegene i [Kom i gang](../get-started/) for å sette opp tilga
 
 ## Generell prosess {#overall-process}
 
-Generell prosessflyt gjenspeiler den implementerte virkeligheten av [filoverføringsprosessen](../basic-concepts/#file-transfer-process-states)
+Generell prosessflyt gjenspeiler den implementerte virkeligheten av [filoverføringsprosessen](../../basic-concepts/#file-transfer-process-states)
 
 Alle operasjoner er asynkrone, med mindre annet er angitt.
 Som sådan bør du implementere hendelsesabonnementer for å optimalisere prosessen din i stedet for å stole på polling for status.

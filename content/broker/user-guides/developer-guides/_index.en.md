@@ -34,7 +34,7 @@ You need to have performed the steps in [Get started](../get-started/) to setup 
 
 ## Overall process {#overall-process}
 
-Overall process flow reflect the implemented reality of the [file transfer process](../basic-concepts/#file-transfer-process-states)
+Overall process flow reflect the implemented reality of the [file transfer process](../../basic-concepts/#file-transfer-process-states)
 
 All operations are asynchronous, unless otherwise noted.
 As such, you should implement Event subscriptions to make your process optimized instead of relying on polling for status.
