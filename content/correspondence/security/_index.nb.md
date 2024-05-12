@@ -122,5 +122,7 @@ vurdering av personvernkonsekvenser (DPIA) om  skybasert drift av Altinn-løsnin
 Disse vurderingene dekker Altinn Melding.
 
 ## Sikkerhetskontroller i Altinn Melding
-
+TBD
+<!--
 Se [Altinn Melding løsningsarkitektur om sikkerhetskontroller](../solution-architecture/#security-controls).
+-->

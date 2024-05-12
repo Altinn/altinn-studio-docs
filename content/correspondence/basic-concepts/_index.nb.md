@@ -33,7 +33,6 @@ Altinn 3 Melding støtter også mønstre for en-til-mange meldingsutveksling.
 
 TBD.
 
-
 ## Tilstandsmaskinbeskrivelse {#message-transfer-state-machine}
 
 TBD.
