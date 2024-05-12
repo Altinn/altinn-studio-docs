@@ -7,4 +7,7 @@ toc: true
 weight: 30
 ---
 
-TBD
+## Oversikt over Altinn 3 Melding eksterne grensesnitt
+Følgende figur indikerer de viktigste systemgrensesnittene for Altinn 3 Melding som selvstendig løsning (uten Dialogporten):
+
+![Oversikt over eksterne grensesnitt for Altinn 3 Melding som selvstendig løsning](altinn3-correspondence-standalone-interfaces-overview.nb.png "Oversikt over eksterne grensesnitt for Altinn 3 Melding som selvstendig løsning")
