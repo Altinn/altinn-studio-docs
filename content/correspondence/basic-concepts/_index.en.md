@@ -31,8 +31,7 @@ Altinn 3 Correspondence also supports one-to-many messaging patterns.
 
 TBD
 
-<!--
+
 ## State machine description {#message-transfer-state-machine}
 
 TBD
--->
