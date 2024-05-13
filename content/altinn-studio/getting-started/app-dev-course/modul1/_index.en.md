@@ -41,7 +41,7 @@ You must have [access to the organization](/altinn-studio/getting-started/create
 
 ### Tasks
 
-1. [Create an application in Altinn Studio](/altinn-studio/getting-started/create-app/new-app/)
+1. [Create an application in Altinn Studio](/altinn-studio/guides/basic-form/)
 
 ### Useful Documentation
 
@@ -219,7 +219,7 @@ Remember to upload your changes when working in Designer so that the repository 
 
 ### Useful Documentation
 
-- [Building a Form with the UI Editor in Altinn Studio](/altinn-studio/getting-started/create-app/ui-editor/)s
+- [Guide to creating basic form](/altinn-studio/guides/basic-form)
 - [Available components in Altinn Studio Library](/altinn-studio/designer/build-app/ui-designer/components/)
 - [Guidelines for the use of components](/altinn-studio/guides/design/guidelines/components/)
 

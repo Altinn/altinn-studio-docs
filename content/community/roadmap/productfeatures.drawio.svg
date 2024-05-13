@@ -864,7 +864,7 @@
                 </switch>
             </g>
         </a>
-        <a xlink:href="https://docs.altinn.studio/altinn-studio/getting-started/create-app/" target="_blank">
+        <a xlink:href="https://docs.altinn.studio/altinn-studio/designer/build-app/" target="_blank">
             <rect x="280" y="1845" width="120" height="60" rx="9" ry="9" fill="#008a00" stroke="#005700" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -1196,7 +1196,7 @@
                 </switch>
             </g>
         </a>
-        <a xlink:href="https://docs.altinn.studio/altinn-studio/getting-started/create-app/ui-editor/" target="_blank">
+        <a xlink:href="https://docs.altinn.studio/altinn-studio/designer/build-app/ui-designer/" target="_blank">
             <rect x="280" y="1945" width="120" height="60" rx="9" ry="9" fill="#008a00" stroke="#005700" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -1215,7 +1215,7 @@
                 </switch>
             </g>
         </a>
-        <a xlink:href="https://docs.altinn.studio/altinn-studio/getting-started/create-app/process/" target="_blank">
+        <a xlink:href="https://docs.altinn.studio/altinn-studio/designer/build-app/define-process/" target="_blank">
             <rect x="440" y="1845" width="120" height="60" rx="9" ry="9" fill="#008a00" stroke="#005700" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>

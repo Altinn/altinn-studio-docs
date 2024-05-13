@@ -72,8 +72,6 @@ Skjema lages i Altinn Studio ved å navigere til "Lage"-siden. På denne siden
 
 Skjema lages ved å dra inn ønskede skjemakomponenter inn i hver enkelt skjemaside. 
 
-{{% insert "content/altinn-studio/getting-started/create-app/ui-editor/_index.nb.md" %}}
-
 ### Legge til felter i skjema
 Komponentene som kan brukes i skjema er fordelt på 3 kategorier:
 - **Standard**: Inneholder alle enkle skjemakomponenter som f.eks. teksfelter (langt og kort), nedtrekksliste (ett eller flere svar),

@@ -70,7 +70,6 @@ sentrale filområdet til tjenesten. Dette gjøres via menyen helt til høyre ved
 ### Nyttig dokumentasjon
 
 - [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/guides/basic-form)
-- [Innstillinger-menyen](/nb/altinn-studio/getting-started/create-app/settings/#om-applikasjonen)
 {{% /expandlarge %}}
 
 {{% expandlarge id="legge-til-datamodell" header="Lage datamodell" %}}
@@ -124,7 +123,6 @@ tekst-felter, og ev. bruke heltall der det gir mening.
 ### Nyttig dokumentasjon
 
 - [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/guides/basic-form)
-- [Altinn Studio Datamodellering](/nb/altinn-studio/getting-started/create-app/datamodel)
 
 {{% /expandlarge %}}
 
