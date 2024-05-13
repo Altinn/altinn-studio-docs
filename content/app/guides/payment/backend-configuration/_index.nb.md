@@ -4,8 +4,11 @@ description: Sett opp din backend til å håndtere betaling.
 weight: 1
 ---
 
+Da denne guiden ble utformet hadde Studio ikke enda lansert støtte for å legge til et betalingsprosessteg, så denne guiden viser manuell fremgangsmåte.
 
 ### 1. Opprett en datatype for å lagre betalingsinformasjon:
+
+Denne datatypen benyttes av betalingssteget for å lagre informasjon og status om betalingen. Legg den i `App/config/applicationmetadata.json` sin `dataTypes` array. ID kan settes til noe annet, men det må matche ID-en som legges inn i `paymentDataType` i prossessteget, som vist i punkt 2.
 
 ```json
 {
@@ -13,99 +16,94 @@ weight: 1
     "allowedContentTypes": [
         "application/json"
     ],
-    "maxCount": 0,
+    "maxCount": 1,
     "minCount": 0,
-    "enablePdfCreation": false,
-    "enableFileScan": false,
-    "validationErrorOnPendingFileScan": false,
-    "enabledFileAnalysers": [],
-    "enabledFileValidators": []
 }
 ```
 
-### 2. Legg til Payment prosess steg:
+### 2. Legg til prosess task:
 
-Studio har ikke enda lansert støtte for å legge til et betalingsprosess steg.
+Det må legges til et prosessteg og en gateway i `App/config/process/process.bpmn`, som i eksemplet nedenfor.
 
-I mellomtiden må du legge det til manuelt i din `App/config/process/process.bpmn` fil, slik:
+Betaling benytter tre user actions. Dersom Altinn brukergrensesnittet brukes av appen, så vil disse bli kalt automatisk når man står i betalingssteget. Om kun API benyttes så må disse kalles manuelt via `/actions` endepunktet. 
+- `pay`: Setter i gang betalingen, ofte ved å gjøre API-kall til betalingsbehandler. Hvordan man kontrollerer hvilken betalingsbehandler som benyttes beskrives [her](#3-implementer-iorderdetailscalculator-interfacet-i-c). Informasjon og status om den igangsatte betalingen lagres i en JSON-datatype som angis i prosesssteget for betaling.
+- `confirm`: Kalles når betaling er ferdig gjennomført for å drive prosessen videre til neste steg.
+- `reject`: Dersom sluttbruker ser noe feil med ordren så kan vedkommede trykke "Tilbake" i betalingssteget. Da kanselleres betalingen og informasjon om den avbrutte betalingen slettes. Hvilket prosessteg man deretter ledes til angis i en gateway i `process.bpmn`, som eksemplifisert nedenfor.
 
 ```xml
-<bpmntask id="Task_5" name="Payment">
-    <bpmn:incoming>Flow_193kyi8</bpmn:incoming>
-    <bpmn:outgoing>Flow_1jrbtd2</bpmn:outgoing>
-    <bpmn:extensionElements>
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_start_t1</bpmn:outgoing>
+    </bpmn:startEvent>
+
+    <bpmn:sequenceFlow id="Flow_start_t1" sourceRef="StartEvent_1" targetRef="Task_1" />
+
+    <bpmn:task id="Task_1" name="Utfylling">
+      <bpmn:incoming>Flow_start_t1</bpmn:incoming>
+      <bpmn:incoming>Flow_g1_t1</bpmn:incoming>
+      <bpmn:outgoing>Flow_t1_t2</bpmn:outgoing>
+      <bpmn:extensionElements>
         <altinn:taskExtension>
-            <altinn:taskType>payment</altinn:taskType>
-            <altinn:actions>
-                <altinn:action>pay</altinn:action>
-                <altinn:action>reject</altinn:action>
-            </altinn:actions>
-            <altinn:paymentConfig>
-                <altinn:paymentDataType>paymentInformation</altinn:paymentDataType> // Dette navnet må matche IDen til datatypen
-            </altinn:paymentConfig>
+          <altinn:taskType>data</altinn:taskType>
         </altinn:taskExtension>
-    </bpmn:extensionElements>
-</bpmn:task>
+      </bpmn:extensionElements>
+    </bpmn:task>
+
+    <bpmn:sequenceFlow id="Flow_t1_t2" sourceRef="Task_1" targetRef="Task_2" />
+
+    <bpmn:task id="Task_2" name="Betaling">
+      <bpmn:incoming>Flow_t1_t2</bpmn:incoming>
+      <bpmn:outgoing>Flow_t2_g1</bpmn:outgoing>
+      <bpmn:extensionElements>
+        <altinn:taskExtension>
+          <altinn:taskType>payment</altinn:taskType>
+          <altinn:actions>
+            <altinn:action>confirm</altinn:action>
+            <altinn:action>pay</altinn:action>
+            <altinn:action>reject</altinn:action>
+          </altinn:actions>
+          <altinn:paymentConfig>
+            <altinn:paymentDataType>paymentInformation</altinn:paymentDataType>
+          </altinn:paymentConfig>
+        </altinn:taskExtension>
+      </bpmn:extensionElements>
+    </bpmn:task>
+
+    <bpmn:sequenceFlow id="Flow_t2_g1" sourceRef="Task_2" targetRef="Gateway_1" />
+
+    <bpmn:exclusiveGateway id="Gateway_1">
+      <bpmn:incoming>Flow_t2_g1</bpmn:incoming>
+      <bpmn:outgoing>Flow_g1_t1</bpmn:outgoing>
+      <bpmn:outgoing>Flow_g1_end</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+
+    <bpmn:sequenceFlow id="Flow_g1_t1" sourceRef="Gateway_1" targetRef="Task_1">
+      <bpmn:conditionExpression>["equals", ["gatewayAction"], "reject"]</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_g1_end" sourceRef="Gateway_1" targetRef="EndEvent_1">
+      <bpmn:conditionExpression>["equals", ["gatewayAction"], "confirm"]</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+
+    <bpmn:endEvent id="EndEvent_1">
+      <bpmn:incoming>Flow_g1_end</bpmn:incoming>
+    </bpmn:endEvent>
 ```
-NB: Verdien til denne noden: ```xml<altinn:paymentDataType>paymentInformation</altinn:paymentDataType>``` må matche IDen til datatypen du konfigurerte i forrige steg.
+NB: Verdien til denne noden: ```<altinn:paymentDataType>paymentInformation</altinn:paymentDataType>``` må matche ID-en til datatypen du konfigurerte i forrige steg.
 
 
-### Implementer IOrderDetailsCalculator interfacet i C#:
+### 3. Implementer IOrderDetailsCalculator interfacet i C#:
 
-Legg til en ny klasse der du har din custom kode, f.eks:  ```App/custom/OrderDetailsCalculator.cs```.
+Legg til en ny klasse der du har din custom kode, f.eks:  ```App/logic/OrderDetailsCalculator.cs```.
 
 Her vil du implementere din logikk for å kalkulere hva brukeren skal betale for.
-Du kan for eksempel aksessere skjemadata, legge til obligatoriske avgifter, eller kun legge til en konstant kostnad for skjemaet. 
+Du kan for eksempel aksessere skjemadata, legge til obligatoriske avgifter, eller kun legge til en fast kostnad for skjemaet. 
 
-Her er et eksempel der to faste ordrelinjer blir lagt til:
+Returverdien fra `CalculateOrderDetails` metoden angir: 
+- Betalingsbehandler som skal benyttes for ordren. Disse tilgjengeliggjøres ved å implementere interfacet `IPaymentProcessor` og registrere de som transient i program.cs. Fyll ut `Nets Easy` for å benytte standardimplementasjon for Nets Easy.
+- Valuta
+- Ordrelinjer
+- Detaljer om betalingsmottaker. Brukes i kvittering.
 
-```c#
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Altinn.App.Core.Features.Payment;
-using Altinn.App.Core.Features.Payment.Models;
-using Altinn.Platform.Storage.Interface.Models;
-
-namespace Altinn.App.Custom.Payment;
-
-/// <summary>
-/// Calculating order details for payment
-/// </summary>
-public class OrderDetailsCalculator : IOrderDetailsCalculator
-{
-    public Task<OrderDetails> CalculateOrderDetails(Instance instance)
-    {
-        List<Thing> things =
-        [
-            new Thing { Description = "A thing", Price = 50 },
-            new Thing { Description = "Another thing", Price = 100 }
-        ];
-
-        List<PaymentOrderLine> paymentOrderLines = things
-            .Select((x, index) =>
-                new PaymentOrderLine
-                {
-                    Id = index.ToString(), Name = x.Description, PriceExVat = x.Price, Quantity = 1, VatPercent = 25.00M
-                })
-            .ToList();
-
-        var orderDetails = new OrderDetails { Currency = "NOK", OrderLines = paymentOrderLines };
-
-        return Task.FromResult(orderDetails);
-    }
-
-    private class Thing
-    {
-        public required string Description { get; init; }
-        public required decimal Price { get; init; }
-    }
-}
-```
-
-In this example, you will get a static price.
-
-I dette eksempelet regnes ordrelinjene ut fra skjemadata:
+I dette eksempelet regnes ordrelinjene ut basert på skjemadata:
 
 ```c#
 public class OrderDetailsCalculator : IOrderDetailsCalculator
@@ -117,42 +115,28 @@ public class OrderDetailsCalculator : IOrderDetailsCalculator
         _dataClient = dataClient;
     }
     
-    public async Task<OrderDetails> CalculateOrderDetails(Instance instance, string language)
+    public async Task<OrderDetails> CalculateOrderDetails(Instance instance, string? language)
     {
-        Form formData = await GetFormData(instance);
+        DataElement modelData = instance.Data.Single(x => x.DataType == "model");
+        InstanceIdentifier instanceIdentifier = new(instance);
+        
+        Form formData = (Form) await _dataClient.GetFormData(instanceIdentifier.InstanceGuid, typeof(Form), instance.Org, instance.AppId,
+            instanceIdentifier.InstanceOwnerPartyId, new Guid(modelData.Id));
 
         List<PaymentOrderLine> paymentOrderLines = formData.GoodsAndServicesProperties.Inventory.InventoryProperties
             .Where(x => !string.IsNullOrEmpty(x.NiceClassification) && !string.IsNullOrEmpty(x.GoodsAndServices))
             .Select((x, index) =>
                 new PaymentOrderLine
                 {
-                    Id = index.ToString(), Name = $"{x.NiceClassification} - {x.GoodsAndServices}", PriceExVat = GetPriceForNiceClassification(x), Quantity = 1, VatPercent = 25.00M
+                    Id = index.ToString(), Name = $"{GetLocalizedName(x.Id, language)}", PriceExVat = GetPriceForInventoryItem(x), Quantity = 1, VatPercent = 0M
                 })
             .ToList();
 
-        return new OrderDetails { PaymentProcessorId = "Nets Easy", Currency = "NOK", OrderLines = paymentOrderLines, Receiver = GetReceiverDetails()};
-    }
-
-    private async Task<Form> GetFormData(Instance instance)
-    {
-        DataElement modelData = instance.Data.Single(x => x.DataType == "model");
-        InstanceIdentifier instanceIdentifier = new(instance);
-        
-        return (Form) await _dataClient.GetFormData(instanceIdentifier.InstanceGuid, typeof(Form), instance.Org, instance.AppId,
-            instanceIdentifier.InstanceOwnerPartyId, new Guid(modelData.Id));
-    }
-
-    private decimal GetPriceForNiceClassification(InventoryProperties inventoryProperties)
-    {
-        switch (inventoryProperties.NiceClassification)
-        {
-            case "1":
-                return 1000.00M;
-            case "2":
-                return 2000.00M;
-            default:
-                return 500.00M;
-        }
+        return new OrderDetails { 
+          PaymentProcessorId = "Nets Easy", 
+          Currency = "NOK", 
+          OrderLines = paymentOrderLines, 
+          Receiver = GetReceiverDetails()};
     }
 }
 
@@ -173,12 +157,9 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 ### 5. Legg til config i appSettings.json:
 
-
-
-
 1. [Hent din hemmelige nøkkel fra nets.](https://developer.nexigroup.com/nexi-checkout/en-EU/docs/access-your-integration-keys/). Pass på at du bruker testnøkkelen under utvikling. 
-2. Legg til din hemmelige nøkkel i keyvault, med variabelnavnet: ```NetsPaymentSettings--SecretApiKey```. På denne måten vil den overstyre ```SecretApiKey``` i ```appSettings.json```. 
-3. Legg til ```NetsPaymentSettings``` i din ```appSettings.json```:
+2. Legg til din hemmelige nøkkel i keyvault, med variabelnavnet: ```NetsPaymentSettings--SecretApiKey```. På denne måten vil den overstyre ```SecretApiKey``` i ```appsettings.json```. 
+3. Legg til ```NetsPaymentSettings``` i din ```appsettings.json```. Husk å sett riktig `baseUrl` i produksjon.
 ```json
 {
   "NetsPaymentSettings": {
