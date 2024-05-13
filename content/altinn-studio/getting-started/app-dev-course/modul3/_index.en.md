@@ -6,10 +6,10 @@ tags: [apps, training, build, deploy, test ]
 weight: 20
 ---
 {{% notice warning %}}
- This module requires that you are part of an [organization](/app/getting-started/create-user/#join-an-organization) with an enabled test environment for Altinn Apps. If this is not the case, move on to the [next module](../modul4/). 
+ This module requires that you are part of an [organization](/altinn-studio/getting-started/create-user/#join-an-organization) with an enabled test environment for Altinn Apps. If this is not the case, move on to the [next module](../modul4/). 
  <br><br>
  If you have a personal application registered that you would like to move to an organization, 
- [you can ask for access to an organization by asking an administrator or the service desk](/app/getting-started/create-user/#join-an-organization).
+ [you can ask for access to an organization by asking an administrator or the service desk](/altinn-studio/getting-started/create-user/#join-an-organization).
 
  When you have access to an organization with enabled test environments, the application can be moved by following these steps:
  1. Move the repository for the application in Gitea to your organization via the "Settings" menu on the Gitea-page.

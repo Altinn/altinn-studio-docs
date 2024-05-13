@@ -8,8 +8,8 @@ weight: 20
 
 In this module, you will create the application itself, add a data model, and set up a simple form based on the requirements from Sogndal Municipality.
 
-You'll have to perform the first two tasks, creating the application and adding the data model, in Altinn Studio's graphical user interface, [Altinn Studio Designer](/app/getting-started) (Designer).
- If you are developing the app locally, you can follow the instructions for [preparing for local development and testing](/app/getting-started/local-dev) after completing these tasks.
+You'll have to perform the first two tasks, creating the application and adding the data model, in Altinn Studio's graphical user interface, [Altinn Studio Designer](/altinn-studio/getting-started) (Designer).
+ If you are developing the app locally, you can follow the instructions for [preparing for local development and testing](/altinn-studio/guides/local-dev) after completing these tasks.
 
 {{% notice info %}}
 **NOTE**  
@@ -28,7 +28,7 @@ You can perform all the steps in this module in Designer.
 
 {{% expandlarge id="create-new-application" header="Create a New Application" %}}
 
-Applications are created from the [Altinn Studio Dashboard](/app/getting-started/navigation/dashboard/).
+Applications are created from the [Altinn Studio Dashboard](/altinn-studio/getting-started/navigation/dashboard/).
 
 ### Requirements from the Municipality
 
@@ -36,17 +36,17 @@ The application must have a descriptive name (ID), making it easy to find among 
 
 {{% notice info %}}
 If you want to test the app in a [test environment](/app/testing/deploy/) (described in [Module 3](/app/app-dev-course/modul3/)), you need to select an organization as the owner.
-You must have [access to the organization](/app/getting-started/create-user/#join-an-organization), and the organization must have access to a test environment.
+You must have [access to the organization](/altinn-studio/getting-started/create-user/#join-an-organization), and the organization must have access to a test environment.
 {{% /notice %}}
 
 ### Tasks
 
-1. [Create an application in Altinn Studio](/app/getting-started/create-app/new-app/)
+1. [Create an application in Altinn Studio](/altinn-studio/getting-started/create-app/new-app/)
 
 ### Useful Documentation
 
-- [Navigating Altinn Studio](/app/getting-started/navigation)
-- [Altinn Studio Dashboard](/app/getting-started/navigation/dashboard/)
+- [Navigating Altinn Studio](/altinn-studio/getting-started/navigation)
+- [Altinn Studio Dashboard](/altinn-studio/getting-started/navigation/dashboard/)
 
 {{% /expandlarge %}}
 
@@ -70,10 +70,10 @@ Sogndal Municipality has created a [data model](datamodel.xsd) representing the 
 Alternatively, copy the file URL and run the command `curl <file-URL> > datamodel.xsd` from the command line. Open the file in a text editor and examine its content.
 2. [Upload the data model in Altinn Studio](/altinn-studio/reference/data/data-modeling/#upload-and-display-data-model)
 3. Click "Last opp dine endringer" and follow the instructions to save the changes.
-4. Open the app's repository from the [Altinn Studio Dashboard](/app/getting-started/navigation/dashboard/) and look at the files in the `App/models` folder.
+4. Open the app's repository from the [Altinn Studio Dashboard](/altinn-studio/getting-started/navigation/dashboard/) and look at the files in the `App/models` folder.
 
 {{% notice info %}}
-If you intend to carry out all or parts of the development locally, now is the time to [prepare for local development and testing](/app/getting-started/local-dev).
+If you intend to carry out all or parts of the development locally, now is the time to [prepare for local development and testing](/altinn-studio/guides/local-dev).
 {{% /notice %}}
 
 ### Useful Documentation
@@ -81,7 +81,7 @@ If you intend to carry out all or parts of the development locally, now is the t
 - [Altinn Studio Data Modeling](/altinn-studio/reference/data/data-modeling/)
 - [Description of Indicators in XSD](https://www.w3schools.com/xml/schema_complex_indicators.asp)
 - [Installing curl for Windows](https://developer.zendesk.com/documentation/api-basics/getting-started/installing-and-using-curl/#windows)
-- [Altinn Studio Repository](/app/getting-started/navigation/repos/)
+- [Altinn Studio Repository](/altinn-studio/getting-started/navigation/repos/)
 
 ### Knowledge Check
 
@@ -189,7 +189,7 @@ If the mentioned text key can't be located in the text resource file, the text k
 
 {{% expandlarge id="add-components" header="Add Components" %}}
 
-You can configure the components in an application using the graphical user interface [Altinn Studio Designer](/app/getting-started/).
+You can configure the components in an application using the graphical user interface [Altinn Studio Designer](/altinn-studio/getting-started/).
  You can also configure them manually by editing the `<pageName>.json` file, which describes the structure of a form page (you can find the file in `App/ui/layouts`).
 
 ### Requirements from the Municipality
@@ -219,7 +219,7 @@ Remember to upload your changes when working in Designer so that the repository 
 
 ### Useful Documentation
 
-- [Building a Form with the UI Editor in Altinn Studio](/app/getting-started/create-app/ui-editor/)s
+- [Building a Form with the UI Editor in Altinn Studio](/altinn-studio/getting-started/create-app/ui-editor/)s
 - [Available components in Altinn Studio Library](/altinn-studio/designer/build-app/ui-designer/components/)
 - [Guidelines for the use of components](/altinn-studio/guides/design/guidelines/components/)
 

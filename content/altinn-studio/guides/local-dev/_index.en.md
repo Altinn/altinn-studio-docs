@@ -11,7 +11,7 @@ During application development, you will need to work both in Altinn Studio and 
 
 ## How to clone the application to a local development environment
 
-1. Find the application you want to work with locally in the [Dashboard](/app/getting-started/navigation/dashboard) in Altinn Studio.
+1. Find the application you want to work with locally in the [Dashboard](/altinn-studio/getting-started/navigation/dashboard) in Altinn Studio.
 2. Navigate to the repository by clicking the _Repository_ button.
     ![Repository button highlighted in an image](find-app-in-dashboard.png)
 3. Copy the repository link (the blue square) either manually or by clicking the button marked with a red circle.

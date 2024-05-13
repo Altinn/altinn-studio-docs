@@ -8,7 +8,7 @@ weight: 20
 
 In this module, you will further develop the application you created in [Module 1](../modul1), including, among other things, a new page, hiding/showing pages based on dynamic expressions, and prefilling.
 
-You can do parts of Module 2 in [Altinn Studio Designer](/app/getting-started/) (Designer), but some tasks need to be performed using [local development](/app/getting-started/local-dev).
+You can do parts of Module 2 in [Altinn Studio Designer](/altinn-studio/getting-started/) (Designer), but some tasks need to be performed using [local development](/altinn-studio/guides/local-dev).
 
 **Themes covered in this module:**
 
@@ -26,7 +26,7 @@ For forms with a significant amount of information collected or provided, dividi
 Let's take a closer look at how to create a new page in the application
 that appears _before_ the user reaches the first data collection page created in Module 1.
 
-Creating and managing multiple pages can be done in [Altinn Studio Designer](/app/getting-started/) (left panel).
+Creating and managing multiple pages can be done in [Altinn Studio Designer](/altinn-studio/getting-started/) (left panel).
 For manual page setup, refer to 'Useful Documentation' further down the page.
 
 ### Requirements of the municipality

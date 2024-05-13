@@ -8,8 +8,8 @@ weight: 20
 
 I denne modulen skal du opprette selve applikasjonen, legge til datamodell og sette opp et enkelt skjema basert på kravene fra Sogndal kommune.
 
-Du må utføre de to første oppgavene, opprette applikasjon og legge til datamodell, i Altinn Studios grafiske brukergrensesnitt, [Altinn Studio Designer](/nb/app/getting-started) (Designer).
- Dersom du skal utvikle appen lokalt kan du følge instruksjonene for [klargjøre for lokal utvikling og testing](/nb/app/getting-started/local-dev) etter at du har gjort disse oppgavene.
+Du må utføre de to første oppgavene, opprette applikasjon og legge til datamodell, i Altinn Studios grafiske brukergrensesnitt, [Altinn Studio Designer](/nb/altinn-studio/getting-started) (Designer).
+ Dersom du skal utvikle appen lokalt kan du følge instruksjonene for [klargjøre for lokal utvikling og testing](/nb/altinn-studio/guides/local-dev) etter at du har gjort disse oppgavene.
 
 {{% notice info %}}
 **MERK**  
@@ -28,7 +28,7 @@ Du kan utføre alle stegene i denne modulen i Designer.
 
 {{% expandlarge id="opprette-ny-applikasjon" header="Opprette ny applikasjon" %}}
 
-Applikasjoner opprettes fra [Altinn Studio Dashboard](/nb/app/getting-started/navigation/dashboard/).
+Applikasjoner opprettes fra [Altinn Studio Dashboard](/nb/altinn-studio/getting-started/navigation/dashboard/).
 
 ### Krav fra kommunen
 
@@ -37,17 +37,17 @@ applikasjoner Sogndal kommune har i Altinn Studio.
 
 {{% notice info %}}
 Dersom du skal teste appen i et [testmiljø](/nb/app/testing/deploy/) (beskrevet i [Modul 3](/nb/app/app-dev-course/modul3/)) må du velge en organisasjon som eier.
- Du må ha [tilgang til organisasjonen](/nb/app/getting-started/create-user/#bli-del-av-en-organisasjon) og organisasjonen må ha tilgang til et testmiljø.
+ Du må ha [tilgang til organisasjonen](/nb/altinn-studio/getting-started/create-user/#bli-del-av-en-organisasjon) og organisasjonen må ha tilgang til et testmiljø.
  {{% /notice %}}
 
 ### Oppgaver
 
-1. [Opprett applikasjon i Altinn Studio](/nb/app/getting-started/create-app/new-app/)
+1. [Opprett applikasjon i Altinn Studio](/nb/altinn-studio/getting-started/create-app/new-app/)
 
 ### Nyttig dokumentasjon
 
-- [Navigere Altinn Studio](/nb/app/getting-started/navigation)
-- [Altinn Studio Dashboard](/nb/app/getting-started/navigation/dashboard/)
+- [Navigere Altinn Studio](/nb/altinn-studio/getting-started/navigation)
+- [Altinn Studio Dashboard](/nb/altinn-studio/getting-started/navigation/dashboard/)
 
 {{% /expandlarge %}}
 
@@ -72,10 +72,10 @@ Sogndal kommune har opprettet en [datamodell](datamodel.xsd) som representerer t
    og ta en nærmere titt på innholdet.
 2. [Last opp datamodellen i Altinn Studio](/nb/altinn-studio/reference/data/data-modeling/#laste-opp-og-vise-datamodell)
 3. Klikk "Last opp dine endringer" og følg instruksjonene for å lagre endringene.
-4. Åpne repository til appen fra [Altinn Studio Dashboard](/nb/app/getting-started/navigation/dashboard/) og ta en nærmere titt på filene i mappen `App/models`.
+4. Åpne repository til appen fra [Altinn Studio Dashboard](/nb/altinn-studio/getting-started/navigation/dashboard/) og ta en nærmere titt på filene i mappen `App/models`.
 
 {{% notice info %}}
-Hvis du skal gjøre hele eller deler av utviklingen lokalt kan du nå [klargjøre for lokal utvikling og testing](/nb/app/getting-started/local-dev).
+Hvis du skal gjøre hele eller deler av utviklingen lokalt kan du nå [klargjøre for lokal utvikling og testing](/nb/altinn-studio/guides/local-dev).
 {{% /notice %}}
 
 ### Nyttig dokumentasjon
@@ -83,7 +83,7 @@ Hvis du skal gjøre hele eller deler av utviklingen lokalt kan du nå [klargjør
 - [Altinn Studio Datamodellering](/altinn-studio/reference/data/data-modeling/)
 - [Beskrivelse av indikatorer i XSD](https://www.w3schools.com/xml/schema_complex_indicators.asp)
 - [Installere curl for Windows](https://developer.zendesk.com/documentation/api-basics/getting-started/installing-and-using-curl/#windows)
-- [Altinn Studio Repository](/nb/app/getting-started/navigation/repos/)
+- [Altinn Studio Repository](/nb/altinn-studio/getting-started/navigation/repos/)
 
 ### Forståelsessjekk
 
@@ -190,7 +190,7 @@ Hvis nevnte tekstnøkkel ikke finnes i tekstressursfilen, vil tekstnøkkelen vis
 
 {{% expandlarge id="legge-til-komponenter" header="Legge til komponenter" %}}
 
-Du kan konfigurere komponentene i en applikasjon i det grafiske brukergrensesnittet [Altinn Studio Designer](/nb/app/getting-started/).
+Du kan konfigurere komponentene i en applikasjon i det grafiske brukergrensesnittet [Altinn Studio Designer](/nb/altinn-studio/getting-started/).
  Alternativt kan du gjøre det manuelt ved å redigere filen `<page>.json` som beskriver strukturen til en skjemaside. Du finner filen i `App/ui/layouts`.
 
 ### Krav fra kommunen
@@ -220,7 +220,7 @@ Husk å laste opp endringer når du jobber i Designer så de reflekteres i repoe
 
 ### Nyttig dokumentasjon
 
-- [Hvordan bygge et skjema med UI editor i Altinn Studio](/nb/app/getting-started/create-app/ui-editor/)
+- [Hvordan bygge et skjema med UI editor i Altinn Studio](/nb/altinn-studio/getting-started/create-app/ui-editor/)
 - [Tilgjengelige komponenter i Altinn Studio](/altinn-studio/designer/build-app/ui-designer/components/)
 - [Retningslinjer for bruk av komponenter](/nb/altinn-studio/guides/design/guidelines/components/)
 

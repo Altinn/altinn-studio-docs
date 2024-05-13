@@ -38,7 +38,7 @@ Datamodellene ligger i `<org>-datamodels`-repo, hvor `<org>` er den organisasjon
 F.eks. ligger datamodellene til organisasjonen `Testdepartementet (ttd)` under 
 https://altinn.studio/repos/ttd/ttd-datamodels.
 
-Lenke til dette repoet finner man i [Altinn Studio Dashboard](/nb/app/getting-started/navigation/dashboard) (https://altinn.studio/dashboard). Velg _Rediger_ (blått penn-ikon) for å komme til 
+Lenke til dette repoet finner man i [Altinn Studio Dashboard](/nb/altinn-studio/getting-started/navigation/dashboard) (https://altinn.studio/dashboard). Velg _Rediger_ (blått penn-ikon) for å komme til 
 Altinn Studio [Datamodellering](#altinn-studio-datamodellering) verktøet. Velg _Gitea_ (grønt kopp-ikon) for å se filene direkte i repo.
 
 ![Oversikt over datamodell-repo](./datamodels-dashboard.png "Oversikt over datamodell-repo")
@@ -60,7 +60,7 @@ for å bekrefte.
 ![Last opp XSD direkte til `<org>-datamodels` repo](./file-upload.gif "Last opp XSD direkte til <org>-datamodels repo")
 
 [1]: https://altinn.studio/repos
-[2]: /nb/app/getting-started/create-user/
+[2]: /nb/altinn-studio/getting-started/create-user/
 [3]: /nb/altinn-studio/guides/access-management/studio/
 
 ## Altinn Studio Datamodellering
@@ -81,7 +81,7 @@ format og kan ut fra dette generere XSD- og C#-modeller (se [Datamodeller for Ap
 
 ### Navigere til Altinn Studio Datamodellering
 
-1. Logg inn i Altinn Studio. Hvis du ikke befinner deg i [Altinn Studio Dashboard](/nb/app/getting-started/navigation/dashboard/), naviger dit ved å klikke på logoen øverst i venstre hjørne eller [her](https://altinn.studio/dashboard).
+1. Logg inn i Altinn Studio. Hvis du ikke befinner deg i [Altinn Studio Dashboard](/nb/altinn-studio/getting-started/navigation/dashboard/), naviger dit ved å klikke på logoen øverst i venstre hjørne eller [her](https://altinn.studio/dashboard).
 2. Velg _rediger_ (blått penn-ikon) ved enten:  
    a. En app under "Mine applikasjoner", eller  
    b. Datamodellerings repo for din organisasjon.

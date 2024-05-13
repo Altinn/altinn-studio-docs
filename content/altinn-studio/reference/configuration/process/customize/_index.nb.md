@@ -12,7 +12,7 @@ Denne siden vil forklare hvordan visningen til de forskjellige stegene kan tilpa
 ## Data (tilsvarer utfyllingssteg i Altinn II)
 
 I denne prosess-task-typen vises skjema som kan fylles ut.  
-Skjema kan redigeres ved bruk av [UI editoren](/nb/app/getting-started) eller ved å endre `FormLayout.json` direkte.
+Skjema kan redigeres ved bruk av [UI editoren](/nb/altinn-studio/getting-started) eller ved å endre `FormLayout.json` direkte.
 
 ## Bekreftelse (Confirmation)
 

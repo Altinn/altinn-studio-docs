@@ -17,7 +17,7 @@ nødvendig for at appen skal kunne testes lokalt.
 
 ## Kjøre appen lokalt
 
-1. Naviger til app repoet i Altinn Studio. Se [her](/nb/app/getting-started/navigation/repos/) for hvordan man navigerer seg dit.
+1. Naviger til app repoet i Altinn Studio. Se [her](/nb/altinn-studio/getting-started/navigation/repos/) for hvordan man navigerer seg dit.
 2. Last ned alle filene i repoet
   - ved å bruke `git clone` kommandoen [(les mer)](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository)
   - ved å trykke på nedlastingsikonet (da lastes det ned som en zip-fil)

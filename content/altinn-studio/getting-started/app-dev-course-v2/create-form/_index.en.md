@@ -37,8 +37,8 @@ Du må ha [tilgang til organisasjonen](/nb/altinn-studio/getting-started/create-
 ### Nyttig dokumentasjon
 
 - [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/guides/basic-form)
-- [Navigere Altinn Studio](/nb/app/getting-started/navigation)
-- [Altinn Studio Dashboard](/nb/app/getting-started/navigation/dashboard/)
+- [Navigere Altinn Studio](/nb/altinn-studio/getting-started/navigation)
+- [Altinn Studio Dashboard](/nb/altinn-studio/getting-started/navigation/dashboard/)
 
 {{% /expandlarge %}}
 
@@ -70,7 +70,7 @@ sentrale filområdet til tjenesten. Dette gjøres via menyen helt til høyre ved
 ### Nyttig dokumentasjon
 
 - [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/guides/basic-form)
-- [Innstillinger-menyen](/nb/app/getting-started/create-app/settings/#om-applikasjonen)
+- [Innstillinger-menyen](/nb/altinn-studio/getting-started/create-app/settings/#om-applikasjonen)
 {{% /expandlarge %}}
 
 {{% expandlarge id="legge-til-datamodell" header="Lage datamodell" %}}
@@ -124,7 +124,7 @@ tekst-felter, og ev. bruke heltall der det gir mening.
 ### Nyttig dokumentasjon
 
 - [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/guides/basic-form)
-- [Altinn Studio Datamodellering](/nb/app/getting-started/create-app/datamodel)
+- [Altinn Studio Datamodellering](/nb/altinn-studio/getting-started/create-app/datamodel)
 
 {{% /expandlarge %}}
 

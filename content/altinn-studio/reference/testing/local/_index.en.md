@@ -15,7 +15,7 @@ In the test environment, the app uses a set of platform services to retrieve/sto
 
 ## Running the app locally
 
-1. Navigate to the app repository in Altinn Studio. See [here](/app/getting-started/navigation/repos/) for how to navigate there.
+1. Navigate to the app repository in Altinn Studio. See [here](/altinn-studio/getting-started/navigation/repos/) for how to navigate there.
 2. Download all the files in the repository
    - by using the `git clone` command [(read more)](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository)
    - by clicking the download icon (this downloads it as a zip file)

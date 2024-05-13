@@ -69,7 +69,7 @@ Forms are created in Altinn Studio by navigating to the "Build" page. On this pa
 
 Forms are created by dragging desired form components into each individual form page.
 
-{{% insert "content/app/getting-started/create-app/ui-editor/_index.nb.md" %}}
+{{% insert "content/altinn-studio/getting-started/create-app/ui-editor/_index.nb.md" %}}
 
 ### Adding fields to the form
 The components that can be used in the form are divided into 3 categories:

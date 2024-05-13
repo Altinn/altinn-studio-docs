@@ -37,7 +37,7 @@ The data models are located in the `<org>-datamodels` repository, where `<org>` 
 For example, the data models for the organization 'Test Department (ttd)' are located under 
 https://altinn.studio/repos/ttd/ttd-datamodels.
 
-You can find the link to this repository in the [Altinn Studio Dashboard](/app/getting-started/navigation/dashboard): https://altinn.studio/dashboard.
+You can find the link to this repository in the [Altinn Studio Dashboard](/altinn-studio/getting-started/navigation/dashboard): https://altinn.studio/dashboard.
  Select _Edit_ (blue pen icon) to access the Altinn Studio [Data Modeling](#altinn-studio-data-modeling) tool.
  Select _Gitea_ (green cup icon) to view the files directly in the repository.
 
@@ -59,7 +59,7 @@ If you only need to upload XSD files for storage and do not intend to use the to
 ![Upload XSD directly to `<org>-datamodels` repo](./file-upload.gif "Upload XSD directly to `<org>-datamodels` repo")
 
 [1]: https://altinn.studio/repos
-[2]: /app/getting-started/create-user/
+[2]: /altinn-studio/getting-started/create-user/
 [3]: /altinn-studio/guides/access-management/studio/
 
 ## Altinn Studio Data Modeling
@@ -80,7 +80,7 @@ Altinn Studio Data Modeling is a tool for developing [data models](#data-models)
 
 ### Navigating to Altinn Studio Data Modeling
 
-1. Log in to Altinn Studio. If you are not in the [Altinn Studio Dashboard](/app/getting-started/navigation/dashboard/), navigate there by clicking on the logo in the top left corner or [here](https://altinn.studio/dashboard).
+1. Log in to Altinn Studio. If you are not in the [Altinn Studio Dashboard](/altinn-studio/getting-started/navigation/dashboard/), navigate there by clicking on the logo in the top left corner or [here](https://altinn.studio/dashboard).
 2. Select _Edit_ (blue pen icon) either for:  
    a. An app under "Mine applikasjoner" (My Applications) or  
    b. Data Modeling repository for your organization.
