@@ -9,7 +9,7 @@ hidden: true
 ---
 
 ## Available UI components
-See documentation here: https://docs.altinn.studio/app/guides/design/guidelines/components/
+See documentation here: https://docs.altinn.studio/altinn-studio/guides/design/guidelines/components/
 ### Text components
 <table>
   <tbody>

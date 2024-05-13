@@ -8,7 +8,7 @@ toc: true
 aliases:
 - /nb/altinn-studio/reference/ux/images/
 - /nb/altinn-studio/reference/ux/components/images
-- /nb/app/guides/design/guidelines/components/picture-component/
+- /nb/altinn-studio/guides/design/guidelines/components/picture-component/
 ---
 
 {{% notice warning %}}

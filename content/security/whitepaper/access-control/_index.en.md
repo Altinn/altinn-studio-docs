@@ -15,7 +15,7 @@ restrict access to development and operation of Altinn Studio and other Digdir p
 Only operations and developers associated with Altinn 3 have access to the solution.
 
 The service owner can order access to users for the service test development environment (TT02) and the production environment.
-This is described in more detail on the [Access Control page](/app/guides/access-management/apps/).
+This is described in more detail on the [Access Control page](/altinn-studio/guides/access-management/apps/).
 Note that service owners must notify Digdir when access is to be removed.
 
 Authentication for end users is explained in more detail [here](/api/authentication/).

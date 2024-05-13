@@ -222,7 +222,7 @@ Husk å laste opp endringer når du jobber i Designer så de reflekteres i repoe
 
 - [Hvordan bygge et skjema med UI editor i Altinn Studio](/nb/app/getting-started/create-app/ui-editor/)
 - [Tilgjengelige komponenter i Altinn Studio](/altinn-studio/designer/build-app/ui-designer/components/)
-- [Retningslinjer for bruk av komponenter](/nb/app/guides/design/guidelines/components/)
+- [Retningslinjer for bruk av komponenter](/nb/altinn-studio/guides/design/guidelines/components/)
 
 ### Forståelsessjekk
 

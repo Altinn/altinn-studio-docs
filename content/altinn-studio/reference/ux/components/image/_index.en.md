@@ -7,7 +7,7 @@ weight: 10
 aliases:
 - /altinn-studio/reference/ux/images/
 - /altinn-studio/reference/ux/components/images
-- /app/guides/design/guidelines/components/picture-component/
+- /altinn-studio/guides/design/guidelines/components/picture-component/
 ---
 
 ---

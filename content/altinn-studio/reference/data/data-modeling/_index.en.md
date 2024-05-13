@@ -60,7 +60,7 @@ If you only need to upload XSD files for storage and do not intend to use the to
 
 [1]: https://altinn.studio/repos
 [2]: /app/getting-started/create-user/
-[3]: /app/guides/access-management/studio/
+[3]: /altinn-studio/guides/access-management/studio/
 
 ## Altinn Studio Data Modeling
 
@@ -74,8 +74,8 @@ Altinn Studio Data Modeling is a tool for developing [data models](#data-models)
 {{% expandlarge id="links" header="Useful links" %}}
 * [Known issues and shortcomings for Altinn Studio Datamodellering](https://github.com/orgs/Altinn/projects/1/views/10)
 * [Planned new functionality for Altinn Studio Datamodellering](https://github.com/orgs/Altinn/projects/1/views/6)
-* [Development of data model for Altinn 2](/app/guides/altinn-2-datamodel/)
-* [Migrating from Seres to Altinn Studio Datamodellering](/app/guides/seres-migration/)
+* [Development of data model for Altinn 2](/altinn-studio/guides/altinn-2-datamodel/)
+* [Migrating from Seres to Altinn Studio Datamodellering](/altinn-studio/guides/seres-migration/)
 {{% /expandlarge %}}
 
 ### Navigating to Altinn Studio Data Modeling
@@ -242,6 +242,6 @@ A generated XSD file can be downloaded by accessing the repository: click on the
 
 ![Download XSD repo](./download-xsd.png "Download XSD from repo")
 
-[1]: /app/guides/altinn-2-datamodel/#dataformatid-og-dataformatversion
-[2]: /app/guides/altinn-2-datamodel/#xsd-attributter
-[3]: /app/guides/altinn-2-datamodel/#xsd-namespaces
+[1]: /altinn-studio/guides/altinn-2-datamodel/#dataformatid-og-dataformatversion
+[2]: /altinn-studio/guides/altinn-2-datamodel/#xsd-attributter
+[3]: /altinn-studio/guides/altinn-2-datamodel/#xsd-namespaces

@@ -221,7 +221,7 @@ Remember to upload your changes when working in Designer so that the repository 
 
 - [Building a Form with the UI Editor in Altinn Studio](/app/getting-started/create-app/ui-editor/)s
 - [Available components in Altinn Studio Library](/altinn-studio/designer/build-app/ui-designer/components/)
-- [Guidelines for the use of components](/app/guides/design/guidelines/components/)
+- [Guidelines for the use of components](/altinn-studio/guides/design/guidelines/components/)
 
 ### Knowledge Check
 
