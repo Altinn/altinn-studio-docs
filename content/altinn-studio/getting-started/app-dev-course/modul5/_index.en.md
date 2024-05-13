@@ -22,12 +22,12 @@ In this module you are adding a process step in the application.
 An Altinn App has a process flow that describes the different steps in the flow.
 The standard flow for a newly created application consists of one task; the fill out step.
 
-![Standard process flow illustrated](/app/app-dev-course/modul5/default-process.png)
+![Standard process flow illustrated](/altinn-studio/getting-started/app-dev-course/modul5/default-process.png)
 
 Your task is to expand the standard process flow with a confirmation step as illustrated below.
 The confirmation page is added automatically when the step is added to the BPMN file.
 
-![Updated process flow illustrated](/app/app-dev-course/modul5/updated-process.png)
+![Updated process flow illustrated](/altinn-studio/getting-started/app-dev-course/modul5/updated-process.png)
 
 ### Requirements from the municipality
 
@@ -165,7 +165,7 @@ The service should be able to run on your local machine with localtest, and you 
 
  You should now see the following page when you click "Submit":
 
-![Screenshot of the confirmation page](/app/app-dev-course/modul5/bekreftelsesside-screenshot.png "Screenshot of the confirmation page")
+![Screenshot of the confirmation page](/altinn-studio/getting-started/app-dev-course/modul5/bekreftelsesside-screenshot.png "Screenshot of the confirmation page")
 
 Please note that clicking "Send inn" (submit) on the confirmation page will result in an error message. This will be resolved in the next step with authorization.
 

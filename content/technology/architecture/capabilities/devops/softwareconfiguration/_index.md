@@ -62,6 +62,6 @@ Azure DevOps pipelines manage the orchestration of deploys. Both automatic deplo
 ![Azure Devops](deployorchestration.png "Deploy orchestration - Approval of production deploy")
 
 
-See [development application components](/technology/architecture/components/application/nonsolutionspecific/development/#deployment-orchestration) to get a overview over tools and application we use.
+See [development application components](/technology/architecture/components/application/nonsolutionspecific/reference/#deployment-orchestration) to get a overview over tools and application we use.
 
 {{<children />}}

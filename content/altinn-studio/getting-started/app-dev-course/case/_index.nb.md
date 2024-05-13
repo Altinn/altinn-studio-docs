@@ -70,9 +70,9 @@ Følgende er det ønskelig at reflekteres i applikasjonen:
  - Tekststørrelser
  - Formatering av tekst
 
-[Skisse på informasjonsside](/app/app-dev-course/modul2/infoside_tilflyttere.pdf)
+[Skisse på informasjonsside](/altinn-studio/getting-started/app-dev-course/modul2/infoside_tilflyttere.pdf)
 
-!["Sogndal kommunevåpen"](/app/app-dev-course/modul2/kommune-logo.png "Et bilde av Sogndals kommunevåpen som kan benyttes i applikasjonen" )
+!["Sogndal kommunevåpen"](/altinn-studio/getting-started/app-dev-course/modul2/kommune-logo.png "Et bilde av Sogndals kommunevåpen som kan benyttes i applikasjonen" )
 
 {{% /expandlarge %}}
 

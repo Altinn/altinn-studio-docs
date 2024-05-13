@@ -35,7 +35,7 @@ Applications are created from the [Altinn Studio Dashboard](/altinn-studio/getti
 The application must have a descriptive name (ID), making it easy to find among the many applications Sogndal Municipality has in Altinn Studio.
 
 {{% notice info %}}
-If you want to test the app in a [test environment](/app/testing/deploy/) (described in [Module 3](/app/app-dev-course/modul3/)), you need to select an organization as the owner.
+If you want to test the app in a [test environment](/app/testing/deploy/) (described in [Module 3](/altinn-studio/getting-started/app-dev-course/modul3/)), you need to select an organization as the owner.
 You must have [access to the organization](/altinn-studio/getting-started/create-user/#join-an-organization), and the organization must have access to a test environment.
 {{% /notice %}}
 

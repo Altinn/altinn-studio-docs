@@ -10,7 +10,7 @@ Hovedhensikten med **Lag ny kopi** funksjonaliteten er at det skal være enkelt 
 
 {{%notice info%}}
 Lag ny kopi funksjonaliteten ble introdusert i versjon 7.9.0 av nuget pakkene.
-[Se hvordan du oppdaterer nugetreferanser for applikasjonen din her](/nb/app/maintainance/dependencies/).
+[Se hvordan du oppdaterer nugetreferanser for applikasjonen din her](/nb/altinn-studio/reference/maintainance/dependencies/).
 {{% /notice%}}
 
 ## Konfigurasjon

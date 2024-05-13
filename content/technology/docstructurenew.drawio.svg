@@ -1229,7 +1229,7 @@
                 </switch>
             </g>
         </a>
-        <a xlink:href="https://docs.altinn.studio/security/development/">
+        <a xlink:href="https://docs.altinn.studio/security/reference/">
             <rect x="600" y="630" width="120" height="60" fill="#60a917" stroke="#2d7600" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -1430,7 +1430,7 @@
                 </text>
             </switch>
         </g>
-        <a xlink:href="https://docs.altinn.studio/app/app-dev-course/" target="_blank">
+        <a xlink:href="https://docs.altinn.studio/altinn-studio/getting-started/app-dev-course/" target="_blank">
             <rect x="1510" y="420" width="120" height="60" fill="url(#mx-gradient-d5e8d4-1-97d077-1-r-0)" stroke="#82b366" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>

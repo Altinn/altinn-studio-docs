@@ -35,7 +35,7 @@ Eksempel på fremhevet innhold:
 <div class="a-card a-cardImage mt-3 mb-3">
   <img src="/images/devhandbook.svg" alt="Illustrasjon API">
   <div class="a-cardImage-text">
-    <a href="/teknologi/altinnstudio/development/handbook/" class="a-linkFeatured">
+    <a href="/teknologi/altinnstudio/reference/handbook/" class="a-linkFeatured">
       Development handbook
       <i class="ai ai-sm ai-nw ai-nw-right ai-arrowright"></i>
     </a>

@@ -12,7 +12,7 @@ Enabling virus scan results in scan of the file immediately after it uploaded to
 
 {{%notice info%}}
 To allow generating events for your application it must refer to nuget version >= 7.4.0.
-See how you update nuget references for your application [here](/app/maintainance/dependencies/).
+See how you update nuget references for your application [here](/altinn-studio/reference/maintainance/dependencies/).
 {{% /notice%}}
 
 Deep scan of files is not enabled by default, to activate this a manual step is required.

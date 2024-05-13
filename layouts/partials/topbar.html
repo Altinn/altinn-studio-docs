@@ -27,16 +27,23 @@
                 {{- partial "language-switcher.html" . -}}
               </li>
               <li>
-                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/app`}}{{.RelPermalink}}{{end}}">apps</a>
+                <div class="dropdown">
+                  <button class="dropbtn a-nav-link a-hvr-underline">produkter
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="dropdown-content">
+                    <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/altinn-studio`}}{{.RelPermalink}}{{end}}">Altinn Studio</a>
+                    <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/authorization`}}{{.RelPermalink}}{{end}}">Autorisasjon</a>
+                    <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/broker`}}{{.RelPermalink}}{{end}}">Formidling</a>
+                    <a class="a-nav-link a-hvr-underline " href="{{ with .Site.GetPage `/correspondence`}}{{.RelPermalink}}{{end}}">Melding</a>
+                  </div>
+                </div>
               </li>
               <li>
-                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/api`}}{{.RelPermalink}}{{end}}">api</a>
+                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/community`}}{{.RelPermalink}}{{end}}">Community</a>
               </li>
               <li>
-                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/community`}}{{.RelPermalink}}{{end}}">community</a>
-              </li>
-              <li>
-                <a class="a-nav-link a-hvr-underline " href="{{ with .Site.GetPage `/technology`}}{{.RelPermalink}}{{end}}">tech</a>
+                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/technology`}}{{.RelPermalink}}{{end}}">Tech</a>
               </li>
               <li class="nav-item d-none d-md-block">
                 <button class="a-collapse-title nav-link adocs-toggle-search" type="button" data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent" onclick="setTimeout(function(){getElementById('search-by').focus();}, 10); return true;">

@@ -10,7 +10,7 @@ Hver applikasjonseier sin storage er beskyttet av Windows Defender. Hvis din app
 ## Aktiver filskanning i applikasjonen din. 
 
 {{%notice info%}}
-For å tillate generering av hendelser for din applikasjon, må den henvise til nuget-versjon >= 7.4.0. Se hvordan du oppdaterer nuget-referanser for din applikasjon [her](/nb/app/maintainance/dependencies/).
+For å tillate generering av hendelser for din applikasjon, må den henvise til nuget-versjon >= 7.4.0. Se hvordan du oppdaterer nuget-referanser for din applikasjon [her](/nb/altinn-studio/reference/maintainance/dependencies/).
 {{% /notice%}}
 
 Dyp skanning av filer er ikke aktivert som standard. For å aktivere dette, kreves en manuell handling. Hvis en fil skannes og blir funnet infisert før prosessen er fullført, vil dette forårsake en valideringsfeil.

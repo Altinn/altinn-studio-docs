@@ -28,7 +28,7 @@ Ny funksjonalitet legges til Designer hele tiden og dokumentasjonen oppdateres f
 ## Før du starter
 
 Før du kan bygge en applikasjon er det en del ting som må være på plass. Gå gjennom følgende punkter fra
-**[Kom i gang](/nb/altinn-studio/getting-started)** (vent med de resterende stegene til [Modul 1](/nb/app/app-dev-course/modul1)):
+**[Kom i gang](/nb/altinn-studio/getting-started)** (vent med de resterende stegene til [Modul 1](/nb/altinn-studio/getting-started/app-dev-course/modul1)):
 
 1. [Opprett bruker](/nb/altinn-studio/getting-started/create-user)
 2. [Lær å navigere Altinn Studio](/nb/altinn-studio/getting-started/navigation)

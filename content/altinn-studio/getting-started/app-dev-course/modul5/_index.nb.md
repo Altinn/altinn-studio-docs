@@ -22,12 +22,12 @@ I denne modulen skal du legge til et prosessteg i applikasjonen.
 En Altinn-app har en prosessflyt definert av BPMN (Business Process Model and Notation) som beskriver de ulike stegene i prosessen.
 Standardflyten for en nyopprettet applikasjon består av én oppgave og ett utfyllingssteg.
 
-![Standard prosessflyt illustrert](/app/app-dev-course/modul5/default-process.png)
+![Standard prosessflyt illustrert](/altinn-studio/getting-started/app-dev-course/modul5/default-process.png)
 
 Din oppgave er å utvide standardprosessflyten med et bekreftelsessteg som illustrert nedenfor.
 Bekreftelsessiden blir lagt til automatisk når man legger til dette i BPMN-filen `App/config/process/process.bpmn`.
 
-![Oppdatert prosessflyt illustrert](/app/app-dev-course/modul5/updated-process.png)
+![Oppdatert prosessflyt illustrert](/altinn-studio/getting-started/app-dev-course/modul5/updated-process.png)
 
 ### Krav fra kommunen
 
@@ -170,7 +170,7 @@ og du skal kunne teste det nye prosessteget og bekrefte at visningen ser ut som 
  
  Du skal nå få opp følgende side når du klikker på "Send inn":
 
-![Skjermbilde av bekreftelsesside](/app/app-dev-course/modul5/bekreftelsesside-screenshot.png "Skjermbilde av bekreftelsesside")
+![Skjermbilde av bekreftelsesside](/altinn-studio/getting-started/app-dev-course/modul5/bekreftelsesside-screenshot.png "Skjermbilde av bekreftelsesside")
 
 Merk at hvis du klikker på "Send inn" på bekreftelsessiden vil du få en feilmelding. Dette løses i neste steg med autorisasjon.
 

@@ -234,7 +234,7 @@ NOTE: The address component is a proof of concept. The content/design of this co
       <td><img alt="Address (advanced mode) - default look" src="display-address-advanced.png?width=700" title="Address (advanced mode) - default look" /></td>
     </tr>
         <tr>
-      <td><a href="/altinn-studio/development/ux/fields/grouping/">Group</a> <br/></td>
+      <td><a href="/altinn-studio/reference/ux/fields/grouping/">Group</a> <br/></td>
       <td>
         <ul>
           <li>Group id</li>

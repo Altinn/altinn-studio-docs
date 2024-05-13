@@ -7,7 +7,7 @@ hidden: true
 
 {{% notice warning %}}
 Dette kurset er under oppgradering. Kun 5 av de 7 modulene er tilgjengelig på denne oppdaterte versjonen foreløpig. 
-Den gamle versjonen av kurset (med alle moduler) ligger [her](../../../app/app-dev-course/).
+Den gamle versjonen av kurset (med alle moduler) ligger [her](../../../altinn-studio/getting-started/app-dev-course/).
 {{% /notice %}}
 
 Introkurset er delt opp i 7 moduler og dekker et fiktivt case for Sogndal kommune.
