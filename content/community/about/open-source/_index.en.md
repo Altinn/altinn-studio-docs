@@ -47,7 +47,7 @@ where the goal is to be able to reuse everything we develop not only at national
 accelerate the attainment of [the sustainable development goals](https://www.undp.org/sustainable-development-goals).
 
 We also encourage [the developers building apps](https://www.altinn.no/en/about-altinn/the-altinn-co-operation/)
-using Altinn Studio to also [share their apps](../../../app/launched-apps/).
+using Altinn Studio to also [share their apps](../../../altinn-studio/news/launched-apps/).
 In fact, you have to do an active decision *not* to share, since sharing and reuse is central to the concept of Altinn 3.
 
 ## Cooperation

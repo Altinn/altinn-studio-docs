@@ -10,7 +10,7 @@ Having a Secure DevOps process requires that security is built into the applicat
 and the configuration, and more.
 
 <figure>
-<object title="Secure DevOps phases" data="/security/whitepaper/reference/devops.svg" type="image/svg+xml"></object>
+<object title="Secure DevOps phases" data="/security/whitepaper/development/devops.svg" type="image/svg+xml"></object>
 <figcaption>Secure DevOps phases (clickable)</figcaption>
 </figure>
 
