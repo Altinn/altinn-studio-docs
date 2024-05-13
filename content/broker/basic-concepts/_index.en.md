@@ -20,7 +20,7 @@ The following diagram gives a high level overview of Altinn 3 Broker actors, ser
 Explanation to the diagram:
 
 
-* The main service provided by Altinn Broker is managed file transfer from one sender (provider) to one or more recepients (consumers) with intermediary storage of files and metadata.
+* The main service provided by Altinn Broker is managed file transfer from one sender (provider) to one or more recipients (consumers) with intermediary storage of files and metadata.
 * File Upload and File Download services are configurable.
 * All features are accessible to End User Systems via APIs.
 * Human End Users communicate with Altinn Broker via GUIs provided by either their custom End User Systems or GUI-s provided ny Altinn Broker. 
@@ -28,9 +28,9 @@ Explanation to the diagram:
 * End User Systems may be triggered by events via notifications to [Webhooks](https://en.wikipedia.org/wiki/Webhook). The same events may alternatively be detected by polling the APIs, 
   however supporting Webhooks in the End User Systems is recommended over API polling.
 * Service Owners configure the services and receive usage reports, invoices and other information according to the agreed service levels.
-* Senders upload files and receive status updates about processing and delivery to recepients.
-* Recepients receive notifications about available files.
-* Recepients confirm successful downloads. 
+* Senders upload files and receive status updates about processing and delivery to recipients.
+* Recipients receive notifications about available files.
+* Recipients confirm successful downloads. 
 
 
 
@@ -43,7 +43,7 @@ Altinn 3 Broker. Also see https://docs.altinn.studio/technology/terms/ and <http
 |--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Broker                         | A 'broker' facilitates transactions, negotiations, or agreements between two parties, such as buyers and sellers, or providers and consumers. |
 | Customer                       | In the context of Altinn, 'customer' is  associated with 'service owner'. |
-| Data Consumer                  | A 'data consumer' is an individual or system that uses data provided by data sources or services. Also see 'recepient.
+| Data Consumer                  | A 'data consumer' is an individual or system that uses data provided by data sources or services. Also see 'recipient.
 | Data Holder                    | ‘Data holder’ means a legal person, including public sector bodies and international organisations, or a natural person who is not a data subject with respect to the specific data in question, which, in accordance with applicable law, has the right to grant access to or to share certain personal data or non-personal data. |
 | Data Provider                  | A 'data provider' is an entity that supplies or grants access to data.  Also see 'sender. |
 | Document                       | A 'document' refers to any form of recorded content, whether in digital or paper format, used to communicate, store, or present information, ranging from text and images to diagrams and multimedia. It serves various purposes, including legal evidence, historical records, educational material, or business transactions, facilitating the sharing and preservation of knowledge.                                                                                                                                                                                                                                                      |
@@ -100,7 +100,7 @@ A longer list of terms. kept as a comment until further:
 
 Notes: 
 * In the context of Altinn Broker, the terms _Data Provider_ and _Sender_ may be assumed to mean the same.
-* In the context of Altinn Broker, the terms _Data Consumer_ and _Recepient_ may be assumed to mean the same.
+* In the context of Altinn Broker, the terms _Data Consumer_ and _recipient_ may be assumed to mean the same.
   <!-- are used interchangeably. -->
 
 ## Conceptual information model
@@ -116,7 +116,7 @@ Explanation:
 * Each File Transfer Process considers one File only. The same applies for each Upload Process and Download Process. 
 * The same File may be used in several File Transfer Processes and consequently in several Download Processes.
 * Only one Upload Process per File is considered. Note that if the same file is uploaded more than once, Altinn Broker will  consider the files as different and assign different identifiers.
-* Notifications about File Transfer Events are given to Senders and Recepients depending on subscription setup. E.g. recepients may be notified about new messages, and senders may be notified about delivery events. 
+* Notifications about File Transfer Events are given to Senders and recipients depending on subscription setup. E.g. recipients may be notified about new messages, and senders may be notified about delivery events. 
 * Each File Transfer Event relates to one File Transfer Process, and consequently only one File, however any number of events may occur for the same File Transfer Process.
 
 
@@ -143,15 +143,15 @@ as long as no download process has started.
 
 * __Published__: Ready for downloads.
    
-* __Downloads Initiated__:One or more recepients has started downloading.
+* __Downloads Initiated__:One or more recipients has started downloading.
 
 * __TransferFailed__: The overall transfer process failed, for some reason, either during upload, upload processing or during download by one or more repepients.
   
-* __All Confirmed Downloaded__: All required recepients have confirmed download.
+* __All Confirmed Downloaded__: All required recipients have confirmed download.
 
 * __Deleted__: The uploaded file has been purged. This could be upon specific request by the sender, 
                 or upon agreed criteria for purging, 
-                e.g. when all required recepients have confirmed download.
+                e.g. when all required recipients have confirmed download.
                 Note that the concept allows for files to remain in Altinn Broker File Store,
                 to support file sharing for other purposes than a single file transfer process. 
                 In such cases, the process ends when the file has been uploaded and published, 
