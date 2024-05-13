@@ -15,13 +15,13 @@ This is an implementation of the soft shift solution described [here](../../solu
 ## Technical overview
 
 Altinn 2 allows end users in Altinn 2 to make BrokerService requests for specific Broker Services that will be transferred to Altinn 3 instead of being stored in Altinn 2.
-Files transferred in this way will be available for Altinn 3 users and Altinn 2 users.
+Files transferred in this way will be available for Altinn 3 and Altinn 2 users.
 
 
-1. Requests to that have the ability to specify ServiceCode / ServiceEdition. 
+1. Requests that have the ability to specify ServiceCode / ServiceEdition. 
 In this case Altinn will immediately determine that the request should be transferred to Altinn 3 via the Altinn 3 Broker Bridge.
 In cases where the SC/SE can be specified, but aren't, requests will not be transferred to Altinn 3.
-2. Requests that do cannot specify SC/SE.
+2. Requests that do not have the ability to specify SC/SE.
 In this case a call will first be made to Altinn 2 Broker storage. If nothing is found in Altinn 2, a call will be made to Altinn 3.
 3. Files in Altinn 3 cannot be larger than 1 GB, as this is the maximum file size in Altinn 2. The Altinn 3 Resource should be configured with this max filesize restriction.
 4. File data and metadata will be stored in the Altinn 3 store, while Altinn 2 will simply call Altinn 3.
