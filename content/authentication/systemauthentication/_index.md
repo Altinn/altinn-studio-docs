@@ -245,54 +245,15 @@ For systemleverandører må følgende utføres
         "f381cbb8-1e5c-4017-977d-f9029e2ee7ca",
         "4349ee94-98a4-49be-8db3-bd60937fcdd4"
     ],
-    "RequiredResourceRights": [
-        {
-     "resource": [
+    "DefaultResources": [
       {
-        "id": "urn:altinn:org",
-        "value": "skd"
+        "id": "urn:altinn:resource",
+        "value": "app_skd_mva"
       },
       {
-        "id": "urn:altinn:app",
-        "value": "mva"
-      },
-      {
-        "id": "urn:altinn:task",
-        "value": "Task_1"
-      }
-    ],
-    "action": "read"
-    },
-     {
-     "resource": [
-      {
-        "id": "urn:altinn:org",
-        "value": "skd"
-      },
-      {
-        "id": "urn:altinn:app",
-        "value": "mva"
-      },
-      {
-        "id": "urn:altinn:task",
-        "value": "Task_1"
-      }
-    ],
-    "action": "write"
-    },
-     {
-     "resource": [
-      {
-        "id": "urn:altinn:org",
-        "value": "skd"
-      },
-      {
-        "id": "urn:altinn:app",
+        "id": "urn:altinn:resource",
         "value": "kravogbetaling"
       }
-    ],
-    "action": "read"
-    }
     ],
     "Title":{
         "en": "Bedriftsuguru SuperBusiness",
