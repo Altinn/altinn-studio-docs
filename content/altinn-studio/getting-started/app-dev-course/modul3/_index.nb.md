@@ -64,7 +64,7 @@ som kan publiseres til ett eller flere miljø.
 og legg til en beskrivende kommentar om hva versjonen inneholder.
 
 ### Nyttig dokumentasjon
-- [Bygge app i Altinn Studio](/nb/altinn-studio/testing/deploy/#bygge-app)
+- [Bygge app i Altinn Studio](/nb/altinn-studio/reference/testing/deploy/#bygge-app)
 
 {{% /expandlarge %}}
 
@@ -85,7 +85,7 @@ I tillegg må utvikleren som skal gjennomføre publiseringen inneha [rollen Depl
 
 ### Nyttig dokumentasjon
 
-- [Publisere app til testmiljø](/nb/altinn-studio/testing/deploy/#deploy-av-app-til-testmiljø)
+- [Publisere app til testmiljø](/nb/altinn-studio/reference/testing/deploy/#deploy-av-app-til-testmiljø)
 - [Tilgangsstyring for organisasjon i Altinn Studio](/nb/altinn-studio/guides/access-management/studio/#tilgangsstyring-for-organisasjonen)
 
 ### Forståelsessjekk

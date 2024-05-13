@@ -4,7 +4,7 @@ linktitle: Locally
 description: Description of how test of an app locally on your own machine.
 weight: 100
 aliases:
-- /app/testing/local/
+- /altinn-studio/reference/testing/local/
 ---
 
 If you need to write a significant amount of code (e.g., [logic](/altinn-studio/reference/logic/)), or quickly check how a form looks, it can be useful to test changes without having to deploy the app to a test environment.
