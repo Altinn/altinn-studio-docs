@@ -14,7 +14,7 @@ This enables communication between senders and receivers of files regardless of 
 This service will allow service owners to link an existing Altinn 2 service to an Altinn 3 resource, and to forward Altinn 2 Broker Service requests to the Altinn 3 Broker Service app while not substantially changing the Altinn 2 Broker Service End User experience.
 This will then allow end users of the Altinn 2 service to communicate with end users of the Altinn 3 resource. 
 
-For Altinn 3 users, the user experience will no different than if all users are using Altinn 3. 
+For Altinn 3 users, the user experience will not be different than if all users are using Altinn 3. 
 
-For Altinn 2 users, the user experience will no different than if all users are using Altinn 2. 
+Altinn 2 users will experience some minor differences related to file transfer and returned values compared to if all users are using Altinn 2.
 {{<children />}}
