@@ -33,7 +33,7 @@ Url for API is
 - TT02: https://platform.tt02.altinn.no/authorization/api/v1/authorize
 - Production: https://platform.altinn.no/authorization/api/v1/authorize
 
-**It is required to have access to a scope altinn:authorization:pdp and a API key for this access. Contact Altinn to get this.**
+**It is required to have an API key for this access. Contact Altinn to get this.**
 
 Api Key need to be sent as "Ocp-Apim-Subscription-Key" header.
 

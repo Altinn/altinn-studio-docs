@@ -31,13 +31,17 @@ __Interfaces for design time configuration of services and options:__
 * API for setup of event subscriptions via Altinn Events
 * GUI for configuration of Altinn Broker
 * GUI for configuration of  Maskinporten
-* GUI for configuration of Altinn Authorization Erik [13:39] Fatland, Ragnar Inge
+* GUI for configuration of Altinn Authorization
+
+<!--  
+* Erik [13:39] Fatland, Ragnar Inge
 https://docs.altinn.studio/authorization/modules/resourceregistry/studio/
 Ressurs Admin Altinn Studio – Altinn
 Ressursregisteret tilbyr API for alle typer håndtering av ressurser. I tilegg kan man  som del av Altinn studio kan administrere ressursene.
+-->
 
-    _Note_: Altinn 3 Broker does not currently provide a GUI for file transfer operations, 
-but relies om End User System GUIs.
+_Note: Altinn 3 Broker does not currently provide a GUI for file transfer operations, 
+but relies om End User System GUIs._
 
 __Interfaces for runtime operation:__
 

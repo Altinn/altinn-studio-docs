@@ -27,7 +27,6 @@ Hvis du ikke allerede har en API-nøkkel for Maskinporten-klient(er) du har tenk
 
 Registrer Maskinporten-klienten(e) din for å autentisere mot Broker-API-en, tildel dem relevante omfang:
 
-- `altinn:authorization:pdp` - Påkrevd for alle Broker-API-klienter for autorisasjonsadgang.
 - `altinn:broker.write` - For klienter som sender filer.
 - `altinn:broker.read` - For klienter som mottar filer.
 
