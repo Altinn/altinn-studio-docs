@@ -5,7 +5,7 @@ description: Beskrivelse av hvordan test i testmiljø kan utføres.
 toc: true
 weight: 200
 aliases:
-- /nb/app/testing/deploy/
+- /nb/altinn-studio/testing/deploy/
 ---
 
 Klargjøring av app og deploy til testmiljø gjøres fra _Deploy_-fanen i Altinn Studio.

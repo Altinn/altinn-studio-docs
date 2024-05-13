@@ -26,7 +26,7 @@ Tjenesten må ha en beskrivende ID som gjør det enkelt å finne den igjen blant
 tjenesteer Sogndal kommune har i Altinn Studio.
 
 {{% notice info %}}
-Dersom du skal teste appen i et [testmiljø](/nb/app/testing/deploy/) (beskrevet i [Modul 5](/nb/altinn-studio/getting-started/app-dev-course-v2/modul5/)) må du velge en organisasjon som eier.
+Dersom du skal teste appen i et [testmiljø](/nb/altinn-studio/testing/deploy/) (beskrevet i [Modul 5](/nb/altinn-studio/getting-started/app-dev-course-v2/modul5/)) må du velge en organisasjon som eier.
 Du må ha [tilgang til organisasjonen](/nb/altinn-studio/getting-started/create-user/#bli-del-av-en-organisasjon) og organisasjonen må ha tilgang til et testmiljø.
  {{% /notice %}}
 

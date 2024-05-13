@@ -63,7 +63,7 @@ Create a new build for the application with version number `0.0.1`
 and add a descriptive comment of what the version includes.
 
 ### Useful documentation
-- [Build app in Altinn Studio](/app/testing/deploy/#bygge-app)
+- [Build app in Altinn Studio](/altinn-studio/testing/deploy/#bygge-app)
 
 {{% /expandlarge %}}
 
@@ -82,7 +82,7 @@ for the organization in Altinn Studio.
 **Deploy your application to TT02.**
 
 ### Useful documentation
-- [Deploy app to test environment](/app/testing/deploy/#deploy-av-app-til-testmiljø)
+- [Deploy app to test environment](/altinn-studio/testing/deploy/#deploy-av-app-til-testmiljø)
 - [Access control for the organization in Altinn Studio](/altinn-studio/guides/access-management/studio/#access-management-for-the-organization)
 
 ### Knowledge check

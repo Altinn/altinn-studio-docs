@@ -14,7 +14,7 @@ Below is a list of the capabilities with a short description and possible link t
 
 Most of our code is written manually.
 
-See [development application components](../../../components/application/nonsolutionspecific/reference/)
+See [development application components](../../../components/application/nonsolutionspecific/development/)
 to get an overview of our tools and applications.
 
 ### Software Defined Infrastructure Definition Enablement
@@ -37,7 +37,7 @@ See development application components for details on how we do this.
 
 We use [Auzure Pipelines](https://azure.microsoft.com/en-us/services/devops/pipelines/) to build the source code for releases..
 
-See [development application components](../../../components/application/nonsolutionspecific/reference/) to get a overview over tools and application we use. 
+See [development application components](../../../components/application/nonsolutionspecific/development/) to get a overview over tools and application we use. 
 
 ### Continuous Integration Capabilities
 

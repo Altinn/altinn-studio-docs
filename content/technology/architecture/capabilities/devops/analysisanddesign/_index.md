@@ -22,7 +22,7 @@ Some example issues are
 - [The issue for supporting Sirius App for tax department](https://github.com/Altinn/altinn-studio/issues/3747)
 - [The issue for supporting NSM POB](https://github.com/Altinn/altinn-studio/issues/4731)
   
-See [development application components](../../../components/application/nonsolutionspecific/reference/)  to get an overview of our tools and applications.
+See [development application components](../../../components/application/nonsolutionspecific/development/)  to get an overview of our tools and applications.
 
 ### User story Definition
 
@@ -62,7 +62,7 @@ See [Altinn Design System V2](https://designsystem.altinn.studio/)
 
 The DevOps team has the capability for data modeling and design.
 
-See [development application components](../../../components/application/nonsolutionspecific/reference/) to get an overview of our tools and applications.
+See [development application components](../../../components/application/nonsolutionspecific/development/) to get an overview of our tools and applications.
 
 ### Architecture Design Enablement
 
