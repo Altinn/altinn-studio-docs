@@ -21,12 +21,12 @@ Files transferred in this way will be available for Altinn 3 and Altinn 2 users.
 1. Requests that have the ability to specify ServiceCode / ServiceEdition. 
 In this case Altinn will immediately determine that the request should be transferred to Altinn 3 via the Altinn 3 Broker Bridge.
 In cases where the SC/SE can be specified, but aren't, requests will not be transferred to Altinn 3.
-1. Requests that do cannot specify SC/SE.
+2. Requests that do not have the ability to specify SC/SE.
 In this case a call will first be made to Altinn 2 Broker storage. If nothing is found in Altinn 2, a call will be made to Altinn 3.
-1. Files in Altinn 3 cannot be larger than 1 GB, as this is the maximum file size in Altinn 2. The Altinn 3 Resource should be configured with this max filesize restriction.
-2. File data and metadata will be stored in the Altinn 3 store, while Altinn 2 will simply call Altinn 3.
-3. Receipts will no longer be stored in Altinn 2, instead a pseudo receipt will be generated from Altinn 3 Metadata. Receipt endpoint in Altinn 2 will no longer be used for Transitioned Broker Services. If you require the use of Receipt endpoint, submit a feature request.
-4. The use of Manifest file in the submitted file data is deprecated in Altinn 3 and Transitioned Broker Services. If this is a critical requirement, submit a feature request.
+3. Files in Altinn 3 cannot be larger than 1 GB, as this is the maximum file size in Altinn 2. The Altinn 3 Resource should be configured with this max filesize restriction.
+4. File data and metadata will be stored in the Altinn 3 store, while Altinn 2 will simply call Altinn 3.
+5. Receipts will no longer be stored in Altinn 2, instead a pseudo receipt will be generated from Altinn 3 Metadata. Receipt endpoint in Altinn 2 will no longer be used for Transitioned Broker Services. If you require the use of Receipt endpoint, submit a feature request.
+6. The use of Manifest file in the submitted file data is deprecated in Altinn 3 and Transitioned Broker Services. If this is a critical requirement, submit a feature request.
 
 <img src="altinn3-broker-transition-flowchart.svg" />
 
