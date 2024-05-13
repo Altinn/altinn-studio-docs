@@ -21,4 +21,4 @@ Merk at tjenesteeiere må melde fra til Digdir når tilganger skal fjernes.
 Autentisering for sluttbrukere er nærmere forklart [her](/nb/api/authentication/).
 
 Tjenesteeiere må selv spesifisere krav til autorisasjon i tjenestene de utvikler.
-Mer informasjon finnes [her](/nb/app/development/configuration/authorization/).
+Mer informasjon finnes [her](/nb/altinn-studio/reference/configuration/authorization/).

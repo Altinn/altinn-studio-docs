@@ -1483,7 +1483,7 @@
                 </text>
             </switch>
         </g>
-        <a xlink:href="https://docs.altinn.studio/app/development/logic/" target="_blank">
+        <a xlink:href="https://docs.altinn.studio/altinn-studio/reference/logic/" target="_blank">
             <rect x="1510" y="630" width="120" height="60" fill="url(#mx-gradient-ffcd28-1-ffa500-1-s-0)" stroke="#d79b00" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -1502,7 +1502,7 @@
                 </switch>
             </g>
         </a>
-        <a xlink:href="https://docs.altinn.studio/app/development/configuration/" target="_blank">
+        <a xlink:href="https://docs.altinn.studio/altinn-studio/reference/configuration/" target="_blank">
             <rect x="1510" y="700" width="120" height="60" fill="url(#mx-gradient-ffcd28-1-ffa500-1-s-0)" stroke="#d79b00" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>

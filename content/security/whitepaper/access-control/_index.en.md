@@ -21,5 +21,5 @@ Note that service owners must notify Digdir when access is to be removed.
 Authentication for end users is explained in more detail [here](/api/authentication/).
 
 Service owners must specify authorization policies in the apps they develop.
-More information can be found [here](/app/development/configuration/authorization/).
+More information can be found [here](/altinn-studio/reference/configuration/authorization/).
 

@@ -188,8 +188,8 @@ To see how you can leverage expressions to dictate process flow, see [using expr
 
 ### Custom process actions
 Custom actions make it possible to create custom actions for moving the process along. These actions can be authorized separately, used in expressions inside the process definition to change how the process flows and execute custom code before the process is moved to the next task.
-To see how you can use custom process actions, see [defining custom actions in process tasks](../../../../app/development/process/actions/process-actions).
+To see how you can use custom process actions, see [defining custom actions in process tasks](../../../../altinn-studio/reference/process/actions/process-actions).
 
 ### Custom server actions
 Custom server actions make it possible to create custom actions that can be executed from the UI without moving the process. These actions can be authorized separately and execute custom code.
-To see how you can use custom server actions, see [defining custom actions in process tasks](../../../../app/development/process/actions/serveraction/).
+To see how you can use custom server actions, see [defining custom actions in process tasks](../../../../altinn-studio/reference/process/actions/serveraction/).

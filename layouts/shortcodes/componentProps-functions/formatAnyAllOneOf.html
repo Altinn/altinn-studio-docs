@@ -11,7 +11,7 @@
                     {{- $isNotReference = false -}}
                     {{- $split := split $val "/" -}}
                     {{- $refItemName := index $split (sub (len $split) 1) -}}
-                    {{- $link := printf "/app/development/ux/components/commondefs#%s" $refItemName -}}
+                    {{- $link := printf "/altinn-studio/reference/ux/components/commondefs#%s" $refItemName -}}
                     <a href="{{- $link -}}">{{- $refItemName -}}</a><br>
                 {{- end -}}
             {{- end -}}

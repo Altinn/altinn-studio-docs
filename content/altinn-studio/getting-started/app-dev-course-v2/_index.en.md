@@ -2,6 +2,7 @@
 title: Introkurs
 description: Bygg en applikasjon med Altinn Studio
 tags: [apps, build, deploy, training]
+hidden: true
 ---
 
 {{% notice info %}}

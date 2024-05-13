@@ -78,9 +78,9 @@ sentrale filområdet til tjenesten. Dette gjøres via menyen helt til høyre ved
 Datamodellen definerer hvilke data man forventer å samle inn, og hvilket format disse skal være på. 
 > _Man kan se på en datamodell som en innholdsfortegnelse for skjemaet._
 
-Med Altinn Studios [verktøy for datamodellering](/nb/app/development/data/data-modeling/)
- kan du legge til en datamodell ved å [laste opp en ferdig datamodell i form av en _xsd_-fil](/nb/app/development/data/data-modeling/#laste-opp-og-vise-datamodell)
-  eller [lage en ny datamodell](/nb/app/development/data/data-modeling/#lage-ny-datamodell) fra bunnen av.
+Med Altinn Studios [verktøy for datamodellering](/nb/altinn-studio/reference/data/data-modeling/)
+ kan du legge til en datamodell ved å [laste opp en ferdig datamodell i form av en _xsd_-fil](/nb/altinn-studio/reference/data/data-modeling/#laste-opp-og-vise-datamodell)
+  eller [lage en ny datamodell](/nb/altinn-studio/reference/data/data-modeling/#lage-ny-datamodell) fra bunnen av.
 I denne oppgaven skal du lage en enkel modell fra bunnen av.
 
 Merk at en helt enkel datamodell med noen eksempel-felter nå er en del av malen som lastes inn når 

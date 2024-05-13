@@ -1,7 +1,7 @@
 ---
 title: Nyheter
 description: Nyheter i Altinn Studio
-weight: 40
+weight: 50
 ---
 
 ## Kommende

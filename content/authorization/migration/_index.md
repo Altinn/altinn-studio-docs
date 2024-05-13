@@ -38,7 +38,7 @@ Resultatet er at dette kan oppleves som forvirrende, overveldende, usikkert og f
 Den nye brukerflaten i Altinn Autorisasjon har som mål å tilby en tilrettelagt og nøyaktig tilgangsstyring som forenkle arbeidsflyten og oppleves som betyrggende for brukeren 
 Dette skal også sikre at man ikke får tilgang til mer enn man strengt tatt trenger.
 
-En konsekvens av dette er at dagens [roller i Altinn 2.0](/app/development/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/altinn_roles_enterprices/) 
+En konsekvens av dette er at dagens [roller i Altinn 2.0](/altinn-studio/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/altinn_roles_enterprices/) 
 skal fases ut og erstattes med nye [tilgangspakker i Altinn 3.0](../modules/accessgroups/type-accessgroups/)
 
 #### Hva blir konsekvensen av at man innfører nye tilgangspakker? 
