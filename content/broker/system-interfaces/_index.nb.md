@@ -10,7 +10,7 @@ weight: 30
 ## Oversikt over Altinn 3 Formidling eksterne grensesnitt
 Følgende figur indikerer de viktigste systemgrensesnittene for Altinn 3 Formidling som selvstendig løsning (uten Dialogporten):
 
-![Oversiktover eksterne grensesnitt for Altinn 3 Formidling som selvstendig løsning](altinn3-broker-standalone-interfaces-overview.nb.png "Oversiktover eksterne grensesnitt for Altinn 3 Formidling som selvstendig løsning")
+![Oversikt over eksterne grensesnitt for Altinn 3 Formidling som selvstendig løsning](altinn3-broker-standalone-interfaces-overview.nb.png "Oversikt over eksterne grensesnitt for Altinn 3 Formidling som selvstendig løsning")
 
 <!--
 *TIP: The details of the interfaces are not shown by the image as

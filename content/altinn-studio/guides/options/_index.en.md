@@ -27,6 +27,24 @@ in `FormLayout.json` as shown below:
 }
 ```
 
+### Save label value in the datamodel
+Sometimes you might wish to save the displayed value in the users chosen language to simplify creation of simple presentations of data without addtional lookups or a requirement to remember the label the user actually picked in case it have changed over time.
+
+This is performed by having a separate ``dataModelBindings`` with the key ``"label":`` in addition to ``"simpleBinding":``
+
+```json
+{
+  "id": "dropdown-component",
+  "type": "Dropdown",
+  "dataModelBindings": {
+    "simpleBinding": "soknad.nyGaranti.loyvetype",
+    "label":"soknad.nyGaranti.loyvetypeLabel"
+  },
+  "optionsId": "biler"
+}
+```
+
+
 ## Pass query parameters when fetching options
 
 Options supports query parameters when making the api call, the parameter `language` is added automatically.
