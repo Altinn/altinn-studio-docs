@@ -14,7 +14,7 @@ creates a current task object to hold the process state.
 
 ![Flowchart for process](mvp-process.png "Process")
 
-A process is represented by an process modell in BPMN/XML notation. Each task has an unique id, which is used to refer to the task in the api.
+A process is represented by an process model in BPMN/XML notation. Each task has an unique id, which is used to refer to the task in the api.
 
 ### Process model
 
@@ -31,9 +31,14 @@ Returns the bpmn file defining the process.
     <bpmn2:startEvent id="StartEvent_1">
         <bpmn2:outgoing>Flow_1</bpmn2:outgoing>
     </bpmn2:startEvent>
-    <bpmn2:task id="Task_1" name="Utfylling" altinn:tasktype="data">
+   <bpmn2:task id="Task_1" name="Utfylling">
         <bpmn2:incoming>Flow_1</bpmn2:incoming>
         <bpmn2:outgoing>Flow_2</bpmn2:outgoing>
+        <bpmn2:extensionElements>
+            <altinn:taskExtension>
+                <altinn:taskType>data</altinn:taskType>
+            </altinn:taskExtension>
+        </bpmn2:extensionElements>
     </bpmn2:task>
     <bpmn2:endEvent id="EndEvent_1">
         <bpmn2:incoming>Flow_2</bpmn2:incoming>
@@ -45,8 +50,8 @@ Returns the bpmn file defining the process.
 
 ## Altinn specific task types
 
-Application developers can in their BPMN Definition specify some altinn specific task types, see `altinn:tasktype`,
-which signify the behaviour of the task. So far we have defined the following:
+Application developers can in their BPMN Definition specify some altinn specific task types, see `altinn:taskType`,
+which signify the behavior of the task. So far we have defined the following:
 
 - *data* - user is asked to fill inn one or more data elements, e.g. upload data or fill in forms
 - *confirmation* - user is asked to confirm the correctness of the information which has been filled in on previous tasks

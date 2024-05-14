@@ -54,6 +54,7 @@ targetNamespace="http://bpmn.io/schema/bpmn" >
 Frem til versjon 8 av pakken, ble taskType definert direkte på `<bpmn:task>`-elementet.
 For å følge BPMN-spesifikasjonen bedre, har dette blitt flyttet til `<bpmn:extensionElements>`-elementet.
 
+Gammel dataoppgave:
 ```xml {hl_lines=[1]}
 <bpmn:task id="Task_1" name="Utfylling" altinn:tasktype="data">
     <bpmn:incoming>Flow1</bpmn:incoming>
@@ -61,9 +62,8 @@ For å følge BPMN-spesifikasjonen bedre, har dette blitt flyttet til `<bpmn:ext
 </bpmn:task>
 ```
 
+Ny dataoppgave:
 ```xml {hl_lines=["4-8"]}
-<bpm
-
 <bpmn:task id="Task1" name="Utfylling">
     <bpmn:incoming>Flow1</bpmn:incoming>
     <bpmn:outgoing>Flow2</bpmn:outgoing>

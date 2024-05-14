@@ -55,7 +55,7 @@ If you're up for an extra challenge, you can manually edit the process flow or u
 
 ### Knowledge check
 {{% expandsmall id="m5t1q1" header="What Altinn-specific properties are set on each process task?" %}}
-`altinn:tasktype` is defined for each task.
+`altinn:taskType` is defined for each task.
 {{% /expandsmall %}}
 
 {{% expandsmall id="m5t1q2" header="What limitations would an external BPMN editing tool have when editing the process description of an Altinn app?" %}}

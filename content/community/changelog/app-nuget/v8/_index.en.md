@@ -54,6 +54,7 @@ targetNamespace="http://bpmn.io/schema/bpmn" >
 Up until v8 of the NuGet package, taskType was defined directly on the `<bpmn:task>` element.
 To adhere closer to the BPMN specification, this has been moved to `<bpmn:extensionElements>` element.
 
+Old data task:
 ```xml {hl_lines=[1]}
 <bpmn:task id="Task_1" name="Utfylling" altinn:tasktype="data">
     <bpmn:incoming>Flow1</bpmn:incoming>
@@ -61,6 +62,7 @@ To adhere closer to the BPMN specification, this has been moved to `<bpmn:extens
 </bpmn:task>
 ```
 
+New data task:
 ```xml {hl_lines=["4-8"]}
 <bpmn:task id="Task1" name="Utfylling">
     <bpmn:incoming>Flow1</bpmn:incoming>
