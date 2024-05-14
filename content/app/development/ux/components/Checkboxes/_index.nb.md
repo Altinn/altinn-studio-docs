@@ -100,13 +100,7 @@ App/ui/layouts/{page}.json
     "data": {
       "layout": [
         {
-          "id": "Image-id",
-          "type": "Image",
-          "image": {
-            "src": {},
-            "width": "100%",
-            "align": "center"
-          }
+          // Basic component (required properties)
         }
       ]
     }
