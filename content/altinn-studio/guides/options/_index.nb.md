@@ -17,6 +17,26 @@ Dette gjøres ved å legge til feltet optionsId som referer til hvilken option (
 {
   "id": "dropdown-komponent",
   "type": "Dropdown",
+  "dataModelBindings": {
+    "simpleBinding": "soknad.nyGaranti.loyvetype"
+  },
+  "optionsId": "biler"
+}
+```
+
+### Lagre label verdi i datamodellen
+Noen ganger ønsker man å lagre den viste verdien på brukerens språk i datamodellen for enklere å kunne bruke de lagrede dataene til å lagre enkle visninger uten å være avhengig av å gjøre et nytt oppslag for å få en visningsvennlig verdi. Det kan også brukes for å huske hva brukeren faktisk har sett når han valgte i tilfelle man endrer ordlyd for en verdi og vil ha logg for hva brukeren har sett.
+
+Dette gjøres ved å ha en egen ``dataModelBindings`` med navnet ``"label":`` i tillegg til en ``"simpleBinding":``.
+
+```json
+{
+  "id": "dropdown-komponent",
+  "type": "Dropdown",
+  "dataModelBindings": {
+    "simpleBinding": "soknad.nyGaranti.loyvetype",
+    "label":"soknad.nyGaranti.loyvetypeLabel"
+  },
   "optionsId": "biler"
 }
 ```
