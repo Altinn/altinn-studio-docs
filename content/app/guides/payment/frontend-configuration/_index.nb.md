@@ -55,19 +55,20 @@ Dette er nødvendig for at betaling skal fungere. Uten dette vil betalingssteget
 Dette vil vise en tabell som viser elementene brukeren må betale for.
 Du kan plassere dette hvor som helst i appen din, men vi anbefaler å i det minste sette det på den siste siden før brukeren blir bedt om å betale.
 
+For å få oppdatert ordrelinjene etter hvert som data som brukes til å beregne ordrelinjer endres, må du legge til en mapping til
+datafeltene som brukes til å beregne ordrelinjene.
+
 ```json
 {
-    "id": "paymentInformation",
-    "allowedContentTypes": [
-        "application/json"
-    ],
-    "maxCount": 0,
-    "minCount": 0,
-    "enablePdfCreation": false,
-    "enableFileScan": false,
-    "validationErrorOnPendingFileScan": false,
-    "enabledFileAnalysers": [],
-    "enabledFileValidators": []
+  "id": "paymentDetails",
+  "type": "PaymentDetails",
+  "textResourceBindings": {
+    "title": "Oversikt over betaling",
+    "description": "Her er en oversikt over hva du skal betale for."
+  },
+  "mapping": {
+    "GoodsAndServicesProperties.Inventory.InventoryProperties": "paymentDetails"
+  }
 }
 ```
 

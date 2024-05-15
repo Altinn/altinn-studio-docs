@@ -55,19 +55,20 @@ This is required for payment to work, without it, your payment step will just re
 This will display a table showing the items the user will need to pay for.
 You can put this anywhere in your app, but we recommend at the very least putting it on the last page before the user is prompted to pay.
 
+In order to update the order lines as the data used to calculate the order lines changes, you need to add a mapping to
+the data fields used to calculate the order lines.
+
 ```json
 {
-    "id": "paymentInformation",
-    "allowedContentTypes": [
-        "application/json"
-    ],
-    "maxCount": 0,
-    "minCount": 0,
-    "enablePdfCreation": false,
-    "enableFileScan": false,
-    "validationErrorOnPendingFileScan": false,
-    "enabledFileAnalysers": [],
-    "enabledFileValidators": []
+  "id": "paymentDetails",
+  "type": "PaymentDetails",
+  "textResourceBindings": {
+    "title": "Oversikt over betaling",
+    "description": "Her er en oversikt over hva du skal betale for."
+  },
+  "mapping": {
+    "GoodsAndServicesProperties.Inventory.InventoryProperties": "paymentDetails"
+  }
 }
 ```
 
