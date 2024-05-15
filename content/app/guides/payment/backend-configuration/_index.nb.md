@@ -4,8 +4,6 @@ description: Sett opp din backend til å håndtere betaling.
 weight: 1
 ---
 
-Da denne guiden ble utformet hadde Studio ikke enda lansert støtte for å legge til et betalingsprosessteg, så denne guiden viser manuell fremgangsmåte.
-
 ### 1. Opprett en datatype for å lagre betalingsinformasjon:
 
 Denne datatypen benyttes av betalingssteget for å lagre informasjon og status om betalingen. Legg den i `App/config/applicationmetadata.json` sin `dataTypes` array. ID kan settes til noe annet, men det må matche ID-en som legges inn i `paymentDataType` i prossessteget, som vist i punkt 2.
@@ -21,14 +19,14 @@ Denne datatypen benyttes av betalingssteget for å lagre informasjon og status o
 }
 ```
 
-### 2. Legg til prosess task:
+### 2. Utvid app prossesen med payment task:
 
 Det må legges til et prosessteg og en gateway i `App/config/process/process.bpmn`, som i eksemplet nedenfor.
 
 Betaling benytter tre user actions. Dersom Altinn brukergrensesnittet brukes av appen, så vil disse bli kalt automatisk når man står i betalingssteget. Om kun API benyttes så må disse kalles manuelt via `/actions` endepunktet.
-- `pay`: Setter i gang betalingen, ofte ved å gjøre API-kall til betalingsbehandler. Hvordan man kontrollerer hvilken betalingsbehandler som benyttes beskrives [her](#3-implementer-iorderdetailscalculator-interfacet-i-c). Informasjon og status om den igangsatte betalingen lagres i en JSON-datatype som angis i prosesssteget for betaling.
+- `pay`: Setter i gang betalingen, ofte ved å gjøre API-kall til betalingsbehandler. Hvordan man kontrollerer hvilken betalingsbehandler som benyttes beskrives [her](#4-implementer-iorderdetailscalculator-interfacet-i-c). Informasjon og status om den igangsatte betalingen lagres i en JSON-datatype som angis i prosesssteget for betaling.
 - `confirm`: Kalles når betaling er ferdig gjennomført for å drive prosessen videre til neste steg.
-- `reject`: Dersom sluttbruker ser noe feil med ordren så kan vedkommede trykke "Tilbake" i betalingssteget. Da kanselleres betalingen og informasjon om den avbrutte betalingen slettes. Hvilket prosessteg man deretter ledes til angis i en gateway i `process.bpmn`, som eksemplifisert nedenfor.
+- `reject`: Dersom sluttbruker ser noe feil med ordren så kan vedkommede trykke "Tilbake" i betalingssteget. Da kanselleres betalingen og informasjon om den avbrutte betalingen slettes. Hvilket prosessteg man deretter ledes til angis i en gateway, som eksemplifisert nedenfor.
 
 ```xml
     <bpmn:startEvent id="StartEvent_1">
@@ -87,12 +85,16 @@ Betaling benytter tre user actions. Dersom Altinn brukergrensesnittet brukes av 
       <bpmn:incoming>Flow_g1_end</bpmn:incoming>
     </bpmn:endEvent>
 ```
-NB: Verdien til denne noden: ```<altinn:paymentDataType>paymentInformation</altinn:paymentDataType>``` må matche ID-en til datatypen du konfigurerte i forrige steg.
+NB: Verdien til denne noden: `<altinn:paymentDataType>paymentInformation</altinn:paymentDataType>` må matche ID-en til datatypen du konfigurerte i forrige steg.
+
+### 3. Gi tilganger til den som skal betale:
+
+Brukeren som skal betale må ha rettigheter til `read`, `write`, `pay`, `confirm` og `reject` handlingene på betalingprosessteget.
 
 
-### 3. Implementer IOrderDetailsCalculator interfacet i C#:
+### 4. Implementer IOrderDetailsCalculator interfacet i C#:
 
-Legg til en ny klasse der du har din custom kode, f.eks:  ```App/logic/OrderDetailsCalculator.cs```.
+Legg til en ny klasse der du har din custom kode, f.eks:  `App/logic/OrderDetailsCalculator.cs`.
 
 Her vil du implementere din logikk for å kalkulere hva brukeren skal betale for.
 Du kan for eksempel aksessere skjemadata, legge til obligatoriske avgifter, eller kun legge til en fast kostnad for skjemaet. 
@@ -139,7 +141,6 @@ public class OrderDetailsCalculator : IOrderDetailsCalculator
           Receiver = GetReceiverDetails()};
     }
 }
-
 ```
 
 Registrer IOrderDetailsCalculator implementasjonen i program.cs:
@@ -151,11 +152,11 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 }
 ```
 
-### 4. Legg til config i appSettings.json:
+### 5. Legg til config i appSettings.json:
 
 1. [Hent din hemmelige nøkkel fra nets.](https://developer.nexigroup.com/nexi-checkout/en-EU/docs/access-your-integration-keys/). Pass på at du bruker testnøkkelen under utvikling. 
-2. Legg til din hemmelige nøkkel i keyvault, med variabelnavnet: ```NetsPaymentSettings--SecretApiKey```. På denne måten vil den overstyre ```SecretApiKey``` i ```appsettings.json```. 
-3. Legg til ```NetsPaymentSettings``` i din ```appsettings.json```. Husk å sett riktig `baseUrl` i produksjon.
+2. Legg til din hemmelige nøkkel i keyvault, med variabelnavnet: `NetsPaymentSettings--SecretApiKey`. På denne måten vil den overstyre `SecretApiKey` i `appsettings.json`. 
+3. Legg til `NetsPaymentSettings` i din `appsettings.json`. Husk å sett riktig `baseUrl` i produksjon.
 ```json
 {
   "NetsPaymentSettings": {

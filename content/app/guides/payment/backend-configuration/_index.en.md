@@ -6,7 +6,7 @@ weight: 1
 
 ### 1. Create a data type to store payment information:
 
-This data type is used by the payment step to store information and status about the payment. Put it in `App/config/applicationmetadata.json`'s `dataTypes` array. ID can be set to something else, but it must match the ID entered in `paymentDataType` in the process step, as shown in step 2.
+This data type is used to store information and status about the payment. Put it in the `dataTypes` array in `App/config/applicationmetadata.json`. ID can be set to something else, but it must match the ID entered in `paymentDataType` in the process step, as shown in step 2.
 
 ```json
 {
@@ -20,14 +20,14 @@ This data type is used by the payment step to store information and status about
 ```
 
 
-### 2. Extend the app process with payment step:
+### 2. Extend the app process with payment task:
 
 A process step and a gateway must be added to `App/config/process/process.bpmn`, as in the example below.
 
 Payment uses three user actions. If the Altinn user interface is used by the app, these will be called automatically when you are in the payment step. If only the API is used, these must be called manually via the `/actions` endpoint.
-- `pay`: Initiates the payment, often by making API calls to the payment processor. How to check which payment processor is used is described [here](#3-implement-the-iorderdetailscalculator-interface). Information and status about the initiated payment is stored in a JSON data type specified in the payment process step.
+- `pay`: Initiates the payment, often by making API calls to the payment processor. How to check which payment processor is used is described [here](#4-implement-the-iorderdetailscalculator-interface). Information and status about the initiated payment is stored in a JSON data type specified in the payment process step.
 - `confirm`: Called when payment has been completed to drive the process to the next step.
-- `reject`: If the end user sees something wrong with the order, the person concerned can press "Back" in the payment step. The payment is then canceled and information about the interrupted payment is deleted. Which process step you are then directed to is specified in a gateway in `process.bpmn`, as exemplified below.
+- `reject`: If the end user sees something wrong with the order, the person concerned can press "Back" in the payment step. The payment is then canceled and information about the interrupted payment is deleted. Which process step you are then directed to is specified in a gateway, as exemplified below.
 
 ```xml
     <bpmn:startEvent id="StartEvent_1">
@@ -88,8 +88,11 @@ Payment uses three user actions. If the Altinn user interface is used by the app
 ```
 The value of this node: `<altinn:paymentDataType>paymentInformation</altinn:paymentDataType>` must match the ID of the data type you configured in the previous step.
 
+### 3. Ensure correct authorization for payment process task:
 
-### 3. Implement the IOrderDetailsCalculator interface
+The user making the payment needs to have authorization for the `read`, `write`, `pay`, `confirm` and `reject` actions on the payment task.
+
+### 4. Implement the IOrderDetailsCalculator interface:
 
 Add a new class where you have your custom code, for example: `App/logic/OrderDetailsCalculator.cs`.
 
@@ -151,7 +154,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 ```
 
 
-### 4. Add config to appsettings.json:
+### 5. Add config to appsettings.json:
 
 1. [Get your secret key from nets.](https://developer.nexigroup.com/nexi-checkout/en-EU/docs/access-your-integration-keys/). Make sure you use the test key during development.
 2. Add your secret key to keyvault, with the variable name: `NetsPaymentSettings--SecretApiKey`. This way it will override `SecretApiKey` in `appsettings.json`.
