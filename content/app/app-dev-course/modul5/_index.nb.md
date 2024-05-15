@@ -91,7 +91,7 @@ Policy-filen til applikasjonen din er tilpasset standard prosessflyt og må oppd
 ### Forståelsessjekk
 
 {{% expandsmall id="m5t2q1" header="Hva vil skje når prosessflyten går videre til bekreftelsessteget uten at autoriasjonsreglene er blitt oppdatert?" %}}
-Applikasjonen vil vise "Ukjent feil" når brukeren trykker på "send inn"-knappen.
+Applikasjonen vil vise bekreftelsessteget, men knappen for å sende inn skjemaet er deaktivert.
 {{% /expandsmall %}}
 
 {{% expandsmall id="m5t2q2" header="Hva skjer dersom du ikke spesifiserer hvilke roller som har lov til å utføre en aksjon i en autorisasjonsregel?" %}}

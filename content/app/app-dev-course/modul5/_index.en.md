@@ -88,7 +88,7 @@ The policy file for your application is tailored to the standard process flow an
 
 ### Knowledge check
 {{% expandsmall id="m5t2q1" header="What will happen when the process flow proceeds to the confirmation step without the authorization rules being updated?" %}}
-The application will display an "Unknown error" when the user presses the "submit" button.
+The application will display the confirmation step, but the submit button will be disabled.
 {{% /expandsmall %}}
 
 {{% expandsmall id="m5t2q2" header="What happens if you do not specify which roles are allowed to perform an action in an authorization rule?" %}}
