@@ -144,19 +144,17 @@ public class OrderDetailsCalculator : IOrderDetailsCalculator
 
 ```
 
-
-### 4. Add the C# services to program.cs:
-
+Register IOrderDetailsCalculator implementation in program.cs:
 ```c#
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
     // Register your apps custom service implementations here.
-    services.AddNetsPaymentServices(config);
     services.AddTransient<IOrderDetailsCalculator, OrderDetailsCalculator>(); 
 }
 ```
 
-### 5. Add config to appsettings.json:
+
+### 4. Add config to appsettings.json:
 
 1. [Get your secret key from nets.](https://developer.nexigroup.com/nexi-checkout/en-EU/docs/access-your-integration-keys/). Make sure you use the test key during development.
 2. Add your secret key to keyvault, with the variable name: `NetsPaymentSettings--SecretApiKey`. This way it will override `SecretApiKey` in `appsettings.json`.

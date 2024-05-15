@@ -142,20 +142,16 @@ public class OrderDetailsCalculator : IOrderDetailsCalculator
 
 ```
 
-
-
-### 4. Legg C# tjenestene til i program.cs:
-
+Registrer IOrderDetailsCalculator implementasjonen i program.cs:
 ```c#
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
     // Register your apps custom service implementations here.
-    services.AddNetsPaymentServices(config);
     services.AddTransient<IOrderDetailsCalculator, OrderDetailsCalculator>(); 
 }
 ```
 
-### 5. Legg til config i appSettings.json:
+### 4. Legg til config i appSettings.json:
 
 1. [Hent din hemmelige nøkkel fra nets.](https://developer.nexigroup.com/nexi-checkout/en-EU/docs/access-your-integration-keys/). Pass på at du bruker testnøkkelen under utvikling. 
 2. Legg til din hemmelige nøkkel i keyvault, med variabelnavnet: ```NetsPaymentSettings--SecretApiKey```. På denne måten vil den overstyre ```SecretApiKey``` i ```appsettings.json```. 
