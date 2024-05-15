@@ -2,6 +2,7 @@
 title: Betaling 
 linktitle: Betaling
 description: Følg disse grunnleggende stegene for å komme i gang med å integrere betaling i din Altinn App.
+tags: [betaling]
 weight: 10
 ---
 
