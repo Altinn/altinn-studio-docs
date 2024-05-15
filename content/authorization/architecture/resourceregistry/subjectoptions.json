@@ -275,10 +275,22 @@
         "SubjectTitle": "Eksplisitt tjenestedelegering",
         "SubjectDescription": "Ikke-delegerbar roller for tjenester som kun skal delegeres enkeltvis"
     },
-        {
+    {
         "SubjectId": "a0298",
         "SubjectSource": "altinn:rolecode",
         "SubjectTitle": "Revisorattesterer",
         "SubjectDescription": "Rollen gir bruker tilgang til å attestere tjenester for avgiver som revisor.  Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir."
-    }
+    },
+    {
+        "SubjectId": "bobel",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Konkursbo lesetilgang",
+        "SubjectDescription": "Tilgang til å lese informasjon i tjenesten Konkursbehandling"
+    },
+    {
+        "SubjectId": "bobes",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Konkursbo skrivetilgang",
+        "SubjectDescription": "Utvidet lesetilgang og innsendingsrett for tjenesten Konkursbehandling"
+    },
 ]
