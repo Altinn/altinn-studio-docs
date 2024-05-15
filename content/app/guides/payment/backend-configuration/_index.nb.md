@@ -25,7 +25,7 @@ Denne datatypen benyttes av betalingssteget for å lagre informasjon og status o
 
 Det må legges til et prosessteg og en gateway i `App/config/process/process.bpmn`, som i eksemplet nedenfor.
 
-Betaling benytter tre user actions. Dersom Altinn brukergrensesnittet brukes av appen, så vil disse bli kalt automatisk når man står i betalingssteget. Om kun API benyttes så må disse kalles manuelt via `/actions` endepunktet. 
+Betaling benytter tre user actions. Dersom Altinn brukergrensesnittet brukes av appen, så vil disse bli kalt automatisk når man står i betalingssteget. Om kun API benyttes så må disse kalles manuelt via `/actions` endepunktet.
 - `pay`: Setter i gang betalingen, ofte ved å gjøre API-kall til betalingsbehandler. Hvordan man kontrollerer hvilken betalingsbehandler som benyttes beskrives [her](#3-implementer-iorderdetailscalculator-interfacet-i-c). Informasjon og status om den igangsatte betalingen lagres i en JSON-datatype som angis i prosesssteget for betaling.
 - `confirm`: Kalles når betaling er ferdig gjennomført for å drive prosessen videre til neste steg.
 - `reject`: Dersom sluttbruker ser noe feil med ordren så kan vedkommede trykke "Tilbake" i betalingssteget. Da kanselleres betalingen og informasjon om den avbrutte betalingen slettes. Hvilket prosessteg man deretter ledes til angis i en gateway i `process.bpmn`, som eksemplifisert nedenfor.

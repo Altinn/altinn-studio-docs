@@ -4,9 +4,6 @@ description: Set up your backend to handle payment.
 weight: 1
 ---
 
-At the time this guide was written, Studio had not yet launched support for adding a payment process step, so this guide shows the manual procedure.
-
-
 ### 1. Create a data type to store payment information:
 
 This data type is used by the payment step to store information and status about the payment. Put it in `App/config/applicationmetadata.json`'s `dataTypes` array. ID can be set to something else, but it must match the ID entered in `paymentDataType` in the process step, as shown in step 2.
@@ -28,7 +25,7 @@ This data type is used by the payment step to store information and status about
 A process step and a gateway must be added to `App/config/process/process.bpmn`, as in the example below.
 
 Payment uses three user actions. If the Altinn user interface is used by the app, these will be called automatically when you are in the payment step. If only the API is used, these must be called manually via the `/actions` endpoint.
-- `pay`: Initiates the payment, often by making API calls to the payment processor. How to check which payment processor is used is described [here](#3-implementer-iorderdetailscalculator-interfacet-i-c). Information and status about the initiated payment is stored in a JSON data type specified in the payment process step.
+- `pay`: Initiates the payment, often by making API calls to the payment processor. How to check which payment processor is used is described [here](#3-implement-the-iorderdetailscalculator-interface). Information and status about the initiated payment is stored in a JSON data type specified in the payment process step.
 - `confirm`: Called when payment has been completed to drive the process to the next step.
 - `reject`: If the end user sees something wrong with the order, the person concerned can press "Back" in the payment step. The payment is then canceled and information about the interrupted payment is deleted. Which process step you are then directed to is specified in a gateway in `process.bpmn`, as exemplified below.
 
@@ -92,7 +89,7 @@ Payment uses three user actions. If the Altinn user interface is used by the app
 The value of this node: `<altinn:paymentDataType>paymentInformation</altinn:paymentDataType>` must match the ID of the data type you configured in the previous step.
 
 
-### 3. Implement the IOrderDetailsCalculator interface in C#:
+### 3. Implement the IOrderDetailsCalculator interface
 
 Add a new class where you have your custom code, for example: `App/logic/OrderDetailsCalculator.cs`.
 

@@ -3,7 +3,33 @@ title: Frontend konfigurasjon
 description: Følg disse stegene for å konfigurere frontenden din for betaling.
 weight: 3
 ---
-### 1. Legg til betalingslayout
+### 1. Legg til Payment layoutSet
+
+Legg til en ny layoutSet-mappe for betalingsoppgaven din, og oppdater `layout-sets.json` filen.
+
+Din `layout-sets.json` kan se slik ut:
+```json
+{
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
+  "sets": [
+    {
+      "id": "form",
+      "dataType": "model",
+      "tasks": [
+        "Task_1"
+      ]
+    },
+    {
+      "id": "payment",
+      "dataType": "model",
+      "tasks": [
+        "Task_2"
+      ]
+    }
+  ]
+}
+```
+I din payment layoutSet mappe, legg til en ny fil, `payment.json`, med følgende layout:
 
 ```json
 {
@@ -15,15 +41,14 @@ weight: 3
         "type": "Payment",
         "textResourceBindings": {
           "title": "Oppsummering"
-        },
-        "paymentSettings": {
-          "autoForwardToPayment": true
         }
       }
     ]
   }
 }
 ```
+
+Dette er nødvendig for at betaling skal fungere. Uten dette vil betalingssteget ditt bare vise en hvit side.
 
 ### 2.  Legg til OrderDetails-komponenten i skjemaet ditt.
 
@@ -48,11 +73,10 @@ Du kan plassere dette hvor som helst i appen din, men vi anbefaler å i det mins
 
 ### 3. Legg til layout for kvitteringen
 
-
-Legg til en tilpasset layoutfil, f.eks. ```receiptLayout.json```.
-
-
 For å vise en juridisk gyldig kvittering til kunden, må du legge til en tilpasset layout for den.
+
+Legg til en layout fil, f.eks. `receiptLayout.json`.
+
 Her er et minimalt eksempel:
 
 ```json
@@ -66,6 +90,22 @@ Her er et minimalt eksempel:
         "renderAsSummary": true
       }
     ]
+  }
+}
+```
+
+Oppdater din layoutSet-settings.json-fil, og spesifiser din kvitteringslayout i `pdfLayoutName` feltet:
+
+```json
+{
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+  "pages": {
+    "order": [
+      "payment"
+    ],
+    "pdfLayoutName": "paymentReceipt", 
+    "showProgress": true,
+    "showLanguageSelector": true
   }
 }
 ```
