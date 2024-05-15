@@ -1,69 +1,74 @@
 ---
-title: Migration from v7
-description: How to migrate from v7 to v8
+title: Migrating from v7
+description: Step by step guide to migrating your Altinn 3 App runtime from v7 to v8
 weight: 50
 toc: true
 ---
 
 {{% notice info %}}
-As of writing this documentation, the latest preview release of v8 is `8.0.0`. Updated information
-[is available on GitHub](https://github.com/Altinn/app-lib-dotnet/releases).
+Altinn 3 App runtime v8 is now Generally Available and is recommended for all service owners.
+Details about the latest point releases are on [GitHub](https://github.com/Altinn/app-lib-dotnet/releases).
 {{% /notice %}}
 
 ## Introduction
 
-This guide will help you migrate your app from using version 7 of the app nugets to version 8. 
-There is currently no support in Altinn Studio for upgrading apps, so using the Altinn Studio CLI is the recommended way to migrate. 
+This guide outlines the steps to migrate your app from version 7 to version 8 of the app nugets. 
+Using the Altinn Studio command line interface (CLI) is the recommended upgrade path.
 
-## Migrate automatically using the Altinn Studio CLI
+## Alternative 1 - Automated migration with the Altinn Studio CLI
 
-The Altinn Studio CLI is a command line tool for upgrading Altinn Apps. The tool is able to upgrade and fix most breaking changes between version 7 and 8 of the app nugets.
+The CLI will analyze your code and make the necessary changes to work with the new APIs in v8.
 
-### Verify that you have the latest version of the Altinn Studio CLI
+### 1. Ensure You Have the Latest Altinn Studio CLI Version
 
-If you do not have the CLI installed, you can install it by following the instructions in the [installation guide](/app/cli/install).
+Ensure you’re using at least version `1.4.0`. 
+Later versions may include additional code upgrade functionality. 
 
-Make sure you are using at least version `1.4.0` of the Altinn Studio CLI. You can check the version by running:
+To check your current version, run:
 
 ```bash
 altinn-studio --version
 ```
 
-If you have an older version, you can update it by running:
+To install, run:
+```bash
+dotnet tool install -g altinn.studio.cli
+```
+
+To upgrade to the latest version, run:
 
 ```bash
 dotnet tool update -g altinn.studio.cli
 ```
 
-### Run the upgrade command
+Altinn Studio CLI requires .NET 8.0 or later.
 
-First, navigate to the root folder of your app in your terminal. There are several optional arguments you can use with the `upgrade backend` command. You can see all the available options by running:
+### Execute the Upgrade Command
+
+Navigate to your app's root folder in your terminal. You can explore optional arguments for the `upgrade backend` command with:
 
 ```bash
 altinn-studio upgrade backend --help
 ```
 
-The default options should work for most apps, but you may need to specify some options if you have a non-standard project structure. 
-If some of the options are not correct, the CLI should print an error message explaining what went wrong.
+While the default options typically suffice, adjust them if your project has a non-standard structure. Errors and explanations will be provided if incorrect options are used.
 
-It is recommended to have a clean working tree before running the upgrade command. 
-This means that you should commit or stash any changes you have made to your code before running the command. 
-That way you can easily see what changes the CLI made to your code, as well as reset and try again if something went wrong.
+It's advisable to have a clean working tree before upgrading. Commit or stash any changes to easily review or reset changes made by the CLI.
 
-1. Before running the upgrade you need to first restore any dependencies:
+1. Restore any dependencies:
     ```bash
     dotnet restore
     ```
-2. When you are ready to upgrade, run the following command:
+2. Run the upgrade command:
     ```bash
     altinn-studio upgrade backend
     ```
 
-The CLI will then make the necessary changes to your code to upgrade it to version 8. The CLI will also print warnings and errors if it encounters any problems during the upgrade process, make sure to read these carefully.
+The CLI will update your code to version 8 and display any warnings or errors encountered.
 
-## Migrate manually
+## Alternative 2 - Manual migration
 
-1. To migrate manually from v7 to v8, you need to upgrade the nuget packages in your `App.csproj` file to version `8.0.0`.
+1. Update the nuget packages in your `App.csproj` file to version `8.0.0`.
     <br><br>
     {{< code-title >}}
     App/App.csproj
@@ -78,7 +83,6 @@ The CLI will then make the necessary changes to your code to upgrade it to versi
             <CopyToOutputDirectory>lib\$(TargetFramework)\*.xml</CopyToOutputDirectory>
         </PackageReference>
     ```
-2. Next, you need to fix the breaking changes in your code. See the [changelog for v8](/community/changelog/app-nuget/v8/#breaking-changes) for more information.
-   There may be additional breaking changes not documented in the changelog that are automatically fixed by the
-   Altinn Studio CLI tool, so it is recommended to use the CLI tool to upgrade your app to v8 instead of
-   doing it manually.
+2. Address the breaking changes in your code. 
+Refer to the [v8 changelog](/community/changelog/app-nuget/v8/#breaking-changes) for details. 
+Note that the CLI does handle some breaking changes may not be fully documented, making CLI the preferred upgrade method.
