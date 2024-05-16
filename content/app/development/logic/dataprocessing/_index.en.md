@@ -27,7 +27,7 @@ In version 7 the way to do custom code instantiation has changed. We now use an 
 
 1. Create a class that implements the `IDataProcessor` interface found in the `Altinn.App.Core.Features.DataProcessing` namespace.  
     You can name and place the file in any folder you like within your project, but we suggest you use meaningful namespaces like in any other .Net project.
-    Example on code from app that processes and populates different data while saving.
+    Example code from app that processes and populates different data while saving.
     ```C#
     public async Task<bool> ProcessDataWrite(
         Instance instance, Guid? dataId, object data)
@@ -89,7 +89,7 @@ In version 7 the way to do custom code instantiation has changed. We now use an 
 Data processing is coded in C#, in the file `DataProcessingHandler.cs`. This file can easily be edited by downloading the source code to the app and editing on your own computer, e.g. in Visual Studio Code.
 The data model with form data is available and can be edited/updated when needed.
 
-Example on code from app that processes and populates different data while saving.
+Example code from app that processes and populates various data while saving.
 
 ```C#
 public async Task<bool> ProcessDataWrite(

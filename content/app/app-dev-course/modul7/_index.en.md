@@ -37,7 +37,7 @@ The municipality of Sogndal wants to use the categories **Personalia** for the u
 - [Categories in summary](/app/development/ux/pages/summary/#categories)
 
 ### Knowledge check
-- Why should the summary page be ignore in the PDF generation?
+- Why should the summary page be ignored in the PDF generation?
 
 {{% /expandlarge %}}
 
