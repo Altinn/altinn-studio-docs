@@ -450,7 +450,7 @@
       },
       "AuthorizedPartiesSOAuth": {
         "type": "http",
-        "description": "Requires one of the following Scopes: [altinn:resourceowner/authorizedparties, altinn:resourceowner/authorizedparties.admin]",
+        "description": "Requires one of the following Scopes: [altinn:accessmanagement/authorizedparties.resourceowner, altinn:accessmanagement/authorizedparties.admin]",
         "scheme": "bearer",
         "bearerFormat": "JWT"
       }
