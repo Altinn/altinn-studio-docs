@@ -1,5 +1,5 @@
 ---
-title: Altinn 3 Broker Capabilities
+title: Broker Capabilities
 linktitle: Capabilities
 description: Altinn 3 Broker Capabilities and Features.
 tags: []
@@ -13,7 +13,7 @@ weight: 15
 Defining capabilities and features within value stream stages gives context to 
 the naming and descriptions of the capabilities. 
 The following figure shows a value stream model for Altinn Broker and the main types of users, 
-i.e. senders (data providers),  recepients (data consumers), and service owners.
+i.e. senders (data providers),  recipients (data consumers), and service owners.
 
 ![Altinn 3 Broker high level value stream stages](altinn3-broker-value-stream-model.en.png "Altinn 3 Broker high level value stream stages")
 <!--

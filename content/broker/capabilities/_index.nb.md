@@ -57,7 +57,7 @@ selv om dette ofte kan være tilfeller._
 
 ## Detaljert funksjonalitet (features)
 
-For nedbrytning av overordnede kapabiliteter til mer detaljert funksjonalitet (features), se under [Altinn Broker fetaures på Github](https://github.com/orgs/Altinn/projects/54/views/11).
+For nedbrytning av overordnede kapabiliteter til mer detaljert funksjonalitet (features), se under [Altinn Broker _features_ på Github](https://github.com/orgs/Altinn/projects/54/views/11).
 
 _Merk: Dokumentasjon av nedbrytning til "features" er planlagt her._
 
@@ -66,9 +66,9 @@ _Merk: Dokumentasjon av nedbrytning til "features" er planlagt her._
 
 Ytelseskrav:
 
-* Støtte for lagring og overføring av store filer. _Merk: Eksakte spesifikasjoner for filstørrelse skal bestemmes._
-* Høy gjennomstrømming for å effektivt håndtere store volumer av datatransaksjoner.
-* Lav forsinkelse i databehandling og -overføring.
+* Støtte for lagring og overføring av store filer. _Merk: Tallfesting TBD._
+* Høy gjennomstrømming for å effektivt håndtere stort påtrykk. _Merk: Tallfesting TBD._
+* Lav forsinkelse i databehandling og -overføring. _Merk: Tallfesting TBD._
 
 Skalerbarhet:
 
@@ -131,7 +131,6 @@ Miljømessige og operasjonelle forhold:
 
 * Designet for å operere under spesifiserte miljøforhold (f.eks., temperatur og fuktighet i datasenteret).
 * Hensyn til operasjonelle forhold som strømforbruk og kjølekrav.
-
 
 Se også:
 

@@ -1,5 +1,5 @@
 ---
-title: Altinn 3 Broker Advanced Use Cases 
+title: Advanced Use Cases 
 linktitle: Advanced Use Cases 
 description: Altinn 3 Broker Advanced Use Cases 
 tags: []
