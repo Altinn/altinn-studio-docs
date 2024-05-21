@@ -15,7 +15,7 @@ This is located at `/App/config/applicationmetadata.json` in the app repo.
 
 ## Application Metadata Format
 
-Below is an example of application metadata json format
+Below is an example of application metadata in json format
 
 ```json
 {

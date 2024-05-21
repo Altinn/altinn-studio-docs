@@ -63,7 +63,7 @@ instance.componentDidMount();
 If you have one function that calls another function, and you want to be sure that both functions ran at the end of the test, you can use jest's spyOn functionality described here:
 
 ```javascript
- const spy = jest.spyOn(instance, 'funcitonTwoCalledWithinFunctionOne');
+ const spy = jest.spyOn(instance, 'functionTwoCalledWithinFunctionOne');
  instance.functionOne();
  expect(spy).toHaveBeenCalled();
 ```
@@ -169,7 +169,7 @@ expect(consoleError).toHaveBeenCalled();
 
 ## Using Router
 If you are testing a component that uses React Router, you might have to build router props and pass them to the component you are testing.
-Here is an example on how this can be done:
+Here is an example of how this can be done:
 
 ```javascript
 mockLocation = {

@@ -25,7 +25,7 @@ Likert uses the same concept as repeating groups.
 ## Example
 
 The Likert component requires that you have a data model with a list. This list must contain objects with questions and answers.
-Example on setup of data model in App/logic/InstantiationHandler.cs:
+Example of setup of data model in App/logic/InstantiationHandler.cs:
 
 ```c#
 public async Task DataCreation(Instance instance, object data)
@@ -55,7 +55,7 @@ public async Task DataCreation(Instance instance, object data)
         }
 ```
 
-Example on definition of likert component in layout.json:
+Example of a definition of a likert component in layout.json:
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="v4 (App Frontend)">}}

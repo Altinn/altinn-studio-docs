@@ -14,7 +14,7 @@ The setup must be done manually as of today. Support for setup through Altinn St
 ![ListComponent](listComponent.png "Eksempel på hvordan listekomponenten ser ut")
 
 ## How to define the component in code 
-The component is of type `List`. One example on definition of list component in layout.json:
+The component is of type `List`. An example of a list component definition in layout.json:
 ```json
 {
     "id": "list-component",

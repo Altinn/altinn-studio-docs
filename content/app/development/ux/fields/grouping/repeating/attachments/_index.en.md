@@ -20,7 +20,7 @@ that belongs to each file attachment and send this together with the rest of the
 The ability to place a reference to the file attachment in the data model can also be used outside of repeating groups if you
 want a reference to a file attachment together with the form data on the receivers end.
 
-![Example on file attachment in repeating group with attached data model](attachments-demo.gif "Example on file attachment in repeating group with attached data model")
+![Example of a file attachment in repeating group with attached data model](attachments-demo.gif "Example of a file attachment in repeating group with attached data model")
 
 The following is an example of a data model expecting a reference to an uploaded file attachment.
 

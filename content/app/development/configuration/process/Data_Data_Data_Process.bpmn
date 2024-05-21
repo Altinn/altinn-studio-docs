@@ -12,17 +12,32 @@
     <bpmn2:startEvent id="StartEvent_1">
       <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
     </bpmn2:startEvent>
-    <bpmn2:task id="Task_1" name="Fyll ut skjema 1" altinn:tasktype="data">
+    <bpmn2:task id="Task_1" name="Fyll ut skjema 1">
       <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+      <bpmn2:extensionElements>
+        <altinn:taskExtension>
+          <altinn:taskType>data</altinn:taskType>
+        </altinn:taskExtension>
+      </bpmn2:extensionElements>
     </bpmn2:task>
-    <bpmn2:task id="Task_2" name="Fyll ut skjema 2" altinn:tasktype="data">
+    <bpmn2:task id="Task_2" name="Fyll ut skjema 2">
       <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
+      <bpmn2:extensionElements>
+        <altinn:taskExtension>
+          <altinn:taskType>data</altinn:taskType>
+        </altinn:taskExtension>
+      </bpmn2:extensionElements>
     </bpmn2:task>
-	<bpmn2:task id="Task_3" name="Fyll ut skjema 3" altinn:tasktype="data">
+	<bpmn2:task id="Task_3" name="Fyll ut skjema 3">
       <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
+      <bpmn2:extensionElements>
+        <altinn:taskExtension>
+          <altinn:taskType>data</altinn:taskType>
+        </altinn:taskExtension>
+      </bpmn2:extensionElements>
     </bpmn2:task>
     <bpmn2:endEvent id="EndEvent_1">
       <bpmn2:incoming>SequenceFlow_4</bpmn2:incoming>
