@@ -10,6 +10,15 @@ Setting up custom rules and alerts is currently not available to application own
 but we are aiming to support this during the Spring of 2023. 
 {{% /notice %}}
 
+{{% notice info %}}
+We are migrating from using Application Insights SDK directly to using [OpenTelemetry (OTel)](https://opentelemetry.io/) as a vendor neutral
+solution to instrumenting and shipping telemetry from apps. This still allows us to offer existing
+Application Insights solution, but also enables developers to ship telemetry to custom monitoring solutions and vendors.
+[Read more below]({{< ref "#opentelemetry" >}})
+{{% /notice %}}
+
+## Azure Monitor
+
 Azure Application Insights (AI) is an extension of 
 [Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/overview) and is what we use in Altinn to 
 provide Application Performance Monitoring features for apps. 
@@ -20,6 +29,30 @@ user experience. Error tracking and alerts* makes AI a valuable resource during 
 
 
 ![Illustration of AI graphs](ai-overview.png "Illustration of AI graphs")
+
+## OpenTelemetry
+
+You can now use OpenTelemetry (OTel) to instrument and ship telemetry to the built in monitoring solution (AI) or your own solution.
+For v8 of the Altinn.App libraries OTel is disabled by default (enabled with `UseOpenTelemetry` in `AppSettings`, configurable in `appsettings.json`).
+By v9, OTel will be the default, and the Application Insights SDK will be removed as a dependency.
+
+The main change this brings is substantial improvement to instrumentation of the Altinn.App libraries.
+In addition to auto-instrumentation provided by the .NET standard library, there will be telemetry specific to Altinn
+emitted alongside it in the form of distributed traces and metrics (in addition to the existing logs). 
+This enables a simpler and better understanding of context in the face of errors and performance issues, 
+and should also make it easier to understand Altinn from a technical point of view.
+
+In the future, we will provide prebuilt dashboards and alerting such that the simplest of applications,
+those that are mostly configured directly in Altinn Studio, already have what they need out of the box
+in terms of monitoring.
+
+In addition to telemetry being shipped to Azure Monitor in deployed environments,
+it is possible to explore telemetry locally using localtest. 
+[See the localtest repo for more information](https://github.com/Altinn/app-localtest).
+
+For more information on enabling and configuring OpenTelemetry, [see the configuration page](/app/monitoring/configuration).
+
+<br />
 
 {{% expandlarge id="q1" header="Altinn monitors your infrastructure" %}}
 
@@ -35,3 +68,5 @@ of individual applications.__
 
 {{% /expandlarge %}}
 {{<children />}}
+
+
