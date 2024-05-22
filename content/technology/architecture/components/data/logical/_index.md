@@ -38,7 +38,7 @@ It contains information about the reportee for the specific instance, which app 
 
 **Created by:** The instance document is created when someone with the needed rights create a new instance for a given app. It could be a user with roles or the org. 
 
-**Storage:**  This document is stored in Cosmos DB in a shared collection. This to make it possible to search for instances accross reportees/apps.
+**Storage:**  This document is stored in Cosmos DB in a shared collection. This to make it possible to search for instances across reportees/apps.
 
 ### InstanceEvents
 
@@ -74,8 +74,7 @@ Used to present information to users and org.
 
 **Created by:** Applications creates events based on logic or standard events. 
 
-**Storage:** Stored in Postgree SQL for 90 days.
-
+**Storage:** Stored in PostgreSQL for 90 days.
 
 ### Applications
 
@@ -85,12 +84,7 @@ Used to present information to users and org.
 
 **Created by** Application developer
 
-
 **Storage:** Cosmos DB in a shared collection
-
-
-
-
 
 ## Data Entities - Altinn Platform
 
@@ -165,7 +159,7 @@ Example document from data items.
 
 ### InstanceEvent
 
-Example on instance event.
+Example of an instance event.
 
 `instanceId` references to the instance.
 

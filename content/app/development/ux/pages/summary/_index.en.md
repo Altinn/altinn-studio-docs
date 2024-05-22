@@ -9,11 +9,11 @@ weight: 30
 {{%notice warning%}}
 Setup must be done manually as of today. Support for setup through Altinn Studio will be available at a later point in time.
 
-**NOTE**: The PDF generation, as of today, does not support the summary component. For PDF generating to work, either all the summary components or the whole summary-page(s) must be excluded from PDF. This is done in the `Settings.json`-file attached to the layout-files. 
+**NOTE**: The PDF generation, as of today, does not support the summary component. For PDF generation to work, either all the summary components or the whole summary-page(s) must be excluded from PDF. This is done in the `Settings.json`-file attached to the layout-files.
 {{%/notice%}}
 
 ## Setup
-Display of summary is set up in the same manner as the other form components in a form. 
+The summary display is set up in the same manner as the other form components in a form.
 You can choose to have the summary on it's own page, or on the same page as other form components.
 
 The summary component is very simple, and refers to the _component_ that is to be summarized. Example:
@@ -68,7 +68,6 @@ However, the following text resources set in the reference component will not be
   }
 }
 ```
-
 
 ### Simple form component
 These are components that are only connected to one field in the data model. E.g. Input, Dropdown, Checkbox/Radio, etc.
@@ -255,7 +254,7 @@ the group component. See the example below.
 }
 ```
 
-## Example on summary page
+## A summary page example
 Below is an example of a summary page, with setup in the layout file. Since the summary is set up 
 in the layout files in the same way as other components, you can also include other form components as texts
 when needed.

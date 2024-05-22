@@ -123,7 +123,7 @@ For nested groups follows the same pattern but with an additional index indicato
 },
 ```
 
-For a complete example on how this is setup see our [demo app.](https://altinn.studio/repos/ttd/dynamic-options-rep)
+For a complete example of how this is setup see our [demo app.](https://altinn.studio/repos/ttd/dynamic-options-rep)
 
 {{%notice warning%}}
 

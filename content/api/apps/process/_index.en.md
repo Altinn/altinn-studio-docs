@@ -33,9 +33,14 @@ Returns the bpmn file defining the process.
     <bpmn2:startEvent id="StartEvent_1">
         <bpmn2:outgoing>Flow_1</bpmn2:outgoing>
     </bpmn2:startEvent>
-    <bpmn2:task id="Task_1" name="Utfylling" altinn:tasktype="data">
+    <bpmn2:task id="Task_1" name="Utfylling">
         <bpmn2:incoming>Flow_1</bpmn2:incoming>
         <bpmn2:outgoing>Flow_2</bpmn2:outgoing>
+        <bpmn2:extensionElements>
+            <altinn:taskExtension>
+                <altinn:taskType>data</altinn:taskType>
+            </altinn:taskExtension>
+        </bpmn2:extensionElements>
     </bpmn2:task>
     <bpmn2:endEvent id="EndEvent_1">
         <bpmn2:incoming>Flow_2</bpmn2:incoming>
@@ -47,7 +52,7 @@ Returns the bpmn file defining the process.
 
 ## Altinn specific task types
 
-Application developers can in their BPMN Definition specify some altinn specific task types, see `altinn:tasktype`,
+Application developers can in their BPMN Definition specify some altinn specific task types, see `altinn:taskType`,
 which signify the behaviour of the task. So far we have defined the following:
 
 - *data* - user is asked to fill inn one or more data elements, e.g. upload data or fill in forms
