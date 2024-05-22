@@ -1,69 +1,69 @@
 ---
-title: Usage SOAP
-linktitle: Usage SOAP
-description: Difference in SOAP operation usage between Altinn 2 and Altinn 3 transitioned services.
-tags: [solution, broker, guide, transition]
+title: Bruksanvisning SOAP
+linktitle: Bruksanvisning SOAP
+description: Forskjell i bruk av SOAP kall mellom Altinn 2 og Altinn 3 overførte tjenester.
+tags: [Løsning, broker, guide, overgang]
 toc: false
 weight: 1
 ---
 
-## Difference in usage between existing Altinn 2 SOAP Operations and Altinn 3 SOAP operations that have been transition to Altinn 3.
-SOAP operations for Altinn 2 Broker Service are spread over 3 endpoints.
-For most requests there will be no functional difference between Altinn 2 and Altinn 3 requests.
+## Forskjell i bruk mellom eksisterende Altinn 2 SOAP operasjoner og Altinn 3 SOAP operasjoner som er overført til Altinn 3.
+SOAP operasjoner for Altinn 2 Broker Service er spredt over 3 endepunkter.
+For de fleste forespørsler vil det ikke være noen funksjonell forskjell mellom Altinn 2 og Altinn 3 forespørsler.
 
 
 |Service|Endpoint|Description|
 |-----------------------|---------------------------------------------------------------------------|-------------------------------|
-|BrokerService          |[Service WS](https://www.altinn.no/ServiceEngineExternal/BrokerServiceExternal.svc)              | Handles metadata requests.    |
+|BrokerService          |[Service WS](https://www.altinn.no/ServiceEngineExternal/BrokerServiceExternal.svc)              | Behandler metadata requester.    |
 |                       |[Service Basic](https://www.altinn.no/ServiceEngineExternal/BrokerServiceExternalBasic.svc)         |                               |
 |                       |[Service EC](https://www.altinn.no/ServiceEngineExternal/BrokerServiceExternalEC2.svc)            |                               |
-|BrokerService Streamed |[Streamed WS](https://www.altinn.no/ServiceEngineExternal/BrokerServiceExternalStreamed.svc)      | Handles file data requests.   |
+|BrokerService Streamed |[Streamed WS](https://www.altinn.no/ServiceEngineExternal/BrokerServiceExternalStreamed.svc)      | Behandler fil data requester.   |
 |                       |[Streamed Basic](https://www.altinn.no/ServiceEngineExternal/BrokerServiceExternalStreamedBasic.svc) |                               |
 |                       |[Streamed EC](https://www.altinn.no/ServiceEngineExternal/BrokerServiceExternalStreamedEC2.svc)    |                               |
-|Receipt                |[Receipt WS](https://www.altinn.no/IntermediaryExternal/ReceiptExternal.svc)                     | Handles receipt requests.     |
+|Receipt                |[Receipt WS](https://www.altinn.no/IntermediaryExternal/ReceiptExternal.svc)                     | Behandler receipt requester.     |
 |                       |[Receipt Basic](https://www.altinn.no/IntermediaryExternal/ReceiptExternalBasic.svc)                |                               |
 |                       |[Receipt EC](https://www.altinn.no/IntermediaryExternal/ReceiptExternalEC2.svc)                 |                               |
 
-For examples of SOAP implementation see [existing documentation (norwegian only)](https://altinn.github.io/docs/api/soap/grensesnitt/#brokerservice--formidlingstjenester-ws)
+For examples of SOAP implementation see [existing documentation (norwegian only)](https://altinn.github.io/docs/api/soap/grensesnitt/#BrokerService--formidlingstjenester-ws)
 
-### BrokerService Endpoint
+### BrokerService endepunkt
 
-The BrokerService endpoint contains functions related to BrokerService metadata requests.
+BrokerService endepunktet inneholder funksjoner relatert til BrokerService metadata forespørsler.
 
 #### InitiateBrokerService
 
-No functional difference for Transitioned services.
+Ingen funksjonell forskjell for overførte tjenester.
 
 #### GetAvailableFiles
 
-No functional difference for Transitioned services. If service code/service edition code is not supplied, only Altinn 2 files will be returned. 
+Ingen funksjonell forskjell for overførte tjenester. Hvis kode for tjenestekode/tjenesteutgave ikke leveres, vil bare Altinn 2 filer bli returnert.
 
 #### ConfirmDownloaded
 
-No functional difference for Transitioned services.
+Ingen funksjonell forskjell for overførte tjenester.
 
 #### CheckIfAvailableFiles
 
-No functional difference for Transitioned services. If service code/service edition code is not supplied, only Altinn 2 files will be returned.
+Ingen funksjonell forskjell for overførte tjenester. Hvis kode for tjenestekode/tjenesteutgave ikke leveres, vil bare Altinn 2 filer bli returnert.
 
-### BrokerServiceStreamed Endpoint
+### BrokerServiceStreamed endepunkt
 
-The BrokerServiceStreamed endpoint contains functions related to BrokerService File Data requests.
+BrokerServiceStreamed endepunktet inneholder funksjoner relatert til BrokerService fil data forespørsler.
 
 #### UploadFileStreamed
 
-No functional difference in the call. The reply will contain a pseudo-receipt generated from the Altinn 3 file metadata. ReceiptId will be 0.
+Ingen funksjonell forskjell i request. Svaret vil inneholde en pseudo-kvittering generert fra Altinn 3 fil metadata. Kvitteringsid vil være 0.
 {{% notice warning  %}}
-Since the Upload, and Upload processing of the file is an asynchronous process in Altinn 3, the immediate Receipt status received from the call will not necessarily reflect the final state of the file.
-Altinn 2 SOAP Broker Service offers no function that allows end users to verify that a file has been successfully processed and is ready for download for recipients.
+Siden opplastingen og behandling av opplastet fil er en asynkron prosess i Altinn 3, vil den umiddelbare kvitteringsstatus mottatt fra request ikke nødvendigvis gjenspeile den endelige tilstanden til filen.
+Altinn 2 SOAP Broker service tilbyr ingen funksjon som lar sluttbrukere bekrefte at en fil er blitt behandlet og er klar til nedlasting for mottakere.
 
-If possible, you should consider adding steps that make calls to [Get File Receipt](../rest/#get-file-receipt-outbox-sender) to ensure that the file has been successfully processed.
-If you do not wish to implement REST, one workaround is implementing a request that retrieves available files for the recipients to ensure that the file you uploaded has been made available.
+Hvis mulig, bør du vurdere å legge til trinn som ringer til [Få fil kvittering](../rest/#get-file-receipt-outbox-sender) for å sikre at filen er blitt behandlet.
+Hvis du ikke ønsker å implementere REST, er en mulig workaround å implementere en forespørsel som henter tilgjengelige filer for mottakerne for å sikre at filen du lastet opp er gjort tilgjengelig.
 {{% /notice %}}
 
-##### Verify that Uploaded File has been made available for download via SOAP
+##### Kontroller at opplastet fil er gjort tilgjengelig for nedlasting via SOAP
 
-Step 1: Initiate file transfer
+Trinn 1: Initier fil overføring
 ```XML
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.altinn.no/services/ServiceEngine/Broker/2015/06" xmlns:ns1="http://schemas.altinn.no/services/ServiceEngine/Broker/2015/06">
    <soapenv:Header/>
@@ -71,7 +71,7 @@ Step 1: Initiate file transfer
       <ns:InitiateBrokerServiceBasic>
          <ns:systemUserName>Senders System</ns:systemUserName>
          <ns:systemPassword>yourPassword</ns:systemPassword>
-         <ns:brokerServiceInitiation>
+         <ns:BrokerServiceInitiation>
             <ns1:Manifest>
                <ns1:ExternalServiceCode>4947</ns1:ExternalServiceCode>
                <ns1:ExternalServiceEditionCode>4678</ns1:ExternalServiceEditionCode>
@@ -91,12 +91,12 @@ Step 1: Initiate file transfer
                   <ns1:PartyNumber>Recipient OrgNr</ns1:PartyNumber>
                </ns1:Recipient>
             </ns1:RecipientList>
-         </ns:brokerServiceInitiation>
+         </ns:BrokerServiceInitiation>
       </ns:InitiateBrokerServiceBasic>
    </soapenv:Body>
 </soapenv:Envelope>
 ```
-Returns:
+Returnerer:
 ```XML
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
    <s:Body>
@@ -107,8 +107,7 @@ Returns:
 </s:Envelope>
 ```
 
-Step 2: Upload File
-
+Trinn 2: Last opp fil
 ```XML
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.altinn.no/services/ServiceEngine/Broker/2015/06">
    <soapenv:Header>
@@ -126,7 +125,7 @@ Step 2: Upload File
 </soapenv:Envelope>
 ```
 
-Returns:
+Returnerer:
 ```XML
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
    <s:Body>
@@ -143,7 +142,7 @@ Returns:
 </s:Envelope>
 ```
 
-Step 3: As the sender, make a GetAvailableFiles request for files belonging to the recipient from step 1.
+Trinn 3: Som avsender, kall GetAvailableFiles for filer som tilhører mottakeren fra trinn 1.
 ```XML
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.altinn.no/services/ServiceEngine/Broker/2015/06" xmlns:ns1="http://schemas.altinn.no/services/ServiceEngine/Broker/2015/06">
    <soapenv:Header/>
@@ -164,8 +163,8 @@ Step 3: As the sender, make a GetAvailableFiles request for files belonging to t
 </soapenv:Envelope>
 ```
 
-If the file was successfully processed, it should be in the returned list. If the file does not appear in the list, it may have failed during processing in Altinn 3, or the recipient may have downloaded it already.
-If the file is not in this returned list, or in the list returned if you repeat the request in step 3 with FileStatus "Downloaded", it means the file failed during processing.
+Hvis filen ble behandlet, skulle den være i den returnerte listen. 
+Hvis filen ikke vises på listen, kan den ha mislyktes under behandlingen i Altinn 3, ellers kan mottakeren ha lastet den ned allerede.
 ```XML
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
    <s:Body>
@@ -193,12 +192,12 @@ If the file is not in this returned list, or in the list returned if you repeat 
 
 #### DownloadFileStreamed
 
-No functional difference for Transitioned services.
+Ingen funksjonell forskjell for overførte tjenester.
 
 ### Receipt Endpoint
 
-The Receipt endpoint contains requests used to retrieve Receipts for end users. 
-Because Altinn 3 transitioned services will never create Receipts, no receipt data related to Altinn 3 transitioned files can 
-be retrieved from this endpoint.
+Kvittering-endepunkt inneholder forespørsler som brukes til å hente kvitteringer for sluttbrukere. 
+Fordi Altinn 3 overførte tjenester aldri vil opprette kvitteringer, kan ingen kvitteringsdata relatert til Altinn 3 overførte filer 
+bli hentet fra dette endepunktet.
 
-If your use case requires receipt usage, please submit a feature request.
+Hvis brukssaken din krever bruk av kvittering, kan du sende inn en endringsforespørsel. 
