@@ -69,9 +69,10 @@ internal sealed class BringClient(
 
 In the case above, we create a single span wrapping the HTTP client operation, and add the postal code as additional context.
 We then know that if this API fails, we can at least verify that the postal code was something that we expected.
-Remember, automatic instrumentation will make sure to inject an additional span below ours, such that we can inspect
-attributes such as HTTP status code, URL and other information as per OTel semantic conventions as needed.
-As we encounter errors or analyze the potential failure conditions of the code, we might decide to add error handling for the postal code:
+Remember, automatic instrumentation will make sure to inject an additional span below ours, where we can inspect HTTP-specific
+attributes such as status code, URL and other information as per OTel semantic conventions.
+As we encounter errors or analyze the potential failure conditions of the code, we might decide to add error handling for the postal code.
+Thinking about instrumentation, observability and failure modes during development often leads to more robust code:
 
 {{< highlight csharp "linenos=false,hl_lines=11-12" >}}
 internal sealed class BringClient(
@@ -93,7 +94,39 @@ internal sealed class BringClient(
 {{< / highlight >}}
 
 There are also extension methods on `System.Diagnostics.Activity?` for setting domain-specific tags,
-such as a User ID, Party ID, Instance ID and Process Task ID.
+such as a User ID, Party ID, Instance ID and Process Task ID. In the code below, we provide
+additional context by attaching the user party ID to the trace. 
+In this case, that attribute will already be present on a parent span thanks to the included instrumentation Altinn.App libraries,
+but it serves as an example.
+
+{{< highlight csharp "linenos=false,hl_lines=4 9-18" >}}
+internal sealed class BringClient(
+    IHttpClientFactory httpClientFactory, 
+    Telemetry telemetry,
+    IHttpContextAccessor httpContextAccessor
+)
+{
+    public async Task<PostalCodeLookupResult> LookupPostalCode(int postalCode, CancellationToken cancellationToken)
+    {
+        var httpContext = httpContextAccessor.HttpContext;
+        if (httpContext is null) 
+            throw new InvalidOperationException("Can't lookup postal code without running the context of a users HTTP request");
+        
+        var partyIdStr = httpContext.User?.Claims.FirstOrDefault(c => c.Type == "urn:altinn:partyid")?.Value;
+        if (partyIdStr is null || !int.TryParse(partyIdStr, CultureInfo.InvariantCulture, out var partyId))
+            throw new Exception("Couldn't fetch information on current user");
+
+        using var activity = telemetry.ActivitySource.StartActivity("PostalCodeLookup");
+        activity?.SetUserPartyId(partyId);
+        activity?.SetTag("address.postalcode", postalCode);
+
+        if (postalCode is < 1000 or > 9999)
+            throw new ArgumentOutOfRangeException(nameof(postalCode), "Must be a valid postal code");
+
+        // ...
+    }
+}
+{{< / highlight >}}
 
 ### Resources
 
@@ -234,3 +267,28 @@ Read more about metrics at
 * [.NET docs](https://learn.microsoft.com/en-us/dotnet/core/diagnostics/metrics-instrumentation)
 * [OpenTelemetry.io docs](https://opentelemetry.io/docs/concepts/signals/metrics/)
 * [opentelemetry-dotnet docs on Github](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/metrics)
+
+## Migration from classic Application Insights SDK
+
+Microsoft [have documented that](https://github.com/MicrosoftDocs/azure-docs/commit/25d58a0c1e5a1d5740d99fd68d89a9372042838e)
+
+> The long-term plan for Application Insights is to collect data using OpenTelemetry.
+
+Which means that the classic SDK that we now use is likely to be deprecated at some point.
+It is therefore recommended to migrate when possible, by following the instructions above.
+
+If you have manual instrumentation using `TelemetryClient` from the classic Application Insights SDK, these need to be migrated to OTel equivalents. 
+The Application Insights SDK also ships logs based on the `ILogger<T>` abstraction, so the only places
+where change is needed is for telemetry not using that API (traces, metrics, and anything else from the Application Insights datamodel)
+
+The Application Insights datamodel is different from OTel.
+See the mapping table below for recommendations:
+
+| **Application Insights** | **OpenTelemetry**      | **`System.Diagnostics` API**                |
+| ------------------------ | ---------------------- | ------------------------------------------- |
+| Request                  | Span                   | `Activity`                                  |
+| Exception                | Span with span event   | `Activity` with `Activity.AddEvent`         |
+| Dependency               | Span                   | `Activity`                                  |
+| Event                    | Span, span event, logs | `Activity`/`Activity.AddEvent`/`ILogger<T>` |
+| Trace                    | Span, logs             | `Activity`/`ILogger<T>`                     |
+| Metric                   | Metrics                | `Metric`                                    |

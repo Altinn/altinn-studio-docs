@@ -26,7 +26,9 @@ The new monitoring and instrumentation setup based on OpenTelemetry is enabled s
 You can now run the app, and the Altinn.App library will by default ship telemetry to localtest when running locally,
 and to Azure monitor when running in an environment.
 
-## Instrument something
+[Read more about configuration options on the configuration page](/app/monitoring/configuration).
+
+## Custom instrumentation
 
 The simplest way of getting familiar with the instrumentation APIs made available by Altinn.App is by making
 a simple `IHostedService` implemented in `Program.cs`, so that we can get some code running and experiment.
@@ -49,10 +51,7 @@ using Altinn.App.Core.Features;
 Then we can implement the following class in the bottom of the file
 
 ```csharp
-sealed class StartupService(
-    ILogger<StartupService> logger,
-    Telemetry telemetry
-) : IHostedService
+sealed class StartupService(ILogger<StartupService> logger, Telemetry telemetry) : IHostedService
 {
     public async Task StartAsync(CancellationToken cancellationToken)
     {
@@ -63,7 +62,14 @@ sealed class StartupService(
 
         // Start an activity, which get's emitted as an OTel span
         using var activity = telemetry.ActivitySource.StartActivity("StartupService");
-        
+
+        {
+            // Wait a little, then spawn a child activity/span
+            await Task.Delay(100, cancellationToken);
+            using var childActivity = telemetry.ActivitySource.StartActivity("ChildActivity");
+            await Task.Delay(100, cancellationToken);
+        }
+
         // Logs come from the `ILogger<T>` interface
         var now = DateTimeOffset.UtcNow;
         logger.LogInformation("StartupService logging - Now={Now}", now);
@@ -73,7 +79,16 @@ sealed class StartupService(
 }
 ```
 
-##  Running locally 
+
+[Read more about instrumentation options on the instrumentation page](/app/monitoring/instrumentation).
+
+## Visualising
+
+Here is a brief overview of visualising the telemetry instrumented above.
+
+[More detailed information is available at the visualisation page](/app/monitoring/visualisation).
+
+###  Running locally 
 
 When running locally using [localtest](/app/getting-started/local-dev/), a monitoring stack consisting of Grafana and OpenTelemetry Collector 
 can be provisioned along side localtest and Platform APIs. [See the localtest README for more info](https://github.com/Altinn/app-localtest/blob/main/README.md).
@@ -86,17 +101,15 @@ In addition you can freely explore the emitted telemetry while debugging or lear
 If you've implemented the code above, you should be able to find the `altinn_app_started` metric in the explore tab for the `Metrics` datasource.
 You should also be able to find the log message and trace emitted above.
 
-To open Grafana, visit [local.altinn.cloud/grafana/](http://local.altinn.cloud/grafana/).
+To open Grafana, visit [local.altinn.cloud/grafana/](http://local.altinn.cloud/grafana/), then click explore in the side-menu.
 
 ![Explore metrics](grafana-quickstart-metric.png "Explore metrics")
 
-![Explore metrics visualisation](grafana-quickstart-metric2.png "Explore metrics visualisation")
+![Explore traces](grafana-quickstart-trace.png "Explore traces. Here it is possible to analyze traces, attributes, and filter out log messages related to the trace.")
 
-![Explore traces](grafana-quickstart-trace.png "Explore traces")
+![Explore logs](grafana-quickstart-logs.png "Explore logs. We clicked the 'Logs for this span' button, so now we see all log messages related to the root trace we made. It is also possible to navigate back to the trace view")
 
-![Explore logs](grafana-quickstart-logs.png "Explore logs")
-
-## Deploying to an environment
+### Deploying to an environment
 
 When the app is deployed to an environment, the telemetry is currently shipped to Azure Monitor.
 

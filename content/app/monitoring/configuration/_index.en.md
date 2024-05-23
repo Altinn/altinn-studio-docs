@@ -66,22 +66,12 @@ Microsoft [have documented that](https://github.com/MicrosoftDocs/azure-docs/com
 Which means that the classic SDK that we now use is likely to be deprecated at some point.
 It is therefore recommended to migrate when possible, by following the instructions above.
 
-If you have manual instrumentation using `TelemetryClient` from the classic Application Insights SDK, these need to be migrated to OTel equivalents. 
-The Application Insights SDK also ships logs based on the `ILogger<T>` abstraction, so the only places
-where change is needed is for telemetry not using that API (traces, metrics, and anything else from the Application Insights datamodel)
+Telemetry initializers and processors need to be migrated to the respective OTel abstractions.
 
-The Application Insights datamodel is different from OTel.
-See the mapping table below for recommendations:
-
-| Application Insights | OpenTelemetry           | `System.Diagnostics` API                    |
-|----------------------|-------------------------|---------------------------------------------|
-| Request              |  Span                   | `Activity`                                  |
-| Exception            |  Span with span event   | `Activity` with `Activity.AddEvent`         |
-| Dependency           |  Span                   | `Activity`                                  |
-| Event                |  Span, span event, logs | `Activity`/`Activity.AddEvent`/`ILogger<T>` |
-| Trace                |  Span, logs             | `Activity`/`ILogger<T>`                     |
-| Metric               |  Metrics                | `Metric`                                    |
-
+| **Application Insights** | **OpenTelemetry** |
+| ------------------------ | ----------------- |
+| ITelemetryInitializer    | Processor         |
+| ITelemetryProcessor      | Processor         |
 
 ### Considerations
 
