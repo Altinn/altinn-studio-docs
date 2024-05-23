@@ -10,7 +10,6 @@ We are migrating from using Application Insights SDK directly to using [OpenTele
 solution to instrumenting and shipping telemetry from apps. This still allows us to offer existing
 Application Insights solution, but also enables developers to ship telemetry to custom monitoring solutions and vendors, and improve instrumentation and flexibility.
 This means that these documentation pages are currently in active development and may be temporarily incomplete.
-[Read more below]({{< ref "#opentelemetry" >}})
 {{% /notice %}}
 
 {{% notice info %}}
