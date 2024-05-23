@@ -33,7 +33,7 @@ In Altinn Authorization, there are the following components that function as a P
 - Altinn Access Management for defining delegated rules
 - Altinn Resource Registry allows the administration of resource policies.
 
-[Read more](../modules/accessmanagement/pap/)
+[Read more](../what-do-you-get/accessmanagement/pap/)
 
 ### PRP - Policy Retrieval Point
 
