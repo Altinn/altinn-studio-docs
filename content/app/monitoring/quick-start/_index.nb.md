@@ -26,7 +26,7 @@ Det nye monitorerings- og instrumenteringsoppsettet basert på OpenTelemetry kan
 Når appen kjøres med denne instillingen så vil Altinn.App biblioteket sende telemetri til localtest ved lokal kjøring
 og til Azure Monitor ved kjøring i et miljø.
 
-[Les mer om konfigurasjonsmuligheter på konfigurasjonssiden](/app/monitoring/configuration).
+[Les mer om konfigurasjonsmuligheter på konfigurasjonssiden](/nb/app/monitoring/configuration).
 
 ## Egendefinert instrumentering
 
@@ -78,17 +78,17 @@ sealed class StartupService(ILogger<StartupService> logger, Telemetry telemetry)
 }
 ```
 
-[Les mer om instrumenteringsmuligheter på instrumenteringsiden](/app/monitoring/instrumentation).
+[Les mer om instrumenteringsmuligheter på instrumenteringsiden](/nb/app/monitoring/instrumentation).
 
 ### Lokal utvikling
 
-Ved lokal utvikling med [localtest](/app/getting-started/local-dev/), så kan en monitoreringsstack bestående av Grafana og OpenTelemetry Collector
+Ved lokal utvikling med [localtest](/nb/app/getting-started/local-dev/), så kan en monitoreringsstack bestående av Grafana og OpenTelemetry Collector
 provisjoneres ved siden av localtest og Platform APIer. [Se localtest README for mer informasjon](https://github.com/Altinn/app-localtest/blob/main/README.md).
 
 Monitoreringsoppsettet i localtest inneholder en Grafana instanse med ASP.NET Core dashboard og et preview Altinn app dashboard.
 I tillegg gir det muligheten til å fritt undersøke telemetrien som eksponeres fra Altinn plattform og bibliotek.
 
-[Se Grafana-seksjonen på visualiseringssiden for mer informasjon](/app/monitoring/visualisation/#grafana).
+[Se Grafana-seksjonen på visualiseringssiden for mer informasjon](/nb/app/monitoring/visualisation/#grafana).
 
 I Azure Monitor kan logger og traces finnes ved å bruke `Transaction search` menyen, mens metrikker er å finne under `Metrics`.
 
