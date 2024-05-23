@@ -7,7 +7,7 @@ tags: [migration, plan, authorizaton]
 
 ---
 
-Altinn skal erstatte rollene som gir tilgang til tjenester i Altinn 2 når vi flytter Altinn Autorisasjon til Altinn 3. I stedet for roller vil det i Altinn 3 være ulike tilgangspakker som består av tjenester som hører til et ansvarsområde. Tilgangspakkene vil fungere som maler for tilgangsstyrer i en virksomhet, som de kan bruke for å gi egne ansatte tilgang til et sett med tjenester som naturlig hører sammen. Informasjon om hva dette innebærer og hvilke tilgangspakker vi foreslår finner du [her:]( https://docs.altinn.studio/authorization/modules/accessgroups/type-accessgroups/)
+Altinn skal erstatte rollene som gir tilgang til tjenester i Altinn 2 når vi flytter Altinn Autorisasjon til Altinn 3. I stedet for roller vil det i Altinn 3 være ulike tilgangspakker som består av tjenester som hører til et ansvarsområde. Tilgangspakkene vil fungere som maler for tilgangsstyrer i en virksomhet, som de kan bruke for å gi egne ansatte tilgang til et sett med tjenester som naturlig hører sammen. Informasjon om hva dette innebærer og hvilke tilgangspakker vi foreslår finner du [her:]( https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/)
  
 Vi sender nå dette forslaget til nye maler på høring. Vi ønsker særlig tilbakemeldinger på
  

@@ -82,30 +82,30 @@ Merk at vi har revidert vår plan for innføring av tilgangspakker angående mul
 (klikk på lenken for å se nedover i hierarkiet)
 ### Tilgangspakker relevant for mange/alle virksomheter
 
-1. [Skatt, avgift, regnskap og toll](/authorization/modules/accessgroups/type-accessgroups/versjon-3/skatt/)
-2. [Personale](/authorization/modules/accessgroups/type-accessgroups/versjon-3/personale/)
-3. [Miljø, ulykke og sikkerhet](/authorization/modules/accessgroups/type-accessgroups/versjon-3/miljo/)
-4. [Post/arkiv](/authorization/modules/accessgroups/type-accessgroups/versjon-3/post/)
-5. [Forhold ved virksomheten](/authorization/modules/accessgroups/type-accessgroups/versjon-3/forhold/)
-6. [Integrasjoner og API-er](/authorization/modules/accessgroups/type-accessgroups/versjon-3/integrasjon/)
-7. [Administrere tilganger](/authorization/modules/accessgroups/type-accessgroups/versjon-3/tilgang/)
+1. [Skatt, avgift, regnskap og toll](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/skatt/)
+2. [Personale](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/personale/)
+3. [Miljø, ulykke og sikkerhet](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/miljo/)
+4. [Post/arkiv](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/post/)
+5. [Forhold ved virksomheten](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/forhold/)
+6. [Integrasjoner og API-er](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/integrasjon/)
+7. [Administrere tilganger](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/tilgang/)
 
 ### Bransjespesifikke tilgangspakker
-7. [Jordbruk, skogbruk, jakt, fiske og akvakultur](/authorization/modules/accessgroups/type-accessgroups/versjon-3/jordbruk/)
-8. [Bygg, anlegg og eiendom](/authorization/modules/accessgroups/type-accessgroups/versjon-3/bygg/)
-9. [Transport og lagring](/authorization/modules/accessgroups/type-accessgroups/versjon-3/transport/)
-10. [Helse, pleie, omsorg og vern](/authorization/modules/accessgroups/type-accessgroups/versjon-3/helse/)
-11. [Oppvekst og utdanning](/authorization/modules/accessgroups/type-accessgroups/versjon-3/oppvekst/)
-12. [Energi, vann, avløp og avfall](/authorization/modules/accessgroups/type-accessgroups/versjon-3/energi/)
-13. [Industrier](/authorization/modules/accessgroups/type-accessgroups/versjon-3/industrier/)
-14. [Kultur og frivillighet](/authorization/modules/accessgroups/type-accessgroups/versjon-3/kultur/)
-15. [Handel, overnatting og servering](/authorization/modules/accessgroups/type-accessgroups/versjon-3/handel/)
-16. [Andre tjenesteytende næringer](/authorization/modules/accessgroups/type-accessgroups/versjon-3/tjenesteytende/)
+7. [Jordbruk, skogbruk, jakt, fiske og akvakultur](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/jordbruk/)
+8. [Bygg, anlegg og eiendom](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/bygg/)
+9. [Transport og lagring](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/transport/)
+10. [Helse, pleie, omsorg og vern](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/helse/)
+11. [Oppvekst og utdanning](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/oppvekst/)
+12. [Energi, vann, avløp og avfall](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/energi/)
+13. [Industrier](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/industrier/)
+14. [Kultur og frivillighet](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/kultur/)
+15. [Handel, overnatting og servering](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/handel/)
+16. [Andre tjenesteytende næringer](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/tjenesteytende/)
 
 ### Andre spesialiserte tilgangspakker
-17. [Tilgangspakker for regnskapsførere](/authorization/modules/accessgroups/type-accessgroups/versjon-3/regnskapsførere/)
-18. [Tilgangspakker for revisor](/authorization/modules/accessgroups/type-accessgroups/versjon-3/revisor/)
-19. [Tilgangspakker for konkursbo](/authorization/modules/accessgroups/type-accessgroups/versjon-3/konkursbo/)
+17. [Tilgangspakker for regnskapsførere](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/regnskapsførere/)
+18. [Tilgangspakker for revisor](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/revisor/)
+19. [Tilgangspakker for konkursbo](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/konkursbo/)
 
 
 

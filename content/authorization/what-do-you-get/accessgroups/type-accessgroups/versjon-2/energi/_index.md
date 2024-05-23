@@ -4,7 +4,7 @@ linktitle: Energi, vann, avløp, avfall
 description: Denne tilgangspakken er relevant for alle virksomheter
 weight: 117
 ---
-Tilbake til [hovedoversikt](http://localhost:1313/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker)
+Tilbake til [hovedoversikt](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker)
 
 
 
@@ -20,7 +20,7 @@ Tilbake til [hovedoversikt](http://localhost:1313/authorization/modules/accessgr
 
 
 ## Egenskaper ved tilgangspakkene
-|Navn tillgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/modules/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
+|Navn tillgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/authorization/what-do-you-get/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
 |---|---|---|---|
 |Energi, vann, avløp og avfall| ja|nei||
 |Elektrisitet: produsere, overføre og distribuere|ja|ja|DAGL, STYR,INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
@@ -34,4 +34,4 @@ Tilbake til [hovedoversikt](http://localhost:1313/authorization/modules/accessgr
 {{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Energi, vann, avløp og avfall" {{% /notice %}}
 
 
-Tilbake til [hovedoversikt](http://localhost:1313/authorization/modules/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker)
+Tilbake til [hovedoversikt](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker)

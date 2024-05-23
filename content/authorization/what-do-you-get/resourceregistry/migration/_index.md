@@ -20,11 +20,11 @@ I Altinn Studio kan man velge å opprette ny ressurser basert på eksisteren len
 
 Velg importer ressurs
 
-![Migration](/authorization/modules/resourceregistry/migration/migrationstep1.png "Migration")
+![Migration](/authorization/what-do-you-get/resourceregistry/migration/migrationstep1.png "Migration")
 
 Gi id som skal benyttes i Altinn ressourceregistret
 
-![Migration](/authorization/modules/resourceregistry/migration/migrationstep2.png "Migration")
+![Migration](/authorization/what-do-you-get/resourceregistry/migration/migrationstep2.png "Migration")
 
 
 Når man trykker import opprettes det en ny ressurs i Altinn Studio i repositry til organisasjon. 
@@ -35,4 +35,4 @@ Da ressursregisteret krever mer komplette data enn hva som var mulig å sette i 
 - Delegeringstekst på Bokmål, Nynorsk og Engelsk
 - Beskrivelse på Bokmål, Nynorsk og Engelsk
 
-![Migration](/authorization/modules/resourceregistry/migration/migrationstep1.png "Migration")
+![Migration](/authorization/what-do-you-get/resourceregistry/migration/migrationstep1.png "Migration")
