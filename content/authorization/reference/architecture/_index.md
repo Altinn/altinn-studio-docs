@@ -33,7 +33,7 @@ In Altinn Authorization, there are the following components that function as a P
 - Altinn Access Management for defining delegated rules
 - Altinn Resource Registry allows the administration of resource policies.
 
-[Read more](../what-do-you-get/accessmanagement/pap/)
+[Read more](../../what-do-you-get/accessmanagement/pap/)
 
 ### PRP - Policy Retrieval Point
 
@@ -42,7 +42,7 @@ The Policy Retrieval Point is responsible for finding the right policy.
 In Altinn, there are two sources of Policies. Altinn Access Management for delegated policies
 and Altinn Resource Registry  
 
-[Read more](../what-do-you-get/resourceregistry/prp)
+[Read more](../../what-do-you-get/resourceregistry/prp)
 
 ### Context Handler - In production
 
