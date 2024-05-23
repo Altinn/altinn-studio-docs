@@ -100,7 +100,7 @@ To open Grafana, visit [local.altinn.cloud/grafana/](http://local.altinn.cloud/g
 
 When the app is deployed to an environment, the telemetry is currently shipped to Azure Monitor.
 
-[See the visualization page Azure Monitor section for more information](app/monitoring/visualisation/#azure-monitor).
+[See the visualization page Azure Monitor section for more information](/app/monitoring/visualisation/#azure-monitor).
 
 In Azure Monitor, logs and traces can be found by using the `Transaction search` menu blade,
 while metrics are in the `Metrics` menu blade.
