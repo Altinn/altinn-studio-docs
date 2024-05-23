@@ -4,7 +4,7 @@ linktitle: What do you get?
 description: The authorization components provide access management and control functionality for digital and analog services hosted in the Altinn Platform or other places.
 tags: [architecture, solution]
 toc: false
-weight: 1
+weight: 2
 ---
 
 In 2022-2026, Altinn will modernize its authorization architecture and components. Therefore, the below description is a mix of as-is and to-be.

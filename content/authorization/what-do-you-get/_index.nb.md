@@ -4,7 +4,7 @@ linktitle: Hva får du?
 description: Autorisasjonskomponentene gir tilgangsstyring og kontrollfunksjonalitet for digitale og analoge tjenester som vert i Altinn-plattformen eller andre steder.
 tags: [architecture, solution]
 toc: false
-weight: 1
+weight: 2
 ---
 Altinn skal i 2022-2026 modernisere sin autorisasjonsarkitektur og komponenter. Derfor er beskrivelsen nedenfor en blanding av som den er og skal være.
 

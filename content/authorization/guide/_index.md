@@ -1,8 +1,7 @@
 ---
-title: Guides
-linktitle: Guides
-description: Guides
-tags: [architecture, solution]
+title: User Guides
+linktitle:  User Guides
+description:  User Guides
 toc: false
-weight: 1
+weight: 3
 ---
