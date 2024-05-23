@@ -42,7 +42,7 @@ The Policy Retrieval Point is responsible for finding the right policy.
 In Altinn, there are two sources of Policies. Altinn Access Management for delegated policies
 and Altinn Resource Registry  
 
-[Read more](../modules/resourceregistry/prp)
+[Read more](../what-do-you-get/resourceregistry/prp)
 
 ### Context Handler - In production
 
