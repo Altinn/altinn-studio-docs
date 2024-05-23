@@ -16,7 +16,7 @@ The PDP evaluates the Context Request based on standard XACML 3.0 behaviour. The
 
 Policy Decision Point exposes a method that authorize the decision request.
 
-PDP uses the configured [Context Handler](../../architecture/accesscontrol/contexthandler/) to enrich the decision request with attributes about the subject, resource and environment. 
+PDP uses the configured [Context Handler](../../reference/architecture/accesscontrol/contexthandler/) to enrich the decision request with attributes about the subject, resource and environment. 
 
 If instanceID or dataID is used as Resource ID PDP will use the Context Handler to identifiy the correct appId,
 the instance workflow state and the reporteId for the existing resource.
