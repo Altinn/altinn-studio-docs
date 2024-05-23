@@ -79,4 +79,4 @@ The authorization component request this information from PIP for roles and PIP 
 
 ### Implementation details
 
-See [construction components for context handler](../../../../../authorization/architecture/accesscontrol/#context-handler) for implementation details for the context handler.
+See [construction components for context handler](../../../../../authorization/reference/architecture/accesscontrol/#context-handler) for implementation details for the context handler.

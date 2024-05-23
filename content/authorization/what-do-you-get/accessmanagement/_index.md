@@ -48,4 +48,4 @@ This design is in early phase.
 
 ### Construction
 
-See details how AccessManagement is [constructed](/authorization/architecture/accessmanagment/).
+See details how AccessManagement is [constructed](/authorization/reference/architecture/accessmanagment/).

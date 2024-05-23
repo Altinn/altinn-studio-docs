@@ -44,4 +44,4 @@ Som en del av ny design vil ledelse av tilgangspakker overta for rollestyring
 
 ### Konstruksjon
 
-Se detaljer hvordan AccessManagement er [konstruert](/authorization/architecture/accessmanagment/).
+Se detaljer hvordan AccessManagement er [konstruert](/authorization/reference/architecture/accessmanagment/).

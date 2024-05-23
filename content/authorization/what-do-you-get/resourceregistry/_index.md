@@ -108,4 +108,4 @@ Both digital and analog services can be registrated in the resource registry.
 
 ## Construction
 
-See [construction components](/authorization/architecture/resourceregistry/) if you want to see how the component is built. 
+See [construction components](/authorization/reference/architecture/resourceregistry/) if you want to see how the component is built. 

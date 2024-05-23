@@ -6,7 +6,7 @@ tags: [architecture, security, authorization, xacml]
 weight: 2
 ---
 
-Policy Decision Point er implementert i [tilgangskontrollkomponenten](../../../../authorization/architecture/accesscontrol/) som er distribuert til Altinn-plattformen.
+Policy Decision Point er implementert i [tilgangskontrollkomponenten](../../../../authorization/reference/architecture/accesscontrol/) som er distribuert til Altinn-plattformen.
 
 Policy Decision Point følger [eXtensible Access Control Markup Language (XACML) versjon 3.0](https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html).
 
@@ -16,7 +16,7 @@ PDP evaluerer kontekstforespørselen basert på standard XACML 3.0-atferd. Det e
 
 Policy Decision Point viser en metode som autoriserer beslutningsforespørselen.
 
-PDP bruker den konfigurerte [Context Handler](/authorization/architecture/accesscontrol/contexthandler/) for å berike beslutningsforespørselen med attributter om emnet, ressursen og miljøet.
+PDP bruker den konfigurerte [Context Handler](/authorization/reference/architecture/accesscontrol/contexthandler/) for å berike beslutningsforespørselen med attributter om emnet, ressursen og miljøet.
 
 Hvis forekomst-ID eller data-ID brukes som ressurs-ID, vil PDP bruke kontekstbehandleren til å identifisere riktig app-ID,
 forekomstens arbeidsflyttilstand og reporteId for den eksisterende ressursen.
@@ -65,4 +65,4 @@ Flow forklart
 ## Implementerings- og konstruksjonsdetaljer
 
 Detaljer om implementering av PDP finnes under
-[konstruksjonskomponenter for PDP.](/authorization/architecture/accesscontrol#policy-decision-point---pdp)
+[konstruksjonskomponenter for PDP.](/authorization/reference/architecture/accesscontrol#policy-decision-point---pdp)

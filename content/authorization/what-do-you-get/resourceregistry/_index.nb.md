@@ -99,4 +99,4 @@ Både digitale og analoge tjenester kan registreres i ressursregisteret.
 
 ## Konstruksjon
 
-Se [konstruksjonskomponenter](/authorization/architecture/resourceregistry/) hvis du vil se hvordan komponenten er bygget.
+Se [konstruksjonskomponenter](/authorization/reference/architecture/resourceregistry/) hvis du vil se hvordan komponenten er bygget.
