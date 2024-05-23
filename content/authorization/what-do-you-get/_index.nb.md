@@ -1,6 +1,6 @@
 ---
-title: Komponenter og moduler
-linktitle: Komponenter og moduler
+title: Hva får du?
+linktitle: Hva får du?
 description: Autorisasjonskomponentene gir tilgangsstyring og kontrollfunksjonalitet for digitale og analoge tjenester som vert i Altinn-plattformen eller andre steder.
 tags: [architecture, solution]
 toc: false

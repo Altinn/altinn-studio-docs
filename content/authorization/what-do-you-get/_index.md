@@ -1,6 +1,6 @@
 ---
-title: Components & Modules
-linktitle: Components & modules
+title: What do you get?
+linktitle: What do you get?
 description: The authorization components provide access management and control functionality for digital and analog services hosted in the Altinn Platform or other places.
 tags: [architecture, solution]
 toc: false
