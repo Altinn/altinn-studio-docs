@@ -1,13 +1,13 @@
 ---
 title: Monitoring
 linktitle: Monitoring
-description: Altinn App metrics, telemetry and trace logs are available in Azure Application Insights.
+description: Altinn app instrumentation and monitoring.
 weight: 70
 ---
 
 {{% notice info %}}
 Setting up custom rules and alerts is currently not available to application owners, 
-but we are aiming to support this during the Spring of 2023. 
+but we are aiming to support this during the autumn of 2024. 
 {{% /notice %}}
 
 {{% notice info %}}
@@ -16,19 +16,6 @@ solution to instrumenting and shipping telemetry from apps. This still allows us
 Application Insights solution, but also enables developers to ship telemetry to custom monitoring solutions and vendors.
 [Read more below]({{< ref "#opentelemetry" >}})
 {{% /notice %}}
-
-## Azure Monitor
-
-Azure Application Insights (AI) is an extension of 
-[Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/overview) and is what we use in Altinn to 
-provide Application Performance Monitoring features for apps. 
-
-AI can provide you as an app developer with valuable insights into the health, performance and usage of your app.
-With real-time monitoring and performance analytics, developers can identify and resolve issues before they impact the 
-user experience. Error tracking and alerts* makes AI a valuable resource during operations as well. 
-
-
-![Illustration of AI graphs](ai-overview.png "Illustration of AI graphs")
 
 ## OpenTelemetry
 
@@ -68,5 +55,13 @@ of individual applications.__
 
 {{% /expandlarge %}}
 {{<children />}}
+
+TODO
+- mye such
+- lage et eksempel for extension methods
+- hovedsiden - kort og godt og lenker til relevante områder
+- Visualisering-underside
+  - Grafana er tilgjengelig lokalt og delvis i miljøene 
+- Quick start
 
 

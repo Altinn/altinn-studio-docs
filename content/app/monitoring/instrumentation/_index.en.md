@@ -10,7 +10,7 @@ This page refers to configuration when [OpenTelemetry (OTel)](https://openteleme
 The existing Application Insights SDK setup is obsolete and will be removed in the next major version of the Altinn.App libraries. 
 {{% /notice %}}
 
-Instrumentation is about adding additional breadcrumbs for you to use when debugging or analyzing app health or performance.
+Instrumentation is about adding additional context and information for you to use when debugging or analyzing app health or performance.
 Instrumentation through OpenTelemetry can take the form of 3 signal types:
 
 * Traces
@@ -28,7 +28,7 @@ for Altinn-specific data and identifiers.
 
 ## Distributed tracing
 
-Distributed tracing is done through `System.Diagnostics.ActivitySource` and `System.Diagnostics.Activity` in .NET
+Distributed tracing is done through `System.Diagnostics.ActivitySource` and `System.Diagnostics.Activity` in .NET.
 Alternatively, there is a shim API provided by the OTel SDK that simply wraps the Activity API that can be used.
 
 Distributed tracing consists of 
