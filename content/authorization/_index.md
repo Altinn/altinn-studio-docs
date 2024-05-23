@@ -58,7 +58,7 @@ aliases:
             <h2 class="a-h3">Get started</h2>
             <p class="a-js-truncate-2">Create your first resource</p>
             <div class="a-illustration-icon">
-                <img src="./Altinn-studio-3.svg">
+                <img src=./authorization-1.drawio.svg">
                 <div class="a-illustration-overlay">
                     <span class="sr-only">Create your first resource</span>
                 </div>
