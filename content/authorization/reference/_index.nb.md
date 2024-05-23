@@ -8,4 +8,4 @@ aliases:
 ---
 
 
-[Architecture](architecture)
+[Architecture](/authorization/refererence/architecture/)
