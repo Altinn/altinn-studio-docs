@@ -41,15 +41,6 @@ aliases:
                         </div>
                     </a>
                 </li>
-                <li class="a-dotted a-clickable a-list-hasRowLink">
-                    <a href="news" class="a-list-rowLink">
-                        <div class="row">
-                            <div class="col">
-                                News
-                            </div>
-                        </div>
-                    </a>
-                </li>
             </ul>
         </div>
     </div>
@@ -66,33 +57,6 @@ aliases:
         </div>
         <div class="a-list-container mb-2 mx-auto mx-lg-6">
             <ul class="a-list a-list-noIcon">
-             <li class="a-dotted a-clickable a-list-hasRowLink">
-                    <a href="getting-started/create-user/" class="a-list-rowLink">
-                        <div class="row">
-                            <div class="col">
-                                Call PDP API
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li class="a-dotted a-clickable a-list-hasRowLink">
-                    <a href="getting-started/app-dev-course-v2/" class="a-list-rowLink">
-                        <div class="row">
-                            <div class="col">
-                               Enable RRR for a resource
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li class="a-dotted a-clickable a-list-hasRowLink">
-                    <a href="guides/basic-form" class="a-list-rowLink">
-                        <div class="row">
-                            <div class="col">
-                                 How to use Access Managments API
-                            </div>
-                        </div>
-                    </a>
-                </li>
             </ul>
         </div>
     </div>
