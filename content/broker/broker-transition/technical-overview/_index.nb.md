@@ -10,7 +10,7 @@ weight: 1
 ## Om
 
 Altinn 3 Broker Transition Service Bridge er en intern komponent i Altinn 2 som overfører Broker forespørsler fra Altinn 2 til Altinn 3 for en gitt forespørsel, basert på ServiceCode/ServiceEdition kombinasjon av forespørselen.
-Dette er en implementering av den myke skiftløsningen beskrevet [her](../../solution-architecture/#soft-shift-from-altinn-2-to-altinn-3).
+Dette er en implementering av den myke skiftløsningen beskrevet [her](../../solution-architecture/#myk-overgang-fra-altinn-2-til-altinn-3).
 
 ## Teknisk oversikt
 
