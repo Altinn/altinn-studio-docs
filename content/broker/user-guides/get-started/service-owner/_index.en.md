@@ -28,7 +28,7 @@ Perform steps 1 and 2 of the [Common Get started steps](../common-steps) if you 
 
 ## 3. Register a Resource in Altinn Resource Registry {#register-a-resource-in-altinn-resource-registry}
 
-All files sent using Broker is associated with a resource/service/"tjenesteressurs". See [Resource Registry](../../../../authorization/modules/resourceregistry/).
+All files sent using Broker is associated with a resource/service/"tjenesteressurs". See [Resource Registry](../../../../authorization/what-do-you-get/resourceregistry/).
 Resources can be registered through Altinn Studio, and are used for access rules and access lists.
 Your policy must be configured in such a way that that they permit the actions:
 
@@ -40,7 +40,7 @@ To setup a resource that works quickly, you can use our [Postman collection](htt
 
 Here is an [example policy](ExamplePolicy.xml).
 
-Note that this example policy sets a required user role "DAGL" for the user that has access to the resource, and requires the use of [Resource Rights Registry](../../../../authorization/modules/resourceregistry/rrr/) to grant access to specific organisations.
+Note that this example policy sets a required user role "DAGL" for the user that has access to the resource, and requires the use of [Resource Rights Registry](../../../../authorization/what-do-you-get/resourceregistry/rrr/) to grant access to specific organisations.
 A user with that access can then delegate the access to the enterprise user / system user
 
 **TIP**: Verify your configurations using the [Postman collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json), substituting the test tokens with your own Altinn tokens (See "Login to Maskinporten (Initialize)" request in Authenticator folder).
@@ -61,7 +61,7 @@ Using the ID of the resource you created in step 3, call the API operation to [c
 
 Currently this has to be done manually by updating the policy defined in step 3, but will in the future be done using GUI.
 
-TODO: Document how to grant this in [Resource Rights Registry](../../../../authorization/modules/resourceregistry/rrr/)?
+TODO: Document how to grant this in [Resource Rights Registry](../../../../authorization/what-do-you-get/resourceregistry/rrr/)?
 
 ## How to migrate from Altinn 2 to Altinn 3 {#how-to-migrate-from-Altinn-2-to-Altinn-3}
 

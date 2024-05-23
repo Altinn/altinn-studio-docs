@@ -72,7 +72,7 @@ Eksempel
 ### Development issue
 Dette er detaljerte oppgaver som er knyttet til epic og kan være analyse oppgaver eller rene implementasjonsoppgave.
 Issue tilknyttet en produkt feature epic trenger ikke å ligge i samme backlog som epic. 
-Disse tas inn i sprinter som del av sprint planning
+Disse tas inn i sprinter som del av sprint planning.
 
 - Ansvarlig: Devops team
 - Utførende: Devops team
