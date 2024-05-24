@@ -1,7 +1,7 @@
 ---
-title: User Guides
-linktitle:  User Guides
-description:  User Guides
+title: Sette opp integrasjon mot Altinn Autorisasjon fra eksterne tjenester
+linktitle:  Integrasjon med eksterne tjenester
+description:  Denne guiden beskriver hvordan man fra en ekstern tjeneste kan integrere seg mot Altinn Autorisasjon
 toc: false
 weight: 4
 ---
