@@ -1,7 +1,7 @@
 ---
-title: User Guides
+title: Integrating link service with Altinn Authorization
 linktitle:  User Guides
 description:  User Guides
 toc: false
-weight: 3
+weight: 4
 ---
