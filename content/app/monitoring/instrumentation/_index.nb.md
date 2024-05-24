@@ -21,7 +21,7 @@ Ut av boksen får man automatisk instrumentert HTTP server og klientforespørsle
 automatisk vil bli innsamlet, samt alle andre HTTP-kall som er bygget inn i appen.
 Denne instrumenteringer følger den [OpenTelemetry sine semantiske konvensjoner](https://opentelemetry.io/docs/concepts/semantic-conventions/) for attributter.
 
-Konvensjonene burde også følges for manuel instrumentering.
+Konvensjonene burde også følges for manuell instrumentering.
 Altinn.App.Core biblioteket har mekanismer for manuell instrumentering med standarder for attributtnavn og verdier
 for Altinn-spesifikke data og identifikatorer.
 
@@ -32,12 +32,12 @@ Alternativt kan et mellomlag-API som tilgjengeliggjøres av OTel sin SKD brukes.
 
 Distribuert tracer består av
 * tracer - en samling av span, identifisert med en Trace ID
-* span - en arbeidsenhet (unit of work) med start- og sluttidspunkt, identisfisert med en Span Id og enpeker til foreldre sin Span ID
+* span - en arbeidsenhet (unit of work) med start- og sluttidspunkt, identisfisert med en Span Id og en peker til foreldre sin Span ID
 
 En trace kan tenkes på som et tre av span som gjør oss i stand til å visualisere og analysere arbeidsenheter i en konsteks og
-i relasjon til andre span i samme trace. Trace kan brukes omtrent omtrent som logger for debugging og analyser,
-men tilbyr en mer omfattende kontekst - noe som er spesielt nyttig i en distribuert settting. Altinn 3 er en mikrotjenestebasert plattform 
-som gjør at distribuert trace er å anbefale og burde være hovedverktøyet for debugging of observasjon for apper.
+i relasjon til andre span i samme trace. Trace kan brukes omtrent som en logger for debugging og analyser,
+men tilbyr en mer omfattende kontekst - noe som er spesielt nyttig i en distribuert setting. Altinn 3 er en mikrotjenestebasert plattform 
+som gjør at distribuert trace er å anbefale og burde være hovedverktøyet for debugging av observasjon for apper.
 
 Her er et eksempel på en klient som implementerer Bring sitt API (som en del av Altinn apputvikling kurset),
 hvor vi instrumenterer med domenespesifikk span/activity:
@@ -91,7 +91,7 @@ internal sealed class BringClient(
 }
 {{< / highlight >}}
 
-Altinn-apper har også tilgang på metoder for å sette domenespesifkke tags, via en utvidelse av `System.Diagnostics.Activity?` i 
+Altinn-apper har også tilgang på metoder for å sette domenespesifikke tags, via en utvidelse av `System.Diagnostics.Activity?` i 
 `Altinn.App.Core`. Dette inkluderer bruker ID, part ID, instans ID og prosessoppgave ID. I koden under, gir vi
 ekstra kontekst ved å legge til brukers part ID til trace:
 
@@ -136,7 +136,7 @@ Les mer om distribuert trace i
 Logging gjøres ved å bruke `Microsoft.Extensions.Logging.ILogger<T>` interface. Da blir loggene automatisk sendt gjennom OTel eksportering
 (local-test sin OTel Collector ved lokal kjøring, Azure Monitor når i et miljø som produksjon).
 
-Under har vi modifisert vår `BringClient` til å logge informasjonslog for postkoder som blir søkt etter:
+Under har vi modifisert vår `BringClient` til å logge informasjonslogg for postkoder som blir søkt etter:
 
 {{< highlight csharp "linenos=false,hl_lines=4 15" >}}
 internal sealed class BringClient(
@@ -179,7 +179,7 @@ Instrumentering av metrikker gjøre gjennom `System.Diagnostics.Metrics.Meter` o
 Les .NET og OTel dokumentasjon i `Ressurser`-seksjonen under for forskjellen mellom disse typene.
 
 Metrikker er mest nyttig for grov aggregering av tidsserier, for å gi en høynivå innsikt inn i
-tilstanden til en eller flere applikasjoner. Tidsserier kan visualiseres og gi et inntykk og en referanse for hva som kan forventes.
+tilstanden til en eller flere applikasjoner. Tidsserier kan visualiseres og gi et inntrykk og en referanse for hva som kan forventes.
 I fremtiden vil det bli mulig å lage alarmer basert på disse metrikkene.
 
 Vi fortsetter med `BringClient`-eksempelet. Nå legger vi inn caching av API svar for bedre ytelse,

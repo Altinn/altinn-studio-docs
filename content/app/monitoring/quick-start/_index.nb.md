@@ -85,7 +85,7 @@ sealed class StartupService(ILogger<StartupService> logger, Telemetry telemetry)
 Ved lokal utvikling med [localtest](/nb/app/getting-started/local-dev/), så kan en monitoreringsstack bestående av Grafana og OpenTelemetry Collector
 provisjoneres ved siden av localtest og Platform APIer. [Se localtest README for mer informasjon](https://github.com/Altinn/app-localtest/blob/main/README.md).
 
-Monitoreringsoppsettet i localtest inneholder en Grafana instanse med ASP.NET Core dashboard og et preview Altinn app dashboard.
+Monitoreringsoppsettet i localtest inneholder en Grafana instans med ASP.NET Core dashboard og et preview Altinn app dashboard.
 I tillegg gir det muligheten til å fritt undersøke telemetrien som eksponeres fra Altinn plattform og bibliotek.
 
 [Se Grafana-seksjonen på visualiseringssiden for mer informasjon](/nb/app/monitoring/visualisation/#grafana).
