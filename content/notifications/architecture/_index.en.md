@@ -37,13 +37,13 @@ The following diagram illustrates the overall data flow.
 
 - **Altinn Authorization**: used to authorize access to endpoints
 - **Altinn Profile**: used to retrieve recipient information 
+- **Altinn Register**: used to retrieve recipient information
 
 
 {{% notice info %}}
 The number of internal dependencies for Notifications is currently quite limited, 
 but during 2024 we expect the services below to be utilized by Notifications. 
 - **Altinn Storage**: used to retrieve status for Altinn app instances to evaluate send conditions
-- **Altinn Register**: used to retrieve recipient information
 {{% /notice %}}
 
 

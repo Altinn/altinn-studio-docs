@@ -44,7 +44,7 @@ In order to add task types to extend the application process, we need to update 
    need to take advantage of _exclusive gateways_. Read more about exclusive
    gateways [here](/app/development/configuration/process/exclusive-gateways).
 2. The `policy.xml` file, where the authorization rules are defined, needs updates so read and write operations
-   can be done on the new task. <br><br>See [XACML policy](/authorization/guide/xacml)
+   can be done on the new task. <br><br>See [XACML policy](/authorization/guides/xacml)
    , [policy editor](/app/development/configuration/authorization)
    and [Guidelines for authorization rules](/app/development/configuration/authorization/guidelines_authorization)
    for details. Most apps allow this by default by the current template.

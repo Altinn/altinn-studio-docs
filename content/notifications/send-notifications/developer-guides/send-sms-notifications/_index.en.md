@@ -1,6 +1,6 @@
 ---
-title: Send sms notifications 
-linktitle: Send sms notifications 
+title: Send sms notifications
+linktitle: Send sms notifications
 description: Endpoint for sending an sms to one or more recipient with known contact details.
 weight: 50
 toc: true
@@ -12,9 +12,9 @@ POST /orders/sms
 
 ## Authentication
 
-This API requires authentication and the request must also include one of the following: 
+This API requires authentication and the request must also include one of the following:
 
-- Maskinporten scope __altinn:serviceowner/notifications.create__ (for external system callers) 
+- Maskinporten scope __altinn:serviceowner/notifications.create__ (for external system callers)
 - Platform Access Token (for Altinn Apps and internal Altinn systems)
 
 See [Authentication and Authorization](../../../api/#authentication--authorization) for more information.
@@ -32,7 +32,7 @@ The request body must contain the order request formatted as an
 and serialized as JSON.
 
 
-### Required order request properties  
+### Required order request properties
 
 #### __body__
 Type: _string_
@@ -41,31 +41,31 @@ The contents of the SMS.
 
 #### recipients
 Type: _List of [RecipientExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/RecipientExt.cs)_
-  
-A list containing one or more recipient objects, each recipient containing either a mobile number, 
-a national identity number or an organisation number.
+
+A list containing one or more recipient objects, each recipient containing either a mobile number,
+a national identity number or an organization number.
 
 ### Optional order request properties
 #### __senderNumber__
 
 Type: _string_
 
-Default: _Altinn_ 
-The string to use as the sender of the SMS. 
+Default: _Altinn_
+The string to use as the sender of the SMS.
 
 #### requestedSendTime
-Type: _DateTime_ 
+Type: _DateTime_
 
 Default: Current time
 
-The date and time (with time zone specification) when the notification should be sent to recipient. 
-  
+The date and time (with time zone specification) when the notification should be sent to recipient.
+
 #### sendersReference
 Type: _string_
-  
-An internal reference for notification creator to lookup or identify the notification in 
-the future. Could be a case number or another id. It is recommended, but not required, 
-that the sender's reference is unique within the organisation's notification orders.
+
+An internal reference for notification creator to lookup or identify the notification in
+the future. Could be a case number or another id. It is recommended, but not required,
+that the sender's reference is unique within the organization's notification orders.
 
 ## Response
 
@@ -80,7 +80,7 @@ that the sender's reference is unique within the organisation's notification ord
 
 ### Response body
 
-The response body is formatted as an 
+The response body is formatted as an
 [NotificationOrderRequestResponseExt.cs](hhttps://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/NotificationOrderRequestResponseExt.cs)
 and serialized as JSON.
 
@@ -89,16 +89,16 @@ Find a short description of each property below.
 #### orderId
 Type: _GUID_
 
-The generated id for the notification order. 
+The generated id for the notification order.
 
 #### recipientLookup\*
 Type: [_RecipientLookupResultExt_](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/RecipientLookupResultExt.cs)
 
 The result object describing the result of the recipient lookup containing the properties below.
 
-  - _status_: the result of the initial lookup 
+  - _status_: the result of the initial lookup
   - _isReserved_: a list containing national identity numbers for recipients that are reserved
-  - _missingContact_: a list containing national identity numbers and organisation numbers for recipients where contact
+  - _missingContact_: a list containing national identity numbers and organization numbers for recipients where contact
     details for selected notification channel were not identified
 
 
@@ -112,7 +112,7 @@ The result object describing the result of the recipient lookup containing the p
 
 ### Response headers
 
-#### Location 
+#### Location
 Type: _URL_
 
 The self link for the generated notification order
@@ -137,20 +137,21 @@ curl --location 'https://platform.altinn.no/notifications/api/v1/orders/sms' \
 	"body": "A text message to be sent immediately from an org.",
     "recipients":[
         {"mobileNumber":"+4799999999"},
-        {"nationalIdentityNumber":"11876995923"}]
+        {"nationalIdentityNumber":"11876995923"},
+        {"organizationNumber":"311000179"}]
 }'
 ```
 
 ### Response
 
 #### 202 Accepted
-In cases where reservation check or address lookup of recipients is required for an order, 
+In cases where reservation check or address lookup of recipients is required for an order,
 the initial result of the lookup will be included in the response. This includes
 a list containing national identity number for all reserved persons and a list containing national identity number
-or organisation number for the recipients we could not find contact details for. 
+or organization number for the recipients we could not find contact details for.
 
 
-Headers: 
+Headers:
 
 ```bash
 -- header 'Location: https://platform.altinn.no/notifications/api/v1/orders/f1a1cc30-197f-4f34-8304-006ce4945fd1'

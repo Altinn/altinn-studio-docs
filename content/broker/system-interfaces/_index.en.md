@@ -35,7 +35,7 @@ __Interfaces for design time configuration of services and options:__
 
 <!--  
 * Erik [13:39] Fatland, Ragnar Inge
-https://docs.altinn.studio/authorization/modules/resourceregistry/studio/
+https://docs.altinn.studio/authorization/what-do-you-get/resourceregistry/studio/
 Ressurs Admin Altinn Studio – Altinn
 Ressursregisteret tilbyr API for alle typer håndtering av ressurser. I tilegg kan man  som del av Altinn studio kan administrere ressursene.
 -->
