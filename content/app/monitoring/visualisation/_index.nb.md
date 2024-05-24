@@ -16,6 +16,10 @@ Azure Application Insights (AI) er en utvidelse av
 [Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/overview) og er det verktøyet vi
 bruker i Altinn for å tilby overvåkingsfunksjonalitet for apper.
 
+{{% notice info %}}
+I fremtiden vil apper i produksjon og andre miljøer også bruke Grafana som monitoreringsløsning.
+{{% /notice %}}
+
 AI kan gi deg som apputvikler verdifull innsikt i helse, ytelse og bruk av appen din.
 Med sanntidsovervåking og ytelsesanalyse kan utviklere identifisere og løse problemer før de påvirker
 brukeropplevelsen til en sluttbruker. Feilsøking og varsling* gjør AI til en verdifull ressurs også i drift.
@@ -42,3 +46,26 @@ brukeropplevelsen til en sluttbruker. Feilsøking og varsling* gjør AI til en v
     men man kommer langt med det mest grunnleggende for å identifisere datapunkter av interesse.
 
     [Finn en oversikt over KQL og eksempelspørringer på Microsofts nettsted.](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/)
+
+## Grafana
+
+Grafana er et visualiseringsverktøy der en kan utforske telemetri og designe dashboards for sin virksomhets monitoreringsbehov.
+Hvert app-cluster har en Grafana instance som tjenesteeiere kan bruke.
+Det er fortsatt tidlige dager for Grafana-installasjon - i fremtiden vil tjenesteeiere få det følgende ut av boksen:
+
+* Fri utforskning av telemetri
+* ASP.NET Core dashboards
+* .NET runtime dashboard
+* Altinn app dashboard
+* Alarmer
+
+Et preview av Altinn app dashboard og ASP.NET Core dashboards er tilgjengelig i local-test
+
+
+![Altinn app dashboard in Grafana](grafana-app-dashboard.png "Altinn app dashboard i Grafana")
+
+![ASP.NET Core dashboard in Grafana](grafana-aspnetcore-dashboard.png "ASP.NET Core dashboard i Grafana")
+
+![Exploration of traces in Grafana](grafana-explore-traces.png "Utforske traces i Grafana")
+
+![Exploration of logs related to a trace in Grafana](grafana-explore-logs.png "Utforske logs knyttet til en trace i Grafana")
