@@ -8,6 +8,7 @@ weight: 3
 Legg til en ny layoutSet-mappe for betalingsoppgaven din, og oppdater `layout-sets.json` filen.
 
 Din `layout-sets.json` kan se slik ut:
+
 ```json
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
@@ -29,6 +30,7 @@ Din `layout-sets.json` kan se slik ut:
   ]
 }
 ```
+
 I din payment layoutSet mappe, legg til en ny fil, `payment.json`, med følgende layout:
 
 ```json
@@ -50,7 +52,7 @@ I din payment layoutSet mappe, legg til en ny fil, `payment.json`, med følgende
 
 Dette er nødvendig for at betaling skal fungere. Uten dette vil betalingssteget ditt bare vise en hvit side.
 
-### 2.  Legg til OrderDetails-komponenten i skjemaet ditt.
+### 2.  Legg til OrderDetails-komponenten i skjemaet ditt
 
 Dette vil vise en tabell som viser elementene brukeren må betale for.
 Du kan plassere dette hvor som helst i appen din, men vi anbefaler å i det minste sette det på den siste siden før brukeren blir bedt om å betale.
@@ -72,9 +74,9 @@ datafeltene som brukes til å beregne ordrelinjene.
 }
 ```
 
-### 3. Legg til layout for kvitteringen
+### 3. Legg til layout for kvitteringen (Valgfritt)
 
-For å vise en juridisk gyldig kvittering til kunden, må du legge til en tilpasset layout for den.
+Hvis du vil vise mer informasjon på kvittering som vises til kunden, må du legge til en egen tilpasset layout for den.
 
 Legg til en layout fil, f.eks. `receiptLayout.json`.
 
@@ -111,6 +113,5 @@ Oppdater din layoutSet-settings.json-fil, og spesifiser din kvitteringslayout i 
 }
 ```
 
-Dette er alt du trenger for å vise en gyldig kvittering, men du kan også tilpasse den ved å legge til ytterligere komponenter, for eksempel en paragrafkomponent hvis du ønsker å legge til ytterligere informasjon.
-
-
+Dette er alt du trenger for å vise en gyldig kvittering, men du kan også tilpasse `receiptLayout.json` ved å legge til
+ytterligere komponenter, for eksempel en paragrafkomponent hvis du ønsker å legge til ytterligere informasjon.

@@ -8,6 +8,7 @@ weight: 3
 Add a new layoutSet folder for your payment task, and update your layout-sets.json.
 
 Your layout-sets.json may look something like this:
+
 ```json
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
@@ -29,6 +30,7 @@ Your layout-sets.json may look something like this:
   ]
 }
 ```
+
 In your payment layoutSet folder, add a new file, payment.json, with the following layout:
 
 ```json
@@ -50,7 +52,7 @@ In your payment layoutSet folder, add a new file, payment.json, with the followi
 
 This is required for payment to work, without it, your payment step will just render a white page.
 
-### 2. Add OrderDetails component to your form.
+### 2. Add OrderDetails component to your form
 
 This will display a table showing the items the user will need to pay for.
 You can put this anywhere in your app, but we recommend at the very least putting it on the last page before the user is prompted to pay.
@@ -72,9 +74,10 @@ the data fields used to calculate the order lines.
 }
 ```
 
-### 3. Add layout for the receipt
+### 3. Add a layout for the receipt (Optional)
 
-In order to display a legally valid receipt to the customer, you need to add a custom layout for it.
+If you would like to display additional information by adding components the receipt presented to the customer,
+you need to add a custom layout for it.
 
 Add a custom layout file, f ex `receiptLayout.json`.
 
@@ -111,4 +114,5 @@ Update your layout set Settings.json file, specifying your receipt layout in the
 }
 ```
 
-This is all you need to render a valid receipt, however, you can also customize it by adding additional components to it, for example a Paragraph component if you want to add additional information.
+This is all you need to render a valid receipt, however, you can also customize it by adding additional components to
+`receiptLayout.json`, for example a Paragraph component if you want to add additional information.
