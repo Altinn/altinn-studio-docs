@@ -17,8 +17,11 @@ Setting up custom rules and alerts is currently not available to application own
 but we are aiming to support this during the autumn of 2024. 
 {{% /notice %}}
 
+To get started with monitoring in you app, see [monitoring quick start guide](/app/monitoring/quick-start).
+
 This documentation contains information needed to support app developers and service owners in 
 operating, monitoring/observing and instrumenting applications on the Altinn 3 platform.
+
 This includes
 
 * [How are apps instrumented](/app/monitoring/instrumentation)
@@ -37,9 +40,6 @@ Altinn 3 uses the open and vendor-neutral OpenTelemetry specifications and proto
 telemetry end-to-end. This enables us to bring a baseline monitoring that serves all applications,
 and enables service owners to make appropriate customizations as necessary, from custom enrichment and instrumentation
 to completely separate monitoring platforms.
-
-To proceed, try out the [monitoring quick start guide](/app/monitoring/quick-start), 
-or [read the reference on configuring monitoring and OpenTelemetry for an application](/app/monitoring/configuration).
 
 {{<children />}}
 
