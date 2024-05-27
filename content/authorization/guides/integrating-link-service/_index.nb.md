@@ -37,7 +37,7 @@ For å kunne presentere en liste over avgivere som en sluttbruker kan velge mell
 
 ![Autoriserte parter fra vegvesen.no](authorizedparty.png "Autoriserter parter fra Altinn presentert på vegvesen.no")
 
-API som Altinn tilbyr heter AuthorizedParties. Dokumentasjon finnes [her](/nb/api/accessmanagement/resourceowneropenapi/#/Authorized%20Parties/post_resourceowner_authorizedparties) 
+API som Altinn tilbyr heter AuthorizedParties. Dokumentasjon finnes [her](https://docs.altinn.studio/nb/api/accessmanagement/resourceowneropenapi/#/Authorized%20Parties/post_resourceowner_authorizedparties) 
 
 Input er personr til autentisert person på følgende format
 
@@ -52,7 +52,7 @@ Input er personr til autentisert person på følgende format
 
 Det er laget et eget PDP API som støtter at PEP gjør et autorisasjonskall basert på XACML Json Profile.
 
-Dokumentasjonen finnes [her](/api/authorization/spec/#/Decision/post_authorize)
+Dokumentasjonen finnes [her](https://docs.altinn.studio/nb/api/authorization/spec/#/Decision/post_authorize)
 
 Nedenfor vises eksempel på kall som autoriserer **01017012345** for **read** på ressursen **ttdintegrasjonstest1** for organisasjon **312824450**
 

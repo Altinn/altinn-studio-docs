@@ -36,7 +36,7 @@ In order to be able to present a list of transmitters that an end user can choos
 
 ![Authorized parties from vegvesen.no](authorizedparty.png "Authorized parties from Altinn presented at vegvesen.no")
 
-The API that Altinn offers is called AuthorizedParties. Documentation can be found [here](/nb/api/accessmanagement/resourceowneropenapi/#/Authorized%20Parties/post_resourceowner_authorizedparties) 
+The API that Altinn offers is called AuthorizedParties. Documentation can be found [here](https://docs.altinn.studio/api/accessmanagement/resourceowneropenapi/#/Authorized%20Parties/post_resourceowner_authorizedparties) 
 
 Input is personr to authenticated person in the following format
 
@@ -51,7 +51,7 @@ Input is personr to authenticated person in the following format
 
 A separate PDP API has been created that supports PEP making an authorization call based on the XACML Json Profile.
 
-The documentation can be found [here](/api/authorization/spec/#/Decision/post_authorize)
+The documentation can be found [here](https://docs.altinn.studio/api/authorization/spec/#/Decision/post_authorize)
 
 Below is an example of a call that authorizes **01017012345** for **read** on the resource **ttdintegrationtest1** for organization **312824450**
 
