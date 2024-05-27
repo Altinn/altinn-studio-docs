@@ -41,5 +41,15 @@ telemetry end-to-end. This enables us to bring a baseline monitoring that serves
 and enables service owners to make appropriate customizations as necessary, from custom enrichment and instrumentation
 to completely separate monitoring platforms.
 
+## Core concepts
+
+**Instrumentation** is your software saying what it is doing.
+
+**Telemetry** is making that information available, whether by pull—something asking—or push—sending messages; “measurement at a distance”.
+
+**Monitoring** is receiving instrumentation and making it visible.
+
+**Alerting** is reacting to the monitored data, or patterns in the data.
+
 {{<children />}}
 

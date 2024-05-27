@@ -35,3 +35,15 @@ Dette inkluderer
 * Prosess for håndtering av hendelser og eskalering
 * Monitorering under onboarding og opplæring
 * Monitorering for analyse og data-dreven Monitoring for analysis and data-driven beslutningstaking
+
+## Sentrale begreper
+
+**Instrumentering** er at din software sier hva den gjør.
+
+**Telemetri** er å gjøre denne informasjonen tilgjengelig, enten ved pull—noe som spør—eller ved push—sending av meldinger.
+
+**Monitorering** er å motta instrumentering og gjør det synlig.
+
+**Alarmering** er å reagere på den monitorerte dataen, eller mønstre i dataen.
+
+{{<children />}}
