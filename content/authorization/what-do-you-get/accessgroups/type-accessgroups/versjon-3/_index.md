@@ -4,6 +4,8 @@ linktitle: Virksomhet, versjon 3
 description: Her finner du versjon 3 på forslag til nye tilgangspakker for virksomheter. Denne versjonen vil tilgjengeliggjøres i Altinn studio og ressursregisteret. 
 toc: true
 weight: 100
+aliases:
+- /authorization/modules/accessgroups/type-accessgroups/versjon-3/
 ---
 
 Altinn skal erstatte rollene som gir tilgang til tjenester i Altinn 2 når vi flytter Altinn Autorisasjon til Altinn 3. 
