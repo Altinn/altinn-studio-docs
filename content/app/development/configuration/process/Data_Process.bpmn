@@ -11,9 +11,14 @@ targetNamespace="http://bpmn.io/schema/bpmn" >
 		<bpmn:startEvent id="StartEvent_1">
 			<bpmn:outgoing>SequenceFlow_1</bpmn:outgoing>
 		</bpmn:startEvent>
-		<bpmn:task id="Task_1" name="Fyll ut skjema" altinn:tasktype="data">
+		<bpmn:task id="Task_1" name="Fyll ut skjema">
 			<bpmn:incoming>SequenceFlow_1</bpmn:incoming>
 			<bpmn:outgoing>SequenceFlow_2</bpmn:outgoing>
+			<bpmn2:extensionElements>
+				<altinn:taskExtension>
+				<altinn:taskType>data</altinn:taskType>
+				</altinn:taskExtension>
+			</bpmn2:extensionElements>
 		</bpmn:task>
 		<bpmn:endEvent id="EndEvent_1">
 			<bpmn:incoming>SequenceFlow_2</bpmn:incoming>
