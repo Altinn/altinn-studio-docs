@@ -3,8 +3,7 @@ title: Creating and publishing resources in altinn Studio
 linktitle: Creating Resources
 description: This explaines how 
 toc: false
-weight: 5
-aliases:
+weight: 1
 ---
 
 
