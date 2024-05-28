@@ -2,12 +2,10 @@
     {
         "ActionId": "read",
         "ActionTitle": "Les"
-
     },
     {
         "ActionId": "write",
         "ActionTitle": "Skriv"
-
     },
     {
         "ActionId": "delete",
@@ -30,11 +28,23 @@
         "ActionTitle": "Bekreft mottatt tjenesteeier"
     },
     {
+        "ActionId": "pay",
+        "ActionTitle": "Betale"
+    },
+    {
+        "ActionId": "reject",
+        "ActionTitle": "Avvise betaling"
+    },
+    {
         "ActionId": "subscribe",
         "ActionTitle": "Abonnere på hendelser (Events)"
     },
     {
         "ActionId": "publish",
         "ActionTitle": "Publisere hendelser (Events)"
+    },
+    {
+        "ActionId": "scopeaccess",
+        "ActionTitle": "Rett til å delegere scope"
     }
 ]
