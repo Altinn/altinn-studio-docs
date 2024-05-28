@@ -10,7 +10,7 @@ I Enhetsregisteret er det offisielle registeret over virksomheter i Norge. I reg
 
 Når man velger roller er det derfor viktig å vurdere hvilke typer organisasjoner som skal benytte tjenesten og med det hvilke roller man må knytte til tjenesten for å gi disse tilgang
 
-Fullstendig oversikt over organisasjonsformer og roller som leses inn fra Enhetsregisteret finner du på [Fullmakter fra Enhetsregisteret](/authorization/modules/accessgroups/register_er/)
+Fullstendig oversikt over organisasjonsformer og roller som leses inn fra Enhetsregisteret finner du på [Fullmakter fra Enhetsregisteret](/authorization/what-do-you-get/accessgroups/register_er/)
 
 
 ## Nøkkelroller
