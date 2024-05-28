@@ -28,5 +28,13 @@
     {
         "ActionId": "complete",
         "ActionTitle": "Bekreft mottatt tjenesteeier"
+    },
+    {
+        "ActionId": "subscribe",
+        "ActionTitle": "Abonnere på hendelser (Events)"
+    },
+    {
+        "ActionId": "publish",
+        "ActionTitle": "Publisere hendelser (Events)"
     }
 ]
