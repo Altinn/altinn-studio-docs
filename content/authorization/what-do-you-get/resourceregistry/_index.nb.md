@@ -84,7 +84,7 @@ Politikker definert for apper og ressurser vil bli lagret av ressursregisteret.
 
 ### App retningslinjer
 
-App-policyene er retningslinjer for apper [opprettet i Altinn Studio](../../../../../../../../app/development/configuration/authorization/).
+App-policyene er retningslinjer for apper [opprettet i Altinn Studio](../../../../../../../../altinn-studio/reference/configuration/authorization/).
 Policyen opprettes i Altinn Studio og migreres til Access Policy-komponenten når appen distribueres til et test- eller produksjonsmiljø.
 
 En apppolicy inneholder informasjon om de ulike ressursene i en app og hvem og hva slags operasjoner de har lov til å utføre.

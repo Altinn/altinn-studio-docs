@@ -60,7 +60,7 @@ dependencies:
 
 Benytter din applikasjon siste deployment strategi.
 
-Hvordan du konfigurerer din deployment er dokumentert [her](/nb/app/development/configuration/deployment)
+Hvordan du konfigurerer din deployment er dokumentert [her](/nb/altinn-studio/reference/configuration/deployment)
 
 {{%notice info%}}
 Nye  versjoner er tilgjengelige. Hvis det er ny major versjon må du være obs på breaking changes.
