@@ -4,7 +4,7 @@ description: XACML stands for "eXtensible Access Control Markup Language".
 tags: [architecture, security, XACML]
 linktitle: XACML
 toc: false
-weight: 1
+weight: 10
 ---
 
 The [standard] defines a declarative fine-grained, attribute-based access control policy language,
