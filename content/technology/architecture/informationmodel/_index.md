@@ -13,13 +13,13 @@ aliases:
 
 | Term| Description |
 |-----|------|
-| Access Package | An access package is a named and categorized “container” to which resource owners can add rights through policies. See an [overview of packages and categories](/authorization/modules/accessgroups/type-accessgroups/). | 
+| Access Package | An access package is a named and categorized “container” to which resource owners can add rights through policies. See an [overview of packages and categories](/authorization/what-do-you-get/accessgroups/type-accessgroups/). | 
 | Altinn Role | A Altinn role is a relationship between organizations and organizations, organizations and persons, and persons and persons. The relationships exist because ER roles implicitly give them through or users have explicitly delegated them.  Altinn will discontinue Altinn Roles from the solution in 2026  |
 | Policy  |  A policy contains rules for accessing an app or a resource. The app developer or resource owner defines it. Altinn uses XACML as a policy format. Read more about the [policy format](/altinn-studio/reference/configuration/authorization/). |
 | Rule  | A rule defines different operations on resources / apps.   |
 | Delegation | A delegation is when a user gives rights to a person, system, or organization. A delegation gives rights through delegated roles, delegated access Packages, or delegated single rights through a delegation policy. |
 | Delegation Policy | A policy created by end-users when they delegate rights to other users/organizations. | 
-| Resource | A resource is metadata about a digital or analog service that a resource owner wants to use [Altinn Authorization](/authorization/modules/pdp/) for access control. When defining a service as a resource in [Altinn Resource Registry](/authorization/modules/resourceregistry/) with a policy, resource owners can use Altinn PDP to control access to external solutions.  |
+| Resource | A resource is metadata about a digital or analog service that a resource owner wants to use [Altinn Authorization](/authorization/what-do-you-get/pdp/) for access control. When defining a service as a resource in [Altinn Resource Registry](/authorization/what-do-you-get/resourceregistry/) with a policy, resource owners can use Altinn PDP to control access to external solutions.  |
 | Access List | An access list defines entities that can access a resource if the resource requires access list access. |
 
 ## Altinn Register

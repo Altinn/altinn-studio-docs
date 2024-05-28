@@ -16,9 +16,9 @@ tags: [app-structure, todo]
 - *Containers*: describes the layout containers used in the schema and the configurations connected to them. E.g if the container is a repeating group
 - *Order*: this object specify the order of the containers and components in the schema.
 
-## Eksempel
+## Example
 
-Here is an example on how the form layout file could look like:
+Here is an example of what the form layout file could look like:
 
 ```json
 "components": {

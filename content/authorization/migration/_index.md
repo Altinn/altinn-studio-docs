@@ -3,7 +3,7 @@ title: Fremdriftsplaner for modernisering av Altinn Autorisasjon
 linktitle: Fremdriftsplan
 description: Her finner du informasjon om hvordan vi har tenkt å migrere Altinn Autorisasjon fra Altinn 2 til Altinn 3 plattformen
 tags: [architecture, plan, authorization]
-weight: 1
+weight: 10
 ---
 
 Innen juni 2025 så skal dagens Altinn løsning være modernisert og migrert til skyen. Det innebærer at mye av dagens løsning må utvikles på nytt. 
@@ -39,7 +39,7 @@ Den nye brukerflaten i Altinn Autorisasjon har som mål å tilby en tilrettelagt
 Dette skal også sikre at man ikke får tilgang til mer enn man strengt tatt trenger.
 
 En konsekvens av dette er at dagens [roller i Altinn 2.0](/altinn-studio/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/altinn_roles_enterprices/) 
-skal fases ut og erstattes med nye [tilgangspakker i Altinn 3.0](../modules/accessgroups/type-accessgroups/)
+skal fases ut og erstattes med nye [tilgangspakker i Altinn 3.0](../what-do-you-get/accessgroups/type-accessgroups/)
 
 #### Hva blir konsekvensen av at man innfører nye tilgangspakker? 
 I forkant av lansering av nye tilgangspakker og i en overgangsfase vil det være nødvendig å angi både gamle Altinn 2.0 roller og nye 3.0 tilgangspakker som rollekrav knyttet til tjenesten. 

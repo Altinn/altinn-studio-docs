@@ -11,7 +11,7 @@ weight: 1
 
 The main use case for Altinn Broker is Managed File Transfer (MFT). It
 facilitates secure transmission of files of any size from one sender
-to one or more recepients. As such, it offers many
+to one or more recipients. As such, it offers many
 benefits compared to alternative ad-hoc peer-to-peer file transfer
 solutions typically built on file transfer protocol (FTP), 
 hypertext transfer protocol (HTTP) or secure file transfer protocol (SFTP).
