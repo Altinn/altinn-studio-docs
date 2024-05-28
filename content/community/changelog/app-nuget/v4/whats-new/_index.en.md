@@ -119,7 +119,7 @@ Added a new section called `FrontEndSettings` for use in `appsetting.{environmen
 ## 4.24.0 (2020-01-21)
 
 Support language and query parameters in dynamic options.
-New way of implementing dynamic options by creating a class that implements IAppOptionsProvider.  [See doc](../../../../../app/development/data/options/)
+New way of implementing dynamic options by creating a class that implements IAppOptionsProvider.  [See doc](../../../../../altinn-studio/reference/data/options/)
 
 ## 4.23.0 (2022-01-15) - Updated backend support for BPMN gateways
 
@@ -140,7 +140,7 @@ Added Api in App to expose XACML Policy and BPMN Process
 
 The URL to an app can now contain a query parameter (returnUrl) which, if validated (valid URI and host name),
 can be used to redirect the user to that URL when the user clicks on the exit icon in an Altinn 3 app. 
-[Read more about it here](../../../../../../../app/development/configuration/queryparameters)   
+[Read more about it here](../../../../../../../altinn-studio/reference/configuration/queryparameters)   
 
 Related to [7183](https://github.com/Altinn/altinn-studio/issues/7183)
 
@@ -279,7 +279,7 @@ Issue [#6418](https://github.com/Altinn/altinn-studio/issues/6418)
 
 ## 4.9.0 (2021-06-29) - Support for marking a single field validation error as fixed
 It is now possible to mark a previous validation error as fixed by using the prefix `*FIXED*` in front of the original error. 
-[Documentation on how to implement the functionality](../../../../../app/development/logic/validation/#specify-that-validation-errors-are-fixed).
+[Documentation on how to implement the functionality](../../../../../altinn-studio/reference/logic/validation/#specify-that-validation-errors-are-fixed).
 
 
 ## 4.8.0 (2021-06-22) - Application version number available in AppSettings
@@ -305,11 +305,11 @@ The process to update is
 5. Remove CalculationHandler when code has been moved to DataProcessingHandler.
 6. Compile and test your app. 
 
-See details about data processing [here](../../../../../app/development/logic/dataprocessing/)
+See details about data processing [here](../../../../../altinn-studio/reference/logic/dataprocessing/)
 
 ## 4.6.2 (2021-06-01) - Duplicate keys in options causing crash
 
-This release has a fix for a crash related to PDF rendering when an app have [options](../../../../../app/development/data/options/) with duplicate entries. [#5887](https://github.com/Altinn/altinn-studio/issues/5887)
+This release has a fix for a crash related to PDF rendering when an app have [options](../../../../../altinn-studio/reference/data/options/) with duplicate entries. [#5887](https://github.com/Altinn/altinn-studio/issues/5887)
 
 ## 4.6.1. (2021-05-21) Changed alternative subject
 
@@ -319,7 +319,7 @@ Altinn Apps now uses org instead of organization as subject when publishing even
 Altinn Apps now support data fields.
 Data fields allows for adding data values, from either form fields or a custom source, to the instance object.
 Form data can be added by configuring data fields in `applicationmetadata.json` while custom sources require coding.
-Documentation on how to add data values to an instance can be found [here](../../../../../app/development/configuration/datafields/).
+Documentation on how to add data values to an instance can be found [here](../../../../../altinn-studio/reference/configuration/datafields/).
 
 
 ## 4.5.2 (2021-05-04) - Endpoints for stateless data elements exposed through app. Bug stopping local testing fixed
@@ -346,7 +346,7 @@ Altinn Apps now support presentation fields.
 By specifying presentation fields in `applicationmetadata.json`, specified data values from the form data
 will be stored on the instance in order to show them along with the app title in the Altinn messagebox.
 Further documentation on how to configure presentation fields is
-found [here](../../../../../app/development/configuration/messagebox/presentationfields/).
+found [here](../../../../../altinn-studio/reference/configuration/messagebox/presentationfields/).
 
 This change is related to [this epic](https://app.zenhub.com/workspace/o/altinn/altinn-studio/issues/594).
 

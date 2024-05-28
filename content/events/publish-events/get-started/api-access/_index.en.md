@@ -7,4 +7,4 @@ description: A guide to requesting access to the event producer APIs
 
 ## Requesting required Maskinporten scope
 
-{{% insert "content/app/guides/shared/api/request-maskinporten-scopes.md" "altinn:events.publish" "publishing events to Altinn"%}}
+{{% insert "content/altinn-studio/guides/shared/api/request-maskinporten-scopes.md" "altinn:events.publish" "publishing events to Altinn"%}}

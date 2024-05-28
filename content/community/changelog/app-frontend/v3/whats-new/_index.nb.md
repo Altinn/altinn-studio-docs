@@ -55,7 +55,7 @@ Oppdaterte eksterne avhengigheter for uke 17 av 2022.
 ## 3.35.0 (2022-04-28) - Merke påkrevde felter
 Endret standard visning av felter til at påkrevde felter markeres med en *, mens felter som er valgfrie
 ikke har noen markering. Valgfrie felter kan settes opp til å markeres med `(Valgfri)` via `labelSettings`-property
-på feltet i form layout. Se [her](/app/development/ux/fields/settings/).
+på feltet i form layout. Se [her](/altinn-studio/reference/ux/fields/settings/).
 
 ## 3.34.4 (2022-04-28) - Fjernet overskrift om vedlegg når det ikke er noen vedlegg
 Under kvitteringen ble det vist en overskrift over listen med vedlegg. Etter det ble mulig å skru av generering av
@@ -77,7 +77,7 @@ Width deklarasjonen ble flyttet til inline styling for å løse problemet.
 Issue [#14](https://github.com/Altinn/app-frontend-react/issues/14). 
 
 ## 3.34.0 (2022-04-11) - Options fra datamodellen
-La til støtte for å sette opp options (kodelister) fra repeterende grupper i datamodellen. Les mer på [docs.](/nb/app/development/data/options/repeating-group-codelists
+La til støtte for å sette opp options (kodelister) fra repeterende grupper i datamodellen. Les mer på [docs.](/nb/altinn-studio/reference/data/options/repeating-group-codelists
 Issue [#7626](https://github.com/Altinn/altinn-studio/issues/7626). 
 
 ## 3.33.5 (2022-04-11) - Oppdaterte ekstern avhengighet
