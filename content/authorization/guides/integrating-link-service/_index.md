@@ -99,3 +99,260 @@ Below is an example of a call that authorizes **01017012345** for **read** on th
 }
 
 ```
+
+### Multi Resource integration with PDP
+
+Altinn PDP offers a convenient solution in scenarios where several elements need to be authorized for a given user at once. Thanks to the XACML Jason Profile, it supports multiple authorization requests in a single PDP request, alleviating potential complications.
+
+In the example below, a user must be authorized for three resources owned by a different organization and of two different types.
+
+```json
+{
+  "Request": {
+    "ReturnPolicyIdList": true,
+    "AccessSubject": [
+      {
+        "Id": "s1",
+        "Attribute": [
+          {
+            "AttributeId": "urn:altinn:person:identifier-no",
+            "Value": "01039012345"
+          }
+        ]
+      }
+    ],
+    "Action": [
+      {
+        "Id": "a1",
+        "Attribute": [
+          {
+            "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+            "Value": "read",
+            "DataType": "http://www.w3.org/2001/XMLSchema#string",
+            "IncludeInResult": true
+          }
+        ]
+      }
+    ],
+    "Resource": [
+      {
+        "Id": "r1",
+        "Attribute": [
+          {
+            "AttributeId": "urn:altinn:resource",
+            "Value": "ttd-externalpdp-resource1",
+            "IncludeInResult": true
+          },
+          {
+            "AttributeId": "urn:altinn:organization:identifier-no",
+            "Value": "897069651",
+            "IncludeInResult": true
+          }
+        ]
+      },
+      {
+        "Id": "r2",
+        "Attribute": [
+          {
+            "AttributeId": "urn:altinn:resource",
+            "Value": "ttd-externalpdp-resource1",
+            "IncludeInResult": true
+          },
+          {
+            "AttributeId": "urn:altinn:organization:identifier-no",
+            "Value": "950474084",
+            "IncludeInResult": true
+          }
+        ]
+      },
+      {
+        "Id": "r3",
+        "Attribute": [
+          {
+            "AttributeId": "urn:altinn:resource",
+            "Value": "ttd-externalpdp-resource3",
+            "IncludeInResult": true
+          },
+          {
+            "AttributeId": "urn:altinn:organization:identifier-no",
+            "Value": "950474084",
+            "IncludeInResult": true
+          }
+        ]
+      }
+    ],
+    "MultiRequests": {
+      "RequestReference": [
+        {
+          "ReferenceId": [
+            "s1",
+            "a1",
+            "r1"
+          ]
+        },
+        {
+          "ReferenceId": [
+            "s1",
+            "a1",
+            "r2"
+          ]
+        },
+        {
+          "ReferenceId": [
+            "s1",
+            "a1",
+            "r3"
+          ]
+        }
+      ]
+    }
+  }
+}
+
+```
+
+You get a list of responses in return. In the request, you tell which elements you need in return for each request to be able to map the response to the request.
+
+```json
+{
+  "Response": [
+    {
+      "Decision": "Permit",
+      "Status": {
+        "StatusCode": {
+          "Value": "urn:oasis:names:tc:xacml:1.0:status:ok"
+        }
+      },
+      "Obligations": [
+        {
+          "id": "urn:altinn:obligation:authenticationLevel1",
+          "attributeAssignment": [
+
+            {
+              "attributeId": "urn:altinn:obligation-assignment:1",
+              "value": "2",
+              "category": "urn:altinn:minimum-authenticationlevel",
+              "dataType": "http://www.w3.org/2001/XMLSchema#integer",
+              "issuer": null
+            }
+          ]
+        }
+      ],
+      "Category": [
+        {
+          "CategoryId": "urn:oasis:names:tc:xacml:3.0:attribute-category:action",
+          "Attribute": [
+            {
+              "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+              "DataType": "http://www.w3.org/2001/XMLSchema#string",
+              "Value": "read"
+            }
+          ]
+        },
+        {
+          "CategoryId": "urn:oasis:names:tc:xacml:3.0:attribute-category:resource",
+          "Attribute": [
+            {
+              "AttributeId": "urn:altinn:resource",
+              "DataType": "http://www.w3.org/2001/XMLSchema#string",
+              "Value": "ttd-externalpdp-resource1"
+            },
+            {
+              "AttributeId": "urn:altinn:organization:identifier-no",
+              "DataType": "http://www.w3.org/2001/XMLSchema#string",
+              "Value": "897069651"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Decision": "Permit",
+      "Status": {
+        "StatusCode": {
+          "Value": "urn:oasis:names:tc:xacml:1.0:status:ok"
+        }
+      },
+      "Obligations": [
+        {
+          "id": "urn:altinn:obligation:authenticationLevel1",
+          "attributeAssignment": [
+            {
+              "attributeId": "urn:altinn:obligation-assignment:1",
+              "value": "2",
+              "category": "urn:altinn:minimum-authenticationlevel",
+              "dataType": "http://www.w3.org/2001/XMLSchema#integer",
+              "issuer": null
+            }
+          ]
+        }
+      ],
+      "Category": [
+        {
+          "CategoryId": "urn:oasis:names:tc:xacml:3.0:attribute-category:action",
+          "Attribute": [
+            {
+              "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+              "DataType": "http://www.w3.org/2001/XMLSchema#string",
+              "Value": "read"
+            }
+          ]
+        },
+        {
+          "CategoryId": "urn:oasis:names:tc:xacml:3.0:attribute-category:resource",
+          "Attribute": [
+            {
+              "AttributeId": "urn:altinn:resource",
+              "DataType": "http://www.w3.org/2001/XMLSchema#string",
+              "Value": "ttd-externalpdp-resource1"
+            },
+            {
+              "AttributeId": "urn:altinn:organization:identifier-no",
+              "DataType": "http://www.w3.org/2001/XMLSchema#string",
+              "Value": "950474084"
+            }
+          ]
+        }
+
+      ]
+    },
+    {
+      "Decision": "NotApplicable",
+      "Status": {
+        "StatusCode": {
+          "Value": "urn:oasis:names:tc:xacml:1.0:status:ok"
+        }
+      },
+      "Category": [
+        {
+          "CategoryId": "urn:oasis:names:tc:xacml:3.0:attribute-category:action",
+          "Attribute": [
+            {
+              "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+              "DataType": "http://www.w3.org/2001/XMLSchema#string",
+              "Value": "read"
+            }
+          ]
+        },
+        {
+          "CategoryId": "urn:oasis:names:tc:xacml:3.0:attribute-category:resource",
+          "Attribute": [
+            {
+              "AttributeId": "urn:altinn:resource",
+              "DataType": "http://www.w3.org/2001/XMLSchema#string",
+              "Value": "ttd-externalpdp-resource3"
+            },
+            {
+              "AttributeId": "urn:altinn:organization:identifier-no",
+              "DataType": "http://www.w3.org/2001/XMLSchema#string",
+              "Value": "950474084"
+            }
+          ]
+        }
+
+      ]
+    }
+  ]
+}
+
+```
