@@ -1,5 +1,5 @@
 ---
-title: Creating and publishing resources in altinn Studio
+title: Creating and publishing API scheme in altinn Studio
 linktitle: Creating Resources
 description: This explaines how 
 toc: false
@@ -28,9 +28,6 @@ The ID given for resource will be the one used in Altinn API for checking access
 ### Resource Type
 
 For external resources, the type will be generic access resource.
-
-![Create Resource](create_resource_2.png)
-
 
 ### Title
 
