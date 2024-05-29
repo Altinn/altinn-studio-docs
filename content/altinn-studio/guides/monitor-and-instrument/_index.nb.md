@@ -1,6 +1,6 @@
 ---
-title: Instrumenter og monitorer
-linktitle: Instrumenter og monitorer
+title: Monitorer og instumenter
+linktitle: Monitorer og instumenter
 description: Kom i gang med verktøyene for instrumentering og monitorering i Altinn
 toc: true
 weight: 990

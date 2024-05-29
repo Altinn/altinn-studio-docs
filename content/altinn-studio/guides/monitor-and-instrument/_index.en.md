@@ -1,6 +1,6 @@
 ---
-title: Instrument and monitor
-linktitle: Instrument and monitor
+title: Monitor and instrument
+linktitle: Monitor and instrument
 description: Get started with Altinn monitoring tools and instrumentation
 toc: true
 weight: 990
@@ -81,13 +81,13 @@ sealed class StartupService(ILogger<StartupService> logger, Telemetry telemetry)
 ```
 
 
-[Read more about instrumentation options on the instrumentation page]/altinn-studio/reference/monitoring/instrumentation).
+[Read more about instrumentation options on the instrumentation page](/altinn-studio/reference/monitoring/instrumentation).
 
 ## Visualising
 
 Here is a brief overview of visualising the telemetry instrumented above.
 
-[More detailed information is available at the visualisation page]/altinn-studio/reference/monitoring/visualisation).
+[More detailed information is available at the visualisation page](/altinn-studio/reference/monitoring/visualisation).
 
 ###  Running locally 
 
