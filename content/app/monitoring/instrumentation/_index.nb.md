@@ -23,7 +23,7 @@ Denne instrumenteringer følger den [OpenTelemetry sine semantiske konvensjoner]
 
 Konvensjonene burde også følges for manuell instrumentering.
 Altinn.App.Core biblioteket har mekanismer for manuell instrumentering med standarder for attributtnavn og verdier
-for Altinn-spesifikke data og identifikatorer.
+for Altinn-spesifikke data og identifikatorer. Dette gjøres via `Altinn.App.Core.Features.Telemetry`-klassen og extension-metoder på `System.Diagnostics.Activity`.
 
 ## Distribuert trace
 
