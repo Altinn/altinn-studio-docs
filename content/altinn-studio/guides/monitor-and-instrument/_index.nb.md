@@ -27,7 +27,7 @@ Det nye monitorerings- og instrumenteringsoppsettet basert på OpenTelemetry kan
 Når appen kjøres med denne instillingen så vil Altinn.App biblioteket sende telemetri til localtest ved lokal kjøring
 og til Azure Monitor ved kjøring i et miljø.
 
-[Les mer om konfigurasjonsmuligheter på konfigurasjonssiden](/nb/altinn-studio/reference/monitoring/configuration).
+[Les mer om konfigurasjonsmuligheter på referansesiden for konfigurasjon](/nb/altinn-studio/reference/monitoring/configuration).
 
 ## Egendefinert instrumentering
 
@@ -79,7 +79,7 @@ sealed class StartupService(ILogger<StartupService> logger, Telemetry telemetry)
 }
 ```
 
-[Les mer om instrumenteringsmuligheter på instrumenteringsiden](/nb/altinn-studio/reference/monitoring/instrumentation).
+[Les mer om instrumenteringsmuligheter på referansesiden for instrumentering](/nb/altinn-studio/reference/monitoring/instrumentation).
 
 ### Lokal utvikling
 
@@ -89,7 +89,7 @@ provisjoneres ved siden av localtest og Platform APIer. [Se localtest README for
 Monitoreringsoppsettet i localtest inneholder en Grafana instans med ASP.NET Core dashboard og et preview Altinn app dashboard.
 I tillegg gir det muligheten til å fritt undersøke telemetrien som eksponeres fra Altinn plattform og bibliotek.
 
-[Se Grafana-seksjonen på visualiseringssiden for mer informasjon](/nb/altinn-studio/reference/monitoring/visualisation/#grafana).
+[Les mer om lokal Grafana på referansesiden for visualisering](/nb/altinn-studio/reference/monitoring/visualisation/#grafana).
 
 Hvis du har implementert koden over, så skal du kunne finne `altinn_app_started`-metrikken på "Explore"-siden når "Metrics"-datakilden er valgt.
 Du kan også finne logger og traces fra koden over på denne siden ved hjelp av de andre datakildene.
@@ -106,6 +106,7 @@ For å åpne Grafana, åpne [local.altinn.cloud/grafana/](http://local.altinn.cl
 
 Når appen er deployed til et test- eller produksjons-miljø så vil telemetrien sendes til Azure Monitor.
 
+[Les mer om Azure Monitor på referansesiden for visualisering](/nb/altinn-studio/reference/monitoring/visualisation/#azure-monitor).
 [Les Azure Monitor-sekssjonen på visualiserings-siden for mer info](/nb/altinn-studio/reference/monitoring/visualisation/#azure-monitor).
 
 I Azure Monitor kan logger og traces finnes ved å bruke `Transaction search` menyen, mens metrikker er å finne under `Metrics`.

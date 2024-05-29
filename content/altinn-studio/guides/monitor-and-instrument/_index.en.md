@@ -81,13 +81,13 @@ sealed class StartupService(ILogger<StartupService> logger, Telemetry telemetry)
 ```
 
 
-[Read more about instrumentation options on the instrumentation page](/altinn-studio/reference/monitoring/instrumentation).
+[Read more about instrumentation on the instrumentation reference page](/altinn-studio/reference/monitoring/instrumentation).
 
 ## Visualising
 
 Here is a brief overview of visualising the telemetry instrumented above.
 
-[More detailed information is available at the visualisation page](/altinn-studio/reference/monitoring/visualisation).
+[Read more about visualisation on the visualisation reference page](/altinn-studio/reference/monitoring/visualisation).
 
 ###  Running locally 
 
@@ -97,7 +97,7 @@ can be provisioned along side localtest and Platform APIs. [See the localtest RE
 Localtest monitoring setup currently contains a Grafana instance with ASP.NET Core dashboards and a preview Altinn app dashboard.
 In addition you can freely explore the emitted telemetry while debugging or learning how the Altinn platform and libraries works.
 
-[See the visualization page Grafana section for more information](/altinn-studio/reference/monitoring/visualisation/#grafana).
+[Read more about local Grafana on the visualisation reference page](/altinn-studio/reference/monitoring/visualisation/#grafana).
 
 If you've implemented the code above, you should be able to find the `altinn_app_started` metric in the explore tab for the `Metrics` datasource.
 You should also be able to find the log message and trace emitted above by using the other datasources.
@@ -114,7 +114,7 @@ To open Grafana, visit [local.altinn.cloud/grafana/](http://local.altinn.cloud/g
 
 When the app is deployed to an environment, the telemetry is currently shipped to Azure Monitor.
 
-[See the visualization page Azure Monitor section for more information](/altinn-studio/reference/monitoring/visualisation/#azure-monitor).
+[Read more about Azure Monitor on the visualisation reference page](/altinn-studio/reference/monitoring/visualisation/#azure-monitor).
 
 In Azure Monitor, logs and traces can be found by using the `Transaction search` menu blade,
 while metrics are in the `Metrics` menu blade.
