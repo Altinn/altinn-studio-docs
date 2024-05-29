@@ -1,8 +1,9 @@
 ---
-title: Hurtigstart
-linktitle: Hurtigstart
-description: En oversikt over konfigurasjonsmuligheter for monitorering i Altinn Apps.
-weight: 10
+title: Instrumenter og monitorer
+linktitle: Instrumenter og monitorer
+description: Kom i gang med verktøyene for instrumentering og monitorering i Altinn
+toc: true
+weight: 990
 ---
 
 {{% notice info %}}
@@ -26,7 +27,7 @@ Det nye monitorerings- og instrumenteringsoppsettet basert på OpenTelemetry kan
 Når appen kjøres med denne instillingen så vil Altinn.App biblioteket sende telemetri til localtest ved lokal kjøring
 og til Azure Monitor ved kjøring i et miljø.
 
-[Les mer om konfigurasjonsmuligheter på konfigurasjonssiden](/nb/app/monitoring/configuration).
+[Les mer om konfigurasjonsmuligheter på konfigurasjonssiden](/nb/altinn-studio/reference/monitoring/configuration).
 
 ## Egendefinert instrumentering
 
@@ -78,17 +79,34 @@ sealed class StartupService(ILogger<StartupService> logger, Telemetry telemetry)
 }
 ```
 
-[Les mer om instrumenteringsmuligheter på instrumenteringsiden](/nb/app/monitoring/instrumentation).
+[Les mer om instrumenteringsmuligheter på instrumenteringsiden](/nb/altinn-studio/reference/monitoring/instrumentation).
 
 ### Lokal utvikling
 
-Ved lokal utvikling med [localtest](/nb/app/getting-started/local-dev/), så kan en monitoreringsstack bestående av Grafana og OpenTelemetry Collector
+Ved lokal utvikling med [localtest](/nb/altinn-studio/guides/local-dev/), så kan en monitoreringsstack bestående av Grafana og OpenTelemetry Collector
 provisjoneres ved siden av localtest og Platform APIer. [Se localtest README for mer informasjon](https://github.com/Altinn/app-localtest/blob/main/README.md).
 
 Monitoreringsoppsettet i localtest inneholder en Grafana instans med ASP.NET Core dashboard og et preview Altinn app dashboard.
 I tillegg gir det muligheten til å fritt undersøke telemetrien som eksponeres fra Altinn plattform og bibliotek.
 
-[Se Grafana-seksjonen på visualiseringssiden for mer informasjon](/nb/app/monitoring/visualisation/#grafana).
+[Se Grafana-seksjonen på visualiseringssiden for mer informasjon](/nb/altinn-studio/reference/monitoring/visualisation/#grafana).
+
+Hvis du har implementert koden over, så skal du kunne finne `altinn_app_started`-metrikken på "Explore"-siden når "Metrics"-datakilden er valgt.
+Du kan også finne logger og traces fra koden over på denne siden ved hjelp av de andre datakildene.
+
+For å åpne Grafana, åpne [local.altinn.cloud/grafana/](http://local.altinn.cloud/grafana/), og naviger via sidemenyen.
+
+![Utforsk metrikker](grafana-quickstart-metric.png "Utforsk metrikker")
+
+![Explore traces](grafana-quickstart-trace.png "Utforsk traces. Her er det mulig å analysere traces, attributter, samt å filtrere ut logg-meldingene relatert til en trace.")
+
+![Explore logs](grafana-quickstart-logs.png "Utforsk logger. Vi klikket på 'Logs for this span'-knappen, så her ser vi alle logg-meldinger relatert til root-tracen vi laget med koden over. Det er også mulig å navigere tilbake til trace-viewet.")
+
+### Deployment til et miljø
+
+Når appen er deployed til et test- eller produksjons-miljø så vil telemetrien sendes til Azure Monitor.
+
+[Les Azure Monitor-sekssjonen på visualiserings-siden for mer info](/nb/altinn-studio/reference/monitoring/visualisation/#azure-monitor).
 
 I Azure Monitor kan logger og traces finnes ved å bruke `Transaction search` menyen, mens metrikker er å finne under `Metrics`.
 

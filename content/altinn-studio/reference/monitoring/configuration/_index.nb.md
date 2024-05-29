@@ -30,7 +30,7 @@ pluss domenespesifikke trace og metrikk for Altinn.App.
 
 Det er også mulig å konfigurere opentelemetry. Neste seksjon bekriver hvordan dette gjøres, samt hvordan migrere fra
 Application Insights for de som har laget egendefinert telemetri med denne SDK'en.
-For informasjon om hvordan legge inn egendefinert telemetri se [Instrumentering](/nb/app/monitoring/instrumentation).
+For informasjon om hvordan legge inn egendefinert telemetri se [Instrumentering](/nb/altinn-studio/reference/monitoring/instrumentation).
 
 ## Konfigurering av OpenTelemetry SDK 
 

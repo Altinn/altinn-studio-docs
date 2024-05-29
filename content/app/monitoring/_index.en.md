@@ -1,55 +1,37 @@
 ---
 title: Monitoring
 linktitle: Monitoring
-description: Altinn app instrumentation and monitoring.
+description: Altinn App metrics, telemetry and trace logs are available in Azure Application Insights.
 weight: 70
 ---
 
 {{% notice info %}}
-We are migrating from using Application Insights SDK directly to using [OpenTelemetry (OTel)](https://opentelemetry.io/) as a vendor neutral
-solution to instrumenting and shipping telemetry from apps. This still allows us to offer existing
-Application Insights solution, but also enables developers to ship telemetry to custom monitoring solutions and vendors, and improve instrumentation and flexibility.
-This means that these documentation pages are currently in active development and may be temporarily incomplete.
-{{% /notice %}}
-
-{{% notice info %}}
 Setting up custom rules and alerts is currently not available to application owners, 
-but we are aiming to support this during the autumn of 2024. 
+but we are aiming to support this during the Spring of 2023. 
 {{% /notice %}}
 
-To get started with monitoring in you app, see [monitoring quick start guide](/app/monitoring/quick-start).
+Azure Application Insights (AI) is an extension of 
+[Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/overview) and is what we use in Altinn to 
+provide Application Performance Monitoring features for apps. 
 
-This documentation contains information needed to support app developers and service owners in 
-operating, monitoring/observing and instrumenting applications on the Altinn 3 platform.
+AI can provide you as an app developer with valuable insights into the health, performance and usage of your app.
+With real-time monitoring and performance analytics, developers can identify and resolve issues before they impact the 
+user experience. Error tracking and alerts* makes AI a valuable resource during operations as well. 
 
-This includes
 
-* [How are apps instrumented](/app/monitoring/instrumentation)
-* [How is telemetry visualized, locally and when deployed](/app/monitoring/visualisation)
-* [What tools are available for debugging and analysis](/app/monitoring/visualisation)
-  * Explorative tools
-  * Premade dashboards and alerts
-* Recommended practices for building
-  * Custom dashboards, visualizations and alerts
-  * Well-instrumented apps
-* What is the process for handling incidents and escalation
-* Monitoring during onboarding and learning
-* Monitoring for analysis and data-driven decision-making
+![Illustration of AI graphs](ai-overview.png "Illustration of AI graphs")
 
-Altinn 3 uses the open and vendor-neutral OpenTelemetry specifications and protocols for instrumenting and shipping
-telemetry end-to-end. This enables us to bring a baseline monitoring that serves all applications,
-and enables service owners to make appropriate customizations as necessary, from custom enrichment and instrumentation
-to completely separate monitoring platforms.
+{{% expandlarge id="q1" header="Altinn monitors your infrastructure" %}}
 
-## Core concepts
+The Altinn team has access to all of the telemetry logged by the application that the app owners also have access to. 
+In addition we monitor the infrastructure components for each application owner such as Kubernetes cluster, 
+storage account and key vault. 
 
-**Instrumentation** is your software saying what it is doing.
+As a main rule the Altinn team has action plans for alerts related to the infrastructure that is required to run the apps 
+i.e  CPU exhaustion in the application cluster or a pod is in an error state in the cluster.
 
-**Telemetry** is making that information available, whether by pull—something asking—or push—sending messages; “measurement at a distance”.
+__Altinn does not actively monitor the performance or failure rates
+of individual applications.__
 
-**Monitoring** is receiving instrumentation and making it visible.
-
-**Alerting** is reacting to the monitored data, or patterns in the data.
-
+{{% /expandlarge %}}
 {{<children />}}
-

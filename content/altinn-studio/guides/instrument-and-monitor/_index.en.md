@@ -1,8 +1,9 @@
 ---
-title: Quick start
-linktitle: Quick start
-description: An overview of configuration options for monitoring in Altinn Apps.
-weight: 10
+title: Instrument and monitor
+linktitle: Instrument and monitor
+description: Get started with Altinn monitoring tools and instrumentation
+toc: true
+weight: 990
 ---
 
 {{% notice info %}}
@@ -26,7 +27,7 @@ The new monitoring and instrumentation setup based on OpenTelemetry is enabled s
 You can now run the app, and the Altinn.App library will by default ship telemetry to localtest when running locally,
 and to Azure monitor when running in an environment.
 
-[Read more about configuration options on the configuration page](/app/monitoring/configuration).
+[Read more about configuration options on the configuration reference page](/altinn-studio/reference/monitoring/configuration/).
 
 ## Custom instrumentation
 
@@ -80,26 +81,26 @@ sealed class StartupService(ILogger<StartupService> logger, Telemetry telemetry)
 ```
 
 
-[Read more about instrumentation options on the instrumentation page](/app/monitoring/instrumentation).
+[Read more about instrumentation options on the instrumentation page]/altinn-studio/reference/monitoring/instrumentation).
 
 ## Visualising
 
 Here is a brief overview of visualising the telemetry instrumented above.
 
-[More detailed information is available at the visualisation page](/app/monitoring/visualisation).
+[More detailed information is available at the visualisation page]/altinn-studio/reference/monitoring/visualisation).
 
 ###  Running locally 
 
-When running locally using [localtest](/app/getting-started/local-dev/), a monitoring stack consisting of Grafana and OpenTelemetry Collector 
+When running locally using [localtest](/altinn-studio/guides/local-dev/), a monitoring stack consisting of Grafana and OpenTelemetry Collector 
 can be provisioned along side localtest and Platform APIs. [See the localtest README for more info](https://github.com/Altinn/app-localtest/blob/main/README.md).
 
 Localtest monitoring setup currently contains a Grafana instance with ASP.NET Core dashboards and a preview Altinn app dashboard.
 In addition you can freely explore the emitted telemetry while debugging or learning how the Altinn platform and libraries works.
 
-[See the visualization page Grafana section for more information](/app/monitoring/visualisation/#grafana).
+[See the visualization page Grafana section for more information](/altinn-studio/reference/monitoring/visualisation/#grafana).
 
 If you've implemented the code above, you should be able to find the `altinn_app_started` metric in the explore tab for the `Metrics` datasource.
-You should also be able to find the log message and trace emitted above.
+You should also be able to find the log message and trace emitted above by using the other datasources.
 
 To open Grafana, visit [local.altinn.cloud/grafana/](http://local.altinn.cloud/grafana/), then click explore in the side-menu.
 
@@ -113,7 +114,7 @@ To open Grafana, visit [local.altinn.cloud/grafana/](http://local.altinn.cloud/g
 
 When the app is deployed to an environment, the telemetry is currently shipped to Azure Monitor.
 
-[See the visualization page Azure Monitor section for more information](/app/monitoring/visualisation/#azure-monitor).
+[See the visualization page Azure Monitor section for more information](/altinn-studio/reference/monitoring/visualisation/#azure-monitor).
 
 In Azure Monitor, logs and traces can be found by using the `Transaction search` menu blade,
 while metrics are in the `Metrics` menu blade.
@@ -121,4 +122,3 @@ while metrics are in the `Metrics` menu blade.
 {{% notice info %}}
 In the future, the Altinn monitoring solution for deployed apps will also be based on Grafana.
 {{% /notice %}}
-
