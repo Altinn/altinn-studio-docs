@@ -17,7 +17,7 @@ Setting up custom rules and alerts is currently not available to application own
 but we are aiming to support this during the autumn of 2024. 
 {{% /notice %}}
 
-To get started with monitoring in you app, see [instrumentation and monitoring user guide](/altinn-studio/guides/instrument-and-monitor/).
+To get started with monitoring in you app, see [instrumentation and monitoring user guide](/altinn-studio/guides/monitor-and-instrument/).
 
 This documentation contains information needed to support app developers and service owners in 
 operating, monitoring/observing and instrumenting applications on the Altinn 3 platform.

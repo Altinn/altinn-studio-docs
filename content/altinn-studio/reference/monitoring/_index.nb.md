@@ -17,7 +17,7 @@ Konfigurering av egendefinerte regler og varsler er for øyeblikket ikke tilgjen
 men vi har som mål å støtte dette i løpet av høsten 2024.
 {{% /notice %}}
 
-Se [brukerveiledning for instrumentering og monitorering](/nb/altinn-studio/guides/instrument-and-monitor/) for å komme i gang i din app.
+Se [brukerveiledning for instrumentering og monitorering](/nb/altinn-studio/guides/monitor-and-instrument/) for å komme i gang i din app.
 
 Denne dokumentasjonen inneholder nødvendig informasjon for å støtte apputviklere og tjenesteeiere i å
 drifte, overvåke/observere og instrumentere applikasjoner på Altinn 3 plattformen.
