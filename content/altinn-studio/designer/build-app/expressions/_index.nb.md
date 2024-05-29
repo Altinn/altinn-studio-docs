@@ -10,7 +10,7 @@ Denne dokumentasjonen vil beskrive _hvordan_ du kan bygge uttrykk knyttet til ko
 dynamikkverktøyet i Altinn Studio.
 
 Uttrykk er et begrep i Altinn-apper som lar apputviklere dynamisk tildele verdier til ulike elementer i en
-applikasjon. Les mer i [Uttrykk-seksjonen av App-dokumentasjonen](../../../../app/development/logic/expressions) om hva
+applikasjon. Les mer i [Uttrykk-seksjonen av App-dokumentasjonen](../../../../altinn-studio/reference/logic/expressions) om hva
 uttrykk kan brukes til og hvordan syntaksen fungerer.
 
 ## Terminologi

@@ -53,7 +53,7 @@ may fall apart.
 
 ## A FileUpload or FileUploadWithTag component warns about missing required property in dataModelBindings
 A **FileUpload** or **FileUploadWithTag** _may_ have a **dataModelBindings** property, and it _is_ required when
-setting it up [inside a repeating group](/app/development/ux/fields/grouping/repeating/attachments/).
+setting it up [inside a repeating group](/altinn-studio/reference/ux/fields/grouping/repeating/attachments/).
 The **dataModelBindings** may however be safely omitted entirely if the component is not placed inside a repeating group.
 
 ## A component warns about an unsupported property in textResourceBindings

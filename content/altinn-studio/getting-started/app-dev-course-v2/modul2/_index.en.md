@@ -38,7 +38,7 @@ Bekreftelsessiden blir lagt til automatisk når man legger til dette i BPMN-file
 
 ### Nyttig dokumentasjon
 
-- [Tilgjengelige prosessteg i en Altinn App](/nb/app/development/configuration/process/#støttede-prosess-task-typer)
+- [Tilgjengelige prosessteg i en Altinn App](/nb/altinn-studio/reference/configuration/process/#støttede-prosess-task-typer)
 - [BPMN standard](https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation)
 
 ### Forståelsessjekk
@@ -69,7 +69,7 @@ Autorisasjonsreglene til applikasjonen din er tilpasset standard prosessflyt og 
   du la til.
 
 ### Nyttig dokumentasjon
-- [Regelbibliotek](/nb/app/development/configuration/authorization/rules/)
+- [Regelbibliotek](/nb/altinn-studio/reference/configuration/authorization/rules/)
 - [Alle roller i Altinn](https://www.altinn.no/hjelp/skjema/alle-altinn-roller/)
 
 ### Forståelsessjekk

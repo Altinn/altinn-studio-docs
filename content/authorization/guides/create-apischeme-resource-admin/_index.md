@@ -1,6 +1,6 @@
 ---
 title: Creating and publishing API scheme in altinn Studio
-linktitle: Creating Resources
+linktitle: Creating API Scheme
 description: This explaines how 
 toc: false
 weight: 1

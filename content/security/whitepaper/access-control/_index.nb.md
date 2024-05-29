@@ -15,10 +15,10 @@ brukes for å begrense tilgangen til utvikling og drift av Altinn Studio og andr
 Det er kun drift og utviklere tilknyttet Altinn 3 som har tilgang til løsningen.
 
 Tjenesteeieren kan bestille tilgang til brukere til tjenestetestutviklingsmiljø (TT02) og produksjonsmiljøet.
-Dette står nærmere beskrevet [her](/nb/app/guides/access-management/apps/). 
+Dette står nærmere beskrevet [her](/nb/altinn-studio/guides/access-management/apps/). 
 Merk at tjenesteeiere må melde fra til Digdir når tilganger skal fjernes. 
 
 Autentisering for sluttbrukere er nærmere forklart [her](/nb/api/authentication/).
 
 Tjenesteeiere må selv spesifisere krav til autorisasjon i tjenestene de utvikler.
-Mer informasjon finnes [her](/nb/app/development/configuration/authorization/).
+Mer informasjon finnes [her](/nb/altinn-studio/reference/configuration/authorization/).

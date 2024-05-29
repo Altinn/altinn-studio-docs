@@ -26,7 +26,7 @@ Tjenesten må ha en beskrivende ID som gjør det enkelt å finne den igjen blant
 tjenesteer Sogndal kommune har i Altinn Studio.
 
 {{% notice info %}}
-Dersom du skal teste appen i et [testmiljø](/nb/app/testing/deploy/) (beskrevet i [Modul 5](/nb/altinn-studio/getting-started/app-dev-course-v2/modul5/)) må du velge en organisasjon som eier.
+Dersom du skal teste appen i et [testmiljø](/nb/altinn-studio/reference/testing/deploy/) (beskrevet i [Modul 5](/nb/altinn-studio/getting-started/app-dev-course-v2/modul5/)) må du velge en organisasjon som eier.
 Du må ha [tilgang til organisasjonen](/nb/altinn-studio/getting-started/create-user/#bli-del-av-en-organisasjon) og organisasjonen må ha tilgang til et testmiljø.
  {{% /notice %}}
 
@@ -37,8 +37,8 @@ Du må ha [tilgang til organisasjonen](/nb/altinn-studio/getting-started/create-
 ### Nyttig dokumentasjon
 
 - [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/guides/basic-form)
-- [Navigere Altinn Studio](/nb/app/getting-started/navigation)
-- [Altinn Studio Dashboard](/nb/app/getting-started/navigation/dashboard/)
+- [Navigere Altinn Studio](/nb/altinn-studio/getting-started/navigation)
+- [Altinn Studio Dashboard](/nb/altinn-studio/getting-started/navigation/dashboard/)
 
 {{% /expandlarge %}}
 
@@ -70,7 +70,6 @@ sentrale filområdet til tjenesten. Dette gjøres via menyen helt til høyre ved
 ### Nyttig dokumentasjon
 
 - [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/guides/basic-form)
-- [Innstillinger-menyen](/nb/app/getting-started/create-app/settings/#om-applikasjonen)
 {{% /expandlarge %}}
 
 {{% expandlarge id="legge-til-datamodell" header="Lage datamodell" %}}
@@ -78,9 +77,9 @@ sentrale filområdet til tjenesten. Dette gjøres via menyen helt til høyre ved
 Datamodellen definerer hvilke data man forventer å samle inn, og hvilket format disse skal være på. 
 > _Man kan se på en datamodell som en innholdsfortegnelse for skjemaet._
 
-Med Altinn Studios [verktøy for datamodellering](/nb/app/development/data/data-modeling/)
- kan du legge til en datamodell ved å [laste opp en ferdig datamodell i form av en _xsd_-fil](/nb/app/development/data/data-modeling/#laste-opp-og-vise-datamodell)
-  eller [lage en ny datamodell](/nb/app/development/data/data-modeling/#lage-ny-datamodell) fra bunnen av.
+Med Altinn Studios [verktøy for datamodellering](/nb/altinn-studio/reference/data/data-modeling/)
+ kan du legge til en datamodell ved å [laste opp en ferdig datamodell i form av en _xsd_-fil](/nb/altinn-studio/reference/data/data-modeling/#laste-opp-og-vise-datamodell)
+  eller [lage en ny datamodell](/nb/altinn-studio/reference/data/data-modeling/#lage-ny-datamodell) fra bunnen av.
 I denne oppgaven skal du lage en enkel modell fra bunnen av.
 
 Merk at en helt enkel datamodell med noen eksempel-felter nå er en del av malen som lastes inn når 
@@ -124,7 +123,6 @@ tekst-felter, og ev. bruke heltall der det gir mening.
 ### Nyttig dokumentasjon
 
 - [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/guides/basic-form)
-- [Altinn Studio Datamodellering](/nb/app/getting-started/create-app/datamodel)
 
 {{% /expandlarge %}}
 
@@ -163,7 +161,7 @@ Husk å laste opp endringer når du jobber i Designer så de reflekteres i det s
 
 - [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/guides/basic-form)
 - [Tilgjengelige komponenter i Altinn Studio](/altinn-studio/designer/build-app/ui-designer/components/)
-- [Retningslinjer for bruk av komponenter](/nb/app/guides/design/guidelines/components/)
+- [Retningslinjer for bruk av komponenter](/nb/altinn-studio/guides/design/guidelines/components/)
 
 {{% /expandlarge %}}
 

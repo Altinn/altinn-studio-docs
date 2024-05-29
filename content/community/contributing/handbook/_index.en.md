@@ -4,8 +4,8 @@ linktitle: Handbook
 description: Developer handbook for contributions to the Altinn code base.
 tags: [development]
 aliases:
-- /teknologi/altinnstudio/development/
-- /development/handbook/
+- /teknologi/altinnstudio/reference/
+- /reference/handbook/
 ---
 
 This should provide all basic information needed to get started with development on the altinn-studio repo.
