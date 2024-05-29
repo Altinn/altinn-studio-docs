@@ -36,9 +36,9 @@ som kan instrumenteres til å eksponere telemetri.
 
 Telemetri- og instrumentering-API'ene i Altinn.App biblioteket bli eksponert gjennom `Telemetry`-klassen. Det er
 et trådsikkert singleton-objekt tilgjengelig i dependency injection containeren.
-La oss utvide `Program.cs` til å inkludere dette
+La oss utvide `Program.cs` til å inkludere dette.
 
-Hvis de ikke allerede er der, så trenger vi de følgende avhengighetene på toppen av filen
+Hvis de ikke allerede er der, så trenger vi de følgende avhengighetene på toppen av filen:
 
 ```csharp
 using System;
@@ -49,7 +49,7 @@ using Microsoft.Extensions.Hosting;
 using Altinn.App.Core.Features;
 ```
 
-Så kan vi implementere den følgende klassen nederst i filen
+Så kan vi implementere den følgende klassen nederst i filen:
 
 ```csharp
 sealed class StartupService(ILogger<StartupService> logger, Telemetry telemetry) : IHostedService

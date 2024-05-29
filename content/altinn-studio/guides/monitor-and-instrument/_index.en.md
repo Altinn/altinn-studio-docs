@@ -31,14 +31,14 @@ and to Azure monitor when running in an environment.
 
 ## Custom instrumentation
 
-The simplest way of getting familiar with the instrumentation APIs made available by Altinn.App is by making
-a simple `IHostedService` implemented in `Program.cs`, so that we can get some code running and experiment.
+The most straightforward way of getting familiar with the Altinn.App instrumentation APIs is by creating
+a simple `IHostedService` implemented in `Program.cs`. This way we can get some code running which we can experiment with.
 
 In telemetry and instrumentation APIs of the Altinn.App library are exposed through the `Telemetry` class.
 It is a thread-safe singleton object available in the dependency injection container.
-Let's extend the the app by extending `Program.cs`
+Let's extend the the app by extending `Program.cs`.
 
-If they're not there already, we need the following using statements at the top of the file 
+If they're not there already, we need the following using statements at the top of the file:
 
 ```csharp
 using System;
@@ -49,7 +49,7 @@ using Microsoft.Extensions.Hosting;
 using Altinn.App.Core.Features;
 ```
 
-Then we can implement the following class in the bottom of the file
+Then we can implement the following class in the bottom of the file:
 
 ```csharp
 sealed class StartupService(ILogger<StartupService> logger, Telemetry telemetry) : IHostedService
