@@ -34,7 +34,7 @@ and to Azure monitor when running in an environment.
 The most straightforward way of getting familiar with the Altinn.App instrumentation APIs is by creating
 a simple `IHostedService` implemented in `Program.cs`. This way we can get some code running which we can experiment with.
 
-In telemetry and instrumentation APIs of the Altinn.App library are exposed through the `Telemetry` class.
+The telemetry and instrumentation APIs of the Altinn.App library are exposed through the `Telemetry` class.
 It is a thread-safe singleton object available in the dependency injection container.
 Let's extend the the app by extending `Program.cs`.
 
@@ -61,7 +61,7 @@ sealed class StartupService(ILogger<StartupService> logger, Telemetry telemetry)
         // Increments the counter
         counter.Add(1);
 
-        // Start an activity, which get's emitted as an OTel span
+        // Start an activity, which gets emitted as an OTel span
         using var activity = telemetry.ActivitySource.StartActivity("StartupService");
 
         {
@@ -83,7 +83,7 @@ sealed class StartupService(ILogger<StartupService> logger, Telemetry telemetry)
 
 [Read more about instrumentation on the instrumentation reference page](/altinn-studio/reference/monitoring/instrumentation).
 
-## Visualising
+## Visualisation
 
 Here is a brief overview of visualising the telemetry instrumented above.
 
@@ -95,7 +95,7 @@ When running locally using [localtest](/altinn-studio/guides/local-dev/), a moni
 can be provisioned along side localtest and Platform APIs. [See the localtest README for more info](https://github.com/Altinn/app-localtest/blob/main/README.md).
 
 Localtest monitoring setup currently contains a Grafana instance with ASP.NET Core dashboards and a preview Altinn app dashboard.
-In addition you can freely explore the emitted telemetry while debugging or learning how the Altinn platform and libraries works.
+In addition to these, you can freely explore the emitted telemetry while debugging or learning how the Altinn platform and libraries works.
 
 [Read more about local Grafana on the visualisation reference page](/altinn-studio/reference/monitoring/visualisation/#grafana).
 
