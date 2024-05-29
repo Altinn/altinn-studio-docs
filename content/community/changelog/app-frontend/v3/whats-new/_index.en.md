@@ -54,7 +54,7 @@ Patching of external dependencies for week 17 of 2022.
 ## 3.35.0 (2022-04-28) - Marking required fields
 Changed default behaviour of marking optional fields to now mark required fields with * as default.
 Optional fields have no marking as default behaviour, but this can be configured using the `labelSettings`
-property of the field, see [here](/app/development/ux/fields/settings/).
+property of the field, see [here](/altinn-studio/reference/ux/fields/settings/).
 
 ## 3.34.4 (2022-04-28) - Removed out-of-place heading in receipt when there are no attachments
 When PDF generation has been disabled and there are no attachments, the heading indicating there should follow a list
@@ -78,7 +78,7 @@ The width declaration was moved to inline styling instead to resolve this issue.
 Issue [#14](https://github.com/Altinn/app-frontend-react/issues/14).
 
 ## 3.34.0 (2022-04-11) - Options from the data model
-Added possibility to setup options from repeating groups in the data model. Read more on [docs.](/app/development/data/options/repeating-group-codelists)
+Added possibility to setup options from repeating groups in the data model. Read more on [docs.](/altinn-studio/reference/data/options/repeating-group-codelists)
 Issue [#7626](https://github.com/Altinn/altinn-studio/issues/7626). 
 
 ## 3.33.5 (2022-04-11) - External dependency patching

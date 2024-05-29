@@ -292,5 +292,17 @@
         "SubjectSource": "altinn:rolecode",
         "SubjectTitle": "Konkursbo skrivetilgang",
         "SubjectDescription": "Utvidet lesetilgang og innsendingsrett for tjenesten Konkursbehandling"
+    },
+    {
+        "SubjectId": "apiadm",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Programmeringsgrensesnitt (API)",
+        "SubjectDescription": "Delegerbar rolle som gir  tilgang til å administrere tilgang til programmeringsgrensesnitt - API, på vegne av virksomheten."
+    },
+    {
+        "SubjectId": "apiadnuf",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Programmeringsgrensesnitt for NUF (API)",
+        "SubjectDescription": "Delegerbar rolle som gir kontaktperson for norskregistrert utenlandsk foretak (NUF) tilgang til å administrere tilgang til programmeringsgrensesnitt - API, på vegne av virksomheten."
     }
 ]

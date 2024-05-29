@@ -8,7 +8,7 @@ Denne dokumentasjonen vil beskrive hvordan du kan sette opp dynamikk i skjema ve
 dynamikkverktøyet i Altinn Studio.
 
 Uttrykk er et begrep i Altinn-tjenester som lar tjenesteutviklere dynamisk tildele verdier til ulike elementer.
-[Les mer her](../../../../app/development/logic/expressions) om hva
+[Les mer her](../../../../altinn-studio/reference/logic/expressions) om hva
 uttrykk kan brukes til og hvordan syntaksen fungerer.
 
 ## Terminologi

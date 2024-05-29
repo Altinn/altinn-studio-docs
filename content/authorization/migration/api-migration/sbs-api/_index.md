@@ -63,7 +63,7 @@ Lenke til dokumentasjon av eksisterende tjeneste
 [MetadataAPI](https://altinn.github.io/docs/api/rest/metadata/)
 ### Migreringsstrategi
 Metadata apiet i Altinn 2 viser hvilke tjenester som er tilgjengelig i løsnignen og metadata om disse. 
-I Altinn 3 vil teneste-begrepet byttes ut med begrepet "ressurser" og ressursene vil finnes i et [ressursregister](/authorization/modules/resourceregistry/)
+I Altinn 3 vil teneste-begrepet byttes ut med begrepet "ressurser" og ressursene vil finnes i et [ressursregister](/authorization/what-do-you-get/resourceregistry/)
 #### Hvilke konsekvenser har dette for konsumenter
 Dette API vil være tilgjenelig hele tiden, men etterhvert som tjenester flytter fra Altinn 2 til Altinn 3 så må man ta i bruk tilsvarende men nye API i Altinn 3 
 ### Tidsplan

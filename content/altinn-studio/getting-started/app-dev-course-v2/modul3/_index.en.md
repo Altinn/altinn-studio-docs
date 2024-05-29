@@ -49,16 +49,16 @@ Du kan bruke følgende bilde av Sogndals kommunevåpen i tjenesten:
 ### Oppgaver
 
 1. Legg til en ny side. Gi den et passende navn og plasser den foran skjemasiden du opprettet i Modul 1.
-2. [Legg til bilde](/nb/app/development/ux/components/image/#legg-til-komponent) av Sogndals kommunevåpen.
+2. [Legg til bilde](/nb/altinn-studio/reference/ux/components/image/#legg-til-komponent) av Sogndals kommunevåpen.
 3. Legg til tekst i henhold til [skisse](../resources/infoside_tilflyttere.pdf).
 
 ### Nyttig dokumentasjon
 
-- [Formatering av tekst](/nb/app/development/ux/texts/#formatering-av-tekster)
-- [Hvordan legge til bilder i en tjeneste](/nb/app/development/ux/components/images/)
-- [Sidestilte komponenter](/nb/app/development/ux/styling/#sidestilte-komponenter-grid)
-- [Filoppsett ved flere sider](/nb/app/development/ux/pages/)
-- [Administrere rekkefølge på flere sider](/nb/app/development/ux/pages/navigation/#rekkefølge)
+- [Formatering av tekst](/nb/altinn-studio/reference/ux/texts/#formatering-av-tekster)
+- [Hvordan legge til bilder i en tjeneste](/nb/altinn-studio/reference/ux/components/images/)
+- [Sidestilte komponenter](/nb/altinn-studio/reference/ux/styling/#sidestilte-komponenter-grid)
+- [Filoppsett ved flere sider](/nb/altinn-studio/reference/ux/pages/)
+- [Administrere rekkefølge på flere sider](/nb/altinn-studio/reference/ux/pages/navigation/#rekkefølge)
 
 ### Forståelsessjekk
 
@@ -80,7 +80,7 @@ I denne oppgaven vil du sette opp dynamiske uttrykk i tjenesten for å vise og s
 En bruker som ikke oppfyller kravene for tjenesten, bør stoppes så tidlig som mulig i arbeidsflyten.
 Brukeren skal indikere om tjenesten gjelder dem på informasjonssiden.
 
-Måten svaret samles inn på er valgfri, men et tips er å bruke en valg-komponent som [avkrysningsbokser](/nb/app/development/ux/components/checkboxes/), [radioknapper](/nb/app/development/ux/components/radiobuttons/) eller [nedtrekksliste](/nb/app/development/ux/components/dropdown/).
+Måten svaret samles inn på er valgfri, men et tips er å bruke en valg-komponent som [avkrysningsbokser](/nb/altinn-studio/reference/ux/components/checkboxes/), [radioknapper](/nb/altinn-studio/reference/ux/components/radiobuttons/) eller [nedtrekksliste](/nb/altinn-studio/reference/ux/components/dropdown/).
 Merk at en komponent må være knyttet til et felt i datamodellen for å lagre verdier (du kan bruke feltet `Innflytter.KanBrukeSkjema` i datamodellen).
 
 Brukeren skal vises ett av følgende alternativ basert på svaret deres:
@@ -127,9 +127,9 @@ For å skjule et valgt felt:
 - Trykk på "Lagre og lukk"
 
 ### Nyttig dokumentasjon
-- [Dynamiske uttrykk](/nb/app/development/logic/expressions)
-- [Hvordan skjule hele sider](/nb/app/development/logic/expressions/#viseskjule-hele-sider)
-- [Formatering av tekst](/nb/app/development/ux/texts/#formatering-av-tekster)
+- [Dynamiske uttrykk](/nb/altinn-studio/reference/logic/expressions)
+- [Hvordan skjule hele sider](/nb/altinn-studio/reference/logic/expressions/#viseskjule-hele-sider)
+- [Formatering av tekst](/nb/altinn-studio/reference/ux/texts/#formatering-av-tekster)
 
 {{% /expandlarge %}}
 

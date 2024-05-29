@@ -30,7 +30,7 @@ When selecting an issue from the backlog, assign yourself to the issue and set i
    - Make sure the `version` in `altinn-app-frontend/package.json` is still updated to a new version (new code might have been merged in the mean time).
 10. Update any relevant documentation. F.ex.
     - [Changelog for app frontend](/community/changelog/app-frontend/).
-    - [User documentation](/app).
+    - [User documentation](/altinn-studio).
 11.  Check if there are any tasks in the issue that are incomplete. If all tasks are completed, the issue can be closed.
 
 ## Studio frontend

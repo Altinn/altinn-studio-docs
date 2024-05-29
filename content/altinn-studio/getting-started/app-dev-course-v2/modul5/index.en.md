@@ -80,7 +80,7 @@ som kan publiseres til ett eller flere miljø.
 og legg til en beskrivende kommentar om hva versjonen inneholder.
 
 ### Nyttig dokumentasjon
-- [Bygge app i Altinn Studio](/nb/app/testing/deploy/#bygge-app)
+- [Bygge app i Altinn Studio](/nb/altinn-studio/reference/testing/deploy/#bygge-app)
 
 {{% /expandlarge %}}
 
@@ -92,7 +92,7 @@ før man produksjonssetter den.
 
 {{% notice info %}}
 For å kunne publisere en applikasjon til TT02 må organisasjonen som eier den ha et app-cluster i testmiljøet.
-I tillegg må utvikleren som skal gjennomføre publiseringen inneha [rollen Deploy-TT02](/nb/app/guides/access-management/studio/#deploy-tt02).
+I tillegg må utvikleren som skal gjennomføre publiseringen inneha [rollen Deploy-TT02](/nb/altinn-studio/guides/access-management/studio/#deploy-tt02).
 {{% /notice %}}
 
 ### Oppgaver
@@ -101,8 +101,8 @@ I tillegg må utvikleren som skal gjennomføre publiseringen inneha [rollen Depl
 
 ### Nyttig dokumentasjon
 
-- [Publisere app til testmiljø](/nb/app/testing/deploy/#deploy-av-app-til-testmiljø)
-- [Tilgangsstyring for organisasjon i Altinn Studio](/app/guides/access-management/studio/#access-management-for-the-organization)
+- [Publisere app til testmiljø](/nb/altinn-studio/reference/testing/deploy/#deploy-av-app-til-testmiljø)
+- [Tilgangsstyring for organisasjon i Altinn Studio](/altinn-studio/guides/access-management/studio/#access-management-for-the-organization)
 
 ### Forståelsessjekk
 {{% expandsmall id="m3t1q1" header="Er det mulig å ha to versjoner av en applikasjon i TT02 samtidig?" %}}

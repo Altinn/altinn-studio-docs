@@ -28,7 +28,7 @@ A fully configured data element should look like this
 
 ## 5.2.0 (07.06.2022) - Api for supported languages
 ### Features
-- This release introduces new api endpoints which gives information about the languages supported in the application. Ref. upcoming feature for [selecting language](../../../../../app/development/ux/texts/translation/)
+- This release introduces new api endpoints which gives information about the languages supported in the application. Ref. upcoming feature for [selecting language](../../../../../altinn-studio/reference/ux/texts/translation/)
 
 ## 5.1.0 (23.05.2022) - Support for anonymous stateless apps
 

@@ -4,8 +4,11 @@ description: How to configure the generation of PDF
 weight: 50
 ---
 
-{{%notice warning%}}
-## New PDF generation
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="v8">}}
+In version 8 of the nuget packages (Altinn.App.Api and Altinn.App.Core) only the new setup for pdf generation is avalilble.
+{{</content-version-container>}}
+{{<content-version-container version-label="v7">}}
 ### Enable feature
 As of version 7.5 of the nuget packages (Altinn.App.Api and Altinn.App.Core) a new way of generating PDFs launched as a preview. This feature can be toggled on/off by adding the following section and feature toggle in _appsettings.json_.
 
@@ -17,21 +20,8 @@ As of version 7.5 of the nuget packages (Altinn.App.Api and Altinn.App.Core) a n
 
 This will call the new PDF service which accepts a URL pointing back to an automatic generated page in the app. The rendered page is then used as the foundation for the PDF. The `IPdfFormatter` as documented below is still relevant if you need custom logic for excluding components/pages from PDF.
 
-### Settings
-While the default settings for the new service should be enough for most applications they can be overridden by adding a PdfGeneratorSettings section in _appsettings.json_ (default settings shown below).
-
-```json
-  "PdfGeneratorSettings": {
-    "ServiceEndpointUri": "https://{org}.apps.{hostName}/{appId}/#/instance/{instanceId}",
-    "AppPdfPageUriTemplate": "https://{org}.apps.{hostName}/{appId}/#/instance/{instanceId}?pdf=1",
-    "WaitForSelector": "#readyForPrint",
-    "WaitForTime": 5000
-  }
-```
-
-If the WaitForSelector is set, the WaitForTime will be ignored. The WaitForSelector ensures that the page will be completely rendered before the PDF is generated.
-
-{{% /notice%}}
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 There are two different methods of configuring the generation of PDFs:
 
@@ -295,7 +285,7 @@ It is possible to exclude child components from a group by using the `excludedCh
 
 {{%notice warning%}}
 
-This preview is only applicable to the new PDF generation method (v7.5+). See [above](#new-pdf-generation) for more information.
+This preview is only applicable to the new PDF generation method (v7.5+).
 
 {{% /notice%}}
 
@@ -310,3 +300,17 @@ It is possible to get a preview of what the generated PDF will look like in the 
 4. Click the `Forhåndsvis PDF` (Preview PDF) button in the developer tools panel.
    <br><br>
    ![Developer tools, screenshot](preview-button.png) 
+
+
+## Settings
+While the default settings for the new service should be enough for most applications they can be overridden by adding a PdfGeneratorSettings section in _appsettings.json_ (default settings shown below).
+
+```json
+  "PdfGeneratorSettings": {
+    "AppPdfPagePathTemplate": "#/instance/{instanceId}",
+    "WaitForSelector": "#readyForPrint",
+    "WaitForTime": 5000
+  }
+```
+
+If the WaitForSelector is set, the WaitForTime will be ignored. The WaitForSelector ensures that the page will be completely rendered before the PDF is generated.
