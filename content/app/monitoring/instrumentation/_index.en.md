@@ -24,7 +24,7 @@ This instrumentation follows the [semantic conventions of the OTel spec](https:/
 
 For manual instrumentation, you should also make sure to follow semantic conventions where applicable.
 The Altinn.App.Core library has mechanisms for doing manual instrumentation while standardizing on attribute names and values
-for Altinn-specific data and identifiers. This is done through the `Telemetry` class and extension methods on `System.Diagnostics.Activity`.
+for Altinn-specific data and identifiers. This is done through the `Altinn.App.Core.Features.Telemetry` class and extension methods on `System.Diagnostics.Activity`.
 
 ## Distributed tracing
 
