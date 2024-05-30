@@ -7,6 +7,6 @@ toc: false
 weight: 1
 ---
 
-Disse sidene beskriver forskjellen i bruk mellom eksisterende Altinn 2 Broker Service og Altinn 3 Broker Overgangs Operasjoner.
+Disse sidene beskriver forskjellen i bruk mellom eksisterende Altinn 2 Broker Service og Altinn 3 Formidlingstjenestens overgangsløsning operasjoner.
 
 {{<children />}}
