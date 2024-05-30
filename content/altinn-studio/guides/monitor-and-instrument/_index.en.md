@@ -33,6 +33,12 @@ and to Azure monitor when running in an environment.
 
 The most straightforward way of getting familiar with the Altinn.App instrumentation APIs is by creating
 a simple *IHostedService* implemented in *Program.cs*. This way we can get some code running which we can experiment with.
+An *IHostedService* that is registered with *AddHostedService* will ensure that its' *StartAsync* is invoked
+during startup for the process/container. The goal of this example is to get acquainted with the telemetry API and monitoring
+solution. In practice, we will get a counter that increments by 1 when the app starts, and a trace containing a child-span
+and a related log-message.
+
+We recommend experimenting more with this example - add different types of metric, add attributes to traces etc.
 
 The telemetry and instrumentation APIs of the Altinn.App library are exposed through the *Telemetry* class.
 It is a thread-safe singleton object available in the dependency injection container.
@@ -80,8 +86,19 @@ sealed class StartupService(ILogger<StartupService> logger, Telemetry telemetry)
 }
 ```
 
+Now we can register this class in the .NET dependency injection container, which will ensure
+that *StartAsync* is called when the process starts up.
 
-[Read more about instrumentation on the instrumentation reference page](/altinn-studio/reference/monitoring/instrumentation).
+```csharp
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+    services.AddHostedService<StartupService>();
+}
+```
+
+Now you can run the app. Below in the next section we will take a look at visualisation of the telemetry above.
+
+[You can also read more about instrumentation on the instrumentation reference page](/altinn-studio/reference/monitoring/instrumentation).
 
 ## Visualisation
 

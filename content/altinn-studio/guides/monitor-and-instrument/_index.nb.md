@@ -31,8 +31,17 @@ og til Azure Monitor ved kjøring i et miljø.
 
 ## Egendefinert instrumentering
 
-Vi illustrerer egendefinert instrumentering med et eksempel. I *Program.cs* legger vi til en simpel *IHostedService* implementasjon
+Vi illustrerer egendefinert instrumentering med et enkelt eksempel.
+
+I *Program.cs* legger vi til en simpel *IHostedService* implementasjon
 som kan instrumenteres til å eksponere telemetri.
+En *IHostedService* som registreres med *AddHostedService* vil sørge for at *StartAsync* kjøres
+som del av oppstarts-prosedyren i prosessen/containeren. Målet med dette eksempelet
+er å få ut noe telemetri som man kan se i visualiseringverktøy lokalt og bli kjent med løsningen.
+I praksis vil vi få et tall som økes med 1 når appen startes, og en trace som inneholder en child-span og relateres til en 
+logg-melding.
+
+Vi anbefaler å eksperimentere mer med dette eksempelet - test ut andre types metrikker, legg til attributter på traces o.l.
 
 Telemetri- og instrumentering-APIene i Altinn.App biblioteket blir eksponert gjennom *Telemetry*-klassen. Det er
 et trådsikkert singleton-objekt tilgjengelig i dependency injection containeren.
@@ -79,7 +88,19 @@ sealed class StartupService(ILogger<StartupService> logger, Telemetry telemetry)
 }
 ```
 
-[Les mer om instrumenteringsmuligheter på referansesiden for instrumentering](/nb/altinn-studio/reference/monitoring/instrumentation).
+Nå kan vi registrere klassen i .NET sin dependency injection container, some vil sørge for at
+*StartAsync* blir kjørt når prosessen starter opp.
+
+```csharp
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+    services.AddHostedService<StartupService>();
+}
+```
+
+Nå kan du kjøre appen. Under i neste seksjon skal vi se på visualisering av telemetrien over.
+
+[Du kan også lese mer om instrumentering på referansesiden for instrumentering](/nb/altinn-studio/reference/monitoring/instrumentation).
 
 ## Visualisering
 
