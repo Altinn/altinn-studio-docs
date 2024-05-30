@@ -1,5 +1,5 @@
 ---
-title: Opprette og publisere ressurser i altinn Studio
+title: Opprette og publisere APIScheme i Altinn Studio
 linktitle: Opprette API Scheme
 description: Denne guiden forklarer hvordan du kan opprette og publisere ressurser i fra Ressursadministrasjon i Altinn Studio
 toc: false
