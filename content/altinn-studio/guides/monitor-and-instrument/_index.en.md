@@ -7,8 +7,8 @@ weight: 990
 ---
 
 {{% notice info %}}
-This page refers to configuration when [OpenTelemetry (OTel)](https://opentelemetry.io/) is enabled in the app from v8 and newer.
-The existing Application Insights SDK setup is obsolete and will be removed in the next major version of the Altinn.App libraries. 
+Configuration of [OpenTelemetry (OTel)](https://opentelemetry.io/) requires minimum version 8 of the Altinn.App libraries.
+The existing Application Insights SDK setup is obsolete and will be removed in version 9. 
 {{% /notice %}}
 
 ## Configuring your app
