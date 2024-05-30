@@ -10,7 +10,7 @@ Denne siden refererer til konfigurasjon når [OpenTelemetry (OTel)](https://open
 Det eksisterende Application Insights SDK oppsettet er utgått, og vil fjernes i neste hovedversjon av Altinn.App biblioteker
 {{% /notice %}}
 
-Det nye oppsettet for monitorering og instrumenterting kan aktiveres ved å sette `UseOpenTelemetry` til `true` i `appsettings.json` eller ekvivalent.
+Det nye oppsettet for monitorering og instrumenterting kan aktiveres ved å sette `UseOpenTelemetry` til `true` i *appsettings.json* eller ekvivalent.
 
 {{< highlight json "linenos=false,hl_lines=3" >}}
 {

@@ -14,7 +14,7 @@ The existing Application Insights SDK setup is obsolete and will be removed in t
 ## Configuring your app
 
 The new monitoring and instrumentation setup based on OpenTelemetry is enabled simply by setting 
-`UseOpenTelemetry` to `true` in `appsettings.json` or equivalent.
+`UseOpenTelemetry` to `true` in *appsettings.json* or equivalent.
 
 {{< highlight json "linenos=false,hl_lines=3" >}}
 {
@@ -32,11 +32,11 @@ and to Azure monitor when running in an environment.
 ## Custom instrumentation
 
 The most straightforward way of getting familiar with the Altinn.App instrumentation APIs is by creating
-a simple `IHostedService` implemented in `Program.cs`. This way we can get some code running which we can experiment with.
+a simple *IHostedService* implemented in *Program.cs*. This way we can get some code running which we can experiment with.
 
-The telemetry and instrumentation APIs of the Altinn.App library are exposed through the `Telemetry` class.
+The telemetry and instrumentation APIs of the Altinn.App library are exposed through the *Telemetry* class.
 It is a thread-safe singleton object available in the dependency injection container.
-Let's extend the the app by extending `Program.cs`.
+Let's extend the the app by extending *Program.cs*.
 
 If they're not there already, we need the following using statements at the top of the file:
 
@@ -99,7 +99,7 @@ In addition to these, you can freely explore the emitted telemetry while debuggi
 
 [Read more about local Grafana on the visualisation reference page](/altinn-studio/reference/monitoring/visualisation/#grafana).
 
-If you've implemented the code above, you should be able to find the `altinn_app_started` metric in the explore tab for the `Metrics` datasource.
+If you've implemented the code above, you should be able to find the `altinn_app_started` metric in the explore tab for the *Metrics* datasource.
 You should also be able to find the log message and trace emitted above by using the other datasources.
 
 To open Grafana, visit [local.altinn.cloud/grafana/](http://local.altinn.cloud/grafana/), then click explore in the side-menu.
@@ -116,8 +116,8 @@ When the app is deployed to an environment, the telemetry is currently shipped t
 
 [Read more about Azure Monitor on the visualisation reference page](/altinn-studio/reference/monitoring/visualisation/#azure-monitor).
 
-In Azure Monitor, logs and traces can be found by using the `Transaction search` menu blade,
-while metrics are in the `Metrics` menu blade.
+In Azure Monitor, logs and traces can be found by using the *Transaction search* menu blade,
+while metrics are in the *Metrics* menu blade.
 
 {{% notice info %}}
 In the future, the Altinn monitoring solution for deployed apps will also be based on Grafana.

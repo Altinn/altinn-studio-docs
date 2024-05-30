@@ -24,11 +24,11 @@ This instrumentation follows the [semantic conventions of the OTel spec](https:/
 
 For manual instrumentation, you should also make sure to follow semantic conventions where applicable.
 The Altinn.App.Core library has mechanisms for doing manual instrumentation while standardizing on attribute names and values
-for Altinn-specific data and identifiers. This is done through the `Altinn.App.Core.Features.Telemetry` class and extension methods on `System.Diagnostics.Activity`.
+for Altinn-specific data and identifiers. This is done through the *Altinn.App.Core.Features.Telemetry* class and extension methods on *System.Diagnostics.Activity*.
 
 ## Distributed tracing
 
-Distributed tracing is done through `System.Diagnostics.ActivitySource` and `System.Diagnostics.Activity` in .NET.
+Distributed tracing is done through *System.Diagnostics.ActivitySource* and *System.Diagnostics.Activity* in .NET.
 Alternatively, there is a shim API provided by the OTel SDK that simply wraps the Activity API that can be used.
 
 Distributed tracing consists of 
@@ -93,7 +93,7 @@ internal sealed class BringClient(
 }
 {{< / highlight >}}
 
-There are also extension methods on `System.Diagnostics.Activity?` for setting domain-specific tags,
+There are also extension methods on *System.Diagnostics.Activity?* for setting domain-specific tags,
 such as a User ID, Party ID, Instance ID and Process Task ID. In the code below, we provide
 additional context by attaching the user party ID to the trace. 
 In this case, that attribute will already be present on a parent span thanks to the included instrumentation Altinn.App libraries,
@@ -137,10 +137,10 @@ Read more about distributed tracing at
 
 ## Logging
 
-Logging is done through injecting the `Microsoft.Extensions.Logging.ILogger<T>` interface where needed.
+Logging is done through injecting the *Microsoft.Extensions.Logging.ILogger<T>* interface where needed.
 Logs are automatically shipped through the configured OTel exporters (localtest OTel collector if running locally, Azure Monitor when deployed).
 
-Below we have modified our `BringClient` to log information messages for postal codes that are looked up:
+Below we have modified our *BringClient* to log information messages for postal codes that are looked up:
 
 {{< highlight csharp "linenos=false,hl_lines=4 15" >}}
 internal sealed class BringClient(
@@ -186,11 +186,11 @@ Metrics are mostly useful for coarse aggregation of timeseries, to provide high 
 into the state of of an app or across multiple apps. Timeseries can then be visualized to create a baseline of expectations.
 In the future we will also be able to create alerts based on these metrics.
 
-We continue to expand on the `BringClient` example, where we now cache the API respones
+We continue to expand on the *BringClient* example, where we now cache the API respones
 and make sure to track the cache hitrate using metrics. With metrics we have to consider
 
-* Instruments (e.g. `Counter<T>`) should not be created often, so we register the service as a `Singleton`
-* We use `Telemetry.Metrics.CreateName` to standardize on metric names
+* Instruments (e.g. *Counter<T>*) should not be created often, so we register the service as a *Singleton*
+* We use *Telemetry.Metrics.CreateName* to standardize on metric names
 * We use a memory cache and have attributes/tags tracking 
 
 {{< highlight csharp "linenos=false,hl_lines=5 12 22-24 35-49 62" >}}
@@ -277,18 +277,18 @@ Microsoft [have documented that](https://github.com/MicrosoftDocs/azure-docs/com
 Which means that the classic SDK that we now use is likely to be deprecated at some point.
 It is therefore recommended to migrate when possible, by following the instructions above.
 
-If you have manual instrumentation using `TelemetryClient` from the classic Application Insights SDK, these need to be migrated to OTel equivalents. 
-The Application Insights SDK also ships logs based on the `ILogger<T>` abstraction, so the only places
+If you have manual instrumentation using *TelemetryClient* from the classic Application Insights SDK, these need to be migrated to OTel equivalents. 
+The Application Insights SDK also ships logs based on the *ILogger<T>* abstraction, so the only places
 where change is needed is for telemetry not using that API (traces, metrics, and anything else from the Application Insights datamodel)
 
 The Application Insights datamodel is different from OTel.
 See the mapping table below for recommendations:
 
-| **Application Insights** | **OpenTelemetry**      | **`System.Diagnostics` API**                |
+| **Application Insights** | **OpenTelemetry**      | **System.Diagnostics API**                |
 | ------------------------ | ---------------------- | ------------------------------------------- |
-| Request                  | Span                   | `Activity`                                  |
-| Exception                | Span with span event   | `Activity` with `Activity.AddEvent`         |
-| Dependency               | Span                   | `Activity`                                  |
-| Event                    | Span, span event, logs | `Activity`/`Activity.AddEvent`/`ILogger<T>` |
-| Trace                    | Span, logs             | `Activity`/`ILogger<T>`                     |
-| Metric                   | Metrics                | `Metric`                                    |
+| Request                  | Span                   | *Activity*                                  |
+| Exception                | Span with span event   | *Activity* with *Activity.AddEvent*         |
+| Dependency               | Span                   | *Activity*                                  |
+| Event                    | Span, span event, logs | *Activity*/*Activity.AddEvent*/*ILogger<T>* |
+| Trace                    | Span, logs             | *Activity*/*ILogger<T>*                     |
+| Metric                   | Metrics                | *Metric*                                    |

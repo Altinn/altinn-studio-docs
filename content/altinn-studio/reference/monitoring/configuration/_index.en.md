@@ -10,7 +10,7 @@ This page refers to configuration when [OpenTelemetry (OTel)](https://openteleme
 The existing Application Insights SDK setup is obsolete and will be removed in the next major version of the Altinn.App libraries. 
 {{% /notice %}}
 
-The new monitoring and instrumentation setup is enabled by setting `UseOpenTelemetry` to `true` in `appsettings.json` or equivalent.
+The new monitoring and instrumentation setup is enabled by setting `UseOpenTelemetry` to `true` in *appsettings.json* or equivalent.
 
 {{< highlight json "linenos=false,hl_lines=3" >}}
 {
@@ -23,7 +23,7 @@ The new monitoring and instrumentation setup is enabled by setting `UseOpenTelem
 When this flag is enabled, OTel is configured as opposed to the classic Application Insights SDK.
 All the telemetry is then shipped by default to the local monitoring setup with running locally,
 and to Azure Monitor when the app is deployed in an environment.
-Optionally, if an instrumentation key or Application Insights connection string is added to `AppSettings` or environment locally,
+Optionally, if an instrumentation key or Application Insights connection string is added to *AppSettings* or environment locally,
 Altinn.App will ship the telemetry to Azure Monitor.
 When the app is run, you will both get auto-instrumentation based on HTTP (traces and metrics),
 but also manual trace spans and metrics that are domain specific.

@@ -14,7 +14,7 @@ Det eksisterende Application Insights SDK oppsettet er utgått, og vil fjernes i
 ## Konfigurering av en app
 
 Det nye monitorerings- og instrumenteringsoppsettet basert på OpenTelemetry kan aktiveres ved å sette 
-`UseOpenTelemetry` til `true` i `appsettings.json` eller ekvivalent.
+`UseOpenTelemetry` til `true` i *appsettings.json* eller ekvivalent.
 
 {{< highlight json "linenos=false,hl_lines=3" >}}
 {
@@ -24,21 +24,21 @@ Det nye monitorerings- og instrumenteringsoppsettet basert på OpenTelemetry kan
 }
 {{< / highlight >}}
 
-Når appen kjøres med denne instillingen så vil Altinn.App biblioteket sende telemetri til localtest ved lokal kjøring
+Når appen kjøres med denne innstillingen så vil Altinn.App biblioteket sende telemetri til localtest ved lokal kjøring
 og til Azure Monitor ved kjøring i et miljø.
 
 [Les mer om konfigurasjonsmuligheter på referansesiden for konfigurasjon](/nb/altinn-studio/reference/monitoring/configuration).
 
 ## Egendefinert instrumentering
 
-Vi illustrerer egendefinert instrumentering med et eksempel. I `Program.cs` legger vi til en simpel `IHostedService` implementasjon
+Vi illustrerer egendefinert instrumentering med et eksempel. I *Program.cs* legger vi til en simpel *IHostedService* implementasjon
 som kan instrumenteres til å eksponere telemetri.
 
-Telemetri- og instrumentering-API'ene i Altinn.App biblioteket bli eksponert gjennom `Telemetry`-klassen. Det er
+Telemetri- og instrumentering-APIene i Altinn.App biblioteket blir eksponert gjennom *Telemetry*-klassen. Det er
 et trådsikkert singleton-objekt tilgjengelig i dependency injection containeren.
-La oss utvide `Program.cs` til å inkludere dette.
+La oss utvide *Program.cs* til å inkludere dette.
 
-Hvis de ikke allerede er der, så trenger vi de følgende avhengighetene på toppen av filen:
+Hvis de ikke allerede er der, så trenger vi de følgende avhengighetene øverst i filen:
 
 ```csharp
 using System;
@@ -89,8 +89,8 @@ Her er en kort oversikt over visualisering av telemetrien vi instrumenterte over
 
 ### Lokal utvikling
 
-Ved lokal utvikling med [localtest](/nb/altinn-studio/guides/local-dev/), så kan en monitoreringsstack bestående av Grafana og OpenTelemetry Collector
-provisjoneres ved siden av localtest og Platform API'er. [Se localtest README for mer informasjon](https://github.com/Altinn/app-localtest/blob/main/README.md).
+Ved lokal utvikling så kan en monitoreringsstack bestående av Grafana og OpenTelemetry Collector
+provisjoneres ved siden av localtest og Platform APIer. [Se localtest README for mer informasjon](https://github.com/Altinn/app-localtest/blob/main/README.md).
 
 Monitoreringsoppsettet i localtest inneholder en Grafana instans med ASP.NET Core dashboard og et preview Altinn app dashboard.
 I tillegg gir det muligheten til å fritt undersøke telemetrien som eksponeres fra Altinn plattform og bibliotek.
@@ -114,7 +114,7 @@ Når appen er deployed til et test- eller produksjons-miljø så vil telemetrien
 
 [Les mer om Azure Monitor på referansesiden for visualisering](/nb/altinn-studio/reference/monitoring/visualisation/#azure-monitor).
 
-I Azure Monitor kan logger og traces finnes ved å bruke `Transaction search` menyen, mens metrikker er å finne under `Metrics`.
+I Azure Monitor kan logger og traces finnes ved å bruke *Transaction search* menyen, mens metrikker er å finne under *Metrics*.
 
 {{% notice info %}}
 I fremtiden vil apper i produksjon og andre miljøer også bruke Grafana som monitoreringsløsning.

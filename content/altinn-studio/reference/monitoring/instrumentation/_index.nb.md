@@ -23,12 +23,12 @@ Denne instrumenteringer følger den [OpenTelemetry sine semantiske konvensjoner]
 
 Konvensjonene burde også følges for manuell instrumentering.
 Altinn.App.Core biblioteket har mekanismer for manuell instrumentering med standarder for attributtnavn og verdier
-for Altinn-spesifikke data og identifikatorer. Dette gjøres via `Altinn.App.Core.Features.Telemetry`-klassen og extension-metoder på `System.Diagnostics.Activity`.
+for Altinn-spesifikke data og identifikatorer. Dette gjøres via *Altinn.App.Core.Features.Telemetry*-klassen og extension-metoder på *System.Diagnostics.Activity*.
 
 ## Distribuert trace
 
-Distribuert tracing gjøres gjennom `System.Diagnostics.ActivitySource` og `System.Diagnostics.Activity` in .NET.
-Alternativt kan et mellomlag-API som tilgjengeliggjøres av OTel sin SKD brukes. Det legger seg rundt `System.Diagnostics.Activity` APIet.
+Distribuert tracing gjøres gjennom *System.Diagnostics.ActivitySource* og *System.Diagnostics.Activity* in .NET.
+Alternativt kan et mellomlag-API som tilgjengeliggjøres av OTel sin SKD brukes. Det legger seg rundt *System.Diagnostics.Activity* APIet.
 
 Distribuert tracer består av
 * tracer - en samling av span, identifisert med en Trace ID
@@ -91,8 +91,8 @@ internal sealed class BringClient(
 }
 {{< / highlight >}}
 
-Altinn-apper har også tilgang på metoder for å sette domenespesifikke tags, via en utvidelse av `System.Diagnostics.Activity?` i 
-`Altinn.App.Core`. Dette inkluderer bruker ID, part ID, instans ID og prosessoppgave ID. I koden under, gir vi
+Altinn-apper har også tilgang på metoder for å sette domenespesifikke tags, via en utvidelse av *System.Diagnostics.Activity?* i 
+*Altinn.App.Core*. Dette inkluderer bruker ID, part ID, instans ID og prosessoppgave ID. I koden under, gir vi
 ekstra kontekst ved å legge til brukers part ID til trace:
 
 {{< highlight csharp "linenos=false,hl_lines=4 9-18" >}}
@@ -133,10 +133,10 @@ Les mer om distribuert trace i
 
 ## Logging
 
-Logging gjøres ved å bruke `Microsoft.Extensions.Logging.ILogger<T>` interface. Da blir loggene automatisk sendt gjennom OTel eksportering
+Logging gjøres ved å bruke *Microsoft.Extensions.Logging.ILogger<T>* interface. Da blir loggene automatisk sendt gjennom OTel eksportering
 (local-test sin OTel Collector ved lokal kjøring, Azure Monitor når i et miljø som produksjon).
 
-Under har vi modifisert vår `BringClient` til å logge informasjonslogg for postkoder som blir søkt etter:
+Under har vi modifisert vår *BringClient* til å logge informasjonslogg for postkoder som blir søkt etter:
 
 {{< highlight csharp "linenos=false,hl_lines=4 15" >}}
 internal sealed class BringClient(
@@ -176,17 +176,17 @@ Instrumentering av metrikker gjøre gjennom `System.Diagnostics.Metrics.Meter` o
   * `System.Diagnostics.Metrics.ObservableGauge<T>`
   * `System.Diagnostics.Metrics.Histogram<T>`
 
-Les .NET og OTel dokumentasjon i `Ressurser`-seksjonen under for forskjellen mellom disse typene.
+Les .NET og OTel dokumentasjon i *Ressurser*-seksjonen under for forskjellen mellom disse typene.
 
 Metrikker er mest nyttig for grov aggregering av tidsserier, for å gi en høynivå innsikt inn i
 tilstanden til en eller flere applikasjoner. Tidsserier kan visualiseres og gi et inntrykk og en referanse for hva som kan forventes.
 I fremtiden vil det bli mulig å lage alarmer basert på disse metrikkene.
 
-Vi fortsetter med `BringClient`-eksempelet. Nå legger vi inn caching av API svar for bedre ytelse,
+Vi fortsetter med *BringClient*-eksempelet. Nå legger vi inn caching av API svar for bedre ytelse,
 og instrumenterer slik at vi for metrikker for hvor ofte cachen blir benyttet. Når vi legger inn metrikker må vi tenke på
 
-* Instrumenter (e.g. `Counter<T>`) burde ikke opprettes ofte, så vi registrerer tjenesten som en `Singleton`
-* Vi bruker `Telemetry.Metrics.CreateName` for å standardisere metrikknavn
+* Instrumenter (e.g. *Counter<T>*) burde ikke opprettes ofte, så vi registrerer tjenesten som en *Singleton*
+* Vi bruker *Telemetry.Metrics.CreateName* for å standardisere metrikknavn
 * Vi bruker en minne cache og har attributes/tags tracking 
 
 {{< highlight csharp "linenos=false,hl_lines=5 12 22-24 35-49 62" >}}
@@ -275,18 +275,18 @@ Microsoft [har dokuemntert at](https://github.com/MicrosoftDocs/azure-docs/commi
 Som betyr at classic SDK vil med stor sannsynlighet utfases i fremtiden.
 Det er derfor å anbefale en migrering når mulig, ved å følge instruksene over.
 
-Dersom du har manuell instrumentering med `TelemetryClient` fra classic Application Insights SDK, så må dette migreres til OTel ekvivalent.
-Application Insights SDK sender - likt som OTel - logger basert på `ILogger<T>` abstraksjonen, so de eneste stedene
+Dersom du har manuell instrumentering med *TelemetryClient* fra classic Application Insights SDK, så må dette migreres til OTel ekvivalent.
+Application Insights SDK sender - likt som OTel - logger basert på *ILogger<T>* abstraksjonen, so de eneste stedene
 der endring er nødvendig er der APIet brukes (trace, metrikk, eventuelt annet fra Application Insights datamodellen)
 
 Datamodellen til Application Insight er annerledes enn OTel sin.
 Her er oversikt over ulikhetene:
 
-| **Application Insights** | **OpenTelemetry**      | **`System.Diagnostics` API**                |
+| **Application Insights** | **OpenTelemetry**      | **System.Diagnostics API**                |
 | ------------------------ | ---------------------- | ------------------------------------------- |
-| Request                  | Span                   | `Activity`                                  |
-| Exception                | Span with span event   | `Activity` with `Activity.AddEvent`         |
-| Dependency               | Span                   | `Activity`                                  |
-| Event                    | Span, span event, logs | `Activity`/`Activity.AddEvent`/`ILogger<T>` |
-| Trace                    | Span, logs             | `Activity`/`ILogger<T>`                     |
-| Metric                   | Metrics                | `Metric`                                    |
+| Request                  | Span                   | *Activity*                                  |
+| Exception                | Span with span event   | *Activity* with *Activity.AddEvent*         |
+| Dependency               | Span                   | *Activity*                                  |
+| Event                    | Span, span event, logs | *Activity*/*Activity.AddEvent*/*ILogger<T>* |
+| Trace                    | Span, logs             | *Activity*/*ILogger<T>*                     |
+| Metric                   | Metrics                | *Metric*                                    |
