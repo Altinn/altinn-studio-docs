@@ -94,7 +94,7 @@ Example of returned status from a subsequent GetFileDetails calls
 }
 ```
 
-Uploaded state here means that the file has been processed OK. A FileStatus of "Initialized" indicates that the file has not finished processing, or that processing encountered an error, as Altinn 2 Rest File Details does not implement error messaging.
+"Uploaded" state here means that the file has been processed OK. A FileStatus of "Initialized" indicates that the file has not finished processing, or that processing encountered an error, as Altinn 2 Rest File Details does not implement error messaging.
 
 ### Get File Details outbox (sender)
 

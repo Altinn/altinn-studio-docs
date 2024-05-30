@@ -59,7 +59,7 @@ Siden opplastingen, og lastet opp behandlingen av filen er en asynkron prosess i
 I tillegg synkroniserte resten implementeringen av Altinn 2 Broker Services oppstart og opplasting av filen, som et resultat av dette inkluderer ikke filstatusforespørslene statuser for mislykkede filer,
 da disse historisk aldri ville bli opprettet i utgangspunktet.
 
-Hvis mulig, bør du derfor vurdere å legge til trinn som ringer til samtaler til [Get File Receipt](#get-file-receipt-outbox-sender) for å sikre at filen er behandlet.
+Hvis mulig, bør du derfor vurdere å legge til trinn som gjør kall mot [Get File Receipt](#get-file-receipt-outbox-sender) for å sikre at filen er behandlet.
 {{% /notice %}}
 
 Eksempel på umiddelbart returnert status fra InitiateAndUploadFile kall:
@@ -94,7 +94,7 @@ Eksempel på returnert status fra en påfølgende GetFileDetails kall
 }
 ```
 
-Opplastet tilstand her betyr at filen er behandlet OK. En filestatus av "initialisert" indikerer at filen ikke er ferdig med behandlingen, eller at behandlingen har opplevd en feil, ettersom Altinn 2 REST GetFileDetails ikke implementerer feilmeldinger.
+"*Uploaded*" tilstand her betyr at filen er behandlet OK. En tilstand av "*Initialized*" indikerer at filen ikke er ferdig med behandlingen, eller at behandlingen har opplevd en feil, ettersom Altinn 2 REST GetFileDetails ikke implementerer feilmeldinger.
 
 ### Get File Details outbox (sender)
 
@@ -165,9 +165,15 @@ Content-Type: application/zip
 
 
 #### Eksempel kvittering avsender - Fil mislyktes under behandlingen
-I tilfelle en fil opplasting mislyktes under behandlingen, vil det umiddelbare resultatet ikke vise at filen er avvist:
+Dersom en fil mislyktes under behandling av filen etter at den er lastet opp i Altinn 3 Formidlingstjeneste (vanligvis pga. malware scanning), vil ikke dette vises i det umiddelbare resultatet av "*InstantiateAndUpload*" operasjonen i Altinn 2.
+
+Dette skyldes at Initialisering, Opplasting og Behandling ble gjort synkront i eksisterende Altinn 2 REST løsning.
+For verifisere at asynkron behandling gikk OK kan et "*GetFileDetails*" kall gjøres.
+
+Dersom en fil opplasting mislyktes under behandlingen, vil det umiddelbare resultatet ikke vise at filen er avvist:
 
 ##### InstantiateAndUpload - Umiddelbart resultat
+Umiddelbart resultat etter å ha lastet opp en fil i Altinn 3 Formidlingstjeneste via Altinn 2 REST API.
 ```JSON
 {
     "ServiceCode": "4947",
@@ -184,7 +190,8 @@ I tilfelle en fil opplasting mislyktes under behandlingen, vil det umiddelbare r
 ```
 
 ##### GetFileDetails
-En sekundær operasjon for å vise at filen er initialisert, ettersom Altinn 2 REST-implementeringen av Broker var helt synkront, og derfor ikke implementerer å vise mislykkede statuser, da disse aldri kunne returneres.
+En sekundær operasjon for å vise at filen er har "*Initialized*" status, som betyr at den ikke har blitt blitt behandlet, og at den kan ha blitt avvist.
+
 ```JSON
 {
     "ServiceCode": "4947",

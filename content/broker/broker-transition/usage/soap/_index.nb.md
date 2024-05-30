@@ -2,13 +2,13 @@
 title: Bruksanvisning SOAP
 linktitle: Bruksanvisning SOAP
 description: Forskjell i bruk av SOAP kall mellom Altinn 2 og Altinn 3 overførte tjenester.
-tags: [Løsning, broker, guide, overgang]
+tags: [Løsning, formidling, guide, overgang]
 toc: false
 weight: 1
 ---
 
 ## Forskjell i bruk mellom eksisterende Altinn 2 SOAP operasjoner og Altinn 3 SOAP operasjoner som er overført til Altinn 3.
-SOAP operasjoner for Altinn 2 Broker Service er spredt over 3 endepunkter.
+SOAP operasjoner for Altinn 2 Formidlingstjeneste er spredt over 3 endepunkter.
 For de fleste forespørsler vil det ikke være noen funksjonell forskjell mellom Altinn 2 og Altinn 3 forespørsler.
 
 
@@ -28,7 +28,7 @@ For examples of SOAP implementation see [existing documentation (norwegian only)
 
 ### BrokerService endepunkt
 
-BrokerService endepunktet inneholder funksjoner relatert til BrokerService metadata forespørsler.
+"*BrokerService*" endepunktet inneholder funksjoner relatert til formidlingstjeneste metadata forespørsler.
 
 #### InitiateBrokerService
 
@@ -48,14 +48,14 @@ Ingen funksjonell forskjell for overførte tjenester. Hvis kode for tjenestekode
 
 ### BrokerServiceStreamed endepunkt
 
-BrokerServiceStreamed endepunktet inneholder funksjoner relatert til BrokerService fil data forespørsler.
+BrokerServiceStreamed endepunktet inneholder funksjoner relatert til formidlingstjeneste fil data forespørsler.
 
 #### UploadFileStreamed
 
 Ingen funksjonell forskjell i request. Svaret vil inneholde en pseudo-kvittering generert fra Altinn 3 fil metadata. Kvitteringsid vil være 0.
 {{% notice warning  %}}
 Siden opplastingen og behandling av opplastet fil er en asynkron prosess i Altinn 3, vil den umiddelbare kvitteringsstatus mottatt fra request ikke nødvendigvis gjenspeile den endelige tilstanden til filen.
-Altinn 2 SOAP Broker service tilbyr ingen funksjon som lar sluttbrukere bekrefte at en fil er blitt behandlet og er klar til nedlasting for mottakere.
+Altinn 2 SOAP formidlingstjeneste tilbyr ingen funksjon som lar sluttbrukere bekrefte at en fil er blitt behandlet og er klar til nedlasting for mottakere.
 
 Hvis mulig, bør du vurdere å legge til trinn som ringer til [Få fil kvittering](../rest/#get-file-receipt-outbox-sender) for å sikre at filen er blitt behandlet.
 Hvis du ikke ønsker å implementere REST, er en mulig workaround å implementere en forespørsel som henter tilgjengelige filer for mottakerne for å sikre at filen du lastet opp er gjort tilgjengelig.
@@ -197,7 +197,7 @@ Ingen funksjonell forskjell for overførte tjenester.
 ### Receipt Endpoint
 
 Kvittering-endepunkt inneholder forespørsler som brukes til å hente kvitteringer for sluttbrukere. 
-Fordi Altinn 3 overførte tjenester aldri vil opprette kvitteringer, kan ingen kvitteringsdata relatert til Altinn 3 overførte filer 
+Fordi Altinn 3 overførte tjenester aldri vil opprette kvitteringer, kan ingen kvitteringsdata relatert til Altinn 3 filer 
 bli hentet fra dette endepunktet.
 
-Hvis brukssaken din krever bruk av kvittering, kan du sende inn en endringsforespørsel. 
+Hvis din UseCase krever bruk av kvittering, kan du sende inn en endringsforespørsel. 
