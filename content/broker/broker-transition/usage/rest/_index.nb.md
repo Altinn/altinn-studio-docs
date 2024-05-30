@@ -11,7 +11,7 @@ weight: 1
 
 For standard bruk av Altinn 2 REST-operasjoner, se [Altinn Docs] (https://Altinn.github.io/docs/api/rest/formidling/)
 
-For alle overgangstjenester Altinn 3 vil kvitteringer være pseudo-mottaker generert fra Altinn 3 fil metadata. Dette betyr at alle kvitteringer som returneres vil være pseudo-kvitteringer, og alle kvitteringsid vil være 0.
+For alle tjenester som går til Altinn 3 via overgangsløsning vil kvitteringer være pseudo-mottaker generert fra Altinn 3 fil metadata. Dette betyr at alle kvitteringer som returneres vil være pseudo-kvitteringer, og alle kvitteringsid vil være 0.
 
 Hvis brukssaken din krever bruk av kvittering, kan du sende inn en endringsforespørsel. 
 
@@ -52,7 +52,7 @@ BrokerServiceDescription example
 
 #### Forskjeller
 
-Overgangstjenesten bruker ikke FileList propertyen.Ingen endring er nødvendig fra sluttbrukerimplementeringen, men en nullverdi vil bli akseptert, og eventuelle sendte verdier vil bli ignorert av overgangstjenesten.
+Overgangsløsningen bruker ikke FileList propertyen.Ingen endring er nødvendig fra sluttbrukerimplementeringen, men en nullverdi vil bli akseptert, og eventuelle sendte verdier vil bli ignorert av overgangsløsningen.
 Den returnerte kvitteringen vil ikke være en reell kvittering, men en pseudo-kvittering bygget fra Altinn 3 Broker fil metadata.
 {{% notice warning  %}}
 Siden opplastingen, og lastet opp behandlingen av filen er en asynkron prosess i Altinn 3, vil den umiddelbare kvitteringsstatusen mottatt fra samtalen ikke nødvendigvis gjenspeile den endelige tilstanden til filen.
