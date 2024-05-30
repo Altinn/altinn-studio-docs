@@ -13,9 +13,6 @@ I Altinn Studio Resource admin kan du opprette ressurser som skal brukes som gru
 - Organisasjon må ha klient i maskinporten
 - Organisasjonen må ha blitt gitt scopene altinn:resourceregistry/resource.write og altinn:resourceregistry/resource.read
 
-
-
-
 ## Definere Ressurs for delegerbart API Scheme
 
 

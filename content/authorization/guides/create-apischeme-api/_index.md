@@ -6,119 +6,135 @@ toc: false
 weight: 1
 ---
 
-## Prerequisites
+I Altinn Studio Resource admin kan du opprette ressurser som skal brukes som grunnlag for tilgangskontroll for tjenester utenfor Altinn-plattformen. 
 
-You need to have access to resource administration for your organization. See [Getting started guide](../../getting-started/resource-admin-studio)
+## Forutsetninger
 
-## Step 1 Create Resource
+- Organisasjon må ha klient i maskinporten
+- Organisasjonen må ha blitt gitt scopene altinn:resourceregistry/resource.write og altinn:resourceregistry/resource.read
 
-Log in to Altinn Studio
-
-Create Resource
-
-The ID given for resource will be the one used in Altinn API for checking access 
+## Definere Ressurs for delegerbart API Scheme
 
 
-![Create Resource](create_resource_1.png)
+De delegerbare API schemsene defineres i Altinn Ressursregister som en ressurs etter ressursmodellen
 
-### Resource Type
-
-For external resources, the type will be generic access resource.
-
-![Create Resource](create_resource_2.png)
-
-### Title
-
-The title will be shown in Access Management and in service catalogues like data.altinn.no
-
-You need to define the title in bokmål, nynorsk and english.
-
-![Create Resource](create_resource_3.png)
-
-### Description
-
-The description  will be shown in Access Management and in service catalogues like data.altinn.no
-
-You need to define the description in bokmål, nynorsk and english.
-
-![Create Resource](create_resource_4.png)
+Følgende attributter er nødvendig
 
 
-### Delegation description
+| Attributt |  Beskrivelse |
+|-------|-------|
+|identifier | Globalt unik ID for ressurs. Brukes i Policy også. Påkrevd |
+| Title  | Tittel for API Scheme. Vises i Altinn portal når man delegerer. Må oppgis for en, nb og nn (engelsk, bokmål og nynorsk) Påkrevd |
+| description |  Beskrivelse for API Scheme å oppgis for en, nb og nn (engelsk, bokmål og nynorsk) Påkrevd|
+| rightDescription | Delegeringsbeskrivelse for API Scheme. Må oppgis for en, nb og nn (engelsk, bokmål og nynorsk) Påkrevd |
+| resourceReferences | Det må legges inn en resource refernece med referencetype MaskinportenScope | 
 
-If the resource should be able to be delegated as resource delegation you need to enable the delegation and set delegation description in bokmål, nynorsk and english.
+Nedenfor vises eksempel fra produksjon på API ressurs. ([se samme vi API](https://platform.altinn.no/resourceregistry/api/v1/resource/maskinportenschema-aquaportalapi-write))
 
-![Create Resource](create_resource_5.png)
-
-### Keywords
-
-Keywords can be set for help. Currently not used but might be used for different service catalogues later
-
-![Create Resource](create_resource_6.png)
-
-### Status
-
-The status of the service that the resource is pointing to
-
-![Create Resource](create_resource_7.png)
-
-
-### User types
-
-Defines which types of user that can access. This settings does might be used for filtering at a later point. Currently
-this is just information. 
-
-![Create Resource](create_resource_8.png)
-
-
-### Party tyoe
-
-Defines what type of party the service is targeting. Might be used for filtering in service catalogue in a later stage.
-
-![Create Resource](create_resource_9.png)
-
-### Contact information
-
-Contact information for the service. Might be presented in service cataloge on a later stage.
-
-![Create Resource](create_resource_10.png)
-
-## Create Policy
-
-When resource is created you need to define the policy.
-The policy needs to contain a minimum of 1 rule. 
-
-Each rule contains of resource, subject and action
-
-### Resource
-
-Define the resource for the rule
-![Create Resource](create_resource_11.png)
-
-
-### Action
-
-Define the action for the rule
-
-![Create Resource](create_resource_12.png)
-
-### Subject
-
-Define the subject for the role. You can choose amongst ER roles, Altinn Roles, and Access Packages(todo)
-
-![Create Resource](create_resource_13.png)
-
-## Publish
-
-When you have finished setting the resource settings  and policy you can publish.
-Before publish you need to set a new version ID and commit changes to the resource repository. 
-
-![Create Resource](create_resource_14.png)
+```json
+{
+    "identifier": "maskinportenschema-aquaportalapi-write",
+    "title": {
+        "en": "Write access to the Aqua Portal API.",
+        "nb": "Skrivetilgang til API for Akvakulturportalen.",
+        "nn": "Skrivetilgang til API for Akvakulturportalen."
+    },
+    "description": {
+        "en": "This service provides write access to aquaculture applications for county municipalities and other sector authorities.",
+        "nb": "Denne tjenesten gir skrivetilgang til akvakultursøknader for fylkeskommuner og andre sektormyndigheter.",
+        "nn": "Denne tenesta gir skrivetilgang til akvakultursøknader for fylkeskommunar og andre sektormyndigheiter."
+    },
+    "rightDescription": {
+        "en": "This service provides write access to aquaculture applications for county municipalities and other sector authorities.",
+        "nb": "Denne tjenesten gir skrivetilgang til akvakultursøknader for fylkeskommuner og andre sektormyndigheter.",
+        "nn": "Denne tenesta gir skrivetilgang til akvakultursøknader for fylkeskommunar og andre sektormyndigheiter."
+    },
+    "homepage": "https://www.fiskeridir.no/",
+    "status": "Active",
+    "contactPoints": [
+        {
+            "contactPage": "https://www.fiskeridir.no/"
+        }
+    ],
+    "isPartOf": "",
+    "resourceReferences": [
+        {
+            "referenceSource": "Altinn3",
+            "reference": "fdir:aquaportalapi.write",
+            "referenceType": "MaskinportenScope"
+        }
+    ],
+    "delegable": true,
+    "visible": true,
+    "hasCompetentAuthority": {
+        "organization": "971203420",
+        "orgcode": "FD",
+        "name": {
+            "en": "The Norwegian Directorate of Fisheries",
+            "nb": "Fiskeridirektoratet",
+            "nn": "Fiskeridirektoratet"
+        }
+    },
+    "keywords": [],
+    "limitedByRRR": false,
+    "selfIdentifiedUserEnabled": false,
+    "enterpriseUserEnabled": false,
+    "resourceType": "MaskinportenSchema"
+}
+```
 
 
-## Verify
+## Definere policy for API Scheme
 
-When published the resource is avaiable on the search API in Resource Registry.
+For å kunne støtte delegering av API SCheme til leverandør må API Scheme ressursen ha en policy som beskriver hvem som har rettighet til å delegere 
+API SCheme til leverandør.
 
-Example Resource from guide. [https://platform.tt02.altinn.no/resourceregistry/api/v1/resource/ekstern-tjeneste-portal](https://platform.tt02.altinn.no/resourceregistry/api/v1/resource/ekstern-tjeneste-portal)
-Policy for Example resource from this guide [https://platform.tt02.altinn.no/resourceregistry/api/v1/resource/ekstern-tjeneste-portal/policy](https://platform.tt02.altinn.no/resourceregistry/api/v1/resource/ekstern-tjeneste-portal/policy)
+Policy må ha en regel som gir APIADM rollen rettighet til action scopeaccess. Hvis kontaktperson for NUF skal ha mulighet til å delegere må rollen APIADMNUF også legges til.
+
+
+Nedefor vises policy for ressurs eksempelet. [Last ned fra API](https://platform.altinn.no/resourceregistry/api/v1/resource/maskinportenschema-aquaportalapi-write/policy)
+
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<xacml:Policy xmlns:xsl="http://www.w3.org/2001/XMLSchema-instance" xmlns:xacml="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" PolicyId="urn:maskinportenschema:aquaportalapi:write:1" Version="1.0" RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-overrides">
+    <xacml:Target/>
+    <xacml:Rule RuleId="urn:maskinportenschema:aquaportalapi:write:1:1" Effect="Permit">
+        <xacml:Description>MaskinportenSchema resource policy for; maskinportenschema-aquaportalapi-write for roles; APIADM to have access to actions; ScopeAccess</xacml:Description>
+        <xacml:Target>
+            <xacml:AnyOf>
+                <xacml:AllOf>
+                    <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
+                        <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">APIADM</xacml:AttributeValue>
+                        <xacml:AttributeDesignator AttributeId="urn:altinn:rolecode" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+                    </xacml:Match>
+                </xacml:AllOf>
+            </xacml:AnyOf>
+            <xacml:AnyOf>
+                <xacml:AllOf>
+                    <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                        <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">maskinportenschema-aquaportalapi-write</xacml:AttributeValue>
+                        <xacml:AttributeDesignator AttributeId="urn:altinn:resource" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+                    </xacml:Match>
+                </xacml:AllOf>
+            </xacml:AnyOf>
+            <xacml:AnyOf>
+                <xacml:AllOf>
+                    <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
+                        <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">ScopeAccess</xacml:AttributeValue>
+                        <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+                    </xacml:Match>
+                </xacml:AllOf>
+            </xacml:AnyOf>
+        </xacml:Target>
+    </xacml:Rule>
+    <xacml:ObligationExpressions>
+        <xacml:ObligationExpression FulfillOn="Permit" ObligationId="urn:maskinportenschema:aquaportalapi:write:obligation:1">
+            <xacml:AttributeAssignmentExpression AttributeId="urn:maskinportenschema:aquaportalapi:write:obligation-assignment:1" Category="urn:altinn:minimum-authenticationlevel">
+                <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">3</xacml:AttributeValue>
+            </xacml:AttributeAssignmentExpression>
+        </xacml:ObligationExpression>
+    </xacml:ObligationExpressions>
+</xacml:Policy>
+
+```
