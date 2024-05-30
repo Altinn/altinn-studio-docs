@@ -85,8 +85,6 @@ sealed class StartupService(ILogger<StartupService> logger, Telemetry telemetry)
 
 Her er en kort oversikt over visualisering av telemetrien vi instrumenterte over.
 
-[Les mer om visualisering av telemetri på referansesiden for visualisering](/nb/altinn-studio/reference/monitoring/visualisation).
-
 ### Lokal utvikling
 
 Ved lokal utvikling så kan en monitoreringsstack bestående av Grafana og OpenTelemetry Collector

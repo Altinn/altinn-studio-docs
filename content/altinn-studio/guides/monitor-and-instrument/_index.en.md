@@ -87,8 +87,6 @@ sealed class StartupService(ILogger<StartupService> logger, Telemetry telemetry)
 
 Here is a brief overview of visualising the telemetry instrumented above.
 
-[Read more about visualisation on the visualisation reference page](/altinn-studio/reference/monitoring/visualisation).
-
 ###  Running locally 
 
 When running locally using [localtest](/altinn-studio/guides/local-dev/), a monitoring stack consisting of Grafana and OpenTelemetry Collector 
