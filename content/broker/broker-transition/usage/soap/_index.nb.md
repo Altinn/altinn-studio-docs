@@ -63,7 +63,7 @@ Hvis du ikke ønsker å implementere REST, er en mulig workaround å implementer
 
 ##### Kontroller at opplastet fil er gjort tilgjengelig for nedlasting via SOAP
 
-Trinn 1: Initier fil overføring
+Trinn 1: Initier filoverføring
 ```XML
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.altinn.no/services/ServiceEngine/Broker/2015/06" xmlns:ns1="http://schemas.altinn.no/services/ServiceEngine/Broker/2015/06">
    <soapenv:Header/>
