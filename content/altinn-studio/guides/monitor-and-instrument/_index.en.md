@@ -102,11 +102,19 @@ You should also be able to find the log message and trace emitted above by using
 
 To open Grafana, visit [local.altinn.cloud/grafana/](http://local.altinn.cloud/grafana/), then click explore in the side-menu.
 
+First, let's explore metrics by navigation to the *Explore* tab and selecting *Metrics* as source in the dropdown menu. Here we
+can choose which metric to view in the *Select a metric* section:
 ![Explore metrics](grafana-quickstart-metric.png "Explore metrics")
+
+To view traces, we choose *Traces* as the source, while still in the *Explore* tab. We select our app name as the *Service Name*. 
+Now we can see traces in the *Table view*. We click on a *trace ID* to see the full trace in a new pop-up to the right. 
 
 ![Explore traces](grafana-quickstart-trace.png "Explore traces. Here it is possible to analyze traces, attributes, and filter out log messages related to the trace.")
 
-![Explore logs](grafana-quickstart-logs.png "Explore logs. We clicked the 'Logs for this span' button, so now we see all log messages related to the root trace we made. It is also possible to navigate back to the trace view")
+By clicking the *Logs for this span*-button we can navigate to the relevant log view for this span. A query will be generated for us,
+ as seen below. Note that the source is changed from *Traces* to *Logs* and that we can easily navigate back.
+
+![Explore logs](grafana-quickstart-logs.png "Explore logs. Now we see all log messages related to the root trace we made.")
 
 ### Deploying to an environment
 

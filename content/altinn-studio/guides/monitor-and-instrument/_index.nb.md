@@ -100,11 +100,20 @@ Du kan også finne logger og traces fra koden over på denne siden ved hjelp av 
 
 For å åpne Grafana, åpne [local.altinn.cloud/grafana/](http://local.altinn.cloud/grafana/), og naviger via sidemenyen.
 
+Vi starter med å utforske metrikker ved å navigere til *Explore*-siden, der vi kan velge *Metrics* som kilde i nedtrekksmenyen. Her
+kan vi se på ønskelig metrikk ved hjelp av *Select a metric*-seksjonen:
+
 ![Utforsk metrikker](grafana-quickstart-metric.png "Utforsk metrikker")
+
+For å se traces bruker vi *Traces* som kilde på *Explore*-siden. Vi velger vårt appnavn som *Service Name*. Nå kan vi se
+traces i *Table view*-seksjonen. Vi trykker på *trace ID* for å se full trace i et nytt pop-up på høyre side.
 
 ![Explore traces](grafana-quickstart-trace.png "Utforsk traces. Her er det mulig å analysere traces, attributter, samt å filtrere ut logg-meldingene relatert til en trace.")
 
-![Explore logs](grafana-quickstart-logs.png "Utforsk logger. Vi klikket på 'Logs for this span'-knappen, så her ser vi alle logg-meldinger relatert til root-tracen vi laget med koden over. Det er også mulig å navigere tilbake til trace-viewet.")
+Ved å trykke på *Logs for this span*-knappen kan vi navigere til de relevante loggene for det valgte span. En spøøring vil bli generert for 
+oss, som vist i bildet under. Legg merke til at kildetype endres fra *Traces* til *Logs* og at vi enkelt kan navigere tilbake.
+
+![Explore logs](grafana-quickstart-logs.png "Utforsk logger. Her ser vi alle logg-meldinger relatert til root-tracen vi laget med koden over.")
 
 ### Deployment til et miljø
 
