@@ -114,6 +114,9 @@ provisjoneres ved siden av localtest og Platform APIer. [Se localtest README for
 Monitoreringsoppsettet i localtest inneholder en Grafana instans med ASP.NET Core dashboard og et preview Altinn app dashboard.
 I tillegg gir det muligheten til å fritt undersøke telemetrien som eksponeres fra Altinn plattform og bibliotek.
 
+Det er verdt å merke seg at telemetrien fra plattform-tjenester i localtest vil se annerledes ut enn telemetri i andre miljøer. 
+Det er fordi plattform-tjenestene som kjører lokalt har annerledes kode og konfigurasjon.
+
 [Les mer om lokal Grafana på referansesiden for visualisering](/nb/altinn-studio/reference/monitoring/visualisation/#grafana).
 
 Hvis du har implementert koden over, så skal du kunne finne `altinn_app_started`-metrikken på "Explore"-siden når "Metrics"-datakilden er valgt.

@@ -22,20 +22,6 @@ Se [brukerveiledning for instrumentering og monitorering](/nb/altinn-studio/guid
 Denne dokumentasjonen inneholder nødvendig informasjon for å støtte apputviklere og tjenesteeiere i å
 drifte, overvåke/observere og instrumentere applikasjoner på Altinn 3 plattformen.
 
-Dette inkluderer
-
-* [Hvordan apper instrumenteres](/nb/altinn-studio/reference/monitoring/instrumentation)
-* [Hvordan telemetri visualiseres, lokalt og i produksjon](/nb/altinn-studio/reference/monitoring/visualisation)
-* [Hvilke verktøy som er tilgjengelige for debugging og analyse](/nb/altinn-studio/reference/monitoring/visualisation)
-  * Eksplorative verktøy
-  * Ferdiglagde dashbord og alarmer
-* Anbefalt praksis for å lage
-  * Egendefinerte dashbord, visualisering og alarmer
-  * Godt instrumenterte apper
-* Prosess for håndtering av hendelser og eskalering
-* Monitorering under onboarding og opplæring
-* Monitorering for analyse og data-dreven Monitoring for analysis and data-driven beslutningstaking
-
 ## Sentrale begreper
 
 **Instrumentering** er at din software sier hva den gjør.

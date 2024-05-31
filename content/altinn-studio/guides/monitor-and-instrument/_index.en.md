@@ -112,6 +112,9 @@ can be provisioned along side localtest and Platform APIs. [See the localtest RE
 Localtest monitoring setup currently contains a Grafana instance with ASP.NET Core dashboards and a preview Altinn app dashboard.
 In addition to these, you can freely explore the emitted telemetry while debugging or learning how the Altinn platform and libraries works.
 
+Note that the telemetry from platform services in localtest are different from when the app runs in other environments.
+This is because the platform services that are running locally have differences in code and configuration.
+
 [Read more about local Grafana on the visualisation reference page](/altinn-studio/reference/monitoring/visualisation/#grafana).
 
 If you've implemented the code above, you should be able to find the `altinn_app_started` metric in the explore tab for the *Metrics* datasource.
