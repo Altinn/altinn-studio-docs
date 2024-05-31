@@ -27,7 +27,7 @@ In Altinn a XACML Policy can describe the following
 - The Access rules for a resource in Altinn Resource Registry
 - The Access rules for a correspondence or broker service in Altinn 3
 
-The XACML format in Altinn 3 follows XACML 3.0 standard with a limited feature set.
+The XACML format in Altinn 3 follows [XACML 3.0 standard](https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-cd-03-en.html) with a limited feature set.
 
 A Policy consist of 1-many rules. And each rule consist of three parts. 
 
