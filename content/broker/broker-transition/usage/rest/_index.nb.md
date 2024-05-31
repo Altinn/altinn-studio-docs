@@ -11,7 +11,7 @@ weight: 1
 
 For standard bruk av Altinn 2 REST-operasjoner, se [Altinn Docs] (https://Altinn.github.io/docs/api/rest/formidling/)
 
-For alle tjenester som går til Altinn 3 via overgangsløsning vil kvitteringer være pseudo-mottaker generert fra Altinn 3 fil metadata. Dette betyr at alle kvitteringer som returneres vil være pseudo-kvitteringer, og alle kvitteringsid vil være 0.
+For alle tjenester som går til Altinn 3 via overgangsløsning vil kvitteringer bli generert basert å Altinn 3 fil metadata. Dette betyr at alle kvitteringer som returneres vil være pseudo-kvitteringer, og alle kvitteringsid vil være 0.
 
 Hvis brukssaken din krever bruk av kvittering, kan du sende inn en endringsforespørsel. 
 
@@ -21,7 +21,7 @@ REST-operasjoner for Formidling i Altinn 2 er logisk delt mellom avsender og mot
 
 ### Initialize and Upload
 
-Altinn 2 REST-operasjoner kombinerer initiering og last opp til samme operasjon.
+Altinn 2 REST-operasjoner kombinerer initiering og opplasting til samme operasjon.
 Operasjonen består av en postforespørsel med en fil som en binært body, og med filnavn og /*BrokerServiceDescription*/ lagt til som parameter.
 
 Header
@@ -56,7 +56,7 @@ Overgangsløsningen bruker ikke FileList propertyen.Ingen endring er nødvendig 
 Den returnerte kvitteringen vil ikke være en reell kvittering, men en pseudo-kvittering bygget fra Altinn 3 Formidling fil metadata.
 {{% notice warning  %}}
 Siden opplasting og behandling av opplastet fil er en asynkron prosess i Altinn 3, vil den umiddelbare kvitteringsstatusen mottatt fra opplasting ikke nødvendigvis gjenspeile den endelige tilstanden til filen.
-REST implementasjon av Altinn 2 Formidlingstjenester gjør både initialisering, opplasting av fil og behandling av opplastet fil synkront. Dette betyr at mislykkede opplastinger og behandling av fildata returnerer en umiddelbar feil.
+REST implementasjon av Altinn 2 Formidlingstjenester gjør både initialisering, opplasting av fil og behandling av opplastet fil synkront. Dette betyr at mislykkede opplasting og behandling av fil-data returnerer en umiddelbar feil.
 På grunn av dette har ikke REST endepunkt "*GetFileDetails*" underliggende mulighet til å varsle om feil status under behandling av fil.
 
 Hvis mulig, bør du derfor vurdere å legge til trinn som gjør kall mot [Get File Receipt](#get-file-receipt-outbox-sender) for å sikre at filen er behandlet.
