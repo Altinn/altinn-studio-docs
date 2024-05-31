@@ -1,8 +1,8 @@
 ---
 title: Brukerveiledning REST
 linktitle: Brukerveiledning REST
-description: Forskjell i bruk av REST operasjoner mellom Altinn 2 og Altinn 3 overførte tjenester.
-tags: [Løsning, broker, guide, overgang]
+description: Forskjell i bruk av REST-operasjoner mellom Altinn 2 og Altinn 3 overførte tjenester.
+tags: [Løsning, formidling, guide, overgang]
 toc: false
 weight: 1
 ---
@@ -17,12 +17,12 @@ Hvis brukssaken din krever bruk av kvittering, kan du sende inn en endringsfores
 
 ## Outbox (Sender)
 
-Restoperasjoner for Broker i Altinn 2 er logisk delt mellom avsender og mottaker (Outbox / inbox).
+REST-operasjoner for Formidling i Altinn 2 er logisk delt mellom avsender og mottaker (Outbox / inbox).
 
 ### Initialize and Upload
 
 Altinn 2 REST-operasjoner kombinerer initiering og last opp til samme operasjon.
-Operasjonen består av en postforespørsel med en fil som en binært body og filnavn og BrokerServiceDescription lagt til som parameter.
+Operasjonen består av en postforespørsel med en fil som en binært body, og med filnavn og /*BrokerServiceDescription*/ lagt til som parameter.
 
 Header
 ```HTTP
@@ -32,7 +32,7 @@ ApiKey: myKey
 Content-Type: application/zip
 ```
 
-BrokerServiceDescription example
+/*BrokerServiceDescription*/ eksempel
 
 ```JSON
 {
@@ -53,16 +53,16 @@ BrokerServiceDescription example
 #### Forskjeller
 
 Overgangsløsningen bruker ikke FileList propertyen.Ingen endring er nødvendig fra sluttbrukerimplementeringen, men en nullverdi vil bli akseptert, og eventuelle sendte verdier vil bli ignorert av overgangsløsningen.
-Den returnerte kvitteringen vil ikke være en reell kvittering, men en pseudo-kvittering bygget fra Altinn 3 Broker fil metadata.
+Den returnerte kvitteringen vil ikke være en reell kvittering, men en pseudo-kvittering bygget fra Altinn 3 Formidling fil metadata.
 {{% notice warning  %}}
-Siden opplastingen, og lastet opp behandlingen av filen er en asynkron prosess i Altinn 3, vil den umiddelbare kvitteringsstatusen mottatt fra samtalen ikke nødvendigvis gjenspeile den endelige tilstanden til filen.
-I tillegg synkroniserte resten implementeringen av Altinn 2 Broker Services oppstart og opplasting av filen, som et resultat av dette inkluderer ikke filstatusforespørslene statuser for mislykkede filer,
-da disse historisk aldri ville bli opprettet i utgangspunktet.
+Siden opplasting og behandling av opplastet fil er en asynkron prosess i Altinn 3, vil den umiddelbare kvitteringsstatusen mottatt fra opplasting ikke nødvendigvis gjenspeile den endelige tilstanden til filen.
+REST implementasjon av Altinn 2 Formidlingstjenester gjør både initialisering, opplasting av fil og behandling av opplastet fil synkront. Dette betyr at mislykkede opplastinger og behandling av fildata returnerer en umiddelbar feil.
+På grunn av dette har ikke REST endepunkt "*GetFileDetails*" underliggende mulighet til å varsle om feil status under behandling av fil.
 
 Hvis mulig, bør du derfor vurdere å legge til trinn som gjør kall mot [Get File Receipt](#get-file-receipt-outbox-sender) for å sikre at filen er behandlet.
 {{% /notice %}}
 
-Eksempel på umiddelbart returnert status fra InitiateAndUploadFile kall:
+Eksempel på umiddelbart returnert status fra "*InitiateAndUploadFile*" kall:
 ```JSON
 {
     "ServiceCode": "4947",
@@ -78,7 +78,7 @@ Eksempel på umiddelbart returnert status fra InitiateAndUploadFile kall:
 }
 ```
 
-Eksempel på returnert status fra en påfølgende GetFileDetails kall
+Eksempel på returnert status fra en påfølgende "*GetFileDetails*" kall
 ```JSON
 {
     "ServiceCode": "4947",
@@ -94,11 +94,11 @@ Eksempel på returnert status fra en påfølgende GetFileDetails kall
 }
 ```
 
-"*Uploaded*" tilstand her betyr at filen er behandlet OK. En tilstand av "*Initialized*" indikerer at filen ikke er ferdig med behandlingen, eller at behandlingen har opplevd en feil, ettersom Altinn 2 REST GetFileDetails ikke implementerer feilmeldinger.
+"*Uploaded*" tilstand her betyr at filen er behandlet OK. En tilstand av "*Initialized*" indikerer at filen ikke er ferdig med behandlingen, eller at behandlingen har opplevd en feil, ettersom Altinn 2 REST "*GetFileDetails*" historisk sett ikke implementerer feilmeldinger opplevd under behandling av opplastet fil.
 
 ### Get File Details outbox (sender)
 
-Denne operasjonen returnerer Broker fil metadata.
+Denne operasjonen returnerer Formidling fil metadata.
 
 Denne forespørselen vil ikke variere i bruk mellom Altinn 2 og Altinn 3 overførte tjenester.
 
@@ -112,7 +112,7 @@ Content-Type: application/zip
 
 ### Get File Receipt outbox (sender)
 
-Denne operasjonen returnerer Broker fil kvittering
+Denne operasjonen returnerer Formidling fil kvittering
 
 Header
 ```HTTP
@@ -122,7 +122,7 @@ ApiKey: myKey
 Content-Type: application/zip
 ```
 
-#### Example Receipt Sender
+#### Eksempel Receipt Sender
 ```JSON
 {
     "ReceiptID": 0,
@@ -252,7 +252,7 @@ En forespørsel om fil kvittering vil returnere detaljer angående behandlingsfe
 
 #### Differences
 
-For Altinn 3 Overgangs-tjenester er kvitteringen en pseudo-kvittering bygget av Altinn 3 Broker fil metadata.
+For Altinn 3 Overgangs-tjenester er kvitteringen en pseudo-kvittering bygget av Altinn 3 Formidling fil metadata.
 
 ## Inbox (recipient)
 
@@ -327,7 +327,7 @@ Content-Type: application/zip
 
 #### Forskjeller
 
-For Altinn 3 overgangs tjenester er kvitteringen en pseudo-kvittering bygget av Altinn 3 Broker fil metadata.
+For Altinn 3 overgangs tjenester er kvitteringen en pseudo-kvittering bygget av Altinn 3 Formidling fil metadata.
 
 ### Download
 Denne operasjonen laster ned fil-data. Den skiller seg ikke mellom overførte og ikke-overførte Altinn 2-tjenester.
@@ -341,7 +341,7 @@ Content-Type: application/zip
 ```
 
 ### ConfirmDownload
-Denne operasjonsfilen som er bekreftet lastet ned i Altinn 3 og returnerer en kvittering.
+Denne operasjonen markerer eksplisitt på vegne av sluttbruker i Altinn 3 at fil er lastet ned returnerer en kvittering.
 
 Header
 ```HTTP
@@ -353,4 +353,4 @@ Content-Type: application/zip
 
 ### Forskjeller
 
-For Altinn 3 overgangs tjenester er kvitteringen en pseudo-kvittering bygget av Altinn 3 Broker fil metadata.
+For Altinn 3 overgangs tjenester er kvitteringen en pseudo-kvittering bygget av Altinn 3 Formidling fil metadata.

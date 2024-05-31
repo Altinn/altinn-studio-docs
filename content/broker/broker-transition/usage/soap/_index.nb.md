@@ -48,7 +48,7 @@ Ingen funksjonell forskjell for overførte tjenester. Hvis kode for tjenestekode
 
 ### BrokerServiceStreamed endepunkt
 
-BrokerServiceStreamed endepunktet inneholder funksjoner relatert til formidlingstjeneste fil data forespørsler.
+"*BrokerServiceStreamed*" endepunktet inneholder funksjoner relatert til formidlingstjeneste fil data forespørsler.
 
 #### UploadFileStreamed
 
@@ -200,4 +200,4 @@ Kvittering-endepunkt inneholder forespørsler som brukes til å hente kvittering
 Fordi Altinn 3 overførte tjenester aldri vil opprette kvitteringer, kan ingen kvitteringsdata relatert til Altinn 3 filer 
 bli hentet fra dette endepunktet.
 
-Hvis din UseCase krever bruk av kvittering, kan du sende inn en endringsforespørsel. 
+Hvis ditt UseCase krever bruk av kvittering, kan du sende inn en endringsforespørsel. 

@@ -334,7 +334,7 @@ Content-Type: application/zip
 ```
 
 ### ConfirmDownload
-This operations marks file as confirmed downloaded in Altinn 3 and returns a receipt.
+This operations, explicitly on behalf of the end user, marks file as confirmed downloaded in Altinn 3 and returns a receipt.
 
 Header
 ```HTTP
