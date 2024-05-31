@@ -1,7 +1,7 @@
 ---
 title: Creating and publishing API scheme in altinn Studio
 linktitle: Creating API Scheme
-description: This explaines how 
+description: This explaines how you can define a API scheme in Altinn
 toc: false
 weight: 1
 ---
