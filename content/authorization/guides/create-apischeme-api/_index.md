@@ -28,6 +28,10 @@ Følgende attributter er nødvendig
 | description |  Beskrivelse for API Scheme å oppgis for en, nb og nn (engelsk, bokmål og nynorsk) Påkrevd|
 | rightDescription | Delegeringsbeskrivelse for API Scheme. Må oppgis for en, nb og nn (engelsk, bokmål og nynorsk) Påkrevd |
 | resourceReferences | Det må legges inn en resource refernece med referencetype MaskinportenScope | 
+| delegable | Må settes til true for at scope skal kunne delegeres til leverandør |
+| visible | Må settes til true for at scope skal kunne delegeres til leverandør |
+| hasCompetentAuthority | Definere tjenesteeier. Må settes med organisasjonsnr og riktig tjenesteeierkode (NAV, SKD, SVV +++) |
+| resourceType | Må settes til MaskinportenSchema |
 
 Nedenfor vises eksempel fra produksjon på API ressurs. ([se samme vi API](https://platform.altinn.no/resourceregistry/api/v1/resource/maskinportenschema-aquaportalapi-write))
 
