@@ -9,7 +9,7 @@ weight: 1
 
 ## About
 
-The Altinn 3 Broker Transition service bridge is an internal component in Altinn 2 that transfers Broker requests from Altinn 2 to Altinn 3 for a given request, based on the Service/ServiceCode combination of the request.
+The Altinn 3 Broker Transition service bridge is an internal component in Altinn 2 that transfers Broker requests from Altinn 2 to Altinn 3 for a given request, based on the ServiceCode/ServiceEditionCode combination of the request.
 This is an implementation of the soft shift solution described [here](../../solution-architecture/#soft-shift-from-altinn-2-to-altinn-3).
 
 ## Technical overview

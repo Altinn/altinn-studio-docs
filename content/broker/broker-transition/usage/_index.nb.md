@@ -1,12 +1,12 @@
 ---
 title: Bruksanvisning
 linktitle: Bruksanvisning
-description: Hvordan bruke Altinn 3 Broker overgangs løsningen.
-tags: [arkitektur, løsning, broker, guide, overgang]
+description: Hvordan bruke Altinn 3 Formidling overgangs løsningen.
+tags: [arkitektur, løsning, formidling, guide, overgang]
 toc: false
 weight: 1
 ---
 
-Disse sidene beskriver forskjellen i bruk mellom eksisterende Altinn 2 Broker Service og Altinn 3 Formidlingstjenestens overgangsløsning operasjoner.
+Disse sidene beskriver forskjell i bruk av Altinn 2 Formidlings-tjeneste endepunkter når de brukes for Altinn 2 Formidlings-tjenester og når de brukes for Formidlings-tjenester overført til Altinn 3 ressurs ved bruk av overgangs løsningen.
 
 {{<children />}}
