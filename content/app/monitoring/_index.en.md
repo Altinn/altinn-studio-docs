@@ -7,7 +7,7 @@ weight: 70
 
 {{% notice info %}}
 Setting up custom rules and alerts is currently not available to application owners, 
-but we are aiming to support this during the Spring of 2023. 
+but we are aiming to support this during the Fall of 2024. 
 {{% /notice %}}
 
 Azure Application Insights (AI) is an extension of 

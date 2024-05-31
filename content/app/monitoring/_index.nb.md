@@ -7,7 +7,7 @@ weight: 70
 
 {{% notice info %}}
 Konfigurering av egendefinerte regler og varsler er for øyeblikket ikke tilgjengelig for tjenesteeiere,
-men vi har som mål å støtte dette i løpet av våren 2023.
+men vi har som mål å støtte dette i løpet av høsten 2024.
 {{% /notice %}}
 
 Azure Application Insights (AI) er en utvidelse av
