@@ -3,7 +3,7 @@ title: Local Development
 linktitle: Local Development
 description: Getting started with local development
 toc: true
-weight: 999
+weight: 900
 ---
 
 During application development, you will need to work both in Altinn Studio and in a local development environment.
