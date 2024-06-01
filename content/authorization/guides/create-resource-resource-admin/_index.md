@@ -1,13 +1,13 @@
 ---
-title: Creating and publishing resources in altinn Studio
+title: Creating and publishing resources in Altinn Studio
 linktitle: Creating Resources
-description: This explaines how 
+description: In Altinn Studio Resource admin, you can create resources to use as a basis for access control for services outside of the Altinn Platform. 
 toc: false
 weight: 1
 ---
 
 
-In Altinn Studio Resource admin, you can create resources to use as a basis for access control for services outside of the Altinn Platform. 
+
 
 ## Prerequisites
 

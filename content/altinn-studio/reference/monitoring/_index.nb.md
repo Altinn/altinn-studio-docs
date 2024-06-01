@@ -6,30 +6,30 @@ weight: 70
 ---
 
 {{% notice info %}}
-Konfigurering av egendefinerte regler og varsler er for øyeblikket ikke tilgjengelig for tjenesteeiere,
-men vi har som mål å støtte dette i løpet av våren 2023.
+Vi migrerer fra Application Insights SDK til å bruke [OpenTelemetry (OTel)](https://opentelemetry.io/) som en leverandøruavhengig 
+løsning for instrumenterting og eksportering av telemetri fra apper. Dette gjør oss i stand til å kunne tilby eksisterende Application
+Insights løsning, samtidig som utviklere we i stand til å eksportere til egendefinerte monitoreringsløsninger og leverandører, samt forbedre instrumentasjon og fleksibilitet.
+Det betyr også at disse dokumentasjonssidene er under aktiv utbedring og kan være midlertidig ufullstendige.
 {{% /notice %}}
 
-Azure Application Insights (AI) er en utvidelse av
-[Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/overview) og er det verktøyet vi
-bruker i Altinn for å tilby overvåkingsfunksjonalitet for apper.
+{{% notice info %}}
+Konfigurering av egendefinerte regler og varsler er for øyeblikket ikke tilgjengelig for tjenesteeiere,
+men vi har som mål å støtte dette i løpet av høsten 2024.
+{{% /notice %}}
 
-AI kan gi deg som apputvikler verdifull innsikt i helse, ytelse og bruk av appen din.
-Med sanntidsovervåking og ytelsesanalyse kan utviklere identifisere og løse problemer før de påvirker
-brukeropplevelsen til en sluttbruker. Feilsøking og varsling* gjør AI til en verdifull ressurs også i drift.
+Se [brukerveiledning for instrumentering og monitorering](/nb/altinn-studio/guides/monitor-and-instrument/) for å komme i gang i din app.
 
-![Illustrasjon av AI-grafer](ai-overview.png "Illustrasjon av AI-grafer")
+Denne dokumentasjonen inneholder nødvendig informasjon for å støtte apputviklere og tjenesteeiere i å
+drifte, overvåke/observere og instrumentere applikasjoner på Altinn 3 plattformen.
 
-{{% expandlarge id="q1" header="Altinn overvåker infrastrukturen" %}}
+## Sentrale begreper
 
-Altinn har også innsyn i telemetrien som logges av applikasjonene og tilgjengliggjøres for tjenesteeierene i AI.
-I tillegg monitorerer vi infrastrukturen til hver tjenesteeier som Kubernetes cluster, storagekontoer og key vault. 
+**Instrumentering** er at din software sier hva den gjør.
 
-Hovedregelen er at Altinn-teamet agerer på alarmer knytte til infrastrukturen som kreves for å kjøre en app
-for eksempel for lite CPU tilgjengelig i app clusteret eller at en pod står i en feilstate i clustert 
+**Telemetri** er å gjøre denne informasjonen tilgjengelig, enten ved pull—noe som spør—eller ved push—sending av meldinger.
 
-__Altinn overvåker ikke aktivt ytelsen eller feilraten til den individuelle applikasjonen.__
-{{% /expandlarge %}}
+**Monitorering** er å motta instrumentering og gjør det synlig.
 
+**Alarmering** er å reagere på den monitorerte dataen, eller mønstre i dataen.
 
 {{<children />}}
