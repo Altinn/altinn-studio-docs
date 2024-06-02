@@ -4,7 +4,7 @@ linktitle: System Interfaces
 description: Altinn 3 Broker System Interfaces 
 tags: []
 toc: true
-weight: 30
+weight: 20
 ---
 
 

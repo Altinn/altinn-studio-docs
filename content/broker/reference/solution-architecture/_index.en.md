@@ -4,7 +4,7 @@ linktitle:  Solution Architecture
 description: Altinn 3 Broker solution architecture for basic use cases of Managed File Transfers.
 tags: []
 toc: true
-weight: 50
+weight: 40
 ---
 
 {{<notice info>}} <!-- info -->

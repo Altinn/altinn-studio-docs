@@ -4,7 +4,7 @@ linktitle: Funksjonalitet
 description: Altinn 3 Formidling funksjonalitet og egenskaper
 tags: []
 toc: true
-weight: 15
+weight: 30
 ---
 
 ## Verdistrømanalyse

@@ -4,7 +4,7 @@ linktitle: Systemgrensesnitt
 description: Altinn 3 Formidling Systemgrensesnitt
 tags: []
 toc: true
-weight: 30
+weight: 20
 ---
 
 ## Oversikt over Altinn 3 Formidling eksterne grensesnitt

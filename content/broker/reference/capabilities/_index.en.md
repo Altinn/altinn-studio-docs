@@ -1,10 +1,10 @@
 ---
-title: Broker Capabilities
+title: Capabilities
 linktitle: Capabilities
 description: Altinn 3 Broker Capabilities and Features.
 tags: []
 toc: true
-weight: 15
+weight: 30
 ---
 
 

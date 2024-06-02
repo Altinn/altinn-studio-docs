@@ -9,6 +9,7 @@ weight: 90
 
 {{<children />}}
 
+
 Due to the different distinct roles for which an enterprise may interact with Altinn Broker, namely:
 
 - Sender

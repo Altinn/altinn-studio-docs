@@ -4,7 +4,7 @@ linktitle: Sikkerhet
 description: Altinn 3 Formidling informasjonssikkerhet
 tags: []
 toc: true
-weight: 55
+weight: 50
 ---
 
 <!--
@@ -15,7 +15,7 @@ weight: 55
 
 Altinn Formidling følger beste praksis for informasjonssikkerhet
 slik dette er redegjort for under 
-[Altinn sikkerhet ](../../security/).
+[Altinn sikkerhet ](../../../security/).
 
 
 ## Trusselvurderinger
@@ -117,7 +117,7 @@ Trusselvurderinger for Altinn Formidling er gjort med utgangspunkt i
 
 ## Vurdering av personvernkonsekvenser (DPIA)
 
-Se under [Altinn sikkerhet ](../../security/) for en detaljert 
+Se under [Altinn sikkerhet ](../../../security/) for en detaljert 
 vurdering av personvernkonsekvenser (DPIA) om  skybasert drift av Altinn-løsningene. 
 Disse vurderingene dekker Altinn Formidling.
 

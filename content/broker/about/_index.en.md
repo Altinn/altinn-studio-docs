@@ -1,16 +1,20 @@
 ---
-title: Introduction
-linktitle: Introduction
-description: Introduction to the Altinn 3 Broker Service.
+title: About Altinn Broker
+linktitle: About Broker
+description: What is Altinn 3 Broker?
 tags: []
 toc: true
 weight: 1
 ---
 
+<!--
+![altinn3-broker-logo](./altinn3-broker-logo.png "Altinn 3 Broker features ...")
+-->
+
 ## What is Altinn Broker?
 
 The main use case for Altinn Broker is Managed File Transfer (MFT). It
-facilitates secure transmission of files of any size from one sender
+facilitates secure transmission of large files from one sender
 to one or more recipients. As such, it offers many
 benefits compared to alternative ad-hoc peer-to-peer file transfer
 solutions typically built on file transfer protocol (FTP), 
@@ -63,8 +67,3 @@ benefits are:
   enables analysing file transfer sequences between multiple actors in  
   end-to-end processes.
 
-
-
-## How to get started?
-
-Information about how to get started can be found here in the [User guides](../user-guides/)

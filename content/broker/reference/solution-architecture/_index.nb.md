@@ -4,7 +4,7 @@ linktitle:  Løsningsarkitektur
 description: Altinn 3 Formidling grunnleggende løsningsarkitektur
 tags: []
 toc: true
-weight: 50
+weight: 40
 ---
 
 {{<notice info>}} <!-- info -->
