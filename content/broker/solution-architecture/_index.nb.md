@@ -134,7 +134,7 @@ og ikke behøves i Altinn 3 Broker.
 Hvis nødvendig, vil det likevel være mulig å flytte filer 
 fra Altinn 2 til Altinn 3 Broker Fillager etter overgangen._
 
-### Myk overgang fra Altinn 2 to Altinn 3
+### Myk overgang fra Altinn 2 til Altinn 3
 
 Med alternativet _Myk_ overgang gjør brukere og sluttbrukersystemer 
 overgangen til Altinn 3 på individuell basis, når de er klare.
