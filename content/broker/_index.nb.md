@@ -7,4 +7,8 @@ toc: false
 weight: 1
 ---
 
+{{% notice warning  %}}
+Temporary notice, June 3, 2024: Restructuring and rewriting of the content according to the updated Altinn standard is in progress.
+{{% /notice %}}
+
 {{<children />}}
