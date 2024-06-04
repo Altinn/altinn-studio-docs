@@ -67,6 +67,16 @@ Type: enum [_NotificationChannel_](https://github.com/Altinn/altinn-notification
 
 The notification channel used for the notifications sent can be _Email_ or _Sms_.
 
+#### ignoreReservation
+Type: _boolean_
+
+Whether an individuals KRR reservation status should be igno.
+
+#### resourceId
+Type: _string_
+
+The id of the Altinn resource the notifications should be related to as the id appears in the Altinn Resource Registry. s
+
 #### processingStatus
 Type: [_StatusExt_](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/StatusExt.cs)
 
