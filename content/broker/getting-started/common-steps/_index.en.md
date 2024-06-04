@@ -52,10 +52,11 @@ This will in the future be handled by System User / Resource Registry /Access Li
 
 ## 4. Integrate against Broker API {#integrate-against-broker-api}
 
-You are now ready to start integrating against the Broker APIs, see the [developer guides](../../developer-guides/) for next steps.
+You are now ready to start integrating against the Broker APIs, 
+see the [developer guides](../developer-guides/) for next steps.
 
 ## 5. Set up Event Subscriptions {#set-up-event-subscriptions}
 
 In order to use events/webhooks for a Broker resource, you need to setup a subscription for the given resource.
 
-See the [developer guide](../../developer-guides/events) for detailed instruction.
+See the [developer guide](../developer-guides/events) for detailed instruction.
