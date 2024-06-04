@@ -52,10 +52,11 @@ Dette vil i fremtiden håndteres av Systembruker / Ressurssregister / Tilgangsli
 
 ## 4. Integrer mot Broker-API-et {#integrate-against-broker-api}
 
-Du er nå klar til å begynne å integrere mot Broker-API-ene, se [utviklerveiledningene](../../developer-guides/) for neste trinn.
+Du er nå klar til å begynne å integrere mot Broker-API-ene, 
+se [utviklerveiledningene](../developer-guides/) for neste trinn.
 
 ## 5. Sett opp hendelsesabonnementer {#set-up-event-subscriptions}
 
 For å bruke hendelser/webhooks for en Broker-ressurs, må du sette opp et abonnement for den gitte ressursen.
 
-Se [utviklerveiledningen for events](../../developer-guides/events) for detaljerte instruksjoner.
+Se [utviklerveiledningen for events](../developer-guides/events) for detaljerte instruksjoner.

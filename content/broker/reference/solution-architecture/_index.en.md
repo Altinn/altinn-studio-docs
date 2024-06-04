@@ -172,7 +172,7 @@ Learn](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-en
 ## Metadata storage
 
 The following information model details the
-[conceptual information model under basic concepts](../basic-concepts#conceptual-information-model).
+[conceptual information model under basic concepts](../../explanation/basic-concepts#conceptual-information-model).
 
 ![Altinn 3 Broker Metadata Storage Information Model](altinn3-broker-metadata-storage-information-model.en.png "Altinn 3 Broker Metadata Storage Information Model")
 
@@ -197,11 +197,11 @@ TBD.
 ### Notifications to human end users
 
 For notifications to human recipients via e-mail and sms,
-Altinn Broker uses the [Altinn Notifications](../../notifications/) component.
+Altinn Broker uses the [Altinn Notifications](../../../notifications/) component.
 
 ### Notifications to End User Systems
 
-End User Systems may register custom webhooks for receiving events; see [Altinn Events](../../events/).
+End User Systems may register custom webhooks for receiving events; see [Altinn Events](../../../events/).
 
 See [the Altinn 3 Broker OpenAPI specification](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-v1.json) 
 for specification of the supported events.
