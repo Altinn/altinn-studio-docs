@@ -52,18 +52,12 @@ including reservations against online communication,
 by accessing [their profile on the KRR website](https://minprofil.kontaktregisteret.no/).
 
 ### Data Integrity
-{{% notice info %}}
-todo: check facts. 
-{{% /notice %}}
 
 Basic validation during registration in KRR ensures that users provide a valid mobile number and email address.
-In addition to this, the user is prompted in the Altinn portal every 6 months to confirm or update their contact details. 
-Contact details that have not been confirmed or updated in the last 6 months are not provided through the lookup service.
+In addition to this, the user is prompted during login in ID-porten every 90 days to confirm or update their contact details. 
+Contact details that have not been confirmed or updated in the last 18 months are not provided through the lookup service.
 
 ## 3. Notification to Organization Number without Resource Affiliation
-{{% notice info %}}
-todo: figure out which name to use for KoFuVi
-{{% /notice %}}
 
 For notifications sent to an organization number without resource affiliation, 
 Altinn uses the registry of **Notification addresses to apply in public administration** to identify the contact details of the recipient. 
@@ -86,6 +80,9 @@ It is possible to register multiple email addresses and mobile numbers for an or
 The affiliates of the organization must ensure the contact information is up-to-date to receive notifications appropriately. 
 Basic validation in the Altinn portal ensures that users provide a valid mobile number and email address,
 and the contact points bust be accepted by Brønnøysundregistrene before they are made available through the lookup service.
+
+Affiliates of the organization are prompted every 90 days to confirm or update the contact information 
+through the Altinn Portal.
 
 ## 4. Notification to National Identity Number with Resource Affiliation
 In this scenario, Altinn does not look up additional recipients if the recipient is a person identified by 
@@ -136,5 +133,5 @@ Please revisit [the previous section covering data integrity of notification add
 __Personal contact information for enterprises__
 
 End user is free to input the contact details they wish and the input is subject to basic validation. 
-User is prompted to confirm or update the data every 6 months, contact points that have not been confirmed or updated 
-in the last 6 months will not be exposed through the lookup API.  
+Affiliates of the organization are prompted every 90 days to confirm or update the contact information 
+through the Altinn Portal.
