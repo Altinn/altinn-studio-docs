@@ -84,7 +84,7 @@ Følgende figur gir en oversikt over de vikigste byggeklossene i overordnet løs
 
 
 Dette diagrammet bygger videre på 
-[den overordnede kontekstoversikten](../basic-concepts#kontekstoversikt---aktører-og-informasjonsflyt) 
+[den overordnede kontekstoversikten](../../explanation/basic-concepts#context-overview) 
 ved å angi de viktigste Digdir-løsningene.
 Applikasjonskomponenter i form av Digdir-løsninger (på høyre side) realiserer funksjonaliteten 
 som indikert av  applikasjonstjenestene (nederst).
@@ -95,10 +95,10 @@ Her gis et sammendrag av hvordan disse komponentene forholder seg til og tjener 
 * [ID-porten](https://www.digdir.no/felleslosninger/id-porten/864): Autentisering av menneskelige sluttbrukere.
 * [Maskinporten](https://www.digdir.no/felleslosninger/maskinporten/869): Autentisering og autorisering av 
   maskiner (sluttbrukersystemer). Autorisasjonsfunksjonene realiseres i samarbeid med Altinn-autorisasjonskomponenten.
-* [Altinn Authorization](../../authorization/). Registrer tjenesteressurser og autoriser tilgang.
+* [Altinn Autorisasjon](../../../authorization/). Registrer tjenesteressurser og autoriser tilgang.
 * Altinn Notifications. Varsler til menneskelige sluttbrukere via e-post og SMS.
 * Altinn Events. Varsler til webhooks i sluttbrukersystemer.
-* [Altinn Studio](../../altinn-studio/). Verktøy for utvikling av digitale tjenester for innbyggere og virksomheter. Brukes også til applikasjoner og brukergrensesnitt for selvbetjent konfigurasjon av løsningskomponenenter i Altinn.
+* [Altinn Studio](../../../altinn-studio/). Verktøy for utvikling av digitale tjenester for innbyggere og virksomheter. Brukes også til applikasjoner og brukergrensesnitt for selvbetjent konfigurasjon av løsningskomponenenter i Altinn.
 
 <!-- * Altinn Fakturering. Fakturering av kunder. -->
 
@@ -165,7 +165,7 @@ Learn](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-en
 ## Metadatalager
 
 Følgende informasjonsmodell detaljerer 
-[den konseptuelle informasjonsmodellen under _grunnleggende konsepter_:](../basic-concepts#konseptuell-informasjonsmodell). 
+[den konseptuelle informasjonsmodellen under _grunnleggende konsepter_:](../../explanation/basic-concepts#conceptual-information-model). 
 Her angis hvilke data som lagres, som utgangspunkt for vurdering av behov for 
 sikkerhetskontroller.
 
@@ -240,7 +240,7 @@ Altinn Formidling baserer seg på støtten i [Altinn Events](https://docs.altinn
 for å sende varsler til _webhooks_ i sluttbrukersystemene.
 
 Det må da settes opp abonnementer i [Altinn Events](https://docs.altinn.studio/events/), 
-med tilgangsstyring av aktuelle tjenesteressurser i [Altinn Autorisasjon](../../authorization/).
+med tilgangsstyring av aktuelle tjenesteressurser i [Altinn Autorisasjon](../../../authorization/).
 
 Se også [Altinn 3 Broker OpenAPI specification](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-v1.json) 
 for spesifikasjon av  hendelser som støttes av Altinn Formidling.

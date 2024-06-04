@@ -85,7 +85,7 @@ The following figure gives a high level solution overview.
 ![Altinn 3 Broker High Level Solution Overview](altinn3-broker-highlevel-solution-overview.en.png "Altinn 3 Broker High Level Solution Overview")
 
 This diagram expands on 
-the [basic context overview](../basic-concepts#context-overview) 
+the [basic context overview](../../explanation/basic-concepts#context-overview) 
 by indicating the involved building blocks.
 
 <!--
@@ -103,10 +103,10 @@ here's a summary of how these components relates to and serves Altinn 3 Broker:
 * [ID-porten](https://www.digdir.no/felleslosninger/id-porten/864): Auhentication of human end users.
 * [Maskinporten](https://www.digdir.no/felleslosninger/maskinporten/869): Authentication and authorization of machines (End User Systems). 
   Authorization features are realized in cooperation with the Altinn Authorization component.
-* [Altinn Authorization](../../authorization/). Register services resources and authorize access.
-* [Altinn Notifications](../../notifications/). Notifications to human end users via e-mail and sms.
-* [Altinn Events](../../events/). Notifications to webhooks in End User Systems.
-* [Altinn Studio](../../altinn-studio/). Applications and user interface for self service configuration of the solutions.
+* [Altinn Authorization](../../../authorization/). Register services resources and authorize access.
+* [Altinn Notifications](../../../notifications/). Notifications to human end users via e-mail and sms.
+* [Altinn Events](../../../events/). Notifications to webhooks in End User Systems.
+* [Altinn Studio](../../../altinn-studio/). Applications and user interface for self service configuration of the solutions.
 * Altinn Billing. Invoicing of customers.
 
 ## Related solutions

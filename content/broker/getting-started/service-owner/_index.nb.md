@@ -48,13 +48,14 @@ En bruker med denne tilgangen kan deretter delegere tilgangen til bedriftsbruker
 
 Nå er tiden inne for å konfigurere Broker-komponenten selv, først ved å konfigurere organisasjonen din som en tjenesteeier i Broker-konfigurasjonslagret.
 
-Kall API-operasjonen [initialiser tjenesteeier i Broker API](../../developer-guides/service-owner/#operation-initialize-service-owner-in-broker-api).
+Kall API-operasjonen [initialiser tjenesteeier i Broker API](../developer-guides/service-owner/#operation-initialize-service-owner-in-broker-api).
 
 ## 5. Konfigurer den eksisterende ressursen din i Broker {#configure-your-existing-resource-in-broker}
 
 Deretter må man konfigurere den spesifikke Broker-konfigurasjonen for ressursen.
 
-Bruk ID-en til ressursen du opprettet i trinn 3, og kall API-operasjonen for å [konfigurere ressurs](../../developer-guides/service-owner/#operation-initialize-service-owner-in-broker-api).
+Bruk ID-en til ressursen du opprettet i trinn 3, og kall API-operasjonen 
+for å [konfigurere ressurs](../developer-guides/service-owner/#operation-configure-resource-in-broker-api).
 
 ## 6. Gi tilgang til avsendere og mottakere til ressursen {#grant-access-to-senders-and-recipients-to-the-resource}
 

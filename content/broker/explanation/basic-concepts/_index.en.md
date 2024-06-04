@@ -7,7 +7,7 @@ toc: true
 weight: 10
 ---
 
-## Context overview
+## Context overview {#context-overview}
 
 The following diagram gives a high level overview of Altinn 3 Broker actors, services and information flow.
 
@@ -34,7 +34,7 @@ Explanation to the diagram:
 
 
 
-## Terminology
+## Terminology {#terminology}
 
 The following table gives brief descriptions of the main terms used to describe
 Altinn 3 Broker. Also see https://docs.altinn.studio/technology/terms/ and <https://data.norge.no/concepts>.
@@ -103,7 +103,7 @@ Notes:
 * In the context of Altinn Broker, the terms _Data Consumer_ and _recipient_ may be assumed to mean the same.
   <!-- are used interchangeably. -->
 
-## Conceptual information model
+## Conceptual information model {#conceptual-information-model}
 
 A high level conceptual information model for Altinn 3 Broker is shown in the below figure. 
 This model is used as basis for the more detailed information model of Altinn Broker _Metadata Storage_.

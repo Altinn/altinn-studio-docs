@@ -30,17 +30,18 @@ For å forstå hvordan Broker-APIet fungerer, inkludert avhengighetene og konfig
 
 ![Altinn Broker oppsett-sekvens](Altinn-broker-setup-sequence.png "Altinn-broker-oppsett-sekvens")
 
-Du må ha utført stegene i [Kom i gang](../get-started/) for å sette opp tilgangskravene.
+Du må ha utført stegene i [Hvordan komme i gang](../../getting-started) for å sette opp tilgangskravene.
 
 ## Generell prosess {#overall-process}
 
-Generell prosessflyt gjenspeiler den implementerte virkeligheten av [filoverføringsprosessen](../../basic-concepts/#file-transfer-process-states)
+Generell prosessflyt gjenspeiler den implementerte virkeligheten av [filoverføringsprosessen](../../explanation/basic-concepts/#file-transfer-process-states)
 
 Alle operasjoner er asynkrone, med mindre annet er angitt.
 Som sådan bør du implementere hendelsesabonnementer for å optimalisere prosessen din i stedet for å stole på polling for status.
 
 ## Autentisering {#authentication}
 
-For alle operasjoner må du autentisere deg ved å bruke din Maskinporten-klient og deretter skaffe en Altinn-token fra [Altinn-autentisering](https://docs.altinn.studio/authentication/architecture/accesstoken/).
+For alle operasjoner må du autentisere deg ved å bruke din Maskinporten-klient og 
+deretter [skaffe en Altinn-token fra Altinn-autentisering](https://docs.altinn.studio/authentication/architecture/accesstoken/).
 
 Bruk Altinn-tokenet som en Bearer-token for alle Broker API-forespørsler sammen med APIM-abonnementsnøkkelen som en header med nøkkelen `Ocp-Apim-Subscription-Key`.

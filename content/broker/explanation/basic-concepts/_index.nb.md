@@ -7,7 +7,7 @@ toc: true
 weight: 10
 ---
 
-## Kontekstoversikt - aktører og informasjonsflyt
+## Kontekstoversikt - aktører og informasjonsflyt {#context-overview}
 
 
 Følgende diagram gir en høy-nivå oversikt over aktører, tjenester og informasjonsflyt i Altinn 3 Formidling.
@@ -30,7 +30,7 @@ Forklaring til diagrammet:
 * Mottakere bekrefter vellykkede nedlastinger.
 
 
-## Begreper
+## Begreper {#terminology}
 
 Her følger en tabell som gir korte beskrivelser av hovedbegrepene som brukes for å beskrive Altinn 3 Formidling. 
 Se også https://docs.altinn.studio/technology/terms/ og <https://data.norge.no/concepts>.
@@ -65,7 +65,7 @@ Merk:
 * I kontekst av Altinn Formidling, benyttes begrepene _datakonsument_ og _mottaker_ om det samme.
   <!-- are used interchangeably. -->
 
-## Konseptuell informasjonsmodell
+## Konseptuell informasjonsmodell {#conceptual-information-model}
 
 En høy-nivå konseptuell informasjonsmodell for Altinn 3 Formidling er vist i figuren nedenfor.
 

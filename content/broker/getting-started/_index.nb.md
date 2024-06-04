@@ -13,13 +13,14 @@ I arbeid.
 
 {{<children />}}
 
-På grunn av de ulike distinkte rollene som et foretak kan samhandle med Altinn Formidling, har vi delt inn veiledningene inn i flere deler for kurant rolle:
+På grunn av de ulike distinkte rollene som et foretak kan samhandle med Altinn Formidling, 
+har vi delt inn veiledningene inn i flere deler ut fra aktuell rolle:
 
 - Sender/Avsender
 - Recipient/Mottaker
 - ServiceOwner/Tjenesteeier
 
-Et foretak kan ha én, eller en kombinasjon av alle tre rollene i henhold til konteksten.
+En virksomhet kan ha en eller flere av disse rollene.
 
 Tjenesteeiere eier konfigurasjonen og datalagringen for Broker-tjenesteressursen, og vil opprettholde tilgangsrettighetene for sin spesifikke ressurs i Altinn Resource Rights Registry.
 
