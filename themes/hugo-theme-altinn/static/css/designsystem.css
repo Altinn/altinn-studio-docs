@@ -275,6 +275,31 @@ template {
 [hidden] {
   display: none !important; }
 
+.a-collapseContent.collapse {
+  display: block;
+  content-visibility: hidden;
+}
+
+.a-collapseContent[hidden=until-found] {
+    display: block !important;
+    content-visibility: hidden;
+} 
+
+.a-collapseContent.collapsing[hidden=until-found] {
+  display: block !important;
+  content-visibility: visible;
+} 
+
+.a-collapseContent.collapse.show {
+  display: block;
+  content-visibility: visible;
+}
+
+.a-collapseContent.collapse.show[hidden=until-found] {
+  display: block;
+  content-visibility: visible;
+}
+
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 6px;

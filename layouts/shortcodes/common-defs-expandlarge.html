@@ -22,7 +22,8 @@
 					{{end}}
 				</a>
 			</div>
-			<div id="expandable-{{with $title}}{{.}}{{else}}expand-default{{end}}" class="a-collapseContent collapse" role="tabpanel">
+			<div id="expandable-{{with $title}}{{.}}{{else}}expand-default{{end}}" 
+						class="a-collapseContent" role="tabpanel" hidden="until-found">
 				<div class="a-collapseContent-inside">
 					<a name="#{{$title}}"></a>
 					{{- template "list-descriptions" (dict "property" $def "propName" $title) -}}
