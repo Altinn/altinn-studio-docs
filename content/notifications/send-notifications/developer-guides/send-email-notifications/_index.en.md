@@ -77,8 +77,8 @@ that the sender's reference is unique within the organization's notification ord
 #### resourceId
 Type: _string_
 
-The id of the Altinn resource the notifications should be related to as the id appears in the Altinn Resource Registry. 
-For an Altinn app with id _{org}/{app}_ the format of the resourceId is `app_{org}_{app}` e.g. app_ttd_apps-test.
+The ID of the Altinn resource the notifications should be related to as the ID appears in the Altinn Resource Registry. 
+For an Altinn app with ID _{org}/{app}_ the format of the resourceId is `app_{org}_{app}` e.g. app_ttd_apps-test.
 
 ## Response
 
@@ -102,7 +102,7 @@ Find a short description of each property below.
 #### orderId
 Type: _GUID_
 
-The generated id for the notification order.
+The generated ID for the notification order.
 
 
 #### recipientLookup\*

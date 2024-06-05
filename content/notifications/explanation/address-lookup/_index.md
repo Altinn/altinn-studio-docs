@@ -2,7 +2,7 @@
 title: Address Lookup
 description: "The principles of address lookup explained. Address lookup is one of the benefits of using Altinn Notifications. 
 However, understanding how it works and which registries are used in various situations is not easy. 
-n this article, we dive deep into the principles of address lookup, explaining the process for different types of notifications."
+in this article, we dive deep into the principles of address lookup, explaining the process for different types of notifications."
 weight: 20
 ---
 
