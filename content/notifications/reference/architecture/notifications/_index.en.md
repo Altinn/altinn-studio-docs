@@ -152,11 +152,11 @@ Notifications microservice takes use of a range of libraries to support the prov
 
 | Library                 | Purpose                                 | Resources                                                                                                                                 |
 | ----------------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| AccessToken             | Used to validate tokens in requests     | [Repository](https://github.com/altinn/altinn-accesstoken), [Documentation](../../../authentication/architecture/accesstoken/)            |
-| Altinn.Common.PEP       | Client code for Authorization           | [Repository](https://github.com/Altinn/altinn-authorization), [Documentation](../../../authorization/reference/architecture/)             |
+| AccessToken             | Used to validate tokens in requests     | [Repository](https://github.com/altinn/altinn-accesstoken), [Documentation](../../../../authentication/architecture/accesstoken/)         |
+| Altinn.Common.PEP       | Client code for Authorization           | [Repository](https://github.com/Altinn/altinn-authorization), [Documentation](../../../../authorization/reference/architecture/)          |
 | Confluent.Kafka         | Integrate with kafka broker             | [Repository](https://github.com/confluentinc/confluent-kafka-dotnet), [Documentation](https://developer.confluent.io/get-started/dotnet/) |
 | FluentValidation        | Used to validate content of API request | [Repository](https://github.com/FluentValidation/FluentValidation), [Documentation](https://docs.fluentvalidation.net/en/latest/)         |
-| JWTCookieAuthentication | Used to validate Altinn token (JWT)     | [Repository](https://github.com/Altinn/altinn-authentication),  [Documentation](../../../authentication/architecture/jwtcookie/)          |
+| JWTCookieAuthentication | Used to validate Altinn token (JWT)     | [Repository](https://github.com/Altinn/altinn-authentication),  [Documentation](../../../../authentication/architecture/jwtcookie/)       |
 | libphonenumber-csharp   | Used to validate mobile numbers         | [Repository](https://github.com/caseykramer/libphonenumber-csharp), [Documentation](https://github.com/caseykramer/libphonenumber-csharp) |
 | Npgsql                  | Used to access the database server      | [Repository](https://github.com/rdagumampan/yuniql), [Documentation](https://www.npgsql.org/)                                             |
 | Yuniql                  | DB migration                            | [Repository](https://github.com/rdagumampan/yuniql), [Documentation](https://yuniql.io/)                                                  |
