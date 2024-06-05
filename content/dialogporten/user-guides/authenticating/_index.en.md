@@ -1,7 +1,9 @@
 ---
 title: 'Authenticating'
-description: 'How to authenticate in Dialogporten'
+description: 'How to authenticate with Dialogporten'
 weight: 10
 ---
+
+{{<notyetwritten>}}
 
 {{<children />}}

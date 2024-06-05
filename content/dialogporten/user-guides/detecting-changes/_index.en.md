@@ -4,4 +4,6 @@ description: 'How to use Altinn Events and GraphQL notifications for detecting c
 weight: 40
 ---
 
+{{<notyetwritten>}}
+
 {{<children />}}
