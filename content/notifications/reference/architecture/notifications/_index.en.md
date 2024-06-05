@@ -87,16 +87,13 @@ is implemented and used by all services that publish to Kafka.
 
 **Altinn APIs:**
 
-The Notification microservice implements multiple API clients for communication with other services.
-The clients are used to retrieve recipient data and to authorize user access.
+The Notification microservice implements multiple API clients for the Altinn API.
+The clients are used to retrieve recipient data.
 
 - [ProfileClient](https://github.com/Altinn/altinn-notifications/tree/main/src/Altinn.Notifications.Integrations/Profile/ProfileClient) 
   consumes Altinn Profile's internal API to retrieve contact points for individuals.
 - [RegisterClient](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Integrations/Register/RegisterClient.cs)
-  consumes Altinn Register's internal API to retrieve the official and user registered contact points associated with organizations.
-- [AuthorizationService](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Integrations/Authorization/AuthorizationService.cs)
-  consumes Altinn Authorization's internal API to verify that all users with registered contact points for an organization are authorized. The decision request will ask
-  if a given user still have read access to the resource that the notification is about.
+  consumes Altinn Register's internal API to retrieve the official contact points for organizations.
 
 ## Cron jobs
 
@@ -138,7 +135,7 @@ Find descriptions of key dependencies below.
 ### Altinn Services
 | Service                     | Purpose                                              | Resources                                                          |
 | --------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------ |
-| Altinn Authorization        | Authorizes access to the API and resources.          | [Repository](https://github.com/altinn/altinn-authorization)       |
+| Altinn Authorization        | Authorizes access to the API                         | [Repository](https://github.com/altinn/altinn-authorization)       |
 | Altinn Notifications Email* | Service for sending emails related to a notification | [Repository](https://github.com/altinn/altinn-notifications-email) |
 | Altinn Notifications Sms*   | Service for sending sms related to a notification    | [Repository](https://github.com/altinn/altinn-notifications-sms)   |
 | Altinn Profile              | Provides contact details for individuals             | [Repository](https://github.com/altinn/altinn-profile)             |
@@ -152,13 +149,12 @@ Notifications microservice takes use of a range of libraries to support the prov
 
 | Library                 | Purpose                                 | Resources                                                                                                                                 |
 | ----------------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| AccessToken             | Used to validate tokens in requests     | [Repository](https://github.com/altinn/altinn-accesstoken), [Documentation](../../../authentication/architecture/accesstoken/)            |
-| Altinn.Common.PEP       | Client code for Authorization           | [Repository](https://github.com/Altinn/altinn-authorization), [Documentation](../../../authorization/reference/architecture/)             |
+| AccessToken             | Used to validate tokens in requests     | [Repository](https://github.com/altinn/altinn-accesstoken), [Documentation](../../../../authentication/architecture/accesstoken/)            |
 | Confluent.Kafka         | Integrate with kafka broker             | [Repository](https://github.com/confluentinc/confluent-kafka-dotnet), [Documentation](https://developer.confluent.io/get-started/dotnet/) |
 | FluentValidation        | Used to validate content of API request | [Repository](https://github.com/FluentValidation/FluentValidation), [Documentation](https://docs.fluentvalidation.net/en/latest/)         |
-| JWTCookieAuthentication | Used to validate Altinn token (JWT)     | [Repository](https://github.com/Altinn/altinn-authentication),  [Documentation](../../../authentication/architecture/jwtcookie/)          |
+| JWTCookieAuthentication | Used to validate Altinn token (JWT)     | [Repository](https://github.com/Altinn/altinn-authentication),  [Documentation](../../../../authentication/architecture/jwtcookie/)          |
 | libphonenumber-csharp   | Used to validate mobile numbers         | [Repository](https://github.com/caseykramer/libphonenumber-csharp), [Documentation](https://github.com/caseykramer/libphonenumber-csharp) |
-| Npgsql                  | Used to access the database server      | [Repository](https://github.com/rdagumampan/yuniql), [Documentation](https://www.npgsql.org/)                                             |
+| Npgsql                  | Used to access the database server      | [Repository]( https://github.com/rdagumampan/yuniql ), [Documentation](https://www.npgsql.org/)                                           |
 | Yuniql                  | DB migration                            | [Repository](https://github.com/rdagumampan/yuniql), [Documentation](https://yuniql.io/)                                                  |
 
 [A full list of NuGet dependencies is available on GitHub](https://github.com/Altinn/altinn-notifications/network/dependencies).
@@ -178,7 +174,7 @@ There are two dependencies for the integration tests:
 - Kafka server. 
   
     A [_YAML file_](https://github.com/Altinn/altinn-notifications/blob/main/setup-kafka.yml) has been created to easily 
-    start all Kafka-related dependencies in Docker containers.
+start all Kafka-related dependencies in a Docker containers.
 
 - PostgreSQL database
 
