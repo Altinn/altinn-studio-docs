@@ -8,24 +8,24 @@ weight: 20
 
 
 In relation to address lookup, we categorize notifications into five distinct types:
+1. **Notification to provided email or mobile number**  
+2. **Stand alone notification to national identity number**  
+3. **Stand alone notification to organization number**  
+4. **Notification associated with a resource to national identity number**  
+5. **Notification associated with a resource to organization number**  
 
-1. **Notification to Known Email or Mobile Number**
-2. **Notification to National Identity Number without Resource Affiliation**
-3. **Notification to Organization Number without Resource Affiliation**
-4. **Notification to National Identity Number with Resource Affiliation**
-5. **Notification to Organization Number with Resource Affiliation**
-
-## 1. Notification to Known Email or Mobile Number
-For notifications sent to a known email or mobile number,
+## 1. Notification to provided email or mobile number
+For notifications sent to a provided email address or mobile number,
 the service owner must identify and provide the recipient's contact details.
-Notifications will be sent to the specified contact point,
-provided it successfully validated at the time the notification order is placed.
+Notifications will be sent to the specified contact points,
+provided they are successfully validated at the time the notification order is placed.
 
 ### Data Integrity
 The service owner is responsible for ensuring the integrity of the data provided to Altinn Notifications.
 
-## 2. Notification to National Identity Number without Resource Affiliation
-When a notification is sent to a national identity number without resource affiliation, 
+## 2. Stand alone notification to national identity number
+When a notification is sent to a national identity number without resource association, 
+it is called a stand alone notification.
 Altinn Notifications utilizes the **Contact and Reservation Register (KRR)** to identify the recipient's contact details. 
 If contact points exist, this results in obtaining an email address and/or mobile number,
 depending on the notification channel. 
@@ -34,7 +34,7 @@ the notification will not be sent and will instead fail with an error status, in
 or "missing contact details".
 
 ### Process Details
-![Process details for notification order to person without resource affiliation](person-no-resource-flow.drawio.svg)
+![Process details for stand alone notification to national identity number](person-no-resource-flow.drawio.svg)
 
 {{% notice info %}}
 **A note on reservation from electronic communication**
@@ -57,20 +57,22 @@ Basic validation during registration in KRR ensures that users provide a valid m
 In addition to this, the user is prompted during login in ID-porten every 90 days to confirm or update their contact details. 
 Contact details that have not been confirmed or updated in the last 18 months are not provided through the lookup service.
 
-## 3. Notification to Organization Number without Resource Affiliation
+## 3. Stand alone notification to organization number
 
-For notifications sent to an organization number without resource affiliation, 
-Altinn uses the registry of **Notification addresses to apply in public administration** to identify the contact details of the recipient. 
+When notifications sent to an organization number without resource association
+it is called a stand alone notification. 
+Altinn uses the registry of **Notification addresses to apply in public administration** to identify the
+contact details of the recipient. 
 This can include a list of email addresses and/or mobile numbers, depending on the notification channel. 
 It is important to note that Altinn does not validate the accuracy of the details from this registry.
 If the data is inaccurate or incomplete, the notification will not be sent and will instead fail with a 
 status indicating "invalid contact point".
 
 ### Process Details
-![Process details for notification order to organization without resource affiliation](org-no-resource-flow.drawio.svg)
+![Process details for stand alone notification to organization number](org-no-resource-flow.drawio.svg)
 
 ### Populating Notification addresses to apply in public administration
-Organizations can administer their official contact details for public administration by logging into 
+Organizations can manage their official contact details for public administration by logging into 
 their organization’s profile in the [Altinn portal](https://www.altinn.no). 
 It is possible to register multiple email addresses and mobile numbers for an organization. 
 
@@ -84,16 +86,16 @@ and the contact points bust be accepted by Brønnøysundregistrene before they a
 Affiliates of the organization are prompted every 90 days to confirm or update the contact information 
 through the Altinn Portal.
 
-## 4. Notification to National Identity Number with Resource Affiliation
+## 4. Notification associated with a resource to national identity number
 In this scenario, Altinn does not look up additional recipients if the recipient is a person identified by 
 national identity number. 
 Therefore, only their KRR contact details are relevant to retrieve.
 
-Please reference [Notification to National Identity Number without Resource Affiliation](#2-notification-to-national-identity-number-without-resource-affiliation)
+Please reference [Stand alone notification to national identity number](#2-stand-alone-notification-to-national-identity-number)
 for relevant details.
 
-## 5. Notification to Organization Number with Resource Affiliation
-In this case, Altinn uses both the registry of  **Notification addresses to apply in public administration** 
+## 5. Notification associated with a resource to organization number
+In this scenario, Altinn uses both the registry of  **Notification addresses to apply in public administration** 
 and end users' **personal contact information for enterprises** to determine the addresses to notify. 
 However, before notifications are sent, the list of recipients is filtered based on the authorization policy of the resource. 
 Only individuals authorized to access the resource will receive a notification. 
@@ -104,7 +106,7 @@ Thus, one can trust that all recipients are authorized when the notification is 
 regardless of how much time has passed since the order was placed.
 
 ### Process details
-![Process details for notification order to organization with resource affiliation](org-with-resource-flow.drawio.svg)
+![Process details for notification associated with a resource to organization number](org-with-resource-flow.drawio.svg)
 
 ### Populating data sources
 __Notification addresses to apply in public administration__
