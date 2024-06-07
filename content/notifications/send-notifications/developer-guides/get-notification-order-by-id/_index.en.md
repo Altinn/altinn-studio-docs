@@ -10,7 +10,7 @@ toc: true
 
 GET /order/{id}
 
-{id} represents the id of the notification order to retrieve details for.
+{id} represents the ID of the notification order to retrieve details for.
 
 ## Authentication
 
@@ -24,7 +24,7 @@ See [Authentication and Authorization](../../../api/#authentication--authorizati
 
 ### Response codes
 - 200 OK: The notification order was successfully retrieved.
-- 404 Not Found: No order matching the provided id were found. Refer to problem details in response body for further information.
+- 404 Not Found: No order matching the provided ID were found. Refer to problem details in response body for further information.
 - 401 Unauthorized: Indicates a missing, invalid or expired authorization header.
 - 403 Forbidden: Indicates that required scope or Platform Access Token is missing or invalid.
 
@@ -41,7 +41,7 @@ Find a short description of each property below.
 #### id
 Type: _Guid_
 
-The id of the notification order.
+The ID of the notification order.
 
 #### creator
 Type: _string_
@@ -67,6 +67,16 @@ The date and time for when the notification order request was registered.
 Type: enum [_NotificationChannelExt_](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/NotificationChannelExt.cs)
 
 The notification channel used for the notifications sent can be _Email_ or _Sms_.
+
+#### ignoreReservation
+Type: _boolean_
+
+Whether an individuals KRR reservation status should be ignored.
+
+#### resourceId
+Type: _string_
+
+The ID of the Altinn resource the notifications should be related to as the ID appears in the Altinn Resource Registry. 
 
 #### recipients
 Type: List<[_RecipientExt_](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/RecipientExt.cs)>
