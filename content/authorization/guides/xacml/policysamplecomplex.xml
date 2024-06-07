@@ -80,7 +80,7 @@
     </xacml:Target>
   </xacml:Rule>
   <xacml:Rule RuleId="urn:altinn:example:ruleid:1" Effect="Permit">
-    <xacml:Description>Rule giving accesss to SVV Min side area vognkort</xacml:Description>
+    <xacml:Description>Rule giving accesss to SVV Min side area førerkort</xacml:Description>
     <xacml:Target>
       <xacml:AnyOf>
         <xacml:AllOf>
@@ -125,7 +125,7 @@
     </xacml:Target>
   </xacml:Rule>
    <xacml:Rule RuleId="urn:altinn:example:ruleid:1" Effect="Permit">
-    <xacml:Description>Rule giving accesss to SVV Min side area vognkort</xacml:Description>
+    <xacml:Description>Rule giving accesss to SVV Min side area Prikkovrsikt</xacml:Description>
     <xacml:Target>
       <xacml:AnyOf>
         <xacml:AllOf>
