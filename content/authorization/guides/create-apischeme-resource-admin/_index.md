@@ -114,7 +114,6 @@ Before publish you need to set a new version ID and commit changes to the resour
 
 ## Verify
 
-When published the resource is avaiable on the search API in Resource Registry.
+When the API Scheme is published you can delegate it from the Altinn Portal
 
-Example Resource from guide. [https://platform.tt02.altinn.no/resourceregistry/api/v1/resource/ekstern-tjeneste-portal](https://platform.tt02.altinn.no/resourceregistry/api/v1/resource/ekstern-tjeneste-portal)
-Policy for Example resource from this guide [https://platform.tt02.altinn.no/resourceregistry/api/v1/resource/ekstern-tjeneste-portal/policy](https://platform.tt02.altinn.no/resourceregistry/api/v1/resource/ekstern-tjeneste-portal/policy)
+![Create Resource](create_resource_16.png)

@@ -90,15 +90,16 @@ Definer ressursen for regelen
 ![Create Resource](create_resource_11.png)
 
 
-### Handling
+### Action
 
-Definer handlingen for regelen
+For API Scheme er må man definere action "scopeaccess"
+
 
 ![Create Resource](create_resource_12.png)
 
-### Emne
+### Subject
 
-Definer emnet for rollen. Du kan velge mellom ER-roller, Altinn-roller og tilgangspakker (todo)
+Subject for API Scheme er rollen som gir mulighet til å delegere API scheme.  For Altinn dette er rollen "Programmeringsgrenssnitt"
 
 ![Create Resource](create_resource_13.png)
 
@@ -112,7 +113,6 @@ Før publisering må du angi en ny versjons-ID og foreta endringer i ressurslage
 
 ## Bekrefte
 
-Når den er publisert, er ressursen tilgjengelig på søke-APIet i ressursregisteret.
+Når den er publisert, er det mulig å delegere API Ressurs fra Altinn Portal
 
-Eksempel Ressurs fra guide. [https://platform.tt02.altinn.no/resourceregistry/api/v1/resource/ekstern-tjeneste-portal](https://platform.tt02.altinn.no/resourceregistry/api/v1/resource/ekstern- tjeneste-portal)
-Retningslinjer for eksempelressurs fra denne veiledningen [https://platform.tt02.altinn.no/resourceregistry/api/v1/resource/ekstern-tjeneste-portal/policy](https://platform.tt02.altinn.no/resourceregistry /api/v1/resource/ekstern-tjeneste-portal/policy)
+![Create Resource](create_resource_16.png)
