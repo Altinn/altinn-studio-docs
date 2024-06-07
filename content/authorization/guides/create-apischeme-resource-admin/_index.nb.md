@@ -1,5 +1,5 @@
 ---
-title: Opprette og publisere APIScheme i Altinn Studio
+title: Opprette og publisere delegerbare API ressurser i Altinn Studio
 linktitle: Opprette API Scheme
 description: Denne guiden forklarer hvordan du kan opprette og publisere ressurser i fra Ressursadministrasjon i Altinn Studio
 toc: false
@@ -20,9 +20,7 @@ Opprett ressurs
 
 IDen som er gitt for ressursen vil være den som brukes i Altinn API for å sjekke tilgang. Denne må være globalt unik i Altinn.
 
-
 ![Create Resource](create_resource_1.png)
-
 
 ### Ressurstype
 
