@@ -21,7 +21,7 @@ The Altinn 2 platform will then be shut down.
 
 ## Planned new and changed features for Altinn 3 Correspondence
 
-### The Key New Features in Altinn 3 Melding (Preliminary Overview)
+### The Key New Features in Altinn 3 Correspondence (Preliminary Overview)
 
 - Improved end-user experience through a new user interface in the Shared Workspace.
 - Support for sending links to message content and attachments
@@ -33,7 +33,7 @@ The Altinn 2 platform will then be shut down.
 - Some API changes.
   
 
-### Deprecated Functionality in Altinn 3 Melding (Preliminary Overview)
+### Deprecated Functionality in Altinn 3 Correspondence (Preliminary Overview)
 
 - The old batch-based messaging solution is being deprecated.
   Distribution of messages to many recipients is instead supported through other mechanisms,

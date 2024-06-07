@@ -20,11 +20,11 @@ This functionality can be expected in the first half of '24.
 
 ## Recipient lookup
 
-Sending notifications to a national identity number or organization number is possible.
+Sending notifications to a national identity number or organization number is supported.
 A lookup of the contact details and reservation status of the recipient will be done both at the time
 of ordering a request and at the requested send time.
 
-The entity ordering the notification is responsible to checking whether the notification
+The entity ordering the notification is responsible for checking whether the notification
 will be sent or not, as recipient lookup results are shared in the response of the order request
 as well as detailed in the notification after requested send time.
 
