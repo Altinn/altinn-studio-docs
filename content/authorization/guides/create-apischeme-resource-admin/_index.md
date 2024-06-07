@@ -19,7 +19,7 @@ Log in to Altinn Studio
 
 Create Resource
 
-The ID given for resource will be the one used in Altinn API for checking access 
+The ID given for resource will be the one used in Altinn API for checking access. This need to be globally unique
 
 
 ![Create Resource](create_resource_1.png)
@@ -27,7 +27,10 @@ The ID given for resource will be the one used in Altinn API for checking access
 
 ### Resource Type
 
-For external resources, the type will be generic access resource.
+For api scheme resources, the type will be Api Scheme access resource.
+
+
+![Create Resource](create_resource_1.png)
 
 ### Title
 
@@ -60,24 +63,15 @@ Keywords can be set for help. Currently not used but might be used for different
 
 ### Status
 
-The status of the service that the resource is pointing to
+The status of the API that the API scheme is pointing to
 
 ![Create Resource](create_resource_7.png)
 
+### Scope
 
-### User types
+The scope that protects the API and is delegated.
 
-Defines which types of user that can access. This settings does might be used for filtering at a later point. Currently
-this is just information. 
-
-![Create Resource](create_resource_8.png)
-
-
-### Party tyoe
-
-Defines what type of party the service is targeting. Might be used for filtering in service catalogue in a later stage.
-
-![Create Resource](create_resource_9.png)
+![Create Resource](create_resource_15.png)
 
 ### Contact information
 

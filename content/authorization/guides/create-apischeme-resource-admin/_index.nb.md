@@ -18,7 +18,7 @@ Logg inn i Altinn Studio
 
 Opprett ressurs
 
-IDen som er gitt for ressursen vil være den som brukes i Altinn API for å sjekke tilgang 
+IDen som er gitt for ressursen vil være den som brukes i Altinn API for å sjekke tilgang. Denne må være globalt unik i Altinn.
 
 
 ![Create Resource](create_resource_1.png)
@@ -26,7 +26,9 @@ IDen som er gitt for ressursen vil være den som brukes i Altinn API for å sjek
 
 ### Ressurstype
 
-For eksterne ressurser vil typen være generisk tilgangsressurs.
+For Api Scheme ressurser så 
+
+![Create Resource](create_resource_2.png)
 
 ### Tittel
 
@@ -59,28 +61,19 @@ Nøkkelord kan angis for hjelp. Foreløpig ikke brukt, men kan brukes til forskj
 
 ### Status
 
-Statusen til tjenesten som ressursen peker på
+Statusen til API som API Scheme peker på. 
 
 ![Create Resource](create_resource_7.png)
 
+### API Scope
 
-### Brukertyper
+For API Scheme ressurser så må man oppgi maskinporten scope som skal beskytter API. Det er dette som blir delegert. 
 
-Definerer hvilke typer brukere som har tilgang. Disse innstillingene kan brukes til filtrering på et senere tidspunkt. For tiden
-dette er bare informasjon. 
-
-![Create Resource](create_resource_8.png)
-
-
-### Party tyoe
-
-Definerer hvilken type part tjenesten er målrettet mot. Kan brukes til filtrering i servicekatalog på et senere tidspunkt.
-
-![Create Resource](create_resource_9.png)
+![Create Resource](create_resource_15.png)
 
 ### Kontaktinformasjon
 
-Kontaktinformasjon for tjenesten. Kan bli presentert i servicekatalog på et senere tidspunkt.
+Kontaktinformasjon for API. Kan bli presentert i servicekatalog på et senere tidspunkt.
 
 ![Create Resource](create_resource_10.png)
 
