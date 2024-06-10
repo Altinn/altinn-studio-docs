@@ -110,7 +110,18 @@ Når system skal autentisere seg som systembrukeren til kunden må JWT grant for
 Se også dokumentasjon hos [Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker). 
 
 
+## Bruk av systembrukertoken mot API
+
+Tokenet man får fra maskinporten legges ved som et bearer token mot de API man skal kalle. 
+
 
 ## Test av systembruker i TT02
 
-For å teste systembruker i TT02 
+For å teste systembruker i TT02 kreves følgende
+
+ - Systemleverandør opprettet i maskinporten. Gjøres via servicedesk@digdir.no
+ - Systemleverandør opprettet i Altinn. Gjøres vie servicedesk@altinn.no
+ - Systemintegrasjon opprettet i maskinporten test.
+
+
+For opprettelse av systembrukere kan testbrukere/organisasjoner fra Tenor benyttes
