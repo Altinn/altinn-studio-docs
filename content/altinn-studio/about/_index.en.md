@@ -10,7 +10,7 @@ weight: 10
 Altinn Studio is a tool for efficiently realizing digital services. We offer:
 - a web-based tool for creating and testing services (apps) - Altinn Studio Designer
 - a template for services with standard functionality and the ability to add custom functionality
-- a dedicated environment for each service owner to run the services (testing and production)
+- a dedicated Kubernetes-environment for each service owner to run the services (testing and production)
 - a set of common support functions to assist services, e.g., PDF receipt generation, notifications, etc.
 
 ## What can I create with Altinn Studio?
