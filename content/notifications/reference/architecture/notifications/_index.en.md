@@ -43,7 +43,7 @@ followed by a diagram showing the relation between the tables.
 | ------------------ | ---------------------------------------------------------------------------------------------- |
 | orders             | Contains metadata for each notification order                                                  |
 | emailtexts         | Holds the static common texts related to an email notification                                 |
-| emailnotifications | Holds metadata for each email notification along with recipient contact details                 |
+| emailnotifications | Holds metadata for each email notification along with recipient contact details                |
 | smstexts           | Holds the static common texts related to an sms notification                                   |
 | smsnotifications   | Holds metadata for each sms notification along with recipient contact details                  |
 | resourcelimitlog   | Keeps track of resource limits outages for dependent systems e.g. Azure Communication services |
@@ -95,7 +95,7 @@ The clients are used to retrieve recipient data and to authorize user access.
 - [RegisterClient](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Integrations/Register/RegisterClient.cs)
   consumes Altinn Register's internal API to retrieve the official and user registered contact points associated with organizations.
 - [AuthorizationService](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Integrations/Authorization/AuthorizationService.cs)
-  consumes Altinn Authorization's internal API to verify that all users with registered contact points for an organization are authorized. The decision request will ask
+  consumes Altinn Authorization's Decision API to verify that all users with registered contact points for an organization are authorized. The decision request will ask
   if a given user still have read access to the resource that the notification is about.
 
 ## Cron jobs
@@ -138,7 +138,7 @@ Find descriptions of key dependencies below.
 ### Altinn Services
 | Service                     | Purpose                                              | Resources                                                          |
 | --------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------ |
-| Altinn Authorization        | Authorizes access to the API and resources.          | [Repository](https://github.com/altinn/altinn-authorization)       |
+| Altinn Authorization        | Authorizes access to the API and resources           | [Repository](https://github.com/altinn/altinn-authorization)       |
 | Altinn Notifications Email* | Service for sending emails related to a notification | [Repository](https://github.com/altinn/altinn-notifications-email) |
 | Altinn Notifications Sms*   | Service for sending sms related to a notification    | [Repository](https://github.com/altinn/altinn-notifications-sms)   |
 | Altinn Profile              | Provides contact details for individuals             | [Repository](https://github.com/altinn/altinn-profile)             |
