@@ -150,7 +150,7 @@ __Content:__
      for a given notification and operation id for the last status check.
 {{% /expandsmall %}}
 
-### Emails
+### Sms
 
 <!--New expand-->
 {{% expandsmall id="altinn.notifications.sms.queue" header="altinn.notifications.sms.queue" %}}
