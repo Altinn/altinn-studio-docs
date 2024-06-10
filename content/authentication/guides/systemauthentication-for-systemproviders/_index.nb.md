@@ -108,3 +108,9 @@ Når system skal autentisere seg som systembrukeren til kunden må JWT grant for
 
 ```
 Se også dokumentasjon hos [Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker). 
+
+
+
+## Test av systembruker i TT02
+
+For å teste systembruker i TT02 
