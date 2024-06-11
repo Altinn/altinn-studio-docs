@@ -93,6 +93,18 @@ Datamodellen definerer hvilke data som kan sendes inn via en app, og hvilket for
 Vi støtter pr. nå kun opplasting av XSD datamodell.
  Ved opplasting av XSD-modell `<model>.xsd` vil verktøyet generere følgende filer: `<model>.cs`, `<model>.schema.json` og `<model>.metadata.json` (se [datamodell-filer](#datamodeller-for-applikasjoner)).
 
+{{% notice warning %}}
+For noen XSD skjema vil generatoren i Studio opprette properties av type `decimal` i C# klassene.
+_decimal_ representerer et 128bit desimaltall som ikke er representerbart/kompatibelt med tall-typen i JavaScript (JS) frontend for Altinn apper.
+Hvis du bruker _decimal_ for å kalkulere verdien til en _decimal_ property så kan du ende opp med å bruke nok presisjon til at noen
+desimaler forsvinner innen tallet er deserialisert i JS. Isåfall vil ikke verdien kunne oppdateres fra frontenden.
+Hvis du kalkulerer verdier med _decimal_ presisjon bør du sørge for at sluttresultatet passer inn i `double`/64bit presisjon. Eksempel:
+```csharp
+dataModel.Result = (decimal)(double)(3.33m / 3.333m)
+```
+I fremtiden vil vi forbedre datamodell-generatoren for å unngå dette.
+{{% /notice %}}
+
 1. Klikk på _Last opp datamodell_ fra startsiden om det ikke er noen eksisterende datamodeller eller _Last opp_ fra
    verktøylinjen øverst i verktøyet.
 2. Velg en XSD datamodell-fil i filvelgeren og klikk _Last opp_.
