@@ -1,6 +1,6 @@
 ---
-title: Ta i bruk systembruker for systemleverandører
-linktitle: Systembruker for SBS
+title: Ta i bruk systembruker for API leverandører
+linktitle: Systembruker for API
 description: Systembruker er et nytt konsept for API autentisering. Denne guiden beskriver hvordan man som systemleverandør kan benytte seg av dette.
 toc: false
 weight: 1

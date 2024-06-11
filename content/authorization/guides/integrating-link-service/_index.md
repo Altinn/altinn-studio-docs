@@ -21,7 +21,15 @@ To access Altinn's API, the service owner needs the following
 - Scope for sender list for service owner user "altinn:accessmanagement/authorizedparties.resourceowner"
 - Scope for PDP "altinn:authorization/authorize"
 
-This can be ordered from Altinn services@altinn.no
+This can be ordered from Altinn servicesdesk@altinn.no
+
+When API scopes are assigned to the organization, an integration in Maskinporten can be set up and assigned the scopes.
+
+By authenticating against Maskinporten with the relevant client, one then receives a token that is authorized for these APIs.
+
+This Maskinporten token must be exchanged for an Altinn token.
+
+The setup of the Maskinporten client and the exchange process are described [here](/api/authentication/maskinporten/).
 
 ## Set up access management in your own application
 
