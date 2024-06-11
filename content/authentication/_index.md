@@ -61,6 +61,10 @@ GET /exchange/{tokenProvider}?test={bool}
 ```
 
 
+## System Authentication
+
+
+
 
 ## Architecture
 
