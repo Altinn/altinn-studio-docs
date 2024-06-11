@@ -24,6 +24,14 @@ For å få tilgang til Altinns API trenger tjenesteier følgende
 
 Dette kan bestilles hos Altinn servicedesk@altinn.no
 
+Når API scopes er tildelt organisasjonen kan man sette opp en integrasjon i Maskinporten som tildeles scopene.
+
+Ved å autentisere seg mot Maskinporten med den aktuelle klientene får man da en token som er autorisert til disse API.
+
+Dette maskinporten tokenet må veksles inn til et Altinn token. 
+
+Oppsett av Maskinportenklient og innveksling er beskrevet [her](/api/authentication/maskinporten/).
+
 ## Sette opp tilgangs håndtering i egen applikasjon
 
 I applikasjonen som tilbyr tjenesten må tjenesteeier sette opp tilgangshåndtering for når brukere aksesserer funksjonalitet
