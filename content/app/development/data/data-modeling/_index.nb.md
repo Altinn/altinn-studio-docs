@@ -100,7 +100,7 @@ Hvis du bruker _decimal_ for å kalkulere verdien til en _decimal_ property så 
 desimaler forsvinner innen tallet er deserialisert i JS. Isåfall vil ikke verdien kunne oppdateres fra frontenden.
 Hvis du kalkulerer verdier med _decimal_ presisjon bør du sørge for at sluttresultatet passer inn i `double`/64bit presisjon. Eksempel:
 ```csharp
-dataModel.Result = (decimal)(double)(3.33m / 3.333m)
+dataModel.Result = (decimal)(double)(3.33m / 3.333m);
 ```
 I fremtiden vil vi forbedre datamodell-generatoren for å unngå dette.
 {{% /notice %}}
