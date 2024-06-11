@@ -41,7 +41,8 @@ Dette er en unik ID som vil benyttes for å identifisere programvaren. Gyldige t
 
 ### KlientId
 
-Dette er klientidene for integrasjonen som er opprettet i Maskinporten. Det er kun pålogginger med Maskinportenintegrasjoner som er knyttet mot oppgitte klientider som 
+Dette er klientidene for integrasjonen som er opprettet i Maskinporten. 
+Det er kun pålogginger med Maskinportenintegrasjoner som er knyttet mot oppgitte klientider.
 
 
 ```json
@@ -54,6 +55,7 @@ Dette er klientidene for integrasjonen som er opprettet i Maskinporten. Det er k
   "Description": {
      "en": "Visma Super Tax allows for .........",
      "nb":  "Visma superskatt gir deg mulighet...."
+  }
   },
   "AccessGroupNeeds": ["MVA", "SKATT"],
   "ResourceNeeds": ["urn:altinn:resource:skd/mva"],.
