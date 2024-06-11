@@ -1,5 +1,6 @@
 ---
-title: Authentication
+title: Hva får du?
+linktitle: Hva får du?
 description: The authentication component provides functionality to authenticate users and systems accessing Altinn Apps and Altinn platform.
 tags: [platform, authentication]
 toc: true
