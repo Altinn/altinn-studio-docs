@@ -4,34 +4,39 @@ description: En stor del av bruken av Altinn er via API fra fagsystemer. Dette e
 tags: [platform, authentication]
 toc: false
 weight: 1
+aliases:
+ - /authentication/systemauthentication/
 ---
 
 {{<notice warning>}}
 Under arbeid. Ting kan endres. Vi tar gjerne imot innspill.
 {{</notice>}}
+Omtrent 50% av skjematrafikken kommer via API, med enkelte tjenester som har nesten 100% fra fagsystemer.
 
-Samlet sett har ca 50% av trafikken av skjema kommet fra APi, hvor enkelte tjenester har omtrent 100% andel fra fagsystem. 
+Nye autentiserings- og autorisasjonsmekanismer utvikles nå for maskin-til-maskin-integrasjon på Altinn-plattformen og andre offentlige API-er.
 
-Det utvikles nå nye mekanismer som kan benyttes for autentisering og autorisasjon av maskin til maskin integrasjon på Altinn plattformen og andre offentlige API.
+## Maskinporten og systembrukertoken
 
-## Systembruker for virksomhet (aka systemintegrasjon)
+Maskinporten står sentralt i dette nye konseptet. Alle som skal benytte API med systembruker må autentisere seg mot Maskinporten for å motta et systembrukertoken.
 
-Maskinporten er sentral i det nye konseptet. Alle som skal kalle API som den nye systembrukeren må autentisere seg mot maskinporten for å få et systembrukertoken. 
+Forskjeller fra vanlige maskinportentokens:
 
-Det som skiller et systembrukertoken og et vanlig maskinportentoken, er at man i tillegg til informasjon om virksomheten som har autentisert seg, så finner man informasjon om systembruker og system.
+Systembrukertoken inkluderer informasjon om både virksomheten og den spesifikke systembrukeren/systemet.
 
-Systembrukeren opprettes av den aktøren som ønsker å benytte et fagsystem for å integrere mot Altinn eller andre offentlige løsninger. Systembrukeren knyttes mot valgt system/systemleverandør og tildeles nødvendige rettigheter. 
 
-### Eksempel
+## Opprettelse av systembruker
 
-Rørlegger Hansen & Sønner AS oppretter systembrukeren «Regnskap og MVA» og velger det å knytte systembrukeren til systemet «Regnskap 123»  fra  Bedriftstshjelp AS. 
+Systembrukeren opprettes av aktøren som ønsker å bruke et fagsystem for integrasjon mot Altinn eller andre offentlige løsninger. Systembrukeren kobles til valgt system/systemleverandør og tildeles nødvendige rettigheter.
 
-Bedriftshjelp AS har registrert at "Regnskap og MVA" krever rettighet for tjenestene "MVA" og "Årsregnskap". 
-Dette aksepterer Hansen & Sønner AS når de oppretter systembrukeren.
+Eksempel
 
-Med dette oppsettet vil Bedriftshjelp AS kunne autentisere seg mot maskinporten og be om å få et systembrukertoken for systembrukeren til Rørlegger Hansen & Sønner AS for sitt system. 
+- Virksomhet: Rørlegger Hansen & Sønner AS
+- Systembruker: "Regnskap og MVA"
+- System: "Regnskap 123" fra Bedriftshjelp AS
+- Rettigheter: Bedriftshjelp AS registrerer at "Regnskap og MVA" trenger rettigheter til "MVA" og "Årsregnskap".
+- Godkjenning: Hansen & Sønner AS aksepterer disse rettighetene ved opprettelse av systembrukeren.
 
-Tokenet man da får vil kunne benyttes direkte mot Altinns API eller andre som velger å støtte dette tokenet. Rettighetsmessig vil Bedriftshelp AS sine system kunne behandle data for Rørlegger Hansen & Sønner for de tjenestene systembrukeren har fått rettighet til. 
+Med dette oppsettet kan Bedriftshjelp AS autentisere seg mot Maskinporten og få et systembrukertoken for systembrukeren til Rørlegger Hansen & Sønner AS. Dette tokenet kan brukes mot Altinns API eller andre tjenester som støtter det. Bedriftshjelp AS kan dermed behandle data for Rørlegger Hansen & Sønner AS innenfor de tildelte rettighetene.
 
 ## Løsningsbeskrivelse
 
