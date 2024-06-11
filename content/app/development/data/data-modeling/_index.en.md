@@ -99,7 +99,7 @@ If you use calculations to fill _decimal_ property values you may end up using e
 are lost when deserialized in JS. In this case you will not be able to update the property from the frontend.
 If you calculate values with _decimal_ precision, you should make sure the end result fits into `double`/64bit precision. Example:
 ```csharp
-dataModel.Result = (decimal)(double)(3.33m / 3.333m)
+dataModel.Result = (decimal)(double)(3.33m / 3.333m);
 ```
 In the future we will improve data model generation to mitigate this.
 {{% /notice %}}
