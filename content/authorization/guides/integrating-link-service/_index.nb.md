@@ -22,7 +22,7 @@ For å få tilgang til Altinns API trenger tjenesteier følgende
 - Scope for avgiverliste for tjenesteeierbruker "altinn:accessmanagement/authorizedparties.resourceowner"
 - Scope for PDP "altinn:authorization/authorize"
 
-Dette kan bestilles hos Altinn tjenester@altinn.no
+Dette kan bestilles hos Altinn servicedesk@altinn.no
 
 ## Sette opp tilgangs håndtering i egen applikasjon
 

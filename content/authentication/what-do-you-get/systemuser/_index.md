@@ -1,5 +1,5 @@
 ---
-title: API autentisering
+title: Systembruker
 description: En stor del av bruken av Altinn er via API fra fagsystemer. Dette er programvare som har integrert seg Altinns API og man fra programvare kan f.eks. sende inn skjema eller hente ut meldinger av forskjellig art. 
 tags: [platform, authentication]
 toc: false

@@ -21,7 +21,7 @@ To access Altinn's API, the service owner needs the following
 - Scope for sender list for service owner user "altinn:accessmanagement/authorizedparties.resourceowner"
 - Scope for PDP "altinn:authorization/authorize"
 
-This can be ordered from Altinn services@altinn.no
+This can be ordered from Altinn servicesdesk@altinn.no
 
 ## Set up access management in your own application
 
