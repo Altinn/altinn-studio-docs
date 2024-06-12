@@ -12,7 +12,7 @@ weight: 1
 
 ## Bakgrunn
 
-Bakgrunnen til systembruker konsept kan leses om her.
+Bakgrunnen til systembruker konsept kan leses om [her](../../what-do-you-get/systemuser/).
 
 ##  Forutsetninger
 
@@ -24,9 +24,9 @@ Forutsetninger for at man API leverandør kan benytte seg av systembruker er
 - Fått tildelt scope for PDP integrasjon
 - Integrasjon med Altinn PDP
 
-
 ## Validering av Maskinporten token
 
+Selve tokenet valideres som et standardisert Maskinporten token. 
 
 ### JWT Token
 
@@ -61,6 +61,20 @@ Forutsetninger for at man API leverandør kan benytte seg av systembruker er
 }
 
 ```
+
+Verdiene som er viktige er
+
+
+| Verdi  | Betydning |
+|----|-----|
+|authorization_details:systemuser_id| Unik id for systembrukeren. Det er denne verdien som Altinn trenger for å kunne autorisere tilgang |
+|authorization_details:systemuser_org:id | Organisasjonen som har opprettet systembrukeren |
+|authorization_details:system_id |  Referanse til systemet som systembrukeren peker på |
+|Consumer:id | Organisasjonsnr til systemleverandør (organisasjon som har autentisert seg mot Maskinporten) |    
+
+
+
+
 Se også dokumentasjon hos [Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker). 
 
 
