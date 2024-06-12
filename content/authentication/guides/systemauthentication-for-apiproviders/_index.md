@@ -67,7 +67,7 @@ Verdiene som er viktige er
 
 | Verdi  | Betydning |
 |----|-----|
-|authorization_details:systemuser_id| Unik id for systembrukeren. Det er denne verdien som Altinn trenger for å kunne autorisere tilgang |
+|authorization_details:systemuser_id| Unik id for systembrukeren. Det er denne verdien som Altinn trenger for å kunne autorisere tilgang. Det er denne som har fått delegert tilganger. |
 |authorization_details:systemuser_org:id | Organisasjonen som har opprettet systembrukeren |
 |authorization_details:system_id |  Referanse til systemet som systembrukeren peker på |
 |Consumer:id | Organisasjonsnr til systemleverandør (organisasjon som har autentisert seg mot Maskinporten) |    
