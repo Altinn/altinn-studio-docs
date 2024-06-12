@@ -108,6 +108,40 @@ Below is an example of a call that authorizes **01017012345** for **read** on th
 
 ```
 
+Response
+
+```json
+{
+  "Response": [
+    {
+      "Decision": "Permit",
+      "Status": {
+        "StatusCode": {
+          "Value": "urn:oasis:names:tc:xacml:1.0:status:ok"
+        }
+      },
+      "Obligations": [
+        {
+          "id": "urn:altinn:obligation:authenticationLevel1",
+          "attributeAssignment": [
+
+            {
+              "attributeId": "urn:altinn:obligation-assignment:1",
+              "value": "2",
+              "category": "urn:altinn:minimum-authenticationlevel",
+              "dataType": "http://www.w3.org/2001/XMLSchema#integer",
+              "issuer": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+
+
 ### Multi Resource integration with PDP
 
 Altinn PDP offers a convenient solution in scenarios where several elements need to be authorized for a given user at once. Thanks to the XACML Jason Profile, it supports multiple authorization requests in a single PDP request, alleviating potential complications.
