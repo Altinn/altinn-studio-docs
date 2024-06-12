@@ -1,7 +1,7 @@
 ---
 title: Ta i bruk systembruker for API-leverandører
 linktitle: Systembruker for API
-description: Systembruker er et nytt konsept for API autentisering. Denne guiden beskriver hvordan man som API tilbyder kan beskytte sine API med dette.
+description: Systembruker er et nytt konsept for API-autentisering. Denne guiden beskriver hvordan API-leverandører kan beskytte sine API-er med dette konseptet.
 toc: false
 weight: 1
 ---
@@ -14,21 +14,23 @@ weight: 1
 
 Bakgrunnen til systembruker konsept kan leses om [her](../../what-do-you-get/systemuser/).
 
-##  Forutsetninger
+## Forutsetninger
 
-Forutsetninger for at man som API leverandør kan benytte seg av systembruker er
+For å kunne bruke systembruker som API-leverandør må følgende forutsetninger være oppfylt:
 
-- Avtale med maskinporten som API Leverandør
-- Avtale med Digdir med tilgang til ressursregisterer for opprettelse av ressurs
-- Opprettet ressurser(er) som skal autoriseres på
-- Fått tildelt scope for PDP integrasjon
+- Avtale med Maskinporten som [API-leverandør](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apitilbyder)
+- Avtale med Digdir for tilgang til ressursregisteret for opprettelse av ressurser
+- Opprettelse av [nødvendige ressurser](/authorization/guides/create-resource-resource-admin/) som skal autoriseres
+- Tildelt scope for PDP-integrasjon
 - Integrasjon med Altinn PDP
 
 ## Validering av Maskinporten token
 
 Selve tokenet valideres som et standardisert Maskinporten token. [Les mer hos Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apitilbyder).
 
-Et systembrukertoken inneholder en del flere detaljer enn 
+Et systembrukertoken inneholder en del flere detaljer enn et vanlig Maskinporten token. 
+
+Nedenfor vises et eksempeltoken.
 
 ### JWT Token
 
@@ -64,7 +66,7 @@ Et systembrukertoken inneholder en del flere detaljer enn
 
 ```
 
-Verdiene som er viktige er
+Verdiene som er viktige for API leverandør er.
 
 
 | Verdi  | Betydning |
