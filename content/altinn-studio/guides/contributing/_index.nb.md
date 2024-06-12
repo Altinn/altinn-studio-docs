@@ -6,7 +6,7 @@ weight: 1000
 
 ## Bidra inn i Altinn Studio
 
-// TODO: Write about what contributing means and how to do it --> redirect to github contributing readme
+[Se guide på Github!](https://github.com/Altinn/altinn-studio/blob/main/CONTRIBUTING.md)
 
 {{<children description="true" />}}
 

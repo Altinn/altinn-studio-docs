@@ -13,23 +13,28 @@ Hvis nye komponenter blir introdusert i Appene, enten av Apps-teamet eller av ek
 2. [Legg til et ikon for komponenten](#2-legg-til-et-ikon-for-komponenten)
 3. [Legg til den nye komponenten i listen over Studio-komponenter](#3-legg-til-den-nye-komponenten-i-listen-over-studio-komponenter)
 4. [Sørg for at potensielle andre komponentoppdateringer støttes*](#4-sørg-for-at-potensielle-andre-komponentoppdateringer-støttes)
+5. [Implementer potensiell tilpasset konfigurasjon som trengs for å støtte komponenten](#5-implementer-potensiell-tilpasset-konfigurasjon-som-trengs-for-å-støtte-komponenten)
 
 _*Bare relevant hvis du kjører skjema genereringsskriptet i steg 1._
 
 
 ### 1. Få json-skjema for den nye komponenten
-
 For å hente json-skjemaene som definerer komponentkonfigurasjonen er det forskjellige alternativer:
 
 - Skriv json-skjemaet manuelt basert på `config.ts` i apps repo for komponenten.
-- Kjør skriptet i `frontend/scripts/`. Bruken av skriptet er beskrevet i README. For at skriptet skal fungere må komponenten du ønsker å legge til ha blitt utgitt av app-frontend.
+- Kjør skriptet, `generate-json-schemas`, i `frontend/scripts/` for versjon 4 av app-frontend. Bruken av skriptet er beskrevet i README. For at skriptet skal fungere må komponenten du ønsker å legge til ha blitt utgitt av app-frontend.
 
 ### 2. Legg til et ikon for komponenten
+Når du legger til et ikon, er det forskjellige tilnærminger gitt at;
+- Noen av de eksisterende ikonene fra [Aksel Icons](https://aksel.nav.no/ikoner) kan brukes:
+  
+  Da importerer du ikonet fra `@studio/icons` i `formItemConfig.ts`.
 
-Enten lag en SVG for komponenten selv eller deleger denne oppgaven til designerne i Altinn Studio ved å kontakte dem på GitHub[Lenke] eller på Slack[Lenke]. Når en SVG er laget for ikonet, konverter SVG-en til JSX, f.eks. ved å bruke [dette verktøyet](https://svg2jsx.com/). Lag en ny fil i `libs/studio-icons/src/react/icons/[YOUR_COMPONENT_NAME]Icon.tsx` og bruk samme format som for de andre ikonene i mappen. Ikonfilen må legges til i indeksfilen i samme mappe.
+- Eller, hvis komponenten trenger et nytt tilpasset ikon:
+
+  Da kan du enten lage en SVG for komponenten selv eller deleger denne oppgaven til designerne i Altinn Studio ved å kontakte dem [i Slack](https://altinn.slack.com/) eller [opprette et issue i Altinn Studio Github repository](https://github.com/Altinn/altinn-studio/issues/new/choose). Når en SVG er opprettet for ikonet, konverter SVG til JSX, f.eks. ved å bruke [dette verktøyet](https://svg2jsx.com/). Opprett en ny fil i `libs/studio-icons/src/react/icons/[NAVNET_PÅ_DIN_KOMPONENT]Icon.tsx` og bruk samme format som for de andre ikonene i mappen. Ikonfilen må legges til indeksfilen i samme mappe.
 
 ### 3. Legg til den nye komponenten i listen over Studio-komponenter
-
 For å gi full støtte for en ny komponent i Studio, er det noen få ting å gjøre. Rekkefølgen er vilkårlig.
 
 - Legg til det nye skjemaet
@@ -45,8 +50,23 @@ deretter legge den til i en passende liste i samme fil; **schemaComponents**, **
   - Hvis komponenten har noen nye objekt egenskaper som ikke eksisterer fra før, må en beskrivelse også legges til i formatet **ux_editor.component_properties_description.[PROPERTY_NAME]**
 
 ### 4. Sørg for at potensielle andre komponentoppdateringer støttes
-
 Sjekk om skriptet oppdaterte andre komponentskjema konfigurasjoner og sørg for stabil (uendret?) støtte.
 
 - Sørg for at potensielt nye lagt til egenskaper eksisterer fra før, ellers legg til nødvendige tekster for dem
-- Sørg for ...?
+
+### 5. Implementer potensiell tilpasset konfigurasjon som trengs for å støtte komponenten
+Hvis komponenten har noen egenskaoer som krever spesielt grensesnitt utover det som leveres direkte basert på egenskapstypen (f.eks. om det er en streng eller et objekt el.), implementer støtte som en spesifikk React komponent. Komponenten kan tas i bruk på samme på som `grid`-egenskapen f.eks. i `FormComponentConfig.tsx`.
+```javascript
+{grid && (
+    <div>
+      <Heading level={3} size='xxsmall'>
+        {t('ux_editor.component_properties.grid')}
+      </Heading>
+      <EditGrid
+        key={component.id}
+        component={component}
+        handleComponentChange={handleComponentUpdate}
+      />
+    </div>
+ )}
+```

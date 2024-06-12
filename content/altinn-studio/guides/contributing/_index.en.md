@@ -6,6 +6,6 @@ weight: 1000
 
 ## Contributing to Altinn Studio
 
-// TODO: Write about what contributing means and how to do it --> redirect to github contributing readme
+[See guide in Github!](https://github.com/Altinn/altinn-studio/blob/main/CONTRIBUTING.md)
 
 {{<children description="true" />}}
