@@ -1,5 +1,5 @@
 ---
-title: Ta i bruk systembruker for API leverandører
+title: Ta i bruk systembruker for API-leverandører
 linktitle: Systembruker for API
 description: Systembruker er et nytt konsept for API autentisering. Denne guiden beskriver hvordan man som API tilbyder kan beskytte sine API med dette.
 toc: false
@@ -16,17 +16,19 @@ Bakgrunnen til systembruker konsept kan leses om [her](../../what-do-you-get/sys
 
 ##  Forutsetninger
 
-Forutsetninger for at man API leverandør kan benytte seg av systembruker er
+Forutsetninger for at man som API leverandør kan benytte seg av systembruker er
 
 - Avtale med maskinporten som API Leverandør
-- Avtale med Digdir for ressurser i system registeret
+- Avtale med Digdir med tilgang til ressursregisterer for opprettelse av ressurs
 - Opprettet ressurser(er) som skal autoriseres på
 - Fått tildelt scope for PDP integrasjon
 - Integrasjon med Altinn PDP
 
 ## Validering av Maskinporten token
 
-Selve tokenet valideres som et standardisert Maskinporten token. 
+Selve tokenet valideres som et standardisert Maskinporten token. [Les mer hos Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apitilbyder).
+
+Et systembrukertoken inneholder en del flere detaljer enn 
 
 ### JWT Token
 
@@ -82,7 +84,12 @@ Se også dokumentasjon hos [Maskinporten](https://docs.digdir.no/docs/Maskinport
 
 API leverandøren må kalle Altinn PDP for å autorisere tilgangen til systembrukeren.
 
-Dette gjøres via et kall 
+Dette gjøres via et kall mot Altinn PDP.
+
+API leverandør må ha konfigurert hvilke action og ressurs som aksesserer via API for å bygge opp total request.
+
+Nedenfor vises eksempel på et kall utført av systembruker **a545ca29-7fb8-4810-a2f2-0be171cb2a26** som prøver å gjøre en leseoperasjon på en
+ressurs av type **kravogbetaling** for organisasjonen **923609016**
 
 
 ```json
@@ -115,11 +122,11 @@ Dette gjøres via et kall
          "Attribute": [
            {
              "AttributeId": "urn:altinn:resource",
-             "Value": "ttdintegrationtest1"
+             "Value": "kravogbetaling"
            },
            {
              "AttributeId": "urn:altinn:organization:identifier-no",
-             "Value": "312824450"
+             "Value": "923609016"
            }
          ]
        }
