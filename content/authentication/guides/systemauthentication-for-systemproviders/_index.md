@@ -72,18 +72,20 @@ Når system skal autentisere seg som systembrukeren til kunden må JWT grant for
 
 ```json
 {
-  "aud": "https://maskinporten.no/",
-  "iss": "0e85a8ba-77e8-4a6c-a0f5-74fc328a9ffb",
-
-  "scope": "digdir:dialogporten skatteetaten:mva"
-
-   "authorization_details": [ {
-    "type": "urn:altinn:systemuser",
-    "systemuser_org": {
-       "authority" : "iso6523-actorid-upis",  
-       "ID": "0192:999888777"  
-    }
-}]
+  "aud" : "https://maskinporten.no",
+  "sub" : "fc9a8287-e7cb-45e5-b90e-123048d32d85",
+  "authorization_details" : [ {
+    "systemuser_org" : {
+      "authority" : "iso6523-actorid-upis",
+      "ID" : "0192:310385980"
+    },
+    "type" : "urn:altinn:systemuser"
+  } ],
+  "scope" : "krr:global/kontaktinformasjon.read",
+  "iss" : "fc9a8287-e7cb-45e5-b90e-123048d32d85",
+  "exp" : 1718124835,
+  "iat" : 1718124715,
+  "jti" : "89365ecd-772b-4462-a4de-ac36af8ef3e2"
 }
 
 ```
@@ -94,22 +96,36 @@ Når system skal autentisere seg som systembrukeren til kunden må JWT grant for
 
 ```json
 {
-  "iss": "https://maskinporten.no",
-  "scope":       "some_scope",
-  "client_id":   "my_client_id",
-  "exp": 1520589928,
-  "iat": 1520589808,
-  "jti": "asdjkl5434jlkfds"
-  
-  "authorization_details": [ {
-    "type": "urn:altinn:systemuser",
-    "systemuser_id": [ "a_unique_identifier_for_the_systemuser" ], 
-    "systemuser_org": {"authority" : "iso6523-actorid-upis",  "ID": "0192:999888777" },
-    "system_id": "a_unique_identifier_for_the_system",
-  }]
+  "authorization_details" : [ {
+    "type" : "urn:altinn:systemuser",
+    "systemuser_org" : {
+      "authority" : "iso6523-actorid-upis",
+      "id" : "0192:310385980"
+    },
+    "systemuser_id" : [ "a545ca29-7fb8-4810-a2f2-0be171cb2a26" ],
+    "system_id" : "systembrukar_test"
+  } ],
+  "scope" : "krr:global/kontaktinformasjon.read",
+  "supplier" : {
+    "authority" : "iso6523-actorid-upis",
+    "ID" : "0192:991825827"
+  },
+  "iss" : "https://maskinporten.no",
+  "client_amr" : "private_key_jwt",
+  "token_type" : "Bearer",
+  "exp" : 1718124836,
+  "delegation_source" : "https://maskinporten.dev/",
+  "iat" : 1718124716,
+  "client_id" : "fc9a8287-e7cb-45e5-b90e-123048d32d85",
+  "jti" : "8aVHR7gkm7HDqakr8mfs8rAQQR_OAU4WG0BXUPi5Leg",
+  "consumer" : {
+    "authority" : "iso6523-actorid-upis",
+    "ID" : "0192:314330897"
+  }
 }
 
 ```
+
 Se også dokumentasjon hos [Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker). 
 
 
