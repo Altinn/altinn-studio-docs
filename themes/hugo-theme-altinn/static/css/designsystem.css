@@ -275,27 +275,27 @@ template {
 [hidden] {
   display: none !important; }
 
-.a-collapseContent.collapse {
+.a-collapseContent-searchable.collapse {
   display: block;
   content-visibility: hidden;
 }
 
-.a-collapseContent[hidden=until-found] {
+.a-collapseContent-searchable[hidden=until-found] {
     display: block !important;
     content-visibility: hidden;
 } 
 
-.a-collapseContent.collapsing[hidden=until-found] {
+.a-collapseContent-searchable.collapsing[hidden=until-found] {
   display: block !important;
   content-visibility: visible;
 } 
 
-.a-collapseContent.collapse.show {
+.a-collapseContent-searchable.collapse.show {
   display: block;
   content-visibility: visible;
 }
 
-.a-collapseContent.collapse.show[hidden=until-found] {
+.a-collapseContent-searchable.collapse.show[hidden=until-found] {
   display: block;
   content-visibility: visible;
 }

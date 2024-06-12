@@ -23,7 +23,7 @@
 				</a>
 			</div>
 			<div id="expandable-{{with $title}}{{.}}{{else}}expand-default{{end}}" 
-						class="a-collapseContent" role="tabpanel" hidden="until-found">
+						class="a-collapseContent-searchable" role="tabpanel" hidden="until-found">
 				<div class="a-collapseContent-inside">
 					<a name="#{{$title}}"></a>
 					{{- template "list-descriptions" (dict "property" $def "propName" $title) -}}
@@ -32,3 +32,17 @@
 		</div>
 	{{- end -}}
 {{- end -}}
+
+
+<script lang="javascript">
+	// if (!('onbeforematch' in document.body)) {
+	// 	// fallback to original behavior
+  //   document.addEventListener('DOMContentLoaded', (event) => {
+  //       let divs = document.querySelectorAll('div.a-collapseContent-searchable');
+  //       divs.forEach((div) => {
+  //           div.classList.remove('a-collapseContent-searchable');
+  //           div.classList.add('a-collapseContent');
+  //       });
+  //   });
+	// }
+</script>
