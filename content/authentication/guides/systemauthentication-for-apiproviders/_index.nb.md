@@ -81,17 +81,14 @@ Verdiene som er viktige for API leverandør er.
 
 Se også dokumentasjon hos [Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker). 
 
-
 ## Autorisasjon av systembruker
 
-API leverandøren må kalle Altinn PDP for å autorisere tilgangen til systembrukeren.
+API-leverandøren må kalle Altinn PDP for å autorisere tilgangen til systembrukeren. Dette gjøres ved å sende et kall til Altinn PDP.
 
-Dette gjøres via et kall mot Altinn PDP.
+API-leverandøren må konfigurere hvilke handlinger og ressurser som aksesseres via API-et for å bygge opp den totale forespørselen.
 
-API leverandør må ha konfigurert hvilke action og ressurs som aksesserer via API for å bygge opp total request.
-
-Nedenfor vises eksempel på et kall utført av systembruker **a545ca29-7fb8-4810-a2f2-0be171cb2a26** som prøver å gjøre en **read** operasjon på en
-ressurs av type **kravogbetaling** for organisasjonen **923609016**
+Nedenfor vises et eksempel på et kall utført av systembruker **a545ca29-7fb8-4810-a2f2-0be171cb2a26** som prøver å gjøre en **read**-operasjon 
+på en ressurs av typen **kravogbetaling** for organisasjonen **923609016**.
 
 
 ```json
