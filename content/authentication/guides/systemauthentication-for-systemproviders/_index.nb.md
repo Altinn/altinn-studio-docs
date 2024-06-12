@@ -44,7 +44,6 @@ Dette er en unik ID som vil benyttes for å identifisere programvaren. Gyldige t
 Dette er klientidene for integrasjonen som er opprettet i Maskinporten. 
 Det er kun pålogginger med Maskinportenintegrasjoner som er knyttet mot oppgitte klientider.
 
-
 ```json
 {
  "SystemTypeId": "visma_supertax",

@@ -21,59 +21,14 @@ Forutsetninger for at man API leverandør kan benytte seg av systembruker er
 - Avtale med maskinporten som API Leverandør
 - Avtale med Digdir for ressurser i system registeret
 - Opprettet ressurser(er) som skal autoriseres på
+- Fått tildelt scope for PDP integrasjon
 - Integrasjon med Altinn PDP
 
 
-## Systenm
-
-```json
-{
- "SystemTypeId": "visma_supertax",
- "SystemVendor": "978234522",
- "Name": {
-      "en": "Visma Super Tax",
-     "nb" : "Visma superskatt"
-  "Description": {
-     "en": "Visma Super Tax allows for .........",
-     "nb":  "Visma superskatt gir deg mulighet...."
-  }
-  },
-  "AccessGroupNeeds": ["MVA", "SKATT"],
-  "ResourceNeeds": ["urn:altinn:resource:skd/mva"],.
-  "ClientId":["123123","234534552345"]
-}
-```
-
-## Maskinporten autentisering
-
-Når system skal autentisere seg som systembrukeren til kunden må JWT grant forespørselen til maskinporten inneholde informasjon om kunden
-
-
-### JWT Grant
-
-```json
-{
-  "aud" : "https://maskinporten.no",
-  "sub" : "fc9a8287-e7cb-45e5-b90e-123048d32d85",
-  "authorization_details" : [ {
-    "systemuser_org" : {
-      "authority" : "iso6523-actorid-upis",
-      "ID" : "0192:310385980"
-    },
-    "type" : "urn:altinn:systemuser"
-  } ],
-  "scope" : "krr:global/kontaktinformasjon.read",
-  "iss" : "fc9a8287-e7cb-45e5-b90e-123048d32d85",
-  "exp" : 1718124835,
-  "iat" : 1718124715,
-  "jti" : "89365ecd-772b-4462-a4de-ac36af8ef3e2"
-}
-
-```
+## Validering av Maskinporten token
 
 
 ### JWT Token
-
 
 ```json
 {
@@ -109,18 +64,54 @@ Når system skal autentisere seg som systembrukeren til kunden må JWT grant for
 Se også dokumentasjon hos [Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker). 
 
 
-## Bruk av systembrukertoken mot API
+## Autorisasjon av systembruker
 
-Tokenet man får fra maskinporten legges ved som et bearer token mot de API man skal kalle. 
+API leverandøren må kalle Altinn PDP for å autorisere tilgangen til systembrukeren.
 
-
-## Test av systembruker i TT02
-
-For å teste systembruker i TT02 kreves følgende
-
- - Systemleverandør opprettet i maskinporten. Gjøres via servicedesk@digdir.no
- - Systemleverandør opprettet i Altinn. Gjøres vie servicedesk@altinn.no
- - Systemintegrasjon opprettet i maskinporten test.
+Dette gjøres via et kall 
 
 
-For opprettelse av systembrukere kan testbrukere/organisasjoner fra Tenor benyttes
+```json
+{
+   "Request": {
+     "ReturnPolicyIdList": true,
+     "AccessSubject": [
+       {
+         "Attribute": [
+           {
+             "AttributeId": "urn:altinn:systemuser:uuid",
+             "Value": "a545ca29-7fb8-4810-a2f2-0be171cb2a26"
+           }
+         ]
+       }
+     ],
+     "Action": [
+       {
+         "Attribute": [
+           {
+             "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+             "Value": "read",
+             "DataType": "http://www.w3.org/2001/XMLSchema#string"
+           }
+         ]
+       }
+     ],
+     "Resource": [
+       {
+         "Attribute": [
+           {
+             "AttributeId": "urn:altinn:resource",
+             "Value": "ttdintegrationtest1"
+           },
+           {
+             "AttributeId": "urn:altinn:organization:identifier-no",
+             "Value": "312824450"
+           }
+         ]
+       }
+     ]
+   }
+}
+
+```
+
