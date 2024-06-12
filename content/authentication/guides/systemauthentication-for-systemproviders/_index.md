@@ -7,42 +7,39 @@ weight: 1
 ---
 
 {{<notice warning>}}
- Denne funksjonaliteten er i test og kan endres
+This functionality is in testing and subject to change.
 {{</notice>}}
 
-## Bakgrunn
+## Background
 
-Bakgrunnen til systembruker konsept kan leses om her.
+The background of the systembruker concept can be read about here.
 
-##  Forutsetninger
+## Prerequisites
 
-Forutsetninger for at man systemleverandør kan benytte seg systembruker er.
+To use systembruker as a system provider, the following prerequisites must be met:
 
-- Avtale med maskinporten som klient
-- Avtale med Digdir som gir tilgang til systemregister
+- Agreement with Maskinporten as a client
+- Agreement with Digdir granting access to the system register
 
-## Sette opp maskinporten integrasjon
+## Setting Up Maskinporten Integration
 
-For å konsumere offentlige API med systembrukere trenger man å registrere minst en MaskinPorten integrasjon. 
-Dette kan gjøres i [sammarbeidsportalen](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web#opprette-klient-for-%C3%A5-konsumere-api) eller via [API](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_api#registrere-klient).
+To consume public APIs with systembruker, you need to register at least one MaskinPorten integration. This can be done through the [collaboration portal](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web#opprette-klient-for-%C3%A5-konsumere-api) or via the [API](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_api#registrere-klient).
 
-## Registrere system
+## Registering a System
 
-Første steg etter man har fått tilgang til systemregisteret er å registrere systemet.
+The first step after gaining access to the system register is to register your system.
 
-Systemet er da typisk en nettbasert programvare som er tilgjengelig i markedet som sluttkunder (virksomheter) kan
-benytte seg av for kommunukasjon med det offentlige. 
+Typically, the system is web-based software available in the market that end customers (organizations) can use for communication with the public sector.
 
-Systemet må beskrives med følgende egenskaper
+The system must be described with the following properties:
 
 ### SystemTypeId
 
-Dette er en unik ID som vil benyttes for å identifisere programvaren. Gyldige tegn er a-z 0-9 og _
+This is a unique ID used to identify the software. Valid characters are a-z, 0-9, and _.
 
 ### KlientId
 
-Dette er klientidene for integrasjonen som er opprettet i Maskinporten. 
-Det er kun pålogginger med Maskinportenintegrasjoner som er knyttet mot oppgitte klientider.
+This is the client ID for the integration created in Maskinporten. Only logins with Maskinporten integrations associated with specific client IDs are allowed.
 
 
 ```json
@@ -124,23 +121,24 @@ Når system skal autentisere seg som systembrukeren til kunden må JWT grant for
   }
 }
 
-```
+See also documentation at [Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker).
 
-Se også dokumentasjon hos [Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker). 
+## Using Systembruker Tokens with APIs
 
+The token obtained from Maskinporten should be included as a bearer token when making API calls.
 
-## Bruk av systembrukertoken mot API
+## Testing Systembruker in TT02
 
-Tokenet man får fra maskinporten legges ved som et bearer token mot de API man skal kalle. 
+To test systembruker in TT02, the following steps are required:
 
+1. **System Provider Registration in Maskinporten**:
+   - Create a system provider in Maskinporten. This can be done via [servicedesk@digdir.no](mailto:servicedesk@digdir.no).
 
-## Test av systembruker i TT02
+2. **System Provider Registration in Altinn**:
+   - Create a system provider in Altinn. This can be done via [servicedesk@altinn.no](mailto:servicedesk@altinn.no).
 
-For å teste systembruker i TT02 kreves følgende
+3. **System Integration Setup in Maskinporten Test Environment**:
+   - Create a system integration in the Maskinporten test environment.
 
- - Systemleverandør opprettet i maskinporten. Gjøres via servicedesk@digdir.no
- - Systemleverandør opprettet i Altinn. Gjøres vie servicedesk@altinn.no
- - Systemintegrasjon opprettet i maskinporten test.
-
-
-For opprettelse av systembrukere kan testbrukere/organisasjoner fra Tenor benyttes
+4. **Creating Systembrukers**:
+   - For systembruker creation, you can use test users/organizations from Tenor.
