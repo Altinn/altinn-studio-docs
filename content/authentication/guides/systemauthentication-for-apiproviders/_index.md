@@ -88,7 +88,7 @@ Dette gjøres via et kall mot Altinn PDP.
 
 API leverandør må ha konfigurert hvilke action og ressurs som aksesserer via API for å bygge opp total request.
 
-Nedenfor vises eksempel på et kall utført av systembruker **a545ca29-7fb8-4810-a2f2-0be171cb2a26** som prøver å gjøre en leseoperasjon på en
+Nedenfor vises eksempel på et kall utført av systembruker **a545ca29-7fb8-4810-a2f2-0be171cb2a26** som prøver å gjøre en **read** operasjon på en
 ressurs av type **kravogbetaling** for organisasjonen **923609016**
 
 
