@@ -128,14 +128,7 @@ The token obtained from Maskinporten should be included as a bearer token when m
 
 To test systembruker in TT02, the following steps are required:
 
-1. **System Provider Registration in Maskinporten**:
-   - Create a system provider in Maskinporten. This can be done via [servicedesk@digdir.no](mailto:servicedesk@digdir.no).
-
-2. **System Provider Registration in Altinn**:
-   - Create a system provider in Altinn. This can be done via [servicedesk@altinn.no](mailto:servicedesk@altinn.no).
-
-3. **System Integration Setup in Maskinporten Test Environment**:
-   - Create a system integration in the Maskinporten test environment.
-
-4. **Creating Systembrukers**:
-   - For systembruker creation, you can use test users/organizations from Tenor.
+- Add the system provider in Maskinporten. (orgnumber/name) This can be done via [servicedesk@digdir.no](mailto:servicedesk@digdir.no).
+- Add the system provider in Altinn test environment.  (orgnumber/name) This can be done via [servicedesk@altinn.no](mailto:servicedesk@altinn.no).
+- Create a system integration in the Maskinporten test environment.
+- For systembruker creation, you can use test users/organizations from Tenor.

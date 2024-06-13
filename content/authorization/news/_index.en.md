@@ -1,12 +1,12 @@
 ---
 title: Whats's new
-description: What's new in Altinn Studio
+description: What's new in Altinn Authorization
 weight: 50
 ---
 
 ## Upcoming
-{{% insert "content/altinn-studio/news/upcoming/_index.en.md" %}}
+{{% insert "content/authorization/news/upcoming/_index.en.md" %}}
 
 
 ## Recently delivered
-{{% insert "content/altinn-studio/news/delivered/_index.en.md" %}}
+{{% insert "content/authorization/news/delivered/_index.en.md" %}}
