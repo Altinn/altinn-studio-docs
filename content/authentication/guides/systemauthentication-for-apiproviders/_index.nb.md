@@ -1,7 +1,7 @@
 ---
-title: Utilize system user for API providers
-linktitle: Systemusers for API
-description: System user is a new concept for API authentication. This guide describes how API providers can protect their APIs using this concept.
+title: Ta i bruk systembruker for API-leverandører
+linktitle: Systembruker for API
+description: Systembruker er et nytt konsept for API-autentisering. Denne guiden beskriver hvordan API-leverandører kan beskytte sine API-er med dette konseptet.
 toc: false
 weight: 1
 ---
@@ -10,29 +10,27 @@ weight: 1
  Denne funksjonaliteten er i test og kan endres
 {{</notice>}}
 
-## Background
+## Bakgrunn
 
-You can read about the background of the system user concept [here](../../what-do-you-get/systemuser/).
+Bakgrunnen til systembruker konsept kan leses om [her](../../what-do-you-get/systemuser/).
 
+## Forutsetninger
 
-## Prerequisites
+For å kunne bruke systembruker som API-leverandør må følgende forutsetninger være oppfylt:
 
-To use a system user as an API provider, the following prerequisites must be met:
+- Avtale med Maskinporten som [API-leverandør](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apitilbyder)
+- Avtale med Digdir for tilgang til ressursregisteret for opprettelse av ressurser
+- Opprettelse av [nødvendige ressurser](/authorization/guides/create-resource-resource-admin/) som skal autoriseres
+- Tildelt scope for PDP-integrasjon
+- Integrasjon med Altinn PDP
 
-- Agreement with Maskinporten as an API provider
-- Agreement with Digdir for access to the resource registry for resource creation
-- Creation of necessary resources to be authorized
-- Assigned scope for PDP integration
-- Integration with Altinn PDP
+## Validering av Maskinporten token
 
-## Validation of Maskinporten Token
+Selve tokenet valideres som et standardisert Maskinporten token. [Les mer hos Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apitilbyder).
 
-The token itself is validated as a standardized Maskinporten token. [Read more at Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apitilbyder).
+Et systembrukertoken inneholder en del flere detaljer enn et vanlig Maskinporten token. 
 
-A system user token contains more details than a regular Maskinporten token.
-
-Below is an example token.
-
+Nedenfor vises et eksempeltoken.
 
 ### JWT Token
 
@@ -67,6 +65,7 @@ Below is an example token.
 }
 
 ```
+
 Verdiene som er viktige for API leverandør er.
 
 
@@ -77,15 +76,20 @@ Verdiene som er viktige for API leverandør er.
 |authorization_details:system_id |  Referanse til systemet som systembrukeren peker på |
 |Consumer:id | Organisasjonsnr til systemleverandør (organisasjon som har autentisert seg mot Maskinporten) |    
 
-See also the documentation at [Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker).
 
-## Authorization of System User
 
-The API provider must call Altinn PDP to authorize access for the system user. This is done by sending a request to Altinn PDP.
 
-The API provider must configure which actions and resources are accessed via the API to build the complete request.
+Se også dokumentasjon hos [Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker). 
 
-Below is an example of a request made by the system user **a545ca29-7fb8-4810-a2f2-0be171cb2a26**, attempting to perform a **read** operation on a resource of type **kravogbetaling** for the organization **923609016**.
+## Autorisasjon av systembruker
+
+API-leverandøren må kalle Altinn PDP for å autorisere tilgangen til systembrukeren. Dette gjøres ved å sende et kall til Altinn PDP.
+
+API-leverandøren må konfigurere hvilke handlinger og ressurser som aksesseres via API-et for å bygge opp den totale forespørselen.
+
+Nedenfor vises et eksempel på et kall utført av systembruker **a545ca29-7fb8-4810-a2f2-0be171cb2a26** som prøver å gjøre en **read**-operasjon 
+på en ressurs av typen **kravogbetaling** for organisasjonen **923609016**.
+
 
 ```json
 {

@@ -1,12 +1,18 @@
 ---
-title: Authentication
-description: The authentication component provides functionality to authenticate users and systems accessing Altinn Apps and Altinn platform.
-tags: [platform, authentication]
-toc: true
+title: About Altinn Authentication
+linktitle: About
+description: Altinn-autentiseringskomponenten gir funksjonalitet for å autentisere brukere og systemer som får tilgang til Altinn-apper og Altinn-plattformen.
+toc: false
 weight: 1
 ---
 
-The authentication component is not an ID-provider and only create authentication sessions based on external ID-providers.
+Autentiseringskomponenten er ikke en ID-leverandør og oppretter kun autentiseringssesjoner basert på eksterne 
+ID-leverandører som [ID-porten](https://eid.difi.no/nb/id-porten), [Maskinporten](https://samarbeid.digdir.no/maskinporten/maskinporten/25) eller [Feide](https://www.feide.no/).
 
-The authentication component creates JWT tokens with claims about user and system.
-The claims are based on the authentication information coming from the ID-providers.
+Autentiseringskomponenten oppretter JWT-tokene med påstander om brukeren og systemet.
+
+Påstandene er basert på autentiseringsinformasjonen som kommer fra ID-leverandørene.
+
+Repository for Altinn-autentisering finner du [her](https://github.com/Altinn/altinn-authentication).
+
+Backlog med åpne saker finner du [her](https://github.com/Altinn/altinn-authentication/issues).

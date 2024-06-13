@@ -109,6 +109,37 @@ Nedenfor vises eksempel p√• kall som autoriserer **01017012345** for **read** p√
 
 ```
 
+Response
+
+```json
+{
+  "Response": [
+    {
+      "Decision": "Permit",
+      "Status": {
+        "StatusCode": {
+          "Value": "urn:oasis:names:tc:xacml:1.0:status:ok"
+        }
+      },
+      "Obligations": [
+        {
+          "id": "urn:altinn:obligation:authenticationLevel1",
+          "attributeAssignment": [
+
+            {
+              "attributeId": "urn:altinn:obligation-assignment:1",
+              "value": "2",
+              "category": "urn:altinn:minimum-authenticationlevel",
+              "dataType": "http://www.w3.org/2001/XMLSchema#integer",
+              "issuer": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
 
 
