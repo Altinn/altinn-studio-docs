@@ -65,5 +65,5 @@ GET /exchange/{tokenProvider}?test={bool}
 
 ## Architecture
 
-The [application construction components](/authentication/architecture/)
+The [application construction components](/authentication/reference/architecture/)
 for details how this component is constructued.
