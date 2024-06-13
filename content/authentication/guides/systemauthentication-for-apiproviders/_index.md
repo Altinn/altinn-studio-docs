@@ -14,6 +14,7 @@ weight: 1
 
 You can read about the background of the system user concept [here](../../what-do-you-get/systemuser/).
 
+
 ## Prerequisites
 
 To use a system user as an API provider, the following prerequisites must be met:
@@ -31,6 +32,7 @@ The token itself is validated as a standardized Maskinporten token. [Read more a
 A system user token contains more details than a regular Maskinporten token.
 
 Below is an example token.
+
 
 ### JWT Token
 
@@ -65,7 +67,6 @@ Below is an example token.
 }
 
 ```
-
 Verdiene som er viktige for API leverandør er.
 
 
