@@ -1,8 +1,10 @@
 ---
 title: Application construction components - Altinn Platform Authentication
-linktitle: Architecture
+linktitle: Arkitektur
 description: The authentication component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.
 tags: [architecture, solution]
+aliases:
+  - /authentication/architecture/
 ---
 
 The application runs on port 5040.

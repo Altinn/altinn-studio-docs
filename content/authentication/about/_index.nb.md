@@ -1,6 +1,6 @@
 ---
-title: About Altinn Authentication
-linktitle: About
+title: Om Altinn Autentisering
+linktitle: Om Altinn Autentisering
 description: Altinn-autentiseringskomponenten gir funksjonalitet for å autentisere brukere og systemer som får tilgang til Altinn-apper og Altinn-plattformen.
 toc: false
 weight: 1
