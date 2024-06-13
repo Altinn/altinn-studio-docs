@@ -4,7 +4,7 @@ linktitle: What do you get
 description: The authentication component provides functionality to authenticate users and systems accessing Altinn Apps and Altinn platform.
 tags: [platform, authentication]
 toc: true
-weight: 1
+weight: 2
 ---
 
 The authentication component is not an ID-provider and only create authentication sessions based on external ID-providers.
@@ -69,5 +69,5 @@ GET /exchange/{tokenProvider}?test={bool}
 
 ## Architecture
 
-The [application construction components](/authentication/architecture/)
+The [application construction components](/authentication/reference/architecture/)
 for details how this component is constructued.

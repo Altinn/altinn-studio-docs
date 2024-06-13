@@ -44,7 +44,6 @@ Dette er en unik ID som vil benyttes for å identifisere programvaren. Gyldige t
 Dette er klientidene for integrasjonen som er opprettet i Maskinporten. 
 Det er kun pålogginger med Maskinportenintegrasjoner som er knyttet mot oppgitte klientider.
 
-
 ```json
 {
  "SystemTypeId": "visma_supertax",
@@ -72,18 +71,20 @@ Når system skal autentisere seg som systembrukeren til kunden må JWT grant for
 
 ```json
 {
-  "aud": "https://maskinporten.no/",
-  "iss": "0e85a8ba-77e8-4a6c-a0f5-74fc328a9ffb",
-
-  "scope": "digdir:dialogporten skatteetaten:mva"
-
-   "authorization_details": [ {
-    "type": "urn:altinn:systemuser",
-    "systemuser_org": {
-       "authority" : "iso6523-actorid-upis",  
-       "ID": "0192:999888777"  
-    }
-}]
+  "aud" : "https://maskinporten.no",
+  "sub" : "fc9a8287-e7cb-45e5-b90e-123048d32d85",
+  "authorization_details" : [ {
+    "systemuser_org" : {
+      "authority" : "iso6523-actorid-upis",
+      "ID" : "0192:310385980"
+    },
+    "type" : "urn:altinn:systemuser"
+  } ],
+  "scope" : "krr:global/kontaktinformasjon.read",
+  "iss" : "fc9a8287-e7cb-45e5-b90e-123048d32d85",
+  "exp" : 1718124835,
+  "iat" : 1718124715,
+  "jti" : "89365ecd-772b-4462-a4de-ac36af8ef3e2"
 }
 
 ```
@@ -94,19 +95,27 @@ Når system skal autentisere seg som systembrukeren til kunden må JWT grant for
 
 ```json
 {
-  "iss": "https://maskinporten.no",
-  "scope":       "some_scope",
-  "client_id":   "my_client_id",
-  "exp": 1520589928,
-  "iat": 1520589808,
-  "jti": "asdjkl5434jlkfds"
-  
-  "authorization_details": [ {
-    "type": "urn:altinn:systemuser",
-    "systemuser_id": [ "a_unique_identifier_for_the_systemuser" ], 
-    "systemuser_org": {"authority" : "iso6523-actorid-upis",  "ID": "0192:999888777" },
-    "system_id": "a_unique_identifier_for_the_system",
-  }]
+  "authorization_details" : [ {
+    "type" : "urn:altinn:systemuser",
+    "systemuser_org" : {
+      "authority" : "iso6523-actorid-upis",
+      "id" : "0192:314168267"
+    },
+    "systemuser_id" : [ "ebe4a681-0a8c-429e-a36f-8f9ca942b59f" ],
+    "system_id" : "matrix_test"
+  } ],
+  "scope" : "krr:global/kontaktinformasjon.read",
+  "iss" : "https://test.maskinporten.no/",
+  "client_amr" : "private_key_jwt",
+  "token_type" : "Bearer",
+  "exp" : 1718175135,
+  "iat" : 1718175015,
+  "client_id" : "fc9a8287-e7cb-45e5-b90e-123048d32d85",
+  "jti" : "-SpfU--1Zn_Oqvkpjwu3oVn--VLcPzSAwjqyiP6zBEw",
+  "consumer" : {
+    "authority" : "iso6523-actorid-upis",
+    "ID" : "0192:314330897"
+  }
 }
 
 ```
