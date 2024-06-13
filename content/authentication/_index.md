@@ -2,7 +2,7 @@
 title: Authentication
 description: The authentication component provides functionality to authenticate users and systems accessing Altinn Apps and Altinn platform.
 tags: [platform, authentication]
-toc: true
+toc: false
 weight: 1
 ---
 
@@ -54,6 +54,24 @@ weight: 1
         </div>
         <div class="a-list-container mb-2 mx-auto mx-lg-6">
             <ul class="a-list a-list-noIcon">
+                <li class="a-dotted a-clickable a-list-hasRowLink">
+                    <a href="guides/systemauthentication-for-systemproviders/" class="a-list-rowLink">
+                        <div class="row">
+                            <div class="col">
+                                Use systemusers as system vendor
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="a-dotted a-clickable a-list-hasRowLink">
+                    <a href="guides/systemauthentication-for-apiproviders/" class="a-list-rowLink">
+                        <div class="row">
+                            <div class="col">
+                                Use systemusers as API provider
+                            </div>
+                        </div>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
