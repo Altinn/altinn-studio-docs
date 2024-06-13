@@ -42,30 +42,24 @@ Below is an example token.
     "type" : "urn:altinn:systemuser",
     "systemuser_org" : {
       "authority" : "iso6523-actorid-upis",
-      "id" : "0192:310385980"
+      "id" : "0192:314168267"
     },
-    "systemuser_id" : [ "a545ca29-7fb8-4810-a2f2-0be171cb2a26" ],
-    "system_id" : "systembrukar_test"
+    "systemuser_id" : [ "ebe4a681-0a8c-429e-a36f-8f9ca942b59f" ],
+    "system_id" : "matrix_test"
   } ],
   "scope" : "krr:global/kontaktinformasjon.read",
-  "supplier" : {
-    "authority" : "iso6523-actorid-upis",
-    "ID" : "0192:991825827"
-  },
-  "iss" : "https://maskinporten.dev/",
+  "iss" : "https://test.maskinporten.no/",
   "client_amr" : "private_key_jwt",
   "token_type" : "Bearer",
-  "exp" : 1718124836,
-  "delegation_source" : "https://maskinporten.dev/",
-  "iat" : 1718124716,
+  "exp" : 1718175135,
+  "iat" : 1718175015,
   "client_id" : "fc9a8287-e7cb-45e5-b90e-123048d32d85",
-  "jti" : "8aVHR7gkm7HDqakr8mfs8rAQQR_OAU4WG0BXUPi5Leg",
+  "jti" : "-SpfU--1Zn_Oqvkpjwu3oVn--VLcPzSAwjqyiP6zBEw",
   "consumer" : {
     "authority" : "iso6523-actorid-upis",
     "ID" : "0192:314330897"
   }
 }
-
 ```
 Verdiene som er viktige for API leverandør er.
 
