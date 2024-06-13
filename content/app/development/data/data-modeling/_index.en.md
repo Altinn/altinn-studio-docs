@@ -92,6 +92,18 @@ The data model defines the data that can be submitted through an app and the all
 Currently, we only support uploading XSD data models.
 When uploading an XSD model `<model>.xsd`, the tool will generate the following files: `<model>.cs`, `<model>.schema.json`, and `<model>.metadata.json` (see [Data Model Files](#data-model-files-for-applications)).
 
+{{% notice warning %}}
+Depending on the XSD schema, the Studio generator will output `decimal` properties for the C# classes.
+_decimal_ is a 128bit floating point number that is not fully representable in the JavaScript (JS) frontend of an Altinn app.
+If you use calculations to fill _decimal_ property values you may end up using enough precision that some decimal digits
+are lost when deserialized in JS. In this case you will not be able to update the property from the frontend.
+If you calculate values with _decimal_ precision, you should make sure the end result fits into `double`/64bit precision. Example:
+```csharp
+dataModel.Result = (decimal)(double)(3.33m / 3.333m);
+```
+In the future we will improve data model generation to mitigate this.
+{{% /notice %}}
+
 1. Click _Last opp datamodell_ (_Upload Data Model_) from the homepage if there are no existing data models or _Last opp_ (_Upload_) from the
    toolbar at the top of the tool.
 2. Select an XSD data model file in the file picker and click _Last opp_.
