@@ -2,7 +2,7 @@
 title: Authentication
 description: The authentication component provides functionality to authenticate users and systems accessing Altinn Apps and Altinn platform.
 tags: [platform, authentication]
-toc: true
+toc: false
 weight: 1
 ---
  <div class="row adocs-featuredBlocks">
