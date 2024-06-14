@@ -16,7 +16,7 @@
         <!-- Begin .a-globalNav -->
         <nav class="a-globalNav " id="primary-nav">
           <a href="{{ with .Site.GetPage `/`}}{{.RelPermalink}}{{end}}" class="a-globalNav-logo">
-            <img src="/images/altinnstudio-logo-white.svg" alt="Altinn Studio logo" class="adocs-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn Studio logo" class="adocs-logo">
             <span class="sr-only">{{ T "to-the-frontpage"}}</span>
           </a>
 
@@ -27,16 +27,19 @@
                 {{- partial "language-switcher.html" . -}}
               </li>
               <li>
-                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/altinn-studio`}}{{.RelPermalink}}{{end}}">apps</a>
+                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/altinn-studio`}}{{.RelPermalink}}{{end}}">studio</a>
               </li>
               <li>
-                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/api`}}{{.RelPermalink}}{{end}}">api</a>
+                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/authorization`}}{{.RelPermalink}}{{end}}">authorization</a>
               </li>
               <li>
-                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/community`}}{{.RelPermalink}}{{end}}">community</a>
+                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/broker`}}{{.RelPermalink}}{{end}}">broker</a>
               </li>
               <li>
-                <a class="a-nav-link a-hvr-underline " href="{{ with .Site.GetPage `/technology`}}{{.RelPermalink}}{{end}}">tech</a>
+                <a class="a-nav-link a-hvr-underline " href="{{ with .Site.GetPage `/correspondence`}}{{.RelPermalink}}{{end}}">correspondence</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="{{ with .Site.GetPage `/api`}}{{.RelPermalink}}{{end}}">api</a>
               </li>
               <li class="nav-item d-none d-md-block">
                 <button class="a-collapse-title nav-link adocs-toggle-search" type="button" data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent" onclick="setTimeout(function(){getElementById('search-by').focus();}, 10); return true;">

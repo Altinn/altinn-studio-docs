@@ -42,9 +42,9 @@
 - id: and-see-your-inbox
   translation: and see your inbox
 - id: learn-about-studio
-  translation: Learn about Altinn Studio
+  translation: Your guide to a new generation of Altinn
 - id: jumbotron
-  translation: Everything you need to know to be able to create both simple and advanced applications with Altinn Studio.
+  translation: Everything you need to know to create applications with Altinn Studio and start using other Altinn 3 functionality.
 
   # Blocks
 - id: how-we-design
