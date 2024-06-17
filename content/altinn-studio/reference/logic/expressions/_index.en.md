@@ -39,6 +39,23 @@ fields are hidden in the form using dynamic expressions. This also applies when 
 line to `App/appsettings.json` after upgrading the [nuget packages](../../maintainance/dependencies#nuget)
 to `7.2.0` or later:
 
+{{<content-version-selector classes="border-box">}}
+
+{{<content-version-container version-label="v8">}}
+
+```json {linenos=false,hl_lines=[5]}
+  "AppSettings": {
+    "OpenIdWellKnownEndpoint": "http://localhost:5101/authentication/api/v1/openid/",
+    "RuntimeCookieName": "AltinnStudioRuntime",
+    "RegisterEventsWithEventsComponent": false,
+    "RemoveHiddenData": true
+  },
+```
+
+{{</content-version-container>}}
+
+{{<content-version-container version-label="v7">}}
+
 ```json {linenos=false,hl_lines=[5]}
   "AppSettings": {
     "OpenIdWellKnownEndpoint": "http://localhost:5101/authentication/api/v1/openid/",
@@ -47,6 +64,9 @@ to `7.2.0` or later:
     "RemoveHiddenDataPreview": true
   },
 ```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 ### Structure and syntax
 

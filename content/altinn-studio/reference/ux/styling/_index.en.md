@@ -5,14 +5,6 @@ toc: true
 weight: 30
 ---
 
-{{%notice warning%}}
-
-This is new functionality. Setup must be done manually for now. Support for setup through Altinn Studio will be launched shortly.
-
-**NOTE:** to use this functionality you need app-frontend version 3. See [this link](/community/changelog/app-frontend/v3/breaking-changes/) for changes that is required in the app.
-
-{{%/notice%}}
-
 ## Components placed side by side (grid)
 
 It is possible to place components side by side in a form. This functionality is based on the grid system from [Material-UI](https://material-ui.com/components/grid/), and is similar to the grid system from bootstrap.
@@ -30,23 +22,23 @@ been defined, where you can fill in desired width on the different sizes. Here i
 been set to cover half the screen (some props are removed for readability):
 
 ```json
- {
-     {
-        "id": "input-felt1",
-        "type": "Input",
-        ... 
-        "grid": {
-          "xs": 6,
-        }
-      },
-      {
-        "id": "input-felt2",
-        "type": "Input",
-        ...
-        "grid": {
-          "xs": 6
-        }
-      }
+{
+  {
+    "id": "input-felt1",
+    "type": "Input",
+    ... 
+    "grid": {
+      "xs": 6,
+    }
+  },
+  {
+    "id": "input-felt2",
+    "type": "Input",
+    ...
+    "grid": {
+      "xs": 6
+    }
+  }
 }
 
 ```
@@ -62,27 +54,27 @@ It is important to consider the user experience when performing these changes, a
 If you in the example above wanted the components to take up the whole width of the screen, until the screen passed 960px in size, you could set up the following layout:
 
 ```json
- {
-     {
-        "id": "input-felt1",
-        "type": "Input",
-        ... 
-        "grid": {
-          "xs": 12,
-          "sm": 12,
-          "md": 6
-        }
-      },
-      {
-        "id": "input-felt2",
-        "type": "Input",
-        ...
-        "grid": {
-          "xs": 12,
-          "sm": 12,
-          "md": 6
-        }
-      }
+{
+  {
+    "id": "input-felt1",
+    "type": "Input",
+    ... 
+    "grid": {
+      "xs": 12,
+      "sm": 12,
+      "md": 6
+    }
+  },
+  {
+    "id": "input-felt2",
+    "type": "Input",
+    ...
+    "grid": {
+      "xs": 12,
+      "sm": 12,
+      "md": 6
+    }
+  }
 }
 
 ```
@@ -112,17 +104,17 @@ Here, you will have the opportunity to control the width of both the outer grid 
 
 ```json
 {
-     {
-        "id": "input-felt1",
-        "type": "Input",
-        ... 
-        "grid": {
-          "xs": 12,
-          "innerGrid": {
-              "xs": 6
-          }
-        }
+  {
+    "id": "input-felt1",
+    "type": "Input",
+    ... 
+    "grid": {
+      "xs": 12,
+      "innerGrid": {
+        "xs": 6
       }
+    }
+  }
 }
 
 ```
@@ -147,19 +139,19 @@ such a layout on the smallest screens, so feel free to use `md`.
 
 ```json
 {
-     {
-        "id": "input-felt1",
-        "type": "Input",
-        ... 
-        "grid": {
-          "labelGrid": {
-              "md": 8
-          },
-          "innerGrid": {
-              "md": 4
-          }
-        }
+  {
+    "id": "input-felt1",
+    "type": "Input",
+    ... 
+    "grid": {
+      "labelGrid": {
+        "md": 8
+      },
+      "innerGrid": {
+        "md": 4
       }
+    }
+  }
 }
 ```
 
@@ -175,31 +167,32 @@ By default radiobuttons and checkboxes with only two options will be displayed o
 you need to change/add "layout":"column" in the component configuration.
 ```json
 {
-        "id": "radio-under-hverandre",
-        "type": "RadioButtons",
-        "textResourceBindings": {
-          "title": "Vil du har to linjer når det kun er to svaralternativ?"
-        },
-        "dataModelBindings": {
-          "simpleBinding": "someRadiobuttonFieldWith2Options"
-        },
-        "options": [
-          {
-            "value": "1",
-            "label": "Ja"
-          },
-          {
-            "value": "0",
-            "label": "Nei"
-          }
-        ],
-        "required": true,
-        "layout": "column"
-      }
+  "id": "radio-under-hverandre",
+  "type": "RadioButtons",
+  "textResourceBindings": {
+    "title": "Vil du har to linjer når det kun er to svaralternativ?"
+  },
+  "dataModelBindings": {
+    "simpleBinding": "someRadiobuttonFieldWith2Options"
+  },
+  "options": [
+    {
+      "value": "1",
+      "label": "Ja"
+    },
+    {
+      "value": "0",
+      "label": "Nei"
+    }
+  ],
+  "required": true,
+  "layout": "column"
+}
 ```
 
 ## Formatting numbers
-Support has now been implemented to be able to specify formatting of numbers in input fields. This is done by adding a property `formatting` to
+
+Numbers inside of input fields can be formatted. This is done by adding a property `formatting` to
 the input component. Formatting options are documented in a [JSON-schema](https://altinncdn.no/schemas/json/component/number-format.schema.v1.json),
 and will appear automatically in intellisense when editing the component in e.g. VSCode.
 
@@ -231,6 +224,39 @@ The formatting is for frontend display only, and the numbers added to an input f
   }
 },
 ```
+
+The following properties can be controlled with [dynamic expressions](../../logic/expressions):
+
+- `formatting.number.prefix`
+- `formatting.number.suffix`
+- `formatting.number.thousandSeparator`
+- `formatting.number.decimalSeparator`
+
+### Prefix and suffix
+
+You can also show a prefix and/or suffix next to an input field like this:
+
+![Prefix and suffix next to the input field](prefix-suffix.png)
+
+This is configured in `textResourceBindings` like so:
+
+```json {hl_lines=["6-7"]} {linenos=inline}
+{
+  "id": "numberComponent",
+  "type": "Input",
+  "textResourceBindings": {
+    "title": "Number",
+    "prefix": "Prefix",
+    "suffix": "Suffix"
+  },
+  "dataModelBindings": {
+    "simpleBinding": "someNumberField"
+  },
+  "required": true,
+  "readOnly": false,
+},
+```
+
 ### Language-sensitive number formatting
 It is possible to assign dynamic formatting of numbers in input fields. You can choose between ```"currency"``` and ```"unit"```. Based on selected language in the app, they formatting thousand and decimal separators and prefix/suffix. 
 You can optionally add a `position`, and valid values are ```"prefix"``` and ```suffix```.  
