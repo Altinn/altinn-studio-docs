@@ -38,6 +38,23 @@ feltene er skjult i skjemaet ved hjelp av dynamiske uttrykk. Dette gjelder også
 linje i `App/appsettings.json` etter at man har oppgradert [nuget-pakkene](../../maintainance/dependencies#nuget)
 til `7.2.0` eller nyere:
 
+{{<content-version-selector classes="border-box">}}
+
+{{<content-version-container version-label="v8">}}
+
+```json {linenos=false,hl_lines=[5]}
+  "AppSettings": {
+    "OpenIdWellKnownEndpoint": "http://localhost:5101/authentication/api/v1/openid/",
+    "RuntimeCookieName": "AltinnStudioRuntime",
+    "RegisterEventsWithEventsComponent": false,
+    "RemoveHiddenData": true
+  },
+```
+
+{{</content-version-container>}}
+
+{{<content-version-container version-label="v7">}}
+
 ```json {linenos=false,hl_lines=[5]}
   "AppSettings": {
     "OpenIdWellKnownEndpoint": "http://localhost:5101/authentication/api/v1/openid/",
@@ -46,6 +63,9 @@ til `7.2.0` eller nyere:
     "RemoveHiddenDataPreview": true
   },
 ```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 ### Oppbygging og syntaks
 
