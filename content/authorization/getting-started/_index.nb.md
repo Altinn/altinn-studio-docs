@@ -11,3 +11,7 @@ weight: 3
 For å aktivere ressursadministrasjon i Altinn Studio må du og din organisasjon følge noen få trinn.
 
 [Les guide](resource-admin-studio)
+
+
+## Tilgangslister i Altinn Studio
+
