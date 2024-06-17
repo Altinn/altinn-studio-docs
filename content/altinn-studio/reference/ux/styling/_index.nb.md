@@ -1,6 +1,9 @@
-______________________________________________________________________
-
-## title: Styling description: Hvordan styre styling, formatering og grid-layout for en app. toc: true weight: 30
+---
+title: Styling
+description: Hvordan styre styling, formatering og grid-layout for en app.
+toc: true
+weight: 30
+---
 
 ## Sidestilte komponenter (grid)
 
