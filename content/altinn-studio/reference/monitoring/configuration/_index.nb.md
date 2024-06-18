@@ -58,7 +58,8 @@ using OpenTelemetry.Trace;
 
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
-    // Legg til Console eksport på de forskjellige providerne, bare som et eksempel.
+    // Konfigurer eksport for telemetrien (metrics, traces, logs).
+    // Her bruker vi konsoll-eksport som eksempel.
     // Dette kunne også sendt telemetrien til en custom backend.
     services.ConfigureOpenTelemetryMeterProvider(builder =>
         builder.AddConsoleExporter(
@@ -80,7 +81,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 }
 {{< / highlight >}}
 
-For å lære mer om hva som kan konfigureres og hvorda, se de respektive dokumentene i opentelemetry-dotnet repo:
+For å lære mer om hva som kan konfigureres og hvordan, se de respektive dokumentene i opentelemetry-dotnet repo:
 
 * [Customizing OpenTelemetry .NET SDK for Tracing](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/trace/customizing-the-sdk#customizing-opentelemetry-net-sdk-for-tracing)
 * [Customizing OpenTelemetry .NET SDK for Logs](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/logs/customizing-the-sdk#customizing-opentelemetry-net-sdk-for-logs)

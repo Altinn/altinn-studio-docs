@@ -57,7 +57,8 @@ using OpenTelemetry.Trace;
 
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
-    // Configure Console export across OTel providers, just for demonstration purposes.
+    // Configure exporters for telemetry signals (metrics, traces and logging). 
+    // Here console exporters are used for demonstration purposes.
     // This could also ship your telemetry to a custom backend.
     services.ConfigureOpenTelemetryMeterProvider(builder =>
         builder.AddConsoleExporter(
