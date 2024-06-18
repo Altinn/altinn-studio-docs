@@ -33,6 +33,9 @@ ignoreErrors = ["error-remote-getjson"]
 [markup.goldmark]
 duplicateResourceFiles = true
 
+[markup.goldmark.parser]
+autoHeadingIDType = "github-ascii"
+
 [markup.goldmark.parser.attribute]
 block = true
 title = true
@@ -45,7 +48,7 @@ style = "dracula"
 
 [markup.tableOfContents]
 startLevel = 2
-endLevel = 2
+endLevel = 5
 ordered = false
 
 [blackfriday]
