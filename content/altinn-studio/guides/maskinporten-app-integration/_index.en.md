@@ -101,14 +101,15 @@ service with the appropriate configuration in the function `RegisterCustomAppSer
 services.AddMaskinportenHttpClient<SettingsJwkClientDefinition, AppClient>(config.GetSection("MaskinportenSettings"));
 ```
 
-Then we need to add the Azure Key Vault configuration provider to our host. Start by adding these package references:
+Then we need to add the Azure Key Vault configuration provider to our host.
+Start by adding these package references in the project file (`App.csproj`) - get the latest version from NuGet.org:
 
 {{< highlight csproj "linenos=false" >}}
-        <PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.3.1" />
-        <PackageReference Include="Azure.Identity" Version="1.11.4" />
+<PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.3.1" />
+<PackageReference Include="Azure.Identity" Version="1.11.4" />
 {{< / highlight >}}
 
-Then we can complete the configuration:
+Then we can complete the configuration by adding the Azure Key Vault configuration provider:
 
 {{< highlight csharp "linenos=false,hl_lines=1 8-30" >}}
 using Azure.Identity;
