@@ -40,14 +40,43 @@ This is relevant if you
 * Customize sampling
 * Need to export telemetry to a different backend
 
-In this case, the configuration only adds an additional exporter to the respective provider-builders.
+In this case, the configuration only adds an additional exporter (`ConsoleExporter`) to the respective provider-builders.
 
-{{< highlight csharp "linenos=false,hl_lines=3-5" >}}
+First, we update the `App.csproj` file:
+
+{{< highlight csproj "linenos=false" >}}
+        <PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.9.0" />
+{{< / highlight >}}
+
+Then we update the configuration code in `Program.cs`:
+
+{{< highlight csharp "linenos=false,hl_lines=1-3 7-25" >}}
+using OpenTelemetry.Logs;
+using OpenTelemetry.Metrics;
+using OpenTelemetry.Trace;
+
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
-    services.ConfigureOpenTelemetryMeterProvider(builder => builder.AddConsoleExporter());
-    services.ConfigureOpenTelemetryTracerProvider(builder => builder.AddConsoleExporter());
-    services.Configure<OpenTelemetryLoggerOptions>(builder => builder.AddConsoleExporter());
+    // Configure exporters for telemetry signals (metrics, traces and logging). 
+    // Here console exporters are used for demonstration purposes.
+    // This could also ship your telemetry to a custom backend.
+    services.ConfigureOpenTelemetryMeterProvider(builder =>
+        builder.AddConsoleExporter(
+            (_, readerOptions) =>
+            {
+                // Lower the export interval so that we get metrics more often
+                readerOptions.PeriodicExportingMetricReaderOptions.ExportIntervalMilliseconds = 5_000;
+                readerOptions.PeriodicExportingMetricReaderOptions.ExportTimeoutMilliseconds = 4_000;
+            }
+        )
+    );
+    services.ConfigureOpenTelemetryTracerProvider(builder =>
+    {
+        // Customize sampling
+        builder.SetSampler(new ParentBasedSampler(new AlwaysOnSampler()));
+        builder.AddConsoleExporter();
+    });
+    services.ConfigureOpenTelemetryLoggerProvider(builder => builder.AddConsoleExporter());
 }
 {{< / highlight >}}
 
