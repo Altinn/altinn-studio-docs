@@ -42,8 +42,7 @@ For å gi full støtte for en ny komponent i Studio, er det noen få ting å gj�
   - Hvis du _**ikke**_ kjørte skriptet, må json-skjema definisjonsfilen plasseres i denne mappen: `packages/ux-editor/src/testing/schemas/component`
 - Legge til komponenten i `ComponentType`-enumen, alfabetisk, i denne filen: `packages/ux-editor/src/types/ComponentType.ts`
 - Legge til komponenten i komponentlisten i filen: `packages/ux-editor/src/data/formItemConfig.ts` ved å først legge den til, alfabetisk, i `formItemConfigs`-objektet, med passende standardkonfigurasjoner og et ikon,
-deretter legge den til i en passende liste i samme fil; **schemaComponents**, **advancedItems** eller **textComponents**
-// HVA MED **confOnScreenComponents** OG **paymentLayoutComponents** - BØR DE NEVNES HER
+deretter legge den til i en passende liste i samme fil; **schemaComponents**, **advancedItems** eller **textComponents**.
 - Legge til tekster for den nye komponenten i `nb.json`:
   - En tittel i formatet **ux_editor.component_title.[COMPONENT_TYPE]**
   - Hvis komponenten har noen nye egenskaper som _ikke_ eksisterer fra før, må disse også legges til i formatet **ux_editor.component_properties.[PROPERTY_NAME]**
