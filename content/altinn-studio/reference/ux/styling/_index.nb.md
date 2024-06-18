@@ -5,14 +5,6 @@ toc: true
 weight: 30
 ---
 
-{{%notice warning%}}
-
-Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio kommer snart.
-
-**MERK:** for å benytte denne funksjonaliteten må man ha app-frontend versjon 3. Se [denne lenken](/nb/community/changelog/app-frontend/v3/breaking-changes/) om endringer som må til i appen.
-
-{{%/notice%}}
-
 ## Sidestilte komponenter (grid)
 
 Det er mulig å sidestille komponenter i skjema. Denne funksjonaliteten baserer seg på grid systemet til [Material-UI](https://material-ui.com/components/grid/), og vil også være kjent om man er kjent med grid-systemet til boostrap.
@@ -28,23 +20,23 @@ Følgende størrelser med tilhørende breakpoints er definert:
 For å sidestille komponenter horisontalt må man gjøre noen små endringer i formlayout. Det er definert en egen property `grid` som man kan fylle inn bredde ønsket på de ulik størrelsene. Her er et eksempel hvor to input-felt har blitt satt til å ta halve skjermen (enkelte props er fjernet for lesbarhet):
 
 ```json
- {
-     {
-        "id": "input-felt1",
-        "type": "Input",
-        ... 
-        "grid": {
-          "xs": 6,
-        }
-      },
-      {
-        "id": "input-felt2",
-        "type": "Input",
-        ...
-        "grid": {
-          "xs": 6
-        }
-      }
+{
+  {
+    "id": "input-felt1",
+    "type": "Input",
+    ... 
+    "grid": {
+      "xs": 6,
+    }
+  },
+  {
+    "id": "input-felt2",
+    "type": "Input",
+    ...
+    "grid": {
+      "xs": 6
+    }
+  }
 }
 
 ```
@@ -60,27 +52,27 @@ Det er viktig å tenke på brukeropplevelsen når man gjør slike endringer, og 
 Om man i eksempelet over hadde ønsket at komponentene skulle ta hele bredden frem til skjermen ble større enn 960px så kunne man satt opp følgende layout:
 
 ```json
- {
-     {
-        "id": "input-felt1",
-        "type": "Input",
-        ... 
-        "grid": {
-          "xs": 12,
-          "sm": 12,
-          "md": 6
-        }
-      },
-      {
-        "id": "input-felt2",
-        "type": "Input",
-        ...
-        "grid": {
-          "xs": 12,
-          "sm": 12,
-          "md": 6
-        }
-      }
+{
+  {
+    "id": "input-felt1",
+    "type": "Input",
+    ... 
+    "grid": {
+      "xs": 12,
+      "sm": 12,
+      "md": 6
+    }
+  },
+  {
+    "id": "input-felt2",
+    "type": "Input",
+    ...
+    "grid": {
+      "xs": 12,
+      "sm": 12,
+      "md": 6
+    }
+  }
 }
 
 ```
@@ -89,12 +81,13 @@ Da ville komponentene først legge seg sidestilt i det sluttbruker faktisk sitte
 
 ### innerGrid og labelGrid
 
-Utover det å sette bredde på `grid` i komponenten har vi også lagt til mulighet til å styre `innerGrid` og `labelGrid`. 
+Utover det å sette bredde på `grid` i komponenten har vi også lagt til mulighet til å styre `innerGrid` og `labelGrid`.
 Dette gir deg mulighet til å påvirke på samme måte hvor stor bredde label og input skal ta. Dette brukes typisk når du
 vil gjøre input feltet mindre (for å gi en visuell markering av at det forventes kort svar), eller hvis du ønsker å vise
 label og input på samme linje (som i en tabell).
 
 Du kan tenke på komponenten på denne måten:
+
 ```html
 <Grid id="grid"> 
     <Grid id="labelGrid">
@@ -110,53 +103,53 @@ Her vil det da være mulig å styre bredden til både ytterste grid og den inner
 
 ```json
 {
-     {
-        "id": "input-felt1",
-        "type": "Input",
-        ... 
-        "grid": {
-          "xs": 12,
-          "innerGrid": {
-              "xs": 6
-          }
-        }
+  {
+    "id": "input-felt1",
+    "type": "Input",
+    ... 
+    "grid": {
+      "xs": 12,
+      "innerGrid": {
+          "xs": 6
       }
+    }
+  }
 }
 
 ```
 
 Her har man satt at komponent griden skal ta hele bredden, mens man begrenser komponentens input til å kun ta halve bredden.
 InnerGrid vil kunne styres for komponentene:
+
 - Kort svar (Input)
 - Langt svar (TextArea)
 - Filopplaster (FileUpload)
 - Nedtrekksliste (Dropdown)
 - Datovelger (Datepicker)
 
-
 Eksempelet over vil gi følgende output:
 
 ![InnerGrid eksempel output](inner-grid.png "InnerGrid eksempel output")
 
-En tabellvisning med sidestilt label vil komme frem hvis du setter `labelGrid` og `innerGrid` slik at summen blir 12 
+En tabellvisning med sidestilt label vil komme frem hvis du setter `labelGrid` og `innerGrid` slik at summen blir 12
 (eller mindre). Dette kan være lurt hvis du har en lang liste med relaterte spørsmål. Det er ofte lurt å ikke bruke
 et slikt layout på de minste skjermene, så bruk gjerne `md`
 
 ```json
 {
-     {
-        "id": "input-felt1",
-        "type": "Input",
-        ... 
-        "grid": {
-          "labelGrid": {
-              "md": 8
-          },
-          "innerGrid": {
-              "md": 4
-          }
-        }
+  {
+    "id": "input-felt1",
+    "type": "Input",
+    ... 
+    "grid": {
+      "labelGrid": {
+          "md": 8
+      },
+      "innerGrid": {
+          "md": 4
       }
+    }
+  }
 }
 ```
 
@@ -165,40 +158,43 @@ Det vil se omtrent slik ut
 ![labelGrid eksempel output](label-grid.png "labelGrid eksempel output")
 
 ## To radioknappalternativer eller avkrysningsbokser under hverandre
+
 Som standard kommer radioknapper eller checkboxer som har kun to svaralternativer, på én linje. Dersom man ønsker at svarene skal ligge på hver sin linje slik:
 
 ![SvaralternativUnderHverandre](radio-vertical-align.jpeg "Vertical align radiobuttons")
 
 må man legge til "layout":"column" for radioknappelementet på siden.
+
 ```json
 {
-        "id": "radio-under-hverandre",
-        "type": "RadioButtons",
-        "textResourceBindings": {
-          "title": "Vil du har to linjer når det kun er to svaralternativ?"
-        },
-        "dataModelBindings": {
-          "simpleBinding": "someRadiobuttonFieldWith2Options"
-        },
-        "options": [
-          {
-            "value": "1",
-            "label": "Ja"
-          },
-          {
-            "value": "0",
-            "label": "Nei"
-          }
-        ],
-        "required": true,
-        "layout": "column"
-      }
+  "id": "radio-under-hverandre",
+  "type": "RadioButtons",
+  "textResourceBindings": {
+    "title": "Vil du har to linjer når det kun er to svaralternativ?"
+  },
+  "dataModelBindings": {
+    "simpleBinding": "someRadiobuttonFieldWith2Options"
+  },
+  "options": [
+    {
+      "value": "1",
+      "label": "Ja"
+    },
+    {
+      "value": "0",
+      "label": "Nei"
+    }
+  ],
+  "required": true,
+  "layout": "column"
+}
 ```
 
 ## Formatering av tall
-Det er nå implementert støtte for å kunne spesifisere formatering av tall i _inputfelt_. Dette gjøres ved å legge til en property `formatting` på
+
+Tall inne i _inputfelt_ kan formatteres. Dette gjøres ved å legge til en property `formatting` på
 Input-komponenten. Formateringsmuligheter er dokumentert i et [JSON-schema](https://altinncdn.no/schemas/json/component/number-format.schema.v1.json),
-og vil dukke opp automatisk i intellisense når man redigerer komponenten i f.eks. VSCode. 
+og vil dukke opp automatisk i intellisense når man redigerer komponenten i f.eks. VSCode.
 
 Eksempelet under vil resultere i et inputfelt for tall, hvor tallet vil bli formatert med `,` mellom hver tusen, og `$` foran tallet.
 
@@ -229,16 +225,50 @@ Formateringen er kun for visning i frontend, og tallene som legges inn i et inpu
 },
 ```
 
+Følgende egenskaper kan styres ved hjelp av [dynamiske uttrykk](../../logic/expressions):
+
+- `formatting.number.prefix`
+- `formatting.number.suffix`
+- `formatting.number.thousandSeparator`
+- `formatting.number.decimalSeparator`
+
+### Prefiks og suffiks
+
+Man kan også vise en prefix og/eller suffix ved siden av tekst-feltet som dette:
+
+![Prefiks og suffiks ved siden av tekst-feltet](prefix-suffix.png)
+
+Dette konfigureres i `textResourceBindings` som dette:
+
+```json {hl_lines=["6-7"]} {linenos=inline}
+{
+  "id": "numberComponent",
+  "type": "Input",
+  "textResourceBindings": {
+    "title": "Number",
+    "prefix": "Prefix",
+    "suffix": "Suffix"
+  },
+  "dataModelBindings": {
+    "simpleBinding": "someNumberField"
+  },
+  "required": true,
+  "readOnly": false,
+},
+```
+
 ### Dynamisk tall formattering basert på språk
-Det er mulig å legge til dynamisk formattering av tallverdier i inputfelt. Kan velge mellom ```"currency"``` og ```"unit"```. Basert på valgt språk i appen kan de formattere tusen- og desimalskille samt prefix/suffix.
-Den valgfrie opsjonen *position* kan settes til ```"prefix"``` eller ```suffix```, og brukes til å styre hvor symbolet/enheten vises.
-Standard er `prefix` for *currency* og `suffix` for *unit*. 
 
-Eksempler:  
->```"currency": "NOK", position: "prefix"```  
->```"unit": "kilogram", position: "suffix"```
+Det er mulig å legge til dynamisk formattering av tallverdier i inputfelt. Kan velge mellom `"currency"` og `"unit"`. Basert på valgt språk i appen kan de formattere tusen- og desimalskille samt prefix/suffix.
+Den valgfrie opsjonen *position* kan settes til `"prefix"` eller `suffix`, og brukes til å styre hvor symbolet/enheten vises.
+Standard er `prefix` for *currency* og `suffix` for *unit*.
 
-Apputviker kan velge å la noen av delene være uavhengig av språket. Egenskaper i ```number``` overstyrer enkeltelementene i dynamisk formattering. Konfigurasjonen under gjør at på både norsk og engelsk vises prefix som **kr** og tusenskille med mellomrom.
+Eksempler:
+
+> `"currency": "NOK", position: "prefix"`\
+> `"unit": "kilogram", position: "suffix"`
+
+Apputviker kan velge å la noen av delene være uavhengig av språket. Egenskaper i `number` overstyrer enkeltelementene i dynamisk formattering. Konfigurasjonen under gjør at på både norsk og engelsk vises prefix som **kr** og tusenskille med mellomrom.
 
 ```json {hl_lines=["5-10"]} {linenos=inline}
 {
@@ -255,13 +285,14 @@ Apputviker kan velge å la noen av delene være uavhengig av språket. Egenskape
 },
 ```
 
-Gyldige verdier for *currency* er basert ISO 4217 valutakoder, f.eks. **NOK** for norske kroner. [Liste av gyldige valutaer](https://github.com/unicode-org/cldr/blob/main/common/validity/currency.xml)  
+Gyldige verdier for *currency* er basert ISO 4217 valutakoder, f.eks. **NOK** for norske kroner. [Liste av gyldige valutaer](https://github.com/unicode-org/cldr/blob/main/common/validity/currency.xml)
 
 Gyldige verdier for *unit* er for øyeblikket følgende:
-> celsius **|** centimeter **|** day **|** degree **|** foot **|** gram **|** hectare **|** hour **|** inch **|** kilogram **|** kilometer **|** liter **|** meter **|** milliliter **|** millimeter **|** millisecond **|** minute **|** month **|** percent **|** second **|** week **|** year 
 
+> celsius **|** centimeter **|** day **|** degree **|** foot **|** gram **|** hectare **|** hour **|** inch **|** kilogram **|** kilometer **|** liter **|** meter **|** milliliter **|** millimeter **|** millisecond **|** minute **|** month **|** percent **|** second **|** week **|** year
 
 ## Justering av tekst i input felter
+
 Når skjemaet inneholder en liste med tall som summeres er det vanlig å justere teksten i input feltet til høyre slik som
 når man summerer på papir og slik det vises i Excel. Dette kan gjøres ved å sette `"align": "right"` under `formatting`
 på input componenten. Andre gyldige verdier er `"center"` og `"left"`.
@@ -282,3 +313,4 @@ på input componenten. Andre gyldige verdier er `"center"` og `"left"`.
   }
 },
 ```
+
