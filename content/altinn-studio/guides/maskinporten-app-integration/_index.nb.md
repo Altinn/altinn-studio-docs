@@ -95,7 +95,7 @@ deploye applikasjonen på nytt._
 
 ## Sett opp applikasjonen til å bruke Maskinporten-integrasjonen
 
-Når du endrer applikasjonen for å bruke Maskinporten-integrasjonen, må vi tilpasse filen `program.cs`.
+Når du endrer applikasjonen for å bruke Maskinporten-integrasjonen, må vi tilpasse filen `Program.cs`.
 
 For det første må vi legge til tjenesten MaskinportenHttpClient
 med riktig konfigurasjon i funksjonen `RegisterCustomAppServices`:
@@ -104,43 +104,46 @@ med riktig konfigurasjon i funksjonen `RegisterCustomAppServices`:
 services.AddMaskinportenHttpClient<SettingsJwkClientDefinition, AppClient>(config.GetSection("MaskinportenSettings"));
 ```
 
-Deretter må vi legge til følgende funksjon `ConnectToKeyVault` nederst i filen:
+Deretter må vi legge til Azure Key Vault sin configuration provider til koden vår.
+Da trenger vi disse pakkereferansene i prosjektfila (`App.csproj`) - husk å velge siste versjoner fra NuGet.org:
 
-```csharp
-static void ConnectToKeyVault(IConfigurationBuilder config)
-{
-    IConfiguration stageOneConfig = config.Build();
-    KeyVaultSettings keyVaultSettings = new KeyVaultSettings();
-    stageOneConfig.GetSection("kvSetting").Bind(keyVaultSettings);
-    if (!string.IsNullOrEmpty(keyVaultSettings.ClientId) &&
-        !string.IsNullOrEmpty(keyVaultSettings.TenantId) &&
-        !string.IsNullOrEmpty(keyVaultSettings.ClientSecret) &&
-        !string.IsNullOrEmpty(keyVaultSettings.SecretUri))
-    {
-        string connectionString = $"RunAs=App;AppId={keyVaultSettings.ClientId};" +
-                                  $"TenantId={keyVaultSettings.TenantId};" +
-                                  $"AppKey={keyVaultSettings.ClientSecret}";
-        AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider(connectionString);
-        KeyVaultClient keyVaultClient = new KeyVaultClient(
-            new KeyVaultClient.AuthenticationCallback(
-                azureServiceTokenProvider.KeyVaultTokenCallback));
-        config.AddAzureKeyVault(
-            keyVaultSettings.SecretUri, keyVaultClient, new DefaultKeyVaultSecretManager());
-    }
-}
-```
+{{< highlight csproj "linenos=false" >}}
+<PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.3.1" />
+<PackageReference Include="Azure.Identity" Version="1.11.4" />
+{{< / highlight >}}
 
-Til slutt må denne funksjonen deretter kalles i
-funksjonen `ConfigureWebHostBuilder`. Funksjonen finnes allerede,
-så bare endre innholdet til følgende:
+Så kan vi konfigurere opp Azure Key Vault configuration provider:
 
-```csharp
+{{< highlight csharp "linenos=false,hl_lines=1 8-30" >}}
+using Azure.Identity;
+
+// ...
+
 void ConfigureWebHostBuilder(IWebHostBuilder builder)
 {
-    builder.ConfigureAppConfiguration((_, configBuilder) =>
-    {
-        configBuilder.LoadAppConfig(args);
-        ConnectToKeyVault(configBuilder);
-    });
+    builder.ConfigureAppWebHost(args);
+    builder.ConfigureAppConfiguration(
+        (context, configuration) =>
+        {
+            var section = context.Configuration.GetSection("kvSetting");
+            var keyVaultUri = section.GetValue<string>("SecretUri");
+            var clientId = section.GetValue<string>("ClientId");
+            var clientSecret = section.GetValue<string>("ClientSecret");
+            var tenantId = section.GetValue<string>("TenantId");
+
+            if (
+                string.IsNullOrWhiteSpace(keyVaultUri)
+                || string.IsNullOrWhiteSpace(clientId)
+                || string.IsNullOrWhiteSpace(clientSecret)
+                || string.IsNullOrWhiteSpace(tenantId)
+            )
+                return;
+
+            configuration.AddAzureKeyVault(
+                new Uri(keyVaultUri),
+                new ClientSecretCredential(tenantId, clientId, clientSecret)
+            );
+        }
+    );
 }
-```
+{{< / highlight >}}

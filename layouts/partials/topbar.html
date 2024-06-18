@@ -23,23 +23,14 @@
           <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">{{ T "show-hide-menu"}}</span></button>
           <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
             <ul id="exCollapsingNavbar">
-              <li class="d-md-none dropdown">
-                {{- partial "language-switcher.html" . -}}
-              </li>
-              <li>
-                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/altinn-studio`}}{{.RelPermalink}}{{end}}">studio</a>
-              </li>
-              <li>
-                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/authorization`}}{{.RelPermalink}}{{end}}">authorization</a>
-              </li>
-              <li>
-                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/broker`}}{{.RelPermalink}}{{end}}">broker</a>
-              </li>
-              <li>
-                <a class="a-nav-link a-hvr-underline " href="{{ with .Site.GetPage `/correspondence`}}{{.RelPermalink}}{{end}}">correspondence</a>
+              <li class="nav-item dropdown d-md-block">
+                {{- partial "product-switcher.html" . -}}
               </li>
               <li>
                 <a class="a-nav-link a-hvr-underline " href="{{ with .Site.GetPage `/api`}}{{.RelPermalink}}{{end}}">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="{{ with .Site.GetPage `/community`}}{{.RelPermalink}}{{end}}">community</a>
               </li>
               <li class="nav-item d-none d-md-block">
                 <button class="a-collapse-title nav-link adocs-toggle-search" type="button" data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent" onclick="setTimeout(function(){getElementById('search-by').focus();}, 10); return true;">
