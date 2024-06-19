@@ -50,8 +50,10 @@
         <div class="col-12 last-modified">{{T "Last-Modified"}}{{ .Page.Lastmod | time.Format ":date_medium" }}</div>
       </div>
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-2">
               {{- partialCached "menu.html" . -}}
+            </div>
+            <div class="col-sm-8">
 
         <script>
           {{ template "activeMenus" dict "page" . "value" (printf "$(\"li.dd-item a[href='%s']\").parent().addClass(\"active\");" .RelPermalink) }}
@@ -101,11 +103,6 @@
               </h1>
               <p class="a-leadText" id="leadText">{{.Description}}</p>
             {{- end -}}
-          {{- end -}}
-
-          {{- if .Params.toc -}}
-            <h2 class="toc-header">{{T "on-this-page"}}</h2>
-            {{- .TableOfContents -}}
           {{- end -}}
 
 {{- define "breadcrumb" -}}

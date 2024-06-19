@@ -251,6 +251,38 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     }
 }
 
+/* TOC */
+#tocpanel {
+    background-color: transparent;
+    color: #000;
+    position: sticky;
+    top: 0;
+    width: 270px;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 27px;
+    -webkit-font-smoothing: antialiased;
+    will-change: min-height;
+    transition: all 0ms ease-out;
+}
+
+@media (min-width: 768px) {
+    #tocpanel {
+        top: 0;
+        position: sticky;
+        float: right;
+        width: 200px;
+        left: 0;
+    }
+}
+
+@media (max-width: 1200px) {
+    #tocpanel {
+        display: none;
+        width: 0;
+    }
+}
+
 /* SIDEBAR */
 #sidebar {
     background-color: transparent;
@@ -508,7 +540,8 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 
 @media only all and (min-width: 768px) {
     #body {
-        margin-left: 256px;
+        margin-left: 36px;
+        margin-right: 24px
     }
 }
 

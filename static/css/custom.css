@@ -588,3 +588,7 @@ input[type="search"] {
     font-weight: bold; 
     font-size: 2rem !important;
   }
+
+  #TableOfContents > ol > li > ol {
+    margin-left: 1.5rem;
+  }
