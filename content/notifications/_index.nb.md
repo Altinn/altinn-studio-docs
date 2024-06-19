@@ -1,7 +1,7 @@
 ---
-title: Notifications
-linktitle: Notifications
-description: The notification component provides capabilities for one way communication with citizens and individuals.
+title: Varsling
+linktitle: Varsling
+description: Varslingskomponenten muliggjør enveis-kommunikasjon via e-post og SMS med innbyggere og virksomheter.
 toc: false
 weight: 20
 aliases:
@@ -16,7 +16,7 @@ aliases:
             <div class="a-illustration-icon">
                 <img src="./authorization-1.drawio.svg">
                 <div class="a-illustration-overlay">
-                    <span class="sr-only">About Altinn Notifications</span>
+                    <span class="sr-only">Om Altinn Varsing</span>
                 </div>
             </div>
         </div>
@@ -39,15 +39,6 @@ aliases:
                             </div>
                         </div>
                     </a>
-                </li>                
-                <li class="a-dotted a-clickable a-list-hasRowLink">
-                    <a href="reference/architecture" class="a-list-rowLink">
-                        <div class="row">
-                            <div class="col">
-                                Architecture
-                            </div>
-                        </div>
-                    </a>
                 </li>
             </ul>
         </div>
@@ -55,11 +46,11 @@ aliases:
     <div class="col-12 col-lg-6 mb-5">
         <div style="text-align: center;">
             <h2 class="a-h3">Get started</h2>
-            <p class="a-js-truncate-2">Send your first notification</p>
+            <p class="a-js-truncate-2">Create your first resource</p>
             <div class="a-illustration-icon">
               <img src="./authorization-1.drawio.svg">
                 <div class="a-illustration-overlay">
-                    <span class="sr-only">Send your first notification</span>
+                    <span class="sr-only">Create your first resource</span>
                 </div>
             </div>
         </div>
