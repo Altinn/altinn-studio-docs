@@ -1,87 +1,71 @@
 ---
-title: Understanding Subjects in Generic Events
-description: "When producing generic events, it's crucial to understand the role of the subject field. 
-The subject is a key part of the event metadata, providing context about the event's focus. 
-It is typically a reference to the entity that the event is about. 
-And can also be used to support the authorization of access to the cloud event itself."
+title: Understanding Subjects in Cloud Events
+description: "Exploring the role of the subject field in generic cloud events and its importance in event processing and authorization within Altinn."
 weight: 20
 ---
 
-## The subject in a cloud event
+## The Subject in Cloud Events
 
-In generic events Altinn does not process or manipulate the cloud event data in any way, and there is 
-no requirement that Altinn have knowledge about the what or who the cloud event relates to. 
-
-In the context of Altinn, the subject field could refer to entities like a party or a person.
-For example, if an event is triggered when a party updates their information, the subject of this event could be /party/{partyId}.
-But in the context of an event producer the subject field could just as well refer to an airport or wether station. 
+In generic cloud events, Altinn does not alter the event data and does not require specific knowledge of the event's details or entities.
+The subject field in Altinn can represent various entities, such as parties or individuals. 
+For example, if an event triggers when a party updates their information, the subject could be `/party/{partyId}`. 
+However, in different contexts, the subject might refer to entities like airports or weather stations.
 
 ## Choosing the Right Subject
-When deciding on the _subject_ for your events, consider the following:
 
-- __Relevance__: The _subject_ should be directly related to the event. 
-If the event pertains to a _party_, then the _subject_ should be that _party_.
+When selecting a subject for your events, keep the following principles in mind:
 
-- __Uniqueness__: The _subject_ should uniquely identify the entity it refers to. 
-This is why we use identifiers like _partyId_ or _organizationNumber_ in the subject.
+- **Relevance**: The subject should directly relate to the event content. 
+  For instance, if the event concerns a party, the subject should identify that specific party.
 
-- __Consistency__: Use a consistent format for your _subject_ fields. 
-This makes it easier for consumers of your events to understand and process them.
+- **Uniqueness**: Use identifiers like `partyId` or `organizationNumber` to uniquely identify the entity referenced by the subject.
 
-## Authorization and Subjects
+- **Consistency**: Maintain a consistent format for subject fields across all events. 
+  This consistency aids consumers in understanding and processing events effectively.
 
-One of the strengths of Altinn Events is its capability to publish and subscribe to events across various contexts 
-while effectively utilizing Altinn Authorization for access control of the events.
+## Authorization and Subject Management
 
-When an event is received, our system checks if the sender has the necessary permissions to perform the action on the resource. 
-This is done by referencing the XACML (eXtensible Access Control Markup Language) policy for the Altinn app or resource.
+Altinn Events enable seamless publication and subscription across different contexts, 
+leveraging Altinn Authorization for robust access control.
 
-Likewise, when a system request access to an event either through a subscription or polling, 
-the policy is referenced to see if the system consuming the event that the rights to do so. 
+Upon receiving an event, our system verifies the sender's permissions 
+based on the XACML policy associated with the Altinn application or resource.
 
-For instance, consider a scenario where different systems are allowed to consume events related to themselves.
-If a system tries to consume an event with a subject different from itself, the authorization will fail.
-This is because the XACML policy checks whether the consumer has the necessary permissions for the stated subject.
-If the consumer and the subject do not match, the policy will not grant the necessary permissions,
-thus preventing unauthorized access to events.
+Similarly, when a system requests event access via subscription or polling, 
+the system's rights are validated against the policy to ensure alignment with the event's subject.
 
-This ensures that a system can only consume events that are related to itself, maintaining the integrity and security of the data.
+For example, consider scenarios where systems consume events related to their own context.
+If a system attempts to consume an event with a mismatched subject, authorization fails.
+The XACML policy ensures that only events relevant to the consuming system are accessed, maintaining data integrity and security.
 
-This to state the importance of choosing the correct subject for your events. 
-Incorrect subjects could lead to events being rejected due to failed authorization checks.
+Choosing the correct subject is crucial as incorrect subjects can lead to event rejection due to failed authorization checks.
 
-## Subject Types supported by Altinn Authorization
+## Types of Subjects Supported by Altinn Authorization
 
-If a subject is included in a published cloud event or a subject filter is included in an event subscription 
-the subject attribute is always passed on to Altinn Authorization when determining wether publishing or consumption
-is authorized. 
+When a subject is included in a published cloud event or subscription filter, 
+Altinn Authorization evaluates whether publishing or consumption is authorized.
 
-Some subject types are known to Altinn making it possible to enrich the authorization request with details about 
-the subject such as rights and roles in defined in Altinn. If the subject itself such as partyId or organization number
-isn't enough to determine if the active party is authorized to complete an action, you will need to use one of our
-default subject types or pre-defined URN subject types.
+Altinn supports predefined subject types that enrich authorization requests
+with detailed rights and roles information, such as `partyId` or `organizationNumber`.
 
-__Default Subject Types__
-Our application has several default subject types, represented as string constants:
+### Default Subject Types
+Altinn offers several default subject types, formatted as string constants:
+- User: Represents a user subject. Format: (`/user/{userId}`).
+- Org (service owner): Represents a Altinn service owner subject. Format: (`/org/{orgId}`).
+- Party: Represents a party subject. Format: (`/party/{partyId}`).
+- Organization: Represents an organization subject. Format: (`/organisation/{organisationId}`).
 
-- UserPrefix: Represents a user subject. The format is /user/{userId}.
-- OrgPrefix: Represents an organization subject. The format is /org/{orgId}.
-- PartyPrefix: Represents a party subject. The format is /party/{partyId}.
-- OrganisationPrefix: Represents an organisation subject. The format is /organisation/{organisationId}.
-These prefixes are used to construct the subject string that is passed to the AddSubjectAttribute method.
+### URN Subject Types
+URN (Uniform Resource Name) subject types are also supported:
+- Organization: Represents an organization. Format: `urn:altinn:organization:identifier-no:{organization number}`
+- Person: Represents a person. Format: `urn:altinn:person:identifier-no:{national identity number}`
 
-__URN Subject Types__
-URN (Uniform Resource Name) subject types are also supported. These are represented as string constants:
+### Generic URN Support
 
-- The format is urn:altinn:organization:identifier-no:{organization number}
-- The format is urn:altinn:person:identifier-no:{national identity number}
+Altinn allows for flexible definition of generic URN subject types, accommodating custom requirements beyond predefined types.
+Ensure URNs conform to the syntax standards defined in [RFC 2141](https://datatracker.ietf.org/doc/html/rfc2141).
 
-__Generic URN Support__
-Our application also supports generic URN subject types. 
-This means you can use any valid URN as a subject type, not just the ones we have predefined. 
-This provides flexibility in defining your own subject types based on your specific requirements.
-BE aware that if subject is a central part of your authorization there needs to be a 1:1 between
-the subject attribute in your policy and the subject defined in the cloud event and/or subscription 
-as Altinn Authorization cannot enrich the data. 
+However, it's crucial to note: If the subject is pivotal for authorization, there must be a strict 1:1 correspondence between the subject attribute 
+in your policy and the subject defined in the cloud event or subscription. 
+Altinn Authorization does not enrich data for generic URNs that are not predefined.
 
-When using generic URNs, ensure they conform to the URN syntax standards as defined in [RFC 2141](https://datatracker.ietf.org/doc/html/rfc2141.html).
