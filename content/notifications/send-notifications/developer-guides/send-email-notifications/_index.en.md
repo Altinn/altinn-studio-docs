@@ -74,6 +74,12 @@ An internal reference for notification creator to lookup or identify the notific
 the future. Could be a case number or another id. It is recommended, but not required,
 that the sender's reference is unique within the organization's notification orders.
 
+#### resourceId
+Type: _string_
+
+The ID of the Altinn resource the notifications should be related to as the ID appears in the Altinn Resource Registry. 
+For an Altinn app with ID _{org}/{app}_ the format of the resourceId is `app_{org}_{app}` e.g. app_ttd_apps-test.
+
 ## Response
 
 ### Response codes
@@ -96,7 +102,7 @@ Find a short description of each property below.
 #### orderId
 Type: _GUID_
 
-The generated id for the notification order.
+The generated ID for the notification order.
 
 
 #### recipientLookup\*

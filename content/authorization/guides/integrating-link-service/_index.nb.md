@@ -22,7 +22,15 @@ For å få tilgang til Altinns API trenger tjenesteier følgende
 - Scope for avgiverliste for tjenesteeierbruker "altinn:accessmanagement/authorizedparties.resourceowner"
 - Scope for PDP "altinn:authorization/authorize"
 
-Dette kan bestilles hos Altinn tjenester@altinn.no
+Dette kan bestilles hos Altinn servicedesk@altinn.no
+
+Når API scopes er tildelt organisasjonen kan man sette opp en integrasjon i Maskinporten som tildeles scopene.
+
+Ved å autentisere seg mot Maskinporten med den aktuelle klientene får man da en token som er autorisert til disse API.
+
+Dette maskinporten tokenet må veksles inn til et Altinn token. 
+
+Oppsett av Maskinportenklient og innveksling er beskrevet [her](/api/authentication/maskinporten/).
 
 ## Sette opp tilgangs håndtering i egen applikasjon
 
@@ -101,6 +109,37 @@ Nedenfor vises eksempel på kall som autoriserer **01017012345** for **read** p�
 
 ```
 
+Response
+
+```json
+{
+  "Response": [
+    {
+      "Decision": "Permit",
+      "Status": {
+        "StatusCode": {
+          "Value": "urn:oasis:names:tc:xacml:1.0:status:ok"
+        }
+      },
+      "Obligations": [
+        {
+          "id": "urn:altinn:obligation:authenticationLevel1",
+          "attributeAssignment": [
+
+            {
+              "attributeId": "urn:altinn:obligation-assignment:1",
+              "value": "2",
+              "category": "urn:altinn:minimum-authenticationlevel",
+              "dataType": "http://www.w3.org/2001/XMLSchema#integer",
+              "issuer": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
 
 

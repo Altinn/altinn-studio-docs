@@ -17,7 +17,7 @@ aliases:
             <div class="a-illustration-icon">
                 <img src="./authorization-1.drawio.svg">
                 <div class="a-illustration-overlay">
-                    <span class="sr-only">About Altinn Studio</span>
+                    <span class="sr-only">About Altinn Authorization</span>
                 </div>
             </div>
         </div>
@@ -27,7 +27,7 @@ aliases:
                     <a href="about" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
-                                About Altinn Studio
+                                About Altinn Authorization
                             </div>
                         </div>
                     </a>

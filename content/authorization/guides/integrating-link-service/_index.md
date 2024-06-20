@@ -21,7 +21,15 @@ To access Altinn's API, the service owner needs the following
 - Scope for sender list for service owner user "altinn:accessmanagement/authorizedparties.resourceowner"
 - Scope for PDP "altinn:authorization/authorize"
 
-This can be ordered from Altinn services@altinn.no
+This can be ordered from Altinn servicesdesk@altinn.no
+
+When API scopes are assigned to the organization, an integration in Maskinporten can be set up and assigned the scopes.
+
+By authenticating against Maskinporten with the relevant client, one then receives a token that is authorized for these APIs.
+
+This Maskinporten token must be exchanged for an Altinn token.
+
+The setup of the Maskinporten client and the exchange process are described [here](/api/authentication/maskinporten/).
 
 ## Set up access management in your own application
 
@@ -99,6 +107,40 @@ Below is an example of a call that authorizes **01017012345** for **read** on th
 }
 
 ```
+
+Response
+
+```json
+{
+  "Response": [
+    {
+      "Decision": "Permit",
+      "Status": {
+        "StatusCode": {
+          "Value": "urn:oasis:names:tc:xacml:1.0:status:ok"
+        }
+      },
+      "Obligations": [
+        {
+          "id": "urn:altinn:obligation:authenticationLevel1",
+          "attributeAssignment": [
+
+            {
+              "attributeId": "urn:altinn:obligation-assignment:1",
+              "value": "2",
+              "category": "urn:altinn:minimum-authenticationlevel",
+              "dataType": "http://www.w3.org/2001/XMLSchema#integer",
+              "issuer": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+
 
 ### Multi Resource integration with PDP
 
