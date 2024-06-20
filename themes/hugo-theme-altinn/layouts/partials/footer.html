@@ -85,7 +85,8 @@
     <script src="{{"js/stickysidebar/sticky-sidebar.js" | relURL}}"></script>
 
     <style>
-      #TableOfContents > ul > li {margin-top: 1em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents {overflow: visible;}
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
       #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
       #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
       #TableOfContents a {border-bottom: 2px solid transparent;}
@@ -97,9 +98,13 @@
         static init() {
           if(document.querySelector('#TableOfContents')) {
             this.tocLinks = document.querySelectorAll('#TableOfContents a');
-            this.tocLinks.forEach(link => link.classList.add('transition', 'duration-200'))
             this.headers = Array.from(this.tocLinks).map(link => {
-              return document.querySelector(`#${CSS.escape(link.href.split('#')[1])}`);
+              var s = link.href.split('#')[1];
+              s = s.replace("%C3%A6", "æ");
+              s = s.replace("%C3%B8", "ø");
+              s = s.replace("%C3%A5", "å");
+
+              return document.getElementById(s);
             })
             this.ticking = false;
             window.addEventListener('scroll', (e) => {

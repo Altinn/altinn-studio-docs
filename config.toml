@@ -34,7 +34,7 @@ ignoreErrors = ["error-remote-getjson"]
 duplicateResourceFiles = true
 
 [markup.goldmark.parser]
-autoHeadingIDType = "github-ascii"
+autoHeadingIDType = "github"
 
 [markup.goldmark.parser.attribute]
 block = true
