@@ -100,9 +100,9 @@
             this.tocLinks = document.querySelectorAll('#TableOfContents a');
             this.headers = Array.from(this.tocLinks).map(link => {
               var s = link.href.split('#')[1];
-              s = s.replace("%C3%A6", "æ");
-              s = s.replace("%C3%B8", "ø");
-              s = s.replace("%C3%A5", "å");
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
 
               return document.getElementById(s);
             })
