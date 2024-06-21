@@ -11,7 +11,7 @@ toc: true
 
 GET /order/{id}/notifications/email
 
-{id} represents the id of the notification order to retrieve notifications for.
+{id} represents the ID of the notification order to retrieve notifications for.
 
 ## Authentication
 
@@ -25,7 +25,7 @@ See [Authentication and Authorization](../../../api/#authentication--authorizati
 
 ### Response codes
 - 200 OK: The email notifications were successfully retrieved
-- 404 Not Found: No order matching the provided id were found 
+- 404 Not Found: No order matching the provided ID were found 
 
   Refer to problem details in response body for further information.
 - 401 Unauthorized: Indicates a missing, invalid or expired authorization header.
@@ -45,7 +45,7 @@ and serialized as a JSON string.
 #### orderId
 Type: _Guid_
 
-The id of the notification order the listed notifications are related to
+The ID of the notification order the listed notifications are related to
 
 #### sendersReference
 Type: _string_
@@ -67,7 +67,7 @@ Type: _List\<[EmailNotificationWithResult](https://github.com/Altinn/altinn-noti
 
 A list of the generated notifications with send result.
 Each notification will include the following properties: 
-  - id: the id of the notification
+  - id: the ID of the notification
   - succeeded: a boolean indicating whether the send status is a successful one.
   - _recipient_: the contact details of the recipient that the notification is sent to.
   - _sendStatus_: the send status of the notification. 
