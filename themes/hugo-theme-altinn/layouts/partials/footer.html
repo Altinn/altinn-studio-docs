@@ -85,7 +85,8 @@
     <script src="{{"js/stickysidebar/sticky-sidebar.js" | relURL}}"></script>
 
     <style>
-      #TableOfContents {overflow: visible;}
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none; /* for Chrome, Safari, and Opera */}
       #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
       #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
       #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
