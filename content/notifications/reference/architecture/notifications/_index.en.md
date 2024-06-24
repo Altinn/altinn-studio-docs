@@ -105,11 +105,11 @@ a schedule.
 
 The following cron jobs are defined: 
 
-| Job name               | Schedule    | Description                                                                           |
-| ---------------------- | ----------- | ------------------------------------------------------------------------------------- |
-| pending-orders-trigger | */1 * * * * | Sends request to endpoint to start processing of past due orders                      |
-| send-email-trigger     | */1 * * * * | Sends request to endpoint to start the process of sending all new email notifications |
-| send-sms-trigger       | */1 * * * * | Sends request to endpoint to start the process of sending all new sms notifications   |
+| Job name               | Schedule     | Description                                                                           |
+| ---------------------- | ------------ | ------------------------------------------------------------------------------------- |
+| pending-orders-trigger | */1 * * * *  | Sends request to endpoint to start processing of past due orders                      |
+| send-email-trigger     | */1 * * * *  | Sends request to endpoint to start the process of sending all new email notifications |
+| send-sms-trigger       | * 7-16 * * * | Sends request to endpoint to start the process of sending all new sms notifications   |
 
 Each cron job runs in a Docker container [based of the official docker image for curl](https://hub.docker.com/r/curlimages/curl)
 and sends a request to an endpoints in the [Trigger controller](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/TriggerController.cs).
