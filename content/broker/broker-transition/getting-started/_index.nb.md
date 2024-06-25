@@ -1,6 +1,6 @@
 ---
-Title: Hvordan komme i gang
-LinkTitle: Hvordan komme i gang
+Title: Komme i gang med Formidling Overgangsløsning
+LinkTitle: Komme i gang
 Descriptions: Hvordan komme i gang med å bruke Formidling overgangsløsningen fra Altinn 2 til Altinn 3
 Tags: [Løsning, formidling, overgang, guide]
 TOC: False
@@ -11,8 +11,8 @@ Weight: 1
 For å bruke Formidling overgangsløsningen i Altinn 2 for å opprette, laste opp og hente fil metadata, må en tjenesteeier fullføre følgende trinn.
 1. Ha en eksisterende Altinn 2 Formidlingstjeneste.
 2. Ha eller lag en tilsvarende Altinn 3 Formidlings-ressurs.
-Se hvordan du kommer i gang med Altinn 3 Formidling [her](../../user-guides/get-started/).
-1. <!-- TODO: Oppsett av rettigheter for Altinn 3-ressursen-->
+Se hvordan du kommer i gang med Altinn 3 Formidling [her](../../getting-started/).
+<!-- TODO: Oppsett av rettigheter for Altinn 3-ressursen-->
 <!-- TODO: Bør vi ha lenker her til de forskjellige tjenestene som brukes av tjenesteeiere for å lage de forskjellige tjenestene?-->
 1. Be om et overgangsoppsett fra Altinn 2 tjenesten til Altinn 3 ressursen. Bestem dato for når dette skal gå i live. (For å minimere risiko for foreldreløse data i Altinn 2 lagring)
 2. Gå live med overgangsløsning mens du oppfordrer forbrukerne til å migrere til Altinn Formidling.

@@ -4,7 +4,7 @@ linktitle: Transition Solution
 description: Altinn 2 Broker Transition to Altinn 3 Broker architecture. 
 tags: [broker, transition, architecture]
 toc: false
-weight: 90
+weight: 60
 ---
 
 ## About

@@ -1,6 +1,6 @@
 ---
-title: How To Get Started
-linktitle: How To Get Started
+title: Getting started with Altinn Broker Transition Solution
+linktitle: Getting Started
 description: How to get started using the Broker Transition solution from Altinn 2 to Altinn 3
 tags: [solution, broker, transition, guide]
 toc: false
@@ -11,7 +11,7 @@ weight: 1
 In order to use the Broker Transition solution in Altinn 2 to create, upload and retrieve file metadata, a service owner must complete the following steps.
 1. Have an existing Altinn 2 Broker Service.
 2. Have or create a corresponding Altinn 3 Broker Resource. 
-See how to get started with Altinn Broker [here](../../user-guides/get-started/).
+See how to get started with Altinn Broker [here](../../getting-started/).
 1. <!-- TODO: Set up of rights for the Altinn 3 Resource>
 <!-- TODO: Should we have links here to the different services used by service owners to create the different services? -->
 1. Request a transition setup from the Altinn 2 Service to the Altinn 3 Resource. Determine the date for when this should go live. (To minimize the risk of orphaned data in Altinn 2 storage)
