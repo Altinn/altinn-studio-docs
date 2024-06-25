@@ -93,11 +93,14 @@ __Altinn user profile__
 End users can register their preferred contact details for notifications related to organizations in their
 Altinn profile. These contact details can be used when the recipient is identified by organization number.
 
+## SMS send window
+Altinn sends SMS notifications daily between 9 AM and 5 PM (Norway time). 
+Any SMS scheduled outside of these hours will be sent at 9 AM the following day.
+
+Notification orders can be placed at any time. 
+
+
 <!--
-### How Altinn identifies contact details
-{{% notice info %}}
-TODO: legg inn en folkelig beskrivelse av dataflyten vi kom fram til i møtet med Terje, Torkel og Stephanie
-{{% /notice %}}
 
 ## Persistence of sent notifications
 

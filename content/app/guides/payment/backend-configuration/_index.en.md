@@ -4,9 +4,9 @@ description: Set up your backend to handle payment.
 weight: 1
 ---
 
-### 1. Create a data type to store payment information:
+### 1. Create two data types to store payment information:
 
-This data type is used to store information and status about the payment. Put it in the `dataTypes` array in `App/config/applicationmetadata.json`. ID can be set to something else, but it must match the ID entered in `paymentDataType` in the process step, as shown in step 2.
+This data type is used to store information and status about the payment. Put it in the `dataTypes` array in `App/config/applicationmetadata.json`.
 
 ```json
 {
@@ -19,6 +19,20 @@ This data type is used to store information and status about the payment. Put it
 }
 ```
 
+This data type is used to store the PDF-receipt for the payment. Configure it next to the other data type.
+
+```json
+{
+    "id": "paymentReceiptPdf",
+    "allowedContentTypes": [
+        "application/pdf"
+    ],
+    "maxCount": 1,
+    "minCount": 0,
+}
+```
+
+ The IDs can be set to something else, but they must match the IDs entered in `paymentDataType` and `paymentReceiptPdfDataType` in the process step, as shown in step 2.
 
 ### 2. Extend the app process with payment task:
 
@@ -62,6 +76,7 @@ Payment uses three user actions. If the Altinn user interface is used by the app
           </altinn:actions>
           <altinn:paymentConfig>
             <altinn:paymentDataType>paymentInformation</altinn:paymentDataType>
+            <altinn:paymentReceiptPdfDataType>paymentReceiptPdf</altinn:paymentReceiptPdfDataType>
           </altinn:paymentConfig>
         </altinn:taskExtension>
       </bpmn:extensionElements>
@@ -86,7 +101,7 @@ Payment uses three user actions. If the Altinn user interface is used by the app
       <bpmn:incoming>Flow_g1_end</bpmn:incoming>
     </bpmn:endEvent>
 ```
-The value of this node: `<altinn:paymentDataType>paymentInformation</altinn:paymentDataType>` must match the ID of the data type you configured in the previous step.
+The value of this node: `<altinn:paymentDataType>paymentInformation</altinn:paymentDataType>` must match the ID of the data type you configured in the previous step. Same for the pdf-receipt data type.
 
 ### 3. Ensure correct authorization for payment process task:
 

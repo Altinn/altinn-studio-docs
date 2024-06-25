@@ -40,7 +40,7 @@
                   {{- end -}}
               </div>
               */}}
-
+              
             </div><!-- End adocs-content -->
 
             {{- if and (or .IsPage .IsSection) .Site.Params.editURL -}}
@@ -57,6 +57,12 @@
             {{- end -}}
         </section>
         </div> <!-- End col-sm-12 -->
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <!--span class="toc-header">{{T "on-this-page"}}</span-->
+            {{- .TableOfContents -}}
+          </div>
+        </div>
       </div> <!-- End row -->
     </div>
     </div> <!-- End container -->
@@ -78,7 +84,65 @@
     <script src="{{"js/stickysidebar/ResizeSensor.js" | relURL}}"></script>
     <script src="{{"js/stickysidebar/sticky-sidebar.js" | relURL}}"></script>
 
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none; /* for Chrome, Safari, and Opera */}
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
     <script>
+      // Thanks https://dakotaleemartinez.com/tutorials/how-to-add-active-highlight-to-table-of-contents/
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
       var a = new StickySidebar('#sidebar', {
         topSpacing: 20,
         bottomSpacing: 60,
@@ -86,10 +150,22 @@
         innerWrapperSelector: '.sidebar__inner',
         minWidth: 768
       });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
     </script>
     <link href="{{"mermaid/mermaid.css" | relURL}}" type="text/css" rel="stylesheet"/>
     <script src="{{"mermaid/mermaid.js" | relURL}}"></script>
-    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
 
     {{- partial "custom-footer.html" . -}}
   </body>
