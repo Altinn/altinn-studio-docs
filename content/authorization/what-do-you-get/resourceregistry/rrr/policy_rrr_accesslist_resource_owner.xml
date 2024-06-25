@@ -18,10 +18,9 @@
             <xacml:AttributeDesignator AttributeId="urn:altinn:serviceresource" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
           </xacml:Match>
            <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
-            <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skd_approved_banks</xacml:AttributeValue>
+            <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skd/approved_banks</xacml:AttributeValue>
             <xacml:AttributeDesignator AttributeId="urn:altinn:accesslistmember:resourceowner" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
           </xacml:Match>
-        </xacml:AllOf>
         </xacml:AllOf>
       </xacml:AnyOf>
       <xacml:AnyOf>
