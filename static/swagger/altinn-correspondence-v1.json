@@ -55,7 +55,6 @@
                         "name": "attachmentId",
                         "in": "path",
                         "required": true,
-                        "style": "simple",
                         "schema": {
                             "type": "string",
                             "format": "uuid"
@@ -528,7 +527,6 @@
                     "dataLocationUrl",
                     "dataType",
                     "expirationTime",
-                    "IntendedPresentation",
                     "name",
                     "restrictionName",
                     "sendersReference",
@@ -564,9 +562,6 @@
                     "dataType": {
                         "minLength": 1,
                         "type": "string"
-                    },
-                    "IntendedPresentation": {
-                        "$ref": "#/components/schemas/IntendedPresentationTypeExt"
                     },
                     "restrictionName": {
                         "minLength": 1,
@@ -620,7 +615,6 @@
                     "dataLocationUrl",
                     "dataType",
                     "expirationTime",
-                    "IntendedPresentation",
                     "name",
                     "restrictionName",
                     "sendersReference",
@@ -656,9 +650,6 @@
                     "dataType": {
                         "minLength": 1,
                         "type": "string"
-                    },
-                    "IntendedPresentation": {
-                        "$ref": "#/components/schemas/IntendedPresentationTypeExt"
                     },
                     "restrictionName": {
                         "minLength": 1,
@@ -712,7 +703,7 @@
                 "required": [
                     "dataLocationType",
                     "dataType",
-                    "intendedPresentation",
+                    "IsMessageBody",
                     "name",
                     "restrictionName",
                     "sendersReference"
@@ -750,8 +741,8 @@
                         "minLength": 1,
                         "type": "string"
                     },
-                    "intendedPresentation": {
-                        "$ref": "#/components/schemas/IntendedPresentationTypeExt"
+                    "IsMessageBody": {
+                        "type": "boolean"
                     },
                     "restrictionName": {
                         "minLength": 1,
@@ -1208,7 +1199,6 @@
                 "required": [
                     "dataType",
                     "expirationTime",
-                    "IntendedPresentation",
                     "name",
                     "restrictionName",
                     "sendersReference"
@@ -1242,9 +1232,6 @@
                         "minLength": 1,
                         "type": "string"
                     },
-                    "IntendedPresentation": {
-                        "$ref": "#/components/schemas/IntendedPresentationTypeExt"
-                    },
                     "restrictionName": {
                         "minLength": 1,
                         "type": "string"
@@ -1260,7 +1247,7 @@
                 "required": [
                     "dataLocationType",
                     "dataType",
-                    "intendedPresentation",
+                    "IsMessageBody",
                     "name",
                     "restrictionName",
                     "sendersReference"
@@ -1298,8 +1285,8 @@
                         "minLength": 1,
                         "type": "string"
                     },
-                    "intendedPresentation": {
-                        "$ref": "#/components/schemas/IntendedPresentationTypeExt"
+                    "IsMessageBody": {
+                        "type": "boolean"
                     },
                     "restrictionName": {
                         "minLength": 1,
@@ -1460,13 +1447,6 @@
                     }
                 },
                 "additionalProperties": false
-            },
-            "IntendedPresentationTypeExt": {
-                "enum": [
-                    "HumanReadable",
-                    "MachineReadable"
-                ],
-                "type": "string"
             },
             "NotificationChannelExt": {
                 "enum": [
