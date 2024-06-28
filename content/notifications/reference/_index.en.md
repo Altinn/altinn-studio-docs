@@ -1,6 +1,6 @@
 ---
 title: Reference
-description: Reference documentation for Altinn Studio
+description: Reference documentation for Altinn Notifications
 weight: 50
 ---
 
