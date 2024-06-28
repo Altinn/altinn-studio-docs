@@ -62,7 +62,7 @@ When preparing the application to use the secrets from Azure Key vault, there ar
    ```json
    {
      "MaskinportenSettings": {
-       "Environment": "ver2",
+       "Environment": "test",
        "ClientId": "",
        "Scope": "altinn:serviceowner/instances.read",
        "EncodedJwk": "",
