@@ -37,7 +37,8 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/AttachmentOverviewExt"
+                                    "type": "string",
+                                    "format": "uuid"
                                 }
                             }
                         }
@@ -416,7 +417,7 @@
                 }
             }
         },
-        "/correspondence/api/v1/correspondence/{correspondenceId}/delete": {
+        "/correspondence/api/v1/correspondence/{correspondenceId}/purge": {
             "delete": {
                 "tags": [
                     "Correspondence"
@@ -703,7 +704,6 @@
                 "required": [
                     "dataLocationType",
                     "dataType",
-                    "IsMessageBody",
                     "name",
                     "restrictionName",
                     "sendersReference"
@@ -740,9 +740,6 @@
                     "dataType": {
                         "minLength": 1,
                         "type": "string"
-                    },
-                    "IsMessageBody": {
-                        "type": "boolean"
                     },
                     "restrictionName": {
                         "minLength": 1,
@@ -782,6 +779,7 @@
                 "required": [
                     "attachments",
                     "language",
+                    "messageBody",
                     "messageSummary",
                     "messageTitle"
                 ],
@@ -796,6 +794,10 @@
                         "nullable": true
                     },
                     "messageSummary": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "messageBody": {
                         "type": "string",
                         "nullable": true
                     },
@@ -1145,7 +1147,7 @@
                     "Read",
                     "Replied",
                     "Confirmed",
-                    "PurgedBByRecipient",
+                    "PurgedByRecipient",
                     "PurgedByAltinn",
                     "Archived",
                     "Reserved",
@@ -1247,7 +1249,6 @@
                 "required": [
                     "dataLocationType",
                     "dataType",
-                    "IsMessageBody",
                     "name",
                     "restrictionName",
                     "sendersReference"
@@ -1285,9 +1286,6 @@
                         "minLength": 1,
                         "type": "string"
                     },
-                    "IsMessageBody": {
-                        "type": "boolean"
-                    },
                     "restrictionName": {
                         "minLength": 1,
                         "type": "string"
@@ -1305,6 +1303,7 @@
             "InitializeCorrespondenceContentExt": {
                 "required": [
                     "language",
+                    "messageBody",
                     "messageSummary",
                     "messageTitle"
                 ],
@@ -1319,6 +1318,10 @@
                         "nullable": true
                     },
                     "messageSummary": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "messageBody": {
                         "type": "string",
                         "nullable": true
                     },
