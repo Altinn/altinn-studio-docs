@@ -134,8 +134,8 @@ The Events microservice and functions take use of a range of libraries to suppor
 | ----------------------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | Azure.Storage.Queues                | Used to send data to the storage queues     | [Repository](https://github.com/Azure/azure-storage-net), [Documentation](https://learn.microsoft.com/en-us/dotnet/api/overview/azure/storage.queues-readme?view=azure-dotnet)|
 | CloudNative.CloudEvents.AspNetCore  | Used for encoding and decoding cloud events | [Repository](https://github.com/cloudevents/sdk-csharp), [Documentation](https://cloudevents.io/)                                |
-| AccessToken                         | Used to validate tokens in requests         | [Repository](https://github.com/altinn/altinn-accesstoken), [Documentation](../../../authentication/reference/architecture/accesstoken/)  |
-| JWTCookieAuthentication             | Used to validate Altinn token (JWT)         | [Repository](https://github.com/Altinn/altinn-authentication), [Documentation](../../../authentication/reference/architecture/jwtcookie/) |
+| AccessToken                         | Used to validate tokens in requests         | [Repository](https://github.com/altinn/altinn-accesstoken), [Documentation](../../../../authentication/reference/architecture/accesstoken/)  |
+| JWTCookieAuthentication             | Used to validate Altinn token (JWT)         | [Repository](https://github.com/Altinn/altinn-authentication), [Documentation](../../../../authentication/reference/architecture/jwtcookie/) |
 | Npgsql                              | Used to access the database server          | [Repository]( https://github.com/rdagumampan/yuniql ), [Documentation](https://www.npgsql.org/)                                 |
 | Yuniql                              | DB migration                                | [Repository](https://github.com/rdagumampan/yuniql), [Documentation](https://yuniql.io/)                                        |
 

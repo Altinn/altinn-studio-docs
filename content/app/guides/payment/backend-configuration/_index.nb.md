@@ -4,9 +4,9 @@ description: Sett opp din backend til å håndtere betaling.
 weight: 1
 ---
 
-### 1. Opprett en datatype for å lagre betalingsinformasjon:
+### 1. Opprett to datatyper for å lagre betalingsinformasjon:
 
-Denne datatypen benyttes av betalingssteget for å lagre informasjon og status om betalingen. Legg den i `App/config/applicationmetadata.json` sin `dataTypes` array. ID kan settes til noe annet, men det må matche ID-en som legges inn i `paymentDataType` i prossessteget, som vist i punkt 2.
+Denne datatypen benyttes av betalingssteget for å lagre informasjon og status om betalingen. Legg den i `App/config/applicationmetadata.json` sin `dataTypes` array. 
 
 ```json
 {
@@ -18,6 +18,21 @@ Denne datatypen benyttes av betalingssteget for å lagre informasjon og status o
     "minCount": 0,
 }
 ```
+
+Denne datatypen benyttes for å lagre PDF-kvittering for betalingen. Legg den inn samme sted.
+
+```json
+{
+    "id": "paymentReceiptPdf",
+    "allowedContentTypes": [
+        "application/pdf"
+    ],
+    "maxCount": 1,
+    "minCount": 0,
+}
+```
+
+ID-ene kan settes til noe annet, men det må matche ID-ene som legges inn i `paymentDataType` og `paymentReceiptPdfDataType` i prossessteget, som vist i punkt 2.
 
 ### 2. Utvid app prossesen med payment task:
 
@@ -61,6 +76,7 @@ Betaling benytter tre user actions. Dersom Altinn brukergrensesnittet brukes av 
           </altinn:actions>
           <altinn:paymentConfig>
             <altinn:paymentDataType>paymentInformation</altinn:paymentDataType>
+            <altinn:paymentReceiptPdfDataType>paymentReceiptPdf</altinn:paymentReceiptPdfDataType>
           </altinn:paymentConfig>
         </altinn:taskExtension>
       </bpmn:extensionElements>
@@ -85,7 +101,7 @@ Betaling benytter tre user actions. Dersom Altinn brukergrensesnittet brukes av 
       <bpmn:incoming>Flow_g1_end</bpmn:incoming>
     </bpmn:endEvent>
 ```
-NB: Verdien til denne noden: `<altinn:paymentDataType>paymentInformation</altinn:paymentDataType>` må matche ID-en til datatypen du konfigurerte i forrige steg.
+NB: Verdien til denne noden: `<altinn:paymentDataType>paymentInformation</altinn:paymentDataType>` må matche ID-en til datatypen du konfigurerte i forrige steg. Det samme gjelder datatypen for pdf-kvittering.
 
 ### 3. Gi tilganger til den som skal betale:
 
