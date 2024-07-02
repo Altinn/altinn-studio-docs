@@ -22,7 +22,7 @@ I denne modulen skal du legge til et prosessteg i applikasjonen.
 En Altinn-app har en prosessflyt definert av BPMN (Business Process Model and Notation) som beskriver de ulike stegene i prosessen.
 Standardflyten for en nyopprettet applikasjon består av én oppgave og ett utfyllingssteg.
 
-![Standard prosessflyt illustrert](/altinn-studio/getting-started/app-dev-course/modul5/default-process.png)
+![Standard prosessflyt illustrert](/altinn-studio/getting-started/app-dev-course-old/modul5/default-process.png)
 
 Din oppgave er å utvide standardprosessflyten med et bekreftelsessteg som illustrert nedenfor.
 Bekreftelsessiden blir lagt til automatisk når man legger til dette i BPMN-filen `App/config/process/process.bpmn`.
