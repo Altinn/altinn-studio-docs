@@ -161,7 +161,7 @@ namespace Altinn.App.AppLogic
     await _secretsClient_.GetSecretAsync("secretId");
     ```
 
-#### Lokal mock
+#### Local mock
 
 To run your service locally without connecting to Azure Key Vault, you need to create a file named `secrets.json` under the _App_ folder. In the JSON structure, you can include dummy data for the secrets you need. If you have uploaded a secret in Key Vault with the name "secretId," the content of the JSON file will look like this:
 
