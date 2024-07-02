@@ -55,3 +55,4 @@ but during 2024 we expect the services below to be utilized by Notifications.
 - [**Azure Communication Services**](https://azure.microsoft.com/en-us/products/communication-services): used to send emails
 - [**Azure Event Grid**](https://azure.microsoft.com/en-us/products/event-grid): used to subscribe to status updates for sent emails
 - [**LINK Mobility**](https://www.linkmobility.com/) used to send sms
+- [**Maskinporten**](https://www.digdir.no/felleslosninger/maskinporten/869) used to generate tokens for external REST API requests
