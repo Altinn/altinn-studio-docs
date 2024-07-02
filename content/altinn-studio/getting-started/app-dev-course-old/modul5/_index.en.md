@@ -165,7 +165,7 @@ The service should be able to run on your local machine with localtest, and you 
 
  You should now see the following page when you click "Submit":
 
-![Screenshot of the confirmation page](/altinn-studio/getting-started/app-dev-course/modul5/bekreftelsesside-screenshot.png "Screenshot of the confirmation page")
+![Screenshot of the confirmation page](/altinn-studio/getting-started/app-dev-course-old/modul5/bekreftelsesside-screenshot.png "Screenshot of the confirmation page")
 
 Please note that clicking "Send inn" (submit) on the confirmation page will result in an error message. This will be resolved in the next step with authorization.
 

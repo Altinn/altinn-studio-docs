@@ -170,7 +170,7 @@ og du skal kunne teste det nye prosessteget og bekrefte at visningen ser ut som 
  
  Du skal nå få opp følgende side når du klikker på "Send inn":
 
-![Skjermbilde av bekreftelsesside](/altinn-studio/getting-started/app-dev-course/modul5/bekreftelsesside-screenshot.png "Skjermbilde av bekreftelsesside")
+![Skjermbilde av bekreftelsesside](/altinn-studio/getting-started/app-dev-course-old/modul5/bekreftelsesside-screenshot.png "Skjermbilde av bekreftelsesside")
 
 Merk at hvis du klikker på "Send inn" på bekreftelsessiden vil du få en feilmelding. Dette løses i neste steg med autorisasjon.
 
