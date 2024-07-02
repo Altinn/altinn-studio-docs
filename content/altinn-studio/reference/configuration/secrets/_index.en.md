@@ -72,7 +72,7 @@ Configure();
 app.Run();
 ```
 
-Local mocking can be done with the use of [user secrets]('https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-8.0&tabs=windows).
+Local mocking can be done with the use of [user secrets](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-8.0&tabs=windows).
 
 ```
 dotnet user-secrets init
