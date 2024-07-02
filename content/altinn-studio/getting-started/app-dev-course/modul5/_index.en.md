@@ -5,3 +5,7 @@ linktitle: Publish
 tags: [apps, training, form, deploy, test]
 weight: 50
 ---
+
+{{% notice info %}}
+This page is not yet translated.
+{{% /notice %}}

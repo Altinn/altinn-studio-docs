@@ -4,8 +4,17 @@ description: Description of the municipality's requirements and wishes for the s
 linktitle: Case
 tags: [apps, case, training]
 weight: 1
-hidden: true
 ---
+
+{{% notice info %}}
+**TL;DR:** Below is a description of the ficticious case we will use in this course - a service that Sogndal
+municipality can use to gather information about people moving into the municipality.
+<br/>
+<br/>
+You can read through the descriptions below to get an overview of the requirements. For each module we will repeat
+the relevant requirements to make it clear what the goal of the module is.
+{{% /notice %}}
+
 Sogndal is in need of more young residents and wishes to become a desirable 
 municipality for young adults and others who wish to settle down.
 

@@ -6,4 +6,6 @@ weight: 40
 toc: true
 ---
 
-TODO
+{{% notice info %}}
+This page is not yet translated.
+{{% /notice %}}

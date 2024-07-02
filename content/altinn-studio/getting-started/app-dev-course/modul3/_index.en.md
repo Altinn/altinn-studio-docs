@@ -5,4 +5,6 @@ tags: [apps, training, form]
 weight: 30
 ---
 
-TODO
+{{% notice info %}}
+This page is not yet translated.
+{{% /notice %}}
