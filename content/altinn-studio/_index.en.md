@@ -73,7 +73,7 @@ weight: 1
                     </a>
                 </li>
                 <li class="a-dotted a-clickable a-list-hasRowLink">
-                    <a href="getting-started/app-dev-course-v2/" class="a-list-rowLink">
+                    <a href="getting-started/app-dev-course/" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
                                 Intro course
