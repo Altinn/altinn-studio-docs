@@ -23,7 +23,7 @@ _Konsepter som foreløpig ikke dekkes i den oppdaterte versjonen:_
 - Egendefinert PDF visning
 
 Listene over oppdateres fortløpende når det legges til nye moduler.
-I mellomtiden ligger en gamle versjonen av kurset [her](../../../altinn-studio/getting-started/app-dev-course-old/) - flere av konseptene
+I mellomtiden ligger den gamle versjonen av kurset [her](../../../altinn-studio/getting-started/app-dev-course-old/) - flere av konseptene
 som ikke dekkes av det oppdaterte kurset dekkes der.
 {{% /notice %}}
 
