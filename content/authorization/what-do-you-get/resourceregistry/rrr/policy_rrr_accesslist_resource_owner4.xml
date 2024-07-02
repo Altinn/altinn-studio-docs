@@ -10,7 +10,7 @@
             <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">karttjenester</xacml:AttributeValue>
             <xacml:AttributeDesignator AttributeId="urn:altinn:accesspackage" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
           </xacml:Match>
-        </xacml:AllOf>
+      </xacml:AllOf>
       </xacml:AnyOf>
       <xacml:AnyOf>
         <xacml:AllOf>
@@ -18,9 +18,40 @@
             <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">kv_eiendomssalg</xacml:AttributeValue>
             <xacml:AttributeDesignator AttributeId="urn:altinn:serviceresource" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
           </xacml:Match>
+        </xacml:AllOf>
+      </xacml:AnyOf>
+      <xacml:AnyOf>
+        <xacml:AllOf>
+          <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+            <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">read</xacml:AttributeValue>
+            <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+          </xacml:Match>
+        </xacml:AllOf>
+         <xacml:AllOf>
+          <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+            <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">write</xacml:AttributeValue>
+            <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+          </xacml:Match>
+        </xacml:AllOf>
+     </xacml:AnyOf>
+    </xacml:Target>
+  </xacml:Rule>
+    <xacml:Rule RuleId="urn:altinn:example:ruleid:1" Effect="Permit">
+    <xacml:Description>A rule giving users with access package karttjenester the right to read and write data of type kv_eiendomssalg where the data party is on the list kv/approved_brokers</xacml:Description>
+    <xacml:Target>
+      <xacml:AnyOf>
+        <xacml:AllOf>
            <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
             <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">kv/approved_brokers</xacml:AttributeValue>
-            <xacml:AttributeDesignator AttributeId="urn:altinn:accesslistmember:avgiver" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+            <xacml:AttributeDesignator AttributeId="urn:altinn:accesslistmember:avgiver" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+          </xacml:Match>
+        </xacml:AllOf>
+      </xacml:AnyOf>
+      <xacml:AnyOf>
+        <xacml:AllOf>
+          <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+            <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">kv_eiendomssalg</xacml:AttributeValue>
+            <xacml:AttributeDesignator AttributeId="urn:altinn:serviceresource" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
           </xacml:Match>
         </xacml:AllOf>
       </xacml:AnyOf>
