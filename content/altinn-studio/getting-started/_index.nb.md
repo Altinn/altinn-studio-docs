@@ -8,4 +8,4 @@ weight: 21
 ## Lag en tjeneste med enkelt skjema
 Kom i gang med å lage tjenester på Altinn Studio ved å følge vår 
 [guide for å lage et enkelt skjema](../guides/basic-form/) eller ved å prøve deg på vårt
-[tjenesteutviklingskurs](./app-dev-course-v2/).
+[tjenesteutviklingskurs](./app-dev-course/).

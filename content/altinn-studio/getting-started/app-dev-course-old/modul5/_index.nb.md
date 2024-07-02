@@ -38,7 +38,7 @@ Bekreftelsessiden blir lagt til automatisk når man legger til dette i BPMN-file
 1. Oppdater `App/config/process/process.bpmn` slik at den inneholder bekreftelsessteget
     (du kan erstatte hele innholdet med innholdet i malen under).
 
-[Mal prosessflyt med data og bekreftelsessteg](/nb/app/development/configuration/process/Data_Confirmation_Process.bpmn)
+[Mal prosessflyt med data og bekreftelsessteg](/nb/altinn-studio/reference/configuration/process/Data_Confirmation_Process.bpmn)
 
 {{% notice info %}}
 Har du lyst på en ekstra utfordring, kan du redigere prosessflyten manuelt eller i et BPMN-redigeringsverktøy.
@@ -47,15 +47,15 @@ Du kan da bruke malen som fasit.
 
 ### Nyttig dokumentasjon
 
-- [Tilgjengelige prosessteg i en Altinn App](/nb/app/development/configuration/process/#støttede-prosess-task-typer)
-- [Hvordan endre prosessflyten til en applikasjon](/nb/app/development/configuration/process/#endre-prosessen)
+- [Tilgjengelige prosessteg i en Altinn App](/nb/altinn-studio/reference/configuration/process/#støttede-prosess-task-typer)
+- [Hvordan endre prosessflyten til en applikasjon](/nb/altinn-studio/reference/configuration/process/#endre-prosessen)
 - [Online BPMN editor](https://demo.bpmn.io/)
 - [BPMN standard](https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation)
 
 ### Forståelsessjekk
 
 {{% expandsmall id="m5t1q1" header="Hvilke Altinn-spesifikke egenskaper er satt på hver prosessoppgave?" %}}
-`altinn:taskType` er definert for hver oppgave.
+`altinn:tasktype` er definert for hver oppgave.
 {{% /expandsmall %}}
 
 {{% expandsmall id="m5t1q2" header="Hvilke begrensninger vil et eksternt BPMN-redigeringsverktøy ha når man skal redigere prosessbeskrivelsen til en Altinn-app?" %}}
@@ -80,18 +80,18 @@ Policy-filen til applikasjonen din er tilpasset standard prosessflyt og må oppd
 ### Oppgaver
 
 1. Gjør deg kjent med policy-filen `App/config/authorization/policy.xml`: Identifiser de ulike reglene og mønsteret for `RuleId`.
-2. Finn den aktuelle regelen i [regelbiblioteket](/nb/app/development/configuration/authorization/rules/).
+2. Finn den aktuelle regelen i [regelbiblioteket](/nb/altinn-studio/reference/configuration/authorization/rules/).
     Regelen skal dekke at en bruker med rolle REGNA eller DAGL skal kunne bekrefte innsending av skjema (Task2).
 3. Legg til regelen i policy-fila. Husk å erstatte `[RULE_ID]` med riktig ID (følg mønsteret fra de andre reglene).
 
 ### Nyttig dokumentasjon
-- [Regelbibliotek](/nb/app/development/configuration/authorization/rules/)
+- [Regelbibliotek](/nb/altinn-studio/reference/configuration/authorization/rules/)
 - [Alle roller i Altinn](https://www.altinn.no/hjelp/skjema/alle-altinn-roller/)
 
 ### Forståelsessjekk
 
 {{% expandsmall id="m5t2q1" header="Hva vil skje når prosessflyten går videre til bekreftelsessteget uten at autoriasjonsreglene er blitt oppdatert?" %}}
-Applikasjonen vil vise bekreftelsessteget, men knappen for å sende inn skjemaet er deaktivert.
+Applikasjonen vil vise "Ukjent feil" når brukeren trykker på "send inn"-knappen.
 {{% /expandsmall %}}
 
 {{% expandsmall id="m5t2q2" header="Hva skjer dersom du ikke spesifiserer hvilke roller som har lov til å utføre en aksjon i en autorisasjonsregel?" %}}
@@ -111,11 +111,11 @@ For at kun brukeren som eier instansen skal kunne sende inn skjemaet kan vi legg
  `partyId` til nåværende bruker samsvarer med `partyId` (se [InstanceOwner](/nb/api/models/instance/#instanceowner)) til eieren av instansen for oppgaven med ID-en "Task_2" (som er bekreftelsessteget).
  Hvis de ikke samsvarer, legger den til en feilmelding i valideringsresultatene. Feilmeldingen vil vises på skjermen og prosessflyten stoppes.
 
-1. Opprett filen `App/logic/Validation/InstanceValidation.cs` (følg fremgangsmåte for [egendefinert validering](/nb/app/development/logic/validation/#hvordan-legge-til-egendefinert-validering)).
+1. Opprett filen `App/logic/Validation/InstanceValidation.cs` (følg fremgangsmåte for [egendefinert validering](/nb/altinn-studio/reference/logic/validation/#hvordan-legge-til-egendefinert-validering)).
 2. Legg til valideringslogikk for bruker-id i klassen `ValidateTask`.
 
 ### Nyttig dokumentasjon
-- [Egendefinert validering](/nb/app/development/logic/validation/#hvordan-legge-til-egendefinert-validering)
+- [Egendefinert validering](/nb/altinn-studio/reference/logic/validation/#hvordan-legge-til-egendefinert-validering)
 - [Instance](/nb/api/models/instance/#instance)
 - [InstanceOwner](/nb/api/models/instance/#instanceowner)
 
@@ -144,10 +144,10 @@ Før du sender inn vil vi anbefale å se over svarene dine. Du kan ikke endre sv
 
 ### Oppgaver
 
-1. Opprett en tekstressurs som [overstyrer standardteksten for bekreftelsessiden](/nb/app/development/configuration/process/customize/#bekreftelse-confirmation).
+1. Opprett en tekstressurs som [overstyrer standardteksten for bekreftelsessiden](/nb/altinn-studio/reference/configuration/process/customize/#bekreftelse-confirmation).
 
 ### Nyttig dokumentasjon
-- [Tilpasning av bekreftelsessiden](/nb/app/development/configuration/process/customize/#bekreftelse-confirmation)
+- [Tilpasning av bekreftelsessiden](/nb/altinn-studio/reference/configuration/process/customize/#bekreftelse-confirmation)
 
 {{% /expandlarge %}}
 
@@ -166,11 +166,11 @@ og du skal kunne teste det nye prosessteget og bekrefte at visningen ser ut som 
 
 {{% expandlarge id="prosessbeskrivelse-solution" header="Utvide prosess med et bekreftelsessteg" %}}
 
-* **Kopier innholdet i [malen](/nb/app/development/configuration/process/Data_Confirmation_Process.bpmn) og lim det inn i filen `App/config/process/process.bpmn`** (erstatt hele det originale innholdet).
+* **Kopier innholdet i [malen](/nb/altinn-studio/reference/configuration/process/Data_Confirmation_Process.bpmn) og lim det inn i filen `App/config/process/process.bpmn`** (erstatt hele det originale innholdet).
  
  Du skal nå få opp følgende side når du klikker på "Send inn":
 
-![Skjermbilde av bekreftelsesside](/app/app-dev-course/modul5/bekreftelsesside-screenshot.png "Skjermbilde av bekreftelsesside")
+![Skjermbilde av bekreftelsesside](/altinn-studio/getting-started/app-dev-course-old/modul5/bekreftelsesside-screenshot.png "Skjermbilde av bekreftelsesside")
 
 Merk at hvis du klikker på "Send inn" på bekreftelsessiden vil du få en feilmelding. Dette løses i neste steg med autorisasjon.
 
@@ -178,8 +178,8 @@ Merk at hvis du klikker på "Send inn" på bekreftelsessiden vil du få en feilm
 
 {{% expandlarge id="autorisasjon-solution" header="Legge til autorisasjonsregler for bekreftelsessteget" %}}
 
-* **Finn den aktuelle regelen i [regelbiblioteket](/nb/app/development/configuration/authorization/rules/):**
-[Bruker med rollen REGNA eller DAGL kan bekrefte instanser av [ORG]/[APP] som er i Task_2](/nb/app/development/configuration/authorization/rules/#bruker-med-rollen-regna-eller-dagl-kan-bekrefte-instanser-av-orgapp-som-er-i-task_2).
+* **Finn den aktuelle regelen i [regelbiblioteket](/nb/altinn-studio/reference/configuration/authorization/rules/):**
+[Bruker med rollen REGNA eller DAGL kan bekrefte instanser av [ORG]/[APP] som er i Task_2](/nb/altinn-studio/reference/configuration/authorization/rules/#bruker-med-rollen-regna-eller-dagl-kan-bekrefte-instanser-av-orgapp-som-er-i-task_2).
 
 * **Kopier koden for regelen og lim den inn i  `policy.xml`** (rett etter den siste regelen (mellom den siste `</xacml:Rule>` tagen og `<xacml:ObligationExpressions>`)).
 
@@ -195,7 +195,7 @@ Med autorisasjonen på plass skal det gå an å sende inn skjemaet og du vil få
 
 {{% expandlarge id="validation-solution" header="Validering av innsender" %}}
 
-* **Følg fremgangsmåte for [egendefinert validering](/nb/app/development/logic/validation/#hvordan-legge-til-egendefinert-validering) for å opprette fil.**
+* **Følg fremgangsmåte for [egendefinert validering](/nb/altinn-studio/reference/logic/validation/#hvordan-legge-til-egendefinert-validering) for å opprette fil.**
 * **Legg til valideringslogikk for bruker-id i klassen `ValidateTask`:**
 
 {{< code-title >}}

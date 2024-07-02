@@ -4,7 +4,6 @@ description: Description of the municipality's requirements and wishes for the s
 linktitle: Case
 tags: [apps, case, training]
 weight: 10
-hidden: true
 ---
 Sogndal is in need of more young residents and wishes to become a desirable 
 municipality for young adults and others who wish to settle down.
@@ -70,9 +69,9 @@ The following is desirable to be similar in the application:
  - Text size
  - Formatting of text
 
-[Sketch of information page](../resources/infoside_tilflyttere.pdf)
+[Sketch of information page](/altinn-studio/getting-started/app-dev-course-old/modul2/infoside_tilflyttere.pdf)
 
-!["Sogndal coats of arms"](../resources/kommune-logo.png "A picture of the coats of arms of Sogndal that may be used in the application." )
+!["Sogndal coats of arms"](/altinn-studio/getting-started/app-dev-course-old/modul2/kommune-logo.png "A picture of the coats of arms of Sogndal that may be used in the application." )
 
 {{% /expandlarge %}}
 
@@ -110,7 +109,7 @@ Based on the answer, the user will be sent to either _Track 1_ or _Track 2_.
 {{% expandlarge id="prefill-expandable" header="Requirements" %}}
 
 - The following should be prefilled for the user:
-  - First name: Innflytter.fornavn
+  - First name: Innflytter.Fornavn
   - Middle name: Innflytter.Mellomnavn
   - Last name: Innflytter.Etternavn
   - Email: Innflytter.Kontaktinformasjon.Epost
