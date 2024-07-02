@@ -27,7 +27,7 @@ Standardflyten for en nyopprettet applikasjon består av én oppgave og ett utfy
 Din oppgave er å utvide standardprosessflyten med et bekreftelsessteg som illustrert nedenfor.
 Bekreftelsessiden blir lagt til automatisk når man legger til dette i BPMN-filen `App/config/process/process.bpmn`.
 
-![Oppdatert prosessflyt illustrert](/app/app-dev-course/modul5/updated-process.png)
+![Oppdatert prosessflyt illustrert](/app/app-dev-course-old/modul5/default-process.png)
 
 ### Krav fra kommunen
 

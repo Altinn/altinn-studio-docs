@@ -27,7 +27,7 @@ The standard flow for a newly created application consists of one task; the fill
 Your task is to expand the standard process flow with a confirmation step as illustrated below.
 The confirmation page is added automatically when the step is added to the BPMN file.
 
-![Updated process flow illustrated](/altinn-studio/getting-started/app-dev-course/modul5/updated-process.png)
+![Updated process flow illustrated](/altinn-studio/getting-started/app-dev-course-old/modul5/default-process.png)
 
 ### Requirements from the municipality
 
