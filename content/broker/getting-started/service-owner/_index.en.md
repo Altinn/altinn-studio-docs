@@ -69,3 +69,4 @@ TODO: Document how to grant this in [Resource Rights Registry](../../../../autho
 If you have an existing solution in Altinn 2 you wish to migrate, you can either create a new independent Altinn Broker service in Altinn 3, or use the transition solution, described here.
 
 TODO: Link to transition solution documentation when available.
+

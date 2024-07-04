@@ -118,3 +118,4 @@ We suggest using the data supplied in the [get details](#operation-get-filetrans
 This event is triggered by the file cleanup process at the time of either the Expiry of the file, or due to all recipients having Confirmed their download.
 
 After this point the file data is no longer available for download, although the metadata persists.
+

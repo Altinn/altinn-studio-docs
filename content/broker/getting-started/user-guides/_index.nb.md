@@ -22,3 +22,4 @@ Et foretak kan ha én, eller en kombinasjon av alle tre rollene i henhold til ko
 De fleste foretak vil ha *Sender* og/eller *Mottaker*, mens *Tjenesteeiere* ofte vil ha alle tre.
 
 Som sådan må Tjenesteeiere ta ekstra skritt for å sette opp og definere sin Broker-ressurs.
+

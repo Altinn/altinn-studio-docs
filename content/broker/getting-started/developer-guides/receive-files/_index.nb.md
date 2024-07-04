@@ -108,3 +108,4 @@ Du trenger ikke å utføre handlinger mot Broker, men det er en ekstra bekreftel
 Denne hendelsen utløses ved utløpstiden for filoverføringen i tilfelle en eller flere mottakere ikke har bekreftet nedlastingen av filen.
 Dette kan indikere at enten mottakeren ikke har vært klar over filoverføringen, eller at de har lastet ned, men forsømt å kalle ConfirmDownload.
 Denne hendelsen sendes også til de mottakere som ikke har bekreftet nedlastingen.
+

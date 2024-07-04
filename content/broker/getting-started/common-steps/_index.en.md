@@ -60,3 +60,4 @@ see the [developer guides](../developer-guides/) for next steps.
 In order to use events/webhooks for a Broker resource, you need to setup a subscription for the given resource.
 
 See the [developer guide](../developer-guides/events) for detailed instruction.
+

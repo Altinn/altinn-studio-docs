@@ -26,3 +26,4 @@ An enterprise may have one, or a combination of all three roles according to the
 Most enterprises will have *Sender* and/or *Recipient*, while *Service owners* frequently will have all three.
 
 As such, Service owners have to take additional steps when getting started to set up and define their Broker Resource.
+

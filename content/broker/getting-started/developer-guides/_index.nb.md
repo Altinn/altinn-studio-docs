@@ -45,3 +45,4 @@ For alle operasjoner må du autentisere deg ved å bruke din Maskinporten-klient
 deretter [skaffe en Altinn-token fra Altinn-autentisering](https://docs.altinn.studio/authentication/reference/architecture/accesstoken/).
 
 Bruk Altinn-tokenet som en Bearer-token for alle Broker API-forespørsler sammen med APIM-abonnementsnøkkelen som en header med nøkkelen `Ocp-Apim-Subscription-Key`.
+

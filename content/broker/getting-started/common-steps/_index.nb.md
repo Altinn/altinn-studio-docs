@@ -60,3 +60,4 @@ se [utviklerveiledningene](../developer-guides/) for neste trinn.
 For å bruke hendelser/webhooks for en Broker-ressurs, må du sette opp et abonnement for den gitte ressursen.
 
 Se [utviklerveiledningen for events](../developer-guides/events) for detaljerte instruksjoner.
+

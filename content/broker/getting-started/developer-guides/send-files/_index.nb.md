@@ -115,3 +115,4 @@ Vi foreslår å bruke dataene som leveres i [hent filoverførings detaljer](#ope
 Denne hendelsen utløses av filopprydningsprosessen ved Expiry av filen eller når alle mottakerne har bekreftet nedlastingen.
 
 Etter dette punktet er fildataene ikke lenger tilgjengelige for nedlasting, selv om metadataene forblir.
+

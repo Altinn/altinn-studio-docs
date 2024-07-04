@@ -68,3 +68,4 @@ TODO: Dokumenter hvordan man gjør dette i [Ressurs rettighets register](../../.
 Hvis du har en eksisterende løsning i Altinn 2 du ønsker å migrere, kan du enten opprette en ny uavhengig Altinn Broker-tjeneste i Altinn 3, eller bruke overgangsløsningen, beskrevet her.
 
 TODO: Lenke til overgangsløsning dokumentasjon når den er tilgjengelig.
+
