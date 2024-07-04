@@ -26,7 +26,7 @@ hypertext transfer protocol (HTTP) eller secure file transfer protocol (SFTP).
 ![Hovedbruksområdet til Altinn Broker illustrert](./broker-pattern-1-n.nb.png "Hovedbruksområdet til  Altinn Broker illustrert: Fil F1 formidles fra en avsender til en eller flere mottakere via mellomlagring i Altinn Formidling (Broker).")
 
 Selv om overføring av individuelle filer er hovedbruksområdet 
-og det opprinnelige formålet med Altinn Broker, 
+og det opprinnelige formålet med Altinn Formidling, 
 er Altinn 3 Broker designet med noen mer avanserte bruksområder 
 og mulige fremtidige utvidelser i tankene. 
 Avanserte bruksområder og mulige utvidelser er ytterligere beskrevet i separate seksjoner.
