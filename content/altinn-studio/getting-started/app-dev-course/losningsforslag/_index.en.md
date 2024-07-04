@@ -3,6 +3,7 @@ title: Solution
 description: Solution source code
 linktitle: Solution
 weight: 30
+hidden: true
 ---
 
 [Full solution](https://altinn.studio/repos/testdep/flyttemelding-sogndal/)

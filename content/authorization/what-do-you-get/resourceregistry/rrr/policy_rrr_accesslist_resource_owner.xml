@@ -20,7 +20,7 @@
           </xacml:Match>
            <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
             <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">kv/approved_brokers</xacml:AttributeValue>
-            <xacml:AttributeDesignator AttributeId="urn:altinn:accesslistmember:part" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+            <xacml:AttributeDesignator AttributeId="urn:altinn:accesslistmember:avgiver" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
           </xacml:Match>
         </xacml:AllOf>
       </xacml:AnyOf>

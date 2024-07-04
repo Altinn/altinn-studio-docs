@@ -3,8 +3,16 @@ title: Casebeskrivelse
 description: Beskrivelse av kommunens krav og ønsker til tjenesten.
 linktitle: Case
 tags: [apps, case, training]
-weight: 10
+weight: 1
 ---
+{{% notice info %}}
+**TL;DR:** Under følger en beskrivelse av det fiktivet caset vi skal bruke i dette kurset - en tjenete Sogndal kommune
+kan bruke for å kartlegge informasjon om tilflyttere til kommunen. 
+<br/>
+<br/>
+Les gjerne gjennom beskrivelsen under for å danne en oversikt over kravene. For hver modul vil vi også gjenta kravene som er relevante for modulen, slik at det skal være
+enkelt å vite hva målet er i hver modul.
+{{% /notice %}}
 
 Sogndal kommune trenger sårt flere unge mennesker og ønsker å bli en
 attraktiv kommune for unge voksne og andre i etableringsfasen.
@@ -19,60 +27,58 @@ De har en del krav til tjenesten som er beskrevet i seksjonene nedenfor.
 
 ## Krav fra kommunen
 
-### Navngivning
-{{% expandlarge id="navngivning-expandable" header="Krav" %}}
+{{% expandlarge id="navngivning-expandable" header="Navngivning" %}}
 
-- Applikasjonen må ha et fornuftig navn som gjør det enkelt å finne den igjen blant det store antallet
-repositories Sogndal kommune har i Altinn Studio.
+- Tjenesten må ha et fornuftig navn som gjør det enkelt å finne den igjen blant det store antallet
+tjenester Sogndal kommune har i Altinn Studio.
 
-- Det er ingen foreløpige planer om årlige revisjoner av appen,
+- Det er ingen foreløpige planer om årlige revisjoner av tjenesten,
 så man trenger ikke ta hensyn til årstall i navnet.
 
 Det er et ønske om at et eller flere av ordene "tilflytter" og "Sogndal" er med i navnet.
 
 {{% /expandlarge %}}
 
-### Første side med datainnsamling
-{{% expandlarge id="forste-side-datainnsamling-expandable" header="Krav" %}}
-
-- Vil ha navn og alder på personen som er tilflytter
+{{% expandlarge id="forste-side-datainnsamling-expandable" header="Data" %}}
+Kommunen ønsker å samle inn følgende data om innflyttere:
+- Personinformasjon
   - Fornavn
   - Mellomnavn (valgfritt)
   - Etternavn
   - Alder
-- Vil ha adressen på personen som er tilflytter
+- Adresse
   - Gateadresse
   - Postnummer
   - Poststed
-- Vil ha kontaktinformasjon på personen som er tilflytter
+- Kontaktinformasjon
   - Epost
   - Telefon
-
+- Arbeids-/bransjeerfaring
+  - Sektor (privat/offentlig)
+  - Bransje ([standardliste med bransjer](../industry.json))
 {{% /expandlarge %}}
 
-### Tekster
-{{% expandlarge id="tekster-expandable" header="Krav" %}}
+{{% expandlarge id="tekster-expandable" header="Tekster" %}}
 
 - Alle inputfelter skal ha forklarende ledetekster (labels) som beskriver hva som skal fylles inn.
-- Applikasjonen må være tilgjengelig både på bokmål, nynorsk og engelsk.  
+- Tjenesten må være tilgjengelig både på bokmål, nynorsk og engelsk.  
   I en første versjon er det tilstrekkelig at kun ett av disse språkene støttes.
-- Det er viktig at applikasjonens visningsnavn klinger godt og er beskrivende for tjenesten.
+- Det er viktig at tjenestens visningsnavn klinger godt og er beskrivende for tjenesten.
 
 {{% /expandlarge %}}
 
-### Infoside
-{{% expandlarge id="infoside-expandable" header="Krav" %}}
+{{% expandlarge id="infoside-expandable" header="Infoside" %}}
 
 Noen i kommunen har opprettet en skisse av informasjonssiden.
 
-Følgende er det ønskelig at reflekteres i applikasjonen:
+Følgende er det ønskelig at reflekteres i tjenesten:
  - Plassering av bilder
  - Tekststørrelser
  - Formatering av tekst
 
-[Skisse på informasjonsside](/altinn-studio/getting-started/app-dev-course/modul2/infoside_tilflyttere.pdf)
+[Skisse på informasjonsside](../resources/infoside_tilflyttere.pdf)
 
-!["Sogndal kommunevåpen"](/altinn-studio/getting-started/app-dev-course/modul2/kommune-logo.png "Et bilde av Sogndals kommunevåpen som kan benyttes i applikasjonen" )
+!["Sogndal kommunevåpen"](../resources/kommune-logo.png "Et bilde av Sogndals kommunevåpen som kan benyttes i tjenesten" )
 
 {{% /expandlarge %}}
 
@@ -218,7 +224,7 @@ Vi er beæret over å motta en '1337' innbygger til Sogndal kommune!
 {{% expandlarge id="dataprossesering-expandable" header="Krav" %}}
 
 En av kommunens databehandlere har sett seg lei av å manuelt rette opp i en gateadresse som ofte blir skrevet feil av innflyttere.
-Vi ønsker derfor å programmatisk fikse opp i dette under utfyllingen av appen.
+Vi ønsker derfor å programmatisk fikse opp i dette under utfyllingen av skjemaet i tjenesten.
 
 Om sluttbruker fyller inn `Sesame Street 1` i feltet `Innflytter.Adresse.Gateadresse`, skal dette automatisk rettes til `Sesamsgate 1`.
 I alle andre tilfeller skal feltet forbli urørt.
