@@ -110,6 +110,11 @@ Reasons to consider using Altinn Notifications for communication with Norwegian 
   A _notification channel_ is the communication pathways through which Altinn enables you to
   communicate with your end users.
 
+- #### Send condition
+
+  A send condition can be evaluated as true or false i.e. true if the condition for sending the notification is met. 
+  The send condition is checked by the application using the condition endpoint provided in the notification order. 
+
 ## Notification channels
 
 Currently, we support sending notifications through two channels:

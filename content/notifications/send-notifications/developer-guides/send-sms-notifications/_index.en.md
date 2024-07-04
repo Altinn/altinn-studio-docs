@@ -73,6 +73,11 @@ Type: _string_
 The id of the Altinn resource the notification should be related to as the id appears in the Altinn Resource Registry. 
 For an Altinn app the format of the resource is is `app_{org}_{app}` e.g. app_ttd_apps-test.
 
+#### conditionEndpoint
+Type: _Url_
+
+The URL to use when checking whether the condition to send the notification is met.
+
 ## Response
 
 ### Response codes
