@@ -19,7 +19,7 @@ Reasons to consider using Altinn Notifications for communication with Norwegian 
 1. Contact information in national registries can be retrieved at send time based on
    organization number or person identification number.
 2. Altinn roles can be used to identify the correct recipients within an organization.
-3. Notifications can have send conditions related to the state of, or actions performed on, an Altinn App instance
+3. Notifications can have send conditions related to the state of, or actions performed on, external resources and Altinn App instances
 4. A seamless integration for notifications in an Altinn App workflow.
 
 ## Terminology
