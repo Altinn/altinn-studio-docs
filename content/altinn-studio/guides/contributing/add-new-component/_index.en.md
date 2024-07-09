@@ -39,8 +39,8 @@ When adding an icon there are different approaches given that;
 For providing fully support for a new component in Studio, there are a few things to do. The order is arbitrary. 
 - Adding the new schema
   - If you did run the script from step 1, the schema has been added for you in the correct folder.
-  - If you did _**not**_ run the script, the json schema definition file must be placed in this folder: `packages/ux-editor/src/testing/schemas/component`
-- Adding the component to the `ComponentType` enum, alphabetically, in this file: `packages/ux-editor/src/types/ComponentType.ts`
+  - If you did _**not**_ run the script, the json schema definition file must be placed in this folder: `packages/ux-editor/src/testing/schemas/json/component`
+- Adding the component to the `ComponentType` enum, alphabetically, in this file: `packages/shared/src/types/ComponentType.ts`
 - Adding the component to the components list in the file: `packages/ux-editor/src/data/formItemConfig.ts` by 
   - first adding it, alphabetically, to the `formItemConfigs` object, with the appropriate default configs and an icon,
   - then adding it to an appropriate list in the same file; **schemaComponents**, **advancedItems** or **textComponents**

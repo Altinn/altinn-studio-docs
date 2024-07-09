@@ -39,7 +39,7 @@ At this point in the workflow, the user should be able to:
 1. Update `App/config/process/process.bpmn` to include the confirmation step
     (you can replace the entire content with the content in the template below).
 
-[Template process flow with data and confirmation step](/app/development/configuration/process/Data_Confirmation_Process.bpmn)
+[Template process flow with data and confirmation step](/altinn-studio/reference/configuration/process/Data_Confirmation_Process.bpmn)
 
 {{% notice info %}}
 If you're up for an extra challenge, you can manually edit the process flow or use a BPMN editing tool.
@@ -48,14 +48,14 @@ If you're up for an extra challenge, you can manually edit the process flow or u
 
 ### Useful documentation
 
-- [Available process steps in an Altinn app](/app/development/configuration/process/#supported-process-task-types)
-- [How to change the process flow of an application](/app/development/configuration/process/#change-the-process)
+- [Available process steps in an Altinn app](/altinn-studio/reference/configuration/process/#supported-process-task-types)
+- [How to change the process flow of an application](/altinn-studio/reference/configuration/process/#change-the-process)
 - [Online BPMN editor](https://demo.bpmn.io/)
 - [BPMN standard](https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation)
 
 ### Knowledge check
 {{% expandsmall id="m5t1q1" header="What Altinn-specific properties are set on each process task?" %}}
-`altinn:taskType` is defined for each task.
+`altinn:tasktype` is defined for each task.
 {{% /expandsmall %}}
 
 {{% expandsmall id="m5t1q2" header="What limitations would an external BPMN editing tool have when editing the process description of an Altinn app?" %}}
@@ -79,16 +79,16 @@ The policy file for your application is tailored to the standard process flow an
 ### Tasks
 
 1. Familiarize yourself with the policy file `App/config/authorization/policy.xml`: Identify the various rules and the pattern for `RuleId`.
-2. Find the relevant rule in the [rule library](/app/development/configuration/authorization/rules/). The rule should cover that a user with the role REGNA or DAGL should be able to confirm the submission of the form (Task2).
+2. Find the relevant rule in the [rule library](/altinn-studio/reference/configuration/authorization/rules/). The rule should cover that a user with the role REGNA or DAGL should be able to confirm the submission of the form (Task2).
 3. Add the rule to the policy file. Remember to replace `[RULE_ID]` with the correct ID (follow the pattern of the other rules).
 
 ### Useful documentation
-- [Rule library](/app/development/configuration/authorization/rules/)
+- [Rule library](/altinn-studio/reference/configuration/authorization/rules/)
 - [All roles in Altinn](https://www.altinn.no/en/help/forms/all-altinn-roles/)
 
 ### Knowledge check
 {{% expandsmall id="m5t2q1" header="What will happen when the process flow proceeds to the confirmation step without the authorization rules being updated?" %}}
-The application will display the confirmation step, but the submit button will be disabled.
+The application will display an "Unknown error" when the user presses the "submit" button.
 {{% /expandsmall %}}
 
 {{% expandsmall id="m5t2q2" header="What happens if you do not specify which roles are allowed to perform an action in an authorization rule?" %}}
@@ -107,11 +107,11 @@ To ensure that only the user who owns the instance can submit the form, we can a
   (which is the confirmation step). If they do not match, it adds an error message to the validation results.
    The error message will be displayed on the screen, and the process flow will be halted.
 
-1. Create the file `App/logic/Validation/InstanceValidation.cs` (follow the procedure for [custom validation](/app/development/logic/validation/#how-to-add-custom-validation)).
+1. Create the file `App/logic/Validation/InstanceValidation.cs` (follow the procedure for [custom validation](/altinn-studio/reference/logic/validation/#how-to-add-custom-validation)).
 2. Add the validation logic for user ID in the `ValidateTask` class.
 
 ### Useful documentation
-- [Custom validation](/app/development/logic/validation/#how-to-add-custom-validation)
+- [Custom validation](/altinn-studio/reference/logic/validation/#how-to-add-custom-validation)
 - [Instance](/api/models/instance/#instance)
 - [InstanceOwner](/api/models/instance/#instanceowner)
 
@@ -139,10 +139,10 @@ Før du sender inn vil vi anbefale å se over svarene dine. Du kan ikke endre sv
 
 **Tasks**
 
-1. Create a text resource that [overrides the default text for the confirmation page](/app/development/configuration/process/customize/#confirmation).
+1. Create a text resource that [overrides the default text for the confirmation page](/altinn-studio/reference/configuration/process/customize/#confirmation).
 
 ### Useful documentation
-- [Customization of the confirmation page](/app/development/configuration/process/customize/#confirmation)
+- [Customization of the confirmation page](/altinn-studio/reference/configuration/process/customize/#confirmation)
 
 {{% /expandlarge %}}
 
@@ -161,11 +161,11 @@ The service should be able to run on your local machine with localtest, and you 
 
 {{% expandlarge id="prosessbeskrivelse-solution" header="Expanding the process with a confirmation step" %}}
 
-* **Copy the content from the [template](/app/development/configuration/process/Data_Confirmation_Process.bpmn) and paste it into the file `App/config/process/process.bpmn`** (replace the entire original content).
+* **Copy the content from the [template](/altinn-studio/reference/configuration/process/Data_Confirmation_Process.bpmn) and paste it into the file `App/config/process/process.bpmn`** (replace the entire original content).
 
  You should now see the following page when you click "Submit":
 
-![Screenshot of the confirmation page](/app/app-dev-course/modul5/bekreftelsesside-screenshot.png "Screenshot of the confirmation page")
+![Screenshot of the confirmation page](/altinn-studio/getting-started/app-dev-course-old/modul5/bekreftelsesside-screenshot.png "Screenshot of the confirmation page")
 
 Please note that clicking "Send inn" (submit) on the confirmation page will result in an error message. This will be resolved in the next step with authorization.
 
@@ -173,8 +173,8 @@ Please note that clicking "Send inn" (submit) on the confirmation page will resu
 
 {{% expandlarge id="autorisasjon-solution" header="Adding authorization rules for the confirmation step" %}}
 
-* **Find the relevant rule in the [rule library](/app/development/configuration/authorization/rules/):**
-[User with role REGNA or DAGL can confirm instances of [ORG]/[APP] when it is in Task_2](/app/development/configuration/authorization/rules/#user-with-role-regna-or-dagl-can-confirm-instances-of-orgapp-when-it-is-in-task_2).
+* **Find the relevant rule in the [rule library](/altinn-studio/reference/configuration/authorization/rules/):**
+[User with role REGNA or DAGL can confirm instances of [ORG]/[APP] when it is in Task_2](/altinn-studio/reference/configuration/authorization/rules/#user-with-role-regna-or-dagl-can-confirm-instances-of-orgapp-when-it-is-in-task_2).
 
 * **Copy the code for the rule and paste it into `policy.xml`** (right after the last rule (between the last `</xacml:Rule>` tag and `<xacml:ObligationExpressions>`)).
 
@@ -190,7 +190,7 @@ With authorization in place, you should be able to submit the form, and you will
 
 {{% expandlarge id="validation-solution" header="Submitter Validation" %}}
 
-* **Follow the procedure for [custom validation](/app/development/logic/validation/#how-to-add-custom-validation) to create the file.**
+* **Follow the procedure for [custom validation](/altinn-studio/reference/logic/validation/#how-to-add-custom-validation) to create the file.**
 * **Add validation logic for user ID in the `ValidateTask` class:**
 
 {{< code-title >}}

@@ -88,9 +88,3 @@ Da vil alle brukere, både med og uten roller, ha tillatelse til å utføre _con
 
 I denne modulen har du utvidet applikasjonen din med et bekreftelsessteg og lagt til autorisasjonsregler knyttet til prosessteget.
 
-{{<navigation-buttons
-  urlBack="../create-service"
-  textBack="<< Forrige modul"
-  urlNext="../datamodel"
-  textNext="Neste modul >>"
->}}

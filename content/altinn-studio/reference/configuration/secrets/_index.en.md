@@ -42,38 +42,59 @@ The last part of the file should look something like this after your changes are
 
 ## How to make use of secrets in your application
 
-The service `ISecret` is exposed to the application and can be dependency injected into the class in which you need to collect a secret.
+You can either add Azure Key Vault as a config provider and use the IOptions pattern to read secrets, or you can use the `ISecretsClient` service, which is exposed in the application and can be dependency injected into the class where you need to retrieve a secret.
 
-### Local mock
+### 1. Azure Key Vault as config provider (recommended)
+If this approach is chosen, you can use Azure Key Vault in the standard way via [IOptions-pattern](https://learn.microsoft.com/en-us/dotnet/core/extensions/options).
 
-To run your service locally without connecting to the Azure Key vault you have to 
-create the file `secrets.json` under the folder _App_.
-In the json structure you can add dummy data for the secrets you need for your service.
-If you have uploaded a secret into the key vault with the name "secretId", the content should look like the following:
+There is a helper method to add Azure Key Vault in this way, which can be used in Program.cs.
 
-```json
+```cs
+if (!builder.Environment.IsDevelopment())
 {
-  "secretId": "local secret dummy data"
+    builder.AddAzureKeyVaultAsConfigProvider();
 }
 ```
 
-### Types of secrets
+Example:
+```cs
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+ConfigureServices(builder.Services, builder.Configuration);
+ConfigureWebHostBuilder(builder.WebHost);
 
-Secret - Stored as a string directly in the key vault. For ex. a base64 encoded certificate or a token.
-Key - key
-Certificate - certificate
+if (!builder.Environment.IsDevelopment())
+{
+    builder.AddAzureKeyVaultAsConfigProvider();
+}
 
-### Code example
+WebApplication app = builder.Build();
+Configure();
+app.Run();
+```
 
-In this section you can find an example of how to use a secret to populate a form field during instantiation.
+Local mocking can be done with the use of [user secrets](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-8.0&tabs=windows).
 
-The logic is implemented within `InstantiationHandler.cs`
+```
+dotnet user-secrets init
+dotnet user-secrets set "NetsPaymentSettings:SecretApiKey" "test-secret-key-used-for-documentation"
+```
+
+### 2. Using ISecretsClient
+
+If you do not wish to add Azure Key Vault as a config provider, you can alternatively use the `ISecretsClient` service, which is a wrapper around the retrieval of secrets from Azure Key Vault. This service offers methods for fetching individual secrets as needed.
+
+#### Code example
+
+In this section, you will find an example of how to use a secret to populate a form field during instantiation.
+
+The logic is implemented in `InstantiationHandler.cs`.
 
 ```cs
 using Altinn.App.Models;
 using Altinn.App.Services.Interface;
 using Altinn.App.Services.Models.Validation;
 using Altinn.Platform.Storage.Interface.Models;
+using Altinn.App.Core.Internal.Secrets;
 using System.Threading.Tasks;
 
 namespace Altinn.App.AppLogic
@@ -82,18 +103,16 @@ namespace Altinn.App.AppLogic
     {
         private IProfile _profileService;
         private IRegister _registerService;
-        private ISecrets _secretsService;
+        private ISecretsClient _secretsClient;
 
         /// <summary>
         /// Set up access to profile and register services
         /// </summary>
-        /// <param name="profileService"></param>
-        /// <param name="registerService"></param>
-        public InstantiationHandler(IProfile profileService, IRegister registerService, ISecrets secretsService)
+        public InstantiationHandler(IProfile profileService, IRegister registerService, ISecretsClient secretsClient)
         {
             _profileService = profileService;
             _registerService = registerService;
-            _secretsService = secretsService;
+            _secretsClient = secretsClient;
         }
 
         /// <summary>
@@ -110,7 +129,7 @@ namespace Altinn.App.AppLogic
             if (data.GetType() == typeof(Skjema))
             {
                 Skjema model = (Skjema)data;
-                model.etatid = await _secretsService_.GetSecretAsync("secretId");
+                model.etatid = await _secretsClient.GetSecretAsync("secretId");
             }
             await Task.CompletedTask;
         }
@@ -118,54 +137,36 @@ namespace Altinn.App.AppLogic
 }
 ```
 
-1. The private variable for the service is included in the class
+1. The private variable for the service is included in the class.
 
     ```cs
-    private ISecrets _secretsService;
+    private ISecretsClient _secretsClient;
     ```
 
-2. The ISecrets service is dependency injected into the class, and the private variable assigned a value
+2. The ISecretsClient service is injected in the constructor and is assigned to the private variable.
 
     ```cs
-    public InstantiationHandler(IProfile profileService, IRegister registerService, ISecrets secretsService)
+    public InstantiationHandler(IProfile profileService, IRegister registerService, ISecretsClient secretsClient)
             {
                 _profileService = profileService;
                 _registerService = registerService;
-                _secretsService = secretsService;
+                _secretsClient = secretsClient;
             }
 
     ```
 
-3. In the method where you need the secret you call the service
-    `secretId` will be the name of our secret in KeyVault, or in our local mock. 
+3. How to get a specific secret using the name from Azure Key Vault and/or local mock.
 
     ```cs
-    await _secretsService_.GetSecretAsync("secretId");
+    await _secretsClient_.GetSecretAsync("secretId");
     ```
 
-4. If you try to build the solution now, it will fail. 
+#### Local mock
 
-    ISecrets will be missing where the InstantiationHandler is instantiated. Navigate to `App.cs`
-    and dependency inject the service into the constructor in App.
+To run your service locally without connecting to Azure Key Vault, you need to create a file named `secrets.json` under the _App_ folder. In the JSON structure, you can include dummy data for the secrets you need. If you have uploaded a secret in Key Vault with the name "secretId," the content of the JSON file will look like this:
 
-    The service must be added to the call where InstantiationHandler is instantiated as illustrated below.
-
-    ```cs
-    public App(
-        IAppResources appResourcesService,
-        ILogger<App> logger,
-        IData dataService,
-        IProcess processService,
-        IPDF pdfService,
-        IProfile profileService,
-        IRegister registerService,
-        IPrefill prefillService,
-        ISecrets secretsService
-        ) : base(appResourcesService, logger, dataService, processService, pdfService, prefillService)
-    {
-        _logger = logger;
-        _validationHandler = new ValidationHandler();
-        _calculationHandler = new CalculationHandler();
-        _instantiationHandler = new InstantiationHandler(profileService, registerService, secretsService);
-    }
-    ```
+```json
+{
+  "secretId": "dummy secret value"
+}
+```
