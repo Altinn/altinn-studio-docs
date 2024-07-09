@@ -6,10 +6,7 @@ toc: false
 weight: 3
 ---
 
-## Ressursadministrasjon i Altinn Studio
+To use Altinn API there is serveral scenarios that require as Maskinporten client. 
 
-For å aktivere ressursadministrasjon i Altinn Studio må du og din organisasjon følge noen få trinn.
-
-[Les guide](resource-admin-studio)
-
+- Calling Altinn API 
 

@@ -1,15 +1,15 @@
 ---
-title: Kom i gang med Altinn Autorisasjon
+title: Kom i gang med Altinn Autentisering
 linktitle: Kom i gang
-description: Her finner informasjon om hvordan komme i gang med Altinn autorisasjon
+description: Her finner informasjon om hvordan komme i gang med Altinn Autentisering
 toc: false
 weight: 3
 ---
 
-## Ressursadministrasjon i Altinn Studio
+## Sette opp maskinporten client
 
-For å aktivere ressursadministrasjon i Altinn Studio må du og din organisasjon følge noen få trinn.
+Les hvordan man kan configurere en maskinportenklient for bruk mot Altinn
 
-[Les guide](resource-admin-studio)
+[Les guide](maskinportenclient)
 
 
