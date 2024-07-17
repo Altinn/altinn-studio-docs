@@ -1,72 +1,39 @@
 {
   "openapi": "3.1.0",
-    "info": {
-      "title": "Altinn3.Broker",
-      "version": "1.0.0",
-      "description": "API for Altinn Broker functionality."
-    },
-    "webhooks": {
-      "no.altinn.broker.filetransferinitialized": {
-        "post": {
-          "requestBody": {
-            "description": "Information about a new file transfer",
-            "content": {
-              "application/cloudevents+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CloudEvent"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Ok"
-            }
-          }
-        },
-        "no.altinn.broker.filedeleted": {
-          "post": {
-            "requestBody": {
-              "description": "The file has been deleted from Broker",
-              "content": {
-                "application/cloudevents+json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/CloudEvent"
-                  }
-                }
-              }
-            },
-            "responses": {
-              "200": {
-                "description": "Ok"
+  "info": {
+    "title": "Altinn3.Broker",
+    "version": "1.1.0",
+    "description": "API for Altinn Broker functionality."
+  },
+  "servers": [
+    {
+      "url": "https://platform.tt02.altinn.no",
+      "description": "TT02"
+    }
+  ],
+  "webhooks": {
+    "no.altinn.broker.filetransferinitialized": {
+      "post": {
+        "requestBody": {
+          "description": "Information about a new file transfer",
+          "content": {
+            "application/cloudevents+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloudEvent"
               }
             }
           }
         },
-        "no.altinn.broker.fileneverconfirmeddownloaded": {
-          "post": {
-            "requestBody": {
-              "description": "File was never confirmed downloaded by a recipient",
-              "content": {
-                "application/cloudevents+json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/CloudEvent"
-                  }
-                }
-              }
-            },
-            "responses": {
-              "200": {
-                "description": "Ok"
-              }
-            }
+        "responses": {
+          "200": {
+            "description": "Ok"
           }
         }
       },
-      "no.altinn.broker.uploadprocessing": {
+      "no.altinn.broker.filepurged": {
         "post": {
           "requestBody": {
-            "description": "File has been uploaded and is being processed",
+            "description": "The file has been purged from Broker",
             "content": {
               "application/cloudevents+json": {
                 "schema": {
@@ -82,67 +49,10 @@
           }
         }
       },
-      "no.altinn.broker.published": {
+      "no.altinn.broker.fileneverconfirmeddownloaded": {
         "post": {
           "requestBody": {
-            "description": "File has finished processing and is ready for download",
-            "content": {
-              "application/cloudevents+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CloudEvent"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Ok"
-            }
-          }
-        }
-      },
-      "no.altinn.broker.uploadfailed": {
-        "post": {
-          "requestBody": {
-            "description": "An upload failed either during upload or processing",
-            "content": {
-              "application/cloudevents+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CloudEvent"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Ok"
-            }
-          }
-        }
-      },
-      "no.altinn.broker.downloadconfirmed": {
-        "post": {
-          "requestBody": {
-            "description": "A recipient confirmed their download",
-            "content": {
-              "application/cloudevents+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CloudEvent"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Ok"
-            }
-          }
-        }
-      },
-      "no.altinn.broker.allconfirmeddownloaded": {
-        "post": {
-          "requestBody": {
-            "description": "All recipients have confirmed the download",
+            "description": "File was never confirmed downloaded by a recipient",
             "content": {
               "application/cloudevents+json": {
                 "schema": {
@@ -159,30 +69,193 @@
         }
       }
     },
-    "paths": {
-      "/broker/api/v1/filetransfer": {
-        "post": {
-          "tags": [
-            "File"
-          ],
-          "summary": "Initialize a new fileTransfer",
-          "description": "This endpoint initializes a new file for processing.",
-          "operationId": "InitializeFile",
-          "requestBody": {
+    "no.altinn.broker.uploadprocessing": {
+      "post": {
+        "requestBody": {
+          "description": "File has been uploaded and is being processed",
+          "content": {
+            "application/cloudevents+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloudEvent"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ok"
+          }
+        }
+      }
+    },
+    "no.altinn.broker.published": {
+      "post": {
+        "requestBody": {
+          "description": "File has finished processing and is ready for download",
+          "content": {
+            "application/cloudevents+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloudEvent"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ok"
+          }
+        }
+      }
+    },
+    "no.altinn.broker.uploadfailed": {
+      "post": {
+        "requestBody": {
+          "description": "An upload failed either during upload or processing",
+          "content": {
+            "application/cloudevents+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloudEvent"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ok"
+          }
+        }
+      }
+    },
+    "no.altinn.broker.downloadconfirmed": {
+      "post": {
+        "requestBody": {
+          "description": "A recipient confirmed their download",
+          "content": {
+            "application/cloudevents+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloudEvent"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ok"
+          }
+        }
+      }
+    },
+    "no.altinn.broker.allconfirmeddownloaded": {
+      "post": {
+        "requestBody": {
+          "description": "All recipients have confirmed the download",
+          "content": {
+            "application/cloudevents+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloudEvent"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ok"
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/broker/api/v1/filetransfer": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Initialize a new fileTransfer",
+        "description": "This endpoint initializes a new file for processing.",
+        "operationId": "InitializeFile",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FileInitialize"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully initialized the fileTransfer",
             "content": {
-              "application/json": {
+              "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/FileInitalizeExt"
+                  "type": "string",
+                  "format": "uuid"
                 }
               }
             }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "summary": "List files available for the caller",
+        "description": "This endpoint retrieves a list of files available given for the caller given the query parameters.",
+        "operationId": "List files",
+        "parameters": [
+          {
+            "name": "resourceId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
           },
-          "responses": {
-            "200": {
-              "description": "Successfully initialized the fileTransfer",
-              "content": {
-                "text/plain": {
-                  "schema": {
+          {
+            "name": "status",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "$ref": "#/components/schemas/FileStatus"
+            }
+          },
+          {
+            "name": "recipientStatus",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "$ref": "#/components/schemas/RecipientFileStatus"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
                     "type": "string",
                     "format": "uuid"
                   }
@@ -190,721 +263,655 @@
               }
             }
           }
-        },
-        "get": {
-          "tags": [
-            "File"
-          ],
-          "summary": "List files available for the caller",
-          "description": "This endpoint retrieves a list of files available given for the caller given the query parameters.",
-          "operationId": "List files",
-          "parameters": [
-            {
-              "name": "resourceId",
-              "in": "query",
-              "style": "form",
-              "schema": {
-                "type": "string"
-              }
-            },
-            {
-              "name": "status",
-              "in": "query",
-              "style": "form",
-              "schema": {
-                "$ref": "#/components/schemas/FileStatus"
-              }
-            },
-            {
-              "name": "recipientStatus",
-              "in": "query",
-              "style": "form",
-              "schema": {
-                "$ref": "#/components/schemas/RecipientFileStatus"
-              }
-            },
-            {
-              "name": "from",
-              "in": "query",
-              "style": "form",
-              "schema": {
-                "type": "string",
-                "format": "date-time"
-              }
-            },
-            {
-              "name": "to",
-              "in": "query",
-              "style": "form",
-              "schema": {
-                "type": "string",
-                "format": "date-time"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array",
-                    "items": {
-                      "type": "string",
-                      "format": "uuid"
-                    }
-                  }
-                }
-              }
+        }
+      }
+    },
+    "/broker/api/v1/filetransfer/{fileTransferId}/upload": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Upload file",
+        "description": "This endpoint allows for the uploading to an initialized file transfer",
+        "operationId": "UploadFile",
+        "parameters": [
+          {
+            "name": "fileTransferId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
             }
           }
-        }
-      },
-      "/broker/api/v1/filetransfer/{fileTransferId}/upload": {
-        "post": {
-          "tags": [
-            "File"
-          ],
-          "summary": "Upload a fileTransfer",
-          "description": "This endpoint allows for the uploading to an initialized fileTransfer",
-          "operationId": "UploadFile",
-          "parameters": [
-            {
-              "name": "fileTransferId",
-              "in": "path",
-              "required": true,
-              "style": "simple",
-              "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Successfully uploaded the fileTransfer"
-            }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully uploaded the fileTransfer"
           }
         }
-      },
-      "/broker/api/v1/filetransfer/upload": {
-        "post": {
-          "tags": [
-            "File"
-          ],
-          "summary": "Initialize and upload a fileTransfer",
-          "description": "This endpoint allows for the initialization and uploading of a single fileTransfer",
-          "operationId": "UploadSingleFile",
-          "requestBody": {
-            "content": {
-              "multipart/form-data": {
-                "schema": {
-                  "required": [
-                    "Metadata.FileName",
-                    "Metadata.Recipients",
-                    "Metadata.ResourceId",
-                    "Metadata.Sender"
-                  ],
-                  "type": "object",
-                  "properties": {
-                    "Metadata.FileName": {
-                      "maxLength": 255,
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "Metadata.ResourceId": {
-                      "maxLength": 255,
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "Metadata.SendersFileTransferReference": {
-                      "maxLength": 4096,
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "Metadata.Sender": {
-                      "pattern": "^\\d{4}:\\d{9}$",
-                      "type": "string"
-                    },
-                    "Metadata.Recipients": {
-                      "minItems": 1,
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "Metadata.PropertyList": {
-                      "maxLength": 10,
-                      "type": "object",
-                      "additionalProperties": {
-                        "type": "string"
-                      }
-                    },
-                    "Metadata.Checksum": {
-                      "type": "string"
-                    },
-                    "File": {
-                      "type": "string",
-                      "format": "binary"
-                    }
-                  }
-                },
-                "encoding": {
+      }
+    },
+    "/broker/api/v1/filetransfer/upload": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Initialize and upload a file transfer",
+        "description": "This endpoint allows for the initialization and uploading of a file transfer in a single operation",
+        "operationId": "UploadSingleFile",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "Metadata.FileName",
+                  "Metadata.Recipients",
+                  "Metadata.ResourceId",
+                  "Metadata.Sender"
+                ],
+                "type": "object",
+                "properties": {
                   "Metadata.FileName": {
-                    "style": "form"
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "type": "string"
                   },
                   "Metadata.ResourceId": {
-                    "style": "form"
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "type": "string"
                   },
                   "Metadata.SendersFileTransferReference": {
-                    "style": "form"
+                    "maxLength": 4096,
+                    "minLength": 1,
+                    "type": "string"
                   },
                   "Metadata.Sender": {
-                    "style": "form"
+                    "pattern": "^\\d{4}:\\d{9}$",
+                    "type": "string"
                   },
                   "Metadata.Recipients": {
-                    "style": "form"
+                    "minItems": 1,
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
                   },
                   "Metadata.PropertyList": {
-                    "style": "form"
+                    "type": "object",
+                    "additionalProperties": false,
+                    "maxProperties": 10,
+                    "nullable": true,
+                    "patternProperties": {
+                      "^.{1,50}$": {
+                        "maxLength": 300,
+                        "type": "string"
+                      }
+                    }
                   },
                   "Metadata.Checksum": {
-                    "style": "form"
+                    "type": "string"
                   },
                   "File": {
-                    "style": "form"
+                    "type": "string",
+                    "format": "binary"
                   }
                 }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success"
-            }
-          }
-        }
-      },
-      "/broker/api/v1/filetransfer/{fileTransferId}": {
-        "get": {
-          "tags": [
-            "File"
-          ],
-          "summary": "Retrieve file status.",
-          "description": "This endpoint retrieves the status of a specified fileTransfer",
-          "operationId": "GetFileStatus",
-          "parameters": [
-            {
-              "name": "fileTransferId",
-              "in": "path",
-              "required": true,
-              "style": "simple",
-              "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/FileOverview"
-                  }
+              },
+              "encoding": {
+                "Metadata.FileName": {
+                  "style": "form"
+                },
+                "Metadata.ResourceId": {
+                  "style": "form"
+                },
+                "Metadata.SendersFileTransferReference": {
+                  "style": "form"
+                },
+                "Metadata.Sender": {
+                  "style": "form"
+                },
+                "Metadata.Recipients": {
+                  "style": "form"
+                },
+                "Metadata.PropertyList": {
+                  "style": "form"
+                },
+                "Metadata.Checksum": {
+                  "style": "form"
+                },
+                "File": {
+                  "style": "form"
                 }
               }
             }
           }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
         }
-      },
-      "/broker/api/v1/filetransfer/{fileTransferId}/details": {
-        "get": {
-          "tags": [
-            "File"
-          ],
-          "summary": "Retrieve file details",
-          "description": "Retrieve details about a file for auditing purposes",
-          "operationId": "GetFileDetails",
-          "parameters": [
-            {
-              "name": "fileTransferId",
-              "in": "path",
-              "required": true,
-              "style": "simple",
-              "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
+      }
+    },
+    "/broker/api/v1/filetransfer/{fileTransferId}": {
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Retrieve file transfer status.",
+        "description": "This endpoint retrieves the status of a specified file transfer",
+        "operationId": "GetFileStatus",
+        "parameters": [
+          {
+            "name": "fileTransferId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
             }
-          ],
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/FileStatusDetailsExt"
-                  }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileOverview"
                 }
               }
-            }
-          }
-        }
-      },
-      "/broker/api/v1/filetransfer/{fileTransferId}/download": {
-        "get": {
-          "tags": [
-            "File"
-          ],
-          "summary": "Download a fileTransfer",
-          "description": "This endpoint allows for the downloading of a specified fileTransfer",
-          "operationId": "DownloadFile",
-          "parameters": [
-            {
-              "name": "fileTransferId",
-              "in": "path",
-              "required": true,
-              "style": "simple",
-              "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Successfully downloaded the fileTransfer"
-            }
-          }
-        }
-      },
-      "/broker/api/v1/filetransfer/{fileTransferId}/confirmdownload": {
-        "post": {
-          "tags": [
-            "File"
-          ],
-          "summary": "Confirm a file download.",
-          "description": "This endpoint confirms the successful download of a specified fileTransfer",
-          "operationId": "ConfirmDownload",
-          "parameters": [
-            {
-              "name": "fileTransferId",
-              "in": "path",
-              "required": true,
-              "style": "simple",
-              "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Success"
             }
           }
         }
       }
     },
-    "components": {
-      "schemas": {
-        "AccessLevel": {
-          "enum": [
-            "Read",
-            "Write"
-          ],
-          "type": "string"
-        },
-        "CloudEvent": {
-          "type": "object",
-          "properties": {
-            "specversion": {
-              "type": "string"
-            },
-            "data": {
-              "nullable": true
-            },
-            "dataContentType": {
+    "/broker/api/v1/filetransfer/{fileTransferId}/details": {
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Retrieve file transfer details",
+        "description": "Retrieve details about a file transfer for auditing purposes",
+        "operationId": "GetFileDetails",
+        "parameters": [
+          {
+            "name": "fileTransferId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
               "type": "string",
-              "nullable": true
-            },
-            "id": {
-              "type": "string",
-              "nullable": true
-            },
-            "dataSchema": {
-              "type": "string",
-              "format": "uri",
-              "nullable": true
-            },
-            "source": {
-              "type": "string",
-              "format": "uri",
-              "nullable": true
-            },
-            "subject": {
-              "type": "string",
-              "nullable": true
-            },
-            "time": {
-              "type": "string",
-              "format": "date-time",
-              "nullable": true
-            },
-            "type": {
-              "type": "string",
-              "nullable": true
-            },
-            "isValid": {
-              "type": "boolean",
-              "readOnly": true
+              "format": "uuid"
             }
-          },
-          "additionalProperties": false,
-          "examples": [
-            {
-              "id": "1faa107f-3c0a-4fa6-9fce-7cee8838e258",
-              "resource": "urn:altinn:resource:altinapp.ttd.apps-test",
-              "source": "https://ttd.apps.altinn.no/ttd/apps-test/instances/50015641/a72223a3-926b-4095-a2a6-bacc10815f2d",
-              "specversion": "1.0",
-              "type": "app.instance.created",
-              "subject": "/party/50015641",
-              "alternativesubject": "/person/27124902369",
-              "time": "2020-10-29T07:22:19.438039Z"
-            }
-          ]
-        },
-        "FileInitalizeExt": {
-          "required": [
-            "Filename",
-            "recipients",
-            "resourceId",
-            "sender"
-          ],
-          "type": "object",
-          "properties": {
-            "Filename": {
-              "maxLength": 255,
-              "minLength": 1,
-              "type": "string"
-            },
-            "resourceId": {
-              "maxLength": 255,
-              "minLength": 1,
-              "type": "string"
-            },
-            "SendersFileTransferReference": {
-              "maxLength": 4096,
-              "minLength": 1,
-              "type": "string",
-              "nullable": true
-            },
-            "sender": {
-              "minLength": 1,
-              "pattern": "^\\d{4}:\\d{9}$",
-              "type": "string"
-            },
-            "recipients": {
-              "minItems": 1,
-              "type": "array",
-              "items": {
-                "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileStatusDetails"
+                }
               }
-            },
-            "propertyList": {
-              "maxLength": 10,
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "nullable": true
-            },
-            "checksum": {
-              "type": "string",
-              "nullable": true
             }
-          },
-          "additionalProperties": false
-        },
-        "FileOverview": {
-          "type": "object",
-          "properties": {
-            "fileTransferId": {
+          }
+        }
+      }
+    },
+    "/broker/api/v1/filetransfer/{fileTransferId}/download": {
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Download a file",
+        "description": "This endpoint is used for downloading the file from the specified file transfer",
+        "operationId": "DownloadFile",
+        "parameters": [
+          {
+            "name": "fileTransferId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
               "type": "string",
               "format": "uuid"
-            },
-            "resourceId": {
-              "type": "string",
-              "nullable": true
-            },
-            "fileName": {
-              "type": "string",
-              "nullable": true
-            },
-            "SendersFileTransferReference": {
-              "type": "string",
-              "nullable": true
-            },
-            "checksum": {
-              "type": "string",
-              "nullable": true
-            },
-            "fileTransferSize": {
-              "type": "integer",
-              "format": "int64"
-            },
-            "fileStatus": {
-              "$ref": "#/components/schemas/FileStatus"
-            },
-            "fileStatusText": {
-              "type": "string",
-              "nullable": true
-            },
-            "fileStatusChanged": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "created": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "expirationTime": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "sender": {
-              "type": "string",
-              "nullable": true
-            },
-            "recipients": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/RecipientFileStatusDetails"
-              },
-              "nullable": true
-            },
-            "propertyList": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "nullable": true
             }
-          },
-          "additionalProperties": false
-        },
-        "FileStatusDetailsExt": {
-          "type": "object",
-          "properties": {
-            "fileTransferId": {
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully downloaded the fileTransfer"
+          }
+        }
+      }
+    },
+    "/broker/api/v1/filetransfer/{fileTransferId}/confirmdownload": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Confirm a file download.",
+        "description": "This endpoint confirms the successful download of the specified file transfer",
+        "operationId": "ConfirmDownload",
+        "parameters": [
+          {
+            "name": "fileTransferId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
               "type": "string",
               "format": "uuid"
-            },
-            "resourceId": {
-              "type": "string",
-              "nullable": true
-            },
-            "fileName": {
-              "type": "string",
-              "nullable": true
-            },
-            "SendersFileTransferReference": {
-              "type": "string",
-              "nullable": true
-            },
-            "checksum": {
-              "type": "string",
-              "nullable": true
-            },
-            "fileTransferSize": {
-              "type": "integer",
-              "format": "int64"
-            },
-            "fileStatus": {
-              "$ref": "#/components/schemas/FileStatus"
-            },
-            "fileStatusText": {
-              "type": "string",
-              "nullable": true
-            },
-            "fileStatusChanged": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "created": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "expirationTime": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "sender": {
-              "type": "string",
-              "nullable": true
-            },
-            "recipients": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/RecipientFileStatusDetails"
-              },
-              "nullable": true
-            },
-            "propertyList": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "nullable": true
-            },
-            "fileStatusHistory": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/FileStatusEventExt"
-              },
-              "nullable": true
-            },
-            "recipientFileStatusHistory": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/RecipientFileStatusEventExt"
-              },
-              "nullable": true
             }
-          },
-          "additionalProperties": false
-        },
-        "FileStatusEventExt": {
-          "type": "object",
-          "properties": {
-            "fileStatus": {
-              "$ref": "#/components/schemas/FileStatus"
-            },
-            "fileStatusText": {
-              "type": "string",
-              "nullable": true
-            },
-            "fileStatusChanged": {
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          "additionalProperties": false
-        },
-        "FileStatus": {
-          "enum": [
-            "Initialized",
-            "UploadStarted",
-            "UploadProcessing",
-            "Published",
-            "Cancelled",
-            "AllConfirmedDownloaded",
-            "Deleted",
-            "Failed"
-          ],
-          "type": "string"
-        },
-        "MaskinportenUser": {
-          "type": "object",
-          "properties": {
-            "clientId": {
-              "type": "string",
-              "nullable": true
-            },
-            "accessLevel": {
-              "$ref": "#/components/schemas/AccessLevel"
-            },
-            "organizationNumber": {
-              "type": "string",
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "RecipientFileStatusDetails": {
-          "type": "object",
-          "properties": {
-            "recipient": {
-              "type": "string",
-              "nullable": true
-            },
-            "currentRecipientFileStatusCode": {
-              "$ref": "#/components/schemas/RecipientFileStatus"
-            },
-            "currentRecipientFileStatusText": {
-              "type": "string",
-              "nullable": true
-            },
-            "currentRecipientFileStatusChanged": {
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          "additionalProperties": false
-        },
-        "RecipientFileStatusEventExt": {
-          "type": "object",
-          "properties": {
-            "recipient": {
-              "type": "string",
-              "nullable": true
-            },
-            "recipientFileStatusCode": {
-              "$ref": "#/components/schemas/RecipientFileStatus"
-            },
-            "recipientFileStatusText": {
-              "type": "string",
-              "nullable": true
-            },
-            "recipientFileStatusChanged": {
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          "additionalProperties": false
-        },
-        "RecipientFileStatus": {
-          "enum": [
-            "Initialized",
-            "DownloadStarted",
-            "DownloadConfirmed"
-          ],
-          "type": "string"
-        },
-        "ResourceInitialize": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string",
-              "nullable": true
-            },
-            "deletionTime": {
-              "type": "string",
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "ResourceOverview": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "string",
-              "nullable": true
-            },
-            "organizationNumber": {
-              "type": "string",
-              "nullable": true
-            },
-            "created": {
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          "additionalProperties": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
         }
       }
     }
+  },
+  "components": {
+    "schemas": {
+      "AccessLevel": {
+        "enum": [
+          "Read",
+          "Write"
+        ],
+        "type": "string"
+      },
+      "CloudEvent": {
+        "type": "object",
+        "properties": {
+          "specversion": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "time": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "resource": {
+            "type": "string"
+          },
+          "resourceinstance": {
+            "type": "string",
+            "nullable": true
+          },
+          "source": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "additionalProperties": true,
+        "examples": [
+          {
+            "specversion": "1.0",
+            "id": "0b75b5da-7f19-4ab7-9711-ec0f6108d48c",
+            "type": "no.altinn.broker.filetransferinitialized",
+            "time": "2024-04-03T08:59:37.8552029Z",
+            "resource": "urn:altinn:resource:altinapp.ttd.apps-test",
+            "resourceinstance": "0850124f-6ae9-4821-b4f9-8ee7c937ecfc",
+            "source": "https://platform.tt02.altinn.no/broker/api/v1/file"
+          }
+        ]
+      },
+      "FileInitialize": {
+        "required": [
+          "Filename",
+          "recipients",
+          "resourceId",
+          "sender"
+        ],
+        "type": "object",
+        "properties": {
+          "Filename": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string"
+          },
+          "resourceId": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string"
+          },
+          "sendersFileTransferReference": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string",
+            "nullable": true
+          },
+          "sender": {
+            "minLength": 1,
+            "pattern": "^\\d{4}:\\d{9}$",
+            "type": "string"
+          },
+          "recipients": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "propertyList": {
+            "type": "object",
+            "additionalProperties": false,
+            "maxProperties": 10,
+            "nullable": true,
+            "patternProperties": {
+              "^.{1,50}$": {
+                "maxLength": 300,
+                "type": "string"
+              }
+            }
+          },
+          "checksum": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FileOverview": {
+        "type": "object",
+        "properties": {
+          "fileTransferId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "resourceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileName": {
+            "type": "string",
+            "nullable": true
+          },
+          "sendersFileTransferReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "checksum": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileTransferSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "fileStatus": {
+            "$ref": "#/components/schemas/FileStatus"
+          },
+          "fileStatusText": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileStatusChanged": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "expirationTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "sender": {
+            "type": "string",
+            "nullable": true
+          },
+          "recipients": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RecipientFileStatusDetails"
+            },
+            "nullable": true
+          },
+          "propertyList": {
+            "type": "object",
+            "additionalProperties": false,
+            "maxProperties": 10,
+            "nullable": true,
+            "patternProperties": {
+              "^.{1,50}$": {
+                "maxLength": 300,
+                "type": "string"
+              }
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "FileStatusDetails": {
+        "type": "object",
+        "properties": {
+          "fileTransferId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "resourceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileName": {
+            "type": "string",
+            "nullable": true
+          },
+          "sendersFileTransferReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "checksum": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileTransferSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "fileStatus": {
+            "$ref": "#/components/schemas/FileStatus"
+          },
+          "fileStatusText": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileStatusChanged": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "expirationTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "sender": {
+            "type": "string",
+            "nullable": true
+          },
+          "recipients": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RecipientFileStatusDetails"
+            },
+            "nullable": true
+          },
+          "propertyList": {
+            "type": "object",
+            "additionalProperties": false,
+            "maxProperties": 10,
+            "nullable": true,
+            "patternProperties": {
+              "^.{1,50}$": {
+                "maxLength": 300,
+                "type": "string"
+              }
+            }
+          },
+          "fileStatusHistory": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FileStatusEvent"
+            },
+            "nullable": true
+          },
+          "recipientFileStatusHistory": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RecipientFileStatusEvent"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FileStatusEvent": {
+        "type": "object",
+        "properties": {
+          "fileStatus": {
+            "$ref": "#/components/schemas/FileStatus"
+          },
+          "fileStatusText": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileStatusChanged": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FileStatus": {
+        "enum": [
+          "Initialized",
+          "UploadStarted",
+          "UploadProcessing",
+          "Published",
+          "Cancelled",
+          "AllConfirmedDownloaded",
+          "Purged",
+          "Failed"
+        ],
+        "type": "string"
+      },
+      "MaskinportenUser": {
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string",
+            "nullable": true
+          },
+          "accessLevel": {
+            "$ref": "#/components/schemas/AccessLevel"
+          },
+          "organizationNumber": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RecipientFileStatusDetails": {
+        "type": "object",
+        "properties": {
+          "recipient": {
+            "type": "string",
+            "nullable": true
+          },
+          "currentRecipientFileStatusCode": {
+            "$ref": "#/components/schemas/RecipientFileStatus"
+          },
+          "currentRecipientFileStatusText": {
+            "type": "string",
+            "nullable": true
+          },
+          "currentRecipientFileStatusChanged": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RecipientFileStatusEvent": {
+        "type": "object",
+        "properties": {
+          "recipient": {
+            "type": "string",
+            "nullable": true
+          },
+          "recipientFileStatusCode": {
+            "$ref": "#/components/schemas/RecipientFileStatus"
+          },
+          "recipientFileStatusText": {
+            "type": "string",
+            "nullable": true
+          },
+          "recipientFileStatusChanged": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RecipientFileStatus": {
+        "enum": [
+          "Initialized",
+          "DownloadStarted",
+          "DownloadConfirmed"
+        ],
+        "type": "string"
+      },
+      "ResourceInitialize": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "deletionTime": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResourceOverview": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "organizationNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
   }
+}
