@@ -7,23 +7,35 @@ toc: true
 
 ## The dialog
 
-The dialog is an abstract and common model for all ongoing or completed communications with a service owners, and contains descriptive metadata, e.g., who is the receiving party, addresses (URL), title, date, status, a list of relevant _actions_ that the user can perform, and an optional list of [dialog elements](#dialog-elements). Actions can be arbitrarily defined by the service provider, and all interaction with the dialog takes place in the service provider's user interfaces or against the service provider's API endpoints (except for GUI actions that describe write operations, see more about this in the section [Actions](#actions)).
+The dialog is an abstract and common model for all ongoing or completed communications with a service owners, and contains descriptive metadata, e.g., who is the receiving party, addresses (URL), textual content (title, summary etc), date, status, a list of relevant _actions_ that the user can perform, and an optional list of [transmissions](#transmissions). Actions can be arbitrarily defined by the service provider, and all interaction with the dialog takes place in the service provider's user interfaces or against the service provider's API endpoints (except for GUI actions that describe write operations, see more about this in the section [Actions](#actions)).
 
-An important difference from [Altinn Correspondence]({{<relref "/correspondence">}}) is that dialogs in Dialogporten are freely _mutable_. The service provider can update the metadata and available actions on the dialog at any time. Any change generates _events_, which authorized parties can act on, e.g., sending a notification or having an EUS perform an action.
+An important difference from [Altinn Correspondence]({{<relref "/correspondence">}}) is that dialogs in Dialogporten are _mutable_. The service provider can update the metadata and available actions on the dialog at any time (with some notable exceptions). Any change generates _events_, which authorized parties can act on, e.g., sending a notification or having an EUS perform an action.
 
 Dialogs use by default a [UUIDv7](https://uuid7.com/) as its identifier, but Dialogporten supports any valid UUID format. The service owner can specify the desired UUID upon creation to enable the use of the same identifier across systems and ensure idempotency.
 
 ### Read more
 * [Reference information for the dialog entity]({{<relref "../../reference/entities/dialog">}})
 
-## Dialog Elements
+## Transmissions
 
-Dialog elements are distinct components of a dialog and can be used in complex dialogs where it may be useful for end-users and systems to relate to individual parts of the dialog in addition to the dialog as a whole. These can be messages and pre-filled forms from the service provider, submitted forms from the party, receipts, structured error messages, reports, unstructured attachments to messages, etc., that make up part of the overall dialog. Dialog elements are typically referred to by entries in the activityHistory. API actions can also refer to a single dialog element.
+A transmission is used to describe a single "communication" between the service owner and the party within a dialog Transmissions can typically be messages, pre-filled forms and receipts from the service provider, or submitted forms/messages from the party related to the dialog. The dialog may contain zero or more transmissions represented in a chronologically sorted list. Each transmission and the list of transmissions are immutable; it is only possible to append new tranmissions to the list, not change or delete transmissions.
 
-Dialog elements can be indicated to be embedded in the workspace/end-user system, and not shown as a link for the user to navigate to, but displayed directly in the user's GUI. In Workspace, this is done by the browser in the front channel with Fetch API and with the help of [Dialog Token]({{<relref "../authorization/dialog-tokens">}}) and is called [front channel embeds]({{<relref "../front-channel-embeds">}}).
+A transmission contains some textual metadata (title, summary) that explains what the transmission is, including [front channel embeds]({{<relref "../front-channel-embeds">}}). Additionally, a transmission may contain one or more [attachments](#attachments).
+
+Transmissions will by default inherit the authorization policy for the dialog itself, but this may be overridden such that individual transmissions are indicated as unavaiable if the end-user lacks privileges, in which case only the metadata is available, but not any front-channel embeds or attachments.
+
+API actions and activity log entries may refer to single transmissions.
 
 ### Read more
-* [Reference information for the dialog element entity]({{<relref "../../reference/entities/dialogelement">}})
+* [Reference information for the transmissions entity]({{<relref "../../reference/entities/transmission">}})
+
+## Attachments
+
+Attachments are files referenced by one or more URLs, supporting various representations of the same logical resource (ie. various formats, such as PDF, XML, JSON etc), for either GUI-consumers (ie. end user in web browser) or API-consumers (structured formats for custom end user systems). In addition to the URLs, there are some describing metadata that can be used to identity what the attachment is.
+
+Attachments can be used on both transmission and dialog level. 
+
+* [Reference information for the attachment entity]({{<relref "../../reference/entities/attachment">}})
 
 ## Actions
 

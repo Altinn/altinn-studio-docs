@@ -31,6 +31,4 @@ Dialogporten does not know the semantics associated with an action, so for actio
 ## Read more
 * [Technical reference for front-channel embeds]({{<relref "../../reference/front-end/front-channel-embeds">}})
 
-
-
 {{<children />}}
