@@ -1,0 +1,16 @@
+<!-- See footnote.html for usage information -->
+{{ $footnotes := .Page.Scratch.Get "footnotes" }}
+{{ if $footnotes }}
+  <div class="footnotes-display">
+    {{ range $index, $text := $footnotes }}
+      <div class="footnotes-entry"><sup>{{ $index }}</sup><span>{{ $text }}</span></div>
+    {{ end }}
+  </div>
+  {{ if not (eq (.Get 0) "noreset") }}  <!-- Check for the 'noreset' argument, which preserves the footnote index -->
+    {{ .Page.Scratch.Set "footnotes" (dict) }}  <!-- Reset footnotes dictionary -->
+    {{ .Page.Scratch.Set "footnoteIndex" 0 }}   <!-- Reset footnote index -->
+    {{ .Page.Scratch.Set "footnotesInitialized" false }} <!-- Reset initialization flag -->
+  {{ end }}
+{{ else }}
+    {{ errorf "No footnotes defined. See footnote.html for usage information." }}
+{{ end }}
