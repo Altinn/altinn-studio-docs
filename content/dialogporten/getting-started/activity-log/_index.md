@@ -20,7 +20,7 @@ The act of _adding_ transmissions should not be accompanied with a activity log 
 
 The activity log can be queried via API, and can be used when creating conditional [notification orders]({{<ref "../../../notifications">}}), ie. when creating reminders.
 
-## Read more
+**Read more**
 * [Techical reference for the activity log entity]({{<ref "../../reference/entities/activity">}})
 * [Service owner user guides]({{<ref "../../reference/entities/activity">}})
 * [Notification product documentation]({{<ref "../../../notifications">}})

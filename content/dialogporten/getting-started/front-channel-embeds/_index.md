@@ -17,7 +17,7 @@ Similar to displaying a simple link, content viewed via front channel embeds are
 The service provider system will have to implement support for front channel embeds to handle front channel embeds and web browser security mechanisms ([CORS protocol](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)). More information about this in the reference section.
 
 
-## Read more
+**Read more**
 * [Technical reference for front channel embeds]({{<relref "../../reference/front-end/front-channel-embeds">}})
 
 {{<children />}}

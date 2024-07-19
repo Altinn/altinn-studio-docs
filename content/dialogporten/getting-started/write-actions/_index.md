@@ -28,7 +28,7 @@ As with [front channel embeds]({{<relref "../front-channel-embeds">}}), write ac
 
 Dialogporten does not know the semantics associated with an action, so for actions that involve complex mutations of the dialog, the service owner must perform the change, update the dialog in the background, and then return a successful response in the request made by the end-user system. This will trigger the end-user to reload the (now updated) dialog from Dialogporten, and display the new state to the user. There are also mechanisms to allow the for the dialog change to occur asynchronously (delayed) and independent on the request made by the end-user system, transparent to the end-user. See the reference section for technical details.
 
-## Read more
+**Read more**
 * [Technical reference for front-channel embeds]({{<relref "../../reference/front-end/front-channel-embeds">}})
 
 {{<children />}}

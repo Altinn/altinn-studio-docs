@@ -32,7 +32,7 @@ The dialog token is also what enables [front channel embeds]({{<relref "../../fr
 ## Security and trust
 Dialogporten issues bearer tokens as JWTs (JSON Web Tokens) signed using state-of-the-art cryptography standards. The public key material used to verify tokens issued by Dialogporten is published at a standard HTTPS location, allowing for automatic configuration using most well-established cryptography application libraries.
 
-## Read more
+**Read more**
 * [Technical reference for dialog tokens]({{<relref "../../../reference/authorization/dialog-tokens">}})
 
 {{<children />}}

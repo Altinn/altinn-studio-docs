@@ -20,7 +20,7 @@ GUIs will normally utilize the seen log entries made after the latest update. Ho
 
 Whenever a seen-log entry is created, an event is produced and made available for all authorized event consumers. See the techinical reference for more information about event type and information made available in the event body.
 
-## Read more
+**Read more**
 
 * [Learn about the activity log]({{<ref "../activity-log">}})
 * [Techninal reference for the seen log entity](<{{<ref "../../reference/entities/seen">}}>)

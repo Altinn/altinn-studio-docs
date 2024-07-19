@@ -16,7 +16,7 @@ The Dialogporten API is divided into a service owner-API and a end user-API.
 
 {{<displayFootnotes>}}
 
-In addition, token issued by [Altinn Token Exhange]({{<ref "../../../authentication/#exchange-a-jwt-token-from-an-external-token-provider">}}) is also supported, when using either ID-porten or Maskinporten as input.
+In addition, token issued by [Altinn Token Exhange]({{<ref "../../../authentication/what-do-you-get/#exchange-a-jwt-token-from-an-external-token-provider">}}) is also supported, when using either ID-porten or Maskinporten as input.
 
 ## Usage for end-user systems
 
@@ -38,10 +38,10 @@ ID-porten implements a standard OAuth2 protocol, and issues refresh tokens that 
 
 For detailed steps on how to create an ID-porten integration and utilizing the OAuth2 protocol, see the ID-porten documentation linked below.
 
-#### Read more
+**Read more**
 * [About ID-porten (norwegian)](https://samarbeid.digdir.no/id-porten/id-porten/18)
 * [Getting started with ID-porten](https://docs.digdir.no/docs/idporten/oidc/oidc_guide_english.html)
-* [Using Altinn Token Exchange]({{<ref "../../../authentication/#exchange-a-jwt-token-from-an-external-token-provider">}})
+* [Using Altinn Token Exchange]({{<ref "../../../authentication/what-do-you-get/#exchange-a-jwt-token-from-an-external-token-provider">}})
 
 ### Maskinporten authentication with system users
 
@@ -58,8 +58,8 @@ The following general steps must be performed in order to access the end-user AP
 
 For detailed steps on how to create and utilize a system user, see the link below.
 
-#### Read more
-* [Authenticating with system users]({{<ref "../../../authentication/systemauthentication">}})
+**Read more**
+* [Authenticating with system users]({{<ref "../../../authentication/guides/systemauthentication-for-systemproviders/">}})
 
 {{<children />}}
 
@@ -73,7 +73,7 @@ There are several scopes defining access to various parts of the service owner A
 | ---------------------------------------------------- | ----------------------------------------------------- |
 | `digdir:dialogporten.serviceprovider`                | All service owner APIs, except the search/list API    |
 | `digdir:dialogporten.serviceprovider.search`         | All service owner APIs, including the search/list API |
-| `digdir:dialogporten.serviceprovider.correspondence` | Create and update dialogs referring a service resource of type `CorrespondenceService` in [Altinn Resource Registry]({{<ref "../../../authorization/modules/resourceregistry/">}}) (internal use only) |
+| `digdir:dialogporten.serviceprovider.correspondence` | Create and update dialogs referring a service resource of type `CorrespondenceService` in [Altinn Resource Registry]({{<ref "../../../authorization/what-do-you-get/resourceregistry/">}}) (internal use only) |
 
 Using these scopes requires the organization in the `consumer` claim of the to be registered as a service owner ("org") in Altinn. Failing that will cause any requests to fail. 
 
@@ -87,7 +87,7 @@ The follwing general steps must be performed in order to access Dialogporten ser
 
 For detailed steps on how to use Maskinporten, see the link below.
 
-#### Read more
+**Read more**
 * [About Maskinporten (norwegian)](https://samarbeid.digdir.no/maskinporten/maskinporten/25)
 * [Getting started with Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_summary)
 
@@ -95,5 +95,5 @@ For detailed steps on how to use Maskinporten, see the link below.
 
 The serviceprovider-scopes are delegable via Altinn API delegation. Service owner organizations may employ suppliers to use Dialogporten service owner APIs on their behalf, using API delegation in Altinn. The API is called "Dialogporten Serviceowner API". Follow the links below for a guide on how to do this:
 
-#### Read more
-* [Using Altinn API delegation]({{<ref "../../../authorization/guide/">}}) (TODO: missing content?)
+**Read more**
+* {{<link "../../../authorization/guides/create-apischeme-resource-admin/" title>}}

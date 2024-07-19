@@ -17,7 +17,7 @@ XACML offers great flexibility in how coarse or fine-grained the access control 
 
 Note however, that the attachments within a transmission and actions always refer to a endpoint hosted by the service provider. Thus, the authorization decisions made in Altinn Authorization for actions and transmissions are to be considered advisory. The endpoints themselves _must_ also enforce the same authorization policies. This can be done either by requesting Altinn Authorization (in the same manner as Dialogporten), or utilize [dialog tokens]({{<relref "../dialog-tokens">}}) which embeds the same authorization decision.
 
-## Read more
+**Read more**
 * [Technical reference for the dialog entity]({{<relref "../../../reference/entities/dialog">}})
 * [Technical reference for the action entity]({{<relref "../../../reference/entities/action">}})
 * [Technical reference for the transmission entity]({{<relref "../../../reference/entities/transmission">}})

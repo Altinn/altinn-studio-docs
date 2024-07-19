@@ -12,7 +12,7 @@ Dialogporten supports a read-only GraphQL API for end-users. The endpoints are:
 | Staging     | https://altinn-tt02-api.azure-api.net/dialogporten/graphql |
 | Production  | Not yet available                                          |
 
-## Read more
+**Read more**
 * [Technical information about Dialporten V1 schemas](https://github.com/digdir/dialogporten/tree/main/docs/schema/V1)
 * {{<link "../../user-guides/authenticating">}}
 

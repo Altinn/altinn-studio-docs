@@ -6,6 +6,6 @@ weight: 10
 
 {{<notyetwritten>}}
 
-For now, refer to the [Altinn Resource Registry documentation]({{<ref "../../../../authorization/modules/resourceregistry/">}}).
+For now, see {{<link "../../../../authorization/guides/create-resource-resource-admin/" title>}}.
 
 {{<children />}}

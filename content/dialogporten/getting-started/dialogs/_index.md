@@ -13,7 +13,7 @@ An important difference from [Altinn Correspondence]({{<relref "/correspondence"
 
 Dialogs use by default a [UUIDv7](https://uuid7.com/) as its identifier, but Dialogporten supports any valid UUID format. The service owner can specify the desired UUID upon creation to enable the use of the same identifier across systems and ensure idempotency.
 
-### Read more
+**Read more**
 * [Reference information for the dialog entity]({{<relref "../../reference/entities/dialog">}})
 
 ## Transmissions
@@ -26,7 +26,7 @@ Transmissions will by default inherit the authorization policy for the dialog it
 
 API actions and activity log entries may refer to single transmissions.
 
-### Read more
+**Read more**
 * [Reference information for the transmissions entity]({{<relref "../../reference/entities/transmission">}})
 
 ## Attachments
@@ -51,7 +51,7 @@ All GUI actions have a URL. These URLs are used in the front channel (ie. the br
 
 GUI actions can, however, be marked as [write operations]({{<relref "../write-actions">}}) and can then also be used to make state changes.
 
-### Read more
+**Read more**
 * [Reference information for the GUI action entity]({{<relref "../../reference/entities/action#gui-actions">}})
 * [Learn about write actions]({{<relref "../write-actions">}})
 
@@ -63,14 +63,14 @@ An API action is intended for EUSs and portals that use Dialogporten through the
 Dialogporten does not validate any data and does not see what data flows between the EUS and the service provider's API.
 {{</notice>}}
 
-### Read more
+**Read more**
 * [Reference information for the API action entity]({{<relref "../../reference/entities/action#api-actions">}})
 
 ## Activities
 
 An _activity_ describes an action or event that has occurred in connection with the dialog. Each activity is part of the activity history, which is a chronological list of activities. The service provider populates the activity history as various state changes occur.
 
-### Read more
+**Read more**
 * [Reference information for the dialog activity entity]({{<relref "../../reference/entities/activity">}})
 
 

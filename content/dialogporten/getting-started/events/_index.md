@@ -27,7 +27,7 @@ Sse cases include:
 * Service owner acting on the user having seen a dialog or opened a dialog in order to determine the need for sending reminders
 * A second service owner, granted access to consume events associated with a particular service process reaching an end state, uses these events as a trigger to initiate a related business process pro-actively without user interaction.
 
-## Read more
+**Read more**
 * [Learn about the Dialogporten "seen"-log]({{<relref "../seen-log">}})
 * [Learn about the Dialogporten activity log]({{<relref "../activity-log">}})
 * [Technical reference information about Dialogporten events]({{<relref "../../reference/events">}})

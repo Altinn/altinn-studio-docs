@@ -14,7 +14,7 @@ The access rules can be defined in the same policy as the dialog [service resour
 
 Authorization attributes can also be used on [transmissions]({{<relref "../../dialogs#transmissions">}}) to define specific access rules controlling who is allowed to read a given transmission. 
 
-## Read more
+**Read more**
 * [Technical reference for authorization attributes]({{<relref "../../../reference/authorization/attributes">}})
 
 {{<children />}}
