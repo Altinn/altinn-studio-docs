@@ -25,6 +25,6 @@ The application generates a token based on an org-specific certificate available
 
 ## Implementation details
 
-To see Access Token construction details and examples of use, visit [Access Token construction components](/authentication/architecture/accesstoken/).
+To see Access Token construction details and examples of use, visit [Access Token construction components](/authentication/reference/architecture/accesstoken/).
 
 

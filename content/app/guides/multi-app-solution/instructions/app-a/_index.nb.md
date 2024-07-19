@@ -47,7 +47,7 @@ For å legge til steg for å utvide applikasjonsprosessen, må vi oppdatere `pro
    må dra nytte av _exclusive gateways_. Les mer om exclusive
    gateways [her](/app/development/configuration/process/exclusive-gateways).
 2. Filen `policy.xml`, der autorisasjonsreglene er definert, trenger oppdateringer slik at lese- og skriveoperasjoner
-   kan utføres på det nye steget. <br><br>Se [XACML-policy](/authorization/guide/xacml)
+   kan utføres på det nye steget. <br><br>Se [XACML-policy](/authorization/guides/xacml)
    , [policyredigerer](/app/development/configuration/authorization)
    og [Retningslinjer for autorisasjonsregler](/app/development/configuration/authorization/guidelines_authorization)
    for detaljer. De fleste apper tillater dette som standard med gjeldende mal.

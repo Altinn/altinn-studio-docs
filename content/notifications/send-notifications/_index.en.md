@@ -1,66 +1,64 @@
 ---
 title: Send notifications
 linktitle: Send notifications
-description: "Service owners and internal Altinn systems can send notifications to individuals in a personal 
-capacity or a professional capacity though a role they have within an organisation. The contact point for the 
-recipient does not need to be known, as Altinn has access to a wide range 
-of registries to retrieve contact information given an organisation number or a national identity number." 
+description: "Service owners and internal Altinn systems can send notifications to individuals in a personal
+capacity or a professional capacity though a role they have within an organization. The contact point for the
+recipient does not need to be known, as Altinn has access to a wide range
+of registries to retrieve contact information given an organization number or a national identity number."
 tags: [notifications]
 weight: 30
-toc: true
-
 ---
 
 ## Combining notification channels
 
 {{% notice info %}}
-Per January '24 it is not possible to combine notification channels for a single order request.
-This functionality can be expected in the first half of '24. 
+As of April '24 it is not possible to combine notification channels for a single order request.
+This functionality can be expected in the first half of '24.
 {{% /notice %}}
 
-## Registries used for recipient addresses
+## Recipient lookup
 
-When sending a notification through Altinn the sender can provide the contact details (email 
-or SMS). In addition to this, Altinn uses a set of registries to retrieve the contact details
-if none have been provided by the sender. 
+Sending notifications to a national identity number or organization number is supported.
+A lookup of the contact details and reservation status of the recipient will be done both at the time
+of ordering a request and at the requested send time.
 
-__The common contact register (Kontakt- og reservasjonsregisteret)__
+The entity ordering the notification is responsible for checking whether the notification
+will be sent or not, as recipient lookup results are shared in the response of the order request
+as well as detailed in the notification after requested send time.
 
-Altinn has a local copy of this register which can be used used to retrieve
-contact details if the recipient is identified by person number.
-
-[Read more about the common contact register is available here](https://eid.difi.no/en/privacy-policy/privacy-policy-common-contact-register-krr).
-
-__The National Registry for Notification Addresses for Businesses (Varslingsadresser for Enheter)__
-
-Altinn has a local copy of this register which can be used used to retrieve contact details if the 
-recipient is identified by organisation number.
-
-[Read more about the notification addresses to apply in public administration here](https://www.brreg.no/en/other-topics/notification-addresses-to-apply-in-public-administration/?nocache=1704206499405).
+[Read more about recipient lookup in the reference documentation.](../reference/send-notifications/recipient-lookup)
 
 
-__Altinn user profile__
- 
-End users can register their preferred contact details for notifications related to organisations in their 
-Altinn profile. These contact details can be used when the recipient is identified by organisation number. 
+## Send condition
+Send condition is a feature that enables putting in a notification order request
+for a notification to be sent only if a given condition is met, the requested send time could be immediately 
+or in the future. An example use case is reminders, where a notification should be sent only if a user is yet to 
+complete an action. 
+
+A send condition can be evaluated as true or false i.e. true if the condition for sending the notification is met. 
+The send condition is checked by the application using the condition endpoint provided in the notification order. 
+
+[Read more about send condition in the reference documentation.](../reference/send-notifications/send-condition)
+
+## SMS send window
+Altinn sends SMS notifications daily between 9 AM and 5 PM (Norway time). 
+Any SMS scheduled outside of these hours will be sent at 9 AM the following day.
+
+Notification orders can be placed at any time. 
 
 <!--
-### How Altinn identifies contact details
-{{% notice info %}}
-TODO: legg inn en folkelig beskrivelse av dataflyten vi kom fram til i møtet med Terje, Torkel og Stephanie
-{{% /notice %}}
 
 ## Persistence of sent notifications
 
 {{% notice info %}}
 TODO: confirm numbers
 {{% /notice %}}
-- The contents of a notification is persisted for XX years and will then be deleted. 
-- Metadata related to a notification, who sent it, who received it, what time it was sent, 
-and send status is persisted for XX years. 
+- The contents of a notification is persisted for XX years and will then be deleted.
+- Metadata related to a notification, who sent it, who received it, what time it was sent,
+and send status is persisted for XX years.
 
 ## Cost
 {{% notice info %}}
-Todo: can we say anything about cost or billing here? or link to something else? 
+Todo: can we say anything about cost or billing here? or link to something else?
 {{% /notice %}}
 -->

@@ -47,7 +47,7 @@ der målsettingen er å kunne gjenbruke det vi utvikler ikke bare på nasjonalt 
 [FNs bærekraftsmål](https://www.fn.no/om-fn/fns-baerekraftsmaal).
 
 Vi oppfordrer også alle [de som lager tjenester](https://www.altinn.no/om-altinn/om-altinn-samarbeidet/)
-med Altinn Studio til å [dele sine apper](../../../app/launched-apps/), og alt er tilrettelagt for at det skjer automatisk.
+med Altinn Studio til å [dele sine apper](../../../altinn-studio/news/launched-apps/), og alt er tilrettelagt for at det skjer automatisk.
 Faktisk så må tjenesteeierne gjøre et aktivt valg for å ikke dele,
 siden deling og gjenbruk på tvers i det offentlige er helt sentralt i Altinn 3.
 

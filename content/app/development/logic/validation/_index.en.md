@@ -14,7 +14,7 @@ Validations can also be set up to [trigger on page navigation](/app/development/
 
 ## Client-side validation
 
-This is validation that is run in the browser, before data is sent to server for saving. This makes it possible to give quick feedback to 
+This validation is run in the browser before data is sent to server for saving. This makes it possible to give quick feedback to 
 the user during the process of filling out the form.
 
 Client-side validation is based on the data model of the form, and uses this to determine what is valid input in a
@@ -541,11 +541,11 @@ public async Task ValidateData(object data, ModelStateDictionary modelState)
 
 Examples on display of different validations below:
 
-!["Information message"](info-message.jpeg "Example on information message (*INFO* - prefix)" )
+!["Information message"](info-message.jpeg "Example of a information message (*INFO* - prefix)")
 
-!["Success message"](success-message.jpeg "Example on success message (*SUCCESS* - prefix)")
+!["Success message"](success-message.jpeg "Example of a success message (*SUCCESS* - prefix)")
 
-!["Warning message"](warning-message.jpeg "Example on warning message (*WARNING* - prefix)" ) 
+!["Warning message"](warning-message.jpeg "Example of a warning message (*WARNING* - prefix)")
 
 ## Group validation
 

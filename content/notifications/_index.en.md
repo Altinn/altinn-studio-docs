@@ -17,9 +17,9 @@ There are sub sections with missing and/or only partial documentation.
 Reasons to consider using Altinn Notifications for communication with Norwegian citizens or businesses
 
 1. Contact information in national registries can be retrieved at send time based on
-   organisation number or person identification number.
-2. Altinn roles can be used to identify the correct recipients within an organisation.
-3. Notifications can have send conditions related to the state of, or actions performed on, an Altinn App instance
+   organization number or person identification number.
+2. Altinn roles can be used to identify the correct recipients within an organization.
+3. Notifications can have send conditions related to the state of, or actions performed on, external resources including Altinn App instances
 4. A seamless integration for notifications in an Altinn App workflow.
 
 ## Terminology
@@ -43,8 +43,8 @@ Reasons to consider using Altinn Notifications for communication with Norwegian 
         {
           "emailAddress": "testuser_1@altinn.no"
         },
-          {
-          "emailAddress": "testuser_2@altinn.no"
+        {
+          "nationalIdentityNumber":"11876995923"
         }
       ],
       "emailTemplate": {
@@ -76,7 +76,8 @@ Reasons to consider using Altinn Notifications for communication with Norwegian 
             {
                 "id": "a141753c-557f-4bce-95fd-8fc715ca9a40",
                 "succeeded": true,
-                "recipient": {
+                "recipient":
+                {
                     "emailAddress": "testuser_1@altinn.no"
                 },
                 "sendStatus": {
@@ -88,8 +89,11 @@ Reasons to consider using Altinn Notifications for communication with Norwegian 
                {
                 "id": "a9d159e2-6a89-4440-80da-7f2a99c775f4",
                 "succeeded": true,
-                "recipient": {
-                    "emailAddress": "testuser_2@altinn.no"
+                "recipient":
+                {
+                    "nationalIdentityNumber":"11876995923",
+                    "emailAddress": "testuser_2@altinn.no",
+                    "isReserved": false
                 },
                 "sendStatus": {
                     "status": "Sending",
@@ -106,6 +110,11 @@ Reasons to consider using Altinn Notifications for communication with Norwegian 
   A _notification channel_ is the communication pathways through which Altinn enables you to
   communicate with your end users.
 
+- #### Send condition
+
+  A send condition can be evaluated as true or false i.e. true if the condition for sending the notification is met. 
+  The send condition is checked by the application using the condition endpoint provided in the notification order. 
+
 ## Notification channels
 
 Currently, we support sending notifications through two channels:
@@ -116,7 +125,7 @@ Currently, we support sending notifications through two channels:
 #### Future improvements
 
 In the future, we plan to extend our notification channel options to provide even more flexibility and convenience.
-Our goal is to support a wider range of communication platforms. This expansion will allow both  your organisation 
+Our goal is to support a wider range of communication platforms. This expansion will allow both  your organization
 and the end users to communicate through the channels that best suit the end users preferences and communication habits.
 
 Stay tuned for updates as we continue to enhance our notification capabilities to better serve your needs.
@@ -126,11 +135,11 @@ please don't hesitate to [reach out to us through GitHub](https://github.com/Alt
 
 ## Who can use Altinn Notifications
 
-Altinn Notifications allows the following parties to send messages, 
+Altinn Notifications allows the following parties to send messages,
 provided they have obtained authorization through Maskinporten:
 
 - Registered service owners
-- Altinn Apps 
+- Altinn Apps
 - Internal Altinn services
 
 

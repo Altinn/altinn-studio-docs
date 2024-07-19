@@ -13,5 +13,8 @@ and use where you see fit.
 - resource (always required)
 - resourceinstance
 - alternativesubject
-  
+
+Events published on the Altinn Events platform are persisted for 90 days and available to both publisher and
+subscribers through an active subscription at the time the event is published or through our API at any point during
+the 90 days.
 {{<children />}}

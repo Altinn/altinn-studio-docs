@@ -17,7 +17,7 @@ En ressurs i denne sammenhengen er et JSON-dokument som beskriver en typisk tjen
 I Altinn Studio kan tjenesteeiere gjøre følgende for selvstendige ressurser:
 
 - Liste opp ressursene sine.
-- Opprette nye og oppdatere eksisterende ressurser og registrere alle relevante [attributter](/authorization/modules/resourceregistry/#resource-attributes) for den ressursen.
+- Opprette nye og oppdatere eksisterende ressurser og registrere alle relevante [attributter](/authorization/what-do-you-get/resourceregistry/#resource-attributes) for den ressursen.
 - Sette og oppdatere autorisasjonspolicyen med de ulike nødvendige reglene for hver ressurs.
 - Validere metadata for ressurser og autorisasjonspolicy for å sikre at de følger de nødvendige standardene.
 - Publisere nye ressurser til TT02 eller produksjonsmiljøet.
@@ -25,7 +25,7 @@ I Altinn Studio kan tjenesteeiere gjøre følgende for selvstendige ressurser:
 
 ## Funksjonalitet i Altinn Studio Designer for metadata for app-ressurser opprettet i Altinn Studio
 
-- Opprette nye og oppdatere eksisterende alle relevante [attributter](/authorization/modules/resourceregistry/#resource-attributes) for den ressursen.
+- Opprette nye og oppdatere eksisterende alle relevante [attributter](/authorization/what-do-you-get/resourceregistry/#resource-attributes) for den ressursen.
 - Sette og oppdatere autorisasjonspolicyen med de ulike nødvendige reglene for hver ressurs.
 - Validere metadata for ressurser og autorisasjonspolicy for å sikre at de følger de nødvendige standardene.
 - Publisere nye ressurser til TT02 eller produksjonsmiljøet.

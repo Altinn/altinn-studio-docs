@@ -1,6 +1,6 @@
 ---
-title: Send email notifications 
-linktitle: Send email notifications 
+title: Send email notifications
+linktitle: Send email notifications
 description: Endpoint for sending an email to one or more recipient with known contact details.
 weight: 50
 toc: true
@@ -12,9 +12,9 @@ POST /orders/email
 
 ## Authentication
 
-This API requires authentication and the request must also include one of the following: 
+This API requires authentication and the request must also include one of the following:
 
-- Maskinporten scope __altinn:serviceowner/notifications.create__ (for external system callers) 
+- Maskinporten scope __altinn:serviceowner/notifications.create__ (for external system callers)
 - Platform Access Token (for Altinn Apps and internal Altinn systems)
 
 See [Authentication and Authorization](../../../api/#authentication--authorization) for more information.
@@ -32,7 +32,7 @@ The request body must contain the order request formatted as an
 and serialized as JSON.
 
 
-### Required order request properties  
+### Required order request properties
 #### __body__
 
 Type: _string_
@@ -47,31 +47,43 @@ The subject of the subject of the email.
 
 #### recipients
 Type: _List of [RecipientExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/RecipientExt.cs)_
-  
-A list containing one or more recipient objects, each representing a recipient with an email address.
+
+A list containing one or more recipient objects, each recipient containing either an email address,
+a national identity number or an organization number.
 
 ### Optional order request properties
 
 #### contentType
 Type: _enum_ _[EmailContentTypeExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/EmailContentTypeExt.cs)_
 
-Default: _Plain_ 
+Default: _Plain_
 
 The content type of the email can be either `Plain` or `Html`.
 
 #### requestedSendTime
-Type: _DateTime_ 
+Type: _DateTime_
 
 Default: Current time
 
-The date and time (with time zone specification) when the notification should be sent to recipient. 
-  
+The date and time (with time zone specification) when the notification should be sent to recipient.
+
 #### sendersReference
 Type: _string_
-  
-An internal reference for notification creator to lookup or identify the notification in 
-the future. Could be a case number or another id. It is recommended, but not required, 
-that the sender's reference is unique within the organisation's notification orders.
+
+An internal reference for notification creator to lookup or identify the notification in
+the future. Could be a case number or another id. It is recommended, but not required,
+that the sender's reference is unique within the organization's notification orders.
+
+#### resourceId
+Type: _string_
+
+The ID of the Altinn resource the notifications should be related to as the ID appears in the Altinn Resource Registry. 
+For an Altinn app with ID _{org}/{app}_ the format of the resourceId is `app_{org}_{app}` e.g. app_ttd_apps-test.
+
+#### conditionEndpoint
+Type: _Url_
+
+The URL to use when checking whether the condition to send the notification is met.
 
 ## Response
 
@@ -86,8 +98,8 @@ that the sender's reference is unique within the organisation's notification ord
 
 ### Response body
 
-The response body is formatted as an 
-[OrderIdExt.cs](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/OrderIdExt.cs)
+The response body is formatted as an
+[NotificationOrderRequestResponseExt.cs](hhttps://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/NotificationOrderRequestResponseExt.cs)
 and serialized as JSON.
 
 Find a short description of each property below.
@@ -95,11 +107,32 @@ Find a short description of each property below.
 #### orderId
 Type: _GUID_
 
-The generated id for the notification order
+The generated ID for the notification order.
+
+
+#### recipientLookup\*
+Type: [_RecipientLookupResultExt_](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/RecipientLookupResultExt.cs)
+
+The result object describing the result of the recipient lookup containing the properties below.
+
+  - _status_: the result of the initial lookup
+  - _isReserved_: a list containing national identity numbers for recipients that are reserved
+  - _missingContact_: a list containing national identity numbers and organization numbers for recipients where contact
+    details for selected notification channel were not identified
+
+
+|   Status   |                                   Description                |
+| :--------: | :----------------------------------------------------------: |
+| Success | The recipient lookup was successful for all recipients.         |
+| PartialSuccess | The recipient lookup was successful for some recipients. |
+| Failed  | The recipient lookup failed for all recipients.                 |
+
+\* Property is only included if order request requires recipient lookup
+
 
 ### Response headers
 
-#### Location 
+#### Location
 Type: _URL_
 
 The self link for the generated notification order
@@ -124,24 +157,40 @@ curl --location 'https://platform.altinn.no/notifications/api/v1/orders/email' \
 	"subject": "A test email from Altinn Notifications",
 	"body": "A message to be sent immediately from an org.",
 	"contentType": "Plain",
-    "recipients":[{"emailAddress":"testuser@altinn.no"}]
+    "recipients":[
+        {"emailAddress":"testuser@altinn.no"},
+        {"nationalIdentityNumber":"11876995923"},
+        {"organizationNumber":"311000179"}]
+
 }'
 ```
 
 ### Response
 
 #### 202 Accepted
-Response body contains the ID for the cloud event.
+
+In cases where reservation check or address lookup of recipients is required for an order,
+the initial result of the lookup will be included in the response. This includes
+a list containing national identity number for all reserved persons and a list containing national identity number
+or organization number for the recipients we could not find contact details for.
+
+Headers:
+
+```bash
+-- header 'Location: https://platform.altinn.no/notifications/api/v1/orders/f1a1cc30-197f-4f34-8304-006ce4945fd1'
+```
+
+Body:
 
 ```json
 {
-    "orderId": "f1a1cc30-197f-4f34-8304-006ce4945fd1"
+    "orderId": "f1a1cc30-197f-4f34-8304-006ce4945fd1",
+    "recipientLookup": {
+        "status": "PartialSuccess",
+        "isReserved": ["11876995923"],
+        "missingContact": []
+    }
 }
-```
-
-Response headers contains a self link for retrieving the generated notification order.
-```bash
--- header 'Location: https://platform.altinn.no/notifications/api/v1/orders/f1a1cc30-197f-4f34-8304-006ce4945fd1'
 ```
 
 #### 400 Bad Request

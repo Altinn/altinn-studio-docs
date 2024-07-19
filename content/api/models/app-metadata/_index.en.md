@@ -137,7 +137,7 @@ Configure if copying data from an archived instance is allowed and what data typ
 | excludedDataTypes  | List of DataTypes that should be excluded when a new copy is made.               |
 | excludedDataFields | List of fields in the DataModel that should be excluded when a new copy is made. |
 
-The portal message box will show a link called [Create new copy](/app/development/configuration/messagebox/create_copy/) when the user selects an archived instance.
+The portal message box will show a link called [Create new copy](/altinn-studio/reference/configuration/messagebox/create_copy/) when the user selects an archived instance.
 
 ## OnEntry
 

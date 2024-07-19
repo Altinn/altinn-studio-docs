@@ -9,7 +9,7 @@ weight: 10
 Altinn Studio er et verktøy for å effektivt realisere digitale tjenester. Vi tilbyr:
 - et web basert verktøy for å lage og teste tjenester (apper) - Altinn Studio Designer
 - en mal for tjenester med standard funksjonalitet og mulighet for å legge til egen funksjonalitet
-- ett dedikert miljø for hver tjenesteeier for kjøring av tjenestene (test og produksjon)
+- et dedikert Kubernetes-miljø for hver tjenesteeier for kjøring av tjenestene (test og produksjon)
 - ett sett med felles støttefunksjoner for å understøtte tjenestene, f.eks. generering av PDF kvittering, varsling, osv.
 
 

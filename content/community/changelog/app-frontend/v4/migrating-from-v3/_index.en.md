@@ -22,7 +22,7 @@ The Altinn Studio CLI is a command line tool for upgrading Altinn Apps. The tool
 
 ### Verify that you have the latest version of the Altinn Studio CLI
 
-If you do not have the CLI installed, you can install it by following the instructions in the [installation guide](/app/cli/install).
+If you do not have the CLI installed, you can install it by following the instructions in the [installation guide](/altinn-studio/reference/cli/install).
 
 Make sure you are using at least version `1.4.0` of the Altinn Studio CLI. You can check the version by running:
 
@@ -147,24 +147,24 @@ some help with the migration.
 
 You can opt-in for an automatic AI-generated Pull Request to help you migrate from the old tracks feature, as the new 
 way of handling page order is also available in v3. When you have opted-in for the AI-generated Pull Request, our 
-Altinn Ai Bot will create a Pull Request in your repository with a suggested migration from tracks to dynamic expressions.
+Altinn AI Bot will create a Pull Request in your repository with a suggested migration from tracks to dynamic expressions.
 This PR will be generated in a nightly run.
 
 Steps to opt-in on a single repository:
-1. In gitea, go to the repository where you want to opt-in for the AI-generated Pull Request.
+1. In Gitea, go to the repository where you want to opt-in for the AI-generated Pull Request.
 2. Go to the Settings tab.
 3. Go to the Collaboration section.
-4. Add "altinn_sa_ai (Altinn AI [Bot])"
-5. Sit back and relax, and let the Altinn Ai do the work for you. The PR will be created in a nightly run if the bot finds any tracks in your repository.
+4. Add "altinn_sa_ai (Altinn AI [Bot])".
+5. Sit back and relax, and let the Altinn AI do the work for you. The PR will be created in a nightly run if the bot finds any tracks in your repository.
 
 
 If you want to opt-in for all repositories in your organization, you can do this on a service owner level.
 Steps to opt-in on a service owner level:
-1. In gitea, go to your organization: `https://altinn.studio/repos/<orgname>`
+1. In Gitea, go to your organization: `https://altinn.studio/repos/<orgname>`
 2. Go to the Teams tab.
 3. Click the "Devs" team.
-4. Add "altinn_sa_ai (Altinn AI [Bot])" to the team
-5. Sit back and relax, and let the Altinn Ai do the work for you. A PR will be created in a nightly run in any repository the bot finds the tracks implementation.
+4. Add "altinn_sa_ai (Altinn AI [Bot])" to the team.
+5. Sit back and relax, and let the Altinn AI do the work for you. A PR will be created in a nightly run in any repository the bot finds the tracks implementation.
 
 
 {{% notice warning %}}

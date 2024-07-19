@@ -64,7 +64,7 @@ dependencies:
 
 You are using the latest deployment strategy.
 
-How to configure your deployment is documented [here](/app/development/configuration/deployment)
+How to configure your deployment is documented [here](/altinn-studio/reference/configuration/deployment)
 
 {{%notice info%}}
 Newer version are available. If the new version is a major version please note that there could be breaking changes.

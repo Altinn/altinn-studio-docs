@@ -167,7 +167,7 @@ Note that prefill is a `Dictionary<string,string>`, so if you have recursive mod
 
 ## Update sub status
 
-The instance [sub status](../../../app/development/api/instance/#substatus) is used to give an end user further details
+The instance [sub status](../../../altinn-studio/reference/api/instance/#substatus) is used to give an end user further details
 about the state of their instance. Currently, only application owner is allowed to update sub status for an instance.
 Include the new sub status in the body of the requests as a json.
 

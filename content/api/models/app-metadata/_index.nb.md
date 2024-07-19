@@ -134,7 +134,7 @@ Configure if copying data from an archived instance is allowed and what datatype
 | excludedDataTypes  | List of DataTypes that should be excluded when a new copy is made.               |
 | excludedDataFields | List of fields in the DataModel that should be excluded when a new copy is made. |
 
-Meldingsboksen i portalen vil hvise en link med teksten [Lag ny kopi](/nb/app/development/configuration/messagebox/create_copy/) hvis brukeren velger en arkivert instans.
+Meldingsboksen i portalen vil hvise en link med teksten [Lag ny kopi](/nb/altinn-studio/reference/configuration/messagebox/create_copy/) hvis brukeren velger en arkivert instans.
 
 ## OnEntry
 

@@ -8,5 +8,5 @@ description: Guide to requesting access to Altinns APIs
 ## Requesting required Maskinporten scope*
 \* Scope is only required when subscribing to events published to a non-Altinn App resource.
 
-{{% insert "content/app/guides/shared/api/request-maskinporten-scopes.md" "altinn:events.subscribe" "subscribing to events"%}}
+{{% insert "content/altinn-studio/guides/shared/api/request-maskinporten-scopes.md" "altinn:events.subscribe" "subscribing to events"%}}
 

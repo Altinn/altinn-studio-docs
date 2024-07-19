@@ -52,7 +52,7 @@ See development application components for tools used.
 
 We use Figma to design the UI elements.
 
-We have made a [Figma Library](/app/guides/design/prototype/) available for anyone that wants to design apps.
+We have made a [Figma Library](/altinn-studio/guides/design/prototype/) available for anyone that wants to design apps.
 
 And we have a Storybook Design system where all components are implemented.
 

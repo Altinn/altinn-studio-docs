@@ -22,12 +22,12 @@ I denne modulen skal du legge til et prosessteg i applikasjonen.
 En Altinn-app har en prosessflyt definert av BPMN (Business Process Model and Notation) som beskriver de ulike stegene i prosessen.
 Standardflyten for en nyopprettet applikasjon består av én oppgave og ett utfyllingssteg.
 
-![Standard prosessflyt illustrert](/app/app-dev-course/modul5/default-process.png)
+![Standard prosessflyt illustrert](/altinn-studio/getting-started/app-dev-course-old/modul5/default-process.png)
 
 Din oppgave er å utvide standardprosessflyten med et bekreftelsessteg som illustrert nedenfor.
 Bekreftelsessiden blir lagt til automatisk når man legger til dette i BPMN-filen `App/config/process/process.bpmn`.
 
-![Oppdatert prosessflyt illustrert](/app/app-dev-course/modul5/updated-process.png)
+![Oppdatert prosessflyt illustrert](/altinn-studio/getting-started/app-dev-course-old/modul5/default-process.png)
 
 ### Krav fra kommunen
 
@@ -55,7 +55,7 @@ Du kan da bruke malen som fasit.
 ### Forståelsessjekk
 
 {{% expandsmall id="m5t1q1" header="Hvilke Altinn-spesifikke egenskaper er satt på hver prosessoppgave?" %}}
-`altinn:tasktype` er definert for hver oppgave.
+`altinn:taskType` er definert for hver oppgave.
 {{% /expandsmall %}}
 
 {{% expandsmall id="m5t1q2" header="Hvilke begrensninger vil et eksternt BPMN-redigeringsverktøy ha når man skal redigere prosessbeskrivelsen til en Altinn-app?" %}}
@@ -91,7 +91,7 @@ Policy-filen til applikasjonen din er tilpasset standard prosessflyt og må oppd
 ### Forståelsessjekk
 
 {{% expandsmall id="m5t2q1" header="Hva vil skje når prosessflyten går videre til bekreftelsessteget uten at autoriasjonsreglene er blitt oppdatert?" %}}
-Applikasjonen vil vise "Ukjent feil" når brukeren trykker på "send inn"-knappen.
+Applikasjonen vil vise bekreftelsessteget, men knappen for å sende inn skjemaet er deaktivert.
 {{% /expandsmall %}}
 
 {{% expandsmall id="m5t2q2" header="Hva skjer dersom du ikke spesifiserer hvilke roller som har lov til å utføre en aksjon i en autorisasjonsregel?" %}}

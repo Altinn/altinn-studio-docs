@@ -10,7 +10,7 @@ toc: true
 
 **Are you an Altinn App developer?**
 
-Please reference the [Altinn Apps documentation for guidance](../../../../app/development/configuration/events/) 
+Please reference the [Altinn Apps documentation for guidance](../../../../altinn-studio/reference/configuration/events/) 
 on how to enable the events functionality and define custom events in your Altinn App.</br></br>
 
 As the publishing of app events is handled by core logic in the application, this documentation 

@@ -6,121 +6,151 @@ toc: true
 
 ## Introduksjon
 
-Applikasjonslogikk knyttet til instansiering kan defineres i `InstantiationHandler.cs`. For en helt ny app vil det være to funksjoner implementert i denne klassen:
+Applikasjonslogikk knyttet til instansiering kan defineres ved å implmentere interfaces og registrere dem i `Program.cs`
 
- - `RunInstantiationValidation` - lag egne sjekker for å avgjøre om en bruker/avgiver får lov til å instansiere.
- - `DataCreation` - lag tilpasset prefill data.
+ - `IInstantiationValidator` - lag egne sjekker for å avgjøre om en bruker/avgiver får lov til å instansiere.
+ - `IInstantiationProcessor` - lag tilpasset prefill data, dette er beskrevet i [prefill kapitlet](/nb/app/development/data/prefill/custom/).
 
 ## Egendefinerte valideringsregler for instansiering
-Som tidligere nevnt, kan sjekker for instansiering defineres i `RunInstantiationValidation`.
-Tilgang til _Register_- og _Profile_-tjenester er inkludert i `InstantiationHandler.cs`-filen, som tillater å gjøre sjekker mot disse.
 Valideringsregler for instansiering kan innebære å validere tidspunkt til spesifikke brukerrestriksjoner og komplekse sjekker som krever eksterne API-kall.
 
 
 ### Eksempel 1 - Insansiering kun tillatt før kl 15:00 på en gitt dag
 
-```C# {hl_lines=[4]}
-public async Task<InstantiationValidationResult> RunInstantiationValidation(Instance instance)
-{
-    DateTime now = DateTime.Now;
-    if (now.Hour < 15)
-    {
-        return new InstantiationValidationResult()
-        {
-            Valid = false,
-            Message = "ERROR: Instantiation not possible before 3PM."
-        };
-    }
+```C# {hl_lines=[12]}
+namespace Altinn.App.Logic;
 
-    return null;
+using Altinn.App.Core.Features;
+using Altinn.App.Core.Models.Validation;
+using Altinn.Platform.Storage.Interface.Models;
+
+public class InstantiationValidatorExample1 : IInstantiationValidator
+{
+    public Task<InstantiationValidationResult?> Validate(Instance instance)
+    {
+        DateTime now = DateTime.Now;
+        if (now.Hour < 15)
+        {
+            return new InstantiationValidationResult()
+            {
+                Valid = false,
+                Message = "ERROR: Instantiation not possible before 3PM."
+            };
+        }
+
+        return null;
+    }
 }
+```
+I `Program.cs` må tjenesten registreres med
+```C#
+services.AddTransient<IInstantiationValidator, InstantiationValidatorExample1>()
 ```
 
 ### Eksempel 2 - Instansiering kun tillatt for applikasjonseier
-
-Kodebasen som eksempelet er basert på er tilgjengelig [her](https://altinn.studio/repos/ttd/example-app-1).
-(krever innlogging i altinn.studio)
-
 For å kunne begrense instansiering til en gitt entitet, i dette tilfellet applikasjonseier,
-er det to filer som må endres: `App.cs` og `InstantiationHandler.cs`. 
-
-![Changes to app.cs](instatiation-example-2-appcs.PNG "Changes to app.cs")
-
-I `App.cs` tilgjengeliggjøres http-konteksten og 
-brukerdata (claims principals) hentes ut fra konteksten ved å kalle ```_httpContext.User```.
+må det hentes inn ekstra tjensester for å brukes ved valideringen.
 
 For å validere instansieringen kan man sjekke ett av to claims i konteksten.
 Enten organisasjonsen trebokstavsforkortelse eller organisasjonsnummeret.
-Valideringen skjer i `InstantiationHandler.cs` og eksempelet nedenfor bruker organisasjonsforkortelsen. 
+Eksempelet nedenfor bruker organisasjonsforkortelsen. 
 
 For å validere basert på organisasjonsnummer kan du følge eksempelet nedenfor,
 og bytte ut *AltinnCoreClaimTypes&#46;Org* med *AltinnCoreClaimTypes.OrgNumber*.  
 om må gjøres i denne file ser du nedenfor.
 
-![InstantiationHandler.cs](instatiation-example-2-instantiationhandler.PNG "Changes to instantiationHandler.cs")
-
 
 ```C#
-public async Task<InstantiationValidationResult> RunInstantiationValidation(Instance instance, ClaimsPrincipal user)
+namespace Altinn.App.Logic;
+
+using System.Security.Claims;
+using Altinn.App.Core.Features;
+using Altinn.App.Core.Models.Validation;
+using Altinn.Platform.Storage.Interface.Models;
+using AltinnCore.Authentication.Constants;
+using Microsoft.AspNetCore.Http;
+
+public class InstantiationValidatorExample2 : IInstantiationValidator
 {
-    var result = new InstantiationValidationResult();
-    string org = string.Empty;
+    private readonly ClaimsPrincipal _user;
 
-    if (user.HasClaim(c => c.Type == AltinnCoreClaimTypes.Org))
+    public InstantiationValidatorExample2(IHttpContextAccessor contextAccessor)
     {
-        Claim orgClaim =
-          user.FindFirst(c => c.Type == AltinnCoreClaimTypes.Org);
-          
-        if (orgClaim != null)
+        _user = contextAccessor.HttpContext!.User;
+    }
+
+    public async Task<InstantiationValidationResult?> Validate(Instance instance)
+    {
+        var result = new InstantiationValidationResult();
+        string org = string.Empty;
+
+        if (_user.HasClaim(c => c.Type == AltinnCoreClaimTypes.Org))
         {
-            org = orgClaim.Value;
+            Claim? orgClaim =
+            _user.FindFirst(c => c.Type == AltinnCoreClaimTypes.Org);
+
+            if (orgClaim != null)
+            {
+                org = orgClaim.Value;
+            }
         }
-    }
 
-    if (!string.IsNullOrWhiteSpace(org) && org.Equals("ttd"))
-    {
-        result.Valid = true;
-    }
-    else
-    {
-        result.Valid = false;
-        result.Message =
-          "Only ttd is allowed to instantiate this application.";
-    }
+        if (!string.IsNullOrWhiteSpace(org) && org.Equals("ttd"))
+        {
+            result.Valid = true;
+        }
+        else
+        {
+            result.Valid = false;
+            result.Message =
+            "Only ttd is allowed to instantiate this application.";
+        }
 
-    return await Task.FromResult(result);
+        return result;
+    }
 }
 ```
+
+I `Program.cs` må tjenesten registreres med
+```C#
+services.AddTransient<IInstantiationValidator, InstantiationValidatorExample2>()
+```
+
 ### Eksempel 3 - Instansiering kun tillatt mellom gitte datoer
 
-For å kunne begrense instansiering til en gitt tidsrom, i dette eksempelet januar 2021,
-er det én fil som må endres:`InstantiationHandler.cs`. 
-
-Metoden `RunInstantiationValidation` vil kjøre hver gang noen prøver å instansiere applikasjonen, 
-så her plasseres logikk for å verifiere at tidspunktet er innenfor den tillatte rammen.
+For å kunne begrense instansiering til en gitt tidsrom, i dette eksempelet januar 2021, kan man ta inspirasjon fra det følgende eksempelet.
 
 ```cs
-public async Task<InstantiationValidationResult> RunInstantiationValidation(Instance instance)
+namespace Altinn.App.Logic;
+
+using Altinn.App.Core.Features;
+using Altinn.App.Core.Models.Validation;
+using Altinn.Platform.Storage.Interface.Models;
+
+public class InstantiationValidatorExample3 : IInstantiationValidator
 {
-    InstantiationValidationResult result = null;
-    DateTime now = TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time"));
-    if (now < new DateTime(2021, 01, 01))
+    public async Task<InstantiationValidationResult?> Validate(Instance instance)
     {
-        result = new InstantiationValidationResult
+        DateTime now = TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("Central European Standard Time"));
+        if (now < new DateTime(2021, 01, 01))
         {
-            Valid = false,
-            Message = "Application cannot be instantiated before 1.1.2021"
-        };
-    }
-    else if (now > new DateTime(2021, 01, 31))
-    {
-        result = new InstantiationValidationResult
+            return new InstantiationValidationResult
+            {
+                Valid = false,
+                Message = "Application cannot be instantiated before 1.1.2021"
+            };
+        }
+        else if (now > new DateTime(2021, 01, 31))
         {
-            Valid = false,
-            Message = "Application cannot be instantiated after 25.1.2021"
-        };
+            return new InstantiationValidationResult
+            {
+                Valid = false,
+                Message = "Application cannot be instantiated after 25.1.2021"
+            };
+        }
+
+        return null;
     }
-    return await Task.FromResult(result);
 }
 ```
 

@@ -52,7 +52,7 @@ komponentene inni den kan falle fra hverandre.
 
 ## En FileUpload- eller FileUploadWithTag-komponent advarer om manglende påkrevd egenskap i dataModelBindings
 En **FileUpload**- eller **FileUploadWithTag** _kan_ ha en **dataModelBindings**-egenskap, og den _er_ påkrevd når den
-konfigureres [inne i en repeterende gruppe](/nb/app/development/ux/fields/grouping/repeating/attachments/).
+konfigureres [inne i en repeterende gruppe](/nb/altinn-studio/reference/ux/fields/grouping/repeating/attachments/).
 **dataModelBindings**-egenskapen kan imidlertid trygt utelates helt hvis komponenten ikke er plassert inne i en
 repeterende gruppe.
 

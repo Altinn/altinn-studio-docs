@@ -151,4 +151,4 @@ Scopes are always used together with the authorization rules for the specific ap
 
 The below show the future of Authorization Component. [Work in progress](/authorization/)
 
-![The future](/authorization/modules/authorization_solution_components_future.drawio.svg)
+![The future](/authorization/what-do-you-get/authorization_solution_components_future.drawio.svg)

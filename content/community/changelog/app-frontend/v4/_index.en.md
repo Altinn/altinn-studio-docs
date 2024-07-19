@@ -16,8 +16,8 @@ make the necessary changes throughout your app.
 
 {{% notice warning %}}
 App frontend v4 is still in its early stages with release candidates. While we recommend you to try it out, test
-your app(s) with it, and build your future apps with v4, but we do not recommend you to deploy it to production at
-this stage. We will update this page with more as it arrives, and there may arrive more breaking changes in future
+your app(s) with it, and build your future apps with v4, we do not recommend that you deploy to production at
+this stage. We will update this page with more information as it arrives, and there may arrive more breaking changes in future
 release candidates before the final stable release.
 {{% /notice %}}
 
@@ -31,7 +31,7 @@ See the [overview of changes in backend v8](/community/changelog/app-nuget/v8) f
 Layout sets is a way to support multiple forms in a single application.
 This entails a slightly different folder structure in the `ui` folder of your app, as well as a new `layout-sets.json` file.
 This used to be optional, but as of v4 it is required, even for apps with only a single data step.
-See the [documentation on layout sets](/app/development/ux/pages/layout-sets) for more information.
+See the [documentation on layout sets](/altinn-studio/reference/ux/pages/layout-sets) for more information.
 
 ## Defining a custom receipt is now done with a layout set
 
@@ -42,8 +42,8 @@ a custom receipt was not supported.
 A custom receipt view can now be created in the same way as all other form pages.
 
 To create a custom receipt view, you create a new layout set. This layout set works exactly like
-all other page types. Within the layout set, you can create a layouts folder and here define all the pages you want to
-include in the receipt view (Yes, the receipt view supports multiple pages!). Inside the layout set, you must also create
+all other page types. Within the layout set, you can create a `layouts` folder and define all the pages you want to
+include in the receipt view here (Yes, the receipt view supports multiple pages!). Inside the layout set, you must also create
 a `Settings.json`, where you can define the order of the pages in the receipt view.
 
 For the app to understand that this layout set should be used as a receipt view, you must refer to the name of the layout set
@@ -124,16 +124,16 @@ this for you automatically, but if you are migrating manually you will have to d
 
 ## Language and text resource changes
 
-The language system has that handles internal texts and app-specific text resources has been rewritten and improved.
-It should work mostly the same as before but there are a few subtle changes that may affect your app:
+The language system that handles internal texts and app-specific text resources has been rewritten and improved.
+It should work mostly the same as before, but there are a few subtle changes that may affect your app:
 
 - Previously, when referring to a path in the data model which resulted in a null value, the full path would be shown
-  instead for most components. However, in options from repeating groups it would instead show an empty string in place
+  instead for most components. However, in options from repeating groups, it would instead show an empty string in place
   of the null value. This has been changed so that the full path is shown in all cases instead.
 - To alleviate the problem of referring to null values, a new `defaultValue` property has been added to the text
   resources that, if set, will be shown instead of the data model path.
-  See the [documentation on text resources](/app/development/ux/texts/#default-value) for more information.
-- Variables in text are now supported for items in nested repeating groups. Previously only items in top-level repeating groups
+  See the [documentation on text resources](/altinn-studio/reference/ux/texts/#default-value) for more information.
+- Variables in text are now supported for items in nested repeating groups. Previously, only items in top-level repeating groups
   were supported in text resource variables.
 - Using `dataModel.default` as the data source in text resources is no longer recommended. Instead, refer to the
   specific data type like this: `dataModel.myDataModel`. The frontend will now automatically retrieve the data model
@@ -157,13 +157,13 @@ Unless the user changes this setting, they will be prompted with the following p
 
 ## Tracks are no longer supported
 
-Showing and hiding pages using [tracks](/app/development/ux/pages/tracks/) (calculate page order) is no longer supported.
+Showing and hiding pages using [tracks](/altinn-studio/reference/ux/pages/tracks/) (calculate page order) is no longer supported.
 This also means that the trigger `calculatePageOrder` no longer has any effect and should be removed from any components where it is used.
 Instead, you should use dynamic expressions on the `hidden` property of a layout page to determine whether pages should be visible or hidden.
 
 To opt-in for an automatic AI-generated Pull Request to help you migrate from the old tracks feature, see the [Opt-in to Altinn AI for tracks migration](/community/changelog/app-frontend/v4/migrating-from-v3/#opt-in-to-altinn-ai-for-tracks-migration).
 
-See the [documentation on dynamic expressions](/app/development/logic/expressions/#showhide-entire-pages) for more information.
+See the [documentation on dynamic expressions](/altinn-studio/reference/logic/expressions/#showhide-entire-pages) for more information.
 
 ## Data model schema validation works for more data models
 
@@ -180,7 +180,7 @@ a `Checkboxes` component to a `boolean` field, and provide an options list with 
 frontend will convert the strings to booleans.
 
 If you bind an `Input` component to a `number` field, the frontend will convert the string to a number while the user
-is typing. For the best possible user experience, set up [number formatting](/app/development/ux/styling/#formatting-numbers)
+is typing. For the best possible user experience, set up [number formatting](/altinn-studio/reference/ux/styling/#formatting-numbers)
 on the `Input` component.
 
 **Note:** If you have set up a `RuleHandler.js` file in your app, you may need to update it to handle the new data types.
@@ -207,7 +207,7 @@ away from the field and starts typing in a new field (with a lower, or default `
 If your app relied on disabling `saveWhileTyping` to ensure your custom data processor was not called too often
 (as we've often seen done when a change in one field triggers an API call), you should consider making the expensive
 action in your data processor a custom action instead, via adding
-a [CustomButton component](/app/development/ux/components/custombutton/) nearby the field. This way the user controls
+a [CustomButton component](/altinn-studio/reference/ux/components/custombutton/) nearby the field. This way the user controls
 when the action is triggered, not our automatic saving functionality.
 
 ## Components will not show up if they contain configuration errors
@@ -215,14 +215,14 @@ when the action is triggered, not our automatic saving functionality.
 Because of the support for other data types, we now have to be more strict about the configuration of components,
 as the frontend has to make sure it is able to look up the data model value expected for a component in order to save
 data into it. Previously the app-frontend would assume data model bindings were correct, and in combination with the
-backend invalid bindings would result in data being lost.
+backend, invalid bindings would result in data being lost.
 
 To be on the safer side, components will now be replaced with an error message if they contain configuration errors,
 including invalid data model bindings. These error messages will only appear in development mode (i.e. in a test
 environment, or when running locally). In production, it will appear as if invalid components are hidden.
 
 You should thoroughly test your app to make sure that components display correctly and that all data model bindings
-are correct. Testing this should include opening repeating groups and triggering conditions to un-hide
+are correct. Testing this should include opening repeating groups and triggering conditions to unhide
 hidden components.
 
 If you get an error message for an invalid binding you disagree with, please check that the data model `*.schema.json`
@@ -294,7 +294,7 @@ Example of old to new config:
 - `"maxCount"` is no longer required to create a repeating group, but is still able to be used to restrict the maximum
   number of addable rows.
 - `edit.filter` is no longer supported, but the same functionality (or better) can be achieved by using the
-  existing `hiddenRow` property with [expressions](/app/development/logic/expressions).
+  existing `hiddenRow` property with [expressions](/altinn-studio/reference/logic/expressions).
 
 Example of old to new config:
 
@@ -336,7 +336,7 @@ Example of old to new config:
 - The Likert component is no longer configured using a `"Group"` component with `"edit": {"mode": "likert"}` and a separate
   `"Likert"` component as a child of the group that handles the possible answers to the questions. It is now configured with
   a single component using `"type": "Likert"`
-- The `"filter"` property have been moved out of the `"edit"` property as the edit property has been removed. This is done
+- The `"filter"` property have been moved out of the `"edit"` property, as the edit property has been removed. This is done
   because the filter property was the only one that was valid for the likert component, and the likert does not have an edit functionality.
 - New `textResourceBindings` has been added to control the texts available on the likert questions.
   - `"questions"` is used for the question labels themselves.
@@ -430,7 +430,7 @@ to the title shown above each row in the summary view of the repeating group. Th
 title for the repeating group in the form view. This means that the title will now be shown above the repeating group in
 the form view if it has been set.
 
-The `summaryTitle` attribute in `textResourceBindings` for the `RepeatingGroup` component will override the `title` and
+The `summaryTitle` attribute in `textResourceBindings` for the `RepeatingGroup` component will override the `title`, and
 is used for displaying the title above each row in the summary view of the repeating group.
 
 The `body` attribute in `textResourceBindings` for the `Group` component and `RepeatingGroup` component is now called
@@ -592,11 +592,11 @@ Previously, the AttachmentList could only show either PDFs or other attachments.
 In version 4, it has been changed to show both PDFs and other attachments simultaneously.
 
 Changes to configurations:\
-The `includePDF` property has been removed. It was previously used to display generated PDF's,
-but when set to `true`, it excluded all other attachments. Now the AttachmentList can display both PDF's and other attachments by using one of the following configurations:
+The `includePDF` property has been removed. It was previously used to display generated PDFs,
+but when set to `true`, it excluded all other attachments. Now the AttachmentList can display both PDFs and other attachments by using one of the following configurations:
 
-- `"dataTypeIds": ["include-all"]` - This is a new property and will display all data types including PDF's.
-- `"dataTypeIds": ["fileUpload-changename", "ref-data-as-pdf"]` - This will display both PDF's and other attachments that are specified, in this case the data type `fileUpload-changename`.
+- `"dataTypeIds": ["include-all"]` <br>This is a new property and will display all data types including PDFs.
+- `"dataTypeIds": ["fileUpload-changename", "ref-data-as-pdf"]` <br>This will display both PDFs and other attachments that are specified, in this case the data type `fileUpload-changename`.
 
 ### 2. Displaying Attachments from other process tasks
 

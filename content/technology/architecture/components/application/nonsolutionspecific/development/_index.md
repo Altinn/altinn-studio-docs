@@ -44,7 +44,7 @@ We will use [K6](https://k6.io/) for performance testing.
 ### UX Design
 We use Figma for prototypes. 
 
-[See our Figma Guidlines](/app/guides/design/prototype).
+[See our Figma Guidlines](/altinn-studio/guides/design/prototype).
 
 
 ### Artefact & Code Repository

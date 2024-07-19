@@ -1,6 +1,6 @@
 ---
 title: Altinn Studio
-description: Altinn Studio - Ditt verktøy for utvikling av digitale tjenester til innbyggere og næringsliv
+description: Altinn Studio - Your tool for developing digital services for citizens and businesses
 aliases:
 - /nb/altinn-studio/
 - /nb/teknologi/altinnstudio/solutions/altinn-studio/
@@ -73,7 +73,7 @@ weight: 1
                     </a>
                 </li>
                 <li class="a-dotted a-clickable a-list-hasRowLink">
-                    <a href="getting-started/app-dev-course-v2/" class="a-list-rowLink">
+                    <a href="getting-started/app-dev-course/" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
                                 Intro course
@@ -82,7 +82,7 @@ weight: 1
                     </a>
                 </li>
                 <li class="a-dotted a-clickable a-list-hasRowLink">
-                    <a href="user-guides/basic-form" class="a-list-rowLink">
+                    <a href="guides/basic-form" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
                                 User guide - simple form

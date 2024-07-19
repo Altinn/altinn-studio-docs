@@ -583,3 +583,8 @@ input[type="search"] {
   input[type="search"].dark::-webkit-search-cancel-button {
     filter: invert(1);
   }
+
+  .product-item {
+    font-weight: bold; 
+    font-size: 2rem !important;
+  }

@@ -47,7 +47,7 @@ where the goal is to be able to reuse everything we develop not only at national
 accelerate the attainment of [the sustainable development goals](https://www.undp.org/sustainable-development-goals).
 
 We also encourage [the developers building apps](https://www.altinn.no/en/about-altinn/the-altinn-co-operation/)
-using Altinn Studio to also [share their apps](../../../app/launched-apps/).
+using Altinn Studio to also [share their apps](../../../altinn-studio/news/launched-apps/).
 In fact, you have to do an active decision *not* to share, since sharing and reuse is central to the concept of Altinn 3.
 
 ## Cooperation
@@ -65,7 +65,7 @@ and collaborate and contribute back to the software we're using.
 Examples of such open source software is [.NET](https://dotnet.microsoft.com/platform/open-source),
 [Kubernetes](https://github.com/kubernetes/kubernetes), [React](https://github.com/facebook/react),
 [Linkerd](https://linkerd.io/) and [Gitea](https://github.com/go-gitea/gitea).
-And our [issue #5992](https://github.com/Altinn/altinn-studio/issues/5992) is a good example on how we can track
+And our [issue #5992](https://github.com/Altinn/altinn-studio/issues/5992) is a good example of how we can track
 and easily link to issues across software. 
 
 And since Altinn is open source at Github, it is as easy for everyone else to do the same thing to us.

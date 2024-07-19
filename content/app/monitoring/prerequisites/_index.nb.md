@@ -9,7 +9,7 @@ weight: 10
     Test Developer-rollen gir tilgang til AI for apper i TT02 og Production Developer-rollen gir tilgang
     til apper i produksjon.
 
-    [Instrukser på hvordan be om rollen er tilgjengelig her](/nb/app/guides/access-management/apps/)
+    [Instrukser på hvordan be om rollen er tilgjengelig her](/nb/altinn-studio/guides/access-management/apps/)
 
 - **Generell oversikt over AI features**
     AI har flere funksjoner tilgjengelig.

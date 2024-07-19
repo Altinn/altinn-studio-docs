@@ -22,12 +22,12 @@ In this module you are adding a process step in the application.
 An Altinn App has a process flow that describes the different steps in the flow.
 The standard flow for a newly created application consists of one task; the fill out step.
 
-![Standard process flow illustrated](/app/app-dev-course/modul5/default-process.png)
+![Standard process flow illustrated](/altinn-studio/getting-started/app-dev-course-old/modul5/default-process.png)
 
 Your task is to expand the standard process flow with a confirmation step as illustrated below.
 The confirmation page is added automatically when the step is added to the BPMN file.
 
-![Updated process flow illustrated](/app/app-dev-course/modul5/updated-process.png)
+![Updated process flow illustrated](/altinn-studio/getting-started/app-dev-course-old/modul5/default-process.png)
 
 ### Requirements from the municipality
 
@@ -55,7 +55,7 @@ If you're up for an extra challenge, you can manually edit the process flow or u
 
 ### Knowledge check
 {{% expandsmall id="m5t1q1" header="What Altinn-specific properties are set on each process task?" %}}
-`altinn:tasktype` is defined for each task.
+`altinn:taskType` is defined for each task.
 {{% /expandsmall %}}
 
 {{% expandsmall id="m5t1q2" header="What limitations would an external BPMN editing tool have when editing the process description of an Altinn app?" %}}
@@ -88,7 +88,7 @@ The policy file for your application is tailored to the standard process flow an
 
 ### Knowledge check
 {{% expandsmall id="m5t2q1" header="What will happen when the process flow proceeds to the confirmation step without the authorization rules being updated?" %}}
-The application will display an "Unknown error" when the user presses the "submit" button.
+The application will display the confirmation step, but the submit button will be disabled.
 {{% /expandsmall %}}
 
 {{% expandsmall id="m5t2q2" header="What happens if you do not specify which roles are allowed to perform an action in an authorization rule?" %}}
