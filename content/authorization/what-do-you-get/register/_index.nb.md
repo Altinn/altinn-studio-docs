@@ -1,6 +1,6 @@
 ---
 title: Register
-description: The register component offers register data to other components and is a supporting product for authorization functionality i Altinn
+description: Register komponenten tilbyr register 
 tags: [platform, register]
 ---
 

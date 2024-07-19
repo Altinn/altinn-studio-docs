@@ -118,3 +118,8 @@ Lookup a party based on social secutiry number or organisation number:
 ```http
 GET /parties/lookupObject
 ```
+
+
+## Database design
+
+![Db design](dbdesignaltinn3.drawio.svg)
