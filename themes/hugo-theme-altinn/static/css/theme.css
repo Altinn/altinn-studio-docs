@@ -1739,3 +1739,16 @@ a code {
 a code + .copy-to-clipboard {
     display: none;
 }
+
+/* Foot notes */
+div.footnotes-ref {
+    margin-left: -.2rem;
+}
+div.footnotes-display {
+    font-size: 80%;
+    margin-top: -2rem;
+    margin-bottom: 2rem;
+}
+div.footnotes-entry > span {
+    margin-left: .4rem;
+}

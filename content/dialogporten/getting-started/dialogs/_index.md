@@ -53,7 +53,7 @@ GUI actions can, however, be marked as [write operations]({{<relref "../write-ac
 
 ### Read more
 * [Reference information for the GUI action entity]({{<relref "../../reference/entities/action#gui-actions">}})
-* [Learn more about write actions]({{<relref "../write-actions">}})
+* [Learn about write actions]({{<relref "../write-actions">}})
 
 ### API Actions
 
@@ -71,7 +71,7 @@ Dialogporten does not validate any data and does not see what data flows between
 An _activity_ describes an action or event that has occurred in connection with the dialog. Each activity is part of the activity history, which is a chronological list of activities. The service provider populates the activity history as various state changes occur.
 
 ### Read more
-* [Reference information for the dialog activity entity]({{<relref "../../reference/entities/dialogactivity">}})
+* [Reference information for the dialog activity entity]({{<relref "../../reference/entities/activity">}})
 
 
 {{<children />}}
