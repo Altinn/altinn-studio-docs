@@ -58,13 +58,6 @@ The Receipt component in Altinn Platform presents a receipt for apps available f
 
 [Learn more about Altinn Receipt](receipt)
 
-## Register
-
-The Register micro service gives register information to Apps and other consumers. This include the entity (business) register and the
-person register.
-
-[Learn more about Altinn Register](register)
-
 
 ## Storage
 
