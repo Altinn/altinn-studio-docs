@@ -1,16 +1,17 @@
 ---
 title: Register
-description: The Register micro service gives register information to Apps.
+description: The register component offers register data to other components and is a supporting product for authorization functionality i Altinn
 tags: [platform, register]
 ---
 
-- ER - Enhetsregisteret - Information about organisations in Norway
+- ER - Enhetsregisteret - Information about organisations in Norway and roles
 - DSF - Det Sentrale Folkeregisteret - Information about citizens in Norway.
 
 ## ER - Enhetsregisteret
 ER registeret can be used to prefill information, retrieve information based on user input or for validation of input of users.
 
-Altinn Platform does not have a own copy of ER. It currently uses Altinn II plaform as source for register.
+
+During autumn 2024 the register component will be updated to have it own 
 
 
 The register component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
