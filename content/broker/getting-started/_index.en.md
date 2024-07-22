@@ -1,7 +1,7 @@
 ---
 title: Getting Started with Altinn Broker
 linktitle: Getting Started
-description: Tutorials for how to get started with Altinn 3 Broker, for service owners, senders and recipients
+description: Tutorials for how to get started with Altinn 3 Broker, for service owners, senders and recipients.
 tags: []
 toc: false
 weight: 30
@@ -13,7 +13,7 @@ Work in progress.
 
 {{<children />}}
 
-Due to the different distinct roles for which an enterprise may interact with Altinn Broker, namely:
+Due to the different distinct roles an enterprise may have in their interaction with Altinn Broker, we have divided our guides based on the specific role;
 
 - Sender
 - Receiver
@@ -25,5 +25,4 @@ An enterprise may have one, or a combination of all three roles according to the
 
 Most enterprises will have *Sender* and/or *Recipient*, while *Service owners* frequently will have all three.
 
-As such, Service owners have to take additional steps when getting started to set up and define their Broker Resource.
-
+As a **Service owner**, you are responsible for configuring the service as well as data storage and access management of the service. This means that you as a service owner need to set up and configure the solution before it can be taken into use.

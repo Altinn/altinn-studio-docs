@@ -1,7 +1,7 @@
 ---
-title: Altinn 3 Formidling utvikler veiledning
+title: Veiledning for utviklere
 linktitle: Utviklerveiledning
-description: Hvordan komme i gang med Altinn 3 Formidling
+description: Velkommen til utviklerveiledningen for Altinn Formidling! Denne delen av dokumentasjonen hjelper deg med å komme i gang med Altinn Formidling og gir innsikt i hvordan du best kan utnytte plattformen. Vær oppmerksom på at dokumentasjonen fortsatt er under arbeid, og noen seksjoner kan være manglende eller bare delvis dokumentert.
 tags: [Broker, guide]
 toc: true
 weight: 20

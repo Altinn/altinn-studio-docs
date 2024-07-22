@@ -1,7 +1,7 @@
 ---
-title: Altinn 3 Broker Developer guide for Sender
-linktitle: Send Files
-description: How to get started sending files with Altinn 3 Broker, for developers
+title: Guide for Sender
+linktitle: Send files
+description: This developer guide will help you get started sending files using Altinn Broker.
 tags: [Broker, guide]
 toc: true
 weight: 10
@@ -13,9 +13,9 @@ weight: 10
 This section of the documentation is a work in progress, and as such currently makes extensive reference to external sources, as well as describing more scenarios.
 {{% /notice %}}
 
-Here are the detailed API operations and events you will be using when sending files.
+In this section you will find detailed descriptions of API-operations and events for use during FileTranfers, icluding operations like; initialize filetransfer, upload files, and getting filetransfer status.
 
-See also our [swagger page](/api/broker/spec/).
+For more information, see our [swagger-page](/api/broker/spec/) and [GitHub-repo](https://github.com/Altinn/altinn-broker), which also contains an Postman-collection with examples.
 
 ## Operation: Initialize FileTransfer {#operation-initialize-filetransfer}
 

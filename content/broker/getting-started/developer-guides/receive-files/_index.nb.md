@@ -1,7 +1,7 @@
 ---
-title: Altinn 3 Formidling utviklerveiledning
-linktitle: Receive Files
-description: Hvordan motta filer via Altinn Formidling
+title: Veiledning for mottakere
+linktitle: Motta filer
+description: Denne guiden hjelper deg med å komme i gang med å motta filer ved hjelp av Altinn Formidling. 
 tags: [Broker, guide]
 toc: true
 weight: 20
@@ -10,7 +10,7 @@ weight: 20
 {{<children />}}
 
 {{% notice warning  %}}
-Denne delen av dokumentasjonen er under arbeid, og refererer derfor i stor grad til eksterne kilder.
+Merk at denne delen av dokumentasjonen fortsatt er under arbeid og derfor i stor grad refererer til eksterne kilder.
 {{% /notice %}}
 
 ## Operasjon: Hent filoverføringer {#operation-get-filetransfers}

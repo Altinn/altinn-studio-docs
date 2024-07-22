@@ -1,10 +1,10 @@
 ---
-title: Kom i gang med Altinn Broker som tjenesteeier
+title: Veiledning for Tjenesteieere
 linktitle: Tjenesteeier
-description: Hvordan komme i gang med Altinn 3 Broker, for tjenesteeiere
+description:  Denne veiledningen er for deg som er tjenesteeier og ønsker å bruke Altinn Formidling. Her finner du trinnvise instruksjoner for registrering, opprettelse av tjeneste, konfigurering av tilganger og autentisering, integrasjon med Formidling API-et, samt oppsett av varsler. Veiledningen hjelper deg med å sette opp og administrere Formidlingtjenesten.
 tags: [Broker, guide]
 toc: true
-weight: 20
+weight: 10
 ---
 
 {{<children />}}
@@ -17,9 +17,9 @@ Spesielt vil trinn 4-6 utføres via GUI i stedet for å kreve direkte API-kall.
 
 ## 1. Kom i gang som tjenesteeier i Altinn {#get-started-as-service-owner-in-altinn}
 
-For å komme i gang med Altinn Broker må bedriften din være registrert som en tjenesteeier i Altinn. For en trinnvis veiledning, se [Kom i gang med Altinn-guiden](https://www.altinndigital.no/kom-i-gang/guide-kom-i-gang-med-altinn/).
+For å komme i gang med Altinn Broker må virksomheten din være registrert som en tjenesteeier i Altinn. For en trinnvis veiledning, se [Kom i gang med Altinn-guiden](https://www.altinndigital.no/kom-i-gang/guide-kom-i-gang-med-altinn/).
 
-Dette trinnet er bare nødvendig for nye bedrifter som ennå ikke har etablert seg som tjenesteeiere på Altinn-plattformen. Som en eksisterende tjenesteeier kan du gå direkte videre til de neste trinnene for å begynne å bruke Altinn Broker.
+Dette trinnet er bare nødvendig for nye virksomheter som ennå ikke har etablert seg som tjenesteeiere på Altinn-plattformen. Som en eksisterende tjenesteeier kan du gå direkte videre til de neste trinnene for å begynne å bruke Altinn Broker.
 
 ## 2. Utfør felles steg for API-nøkkel og Maskinporten-klient {#perform-common-steps-for-api-key-and-maskinporten-client}
 
@@ -29,18 +29,18 @@ Utfør steg 1 og 2 i [Felles kom i gang-steg](../common-steps) hvis du ikke alle
 
 Alle filer som sendes med Broker, er tilknyttet en ressurs/tjeneste/"tjenesteressurs". Se [Ressursregister](../../../../authorization/what-do-you-get/resourceregistry/).
 Ressurser kan registreres via Altinn Studio, og brukes for tilgangsregler og tilgangslister.
-Politikken din må konfigureres slik at de tillater handlingene:
+Policy-filen din må konfigureres slik at den tillater handlingene:
 
 - "subscribe" for alle, - dette brukes for hendelser.
 - "read" for mottakere
 - "write" for avsendere.
 
-For å sette opp en ressurs som fungerer raskt, kan du bruke vår [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json) og kjøre forespørslene "Create resource" og "Create resource policy" med en token som har omfanget "altinn:resourceregistry/resource.write".
+For å sette opp en ressurs som fungerer raskt, kan du bruke vår [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json) og kjøre forespørslene "Create resource" og "Create resource policy" med en token som har scopet "altinn:resourceregistry/resource.write".
 
 Her er en [eksempelpolicy](ExamplePolicy.xml).
 
 Merk at denne eksempelpolicyen angir en påkrevd brukerrolle "DAGL" for brukeren som har tilgang til ressursen, og krever bruk av [Ressursrettighetsregister](../../../../authorization/what-do-you-get/resourceregistry/) (gå til engelsk språk for å se dokumentasjon for RRR) for å gi tilgang til spesifikke organisasjoner.
-En bruker med denne tilgangen kan deretter delegere tilgangen til bedriftsbrukeren/systembrukeren
+En bruker med denne tilgangen kan deretter delegere tilgangen til virksomhetsbrukeren/systembrukeren
 
 **TIPS**: Verifiser konfigurasjonene dine ved hjelp av [Postman-samlingen](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json), og erstatt testtokenene med dine egne Altinn-token (Se forespørselen "Logg inn i Maskinporten (Initialiser)" i Authenticator-mappen).
 
@@ -54,8 +54,7 @@ Kall API-operasjonen [initialiser tjenesteeier i Broker API](../developer-guides
 
 Deretter må man konfigurere den spesifikke Broker-konfigurasjonen for ressursen.
 
-Bruk ID-en til ressursen du opprettet i trinn 3, og kall API-operasjonen 
-for å [konfigurere ressurs](../developer-guides/service-owner/#operation-configure-resource-in-broker-api).
+Bruk ID-en til ressursen du opprettet i trinn 3, og kall API-operasjonen for å [konfigurere ressurs](../developer-guides/service-owner/#operation-configure-resource-in-broker-api).
 
 ## 6. Gi tilgang til avsendere og mottakere til ressursen {#grant-access-to-senders-and-recipients-to-the-resource}
 

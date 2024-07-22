@@ -4,7 +4,7 @@ linktitle: Service Owner
 description: How to get started with Altinn 3 Broker, for service owners
 tags: [Broker, guide]
 toc: true
-weight: 20
+weight: 10
 ---
 
 {{<children />}}

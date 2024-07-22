@@ -1,7 +1,7 @@
 ---
-title: Altinn 3 Broker Developer guides
+title: Developer guide
 linktitle: Developer guides
-description: How to get started with Altinn 3 Broker, for developers
+description: Welcome to the developer guide for Altinn Broker! This part of the documentation will help you to get started using Altinn Broker, and how to best exploit the platform. Be aware that the documentation is still a work-in-progress, and that some sections are in a partial or incomplete state.
 tags: [Broker, guide]
 toc: true
 weight: 20

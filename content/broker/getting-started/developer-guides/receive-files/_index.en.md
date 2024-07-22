@@ -1,7 +1,7 @@
 ---
-title: Altinn 3 Broker Developer guides
+title: Guide for receivers
 linktitle: Receive Files
-description: How to get started Receiving files with Altinn 3 Broker, for developers
+description: This developer guide will help you get started receiving files using Altinn Broker.
 tags: [Broker, guide]
 toc: true
 weight: 20

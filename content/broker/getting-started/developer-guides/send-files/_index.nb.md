@@ -1,7 +1,7 @@
 ---
-title: Altinn 3 Formidling Utviklerguide for Avsender
+title: Veiledning for avsender
 linktitle: Send filer
-description: Hvordan komme i gang med å sende filer med Altinn 3 Formidling, for utviklere
+description: Denne utviklerguiden hjelper deg med å komme i gang med å sende filer ved hjelp av Altinn Formidling.
 tags: [Broker, guide]
 toc: true
 weight: 10
@@ -10,12 +10,12 @@ weight: 10
 {{<children />}}
 
 {{% notice warning  %}}
-Dette avsnittet av dokumentasjonen er under utvikling, og inneholder derfor omfattende referanser til eksterne kilder.
+Merk at dette avsnittet av dokumentasjonen fortsatt er under utvikling og derfor inneholder omfattende referanser til eksterne kilder.
 {{% /notice %}}
 
-Her er de detaljerte API-operasjonene og hendelsene du vil bruke når du sender filer.
+Her finner du detaljerte API-operasjoner og hendelser som brukes ved filoverføring, inkludert operasjoner som initialisering av filoverføring, opplasting av filer og innhenting av filoverføringsstatus.
 
-Se også vår [swagger-side](/api/broker/spec/).
+For mer informasjon, se vår [swagger-side](/api/broker/spec/) og [GitHub-repo](https://github.com/Altinn/altinn-broker), som også inneholder en Postman-samling med eksempler.
 
 ## Operasjon: Initialiser Filoverføring {#operation-initialize-filetransfer}
 
