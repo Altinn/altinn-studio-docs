@@ -42,7 +42,7 @@ Når tjenesten er opprettet kommer du til tjenestens oversiktsside. Se video und
 
 ## Sett et visningsnavn for tjenesten
 
-Tjenesten trenger et visningsnavn som vises som overskrift på skjema og i brukerens innboks i Altinn.
+Tjenesten trenger et visningsnavn som vises som overskrift på skjemaet og i brukerens innboks i Altinn.
 
 Legg inn visningsnavn ved å:
 

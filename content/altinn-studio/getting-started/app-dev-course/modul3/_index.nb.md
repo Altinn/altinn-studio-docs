@@ -1,6 +1,6 @@
 ---
 title: Lag skjema
-description: Lag første versjon av skjemaet
+description: Lag første versjon av skjemaet.
 linktitle: Lag skjema
 tags: [apps, training, form]
 weight: 30
@@ -33,14 +33,14 @@ Skjemaet innhenter personlig informasjon om tilflytteren og skal ha følgende ko
 
 Du kan sette opp skjemaet fra "Lage"-siden. Naviger til denne via "Lage"-knappen i topp-menyen.
 
-Der ser du at det er opprettet en tom første-side for skjemaet som utgangspunkt.
+Der ser du at det er opprettet en tom førsteside for skjemaet som utgangspunkt.
 
 1. Sett opp skjemaet basert på kravene fra kommunen.
    - Pass på å legge inn ledetekster for alle skjemafelter.
-   - For adresse kan du bruke Adresse-komponenten som ligger under "Avansert", eller 3 tekstfelter.
+   - For adresse kan du bruke Adresse-komponenten som ligger under "Avansert", eller tre tekstfelter.
    - For at skjemaet skal kunne sendes inn må du legge til en "Knapp" på den siste siden.
    - Alle skjemafelter må knyttes til tilhørende felt i datamodellen - dette gjør du i "Datamodellknytninger"-seksjonen
-      i høyre-panelet.
+      i høyrepanelet.
 
 Husk å laste opp endringer når du jobber i Designer så de reflekteres i det sentrale filområdet til tjenesten.
 

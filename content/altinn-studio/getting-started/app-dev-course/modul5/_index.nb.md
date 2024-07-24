@@ -77,4 +77,6 @@ i testmiljøet for å teste den.
 {{<navigation-buttons
   urlBack="../modul4"
   textBack="<< Forrige modul"
+  urlNext="../modul6"
+  textNext="Neste modul >>"
 >}}
