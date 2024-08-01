@@ -7,8 +7,6 @@ recipient does not need to be known, as Altinn has access to a wide range
 of registries to retrieve contact information given an organization number or a national identity number."
 tags: [notifications]
 weight: 30
-toc: true
-
 ---
 
 ## Combining notification channels
@@ -28,76 +26,27 @@ The entity ordering the notification is responsible for checking whether the not
 will be sent or not, as recipient lookup results are shared in the response of the order request
 as well as detailed in the notification after requested send time.
 
-### Recipient lookup result
-{{% notice warning  %}}
-The recipient lookup result reflects the situation at a specific point in time.
-If the requested send time is significantly later than the time of ordering - the final lookup may have a different result.
-The status of a notification order should therefore always be checked after the requested send time
-to confirm whether notifications were successfully generated, sent and delivered.
-{{% /notice %}}
+[Read more about recipient lookup in the reference documentation.](../reference/send-notifications/recipient-lookup)
 
 
-The _recipient lookup result_ provides insight into the probability of Altinn being able to send the notification
-to the recipients stated in the order. By checking the contents of this object, alternative
-measures can be taken before the requested send time if there are reserved persons or recipients where no contact details can be found.
+## Send condition
+Send condition is a feature that enables putting in a notification order request
+for a notification to be sent only if a given condition is met, the requested send time could be immediately 
+or in the future. An example use case is reminders, where a notification should be sent only if a user is yet to 
+complete an action. 
 
-|    Property    |                                                  Description                                                   |
-| :------------: | :------------------------------------------------------------------------------------------------------------: |
-|     status     |                                        The result of the initial lookup                                        |
-|   isReserved   |                    A list containing national identity numbers for all reserved recipients.                    |
-| missingContact | A list containing national identity number and/or organization numbers for recipients missing contact details. |
+A send condition can be evaluated as true or false i.e. true if the condition for sending the notification is met. 
+The send condition is checked by the application using the condition endpoint provided in the notification order. 
 
+[Read more about send condition in the reference documentation.](../reference/send-notifications/send-condition)
 
-The status property can hold one of three values.
+## SMS send window
+Altinn sends SMS notifications daily between 9 AM and 5 PM (Norway time). 
+Any SMS scheduled outside of these hours will be sent at 9 AM the following day.
 
-|     Status     |                       Description                        |
-| :------------: | :------------------------------------------------------: |
-|    Success     | The recipient lookup was successful for all recipients.  |
-| PartialSuccess | The recipient lookup was successful for some recipients. |
-|     Failed     |     The recipient lookup failed for all recipients.      |
-
-
-__Samples__
-```json
-"recipientLookup": {
-    "status": "Success",
-    "isReserved": [ "16069412345" ],
-    "missingContact": [ "810419652", "14029112345" ]
-  }
-```
-
-
-### Registries used for lookup
-
-When sending a notification through Altinn the sender can provide the contact details (email
-or SMS). In addition to this, Altinn uses a set of registries to retrieve the contact details
-if none have been provided by the sender.
-
-__The common contact register (Kontakt- og reservasjonsregisteret)__
-
-Altinn has a local copy of this register which can be used used to retrieve
-contact details if the recipient is identified by person number.
-
-[Read more about the common contact register is available here](https://eid.difi.no/en/privacy-policy/privacy-policy-common-contact-register-krr).
-
-__The National Registry for Notification Addresses for Businesses (Varslingsadresser for Enheter)__
-
-Altinn has a local copy of this register which can be used used to retrieve contact details if the
-recipient is identified by organization number.
-
-[Read more about the notification addresses to apply in public administration here](https://www.brreg.no/en/other-topics/notification-addresses-to-apply-in-public-administration/?nocache=1704206499405).
-
-
-__Altinn user profile__
-
-End users can register their preferred contact details for notifications related to organizations in their
-Altinn profile. These contact details can be used when the recipient is identified by organization number.
+Notification orders can be placed at any time. 
 
 <!--
-### How Altinn identifies contact details
-{{% notice info %}}
-TODO: legg inn en folkelig beskrivelse av dataflyten vi kom fram til i møtet med Terje, Torkel og Stephanie
-{{% /notice %}}
 
 ## Persistence of sent notifications
 

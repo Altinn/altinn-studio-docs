@@ -1,0 +1,37 @@
+<a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+    {{- if eq .Language.Lang "en" -}}
+    <span>Products</span>
+    {{- else if eq .Language.Lang "nb" -}}
+    <span>Produkter</span>
+    {{- end -}}
+  </a>
+  <div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    {{- $currentPage := . -}}
+      <a aria-hidden="true" class="dropdown-item" href="{{ with .Site.GetPage `/altinn-studio`}}{{.RelPermalink}}{{end}}">
+        <p class="product-item">
+            Studio
+        </p>
+      </a>
+      <a aria-hidden="true" class="dropdown-item" href="{{ with .Site.GetPage `/authorization`}}{{.RelPermalink}}{{end}}">
+        {{- if eq .Language.Lang "en" -}}
+        <p class="product-item">Authorization</p>
+        {{- else if eq .Language.Lang "nb" -}}
+        <p class="product-item">Autorisasjon</p>
+        {{- end -}}
+      </a>
+      <a aria-hidden="true" class="dropdown-item" href="{{ with .Site.GetPage `/broker`}}{{.RelPermalink}}{{end}}">
+        {{- if eq .Language.Lang "en" -}}
+        <p class="product-item">Broker</p>
+        {{- else if eq .Language.Lang "nb" -}}
+        <p class="product-item">Formidling</p>
+        {{- end -}}
+      </a>
+      <a aria-hidden="true" class="dropdown-item" href="{{ with .Site.GetPage `/correspondence`}}{{.RelPermalink}}{{end}}">
+        {{- if eq .Language.Lang "en" -}}
+        <p class="product-item">Correspondence</p>
+        {{- else if eq .Language.Lang "nb" -}}
+        <p class="product-item">Melding</p>
+        {{- end -}}
+      </a>
+  </div>
+  

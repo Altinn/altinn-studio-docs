@@ -67,10 +67,13 @@ $(document).ready(function() {
      */
     function expandHashTarget() {
         const id = (window.location.hash || '#').substring(1);
-        const element = document.getElementById(id);
-        if (element && element.classList.contains('adocs-expand')) {
-            $(element).find('a[aria-expanded="false"]').click();
-            element.scrollIntoView();
+        if (id != null && id.length > 0) {
+            const element = document.getElementById(id);
+            if (element && element.classList.contains('adocs-expand')) {
+                $(element).find('a[aria-expanded="false"]').click();
+                element.
+                scrollIntoView();
+            }
         }
     }
     window.addEventListener('hashchange', expandHashTarget, false);

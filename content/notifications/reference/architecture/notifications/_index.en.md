@@ -29,8 +29,9 @@ The API controllers listed below are exclusively for use within in the Altinn or
 ### Private API
 The API controllers listed below are exclusively for use within the Notification solution:
 - [Trigger controller](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/TriggerController.cs):
-   Functionality to trigger the start of order and notifications processing flows.
-
+  Functionality to trigger the start of order and notifications processing flows
+- [SendCondition controller](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/SendConditionController.cs):
+  Provides end point to support automated testing of send conditions
 
 ## Database
 
@@ -83,6 +84,14 @@ is implemented and used by all services that publish to Kafka.
 
 [Please reference the Kafka architecture section for a closer description of the Kafka setup.](../kafka/)
 
+### Maskinporten 
+
+A maskinporten integration has been created to ensure the application can create Maskinporten tokens for the
+API clients to use as required. 
+Each client should have their own integration and their set of configuration values as seen in
+[appsettings.json](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/appsettings.json).
+Secrets are hosted i Azure KeyVault and added to the configuration values during startup of the application.
+
 ### REST clients
 
 **Altinn APIs:**
@@ -98,6 +107,11 @@ The clients are used to retrieve recipient data and to authorize user access.
   consumes Altinn Authorization's Decision API to verify that all users with registered contact points for an organization are authorized. The decision request will ask
   if a given user still have read access to the resource that the notification is about.
 
+**External APIs:**
+
+- [SendConditionClient](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Integrations/SendCondition/SendConditionClient.cs)
+  sends request to condition endpoints provided in notification orders with a maskinporten token representing Digdir. 
+
 ## Cron jobs
 
 Multiple cron jobs have been set up to enable triggering of of actions in the application on 
@@ -105,11 +119,11 @@ a schedule.
 
 The following cron jobs are defined: 
 
-| Job name               | Schedule    | Description                                                                           |
-| ---------------------- | ----------- | ------------------------------------------------------------------------------------- |
-| pending-orders-trigger | */1 * * * * | Sends request to endpoint to start processing of past due orders                      |
-| send-email-trigger     | */1 * * * * | Sends request to endpoint to start the process of sending all new email notifications |
-| send-sms-trigger       | */1 * * * * | Sends request to endpoint to start the process of sending all new sms notifications   |
+| Job name               | Schedule     | Description                                                                           |
+| ---------------------- | ------------ | ------------------------------------------------------------------------------------- |
+| pending-orders-trigger | */1 * * * *  | Sends request to endpoint to start processing of past due orders                      |
+| send-email-trigger     | */1 * * * *  | Sends request to endpoint to start the process of sending all new email notifications |
+| send-sms-trigger       | * 7-16 * * * | Sends request to endpoint to start the process of sending all new sms notifications   |
 
 Each cron job runs in a Docker container [based of the official docker image for curl](https://hub.docker.com/r/curlimages/curl)
 and sends a request to an endpoints in the [Trigger controller](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/TriggerController.cs).
@@ -150,16 +164,17 @@ Find descriptions of key dependencies below.
 ### .NET Libraries
 Notifications microservice takes use of a range of libraries to support the provided functionality. 
 
-| Library                 | Purpose                                 | Resources                                                                                                                                 |
-| ----------------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| AccessToken             | Used to validate tokens in requests     | [Repository](https://github.com/altinn/altinn-accesstoken), [Documentation](../../../../authentication/architecture/accesstoken/)         |
-| Altinn.Common.PEP       | Client code for Authorization           | [Repository](https://github.com/Altinn/altinn-authorization), [Documentation](../../../../authorization/reference/architecture/)          |
-| Confluent.Kafka         | Integrate with kafka broker             | [Repository](https://github.com/confluentinc/confluent-kafka-dotnet), [Documentation](https://developer.confluent.io/get-started/dotnet/) |
-| FluentValidation        | Used to validate content of API request | [Repository](https://github.com/FluentValidation/FluentValidation), [Documentation](https://docs.fluentvalidation.net/en/latest/)         |
-| JWTCookieAuthentication | Used to validate Altinn token (JWT)     | [Repository](https://github.com/Altinn/altinn-authentication),  [Documentation](../../../../authentication/architecture/jwtcookie/)       |
-| libphonenumber-csharp   | Used to validate mobile numbers         | [Repository](https://github.com/caseykramer/libphonenumber-csharp), [Documentation](https://github.com/caseykramer/libphonenumber-csharp) |
-| Npgsql                  | Used to access the database server      | [Repository](https://github.com/rdagumampan/yuniql), [Documentation](https://www.npgsql.org/)                                             |
-| Yuniql                  | DB migration                            | [Repository](https://github.com/rdagumampan/yuniql), [Documentation](https://yuniql.io/)                                                  |
+| Library                   | Purpose                                 | Resources                                                                                                                                 |
+| ------------------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| AccessToken               | Used to validate tokens in requests     | [Repository](https://github.com/altinn/altinn-accesstoken), [Documentation](../../../../authentication/reference/architecture/accesstoken/)   |
+| Altinn.Common.PEP         | Client code for Authorization           | [Repository](https://github.com/Altinn/altinn-authorization), [Documentation](../../../../authorization/reference/architecture/)          |
+| Altinn MaskinportenClient | Used to generate Maskinporten token     | [Repository](https://github.com/altinn/altinn-apiclient-maskinporten)                                                                     |
+| Confluent.Kafka           | Integrate with kafka broker             | [Repository](https://github.com/confluentinc/confluent-kafka-dotnet), [Documentation](https://developer.confluent.io/get-started/dotnet/) |
+| FluentValidation          | Used to validate content of API request | [Repository](https://github.com/FluentValidation/FluentValidation), [Documentation](https://docs.fluentvalidation.net/en/latest/)         |
+| JWTCookieAuthentication   | Used to validate Altinn token (JWT)     | [Repository](https://github.com/Altinn/altinn-authentication),  [Documentation](../../../../authentication/reference/architecture/jwtcookie/) |
+| libphonenumber-csharp     | Used to validate mobile numbers         | [Repository](https://github.com/caseykramer/libphonenumber-csharp), [Documentation](https://github.com/caseykramer/libphonenumber-csharp) |
+| Npgsql                    | Used to access the database server      | [Repository](https://github.com/rdagumampan/yuniql), [Documentation](https://www.npgsql.org/)                                             |
+| Yuniql                    | DB migration                            | [Repository](https://github.com/rdagumampan/yuniql), [Documentation](https://yuniql.io/)                                                  |
 
 [A full list of NuGet dependencies is available on GitHub](https://github.com/Altinn/altinn-notifications/network/dependencies).
 

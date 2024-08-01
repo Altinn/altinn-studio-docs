@@ -3,8 +3,18 @@ title: Case description
 description: Description of the municipality's requirements and wishes for the service.
 linktitle: Case
 tags: [apps, case, training]
-weight: 10
+weight: 1
 ---
+
+{{% notice info %}}
+**TL;DR:** Below is a description of the ficticious case we will use in this course - a service that Sogndal
+municipality can use to gather information about people moving into the municipality.
+<br/>
+<br/>
+You can read through the descriptions below to get an overview of the requirements. For each module we will repeat
+the relevant requirements to make it clear what the goal of the module is.
+{{% /notice %}}
+
 Sogndal is in need of more young residents and wishes to become a desirable 
 municipality for young adults and others who wish to settle down.
 
@@ -69,9 +79,9 @@ The following is desirable to be similar in the application:
  - Text size
  - Formatting of text
 
-[Sketch of information page](/altinn-studio/getting-started/app-dev-course/modul2/infoside_tilflyttere.pdf)
+[Sketch of information page](../resources/infoside_tilflyttere.pdf)
 
-!["Sogndal coats of arms"](/altinn-studio/getting-started/app-dev-course/modul2/kommune-logo.png "A picture of the coats of arms of Sogndal that may be used in the application." )
+!["Sogndal coats of arms"](../resources/kommune-logo.png "A picture of the coats of arms of Sogndal that may be used in the application." )
 
 {{% /expandlarge %}}
 
@@ -109,7 +119,7 @@ Based on the answer, the user will be sent to either _Track 1_ or _Track 2_.
 {{% expandlarge id="prefill-expandable" header="Requirements" %}}
 
 - The following should be prefilled for the user:
-  - First name: Innflytter.Fornavn
+  - First name: Innflytter.fornavn
   - Middle name: Innflytter.Mellomnavn
   - Last name: Innflytter.Etternavn
   - Email: Innflytter.Kontaktinformasjon.Epost

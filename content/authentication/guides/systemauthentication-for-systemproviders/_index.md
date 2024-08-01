@@ -1,48 +1,45 @@
 ---
 title: Ta i bruk systembruker for systemleverandører
-linktitle: Systembruker for systemleverandører
+linktitle: Systembruker for SBS
 description: Systembruker er et nytt konsept for API autentisering. Denne guiden beskriver hvordan man som systemleverandør kan benytte seg av dette.
 toc: false
 weight: 1
 ---
 
 {{<notice warning>}}
- Denne funksjonaliteten er i test og kan endres
+This functionality is in testing and subject to change.
 {{</notice>}}
 
-## Bakgrunn
+## Background
 
-Bakgrunnen til systembruker konsept kan leses om her.
+The background of the systembruker concept can be read about here.
 
-##  Forutsetninger
+## Prerequisites
 
-Forutsetninger for at man systemleverandør kan benytte seg systembruker er.
+To use systembruker as a system provider, the following prerequisites must be met:
 
-- Avtale med maskinporten som klient
-- Avtale med Digdir som gir tilgang til systemregister
+- Agreement with Maskinporten as a client
+- Agreement with Digdir granting access to the system register
 
-## Sette opp maskinporten integrasjon
+## Setting Up Maskinporten Integration
 
-For å konsumere offentlige API med systembrukere trenger man å registrere minst en MaskinPorten integrasjon. 
-Dette kan gjøres i [sammarbeidsportalen](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web#opprette-klient-for-%C3%A5-konsumere-api) eller via [API](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_api#registrere-klient).
+To consume public APIs with systembruker, you need to register at least one MaskinPorten integration. This can be done through the [collaboration portal](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web#opprette-klient-for-%C3%A5-konsumere-api) or via the [API](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_api#registrere-klient).
 
-## Registrere system
+## Registering a System
 
-Første steg etter man har fått tilgang til systemregisteret er å registrere systemet.
+The first step after gaining access to the system register is to register your system.
 
-Systemet er da typisk en nettbasert programvare som er tilgjengelig i markedet som sluttkunder (virksomheter) kan
-benytte seg av for kommunukasjon med det offentlige. 
+Typically, the system is web-based software available in the market that end customers (organizations) can use for communication with the public sector.
 
-Systemet må beskrives med følgende egenskaper
+The system must be described with the following properties:
 
 ### SystemTypeId
 
-Dette er en unik ID som vil benyttes for å identifisere programvaren. Gyldige tegn er a-z 0-9 og _
+This is a unique ID used to identify the software. Valid characters are a-z, 0-9, and _.
 
 ### KlientId
 
-Dette er klientidene for integrasjonen som er opprettet i Maskinporten. 
-Det er kun pålogginger med Maskinportenintegrasjoner som er knyttet mot oppgitte klientider.
+This is the client ID for the integration created in Maskinporten. Only logins with Maskinporten integrations associated with specific client IDs are allowed.
 
 
 ```json
@@ -72,18 +69,20 @@ Når system skal autentisere seg som systembrukeren til kunden må JWT grant for
 
 ```json
 {
-  "aud": "https://maskinporten.no/",
-  "iss": "0e85a8ba-77e8-4a6c-a0f5-74fc328a9ffb",
-
-  "scope": "digdir:dialogporten skatteetaten:mva"
-
-   "authorization_details": [ {
-    "type": "urn:altinn:systemuser",
-    "systemuser_org": {
-       "authority" : "iso6523-actorid-upis",  
-       "ID": "0192:999888777"  
-    }
-}]
+  "aud" : "https://maskinporten.no",
+  "sub" : "fc9a8287-e7cb-45e5-b90e-123048d32d85",
+  "authorization_details" : [ {
+    "systemuser_org" : {
+      "authority" : "iso6523-actorid-upis",
+      "ID" : "0192:310385980"
+    },
+    "type" : "urn:altinn:systemuser"
+  } ],
+  "scope" : "krr:global/kontaktinformasjon.read",
+  "iss" : "fc9a8287-e7cb-45e5-b90e-123048d32d85",
+  "exp" : 1718124835,
+  "iat" : 1718124715,
+  "jti" : "89365ecd-772b-4462-a4de-ac36af8ef3e2"
 }
 
 ```
@@ -94,37 +93,42 @@ Når system skal autentisere seg som systembrukeren til kunden må JWT grant for
 
 ```json
 {
-  "iss": "https://maskinporten.no",
-  "scope":       "some_scope",
-  "client_id":   "my_client_id",
-  "exp": 1520589928,
-  "iat": 1520589808,
-  "jti": "asdjkl5434jlkfds"
-  
-  "authorization_details": [ {
-    "type": "urn:altinn:systemuser",
-    "systemuser_id": [ "a_unique_identifier_for_the_systemuser" ], 
-    "systemuser_org": {"authority" : "iso6523-actorid-upis",  "ID": "0192:999888777" },
-    "system_id": "a_unique_identifier_for_the_system",
-  }]
+  "authorization_details" : [ {
+    "type" : "urn:altinn:systemuser",
+    "systemuser_org" : {
+      "authority" : "iso6523-actorid-upis",
+      "id" : "0192:314168267"
+    },
+    "systemuser_id" : [ "ebe4a681-0a8c-429e-a36f-8f9ca942b59f" ],
+    "system_id" : "matrix_test"
+  } ],
+  "scope" : "krr:global/kontaktinformasjon.read",
+  "iss" : "https://test.maskinporten.no/",
+  "client_amr" : "private_key_jwt",
+  "token_type" : "Bearer",
+  "exp" : 1718175135,
+  "iat" : 1718175015,
+  "client_id" : "fc9a8287-e7cb-45e5-b90e-123048d32d85",
+  "jti" : "-SpfU--1Zn_Oqvkpjwu3oVn--VLcPzSAwjqyiP6zBEw",
+  "consumer" : {
+    "authority" : "iso6523-actorid-upis",
+    "ID" : "0192:314330897"
+  }
 }
 
 ```
-Se også dokumentasjon hos [Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker). 
 
+See also documentation at [Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker).
 
-## Bruk av systembrukertoken mot API
+## Using Systembruker Tokens with APIs
 
-Tokenet man får fra maskinporten legges ved som et bearer token mot de API man skal kalle. 
+The token obtained from Maskinporten should be included as a bearer token when making API calls.
 
+## Testing Systembruker in TT02
 
-## Test av systembruker i TT02
+To test systembruker in TT02, the following steps are required:
 
-For å teste systembruker i TT02 kreves følgende
-
- - Systemleverandør opprettet i maskinporten. Gjøres via servicedesk@digdir.no
- - Systemleverandør opprettet i Altinn. Gjøres vie servicedesk@altinn.no
- - Systemintegrasjon opprettet i maskinporten test.
-
-
-For opprettelse av systembrukere kan testbrukere/organisasjoner fra Tenor benyttes
+- Add the system provider in Maskinporten. (orgnumber/name) This can be done via [servicedesk@digdir.no](mailto:servicedesk@digdir.no).
+- Add the system provider in Altinn test environment.  (orgnumber/name) This can be done via [servicedesk@altinn.no](mailto:servicedesk@altinn.no).
+- Create a system integration in the Maskinporten test environment.
+- For systembruker creation, you can use test users/organizations from Tenor.

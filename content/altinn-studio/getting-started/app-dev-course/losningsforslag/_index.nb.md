@@ -3,6 +3,7 @@ title: Løsningsforslag
 description: Kildekode til løsningsforslag
 linktitle: Løsningsforslag
 weight: 30
+hidden: true
 ---
 
 [Fullstendig løsning](https://altinn.studio/repos/testdep/flyttemelding-sogndal/)

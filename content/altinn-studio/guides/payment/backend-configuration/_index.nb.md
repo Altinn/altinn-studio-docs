@@ -4,9 +4,9 @@ description: Sett opp din backend til å håndtere betaling.
 weight: 1
 ---
 
-### 1. Opprett en datatype for å lagre betalingsinformasjon:
+### 1. Opprett to datatyper for å lagre betalingsinformasjon:
 
-Denne datatypen benyttes av betalingssteget for å lagre informasjon og status om betalingen. Legg den i `App/config/applicationmetadata.json` sin `dataTypes` array. ID kan settes til noe annet, men det må matche ID-en som legges inn i `paymentDataType` i prossessteget, som vist i punkt 2.
+Denne datatypen benyttes av betalingssteget for å lagre informasjon og status om betalingen. Legg den i `App/config/applicationmetadata.json` sin `dataTypes` array. 
 
 ```json
 {
@@ -18,6 +18,21 @@ Denne datatypen benyttes av betalingssteget for å lagre informasjon og status o
     "minCount": 0,
 }
 ```
+
+Denne datatypen benyttes for å lagre PDF-kvittering for betalingen. Legg den inn samme sted.
+
+```json
+{
+    "id": "paymentReceiptPdf",
+    "allowedContentTypes": [
+        "application/pdf"
+    ],
+    "maxCount": 1,
+    "minCount": 0,
+}
+```
+
+ID-ene kan settes til noe annet, men det må matche ID-ene som legges inn i `paymentDataType` og `paymentReceiptPdfDataType` i prossessteget, som vist i punkt 2.
 
 ### 2. Utvid app prossesen med payment task:
 
@@ -61,6 +76,7 @@ Betaling benytter tre user actions. Dersom Altinn brukergrensesnittet brukes av 
           </altinn:actions>
           <altinn:paymentConfig>
             <altinn:paymentDataType>paymentInformation</altinn:paymentDataType>
+            <altinn:paymentReceiptPdfDataType>paymentReceiptPdf</altinn:paymentReceiptPdfDataType>
           </altinn:paymentConfig>
         </altinn:taskExtension>
       </bpmn:extensionElements>
@@ -85,7 +101,7 @@ Betaling benytter tre user actions. Dersom Altinn brukergrensesnittet brukes av 
       <bpmn:incoming>Flow_g1_end</bpmn:incoming>
     </bpmn:endEvent>
 ```
-NB: Verdien til denne noden: `<altinn:paymentDataType>paymentInformation</altinn:paymentDataType>` må matche ID-en til datatypen du konfigurerte i forrige steg.
+NB: Verdien til denne noden: `<altinn:paymentDataType>paymentInformation</altinn:paymentDataType>` må matche ID-en til datatypen du konfigurerte i forrige steg. Det samme gjelder datatypen for pdf-kvittering.
 
 ### 3. Gi tilganger til den som skal betale:
 
@@ -154,17 +170,24 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 ### 5. Legg til config i appSettings.json:
 
-1. [Hent din hemmelige nøkkel fra nets.](https://developer.nexigroup.com/nexi-checkout/en-EU/docs/access-your-integration-keys/). Pass på at du bruker testnøkkelen under utvikling. 
-2. Legg til din hemmelige nøkkel i keyvault, med variabelnavnet: `NetsPaymentSettings--SecretApiKey`. På denne måten vil den overstyre `SecretApiKey` i `appsettings.json`. 
-3. Legg til `NetsPaymentSettings` i din `appsettings.json`. Husk å sett riktig `baseUrl` i produksjon.
-```json
-{
-  "NetsPaymentSettings": {
-    "SecretApiKey": "In keyvault",
-    "BaseUrl": "https://test.api.dibspayment.eu/",
-    "TermsUrl": "https://www.yourwebsite.com/terms",
-    "ShowOrderSummary": true,
-    "ShowMerchantName": true
-  }
-}
-```
+1. [Hent din hemmelige nøkkel fra nets.](https://developer.nexigroup.com/nexi-checkout/en-EU/docs/access-your-integration-keys/). Pass på at du bruker testnøkkelen under utvikling.
+2. Gjør appen din klar for bruk av Azure Key Vault som konfigurasjonkilde, om dette ikke allerede er gjort tidligere. Se relevant [dokumentasjon](/nb/altinn-studio/reference/configuration/secrets/).
+3. Legg til din hemmelige nøkkel i keyvault, med variabelnavnet: `NetsPaymentSettings--SecretApiKey`. På denne måten vil den overstyre `SecretApiKey` i `appsettings.json`. 
+4. Legg til `NetsPaymentSettings` i din `appsettings.json`. Husk å sett riktig `baseUrl` i `appsettings.Production.json`.
+    ```json
+    {
+      "NetsPaymentSettings": 
+      {
+        "SecretApiKey": "In keyvault",
+        "BaseUrl": "https://test.api.dibspayment.eu/",
+        "TermsUrl": "https://www.yourwebsite.com/terms",
+        "ShowOrderSummary": true,
+        "ShowMerchantName": true
+      }
+    }
+    ```
+5. Lokal mocking av `SecretApiKey` kan gjøres ved hjelp av [user secrets](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-8.0&tabs=windows).
+   ```
+   dotnet user-secrets init
+   dotnet user-secrets set "NetsPaymentSettings:SecretApiKey" "test-secret-key-used-for-documentation"
+   ```
