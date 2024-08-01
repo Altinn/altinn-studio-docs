@@ -4,7 +4,7 @@ linktitle: Security
 description: Altinn 3 Broker Information Security
 tags: []
 toc: true
-weight: 50
+weight: 60
 ---
 
 <!--
