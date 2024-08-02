@@ -41,7 +41,7 @@ samt testing av applikasjonen lokalt og i testmiljø.
 
 Først må du [opprette en bruker i Altinn Studio](../create-user/).
 
-Les gjennom kravspesifikasjonene til Sogndal kommune og jobb deg gjennom modul for modul.
+Les gjennom ønskene til Sogndal kommune og jobb deg gjennom modul for modul.
 
 **Lykke til!**
 
