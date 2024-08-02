@@ -46,8 +46,8 @@ Du kan bruke følgende bilde av Sogndals kommunevåpen i tjenesten:
 7. I egenskapene for kompontenen, åpne "Innhold".
 8. Øverst i "Innhold"-seksjonen ligger en innstilling som heter "Komponentbredde". Valget "Bruk standardinnstilling" er på - skru av dette valget.
 9. Sett bredden til 3. Pass på at valgt skjermstørrelse er "Mobil".
-10. Under "BildeInnstillinger", i feltet "Kilde", legger du inn lenken til bildet: `https://docs.altinn.studio/nb/altinn-studio/getting-started/app-dev-course/resources/kommune-logo.png`.
-11. Legg til en tittel under bildet. Tittelkomponenten kan du finne under seksjonen "Tekst" i panelet til venstre.
+10. Under "Bildeinnstillinger", i feltet "Kilde", legger du inn lenken til bildet: `https://docs.altinn.studio/nb/altinn-studio/getting-started/app-dev-course/resources/kommune-logo.png`.
+11. Gå til "Komponenter" til venstre. Finn området "Tekst", dra inn komponenten "Tittel" derfra og plasser den under bildet.
 12. I panelet for egenskapene til komponenten, åpne "Tekst".
 13. Velg "Ledetekst" og legg inn denne teksten:
     ```text
@@ -55,7 +55,7 @@ Du kan bruke følgende bilde av Sogndals kommunevåpen i tjenesten:
     ```
 14. Åpne "Innhold", gå til "Komponentbredde" og slå av valget "Bruk standardinnstilling".
 16. Sett bredden til 9. Pass på at valgt skjermstørrelse er "Mobil".
-17. Legg til en paragraf etter tittelen. Paragrefkomponenten kan du finne under seksjonen "Tekst" i panelet til venstre.
+17. Gå til "Komponenter", finn "Tekst" og dra komponenten "Paragraf" inn på skjemaet, under "Tittel"-komponenten.
 18. Åpne "Tekst"-seksjonen i konfigurasjonskolonnen (i midten).
 19. Velg "Ledetekst" og legg inn denne teksten:
     ```text
