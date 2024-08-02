@@ -1,7 +1,7 @@
 ---
-title: Lag infoside
+title: "Modul 4: Lage infoside"
 description: Lag en informasjonsside som brukerne ser når de starter tjenesten.
-linktitle: Lag infoside
+linktitle: "Modul 4: Lage infoside"
 tags: [apps, training, form, pages]
 weight: 40
 toc: true
@@ -15,17 +15,18 @@ de starter tjenesten.
 - Flere sider i et skjema
 - Tekster
 - Bildekomponent
-- Tilpasse komponentbredde i et skjema
+- Tilpasse bredden til en komponent i et skjema
 
 ## Krav fra Sogndal kommune
 Siden Sogndal kommune vil samle inn personopplysninger i denne tjenesten, må de klargjøre hvem skjemaet 
 er ment for og hvordan de vil bruke dataene. Noen i kommunen har laget 
 [et utkast til en informasjonsside for dette formålet](../resources/infoside_tilflyttere.pdf).
 
-Informasjonssiden bør gjenspeile følgende elementer:
- - plassering av bilder
- - tekststørrelser
- - formatering av tekst
+Utdrag fra kravspesifikasjonen:
+> Informasjonssiden bør gjenspeile følgende elementer fra skissen:
+> - Plassering av bilder
+> - Tekststørrelser
+> - Formatering av tekst
 
 Du kan bruke følgende bilde av Sogndals kommunevåpen i tjenesten:
 
@@ -35,34 +36,32 @@ Du kan bruke følgende bilde av Sogndals kommunevåpen i tjenesten:
 1. Legg til en ny side i skjemaet ved å trykke på "Legg til ny side"-knappen.
 2. Merk at det automatisk legges til en "Navigasjonsknapper"-komponent på begge sidene, som brukes for å navigere
     frem og tilbake mellom sidene.
-3. Endre navn på den nye siden ved å klikke på sidens ID i konfigurasjonskolonnen, og skriv inn navnet `infoside`.
+3. Endre navn på siden. Velg sidens ID under "Konfigurasjon", og skriv inn navnet `infoside`.
     - Det har automatisk dukket opp navigasjonsknapper på den nye siden. Åpne den første siden, og se at det også har 
     dukket opp navigasjonsknapper på denne. Åpne `infoside` igjen for å fortsette.
-4. Klikk på menyikonet (tre prikker) ved siden av sidenavnet `infoside` og velg "Flytt opp".
-    - Se at den nye siden nå flytter seg til øverst i skjemaoversikten. 
-5. Legg til en Bilde-komponent fra komponentoversikten til venstre ved å dra den inn i `infoside`. Denne ligger under "Standard"-listen med komponenter.
-6. Merk at du kan flytte bildekompnenten opp og ned på siden ved å dra den og slippe i ønsket posision. Pass på at bildekomponenten
+4. Klikk på menyien (tre prikker) ved siden av sidenavnet `infoside` og velg "Flytt opp". Du vil se at den nye siden kommer øverst i skjemaoversikten. 
+5. Finn bildekomponenten i listen over standardkomponenter og dra den inn på infosiden.
+6. Du kan dra og slippe bildekomponenten for å flytte den rundt på siden. Pass på at den
     ligger øverst på siden.
-7. Åpne "Innhold"-seksjonen i konfigurasjonskolonnen. 
+7. I egenskapene for kompontenen, åpne "Innhold".
 8. Øverst i "Innhold"-seksjonen ligger en innstilling som heter "Komponentbredde". Valget "Bruk standardinnstilling" er på - skru av dette valget.
 9. Sett bredden til 3. Pass på at valgt skjermstørrelse er "Mobil".
-10. Under "Innstillinger for bilde" (nederst in "Innhold"-seksjonen), i feltet "Kilde", lim inn lenken til bildet: `https://docs.altinn.studio/nb/altinn-studio/getting-started/app-dev-course/resources/kommune-logo.png`.
+10. Under "BildeInnstillinger", i feltet "Kilde", legger du inn lenken til bildet: `https://docs.altinn.studio/nb/altinn-studio/getting-started/app-dev-course/resources/kommune-logo.png`.
 11. Legg til en tittel under bildet. Tittelkomponenten kan du finne under seksjonen "Tekst" i panelet til venstre.
-12. Åpne "Tekst"-seksjonen i konfigurasjonskolonnen (i midten).
-13. Klikk på "Ledetekst" og legg inn denne teksten:
+12. I panelet for egenskapene til komponenten, åpne "Tekst".
+13. Velg "Ledetekst" og legg inn denne teksten:
     ```text
     Skjema for informasjonsinnsamling for fremtidige tilflyttere
     ```
-14. Åpne "Innhold"-seksjonen i konfigurasjonskolonnen. 
-15. Øverst i "Innhold"-seksjonen ligger en innstilling som heter "Komponentbredde". Valget "Bruk standardinnstilling" er på - skru av dette valget.
+14. Åpne "Innhold", gå til "Komponentbredde" og slå av valget "Bruk standardinnstilling".
 16. Sett bredden til 9. Pass på at valgt skjermstørrelse er "Mobil".
 17. Legg til en paragraf etter tittelen. Paragrefkomponenten kan du finne under seksjonen "Tekst" i panelet til venstre.
 18. Åpne "Tekst"-seksjonen i konfigurasjonskolonnen (i midten).
-19. Klikk på "Ledetekst" og legg inn denne teksten:
+19. Velg "Ledetekst" og legg inn denne teksten:
     ```text
     Opplysningene du oppgir i dette skjemaet vil benyttes til å skreddersy en pakke med kommunale tilbud til deg og de du eventuelt flytter til kommunen sammen med.
     ```
-20. Legg til en ny paragrafkomponent i skjemaet og lim inn denne teksten:
+20. Dra inn en ny paragrafkomponent i skjemaet og lim inn denne teksten:
     ```text
     Du skal ikke bruke dette skjemaet hvis:
     - Du er allerede bosatt i Sogndal kommune

@@ -1,6 +1,6 @@
 ---
-title: Create info page
-description: Create an info page that is shown to the user when they start the service
+title: Add code lists
+description: Not translated.
 tags: [apps, training, form, pages]
 weight: 40
 toc: true
