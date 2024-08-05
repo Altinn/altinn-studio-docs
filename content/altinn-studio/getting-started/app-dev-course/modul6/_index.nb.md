@@ -59,12 +59,13 @@ Skjemaet du har laget skal nå ha tre sider.
 Brukeren skal kunne velge mellom offentlig og privat sektor. Til det er det naturlig å bruke [radioknapper](/nb/altinn-studio/reference/ux/components/radiobuttons/).
 
 1. Dra inn en komponent av typen "Radioknapper" øverst på den nye siden.
-2. Under "Tekst" i egenskapene til komponenten du har lagt til, legg til ledeteksten "Sektor". Nå bør skjemabyggeren se slik ut:
+2. Under "Tekst" i egenskapene til komponenten du har lagt til, legg til ledeteksten "Sektor". Nå bør skjemaet se slik ut:
    !["Skjemabygger med sektor"](skjemabygger_med_sektor.png)
 3. Nederst i tekstseksjonen kan man sette opp alternativer. Bryteren "Bruk kodeliste" er slått på som standard. Slå den av, så du kan legge til alternativene selv.
-4. Velg "Legg til alternativ". Du vil se at det dukker opp et alternativ under overskriften "Radioknapp 1" med en generert verdi.
+4. Velg "Legg til alternativ". Du får nå et alternativ under overskriften "Radioknapp 1" med en tilfeldig generert verdi.
+   !["Liste med én radioknapp"](liste_med_en_radioknapp.png)
 5. Klikk på "Radioknapp 1".
-6. Bytt ut verdien med `offentlig`. Dette er verdien som vil bli sendt til systemet når brukeren besvarer skjemaet.
+6. Skriv `offentlig` i feltet med verdien. Dette er verdien som vil bli sendt til systemet når brukeren besvarer skjemaet.
 7. Velg "Ledetekst".
 8. Fyll inn teksten "Offentlig". Dette er teksten som brukeren vil se ved siden av radioknappen.
 9. Gjenta stegene fra trinn 4 til trinn 8, men klikk på "Radioknapp 2" i stedet for "Radioknapp 1", og gi knappen verdien `privat` og ledeteksten "Privat".
@@ -86,7 +87,7 @@ Slik bruker du en kodeliste til å lage en liste med avmerkingsbokser:
 1. Klikk på "Last opp dine endringer" for å dele arbeidet du har gjort. Den røde prikken viser at du har gjort endringer som ikke er delt.
    !["Last opp dine endringer"-knapp](last_opp_dine_endringer.png)
 2. Skriv en kort tekst om hva du har oppdatert. Hvis det er flere som jobber på samme app, blir det lettere for dem å vite hva du har jobbet med. Dette er frivillig.
-3. Velg "Del endringer" for å lagre teksten og laste opp endringene dine. Etter en liten stund skal du få en beskjed om at appen er oppdatert, og den røde prikken skal forsvinne.
+3. Velg "Del endringer" for å lagre teksten og laste opp endringene dine. Du får beskjed om at appen er oppdatert, og den røde prikken forsvinner.
 
 #### Åpne repositoriet og lagre kodelisten
 1. Klikk på profilikonet øverst til høyre i Studio og velg "Åpne repositoriet".
@@ -94,8 +95,8 @@ Slik bruker du en kodeliste til å lage en liste med avmerkingsbokser:
    I Gitea kan du redigere filene manuelt og holde oversikt over versjoner ved hjelp av [Git](https://git-scm.com/). Hvis du ikke kjenner til Git fra før, kan det være lurt å sette deg litt inn i det, for å forstå hva som skjer i bakgrunnen når du gjør endringer.
 3. Last ned [kodelisten](industri.json).
 4. Klikk på "Add File", deretter "Last opp fil" og last opp kodelisten.
-5. Filen må ligge i mappen `App/options`. Sørg for at den blir plassert der ved å oppgi denne stien i feltet over opplastingsfeltet. Når du skriver "App/", blir feltet automatisk oppdatert til å se slik ut:
-   ![Filsti](filsti.png)
+5. Filen må ligge i mappen `App/options`. Lag en ny mappe som heter `options` i mappen `App` ved å skrive "App/options" i feltet over opplastingsfeltet. Til slutt ser feltet slik ut:
+   ![Filbane](filbane.png)
 6. Velg "Commit endringer".
 7. Du er nå ferdig i Gitea for denne gang. Gå tilbake til Altinn Studio-fanen, eller klikk på Altinn-logoen øverst til venstre i Gitea for å komme tilbake til Altinn Studio.
 
@@ -106,7 +107,7 @@ Slik bruker du en kodeliste til å lage en liste med avmerkingsbokser:
 2. Åpne siden der du la til "Bransje" og klikk på "Bransje".
 3. Under "Tekst" i egenskapene for "Bransje", sjekk at valget "Bruk kodeliste" er slått på.
 3. Velg "industri" fra nedtrekkslisten under.
-   !["Bruk kodeliste"-nedtrekssliste](bruk_kodeliste.png)
+   !["Bruk kodeliste"-nedtrekksliste](bruk_kodeliste.png)
 
 Nå skal avmerkingsboksene være klare.
 
@@ -131,7 +132,7 @@ Til denne komponenten skal vi også bruke en kodelistefil, men denne gangen skal
 
 #### Legg til kodelisten i repositoriet
 1. Klikk på profilikonet og gå til repositoriet i Gitea.
-2. Gå til mappen `App/options`. Her vil du se at filen `industri.json` fra forrige steg er listet opp.
+2. Gå til mappen `App/options`. Her ser du at filen `industri.json` fra forrige steg er listet opp.
 3. Velg "Add file" og deretter "Ny fil".
 4. Skriv inn filnavnet `ar_i_arbeidslivet.json`. Husk filtypen `.json`. Uten den vil ikke Studio finne filen når vi skal koble kodelisten til komponenten etterpå.
 5. Kopier koden under og lim den inn i tekstområdet der det står "Ny fil".
@@ -161,7 +162,7 @@ Til denne komponenten skal vi også bruke en kodelistefil, men denne gangen skal
 1. Gå tilbake til fanen med Altinn Studio og velg "Hent endringer".
 2. Klikk på komponenten "Antall år i arbeidslivet" og legg til den nye kodelisten på samme måte som du gjorde da du la til kodeliste for bransje.
 
-Nå skal din app ha fått en nedtrekksliste med alternativene som er spesifisert i kodelisten.
+Nå skal appen din ha fått en nedtrekksliste med alternativene som er spesifisert i kodelisten.
 
 ## Nyttig dokumentasjon
 Se [kodelisteguiden](../../../guides/options/) for å se hvordan kodelister settes opp i appkoden.
