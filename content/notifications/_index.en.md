@@ -19,7 +19,7 @@ Reasons to consider using Altinn Notifications for communication with Norwegian 
 1. Contact information in national registries can be retrieved at send time based on
    organization number or person identification number.
 2. Altinn roles can be used to identify the correct recipients within an organization.
-3. Notifications can have send conditions related to the state of, or actions performed on, an Altinn App instance
+3. Notifications can have send conditions related to the state of, or actions performed on, external resources including Altinn App instances
 4. A seamless integration for notifications in an Altinn App workflow.
 
 ## Terminology
@@ -109,6 +109,11 @@ Reasons to consider using Altinn Notifications for communication with Norwegian 
 
   A _notification channel_ is the communication pathways through which Altinn enables you to
   communicate with your end users.
+
+- #### Send condition
+
+  A send condition can be evaluated as true or false i.e. true if the condition for sending the notification is met. 
+  The send condition is checked by the application using the condition endpoint provided in the notification order. 
 
 ## Notification channels
 

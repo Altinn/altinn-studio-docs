@@ -1,6 +1,6 @@
 ---
-title: Opprett tjenesten
-description: I denne modulen skal vi opprette en skjematjeneste i Altinn Studio
+title: "Modul 1: Opprette tjenesten"
+description: I denne modulen skal vi opprette en skjematjeneste i Altinn Studio.
 weight: 10
 toc: true
 ---
@@ -40,11 +40,11 @@ Når tjenesten er opprettet kommer du til tjenestens oversiktsside. Se video und
 
 <video autoplay loop controls muted src="./create-service.mp4">Nettleseren din støtter ikke videoavspilling.</video>
 
-## Sett et visningsnavn for tjenesten
+## Lage en overskrift for skjemaet
 
-Tjenesten trenger et visningsnavn som vises som overskrift på skjema og i brukerens innboks i Altinn.
+Skriv inn navnet du vil vise som overskrift på skjemaet og i brukerens innboks i Altinn.
 
-Legg inn visningsnavn ved å:
+Slik legger du inn overskriften:
 
 1. Trykk på "Innstillinger"-knappen i meny-linjen øverst til venstre
 2. Endre på feltet "Applikasjonsnavn" til ønsket visningsnavn
@@ -60,7 +60,7 @@ I denne modulen har du opprettet en tjeneste i Altinn Studio og gitt den et forn
 
 {{<navigation-buttons
   urlBack="../case"
-  textBack="<< Casebeskrivelse"
+  textBack="<< Beskrivelse av oppgaven"
   urlNext="../modul2"
   textNext="Neste modul >>"
 >}}

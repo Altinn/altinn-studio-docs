@@ -6,12 +6,14 @@ toc: false
 weight: 1
 ---
 
-I Altinn Studio Resource admin kan du opprette ressurser som skal brukes som grunnlag for tilgangskontroll for tjenester utenfor Altinn-plattformen. 
+Via ressursregistrenee sine API er det mulig å registrere delegerbare API Ressurser.
 
 ## Forutsetninger
 
 - Organisasjon må ha klient i maskinporten
 - Organisasjonen må ha blitt gitt scopene altinn:resourceregistry/resource.write og altinn:resourceregistry/resource.read
+- Organisasjonen må ha blitt gitt scopet altinn:maskinporten/delegationschemes.write
+- Organisasjonen har opprettet en maskinporten klient som er konfigurert med disse scopene. 
 
 ## Definere Ressurs for delegerbart API Scheme
 
@@ -142,3 +144,15 @@ Nedefor vises policy for ressurs eksempelet. [Last ned fra API](https://platform
 </xacml:Policy>
 
 ```
+
+
+### Kalle API med ressurs og policy
+
+Når ressurs og policy er definert kan man kalle ressursregisteret for 
+
+1. Opprette ressurs
+2. Opprette policy for ressurs
+
+For å gjøre dette må man autentisere seg med maskinporten og veksle token inn i et Altinn token. 
+
+
