@@ -1,7 +1,7 @@
 ---
-title: Felles steg for å komme i gang med Altinn Broker
+title: Felles steg for å komme i gang med Altinn Formidling
 linktitle: Felles steg
-description: Hvordan komme i gang med Altinn 3 Broker, for både tjenesteeiere, avsendere og mottakere
+description: Hvordan komme i gang med Altinn 3 Formidling, for både tjenesteeiere, avsendere og mottakere
 tags: [Broker, guide]
 toc: true
 weight: 10
@@ -15,7 +15,7 @@ Det er deler som mangler eller bare delvis er dokumentert.
 Noen funksjoner representerer ikke den endelige produksjonsversjonen.
 {{% /notice %}}
 
-Før du går i gang med spesifikke oppgaver som avsender, mottaker, eller tjenesteeier i Altinn Broker, er det noen grunnleggende forberedelser og krav som gjelder for alle brukere. Denne seksjonen dekker de nødvendige stegene du må gjennomføre for å sikre en smidig og effektiv oppstart. Her vil du finne veiledning om generelle systemkrav, påloggingsprosedyrer, og grunnleggende oppsett som må være på plass før du kan begynne å bruke tjenesten fullt ut. Det er viktig at alle brukere følger disse instruksjonene nøye for å unngå problemer senere i prosessen.
+Før du går i gang med spesifikke oppgaver som avsender, mottaker, eller tjenesteeier i Altinn Formidling, er det noen grunnleggende forberedelser og krav som gjelder for alle brukere. Denne seksjonen dekker de nødvendige stegene du må gjennomføre for å sikre en smidig og effektiv oppstart. Her vil du finne veiledning om generelle systemkrav, påloggingsprosedyrer, og grunnleggende oppsett som må være på plass før du kan begynne å bruke tjenesten fullt ut. Det er viktig at alle brukere følger disse instruksjonene nøye for å unngå problemer senere i prosessen.
 
 ## 1. Skaff deg en Altinn API-nøkkel {#get-an-altinn-api-key}
 
@@ -24,12 +24,12 @@ Først må du skaffe en abonnementsnøkkel fra Altinn. Når du sender en foresp�
 ## 2. Registrer Maskinporten-klient med nødvendige tilganger. {#register-your-maskinporten-client-with-correct-scopes}
 
 Registreringen av Maskinporten-klient med nødvendige tilgangene er viktig for å autentisere og sikre at du kan utføre nødvendige operasjoner via formidlings-API-et. Dette trinnet sikrer at kun autoriserte klienter kan sende og motta filer, og opprettholder dermed sikkerheten i tjenesten.
-For å autentisere mot Broker-API-et, må du registrere Maskinporten-klienten(e) din med de nødvendige tilgangene:
+For å autentisere mot Formidlings-API-et, må du registrere Maskinporten-klienten(e) din med de nødvendige tilgangene:
 
 - `altinn:broker.write` - For klienter som sender filer.
 - `altinn:broker.read` - For klienter som mottar filer.
 
-Disse omfangene vedlikeholdes av Altinn og må være autorisert for de riktige API-operasjonene, og er derfor uavhengige av [tilgangen satt av tjenesteeiere](../service-owner#grant-access-to-senders-and-recipients-to-the-resource) for den spesifikke Broker-tjenesteressursen.
+Disse omfangene vedlikeholdes av Altinn og må være autorisert for de riktige API-operasjonene, og er derfor uavhengige av [tilgangen satt av tjenesteeiere](../service-owner#grant-access-to-senders-and-recipients-to-the-resource) for den spesifikke Formidling-tjenesteressursen.
 
 Bruk Samarbeidsportalen for selvbetjent registrering. Følg den detaljerte guiden som er tilgjengelig der. [Her er en detaljert guide](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web#selvbetjening-som-api-konsument).
 
@@ -50,7 +50,7 @@ Dette vil i fremtiden håndteres av Systembruker / Ressurssregister / Tilgangsli
 
 **Hvis du er en tjenesteeier som oppretter din første Formidlingstjeneste, trenger du ikke følge dette steget. I stedet kan du gå videre til [Tjenesteeier](../service-owner/) for en detaljert beskrivelse av hvordan du oppretter og administrerer Formidlingstjenester.**
 
-## 4. Integrer mot Broker-API-et {#integrate-against-broker-api}
+## 4. Integrer mot Formidlings-API-et {#integrate-against-broker-api}
 
 Du er nå klar til å begynne integreringen mot Formidlings API-ene. For neste trinn se [utviklerveiledningene](../developer-guides/).
 
