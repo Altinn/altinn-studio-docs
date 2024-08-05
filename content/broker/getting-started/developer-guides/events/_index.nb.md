@@ -72,4 +72,4 @@ Hvis du ikke spesifiserer et *typeFilter*, vil du motta alle forskjellige typer 
 - `no.altinn.broker.downloadconfirmed`
 - `no.altinn.broker.fileneverconfirmeddownloaded`
 
-For ytterligere beskrivelse av hendelser og deres bruk, se utviklerguider for [sende filer](../send-files/) og [motta filer](../receive-files/), da disse beskriver hendelsene i forhold til de respektive rollene/prosessene.
+For ytterligere beskrivelse av hendelser og deres bruk, se utviklerguider for [sende filer](../send-files/) og [motta filer](../receive-files/), da disse beskriver hendelsene for de respektive rollene/prosessene.
