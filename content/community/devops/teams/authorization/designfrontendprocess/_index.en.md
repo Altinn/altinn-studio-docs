@@ -10,7 +10,7 @@ toc: true
     - Presentere case
     - Lande «rammer» for utvikling. Diskutere tverrfaglig: 
       - utvikling i Altinn2 eller Altinn 3? 
-      - kartlegge begrensninger i forhold til migrering? 
+      - kartlegge begrensninger med tanke på migrering? 
       - skal funksjonalitet i Altinn 2 videreføres i Altinn 3? 
   - UX – konseptskisser
   - Diskutere tverrfaglig
