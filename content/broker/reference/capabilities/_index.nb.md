@@ -23,7 +23,7 @@ dvs. avsendere (datatilbydere), mottakere (datakonsumenter) og tjenesteeiere.
 
 
 ## Overordnede brukerbehov
-For å se hvilke egenskaper som kreves av Altinn Broker-løsningen, starter vi med å vurdere brukernes behov. 
+For å se hvilke egenskaper som kreves av Altinn Formidling-løsningen, starter vi med å vurdere brukernes behov. 
 Følgende diagram uttrykker de overordnede brukerbehovene for hvert verdistrømsteg.
 
 ![Høy-nivå brukerbehov for styrt filoverføring](high-level-user-needs-for-managed-file-transfer.nb.png "Høy-nivå brukerbehov for styrt filoverføring")
@@ -57,7 +57,7 @@ selv om dette ofte kan være tilfeller._
 
 ## Detaljert funksjonalitet (features)
 
-For nedbrytning av overordnede kapabiliteter til mer detaljert funksjonalitet (features), se under [Altinn Broker _features_ på Github](https://github.com/orgs/Altinn/projects/54/views/11).
+For nedbrytning av overordnede kapabiliteter til mer detaljert funksjonalitet (features), se under [Altinn Formidling _features_ på Github](https://github.com/orgs/Altinn/projects/54/views/11).
 
 _Merk: Dokumentasjon av nedbrytning til "features" er planlagt her._
 
