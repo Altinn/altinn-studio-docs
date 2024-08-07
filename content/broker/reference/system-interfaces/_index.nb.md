@@ -19,13 +19,13 @@ such, however the image hyperlinks to a clickable web version with further detai
 
 __Grensesnitt for konfigurering av tjenester og alternativer i designfasen:__
 
-<!-- Erik, lenke til API/Swagger-spec. også for API for configuration of Altinn Broker -->
+<!-- Erik, lenke til API/Swagger-spec. også for API for configuration of Altinn Formidling -->
 
-* API for konfigurering av Altinn Broker
+* API for konfigurering av Altinn Formidling
 * API for konfigurering av Maskinporten (autentisering og grovkornet autorisasjon)
 * API for konfigurering av Altinn Autorisasjon (finkornet autorisasjon)
 * API for oppsett av hendelsesabonnementer via Altinn Hendelser
-* GUI for konfigurering av Altinn Broker
+* GUI for konfigurering av Altinn Formidling
 * GUI for konfigurering av Maskinporten
 * GUI for konfigurering av Altinn Autorisasjon
 
@@ -36,7 +36,7 @@ Ressurs Admin Altinn Studio – Altinn
 Ressursregisteret tilbyr API for alle typer håndtering av ressurser. I tilegg kan man  som del av Altinn studio kan administrere ressursene.
 -->
 
-_Merk: Altinn 3 Broker tilbyr inntli videre ikke et eget GUI for filoverføringsoperasjoner, 
+_Merk: Altinn 3 Formidling tilbyr inntli videre ikke et eget GUI for filoverføringsoperasjoner, 
 men overlater dette til sluttbrukersystemene._
 
 
@@ -148,7 +148,7 @@ Følgende sekvensdiagram viser typisk "happy path" meldingssekvens:
 Merk: Meldingsnavnene er ikke oversatt til norsk, for å unngå misforståelser opp mot tekniske spesifikasjoner.
 {{</notice>}}
 
-![Sekvensdiagram for Altinn 3 Broker filoverføring (happy path)](altinn3-broker-file-transfer-sequence-diagram.nb.png "Sekvensdiagram for Altinn 3 Broker filoverføring (happy path)")
+![Sekvensdiagram for Altinn 3 Formidling filoverføring (happy path)](altinn3-broker-file-transfer-sequence-diagram.nb.png "Sekvensdiagram for Altinn 3 Formidling filoverføring (happy path)")
 
 <!--
 Note: Explanations for each arrow should match the online, clickable Archi version.

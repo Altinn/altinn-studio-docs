@@ -1,7 +1,7 @@
 ---
-title: Felles steg for å komme i gang med Altinn Broker
+title: Felles steg for å komme i gang med Altinn Formidling
 linktitle: Felles steg
-description: Hvordan komme i gang med Altinn 3 Broker, for både tjenesteeiere, avsendere og mottakere
+description: Hvordan komme i gang med Altinn 3 Formidling, for både tjenesteeiere, avsendere og mottakere
 tags: [Broker, guide]
 toc: true
 weight: 10

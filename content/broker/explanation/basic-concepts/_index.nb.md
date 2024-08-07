@@ -18,10 +18,10 @@ Følgende diagram gir en høy-nivå oversikt over aktører, tjenester og informa
 
 Forklaring til diagrammet:
 
-* Hovedtjenesten levert av Altinn Broker er styrt filoverføring fra en avsender (tilbyder) til en eller flere mottakere (konsumenter), med mellomlagring av filer og metadata.
+* Hovedtjenesten levert av Altinn Formidling er styrt filoverføring fra en avsender (tilbyder) til en eller flere mottakere (konsumenter), med mellomlagring av filer og metadata.
 * Opplasting og nedlasting av filer er konfigurerbare tjenester.
 * Alle funksjoner er tilgjengelige for sluttbrukersystemer via API-er.
-* Menneskelige sluttbrukere kommuniserer med Altinn Broker via grafiske brukergrensesnitt (GUI) levert enten av deres tilpassede sluttbrukersystemer eller GUI-er levert av Altinn Broker.
+* Menneskelige sluttbrukere kommuniserer med Altinn Formidling via grafiske brukergrensesnitt (GUI) levert enten av deres tilpassede sluttbrukersystemer eller GUI-er levert av Altinn Formidling.
   _Merk: Tjenesteeiere kan velge å utnytte Altinn Studio for å bygge GUI-er._
 * Sluttbrukersystemer kan trigges av hendelser via varslinger til [Webhooks](https://en.wikipedia.org/wiki/Webhook). De samme hendelsene kan alternativt oppdages ved å spørre API-ene, men det anbefales å støtte Webhooks i sluttbrukersystemene fremfor API-spørringer.
 * Tjenesteeiere konfigurerer tjenestene og mottar bruksrapporter, fakturaer og annen informasjon i henhold til de avtalte tjenestenivåene.
@@ -77,7 +77,7 @@ Forklaring:
 * Den overordnede filoverføringsprosessen inkluderer nøyaktig én opplastingsprosess av en avsender og én eller flere nedlastingsprosesser tilsvarende antall mottakere.
 * Hver filoverføringsprosess vurderer kun én fil. Det samme gjelder for hver opplastingsprosess og nedlastingsprosess.
 * Den samme filen kan brukes i flere filoverføringsprosesser og dermed i flere nedlastingsprosesser.
-* Kun én opplastingsprosess per fil betraktes. Merk at hvis samme fil lastes opp mer enn én gang, vil Altinn Broker betrakte filene som forskjellige og tildele forskjellige identifikatorer.
+* Kun én opplastingsprosess per fil betraktes. Merk at hvis samme fil lastes opp mer enn én gang, vil Altinn Formidling betrakte filene som forskjellige og tildele forskjellige identifikatorer.
 * Varsler om hendelser i filoverføringsprosessen gis til avsendere og mottakere avhengig av abonnementsoppsett. F.eks. kan mottakere bli varslet om nye meldinger, og avsendere kan bli varslet om leveringshendelser.
 * Hver hendelse i filoverføringsprosessen relaterer seg til én filoverføringsprosess, og dermed kun én fil, men et hvilket som helst antall hendelser kan inntreffe for samme filoverføringsprosess.
 
@@ -93,11 +93,11 @@ Figuren over fremstiller en _Endelig Tilstandsmaskin_ med følgende tilstander:
 
 * __Initialisert__: Overføringsprosessen er initialisert av avsenderen. _Merk: Denne tilstandsmaskinbeskrivelsen tar ikke hensyn til foregående hendelser. Filoverføringen kunne for eksempel være et svar på en enkelt forespørsel fra en enkelt part, eller det kunne være en publisering til et y antall kjente eller ukjente abonnenter._
 
-* __Opplasting pågår__: Store filer kan ta tid å laste opp. Altinn Broker vil holde styr på fremgangen.
+* __Opplasting pågår__: Store filer kan ta tid å laste opp. Altinn Formidling vil holde styr på fremgangen.
 
 * __Sjekk av opplasting__: Opplastede filer valideres og sjekkes for virus.
 
-* __Avbrutt__: Altinn Broker støtter avbrytelse av filoverføringer så lenge ingen nedlastingsprosess har startet.
+* __Avbrutt__: Altinn Formidling støtter avbrytelse av filoverføringer så lenge ingen nedlastingsprosess har startet.
 
 * __Publisert__: Klar for nedlastinger.
 
