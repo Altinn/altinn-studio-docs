@@ -94,10 +94,3 @@ weight: 15
 
   A send condition can be evaluated as true or false i.e. true if the condition for sending the notification is met. 
   The send condition is checked by the application using the condition endpoint provided in the notification order. 
-
-
-
-## Guidelines for usage
-
-
-[Please reference our user guide on how and when to use Altinn Notifications](send-notifications/get-started/user-guide/)
