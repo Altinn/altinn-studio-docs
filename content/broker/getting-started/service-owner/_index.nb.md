@@ -28,21 +28,23 @@ Dette trinnet er bare nødvendig for nye virksomheter som ennå ikke har etabler
 Utfør steg 1 og 2 i [Felles kom i gang-steg](../common-steps) hvis du ikke allerede har gjort det.
 
 ## 3. Opprett ny tjeneste {#register-a-resource-in-altinn-resource-registry}
-For at filer skal kunne sendes med Altinn Formidling, må de være tilknyttet en tjeneste. Se [Ressursregister](../../../../authorization/what-do-you-get/resourceregistry/).
+For at filer skal kunne sendes med Altinn Formidling, må de være tilknyttet en tjeneste. 
 En tjeneste representerer en spesifikk funksjon eller et sett av funksjoner som brukes til å administrere tilgang og regler for filoverføring. 
 Tjenester registreres via Altinn Studio og brukes til å definere tilgangsregler og tilgangslister, som sikrer at bare autoriserte brukere kan utføre bestemte handlinger.
 
-Tilgangsregler for tjenesten må konfigureres slik at de tillater følgende handlinger:
+1. Logg inn på Altinn Studio og naviger til ressursdashboardet, Se [Ressursregister](../../../../authorization/what-do-you-get/resourceregistry/) for en detaljert veiledning.
+2. Opprett ny ressurs, følg veiledningen og fyll inn nødvendig informasjon og detaljer om tjenesten.
+3. Angi tilgangsregler for tjenesten.
+4. Tilgangsregler må for tjenesten må konfigureres slik at de tillater følgende handlinge:
+    - "subscribe" for alle, - dette brukes for hendelser.
+    - "read" for mottakere
+    - "write" for avsendere.
 
-- "subscribe" for alle, - dette brukes for hendelser.
-- "read" for mottakere
-- "write" for avsendere.
-
-For å sette opp en tjeneste som fungerer raskt, kan du bruke vår [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json) og kjøre forespørslene "Create resource" og "Create resource policy" med en token som har scopet "altinn:resourceregistry/resource.write".
+Alternativt, for å sette opp en tjeneste som fungerer raskt, kan du bruke vår [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json) og kjøre forespørslene "Create resource" og "Create resource policy" med en token som har scopet "altinn:resourceregistry/resource.write".
 
 Her er en [eksempelpolicy](ExamplePolicy.xml).
 
-Merk at denne eksempelpolicyen angir en påkrevd brukerrolle "DAGL" for brukeren som har tilgang til ressursen, og krever bruk av [Ressursrettighetsregister](../../../../authorization/what-do-you-get/resourceregistry/) (gå til engelsk språk for å se dokumentasjon for RRR) for å gi tilgang til spesifikke organisasjoner.
+Merk at denne eksempelpolicyen angir en påkrevd brukerrolle "DAGL(daglig leder)" for brukeren som har tilgang til ressursen, og krever bruk av [Ressursrettighetsregister](../../../../authorization/what-do-you-get/resourceregistry/) (gå til engelsk språk for å se dokumentasjon for RRR) for å gi tilgang til spesifikke organisasjoner.
 En bruker med denne tilgangen kan deretter delegere tilgangen til virksomhetsbrukeren/systembrukeren
 
 **TIPS**: Verifiser konfigurasjonene dine ved hjelp av [Postman-samlingen](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json), og erstatt testtokenene med dine egne Altinn-token (Se forespørselen "Logg inn i Maskinporten (Initialiser)" i Authenticator-mappen).
