@@ -1,8 +1,8 @@
 ---
 title: Altinn 3 Formidling Utviklerguider
 linktitle: Hendelser
-description: Hvordan komme i gang med å abonnere på hendelser fra Altinn 3 Broker, for utviklere
-tags: [Broker, guide, events, hendelser]
+description: Hvordan komme i gang med å abonnere på hendelser fra Altinn 3 Formidling, for utviklere
+tags: [Broker, guide, events, hendelser, Formidling]
 toc: true
 weight: 40
 ---
@@ -14,14 +14,14 @@ Denne delen av dokumentasjonen er under arbeid, og refererer derfor i stor grad 
 {{% /notice %}}
 
 {{% notice warning  %}}
-For øyeblikket er hendelsene for Broker ikke klare for fullskala bruk, på grunn av kommende endringer i Altinn Events og Autorisasjon.
+For øyeblikket er hendelsene for Formidling ikke klare for fullskala bruk, på grunn av kommende endringer i Altinn Events og Autorisasjon.
 Dette dokumenterer det forventede scenarioet, men kan endres.
 {{% /notice %}}
 
-For å bruke hendelser/webhooks for en Broker-ressurs, må du sette opp et abonnement for den gitte ressursen.
+For å bruke hendelser/webhooks for en Formidling-ressurs, må du sette opp et abonnement for den gitte ressursen.
 Dette abonnementet brukes til å konfigurere endepunktet der hendelsene som publiseres av megleren havner. [Du kan lese mer om hvordan du setter opp et hendelsesabonnement i Altinn Events her](/events/subscribe-to-events/developer-guides/setup-subscription/).
 
-Alle hendelser publisert av Altinn Broker følger det samme mønsteret:
+Alle hendelser publisert av Altinn Formidling følger det samme mønsteret:
 
 ```json
 {
@@ -39,7 +39,7 @@ Alle hendelser publisert av Altinn Broker følger det samme mønsteret:
 
 ## Hendelsesabonnement {#event-subcription}
 
-Dette abonnementet brukes til å konfigurere endepunktet der hendelsene som publiseres av Atlinn Broker skal leveres. [Du kan lese mer om hvordan du setter opp et hendelsesabonnement i Altinn Events her](/events/subscribe-to-events/developer-guides/setup-subscription/).
+Dette abonnementet brukes til å konfigurere endepunktet der hendelsene som publiseres av Atlinn Formidling skal leveres. [Du kan lese mer om hvordan du setter opp et hendelsesabonnement i Altinn Events her](/events/subscribe-to-events/developer-guides/setup-subscription/).
 
 Du må sette opp følgende filtre:
 
@@ -47,7 +47,7 @@ Du må sette opp følgende filtre:
   - TT02: <https://platform.tt02.altinn.no/broker/api/v1/filetransfer>
   - PROD: <https://platform.altinn.no/broker/api/v1/filetransfer>
 - resourceFilter
-  - "urn:altinn:resource:" + Ressurs-IDen for Broker-ressursen
+  - "urn:altinn:resource:" + Ressurs-IDen for Formidling-ressursen
 - alternativesubjectfilter
   - "/organisation/(organisasjonsnummer for din organisasjon)
 
