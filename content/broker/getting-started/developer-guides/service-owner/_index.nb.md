@@ -1,7 +1,7 @@
 ---
 title: Altinn 3 Formidling - Utviklerveiledning for Tjenesteeier
 linktitle: Tjenesteeier
-description: Hvordan komme i gang med Altinn 3 Broker Tjenesteeier API-operasjoner, for utviklere
+description: Hvordan komme i gang med Altinn 3 Formidling Tjenesteeier API-operasjoner, for utviklere
 tags: [Broker, guide, Formidling]
 weight: 30
 ---

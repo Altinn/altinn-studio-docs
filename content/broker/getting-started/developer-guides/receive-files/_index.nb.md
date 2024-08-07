@@ -76,7 +76,7 @@ Last ned fildataene som en strøm ved hjelp av FileTransferId mottatt fra oversi
 ## Operasjon: Bekreft nedlastet {#operation-confirmdownloaded}
 
 Etter at du har lastet ned og behandlet filen vellykket, må du bruke denne operasjonen for å varsle løsningen om at filen er levert.
-Dette vil oppdatere statusen for filoverføringen, og potensielt slette fildataene i henhold til innstillingene på Brokerressursen.
+Dette vil oppdatere statusen for filoverføringen, og potensielt slette fildataene i henhold til innstillingene på Formidlingressursen.
 
 **Endepunkt:** POST /broker/api/v1/filetransfer/{fileTransferId}/confirmdownload
 
