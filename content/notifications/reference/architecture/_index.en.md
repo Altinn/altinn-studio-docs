@@ -1,5 +1,5 @@
 ---
-title: Application construction components - Altinn Notifications
+title: Architecture
 linktitle: Architecture
 tags: [architecture, solution]
 weight: 20

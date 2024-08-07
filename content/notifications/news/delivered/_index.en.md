@@ -7,6 +7,12 @@ hidden: true
 
 <div style="display: flex; flex-direction: row; justify-content: flex-start; gap: 20px; flex-wrap: wrap;">
     {{<news-card 
+        title="Reminders"
+        content="Support for sending reminder notifications in the case of an incompleted task."
+        timeline="Q3 2024"
+        githubUrl="https://github.com/digdir/roadmap/issues/177"
+    >}}
+    {{<news-card 
         title="Address lookup" 
         content="Support for ordering notifications to national identity number or organization number." 
         timeline="Q2 2024" 
@@ -31,5 +37,4 @@ hidden: true
         githubUrl="https://github.com/digdir/roadmap/issues/158"
     >}}
 
-</div>
 </div>

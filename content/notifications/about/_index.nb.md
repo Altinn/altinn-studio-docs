@@ -1,6 +1,6 @@
 ---
-title: Om Altinn Varsling
-description: Overordnet beskrivelse av Altinn Varsling
+title: Om Notifications
+description: Overordnet beskrivelse av Notifications
 aliases:
 - /nb/altinn-notifications/
 weight: 10
