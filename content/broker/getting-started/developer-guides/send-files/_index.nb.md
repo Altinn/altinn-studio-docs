@@ -1,8 +1,13 @@
 ---
 title: Veiledning for avsender
 linktitle: Send filer
+<<<<<<< HEAD
 description: Denne utviklerguiden hjelper deg med å komme i gang med å sende filer ved hjelp av Altinn Formidling.
 tags: [Broker, guide]
+=======
+description: Hvordan komme i gang med å sende filer med Altinn 3 Formidling, for utviklere
+tags: [Broker, guide, Formidling]
+>>>>>>> origin
 toc: true
 weight: 10
 ---
@@ -102,7 +107,7 @@ Denne hendelsen utløses når en mottaker har bekreftet at nedlastingen har blit
 
 ## Hendelse: no.altinn.broker.allconfirmeddownloaded {#event-allconfirmeddownloaded}
 
-Denne hendelsen utløses når alle mottakerne har bekreftet at nedlastingen har blitt fullført. Hvis FileTransfer har en enkelt mottaker, vil dette bli publisert samtidig som downloadconfirmed. Avhengig av innstillingene for Broker-tjenesten kan dette føre til at filen blir automatisk slettet.
+Denne hendelsen utløses når alle mottakerne har bekreftet at nedlastingen har blitt fullført. Hvis FileTransfer har en enkelt mottaker, vil dette bli publisert samtidig som downloadconfirmed. Avhengig av innstillingene for Formidling-tjenesten kan dette føre til at filen blir automatisk slettet.
 
 ## Hendelse: no.altinn.broker.fileneverconfirmeddownloaded {#event-fileneverconfirmeddownloaded}
 
