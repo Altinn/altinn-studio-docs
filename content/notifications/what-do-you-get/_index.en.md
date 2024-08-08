@@ -74,7 +74,7 @@ using a national identity number or organization number.
 - **Responsibility**: It is the responsibility of the entity ordering the notification to check the send status, 
 as lookup results are shared in the order response and detailed in the notification post-sending.
 
-[Read more about recipient lookup in the reference documentation.](/notifications/reference/recipient-lookup)
+[Read more about recipient lookup in the explanation documentation.](/notifications/explanation/recipient-lookup)
 
 ## Send Condition
 
@@ -83,5 +83,5 @@ The send condition feature allows notifications to be sent only if certain crite
 - **Use Case**: Ideal for scenarios like reminders where a notification is sent only if a user has not completed a required action.
 - **Evaluation**: Conditions are checked by the application using the provided condition endpoint in the notification order.
 
-[Read more about send conditions in the reference documentation.](/notifications/reference/send-condition)
+[Read more about send conditions in the explanation documentation.](/notifications/explanation/send-condition)
 
