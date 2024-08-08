@@ -7,7 +7,7 @@ hidden: true
 
 <div style="display: flex; flex-direction: row; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
     {{<news-card
-        title="Notification channels SmsPreferred and EmailPreferred"
+        title="New notification channels"
         content="Support for notification channels SMS preferred and email preferred."
         timeline="Q4 2023"
         githubUrl="https://github.com/digdir/roadmap/issues/541"

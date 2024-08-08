@@ -3,6 +3,11 @@ headless: true
 hidden: true
 ---
 
+{{<notice info>}} 
+**Note:** All intended recipients _must_ be granted `read` through the policy of the resource. 
+{{</notice>}}
+
+
 Associating a notification with a resource results in the policy of said resource being used to identify 
 the correct recipients of the notification. All intended recipients _must_ be granted `read` through the policy of the
 resource. 

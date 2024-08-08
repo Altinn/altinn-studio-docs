@@ -39,7 +39,7 @@ aliases:
                             </div>
                         </div>
                     </a>
-                </li>                
+                </li>
                 <li class="a-dotted a-clickable a-list-hasRowLink">
                     <a href="reference/architecture" class="a-list-rowLink">
                         <div class="row">

@@ -8,7 +8,6 @@ description: "The Notifications solution in Altinn is made up of multiple ASP.NE
 deployed as Docker containers to a Kubernetes cluster."
 ---
 
-
 ## System architecture illustration
 The solution is supported by multiple cron jobs running in the same Kubernetes cluster, a Kafka server and an instance of 
 [Azure Communication services](https://learn.microsoft.com/en-us/azure/communication-services/overview).
