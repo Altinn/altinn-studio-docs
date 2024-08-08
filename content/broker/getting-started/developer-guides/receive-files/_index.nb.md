@@ -1,15 +1,8 @@
 ---
-<<<<<<< HEAD
 title: Veiledning for mottakere
 linktitle: Motta filer
 description: Denne guiden hjelper deg med å komme i gang med å motta filer ved hjelp av Altinn Formidling. 
 tags: [Broker, guide, Formidling]
-=======
-title: Altinn 3 Formidling utviklerveiledning
-linktitle: Receive Files
-description: Hvordan motta filer via Altinn Formidling
-tags: [Broker, guide, Formidling]
->>>>>>> origin
 toc: true
 weight: 20
 ---
@@ -33,7 +26,7 @@ Denne operasjonen bør brukes sparsomt, da man bør fokusere på webhook/event/h
 
 **Forespørsel:** Filtre spesifisert i URL-en:
 
-- resourceId - ressurs-ID for Formidling-ressursen, påkrevd.
+- resourceId - ressurs-ID brukt til å verifisere tilgang til Formidlingtjenesten, påkrevd.
 - status - gjeldende status for filoverføringen.
 - recipientStatus - gjeldende status for deg som mottaker.
 - from - DateTimeOffset for å filtrere fra.
@@ -41,7 +34,7 @@ Denne operasjonen bør brukes sparsomt, da man bør fokusere på webhook/event/h
 
 Når du søker etter filer du ikke har lastet ned som mottaker, spesifiser følgende:
 
-- resourceId - ressurs-ID for Formidling-ressursen
+- resourceId - ressurs-ID brukt til å verifisere tilgang til Formidlingtjenesten
 - status = "published"
 - recipientStatus = "initialized"
 

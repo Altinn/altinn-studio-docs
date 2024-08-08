@@ -52,5 +52,5 @@ Denne operasjonen konfigurerer ressursen din i Altinn Formidling.
 
 **Utløste hendelser**: ingen.
 
-**Eksempel**: Eksempel "Upodate Resource" i vår [PostMan-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
+**Eksempel**: Eksempel "Update Resource" i vår [PostMan-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
 

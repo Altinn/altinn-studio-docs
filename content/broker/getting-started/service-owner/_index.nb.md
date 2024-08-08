@@ -58,10 +58,10 @@ For detaljerte instruksjoner for å konfiguere din organisasjon som tjenesteeier
 
 ## 5. Konfigurer den eksisterende tjenesten din i Formidling {#configure-your-existing-resource-in-broker}
 
-Deretter må du konfigurere den spesifikke Formidling-konfigurasjonen for ressursen. 
+Deretter må du konfigurere den spesifikke Formidlingskonfigurasjonen for ressursen. 
 Bruk ID-en til ressursen du opprettet i trinn 3, og kall API-operasjonen for å konfigurere tjenesten.
 
- For detaljerte instruksjoner om hvordan du konfigurerer ressursen i Formidling, følg [denne lenken](../developer-guides/service-owner/#operation-configure-resource-in-broker-api), som gir deg all nødvendig informasjon for å fullføre konfigurasjonen og sikre at ressursen din er riktig satt opp i Formidling.
+ For detaljerte instruksjoner om hvordan du konfigurerer ressursen i Formidling, følg [denne lenken](../developer-guides/service-owner/#operation-configure-resource-in-broker-api), som gir deg all nødvendig informasjon for å fullføre konfigurasjonen og sikre at ressursen din er riktig satt opp i Formidlingstjenesten.
 
 ## Hvordan migrere fra Altinn 2 til Altinn 3 {#how-to-migrate-from-Altinn-2-to-Altinn-3}
 

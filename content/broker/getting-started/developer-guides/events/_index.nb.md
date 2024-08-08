@@ -18,7 +18,7 @@ For øyeblikket er hendelsene for Formidling ikke klare for fullskala bruk, på 
 Dette dokumenterer det forventede scenarioet, men kan endres.
 {{% /notice %}}
 
-For å bruke hendelser/webhooks for en Formidling-ressurs, må du sette opp et abonnement for den gitte ressursen.
+For å bruke hendelser/webhooks for en Formidlingstjeneste, må du sette opp et abonnement for den gitte ressursen.
 Dette abonnementet brukes til å konfigurere endepunktet der hendelsene som publiseres av megleren havner. [Du kan lese mer om hvordan du setter opp et hendelsesabonnement i Altinn Events her](/events/subscribe-to-events/developer-guides/setup-subscription/).
 
 Alle hendelser publisert av Altinn Formidling følger det samme mønsteret:
@@ -47,7 +47,7 @@ Du må sette opp følgende filtre:
   - TT02: <https://platform.tt02.altinn.no/broker/api/v1/filetransfer>
   - PROD: <https://platform.altinn.no/broker/api/v1/filetransfer>
 - resourceFilter
-  - "urn:altinn:resource:" + Ressurs-IDen for Formidling-ressursen
+  - "urn:altinn:resource:" + Ressurs-IDen for Formidlingstjenesten
 - alternativesubjectfilter
   - "/organisation/(organisasjonsnummer for din organisasjon)
 

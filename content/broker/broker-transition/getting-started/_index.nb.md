@@ -10,14 +10,14 @@ Weight: 1
 ## Tjenesteeiere
 For å bruke Formidling overgangsløsningen i Altinn 2 for å opprette, laste opp og hente fil metadata, må en tjenesteeier fullføre følgende trinn.
 1. Ha en eksisterende Altinn 2 Formidlingstjeneste.
-2. Ha eller lag en tilsvarende Altinn 3 Formidlings-ressurs. Se hvordan du kommer i gang med Altinn 3 Formidling [her](../../getting-started/).
-3. Be om et overgangsoppsett fra Altinn 2 tjenesten til Altinn 3 ressursen. Bestem dato for når dette skal gå i live. (For å minimere risiko for foreldreløse data i Altinn 2 lagring)
+2. Ha eller lag en tilsvarende Altinn 3 Formidlingstjeneste. Se hvordan du kommer i gang med Altinn 3 Formidling [her](../../getting-started/).
+3. Be om et overgangsoppsett fra Altinn 2 tjenesten til Altinn 3 tjenesten. Bestem dato for når dette skal gå i live. (For å minimere risiko for foreldreløse data i Altinn 2 lagring)
 4. Gå live med overgangsløsning mens du oppfordrer forbrukerne til å migrere til Altinn Formidling.
-5. Når alle forbrukere har migrert til Altinn 3 formidlings-ressursen, må du dekommisjonere Altinn 2 Formidling tjenesten.
+5. Når alle forbrukere har migrert til Altinn 3 formidlingstjenesten, må du dekommisjonere Altinn 2 Formidling tjenesten.
 
 
 ### Tilleggsinformasjon
-Etter at en tjenesteeier ber om at en Altinn 2 tjenesteovergang til en Altinn 3 ressurs,
+Etter at en tjenesteeier ber om at en Altinn 2 tjenesteovergang til en Altinn 3 tjeneste,
 Altinn 2 tjenesten vil ikke lenger sende forespørsler til Altinn 2 Formidling lagring.
 Dette betyr at eksisterende Formidling filer i Altinn 2 Formidling lagring vil bli utilgjengelig for sluttbrukere når tjenesten
 er satt opp til overgang til Altinn 3.
