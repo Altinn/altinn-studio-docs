@@ -1,13 +1,8 @@
 ---
 title: Veiledning for utviklere
 linktitle: Utviklerveiledning
-<<<<<<< HEAD
 description: Velkommen til utviklerveiledningen for Altinn Formidling! Denne delen av dokumentasjonen hjelper deg med å komme i gang med Altinn Formidling og gir innsikt i hvordan du best kan utnytte plattformen. Vær oppmerksom på at dokumentasjonen fortsatt er under arbeid, og noen seksjoner kan være manglende eller bare delvis dokumentert.
 tags: [Broker, guide]
-=======
-description: Hvordan komme i gang med Altinn 3 Formidling
-tags: [Broker, guide, Formidling]
->>>>>>> origin
 toc: true
 weight: 20
 ---
@@ -49,9 +44,4 @@ Som sådan bør du implementere hendelsesabonnementer for å optimalisere proses
 For alle operasjoner må du autentisere deg ved å bruke din Maskinporten-klient og 
 deretter [skaffe en Altinn-token fra Altinn-autentisering](https://docs.altinn.studio/authentication/reference/architecture/accesstoken/).
 
-<<<<<<< HEAD
-Bruk Altinn-tokenet som en Bearer-token for alle Broker API-forespørsler sammen med APIM-abonnementsnøkkelen som en header med nøkkelen `Ocp-Apim-Subscription-Key`.
-
-=======
 Bruk Altinn-tokenet som en Bearer-token for alle Formidling API-forespørsler sammen med APIM-abonnementsnøkkelen som en header med nøkkelen `Ocp-Apim-Subscription-Key`.
->>>>>>> origin

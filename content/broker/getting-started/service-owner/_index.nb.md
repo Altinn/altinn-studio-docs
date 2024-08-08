@@ -1,15 +1,8 @@
 ---
-<<<<<<< HEAD
-title: Veiledning for Tjenesteieere
-linktitle: Tjenesteeier
-description:  Denne veiledningen er for deg som er tjenesteeier og ønsker å bruke Altinn Formidling. Her finner du trinnvise instruksjoner for registrering, opprettelse av ressurs, konfigurering av tilganger og autentisering, integrasjon med Formidling API-et, samt oppsett av varsler. Veiledningen hjelper deg med å sette opp og administrere Formidlingtjenesten.
-tags: [Broker, guide]
-=======
 title: Kom i gang med Altinn Formidling som tjenesteeier
 linktitle: Tjenesteeier
 description: Hvordan komme i gang med Altinn 3 Formidling, for tjenesteeiere
 tags: [Broker, guide, Formidling]
->>>>>>> origin
 toc: true
 weight: 10
 ---
