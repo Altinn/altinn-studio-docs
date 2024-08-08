@@ -63,12 +63,6 @@ Bruk ID-en til tjenesten du opprettet i trinn 3, og kall API-operasjonen for å 
 
  For detaljerte instruksjoner om hvordan du konfigurerer tjenesten i Formidling, følg [denne lenken](../developer-guides/service-owner/#operation-configure-resource-in-broker-api), som gir deg all nødvendig informasjon for å fullføre konfigurasjonen og sikre at tjenesten din er riktig satt opp i Formidling.
 
-## 6.  Gi tilgang til mottakere og avsendere til tjenesten {#grant-access-to-senders-and-recipients-to-the-resource}
-
-For øyeblikket må dette gjøres manuelt ved å oppdatere policy som er definert i trinn 3, men vil i fremtiden bli gjort ved hjelp av GUI i Ressurs Rettighets Register.
-
-TODO: Dokumenter hvordan man gjør dette i [Ressurs rettighets register](../../../../authorization/what-do-you-get/resourceregistry) når det finnes norskspråklig dokumentasjon.
-
 ## Hvordan migrere fra Altinn 2 til Altinn 3 {#how-to-migrate-from-Altinn-2-to-Altinn-3}
 
 Hvis du har en eksisterende løsning i Altinn 2 du ønsker å migrere, kan du enten opprette en ny uavhengig Altinn Formidlingtjeneste i Altinn 3, eller bruke overgangsløsningen, beskrevet her.
