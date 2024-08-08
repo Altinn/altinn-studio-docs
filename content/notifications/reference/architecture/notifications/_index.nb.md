@@ -166,7 +166,7 @@ Notifications microservice takes use of a range of libraries to support the prov
 
 | Library                   | Purpose                                 | Resources                                                                                                                                 |
 | ------------------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| AccessToken               | Used to validate tokens in requests     | [Repository](https://github.com/altinn/altinn-accesstoken), [Documentation](/authentication/reference/architecture/accesstoken)   |
+| AccessToken               | Used to validate tokens in requests     | [Repository](https://github.com/altinn/altinn-accesstoken), [Documentation](/authentication/reference/architecture/accesstoken/)   |
 | Altinn.Common.PEP         | Client code for Authorization           | [Repository](https://github.com/Altinn/altinn-authorization), [Documentation](/authorization/reference/architecture/)          |
 | Altinn MaskinportenClient | Used to generate Maskinporten token     | [Repository](https://github.com/altinn/altinn-apiclient-maskinporten)                                                                     |
 | Confluent.Kafka           | Integrate with kafka broker             | [Repository](https://github.com/confluentinc/confluent-kafka-dotnet), [Documentation](https://developer.confluent.io/get-started/dotnet/) |
