@@ -1,13 +1,8 @@
 ---
 title: Veiledning for avsender
 linktitle: Send filer
-<<<<<<< HEAD
 description: Denne utviklerguiden hjelper deg med å komme i gang med å sende filer ved hjelp av Altinn Formidling.
-tags: [Broker, guide]
-=======
-description: Hvordan komme i gang med å sende filer med Altinn 3 Formidling, for utviklere
 tags: [Broker, guide, Formidling]
->>>>>>> origin
 toc: true
 weight: 10
 ---

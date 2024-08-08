@@ -3,7 +3,7 @@
 title: Veiledning for mottakere
 linktitle: Motta filer
 description: Denne guiden hjelper deg med å komme i gang med å motta filer ved hjelp av Altinn Formidling. 
-tags: [Broker, guide]
+tags: [Broker, guide, Formidling]
 =======
 title: Altinn 3 Formidling utviklerveiledning
 linktitle: Receive Files
