@@ -15,7 +15,7 @@ Denne prosessen vil forenkles gjennom en fremtidig oppdatering i Altinn Studio.
 Spesielt vil trinn 4-6 utføres via GUI i stedet for å kreve direkte API-kall.
 {{% /notice %}}
 
-Denne veiledningen er for deg som er tjenesteeier og ønsker å bruke Altinn Formidling. Her finner du trinnvise instruksjoner for registrering, opprettelse av ressurs, konfigurering av tilganger og autentisering, integrasjon med Formidling API-et, samt oppsett av varsler. Veiledningen hjelper deg med å sette opp og administrere Formidlingtjenesten.
+Denne veiledningen er for deg som er tjenesteeier og ønsker å bruke Altinn Formidling. Her finner du trinnvise instruksjoner for registrering, opprettelse av ressurs, konfigurering av tilganger og autentisering, integrasjon med Formidling API-et, samt oppsett av varsler. Veiledningen hjelper deg med å sette opp og administrere Formidlingstjenesten.
 
 ## 1. Kom i gang som tjenesteeier i Altinn {#get-started-as-service-owner-in-altinn}
 
@@ -51,7 +51,7 @@ En bruker med denne tilgangen kan deretter delegere tilgangen til virksomhetsbru
 
 ## 4. Registrer deg som tjenesteeier i Formidling API-et {#register-yourself-as-a-service-owner-in-broker-api}
 
-Nå er tiden inne for å konfigurere Formidling-komponenten ved å registrere virksomheten din som en tjenesteeier i Altinn Formidling-konfigurasjonslaget. 
+Nå er tiden inne for å konfigurere Formidlings-komponenten ved å registrere virksomheten din som en tjenesteeier i Altinn Formidlings-konfigurasjonslaget. 
 Dette trinnet er nødvendig for å etablere din virksomhet som en godkjent tjenesteeier og gi tilgang til Formidling API-et.
 
 For detaljerte instruksjoner for å konfiguere din organisasjon som tjenesteeier i Formidling, følg [denne linken](../developer-guides/service-owner/#operation-initialize-service-owner-in-broker-api), som gir deg all nødvendig informasjon for å registrere organisasjonen din som en tjenesteeier i Formidling.
@@ -65,7 +65,7 @@ Bruk ID-en til ressursen du opprettet i trinn 3, og kall API-operasjonen for å 
 
 ## Hvordan migrere fra Altinn 2 til Altinn 3 {#how-to-migrate-from-Altinn-2-to-Altinn-3}
 
-Hvis du har en eksisterende løsning i Altinn 2 du ønsker å migrere, kan du enten opprette en ny uavhengig Altinn Formidling-tjeneste i Altinn 3, eller bruke overgangsløsningen, beskrevet her.
+Hvis du har en eksisterende løsning i Altinn 2 du ønsker å migrere, kan du enten opprette en ny uavhengig Altinn Formidlingstjeneste i Altinn 3, eller bruke overgangsløsningen, beskrevet her.
 
 TODO: Lenke til overgangsløsning dokumentasjon når den er tilgjengelig.
 
