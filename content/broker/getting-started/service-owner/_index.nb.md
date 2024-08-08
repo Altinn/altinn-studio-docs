@@ -35,7 +35,7 @@ Ressurser registreres via Altinn Studio og brukes til å definere tilgangsregler
 1. Logg inn på Altinn Studio og naviger til ressursdashboardet, Se [Ressursregister](../../../../authorization/what-do-you-get/resourceregistry/) for en detaljert veiledning.
 2. Opprett ny ressurs, følg veiledningen og fyll inn nødvendig informasjon og detaljer om tjenesten.
 3. Angi tilgangsregler for ressursen.
-4. Tilgangsregler må for ressursen må konfigureres slik at de tillater følgende handlinge:
+4. Tilgangsregler må for ressursen må konfigureres slik at de tillater følgende handlinger:
     - "subscribe" for alle, - dette brukes for hendelser.
     - "read" for mottakere
     - "write" for avsendere.

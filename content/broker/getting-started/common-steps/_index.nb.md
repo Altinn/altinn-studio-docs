@@ -21,15 +21,15 @@ Før du går i gang med spesifikke oppgaver som avsender, mottaker, eller tjenes
 
 Først må du skaffe en abonnementsnøkkel fra Altinn. Når du sender en forespørsel til API-et, må du inkludere abonnementsnøkkelen i forespørselens `Ocp-Apim-Subscription-Key` header. Inkluderingen av abonnementsnøkkelen i forespørselen er nødvendig for at Altinn skal kunne verifisere at du har rett til å bruke API-et. Uten denne nøkkelen vil forespørselen din bli avvist. Dersom du mangler en API-nøkkel for Maskinporten-klientene du planlegger å bruke mot Formidlingstjenesten, ta kontakt med oss på [Altinn@Slack#produkt-formidling](https://join.slack.com/t/altinn/shared_invite/zt-7c77c9si-ZnMFwGNtab1aFdC6H_vwog).
 
-## 2. Registrer Maskinporten-klient med nødvendige tilganger. {#register-your-maskinporten-client-with-correct-scopes}
+## 2. Registrer Maskinporten-klient med nødvendige scopes. {#register-your-maskinporten-client-with-correct-scopes}
 
-Registreringen av Maskinporten-klient med nødvendige tilgangene er viktig for å autentisere og sikre at du kan utføre nødvendige operasjoner via formidlings-API-et. Dette trinnet sikrer at kun autoriserte klienter kan sende og motta filer, og opprettholder dermed sikkerheten i tjenesten.
-For å autentisere mot Formidlings-API-et, må du registrere Maskinporten-klienten(e) din med de nødvendige tilgangene:
+Registreringen av Maskinporten-klient med nødvendige scopes er viktig for å autentisere og sikre at du kan utføre nødvendige operasjoner via formidlings-API-et. Dette trinnet sikrer at kun autoriserte klienter kan sende og motta filer, og opprettholder dermed sikkerheten i tjenesten.
+For å autentisere mot Formidlings-API-et, må du registrere Maskinporten-klienten(e) din med de nødvendige scopene:
 
 - `altinn:broker.write` - For klienter som sender filer.
 - `altinn:broker.read` - For klienter som mottar filer.
 
-Disse omfangene vedlikeholdes av Altinn og må være autorisert for de riktige API-operasjonene, og er derfor uavhengige av [tilgangen satt av tjenesteeiere](../service-owner#grant-access-to-senders-and-recipients-to-the-resource) for den spesifikke Formidlingstjenesten.
+Disse scopene vedlikeholdes av Altinn og må være autorisert for de riktige API-operasjonene, og er derfor uavhengige av [tilgangen satt av tjenesteeiere](../service-owner#grant-access-to-senders-and-recipients-to-the-resource) for den spesifikke Formidlingstjenesten.
 
 Bruk Samarbeidsportalen for selvbetjent registrering. Følg den detaljerte guiden som er tilgjengelig der. [Her er en detaljert guide](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web#selvbetjening-som-api-konsument).
 
