@@ -28,9 +28,9 @@ Dette trinnet er bare nødvendig for nye virksomheter som ennå ikke har etabler
 Utfør steg 1 og 2 i [Felles kom i gang-steg](../common-steps) hvis du ikke allerede har gjort det.
 
 ## 3. Opprett ny ressurs {#register-a-resource-in-altinn-resource-registry}
-For at filer skal kunne sendes med Altinn Formidling, må de være tilknyttet en tjeneste. 
+For at filer skal kunne sendes med Altinn Formidling, må de være tilknyttet en ressurs. 
 En ressurs representerer en spesifikk funksjon eller et sett av funksjoner som brukes til å administrere tilgang og regler for filoverføring. 
-Tjenester registreres via Altinn Studio og brukes til å definere tilgangsregler og tilgangslister, som sikrer at bare autoriserte brukere kan utføre bestemte handlinger.
+Ressurser registreres via Altinn Studio og brukes til å definere tilgangsregler og tilgangslister, som sikrer at bare autoriserte brukere kan utføre bestemte handlinger.
 
 1. Logg inn på Altinn Studio og naviger til ressursdashboardet, Se [Ressursregister](../../../../authorization/what-do-you-get/resourceregistry/) for en detaljert veiledning.
 2. Opprett ny ressurs, følg veiledningen og fyll inn nødvendig informasjon og detaljer om tjenesten.
