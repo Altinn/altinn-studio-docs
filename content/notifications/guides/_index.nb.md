@@ -1,7 +1,7 @@
 ---
-title: Guider
-description: Guider i Altinn Notifications
-weight: 25
+title: User guides
+description: User guides in Altinn Notifications
+weight: 24
 ---
 
 {{<children />}}
