@@ -1,7 +1,7 @@
 ---
 title: Veiledning for Tjenesteieere
 linktitle: Tjenesteeier
-description:  Denne veiledningen er for deg som er tjenesteeier og ønsker å bruke Altinn Formidling. Her finner du trinnvise instruksjoner for registrering, opprettelse av tjeneste, konfigurering av tilganger og autentisering, integrasjon med Formidling API-et, samt oppsett av varsler. Veiledningen hjelper deg med å sette opp og administrere Formidlingtjenesten.
+description:  Denne veiledningen er for deg som er tjenesteeier og ønsker å bruke Altinn Formidling. Her finner du trinnvise instruksjoner for registrering, opprettelse av ressurs, konfigurering av tilganger og autentisering, integrasjon med Formidling API-et, samt oppsett av varsler. Veiledningen hjelper deg med å sette opp og administrere Formidlingtjenesten.
 tags: [Broker, guide]
 toc: true
 weight: 10
@@ -15,7 +15,7 @@ Denne prosessen vil forenkles gjennom en fremtidig oppdatering i Altinn Studio.
 Spesielt vil trinn 4-6 utføres via GUI i stedet for å kreve direkte API-kall.
 {{% /notice %}}
 
-Denne veiledningen er for deg som er tjenesteeier og ønsker å bruke Altinn Formidling. Her finner du trinnvise instruksjoner for registrering, opprettelse av tjeneste, konfigurering av tilganger og autentisering, integrasjon med Formidling API-et, samt oppsett av varsler. Veiledningen hjelper deg med å sette opp og administrere Formidlingtjenesten.
+Denne veiledningen er for deg som er tjenesteeier og ønsker å bruke Altinn Formidling. Her finner du trinnvise instruksjoner for registrering, opprettelse av ressurs, konfigurering av tilganger og autentisering, integrasjon med Formidling API-et, samt oppsett av varsler. Veiledningen hjelper deg med å sette opp og administrere Formidlingtjenesten.
 
 ## 1. Kom i gang som tjenesteeier i Altinn {#get-started-as-service-owner-in-altinn}
 
@@ -27,20 +27,20 @@ Dette trinnet er bare nødvendig for nye virksomheter som ennå ikke har etabler
 
 Utfør steg 1 og 2 i [Felles kom i gang-steg](../common-steps) hvis du ikke allerede har gjort det.
 
-## 3. Opprett ny tjeneste {#register-a-resource-in-altinn-resource-registry}
+## 3. Opprett ny ressurs {#register-a-resource-in-altinn-resource-registry}
 For at filer skal kunne sendes med Altinn Formidling, må de være tilknyttet en tjeneste. 
-En tjeneste representerer en spesifikk funksjon eller et sett av funksjoner som brukes til å administrere tilgang og regler for filoverføring. 
+En ressurs representerer en spesifikk funksjon eller et sett av funksjoner som brukes til å administrere tilgang og regler for filoverføring. 
 Tjenester registreres via Altinn Studio og brukes til å definere tilgangsregler og tilgangslister, som sikrer at bare autoriserte brukere kan utføre bestemte handlinger.
 
 1. Logg inn på Altinn Studio og naviger til ressursdashboardet, Se [Ressursregister](../../../../authorization/what-do-you-get/resourceregistry/) for en detaljert veiledning.
 2. Opprett ny ressurs, følg veiledningen og fyll inn nødvendig informasjon og detaljer om tjenesten.
-3. Angi tilgangsregler for tjenesten.
-4. Tilgangsregler må for tjenesten må konfigureres slik at de tillater følgende handlinge:
+3. Angi tilgangsregler for ressursen.
+4. Tilgangsregler må for ressursen må konfigureres slik at de tillater følgende handlinge:
     - "subscribe" for alle, - dette brukes for hendelser.
     - "read" for mottakere
     - "write" for avsendere.
 
-Alternativt, for å sette opp en tjeneste som fungerer raskt, kan du bruke vår [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json) og kjøre forespørslene "Create resource" og "Create resource policy" med en token som har scopet "altinn:resourceregistry/resource.write".
+Alternativt, for å sette opp en ressurs som fungerer raskt, kan du bruke vår [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json) og kjøre forespørslene "Create resource" og "Create resource policy" med en token som har scopet "altinn:resourceregistry/resource.write".
 
 Her er en [eksempelpolicy](ExamplePolicy.xml).
 
@@ -58,10 +58,10 @@ For detaljerte instruksjoner for å konfiguere din organisasjon som tjenesteeier
 
 ## 5. Konfigurer den eksisterende tjenesten din i Formidling {#configure-your-existing-resource-in-broker}
 
-Deretter må du konfigurere den spesifikke Formidling-konfigurasjonen for tjenesten. 
-Bruk ID-en til tjenesten du opprettet i trinn 3, og kall API-operasjonen for å konfigurere tjenesten.
+Deretter må du konfigurere den spesifikke Formidling-konfigurasjonen for ressursen. 
+Bruk ID-en til ressursen du opprettet i trinn 3, og kall API-operasjonen for å konfigurere tjenesten.
 
- For detaljerte instruksjoner om hvordan du konfigurerer tjenesten i Formidling, følg [denne lenken](../developer-guides/service-owner/#operation-configure-resource-in-broker-api), som gir deg all nødvendig informasjon for å fullføre konfigurasjonen og sikre at tjenesten din er riktig satt opp i Formidling.
+ For detaljerte instruksjoner om hvordan du konfigurerer ressursen i Formidling, følg [denne lenken](../developer-guides/service-owner/#operation-configure-resource-in-broker-api), som gir deg all nødvendig informasjon for å fullføre konfigurasjonen og sikre at ressursen din er riktig satt opp i Formidling.
 
 ## Hvordan migrere fra Altinn 2 til Altinn 3 {#how-to-migrate-from-Altinn-2-to-Altinn-3}
 
