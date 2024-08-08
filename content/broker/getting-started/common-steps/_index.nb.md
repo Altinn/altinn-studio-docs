@@ -29,7 +29,7 @@ For å autentisere mot Formidlings-API-et, må du registrere Maskinporten-klient
 - `altinn:broker.write` - For klienter som sender filer.
 - `altinn:broker.read` - For klienter som mottar filer.
 
-Disse scopene vedlikeholdes av Altinn og må være autorisert for de riktige API-operasjonene, og er derfor uavhengige av [tilgangen satt av tjenesteeiere](../service-owner#grant-access-to-senders-and-recipients-to-the-resource) for den spesifikke Formidlingstjenesten.
+Disse scopene vedlikeholdes av Altinn og må være autorisert for de riktige API-operasjonene, og er derfor uavhengige av [tilgangen satt av tjenesteeiere](../service-owner#register-a-resource-in-altinn-resource-registry) for den spesifikke Formidlingstjenesten.
 
 Bruk Samarbeidsportalen for selvbetjent registrering. Følg den detaljerte guiden som er tilgjengelig der. [Her er en detaljert guide](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web#selvbetjening-som-api-konsument).
 
