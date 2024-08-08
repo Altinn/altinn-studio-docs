@@ -1,7 +1,7 @@
 ---
-title: Publiser tjenesten
-description: Publiser tjenesten til et testmiljø
-linktitle: Publiser tjenesten
+title: "Modul 5: Publisere tjenesten"
+description: Publiser tjenesten til et testmiljø.
+linktitle: "Modul 5: Publisere tjenesten"
 tags: [apps, training, form, deploy, test]
 weight: 50
 ---
@@ -77,4 +77,6 @@ i testmiljøet for å teste den.
 {{<navigation-buttons
   urlBack="../modul4"
   textBack="<< Forrige modul"
+  urlNext="../modul6"
+  textNext="Neste modul >>"
 >}}
