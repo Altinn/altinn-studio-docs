@@ -26,7 +26,7 @@ Denne operasjonen bør brukes sparsomt, da man bør fokusere på webhook/event/h
 
 **Forespørsel:** Filtre spesifisert i URL-en:
 
-- resourceId - ressurs-ID brukt til å verifisere tilgang til Formidlingstjenesten, påkrevd.
+- resourceId - ressurs-ID brukt til å verifisere tilgang til formidlingstjenesten, påkrevd.
 - status - gjeldende status for filoverføringen.
 - recipientStatus - gjeldende status for deg som mottaker.
 - from - DateTimeOffset for å filtrere fra.
@@ -34,7 +34,7 @@ Denne operasjonen bør brukes sparsomt, da man bør fokusere på webhook/event/h
 
 Når du søker etter filer du ikke har lastet ned som mottaker, spesifiser følgende:
 
-- resourceId - ressurs-ID brukt til å verifisere tilgang til Formidlingstjenesten
+- resourceId - ressurs-ID brukt til å verifisere tilgang til formidlingstjenesten
 - status = "published"
 - recipientStatus = "initialized"
 
@@ -76,7 +76,7 @@ Last ned fildataene som en strøm ved hjelp av FileTransferId mottatt fra oversi
 ## Operasjon: Bekreft nedlastet {#operation-confirmdownloaded}
 
 Etter at du har lastet ned og behandlet filen vellykket, må du bruke denne operasjonen for å varsle løsningen om at filen er levert.
-Dette vil oppdatere statusen for filoverføringen, og potensielt slette fildataene i henhold til innstillingene på Formidlingstjenesten.
+Dette vil oppdatere statusen for filoverføringen, og potensielt slette fildataene i henhold til innstillingene på formidlingstjenesten.
 
 **Endepunkt:** POST /broker/api/v1/filetransfer/{fileTransferId}/confirmdownload
 

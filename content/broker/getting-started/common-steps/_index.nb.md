@@ -19,7 +19,7 @@ Før du går i gang med spesifikke oppgaver som avsender, mottaker, eller tjenes
 
 ## 1. Skaff deg en Altinn API-nøkkel {#get-an-altinn-api-key}
 
-Først må du skaffe en abonnementsnøkkel fra Altinn. Når du sender en forespørsel til API-et, må du inkludere abonnementsnøkkelen i forespørselens `Ocp-Apim-Subscription-Key` header. Inkluderingen av abonnementsnøkkelen i forespørselen er nødvendig for at Altinn skal kunne verifisere at du har rett til å bruke API-et. Uten denne nøkkelen vil forespørselen din bli avvist. Dersom du mangler en API-nøkkel for Maskinporten-klientene du planlegger å bruke mot Formidlingstjenesten, ta kontakt med oss på [Altinn@Slack#produkt-formidling](https://join.slack.com/t/altinn/shared_invite/zt-7c77c9si-ZnMFwGNtab1aFdC6H_vwog).
+Først må du skaffe en abonnementsnøkkel fra Altinn. Når du sender en forespørsel til API-et, må du inkludere abonnementsnøkkelen i forespørselens `Ocp-Apim-Subscription-Key` header. Inkluderingen av abonnementsnøkkelen i forespørselen er nødvendig for at Altinn skal kunne verifisere at du har rett til å bruke API-et. Uten denne nøkkelen vil forespørselen din bli avvist. Dersom du mangler en API-nøkkel for Maskinporten-klientene du planlegger å bruke mot formidlingstjenesten, ta kontakt med oss på [Altinn@Slack#produkt-formidling](https://join.slack.com/t/altinn/shared_invite/zt-7c77c9si-ZnMFwGNtab1aFdC6H_vwog).
 
 ## 2. Registrer Maskinporten-klient med nødvendige scopes. {#register-your-maskinporten-client-with-correct-scopes}
 
@@ -29,7 +29,7 @@ For å autentisere mot Formidlings-API-et, må du registrere Maskinporten-klient
 - `altinn:broker.write` - For klienter som sender filer.
 - `altinn:broker.read` - For klienter som mottar filer.
 
-Disse scopene vedlikeholdes av Altinn og må være autorisert for de riktige API-operasjonene, og er derfor uavhengige av [tilgangen satt av tjenesteeiere](../service-owner#register-a-resource-in-altinn-resource-registry) for den spesifikke Formidlingstjenesten.
+Disse scopene vedlikeholdes av Altinn og må være autorisert for de riktige API-operasjonene, og er derfor uavhengige av [tilgangen satt av tjenesteeiere](../service-owner#register-a-resource-in-altinn-resource-registry) for den spesifikke formidlingstjenesten.
 
 Bruk Samarbeidsportalen for selvbetjent registrering. Følg den detaljerte guiden som er tilgjengelig der. [Her er en detaljert guide](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web#selvbetjening-som-api-konsument).
 
@@ -38,7 +38,7 @@ Bruk Samarbeidsportalen for selvbetjent registrering. Følg den detaljerte guide
 
 ## 3. Få tilgang til en bestemt tjeneste {#get-access-to-specific-resource}
 
-For å få tilgang til en spesifikk Formidlingstjeneste, må du kontakte tjenesteeieren og be om tilgang. Dette er med på å beskytte tjenesten mot uautorisert tilgang, og sikrer at kun legitime brukere kan operere tjenesten. (I fremtiden vil dette bli håndtert gjennom løsningen)
+For å få tilgang til en spesifikk formidlingstjeneste, må du kontakte tjenesteeieren og be om tilgang. Dette er med på å beskytte tjenesten mot uautorisert tilgang, og sikrer at kun legitime brukere kan operere tjenesten. (I fremtiden vil dette bli håndtert gjennom løsningen)
 Oppgi følgende informasjon:
 
 - Organisasjonsnummeret du vil representere
@@ -48,7 +48,7 @@ Oppgi følgende informasjon:
 Dette vil i fremtiden håndteres av Systembruker / Ressurssregister / Tilgangslister via GUI.
 {{% /notice %}}
 
-**Hvis du er en tjenesteeier som oppretter din første Formidlingstjeneste, trenger du ikke følge dette steget. I stedet kan du gå videre til [Tjenesteeier](../service-owner/) for en detaljert beskrivelse av hvordan du oppretter og administrerer Formidlingstjenester.**
+**Hvis du er en tjenesteeier som oppretter din første formidlingstjeneste, trenger du ikke følge dette steget. I stedet kan du gå videre til [Tjenesteeier](../service-owner/) for en detaljert beskrivelse av hvordan du oppretter og administrerer formidlingstjenester.**
 
 ## 4. Integrer mot Formidlings-API-et {#integrate-against-broker-api}
 
@@ -56,6 +56,6 @@ Du er nå klar til å begynne integreringen mot Formidlings API-ene. For neste t
 
 ## 5. Sett opp hendelsesabonnementer {#set-up-event-subscriptions}
 
-For å kunne motta varsler om endringer eller hendelser knyttet til dine Formidlingstjenester, må du sette opp et abonnement for den aktuelle tjenesten.
-Dette trinnet er spesielt viktig for deg som ønsker å få automatiserte varsler om hendelser fra Formidlingstjenesten. Hvis du ikke trenger varsler, kan du hoppe over dette trinnet.
+For å kunne motta varsler om endringer eller hendelser knyttet til dine formidlingstjenester, må du sette opp et abonnement for den aktuelle tjenesten.
+Dette trinnet er spesielt viktig for deg som ønsker å få automatiserte varsler om hendelser fra formidlingstjenesten. Hvis du ikke trenger varsler, kan du hoppe over dette trinnet.
 Se [utviklerveiledningen for events](../developer-guides/events) for detaljerte instruksjoner om hvordan du setter opp abonnementet.
