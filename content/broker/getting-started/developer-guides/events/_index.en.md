@@ -73,3 +73,4 @@ If you do not specify a Type Filter you will receive all the different types of 
 - `no.altinn.broker.fileneverconfirmeddownloaded`
 
 For further description of events and their usage, see [send files](../send-files/) and [receive files](../receive-files/) developer guides, as these describe the events in relation to the respective roles/process.
+

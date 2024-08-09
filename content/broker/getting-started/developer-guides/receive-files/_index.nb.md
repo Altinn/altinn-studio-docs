@@ -1,7 +1,7 @@
 ---
-title: Altinn 3 Formidling utviklerveiledning
-linktitle: Receive Files
-description: Hvordan motta filer via Altinn Formidling
+title: Veiledning for mottakere
+linktitle: Motta filer
+description: Denne guiden hjelper deg med å komme i gang med å motta filer ved hjelp av Altinn Formidling. 
 tags: [Broker, guide, Formidling]
 toc: true
 weight: 20
@@ -10,7 +10,7 @@ weight: 20
 {{<children />}}
 
 {{% notice warning  %}}
-Denne delen av dokumentasjonen er under arbeid, og refererer derfor i stor grad til eksterne kilder.
+Merk at denne delen av dokumentasjonen fortsatt er under arbeid og derfor i stor grad refererer til eksterne kilder.
 {{% /notice %}}
 
 ## Operasjon: Hent filoverføringer {#operation-get-filetransfers}
@@ -26,7 +26,7 @@ Denne operasjonen bør brukes sparsomt, da man bør fokusere på webhook/event/h
 
 **Forespørsel:** Filtre spesifisert i URL-en:
 
-- resourceId - ressurs-ID for Formidling-ressursen, påkrevd.
+- resourceId - ressurs-ID brukt til å verifisere tilgang til formidlingstjenesten, påkrevd.
 - status - gjeldende status for filoverføringen.
 - recipientStatus - gjeldende status for deg som mottaker.
 - from - DateTimeOffset for å filtrere fra.
@@ -34,7 +34,7 @@ Denne operasjonen bør brukes sparsomt, da man bør fokusere på webhook/event/h
 
 Når du søker etter filer du ikke har lastet ned som mottaker, spesifiser følgende:
 
-- resourceId - ressurs-ID for Formidling-ressursen
+- resourceId - ressurs-ID brukt til å verifisere tilgang til formidlingstjenesten
 - status = "published"
 - recipientStatus = "initialized"
 
@@ -76,7 +76,7 @@ Last ned fildataene som en strøm ved hjelp av FileTransferId mottatt fra oversi
 ## Operasjon: Bekreft nedlastet {#operation-confirmdownloaded}
 
 Etter at du har lastet ned og behandlet filen vellykket, må du bruke denne operasjonen for å varsle løsningen om at filen er levert.
-Dette vil oppdatere statusen for filoverføringen, og potensielt slette fildataene i henhold til innstillingene på Formidlingressursen.
+Dette vil oppdatere statusen for filoverføringen, og potensielt slette fildataene i henhold til innstillingene på formidlingstjenesten.
 
 **Endepunkt:** POST /broker/api/v1/filetransfer/{fileTransferId}/confirmdownload
 
@@ -108,3 +108,4 @@ Du trenger ikke å utføre handlinger mot Formidling, men det er en ekstra bekre
 Denne hendelsen utløses ved utløpstiden for filoverføringen i tilfelle en eller flere mottakere ikke har bekreftet nedlastingen av filen.
 Dette kan indikere at enten mottakeren ikke har vært klar over filoverføringen, eller at de har lastet ned, men forsømt å kalle ConfirmDownload.
 Denne hendelsen sendes også til de mottakere som ikke har bekreftet nedlastingen.
+

@@ -55,7 +55,7 @@ Ingen funksjonell forskjell for overførte tjenester. Hvis kode for tjenestekode
 Ingen funksjonell forskjell i request. Svaret vil inneholde en pseudo-kvittering generert fra Altinn 3 fil metadata. Kvitteringsid vil være 0.
 {{% notice warning  %}}
 Siden opplastingen og behandling av opplastet fil er en asynkron prosess i Altinn 3, vil den umiddelbare kvitteringsstatus mottatt fra request ikke nødvendigvis gjenspeile den endelige tilstanden til filen.
-Altinn 2 SOAP formidlingstjeneste tilbyr ingen funksjon som lar sluttbrukere bekrefte at en fil er blitt behandlet og er klar til nedlasting for mottakere.
+Altinn 2 SOAP Formidlingstjeneste tilbyr ingen funksjon som lar sluttbrukere bekrefte at en fil er blitt behandlet og er klar til nedlasting for mottakere.
 
 Hvis mulig, bør du vurdere å legge til trinn som ringer til [Få fil kvittering](../rest/#get-file-receipt-outbox-sender) for å sikre at filen er blitt behandlet.
 Hvis du ikke ønsker å implementere REST, er en mulig workaround å implementere en forespørsel som henter tilgjengelige filer for mottakerne for å sikre at filen du lastet opp er gjort tilgjengelig.
