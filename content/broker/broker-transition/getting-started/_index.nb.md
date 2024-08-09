@@ -13,7 +13,7 @@ For å bruke Formidling overgangsløsningen i Altinn 2 for å opprette, laste op
 2. Ha eller lag en tilsvarende Altinn 3 Formidlingstjeneste. Se hvordan du kommer i gang med Altinn 3 Formidling [her](../../getting-started/).
 3. Be om et overgangsoppsett fra Altinn 2 tjenesten til Altinn 3 tjenesten. Bestem dato for når dette skal gå i live. (For å minimere risiko for foreldreløse data i Altinn 2 lagring)
 4. Gå live med overgangsløsning mens du oppfordrer forbrukerne til å migrere til Altinn Formidling.
-5. Når alle forbrukere har migrert til Altinn 3 formidlingstjenesten, må du dekommisjonere Altinn 2 Formidling tjenesten.
+5. Når alle forbrukere har migrert til Altinn 3 Formidlingstjenesten, må du dekommisjonere Altinn 2 Formidling tjenesten.
 
 
 ### Tilleggsinformasjon
