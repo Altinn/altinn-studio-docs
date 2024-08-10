@@ -1,0 +1,80 @@
+<script>
+    if (typeof window.addSwaggerOnloadHandler !== "function") {
+        console.error("swaggerdisplayentity: you must call {"+"{<swaggerload \"uri to swagger\">}} first");
+    }
+    else {
+        addSwaggerOnloadHandler(function(spec) {
+            if (typeof spec.components.schemas !== "object") {
+                console.error("swaggerdisplayentity: unable to parse spec");
+            }
+            let entity = null;
+            try {
+                entity = spec.components.schemas["{{ .Get 0 }}"];
+            }
+            catch {
+                console.error("swaggerdisplayentity: entity \"{{ .Get 0 }}\" not found in spec");
+            }
+            let rendered = generateHtmlDefinitionList(entity);
+
+            $("#swagger-entity-display-container-{{ .Get 0 }}").html(rendered);
+        });
+    }
+
+    function generateHtmlDefinitionList(schema, indentLevel = 0) {
+        let html = '';
+
+        let indentClass = '';
+        if (indentLevel > 0) {
+            indentClass = ` sed-indent sed-indent-${indentLevel}`;
+        }
+        
+        if (schema.type === 'object' && schema.properties) {
+            html += `<dl class="swagger-entity-display${indentClass}">`;
+            for (let [propertyName, propertySchema] of Object.entries(schema.properties)) {
+                if (propertySchema.oneOf) {
+                    // Add handling of oneOf. Assume just single type.
+                    const nullable = propertySchema.nullable; 
+                    propertySchema = propertySchema.oneOf[0];
+                    propertySchema.nullable = nullable;
+                }
+                const description = propertySchema.description ? propertySchema.description.replaceAll(/\n/g, "<br>") : '(undescribed)';
+                const type = propertySchema.type || 'unknown';
+                const nullable = propertySchema.nullable ? ' (optional)' : '';
+
+                let typeDesc = type;
+                if (type == "array") {
+                    let childType = propertySchema.items["$$ref"].split(/\//).pop();
+                    typeDesc = `array of ${childType}`;
+                }
+                else if (type == "object") {
+                    let childType = propertySchema["$$ref"].split(/\//).pop();
+                    typeDesc = childType;
+                }
+
+                html += `<dt><span class="sed-prop">${propertyName}${nullable}</span><span class="sed-type" title="${typeDesc}">${typeDesc}</span></dt>`;
+                html += `<dd>${description}</dd>`;
+                
+                if (type === 'object' || (type === 'array' && propertySchema.items && propertySchema.items.type === 'object')) {
+                    const nestedSchema = type === 'object' ? propertySchema : propertySchema.items;
+                    html += generateHtmlDefinitionList(nestedSchema, indentLevel + 1);
+                }
+            }
+            html += '</dl>';
+        } else if (schema.type === 'array' && schema.items) {
+            html += generateHtmlDefinitionList(schema.items, indentLevel);
+        }
+
+        if (indentLevel == 0) {
+            html = `
+                <div class="swagger-entity-display-container">
+                    <h3>{{ .Get 0 }}</h3>
+                    <dl class="swagger-entity-display sed-head"><dt>Property</dt><dd>Description</dd></dl>
+                    ${html}
+                </div>
+                `;
+        }
+        return html;
+    }
+</script>
+
+<div class="swagger-entity-display-container" id="swagger-entity-display-container-{{ .Get 0 }}"></div>

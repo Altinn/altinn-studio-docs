@@ -1,0 +1,16 @@
+<script src="/js/swagger-client-3.28.2.browser.min.js"></script>
+<script>
+window.swaggerOnloadHandlers = window.swaggerOnloadHandlers || [];
+new SwaggerClient('{{ .Get 0 }}')
+    .then(
+        client => {
+            window.swaggerSpec = client.spec;
+            (window.swaggerOnloadHandlers || []).forEach(handler => handler(window.swaggerSpec));
+        },
+        reason => console.error('swaggerload: Filed to load the spec: ' + reason)
+    );
+
+window.addSwaggerOnloadHandler = function(fn) {
+    window.swaggerOnloadHandlers.push(fn)
+};
+</script>
