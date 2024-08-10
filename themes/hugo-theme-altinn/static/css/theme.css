@@ -1762,7 +1762,7 @@ div.footnotes-entry > span {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    font-size: 90%;
+    font-size: 1.5rem;
     margin: 0;
 }
 
@@ -1786,13 +1786,12 @@ div.footnotes-entry > span {
     font-size: 0.9em;
     flex-basis: 65%;
     display: inline-block;
-    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .sed-head dt, .sed-head dd { 
-    font-weight: bold; 
+    font-family: "DIN-bold";
     font-size: 1em; 
     background-color: #ccc; 
     color: #333; 
@@ -1808,15 +1807,85 @@ div.footnotes-entry > span {
     clear: both;
     font-style: italic;
     color: #555;
-    font-size: 90%;
+    font-size: small;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
+.sed-ex-header {
+    display: block;
+    margin-top: 1rem;
+    font-family: "DIN-bold";
+}
+
+.sed-ex {
+    margin: 0 0 1rem;
+    display: inline-block;
+    white-space: pre-wrap;
+}
+
 .sed-indent {
     margin-left: 3rem;
 }
+.sed-loader { text-align: center }
+.sed-loader span { display: block; font-size: small }
+
+.sed-ellipsis {
+	display: inline-block;
+	position: relative;
+	width: 80px;
+	height: 50px;
+  }
+  .sed-ellipsis div {
+	position: absolute;
+	top: 33px;
+	width: 13px;
+	height: 13px;
+	border-radius: 50%;
+	background: #1EAEF7;
+	animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  }
+  .sed-ellipsis div:nth-child(1) {
+	left: 8px;
+	animation: sed-ellipsis1 0.6s infinite;
+  }
+  .sed-ellipsis div:nth-child(2) {
+	left: 8px;
+	animation: sed-ellipsis2 0.6s infinite;
+  }
+  .sed-ellipsis div:nth-child(3) {
+	left: 32px;
+	animation: sed-ellipsis2 0.6s infinite;
+  }
+  .sed-ellipsis div:nth-child(4) {
+	left: 56px;
+	animation: sed-ellipsis3 0.6s infinite;
+  }
+  @keyframes sed-ellipsis1 {
+	0% {
+	  transform: scale(0);
+	}
+	100% {
+	  transform: scale(1);
+	}
+  }
+  @keyframes sed-ellipsis3 {
+	0% {
+	  transform: scale(1);
+	}
+	100% {
+	  transform: scale(0);
+	}
+  }
+  @keyframes sed-ellipsis2 {
+	0% {
+	  transform: translate(0, 0);
+	}
+	100% {
+	  transform: translate(24px, 0);
+	}
+  }
 
 .swagger-entity-display dl {
     border-top: none;

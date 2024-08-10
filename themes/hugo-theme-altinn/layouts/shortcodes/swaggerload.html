@@ -1,14 +1,22 @@
 <script src="/js/swagger-client-3.28.2.browser.min.js"></script>
 <script>
 window.swaggerOnloadHandlers = window.swaggerOnloadHandlers || [];
-new SwaggerClient('{{ .Get 0 }}')
+document.addEventListener('DOMContentLoaded', function() {
+    const $containers = $(".swagger-entity-display-container");
+    $containers.html('<div class="sed-loader"><div class="sed-ellipsis"><div></div><div></div><div></div><div></div></div><span>Loading entity definition ...</div>');
+
+    new SwaggerClient('{{ .Get 0 }}')
     .then(
         client => {
             window.swaggerSpec = client.spec;
             (window.swaggerOnloadHandlers || []).forEach(handler => handler(window.swaggerSpec));
         },
-        reason => console.error('swaggerload: Filed to load the spec: ' + reason)
+        reason => {
+            console.error('swaggerload: Filed to load the spec: ' + reason)
+            $containers.html("<div class='notices warning'>Failed to load swagger from {{ .Get 0 }}, unable to display entity information. Please try again later.</div>")
+        }
     );
+});
 
 window.addSwaggerOnloadHandler = function(fn) {
     window.swaggerOnloadHandlers.push(fn)

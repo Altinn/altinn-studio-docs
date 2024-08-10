@@ -17,4 +17,3 @@ The API-specification for Dialogporten is available at the following adresses:
 * {{<link "../../user-guides/authenticating">}}
 
 {{<children />}}
-
