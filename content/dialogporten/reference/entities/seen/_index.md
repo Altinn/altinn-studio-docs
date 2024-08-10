@@ -6,7 +6,9 @@ weight: 40
 
 {{<notyetwritten>}}
 
-For now, refer to the [OpenAPI specification]({{<ref "../../../reference/openapi">}}).
+{{<swaggerload "https://localhost:7214/swagger/v1/swagger.json">}}
+
+{{<swaggerdisplayentity "SearchDialogSeenLogDto">}}
 
 {{<children />}}
 

@@ -4,15 +4,17 @@ description: 'Reference information about the actions entities'
 weight: 50
 ---
 
+{{<notyetwritten>}}
+
+{{<swaggerload "https://localhost:7214/swagger/v1/swagger.json">}}
+
 ## GUI Actions
 
-{{<notyetwritten>}}
+{{<swaggerdisplayentity "GetDialogDialogGuiActionDto">}}
 
 ## API Actions
 
-{{<notyetwritten>}}
-
-For now, refer to the [OpenAPI specification]({{<ref "../../../reference/openapi">}}).
+{{<swaggerdisplayentity "GetDialogDialogApiActionDto">}}
 
 {{<children />}}
 
