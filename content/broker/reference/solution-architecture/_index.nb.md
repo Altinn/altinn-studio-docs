@@ -114,7 +114,7 @@ i løsningsarkitekturen for Altinn Formidling.
 ## Overgangsarkitektur - Altinn 2 til Altinn 3
 
 ### Generelt
-To migreringsalternativer støttes for migrering av Altinn Formidling-tjenester -
+To migreringsalternativer støttes for migrering av Altinn Formidlingstjenester -
 _hard overgang_ og _myk overgang_.
 
 ### Hard overgang fra Altinn 2 til Altinn 3 for alle brukere av en tjeneste
