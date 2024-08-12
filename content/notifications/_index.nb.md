@@ -32,10 +32,10 @@ aliases:
                     </a>
                 </li>
                 <li class="a-dotted a-clickable a-list-hasRowLink">
-                    <a href="what-do-you-get" class="a-list-rowLink">
+                    <a href="reference/api" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
-                                What do you get?
+                                API reference
                             </div>
                         </div>
                     </a>

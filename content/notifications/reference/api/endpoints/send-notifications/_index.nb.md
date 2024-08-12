@@ -1,14 +1,14 @@
 ---
-title: Send sms notifications
-linktitle: Send sms notifications
-description: Endpoint for sending an SMS notification to one or more recipient.
-weight: 50
+title: Send notifications
+linktitle: Send notifications
+description: Endpoint for sending a notification through a chosen notification channel to one or more recipient.
+weight: 40
 toc: true
 ---
 
 ## Endpoint
 
-POST /orders/sms
+POST /orders
 
 ## Authentication
 
@@ -28,30 +28,33 @@ application/json
 
 ### Request body
 The request body must contain the order request formatted as an
-[SmsNotificationOrderRequestExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/SmsNotificationOrderRequestExt.cs)
+[NotificationOrderRequestExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/NotificationOrderRequestExt.cs)
 and serialized as JSON.
 
 
 ### Required order request properties
+#### __notificationChannel___
+Type: _enum_ _[NotificationChannelExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/NotificationChannelExt.cs)_
 
-#### __body__
-Type: _string_
-
-The contents of the SMS.
+The notification channel to use when sending the notification.
 
 #### recipients
 Type: _List of [RecipientExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/RecipientExt.cs)_
 
-A list containing one or more recipient objects, each recipient containing either a mobile number,
+A list containing one or more recipient objects, each recipient containing either an email address,
 a national identity number or an organization number.
 
 ### Optional order request properties
-#### __senderNumber__
 
-Type: _string_
+#### emailTemplate
+Type: [EmailTemplateExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/EmailTemplateExt.cs)
 
-Default: _Altinn_
-The string to use as the sender of the SMS.
+The template property for the email notifications. 
+
+#### smsTemplate
+Type: [SmsTemplateExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/SmsTemplateExt.cs)
+
+The template property for the SMS notifications. 
 
 #### requestedSendTime
 Type: _DateTime_
@@ -70,8 +73,8 @@ that the sender's reference is unique within the organization's notification ord
 #### resourceId
 Type: _string_
 
-The id of the Altinn resource the notification should be related to as the id appears in the Altinn Resource Registry. 
-For an Altinn app the format of the resource is is `app_{org}_{app}` e.g. app_ttd_apps-test.
+The ID of the Altinn resource the notifications should be related to as the ID appears in the Altinn Resource Registry. 
+For an Altinn app with ID _{org}/{app}_ the format of the resourceId is `app_{org}_{app}` e.g. app_ttd_apps-test.
 
 #### ignoreReservation
 Type: _boolan_
@@ -106,7 +109,8 @@ Find a short description of each property below.
 #### orderId
 Type: _GUID_
 
-The generated id for the notification order.
+The generated ID for the notification order.
+
 
 #### recipientLookup\*
 Type: [_RecipientLookupResultExt_](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/RecipientLookupResultExt.cs)
@@ -127,6 +131,7 @@ The result object describing the result of the recipient lookup containing the p
 
 \* Property is only included if order request requires recipient lookup
 
+
 ### Response headers
 
 #### Location
@@ -145,28 +150,37 @@ __You only need one of them__, reference the [Authentication section](#authentic
 
 
 ```bash
-curl --location 'https://platform.altinn.no/notifications/api/v1/orders/sms' \
+curl --location 'https://platform.altinn.no/notifications/api/v1/orders/email' \
 --header 'Content-Type: application/json' \
 --header 'PlatformAccessToken: [INSERT PLATFORM ACCESS TOKEN]' \
 --header 'Authorization: Bearer [INSERT ALTINN TOKEN]' \
 --data-raw '{
-    "sendersReference": "ref-2024-01-01",
-    "body": "A text message to be sent immediately from an org.",
-    "recipients":[
-        {"mobileNumber":"+4799999999"},
-        {"nationalIdentityNumber":"11876995923"},
-        {"organizationNumber":"311000179"}]
+	"emailTemplate": {
+		"subject": "Demo email subject",
+		"body": "Demo email body",
+		"content-type": "Plain"
+	},
+	"smsTemplate": {
+		"body": "Demo SMS content"
+	},
+	"notificationChannel": "emailPreferred",
+	"recipients": [
+		{
+			"emailAddress": "stephanie.buadu@avanade.com"
+		}
+	],
+	"resourceId": "app_ttd_apps-test"
 }'
 ```
 
 ### Response
 
 #### 202 Accepted
+
 In cases where reservation check or address lookup of recipients is required for an order,
 the initial result of the lookup will be included in the response. This includes
 a list containing national identity number for all reserved persons and a list containing national identity number
 or organization number for the recipients we could not find contact details for.
-
 
 Headers:
 
@@ -192,14 +206,14 @@ Response contains a problem details object with the error message in the detail 
 
 ```json
 {
-    "type": "https://tools.ietf.org/html/rfc7231#section-6.5.1",
-    "title": "One or more validation errors occurred.",
-    "status": 400,
-    "traceId": "00-9ac2962c93d79629aa5c3744e4259663-344b49720aa49b0a-00",
-    "errors": {
-        "Subject": [
-            "'Body' must not be empty."
-        ]
-    }
+  "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+  "title": "One or more validation errors occurred.",
+  "status": 400,
+  "errors": {
+    "NotificationChannel": [
+      "A notification channel must be defined."
+    ]
+  },
+  "traceId": "00-24d7cbf2a13f938741e8d2351d535556-2c30279c4891e50f-00"
 }
 ```

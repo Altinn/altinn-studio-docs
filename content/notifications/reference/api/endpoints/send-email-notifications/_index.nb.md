@@ -1,7 +1,7 @@
 ---
 title: Send email notifications
 linktitle: Send email notifications
-description: Endpoint for sending an email to one or more recipient with known contact details.
+description: Endpoint for sending an email notification to one or more recipient.
 weight: 50
 toc: true
 ---
@@ -17,7 +17,7 @@ This API requires authentication and the request must also include one of the fo
 - Maskinporten scope __altinn:serviceowner/notifications.create__ (for external system callers)
 - Platform Access Token (for Altinn Apps and internal Altinn systems)
 
-See [Authentication and Authorization](../../../api/#authentication--authorization) for more information.
+See [Authentication and Authorization](/notifications/reference/api/#authentication--authorization) for more information.
 
 ## Request
 
@@ -79,6 +79,12 @@ Type: _string_
 
 The ID of the Altinn resource the notifications should be related to as the ID appears in the Altinn Resource Registry. 
 For an Altinn app with ID _{org}/{app}_ the format of the resourceId is `app_{org}_{app}` e.g. app_ttd_apps-test.
+
+#### ignoreReservation
+Type: _boolan_
+
+A boolean indicating wether the notification content satisfies the requirements for overriding KRR reservations
+when sending notifications to an individual.
 
 #### conditionEndpoint
 Type: _Url_
@@ -154,9 +160,9 @@ curl --location 'https://platform.altinn.no/notifications/api/v1/orders/email' \
 --header 'Authorization: Bearer [INSERT ALTINN TOKEN]' \
 --data-raw '{
     "sendersReference": "ref-2023-12-01",
-	"subject": "A test email from Altinn Notifications",
-	"body": "A message to be sent immediately from an org.",
-	"contentType": "Plain",
+    "subject": "A test email from Altinn Notifications",
+    "body": "A message to be sent immediately from an org.",
+    "contentType": "Plain",
     "recipients":[
         {"emailAddress":"testuser@altinn.no"},
         {"nationalIdentityNumber":"11876995923"},
