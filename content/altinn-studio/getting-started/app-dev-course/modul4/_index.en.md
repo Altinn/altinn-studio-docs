@@ -39,7 +39,7 @@ You can use the following image of Sogndal's coat of arms in the service:
 8. At the top of the "Content" section, there is a setting called "Grid". The "Use Default Setting" option is on - turn this option off.
 9. Set the width to 3. Make sure the selected screen size is "Mobile".
 10. Under "Image Settings" (at the bottom of the "Content" section), in the "Source" field, paste [the link to the image](../resources/kommune-logo.png).
-11. Add a new component to the form: a Title component from the component overview (under the "Text" section in the left panel). Place this directly below the image component.
+11. Add a title component to the form. It can be found under the "Text" section in the left panel. Place it directly below the image component.
 12. Open the "Text" section in the configuration column (in the middle).
 13. Click on "Label" and enter the text:
     ```text
