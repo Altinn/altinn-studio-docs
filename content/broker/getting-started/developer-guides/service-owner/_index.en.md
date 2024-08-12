@@ -53,3 +53,4 @@ This operation configures your resource in Altinn Broker.
 **Events triggered**: none.
 
 **Example:** Example "Update Resource" in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
+

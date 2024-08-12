@@ -7,7 +7,7 @@ Du bør ikke be brukeren laste opp vedlegg med mindre det faktisk har en avgjør
 Sjekk først om informasjonen kan hentes  inn på annet vis, kanskje gjennom API?
 
 ### Retningslinjer:
-- Vær så fleksibel som mulig i forhold til hvilke filtyper som kan lastes opp. Ikke alle har kompetanse til å endre 
+- Vær så fleksibel som mulig med tanke på hvilke filtyper som kan lastes opp. Ikke alle har kompetanse til å endre 
 filtypeformat eller komprimere filer. 
 - Dersom det er feil i opplastingen, vær så spesifikk som mulig i feilmeldingen. Å si at “formatet ikke er godkjent” holder ikke, 
 det må spesifiseres nøyaktig hva som kreves. 

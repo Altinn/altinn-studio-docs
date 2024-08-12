@@ -202,6 +202,13 @@
                 ],
                 "parameters": [
                     {
+                        "name": "resourceId",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
                         "name": "offset",
                         "in": "query",
                         "schema": {
@@ -349,6 +356,29 @@
             }
         },
         "/correspondence/api/v1/correspondence/{correspondenceId}/markasread": {
+            "post": {
+                "tags": [
+                    "Correspondence"
+                ],
+                "parameters": [
+                    {
+                        "name": "correspondenceId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/correspondence/api/v1/correspondence/{correspondenceId}/markasunread": {
             "post": {
                 "tags": [
                     "Correspondence"
@@ -529,7 +559,9 @@
                     "dataType",
                     "expirationTime",
                     "name",
+                    "resourceId",
                     "restrictionName",
+                    "sender",
                     "sendersReference",
                     "status",
                     "statusChanged",
@@ -537,6 +569,11 @@
                 ],
                 "type": "object",
                 "properties": {
+                    "resourceId": {
+                        "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
                     "fileName": {
                         "maxLength": 255,
                         "minLength": 0,
@@ -554,6 +591,11 @@
                     "checksum": {
                         "type": "string",
                         "nullable": true
+                    },
+                    "sender": {
+                        "minLength": 1,
+                        "pattern": "^\\d{4}:\\d{9}$",
+                        "type": "string"
                     },
                     "sendersReference": {
                         "maxLength": 4096,
@@ -617,7 +659,9 @@
                     "dataType",
                     "expirationTime",
                     "name",
+                    "resourceId",
                     "restrictionName",
+                    "sender",
                     "sendersReference",
                     "status",
                     "statusChanged",
@@ -625,6 +669,11 @@
                 ],
                 "type": "object",
                 "properties": {
+                    "resourceId": {
+                        "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
                     "fileName": {
                         "maxLength": 255,
                         "minLength": 0,
@@ -642,6 +691,11 @@
                     "checksum": {
                         "type": "string",
                         "nullable": true
+                    },
+                    "sender": {
+                        "minLength": 1,
+                        "pattern": "^\\d{4}:\\d{9}$",
+                        "type": "string"
                     },
                     "sendersReference": {
                         "maxLength": 4096,
@@ -838,6 +892,7 @@
                     },
                     "recipient": {
                         "minLength": 1,
+                        "pattern": "^\\d{4}:\\d{9}$|\\d{11}$",
                         "type": "string"
                     },
                     "sender": {
@@ -921,6 +976,10 @@
                     "statusChanged": {
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "markedUnread": {
+                        "type": "boolean",
+                        "nullable": true
                     },
                     "statusHistory": {
                         "type": "array",
@@ -1016,6 +1075,7 @@
                     },
                     "recipient": {
                         "minLength": 1,
+                        "pattern": "^\\d{4}:\\d{9}$|\\d{11}$",
                         "type": "string"
                     },
                     "sender": {
@@ -1079,6 +1139,10 @@
                         "nullable": true
                     },
                     "isReservable": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "markedUnread": {
                         "type": "boolean",
                         "nullable": true
                     },
@@ -1202,11 +1266,18 @@
                     "dataType",
                     "expirationTime",
                     "name",
+                    "resourceId",
                     "restrictionName",
+                    "sender",
                     "sendersReference"
                 ],
                 "type": "object",
                 "properties": {
+                    "resourceId": {
+                        "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
                     "fileName": {
                         "maxLength": 255,
                         "minLength": 0,
@@ -1224,6 +1295,11 @@
                     "checksum": {
                         "type": "string",
                         "nullable": true
+                    },
+                    "sender": {
+                        "minLength": 1,
+                        "pattern": "^\\d{4}:\\d{9}$",
+                        "type": "string"
                     },
                     "sendersReference": {
                         "maxLength": 4096,
@@ -1360,6 +1436,7 @@
                     },
                     "recipient": {
                         "minLength": 1,
+                        "pattern": "^\\d{4}:\\d{9}$|\\d{11}$",
                         "type": "string"
                     },
                     "sender": {
