@@ -8,7 +8,7 @@ weight: 50
 In this module, we will publish the service to a test environment to test the service end-to-end as an end user would experience it.
 
 {{% notice warning %}}
-**Note!** The test environment (and potentially the production environment) is only available for _organizations_. It will not be possible to publish a service created on behalf of your own user. If you have created the service on your own user, you can proceed to the next module.
+**Note!** The test environment (and potentially the production environment) is only available for _organizations_. It will not be possible to publish a service created on behalf of your own user. If you have created the service with your own user, you can proceed to the next module.
 {{% /notice %}}
 
 ### Topics covered in this module
