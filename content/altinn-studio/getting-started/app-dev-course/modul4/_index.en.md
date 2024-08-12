@@ -28,7 +28,7 @@ You can use the following image of Sogndal's coat of arms in the service:
 
 ## Add a New Page
 1. Add a new page to the form by clicking the "Add New Page" button.
-2. Note that a "Navigation Buttons" component is automatically added to both pages, which is used to navigate back and forth between the pages.
+2. Note that a "Navigation Buttons" component is automatically added to both pages. It is used to navigate back and forth between the pages.
 3. Rename the new page by clicking on the page's ID in the configuration column, and enter the name `infopage`.
     - Navigation buttons have automatically appeared on the new page. Open the first page, and you will see that navigation buttons have also appeared there. Open `infopage` again to continue.
 4. Click on the menu icon (three dots) next to the page name `infopage` and select "Move Up".
