@@ -46,7 +46,7 @@ You can use the following image of Sogndal's coat of arms in the service:
     Form for information collection for future residents
     ```
 14. Open the "Content" section in the configuration column.
-15. At the top of the "Content" section, there is a setting called "Grid". The "Use Default Setting" option is on - turn this option off.
+15. At the top of the "Content" section, there is a setting called "Grid". Turn off the "Use Default Setting" option.
 16. Set the width to 9. Make sure the selected screen size is "Mobile".
 17. Add a new component to the form: a Paragraph component from the component overview (under the "Text" section in the left panel).
 18. Open the "Text" section in the configuration column (in the middle).
