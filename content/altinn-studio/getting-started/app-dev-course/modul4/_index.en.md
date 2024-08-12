@@ -54,7 +54,7 @@ You can use the following image of Sogndal's coat of arms in the service:
     ```text
     The information you provide in this form will be used to tailor a package of municipal services for you and anyone you may be moving to the municipality with.
     ```
-20. Add a new component to the form: a Paragraph component. Add prompt text (copy and paste):
+20. Add a new paragraph component to the form. Insert this text to it:
     ```text
     Do not use this form if:
     - You are already residing in Sogndal Municipality
