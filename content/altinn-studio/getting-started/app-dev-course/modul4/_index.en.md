@@ -15,7 +15,7 @@ In this module, we will add a new page to the form that will display information
 - Adjusting component width in the form
 
 ### Requirements from Sogndal Municipality
-Since Sogndal Municipality will collect personal data in this service, they need to clarify who the form is intended for and how they will use the data. Someone in the municipality has created a [draft information page](../resources/infopage_new_residents.pdf) for this purpose.
+Since Sogndal Municipality will collect personal data in this service, they need to clarify who the form is intended for and how they will use the data. Someone in the municipality has created [a draft information page for this purpose](../resources/infopage_new_residents.pdf).
 
 The information page should reflect the following elements:
 - Placement of images
