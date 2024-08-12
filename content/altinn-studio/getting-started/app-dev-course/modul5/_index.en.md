@@ -35,7 +35,7 @@ Contact the person who manages permissions for your organization to gain access 
 
 ## Build a Version
 
-1. Make sure you have uploaded all changes you have made to the service to the service's central file area by clicking "Share changes" in the top menu, and entering a short description. Then click "Validate changes" to validate and upload all changes.
+1. Make sure you have uploaded all changes you have made to the service to the service's central repository by clicking "Share changes" in the top menu, and entering a short description. Then click "Validate changes" to validate and upload all changes.
 2. Enter the version name in the "version number" field, e.g., `v1`.
 3. Enter a short description in the "Describe the content of the version" field, e.g., `First version of the form`.
 4. Click "Build version".
