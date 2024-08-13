@@ -1,7 +1,6 @@
 ---
-title: Create Form
+title: "Module 3: Create Form"
 description: Create the first version of the form
-linktitle: Create Form
 tags: [apps, training, form]
 weight: 30
 ---
