@@ -5,7 +5,7 @@ description: Hvordan konfigurere tilganger for team i Altinn Studio.
 toc: true
 weight: 200
 aliases: 
-- /nb/app/guides/access-management/studio/
+- /nb/altinn-studio/guides/access-management/studio/
 ---
 
 ## Tilgangsstyring for organisasjonen
