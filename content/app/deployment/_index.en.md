@@ -23,7 +23,7 @@ This routine just needs to be followed once. When the cluster is set up, the sol
 Deploy of an application to production is done in [the same way as for test environments](/app/testing/deploy).
 The user that will deploy an application to production must be a member of the `Deploy-Production` group in Altinn Studio.
 Access to groups in Altinn Studio is administrated by each organization in Altinn Studio.
-[Read more about access in Altinn Studio](../guides/access-management/studio/).
+[Read more about access in Altinn Studio](/altinn-studio/guides/access-management/studio/).
 
 ## Order "About form"-page on altinn.no
 

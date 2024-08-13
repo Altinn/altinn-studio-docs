@@ -31,7 +31,7 @@ til Azure Key Vault for organisasjonen din, slik at nøklene
 som opprettes senere i guiden, kan legges direkte inn i
 hemmelighetene i Azure.
 
-Hvis tilgang mangler, se [Tilgang til logger og hemmeligheter](../access-management/apps).
+Hvis tilgang mangler, se [Tilgang til logger og hemmeligheter](/nb/altinn-studio/guides/access-management/apps).
 
 ## Maskinporten-integrasjon
 

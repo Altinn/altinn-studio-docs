@@ -76,7 +76,7 @@ før man produksjonssetter den.
 
 {{% notice info %}}
 For å kunne publisere en applikasjon til TT02 må organisasjonen som eier den ha et app-cluster i testmiljøet.
-I tillegg må utvikleren som skal gjennomføre publiseringen inneha [rollen Deploy-TT02](/nb/altinn-studio/guides/access-management/studio/#deploy-tt02).
+I tillegg må utvikleren som skal gjennomføre publiseringen inneha [rollen Deploy-TT02](/nb/altinn-studio/reference/access-management/studio/#deploy-tt02).
 {{% /notice %}}
 
 ### Oppgaver
