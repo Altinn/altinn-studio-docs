@@ -21,7 +21,7 @@ Denne rutinen trenger bare å følges en gang. Når clusteret er satt opp, er l�
 Produksjonssetting av applikasjonen gjøres på [samme måte som for testmiljøer](/nb/altinn-studio/reference/testing/deploy).
 Den som skal produksjonssette app'en må være medlem av gruppen `Deploy-Production` for sin organisasjon i Altinn Studio.
 Tilgang til grupper i Altinn Studio administreres av hver enkelt organisasjon i Altinn Studio.
-[Les mer om tilganger i Altinn Studio](../guides/access-management/studio/).
+[Les mer om tilganger i Altinn Studio](/nb/altinn-studio/guides/access-management/studio/).
 
 
 ## Bestille Om skjema-side
