@@ -4,31 +4,18 @@ linktitle: Apps
 description: Hvordan bestille tilganger til app logger og hemmeligheter.
 toc: true
 weight: 200
+aliases: 
+- /nb/app/guides/access-management/apps/
 ---
 
-## Roller
-Det er definert to forskjellige typer roller for tilgang i driftsmiljøene i Altinn Apps.
-
-Disse rollene er videre delt opp i tilgang til test (TT02) og produksjon (prod).
-En bruker kan tildeles en eller flere roller.
-
-### Developer
-Rollen Developer gir tilgang til
-[Application Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
-der applikasjonslogger samles for tjenesteeier sine applikasjoner i miljøet.
-
-### Operations
-Rollen Operations gir tilgang til [Key Vault](https://learn.microsoft.com/nb-NO/azure/key-vault/general/basic-concepts)
-for å laste opp hemmeligheter som sertifikater, passord og api-nøkler.
-
-
-## Bestilling
 Tjenesteeiere kan bestille følgende tilganger for sine ressurser i miljøene TT02 og produksjon:
 
 - Test Developer
 - Test Operations
 - Prod Developer
 - Prod Operations
+
+[Se oversikt over roller/tilgangerher](../../../reference/access-management/apps/).
 
 For å få tilgang til disse rollene må autoriserte bestillere hos Tjenesteeier, bestille dette på vår [Selvbetjeningsportal](https://www.altinndigital.no/oversikt).
 Portalen beskriver også hvordan man oppretter en ny bruker hvis man ikke har dette fra før av.

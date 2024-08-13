@@ -1,7 +1,7 @@
 ---
 title: Altinn Studio tilganger
 linktitle: Studio
-description: Hvordan konfigurere tilganger for team i Altinn Studio.
+description: Team og tilganger i Altinn Studio.
 toc: true
 weight: 200
 ---
