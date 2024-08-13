@@ -1,5 +1,5 @@
 ---
-title: Create the Service
+title: "Module 1: Create the Service"
 description: In this module, we will create a form service in Altinn Studio
 weight: 10
 toc: true

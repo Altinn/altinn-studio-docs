@@ -1,5 +1,5 @@
 ---
-title: Customize the Data Model
+title: "Module 2: Customize the Data Model"
 description: In this module, we will customize the data model for the service
 weight: 20
 toc: true

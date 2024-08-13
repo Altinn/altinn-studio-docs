@@ -1,5 +1,5 @@
 ---
-title: Publish the Service
+title: "Module 5: Publish the Service"
 description: Publish the service to a test environment
 tags: [apps, training, form, deploy, test]
 weight: 50
