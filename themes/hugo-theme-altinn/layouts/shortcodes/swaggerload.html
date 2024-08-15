@@ -1,0 +1,47 @@
+<script src="/js/swagger-client-3.28.2.browser.min.js"></script>
+<script>
+window.swaggerLoad = function(swaggerUri) {
+    const $containers = $(".swagger-entity-display-container");
+    $containers.html('<div class="sed-loader"><div class="sed-ellipsis"><div></div><div></div><div></div><div></div></div><span>Loading entity definition ...</div>');
+
+    new SwaggerClient(swaggerUri)
+    .then(
+        client => {
+            if (window.host == "localhost") window.swaggerSpec = client.spec;
+            (window.swaggerOnloadHandlers || []).forEach(handler => handler(window.swaggerSpec));
+            if (window.location.hash) {
+                var hash = window.location.hash.substring(1);
+                var targetElement = document.getElementById(hash);
+                if (targetElement) {
+                    targetElement.scrollIntoView();
+                }
+            }
+        },
+        reason => {
+            console.error('swaggerload: Filed to load the spec: ' + reason)
+            $containers.html(`<div class='notices warning'>Failed to load swagger from ${swaggerUri}, unable to display entity information. Please try again later.</div>`);
+        }
+    );
+}
+
+window.swaggerOnloadHandlers = window.swaggerOnloadHandlers || [];
+window.addSwaggerOnloadHandler = function(fn) {
+    window.swaggerOnloadHandlers.push(fn)
+};
+
+window.addEventListener('load', function() {
+    let swaggerParam = '{{ .Get 0 }}';
+    if (!swaggerParam) {
+        const selectedSwagger = window.localStorage.getItem('selectedSwagger');
+        if (selectedSwagger) {
+            swaggerParam = selectedSwagger;
+        }
+        else {
+            console.error('swaggerload: no swagger to load!');
+        }
+    }
+    
+    window.swaggerLoad(swaggerParam);
+});
+
+</script>

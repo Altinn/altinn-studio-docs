@@ -1739,3 +1739,198 @@ a code {
 a code + .copy-to-clipboard {
     display: none;
 }
+
+/* Foot notes */
+div.footnotes-ref {
+    margin-left: -.2rem;
+}
+div.footnotes-display {
+    font-size: 80%;
+    margin-top: -2rem;
+    margin-bottom: 2rem;
+}
+div.footnotes-entry > span {
+    margin-left: .4rem;
+}
+
+/* Swagger entity display */ 
+.swagger-entity-display {
+    padding: 0;
+    box-shadow: inset 0 0 0 1px #ccc;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.swagger-entity-display dt {
+    font-weight: bold;
+    padding: .3rem;
+    background-color: #e9e9e9;
+    box-shadow: inset 0 0 0 .5px #ccc;
+    display: inline-block;
+    flex-basis: 35%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.swagger-entity-display dd {
+    margin: 0;
+    padding: .3rem;
+    box-shadow: inset 0 0 0 .5px #ccc;
+    color: #666;
+    font-size: 0.9em;
+    flex-basis: 65%;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sed-head dt, .sed-head dd { 
+    font-family: "DIN-bold";
+    font-size: 1em; 
+    background-color: #ccc; 
+    color: #333; 
+}
+
+.sed-head dd {
+    border-left: 1px solid #bbb;
+    margin-left: -.5px;
+}
+
+.sed-type {
+    display: block;
+    clear: both;
+    font-style: italic;
+    color: #555;
+    font-size: small;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sed-ex-header, .sed-enum-header {
+    display: block;
+    margin-top: 1rem;
+    font-family: "DIN-bold";
+}
+
+.sed-ex, .sed-enum {
+    margin: 0 0 1rem;
+    display: inline-block;
+    white-space: pre-wrap;
+}
+
+.sed-indent {
+    margin-left: 3rem;
+}
+.sed-loader { text-align: center }
+.sed-loader span { display: block; font-size: small }
+
+.sed-ellipsis {
+	display: inline-block;
+	position: relative;
+	width: 80px;
+	height: 50px;
+  }
+  .sed-ellipsis div {
+	position: absolute;
+	top: 33px;
+	width: 13px;
+	height: 13px;
+	border-radius: 50%;
+	background: #1EAEF7;
+	animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  }
+  .sed-ellipsis div:nth-child(1) {
+	left: 8px;
+	animation: sed-ellipsis1 0.6s infinite;
+  }
+  .sed-ellipsis div:nth-child(2) {
+	left: 8px;
+	animation: sed-ellipsis2 0.6s infinite;
+  }
+  .sed-ellipsis div:nth-child(3) {
+	left: 32px;
+	animation: sed-ellipsis2 0.6s infinite;
+  }
+  .sed-ellipsis div:nth-child(4) {
+	left: 56px;
+	animation: sed-ellipsis3 0.6s infinite;
+  }
+  @keyframes sed-ellipsis1 {
+	0% {
+	  transform: scale(0);
+	}
+	100% {
+	  transform: scale(1);
+	}
+  }
+  @keyframes sed-ellipsis3 {
+	0% {
+	  transform: scale(1);
+	}
+	100% {
+	  transform: scale(0);
+	}
+  }
+  @keyframes sed-ellipsis2 {
+	0% {
+	  transform: translate(0, 0);
+	}
+	100% {
+	  transform: translate(24px, 0);
+	}
+  }
+
+.swagger-entity-display dl {
+    border-top: none;
+}
+
+@media (max-width: 1200px) {
+    .swagger-entity-display dl {
+        display: block;
+    }
+    .swagger-entity-display dt,
+    .swagger-entity-display dd {
+        flex-basis: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+    }
+    .sed-head {
+        display: none
+    }
+}
+
+#dialogporten-swagger-selector-container { 
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 80%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+
+#dialogporten-swagger-selector-container > span { 
+    margin-right: 1rem;
+}
+
+#dialogporten-swagger-selector { 
+
+}
+
+#dialogporten-swagger-selector-help-open {
+    margin-left: 1rem;
+    padding: 0;
+}
+
+#dialogporten-swagger-selector-help {
+    display: none;
+}
