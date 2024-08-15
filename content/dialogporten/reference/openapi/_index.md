@@ -6,11 +6,14 @@ weight: 10
 
 The API-specification for Dialogporten is available at the following adresses:
 
-| Environment | URL                                                                   |
-| ----------- | --------------------------------------------------------------------- |
-| Test        | https://altinn-dev-api.azure-api.net/dialogporten/swagger/index.html  |
-| Staging     | https://altinn-tt02-api.azure-api.net/dialogporten/swagger/index.html |
-| Production  | Not yet available                                                     |
+| Environment | URL                                                                                                  |
+| ----------- | ---------------------------------------------------------------------------------------------------- |
+| Test        | https://altinn-dev-api.azure-api.net/dialogporten/swagger/index.html                                 |
+| Staging     | https://platform.tt02.altinn.no/dialogporten/swagger/index.html                                      |
+| Production  | https://platform.altinn.no/dialogporten/swagger/index.html {{<footnote "Not currently available" >}} |
+
+{{<displayFootnotes>}}
+
 
 **Read more**
 * [Technical information about Dialporten V1 schemas](https://github.com/digdir/dialogporten/tree/main/docs/schema/V1)

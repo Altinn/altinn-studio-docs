@@ -1813,13 +1813,13 @@ div.footnotes-entry > span {
     text-overflow: ellipsis;
 }
 
-.sed-ex-header {
+.sed-ex-header, .sed-enum-header {
     display: block;
     margin-top: 1rem;
     font-family: "DIN-bold";
 }
 
-.sed-ex {
+.sed-ex, .sed-enum {
     margin: 0 0 1rem;
     display: inline-block;
     white-space: pre-wrap;
@@ -1906,4 +1906,31 @@ div.footnotes-entry > span {
     .sed-head {
         display: none
     }
+}
+
+#dialogporten-swagger-selector-container { 
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 80%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+
+#dialogporten-swagger-selector-container > span { 
+    margin-right: 1rem;
+}
+
+#dialogporten-swagger-selector { 
+
+}
+
+#dialogporten-swagger-selector-help-open {
+    margin-left: 1rem;
+    padding: 0;
+}
+
+#dialogporten-swagger-selector-help {
+    display: none;
 }

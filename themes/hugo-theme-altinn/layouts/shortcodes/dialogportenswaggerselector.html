@@ -1,0 +1,63 @@
+<div id="dialogporten-swagger-selector-container">
+    <span>Select environment:</span>
+    <select id="dialogporten-swagger-selector">
+        <option value="https://altinn-prod-api.azure-api.net/dialogporten/swagger/v1/swagger.json">Production</option>
+        <option class="js-default" value="https://altinn-tt02-api.azure-api.net/dialogporten/swagger/v1/swagger.json">Staging (TT02)</option>
+        <option value="https://altinn-dev-api.azure-api.net/dialogporten/swagger/v1/swagger.json">Dev</option>
+        <option value="https://localhost:7214/swagger/v1/swagger.json">Local dev</option>
+    </select>
+    <a href="javascript:" id="dialogporten-swagger-selector-help-open"><span data-toggle-text="Hide">Help</span></a>
+</div>
+<div id="dialogporten-swagger-selector-help" class="notices info">
+    This dropdown lets you select which Dialogporten environment the content of this page should be based on. If unsure, use the default "Staging (TT02)", as this is the environment you would normally test against when integrating Dialogporten.
+    <br><br>
+    For bleeding edge, select "Dev", as this contains the <a href="https://github.com/digdir/dialogporten/pulls?q=is%3Apr+is%3Aopen+%22chore%28main%29%3A+release%22">most recent unreleased changes</a> to the Dialogporten API. Select "Local dev" if you want to test changes to Dialogporten itself running locally.
+    <br>
+    <br>
+    <button class="bg-light" id="dialogporten-swagger-selector-help-close">Dismiss</button>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const $sel = $('#dialogporten-swagger-selector');
+        const $helpOpen = $('#dialogporten-swagger-selector-help-open');
+        const $help = $('#dialogporten-swagger-selector-help');
+        const $helpClose = $('#dialogporten-swagger-selector-help-close');
+        const selectedSwaggerKey = 'selectedSwagger';
+
+        let selectedSwagger = window.localStorage.getItem(selectedSwaggerKey);
+        if (!selectedSwagger) {
+            selectedSwagger = $sel.find('.js-default').val();
+            window.localStorage.setItem(selectedSwaggerKey, selectedSwagger);
+        }
+
+        $sel.val(selectedSwagger);
+
+        $sel.on('change', function() {
+            window.swaggerLoad($(this).val());
+            window.localStorage.setItem(selectedSwaggerKey, $(this).val());
+        });
+
+        var toggleText = function() {
+            let $s = $helpOpen.find("span");
+            let lbl = $s.text();
+            $s.text($s.data("toggle-text"));
+            $s.data("toggle-text", lbl);
+        };
+
+        $helpOpen.on('click', function() {
+            if ($help.is(":visible")) {
+                $help.hide();
+                toggleText();
+            } 
+            else {
+                $help.show();
+                toggleText();
+            }
+        });
+
+        $helpClose.on('click', function() {
+            $help.hide();
+            toggleText();
+        });
+    });
+</script>

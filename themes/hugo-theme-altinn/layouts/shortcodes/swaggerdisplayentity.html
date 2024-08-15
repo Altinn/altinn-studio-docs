@@ -1,90 +1,99 @@
 <script>
-    if (typeof window.addSwaggerOnloadHandler !== "function") {
-        console.error("swaggerdisplayentity: you must call {"+"{<swaggerload \"uri to swagger\">}} first");
-    }
-    else {
-        addSwaggerOnloadHandler(function(spec) {
-            const $container = $("#swagger-entity-display-container-{{ .Get 0 }}");
-            if (typeof spec.components.schemas !== "object") {
-                $container.html("<div class='notices warning'>swaggerdisplayentity: unable to parse spec</div>");
-            }
-            let entity = spec.components.schemas["{{ .Get 0 }}"];
-            if (!entity) {
-                $container.html("<div class='notices warning'>swaggerdisplayentity: entity \"{{ .Get 0 }}\" not found in spec</div>");
-            }
-            else {
-                $container.html(generateHtmlDefinitionList("{{ .Get 0 }}", entity));
-            }
-        });
-    }
-
-    function generateHtmlDefinitionList(entityname, entity, indentLevel = 0, parentName = '') {
-        let html = '';
-
-        let indentClass = '';
-        if (indentLevel > 0) {
-            indentClass = ` sed-indent sed-indent-${indentLevel}`;
+    (function() {
+        let swaggerCurrentEntity = '{{ .Get 0 }}';
+        if (typeof window.addSwaggerOnloadHandler !== "function") {
+            console.error("swaggerdisplayentity: you must call {"+"{<swaggerload \"uri to swagger\">}} first");
         }
-        
-        if (entity.type === 'object' && entity.properties) {
-            html += `<dl class="swagger-entity-display${indentClass}">`;
-            for (let [propertyName, propertySchema] of Object.entries(entity.properties)) {
-                if (propertySchema.oneOf) {
-                    // Handling of oneOf. Assume just single type (ignore any type byond the first).
-                    const nullable = propertySchema.nullable; 
-                    propertySchema = propertySchema.oneOf[0];
-                    propertySchema.nullable = nullable;
+        else {
+            addSwaggerOnloadHandler(function(spec) {
+                const $container = $(`#swagger-entity-display-container-${swaggerCurrentEntity}`);
+                if (typeof spec.components.schemas !== "object") {
+                    $container.html("<div class='notices warning'>swaggerdisplayentity: unable to parse spec</div>");
                 }
-                const description = propertySchema.description ? propertySchema.description.replaceAll(/\n\s*?\n/g, "<br><br>") : '(undescribed)';
-                const type = propertySchema.type || 'unknown';
-                const nullable = propertySchema.nullable ? ' (optional)' : '';
-                const example = propertySchema.example ? `<span class="sed-ex-header">Example</span><code class="sed-ex">${propertySchema.example}</code>` : '';
-
-                let typeDesc = type;
-                if (type == "array") {
-                    let childType = propertySchema.items["$$ref"].split(/\//).pop();
-                    typeDesc = `List of ${childType}`;
+                let entity = spec.components.schemas[swaggerCurrentEntity];
+                if (!entity) {
+                    $container.html(`<div class='notices warning'>swaggerdisplayentity: entity "${swaggerCurrentEntity}" not found in spec</div>`);
                 }
-                else if (type == "object") {
-                    let childType = propertySchema["$$ref"].split(/\//).pop();
-                    typeDesc = childType;
+                else {
+                    if (window.host == "localhost") {
+                        console.log(`swaggerdisplayentity: ${swaggerCurrentEntity}`, spec.components.schemas[swaggerCurrentEntity]);
+                    }
+                    $container.html(generateHtmlDefinitionList(swaggerCurrentEntity, entity));
                 }
-                
-                if (propertySchema.format) {
-                    typeDesc += ` (${propertySchema.format})`;
-                }
-
-                const anchor = "" + entityname + (parentName ? "_" + parentName : "") + "_" + propertyName;
-                html += `<dt>
-                            <span class="sed-prop"><a href="#${anchor}" id="${anchor}">${propertyName}</a>${nullable}</span>
-                            <span class="sed-type" title="${typeDesc}">${typeDesc}</span>
-                        </dt>`;
-                html += `<dd>
-                            <span class="sed-desc">${description}</span>
-                            ${example}
-                        </dd>`;
-                
-                if (type === 'object' || (type === 'array' && propertySchema.items && propertySchema.items.type === 'object')) {
-                    const nestedSchema = type === 'object' ? propertySchema : propertySchema.items;
-                    html += generateHtmlDefinitionList(entityname, nestedSchema, indentLevel + 1, (parentName ? parentName + "_" : "") + propertyName);
-                }
-            }
-            html += '</dl>';
-        } else if (entity.type === 'array' && entity.items) {
-            html += generateHtmlDefinitionList(entityname, entity.items, indentLevel);
+            });
         }
 
-        if (indentLevel == 0) {
-            html = `
-                <div class="swagger-entity-display-container">
-                    <h3>${entityname}</h3>
-                    <dl class="swagger-entity-display sed-head"><dt>Property</dt><dd>Description</dd></dl>
-                    ${html}
-                </div>
-                `;
+        function generateHtmlDefinitionList(entityname, entity, indentLevel = 0, parentName = '') {
+            let html = '';
+
+            let indentClass = '';
+            if (indentLevel > 0) {
+                indentClass = ` sed-indent sed-indent-${indentLevel}`;
+            }
+            
+            if (entity.type === 'object' && entity.properties) {
+                html += `<dl class="swagger-entity-display${indentClass}">`;
+                for (let [propertyName, propertySchema] of Object.entries(entity.properties)) {
+                    const description = propertySchema.description ? propertySchema.description.replaceAll(/\n\s*?\n/g, "<br><br>") : '(undescribed)';
+                    if (propertySchema.oneOf) {
+                        // Handling of oneOf. Assume just single type (ignore any type beyond the first).
+                        const nullable = propertySchema.nullable; 
+                        propertySchema = propertySchema.oneOf[0];
+                        propertySchema.nullable = nullable;
+                    }
+                    
+                    const type = propertySchema.type || 'unknown';
+                    const nullable = propertySchema.nullable ? ' (optional)' : '';
+                    const example = propertySchema.example ? `<span class="sed-ex-header">Example</span><code class="sed-ex">${propertySchema.example}</code>` : '';
+                    const enumNames = propertySchema.enum ? `<span class="sed-enum-header">Valid values</span><code class="sed-enum">${propertySchema.enum.join(', ')}</code>` : '';
+
+                    let typeDesc = type;
+                    if (type == "array") {
+                        let childType = propertySchema.items["$$ref"].split(/\//).pop();
+                        typeDesc = `List of ${childType}`;
+                    }
+                    else if (type == "object") {
+                        let childType = propertySchema["$$ref"].split(/\//).pop();
+                        typeDesc = childType;
+                    }
+                    
+                    if (propertySchema.format) {
+                        typeDesc += ` (${propertySchema.format})`;
+                    }
+
+                    const anchor = "" + entityname + (parentName ? "_" + parentName : "") + "_" + propertyName;
+                    html += `<dt>
+                                <span class="sed-prop"><a href="#${anchor}" id="${anchor}">${propertyName}</a>${nullable}</span>
+                                <span class="sed-type" title="${typeDesc}">${typeDesc}</span>
+                            </dt>`;
+                    html += `<dd>
+                                <span class="sed-desc">${description}</span>
+                                ${example}
+                                ${enumNames}
+                            </dd>`;
+                    
+                    if (type === 'object' || (type === 'array' && propertySchema.items && propertySchema.items.type === 'object')) {
+                        const nestedSchema = type === 'object' ? propertySchema : propertySchema.items;
+                        html += generateHtmlDefinitionList(entityname, nestedSchema, indentLevel + 1, (parentName ? parentName + "_" : "") + propertyName);
+                    }
+                }
+                html += '</dl>';
+            } else if (entity.type === 'array' && entity.items) {
+                html += generateHtmlDefinitionList(entityname, entity.items, indentLevel);
+            }
+
+            if (indentLevel == 0) {
+                html = `
+                    <div class="swagger-entity-display-container">
+                        <h3>${entityname}</h3>
+                        <dl class="swagger-entity-display sed-head"><dt>Property</dt><dd>Description</dd></dl>
+                        ${html}
+                    </div>
+                    `;
+            }
+            return html;
         }
-        return html;
-    }
+    })();
 </script>
 
 <div class="swagger-entity-display-container" id="swagger-entity-display-container-{{ .Get 0 }}"></div>
