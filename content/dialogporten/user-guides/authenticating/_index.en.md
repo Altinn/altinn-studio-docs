@@ -14,7 +14,7 @@ The Dialogporten API is divided into a service owner-API and a end user-API.
 | End user      | ID-porten, Maskinporten{{<footnote "Only when using system users." >}} |
 | Service owner | Maskinporten{{<footnote "Also supports supplier token" >}}             |
 
-{{<displayFootnotes>}}
+{{<displayFootnotes>}}  
 
 In addition, token issued by [Altinn Token Exhange]({{<ref "../../../authentication/what-do-you-get/#exchange-a-jwt-token-from-an-external-token-provider">}}) is also supported, when using either ID-porten or Maskinporten as input.
 
@@ -25,7 +25,7 @@ End-user systems can either use a ID-porten token, identifying a person, or a Ma
 ### ID-porten authentication
 
 ID-porten authentication should be employed by end-user systems that want to access Dialogporten and related services using the identity of a single person, and utilize their authorization in order to access dialogs available across the parties in which the authenticated user has access. This is the API that is being used by the common GUI frontend ("arbeidsflate") available after logging in to altinn.no.
-z
+
 The following general steps must be performed in order to access the end-user API as a person:
 
 1. Create a ID-porten integration (OAuth2 client)
