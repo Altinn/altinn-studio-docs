@@ -7,7 +7,7 @@
         else {
             addSwaggerOnloadHandler(function(spec) {
                 const $container = $(`#swagger-entity-display-container-${swaggerCurrentEntity}`);
-                if (typeof spec.components.schemas !== "object") {
+                if (typeof spec !== "object" || typeof spec.components !== "object" || typeof spec.components.schemas !== "object") {
                     $container.html("<div class='notices warning'>swaggerdisplayentity: unable to parse spec</div>");
                 }
                 let entity = spec.components.schemas[swaggerCurrentEntity];
