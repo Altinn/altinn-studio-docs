@@ -28,5 +28,4 @@ you can proceed directly with the next steps to start using Altinn Notifications
 
 ## 5. Integrate against Notifications API
 
-{{% insert "\notifications\getting-started\shared\get-started\integrate-with-api\get-started-integrate-with-api.en.doesntexist.md" %}}
-
+{{% insert "\notifications\getting-started\shared\get-started\integrate-with-api\get-started-integrate-with-api.en.md" %}}
