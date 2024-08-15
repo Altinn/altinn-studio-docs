@@ -46,7 +46,7 @@ How to perform specific tasks related to app development in Altinn Studio.
 
 |   |   |   |   |   |
 |---|---|---|---|---|
-| [Design](/app/guides/design)  | [Testing](/app/testing)  | [Copy app](/app/guides/copy-app)  | [Access management](/app/guides/access-management)  | [Migrate from Altinn 2](/app/guides/migrate-services) |
+| [Design](/app/guides/design)  | [Testing](/app/testing)  | [Copy app](/app/guides/copy-app)  | [Access management](/altinn-studio/guides/access-management)  | [Migrate from Altinn 2](/app/guides/migrate-services) |
 
 ## App examples
 Draw inspiration from applications developed by Digdir or external organizations.

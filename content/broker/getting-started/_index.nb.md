@@ -13,8 +13,7 @@ I arbeid.
 
 {{<children />}}
 
-På grunn av de ulike distinkte rollene som et foretak kan samhandle med Altinn Formidling, 
-har vi delt inn veiledningene inn i flere deler ut fra aktuell rolle:
+På grunn av de ulike rollene en virksomhet kan ha i samhandling med Altinn Formidling, har vi delt veiledningene i flere deler basert på den aktuelle rollen;
 
 - Sender/Avsender
 - Recipient/Mottaker
@@ -22,8 +21,6 @@ har vi delt inn veiledningene inn i flere deler ut fra aktuell rolle:
 
 En virksomhet kan ha en eller flere av disse rollene.
 
-Tjenesteeiere eier konfigurasjonen og datalagringen for Formidling-tjenesteressursen, og vil opprettholde tilgangsrettighetene for sin spesifikke ressurs i Altinn Resource Rights Registry.
+De fleste virksomheter vil ha sender og/eller mottaker, mens tjenesteeiere ofte vil ha alle tre.
 
-De fleste foretak vil ha Sender og/eller Mottaker, mens Tjenesteeiere ofte vil ha alle tre.
-
-Som sådan må Tjenesteeiere ta ekstra skritt for å sette opp og definere sin Formidling-ressurs.
+Som **tjenesteeier** har du ansvar for konfigurasjon av tjenesten, datalagring og tilgangstyring til tjenesten. Det betyr at du som tjenesteeier må sette opp og definere løsningen før man kan ta den i bruk.

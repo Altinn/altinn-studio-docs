@@ -23,7 +23,7 @@ dvs. avsendere (datatilbydere), mottakere (datakonsumenter) og tjenesteeiere.
 
 
 ## Overordnede brukerbehov
-For å se hvilke egenskaper som kreves av Altinn Formidling-løsningen, starter vi med å vurdere brukernes behov. 
+For å se hvilke egenskaper som kreves av Altinn Formidlingsløsningen, starter vi med å vurdere brukernes behov. 
 Følgende diagram uttrykker de overordnede brukerbehovene for hvert verdistrømsteg.
 
 ![Høy-nivå brukerbehov for styrt filoverføring](high-level-user-needs-for-managed-file-transfer.nb.png "Høy-nivå brukerbehov for styrt filoverføring")

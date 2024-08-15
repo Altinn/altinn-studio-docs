@@ -1,8 +1,8 @@
 ---
-title: Add code lists
+title: "Module 6: Add code lists"
 description: Not translated.
 tags: [apps, training, form, pages]
-weight: 40
+weight: 60
 toc: true
 ---
 
