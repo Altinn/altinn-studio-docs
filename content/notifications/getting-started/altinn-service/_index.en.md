@@ -6,9 +6,9 @@ weight: 10
 
 ## 1. Register your Maskinporten Client with correct scopes
 
-{{% insert "\notifications\shared\getting-started\maskinporten\get-started-maskinporten.en.md" %}}
+{{% insert "content\notifications\shared\getting-started\maskinporten\get-started-maskinporten.en.md" %}}
 
 ## 2. Integrate against Notifications API
 
-{{% insert "\notifications\shared\getting-started\integrate-with-api\get-started-integrate-with-api.en.md" %}}
+{{% insert "content\notifications\shared\getting-started\integrate-with-api\get-started-integrate-with-api.en.md" %}}
 
