@@ -10,7 +10,6 @@ weight: 1
 {{<children />}}
 
 ## Hva du får med Altinn Formidling 
-
 Overordnet oversikt og bekrivelse av nøkkelfunksjonalitetene og egenskapene til Altinn Formidling 
 
 ### Ende-til-ende meldingsutveksling
