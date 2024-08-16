@@ -42,7 +42,7 @@ This data type is used to store the PDF-receipt for the payment. Configure it ne
 A process step and a gateway must be added to `App/config/process/process.bpmn`, as in the example below.
 
 Payment uses three user actions. If the Altinn user interface is used by the app, these will be called automatically when you are in the payment step. If only the API is used, these must be called manually via the `/actions` endpoint.
-- `pay`: Initiates the payment, often by making API calls to the payment processor. How to check which payment processor is used is described [here](#4-implement-the-iorderdetailscalculator-interface). Information and status about the initiated payment is stored in a JSON data type specified in the payment process step.
+- `pay`: Initiates the payment, often by making API calls to the payment processor. Information and status about the initiated payment is stored in a JSON data type specified in the payment process step.
 - `confirm`: Called when payment has been completed to drive the process to the next step.
 - `reject`: If the end user sees something wrong with the order, the person concerned can press "Back" in the payment step. The payment is then canceled and information about the interrupted payment is deleted. Which process step you are then directed to is specified in a gateway, as exemplified below.
 
