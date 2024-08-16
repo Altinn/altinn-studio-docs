@@ -1,10 +1,13 @@
 ---
-title: Backend configuration 
-description: Set up your backend to handle payment.
-weight: 1
+hidden: true
 ---
 
-### 1. Create two data types to store payment information:
+> This is a description of how to set up a payment task in the app process. This involves several manual steps in multiple
+> configuration files.
+> If you use Altinn Studio Designer to add the payment task to the process, all the manual configuration outlined below
+> will be set up automatically. 
+
+### Create two data types to store payment information:
 
 This data type is used to store information and status about the payment. Put it in the `dataTypes` array in `App/config/applicationmetadata.json`.
 
@@ -34,7 +37,7 @@ This data type is used to store the PDF-receipt for the payment. Configure it ne
 
  The IDs can be set to something else, but they must match the IDs entered in `paymentDataType` and `paymentReceiptPdfDataType` in the process step, as shown in step 2.
 
-### 2. Extend the app process with payment task:
+### Extend the app process with payment task:
 
 A process step and a gateway must be added to `App/config/process/process.bpmn`, as in the example below.
 
@@ -103,91 +106,51 @@ Payment uses three user actions. If the Altinn user interface is used by the app
 ```
 The value of this node: `<altinn:paymentDataType>paymentInformation</altinn:paymentDataType>` must match the ID of the data type you configured in the previous step. Same for the pdf-receipt data type.
 
-### 3. Ensure correct authorization for payment process task:
+### Add Payment layoutSet
 
-The user making the payment needs to have authorization for the `read`, `write`, `pay`, `confirm` and `reject` actions on the payment task.
+Add a new layoutSet folder for your payment task, and update your layout-sets.json.
 
-### 4. Implement the IOrderDetailsCalculator interface:
+Your layout-sets.json may look something like this:
 
-Add a new class where you have your custom code, for example: `App/logic/OrderDetailsCalculator.cs`.
-
-Here you will implement your logic to calculate what the user will pay for.
-For example, you can add order lines based on form data, add mandatory fees, or add a fixed cost for the form.
-
-The return value from the `CalculateOrderDetails` method indicates:
-- Payment processor to be used for the order. These are made available by implementing the `IPaymentProcessor` interface and registering them as transient in program.cs. Fill in `Nets Easy' to use the default implementation for Nets Easy.
-- Currency
-- Order lines
-- Details of payment receiver. Used in receipt.
-
-In this example, the order lines are calculated based on form data:
-
-```c#
-public class OrderDetailsCalculator : IOrderDetailsCalculator
+```json
 {
-    private readonly IDataClient _dataClient;
-
-    public OrderDetailsCalculator(IDataClient dataClient)
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
+  "sets": [
     {
-        _dataClient = dataClient;
-    }
-    
-    public async Task<OrderDetails> CalculateOrderDetails(Instance instance, string? language)
+      "id": "form",
+      "dataType": "model",
+      "tasks": [
+        "Task_1"
+      ]
+    },
     {
-        DataElement modelData = instance.Data.Single(x => x.DataType == "model");
-        InstanceIdentifier instanceIdentifier = new(instance);
-        
-        Form formData = (Form) await _dataClient.GetFormData(instanceIdentifier.InstanceGuid, typeof(Form), instance.Org, instance.AppId,
-            instanceIdentifier.InstanceOwnerPartyId, new Guid(modelData.Id));
-
-        List<PaymentOrderLine> paymentOrderLines = formData.GoodsAndServicesProperties.Inventory.InventoryProperties
-            .Where(x => !string.IsNullOrEmpty(x.NiceClassification) && !string.IsNullOrEmpty(x.GoodsAndServices))
-            .Select((x, index) =>
-                new PaymentOrderLine
-                {
-                    Id = index.ToString(), Name = $"{GetLocalizedName(x.Id, language)}", PriceExVat = GetPriceForInventoryItem(x), Quantity = 1, VatPercent = 0M
-                })
-            .ToList();
-
-        return new OrderDetails { 
-          PaymentProcessorId = "Nets Easy", 
-          Currency = "NOK", 
-          OrderLines = paymentOrderLines, 
-          Receiver = GetReceiverDetails()};
+      "id": "payment",
+      "dataType": "model",
+      "tasks": [
+        "Task_2"
+      ]
     }
-}
-
-```
-
-Register IOrderDetailsCalculator implementation in program.cs:
-```c#
-void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
-{
-    // Register your apps custom service implementations here.
-    services.AddTransient<IOrderDetailsCalculator, OrderDetailsCalculator>(); 
+  ]
 }
 ```
 
+In your payment layoutSet folder, add a new file, payment.json, with the following layout:
 
-### 5. Add config to appsettings.json:
-
-1. [Get your secret key from nets.](https://developer.nexigroup.com/nexi-checkout/en-EU/docs/access-your-integration-keys/). Make sure you use the test key during development.
-2. Make your app ready for use of Azure Key Vault as a config provider, if this has not been done before. See relevant [documentation](/altinn-studio/reference/configuration/secrets/).
-3. Add your secret key to keyvault, with the variable name: `NetsPaymentSettings--SecretApiKey`. This way it will override `SecretApiKey` in `appsettings.json`.
-4. Add `NetsPaymentSettings` to your `appsettings.json`. Remember to set the correct `baseUrl` in production.
-    ```json
-    {
-      "NetsPaymentSettings": {
-        "SecretApiKey": "In keyvault",
-        "BaseUrl": "https://test.api.dibspayment.eu/",
-        "TermsUrl": "https://www.yourwebsite.com/terms",
-        "ShowOrderSummary": true,
-        "ShowMerchantName": true
+```json
+{
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "payment-test-component",
+        "type": "Payment",
+        "textResourceBindings": {
+          "title": "Oppsummering"
+        }
       }
-    }
-    ```
-5. Local mocking of `SecretApiKey` can be done with the use of [user secrets](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-8.0&tabs=windows).
-   ```
-   dotnet user-secrets init
-   dotnet user-secrets set "NetsPaymentSettings:SecretApiKey" "test-secret-key-used-for-documentation"
-   ```
+    ]
+  }
+}
+```
+
+This is required for payment to work, without it, your payment step will just render a white page.
