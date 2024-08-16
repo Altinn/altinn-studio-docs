@@ -14,11 +14,11 @@ Detailed documentation on Altinn App development in the [Altinn Studio documenta
 
 ## 2. Review policy for relevant resources in Altinn Resource Registry
 
-{{% insert "content\notifications\getting-started\shared\get-started\resource\get-started-resource.en.md" %}}
+{{% insert "\notifications\shared\getting-started\resource\get-started-resource.en.md" %}}
 
 
 ## 3. Familiarize yourself with the guidelines and best practice for sending notifications
-{{% insert "content\notifications\getting-started\shared\get-started\guidelines\guidelines.en.md" %}}
+{{% insert "\notifications\shared\getting-started\guidelines\guidelines.en.md" %}}
 
 ## 4. Configure your app to send notifications
 

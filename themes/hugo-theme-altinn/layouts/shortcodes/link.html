@@ -1,0 +1,40 @@
+{{/*
+
+This short code allows making anchor links to other pages using that page description, title or linkTitle 
+as anchor text. The path can be either absolute or relative to the calling page (like <ref>).
+
+Usage:
+
+{{<link "../path/to/page">}}
+{{<link "../path/to/page" title>}}
+{{<link "../path/to/page" linkTitle>}}
+{{<link "../path/to/page" description>}} <!-- default -->
+
+*/}}    
+
+{{ $callingDir := .Page.File.Dir }}
+{{ $relativePath := .Get 0 }}
+{{ $attribute := .Get 1 | default "description" }}
+
+{{ $absolutePath := path.Join $callingDir $relativePath | path.Clean }}
+{{ $page := site.GetPage $absolutePath }}
+
+{{ if $page }}
+    {{ $displayText := "" }}
+    {{ if eq $attribute "title" }}
+        {{ $displayText = $page.Title }}
+    {{ else if eq $attribute "linkTitle" }}
+        {{ $displayText = $page.Params.linkTitle }}
+    {{ else if eq $attribute "description" }}
+        {{ $displayText = $page.Params.description }}
+    {{ else }}
+        {{ errorf "Invalid attribute specified for shortcode link: %s. Use 'title', 'linkTitle', or 'description'." $attribute }}
+        {{ $displayText = "Invalid link attribute" }}
+    {{ end }}
+
+    {{ if ne $displayText "" }}
+        <a href="{{ $page.RelPermalink }}">{{ $displayText }}</a>
+    {{ end }}
+{{ else }}
+    {{ errorf "Page not found for shortcode link with path: %s" $absolutePath }}
+{{ end }}
