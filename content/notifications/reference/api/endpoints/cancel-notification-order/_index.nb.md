@@ -1,16 +1,17 @@
 ---
-title: Get order status
-linktitle: Get order status 
-description: Endpoint for retrieving the processing status of an order and a summary of all generated notifications.
-weight: 51
+title: Cancel notification order
+linktitle: Cancel notification order
+description: Endpoint for stopping the sending of a registered notification order
+
+weight: 60
 toc: true
 ---
 
 ## Endpoint
 
-GET /order/{id}/status
+PUT /order/{id}/cancel
 
-{id} represents the ID of the notification order to retrieve status for.
+{id} represents the ID of the notification order to retrieve notifications for.
 
 ## Authentication
 
@@ -23,10 +24,11 @@ See [Authentication and Authorization](../../../api/#authentication--authorizati
 ## Response
 
 ### Response codes
-- 200 OK: The notification order status was successfully retrieved.
-- 404 Not Found: No order matching the provided ID were found. Refer to problem details in response body for further information.
+- 200 OK: The notification order was cancelled. No notifications will be sent.
+- 404 Not Found: No order matching the provided ID were found 
 - 401 Unauthorized: Indicates a missing, invalid or expired authorization header.
 - 403 Forbidden: Indicates that required scope or Platform Access Token is missing or invalid.
+- 409 Conflict: The order cannot be cancelled due to current processing status
 
 ### Content-Type
 - application/json
@@ -94,19 +96,6 @@ A status object describing the processing status of the notification order conta
 | Completed  |      Order processing is completed. All notifications have been generated.       |
 | Cancelled  |          Order processing was stopped due to order being cancelled.              |
 
-
-#### notificationStatusSummary
-Type: [_NotificationsStatusSummaryExt_](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/NotificationsStatusSummaryExt.cs)
-
-An object containing a [NotificationStatusExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/NotificationStatusExt.cs)
-object for for each notification channel used.
-
-The _NotificationStatusExt_ object contains  the properties below.
-  - links: a set of links to access the notifications generated for the given notification channel
-  - generated: the number of generated notifications
-  - succeeded: the number of notifications that have been successfully sent
- 
-  
 ## Examples
 
 ### Request
@@ -118,7 +107,7 @@ __You only need one of them__, reference [Authentication](#authentication) for w
 
 
 ```bash
-curl --location 'https://platform.altinn.no/notifications/api/v1/orders/f1a1cc30-197f-4f34-8304-006ce4945fd1/status' \
+curl --location 'https://platform.altinn.no/notifications/api/v1/orders/f1a1cc30-197f-4f34-8304-006ce4945fd1/cancel' \
 --header 'Content-Type: application/json' \
 --header 'PlatformAccessToken: [INSERT PLATFORM ACCESS TOKEN]' \
 --header 'Authorization: Bearer [INSERT ALTINN TOKEN]' 
@@ -129,7 +118,7 @@ curl --location 'https://platform.altinn.no/notifications/api/v1/orders/f1a1cc30
 #### 200 OK
 Response body contains the notification order with status information.
 
-_Example: Email notification order with status information._
+_Example: Successfully cancelled order response._
 ```json
 {
     "id": "f1a1cc30-197f-4f34-8304-006ce4945fd1",
@@ -139,45 +128,10 @@ _Example: Email notification order with status information._
     "created": "2023-12-12T14:13:27.845029Z",
     "notificationChannel": "Email",
     "processingStatus": {
-        "status": "Completed",
-        "description": "Order processing is completed. All notifications have been generated.",
+        "status": "Cancelled",
+        "description": "Order processing was stopped due to order being cancelled.",
         "lastUpdate": "2023-12-12T14:13:27.845029Z"
-    },
-    "notificationsStatusSummary": {
-        "email": {
-            "links": {
-                "self": "https://platform.at22.altinn.cloud/notifications/api/v1/orders/f1a1cc30-197f-4f34-8304-006ce4945fd1/notifications/email"
-            },
-            "generated": 1,
-            "succeeded": 0
-        }
-    }
-}
-```
-
-_Example: Sms notification order with status information._
-```json
-{
-    "id": "f1a1cc30-197f-4f34-8304-006ce4945fd1",
-    "sendersReference": "ref-2023-12-01",
-    "requestedSendTime": "2023-12-12T14:13:27.836731Z",
-    "creator": "digdir",
-    "created": "2023-12-12T14:13:27.845029Z",
-    "notificationChannel": "Sms",
-    "processingStatus": {
-        "status": "Completed",
-        "description": "Order processing is completed. All notifications have been generated.",
-        "lastUpdate": "2023-12-12T14:13:27.845029Z"
-    },
-    "notificationsStatusSummary": {
-        "sms": {
-            "links": {
-                "self": "https://platform.at22.altinn.cloud/notifications/api/v1/orders/f1a1cc30-197f-4f34-8304-006ce4945fd1/notifications/sms"
-            },
-            "generated": 1,
-            "succeeded": 0
-        }
-    }
+    }    
 }
 ```
 
