@@ -4,6 +4,16 @@
 	  "title": "Altinn.Notifications",
 	  "version": "1.0"
 	},
+	"servers": [
+		{
+		  "url": "https://platform.tt02.altinn.no/notifications/api/v1",
+		  "description": "TT02"
+		},
+		{
+		  "url": "https://platform.altinn.no/notifications/api/v1",
+		  "description": "Production"
+		}
+	  ],
 	"paths": {
 	  "/orders/email": {
 		"post": {
@@ -319,6 +329,50 @@
 				  }
 				}
 			  }
+			},
+			"404": {
+			  "description": "No order with the provided id was found"
+			}
+		  }
+		}
+	  },
+	  "/orders/{id}/cancel": {
+		"put": {
+		  "tags": [
+			"Orders"
+		  ],
+		  "summary": "Cancel a notification order.",
+		  "parameters": [
+			{
+			  "name": "id",
+			  "in": "path",
+			  "description": "The id of the order to cancel.",
+			  "required": true,
+			  "schema": {
+				"type": "string",
+				"format": "uuid"
+			  }
+			}
+		  ],
+		  "responses": {
+			"401": {
+			  "description": "Caller is unauthorized"
+			},
+			"403": {
+			  "description": "Caller is not authorized to access the requested resource"
+			},
+			"200": {
+			  "description": "The notification order was cancelled. No notifications will be sent.",
+			  "content": {
+				"application/json": {
+				  "schema": {
+					"$ref": "#/components/schemas/NotificationOrderWithStatusExt"
+				  }
+				}
+			  }
+			},
+			"409": {
+			  "description": "The order cannot be cancelled due to current processing status"
 			},
 			"404": {
 			  "description": "No order with the provided id was found"
