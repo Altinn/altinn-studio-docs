@@ -26,7 +26,7 @@ Først må du skaffe en abonnementsnøkkel fra Altinn. Når du sender en foresp�
 Registreringen av Maskinporten-klient med nødvendige scopes er viktig for å autentisere og sikre at du kan utføre nødvendige operasjoner via meldings-APIet. Dette trinnet sikrer at kun autoriserte klienter kan sende og motta filer, og opprettholder dermed sikkerheten i tjenesten.
 For å autentisere mot meldings-APIet, må du registrere Maskinporten-klienten(e) din med det nødvendige scopet:
 
-- `altinn:corresondence` - 
+- `altinn:correspondence` - 
 
 Slike scopes vedlikeholdes av Altinn og må være autorisert for de riktige API-operasjonene, og er derfor uavhengige av [tilgangen satt av tjenesteeiere](../service-owner#register-a-resource-in-altinn-resource-registry) for den spesifikke meldingstjenesten.
 

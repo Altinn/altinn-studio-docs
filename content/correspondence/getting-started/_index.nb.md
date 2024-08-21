@@ -23,4 +23,4 @@ En virksomhet kan ha en eller flere av disse rollene.
 
 De fleste virksomheter vil ha sender og/eller mottaker, mens tjenesteeiere ofte vil ha alle tre.
 
-Som **tjenesteeier** har du ansvar for konfigurasjon av tjenesten, datalagring og tilgangstyring til tjenesten. Det betyr at du som tjenesteeier må sette opp og definere løsningen før man kan ta den i bruk.
+Som **tjenesteeier** har du ansvar for konfigurasjon av tjenesten og tilgangstyring til tjenesten. Det betyr at du som tjenesteeier må sette opp og definere løsningen før man kan ta den i bruk.
