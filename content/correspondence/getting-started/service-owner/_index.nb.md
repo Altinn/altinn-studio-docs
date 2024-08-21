@@ -49,18 +49,5 @@ En bruker med denne tilgangen kan deretter delegere tilgangen til virksomhetsbru
 
 **TIPS**: Verifiser konfigurasjonene dine ved hjelp av [Postman-samlingen](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json), og erstatt testtokenene med dine egne Altinn-token (Se forespørselen "Logg inn i Maskinporten (Initialiser)" i Authenticator-mappen).
 
-## 4. Registrer deg som tjenesteeier i MeldingsAPIet {#register-yourself-as-a-service-owner-in-correspondence-api}
-
-Nå er tiden inne for å konfigurere Meldingskomponenten ved å registrere virksomheten din som en tjenesteeier i Altinn Meldingskonfigurasjonslaget. 
-Dette trinnet er nødvendig for å etablere din virksomhet som en godkjent tjenesteeier og gi tilgang til MeldingsAPIet.
-
-For detaljerte instruksjoner for å konfiguere din organisasjon som tjenesteeier i Melding, følg [denne linken](../developer-guides/service-owner/#operation-initialize-service-owner-in-correspondence-api), som gir deg all nødvendig informasjon for å registrere organisasjonen din som en tjenesteeier i Formidling.
-
-## 5. Konfigurer den eksisterende tjenesten din i Melding {#configure-your-existing-resource-in-correspondence}
-
-Deretter må du konfigurere den spesifikke Meldingsskonfigurasjonen for ressursen. 
-Bruk ID-en til ressursen du opprettet i trinn 3, og kall API-operasjonen for å konfigurere tjenesten.
-
- For detaljerte instruksjoner om hvordan du konfigurerer ressursen i Melding, følg [denne lenken](../developer-guides/service-owner/#operation-configure-resource-in-correspondence-api), som gir deg all nødvendig informasjon for å fullføre konfigurasjonen og sikre at ressursen din er riktig satt opp i formidlingstjenesten.
 
 

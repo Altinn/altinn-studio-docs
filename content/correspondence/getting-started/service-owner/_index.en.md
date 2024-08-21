@@ -45,17 +45,5 @@ A user with that access can then delegate the access to the enterprise user / sy
 
 **TIP**: Verify your configurations using the [Postman collection](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json), substituting the test tokens with your own Altinn tokens (See "Login to Maskinporten (Initialize)" request in Authenticator folder).
 
-## 4. Register yourself as a Service Owner in Correspondence API {#register-yourself-as-a-service-owner-in-correspondence-api}
-
-Now the time has come to configure the Correspondence component itself, first by configuring your organization as a Service Owner in the Correspondence Config Store.
-
-Call the API operation [initialize service owner in correspondence api](../developer-guides/service-owner/#operation-initialize-service-owner-in-correspondence-api).
-
-## 5. Configure your existing Resource in Correspondence {#configure-your-existing-resource-in-correspondence}
-
-Now to configure the specific Correspondence configuration for the Resource.
-
-Using the ID of the resource you created in step 3, call the 
-API operation to [configure resource](../developer-guides/service-owner/#operation-configure-resource-in-correspondence-api).
 
 
