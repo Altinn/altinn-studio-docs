@@ -1,7 +1,7 @@
 ---
-title: Broker API
-linktitle: Broker
-description: API for Altinn 3 Broker functionality
+title: Correspondence API
+linktitle: Correspondence
+description: API for Altinn 3 Correspondence functionality
 ---
 
 {{<children />}}
