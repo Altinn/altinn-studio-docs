@@ -1,7 +1,7 @@
 ---
-title: OpenAPI (swagger) for Broker
+title: OpenAPI (swagger) for Correspondence
 linktitle: OpenAPI
 type: openapi
-spec: "/swagger/altinn-broker-v1.json"
+spec: "/swagger/altinn-correspondence-v1.json"
 tags: [swagger, openapi]
 ---
