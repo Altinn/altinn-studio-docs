@@ -107,8 +107,6 @@ To do this, simply specify the ```target.taskId``` like so:
 
 The behaviour is exactly like before with regard to ```target.type``` and ```target.id```, except that we are specifying ```taskId```.
 
-(How the component behaves in different contexts)
-
 ### Overrides
 
 For each component in your summary, you can configure different overrides to suit your needs.
