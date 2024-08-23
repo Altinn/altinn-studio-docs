@@ -67,7 +67,7 @@ If you would like to show a summary of an entire page, you would set the ```targ
 }
 ```
 
-In this case, the ```target.id``` is set to the name of the layout page I want to render, so I would have a file called MyLayoutFilename.json in my project.
+In this case, the ```target.id``` is set to the name of the layout page you want to render, so you would have a file called MyLayoutFilename.json in your project.
 
 #### Layoutset Summary
 
