@@ -18,7 +18,7 @@ Den kan tilpasses for å dekke dine behov, og brukes også for å generere PDF.
 
 ![Summary2](./summary2.png "Eksempel på Summary2-komponenter inne i grupper")
 
-For eksempler på hvordan Summary2 ser ut i forskjellige komponenter, [se dette eksempelprogrammet](https://ttd.apps.tt02.altinn.no/ttd/component-library)
+For eksempler på hvordan Summary2 ser ut i forskjellige komponenter, [se dette eksempelprogrammet](https://ttd.apps.tt02.altinn.no/ttd/component-library).
 
 ## Konfigurasjon
 
