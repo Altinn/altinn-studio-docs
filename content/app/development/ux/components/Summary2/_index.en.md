@@ -84,7 +84,7 @@ It is also possible to render a summary of an entire layoutSet. In this case, yo
 }
 ```
 
-In this case, I'd have a layoutSet called ```MyLayoutSet``` in my project.
+In this case, you would have a layoutSet called ```MyLayoutSet``` in your project.
 This would render a summary of all the pages and components in the layoutSet.
 
 #### Rendering summaries of previous tasks
