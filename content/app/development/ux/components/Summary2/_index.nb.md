@@ -110,7 +110,7 @@ Konfigurasjonen er nøyaktig som før med hensyn til ```target.type``` og ```tar
 
 For hver komponent i oppsummeringen din kan du konfigurere forskjellige overstyringer for å passe dine behov.
 
-For å konfigurere en overstyring, bruk ```overrides``` feltet til Summary2-komponenten slik:
+For å konfigurere en overstyring, bruk ```overrides```-feltet til Summary2-komponenten slik:
 
 ```json{hl_lines="6-"}
 {
