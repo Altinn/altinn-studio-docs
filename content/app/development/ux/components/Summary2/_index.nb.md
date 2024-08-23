@@ -67,7 +67,7 @@ Hvis du vil vise en oppsummering av en hel side, vil setter ```target.type``` eg
 }
 ```
 
-I dette tilfellet er ```target.id``` satt til navnet på layout-siden jeg vil vise, det vil si at jeg hadde da hadde hatt en fil kalt MyLayoutFilename.json i prosjektet mitt.
+I dette tilfellet er ```target.id``` satt til navnet på layout-siden du vil vise. Det vil si at du må ha en fil kalt ```MyLayoutFilename.json``` i prosjektet ditt.
 
 #### Layoutsett-oppsummering
 
