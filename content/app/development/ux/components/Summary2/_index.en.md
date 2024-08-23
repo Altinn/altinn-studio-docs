@@ -27,7 +27,7 @@ For examples of how Summary2 looks in different components, [see this example ap
 
 The most basic way to use the component is to show a summary of a single component.
 
-For example, if I want to show a summary of a simple input field configured like this:
+For example, if you want to show a summary of a simple input field configured like this:
 
 ```json{hl_lines="6-"}
 {
