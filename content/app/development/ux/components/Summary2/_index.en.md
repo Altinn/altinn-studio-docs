@@ -10,7 +10,7 @@ toc: true
 
 ## Usage
 
-The Summary2 component lets you display a summary of either a component, page or layoutset, either in the current or previous tasks.
+The Summary2 component lets you display a summary of either a component, page or layoutSet, either in the current or previous tasks.
 
 It is customizable to suit your needs, and is also used for generating PDFs. 
 
