@@ -71,7 +71,7 @@ I dette tilfellet er ```target.id``` satt til navnet på layout-siden jeg vil vi
 
 #### Layoutsett-oppsummering
 
-Det er også mulig å vise en oppsummering av et helt layoutsett. I dette tilfellet vil du sette ```target.type``` egenskapen til ```"layoutSet"``` slik:
+Det er også mulig å vise en oppsummering av et helt layoutSet. I dette tilfellet vil du sette ```target.type``` egenskapen til ```"layoutSet"``` slik:
 
 ```json{hl_lines="6-"}
 {
