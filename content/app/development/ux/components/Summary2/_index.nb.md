@@ -54,7 +54,7 @@ Det resulterer i en oppsummering som ser slikt ut:
 
 #### Sideoppsummering
 
-Hvis du vil vise en oppsummering av en hel side, vil setter ```target.type``` egenskapen til ```"page"``` slik:
+Hvis du vil vise en oppsummering av en hel side, kan du sette ```target.type``` egenskapen til ```"page"``` slik:
 
 ```json{hl_lines="6-"}
 {
