@@ -88,7 +88,7 @@ I dette tilfellet må du ha et layoutSet kalt ```MyLayoutSet``` i prosjektet dit
 
 #### Vise oppsummeringer av tidligere oppgaver
 
-Du kan også vise oppsummeringer av komponenter, sider og layoutsett som eksisterer i tidligere oppgaver.
+Du kan også vise oppsummeringer av komponenter, sider og layoutSet som eksisterer i tidligere oppgaver.
 
 For å gjøre dette, spesifiserer du ganske enkelt ```target.taskId``` slik:
 
