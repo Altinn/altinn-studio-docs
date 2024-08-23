@@ -26,7 +26,7 @@ For eksempler på hvordan Summary2 ser ut i forskjellige komponenter, [se dette 
 
 Den mest grunnleggende måten å bruke Summary2 på er å vise en oppsummering av en enkelt komponent.
 
-For eksempel, hvis jeg vil vise en oppsummering av et enkelt input felt konfigurert slik:
+For eksempel, hvis jeg vil vise en oppsummering av et enkelt inputfelt konfigurert slik:
 
 ```json{hl_lines="6-"}
 {
