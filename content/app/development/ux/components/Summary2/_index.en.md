@@ -36,7 +36,7 @@ For example, if you want to show a summary of a simple input field configured li
 }
 ```
 
-my Summary2 configuration would look like this:
+your Summary2 configuration would look like this:
 
 ```json{hl_lines="6-"}
 {
