@@ -84,7 +84,7 @@ Det er også mulig å vise en oppsummering av et helt layoutSet. I dette tilfell
 }
 ```
 
-I dette tilfellet vil jeg ha et layoutsett kalt ```MyLayoutSet``` i prosjektet mitt. Dette vil vise en oppsummering av alle sidene og komponentene i layoutsettet.
+I dette tilfellet må du ha et layoutSet kalt ```MyLayoutSet``` i prosjektet ditt. Dette vil vise en oppsummering av alle sidene og komponentene i  layoutSet-et du peker på.
 
 #### Vise oppsummeringer av tidligere oppgaver
 
