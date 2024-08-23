@@ -105,7 +105,7 @@ To do this, simply specify the ```target.taskId``` like so:
 }
 ```
 
-The behaviour is exactly like before with regard to ```target.type``` and ```target.id```, except that we are specifying ```taskId```.
+The behaviour is exactly like before with regard to ```target.type``` and ```target.id```, except that a ```taskId``` property has been added.
 
 ### Overrides
 
