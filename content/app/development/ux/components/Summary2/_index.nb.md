@@ -104,7 +104,7 @@ For å gjøre dette, spesifiserer du ganske enkelt ```target.taskId``` slik:
 }
 ```
 
-Konfigurasjonen er nøyaktig som før med hensyn til ```target.type``` og ```target.id```, bortsett fra at vi spesifiserer ```taskId```.
+Konfigurasjonen er nøyaktig som før med hensyn til ```target.type``` og ```target.id```, bortsett fra at du i tillegg spesifiserer ```taskId```.
 
 ### Overstyringer
 
