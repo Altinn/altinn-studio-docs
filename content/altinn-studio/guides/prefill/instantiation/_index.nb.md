@@ -1,5 +1,5 @@
 ---
-title: Preutfylling med http post
+title: Forhåndsutfylling med http post
 linktitle: Http post
 description: Hvordan konfigurere prefill for en app ved bruk av http post requests.
 toc: false

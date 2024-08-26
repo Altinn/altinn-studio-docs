@@ -1,7 +1,7 @@
 ---
-title: Preutfylling av data med egendefinert kode
+title: Forhåndsutfylling av data med egendefinert kode
 linktitle: Egendefinert
-description: Hvordan kode egendefinert preutfylling i applikasjonen.
+description: Hvordan kode egendefinert forhåndsutfylling i applikasjonen.
 toc: false
 weight: 300
 ---
@@ -12,7 +12,7 @@ enten det er resultatet av et API-kall, beregninger gjort under instansiering el
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="v7">}}
-I versjon 7 har vi endret måten preutfylling med egendefinert kode gjøres på. Vi benytter nå _dependency injection_ i stedet for overstyring av metoder. Hvis du tidligere plasserte koden din i _DataCreation_ metoden in _InstantiationHandler.cs_ klassen så vil du erfare at det er mer eller mindre det samme som nå gjøres.
+I versjon 7 har vi endret måten forhåndsutfylling med egendefinert kode gjøres på. Vi benytter nå _dependency injection_ i stedet for overstyring av metoder. Hvis du tidligere plasserte koden din i _DataCreation_ metoden in _InstantiationHandler.cs_ klassen så vil du erfare at det er mer eller mindre det samme som nå gjøres.
 1. Opprett en klasse som implementerer `IInstantiationProcessor` grensesnittet som ligger i `Altinn.App.Core.Features` navnerommet.  
     Du kan navngi og plassere filene i den mappestrukturen du selv ønsker i prosjektet ditt. Men vi anbefaler at du benytter meningsfulle navnerom som i et hvilket som helst annet .Net prosjekt.
     Eksempelet nedenfor populerer feltet _Bruker.FulltNavn_ i modellen _Datamodell_ med verdien "Test Testesen".  

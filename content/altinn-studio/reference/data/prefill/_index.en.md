@@ -7,7 +7,7 @@ weight: 10
 Read more about prefill [here](../../../../concepts/prefill/), and see the guide for how to set it up in your app
 [here](../../../../guides/prefill/config/).
 
-### Fields in the  _prefill.json_ file
+## Fields in the  _prefill.json_ file
 
 - **$schema** points to the json schema definition of the file. The current version is v1.
   Because of this file, Visual Studio Code will validate and offer intellisense/autocomplete when you edit the file locally.
@@ -26,13 +26,13 @@ Instantiation will fail if you attempt to prefill ER-data, but do not have an or
 - **UserProfile** here you enter fields from the data model that are to be prefilled with data from the users profile in Altinn.
 Note that it is the logged in user who instantiates the app the data is collected for.
 
-### Available prefill values
+## Available prefill values
 
 The JSON-schema definition of the prefill file is also available [here](https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json).
 The use of a schema enables editors, [e.g. Visual Studio Code](https://code.visualstudio.com/docs/languages/json#_mapping-in-the-json),
 to validate and offer intellisense for faster editing.
 
-#### The National Population Register (DSF)
+### The National Population Register (DSF)
 
 The personal data that is exposed is attached to the person the form is instantiated on behalf of. If Ola Nordmann were to instantiate a form on behalf of
 Kari Nordmann, it would be Kari's data that would be exposed.
@@ -56,7 +56,7 @@ Available values for prefill includes:
 - AddressPostalCode
 - AddressCity
 
-#### The Central Coordinating Register (ER)
+### The Central Coordinating Register (ER)
 
 The unit exposed is that which is attached to the organization a form is instantiated on behalf of.
 Available values for prefill includes:
@@ -76,7 +76,7 @@ Available values for prefill includes:
 - BusinessPostalCode
 - BusinessPostalCity
 
-#### User profile (UserProfile)
+### User profile (UserProfile)
 
 The user profile exposed is the profile belonging to the one who instantiated the service. If Ola Nordmann instantiates
 a form on behalf of
