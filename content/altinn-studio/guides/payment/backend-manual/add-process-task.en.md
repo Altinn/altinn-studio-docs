@@ -104,7 +104,7 @@ Payment uses three user actions. If the Altinn user interface is used by the app
       <bpmn:incoming>Flow_g1_end</bpmn:incoming>
     </bpmn:endEvent>
 ```
-The value of this node: `<altinn:paymentDataType>paymentInformation</altinn:paymentDataType>` must match the ID of the data type you configured in the previous step. Same for the pdf-receipt data type.
+The value of the node `<altinn:paymentDataType>paymentInformation</altinn:paymentDataType>` must match the ID of the data type you configured in the previous step. Same for the pdf-receipt data type.
 
 ### Add Payment layoutSet
 

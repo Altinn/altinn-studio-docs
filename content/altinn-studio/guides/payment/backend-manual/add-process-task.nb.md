@@ -7,7 +7,7 @@ hidden: true
 
 ### Opprett to datatyper for å lagre betalingsinformasjon:
 
-Den første datatypen benyttes av betalingssteget for å lagre informasjon og status om betalingen. Legg den i `App/config/applicationmetadata.json` sin `dataTypes` array. 
+Den første datatypen benyttes av betalingssteget for å lagre informasjon og status om betalingen. Legg den i `App/config/applicationmetadata.json` sin `dataTypes`-array. 
 
 ```json
 {
@@ -39,10 +39,10 @@ ID-ene kan settes til noe annet, men det må matche ID-ene som legges inn i `pay
 
 Det må legges til et prosessteg og en gateway i `App/config/process/process.bpmn`, som i eksemplet nedenfor.
 
-Betaling benytter tre user actions. Dersom Altinn brukergrensesnittet brukes av appen, så vil disse bli kalt automatisk når man står i betalingssteget. Om kun API benyttes så må disse kalles manuelt via `/actions` endepunktet.
+Betaling benytter tre user actions. Dersom Altinn-brukergrensesnittet brukes av appen, så vil disse bli kalt automatisk når man står i betalingssteget. Om kun API-et benyttes, så må disse kalles manuelt via `/actions`-endepunktet.
 - `pay`: Setter i gang betalingen, ofte ved å gjøre API-kall til betalingsbehandler. Informasjon og status om den igangsatte betalingen lagres i en JSON-datatype som angis i prosesssteget for betaling.
 - `confirm`: Kalles når betaling er ferdig gjennomført for å drive prosessen videre til neste steg.
-- `reject`: Dersom sluttbruker ser noe feil med ordren så kan vedkommede trykke "Tilbake" i betalingssteget. Da kanselleres betalingen og informasjon om den avbrutte betalingen slettes. Hvilket prosessteg man deretter ledes til angis i en gateway, som eksemplifisert nedenfor.
+- `reject`: Dersom sluttbruker ser noe feil med ordren, så kan vedkommende trykke "Tilbake" i betalingssteget. Da kanselleres betalingen og informasjon om den avbrutte betalingen slettes. Hvilket prosessteg man deretter ledes til angis i en gateway, som eksemplifisert nedenfor.
 
 ```xml
     <bpmn:startEvent id="StartEvent_1">
@@ -102,12 +102,12 @@ Betaling benytter tre user actions. Dersom Altinn brukergrensesnittet brukes av 
       <bpmn:incoming>Flow_g1_end</bpmn:incoming>
     </bpmn:endEvent>
 ```
-NB: Verdien til denne noden: `<altinn:paymentDataType>paymentInformation</altinn:paymentDataType>` må matche ID-en til datatypen du konfigurerte i forrige steg. Det samme gjelder datatypen for pdf-kvittering.
+NB: Verdien til noden `<altinn:paymentDataType>paymentInformation</altinn:paymentDataType>` må samsvare med ID-en til datatypen du konfigurerte i forrige steg. Det samme gjelder datatypen for pdf-kvittering.
 
 ### Legg til sidegruppe for betaling
 
 - Legg til en ny mappe under `App/ui` for betalingsoppgaven din. Kall den f.eks. "payment".
-- Oppdater `App/ui/layout-sets.json` filen med ny sidegruppe, som har samme `id` som mappen du nettopp opprettet.
+- Oppdater filen `App/ui/layout-sets.json` med ny sidegruppe, som har samme `id` som mappen du nettopp opprettet.
   Din oppdaterte `layout-sets.json` kan se slik ut:
 
   ```json

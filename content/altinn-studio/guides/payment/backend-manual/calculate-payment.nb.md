@@ -6,11 +6,11 @@ hidden: true
 
 Legg til en ny klasse der du har din custom kode, f.eks:  `App/logic/OrderDetailsCalculator.cs`.
 
-Her vil du implementere din logikk for å kalkulere hva brukeren skal betale for.
+Her vil du implementere din logikk for å regne ut hva brukeren skal betale for.
 Du kan for eksempel aksessere skjemadata, legge til obligatoriske avgifter, eller kun legge til en fast kostnad for skjemaet. 
 
-Returverdien fra `CalculateOrderDetails` metoden angir: 
-- Betalingsbehandler som skal benyttes for ordren. Disse tilgjengeliggjøres ved å implementere interfacet `IPaymentProcessor` og registrere de som transient i program.cs. Fyll ut `Nets Easy` for å benytte standardimplementasjon for Nets Easy.
+Returverdien fra metoden `CalculateOrderDetails` angir: 
+- Betalingsbehandler som skal benyttes for ordren. Disse tilgjengeliggjøres ved å implementere interfacet `IPaymentProcessor` og registrere dem som `transient` i `program.cs`. Fyll ut `Nets Easy` for å benytte standardimplementasjon for Nets Easy.
 - Valuta
 - Ordrelinjer
 - Detaljer om betalingsmottaker. Brukes i kvittering.
@@ -53,7 +53,7 @@ public class OrderDetailsCalculator : IOrderDetailsCalculator
 }
 ```
 
-Registrer IOrderDetailsCalculator implementasjonen i program.cs:
+Registrer `IOrderDetailsCalculator`-implementasjonen i `program.cs`:
 ```c#
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {

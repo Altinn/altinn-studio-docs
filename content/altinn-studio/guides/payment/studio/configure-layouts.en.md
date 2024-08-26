@@ -1,7 +1,7 @@
 ---
 hidden: true
 ---
-> The setup in this section is done from the Lage-page in the app editor. Navigate there by clicking on "Lage"
+> The setup in this section is done from the Lage page in the app editor. Navigate there by clicking on "Lage"
 > in the top menu while in the app editor.
 
 ### How to show payment information in the form
@@ -36,7 +36,7 @@ hidden: true
 ```
 
 ### How to show payment information in the payment task
-This was configured automatically if you used Altinn Studio Designer and the process-editor to set up the payment task.
+This was configured automatically if you used Altinn Studio Designer and the process editor to set up the payment task.
 See the tab "Manual setup" for details on how to do this manually.
 
 ### How to set up a separate layout for payment receipt (optional)

@@ -13,7 +13,7 @@ hidden: true
 > oppgaven i prosessen.
 
 - Dra komponenten "Betalingsdetaljer" inn i skjemaet. Denne komponenten viser en tabell som viser elementene brukeren må betale for.
-  - Komponenten ligger nederst i "Avansert" i komponent-kolonnen til venstre på siden. 
+  - Komponenten ligger nederst i "Avansert" i komponentkolonnen til venstre på siden. 
 
   Du kan plassere denne komponenten hvor som helst i skjemaet ditt, men vi anbefaler å i det minste sette det på den siste 
   siden før brukeren blir bedt om å betale.
@@ -36,10 +36,10 @@ datafeltene som brukes til å beregne ordrelinjene. Dette gjøres foreløpig man
 ```
 
 ### Hvordan vise betalingsinformasjon i betalingsssteget
-Dette er satt opp automatisk dersom du brukte Altinn Studio Designer og prosess-editoren til å sette opp betalingssteget. 
+Dette er satt opp automatisk dersom du brukte Altinn Studio Designer og prosessverktøyet til å sette opp betalingssteget. 
 
 ### Hvordan sette opp egen visning for kvittering for betaling (valgfritt)
-Dette steget er valgfritt. Dersom man ikke gjennomfører dette steget vil oppsettet fra 
+Dette steget er valgfritt. Dersom man ikke gjennomfører dette steget, vil oppsettet fra betalingssteget benyttes.
 
 > Dette steget må foreløpig gjøres manuelt. Støtte for full konfigurasjon i Altinn Studio kommer i løpet av høsten 2024.
 > Se "Manuelt oppsett"-fanen for denne seksjonen for veiledning.
