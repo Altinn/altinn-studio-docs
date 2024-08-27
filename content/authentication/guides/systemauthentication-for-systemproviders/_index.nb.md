@@ -137,3 +137,61 @@ For å teste systembruker i TT02 kreves følgende
 
 
 For opprettelse av systembrukere kan testbrukere/organisasjoner fra Tenor benyttes
+
+
+## Referanse implementasjon og oppsett 
+
+Det er utviklet en referanseimplementasjon for å demonstere bruk av systembruker.
+
+Den er utviklet i C# og kan kjøres som consoll applikasjon. 
+
+Den gjør følgende
+
+1. Oppretter token basert på configurert JSON Webkey, clientid, scope organisasjonsnummer til den som har opprettet systembruker
+2. Basert på token den får gjør den kall mot referanse API som krever systembruker. 
+
+Se kode med dokumentasjon [her](https://github.com/TheTechArch/altinn-systemuser).
+
+
+### Sette opp referanseimplementasjon med egen conig
+
+I repo ligger nødvendig testsertifikat for å kjøre applikasjonen. Følgende må gjøres for å sette opp egen integrasjon som systemleverandør
+
+1. Logg inn på [onboarding Maskinporten](https://onboarding.test.maskinporten.no/).  Her kan du bruke en testId som er daglig leder for en testenhet
+
+![Onboarding](onboarding1.png)
+
+![Onboarding](onboarding2.png "2. Velg enhet")
+
+![Onboarding](onboarding3.png "3. Oversikt over integegrasjoner i Maskinporten. Her kan du legge til nye")
+
+![Onboarding](onboarding4.png "4. Opprett integrasjon, søk etter scope som kreves")
+
+![Onboarding](onboarding5.png "5. Legg til eventuell ekstra scope og beskriv integrasjon")
+
+![Onboarding](onboarding6.png "6. Last ned nøkler som generes")
+
+![Onboarding](onboarding7.png "7. Integrasjon opprettet")
+
+
+8. Få opprettet system i Systemregister med riktig clientid og knytning mot nødvendige ressurser/tilgangspakker. 
+
+9. Logg inn med testbruker  i tt02.altinn.no. Brukeren må ha tilgangstyringsrollen i Altinn for en testorganiasjo og gå til siden https://authn.ui.tt02.altinn.no/authfront/ui/auth/creation
+
+![Onboarding](delegering1.png "10. Velg system")
+
+![Onboarding](delegering2.png "11. Aksepter opprettelse av systembruker med rettigheter til den")
+
+
+![Onboarding](delegering3.png "12. Oversikt systembrukere for testeorganisasjon")
+
+
+13. Configurer key, nøkkel, clientid og scope i testapplikasjon
+
+```c#
+string clientID = "7ee41fce-9f6e-4c32-8195-0fe2c1517f43";
+string scope = "altinn:systembruker.demo";
+string systemUserOrg = "210493352";
+string pemCertificatePath = @".\mp-key.pem";
+
+```
