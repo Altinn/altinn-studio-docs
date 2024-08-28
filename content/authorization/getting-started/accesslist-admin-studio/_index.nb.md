@@ -17,7 +17,7 @@ Se [denne veiledningen](../resource-admin-studio/).
 Din organisasjon bør opprette følgende team:
 
 - **AccessLists-TT02**: Administrerer tilgangslister i TT02-miljøet.
-- **AccessList-Prod**: Administrerer tilgangslister i produksjonsmiljøet.
+- **AccessLists-PROD**: Administrerer tilgangslister i produksjonsmiljøet.
 
 Medlemmer av disse teamene kan administrere tilgangslister i sine respektive miljøer.
 

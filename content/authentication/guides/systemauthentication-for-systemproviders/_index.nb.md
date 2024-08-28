@@ -126,7 +126,6 @@ Se også dokumentasjon hos [Maskinporten](https://docs.digdir.no/docs/Maskinport
 
 Tokenet man får fra maskinporten legges ved som et bearer token mot de API man skal kalle. 
 
-
 ## Test av systembruker i TT02
 
 For å teste systembruker i TT02 kreves følgende
@@ -135,5 +134,79 @@ For å teste systembruker i TT02 kreves følgende
  - Systemleverandør opprettet i Altinn. Gjøres vie servicedesk@altinn.no
  - Systemintegrasjon opprettet i maskinporten test.
 
-
 For opprettelse av systembrukere kan testbrukere/organisasjoner fra Tenor benyttes
+
+### Bruk av systembrukertoken mot API
+
+Tokenet man får fra Maskinporten legges ved som et Bearer Token mot de API-ene man skal kalle.
+
+### Test av systembruker i TT02
+
+For å teste systembruker i TT02 kreves følgende:
+
+- Systemleverandør opprettet i Maskinporten. Dette gjøres via servicedesk@digdir.no.
+- Systemleverandør opprettet i Altinn. Dette gjøres via servicedesk@altinn.no.
+- Systemintegrasjon opprettet i Maskinporten test.
+
+For opprettelse av systembrukere kan testbrukere/organisasjoner fra Tenor benyttes.
+
+### Referanseimplementasjon og oppsett
+
+Det er utviklet en referanseimplementasjon for å demonstrere bruk av systembruker. Den er utviklet i C# og kan kjøres som en konsollapplikasjon. 
+Den gjør følgende:
+
+1. Oppretter token basert på konfigurert JSON Web Key, client ID, scope og organisasjonsnummer til den som har opprettet systembruker.
+2. Basert på tokenet den får, gjør den kall mot referanse-API som krever systembruker.
+
+Se kode med dokumentasjon [her](https://github.com/TheTechArch/altinn-systemuser).
+
+### Sette opp referanseimplementasjon med egen konfigurasjon
+
+Det er utviklet en referanseimplementasjon for å demonstrere bruk av systembruker. Den er utviklet i C# og kan kjøres som en konsollapplikasjon.
+
+Den gjør følgende:
+
+1. Oppretter token basert på konfigurert JSON Web Key, client ID, scope og organisasjonsnummer til den som har opprettet systembruker.
+2. Basert på tokenet den får, gjør den kall mot referanse-API som krever systembruker.
+
+Se kode med dokumentasjon [her](https://github.com/TheTechArch/altinn-systemuser).
+
+### Sette opp referanseimplementasjon med egen konfigurasjon
+
+I repoet ligger nødvendig testsertifikat for å kjøre applikasjonen. Følgende må gjøres for å sette opp egen integrasjon som systemleverandør:
+
+1. Logg inn på [onboarding Maskinporten](https://onboarding.test.maskinporten.no/). Her kan du bruke en test-ID som er daglig leder for en testenhet.
+
+    ![Onboarding](onboarding1.png "Forenklet onboarding")
+
+    ![Onboarding](onboarding2.png "Velg enhet")
+
+    ![Onboarding](onboarding3.png "Oversikt over integrasjoner i Maskinporten. Her kan du legge til nye")
+
+    ![Onboarding](onboarding4.png "Opprett integrasjon, søk etter scope som kreves")
+
+    ![Onboarding](onboarding5.png "Legg til eventuell ekstra scope og beskriv integrasjon")
+
+    ![Onboarding](onboarding6.png "Last ned nøkler som genereres")
+
+    ![Onboarding](onboarding7.png "Integrasjon opprettet")
+
+2. Få opprettet system i Systemregister med riktig client ID og knytning mot nødvendige ressurser/tilgangspakker.
+
+3. Logg inn med testbruker i tt02.altinn.no. Brukeren må ha tilgangsstyringsrollen i Altinn for en testorganisasjon og gå til siden [https://authn.ui.tt02.altinn.no/authfront/ui/auth/creation](https://authn.ui.tt02.altinn.no/authfront/ui/auth/creation).
+
+    ![Onboarding](delegering1.png "10. Velg system")
+
+    ![Onboarding](delegering2.png "11. Aksepter opprettelse av systembruker med rettigheter til den")
+
+    ![Onboarding](delegering3.png "12. Oversikt systembrukere for testorganisasjon")
+
+4. Konfigurer key, nøkkel, client ID og scope i testapplikasjon.
+
+```c#
+string clientID = "7ee41fce-9f6e-4c32-8195-0fe2c1517f43";
+string scope = "altinn:systembruker.demo";
+string systemUserOrg = "210493352";
+string pemCertificatePath = @".\mp-key.pem";
+
+```
