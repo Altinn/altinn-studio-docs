@@ -6,7 +6,13 @@ hidden: true
 ---
 
 <div style="display: flex; flex-direction: row; justify-content: flex-start; gap: 20px; flex-wrap: wrap;">
-    {{<news-card 
+    {{<news-card
+        title="New notification channels"
+        content="Support for notification channels SMS preferred and email preferred."
+        timeline="Q4 2023"
+        githubUrl="https://github.com/Altinn/altinn-notifications/issues/541"
+    >}}
+     {{<news-card 
         title="Reminders"
         content="Support for sending reminder notifications in the case of an incomplete task."
         timeline="Q3 2024"
