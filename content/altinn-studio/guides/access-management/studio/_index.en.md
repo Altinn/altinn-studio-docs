@@ -20,6 +20,16 @@ of existing teams.
 
 [See an overview of the standard teams and the access they grant here](../../../reference/access-management/studio/).
 
+### How to add a user to a team
+The following steps can be done by a user that is an _owner_ for the organization.
+- Navigate to https://altinn.studio/repos/org/{org}/teams/ Remember to replace `{org}` with your org.
+- Open the relevant team by clicking on the name of the team, or on the "View" button at the top of the team overview
+- Type in the users Altinn Studio _username_ in the text field at the top of the list of users
+  - Select the user from the list that appears when you start typing.
+- Click the button "Add Team Member".
+- The user is now added to the team.
+
+![Add a user to a team](./access-management-team.png "Add a user to a team")
 
 
 
