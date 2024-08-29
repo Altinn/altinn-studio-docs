@@ -12,7 +12,7 @@ hidden: true
         timeline="Q4 2023"
         githubUrl="https://github.com/Altinn/altinn-notifications/issues/541"
     >}}
-     {{<news-card 
+    {{<news-card 
         title="Reminders"
         content="Support for sending reminder notifications in the case of an incomplete task."
         timeline="Q3 2024"
