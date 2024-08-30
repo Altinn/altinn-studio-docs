@@ -9,7 +9,7 @@ toc: true
 Application logic connected to instantiation can be defined by implementing an interface and registrering them in `Program.cs`
 
  - `IInstantiationValidator` - create your own tests for determining whether a user/submitter is allowed to instantiate.
- - `IInstantiationProcessor` - create customized prefill data, this is described in the [prefill chapter](/altinn-studio/reference/data/prefill/custom/).
+ - `IInstantiationProcessor` - create customized prefill data, this is described in the [prefill chapter](/altinn-studio/guides/prefill/custom/).
 
 ## Custom validation rules for instantiation
 Validation rules for instantiation can include validating a time to specific user instructions and complex tests that
