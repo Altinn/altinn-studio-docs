@@ -2,6 +2,17 @@
 title: Introkurs
 description: Bygg en applikasjon med Altinn Studio
 tags: [apps, build, deploy, training]
+aliases:
+- /nb/app/app-dev-course/
+- /nb/app/app-dev-course/case/
+- /nb/app/app-dev-course/modul1/
+- /nb/app/app-dev-course/modul2/
+- /nb/app/app-dev-course/modul3/
+- /nb/app/app-dev-course/modul4/
+- /nb/app/app-dev-course/modul5/
+- /nb/app/app-dev-course/modul6/
+- /nb/app/app-dev-course/modul7/
+- /nb/app/app-dev-course/losningsforslag/
 ---
 
 {{% notice warning %}}

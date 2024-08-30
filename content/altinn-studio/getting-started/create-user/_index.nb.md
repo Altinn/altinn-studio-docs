@@ -52,6 +52,8 @@ For å bli del av en organisasjon må en administrator for din organisasjon gi d
 Hvis du er usikker på hvem som er administrator eller du ikke vet om organisasjonen din er satt opp i Altinn Studio
 kan du spørre [Altinn Servicedesk](mailto:tjenesteeier@altinn.no) om hjelp.
 
+_Er du administrator for din organisasjon og skal legge inn brukere? Se veiledning for hvordan det gjøres [her](../../guides/access-management/studio/)._
+
 ## Opprette en organisasjon
 
 Det er Digdir som oppretter organisasjoner i Altinn Studio.

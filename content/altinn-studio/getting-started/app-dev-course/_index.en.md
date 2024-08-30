@@ -2,6 +2,17 @@
 title: Intro Course
 description: Build an application with Altinn Studio
 tags: [apps, build, deploy, training]
+aliases:
+- /app/app-dev-course/
+- /app/app-dev-course/case/
+- /app/app-dev-course/modul1/
+- /app/app-dev-course/modul2/
+- /app/app-dev-course/modul3/
+- /app/app-dev-course/modul4/
+- /app/app-dev-course/modul5/
+- /app/app-dev-course/modul6/
+- /app/app-dev-course/modul7/
+- /app/app-dev-course/losningsforslag/
 ---
 
 {{% notice warning %}}
@@ -31,7 +42,7 @@ The introductory course is divided into 5 modules and covers a fictional case fo
 Each module has a description of the task and links to relevant documentation.
 
 You can choose to perform the tasks in [Altinn Studio Designer](../) 
-(graphical user interface with drag-and-drop) or in a [local development environment](/nb/altinn-studio/guides/local-dev) 
+(graphical user interface with drag-and-drop) or in a [local development environment](/altinn-studio/guides/local-dev) 
 (requires some technical competence).
 You can also combine these approaches. All available modules can be completed in Altinn Studio Designer.
 

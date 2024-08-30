@@ -23,19 +23,17 @@ There are two ways to edit and test your changes to the docs:
 > When doing larger changes, restructuring and refactoring, changes in layouts, code, etc.
 > See [CONTRIBUTING](./CONTRIBUTING.md) for even more details.
 
-1. Install the required software ([Git](https://git-scm.com/downloads) and [Visual Studio Code](https://code.visualstudio.com/))
+1. Install the required software ([Git](https://git-scm.com/downloads), [Hugo](https://gohugo.io/installation/) and [Visual Studio Code](https://code.visualstudio.com/))
 2. Clone the repo
    ```shell
    cd C:/repos
    git clone https://github.com/altinn/altinn-studio-docs
    ```
-3. [Download the latest Hugo](https://github.com/gohugoio/hugo/releases) for your platform, and copy the executable into
-   the new `altinn-studio-docs`-folder
-4. Navigate to folder and run Hugo
+3. Navigate to folder and run Hugo
    ```shell
    cd altinn-studio-docs
-   ./hugo server --navigateToChanged
+   hugo server --navigateToChanged
    ```
-5. The documentation can now be opened in browser at http://localhost:1313
-6. Edit and save files to get the site refreshed in your browser, so you can test your changes
-7. When happy, [push your changes](https://github.com/Altinn/altinn-studio-docs/blob/master/CONTRIBUTING.md#push-your-changes-to-github)
+4. The documentation can now be opened in browser at http://localhost:1313
+5. Edit and save files to get the site refreshed in your browser, so you can test your changes
+6. When happy, [push your changes](https://github.com/Altinn/altinn-studio-docs/blob/master/CONTRIBUTING.md#push-your-changes-to-github)

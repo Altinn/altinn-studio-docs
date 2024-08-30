@@ -20,6 +20,16 @@ endre konfigurasjon på eksisterende team.
 
 [Se oversikt over standard team og tilgangene de gir her](../../../reference/access-management/studio/).
 
+### Hvordan legge til bruker i et team
+Stegene under må gjøres av en bruker som er lagt inn som _eier_ av organisasjonen.
+- Naviger til https://altinn.studio/repos/org/{org}/teams/ Husk å bytte ut `{org}` med din org-kode.
+- Åpne ønsket team ved å klikke på navnet, eller på knappen "View".
+- Skriv inn brukerens Altinn Studio _brukernavn_ i tekstfeltet over listen av eksisterende brukere i Teamet
+  - Velg bruker fra listen som dukker opp når du skriver
+- Klikk på knappen "Add Team Member". 
+- Brukeren er nå lagt til i teamet.
+
+![Legg til bruker i et team](./access-management-team.png "Legg til bruker i et team")
 
 ## Tilgangsstyring for enkelt repository
 
