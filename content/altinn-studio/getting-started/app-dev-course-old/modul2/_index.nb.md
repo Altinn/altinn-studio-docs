@@ -133,7 +133,9 @@ Altinn gir fordelen av å ha lett tilgjengelig [metadata](/nb/api/models/instanc
  Ved hjelp av forhåndsutfylling kan vi hente brukerdata og fylle ut felt sømløst.
  Dette reduserer behovet for manuell inntasting av data, spesielt for standardopplysninger som navn, adresser og e-postadresser.
 
-Du kan integrere data fra Altinns [forhåndsutfyllingskilder](/nb/altinn-studio/reference/data/prefill) direkte i appen ved å tilordne dataene til spesifikke felt i datamodellen. Dette automatiserer utfylling av felt under opprettelse av skjema. Du kan også integrere egendefinerte løsninger for forhåndsutfylling.
+Du kan integrere data fra Altinns [forhåndsutfyllingskilder](/nb/altinn-studio/reference/data/prefill) direkte i appen 
+ved å tilordne dataene til spesifikke felt i datamodellen. Dette automatiserer utfylling av felt under opprettelse av skjema. 
+Du kan også integrere egendefinerte løsninger for forhåndsutfylling.
 
 Denne oppgaven fokuserer på den første siden for datainnsamling og har som mål å effektivisere brukeropplevelsen ved å forhåndsutfylle brukerens personalia.
 
@@ -152,7 +154,7 @@ Denne oppgaven fokuserer på den første siden for datainnsamling og har som må
 
 ### Oppgaver
 
-1. Opprett en [fil for forhåndsutfylling](/nb/altinn-studio/guides/prefill/config/#oppsett-av-prefill-i-applikasjons-repository).
+1. Opprett en [fil for forhåndsutfylling](/nb/altinn-studio/guides/prefill/config).
 2. Konfigurer forhåndsutfylling for verdier tilgjengelig i Altinns [forhåndsutfyllingskilder](/nb/altinn-studio/reference/data/prefill) (alle unntatt alder).
 3. Opprett [egendefinert forhåndsutfylling](/nb/altinn-studio/guides/prefill/custom) for alder basert på personnummer (se Kodehjelp og Nyttig dokumentasjon under).
 4. Konfigurer innstillinger for felter som ikke skal kunne endres av brukeren.
@@ -241,7 +243,7 @@ private static int CalculateAge(string sosialSecNumber)
 *Husk å pushe de lokale endringene dine så de blir tilgjengelige i Altinn Studio.*
 
 ### Nyttig dokumentasjon
-- [Forhåndsutfylling fra nasjonale registre og brukerprofil](/nb/altinn-studio/guides/prefill/config/#prefill-fra-nasjonale-register-og-brukerprofil)
+- [Forhåndsutfylling fra nasjonale registre og brukerprofil](/nb/altinn-studio/guides/prefill/config)
 - [Tilgjengelige kilder og verdier for forhåndsutfylling](/nb/altinn-studio/reference/data/prefill)
 - [Egendefinert forhåndsutfylling](/nb/altinn-studio/guides/prefill/custom)
 - [Instance](/nb/api/models/instance/#instance) - Metadata for applikasjonen.

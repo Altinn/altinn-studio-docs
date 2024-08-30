@@ -234,7 +234,7 @@ private static int CalculateAge(string sosialSecNumber)
 *Remember to push your local changes to make them available in Altinn Studio.*
 
 ### Useful documentation
-- [Prefilling from national registers and user profile](/altinn-studio/guides/prefill/config/#prefill-from-national-register-and-user-profile)
+- [Prefilling from national registers and user profile](/altinn-studio/guides/prefill/config)
 - [Available sources and values for prefilling](/altinn-studio/reference/data/prefill)
 - [Custom prefilling](/altinn-studio/guides/prefill/custom)
 - [Instance](/api/models/instance/#instance) - Application metadata container
