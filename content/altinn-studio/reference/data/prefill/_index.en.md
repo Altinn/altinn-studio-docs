@@ -4,8 +4,8 @@ linktitle: Prefill
 description: Reference of available fields when using prefill configuration file.
 weight: 10
 ---
-Read more about prefill [here](../../../../concepts/prefill/), and see the guide for how to set it up in your app
-[here](../../../../guides/prefill/config/).
+Read more about prefill [here](../../../concepts/prefill/), and see the guide for how to set it up in your app
+[here](../../../guides/prefill/config/).
 
 ## Fields in the  _prefill.json_ file
 
@@ -84,7 +84,7 @@ Kari Nordmann, the data retrieved from here would belong to Ola. For the objects
 you will find the same fields that are included in ER and DSF-prefill. Note that Party.Organization will be null if the
 user is logged in as an individual, and the equivalent if they are logged in with a business user. The prefill will fail
 if the object you prefill from does not exist, so if you wish to dynamically prefill based on these values it has to be
-setup as [custom prefill.](../custom/).
+setup as [custom prefill.](../../../guides/prefill/custom/).
 Available values for prefill includes:
 
 - UserId
