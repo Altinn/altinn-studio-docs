@@ -15,7 +15,7 @@ toc: true
 
 ## Bruk
 
-Accordion er en trekkspill-komponent som lar brukere utvide og lukke seksjoner med innhold ved å klikke på overskriften,
+Trekkspilliste er en trekkspill-komponent som lar brukere utvide og lukke seksjoner med innhold ved å klikke på overskriften,
  noe som gir en plassbesparende og organisert måte å presentere informasjon på.
 
 ### Anatomi
