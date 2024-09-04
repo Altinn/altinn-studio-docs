@@ -1,10 +1,10 @@
 ---
-title: Grid
-description: Grid-komponenten brukes til å visuelt oppstille komponenter i en tabellvisning
+title: Rutenett
+description: Bruk Rutenett-komponenten til å sette opp andre komponenter i en tabellvisning
 weight: 10
 ---
 
-![Grid](grid.png "Komponenter oppstilt i en Grid")
+![Grid](grid.png "Komponenter oppstilt i et rutenett")
 
 {{% expandlarge id="full-example" header="Vis konfigurasjonen for dette skjermskuddet" %}}
 ```json
@@ -138,8 +138,8 @@ weight: 10
 
 ## Konfigurasjon
 
-Grid-komponenten konfigureres som alle andre, men krever en konfigurasjon for rader og celler. For å starte med en
-2x2 Grid med to kolonner og to rader, kan vi bruke følgende konfigurasjon:
+Rutenett-komponenten konfigureres som alle andre, men krever en konfigurasjon for rader og celler. For å starte med et rutenett på
+2x2, med to kolonner og to rader, kan vi bruke følgende konfigurasjon:
 
 ```json
 {
@@ -202,7 +202,7 @@ Rader kan også skjules, og en hel rad vil automatisk skjules dersom følgende r
 2. Alle komponent-referansene i raden peker på komponenter som for tiden er skjult
 
 Rader som bare har tekst-celler vil med andre ord aldri bli skjult, og selv om raden har tekst-celler blir ikke disse
-cellene regnet med når Grid-komponenten skal velge om raden skal skjules eller ikke.
+cellene regnet med når Rutenett-komponenten skal velge om raden skal skjules eller ikke.
 
 ### Celler
 Celler kan konfigureres til å vise tekst eller en annen komponent. For å konfigurere en celle som viser tekst,
@@ -226,7 +226,7 @@ For å konfigurere en celle som viser en annen komponent, legg til en
 ```
 
 I konfigurasjonen over er det en forutsetning at `minKomponent` er en komponent som er konfigurert et annet sted i
-layout-konfigurasjonen. Foreløpig er det støtte for følgende komponenter i Grid-komponenten:
+layout-konfigurasjonen. Foreløpig er det støtte for følgende komponenter i -Rutenett-komponenten:
 
 - Button
 - Checkboxes
@@ -248,7 +248,7 @@ finnes et valgalternativ å velge mellom.
 
 Når komponenter vises i en tabell, vil de ikke vise `title`- og `description`-tekstressurser. Disse tekstressursene
 bør likevel settes på komponenten, da de vil bli brukt for tilgjengelighet og vil fortsatt bli vist når komponenten
-vises utenfor en Grid - som på [mindre skjermer](#mobilvisning) og i [et sammendrag](../../pages/summary).
+vises utenfor rutenettet - som på [mindre skjermer](#mobilvisning) og i [et sammendrag](../../pages/summary).
 
 ### Bredder, tekst og justering
 
@@ -291,13 +291,13 @@ Eksempel:
 
 ## Mobilvisning
 
-![Grid på mobil](grid-mobile.png "Komponentene i eksemplene over vises som enkeltkomponenter på mindre skjermer")
+![Rutenett på mobil](grid-mobile.png "Komponentene i eksemplene over vises som enkeltkomponenter på mindre skjermer")
 
-Grid-visningen av enkeltkomponenter er nyttig for å gi brukeren bedre oversikt over innholdet i en side og relaterte
+Rutenett-visningen av enkeltkomponenter er nyttig for å gi brukeren bedre oversikt over innholdet i en side og relaterte
 felter når skjermen er stor nok. En slik tabellvisning er derimot ikke optimal for mindre skjermer, derfor vil
-Grid-komponenten automatisk vise enkeltkomponentene (som om de ikke var del av en Grid) på mindre skjermer. Rekkefølgen
-til komponentene blir den samme som rekkefølgen til radene og cellene i Grid-konfigurasjonen (en og en rad av gangen),
+Rutenett-komponenten automatisk vise enkeltkomponentene (som om de ikke var del av et rutenett) på mindre skjermer. Rekkefølgen
+til komponentene blir den samme som rekkefølgen til radene og cellene i Rutenett-konfigurasjonen (en og en rad av gangen),
 og rekkefølgen til enkeltkomponentene slik de er definert i layout-konfigurasjonen har ingen betydning.
 
-Det samme gjelder også for visning av en Grid-komponent i [et sammendrag](../../pages/summary), hvor de samme
-komponentene referert til i Grid vil vises som sammendrag av enkeltkomponenter.
+Det samme gjelder også for visning av en Rutenett-komponent i [et sammendrag](../../pages/summary), hvor de samme
+komponentene referert til i Rutenett vil vises som sammendrag av enkeltkomponenter.
