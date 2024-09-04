@@ -44,8 +44,8 @@ Dette abonnementet brukes til å konfigurere endepunktet der hendelsene som publ
 Du må sette opp følgende filtre:
 
 - sourceFilter
-  - TT02: <https://platform.tt02.altinn.no/broker/api/v1/filetransfer>
-  - PROD: <https://platform.altinn.no/broker/api/v1/filetransfer>
+  - TT02: <https://platform.tt02.altinn.no/correspondence/api/v1/correspondence>
+  - PROD: <https://platform.altinn.no/correspondence/api/v1/correspondence>
 - resourceFilter
   - "urn:altinn:resource:" + Ressurs-IDen for meldingstjenesten
 - alternativesubjectfilter
@@ -53,15 +53,28 @@ Du må sette opp følgende filtre:
 
 *Alternativesubjectfilter* brukes til å begrense Event til bare den autoriserte avsenderen eller mottakeren for den spesifikke hendelsen, dette sikrer innholdet og reduserer synlighet.
 
-*Resourceinstance* vil alltid være det samme som FileTransferId for Filoverføringen.
+*Resourceinstance* vil alltid være det samme som CorrespondenceId for Meldingen.
 
 I tillegg kan du ønske å bruke *typeFilter*, slik at du mottar hendelsestypene du er interessert i/kan utføre handlinger på.
 Hvis du ikke spesifiserer et *typeFilter*, vil du motta alle forskjellige typer hendelser, gitt at du har tilgang til dem.
 
-**For Avsendere:**
+**For Avsender:**
+- `no.altinn.correspondence.attachmentinitialized`
+- `no.altinn.correspondence.attachmentuploadprocessing`
+- `no.altinn.correspondence.attachmentpublished`
+- `no.altinn.correspondence.attachmentuploadfailed`
+- `no.altinn.correspondence.attachmentpurged`
 
-- WIP
+- `no.altinn.correspondence.correspondenceinitialized`
+- `no.altinn.correspondence.correspondencearchived`
+- `no.altinn.correspondence.correspondencepurged`
+- `no.altinn.correspondence.correspondencepublishfailed`
+- `no.altinn.correspondence.correspondencereceiverread`
+- `no.altinn.correspondence.correspondencereceiverconfirmed`
+- `no.altinn.correspondence.Correspondencereceiverreserved`
+
 
 **For både Avsendere og Mottakere:**
-
-- WIP
+- `no.altinn.correspondence.correspondencepublished`
+- `no.altinn.correspondence.correspondencereceiverneverread`
+- `no.altinn.correspondence.correspondencereceiverneverconfirmed`
