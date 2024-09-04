@@ -62,7 +62,7 @@ Legg til følgende seksjoner dersom de er relevante:
 -->
 ### Relatert
 
-- [`Accordion`](../accordion/)
+- [`Trekkspilliste`](../accordion/)
 
 
 ## Egenskaper
