@@ -55,13 +55,13 @@ Du kan bruke følgende bilde av Sogndals kommunevåpen i tjenesten:
     ```
 14. Åpne "Innhold", gå til "Komponentbredde" og slå av valget "Bruk standardinnstilling".
 16. Sett bredden til 9. Pass på at valgt skjermstørrelse er "Mobil".
-17. Gå til "Komponenter", finn "Tekst" og dra komponenten "Paragraf" inn på skjemaet, under "Tittel"-komponenten.
+17. Gå til "Komponenter", finn "Tekst" og dra komponenten "Avsnitt" inn på skjemaet, under "Tittel"-komponenten.
 18. Åpne "Tekst"-seksjonen i konfigurasjonskolonnen (i midten).
 19. Velg "Ledetekst" og legg inn denne teksten:
     ```text
     Opplysningene du oppgir i dette skjemaet vil benyttes til å skreddersy en pakke med kommunale tilbud til deg og de du eventuelt flytter til kommunen sammen med.
     ```
-20. Dra inn en ny paragrafkomponent i skjemaet og lim inn denne teksten:
+20. Dra inn en ny Avsnitt-komponent i skjemaet og lim inn denne teksten:
     ```text
     Du skal ikke bruke dette skjemaet hvis:
     - Du er allerede bosatt i Sogndal kommune
