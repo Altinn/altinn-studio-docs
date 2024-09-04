@@ -75,14 +75,14 @@ Navigér til applikasjonsrepoet ditt i en terminal og kjør kommandoen `git pull
 I Altinn Studio må endringer synkroniseres på samme vis som ved lokale endringer.
 
 ### Laste ned endringer
-1. Trykk på _Hent endringer_ på Lage-siden til applikasjonen i Altinn Studio.
+1. Trykk på _Hent endringer_ på Utforming-siden til applikasjonen i Altinn Studio.
    ![Hent endringer i Altinn Studio](toolbar-hent.png)
 2. Har alt gått bra vil du se denne bekreftelsen.
     ![Hent endringer bekreftelse](pull-successful.png)
 
 ### Laste opp endringer
 
-1. Trykk på _Last opp dine endringer_ på Lage-siden til applikasjonen i Altinn Studio.
+1. Trykk på _Last opp dine endringer_ på Utforming-siden til applikasjonen i Altinn Studio.
    ![Last opp endringer i Altin Studio](toolbar-last-opp.png)
 2. Legg inn en beskrivende tekst for endringen(e) og trykk _Valider endringer_.
     ![Commitmelding](commit-message.png)

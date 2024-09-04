@@ -16,7 +16,7 @@ Før en app kan deployes til testmiljø, må alle nødvendige filer samles samme
 
 {{%notice info%}}
 Merk at det er filene fra app-repoet som benyttes i bygget. Dersom en har gjort endringer på en app i Altinn Studio så må disse sendes til repoet for at endringene skal bli med i bygg-pakken.
-Dette gjøres ved å velge _Push_ fra _Lage_-fanen i Altinn Studio.
+Dette gjøres ved å velge _Push_ fra _Utforming_-fanen i Altinn Studio.
 {{% /notice%}}
 
 Når en app er klar til test, kan den bygges ved å gå til *Deploy*-fanen i Altinn Studio (inne på den appen som skal deployes).
