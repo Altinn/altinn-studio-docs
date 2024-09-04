@@ -49,7 +49,7 @@ Du må sette opp følgende filtre:
 - resourceFilter
   - "urn:altinn:resource:" + Ressurs-IDen for meldingstjenesten
 - alternativesubjectfilter
-  - "/organisation/(organisasjonsnummer for din organisasjon)
+  - "/organisation/(organisasjonsnummer for din organisasjon) eller "/person/(personnummer)
 
 *Alternativesubjectfilter* brukes til å begrense Event til bare den autoriserte avsenderen eller mottakeren for den spesifikke hendelsen, dette sikrer innholdet og reduserer synlighet.
 

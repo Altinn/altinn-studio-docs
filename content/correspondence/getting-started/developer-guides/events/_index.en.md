@@ -50,6 +50,7 @@ You are required to set up the following filters:
   - "urn:altinn:resource:" + The Resource Id for the Correspondence Resource
 - alternativesubjectfilter
   - "/organisation/(organisation number for your organisation)
+  - "/person/(SSN number)
 
 *Alternativesubjectfilter* is used to restrict the event to only the authorized sender or recipient for that particular event, this ensures security and reduces visibility.
 
