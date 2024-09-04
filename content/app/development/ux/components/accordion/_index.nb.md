@@ -1,6 +1,6 @@
 ---
-title: Accordion
-linktitle: Accordion
+title: Trekkspilliste
+linktitle: Trekkspilliste
 description: En komponent som lar deg gruppere innhold i sammenleggbare seksjoner
 schemaname: Accordion # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk
@@ -15,18 +15,18 @@ toc: true
 
 ## Bruk
 
-Accordion er en trekkspill-komponent som lar brukere utvide og lukke seksjoner med innhold ved å klikke på overskriften,
+Trekkspilliste er en komponent som lar brukerne utvide og lukke seksjoner med innhold ved å klikke på overskriften,
  noe som gir en plassbesparende og organisert måte å presentere informasjon på.
 
 ### Anatomi
 
-![Accordion lukket anatomi](Accordion-closed-anatomy.png "Lukket Accordion")
+![Accordion lukket anatomi](Accordion-closed-anatomy.png "Lukket trekkspilliste")
 
-![Accordion åpen anatomi](Accordion-open-anatomy.png "Åpen Accordion")
+![Accordion åpen anatomi](Accordion-open-anatomy.png "Åpen trekkspilliste")
 
 {{% anatomy-list %}}
 1. **Overskrift**: Den klikkbare seksjonstittelen som brukere samhandler med for å utvide eller lukke innholdet.
-2. **Innholdsområde**: Området som utvider eller kollapser, som viser eller skjuler ytterligere informasjon når overskriften klikkes. 
+2. **Innholdsområde**: Området som åpnes eller lukkes, som viser eller skjuler ytterligere informasjon når brukeren kliker på overskriften. 
 {{% /anatomy-list %}} 
 
 <!-- 
@@ -94,10 +94,10 @@ Vi oppdaterer for øyeblikket Altinn Studio med flere muligheter for innstilling
 Innstillinger for egenskaper tilgjengelig i Altinn Studio Designer.
 
 {{% notice warning %}}
-**NB!** Accordions egenskap `children` må [legges til manuelt](#children) for å unngå feilmelding.
+**NB!** Egenskapen `children` for Trekkspilliste må [legges til manuelt](#children) for å unngå feilmelding.
 {{% /notice %}}
 
-![Accordion innstillinger i Altinn Studio](<Accordion-settings-panel.png> "Innstillinger for Accordion i Altinn Studio")
+![Accordion innstillinger i Altinn Studio](<Accordion-settings-panel.png> "Innstillinger for Trekkspilliste i Altinn Studio")
 
 - **Komponent-ID** (`id`): Automatisk generert komponent-ID (kan redigeres).
 
@@ -134,7 +134,7 @@ App/ui/layouts/{page}.json
 
 #### `textResourceBindings.title`
 
-Overskriften for Accordion kan legges til som en tekst direkte eller refereres via en tekstnøkkel til en [tekstressurs](/nb/app/development/ux/texts/#legge-til-og-endre-tekster-i-en-app).
+Du kan legge til overskriften for Trekkspilliste som en tekst direkte eller referere til den med en tekstnøkkel til en [tekstressurs](/nb/app/development/ux/texts/#legge-til-og-endre-tekster-i-en-app).
 
 #### `children`
 
@@ -148,7 +148,7 @@ Følgende typer kan legges til en `Accordion`:
 
 #### Eksempel
 
-Accordion med et avsnitt og en knapp som underelementer.
+Trekkspilliste med et avsnitt og en knapp som underelementer.
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Kode">}}
@@ -194,7 +194,7 @@ App/ui/layouts/{page}.json
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-![Accordion eksempel](<Accordion-title-and-children.png> "Accordion med avsnitt og knapp")
+![Accordion eksempel](<Accordion-title-and-children.png> "Trekkspilliste med avsnitt og knapp")
 
 ### Nivå for overskrift
 
