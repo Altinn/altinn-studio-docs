@@ -1,4 +1,4 @@
----
+et---
 title: Nestet trekkspilliste
 linktitle: Nestet trekkspilliste
 description: En komponent som lar deg ha trekkspillister inni en annen
@@ -15,7 +15,7 @@ toc: true
 
 ## Bruk
 
-`AccordionGroup` brukes til å gruppere relaterte [`Trekkspilliste`-komponenter](../accordion/).
+`Nestet trekkspilliste` brukes til å gruppere relaterte [`Trekkspilliste`-komponenter](../accordion/).
 
 ### Anatomi
 
@@ -24,7 +24,7 @@ toc: true
 ![AccordionGroup åpen](accordion-group-open-anatomy.png "AccordionGroup med en åpen Accordion")
 
 {{% anatomy-list %}}
-1. **AccordionGroup**: Gruppe med to eller flere Trekkspilliste-komponenter.
+1. **Nestet trekkspilliste**: Gruppe med to eller flere Trekkspilliste-komponenter.
 2. **Overskrift**: Den klikkbare seksjonstittelen som brukere samhandler med for å utvide eller lukke innholdet.
 3. **Innholdsområde**: Området som utvider eller kollapser, som viser eller skjuler ytterligere informasjon når overskriften klikkes.
 
