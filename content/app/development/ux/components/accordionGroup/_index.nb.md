@@ -1,7 +1,7 @@
 ---
-title: AccordionGroup
-linktitle: AccordionGroup
-description: En komponent som lar deg gruppere Accordions
+title: Nestet trekkspilliste
+linktitle: Nestet trekkspilliste
+description: En komponent som lar deg ha trekkspillister inni en annen
 schemaname: AccordionGroup # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk
 toc: true
@@ -24,7 +24,7 @@ toc: true
 ![AccordionGroup åpen](accordion-group-open-anatomy.png "AccordionGroup med en åpen Accordion")
 
 {{% anatomy-list %}}
-1. **AccordionGroup**: Gruppe med to eller flere Accordion-komponenter.
+1. **AccordionGroup**: Gruppe med to eller flere Trekkspilliste-komponenter.
 2. **Overskrift**: Den klikkbare seksjonstittelen som brukere samhandler med for å utvide eller lukke innholdet.
 3. **Innholdsområde**: Området som utvider eller kollapser, som viser eller skjuler ytterligere informasjon når overskriften klikkes.
 
@@ -143,8 +143,8 @@ App/ui/layouts/{page}.json
 
 ### Legg til underelementer
 
-Spesifiser hvilke komponenter av typen `Accordion` du vil gruppere ved å legge til deres ID-er til `AccordionGroup`-komponenten sin `children`-egenskap som vist under.
-`Accordion`-komponentene som skal grupperes må legges til den samme siden.
+Spesifiser hvilke komponenter av typen `Trekkspilliste` du vil gruppere ved å legge til deres ID-er til `Nestet treksspilliste`-komponenten sin `children`-egenskap som vist under.
+`Trekkspilliste`-komponentene som skal grupperes må legges til den samme siden.
  Rekkefølgen i gruppen bestemmes av rekkefølgen på komponent-ID'ene i `children`.
 
 {{<content-version-selector classes="border-box">}}
@@ -258,9 +258,9 @@ App/ui/layouts/{page}.json
 }
 ```
 
-![AccordionGroup eksempel lukket](AccordionGroup-example-closed.png "AccordionGroup eksempel lukket")
+![AccordionGroup eksempel lukket](AccordionGroup-example-closed.png "Nestet trekkspilliste eksempel lukket")
 
-![AccordionGroup eksempel åpen](AccordionGroup-example-open.png "AccordionGroup eksempel åpen")
+![AccordionGroup eksempel åpen](AccordionGroup-example-open.png "Nestet trekkspilliste eksempel åpen")
 
 {{</content-version-container>}}
 {{</content-version-selector>}}
