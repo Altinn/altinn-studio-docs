@@ -1827,6 +1827,7 @@ div.footnotes-entry > span {
 
 .sed-indent {
     margin-left: 3rem;
+    width: calc(100% - 3rem);
 }
 .sed-loader { text-align: center }
 .sed-loader span { display: block; font-size: small }
@@ -1898,16 +1899,18 @@ div.footnotes-entry > span {
     .swagger-entity-display dt,
     .swagger-entity-display dd {
         flex-basis: 100%;
+        display: block;
+    }
+    .swagger-entity-display dt {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        display: block;
     }
     .sed-head {
         display: none
     }
 }
-
+    
 #dialogporten-swagger-selector-container { 
     position: absolute;
     top: 0;
@@ -1916,6 +1919,13 @@ div.footnotes-entry > span {
     padding: 1rem;
     display: flex;
     flex-direction: row;
+}
+
+@media (max-width: 767px) {
+    #dialogporten-swagger-selector-container {
+        top: 5rem;
+        right: 1.5rem;
+    }
 }
 
 #dialogporten-swagger-selector-container > span { 

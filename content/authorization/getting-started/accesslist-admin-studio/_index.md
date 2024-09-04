@@ -18,7 +18,7 @@ Refer to [this guide](../resource-admin-studio/)
 Your organization should create the following teams:
 
 - **AccessLists-TT02:** Manages TT02 environment access lists.
-- **AccessList-PROD:** Manages production environment access lists.
+- **AccessLists-PROD:** Manages production environment access lists.
 
 Team members can administer access lists in their respective environments.
 

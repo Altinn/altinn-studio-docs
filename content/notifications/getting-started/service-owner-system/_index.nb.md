@@ -16,17 +16,16 @@ you can proceed directly with the next steps to start using Altinn Notifications
 
 ## 2. Register your Maskinporten Client with correct scopes
 
-{{% insert "\notifications\shared\getting-started\maskinporten\get-started-maskinporten.en.md" %}}
+{{% insert "content/notifications/shared/getting-started/maskinporten/get-started-maskinporten.en.md" %}}
 
 ## 3. Review policy for relevant resources in Altinn Resource Registry
 
-{{% insert "\notifications\shared\getting-started\resource\get-started-resource.en.md" %}}
+{{% insert "content/notifications/shared/getting-started/resource/get-started-resource.en.md" %}}
 
 
 ## 4. Familiarize yourself with the guidelines and best practice for sending notifications
-{{% insert "\notifications\shared\getting-started\guidelines\guidelines.en.md" %}}
+{{% insert "content/notifications/shared/getting-started/guidelines/guidelines.en.md" %}}
 
 ## 5. Integrate against Notifications API
 
-{{% insert "\notifications\shared\getting-started\integrate-with-api\get-started-integrate-with-api.en.md" %}}
-
+{{% insert "content/notifications/shared/getting-started/integrate-with-api/get-started-integrate-with-api.en.md" %}}
