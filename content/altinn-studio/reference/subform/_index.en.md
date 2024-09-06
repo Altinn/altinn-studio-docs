@@ -1,5 +1,5 @@
 ---
-title: Configuring a subform
+title: Creating a subform
 linktitle: Subform
 description: A subform is a form within a form.
 weight: 120
