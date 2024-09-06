@@ -42,7 +42,7 @@ I denne oppgaven skal vi se på de første to metodene.
 3. Velg "Objekt".
 4. Gi objektet navnet "arbeidsforhold".
 5. Gå til "Felter"-fanen.
-6. Legg til tre tekstfelter med navnene "sektor", "bransje" og "ar_i_arbeidslivet".
+6. Legg til tre tekstfelter med navnene "sektor", "bransje" og "aar_i_arbeidslivet".
 
 !["Datamodell med arbeidserfaring"](datamodell.png)
 
@@ -126,14 +126,14 @@ Til denne komponenten skal vi også bruke en kodelistefil, men denne gangen skal
 1. Fra "Komponenter"-panelet, dra inn komponenten som heter "Nedtrekksliste" og legg den til rett etter avmerkingsboksene.
 2. Gi komponenten ledeteksten "Antall år i arbeidslivet". Skjemaet skal nå se slik ut:
    ![Skjemabygger med antall_år i arbeidslivet](skjemabygger_med_tid_i_arbeidslivet.png)
-3. Legg til en datamodellknytning til feltet `arbeidsforhold.ar_i_arbeidslivet`.
+3. Legg til en datamodellknytning til feltet `arbeidsforhold.aar_i_arbeidslivet`.
 4. Velg "Last opp dine endringer" og deretter "Del endringer". Se at den røde prikken ved knappen forsvinner.
 
 #### Legg til kodelisten i repositoriet
 1. Klikk på profilikonet og gå til repositoriet i Gitea.
 2. Gå til mappen `App/options`. Her vil du se at filen `industri.json` fra forrige steg er listet opp.
 3. Velg "Add file" og deretter "Ny fil".
-4. Skriv inn filnavnet `ar_i_arbeidslivet.json`. Husk filtypen `.json`. Uten den vil ikke Studio finne filen når vi skal koble kodelisten til komponenten etterpå.
+4. Skriv inn filnavnet `aar_i_arbeidslivet.json`. Husk filtypen `.json`. Uten den vil ikke Studio finne filen når vi skal koble kodelisten til komponenten etterpå.
 5. Kopier koden under og lim den inn i tekstområdet der det står "Ny fil".
    ```
    [
