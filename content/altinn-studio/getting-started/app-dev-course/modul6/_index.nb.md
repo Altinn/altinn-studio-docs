@@ -30,7 +30,7 @@ Slike sett med svaralternativer kalles _kodelister_ eller _alternativer_.
 
 Du kan sette opp kodelister på tre måter i Altinn:
 - Ved å legge til alternativer manuelt for komponenten i Altinn Studio.
-- Ved å la komponenten hente alternativer JSON-fil med ferdige alternativer.
+- Ved å la komponenten hente alternativer fra JSON-fil med ferdige alternativer.
 - Ved å generere alternativer dynamisk ved hjelp av kode.
 
 I denne oppgaven skal vi se på de første to metodene.
