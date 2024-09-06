@@ -23,4 +23,4 @@ You can find information on how to create the agreement here: [payments.nets.eu]
 
 You can add more payment processors using custom backend code.
 Multiple payment processors can be used side by side in the same service.
-Contact if this is relevant for you.
+Contact us if this is relevant for you.
