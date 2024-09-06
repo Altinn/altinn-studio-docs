@@ -74,15 +74,11 @@ ha tilgang, og hvilke handlinger som skal være tilgjengelig for hvem. Foreløpi
 for:
 - Datautfylling
 - Signering
-- Betaling*
+- Betaling
 - Tilbakemelding
 - Oppsummering
 
 PDF for kvittering genereres automatisk.
-
-{{% notice info %}}
-\* Støtte for [brukerbetaling for tjenester](https://github.com/digdir/roadmap/issues/80) er under arbeid.
-{{% /notice %}}
 
 ## Utvikling
 Ny funksjonalitet og feilrettinger legges ut fortløpende. Vi har også omfattende dokumentasjon, som inkluderer et 
