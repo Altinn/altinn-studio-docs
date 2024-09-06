@@ -30,7 +30,7 @@ Underskjemaer tilhører en underskjematabell. La oss gå gjennom opprettelse av 
         },
    ```
 9. Naviger til layout for siden i hovedskjemaet der du ønsker å legge inn underskjematabellen.
-10. Legg til `Subform` med [ønsket konfigurasjon](../../reference/underskjema/config-options/). Eksempel:
+10. Legg til `Subform` med [ønsket konfigurasjon](../../reference/subform/config-options/). Eksempel:
     ```
         {
             "id": "subform-mopeder",
