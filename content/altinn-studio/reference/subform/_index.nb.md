@@ -65,4 +65,8 @@ Underskjemaer tilhører en underskjematabell. La oss gå gjennom opprettelse av 
             ]
         },
     ```
+    {{< panel info >}}
+    Underskjema kan ha sin egen oppsummeringsside og være en del av hovedskjema sin oppsummering.
+    For å legge til underskjema i hovedskjema sin oppsummering, bruk id som lagt inn i hovedskjema layout, og type "component".
+    {{< /panel >}}
     {{<children />}}
