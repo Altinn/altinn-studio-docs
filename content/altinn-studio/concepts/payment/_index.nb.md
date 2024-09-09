@@ -7,7 +7,7 @@ weight: 10
 Betaling er et prosessteg som kan legges til applikasjonen. 
 Ved inngang til betalingssteget omdirigeres brukeren til en ekstern betalingsleverandør, og returneres til tjenesten når betalingen er fullført.
 
-Ordregrunnlag og detaljer om betalingen lagres i et dataelement som JSON (paymentInformation.json), og kan lastes ned via API etter insending av skjemaet.
+Ordregrunnlag og detaljer om betalingen lagres i et dataelement som JSON (paymentInformation.json), og kan lastes ned via API etter insending av skjemaet. Det blir også generert en PDF-kvittering.
 Tjenesteleverandør må selv håndtere oppbevaring av betalingsinformasjon i henhold til bokføringsloven.
 
 <object data="payment.drawio.svg" type="image/svg+xml" style="width: 100%;"></object>

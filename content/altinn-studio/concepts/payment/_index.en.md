@@ -7,7 +7,7 @@ weight: 10
 Payment is a process step that can be added to the application.
 When entering the payment step, the user is redirected to an external payment provider, and is returned to the service once the payment is completed.
 
-The order details and payment information are stored in a data element as JSON (paymentInformation.json), and can be downloaded via API after the form is submitted.
+The order details and payment information are stored in a data element as JSON (paymentInformation.json), and can be downloaded via API after the form is submitted. A PDF receipt is also generated. 
 The service owner is responsible for handling the retention of payment information in accordance with the Norwegian bookkeeping laws (Bokføringsloven).
 
 <object data="payment.drawio.svg" type="image/svg+xml" style="width: 100%;"></object>
