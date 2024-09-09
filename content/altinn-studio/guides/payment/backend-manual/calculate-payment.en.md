@@ -14,7 +14,7 @@ The return value from the `CalculateOrderDetails` method indicates:
 - Currency
 - Order lines
 - Details of payment receiver. Used in receipt.
-- Optionally details about the payer, if you want to pre-fill this information with Nets Easy. Can be used in combination with Nets Easy's flag MerchantHandlesConsumerData, which we have exposed via appsettings.json NetsPaymentSettings.MerchantHandlesConsumerData. If it is set to true, payer details must be sent along, otherwise, it will fail.
+- Details about the payer (optional), If you want to pre-fill this information with Nets Easy. Can be used in combination with Nets Easy's flag MerchantHandlesConsumerData, which we have exposed via appsettings.json NetsPaymentSettings.MerchantHandlesConsumerData. If it is set to true, payer details must be sent along, otherwise, it will fail.
 
 In this example, the order lines are calculated based on form data:
 
