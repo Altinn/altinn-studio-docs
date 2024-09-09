@@ -14,6 +14,7 @@ Returverdien fra metoden `CalculateOrderDetails` angir:
 - Valuta
 - Ordrelinjer
 - Detaljer om betalingsmottaker. Brukes i kvittering.
+- Valgfritt detaljer om betaler, dersom du ønsker å forhåndsutfylle denne informasjonen hos Nets Easy. Kan brukes i kombinasjon med Nets Easy sitt flagg `MerchantHandlesConsumerData`, som vi har eksponert via appsettings.json `NetsPaymentSettings.MerchantHandlesConsumerData`. Om den er satt til `true` så må detaljer om betaler sendes med, ellers feiler det.
 
 I dette eksempelet regnes ordrelinjene ut basert på skjemadata:
 
@@ -48,7 +49,8 @@ public class OrderDetailsCalculator : IOrderDetailsCalculator
           PaymentProcessorId = "Nets Easy", 
           Currency = "NOK", 
           OrderLines = paymentOrderLines, 
-          Receiver = GetReceiverDetails()};
+          Receiver = GetReceiverDetails(),
+          Payer = GetPayerDetails()};
     }
 }
 ```
