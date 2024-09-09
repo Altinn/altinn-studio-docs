@@ -9,18 +9,20 @@ Link-komponenten kan brukes for å sende brukeren til en ekstern side. Den kan r
 - [Konfigurasjon](#konfigurasjon)
   - [Eksempel](#eksempel)
 - [Dynamisk URL](#dynamisk-url)
+- [Nedlasting](#nedlasting)
 - [Miljøkonfigurasjon](#miljøkonfigurasjon)
 
 ## Konfigurasjon
 
 Link-komponenten kan konfigureres med følgende egenskaper:
 
-| Egenskap                      | Type      | Beskrivelse                                                                   |
-| ----------------------------- | --------- | ----------------------------------------------------------------------------- |
-| `textResourceBindings.title`  | `string`  | Tittelen på knappen eller lenken.                                             |
-| `textResourceBindings.target` | `string`  | URL-en som skal åpnes.                                                        |
-| `openInNewTab`                | `boolean` | Om URL-en skal åpnes i et nytt vindu eller ikke.                              |
-| `style`                       | `string`  | Stilen til knappen. Kan være en av følgende: `primary`, `secondary` , `link`. |
+| Egenskap                        | Type      | Beskrivelse                                                                   |
+| ------------------------------- | --------- | ----------------------------------------------------------------------------- |
+| `textResourceBindings.title`    | `string`  | Tittelen på knappen eller lenken.                                             |
+| `textResourceBindings.target`   | `string`  | URL-en som skal åpnes.                                                        |
+| `textResourceBindings.download` | `string`  | Last ned fil istedetfor å navigere til den. Verdi blir nedlastet filnavn. Blank streng angir default filnavn. |
+| `openInNewTab`                  | `boolean` | Om URL-en skal åpnes i et nytt vindu eller ikke.                              |
+| `style`                         | `string`  | Stilen til knappen. Kan være en av følgende: `primary`, `secondary` , `link`. |
 
 ### Eksempel
 
@@ -58,6 +60,30 @@ Dette kan gjøres ved å bruke et [uttrykk](/nb/app/development/logic/expression
   "style": "primary"
 }
 ```
+
+## Nedlasting
+
+Anta at du har en PDF som skal kunne lastes ned, og at PDF-innholdet er en base64-kodet streng i datamodellen. Da kan `target` og `download` brukes til å vise en lenke eller knapp for å laste ned filen:
+
+```json
+{
+  "id": "some-id",
+  "type": "Link",
+  "textResourceBindings": {
+    "title": "Download PDF",
+    "target": [
+      "concat",
+      "data:application/pdf;base64,",
+      ["dataModel", "Path.To.Pdf"]
+    ],
+    "download": "downloadFilename"
+  },
+  "openInNewTab": false,
+  "style": "secondary"
+}
+```
+
+Her slås `downloadFilename` opp i språk-ressursene. Den kan inneholde variabler som alle språkressurser. `target` kan også være en språkressurs med variabler istedetfor et uttrykk som her.
 
 ## Miljøkonfigurasjon
 
