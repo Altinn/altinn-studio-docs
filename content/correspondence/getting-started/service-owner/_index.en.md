@@ -35,8 +35,7 @@ Your policy must be configured in such a way that that they permit the actions:
 - "see" to see metadata about a message
 - "open" to open a message 
 - "send" to send a message
-
-You will also typically want to include a rule that permits the "subscribe"-action. This is needed to register the subscription to Altinn Events.
+- "subscribe" to register event subscriptions in Altinn Events
 
 To setup a resource that works quickly, you can use our [Postman collection](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json) and run the requests "Create resource" and "Create resource policy" with a token that has the scope "altinn:resourceregistry/resource.write".
 
