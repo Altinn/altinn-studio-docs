@@ -7,7 +7,7 @@ hidden: true
 1. [Get your secret key from Nets.](https://developer.nexigroup.com/nexi-checkout/en-EU/docs/access-your-integration-keys/). Make sure you use the test key during development.
 2. Make your app ready for use of Azure Key Vault as a config provider, if this has not been done before. See [relevant documentation](/altinn-studio/reference/configuration/secrets/).
 3. Add your secret key to Key Vault, with the variable name `NetsPaymentSettings--SecretApiKey`. This way it will override `SecretApiKey` in `appsettings.json`.
-4. Add `NetsPaymentSettings` to your `appsettings.json`. Remember to set the correct `baseUrl` in production.
+4. Add `NetsPaymentSettings` to your `appsettings.json`. Remember to set the correct `baseUrl` in production. The field `MerchantHandlesConsumerData` is optional, and controls whether you are going to supply details about the payer, or if that should be filled out in the Nets Easy payment page. 
     ```json
     {
       "NetsPaymentSettings": {
@@ -15,7 +15,8 @@ hidden: true
         "BaseUrl": "https://test.api.dibspayment.eu/",
         "TermsUrl": "https://www.yourwebsite.com/terms",
         "ShowOrderSummary": true,
-        "ShowMerchantName": true
+        "ShowMerchantName": true,
+        "MerchantHandlesConsumerData": true
       }
     }
     ```
