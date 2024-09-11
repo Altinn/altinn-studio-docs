@@ -36,9 +36,10 @@ Ressurser registreres via Altinn Studio og brukes til å definere tilgangsregler
 2. Opprett ny ressurs, følg veiledningen og fyll inn nødvendig informasjon og detaljer om tjenesten.
 3. Angi tilgangsregler for ressursen.
 4. Tilgangsregler må for ressursen må konfigureres slik at de tillater følgende handlinger:
-    - "subscribe" for alle, - dette brukes for hendelser.
-    - "read" for mottakere
-    - "write" for avsendere.
+    - "see" for å se metadata om en melding
+    - "open" for å åpne en melding
+    - "send" for å sende en melding
+    - "subscribe" for eventuelt å registrere hendelsesabonnement i Altinn Events
 
 Alternativt, for å sette opp en ressurs som fungerer raskt, kan du bruke vår [Postman-samling](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json) og kjøre forespørslene "Create resource" og "Create resource policy" med en token som har scopet "altinn:resourceregistry/resource.write".
 
