@@ -32,9 +32,10 @@ All operations using Correspondence is associated with a resource/service/"tjene
 Resources can be registered through Altinn Studio, and are used for access rules and access lists.
 Your policy must be configured in such a way that that they permit the actions:
 
-- "subscribe" for all, - this is used for Events.
-- "read" for recipients
-- "write" for senders.
+- "see" to see metadata about a message
+- "open" to open a message 
+- "send" to send a message
+- "subscribe" to register event subscriptions in Altinn Events
 
 To setup a resource that works quickly, you can use our [Postman collection](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json) and run the requests "Create resource" and "Create resource policy" with a token that has the scope "altinn:resourceregistry/resource.write".
 
