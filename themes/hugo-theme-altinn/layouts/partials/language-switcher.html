@@ -3,7 +3,7 @@
 </a>
 <div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
   {{- $currentPage := . -}}
-  {{- if .Site.IsMultiLingual -}}
+  {{- if hugo.IsMultilingual -}}
     {{- range .AllTranslations -}}
     <a aria-hidden="true" class="dropdown-item" href="{{ .RelPermalink }}">
       <img src="/images/{{ .Language }}.svg" class="a-iconLeft a-flag" alt="" />
