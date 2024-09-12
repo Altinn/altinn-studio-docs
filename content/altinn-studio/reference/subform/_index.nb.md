@@ -27,13 +27,13 @@ Underskjemaer tilhører en underskjematabell. La oss gå gjennom opprettelse av 
      "id": "subform-exitbutton",
      "type": "CustomButton",
      "textResourceBindings": {
-       "title": "The button title" // Defaults to `general.done` if omitted
+       "title": "The button title" // Blir `general.done` om utelatt
      },
      "actions": [
        {
          "type": "ClientAction",
          "id": "closeSubform",
-         // Validation is optional
+         // Validering er valgfritt
          "validation": {
            "page": "all",
            "show": ["All"]
