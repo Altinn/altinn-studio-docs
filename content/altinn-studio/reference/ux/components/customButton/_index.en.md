@@ -68,13 +68,40 @@ The object `metadata` will be passed to the function as an argument. This is how
 }
 ```
 
+A client action exists for the purpose of closing a subform. You can add the option to validate before exiting. A standard
+use case would be to have two buttons in the subform, e.g. **Exit** and **Done**, where **Exit** would not validate. This
+will allow the user to return to the main form without having to fill out the subform. Here is how you would add a button
+with this action:
+
+```json
+{
+  "id": "close-subform-done",
+  "type": "CustomButton",
+  "textResourceBindings": {
+    "title": "custom-button-title"
+  },
+  "actions": [
+    {
+      "type": "ClientAction",
+      "id": "closeSubform",
+      // Validation is optional
+      "validation": {
+        "page": "all",
+        "show": ["All"]
+      }
+    }
+  ]
+}
+```
+
 These are the available `ClientActions`:
 
-| Function name    | Parameters         | Behavior                                         |
-| ---------------- | ------------------ | ------------------------------------------------ |
-| `nextPage`       | -                  | Will navigate to the next page, if it exists     |
-| `previousPage`   | -                  | Will navigate to the previous page, if it exists |
-| `navigateToPage` | `{ page: string }` | Navigates to the specified page if it exists     |
+| Function name    | Parameters          | Behavior                                         |
+| ---------------- | ------------------- | ------------------------------------------------ |
+| `nextPage`       | -                   | Will navigate to the next page, if it exists     |
+| `previousPage`   | -                   | Will navigate to the previous page, if it exists |
+| `navigateToPage` | `{ page: string }`  | Navigates to the specified page if it exists     |
+| `closeSubform`   | optional validation | Closes the subform and returns to the main form  |
 
 ## ServerActions
 
@@ -167,7 +194,8 @@ and before the next action in the list is executed. You can chain as many action
 ## Instructions for Adding serverAction to Desired Process Step
 
 1. Adding serverAction to "Task_1" in the process.bpmn file:
-Open the process.bpmn file and add serverAction to the desired process step, such as "Task_1":
+   Open the process.bpmn file and add serverAction to the desired process step, such as "Task_1":
+
    ```xml
     <bpmn:task id="Task_1" name="Utfylling">
       <bpmn:incoming>SequenceFlow_1n56yn5</bpmn:incoming>
@@ -183,9 +211,8 @@ Open the process.bpmn file and add serverAction to the desired process step, suc
     </bpmn:task>
    ```
 
-
 2. Adding serverAction id to desired step in the policy.xml file:
-Navigate to the policy.xml file to add the serverAction id to the desired step, such as "Task_1":
+   Navigate to the policy.xml file to add the serverAction id to the desired step, such as "Task_1":
 
    ```xml
         <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
