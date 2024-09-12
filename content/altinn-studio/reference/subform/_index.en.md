@@ -97,5 +97,5 @@ To add a subform into the main forms summary, use the subform id from the main f
 {{< /panel >}}
 
 {{% notice warning  %}}
-As mentioned in step 7, the only way to exit a subform context is with the `closeSubform` action on the `CustomButton`
+As mentioned in step 8, the only way to exit a subform context is with the `closeSubform` action on the `CustomButton`
 {{% /notice  %}}
