@@ -23,7 +23,7 @@ A process is represented by an process model in BPMN/XML notation. Each task has
 Get the application's process model.
 
 ```http
-GET {appPath}/process
+GET {basePath}/api/v1/meta/process
 ```
 
 Returns the bpmn file defining the process.
