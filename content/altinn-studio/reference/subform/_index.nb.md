@@ -21,7 +21,7 @@ Underskjemaer tilhører en underskjematabell. La oss gå gjennom opprettelse av 
    Underskjema støtter ikke vedlegg, og nøsting av underskjema er ikke tillatt (underskjema i underskjema).
    {{< /notice >}}
 7. **Settings.json** filen for underskjema [konfigureres som normalt](../../../app/development/ux/pages/#innstillinger).
-8. Knappen som brukes for å lukke underskjema må være en [CustomButton](../../reference/ux/components/CustomButton) med `closeSubform` action. Det er valgfritt å validere underskjema før det lukkes.
+8. Knappen som brukes for å lukke underskjema må være en [CustomButton](../../reference/ux/components/custombutton) med `closeSubform` action. Det er valgfritt å validere underskjema før det lukkes.
    ```json
    {
      "id": "subform-exitbutton",
