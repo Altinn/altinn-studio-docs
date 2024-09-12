@@ -12,7 +12,7 @@ aliases:
 
 The features documented here are the default features of any app created based on the app template in Altinn Studio. Application owners are free to make changes to this, but it is probably safe to say that removal of features will be extremely rare. Any app with changes to its API should have its own documentation published by the application owner.
 
-All app API endpoints have the same URL base path that will vary based on application owner and application name.
+All app API endpoints have the same URL base path that will vary based on application owner and application name. This is called `{basePath}` throughout the documentation.
 
 **Test environment (TT02)**
 ```http

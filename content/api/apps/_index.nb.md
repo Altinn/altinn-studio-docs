@@ -10,7 +10,7 @@ tags: [api]
 
 De API-funksjonene som er dokumentert her er standardfunksjoner i en app basert på app-malen i Altinn Studio. Applikasjonseiere kan fritt gjøre endringer, men det er relativt trygt å anta at fjerning av funksjoner vil være ekstremt sjeldent. Enhver app med tillegg eller endringer skal ha sin egen dokumentasjon publisert av applikasjonseieren.
 
-Alle app-API-adresser starter med samme navn og filsti, men de varierer fra én app til en annen basert på appeier og appnavn.
+Alle app-API-adresser starter med samme navn og filsti, men de varierer fra én app til en annen basert på appeier og appnavn. Dette er kalt `{basePath}` i dokumentasjonen.
 
 **Testmiljø (TT02)**
 ```http
