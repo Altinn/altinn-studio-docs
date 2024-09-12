@@ -22,7 +22,7 @@ Underskjemaer tilhører en underskjematabell. La oss gå gjennom opprettelse av 
    {{< /notice >}}
 7. **Settings.json** filen for underskjema [konfigureres som normalt](../../../app/development/ux/pages/#innstillinger).
 8. Legg til et layout set i `layout-sets.json` med datatypen til datamodellen fra steg 1. Sett **type** til **subform**. Bruk navnet på underskjemamappen som id.
-   ```
+   ```json
         {
             "id": "underskjema-mappe-navn",
             "dataType": "underskjema-datatype",
@@ -31,7 +31,7 @@ Underskjemaer tilhører en underskjematabell. La oss gå gjennom opprettelse av 
    ```
 9. Naviger til layout for siden i hovedskjemaet der du ønsker å legge inn underskjematabellen.
 10. Legg til `Subform` med [ønsket konfigurasjon](../../reference/subform/config-options/). Eksempel:
-    ```
+    ```json
         {
             "id": "subform-mopeder",
             "type": "Subform",

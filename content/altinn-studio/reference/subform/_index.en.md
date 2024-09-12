@@ -18,76 +18,72 @@ Subforms are contained in a subform table. Let us go through configuring a subfo
 5. In the subform folder, add a `Settings.json` file and a folder called **layouts**.
 6. You can add page layouts to the layouts folder as you would for the main form.
    {{< notice warning >}}
-   Subforms do not support attachments, and nesting subforms is not allowed.
+   Subforms do not support attachments, and nesting subforms is not allowed (subform in subform).
    {{< /notice >}}
-7. **Settings.json** filen for underskjema [konfigureres som normalt](../../../app/development/ux/pages/#innstillinger).
-8. To allow the user to exit a subform context, you must use a [CustomButton](../../reference/ux/components/CustomButton) with a `closeSubform` action. Optionally you can also trigger validation befor exiting.
+7. To allow the user to exit a subform context, you must use a [CustomButton](../../reference/ux/components/CustomButton) with a `closeSubform` action. Optionally you can also trigger validation befor exiting.
    ```json
    {
-        "id": "subform-exitbutton",
-        "type": "CustomButton",
-        "textResourceBindings": {
-            "title": "The button title" // Defaults to `general.done` if omitted
-        },
-        "actions": [
-            {
-            "type": "ClientAction",
-            "id": "closeSubform",
-
-            // Validation is optional
-            "validation": {
-                "page": "all",
-                "show": [
-                "All"
-                ]
-            }
-            }
-        ]
-    }
+     "id": "subform-exitbutton",
+     "type": "CustomButton",
+     "textResourceBindings": {
+       "title": "The button title" // Defaults to `general.done` if omitted
+     },
+     "actions": [
+       {
+         "type": "ClientAction",
+         "id": "closeSubform",
+         // Validation is optional
+         "validation": {
+           "page": "all",
+           "show": ["All"]
+         }
+       }
+     ]
+   }
    ```
-9. The **Settings.json** file for the sub form is [configured as normal](../../../app/development/ux/pages/#settings).
-10. Add a layout set to `layout-sets.json` with the data type of the data model from step 1. The **type** is **subform**. Choose your subform folder name as the id.
+8. The **Settings.json** file for the sub form is [configured as normal](../../../app/development/ux/pages/#settings).
+9. Add a layout set to `layout-sets.json` with the data type of the data model from step 1. The **type** is **subform**. Choose your subform folder name as the id.
+   ```json
+   {
+     "id": "subform-layout-folder-name",
+     "dataType": "your-subform-dataType",
+     "type": "subform"
+   }
+   ```
+10. Navigate to the layout for the page in the main form in which you want to add the sub form table.
+11. Add `Subform` with the [configuration you want](../../reference/subform/config-options/). Example:
     ```json
     {
-        "id": "subform-layout-folder-name",
-        "dataType": "your-subform-dataType",
-        "type": "subform"
-    }
-    ```
-11. Navigate to the layout for the page in the main form in which you want to add the sub form table.
-12. Add `Subform` with the [configuration you want](../../reference/subform/config-options/). Example:
-    ```json
-    {
-        "id": "subform-test",
-        "type": "Subform",
-        "textResourceBindings": {
-            "title": "subform-test.title",
-            "addButton": "subform-test.add"
-        },
-        "layoutSet": "subform-layout-folder-name",
-        "showAddButton": true,
-        "showDeleteButton": true,
-        "tableColumns": [
+      "id": "subform-test",
+      "type": "Subform",
+      "textResourceBindings": {
+        "title": "subform-test.title",
+        "addButton": "subform-test.add"
+      },
+      "layoutSet": "subform-layout-folder-name",
+      "showAddButton": true,
+      "showDeleteButton": true,
+      "tableColumns": [
         {
-            "headerContent": "subform-test.name-header",
-            "cellContent": {
-                "query": "Name"
-            }
+          "headerContent": "subform-test.name-header",
+          "cellContent": {
+            "query": "Name"
+          }
         },
         {
-            "headerContent": "subform-test.age-header",
-            "cellContent": {
-                "query": "Age"
-            }
+          "headerContent": "subform-test.age-header",
+          "cellContent": {
+            "query": "Age"
+          }
         },
         {
-            "headerContent": "subform-test.extrainfo-header",
-            "cellContent": {
-                "query": "ExtraInfo",
-                "default": "subform-test.extrainfo.default" 
-            }
+          "headerContent": "subform-test.extrainfo-header",
+          "cellContent": {
+            "query": "ExtraInfo",
+            "default": "subform-test.extrainfo.default"
+          }
         }
-        ]
+      ]
     }
     ```
 
