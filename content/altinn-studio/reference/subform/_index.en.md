@@ -91,7 +91,3 @@ Subforms are contained in a subform table. Let us go through configuring a subfo
 Subforms can have their own summary page and be a part of the main forms summary.
 To add a subform into the main forms summary, use the subform id from the main forms layout, and the type "component".
 {{< /panel >}}
-
-{{% notice warning  %}}
-As mentioned in step 8, the only way to exit a subform context is with the `closeSubform` action on the `CustomButton`
-{{% /notice  %}}
