@@ -21,7 +21,28 @@ Underskjemaer tilhører en underskjematabell. La oss gå gjennom opprettelse av 
    Underskjema støtter ikke vedlegg, og nøsting av underskjema er ikke tillatt (underskjema i underskjema).
    {{< /notice >}}
 7. **Settings.json** filen for underskjema [konfigureres som normalt](../../../app/development/ux/pages/#innstillinger).
-8. Legg til et layout set i `layout-sets.json` med datatypen til datamodellen fra steg 1. Sett **type** til **subform**. Bruk navnet på underskjemamappen som id.
+8. Knappen som brukes for å lukke underskjema må være en [CustomButton](../../reference/ux/components/CustomButton) med `closeSubform` action. Det er valgfritt å validere underskjema før det lukkes.
+   ```json
+   {
+     "id": "subform-exitbutton",
+     "type": "CustomButton",
+     "textResourceBindings": {
+       "title": "The button title" // Defaults to `general.done` if omitted
+     },
+     "actions": [
+       {
+         "type": "ClientAction",
+         "id": "closeSubform",
+         // Validation is optional
+         "validation": {
+           "page": "all",
+           "show": ["All"]
+         }
+       }
+     ]
+   }
+   ```
+9. Legg til et layout set i `layout-sets.json` med datatypen til datamodellen fra steg 1. Sett **type** til **subform**. Bruk navnet på underskjemamappen som id.
    ```json
         {
             "id": "underskjema-mappe-navn",
@@ -29,8 +50,8 @@ Underskjemaer tilhører en underskjematabell. La oss gå gjennom opprettelse av 
             "type": "subform"
         },
    ```
-9. Naviger til layout for siden i hovedskjemaet der du ønsker å legge inn underskjematabellen.
-10. Legg til `Subform` med [ønsket konfigurasjon](../../reference/subform/config-options/). Eksempel:
+10. Naviger til layout for siden i hovedskjemaet der du ønsker å legge inn underskjematabellen.
+11. Legg til `Subform` med [ønsket konfigurasjon](../../reference/subform/config-options/). Eksempel:
     ```json
         {
             "id": "subform-mopeder",

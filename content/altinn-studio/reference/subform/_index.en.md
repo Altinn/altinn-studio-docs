@@ -20,7 +20,7 @@ Subforms are contained in a subform table. Let us go through configuring a subfo
    {{< notice warning >}}
    Subforms do not support attachments, and nesting subforms is not allowed (subform in subform).
    {{< /notice >}}
-7. To allow the user to exit a subform context, you must use a [CustomButton](../../reference/ux/components/CustomButton) with a `closeSubform` action. Optionally you can also trigger validation befor exiting.
+7. The button which closes the subform must be a [CustomButton](../../reference/ux/components/CustomButton) with a `closeSubform` action. Optionally you can also trigger validation befor exiting.
    ```json
    {
      "id": "subform-exitbutton",
