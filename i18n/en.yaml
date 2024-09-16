@@ -33,6 +33,20 @@
   translation: technology
 - id: content
   translation: content
+- id: products
+  translation: products
+- id: studio
+  translation: Studio
+- id: authorization
+  translation: Authorization
+- id: broker
+  translation: Broker
+- id: correspondence
+  translation: Correspondence
+- id: notifications
+  translation: Notifications
+- id: dialogporten
+  translation: Dialogporten
 
 # Frontpage
 - id: altinn-your-dialogue

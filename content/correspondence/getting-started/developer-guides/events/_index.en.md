@@ -49,7 +49,7 @@ You are required to set up the following filters:
 - resourceFilter
   - "urn:altinn:resource:" + The Resource Id for the Correspondence Resource
 - alternativesubjectfilter
-  - "/organisation/(organisation number for your organisation)
+  - "/organisation/(organisation number for your organisation) or /person/(SSN number)
 
 *Alternativesubjectfilter* is used to restrict the event to only the authorized sender or recipient for that particular event, this ensures security and reduces visibility.
 
@@ -59,9 +59,26 @@ In addition you may wish to use filters for Type, so that you receive the event 
 If you do not specify a Type Filter you will receive all the different types of events if you have access to them.
 
 **For Senders:**
-- WIP
+- `no.altinn.correspondence.attachmentinitialized`
+- `no.altinn.correspondence.attachmentuploadprocessing`
+- `no.altinn.correspondence.attachmentpublished`
+- `no.altinn.correspondence.attachmentuploadfailed`
+- `no.altinn.correspondence.attachmentpurged`
+- `no.altinn.correspondence.attachmentdownloaded`
+
+
+- `no.altinn.correspondence.correspondenceinitialized`
+- `no.altinn.correspondence.correspondencearchived`
+- `no.altinn.correspondence.correspondencepurged`
+- `no.altinn.correspondence.correspondencepublishfailed`
+- `no.altinn.correspondence.correspondencereceiverread`
+- `no.altinn.correspondence.correspondencereceiverconfirmed`
+- `no.altinn.correspondence.Correspondencereceiverreserved`
+
 
 **For both Senders And Recipients:**
-- WIP
+- `no.altinn.correspondence.correspondencepublished`
+- `no.altinn.correspondence.correspondencereceiverneverread`
+- `no.altinn.correspondence.correspondencereceiverneverconfirmed`
 
 

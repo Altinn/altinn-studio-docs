@@ -1,6 +1,6 @@
 ---
 title: Innstillinger for redigering av rad
-title: Redigering
+linktitle: Redigering
 description: Innstillinger for redigering/utfylling av en rad i en repeterende gruppe
 weight: 1
 toc: true
