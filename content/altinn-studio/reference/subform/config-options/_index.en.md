@@ -9,8 +9,6 @@ weight: 120
 This documentation is a work in progess. Subforms are currently in preview-release.
 {{% /notice %}}
 
-Configuration for the table containing subforms.
-
 ## Parameters
 
 | Parameter                                                                                                                 | Required | Description                                                                                                              |
