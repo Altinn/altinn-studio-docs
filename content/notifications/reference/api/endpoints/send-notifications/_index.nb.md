@@ -33,7 +33,7 @@ and serialized as JSON.
 
 
 ### Required order request properties
-#### __notificationChannel___
+#### __notificationChannel__
 Type: _enum_ _[NotificationChannelExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/NotificationChannelExt.cs)_
 
 The notification channel to use when sending the notification.
