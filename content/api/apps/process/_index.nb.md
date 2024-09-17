@@ -21,7 +21,7 @@ A process is represented by an process model in BPMN/XML notation. Each task has
 Get the application's process model.
 
 ```http
-GET {appPath}/process
+GET {basePath}/api/v1/meta/process
 ```
 
 Returns the bpmn file defining the process.
@@ -60,7 +60,7 @@ which signify the behavior of the task. So far we have defined the following:
 ## Get process state of a specific instance
 
 ```http
-GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process
+GET {basePath}/api/v1/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process
 ```
 
 For an ongoing process this process state can look like the json below. It indicates that the process was started at a given date time and that it's current task is *Task_1*.
@@ -181,7 +181,7 @@ The system will generate a number of process related events, which can be found 
 Based on the process events the history of the instance's process is generated. The following illustrates an ended process:
 
 ```http
-GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/history
+GET {basePath}/api/v1/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/history
 ```
 
 ```json
@@ -212,7 +212,7 @@ GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/hist
 To start a process one can post start to the process endpoint.
 
 ```http
-POST {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/start[?startEvent=StartEvent_1]
+POST {basePath}/api/v1/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/start[?startEvent=StartEvent_1]
 ```
 
 This will start the process and move the process state to the first task from the given start. If process has more than one start event, then the client has to chose which one to start with the startEvent query parameter.
@@ -224,7 +224,7 @@ The process logic attempts to finish the current task and then moves the process
 ![Flowchart for completing a task](process-completeTask.png "Process next task")
 
 ```http
-PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/next[?id=Task_2]
+PUT {basePath}/api/v1/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/next[?id=Task_2]
 ```
 
 ## Complete the process
@@ -236,7 +236,7 @@ If a task's exit condition is not met, the process will be stopped in the last v
 ![Flowchart for completing a process](process-completeProcess.png "Complete the process")
 
 ```http
-PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/completeProcess
+PUT {basePath}/api/v1/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/completeProcess
 ```
 
 
@@ -245,7 +245,7 @@ PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/comp
 Returns an list of the next tasks/events that can be reached from the current task.
 
 ```http
-GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/next
+GET {basePath}/api/v1/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/next
 ```
 
 ## Start a task
@@ -253,5 +253,5 @@ GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/next
 If you are at a specific task and want to start the next task you can try to put next to the process endpoint. The process controller then tries to close the current task and start the wanted task. Updates process state accordingly. If exit condition of current task is not met, an error will be returned. If the task is not directly reachable by the flow, an error will be returned.
 
 ```http
-PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/next?id=Task_2
+PUT {basePath}/api/v1/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/next?id=Task_2
 ```
