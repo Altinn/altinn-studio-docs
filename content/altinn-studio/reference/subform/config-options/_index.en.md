@@ -21,8 +21,6 @@ This documentation is a work in progess. Subforms are currently in preview-relea
 | showDeleteButton                                                                                                          | No       | Allow users to delete subforms.                                                                                          |
 | [textResourceBindings](#textresourcebindings)                                                                             | No       | Can be set for subform, see [description](#textresourcebindings).                                                        |
 
-showAddButton
-
 ## textResourceBindings
 
 It is possible to add different keys in textResourceBindings to overrule default texts.

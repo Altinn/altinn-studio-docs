@@ -21,11 +21,9 @@ Dette dokumentet er under utvikling. Underskjema er kun i preview-release.
 | showDeleteButton                                                                                                          | No       | Tillater brukere å slette underskjema.                                                                         |
 | [textResourceBindings](#textresourcebindings)                                                                             | No       | Kan settes for underskjema, se [description](#textresourcebindings).                                           |
 
-showAddButton
-
 ## textResourceBindings
 
-It is possible to add different keys in textResourceBindings to overrule default texts.
+Det er mulig å sette ulike nøkler i textResourceBindings for å overstyre standardtekster.
 
 - `title` - The title of the subform component.
 - `description` - The description text shown underneath the title.
