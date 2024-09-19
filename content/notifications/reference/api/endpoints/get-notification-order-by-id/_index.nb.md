@@ -8,7 +8,7 @@ toc: true
 
 ## Endpoint
 
-GET /order/{id}
+GET /orders/{id}
 
 {id} represents the ID of the notification order to retrieve details for.
 
