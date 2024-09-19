@@ -353,7 +353,7 @@ Fikset maxWidth for input-komponenter og  for address component.
 Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
 
 ## 3.18.2 (2021-11-30) - Optimalisering for mobil visning - luft
-Forbedret luft for tittel og paragraf-komponentene.
+Forbedret luft for tittel og avsnitt-komponentene.
 Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
 
 ## 3.18.1 (2021-11-30) - Optimalisering for mobil visning - bredde
