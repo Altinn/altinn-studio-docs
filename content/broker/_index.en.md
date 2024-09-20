@@ -13,8 +13,8 @@ weight: 1
 ## What you get with Altinn Broker
 An overview and description of the key functionalities and features of Altinn Broker.
 
-### End-to-end file transfer
-Altinn Formidling offers end-to-end file transfer, from creation, sending, receiving to tracking file transfers. This ensures that all parts of the messaging flow are handled efficiently and securely.
+### End-to-end file transfers
+Altinn Formidling offers end-to-end file transfers, from creation, sending, receiving to tracking file transfers. This ensures that all parts of the messaging flow are handled efficiently and securely.
 
 ### Support for large payloads
 A unique feature of Altinn Broker is its ability to handle large data volumes (payloads). We aim to support very large payloads in the near future. This is the solution for those who need to transfer large amounts of information efficiently and securely.
