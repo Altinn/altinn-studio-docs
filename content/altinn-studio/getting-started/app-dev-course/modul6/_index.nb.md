@@ -105,7 +105,7 @@ Slik bruker du en kodeliste til å lage en liste med avmerkingsbokser:
    Klikk på knappen. Du vil få en bekreftelse på at du har fått siste versjon og prikken forsvinner.
 2. Åpne siden der du la til "Bransje" og klikk på "Bransje".
 3. Under "Tekst" i egenskapene for "Bransje", sjekk at fanen "Velg kodeliste" er valgt.
-3. Velg "industri" fra nedtrekkslisten under.
+4. Velg "industri" fra nedtrekkslisten under.
    !["Bruk kodeliste"-nedtrekssliste](bruk_kodeliste.png)
 
 Nå skal avmerkingsboksene være klare.
