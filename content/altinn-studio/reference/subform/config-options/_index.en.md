@@ -11,20 +11,51 @@ This documentation is a work in progess. Subforms are currently in preview-relea
 
 ## Parameters
 
-| Parameter                                                                                                                 | Required | Description                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------ |
-| id                                                                                                                        | Yes      | Unique ID, same as ID on other components. Must be unique in the layout file, and should be unique across pages.         |
-| type                                                                                                                      | Yes      | Must be 'Subform'                                                                                                        |
-| layoutSet                                                                                                                 | Yes      | The layout set to load for this subform, must be unique IDs within layout-sets.json.                                     |
-| [tableColumns](../../../../app/development/ux/fields/grouping/repeating/table/#widths-alignment-and-overflow-for-columns) | Yes      | Object containing column options for specified headers. If not specified, all columns will use default display settings. |
-| showAddButton                                                                                                             | No       | Allow users to add subforms.                                                                                             |
-| showDeleteButton                                                                                                          | No       | Allow users to delete subforms.                                                                                          |
-| [textResourceBindings](#textresourcebindings)                                                                             | No       | Can be set for subform, see [description](#textresourcebindings).                                                        |
+| Parameter                                                       | Type   | Required | Description                                                                                                                           |
+| --------------------------------------------------------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| id                                                              | string | Yes      | Unique ID, same as ID on other components. Must be unique in the layout file, and should be unique across pages.                       |
+| type                                                            | string | Yes      | Must be 'Subform'                                                                                                                     |
+| layoutSet                                                       | string | Yes      | The layout set to load for this subform, must be unique IDs within layout-sets.json.                                                  |
+| [tableColumns](#tablecolumns)                                   | array  | Yes      | Array of objects containing column definitions for the subform table. Each entry provides a header, cell query and cell default value. |
+| showAddButton                                                   | bool   | No       | Allow users to add subforms. Defaults to true.                                                                                        |
+| showDeleteButton                                                | bool   | No       | Allow users to delete subforms. Defaults to true.                                                                                     |
+| [textResourceBindings](#textresourcebindings)                   | object | No       | Object describing text resource bindings for the subform component.                                                                   |
 
 ## textResourceBindings
 
-It is possible to add different keys in textResourceBindings to overrule default texts.
+The following keys in the `textResourceBindings` object are available for customization:
 
 - `title` - The title of the subform component.
 - `description` - The description text shown underneath the title.
-- `addButton` - The text for the Add button (used as a suffix after the default button text).
+- `addButton` - The text for the add-button.
+
+## tableColumns
+
+The `tableColumns` entry contains a list of objects that define the columns of the subform table.
+
+Each entry must contain a `headerContent` and `cellContent` definition. `cellContent` is in turn also an object,
+which must include a `query` parameter alongside an optional `default` parameter.
+
+{{< notice info >}}
+The *query* value is a lookup path for the subform's data model. 
+
+Eg. `propertyName` or `propertyName.nestedProperty`
+{{< /notice >}}
+
+```json
+"tableColumns": [
+  {
+    "headerContent": "Name",
+    "cellContent": {
+      "query": "name"
+    }
+  },
+  {
+    "headerContent": "Age",
+    "cellContent": {
+      "query": "age",
+      "default": "[Unknown age]"
+    }
+  },
+]
+```

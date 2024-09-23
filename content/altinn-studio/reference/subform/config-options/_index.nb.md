@@ -4,27 +4,57 @@ linktitle: Konfigurasjon
 description: Muligheter for konfigurering av for underskjemas layout
 weight: 120
 ---
-
+ 
 {{% notice warning  %}}
 Dette dokumentet er under utvikling. Underskjema er kun i preview-release.
 {{% /notice %}}
 
-## Parameters
+## Parametere
 
-| Parameter                                                                                                                                | Required | Description                                                                                                    |
-| ---------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
-| id                                                                                                                                       | Yes      | Unik ID, tilsvarer ID på andre komponenter. Må være unik i layout-filen, og bør være unik på tvers av sider.   |
-| type                                                                                                                                     | Yes      | Må settes til 'Subform'                                                                                        |
-| layoutSet                                                                                                                                | Yes      | Layout set ID for underskjema. Må være unik i layout-sets.json.                                                |
-| [tableColumns](../../../../app/development/ux/fields/grouping/repeating/table/#bredder-tekst-plassering-og-skjuling-av-overflødig-tekst) | Yes      | Objekt som inneholder egenskaper for kolonnene som vises i tabellen. HVis ikke satt vil standardverdier brukes |
-| showAddButton                                                                                                                            | No       | Tillater brukere å opprette underskjema.                                                                       |
-| showDeleteButton                                                                                                                         | No       | Tillater brukere å slette underskjema.                                                                         |
-| [textResourceBindings](#textresourcebindings)                                                                                            | No       | Kan settes for underskjema, se [description](#textresourcebindings).                                           |
+| Parameter                                                       | Type   | Påkrevd | Beskrivelse                                                                                                                                                       |
+| --------------------------------------------------------------- | ------ | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id                                                              | string | Ja      | Unik ID, tilsvarer ID på andre komponenter. Må være unik i layout-filen, og bør være unik på tvers av sider.                                                       |
+| type                                                            | string | Ja      | Må settes til 'Subform'                                                                                                                                           |
+| layoutSet                                                       | string | Ja      | Layout set ID for underskjema. Må være unik i layout-sets.json.                                                                                                   |
+| [tableColumns](#tablecolumns)                                   | array  | Ja      | En liste med objekter som inneholder kolonnedefinisjoner for underskjema-tabellen. Hver oppføring gir en overskrift, celleforespørsel og standardverdi for cellen. |
+| showAddButton                                                   | bool   | Nei     | Vis legg-til knapp? Standardverdi er sann.                                                                                                                        |
+| showDeleteButton                                                | bool   | Nei     | Vis slett knapp? Standardverdi er sann.                                                                                                                           |
+| [textResourceBindings](#textresourcebindings)                   | object | Nei     | Objekt som beskriver tekstressursbindinger for underskjema-komponenten.                                                                                           |
 
 ## textResourceBindings
 
-Det er mulig å sette ulike nøkler i textResourceBindings for å overstyre standardtekster.
+Følgende nøkler i `textResourceBindings`-objektet kan tilpasses:
 
-- `title` - The title of the subform component.
-- `description` - The description text shown underneath the title.
-- `addButton` - The text for the Add button (used as a suffix after the default button text).
+- `title` - Tittelen på subform komponenten.
+- `description` - En beskrivelse av komponenten som vises under tittelen.
+- `addButton` - Innholdet i legg-til knappen.
+
+## tableColumns
+
+`tableColumns` er en liste med objekter som definerer kolonnene i underskjema-tabellen.
+
+Hver oppføring må inneholde en definisjon for `headerContent` og `cellContent`. `cellContent` er også et objekt, som må inkludere et `query`-parameter sammen med valgfri `default`-parameter.
+
+{{< notice info >}}
+*query*-verdien er en oppslagsti for underskjemaets datamodell. 
+
+F.eks. `propertyName` eller `propertyName.nestedProperty`
+{{< /notice >}}
+
+```json
+"tableColumns": [
+  {
+    "headerContent": "Navn",
+    "cellContent": {
+      "query": "name"
+    }
+  },
+  {
+    "headerContent": "Alder",
+    "cellContent": {
+      "query": "age",
+      "default": "[Ukjent alder]"
+    }
+  },
+]
+```
