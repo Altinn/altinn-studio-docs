@@ -24,7 +24,7 @@ GET {org}/{appname}/instances/{instanceOwnerPartyId}/{instanceGuid}/data/{dataGu
 Accept: application/json
 ```
 
-Svaret:
+Response:
 ```json
 {
     "userDefinedMetadata": [
