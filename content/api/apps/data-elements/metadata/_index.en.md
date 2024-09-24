@@ -15,6 +15,12 @@ This field is not editable via the app's API and is intended to be set through c
 The end user cannot edit this directly; the field is under the control of the application developer.
 
 ```csharp
+    var newMetadata = new List<KeyValueEntry>
+    {
+        new() { Key = "MyKey", Value = "MyValue" },
+        new() { Key = "AnotherKey", Value = "AnotherValue" }
+    };
+    
     dataElement.Metadata = newMetadata;
     dataElement = await _dataClient.Update(instance, dataElement);
 ```

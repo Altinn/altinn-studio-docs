@@ -15,6 +15,12 @@ Dette feltet er ikke redigerbart via appens API, og er ment satt via egenutvikle
 Sluttbruker kan ikke redigere dette direkte, feltet er i applikasjonsutviklers kontroll.
 
 ```csharp
+    var newMetadata = new List<KeyValueEntry>
+    {
+        new() { Key = "MyKey", Value = "MyValue" },
+        new() { Key = "AnotherKey", Value = "AnotherValue" }
+    };
+
     dataElement.Metadata = newMetadata;
     dataElement = await _dataClient.Update(instance, dataElement);
 ```
