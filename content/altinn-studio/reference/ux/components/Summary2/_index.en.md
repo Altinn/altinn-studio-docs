@@ -78,14 +78,12 @@ It is also possible to render a summary of an entire layoutSet. In this case, yo
         "id": "MySummary2ID",
         "type": "Summary2",
         "target": {
-          "type": "layoutSet",
-          "id": "MyLayoutSet"
+          "type": "layoutSet"
         }
 }
 ```
 
-In this case, you would have a layoutSet called ```MyLayoutSet``` in your project.
-This would render a summary of all the pages and components in the layoutSet.
+This would render a summary of all the pages and components in the layoutSet, in the current task.
 
 #### Rendering summaries of previous tasks
 
@@ -107,9 +105,30 @@ To do this, simply specify the ```target.taskId``` like so:
 
 The behaviour is exactly like before with regard to ```target.type``` and ```target.id```, except that a ```taskId``` property has been added.
 
+### Hide empty fields
+
+It is possible to hide fields that have not been filled out by the user by setting the property ```hideEmptyFields```:
+
+```json{hl_lines="6-"}
+{
+        "id": "MySummary2ID",
+        "type": "Summary2",
+        "hideEmptyFields": true,
+        "target": {
+          "type": "component",
+          "id": "MyComponentID"
+        }
+}
+```
+
+Note that fields that are set to required will still be shown even if they are empty.
+
 ### Overrides
 
 For each component in your summary, you can configure different overrides to suit your needs.
+
+If you are rendering a page, layoutSet or a component with children (group, accordion etc.), you can target their children 
+components in the same way, using the ID of the child component.
 
 To configure an override, use the override field of the Summary2 component like so:
 
@@ -138,7 +157,6 @@ Here are the overrides that are common for all components:
 | hidden          | boolean | no       | Exclude the component from summary                                                                          |
 | forceShow       | boolean | no       | Will force show the component in a summary even if hideEmptyFields is set to true in the summary component. |
 | emptyFieldText  | string  | no       | Custom text to show for empty fields.                                                                       |
-| hideEmptyFields | boolean | no       | Exclude empty fields for summary. Only works if the field is not required.                                  |
 
 In addition, a few components support component-specific overrides:
 
@@ -148,8 +166,3 @@ In addition, a few components support component-specific overrides:
 |-----------------|----------------------------|----------|-----------------------------------------|
 | displayType     | enum: ```list \| string``` | no       | Display the summary as a list or string |
 
-#### Group
-
-| Parameter       | Type    | Required | Description                                   |
-|-----------------|---------|----------|-----------------------------------------------|
-| isCompact     | boolean | no       | Option to display a compact version of groups |
