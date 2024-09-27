@@ -12,9 +12,12 @@ Brukerdefinerte metadata på dataelement gjør det mulig å legge nøkkel-verdi-
 Det er dedikerte endepunkter for å sette og hente ut disse verdiene.
 Dataene er også tilgjengelige i andre endepunkter hvor man får ut metadata om dataelementer.
 
-Det er viktig å merke seg at dette er data som brukere med skriverettigheter på dataelementet kan redigere fritt via API-et. 
+{{%panel info%}}
+**Merk:** 
+Dette er data som brukere med skriverettigheter på dataelementet kan redigere fritt via API-et. 
 Dersom man ønsker å legge til metadata som ikke kan redigeres via API-et bør man bruke [metadata](../metadata) i stedet. 
 Det feltet er ikke eksponert via appens API, og kan kun settes via kall til storage, gjerne via egenutviklet C#-kode.
+{{% /panel%}}
 
 ## Hent ut
 

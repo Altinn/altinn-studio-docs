@@ -11,9 +11,12 @@ weight: 100
 Custom metadata on data elements allows key-value pairs of metadata to be added to a data element via the API. There are dedicated endpoints for setting and retrieving these values. 
 The data is also available in other endpoints where metadata about data elements is retrieved.
 
-It is important to note that this is data that users with write permissions on the data element can freely edit via the API. 
+{{%panel info%}}
+**Note:** 
+This is data that users with write permissions on the data element can freely edit via the API. 
 If you want to add metadata that cannot be edited via the apps API, you should use [metadata](../metadata) instead. 
 That field is not exposed via the app's API and can only be set through calls to storage, often via custom-developed C# code.
+{{% /panel%}}
 
 ## Retrieve
 

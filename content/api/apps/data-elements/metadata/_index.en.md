@@ -8,7 +8,7 @@ weight: 100
 
 ## Overview
 
-Using the `Metadata` property on `DataElement`, it is possible to set custom metadata in the form of key-value pairs on data elements.
+It's possible to set custom metadata in the form of key-value-pairs on data elements using a property called `Metadata`.
 The purpose is to store additional information about the dataelement beyond the payload.
 
 This field is not editable via the app's API and is intended to be set through custom-developed C# code. 

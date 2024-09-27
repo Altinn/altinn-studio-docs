@@ -8,7 +8,7 @@ weight: 100
 
 ## Oversikt
 
-Ved hjelp av feltet `Metadata` på `DataElement` er mulig å sette egne metadata i form av nøkkel-verdi-par på dataelementer.
+Det er mulig å sette egne metadata i form av nøkkel-verdi-par på dataelementer ved hjelp av et felt kalt `Metadata`.
 Hensikten er å kunne ta vare på annen informasjon om dataelementet utover nyttelasten.
 
 Dette feltet er ikke redigerbart via appens API, og er ment satt via egenutviklet C#-kode. 
