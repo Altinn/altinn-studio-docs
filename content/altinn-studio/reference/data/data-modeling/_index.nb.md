@@ -76,7 +76,7 @@ format og kan ut fra dette generere XSD- og C#-modeller (se [Datamodeller for Ap
 * [Registrerte feil og mangler for Altinn Studio Datamodellering](https://github.com/orgs/Altinn/projects/1/views/10)
 * [Planlagt ny funksjonalitet for Altinn Studio Datamodellering](https://github.com/orgs/Altinn/projects/1/views/6)
 * [Utvikling av datamodell for Altinn 2](/nb/altinn-studio/guides/altinn-2-datamodel/)
-* [Overgang fra Seres til Altinn Studio Datamodellering](/nb/altinn-studio/guides/seres-migration/)
+* [Overgang fra Seres til Altinn Studio Datamodellering](/nb/altinn-studio/guides/altinn-2/seres-migration/)
 {{% /expandlarge %}}
 
 ### Navigere til Altinn Studio Datamodellering

@@ -75,7 +75,7 @@ Altinn Studio Data Modeling is a tool for developing [data models](#data-models)
 * [Known issues and shortcomings for Altinn Studio Datamodellering](https://github.com/orgs/Altinn/projects/1/views/10)
 * [Planned new functionality for Altinn Studio Datamodellering](https://github.com/orgs/Altinn/projects/1/views/6)
 * [Development of data model for Altinn 2](/altinn-studio/guides/altinn-2-datamodel/)
-* [Migrating from Seres to Altinn Studio Datamodellering](/altinn-studio/guides/seres-migration/)
+* [Migrating from Seres to Altinn Studio Datamodellering](/altinn-studio/guides/altinn-2/seres-migration/)
 {{% /expandlarge %}}
 
 ### Navigating to Altinn Studio Data Modeling

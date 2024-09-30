@@ -42,7 +42,7 @@ Dersom du skal teste appen i et [testmiljø](/nb/altinn-studio/reference/testing
 
 ### Oppgaver
 
-1. [Opprett applikasjon i Altinn Studio](/nb/altinn-studio/guides/basic-form/)
+1. [Opprett applikasjon i Altinn Studio](/nb/altinn-studio/guides/development/basic-form/)
 
 ### Nyttig dokumentasjon
 
@@ -220,7 +220,7 @@ Husk å laste opp endringer når du jobber i Designer så de reflekteres i repoe
 
 ### Nyttig dokumentasjon
 
-- [Hvordan bygge et enkelt skjema i Altinn Studio](/nb/altinn-studio/guides/basic-form/)
+- [Hvordan bygge et enkelt skjema i Altinn Studio](/nb/altinn-studio/guides/development/basic-form/)
 - [Tilgjengelige komponenter i Altinn Studio](/altinn-studio/designer/build-app/ui-designer/components/)
 - [Retningslinjer for bruk av komponenter](/nb/altinn-studio/guides/design/guidelines/components/)
 
