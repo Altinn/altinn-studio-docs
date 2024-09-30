@@ -106,7 +106,7 @@ Here is a brief overview of visualising the telemetry instrumented above.
 
 ###  Running locally 
 
-When running locally using [localtest](/altinn-studio/guides/local-dev/), a monitoring stack consisting of Grafana and OpenTelemetry Collector 
+When running locally using [localtest](/altinn-studio/guides/development/local-dev/), a monitoring stack consisting of Grafana and OpenTelemetry Collector 
 can be provisioned along side localtest and Platform APIs. [See the localtest README for more info](https://github.com/Altinn/app-localtest/blob/main/README.md).
 
 Localtest monitoring setup currently contains a Grafana instance with ASP.NET Core dashboards and a preview Altinn app dashboard.

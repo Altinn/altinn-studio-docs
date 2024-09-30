@@ -9,7 +9,7 @@ weight: 20
 In this module, you will create the application itself, add a data model, and set up a simple form based on the requirements from Sogndal Municipality.
 
 You'll have to perform the first two tasks, creating the application and adding the data model, in Altinn Studio's graphical user interface, [Altinn Studio Designer](/altinn-studio/getting-started) (Designer).
- If you are developing the app locally, you can follow the instructions for [preparing for local development and testing](/altinn-studio/guides/local-dev) after completing these tasks.
+ If you are developing the app locally, you can follow the instructions for [preparing for local development and testing](/altinn-studio/guides/development/local-dev) after completing these tasks.
 
 {{% notice info %}}
 **NOTE**  
@@ -73,7 +73,7 @@ Alternatively, copy the file URL and run the command `curl <file-URL> > datamode
 4. Open the app's repository from the [Altinn Studio Dashboard](/altinn-studio/getting-started/navigation/dashboard/) and look at the files in the `App/models` folder.
 
 {{% notice info %}}
-If you intend to carry out all or parts of the development locally, now is the time to [prepare for local development and testing](/altinn-studio/guides/local-dev).
+If you intend to carry out all or parts of the development locally, now is the time to [prepare for local development and testing](/altinn-studio/guides/development/local-dev).
 {{% /notice %}}
 
 ### Useful Documentation

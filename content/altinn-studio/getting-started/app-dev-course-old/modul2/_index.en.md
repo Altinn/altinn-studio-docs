@@ -8,7 +8,7 @@ weight: 20
 
 In this module, you will further develop the application you created in [Module 1](../modul1), including, among other things, a new page, hiding/showing pages based on dynamic expressions, and prefilling.
 
-You can do parts of Module 2 in [Altinn Studio Designer](/altinn-studio/getting-started/) (Designer), but some tasks need to be performed using [local development](/altinn-studio/guides/local-dev).
+You can do parts of Module 2 in [Altinn Studio Designer](/altinn-studio/getting-started/) (Designer), but some tasks need to be performed using [local development](/altinn-studio/guides/development/local-dev).
 
 **Themes covered in this module:**
 

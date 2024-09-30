@@ -8,7 +8,7 @@ weight: 20
 
 I denne modulen skal du videreutvikle applikasjonen du laget i [Modul 1](../modul1) med blant annet en ny side, dynamisk skjuling av sider og forhåndsutfylling.
 
-Deler av Modul 2 kan gjøres i [Altinn Studio Designer](/nb/altinn-studio/getting-started/) (Designer), men noe må utføres med [lokal utvikling](/nb/altinn-studio/guides/local-dev).
+Deler av Modul 2 kan gjøres i [Altinn Studio Designer](/nb/altinn-studio/getting-started/) (Designer), men noe må utføres med [lokal utvikling](/nb/altinn-studio/guides/development/local-dev).
 
 **Temaer som dekkes i denne modulen:**
 
