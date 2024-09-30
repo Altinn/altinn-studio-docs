@@ -5,7 +5,7 @@ description: How to request access to app logs and secrets.
 toc: true
 weight: 200
 aliases: 
-- /altinn-studio/guides/access-management/apps/
+- /altinn-studio/guides/administration/access-management/apps/
 ---
 
 The following roles can be requested assigned to a user by the service owner:

@@ -5,7 +5,7 @@ description: How to configure access for teams in Altinn Studio.
 toc: true
 weight: 200
 aliases: 
-- /altinn-studio/guides/access-management/studio/
+- /altinn-studio/guides/administration/access-management/studio/
 ---
 
 ## Access Management for the Organization

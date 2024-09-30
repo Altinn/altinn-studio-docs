@@ -60,7 +60,7 @@ If you only need to upload XSD files for storage and do not intend to use the to
 
 [1]: https://altinn.studio/repos
 [2]: /altinn-studio/getting-started/create-user/
-[3]: /altinn-studio/guides/access-management/studio/
+[3]: /altinn-studio/guides/administration/access-management/studio/
 
 ## Altinn Studio Data Modeling
 

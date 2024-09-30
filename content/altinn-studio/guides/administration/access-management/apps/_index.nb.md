@@ -5,7 +5,7 @@ description: Hvordan bestille tilganger til app logger og hemmeligheter.
 toc: true
 weight: 200
 aliases: 
-- /nb/altinn-studio/guides/access-management/apps/
+- /nb/altinn-studio/guides/administration/access-management/apps/
 ---
 
 Tjenesteeiere kan bestille følgende tilganger for sine ressurser i miljøene TT02 og produksjon:

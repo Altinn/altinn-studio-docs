@@ -61,7 +61,7 @@ for å bekrefte.
 
 [1]: https://altinn.studio/repos
 [2]: /nb/altinn-studio/getting-started/create-user/
-[3]: /nb/altinn-studio/guides/access-management/studio/
+[3]: /nb/altinn-studio/guides/administration/access-management/studio/
 
 ## Altinn Studio Datamodellering
 
