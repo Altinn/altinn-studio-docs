@@ -11,7 +11,7 @@ Dette dokumentet er under utvikling. Underskjema er kun i preview-release.
 
 Underskjemaer tilhører en underskjematabell. La oss gå gjennom opprettelse av en underskjematabell med tilhørende underskjema.
 
-1. [Opprett en datamodell](../../../app/development/data/data-modeling) for underskjemaet.
+1. [Opprett en datamodell](../data/data-modeling) for underskjemaet.
 2. Du skal nå se tre filer under `App/model`. Klassen i c#, json schema og xsd.
 3. Sett [appLogic.allowInSubform](../../../api/models/app-metadata/#applicationlogic) til **true** i **applicationMetadata.json**.
 4. Opprett en mappe under **App/ui** med ditt ønskede underskjemanavn.
@@ -20,8 +20,8 @@ Underskjemaer tilhører en underskjematabell. La oss gå gjennom opprettelse av 
    {{< notice warning >}}
    Underskjema støtter ikke vedlegg, og nøsting av underskjema er ikke tillatt (underskjema i underskjema).
    {{< /notice >}}
-7. **Settings.json** filen for underskjema [konfigureres som normalt](../../../app/development/ux/pages/#innstillinger).
-8. Knappen som brukes for å lukke underskjema må være en [CustomButton](../../reference/ux/components/custombutton) med `closeSubform` action. Det er valgfritt å validere underskjema før det lukkes.
+7. **Settings.json** filen for underskjema [konfigureres som normalt](../ux/pages/#innstillinger).
+8. Knappen som brukes for å lukke underskjema må være en [CustomButton](../ux/components/custombutton) med `closeSubform` action. Det er valgfritt å validere underskjema før det lukkes.
    ```json
    {
      "id": "subform-exitbutton",
