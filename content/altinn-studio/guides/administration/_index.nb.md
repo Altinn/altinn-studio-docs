@@ -1,6 +1,6 @@
 ---
-title: Administrasjon
-description: Guider knyttet til administrasjon av tjenester i Altinn Studio
+title: Forvaltning
+description: Guider knyttet til forvaltning av tjenester i Altinn Studio
 weight: 30
 ---
 
