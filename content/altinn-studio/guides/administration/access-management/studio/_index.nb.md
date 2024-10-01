@@ -18,7 +18,7 @@ Det er definert fire standard team som legger føringer for hva en bruker har ti
 organisasjon i Altinn Studio. Ved behov kan man som eier kan man legge til/fjerne brukere i team, opprette nye team og
 endre konfigurasjon på eksisterende team.
 
-[Se oversikt over standard team og tilgangene de gir her](../../../reference/access-management/studio/).
+[Se oversikt over standard team og tilgangene de gir her](../../../../reference/access-management/studio/).
 
 ### Hvordan legge til bruker i et team
 Stegene under må gjøres av en bruker som er lagt inn som _eier_ av organisasjonen.

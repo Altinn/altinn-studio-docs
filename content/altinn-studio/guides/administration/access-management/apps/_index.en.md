@@ -15,7 +15,7 @@ The following roles can be requested assigned to a user by the service owner:
 - Prod Developer
 - Prod Operations
 
-[See an overview of the different roles here](../../../reference/access-management/apps/).
+[See an overview of the different roles here](../../../../reference/access-management/apps/).
 
 To be assigned a role you must first have a registered user belonging to the same service owner as the application whose runtime environment you wish to access.
 Requests are submitted using our [self-service portal](https://www.altinndigital.no/oversikt).

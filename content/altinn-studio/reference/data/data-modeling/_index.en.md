@@ -74,7 +74,7 @@ Altinn Studio Data Modeling is a tool for developing [data models](#data-models)
 {{% expandlarge id="links" header="Useful links" %}}
 * [Known issues and shortcomings for Altinn Studio Datamodellering](https://github.com/orgs/Altinn/projects/1/views/10)
 * [Planned new functionality for Altinn Studio Datamodellering](https://github.com/orgs/Altinn/projects/1/views/6)
-* [Development of data model for Altinn 2](/altinn-studio/guides/altinn-2-datamodel/)
+* [Development of data model for Altinn 2](/altinn-studio/guides/altinn-2/altinn-2-datamodel/)
 * [Migrating from Seres to Altinn Studio Datamodellering](/altinn-studio/guides/altinn-2/seres-migration/)
 {{% /expandlarge %}}
 
@@ -242,6 +242,6 @@ A generated XSD file can be downloaded by accessing the repository: click on the
 
 ![Download XSD repo](./download-xsd.png "Download XSD from repo")
 
-[1]: /altinn-studio/guides/altinn-2-datamodel/#dataformatid-og-dataformatversion
-[2]: /altinn-studio/guides/altinn-2-datamodel/#xsd-attributter
-[3]: /altinn-studio/guides/altinn-2-datamodel/#xsd-namespaces
+[1]: /altinn-studio/guides/altinn-2/altinn-2-datamodel/#dataformatid-og-dataformatversion
+[2]: /altinn-studio/guides/altinn-2/altinn-2-datamodel/#xsd-attributter
+[3]: /altinn-studio/guides/altinn-2/altinn-2-datamodel/#xsd-namespaces

@@ -18,7 +18,7 @@ Four standard teams have been defined that set guidelines for what a user is all
 Altinn Studio. If necessary, as an owner, you can add/remove users in teams, create new teams, and change configurations
 of existing teams.
 
-[See an overview of the standard teams and the access they grant here](../../../reference/access-management/studio/).
+[See an overview of the standard teams and the access they grant here](../../../../reference/access-management/studio/).
 
 ### How to add a user to a team
 The following steps can be done by a user that is an _owner_ for the organization.

@@ -81,7 +81,7 @@ When preparing the application to use the secrets from Azure Key vault, there ar
 2. For the application to be able to read the secrets from
    Azure key vault the application need to be configured to
    do so. See
-   the [secrets section](../../reference/configuration/secrets)
+   the [secrets section](../../../reference/configuration/secrets)
    to achieve this.
 3. Add the appsettings section example
    from above into the `appsettings.{env}.json` file.

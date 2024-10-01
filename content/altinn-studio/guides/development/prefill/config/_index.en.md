@@ -46,7 +46,7 @@ with a key/value pair:
 - The key is the field the data is _fetched from_-
 - The value is the field to populate in the data model.
 
-A full overview of the available fields can be found [here](../../../reference/data/prefill/#available-prefill-values).
+A full overview of the available fields can be found [here](../../../../reference/data/prefill/#available-prefill-values).
 
 ### Example: Field from the Central Coordinating Register (ER)
 The example below will populate the field _Datamodell.Organisasjon.Organisasjonsnummer_ with the organization number retrieved from the Central Coordinating register.

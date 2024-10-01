@@ -46,7 +46,7 @@ i _prefill.json_-filen, legg inn en ny linje med nøkkel/verdi:
 - Nøkkelen skal være feltet som data hentes _fra_.
 - Verdien skal være feltet fra datamodellen.
 
-Full oversikt over tilgjengelige felter finner du [her](../../../reference/data/prefill).
+Full oversikt over tilgjengelige felter finner du [her](../../../../reference/data/prefill).
 
 ### Eksempel: Felt fra Enhetsregisteret (ER)
 
