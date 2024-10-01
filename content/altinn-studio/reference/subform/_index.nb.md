@@ -51,7 +51,7 @@ Underskjemaer tilhører en underskjematabell. La oss gå gjennom opprettelse av 
         },
    ```
 10. Naviger til layout for siden i hovedskjemaet der du ønsker å legge inn underskjematabellen.
-11. Legg til `Subform` med [ønsket konfigurasjon](../../reference/subform/config-options/). Eksempel:
+11. Legg til `Subform` med [ønsket konfigurasjon](./config-options/). Eksempel:
     ```json
     {
       "id": "subform-test",
