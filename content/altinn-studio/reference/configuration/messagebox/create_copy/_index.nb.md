@@ -68,4 +68,4 @@ applicationmetadata.json
 
 ## Programatiske endringer
 
-Under kopiering av skjema vil logikken utføre metode kall mot **IInstantiationProcessor.DataCreation**. Dette skal gjøre det mulig å gjøre programatiske endringer i data som blir kopiert. [Programatisk prefill](/nb/altinn-studio/guides/prefill/custom/).
+Under kopiering av skjema vil logikken utføre metode kall mot **IInstantiationProcessor.DataCreation**. Dette skal gjøre det mulig å gjøre programatiske endringer i data som blir kopiert. [Programatisk prefill](/nb/altinn-studio/guides/development/prefill/custom/).

@@ -66,4 +66,4 @@ applicationmetadata.json
 ```
 ## Programing interface
 
-During the copying of an instance the logic will perform a method call to **IInstantiationProcessor.DataCreation**. This makes it possible to perform programmatic changes to the data as it is being copied. [Programmatic prefill](/altinn-studio/guides/prefill/custom/).
+During the copying of an instance the logic will perform a method call to **IInstantiationProcessor.DataCreation**. This makes it possible to perform programmatic changes to the data as it is being copied. [Programmatic prefill](/altinn-studio/guides/development/prefill/custom/).

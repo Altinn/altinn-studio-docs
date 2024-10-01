@@ -146,9 +146,9 @@ This task focuses on the first data collection page, aiming to streamline the us
 - It should be possible to change prefilled email and phone number
 
 ### Tasks
-1. Create a [prefill file](/altinn-studio/guides/prefill/config/#setup-of-prefill-in-the-application-repository).
+1. Create a [prefill file](/altinn-studio/guides/development/prefill/config/#setup-of-prefill-in-the-application-repository).
 2. Configure prefilling for values available through Altinn's [prefill sources](/altinn-studio/reference/data/prefill) (all but age).
-3. Create [custom prefilling](/altinn-studio/guides/prefill/custom) for age based on the personal identification number (see Code assistance and Useful resources below).
+3. Create [custom prefilling](/altinn-studio/guides/development/prefill/custom) for age based on the personal identification number (see Code assistance and Useful resources below).
 4. Configure settings for fields that should not be editable by the user.
 
 {{% expandsmall id="code-assistance" header="Code assistance: Calculating age from personal identification number" %}}
@@ -234,9 +234,9 @@ private static int CalculateAge(string sosialSecNumber)
 *Remember to push your local changes to make them available in Altinn Studio.*
 
 ### Useful documentation
-- [Prefilling from national registers and user profile](/altinn-studio/guides/prefill/config)
+- [Prefilling from national registers and user profile](/altinn-studio/guides/development/prefill/config)
 - [Available sources and values for prefilling](/altinn-studio/reference/data/prefill)
-- [Custom prefilling](/altinn-studio/guides/prefill/custom)
+- [Custom prefilling](/altinn-studio/guides/development/prefill/custom)
 - [Instance](/api/models/instance/#instance) - Application metadata container
 - [Description of the InstanceOwner object](/api/models/instance/#instanceowner) - This is where you can find the national identity number.
   In the code, the properties are referred to with an uppercase first letter, not lowercase, as in this overview.
