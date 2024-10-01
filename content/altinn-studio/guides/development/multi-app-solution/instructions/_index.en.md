@@ -31,7 +31,7 @@ required prerequisites are met.
    owner.*
 
 If step 2 and 3 of the technical requirements are missing see
-section [Maskinporten-App Integration](../../maskinporten-app-integration)
+section [Maskinporten-App Integration](../../../administration/maskinporten-app-integration)
 
 \* _If the end user of application A have the required roles to instantiate application B on behalf of the intended
 recipient, you can skip these technical requirements_

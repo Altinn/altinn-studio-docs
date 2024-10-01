@@ -14,11 +14,11 @@ weight: 50
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/payment/studio/add-process-task.en.md" %}}
+{{% insert "content/altinn-studio/guides/development/payment/studio/add-process-task.en.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Manual setup">}}
-{{% insert "content/altinn-studio/guides/payment/backend-manual/add-process-task.en.md" %}}
+{{% insert "content/altinn-studio/guides/development/payment/backend-manual/add-process-task.en.md" %}}
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
@@ -27,11 +27,11 @@ weight: 50
 ## 3. Ensure correct authorization for payment task
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/payment/studio/access-rules.en.md" %}}
+{{% insert "content/altinn-studio/guides/development/payment/studio/access-rules.en.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Manual setup">}}
-{{% insert "content/altinn-studio/guides/payment/backend-manual/access-rules.en.md" %}}
+{{% insert "content/altinn-studio/guides/development/payment/backend-manual/access-rules.en.md" %}}
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
@@ -40,11 +40,11 @@ weight: 50
 ## 4. Configure display of payment information in form
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/payment/studio/configure-layouts.en.md" %}}
+{{% insert "content/altinn-studio/guides/development/payment/studio/configure-layouts.en.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Manual setup">}}
-{{% insert "content/altinn-studio/guides/payment/backend-manual/configure-layouts.en.md" %}}
+{{% insert "content/altinn-studio/guides/development/payment/backend-manual/configure-layouts.en.md" %}}
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
@@ -53,11 +53,11 @@ weight: 50
 ## 5. Calculate amount to pay
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/payment/studio/calculate-payment.en.md" %}}
+{{% insert "content/altinn-studio/guides/development/payment/studio/calculate-payment.en.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Manual setup">}}
-{{% insert "content/altinn-studio/guides/payment/backend-manual/calculate-payment.en.md" %}}
+{{% insert "content/altinn-studio/guides/development/payment/backend-manual/calculate-payment.en.md" %}}
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
@@ -66,10 +66,10 @@ weight: 50
 ## 6. Connect the app to the NETS Easy agreement
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/payment/studio/configure-secrets.en.md" %}}
+{{% insert "content/altinn-studio/guides/development/payment/studio/configure-secrets.en.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Manual setup">}}
-{{% insert "content/altinn-studio/guides/payment/backend-manual/configure-secrets.en.md" %}}
+{{% insert "content/altinn-studio/guides/development/payment/backend-manual/configure-secrets.en.md" %}}
 {{</content-version-container>}}
 {{</content-version-selector>}}
