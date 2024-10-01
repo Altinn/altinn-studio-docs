@@ -99,7 +99,7 @@ Hvordan utføre spesifikke oppgaver relatert til app-utvikling i Altinn studio.
 
 |   |   |
 |---|---|
-| [Kopiere app](/nb/app/guides/copy-app)  | [Tilgangsstyring](/nb/altinn-studio/guides/access-management)  |
+| [Kopiere app](/nb/app/guides/copy-app)  | [Tilgangsstyring](/nb/altinn-studio/guides/administration/access-management)  |
 
 ## App-eksempler
 

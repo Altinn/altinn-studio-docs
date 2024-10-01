@@ -1,7 +1,7 @@
 ---
-title: Lage tjenester
-description: Guider knyttet til det å lage en tjeneste på Altinn Studio
-weight: 1
+title: Utvikling
+description: Guider knyttet til det å utvikle en tjeneste på Altinn Studio
+weight: 20
 ---
 
 {{<children />}}

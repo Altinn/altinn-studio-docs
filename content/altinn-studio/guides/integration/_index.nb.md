@@ -1,7 +1,7 @@
 ---
 title: Integrasjon
 description: Guider knyttet til integrasjoner til/fra en Altinn Studio app.
-weight: 3
+weight: 40
 ---
 
 {{<children />}}
