@@ -30,7 +30,7 @@ Før du starter på den tekniske implementeringen, må du sørge for at de nødv
    som skal sende forespørsler til en annen applikasjon, hvor forespørslene må autoriseres av applikasjonenseier.*
 
 Hvis trinn 2 og 3 av de tekniske kravene mangler, se
-seksjonen [Maskinporten-App Integrering](../../../administration/maskinporten-app-integration)
+seksjonen [Maskinporten-App Integrering](../../../integration/maskinporten-app-integration)
 
 \* _Hvis sluttbrukeren av applikasjon A har de nødvendige rollene for å instansiere applikasjon B på vegne av den
 tiltenkte
