@@ -64,7 +64,7 @@ Når applikasjonen forberedes på å bruke hemmelighetene fra Azure Key Vault, e
    ```json
    {
      "MaskinportenSettings": {
-       "Environment": "ver2",
+       "Environment": "test",
        "ClientId": "",
        "Scope": "altinn:serviceowner/instances.read",
        "EncodedJwk": "",
