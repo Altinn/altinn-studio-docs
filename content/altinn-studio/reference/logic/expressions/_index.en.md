@@ -25,7 +25,7 @@ These expressions are available in all Altinn 3 apps that use frontend version
 [3.54.0](https://github.com/Altinn/app-frontend-react/releases/tag/v3.54.0) or later. By using this version or the 
 latest major version, you can use dynamic expressions for [several use cases](#use-cases).
 
-Starting from version `7.2.0` of the [nuget packages](../../../guides/administration/maintenance/dependencies#nuget) the expressions are also
+Starting from version `7.2.0` of the [nuget packages](../../../guides/administration/maintainance/dependencies#nuget) the expressions are also
 supported in the backend. This means that the server will be able to evaluate the expressions and remove data upon
 submission that is potentially stored in the [data model](../../data/data-model) /*9+and is associated with 
 fields/components that are later hidden. Note that this only applies to data in the data model that is associated with 
@@ -36,7 +36,7 @@ It also makes it possible to omit submitting data that is otherwise associated w
 fields are hidden in the form using dynamic expressions. This also applies when submitting directly from the API.
 
 **Note:** Note that automatic removal of hidden data must currently be manually activated (opt-in) by adding the following
-line to `App/appsettings.json` after upgrading the [nuget packages](../../../guides/administration/maintenance/dependencies#nuget)
+line to `App/appsettings.json` after upgrading the [nuget packages](../../../guides/administration/maintainance/dependencies#nuget)
 to `7.2.0` or later:
 
 {{<content-version-selector classes="border-box">}}
