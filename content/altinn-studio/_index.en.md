@@ -2,8 +2,9 @@
 title: Altinn Studio
 description: Altinn Studio - Your tool for developing digital services for citizens and businesses
 aliases:
-- /nb/altinn-studio/
-- /nb/teknologi/altinnstudio/solutions/altinn-studio/
+- /altinn-studio/
+- /teknologi/altinnstudio/solutions/altinn-studio/
+- /app/
 weight: 1
 ---
  <div class="row adocs-featuredBlocks">
