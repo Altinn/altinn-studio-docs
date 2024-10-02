@@ -5,6 +5,7 @@ description: How to make a copy of an application in Altinn Studio
 weight: 150
 aliases:
 - /app/copy-app/
+- /altinn-studio/guides/copy-app/
 ---
 
 

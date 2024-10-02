@@ -4,9 +4,8 @@ linktitle: Multi-app solution
 description: Considerations and explanations of how to go about when creating a multi-app solution
 weight: 200
 aliases:
-
 - /app/multi-app-solution/
-
+- /altinn-studio/guides/multi-app-solution/
 ---
 
 ## What is a multi-app solution?

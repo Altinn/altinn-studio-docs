@@ -4,9 +4,8 @@ linktitle: Flerappsløsning
 description: Vurderinger som burde gjøres og forklaringer på hvordan å gå frem når man utvikler en flerappsløsning
 weight: 250
 aliases:
-
 - /app/multi-app-solution/
-
+- /altinn-studio/guides/multi-app-solution/
 ---
 
 ## Hva er en flerappsløsning?

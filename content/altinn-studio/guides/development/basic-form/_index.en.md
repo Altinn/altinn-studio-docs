@@ -2,6 +2,8 @@
 title: Simple Form
 description: User guide for creating a simple form in Altinn Studio
 weight: 10
+aliases:
+- /altinn-studio/guides/basic-form/
 ---
 The points below cover a minimum of what is required to create and publish a form on Altinn Studio.
 

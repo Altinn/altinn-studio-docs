@@ -4,6 +4,8 @@ linktitle: Monitorer og instumenter
 description: Kom i gang med verktøyene for instrumentering og monitorering i Altinn
 toc: true
 weight: 990
+aliases:
+- /nb/altinn-studio/guides/monitor-and-instrument
 ---
 
 {{% notice info %}}

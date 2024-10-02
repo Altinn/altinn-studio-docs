@@ -4,6 +4,8 @@ linktitle: Kodelister
 description: Hvordan konfigurere svaralternativer/kodelister for en app?
 toc: true
 weight: 40
+aliases:
+- /nb/altinn-studio/guides/options
 ---
 
 Altinn tilbyr to ulike måter en app kan eksponere kodelister på: Statisk og dynamisk. Disse eksponeres primært fra endepunktet som er tilgjengelig på `{org}/{app}/api/options/{optionsId}`, hvor `optionsId` er ID-en til listen.

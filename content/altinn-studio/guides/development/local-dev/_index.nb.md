@@ -4,6 +4,8 @@ linktitle: Lokal utvikling
 description: Hvordan komme i gang med lokal utvikling
 toc: true
 weight: 999
+aliases:
+- /nb/altinn-studio/guides/local-dev/
 ---
 
 Under utvikling av en applikasjon vil man måtte jobbe både i Altinn Studio og 

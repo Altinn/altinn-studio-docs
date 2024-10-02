@@ -4,6 +4,8 @@ linktitle: Betaling
 description: Følg disse grunnleggende stegene for å komme i gang med å integrere betaling i din Altinn App.
 tags: [betaling]
 weight: 50
+aliases:
+- /nb/altinn-studio/guides/payment/
 ---
 
 <!-- Før du starter -->

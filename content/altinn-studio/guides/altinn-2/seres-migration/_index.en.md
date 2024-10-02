@@ -5,6 +5,7 @@ description: Hva må gjøres når Seres erstattes?
 weight: 100
 aliases:
 - /altinn-studio/reference/data/data-model/seres-migration/
+- /altinn-studio/guides/seres-migration
 ---
 
 {{% notice info %}}

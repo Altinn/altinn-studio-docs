@@ -3,6 +3,8 @@ title: Maintenance of app in production
 linktitle: Maintenance
 description: Applications in production require regular maintenance and updates.
 weight: 120
+aliases:
+- /altinn-studio/reference/maintainance
 ---
 
 When the application is put into production, there will be a need to maintain the application.

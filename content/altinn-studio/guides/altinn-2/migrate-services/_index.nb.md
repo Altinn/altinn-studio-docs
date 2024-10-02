@@ -5,6 +5,7 @@ toc: true
 weight: 170
 aliases:
 - /nb/app/migrate-services/
+- /nb/altinn-studio/guides/migrate-services/
 ---
 
 ## Migrere en eksisterende tjeneste til Altinn 3

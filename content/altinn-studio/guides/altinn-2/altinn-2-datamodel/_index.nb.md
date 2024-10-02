@@ -6,6 +6,7 @@ weight: 100
 toc: true
 aliases:
 - /nb/altinn-studio/reference/data/data-model/altinn-2/
+- /nb/altinn-studio/guides/altinn-2-datamodel/
 ---
 
 ## Endre eksisterende datamodell

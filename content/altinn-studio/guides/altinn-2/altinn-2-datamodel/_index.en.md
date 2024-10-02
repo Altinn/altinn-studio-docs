@@ -7,6 +7,7 @@ tags: [translate-to-english]
 toc: true
 aliases:
 - /altinn-studio/reference/data/data-model/altinn-2/
+- /altinn-studio/guides/altinn-2-datamodel/
 ---
 
 ## Endre eksisterende datamodell

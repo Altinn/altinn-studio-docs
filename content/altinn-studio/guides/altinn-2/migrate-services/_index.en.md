@@ -5,6 +5,7 @@ toc: true
 weight: 170
 aliases:
 - /app/migrate-services/
+- /altinn-studio/guides/migrate-services/
 tags: [translate-to-english]
 ---
 

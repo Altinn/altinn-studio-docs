@@ -4,6 +4,8 @@ linktitle: Monitor and instrument
 description: Get started with Altinn monitoring tools and instrumentation
 toc: true
 weight: 990
+aliases:
+- /altinn-studio/guides/monitor-and-instrument
 ---
 
 {{% notice info %}}
