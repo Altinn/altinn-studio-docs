@@ -25,7 +25,7 @@ Uttrykkene er tilgjengelige i alle Altinn 3-apper som bruker frontend-versjon
 [3.54.0](https://github.com/Altinn/app-frontend-react/releases/tag/v3.54.0) eller nyere. Bruker man denne versjonen
 (eller siste hovedversjon) har man mulighet til å benytte dynamiske uttrykk til [flere bruksområder](#bruksområder).
 
-Fra versjon `7.2.0` av [nuget-pakkene](../../maintainance/dependencies#nuget) er også uttrykkene støttet i backend.
+Fra versjon `7.2.0` av [nuget-pakkene](../../../guides/administration/maintainance/dependencies/#nuget) er også uttrykkene støttet i backend.
 Det gjør at serveren vil kunne evaluere uttrykkene og fjerne data ved innsending som potensielt er lagret
 i [datamodellen](../../data/data-model) og er knyttet til felter/komponenter som i ettertid er skjult.
 Merk at dette bare gjelder data i datamodellen som er knyttet til skjulte komponenter - data i datamodellen som ikke
@@ -35,7 +35,7 @@ Det gjør det også mulig å unnlate å sende inn data som ellers er tilknyttet 
 feltene er skjult i skjemaet ved hjelp av dynamiske uttrykk. Dette gjelder også ved innsending direkte fra API.
 
 **NB:** Automatisk fjerning av skjult data må foreløpig aktiveres manuelt (_opt-in_) ved at man legger til følgende
-linje i `App/appsettings.json` etter at man har oppgradert [nuget-pakkene](../../maintainance/dependencies#nuget)
+linje i `App/appsettings.json` etter at man har oppgradert [nuget-pakkene](../../../guides/administration/maintainance/dependencies#nuget)
 til `7.2.0` eller nyere:
 
 {{<content-version-selector classes="border-box">}}
