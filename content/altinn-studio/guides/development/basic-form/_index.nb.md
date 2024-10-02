@@ -2,6 +2,7 @@
 title: Lag et enkelt skjema
 description: Guide for å lage et enkelt skjema i Altinn Studio
 weight: 10
+aliases:
 - /nb/altinn-studio/guides/basic-form/
 ---
 Punktene under dekker et minimum av hva som må til for å lage og publisere et skjema på Altinn Studio.
