@@ -4,6 +4,7 @@ description: Altinn Studio - Ditt verktøy for utvikling av digitale tjenester t
 aliases:
 - /nb/altinn-studio/
 - /nb/teknologi/altinnstudio/solutions/altinn-studio/
+- /nb/app/
 weight: 1
 ---
  <div class="row adocs-featuredBlocks">
