@@ -82,7 +82,7 @@ weight: 1
                     </a>
                 </li>
                 <li class="a-dotted a-clickable a-list-hasRowLink">
-                    <a href="guides/basic-form" class="a-list-rowLink">
+                    <a href="guides/development/basic-form" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
                                 Brukerveiledning - enkelt skjema

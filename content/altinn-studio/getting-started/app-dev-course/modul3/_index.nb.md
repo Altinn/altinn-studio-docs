@@ -46,7 +46,7 @@ Sett opp skjemaet ut fra kravene til kommunen.
 
 ## Nyttig dokumentasjon
 
-- [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/guides/basic-form)
+- [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/guides/development/basic-form)
 - [Tilgjengelige komponenter i Altinn Studio](/altinn-studio/designer/build-app/ui-designer/components/)
 - [Retningslinjer for bruk av komponenter](/nb/altinn-studio/guides/design/guidelines/components/)
 
