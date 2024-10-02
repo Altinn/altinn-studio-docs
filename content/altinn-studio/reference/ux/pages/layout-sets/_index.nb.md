@@ -13,7 +13,7 @@ Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. Stø
 ## Oppsett
 
 For å få funksjonalitet for flere skjema i tjeneste, **må** nuget-versjon til pakkene app'en bruker oppgraderes til versjon `3.1.4` _eller nyere_.
-Se instrukser for hvordan det gjøres [her](../../../maintainance/dependencies).
+Se instrukser for hvordan det gjøres [her](../../../../guides/administration/maintenance/dependencies).
 
 Sentralt i løsningen er at man har flere layout-sets som består av en eller flere sider og configurasjon. Hvert layout-set består av tilsvarende filer som en skjema tjenester.
 
