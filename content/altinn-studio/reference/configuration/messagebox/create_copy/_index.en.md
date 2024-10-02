@@ -10,7 +10,7 @@ The primary purpose of the create new copy feature is to make it easy for a user
 
 {{%notice info%}}
 The Create new copy functionality was introduced in version 7.9.0 of the nuget packages.
-[See how to update the nuget references of your application here](/altinn-studio/reference/maintainance/dependencies/).
+[See how to update the nuget references of your application here](/altinn-studio/guides/administration/maintainance/dependencies/).
 {{% /notice%}}
 
 ## Configuration
