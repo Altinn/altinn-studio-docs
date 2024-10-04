@@ -46,5 +46,5 @@ This step is optional. The default is to use the same setup as the layout from t
 2. Click "Add new page".
 3. In the configuration panel for the page, open "PDF" and click on "Convert page to PDF".
 4. Add the "Payment" component, and any other of the available components to the PDF layout.
-5. To preview the final PDF, click the developer tool button at the botton right-hand side of the preview column ![Developer tools](./devtools.png)
+5. To preview the final PDF, click the developer tool button at the botton right-hand side of the preview column ![Developer tools](/altinn-studio/guides/development/payment/devtools.png)
    - Click the "Preview PDF" button.

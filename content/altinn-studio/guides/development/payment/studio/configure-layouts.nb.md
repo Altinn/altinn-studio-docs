@@ -45,5 +45,5 @@ Dette steget er valgfritt. Dersom man ikke gjennomfører dette steget, vil oppse
 2. Klikk på "Legg til ny side".
 3. I konfigurasjonspanelet for siden, åpne "PDF" og klikk på "Gjør om siden til PDF".
 4. Legg til komponenten "Betaling", og ev. andre tekster og komponenter du ønsker på PDF-siden.
-5. Forhåndsvis PDF-visning ved å klikke på "utviklerverktøy" knappen nederst til høyre i forhåndsvisningen ![Utviklerverktøy](./devtools.png)
+5. Forhåndsvis PDF-visning ved å klikke på "utviklerverktøy" knappen nederst til høyre i forhåndsvisningen ![Utviklerverktøy](/altinn-studio/guides/development/payment/devtools.png)
    - Klikk på knappen "Forhåndsvis PDF"
