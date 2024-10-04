@@ -41,5 +41,9 @@ Dette er satt opp automatisk dersom du brukte Altinn Studio Designer og prosessv
 ### Hvordan sette opp egen visning for kvittering for betaling (valgfritt)
 Dette steget er valgfritt. Dersom man ikke gjennomfører dette steget, vil oppsettet fra betalingssteget benyttes.
 
-> Dette steget må foreløpig gjøres manuelt. Støtte for full konfigurasjon i Altinn Studio kommer i løpet av høsten 2024.
-> Se "Manuelt oppsett"-fanen for denne seksjonen for veiledning.
+1. Påse at det er utforming for betalingssteget som vises på Utforming-siden. 
+2. Klikk på "Legg til ny side".
+3. I konfigurasjonspanelet for siden, åpne "PDF" og klikk på "Gjør om siden til PDF".
+4. Legg til komponenten "Betaling", og ev. andre tekster og komponenter du ønsker på PDF-siden.
+5. Forhåndsvis PDF-visning ved å klikke på "utviklerverktøy" knappen nederst til høyre i forhåndsvisningen ![Utviklerverktøy](/altinn-studio/guides/development/payment/devtools.png)
+   - Klikk på knappen "Forhåndsvis PDF"
