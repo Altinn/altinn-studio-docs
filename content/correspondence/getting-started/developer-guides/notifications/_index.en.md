@@ -1,7 +1,7 @@
 ---
 title: Altinn 3 Correspondence Developer guides
-linktitle: Notifications
-description: How to get started subscribing to Events from Altinn 3 Correspondence, for developers
+linktitle: Notifications in Correspondence
+description: How to get started with Notifications in Altinn 3 Correspondence, for developers
 tags: [Correspondence, guide, events]
 toc: true
 weight: 40

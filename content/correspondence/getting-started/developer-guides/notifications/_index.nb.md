@@ -43,7 +43,6 @@ En varslingsbestilling gjøres ved å legge til følgende når du initialiserer 
   },
   "Recipients": [],
   "ExistingAttachments":{...}
- 
 }
 ```
 
@@ -81,6 +80,8 @@ Støttede varslingskanaler:
 - **SMS:** Sender en sms til mottaker. Støtter nasjonale og internasjonale telefonnummre.
 - **EmailPreferred:** Bruker e-post som hoved kommunikasjonskanal, og SMS som fallback hvis e-post ikke er tilgjengelig.
 - **SmsPreferred:** Bruker SMS som hoved kommunikasjonskanal, og e-post som fallback om SMS ikke finnes.
+
+Hovedvarsel og revarsel kan bruke forskjellige notifikasjonskanaler. For eksempel kan man velge å sende første varsel på e-post, men så går det ett revarsel på sms etter 7 dager.
 
 ## Kansellering av varsling
 Dersom en melding slettes før publiseringsdatoen, vil varslingsbestillingen også bli slettet. I tilfeller der det oppstår en feil under publisering av en melding, vil varslingen også bli slettet.
