@@ -24,4 +24,4 @@ which is used to manage the secrets used by applications.
 
 ## Creating a ticket
 
-See [guide to requesting access to app logs and secrets](../../../guides/access-management/apps/).
+See [guide to requesting access to app logs and secrets](../../../guides/administration/access-management/apps/).

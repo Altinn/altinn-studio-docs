@@ -9,7 +9,7 @@ weight: 20
 I denne modulen skal du opprette selve applikasjonen, legge til datamodell og sette opp et enkelt skjema basert på kravene fra Sogndal kommune.
 
 Du må utføre de to første oppgavene, opprette applikasjon og legge til datamodell, i Altinn Studios grafiske brukergrensesnitt, [Altinn Studio Designer](/nb/altinn-studio/getting-started) (Designer).
- Dersom du skal utvikle appen lokalt kan du følge instruksjonene for [klargjøre for lokal utvikling og testing](/nb/altinn-studio/guides/local-dev) etter at du har gjort disse oppgavene.
+ Dersom du skal utvikle appen lokalt kan du følge instruksjonene for [klargjøre for lokal utvikling og testing](/nb/altinn-studio/guides/development/local-dev) etter at du har gjort disse oppgavene.
 
 {{% notice info %}}
 **MERK**  
@@ -42,7 +42,7 @@ Dersom du skal teste appen i et [testmiljø](/nb/altinn-studio/reference/testing
 
 ### Oppgaver
 
-1. [Opprett applikasjon i Altinn Studio](/nb/altinn-studio/guides/basic-form/)
+1. [Opprett applikasjon i Altinn Studio](/nb/altinn-studio/guides/development/basic-form/)
 
 ### Nyttig dokumentasjon
 
@@ -75,7 +75,7 @@ Sogndal kommune har opprettet en [datamodell](datamodel.xsd) som representerer t
 4. Åpne repository til appen fra [Altinn Studio Dashboard](/nb/altinn-studio/getting-started/navigation/dashboard/) og ta en nærmere titt på filene i mappen `App/models`.
 
 {{% notice info %}}
-Hvis du skal gjøre hele eller deler av utviklingen lokalt kan du nå [klargjøre for lokal utvikling og testing](/nb/altinn-studio/guides/local-dev).
+Hvis du skal gjøre hele eller deler av utviklingen lokalt kan du nå [klargjøre for lokal utvikling og testing](/nb/altinn-studio/guides/development/local-dev).
 {{% /notice %}}
 
 ### Nyttig dokumentasjon
@@ -220,7 +220,7 @@ Husk å laste opp endringer når du jobber i Designer så de reflekteres i repoe
 
 ### Nyttig dokumentasjon
 
-- [Hvordan bygge et enkelt skjema i Altinn Studio](/nb/altinn-studio/guides/basic-form/)
+- [Hvordan bygge et enkelt skjema i Altinn Studio](/nb/altinn-studio/guides/development/basic-form/)
 - [Tilgjengelige komponenter i Altinn Studio](/altinn-studio/designer/build-app/ui-designer/components/)
 - [Retningslinjer for bruk av komponenter](/nb/altinn-studio/guides/design/guidelines/components/)
 
