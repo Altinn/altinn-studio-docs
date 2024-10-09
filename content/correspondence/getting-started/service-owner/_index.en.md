@@ -27,7 +27,7 @@ This step is only necessary for new enterprises that have not yet established th
 Perform steps 1 and 2 of the [Common Get started steps](../common-steps) if you have not already done so.
 
 ## 3. Register a Resource in Altinn Resource Registry {#register-a-resource-in-altinn-resource-registry}
-In order to send messages via Altinn Message, they must first be associated with a resource. 
+In order to send messages via Altinn Correspondence, they must first be associated with a resource. 
 A resource represents a specific function or set of functions used to manage access and rules for the correspondence. 
 Resources are registered via Altinn Studio and are used to define access rules and access lists, ensuring that only authorized users can perform specific actions.
 
