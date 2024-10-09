@@ -18,8 +18,9 @@ Bakgrunnen til systembruker konsept kan leses om her.
 
 Forutsetninger for at man systemleverandør kan benytte seg systembruker er.
 
-- Avtale med maskinporten som klient
+- [Avtale med maskinporten som konsument](https://samarbeid.digdir.no/maskinporten/konsument/119)
 - Avtale med Digdir som gir tilgang til systemregister
+- Delegert tilgang til scope altinn:authentication/systemregister.write 
 
 ## Sette opp maskinporten integrasjon
 
@@ -28,37 +29,147 @@ Dette kan gjøres i [sammarbeidsportalen](https://docs.digdir.no/docs/Maskinport
 
 ## Registrere system
 
-Første steg etter man har fått tilgang til systemregisteret er å registrere systemet.
+Det første steget etter at man har fått tilgang til systemregisteret, er å registrere systemet.
 
-Systemet er da typisk en nettbasert programvare som er tilgjengelig i markedet som sluttkunder (virksomheter) kan
-benytte seg av for kommunukasjon med det offentlige. 
+Systemet er typisk en nettbasert programvare som er tilgjengelig i markedet, og som sluttkunder (virksomheter) kan benytte for kommunikasjon med det offentlige.
 
-Systemet må beskrives med følgende egenskaper
+Systemet må beskrives med følgende egenskaper:
 
-### SystemTypeId
+### Id
 
 Dette er en unik ID som vil benyttes for å identifisere programvaren. Gyldige tegn er a-z 0-9 og _
 
-### KlientId
+Id må starte med organisasjonsnr til leverandør.  Eksempelet nedenfor viser med Digitialiseringsdirektorates organisasjonsnr
+
+### Vendor
+
+Dette er informasjon om leverandør. 
+ID er på formatet 0192:{orgnr}
+
+0192 er referanse til Enhetsregisteret i [Electronic Adress Scheme](https://docs.peppol.eu/poacc/billing/3.0/codelist/eas/)
+
+### Name
+
+Navn på systemet må oppgis på engelsk (en), bokmål (nb) og nynorsk (nn). Navn kan settes likt på alle språk. 
+
+Navn presenteres på Altinn sider under registrering av systembruker. 
+
+### Description
+
+Description beskriver systemet. Vil kunne presenteres på Altinn sider for informasjon til sluttbrukere. 
+
+Oppgis på engelsk, bokmål og nynorsk.
+
+### Rights
+
+Rights beskriver hvilke tjenester systemet trenger rettighet for å kunne fungere. Dette er referanser til applikasjoner i Altinn plattformen eller tjenester utenfor Altinn som er registrert hos Altinn.
+
+Hvilke rettigheter som kreves vil avhengig av bruksscenario. 
+
+Eksempelet nedenfor viser et system som har behov for tilgang til tjenesten [Krav og betalinger](https://skatteetaten.github.io/api-dokumentasjon/api/kravogbetalinger) fra Skattedirektoratet som er [registrert i Altinn ressursregister](https://platform.tt02.altinn.no/resourceregistry/api/v1/resource/ske-krav-og-betalinger). 
+
+Senere vil Systembruker støtte tilgangspakker som er en samling av rettigheter på tvers av tjenester innfor et område.
+
+### ClientId
 
 Dette er klientidene for integrasjonen som er opprettet i Maskinporten. 
+
 Det er kun pålogginger med Maskinportenintegrasjoner som er knyttet mot oppgitte klientider.
+
+
+### Eksempel fra TT02
+
+Eksempelet viser systemet som er registrert for demoapplikasjonen SmartCloud i TT02 testmiljø. 
+
 
 ```json
 {
- "SystemTypeId": "visma_supertax",
- "SystemVendor": "978234522",
- "Name": {
-      "en": "Visma Super Tax",
-     "nb" : "Visma superskatt"
-  "Description": {
-     "en": "Visma Super Tax allows for .........",
-     "nb":  "Visma superskatt gir deg mulighet...."
-  }
+  "id": "991825827_smartcloud",
+  "vendor": {
+    "ID": "0192:991825827"
   },
-  "AccessGroupNeeds": ["MVA", "SKATT"],
-  "ResourceNeeds": ["urn:altinn:resource:skd/mva"],.
-  "ClientId":["123123","234534552345"]
+  "mame": { "en": "SmartCloud", "nb":  "SmartCloud", "nn":  "Smart SKY"  },
+  "description": { "en": "SmartCloud Rocks", "nb":  "SmartCloud er verdens beste system.", "nn":  "SmartSky er vestlandets beste system" },
+  "rights": [
+    {
+      "Resource": [
+        {
+          "value": "ske-krav-og-betalinger",
+          "id": "urn:altinn:resource"
+        }
+      ]
+    }
+  ],
+  "clientId": ["235ar6-8824-955a-g235-5asfaa446533"]
+}
+```
+
+Url for å regsistrere
+
+```http
+POST https://platform.tt02.altinn.no/authentication/api/v1/systemregister/system
+```
+
+Url for å opppdatere dette systemet (ID må endres for andre system)
+
+```http
+POST https://platform.tt02.altinn.no/authentication/api/v1/systemregister/system/91825827_smartcloud
+```
+
+For produksjon endres domenet til **platform.altinn.no**
+
+Se også [eksempelapplikasjon](https://github.com/TheTechArch/altinn-systemuser/tree/main/src/SystemAdmin) for å registrere system.
+
+
+## Sende forespørsel om opprettelse av systembruker til virksomhet
+
+Som systemleverandør kan man be sine kunder om å opprette systembruker med nødvendige rettigheter. 
+Dette gir en enkel onboarding av nye kunder. 
+
+For å kunne gjøre dette må man være tildelt scopet **altinn:authentication/systemuser.request.write** 
+
+Systembruker støtter kun virksomheter som kunde.
+
+### External ref
+
+Denne benyttes som ekstern refernase hos systemleverandør. Hvis den ikke er satt blir den automatisk satt til orgnr
+
+### SystemId
+
+Referanse til system
+
+### PartyOrgNo
+
+Organiasjonsnr til systemleverandørens kunde. 
+
+### Rights
+
+En liste over rettigheter systembrukeren trenger tilgang til. Det beskrives for øyeblikket med referanse til ressurs
+
+
+### RedirectUrl
+
+Denne urlen 
+
+
+### Eksempel
+
+```json
+{
+  "externalRef": "213544942",
+  "systemId": "991825827_smartcloud",
+  "partyOrgNo": "213544942",
+  "rights": [
+    {
+      "resource": [
+        {
+          "value": "ske-krav-og-betalinger",
+          "id": "urn:altinn:resource"
+        }
+      ]
+    }
+  ],
+  "redirectUrl": "https:\\smartcloud.azurewebsites.net/receipt"
 }
 ```
 
