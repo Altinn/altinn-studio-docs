@@ -26,19 +26,19 @@ A selection of important such enhancements are listed here.
    {{<news-card
         title="Support for really large files"
         content="Support for transfer of files larger than 2 GB, up to 100 GB or more."
-        timeline="Q4 2025"
+        timeline="2025"
         githubUrl="https://github.com/Altinn/altinn-broker/issues/525"
     >}}
     {{<news-card
         title="Altinn Broker configuration GUI"
         content="Altinn Studio based GUI for configuration of Altinn Broker resources."
-        timeline="Q4 2025"
+        timeline="2025"
         githubUrl="https://github.com/Altinn/altinn-broker/issues/375"
     >}}
     {{<news-card
         title="Altinn Broker client GUI"
         content="Altinn Studio based default GUI for file upload and download, serving as an alternative to custom end-user systems."
-        timeline="Q4 2025"
+        timeline="2025"
         githubUrl="https://github.com/Altinn/altinn-broker/issues/523"
     >}}
 </div>
