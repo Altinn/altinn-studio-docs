@@ -1,7 +1,7 @@
 ---
 title: 'Authorization Attributes'
 description: 'Learn how dialogs in Dialogporten implements fine-grained access control using Altinn Authorization'
-weight: 10
+weight: 20
 ---
 
 ## Introduction
