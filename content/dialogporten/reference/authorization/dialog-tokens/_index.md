@@ -12,7 +12,7 @@ Dialog tokens allows for unproxied frontend requests to endpoints requiring auth
 
 ## Usage for end-user systems (OAuth clients)
 
-Dialog tokens are embedded withing the [single dialog response model]({{<relref "../../entities/dialog/#GetDialogDto_dialogToken">}}), and is a self-contained, signed JWT containing claims from the authenticated user and the dialog itself, including what actions and authorization attributes the user is authorized for.
+Dialog tokens are embedded withing the [single dialog response model]({{<relref "../../entities/dialog">}}) (see `dialogToken`), and is a self-contained, signed JWT containing claims from the authenticated user and the dialog itself, including what actions and authorization attributes the user is authorized for.
 
 The dialog tokens should be transferred as-is as a bearer token in a `Authorization` HTTP header. The contents of the dialog token should normally not be considered by the clients, ie. the token should be treated as an opaque string. 
 
