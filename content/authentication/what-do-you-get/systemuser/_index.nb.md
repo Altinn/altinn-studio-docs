@@ -1,6 +1,6 @@
 ---
 title: Systembruker
-description: En stor del av bruken av Altinn er via API fra fagsystemer. Dette er programvare som har integrert seg Altinns API og man fra programvare kan f.eks. sende inn skjema eller hente ut meldinger av forskjellig art. 
+description: En stor del av kommunikasjonen mellom det offentlige og næringslivet skjer via API i Altinn og andre hos andre platformleverandører i det offentlige. 
 tags: [platform, authentication]
 toc: false
 weight: 1
@@ -11,6 +11,8 @@ aliases:
 {{<notice warning>}}
 Under arbeid. Ting kan endres. Vi tar gjerne imot innspill.
 {{</notice>}}
+
+
 Omtrent 50% av skjematrafikken kommer via API, med enkelte tjenester som har nesten 100% fra fagsystemer.
 
 Nye autentiserings- og autorisasjonsmekanismer utvikles nå for maskin-til-maskin-integrasjon på Altinn-plattformen og andre offentlige API-er.
