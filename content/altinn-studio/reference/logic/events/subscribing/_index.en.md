@@ -123,5 +123,5 @@ namespace Altinn.App.Core.EFormidling
 
 ```
 {{% notice theme="warning"  %}}
-If the hosted service fails to run successfully, ie. throws an exception, the application will fail to start. If you don't want this behavior you should catch any exception and not rethrow it.
+If the hosted service fails to run successfully, i.e. throws an exception, the application will fail to start. If you don't want this behaviour you should catch any exception and not rethrow it.
 {{% /notice %}}

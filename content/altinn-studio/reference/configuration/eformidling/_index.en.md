@@ -314,7 +314,7 @@ Thorough testing for the eFormidling integration in an application is encouraged
 Safety measures and retry mechanisms are in place to ensure that a shipment 
 reaches the receiver when errors are due to weak network connections.
 However, invalid shipments, including but not limited to missing attachments or mistakes in the "arkivmelding",
-will cause the shipment to fail without explicit warning to the end user or app owner.
+will cause the shipment to fail without an explicit warning to the end user or app owner.
 {{% /notice%}}
 
 The integration point exposes endpoints that allow you to monitor the status of a shipment in the test environment. 
