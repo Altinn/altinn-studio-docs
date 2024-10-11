@@ -172,4 +172,6 @@ I denne modulen har du lagt til en gruppe med radioknapper, en gruppe med avkrys
 {{<navigation-buttons
   urlBack="../modul5"
   textBack="<< Forrige modul"
+  urlNext="../modul7"
+  textNext="Neste modul >>"
 >}}
