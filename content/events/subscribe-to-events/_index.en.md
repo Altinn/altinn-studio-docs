@@ -8,8 +8,8 @@ weight: 20
 ### IP for outgoing traffic
 {{% notice info %}}
 A static IP is used when pushing events to allow subscribers to whitelist the IP address. </br> </br>
-__TT02__: 20.100.24.41  </br> </br>
-__Production__: 20.100.46.139
+__TT02__: 20.100.24.41/32  </br> </br>
+__Production__: 20.100.46.139/32
 {{% /notice %}}
 
 

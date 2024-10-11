@@ -9,7 +9,7 @@ tags: [translate-to-english]
 
 Som applikasjonsutvikler administrerer man selv hemmelighetene som applikasjonen benytter i Azure Key Vault.
 
-[Rutiner for bestilling av tilgang til din organisasjons ressurser er beskrevet her](/altinn-studio/guides/access-management/apps/).
+[Rutiner for bestilling av tilgang til din organisasjons ressurser er beskrevet her](/altinn-studio/guides/administration/access-management/apps/).
 
 ## Konfigurer støtte for hemmeligheter i din app
 
@@ -41,31 +41,52 @@ Siste del av filen skal se omtrent slik ut når du har gjort ferdig alle endring
 
 ![Steg 1](yaml.png)
 
+
 ## Hvordan benytte hemmeligheter i applikasjonen
 
-Servicen `ISecret` er eksponert i applikasjonen og kan dependency injectes
+Man kan enten legge til Azure Key Vault som en config provider og benytte IOptions-pattern for å lese ut hemmeligheter, eller så kan man benytte servicen `ISecretsClient` er eksponert i applikasjonen og kan dependency injectes
 i den klassen der du har behov for å hente ut en hemmelighet.
 
-### Lokal mock
+### 1. Azure Key Vault som config provider (anbefalt)
+Om denne fremgangsmåten velges kan man bruke Azure Key Vault på standard måte via [IOptions-pattern](https://learn.microsoft.com/en-us/dotnet/core/extensions/options).
 
-For å kunne kjøre tjenesten din lokalt uten å koble seg til Azure Key vault
-må man opprette filen `secrets.json` under mappen _App_.
-I Json strukturen kan man legge inn dummydata for hemmelighetene man har behov for.
-Har man lastet opp en hemmelighet i Key Vault med navnet "secretId" vil innholdet i json-filen se slik ut
+Det finnes en hjelpemetode for å legge til Azure Key Vault på denne måten, som kan benyttes i program.cs.
 
-```json
+```cs
+if (!builder.Environment.IsDevelopment())
 {
-  "secretId": "local cecret dummy data"
+    builder.AddAzureKeyVaultAsConfigProvider();
 }
 ```
 
-### Type hemmeligheter
+Eksempel:
+```cs
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+ConfigureServices(builder.Services, builder.Configuration);
+ConfigureWebHostBuilder(builder.WebHost);
 
-Secret - lagres som en streng direkte i keyvault. F.eks et sertifikat som er base64 encoded eller et token.
-Key - Nøkkel
-Certificate - et sertifikat
+if (!builder.Environment.IsDevelopment())
+{
+    builder.AddAzureKeyVaultAsConfigProvider();
+}
 
-### Kodeeksempel
+WebApplication app = builder.Build();
+Configure();
+app.Run();
+```
+
+Lokal mocking kan gjøres ved hjelp av [user secrets](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-8.0&tabs=windows).
+
+```
+dotnet user-secrets init
+dotnet user-secrets set "NetsPaymentSettings:SecretApiKey" "test-secret-key-used-for-documentation"
+```
+
+### 2. Bruk av ISecretsClient
+
+Dersom man ikke ønsker å legge til Azure Key Vault som config provider så kan man alternativt benytte tjenesten ISecretsClient, som er en wrapper rundt uthenging av hemmeligheter fra Azure Key Vault. Her tilbys metoder for å hente ut en og en hemmelighet der de trengs.
+
+#### Kodeeksempel
 
 I denne seksjonen finner du et eksempel på hvordan man benytter en hemmelighet
 til å populere et skjemafelt under instansiering.
@@ -77,6 +98,7 @@ using Altinn.App.Models;
 using Altinn.App.Services.Interface;
 using Altinn.App.Services.Models.Validation;
 using Altinn.Platform.Storage.Interface.Models;
+using Altinn.App.Core.Internal.Secrets;
 using System.Threading.Tasks;
 
 namespace Altinn.App.AppLogic
@@ -85,18 +107,16 @@ namespace Altinn.App.AppLogic
     {
         private IProfile _profileService;
         private IRegister _registerService;
-        private ISecrets _secretsService;
+        private ISecretsClient _secretsClient;
 
         /// <summary>
         /// Set up access to profile and register services
         /// </summary>
-        /// <param name="profileService"></param>
-        /// <param name="registerService"></param>
-        public InstantiationHandler(IProfile profileService, IRegister registerService, ISecrets secretsService)
+        public InstantiationHandler(IProfile profileService, IRegister registerService, ISecretsClient secretsClient)
         {
             _profileService = profileService;
             _registerService = registerService;
-            _secretsService = secretsService;
+            _secretsClient = secretsClient;
         }
 
         /// <summary>
@@ -113,7 +133,7 @@ namespace Altinn.App.AppLogic
             if (data.GetType() == typeof(Skjema))
             {
                 Skjema model = (Skjema)data;
-                model.etatid = await _secretsService_.GetSecretAsync("secretId");
+                model.etatid = await _secretsClient.GetSecretAsync("secretId");
             }
             await Task.CompletedTask;
         }
@@ -124,17 +144,17 @@ namespace Altinn.App.AppLogic
 1. Den private variabelen for servicen inkluderes i klassen
 
     ```cs
-    private ISecrets _secretsService;
+    private ISecretsClient _secretsClient;
     ```
 
-2. ISecrets servicen dependency injectes inn i klassen. Og den private variabelen blir assignet en verdi.
+2. ISecretsClient servicen dependency injectes inn i klassen. Og den private variabelen blir assignet en verdi.
 
     ```cs
-    public InstantiationHandler(IProfile profileService, IRegister registerService, ISecrets secretsService)
+    public InstantiationHandler(IProfile profileService, IRegister registerService, ISecretsClient secretsClient)
             {
                 _profileService = profileService;
                 _registerService = registerService;
-                _secretsService = secretsService;
+                _secretsClient = secretsClient;
             }
 
     ```
@@ -143,32 +163,18 @@ namespace Altinn.App.AppLogic
     `secretId` vil være navnet på hemmeligheten i KeyVault evt. i lokal mock.
 
     ```cs
-    await _secretsService_.GetSecretAsync("secretId");
+    await _secretsClient_.GetSecretAsync("secretId");
     ```
 
-4. Dersom du prøver å bygge løsningen nå vil det feile.
+#### Lokal mock
 
-    ISecrets vil mangle der InstantiationHandler instansieres. Naviger til `App.cs`
-    og dependency inject servicen inn i konstruktøren til App.
+For å kunne kjøre tjenesten din lokalt uten å koble seg til Azure Key vault
+må man opprette filen `secrets.json` under mappen _App_.
+I Json strukturen kan man legge inn dummydata for hemmelighetene man har behov for.
+Har man lastet opp en hemmelighet i Key Vault med navnet "secretId" vil innholdet i json-filen se slik ut
 
-    Videre må tjenesten legges til i kallet der InstantiationHandler instansieres som vist nedenfor.
-
-    ```cs
-    public App(
-        IAppResources appResourcesService,
-        ILogger<App> logger,
-        IData dataService,
-        IProcess processService,
-        IPDF pdfService,
-        IProfile profileService,
-        IRegister registerService,
-        IPrefill prefillService,
-        ISecrets secretsService
-        ) : base(appResourcesService, logger, dataService, processService, pdfService, prefillService)
-    {
-        _logger = logger;
-        _validationHandler = new ValidationHandler();
-        _calculationHandler = new CalculationHandler();
-        _instantiationHandler = new InstantiationHandler(profileService, registerService, secretsService);
-    }
-    ```
+```json
+{
+  "secretId": "local cecret dummy data"
+}
+```

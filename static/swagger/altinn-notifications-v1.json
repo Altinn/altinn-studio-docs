@@ -4,8 +4,18 @@
 	  "title": "Altinn.Notifications",
 	  "version": "1.0"
 	},
+	"servers": [
+		{
+		  "url": "https://platform.tt02.altinn.no/notifications/api/v1",
+		  "description": "TT02"
+		},
+		{
+		  "url": "https://platform.altinn.no/notifications/api/v1",
+		  "description": "Production"
+		}
+	  ],
 	"paths": {
-	  "/notifications/api/v1/orders/email": {
+	  "/orders/email": {
 		"post": {
 		  "tags": [
 			"EmailNotificationOrders"
@@ -61,7 +71,7 @@
 		  }
 		}
 	  },
-	  "/notifications/api/v1/orders/{id}/notifications/email": {
+	  "/orders/{id}/notifications/email": {
 		"get": {
 		  "tags": [
 			"EmailNotifications"
@@ -102,7 +112,7 @@
 		  }
 		}
 	  },
-	  "/notifications/api/v1/metrics": {
+	  "/metrics": {
 		"get": {
 		  "tags": [
 			"Metrics"
@@ -153,7 +163,7 @@
 		  }
 		}
 	  },
-	  "/notifications/api/v1/orders/{id}": {
+	  "/orders/{id}": {
 		"get": {
 		  "tags": [
 			"Orders"
@@ -194,7 +204,7 @@
 		  }
 		}
 	  },
-	  "/notifications/api/v1/orders": {
+	  "/orders": {
 		"get": {
 		  "tags": [
 			"Orders"
@@ -229,9 +239,63 @@
 			  }
 			}
 		  }
+		},
+		"post": {
+		  "tags": [
+			"Orders"
+		  ],
+		  "summary": "Add a notification order.",
+		  "description": "The API will accept the request after som basic validation of the request.\r\nThe system will also attempt to verify that it will be possible to fulfill the order.",
+		  "requestBody": {
+			"content": {
+			  "application/json": {
+				"schema": {
+				  "$ref": "#/components/schemas/NotificationOrderRequestExt"
+				}
+			  }
+			}
+		  },
+		  "responses": {
+			"401": {
+			  "description": "Caller is unauthorized"
+			},
+			"403": {
+			  "description": "Caller is not authorized to access the requested resource"
+			},
+			"202": {
+			  "description": "The notification order was accepted",
+			  "headers": {
+				"Location": {
+				  "description": "Link to access the newly created notification order.",
+				  "schema": {
+					"type": "string",
+					"description": "Link to access the newly created notification order.",
+					"format": ""
+				  }
+				}
+			  },
+			  "content": {
+				"application/json": {
+				  "schema": {
+					"$ref": "#/components/schemas/NotificationOrderRequestResponseExt"
+				  }
+				}
+			  }
+			},
+			"400": {
+			  "description": "The notification order is invalid",
+			  "content": {
+				"application/json": {
+				  "schema": {
+					"$ref": "#/components/schemas/ValidationProblemDetails"
+				  }
+				}
+			  }
+			}
+		  }
 		}
 	  },
-	  "/notifications/api/v1/orders/{id}/status": {
+	  "/orders/{id}/status": {
 		"get": {
 		  "tags": [
 			"Orders"
@@ -272,7 +336,73 @@
 		  }
 		}
 	  },
-	  "/notifications/api/v1/orders/sms": {
+	  "/orders/{id}/cancel": {
+		"put": {
+		  "tags": [
+			"Orders"
+		  ],
+		  "summary": "Cancel a notification order.",
+		  "parameters": [
+			{
+			  "name": "id",
+			  "in": "path",
+			  "description": "The id of the order to cancel.",
+			  "required": true,
+			  "schema": {
+				"type": "string",
+				"format": "uuid"
+			  }
+			}
+		  ],
+		  "responses": {
+			"401": {
+			  "description": "Caller is unauthorized"
+			},
+			"403": {
+			  "description": "Caller is not authorized to access the requested resource"
+			},
+			"200": {
+			  "description": "The notification order was cancelled. No notifications will be sent.",
+			  "content": {
+				"application/json": {
+				  "schema": {
+					"$ref": "#/components/schemas/NotificationOrderWithStatusExt"
+				  }
+				}
+			  }
+			},
+			"409": {
+			  "description": "The order cannot be cancelled due to current processing status"
+			},
+			"404": {
+			  "description": "No order with the provided id was found"
+			}
+		  }
+		}
+	  },
+	  "/tests/sendcondition": {
+		"get": {
+		  "tags": [
+			"SendCondition"
+		  ],
+		  "summary": "Condition endpoint that returns a send condition response.",
+		  "parameters": [
+			{
+			  "name": "conditionMet",
+			  "in": "query",
+			  "schema": {
+				"type": "boolean"
+			  }
+			}
+		  ],
+		  "responses": {
+			"200": {
+			  "description": "OK"
+			}
+		  }
+		}
+	  },
+	  "/orders/sms": {
 		"post": {
 		  "tags": [
 			"SmsNotificationOrders"
@@ -328,7 +458,7 @@
 		  }
 		}
 	  },
-	  "/notifications/api/v1/orders/{id}/notifications/sms": {
+	  "/orders/{id}/notifications/sms": {
 		"get": {
 		  "tags": [
 			"SmsNotifications"
@@ -415,6 +545,12 @@
 			  "description": "Gets or sets the id of the resource that the notification is related to",
 			  "nullable": true
 			},
+			"conditionEndpoint": {
+			  "type": "string",
+			  "description": "Gets or sets the condition endpoint used to check the send condition",
+			  "format": "uri",
+			  "nullable": true
+			},
 			"subject": {
 			  "minLength": 1,
 			  "type": "string",
@@ -430,7 +566,7 @@
 			}
 		  },
 		  "additionalProperties": false,
-		  "description": "Class representing an email notiication order request"
+		  "description": "Class representing an email notification order request"
 		},
 		"EmailNotificationStatusExt": {
 		  "type": "object",
@@ -537,7 +673,9 @@
 		"NotificationChannelExt": {
 		  "enum": [
 			"Email",
-			"Sms"
+			"Sms",
+			"EmailPreferred",
+			"SmsPreferred"
 		  ],
 		  "type": "string",
 		  "description": "Enum describing available notification channels."
@@ -583,6 +721,12 @@
 			  "description": "Gets or sets the id of the resource that the notification is related to",
 			  "nullable": true
 			},
+			"conditionEndpoint": {
+			  "type": "string",
+			  "description": "Gets or sets the condition endpoint used to check the send condition",
+			  "format": "uri",
+			  "nullable": true
+			},
 			"recipients": {
 			  "type": "array",
 			  "items": {
@@ -623,6 +767,58 @@
 		  },
 		  "additionalProperties": false,
 		  "description": "A class representing a list of notification order."
+		},
+		"NotificationOrderRequestExt": {
+		  "required": [
+			"recipients"
+		  ],
+		  "type": "object",
+		  "properties": {
+			"requestedSendTime": {
+			  "type": "string",
+			  "description": "Gets or sets the send time of the email. Defaults to UtcNow",
+			  "format": "date-time"
+			},
+			"sendersReference": {
+			  "type": "string",
+			  "description": "Gets or sets the senders reference on the notification",
+			  "nullable": true
+			},
+			"recipients": {
+			  "type": "array",
+			  "items": {
+				"$ref": "#/components/schemas/RecipientExt"
+			  },
+			  "description": "Gets or sets the list of recipients"
+			},
+			"ignoreReservation": {
+			  "type": "boolean",
+			  "description": "Gets or sets whether notifications generated by this order should ignore KRR reservations",
+			  "nullable": true
+			},
+			"resourceId": {
+			  "type": "string",
+			  "description": "Gets or sets the id of the resource that the notification is related to",
+			  "nullable": true
+			},
+			"conditionEndpoint": {
+			  "type": "string",
+			  "description": "Gets or sets the condition endpoint used to check the send condition",
+			  "format": "uri",
+			  "nullable": true
+			},
+			"notificationChannel": {
+			  "$ref": "#/components/schemas/NotificationChannelExt"
+			},
+			"emailTemplate": {
+			  "$ref": "#/components/schemas/EmailTemplateExt"
+			},
+			"smsTemplate": {
+			  "$ref": "#/components/schemas/SmsTemplateExt"
+			}
+		  },
+		  "additionalProperties": false,
+		  "description": "Class representing a notification order request"
 		},
 		"NotificationOrderRequestResponseExt": {
 		  "type": "object",
@@ -679,6 +875,12 @@
 			"resourceId": {
 			  "type": "string",
 			  "description": "Gets or sets the id of the resource that the notification is related to",
+			  "nullable": true
+			},
+			"conditionEndpoint": {
+			  "type": "string",
+			  "description": "Gets or sets the condition endpoint used to check the send condition",
+			  "format": "uri",
 			  "nullable": true
 			},
 			"processingStatus": {
@@ -834,6 +1036,12 @@
 			  "description": "Gets or sets the id of the resource that the notification is related to",
 			  "nullable": true
 			},
+			"conditionEndpoint": {
+			  "type": "string",
+			  "description": "Gets or sets the condition endpoint used to check the send condition",
+			  "format": "uri",
+			  "nullable": true
+			},
 			"senderNumber": {
 			  "type": "string",
 			  "description": "Gets or sets the sender number of the SMS",
@@ -846,7 +1054,7 @@
 			}
 		  },
 		  "additionalProperties": false,
-		  "description": "Class representing an SMS notiication order request"
+		  "description": "Class representing an SMS notification order request"
 		},
 		"SmsNotificationStatusExt": {
 		  "type": "object",
@@ -1002,5 +1210,11 @@
 		  "additionalProperties": { }
 		}
 	  }
-	}
+	},
+	"tags": [
+	  {
+		"name": "SendCondition",
+		"description": "Private API"
+	  }
+	]
   }

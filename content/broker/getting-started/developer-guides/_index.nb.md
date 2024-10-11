@@ -1,8 +1,8 @@
 ---
-title: Altinn 3 Formidling utvikler veiledning
+title: Veiledning for utviklere
 linktitle: Utviklerveiledning
-description: Hvordan komme i gang med Altinn 3 Formidling
-tags: [Broker, guide]
+description: Velkommen til utviklerveiledningen for Altinn Formidling! Denne delen av dokumentasjonen hjelper deg med å komme i gang med Altinn Formidling og gir innsikt i hvordan du best kan utnytte plattformen. Vær oppmerksom på at dokumentasjonen fortsatt er under arbeid, og noen seksjoner kan være manglende eller bare delvis dokumentert.
+tags: [Broker, guide, Formidling]
 toc: true
 weight: 20
 ---
@@ -14,11 +14,11 @@ Denne delen av dokumentasjonen er under arbeid.
 Det er seksjoner med manglende eller bare delvis dokumentasjon.
 {{% /notice %}}
 
-Siden Altinn Broker er åpen kildekode, kan du få tilgang til koden vår i [vårt offentlige GitHub-repo](https://github.com/Altinn/altinn-broker) og bygge en lokal Docker-instans for å teste mot.
+Siden Altinn Formidling er åpen kildekode, kan du få tilgang til koden vår i [vårt offentlige GitHub-repo](https://github.com/Altinn/altinn-broker) og bygge en lokal Docker-instans for å teste mot.
 
 Vi ønsker bidrag til løsningen velkommen.
 
-Se [Readme-filen på GitHub](https://github.com/Altinn/altinn-broker/blob/main/README.md) for en introduksjon til Altinn 3 Broker, og hvordan du bygger og kjører den i din utviklermiljø.
+Se [Readme-filen på GitHub](https://github.com/Altinn/altinn-broker/blob/main/README.md) for en introduksjon til Altinn 3 Formidling, og hvordan du bygger og kjører den i din utviklermiljø.
 
 Repoet inneholder også en [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json) med eksempler.
 
@@ -26,9 +26,9 @@ Swagger for filoverførings-APIet er vert [her](/api/broker/spec/).
 
 ## Generell API-operasjon {#overall-api-operation}
 
-For å forstå hvordan Broker-APIet fungerer, inkludert avhengighetene og konfigurasjonsstegene, henvises det til informasjonen nedenfor:
+For å forstå hvordan Formidling-APIet fungerer, inkludert avhengighetene og konfigurasjonsstegene, henvises det til informasjonen nedenfor:
 
-![Altinn Broker oppsett-sekvens](Altinn-broker-setup-sequence.png "Altinn-broker-oppsett-sekvens")
+![Altinn Formidling oppsett-sekvens](Altinn-broker-setup-sequence.png "Altinn-formidling-oppsett-sekvens")
 
 Du må ha utført stegene i [Hvordan komme i gang](../../getting-started) for å sette opp tilgangskravene.
 
@@ -44,4 +44,4 @@ Som sådan bør du implementere hendelsesabonnementer for å optimalisere proses
 For alle operasjoner må du autentisere deg ved å bruke din Maskinporten-klient og 
 deretter [skaffe en Altinn-token fra Altinn-autentisering](https://docs.altinn.studio/authentication/reference/architecture/accesstoken/).
 
-Bruk Altinn-tokenet som en Bearer-token for alle Broker API-forespørsler sammen med APIM-abonnementsnøkkelen som en header med nøkkelen `Ocp-Apim-Subscription-Key`.
+Bruk Altinn-tokenet som en Bearer-token for alle Formidling API-forespørsler sammen med APIM-abonnementsnøkkelen som en header med nøkkelen `Ocp-Apim-Subscription-Key`.

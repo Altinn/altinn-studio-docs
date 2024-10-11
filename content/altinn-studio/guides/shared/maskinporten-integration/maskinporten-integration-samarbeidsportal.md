@@ -11,7 +11,8 @@ hidden: true
 
 ### Register new integration through Samarbeidsportalen
 
-- Login to [Samarbeidsportalen](https://samarbeid.digdir.no/).
+- Login to Samarbeidsportalen in [Test](https://sjolvbetjening.test.samarbeid.digdir.no/) or
+[Production](https://sjolvbetjening.samarbeid.digdir.no/)
 
 - Choose __Selvbetjening__ and then __Integrasjoner__ for the environment you want.
 _Ver2_ is test and _Produksjon_ is production.

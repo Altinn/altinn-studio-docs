@@ -6,7 +6,7 @@ tags: [architecture, solution]
 toc: false
 weight: 2
 ---
-Altinn skal i 2022-2026 modernisere sin autorisasjonsarkitektur og komponenter. Derfor er beskrivelsen nedenfor en blanding av som den er og skal være.
+Altinn skal i 2022-2026 [modernisere](functionalareas.drawio.svg) sin autorisasjonsarkitektur og komponenter. Derfor er beskrivelsen nedenfor en blanding av som den er og skal være.
 
 Altinn bruker [attributt-basert tilgangskontroll (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control).
 

@@ -1,37 +1,59 @@
 ---
 title: Intro Course
 description: Build an application with Altinn Studio
-linktitle: Intro Course
 tags: [apps, build, deploy, training]
-weight: 30
+aliases:
+- /app/app-dev-course/
+- /app/app-dev-course/case/
+- /app/app-dev-course/modul1/
+- /app/app-dev-course/modul2/
+- /app/app-dev-course/modul3/
+- /app/app-dev-course/modul4/
+- /app/app-dev-course/modul5/
+- /app/app-dev-course/modul6/
+- /app/app-dev-course/modul7/
+- /app/app-dev-course/losningsforslag/
 ---
 
-The intro course is divided into 7 modules and covers a fictional case for Sogndal Municipality.
+{{% notice warning %}}
+This course is being upgraded. Only 5 modules are currently available in this updated version.
+
+_Concepts covered in the updated version:_
+- Create service/app
+- Customize data model
+- Create form
+- Multiple pages and information page
+- Publishing and test environment
+
+_Concepts not yet covered in the updated version:_
+- Dynamics in form
+- Multiple choice components and code lists
+- Pre-fill
+- Advanced logic
+- Calls to external APIs
+- Custom PDF viewing
+
+The lists above will be continuously updated as new modules are added.
+In the meantime, the old version of the course is available [here](../../../altinn-studio/getting-started/app-dev-course-old/) - several of the concepts
+not covered by the updated course are covered there.
+{{% /notice %}}
+
+The introductory course is divided into 5 modules and covers a fictional case for Sogndal municipality.
 Each module has a description of the task and links to relevant documentation.
 
-You can choose to perform the tasks in [Altinn Studio Designer](/altinn-studio/getting-started) (drag-and-drop graphical user interface) or in a [local development environment](/altinn-studio/guides/local-dev) (requires some technical skills).
-You can also combine these approaches.
+You can choose to perform the tasks in [Altinn Studio Designer](../) 
+(graphical user interface with drag-and-drop) or in a [local development environment](/altinn-studio/guides/development/local-dev) 
+(requires some technical competence).
+You can also combine these approaches. All available modules can be completed in Altinn Studio Designer.
 
-Throughout these seven modules, you will have covered the most essential functionality for an Altinn app, as well as testing the application locally and in a test environment.
-
-{{% notice info %}}
-**NOTE**
-
-**To have a fully functional application, some local development is currently required.**
-New functionality is continually added to the Designer, and the documentation is updated regularly.
-Module 1 can be completed entirely in Altinn Studio Designer.
-{{% /notice %}}
+During these modules, you will have covered the most central functionality for an Altinn app,
+as well as testing the application locally and in the test environment.
 
 ## Before you start
 
-Before you can build an application, there are some things that need to be in place. Go through the following points from
-**[Get Started](/altinn-studio/getting-started)** (wait with the remaining steps until [Module 1](/altinn-studio/getting-started/app-dev-course/modul1)):
+Before you can get started, you need to [create a user](../create-user/) in Altinn Studio.
 
-1. [Create a user](/altinn-studio/getting-started/create-user)
-2. [Learn to navigate Altinn Studio](/altinn-studio/getting-started/navigation)
-3. [Get familiar with Altinn Studio Designer](/altinn-studio/getting-started)
-
-Read through the requirements specifications (case description) for Sogndal Municipality and work through the modules step by step.
+Read through the requirements specifications for Sogndal municipality and work through the modules one by one.
 
 **Good luck!**
 

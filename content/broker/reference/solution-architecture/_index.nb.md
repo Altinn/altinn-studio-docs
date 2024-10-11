@@ -9,7 +9,7 @@ weight: 40
 
 {{<notice info>}} <!-- info -->
 
-Løsningsarkitekturen beskrevet her er grunnarkitekturen for Altinn Broker, 
+Løsningsarkitekturen beskrevet her er grunnarkitekturen for Altinn Formidling, 
 slik den er relevant for de grunnleggende brukstilfellene av styrte filoverføringer. 
 Ytterligere beskrivelser av løsningsarkitekturen relatert til avanserte brukstilfeller 
 og mulige fremtidige utvidelser vil bygge på denne grunnarkitekturen.
@@ -47,7 +47,7 @@ Architecture principles for these product groups are under construction.
 Altinn 3 Formidling er ett av flere Digdir-produkter innen områdene meldingsutveksling og datadeling.
 Tilpassede arkitekturprinsipper for disse områdene er under utvikling.
 I påvente av arkitekturprinsipper for de relevante produktområdene,
-følger her noen betraktninger for løsningsarkitekturen til Altinn 3 Broker.
+følger her noen betraktninger for løsningsarkitekturen til Altinn 3 Formidling.
 
 __Støtte for lokal hosting og datalagring.__
 Grunnet bekymringer knyttet til informasjonssikkerhet, 
@@ -90,7 +90,7 @@ Applikasjonskomponenter i form av Digdir-løsninger (på høyre side) realiserer
 som indikert av  applikasjonstjenestene (nederst).
 <!--Den eksakte tilordningen mellom tjenester og komponenter er ikke vist i dette høynivådiagrammet.-->
 Generelle beskrivelser av hver applikasjonskomponent er gitt andre steder. 
-Her gis et sammendrag av hvordan disse komponentene forholder seg til og tjener Altinn 3 Broker:
+Her gis et sammendrag av hvordan disse komponentene forholder seg til og tjener Altinn 3 Formidling:
 
 * [ID-porten](https://www.digdir.no/felleslosninger/id-porten/864): Autentisering av menneskelige sluttbrukere.
 * [Maskinporten](https://www.digdir.no/felleslosninger/maskinporten/869): Autentisering og autorisering av 
@@ -114,7 +114,7 @@ i løsningsarkitekturen for Altinn Formidling.
 ## Overgangsarkitektur - Altinn 2 til Altinn 3
 
 ### Generelt
-To migreringsalternativer støttes for migrering av Altinn Broker-tjenester -
+To migreringsalternativer støttes for migrering av Altinn Formidlingstjenester -
 _hard overgang_ og _myk overgang_.
 
 ### Hard overgang fra Altinn 2 til Altinn 3 for alle brukere av en tjeneste
@@ -129,12 +129,12 @@ Opplastede filer lagres i Altinn 2 Formidling Fillager frem til overgangen.
 
 ![Altinn 3 Formidling migreringsopsjon - hard overgang](altinn3-broker-migration-option-hardshift.nb.png "Altinn 3 Formidling migreringsopsjon - hard overgang")
 
-_Merk: I dette tilfellet antas det at filer fra Altinn 2 Broker er slettet
-og ikke behøves i Altinn 3 Broker.
+_Merk: I dette tilfellet antas det at filer fra Altinn 2 Formidling er slettet
+og ikke behøves i Altinn 3 Formidling.
 Hvis nødvendig, vil det likevel være mulig å flytte filer 
-fra Altinn 2 til Altinn 3 Broker Fillager etter overgangen._
+fra Altinn 2 til Altinn 3 Formidling Fillager etter overgangen._
 
-### Myk overgang fra Altinn 2 to Altinn 3
+### Myk overgang fra Altinn 2 til Altinn 3
 
 Med alternativet _Myk_ overgang gjør brukere og sluttbrukersystemer 
 overgangen til Altinn 3 på individuell basis, når de er klare.

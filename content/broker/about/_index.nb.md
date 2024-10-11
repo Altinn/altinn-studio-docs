@@ -23,11 +23,11 @@ som vanligvis er basert på filoverføringsprotokoll (FTP),
 hypertext transfer protocol (HTTP) eller secure file transfer protocol (SFTP).
 -->
 
-![Hovedbruksområdet til Altinn Broker illustrert](./broker-pattern-1-n.nb.png "Hovedbruksområdet til  Altinn Broker illustrert: Fil F1 formidles fra en avsender til en eller flere mottakere via mellomlagring i Altinn Formidling (Broker).")
+![Hovedbruksområdet til Altinn Formidling illustrert](./broker-pattern-1-n.nb.png "Hovedbruksområdet til  Altinn Formidling illustrert: Fil F1 formidles fra en avsender til en eller flere mottakere via mellomlagring i Altinn Formidling.")
 
 Selv om overføring av individuelle filer er hovedbruksområdet 
-og det opprinnelige formålet med Altinn Broker, 
-er Altinn 3 Broker designet med noen mer avanserte bruksområder 
+og det opprinnelige formålet med Altinn Formidling, 
+er Altinn 3 Formidling designet med noen mer avanserte bruksområder 
 og mulige fremtidige utvidelser i tankene. 
 Avanserte bruksområder og mulige utvidelser er ytterligere beskrevet i separate seksjoner.
 
@@ -35,12 +35,12 @@ Avanserte bruksområder og mulige utvidelser er ytterligere beskrevet i separate
 ## Fordeler Altinn Formidling for styrt filoverføring
 
 Sammenlignet med alternativer som for eksempel e-post, FTP eller peer-to-peer filoverføringer, 
-gir Altinn Broker en rekke fordeler. 
+gir Altinn Formidling en rekke fordeler. 
 Noen av de viktigste fordelene er:
 
 - Styrt tjeneste: Tar byrden fra tjenesteeiere og deres løsningsleverandører - sikkerhet, vedlikehold, sertifisert overholdelse av relevant lovgivning og forskrifter.
 
-- Feiltoleranse og robusthet: Altinn Broker er planlagt å støtte feiltolerant levering av svært store filer.
+- Feiltoleranse og robusthet: Altinn Formidling er planlagt å støtte feiltolerant levering av svært store filer.
 
 - Skalerbarhet og tilgjengelighet: Skyhosting, DDOS-beskyttelse.
 
@@ -48,7 +48,7 @@ Noen av de viktigste fordelene er:
 
 - Støtte for flere mønstre og adresseringsskjemaer: En-til-en, en-til-mange, innholdsbasert ruting og pub-sub.
 
-- Overføring av data i sanntid: Altinn Broker bruker API-er og systemhendelser for å utløse opplastninger og nedlastninger.
+- Overføring av data i sanntid: Altinn Formidling bruker API-er og systemhendelser for å utløse opplastninger og nedlastninger.
 
 - Observabilitet og revisjonsdyktighet: Ende-til-ende synlighet av all aktivitet, så du vet hvem, hva, hvor og når for dataoverføringer. Rask tilgang til loggføringer av filoverføringer og analyser for å revidere overføringsaktivitet når det er nødvendig.
 

@@ -31,30 +31,33 @@ The Application model is the main model for metadata for the application.
 
 Data type represents the requirements for data elements. Data types representing a form will have model validation in addition to the requirements defined here.
 
-| Name                              | Description                                                                                                                                                                                 |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id                                | The id of the data type. Unique for the app.                                                                                                                                                |
-| description                       | A collection of data type descriptions in different languages.                                                                                                                              |
-| allowedContentTypes               | A list of Content-Types allowed by the data type.                                                                                                                                           |
-| allowedContributers               | A list of allowed contributors. This can be used to restrict who it is that can work with the data type.                                                                                    |
-| appLogic                          | A complex object with information on how a data type is connected to a model. See [ApplicationLogic](#applicationlogic).                                                                    |
-| taskId                            | A reference to a task from the application process. The value indicate that the data type requirements must be fulfilled before the process can move on from the given step in the process. |
-| maxSize                           | The maximum allowed size of the data element.                                                                                                                                               |
-| maxCount                          | The maximum number of data elements of this type.                                                                                                                                           |
-| minCount                          | The minimum required number of elements of this type.                                                                                                                                       |
-| grouping                          | The name of a group. This can be used to logically associate a data type to a group. E.g *Photos* or a text resource key.                                                                   |
-| enableFileScan                    | A value indicating if the data type should be scanned for virus/malware. If a file is scanned and found to be infected before the process is complete, this will cause a validation error.  |
-| validationErrorOnPendingFileScan  | A value indicating if a pending file scan should trigger a validation error and prevent the completion of the process before the scan is complete.                                          |
+| Name                             | Description                                                                                                                                                                                 |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id                               | The id of the data type. Unique for the app.                                                                                                                                                |
+| description                      | A collection of data type descriptions in different languages.                                                                                                                              |
+| allowedContentTypes              | A list of Content-Types allowed by the data type.                                                                                                                                           |
+| allowedContributers              | A list of allowed contributors. This can be used to restrict who it is that can work with the data type.                                                                                    |
+| appLogic                         | A complex object with information on how a data type is connected to a model. See [ApplicationLogic](#applicationlogic).                                                                    |
+| taskId                           | A reference to a task from the application process. The value indicate that the data type requirements must be fulfilled before the process can move on from the given step in the process. |
+| maxSize                          | The maximum allowed size of the data element.                                                                                                                                               |
+| maxCount                         | The maximum number of data elements of this type.                                                                                                                                           |
+| minCount                         | The minimum required number of elements of this type.                                                                                                                                       |
+| grouping                         | The name of a group. This can be used to logically associate a data type to a group. E.g _Photos_ or a text resource key.                                                                   |
+| enableFileScan                   | A value indicating if the data type should be scanned for virus/malware. If a file is scanned and found to be infected before the process is complete, this will cause a validation error.  |
+| validationErrorOnPendingFileScan | A value indicating if a pending file scan should trigger a validation error and prevent the completion of the process before the scan is complete.                                          |
 
 ## ApplicationLogic
 
 ApplicationLogic holds information about how a data type representing a form is connected to a model.
 
-| Name       | Description                                                                                                                                 |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| autoCreate | A value indicating whether a data element will be automatically created once an instance moves into the process step indicated by *taskId*. |
-| classRef   | The name of the C# class used to represent the form as a model in application logic.                                                        |
-| schemaRef  | A reference to the original schema used to define the model.                                                                                |
+| Name               | Description                                                                                                                                 |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| autoCreate         | A value indicating whether a data element will be automatically created once an instance moves into the process step indicated by _taskId_. |
+| classRef           | The name of the C# class used to represent the form as a model in application logic.                                                        |
+| schemaRef          | A reference to the original schema used to define the model.                                                                                |
+| disallowUserCreate | A value indicating whether the a user should be able to create an elemement of the data type. Defaults to allow it (false).                 |
+| disallowUserDelete | A value indicating whether the a user should be able to delete an elemement of the data type. Defaults to allow it (false).                 |
+| allowInSubform     | A value indicating whether the data type is allowed in a subform                                                                            |
 
 ## PartyTypesAllowed
 
@@ -80,7 +83,6 @@ PresentationField represents a form field extraction rule. Every time a form is 
 ## DataField
 
 DataField represents a form field extraction rule. Every time a form is being saved the data field rules will be applied and any values from the form will be stored directly on the instance. While [PresentationField](#presentationfield) will have logic applied to it with regards to where and how it's used, the use of data fields is entirely up to the application developer and the application owner. One usage scenario is to provide data fields which can be used for routing to the correct backend system.
-
 
 | Name       | Description                                               |
 | ---------- | --------------------------------------------------------- |
@@ -144,84 +146,77 @@ Configure how the application behaves when a user opens the application without 
 | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | show | Possible values: new-instance or select-instance. <br/>_new-instance_ : user will always get a new instance. <br/> _select-instance_ : user will be presented with a list of active instances if any, if no active instances a new one will be created. |
 
-
 ## Complete example
 
 This is a complete app metadata document with data types.
 
 ```json
 {
-    "id": "ttd/bli-applikasjonseier",
-    "versionId": null,
-    "org": "ttd",
-    "title": {
-        "nb": "Bli applikasjonseier"
+  "id": "ttd/bli-applikasjonseier",
+  "versionId": null,
+  "org": "ttd",
+  "title": {
+    "nb": "Bli applikasjonseier"
+  },
+  "validFrom": null,
+  "validTo": null,
+  "processId": null,
+  "dataTypes": [
+    {
+      "id": "Kursdomene_BliTjenesteeier_M_2020-05-25_5703_34553_SERES",
+      "description": null,
+      "allowedContentTypes": ["application/xml"],
+      "allowedContributers": null,
+      "appLogic": {
+        "autoCreate": true,
+        "classRef": "Altinn.App.Models.BliTjenesteeier_M",
+        "schemaRef": null
+      },
+      "taskId": "Task_1",
+      "maxSize": null,
+      "maxCount": 1,
+      "minCount": 1,
+      "grouping": null
     },
-    "validFrom": null,
-    "validTo": null,
-    "processId": null,
-    "dataTypes": [
-        {
-            "id": "Kursdomene_BliTjenesteeier_M_2020-05-25_5703_34553_SERES",
-            "description": null,
-            "allowedContentTypes": [
-                "application/xml"
-            ],
-            "allowedContributers": null,
-            "appLogic": {
-                "autoCreate": true,
-                "classRef": "Altinn.App.Models.BliTjenesteeier_M",
-                "schemaRef": null
-            },
-            "taskId": "Task_1",
-            "maxSize": null,
-            "maxCount": 1,
-            "minCount": 1,
-            "grouping": null
-        },
-        {
-            "id": "ref-data-as-pdf",
-            "description": null,
-            "allowedContentTypes": [
-                "application/pdf"
-            ],
-            "allowedContributers": null,
-            "appLogic": null,
-            "taskId": null,
-            "maxSize": null,
-            "maxCount": 0,
-            "minCount": 0,
-            "grouping": null
-        },
-        {
-            "id": "uploaded-files",
-            "allowedContentTypes": [
-                "image/jpeg"
-            ],
-            "taskId": "Task_1",
-            "maxSize": 25,
-            "maxCount": 1,
-            "minCount": 5,
-            "enablePdfCreation": false,
-            "enableFileScan": true,
-            "validationErrorOnPendingFileScan": true
-        }
-    ],
-    "partyTypesAllowed": {
-        "bankruptcyEstate": true,
-        "organisation": true,
-        "person": true,
-        "subUnit": true
+    {
+      "id": "ref-data-as-pdf",
+      "description": null,
+      "allowedContentTypes": ["application/pdf"],
+      "allowedContributers": null,
+      "appLogic": null,
+      "taskId": null,
+      "maxSize": null,
+      "maxCount": 0,
+      "minCount": 0,
+      "grouping": null
     },
-    "messageBoxConfig":{
-        "hideSettings":{
-            "hideOnTask":["Task_3"]
-        }
-    },
-    "autoDeleteOnProcessEnd": false,
-    "created": "2020-07-17T08:26:21.5707559Z",
-    "createdBy": "sandgrainone",
-    "lastChanged": "2020-07-17T08:26:21.5708691Z",
-    "lastChangedBy": "sandgrainone"
+    {
+      "id": "uploaded-files",
+      "allowedContentTypes": ["image/jpeg"],
+      "taskId": "Task_1",
+      "maxSize": 25,
+      "maxCount": 1,
+      "minCount": 5,
+      "enablePdfCreation": false,
+      "enableFileScan": true,
+      "validationErrorOnPendingFileScan": true
+    }
+  ],
+  "partyTypesAllowed": {
+    "bankruptcyEstate": true,
+    "organisation": true,
+    "person": true,
+    "subUnit": true
+  },
+  "messageBoxConfig": {
+    "hideSettings": {
+      "hideOnTask": ["Task_3"]
+    }
+  },
+  "autoDeleteOnProcessEnd": false,
+  "created": "2020-07-17T08:26:21.5707559Z",
+  "createdBy": "sandgrainone",
+  "lastChanged": "2020-07-17T08:26:21.5708691Z",
+  "lastChangedBy": "sandgrainone"
 }
 ```

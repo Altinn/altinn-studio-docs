@@ -1,375 +1,175 @@
 ---
-title: Modul 6
-description: Utvidelse av skjema med repeterende gruppe
-linktitle: Modul 6
-tags: [apps, training, repeterende grupper, validering, dataprosessering, konsumere API  ]
-weight: 20
+title: "Modul 6: Legge til kodelister"
+description: 
+linktitle: "Modul 6: Legge til kodelister"
+tags: [apper, kurs, kodelister]
+weight: 60
+toc: true
 ---
 
-I denne modulen skal du utvide applikasjonen du har laget i foregående moduler for å støtte mer av [funksjonaliteten som Sogndal kommune ønsker](../case/#krav-fra-kommunen).
+I denne modulen skal vi bygge videre på appen vår for å støtte enda flere av [kravene til Sogndal kommune](../case/#krav-fra-kommunen).
 
-**Temaer som dekkes i denne modulen:**
-- Repeterende grupper
-- Validering
-- Dataprosessering
+## Temaer i denne modulen
+- Radioknapper
+- Avkrysningsbokser
+- Nedtrekkslister
+- Kodelister
+- Gitea
+
+## Krav fra Sogndal kommune
+I denne modulen skal vi jobbe med disse kravene fra kommunen:
+> Kommunen ønsker å samle inn følgende data om innflyttere:
+> - Arbeids- og bransjeerfaring
+> - Sektor (privat/offentlig)
+> - Bransje ([standardliste med bransjer](../industry.json))
 
 ## Oppgaver
 
-{{% expandlarge id="rep-grupper" header="Repeterende grupper" %}}
-### Krav fra kommunen
+I mange tjenester trenger vi å gi brukerne et sett med svaralternativer for et datafelt.
+Slike sett med svaralternativer kalles _kodelister_ eller _alternativer_.
 
-For å kunne skreddersy et best mulig tilbud til nye innflyttere ønsker vi oss en oversikt over tidligere bosteder til innflytteren.
+Du kan sette opp kodelister på tre måter i Altinn:
+- Ved å legge til alternativer manuelt for komponenten i Altinn Studio.
+- Ved å la komponenten hente alternativer fra JSON-fil med ferdige alternativer.
+- Ved å generere alternativer dynamisk ved hjelp av kode.
 
-På datasiden ønsker vi at det legges opp til at brukeren kan fylle inn tidligere bosteder. Tidligere bosteder skal inneholde følgende felter:
-- Gateadresse
-- Postnummer
-- Poststed
+I denne oppgaven skal vi se på de første to metodene.
 
-Det skal være mulig å legge inn opptil 10 tidligere bosteder.
+### Legg til de nye feltene i datamodellen
 
-### Oppgaver
+1. Gå til "Datamodell".
+2. Velg "Legg til".
+3. Velg "Objekt".
+4. Gi objektet navnet "arbeidsforhold".
+5. Gå til "Felter"-fanen.
+6. Legg til tre tekstfelter med navnene "sektor", "bransje" og "aar_i_arbeidslivet".
 
-1. Legg til en gruppekomponent på siden som samler inn personalia.
-2. Legg til en adressekomponent under gruppekomponenten.
-3. For begge komponentene, legg til passende ledetekst og knytt de til relevante felter i datamodellen.
+!["Datamodell med arbeidserfaring"](datamodell.png)
 
-Merk at "Maksimalt antall repetisjoner" må endres lokalt.
+### Opprett en ny skjemaside for arbeidsforhold
 
-### Nyttig dokumentasjon
-- [Oppsett for gruppering av felter](/nb/altinn-studio/reference/ux/fields/grouping)
-- [Oppsett for repeterende grupper](/nb/altinn-studio/reference/ux/fields/grouping/repeating)
+1. Gå til "Lage".
+2. Opprett en ny side og kall den "Arbeidsforhold".
 
-### Forståelsessjekk
-{{% expandsmall id="m6t1q1" header="Hvilket felt i datamodellen er det som bestemmer om et element er repeterende?" %}}
-Feltet `maxOccurs` i xsd-modellen sier noe om hvorvidt et felt er repeterende. Om `maxOccurs` > 1 vil man i praksis se på dette elementet som en liste.
-{{% /expandsmall %}}
+Skjemaet du har laget skal nå ha tre sider.
 
-{{% expandsmall id="m6t1q2" header="Hvor mange repetisjoner er tillatt for feltet `TidligereBosteder`?" %}}
-Det er tillatt 10 repetisjoner for `TidligereBosteder`.
-{{% /expandsmall %}}
+!["Tre sider"](tre_sider.png)
 
-{{% /expandlarge %}}
+### Legg til radioknapper for sektor
+Brukeren skal kunne velge mellom offentlig og privat sektor. Til det er det naturlig å bruke [radioknapper](/nb/altinn-studio/reference/ux/components/radiobuttons/).
 
+1. Dra inn en komponent av typen "Radioknapper" øverst på den nye siden.
+2. Under "Tekst" i egenskapene til komponenten du har lagt til, legg til ledeteksten "Sektor". Nå bør skjemabyggeren se slik ut:
+   !["Skjemabygger med sektor"](skjemabygger_med_sektor.png)
+3. Nederst i tekstseksjonen kan man sette opp alternativer. Fanen "Velg kodeliste" er valgt som utgangspunkt. Velg fanen "Sett opp egne alternativer" for å legge til egne alternativer.
+4. Velg "Legg til alternativ". Du vil se at det dukker opp et alternativ under overskriften "Radioknapp 1" med en generert verdi.
+5. Klikk på "Radioknapp 1".
+6. Bytt ut verdien med `offentlig`. Dette er verdien som vil bli sendt til systemet når brukeren besvarer skjemaet.
+7. Velg "Ledetekst".
+8. Fyll inn teksten "Offentlig". Dette er teksten som brukeren vil se ved siden av radioknappen.
+9. Gjenta stegene fra trinn 4 til trinn 8, men klikk på "Radioknapp 2" i stedet for "Radioknapp 1", og gi knappen verdien `privat` og ledeteksten "Privat".
+   !["Radioknapper for sektor"](radioknapper_sektor.png)
+10. Nå mangler vi bare å koble komponenten til riktig felt i datamodellen. Åpne "Datamodellknytninger", klikk på "Radioknapper" og velg `arbeidsforhold.sektor`.
 
-{{% expandlarge id="validering" header="Validering" %}}
+### Legg til avmerkingsbokser for bransje
+Brukeren skal også kunne velge én eller flere bransjer. Siden det skal være mulig å velge mer enn ett alternativ, er det naturlig å bruke [avmerkingsbokser](/nb/altinn-studio/reference/ux/components/checkboxes/). I stedet for å legge til alternativene manuelt, skal vi bruke [en fil med en _kodeliste_](industri.json). En kodelistefil er nyttig hvis vi for eksempel trenger å bruke de samme alternativene flere steder.
 
-### Krav fra kommunen
+Slik bruker du en kodeliste til å lage en liste med avmerkingsbokser:
 
-Dersom innflytter fyller inn postnummer `1337` som et av tidligere bosteder må vedkommende
- bekrefte sin uovertruffenhet ved å legge til et symbol i adressefeltet før de kan gå videre.
+#### Legg til komponenten
+1. Dra en komponent av typen "Avmerkingsbokser" inn på siden, etter radioknappkomponenten for sektor.
+2. Under "Tekst" i egenskapene til komponenten du har lagt til, legg til ledeteksten "Bransje". Nå bør skjemabyggeren se slik ut:
+   !["Skjemabygger med bransje"](skjemabygger_med_bransje.png)
+3. Gå til "Datamodellknytninger", velg "Avmerkingsbokser" og koble komponenten til feltet `arbeidsforhold.bransje`.
 
-Vi ønsker derfor at det skal dukke opp en feilmelding på det aktuelle feltet med følgende tekst:
+#### Del endringene
+1. Klikk på "Last opp dine endringer" for å dele arbeidet du har gjort. Den røde prikken viser at du har gjort endringer som ikke er delt.
+   !["Last opp dine endringer"-knapp](last_opp_dine_endringer.png)
+2. Skriv en kort tekst om hva du har oppdatert. Hvis det er flere som jobber på samme app, blir det lettere for dem å vite hva du har jobbet med. Dette er frivillig.
+3. Velg "Del endringer" for å lagre teksten og laste opp endringene dine. Etter en liten stund skal du få en beskjed om at appen er oppdatert, og den røde prikken skal forsvinne.
 
-```rich
-Vi er beæret over å motta en '1337' innbygger til Sogndal kommune!
- Du må imidlertid bekrefte din uovertruffenhet ved å legge til en 🌟 i adressefeltet for å gå videre.
-```
-### Oppgaver
+#### Åpne repositoriet og lagre kodelisten
+1. Klikk på profilikonet øverst til høyre i Studio og velg "Åpne repositoriet".
+2. Det åpnes en ny fane med en oversikt med mapper og filer. Denne oversikten kalles Gitea. Her ligger de filene Altinn Studio har generert ut fra innstillinger du har satt for appen du lager.
+   I Gitea kan du redigere filene manuelt og holde oversikt over versjoner ved hjelp av [Git](https://git-scm.com/). Hvis du ikke kjenner til Git fra før, kan det være lurt å sette deg litt inn i det, for å forstå hva som skjer i bakgrunnen når du gjør endringer.
+3. Last ned [kodelisten](industri.json).
+4. Klikk på "Add File", deretter "Last opp fil" og last opp kodelisten.
+5. Filen må ligge i mappen `App/options`. Sørg for at den blir plassert der ved å oppgi denne stien i feltet over opplastingsfeltet. Når du skriver "App/", blir feltet automatisk oppdatert til å se slik ut:
+   ![Filsti](filsti.png)
+6. Velg "Commit endringer".
+7. Du er nå ferdig i Gitea for denne gang. Gå tilbake til Altinn Studio-fanen, eller klikk på Altinn-logoen øverst til venstre i Gitea for å komme tilbake til Altinn Studio.
 
-1. Legg til en validering på feltet `Postnr` for tidligere bostedsadresser.
+#### Koble kodelisten til komponenten
+1. I Altinn Studio ser du nå en rød prikk ved knappen "Hent endringer". Det betyr at det er gjort endringer i filsystemet (mappen du har lagt til i Gitea), som du må synkronisere med Studio.
+   !["Hent endringer"-knapp](hent_endringer.png)
+   Klikk på knappen. Du vil få en bekreftelse på at du har fått siste versjon og prikken forsvinner.
+2. Åpne siden der du la til "Bransje" og klikk på "Bransje".
+3. Under "Tekst" i egenskapene for "Bransje", sjekk at fanen "Velg kodeliste" er valgt.
+4. Velg "industri" fra nedtrekkslisten under.
+   !["Bruk kodeliste"-nedtrekssliste](bruk_kodeliste.png)
 
-### Nyttig dokumentasjon
-- [Serverside valideringer](/nb/altinn-studio/reference/logic/validation/#serverside-validering)
-- [Hvordan legge til egendefinert validering](/nb/altinn-studio/reference/logic/validation/#hvordan-legge-til-egendefinert-validering)
-- [Enkeltfeltvalideringer](/nb/altinn-studio/reference/logic/validation/#enkeltfeltvalidering)
+Nå skal avmerkingsboksene være klare.
 
-### Forståelsessjekk
-{{% expandsmall id="m6t2q1" header="Når kjøres valideringer serverside?" %}}
-Valideringer på serversiden kjøres som standard kun i det brukeren velger å bevege seg videre fra et steg.
-Denne oppførselen kan overstyres, og det er mulig å trigge valideringer både på enkelte felter og f.eks. ved sidebytte mellom ulike sider.
-{{% /expandsmall %}}
+### Legg til en nedtrekksliste for antall år i arbeidslivet
+Det siste vi skal gjøre i denne modulen er å legge til en nedtrekksliste hvor brukerne kan si noe om hvor lenge de har vært i arbeid. Listen skal ha følgende alternativer:
 
-{{% expandsmall id="m6t2q2" header="Hvorfor bør valideringer som legges til på klientsiden også dupliseres serverside?" %}}
-Klientside-valideringer bør anses som et hjelpemiddel for bedre bruksopplevelse og ikke som en garanti på at data leveres på riktig format.
-Ondsinnede kan komme seg forbi disse valideringene, og klientsidevalideringer vil ikke bli kjørt om man f.eks. benytter seg av api'ene direkte.
-Derfor bør valideringer som legges på frontend alltid gjenspeiles i logikken backend.
-{{% /expandsmall %}}
+| Visningsverdi   | Dataverdi |
+|-----------------|-----------|
+| 0 – 5 år        | `0-5`     |
+| 5 – 10 år       | `5-10`    |
+| 10 – 20 år      | `10-20`   |
+| 20 år eller mer | `20+`     |
 
-{{% /expandlarge %}}
+Til denne komponenten skal vi også bruke en kodelistefil, men denne gangen skal vi kode alternativene selv.
 
+#### Legg til komponenten og del endringene
+1. Fra "Komponenter"-panelet, dra inn komponenten som heter "Nedtrekksliste" og legg den til rett etter avmerkingsboksene.
+2. Gi komponenten ledeteksten "Antall år i arbeidslivet". Skjemaet skal nå se slik ut:
+   ![Skjemabygger med antall_år i arbeidslivet](skjemabygger_med_tid_i_arbeidslivet.png)
+3. Legg til en datamodellknytning til feltet `arbeidsforhold.aar_i_arbeidslivet`.
+4. Velg "Last opp dine endringer" og deretter "Del endringer". Se at den røde prikken ved knappen forsvinner.
 
-{{% expandlarge id="processing" header="Dataprosessering" %}}
+#### Legg til kodelisten i repositoriet
+1. Klikk på profilikonet og gå til repositoriet i Gitea.
+2. Gå til mappen `App/options`. Her vil du se at filen `industri.json` fra forrige steg er listet opp.
+3. Velg "Add file" og deretter "Ny fil".
+4. Skriv inn filnavnet `aar_i_arbeidslivet.json`. Husk filtypen `.json`. Uten den vil ikke Studio finne filen når vi skal koble kodelisten til komponenten etterpå.
+5. Kopier koden under og lim den inn i tekstområdet der det står "Ny fil".
+   ```
+   [
+       {
+           "label": "0 – 5 år",
+           "value": "0-5"
+       },
+       {
+           "label": "5 – 10 år",
+           "value": "5-10"
+       },
+       {
+           "label": "10 – 20 år",
+           "value": "10-20"
+       },
+       {
+           "label": "20 år eller mer",
+           "value": "20+"
+       }
+   ]
+   ```
+6. Velg "Commit endringer" nederst på siden. Det kan hende du får en melding fra Gitea om at filen inneholder tvetydige tegn, men den kan du trygt ignorere.
 
-### Krav fra kommunen
+#### Koble kodelisten til komponenten
+1. Gå tilbake til fanen med Altinn Studio og velg "Hent endringer".
+2. Klikk på komponenten "Antall år i arbeidslivet" og legg til den nye kodelisten på samme måte som du gjorde da du la til kodeliste for bransje.
 
-En av kommunens databehandlere har sett seg lei av å manuelt rette opp i en gateadresse som ofte blir skrevet feil av innflyttere.
-Vi ønsker derfor å programmatisk fikse opp i dette under utfyllingen av appen.
+Nå skal din app ha fått en nedtrekksliste med alternativene som er spesifisert i kodelisten.
 
-Om sluttbruker fyller inn `Sesame Street 1` i feltet `Innflytter.Adresse.Gateadresse` skal dette automatisk rettes til `Sesamsgate 1`.
-I alle andre tilfeller skal feltet forbli urørt.
-
-### Oppgaver
-
-1. Opprett en fil for [dataprosessering](/nb/altinn-studio/reference/logic/dataprocessing/).
-2. Legg til prosessering av adressefeltet som beskrevet over.
-
-Husk å implementere løsningen i `Program.cs` som tidligere.
-
-### Nyttig dokumentasjon
-- [Dataprosessering](/nb/altinn-studio/reference/logic/dataprocessing/)
-
-### Forståelsessjekk
-{{% expandsmall id="m6t3q1" header="Når blir dataprosessering kjørt?" %}}
-Dataprosessering blir kjørt hver gang brukeren enten leser eller skriver data.
-Det vil si at hver gang brukeren endrer et gitt felt så vil logikken kjøres.
-Dette stiller derfor krav til at apputvikler optimaliserer koden som kjøres og unngår tunge og komplekse operasjoner på hver kalkulering.
-{{% /expandsmall %}}
-
-{{% expandsmall id="m6t3q2" header="Hva skiller `ProcessDataWrite` og `ProcessDataRead`?" %}}
-`ProcessDataWrite` kjøres i det brukeren skriver data, altså når brukeren har fylt inn et felt eller oppdaterer en eksisterende verdi.
-`ProcessDataRead` kjøres i det brukeren leser data fra databasen, f.eks. når man navigerer seg til en tidligere instans av applikasjonen og henter opp tidligere utfylt data.
-{{% /expandsmall %}}
-
-{{% /expandlarge %}}
+## Nyttig dokumentasjon
+Se [kodelisteguiden](../../../guides/development/options/) for å se hvordan kodelister settes opp i appkoden.
 
 ## Oppsummering
-I denne modulen har du sett på **repeterende grupper** og hvordan dette konfigureres som en del av brukergrensesnittet.
-Vi har også sett på hvordan man setter opp egendefinerte **valideringer** i backend for tilfeller som ikke lar seg definere som en del av restriksjoner i datamodellen.
-Til slutt har vi sett på hvordan man kan sette opp **dataprosessering** som muliggjør manipulering av data ved kjøretid.
+I denne modulen har du lagt til en gruppe med radioknapper, en gruppe med avkrysningsbokser og en nedtrekksliste. Du har også satt opp svaralternativer manuelt i Studio og ved hjelp av JSON-filer i Gitea.
 
-## Løsningsforslag
-[Kildekode Modul 6](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul6)
-
-{{% expandlarge id="rep-grupper-solution" header="Repeterende grupper" %}}
-
-![Repeterende grupper med adresse (ingen lagt til). Skjermbilde](repeterende-grupper-adresse-screenshot.png "Repeterende gruppe med adresser (ingen lagt til ennå)")
-
-![Repeterende grupper med adresse (redigering). Skjermbilde](repeterende-grupper-rediger-screenshot.png "Repeterende gruppe med adresser (redigering)")
-
-Vi har lagt til en komponent for repeterende gruppe i Altinn Studio Designer med en adressekomponent som "child".
-
-Gruppekomponenten er knyttet til datamodell-feltet `Innflytter.TidligereBosteder`
- og adressekomponenten er knyttet til feltene `Innflytter.TidligereBosteder.Gateadresse`,
-  `Innflytter.TidligereBosteder.Postnr` og `Innflytter.TidligereBosteder.Poststed`.
-
-Antall tillatte repeterende grupper er bestemt av `maxOccurs` for feltet i datamodellen. 
- Vi må også sette `maxCount` til `10` på gruppekomponenten for å hindre brukeren i å (visuelt) opprette flere grupper enn tillatt.
- Foreløpig må dette gjøres lokalt i sidens layout-fil (se under).
-
-Vi har i tillegg lagt til en overskrift som tydeliggjør skillet mellom tidligere og nåværende adresser.
-
-{{< code-title >}}
-App/ui/layouts/innflytterPersonalia.json
-{{< /code-title >}}
-
-```json
-{
- "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4//schemas/json/layout/layout.schema.v1.json",
- "data": {
-  "layout": [
-   {
-    "id": "tidligere-bosteder-overskrift",
-    "type": "Header",
-    "size": "M",
-    "textResourceBindings": {
-     "title": "innflytterPersonalia.tidligere-bosteder-overskrift.title"
-    }
-   },
-   {
-    "id": "Group-tidligere-bosteder",
-    "type": "RepeatingGroup",
-    "maxCount": 10,
-    "dataModelBindings": {
-     "group": "Innflytter.TidligereBosteder"
-    },
-    "textResourceBindings": {
-     "add_button": "innflytterPersonalia.Address-adresse"
-    },
-    "children": [
-     "Address-tidligere-bosted"
-    ]
-   },
-   {
-    "id": "Address-tidligere-bosted",
-    "type": "Address",
-    "dataModelBindings": {
-     "address": "Innflytter.TidligereBosteder.Gateadresse",
-     "zipCode": "Innflytter.TidligereBosteder.Postnr",
-     "postPlace": "Innflytter.TidligereBosteder.Poststed"
-    },
-    "simplified": true,
-    "required": true,
-    "textResourceBindings": {
-     "title": "innflytterPersonalia.Address-tidligere-bosted.title"
-    }
-   }
-  ]
- }
-}
-```
-
-**Følgende tekstressurser er lagt til:**
-
-{{< code-title >}}
-App/config/texts/resources.nb.json
-{{< /code-title >}}
-
-```json
-{
- "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/text-resources/text-resources.schema.v1.json",
- "language": "nb",
- "resources": [
-  {
-   "id": "innflytterPersonalia.Address-adresse",
-   "value": "adresse"
-  },
-  {
-   "id": "innflytterPersonalia.Address-tidligere-bosted.title",
-   "value": "Tidligere bosted"
-  },
-  {
-   "id": "innflytterPersonalia.tidligere-bosteder-overskrift.title",
-   "value": "Tidligere bosteder"
-  }
- ]
-}
-```
-
-{{% /expandlarge %}}
-
-{{% expandlarge id="validering-solution" header="Validering" %}}
-
-![Validering postnummer feilet. Skjermbilde](./postal-code-validation-error-screenshot.png "Validering postnummer med feilmelding")
-
-![Validering postnummer ok. Skjermbilde](./postal-code-validation-ok-screenshot.png "Validering postnummer ok")
-
-* **Legg til valideringslogikk i metoden `ValidateData` i `InstanceValidation.cs`:**
-
-{{< code-title >}}
-App/logic/Validation/InstanceValidation.cs
-{{< /code-title >}}
-
-```csharp
-...
-
-public async Task ValidateData(object data, ModelStateDictionary validationResults)
-    {
-
-       if (data.GetType() == typeof(Skjema))
-        {
-            Skjema skjema = (Skjema)data;
-            string elitePostalCode = "1337";
-            string eliteSymbol = "🌟";
-
-            if (skjema?.Innflytter.TidligereBosteder != null)
-            {
-                List<Adresse> tidligereBosteder = skjema.Innflytter.TidligereBosteder;
-                int i = 0;
-                foreach (Adresse adresse in tidligereBosteder)
-                {
-                    if (adresse.Postnr == elitePostalCode && !adresse.Gateadresse.Contains(eliteSymbol))
-                    {
-                        validationResults.AddModelError("Innflytter.TidligereBosteder[" + i + "].Postnr", "Innflytter.TidligereBosteder.validation_message");
-                    }
-                    i++;
-                }
-            }
-        }
-        await Task.CompletedTask;
-    }
-...
-```
-
-* **Legg til tekstressurs for feilmelding:**
-
-{{< code-title >}}
-App/config/texts/resources.nb.json
-{{< /code-title >}}
-
-```json
-{
- "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/text-resources/text-resources.schema.v1.json",
- "language": "nb",
- "resources": [
-  ...,
-  {
-   "id": "Innflytter.TidligereBosteder.validation_message",
-   "value": "Vi er beæret over å motta en '1337' innbygger til Sogndal kommune! Du må imidlertid bekrefte din uovertruffenhet ved å legge til en 🌟 i adressefeltet for å gå videre."
-  }
- ]
-}
-```
-
-### Ekstra utfordring
-
-Denne løsningen endrer bare adressen for tidligere bosteder.
-Oppdater koden slik at valideringen også omfatter nåværende adresse.
-
-{{% /expandlarge %}}
-
-{{% expandlarge id="processing-solution" header="Dataprosessering" %}}
-
-
-* **Opprett en klasse som implementerer `IdataProcessor` som beskrevet i [dataprosessering](/nb/altinn-studio/reference/logic/dataprocessing/) og legg til logikk for dataprosessering:**
-
-{{< code-title >}}
-App/logic/DataProcessing/DataProcessor.cs
-{{< /code-title >}}
-
-```csharp
-...
-
-namespace Altinn.App.AppLogic.DataProcessing;
-
-public class DataProcessor : IDataProcessor {
-    public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object data)
-    {
-        return await Task.FromResult(false);
-    }
-
-    public async Task<bool> ProcessDataWrite(Instance instance, Guid? dataId, object data)
-    {
-        bool edited = false;
-
-        if (data.GetType() == typeof(Skjema)) {
-            Skjema skjema = (Skjema)data;
-            
-            if (skjema?.Innflytter.TidligereBosteder != null) {
-                List<Adresse> tidligereBosteder = skjema.Innflytter.TidligereBosteder;
-                int i = 0;
-                foreach (Adresse adresse in tidligereBosteder) {
-                    if (adresse.Gateadresse == "Sesame Street 1") {
-                        adresse.Gateadresse = "Sesamgate 1";
-                        edited = true;
-                    }
-                    i++;
-                }
-            }
-        }
-        return await Task.FromResult(edited);
-    }
-}
-```
-
-* **Registrer implementeringen i `Program.cs`**
-
-{{< code-title >}}
-App/Program.cs
-{{< /code-title >}}
-
-```csharp{hl_lines="8"}
-...
-{
-    // Register your apps custom service implementations here.
-    ...
-    services.AddTransient<IInstanceValidator, InstanceValidator>();
-    services.AddTransient<IDataProcessor, DataProcessor>();
-}
-...
-```
-
-### Ekstra utfordring
-
-Denne løsningen endrer bare adressen for tidligere bosteder og kun for `Sesame Street 1`.
-Oppdater koden slik at:
-
-1. Prosesseringen også omfatter nåværende adresse.
-2. Endringen skjer for alle gatenumre.
-
-{{% /expandlarge %}}
-
-<br><br>
-
-{{% center %}}
-[<< Forrige modul](../modul5/)      [Neste modul >>](../modul7/)
-{{% /center %}}
+{{<navigation-buttons
+  urlBack="../modul5"
+  textBack="<< Forrige modul"
+>}}

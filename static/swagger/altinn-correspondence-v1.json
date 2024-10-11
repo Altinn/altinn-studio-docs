@@ -1,0 +1,1770 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Altinn.Correspondence.API",
+        "version": "1.0.0",
+        "description": "API for Altinn Correspondence functionality."
+    },
+    "servers": [
+        {
+            "url": "https://platform.tt02.altinn.no",
+            "description": "TT02"
+        }
+    ],
+    "paths": {
+        "/correspondence/api/v1/attachment": {
+            "post": {
+                "tags": [
+                    "Attachment"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/InitializeAttachmentExt"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/InitializeAttachmentExt"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/correspondence/api/v1/attachment/{attachmentId}/upload": {
+            "post": {
+                "tags": [
+                    "Attachment"
+                ],
+                "parameters": [
+                    {
+                        "name": "attachmentId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AttachmentOverviewExt"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/correspondence/api/v1/attachment/{attachmentId}": {
+            "get": {
+                "tags": [
+                    "Attachment"
+                ],
+                "parameters": [
+                    {
+                        "name": "attachmentId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AttachmentOverviewExt"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Attachment"
+                ],
+                "parameters": [
+                    {
+                        "name": "attachmentId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AttachmentOverviewExt"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/correspondence/api/v1/attachment/{attachmentId}/details": {
+            "get": {
+                "tags": [
+                    "Attachment"
+                ],
+                "parameters": [
+                    {
+                        "name": "attachmentId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AttachmentDetailsExt"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/correspondence/api/v1/correspondence": {
+            "post": {
+                "tags": [
+                    "Correspondence"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/InitializeCorrespondencesExt"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/InitializeCorrespondencesExt"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CorrespondenceOverviewExt"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Correspondence"
+                ],
+                "parameters": [
+                    {
+                        "name": "resourceId",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    },
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "schema": {
+                            "$ref": "#/components/schemas/CorrespondenceStatusExt"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CorrespondencesExt"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/correspondence/api/v1/correspondence/upload": {
+            "post": {
+                "tags": [
+                    "Correspondence"
+                ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "Correspondence.Content.Language",
+                                    "Correspondence.Content.MessageBody",
+                                    "Correspondence.Content.MessageSummary",
+                                    "Correspondence.Content.MessageTitle",
+                                    "Correspondence.ResourceId",
+                                    "Correspondence.Sender",
+                                    "Correspondence.SendersReference",
+                                    "Correspondence.VisibleFrom",
+                                    "Recipients"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "Correspondence.ResourceId": {
+                                        "maxLength": 255,
+                                        "minLength": 1,
+                                        "type": "string"
+                                    },
+                                    "Correspondence.Sender": {
+                                        "pattern": "^\\d{4}:\\d{9}$",
+                                        "type": "string"
+                                    },
+                                    "Correspondence.SendersReference": {
+                                        "maxLength": 4096,
+                                        "minLength": 1,
+                                        "type": "string"
+                                    },
+                                    "Correspondence.MessageSender": {
+                                        "maxLength": 256,
+                                        "minLength": 0,
+                                        "type": "string"
+                                    },
+                                    "Correspondence.Content.Language": {
+                                        "type": "string"
+                                    },
+                                    "Correspondence.Content.MessageTitle": {
+                                        "type": "string"
+                                    },
+                                    "Correspondence.Content.MessageSummary": {
+                                        "type": "string"
+                                    },
+                                    "Correspondence.Content.MessageBody": {
+                                        "type": "string"
+                                    },
+                                    "Correspondence.Content.Attachments": {
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/components/schemas/InitializeCorrespondenceAttachmentExt"
+                                        }
+                                    },
+                                    "Correspondence.VisibleFrom": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    "Correspondence.AllowSystemDeleteAfter": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    "Correspondence.DueDateTime": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    "Correspondence.ExternalReferences": {
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/components/schemas/ExternalReferenceExt"
+                                        }
+                                    },
+                                    "Correspondence.PropertyList": {
+                                        "type": "object",
+                                        "additionalProperties": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "Correspondence.ReplyOptions": {
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/components/schemas/CorrespondenceReplyOptionExt"
+                                        }
+                                    },
+                                    "Correspondence.Notifications": {
+                                        "maxItems": 6,
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/components/schemas/InitializeCorrespondenceNotificationExt"
+                                        }
+                                    },
+                                    "Correspondence.IsReservable": {
+                                        "type": "boolean"
+                                    },
+                                    "Recipients": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "ExistingAttachments": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "format": "uuid"
+                                        }
+                                    },
+                                    "attachments": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "format": "binary"
+                                        }
+                                    }
+                                }
+                            },
+                            "encoding": {
+                                "Correspondence.ResourceId": {
+                                    "style": "form"
+                                },
+                                "Correspondence.Sender": {
+                                    "style": "form"
+                                },
+                                "Correspondence.SendersReference": {
+                                    "style": "form"
+                                },
+                                "Correspondence.MessageSender": {
+                                    "style": "form"
+                                },
+                                "Correspondence.Content.Language": {
+                                    "style": "form"
+                                },
+                                "Correspondence.Content.MessageTitle": {
+                                    "style": "form"
+                                },
+                                "Correspondence.Content.MessageSummary": {
+                                    "style": "form"
+                                },
+                                "Correspondence.Content.MessageBody": {
+                                    "style": "form"
+                                },
+                                "Correspondence.Content.Attachments": {
+                                    "style": "form"
+                                },
+                                "Correspondence.VisibleFrom": {
+                                    "style": "form"
+                                },
+                                "Correspondence.AllowSystemDeleteAfter": {
+                                    "style": "form"
+                                },
+                                "Correspondence.DueDateTime": {
+                                    "style": "form"
+                                },
+                                "Correspondence.ExternalReferences": {
+                                    "style": "form"
+                                },
+                                "Correspondence.PropertyList": {
+                                    "style": "form"
+                                },
+                                "Correspondence.ReplyOptions": {
+                                    "style": "form"
+                                },
+                                "Correspondence.Notifications": {
+                                    "style": "form"
+                                },
+                                "Correspondence.IsReservable": {
+                                    "style": "form"
+                                },
+                                "Recipients": {
+                                    "style": "form"
+                                },
+                                "ExistingAttachments": {
+                                    "style": "form"
+                                },
+                                "attachments": {
+                                    "style": "form"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CorrespondenceOverviewExt"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/correspondence/api/v1/correspondence/{correspondenceId}": {
+            "get": {
+                "tags": [
+                    "Correspondence"
+                ],
+                "parameters": [
+                    {
+                        "name": "correspondenceId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CorrespondenceOverviewExt"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/correspondence/api/v1/correspondence/{correspondenceId}/details": {
+            "get": {
+                "tags": [
+                    "Correspondence"
+                ],
+                "parameters": [
+                    {
+                        "name": "correspondenceId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CorrespondenceDetailsExt"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/correspondence/api/v1/correspondence/{correspondenceId}/markasread": {
+            "post": {
+                "tags": [
+                    "Correspondence"
+                ],
+                "parameters": [
+                    {
+                        "name": "correspondenceId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/correspondence/api/v1/correspondence/{correspondenceId}/markasunread": {
+            "post": {
+                "tags": [
+                    "Correspondence"
+                ],
+                "parameters": [
+                    {
+                        "name": "correspondenceId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/correspondence/api/v1/correspondence/{correspondenceId}/confirm": {
+            "post": {
+                "tags": [
+                    "Correspondence"
+                ],
+                "parameters": [
+                    {
+                        "name": "correspondenceId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/correspondence/api/v1/correspondence/{correspondenceId}/archive": {
+            "post": {
+                "tags": [
+                    "Correspondence"
+                ],
+                "parameters": [
+                    {
+                        "name": "correspondenceId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/correspondence/api/v1/correspondence/{correspondenceId}/purge": {
+            "delete": {
+                "tags": [
+                    "Correspondence"
+                ],
+                "parameters": [
+                    {
+                        "name": "correspondenceId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/correspondence/api/v1/correspondence/attachment/{attachmentId}/download": {
+            "get": {
+                "tags": [
+                    "Correspondence"
+                ],
+                "parameters": [
+                    {
+                        "name": "attachmentId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/health": {
+            "get": {
+                "tags": [
+                    "Health"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/correspondence/api/v1/webhooks/malwarescanresults": {
+            "post": {
+                "tags": [
+                    "MalwareScanResults"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AtachmentStatusEvent": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "$ref": "#/components/schemas/AttachmentStatusExt"
+                    },
+                    "statusText": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "statusChanged": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AttachmentDataLocationTypeExt": {
+                "enum": [
+                    "AltinnCorrespondenceAttachment",
+                    "ExternalStorage"
+                ],
+                "type": "string"
+            },
+            "AttachmentDetailsExt": {
+                "required": [
+                    "attachmentId",
+                    "correspondenceIds",
+                    "dataLocationUrl",
+                    "dataType",
+                    "name",
+                    "resourceId",
+                    "sender",
+                    "sendersReference",
+                    "status",
+                    "statusChanged",
+                    "statusText"
+                ],
+                "type": "object",
+                "properties": {
+                    "resourceId": {
+                        "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "fileName": {
+                        "maxLength": 255,
+                        "minLength": 0,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "isEncrypted": {
+                        "type": "boolean"
+                    },
+                    "checksum": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sender": {
+                        "minLength": 1,
+                        "pattern": "^\\d{4}:\\d{9}$",
+                        "type": "string"
+                    },
+                    "sendersReference": {
+                        "maxLength": 4096,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "dataType": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "attachmentId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "dataLocationUrl": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/AttachmentStatusExt"
+                    },
+                    "statusText": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "statusChanged": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "correspondenceIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "nullable": true
+                    },
+                    "restrictionName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "statusHistory": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AtachmentStatusEvent"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AttachmentOverviewExt": {
+                "required": [
+                    "attachmentId",
+                    "correspondenceIds",
+                    "dataLocationUrl",
+                    "dataType",
+                    "name",
+                    "resourceId",
+                    "sender",
+                    "sendersReference",
+                    "status",
+                    "statusChanged",
+                    "statusText"
+                ],
+                "type": "object",
+                "properties": {
+                    "resourceId": {
+                        "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "fileName": {
+                        "maxLength": 255,
+                        "minLength": 0,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "isEncrypted": {
+                        "type": "boolean"
+                    },
+                    "checksum": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sender": {
+                        "minLength": 1,
+                        "pattern": "^\\d{4}:\\d{9}$",
+                        "type": "string"
+                    },
+                    "sendersReference": {
+                        "maxLength": 4096,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "dataType": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "attachmentId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "dataLocationUrl": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/AttachmentStatusExt"
+                    },
+                    "statusText": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "statusChanged": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "correspondenceIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "nullable": true
+                    },
+                    "restrictionName": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AttachmentStatusExt": {
+                "enum": [
+                    "Initialized",
+                    "UploadProcessing",
+                    "Published",
+                    "Purged",
+                    "Failed"
+                ],
+                "type": "string"
+            },
+            "BaseCorrespondenceExt": {
+                "required": [
+                    "resourceId",
+                    "sender",
+                    "sendersReference",
+                    "visibleFrom"
+                ],
+                "type": "object",
+                "properties": {
+                    "resourceId": {
+                        "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "sender": {
+                        "minLength": 1,
+                        "pattern": "^\\d{4}:\\d{9}$",
+                        "type": "string"
+                    },
+                    "sendersReference": {
+                        "maxLength": 4096,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "messageSender": {
+                        "maxLength": 256,
+                        "minLength": 0,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "content": {
+                        "$ref": "#/components/schemas/InitializeCorrespondenceContentExt"
+                    },
+                    "visibleFrom": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "allowSystemDeleteAfter": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "dueDateTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "externalReferences": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ExternalReferenceExt"
+                        },
+                        "nullable": true
+                    },
+                    "propertyList": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "maxProperties": 10,
+                        "nullable": true,
+                        "patternProperties": {
+                            "^.{1,50}$": {
+                                "maxLength": 300,
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "replyOptions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CorrespondenceReplyOptionExt"
+                        },
+                        "nullable": true
+                    },
+                    "notifications": {
+                        "maxItems": 6,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/InitializeCorrespondenceNotificationExt"
+                        },
+                        "nullable": true
+                    },
+                    "isReservable": {
+                        "type": "boolean",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CorrespondenceAttachmentExt": {
+                "required": [
+                    "dataLocationType",
+                    "dataType",
+                    "name",
+                    "restrictionName",
+                    "sendersReference"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "fileName": {
+                        "maxLength": 255,
+                        "minLength": 0,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "isEncrypted": {
+                        "type": "boolean"
+                    },
+                    "checksum": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sendersReference": {
+                        "maxLength": 4096,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "dataType": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "restrictionName": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "dataLocationType": {
+                        "$ref": "#/components/schemas/AttachmentDataLocationTypeExt"
+                    },
+                    "dataLocationUrl": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "created": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/AttachmentStatusExt"
+                    },
+                    "statusText": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "StatusChanged": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "expirationTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CorrespondenceContentExt": {
+                "required": [
+                    "attachments",
+                    "language",
+                    "messageBody",
+                    "messageSummary",
+                    "messageTitle"
+                ],
+                "type": "object",
+                "properties": {
+                    "language": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "messageTitle": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "messageSummary": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "messageBody": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "attachments": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CorrespondenceAttachmentExt"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CorrespondenceDetailsExt": {
+                "required": [
+                    "correspondenceId",
+                    "created",
+                    "recipient",
+                    "resourceId",
+                    "sender",
+                    "sendersReference",
+                    "visibleFrom"
+                ],
+                "type": "object",
+                "properties": {
+                    "resourceId": {
+                        "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "sender": {
+                        "minLength": 1,
+                        "pattern": "^\\d{4}:\\d{9}$",
+                        "type": "string"
+                    },
+                    "sendersReference": {
+                        "maxLength": 4096,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "messageSender": {
+                        "maxLength": 256,
+                        "minLength": 0,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "content": {
+                        "$ref": "#/components/schemas/CorrespondenceContentExt"
+                    },
+                    "visibleFrom": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "allowSystemDeleteAfter": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "dueDateTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "externalReferences": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ExternalReferenceExt"
+                        },
+                        "nullable": true
+                    },
+                    "propertyList": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "maxProperties": 10,
+                        "nullable": true,
+                        "patternProperties": {
+                            "^.{1,50}$": {
+                                "maxLength": 300,
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "replyOptions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CorrespondenceReplyOptionExt"
+                        },
+                        "nullable": true
+                    },
+                    "notifications": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CorrespondenceNotificationDetailsExt"
+                        },
+                        "nullable": true
+                    },
+                    "isReservable": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "recipient": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "markedUnread": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "correspondenceId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "created": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/CorrespondenceStatusExt"
+                    },
+                    "statusText": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "statusChanged": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "statusHistory": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CorrespondenceStatusEventExt"
+                        },
+                        "nullable": true
+                    },
+                    "notificationStatusHistory": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/NotificationStatusEventExt"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CorrespondenceNotificationDetailsExt": {
+                "required": [
+                    "notificationTemplate",
+                    "status"
+                ],
+                "type": "object",
+                "properties": {
+                    "notificationTemplate": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "customTextToken": {
+                        "maxLength": 128,
+                        "minLength": 0,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sendersReference": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "requestedSendTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "notificationId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "notificationChannel": {
+                        "$ref": "#/components/schemas/NotificationChannelExt"
+                    },
+                    "status": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "statusText": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "statusChanged": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "statusHistory": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/NotificationStatusEventExt"
+                        },
+                        "nullable": true
+                    },
+                    "created": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CorrespondenceOverviewExt": {
+                "required": [
+                    "correspondenceId",
+                    "created",
+                    "recipient",
+                    "resourceId",
+                    "sender",
+                    "sendersReference",
+                    "visibleFrom"
+                ],
+                "type": "object",
+                "properties": {
+                    "resourceId": {
+                        "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "sender": {
+                        "minLength": 1,
+                        "pattern": "^\\d{4}:\\d{9}$",
+                        "type": "string"
+                    },
+                    "sendersReference": {
+                        "maxLength": 4096,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "messageSender": {
+                        "maxLength": 256,
+                        "minLength": 0,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "content": {
+                        "$ref": "#/components/schemas/CorrespondenceContentExt"
+                    },
+                    "visibleFrom": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "allowSystemDeleteAfter": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "dueDateTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "externalReferences": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ExternalReferenceExt"
+                        },
+                        "nullable": true
+                    },
+                    "propertyList": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "maxProperties": 10,
+                        "nullable": true,
+                        "patternProperties": {
+                            "^.{1,50}$": {
+                                "maxLength": 300,
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "replyOptions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CorrespondenceReplyOptionExt"
+                        },
+                        "nullable": true
+                    },
+                    "notifications": {
+                        "maxItems": 6,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/InitializeCorrespondenceNotificationExt"
+                        },
+                        "nullable": true
+                    },
+                    "isReservable": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "recipient": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "markedUnread": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "correspondenceId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "created": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/CorrespondenceStatusExt"
+                    },
+                    "statusText": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "statusChanged": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CorrespondenceReplyOptionExt": {
+                "required": [
+                    "linkURL"
+                ],
+                "type": "object",
+                "properties": {
+                    "linkURL": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "linkText": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CorrespondenceStatusEventExt": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "$ref": "#/components/schemas/CorrespondenceStatusExt"
+                    },
+                    "statusText": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "statusChanged": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CorrespondenceStatusExt": {
+                "enum": [
+                    "Initialized",
+                    "ReadyForPublish",
+                    "Published",
+                    "Fetched",
+                    "Read",
+                    "Replied",
+                    "Confirmed",
+                    "PurgedByRecipient",
+                    "PurgedByAltinn",
+                    "Archived",
+                    "Reserved",
+                    "Failed"
+                ],
+                "type": "string"
+            },
+            "CorrespondencesExt": {
+                "type": "object",
+                "properties": {
+                    "ids": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "nullable": true
+                    },
+                    "pagination": {
+                        "$ref": "#/components/schemas/PaginationMetaDataExt"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ExternalReferenceExt": {
+                "required": [
+                    "referenceType",
+                    "referenceValue"
+                ],
+                "type": "object",
+                "properties": {
+                    "referenceValue": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "referenceType": {
+                        "$ref": "#/components/schemas/ReferenceTypeExt"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "InitializeAttachmentDataLocationTypeExt": {
+                "enum": [
+                    "NewCorrespondenceAttachment",
+                    "ExistingCorrespondenceAttachment",
+                    "ExisitingExternalStorage"
+                ],
+                "type": "string"
+            },
+            "InitializeAttachmentExt": {
+                "required": [
+                    "dataType",
+                    "name",
+                    "resourceId",
+                    "restrictionName",
+                    "sender",
+                    "sendersReference"
+                ],
+                "type": "object",
+                "properties": {
+                    "resourceId": {
+                        "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "fileName": {
+                        "maxLength": 255,
+                        "minLength": 0,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "restrictionName": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "isEncrypted": {
+                        "type": "boolean"
+                    },
+                    "checksum": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sender": {
+                        "minLength": 1,
+                        "pattern": "^\\d{4}:\\d{9}$",
+                        "type": "string"
+                    },
+                    "sendersReference": {
+                        "maxLength": 4096,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "dataType": {
+                        "minLength": 1,
+                        "type": "string"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "InitializeCorrespondenceAttachmentExt": {
+                "required": [
+                    "dataLocationType",
+                    "dataType",
+                    "name",
+                    "restrictionName",
+                    "sendersReference"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "fileName": {
+                        "maxLength": 255,
+                        "minLength": 0,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "isEncrypted": {
+                        "type": "boolean"
+                    },
+                    "checksum": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sendersReference": {
+                        "maxLength": 4096,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "dataType": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "restrictionName": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "dataLocationType": {
+                        "$ref": "#/components/schemas/InitializeAttachmentDataLocationTypeExt"
+                    },
+                    "dataLocationUrl": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "expirationTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "InitializeCorrespondenceContentExt": {
+                "required": [
+                    "language",
+                    "messageBody",
+                    "messageSummary",
+                    "messageTitle"
+                ],
+                "type": "object",
+                "properties": {
+                    "language": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "messageTitle": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "messageSummary": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "messageBody": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "attachments": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/InitializeCorrespondenceAttachmentExt"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "InitializeCorrespondenceNotificationExt": {
+                "required": [
+                    "notificationTemplate"
+                ],
+                "type": "object",
+                "properties": {
+                    "notificationTemplate": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "customTextToken": {
+                        "maxLength": 128,
+                        "minLength": 0,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sendersReference": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "requestedSendTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "InitializeCorrespondencesExt": {
+                "required": [
+                    "correspondence",
+                    "recipients"
+                ],
+                "type": "object",
+                "properties": {
+                    "correspondence": {
+                        "$ref": "#/components/schemas/BaseCorrespondenceExt"
+                    },
+                    "recipients": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "existingAttachments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "NotificationChannelExt": {
+                "enum": [
+                    "Email",
+                    "Sms"
+                ],
+                "type": "string"
+            },
+            "NotificationStatusEventExt": {
+                "required": [
+                    "status",
+                    "statusChanged",
+                    "statusText"
+                ],
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "statusText": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "statusChanged": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "PaginationMetaDataExt": {
+                "type": "object",
+                "properties": {
+                    "TotalItems": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "Page": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "Pages": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ReferenceTypeExt": {
+                "enum": [
+                    "Generic",
+                    "AltinnAppInstance",
+                    "AltinnBrokerFileTransfer",
+                    "DialogPortenDialogID",
+                    "DialogPortenDialogElementID"
+                ],
+                "type": "string"
+            }
+        }
+    }
+}

@@ -2,8 +2,9 @@
 title: Altinn Studio
 description: Altinn Studio - Your tool for developing digital services for citizens and businesses
 aliases:
-- /nb/altinn-studio/
-- /nb/teknologi/altinnstudio/solutions/altinn-studio/
+- /altinn-studio/
+- /teknologi/altinnstudio/solutions/altinn-studio/
+- /app/
 weight: 1
 ---
  <div class="row adocs-featuredBlocks">
@@ -73,7 +74,7 @@ weight: 1
                     </a>
                 </li>
                 <li class="a-dotted a-clickable a-list-hasRowLink">
-                    <a href="getting-started/app-dev-course-v2/" class="a-list-rowLink">
+                    <a href="getting-started/app-dev-course/" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
                                 Intro course
@@ -82,7 +83,7 @@ weight: 1
                     </a>
                 </li>
                 <li class="a-dotted a-clickable a-list-hasRowLink">
-                    <a href="guides/basic-form" class="a-list-rowLink">
+                    <a href="guides/development/basic-form" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
                                 User guide - simple form

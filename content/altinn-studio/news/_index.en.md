@@ -1,7 +1,7 @@
 ---
 title: Whats's new
 description: What's new in Altinn Studio
-weight: 50
+weight: 60
 ---
 
 ## Upcoming
