@@ -345,17 +345,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateRequestSystemUserResponse"
+                  "$ref": "#/components/schemas/RequestSystemResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateRequestSystemUserResponse"
+                  "$ref": "#/components/schemas/RequestSystemResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateRequestSystemUserResponse"
+                  "$ref": "#/components/schemas/RequestSystemResponse"
                 }
               }
             }
@@ -387,17 +387,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateRequestSystemUserResponse"
+                  "$ref": "#/components/schemas/RequestSystemResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateRequestSystemUserResponse"
+                  "$ref": "#/components/schemas/RequestSystemResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateRequestSystemUserResponse"
+                  "$ref": "#/components/schemas/RequestSystemResponse"
                 }
               }
             }
@@ -446,17 +446,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateRequestSystemUserResponse"
+                  "$ref": "#/components/schemas/RequestSystemResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateRequestSystemUserResponse"
+                  "$ref": "#/components/schemas/RequestSystemResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateRequestSystemUserResponse"
+                  "$ref": "#/components/schemas/RequestSystemResponse"
                 }
               }
             }
@@ -496,17 +496,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateRequestSystemUserResponse"
+                  "$ref": "#/components/schemas/RequestSystemResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateRequestSystemUserResponse"
+                  "$ref": "#/components/schemas/RequestSystemResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateRequestSystemUserResponse"
+                  "$ref": "#/components/schemas/RequestSystemResponse"
                 }
               }
             }
@@ -548,17 +548,110 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateRequestSystemUserResponse"
+                  "$ref": "#/components/schemas/RequestSystemResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateRequestSystemUserResponse"
+                  "$ref": "#/components/schemas/RequestSystemResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateRequestSystemUserResponse"
+                  "$ref": "#/components/schemas/RequestSystemResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/systemuser/request/vendor/bysystem/{systemId}": {
+      "get": {
+        "tags": [
+          "RequestSystemUser"
+        ],
+        "summary": "Retrieves a list of Status-Response-model for all Requests that the Vendor has for a given system they own.",
+        "parameters": [
+          {
+            "name": "systemId",
+            "in": "path",
+            "description": "The system the Vendor wants the list for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestSystemResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestSystemResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestSystemResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/systemuser/request/{party}/{requestId}/reject": {
+      "post": {
+        "tags": [
+          "RequestSystemUser"
+        ],
+        "summary": "Rejects the systemuser request",
+        "parameters": [
+          {
+            "name": "party",
+            "in": "path",
+            "description": "the partyId",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "requestId",
+            "in": "path",
+            "description": "The UUID of the request to be rejected",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestSystemResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestSystemResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestSystemResponse"
                 }
               }
             }
@@ -1264,49 +1357,6 @@
         },
         "additionalProperties": false
       },
-      "CreateRequestSystemUserResponse": {
-        "required": [
-          "id",
-          "partyOrgNo",
-          "rights",
-          "status",
-          "systemId"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "externalRef": {
-            "type": "string",
-            "nullable": true
-          },
-          "systemId": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "partyOrgNo": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "rights": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Right"
-            }
-          },
-          "status": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "redirectUrl": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "DiscoveryDocument": {
         "type": "object",
         "properties": {
@@ -1604,6 +1654,53 @@
               "type": "string",
               "format": "uri"
             },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RequestSystemResponse": {
+        "required": [
+          "id",
+          "partyOrgNo",
+          "rights",
+          "status",
+          "systemId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "externalRef": {
+            "type": "string",
+            "nullable": true
+          },
+          "systemId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "partyOrgNo": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "rights": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Right"
+            }
+          },
+          "status": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "redirectUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "confirmUrl": {
+            "type": "string",
             "nullable": true
           }
         },
