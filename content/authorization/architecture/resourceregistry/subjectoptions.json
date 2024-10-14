@@ -304,5 +304,12 @@
         "SubjectSource": "altinn:rolecode",
         "SubjectTitle": "Programmeringsgrensesnitt for NUF (API)",
         "SubjectDescription": "Delegerbar rolle som gir kontaktperson for norskregistrert utenlandsk foretak (NUF) tilgang til å administrere tilgang til programmeringsgrensesnitt - API, på vegne av virksomheten."
+    },
+    {
+        "SubjectId": "innh",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Innehaver",
+        "SubjectDescription": "Innehaver"
     }
+]
 ]
