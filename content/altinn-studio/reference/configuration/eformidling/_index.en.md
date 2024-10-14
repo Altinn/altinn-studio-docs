@@ -9,7 +9,7 @@ weight: 400
 
 {{%notice info%}}
 Nuget versions >= 4.22.0 are required for your application to support eFormidling.
-[See how to update the nuget references of your application here](/altinn-studio/reference/maintainance/dependencies/).  
+[See how to update the nuget references of your application here](/altinn-studio/guides/administration/maintainance/dependencies/).  
 {{% /notice%}}
 
 {{%notice info%}}

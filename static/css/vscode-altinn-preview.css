@@ -117,7 +117,7 @@ a[href^=http]:not([href*='localhost']):not([href*='docs.altinn.studio']):not([hr
 {
   display: inline-block;
   width: 1.3em;
-  background-image: url(https://altinn.no/images/arrowrightup.svg);
+  background-image: url(../images/arrowrightup.svg);
   background-repeat: no-repeat;
   background-size: 119% auto;
   vertical-align: middle;

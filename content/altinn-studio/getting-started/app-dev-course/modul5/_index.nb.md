@@ -68,7 +68,7 @@ minutter.
 
 
 ### Nyttig dokumentasjon
-- [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/guides/basic-form)
+- [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/guides/development/basic-form)
 
 ## Oppsummering
 I denne modulen har vi bygget en pakke av første versjon av tjenesten. Vi har så publisert pakken ut til testmiljø, og startet opp tjensten 
