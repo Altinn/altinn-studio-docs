@@ -26,9 +26,8 @@ skal de sendes til datainnsamlingssidene.
 Om en bruker velger **IKT (data/it)** under bransje skal det vises en tekst med en lenke til en av deres stillingsutlysninger.
 
 ## Implementer dynamisk visning og skjuling av sider
-For å oppfylle krav 1 fra Sogndal kommune, skal vi opprette en ny side som skal vises hvis appen ikke er relevant for brukeren. 
-Vi vil også legge til en funksjon der brukeren kan bekrefte om appen er relevant, og deretter skjule eller vise sider basert 
-på deres valg ved hjelp av logiske uttrykk.
+For å oppfylle krav 1 fra Sogndal kommune, må vi opprette en ny side som skal vises hvis appen ikke er relevant for brukeren. 
+Vi legger også til en funksjon der brukeren kan bekrefte relevansen, og basert på dette valget vil vi dynamisk skjule eller vise sider ved hjelp av logiske uttrykk.
 
 ### Legg til ny side
 Vi legger til en ny side som skal vises hvis brukeren ikke bekrefter at de oppfyller kravene for appen.
@@ -57,8 +56,8 @@ Datamodellen skal nå se slik ut:
 
 !["Datamodell med KanBrukeSkjema"](datamodell.png)
 
-### Legg til avkryssingsboks
-Vi legger til en avkryssingsboks på infosiden der brukeren kan bekrefte at skjemaet er relevant for dem.
+### Legg til avkrysningsbokser
+Vi legger til avkrysningsbokser på infosiden så brukeren kan bekrefte at skjemaet er relevant for dem.
 1. Klikk på **Utforming**.
 2. Klikk på **infoside** og dra inn en komponent av typen **Radioknapper**.
     !["Skjermbilde av radioknapper-komponenten satt inn i skjemabyggeren"](skjemabygger_med_radioknapper.png)
