@@ -8,11 +8,6 @@ aliases:
  - /authentication/systemauthentication/
 ---
 
-{{<notice warning>}}
-Under arbeid. Ting kan endres. Vi tar gjerne imot innspill.
-{{</notice>}}
-
-
 Omtrent 50% av skjematrafikken kommer via API, med enkelte tjenester som har nesten 100% fra fagsystemer.
 
 Nye autentiserings- og autorisasjonsmekanismer utvikles nå for maskin-til-maskin-integrasjon på Altinn-plattformen og andre offentlige API-er.
@@ -21,61 +16,64 @@ Nye autentiserings- og autorisasjonsmekanismer utvikles nå for maskin-til-maski
 
 Maskinporten står sentralt i dette nye konseptet. Alle som skal benytte API med systembruker må autentisere seg mot Maskinporten for å motta et systembrukertoken.
 
-Forskjeller fra vanlige maskinportentokens:
+### Forskjeller fra vanlige maskinportentokens
 
 Systembrukertoken inkluderer informasjon om både virksomheten og den spesifikke systembrukeren/systemet.
-
 
 ## Opprettelse av systembruker
 
 Systembrukeren opprettes av aktøren som ønsker å bruke et fagsystem for integrasjon mot Altinn eller andre offentlige løsninger. Systembrukeren kobles til valgt system/systemleverandør og tildeles nødvendige rettigheter.
 
-Eksempel
+### Eksempel
 
-- Virksomhet: Rørlegger Hansen & Sønner AS
-- Systembruker: "Regnskap og MVA"
-- System: "Regnskap 123" fra Bedriftshjelp AS
-- Rettigheter: Bedriftshjelp AS registrerer at "Regnskap og MVA" trenger rettigheter til "MVA" og "Årsregnskap".
-- Godkjenning: Hansen & Sønner AS aksepterer disse rettighetene ved opprettelse av systembrukeren.
+- **Virksomhet:** Rørlegger Hansen & Sønner AS
+- **Systembruker:** "Regnskap og MVA"
+- **System:** "SmartCloud" fra SmartCloud AS
+- **Rettigheter:** SmartCloud AS registrerer at "Regnskap og MVA" trenger rettigheter til "MVA" og "Årsregnskap".
+- **Godkjenning:** Hansen & Sønner AS aksepterer disse rettighetene ved opprettelse av systembrukeren.
 
 Med dette oppsettet kan Bedriftshjelp AS autentisere seg mot Maskinporten og få et systembrukertoken for systembrukeren til Rørlegger Hansen & Sønner AS. Dette tokenet kan brukes mot Altinns API eller andre tjenester som støtter det. Bedriftshjelp AS kan dermed behandle data for Rørlegger Hansen & Sønner AS innenfor de tildelte rettighetene.
 
 ## Løsningsbeskrivelse
 
-
 ![Concept](concept.drawio.svg)
 
 ### Systemregister
 
-Som del av nytt konsept etableres det et systemregister i Altinn. Systemregisteret vil inneholde oversikt over systemer tilbudet av systemleverandører. 
+Som en del av det nye konseptet etableres et systemregister i Altinn. Systemregisteret vil inneholde en oversikt over systemer tilbudt av systemleverandører.
 
-Systemleverandører vil få tilgang til kunne administrere systemene de leverer i registeret via API. 
+Systemleverandører vil få tilgang til å administrere systemene de leverer i registeret via API.
 
-Registeret vil inneholde navn og beskrivelse på systemet i tilegg til hvilke rettigheter som kreves av systemet for å kunne fungere.  
+Registeret vil inneholde navn og beskrivelse av systemet, i tillegg til hvilke rettigheter som kreves for at systemet skal kunne fungere.
 
-Denne informasjonen vil benyttes for å hjelpe sluttbruker til å gi riktig rettigheter til systembrukere som opprettes. 
+Denne informasjonen vil hjelpe sluttbrukere med å gi riktige rettigheter til systembrukere som opprettes.
 
-Systemleverandører vil kunne bruke informasjonen i registret til å forhåndsutfylle informasjon for leverandørstyrt opprettelse av systembruker. 
+Systemleverandører vil kunne bruke informasjonen i registeret til å forhåndsutfylle informasjon for leverandørstyrt opprettelse av systembruker.
 
-Som del av systeminformasjonen må systemleverandører oppgi clientID fra  Maskinporten for å definere hvilke maskinporten integrasjoner som skal kunne autentisere seg som systemet. 
+Som en del av systeminformasjonen må systemleverandører oppgi clientID fra Maskinporten for å definere hvilke Maskinporten-integrasjoner som skal kunne autentisere seg som systemet.
 
 ### Leverandørstyrt opprettelse av systembruker
 
-En viktig egenskap med nytt konsept er at det skal være lettere for systemleverandører å rettlede sine kunder til riktig oppsett. I dag betyr dette komplekse handlinger i Altinn portal med påfølgene deling av passord/sertifikater med systemleverandør.  Ny løsning gir mulighet for kraftig forenklet pårullinmg av kunder av systemleverandører
+En viktig egenskap med det nye konseptet er å gjøre det enklere for systemleverandører å veilede sine kunder til riktig oppsett.
 
-Systemleverandøren vil kunne opprette et forespørsel for sin kunde på opprettelse av systembruker samt tildeling av nødvendige rettigheter. 
-Dette kan minne om hvordan man i dag kan samtykke til å dele inntektsinformasjon til banker. 
+I dag innebærer dette komplekse handlinger i Altinn-portalen, med påfølgende deling av passord/sertifikater med systemleverandøren. Den nye løsningen gir mulighet for en kraftig forenklet onboarding av kunder for systemleverandører.
 
-Brukeren blir da presentert et forenklet GUI som beskriver at systembruker/systemintegrasjon vil opprettes og at det vil tildeles rettigheter. 
-Det vil også beskrive hvilke system / leverandør som får tilgang til denne systembrukeren. 
+Systemleverandøren vil kunne opprette en forespørsel for sin kunde om opprettelse av systembruker samt tildeling av nødvendige rettigheter. Dette kan sammenlignes med hvordan man i dag kan samtykke til å dele inntektsinformasjon med banker.
 
-![Illustration](illustration4.png "Konseptskisse: Leverandørstyrt opprettelse av systembruker")
+Brukeren blir presentert et forenklet GUI som beskriver at en systembruker/systemintegrasjon vil opprettes og at det vil tildeles rettigheter. Det vil også beskrive hvilket system/leverandør som får tilgang til denne systembrukeren.
 
-Ved å akseptere opprettes systembrukeren og den fås de nødvendige rettigheter.
+I eksempelet nedenfor ser man hvordan SmartCloud sender brukeren til Altinn under onboarding av kunden. Her har Per Olsen hos "Rørlegger Olsen & Sønner AS" registrert seg som bruker hos SmartCloud.
 
-![Illustration](illustration4b.png "Konseptskisse: Leverandørstyrt opprettelse av systembruker")
+![Illustration](illustration4a.png "SmartCloud informerer om at systemtilgang må settes opp i Altinn")
 
-Det er også forventet at man vil få kunne mulighet til be om flere rettigheter til systembruker basert på samme prinsipp.
+![Illustration](illustration4.png "Altinn presenterer ønske fra SmartCloud om opprettelse av systembruker")
+
+![Illustration](illustration4b.png "Ved bekreftelse sender Altinn brukeren tilbake til ønsket side i SmartCloud")
+
+Selve flyten vil variere fra system til system.
+
+I noen tilfeller kan man se for seg at systemleverandøren sender en epost til sluttbruker med lenke til bekreftelse, mens man i fremtiden også potensielt vil kunne se slike forspørsler fra Altinn arbeidsflate.
+
 
 ### Administrasjon av systembruker
 
@@ -106,10 +104,10 @@ Støtte for dette vil komme i leveranse 5 av klientdelegering.
 Hvis vi tar utgangspunkt i scenarioet over så har **Rørlegger Hansen & Sønner AS** valgt **Fine Tall AS** som regnskapsfører. 
 Dette er meldt inn via samordnet registermelding. 
 
-1. **Fine Tall AS** har opprette systembruker for systemet **Regnskap 123** fra Bedriftshjelp AS
+1. **Fine Tall AS** har opprette systembruker for systemet **SmartCloud** fra SmartCloud AS
 2. Klientadministrator hos Fine Tall AS delegerer tilgangspakken "Regnskapsansvarlig lønn" for  **Rørlegger Hansen & Sønner AS** til systembrukeren som er opprettet
 
-På denne måten vil da **Regnskap 123** kunne rapportere for  **Rørlegger Hansen & Sønner AS** med systembrukeren for **Fine Tall AS**
+På denne måten vil da **SmartCloud** kunne rapportere for  **Rørlegger Hansen & Sønner AS** med systembrukeren for **Fine Tall AS**
 
 **Fine Tall AS** vil kunne administrere hvilke av sine kunder som skal håndteres av systembrukeren.  Denne administrasjonen vil kunne skje via GUI i Altinn eller via egne API for klientadministrasjon.
 
