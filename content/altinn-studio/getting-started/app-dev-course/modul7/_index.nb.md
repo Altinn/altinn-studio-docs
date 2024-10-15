@@ -1,5 +1,5 @@
 ---
-title: "Modul 7: Legge til dynamisk funksjonalitet"
+title: "Modul 7: Legge til dynamikk"
 description: 
 linktitle: "Modul 7: Legge til dynamikk"
 tags: [apper, kurs, dynamikk]
