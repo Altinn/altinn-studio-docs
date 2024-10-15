@@ -97,6 +97,24 @@ Systemleverandøren må forhåndsdefinere hvilke rettigheter systemet trengs del
 ![Illustration](illustration3b.png "Opprettelse av integrasjon")
 
 
+### Systembrukere og klientforhold
+
+I mange tilfeller har virksomhet regnskapsfører eller revisor som skal rapportere for virksomheten.
+
+Støtte for dette vil komme i leveranse 5 av klientdelegering.
+
+Hvis vi tar utgangspunkt i scenarioet over så har **Rørlegger Hansen & Sønner AS** valgt **Fine Tall AS** som regnskapsfører. 
+Dette er meldt inn via samordnet registermelding. 
+
+1. **Fine Tall AS** har opprette systembruker for systemet **Regnskap 123** fra Bedriftshjelp AS
+2. Klientadministrator hos Fine Tall AS delegerer tilgangspakken "Regnskapsansvarlig lønn" for  **Rørlegger Hansen & Sønner AS** til systembrukeren som er opprettet
+
+På denne måten vil da **Regnskap 123** kunne rapportere for  **Rørlegger Hansen & Sønner AS** med systembrukeren for **Fine Tall AS**
+
+**Fine Tall AS** vil kunne administrere hvilke av sine kunder som skal håndteres av systembrukeren.  Denne administrasjonen vil kunne skje via GUI i Altinn eller via egne API for klientadministrasjon.
+
+Se mer detaljer i [Issue for Leveranse 5](https://github.com/Altinn/altinn-authentication/issues/548).
+
 ## Teknisk flyt autentisering/autorisasjon
 
 Diagrammet nedenfor viser hvordan et fagsystem kan autentisere seg når systembruker er opprettet og knyttet.
