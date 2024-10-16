@@ -18,7 +18,7 @@ Before setting up eFormidling you will need to have the following set up:
 
 ### Maskinporten Integration
 
-In order to enable eFormidling in your application you will need to [setup an integration between your app and Maskinporten](/altinn-studio/guides/maskinporten-app-integration/).
+In order to enable eFormidling in your application you will need to [setup an integration between your app and Maskinporten](/altinn-studio/guides/integration/maskinporten-app-integration/).
 
 * **NB!** In `Program.cs` add the following instead of what is described in the steps above in the `RegisterCustomAppServices`-method:
   
@@ -402,6 +402,11 @@ public class EFormidlingReceivers : IEFormidlingReceivers
 **NB!** Note that only Norwegian organisations are supported, and that the prefix `0192:` is required before the organisation number.
 {{</content-version-container>}}
 {{</content-version-selector>}}
+
+### Adding a feedback task to the application process {#eFormidling-setup-process}
+While not strictly necessary, it is recommended to add a [feedback task](/altinn-studio/reference/process/tasks/#feedback-task) to your application. This is to ensure that the process is moved along when the message has been received.  
+No further changes are needed when the task has been added as the eFormidling service we added earlier will automatically move the process along.  
+If you wish to customize the texts that are presented to the user during this step you can do so by overriding the [text keys](/altinn-studio/reference/configuration/process/customize/#feedback)
 
 ## Testing
 Thorough testing for the eFormidling integration in an application is encouraged.  
