@@ -13,7 +13,7 @@ This page describes the setup for a **v8** Altinn Application, for prior version
 ## Prerequisites
 
 Before setting up eFormidling you will need to have the following set up:
-  * [Maskinporten integration](#maskinporten-integration)
+  * [Maskinporten Integration](#maskinporten-integration)
   * [Events](#events)
 
 ### Maskinporten Integration
@@ -99,7 +99,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 ```
 {{% /expandlarge %}}
 ***
-## Setup eFormidling in your Application {#eFormidling-setup}
+## Setup eFormidling in your application {#eFormidling-setup}
 
 ### Register eFormidling Services {#eFormidling-setup-program}
 In order to add support for eFormidling in your application you need to register its services by adding the following to the `RegisterCustomAppServices`-method in `Program.cs`:
@@ -126,14 +126,14 @@ parameters defined below.
 |      **Property**          |      **Type**     |      **Description**                                                                                              |
 |------------------------|---------------|---------------------------------------------------------------------------------------------------------------|
 |     serviceId **\***           |     string    |     ID that specifies the shipment type. (DPO, DPV, DPI or DPF)                                                |
-|     dpfShipmentType    |     string    |     The DPF shipment type used for   routing in the receiving system                                          |
-|     receiver           |     string    |     Organisation number of the receiver. Only Norwegian   organisations are supported. (Can be omitted)       |
+|     dpfShipmentType    |     string    |     The DPF shipment type used for routing in the receiving system                                          |
+|     receiver           |     string    |     Organisation number of the receiver (can be omitted). Only Norwegian organisations are supported.        |
 |     sendAfterTaskId    |     string    |     ID of the task to be completed before the shipment is sent.   |
 |     process **\*\***          |     string    |     Process type                                                                                              |
-|     standard **\*\*\***         |     string    |     The document standard. E.g.   `"urn:no:difi:arkivmelding:xsd::arkivmelding"`                                |
+|     standard **\*\*\***         |     string    |     The document standard                                |
 |     typeVersion        |     string    |     Version of the message type                                                                               |
-|     type **\*\*\***             |     string    |     The document type E.g. `"arkivmelding"`                                                                     |
-|     securityLevel      |     number    |     Security level to be set on the   StandardBusinessDocument                                                |
+|     type **\*\*\***             |     string    |     The document type                                                                 |
+|     securityLevel **\*\*\***      |     number    |     Security level to be set on the _StandardBusinessDocument_                                              |
 |     dataTypes          |     array     |     List of data types to include in the shipment                                                            |
 
 **\*** Altinn only supports DPF and DPO.
@@ -174,7 +174,7 @@ Below is an example of the configuration for the message type `arkivmelding`.
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-### Activate eFormidling Integration in your Application  {#eFormidling-setup-appsettings}
+### Activate eFormidling Integration in your application  {#eFormidling-setup-appsettings}
 Integration with eFormidling needs to be explicitly activated in the application.  
 In `appsettings.json` you need to enable eFormidling in the `"AppSettings"`-section as well as add a new section `"EFormidlingClientSettings"`:
 
@@ -196,7 +196,7 @@ In `appsettings.json` you need to enable eFormidling in the `"AppSettings"`-sect
 ```
 If you do not wish to test the eFormidling integration locally, you can add an `"AppSettings"`-section to `appsettings.Development.json` and set `"EnableEFormidling"` to `false`.
 
-### Message Metadata Generation in the Application {#eFormidling-setup-eFormidlingMetadata}
+### Message Metadata Generation in the application {#eFormidling-setup-eFormidlingMetadata}
 It is the application developer's responsibility to create the message of the shipment sent through eFormidling.
 
 {{<content-version-selector classes="border-box">}}
@@ -410,11 +410,12 @@ However, invalid shipments, including but not limited to missing attachments or 
 
 ### Local
 {{%notice warning%}}
-For the time being it is not possible to test the eFormidling integration locally as the <a href="https://github.com/felleslosninger/efm-mocks" target="_blank" rel="noopener noreferrer">efm-mocks</a> which is necessary for local testing is under renovation(?).
+For the time being it is **not** possible to test the eFormidling integration locally as <a href="https://github.com/felleslosninger/efm-mocks" target="_blank" rel="noopener noreferrer">efm-mocks</a>, which is necessary for local testing, is under renovation.
 {{% /notice%}}
 
 ### Test environment (TT02)
-You can monitor the status of a shipment sent in the test environment through the endpoint below.
+<!-- The following integration point exposes endpoints that allow you to monitor the status of a shipment in the test environment:
+ -->You can monitor the status of a shipment sent in the test environment through the endpoint below.
 ```http
 https://platform.tt02.altinn.no/eformidling/api/conversations?messageId={instanceGuid}
 ```
