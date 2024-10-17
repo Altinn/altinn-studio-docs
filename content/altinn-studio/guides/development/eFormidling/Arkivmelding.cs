@@ -10,7 +10,7 @@ namespace Altinn.App.Models.Arkivmelding
     /// <summary>
     /// Initializes a new instance of the <see cref="Arkivmelding"/> class. This class represents the actual arkivmelding.
     /// </summary>
-    /// This class based on XSD definition: https://github.com/difi/felleslosninger/blob/gh-pages/resources/arkivmelding/arkivmelding.xsd
+    /// This class is based on the XSD definition: https://github.com/difi/felleslosninger/blob/gh-pages/resources/arkivmelding/arkivmelding.xsd
     [XmlRoot(ElementName = "arkivmelding", Namespace = "http://www.arkivverket.no/standarder/noark5/arkivmelding")]
     public class Arkivmelding
     {
