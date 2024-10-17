@@ -10,7 +10,7 @@ toc: true
 I denne modulen skal vi videreutvikle applikasjonen ved å legge til dynamisk skjuling av sider og komponenter. Dette gjør 
 at du kan styre hvilke deler av appen som vises, basert på brukerens svar.
 
-## Temaer som dekkes i denne modulen
+## Temaer i denne modulen
 - Vise og skjule sider ved hjelp av logiske uttrykk
 - Vise og skjule komponenter ved hjelp av logiske uttrykk
 
@@ -19,7 +19,7 @@ Sogndal kommune har to krav for dynamikk.
 
 ### Krav 1: Stopp brukere som ikke oppfyller kravene tidlig
 En bruker som ikke oppfyller kravene for skjemaet skal stoppes så tidlig som mulig i arbeidsflyten. 
-Hvis brukeren ikke bekrefter at skjemaet er relevant, skal de sendes til en ny forklaringsside. Hvis de bekrefter relevansen,
+Hvis brukerne ikke bekrefter at skjemaet er relevant, skal de sendes til en ny forklaringsside. Hvis de bekrefter at det er relevant,
 skal de sendes til datainnsamlingssidene.
 
 ### Krav 2: Vis stillingsutlysninger for IKT-bransjen
@@ -27,7 +27,7 @@ Om en bruker velger **IKT (data/it)** under bransje skal det vises en tekst med 
 
 ## Implementer dynamisk visning og skjuling av sider
 For å oppfylle krav 1 fra Sogndal kommune, må vi opprette en ny side som skal vises hvis appen ikke er relevant for brukeren. 
-Vi legger også til en funksjon der brukeren kan bekrefte relevansen, og basert på dette valget vil vi dynamisk skjule eller vise sider ved hjelp av logiske uttrykk.
+Vi legger også til en funksjon der brukeren kan bekrefte om appen er relevant. Ut fra dette valget kan vi skjule eller vise sider dynamisk, ved hjelp av logiske uttrykk.
 
 ### Legg til ny side
 Vi legger til en ny side som skal vises hvis brukeren ikke bekrefter at de oppfyller kravene for appen.
@@ -50,14 +50,14 @@ For at appen skal kunne vurdere om skjemaet er relevant for brukeren, må vi opp
 2. Klikk på **Legg til**.
 3. Klikk på **Ja/nei**.
 4. Endre navnet på feltet til ```KanBrukeSkjema```.
-5. Klikk **Generer modeller**.
+5. Klikk på **Generer modeller**.
 
 Datamodellen skal nå se slik ut:
 
 !["Datamodell med KanBrukeSkjema"](datamodell.png)
 
-### Legg til avkrysningsbokser
-Vi legger til avkrysningsbokser på infosiden så brukeren kan bekrefte at skjemaet er relevant for dem.
+### Legg til radioknapper
+Vi legger til radioknapper på infosiden, så brukeren kan bekrefte at skjemaet er relevant for dem.
 1. Klikk på **Utforming**.
 2. Klikk på **infoside** og dra inn en komponent av typen **Radioknapper**.
     !["Skjermbilde av radioknapper-komponenten satt inn i skjemabyggeren"](skjemabygger_med_radioknapper.png)
@@ -73,8 +73,8 @@ Vi legger til avkrysningsbokser på infosiden så brukeren kan bekrefte at skjem
 
 
 ### Vis og skjul sider ved hjelp av logiske uttrykk
-Sidene **Side1** og **Arbeidsforhold** skal vises når brukeren har bekreftet at de oppfyller kriteriene for appen. Dette oppnås 
-ved å bruke logiske uttrykk, som styrer når en side skal vises basert på data fra brukeren. 
+Sidene **Side1** og **Arbeidsforhold** skal vises når brukerne har bekreftet at de oppfyller kriteriene for appen. Dette gjør du 
+ved å bruke logiske uttrykk. De styrer når en side skal vises, ut fra dataene brukeren har lagt inn.
 1. Klikk på **Side1**.
 2. Klikk på **Valg for dynamikk**.
 3. Klikk på **Gjør om til logisk uttrykk**.
@@ -87,17 +87,16 @@ ved å bruke logiske uttrykk, som styrer når en side skal vises basert på data
 
 Gjenta prosessen for "Arbeidsforhold" ved å klikke på **Arbeidsforhold** i steg 1.
 
-For siden **ikke-for-deg** skal du bruke samme prosess, men med én viktig forskjell: I steg 7 skal du sette den andre operandens 
-verdi til **Usann** i stedet for **Sann**.
+Gjenta prosessen over for siden **ikke-for-deg** , men velg verdien **Usann** i stedet for **Sann** for operanden i steg 7.
 
 ## Vis stillingsutlysning for brukere med IKT-kompetanse
-Sogndal kommune ønsker å vise stillingsannonse når brukeren har markert at de har IKT-kompetanse.
+Sogndal kommune ønsker at stillingsutlysningene deres vises når brukeren har markert at de har IKT-kompetanse.
 ### Legg inn stillingsutlysningen
 Første steg er å legge inn stillingsannonsen i skjemaet.
-1. Klikk på **Utforming** og på siden for **Arbeidsforhold**.
+1. Klikk på **Utforming** og gå til siden **Arbeidsforhold**.
 2. Dra inn en **Avsnitt**-komponent og legg den mellom komponentene **Bransje** og **Antall år i arbeidslivet**.
    !["Skjermbilde av avsnittskomponenten satt inn i skjemabyggeren"](skjemabygger_med_avsnitt.png)
-3. Klikk på **Ledetekst** i **Tekst**-menyen for avsnittskomponenten, og kopier inn følgende tekst:
+3. Klikk på **Ledetekst** under **Tekst** for Avsnitt-komponenten, og kopier inn følgende tekst:
     ```md
     Vi ser at du besitter kompetanse vi trenger i kommunen.
     
