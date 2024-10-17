@@ -408,6 +408,11 @@ While not strictly necessary, it is recommended to add a [feedback task](/altinn
 No further changes are needed when the task has been added as the eFormidling service we added earlier will automatically move the process along.  
 If you wish to customize the texts that are presented to the user during this step you can do so by overriding the [text keys](/altinn-studio/reference/configuration/process/customize/#feedback)
 
+### Ensuring unique filenames {#eFormidling-setup-filenames}
+If the message sent by your application contains multiple attachments, it is important to ensure that these have unique filenames as the shipment will fail otherwise.  
+If the message includes the generated PDF of the form, you need to check that the other filename(s) are not the same as the application name.  
+One way to ensure unique filenames is through the use of [file validation](/altinn-studio/reference/logic/validation/files/).
+
 ## Testing
 Thorough testing for the eFormidling integration in an application is encouraged.  
 Safety measures and retry mechanisms are in place to ensure that a shipment reaches the receiver when errors are due to weak network connections.  
