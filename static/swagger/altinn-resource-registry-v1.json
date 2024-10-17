@@ -56,8 +56,7 @@
         "security": [
           {
             "oauth2": [
-              "AccessListRead",
-              "Admin"
+              "PlatformComponentOnly"
             ]
           }
         ]
@@ -1579,7 +1578,7 @@
         "security": [
           {
             "oauth2": [
-              "StudioDesignerAccess"
+              "Admin"
             ]
           }
         ]
@@ -1624,7 +1623,50 @@
         "security": [
           {
             "oauth2": [
-              "StudioDesignerAccess"
+              "Admin"
+            ]
+          }
+        ]
+      }
+    },
+    "/altinn2export/setserviceeditionexpired": {
+      "get": {
+        "tags": [
+          "Altinn2Export"
+        ],
+        "summary": "Sets a given service expired to hide delegation functionality. Proxy for bridge functionality. Called by Altinn Studio and used as part of the migration of delegation process",
+        "parameters": [
+          {
+            "name": "externalServiceCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "externalServiceEditionCode",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "Admin"
             ]
           }
         ]
@@ -1880,6 +1922,7 @@
           }
         ],
         "requestBody": {
+          "description": "The XACML policy file",
           "content": {
             "multipart/form-data": {
               "schema": {
@@ -1935,6 +1978,7 @@
           }
         ],
         "requestBody": {
+          "description": "The XACML policy file",
           "content": {
             "multipart/form-data": {
               "schema": {
@@ -2099,6 +2143,56 @@
                   "items": {
                     "$ref": "#/components/schemas/ServiceResource"
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/resource/updated": {
+      "get": {
+        "tags": [
+          "Resource"
+        ],
+        "summary": "Gets the updated resources since the provided last updated time (inclusive)",
+        "operationId": "updated",
+        "parameters": [
+          {
+            "name": "since",
+            "in": "query",
+            "description": "Date time used for filtering",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Opaque continuation token containing ResourceUrn,SubjectUrn pair to skip past on rows matching \"since\" exactly",
+            "schema": {
+              "$ref": "#/components/schemas/UpdatedResourceSubjectsContinuationTokenOpaque"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of pairs returned (1-1000, default: 1000)",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1000
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdatedResourceSubjectPaginated"
                 }
               }
             }
@@ -3017,6 +3111,14 @@
         "type": "integer",
         "format": "int32"
       },
+      "ResourceAccessListMode": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
       "ResourceIdentifier": {
         "type": "object",
         "additionalProperties": false
@@ -3174,8 +3276,8 @@
             },
             "nullable": true
           },
-          "limitedByRRR": {
-            "type": "boolean"
+          "accessListMode": {
+            "$ref": "#/components/schemas/ResourceAccessListMode"
           },
           "selfIdentifiedUserEnabled": {
             "type": "boolean"
@@ -3208,7 +3310,8 @@
         "properties": {
           "value": {
             "type": "string",
-            "description": "Gets the inner value."
+            "description": "Gets the inner value.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -3253,6 +3356,79 @@
         },
         "additionalProperties": false,
         "description": "A paginated Altinn.ResourceRegistry.Models.ListObject`1."
+      },
+      "UpdatedResourceSubject": {
+        "type": "object",
+        "properties": {
+          "subjectUrn": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "resourceUrn": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deleted": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdatedResourceSubjectPaginated": {
+        "required": [
+          "data",
+          "links"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdatedResourceSubject"
+            },
+            "description": "The items."
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginatedLinks"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A paginated Altinn.ResourceRegistry.Models.ListObject`1."
+      },
+      "UpdatedResourceSubjectsContinuationToken": {
+        "type": "object",
+        "properties": {
+          "resourceUrn": {
+            "type": "string",
+            "description": "The resourceUrn.",
+            "format": "uri",
+            "nullable": true
+          },
+          "subjectUrn": {
+            "type": "string",
+            "description": "The subjectUrn.",
+            "format": "uri",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Continuation token for updated resource subjects. Used with \"since\" value to serve\r\nas tiebreaker when paginating over resource subjects having the same \"updatedAt\" value\r\nsplit across pages"
+      },
+      "UpdatedResourceSubjectsContinuationTokenOpaque": {
+        "type": "string",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/UpdatedResourceSubjectsContinuationToken"
+          }
+        },
+        "additionalProperties": false,
+        "description": "\r\n\r\n                An opaque value is a value that can be transmitted to another party\r\n                without divulging any type information or expectations about the value.\r\n            \r\n\r\n\r\n                Opaque values are typically usefull in APIs where the server wants to\r\n                be able to return a value that the client later needs to send back to\r\n                the server, but where the server does not want to expose the type of\r\n                the value to the client. For instance, in a pagination scenario, the\r\n                server can use an opaque int to do pagination by page number, while\r\n                allowing itself to later change the implementation to use a cursor\r\n                instead of a page number without breaking the API.\r\n            "
       },
       "UpsertAccessListResourceConnectionDto": {
         "type": "object",
