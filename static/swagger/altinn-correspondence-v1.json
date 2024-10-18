@@ -438,6 +438,10 @@
                                     "Correspondence.IgnoreReservation": {
                                         "type": "boolean"
                                     },
+                                    "Correspondence.Published": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
                                     "Recipients": {
                                         "type": "array",
                                         "items": {
@@ -543,6 +547,9 @@
                                     "style": "form"
                                 },
                                 "Correspondence.IgnoreReservation": {
+                                    "style": "form"
+                                },
+                                "Correspondence.Published": {
                                     "style": "form"
                                 },
                                 "Recipients": {
