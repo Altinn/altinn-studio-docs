@@ -11,7 +11,7 @@
             "description": "TT02"
         }
     ],
-        "paths": {
+    "paths": {
         "/correspondence/api/v1/attachment": {
             "post": {
                 "tags": [
@@ -212,7 +212,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/CorrespondenceOverviewExt"
+                                    "$ref": "#/components/schemas/InitializeCorrespondencesResponseExt"
                                 }
                             }
                         }
@@ -571,7 +571,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/CorrespondenceOverviewExt"
+                                    "$ref": "#/components/schemas/InitializeCorrespondencesResponseExt"
                                 }
                             }
                         }
@@ -1829,6 +1829,78 @@
                     }
                 },
                 "additionalProperties": false
+            },
+            "InitializeCorrespondencesResponseExt": {
+                "type": "object",
+                "properties": {
+                    "correspondences": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CorrespondenceDetails"
+                        }
+                    },
+                    "attachmentIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                }
+            },
+            "CorrespondenceDetails": {
+                "type": "object",
+                "properties": {
+                    "CorrespondenceId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "Status": {
+                        "$ref": "#/components/schemas/CorrespondenceStatusExt"
+                    },
+                    "Recipient": {
+                        "type": "string"
+                    },
+                    "Notifications": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/NotificationDetails"
+                        }
+                    }
+                },
+                "required": [
+                    "CorrespondenceId",
+                    "Status",
+                    "Recipient"
+                ]
+            },
+            "NotificationDetails": {
+                "type": "object",
+                "properties": {
+                    "OrderId": {
+                        "type": "string",
+                        "format": "uuid",
+                        "nullable": true
+                    },
+                    "IsReminder": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "Status": {
+                        "$ref": "#/components/schemas/NotificationStatus"
+                    }
+                },
+                "required": [
+                    "Status"
+                ]
+            },
+            "NotificationStatus": {
+                "type": "string",
+                "enum": [
+                    "Success",
+                    "MissingContact",
+                    "Failure"
+                ]
             },
             "NotificationChannelExt": {
                 "enum": [
