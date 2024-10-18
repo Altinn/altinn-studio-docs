@@ -1141,6 +1141,10 @@
                     "IgnoreReservation": {
                         "type": "boolean",
                         "nullable": true
+                    },
+                    "published": {
+                        "type": "string",
+                        "format": "date-time"
                     }
                 },
                 "additionalProperties": false
@@ -1377,6 +1381,20 @@
                 },
                 "additionalProperties": false
             },
+            "CorrespondenceNotificationOverview": {
+                "type": "object",
+                "properties": {
+                    "notificationOrderId": {
+                        "type": "string",
+                        "format": "uuid",
+                        "nullable": true
+                    },
+                    "isReminder": {
+                        "type": "boolean"
+                    }
+                },
+                "additionalProperties": false
+            },
             "CorrespondenceOverviewExt": {
                 "required": [
                     "correspondenceId",
@@ -1484,8 +1502,13 @@
                     "notifications": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/NotificationExt"
+                            "$ref": "#/components/schemas/CorrespondenceNotificationOverview"
                         },
+                        "nullable": true
+                    },
+                    "published" : {
+                        "type": "string",
+                        "format": "date-time",
                         "nullable": true
                     }
                 },
