@@ -18,7 +18,7 @@ git clone https://github.com/Altinn/altinn-studio-docs
 ## Build / Edit / Test locally
 
 1. Open the altinn-studio-docs repo-folder in visual studio code
-2. Run `./hugo server --navigateToChanged`. Now the docs is running locally at http://loalhost:1313/
+2. Run `./hugo server --navigateToChanged`. Now the docs is running locally at http://localhost:1313/
 3. Edit and save files in the `content`-folder to automatically get a new local build of the site refreshed in your browser, so you can test your changes locally.
 
 ## Push your changes to GitHub
