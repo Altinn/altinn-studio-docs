@@ -23,11 +23,6 @@
                             "schema": {
                                 "$ref": "#/components/schemas/InitializeAttachmentExt"
                             }
-                        },
-                        "application/*+json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/InitializeAttachmentExt"
-                            }
                         }
                     }
                 },
@@ -198,11 +193,6 @@
                             "schema": {
                                 "$ref": "#/components/schemas/InitializeCorrespondencesExt"
                             }
-                        },
-                        "application/*+json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/InitializeCorrespondencesExt"
-                            }
                         }
                     }
                 },
@@ -283,11 +273,6 @@
                         "description": "OK",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/CorrespondencesExt"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/CorrespondencesExt"
                                 }
@@ -894,6 +879,7 @@
                     "dataType",
                     "name",
                     "resourceId",
+                    "restrictionName",
                     "sender",
                     "sendersReference",
                     "status",
@@ -910,6 +896,10 @@
                     },
                     "name": {
                         "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "restrictionName": {
                         "minLength": 1,
                         "type": "string"
                     },
@@ -960,10 +950,6 @@
                             "type": "string",
                             "format": "uuid"
                         },
-                        "nullable": true
-                    },
-                    "restrictionName": {
-                        "type": "string",
                         "nullable": true
                     },
                     "statusHistory": {
@@ -983,6 +969,7 @@
                     "dataType",
                     "name",
                     "resourceId",
+                    "restrictionName",
                     "sender",
                     "sendersReference",
                     "status",
@@ -999,6 +986,10 @@
                     },
                     "name": {
                         "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "restrictionName": {
                         "minLength": 1,
                         "type": "string"
                     },
@@ -1049,10 +1040,6 @@
                             "type": "string",
                             "format": "uuid"
                         },
-                        "nullable": true
-                    },
-                    "restrictionName": {
-                        "type": "string",
                         "nullable": true
                     }
                 },
@@ -1142,9 +1129,10 @@
                         "type": "boolean",
                         "nullable": true
                     },
-                    "published": {
+                    "Published": {
                         "type": "string",
-                        "format": "date-time"
+                        "format": "date-time",
+                        "nullable": true
                     }
                 },
                 "additionalProperties": false
@@ -1255,6 +1243,33 @@
                 },
                 "additionalProperties": false
             },
+            "CorrespondenceDetails": {
+                "required": [
+                    "recipient"
+                ],
+                "type": "object",
+                "properties": {
+                    "correspondenceId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/CorrespondenceStatus"
+                    },
+                    "recipient": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "notifications": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/NotificationDetails"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
             "CorrespondenceDetailsExt": {
                 "required": [
                     "correspondenceId",
@@ -1332,6 +1347,11 @@
                         "type": "boolean",
                         "nullable": true
                     },
+                    "Published": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
                     "recipient": {
                         "type": "string",
                         "nullable": true
@@ -1359,13 +1379,6 @@
                         "type": "string",
                         "format": "date-time"
                     },
-                    "statusHistory": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CorrespondenceStatusEventExt"
-                        },
-                        "nullable": true
-                    },
                     "notifications": {
                         "type": "array",
                         "items": {
@@ -1373,9 +1386,11 @@
                         },
                         "nullable": true
                     },
-                    "Published": {
-                        "type": "string",
-                        "format": "date-time",
+                    "statusHistory": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CorrespondenceStatusEventExt"
+                        },
                         "nullable": true
                     }
                 },
@@ -1472,6 +1487,11 @@
                         "type": "boolean",
                         "nullable": true
                     },
+                    "Published": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
                     "recipient": {
                         "type": "string",
                         "nullable": true
@@ -1505,11 +1525,6 @@
                             "$ref": "#/components/schemas/CorrespondenceNotificationOverview"
                         },
                         "nullable": true
-                    },
-                    "published" : {
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
                     }
                 },
                 "additionalProperties": false
@@ -1530,6 +1545,23 @@
                     }
                 },
                 "additionalProperties": false
+            },
+            "CorrespondenceStatus": {
+                "enum": [
+                    "Initialized",
+                    "ReadyForPublish",
+                    "Published",
+                    "Fetched",
+                    "Read",
+                    "Replied",
+                    "Confirmed",
+                    "PurgedByRecipient",
+                    "PurgedByAltinn",
+                    "Archived",
+                    "Reserved",
+                    "Failed"
+                ],
+                "type": "string"
             },
             "CorrespondenceStatusEventExt": {
                 "type": "object",
@@ -1860,70 +1892,19 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/CorrespondenceDetails"
-                        }
+                        },
+                        "nullable": true
                     },
                     "attachmentIds": {
                         "type": "array",
                         "items": {
                             "type": "string",
                             "format": "uuid"
-                        }
-                    }
-                }
-            },
-            "CorrespondenceDetails": {
-                "type": "object",
-                "properties": {
-                    "CorrespondenceId": {
-                        "type": "string",
-                        "format": "uuid"
-                    },
-                    "Status": {
-                        "$ref": "#/components/schemas/CorrespondenceStatusExt"
-                    },
-                    "Recipient": {
-                        "type": "string"
-                    },
-                    "Notifications": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/NotificationDetails"
-                        }
+                        },
+                        "nullable": true
                     }
                 },
-                "required": [
-                    "CorrespondenceId",
-                    "Status",
-                    "Recipient"
-                ]
-            },
-            "NotificationDetails": {
-                "type": "object",
-                "properties": {
-                    "OrderId": {
-                        "type": "string",
-                        "format": "uuid",
-                        "nullable": true
-                    },
-                    "IsReminder": {
-                        "type": "boolean",
-                        "nullable": true
-                    },
-                    "Status": {
-                        "$ref": "#/components/schemas/NotificationStatus"
-                    }
-                },
-                "required": [
-                    "Status"
-                ]
-            },
-            "NotificationStatus": {
-                "type": "string",
-                "enum": [
-                    "Success",
-                    "MissingContact",
-                    "Failure"
-                ]
+                "additionalProperties": false
             },
             "NotificationChannelExt": {
                 "enum": [
@@ -1933,6 +1914,24 @@
                     "SmsPreferred"
                 ],
                 "type": "string"
+            },
+            "NotificationDetails": {
+                "type": "object",
+                "properties": {
+                    "orderId": {
+                        "type": "string",
+                        "format": "uuid",
+                        "nullable": true
+                    },
+                    "isReminder": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/NotificationStatus"
+                    }
+                },
+                "additionalProperties": false
             },
             "NotificationDetailsExt": {
                 "type": "object",
@@ -2042,6 +2041,14 @@
                     }
                 },
                 "additionalProperties": false
+            },
+            "NotificationStatus": {
+                "enum": [
+                    "Success",
+                    "MissingContact",
+                    "Failure"
+                ],
+                "type": "string"
             },
             "NotificationStatusDetailsExt": {
                 "type": "object",
