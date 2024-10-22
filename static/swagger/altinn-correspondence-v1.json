@@ -11,7 +11,7 @@
             "description": "TT02"
         }
     ],
-        "paths": {
+    "paths": {
         "/correspondence/api/v1/attachment": {
             "post": {
                 "tags": [
@@ -20,11 +20,6 @@
                 "requestBody": {
                     "content": {
                         "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/InitializeAttachmentExt"
-                            }
-                        },
-                        "application/*+json": {
                             "schema": {
                                 "$ref": "#/components/schemas/InitializeAttachmentExt"
                             }
@@ -198,11 +193,6 @@
                             "schema": {
                                 "$ref": "#/components/schemas/InitializeCorrespondencesExt"
                             }
-                        },
-                        "application/*+json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/InitializeCorrespondencesExt"
-                            }
                         }
                     }
                 },
@@ -212,7 +202,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/CorrespondenceOverviewExt"
+                                    "$ref": "#/components/schemas/InitializeCorrespondencesResponseExt"
                                 }
                             }
                         }
@@ -283,11 +273,6 @@
                         "description": "OK",
                         "content": {
                             "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/CorrespondencesExt"
-                                }
-                            },
-                            "text/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/CorrespondencesExt"
                                 }
@@ -438,6 +423,10 @@
                                     "Correspondence.IgnoreReservation": {
                                         "type": "boolean"
                                     },
+                                    "Correspondence.Published": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
                                     "Recipients": {
                                         "type": "array",
                                         "items": {
@@ -545,6 +534,9 @@
                                 "Correspondence.IgnoreReservation": {
                                     "style": "form"
                                 },
+                                "Correspondence.Published": {
+                                    "style": "form"
+                                },
                                 "Recipients": {
                                     "style": "form"
                                 },
@@ -564,7 +556,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/CorrespondenceOverviewExt"
+                                    "$ref": "#/components/schemas/InitializeCorrespondencesResponseExt"
                                 }
                             }
                         }
@@ -833,64 +825,6 @@
                 }
             }
         },
-        "/correspondence/api/v1/migration/correspondence": {
-            "post": {
-                "tags": [
-                    "Migration"
-                ],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/MigrateCorrespondenceExt"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/CorrespondenceMigrationStatusExt"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/correspondence/api/v1/migration/correspondence/{correspondenceId}": {
-            "get": {
-                "tags": [
-                    "Migration"
-                ],
-                "parameters": [
-                    {
-                        "name": "correspondenceId",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "format": "uuid"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/CorrespondenceOverviewExt"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
         "/idporten-callback": {
             "get": {
                 "tags": [
@@ -945,6 +879,7 @@
                     "dataType",
                     "name",
                     "resourceId",
+                    "restrictionName",
                     "sender",
                     "sendersReference",
                     "status",
@@ -961,6 +896,10 @@
                     },
                     "name": {
                         "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "restrictionName": {
                         "minLength": 1,
                         "type": "string"
                     },
@@ -1011,10 +950,6 @@
                             "type": "string",
                             "format": "uuid"
                         },
-                        "nullable": true
-                    },
-                    "restrictionName": {
-                        "type": "string",
                         "nullable": true
                     },
                     "statusHistory": {
@@ -1027,23 +962,6 @@
                 },
                 "additionalProperties": false
             },
-            "AttachmentMigrationStatusExt": {
-                "required": [
-                    "attachmentId",
-                    "status"
-                ],
-                "type": "object",
-                "properties": {
-                    "attachmentId": {
-                        "type": "string",
-                        "format": "uuid"
-                    },
-                    "status": {
-                        "$ref": "#/components/schemas/AttachmentStatusExt"
-                    }
-                },
-                "additionalProperties": false
-            },
             "AttachmentOverviewExt": {
                 "required": [
                     "attachmentId",
@@ -1051,6 +969,7 @@
                     "dataType",
                     "name",
                     "resourceId",
+                    "restrictionName",
                     "sender",
                     "sendersReference",
                     "status",
@@ -1067,6 +986,10 @@
                     },
                     "name": {
                         "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "restrictionName": {
                         "minLength": 1,
                         "type": "string"
                     },
@@ -1117,10 +1040,6 @@
                             "type": "string",
                             "format": "uuid"
                         },
-                        "nullable": true
-                    },
-                    "restrictionName": {
-                        "type": "string",
                         "nullable": true
                     }
                 },
@@ -1208,6 +1127,11 @@
                     },
                     "IgnoreReservation": {
                         "type": "boolean",
+                        "nullable": true
+                    },
+                    "Published": {
+                        "type": "string",
+                        "format": "date-time",
                         "nullable": true
                     }
                 },
@@ -1319,6 +1243,33 @@
                 },
                 "additionalProperties": false
             },
+            "CorrespondenceDetails": {
+                "required": [
+                    "recipient"
+                ],
+                "type": "object",
+                "properties": {
+                    "correspondenceId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/CorrespondenceStatus"
+                    },
+                    "recipient": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "notifications": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/NotificationDetails"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
             "CorrespondenceDetailsExt": {
                 "required": [
                     "correspondenceId",
@@ -1396,6 +1347,11 @@
                         "type": "boolean",
                         "nullable": true
                     },
+                    "Published": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
                     "recipient": {
                         "type": "string",
                         "nullable": true
@@ -1423,44 +1379,33 @@
                         "type": "string",
                         "format": "date-time"
                     },
-                    "statusHistory": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CorrespondenceStatusEventExt"
-                        },
-                        "nullable": true
-                    },
                     "notifications": {
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/NotificationExt"
                         },
                         "nullable": true
+                    },
+                    "statusHistory": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CorrespondenceStatusEventExt"
+                        },
+                        "nullable": true
                     }
                 },
                 "additionalProperties": false
             },
-            "CorrespondenceMigrationStatusExt": {
-                "required": [
-                    "altinn2CorrespondenceId",
-                    "correspondenceId"
-                ],
+            "CorrespondenceNotificationOverview": {
                 "type": "object",
                 "properties": {
-                    "altinn2CorrespondenceId": {
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    "correspondenceId": {
+                    "notificationOrderId": {
                         "type": "string",
-                        "format": "uuid"
-                    },
-                    "attachmentStatuses": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/AttachmentMigrationStatusExt"
-                        },
+                        "format": "uuid",
                         "nullable": true
+                    },
+                    "isReminder": {
+                        "type": "boolean"
                     }
                 },
                 "additionalProperties": false
@@ -1542,6 +1487,11 @@
                         "type": "boolean",
                         "nullable": true
                     },
+                    "Published": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
                     "recipient": {
                         "type": "string",
                         "nullable": true
@@ -1572,7 +1522,7 @@
                     "notifications": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/NotificationExt"
+                            "$ref": "#/components/schemas/CorrespondenceNotificationOverview"
                         },
                         "nullable": true
                     }
@@ -1595,6 +1545,23 @@
                     }
                 },
                 "additionalProperties": false
+            },
+            "CorrespondenceStatus": {
+                "enum": [
+                    "Initialized",
+                    "ReadyForPublish",
+                    "Published",
+                    "Fetched",
+                    "Read",
+                    "Replied",
+                    "Confirmed",
+                    "PurgedByRecipient",
+                    "PurgedByAltinn",
+                    "Archived",
+                    "Reserved",
+                    "Failed"
+                ],
+                "type": "string"
             },
             "CorrespondenceStatusEventExt": {
                 "type": "object",
@@ -1918,59 +1885,22 @@
                 },
                 "additionalProperties": false
             },
-            "MigrateCorrespondenceExt": {
-                "required": [
-                    "altinn2CorrespondenceId",
-                    "correspondenceData"
-                ],
+            "InitializeCorrespondencesResponseExt": {
                 "type": "object",
                 "properties": {
-                    "correspondenceData": {
-                        "$ref": "#/components/schemas/InitializeCorrespondencesExt"
-                    },
-                    "altinn2CorrespondenceId": {
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    "eventHistory": {
+                    "correspondences": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/CorrespondenceStatusEventExt"
+                            "$ref": "#/components/schemas/CorrespondenceDetails"
                         },
                         "nullable": true
                     },
-                    "notificationHistory": {
+                    "attachmentIds": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/MigrateCorrespondenceNotificationExt"
+                            "type": "string",
+                            "format": "uuid"
                         },
-                        "nullable": true
-                    }
-                },
-                "additionalProperties": false
-            },
-            "MigrateCorrespondenceNotificationExt": {
-                "required": [
-                    "altinn2NotificationId",
-                    "notificationAddress",
-                    "notificationChannel",
-                    "notificationSent"
-                ],
-                "type": "object",
-                "properties": {
-                    "notificationChannel": {
-                        "$ref": "#/components/schemas/NotificationChannelExt"
-                    },
-                    "notificationSent": {
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "altinn2NotificationId": {
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    "notificationAddress": {
-                        "type": "string",
                         "nullable": true
                     }
                 },
@@ -1984,6 +1914,24 @@
                     "SmsPreferred"
                 ],
                 "type": "string"
+            },
+            "NotificationDetails": {
+                "type": "object",
+                "properties": {
+                    "orderId": {
+                        "type": "string",
+                        "format": "uuid",
+                        "nullable": true
+                    },
+                    "isReminder": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/NotificationStatus"
+                    }
+                },
+                "additionalProperties": false
             },
             "NotificationDetailsExt": {
                 "type": "object",
@@ -2093,6 +2041,14 @@
                     }
                 },
                 "additionalProperties": false
+            },
+            "NotificationStatus": {
+                "enum": [
+                    "Success",
+                    "MissingContact",
+                    "Failure"
+                ],
+                "type": "string"
             },
             "NotificationStatusDetailsExt": {
                 "type": "object",
