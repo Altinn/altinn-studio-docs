@@ -23,11 +23,6 @@
                             "schema": {
                                 "$ref": "#/components/schemas/InitializeAttachmentExt"
                             }
-                        },
-                        "application/*+json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/InitializeAttachmentExt"
-                            }
                         }
                     }
                 },
@@ -164,6 +159,29 @@
                 }
             }
         },
+        "/correspondence/api/v1/attachment/{attachmentId}/download": {
+            "get": {
+                "tags": [
+                    "Attachment"
+                ],
+                "parameters": [
+                    {
+                        "name": "attachmentId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
         "/correspondence/api/v1/correspondence": {
             "post": {
                 "tags": [
@@ -172,11 +190,6 @@
                 "requestBody": {
                     "content": {
                         "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/InitializeCorrespondencesExt"
-                            }
-                        },
-                        "application/*+json": {
                             "schema": {
                                 "$ref": "#/components/schemas/InitializeCorrespondencesExt"
                             }
@@ -189,7 +202,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/CorrespondenceOverviewExt"
+                                    "$ref": "#/components/schemas/InitializeCorrespondencesResponseExt"
                                 }
                             }
                         }
@@ -246,6 +259,13 @@
                         "schema": {
                             "$ref": "#/components/schemas/CorrespondenceStatusExt"
                         }
+                    },
+                    {
+                        "name": "role",
+                        "in": "query",
+                        "schema": {
+                            "$ref": "#/components/schemas/CorrespondencesRoleType"
+                        }
                     }
                 ],
                 "responses": {
@@ -276,10 +296,10 @@
                                     "Correspondence.Content.MessageBody",
                                     "Correspondence.Content.MessageSummary",
                                     "Correspondence.Content.MessageTitle",
+                                    "Correspondence.Notification.NotificationTemplate",
                                     "Correspondence.ResourceId",
                                     "Correspondence.Sender",
                                     "Correspondence.SendersReference",
-                                    "Correspondence.VisibleFrom",
                                     "Recipients"
                                 ],
                                 "type": "object",
@@ -321,7 +341,7 @@
                                             "$ref": "#/components/schemas/InitializeCorrespondenceAttachmentExt"
                                         }
                                     },
-                                    "Correspondence.VisibleFrom": {
+                                    "Correspondence.RequestedPublishTime": {
                                         "type": "string",
                                         "format": "date-time"
                                     },
@@ -351,15 +371,61 @@
                                             "$ref": "#/components/schemas/CorrespondenceReplyOptionExt"
                                         }
                                     },
-                                    "Correspondence.Notifications": {
-                                        "maxItems": 6,
-                                        "type": "array",
-                                        "items": {
-                                            "$ref": "#/components/schemas/InitializeCorrespondenceNotificationExt"
-                                        }
+                                    "Correspondence.Notification.NotificationTemplate": {
+                                        "$ref": "#/components/schemas/NotificationTemplateExt"
                                     },
-                                    "Correspondence.IsReservable": {
+                                    "Correspondence.Notification.EmailSubject": {
+                                        "maxLength": 128,
+                                        "minLength": 0,
+                                        "type": "string"
+                                    },
+                                    "Correspondence.Notification.EmailBody": {
+                                        "maxLength": 1024,
+                                        "minLength": 0,
+                                        "type": "string"
+                                    },
+                                    "Correspondence.Notification.SmsBody": {
+                                        "maxLength": 160,
+                                        "minLength": 0,
+                                        "type": "string"
+                                    },
+                                    "Correspondence.Notification.SendReminder": {
                                         "type": "boolean"
+                                    },
+                                    "Correspondence.Notification.ReminderEmailSubject": {
+                                        "maxLength": 128,
+                                        "minLength": 0,
+                                        "type": "string"
+                                    },
+                                    "Correspondence.Notification.ReminderEmailBody": {
+                                        "maxLength": 1024,
+                                        "minLength": 0,
+                                        "type": "string"
+                                    },
+                                    "Correspondence.Notification.ReminderSmsBody": {
+                                        "maxLength": 160,
+                                        "minLength": 0,
+                                        "type": "string"
+                                    },
+                                    "Correspondence.Notification.NotificationChannel": {
+                                        "$ref": "#/components/schemas/NotificationChannelExt"
+                                    },
+                                    "Correspondence.Notification.ReminderNotificationChannel": {
+                                        "$ref": "#/components/schemas/NotificationChannelExt"
+                                    },
+                                    "Correspondence.Notification.SendersReference": {
+                                        "type": "string"
+                                    },
+                                    "Correspondence.Notification.RequestedSendTime": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    "Correspondence.IgnoreReservation": {
+                                        "type": "boolean"
+                                    },
+                                    "Correspondence.Published": {
+                                        "type": "string",
+                                        "format": "date-time"
                                     },
                                     "Recipients": {
                                         "type": "array",
@@ -411,7 +477,7 @@
                                 "Correspondence.Content.Attachments": {
                                     "style": "form"
                                 },
-                                "Correspondence.VisibleFrom": {
+                                "Correspondence.RequestedPublishTime": {
                                     "style": "form"
                                 },
                                 "Correspondence.AllowSystemDeleteAfter": {
@@ -429,10 +495,46 @@
                                 "Correspondence.ReplyOptions": {
                                     "style": "form"
                                 },
-                                "Correspondence.Notifications": {
+                                "Correspondence.Notification.NotificationTemplate": {
                                     "style": "form"
                                 },
-                                "Correspondence.IsReservable": {
+                                "Correspondence.Notification.EmailSubject": {
+                                    "style": "form"
+                                },
+                                "Correspondence.Notification.EmailBody": {
+                                    "style": "form"
+                                },
+                                "Correspondence.Notification.SmsBody": {
+                                    "style": "form"
+                                },
+                                "Correspondence.Notification.SendReminder": {
+                                    "style": "form"
+                                },
+                                "Correspondence.Notification.ReminderEmailSubject": {
+                                    "style": "form"
+                                },
+                                "Correspondence.Notification.ReminderEmailBody": {
+                                    "style": "form"
+                                },
+                                "Correspondence.Notification.ReminderSmsBody": {
+                                    "style": "form"
+                                },
+                                "Correspondence.Notification.NotificationChannel": {
+                                    "style": "form"
+                                },
+                                "Correspondence.Notification.ReminderNotificationChannel": {
+                                    "style": "form"
+                                },
+                                "Correspondence.Notification.SendersReference": {
+                                    "style": "form"
+                                },
+                                "Correspondence.Notification.RequestedSendTime": {
+                                    "style": "form"
+                                },
+                                "Correspondence.IgnoreReservation": {
+                                    "style": "form"
+                                },
+                                "Correspondence.Published": {
                                     "style": "form"
                                 },
                                 "Recipients": {
@@ -454,7 +556,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/CorrespondenceOverviewExt"
+                                    "$ref": "#/components/schemas/InitializeCorrespondencesResponseExt"
                                 }
                             }
                         }
@@ -518,6 +620,29 @@
                                 }
                             }
                         }
+                    }
+                }
+            }
+        },
+        "/correspondence/api/v1/correspondence/{correspondenceId}/content": {
+            "get": {
+                "tags": [
+                    "Correspondence"
+                ],
+                "parameters": [
+                    {
+                        "name": "correspondenceId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
                     }
                 }
             }
@@ -637,12 +762,21 @@
                 }
             }
         },
-        "/correspondence/api/v1/correspondence/attachment/{attachmentId}/download": {
+        "/correspondence/api/v1/correspondence/{correspondenceId}/attachment/{attachmentId}/download": {
             "get": {
                 "tags": [
                     "Correspondence"
                 ],
                 "parameters": [
+                    {
+                        "name": "correspondenceId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
                     {
                         "name": "attachmentId",
                         "in": "path",
@@ -690,6 +824,26 @@
                     }
                 }
             }
+        },
+        "/idporten-callback": {
+            "get": {
+                "tags": [
+                    "ID-Porten"
+                ],
+                "summary": "Callback for Idporten login",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -722,10 +876,10 @@
                 "required": [
                     "attachmentId",
                     "correspondenceIds",
-                    "dataLocationUrl",
                     "dataType",
                     "name",
                     "resourceId",
+                    "restrictionName",
                     "sender",
                     "sendersReference",
                     "status",
@@ -734,11 +888,6 @@
                 ],
                 "type": "object",
                 "properties": {
-                    "resourceId": {
-                        "maxLength": 255,
-                        "minLength": 1,
-                        "type": "string"
-                    },
                     "fileName": {
                         "maxLength": 255,
                         "minLength": 0,
@@ -750,17 +899,16 @@
                         "minLength": 1,
                         "type": "string"
                     },
+                    "restrictionName": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
                     "isEncrypted": {
                         "type": "boolean"
                     },
                     "checksum": {
                         "type": "string",
                         "nullable": true
-                    },
-                    "sender": {
-                        "minLength": 1,
-                        "pattern": "^\\d{4}:\\d{9}$",
-                        "type": "string"
                     },
                     "sendersReference": {
                         "maxLength": 4096,
@@ -771,13 +919,19 @@
                         "minLength": 1,
                         "type": "string"
                     },
+                    "resourceId": {
+                        "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "sender": {
+                        "minLength": 1,
+                        "pattern": "^\\d{4}:\\d{9}$",
+                        "type": "string"
+                    },
                     "attachmentId": {
                         "type": "string",
                         "format": "uuid"
-                    },
-                    "dataLocationUrl": {
-                        "minLength": 1,
-                        "type": "string"
                     },
                     "status": {
                         "$ref": "#/components/schemas/AttachmentStatusExt"
@@ -796,10 +950,6 @@
                             "type": "string",
                             "format": "uuid"
                         },
-                        "nullable": true
-                    },
-                    "restrictionName": {
-                        "type": "string",
                         "nullable": true
                     },
                     "statusHistory": {
@@ -816,10 +966,10 @@
                 "required": [
                     "attachmentId",
                     "correspondenceIds",
-                    "dataLocationUrl",
                     "dataType",
                     "name",
                     "resourceId",
+                    "restrictionName",
                     "sender",
                     "sendersReference",
                     "status",
@@ -828,11 +978,6 @@
                 ],
                 "type": "object",
                 "properties": {
-                    "resourceId": {
-                        "maxLength": 255,
-                        "minLength": 1,
-                        "type": "string"
-                    },
                     "fileName": {
                         "maxLength": 255,
                         "minLength": 0,
@@ -844,17 +989,16 @@
                         "minLength": 1,
                         "type": "string"
                     },
+                    "restrictionName": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
                     "isEncrypted": {
                         "type": "boolean"
                     },
                     "checksum": {
                         "type": "string",
                         "nullable": true
-                    },
-                    "sender": {
-                        "minLength": 1,
-                        "pattern": "^\\d{4}:\\d{9}$",
-                        "type": "string"
                     },
                     "sendersReference": {
                         "maxLength": 4096,
@@ -865,13 +1009,19 @@
                         "minLength": 1,
                         "type": "string"
                     },
+                    "resourceId": {
+                        "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "sender": {
+                        "minLength": 1,
+                        "pattern": "^\\d{4}:\\d{9}$",
+                        "type": "string"
+                    },
                     "attachmentId": {
                         "type": "string",
                         "format": "uuid"
-                    },
-                    "dataLocationUrl": {
-                        "minLength": 1,
-                        "type": "string"
                     },
                     "status": {
                         "$ref": "#/components/schemas/AttachmentStatusExt"
@@ -890,10 +1040,6 @@
                             "type": "string",
                             "format": "uuid"
                         },
-                        "nullable": true
-                    },
-                    "restrictionName": {
-                        "type": "string",
                         "nullable": true
                     }
                 },
@@ -913,8 +1059,7 @@
                 "required": [
                     "resourceId",
                     "sender",
-                    "sendersReference",
-                    "visibleFrom"
+                    "sendersReference"
                 ],
                 "type": "object",
                 "properties": {
@@ -942,9 +1087,10 @@
                     "content": {
                         "$ref": "#/components/schemas/InitializeCorrespondenceContentExt"
                     },
-                    "visibleFrom": {
+                    "RequestedPublishTime": {
                         "type": "string",
-                        "format": "date-time"
+                        "format": "date-time",
+                        "nullable": true
                     },
                     "allowSystemDeleteAfter": {
                         "type": "string",
@@ -964,15 +1110,10 @@
                     },
                     "propertyList": {
                         "type": "object",
-                        "additionalProperties": false,
-                        "maxProperties": 10,
-                        "nullable": true,
-                        "patternProperties": {
-                            "^.{1,50}$": {
-                                "maxLength": 300,
-                                "type": "string"
-                            }
-                        }
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "nullable": true
                     },
                     "replyOptions": {
                         "type": "array",
@@ -981,16 +1122,16 @@
                         },
                         "nullable": true
                     },
-                    "notifications": {
-                        "maxItems": 6,
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/InitializeCorrespondenceNotificationExt"
-                        },
+                    "notification": {
+                        "$ref": "#/components/schemas/InitializeCorrespondenceNotificationExt"
+                    },
+                    "IgnoreReservation": {
+                        "type": "boolean",
                         "nullable": true
                     },
-                    "isReservable": {
-                        "type": "boolean",
+                    "Published": {
+                        "type": "string",
+                        "format": "date-time",
                         "nullable": true
                     }
                 },
@@ -1006,10 +1147,6 @@
                 ],
                 "type": "object",
                 "properties": {
-                    "id": {
-                        "type": "string",
-                        "format": "uuid"
-                    },
                     "fileName": {
                         "maxLength": 255,
                         "minLength": 0,
@@ -1018,6 +1155,10 @@
                     },
                     "name": {
                         "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "restrictionName": {
                         "minLength": 1,
                         "type": "string"
                     },
@@ -1037,16 +1178,12 @@
                         "minLength": 1,
                         "type": "string"
                     },
-                    "restrictionName": {
-                        "minLength": 1,
-                        "type": "string"
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
                     },
                     "dataLocationType": {
                         "$ref": "#/components/schemas/AttachmentDataLocationTypeExt"
-                    },
-                    "dataLocationUrl": {
-                        "type": "string",
-                        "nullable": true
                     },
                     "created": {
                         "type": "string",
@@ -1106,6 +1243,33 @@
                 },
                 "additionalProperties": false
             },
+            "CorrespondenceDetails": {
+                "required": [
+                    "recipient"
+                ],
+                "type": "object",
+                "properties": {
+                    "correspondenceId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/CorrespondenceStatus"
+                    },
+                    "recipient": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "notifications": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/NotificationDetails"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
             "CorrespondenceDetailsExt": {
                 "required": [
                     "correspondenceId",
@@ -1113,8 +1277,7 @@
                     "recipient",
                     "resourceId",
                     "sender",
-                    "sendersReference",
-                    "visibleFrom"
+                    "sendersReference"
                 ],
                 "type": "object",
                 "properties": {
@@ -1142,9 +1305,10 @@
                     "content": {
                         "$ref": "#/components/schemas/CorrespondenceContentExt"
                     },
-                    "visibleFrom": {
+                    "RequestedPublishTime": {
                         "type": "string",
-                        "format": "date-time"
+                        "format": "date-time",
+                        "nullable": true
                     },
                     "allowSystemDeleteAfter": {
                         "type": "string",
@@ -1164,15 +1328,10 @@
                     },
                     "propertyList": {
                         "type": "object",
-                        "additionalProperties": false,
-                        "maxProperties": 10,
-                        "nullable": true,
-                        "patternProperties": {
-                            "^.{1,50}$": {
-                                "maxLength": 300,
-                                "type": "string"
-                            }
-                        }
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "nullable": true
                     },
                     "replyOptions": {
                         "type": "array",
@@ -1181,15 +1340,16 @@
                         },
                         "nullable": true
                     },
-                    "notifications": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CorrespondenceNotificationDetailsExt"
-                        },
+                    "notification": {
+                        "$ref": "#/components/schemas/InitializeCorrespondenceNotificationExt"
+                    },
+                    "IgnoreReservation": {
+                        "type": "boolean",
                         "nullable": true
                     },
-                    "isReservable": {
-                        "type": "boolean",
+                    "Published": {
+                        "type": "string",
+                        "format": "date-time",
                         "nullable": true
                     },
                     "recipient": {
@@ -1219,77 +1379,33 @@
                         "type": "string",
                         "format": "date-time"
                     },
+                    "notifications": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/NotificationExt"
+                        },
+                        "nullable": true
+                    },
                     "statusHistory": {
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/CorrespondenceStatusEventExt"
                         },
                         "nullable": true
-                    },
-                    "notificationStatusHistory": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/NotificationStatusEventExt"
-                        },
-                        "nullable": true
                     }
                 },
                 "additionalProperties": false
             },
-            "CorrespondenceNotificationDetailsExt": {
-                "required": [
-                    "notificationTemplate",
-                    "status"
-                ],
+            "CorrespondenceNotificationOverview": {
                 "type": "object",
                 "properties": {
-                    "notificationTemplate": {
+                    "notificationOrderId": {
                         "type": "string",
+                        "format": "uuid",
                         "nullable": true
                     },
-                    "customTextToken": {
-                        "maxLength": 128,
-                        "minLength": 0,
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "sendersReference": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "requestedSendTime": {
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "notificationId": {
-                        "type": "string",
-                        "format": "uuid"
-                    },
-                    "notificationChannel": {
-                        "$ref": "#/components/schemas/NotificationChannelExt"
-                    },
-                    "status": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "statusText": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "statusChanged": {
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "statusHistory": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/NotificationStatusEventExt"
-                        },
-                        "nullable": true
-                    },
-                    "created": {
-                        "type": "string",
-                        "format": "date-time"
+                    "isReminder": {
+                        "type": "boolean"
                     }
                 },
                 "additionalProperties": false
@@ -1301,8 +1417,7 @@
                     "recipient",
                     "resourceId",
                     "sender",
-                    "sendersReference",
-                    "visibleFrom"
+                    "sendersReference"
                 ],
                 "type": "object",
                 "properties": {
@@ -1330,9 +1445,10 @@
                     "content": {
                         "$ref": "#/components/schemas/CorrespondenceContentExt"
                     },
-                    "visibleFrom": {
+                    "RequestedPublishTime": {
                         "type": "string",
-                        "format": "date-time"
+                        "format": "date-time",
+                        "nullable": true
                     },
                     "allowSystemDeleteAfter": {
                         "type": "string",
@@ -1352,15 +1468,10 @@
                     },
                     "propertyList": {
                         "type": "object",
-                        "additionalProperties": false,
-                        "maxProperties": 10,
-                        "nullable": true,
-                        "patternProperties": {
-                            "^.{1,50}$": {
-                                "maxLength": 300,
-                                "type": "string"
-                            }
-                        }
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "nullable": true
                     },
                     "replyOptions": {
                         "type": "array",
@@ -1369,16 +1480,16 @@
                         },
                         "nullable": true
                     },
-                    "notifications": {
-                        "maxItems": 6,
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/InitializeCorrespondenceNotificationExt"
-                        },
+                    "notification": {
+                        "$ref": "#/components/schemas/InitializeCorrespondenceNotificationExt"
+                    },
+                    "IgnoreReservation": {
+                        "type": "boolean",
                         "nullable": true
                     },
-                    "isReservable": {
-                        "type": "boolean",
+                    "Published": {
+                        "type": "string",
+                        "format": "date-time",
                         "nullable": true
                     },
                     "recipient": {
@@ -1407,6 +1518,13 @@
                     "statusChanged": {
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "notifications": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CorrespondenceNotificationOverview"
+                        },
+                        "nullable": true
                     }
                 },
                 "additionalProperties": false
@@ -1427,6 +1545,23 @@
                     }
                 },
                 "additionalProperties": false
+            },
+            "CorrespondenceStatus": {
+                "enum": [
+                    "Initialized",
+                    "ReadyForPublish",
+                    "Published",
+                    "Fetched",
+                    "Read",
+                    "Replied",
+                    "Confirmed",
+                    "PurgedByRecipient",
+                    "PurgedByAltinn",
+                    "Archived",
+                    "Reserved",
+                    "Failed"
+                ],
+                "type": "string"
             },
             "CorrespondenceStatusEventExt": {
                 "type": "object",
@@ -1479,6 +1614,14 @@
                 },
                 "additionalProperties": false
             },
+            "CorrespondencesRoleType": {
+                "enum": [
+                    "Recipient",
+                    "Sender",
+                    "RecipientAndSender"
+                ],
+                "type": "string"
+            },
             "ExternalReferenceExt": {
                 "required": [
                     "referenceType",
@@ -1515,11 +1658,6 @@
                 ],
                 "type": "object",
                 "properties": {
-                    "resourceId": {
-                        "maxLength": 255,
-                        "minLength": 1,
-                        "type": "string"
-                    },
                     "fileName": {
                         "maxLength": 255,
                         "minLength": 0,
@@ -1542,11 +1680,6 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "sender": {
-                        "minLength": 1,
-                        "pattern": "^\\d{4}:\\d{9}$",
-                        "type": "string"
-                    },
                     "sendersReference": {
                         "maxLength": 4096,
                         "minLength": 1,
@@ -1554,6 +1687,16 @@
                     },
                     "dataType": {
                         "minLength": 1,
+                        "type": "string"
+                    },
+                    "resourceId": {
+                        "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "sender": {
+                        "minLength": 1,
+                        "pattern": "^\\d{4}:\\d{9}$",
                         "type": "string"
                     }
                 },
@@ -1569,10 +1712,6 @@
                 ],
                 "type": "object",
                 "properties": {
-                    "id": {
-                        "type": "string",
-                        "format": "uuid"
-                    },
                     "fileName": {
                         "maxLength": 255,
                         "minLength": 0,
@@ -1581,6 +1720,10 @@
                     },
                     "name": {
                         "maxLength": 255,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "restrictionName": {
                         "minLength": 1,
                         "type": "string"
                     },
@@ -1600,16 +1743,12 @@
                         "minLength": 1,
                         "type": "string"
                     },
-                    "restrictionName": {
-                        "minLength": 1,
-                        "type": "string"
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
                     },
                     "dataLocationType": {
                         "$ref": "#/components/schemas/InitializeAttachmentDataLocationTypeExt"
-                    },
-                    "dataLocationUrl": {
-                        "type": "string",
-                        "nullable": true
                     },
                     "expirationTime": {
                         "type": "string",
@@ -1660,14 +1799,52 @@
                 "type": "object",
                 "properties": {
                     "notificationTemplate": {
-                        "type": "string",
-                        "nullable": true
+                        "$ref": "#/components/schemas/NotificationTemplateExt"
                     },
-                    "customTextToken": {
+                    "emailSubject": {
                         "maxLength": 128,
                         "minLength": 0,
                         "type": "string",
                         "nullable": true
+                    },
+                    "emailBody": {
+                        "maxLength": 1024,
+                        "minLength": 0,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "smsBody": {
+                        "maxLength": 160,
+                        "minLength": 0,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sendReminder": {
+                        "type": "boolean"
+                    },
+                    "reminderEmailSubject": {
+                        "maxLength": 128,
+                        "minLength": 0,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "reminderEmailBody": {
+                        "maxLength": 1024,
+                        "minLength": 0,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "reminderSmsBody": {
+                        "maxLength": 160,
+                        "minLength": 0,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "notificationChannel": {
+                        "$ref": "#/components/schemas/NotificationChannelExt"
+                    },
+                    "reminderNotificationChannel": {
+                        "$ref": "#/components/schemas/NotificationChannelExt"
                     },
                     "sendersReference": {
                         "type": "string",
@@ -1675,7 +1852,8 @@
                     },
                     "requestedSendTime": {
                         "type": "string",
-                        "format": "date-time"
+                        "format": "date-time",
+                        "nullable": true
                     }
                 },
                 "additionalProperties": false
@@ -1707,35 +1885,207 @@
                 },
                 "additionalProperties": false
             },
+            "InitializeCorrespondencesResponseExt": {
+                "type": "object",
+                "properties": {
+                    "correspondences": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CorrespondenceDetails"
+                        },
+                        "nullable": true
+                    },
+                    "attachmentIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
             "NotificationChannelExt": {
                 "enum": [
                     "Email",
-                    "Sms"
+                    "Sms",
+                    "EmailPreferred",
+                    "SmsPreferred"
                 ],
                 "type": "string"
             },
-            "NotificationStatusEventExt": {
-                "required": [
-                    "status",
-                    "statusChanged",
-                    "statusText"
-                ],
+            "NotificationDetails": {
+                "type": "object",
+                "properties": {
+                    "orderId": {
+                        "type": "string",
+                        "format": "uuid",
+                        "nullable": true
+                    },
+                    "isReminder": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/NotificationStatus"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "NotificationDetailsExt": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "succeeded": {
+                        "type": "boolean"
+                    },
+                    "recipient": {
+                        "$ref": "#/components/schemas/NotificationRecipientExt"
+                    },
+                    "sendStatus": {
+                        "$ref": "#/components/schemas/NotificationStatusExt"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "NotificationExt": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sendersReference": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "requestedSendTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "creator": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "created": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "isReminder": {
+                        "type": "boolean"
+                    },
+                    "notificationChannel": {
+                        "$ref": "#/components/schemas/NotificationChannelExt"
+                    },
+                    "ignoreReservation": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "resourceId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "processingStatus": {
+                        "$ref": "#/components/schemas/NotificationProcessStatusExt"
+                    },
+                    "notificationStatusDetails": {
+                        "$ref": "#/components/schemas/NotificationStatusDetailsExt"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "NotificationProcessStatusExt": {
                 "type": "object",
                 "properties": {
                     "status": {
                         "type": "string",
                         "nullable": true
                     },
-                    "statusText": {
+                    "description": {
                         "type": "string",
                         "nullable": true
                     },
-                    "statusChanged": {
+                    "lastUpdate": {
                         "type": "string",
                         "format": "date-time"
                     }
                 },
                 "additionalProperties": false
+            },
+            "NotificationRecipientExt": {
+                "type": "object",
+                "properties": {
+                    "emailAddress": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "mobileNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "organizationNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "nationalIdentityNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "isReserved": {
+                        "type": "boolean",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "NotificationStatus": {
+                "enum": [
+                    "Success",
+                    "MissingContact",
+                    "Failure"
+                ],
+                "type": "string"
+            },
+            "NotificationStatusDetailsExt": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "$ref": "#/components/schemas/NotificationDetailsExt"
+                    },
+                    "sms": {
+                        "$ref": "#/components/schemas/NotificationDetailsExt"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "NotificationStatusExt": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "lastUpdate": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "NotificationTemplateExt": {
+                "enum": [
+                    "CustomMessage",
+                    "GenericAltinnMessage"
+                ],
+                "type": "string"
             },
             "PaginationMetaDataExt": {
                 "type": "object",
@@ -1760,8 +2110,8 @@
                     "Generic",
                     "AltinnAppInstance",
                     "AltinnBrokerFileTransfer",
-                    "DialogPortenDialogID",
-                    "DialogPortenDialogElementID"
+                    "DialogportenDialogId",
+                    "DialogportenProcessId"
                 ],
                 "type": "string"
             }
