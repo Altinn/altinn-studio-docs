@@ -177,122 +177,10 @@ Se også dokumentasjon hos [Maskinporten](https://docs.digdir.no/docs/Maskinport
 
 ## Hvordan ta i bruk
 
-Nedenfor finner du en beskrivelse på hva som trengs for å ta i bruk systembruker. Beskrivelsen er basert på
-at API tilbyder bruker Altinn Autorisasjon for tilgangstyring av API.
+Det er skrevet egne guider for å ta i bruk systembruker.
 
-### API tilbydere
-
-Som API tilbyder kreves følgende for å kunne bruke systembruker
-
-- API må definieres i Maskinporten. Nødvendig scope opprettes
-- API configures til å validere JWT token fra Maskinporten
-- Ett policy enforcment punkt implementeres/konfigureres for API endepunkt. PEP sitt ansvar er å bygge opp en XACML autorisasjosnforespørsel til Altinn autorisasjon som inneholder informasjon om ressurs som aksesseres (ressursid i Altinn ressursregister), action og systembrukerinfo fra JWT token
-- Ressurs opprettes Altinn Resource Registry som skal benyttes for å autorisere tilgang.
-
-
-#### Autorisasjonsforespørsel
-
-Følgende viser eksempel på autorisasjonsforespørsel fra API tilbyder til Altinn Autorisasjon. Basert på XACML JSON Profil
-
-```json
-{
-  "Request": {
-    "ReturnPolicyIdList": true,
-    "AccessSubject": [
-      {
-        "Attribute": [
-          {
-            "AttributeId": "urn:altinn:systemuser",
-            "Value": "12ffc244-e86e-4d7e-9016-cfd0c1ab8b6d"
-          },
-         {
-            "AttributeId": "scope",
-            "Value": "digdir:dialogporten skatteetaten:mva"
-          }
-        ]
-      }
-    ],
-    "Action": [
-      {
-        "Attribute": [
-          {
-            "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
-            "Value": "read",
-            "DataType": "http://www.w3.org/2001/XMLSchema#string"
-          }
-        ]
-      }
-    ],
-    "Resource": [
-      {
-        "Attribute": [
-          {
-            "AttributeId": "urn:altinn:resource",
-            "Value": "mva_dialog"
-          },
-          {
-            "AttributeId": "urn:altinn:organization",
-            "Value": "91234124352"
-          }
-        ]
-      }
-    ]
-  }
-}
-
-```
-
-
-### Tjenesteeiere Altinn Apps
-
-Hypotesen er at det er minimalt hva som må gjøres for systembrukere i Altinn Apps.
-
-TODO: Avklare dette endelig
-
-### Systemleverandører
-
-For systemleverandører må følgende utføres
-
-- Registrere klient i maskinporten.
-- Få tilgang til systemregister. Hva som kreves for å få tilgang til systemregisterer er under avklaring.
-- Registrere system i systemregistereret med nødvendig informasjon som navn, beskrivelse og informasjon om hvilke tilganger system trenger for en part for å fungere. Tilgangene beskrives som tilgangspakker eller enkelttilganger. I første versjon vil det kun være enkelttilganger. Klientid fra maskinporten må registreres på system.
-- Informere kunder om at de må opprette systembruker og knytte det til systemet de leverer
-- Informere kunder om rettighetene systemet krever.
-- Opprett maskinporten med JWT grand
-
-```json
-{
-    "SystemTypeId": "bedriftsguru_superbusiness",
-    "SystemVendor": "991825827",
-    "ClientIds": [
-        "f381cbb8-1e5c-4017-977d-f9029e2ee7ca",
-        "4349ee94-98a4-49be-8db3-bd60937fcdd4"
-    ],
-    "DefaultResources": [
-      {
-        "id": "urn:altinn:resource",
-        "value": "app_skd_mva"
-      },
-      {
-        "id": "urn:altinn:resource",
-        "value": "kravogbetaling"
-      }
-    ],
-    "Title":{
-        "en": "Bedriftsuguru SuperBusiness",
-        "nb": "Bedriftsuguru SuperBusiness",
-        "nn": "Bedriftsuguru SuperBusiness"
-    },
-    "Description":{
-        "en": "This is our best product. It helps you with everything. ",
-        "nb": "Dette er vårt beste produkt. Få hjelp til alt",
-        "nn": "Dette er vårt beste produkt. Få hjelp til alt"
-    }
-}
-
-```
-
-### Sluttbrukere
+- [Hvordan bruke systembruker som systemleverandør](../../guides/systemauthentication-for-systemproviders/)
+- [Hvordan bruke systemberuker som apitilbyder/tjenesteeier](../../guides/systemauthentication-for-apiproviders/)
 
 ## Leveranseplan
 
@@ -319,12 +207,16 @@ Første leveranse inneholder følgende funksjonalitet
 
 - Sluttbrukerstyrt opprettelse
 
+[Github issue](https://github.com/Altinn/altinn-authentication/issues/525)
+
 ### Leveranse 2
 
 #### Fagsystem​
 
 - API for systemregister administrasjon​
 - Leverandørstyrt flyt 
+
+[Github issue](https://github.com/Altinn/altinn-authentication/issues/544)
 
 ### Leveranse 3
 
@@ -336,6 +228,8 @@ Første leveranse inneholder følgende funksjonalitet
 
 - Varsling og godkjenning av endrede rettigheter
 
+[Github issue](https://github.com/Altinn/altinn-authentication/issues/545)
+
 ### Leveranse 4
 
 #### Fagsystem​
@@ -346,12 +240,25 @@ Første leveranse inneholder følgende funksjonalitet
 
 - Godkjenne endrede rettighetsbehov
 
+[Github issue](https://github.com/Altinn/altinn-authentication/issues/547)
+
 ### Leveranse 5
 
 #### Virksomhet​
 
 - Støtte for leverandør – hjelper – kunde forhold
 
+[Github issue](https://github.com/Altinn/altinn-authentication/issues/548)
+
+### Støtte for systembruker i Altinn Apps
+
+I første omgang vil systembruker brukes i scenario utenfor Altinn, men apper utviklet i Altinn plattformen vil få støtte for dette også. 
+
+For å støtte systembruker i Altinn jobbes det med følgende.
+
+- Oppdatere App template til å støtte systembruker
+- Oppdatere Platform komponenter til å støtte systembruker
+  
 
 ## Detaljerte issues
 
