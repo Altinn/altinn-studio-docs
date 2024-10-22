@@ -6,8 +6,10 @@ toc: true
 weight: 15
 ---
 
+In addition to the documentation below, we have created a [sample application](https://altinn.studio/repos/ttd/eformidling-sample-app) showing the complete eFormidling setup.
+
 {{%notice info%}}
-This page describes the setup for a **v8** Altinn Application, for prior versions please refer to the documentation of [the eFormidling setup for v7 and below](/altinn-studio/reference/configuration/eformidling/).
+This page describes the setup for a **v8** Altinn Application, for prior versions please refer to [the eFormidling setup for v7 documentation](/altinn-studio/reference/configuration/eformidling/).
 {{% /notice%}}
 
 ## Prerequisites
