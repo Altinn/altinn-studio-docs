@@ -11,7 +11,7 @@ Dette dokumentet er under utvikling. Underskjema er kun i preview-release.
 
 Underskjemaer tilhører en underskjematabell. La oss gå gjennom opprettelse av en underskjematabell med tilhørende underskjema.
 
-1. [Opprett en datamodell](../../../app/development/data/data-modeling) for underskjemaet.
+1. [Opprett en datamodell](../data/data-modeling) for underskjemaet.
 2. Du skal nå se tre filer under `App/model`. Klassen i c#, json schema og xsd.
 3. Sett [appLogic.allowInSubform](../../../api/models/app-metadata/#applicationlogic) til **true** i **applicationMetadata.json**.
 4. Opprett en mappe under **App/ui** med ditt ønskede underskjemanavn.
@@ -20,50 +20,71 @@ Underskjemaer tilhører en underskjematabell. La oss gå gjennom opprettelse av 
    {{< notice warning >}}
    Underskjema støtter ikke vedlegg, og nøsting av underskjema er ikke tillatt (underskjema i underskjema).
    {{< /notice >}}
-7. **Settings.json** filen for underskjema [konfigureres som normalt](../../../app/development/ux/pages/#innstillinger).
-8. Legg til et layout set i `layout-sets.json` med datatypen til datamodellen fra steg 1. Sett **type** til **subform**. Bruk navnet på underskjemamappen som id.
+7. **Settings.json** filen for underskjema [konfigureres som normalt](../ux/pages/#innstillinger).
+8. Knappen som brukes for å lukke underskjema må være en [CustomButton](../ux/components/custombutton) med `closeSubform` action. Det er valgfritt å validere underskjema før det lukkes.
+   ```json
+   {
+     "id": "subform-exitbutton",
+     "type": "CustomButton",
+     "textResourceBindings": {
+       "title": "The button title" // Blir `general.done` om utelatt
+     },
+     "actions": [
+       {
+         "type": "ClientAction",
+         "id": "closeSubform",
+         // Validering er valgfritt
+         "validation": {
+           "page": "all",
+           "show": ["All"]
+         }
+       }
+     ]
+   }
    ```
+9. Legg til et layout set i `layout-sets.json` med datatypen til datamodellen fra steg 1. Sett **type** til **subform**. Bruk navnet på underskjemamappen som id.
+   ```json
         {
             "id": "underskjema-mappe-navn",
             "dataType": "underskjema-datatype",
             "type": "subform"
         },
    ```
-9. Naviger til layout for siden i hovedskjemaet der du ønsker å legge inn underskjematabellen.
-10. Legg til `Subform` med [ønsket konfigurasjon](../../reference/subform/config-options/). Eksempel:
-    ```
+10. Naviger til layout for siden i hovedskjemaet der du ønsker å legge inn underskjematabellen.
+11. Legg til `Subform` med [ønsket konfigurasjon](./config-options/). Eksempel:
+    ```json
+    {
+      "id": "subform-test",
+      "type": "Subform",
+      "textResourceBindings": {
+        "title": "subform-test.title",
+        "addButton": "subform-test.add"
+      },
+      "layoutSet": "subform-layout-folder-name",
+      "showAddButton": true,
+      "showDeleteButton": true,
+      "tableColumns": [
         {
-            "id": "subform-mopeder",
-            "type": "Subform",
-            "textResourceBindings": {
-            "title": "subform-moped.title",
-            "addButton": "subform-moped.add"
-            },
-            "layoutSet": "moped-subform",
-            "showAddButton": true,
-            "showDeleteButton": true,
-            "tableColumns": [
-            {
-                "headerContent": "subform-moped.regno",
-                "cellContent": {
-                "query": "RegNo"
-                }
-            },
-            {
-                "headerContent": "subform-moped.merke",
-                "cellContent": {
-                "query": "Merke"
-                }
-            },
-            {
-                "headerContent": "Ekstra info",
-                "cellContent": {
-                "query": "EkstraInfoData",
-                "default": "moped-extrainfo.value.default"
-                }
-            }
-            ]
+          "headerContent": "subform-test.name-header",
+          "cellContent": {
+            "query": "Name"
+          }
         },
+        {
+          "headerContent": "subform-test.age-header",
+          "cellContent": {
+            "query": "Age"
+          }
+        },
+        {
+          "headerContent": "subform-test.extrainfo-header",
+          "cellContent": {
+            "query": "ExtraInfo",
+            "default": "subform-test.extrainfo.default"
+          }
+        }
+      ]
+    }
     ```
     {{< panel info >}}
     Underskjema kan ha sin egen oppsummeringsside og være en del av hovedskjema sin oppsummering.

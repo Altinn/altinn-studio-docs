@@ -1,14 +1,14 @@
 ---
 title: Terminology
 linktitle: Terminology
-description: Altinn 3 Terminology
+description: Terminology for Altinn 3 Broker
 tags: []
 toc: false
 weight: 10
 ---
 
 The following table gives brief descriptions of the main terms used to describe
-Altinn 3 Correspondence. Also see https://docs.altinn.studio/technology/terms/ and <https://data.norge.no/concepts>.
+Altinn 3 Broker. Also see https://docs.altinn.studio/technology/terms/ and <https://data.norge.no/concepts>.
 
 | **Term**                       | **Explanation**                                                                                                                                                                                                                                          |
 |--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -70,6 +70,6 @@ A longer list of terms. kept as a comment until further:
 -->
 
 Notes: 
-* In the context of Altinn Correspondence, the terms _Data Provider_ and _Sender_ may be assumed to mean the same.
-* In the context of Altinn Correspondence, the terms _Data Consumer_ and _Recipient_ may be assumed to mean the same.
+* In the context of Altinn Broker, the terms _Data Provider_ and _Sender_ may be assumed to mean the same.
+* In the context of Altinn Broker, the terms _Data Consumer_ and _Recipient_ may be assumed to mean the same.
   <!-- are used interchangeably. -->

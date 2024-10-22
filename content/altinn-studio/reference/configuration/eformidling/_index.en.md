@@ -9,7 +9,7 @@ weight: 400
 
 {{%notice info%}}
 Nuget versions >= 4.22.0 are required for your application to support eFormidling.
-[See how to update the nuget references of your application here](/altinn-studio/reference/maintainance/dependencies/).  
+[See how to update the nuget references of your application here](/altinn-studio/guides/administration/maintainance/dependencies/).  
 {{% /notice%}}
 
 {{%notice info%}}
@@ -314,7 +314,7 @@ Thorough testing for the eFormidling integration in an application is encouraged
 Safety measures and retry mechanisms are in place to ensure that a shipment 
 reaches the receiver when errors are due to weak network connections.
 However, invalid shipments, including but not limited to missing attachments or mistakes in the "arkivmelding",
-vil cause the shipment to fail without explicit warning the end user or app owner.
+will cause the shipment to fail without an explicit warning to the end user or app owner.
 {{% /notice%}}
 
 The integration point exposes endpoints that allow you to monitor the status of a shipment in the test environment. 

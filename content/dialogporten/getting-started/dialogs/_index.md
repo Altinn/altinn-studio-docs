@@ -41,7 +41,7 @@ Attachments can be used on both transmission and dialog level.
 
 An _action_ describes an interaction that users can perform with or related to a dialog. Examples of actions are "Open", "Start signing", "Pay", "Confirm", "Learn more", "Cancel", etc. The list of relevant actions is part of the structured description of a dialog and can be changed at any time by the service provider through the API.
 
-An action is either a _"GUI" action_ or an _"API" action_. All actions - both GUI and API - have an identifier that maps to an _action_ (and optionally an [authorization attribute]({{<relref "../authorization/attributes">}})) in the authorization policy (XACML) associated with a [service resource]({{<relref "../authorization/service-resource">}}).
+An action is either a _"GUI" action_ or an _"API" action_. All actions - both GUI and API - have an identifier that maps to an _action_ (and optionally an [authorization attribute]({{<relref "../authorization/attributes">}})) in the authorization policy ([XACML]({{<relref "../../../../authorization/guides/xacml/">}})) associated with a [service resource]({{<relref "../authorization/service-resource">}}).
 
 ### GUI Actions
 

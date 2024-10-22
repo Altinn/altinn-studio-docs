@@ -14,7 +14,7 @@ The service owner is responsible for handling the retention of payment informati
 
 ## Nets Easy
 
-Support for using Nets Easy as a payment provider comes with the application. Guidance on setting up Nets Easy can be found [here](/altinn-studio/guides/payment/).
+Support for using Nets Easy as a payment provider comes with the application. Guidance on setting up Nets Easy can be found [here](/altinn-studio/guides/development/payment/).
 
 The service owner must have a Nets Easy agreement.
 You can find information on how to create the agreement here: [payments.nets.eu](https://payments.nets.eu/en-GB/checkout).

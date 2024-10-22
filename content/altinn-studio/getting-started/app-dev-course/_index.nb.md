@@ -41,7 +41,7 @@ Introkurset er delt opp i seks moduler og dekker et fiktivt case for Sogndal kom
 Hver modul beskriver oppgaven og har lenker til relevant dokumentasjon.
 
 Du kan velge å utføre oppgavene i [Altinn Studio Designer](../) 
-(grafisk brukergrensesnitt med dra-og-slipp) eller i et [lokalt utviklingsmiljø](/nb/altinn-studio/guides/local-dev) 
+(grafisk brukergrensesnitt med dra-og-slipp) eller i et [lokalt utviklingsmiljø](/nb/altinn-studio/guides/development/local-dev) 
 (krever noe teknisk kompetanse).
 Du kan også kombinere disse fremgangsmåtene. Du kan utføre oppgavene i alle modulene i Altinn Studio Designer.
 

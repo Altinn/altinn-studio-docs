@@ -61,7 +61,7 @@ Brukeren skal kunne velge mellom offentlig og privat sektor. Til det er det natu
 1. Dra inn en komponent av typen "Radioknapper" øverst på den nye siden.
 2. Under "Tekst" i egenskapene til komponenten du har lagt til, legg til ledeteksten "Sektor". Nå bør skjemabyggeren se slik ut:
    !["Skjemabygger med sektor"](skjemabygger_med_sektor.png)
-3. Nederst i tekstseksjonen kan man sette opp alternativer. Bryteren "Bruk kodeliste" er slått på som standard. Slå den av, så du kan legge til alternativene selv.
+3. Nederst i tekstseksjonen kan man sette opp alternativer. Fanen "Velg kodeliste" er valgt som utgangspunkt. Velg fanen "Sett opp egne alternativer" for å legge til egne alternativer.
 4. Velg "Legg til alternativ". Du vil se at det dukker opp et alternativ under overskriften "Radioknapp 1" med en generert verdi.
 5. Klikk på "Radioknapp 1".
 6. Bytt ut verdien med `offentlig`. Dette er verdien som vil bli sendt til systemet når brukeren besvarer skjemaet.
@@ -104,8 +104,8 @@ Slik bruker du en kodeliste til å lage en liste med avmerkingsbokser:
    !["Hent endringer"-knapp](hent_endringer.png)
    Klikk på knappen. Du vil få en bekreftelse på at du har fått siste versjon og prikken forsvinner.
 2. Åpne siden der du la til "Bransje" og klikk på "Bransje".
-3. Under "Tekst" i egenskapene for "Bransje", sjekk at valget "Bruk kodeliste" er slått på.
-3. Velg "industri" fra nedtrekkslisten under.
+3. Under "Tekst" i egenskapene for "Bransje", sjekk at fanen "Velg kodeliste" er valgt.
+4. Velg "industri" fra nedtrekkslisten under.
    !["Bruk kodeliste"-nedtrekssliste](bruk_kodeliste.png)
 
 Nå skal avmerkingsboksene være klare.
@@ -164,7 +164,7 @@ Til denne komponenten skal vi også bruke en kodelistefil, men denne gangen skal
 Nå skal din app ha fått en nedtrekksliste med alternativene som er spesifisert i kodelisten.
 
 ## Nyttig dokumentasjon
-Se [kodelisteguiden](../../../guides/options/) for å se hvordan kodelister settes opp i appkoden.
+Se [kodelisteguiden](../../../guides/development/options/) for å se hvordan kodelister settes opp i appkoden.
 
 ## Oppsummering
 I denne modulen har du lagt til en gruppe med radioknapper, en gruppe med avkrysningsbokser og en nedtrekksliste. Du har også satt opp svaralternativer manuelt i Studio og ved hjelp av JSON-filer i Gitea.
@@ -172,4 +172,6 @@ I denne modulen har du lagt til en gruppe med radioknapper, en gruppe med avkrys
 {{<navigation-buttons
   urlBack="../modul5"
   textBack="<< Forrige modul"
+  urlNext="../modul7"
+  textNext="Neste modul >>"
 >}}

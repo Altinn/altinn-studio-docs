@@ -4,6 +4,7 @@ description: Altinn Studio - Ditt verktøy for utvikling av digitale tjenester t
 aliases:
 - /nb/altinn-studio/
 - /nb/teknologi/altinnstudio/solutions/altinn-studio/
+- /nb/app/
 weight: 1
 ---
  <div class="row adocs-featuredBlocks">
@@ -82,7 +83,7 @@ weight: 1
                     </a>
                 </li>
                 <li class="a-dotted a-clickable a-list-hasRowLink">
-                    <a href="guides/basic-form" class="a-list-rowLink">
+                    <a href="guides/development/basic-form" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
                                 Brukerveiledning - enkelt skjema

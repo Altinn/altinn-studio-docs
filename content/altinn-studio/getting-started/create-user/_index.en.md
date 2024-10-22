@@ -49,7 +49,7 @@ If you're uncertain about the administrator or if your organization is available
 you can seek assistance from the Altinn Servicedesk (mailto:tjenesteeier@altinn.no).
 
 _Are you an administrator for your organization and want to add a user to a team? See our guide explaining how this is 
-done [here](../../guides/access-management/studio/)._
+done [here](../../guides/administration/access-management/studio/)._
 
 ## Create an organization
 
