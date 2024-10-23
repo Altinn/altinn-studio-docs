@@ -82,30 +82,14 @@ Slik bruker du en kodeliste til å lage en liste med avmerkingsbokser:
    !["Skjemabygger med bransje"](skjemabygger_med_bransje.png)
 3. Gå til "Datamodellknytninger", velg "Avmerkingsbokser" og koble komponenten til feltet `arbeidsforhold.bransje`.
 
-#### Del endringene
-1. Klikk på "Last opp dine endringer" for å dele arbeidet du har gjort. Den røde prikken viser at du har gjort endringer som ikke er delt.
-   !["Last opp dine endringer"-knapp](last_opp_dine_endringer.png)
-2. Skriv en kort tekst om hva du har oppdatert. Hvis det er flere som jobber på samme app, blir det lettere for dem å vite hva du har jobbet med. Dette er frivillig.
-3. Velg "Del endringer" for å lagre teksten og laste opp endringene dine. Etter en liten stund skal du få en beskjed om at appen er oppdatert, og den røde prikken skal forsvinne.
-
-#### Åpne repositoriet og lagre kodelisten
-1. Klikk på profilikonet øverst til høyre i Studio og velg "Åpne repositoriet".
-2. Det åpnes en ny fane med en oversikt med mapper og filer. Denne oversikten kalles Gitea. Her ligger de filene Altinn Studio har generert ut fra innstillinger du har satt for appen du lager.
-   I Gitea kan du redigere filene manuelt og holde oversikt over versjoner ved hjelp av [Git](https://git-scm.com/). Hvis du ikke kjenner til Git fra før, kan det være lurt å sette deg litt inn i det, for å forstå hva som skjer i bakgrunnen når du gjør endringer.
-3. Last ned [kodelisten](industri.json).
-4. Klikk på "Add File", deretter "Last opp fil" og last opp kodelisten.
-5. Filen må ligge i mappen `App/options`. Sørg for at den blir plassert der ved å oppgi denne stien i feltet over opplastingsfeltet. Når du skriver "App/", blir feltet automatisk oppdatert til å se slik ut:
-   ![Filsti](filsti.png)
-6. Velg "Commit endringer".
-7. Du er nå ferdig i Gitea for denne gang. Gå tilbake til Altinn Studio-fanen, eller klikk på Altinn-logoen øverst til venstre i Gitea for å komme tilbake til Altinn Studio.
-
-#### Koble kodelisten til komponenten
-1. I Altinn Studio ser du nå en rød prikk ved knappen "Hent endringer". Det betyr at det er gjort endringer i filsystemet (mappen du har lagt til i Gitea), som du må synkronisere med Studio.
-   !["Hent endringer"-knapp](hent_endringer.png)
-   Klikk på knappen. Du vil få en bekreftelse på at du har fått siste versjon og prikken forsvinner.
+#### Laste opp og koble til kodelisten til komponenten
+1. Last ned [kodelisten](industri.json).
 2. Åpne siden der du la til "Bransje" og klikk på "Bransje".
 3. Under "Tekst" i egenskapene for "Bransje", sjekk at fanen "Velg kodeliste" er valgt.
-4. Velg "industri" fra nedtrekkslisten under.
+4. Trykk på knappen med teksten "Last opp din egen kodeliste".
+5. Finn frem til filen du nettopp lastet ned, den har navnet "industri.json".
+6. Velg filen, og trykk på "Åpne".
+7. Velg "industri" fra nedtrekkslisten som vist under.
    !["Bruk kodeliste"-nedtrekssliste](bruk_kodeliste.png)
 
 Nå skal avmerkingsboksene være klare.
