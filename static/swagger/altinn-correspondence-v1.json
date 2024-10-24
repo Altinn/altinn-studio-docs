@@ -296,6 +296,7 @@
                                     "Correspondence.Content.MessageBody",
                                     "Correspondence.Content.MessageSummary",
                                     "Correspondence.Content.MessageTitle",
+                                    "Correspondence.IsConfirmationNeeded",
                                     "Correspondence.Notification.NotificationTemplate",
                                     "Correspondence.ResourceId",
                                     "Correspondence.Sender",
@@ -427,6 +428,9 @@
                                         "type": "string",
                                         "format": "date-time"
                                     },
+                                    "Correspondence.IsConfirmationNeeded": {
+                                        "type": "boolean"
+                                    },
                                     "Recipients": {
                                         "type": "array",
                                         "items": {
@@ -535,6 +539,9 @@
                                     "style": "form"
                                 },
                                 "Correspondence.Published": {
+                                    "style": "form"
+                                },
+                                "Correspondence.IsConfirmationNeeded": {
                                     "style": "form"
                                 },
                                 "Recipients": {
@@ -1057,6 +1064,7 @@
             },
             "BaseCorrespondenceExt": {
                 "required": [
+                    "IsConfirmationNeeded",
                     "resourceId",
                     "sender",
                     "sendersReference"
@@ -1133,6 +1141,9 @@
                         "type": "string",
                         "format": "date-time",
                         "nullable": true
+                    },
+                    "IsConfirmationNeeded": {
+                        "type": "boolean"
                     }
                 },
                 "additionalProperties": false
@@ -1274,6 +1285,7 @@
                 "required": [
                     "correspondenceId",
                     "created",
+                    "IsConfirmationNeeded",
                     "recipient",
                     "resourceId",
                     "sender",
@@ -1351,6 +1363,9 @@
                         "type": "string",
                         "format": "date-time",
                         "nullable": true
+                    },
+                    "IsConfirmationNeeded": {
+                        "type": "boolean"
                     },
                     "recipient": {
                         "type": "string",
@@ -1414,6 +1429,7 @@
                 "required": [
                     "correspondenceId",
                     "created",
+                    "IsConfirmationNeeded",
                     "recipient",
                     "resourceId",
                     "sender",
@@ -1491,6 +1507,9 @@
                         "type": "string",
                         "format": "date-time",
                         "nullable": true
+                    },
+                    "IsConfirmationNeeded": {
+                        "type": "boolean"
                     },
                     "recipient": {
                         "type": "string",
