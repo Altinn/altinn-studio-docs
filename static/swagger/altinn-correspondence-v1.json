@@ -427,6 +427,9 @@
                                         "type": "string",
                                         "format": "date-time"
                                     },
+                                    "Correspondence.IsConfirmationNeeded": {
+                                        "type": "boolean"
+                                    },
                                     "Recipients": {
                                         "type": "array",
                                         "items": {
@@ -535,6 +538,9 @@
                                     "style": "form"
                                 },
                                 "Correspondence.Published": {
+                                    "style": "form"
+                                },
+                                "Correspondence.IsConfirmationNeeded": {
                                     "style": "form"
                                 },
                                 "Recipients": {
@@ -1099,7 +1105,8 @@
                     },
                     "dueDateTime": {
                         "type": "string",
-                        "format": "date-time"
+                        "format": "date-time",
+                        "nullable": true
                     },
                     "externalReferences": {
                         "type": "array",
@@ -1133,6 +1140,9 @@
                         "type": "string",
                         "format": "date-time",
                         "nullable": true
+                    },
+                    "IsConfirmationNeeded": {
+                        "type": "boolean"
                     }
                 },
                 "additionalProperties": false
@@ -1317,7 +1327,8 @@
                     },
                     "dueDateTime": {
                         "type": "string",
-                        "format": "date-time"
+                        "format": "date-time",
+                        "nullable": true
                     },
                     "externalReferences": {
                         "type": "array",
@@ -1351,6 +1362,9 @@
                         "type": "string",
                         "format": "date-time",
                         "nullable": true
+                    },
+                    "IsConfirmationNeeded": {
+                        "type": "boolean"
                     },
                     "recipient": {
                         "type": "string",
@@ -1457,7 +1471,8 @@
                     },
                     "dueDateTime": {
                         "type": "string",
-                        "format": "date-time"
+                        "format": "date-time",
+                        "nullable": true
                     },
                     "externalReferences": {
                         "type": "array",
@@ -1491,6 +1506,9 @@
                         "type": "string",
                         "format": "date-time",
                         "nullable": true
+                    },
+                    "IsConfirmationNeeded": {
+                        "type": "boolean"
                     },
                     "recipient": {
                         "type": "string",
