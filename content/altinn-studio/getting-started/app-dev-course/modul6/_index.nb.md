@@ -111,7 +111,10 @@ Til denne komponenten skal vi også bruke en kodelistefil, men denne gangen skal
 2. Gi komponenten ledeteksten "Antall år i arbeidslivet". Skjemaet skal nå se slik ut:
    ![Skjemabygger med antall_år i arbeidslivet](skjemabygger_med_tid_i_arbeidslivet.png)
 3. Legg til en datamodellknytning til feltet `arbeidsforhold.aar_i_arbeidslivet`.
-4. Velg "Last opp dine endringer" og deretter "Del endringer". Se at den røde prikken ved knappen forsvinner.
+4. Klikk på "Last opp dine endringer" for å dele arbeidet du har gjort. Den røde prikken viser at du har gjort endringer som ikke er delt.
+   !["Last opp dine endringer"-knapp](last_opp_dine_endringer.png)
+5. Skriv en kort tekst om hva du har oppdatert. Hvis det er flere som jobber på samme app, blir det lettere for dem å vite hva du har jobbet med. Dette er frivillig.
+6. Velg "Del endringer" for å lagre teksten og laste opp endringene dine. Etter en liten stund skal du få en beskjed om at appen er oppdatert, og den røde prikken skal forsvinne.
 
 #### Legg til kodelisten i repositoriet
 1. Klikk på profilikonet og gå til repositoriet i Gitea.
@@ -142,8 +145,10 @@ Til denne komponenten skal vi også bruke en kodelistefil, men denne gangen skal
 6. Velg "Commit endringer" nederst på siden. Det kan hende du får en melding fra Gitea om at filen inneholder tvetydige tegn, men den kan du trygt ignorere.
 
 #### Koble kodelisten til komponenten
-1. Gå tilbake til fanen med Altinn Studio og velg "Hent endringer".
-2. Klikk på komponenten "Antall år i arbeidslivet" og legg til den nye kodelisten på samme måte som du gjorde da du la til kodeliste for bransje.
+1. I Altinn Studio ser du nå en rød prikk ved knappen "Hent endringer". Det betyr at det er gjort endringer i filsystemet (mappen du har lagt til i Gitea), som du må synkronisere med Studio.
+   !["Hent endringer"-knapp](hent_endringer.png)
+2. Klikk på knappen. Du vil få en bekreftelse på at du har fått siste versjon og prikken forsvinner.
+3. Klikk på komponenten "Antall år i arbeidslivet" og legg til den nye kodelisten på samme måte som du gjorde da du la til kodeliste for bransje.
 
 Nå skal din app ha fått en nedtrekksliste med alternativene som er spesifisert i kodelisten.
 
