@@ -11,6 +11,7 @@ weight: 20
 
 ### Creation and Sending of Messages
 - Ability for public agencies and other service providers to create and send messages to users.
+  - Languages supported: Norwegian bokmål (nb), Norwegian nynorsk (nn) and English (en)
 - Support for both general and personalized messages.
 
 ### Notifications
