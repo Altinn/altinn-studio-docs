@@ -50,31 +50,31 @@ Full oversikt over tilgjengelige felter finner du [her](../../../../reference/da
 
 ### Eksempel: Felt fra Enhetsregisteret (ER)
 
-Eksempelet nedenfor vil populere feltet _Datamodell.Organisasjon.Organisasjonsnummer_ med organisasjonsnummeret 
+Eksempelet nedenfor vil populere feltet _Organisasjon.Organisasjonsnummer_ med organisasjonsnummeret 
 hentet fra enhetsregisteret.
 
 ```json
 "ER": {
-    "OrgNumber":"Datamodell.Organisasjon.Organisasjonsnummer"
+    "OrgNumber":"Organisasjon.Organisasjonsnummer"
 }
 ```
 
 ### Eksempel: Felt fra Folkeregisteret (DSF)
 
-Eksempelet nedenfor vil populere feltet _Datamodell.Person.Nummer_ med telefonnummer henter fra folkeregistret.
+Eksempelet nedenfor vil populere feltet _Person.Nummer_ med telefonnummer henter fra folkeregistret.
 
  ```json
 "DSF": {
-    "TelephoneNumber":"Datamodell.Person.Nummer"
+    "TelephoneNumber":"Person.Nummer"
 }
 ```
 
 ### Eksempel: Felt fra brukerens profil i Altinn
 
-Eksempelet nedenfor vil populere feltet _Datamodell.Bruker.Epost med epost hentet fra brukerens profil i Altinn.
+Eksempelet nedenfor vil populere feltet _Bruker.Epost_ med epost hentet fra brukerens profil i Altinn.
 
 ```json
 "UserProfile": {
-    "Email":"Datamodell.Bruker.Epost"
+    "Email":"Bruker.Epost"
 }
 ```
