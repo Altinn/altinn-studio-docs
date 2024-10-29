@@ -1,42 +1,42 @@
 [
 	{
 		"label": "Annen industri (kjemi etc.)",
-		"value": 493
+		"value": "493"
 	},
 	{
 		"label": "Annet",
-		"value": 1
+		"value": "1"
 	},
 	{
 		"label": "Bygge- og anleggsvirksomhet",
-		"value": 472
+		"value": "472"
 	},
 	{
 		"label": "Elektronikk og telekommunikasjon",
-		"value": 485
+		"value": "485"
 	},
 	{
 		"label": "Forskning og utvikling",
-		"value": 486
+		"value": "486"
 	},
 	{
 		"label": "IKT (data/IT)",
-		"value": 491
+		"value": "491"
 	},
 	{
 		"label": "Kraft- og vannforsyning",
-		"value": 494
+		"value": "494"
 	},
 	{
 		"label": "Petroleum og engineering",
-		"value": 495
+		"value": "495"
 	},
 	{
 		"label": "Rådgivning/konsulentvirksomhet",
-		"value": 496
+		"value": "496"
 	},
 	{
 		"label": "Verkstedindustri",
-		"value": 445
+		"value": "445"
 	}
 ]
