@@ -71,7 +71,7 @@ Eksempelet nedenfor vil populere feltet _Person.Nummer_ med telefonnummer henter
 
 ### Eksempel: Felt fra brukerens profil i Altinn
 
-Eksempelet nedenfor vil populere feltet _Bruker.Epost med epost hentet fra brukerens profil i Altinn.
+Eksempelet nedenfor vil populere feltet _Bruker.Epost_ med epost hentet fra brukerens profil i Altinn.
 
 ```json
 "UserProfile": {
