@@ -27,12 +27,12 @@ Systembrukeren opprettes av aktøren som ønsker å bruke et fagsystem for integ
 ### Eksempel
 
 - **Virksomhet:** Rørlegger Hansen & Sønner AS
-- **Systembruker:** "Regnskap og MVA"
+- **Systembruker:** "SmartCloud "
 - **System:** "SmartCloud" fra SmartCloud AS
-- **Rettigheter:** SmartCloud AS registrerer at "Regnskap og MVA" trenger rettigheter til "MVA" og "Årsregnskap".
+- **Rettigheter:** SmartCloud AS registrerer at "SmartCloud" trenger rettigheter til "MVA" og "Årsregnskap".
 - **Godkjenning:** Hansen & Sønner AS aksepterer disse rettighetene ved opprettelse av systembrukeren.
 
-Med dette oppsettet kan Bedriftshjelp AS autentisere seg mot Maskinporten og få et systembrukertoken for systembrukeren til Rørlegger Hansen & Sønner AS. Dette tokenet kan brukes mot Altinns API eller andre tjenester som støtter det. Bedriftshjelp AS kan dermed behandle data for Rørlegger Hansen & Sønner AS innenfor de tildelte rettighetene.
+Med dette oppsettet kan SmartCloud AS autentisere seg mot Maskinporten og få et systembrukertoken for systembrukeren til Rørlegger Hansen & Sønner AS. Dette tokenet kan brukes mot Altinns API eller andre tjenester som støtter det. SmartCloud AS kan dermed behandle data for Rørlegger Hansen & Sønner AS innenfor de tildelte rettighetene.
 
 ## Løsningsbeskrivelse
 
@@ -177,8 +177,10 @@ Se også dokumentasjon hos [Maskinporten](https://docs.digdir.no/docs/Maskinport
 
 ## Hvordan ta i bruk
 
-Det er skrevet egne
+Det er skrevet egne guider for å ta i bruk systembruker.
 
+- [Hvordan bruke systembruker som systemleverandør](../../guides/systemauthentication-for-systemproviders/)
+- [Hvordan bruke systemberuker som apitilbyder/tjenesteeier](../../guides/systemauthentication-for-apiproviders/)
 
 ## Leveranseplan
 
@@ -205,12 +207,16 @@ Første leveranse inneholder følgende funksjonalitet
 
 - Sluttbrukerstyrt opprettelse
 
+[Github issue](https://github.com/Altinn/altinn-authentication/issues/525)
+
 ### Leveranse 2
 
 #### Fagsystem​
 
 - API for systemregister administrasjon​
 - Leverandørstyrt flyt 
+
+[Github issue](https://github.com/Altinn/altinn-authentication/issues/544)
 
 ### Leveranse 3
 
@@ -222,6 +228,8 @@ Første leveranse inneholder følgende funksjonalitet
 
 - Varsling og godkjenning av endrede rettigheter
 
+[Github issue](https://github.com/Altinn/altinn-authentication/issues/545)
+
 ### Leveranse 4
 
 #### Fagsystem​
@@ -232,12 +240,25 @@ Første leveranse inneholder følgende funksjonalitet
 
 - Godkjenne endrede rettighetsbehov
 
+[Github issue](https://github.com/Altinn/altinn-authentication/issues/547)
+
 ### Leveranse 5
 
 #### Virksomhet​
 
 - Støtte for leverandør – hjelper – kunde forhold
 
+[Github issue](https://github.com/Altinn/altinn-authentication/issues/548)
+
+### Støtte for systembruker i Altinn Apps
+
+I første omgang vil systembruker brukes i scenario utenfor Altinn, men apper utviklet i Altinn plattformen vil få støtte for dette også. 
+
+For å støtte systembruker i Altinn jobbes det med følgende.
+
+- Oppdatere App template til å støtte systembruker
+- Oppdatere Platform komponenter til å støtte systembruker
+  
 
 ## Detaljerte issues
 

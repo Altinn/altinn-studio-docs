@@ -27,12 +27,12 @@ Systembrukeren opprettes av aktøren som ønsker å bruke et fagsystem for integ
 ### Eksempel
 
 - **Virksomhet:** Rørlegger Hansen & Sønner AS
-- **Systembruker:** "Regnskap og MVA"
+- **Systembruker:** "SmartCloud "
 - **System:** "SmartCloud" fra SmartCloud AS
-- **Rettigheter:** SmartCloud AS registrerer at "Regnskap og MVA" trenger rettigheter til "MVA" og "Årsregnskap".
+- **Rettigheter:** SmartCloud AS registrerer at "SmartCloud" trenger rettigheter til "MVA" og "Årsregnskap".
 - **Godkjenning:** Hansen & Sønner AS aksepterer disse rettighetene ved opprettelse av systembrukeren.
 
-Med dette oppsettet kan Bedriftshjelp AS autentisere seg mot Maskinporten og få et systembrukertoken for systembrukeren til Rørlegger Hansen & Sønner AS. Dette tokenet kan brukes mot Altinns API eller andre tjenester som støtter det. Bedriftshjelp AS kan dermed behandle data for Rørlegger Hansen & Sønner AS innenfor de tildelte rettighetene.
+Med dette oppsettet kan SmartCloud AS autentisere seg mot Maskinporten og få et systembrukertoken for systembrukeren til Rørlegger Hansen & Sønner AS. Dette tokenet kan brukes mot Altinns API eller andre tjenester som støtter det. SmartCloud AS kan dermed behandle data for Rørlegger Hansen & Sønner AS innenfor de tildelte rettighetene.
 
 ## Løsningsbeskrivelse
 
