@@ -19,12 +19,12 @@ Dette dokumenterer det forventede scenarioet, men kan endres.
 {{% /notice %}}
 
 For å bruke varslinger i en meldingstjeneste, legges en varslingsbestilling til når en melding opprettes. Varslingen vil bli sendt ut på publikasjonstidspunktet for meldingen. Hvis revarsel er aktivert, vil revarselet sendes ut etter 7 dager dersom meldingen ikke er lest.
-
-{{% notice warning  %}}
 I test- og stagingmiljøet vil revarselet sendes ut etter det har gått en time dersom meldingen ikke er lest.
-{{% /notice %}}
 
 Varslinger kan sendes via enten e-post eller SMS. Mens e-post ikke har noe tidsvindu, vil SMS-varsler bli sendt mellom kl. 09:00 og 17:00. Hvis avsendingstidspunktet faller utenfor dette tidsvinduet, vil varselet bli sendt neste dag.
+{{% notice warning  %}}
+I testmiljøet kan varslinger via SMS kun sendes til telefonnumre som er hvitlistet internt. Ta kontakt med oss på [Altinn@Slack#produkt-melding](https://join.slack.com/t/altinn/shared_invite/zt-7c77c9si-ZnMFwGNtab1aFdC6H_vwog) hvis dette er nødvendig for din tjeneste.
+{{% /notice %}}
 
 En varslingsbestilling gjøres ved å legge til følgende når du initialiserer en melding:
 
