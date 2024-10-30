@@ -39,7 +39,7 @@
     "accessListMode": "Disabled",
     "selfIdentifiedUserEnabled": false,
     "enterpriseUserEnabled": false,
-    "resourceType": "GenericAccessResource",
+    "resourceType": "AltinnApp",
     "availableForType": [
         "LegalEntityEnterprise",
         "Company"
@@ -48,93 +48,88 @@
     "create": {
       "type": "write", 
       "name": {
-        "nb": "Opprett skjema",
-        "en": "Create form"
+        "nb": "Opprett skjema"
       },
       "description": {
-        "nb": "Opprett et nytt skjema",
-        "en": "Create a new form"
+        "nb": "Opprette søknad"
       },
+      "rightDescription": {
+        "nb": "Opprett skjema"
+        },
       "attributes": [],
       "actions": {
         "groups": {
           "default": {
             "name": {
-              "nb": "Opprett skjema",
-              "en": "Create form"
+              "nb": "Opprett skjema"
             },
             "actions": [
-              "instantiate",
-              "read"
+              "instantiate"
             ]
           }
         },
         "items": {
           "instantiate": {
             "name": {
-              "nb": "Opprett",
-              "en": "Create"
+              "nb": "Opprett"
             }
           },
           "read": {
             "name": {
-              "nb": "Opprett",
-              "en": "Create"
+              "nb": "Les"
             }
           }
         }
       }
     },
-    "read-archive": {
+    "read": {
       "type": "read", 
       "name": {
-        "nb": "Arkivlesing",
-        "en": "Read archive"
+        "nb": "Les på hele tjenesten"
       },
       "description": {
-        "nb": "Les arkiverte skjema",
-        "en": "Read archived forms"
+        "nb": "Les på hele tjenesten"
       },
-
+      "rightDescription": {
+        "nb": "Deleger vekk muligheten til les på hele tjenesten"
+      },
       "attributes": [],
       "actions": {
         "groups": {
-
           "default": {
             "name": {
-              "nb": "Les arkiv",
-              "en": "Read archive"
+              "nb": "Les på hele tjenesten"
             },
             "actions": [
-              "read-archive"
+              "read"
             ]
           }
         },
         "items": {
-          "read-archive": {
+          "read": {
             "name": {
-              "nb": "Les arkiv",
-              "en": "Read archive"
+              "nb": "Les"
             }
           }
         }
       }
     },
-    "write": {
+    "formfill": {
       "type": "write", 
       "name": {
-        "nb": "Utfylling",
-        "en": "Write"
+        "nb": "Utfylling var varmerke søknad"
       },
       "description": {
-        "nb": "Fyll ut et skjema",
-        "en": "Fill out a form"
+        "nb": "Dette er steget i prosessen hvor du fyller ut detaljer om søknaden."
+      },
+      "rightDescription": {
+        "nb": "Dette er steget hvor du kan delegere vekk rettigheter til å fylle ut søknaden. "
       },
 
       "attributes": [
         {
           "type": "urn:altinn:task",
-          "value": "write"
+          "value": "Task_FillOutForm"
         }
       ],
       "actions": {
@@ -175,6 +170,54 @@
         }
       }
     },
+    "endevent": {
+        "type": "write", 
+        "name": {
+          "nb": "Arkivert tilstand"
+        },
+        "description": {
+          "nb": "Tilgang til skjema i arkivert tilstand"
+        },
+        "rightDescription": {
+          "nb": "Tilgang til skjema i arkivert tilstand "
+        },
+  
+        "attributes": [
+          {
+            "type": "urn:altinn:end-event",
+            "value": "EndEvent_1"
+          }
+        ],
+        "actions": {
+          "groups": {
+            "default": {
+              "name": {
+                "nb": "Lesetilgang",
+                "en": "Read access"
+              },
+              "actions": [
+                "read"
+              ]
+            },
+            "complete": {
+                "name": {
+                  "nb": "Complete - HVORDAN HÅNDTERE DENNE. Kun for tjenesteeiere?"
+                },
+                "actions": [
+                  "read"
+                ]
+              }
+          },
+          "items": {
+            "read": {
+              "name": {
+                "nb": "Les",
+                "en": "Read"
+              }
+            }
+          }
+        }
+      },
     "sign": {
       "type": "sign", 
       "name": {
@@ -185,15 +228,13 @@
         "nb": "Signer et skjema",
         "en": "Sign a form"
       },
-
       "attributes": [
         {
           "type": "urn:altinn:task",
-          "value": "sign"
+          "value": "Task_Signature"
         }
       ],
       "actions": {
-
         "groups": {
           "read": {
             "name": {
@@ -211,7 +252,9 @@
             },
             "actions": [
               "read",
-              "sign"
+              "sign",
+              "write",
+              "reject"
             ]
           }
         },
@@ -227,9 +270,83 @@
               "nb": "Signer",
               "en": "Sign"
             }
+          },
+          "write": {
+            "name": {
+              "nb": "Skriv"
+            }
+          },
+          "reject": {
+            "name": {
+              "nb": "Avvis"
+            }
           }
         }
       }
-    }
+    },
+    "events": {
+        "type": "event", 
+        "name": {
+          "nb": "Hendelser"
+        },
+        "description": {
+          "nb": "Signer et skjema"
+        },
+        "attributes": [
+          {
+            "type": "urn:altinn:task",
+            "value": "Task_Signature"
+          }
+        ],
+        "actions": {
+          "groups": {
+            "read": {
+              "name": {
+                "nb": "Lesetilgang",
+                "en": "Read access"
+              },
+              "actions": [
+                "read"
+              ]
+            },
+            "sign": {
+              "name": {
+                "nb": "Signering",
+                "en": "Signing"
+              },
+              "actions": [
+                "read",
+                "sign",
+                "write",
+                "reject"
+              ]
+            }
+          },
+          "items": {
+            "read": {
+              "name": {
+                "nb": "Les",
+                "en": "Read"
+              }
+            },
+            "sign": {
+              "name": {
+                "nb": "Signer",
+                "en": "Sign"
+              }
+            },
+            "write": {
+              "name": {
+                "nb": "Skriv"
+              }
+            },
+            "reject": {
+              "name": {
+                "nb": "Avvis"
+              }
+            }
+          }
+        }
+      }
   }
 }
