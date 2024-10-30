@@ -885,7 +885,6 @@
                     "dataType",
                     "name",
                     "resourceId",
-                    "restrictionName",
                     "sender",
                     "sendersReference",
                     "status",
@@ -902,10 +901,6 @@
                     },
                     "name": {
                         "maxLength": 255,
-                        "minLength": 1,
-                        "type": "string"
-                    },
-                    "restrictionName": {
                         "minLength": 1,
                         "type": "string"
                     },
@@ -975,7 +970,6 @@
                     "dataType",
                     "name",
                     "resourceId",
-                    "restrictionName",
                     "sender",
                     "sendersReference",
                     "status",
@@ -992,10 +986,6 @@
                     },
                     "name": {
                         "maxLength": 255,
-                        "minLength": 1,
-                        "type": "string"
-                    },
-                    "restrictionName": {
                         "minLength": 1,
                         "type": "string"
                     },
@@ -1152,7 +1142,6 @@
                     "dataLocationType",
                     "dataType",
                     "name",
-                    "restrictionName",
                     "sendersReference"
                 ],
                 "type": "object",
@@ -1165,10 +1154,6 @@
                     },
                     "name": {
                         "maxLength": 255,
-                        "minLength": 1,
-                        "type": "string"
-                    },
-                    "restrictionName": {
                         "minLength": 1,
                         "type": "string"
                     },
@@ -1670,7 +1655,6 @@
                     "dataType",
                     "name",
                     "resourceId",
-                    "restrictionName",
                     "sender",
                     "sendersReference"
                 ],
@@ -1684,10 +1668,6 @@
                     },
                     "name": {
                         "maxLength": 255,
-                        "minLength": 1,
-                        "type": "string"
-                    },
-                    "restrictionName": {
                         "minLength": 1,
                         "type": "string"
                     },
@@ -1725,7 +1705,6 @@
                     "dataLocationType",
                     "dataType",
                     "name",
-                    "restrictionName",
                     "sendersReference"
                 ],
                 "type": "object",
@@ -1738,10 +1717,6 @@
                     },
                     "name": {
                         "maxLength": 255,
-                        "minLength": 1,
-                        "type": "string"
-                    },
-                    "restrictionName": {
                         "minLength": 1,
                         "type": "string"
                     },
