@@ -1,0 +1,235 @@
+{
+    "identifier": "app_pat_varemerke",
+    "version": "1",
+    "title": {
+        "nb": "Ny søknad om registrering av varemerke i Norge"
+    },
+    "description": {
+        "nb": "Ny søknad om registrering av varemerke i Norge er en tjeneste som lar deg sende inn en ny søknad om varemerkebeskyttelse til Patentstyret for rettslig vern av et navn, logo eller merke i Norge."
+    },
+    "rightDescription": {
+        "nb": "Hvis du delegerer rettigheter til tjenesten \"Ny søknad om registrering av varemerke i Norge\" i Altinn, gir du en annen person eller virksomhet fullmakt til å sende inn en ny varemerkesøknad på dine vegne. De vil få tilgang til å fylle ut og signere søknaden, samt kommunisere med Patentstyret om søknadsprosessen. Dette kan være nyttig hvis du ønsker hjelp fra en advokat, konsulent, eller annen representant, men du bør være oppmerksom på at delegasjonen gir full kontroll over søknaden til den du har gitt rettighetene."
+    },
+    "homepage": "https://www.patentstyret.no/",
+    "status": "UnderDevelopment",
+    "spatial": [],
+    "contactPoints": [
+        {
+            "category": "Support",
+            "email": "support@pat.no",
+            "telephone": "",
+            "contactPage": ""
+        }
+    ],
+    "produces": [],
+    "resourceReferences": [
+    ],
+    "delegable": true,
+    "visible": true,
+    "hasCompetentAuthority": {
+        "name": {
+            "en": "Norwegian Industrial Property Office",
+            "nb": "Patentstyret",
+            "nn": "Patentstyret"
+        },
+        "organization": "971526157",
+        "orgcode": "pat"
+    },
+    "keywords": [],
+    "accessListMode": "Disabled",
+    "selfIdentifiedUserEnabled": false,
+    "enterpriseUserEnabled": false,
+    "resourceType": "GenericAccessResource",
+    "availableForType": [
+        "LegalEntityEnterprise",
+        "Company"
+    ],
+    "subResources": {
+    "create": {
+      "type": "write", 
+      "name": {
+        "nb": "Opprett skjema",
+        "en": "Create form"
+      },
+      "description": {
+        "nb": "Opprett et nytt skjema",
+        "en": "Create a new form"
+      },
+      "attributes": [],
+      "actions": {
+        "groups": {
+          "default": {
+            "name": {
+              "nb": "Opprett skjema",
+              "en": "Create form"
+            },
+            "actions": [
+              "instantiate",
+              "read"
+            ]
+          }
+        },
+        "items": {
+          "instantiate": {
+            "name": {
+              "nb": "Opprett",
+              "en": "Create"
+            }
+          },
+          "read": {
+            "name": {
+              "nb": "Opprett",
+              "en": "Create"
+            }
+          }
+        }
+      }
+    },
+    "read-archive": {
+      "type": "read", 
+      "name": {
+        "nb": "Arkivlesing",
+        "en": "Read archive"
+      },
+      "description": {
+        "nb": "Les arkiverte skjema",
+        "en": "Read archived forms"
+      },
+
+      "attributes": [],
+      "actions": {
+        "groups": {
+
+          "default": {
+            "name": {
+              "nb": "Les arkiv",
+              "en": "Read archive"
+            },
+            "actions": [
+              "read-archive"
+            ]
+          }
+        },
+        "items": {
+          "read-archive": {
+            "name": {
+              "nb": "Les arkiv",
+              "en": "Read archive"
+            }
+          }
+        }
+      }
+    },
+    "write": {
+      "type": "write", 
+      "name": {
+        "nb": "Utfylling",
+        "en": "Write"
+      },
+      "description": {
+        "nb": "Fyll ut et skjema",
+        "en": "Fill out a form"
+      },
+
+      "attributes": [
+        {
+          "type": "urn:altinn:task",
+          "value": "write"
+        }
+      ],
+      "actions": {
+        "groups": {
+          "default": {
+            "name": {
+              "nb": "Lesetilgang",
+              "en": "Read access"
+            },
+            "actions": [
+              "read"
+            ]
+          },
+          "write": {
+            "name": {
+              "nb": "Utfylling",
+              "en": "Write"
+            },
+            "actions": [
+              "read",
+              "write"
+            ]
+          }
+        },
+        "items": {
+          "read": {
+            "name": {
+              "nb": "Les",
+              "en": "Read"
+            }
+          },
+          "write": {
+            "name": {
+              "nb": "Skriv",
+              "en": "Write"
+            }
+          }
+        }
+      }
+    },
+    "sign": {
+      "type": "sign", 
+      "name": {
+        "nb": "Signering",
+        "en": "Signing"
+      },
+      "description": {
+        "nb": "Signer et skjema",
+        "en": "Sign a form"
+      },
+
+      "attributes": [
+        {
+          "type": "urn:altinn:task",
+          "value": "sign"
+        }
+      ],
+      "actions": {
+
+        "groups": {
+          "read": {
+            "name": {
+              "nb": "Lesetilgang",
+              "en": "Read access"
+            },
+            "actions": [
+              "read"
+            ]
+          },
+          "sign": {
+            "name": {
+              "nb": "Signering",
+              "en": "Signing"
+            },
+            "actions": [
+              "read",
+              "sign"
+            ]
+          }
+        },
+        "items": {
+          "read": {
+            "name": {
+              "nb": "Les",
+              "en": "Read"
+            }
+          },
+          "sign": {
+            "name": {
+              "nb": "Signer",
+              "en": "Sign"
+            }
+          }
+        }
+      }
+    }
+  }
+}
