@@ -1,0 +1,137 @@
+<script>
+    (function() {
+        {{ $o := .Get 1 }}
+        let swaggerPath = '{{ $o }}';
+        let swaggerOperation = '{{ .Get 0 }}';
+        let swaggerOperationId = '{{ .Get 0}}{{ replace $o "/" "_" }}';
+
+        if (typeof window.addSwaggerOnloadHandler !== "function") {
+            console.error("swaggerdisplayoperation: you must call {"+"{<swaggerload \"uri to swagger\">}} first");
+        }
+        else {
+            addSwaggerOnloadHandler(function(spec) {
+                const $container = $(`#swagger-operation-display-container-${swaggerOperationId}`);
+                if (typeof spec !== "object" || typeof spec.paths !== "object") {
+                    $container.html("<div class='notices warning'>swaggerdisplayoperation: unable to parse spec</div>");
+                }
+                let path = spec.paths[swaggerPath];
+                
+                if (!path) {
+                    $container.html(`<div class='notices warning'>swaggerdisplayoperation: path "${swaggerPath}" not found in spec</div>`);
+                    return;
+                }
+
+                let operation = path[swaggerOperation];
+                if (!operation) {
+                    $container.html(`<div class='notices warning'>swaggerdisplayoperation: operation "${swaggerOperation}" not found for "${swaggerPath}" in spec</div>`);
+                    return;
+                }
+
+                if (window.host == "localhost") {
+                    console.log(`swaggerdisplayoperation: ${swaggerPath}`, operation);
+                }
+
+                let displayName = swaggerOperation.toUpperCase() + " " + swaggerPath;
+
+                $container.html(generateHtmlDefinitionList(swaggerOperationId, displayName, operation));
+                
+            });
+        }
+
+        function getValidFormatExample(format) {
+            var ret = format;
+            switch (ret) {
+                case "date-time": ret = `Datetime in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8859-1</a> format, eg: <code class="sed-enum">${(new Date().toISOString())}</code>`; break;
+                case "int32": ret = `A positive integer, eg: <code class="sed-enum">123</code>`; break;
+            }
+            return ret;
+        } 
+
+        function generateHtmlDefinitionList(operationId, displayName, operation, indentLevel = 0, parentName = '') {
+            let html = '';
+
+            let indentClass = '';
+            if (indentLevel > 0) {
+                indentClass = ` sed-indent sed-indent-${indentLevel}`;
+            }
+            
+            if (operation.parameters) {
+                html += `<dl class="swagger-entity-display${indentClass}">`;
+
+                // TODO! Handle path parameters first
+                for (let parameter of operation.parameters.filter((x) => x.in == "query")) {
+                    console.log(parameter);
+                    const parameterName = parameter.name;
+                    const description = parameter.description ? parameter.description.replaceAll(/\n\s*?\n/g, "<br><br>") : '(undescribed)';
+                    let parameterSchema = parameter.schema;
+                    if (parameterSchema.oneOf) {
+                        // Handling of oneOf. Assume just single type (ignore any type beyond the first).
+                        const nullable = parameterSchema.nullable; 
+                        parameterSchema = parameterSchema.oneOf[0];
+                        parameterSchema.nullable = nullable;
+
+                        // Hack to handle Dialogporten continuation tokens and orderBys
+                        if (parameterSchema["$$ref"] && parameterSchema["$$ref"].indexOf("ContinuationToken") > -1) 
+                        {
+                            parameterSchema.format = "See <a href='#pagination'>Pagination</a>"; 
+                        }
+                        if (parameterSchema["$$ref"] && parameterSchema["$$ref"].indexOf("OrderSetOfT") > -1) 
+                        {
+                            parameterSchema.format = "See <a href='#pagination'>Ordering</a>"; 
+                        }
+                    }
+                    
+                    const type = parameterSchema.type || 'unknown';
+                    const nullable = parameterSchema.nullable ? ' (optional)' : '';
+                    const example = parameterSchema.example ? `<span class="sed-ex-header">Example</span><code class="sed-ex">${parameterSchema.example}</code>` : '';
+                    const enumNames = parameterSchema.items && parameterSchema.items.enum ? `<span class="sed-enum-header">Valid values</span><code class="sed-enum">${parameterSchema.items.enum.join(', ')}</code>` : '';
+                    const validFormat = parameterSchema.format ? `<span class="sed-enum-header">Accepted format:</span>${getValidFormatExample(parameterSchema.format)}` : '';
+
+                    let multipleDesc = '';
+                    if (parameter.style == "form") {
+                        multipleDesc = '<span class="sed-enum-header">Multiple values supported:</span><code class="class="sed-enum">';
+                        let possibleValues = parameterSchema.items && parameterSchema.items.enum ? parameterSchema.items.enum.slice(0, 2) : ["val1", "val2"];
+                        if (parameter.explode) {                           
+                            multipleDesc += `?${parameterName}=${possibleValues[0]}&${parameterName}=${possibleValues[1]}</code>`; 
+                        }
+                        else {
+                            multipleDesc += `?${parameterName}=${possibleValues.join(',')}</code>`;
+                        }
+                    }
+
+                    const anchor = "" + operationId + (parentName ? "_" + parentName : "") + "_" + parameterName;
+                    html += `<dt>
+                                <span class="sed-prop"><a href="#${anchor}" id="${anchor}">${parameterName}</a>${nullable}</span>
+                            </dt>`;
+                    html += `<dd>
+                                <span class="sed-desc">${description}</span>
+                                ${validFormat}
+                                ${example}
+                                ${enumNames}
+                                ${multipleDesc}
+                            </dd>`;
+
+                }
+                html += '</dl>';
+            } else if (operation.type === 'array' && operation.items) {
+                html += generateHtmlDefinitionList(operationId, displayName, operation.items, indentLevel);
+            }
+
+            if (indentLevel == 0) {
+                html = `
+                    <div class="swagger-operation-display-container">
+                        <h3>${displayName}</h3>
+                        <dl class="swagger-entity-display sed-head">
+                            <dt>Parameter</dt>
+                            <dd>Description</dd>
+                        </dl>
+                        ${html}
+                    </div>
+                    `;
+            }
+            return html;
+        }
+    })();
+</script>
+
+<div class="swagger-operation-display-container-outer" id="swagger-operation-display-container-{{ .Get 0}}{{ replace $o "/" "_" }}"></div>

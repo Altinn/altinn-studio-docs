@@ -1754,6 +1754,10 @@ div.footnotes-entry > span {
 }
 
 /* Swagger entity display */ 
+.swagger-operation-display-container-outer {
+    margin-bottom: 1rem;;
+}
+
 .swagger-entity-display {
     padding: 0;
     box-shadow: inset 0 0 0 1px #ccc;
