@@ -18,13 +18,12 @@ Currently the Events for Correspondence are not ready for full-scale use, due to
 This documents the expected scenario, but may be subject to change.
 {{% /notice %}}
 
-To use notifications in Altinn Correspondence, a notification order is placed when a message is created. The notification will primarily be sent out at the publication time of the message. If a reminder is activated, the reminder will be sent after 7 days if the message has not been read. 
-
-{{% notice warning  %}}
-In the test and staging environment, the reminder will be sent out after 1 hour if the message has not been read. 
-{{% /notice %}}
+To use notifications in Altinn Correspondence, a notification order is placed when a message is created. The notification will primarily be sent out at the publication time of the message. If a reminder is activated, the reminder will be sent after 7 days if the message has not been read. In the test and staging environment, the reminder will be sent out after 1 hour if the message has not been read. 
 
 Notifications can be sent via either email or SMS. While email does not have a time window, SMS notifications are sent between 9:00 AM and 5:00 PM. If the sending time falls outside this window, the notification will be sent the following day.
+{{% notice warning  %}}
+In the test environment, Notifications via SMS can only be sent out to phone numbers that are whitelisted internally. Contact us at [Altinn@Slack#produkt-melding](https://join.slack.com/t/altinn/shared_invite/zt-7c77c9si-ZnMFwGNtab1aFdC6H_vwog) if this is required for your service.
+{{% /notice %}}
 
 A notification order is made by adding the following when initializing a message:
 ```json
