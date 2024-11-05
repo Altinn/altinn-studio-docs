@@ -77,7 +77,7 @@
             </div>            
           </div>
         {{- end -}}
-        {{- if .Params.tags -}}
+        {{- if and false .Params.tags -}}
           <div id="tags">
             {{- range $index, $tag := .Params.tags -}}
               <a class="label label-default" href="{{$.Site.BaseURL}}tags/{{ $tag | urlize }}">{{ $tag }}</a>
