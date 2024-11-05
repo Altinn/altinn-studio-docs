@@ -10,4 +10,4 @@ public
 .hugo_build.lock
 hugo
 *.swp
-hyperlink-*
+hyperlink*
