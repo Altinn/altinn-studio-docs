@@ -12,6 +12,16 @@ Omtrent 50% av skjematrafikken kommer via API, med enkelte tjenester som har nes
 
 Nye autentiserings- og autorisasjonsmekanismer utvikles nå for maskin-til-maskin-integrasjon på Altinn-plattformen og andre offentlige API-er.
 
+Systembrukerkonseptet gir følgende
+
+- En mulighet for anskaffelse av sluttbrukersystem uten utveksling av sertifikat/passord/
+- Mulighet for systemleverandører for enkel onboarding av kunder
+- Fingranulert autorisasjon med maskin til maskin.
+- Oversikt over tilganger systembrukere har. 
+- Systemleverandør kan dele klientoppsett på tvers av sine kunder. (trenger ikke mange sertifikat)
+- Vil støtte klientforhold til regnskapsfører/revisor fra Q1 2025
+- Vil støttes av Altinn Apps Q1 2025.
+
 ## Maskinporten og systembrukertoken
 
 Maskinporten står sentralt i dette nye konseptet. Alle som skal benytte API med systembruker må autentisere seg mot Maskinporten for å motta et systembrukertoken.
