@@ -12,6 +12,8 @@ Omtrent 50% av skjematrafikken kommer via API, med enkelte tjenester som har nes
 
 Nye autentiserings- og autorisasjonsmekanismer utvikles nå for maskin-til-maskin-integrasjon på Altinn-plattformen og andre offentlige API-er.
 
+{{<vimeo 1026861837>}}
+
 ## Egenskaper med systembruker
 
 Systembruker gir en rekke fordeler sammenlignet med virksomhetsbruker og sluttbrukersystem konseptet i Altinn 2. 
