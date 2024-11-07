@@ -12,6 +12,8 @@ Approximately 50% of form traffic comes via API, with some services having almos
 
 New authentication and authorization mechanisms are now being developed for machine-to-machine integration on the Altinn platform and other public APIs.
 
+{{<vimeo 1026861837>}}
+
 ## Features of System User
 
 System user offers several advantages compared to the enterprise user and end-user system concept in Altinn 2.
