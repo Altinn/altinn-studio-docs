@@ -12,7 +12,9 @@ Omtrent 50% av skjematrafikken kommer via API, med enkelte tjenester som har nes
 
 Nye autentiserings- og autorisasjonsmekanismer utvikles nå for maskin-til-maskin-integrasjon på Altinn-plattformen og andre offentlige API-er.
 
-Systembrukerkonseptet gir følgende
+## Egenskaper med systembruker
+
+Systembruker gir en rekke fordeler sammenlignet med virksomhetsbruker og sluttbrukersystem konseptet i Altinn 2. 
 
 - En mulighet for anskaffelse av sluttbrukersystem uten utveksling av sertifikat/passord/
 - Mulighet for systemleverandører for enkel onboarding av kunder
@@ -72,7 +74,7 @@ Systemleverandøren vil kunne opprette en forespørsel for sin kunde om opprette
 
 Brukeren blir presentert et forenklet GUI som beskriver at en systembruker/systemintegrasjon vil opprettes og at det vil tildeles rettigheter. Det vil også beskrive hvilket system/leverandør som får tilgang til denne systembrukeren.
 
-I eksempelet nedenfor ser man hvordan SmartCloud sender brukeren til Altinn under onboarding av kunden. Her har Per Olsen hos "Rørlegger Olsen & Sønner AS" registrert seg som bruker hos SmartCloud.
+I eksempelet nedenfor ser man hvordan [SmartCloud](https://smartcloudaltinn.azurewebsites.net/) sender brukeren til Altinn under onboarding av kunden. Her har Per Olsen hos "Rørlegger Olsen & Sønner AS" registrert seg som bruker hos SmartCloud.
 
 ![Illustration](illustration4a.png "SmartCloud informerer om at systemtilgang må settes opp i Altinn")
 
