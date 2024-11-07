@@ -10,7 +10,7 @@ weight: 25
 {{<notyetwritten>}}
 
 
-{{<swaggerdisplayentity "GetDialogDialogAttachmentDto">}}
+{{<swaggerdisplayentity "V1EndUserDialogsQueriesGet_DialogAttachment">}}
 
 {{<children />}}
 

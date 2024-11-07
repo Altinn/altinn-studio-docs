@@ -10,7 +10,7 @@ weight: 40
 {{<notyetwritten>}}
 
 
-{{<swaggerdisplayentity "GetDialogDialogSeenLogDto">}}
+{{<swaggerdisplayentity "V1EndUserDialogsQueriesGet_DialogSeenLog">}}
 
 {{<children />}}
 

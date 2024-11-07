@@ -16,13 +16,13 @@ toc: true
 
 This is the entity returned in the end-user API when fetching details for a single dialog 
 
-{{<swaggerdisplayentity "GetDialogDto">}}
+{{<swaggerdisplayentity "V1EndUserDialogsQueriesGet_Dialog">}}
 
 ### Search
 
 This is the entity returned in the end-user API when searching for dialogs
 
-{{<swaggerdisplayentity "PaginatedListOfSearchDialogDto">}}
+{{<swaggerdisplayentity "V1EndUserDialogsQueriesSearch_Dialog">}}
 
 ## Dialog entity for service owners
 
@@ -30,25 +30,25 @@ This is the entity returned in the end-user API when searching for dialogs
 
 This is the entity returned in the service owner API when fetching details for a single dialog 
 
-{{<swaggerdisplayentity "GetDialogDtoSO">}}
+{{<swaggerdisplayentity "V1ServiceOwnerDialogsQueriesGet_Dialog">}}
 
 ### Search
 
 This is the entity returned in the service owner API when searching for dialogs
 
-{{<swaggerdisplayentity "PaginatedListOfSearchDialogDtoSO">}}
+{{<swaggerdisplayentity "V1ServiceOwnerDialogsQueriesSearch_Dialog">}}
 
 ### Create (POST)
 
 This is the entity expected as input in the service owner API when creating a new dialog 
 
-{{<swaggerdisplayentity "CreateDialogCommand">}}
+{{<swaggerdisplayentity "V1ServiceOwnerDialogsCommandsCreate_DialogCommand">}}
 
 ### Update (PUT)
 
 This is the entity expected as input in the service owner API when updating a new dialog 
 
-{{<swaggerdisplayentity "UpdateDialogDto">}}
+{{<swaggerdisplayentity "V1ServiceOwnerDialogsCommandsUpdate_Dialog">}}
 
 ### Update (PATCH)
 
