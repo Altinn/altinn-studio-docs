@@ -46,3 +46,20 @@ individual users. To maintain an overview, we primarily recommend setting up tea
 
 
 ![Manage access on repository](access-management-repository.png "Managing access to an individual repository")
+
+## How to Remove a User from a Team
+You will need the username of the user you wish to remove.
+1. Navigate to the teams page for your organization: `https://altinn.studio/repos/org/{org}/teams/` - replace `{org}` with your organization code.
+2. Select the team from which you want to remove the user by clicking "View."
+3. Choose the user from the list of members, and select "Remove."
+
+Note that a user can also leave a team on their own by navigating to the same view and clicking the "Leave" button in the upper left corner next to the team name.
+
+## How to Remove a User from the Organization
+You will need the username of the user you wish to remove. See the above instructions for how to remove a user from individual teams.
+1. Navigate to the teams page for your organization: `https://altinn.studio/repos/org/{org}/teams/` - replace `{org}` with your organization code.
+2. Remove the user from any teams within your organization to which they belong.
+   - Common teams include `devs` for write access to services, `Deploy-<environment>` for deployment access to services, and `Resources-Publish-<environment>` for access to publish resources.
+   - If your organization has a different team structure, you must check all teams the user may belong to.
+3. Verify that the user is no longer part of your organization by navigating to the user’s profile: `https://altinn.studio/repos/{username}`
+   and checking that your organization (with logo) is no longer displayed under the user’s profile picture on the left side.
