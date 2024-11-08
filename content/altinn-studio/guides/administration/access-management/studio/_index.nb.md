@@ -48,3 +48,21 @@ Tilgang kan gis både til team og enkeltbrukere. For å holde oversikt anbefaler
 team for tilgangsstyring. For å gi et team tilgang, søk det fram og klikk `Add Team`.
 
 ![Styre tilgang på repository](access-management-repository.png "Styre tilgang til et enkelt repository")
+
+## Hvordan fjerne en bruker fra et team
+Du trenger brukernavnet til brukeren som skal fjernes.
+1. Naviger til teamene for din organisasjon: `https://altinn.studio/repos/org/{org}/teams/` - her erstattes `{org}` med din org-kode.
+2. Velg det teamet du skal fjerne brukeren fra ved å klikke på "View".
+3. Velg brukeren fra listen over medlemmmer, og velg "Remove".
+
+Merk at en bruker kan selv forlate et team ved å navigere til samme visning og trykke på "Leave" knappen øverst til venstre
+ved siden av team-navnet.
+
+## Hvordan fjerne en bruker fra organisasjonen
+Du trenger brukernavnet til brukeren som skal fjernes. Se oppskrift over for hvordan fjerne bruker fra enkeltteam.
+1. Naviger til teamene for din organisasjon: `https://altinn.studio/repos/org/{org}/teams/` - her erstattes `{org}` med din org-kode.
+2. Fjern brukeren fra de teamene brukeren er medlem i for din organisasjon.
+   - Typiske team er `devs` for skrivetilgang til tjenestene, `Deploy-<miljø>` for publiseringstilgang for tjenestene, og `Resources-Publish-<miljø>` for tilgang til å publisere ressurser.
+   - Om din organiasjon har satt opp en annen team-struktur må du sjekke samtlige team brukeren kan være medlem av.
+3. Verifiser at brukeren ikke lenger hører til din organisasjon ved å navigere til brukeren: ``https://altinn.studio/repos/{brukernavn}`
+   og sjekk at din organisasjon (med logo) ikke lenger vises under brukerens profililde på venstre side.
