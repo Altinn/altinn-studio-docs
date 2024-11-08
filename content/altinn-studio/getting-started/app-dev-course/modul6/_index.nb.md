@@ -67,7 +67,7 @@ Brukeren skal kunne velge mellom offentlig og privat sektor. Til det er det natu
 6. Skriv `offentlig` i **Verdi**-kolonnen. Dette er verdien som vil bli sendt til systemet når brukeren besvarer skjemaet.
 7. Skriv `Offentlig` i **Ledetekst**-kolonnen. Dette er teksten som brukeren vil se ved siden av radioknappen.
 8. Gjenta stegene fra trinn 5 til trinn 7, men oppgi verdien `privat` og ledeteksten `Privat`.
-   !["Radioknapper for sektor"](alternativer_sektor.png)
+   !["Alternativer for sektor"](alternativer_sektor.png)
 9. Nå mangler vi bare å koble komponenten til riktig felt i datamodellen. Åpne **Datamodellknytninger**, klikk på **Radioknapper** og velg `arbeidsforhold.sektor`.
 
 ### Legg til avmerkingsbokser for bransje
