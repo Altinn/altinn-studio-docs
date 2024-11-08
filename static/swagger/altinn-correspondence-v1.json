@@ -799,57 +799,6 @@
                     }
                 }
             }
-        },
-        "/health": {
-            "get": {
-                "tags": [
-                    "Health"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
-            }
-        },
-        "/correspondence/api/v1/webhooks/malwarescanresults": {
-            "post": {
-                "tags": [
-                    "MalwareScanResults"
-                ],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {}
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
-            }
-        },
-        "/idporten-callback": {
-            "get": {
-                "tags": [
-                    "ID-Porten"
-                ],
-                "summary": "Callback for Idporten login",
-                "responses": {
-                    "200": {
-                        "description": "Success",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
         }
     },
     "components": {
@@ -1238,33 +1187,6 @@
                 },
                 "additionalProperties": false
             },
-            "CorrespondenceDetails": {
-                "required": [
-                    "recipient"
-                ],
-                "type": "object",
-                "properties": {
-                    "correspondenceId": {
-                        "type": "string",
-                        "format": "uuid"
-                    },
-                    "status": {
-                        "$ref": "#/components/schemas/CorrespondenceStatus"
-                    },
-                    "recipient": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "notifications": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/NotificationDetails"
-                        },
-                        "nullable": true
-                    }
-                },
-                "additionalProperties": false
-            },
             "CorrespondenceDetailsExt": {
                 "required": [
                     "correspondenceId",
@@ -1548,23 +1470,6 @@
                     }
                 },
                 "additionalProperties": false
-            },
-            "CorrespondenceStatus": {
-                "enum": [
-                    "Initialized",
-                    "ReadyForPublish",
-                    "Published",
-                    "Fetched",
-                    "Read",
-                    "Replied",
-                    "Confirmed",
-                    "PurgedByRecipient",
-                    "PurgedByAltinn",
-                    "Archived",
-                    "Reserved",
-                    "Failed"
-                ],
-                "type": "string"
             },
             "CorrespondenceStatusEventExt": {
                 "type": "object",
@@ -1884,7 +1789,7 @@
                     "correspondences": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/CorrespondenceDetails"
+                            "$ref": "#/components/schemas/InitializedCorrespondencesExt"
                         },
                         "nullable": true
                     },
@@ -1899,16 +1804,34 @@
                 },
                 "additionalProperties": false
             },
-            "NotificationChannelExt": {
-                "enum": [
-                    "Email",
-                    "Sms",
-                    "EmailPreferred",
-                    "SmsPreferred"
+            "InitializedCorrespondencesExt": {
+                "required": [
+                    "recipient"
                 ],
-                "type": "string"
+                "type": "object",
+                "properties": {
+                    "correspondenceId": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/CorrespondenceStatusExt"
+                    },
+                    "recipient": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "notifications": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/InitializedCorrespondencesNotificationsExt"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
             },
-            "NotificationDetails": {
+            "InitializedCorrespondencesNotificationsExt": {
                 "type": "object",
                 "properties": {
                     "orderId": {
@@ -1921,10 +1844,27 @@
                         "nullable": true
                     },
                     "status": {
-                        "$ref": "#/components/schemas/NotificationStatus"
+                        "$ref": "#/components/schemas/InitializedNotificationStatusExt"
                     }
                 },
                 "additionalProperties": false
+            },
+            "InitializedNotificationStatusExt": {
+                "enum": [
+                    "Success",
+                    "MissingContact",
+                    "Failure"
+                ],
+                "type": "string"
+            },
+            "NotificationChannelExt": {
+                "enum": [
+                    "Email",
+                    "Sms",
+                    "EmailPreferred",
+                    "SmsPreferred"
+                ],
+                "type": "string"
             },
             "NotificationDetailsExt": {
                 "type": "object",
@@ -2034,14 +1974,6 @@
                     }
                 },
                 "additionalProperties": false
-            },
-            "NotificationStatus": {
-                "enum": [
-                    "Success",
-                    "MissingContact",
-                    "Failure"
-                ],
-                "type": "string"
             },
             "NotificationStatusDetailsExt": {
                 "type": "object",
