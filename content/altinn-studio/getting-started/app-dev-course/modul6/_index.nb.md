@@ -62,14 +62,13 @@ Brukeren skal kunne velge mellom offentlig og privat sektor. Til det er det natu
 2. Under **Tekst** i egenskapene til komponenten du har lagt til, legg til ledeteksten **Sektor**. Nå bør skjemabyggeren se slik ut:
    !["Skjemabygger med sektor"](skjemabygger_med_sektor.png)
 3. Nederst i tekstseksjonen kan man sette opp alternativer. Fanen **Velg kodeliste** er valgt som utgangspunkt. Velg fanen **Sett opp egne alternativer** for å legge til egne alternativer.
-4. Velg **Legg til alternativ**. Du vil se at det dukker opp et alternativ under overskriften **Radioknapp 1** med en generert verdi.
-5. Klikk på **Radioknapp 1**.
-6. Bytt ut verdien med `offentlig`. Dette er verdien som vil bli sendt til systemet når brukeren besvarer skjemaet.
-7. Velg **Ledetekst**.
-8. Fyll inn teksten **Offentlig**. Dette er teksten som brukeren vil se ved siden av radioknappen.
-9. Gjenta stegene fra trinn 4 til trinn 8, men klikk på **Radioknapp 2** i stedet for **Radioknapp 1**, og gi knappen verdien `privat` og ledeteksten **Privat**.
-   !["Radioknapper for sektor"](radioknapper_sektor.png)
-10. Nå mangler vi bare å koble komponenten til riktig felt i datamodellen. Åpne **Datamodellknytninger**, klikk på **Radioknapper** og velg `arbeidsforhold.sektor`.
+4. Velg **Egendefinert kodeliste**. Du vil se at det dukker opp et vindu med overskriften **Kodeliste**.
+5. Klikk på **Legg til alternativ**.
+6. Skriv `offentlig` i **Verdi**-kolonnen. Dette er verdien som vil bli sendt til systemet når brukeren besvarer skjemaet.
+7. Skriv `Offentlig` i **Ledetekst**-kolonnen. Dette er teksten som brukeren vil se ved siden av radioknappen.
+8. Gjenta stegene fra trinn 5 til trinn 7, men oppgi verdien `privat` og ledeteksten `Privat`.
+   !["Radioknapper for sektor"](alternativer_sektor.png)
+9. Nå mangler vi bare å koble komponenten til riktig felt i datamodellen. Åpne **Datamodellknytninger**, klikk på **Radioknapper** og velg `arbeidsforhold.sektor`.
 
 ### Legg til avmerkingsbokser for bransje
 Brukeren skal også kunne velge én eller flere bransjer. Siden det skal være mulig å velge mer enn ett alternativ, er det naturlig å bruke [avmerkingsbokser](/nb/altinn-studio/reference/ux/components/checkboxes/). I stedet for å legge til alternativene manuelt, skal vi bruke [en fil med en _kodeliste_](industri.json). En kodelistefil er nyttig hvis vi for eksempel trenger å bruke de samme alternativene flere steder.
