@@ -676,29 +676,6 @@
                 }
             }
         },
-        "/correspondence/api/v1/correspondence/{correspondenceId}/markasunread": {
-            "post": {
-                "tags": [
-                    "Correspondence"
-                ],
-                "parameters": [
-                    {
-                        "name": "correspondenceId",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "format": "uuid"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
-            }
-        },
         "/correspondence/api/v1/correspondence/{correspondenceId}/confirm": {
             "post": {
                 "tags": [
@@ -1277,10 +1254,6 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "markedUnread": {
-                        "type": "boolean",
-                        "nullable": true
-                    },
                     "correspondenceId": {
                         "type": "string",
                         "format": "uuid"
@@ -1419,10 +1392,6 @@
                     },
                     "recipient": {
                         "type": "string",
-                        "nullable": true
-                    },
-                    "markedUnread": {
-                        "type": "boolean",
                         "nullable": true
                     },
                     "correspondenceId": {
