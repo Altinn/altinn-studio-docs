@@ -1,41 +1,36 @@
 ---
-title: Nye tilgangspakker versjon 3
-linktitle: Virksomhet, versjon 3
-description: Her finner du versjon 3 på forslag til nye tilgangspakker for virksomheter. Denne versjonen vil tilgjengeliggjøres i Altinn studio og ressursregisteret. 
+title: Tilgangspakker 
+linktitle: Tilgangspakker for virksomheter
+description: Her finner du oversikt over nye tilgangspakker for virksomheter. Denne versjonen vil tilgjengeliggjøres i Altinn studio og ressursregisteret. 
 toc: true
 weight: 100
 aliases:
 - /authorization/modules/accessgroups/type-accessgroups/versjon-3/
 ---
 
-Altinn skal erstatte rollene som gir tilgang til tjenester i Altinn 2 når vi flytter Altinn Autorisasjon til Altinn 3. 
-I stedet for roller vil det i Altinn 3 være ulike tilgangspakker som består av tjenester som hører til et ansvarsområde.
+Tilgangspakkene gir tilgang til apper og ressurser som opprettes i Altinn Studio og Ressursregisteret. For tjenester som fortsatt ligger i Altinn 2, vil det være Altinn -roller som styrer tilgang. 
+Altinn-rollene vil fases ut når det ikke lenger finnes tjenester som skal tilgangsstyres via rollene, og dette skjer senest 19.juni 2026.
 
-I forbindelse med innføring av nye tilgangspakker så endres brukergrensesnitt for tilgangsstyrer slik at disse blir enklere å forstå og ta i bruk enn dagens roller.  
-![Skisseforslag på ny brukerflate for å bruke nye malering](gui-bruk-av-maler.jpg "Forslag til ny brukerflate på skissestadiet")
+I forbindelse med innføring av tilgangspakkene så endres brukergrensesnitt for tilgangsstyrer slik at disse blir enklere å forstå og ta i bruk enn dagens roller.  
+![Skisseforslag på ny brukerflate](skisser.jpg "Forslag til ny brukerflate på skissestadiet")
 
+*Her finner du som er tjenesteeier oversikt over kategorier og navn på tilgangspakkene. Dersom dere ser behov for justeringer ber vi om at dere tar kontakt på tjenesteeier@altinn.no*
 
-**Her finner du som er tjenesteeier forslag til kategorier og navn på de nye tilgangspakkene. Vi ønsker innspill om de nye tilgangspakkene passer til deres tjeneste.**
-
-## Administrator gir tilgang til grupper med tjenester
+## Hvem kan administrere tilgangspakkene? 
+Tilgangspakkene forhåndstildeles et utvalg av roller fra Enhetsregisteret (ER-roller), og hvilke ER-roller som får disse er styrt av regelverk og hvilke roller som har selskapsrettslige fullmakter for en virksomhet. Selve tilgangsstyringen styres av administrator-rollene Tilgangsstyring, Hovedadministrator, Klientadministrator, Borolleadministrator og Kundeadministrator.
 Den som skal gi tilgang til tjenester i en virksomhet kalles administrator. 
 Administrator kan gi tilgang til ansatte ved å legge de til tilgangspakker. 
 
-Eksterne roller fra Enhetsregisteret (f eks Daglig leder, styreleder eller Regnskapsfører, heretter kalt ER-roller), får automatisk tilgang til tilgangspakkene for sin virksomhet. 
-Forslag til hvilke ER-roller som automatisk skal få hvilke tilgangspakker er beskrevet på hver tillgangspakke. 
-## De nye tilgangspakkene gjør det lettere å administrere tilganger
+En del eksterne roller fra Enhetsregisteret (f.eks. Daglig leder, styreleder eller innehaver, heretter kalt ER-roller), får automatisk tilgang til et utvalg av tilgangspakker for sin virksomhet. Regnskapsførere og revisorer får egne tilgangspakker for sine klienter.
+Oversikt over ER-roller som automatisk får de ulike tilgangspakkene er beskrevet under hver tilgangspakke. 
 
-Den største forskjellen på rollene i 2.0 og tilgangspakkene i 3.0 blir:
-
-- Flere tilgangspakker som kan være delt inn i opptil tre nivåer, slik at administrator kan gi tilgang til færre tjenester og det blir lettere å finne riktig tillgangspakke. 
-- Mer findelt tilgangspakker gjør det lettere for tjenesteeiere å velge riktig målgruppe for sine tjenester.
 
 Grunnlaget for inndelingen i maler er [Altinns skjemakatalog](https://www.altinn.no/skjemaoversikt/?category=category) og [SSBs standard for å kategorisere virksomheter](https://www.ssb.no/klass/klassifikasjoner/6). 
 ## Tjenester må knyttes til det laveste nivået i hierarkiet 
 
 Tilgangspakkene har maksimalt tre nivåer. Tjenesteeier må knytte tjenester til tilgangspakker som er på det laveste nivå. En tjeneste kan knyttes til flere tilgangspakker hvis tjenesteeier mener det er riktig. 
 
-![Hierarki av tilgangspakker](hierarki-tilgangsgrupper.jpg "Hierarki av tilgangspakker")
+![Hierarki av tilgangspakker](illustrasjon.jpg "Hierarki av tilgangspakker")
 
 Målet med mer findelte nivåer et at virksomhetene skal kunne gi ansatte tilgang til akkurat det de trenger, men ikke få for omfattende tilganger. 
 

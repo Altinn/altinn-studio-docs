@@ -89,7 +89,7 @@ Tilbakemelding kan du sende på e-post til servicedesk@altinn.no innen 1.8 2023.
 18. [tilgangspakker for revisor](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#tilgangspakker-for-revisor)
 19. [tilgangspakker for konkursbo](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#tilgangspakker-for-konkursbo)
 
-## Nivå 1: Skatt, avgiff, regnskap og toll
+## Nivå 1: Skatt, avgift, regnskap og toll
 Tilgangspakken er nyttig for alle virksomheter som er skatte- og regnskapspliktige.
 
 Denne tilgangspakken har disse tilgangspakkene på nivå 2 og 3.  
