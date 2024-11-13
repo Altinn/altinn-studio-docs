@@ -12,7 +12,7 @@ Tilgangspakkene gir tilgang til apper og ressurser som opprettes i Altinn Studio
 Altinn-rollene vil fases ut når det ikke lenger finnes tjenester som skal tilgangsstyres via rollene, og dette skjer senest 19.juni 2026.
 
 I forbindelse med innføring av tilgangspakkene så endres brukergrensesnitt for tilgangsstyrer slik at disse blir enklere å forstå og ta i bruk enn dagens roller.  
-![Skisseforslag på ny brukerflate](skisser.jpg "Forslag til ny brukerflate på skissestadiet")
+![Skisseforslag på ny brukerflate](skisse.jpg "Forslag til ny brukerflate på skissestadiet")
 
 *Her finner du som er tjenesteeier oversikt over kategorier og navn på tilgangspakkene. Dersom dere ser behov for justeringer ber vi om at dere tar kontakt på tjenesteeier@altinn.no*
 

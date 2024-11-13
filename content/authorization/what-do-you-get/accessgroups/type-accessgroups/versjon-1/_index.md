@@ -65,7 +65,7 @@ Tilbakemelding kan du sende på e-post til servicedesk@altinn.no innen 1.8 2023.
 
 # Forslag til tilgangspakker på nivå 1: 
 ## tilgangspakker relevant for mange/alle virksomheter
-1. [Skatt, avgift, regnskap og toll](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-skatt-avgiff-regnskap-og-toll)
+1. [Skatt, avgift, regnskap og toll](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-skatt-avgift-regnskap-og-toll)
 2. [Personale](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-personale)
 3. [Miljø, ulykke og sikkerhet](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-miljø-ulykke-og-sikkerhet)
 4. [Grunnlag for virksomheten](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-grunnlag-for-virksomheten)
