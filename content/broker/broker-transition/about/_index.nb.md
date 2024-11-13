@@ -8,6 +8,7 @@ weight: 1
 ---
 
 ## Hva er overgangsløsningen?
+
 For eiere av formidlingstjenester hvis sluttbrukere er avhengige av å bruke Altinn 2, men som ønsker å migrere sin Formidling tjeneste til Altinn 3, tilbyr Altinn en overgangsløsning.
 Dette muliggjør kommunikasjon mellom avsendere og mottakere av filer uavhengig av hvilken Altinn Formidling tjeneste de er integrert i.
 
@@ -17,4 +18,5 @@ Dette vil da tillate sluttbrukere av Altinn 2 tjenesten å kommunisere med slutt
 For Altinn 3 brukere vil brukeropplevelsen ikke være annerledes enn om alle bruker Altinn 3.
 
 Altinn 2 brukere vil oppleve noen mindre forskjeller relatert til filoverføring og returnerte verdier sammenlignet med om alle bruker Altinn 2.
+
 {{<children />}}
