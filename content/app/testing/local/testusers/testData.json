@@ -1,0 +1,962 @@
+{
+    "$schema": "https://altinncdn.no/schemas/json/test-users/test-users.schema.v1.json",
+    "persons": [
+      {
+        "partyId": 512345,
+        "ssn": "01017512345",
+        "firstName": "Ola",
+        "middleName": "",
+        "lastName": "Nordmann",
+        "customClaims": [
+          {
+            "type": "some:extra:claim",
+            "value": "claimValue",
+            "valueType": "http://www.w3.org/2001/XMLSchema#string"
+          }
+        ],
+        "partyRoles": {
+          "512345": [
+            {
+              "type": "altinn",
+              "value": "regna"
+            },
+            {
+              "type": "altinn",
+              "value": "dagl"
+            },
+            {
+              "type": "altinn",
+              "value": "priv"
+            }
+          ]
+        },
+        "addressCity": "Stokarknes",
+        "addressHouseLetter": null,
+        "addressHouseNumber": "7",
+        "addressMunicipalName": "Hadsel",
+        "addressMunicipalNumber": "1866",
+        "addressPostalCode": "8450",
+        "addressStreetName": "Bl\u00E5b\u00E6rveien",
+        "mailingAddress": "Bl\u00E5b\u00E6reveien 7",
+        "mailingPostalCity": "Stokmarknes",
+        "mailingPostalCode": "8450",
+        "mobileNumber": "87654321",
+        "telephoneNumber": "12345678",
+        "email": "test@test.com",
+        "userId": 12345,
+        "language": "nb",
+        "userName": "OlaNordmann"
+      },
+      {
+        "partyId": 501337,
+        "ssn": "01039012345",
+        "firstName": "Sophie",
+        "middleName": "",
+        "lastName": "Salt",
+        "customClaims": [
+          {
+            "type": "some:extra:claim",
+            "value": "claimValue",
+            "valueType": "http://www.w3.org/2001/XMLSchema#string"
+          }
+        ],
+        "partyRoles": {
+          "500000": [
+            {
+              "type": "altinn",
+              "value": "DAGL"
+            },
+            {
+              "type": "altinn",
+              "value": "LOPER"
+            },
+            {
+              "type": "altinn",
+              "value": "ADMAI"
+            },
+            {
+              "type": "altinn",
+              "value": "REGNA"
+            },
+            {
+              "type": "altinn",
+              "value": "SISKD"
+            },
+            {
+              "type": "altinn",
+              "value": "UILUF"
+            },
+            {
+              "type": "altinn",
+              "value": "UTINN"
+            },
+            {
+              "type": "altinn",
+              "value": "UTOMR"
+            },
+            {
+              "type": "altinn",
+              "value": "KLADM"
+            },
+            {
+              "type": "altinn",
+              "value": "ATTST"
+            },
+            {
+              "type": "altinn",
+              "value": "HVASK"
+            },
+            {
+              "type": "altinn",
+              "value": "PAVAD"
+            },
+            {
+              "type": "altinn",
+              "value": "SIGNE"
+            },
+            {
+              "type": "altinn",
+              "value": "KOMAB"
+            },
+            {
+              "type": "altinn",
+              "value": "A0212"
+            },
+            {
+              "type": "altinn",
+              "value": "ECKEYROLE"
+            },
+            {
+              "type": "altinn",
+              "value": "PASIG"
+            },
+            {
+              "type": "altinn",
+              "value": "A0236"
+            },
+            {
+              "type": "altinn",
+              "value": "A0278"
+            },
+            {
+              "type": "altinn",
+              "value": "HADM"
+            }
+          ],
+          "500001": [
+            {
+              "type": "altinn",
+              "value": "DAGL"
+            },
+            {
+              "type": "altinn",
+              "value": "LOPER"
+            },
+            {
+              "type": "altinn",
+              "value": "ADMAI"
+            },
+            {
+              "type": "altinn",
+              "value": "REGNA"
+            },
+            {
+              "type": "altinn",
+              "value": "SISKD"
+            },
+            {
+              "type": "altinn",
+              "value": "UILUF"
+            },
+            {
+              "type": "altinn",
+              "value": "UTINN"
+            },
+            {
+              "type": "altinn",
+              "value": "UTOMR"
+            },
+            {
+              "type": "altinn",
+              "value": "KLADM"
+            },
+            {
+              "type": "altinn",
+              "value": "ATTST"
+            },
+            {
+              "type": "altinn",
+              "value": "HVASK"
+            },
+            {
+              "type": "altinn",
+              "value": "PAVAD"
+            },
+            {
+              "type": "altinn",
+              "value": "SIGNE"
+            },
+            {
+              "type": "altinn",
+              "value": "KOMAB"
+            },
+            {
+              "type": "altinn",
+              "value": "A0212"
+            },
+            {
+              "type": "altinn",
+              "value": "ECKEYROLE"
+            },
+            {
+              "type": "altinn",
+              "value": "PASIG"
+            },
+            {
+              "type": "altinn",
+              "value": "A0236"
+            },
+            {
+              "type": "altinn",
+              "value": "A0278"
+            },
+            {
+              "type": "altinn",
+              "value": "HADM"
+            }
+          ],
+          "500002": [
+            {
+              "type": "altinn",
+              "value": "DAGL"
+            },
+            {
+              "type": "altinn",
+              "value": "LOPER"
+            },
+            {
+              "type": "altinn",
+              "value": "ADMAI"
+            },
+            {
+              "type": "altinn",
+              "value": "REGNA"
+            },
+            {
+              "type": "altinn",
+              "value": "SISKD"
+            },
+            {
+              "type": "altinn",
+              "value": "UILUF"
+            },
+            {
+              "type": "altinn",
+              "value": "UTINN"
+            },
+            {
+              "type": "altinn",
+              "value": "UTOMR"
+            },
+            {
+              "type": "altinn",
+              "value": "KLADM"
+            },
+            {
+              "type": "altinn",
+              "value": "ATTST"
+            },
+            {
+              "type": "altinn",
+              "value": "HVASK"
+            },
+            {
+              "type": "altinn",
+              "value": "PAVAD"
+            },
+            {
+              "type": "altinn",
+              "value": "SIGNE"
+            },
+            {
+              "type": "altinn",
+              "value": "KOMAB"
+            },
+            {
+              "type": "altinn",
+              "value": "A0212"
+            },
+            {
+              "type": "altinn",
+              "value": "ECKEYROLE"
+            },
+            {
+              "type": "altinn",
+              "value": "PASIG"
+            },
+            {
+              "type": "altinn",
+              "value": "A0236"
+            },
+            {
+              "type": "altinn",
+              "value": "A0278"
+            },
+            {
+              "type": "altinn",
+              "value": "HADM"
+            }
+          ],
+          "500003": [
+            {
+              "type": "altinn",
+              "value": "DAGL"
+            },
+            {
+              "type": "altinn",
+              "value": "LOPER"
+            },
+            {
+              "type": "altinn",
+              "value": "ADMAI"
+            },
+            {
+              "type": "altinn",
+              "value": "REGNA"
+            },
+            {
+              "type": "altinn",
+              "value": "SISKD"
+            },
+            {
+              "type": "altinn",
+              "value": "UILUF"
+            },
+            {
+              "type": "altinn",
+              "value": "UTINN"
+            },
+            {
+              "type": "altinn",
+              "value": "UTOMR"
+            },
+            {
+              "type": "altinn",
+              "value": "KLADM"
+            },
+            {
+              "type": "altinn",
+              "value": "ATTST"
+            },
+            {
+              "type": "altinn",
+              "value": "HVASK"
+            },
+            {
+              "type": "altinn",
+              "value": "PAVAD"
+            },
+            {
+              "type": "altinn",
+              "value": "SIGNE"
+            },
+            {
+              "type": "altinn",
+              "value": "KOMAB"
+            },
+            {
+              "type": "altinn",
+              "value": "A0212"
+            },
+            {
+              "type": "altinn",
+              "value": "ECKEYROLE"
+            },
+            {
+              "type": "altinn",
+              "value": "PASIG"
+            },
+            {
+              "type": "altinn",
+              "value": "A0236"
+            },
+            {
+              "type": "altinn",
+              "value": "A0278"
+            },
+            {
+              "type": "altinn",
+              "value": "HADM"
+            }
+          ],
+          "500600": [
+            {
+              "type": "altinn",
+              "value": "LEDE"
+            },
+            {
+              "type": "altinn",
+              "value": "LOPER"
+            },
+            {
+              "type": "altinn",
+              "value": "ADMAI"
+            },
+            {
+              "type": "altinn",
+              "value": "REGNA"
+            },
+            {
+              "type": "altinn",
+              "value": "SISKD"
+            },
+            {
+              "type": "altinn",
+              "value": "UILUF"
+            },
+            {
+              "type": "altinn",
+              "value": "UTINN"
+            },
+            {
+              "type": "altinn",
+              "value": "UTOMR"
+            },
+            {
+              "type": "altinn",
+              "value": "KLADM"
+            },
+            {
+              "type": "altinn",
+              "value": "ATTST"
+            },
+            {
+              "type": "altinn",
+              "value": "HVASK"
+            },
+            {
+              "type": "altinn",
+              "value": "PAVAD"
+            },
+            {
+              "type": "altinn",
+              "value": "SIGNE"
+            },
+            {
+              "type": "altinn",
+              "value": "KOMAB"
+            },
+            {
+              "type": "altinn",
+              "value": "A0212"
+            },
+            {
+              "type": "altinn",
+              "value": "ECKEYROLE"
+            },
+            {
+              "type": "altinn",
+              "value": "PASIG"
+            },
+            {
+              "type": "altinn",
+              "value": "A0236"
+            },
+            {
+              "type": "altinn",
+              "value": "A0278"
+            },
+            {
+              "type": "altinn",
+              "value": "HADM"
+            }
+          ],
+          "500700": [
+            {
+              "type": "altinn",
+              "value": "MEDL"
+            },
+            {
+              "type": "altinn",
+              "value": "REGNA"
+            },
+            {
+              "type": "altinn",
+              "value": "UTINN"
+            },
+            {
+              "type": "altinn",
+              "value": "UTOMR"
+            }
+          ],
+          "500800": [
+            {
+              "type": "altinn",
+              "value": "MEDL"
+            },
+            {
+              "type": "altinn",
+              "value": "REGNA"
+            },
+            {
+              "type": "altinn",
+              "value": "UTINN"
+            },
+            {
+              "type": "altinn",
+              "value": "UTOMR"
+            }
+          ],
+          "500801": [
+            {
+              "type": "altinn",
+              "value": "MEDL"
+            },
+            {
+              "type": "altinn",
+              "value": "REGNA"
+            },
+            {
+              "type": "altinn",
+              "value": "UTINN"
+            },
+            {
+              "type": "altinn",
+              "value": "UTOMR"
+            }
+          ],
+          "500802": [
+            {
+              "type": "altinn",
+              "value": "MEDL"
+            },
+            {
+              "type": "altinn",
+              "value": "REGNA"
+            },
+            {
+              "type": "altinn",
+              "value": "UTINN"
+            },
+            {
+              "type": "altinn",
+              "value": "UTOMR"
+            }
+          ],
+          "501337": [
+            {
+              "type": "altinn",
+              "value": "PRIV"
+            },
+            {
+              "type": "altinn",
+              "value": "UTINN"
+            },
+            {
+              "type": "altinn",
+              "value": "LOPER"
+            },
+            {
+              "type": "altinn",
+              "value": "ADMAI"
+            },
+            {
+              "type": "altinn",
+              "value": "PRIUT"
+            },
+            {
+              "type": "altinn",
+              "value": "REGNA"
+            },
+            {
+              "type": "altinn",
+              "value": "SISKD"
+            },
+            {
+              "type": "altinn",
+              "value": "UILUF"
+            },
+            {
+              "type": "altinn",
+              "value": "UTOMR"
+            },
+            {
+              "type": "altinn",
+              "value": "PAVAD"
+            },
+            {
+              "type": "altinn",
+              "value": "KOMAB"
+            },
+            {
+              "type": "altinn",
+              "value": "BOADM"
+            },
+            {
+              "type": "altinn",
+              "value": "A0212"
+            },
+            {
+              "type": "altinn",
+              "value": "A0236"
+            },
+            {
+              "type": "altinn",
+              "value": "A0278"
+            },
+            {
+              "type": "altinn",
+              "value": "A0282"
+            }
+          ]
+        },
+        "addressCity": "Oslo",
+        "addressHouseLetter": null,
+        "addressHouseNumber": "9",
+        "addressMunicipalName": "Oslo",
+        "addressMunicipalNumber": "0301",
+        "addressPostalCode": "0151",
+        "addressStreetName": "Grev Wedels Plass",
+        "mailingAddress": "Grev Wedels Plass 9",
+        "mailingPostalCity": "Oslo",
+        "mailingPostalCode": "0157",
+        "mobileNumber": "87654321",
+        "telephoneNumber": "12345678",
+        "email": "1337@altinnstudiotestusers.com",
+        "userId": 1337,
+        "language": "nn",
+        "userName": "SophieDDG"
+      },
+      {
+        "partyId": 510001,
+        "ssn": "01899699552",
+        "firstName": "Pengelens",
+        "middleName": "",
+        "lastName": "Partner",
+        "customClaims": [],
+        "partyRoles": {
+          "510001": [
+            {
+              "type": "altinn",
+              "value": "regna"
+            },
+            {
+              "type": "altinn",
+              "value": "dagl"
+            },
+            {
+              "type": "altinn",
+              "value": "priv"
+            }
+          ]
+        },
+        "addressCity": "PORSGRUNN",
+        "addressHouseLetter": null,
+        "addressHouseNumber": "7",
+        "addressMunicipalName": "Porsgrunn",
+        "addressMunicipalNumber": "3806",
+        "addressPostalCode": "3920",
+        "addressStreetName": "Tuftek\u00E5svegen",
+        "mailingAddress": "Tuftek\u00E5svegen 7",
+        "mailingPostalCity": "PORSGRUNN",
+        "mailingPostalCode": "3920",
+        "mobileNumber": "87654321",
+        "telephoneNumber": "12345678",
+        "email": "test@test.com",
+        "userId": 1001,
+        "language": "nb",
+        "userName": "PengelensPartner"
+      },
+      {
+        "partyId": 510003,
+        "ssn": "08829698278",
+        "firstName": "Rik",
+        "middleName": "",
+        "lastName": "Forelder",
+        "customClaims": [],
+        "partyRoles": {
+          "510003": [
+            {
+              "type": "altinn",
+              "value": "regna"
+            },
+            {
+              "type": "altinn",
+              "value": "dagl"
+            },
+            {
+              "type": "altinn",
+              "value": "priv"
+            }
+          ]
+        },
+        "addressCity": "SKIEN",
+        "addressHouseLetter": null,
+        "addressHouseNumber": "14",
+        "addressMunicipalName": "Skien",
+        "addressMunicipalNumber": "3807",
+        "addressPostalCode": "3735",
+        "addressStreetName": "Bj\u00F8nnkamvegen",
+        "mailingAddress": "Bj\u00F8nnkamvegen 14",
+        "mailingPostalCity": "SKIEN",
+        "mailingPostalCode": "3735",
+        "mobileNumber": "87654321",
+        "telephoneNumber": "12345678",
+        "email": "test@test.com",
+        "userId": 1003,
+        "language": "nb",
+        "userName": "RikForelder"
+      },
+      {
+        "partyId": 510002,
+        "ssn": "17858296439",
+        "firstName": "Gjentagende",
+        "middleName": "",
+        "lastName": "Forelder",
+        "customClaims": [],
+        "partyRoles": {
+          "510002": [
+            {
+              "type": "altinn",
+              "value": "regna"
+            },
+            {
+              "type": "altinn",
+              "value": "dagl"
+            },
+            {
+              "type": "altinn",
+              "value": "priv"
+            }
+          ]
+        },
+        "addressCity": "R\u00C5DE",
+        "addressHouseLetter": null,
+        "addressHouseNumber": "36",
+        "addressMunicipalName": "R\u00E5de",
+        "addressMunicipalNumber": "3017",
+        "addressPostalCode": "1640",
+        "addressStreetName": "\u00D8rneveien",
+        "mailingAddress": "\u00D8rneveien 36",
+        "mailingPostalCity": "R\u00C5DE",
+        "mailingPostalCode": "1640",
+        "mobileNumber": "87654321",
+        "telephoneNumber": "12345678",
+        "email": "test@test.com",
+        "userId": 1002,
+        "language": "nb",
+        "userName": "GjentagendeForelder"
+      }
+    ],
+    "orgs": [
+      {
+        "partyId": 500600,
+        "orgNumber": "897069631",
+        "parentPartyId": null,
+        "name": "EAS Health Consulting",
+        "businessAddress": "Sofies Gate 2",
+        "businessPostalCity": "By",
+        "businessPostalCode": "0170",
+        "eMailAddress": "epost@setra.no",
+        "faxNumber": "92110000",
+        "internetAddress": "http://setrabrl.no",
+        "mailingAddress": "Sofies Gate 2",
+        "mailingPostalCity": "Oslo",
+        "mailingPostalCode": "0170",
+        "mobileNumber": "92010000",
+        "telephoneNumber": "12345678",
+        "unitStatus": null,
+        "unitType": "AS"
+      },
+      {
+        "partyId": 500000,
+        "orgNumber": "897069650",
+        "parentPartyId": null,
+        "name": "DDG Fitness",
+        "businessAddress": "Sofies Gate 1",
+        "businessPostalCity": "By",
+        "businessPostalCode": "0170",
+        "eMailAddress": "central@ddgfitness.no",
+        "faxNumber": "92110000",
+        "internetAddress": "http://ddgfitness.no",
+        "mailingAddress": "Sofies Gate 1",
+        "mailingPostalCity": "Oslo",
+        "mailingPostalCode": "0170",
+        "mobileNumber": "92010000",
+        "telephoneNumber": "12345678",
+        "unitStatus": null,
+        "unitType": "AS"
+      },
+      {
+        "partyId": 500001,
+        "orgNumber": "897069651",
+        "parentPartyId": 500000,
+        "name": "DDG Fitness Oslo",
+        "businessAddress": "Sofies Gate 1",
+        "businessPostalCity": "By",
+        "businessPostalCode": "0170",
+        "eMailAddress": "oslo@ddgfitness.no",
+        "faxNumber": "92110001",
+        "internetAddress": "http://ddgfitness.no",
+        "mailingAddress": "Sofies Gate 1",
+        "mailingPostalCity": "Oslo",
+        "mailingPostalCode": "0170",
+        "mobileNumber": "92010001",
+        "telephoneNumber": "12345678",
+        "unitStatus": null,
+        "unitType": "BEDR"
+      },
+      {
+        "partyId": 500002,
+        "orgNumber": "897069652",
+        "parentPartyId": 500000,
+        "name": "DDG Fitness Bergen",
+        "businessAddress": "Olav Kyrres Gate 11",
+        "businessPostalCity": "Bergen",
+        "businessPostalCode": "5014",
+        "eMailAddress": "bergen@ddgfitness.no",
+        "faxNumber": "92110002",
+        "internetAddress": "http://ddgfitness.no",
+        "mailingAddress": "Olav Kyrres Gate 11",
+        "mailingPostalCity": "Bergen",
+        "mailingPostalCode": "5014",
+        "mobileNumber": "92010002",
+        "telephoneNumber": "12345678",
+        "unitStatus": null,
+        "unitType": "BEDR"
+      },
+      {
+        "partyId": 500003,
+        "orgNumber": "897069653",
+        "parentPartyId": 500000,
+        "name": "DDG Fitness Trondheim",
+        "businessAddress": "Kj\u00F8pmannsgata 25",
+        "businessPostalCity": "Trondheim",
+        "businessPostalCode": "7013",
+        "eMailAddress": "trondheim@ddgfitness.no",
+        "faxNumber": "92110003",
+        "internetAddress": "http://ddgfitness.no",
+        "mailingAddress": "Kj\u00F8pmannsgata 25",
+        "mailingPostalCity": "Trondheim",
+        "mailingPostalCode": "7013",
+        "mobileNumber": "92010003",
+        "telephoneNumber": "12345678",
+        "unitStatus": null,
+        "unitType": "BEDR"
+      },
+      {
+        "partyId": -1,
+        "orgNumber": "900000001",
+        "parentPartyId": null,
+        "name": "Kari Consulting",
+        "businessAddress": "Forretningsadresse 9",
+        "businessPostalCity": "By",
+        "businessPostalCode": "0000",
+        "eMailAddress": "email@email.com",
+        "faxNumber": "12345678",
+        "internetAddress": "http://example.com",
+        "mailingAddress": "Postadresse 9",
+        "mailingPostalCity": "By",
+        "mailingPostalCode": "0000",
+        "mobileNumber": "1234578",
+        "telephoneNumber": "12345678",
+        "unitStatus": null,
+        "unitType": "AS"
+      },
+      {
+        "partyId": -2,
+        "orgNumber": "910423185",
+        "parentPartyId": null,
+        "name": "EAS Health Consulting Svolv\u00E6r",
+        "businessAddress": "Feskslogveien 12",
+        "businessPostalCity": "By",
+        "businessPostalCode": "8300",
+        "eMailAddress": "lofoten@eashealt.no",
+        "faxNumber": "92110000",
+        "internetAddress": "http://eashealt.no",
+        "mailingAddress": "Feskslogveien 12",
+        "mailingPostalCity": "Svolv\u00E6r",
+        "mailingPostalCode": "8400",
+        "mobileNumber": "92010000",
+        "telephoneNumber": "12345678",
+        "unitStatus": null,
+        "unitType": "AS"
+      },
+      {
+        "partyId": -3,
+        "orgNumber": "923609016",
+        "parentPartyId": null,
+        "name": "EAS Health Consulting Svolv\u00E6r",
+        "businessAddress": "Feskslogveien 12",
+        "businessPostalCity": "By",
+        "businessPostalCode": "8300",
+        "eMailAddress": "lofoten@eashealt.no",
+        "faxNumber": "92110000",
+        "internetAddress": "http://eashealt.no",
+        "mailingAddress": "Feskslogveien 12",
+        "mailingPostalCity": "Svolv\u00E6r",
+        "mailingPostalCode": "8400",
+        "mobileNumber": "92010000",
+        "telephoneNumber": "12345678",
+        "unitStatus": null,
+        "unitType": "AS"
+      },
+      {
+        "partyId": 500800,
+        "orgNumber": "910457292",
+        "parentPartyId": null,
+        "name": "EAS Health Consulting Sortland",
+        "businessAddress": "Strandgata 2",
+        "businessPostalCity": "By",
+        "businessPostalCode": "8400",
+        "eMailAddress": "sortland@eashealt.no",
+        "faxNumber": "92110000",
+        "internetAddress": "http://setrabrl.no",
+        "mailingAddress": "Strandgata 2",
+        "mailingPostalCity": "Sortland",
+        "mailingPostalCode": "8400",
+        "mobileNumber": "92010000",
+        "telephoneNumber": "12345678",
+        "unitStatus": null,
+        "unitType": "AS"
+      },
+      {
+        "partyId": 500801,
+        "orgNumber": "910471120",
+        "parentPartyId": null,
+        "name": "EAS Health Consulting Stokmarknes",
+        "businessAddress": "Strandgata 2",
+        "businessPostalCity": "By",
+        "businessPostalCode": "8450",
+        "eMailAddress": "sortland@eashealt.no",
+        "faxNumber": "92110000",
+        "internetAddress": "http://setrabrl.no",
+        "mailingAddress": "Strandgata 2",
+        "mailingPostalCity": "Sortland",
+        "mailingPostalCode": "8450",
+        "mobileNumber": "92010000",
+        "telephoneNumber": "12345678",
+        "unitStatus": null,
+        "unitType": "AS"
+      },
+      {
+        "partyId": 500700,
+        "orgNumber": "950474084",
+        "parentPartyId": null,
+        "name": "Oslos Vakreste Borettslag",
+        "businessAddress": "Sofies Gate 2",
+        "businessPostalCity": "By",
+        "businessPostalCode": "0170",
+        "eMailAddress": "epost@setra.no",
+        "faxNumber": "92110000",
+        "internetAddress": "http://setrabrl.no",
+        "mailingAddress": "Sofies Gate 2",
+        "mailingPostalCity": "Oslo",
+        "mailingPostalCode": "0170",
+        "mobileNumber": "92010000",
+        "telephoneNumber": "12345678",
+        "unitStatus": null,
+        "unitType": "BRL"
+      }
+    ]
+  }

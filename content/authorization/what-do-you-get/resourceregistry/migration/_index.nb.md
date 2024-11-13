@@ -8,6 +8,12 @@ weight: 1
 
 I ressursregisteret kan man opprette helt nye ressurser eller baserer ressurser på Altinn 2 lenketjenester. 
 
+{{% notice warning  %}}
+Altinn 2 lenketjenester hvor Altinn tilbyr oppstartskontroll vil ikke videreføres. 
+
+Det betyr at for de som i dag bruker oppstartskontroll må selv implementere dette i sine løsninger og lenke brukeren direkte til sin løsning. Fra f.eks Altinn tjenestekatalog.
+{{% /notice %}}
+
 ### Import fra Altinn 2 lenketjenester
 
 Hvis man har eksisterende lenketjenester i Altinn 2 som man benytter for ekstern autorisasjon må disse flyttes over til ressursregisteret i Altinn 3 plattformen.

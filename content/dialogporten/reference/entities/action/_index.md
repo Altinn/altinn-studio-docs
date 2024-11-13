@@ -12,11 +12,11 @@ weight: 50
 
 ## GUI Actions
 
-{{<swaggerdisplayentity "GetDialogDialogGuiActionDto">}}
+{{<swaggerdisplayentity "V1EndUserDialogsQueriesGet_DialogGuiAction">}}
 
 ## API Actions
 
-{{<swaggerdisplayentity "GetDialogDialogApiActionDto">}}
+{{<swaggerdisplayentity "V1EndUserDialogsQueriesGet_DialogApiAction">}}
 
 {{<children />}}
 
