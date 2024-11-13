@@ -1,7 +1,7 @@
 ---
 title: Store filer
 linktitle: Store filer
-description: Hvordan aktivere filer over 2GB
+description: Hvordan støtte filer over 2GB
 tags: []
 toc: true
 weight: 10
@@ -15,6 +15,8 @@ Den teoretiske maksimale størrelsen er 1,6TB, men vi gjennomfører regelmessig 
 
 1. Kontakt oss på [@Slack#team-formidling](https://altinn.slack.com/archives/C06982E0UGH) for godkjenning.
 2. Kall PUT /resource/{{resourceId}} på Broker API med "maxFileTransferSize" satt til din maksimale filstørrelse. For eksempel, for 100GB:
+```json
 {
     "maxFileTransferSize": "107374182400"
 }
+```
