@@ -15,6 +15,8 @@ The theoretical maximum size is 1.6TB, but we only regularly benchmark it to 100
 
 1. Contact us [@Slack#team-formidling](https://altinn.slack.com/archives/C06982E0UGH) for pre-approval.
 2. Call PUT /resource/{{resourceId}} on the Broker API with "maxFileTransferSize" set to your new max file size. For instance, for 100GB:
+```json
 {
     "maxFileTransferSize": "107374182400"
 }
+```
