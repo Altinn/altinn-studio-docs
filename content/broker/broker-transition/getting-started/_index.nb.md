@@ -20,7 +20,7 @@ For å konfigurere ressursen din korrekt for å bruke den i overgangsløsningen,
 
 ### Konfigurer Ressurs til bruk i overgangsløsningen
 
-For å konfigurere ressusen slik at den fungerer optimalt i overgangsløsningen, og at den oppfører seg mest mulig som en ALtinn 2 tjeneste, så bør du [sette følgende konfigurasjonverdier på ressursen](../../getting-started/developer-guides/service-owner/_index.nb.md#operasjon-konfigurer-ressurs-i-formidling-api).
+For å konfigurere ressusen slik at den fungerer optimalt i overgangsløsningen, og at den oppfører seg mest mulig som en ALtinn 2 tjeneste, så bør du [sette følgende konfigurasjonverdier på ressursen](../../getting-started/developer-guides/service-owner/#operation-configure-resource-in-broker-api).
 Ta utgangspunkt i den eksisterende Altinn 2 tjenesten din og sett verdiene like der det er aktuelt.
 
 - MaxFileTransferSize = "1073741824" (1 GB - maksgrense i Altinn 2).

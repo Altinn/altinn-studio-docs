@@ -55,12 +55,8 @@ Call the API operation [initialize service owner in broker api](../developer-gui
 
 Now to configure the specific Broker configuration for the Resource.
 
-Using the ID of the resource you created in step 3, call the 
-API operation to [configure resource](../developer-guides/service-owner/#operation-configure-resource-in-broker-api).
+Using the ID of the resource you created in step 3, call the API operation to [configure resource](../developer-guides/service-owner/#operation-configure-resource-in-broker-api).
 
 ## How to migrate from Altinn 2 to Altinn 3 {#how-to-migrate-from-Altinn-2-to-Altinn-3}
 
-If you have an existing solution in Altinn 2 you wish to migrate, you can either create a new independent Altinn Broker service in Altinn 3, or use the transition solution, described here.
-
-TODO: Link to transition solution documentation when available.
-
+If you have an existing solution in Altinn 2 you wish to migrate, you can either create a new independent Altinn Broker service in Altinn 3, or use the transition solution, [described here](../../broker-transition/).
