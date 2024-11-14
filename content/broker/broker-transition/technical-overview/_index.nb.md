@@ -25,18 +25,71 @@ I dette tilfellet vil det først bli bli gjort oppslag i Altinn 2 Formidlings da
 3. Filer i Altinn 3 kan ikke være større enn 1 GB, da dette er den maksimale fil størrelsen i Altinn 2. Tjenesten i Altinn 3 skal konfigureres med denne MaxFileSize begrensningen.
 4. Fil data og metadata vil bli lagret i Altinn 3 datalager, mens Altinn 2 Formidlingstjeneste kall blir overført til Altinn 3.
 5. Kvitteringer vil ikke lenger bli lagret i Altinn 2, i stedet vil en pseudokvittering bli generert fra Altinn 3 metadata. Kvitterings-tjeneste i Altinn 2 vil ikke lenger brukes for overførte formidlingstjenester. Hvis du er avhengig av å bruke kvitteringer i sammenheng med formidlingstjeneste, kan du sende inn en funksjonsforespørsel.
-6. Bruk av manifestfilen i innsendt fil data er ikke lenger støttet i Altinn 3 og overførte formidlingstjenester. Hvis dette er et kritisk krav, kan du sende inn en funksjonsforespørsel.
+6. Bruk av manifestfilen i innsendt fil data er ikke lenger støttet i Altinn 3. Men det er mulig å skru på funksjonalitet for manifest-filer i overgangsløsningen. Se [beskrivelse under](#manifest-fil) for detaljer.
 
-<img src="altinn3-broker-transition-flowchart.svg" />
+<img src="altinn3-broker-transition-flowchart.svg" alt="Formidlingstjeneste Overgangsløsning flytdiagram"/>
 
 ## Overførte formidlingstjenester - hva du kan forvente
+
 Når Altinn 3 Overgangsløsning for formidlingstjeneste funksjonalitet er aktivert i Altinn 2, kan du forvente følgende:
+
 1. Tjenesteeiere kan be om at Altinn 2 Formidlingstjenester blir overført til Altinn 3 tjenester.
 2. Sluttbrukere som bruker disse tjenestene vil deretter overføre data til Altinn 3 i stedet for Altinn 2 datalager.
 3. Filer som var tilgjengelige i Altinn 2 for formidlingstjenesten vil ikke lenger være tilgjengelige.
 4. Alle nye filer og statusendringer vil skje i Altinn 3 løsningen.
 5. Tjenesteeiere med overførte formidlingstjenester må administrere tilgangsrettigheter i både Altinn 3 og Altinn 2 samtidig, da disse ikke automatisk blir synkronisert.
 
+### Manifest fil
+
+Siden manifestfiler er blitt avviklet i Altinn 3 Formidlingstjeneste, har vi lagt til en funksjon for å muliggjøre oppretting/oppdatering av manifestfiler for overgangsløsningen.
+Funksjonen er implementert som en del av nedlastingsoperasjonen fra Altinn 2-siden, og på grunn av større påvirkning på ytelsen, er den som standard deaktivert.
+For å aktivere denne funksjonen må du [konfigurere Altinn 3-resursen](../getting-started/#konfigurer-ressurs-til-bruk-i-overgangsløsningen) med følgende egenskaper:
+
+- UseManifestFileShim = true
+- ExternalServiceCodeLegacy = den eksterne tjenestekoden til Altinn 2-tjenesten.
+- ExternalServiceEditionCodeLegacy = den eksterne tjenesteutgavekoden til Altinn 2-tjenesten.
+
+Manifestfilen opprettes basert på PropertyList spesifisert ved initialisering av en filoverføring, samt ExternalServiceCodeLegacy og ExternalServiceEditionCodeLegacy spesifisert på ressursen.
+Den valgfrie listen "FileList" vil ikke lenger lages i manifestet.
+
+**Eksempel på manifestfil:**
+
+```xml
+<?xml version="1.0" encoding="utf-16"?>
+<BrokerServiceManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schema.altinn.no/services/ServiceEngine/Broker/2015/06">
+  <ExternalServiceCode>4752</ExternalServiceCode>
+  <ExternalServiceEditionCode>1</ExternalServiceEditionCode>
+  <SendersReference>ref:1245</SendersReference>
+  <Reportee>837884942</Reportee>
+  <SentDate>2024-10-18T08:43:48.453</SentDate>
+  <FileList />
+  <PropertyList>
+    <Property>
+      <PropertyKey>senderPhone</PropertyKey>
+      <PropertyValue>12345678</PropertyValue>
+    </Property>
+    <Property>
+      <PropertyKey>senderName</PropertyKey>
+      <PropertyValue>Ola Normann</PropertyValue>
+    </Property>
+    <Property>
+      <PropertyKey>messageType</PropertyKey>
+      <PropertyValue>SignedMortgageDeed</PropertyValue>
+    </Property>
+    <Property>
+      <PropertyKey>notificationMode</PropertyKey>
+      <PropertyValue>AltinnNotification</PropertyValue>
+    </Property>
+    <Property>
+      <PropertyKey>senderEmail</PropertyKey>
+      <PropertyValue>ola.normann@norge.no</PropertyValue>
+    </Property>
+    <Property>
+      <PropertyKey>coverLetter</PropertyKey>
+      <PropertyValue>XmlAttached</PropertyValue>
+    </Property>
+  </PropertyList>
+</BrokerServiceManifest>
+```
+
 {{<children />}}
-
-
