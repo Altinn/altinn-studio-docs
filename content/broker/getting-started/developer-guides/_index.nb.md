@@ -22,7 +22,7 @@ Se [Readme-filen på GitHub](https://github.com/Altinn/altinn-broker/blob/main/R
 
 Repoet inneholder også en [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json) med eksempler.
 
-Swagger for filoverførings-APIet er vert [her](/api/broker/spec).
+Swagger for filoverførings-APIet er vert [her](/api/broker/spec/).
 
 ## Generell API-operasjon {#overall-api-operation}
 
