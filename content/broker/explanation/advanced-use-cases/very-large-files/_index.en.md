@@ -14,4 +14,4 @@ The theoretical maximum size is 1.6TB, but we only regularly benchmark it to 100
 # How to break the 2GB limit
 
 1. Contact us [@Slack#team-formidling](https://altinn.slack.com/archives/C06982E0UGH) for pre-approval.
-2. When sending large files without virus scan set the "DisableVirusScan" flag in the [initialize file transfer call](https://docs.altinn.studio/broker/getting-started/developer-guides/send-files/#operation-initialize-filetransfer) to true.
+2. Set the "DisableVirusScan" flag in the [initialize file transfer call](https://docs.altinn.studio/broker/getting-started/developer-guides/send-files/#operation-initialize-filetransfer) to true.
