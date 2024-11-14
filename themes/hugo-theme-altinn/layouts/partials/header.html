@@ -61,7 +61,7 @@
         <div class="a-text">
         {{- if not .IsHome -}}
           <div id="top-bar">            
-            <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <div id="breadcrumbs">
                 <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
                   <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
                     <i class="fa fa-bars"></i>
@@ -77,7 +77,7 @@
             </div>            
           </div>
         {{- end -}}
-        {{- if .Params.tags -}}
+        {{- if and false .Params.tags -}}
           <div id="tags">
             {{- range $index, $tag := .Params.tags -}}
               <a class="label label-default" href="{{$.Site.BaseURL}}tags/{{ $tag | urlize }}">{{ $tag }}</a>

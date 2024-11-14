@@ -20,4 +20,4 @@ og sikre at viktig informasjon blir levert sikkert og enkelt kan fås tilgang ti
 Selv om Altinn Melding tradisjonelt har vært brukt for kommunikasjon med det offentlige,
 vil det også mulig å benytte løsningen for meldingsutveksling mellom private aktører.
 
-![altinn3-correspondence-logo](./altinn3-correspondence-logo.png "Altinn 3 Correspondence gir sikker og brukervennlig meldingsutveksling")
+![altinn3-correspondence-logo](./altinn3-correspondence-logo.png "Altinn 3 Melding gir sikker og brukervennlig meldingsutveksling")

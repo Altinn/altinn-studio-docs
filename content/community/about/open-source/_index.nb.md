@@ -20,7 +20,7 @@ Det finnes [mange](https://opensource.com/life/15/12/why-open-source)
 
 [NAV](https://github.com/navikt/offentlig#retningslinjer-for-%C3%A5pen-kildekode-i-nav),
 en av de virkelig store inne åpen kildekode i Norge, er også inne på flere av de samme punktene,
-men særlig dette med viktigheten av gjennomsiktighet og tillit i forhold til løsninger finansiert av det offentlige.
+men særlig dette med viktigheten av gjennomsiktighet og tillit i forbindelse med løsninger finansiert av det offentlige.
 
 Vi applauderer når NAV skriver dette:
 

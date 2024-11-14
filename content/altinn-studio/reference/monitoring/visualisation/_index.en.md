@@ -32,7 +32,7 @@ user experience.
 - **Test Developer or Production Developer role in Azure.**
     Test Developer role grants access to AI for apps in TT02 and Production Developer role grants access to apps in production.
 
-    [Instructions on how to request access is available here](/app/guides/access-management/apps/)
+    [Instructions on how to request access is available here](/altinn-studio/guides/administration/access-management/apps/)
 
 - **General overview of AI features**
     AI has a number of features available.

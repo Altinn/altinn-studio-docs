@@ -36,5 +36,11 @@ hidden: true
         timeline="Q1 2024"
         githubUrl="https://github.com/digdir/roadmap/issues/158"
     >}}
+    {{<news-card 
+        title="Payment" 
+        content="Support for configuring user payments for services that are fee-based or where it is legal to demand payment." 
+        timeline="Q2 2024" 
+        githubUrl="https://github.com/digdir/roadmap/issues/80"
+    >}}
 </div>
 </div>

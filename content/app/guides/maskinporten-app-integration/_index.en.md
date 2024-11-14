@@ -29,7 +29,7 @@ to Azure key vault for your organization, so the keys
 created further on in the guide can be added directly into
 the secrets in Azure.
 
-If access is missing, please refer to [Access to logs and secrets](../access-management/apps).
+If access is missing, please refer to [Access to logs and secrets](/altinn-studio/guides/access-management/apps).
 
 ## Maskinporten Integration
 

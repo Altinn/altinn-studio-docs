@@ -23,8 +23,8 @@ Du kan opprette dette depotet fra organisasjonssiden i Gitea-delen av Altinn Stu
 ## Opprett ressursadministrasjonsteam
 
 - Ressursgruppe som kan tilordnes til {org}-ressurser
-- Ressurser-Publiser-PROD - Rett til å publisere til produksjon
-- Ressurser-Publiser-TT02: Team med rettigheter til å publisere til TT02
+- Resources-Publish-PROD: Rett til å publisere til produksjon
+- Resources-Publish-TT02: Team med rettigheter til å publisere til TT02
 
 Lag opprettes fra organisasjonssiden i Gitea-delen av Altinn Studio.
 

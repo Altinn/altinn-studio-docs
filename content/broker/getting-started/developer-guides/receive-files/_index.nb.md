@@ -1,8 +1,8 @@
 ---
-title: Altinn 3 Formidling utviklerveiledning
-linktitle: Receive Files
-description: Hvordan motta filer via Altinn Formidling
-tags: [Broker, guide]
+title: Veiledning for mottakere
+linktitle: Motta filer
+description: Denne guiden hjelper deg med å komme i gang med å motta filer ved hjelp av Altinn Formidling. 
+tags: [Broker, guide, Formidling]
 toc: true
 weight: 20
 ---
@@ -10,7 +10,7 @@ weight: 20
 {{<children />}}
 
 {{% notice warning  %}}
-Denne delen av dokumentasjonen er under arbeid, og refererer derfor i stor grad til eksterne kilder.
+Merk at denne delen av dokumentasjonen fortsatt er under arbeid og derfor i stor grad refererer til eksterne kilder.
 {{% /notice %}}
 
 ## Operasjon: Hent filoverføringer {#operation-get-filetransfers}
@@ -26,7 +26,7 @@ Denne operasjonen bør brukes sparsomt, da man bør fokusere på webhook/event/h
 
 **Forespørsel:** Filtre spesifisert i URL-en:
 
-- resourceId - ressurs-ID for Broker-ressursen, påkrevd.
+- resourceId - ressurs-ID brukt til å verifisere tilgang til formidlingstjenesten, påkrevd.
 - status - gjeldende status for filoverføringen.
 - recipientStatus - gjeldende status for deg som mottaker.
 - from - DateTimeOffset for å filtrere fra.
@@ -34,7 +34,7 @@ Denne operasjonen bør brukes sparsomt, da man bør fokusere på webhook/event/h
 
 Når du søker etter filer du ikke har lastet ned som mottaker, spesifiser følgende:
 
-- resourceId - ressurs-ID for Broker-ressursen
+- resourceId - ressurs-ID brukt til å verifisere tilgang til formidlingstjenesten
 - status = "published"
 - recipientStatus = "initialized"
 
@@ -42,7 +42,7 @@ Når du søker etter filer du ikke har lastet ned som mottaker, spesifiser følg
 
 **Eksempel:**
 
-'Broker\search' i vår [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
+'Broker\search' i vår [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
 
 **Hendelser utløst:** Ingen.
 
@@ -57,7 +57,7 @@ Du kan bruke enten FileTransferId fra [published](#event-published) hendelse ell
 
 **Hendelser utløst:** Ingen.
 
-**Eksempel:** 'Broker\{fileTransferId}\overview' i vår [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
+**Eksempel:** 'Broker\{fileTransferId}\overview' i vår [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
 
 ## Operasjon: Last ned fil {#operation-downloadfile}
 
@@ -71,12 +71,12 @@ Last ned fildataene som en strøm ved hjelp av FileTransferId mottatt fra oversi
 
 **Hendelser utløst**: Ingen
 
-**Eksempel:** 'Broker\{fileTransferId}\download' i vår [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
+**Eksempel:** 'Broker\{fileTransferId}\download' i vår [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
 
 ## Operasjon: Bekreft nedlastet {#operation-confirmdownloaded}
 
 Etter at du har lastet ned og behandlet filen vellykket, må du bruke denne operasjonen for å varsle løsningen om at filen er levert.
-Dette vil oppdatere statusen for filoverføringen, og potensielt slette fildataene i henhold til innstillingene på Brokerressursen.
+Dette vil oppdatere statusen for filoverføringen, og potensielt slette fildataene i henhold til innstillingene på formidlingstjenesten.
 
 **Endepunkt:** POST /broker/api/v1/filetransfer/{fileTransferId}/confirmdownload
 
@@ -90,7 +90,7 @@ Last opp fildataene som en strøm ved hjelp av FileTransferId mottatt i Initiali
 
 - [downloadconfirmed](#event-downloadconfirmed).
 
-**Eksempel:** 'Broker\{fileTransferId}\confirm download' i vår [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
+**Eksempel:** 'Broker\{fileTransferId}\confirm download' i vår [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
 
 ## Hendelse: no.altinn.broker.published {#event-published}
 
@@ -101,10 +101,11 @@ Som mottaker kan du deretter bruke *FileTransferId* spesifisert i *resourceinsta
 ## Hendelse: no.altinn.broker.downloadconfirmed {#event-downloadconfirmed}
 
 Denne hendelsen utløses når du har bekreftet at nedlastingen er fullført vellykket, og den sendes også til avsenderen.
-Du trenger ikke å utføre handlinger mot Broker, men det er en ekstra bekreftelse på at ConfirmDownload har gått vellykket, og du kan velge å bruke dette til å utløse en intern prosess på din side.
+Du trenger ikke å utføre handlinger mot Formidling, men det er en ekstra bekreftelse på at ConfirmDownload har gått vellykket, og du kan velge å bruke dette til å utløse en intern prosess på din side.
 
 ## Hendelse: no.altinn.broker.fileneverconfirmeddownloaded {#event-fileneverconfirmeddownloaded}
 
 Denne hendelsen utløses ved utløpstiden for filoverføringen i tilfelle en eller flere mottakere ikke har bekreftet nedlastingen av filen.
 Dette kan indikere at enten mottakeren ikke har vært klar over filoverføringen, eller at de har lastet ned, men forsømt å kalle ConfirmDownload.
 Denne hendelsen sendes også til de mottakere som ikke har bekreftet nedlastingen.
+

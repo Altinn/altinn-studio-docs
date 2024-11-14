@@ -1,8 +1,8 @@
 ---
-title: Altinn 3 Formidling Utviklerguide for Avsender
+title: Veiledning for avsender
 linktitle: Send filer
-description: Hvordan komme i gang med å sende filer med Altinn 3 Formidling, for utviklere
-tags: [Broker, guide]
+description: Denne utviklerguiden hjelper deg med å komme i gang med å sende filer ved hjelp av Altinn Formidling.
+tags: [Broker, guide, Formidling]
 toc: true
 weight: 10
 ---
@@ -10,12 +10,12 @@ weight: 10
 {{<children />}}
 
 {{% notice warning  %}}
-Dette avsnittet av dokumentasjonen er under utvikling, og inneholder derfor omfattende referanser til eksterne kilder.
+Merk at dette avsnittet av dokumentasjonen fortsatt er under utvikling og derfor inneholder omfattende referanser til eksterne kilder.
 {{% /notice %}}
 
-Her er de detaljerte API-operasjonene og hendelsene du vil bruke når du sender filer.
+Her finner du detaljerte API-operasjoner og hendelser som brukes ved filoverføring, inkludert operasjoner som initialisering av filoverføring, opplasting av filer og innhenting av filoverføringsstatus.
 
-Se også vår [swagger-side](/api/broker/spec/).
+For mer informasjon, se vår [swagger-side](/api/broker/spec/) og [GitHub-repo](https://github.com/Altinn/altinn-broker), som også inneholder en Postman-samling med eksempler.
 
 ## Operasjon: Initialiser Filoverføring {#operation-initialize-filetransfer}
 
@@ -31,7 +31,7 @@ Denne operasjonen initialiserer en filoverføring, inkludert validering av grunn
 
 - Når fullført, blir hendelsen [filetransferinitialized](#event-filetransferinitialized) publisert til avsenderen, noe som indikerer at filoverføringen har blitt vellykket initialisert.
 
-**Eksempel**: 'Broker\Intitialize' i vår [PostMan-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json)
+**Eksempel**: 'Broker\Intitialize' i vår [PostMan-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json)
 
 ## Operasjon: Last opp strømmet {#operation-uploadStreamed}
 
@@ -49,7 +49,7 @@ Last opp fildataene som en strøm ved hjelp av FileTransferId mottatt i Initiali
 - Når opplastingsbehandlingen har blitt vellykket fullført, blir hendelsen [published](#event-published) publisert, og filen er tilgjengelig for nedlasting.
   - Hvis skadelig programvare ble oppdaget, blir hendelsen [uploadfailed](#event-uploadfailed) i stedet publisert.
 
-**Eksempel**: 'Broker\{fileTransferId}\upload' i vår [PostMan-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json)
+**Eksempel**: 'Broker\{fileTransferId}\upload' i vår [PostMan-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json)
 
 ## Operasjon: Hent Filoverføringsoversikt {#operation-get-filetransfer-overview}
 
@@ -61,7 +61,7 @@ Få en enkel oversikt over filoverføringen med gjeldende status og mottakerstat
 
 **Utløste hendelser**: ingen.
 
-**Eksempel**: 'Broker\{fileTransferId}\overview' i vår [PostMan-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json)
+**Eksempel**: 'Broker\{fileTransferId}\overview' i vår [PostMan-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json)
 
 ## Operasjon: Hent Filoverføringsdetaljer {#operation-get-filetransfer-details}
 
@@ -75,7 +75,7 @@ Få en detaljert visning av filoverføringen, inkludert detaljerte filoverførin
 
 **Utløste hendelser**: ingen.
 
-**Eksempel**: 'Broker\{fileTransferId}\details' i vår [PostMan-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json)
+**Eksempel**: 'Broker\{fileTransferId}\details' i vår [PostMan-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json)
 
 ## Hendelse: no.altinn.broker.filetransferinitialized {#event-filetransferinitialized}
 
@@ -102,7 +102,7 @@ Denne hendelsen utløses når en mottaker har bekreftet at nedlastingen har blit
 
 ## Hendelse: no.altinn.broker.allconfirmeddownloaded {#event-allconfirmeddownloaded}
 
-Denne hendelsen utløses når alle mottakerne har bekreftet at nedlastingen har blitt fullført. Hvis FileTransfer har en enkelt mottaker, vil dette bli publisert samtidig som downloadconfirmed. Avhengig av innstillingene for Broker-tjenesten kan dette føre til at filen blir automatisk slettet.
+Denne hendelsen utløses når alle mottakerne har bekreftet at nedlastingen har blitt fullført. Hvis FileTransfer har en enkelt mottaker, vil dette bli publisert samtidig som downloadconfirmed. Avhengig av innstillingene for formidlingstjenesten kan dette føre til at filen blir automatisk slettet.
 
 ## Hendelse: no.altinn.broker.fileneverconfirmeddownloaded {#event-fileneverconfirmeddownloaded}
 
@@ -115,3 +115,4 @@ Vi foreslår å bruke dataene som leveres i [hent filoverførings detaljer](#ope
 Denne hendelsen utløses av filopprydningsprosessen ved Expiry av filen eller når alle mottakerne har bekreftet nedlastingen.
 
 Etter dette punktet er fildataene ikke lenger tilgjengelige for nedlasting, selv om metadataene forblir.
+

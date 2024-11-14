@@ -4,6 +4,8 @@ linktitle: Studio
 description: Hvordan konfigurere tilganger for team i Altinn Studio.
 toc: true
 weight: 200
+aliases: 
+- /nb/altinn-studio/guides/access-management/studio/
 ---
 
 ## Tilgangsstyring for organisasjonen
@@ -16,74 +18,31 @@ Det er definert fire standard team som legger føringer for hva en bruker har ti
 organisasjon i Altinn Studio. Ved behov kan man som eier kan man legge til/fjerne brukere i team, opprette nye team og
 endre konfigurasjon på eksisterende team.
 
-### Owners
-Medlemmer i dette teamet kan tenkes på som administrator for organisasjonen. 
-De vil kunne administrere tilgangsstyringen for alle team og repositories knyttet til organisasjonen.
+[Se oversikt over standard team og tilgangene de gir her](../../../reference/access-management/studio/).
 
-Som medlem i dette teamet kan man blant annet:
+### Hvordan legge til bruker i et team
+Stegene under må gjøres av en bruker som er lagt inn som _eier_ av organisasjonen.
+- Naviger til https://altinn.studio/repos/org/{org}/teams/ Husk å bytte ut `{org}` med din org-kode.
+- Åpne ønsket team ved å klikke på navnet, eller på knappen "View".
+- Skriv inn brukerens Altinn Studio _brukernavn_ i tekstfeltet over listen av eksisterende brukere i Teamet
+  - Velg bruker fra listen som dukker opp når du skriver
+- Klikk på knappen "Add Team Member". 
+- Brukeren er nå lagt til i teamet.
 
-- opprette/slette team 
-- legge til og fjerne brukere i ulike team
-- endre konfigurasjon for team
+![Legg til bruker i et team](./access-management-team.png "Legg til bruker i et team")
 
-#### Konfigurasjon
-Dette teamet ligger inne som standard i alle organisasjoner og det er ikke mulig å endre konfigurasjonen for dette teamet.
+## Tilgangsstyring for enkelt repository
 
-### Deploy-Production
-Medlemmer i dette teamet kan deploye applikasjoner til produksjonsmiljøet.
+En administrator for organisasjonen kan også styre hvem som har tilgang til det enkelte repository. Tilgang
+kan gis til både hele team, og til enkeltbrukere.
+1. Naviger til det aktuelle repository: `https://altinn.studio/repos/{org}/{app}/` - her erstattes 
+    `{org}` og `{app}` med den aktuelle org-koden og appnavn.
+    - Alternativt, naviger til https://altinn.studio/repos/explore/repos og søk etter din app.
+2. Klikk på `Innstillinger`-knappen på høyre side av toppmenyen for repoet.
+3. Velg `Collaboration` i venstre-menyen.
+4. Gi tilgang til en spesifikk bruker i "Collabortation"-seksjonen ved å skrive inn brukernavn og klikk på "Add Collaborator".
+5. Gi tilgang til spesifikke grupper i "Teams"-seksjonen ved å skrive inn navnet på en gruppe, og klikk "Add Team".
 
-Øvrige rettigheter kan defineres fritt av owners.
-Default konfigurasjon inkluderer rettigheter for:
-
-- Lesetilgang i samtlige repositories
-- Kan _ikke_ opprette nye repositories 
-- Full tilgang til alle områder i Gitea
-
-#### Konfigurasjon
-Konfigurasjonen av dette teamet kan justeres av owners etter behov, 
-muligheten til å deploye til produksjonsmiljø er ikke avhengig av øvrig config. 
-
-Standard konfigurasjon for teamet inkluderer rettigheter til å
-
-- Lese samtlige repositories
-- Aksessere alle områder i Gitea
-
-### Deploy-TT02
-Medlemmer i dette teamet kan deploye applikasjoner til testmiljøet.
-
-Øvrige rettigheter kan defineres fritt av owners.
-Default konfigurasjon inkluderer rettigheter for:
-
-- Lesetilgang i samtlige repositories
-- Kan _ikke_ opprette nye repositories 
-- Full tilgang til alle områder i Gitea
-
-#### Konfigurasjon
-
-  Konfigurasjonen av dette teamet kan justeres av owners etter behov, 
-  muligheten til å deploye til testmiljø er ikke avhengig av øvrig config. 
-  
-  Standard konfigurasjon for teamet inkluderer rettigheter til å
-  - Lese samtlige repositories
-  - Aksessere alle områder i Gitea
-
-### Devs
-Medlemmer i dette teamet jobber med å utvikle applikasjoner og har tilgang til samtlige repositories.
-
-#### Konfigurasjon
-Konfigurasjonen av dette teamet kan justeres av owners etter behov,
-avhengig av hvor mye frihet man ønsker at apputvikleren skal ha.
-Merk at det blant annet er mulig å spesifisere hvilke(t) repository teamet skal ha tilgang til.
-
-Standard konfigurasjon for teamet inkluderer rettigheter til å
-
-- Opprette nye repositories
-- Skrive til samtlige repositories
-- Aksessere alle områder i Gitea
-
-## Tilgangsstyring for repository
-
-En administrator for organisasjonen kan også styre hvem som har tilgang til det enkelte repository.
 Det gjøres ved at man går til repositoryet i Gitea, og går til fanen `Collaboration` under `Innstillinger`.
 Tilgang kan gis både til team og enkeltbrukere. For å holde oversikt anbefaler vi primært å sette opp
 team for tilgangsstyring. For å gi et team tilgang, søk det fram og klikk `Add Team`.

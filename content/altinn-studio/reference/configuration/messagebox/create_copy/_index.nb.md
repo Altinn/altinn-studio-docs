@@ -10,7 +10,7 @@ Hovedhensikten med **Lag ny kopi** funksjonaliteten er at det skal være enkelt 
 
 {{%notice info%}}
 Lag ny kopi funksjonaliteten ble introdusert i versjon 7.9.0 av nuget pakkene.
-[Se hvordan du oppdaterer nugetreferanser for applikasjonen din her](/nb/altinn-studio/reference/maintainance/dependencies/).
+[Se hvordan du oppdaterer nugetreferanser for applikasjonen din her](/nb/altinn-studio/guides/administration/maintainance/dependencies/).
 {{% /notice%}}
 
 ## Konfigurasjon
@@ -68,4 +68,4 @@ applicationmetadata.json
 
 ## Programatiske endringer
 
-Under kopiering av skjema vil logikken utføre metode kall mot **IInstantiationProcessor.DataCreation**. Dette skal gjøre det mulig å gjøre programatiske endringer i data som blir kopiert. [Programatisk prefill](/nb/altinn-studio/reference/data/prefill/custom/).
+Under kopiering av skjema vil logikken utføre metode kall mot **IInstantiationProcessor.DataCreation**. Dette skal gjøre det mulig å gjøre programatiske endringer i data som blir kopiert. [Programatisk prefill](/nb/altinn-studio/guides/development/prefill/custom/).

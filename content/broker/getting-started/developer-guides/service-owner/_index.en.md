@@ -18,13 +18,13 @@ This section of the documentation is a work in progress, and as such currently m
 
 This operation configures your organization as a Service Owner in the Broker Config Store.
 
-**Request**: An instance of [ServiceOwnerInitializeExt](https://github.com/Altinn/altinn-broker/blob/main/src/Altinn.Broker.API/Models/ServiceOwnerInitializeExt.cs) serialized as JSON.
+**Request**: An instance of [ServiceOwnerInitializeExt](https://github.com/Altinn/altinn-broker/blob/main/src/Altinn.Broker.API/Models/ServiceOwner/ServiceOwnerInitializeExt.cs) serialized as JSON.
 
 **Return**: HTTP 200
 
 **Events triggered**: none.
 
-**Example:** "Register Service Owner" in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
+**Example:** "Register Service Owner" in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
 
 ## Operation: Get Service Owner Config from Broker API {#operation-get-service-owner-config-from-broker-api}
 
@@ -34,11 +34,11 @@ This gets the configuration of your as a Service Owner in the Broker Config Stor
 
 **Request**: (Based upon the organization specificed in the token).
 
-**Return**: HTTP 200 An instance of [ServiceOwnerOverviewExt](https://github.com/Altinn/altinn-broker/blob/main/src/Altinn.Broker.API/Models/ServiceOwnerOverviewExt.cs) serialized as JSON.
+**Return**: HTTP 200 An instance of [ServiceOwnerOverviewExt](https://github.com/Altinn/altinn-broker/blob/main/src/Altinn.Broker.API/Models/ServiceOwner/ServiceOwnerOverviewExt.cs) serialized as JSON.
 
 **Events triggered**: none.
 
-**Example:** "Register Service Owner" in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
+**Example:** "Register Service Owner" in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
 
 ## Operation: Configure resource in Broker API {#operation-configure-resource-in-broker-api}
 
@@ -52,4 +52,5 @@ This operation configures your resource in Altinn Broker.
 
 **Events triggered**: none.
 
-**Example:** Example "Update Resource" in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
+**Example:** Example "Update Resource" in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
+

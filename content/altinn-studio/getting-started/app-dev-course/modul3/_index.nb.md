@@ -1,19 +1,19 @@
 ---
-title: Lag skjema
-description: Lag første versjon av skjemaet
-linktitle: Lag skjema
+title: "Modul 3: Lage skjemaet"
+description: I denne modulen skal du lage første versjon av skjemaet.
+linktitle: "Modul 3: Lage skjemaet"
 tags: [apps, training, form]
 weight: 30
 ---
 
 I denne modulen skal du sette opp et enkelt skjema basert på kravene fra Sogndal kommune.
 
-### Temaer som dekkes i denne modulen
+## Temaer som dekkes i denne modulen
 
 - Legge til skjemakomponenter og koble dem til datamodell
 - Redigering av tekster i skjema
 
-### Krav fra kommunen
+## Krav fra kommunen
 
 Skjemaet innhenter personlig informasjon om tilflytteren og skal ha følgende komponenter:
 - Navn
@@ -29,24 +29,24 @@ Skjemaet innhenter personlig informasjon om tilflytteren og skal ha følgende ko
   - Epost
   - Telefon
 
-## Lag skjema
+## Lag skjemaet
 
-Du kan sette opp skjemaet fra "Lage"-siden. Naviger til denne via "Lage"-knappen i topp-menyen.
+Gå til "Lage" i menyen for å sette opp skjemaet.
 
-Der ser du at det er opprettet en tom første-side for skjemaet som utgangspunkt.
+Du ser at skjemaet har en tom førsteside, som du kan bruke som utgangspunkt.
 
-1. Sett opp skjemaet basert på kravene fra kommunen.
-   - Pass på å legge inn ledetekster for alle skjemafelter.
-   - For adresse kan du bruke Adresse-komponenten som ligger under "Avansert", eller 3 tekstfelter.
-   - For at skjemaet skal kunne sendes inn må du legge til en "Knapp" på den siste siden.
-   - Alle skjemafelter må knyttes til tilhørende felt i datamodellen - dette gjør du i "Datamodellknytninger"-seksjonen
-      i høyre-panelet.
+Sett opp skjemaet ut fra kravene til kommunen.
 
-Husk å laste opp endringer når du jobber i Designer så de reflekteres i det sentrale filområdet til tjenesten.
+- Velg om du vil sette opp tre tekstfelter selv, eller bruke adressekomponenten under "Avansert".
+- På den siste siden må du legge til en knapp. Velg "Knapp" som komponent.
+- Pass på å legge inn ledetekster for alle skjemafelter.
+- Gå til "Datamodellknytninger" i panelet til høyre for å knytte alle feltene du lager i skjemaet til datamodellfeltene du lagde tidligere.
+- Vi anbefaler at du laster opp endringene dine underveis når du jobber på "Lage"-siden. Da blir de lagret sammen med resten av tjenesten.
 
-### Nyttig dokumentasjon
 
-- [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/guides/basic-form)
+## Nyttig dokumentasjon
+
+- [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/guides/development/basic-form)
 - [Tilgjengelige komponenter i Altinn Studio](/altinn-studio/designer/build-app/ui-designer/components/)
 - [Retningslinjer for bruk av komponenter](/nb/altinn-studio/guides/design/guidelines/components/)
 

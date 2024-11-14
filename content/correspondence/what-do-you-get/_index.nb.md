@@ -12,6 +12,7 @@ weight: 20
 ### Opprettelse og sending av meldinger
 
 - Mulighet for offentlige etater og andre tjenestetilbydere å opprette og sende meldinger til brukere.
+  - Språk støttet av tjenesten: norsk bokmål (nb), nynorsk (nn) og engelsk (en)
 - Støtte for både generelle og personlige meldinger.
 
 ### Varsling

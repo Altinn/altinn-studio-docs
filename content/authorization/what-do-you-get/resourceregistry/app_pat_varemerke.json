@@ -1,0 +1,352 @@
+{
+    "identifier": "app_pat_varemerke",
+    "version": "1",
+    "title": {
+        "nb": "Ny søknad om registrering av varemerke i Norge"
+    },
+    "description": {
+        "nb": "Ny søknad om registrering av varemerke i Norge er en tjeneste som lar deg sende inn en ny søknad om varemerkebeskyttelse til Patentstyret for rettslig vern av et navn, logo eller merke i Norge."
+    },
+    "rightDescription": {
+        "nb": "Hvis du delegerer rettigheter til tjenesten \"Ny søknad om registrering av varemerke i Norge\" i Altinn, gir du en annen person eller virksomhet fullmakt til å sende inn en ny varemerkesøknad på dine vegne. De vil få tilgang til å fylle ut og signere søknaden, samt kommunisere med Patentstyret om søknadsprosessen. Dette kan være nyttig hvis du ønsker hjelp fra en advokat, konsulent, eller annen representant, men du bør være oppmerksom på at delegasjonen gir full kontroll over søknaden til den du har gitt rettighetene."
+    },
+    "homepage": "https://www.patentstyret.no/",
+    "status": "UnderDevelopment",
+    "spatial": [],
+    "contactPoints": [
+        {
+            "category": "Support",
+            "email": "support@pat.no",
+            "telephone": "",
+            "contactPage": ""
+        }
+    ],
+    "produces": [],
+    "resourceReferences": [
+    ],
+    "delegable": true,
+    "visible": true,
+    "hasCompetentAuthority": {
+        "name": {
+            "en": "Norwegian Industrial Property Office",
+            "nb": "Patentstyret",
+            "nn": "Patentstyret"
+        },
+        "organization": "971526157",
+        "orgcode": "pat"
+    },
+    "keywords": [],
+    "accessListMode": "Disabled",
+    "selfIdentifiedUserEnabled": false,
+    "enterpriseUserEnabled": false,
+    "resourceType": "AltinnApp",
+    "availableForType": [
+        "LegalEntityEnterprise",
+        "Company"
+    ],
+    "subResources": {
+    "create": {
+      "type": "write", 
+      "name": {
+        "nb": "Opprett skjema"
+      },
+      "description": {
+        "nb": "Opprette søknad"
+      },
+      "rightDescription": {
+        "nb": "Opprett skjema"
+        },
+      "attributes": [],
+      "actions": {
+        "groups": {
+          "default": {
+            "name": {
+              "nb": "Opprett skjema"
+            },
+            "actions": [
+              "instantiate"
+            ]
+          }
+        },
+        "items": {
+          "instantiate": {
+            "name": {
+              "nb": "Opprett"
+            }
+          },
+          "read": {
+            "name": {
+              "nb": "Les"
+            }
+          }
+        }
+      }
+    },
+    "read": {
+      "type": "read", 
+      "name": {
+        "nb": "Les på hele tjenesten"
+      },
+      "description": {
+        "nb": "Les på hele tjenesten"
+      },
+      "rightDescription": {
+        "nb": "Deleger vekk muligheten til les på hele tjenesten"
+      },
+      "attributes": [],
+      "actions": {
+        "groups": {
+          "default": {
+            "name": {
+              "nb": "Les på hele tjenesten"
+            },
+            "actions": [
+              "read"
+            ]
+          }
+        },
+        "items": {
+          "read": {
+            "name": {
+              "nb": "Les"
+            }
+          }
+        }
+      }
+    },
+    "formfill": {
+      "type": "write", 
+      "name": {
+        "nb": "Utfylling var varmerke søknad"
+      },
+      "description": {
+        "nb": "Dette er steget i prosessen hvor du fyller ut detaljer om søknaden."
+      },
+      "rightDescription": {
+        "nb": "Dette er steget hvor du kan delegere vekk rettigheter til å fylle ut søknaden. "
+      },
+
+      "attributes": [
+        {
+          "type": "urn:altinn:task",
+          "value": "Task_FillOutForm"
+        }
+      ],
+      "actions": {
+        "groups": {
+          "default": {
+            "name": {
+              "nb": "Lesetilgang",
+              "en": "Read access"
+            },
+            "actions": [
+              "read"
+            ]
+          },
+          "write": {
+            "name": {
+              "nb": "Utfylling",
+              "en": "Write"
+            },
+            "actions": [
+              "read",
+              "write"
+            ]
+          }
+        },
+        "items": {
+          "read": {
+            "name": {
+              "nb": "Les",
+              "en": "Read"
+            }
+          },
+          "write": {
+            "name": {
+              "nb": "Skriv",
+              "en": "Write"
+            }
+          }
+        }
+      }
+    },
+    "endevent": {
+        "type": "write", 
+        "name": {
+          "nb": "Arkivert tilstand"
+        },
+        "description": {
+          "nb": "Tilgang til skjema i arkivert tilstand"
+        },
+        "rightDescription": {
+          "nb": "Tilgang til skjema i arkivert tilstand "
+        },
+  
+        "attributes": [
+          {
+            "type": "urn:altinn:end-event",
+            "value": "EndEvent_1"
+          }
+        ],
+        "actions": {
+          "groups": {
+            "default": {
+              "name": {
+                "nb": "Lesetilgang",
+                "en": "Read access"
+              },
+              "actions": [
+                "read"
+              ]
+            },
+            "complete": {
+                "name": {
+                  "nb": "Complete - HVORDAN HÅNDTERE DENNE. Kun for tjenesteeiere?"
+                },
+                "actions": [
+                  "read"
+                ]
+              }
+          },
+          "items": {
+            "read": {
+              "name": {
+                "nb": "Les",
+                "en": "Read"
+              }
+            }
+          }
+        }
+      },
+    "sign": {
+      "type": "sign", 
+      "name": {
+        "nb": "Signering",
+        "en": "Signing"
+      },
+      "description": {
+        "nb": "Signer et skjema",
+        "en": "Sign a form"
+      },
+      "attributes": [
+        {
+          "type": "urn:altinn:task",
+          "value": "Task_Signature"
+        }
+      ],
+      "actions": {
+        "groups": {
+          "read": {
+            "name": {
+              "nb": "Lesetilgang",
+              "en": "Read access"
+            },
+            "actions": [
+              "read"
+            ]
+          },
+          "sign": {
+            "name": {
+              "nb": "Signering",
+              "en": "Signing"
+            },
+            "actions": [
+              "read",
+              "sign",
+              "write",
+              "reject"
+            ]
+          }
+        },
+        "items": {
+          "read": {
+            "name": {
+              "nb": "Les",
+              "en": "Read"
+            }
+          },
+          "sign": {
+            "name": {
+              "nb": "Signer",
+              "en": "Sign"
+            }
+          },
+          "write": {
+            "name": {
+              "nb": "Skriv"
+            }
+          },
+          "reject": {
+            "name": {
+              "nb": "Avvis"
+            }
+          }
+        }
+      }
+    },
+    "events": {
+        "type": "event", 
+        "name": {
+          "nb": "Hendelser"
+        },
+        "description": {
+          "nb": "Signer et skjema"
+        },
+        "attributes": [
+          {
+            "type": "urn:altinn:task",
+            "value": "Task_Signature"
+          }
+        ],
+        "actions": {
+          "groups": {
+            "read": {
+              "name": {
+                "nb": "Lesetilgang",
+                "en": "Read access"
+              },
+              "actions": [
+                "read"
+              ]
+            },
+            "sign": {
+              "name": {
+                "nb": "Signering",
+                "en": "Signing"
+              },
+              "actions": [
+                "read",
+                "sign",
+                "write",
+                "reject"
+              ]
+            }
+          },
+          "items": {
+            "read": {
+              "name": {
+                "nb": "Les",
+                "en": "Read"
+              }
+            },
+            "sign": {
+              "name": {
+                "nb": "Signer",
+                "en": "Sign"
+              }
+            },
+            "write": {
+              "name": {
+                "nb": "Skriv"
+              }
+            },
+            "reject": {
+              "name": {
+                "nb": "Avvis"
+              }
+            }
+          }
+        }
+      }
+  }
+}

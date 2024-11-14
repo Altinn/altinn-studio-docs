@@ -1,7 +1,7 @@
 ---
-title: Altinn 3 Broker Developer guides
+title: Guide for receivers
 linktitle: Receive Files
-description: How to get started Receiving files with Altinn 3 Broker, for developers
+description: This developer guide will help you get started receiving files using Altinn Broker.
 tags: [Broker, guide]
 toc: true
 weight: 20
@@ -44,7 +44,7 @@ When searching for files you have not downloaded as a recipient specify the foll
 
 **Example:**
 
-'Broker\search' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
+'Broker\search' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
 
 **Events triggered:** None.
 
@@ -59,7 +59,7 @@ You can use either the FileTransferId from the [published](#event-published) eve
 
 **Events triggered:** none.
 
-**Example:** 'Broker\{fileTransferId}\overview' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
+**Example:** 'Broker\{fileTransferId}\overview' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
 
 ## Operation: DownloadFile {#operation-downloadfile}
 
@@ -73,7 +73,7 @@ Download the file data as a stream using the FileTransferId received from overvi
 
 **Events triggered**: none
 
-**Example:** 'Broker\{fileTransferId}\download' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
+**Example:** 'Broker\{fileTransferId}\download' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
 
 ## Operation: ConfirmDownloaded {#operation-confirmdownloaded}
 
@@ -92,7 +92,7 @@ Upload the file data as a stream using the FileTransferId received in Initialize
 
 - [downloadconfirmed](#event-downloadconfirmed).
 
-**Example:** 'Broker\{fileTransferId}\confirm download' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
+**Example:** 'Broker\{fileTransferId}\confirm download' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
 
 ## Event: no.altinn.broker.published {#event-published}
 
@@ -110,3 +110,4 @@ You do not need to perform actions against Broker, but it is an additional confi
 This event is triggered on the ExpiryTime of the FileTransfer in the case that one or more recipients have not confirmed the download of the file.
 This may indicate that either the recipient has been unaware of the FileTransfer or that they have downloaded but neglected to call the ConfirmDownload.
 This event is also sent to the Recipient(s) that have not confirmed the download.
+

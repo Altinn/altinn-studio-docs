@@ -77,5 +77,5 @@ The validate method takes a data file of an dataType and performs validation on 
 ![Flowchart for data validation](data-validate.png "Validate data")
 
 ```http
-PUT {appPath}/validate?dataType=modelA
+PUT {basePath}/api/v1/validate?dataType=modelA
 ```

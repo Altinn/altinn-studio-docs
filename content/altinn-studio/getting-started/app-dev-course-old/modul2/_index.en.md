@@ -8,7 +8,7 @@ weight: 20
 
 In this module, you will further develop the application you created in [Module 1](../modul1), including, among other things, a new page, hiding/showing pages based on dynamic expressions, and prefilling.
 
-You can do parts of Module 2 in [Altinn Studio Designer](/altinn-studio/getting-started/) (Designer), but some tasks need to be performed using [local development](/altinn-studio/guides/local-dev).
+You can do parts of Module 2 in [Altinn Studio Designer](/altinn-studio/getting-started/) (Designer), but some tasks need to be performed using [local development](/altinn-studio/guides/development/local-dev).
 
 **Themes covered in this module:**
 
@@ -128,7 +128,7 @@ If you have logic in an application where users can proceed to submission for mu
 
 Altinn provides the advantage of having readily accessible [metadata](/api/models/instance/#instance) for individuals and businesses. With prefilling, we can retrieve user data and populate fields seamlessly, reducing the need for manual data entry, especially for standard details like names, addresses, and emails.
 
-You can directly integrate data from Altinn's [prefill sources](/altinn-studio/reference/data/prefill/config/#available-prefill-values) into the app by mapping the data to specific fields in the data model, automating field population during form creation. You can also integrate custom code-based solutions for prefilling.
+You can directly integrate data from Altinn's [prefill sources](/altinn-studio/reference/data/prefill) into the app by mapping the data to specific fields in the data model, automating field population during form creation. You can also integrate custom code-based solutions for prefilling.
 
 This task focuses on the first data collection page, aiming to streamline the user experience by prefilling their details.
 
@@ -146,9 +146,9 @@ This task focuses on the first data collection page, aiming to streamline the us
 - It should be possible to change prefilled email and phone number
 
 ### Tasks
-1. Create a [prefill file](/altinn-studio/reference/data/prefill/config/#setup-of-prefill-in-the-application-repository).
-2. Configure prefilling for values available through Altinn's [prefill sources](/altinn-studio/reference/data/prefill/config/#available-prefill-values) (all but age).
-3. Create [custom prefilling](/altinn-studio/reference/data/prefill/custom) for age based on the personal identification number (see Code assistance and Useful resources below).
+1. Create a [prefill file](/altinn-studio/guides/development/prefill/config/#setup-of-prefill-in-the-application-repository).
+2. Configure prefilling for values available through Altinn's [prefill sources](/altinn-studio/reference/data/prefill) (all but age).
+3. Create [custom prefilling](/altinn-studio/guides/development/prefill/custom) for age based on the personal identification number (see Code assistance and Useful resources below).
 4. Configure settings for fields that should not be editable by the user.
 
 {{% expandsmall id="code-assistance" header="Code assistance: Calculating age from personal identification number" %}}
@@ -234,9 +234,9 @@ private static int CalculateAge(string sosialSecNumber)
 *Remember to push your local changes to make them available in Altinn Studio.*
 
 ### Useful documentation
-- [Prefilling from national registers and user profile](/altinn-studio/reference/data/prefill/config/#prefill-from-national-register-and-user-profile)
-- [Available sources and values for prefilling](/altinn-studio/reference/data/prefill/config/#available-prefill-values)
-- [Custom prefilling](/altinn-studio/reference/data/prefill/custom)
+- [Prefilling from national registers and user profile](/altinn-studio/guides/development/prefill/config)
+- [Available sources and values for prefilling](/altinn-studio/reference/data/prefill)
+- [Custom prefilling](/altinn-studio/guides/development/prefill/custom)
 - [Instance](/api/models/instance/#instance) - Application metadata container
 - [Description of the InstanceOwner object](/api/models/instance/#instanceowner) - This is where you can find the national identity number.
   In the code, the properties are referred to with an uppercase first letter, not lowercase, as in this overview.

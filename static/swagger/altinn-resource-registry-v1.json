@@ -5,6 +5,63 @@
     "version": "1.0"
   },
   "paths": {
+    "/access-lists/memberships": {
+      "get": {
+        "tags": [
+          "AccessListMemberships"
+        ],
+        "summary": "\r\n\r\n              Gets memberships for a party for a set of resources/parties.\r\n            \r\n\r\n\r\n              This is an internal API and requires an administrative token.\r\n            ",
+        "parameters": [
+          {
+            "name": "party",
+            "in": "query",
+            "description": "Parties to include.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "resource",
+            "in": "query",
+            "description": "Resources to include.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessListResourceMembershipWithActionFilterDtoListObject"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "PlatformComponentOnly"
+            ]
+          }
+        ]
+      }
+    },
     "/access-lists/{owner}": {
       "get": {
         "tags": [
@@ -49,7 +106,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -142,7 +199,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "headers": {
               "ETag": {
                 "description": "The version tag of the resource",
@@ -379,7 +436,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "headers": {
               "ETag": {
                 "description": "The version tag of the resource",
@@ -429,6 +486,7 @@
           "Access List"
         ],
         "summary": "Update an access list.",
+        "description": "This method is not implemented yet. See the put method instead.",
         "parameters": [
           {
             "name": "owner",
@@ -466,7 +524,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -498,6 +556,7 @@
           "Access List Members"
         ],
         "summary": "Get access list members.",
+        "operationId": "access-lists/get-members",
         "parameters": [
           {
             "name": "owner",
@@ -516,15 +575,92 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Optional continuation token",
+            "schema": {
+              "$ref": "#/components/schemas/AccessListMembersContinuationTokenOpaque"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "If-Match header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-None-Match",
+            "in": "header",
+            "description": "If-None-Match header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Modified-Since",
+            "in": "header",
+            "description": "If-Modified-Since header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Unmodified-Since",
+            "in": "header",
+            "description": "If-Unmodified-Since header",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
+            "headers": {
+              "ETag": {
+                "description": "The version tag of the resource",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Last-Modified": {
+                "description": "The last modified date of the resource",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AccessListMembershipDtoPaginated"
+                  "$ref": "#/components/schemas/AccessListMembershipDtoAggregateVersionVersionedPaginated"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "304": {
+            "description": "Not Modified",
+            "headers": {
+              "ETag": {
+                "description": "The version tag of the resource",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Last-Modified": {
+                "description": "The last modified date of the resource",
+                "schema": {
+                  "type": "string"
                 }
               }
             }
@@ -568,6 +704,38 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "If-Match header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-None-Match",
+            "in": "header",
+            "description": "If-None-Match header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Modified-Since",
+            "in": "header",
+            "description": "If-Modified-Since header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Unmodified-Since",
+            "in": "header",
+            "description": "If-Unmodified-Since header",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -580,13 +748,13 @@
                 ],
                 "type": "object",
                 "items": {
-                  "$ref": "#/components/schemas/PartyReference"
+                  "$ref": "#/components/schemas/PartyUrn"
                 },
                 "properties": {
                   "data": {
                     "type": "array",
                     "items": {
-                      "$ref": "#/components/schemas/PartyReference"
+                      "$ref": "#/components/schemas/PartyUrn"
                     }
                   }
                 },
@@ -597,14 +765,34 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
+            "headers": {
+              "ETag": {
+                "description": "The version tag of the resource",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Last-Modified": {
+                "description": "The last modified date of the resource",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AccessListMembershipDtoPaginated"
+                  "$ref": "#/components/schemas/AccessListMembershipDtoAggregateVersionVersionedPaginated"
                 }
               }
             }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "412": {
+            "description": "Precondition Failed"
           },
           "401": {
             "description": "Unauthorized"
@@ -646,6 +834,38 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "If-Match header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-None-Match",
+            "in": "header",
+            "description": "If-None-Match header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Modified-Since",
+            "in": "header",
+            "description": "If-Modified-Since header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Unmodified-Since",
+            "in": "header",
+            "description": "If-Unmodified-Since header",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -658,13 +878,13 @@
                 ],
                 "type": "object",
                 "items": {
-                  "$ref": "#/components/schemas/PartyReference"
+                  "$ref": "#/components/schemas/PartyUrn"
                 },
                 "properties": {
                   "data": {
                     "type": "array",
                     "items": {
-                      "$ref": "#/components/schemas/PartyReference"
+                      "$ref": "#/components/schemas/PartyUrn"
                     }
                   }
                 },
@@ -675,14 +895,34 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
+            "headers": {
+              "ETag": {
+                "description": "The version tag of the resource",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Last-Modified": {
+                "description": "The last modified date of the resource",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AccessListMembershipDtoPaginated"
+                  "$ref": "#/components/schemas/AccessListMembershipDtoAggregateVersionVersionedPaginated"
                 }
               }
             }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "412": {
+            "description": "Precondition Failed"
           },
           "401": {
             "description": "Unauthorized"
@@ -724,6 +964,38 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "If-Match header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-None-Match",
+            "in": "header",
+            "description": "If-None-Match header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Modified-Since",
+            "in": "header",
+            "description": "If-Modified-Since header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Unmodified-Since",
+            "in": "header",
+            "description": "If-Unmodified-Since header",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -736,13 +1008,13 @@
                 ],
                 "type": "object",
                 "items": {
-                  "$ref": "#/components/schemas/PartyReference"
+                  "$ref": "#/components/schemas/PartyUrn"
                 },
                 "properties": {
                   "data": {
                     "type": "array",
                     "items": {
-                      "$ref": "#/components/schemas/PartyReference"
+                      "$ref": "#/components/schemas/PartyUrn"
                     }
                   }
                 },
@@ -753,14 +1025,34 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
+            "headers": {
+              "ETag": {
+                "description": "The version tag of the resource",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Last-Modified": {
+                "description": "The last modified date of the resource",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AccessListMembershipDtoPaginated"
+                  "$ref": "#/components/schemas/AccessListMembershipDtoAggregateVersionVersionedPaginated"
                 }
               }
             }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "412": {
+            "description": "Precondition Failed"
           },
           "401": {
             "description": "Unauthorized"
@@ -848,7 +1140,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "headers": {
               "ETag": {
                 "description": "The version tag of the resource",
@@ -990,7 +1282,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "headers": {
               "ETag": {
                 "description": "The version tag of the resource",
@@ -1178,7 +1470,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -1222,9 +1514,162 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "OK"
           }
         }
+      }
+    },
+    "/altinn2export/delegationcount": {
+      "get": {
+        "tags": [
+          "Altinn2Export"
+        ],
+        "summary": "Information about number of delegations for a service",
+        "parameters": [
+          {
+            "name": "serviceCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "serviceEditionCode",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DelegationCountOverview"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DelegationCountOverview"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DelegationCountOverview"
+                }
+              },
+              "application/xml+rdf": {
+                "schema": {
+                  "$ref": "#/components/schemas/DelegationCountOverview"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "Admin"
+            ]
+          }
+        ]
+      }
+    },
+    "/altinn2export/exportdelegations": {
+      "post": {
+        "tags": [
+          "Altinn2Export"
+        ],
+        "summary": "Request a batch run of delegations from service in Altinn 2 to resource in Altinn 3",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExportDelegationsRequestBE"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExportDelegationsRequestBE"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExportDelegationsRequestBE"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "Admin"
+            ]
+          }
+        ]
+      }
+    },
+    "/altinn2export/setserviceeditionexpired": {
+      "get": {
+        "tags": [
+          "Altinn2Export"
+        ],
+        "summary": "Sets a given service expired to hide delegation functionality. Proxy for bridge functionality. Called by Altinn Studio and used as part of the migration of delegation process",
+        "parameters": [
+          {
+            "name": "externalServiceCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "externalServiceEditionCode",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "Admin"
+            ]
+          }
+        ]
       }
     },
     "/resource/resourcelist": {
@@ -1233,9 +1678,29 @@
           "Resource"
         ],
         "summary": "List of all resources",
+        "parameters": [
+          {
+            "name": "includeApps",
+            "in": "query",
+            "description": "Include App resources",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          },
+          {
+            "name": "includeAltinn2",
+            "in": "query",
+            "description": "Include Altinn 2 resources",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -1258,7 +1723,7 @@
         "summary": "List of all resources",
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/xml+rdf": {
                 "schema": {
@@ -1289,7 +1754,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -1328,7 +1793,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "OK"
           },
           "401": {
             "description": "Unauthorized"
@@ -1363,7 +1828,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "OK"
           },
           "401": {
             "description": "Unauthorized"
@@ -1399,7 +1864,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "OK"
           },
           "401": {
             "description": "Unauthorized"
@@ -1436,7 +1901,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "OK"
           }
         }
       },
@@ -1457,6 +1922,7 @@
           }
         ],
         "requestBody": {
+          "description": "The XACML policy file",
           "content": {
             "multipart/form-data": {
               "schema": {
@@ -1478,7 +1944,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "OK"
           },
           "401": {
             "description": "Unauthorized"
@@ -1512,6 +1978,7 @@
           }
         ],
         "requestBody": {
+          "description": "The XACML policy file",
           "content": {
             "multipart/form-data": {
               "schema": {
@@ -1533,7 +2000,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "OK"
           },
           "401": {
             "description": "Unauthorized"
@@ -1566,18 +2033,23 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "reloadFromXacml",
+            "in": "query",
+            "description": "Defines if subjects should be reloaded from Xacml",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/AttributeMatchV2"
-                  }
+                  "$ref": "#/components/schemas/AttributeMatchV2Paginated"
                 }
               }
             }
@@ -1585,7 +2057,7 @@
         }
       }
     },
-    "/resource/findforsubjects": {
+    "/resource/bysubjects": {
       "post": {
         "tags": [
           "Resource"
@@ -1606,14 +2078,11 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/SubjectResources"
-                  }
+                  "$ref": "#/components/schemas/SubjectResourcesPaginated"
                 }
               }
             }
@@ -1666,7 +2135,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -1674,6 +2143,56 @@
                   "items": {
                     "$ref": "#/components/schemas/ServiceResource"
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/resource/updated": {
+      "get": {
+        "tags": [
+          "Resource"
+        ],
+        "summary": "Gets the updated resources since the provided last updated time (inclusive)",
+        "operationId": "updated",
+        "parameters": [
+          {
+            "name": "since",
+            "in": "query",
+            "description": "Date time used for filtering",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Opaque continuation token containing ResourceUrn,SubjectUrn pair to skip past on rows matching \"since\" exactly",
+            "schema": {
+              "$ref": "#/components/schemas/UpdatedResourceSubjectsContinuationTokenOpaque"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of pairs returned (1-1000, default: 1000)",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1000
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdatedResourceSubjectPaginated"
                 }
               }
             }
@@ -1689,7 +2208,7 @@
         "summary": "Endpoint to get the org list from CDN",
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -1784,6 +2303,16 @@
         "additionalProperties": false,
         "description": "A paginated Altinn.ResourceRegistry.Models.ListObject`1."
       },
+      "AccessListMembersContinuationTokenOpaque": {
+        "type": "string",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/AccessListsController.AccessListMembersContinuationToken"
+          }
+        },
+        "additionalProperties": false,
+        "description": "\r\n\r\n                An opaque value is a value that can be transmitted to another party\r\n                without divulging any type information or expectations about the value.\r\n            \r\n\r\n\r\n                Opaque values are typically usefull in APIs where the server wants to\r\n                be able to return a value that the client later needs to send back to\r\n                the server, but where the server does not want to expose the type of\r\n                the value to the client. For instance, in a pagination scenario, the\r\n                server can use an opaque int to do pagination by page number, while\r\n                allowing itself to later change the implementation to use a cursor\r\n                instead of a page number without breaking the API.\r\n            "
+      },
       "AccessListMembershipDto": {
         "required": [
           "id",
@@ -1792,24 +2321,37 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "description": "The party id.",
-            "format": "urn",
-            "example": "urn:altinn:party:e458014d-4d4f-49a1-96d5-a869d95e8715"
+            "$ref": "#/components/schemas/PartyUrn.PartyUuid"
           },
           "since": {
             "type": "string",
-            "description": "Since when the party has been a member of the registry.",
+            "description": "Since when the party has been a member of the access list.",
             "format": "date-time"
           },
           "identifiers": {
-            "$ref": "#/components/schemas/PartyIdentifiers"
+            "type": "object",
+            "properties": {
+              "urn:altinn:party:id": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "urn:altinn:party:uuid": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "urn:altinn:organization:identifier-no": {
+                "$ref": "#/components/schemas/OrganizationNumber"
+              }
+            },
+            "additionalProperties": false,
+            "description": "An optional set of identifiers.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
         "description": "Represents an access list membership."
       },
-      "AccessListMembershipDtoPaginated": {
+      "AccessListMembershipDtoAggregateVersionVersionedPaginated": {
         "required": [
           "data",
           "links"
@@ -1828,33 +2370,17 @@
           }
         },
         "additionalProperties": false,
-        "description": "A paginated Altinn.ResourceRegistry.Models.ListObject`1."
-      },
-      "AccessListResourceConnectionContinuationToken": {
-        "type": "object",
-        "properties": {
-          "version": {
-            "type": "integer",
-            "description": "The access list version.",
-            "format": "int64"
-          },
-          "continueFrom": {
-            "type": "string",
-            "description": "What resource identifier to continue from."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Continuation token for access list resource connections."
+        "description": "A paginated Altinn.ResourceRegistry.Models.ListObject`1 with version information."
       },
       "AccessListResourceConnectionContinuationTokenOpaque": {
         "type": "string",
         "properties": {
           "value": {
-            "$ref": "#/components/schemas/AccessListResourceConnectionContinuationToken"
+            "$ref": "#/components/schemas/AccessListsController.AccessListResourceConnectionContinuationToken"
           }
         },
         "additionalProperties": false,
-        "description": "<br>\r\n                An opaque value is a value that can be transmitted to another party\r\n                without divulging any type information or expectations about the value.\r\n            \r\n<br>\r\n                Opaque values are typically usefull in APIs where the server wants to\r\n                be able to return a value that the client later needs to send back to\r\n                the server, but where the server does not want to expose the type of\r\n                the value to the client. For instance, in a pagination scenario, the\r\n                server can use an opaque int to do pagination by page number, while\r\n                allowing itself to later change the implementation to use a cursor\r\n                instead of a page number without breaking the API.\r\n            "
+        "description": "\r\n\r\n                An opaque value is a value that can be transmitted to another party\r\n                without divulging any type information or expectations about the value.\r\n            \r\n\r\n\r\n                Opaque values are typically usefull in APIs where the server wants to\r\n                be able to return a value that the client later needs to send back to\r\n                the server, but where the server does not want to expose the type of\r\n                the value to the client. For instance, in a pagination scenario, the\r\n                server can use an opaque int to do pagination by page number, while\r\n                allowing itself to later change the implementation to use a cursor\r\n                instead of a page number without breaking the API.\r\n            "
       },
       "AccessListResourceConnectionDto": {
         "required": [
@@ -1868,14 +2394,6 @@
             "type": "string",
             "description": "The resource identifier."
           },
-          "actions": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The allowed actions.",
-            "nullable": true
-          },
           "createdAt": {
             "type": "string",
             "description": "When the connection was created.",
@@ -1885,6 +2403,14 @@
             "type": "string",
             "description": "When the connection was last updated.",
             "format": "date-time"
+          },
+          "actionFilters": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Gets the allowed actions or null if all actions are allowed.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -1923,14 +2449,6 @@
             "type": "string",
             "description": "The resource identifier."
           },
-          "actions": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The allowed actions.",
-            "nullable": true
-          },
           "createdAt": {
             "type": "string",
             "description": "When the connection was created.",
@@ -1940,10 +2458,94 @@
             "type": "string",
             "description": "When the connection was last updated.",
             "format": "date-time"
+          },
+          "actionFilters": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Gets the allowed actions or null if all actions are allowed.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
         "description": "A Altinn.ResourceRegistry.Models.AccessListResourceConnectionDto with version information."
+      },
+      "AccessListResourceMembershipWithActionFilterDto": {
+        "type": "object",
+        "properties": {
+          "party": {
+            "$ref": "#/components/schemas/PartyUrn.PartyUuid"
+          },
+          "resource": {
+            "$ref": "#/components/schemas/ResourceUrn.ResourceId"
+          },
+          "since": {
+            "type": "string",
+            "description": "Since when this party has been a member of the list connected to the party.",
+            "format": "date-time"
+          },
+          "actionFilters": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Gets the allowed actions or null if all actions are allowed.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a party's membership of a access list connected to a specific resource with an optional set of action filters."
+      },
+      "AccessListResourceMembershipWithActionFilterDtoListObject": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccessListResourceMembershipWithActionFilterDto"
+            },
+            "description": "The items."
+          }
+        },
+        "additionalProperties": false,
+        "description": "A concrete list object."
+      },
+      "AccessListsController.AccessListMembersContinuationToken": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "integer",
+            "description": "The access list version.",
+            "format": "int64"
+          },
+          "continueFrom": {
+            "type": "string",
+            "description": "What member to continue from.",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Continuation token for access list members."
+      },
+      "AccessListsController.AccessListResourceConnectionContinuationToken": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "integer",
+            "description": "The access list version.",
+            "format": "int64"
+          },
+          "continueFrom": {
+            "type": "string",
+            "description": "What resource identifier to continue from."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Continuation token for access list resource connections."
       },
       "AggregateVersionIVersionedEntityCondition": {
         "type": "object",
@@ -1972,6 +2574,27 @@
         },
         "additionalProperties": false
       },
+      "AttributeMatchV2Paginated": {
+        "required": [
+          "data",
+          "links"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttributeMatchV2"
+            },
+            "description": "The items."
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginatedLinks"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A paginated Altinn.ResourceRegistry.Models.ListObject`1."
+      },
       "AuthorizationReferenceAttribute": {
         "type": "object",
         "properties": {
@@ -1982,6 +2605,39 @@
           "value": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CharReadOnlyMemory": {
+        "type": "object",
+        "properties": {
+          "length": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "isEmpty": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "span": {
+            "$ref": "#/components/schemas/CharReadOnlySpan"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CharReadOnlySpan": {
+        "type": "object",
+        "properties": {
+          "length": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "isEmpty": {
+            "type": "boolean",
+            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -2045,6 +2701,48 @@
         },
         "additionalProperties": false,
         "description": "Model used for creating or updating an access list."
+      },
+      "DelegationCountOverview": {
+        "type": "object",
+        "properties": {
+          "numberOfDelegations": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberOfRelations": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ExportDelegationsRequestBE": {
+        "required": [
+          "dateTimeForExport",
+          "resourceId",
+          "serviceCode",
+          "serviceEditionCode"
+        ],
+        "type": "object",
+        "properties": {
+          "serviceCode": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "serviceEditionCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "resourceId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "dateTimeForExport": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
       },
       "JsonPatchAddOperation": {
         "required": [
@@ -2249,6 +2947,18 @@
         "format": "json-pointer",
         "example": "/foo/bar"
       },
+      "JsonPointer.Segment": {
+        "type": "object",
+        "properties": {
+          "isEmpty": {
+            "type": "boolean",
+            "description": "Gets weather the segment is empty.",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A segment of a JSON Pointer."
+      },
       "Keyword": {
         "type": "object",
         "properties": {
@@ -2309,6 +3019,10 @@
         },
         "additionalProperties": false
       },
+      "OrganizationNumber": {
+        "type": "object",
+        "additionalProperties": false
+      },
       "PaginatedLinks": {
         "required": [
           "next"
@@ -2326,39 +3040,51 @@
         "additionalProperties": false,
         "description": "Pagination links."
       },
-      "PartyIdentifiers": {
-        "type": "object",
-        "properties": {
-          "partyId": {
-            "type": "string",
-            "description": "The party id.",
-            "format": "uuid"
+      "PartyUrn": {
+        "type": "string",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/PartyUrn.PartyId"
           },
-          "organizationNumber": {
-            "type": "string",
-            "description": "The organization number.",
-            "format": "org.nr",
-            "nullable": true,
-            "example": "123456789"
+          {
+            "$ref": "#/components/schemas/PartyUrn.PartyUuid"
+          },
+          {
+            "$ref": "#/components/schemas/PartyUrn.OrganizationIdentifier"
           }
-        },
+        ],
         "additionalProperties": false,
-        "description": "Additional identifiers for a party."
+        "format": "urn",
+        "example": "urn:altinn:party:id:123"
       },
-      "PartyReference": {
+      "PartyUrn.OrganizationIdentifier": {
+        "pattern": "^urn:altinn:organization:identifier-no:.+$",
         "type": "string",
         "additionalProperties": false,
-        "description": "A unique reference to a party in the form of an URN.",
         "format": "urn",
-        "example": "urn:altinn:party:e458014d-4d4f-49a1-96d5-a869d95e8715"
+        "example": "urn:altinn:organization:identifier-no:123456789"
       },
-      "PartyReferenceType": {
+      "PartyUrn.PartyId": {
+        "pattern": "^urn:altinn:party:id:.+$",
+        "type": "string",
+        "additionalProperties": false,
+        "format": "urn",
+        "example": "urn:altinn:party:id:123"
+      },
+      "PartyUrn.PartyUuid": {
+        "pattern": "^urn:altinn:party:uuid:.+$",
+        "type": "string",
+        "additionalProperties": false,
+        "format": "urn",
+        "example": "urn:altinn:party:uuid:049d6f78-f087-41c3-a4ec-c98f5451e387"
+      },
+      "PartyUrn.Type": {
         "enum": [
-          0,
-          1
+          1,
+          2,
+          3
         ],
         "type": "integer",
-        "description": "Supported party reference types.",
         "format": "int32"
       },
       "ReferenceSource": {
@@ -2384,6 +3110,18 @@
         ],
         "type": "integer",
         "format": "int32"
+      },
+      "ResourceAccessListMode": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "ResourceIdentifier": {
+        "type": "object",
+        "additionalProperties": false
       },
       "ResourcePartyType": {
         "enum": [
@@ -2418,27 +3156,39 @@
           2,
           4,
           8,
-          16
+          16,
+          32,
+          64
         ],
         "type": "integer",
         "format": "int32"
       },
-      "Segment": {
-        "type": "object",
-        "properties": {
-          "isEmpty": {
-            "type": "boolean",
-            "description": "Gets weather the segment is empty.",
-            "readOnly": true
-          }
-        },
+      "ResourceUrn.ResourceId": {
+        "pattern": "^urn:altinn:resource:.+$",
+        "type": "string",
         "additionalProperties": false,
-        "description": "A segment of a JSON Pointer."
+        "format": "urn",
+        "example": "urn:altinn:resource:test"
+      },
+      "ResourceUrn.Type": {
+        "enum": [
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
       },
       "ServiceResource": {
+        "required": [
+          "contactPoints",
+          "description",
+          "hasCompetentAuthority",
+          "identifier",
+          "title"
+        ],
         "type": "object",
         "properties": {
           "identifier": {
+            "minLength": 1,
             "type": "string"
           },
           "version": {
@@ -2461,14 +3211,16 @@
             "type": "object",
             "additionalProperties": {
               "type": "string"
-            }
+            },
+            "nullable": true
           },
           "homepage": {
             "type": "string",
             "nullable": true
           },
           "status": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "spatial": {
             "type": "array",
@@ -2524,8 +3276,8 @@
             },
             "nullable": true
           },
-          "limitedByRRR": {
-            "type": "boolean"
+          "accessListMode": {
+            "$ref": "#/components/schemas/ResourceAccessListMode"
           },
           "selfIdentifiedUserEnabled": {
             "type": "boolean"
@@ -2558,13 +3310,18 @@
         "properties": {
           "value": {
             "type": "string",
-            "description": "Gets the inner value."
+            "description": "Gets the inner value.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
-        "description": "<br>\r\n                An opaque value is a value that can be transmitted to another party\r\n                without divulging any type information or expectations about the value.\r\n            \r\n<br>\r\n                Opaque values are typically usefull in APIs where the server wants to\r\n                be able to return a value that the client later needs to send back to\r\n                the server, but where the server does not want to expose the type of\r\n                the value to the client. For instance, in a pagination scenario, the\r\n                server can use an opaque int to do pagination by page number, while\r\n                allowing itself to later change the implementation to use a cursor\r\n                instead of a page number without breaking the API.\r\n            "
+        "description": "\r\n\r\n                An opaque value is a value that can be transmitted to another party\r\n                without divulging any type information or expectations about the value.\r\n            \r\n\r\n\r\n                Opaque values are typically usefull in APIs where the server wants to\r\n                be able to return a value that the client later needs to send back to\r\n                the server, but where the server does not want to expose the type of\r\n                the value to the client. For instance, in a pagination scenario, the\r\n                server can use an opaque int to do pagination by page number, while\r\n                allowing itself to later change the implementation to use a cursor\r\n                instead of a page number without breaking the API.\r\n            "
       },
       "SubjectResources": {
+        "required": [
+          "resources",
+          "subject"
+        ],
         "type": "object",
         "properties": {
           "subject": {
@@ -2574,25 +3331,119 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AttributeMatchV2"
-            },
-            "nullable": true
+            }
           }
         },
         "additionalProperties": false
       },
+      "SubjectResourcesPaginated": {
+        "required": [
+          "data",
+          "links"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubjectResources"
+            },
+            "description": "The items."
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginatedLinks"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A paginated Altinn.ResourceRegistry.Models.ListObject`1."
+      },
+      "UpdatedResourceSubject": {
+        "type": "object",
+        "properties": {
+          "subjectUrn": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "resourceUrn": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deleted": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdatedResourceSubjectPaginated": {
+        "required": [
+          "data",
+          "links"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdatedResourceSubject"
+            },
+            "description": "The items."
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginatedLinks"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A paginated Altinn.ResourceRegistry.Models.ListObject`1."
+      },
+      "UpdatedResourceSubjectsContinuationToken": {
+        "type": "object",
+        "properties": {
+          "resourceUrn": {
+            "type": "string",
+            "description": "The resourceUrn.",
+            "format": "uri",
+            "nullable": true
+          },
+          "subjectUrn": {
+            "type": "string",
+            "description": "The subjectUrn.",
+            "format": "uri",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Continuation token for updated resource subjects. Used with \"since\" value to serve\r\nas tiebreaker when paginating over resource subjects having the same \"updatedAt\" value\r\nsplit across pages"
+      },
+      "UpdatedResourceSubjectsContinuationTokenOpaque": {
+        "type": "string",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/UpdatedResourceSubjectsContinuationToken"
+          }
+        },
+        "additionalProperties": false,
+        "description": "\r\n\r\n                An opaque value is a value that can be transmitted to another party\r\n                without divulging any type information or expectations about the value.\r\n            \r\n\r\n\r\n                Opaque values are typically usefull in APIs where the server wants to\r\n                be able to return a value that the client later needs to send back to\r\n                the server, but where the server does not want to expose the type of\r\n                the value to the client. For instance, in a pagination scenario, the\r\n                server can use an opaque int to do pagination by page number, while\r\n                allowing itself to later change the implementation to use a cursor\r\n                instead of a page number without breaking the API.\r\n            "
+      },
       "UpsertAccessListResourceConnectionDto": {
         "type": "object",
         "properties": {
-          "actions": {
+          "actionFilters": {
             "type": "array",
             "items": {
               "type": "string"
             },
-            "description": "The allowed actions."
+            "description": "The allowed actions - if null or empty, all actions will be allowed.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
-        "description": "Model for creating or updateing an access list resource connection."
+        "description": "Model for creating or updating an access list resource connection."
       }
     },
     "securitySchemes": {

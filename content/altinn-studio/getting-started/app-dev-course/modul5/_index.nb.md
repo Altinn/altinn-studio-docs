@@ -1,7 +1,7 @@
 ---
-title: Publiser tjenesten
-description: Publiser tjenesten til et testmiljø
-linktitle: Publiser tjenesten
+title: "Modul 5: Publisere tjenesten"
+description: Publiser tjenesten til et testmiljø.
+linktitle: "Modul 5: Publisere tjenesten"
 tags: [apps, training, form, deploy, test]
 weight: 50
 ---
@@ -68,7 +68,7 @@ minutter.
 
 
 ### Nyttig dokumentasjon
-- [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/guides/basic-form)
+- [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/guides/development/basic-form)
 
 ## Oppsummering
 I denne modulen har vi bygget en pakke av første versjon av tjenesten. Vi har så publisert pakken ut til testmiljø, og startet opp tjensten 
@@ -77,4 +77,6 @@ i testmiljøet for å teste den.
 {{<navigation-buttons
   urlBack="../modul4"
   textBack="<< Forrige modul"
+  urlNext="../modul6"
+  textNext="Neste modul >>"
 >}}
