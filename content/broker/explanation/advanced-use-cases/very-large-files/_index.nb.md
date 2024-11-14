@@ -14,9 +14,4 @@ Den teoretiske maksimale størrelsen er 1,6TB, men vi gjennomfører regelmessig 
 # Hvordan bryte 2GB-grensen
 
 1. Kontakt oss på [@Slack#team-formidling](https://altinn.slack.com/archives/C06982E0UGH) for godkjenning.
-2. Kall [PUT /resource/{{resourceId}}](https://docs.altinn.studio/broker/getting-started/developer-guides/service-owner/#operation-configure-resource-in-broker-api) på Broker API med "maxFileTransferSize" satt til din maksimale filstørrelse. For eksempel, for 100GB:
-```json
-{
-    "maxFileTransferSize": "107374182400"
-}
-```
+2. Sett "DisableVirusScan" i [fileoverføringsinitialiseringskallet](https://docs.altinn.studio/broker/getting-started/developer-guides/send-files/#operation-initialize-filetransfer) til true.
