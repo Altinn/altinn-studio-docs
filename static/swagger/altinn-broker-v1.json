@@ -354,6 +354,9 @@
                   "Metadata.Checksum": {
                     "type": "string"
                   },
+                  "Metadata.DisableVirusScan": {
+                    "type": "boolean"
+                  },
                   "File": {
                     "type": "string",
                     "format": "binary"
@@ -380,6 +383,9 @@
                   "style": "form"
                 },
                 "Metadata.Checksum": {
+                  "style": "form"
+                },
+                "Metadata.DisableVirusScan": {
                   "style": "form"
                 },
                 "File": {
@@ -621,6 +627,10 @@
           "checksum": {
             "type": "string",
             "nullable": true
+          },
+          "disableVirusScan": {
+            "type": "boolean",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -646,6 +656,10 @@
           },
           "checksum": {
             "type": "string",
+            "nullable": true
+          },
+          "useVirusScan": {
+            "type": "boolean",
             "nullable": true
           },
           "fileTransferSize": {
@@ -718,6 +732,10 @@
           },
           "checksum": {
             "type": "string",
+            "nullable": true
+          },
+          "useVirusScan": {
+            "type": "boolean",
             "nullable": true
           },
           "fileTransferSize": {
