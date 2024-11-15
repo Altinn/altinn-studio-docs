@@ -28,19 +28,16 @@ Dette trinnet er bare nødvendig for nye virksomheter som ennå ikke har etabler
 Utfør steg 1 og 2 i [Felles kom i gang-steg](../common-steps) hvis du ikke allerede har gjort det.
 
 ## 3. Opprett ny ressurs {#register-a-resource-in-altinn-resource-registry}
-For at filer skal kunne sendes med Altinn Formidling, må de være tilknyttet en ressurs. 
-En ressurs representerer en spesifikk funksjon eller et sett av funksjoner som brukes til å administrere tilgang og regler for filoverføring. 
+For å kunne sende meldinger over med Altinn Melding, må de først være tilknyttet en ressurs. 
+En ressurs representerer en spesifikk funksjon eller et sett av funksjoner som brukes til å administrere tilgang og regler for overføring av meldinger. 
 Ressurser registreres via Altinn Studio og brukes til å definere tilgangsregler og tilgangslister, som sikrer at bare autoriserte brukere kan utføre bestemte handlinger.
 
-1. Logg inn på Altinn Studio og naviger til ressursdashboardet, Se [Ressursregister](../../../../authorization/what-do-you-get/resourceregistry/) for en detaljert veiledning.
+1. Logg inn på Altinn Studio og naviger til ressursdashboardet, Se [Ressursregister](../../../../authorization/guides/create-resource-resource-admin/) for en detaljert veiledning.
 2. Opprett ny ressurs, følg veiledningen og fyll inn nødvendig informasjon og detaljer om tjenesten.
-3. Angi tilgangsregler for ressursen.
-4. Tilgangsregler må for ressursen må konfigureres slik at de tillater følgende handlinger:
-    - "subscribe" for alle, - dette brukes for hendelser.
-    - "read" for mottakere
-    - "write" for avsendere.
-
-Alternativt, for å sette opp en ressurs som fungerer raskt, kan du bruke vår [Postman-samling](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json) og kjøre forespørslene "Create resource" og "Create resource policy" med en token som har scopet "altinn:resourceregistry/resource.write".
+3. Angi tilgangsregler for ressursen. Tilgangsregler må for ressursen må konfigureres slik at de tillater følgende handlinger:
+    - "read" ment for mottakere å åpne og lese en melding
+    - "write" ment for avsendere å sende en melding
+    - "subscribe" for å registrere hendelsesabonnement i Altinn Events
 
 Her er en [eksempelpolicy](ExamplePolicy.xml).
 

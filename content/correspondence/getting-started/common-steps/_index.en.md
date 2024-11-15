@@ -25,9 +25,10 @@ If you do not already possess an API Key for the Maskinporten Client(s) you inte
 
 ## 2. Register your Maskinporten Client with correct scopes {#register-your-maskinporten-client-with-correct-scopes}
 
-Register your Maskinporten client(s) to authenticate with the Correspondence API, assigning them the relevant scope:
+Register your Maskinporten client(s) to authenticate with the Correspondence API, assigning them the relevant scopes for whether they will be used for sending and/or receiving messages:
 
-- `altinn:correspondence` 
+- `altinn:correspondence.write` 
+- `altinn:correspondence.read` 
 
 These scopes are maintained by Altinn and are required to be authorized for the appropriate API operations, and as such are independent of the [access set by Service Owners](../service-owner#register-a-resource-in-altinn-resource-registry) for the specific Correspondence Service Resource.
 

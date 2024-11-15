@@ -73,15 +73,11 @@ Each service comes with a process flow that can be configured. You can define wh
 have access, and which actions should be available to whom. Currently, we support being able to define custom steps for:
 - Data entry
 - Signing
-- Payment*
+- Payment
 - Feedback
 - Summary
 
 PDF receipts are generated automatically.
-
-{{% notice info %}}
-\* Support for [user payment for services](https://github.com/digdir/roadmap/issues/80) is under development.
-{{% /notice %}}
 
 ## Development
 New functionality and bug fixes are continuously released. We also have extensive documentation, including a

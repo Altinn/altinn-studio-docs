@@ -9,7 +9,7 @@ tags: [translate-to-english]
 
 Som applikasjonsutvikler administrerer man selv hemmelighetene som applikasjonen benytter i Azure Key Vault.
 
-[Rutiner for bestilling av tilgang til din organisasjons ressurser er beskrevet her](/altinn-studio/guides/access-management/apps/).
+[Rutiner for bestilling av tilgang til din organisasjons ressurser er beskrevet her](/altinn-studio/guides/administration/access-management/apps/).
 
 ## Konfigurer støtte for hemmeligheter i din app
 

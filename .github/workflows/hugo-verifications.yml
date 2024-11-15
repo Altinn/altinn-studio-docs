@@ -18,12 +18,12 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.133.1'
+          hugo-version: '0.137.0'
 
       - name: Build docs
         run: hugo
 
       - name: Verify links
-        uses: untitaker/hyperlink@0.1.32
+        uses: untitaker/hyperlink@0.1.43
         with:
           args: public/ --check-anchors --sources content/

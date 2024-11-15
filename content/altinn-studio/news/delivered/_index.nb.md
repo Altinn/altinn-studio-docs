@@ -36,4 +36,10 @@ hidden: true
         timeline="Q2 2024"
         githubUrl="https://github.com/digdir/roadmap/issues/158"
     >}}
+    {{<news-card 
+        title="Betaling" 
+        content="Mulighet for å konfigurere brukerbetaling for tjenester som er gebyrbelagt eller hvor det er lov å kreve betaling." 
+        timeline="Q2 2024" 
+        githubUrl="https://github.com/digdir/roadmap/issues/80"
+    >}}
 </div>

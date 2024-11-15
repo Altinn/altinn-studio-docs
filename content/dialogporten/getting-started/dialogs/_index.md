@@ -5,6 +5,12 @@ weight: 10
 toc: true
 ---
 
+## Introduction
+
+This section explains the dialog model and its components from a functional standpoint. For technical information for the various entities, see links within each section of this page.
+
+For step-by-step guides on how to use Dialogporten as a end-user or service owner, see the [user guides]({{<relref "../../user-guides">}}).
+
 ## The dialog
 
 The dialog is an abstract and common model for all ongoing or completed communications with a service owners, and contains descriptive metadata, e.g., who is the receiving party, addresses (URL), textual content (title, summary etc), date, status, a list of relevant _actions_ that the user can perform, and an optional list of [transmissions](#transmissions). Actions can be arbitrarily defined by the service provider, and all interaction with the dialog takes place in the service provider's user interfaces or against the service provider's API endpoints (except for GUI actions that describe write operations, see more about this in the section [Actions](#actions)).
@@ -35,13 +41,14 @@ Attachments are files referenced by one or more URLs, supporting various represe
 
 Attachments can be used on both transmission and dialog level. 
 
+**Read more**
 * [Reference information for the attachment entity]({{<relref "../../reference/entities/attachment">}})
 
 ## Actions
 
 An _action_ describes an interaction that users can perform with or related to a dialog. Examples of actions are "Open", "Start signing", "Pay", "Confirm", "Learn more", "Cancel", etc. The list of relevant actions is part of the structured description of a dialog and can be changed at any time by the service provider through the API.
 
-An action is either a _"GUI" action_ or an _"API" action_. All actions - both GUI and API - have an identifier that maps to an _action_ (and optionally an [authorization attribute]({{<relref "../authorization/attributes">}})) in the authorization policy (XACML) associated with a [service resource]({{<relref "../authorization/service-resource">}}).
+An action is either a _"GUI" action_ or an _"API" action_. All actions - both GUI and API - have an identifier that maps to an _action_ (and optionally an [authorization attribute]({{<relref "../authorization/attributes">}})) in the authorization policy ([XACML]({{<relref "../../../../authorization/guides/xacml/">}})) associated with a [service resource]({{<relref "../authorization/service-resource">}}).
 
 ### GUI Actions
 
@@ -72,6 +79,34 @@ An _activity_ describes an action or event that has occurred in connection with 
 
 **Read more**
 * [Reference information for the dialog activity entity]({{<relref "../../reference/entities/activity">}})
+
+## Dialog labels
+
+Dialogs can be assigned various labels that users may employ in order to organize their dialogs in order to make it easier to keep track and collaborate with each other. 
+
+{{<notice info>}}
+Labels does not affect the state of the actual dialog; ie. its status, content or progress, and cannot be used to advance or otherwise affect the dialog process as defined by the service owner. It is merely a mechanism to enable dialog organization by allowing the user interface to create views based on dialog labels.
+{{</notice>}}
+
+There are two main categories of labels; user defined labels and system labels.
+
+### User defined labels
+User defined labels are administered by the users, and may be shared with other users. Some user defined labels have global effect (ie. visible for everyone with access to the dialog), while other are personal (ie. only visible for the user owning the labels.) 
+
+{{<notice warning>}}
+User defined label functionality is under design, and will be made available at a later stage. See the [news]({{<relref "../../news">}}) section for updated information.
+{{</notice>}}
+
+### System labels
+System labels are predefined, global labels defined by Dialogporten. These may be assigned to any dialog by any user with write access to the dialog in question. Currently there are three system labels defined; `Archive` and `Bin` and `Default`. Assigning `Archive` or `Bin` labels will typically hide the dialog from the ordinary inbox views, and will make them available in other views. These system labels are mutually exclusive (ie. it can only have one of these labels at any time). By default, all dialogs will have the label `Default`, which indicates that default view/handling of the dialog should be applied. 
+
+Common for these two system labels is that any change made to the dialog by the service owner will reset them to `Default`. Ie. if a user decides to place a dialog in the bin, and the service owner subsequently updates it with more information, the dialog will again be visible in the ordinary views as if the `Bin` label was never assigned.
+
+### Label log
+Dialogporten keeps track of labellings, logging who performed them and at what time it was performed. This includes resetting of system labels due to dialog updates.
+
+**Read more**
+* [Reference information for the system label entity]({{<relref "../../reference/entities/systemlabel">}})
 
 
 {{<children />}}

@@ -3,7 +3,7 @@
 {{ if $footnotes }}
   <div class="footnotes-display">
     {{ range $index, $text := $footnotes }}
-      <div class="footnotes-entry"><sup>{{ $index }}</sup><span>{{ $text }}</span></div>
+      <div class="footnotes-entry"><sup>{{ $index }}</sup><span>{{ $text | markdownify | safeHTML }}</span></div>
     {{ end }}
   </div>
   {{ if not (eq (.Get 0) "noreset") }}  <!-- Check for the 'noreset' argument, which preserves the footnote index -->

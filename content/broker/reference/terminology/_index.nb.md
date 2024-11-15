@@ -1,13 +1,13 @@
 ---
 title: Begreper
 linktitle: Begreper
-description: Begrepsapparat for Altinn 3 Melding
+description: Begrepsapparat for Altinn 3 Formidling
 tags: []
 toc: false
 weight: 10
 ---
 
-Her følger en tabell som gir korte beskrivelser av hovedbegrepene som brukes for å beskrive Altinn 3 Melding. 
+Her følger en tabell som gir korte beskrivelser av hovedbegrepene som brukes for å beskrive Altinn 3 Formidling. 
 Se også https://docs.altinn.studio/technology/terms/ og <https://data.norge.no/concepts>.
 
 | **Begrep**                       | **Forklaring**                                                                                                                                                                                                                                          |
@@ -36,7 +36,7 @@ Se også https://docs.altinn.studio/technology/terms/ og <https://data.norge.no/
 
 
 Merk: 
-* I kontekst av Altinn Melding, benyttes begrepene _datatilbyder_ og _avsender_ om det samme.
-* I kontekst av Altinn Melding, benyttes begrepene _datakonsument_ og _mottaker_ om det samme.
+* I kontekst av Altinn Formidling, benyttes begrepene _datatilbyder_ og _avsender_ om det samme.
+* I kontekst av Altinn Formidling, benyttes begrepene _datakonsument_ og _mottaker_ om det samme.
   <!-- are used interchangeably. -->
 

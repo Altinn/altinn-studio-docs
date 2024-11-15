@@ -17,13 +17,29 @@ Dynamics are events that happen on the client side. These can be separated in tw
 - Calculations -  do calculations on the client side, and update the fields with new value.
 - Show/hide fields - decide if fields should be hidden or displayed based on form values.  
 
+Rules used for javascript-based dynamics can be added and changed directly in the _RuleHandler_ file containing the rules.
+
+{{% panel theme="warning" %}}
+⚠️ Since we are moving more and more of this functionality over to [dynamic expressions](../expressions), the file
+_RuleHandler.js_ is not a part of new apps as of 7th October 2024. 
+If you do not find the file in the `App/ui/form`-folder, you can add it there. As a minimum, the file should contain the following:
+
+```javascript
+var ruleHandlerObject = {};
+var ruleHandlerHelper = {};
+
+var conditionalRuleHandlerObject = {};
+var conditionalRuleHandlerHelper = {};
+```
+
+{{% /panel %}}
+
 There are two ways to add and change dynamics for an Altinn App:
-1. Directly in Altinn Studio under _Lage_-tab. Select _Rediger dynamikk_ in the right menu.
-2. In a local development environment by working in the file `RuleHandler.js` which can be found in the `App/ui` folder.
+1. Directly in Altinn Studio, in the app repository. Select "Open repository" in the profile menu for the app, and navigate to `App/ui/form` and open `RuleHandler.js` in the browser.
+2. In a local development environment by working in the file `RuleHandler.js` which can be found in the `App/ui/form` folder.
 
 All dynamics are written as JavaScript functions in the _RuleHandler_ file.
 Functions that are defined in this file can be configured to run for selected fields in the app.
-
 
 {{%notice info%}}
 The dynamic code to show/hide fields or perform calculations should be set up so that it handles possible errors in the input gracefully.

@@ -8,9 +8,9 @@ Dialogporten supports a read-only GraphQL API for end-users. The endpoints are:
 
 | Environment | URL                                                                                |
 | ----------- | ---------------------------------------------------------------------------------- |
-| Test        | https://altinn-dev-api.azure-api.net/dialogporten/graphql                          |
-| Staging     | https://platform.tt02.altinn.no/dialogporten/graphql                               |
-| Production  | https://platform.altinn.no/dialogporten/graphql {{<footnote "Not yet available">}} |
+| Test        | `https://altinn-dev-api.azure-api.net/dialogporten/graphql`                        |
+| Staging     | `https://platform.tt02.altinn.no/dialogporten/graphql`                             |
+| Production  | `https://platform.altinn.no/dialogporten/graphql`                                  |
 
 {{<displayFootnotes>}}
 

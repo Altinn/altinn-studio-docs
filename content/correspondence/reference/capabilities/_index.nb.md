@@ -18,7 +18,7 @@ TBD
 
 
 ## Overordnede brukerbehov
-For å se hvilke egenskaper som kreves av Altinn Formidlingsløsningen, starter vi med å vurdere brukernes behov. 
+For å se hvilke egenskaper som kreves av Altinn Meldingsløsningen, starter vi med å vurdere brukernes behov. 
 Følgende diagram uttrykker de overordnede brukerbehovene for hvert verdistrømsteg.
 
 Figur: TBD

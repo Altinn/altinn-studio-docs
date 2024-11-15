@@ -8,7 +8,7 @@ weight: 50
 
 <!-- Før du starter -->
 ## 1. Før du starter
-Organisasjonen du lager appen for må ha en NETS Easy avtale.
+Organisasjonen du lager appen for må ha en Nets Easy avtale.
 Du finner informasjon om hvordan du oppretter avtalen her:
 [payments.nets.eu](https://payments.nets.eu/nb-NO/checkout).
 
