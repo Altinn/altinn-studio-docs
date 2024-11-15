@@ -98,9 +98,9 @@ User defined label functionality is under design, and will be made available at 
 {{</notice>}}
 
 ### System labels
-System labels are predefined, global labels defined by Dialogporten. These may be assigned to any dialog by any user with write access to the dialog in question. Currently there are two system labels defined; archive and bin. Assigning these labels will typically hide the dialog from the ordinary inbox views, and will make them available in other views. Both these labels are mutually exclusive (ie. it can only have one of either "archive" or "bin").
+System labels are predefined, global labels defined by Dialogporten. These may be assigned to any dialog by any user with write access to the dialog in question. Currently there are three system labels defined; `Archive` and `Bin` and `Default`. Assigning `Archive` or `Bin` labels will typically hide the dialog from the ordinary inbox views, and will make them available in other views. These system labels are mutually exclusive (ie. it can only have one of these labels at any time). By default, all dialogs will have the label `Default`, which indicates that default view/handling of the dialog should be applied. 
 
-Common for these two system labels is that any change made to the dialog by the service owner will remove them. Ie. if a user decides to place a dialog in the bin, and the service owner subsequently updates it with more information, the dialog will again be visible in the ordinary views as if the bin label was never assigned.
+Common for these two system labels is that any change made to the dialog by the service owner will reset them to `Default`. Ie. if a user decides to place a dialog in the bin, and the service owner subsequently updates it with more information, the dialog will again be visible in the ordinary views as if the `Bin` label was never assigned.
 
 ### Label log
 Dialogporten keeps track of labellings, logging who performed them and at what time it was performed. This includes resetting of system labels due to dialog updates.
