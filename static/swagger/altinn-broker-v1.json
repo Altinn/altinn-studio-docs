@@ -354,6 +354,9 @@
                   "Metadata.Checksum": {
                     "type": "string"
                   },
+                  "Metadata.DisableVirusScan": {
+                    "type": "boolean"
+                  },
                   "File": {
                     "type": "string",
                     "format": "binary"
@@ -380,6 +383,9 @@
                   "style": "form"
                 },
                 "Metadata.Checksum": {
+                  "style": "form"
+                },
+                "Metadata.DisableVirusScan": {
                   "style": "form"
                 },
                 "File": {
@@ -517,6 +523,145 @@
           }
         }
       }
+    },
+	"/broker/api/v1/resource/{resourceId}": {
+      "put": {
+        "summary": "Configure a resource",
+        "operationId": "configureResource",
+        "tags": ["Resource"],
+        "parameters": [
+          {
+            "name": "resourceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Maskinporten token"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceExt"
+              },
+              "example": {
+                "MaxFileTransferSize": 2147483648,
+                "FileTransferTimeToLive": 30D,
+                "PurgeFileTransferAfterAllRecipientsConfirmed": true,
+                "PurgeFileTransferGracePeriod": 48H,
+                "UseManifestFileShim": false,
+                "ExternalServiceCodeLegacy": null,
+                "ExternalServiceEditionCodeLegacy": null
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Resource configured successfully"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {
+            "serviceOwnerPolicy": []
+          }
+        ]
+      }
+    },
+	"/broker/api/v1/serviceowner": {
+      "post": {
+        "summary": "Initialize a service owner",
+        "operationId": "initializeServiceOwner",
+        "tags": ["ServiceOwner"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ServiceOwnerInitializeExt"
+              },
+              "example": {
+                "Name": "Example Service Owner",
+                "DeletionTime": "P1D"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Service owner initialized successfully"
+          },
+          "409": {
+            "description": "Service owner already exists"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {
+            "serviceOwnerPolicy": []
+          }
+        ]
+      },
+      "get": {
+        "summary": "Get service owner details",
+        "operationId": "getServiceOwner",
+        "tags": ["ServiceOwner"],
+        "responses": {
+          "200": {
+            "description": "Service owner details retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceOwnerOverviewExt"
+                },
+                "example": {
+                  "Name": "Example Service Owner",
+                  "DeploymentStatus": "Deployed"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Service owner not found"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {
+            "serviceOwnerPolicy": []
+          }
+        ]
+      }
     }
   },
   "components": {
@@ -621,6 +766,10 @@
           "checksum": {
             "type": "string",
             "nullable": true
+          },
+          "disableVirusScan": {
+            "type": "boolean",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -646,6 +795,10 @@
           },
           "checksum": {
             "type": "string",
+            "nullable": true
+          },
+          "useVirusScan": {
+            "type": "boolean",
             "nullable": true
           },
           "fileTransferSize": {
@@ -718,6 +871,10 @@
           },
           "checksum": {
             "type": "string",
+            "nullable": true
+          },
+          "useVirusScan": {
+            "type": "boolean",
             "nullable": true
           },
           "fileTransferSize": {
@@ -911,6 +1068,59 @@
           }
         },
         "additionalProperties": false
+      },
+      "ResourceExt": {
+        "type": "object",
+        "properties": {
+          "MaxFileTransferSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "FileTransferTimeToLive": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "PurgeFileTransferAfterAllRecipientsConfirmed": {
+            "type": "boolean"
+          },
+          "PurgeFileTransferGracePeriod": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "UseManifestFileShim": {
+            "type": "boolean"
+          },
+          "ExternalServiceCodeLegacy": {
+            "type": "string"
+          },
+          "ExternalServiceEditionCodeLegacy": {
+            "type": "string"
+          }
+        }
+      },
+      "ServiceOwnerInitializeExt": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string"
+          },
+          "DeletionTime": {
+            "type": "string",
+            "format": "duration"
+          }
+        }
+      },
+      "ServiceOwnerOverviewExt": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string"
+          },
+          "DeploymentStatus": {
+            "type": "string",
+            "enum": ["NotDeployed", "Deploying", "Deployed", "Failed"]
+          }
+        }
       }
     }
   }

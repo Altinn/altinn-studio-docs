@@ -18,13 +18,13 @@ Denne delen av dokumentasjonen er under arbeid, og inneholder derfor omfattende 
 
 Denne operasjonen konfigurerer organisasjonen din som en Tjenesteeier i Formidling Config Store.
 
-**Forespørsel**: En forekomst av [ServiceOwnerInitializeExt](https://github.com/Altinn/altinn-broker/blob/main/src/Altinn.Broker.API/Models/ServiceOwnerInitializeExt.cs) serialisert som JSON.
+**Forespørsel**: En forekomst av [ServiceOwnerInitializeExt](https://github.com/Altinn/altinn-broker/blob/main/src/Altinn.Broker.API/Models/ServiceOwner/ServiceOwnerInitializeExt.cs) serialisert som JSON.
 
 **Retur**: HTTP 200
 
 **Utløste hendelser**: ingen.
 
-**Eksempel**: "Register Service Owner" i vår [PostMan-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
+**Eksempel**: "Register Service Owner" i vår [PostMan-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
 
 ## Operasjon: Hent Tjenesteeierkonfigurasjon fra Formidling API {#operation-get-service-owner-config-from-broker-api}
 
@@ -34,11 +34,11 @@ Dette henter konfigurasjonen for organisasjonen din som en Tjenesteeier i Formid
 
 **Forespørsel**: (Basert på organisasjonen spesifisert i tokenet).
 
-**Retur**: HTTP 200 En forekomst av [ServiceOwnerOverviewExt](https://github.com/Altinn/altinn-broker/blob/main/src/Altinn.Broker.API/Models/ServiceOwnerOverviewExt.cs) serialisert som JSON.
+**Retur**: HTTP 200 En forekomst av [ServiceOwnerOverviewExt](https://github.com/Altinn/altinn-broker/blob/main/src/Altinn.Broker.API/Models/ServiceOwner/ServiceOwnerOverviewExt.cs) serialisert som JSON.
 
 **Utløste hendelser**: ingen.
 
-**Eksempel**: "Registrer Tjenesteeier" i vår [PostMan-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
+**Eksempel**: "Registrer Tjenesteeier" i vår [PostMan-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
 
 ## Operasjon: Konfigurer ressurs i Formidling API {#operation-configure-resource-in-broker-api}
 
@@ -52,5 +52,5 @@ Denne operasjonen konfigurerer ressursen din i Altinn Formidling.
 
 **Utløste hendelser**: ingen.
 
-**Eksempel**: Eksempel "Update Resource" i vår [PostMan-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
+**Eksempel**: Eksempel "Update Resource" i vår [PostMan-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
 
