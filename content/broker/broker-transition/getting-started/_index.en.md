@@ -27,7 +27,7 @@ Base these values on your existing Altinn 2 service, and set the values to the s
 - MaxFileTransferSize = "1073741824" (1 GB - max allowed in Altinn 2).
 - FileTransferTimeToLive = The equivalent TimeToLive of the Altinn 2 service, most used "30D" - 30 days.
 - PurgeFileTransferAfterAllRecipientsConfirmed = The equivalent TimeToLive of the Altinn 2 service, most used "true"
-- PurgeFileTransferGracePeriod = "48H" - Files will not be deleted before 48hrs have passed (was hard-coded in Altinn 2).
+- PurgeFileTransferGracePeriod = "PT24H" - Files will not be deleted before 24hrs have passed. Must be [ISO8601 Duration](https://en.wikipedia.org/wiki/ISO_8601#Durations) and 24 hours is the max.
 
 If you need to use the [Manifest file feature](../technical-overview/#manifest-file), you also need to set the following values.
 
