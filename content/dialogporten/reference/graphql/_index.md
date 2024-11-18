@@ -12,8 +12,6 @@ Dialogporten supports a read-only GraphQL API for end-users. The endpoints are:
 | Staging     | `https://platform.tt02.altinn.no/dialogporten/graphql`                             |
 | Production  | `https://platform.altinn.no/dialogporten/graphql`                                  |
 
-{{<displayFootnotes>}}
-
 ## Local development
 When running locally, a GraphQL frontend ([Banana Cake Pop](https://chillicream.com/products/bananacakepop)) is available at http://localhost:5181/graphql/. See [README.md](https://github.com/digdir/dialogporten/blob/main/README.md) for more information about running Dialogporten locally.
 
