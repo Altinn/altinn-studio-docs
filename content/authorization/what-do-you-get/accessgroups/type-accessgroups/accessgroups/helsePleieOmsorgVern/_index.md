@@ -49,7 +49,7 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til familievern. Denne
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken (TBD)
 |**Tilgangspakke**|**Enhetsregisterroller**|
-|---|
+|---|---|
 |Kommuneoverlege||
 |Helsetjenester med personopplysninger av særlig kategori||
 |Helsetjenester||

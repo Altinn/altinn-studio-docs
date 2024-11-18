@@ -29,7 +29,7 @@ Denne fullmakten gir tilgang til regnskapsfører å rapportere lønn for sin kun
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
 |**Tilgangspakke**|**Enhetsregisterroller**|
-|---|
+|---|---|
 |Regnskapsfører med signeringsrettighet|Regnskapsfører|
 |Regnskapsfører uten signeringsrettighet|Regnskapsfører|
 |Regnskapsfører lønn|Regnskapsfører|
