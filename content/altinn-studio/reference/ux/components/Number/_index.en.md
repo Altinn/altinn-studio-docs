@@ -14,9 +14,9 @@ The Number component allows users to add formatted numbers, with or without labe
 ### Anatomy
 
 1. **Horizontal**: A number with label structured horizontally
-![Text horizontal anatomy](Number-horizontal.png "Text Horizontal")
+![Text horizontal anatomy](number-horizontal.png "Text Horizontal")
 2. **Vertical**: A number with label structured vertically 
-![Text vertical anatomy](Number-vertical.png "Text vertical")
+![Text vertical anatomy](number-vertical.png "Text vertical")
 
 
 <!-- 
@@ -139,5 +139,4 @@ Text with label and icon.
   "icon": "https://www.example.com/icon.png"
 },
 ```
-
-![Text example](<Number-example-with-icon.png> "Text with icon and label")
+![Number example](number-example-with-icon.png "Number with icon and label")

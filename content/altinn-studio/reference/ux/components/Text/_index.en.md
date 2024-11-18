@@ -14,9 +14,9 @@ The Text component allows users to add structured text, with or without label
 ### Anatomy
 
 1. **Horizontal**: A text with label structured horizontally
-![Text horizontal anatomy](Text-horizontal.png "Text Horizontal")
+    ![Text horizontal anatomy](text-horizontal.png "Text Horizontal")
 2. **Vertical**: A text with label structured vertically 
-![Text vertical anatomy](Text-vertical.png "Text vertical")
+     ![Text vertical anatomy](text-vertical.png "Text vertical")
 
 
 <!-- 
@@ -54,6 +54,8 @@ Add the following sections if relevant:
 
 ## Properties
 
+{{% component-props %}}
+
 | **Property** | **Type**                                       | **Description** |
 |--------------|------------------------------------------------|-----------------|
 | `id`   | string | Unique Id string for the component|
@@ -72,7 +74,7 @@ The `component-props` shortcode automatically generates a list of component prop
 The component name can be explicitly given as argument (e.g. `component-props "Grid"`).
 If no argument is given, the shortcode pulls the component name from 'schemaname' in the frontmatter.
 
-{{% component-props %}} -->
+ -->
 
 ## Configuration
 
@@ -130,5 +132,4 @@ Text with label and icon.
   "icon": "https://www.example.com/icon.png"
 },
 ```
-
-![Text example](<Text-example-with-icon.png> "Text with icon and label")
+![Text example](<text-example-with-icon.png> "Text with icon and label")

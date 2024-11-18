@@ -14,9 +14,9 @@ Tekst komponenten lar brukeren legge til strukturert tekst med og uten label.
 ### Anatomi
 
 1. **Horisontal**: En tekst med label strukturert horisontalt.
-![Tekst horisontal anatomi](Text-horizontal.png "Tekst horisontal")
+    ![Tekst horisontal anatomi](text-horizontal.png "Tekst horisontal")
 2. **Vertikal**: En tekst med label strukturert vertikalt.
-![Tekst vertikal anatomi](Text-vertical.png "Tekst vertikal")
+     ![Tekst vertikal anatomi](text-vertical.png "Tekst vertikal")
 
 <!-- 
 Add the following sections if relevant:
@@ -117,7 +117,6 @@ Hvis du vil vise et ikon foran label kan du legge til en url her.
 Tekst med label og ikon.
 
 ```json{hl_lines=["9-12"]}
-...
 {
   "id": "text",
   "type": "Text",
@@ -129,5 +128,4 @@ Tekst med label og ikon.
   "icon": "https://www.example.com/icon.png"
 },
 ```
-
-![Tekst eksempel](<Text-example-with-icon.png> "Tekst med ikon og label")
+![Tekst eksempel](<text-example-with-icon.png> "Tekst med ikon og label")

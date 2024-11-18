@@ -14,9 +14,9 @@ The Date component allows users to add structured formatted date, with or withou
 ### Anatomy
 
 1. **Horizontal**: A date with label structured horizontally
-![Date horizontal anatomy](Date-horizontal.png "Date Horizontal")
+    ![Date horizontal anatomy](date-horizontal.png "Date Horizontal")
 2. **Vertical**: A date with label structured vertically 
-![Date vertical anatomy](Date-vertical.png "Date vertical")
+    ![Date vertical anatomy](date-vertical.png "Date vertical")
 
 
 <!-- 
@@ -73,8 +73,7 @@ We are currently updating how we implement components, and the list of propertie
 The `component-props` shortcode automatically generates a list of component properties from the component's json schema.
 The component name can be explicitly given as argument (e.g. `component-props "Grid"`).
 If no argument is given, the shortcode pulls the component name from 'schemaname' in the frontmatter.
-
-{{% component-props %}} -->
+ -->
 
 ## Configuration
 
@@ -139,4 +138,4 @@ Date with label and icon.
 },
 ```
 
-![Date example](<Date-example-with-icon.png> "Date with icon and label")
+![Date example](date-example-with-icon.png "Date with icon and label")

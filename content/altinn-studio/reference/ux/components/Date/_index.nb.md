@@ -14,9 +14,9 @@ Dato komponenten lar brukeren legge til strukturert formatert dato med eller ute
 ### Anatomi
 
 1. **Horisontal**: Dato med label strukturert horisontalt
-![Dato horisontal anatomi](Date-horizontal.png "Dato Horisontal")
+![Dato horisontal anatomi](date-horizontal.png "Dato Horisontal")
 2. **Vertikal**: Dato med label strukturert horisontalt. 
-![Dato vertikal anatomi](Date-vertical.png "Dato vertikal")
+![Dato vertikal anatomi](date-vertical.png "Dato vertikal")
 
 
 <!-- 
@@ -122,7 +122,7 @@ Hvis du vil vise et ikon foran label kan du legge til en url her.
 
 #### Eksempel
 
-Date with label and icon.
+Dato med label og ikon.
 
 ```json{hl_lines=["9-12"]}
 ...
@@ -139,4 +139,4 @@ Date with label and icon.
 },
 ```
 
-![Dato eksempel](<Date-example-with-icon.png> "Dato med ikon og label")
+![Dato eksempel](<date-example-with-icon.png> "Dato med ikon og label")

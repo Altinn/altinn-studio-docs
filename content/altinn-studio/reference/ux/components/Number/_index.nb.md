@@ -14,9 +14,9 @@ Number komponenten lar brukeren legge til formatterte tall med eller uten label.
 ### Anatomi
 
 1. **Horisontal**: Et tall med label strukturert horisontal.
-![Tall horisontal anatomi](Number-horizontal.png "Tall horisontalt")
+![Tall horisontal anatomi](number-horizontal.png "Tall horisontalt")
 2. **Vertical**: A number with label structured vertically 
-![Tall vertikal anatomi](Number-vertical.png "Tall vertikalt")
+![Tall vertikal anatomi](number-vertical.png "Tall vertikalt")
 
 
 <!-- 
@@ -140,4 +140,4 @@ Number med label og ikon
 },
 ```
 
-![Text example](<Number-example-with-icon.png> "Text with icon and label")
+![Tall eksempel](<number-example-with-icon.png> "Tall med ikon og label")
