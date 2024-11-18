@@ -78,13 +78,12 @@ Det er også mulig å vise en oppsummering av et helt layoutSet. I dette tilfell
         "id": "MySummary2ID",
         "type": "Summary2",
         "target": {
-          "type": "layoutSet",
-          "id": "MyLayoutSet"
+          "type": "layoutSet"
         }
 }
 ```
 
-I dette tilfellet må du ha et layoutSet kalt ```MyLayoutSet``` i prosjektet ditt. Dette vil vise en oppsummering av alle sidene og komponentene i  layoutSet-et du peker på.
+Dette vil vise en oppsummering av alle sidene og komponentene i  layoutSet-et du peker på, i inneværende task.
 
 #### Vise oppsummeringer av tidligere oppgaver
 
@@ -106,9 +105,29 @@ For å gjøre dette, spesifiserer du ganske enkelt ```target.taskId``` slik:
 
 Konfigurasjonen er nøyaktig som før med hensyn til ```target.type``` og ```target.id```, bortsett fra at du i tillegg spesifiserer ```taskId```.
 
+### Skjul tomme felt
+
+Det er mulig å skjule felt som ikke er fylt ut av brukeren ved å sette egenskapen ```hideEmptyFields```:
+
+```json{hl_lines="6-"}
+{
+        "id": "MySummary2ID",
+        "type": "Summary2",
+        "hideEmptyFields": true,
+        "target": {
+          "type": "component",
+          "id": "MyComponentID"
+        }
+}
+```
+
+Merk at felt som er satt til påkrevd vil fortsatt vises, selv om de er tomme.
+
 ### Overstyringer
 
 For hver komponent i oppsummeringen din kan du konfigurere forskjellige overstyringer for å passe dine behov.
+
+Hvis du renderer en side, layoutSet eller en komponent med underkomponenter (gruppe, accordion, osv.), kan du overstyre underkomponentene på samme måte, ved å bruke ID-en til underkomponenten.
 
 For å konfigurere en overstyring, bruk ```overrides```-feltet til Summary2-komponenten slik:
 
@@ -137,7 +156,6 @@ Her er overstyringene som er felles for alle komponenter:
 | hidden          | boolean | nei     | Ekskluder komponenten fra oppsummeringen                                                                               |
 | forceShow       | boolean | nei     | Vil tvangsvise komponenten i en oppsummering selv om hideEmptyFields er satt til true i oppsummeringskomponenten. |
 | emptyFieldText  | string  | nei     | Egendefinert tekst som skal vises for tomme felt.                                                                      |
-| hideEmptyFields | boolean | nei     | Ekskluder tomme felt fra oppsummeringen. Fungerer bare hvis feltet ikke er påkrevd.                                    |
 
 I tillegg støtter noen komponenter komponentspesifikke overstyringer:
 
@@ -147,8 +165,3 @@ I tillegg støtter noen komponenter komponentspesifikke overstyringer:
 |-----------------|----------------------------|---------|------------------------------------------|
 | displayType     | enum: ```list \| string``` | nei     | Vis oppsummeringen som en liste eller streng |
 
-#### Group
-
-| Parameter       | Type    | Påkrevd | Beskrivelse                                   |
-|-----------------|---------|---------|-----------------------------------------------|
-| isCompact       | boolean | nei     | Mulighet for å vise en kompakt versjon av grupper |
