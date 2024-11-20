@@ -10,8 +10,8 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Ordinær post til virksomheten](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/postogarkiv/#ordinær-post-til-virksomheten)|
-|[Post til virksomheten med taushetsbelagt innhold](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/postogarkiv/#post-til-virksomheten-med-taushetsbelagt-innhold)|
+|[Ordinær post til virksomheten](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/postogarkiv/#ordinær-post-til-virksomheten)|
+|[Post til virksomheten med taushetsbelagt innhold](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/postogarkiv/#post-til-virksomheten-med-taushetsbelagt-innhold)|
 
 ### Ordinær post til virksomheten
 Denne fullmakten gir tilgang til all mottatt post som ikke innholder sensitiv/taushetsbelagt informasjon som sendes virksomheten. Fullmakten gis normalt til de i virksomheten som håndterer mottak av post. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
