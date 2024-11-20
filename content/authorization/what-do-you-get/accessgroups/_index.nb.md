@@ -20,7 +20,7 @@ Kategoriene er ment som hjelp til å finne riktig tilgangspakke, både for tjene
 
 | Hovedkategori| Beskrivelse|
 |---|---|---|
-|[Skatt, avgift, regnskap og toll](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/skattavgiftregnskaptoll/#skatt-avgift-regnskap-og-toll)| Omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som omhandler skatt, avgift, regnskap og toll.|
+|[Skatt, avgift, regnskap og toll](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/skattavgiftregnskaptoll/#skatt-avgift-regnskap-og-toll)| Omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som omhandler skatt, avgift, regnskap og toll.|
 | [Personale]| | |
 | | Ansetttelsesforhold| |
 | | Lønn| |

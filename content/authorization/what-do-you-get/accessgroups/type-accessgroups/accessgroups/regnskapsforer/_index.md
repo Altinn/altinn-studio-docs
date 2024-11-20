@@ -10,9 +10,9 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Regnskapsfører med signeringsrettighet](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/regnskapsforer/#regnskapsfører-med-signeringsrettighet)|
-|[Regnskapsfører uten signeringsrettighet](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/regnskapsforer/#regnskapsfører-uten-signeringsrettighet)|
-|[Regnskapsfører lønn](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/regnskapsforer/#regnskapsfører-lønn)|
+|[Regnskapsfører med signeringsrettighet](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/regnskapsforer/#regnskapsfører-med-signeringsrettighet)|
+|[Regnskapsfører uten signeringsrettighet](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/regnskapsforer/#regnskapsfører-uten-signeringsrettighet)|
+|[Regnskapsfører lønn](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/regnskapsforer/#regnskapsfører-lønn)|
 
 
 ### Regnskapsfører med signeringsrettighet

@@ -10,8 +10,8 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Ansvarlig revisor](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/regnskapsforer/#regnskapsfører-med-signeringsrettighet)|
-|[Revisormedarbeider](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/regnskapsforer/#regnskapsfører-uten-signeringsrettighet)|
+|[Ansvarlig revisor](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/regnskapsforer/#regnskapsfører-med-signeringsrettighet)|
+|[Revisormedarbeider](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/regnskapsforer/#regnskapsfører-uten-signeringsrettighet)|
 
 
 ### Ansvarlig revisor
