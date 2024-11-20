@@ -12,7 +12,7 @@ toc: true
 
 The Summary2 component lets you display a summary of either a component, page or layoutSet, either in the current or previous tasks.
 
-It is customizable to suit your needs, and is also used for generating PDFs. 
+It is customizable to suit your needs, and is also used for generating PDFs.
 
 ### Anatomy
 
@@ -20,10 +20,9 @@ It is customizable to suit your needs, and is also used for generating PDFs.
 
 For examples of how Summary2 looks in different components, [see this example app](https://ttd.apps.tt02.altinn.no/ttd/component-library)
 
-
 ## Configuration
 
-#### Component Summary
+### Component Summary
 
 The most basic way to use the component is to show a summary of a single component.
 
@@ -48,11 +47,12 @@ your Summary2 configuration would look like this:
         }
 }
 ```
+
 The resulting Summary2 output would look like this:
 
 ![Summary2](./examplesummary.png "Example of Summary2 components inside groups")
 
-#### Page Summary
+### Page Summary
 
 If you would like to show a summary of an entire page, you would set the ```target.type``` property to ```"page"``` like so:
 
@@ -69,7 +69,7 @@ If you would like to show a summary of an entire page, you would set the ```targ
 
 In this case, the ```target.id``` is set to the name of the layout page you want to render, so you would have a file called MyLayoutFilename.json in your project.
 
-#### Layoutset Summary
+### Layoutset Summary
 
 It is also possible to render a summary of an entire layoutSet. In this case, you would set the ```target.type``` property to ```"layoutSet"``` like so:
 
@@ -87,7 +87,7 @@ It is also possible to render a summary of an entire layoutSet. In this case, yo
 In this case, you would have a layoutSet called ```MyLayoutSet``` in your project.
 This would render a summary of all the pages and components in the layoutSet.
 
-#### Rendering summaries of previous tasks
+### Rendering summaries of previous tasks
 
 You can also render summaries of components, pages and layoutSets that exist in previous tasks.
 
@@ -107,7 +107,7 @@ To do this, simply specify the ```target.taskId``` like so:
 
 The behaviour is exactly like before with regard to ```target.type``` and ```target.id```, except that a ```taskId``` property has been added.
 
-### Overrides
+## Overrides
 
 For each component in your summary, you can configure different overrides to suit your needs.
 
@@ -137,19 +137,20 @@ Here are the overrides that are common for all components:
 | componentId     | string  | yes      | ID of the compoment you are overriding                                                                      |
 | hidden          | boolean | no       | Exclude the component from summary                                                                          |
 | forceShow       | boolean | no       | Will force show the component in a summary even if hideEmptyFields is set to true in the summary component. |
-| emptyFieldText  | string  | no       | Custom text to show for empty fields.                                                                       |
-| hideEmptyFields | boolean | no       | Exclude empty fields for summary. Only works if the field is not required.                                  |
+| emptyFieldText  | string  | no       | Custom text to show for empty fields.                                                                        |
+| hideEmptyFields | boolean | no       | Exclude empty fields for summary. Only works if the field is not required.                                    |
+| isCompact       | boolean | no       | Option to display a more compact version. (Map, Paragraph and Header does not have this)                    |
 
 In addition, a few components support component-specific overrides:
 
-#### Checkbox and MultipleSelect
+### Checkbox and MultipleSelect
 
 | Parameter       | Type                       | Required | Description                             |
 |-----------------|----------------------------|----------|-----------------------------------------|
 | displayType     | enum: ```list \| string``` | no       | Display the summary as a list or string |
 
-#### Group
+### RepeatingGroup and Subform
 
-| Parameter       | Type    | Required | Description                                   |
-|-----------------|---------|----------|-----------------------------------------------|
-| isCompact     | boolean | no       | Option to display a compact version of groups |
+| Parameter       | Type                       | Required | Description                                         |
+|-----------------|----------------------------|----------|-----------------------------------------------------|
+| display         | enum: ```table \| full```  | no       | Display the summary as a table or as fully expanded |

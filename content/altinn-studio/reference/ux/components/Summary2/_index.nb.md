@@ -22,7 +22,7 @@ For eksempler på hvordan Summary2 ser ut i forskjellige komponenter, [se dette 
 
 ## Konfigurasjon
 
-#### Komponentoppsummering
+### Komponentoppsummering
 
 Den mest grunnleggende måten å bruke Summary2 på er å vise en oppsummering av en enkelt komponent.
 
@@ -52,7 +52,7 @@ Det resulterer i en oppsummering som ser slikt ut:
 
 ![Summary2](./examplesummary.png "Eksempel på Summary2-komponenter inne i grupper")
 
-#### Sideoppsummering
+### Sideoppsummering
 
 Hvis du vil vise en oppsummering av en hel side, kan du sette ```target.type``` egenskapen til ```"page"``` slik:
 
@@ -69,7 +69,7 @@ Hvis du vil vise en oppsummering av en hel side, kan du sette ```target.type``` 
 
 I dette tilfellet er ```target.id``` satt til navnet på layout-siden du vil vise. Det vil si at du må ha en fil kalt ```MyLayoutFilename.json``` i prosjektet ditt.
 
-#### Layoutsett-oppsummering
+### Layoutsett-oppsummering
 
 Det er også mulig å vise en oppsummering av et helt layoutSet. I dette tilfellet vil du sette ```target.type``` egenskapen til ```"layoutSet"``` slik:
 
@@ -86,7 +86,7 @@ Det er også mulig å vise en oppsummering av et helt layoutSet. I dette tilfell
 
 I dette tilfellet må du ha et layoutSet kalt ```MyLayoutSet``` i prosjektet ditt. Dette vil vise en oppsummering av alle sidene og komponentene i  layoutSet-et du peker på.
 
-#### Vise oppsummeringer av tidligere oppgaver
+### Vise oppsummeringer av tidligere oppgaver
 
 Du kan også vise oppsummeringer av komponenter, sider og layoutSet som eksisterer i tidligere oppgaver.
 
@@ -106,7 +106,7 @@ For å gjøre dette, spesifiserer du ganske enkelt ```target.taskId``` slik:
 
 Konfigurasjonen er nøyaktig som før med hensyn til ```target.type``` og ```target.id```, bortsett fra at du i tillegg spesifiserer ```taskId```.
 
-### Overstyringer
+## Overstyringer
 
 For hver komponent i oppsummeringen din kan du konfigurere forskjellige overstyringer for å passe dine behov.
 
@@ -135,20 +135,21 @@ Her er overstyringene som er felles for alle komponenter:
 |-----------------|---------|---------|------------------------------------------------------------------------------------------------------------------------|
 | componentId     | string  | ja      | ID-en til komponenten du overstyrer                                                                                    |
 | hidden          | boolean | nei     | Ekskluder komponenten fra oppsummeringen                                                                               |
-| forceShow       | boolean | nei     | Vil tvangsvise komponenten i en oppsummering selv om hideEmptyFields er satt til true i oppsummeringskomponenten. |
-| emptyFieldText  | string  | nei     | Egendefinert tekst som skal vises for tomme felt.                                                                      |
+| forceShow       | boolean | nei     | Vil tvangsvise komponenten i en oppsummering selv om hideEmptyFields er satt til true i oppsummeringskomponenten.      |
+| emptyFieldText  | string  | nei     | Egendefinert tekst som skal vises for tomme felt.                                                                       |
 | hideEmptyFields | boolean | nei     | Ekskluder tomme felt fra oppsummeringen. Fungerer bare hvis feltet ikke er påkrevd.                                    |
+| isCompact       | boolean | nei     | Mulighet for å vise en kompakt versjon. (Map, Paragraph og Header har ikke støtte for dette)                           |
 
 I tillegg støtter noen komponenter komponentspesifikke overstyringer:
 
-#### Checkbox og MultipleSelect
+### Checkbox og MultipleSelect
 
-| Parameter       | Type                       | Påkrevd | Beskrivelse                              |
-|-----------------|----------------------------|---------|------------------------------------------|
+| Parameter       | Type                       | Påkrevd | Beskrivelse                                  |
+|-----------------|----------------------------|---------|----------------------------------------------|
 | displayType     | enum: ```list \| string``` | nei     | Vis oppsummeringen som en liste eller streng |
 
-#### Group
+### RepeatingGroup og Subform
 
-| Parameter       | Type    | Påkrevd | Beskrivelse                                   |
-|-----------------|---------|---------|-----------------------------------------------|
-| isCompact       | boolean | nei     | Mulighet for å vise en kompakt versjon av grupper |
+| Parameter       | Type                       | Påkrevd | Beskrivelse                                                                             |
+|-----------------|----------------------------|---------|-----------------------------------------------------------------------------------------|
+| display         | enum: ```table \| full```  | nei     | Vis oppsummeringen som en tabell eller vis alle feltene gruppert under hverandre        |

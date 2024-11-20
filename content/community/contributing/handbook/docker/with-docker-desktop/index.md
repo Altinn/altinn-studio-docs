@@ -9,7 +9,7 @@ weight: 100
 Docker Desktop requires a [paid license](https://www.docker.com/pricing/).
 
 If you don't have a license, see [Install Docker without Docker Desktop
-](http://localhost:1313/community/contributing/handbook/docker/without-docker-desktop/)
+](http://docs.altinn.studio/community/contributing/handbook/docker/without-docker-desktop/)
 
 ## Installation
 
