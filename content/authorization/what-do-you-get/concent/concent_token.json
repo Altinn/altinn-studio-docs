@@ -1,0 +1,61 @@
+{
+    "authorization_details": [
+        {
+            "id": "b55b0a8c-46db-4239-a417-a89daabfabba",
+            "from": "urn:altinn:organization:identifier-no:01039012345",
+            "to": "urn:altinn:person:identifier-no:984851006",
+            "concented": "2024-06-01T00:00:00Z",
+            "validTo": "2024-12-10T00:00:00Z",
+            "requestmessage": {
+                "nb": "Ved å samtykke, gir du Skatteetaten rett til å utlevere opplysninger om deg direkte til DNB BANK ASA. Banken får opplysningene for å behandle søknad om finansiering.",
+                "nn": "Ved å samtykke, gir du Skatteetaten rett til å utlevere opplysningar om deg direkte til DNB BANK ASA. Banken får opplysningane for å behandle søknad om finansiering.",
+                "en": "By consenting, you give the Tax Administration the right to disclose information about you directly to DNB BANK ASA. The bank receives the information to process the financing application."
+            },
+            "concentrights": [
+                {
+                    "action": [
+                        "read",
+                        "write"
+                    ],
+                    "resource": [
+                        {
+                            "id": "urn:altinn:resource",
+                            "value": "skd_inntektsapi"
+                        }
+                    ],
+                    "metadata": {
+                        "fraOgMed": "2017-06",
+                        "tilOgMed": "2017-08"
+                    }
+                },
+                {
+                    "action": [
+                        "read",
+                        "write"
+                    ],
+                    "resource": [
+                        {
+                            "id": "urn:altinn:resource",
+                            "value": "skd_skattegrunnlag"
+                        }
+                    ],
+                    "metadata": {
+                        "inntektsaar": "2016"
+                    }
+                }
+            ]
+        }
+    ],
+    "scope": "scope:global/kontaktinformasjon.read",
+    "iss": "https://test.maskinporten.no/",
+    "client_amr": "private_key_jwt",
+    "token_type": "Bearer",
+    "exp": 1718175135,
+    "iat": 1718175015,
+    "client_id": "fc9a8287-e7cb-45e5-b90e-123048d32d85",
+    "jti": "-SpfU--1Zn_Oqvkpjwu3oVn--VLcPzSAwjqyiP6zBEw",
+    "consumer": {
+        "authority": "iso6523-actorid-upis",
+        "ID": "0192:984851006"
+    }
+}

@@ -10,9 +10,9 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Konkursbo tilgangsstyring](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/konkursbo/#konkursbo-tilgangsstyring)|
-|[Konkursbo lesetilgang](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/konkursbo/#konkursbo-lesetilgang)|
-|[Konkursbo skrivetilgang](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/konkursbo/#konkursbo-skrivetilgang)|
+|[Konkursbo tilgangsstyring](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/konkursbo/#konkursbo-tilgangsstyring)|
+|[Konkursbo lesetilgang](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/konkursbo/#konkursbo-lesetilgang)|
+|[Konkursbo skrivetilgang](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/konkursbo/#konkursbo-skrivetilgang)|
 
 ### Konkursbo tilgangsstyring
 Denne fullmakten gir rettighet til å administrere konkursbo. Fullmakten er en engangsdelegering, og den gir ikke tilgang til noen tjenester.  
