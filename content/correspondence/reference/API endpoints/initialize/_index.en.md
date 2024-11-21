@@ -11,9 +11,22 @@ toc: true
 
 POST /correspondence/api/v1/correspondence
 
+## Description
+This endpoint prepares and queues a correspondence for sending. Before using the endpoint and attachment must be uploaded by using the following endpoint in order to populate the "ExistingAttachments" field:
+
+/correspondence/api/v1/attachment/{{attachmentId}}/upload     
+
+(will add link here when doc is ready)
+
+
 ## Authentication
 
-Use the endpoints in the authentication folder to authenticate before initializing.
+This API requires authentication and the request must also include one of the following:
+
+- Correspondence write scope __altinn:correspondence.write__ (for external system callers)
+- Platform Access Token (for Altinn Apps and internal Altinn systems)
+
+See [Authentication and Authorization](/notifications/reference/api/#authentication--authorization) for more information.
 
 ## Response
 
@@ -29,7 +42,8 @@ Use the endpoints in the authentication folder to authenticate before initializi
 
 ### Response body 
 The response body is formatted as an 
-[InitializeCorrespondencesExt](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/InitializeCorrespondencesExt.cs)
+
+[InitializeCorrespondenceResponseExt](https://docs.altinn.studio/api/correspondence/spec/#/Correspondence/post_correspondence_api_v1_correspondence)
 and serialized as a JSON string.
 
 
@@ -50,13 +64,9 @@ Type: _string_
 
 Shows the recipient on the format 0192:{{senderOrgNo}}
 
-#### succeeded
-Type: _int_
-
-The number of email notifications that have been sent successfully so far
 
 #### notifications
-Type: _List<InitializedCorrespondencesNotificationsExt>(https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/InitializeCorrespondencesResponseExt.cs)\>_
+Type: _List<InitializedCorrespondencesNotificationsExt>(orrespondencesResponseExt.cs)\>_
 
 A list of the generated notifications with send result.
 Each notification will include the following properties: 
@@ -66,6 +76,6 @@ Each notification will include the following properties:
 
 | Status                        | Description       |
 |:-----------------------------:|:-----------------:|
-| Success                       | The notification was sent succesfully.|
-| MissingContact                | There is no contact information given.|
-| Failure                       | Sending of the notification failed.|
+| Success                       | Means that the notification order was created successfully with contactinformation.|
+| MissingContact                | Contact information was not not found at the time of creating the correspondence.|
+| Failure                       | Creating notification order failed.|
