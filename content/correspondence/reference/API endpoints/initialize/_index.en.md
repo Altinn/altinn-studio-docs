@@ -66,7 +66,7 @@ Shows the recipient on the format 0192:{{senderOrgNo}}
 
 
 #### notifications
-Type: _List<InitializedCorrespondencesNotificationsExt>(orrespondencesResponseExt.cs)\>_
+Type: _List of [InitializedCorrespondencesNotificationsExt](https://docs.altinn.studio/api/correspondence/spec/#/Correspondence/post_correspondence_api_v1_correspondence)_
 
 A list of the generated notifications with send result.
 Each notification will include the following properties: 
