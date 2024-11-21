@@ -11,18 +11,18 @@ aliases:
 |**Tilgangspakkeri kategorien**|
 |---|
 |[Barnehageeier](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/oppvekstutdanning/#barnehageeier)|
-|[Barnehageleder](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/oppvekstutdanning/#barnehageleder)|
-|[Barnehagemyndighet](http://ldocs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/oppvekstutdanning/#barnehagemyndighet)|
-|[Statsforvalter-barnehage](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/oppvekstutdanning/#statsforvalter-barnehage)|
-|[Statsforvalter-skole og opplæring](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/oppvekstutdanning/#statsforvalter-skole-og-opplæring)|
-|[Skoleeier](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/oppvekstutdanning/#skoleeier)|
-|[Skoleleder](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/oppvekstutdanning/#skoleleder)|
-|[Opplæringskontorleder](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/oppvekstutdanning/#opplæringskontorleder)|
-|[PPT-leder](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/oppvekstutdanning/#ppt-leder)|
-|[SFO-leder](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/oppvekstutdanning/#sfo-leder)|
-|[Høyere utdanning og høyere yrkesfaglig utdanning](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/oppvekstutdanning/#høyere-utdanning-og-høyere-yrkesfaglig-utdanning)|
-|[Godkjenning av personell](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/oppvekstutdanning/#godkjenning-av-personell)|
-|[Godkjenning av utdanningsvirksomhet](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/oppvekstutdanning/#godkjenning-av-utdanningsvirksomhet)|
+|[Barnehageleder](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/oppvekstutdanning/#barnehageleder)|
+|[Barnehagemyndighet](http://ldocs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/oppvekstutdanning/#barnehagemyndighet)|
+|[Statsforvalter-barnehage](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/oppvekstutdanning/#statsforvalter-barnehage)|
+|[Statsforvalter-skole og opplæring](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/oppvekstutdanning/#statsforvalter-skole-og-opplæring)|
+|[Skoleeier](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/oppvekstutdanning/#skoleeier)|
+|[Skoleleder](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/oppvekstutdanning/#skoleleder)|
+|[Opplæringskontorleder](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/oppvekstutdanning/#opplæringskontorleder)|
+|[PPT-leder](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/oppvekstutdanning/#ppt-leder)|
+|[SFO-leder](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/oppvekstutdanning/#sfo-leder)|
+|[Høyere utdanning og høyere yrkesfaglig utdanning](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/oppvekstutdanning/#høyere-utdanning-og-høyere-yrkesfaglig-utdanning)|
+|[Godkjenning av personell](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/oppvekstutdanning/#godkjenning-av-personell)|
+|[Godkjenning av utdanningsvirksomhet](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/oppvekstutdanning/#godkjenning-av-utdanningsvirksomhet)|
 
 ### Barnehageeier 
 Denne fullmakten gir tilgang til alle tjenester innen drift av barnehage som barnehageeier er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  

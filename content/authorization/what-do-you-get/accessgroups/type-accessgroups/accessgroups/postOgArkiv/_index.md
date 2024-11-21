@@ -10,8 +10,8 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Ordinær post til virksomheten](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/postogarkiv/#ordinær-post-til-virksomheten)|
-|[Post til virksomheten med taushetsbelagt innhold](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/postogarkiv/#post-til-virksomheten-med-taushetsbelagt-innhold)|
+|[Ordinær post til virksomheten](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/postogarkiv/#ordinær-post-til-virksomheten)|
+|[Post til virksomheten med taushetsbelagt innhold](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/postogarkiv/#post-til-virksomheten-med-taushetsbelagt-innhold)|
 
 ### Ordinær post til virksomheten
 Denne fullmakten gir tilgang til all mottatt post som ikke innholder sensitiv/taushetsbelagt informasjon som sendes virksomheten. Fullmakten gis normalt til de i virksomheten som håndterer mottak av post. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
@@ -21,3 +21,8 @@ Denne fullmakten gir tilgang til all mottatt post som ikke innholder sensitiv/ta
 Denne fullmakten gir tilgang til all mottatt post som innholder sensitiv/taushetsbelagt informasjon som sendes virksomheten. Fullmakten gis normalt til de i virksomheten som håndterer mottak av post som har taushetsbelagt innhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:posttilvirksomhetenmedtaushetsbelagtinnhold*
 
+## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
+|**Tilgangspakke**|**Enhetsregisterroller**|
+|---|---|
+|Ordinær post til virksomheten||
+|Post til virksomheten med taushetsbelagt innhold||
