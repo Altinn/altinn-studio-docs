@@ -28,6 +28,10 @@ This API requires authentication and the request must also include one of the fo
 
 See [Authentication and Authorization](/notifications/reference/api/#authentication--authorization) for more information.
 
+## Request body
+[You can se example of a request body here](https://docs.altinn.studio/api/correspondence/spec/#/Correspondence/post_correspondence_api_v1_correspondence)
+
+
 ## Response
 
 ### Response codes
