@@ -12,12 +12,12 @@ toc: true
 POST /correspondence/api/v1/correspondence
 
 ## Description
-This endpoint prepares and queues a correspondence for sending. Before using the endpoint and attachment must be uploaded by using the following endpoint in order to populate the "ExistingAttachments" field:
+This endpoint prepares and queues a correspondence for sending. Before using this endpoint any correlating attachments must be uploaded beforehand to populate the "ExistingAttachments" field. This can be done by using the following endpoint:
+
 
 /correspondence/api/v1/attachment/{{attachmentId}}/upload     
 
-(will add link here when doc is ready)
-
+<!-- (will add link here when doc is ready) -->
 
 ## Authentication
 
@@ -41,11 +41,8 @@ See [Authentication and Authorization](/notifications/reference/api/#authenticat
 - application/json
 
 ### Response body 
-The response body is formatted as an 
-
-[InitializeCorrespondenceResponseExt](https://docs.altinn.studio/api/correspondence/spec/#/Correspondence/post_correspondence_api_v1_correspondence)
-and serialized as a JSON string.
-
+The response body returns a list of correspondences [InitializeCorrespondencesResponseExt](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/InitializeCorrespondencesResponseExt.cs), 
+with one correspondence for each recipient. Each correspondence can have multiple different recipients where each recipients will be given a unique correspondenceId, status, etc.
 
 ### Response body properties
 
@@ -55,7 +52,9 @@ Type: _Guid_
 The ID of the correspondence that has been initialized
 
 #### status
-Type: _string_
+Type: _string_ 
+
+[The different statuses are defined here](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/Enums/CorrespondenceStatusExt.cs)
 
 Shows the status of the initialized correspondence
 
