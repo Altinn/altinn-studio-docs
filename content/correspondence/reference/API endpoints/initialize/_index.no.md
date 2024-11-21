@@ -11,9 +11,21 @@ toc: true
 
 POST /correspondence/api/v1/correspondence
 
+## Description
+This endpoint prepares and queues a correspondence for sending. Before using this endpoint any correlating attachments must be uploaded beforehand to populate the "ExistingAttachments" field. This can be done by using the upload attachment endpoint described [here](https://docs.altinn.studio/api/correspondence/spec/#/Attachment/post_correspondence_api_v1_attachment__attachmentId__upload).
+
+<!-- (will add link here when doc is ready) -->
+
 ## Authentication
 
-Use the endpoints in the authentication folder to authenticate before initializing.
+This API requires authentication and the request must also include:
+
+- Correspondence write scope __altinn:correspondence.write__ (for external system callers)
+See [Authentication and Authorization](/notifications/reference/api/#authentication--authorization) for more information.
+
+## Request body
+[You can se example of a request body here](https://docs.altinn.studio/api/correspondence/spec/#/Correspondence/post_correspondence_api_v1_correspondence)
+
 
 ## Response
 
@@ -28,10 +40,8 @@ Use the endpoints in the authentication folder to authenticate before initializi
 - application/json
 
 ### Response body 
-The response body is formatted as an 
-[InitializeCorrespondencesExt](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/InitializeCorrespondencesExt.cs)
-and serialized as a JSON string.
-
+The response body returns a list of correspondences [InitializeCorrespondencesResponseExt](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/InitializeCorrespondencesResponseExt.cs), 
+with one correspondence for each recipient. Each correspondence can have multiple different recipients where each recipients will be given a unique correspondenceId, status, etc.
 
 ### Response body properties
 
@@ -41,22 +51,20 @@ Type: _Guid_
 The ID of the correspondence that has been initialized
 
 #### status
-Type: _string_
+Type: _string_ 
+
+[The different statuses are defined here](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/Enums/CorrespondenceStatusExt.cs)
 
 Shows the status of the initialized correspondence
 
 #### recipient
 Type: _string_
 
-Shows the recipient on the format 0192:{{senderOrgNo}}
+Shows the recipient on the format 0192:{{recipientOrgNumber}}
 
-#### succeeded
-Type: _int_
-
-The number of email notifications that have been sent successfully so far
 
 #### notifications
-Type: _List<InitializedCorrespondencesNotificationsExt>(https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/InitializeCorrespondencesResponseExt.cs)\>_
+Type: _List of [InitializedCorrespondencesNotificationsExt](https://docs.altinn.studio/api/correspondence/spec/#/Correspondence/post_correspondence_api_v1_correspondence)_
 
 A list of the generated notifications with send result.
 Each notification will include the following properties: 
@@ -66,6 +74,6 @@ Each notification will include the following properties:
 
 | Status                        | Description       |
 |:-----------------------------:|:-----------------:|
-| Success                       | The notification was sent succesfully.|
-| MissingContact                | There is no contact information given.|
-| Failure                       | Sending of the notification failed.|
+| Success                       | Means that the notification order was created successfully with contactinformation.|
+| MissingContact                | Contact information was not not found at the time of creating the correspondence.|
+| Failure                       | Creating notification order failed.|
