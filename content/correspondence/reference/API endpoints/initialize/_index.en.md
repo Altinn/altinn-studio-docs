@@ -12,20 +12,15 @@ toc: true
 POST /correspondence/api/v1/correspondence
 
 ## Description
-This endpoint prepares and queues a correspondence for sending. Before using this endpoint any correlating attachments must be uploaded beforehand to populate the "ExistingAttachments" field. This can be done by using the following endpoint:
-
-
-/correspondence/api/v1/attachment/{{attachmentId}}/upload     
+This endpoint prepares and queues a correspondence for sending. Before using this endpoint any correlating attachments must be uploaded beforehand to populate the "ExistingAttachments" field. This can be done by using the upload attachment endpoint described [here](https://docs.altinn.studio/api/correspondence/spec/#/Attachment/post_correspondence_api_v1_attachment__attachmentId__upload).
 
 <!-- (will add link here when doc is ready) -->
 
 ## Authentication
 
-This API requires authentication and the request must also include one of the following:
+This API requires authentication and the request must also include:
 
 - Correspondence write scope __altinn:correspondence.write__ (for external system callers)
-- Platform Access Token (for Altinn Apps and internal Altinn systems)
-
 See [Authentication and Authorization](/notifications/reference/api/#authentication--authorization) for more information.
 
 ## Request body
@@ -65,7 +60,7 @@ Shows the status of the initialized correspondence
 #### recipient
 Type: _string_
 
-Shows the recipient on the format 0192:{{senderOrgNo}}
+Shows the recipient on the format 0192:{{recipientOrgNumber}}
 
 
 #### notifications
