@@ -1,7 +1,7 @@
 ---
 title: API endpoints
-linktitle: API endpoints
-description: API reference documentation for the API
+linktitle: API endepunkter
+description: Overview of the Correspondence API endpoints
 tags: []
 toc: false
 weight: 60
