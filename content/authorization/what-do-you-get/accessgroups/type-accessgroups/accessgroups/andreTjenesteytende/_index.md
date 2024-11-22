@@ -11,10 +11,10 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Post- og telekommunikasjon](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/andretjenesteytende/#post--og-tele-kommunikasjon)|
-|[Informasjon og kommunikasjon](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/andretjenesteytende/#informasjon-og-kommunikasjon)|
-|[Finansiering og forsikring](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/andretjenesteytende/#finansiering-og-forsikring)|
-|[Annen tjenestyting](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/andretjenesteytende/#annen-tjenesteyting)|
+|[Post- og telekommunikasjon](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/andretjenesteytende/#post--og-tele-kommunikasjon)|
+|[Informasjon og kommunikasjon](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/andretjenesteytende/#informasjon-og-kommunikasjon)|
+|[Finansiering og forsikring](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/andretjenesteytende/#finansiering-og-forsikring)|
+|[Annen tjenestyting](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/andretjenesteytende/#annen-tjenesteyting)|
 
 
 ### Post- og tele kommunikasjon

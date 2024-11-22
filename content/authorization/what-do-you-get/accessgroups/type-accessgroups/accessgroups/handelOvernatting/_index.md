@@ -10,9 +10,9 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Varehandel](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/handelovernatting/#varehandel)|
-|[Overnatting](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/handelovernatting/#overnatting)|
-|[Servering](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/handelovernatting/#servering)|
+|[Varehandel](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/handelovernatting/#varehandel)|
+|[Overnatting](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/handelovernatting/#overnatting)|
+|[Servering](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/handelovernatting/#servering)|
 
 
 ### Varehandel
