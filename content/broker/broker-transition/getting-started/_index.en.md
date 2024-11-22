@@ -15,7 +15,7 @@ In order to use the Broker Transition solution in Altinn to create, upload and r
 2. Have or create a corresponding Altinn 3 Broker Resource. See how to get started with Altinn Broker [here](../../getting-started/).
    To configure your resource to correctly function as a Broker Transition service, [see below](#configure-resource-for-transition-solution).
 3. Request a transition setup from the Altinn 2 Service to the Altinn 3 Resource, [see below](#request-transition-setup) for details.
-4. Go live with transition solution while encouraging consumers to migrate to Altinn Broker.
+4. Go live with the transition solution while encouraging consumers to migrate to Altinn Broker.
 5. Once all consumers have migrated to Altinn Broker, decommission the Altinn 2 Broker Service.
 
 ### Configure Resource for Transition Solution
@@ -45,7 +45,7 @@ Please provide the necessary details, and make sure the relevant details match w
 
 - ExternalServiceCode and ExternalServiceEditionCode of the Altinn 2 service.
 - ResourceId of the Altinn 3 resource.
-- The Environments where the change should be performed.
+- The environments where the change should be performed.
   - Altinn 2 TT02 -> Altinn 3 TT02/Staging
   - Altinn 2 PROD -> Altinn 3 PROD
 - The date and time for the change(s) to go live.
@@ -56,15 +56,14 @@ Performing this configuration change does not create downtime in Altinn 2, but t
 
 ### Additional Service Owner information
 
-After a service owner requests that an Altinn 2 service transition to an Altinn 3 Resource, the Altinn 2 service will no longer pass requests to the Altinn 2 Broker Storage.
-
+After the transition setup has been activated, the Altinn 2 service will no longer pass requests to the Altinn 2 Broker Storage, but instead be forwarded to Altinn 3.
 This means existing Broker files in the Altinn 2 Broker Storage will become unavailable for end users once the service is set up to transition to Altinn 3.
 
-We recommend you plan for a downtime period for your service in which no new Files are created, but you allow all recipients to download their files before you perform the transition.
-The exact length of time depends on the work-pattern of your recipients; how long they before they download available files. If you do not know; contact us and we may be able to generate some statistics can guide you to a decision.
+Due to this, we recommend you plan for a downtime period for your service in which no new files are created, but you allow all recipients to download their files before you perform the transition.
+The exact length of time depends on the work pattern of your recipients; how long they take before they download available files. If you do not know. contact us and we may be able to generate some statistics to guide you to a decision.
 
-One method of enforcing this is to use Altinn 2 SRR to temporarily remove the "write" access for all the organizations you have approved as senders, but keeping the "read" access for all recipients.
-Once the transition has been set up, you can give the "write" access back to all the senders, and the files will no be created i Altinn 3.
+One method of enforcing this is to use Altinn 2 SRR to temporarily remove the "write" access for all the organizations you have approved as senders, but keep the "read" access for all recipients.
+Once the transition has been set up, you can give the "write" access back to all the senders, and the files will now be created i Altinn 3.
 
 ## End Users
 

@@ -55,13 +55,11 @@ Kontakt oss i den offentlige slack-kanalen [Altinn@Slack#produkt-formidling](htt
 
 ### Tilleggsinformasjon
 
-Etter at en tjenesteeier ber om at en Altinn 2 tjenesteovergang til en Altinn 3 tjeneste,
-Altinn 2 tjenesten vil ikke lenger sende forespørsler til Altinn 2 Formidling lagring.
-Dette betyr at eksisterende filer i Altinn 2 Formidling lagring vil bli utilgjengelig for sluttbrukere når tjenesten
-er satt opp til overgang til Altinn 3.
+Etter at overgangsoppsettet er aktivert, vil ikke Altinn 2 tjenesten lenger sende forespørsler til Altinn 2 Formidling sitt datalager, da disse forespørselene isteden går til Altinn 3.
+Dette betyr at eksisterende filer i Altinn 2 Formidling sitt datalager blir utilgjengelig for sluttbrukere etter overgang.
 
-Vi anbefaler at dere planlegger en periode med nedetid for tjenesten der ingen nye filer opprettes, men alle mottakere kan laste ned filene sine før du utfører overgangen.
-Nøyaktig hvor lang denne tiden bør være, varierer fra tjeneste til tjenste, avhengig av hvor raskt mottakerne laster ned filene etter de er tilgjengeligjort. Dersom dere ikke har innsikt i dette, ta kontakt med oss, så kan vi ta ut statistikk som kan hjelpe med å avklare dette.
+Vi anbefaler derfor at dere planlegger en periode med nedetid for tjenesten der ingen nye filer opprettes, men alle mottakere kan laste ned filene sine før du utfører overgangen.
+Nøyaktig hvor lang denne tiden bør være, varierer fra tjeneste til tjeneste, avhengig av hvor raskt mottakerne laster ned filene etter de er tilgjengeligjort. Dersom dere ikke har innsikt i dette, ta kontakt med oss, så kan vi ta ut statistikk som kan hjelpe med å avklare dette.
 
 En metode for å håndheve nedetiden er å bruke Altinn 2 SRR for midlertidig å fjerne "write"-tilgangen for alle organisasjonene dere har godkjent som avsendere, men beholde "read"-tilgangen for alle mottakere.
 Når overgangen er satt opp, kan dere gi "write"-tilgangen tilbake til alle avsenderne, og filene vil nå bli opprettet i Altinn 3.
