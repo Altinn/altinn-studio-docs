@@ -10,9 +10,9 @@ aliases:
 
 | **Tilgangspakker i kategorien**|
 |---|
-| [Programmeringsgrensesnitt - API](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/integrasjoner/#programmeringsgrensesnitt--api)|
-| [Programmeringsgrensesnitt NUF - API](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/integrasjoner/#programmeringsgrensesnitt-nuf---api)|
-| [Maskinlesbare hendelser](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/integrasjoner/#maskinlesbare-hendelser)|
+| [Programmeringsgrensesnitt - API](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/integrasjoner/#programmeringsgrensesnitt--api)|
+| [Programmeringsgrensesnitt NUF - API](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/integrasjoner/#programmeringsgrensesnitt-nuf---api)|
+| [Maskinlesbare hendelser](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/integrasjoner/#maskinlesbare-hendelser)|
 
 
 ### Programmeringsgrensesnitt -API
@@ -22,8 +22,6 @@ Denne tilgangspakken gir fullmakter til å administrere tilgang til data og prog
 ### Programmeringsgrensesnitt NUF - API
 Denne tilgangspakken gir fullmakter til å administrere tilgang til data og programmeringsgrensenitt (API) som benytter Maskinporten eller tilsvarende løsninger for APIsikring på vegne av norskregistrerte utenlandske foretak (NUF). Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:programmeringsgrensesnittNUF*
-
-
 
 ### Maskinlesbare hendelser
 Denne tilgangspakken gir fullmakter til å administrere tilgang til maskinlesbare hendelser. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  

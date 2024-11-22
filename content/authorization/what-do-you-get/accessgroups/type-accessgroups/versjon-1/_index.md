@@ -4,6 +4,7 @@ linktitle: Virksomhet, versjon 1
 description: Her finner du forslag til nye tilgangspakker for virksomheter. Disse har vært på høring. Vi jobber nå med versjon 2 av tilgangspakker. 
 toc: false
 weight: 300
+hidden: true
 
 ---
 
