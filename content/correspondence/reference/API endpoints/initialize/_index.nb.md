@@ -1,7 +1,7 @@
 ---
 title: Initialisere
 linktitle: Initialisere
-description: Endepunkt for initialisering av en korrespondanse.
+description: Endepunkt for initialisering av en melding.
 
 weight: 60
 toc: true
@@ -13,7 +13,7 @@ POST /correspondence/api/v1/correspondence
 
 ## Beskrivelse
 
-Dette endepunktet forbereder korrespondanse og legger den i kø for sending. Før du bruker dette endepunktet, må eventuelle tilhørende vedlegg lastes opp på forhånd for å fylle ut feltet "ExistingAttachments". Dette kan gjøres ved å bruke endepunktet beskrevet [her](https://docs.altinn.studio/api/correspondence/spec/#/Attachment/post_correspondence_api_v1_attachment__attachmentId__upload).
+Dette endepunktet oppretter en melding og legger den i kø for sending. Før du bruker dette endepunktet, må eventuelle tilhørende vedlegg lastes opp på forhånd for å fylle ut feltet "ExistingAttachments". Dette kan gjøres ved å bruke endepunktet beskrevet [her](https://docs.altinn.studio/api/correspondence/spec/#/Attachment/post_correspondence_api_v1_attachment__attachmentId__upload).
 
 <!-- (will add link here when doc is ready) -->
 
@@ -33,11 +33,11 @@ Se [Autentisering og Autorisasjon](/notifications/reference/api/#authentication-
 
 ### Responskoder
 
-- 200 OK: Korrespondansen har blitt vellykket initialisert
+- 200 OK: Responsen har blitt vellykket initialisert
 
   Se problemdetaljer i responskroppen for mer informasjon.
-- 401 Uautorisert: Indikerer en manglende, ugyldig eller utløpt autorisasjonsheader.
-- 403 Forbudt: Indikerer at nødvendig omfang eller plattformtilgangstoken mangler eller er ugyldig.
+- 401 Unauthorized: Indikerer en manglende, ugyldig eller utløpt autorisasjonsheader.
+- 403 Forbidden: Indikerer at nødvendig omfang eller plattformtilgangstoken mangler eller er ugyldig.
 
 ### Innholdstype
 
@@ -45,21 +45,21 @@ Se [Autentisering og Autorisasjon](/notifications/reference/api/#authentication-
 
 ### Response body 
 
-Respons body returnerer en liste over korrespondanser [InitializeCorrespondencesResponseExt](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/InitializeCorrespondencesResponseExt.cs), med en korrespondanse for hver mottaker. Hver korrespondanse kan ha flere forskjellige mottakere hvor hver mottaker vil få en unik correspondenceId, status, etc.
+Respons body returnerer en liste over meldinger [InitializeCorrespondencesResponseExt](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/InitializeCorrespondencesResponseExt.cs), med en melding for hver mottaker. Hver melding kan ha flere forskjellige mottakere hvor hver mottaker vil få en unik correspondenceId, status, etc.
 
 ### Response body egenskaper
 
 #### correspondenceId
 Type: _Guid_
 
-ID-en til korrespondansen som har blitt initialisert
+ID-en til meldingen som har blitt initialisert
 
 #### status
 Type: _string_
 
 [De forskjellige statusene er definert her](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/Enums/CorrespondenceStatusExt.cs)
 
-Viser statusen til den initialiserte korrespondansen
+Viser statusen til den initialiserte meldingen
 
 #### recipient
 Type: _string_
@@ -78,5 +78,5 @@ En liste over de genererte varslene med sendingsresultat. Hvert varsel vil inklu
 | Status            | Beskrivelse                                                                 |
 |:-----------------:|:---------------------------------------------------------------------------:|
 | Success           | Betyr at varselordren ble opprettet vellykket med kontaktinformasjon.       |
-| MissingContact    | Kontaktinformasjon ble ikke funnet på tidspunktet for opprettelsen av korrespondansen. |
+| MissingContact    | Kontaktinformasjon ble ikke funnet på tidspunktet for opprettelsen av meldingen. |
 | Failure           | Opprettelse av varselordre mislyktes.                                       |
