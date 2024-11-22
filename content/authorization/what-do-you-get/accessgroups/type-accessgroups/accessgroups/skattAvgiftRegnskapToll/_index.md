@@ -10,16 +10,16 @@ aliases:
 
 | **Tilgangspakker i kategorien**|
 |---|
-| [Skatt næring](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/skattavgiftregnskaptoll/#skatt-næring)|
-| [Skattegrunnlag](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/skattavgiftregnskaptoll/#skattegrunnlag)|
-| [Merverdiavgift](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/skattavgiftregnskaptoll/#merverdiavgift)|
-| [Motorvognavgifter](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/skattavgiftregnskaptoll/#motorvognavgifter)|
-| [Særavgifter](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/skattavgiftregnskaptoll/#særavgifter)|
-| [Krav, betalinger og utlegg](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/skattavgiftregnskaptoll/#krav-betalinger-og-utlegg)|
-| [Kreditt- og oppgjørsordninger](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/skattavgiftregnskaptoll/#kreditt--og-oppgjørsordninger)|
-| [Regnskap og økonomirapportering](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/skattavgiftregnskaptoll/#regnskap-og-økonomirapportering)|
-| [Revisorattesterer](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/skattavgiftregnskaptoll/#revisorattesterer)|
-| [Toll](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/skattavgiftregnskaptoll/#toll)|
+| [Skatt næring](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/skattavgiftregnskaptoll/#skatt-næring)|
+| [Skattegrunnlag](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/skattavgiftregnskaptoll/#skattegrunnlag)|
+| [Merverdiavgift](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/skattavgiftregnskaptoll/#merverdiavgift)|
+| [Motorvognavgifter](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/skattavgiftregnskaptoll/#motorvognavgifter)|
+| [Særavgifter](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/skattavgiftregnskaptoll/#særavgifter)|
+| [Krav, betalinger og utlegg](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/skattavgiftregnskaptoll/#krav-betalinger-og-utlegg)|
+| [Kreditt- og oppgjørsordninger](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/skattavgiftregnskaptoll/#kreditt--og-oppgjørsordninger)|
+| [Regnskap og økonomirapportering](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/skattavgiftregnskaptoll/#regnskap-og-økonomirapportering)|
+| [Revisorattesterer](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/skattavgiftregnskaptoll/#revisorattesterer)|
+| [Toll](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/skattavgiftregnskaptoll/#toll)|
 
 
 ### Skatt næring

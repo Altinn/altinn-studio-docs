@@ -10,20 +10,20 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-| [Generelle Helfo tjenester](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#generelle-helfo-tjenester)|
-| [Helfotjenester med personopplysninger av særlig kategori](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#helfotjenester-med-personopplysninger-av-særlig-kategori)|
-| [Starte, endre og avvikle virksomhet](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#starte-endre-og-avvikle-virksomhet)|
-| [Aksjer og eierforhold](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#aksjer-og-eierforhold)|
-| [Attester](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#attester)|
-| [Dokumentbasert tilsyn](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#dokumentbasert-tilsyn)|
-| [Infrastruktur](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#infrastruktur)|
-| [Patent, varemerke og design](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#patent-varemerke-og-design)|
-| [Tilskudd, støtte og erstatning](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#tilskudd-støtte-og-erstatning)|
-| [Mine sider hos kommunen](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#mine-sider-hos-kommunen)|
-| [Politi og domstol](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#politi-og-domstol)|
-| [Rapportering av statistikk](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#rapportering-av-statistikk)|
-| [Forskning](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#forskning)|
-| [Eksplisitt tjenestedelegering](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#eksplisitt)|
+| [Generelle Helfo tjenester](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#generelle-helfo-tjenester)|
+| [Helfotjenester med personopplysninger av særlig kategori](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#helfotjenester-med-personopplysninger-av-særlig-kategori)|
+| [Starte, endre og avvikle virksomhet](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#starte-endre-og-avvikle-virksomhet)|
+| [Aksjer og eierforhold](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#aksjer-og-eierforhold)|
+| [Attester](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#attester)|
+| [Dokumentbasert tilsyn](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#dokumentbasert-tilsyn)|
+| [Infrastruktur](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#infrastruktur)|
+| [Patent, varemerke og design](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#patent-varemerke-og-design)|
+| [Tilskudd, støtte og erstatning](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#tilskudd-støtte-og-erstatning)|
+| [Mine sider hos kommunen](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#mine-sider-hos-kommunen)|
+| [Politi og domstol](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#politi-og-domstol)|
+| [Rapportering av statistikk](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#rapportering-av-statistikk)|
+| [Forskning](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#forskning)|
+| [Eksplisitt tjenestedelegering](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#eksplisitt)|
 
 ### Generelle Helfo tjenester
 Denne fullmakten gir tilgang til ordinære tjenester knyttet til virksomhetens dialog med Helfo der bruker kan få tilgang til personopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  

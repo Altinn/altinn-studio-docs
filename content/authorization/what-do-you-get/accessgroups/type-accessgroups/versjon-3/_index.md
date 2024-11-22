@@ -6,6 +6,7 @@ toc: true
 weight: 100
 aliases:
 - /authorization/modules/accessgroups/type-accessgroups/versjon-3/
+hidden: true
 ---
 
 Tilgangspakkene gir tilgang til apper og ressurser som opprettes i Altinn Studio og Ressursregisteret. For tjenester som fortsatt ligger i Altinn 2, vil det være Altinn -roller som styrer tilgang. 
