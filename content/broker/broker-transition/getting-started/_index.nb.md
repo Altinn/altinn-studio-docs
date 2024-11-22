@@ -14,9 +14,9 @@ For å bruke Formidling overgangsløsning i Altinn for å opprette, laste opp og
 1. Ha en eksisterende Altinn 2 Formidlingstjeneste.
 2. Ha eller lage en tilsvarende tjeneste i Altinn 3. Se hvordan du kommer i gang med Altinn 3 Formidling [her](../../getting-started/).
 For å konfigurere ressursen din korrekt for å bruke den i overgangsløsningen, [se under](#konfigurer-ressurs-til-bruk-i-overgangsløsningen).
-4. Be om et overgangsoppsett fra Altinn 2 tjenesten til Altinn 3 tjenesten. Bestem dato for når dette skal gå i live. (For å minimere risiko for foreldreløse data i Altinn 2)
-5. Gå live med overgangsløsning mens du oppfordrer forbrukerne til å migrere til Altinn Formidling.
-6. Når alle forbrukere har migrert til Altinn 3, må du dekommisjonere Altinn 2 Formidlingstjenesten.
+3. Bestill et overgangsoppsett fra Altinn 2 tjenesten til Altinn 3 tjenesten, [se under](#bestill-overgangsoppsett) for detaljer.
+4. Gå live med overgangsløsning mens du oppfordrer forbrukerne til å migrere til Altinn Formidling.
+5. Når alle forbrukere har migrert til Altinn 3, må du dekommisjonere Altinn 2 Formidlingstjenesten.
 
 ### Konfigurer Ressurs til bruk i overgangsløsningen
 
@@ -37,12 +37,34 @@ Dersom du trenger å bruke[Manifest fil](../technical-overview/#manifest-fil), m
 Når du er ferdig med å overføre alle brukerene fra Altinn 2 til Altinn 3 API'ene, kan du endre konfigurasjonen til nye verdier etter din egen preferanse.
 For de 3 siste verdiene som kun brukes for overgangsløsningen er det ryddig å sette til False/null.
 
+### Bestill overgangsoppsett
+
+Overgangsoppsettet er konfigurert i Altinn 2-kodebasen, og når det er satt, vil trafikken for den definerte tjenesten bli omdirigert til Altinn 3.
+Vennligst oppgi følgende nødvendige detaljer, pass på at aktuelle verdier matcher det du [satte for ressursen](#konfigurer-ressurs-til-bruk-i-overgangsløsningen).
+
+- ExternalServiceCode og ExternalServiceEditionCode for Altinn 2-tjenesten.
+- ResourceId for Altinn 3-ressursen.
+- Miljøene hvor endringen skal utføres.
+  - Altinn 2 TT02 -> Altinn 3 TT02/Staging
+  - Altinn 2 PROD -> Altinn 3 PROD
+- Dato og klokkeslett for når endringen(e) skal tre i kraft.
+
+Kontakt oss i den offentlige slack-kanalen [Altinn@Slack#produkt-formidling](https://join.slack.com/t/altinn/shared_invite/zt-7c77c9si-ZnMFwGNtab1aFdC6H_vwog), så vil vi utføre de nødvendige stegene.
+
+Å utføre denne konfigurasjonsendringen skaper ikke nedetid i Altinn 2, men det vil være et kort tidsrom på <1 minutt hvor konfigurasjonen lastes inn på alle servere før overgangsløsningen er aktiv.
+
 ### Tilleggsinformasjon
 
 Etter at en tjenesteeier ber om at en Altinn 2 tjenesteovergang til en Altinn 3 tjeneste,
 Altinn 2 tjenesten vil ikke lenger sende forespørsler til Altinn 2 Formidling lagring.
 Dette betyr at eksisterende filer i Altinn 2 Formidling lagring vil bli utilgjengelig for sluttbrukere når tjenesten
 er satt opp til overgang til Altinn 3.
+
+Vi anbefaler at dere planlegger en periode med nedetid for tjenesten der ingen nye filer opprettes, men alle mottakere kan laste ned filene sine før du utfører overgangen.
+Nøyaktig hvor lang denne tiden bør være, varierer fra tjeneste til tjenste, avhengig av hvor raskt mottakerne laster ned filene etter de er tilgjengeligjort. Dersom dere ikke har innsikt i dette, ta kontakt med oss, så kan vi ta ut statistikk som kan hjelpe med å avklare dette.
+
+En metode for å håndheve nedetiden er å bruke Altinn 2 SRR for midlertidig å fjerne "write"-tilgangen for alle organisasjonene dere har godkjent som avsendere, men beholde "read"-tilgangen for alle mottakere.
+Når overgangen er satt opp, kan dere gi "write"-tilgangen tilbake til alle avsenderne, og filene vil nå bli opprettet i Altinn 3.
 
 ## Sluttbrukere
 
