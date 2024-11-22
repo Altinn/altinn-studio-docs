@@ -13,15 +13,15 @@ POST /correspondence/api/v1/correspondence
 
 ## Beskrivelse
 
-Dette endepunktet forbereder korrespondanse og legger den i køen for sending. Før du bruker dette endepunktet må eventuelle tilhørende vedlegg lastes opp på forhånd for å fylle ut feltet "ExistingAttachments". Dette kan gjøres ved å bruke endepunktet beskrevet [her](https://docs.altinn.studio/api/correspondence/spec/#/Attachment/post_correspondence_api_v1_attachment__attachmentId__upload).
+Dette endepunktet forbereder korrespondanse og legger den i kø for sending. Før du bruker dette endepunktet, må eventuelle tilhørende vedlegg lastes opp på forhånd for å fylle ut feltet "ExistingAttachments". Dette kan gjøres ved å bruke endepunktet beskrevet [her](https://docs.altinn.studio/api/correspondence/spec/#/Attachment/post_correspondence_api_v1_attachment__attachmentId__upload).
 
 <!-- (will add link here when doc is ready) -->
 
 ## Autentisering
 
-Dette API-et krever autentisering og forespørselen må også inkludere:
+Dette API-et krever autentisering, og forespørselen må også inkludere:
 
-- Correspondence write scope __altinn:correspondence.write__ (for external system callers)
+- Correspondence write scope __altinn:correspondence.write__ (for eksterne kall)
 
 Se [Autentisering og Autorisasjon](/notifications/reference/api/#authentication--authorization) for mer informasjon.
 
@@ -35,7 +35,7 @@ Se [Autentisering og Autorisasjon](/notifications/reference/api/#authentication-
 
 - 200 OK: Korrespondansen har blitt vellykket initialisert
 
-  Se problem detaljer i responskroppen for mer informasjon.
+  Se problemdetaljer i responskroppen for mer informasjon.
 - 401 Uautorisert: Indikerer en manglende, ugyldig eller utløpt autorisasjonsheader.
 - 403 Forbudt: Indikerer at nødvendig omfang eller plattformtilgangstoken mangler eller er ugyldig.
 
@@ -69,11 +69,11 @@ Viser mottakeren i formatet 0192:{{recipientOrgNumber}}
 #### notifications
 Type: _Liste over [InitializedCorrespondencesNotificationsExt](https://docs.altinn.studio/api/correspondence/spec/#/Correspondence/post_correspondence_api_v1_correspondence)_
 
-En liste over de genererte varslene med sendingsresultat.
-Hvert varsel vil inkludere følgende egenskaper:
-  - _orderId_: ID-en til ordren.
-  - _isReminder_: en boolsk verdi som indikerer om varselet er en påminnelse eller ikke.
-  - _status_: viser statusen til varselet.
+En liste over de genererte varslene med sendingsresultat. Hvert varsel vil inkludere følgende egenskaper:
+
+- _orderId_: ID-en til ordren.
+- _isReminder_: en boolsk verdi som indikerer om varselet er en påminnelse eller ikke.
+- _status_: viser statusen til varselet.
 
 | Status            | Beskrivelse                                                                 |
 |:-----------------:|:---------------------------------------------------------------------------:|

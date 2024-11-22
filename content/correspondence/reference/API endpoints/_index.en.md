@@ -1,6 +1,6 @@
 ---
 title: API endpoints
-linktitle: API endepunkter
+linktitle: API endpoints
 description: Overview of the Correspondence API endpoints
 tags: []
 toc: false
