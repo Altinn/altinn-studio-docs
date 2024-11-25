@@ -12,4 +12,4 @@ weight: 10
 
 ### Eksempel på bruk:
 
-{{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D2815%253A680" %}}
+{{% figma-example src="https://www.figma.com/design/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio-Komponenter?node-id=811-23337&t=zmVTCbvyNwSicTrN-4" %}}
