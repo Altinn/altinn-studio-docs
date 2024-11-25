@@ -12,4 +12,4 @@ weight: 10
 
 ### Example using different text sizes:
 
-{{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D2815%253A680" %}}
+{{% figma-example src="https://www.figma.com/proto/b2w3PuS5c0w8vVU3z8KOwp/branch/bmIjxvx6Y3SWQO0L2GfAtJ/Altinn-Studio-Komponenter?page-id=7704%3A42723&node-id=7775-83095&node-type=canvas&viewport=1068%2C905%2C0.37&t=x1HB477mc3oa8lWU-1&scaling=min-zoom&content-scaling=fixed" %}}
