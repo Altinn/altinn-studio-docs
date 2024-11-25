@@ -13,7 +13,7 @@ POST /correspondence/api/v1/correspondence/{{correspondenceId}}/markasread
 
 ## Description
 
-This endpoint sets the status of a existing correspondence as "Read". Before using this endpoint, the status of the correspondence must be "Fetched". The status of a correspondence can be checked by using the details endpoint described [here](https://docs.altinn.studio/api/correspondence/spec/#/Correspondence/post_correspondence_api_v1_correspondence__correspondenceId__markasread).
+This endpoint sets the status of an existing correspondence to "Read". Before using this endpoint, the status of the correspondence must be "Fetched". This status means that the correspondence has been downloaded. This occurs when a recipient uses the overview or details request. The status of a correspondence can be checked by using the overview endpoint described [here](https://docs.altinn.studio/api/correspondence/spec/#/Correspondence/get_correspondence_api_v1_correspondence__correspondenceId_).
 
 ## Authentication
 
