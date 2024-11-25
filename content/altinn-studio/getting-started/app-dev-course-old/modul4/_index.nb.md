@@ -95,11 +95,11 @@ basert på hvilken sektor de har krysset av for.
 
 ### Oppgaver
 
-1. [Send en dynamisk query-parameter](/nb/altinn-studio/guides/development/options/#sende-med-query-parametere-ved-henting-av-options) med Bransje-komponenten basert på Sektor.
+1. [Send en dynamisk query-parameter](/nb/altinn-studio/guides/development/options/#sende-med-spørringsparametere-ved-henting-av-en-kodeliste) med Bransje-komponenten basert på Sektor.
 2. Lag en dynamisk kodeliste for _Bransje_ med logikk basert på verdien til query-parameteren (hint: du kan lese inn bransjelisten fra json-filen).
 
 ### Nyttig dokumentasjon
-- [Hvordan sende med spørringsparametre ved henting av kodelister](/nb/altinn-studio/guides/development/options/#sende-med-query-parametere-ved-henting-av-options)
+- [Hvordan sende med spørringsparametre ved henting av kodelister](/nb/altinn-studio/guides/development/options/#sende-med-spørringsparametere-ved-henting-av-en-kodeliste)
 - [Hvordan sette opp dynamiske kodelister](/nb/altinn-studio/guides/development/options/dynamic-codelists)
 
 ### Forståelsessjekk
