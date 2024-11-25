@@ -5,7 +5,7 @@ hidden: true
 <!-- begin intro -->
 #### Kodeliste (`optionsId`)
 
-En [kodeliste](/nb/altinn-studio/reference/data/options) er en forhåndsdefinert liste med alternativer.
+En [kodeliste](/nb/altinn-studio/guides/development/options) er en forhåndsdefinert liste med alternativer.
 
 <!-- end intro -->
 
@@ -19,7 +19,7 @@ For å legge til alternativer fra en kodeliste, velg 'Kodeliste' og angi en kode
 
 <br>
 
-Om du ønsker å [sikre dynamiske kodelister](/nb/altinn-studio/reference/data/options/dynamic-codelists/#sikrede-dynamiske-kodelister) kan du huke av for dette:
+Om du ønsker å [sikre dynamiske kodelister](/nb/altinn-studio/guides/development/options/dynamic-codelists/#sikrede-dynamiske-kodelister) kan du huke av for dette:
 
 {{% image file="component-settings/secure.png" %}}
 <!-- end asd -->

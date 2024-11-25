@@ -47,8 +47,8 @@ Sogndal kommune ønsker å samle inn opplysninger om tilflytterens arbeidsituasj
 ### I lokalt utviklingsmiljø
 
 1. Opprett mappen `App/options` hvis den ikke eksisterer.
-2. Sogndal kommune har opprettet en [statisk kodeliste](/nb/altinn-studio/reference/data/options/static-codelists) for **bransjer**: [industry.json](../industry.json). Last ned filen og plasser den i `App/options`.
-3. Sett opp alternativene for **År i arbeidslivet** som en [åpen dynamisk kodeliste](/nb/altinn-studio/reference/data/options/dynamic-codelists#åpne-dynamiske-kodelister) i mappen `App/options` (følg anvisning i dokumentasjonen).  
+2. Sogndal kommune har opprettet en [statisk kodeliste](/nb/altinn-studio/guides/development/options/static-codelists) for **bransjer**: [industry.json](../industry.json). Last ned filen og plasser den i `App/options`.
+3. Sett opp alternativene for **År i arbeidslivet** som en [åpen dynamisk kodeliste](/nb/altinn-studio/guides/development/options/dynamic-codelists#åpne-dynamiske-kodelister) i mappen `App/options` (følg anvisning i dokumentasjonen).  
    Svaralternativer:
    Label      | Dataverdi
    -----------|----------
@@ -60,8 +60,8 @@ Sogndal kommune ønsker å samle inn opplysninger om tilflytterens arbeidsituasj
 
 ### Nyttig dokumentasjon
 
-- [Statiske kodelister](/nb/altinn-studio/reference/data/options/static-codelists)
-- [Dynamiske kodelister](/nb/altinn-studio/reference/data/options/dynamic-codelists)
+- [Statiske kodelister](/nb/altinn-studio/guides/development/options/static-codelists)
+- [Dynamiske kodelister](/nb/altinn-studio/guides/development/options/dynamic-codelists)
 
 ### Forståelsessjekk
 {{% expandsmall id="m4t1q1" header="Hva er forskjellen på statiske og dynamiske svaralternativer?" %}}
@@ -95,12 +95,12 @@ basert på hvilken sektor de har krysset av for.
 
 ### Oppgaver
 
-1. [Send en dynamisk query-parameter](/nb/altinn-studio/reference/data/options/#sende-med-query-parametere-ved-henting-av-options) med Bransje-komponenten basert på Sektor.
+1. [Send en dynamisk query-parameter](/nb/altinn-studio/guides/development/options/#sende-med-query-parametere-ved-henting-av-options) med Bransje-komponenten basert på Sektor.
 2. Lag en dynamisk kodeliste for _Bransje_ med logikk basert på verdien til query-parameteren (hint: du kan lese inn bransjelisten fra json-filen).
 
 ### Nyttig dokumentasjon
-- [Hvordan sende med spørringsparametre ved henting av kodelister](/nb/altinn-studio/reference/data/options/#sende-med-query-parametere-ved-henting-av-options)
-- [Hvordan sette opp dynamiske kodelister](/nb/altinn-studio/reference/data/options/dynamic-codelists)
+- [Hvordan sende med spørringsparametre ved henting av kodelister](/nb/altinn-studio/guides/development/options/#sende-med-query-parametere-ved-henting-av-options)
+- [Hvordan sette opp dynamiske kodelister](/nb/altinn-studio/guides/development/options/dynamic-codelists)
 
 ### Forståelsessjekk
 {{% expandsmall id="m4t2q1" header="Om en kodeliste er satt opp med en mapping mot datamodellen, hva skjer når det aktuelle feltet endrer verdi?" %}}
