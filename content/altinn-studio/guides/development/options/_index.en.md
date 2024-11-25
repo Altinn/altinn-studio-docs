@@ -6,6 +6,7 @@ toc: true
 weight: 40
 aliases:
 - /altinn-studio/guides/options
+- /altinn-studio/reference/data/options
 ---
 
 Altinn offers two different ways an application can use code lists - static and dynamic. Both is primarily exposed
