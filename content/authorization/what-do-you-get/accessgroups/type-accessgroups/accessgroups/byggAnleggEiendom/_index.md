@@ -10,13 +10,13 @@ aliases:
 
 |**Tilgangpakker i kategorien**|
 |---|
-|[Byggesøknad](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/bygganleggeiendom/#byggesøknad)|
-|[Plansak](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/bygganleggeiendom/#plansak)|
-|[Motta nabo- og planvarsel](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/bygganleggeiendom/#motta-nabo--og-planvarsel)|
-|[Oppføring av bygg og anlegg](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/bygganleggeiendom/#oppføring-av-bygg-og-anlegg)|
-|[Kjøp og salg av eiendom](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/bygganleggeiendom/#kjøp-og-salg-av-eiendom)|
-|[Utleie av eiendom](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/bygganleggeiendom/#utleie-av-eiendom)|
-|[Eiendomsmegler](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/bygganleggeiendom/#eiendomsmegler)|
+|[Byggesøknad](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/bygganleggeiendom/#byggesøknad)|
+|[Plansak](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/bygganleggeiendom/#plansak)|
+|[Motta nabo- og planvarsel](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/bygganleggeiendom/#motta-nabo--og-planvarsel)|
+|[Oppføring av bygg og anlegg](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/bygganleggeiendom/#oppføring-av-bygg-og-anlegg)|
+|[Kjøp og salg av eiendom](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/bygganleggeiendom/#kjøp-og-salg-av-eiendom)|
+|[Utleie av eiendom](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/bygganleggeiendom/#utleie-av-eiendom)|
+|[Eiendomsmegler](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/bygganleggeiendom/#eiendomsmegler)|
 
 
 ### Byggesøknad
@@ -45,4 +45,4 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til utleie av eiendom.
 
 ### Eiendomsmegler
 Denne tilgangspakken gir fullmakter til tjenester knyttet til omsetning og drift av fast eiendom på oppdrag, som eiendomsmegling og eiendomsforvaltning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:utleieeiendom*
+*urn:altinn:accesspackage:eiendomsmegler*

@@ -10,9 +10,9 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Regnskapsfører med signeringsrettighet](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/regnskapsforer/#regnskapsfører-med-signeringsrettighet)|
-|[Regnskapsfører uten signeringsrettighet](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/regnskapsforer/#regnskapsfører-uten-signeringsrettighet)|
-|[Regnskapsfører lønn](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/regnskapsforer/#regnskapsfører-lønn)|
+|[Regnskapsfører med signeringsrettighet](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/regnskapsforer/#regnskapsfører-med-signeringsrettighet)|
+|[Regnskapsfører uten signeringsrettighet](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/regnskapsforer/#regnskapsfører-uten-signeringsrettighet)|
+|[Regnskapsfører lønn](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/regnskapsforer/#regnskapsfører-lønn)|
 
 
 ### Regnskapsfører med signeringsrettighet
@@ -29,7 +29,7 @@ Denne fullmakten gir tilgang til regnskapsfører å rapportere lønn for sin kun
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
 |**Tilgangspakke**|**Enhetsregisterroller**|
-|---|
+|---|---|
 |Regnskapsfører med signeringsrettighet|Regnskapsfører|
 |Regnskapsfører uten signeringsrettighet|Regnskapsfører|
 |Regnskapsfører lønn|Regnskapsfører|

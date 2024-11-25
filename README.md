@@ -34,6 +34,6 @@ There are two ways to edit and test your changes to the docs:
    cd altinn-studio-docs
    hugo server --navigateToChanged
    ```
-4. The documentation can now be opened in browser at http://localhost:1313
+4. The documentation can now be opened in browser at http://docs.altinn.studio
 5. Edit and save files to get the site refreshed in your browser, so you can test your changes
 6. When happy, [push your changes](https://github.com/Altinn/altinn-studio-docs/blob/master/CONTRIBUTING.md#push-your-changes-to-github)
