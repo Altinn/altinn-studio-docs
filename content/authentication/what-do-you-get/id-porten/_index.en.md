@@ -1,87 +1,67 @@
 ---
 title: Authenticate with ID-porten
 linktitle: ID-porten
-description: Description of how systems can use ID-porten to get access to APIs in Altinn 3.
+description: Description of how systems can use ID-porten to access APIs in Altinn 3.
 toc: true
 weight: 200
-tags: [translate-to-english]
+aliases:
+- /nb/api/authentication/id-porten/
 ---
 
-Systemer for sluttbrukere kan autentisere brukere via ID-porten.
-Dette for å kunne benytte API fra applikasjoner kjørende i Altinn Apps og enkelte funksjoner i Altinn Platform på vegne av sluttbruker.
+End-user systems can authenticate users via ID-porten to use APIs from applications running in Altinn Apps and certain functions in Altinn Platform on behalf of the end-user.
 
-Det er i hoveddsak to typer systemer hvor dette er aktuelt. Dette er webbaserte løsninger og tykke klienter.
+There are mainly two types of systems where this is relevant: web-based solutions and thick clients.
 
-Felles for begge løsninger er at sluttbruker vil logge inn via nettleser i ID-porten med den autentiseringsmekanismen de ønsker.
-
-Dette er for eksempel:
+Common to both solutions is that the end-user logs in via a browser in ID-porten with the desired authentication mechanism, for example:
 
 - Min-ID
-- BankID på mobil
-- BankId
+- BankID on mobile
+- BankID
 
-Systemet må forespøre et sett med scopes i ID-porten som sluttbruker må akseptere at systemet kan utføre på vegne av sluttbruker.
+The system must request a set of scopes in ID-porten that the end-user must accept for the system to perform actions on behalf of the end-user. These scopes limit what the system can do on behalf of the end-user.
 
-Det er disse scopene som tildels avgrenser hva systemet kan utføre på vegne av sluttbruker.
+Relevant scopes for Altinn 3 are:
 
-Scopene som er definert og relevant for Altinn 3 er:
+- **altinn:instances.meta** - View inbox and archive overview in Altinn
+- **altinn:instances.read** - Read the content of the inbox and archive in Altinn for all items the end-user is authorized for
+- **altinn:instances.write** - Fill out, sign, and submit forms in Altinn for all items the end-user is authorized for
+- **altinn:lookup** - Use lookup services in Altinn
+- **altinn:reportees** - See who you can represent in Altinn
 
-- **altinn:instances.meta** - Se oversikt over innboks og arkiv i Altinn
-- **altinn:instances.read** - Lese innholdet i innboks og arkiv i Altinn for alle elementer som sluttbruker er autorisert for
-- **altinn:instances.write** - Fylle ut, signere og sende inn skjema i Altinn for alle elementer sluttbruker er autorisert for
-- **altinn:lookup** - Benytte innsynstjenester i Altinn
-- **altinn:reportees** - Se hvem du kan representere i Altinn
+The image below shows how the end-user must confirm access.
 
-Bildet nedenfor viser hvordan sluttbruker må bekrefte tilgangen.
+![Handle systems](scopeidporten.png "Handle systems")
 
-![Håndtere systemer](scopeidporten.png "Håndtere systemer")
+For details on scopes and a list of all available scopes, see [documentation from ID-porten](https://docs.digdir.no/oidc_protocol_scope.html).
 
-For detaljer om scope og opplisting av alle scopes tilgjengelig se [dokumentasjon fra ID-porten](https://docs.digdir.no/oidc_protocol_scope.html).
+Once login is completed, the system will have access to an ID token, refresh token, and an access token. The access token has a limited lifespan but can be renewed using the refresh token.
 
-Det er disse scopene som avgjør hva sluttbruker kan utføre. Bildet nedenfor viser hvordan sluttbruker må bekrefte
-tilgangen.
+## Web-based systems
 
-![Håndtere systemer](scopeidporten.png "Håndtere systemer")
+Web-based systems consist of solutions with a web-based frontend running in a browser, as well as server-side code.
 
-Når pålogging er gjennomført vil systemet ha tilgang til et ID-token, refresh token og et access token.
+[See details at ID-porten](https://docs.digdir.no/oidc_guide_idporten.html).
 
-Dette access tokenet har begrenset levetid, men kan fornyes med ved hjelp av refresh token.
+## Thick clients
 
-## Web baserte systemer
+Thick clients refer to applications that are installed and run locally on a computer and not in a browser. These must still use a browser to log in.
 
-Webbaserte systemer består av løsninger med en webbasert frontend som kjører i nettleser, samt serverside kode.
+[See details at ID-porten](https://docs.digdir.no/oidc_auth_sbs.html).
 
-[Se detaljer hos ID-porten](https://docs.digdir.no/oidc_guide_idporten.html).
+## Exchanging access token for Altinn token
 
+The access token issued by ID-porten must be exchanged for an Altinn token before it can be used against Altinn's APIs. This Altinn token will have the same lifespan as the access token.
 
-## Tykke klienter
+The flowchart below shows how the token is exchanged.
 
-Med tykke klienter mener vi applikasjoner som installeres og kjøres lokalt på en datamaskin og ikke i nettleser.  
-Disse må likevel benytte seg av nettleser for å logge inn.
+![Token exchange](eus_login_process_updated.svg "Token exchange")
 
-[Se detaljer hos ID porten](https://docs.digdir.no/oidc_auth_sbs.html).
+See details in [Altinn's API documentation](../../authentication/spec) under the method `GET /exchange/{tokenProvider}`.
 
+End-users in Altinn have the ability to get an overview of all systems and their accesses. This way, long-term accesses can be revoked. The system will then be rejected the next time it tries to renew the access token.
 
-## Veksling av access token til Altinn token
+The image below shows how this will be in Altinn (not yet in production).
 
-Access-tokenet som utstedes fra ID-porten må veksles inn i et Altinn-token før det kan benyttes mot Altinns API'er.
+![Handle system accesses](scopemanagement.png "Handle system accesses")
 
-Dette Altinn-tokenet vil ha samme levetid som access-tokenet.
-
-Flytdiagrammet nedenfor viser hvordan tokenet veksles inn.
-
-![Innveksling av token](eus_login_process_updated.svg "Innveksling av token")
-
-Se detaljer i [Altinns API dokumentasjon](../../authentication/spec) under metoden `GET /exchange/{tokenProvider}`.
-
-Sluttbrukere har i Altinn mulighet til å få oversikt over alle systemer og hvilke tilganger de har.
-
-På denne måten kan man trekke langvarige tilganger. Systemet vil da bli avvist neste gang det prøver å refresehe access-token.
-
-Bildet nedenfor viser hvordan dette vil bli i Altinn (ikke satt i produksjon enda).
-
-![Håndtere systemtilganger](scopemanagement.png "Håndtere systemtilganger")
-
-Et system som har fått tilgang til et token fra ID-porten vil kunne utføre handlinger som bruker er autorisert kun begrenset av bruksområdet til scope.
-Det betyr at hvis system har fått scope for innsending av skjema så vil systemet kunne sende inn alle skjema for alle avgivere som sluttbruker er autorisert for.
-Det er derfor viktig at sluttbruker kan stole på systemet.
+A system that has obtained a token from ID-porten will be able to perform actions that the user is authorized for, only limited by the scope's usage area. This means that if the system has obtained a scope for form submission, the system will be able to submit all forms for all entities that the end-user is authorized for. Therefore, it is important that the end-user can trust the system.
