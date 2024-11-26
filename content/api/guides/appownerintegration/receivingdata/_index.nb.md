@@ -42,7 +42,7 @@ Utvikling av applikasjon er dekket i Guide for applikasjonsutvikling. Aktivering
 
 Krav til webhook for mottak av events finner du [her](/events/subscribe-to-events/developer-guides/setup-subscription/#request).
 
-Tjenesteeier må ha registrert en integrasjon i Maskinporten. Opprettelse av integrasjon er beskrevet i Guide [her](/api/authentication/maskinporten/#tilgang-som-tjenesteeier).
+Tjenesteeier må ha registrert en integrasjon i Maskinporten. Opprettelse av integrasjon er beskrevet i Guide [her](/nb/authentication/what-do-you-get/maskinporten/#tilgang-som-tjenesteeier)).
 
 ## Detaljert teknisk prosess
 
@@ -65,7 +65,7 @@ Første steget i prosessen er at mottaksendepunktet mottar informasjon om Event 
 
 ### Autentisering mot maskinporten
 
-Tjenesteeiersystem kaller Maskinporten API med korrekt Scopes for tjenesteeier. Dette er beskrevet i detaljer [her](/authentication/what-do-you-get/maskinporten/#tilgang-som-tjenesteeier).
+Tjenesteeiersystem kaller Maskinporten API med korrekt Scopes for tjenesteeier. Dette er beskrevet i detaljer [her](/nb/authentication/what-do-you-get/maskinporten/#tilgang-som-tjenesteeier).
 
 Deretter må tjenesteeiersystem kalle Altinns [innvekslingsendepunkt](/api/authentication/spec/) med sitt maskinportentoken som bearer token.
 
