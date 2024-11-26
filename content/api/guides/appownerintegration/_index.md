@@ -1,8 +1,8 @@
 ---
-title: Guider API for tjenesteiere
-linktitle: Tjenesteeiere
-description: Her finner du guider for tjenesteeiere som ønsker å integrerere seg mot Altinns API
-tags: [architecture, devops, todo]
+title: Guides for API Integration for Service Owners
+linktitle: Service Owners
+description: Find guides for service owners who want to integrate with Altinn's API.
+tags: [architecture, devops, integration]
 toc: false
 hidden: false
 ---
