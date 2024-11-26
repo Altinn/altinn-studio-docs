@@ -19,7 +19,7 @@ Dette endepunktet setter statusen til en eksisterende melding til "Read". Før d
 
 Dette API-et krever autentisering, og forespørselen må også inkludere:
 
-- Correspondence read scope __altinn:correspondence.read__ (for eksterne systemkallere)
+- Correspondence read scope __altinn:correspondence.read__ (for eksterne kall)
 
 Se [Autentisering og Autorisasjon](/notifications/reference/api/#authentication--authorization) for mer informasjon.
 
@@ -30,7 +30,7 @@ Se [Autentisering og Autorisasjon](/notifications/reference/api/#authentication-
 - 200 OK: Meldingen har blitt vellykket merket som lest
 
   Se problemdetaljer i responsen for mer informasjon.
-- 404 Not Found: Indikerer at korrespondanse-ID-en ikke ble funnet.
+- 404 Not Found: Indikerer at correspondenceId ikke ble funnet.
 
 ### Innholdstype
 
@@ -40,6 +40,6 @@ Se [Autentisering og Autorisasjon](/notifications/reference/api/#authentication-
 
 Response body består av en GUID og inneholder correspondenceId.
 
-### Responskropp egenskaper
+### Response body egenskaper
 
 Returnerer kun correspondenceId.
