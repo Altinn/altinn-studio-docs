@@ -34,7 +34,7 @@ The overall process:
 7. The service owner calls the Altinn API to download data for the instance.
 8. The service owner confirms that the data has been downloaded successfully.
 
-![Receiving data](receivingdata.drawio.svg)
+![Receiving data](recevingdata.drawio.svg)
 
 ## Technical requirements
 
@@ -42,7 +42,7 @@ Development of the application is covered in the Application Development Guide. 
 
 Requirements for the webhook to receive events can be found [here](/events/subscribe-to-events/developer-guides/setup-subscription/#request).
 
-The service owner must have registered an integration in Maskinporten. Creation of the integration is described in the Guide [here](/api/authentication/maskinporten/#access-as-service-owner).
+The service owner must have registered an integration in Maskinporten. Creation of the integration is described in the Guide [here](/authentication/what-do-you-get/maskinporten/#access-as-a-service-owner).
 
 ## Detailed technical process
 
@@ -65,7 +65,7 @@ The first step in the process is that the receiving endpoint receives informatio
 
 ### Authentication against Maskinporten
 
-The service owner system calls the Maskinporten API with the correct Scopes for the service owner. This is described in detail [here](/authentication/what-do-you-get/maskinporten/#access-as-service-owner).
+The service owner system calls the Maskinporten API with the correct Scopes for the service owner. This is described in detail [here](/authentication/what-do-you-get/maskinporten/#access-as-a-service-owner).
 
 Then the service owner system must call Altinn's [exchange endpoint](/api/authentication/spec/) with its Maskinporten token as a bearer token.
 
