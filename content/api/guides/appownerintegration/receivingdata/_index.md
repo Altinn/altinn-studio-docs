@@ -1,102 +1,81 @@
 ---
-title: Motta data fra Altinn Apps
-linktitle: Motta data
-description: Denne guiden beskriver i detalj hvordan man som applikasjonseier/tjenesteier kan motta data som rapporteres inn til en Altinn 3 applikasjon.
+title: Receive data from Altinn Apps
+linktitle: Receive data
+description: This guide describes in detail how application owners/service owners can receive data reported to an Altinn 3 application.
 tags: [architecture, devops, todo]
 toc: false
 hidden: false
 ---
 
-## Overordnet konsept
+## Overall concept
 
-Altinn tilbyr en platform for utvikling og drift av digitale tjenester. 
+Altinn offers a platform for the development and operation of digital services. If the services require the end user (citizen/business) to report data, this data will initially be stored in Altinn. The service owner must retrieve this received data from Altinn's data storage using API integration. This guide describes how such an integration can be set up.
 
-Hvis tjenestene er av en slik art at sluttbruker (innbygger/næringsliv) skal rapportere inn data så vil disse data i utgangspunktet bli lagret i Altinn. 
+## About process flow in applications
 
-Tjenesteeier må hente disse mottatte dataene fra Altinns datalager. Dette gjøres ved hjelp av API integrasjon.
+An application developed in Altinn Studio can have different processes depending on the service owner's needs. For a service that collects data, there will typically be at least one data step where the end user can enter data. Additionally, there may be a confirmation step where the end user can review the data before confirming that it is correct.
 
-Denne guiden beskriver hvordan en slik integrasjon kan settes opp. 
+For such a service, the process in the app itself will be completed when the end user clicks confirm. This process can be part of a larger process orchestrated by the service owner.
 
-## Om prosessflyt i applikasjoner
+## Instantiation of service
 
-En applikasjon utviklet i Altinn studio kan ha forskjellige prosser avhengig av behovet til tjenesteeier. For en tjeneste som skal hente inn data vil man typisk ha minst et datasteg hvor sluttbruker får mulighet til å skrive inn data. 
+Instantiation in Altinn means that a dialogue is created in a submitter/party's inbox in Altinn. This instantiation can be triggered by the end user or by the service owner. In this guide, we assume that it is instantiated by the end user. A guide for service owner instantiation can be found here (TODO).
 
-I tilegg kan det f.eks være aktuelt med et bekreftelsteg hvor sluttbruker får mulighet til å se over data før man endelig bekrefter at de er korrekt.
+## Overall end user process
 
-For en slik tjeneste vil prosessen i selve appen være avsluttet i det sluttbruker trykker bekreft. Denne prosessen kan være del av en større prosess som tjenesteeier orkestrerer. 
+The overall process:
 
-## Instansiering av tjeneste
+1. The end user instantiates the service in the party's message box in Altinn. This can be done via API or in a browser on Altinn.no.
+2. The form is filled out and any attachment data is uploaded.
+3. The end user validates the data and any attachments and sends the application process for confirmation.
+4. The end user reviews the data and confirms that they have completed the process.
+5. The application publishes an event that the end user has completed the filling process. (Assumes that publishing is [enabled]())
+6. The service owner receives information about the event at their event receiver.
+7. The service owner calls the Altinn API to download data for the instance.
+8. The service owner confirms that the data has been downloaded successfully.
 
-Instansiering betyr i Altinn sammenheng at det opprettes en dialog i en avgiver/parts innboks i Altinn.
+![Receiving data](receivingdata.drawio.svg)
 
-Denne instansiering kan trigges av sluttbruker eller av tjenesteier. I denne guiden forutsetter vi at den er instansiert av sluttbruker. Guide for tjenesteeier instansiering finner du her (TODO).
+## Technical requirements
 
+Development of the application is covered in the Application Development Guide. Activation of event publishing from the application is described in the guide.
 
-## Overordnet prosess sluttbruker
+Requirements for the webhook to receive events can be found [here](/events/subscribe-to-events/developer-guides/setup-subscription/#request).
 
-Prosessen overordnet
+The service owner must have registered an integration in Maskinporten. Creation of the integration is described in the Guide [here](/api/authentication/maskinporten/#access-as-service-owner).
 
-1. Sluttbruker instansierer tjeneste i parts meldingsboks i Altinn. Dette kan gjøres via API eller i nettleser på Altinn.no
-2. Skjema fylles ut og eventuelle vedleggsdata lastes opp.
-3. Sluttbruker validerer data og eventuelle vedlegg og sender sender applikasjonsprosessen videre til bekreftelse
-4. Sluttbruker ser over data og bekrefter at han er ferdig med prosessen
-5. Applikasjon publiserer en hendelse om at sluttbruker er ferdig med utfyllingsprosess. (Forutsetter at publisering er [slått på]())
-6. Tjenesteeier mottar informasjon om hendelse på sitt hendelsesmottak
-7. Tjenesteier kaller Altinn API for å laste ned data for instanse.
-8. Tjenesteeier bekrefter at data er nedlastet ok
+## Detailed technical process
 
-![Receving data](recevingdata.drawio.svg)
+### Service owner system receives Event from Altinn Events
 
-## Hva kreves teknisk
+The first step in the process is that the receiving endpoint receives information about the Event from the Application running in Altinn. This assumes that [subscription is set up](/events/subscribe-to-events/developer-guides/setup-subscription/).
 
-Utvikling av applikasjon er dekket i Guide for applikasjonsutvikling
-Aktivering av publisering av hendelser fra applikasjon er beskrevet i guide.
-
-Krav til webhook for mottak av events finner du [her](/events/subscribe-to-events/developer-guides/setup-subscription/#request)
-
-Tjenesteeier må ha registert en integrasjon i Maskinporten. 
-
-Opprettelse av integrasjon er beskrevet i Guide [her](/api/authentication/maskinporten/#tilgang-som-tjenesteeier).
-
-## Detaljert teknisk prosess
-
-
-### Tjenesteeiersystem mottar Event fra Altinn Events
-
-Første steget i prosessen er at mottaksendepunkt mottar informasjon om Event fra Applikasjon kjørende i Altinn. Dette forutsetter at [abonnement er satt opp](/events/subscribe-to-events/developer-guides/setup-subscription/).
-
-```
+```json
 {
-    "id":"bd9edd59-b18c-4726-aa9e-6b150eade814",
-    "source":"https://ttd.apps.altinn.no/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
-    "specversion":"1.0",
-    "type":"app.instance.created",
-    "resource":"urn:altinn:app:ttd.bli-applikasjonseier",
-    "resourceinstance":"bd9edd59-b18c-4726-aa9e-6b150eade814"
-    "subject":"/party/1337",
+    "id": "bd9edd59-b18c-4726-aa9e-6b150eade814",
+    "source": "https://ttd.apps.altinn.no/ttd/become-application-owner/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
+    "specversion": "1.0",
+    "type": "app.instance.created",
+    "resource": "urn:altinn:app:ttd.become-application-owner",
+    "resourceinstance": "bd9edd59-b18c-4726-aa9e-6b150eade814",
+    "subject": "/party/1337",
     "time": "2022-05-12T00:02:07.541482Z"
 }
 ```
 
-### Autentisering mot maskinporten
+### Authentication against Maskinporten
 
+The service owner system calls the Maskinporten API with the correct Scopes for the service owner. This is described in detail [here](/authentication/what-do-you-get/maskinporten/#access-as-service-owner).
 
-Tjenesteeiersystem kaller Maskinporten API med korrekt Scopes for tjenesteier.
-
-Dette er beskrevet i detaljer [her](/api/authentication/maskinporten/#tilgang-som-tjenesteeier)
-
-Deretter må tjenesteeiersystem kalle Altinns [innvekslings endpunkt](/api/authentication/spec/) med sitt maskinportentoken som bearer token
+Then the service owner system must call Altinn's [exchange endpoint](/api/authentication/spec/) with its Maskinporten token as a bearer token.
 
 ```http
-http://platform.altinn.no/authenticaiton/api/v1/exchange/maskinporten/
+http://platform.altinn.no/authentication/api/v1/exchange/maskinporten/
 ```
 
+### Service owner system calls the source endpoint from the event
 
-### Tjenesteiersystem kaller source endepunkt fra event
-
-Events fra Altinn Applikasjoner peker på Instance endepunktet til en gitt applikasjon som kjører i Altinn. 
-Ved å benytte sitt tjenesteeier token vil systemet kunne laste ned instance documentet.
-
+Events from Altinn Applications point to the Instance endpoint of a given application running in Altinn. By using its service owner token, the system can download the instance document.
 
 ```json
 {
@@ -107,10 +86,10 @@ Ved å benytte sitt tjenesteeier token vil systemet kunne laste ned instance doc
         "organisationNumber": null,
         "username": null
     },
-    "appId": "ttd/bli-applikasjonseier",
+    "appId": "ttd/become-application-owner",
     "org": "ttd",
     "selfLinks": {
-        "apps": "https://ttd.apps.altinn.no/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
+        "apps": "https://ttd.apps.altinn.no/ttd/become-application-owner/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
         "platform": "https://ttd.apps.altinn.no/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814"
     },
     "dueBefore": null,
@@ -122,7 +101,7 @@ Ved å benytte sitt tjenesteeier token vil systemet kunne laste ned instance doc
             "flow": 2,
             "started": "2020-11-18T15:56:41.5664762Z",
             "elementId": "Task_1",
-            "name": "Utfylling",
+            "name": "Filling out",
             "altinnTaskType": "data",
             "ended": null,
             "validated": {
@@ -139,12 +118,12 @@ Ved å benytte sitt tjenesteeier token vil systemet kunne laste ned instance doc
         {
             "id": "8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
             "instanceGuid": "bd9edd59-b18c-4726-aa9e-6b150eade814",
-            "dataType": "Kursdomene_BliTjenesteeier_M_2020-05-25_5703_34553_SERES",
+            "dataType": "CourseDomain_BecomeServiceOwner_M_2020-05-25_5703_34553_SERES",
             "filename": null,
             "contentType": "application/xml",
-            "blobStoragePath": "ttd/bli-applikasjonseier/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
+            "blobStoragePath": "ttd/become-application-owner/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
             "selfLinks": {
-                "apps": "https://ttd.apps.altinn.no/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
+                "apps": "https://ttd.apps.altinn.no/ttd/become-application-owner/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
                 "platform": "https://ttd.apps.altinn.no/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d"
             },
             "size": 401,
@@ -163,29 +142,24 @@ Ved å benytte sitt tjenesteeier token vil systemet kunne laste ned instance doc
 }
 ```
 
-### Tjenesteiersystem kaller endepunkt for hvert av dataelementene 
+### Service owner system calls the endpoint for each data element
 
-I instance dokumentet fra steget over er det listet dataelementene som en instance består av. 
+In the instance document from the previous step, the data elements that an instance consists of are listed. These documents can be downloaded from the application endpoint. Each data element has information about, for example, data type and when it was last changed.
 
-Disse dokumentene kan lastes ned fra applikasjons endepunkt. Hvert dataelement har informasjon om f.eks datatype og når det var sist endret.
-
-Url for nedlasting av hvert element er oppgitt som en url til App eller url til Storage.
+The URL for downloading each element is provided as a URL to the App or a URL to Storage.
 
 ```http
-https://ttd.apps.altinn.no/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d
+https://ttd.apps.altinn.no/ttd/become-application-owner/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d
 ```
 
-Det anbefales at tjenesteeier benytter app endepunkt for nedlasting. På denne måten har man best tilgang til logger.
+It is recommended that the service owner uses the app endpoint for downloading. This way, you have the best access to logs.
 
-### Tjenesteiersystem kaller endepunkt for å bekrefte data.
+### Service owner system calls the endpoint to confirm data
 
-Når instance data og dataelementer er lastet ned og verifisert ok, så må tjenesteier bekrefte ok nedlasting.
+When instance data and data elements are downloaded and verified as okay, the service owner must confirm successful download. This is done by calling the [Complete endpoint](/api/apps/instances/#complete-instance) on the Application.
 
-Dette gjøres ved å kalle [Complete endepunkt](/api/apps/instances/#complete-instance) på Applikasjon.
+## Reference system
 
-## Referanssystem
-
-Altinn har utviklet et referanseystem som mottar Events og laster ned data. Dette finner man [her](https://github.com/Altinn/altinn-application-owner-system).
-
+Altinn has developed a reference system that receives Events and downloads data. This can be found [here](https://github.com/Altinn/altinn-application-owner-system).
 
 {{<children />}}
