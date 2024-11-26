@@ -1,6 +1,6 @@
 ---
-title: Marker som lest
-linktitle: Marker som lest
+title: Merk som lest
+linktitle: Merk som lest
 description: Endepunkt for å gi meldingen status "Read".
 
 weight: 60
@@ -13,13 +13,13 @@ POST /correspondence/api/v1/correspondence/{{correspondenceId}}/markasread
 
 ## Beskrivelse
 
-Dette endepunktet setter statusen til en eksisterende meldinger som "Read". Før endepunktet kan brukes, må statusen til meldingen være "Fetched". Statusen til en melding kan sjekkes ved å bruke "Details"-endepunktet beskrevet [her](https://docs.altinn.studio/api/correspondence/spec/#/Correspondence/get_correspondence_api_v1_correspondence__correspondenceId__details).
+Dette endepunktet setter statusen til en eksisterende melding til "Read". Før dette endepunktet blir tatt i bruk, må statusen til meldingen være "Fetched". Denne statusen betyr at meldingen har blitt lastet ned. Dette skjer når en mottaker bruker overview- eller details-endepunktet. Statusen til en melding kan sjekkes ved å bruke overview-endepunktet beskrevet [her](https://docs.altinn.studio/api/correspondence/spec/#/Correspondence/get_correspondence_api_v1_correspondence__correspondenceId_).
 
 ## Autentisering
 
 Dette API-et krever autentisering, og forespørselen må også inkludere:
 
-- Correspondence write scope __altinn:correspondence.write__ (for eksterne kall)
+- Correspondence read scope __altinn:correspondence.read__ (for eksterne systemkallere)
 
 Se [Autentisering og Autorisasjon](/notifications/reference/api/#authentication--authorization) for mer informasjon.
 
@@ -27,20 +27,19 @@ Se [Autentisering og Autorisasjon](/notifications/reference/api/#authentication-
 
 ### Responskoder
 
-- 200 OK: Korrespondansen har blitt vellykket merket som lest
+- 200 OK: Meldingen har blitt vellykket merket som lest
 
   Se problemdetaljer i responsen for mer informasjon.
-- 404 Not found: Indicates that the correspondence id was not found.
+- 404 Not Found: Indikerer at korrespondanse-ID-en ikke ble funnet.
 
 ### Innholdstype
 
 - application/json
 
-### Response body 
+### Response body
 
-Response body sitt format er definert her:
-[UpdateCorrespondenceStatusRequest](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.Application/UpdateCorrespondenceStatus/UpdateCorrespondenceStatusRequest.cs)
+Response body består av en GUID og inneholder correspondenceId.
 
-### Response body egenskaper
+### Responskropp egenskaper
 
 Returnerer kun correspondenceId.
