@@ -53,7 +53,7 @@ Disse scopene gir mulighet for å kalle alle apper i Altinn 3.
 
 Som del av påloggingsprosessen vil sluttbrukersystemet få tilgang til et access_token med informasjon om sluttbruker.
 
-Se detaljert påloggingsprosess med ID-porten og skjermbildet som sluttbruker blir presentert for, [her](/api/authentication/id-porten/).
+Se detaljert påloggingsprosess med ID-porten og skjermbildet som sluttbruker blir presentert for, [her](../../../authentication/what-do-you-get/id-porten/).
 
 ### Innveksling av access_token til Altinn Token
 
@@ -65,7 +65,7 @@ Innveksling skjer mot [Autentiserings API](/api/authentication/spec/).
 
 Innvekslingen skjer ved at man setter Access Token fra ID-porten som et Bearer token i authorization headeren og gjør et GET-kall mot innvekslingsendepunktet hvor "id-porten" er brukt som token provider.
 
-Detaljert beskrivelse av innveksling med ID-porten token finner du [her](/api/authentication/id-porten/).
+Detaljert beskrivelse av innveksling med ID-porten token finner du [her](../../../authentication/what-do-you-get/id-porten/).
 
 ### Instansiering og innsending av data
 
