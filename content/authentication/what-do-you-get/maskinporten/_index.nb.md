@@ -61,4 +61,4 @@ Altinn godtar ikke Maskinporten-token direkte. Disse må veksles inn i Altinn-to
 ## Mer informasjon
 
 - For mer informasjon, se [dokumentasjon for API-konsument](https://docs.digdir.no/maskinporten_guide_apikonsument.html#prosedyre-for-api-konsument) fra Maskinporten.
-- Se også [scenario for autentisering](../../scenarios/authentication/) for flere detaljer (på engelsk).
+- Se også [scenario for autentisering](../../../api/scenarios/authentication/) for flere detaljer (på engelsk).
