@@ -1,7 +1,7 @@
 ---
 title: Industrier
 linktitle: Industrier
-description: Denne kategorien omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som omhandler industrier som fysisk eller kjemisk omdanner materialer, stoffer eller deler til nye produkter. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+description: Dette fullmaktsområde omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som omhandler industrier som fysisk eller kjemisk omdanner materialer, stoffer eller deler til nye produkter. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
 toc: true
 weight: 100
 aliases:
@@ -69,3 +69,19 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbind
 ### Bergverk
 Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med bergverk og tilhørende tjenester til bergverksdrift og utvinning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:bergverk*
+
+
+## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
+|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
+|---|---|---|
+|Næringsmidler, drikkevarer og tobakk|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Tekstiler, klær og lærvarer|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Trelast, trevarer og papirvarer|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Trykkerier og reproduksjon av innspilte opptak|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Oljeraffinering, kjemisk og farmasøytisk industri|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Gummi, plast og ikke-metallholdige mineralprodukter|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Metallvarer og mineraler|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Verft og andre transportmidler|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Møbler og annen industri|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Reparasjon og installasjon av maskiner og utstyr|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Bergverk|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|

@@ -1,7 +1,7 @@
 ---
 title: Transport og lagring
 linktitle: Transport og lagring
-description: Denne kategorien omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som angår transport og lagring inkludert passasjer og godstransport, samt post- og kurervirksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+description: Dette fullmaktspmrådet omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som angår transport og lagring inkludert passasjer og godstransport, samt post- og kurervirksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
 toc: true
 weight: 100
 aliases:
@@ -40,3 +40,14 @@ Denne fullmakten gir tilgang til tjenester knyttet til jernbane, inkludert trikk
 ### Lagring og andre tjenester tilknyttet transport
 Denne fullmakten gir tilgang til tjenester knyttet til lagring og hjelpetjenester i forbindelse med transport, samt post- og kurervirksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:lagringogandretjenestertilknyttettransport*
+
+
+## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
+|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
+|---|---|---|
+|Veitransport|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Transport i rør|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Sjøfart|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Lufttransport|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Jernbanetransport|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Lagring og andre tjenester tilknyttet transport|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder,Bobestyrer|Ja|
