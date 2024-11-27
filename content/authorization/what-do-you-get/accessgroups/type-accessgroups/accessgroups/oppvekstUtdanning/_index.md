@@ -1,7 +1,7 @@
 ---
 title: Oppvekst og utdanning
 linktitle: Oppvekst og utdanning
-description: Denne kategorien omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som omhandler barnehage, skole og høyere utdanning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som omhandler barnehage, skole og høyere utdanning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
 toc: true
 weight: 100
 aliases:
@@ -75,3 +75,21 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til å søke om godkje
 ### Godkjenning av utdanningsvirksomhet 
 Denne tilgangspakken gir fullmakter til tjenester knyttet til å søke om godkjenning av utdanningsvirksomheter. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:godkjenningavutdanningsvirksomhet*
+
+
+## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
+|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
+|---|---|---|
+|Barnehageeier|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bobestyrer|Ja|
+|Barnehageleder|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bobestyrer|Ja|
+|Barnehagemyndighet|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bobestyrer|Ja|
+|Statsforvalter - barnehage|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bobestyrer|Ja|
+|Statsforvalter - skole og opplæring|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bobestyrer|Ja|
+|Skoleeier|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bobestyrer|Ja|
+|Skoleleder|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bobestyrer|Ja|
+|Opplæringskontorleder|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bobestyrer|Ja|
+|PPT-leder|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bobestyrer|Ja|
+|SFO-leder|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bobestyrer|Ja|
+|Høyere utdanning og høyere yrkesfaglig utdanning|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bobestyrer|Ja|
+|Godkjenning av personell|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bobestyrer|Ja|
+|Godkjenning av utdanningsvirksomhet|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bobestyrer|Ja|
