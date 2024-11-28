@@ -56,7 +56,7 @@ The flowchart below shows how the token is exchanged.
 
 ![Token exchange](eus_login_process_updated.svg "Token exchange")
 
-See details in [Altinn's API documentation](../../authentication/spec) under the method `GET /exchange/{tokenProvider}`.
+See details in [Altinn's API documentation](../../../api/authentication/spec) under the method `GET /exchange/{tokenProvider}`.
 
 End-users in Altinn have the ability to get an overview of all systems and their accesses. This way, long-term accesses can be revoked. The system will then be rejected the next time it tries to renew the access token.
 

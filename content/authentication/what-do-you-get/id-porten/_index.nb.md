@@ -56,7 +56,7 @@ Flytdiagrammet nedenfor viser hvordan tokenet veksles inn.
 
 ![Innveksling av token](eus_login_process_updated.svg "Innveksling av token")
 
-Se detaljer i [Altinns API dokumentasjon](../../authentication/spec) under metoden `GET /exchange/{tokenProvider}`.
+Se detaljer i [Altinns API dokumentasjon](../../../api/authentication/spec) under metoden `GET /exchange/{tokenProvider}`.
 
 Sluttbrukere har i Altinn mulighet til å få oversikt over alle systemer og hvilke tilganger de har. På denne måten kan man trekke langvarige tilganger. Systemet vil da bli avvist neste gang det prøver å fornye access-token.
 
