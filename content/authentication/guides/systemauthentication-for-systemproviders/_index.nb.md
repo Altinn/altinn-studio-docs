@@ -12,7 +12,7 @@ weight: 1
 
 ## Bakgrunn
 
-Bakgrunnen til systembruker konsept kan leses om her.
+Bakgrunnen til systembruker konsept kan leses om [her](https://github.com/Altinn/altinn-authentication/issues/200).
 
 ## Forutsetninger
 
@@ -21,6 +21,10 @@ Forutsetninger for at man systemleverandør kan benytte seg systembruker er.
 - [Avtale med maskinporten som konsument](https://samarbeid.digdir.no/maskinporten/konsument/119)
 - Avtale med Digdir som gir tilgang til systemregister
 - Delegert tilgang til scope altinn:authentication/systemregister.write 
+- Delegert tilgang til scope altinn:authentication/systemuser.request.read
+- Delegert tilgang til scope altinn:authentication/systemuser.request.write
+
+I tilegg trengs tilgang til scope for API som skal benyttes av systemet. Dette vil være informasjon som tjenesteeier sitter på.
 
 ## Sette opp maskinporten integrasjon
 
@@ -120,7 +124,6 @@ For produksjon endres domenet til **platform.altinn.no**
 
 Se også [eksempelapplikasjon](https://github.com/TheTechArch/altinn-systemuser/tree/main/src/SystemAdmin) for å registrere system.
 
-
 ## Sende forespørsel om opprettelse av systembruker til virksomhet
 
 Som systemleverandør kan man be sine kunder om å opprette systembruker med nødvendige rettigheter. 
@@ -149,7 +152,7 @@ En liste over rettigheter systembrukeren trenger tilgang til. Det beskrives for 
 
 ### RedirectUrl
 
-Denne urlen 
+Denne urlen benyttes for sluttbruker har akseptert forespørsel. 
 
 
 ### Eksempel
@@ -183,6 +186,8 @@ Denne urlen
   "AllowedRedirectUrls": [ "https://smartcloudaltinn.azurewebsites.net/receipt" ],
   "ClientId": [ "a2ed712d-4244-6671-839f-80ae4a68146b" ]
 }
+```
+
 
 ## Maskinporten autentisering
 
