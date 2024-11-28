@@ -23,7 +23,7 @@ Denne fullmakten gir revisor tilgang til å opptre som revisormedarbeider for en
 *urn:altinn:accesspackage:revisormedarbeider*   
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
-|**Tilgangspakke**|**Enhetsregisterroller**|
-|---|---|
-|Ansvarlig revisor|Revisor|
-|Revisormedarbeider|Revisor|
+|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
+|---|---|---|
+|Ansvarlig revisor|Revisor|Klientdelegering|
+|Revisormedarbeider|Revisor|Klientdelegering|
