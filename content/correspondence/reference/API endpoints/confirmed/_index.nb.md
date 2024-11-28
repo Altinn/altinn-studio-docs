@@ -1,43 +1,45 @@
 ---
-title: Confirm
-linktitle: Confirm
-description: Endpoint for giving the correspondence status "Confirmed".
+title: Bekreft
+linktitle: Bekreft
+description: Endepunkt for å gi meldingen statusen "Confirmed".
 
 weight: 60
 toc: true
 ---
 
-## Endpoint
+## Endepunkt
 
 POST /correspondence/api/v1/correspondence/{{correspondenceId}}/confirm
 
-## Description
+## Beskrivelse
 
-This endpoint sets the status of an existing correspondence to "Confirmed". Before using this endpoint, the status of the correspondence must be "Fetched". This status means that the correspondence has been downloaded. This occurs when a recipient uses the overview or details request. The status of a correspondence can be checked by using the overview endpoint described [here](https://docs.altinn.studio/api/correspondence/spec/#/Correspondence/get_correspondence_api_v1_correspondence__correspondenceId_).
+Dette endepunktet setter statusen til en eksisterende melding til "Confirmed". Feltet `IsConfirmationNeeded` er en boolsk verdi som settes til true hvis meldingen krever bekreftelse. I praksis betyr dette at hvis forfallsdatoen er nådd og mottakeren ikke har bekreftet, vil avsenderen bli varslet. Før du bruker dette endepunktet, må statusen til meldingen være "Fetched". Denne statusen betyr at meldingen har blitt lastet ned. Dette skjer når en mottaker bruker overview- eller details-forespørselen. Statusen til en melding kan sjekkes ved å bruke oversiktsendepunktet beskrevet [her](https://docs.altinn.studio/api/correspondence/spec/#/Correspondence/get_correspondence_api_v1_correspondence__correspondenceId_).
 
-## Authentication
+## Autentisering
 
-This API requires authentication, and the request must also include:
+Dette API-et krever autentisering, og forespørselen må også inkludere:
 
-- Correspondence read scope __altinn:correspondence.read__ (for external system callers)
+- Correspondence read scope __altinn:correspondence.read__ (for eksterne kall)
 
-See [Authentication and Authorization](/notifications/reference/api/#authentication--authorization) for more information.
+Se [Autentisering og Autorisasjon](/notifications/reference/api/#authentication--authorization) for mer informasjon.
 
-## Response
+## Respons
 
-### Response codes
-- 200 OK: The correspondence have been succesfully marked as confirmed
+### Responskoder
 
-  Refer to problem details in response body for further information.
-- 400 One or more validation errors occurred: Indicates that the correspondenceid was not found.
+- 200 OK: meldingen har blitt vellykket merket som bekreftet
 
-### Content-Type
+  Se problemdetaljer i responsen for mer informasjon.
+- 400 One or more validation errors occurred: Indikerer at correspondenceId ikke ble funnet.
+
+### Innholdstype
 
 - application/json
 
-### Response body 
+### Response body
 
-The response body consists of a GUID and contains the correspondence ID.
+Response body består av en GUID og inneholder correspondenceId.
 
-### Response body properties
-Only returns the correspondence ID.
+### Response body egenskaper
+
+Returnerer kun correspondenceId.
