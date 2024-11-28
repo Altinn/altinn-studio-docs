@@ -28,8 +28,8 @@ Denne fullmakten gir tilgang til regnskapsfører å rapportere lønn for sin kun
 *urn:altinn:accesspackage:regnskapsførerlonn*
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
-|**Tilgangspakke**|**Enhetsregisterroller**|
-|---|---|
-|Regnskapsfører med signeringsrettighet|Regnskapsfører|
-|Regnskapsfører uten signeringsrettighet|Regnskapsfører|
-|Regnskapsfører lønn|Regnskapsfører|
+|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
+|---|---|---|
+|Regnskapsfører med signeringsrettighet|Regnskapsfører|Klientdelegering|
+|Regnskapsfører uten signeringsrettighet|Regnskapsfører|Klientdelegering|
+|Regnskapsfører lønn|Regnskapsfører|Klientdelegering|
