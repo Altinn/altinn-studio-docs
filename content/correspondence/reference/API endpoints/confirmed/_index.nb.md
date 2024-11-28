@@ -13,7 +13,7 @@ POST /correspondence/api/v1/correspondence/{{correspondenceId}}/confirm
 
 ## Beskrivelse
 
-Dette endepunktet setter statusen til en eksisterende melding til "Confirmed". Feltet `IsConfirmationNeeded` er en boolsk verdi som settes til true hvis meldingen krever bekreftelse. I praksis betyr dette at hvis forfallsdatoen er nådd og mottakeren ikke har bekreftet, vil avsenderen bli varslet. Før du bruker dette endepunktet, må statusen til meldingen være "Fetched". Denne statusen betyr at meldingen har blitt lastet ned. Dette skjer når en mottaker bruker overview- eller details-forespørselen. Statusen til en melding kan sjekkes ved å bruke oversiktsendepunktet beskrevet [her](https://docs.altinn.studio/api/correspondence/spec/#/Correspondence/get_correspondence_api_v1_correspondence__correspondenceId_).
+Dette endepunktet setter statusen til en eksisterende melding til "Confirmed". Feltet `IsConfirmationNeeded` er en boolsk verdi som settes til true hvis meldingen krever bekreftelse. I praksis betyr dette at hvis forfallsdatoen er nådd og mottakeren ikke har bekreftet, vil avsenderen bli varslet. Før du bruker dette endepunktet, må statusen til meldingen være "Fetched". Denne statusen betyr at meldingen har blitt hentet av mottakeren. Dette skjer når en mottaker bruker overview- eller details-forespørselen. Statusen til en melding kan sjekkes ved å bruke oversiktsendepunktet beskrevet [her](https://docs.altinn.studio/api/correspondence/spec/#/Correspondence/get_correspondence_api_v1_correspondence__correspondenceId_).
 
 ## Autentisering
 
