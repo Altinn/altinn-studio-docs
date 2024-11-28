@@ -46,7 +46,7 @@ Altinn skal erstatte rollene som gir tilgang til tjenester i Altinn 2 når vi fl
       Etter en overgangsfase så vil alle eksisterende altinnroller fases ut og tjenester kun være tilgjengelig gjennom direkte delegering av tjeneste eller via en av de nye tilgangspakkene. 
 3. *Vil koblingen mellom ER-roller og Altinn-roller bestå som i dag?*
       
-      Roller i Enhetsreisteret vil knyttes til de nye tilgangspakkene. Når man har avsluttet høring vil vi starte arbeidet med å bestemme hvilke ER-roller skal få hvilke tilgangspakkene. I dette arbeidet vil vi innvolvere en vurdring av Enhetsregister-rollens lovmessige fullmakt til å opptre på vegne av virksomheten. 
+      Roller i Enhetsreisteret vil knyttes til de nye tilgangspakkene. Når man har avsluttet høring vil vi starte arbeidet med å bestemme hvilke ER-roller som skal få hvilke tilgangspakker. I dette arbeidet vil vi inkludere en vurdring av Enhetsregister-rollens lovmessige fullmakt til å opptre på vegne av virksomheten. 
 4. *Planlegges det ingen endring på Altinn-rollene for privatpersoner, kun virksomheter?* 
      
       Jo, dette vil gjøres i fase to. Da innføres nye tilgangspakkene for innbyggere som erstatter dagens Altinn 2-roller. Intensjonen er at disse tilgangspakkene skal bygge på den granulering av fullmakter som er gjort for vergemål. 
