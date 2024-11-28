@@ -14,7 +14,7 @@ weight: 1
 
 Bakgrunnen til systembruker konsept kan leses om her.
 
-##  Forutsetninger
+## Forutsetninger
 
 Forutsetninger for at man systemleverandør kan benytte seg systembruker er.
 
@@ -156,22 +156,33 @@ Denne urlen
 
 ```json
 {
-  "externalRef": "213544942",
-  "systemId": "991825827_smartcloud",
-  "partyOrgNo": "213544942",
-  "rights": [
+  "Id": "991825827_smartcloud",
+  "Vendor": {
+    "ID": "0192:991825827"
+  },
+  "Name": {
+    "en": "SmartCloud",
+    "nb": "SmartCloud",
+    "nn": "Smart SKY"
+  },
+  "Description": {
+    "en": "SmartCloud Rocks",
+    "nb": "SmartCloud er verdens beste system.",
+    "nn": "SmartSky er vestlandets beste system"
+  },
+  "Rights": [
     {
-      "resource": [
+      "Resource": [
         {
-          "value": "ske-krav-og-betalinger",
+          "value": "kravogbetaling",
           "id": "urn:altinn:resource"
         }
       ]
     }
   ],
-  "redirectUrl": "https:\\smartcloud.azurewebsites.net/receipt"
+  "AllowedRedirectUrls": [ "https://smartcloudaltinn.azurewebsites.net/receipt" ],
+  "ClientId": [ "a2ed712d-4244-6671-839f-80ae4a68146b" ]
 }
-```
 
 ## Maskinporten autentisering
 
