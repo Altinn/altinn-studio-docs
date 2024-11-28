@@ -44,19 +44,32 @@ This is the client ID for the integration created in Maskinporten. Only logins w
 
 ```json
 {
- "SystemTypeId": "visma_supertax",
- "SystemVendor": "978234522",
- "Name": {
-      "en": "Visma Super Tax",
-     "nb" : "Visma superskatt"
-  "Description": {
-     "en": "Visma Super Tax allows for .........",
-     "nb":  "Visma superskatt gir deg mulighet...."
-  }
+  "Id": "991825827_smartcloud",
+  "Vendor": {
+    "ID": "0192:991825827"
   },
-  "AccessGroupNeeds": ["MVA", "SKATT"],
-  "ResourceNeeds": ["urn:altinn:resource:skd/mva"],.
-  "ClientId":["123123","234534552345"]
+  "Name": {
+    "en": "SmartCloud",
+    "nb": "SmartCloud",
+    "nn": "Smart SKY"
+  },
+  "Description": {
+    "en": "SmartCloud Rocks",
+    "nb": "SmartCloud er verdens beste system.",
+    "nn": "SmartSky er vestlandets beste system"
+  },
+  "Rights": [
+    {
+      "Resource": [
+        {
+          "value": "kravogbetaling",
+          "id": "urn:altinn:resource"
+        }
+      ]
+    }
+  ],
+  "AllowedRedirectUrls": [ "https://smartcloudaltinn.azurewebsites.net/receipt" ],
+  "ClientId": [ "a2ed712d-4244-6671-839f-80ae4a68146b" ]
 }
 ```
 
