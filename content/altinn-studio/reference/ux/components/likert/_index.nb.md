@@ -14,7 +14,7 @@ Merk at Likert-komponenten kun kan benyttes som del av en repeterende gruppe.
 
 ## Desktop og mobil visning
 
-Likert komponenten vises som en liste ved smale skjermer og som en tabell ved brede skjermer. 
+Likert komponenten vises som en liste ved smale skjermer og som en tabell ved brede skjermer.
 Likert utnytter seg av samme konsept som repeterende grupper.
 
 ![Desktop](desktop.png "Likert komponent ved bred (desktop) skjermstørrelse")
@@ -93,9 +93,7 @@ Eksempel på definisjon av likert komponent i layout.json:
       "description": "På de neste spørsmålene skal du svare i kontekst av klasserommet."
     },
     "maxCount": 99,
-    "children": [
-      "likert-row"
-    ],
+    "children": ["likert-row"],
     "dataModelBindings": {
       "group": "Questions"
     },
@@ -128,31 +126,30 @@ Likert-komponenten fungerer likt som RadioButtons og CheckBoxes.
 
 OptionsId knyttes opp mot kodeliste-fil (likertOptions.json)
 
-````json
+```json
 [
-      {
-        "label": "Alltid",
-        "value": "1"
-      },
-      {
-        "label": "Nesten alltid",
-        "value": "2"
-      },
-      {
-        "label": "Ofte",
-        "value": "3"
-      },
-      {
-        "label": "Noen ganger",
-        "value": "4"
-      },
-      {
-        "label": "Sjelden",
-        "value": "5"
-      }
-    ]
-````
-
+  {
+    "label": "Alltid",
+    "value": "1"
+  },
+  {
+    "label": "Nesten alltid",
+    "value": "2"
+  },
+  {
+    "label": "Ofte",
+    "value": "3"
+  },
+  {
+    "label": "Noen ganger",
+    "value": "4"
+  },
+  {
+    "label": "Sjelden",
+    "value": "5"
+  }
+]
+```
 
 For å binde opp tekst for hver rad må man opprette en binding mellom datamodellen og likerten sin tekstResourcebinding.
 Dette kan gjøres i tekst-ressursfilene:
@@ -223,6 +220,44 @@ Du kan velge å filtrere rader du ikke ønsker å inkludere i likerten ved å be
       }
     ]
   }
+}
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+### Skillelinje
+
+Om du ønsker å ha en visuell skillelinje mellom svarkolonnene kan du gjøre dette ved å sette `columns`-egenskapen på komponenten.
+
+![Skillelinje](likertWithDivider.png "Likert komponent med en skillelinje på venstre side")
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Egenskaper">}}
+
+`columns`-egenskapen settes som en liste med objekter der du angir hvilke svarkolonner du vil ha skillelinje på ved å bruke disse egenskapene:
+
+| **Egenskap**    | **Type**   | **Beskrivelse**                                        |
+| --------------- | ---------- | ------------------------------------------------------ |
+| value           | string/int | Verdien på svarkolonnen.                               |
+| addLeftDivider  | boolean    | Legger til en skillelinje på venstresiden av kolonnen. |
+| addRightDivider | boolean    | Legger til en skillelinje på høyresiden av kolonnen.   |
+
+{{</content-version-container>}}
+
+{{<content-version-container version-label="Eksempel">}}
+
+```json
+{
+  "id": "ComponentId",
+  "type": "Likert",
+  ...
+  "columns": [
+    {
+      "value": "6",
+      "addLeftDivider": true
+    }
+  ]
 }
 ```
 
