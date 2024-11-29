@@ -16,15 +16,18 @@ Bakgrunnen til systembruker konsept kan leses om [her](https://github.com/Altinn
 
 ## Forutsetninger
 
-Forutsetninger for at man systemleverandør kan benytte seg systembruker er.
+For at en systemleverandør skal kunne benytte seg av systembruker, må følgende forutsetninger være oppfylt:
 
-- [Avtale med maskinporten som konsument](https://samarbeid.digdir.no/maskinporten/konsument/119)
-- Avtale med Digdir som gir tilgang til systemregister
-- Delegert tilgang til scope altinn:authentication/systemregister.write 
-- Delegert tilgang til scope altinn:authentication/systemuser.request.read
-- Delegert tilgang til scope altinn:authentication/systemuser.request.write
+- [Avtale med Maskinporten som konsument](https://samarbeid.digdir.no/maskinporten/konsument/119)
+- Avtale med Digdir som gir tilgang til systemregisteret
+- Delegert tilgang til scope for registrering av system i systemregisteret: `altinn:authentication/systemregister.write`
 
-I tilegg trengs tilgang til scope for API som skal benyttes av systemet. Dette vil være informasjon som tjenesteeier sitter på.
+Hvis man ønsker å bruke leverandørstyrt flyt for opprettelse av systembruker, trenger man følgende scopes for å opprette forespørsler og sjekke status:
+
+- `altinn:authentication/systemuser.request.read`
+- `altinn:authentication/systemuser.request.write`
+
+I tillegg trengs tilgang til scopes for API-ene som skal benyttes av systemet. Dette vil være informasjon som tjenesteeier sitter på.
 
 ## Sette opp maskinporten integrasjon
 
@@ -184,7 +187,13 @@ Denne urlen benyttes for sluttbruker har akseptert forespørsel.
   "redirectUrl": "https://smartcloudaltinn.azurewebsites.net/receipt"
 }
 ```
+URL for å registrere
 
+```http
+POST https://platform.tt02.altinn.no/authentication/api/v1/systemuser/request/vendor/
+```
+
+For produksjon, endre domenet til **platform.altinn.no**
 
 ## Maskinporten autentisering
 
