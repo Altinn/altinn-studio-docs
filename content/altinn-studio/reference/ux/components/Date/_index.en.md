@@ -1,7 +1,7 @@
 ---
 title: Date
 linktitle: Date
-description: A component that allows you to display formatted date with or without label.
+description: A component that allows you to display a formatted date with or without label.
 schemaname: Date # Component schema name used to autogenerate list of properties from json schema (replace with appropriate component name)
 weight: 10 # Do not change, the components will be sorted alphabetically
 toc: true
@@ -9,13 +9,13 @@ toc: true
 
 ## Usage
 
-The Date component allows users to add structured formatted date, with or without label
+The `Date` component allows users to add structured formatted date, with or without label.
 
 ### Anatomy
 
-1. **Horizontal**: A date with label structured horizontally
+1. **Horizontal**: A date with a label structured horizontally
     ![Date horizontal anatomy](date-horizontal.png "Date Horizontal")
-2. **Vertical**: A date with label structured vertically 
+2. **Vertical**: A date with a label structured vertically 
     ![Date vertical anatomy](date-vertical.png "Date vertical")
 
 
@@ -60,12 +60,12 @@ We are currently updating how we implement components, and the list of propertie
 
 | **Property**                 | **Type** | **Description**                                                                          |
 |------------------------------|----------|------------------------------------------------------------------------------------------|
-| `id`                         | string   | Unique Id string for the component                                                       |
-| `value`                      | string   | The date you want to display. Must be a ISO6801 string.                                  |
-| `textResourceBindings.title` | string   | Label of the date you want to display                                                    |
-| `format`                     | string   | A formatting string based on [Unicode Technical standard](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table)                              |
-| `direction`                  | string   | Sets the structured direction of label and value. **Enum:** `"horizontal" \| "vertical"` |
-| `icon`                       | string   | An URL path to the image/icon                                                            |
+| `id`                         | string   | The component ID. Must be unique within all layouts/pages in a layout-set. Cannot end with <dash><number>. |
+| `value`                      | string   |  A hardcoded string or expression for resolving the date you want to display. Must resolve to a ISO6801 string. |
+| `textResourceBindings.title` | string   | A label for the date you want to display.                                                   |
+| `format`                     | string   | A formatting string based on [Unicode Technical standard](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table).                             |
+| `direction`                  | string   | Sets the structured direction of label and value. <br/><br/>**Enum:** [horizontal, vertical] . <br/><br/>**Default:** horizontal. |
+| `icon`                       | string   | A URL path to the image/icon.                                                            |
 
 ## Configuration
 
@@ -91,11 +91,11 @@ We are currently updating how we implement components, and the list of propertie
 
 #### `textResourceBindings.title`
 
-The title for the date is shown as a label and can be added as text directly or referenced via a text key to a [text resource](/nb/altinn-studio/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app).
+Label for the date. This can be added as a hardcoded string or as a reference to a [text resource](/nb/altinn-studio/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app).
 
 #### `value`
 
-Displays the value for the label and can be added as a ISO-date string or an expression.
+The value of the date to be displayed. Can be added as a string or an expression.
 
 #### `format`
 
@@ -103,11 +103,13 @@ Sets the formatting of the date provided in the value field. This is based on [U
 
 #### `direction`
 
-Decides if the date should is shown under or next to the label. horizontal for "next to" and vertical for "under". 
+Decides if the date should be shown under or next to the label. `horizontal` for showing it next to the label and `vertical` for under. 
 
+<!-- 
 #### `icon`
 
-If you want to show an icon before the label, you can add an URL path.
+If you want to show an icon before the label, you can add a URL path to the icon/image you want to be displayed.
+-->
 
 <br>
 

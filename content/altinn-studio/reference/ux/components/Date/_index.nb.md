@@ -1,7 +1,7 @@
 ---
 title: Date
 linktitle: Date
-description: En komponent som viser formatert dato med eller uten label.
+description: En komponent som viser formatert dato med eller uten ledetekst.
 schemaname: Date # Component schema name used to autogenerate list of properties from json schema (replace with appropriate component name)
 weight: 10 # Do not change, the components will be sorted alphabetically
 toc: true
@@ -9,13 +9,13 @@ toc: true
 
 ## Bruk
 
-Dato komponenten lar brukeren legge til strukturert formatert dato med eller uten label.
+`Date`-komponenten lar brukeren legge til strukturert formatert dato med eller uten ledetekst.
 
 ### Anatomi
 
-1. **Horisontal**: Dato med label strukturert horisontalt
+1. **Horisontal**: Dato med ledetekst strukturert horisontalt
 ![Dato horisontal anatomi](date-horizontal.png "Dato Horisontal")
-2. **Vertikal**: Dato med label strukturert horisontalt. 
+2. **Vertikal**: Dato med ledetekst strukturert vertikalt
 ![Dato vertikal anatomi](date-vertical.png "Dato vertikal")
 
 
@@ -64,8 +64,8 @@ We are currently updating how we implement components, and the list of propertie
 | `value`                      | string   | Datoen du vil vise frem. Må være en ISO6801 string.                                                                                      |
 | `textResourceBindings.title` | string   | Labelen til datoen du vil vise                                                                                                           |
 | `format`                     | string   | En formateringsstreng basert på [Unicode Teknisk standard](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table) |
-| `direction`                  | string   | Setter den strukturerte retningen på labelen og verdien. **Enum:** `"horizontal" \| "vertical"`                                          |
-| `icon`                       | string   | En URL streng til bildet/ikonet                                                                                                          |
+| `direction`                  | string   | Setter den strukturerte retningen for ledetekst og verdi. <br/><br/>**Enum:** [horizontal, vertical] . <br/> <br/>**Default:** horizontal. |
+| `icon`                       | string   | En URL-lenke til bildet/ikonet.                                                                                                          |
 
 ## Konfigurering
 
@@ -91,11 +91,11 @@ We are currently updating how we implement components, and the list of propertie
 
 #### `textResourceBindings.title`
 
-Tittelen for datoen som er vist, blir vist som en label og kan brukes som en tekst direkte eller som en referanse via [tekst ressurs](/nb/altinn-studio/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app).
+Ledetekst for datoen. Denne kan legges til som en hardkodet streng eller som en referanse til en [tekstressurs](/nb/altinn-studio/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app).
 
 #### `value`
 
-Viser verdien til labelen og kan legges til som et ISO-dato streng eller et uttrykk.
+Verdien av datoen som skal vises. Kan legges til som en streng eller et uttrykk.
 
 #### `format`
 
@@ -103,17 +103,17 @@ Setter formateringen for datoen gitt i `value` feltet. Dette er basert på [Unic
 
 #### `direction`
 
-Bestemmer om datoen vises under eller ved siden av labelen. Horisontal for "ved siden av" og vertikal for "under". 
+Bestemmer om teksten vises under eller ved siden av ledeteksten. `horizontal` for ved siden av og `vertical` for under. 
 
 #### `icon`
 
-Hvis du vil vise et ikon foran label kan du legge til en url her.
+Hvis du vil vise et ikon foran ledeteksten kan du legge til en url til ikonet/bildet du vil vise her.
 
 <br>
 
 #### Eksempel
 
-Dato med label og ikon.
+Dato med ledetekst og ikon.
 
 ```json{hl_lines=["9-12"]}
 ...
@@ -130,4 +130,4 @@ Dato med label og ikon.
 },
 ```
 
-![Dato eksempel](<date-example-with-icon.png> "Dato med ikon og label")
+![Dato eksempel](<date-example-with-icon.png> "Dato med ikon og ledetekst")

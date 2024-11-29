@@ -84,19 +84,19 @@ Add the following sections if relevant:
 
 #### `textResourceBindings.title`
 
-Tittelen for teksten som er vist, blir vist som en label og kan brukes som en tekst direkte eller som en referanse via [tekst ressurs](/nb/altinn-studio/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app).
+Ledetekst for teksten. Denne kan legges til som en hardkodet streng eller som en referanse til en [tekstressurs](/nb/altinn-studio/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app).
 
 #### `value`
 
-Viser verdien til labelen og kan legges til som en streng eller et uttrykk.
+Verdien av teksten som skal vises. Kan legges til som en streng eller et uttrykk.
 
 #### `direction`
 
-Bestemmer om teksten vises under eller ved siden av labelen. Horisontal for "ved siden av" og vertikal for "under". 
+Bestemmer om teksten vises under eller ved siden av ledeteksten. `horizontal` for ved siden av og `vertical` for under. 
 
 #### `icon`
 
-Hvis du vil vise et ikon foran label kan du legge til en url her.
+Hvis du vil vise et ikon foran ledeteksten kan du legge til en url til ikonet/bildet du vil vise her.
 
 <br>
 

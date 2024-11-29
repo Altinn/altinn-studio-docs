@@ -9,7 +9,7 @@ toc: true
 
 ## Usage
 
-The Text component allows users to add structured text, with or without label
+The `Text` component allows users to add structured text, with or without label.
 
 ### Anatomy
 
@@ -90,15 +90,15 @@ We are currently updating how we implement components, and the list of propertie
 
 #### `textResourceBindings.title`
 
-The title for the text is shown as a label and can be added as text directly or referenced via a text key to a [text resource](/nb/altinn-studio/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app).
+Label for the date. This can be added as a hardcoded string or as a reference to a [text resource](/nb/altinn-studio/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app).
 
 #### `value`
 
-Displays the value for the label and can be added as a string or an expression.
+The value of the text to be displayed. Can be added as a string or an expression.
 
 #### `direction`
 
-Decides if the text should is shown under or next to the label. horizontal for "next to" and vertical for "under". 
+Decides if the number should be shown under or next to the label. `horizontal` for showing it next to the label and `vertical` for under. 
 
 #### `icon`
 
