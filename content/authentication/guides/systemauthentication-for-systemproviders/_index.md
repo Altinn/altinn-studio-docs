@@ -122,13 +122,13 @@ The example shows the system registered for the demo application SmartCloud in t
 URL to register
 
 ```http
-POST https://platform.tt02.altinn.no/authentication/api/v1/systemregister/system/vendor/
+POST https://platform.tt02.altinn.no/authentication/api/v1/systemregister/vendor/
 ```
 
 URL to update this system (ID must be changed for other systems)
 
 ```http
-POST https://platform.tt02.altinn.no/authentication/api/v1/systemregister/system/vendor/91825827_smartcloud
+POST https://platform.tt02.altinn.no/authentication/api/v1/systemregister/vendor/91825827_smartcloud
 ```
 
 For production, change the domain to **platform.altinn.no**
