@@ -123,13 +123,13 @@ Eksempelet viser systemet som er registrert for demoapplikasjonen SmartCloud i T
 Url for å regsistrere
 
 ```http
-POST https://platform.tt02.altinn.no/authentication/api/v1/systemregister/system
+POST https://platform.tt02.altinn.no/authentication/api/v1/systemregister/system/vendor/
 ```
 
 Url for å opppdatere dette systemet (ID må endres for andre system)
 
 ```http
-POST https://platform.tt02.altinn.no/authentication/api/v1/systemregister/system/91825827_smartcloud
+POST https://platform.tt02.altinn.no/authentication/api/v1/systemregister/system/vendor/91825827_smartcloud
 ```
 
 For produksjon endres domenet til **platform.altinn.no**
