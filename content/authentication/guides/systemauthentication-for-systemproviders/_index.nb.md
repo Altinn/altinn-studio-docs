@@ -88,23 +88,32 @@ Eksempelet viser systemet som er registrert for demoapplikasjonen SmartCloud i T
 
 ```json
 {
-  "id": "991825827_smartcloud",
-  "vendor": {
+  "Id": "991825827_smartcloud",
+  "Vendor": {
     "ID": "0192:991825827"
   },
-  "mame": { "en": "SmartCloud", "nb":  "SmartCloud", "nn":  "Smart SKY"  },
-  "description": { "en": "SmartCloud Rocks", "nb":  "SmartCloud er verdens beste system.", "nn":  "SmartSky er vestlandets beste system" },
-  "rights": [
+  "Name": {
+    "en": "SmartCloud",
+    "nb": "SmartCloud",
+    "nn": "Smart SKY"
+  },
+  "Description": {
+    "en": "SmartCloud Rocks",
+    "nb": "SmartCloud er verdens beste system.",
+    "nn": "SmartSky er vestlandets beste system"
+  },
+  "Rights": [
     {
       "Resource": [
         {
-          "value": "ske-krav-og-betalinger",
+          "value": "kravogbetaling",
           "id": "urn:altinn:resource"
         }
       ]
     }
   ],
-  "clientId": ["235ar6-8824-955a-g235-5asfaa446533"]
+  "AllowedRedirectUrls": [ "https://smartcloudaltinn.azurewebsites.net/receipt" ],
+  "ClientId": [ "a2ed712d-4144-4471-839f-80ae4a68146b" ]
 }
 ```
 
@@ -159,32 +168,20 @@ Denne urlen benyttes for sluttbruker har akseptert forespørsel.
 
 ```json
 {
-  "Id": "991825827_smartcloud",
-  "Vendor": {
-    "ID": "0192:991825827"
-  },
-  "Name": {
-    "en": "SmartCloud",
-    "nb": "SmartCloud",
-    "nn": "Smart SKY"
-  },
-  "Description": {
-    "en": "SmartCloud Rocks",
-    "nb": "SmartCloud er verdens beste system.",
-    "nn": "SmartSky er vestlandets beste system"
-  },
-  "Rights": [
+  "externalRef": "313725138_2024",
+  "systemId": "991825827_smartcloud",
+  "partyOrgNo": "313725138",
+  "rights": [
     {
-      "Resource": [
+      "resource": [
         {
-          "value": "kravogbetaling",
+          "value": "ske-krav-og-betalinger",
           "id": "urn:altinn:resource"
         }
       ]
     }
   ],
-  "AllowedRedirectUrls": [ "https://smartcloudaltinn.azurewebsites.net/receipt" ],
-  "ClientId": [ "a2ed712d-4244-6671-839f-80ae4a68146b" ]
+  "redirectUrl": "https://smartcloudaltinn.azurewebsites.net/receipt"
 }
 ```
 
