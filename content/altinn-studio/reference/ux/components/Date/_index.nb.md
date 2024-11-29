@@ -58,14 +58,14 @@ Add the following sections if relevant:
 We are currently updating how we implement components, and the list of properties may not be entirely accurate.
 {{% /notice %}}
 
-| **Property**                 | **Type** | **Description**                                                                                                                          |
-|------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------|
-| `id`                         | string   | Unik Id streng for komponenten                                                                                                           |
-| `value`                      | string   | Datoen du vil vise frem. Må være en ISO6801 string.                                                                                      |
-| `textResourceBindings.title` | string   | Labelen til datoen du vil vise                                                                                                           |
-| `format`                     | string   | En formateringsstreng basert på [Unicode Teknisk standard](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table) |
+| **Property**                 | **Type** | **Description**                                                                                                                            |
+|------------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| `id`                         | string   | Unik Id streng for komponenten                                                                                                             |
+| `value`                      | string   | Datoen du vil vise frem. Må være en ISO6801 string.                                                                                        |
+| `textResourceBindings.title` | string   | Ledeteksten til datoen du vil vise                                                                                                         |
+| `format`                     | string   | En formateringsstreng basert på [Unicode Teknisk standard](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table)   |
 | `direction`                  | string   | Setter den strukturerte retningen for ledetekst og verdi. <br/><br/>**Enum:** [horizontal, vertical] . <br/> <br/>**Default:** horizontal. |
-| `icon`                       | string   | En URL-lenke til bildet/ikonet.                                                                                                          |
+| `icon`                       | string   | En URL-lenke til bildet/ikonet.                                                                                                            |
 
 ## Konfigurering
 
