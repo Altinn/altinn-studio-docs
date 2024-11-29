@@ -16,15 +16,19 @@ The background of the system user concept can be read about [here](https://githu
 
 ## Prerequisites
 
-Prerequisites for a system provider to use system user are:
+For a system provider to use system user, the following prerequisites must be met:
 
 - [Agreement with Maskinporten as a consumer](https://samarbeid.digdir.no/maskinporten/konsument/119)
 - Agreement with Digdir that provides access to the system register
-- Delegated access to scope altinn:authentication/systemregister.write
-- Delegated access to scope altinn:authentication/systemuser.request.read
-- Delegated access to scope altinn:authentication/systemuser.request.write
+- Delegated access to the scope for registering a system in the system register: `altinn:authentication/systemregister.write`
 
-In addition, access to the scope for the API that the system will use is required. This information is held by the service owner.
+If you want to use the provider-controlled flow for creating a system user, you need the following scopes to create requests and check status:
+
+- `altinn:authentication/systemuser.request.read`
+- `altinn:authentication/systemuser.request.write`
+
+Additionally, access to scopes for the APIs that the system will use is required. This information will be held by the service owner.
+
 
 ## Setting up Maskinporten integration
 
@@ -180,6 +184,15 @@ This URL is used after the end user has accepted the request.
   "redirectUrl": "https://smartcloudaltinn.azurewebsites.net/receipt"
 }
 ```
+
+URL to register
+
+```http
+POST https://platform.tt02.altinn.no/authentication/api/v1/systemuser/request/vendor/
+```
+
+For production, change the domain to **platform.altinn.no**
+
 
 ## Maskinporten authentication
 
