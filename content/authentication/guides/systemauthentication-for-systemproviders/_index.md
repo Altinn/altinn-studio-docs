@@ -315,11 +315,11 @@ The repository contains the necessary test certificate to run the application. T
 
 3. Log in with a test user at tt02.altinn.no. The user must have the access management role in Altinn for a test organization and go to the page [https://authn.ui.tt02.altinn.no/authfront/ui/auth/creation](https://authn.ui.tt02.altinn.no/authfront/ui/auth/creation).
 
-    ![Onboarding](delegation1.png "10. Select system")
+    ![Onboarding](delegering1.png "10. Select system")
 
-    ![Onboarding](delegation2.png "11. Accept creation of system user with rights to it")
+    ![Onboarding](delegering2.png "11. Accept creation of system user with rights to it")
 
-    ![Onboarding](delegation3.png "12. Overview of system users for test organization")
+    ![Onboarding](delegering3.png "12. Overview of system users for test organization")
 
 4. Configure key, certificate, client ID, and scope in the test application.
 
