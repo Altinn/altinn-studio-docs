@@ -48,8 +48,8 @@ The municipality of Sogndal wishes to collect information on the newcomers emplo
 ### In Local Development environment
 
 1. Create the directory `App/options` if it does not exist.
-2. The municipality of Sogndal has created a [static code list](/altinn-studio/reference/data/options/static-codelists) for **industries**: [industry.json](../industry.json). Download the file and place it in `App/options`.
-3. Set up the values in the code list for **Years in work force** as an [open dynamic code list](/altinn-studio/reference/data/options/dynamic-codelists) in `App/options` (follow the directions in the documentation).  
+2. The municipality of Sogndal has created a [static code list](/altinn-studio/guides/development/options/static-codelists) for **industries**: [industry.json](../industry.json). Download the file and place it in `App/options`.
+3. Set up the values in the code list for **Years in work force** as an [open dynamic code list](/altinn-studio/guides/development/options/dynamic-codelists) in `App/options` (follow the directions in the documentation).  
    Options:
    Label         | Data value
    --------------|----------
@@ -62,8 +62,8 @@ The municipality of Sogndal wishes to collect information on the newcomers emplo
 
 ### Useful documentation
 
-- [Static code lists](/altinn-studio/reference/data/options/static-codelists)
-- [Dynamic code lists](/altinn-studio/reference/data/options/dynamic-codelists)
+- [Static code lists](/altinn-studio/guides/development/options/static-codelists)
+- [Dynamic code lists](/altinn-studio/guides/development/options/dynamic-codelists)
 
 ### Knowledge check
 {{% expandsmall id="m4t1q1" header="What is the difference between static and dynamic options?" %}}
@@ -94,12 +94,12 @@ We want the user to be presented with a different set of options for the industr
 
 ### Tasks
 
-1. [Send a dynamic query parameter](/altinn-studio/reference/data/options/#pass-query-parameters-when-fetching-options) with the Industry component based on the Sector.
+1. [Send a dynamic query parameter](/altinn-studio/guides/development/options/#pass-query-parameters-when-fetching-options) with the Industry component based on the Sector.
 2. Create a dynamic code list for _Industry_ with logic based on the value of the query parameter (hint: you can read the industry list from the JSON file).
 
 ### Useful documentation
-- [How to pass query parameters when fetching options](/altinn-studio/reference/data/options/#pass-query-parameters-when-fetching-options)
-- [How to configure dynamic code lists](/altinn-studio/reference/data/options/dynamic-codelists)
+- [How to pass query parameters when fetching options](/altinn-studio/guides/development/options/#pass-query-parameters-when-fetching-options)
+- [How to configure dynamic code lists](/altinn-studio/guides/development/options/dynamic-codelists)
 
 ### Knowledge check
 {{% expandsmall id="m4t2q1" header="If a code list is configured with a mapping to the data model, what happens when the relevant field changes value?" %}}

@@ -1,7 +1,7 @@
 ---
 title: Forhold ved virksomheten
 linktitle: Forhold ved virksomheten
-description: Hovedkategori for tilgangspakker for tjenester som er relatert til å etablere og drive en virksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
+description: Fullmaktsområde for tilgangspakker for tjenester som er relatert til å etablere og drive en virksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
 toc: true
 weight: 100
 aliases:
@@ -10,20 +10,20 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-| [Generelle Helfo tjenester](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#generelle-helfo-tjenester)|
-| [Helfotjenester med personopplysninger av særlig kategori](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#helfotjenester-med-personopplysninger-av-særlig-kategori)|
-| [Starte, endre og avvikle virksomhet](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#starte-endre-og-avvikle-virksomhet)|
-| [Aksjer og eierforhold](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#aksjer-og-eierforhold)|
-| [Attester](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#attester)|
-| [Dokumentbasert tilsyn](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#dokumentbasert-tilsyn)|
-| [Infrastruktur](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#infrastruktur)|
-| [Patent, varemerke og design](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#patent-varemerke-og-design)|
-| [Tilskudd, støtte og erstatning](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#tilskudd-støtte-og-erstatning)|
-| [Mine sider hos kommunen](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#mine-sider-hos-kommunen)|
-| [Politi og domstol](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#politi-og-domstol)|
-| [Rapportering av statistikk](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#rapportering-av-statistikk)|
-| [Forskning](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#forskning)|
-| [Eksplisitt tjenestedelegering](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/forholdvedvirksomheten/#eksplisitt)|
+| [Generelle Helfo tjenester](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#generelle-helfo-tjenester)|
+| [Helfotjenester med personopplysninger av særlig kategori](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#helfotjenester-med-personopplysninger-av-særlig-kategori)|
+| [Starte, endre og avvikle virksomhet](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#starte-endre-og-avvikle-virksomhet)|
+| [Aksjer og eierforhold](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#aksjer-og-eierforhold)|
+| [Attester](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#attester)|
+| [Dokumentbasert tilsyn](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#dokumentbasert-tilsyn)|
+| [Infrastruktur](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#infrastruktur)|
+| [Patent, varemerke og design](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#patent-varemerke-og-design)|
+| [Tilskudd, støtte og erstatning](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#tilskudd-støtte-og-erstatning)|
+| [Mine sider hos kommunen](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#mine-sider-hos-kommunen)|
+| [Politi og domstol](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#politi-og-domstol)|
+| [Rapportering av statistikk](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#rapportering-av-statistikk)|
+| [Forskning](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#forskning)|
+| [Eksplisitt tjenestedelegering](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/forholdvedvirksomheten/#eksplisitt)|
 
 ### Generelle Helfo tjenester
 Denne fullmakten gir tilgang til ordinære tjenester knyttet til virksomhetens dialog med Helfo der bruker kan få tilgang til personopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
@@ -80,3 +80,22 @@ Denne fullmakten gir tilgang til tjenester knyttet til forskning. Ved regelverks
 ### Eksplisitt tjenestedelegering
 Denne fullmakten er ikke delegerbar, og er ikke knyttet til noen roller i ENhetsregisteret. Tilgang til tjenester knyttet til denne pakken kan gis av Hovedadministrator gjennom enkeltrettighetsdelegering.  
 *urn:altinn:accesspackage:eksplisitt*
+
+
+## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
+|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
+|---|---|---|
+|Generelle helfotjenester|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Helfotjenester med personopplysnigner av særlig kategori|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer, Kontaktperson NUF|Ja|
+|Starte, endre og avvikle virksomhet|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder|Ja|
+|Aksjer og eierforhold|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Attester|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Dokumentbasert tilsyn|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer, Kontaktperson NUF|Ja|
+|Infrastrultur|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder|Ja|
+|Patent, varemerke og design|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Tilskudd, støtte og erstatning|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Mine sider hos kommunen|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer, Kontaktperson NUF|Ja|
+|Politi og domstol|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder|Ja|
+|Rapportering av statistikk|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Forskning|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Eksplisitt tjenestedelegering||Nei|

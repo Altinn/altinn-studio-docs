@@ -1,7 +1,7 @@
 ---
 title: Administrere tilganger
 linktitle: Administrere tilganger
-description: Denne kategorien omfatter fullmakter til å administrere tilganger. Tilgangspakkene i denne kategorien skal ikke knyttes til ressurser og tjenester. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+description: Dette fullmaktsområdet omfatter fullmakter til å administrere tilganger. Tilgangspakkene i denne kategorien skal ikke knyttes til ressurser og tjenester. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
 toc: true
 weight: 100
 aliases:
@@ -10,10 +10,10 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Klientadministrasjon for regnskapsfører og revisor](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/administreretilganger/#klientadministrasjon-for-regnskapsforer-og-revisor)|
-|[Tilgangsstyring](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/administreretilganger/#tilgangsstyring)|
-|[Hovedadministrator](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/administreretilganger/#hovedadministrator)|
-|[Kundeadministrator](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/administreretilganger/#kundeadministrator)|
+|[Klientadministrasjon for regnskapsfører og revisor](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/administreretilganger/#klientadministrasjon-for-regnskapsforer-og-revisor)|
+|[Tilgangsstyring](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/administreretilganger/#tilgangsstyring)|
+|[Hovedadministrator](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/administreretilganger/#hovedadministrator)|
+|[Kundeadministrator](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/administreretilganger/#kundeadministrator)|
 
 ### Klientadministrasjon for regnskapsfører og revisor
 Denne tilgangspakken gir bruker mulighet til å administrere tilgang til tjenester det er naturlig at regnskapsfører eller revisor utfører. Bruker kan administrere tilgang til tjenestene til ansatte hos regnskapsfører eller revisor på vegne av deres kunder.  
@@ -30,3 +30,11 @@ Denne tilgangspakken gir bruker mulighet til å administrere alle tilganger for 
 ### Kundeadministrator
 Denne tilgangspakken gir bruker mulighet til å administrere tilganger man har mottatt for sine kunder til ansatte i egen virksomheten.  
 *urn:altinn:accesspackage:kundeadministrator*
+
+## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
+|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
+|---|---|---|
+|Klientadministrasjon for regnskapsfører og revisor|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Tilgangsstyring|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer, Kontaktperson NUF|Ja|
+|Hovedadministrator|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder|Ja|
+|Kundeadministrator|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|

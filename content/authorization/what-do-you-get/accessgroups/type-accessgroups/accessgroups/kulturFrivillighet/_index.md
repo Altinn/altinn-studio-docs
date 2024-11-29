@@ -1,7 +1,7 @@
 ---
 title: Kultur og frivillighet
 linktitle: Kultur og frivillighet
-description: Denne kategorien omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som omhandler aktiviteter innen kunst, kultur, sport og frivillig arbeid. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som omhandler aktiviteter innen kunst, kultur, sport og frivillig arbeid. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
 toc: true
 weight: 100
 aliases:
@@ -10,12 +10,12 @@ aliases:
 
 |**TIlgangspakker i kategorien**|
 |---|
-|[Kunst og underholdning](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/kulturfrivillighet/#kunst-og-underholdning)|
-|[Biblioteker, museer, arkiver og annen kultur](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/kulturfrivillighet/#biblioteker-museer-arkiver-og-annen-kultur)|
-|[Lotteri og spill](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/kulturfrivillighet/#lotteri-og-spill)|
-|[Sport og fritid](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/kulturfrivillighet/#sport-og-fritid)|
-|[Fornøyelser](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/kulturfrivillighet/#fornøyelser)|
-|[Politikk](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/kulturfrivillighet/#politikk)|
+|[Kunst og underholdning](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgoups/kulturfrivillighet/#kunst-og-underholdning)|
+|[Biblioteker, museer, arkiver og annen kultur](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgoups/kulturfrivillighet/#biblioteker-museer-arkiver-og-annen-kultur)|
+|[Lotteri og spill](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgoups/kulturfrivillighet/#lotteri-og-spill)|
+|[Sport og fritid](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgoups/kulturfrivillighet/#sport-og-fritid)|
+|[Fornøyelser](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgoups/kulturfrivillighet/#fornøyelser)|
+|[Politikk](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgoups/kulturfrivillighet/#politikk)|
 
 
 ### Kunst og underholdning
@@ -41,3 +41,14 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til drift av fornøyel
 ### Politikk
 Denne tilgangspakken gir fullmakter til tjenester knyttet til aktiviteter i forbindelse med politisk arbeid. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:politikk*
+
+
+## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
+|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
+|---|---|---|
+|Kunst og underholdning|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Biblioteker, museer, arkiver og annen kultur|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Lotteri og spill|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Sport og fritid|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Fornøyelser|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Politikk|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|

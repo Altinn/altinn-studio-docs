@@ -5,14 +5,14 @@
             "type": "pwa-msedge",
             "request": "launch",
             "name": "Launch in Edge",
-            "url": "http://localhost:1313",
+            "url": "http://docs.altinn.studio",
             "preLaunchTask": "Hugo Server"
         },
         {
             "type": "pwa-chrome",
             "request": "launch",
             "name": "Launch in Chrome",
-            "url": "http://localhost:1313",
+            "url": "http://docs.altinn.studio",
             "preLaunchTask": "Hugo Server"
         }
     ]

@@ -266,6 +266,13 @@
                         "schema": {
                             "$ref": "#/components/schemas/CorrespondencesRoleType"
                         }
+                    },
+                    {
+                        "name": "onBehalfOf",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -584,6 +591,13 @@
                             "type": "string",
                             "format": "uuid"
                         }
+                    },
+                    {
+                        "name": "onBehalfOf",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -613,6 +627,13 @@
                         "schema": {
                             "type": "string",
                             "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "onBehalfOf",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
                         }
                     }
                 ],
@@ -667,28 +688,12 @@
                             "type": "string",
                             "format": "uuid"
                         }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
-            }
-        },
-        "/correspondence/api/v1/correspondence/{correspondenceId}/markasunread": {
-            "post": {
-                "tags": [
-                    "Correspondence"
-                ],
-                "parameters": [
+                    },
                     {
-                        "name": "correspondenceId",
-                        "in": "path",
-                        "required": true,
+                        "name": "onBehalfOf",
+                        "in": "query",
                         "schema": {
-                            "type": "string",
-                            "format": "uuid"
+                            "type": "string"
                         }
                     }
                 ],
@@ -713,6 +718,13 @@
                             "type": "string",
                             "format": "uuid"
                         }
+                    },
+                    {
+                        "name": "onBehalfOf",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -736,6 +748,13 @@
                             "type": "string",
                             "format": "uuid"
                         }
+                    },
+                    {
+                        "name": "onBehalfOf",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -758,6 +777,13 @@
                         "schema": {
                             "type": "string",
                             "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "onBehalfOf",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
                         }
                     }
                 ],
@@ -790,6 +816,13 @@
                         "schema": {
                             "type": "string",
                             "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "onBehalfOf",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
                         }
                     }
                 ],
@@ -1032,7 +1065,7 @@
                     "content": {
                         "$ref": "#/components/schemas/InitializeCorrespondenceContentExt"
                     },
-                    "RequestedPublishTime": {
+                    "requestedPublishTime": {
                         "type": "string",
                         "format": "date-time",
                         "nullable": true
@@ -1071,16 +1104,16 @@
                     "notification": {
                         "$ref": "#/components/schemas/InitializeCorrespondenceNotificationExt"
                     },
-                    "IgnoreReservation": {
+                    "ignoreReservation": {
                         "type": "boolean",
                         "nullable": true
                     },
-                    "Published": {
+                    "published": {
                         "type": "string",
                         "format": "date-time",
                         "nullable": true
                     },
-                    "IsConfirmationNeeded": {
+                    "isConfirmationNeeded": {
                         "type": "boolean"
                     }
                 },
@@ -1140,7 +1173,7 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "StatusChanged": {
+                    "statusChanged": {
                         "type": "string",
                         "format": "date-time"
                     },
@@ -1222,7 +1255,7 @@
                     "content": {
                         "$ref": "#/components/schemas/CorrespondenceContentExt"
                     },
-                    "RequestedPublishTime": {
+                    "requestedPublishTime": {
                         "type": "string",
                         "format": "date-time",
                         "nullable": true
@@ -1261,24 +1294,20 @@
                     "notification": {
                         "$ref": "#/components/schemas/InitializeCorrespondenceNotificationExt"
                     },
-                    "IgnoreReservation": {
+                    "ignoreReservation": {
                         "type": "boolean",
                         "nullable": true
                     },
-                    "Published": {
+                    "published": {
                         "type": "string",
                         "format": "date-time",
                         "nullable": true
                     },
-                    "IsConfirmationNeeded": {
+                    "isConfirmationNeeded": {
                         "type": "boolean"
                     },
                     "recipient": {
                         "type": "string",
-                        "nullable": true
-                    },
-                    "markedUnread": {
-                        "type": "boolean",
                         "nullable": true
                     },
                     "correspondenceId": {
@@ -1366,7 +1395,7 @@
                     "content": {
                         "$ref": "#/components/schemas/CorrespondenceContentExt"
                     },
-                    "RequestedPublishTime": {
+                    "requestedPublishTime": {
                         "type": "string",
                         "format": "date-time",
                         "nullable": true
@@ -1405,24 +1434,20 @@
                     "notification": {
                         "$ref": "#/components/schemas/InitializeCorrespondenceNotificationExt"
                     },
-                    "IgnoreReservation": {
+                    "ignoreReservation": {
                         "type": "boolean",
                         "nullable": true
                     },
-                    "Published": {
+                    "published": {
                         "type": "string",
                         "format": "date-time",
                         "nullable": true
                     },
-                    "IsConfirmationNeeded": {
+                    "isConfirmationNeeded": {
                         "type": "boolean"
                     },
                     "recipient": {
                         "type": "string",
-                        "nullable": true
-                    },
-                    "markedUnread": {
-                        "type": "boolean",
                         "nullable": true
                     },
                     "correspondenceId": {
@@ -2015,15 +2040,15 @@
             "PaginationMetaDataExt": {
                 "type": "object",
                 "properties": {
-                    "TotalItems": {
+                    "totalItems": {
                         "type": "integer",
                         "format": "int32"
                     },
-                    "Page": {
+                    "page": {
                         "type": "integer",
                         "format": "int32"
                     },
-                    "Pages": {
+                    "pages": {
                         "type": "integer",
                         "format": "int32"
                     }
