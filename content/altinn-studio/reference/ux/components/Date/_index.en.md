@@ -131,5 +131,6 @@ Date with label and icon.
   "icon": "https://www.example.com/icon.png"
 },
 ```
-
+<!-- 
 ![Date example](date-example-with-icon.png "Date with icon and label")
+-->

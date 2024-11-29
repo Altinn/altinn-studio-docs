@@ -116,10 +116,11 @@ Bestemmer om tallet vises under eller ved siden av ledeteksten. `horizontal` for
 
 Sett av valg for formattering av tallet. Inneholder egenskapene `align`, `currency`, `position` and `unit`.
 
-
+<!-- 
 #### `icon`
 
 Hvis du vil vise et ikon foran ledeteksten kan du legge til en url til ikonet/bildet du vil vise her.
+-->
 
 <br>
 
@@ -140,5 +141,6 @@ Tall med ledetekst og ikon.
   "icon": "https://www.example.com/icon.png"
 },
 ```
-
+<!-- 
 ![Tall eksempel](<number-example-with-icon.png> "Tall med ikon og ledetekst")
+-->

@@ -105,10 +105,12 @@ Setter formateringen for datoen gitt i `value` feltet. Dette er basert på [Unic
 
 Bestemmer om teksten vises under eller ved siden av ledeteksten. `horizontal` for ved siden av og `vertical` for under. 
 
+<!-- 
 #### `icon`
 
 Hvis du vil vise et ikon foran ledeteksten kan du legge til en url til ikonet/bildet du vil vise her.
 
+-->
 <br>
 
 #### Eksempel
@@ -129,5 +131,6 @@ Dato med ledetekst og ikon.
   "icon": "https://www.example.com/icon.png"
 },
 ```
-
+<!-- 
 ![Dato eksempel](<date-example-with-icon.png> "Dato med ikon og ledetekst")
+-->

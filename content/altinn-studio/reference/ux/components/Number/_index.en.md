@@ -115,9 +115,11 @@ Decides if the number should be shown under or next to the label. `horizontal` f
 
 Set of options for formatting the number. Contains the properties align, currency, position and unit.
 
+<!-- 
 #### `icon`
 
 If you want to show an icon before the label, you can add a URL path to the icon/image you want to be displayed.
+-->
 
 <br>
 
@@ -138,4 +140,7 @@ Text with label and icon.
   "icon": "https://www.example.com/icon.png"
 },
 ```
+
+<!-- 
 ![Number example](number-example-with-icon.png "Number with icon and label")
+-->

@@ -100,9 +100,11 @@ The value of the text to be displayed. Can be added as a string or an expression
 
 Decides if the number should be shown under or next to the label. `horizontal` for showing it next to the label and `vertical` for under. 
 
+<!-- 
 #### `icon`
 
 If you want to show an icon before the label, you can add an URL path.
+-->
 
 <br>
 
@@ -123,4 +125,6 @@ Text with label and icon.
   "icon": "https://www.example.com/icon.png"
 },
 ```
+<!-- 
 ![Text example](<text-example-with-icon.png> "Text with icon and label")
+-->
