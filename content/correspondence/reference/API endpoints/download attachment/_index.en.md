@@ -13,9 +13,7 @@ GET /correspondence/api/v1/correspondence/{{correspondenceId}}/attachment/{{atta
 
 ## Description
 
-This endpoint allows you to download a specific attachment for the correspondence. 
-Before using this endpoint, the correspondence status must be "Published". 
-You can check the status of a correspondence by using the overview or details endpoint described [here](https://docs.altinn.studio/api/correspondence/spec/#/Correspondence/get_correspondence_api_v1_correspondence__correspondenceId_).
+This endpoint enables the download of a specific attachment associated with a correspondence. Prior to utilizing this endpoint, the correspondence status must be set to "Published". The status of a correspondence can be verified by using the overview or details endpoint, as described [here](https://docs.altinn.studio/api/correspondence/spec/#/Correspondence/get_correspondence_api_v1_correspondence__correspondenceId_).
 
 ## Authentication
 
@@ -35,7 +33,7 @@ See [Authentication and Authorization](/notifications/reference/api/#authenticat
 
 ### Content-Type
 
-- application/json
+- text
 
 ### Response body 
 
