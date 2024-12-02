@@ -69,7 +69,6 @@ We are currently updating how we implement components, and the list of propertie
 | `formatting.position`        | string   | Display the unit as prefix or suffix. <br/><br/> **Enum:**: [prefix, suffix] <br/><br/> **Default:** prefix.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `formatting.unit`            | string   | Enables unit along with thousand and decimal separators to be language sensitive based on selected app language.<br/><br/> **Enum:**: [celsius, centimeter, day, degree, foot, gram, hectare, hour, inch, kilogram, kilometer, liter, meter, milliliter, millimeter, millisecond, minute, month, percent, second, week, year]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `direction`                  | string   | Sets the structured direction of label and value.<br/><br/> **Enum:** [horizontal, vertical]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `icon`                       | string   | A URL path to the image/icon to be shown next to the label.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
 ## Configuration
 
@@ -84,7 +83,6 @@ We are currently updating how we implement components, and the list of propertie
         },
         "value": "100000",
         "direction": "vertical",
-        "icon": "https://www.example.com/icon.png",
         "formatting": {
           "currency": "NOK",
           "position": "suffix",
@@ -113,19 +111,11 @@ Decides if the number should be shown under or next to the label. `horizontal` f
 
 #### `formatting`
 
-Set of options for formatting the number. Contains the properties align, currency, position and unit.
-
-<!-- 
-#### `icon`
-
-If you want to show an icon before the label, you can add a URL path to the icon/image you want to be displayed.
--->
-
 <br>
 
 #### Example
 
-Text with label and icon.
+Text with label.
 
 ```json{hl_lines=["9-12"]}
 ...
@@ -137,7 +127,6 @@ Text with label and icon.
   },
   "value": "My name",
   "direction": "horizontal",
-  "icon": "https://www.example.com/icon.png"
 },
 ```
 

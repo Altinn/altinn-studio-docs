@@ -59,7 +59,6 @@ Add the following sections if relevant:
 | `value`                      | string   | Teksten du vil vise                                                                 |
 | `textResourceBindings.title` | string   | Labelen for teksten du vil vise                                                     |
 | `direction`                  | string   | Setter strukturell retning på label og verdi **Enum:** `"horizontal" \| "vertical"` |
-| `icon`                       | string   | En Url sti til bildet/ikonet                                                        |
 
 ## Konfigurering
 
@@ -73,7 +72,6 @@ Add the following sections if relevant:
   },
   "value": "My name",
   "direction": "horizontal",
-  "icon": "https://www.example.com/icon.png"
 },
 ```
 
@@ -94,10 +92,6 @@ Verdien av teksten som skal vises. Kan legges til som en streng eller et uttrykk
 
 Bestemmer om teksten vises under eller ved siden av ledeteksten. `horizontal` for ved siden av og `vertical` for under. 
 
-#### `icon`
-
-Hvis du vil vise et ikon foran ledeteksten kan du legge til en url til ikonet/bildet du vil vise her.
-
 <br>
 
 #### Eksempel
@@ -113,7 +107,6 @@ Tekst med label og ikon.
   },
   "value": "My name",
   "direction": "horizontal",
-  "icon": "https://www.example.com/icon.png"
 },
 ```
 ![Tekst eksempel](<text-example-with-icon.png> "Tekst med ikon og label")

@@ -65,7 +65,6 @@ We are currently updating how we implement components, and the list of propertie
 | `textResourceBindings.title` | string   | A label for the date you want to display.                                                   |
 | `format`                     | string   | A formatting string based on [Unicode Technical standard](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table).                             |
 | `direction`                  | string   | Sets the structured direction of label and value. <br/><br/>**Enum:** [horizontal, vertical] . <br/><br/>**Default:** horizontal. |
-| `icon`                       | string   | A URL path to the image/icon.                                                            |
 
 ## Configuration
 
@@ -81,7 +80,6 @@ We are currently updating how we implement components, and the list of propertie
   "value": "2022-09-27 18:00:00.000",
   "format": "dd.MM.yyyy",
   "direction": "horizontal",
-  "icon": "https://www.example.com/icon.png"
 },
 ```
 
@@ -105,17 +103,12 @@ Sets the formatting of the date provided in the value field. This is based on [U
 
 Decides if the date should be shown under or next to the label. `horizontal` for showing it next to the label and `vertical` for under. 
 
-<!-- 
-#### `icon`
-
-If you want to show an icon before the label, you can add a URL path to the icon/image you want to be displayed.
--->
 
 <br>
 
 #### Example
 
-Date with label and icon.
+Date with label.
 
 ```json{hl_lines=["9-12"]}
 ...
@@ -128,7 +121,6 @@ Date with label and icon.
   "value": "2022-09-27 18:00:00.000",
   "format": "dd.MM.yyyy",
   "direction": "horizontal",
-  "icon": "https://www.example.com/icon.png"
 },
 ```
 <!-- 

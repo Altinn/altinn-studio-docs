@@ -64,7 +64,6 @@ We are currently updating how we implement components, and the list of propertie
 | `value`                      | string   | The text you want to display.                                                            |
 | `textResourceBindings.title` | string   | Label of the text you want to display                                                    |
 | `direction`                  | string   | Sets the structured direction of label and value. **Enum:** `"horizontal" \| "vertical"` |
-| `icon`                       | string   | An URL path to the image/icon                                                            |
 
 
 ## Configuration
@@ -80,7 +79,6 @@ We are currently updating how we implement components, and the list of propertie
   },
   "value": "My name",
   "direction": "horizontal",
-  "icon": "https://www.example.com/icon.png"
 },
 ```
 
@@ -98,19 +96,13 @@ The value of the text to be displayed. Can be added as a string or an expression
 
 #### `direction`
 
-Decides if the number should be shown under or next to the label. `horizontal` for showing it next to the label and `vertical` for under. 
-
-<!-- 
-#### `icon`
-
-If you want to show an icon before the label, you can add an URL path.
--->
+Decides if the number should be shown under or next to the label. `horizontal` for showing it next to the label and `vertical` for under.
 
 <br>
 
 #### Example
 
-Text with label and icon.
+Text with label.
 
 ```json{hl_lines=["9-12"]}
 ...
@@ -122,7 +114,6 @@ Text with label and icon.
   },
   "value": "My name",
   "direction": "horizontal",
-  "icon": "https://www.example.com/icon.png"
 },
 ```
 <!-- 

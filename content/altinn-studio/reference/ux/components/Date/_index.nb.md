@@ -65,7 +65,6 @@ We are currently updating how we implement components, and the list of propertie
 | `textResourceBindings.title` | string   | Ledeteksten til datoen du vil vise                                                                                                         |
 | `format`                     | string   | En formateringsstreng basert på [Unicode Teknisk standard](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table)   |
 | `direction`                  | string   | Setter den strukturerte retningen for ledetekst og verdi. <br/><br/>**Enum:** [horizontal, vertical] . <br/> <br/>**Default:** horizontal. |
-| `icon`                       | string   | En URL-lenke til bildet/ikonet.                                                                                                            |
 
 ## Konfigurering
 
@@ -81,7 +80,6 @@ We are currently updating how we implement components, and the list of propertie
   "value": "2022-09-27 18:00:00.000",
   "format": "dd.MM.yyyy",
   "direction": "horizontal",
-  "icon": "https://www.example.com/icon.png"
 },
 ```
 
@@ -105,12 +103,6 @@ Setter formateringen for datoen gitt i `value` feltet. Dette er basert på [Unic
 
 Bestemmer om teksten vises under eller ved siden av ledeteksten. `horizontal` for ved siden av og `vertical` for under. 
 
-<!-- 
-#### `icon`
-
-Hvis du vil vise et ikon foran ledeteksten kan du legge til en url til ikonet/bildet du vil vise her.
-
--->
 <br>
 
 #### Eksempel
@@ -128,7 +120,6 @@ Dato med ledetekst og ikon.
   "value": "2022-09-27 18:00:00.000",
   "format": "dd.MM.yyyy",
   "direction": "horizontal",
-  "icon": "https://www.example.com/icon.png"
 },
 ```
 <!-- 

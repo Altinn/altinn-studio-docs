@@ -69,7 +69,6 @@ Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over 
 | `formatting.position`        | string   | Vis enhet som prefiks eller suffiks. Default er prefiks.<br/><br/> **Enum:**: [prefix, suffix]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | `formatting.unit`            | string   | Aktiverer enhet, i tillegg til tusen og desimal separatorer, som er språk sensitiv basert på språket satt i appen.<br/><br/> **Enum:**: [celsius, centimeter, day, degree, foot, gram, hectare, hour, inch, kilogram, kilometer, liter, meter, milliliter, millimeter, millisecond, minute, month, percent, second, week, year]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | `direction`                  | string   | Setter den strukturerte retningen av ledetekst og verdi.<br/><br/> **Enum:** [horizontal, vertical] <br/><br/>**Default:** horizontal                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `icon`                       | string   | En URL streng til bilde/ikonet                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
 
 ## Konfigurering
@@ -85,7 +84,6 @@ Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over 
         },
         "value": "100000",
         "direction": "vertical",
-        "icon": "https://www.example.com/icon.png",
         "formatting": {
           "currency": "NOK",
           "position": "suffix",
@@ -116,14 +114,6 @@ Bestemmer om tallet vises under eller ved siden av ledeteksten. `horizontal` for
 
 Sett av valg for formattering av tallet. Inneholder egenskapene `align`, `currency`, `position` and `unit`.
 
-<!-- 
-#### `icon`
-
-Hvis du vil vise et ikon foran ledeteksten kan du legge til en url til ikonet/bildet du vil vise her.
--->
-
-<br>
-
 #### Eksempel
 
 Tall med ledetekst og ikon.
@@ -138,7 +128,6 @@ Tall med ledetekst og ikon.
   },
   "value": "My name",
   "direction": "horizontal",
-  "icon": "https://www.example.com/icon.png"
 },
 ```
 <!-- 
