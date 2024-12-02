@@ -1,6 +1,6 @@
 ---
 title: Systembruker
-description: En stor del av kommunikasjonen mellom det offentlige og næringslivet skjer via API i Altinn og andre hos andre platformleverandører i det offentlige. 
+description: En stor del av kommunikasjonen mellom det offentlige og næringslivet skjer via API i Altinn og hos andre platformleverandører i det offentlige. 
 tags: [platform, authentication]
 toc: false
 weight: 1
@@ -16,21 +16,21 @@ Nye autentiserings- og autorisasjonsmekanismer utvikles nå for maskin-til-maski
 
 ## Egenskaper med systembruker
 
-Systembruker gir en rekke fordeler sammenlignet med virksomhetsbruker og sluttbrukersystem konseptet i Altinn 2. 
+Systembruker gir en rekke fordeler sammenlignet med dagens virksomhetsbruker og sluttbrukersystemkonsept i Altinn 2: 
 
-- En mulighet for anskaffelse av sluttbrukersystem uten utveksling av sertifikat/passord/
-- Mulighet for systemleverandører for enkel onboarding av kunder
-- Fingranulert autorisasjon med maskin til maskin.
-- Oversikt over tilganger systembrukere har. 
-- Systemleverandør kan dele klientoppsett på tvers av sine kunder. (trenger ikke mange sertifikat)
+- Mulighet for etablering av sluttbrukersystemintegrasjon uten utveksling av sertifikat/passord
+- Mulighet for enkel onboarding av kunder for systemleverandører 
+- Fingranulert autorisasjon med maskin til maskin
+- Oversikt over tilganger systembrukere har 
+- Systemleverandør kan dele klientoppsett på tvers av sine kunder (trenger ikke mange sertifikat)
 - Vil støtte klientforhold til regnskapsfører/revisor fra Q1 2025
-- Vil støttes av Altinn Apps Q1 2025.
+- Vil støttes av Altinn Apps Q1 2025
 
 ## Maskinporten og systembrukertoken
 
 Maskinporten står sentralt i dette nye konseptet. Alle som skal benytte API med systembruker må autentisere seg mot Maskinporten for å motta et systembrukertoken.
 
-### Forskjeller fra vanlige maskinportentokens
+### Forskjeller fra vanlige maskinportentoken
 
 Systembrukertoken inkluderer informasjon om både virksomheten og den spesifikke systembrukeren/systemet.
 
@@ -91,13 +91,13 @@ I noen tilfeller kan man se for seg at systemleverandøren sender en epost til s
 
 ### Administrasjon av systembruker
 
-Virksomheter vil kunne administrere sine systembrukere fra Altinn Profill. 
+Virksomheter vil kunne administrere sine systembrukere fra Altinn Profil. 
 
 Man vil kunne opprette systembrukere og deaktivere dem.
 
 ![Illustration](illustration1.png "Administrasjon av systembrukere")
 
-Brukerne vil kunne opprette nye brukere og knytte mot systemer/leverandører 
+Brukerne vil kunne opprette nye brukere og knytte mot systemer/leverandører. 
 
 ![Illustration](illustration2.png "Administrasjon av systembrukere")
 
@@ -118,8 +118,8 @@ Støtte for dette vil komme i leveranse 5 av klientdelegering.
 Hvis vi tar utgangspunkt i scenarioet over så har **Rørlegger Hansen & Sønner AS** valgt **Fine Tall AS** som regnskapsfører. 
 Dette er meldt inn via samordnet registermelding. 
 
-1. **Fine Tall AS** har opprette systembruker for systemet **SmartCloud** fra SmartCloud AS
-2. Klientadministrator hos Fine Tall AS delegerer tilgangspakken "Regnskapsansvarlig lønn" for  **Rørlegger Hansen & Sønner AS** til systembrukeren som er opprettet
+1. **Fine Tall AS** har opprette systembruker for systemet **SmartCloud** fra SmartCloud AS.
+2. Klientadministrator hos Fine Tall AS delegerer tilgangspakken "Regnskapsansvarlig lønn" for  **Rørlegger Hansen & Sønner AS** til systembrukeren som er opprettet.
 
 På denne måten vil da **SmartCloud** kunne rapportere for  **Rørlegger Hansen & Sønner AS** med systembrukeren for **Fine Tall AS**
 
@@ -127,15 +127,15 @@ På denne måten vil da **SmartCloud** kunne rapportere for  **Rørlegger Hansen
 
 Se mer detaljer i [Issue for Leveranse 5](https://github.com/Altinn/altinn-authentication/issues/548).
 
-## Teknisk flyt autentisering/autorisasjon
+## Teknisk flyt for autentisering/autorisasjon
 
 Diagrammet nedenfor viser hvordan et fagsystem kan autentisere seg når systembruker er opprettet og knyttet.
 
-1. Sluttbrukersystemet kaller Maskinporten med et JWT Grant hvor man oppgir hvem som er kunde samt nøkkel/clientinformasjon
-2. Maskinporten verifiserer mot Altinn at kunden har gitt systemet som er knyttet mot klienten tilgang
-3. Ved bekreftelse utsteder Maskinporten et token som inneholder informasjon om systembruker og eieren av systembrukeren
-4. Dette tokenet kan da benyttes i kall mot API. (I Altinn eller utenfor Altinn)
-5. API kan autoriseres 
+1. Sluttbrukersystemet kaller Maskinporten med et JWT Grant hvor man oppgir hvem som er kunde samt nøkkel/klientinformasjon.
+2. Maskinporten verifiserer mot Altinn at kunden har gitt systemet som er knyttet mot klienten, tilgang.
+3. Ved bekreftelse utsteder Maskinporten et token som inneholder informasjon om systembruker og eieren av systembrukeren.
+4. Dette tokenet kan da benyttes i kall mot API (i Altinn eller utenfor Altinn).
+5. API kan autoriseres. 
 
 ![Illustration](illustration5.png "Opprettelse av integrasjon")
 
@@ -191,7 +191,7 @@ Se også dokumentasjon hos [Maskinporten](https://docs.digdir.no/docs/Maskinport
 
 ## Hvordan ta i bruk
 
-Det er skrevet egne guider for å ta i bruk systembruker.
+Det er skrevet egne guider for å ta i bruk systembruker:
 
 - [Hvordan bruke systembruker som systemleverandør](../../guides/systemauthentication-for-systemproviders/)
 - [Hvordan bruke systemberuker som apitilbyder/tjenesteeier](../../guides/systemauthentication-for-apiproviders/)
@@ -203,9 +203,9 @@ Systembruker vil leveres som del av flere leveranser.
 
 ### Leveranse 1
 
-Første leveranse inneholder følgende funksjonalitet
+Første leveranse inneholder følgende funksjonalitet:
 
-#### Ressurseier​
+#### Ressurs-/tjenesteeier​
 
 - Oppretter generisk autorisasjonsressurs i Ressursregister​
 - Melder inn nødvendige tilgangspakker til Digdir​
@@ -260,15 +260,15 @@ Første leveranse inneholder følgende funksjonalitet
 
 #### Virksomhet​
 
-- Støtte for leverandør – hjelper – kunde forhold
+- Støtte for leverandør – hjelper – kunde-forhold
 
 [Github issue](https://github.com/Altinn/altinn-authentication/issues/548)
 
 ### Støtte for systembruker i Altinn Apps
 
-I første omgang vil systembruker brukes i scenario utenfor Altinn, men apper utviklet i Altinn plattformen vil få støtte for dette også. 
+I første omgang vil systembruker brukes i scenario utenfor Altinn, men apper utviklet i Altinn-plattformen vil få støtte for dette også. 
 
-For å støtte systembruker i Altinn jobbes det med følgende.
+For å støtte systembruker i Altinn jobbes det med følgende:
 
 - Oppdatere App template til å støtte systembruker
 - Oppdatere Platform komponenter til å støtte systembruker
@@ -276,7 +276,7 @@ For å støtte systembruker i Altinn jobbes det med følgende.
 
 ## Detaljerte issues
 
-Dette jobbes det med i flere issues på Github
+Dette jobbes det med i flere issues på Github:
 
  [Analyse: Fremtidig løsning for sluttbrukersystemer](https://github.com/Altinn/altinn-authentication/issues/200)
  [Epic: New machine-machine authentication method](https://github.com/Altinn/altinn-authentication/issues/331)
