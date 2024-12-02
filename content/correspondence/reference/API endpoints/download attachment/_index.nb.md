@@ -1,42 +1,40 @@
 ---
-title: Download attachment
-linktitle: Download attachment
-description: Endpoint for downloading a correspondence attachment.
+title: Last ned vedlegg
+linktitle: Last ned vedlegg
+description: Endepunkt for nedlasting av et meldingsevedlegg.
 
 weight: 60
 toc: true
 ---
 
-## Endpoint
+## Endepunkt
 
 GET /correspondence/api/v1/correspondence/{{correspondenceId}}/attachment/{{attachmentId}}/download
 
-## Description
+## Beskrivelse
 
-This endpoint allows you to download a specific attachment for the correspondence. 
-Before using this endpoint, the correspondence status must be "Published". 
-You can check the status of a correspondence by using the overview or details endpoint described [here](https://docs.altinn.studio/api/correspondence/spec/#/Correspondence/get_correspondence_api_v1_correspondence__correspondenceId_).
+Dette endepunktet muliggjør nedlasting av et spesifikt vedlegg knyttet til en melding. Før endepunktet kan brukes, må statusen til meldingen være satt til "Publisert". Statusen til en melding kan verifiseres ved å bruke oversikts- eller detaljendepunktet, som beskrevet [her](https://docs.altinn.studio/api/correspondence/spec/#/Correspondence/get_correspondence_api_v1_correspondence__correspondenceId_).
 
-## Authentication
+## Autentisering
 
-This API requires authentication, and the request must also include:
+Dette API-et krever autentisering, og forespørselen må også inkludere:
 
-- Correspondence read scope __altinn:correspondence.read__ (for external system callers)
+- Correspondence read scope __altinn:correspondence.read__ (for eksterne kall)
 
-See [Authentication and Authorization](/notifications/reference/api/#authentication--authorization) for more information.
+Se [Autentisering og Autorisasjon](/notifications/reference/api/#authentication--authorization) for mer informasjon.
 
-## Response
+## Respons
 
-### Response codes
-- 200 OK: The attachment has been downloaded succesfully.
+### Responskoder
 
-  Refer to problem details in response body for further information.
-- 400 One or more validation errors occurred: Indicates that the correspondenceid or the attachmentid was not found.
+- 200 OK: Vedlegget har blitt lastet ned vellykket.
 
-### Content-Type
+  Se problemdetaljer i responskroppen for mer informasjon.
+- 400 One or more validation errors occurred: Indikerer at correspondenceid eller attachmentid ikke ble funnet.
 
-- application/json
+### Innholdstype
+- text
 
 ### Response body 
 
-The response body consists of the attachment content.
+Respons body består av innholdet i vedlegget.
