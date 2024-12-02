@@ -10,8 +10,8 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Ansvarlig revisor](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/regnskapsforer/#regnskapsfører-med-signeringsrettighet)|
-|[Revisormedarbeider](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/regnskapsforer/#regnskapsfører-uten-signeringsrettighet)|
+|[Ansvarlig revisor](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/regnskapsforer/#regnskapsfører-med-signeringsrettighet)|
+|[Revisormedarbeider](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/regnskapsforer/#regnskapsfører-uten-signeringsrettighet)|
 
 
 ### Ansvarlig revisor
@@ -23,7 +23,7 @@ Denne fullmakten gir revisor tilgang til å opptre som revisormedarbeider for en
 *urn:altinn:accesspackage:revisormedarbeider*   
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
-|**Tilgangspakke**|**Enhetsregisterroller**|
-|---|
-|Ansvarlig revisor|Revisor|
-|Revisormedarbeider|Revisor|
+|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
+|---|---|---|
+|Ansvarlig revisor|Revisor|Klientdelegering|
+|Revisormedarbeider|Revisor|Klientdelegering|

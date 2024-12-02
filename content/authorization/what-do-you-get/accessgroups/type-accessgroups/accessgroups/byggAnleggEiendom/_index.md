@@ -1,7 +1,7 @@
 ---
 title: Bygg, anlegg og eiendom
 linktitle: Bygg, anlegg og eiendom
-description: Denne kategorien omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som angår bygge- og anleggsvirksomhet, samt oppføring, omsetning og drift av anlegg/eiendom. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+description: Dentte fullmaktsområdet omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som angår bygge- og anleggsvirksomhet, samt oppføring, omsetning og drift av anlegg/eiendom. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
 toc: true
 weight: 100
 aliases:
@@ -10,13 +10,13 @@ aliases:
 
 |**Tilgangpakker i kategorien**|
 |---|
-|[Byggesøknad](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/bygganleggeiendom/#byggesøknad)|
-|[Plansak](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/bygganleggeiendom/#plansak)|
-|[Motta nabo- og planvarsel](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/bygganleggeiendom/#motta-nabo--og-planvarsel)|
-|[Oppføring av bygg og anlegg](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/bygganleggeiendom/#oppføring-av-bygg-og-anlegg)|
-|[Kjøp og salg av eiendom](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/bygganleggeiendom/#kjøp-og-salg-av-eiendom)|
-|[Utleie av eiendom](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/bygganleggeiendom/#utleie-av-eiendom)|
-|[Eiendomsmegler](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/bygganleggeiendom/#eiendomsmegler)|
+|[Byggesøknad](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/bygganleggeiendom/#byggesøknad)|
+|[Plansak](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/bygganleggeiendom/#plansak)|
+|[Motta nabo- og planvarsel](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/bygganleggeiendom/#motta-nabo--og-planvarsel)|
+|[Oppføring av bygg og anlegg](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/bygganleggeiendom/#oppføring-av-bygg-og-anlegg)|
+|[Kjøp og salg av eiendom](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/bygganleggeiendom/#kjøp-og-salg-av-eiendom)|
+|[Utleie av eiendom](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/bygganleggeiendom/#utleie-av-eiendom)|
+|[Eiendomsmegler](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/bygganleggeiendom/#eiendomsmegler)|
 
 
 ### Byggesøknad
@@ -45,4 +45,16 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til utleie av eiendom.
 
 ### Eiendomsmegler
 Denne tilgangspakken gir fullmakter til tjenester knyttet til omsetning og drift av fast eiendom på oppdrag, som eiendomsmegling og eiendomsforvaltning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:utleieeiendom*
+*urn:altinn:accesspackage:eiendomsmegler*
+
+
+## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
+|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
+|---|---|---|
+|Byggesøknad|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Plansak|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Motta nabo- og planvarsel|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Oppføring av bygg og anlegg|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Kjøp og salg av eiendom|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Utleie av eiendom|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Eiendomsmegler|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|

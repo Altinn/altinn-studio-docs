@@ -6,7 +6,7 @@ hidden: true
 #### Kilde (`source`)
 
 En måte å legge til alternativer er å koble komponenten til en kodeliste basert på skjemadata lagret i selve appen.
- Dette gjør du ved å legge til en kilde (`source`); se [dokumentasjon](/nb/altinn-studio/reference/data/options/repeating-group-codelists/) for hvordan dette konfigureres.
+ Dette gjør du ved å legge til en kilde (`source`); se [dokumentasjon](/nb/altinn-studio/guides/development/options/repeating-group-codelists/) for hvordan dette konfigureres.
 <!-- end intro -->
 
 

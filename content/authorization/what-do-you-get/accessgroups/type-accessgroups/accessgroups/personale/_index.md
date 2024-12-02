@@ -1,7 +1,7 @@
 ---
 title: Personale
 linktitle: Personale
-description: Denne kategorien omfatter tilgangspakker som gir fullmakter til tjenester og ressurser knyttet til personaladministrasjon og ansettelsesforhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter til tjenester og ressurser knyttet til personaladministrasjon og ansettelsesforhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
 toc: true
 weight: 100
 aliases:
@@ -10,12 +10,12 @@ aliases:
 
 | **Tilgangspakker i kategorien**|
 |---|
-|[Ansetttelsesforhold](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/personale/#ansettelsesforhold)|
-|[Lønn](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/personale/#lønn)|
-|[Pensjon](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/personale/#pensjon)|
-|[Permisjon](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/personale/permisjon)|
-|[Sykefravær](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/personale/#sykefravaer)|
-|[A-ordningen](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/personale/#a-ordningen)|
+|[Ansetttelsesforhold](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/personale/#ansettelsesforhold)|
+|[Lønn](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroupsaccessgroups/personale/#lønn)|
+|[Pensjon](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/personale/#pensjon)|
+|[Permisjon](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/personale/permisjon)|
+|[Sykefravær](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/personale/#sykefravaer)|
+|[A-ordningen](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/personale/#a-ordningen)|
 
 ### Ansettelsesforhold
 Denne tilgangspakken gir fullmakter til tjenester knyttet til ansettelsesforhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
@@ -41,3 +41,13 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til sykefravær. Ved r
 Denne tilgangspakken gir fullmakter til tjenester som inngår i A-ordningen. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 **OBS! Vær oppmerksom på at tilgangspakken inneholder fullmakter som kan ha sensitiv karakter. Vurder om fullmaktene skal gis som enkeltrettigheter.**  
 *urn:altinn:accesspackage:ansettelsesforhold*
+
+## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
+|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
+|---|---|---|
+|Ansettelsesforhold|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Lønn|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer, Kontaktperson NUF|Ja|
+|Pensjon|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder|Ja|
+|Permisjon|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Sykefravær|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|A-ordningen|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|

@@ -1,7 +1,7 @@
 ---
 title: Handel, overnatting og servering
 linktitle: Handel, overnatting og servering
-description: Denne kategorien omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som omhandler varehandel(engros- og detaljhandel, import og eksport), overnatting og servering. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som omhandler varehandel(engros- og detaljhandel, import og eksport), overnatting og servering. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
 toc: true
 weight: 100
 aliases:
@@ -10,9 +10,9 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Varehandel](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/handelovernatting/#varehandel)|
-|[Overnatting](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/handelovernatting/#overnatting)|
-|[Servering](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/handelovernatting/#servering)|
+|[Varehandel](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/handelovernatting/#varehandel)|
+|[Overnatting](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/handelovernatting/#overnatting)|
+|[Servering](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/handelovernatting/#servering)|
 
 
 ### Varehandel
@@ -26,3 +26,11 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til overnattingsvirkso
 ### Servering
 Denne tilgangspakken gir fullmakter til tjenester knyttet til serveringsvirksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:servering*
+
+
+## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
+|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
+|---|---|---|
+|Varehandel|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Overnatting|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Servering|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|

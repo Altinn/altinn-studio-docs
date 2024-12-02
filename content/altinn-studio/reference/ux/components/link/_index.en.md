@@ -9,18 +9,20 @@ The link component can be used to redirect the user to an external page. It can 
 - [Configuration](#configuration)
   - [Example](#example)
 - [Dynamic URL](#dynamic-url)
+- [Download](#download)
 - [Environment configuration](#environment-configuration)
 
 ## Configuration
 
 The link component has the following properties:
 
-| Property                      | Type      | Description                                                                            |
-| ----------------------------- | --------- | -------------------------------------------------------------------------------------- |
-| `textResourceBindings.title`  | `string`  | The title of the button or link.                                                       |
-| `textResourceBindings.target` | `string`  | The URL to redirect to.                                                                |
-| `openInNewTab`                | `boolean` | Whether to open the URL in a new tab or not.                                           |
-| `style`                       | `string`  | The style of the button. Can be one of the following: `primary`, `secondary` , `link`. |
+| Property                        | Type      | Description                                                                            |
+| ------------------------------- | --------- | -------------------------------------------------------------------------------------- |
+| `textResourceBindings.title`    | `string`  | The title of the button or link.                                                       |
+| `textResourceBindings.target`   | `string`  | The URL to redirect to.                                                                |
+| `textResourceBindings.download` | `string`  | When set, target is downloaded instead of navigated to. Value is downloaded filename. Use blank string for default filename. |
+| `openInNewTab`                  | `boolean` | Whether to open the URL in a new tab or not.                                           |
+| `style`                         | `string`  | The style of the button. Can be one of the following: `primary`, `secondary` , `link`. |
 
 ### Example
 
@@ -58,6 +60,30 @@ This can be done by using an [expression](/altinn-studio/reference/logic/express
   "style": "primary"
 }
 ```
+
+## Download
+
+Let's say you need to offer a PDF for download, and that PDF content is found in the data model as a base64 encoded string. Then you can use `target` and `download` to present a link or button for the user to download the file:
+
+```json
+{
+  "id": "some-id",
+  "type": "Link",
+  "textResourceBindings": {
+    "title": "Download PDF",
+    "target": [
+      "concat",
+      "data:application/pdf;base64,",
+      ["dataModel", "Path.To.Pdf"]
+    ],
+    "download": "downloadFilename"
+  },
+  "openInNewTab": false,
+  "style": "secondary"
+}
+```
+
+Here `downloadFilename` is looked up as a language resource. It could contain variables like all language resources. `target` could also have been a language resource using a variable instead of an expression as it is here.
 
 ## Environment configuration
 
