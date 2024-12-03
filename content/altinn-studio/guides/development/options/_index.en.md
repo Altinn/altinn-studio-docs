@@ -146,29 +146,6 @@ For nested groups follows the same pattern but with an additional index indicato
 
 For a complete example of how this is setup see our [demo app.](https://altinn.studio/repos/ttd/dynamic-options-rep)
 
-{{%notice warning%}}
-
-**Applies to applications using version 7.4.0 or older of the nuget packages** - https://github.com/Altinn/app-lib-dotnet/release
-
-<br>
-
-During PDF-generation the app will try to call the same option endpoint as app-frontend does.
-We currently have a weakness where mapping parameters not are included in this request, see issue [#7903.](https://github.com/Altinn/altinn-studio/issues/7903)
-
-A possible workaround here is to return an empty array when the PDF-generator asks for options with empty query params, example:
-
-```c#
-string someArg = keyValuePairs.GetValueOrDefault("someArg");
-string someOtherArg = keyValuePairs.GetValueOrDefault("someOtherArg");
-
-if (string.IsNullOrEmpty(someArg) || string.IsNullOrEmpty(someOtherArg)) {
-  return await Task.FromResult(new List<AppOption>());
-}
-```
-
-Notice that this wil result in the option value and not the label being present as the end users answer.
-{{% /notice%}}
-
 ### Store metadata for the parameters used to retrieve options in tha datamodel
 
 You can store metadata for the parameters used to retrieve options in the datamodel by setting the `metadata` property

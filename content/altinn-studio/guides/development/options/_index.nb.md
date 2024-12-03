@@ -139,28 +139,6 @@ For nøstede repeterende grupper vil man følge det samme mønsteret, men med en
 
 For et komplett eksempel kan du se vår [demo app.](https://altinn.studio/repos/ttd/dynamic-options-rep)
 
-{{%notice warning%}}
-**Gjelder applikasjoner som benytter versjon 7.4.0 eller eldre av nuget pakkene** - se https://github.com/Altinn/app-lib-dotnet/release
-
-<br>
-
-Under PDF-generering vil appen prøve å kalle det samme options-endepunktet som app-frontend gjør.
-Vi har foreløpig en svakhet ved at eventuelle `mapping`-parametere ikke blir inkludert i denne forespørselen, se [sak #7903](https://github.com/Altinn/altinn-studio/issues/7903).
-
-En mulig workaround her er å returnere en tom array i det PDF-generatoren spør om options med tomme query-parametere, eksempel:
-
-```c#
-string someArg = keyValuePairs.GetValueOrDefault("someArg");
-string someOtherArg = keyValuePairs.GetValueOrDefault("someOtherArg");
-
-if (string.IsNullOrEmpty(someArg) || string.IsNullOrEmpty(someOtherArg)) {
-    return await Task.FromResult(new List<AppOption>());
-}
-```
-
-Merk at dette vil resultere i at PDF-filen vil vise kodeverdien og ikke visningsverdien som sluttbrukers svar.
-{{% /notice%}}
-
 ### Lagre metadata for parametrene som ble brukt til å hente options
 
 Du kan lagre metadata for parameterene som ble brukt til å hente kodeliste i datamodellen ved å sette egenskapen `metadata`
