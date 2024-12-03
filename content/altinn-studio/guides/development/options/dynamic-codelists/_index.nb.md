@@ -120,7 +120,7 @@ namespace Altinn.App.Core
 
 ```
 
-For at denne implementasjonen skal plukkes opp av applikasjonen må den registreres i `Startup.cs` (eller `Program.cs` i .NET 6):
+For at denne implementasjonen skal plukkes opp av applikasjonen må den registreres i `Program.cs`:
 
 ```csharp
 services.AddTransient<IInstanceAppOptionsProvider, ChildrenAppOptionsProvider>();
