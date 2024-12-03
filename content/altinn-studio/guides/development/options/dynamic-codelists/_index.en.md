@@ -69,12 +69,6 @@ The interface has a property `Id`, which should be set to the optionId, and a me
 
 ### Secured dynamic options
 
-{{%notice warning%}}
-
-**NOTICE:** to use this functionality the app must use version >= 4.27.0 of the nuget packages `Altinn.App.PlatformServices`, `Altinn.App.Common` and `Altinn.App.Api`.
-
-{{%/notice%}}
-
 If you want to expose options that are sensitive you can use `IInstanceAppOptionsProvider`, which will validate that the user has read rights defined in the authorization policy defined in the app's `policy.xml`-file.
 Below you find an example of how to implement a secured custom options provider. The `IInstanceAppOptionsProvider` interface must be implemented, and a `secure`-prop must be added to the component.
 The following option will be exposed at `/{org}/{app}/instances/{instanceOwnerId}/{instanceGUID}/options/children`.
