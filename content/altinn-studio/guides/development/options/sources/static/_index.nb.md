@@ -11,7 +11,11 @@ aliases:
 For enklere brukstilfeller er statiske kodelister det letteste å sette opp. Disse kan enten settes direkte
 i komponentkonfigurasjonen eller i en json-fil i app-repositoriet. Hvilken metode som bør brukes avhenger av
 gjenbruksbehovet til kodelisten. Hvis flere komponenter skal bruke samme kodeliste, anbefales det å
-bruke metoden med json-filen.
+[putte kodelisten i en json-fil](#fra-json-filer).
+
+Legg merke til at selv om en slik kodeliste kan være helt statisk, er det også mulig å gjøre den (litt mer) dynamisk
+ved å [filtrere svaralternativene](../../functionality/filtering) ved hjelp av e uttrykk. Ønsker du enda mer
+fleksiilitet, kan du også [lage en egen kodebasert kodeliste](../dynamic).
 
 ## I komponentkonfigurasjonen
 

@@ -10,7 +10,11 @@ aliases:
 
 For simpler use-cases, a static code list is easy to configure. These can either be set directly in the component
 configuration or in a json file in the application repository. Which method to use depends on the re-usability of
-the code list. If multiple components should use the same code list, it is recommended to use the json file method.
+the code list. If multiple components should use the same code list, it is recommended to use the [json file method](#from-json-files).
+
+Note that even though a static code list can be completely static, it is also possible to make it (a bit more) dynamic
+by [filtering the options](../../functionality/filtering) using expressions. If you want even more flexibility,
+you can also [create your own code-based code list](../dynamic).
 
 ## In component configuration
 
