@@ -6,10 +6,6 @@ toc: false
 weight: 200
 ---
 
-{{%notice info%}}
-This functionality requires that the application uses at least [version 7.8.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v7.8.0) of the Altinn.App.Core NuGet package.
-{{% /notice%}}
-
 ## What are common standard code lists?
 Common standard code lists are lists such as countries, counties, municipalities, genders, marital statuses, etc. that can be used in an application without the need to maintain these code lists yourself. See the [complete list](https://github.com/Altinn/codelists-lib-dotnet#available-codelists) of available code lists.
 

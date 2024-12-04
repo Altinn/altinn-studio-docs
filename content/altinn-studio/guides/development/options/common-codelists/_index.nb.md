@@ -6,10 +6,6 @@ toc: false
 weight: 200
 ---
 
-{{%notice info%}}
-Denne funksjonaliteten krever at applikasjonen benytter minimum [versjon 7.8.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v7.8.0) av Altinn.App.Core nuget pakken.
-{{% /notice%}}
-
 ## Hva er felles standard kodelister?
  Felles standard kodelister er lister som land, fylker, kommuner, kjønn, sivilstatus etc som man kan benytte i sin applikasjon uten at man selv trenger å vedlikeholde disse kodelistene selv. Se [komplett liste](https://github.com/Altinn/codelists-lib-dotnet#available-codelists) over tilgjengelige kodelister.
 
