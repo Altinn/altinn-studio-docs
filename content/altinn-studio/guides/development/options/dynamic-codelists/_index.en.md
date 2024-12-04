@@ -161,7 +161,7 @@ Query parameters based on expressions are available from app-frontend version 4.
 
 You can add both static and dynamic parameters by setting up `queryParameters` on the component:
 
-```json {hl_lines=["12-16"]}
+```json {hl_lines=["11-15"]}
 {
   "id": "dropdown-component",
   "type": "Dropdown",
@@ -194,7 +194,7 @@ At some point, the `mapping` property will be removed, but when that happens too
 
 You can add dynamic parameters by setting the `mapping` property on the component:
 
-```json
+```json {hl_lines=["12-14"]}
 {
   "id": "some-dropdown-component",
   "type": "Dropdown",
@@ -220,7 +220,7 @@ used to dynamically decide which choices are available based on information give
 Passing query parameters from repeating groups is also supported by adding an index indicator for the relevant indexes.
 Example for a group:
 
-```json
+```json {hl_lines=[13]}
 {
   "id": "dropdown-group",
   "type": "Dropdown",
@@ -235,12 +235,12 @@ Example for a group:
   "mapping": {
     "Group[{0}].Country": "country"
   }
-},
+}
 ```
 
 For nested groups follows the same pattern but with an additional index indicator for the nested group:
 
-```json
+```json {hl_lines=[13]}
 {
   "id": "dropdown-nested-group",
   "type": "Dropdown",
@@ -255,7 +255,7 @@ For nested groups follows the same pattern but with an additional index indicato
   "mapping": {
     "Group[{0}].SubGroup[{1}].Country": "country"
   }
-},
+}
 ```
 
 For a complete example of how this is setup see our [demo app.](https://altinn.studio/repos/ttd/dynamic-options-rep)

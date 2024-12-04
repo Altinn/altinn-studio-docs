@@ -195,7 +195,7 @@ På et tidspunkt vil `mapping`-egenskapen bli fjernet, men når det skjer vil ve
 
 Man kan legge til dynamiske parametre ved å sette opp `mapping` på den aktuelle komponenten:
 
-```json
+```json {hl_lines=["12-14"]}
 {
   "id": "dropdown-komponent",
   "type": "Dropdown",
@@ -218,7 +218,7 @@ Om man setter opp en kobling til et datafelt og dette feltet endrer seg, så vil
 
 Å sende med parametre fra repeterende grupper gjøres ved å legge ved en indeks-indikator for de relevante gruppene. Eksempel:
 
-```json
+```json {hl_lines=[13]}
 {
   "id": "dropdown-group",
   "type": "Dropdown",
@@ -238,7 +238,7 @@ Om man setter opp en kobling til et datafelt og dette feltet endrer seg, så vil
 
 For nøstede repeterende grupper vil man følge det samme mønsteret, men med en ekstra indikator for den nøstede gruppa:
 
-```json
+```json {hl_lines=[13]}
 {
   "id": "dropdown-nested-group",
   "type": "Dropdown",
