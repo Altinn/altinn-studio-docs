@@ -7,40 +7,41 @@ aliases:
   - /nb/altinn-studio/guides/development/options/repeating-group-codelists
 ---
 
-Tradisjonelle options baserer seg på ressurser hentet fra backend.
-Denne måten å gjøre ting på endrer seg litt på dette, da det muliggjør å sette opp en direkte kobling fra komponent til skjemadata som ligger lagret i app frontend.
-Et typisk bruksområde for dette er om brukeren fyller ut en liste med data som man senere i skjema ønsker å kunne velge mellom i en nedtrekksliste eller liknende.
+I den forrige seksjonen om [dynamiske svaralternativer](../dynamic) beskrev vi hvordan man kan skrive kode på backend for å generere dynamiske svaralternativer for en komponent. Du kunne også sende visse verdier fra datamodellen til backend for å generere disse alternativene (via [spørringsparametere](../dynamic#spørringsparametere)). Denne fremgangsmåten skalerer dårlig når spørringsparametrene ender opp med å endre alternativene ofte, dvs. når alternativene er funksjonelt unike for en del av dataene i datamodellen.
+
+En annen tilnærming er å sette opp svaralternativer basert på en 'repeterende gruppe' i datamodellen. En slik repeterende struktur i datamodellen kan også representere en liste over alternativer for en nedtrekksliste, radioknapper eller avmerkingsbokser. Dette er spesielt nyttig i kombinasjon med [RepeatingGroup](../../../../../reference/ux/fields/grouping/repeating) komponenten, da det lar brukeren legge til og fjerne elementer fra listen, og alternativene vil automatisk oppdateres.
+
+Denne funksjonaliteten krever ikke bruk av noen `RepeatingGroup` komponent i skjemalayout, men det krever at datamodellen inneholder en repeterende struktur.
 
 ### Konfigurasjon
 
-For å sette opp options fra datamodellen har vi laget en nytt objekt som kan brukes på komponentene `RadioButtons`, `Checkboxes` og `Dropdown` som vi har kalt `source`.
-Dette nye objektet inneholder feltene `group`, `label` og `value`. Eksempel:
+For å sette opp svaralternativer som hentes ut fra datamodellen brukes egenskapen `source`.
+I dette objektet definerer man feltene `group`, `label` og `value`. Eksempel:
 
 ```json {hl_lines=["5-9"]}
-      {
-        "id": "dropdown-component-id",
-        "type": "Dropdown",
-        ...
-        "source": {
-          "group": "some.group",
-          "label": "dropdown.label",
-          "value": "some.group[{0}].someField"
-        }
-      },
+{
+  "id": "dropdown-component-id",
+  "type": "Dropdown",
+  ...
+  "source": {
+    "group": "some.group",
+    "label": "dropdown.label",
+    "value": "some.group[{0}].someField"
+  }
+}
 ```
 
 Forklaring:
 
-- **group** - gruppen i datamodellen man baserer options på.
-- **label** - en referanse til en text id som brukes som label for hver iterasjon av gruppen. Se mer under.
-- **value** - en referanse til det feltet i gruppen som skal bruke som option verdi. Legg merke til `[{0}]` syntaxen. Her vil `{0}` bli erstattet med den aktuelle indeksen for hvert element i gruppen.
+- **group** - den repeterende strukturen i datamodellen man baserer svaralternativene på.
+- **label** - en referanse til en tekstnøkkel som brukes som ledetekst for hvet svaralternativ. Se mer under.
+- **value** - en referanse til det feltet i den repeterende strukturen som skal bruke som verdi, og dermed lagres når brukeren gjør et valg. Legg merke til at vi har fyllt inn `[{0}]` som vil bli erstattet med indeksen til det repeterende elementet.
 
-Merk at **value** feltet må være unikt for hvert element. Om man ikke har et felt som er unik anbefales det å legge på et ekstra felt i datamodellen som kan benyttes som identifikator f.eks en GUID eller liknende.
 
-For **label** feltet må vi definere en tekst ressurs som kan bli brukt som label for hver repetisjon av gruppen.
-Dette følger samme syntax som **value**, og vil være kjent for deg om du har brukt [variabler i tekst](/nb/altinn-studio/reference/ux/texts).
+Verdien hentet ut fra **value** må være unikt for hvert repeterende element. Om man ikke har et felt som er unikt per rad, anbefales det å legge på et ekstra felt i datamodellen som kan benyttes som identifikator f.eks en GUID eller liknende. Dersom verdien ikke er unik vil den bli filtrert bort fra alle svaralternativlister, og antallet svaralternativer tilgjengelige for brukeren kan da være noe lavere enn forventet ut fra datamodellen.
 
-Eksempel:
+For **label** feltet må vi definere en tekstressurs som kan bli brukt som ledetekst for hvert svaralternativ.
+I eksempelet under, brukes andre verdier fra den repeterende strukturen i ledeteksten via [variabler i tekst](/nb/altinn-studio/reference/ux/texts):
 
 ```json
 {
@@ -63,6 +64,3 @@ Eksempel:
   ]
 }
 ```
-
-I dette eksempelet har vi satt opp to parametere i teksten som refererer til felter i gruppen.
-Vi kjenner også igjen `[{0}]` syntaksen i `key` feltet som muliggjør gjenbruk av labelen for hver index i gruppen.

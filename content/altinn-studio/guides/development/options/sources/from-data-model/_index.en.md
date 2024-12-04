@@ -7,40 +7,40 @@ aliases:
   - /altinn-studio/guides/development/options/repeating-group-codelists
 ---
 
-Traditional options are based on resources fetched from the backend.
-This approach differs a bit from this, as it enables setting up a direct connection from the options to the form data that is stored in app frontend.
-A use case here would typically be if the user fills out a repeating list of data that should later be selected in a dropdown/checkbox/radiobutton.
+In the previous section about [dynamic options](../dynamic) we covered how to write code on the backend to generate dynamic options for a component. You could use pass certain values from the data model to the backend to generate those options (via [query parameters](../dynamic#query-parameters)), but that approach scales poorly when the query parameters would end up changing the options frequently, i.e. when the options are functionally unique for some set of data in the data model.
+
+Another approach is to set up options based on a 'repeating group' in the data model. Such a repeating object in the data model could also represent a list of options for a dropdown, radio buttons, or checkboxes. This is especially useful combined with the [RepeatingGroup](../../../../../reference/ux/fields/grouping/repeating) component, as it allows the user to add and remove items from the list, and the options will automatically update.
+
+This functionality does not require the use of any `RepeatingGroup` component in the form layout, but it does require that the data model contains a repeating structure.
 
 ### Configuration
 
-To set up options from the data model we have set up a new property on `RadioButtons`, `Checkboxes`, and `Dropdown`-components called `source`.
+To set up options derived from the data model, use the `source` property in your component configuration.
 This property contains the fields `group`, `label`, and `value`. Example:
 
 ```json {hl_lines=["5-9"]}
-      {
-        "id": "dropdown-component-id",
-        "type": "Dropdown",
-        ...
-        "source": {
-          "group": "some.group",
-          "label": "dropdown.label",
-          "value": "some.group[{0}].someField"
-        }
-      },
+{
+  "id": "dropdown-component-id",
+  "type": "Dropdown",
+  ...
+  "source": {
+    "group": "some.group",
+    "label": "dropdown.label",
+    "value": "some.group[{0}].someField"
+  }
+}
 ```
 
 Explanation:
 
-- **group** - the group field in the data model to base the options on
-- **label** - a reference to a text id to be used as the label for each iteration of the group, see more below.
-- **value** - a reference to a field in the group that should be used as the option value. Notice that we set up this `[{0}]` syntax. Here the `{0}` will be replaced by each index of the group.
+- **group** - the repeating group field in the data model to base the options on
+- **label** - a reference to a text id to be used as the label for each option, see more below.
+- **value** - a reference to a field in the group that should be used as the option value. Notice that we set up a placeholder `[{0}]` that will be replaced with the index of the repeating element.
 
-Notice that the **value** field must be unique for each element. If the repeating group does not contain a field which is unique for each item it is recommended to add a field to the data model that can be used as identifier, for instance a GUID.
+The **value** field must be unique for each element. If the repeating group does not contain a field which is unique for each item it is recommended to add a field to the data model that can be used as identifier, for instance a GUID. Non-unique values will be filtered out from all option lists, so not choosing a unique value can make it seem like the options are not being correctly populated.
 
-As for the **label** property, we have to define a text resource that can be used as a label for each repetition of the group.
-This follows similar syntax as the **value**, and will also be familiar if you have used [variables in text](/nb/altinn-studio/reference/ux/texts).
-
-Example text resource connected:
+As for the **label** property, you have to define a text resource that can be used as a label for each option.
+In the example below, other values from the repeating structure is used in the label via [variables in text](/altinn-studio/reference/ux/texts):
 
 ```json
 {
@@ -63,6 +63,3 @@ Example text resource connected:
   ]
 }
 ```
-
-In the example above we have two parameters in the text which is referencing fields in the group.
-We also recognize the `[{0}]` syntax in the `key` prop which enables the usage of this label for each index in the group.
