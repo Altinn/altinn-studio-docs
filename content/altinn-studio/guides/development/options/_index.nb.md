@@ -1,7 +1,7 @@
 ---
-title: Svaralternativer (kodelister)
+title: Svaralternativer
 linktitle: Svaralternativer
-description: Hvordan konfigurere svaralternativer/kodelister for en app?
+description: Hvordan konfigurere svaralternativer for en app
 toc: true
 weight: 40
 aliases:
@@ -9,130 +9,20 @@ aliases:
 - /nb/altinn-studio/reference/data/options
 ---
 
-Altinn tilbyr to ulike måter en app kan eksponere kodelister på: Statisk og dynamisk. Disse eksponeres primært fra endepunktet som er tilgjengelig på `{org}/{app}/api/options/{optionsId}`, hvor `optionsId` er ID-en til listen.
-Komponenter som avkrysningsbokser, radioknapper og nedtrekkslister vil automatisk kunne hente ut en slik liste om man kobler dem til en kodeliste-ID. Men ikke alle dynamiske kodelister må gå via API'et – vi har også dynamiske kodelister som baserer seg på verdiene fra en repeterende struktur i datamodellen.
+Flere av skjemakomponentene i Altinn 3 bruker svaralternativer. Konseptet omtalt som svaralternativer kalles av og til også for _kodelister_ (eller _code lists_ og _options_ på engelsk).
 
-## Koble en komponent til en kodeliste
+Følgende komponenter støtter svaralternativer:
 
-En komponent kobles til en kodeliste ved å legge til feltet `optionsId`, som refererer til kodelistens ID. Eksempel:
+| Komponent                                                               | Type             | Bruksområde                                                                                             |
+|-------------------------------------------------------------------------|------------------|---------------------------------------------------------------------------------------------------------|
+| [Dropdown](../../../reference/ux/components/dropdown)                   | Ett valg         | Brukes for å velge ett alternativ fra en nedtrekksliste                                                 |
+| [RadioButtons](../../../reference/ux/components/radiobuttons)           | Ett valg         | Brukes for å velge ett alternativ fra en liste med radioknapper                                         |
+| [List](../../../reference/ux/components/listcomponent)                  | Ett valg         | Brukes for å velge ett alternativ fra en liste/tabell (med en radioknapp per rad)                       |
+| [Likert](../../../reference/ux/components/likert)                       | Ett valg per rad | Brukes for å velge ett alternativ per rad i en tabell, vist som en skala. Vanlig i spørreundersøkelser. |
+| [Checkboxes](../../../reference/ux/components/checkboxes)               | Flere valg       | Brukes for å velge ett eller flere alternativer fra en liste med avkrysningsbokser                      |
+| [MultipleSelect](../../../reference/ux/components/multipleselect)       | Flere valg       | Brukes for å velge ett eller flere alternativer fra en nedtrekksliste                                   |
+| [FileUploadWithTag](../../../reference/ux/components/fileuploadwithtag) | Ett valg         | Brukes for å laste opp en fil og knytte den til en 'tag'/merkelapp                                      |
 
-```json
-{
-  "id": "dropdown-komponent",
-  "type": "Dropdown",
-  "dataModelBindings": {
-    "simpleBinding": "soknad.nyGaranti.loyvetype"
-  },
-  "optionsId": "biler"
-}
-```
-
-### Lagre visningsverdi i datamodellen
-Noen ganger ønsker man å lagre den viste verdien på brukerens språk i datamodellen for enklere å kunne bruke de lagrede dataene til å lagre enkle visninger uten å være avhengig av å gjøre et nytt oppslag for å få en visningsvennlig verdi. Det kan også brukes for å huske hva brukeren faktisk har sett når han valgte i tilfelle man endrer ordlyd for en verdi og vil ha logg for hva brukeren har sett.
-
-Dette gjøres ved å ha en egen ``dataModelBindings`` med navnet ``"label":`` i tillegg til en ``"simpleBinding":``.
-
-```json
-{
-  "id": "dropdown-komponent",
-  "type": "Dropdown",
-  "dataModelBindings": {
-    "simpleBinding": "soknad.nyGaranti.loyvetype",
-    "label":"soknad.nyGaranti.loyvetypeLabel"
-  },
-  "optionsId": "biler"
-}
-```
-
-### Lagre metadata for parametrene som ble brukt til å hente options
-
-Du kan lagre metadata for parameterene som ble brukt til å hente kodeliste i datamodellen ved å sette egenskapen `metadata`
-på komponentens `dataModelBinding`-egenskap:
-
-```json
-{
-  "id": "some-dropdown-component",
-  "type": "Dropdown",
-  "textResourceBindings": {
-    "title": "NyGarantiLoyvetype"
-  },
-  "dataModelBindings": {
-    "simpleBinding": "soknad.nyGaranti.loyvetype",
-    "metadata":  "soknad.transportorOrgnummer"
-  },
-  "required": true,
-  "optionsId": "loyvetyper",
-  "mapping": {
-    "soknad.transportorOrgnummer": "orgnummer"
-  }
-}
-```
-
-Denne konfigurasjonen vil lagre metadata for parameterene som ble brukt til å hente kodelisten som en kommaseparert
-streng i feltet `soknad.transportorOrgnummer` i datamodellen.
-
-## Beskrivelse og hjelpetekst
-
-`description` og `helpText` støttes av kodelister i apper som bruker versjon 7.8.0 eller høyere. Beskrivelse og
-hjelpetekst kan vises av komponentene `RadioButtons` og `Checkboxes` ved å sette attributtene i en `option` som
-brukes av komponenten.
-
-Beskrivelser og hjelpetekster kan gis til `options` på samme måte som en `label` er gitt, enten i statiske eller
-dynamiske kodelister. Man kan også bruke dem i kodelister basert på repeterende grupper i `source`-attributten.
-
-```json
-[
-  {
-    "value": "norway",
-    "label": "Norge",
-    "description": "This is a description",
-    "helpText": "This is a help text"
-  },
-  {
-    "value": "denmark",
-    "label": "Danmark"
-  }
-]
-```
-
-```cs
-var options = new AppOptions
-{
-  Options = new List<AppOption>
-  {
-    new AppOption
-    {
-      Label = "Ole",
-      Value = "1",
-      Description = "This is a description",
-      HelpText  = "This is a help text"
-    },
-    new AppOption
-    {
-      Label = "Dole",
-      Value = "2"
-    }
-  }
-};
-```
-
-Beskrivelser og hjelpetekster som brukes i kodelister basert på repeterende grupper kan settes opp med dynamiske
-tekstressurser på samme måte som `label`, som beskrevet i
-[kodelister fra repeterende grupper](repeating-group-codelists).
-
-```json
-{
-  "id": "checkboxes-component-id",
-  "type": "Checkboxes",
-  ...
-  "source": {
-    "group": "some.group",
-    "label": "checkboxes.label",
-    "description": "checkboxes.descripiton",
-    "helpText": "checkboxes.helpText",
-    "value": "some.group[{0}].someField"
-  }
-}
-```
+I kategoriene under kan du lære mer om hvordan du produserer en liste med svaralternativer, kobler den til en komponent, samt om felles funkjsonalitet som kan brukes på tvers av disse komponentene.
 
 {{<children />}}
