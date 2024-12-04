@@ -1,7 +1,7 @@
 ---
-title: Gjenbruk av kodelister fra Altinn 2
-linktitle: Kodelister fra Altinn 2
-description: Hvordan konfigurere kodelister fra Altinn 2 i en Altinn 3 applikasjon?
+title: Gjenbruk av svaralternativer fra Altinn 2
+linktitle: Fra Altinn 2
+description: Svaralternativer hentet fra Altinn 2
 toc: false
 weight: 300
 aliases:

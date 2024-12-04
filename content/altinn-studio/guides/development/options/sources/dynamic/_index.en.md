@@ -1,6 +1,7 @@
 ---
-title: Dynamic code lists generated runtime
-linktitle: Dynamic code lists
+title: Dynamic options
+linktitle: Dynamic
+description: Generated runtime by custom C# code
 toc: false
 weight: 100
 aliases:

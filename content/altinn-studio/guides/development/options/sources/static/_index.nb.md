@@ -1,6 +1,7 @@
 ---
-title: Statiske kodelister
-description: Kodelister som ikke endrer seg, men som kan filtreres
+title: Statiske svaralternativer
+linktitle: Statisk
+description: Svaralternativer som ikke endrer seg, men som kan filtreres
 toc: false
 weight: 50
 aliases:
@@ -12,7 +13,7 @@ i komponentkonfigurasjonen eller i en json-fil i app-repositoriet. Hvilken metod
 gjenbruksbehovet til kodelisten. Hvis flere komponenter skal bruke samme kodeliste, anbefales det å
 bruke metoden med json-filen.
 
-## Statiske kodelister basert på komponentkonfigurasjon
+## I komponentkonfigurasjonen
 
 I denne eksempelkonfigurasjonen er en Dropdown-komponent satt opp med en statisk kodeliste. Egenskapen `options` er en
 array av objekter, hvor hvert objekt representerer et kodelisteelement. Egenskapen `value` er verdien som vil bli
@@ -43,7 +44,7 @@ lagret i datamodellen når brukeren velger elementet. Egenskapen `label` er teks
 }
 ```
 
-## Statiske kodelister basert på json-filer
+## Fra JSON-filer
 
 Ved å legge json-lister i options mappen i app repo vil appen automatisk lese denne filen og eksponere det gjennom options-apiet.
 Options filene må ligge under `App/options/` og vil bli differensiert ved hjelp av navngivningen på json-filen. F.eks `land.json`. Her vil da optionsId være `land`, og vil være eksponert gjennom endepunktet `{org}/{app}/api/options/land`.

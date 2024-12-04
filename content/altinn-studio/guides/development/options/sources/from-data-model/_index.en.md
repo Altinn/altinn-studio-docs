@@ -1,7 +1,7 @@
 ---
 title: Code lists based on repeating groups from the data model
-linktitle: From repeating groups
-description: How to configure code lists that gets it's values from a repeating group from the datamodel?
+linktitle: From data model
+description: Options made from a repeating structure in the data model
 weight: 150
 aliases:
   - /altinn-studio/guides/development/options/repeating-group-codelists

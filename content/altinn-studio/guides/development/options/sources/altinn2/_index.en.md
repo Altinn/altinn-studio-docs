@@ -1,7 +1,7 @@
 ---
-title: Re-use code lists from Altinn 2
-linktitle: Code lists from Altinn 2
-description: How to configure code lists that exists in Altinn 2 in an Altinn 3 app?
+title: Re-use options from Altinn 2
+linktitle: From Altinn 2
+description: Options fetched from Altinn 2
 toc: false
 weight: 300
 aliases:

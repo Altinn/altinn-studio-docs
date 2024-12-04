@@ -1,6 +1,7 @@
 ---
-title: Dynamiske kodelister generert under kjøring av applikasjonen
-linktitle: Dynamiske kodelister
+title: Dynamiske svaralternativer
+linktitle: Dynamisk
+description: Generert ved kjøring fra C#-kode
 toc: false
 weight: 100
 aliases:

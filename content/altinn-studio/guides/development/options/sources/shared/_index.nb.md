@@ -1,7 +1,7 @@
 ---
-title: Felles standard kodelister
-linktitle: Felles standard kodelister
-description: Hvordan bruke felles standard kodelister på tvers av applikasjoner i Altinn 3? 
+title: Delte standard kodelister
+linktitle: Delte
+description: Delte standard kodelister som kan brukes i flere applikasjoner
 toc: false
 weight: 200
 aliases:

@@ -1,5 +1,6 @@
 ---
 title: Static options
+linktitle: Static
 description: Lists of options that does not change, but can be filtered
 toc: false
 weight: 50
@@ -11,7 +12,7 @@ For simpler use-cases, a static code list is easy to configure. These can either
 configuration or in a json file in the application repository. Which method to use depends on the re-usability of
 the code list. If multiple components should use the same code list, it is recommended to use the json file method.
 
-## Static code lists based on component configuration
+## In component configuration
 
 In the example configuration, a Dropdown component is set up with a static code list. The `options` property is an
 array of objects, where each object represents a code list item. The `value` property is the value that will be
@@ -43,7 +44,7 @@ the user.
 }
 ```
 
-## Static code lists based on json files
+## From JSON files
 
 By adding json based option files in the application repository, the application will automatically read the file and expose it through the options api. For this to work, the files must be placed in the `App/options/` folder and be named according to the following conventions `{optionId}.json` for the application to recognize them.
 

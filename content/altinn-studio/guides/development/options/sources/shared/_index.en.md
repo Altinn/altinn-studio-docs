@@ -1,7 +1,7 @@
 ---
-title: Common shared code lists
-linktitle: Common shared code list
-description: How to re-use common code lists shared across applications?
+title: Common shared options
+linktitle: Shared
+description: Options that are shared across applications
 toc: false
 weight: 200
 aliases:

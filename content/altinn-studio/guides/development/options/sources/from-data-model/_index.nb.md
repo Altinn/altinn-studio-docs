@@ -1,7 +1,7 @@
 ---
-title: Kodelister fra repeterede grupper i datamodellen
-linktitle: Fra repeterende grupper
-description: Hvordan konfigurere kodelister som får verdiene sine basert på verdier hentet fra en repeterende gruppe i datamodellen?
+title: Svaralternativer fra repeterede strukturer
+linktitle: Fra datamodellen
+description: Svaralternativer hentet fra en repeterende struktur i datamodellen
 weight: 150
 aliases:
   - /nb/altinn-studio/guides/development/options/repeating-group-codelists
