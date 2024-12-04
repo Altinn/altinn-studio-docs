@@ -39,7 +39,7 @@ Denne funksjonaliteten krever at applikasjonen benytter minimum [versjon 7.8.0](
    Ved å kalle denne metoden vil du registrere alle kodelistene på tvers av alle kilder. Du kan også registrere kodelistene én og én hvis du vil ha kontroll på hvilke kodelister som er tatt i bruk eller konfigurere og tilpasse oppsettet av kodelisten.
 
 ### 3. Koble applikasjonen din til kodeverket du ønsker å bruke  
-   Se (dokuemntasjon)[https://github.com/Altinn/codelists-lib-dotnet#available-codelists] nedenfor for tilgjengelige kodelister.
+   Se [dokuemntasjon](https://github.com/Altinn/codelists-lib-dotnet#available-codelists) nedenfor for tilgjengelige kodelister.
 
    Du kan gjøre dette enten ved hjelp av [Altinn Studio](https://altinn.studio) og konfigurere *Kodeliste-ID* for komponenten din i brukergrensesnittet.
 
