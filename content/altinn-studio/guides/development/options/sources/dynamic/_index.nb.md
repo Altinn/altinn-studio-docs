@@ -3,6 +3,8 @@ title: Dynamiske kodelister generert under kjøring av applikasjonen
 linktitle: Dynamiske kodelister
 toc: false
 weight: 100
+aliases:
+  - /nb/altinn-studio/guides/development/options/dynamic-codelists
 ---
 
 I en Altinn 3 app har man også mulighet til å ha dynamisk kodelister som produseres dynamisk ved kjøring av appen. Dette gjør det mulig å lage dynamiske verdier, for eksempel ved å hente og filtrere verdier fra andre kilder. Dynamiske kodelister kan enten være åpne (tilgjengelig for alle, uten autentisering), eller sikret slik at brukeren må ha tilgang til instansen for å hente kodelisten.

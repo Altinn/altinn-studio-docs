@@ -4,6 +4,8 @@ linktitle: Common shared code list
 description: How to re-use common code lists shared across applications?
 toc: false
 weight: 200
+aliases:
+  - /altinn-studio/guides/development/options/common-codelists
 ---
 
 ## What are common standard code lists?

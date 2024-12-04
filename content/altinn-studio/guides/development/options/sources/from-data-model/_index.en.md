@@ -3,6 +3,8 @@ title: Code lists based on repeating groups from the data model
 linktitle: From repeating groups
 description: How to configure code lists that gets it's values from a repeating group from the datamodel?
 weight: 150
+aliases:
+  - /altinn-studio/guides/development/options/repeating-group-codelists
 ---
 
 Traditional options are based on resources fetched from the backend.

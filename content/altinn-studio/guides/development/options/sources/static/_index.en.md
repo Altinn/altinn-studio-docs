@@ -1,7 +1,10 @@
 ---
-title: Static code lists
+title: Static options
+description: Lists of options that does not change, but can be filtered
 toc: false
 weight: 50
+aliases:
+  - /altinn-studio/guides/development/options/static-codelists
 ---
 
 For simpler use-cases, a static code list is easy to configure. These can either be set directly in the component

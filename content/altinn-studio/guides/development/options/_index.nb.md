@@ -1,6 +1,6 @@
 ---
-title: Kodelister (svaralternativer)
-linktitle: Kodelister
+title: Svaralternativer (kodelister)
+linktitle: Svaralternativer
 description: Hvordan konfigurere svaralternativer/kodelister for en app?
 toc: true
 weight: 40

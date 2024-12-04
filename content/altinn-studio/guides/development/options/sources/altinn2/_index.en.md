@@ -4,6 +4,8 @@ linktitle: Code lists from Altinn 2
 description: How to configure code lists that exists in Altinn 2 in an Altinn 3 app?
 toc: false
 weight: 300
+aliases:
+  - /altinn-studio/guides/development/options/altinn2-codelists
 ---
 {{<notice warning >}}
 **Deprecated feature**  

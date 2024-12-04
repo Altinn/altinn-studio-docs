@@ -3,6 +3,8 @@ title: Dynamic code lists generated runtime
 linktitle: Dynamic code lists
 toc: false
 weight: 100
+aliases:
+  - /altinn-studio/guides/development/options/dynamic-codelists
 ---
 
 In an Altinn 3 app you can also have dynamic code lists that are generated runtime. This makes it possible to have dynamic lists that are filtered or looked up in external sources. Dynamic code lists can either be public (accessible to all, without authentication), or secured and limited to those with read access to the instance.

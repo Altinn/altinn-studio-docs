@@ -4,6 +4,8 @@ linktitle: Felles standard kodelister
 description: Hvordan bruke felles standard kodelister på tvers av applikasjoner i Altinn 3? 
 toc: false
 weight: 200
+aliases:
+  - /nb/altinn-studio/guides/development/options/common-codelists
 ---
 
 ## Hva er felles standard kodelister?

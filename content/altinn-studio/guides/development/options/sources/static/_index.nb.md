@@ -1,7 +1,10 @@
 ---
 title: Statiske kodelister
+description: Kodelister som ikke endrer seg, men som kan filtreres
 toc: false
 weight: 50
+aliases:
+  - /nb/altinn-studio/guides/development/options/static-codelists
 ---
 
 For enklere brukstilfeller er statiske kodelister det letteste å sette opp. Disse kan enten settes direkte

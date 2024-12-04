@@ -1,6 +1,6 @@
 ---
-title: Code lists (options)
-linktitle: Code lists
+title: Options (code lists)
+linktitle: Options
 description: How to configure Options / Code lists for an app?
 toc: true
 weight: 40
