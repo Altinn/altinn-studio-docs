@@ -38,46 +38,45 @@ Altinn skal erstatte rollene som gir tilgang til tjenester i Altinn 2 når vi fl
 
 
 ## Spørsmål og svar: 
-1.	*Av dagens Altinn-roller, er det kun rollene Utfyller/innsender og Begrenset signeringsrett som ønskes fjernet?*
+1. *Av dagens Altinn-roller, er det kun rollene "Utfyller/innsender" og "Begrenset signeringsrett" som ønskes fjernet?*
      
-      Nei, alle gamle Altinn2 roller vil fjernes, men noen får tilgangspakker som er ganske like, f eks rollen "patent og varemerke"
-2. *Vil gamle Altinn-roller inngå i ny modell på nivå 3?*
+      Nei, alle gamle Altinn2 roller vil fjernes, men noen får tilgangspakker som er ganske like, f.eks. rollen "patent og varemerke"
+2. *Vil gamle Altinn-roller inngå i ny modell?*
       
       Etter en overgangsfase så vil alle eksisterende altinnroller fases ut og tjenester kun være tilgjengelig gjennom direkte delegering av tjeneste eller via en av de nye tilgangspakkene. 
 3. *Vil koblingen mellom ER-roller og Altinn-roller bestå som i dag?*
       
-      Roller i Enhetsreisteret vil knyttes til de nye tilgangspakkene. Når man har avsluttet høring vil vi starte arbeidet med å bestemme hvilke ER roller skal få hvilke tilgangspakkene. I dette arbeidet vil vi innvolvere en vurdring av Enhetsregister-rollens lovmessige fullmakt til å opptre på vegne av virksomheten. 
+      Roller i Enhetsreisteret vil knyttes til de nye tilgangspakkene. Når man har avsluttet høring vil vi starte arbeidet med å bestemme hvilke ER-roller som skal få hvilke tilgangspakker. I dette arbeidet vil vi inkludere en vurdring av Enhetsregister-rollens lovmessige fullmakt til å opptre på vegne av virksomheten. 
 4. *Planlegges det ingen endring på Altinn-rollene for privatpersoner, kun virksomheter?* 
      
-      Jo, dette vil gjøres i fase to. Da innføres nye tilgangspakkene for innbyggere som erstatter dagens Altinn2 roller. Intensjonen er at disse tilgangspakkene skal bygge på den granulering av fullmakter som er gjort for vergemål. 
-5. *Vil rollene på nivå 1 være tjenesteeierspesifikke?*
+      Jo, dette vil gjøres i fase to. Da innføres nye tilgangspakkene for innbyggere som erstatter dagens Altinn 2-roller. Intensjonen er at disse tilgangspakkene skal bygge på den granulering av fullmakter som er gjort for vergemål. 
+5. *Vil tilgangspakkene være tjenesteeierspesifikke?*
       
-    Ingen av tilgangspakkene er i utgangspunktet "tjenesterierspesifikke" - men noen av de vil kanskje være i bruk av kun en, eller veldig få tjenesteeiere. 
-6. *Vi har veldig mange tjenester i Altinn. Er tidsplan for å innføre nye tilgangspakker i løpet av Q12024 for disse realistisk?* 
+    Ingen av tilgangspakkene er i utgangspunktet "tjenesterierspesifikke" - men noen av de vil kanskje være i bruk av kun én eller et fåtall tjenesteeiere. 
+6. *Vi har veldig mange tjenester i Altinn. Er tidsplan for å innføre nye tilgangspakker innen Altinn-rollene forsvinner realistisk?* 
       
-      Ja det mener vi. 
-      Vi ser ikke for oss at alle tjenesteeiere selv skal inn i TUL å redigere policyer for alle tjenester og sørge for at de blir produksjonssatt  – det er det rolleadministrator hos Altinn som gjør. 
-      Det vi trenger fra dere er at dere angir hvilke nye tilgangspakker som skal knyttes til eksisterende tjenester, resten av jobben gjør vi ved hjelp av scripting o.l.
-      Vi vil lage veiledning for dette slik at det skal være enkelt for dere å samle inn data og sende til oss.
+      Ja, det mener vi. 
+      Vi ser for oss at alle tjenesteeiere selv angir hvilke nye tilgangspakker som skal knyttes til nye/migrerte tjenester etterhvert som de flyttes. Tiden til å sette tilgangspakker på tjenester som allerede er etablert på Altinn 3 bør være tilstrekkelig gitt antallet tjenester som er etablert.
+      Vi vil lage veiledning for dette slik at det skal være enkelt for dere å velge riktig tilgangspakke(r) og knytte det til tjenestene.
 
       Å utvide policy for tjeneste med å legge til en ny tilgangspakke vil ikke påvirke tjenestens funksjonalitet, så det vil svært sannsynlig ikke være behov for testing utover den verifiseringen som gjøres av Altinn. 
 7. *Når tenker dere å slette dagens Altinn-roller og når vil de nye rollene være klare til å tas i bruk?*
       
-      Se tidsplan over. 
+      Se [tidsplan over](#tidsplan-for-arbeidet). 
  
  8. *Hva må vi i praksis gjøre med de appene vi har kjørende på Altinn 3 før/når endringen iverksettes?*
 
-      De må oppdateres med nye Policyer som inkluderer nye tilgangspakker i tillegg til de rollene som er definert der i dag. Rollene som står på tjenesten kan stå der til Altinn 2 fases ut, så lenge tjenesten har fått ny(e) tilgangspakker i tillegg.
+      Appene må oppdateres med nye policyer som inkluderer nye tilgangspakker i tillegg til de rollene som er definert der i dag. Rollene som står på tjenesten kan stå der til Altinn 2 fases ut, så lenge tjenesten har fått ny(e) tilgangspakker i tillegg.
  9. *Vil enkeltrettighet forsvinne?*
 
       Nei, at en tjeneste endrer policy har ingen betydning for enkeltrettigehter som er delegert direkte på tjenesten. Alle enkeltrettigheter som en virksomhet har gitt til en ansatt i Altinn 2 vil flyttes sammen med lenketjenesten til Altinn 3 plattformen. 
 
- 10. *Mange av våre skjemaer dekker flere ulike tema og går ut til mange ulike næringer ? Hvordan tenker dere at vi best håndterer slike?*
+ 10. *Mange av våre skjemaer dekker flere ulike tema og går ut til mange ulike næringer? Hvordan tenker dere at vi best håndterer slike?*
 
       Det vil være mulig å knytte tjenester til flere ulike tilgangspakker samtidig. I tilfeller hvor tjenester omfatter flere tema bør man knytte tjenesten til alle fullmaktsområdene som passer.
 
-11. *Når ny tjeneste for tilgangspakker er satt i produksjon i Q1 2024 vil da ikke være mulig lenger å delegere rettigheter på eksisterende måte?*
+8.  *Når ny tjeneste for tilgangspakker er fullstendig satt i produksjon i Q2 2025, vil det da ikke være mulig lenger å delegere rettigheter på eksisterende måte?*
 
        Også etter at nye tilgangspakker er satt i produksjon så vil det fortsatt være mulig å deleger rettigheter til bare tjenesten/enkeltrettighet, på samme måte som i dag. 
-       Men de gamle Altinn 2 rollene vil det da ikke være mulig å gi videre til andre, selv om man i en overgangsperiode fortsatt vil få utført tjenesten med denne rollen. 
+       Vi vurderer om de gamle Altinn 2-rollene fortsatt vil være mulig å gi videre til andre, men man vil i alle fall i en overgangsperiode fortsatt vil få utført tjenesten med denne rollen.
 
