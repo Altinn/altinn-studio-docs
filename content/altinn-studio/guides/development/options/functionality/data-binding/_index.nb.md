@@ -3,38 +3,46 @@ title: Dataknytning
 description: Hva kan lagres i datamodellen
 ---
 
-### Lagre visningsverdi i datamodellen
-Noen ganger ønsker man å lagre den viste verdien på brukerens språk i datamodellen for enklere å kunne bruke de lagrede dataene til å lagre enkle visninger uten å være avhengig av å gjøre et nytt oppslag for å få en visningsvennlig verdi. Det kan også brukes for å huske hva brukeren faktisk har sett når han valgte i tilfelle man endrer ordlyd for en verdi og vil ha logg for hva brukeren har sett.
+### Lagring av ledetekst / visningsverdi
 
-Dette gjøres ved å ha en egen ``dataModelBindings`` med navnet ``"label":`` i tillegg til en ``"simpleBinding":``.
+Komponenter som bruker svaralternativer vil vanligvis bare lagre verdien av det valgte alternativet i datamodellen.
+Dette er ofte tilstrekkelig, men i noen tilfeller kan det være nyttig å lagre ledeteksten til det valgte alternativet
+også. For eksempel kan dette være nyttig om man trenger å vise det valgte alternativet i en enkel tekstvisning senere,
+uten å måtte gjøre ytterligere oppslag. Det kan også være nyttig å huske hvilken ledetekst brukeren faktisk valgte i
+tilfelle den endres over tid. Når ledeteksten lagres i datamodellen, vil den følge brukerens valgte språk, slå opp
+teksten i tekstressursene og lagre den endelige verdien i datamodellen.
 
-```json
+Dette konfigureres ved å ha en separat binding med nøkkelen `label`. Denne bindingen må peke på et felt i
+datamodellen av typen `string`:
+
+```json {hl_lines=["6"]}
 {
-  "id": "dropdown-komponent",
+  "id": "dropdown-component",
   "type": "Dropdown",
   "dataModelBindings": {
-    "simpleBinding": "soknad.nyGaranti.loyvetype",
-    "label":"soknad.nyGaranti.loyvetypeLabel"
+    "simpleBinding": "kommune.value",
+    "label": "kommune.label"
   },
-  "optionsId": "biler"
+  "optionsId": "kommuner"
 }
 ```
 
-### Lagre metadata for parametrene som ble brukt til å hente options
+### Lagring av metadata
 
-Du kan lagre metadata for parameterene som ble brukt til å hente kodeliste i datamodellen ved å sette egenskapen `metadata`
-på komponentens `dataModelBinding`-egenskap:
+Når appen henter svaralternativer, spesielt [felles kodelister](../../sources/shared), kan det være nyttig å lagre
+noen metadata som beskriver hvordan svaralternativene ble hentet. Dette kan være nyttig for å rekonstruere
+svaralternativene etter at skjemaet er sendt inn, samt for logging.
 
-```json
+Dette kan konfigureres ved å sette `metadata`-egenskapen på komponentens `dataModelBinding`-egenskap til et felt i
+datamodellen som inneholder en `string`-verdi:
+
+```json {hl_lines=["9"]}
 {
   "id": "some-dropdown-component",
   "type": "Dropdown",
-  "textResourceBindings": {
-    "title": "NyGarantiLoyvetype"
-  },
   "dataModelBindings": {
     "simpleBinding": "soknad.nyGaranti.loyvetype",
-    "metadata":  "soknad.transportorOrgnummer"
+    "metadata":  "soknad.nyGaranti.loyvetypeMetadata"
   },
   "required": true,
   "optionsId": "loyvetyper",
@@ -44,5 +52,6 @@ på komponentens `dataModelBinding`-egenskap:
 }
 ```
 
-Denne konfigurasjonen vil lagre metadata for parameterene som ble brukt til å hente kodelisten som en kommaseparert
-streng i feltet `soknad.transportorOrgnummer` i datamodellen.
+Denne konfigurasjonen vil nå lagre metadataen til de hentede svaralternativene som en kommaseparert streng i
+feltet `soknad.nyGaranti.loyvetypeMetadata` i datamodellen.
+`
