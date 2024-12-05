@@ -3,6 +3,68 @@ title: Dataknytning
 description: Hva kan lagres i datamodellen
 ---
 
+### Lagring av valgt alternativ
+
+{{<notice info>}}
+Under følger noen eksempler på oppsett av dataknytning for komponenter som bruker svaralternativer. For noen komponenter
+vil oppsettet være annerledes, og det anbefales å se på komponentens spesifikke dokumentasjon for mer informasjon.
+{{</notice>}}
+
+Komponenter som bruker svaralternativer må settes opp til å lagre valgte alternativer i datamodellen. Vanligvis vil
+komponenten lagre verdien av det valgte alternativet i datamodellen mot et felt av typen `string`, satt opp i
+komponentens konfigurasjon med nøkkelen `simpleBinding`:
+
+```json {hl_lines=["8"]}
+{
+  "id": "single-choice-component",
+  "type": "RadioButtons",
+  "textResourceBindings": {
+    "title": "Eier du en katt?"
+  },
+  "dataModelBindings": {
+    "simpleBinding": "Submitter.HasCat"
+  },
+  "options": [
+    { "value": "y", "label": "Ja" },
+    { "value": "n", "label": "Nei" }
+  ]
+}
+```
+
+I eksempelet over vil komponenten lagre valget av om brukeren eier en katt i feltet `Submitter.HasCat` i datamodellen.
+Dette feltet får verdien `y` om brukeren velger "Ja" og `n` om brukeren velger "Nei".
+
+For flervalgskomponenter som f.eks. [`Checkboxes`](../../../../../reference/ux/components/checkboxes) og
+[`MultipleSelect`](../../../../../reference/ux/components/multipleselect), vil komponenten lagre en kommaseparert
+liste av valgte verdier i datamodellen.
+
+```json
+{
+  "id": "multi-choice-component",
+  "type": "Checkboxes",
+  "textResourceBindings": {
+    "title": "Hvilke kjæledyr har du?"
+  },
+  "dataModelBindings": {
+    "simpleBinding": "Submitter.Pets"
+  },
+  "options": [
+    { "value": "cat", "label": "Katt" },
+    { "value": "dog", "label": "Hund" },
+    { "value": "fish", "label": "Fisk" }
+  ]
+}
+```
+
+I eksempelet over vil komponenten lagre en kommaseparert liste av valgte kjæledyr i feltet `Submitter.Pets` i
+datamodellen. Hvis du velger "Katt" og "Fisk", vil feltet få verdien `"cat,fish"`. Rekkefølgen på valgene er ikke
+garantert å være den samme som rekkefølgen på svaralternativene, ei heller den rekkefølgen brukeren valgte dem i.
+
+{{<notice warning>}}
+Legg merke til at verdien for hvert svaralternativ må være unik, og om man bruker flervalgskomponenter kan ingen
+av verdiene inneholde et komma.
+{{</notice>}}
+
 ### Lagring av ledetekst / visningsverdi
 
 Komponenter som bruker svaralternativer vil vanligvis bare lagre verdien av det valgte alternativet i datamodellen.
