@@ -317,7 +317,7 @@
                                         "type": "string"
                                     },
                                     "Correspondence.Sender": {
-                                        "pattern": "^\\d{4}:\\d{9}$",
+                                        "pattern": "^(?:0192:|urn:altinn:organization:identifier-no):\\d{9}$",
                                         "type": "string"
                                     },
                                     "Correspondence.SendersReference": {
@@ -591,13 +591,6 @@
                             "type": "string",
                             "format": "uuid"
                         }
-                    },
-                    {
-                        "name": "onBehalfOf",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
                     }
                 ],
                 "responses": {
@@ -627,13 +620,6 @@
                         "schema": {
                             "type": "string",
                             "format": "uuid"
-                        }
-                    },
-                    {
-                        "name": "onBehalfOf",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
                         }
                     }
                 ],
@@ -688,13 +674,6 @@
                             "type": "string",
                             "format": "uuid"
                         }
-                    },
-                    {
-                        "name": "onBehalfOf",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
                     }
                 ],
                 "responses": {
@@ -717,13 +696,6 @@
                         "schema": {
                             "type": "string",
                             "format": "uuid"
-                        }
-                    },
-                    {
-                        "name": "onBehalfOf",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
                         }
                     }
                 ],
@@ -748,13 +720,6 @@
                             "type": "string",
                             "format": "uuid"
                         }
-                    },
-                    {
-                        "name": "onBehalfOf",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
                     }
                 ],
                 "responses": {
@@ -777,13 +742,6 @@
                         "schema": {
                             "type": "string",
                             "format": "uuid"
-                        }
-                    },
-                    {
-                        "name": "onBehalfOf",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
                         }
                     }
                 ],
@@ -817,13 +775,6 @@
                             "type": "string",
                             "format": "uuid"
                         }
-                    },
-                    {
-                        "name": "onBehalfOf",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
                     }
                 ],
                 "responses": {
@@ -849,6 +800,10 @@
                     "statusChanged": {
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "partyUuid": {
+                        "type": "string",
+                        "format": "uuid"
                     }
                 },
                 "additionalProperties": false
@@ -909,7 +864,7 @@
                     },
                     "sender": {
                         "minLength": 1,
-                        "pattern": "^\\d{4}:\\d{9}$",
+                        "pattern": "^(?:0192:|urn:altinn:organization:identifier-no):\\d{9}$",
                         "type": "string"
                     },
                     "attachmentId": {
@@ -994,7 +949,7 @@
                     },
                     "sender": {
                         "minLength": 1,
-                        "pattern": "^\\d{4}:\\d{9}$",
+                        "pattern": "^(?:0192:|urn:altinn:organization:identifier-no):\\d{9}$",
                         "type": "string"
                     },
                     "attachmentId": {
@@ -1048,7 +1003,7 @@
                     },
                     "sender": {
                         "minLength": 1,
-                        "pattern": "^\\d{4}:\\d{9}$",
+                        "pattern": "^(?:0192:|urn:altinn:organization:identifier-no):\\d{9}$",
                         "type": "string"
                     },
                     "sendersReference": {
@@ -1238,7 +1193,7 @@
                     },
                     "sender": {
                         "minLength": 1,
-                        "pattern": "^\\d{4}:\\d{9}$",
+                        "pattern": "^(?:0192:|urn:altinn:organization:identifier-no):\\d{9}$",
                         "type": "string"
                     },
                     "sendersReference": {
@@ -1378,7 +1333,7 @@
                     },
                     "sender": {
                         "minLength": 1,
-                        "pattern": "^\\d{4}:\\d{9}$",
+                        "pattern": "^(?:0192:|urn:altinn:organization:identifier-no):\\d{9}$",
                         "type": "string"
                     },
                     "sendersReference": {
@@ -1509,6 +1464,10 @@
                     "statusChanged": {
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "partyUuid": {
+                        "type": "string",
+                        "format": "uuid"
                     }
                 },
                 "additionalProperties": false
@@ -1624,7 +1583,7 @@
                     },
                     "sender": {
                         "minLength": 1,
-                        "pattern": "^\\d{4}:\\d{9}$",
+                        "pattern": "^(?:0192:|urn:altinn:organization:identifier-no):\\d{9}$",
                         "type": "string"
                     }
                 },
