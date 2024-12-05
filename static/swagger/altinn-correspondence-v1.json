@@ -787,27 +787,6 @@
     },
     "components": {
         "schemas": {
-            "AtachmentStatusEvent": {
-                "type": "object",
-                "properties": {
-                    "status": {
-                        "$ref": "#/components/schemas/AttachmentStatusExt"
-                    },
-                    "statusText": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "statusChanged": {
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "partyUuid": {
-                        "type": "string",
-                        "format": "uuid"
-                    }
-                },
-                "additionalProperties": false
-            },
             "AttachmentDataLocationTypeExt": {
                 "enum": [
                     "AltinnCorrespondenceAttachment",
@@ -893,7 +872,7 @@
                     "statusHistory": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/AtachmentStatusEvent"
+                            "$ref": "#/components/schemas/AttachmentStatusEvent"
                         },
                         "nullable": true
                     }
@@ -974,6 +953,27 @@
                             "format": "uuid"
                         },
                         "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AttachmentStatusEvent": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "$ref": "#/components/schemas/AttachmentStatusExt"
+                    },
+                    "statusText": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "statusChanged": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "partyUuid": {
+                        "type": "string",
+                        "format": "uuid"
                     }
                 },
                 "additionalProperties": false
@@ -1535,7 +1535,7 @@
                 "enum": [
                     "NewCorrespondenceAttachment",
                     "ExistingCorrespondenceAttachment",
-                    "ExisitingExternalStorage"
+                    "ExistingExternalStorage"
                 ],
                 "type": "string"
             },
