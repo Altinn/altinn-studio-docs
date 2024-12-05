@@ -1,6 +1,7 @@
 ---
 title: Automatic cleanup
 description: How unknown options are automatically removed from the data model
+weight: 100
 ---
 
 Some options for components may be dynamic. Either directly via [dynamic options](../../sources/dynamic),

@@ -1,6 +1,7 @@
 ---
 title: Automatisk opprydding
 description: Hvordan ukjente svaralternativer automatisk fjernes fra datamodellen
+weight: 100
 ---
 
 Noen svaralternativer for komponenter kan være dynamiske. Enten direkte via [dynamiske svaralternativer](../../sources/dynamic),

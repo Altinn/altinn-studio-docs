@@ -1,6 +1,7 @@
 ---
 title: Dataknytning
 description: Hva kan lagres i datamodellen
+weight: 50
 ---
 
 ### Lagring av valgt alternativ

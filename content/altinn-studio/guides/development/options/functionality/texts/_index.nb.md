@@ -1,6 +1,7 @@
 ---
 title: Tekster
 description: De ulike tekstegenskapene som kan brukes for svaralternativer
+weight: 150
 ---
 
 ## Beskrivelse og hjelpetekst
