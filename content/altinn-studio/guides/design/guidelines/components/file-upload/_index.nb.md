@@ -15,4 +15,6 @@ det må spesifiseres nøyaktig hva som kreves.
 filopplaster i hvert steg. Spesifiser i innledningen på hver side hva som skal legges ved, slik at brukeren ikke blir i tvil.
 
 ### Eksempel på bruk:
-{{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D10665%253A6471" %}}
+<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/proto/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio-Komponenter?page-id=7653%3A60542&node-id=8014-26201&node-type=frame&viewport=521%2C518%2C0.17&t=EiHC6lwmywhnTSs8-1&scaling=scale-down&content-scaling=fixed" allowfullscreen></iframe>
+
+---

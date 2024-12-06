@@ -1,5 +1,5 @@
 ---
-title: Tittel og avsnitt
+title: Typografi
 description: Det bør som hovedregel alltid være en header (H2) og et avsnitt i starten på en skjamaside for å oppsummere brukerens oppgave.
 weight: 10
 ---
@@ -12,4 +12,6 @@ weight: 10
 
 ### Eksempel på bruk:
 
-{{% figma-example src="https://www.figma.com/proto/b2w3PuS5c0w8vVU3z8KOwp/branch/bmIjxvx6Y3SWQO0L2GfAtJ/Altinn-Studio-Komponenter?page-id=7704%3A42723&node-id=7775-83095&node-type=canvas&viewport=1068%2C905%2C0.37&t=x1HB477mc3oa8lWU-1&scaling=min-zoom&content-scaling=fixed" %}}
+<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/proto/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio-Komponenter?page-id=7704%3A42723&node-id=8021-82726&node-type=frame&viewport=590%2C727%2C0.2&t=uHs16n0TmGW40plQ-1&scaling=scale-down&content-scaling=fixed" allowfullscreen></iframe>
+
+---

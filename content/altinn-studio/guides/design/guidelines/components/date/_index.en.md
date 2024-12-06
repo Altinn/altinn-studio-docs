@@ -15,7 +15,7 @@ Use the date picker if something is being planned, or for selecting a (relativel
 
 ### Example of usage:
 
-<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D4833%253A961" allowfullscreen></iframe>
+<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/proto/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio-Komponenter?page-id=7653%3A49596&node-id=8014-16586&node-type=frame&viewport=590%2C547%2C0.17&t=WzeDGxnXBsJydaVr-1&scaling=scale-down&content-scaling=fixed" allowfullscreen></iframe>
 
 ---
 

@@ -17,9 +17,3 @@ Det er viktig at måten vi skriver alternative tekster er konsekvente. Vi anbefa
 - skriv kort og begynn med det viktigste
 - avslutt ved å si om det er foto, illustrasjon eller grafikk
 
-**Eksempel** 
-"Tre gamle tretraller. Foto."
-
-### Eksempel på bruk:
-
-{{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D2815%253A680" %}}
