@@ -12,4 +12,6 @@ Man kan også benytte feltet til å forklare et regelverk, fremmede begreper, el
 plasseres i en infotekst i grensesnittet (under labelen). 
 
 ### Eksempel på bruk:
-{{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5711%253A1788" %}}
+<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/proto/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio-Komponenter?page-id=7669%3A75779&node-id=8014-35112&node-type=frame&viewport=1145%2C798%2C0.55&t=xjjqEbud6hyI3I0W-1&scaling=scale-down&content-scaling=fixed" allowfullscreen></iframe>
+
+---

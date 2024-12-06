@@ -13,9 +13,11 @@ toc: true
 - Two input fields can be placed beside each other if they are somehow connected, see the example below. 
 - Deactivated fields should be avoided. If a field cannot be edited, the information should instead be presented as text. 
 
-### Example of usage:
-{{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D2816%253A1332" %}}
+### Example of use:
 
+<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/proto/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio-Komponenter?page-id=7669%3A77399&node-id=8014-37377&node-type=frame&viewport=892%2C726%2C0.44&t=IfQg2uclVOuOBkf8-1&scaling=contain&content-scaling=fixed&starting-point-node-id=8014%3A37377" allowfullscreen></iframe>
+
+---
 
 ### Width of an input field
 The width of an input field should reflect what is expected as input from the user. We currently have three standard sizes that should reflect most scenarios and cover different screen-sizes. [Read more about how to change the sizes here](/altinn-studio/reference/ux/styling/#innergrid-og-labelgrid).
@@ -63,7 +65,7 @@ Large text fields are used when the user has to fill in a longer explanation. La
 
 ### Example of usage:
 
-{{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D3495%253A656" %}}
+<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/proto/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio-Komponenter?page-id=7669%3A77399&node-id=8158-45097&node-type=frame&viewport=632%2C-140%2C0.3&t=118bLx7dNSZgnbpQ-1&scaling=scale-down-width&content-scaling=fixed&starting-point-node-id=8014%3A37377" allowfullscreen></iframe>
 
 ---
 
@@ -72,4 +74,6 @@ For addresses, there is a rigid setup where the postal code and city is on the s
 
 ### Example of usage:
 
-{{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D2911%253A652" %}}
+<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/proto/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio-Komponenter?page-id=7669%3A77399&node-id=8134-44753&node-type=frame&viewport=847%2C301%2C0.32&t=1uXtGX4TOvjHid2b-1&scaling=scale-down-width&content-scaling=fixed&starting-point-node-id=8014%3A37377" allowfullscreen></iframe>
+
+---
