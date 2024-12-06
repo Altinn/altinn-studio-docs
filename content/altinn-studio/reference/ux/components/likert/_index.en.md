@@ -5,9 +5,8 @@ toc: false
 weight: 10
 ---
 
-
 {{%notice warning%}}
-This is new functionality. The setup must be done manually as of today. Support for setup through Altinn Studio 
+This is new functionality. The setup must be done manually as of today. Support for setup through Altinn Studio
 will be launched shortly.
 
 Note that the Likert-component only can be used as part of a repeating group.
@@ -94,9 +93,7 @@ Example on definition of likert component in layout.json:
       "description": "På de neste spørsmålene skal du svare i kontekst av klasserommet."
     },
     "maxCount": 99,
-    "children": [
-      "likert-row"
-    ],
+    "children": ["likert-row"],
     "dataModelBindings": {
       "group": "Questions"
     },
@@ -129,30 +126,30 @@ The Likert-component works the same as RadioButtons and CheckBoxes.
 
 OptionsId is linked to the code list file (likertOptions.json)
 
-````json
+```json
 [
-      {
-        "label": "Alltid",
-        "value": "1"
-      },
-      {
-        "label": "Nesten alltid",
-        "value": "2"
-      },
-      {
-        "label": "Ofte",
-        "value": "3"
-      },
-      {
-        "label": "Noen ganger",
-        "value": "4"
-      },
-      {
-        "label": "Sjelden",
-        "value": "5"
-      }
-    ]
-````
+  {
+    "label": "Alltid",
+    "value": "1"
+  },
+  {
+    "label": "Nesten alltid",
+    "value": "2"
+  },
+  {
+    "label": "Ofte",
+    "value": "3"
+  },
+  {
+    "label": "Noen ganger",
+    "value": "4"
+  },
+  {
+    "label": "Sjelden",
+    "value": "5"
+  }
+]
+```
 
 To connect text for each row you need to create a connection between the data model and the Likert's
 textResourceBinding.
@@ -191,6 +188,7 @@ You can choose to filter out rows you do not wish to include in the Likert by us
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="v4 (App Frontend)">}}
+
 ```json
 {
   "filter": [
@@ -205,8 +203,10 @@ You can choose to filter out rows you do not wish to include in the Likert by us
   ]
 }
 ```
+
 {{</content-version-container >}}
 {{<content-version-container version-label="v3 (App Frontend)">}}
+
 ```json
 {
   "edit": {
@@ -224,5 +224,44 @@ You can choose to filter out rows you do not wish to include in the Likert by us
   }
 }
 ```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+### Option dividers
+
+If you would like to create a visual separation between the answer columns in the Likert component you can do so by setting the `columns` property.
+
+![Divider](likertWithDivider.png "Likert component with a divider on the left-hand side")
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Properties">}}
+
+The `columns` property is set as an array of objects where you specify which answer column you would like the divider on by using these properties:
+
+| **Property**    | **Type**   | **Description**                                                       |
+| --------------- | ---------- | --------------------------------------------------------------------- |
+| value           | string/int | The value of the option column.                                       |
+| addLeftDivider  | boolean    | Adds a divider to the left-hand side of the column if set to `true`.  |
+| addRightDivider | boolean    | Adds a divider to the right-hand side of the column if set to `true`. |
+
+{{</content-version-container>}}
+
+{{<content-version-container version-label="Example">}}
+
+```json
+{
+  "id": "ComponentId",
+  "type": "Likert",
+  ...
+  "columns": [
+    {
+      "value": "6",
+      "addLeftDivider": true
+    }
+  ]
+}
+```
+
 {{</content-version-container>}}
 {{</content-version-selector>}}
