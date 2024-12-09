@@ -4,22 +4,44 @@ description: De ulike tekstegenskapene som kan brukes for svaralternativer
 weight: 150
 ---
 
+## Ledetekst
+
+Den vanligste tekstegenskapen for svaralternativer er `label`. `label` er teksten som vises for brukeren i
+brukergrensesnittet (i motsetning til `value`, som er [verdien som lagres i datamodellen](../data-binding)).
+Både `label` og `value` er påkrevde egenskaper for et svaralternativ.
+
+```json
+[
+  { "value": "norway", "label": "Norge" },
+  { "value": "denmark", "label": "text.key.for.denmark" }
+]
+```
+
+Ledetekster, som alle tekster, kan være enten ren tekst eller en nøkkel som peker til en tekstressurs. Hvis
+`label` er en nøkkel som peker til en tekstressurs, kan teksten endres i henhold til brukerens valgte språk.
+
+Den endelige teksten som vises for brukeren kan [også lagres i datamodellen](../data-binding/#storing-the-label) hvis
+det er nødvendig.
+
 ## Beskrivelse og hjelpetekst
 
-`description` og `helpText` støttes av kodelister i apper som bruker versjon 7.8.0 eller høyere. Beskrivelse og
-hjelpetekst kan vises av komponentene `RadioButtons` og `Checkboxes` ved å sette attributtene i en `option` som
-brukes av komponenten.
+Hvis du trenger å gi ytterligere informasjon om et alternativ, kan du bruke egenskapene `description` og `helpText`.
+`description` og `helpText` kan vises av komponentene `RadioButtons` og `Checkboxes`.
 
-Beskrivelser og hjelpetekster kan gis til `options` på samme måte som en `label` er gitt, enten i statiske eller
-dynamiske kodelister. Man kan også bruke dem i kodelister basert på repeterende grupper i `source`-attributten.
+Beskrivelser og hjelpetekster kan spesifiseres på samme måte som en ledetekst (`label`) er gitt, enten i
+[statiske](../../sources/static), [dynamiske](../../sources/dynamic) eller
+[svaralternativer fra datamodellen](../../sources/from-data-model).
 
+Klikk på overskriftene nedenfor for å utvide eksemplene.
+
+{{% expandlarge id="static" header="Statisk JSON-fil eller komponentkonfigurasjon" %}}
 ```json
 [
   {
     "value": "norway",
     "label": "Norge",
-    "description": "This is a description",
-    "helpText": "This is a help text"
+    "description": "Dette er en beskrivelse",
+    "helpText": "Dette er en hjelpetekst"
   },
   {
     "value": "denmark",
@@ -27,7 +49,9 @@ dynamiske kodelister. Man kan også bruke dem i kodelister basert på repeterend
   }
 ]
 ```
+{{% /expandlarge %}}
 
+{{% expandlarge id="dynamic" header="Dynamiske svaralternativer via C#-kode" %}}
 ```cs
 var options = new AppOptions
 {
@@ -48,10 +72,9 @@ var options = new AppOptions
   }
 };
 ```
+{{% /expandlarge %}}
 
-Beskrivelser og hjelpetekster som brukes i kodelister basert på repeterende grupper kan settes opp med dynamiske
-tekstressurser på samme måte som `label`, som beskrevet i
-[kodelister fra repeterende grupper](repeating-group-codelists).
+{{% expandlarge id="from-data-model" header="Svaralternativer basert på repeterende strukturer i datamodellen" %}}
 
 ```json
 {
@@ -61,9 +84,11 @@ tekstressurser på samme måte som `label`, som beskrevet i
   "source": {
     "group": "some.group",
     "label": "checkboxes.label",
-    "description": "checkboxes.descripiton",
+    "description": "checkboxes.description",
     "helpText": "checkboxes.helpText",
     "value": "some.group[{0}].someField"
   }
 }
 ```
+
+{{% /expandlarge %}}
