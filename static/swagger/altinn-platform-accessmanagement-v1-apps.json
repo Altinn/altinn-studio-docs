@@ -6,28 +6,28 @@
     },
     "servers": [
         {
-            "url": "https://platform.at22.altinn.cloud/accessmanagement/api/v1/",
+            "url": "https://platform.at22.altinn.cloud/accessmanagement/api/v1",
             "description": "AT22"
         },
         {
-            "url": "https://platform.at23.altinn.cloud/accessmanagement/api/v1/",
+            "url": "https://platform.at23.altinn.cloud/accessmanagement/api/v1",
             "description": "AT23"
         },
         {
-            "url": "https://platform.at24.altinn.cloud/accessmanagement/api/v1/",
+            "url": "https://platform.at24.altinn.cloud/accessmanagement/api/v1",
             "description": "AT24"
         },
         {
-            "url": "https://platform.tt02.altinn.no/accessmanagement/api/v1/",
+            "url": "https://platform.tt02.altinn.no/accessmanagement/api/v1",
             "description": "Integration Test"
         },
         {
-            "url": "https://platform.altinn.no/accessmanagement/api/v1/",
+            "url": "https://platform.altinn.no/accessmanagement/api/v1",
             "description": "Production"
         }
     ],
     "paths": {
-        "/accessmanagement/api/v1/app/delegationcheck/resource/{resourceId}/instance/{instanceId}": {
+        "/app/delegationcheck/resource/{resourceId}/instance/{instanceId}": {
             "get": {
                 "tags": [
                     "AppsInstanceDelegation"
@@ -104,7 +104,7 @@
                 ]
             }
         },
-        "/accessmanagement/api/v1/app/delegations/resource/{resourceId}/instance/{instanceId}": {
+        "/app/delegations/resource/{resourceId}/instance/{instanceId}": {
             "post": {
                 "tags": [
                     "AppsInstanceDelegation"
@@ -275,7 +275,7 @@
                 ]
             }
         },
-        "/accessmanagement/api/v1/app/delegationrevoke/resource/{resourceId}/instance/{instanceId}": {
+        "/app/delegationrevoke/resource/{resourceId}/instance/{instanceId}": {
             "post": {
                 "tags": [
                     "AppsInstanceDelegation"
