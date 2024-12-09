@@ -64,12 +64,62 @@ Functionally, the request contains
 
 In a request, you can ask about several things simultaneously if needed.
 
-#### Migration of Rights
+#### Migration of Delegations
 
-For most linked services, there are active delegations in Altinn 2. These are rights granted from an actor to a person or organization.
-For these users to continue to have access after a transition to a resource in the resource registry, the rights must be migrated.
+For most linked services, there are [active delegations in Altinn 2](https://github.com/Altinn/altinn-access-management/issues/579). These are rights that have been granted from an actor to a person or organization. For these users to continue to have access after a transition to the resource registry, the rights must be migrated over.
 
-Altinn plans to offer the following
+In Altinn Studio, you can start a batch on services created **based on an imported resource from Altinn 2** that:
 
-- 
+- Deactivates the Altinn 2 service so that no changes to delegation can be made.
+- Copies the delegations to the new resource in Altinn 3.
 
+Currently, this function is hidden behind a feature flag in Altinn Studio.
+
+```javascript
+localStorage.setItem('featureFlags', "[\"resourceMigration\"]")
+```
+
+Run the command above in the browser console (available via developer tools).
+
+Starting the batch job will take about 10 minutes before the job starts. The first thing the job does is deactivate the service before it runs the migration to Altinn 3.
+
+The service must be migrated to the environment where you want to migrate delegations. We strongly recommend testing this in TT02 before running the job in Altinn 3.
+
+![Migrate](migrationstep5.png "Migration of delegations in Altinn Studio")
+
+
+After running, the delegations will be transferred. This must currently be checked manually as counting is not yet available.
+
+We hope for feedback from service owners to adapt the process.
+
+##### Create Reference to Altinn 2 Service
+
+If you have created a resource in the Altinn 3 resource registry without using the import functionality, you can add a reference manually.
+
+This can be done by the following methods:
+
+**Edit Resource File in Gitea**
+
+The format of what needs to be added is as follows:
+
+```json
+"resourceReferences": [
+    {
+        "referenceSource": "Altinn2",
+        "reference": "5600",
+        "referenceType": "ServiceCode"
+    },
+    {
+        "referenceSource": "Altinn2",
+        "reference": "100",
+        "referenceType": "ServiceEditionCode"
+    },
+    {
+        "referenceSource": "Altinn2",
+        "reference": "https://test.landbruksdirektoratet.no/disko/soker",
+        "referenceType": "Uri"
+    }
+]
+```
+
+This can be added by editing the resource in Gitea. Remember to use the correct service codes and URL.
