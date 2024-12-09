@@ -1,44 +1,45 @@
 ---
-title: Purge
-linktitle: Purge
-description: Endpoint for deleting a correspondence.
+title: Slett
+linktitle: Slett
+description: Endepunkt for å slette en melding.
 
 weight: 60
 toc: true
 ---
 
-## Endpoint
+## Endepunkt
 
 DELETE /correspondence/api/v1/correspondence/{{correspondenceId}}/purge
 
-## Description
+## Beskrivelse
 
-This endpoint is used to delete an existing correspondence. If the correspondence includes any attachments, they will also be deleted, provided they are not associated with any other correspondence.
+Dette endepunktet brukes til å slette en eksisterende melding. Hvis meldingen inkluderer vedlegg, vil de også bli slettet, forutsatt at de ikke er knyttet til noen annen melding.
 
-## Authentication
+## Autentisering
 
-This API requires authentication, and the request must also include:
+Dette API-et krever autentisering, og forespørselen må også inkludere en av følgende:
 
-- Correspondence write scope __altinn:correspondence.write__ (for external system callers)
+- Correspondence write scope __altinn:correspondence.write__
+- Correspondence read scope __altinn:correspondence.read__
 
-See [Authentication and Authorization](/notifications/reference/api/#authentication--authorization) for more information.
+Se [Autentisering og Autorisasjon](/notifications/reference/api/#authentication--authorization) for mer informasjon.
 
-## Response
+## Respons
 
-### Response codes
-- 200 OK: The correspondence have been succesfully marked as confirmed
+### Responskoder
 
-  Refer to problem details in response body for further information.
-- 400 One or more validation errors occurred: Indicates that the correspondenceid is on wrong format.
-- 404 Not found: The requested correspondence was not found.
+- 200 OK: Meldingen har blitt slettet
+- 400 One or more validation errors occurred: Indikerer at correspondenceid er i feil format.
+- 404 Not found: Den forespurte meldingen ble ikke funnet.
 
-### Content-Type
+### Innholdstype
 
 - application/json
 
-### Response body 
+### Response body
 
-The response body consists of a GUID and contains the correspondence ID.
+Response body består av en GUID og inneholder correspondenceid.
 
-### Response body properties
-Only returns the correspondence ID.
+### Response body egenskaper
+
+Returnerer kun correspondenceid.
