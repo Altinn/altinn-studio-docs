@@ -1,7 +1,7 @@
 ---
 title: Personale
 linktitle: Personale
-description: Denne kategorien omfatter tilgangspakker som gir fullmakter til tjenester og ressurser knyttet til personaladministrasjon og ansettelsesforhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter til tjenester og ressurser knyttet til personaladministrasjon og ansettelsesforhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
 toc: true
 weight: 100
 aliases:
@@ -43,11 +43,11 @@ Denne tilgangspakken gir fullmakter til tjenester som inngår i A-ordningen. Ved
 *urn:altinn:accesspackage:ansettelsesforhold*
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
-|**Tilgangspakke**|**Enhetsregisterroller**|
-|---|---|
-|Ansettelsesforhold||
-|Lønn||
-|Pensjon||
-|Permisjon||
-|Sykefravær||
-|A-ordningen||
+|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
+|---|---|---|
+|Ansettelsesforhold|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Lønn|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer, Kontaktperson NUF|Ja|
+|Pensjon|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder|Ja|
+|Permisjon|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Sykefravær|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|A-ordningen|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|

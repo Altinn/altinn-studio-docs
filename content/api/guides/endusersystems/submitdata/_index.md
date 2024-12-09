@@ -1,87 +1,83 @@
 ---
-title: Sende inn data fra sluttbrukersystem
-linktitle: Sende inn data fra
-description: Denne guiden gir en detaljert generell beskrivelse av hvordan et sluttbrukersystem kan integreres med tjenester utviklet på Altinn 3 plattformen. 
+title: Submitting Data from End User Systems
+linktitle: Submitting Data from
+description: This guide provides a detailed general description of how an end user system can integrate with services developed on the Altinn 3 platform.
 tags: [architecture, devops, todo]
 toc: false
 hidden: false
 ---
 
+## Overview of Altinn and End User Systems
 
-## Overordnet om Altinn og sluttbrukersystem
+On the Altinn platform, various agencies and other public entities develop services to be used by citizens or businesses.
 
-På Altinn-plattformen utvikler forskjellige etater og andre offentlige aktører tjenester som skal benyttes av innbyggere eller næringsliv.
+The services can range from simple, where a limited amount of data needs to be reported, to complex services with multiple types of data elements over several process steps.
 
-Tjenestene kan være enkle tjenester hvor man må rapportere en begrenset mengde med data, til komplekse tjenester med flere typer datalementer over flere prosessteg.
+An important feature of services developed in Altinn is that each service offers a set of APIs that can be used for machine-to-machine submission of data from end user systems.
 
-En viktig egenskap med tjenester utviklet i Altinn er at hver tjeneste tilbyr et sett med API som kan benyttes for maskin til maskininnsending av data fra sluttbrukersystem. 
+In this context, an end user system is software that performs tasks on behalf of the end user (citizen/business), either fully automated or controlled by an end user.
 
-Et sluttbrukersystem er i denne kontekst programvare som utfører oppgaver på vegne av sluttbruker (innbygger/næringsliv). Enten fullstendig automatisert eller kontrollert av en sluttbruker.
+Today, approximately 50% of the data reported to Altinn is sent in this way from over 100 different software solutions.
 
-I dag er det ca. 50% av dataene som blir rapportert til Altinn som blir sendt på denne måten fra over 100 forskjellige programvareløsninger.
+## What is an Altinn Service?
 
-## Hva er en Altinn-tjeneste?
+A service consists of an application that is available in Altinn's infrastructure. This application has a set of configurations that describe the data the service will receive or send out, as well as the process the service has.
 
-En tjeneste består av en applikasjon som er tilgjengelig i Altinns infrastruktur. Denne applikasjonen har et sett med konfigurasjoner som beskriver data som tjenesten skal motta eller sende ut samt hvilken prosess tjenesten har.
+Examples of services developed on the new Altinn 3 platform can be found [here](/altinn-studio/news/launched-apps/).
 
-Eksempler på tjenester utviklet på den nye Altinn 3-plattformen finner du [her](/altinn-studio/news/launched-apps/).
+## What Types of Data Do Services Expose/Receive via API?
 
-## Hvilke typer data er det tjenestene eksponerer/mottar via API?
+The typical Altinn service has defined a schema model that describes the data relevant to the service.
 
-Den typiske Altinn-tjenesten har definert en skjemamodell som beskriver de dataene som gjelder den aktuelle tjenesten.
+This model is specified by the service owner who created the service. In addition to one or more schema models, a service may also have defined sets of attachment data that need to be included.
 
-Denne modellen er spesifisert av den tjenesteeieren som har laget tjenesten. En tjeneste kan i tilegg til en ellere flere skjemamodeller også ha definerte sett med vedleggsdata som skal vedlegges.
+## Overall Submission Process
 
-## Overordnet prosess for innsending
-
-Diagrammet nedenfor viser den overordnede flyten i kommunikasjon mellom et sluttbrukersystem og Altinns API.
+The diagram below shows the overall flow of communication between an end user system and Altinn's API.
 
 ![Process](endusersystem.drawio.svg)
 
+## Detailed Technical Process
 
-## Detaljert teknisk prosess
+### Prerequisites
 
-### Forutsetninger
+For end user systems where end users will log in using ID-porten, the end user system must have a client registered as api_client in ID-porten. Documentation on how to register a client can be found [here](https://docs.digdir.no/docs/idporten/oidc/oidc_func_clientreg).
 
-For sluttbrukersystemer hvor sluttbrukere skal logge inn ved å bruke ID-porten må sluttbrukersystemet ha klient registrert som api_klient i ID-porten. Dokumentasjon om hvordan man registrerer klient finner man [her](https://docs.digdir.no/docs/idporten/oidc/oidc_func_clientreg).
+### Login & Scopes
 
-### Pålogging & scopes
+For login, the end user system must send the end user to ID-porten for login using its configured client setup.
 
-For pålogging må sluttbrukersystem sende sluttbruker til ID-porten for pålogging ved hjelp av sin oppsatte klientkonfigurasjon.
+The scopes to request are altinn:instances.read and altinn:instances.write.
 
-Scope det må spørres om er altinn:instances.read og altinn:instances.write
+These scopes allow calling all apps in Altinn 3.
 
-Disse scopene gir mulighet for å kalle alle apper i Altinn 3.
+As part of the login process, the end user system will receive an access_token with information about the end user.
 
-Som del av påloggingsprosessen vil sluttbrukersystemet få tilgang til et access_token med informasjon om sluttbruker.
+See the detailed login process with ID-porten and the screen presented to the end user [here](../../../../authentication/what-do-you-get/id-porten/).
 
-Se detaljert påloggingsprosess med ID-porten og skjermbildet som sluttbruker blir presentert for, [her](/api/authentication/id-porten/).
+### Exchange of Access Token to Altinn Token
 
-### Innveksling av access_token til Altinn Token
+The next step in the process is to exchange the access_token from ID-porten for an Altinn Token.
 
-Neste steg i prosessen er å veksle access_token fra ID-porten til et Altinn Token.
+An Altinn Token can be used against all service applications and relevant common components.
 
-Et Altinn Token kan benyttes mot alle tjenesteapplikasjoner og relevante felleskomponenter.
+The exchange is done against the [Authentication API](/api/authentication/spec/).
 
-Innveksling skjer mot [Autentiserings API](/api/authentication/spec/).
+The exchange is done by setting the Access Token from ID-porten as a Bearer token in the authorization header and making a GET call to the exchange endpoint where "id-porten" is used as the token provider.
 
-Innvekslingen skjer ved at man setter Access Token fra ID-porten som et Bearer token i authorization headeren og gjør et GET kall mot innvekslingsendepunktet
-hvor "id-porten" er brukt som token provider.
+A detailed description of the exchange with ID-porten token can be found [here](../../../../authentication/what-do-you-get/id-porten/).
 
-Detaljert beskrivelse av innveksling med ID-porten token finner du [her](/api/authentication/id-porten/).
+### Instantiation and Submission of Data
 
-### Instansiering og innsending av data
+Once a valid token is obtained, one can instantiate (create a service instance) and submit data for the digital service.
 
-Når man har et gyldig token kan man instansiere (opprette tjenesteinstans) og sende inn data for den digitale tjenesten.
+There are mainly two flows to choose from here.
 
-Det er i hovedsak to flyter man kan velge her.
+#### Instantiation without Schema Data
 
-#### Instansiering uten skjemadata
+In instantiation without schema data, the first call to Altinn will only contain information about who is the submitter and which service is being instantiated.
 
-Ved instansiering uten skjemadata vil første kall mot Altinn kun inneholde informasjon om hvem som er avgiver og hvilken
-tjeneste man instansierer.
-
-Dette kallet går mot [Instance API](/api/apps/instances/#create-instance) på app. ([OpenAPI](/api/apps/spec))
+This call is made to the [Instance API](/api/apps/instances/#create-instance) on the app. ([OpenAPI](/api/apps/spec))
 
 ```json
 {
@@ -89,10 +85,11 @@ Dette kallet går mot [Instance API](/api/apps/instances/#create-instance) på a
     "instanceOwner": {
         "personNumber": "12247918309",
         "organisationNumber": null
-    },
-   }
+    }
+}
 ```
-Resultatet er en instans med skjemdata som igjen inneholder standard data og prefilldata konfigurert av tjenesteeier.
+
+The result is an instance with schema data that contains standard data and prefill data configured by the service owner.
 
 ```json
 {
@@ -103,10 +100,10 @@ Resultatet er en instans med skjemdata som igjen inneholder standard data og pre
         "organisationNumber": null,
         "username": null
     },
-    "appId": "ttd/bli-applikasjonseier",
+    "appId": "ttd/become-application-owner",
     "org": "ttd",
     "selfLinks": {
-        "apps": "https://local.altinn.cloud/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
+        "apps": "https://local.altinn.cloud/ttd/become-application-owner/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
         "platform": "https://local.altinn.cloud/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814"
     },
     "dueBefore": null,
@@ -118,7 +115,7 @@ Resultatet er en instans med skjemdata som igjen inneholder standard data og pre
             "flow": 2,
             "started": "2020-11-18T15:56:41.5664762Z",
             "elementId": "Task_1",
-            "name": "Utfylling",
+            "name": "Filling",
             "altinnTaskType": "data",
             "ended": null,
             "validated": {
@@ -135,12 +132,12 @@ Resultatet er en instans med skjemdata som igjen inneholder standard data og pre
         {
             "id": "8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
             "instanceGuid": "bd9edd59-b18c-4726-aa9e-6b150eade814",
-            "dataType": "Kursdomene_BliTjenesteeier_M_2020-05-25_5703_34553_SERES",
+            "dataType": "CourseDomain_BecomeServiceOwner_M_2020-05-25_5703_34553_SERES",
             "filename": null,
             "contentType": "application/xml",
-            "blobStoragePath": "ttd/bli-applikasjonseier/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
+            "blobStoragePath": "ttd/become-application-owner/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
             "selfLinks": {
-                "apps": "https://local.altinn.cloud/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
+                "apps": "https://local.altinn.cloud/ttd/become-application-owner/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
                 "platform": "https://local.altinn.cloud/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d"
             },
             "size": 401,
@@ -159,26 +156,25 @@ Resultatet er en instans med skjemdata som igjen inneholder standard data og pre
 }
 ```
 
-System kan velge å laste ned data via data-API for å legge til egne data eller eventuelt bare overskrive skjema som ble opprettet
-under instansiering. Det må brukes ID for autoopprettet skjema for å overskrive.
+The system can choose to download data via the data API to add its own data or possibly just overwrite the schema created during instantiation. The ID for the auto-created schema must be used to overwrite.
 
-PUT grensesnitt for data benyttes for å overskrive data. Data kan sendes som XML eller JSON.
+The PUT interface for data is used to overwrite data. Data can be sent as XML or JSON.
 
-Dette avhenger av hvordan skjemedefinisjonen er delt av tjeensteeier.
+This depends on how the schema definition is shared by the service owner.
 
-#### Instansiering med multipart formdata
+#### Instantiation with Multipart Form Data
 
-Denne måten å instansiere på gjør at man sender inn informasjon om avgiver, samt data, i ett og samme API-kall. Instansdelen er som i eksempelet over.
+This way of instantiating involves sending information about the submitter, as well as data, in one and the same API call. The instance part is as in the example above.
 
-Skjemadata kan være i XML-format (mest vanlig til nå) eller JSON-format. 
+Schema data can be in XML format (most common so far) or JSON format.
 
-Typisk vil tjenesteeier kommuniserere XSD/JSON Schema dokumentasjon til sluttbrukersystemleverandører via [Altinn digitalisering](https://www.altinndigital.no/produkter/altinn-api-for-datasystem/tjenesteoversikt/) eller via egne kanaler. 
+Typically, the service owner will communicate XSD/JSON Schema documentation to end user system providers via [Altinn Digitalization](https://www.altinndigital.no/produkter/altinn-api-for-datasystem/tjenesteoversikt/) or via their own channels.
 
-Eksempel på slike kanaler er nettsted for [Skattemeldingen tjeneste](https://github.com/Skatteetaten/skattemeldingen) og [MVA tjeneste](https://skatteetaten.github.io/mva-meldingen/)
+Examples of such channels are the website for the [Tax Return Service](https://github.com/Skatteetaten/skattemeldingen) and the [VAT Service](https://skatteetaten.github.io/mva-meldingen/).
 
-I tilegg til skjemadata kan det være ett eller flere filvedlegg.
+In addition to schema data, there may be one or more file attachments.
 
-Eksempelet nedenfor viser multipart/form-data med instance-informasjon, skjemadata (model1) og vedleggsdata (certificate).
+The example below shows multipart/form-data with instance information, schema data (model1), and attachment data (certificate).
 
 ```http {linenos=false,hl_lines=[5,10,15]}
 Content-Type: multipart/form-data; boundary="abcdefg"
@@ -204,25 +200,24 @@ Content-Disposition: form-data; name="certificate"; filename=certificate.pdf
 --abcdefg--
 ```
 
-### Fullføring av prosess
+### Completion of Process
 
-Idet skjemadata og vedleggsdata er komplett utfylt kan sluttbrukersystemet fullføre applikasjonsprosessen.
+Once the schema data and attachment data are fully completed, the end user system can complete the application process.
 
-En prosess kan bestå av ett til flere steg. Typisk består en prosesssflyt av et steg hvor man laster opp data og et nytt prosessteg hvor man bekrefter data.
+A process can consist of one or more steps. Typically, a process flow consists of a step where data is uploaded and a new process step where data is confirmed.
 
-For et sluttbrukersystem betyr det at følgende opersjoner må gjennomføres før prosess er komplett:
+For an end user system, this means that the following operations must be completed before the process is complete:
 
-#### Bekrefte Next på datasteg
+#### Confirm Next on Data Step
 
-Ved å sende PUT på [NEXT](/api/apps/process/#complete-and-move-to-next-task) på prosess-API
-vil tjenesten validere data og sende prosessen videre til bekreftelse.
+By sending PUT on [NEXT](/api/apps/process/#complete-and-move-to-next-task) on the process API, the service will validate the data and move the process to confirmation.
 
-Ved feil på data vil man få en feilmelding.
+In case of data errors, an error message will be received.
 
-Man kan da kalle [validerings-API](/api/apps/validation/#validate-stored-instance) for å få detaljer om feil.
+One can then call the [validation API](/api/apps/validation/#validate-stored-instance) to get details about the errors.
 
-#### Bekrefte Next på bekreftelsesteg
+#### Confirm Next on Confirmation Step
 
-Når data er validert OK vil tjenesten ligge til bekreftelse. Ved å gjøre et ekstra PUT-kall til NEXT i denne tilstanden blir tjenesten fullført.
+When the data is validated OK, the service will be ready for confirmation. By making an additional PUT call to NEXT in this state, the service is completed.
 
-Tjenesteeier blir da varslet om at prosessen er fullført og kan behandle data videre.
+The service owner is then notified that the process is complete and can process the data further.

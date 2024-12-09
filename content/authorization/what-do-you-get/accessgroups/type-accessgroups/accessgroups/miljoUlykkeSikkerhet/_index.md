@@ -1,7 +1,7 @@
 ---
 title: Miljø, ulykke og sikkerhet
 linktitle: Miljø, ulykke og sikkerhet
-description: Denne kategorien omfatter tilgangspakker som gir fullmakter til tjenester og ressurser knyttet til miljø, klima og renovasjon, samt helse, miljø og sikkerhet (HMS). Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter til tjenester og ressurser knyttet til miljø, klima og renovasjon, samt helse, miljø og sikkerhet (HMS). Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
 toc: true
 weight: 100
 aliases:
@@ -32,6 +32,21 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til tiltak og rapporte
 Denne tilgangspakken gir fullmakter til tjenester knyttet til sikkerhet og internkontroll. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:sikkerhetoginternkontroll*
 
-### Ulykke og yrkesskade
-Denne tilgangspakken gir fullmakter til tjenester knyttet til ulykke og yrkesskade. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:ulykkeogyrkesskade*
+### Ulykke 
+Denne tilgangspakken gir fullmakter til tjenester knyttet til ulykke. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
+*urn:altinn:accesspackage:ulykke*
+
+### Yrkesskade
+Denne tilgangspakken gir fullmakter til tjenester knyttet til yrkesskade. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
+*urn:altinn:accesspackage:yrkesskade*
+
+
+## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
+|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
+|---|---|---|
+|Renovasjon|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Miljøryddung, miljørensing og lignende|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer, Kontaktperson NUF|Ja|
+|Bærekraft|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder|Ja|
+|Sikkerhet og internkontroll|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Ulykke|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Yrkesskade|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|

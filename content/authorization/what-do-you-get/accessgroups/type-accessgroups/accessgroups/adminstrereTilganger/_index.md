@@ -1,7 +1,7 @@
 ---
 title: Administrere tilganger
 linktitle: Administrere tilganger
-description: Denne kategorien omfatter fullmakter til å administrere tilganger. Tilgangspakkene i denne kategorien skal ikke knyttes til ressurser og tjenester. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+description: Dette fullmaktsområdet omfatter fullmakter til å administrere tilganger. Tilgangspakkene i denne kategorien skal ikke knyttes til ressurser og tjenester. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
 toc: true
 weight: 100
 aliases:
@@ -30,3 +30,11 @@ Denne tilgangspakken gir bruker mulighet til å administrere alle tilganger for 
 ### Kundeadministrator
 Denne tilgangspakken gir bruker mulighet til å administrere tilganger man har mottatt for sine kunder til ansatte i egen virksomheten.  
 *urn:altinn:accesspackage:kundeadministrator*
+
+## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
+|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
+|---|---|---|
+|Klientadministrasjon for regnskapsfører og revisor|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Tilgangsstyring|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer, Kontaktperson NUF|Ja|
+|Hovedadministrator|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder|Ja|
+|Kundeadministrator|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|

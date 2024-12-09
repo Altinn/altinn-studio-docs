@@ -32,12 +32,12 @@ A notification order is made by adding the following when initializing a message
     ...,
     "notification": {
       "notificationTemplate": CustomText (0) | GenericAltinnMessage(1),
-      "notificationChannel": Email(0) | Sms(1) | EmailPreffered(2) | SmsPreffered(3),
+      "notificationChannel": Email(0) | Sms(1) | EmailPreferred(2) | SmsPreferred(3),
       "SendReminder": boolean,
       "EmailBody": string?, 
       "EmailSubject": string?,
       "SmsBody": string?,
-      "ReminderNotificationChannel": Email(0) | Sms(1) | EmailPreffered(2) | SmsPreffered(3), 
+      "ReminderNotificationChannel": Email(0) | Sms(1) | EmailPreferred(2) | SmsPreferred(3), 
       "ReminderEmailBody": string?,
       "ReminderEmailSubject": string?,
       "ReminderSmsBody": string? 

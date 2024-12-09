@@ -1,7 +1,7 @@
 ---
 title: Jordbruk, skogbruk, jakt, fiske og akvakultur
 linktitle: Jordbruk, skogbruk, jakt, fiske og akvakultur
-description: Denne kategorien omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som angår jordbruk, skogbruk, jakt, fiske og akvakultur. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+description: Dette fullmkatspmrådet omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som angår jordbruk, skogbruk, jakt, fiske og akvakultur. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
 toc: true
 weight: 100
 aliases:
@@ -46,3 +46,15 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til fiske. Ved regelve
 ### Akvakultur
 Denne tilgangspakken gir fullmakter til tjenester knyttet til akvakultur og fiskeoppdrett. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:akvakultur*
+
+
+## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
+|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
+|---|---|---|
+|Jordbruk|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Dyrehold|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Reindrift|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bobestyrer|Ja|
+|Jakt og viltstell|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bobestyrer|Ja|
+|Skogbruk|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Fiske|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Akvakultur|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bobestyrer|Ja|

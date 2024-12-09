@@ -1,7 +1,7 @@
 ---
 title: Helse, pleie, omsorg og vern
 linktitle: Helse, pleie, omsorg og vern
-description: Denne kategorien omfatter tilgangspakker som gir fullmakter til tjenester og ressurser omfatter helse- og sosialtjenester med og uten botilbud. Denne fullmakten kan gi bruker tilgang til helseopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
+description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter til tjenester og ressurser omfatter helse- og sosialtjenester med og uten botilbud. Denne fullmakten kan gi bruker tilgang til helseopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
 toc: true
 weight: 100
 aliases:
@@ -39,21 +39,21 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til sosiale omsorgstje
 *urn:altinn:accesspackage:sosialeomsorgstjenesterutenbotilbudogflyktningemottak*
 
 ### Barnevern 
-Denne tilgangspakken gir fullmakter til tjenester knyttet til barnevern. Denne fullmakten kan gi bruker tilgang til helseopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
+Denne tilgangspakken gir fullmakter til tjenester knyttet til barnevern. Denne fullmakten kan gi bruker tilgang til helseopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. OBS! Vær oppmerksom på at tilgangspakken inneholder fullmakter som kan ha sensitiv karakter. Vurder om fullmaktene skal gis som enkeltrettigheter.  
 *urn:altinn:accesspackage:barnevern*
 
 ### Familievern
-Denne tilgangspakken gir fullmakter til tjenester knyttet til familievern. Denne fullmakten kan gi bruker tilgang til helseopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
+Denne tilgangspakken gir fullmakter til tjenester knyttet til familievern. Denne fullmakten kan gi bruker tilgang til helseopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. OBS! Vær oppmerksom på at tilgangspakken inneholder fullmakter som kan ha sensitiv karakter. Vurder om fullmaktene skal gis som enkeltrettigheter.  
 *urn:altinn:accesspackage:familievern*
 
 
-## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken (TBD)
-|**Tilgangspakke**|**Enhetsregisterroller**|
-|---|---|
-|Kommuneoverlege||
-|Helsetjenester med personopplysninger av særlig kategori||
-|Helsetjenester||
-|Pleie- og omsorgstjenester i institusjon||
-|Sosiale omsorgstjenester uten botilbud, og flyktningemottak||
-|Barnevern||
-|Familievern||
+## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
+|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
+|---|---|---|
+|Kommuneoverlege|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bobestyrer|Ja|
+|Helsetjenester med personopplysninger av særlig kategori|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja||
+|Helsetjenester|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja||
+|Pleie- og omsorgstjenester i institusjon|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bobestyrer|Ja||
+|Sosiale omsorgstjenester uten botilbud, og flyktningemottak|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bobestyrer|Ja||
+|Barnevern|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bobestyrer|Ja||
+|Familievern|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bobestyrer|Ja||

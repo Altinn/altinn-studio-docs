@@ -1,7 +1,7 @@
 ---
 title: Integrasjoner
 linktitle: Integrasjoner
-description: Denne kategorien omfatter fullmakter til å sette opp og administrere dataintegrasjoenr og API som tilbys.. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+description: Dette fullmaktsområdet omfatter fullmakter til å sette opp og administrere dataintegrasjoenr og API som tilbys.. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
 toc: true
 weight: 100
 aliases:
@@ -26,3 +26,11 @@ Denne tilgangspakken gir fullmakter til å administrere tilgang til data og prog
 ### Maskinlesbare hendelser
 Denne tilgangspakken gir fullmakter til å administrere tilgang til maskinlesbare hendelser. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:maskinlesbarehendelser*
+
+
+## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
+|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
+|---|---|---|
+|Programmeringsgrensesnitt - API|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Programmeringsgrensensnitt NUF - API|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Maskinlesbare hendelser|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|

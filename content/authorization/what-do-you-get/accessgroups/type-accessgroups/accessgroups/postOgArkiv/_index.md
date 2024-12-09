@@ -1,7 +1,7 @@
 ---
 title: Post og arkiv
 linktitle: Post og arkiv
-description: Denne kategorien omfatter tilgangspakker som gir fullmakter til post til virksomheten fra det offentlige. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter til post til virksomheten fra det offentlige. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
 toc: true
 weight: 100
 aliases:
@@ -19,10 +19,13 @@ Denne fullmakten gir tilgang til all mottatt post som ikke innholder sensitiv/ta
 
 ### Post til virksomheten med taushetsbelagt innhold
 Denne fullmakten gir tilgang til all mottatt post som innholder sensitiv/taushetsbelagt informasjon som sendes virksomheten. Fullmakten gis normalt til de i virksomheten som håndterer mottak av post som har taushetsbelagt innhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
+**OBS! Vær oppmerksom på at tilgangspakken inneholder fullmakter som kan ha sensitiv karakter. Vurder om fullmaktene skal gis som enkeltrettigheter.**  
 *urn:altinn:accesspackage:posttilvirksomhetenmedtaushetsbelagtinnhold*
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
-|**Tilgangspakke**|**Enhetsregisterroller**|
-|---|---|
-|Ordinær post til virksomheten||
-|Post til virksomheten med taushetsbelagt innhold||
+|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
+|---|---|---|
+|Ordinær post til virksomheten|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Post til virksomheten med taushetsbelagt innhold||Ja*|
+
+*) Kan delegeres av Hovedadministrator
