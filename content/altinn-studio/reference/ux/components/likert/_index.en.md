@@ -232,18 +232,17 @@ You can choose to filter out rows you do not wish to include in the Likert by us
 
 If you would like to create a visual separation between the answer columns in the Likert component you can do so by setting the `columns` property.
 
-![Divider](likertWithDivider.png "Likert component with a divider on the left-hand side")
+![Divider](likertWithDivider.png 'Likert component with a divider on the left-hand side ("before")')
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Properties">}}
 
 The `columns` property is set as an array of objects where you specify which answer column you would like the divider on by using these properties:
 
-| **Property**    | **Type**   | **Description**                                                       |
-| --------------- | ---------- | --------------------------------------------------------------------- |
-| value           | string/int | The value of the option column.                                       |
-| addLeftDivider  | boolean    | Adds a divider to the left-hand side of the column if set to `true`.  |
-| addRightDivider | boolean    | Adds a divider to the right-hand side of the column if set to `true`. |
+| **Property** | **Type**   | **Description**                                                                                     |
+| ------------ | ---------- | --------------------------------------------------------------------------------------------------- |
+| value        | string/int | The value of the option column.                                                                     |
+| divider      | string     | Adds a divider to the specified side of the column. <br/> **Enum**: `"before" \| "after" \| "both"` |
 
 {{</content-version-container>}}
 
@@ -257,7 +256,7 @@ The `columns` property is set as an array of objects where you specify which ans
   "columns": [
     {
       "value": "6",
-      "addLeftDivider": true
+      "divider": "before"
     }
   ]
 }

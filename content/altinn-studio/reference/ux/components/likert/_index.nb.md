@@ -230,18 +230,17 @@ Du kan velge å filtrere rader du ikke ønsker å inkludere i likerten ved å be
 
 Om du ønsker å ha en visuell skillelinje mellom svarkolonnene kan du gjøre dette ved å sette `columns`-egenskapen på komponenten.
 
-![Skillelinje](likertWithDivider.png "Likert komponent med en skillelinje på venstre side")
+![Skillelinje](likertWithDivider.png 'Likert komponent med en skillelinje på venstre side ("before")')
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Egenskaper">}}
 
 `columns`-egenskapen settes som en liste med objekter der du angir hvilke svarkolonner du vil ha skillelinje på ved å bruke disse egenskapene:
 
-| **Egenskap**    | **Type**   | **Beskrivelse**                                        |
-| --------------- | ---------- | ------------------------------------------------------ |
-| value           | string/int | Verdien på svarkolonnen.                               |
-| addLeftDivider  | boolean    | Legger til en skillelinje på venstresiden av kolonnen. |
-| addRightDivider | boolean    | Legger til en skillelinje på høyresiden av kolonnen.   |
+| **Egenskap** | **Type**   | **Beskrivelse**                                                                                    |
+| ------------ | ---------- | -------------------------------------------------------------------------------------------------- |
+| value        | string/int | Verdien på svarkolonnen.                                                                           |
+| divider      | string     | Legger til en skillelinje på siden(e) av kolonnen. <br/> **Enum**: `"before" \| "after" \| "both"` |
 
 {{</content-version-container>}}
 
@@ -255,7 +254,7 @@ Om du ønsker å ha en visuell skillelinje mellom svarkolonnene kan du gjøre de
   "columns": [
     {
       "value": "6",
-      "addLeftDivider": true
+      "divider": "before"
     }
   ]
 }
