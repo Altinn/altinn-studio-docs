@@ -1,10 +1,10 @@
 ---
 title: Dropdown
-description: The pull-down list should be used in cases where the user is picking one of many alternatives, much like the radio buttons. 
+description: The dropdown list should be used in cases where the user is picking one of many alternatives, much like the radio buttons. 
 weight: 70
 ---
 
-### The pull-down list should be used when:
+### The dropdown list should be used when:
 - You have many alternatives (more than 5, but not unlimited)
 - You have a recommended choice which is pre-selected
 - It isn't important for the user to compare the alternatives
