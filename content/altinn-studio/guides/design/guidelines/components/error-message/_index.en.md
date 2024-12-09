@@ -19,6 +19,8 @@ Read more about error messaging on [UU-tilsynet's web pages (nb)](https://www.uu
 - The requirements to submit the form correctly should be clearly indicated before any error messages appear.
 - If the form has faults when the user attempts to proceed, the error messaging box at the top of the screen should show all errors and link to the fields that are incorrectly formatted. ⚠️ NB: This functionality is currently unavailable in Altinn Studio
 
-### Example of usage:
-{{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5711%253A2073" %}}
+### Example of use:
 
+<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://embed.figma.com/proto/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio-Komponenter?page-id=7653%3A50248&node-id=8014-22322&node-type=frame&viewport=10%2C702%2C0.44&scaling=scale-down&content-scaling=fixed&starting-point-node-id=8014%3A22322&embed-host=share" allowfullscreen></iframe>
+
+---

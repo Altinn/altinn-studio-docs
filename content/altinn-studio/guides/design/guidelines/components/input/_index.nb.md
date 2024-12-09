@@ -14,8 +14,10 @@ toc: true
 - Deaktivert felt bør unngås. Dersom et felt ikke kan redigeres bør informasjonen heller presenteres i tekst. 
 
 ### Eksempel på bruk:
-{{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D2816%253A1332" %}}
 
+<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://embed.figma.com/proto/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio-Komponenter?page-id=&node-id=8014-37377&node-type=frame&viewport=973%2C657%2C0.32&scaling=scale-down&content-scaling=fixed&starting-point-node-id=8014%3A37377&embed-host=share" allowfullscreen></iframe>
+
+---
 
 ### Bredde på inputfelt
 Bredden på inputfeltet burde reflektere det som forventes av input fra brukeren. Vi har laget tre standard størrelser som burde dekke de fleste scenarioer og som skal fungere på forskjellige skjermstørrelser. [Les om hvordan du endrer størrelsen her](/altinn-studio/reference/ux/styling/#innergrid-og-labelgrid)
@@ -64,7 +66,7 @@ inputfelt gjelder.
 
 ### Eksempel på bruk:
 
-{{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D3495%253A656" %}}
+<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://embed.figma.com/proto/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio-Komponenter?page-id=7669%3A77399&node-id=8158-45097&node-type=frame&viewport=895%2C-77%2C0.32&scaling=scale-down&content-scaling=fixed&starting-point-node-id=8014%3A37377&embed-host=share" allowfullscreen></iframe>
 
 ---
 
@@ -74,4 +76,6 @@ ut automatisk basert på postnr-input.
 
 ### Eksempel på bruk:
 
-{{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D2911%253A652" %}}
+<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://embed.figma.com/proto/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio-Komponenter?page-id=7669%3A77399&node-id=8134-44753&node-type=frame&viewport=1038%2C88%2C0.45&scaling=scale-down&content-scaling=fixed&starting-point-node-id=8014%3A37377&embed-host=share" allowfullscreen></iframe>
+
+---
