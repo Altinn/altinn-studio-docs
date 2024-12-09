@@ -12,6 +12,6 @@ You can also use the help text field to explain rules, terms or explain why the 
 
 ### Example of use:
 
-<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/proto/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio-Komponenter?page-id=7669%3A75779&node-id=8014-35112&node-type=frame&viewport=1145%2C798%2C0.55&t=xjjqEbud6hyI3I0W-1&scaling=scale-down&content-scaling=fixed" allowfullscreen></iframe>
+<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://embed.figma.com/proto/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio-Komponenter?page-id=7669%3A75779&node-id=8014-35112&node-type=frame&viewport=960%2C660%2C0.33&scaling=scale-down&content-scaling=fixed&embed-host=share" allowfullscreen></iframe>
 
 ---
