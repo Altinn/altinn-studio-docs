@@ -53,7 +53,7 @@ These scopes allow calling all apps in Altinn 3.
 
 As part of the login process, the end user system will receive an access_token with information about the end user.
 
-See the detailed login process with ID-porten and the screen presented to the end user [here](/api/authentication/id-porten/).
+See the detailed login process with ID-porten and the screen presented to the end user [here](../../../../authentication/what-do-you-get/id-porten/).
 
 ### Exchange of Access Token to Altinn Token
 
@@ -65,7 +65,7 @@ The exchange is done against the [Authentication API](/api/authentication/spec/)
 
 The exchange is done by setting the Access Token from ID-porten as a Bearer token in the authorization header and making a GET call to the exchange endpoint where "id-porten" is used as the token provider.
 
-A detailed description of the exchange with ID-porten token can be found [here](/api/authentication/id-porten/).
+A detailed description of the exchange with ID-porten token can be found [here](../../../../authentication/what-do-you-get/id-porten/).
 
 ### Instantiation and Submission of Data
 
