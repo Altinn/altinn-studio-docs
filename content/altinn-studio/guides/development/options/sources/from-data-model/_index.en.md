@@ -1,5 +1,5 @@
 ---
-title: Code lists based on repeating groups from the data model
+title: Options from repeating structures
 linktitle: From data model
 description: Options made from a repeating structure in the data model
 weight: 150
@@ -63,3 +63,30 @@ In the example below, other values from the repeating structure is used in the l
   ]
 }
 ```
+
+### Expression support
+
+The properties `label`, `description`, and `helpText` can also be [dynamic expressions](../../../dynamics) in this mode.
+
+```json {hl_lines=["9-14"]}
+{
+  "id": "checkboxes-component-id",
+  "type": "Checkboxes",
+  ...
+  "source": {
+    "group": "some.group",
+    "label": "checkboxes.label",
+    "description": "checkboxes.description",
+    "helpText": [
+      "if", ["equals", ["dataModel.someField"], "someValue"],
+        "checkboxes.helpText1",
+      "else",
+        "checkboxes.helpText2"
+    ],
+    "value": "some.group[{0}].someField"
+  }
+```
+
+In the example above, the `helpText` property is set up to show different help texts based on the value
+of `someField` in the data model. If `someField` is equal to `someValue`, the help text will
+be `checkboxes.helpText1`, otherwise it will be `checkboxes.helpText2`.

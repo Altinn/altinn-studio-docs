@@ -75,6 +75,8 @@ var options = new AppOptions
 {{% /expandlarge %}}
 
 {{% expandlarge id="from-data-model" header="Svaralternativer basert på repeterende strukturer i datamodellen" %}}
+Legg merke til at egenskapene `label`, `description` og `helpText` også kan være [dynamiske uttrykk](../../../dynamics)
+i denne modusen.
 
 ```json
 {
@@ -85,10 +87,14 @@ var options = new AppOptions
     "group": "some.group",
     "label": "checkboxes.label",
     "description": "checkboxes.description",
-    "helpText": "checkboxes.helpText",
+    "helpText": [
+      "if", ["equals", ["dataModel.someField"], "someValue"],
+        "checkboxes.helpText1",
+      "else",
+        "checkboxes.helpText2"
+    ],
     "value": "some.group[{0}].someField"
   }
 }
 ```
-
 {{% /expandlarge %}}

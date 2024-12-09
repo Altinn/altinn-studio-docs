@@ -64,3 +64,29 @@ I eksempelet under, brukes andre verdier fra den repeterende strukturen i ledete
   ]
 }
 ```
+
+### Støtte for uttrykk
+
+Egenskapene `label`, `description` og `helpText` støtter også [dynamiske uttrykk](../../../dynamics) i denne modusen.
+
+```json {hl_lines=["9-14"]}
+{
+  "id": "checkboxes-component-id",
+  "type": "Checkboxes",
+  ...
+  "source": {
+    "group": "some.group",
+    "label": "checkboxes.label",
+    "description": "checkboxes.description",
+    "helpText": [
+      "if", ["equals", ["dataModel.someField"], "someValue"],
+        "checkboxes.helpText1",
+      "else",
+        "checkboxes.helpText2"
+    ],
+    "value": "some.group[{0}].someField"
+  }
+```
+
+I eksempelet over er `helpText` satt opp til å vise forskjellige hjelpetekster basert på verdien av `someField` i datamodellen.
+Hvis `someField` er lik `someValue`, vil hjelpeteksten være `checkboxes.helpText1`, ellers vil den være `checkboxes.helpText2`.

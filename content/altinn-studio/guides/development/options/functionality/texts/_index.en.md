@@ -74,6 +74,9 @@ var options = new AppOptions
 {{% /expandlarge %}}
 
 {{% expandlarge id="from-data-model" header="Options based on repeating structures in the data model" %}}
+Note that the properties `label`, `description`, and `helpText` can also be [dynamic expressions](../../../dynamics) 
+this mode.
+
 ```json
 {
   "id": "checkboxes-component-id",
@@ -83,7 +86,12 @@ var options = new AppOptions
     "group": "some.group",
     "label": "checkboxes.label",
     "description": "checkboxes.description",
-    "helpText": "checkboxes.helpText",
+    "helpText": [
+      "if", ["equals", ["dataModel.someField"], "someValue"],
+        "checkboxes.helpText1",
+      "else",
+        "checkboxes.helpText2"
+    ],
     "value": "some.group[{0}].someField"
   }
 }
