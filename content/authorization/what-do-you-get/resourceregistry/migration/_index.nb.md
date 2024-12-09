@@ -87,6 +87,8 @@ Ved å starte batchjobben vil det ta ca. 10 minutter før jobben starter. Det f�
 
 Tjenesten må være migrert til det miljøet du skal migrere delegeringer i. Vi anbefaler på det sterkeste å teste dette i TT02 før jobben kjøres i Altinn 3.
 
+![Migrate](migrationstep5.png "Migrerings valg i Altinn Studio")
+
 I etterkant av kjøringen vil delegeringene være overført. Dette må foreløpig sjekkes manuelt da telling ikke er tilgjengelig enda.
 
 Her håper vi på tilbakemeldinger fra tjenesteeiere for å tilpasse prosessen.

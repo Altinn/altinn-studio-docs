@@ -85,6 +85,9 @@ Starting the batch job will take about 10 minutes before the job starts. The fir
 
 The service must be migrated to the environment where you want to migrate delegations. We strongly recommend testing this in TT02 before running the job in Altinn 3.
 
+![Migrate](migrationstep5.png "Migration of delegations in Altinn Studio")
+
+
 After running, the delegations will be transferred. This must currently be checked manually as counting is not yet available.
 
 We hope for feedback from service owners to adapt the process.
