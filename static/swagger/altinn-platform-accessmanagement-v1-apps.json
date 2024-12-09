@@ -27,44 +27,35 @@
         }
     ],
     "paths": {
-        "app/delegationcheck/resource/{resourceId}/instance/{instanceId}": {
-            "parameters": [
-                {
-                    "name": "resourceId",
-                    "in": "path",
-                    "required": true,
-                    "schema": {
-                        "type": "string"
-                    },
-                    "example": "app_orgcode_appname"
-                },
-                {
-                    "name": "instanceId",
-                    "in": "path",
-                    "required": true,
-                    "schema": {
-                        "type": "string"
-                    },
-                    "example": "cfa869d0-fe39-41b4-b9d1-07ec3e1c7551"
-                },
-                {
-                    "name": "PlatformAccessToken",
-                    "in": "header",
-                    "schema": {
-                        "type": "string"
-                    }
-                },
-                {
-                    "name": "Ocp-Apim-Subscription-Key",
-                    "in": "header",
-                    "schema": {
-                        "type": "string"
-                    }
-                }
-            ],
+        "/accessmanagement/api/v1/app/delegationcheck/resource/{resourceId}/instance/{instanceId}": {
             "get": {
                 "tags": [
                     "AppsInstanceDelegation"
+                ],
+                "parameters": [
+                    {
+                        "name": "resourceId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "instanceId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "PlatformAccessToken",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
                 ],
                 "responses": {
                     "200": {
@@ -72,10 +63,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/ResourceRightDelegationCheckResultDto"
-                                    }
+                                    "$ref": "#/components/schemas/ResourceRightDelegationCheckResultDtoPaginated"
                                 }
                             }
                         }
@@ -106,47 +94,45 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "oauth2": [
+                            "PlatformAccess"
+                        ]
+                    }
+                ]
             }
         },
-        "app/delegations/resource/{resourceId}/instance/{instanceId}": {
-            "parameters": [
-                {
-                    "name": "resourceId",
-                    "in": "path",
-                    "required": true,
-                    "schema": {
-                        "type": "string"
-                    },
-                    "example": "app_orgcode_appname"
-                },
-                {
-                    "name": "instanceId",
-                    "in": "path",
-                    "required": true,
-                    "schema": {
-                        "type": "string"
-                    },
-                    "example": "cfa869d0-fe39-41b4-b9d1-07ec3e1c7551"
-                },
-                {
-                    "name": "PlatformAccessToken",
-                    "in": "header",
-                    "schema": {
-                        "type": "string"
-                    }
-                },
-                {
-                    "name": "Ocp-Apim-Subscription-Key",
-                    "in": "header",
-                    "schema": {
-                        "type": "string"
-                    }
-                }
-            ],
+        "/accessmanagement/api/v1/app/delegations/resource/{resourceId}/instance/{instanceId}": {
             "post": {
                 "tags": [
                     "AppsInstanceDelegation"
+                ],
+                "parameters": [
+                    {
+                        "name": "resourceId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "instanceId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "PlatformAccessToken",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
                 ],
                 "requestBody": {
                     "content": {
@@ -204,11 +190,43 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "oauth2": [
+                            "PlatformAccess"
+                        ]
+                    }
+                ]
             },
             "get": {
                 "tags": [
                     "AppsInstanceDelegation"
+                ],
+                "parameters": [
+                    {
+                        "name": "resourceId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "instanceId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "PlatformAccessToken",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
                 ],
                 "responses": {
                     "200": {
@@ -216,7 +234,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/AppsInstanceDelegationResponseDto"
+                                    "$ref": "#/components/schemas/AppsInstanceDelegationResponseDtoPaginated"
                                 }
                             }
                         }
@@ -247,47 +265,45 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "oauth2": [
+                            "PlatformAccess"
+                        ]
+                    }
+                ]
             }
         },
-        "app/delegationrevoke/resource/{resourceId}/instance/{instanceId}": {
-            "parameters": [
-                {
-                    "name": "resourceId",
-                    "in": "path",
-                    "required": true,
-                    "schema": {
-                        "type": "string"
-                    },
-                    "example": "app_orgcode_appname"
-                },
-                {
-                    "name": "instanceId",
-                    "in": "path",
-                    "required": true,
-                    "schema": {
-                        "type": "string"
-                    },
-                    "example": "cfa869d0-fe39-41b4-b9d1-07ec3e1c7551"
-                },
-                {
-                    "name": "PlatformAccessToken",
-                    "in": "header",
-                    "schema": {
-                        "type": "string"
-                    }
-                },
-                {
-                    "name": "Ocp-Apim-Subscription-Key",
-                    "in": "header",
-                    "schema": {
-                        "type": "string"
-                    }
-                }
-            ],
+        "/accessmanagement/api/v1/app/delegationrevoke/resource/{resourceId}/instance/{instanceId}": {
             "post": {
                 "tags": [
                     "AppsInstanceDelegation"
+                ],
+                "parameters": [
+                    {
+                        "name": "resourceId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "instanceId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "PlatformAccessToken",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
                 ],
                 "requestBody": {
                     "content": {
@@ -325,7 +341,79 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "oauth2": [
+                            "PlatformAccess"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "AppsInstanceDelegation"
+                ],
+                "parameters": [
+                    {
+                        "name": "resourceId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "instanceId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "PlatformAccessToken",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AppsInstanceRevokeResponseDtoPaginated"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "oauth2": [
+                            "PlatformAccess"
+                        ]
+                    }
+                ]
             }
         }
     },
@@ -442,6 +530,89 @@
                 },
                 "additionalProperties": false
             },
+            "AppsInstanceDelegationResponseDtoPaginated": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AppsInstanceDelegationResponseDto"
+                        },
+                        "nullable": true
+                    },
+                    "links": {
+                        "$ref": "#/components/schemas/PaginatedLinks"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AppsInstanceRevokeResponseDto": {
+                "required": [
+                    "from",
+                    "instanceId",
+                    "resourceId",
+                    "rights",
+                    "to"
+                ],
+                "type": "object",
+                "properties": {
+                    "from": {
+                        "$ref": "#/components/schemas/PartyUrnUrnJsonTypeValue"
+                    },
+                    "to": {
+                        "$ref": "#/components/schemas/PartyUrnUrnJsonTypeValue"
+                    },
+                    "resourceId": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "instanceId": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "rights": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/RightRevokeResultDto"
+                        }
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AppsInstanceRevokeResponseDtoPaginated": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AppsInstanceRevokeResponseDto"
+                        },
+                        "nullable": true
+                    },
+                    "links": {
+                        "$ref": "#/components/schemas/PaginatedLinks"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AttributeMatchExternal": {
+                "required": [
+                    "id",
+                    "value"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "value": {
+                        "minLength": 1,
+                        "type": "string"
+                    }
+                },
+                "additionalProperties": false
+            },
             "CharReadOnlyMemory": {
                 "type": "object",
                 "properties": {
@@ -489,6 +660,46 @@
                 ],
                 "type": "string"
             },
+            "DetailCodeExternal": {
+                "enum": [
+                    "Unknown",
+                    "RoleAccess",
+                    "DelegationAccess",
+                    "SrrRightAccess",
+                    "MissingRoleAccess",
+                    "MissingDelegationAccess",
+                    "MissingSrrRightAccess",
+                    "InsufficientAuthenticationLevel",
+                    "AlreadyDelegated",
+                    "AccessListValidationPass",
+                    "AccessListValidationFail"
+                ],
+                "type": "string"
+            },
+            "DetailExternal": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "$ref": "#/components/schemas/DetailCodeExternal"
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "parameters": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/AttributeMatchExternal"
+                            },
+                            "nullable": true
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
             "KeyValueUrn": {
                 "type": "object",
                 "properties": {
@@ -524,6 +735,16 @@
             },
             "OrganizationNumber": {
                 "type": "object",
+                "additionalProperties": false
+            },
+            "PaginatedLinks": {
+                "type": "object",
+                "properties": {
+                    "next": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
                 "additionalProperties": false
             },
             "PartyUrn": {
@@ -637,30 +858,46 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/UrnJsonTypeValue"
-                        },
-                        "example": [
-                            {
-                                "type": "urn:altinn:org",
-                                "value": "orgcode"
-                            },
-                            {
-                                "type": "urn:altinn:app",
-                                "value": "appname"
-                            },
-                            {
-                                "type": "urn:altinn:task",
-                                "value": "task_1"
-                            }
-                        ]
+                        }
                     },
                     "action": {
                         "$ref": "#/components/schemas/ActionUrnUrnJsonTypeValue"
                     },
                     "status": {
                         "$ref": "#/components/schemas/DelegableStatusExternal"
+                    },
+                    "details": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/DetailExternal"
+                        },
+                        "nullable": true
                     }
                 },
                 "additionalProperties": false
+            },
+            "ResourceRightDelegationCheckResultDtoPaginated": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ResourceRightDelegationCheckResultDto"
+                        },
+                        "nullable": true
+                    },
+                    "links": {
+                        "$ref": "#/components/schemas/PaginatedLinks"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "RevokeStatusExternal": {
+                "enum": [
+                    "NotRevoked",
+                    "Revoked"
+                ],
+                "type": "string"
             },
             "RightDelegationResultDto": {
                 "type": "object",
@@ -689,14 +926,29 @@
                         "items": {
                             "$ref": "#/components/schemas/UrnJsonTypeValue"
                         },
-                        "nullable": true,
-                        "example": {
-                            "type": "urn:altinn:resource",
-                            "value": "app_orgcode_appname"
-                        }
+                        "nullable": true
                     },
                     "action": {
                         "$ref": "#/components/schemas/ActionUrnUrnJsonTypeValue"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "RightRevokeResultDto": {
+                "type": "object",
+                "properties": {
+                    "resource": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/UrnJsonTypeValue"
+                        },
+                        "nullable": true
+                    },
+                    "action": {
+                        "$ref": "#/components/schemas/ActionUrnUrnJsonTypeValue"
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/RevokeStatusExternal"
                     }
                 },
                 "additionalProperties": false
@@ -786,17 +1038,6 @@
                     "type": "urn:altinn:party:uuid",
                     "value": "049d6f78-f087-41c3-a4ec-c98f5451e387"
                 }
-            },
-            "UuidType": {
-                "enum": [
-                    "NotSpecified",
-                    "Person",
-                    "Organization",
-                    "SystemUser",
-                    "EnterpriseUser",
-                    "Resource"
-                ],
-                "type": "string"
             }
         }
     }
