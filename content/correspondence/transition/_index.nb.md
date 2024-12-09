@@ -32,17 +32,25 @@ Grunnet en forenkling av tjenestekonfigurasjon i Altinn 3 for melding, består d
 
 Det er enkelte nye metadata-felter som tjenestebeskrivelse på forskjellige språk som ikke automatisk vil kunne fylles ut, og som TE selv bør fylle ut i etterkant.
 
-## Migrering av Meldings-data og vedlegg
+## Migrering av Meldingsdata og vedlegg
 
 "Flytt av data"-prosjektet vil ta ansvar for å migrere alle historiske meldinger og vedlegg til ny løsning.
 
 - En batch-basert jobb vil migrere meldingselementer og vedlegg fra Altinn 2 til Altinn 3.
-- Den migrerte versjonen av et element vil ha en referanse til sin gamle Altinn 2 versjon.
+- Den migrerte versjonen av et element vil ha en referanse til sin gamle Altinn 2 versjon, eksponert i feltet: "Altinn2CorrespondenceId" i [CorrespondenceOverview]()
 - Etter migrering vil elementene ikke lenger være tilgjengelig i Altinn 2 API.
   - Men de er nå tilgjengelige på lik linje med andre Altinn 3 Meldinger; via Altinn 3 API, Dialogporten, Arbeidsflate, samt Altinn 2 Portal.
 - Ingen data saneres; meldingene blir kun flagget i databasen, og det er mulig å utføre migrering på nytt og/eller hente ut data manuelt ved spesielle behov.
 
 Migreringen vil foregå over tid, og man har fleksibilitet til å styre hvilke tjenester man migrerer for, og hvilke kriterier man har for å prioritere elementene.
+
+Migreringsprosessen vil være delt opp i flere steg for å redusere risiko, og vil kunne styres per melding, med mulighet for å slette og starte prosessen på nytt.
+
+1. Migrering av ikke-arkiverte meldingsdata og vedlegg fra Altinn 2 til Altinn 3, der vi benytter tjenestekonfigurasjon opprettet [over](#migrering-av-tjenestekonfigurasjon).
+2. Opprettelse av migrert melding i Dialogporten.
+3. Sperring av tilgang til Altinn 2-versjonen av elementet.
+
+I starten vil hvert av disse stegene trigges manuelt av Flytt av data-teamet, men på sikt når man nærmer seg full produksjonssetting for alle parter, vil det kunne håndteres automatisk i 1 prosess.
 
 ### Kriterier for migrering
 
