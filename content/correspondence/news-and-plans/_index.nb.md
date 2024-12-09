@@ -4,7 +4,7 @@ linktitle: Nyheter og planer
 description: Nyheter og videre planer for utvikling av Altinn 3 Melding
 tags: []
 toc: true
-weight: 70
+weight: 80
 ---
 
 ## Migrering fra Altinn 2 til Altinn 3
