@@ -11,15 +11,25 @@ weight: 60
 
 For å forenkle overgangen fra Altinn 2 til Altinn 3 versjon av Melding-produktet, så har man fulgt en overordnet strategi som har hatt som mål å balansere kompleksitet og brukervennlighet for alle parter.
 
-- Altinn 3 Correspondence har i stor grad lik datamodell som Altinn 2 for å muliggjøre mapping/migrering.
-- Alle Altinn 2 Correspondence elementer migreres inn i Altinn 3 Correspondence.
+- Altinn 3 Melding har i stor grad lik datamodell som Altinn 2 for å muliggjøre mapping/migrering.
+- Alle Altinn 2 Meldinger og vedlegg migreres inn i Altinn 3 Melding.
 - Alle Altinn 2 Meldingstjenester med data blir opprettet som Altinn 3 Meldingstjenester.
-- Man migrerer data/metadata i en prosess som samtidig tilgjengeliggjør elementene i Dialogporten og Samlet Arbeidsflate.
+- Man migrerer data/metadata i en prosess som også tilgjengeliggjør elementene i Dialogporten og Arbeidsflate.
 - Migrering av historiske data vil ta tid (uker/måneder), og overgangsløsning bygges med dette i mente.
-- Til slutt vil migreringsjobben «ta igjen» Live/Ferske data, slik at elementene kan tilgjengeliggjøres i Altinn 3 kort tid etter at de var opprettet i Altinn 2.
-- For å gjøre seg uavhengig av produksjonsdato for nye Samlet Arbeidsflate, så tilgjengeliggjøres Altinn 3 Meldinger i Altinn 2 Portal for sluttbrukere.
+- Til slutt vil migrerings-jobben «ta igjen» Live/Ferske data, slik at elementene kan tilgjengeliggjøres i Altinn 3 kort tid etter at de var opprettet i Altinn 2.
+- For å gjøre seg uavhengig av produksjonsdato for nye Arbeidsflate, så tilgjengeliggjøres Altinn 3 Meldinger i Altinn 2 Portal for sluttbrukere.
 - Det lages IKKE overgangsløsning for API-endepunkter:
-  - Sluttbrukersystemer må opprettholde integrasjon mot både Altinn 2 og Altinn 3 i en overgangsperiode.
+  - Sluttbrukersystemer og Tjenesteeiersystemer må opprettholde integrasjon mot både Altinn 2 og Altinn 3 i en overgangsperiode.
+
+## Visning av Altinn 3 Melding i Altinn 2 Portal
+
+For å raskt ha på plass en GUI-løsning for sluttbrukere uavhengig av leveransen av Arbeidsflate, utvides dagens Altinn 2 portal til å kunne hente ut og vise Altinn 3 Meldinger.
+
+Dette muliggjør en tilsvarende brukeropplevelse for sluttbrukere som ikke mottar meldinger via sluttbrukersystem.
+
+Visningen blir i stor grad lik som eksisterende visning av Altinn 2 meldinger, men med enkelte differanser.
+
+- Ingen "Arkiver" knapp
 
 ## Migrering av tjenestekonfigurasjon
 
@@ -36,21 +46,13 @@ Det er enkelte nye metadata-felter som tjenestebeskrivelse på forskjellige spr�
 
 "Flytt av data"-prosjektet vil ta ansvar for å migrere alle historiske meldinger og vedlegg til ny løsning.
 
-- En batch-basert jobb vil migrere meldingselementer og vedlegg fra Altinn 2 til Altinn 3.
-- Den migrerte versjonen av et element vil ha en referanse til sin gamle Altinn 2 versjon, eksponert i feltet: "Altinn2CorrespondenceId" i [CorrespondenceOverview]()
+- En batch-basert jobb vil migrere meldinger og tilhørende vedlegg fra Altinn 2 til Altinn 3.
+- Den migrerte versjonen av et element vil ha en referanse til sin gamle Altinn 2 versjon, eksponert i feltet: "Altinn2CorrespondenceId" i [CorrespondenceOverview endpoint](../reference/API-endpoints/)
 - Etter migrering vil elementene ikke lenger være tilgjengelig i Altinn 2 API.
   - Men de er nå tilgjengelige på lik linje med andre Altinn 3 Meldinger; via Altinn 3 API, Dialogporten, Arbeidsflate, samt Altinn 2 Portal.
 - Ingen data saneres; meldingene blir kun flagget i databasen, og det er mulig å utføre migrering på nytt og/eller hente ut data manuelt ved spesielle behov.
 
 Migreringen vil foregå over tid, og man har fleksibilitet til å styre hvilke tjenester man migrerer for, og hvilke kriterier man har for å prioritere elementene.
-
-Migreringsprosessen vil være delt opp i flere steg for å redusere risiko, og vil kunne styres per melding, med mulighet for å slette og starte prosessen på nytt.
-
-1. Migrering av ikke-arkiverte meldingsdata og vedlegg fra Altinn 2 til Altinn 3, der vi benytter tjenestekonfigurasjon opprettet [over](#migrering-av-tjenestekonfigurasjon).
-2. Opprettelse av migrert melding i Dialogporten.
-3. Sperring av tilgang til Altinn 2-versjonen av elementet.
-
-I starten vil hvert av disse stegene trigges manuelt av Flytt av data-teamet, men på sikt når man nærmer seg full produksjonssetting for alle parter, vil det kunne håndteres automatisk i 1 prosess.
 
 ### Kriterier for migrering
 
@@ -61,22 +63,44 @@ For de fleste; innenfor 14 dager etter opprettelse.
 
 Ved å utsette migrering til etter dette tidsrommet slipper man å ivareta kompleks logikk for å synkronisere endringer på meldingen som: lesebekreftelse, sletting og arkivering på tvers.
 
-Etter hvert som sluttbrukere og sluttbrukersystemer har integrert seg mot Altinn 3 og bruker det som sin hoved-kanal, kan man redusere migreringsventetiden slik at elementene kan migreres få minutter etter opprettelse.
+Etter hvert som sluttbrukere og sluttbrukersystemer har integrert seg mot Altinn 3 og bruker det som sin hoved-kanal, kan man redusere **migreringsventetiden** slik at elementene kan migreres få minutter etter opprettelse.
 
-# Konsekvenser for partene
+### Migreringsprosess i detalj per element
+
+Migreringsprosessen vil være delt opp i flere steg for å redusere risiko, og vil kunne styres per melding, med mulighet for å slette data og starte prosessen på nytt.
+Ingen data saneres fra Altinn 2.
+
+1. Migrering av meldingsdata og vedlegg fra Altinn 2 til Altinn 3, der vi benytter tjenestekonfigurasjon opprettet [over](#migrering-av-tjenestekonfigurasjon).
+2. Opprettelse av migrert melding i Dialogporten / Arbeidsflate.
+3. Sperring av tilgang til Altinn 2-versjonen av elementet.
+
+Ved migrering inkluderes statushistorikk inkludert varslingsinformasjon frem til tidspunktet migrering skjer.
+
+I starten vil hvert av disse stegene trigges manuelt av Flytt av data-teamet, men på sikt når man nærmer seg full produksjonssetting for alle komponenter, vil det kunne håndteres automatisk i en og samme prosess.
+
+### Synkronisering av statusendringer mellom Altinn 2 og 3
+
+Det vil ikke være noe synkronisering av statusendringer på melding eller varslinger mellom de 2 løsningene etter at migrering er utført.
+
+Eksisterende status/historikk blir migrert over i steg 1, og etter steg 3 sperres Altinn 2 elementet for flere endringer.
+
+Dette for å unngå stor teknisk kompleksitet og avhengighet på tvers.
+
+## Konsekvenser for partene
 
 Her er en kort oppsummering av hvilke konsekvenser valgt overgangs- og migreringsløsning har for de forskjellige partene:
 
-## Konsekvens for Tjenesteeier
+### Tjenesteeier
 
-- Ved InsertCorrespondence opprettes meldingen i miljøet som kalles («hjemstedet» til elementet).
-  - Dersom A2 vil det etter hvert migreres til A3, men varsling vil fullføres i A2 uavhengig av migrering.
-- Sjekk av status på Correspondence opprettet i A2 må gjøres mot A2 og eventuelt deretter A3 etter migrering.
-  - Siden migrering først utføres etter migreringsventetid, antas det at TE ikke trenger å sjekke for samme element i både A2 og A3.
-- Må integrere seg mot Altinn 3 API for å opprette/følge opp nye meldinger der.
+- Ved opprettelse av meldingen i API, blir meldingen opprettet i miljøet som kalles («hjemstedet» til elementet).
+  - Dersom i A2 vil migrering skje til A3 etter **migreringsventetid**, men varsling vil fullføres i A2 uavhengig av migrering.
+  - Dersom i Altinn 3, så vil meldingen være tilgjengelig i Altinn 2 Portalen.
+- Sjekk av status på Melding opprettet i A2 må gjøres mot A2 og eventuelt deretter mot A3 etter migrering.
+  - Siden migrering først utføres etter **migreringsventetid**, antas det at TE ikke trenger å sjekke for samme element i både A2 og A3, men at endringer av interesse allerede har skjedd i A2.
+- Man må integrere seg mot Altinn 3 API for å opprette/følge opp nye meldinger der.
   - De kan bruke de migrerte tjenestene, eller etablere helt nye.
 
-## Konsekvens for Sluttbrukere
+### Sluttbrukere
 
 Via Altinn 2 portal:
 
@@ -85,13 +109,14 @@ Via Altinn 2 portal:
 
 Via Sluttbrukersystem:
 
-- Får først opp Altinn 3 elementer når Sluttbrukersystem BS har integrert seg mot A3.
+- Får først opp Altinn 3 elementer når Sluttbrukersystem har integrert seg mot A3.
 
-Via Samlet Arbeidsflate:
+Via Arbeidsflate:
 
 - Får opp meldingene som er opprettet i Altinn 3, samt de som er blitt migrert.
+- Meldinger i Altinn 2 som ikke er blitt migrert, vil ikke være tilgjengelig.
 
-## Konsekvens for SluttbrukerSystem
+### SluttbrukerSystem
 
 - For å få full oversikt over elementer vil man måtte integrere seg mot både Altinn 2 og Altinn 3 API.
 - Når elementer blir migrert fra A2 til A3 vil det mulig å identifisere dette ved at A3-elementet inneholder Altinn 2 Correspondence ID.
@@ -99,8 +124,8 @@ Via Samlet Arbeidsflate:
 - Når elementet er migrert, så må SBS være integrert mot Altinn 3 API for å jobbe videre med det.
   - Men gitt at det migreres etter forventet aktiv tidsrom, burde det ikke være behov.
 
-## Konsekvens for Dialogporten og Samlet Arbeidsflate
+### Dialogporten og Arbeidsflate
 
-- Altinn 2 elementer blir ikke tilgjengeliggjort før de er migrert, men migrering kan skje relativt raskt etter at de er opprettet i Altinn 2.
+- Altinn 2 elementer blir ikke tilgjengeliggjort før de er migrert, men migrering kan skje relativt raskt etter at de er opprettet i Altinn 2 (styrt av **migreringsventetid**).
 
 {{<children />}}
