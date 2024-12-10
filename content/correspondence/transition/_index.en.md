@@ -128,5 +128,4 @@ Via Arbeidsflate:
 
 - Altinn 2 elements are not made available until they are migrated, but migration can occur relatively quickly after they are created in Altinn 2 (controlled by **migration wait time**).
 
-
 {{<children />}}
