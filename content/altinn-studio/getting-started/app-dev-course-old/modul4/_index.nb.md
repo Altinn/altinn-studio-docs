@@ -48,7 +48,7 @@ Sogndal kommune ønsker å samle inn opplysninger om tilflytterens arbeidsituasj
 
 1. Opprett mappen `App/options` hvis den ikke eksisterer.
 2. Sogndal kommune har opprettet en [statisk kodeliste](/nb/altinn-studio/guides/development/options/sources/static) for **bransjer**: [industry.json](../industry.json). Last ned filen og plasser den i `App/options`.
-3. Sett opp alternativene for **År i arbeidslivet** som en [åpen dynamisk kodeliste](/nb/altinn-studio/guides/development/options/sources/dynamic#åpne-dynamiske-kodelister) i mappen `App/options` (følg anvisning i dokumentasjonen).  
+3. Sett opp alternativene for **År i arbeidslivet** som en [åpen dynamisk kodeliste](/nb/altinn-studio/guides/development/options/sources/dynamic#åpne-kodelister) i mappen `App/options` (følg anvisning i dokumentasjonen).  
    Svaralternativer:
    Label      | Dataverdi
    -----------|----------

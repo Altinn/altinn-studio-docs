@@ -98,7 +98,7 @@ We want the user to be presented with a different set of options for the industr
 2. Create a dynamic code list for _Industry_ with logic based on the value of the query parameter (hint: you can read the industry list from the JSON file).
 
 ### Useful documentation
-- [How to pass query parameters when fetching options](/altinn-studio/guides/development/sources/dynamic/#query-parameters)
+- [How to pass query parameters when fetching options](/altinn-studio/guides/development/options/sources/dynamic/#query-parameters)
 - [How to configure dynamic code lists](/altinn-studio/guides/development/options/sources/dynamic)
 
 ### Knowledge check
