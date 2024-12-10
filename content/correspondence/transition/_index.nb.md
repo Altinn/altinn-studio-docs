@@ -31,6 +31,12 @@ Visningen blir i stor grad lik som eksisterende visning av Altinn 2 meldinger, m
 
 - Ingen "Arkiver" knapp
 
+### Tiltak for gradvis økning av last
+
+For å redusere unødvendig last vil Altinn 2 portal kun kalle API-endepunktene til Altinn 3 Melding dersom en gitt bruker/virksomhet har data i Altinn 3 Melding.
+Altinn 3 Melding kaller SBLBridge-komponenten og setter et internt flagg per bruker ##PartyHasAltinn3Messages## i Altinn 2 sin database når det opprettes meldinger.
+Dette medfører en gradvis økning av trafikken på tvers, basert på om det er data tilgjengelig fra enten nye tjenester, eller migrerte meldinger.
+
 ## Migrering av tjenestekonfigurasjon
 
 Altinns "Flytt av data"-prosjekt vil ta ansvar for å migrere all nødvendig konfigurasjon fra Altinn 2 til Altinn 3, og vil opprette dette på vegne av TjenesteEiere.
@@ -47,7 +53,7 @@ Det er enkelte nye metadata-felter som tjenestebeskrivelse på forskjellige spr�
 "Flytt av data"-prosjektet vil ta ansvar for å migrere alle historiske meldinger og vedlegg til ny løsning.
 
 - En batch-basert jobb vil migrere meldinger og tilhørende vedlegg fra Altinn 2 til Altinn 3.
-- Den migrerte versjonen av et element vil ha en referanse til sin gamle Altinn 2 versjon, eksponert i feltet: "Altinn2CorrespondenceId" i [CorrespondenceOverview endpoint](../reference/API-endpoints/)
+- Den migrerte versjonen av et element vil ha en referanse til sin gamle Altinn 2 versjon, eksponert i feltet: "Altinn2CorrespondenceId" i CorrespondenceOverview endepunkt.
 - Etter migrering vil elementene ikke lenger være tilgjengelig i Altinn 2 API.
   - Men de er nå tilgjengelige på lik linje med andre Altinn 3 Meldinger; via Altinn 3 API, Dialogporten, Arbeidsflate, samt Altinn 2 Portal.
 - Ingen data saneres; meldingene blir kun flagget i databasen, og det er mulig å utføre migrering på nytt og/eller hente ut data manuelt ved spesielle behov.

@@ -31,6 +31,12 @@ The display will be largely similar to the existing display of Altinn 2 Correspo
 
 - No "Archive" button
 
+### Measures for Gradual Increase of Load
+
+To reduce unnecessary load, the Altinn 2 portal will only call the API endpoints of Altinn 3 Message if a given user/organization has data in Altinn 3 Message.
+Altinn 3 Message calls the SBLBridge component and sets an internal flag per user ##PartyHasAltinn3Messages## in the Altinn 2 database when messages are created.
+This results in a gradual increase in cross-traffic, based on whether data is available from either new services or migrated messages.
+
 ## Migration of Service Configuration
 
 Altinn's "Move Data" project will take responsibility for migrating all necessary configuration from Altinn 2 to Altinn 3 and will create this on behalf of Service Owners.
@@ -47,7 +53,7 @@ There are some new metadata fields such as service description in different lang
 The "Move Data" project will take responsibility for migrating all historical Correspondences and attachments to the new solution.
 
 - A batch-based job will migrate Correspondences and associated attachments from Altinn 2 to Altinn 3.
-- The migrated version of an element will have a reference to its old Altinn 2 version, exposed in the field: "Altinn2CorrespondenceId" in the [CorrespondenceOverview endpoint](../reference/API-endpoints/)
+- The migrated version of an element will have a reference to its old Altinn 2 version, exposed in the field: "Altinn2CorrespondenceId" in the CorrespondenceOverview endpoint.
 - After migration, the elements will no longer be available in the Altinn 2 API.
   - But they are now available on par with other Altinn 3 Correspondences; via Altinn 3 API, Dialogporten, Workspace, and Altinn 2 Portal.
 - No data is deleted; the Correspondences are only flagged in the database, and it is possible to perform the migration again and/or manually retrieve data if needed.
