@@ -25,16 +25,23 @@ For å forenkle overgangen fra Altinn 2 til Altinn 3 versjon av Melding-produkte
 
 For å raskt ha på plass en GUI-løsning for sluttbrukere uavhengig av leveransen av Arbeidsflate, utvides dagens Altinn 2 portal til å kunne hente ut og vise Altinn 3 Meldinger.
 
+Det benyttes et dedikert endepunkt i Altinn 3 Melding sine API som tilrettelegger for behovene til Altinn 2 Portal; [Legacy](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Controllers/LegacyController.cs).
+Dette endepunktet vil kun tillates brukt av Altinn 2 Portal-løsningen, og vil dermed ikke dokumenteres på samme nivå som andre API-endepunkt.
+
 Dette muliggjør en tilsvarende brukeropplevelse for sluttbrukere som ikke mottar meldinger via sluttbrukersystem.
 
-Visningen blir i stor grad lik som eksisterende visning av Altinn 2 meldinger, men med enkelte differanser.
+Visningen blir i stor grad lik som eksisterende visning av Altinn 2 meldinger, og alle elementer blir vist i samme liste, men med enkelte differanser.
 
 - Ingen "Arkiver" knapp
 
 ### Tiltak for gradvis økning av last
 
 For å redusere unødvendig last vil Altinn 2 portal kun kalle API-endepunktene til Altinn 3 Melding dersom en gitt bruker/virksomhet har data i Altinn 3 Melding.
-Altinn 3 Melding kaller SBLBridge-komponenten og setter et internt flagg per bruker ##PartyHasAltinn3Messages## i Altinn 2 sin database når det opprettes meldinger.
+Altinn 3 Melding kaller SBLBridge-komponenten og setter et internt flagg per bruker **PartyHasAltinn3Messages** i Altinn 2 sin database når det opprettes meldinger.
+Altinn 2 Portal bruker dette flagget for å avgjøre om søk skal gjøres i Altinn 3.
+
+Dette er en tilsvarende løsning som brukt for Skjema/innsendingstjenester og Altinn 3 Apps.
+
 Dette medfører en gradvis økning av trafikken på tvers, basert på om det er data tilgjengelig fra enten nye tjenester, eller migrerte meldinger.
 
 ## Migrering av tjenestekonfigurasjon
@@ -52,7 +59,7 @@ Det er enkelte nye metadata-felter som tjenestebeskrivelse på forskjellige spr�
 
 "Flytt av data"-prosjektet vil ta ansvar for å migrere alle historiske meldinger og vedlegg til ny løsning.
 
-- En batch-basert jobb vil migrere meldinger og tilhørende vedlegg fra Altinn 2 til Altinn 3.
+- En AltinnBatch-komponent "MigrateCorrespondence" kjører i Altinn 2 infrastruktur migrerer meldinger og tilhørende vedlegg fra Altinn 2 til Altinn 3 ved bruk av et dedikert ["migration"-endepunkt](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Controllers/MigrationController.cs).
 - Den migrerte versjonen av et element vil ha en referanse til sin gamle Altinn 2 versjon, eksponert i feltet: "Altinn2CorrespondenceId" i CorrespondenceOverview endepunkt.
 - Etter migrering vil elementene ikke lenger være tilgjengelig i Altinn 2 API.
   - Men de er nå tilgjengelige på lik linje med andre Altinn 3 Meldinger; via Altinn 3 API, Dialogporten, Arbeidsflate, samt Altinn 2 Portal.
