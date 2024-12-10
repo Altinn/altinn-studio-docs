@@ -317,7 +317,7 @@
                                         "type": "string"
                                     },
                                     "Correspondence.Sender": {
-                                        "pattern": "^\\d{4}:\\d{9}$",
+                                        "pattern": "^(?:0192:|urn:altinn:organization:identifier-no):\\d{9}$",
                                         "type": "string"
                                     },
                                     "Correspondence.SendersReference": {
@@ -591,13 +591,6 @@
                             "type": "string",
                             "format": "uuid"
                         }
-                    },
-                    {
-                        "name": "onBehalfOf",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
                     }
                 ],
                 "responses": {
@@ -627,13 +620,6 @@
                         "schema": {
                             "type": "string",
                             "format": "uuid"
-                        }
-                    },
-                    {
-                        "name": "onBehalfOf",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
                         }
                     }
                 ],
@@ -688,13 +674,6 @@
                             "type": "string",
                             "format": "uuid"
                         }
-                    },
-                    {
-                        "name": "onBehalfOf",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
                     }
                 ],
                 "responses": {
@@ -717,13 +696,6 @@
                         "schema": {
                             "type": "string",
                             "format": "uuid"
-                        }
-                    },
-                    {
-                        "name": "onBehalfOf",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
                         }
                     }
                 ],
@@ -748,13 +720,6 @@
                             "type": "string",
                             "format": "uuid"
                         }
-                    },
-                    {
-                        "name": "onBehalfOf",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
                     }
                 ],
                 "responses": {
@@ -777,13 +742,6 @@
                         "schema": {
                             "type": "string",
                             "format": "uuid"
-                        }
-                    },
-                    {
-                        "name": "onBehalfOf",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
                         }
                     }
                 ],
@@ -817,13 +775,6 @@
                             "type": "string",
                             "format": "uuid"
                         }
-                    },
-                    {
-                        "name": "onBehalfOf",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
                     }
                 ],
                 "responses": {
@@ -836,23 +787,6 @@
     },
     "components": {
         "schemas": {
-            "AtachmentStatusEvent": {
-                "type": "object",
-                "properties": {
-                    "status": {
-                        "$ref": "#/components/schemas/AttachmentStatusExt"
-                    },
-                    "statusText": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "statusChanged": {
-                        "type": "string",
-                        "format": "date-time"
-                    }
-                },
-                "additionalProperties": false
-            },
             "AttachmentDataLocationTypeExt": {
                 "enum": [
                     "AltinnCorrespondenceAttachment",
@@ -909,7 +843,7 @@
                     },
                     "sender": {
                         "minLength": 1,
-                        "pattern": "^\\d{4}:\\d{9}$",
+                        "pattern": "^(?:0192:|urn:altinn:organization:identifier-no):\\d{9}$",
                         "type": "string"
                     },
                     "attachmentId": {
@@ -938,7 +872,7 @@
                     "statusHistory": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/AtachmentStatusEvent"
+                            "$ref": "#/components/schemas/AttachmentStatusEvent"
                         },
                         "nullable": true
                     }
@@ -994,7 +928,7 @@
                     },
                     "sender": {
                         "minLength": 1,
-                        "pattern": "^\\d{4}:\\d{9}$",
+                        "pattern": "^(?:0192:|urn:altinn:organization:identifier-no):\\d{9}$",
                         "type": "string"
                     },
                     "attachmentId": {
@@ -1019,6 +953,27 @@
                             "format": "uuid"
                         },
                         "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AttachmentStatusEvent": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "$ref": "#/components/schemas/AttachmentStatusExt"
+                    },
+                    "statusText": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "statusChanged": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "partyUuid": {
+                        "type": "string",
+                        "format": "uuid"
                     }
                 },
                 "additionalProperties": false
@@ -1048,7 +1003,7 @@
                     },
                     "sender": {
                         "minLength": 1,
-                        "pattern": "^\\d{4}:\\d{9}$",
+                        "pattern": "^(?:0192:|urn:altinn:organization:identifier-no):\\d{9}$",
                         "type": "string"
                     },
                     "sendersReference": {
@@ -1238,7 +1193,7 @@
                     },
                     "sender": {
                         "minLength": 1,
-                        "pattern": "^\\d{4}:\\d{9}$",
+                        "pattern": "^(?:0192:|urn:altinn:organization:identifier-no):\\d{9}$",
                         "type": "string"
                     },
                     "sendersReference": {
@@ -1378,7 +1333,7 @@
                     },
                     "sender": {
                         "minLength": 1,
-                        "pattern": "^\\d{4}:\\d{9}$",
+                        "pattern": "^(?:0192:|urn:altinn:organization:identifier-no):\\d{9}$",
                         "type": "string"
                     },
                     "sendersReference": {
@@ -1509,6 +1464,10 @@
                     "statusChanged": {
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "partyUuid": {
+                        "type": "string",
+                        "format": "uuid"
                     }
                 },
                 "additionalProperties": false
@@ -1576,7 +1535,7 @@
                 "enum": [
                     "NewCorrespondenceAttachment",
                     "ExistingCorrespondenceAttachment",
-                    "ExisitingExternalStorage"
+                    "ExistingExternalStorage"
                 ],
                 "type": "string"
             },
@@ -1624,7 +1583,7 @@
                     },
                     "sender": {
                         "minLength": 1,
-                        "pattern": "^\\d{4}:\\d{9}$",
+                        "pattern": "^(?:0192:|urn:altinn:organization:identifier-no):\\d{9}$",
                         "type": "string"
                     }
                 },
