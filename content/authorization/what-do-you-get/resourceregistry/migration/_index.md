@@ -78,7 +78,6 @@ Currently, this function is hidden behind a feature flag in Altinn Studio.
 ```javascript
 localStorage.setItem('featureFlags', "[\"resourceMigration\"]")
 ```
-
 Run the command above in the browser console (available via developer tools).
 
 Starting the batch job will take about 10 minutes before the job starts. The first thing the job does is deactivate the service before it runs the migration to Altinn 3.
