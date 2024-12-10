@@ -10,19 +10,19 @@ weight: 40
 {{<children />}}
 
 {{% notice warning  %}}
-This section of the documentation is a work in progress, and as such currently makes extensive reference to external sources.
+This section of the documentation is a work in progress and currently makes extensive reference to external sources.
 {{% /notice %}}
 
 {{% notice warning  %}}
-Currently the Events for Correspondence are not ready for full-scale use, due to pending changes in Altinn Events and Authorization.
+Currently, the Events for Correspondence are not ready for full-scale use due to pending changes in Altinn Events and Authorization.
 This documents the expected scenario, but may be subject to change.
 {{% /notice %}}
 
-To use notifications in Altinn Correspondence, a notification order is placed when a message is created. The notification will primarily be sent out at the publication time of the message. If a reminder is activated, the reminder will be sent after 7 days if the message has not been read. In the test and staging environment, the reminder will be sent out after 1 hour if the message has not been read. 
+To use notifications in Altinn Correspondence, a notification order is placed when a message is created. The notification will primarily be sent out at the publication time of the message. If a reminder is activated, the reminder will be sent after 7 days if the message has not been read. In the test and staging environment, the reminder will be sent out after 1 hour if the message has not been read.
 
 Notifications can be sent via either email or SMS. While email does not have a time window, SMS notifications are sent between 9:00 AM and 5:00 PM. If the sending time falls outside this window, the notification will be sent the following day.
 {{% notice warning  %}}
-In the test environment, Notifications via SMS can only be sent out to phone numbers that are whitelisted internally. Contact us at [Altinn@Slack#produkt-melding](https://join.slack.com/t/altinn/shared_invite/zt-7c77c9si-ZnMFwGNtab1aFdC6H_vwog) if this is required for your service.
+In the test environment, Notifications via SMS can only be sent to phone numbers that are whitelisted internally. Contact us at [Altinn@Slack#produkt-melding](https://join.slack.com/t/altinn/shared_invite/zt-7c77c9si-ZnMFwGNtab1aFdC6H_vwog) if this is required for your service.
 {{% /notice %}}
 
 A notification order is made by adding the following when initializing a message:
@@ -34,13 +34,13 @@ A notification order is made by adding the following when initializing a message
       "notificationTemplate": CustomText (0) | GenericAltinnMessage(1),
       "notificationChannel": Email(0) | Sms(1) | EmailPreferred(2) | SmsPreferred(3),
       "SendReminder": boolean,
-      "EmailBody": string?, 
+      "EmailBody": string?,
       "EmailSubject": string?,
       "SmsBody": string?,
-      "ReminderNotificationChannel": Email(0) | Sms(1) | EmailPreferred(2) | SmsPreferred(3), 
+      "ReminderNotificationChannel": Email(0) | Sms(1) | EmailPreferred(2) | SmsPreferred(3),
       "ReminderEmailBody": string?,
       "ReminderEmailSubject": string?,
-      "ReminderSmsBody": string? 
+      "ReminderSmsBody": string?
     }
   },
   "Recipients": [],
@@ -49,14 +49,14 @@ A notification order is made by adding the following when initializing a message
 ```
 
 ## Keyword support
-A list of keywords will soon be implemented in Altinn Notifications, but it is not available yet. 
-This feature will allow you to incorporate keywords into the text, such as \$sendersName\$ to display the name of the organization that sent the correspondence, 
+A list of keywords will soon be implemented in Altinn Notifications, but it is not available yet.
+This feature will allow you to incorporate keywords into the text, such as \$sendersName\$ to display the name of the organization that sent the correspondence,
 or \$recipientName\$ to use the name of the individual or organization receiving the correspondence. Further details will be provided when it is ready.
 
-## Notification Templates 
-Two types of notification templates are offered when using notifications through the Correspondence API. 
+## Notification Templates
+Two types of notification templates are offered when using notifications through the Correspondence API.
 {{% notice warning  %}}
-NOTE: These templates is not the final version. And will change, especially when keywords is ready.
+NOTE: These templates are not the final version and will change, especially when keywords are ready.
 {{% /notice %}}
 
 **CustomText:**
