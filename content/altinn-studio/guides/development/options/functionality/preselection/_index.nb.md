@@ -18,6 +18,12 @@ Noen ganger er det ønskelig at et av svaralternativene er forhåndsvalgt. Det f
 
 ### `preselectedOptionIndex`-egenskapen
 
+{{% notice info %}}
+Denne egenskapen er tilgjengelig for de fleste komponenter som støtter svaralternativer, med unntak av `FileUploadWithTag`
+komponenten. Kun ett alternativ kan være forhåndsvalgt til enhver tid, og det er ikke mulig å velge hvilket alternativ
+som skal være forhåndsvalgt basert på `value`-egenskapen til alternativet.
+{{% /notice %}}
+
 Denne egenskapen lar deg velge et svaralternativ som forhåndsvalgt. Den tar et heltall som argument, som er indeksen
 til svaralternativet som skal være forhåndsvalgt. Indeksen starter på 0 for det første svaralternativet, 1 for det andre
 osv.
@@ -49,6 +55,8 @@ Denne funksjonaliteten følger et sett med regler:
    på skjermen eller ikke.
 4. Forhåndsvalgte verdier blir ikke satt for komponenter som er skjult ved hjelp av [dynamikk](../../../dynamics). Om
    komponenten senere blir vist igjen, vil forhåndsvalget kunne bli satt.
+5. Det forhåndsvalgte alternativet blir bestemt før [sortering](../sorting) blir utført, men etter [filtrering](../filtering).
+
 
 {{% notice warning %}}
 Det finnes situasjoner hvor forhåndsvalg med denne egenskapen ikke er optimalt, og kan føre til
