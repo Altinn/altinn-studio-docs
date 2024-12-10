@@ -141,23 +141,23 @@ Og for en person som er 15 år (eller yngre, som f.eks. en 4-åring), returneres
 
 Dynamiske uttrykk er foreløpig tilgjengelig for bruk i disse egenskapene, som definert i [layout-filer](../../ux/pages).
 
-| Komponenter                                                                                              | Egenskap                      | Forventet verdi            | Frontend | Backend |
-|----------------------------------------------------------------------------------------------------------|-------------------------------|----------------------------|----------|---------|
-| [Sider/layouts](#viseskjule-hele-sider)                                                                  | `hidden`                      | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| Alle                                                                                                     | `hidden`                      | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| Skjemakomponenter                                                                                        | `required`                    | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| Skjemakomponenter                                                                                        | `readOnly`                    | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                | `hiddenRow`                   | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                | `edit.addButton`              | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                | `edit.saveButton`             | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                | `edit.deleteButton`           | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                | `edit.alertOnDelete`          | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                | `edit.saveAndNextButton`      | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Kodelistebaserte komponenter](../../../guides/development/options/static-codelists)                     | `source.label`                | [Streng](#strenger)        | ✅        | ❌       |
-| [Kodelistebaserte komponenter](../../../guides/development/options/static-codelists)                     | `source.description`          | [Streng](#strenger)        | ✅        | ❌       |
-| [Kodelistebaserte komponenter](../../../guides/development/options/static-codelists)                     | `source.helpText`             | [Streng](#strenger)        | ✅        | ❌       |
-| [Kodelistebaserte komponenter](../../../guides/development/options/dynamic-codelists/#basert-på-uttrykk) | `queryParameters.[*]`         | [Streng](#strenger)        | ✅        | ❌       |
-| Alle                                                                                                     | `textResourceBindings.[*]` \* | [Streng](#strenger)        | ✅        | ❌       |
+| Komponenter                                                                                                     | Egenskap                      | Forventet verdi            | Frontend | Backend |
+|-----------------------------------------------------------------------------------------------------------------|-------------------------------|----------------------------|----------|---------|
+| [Sider/layouts](#viseskjule-hele-sider)                                                                         | `hidden`                      | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| Alle                                                                                                            | `hidden`                      | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| Skjemakomponenter                                                                                               | `required`                    | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| Skjemakomponenter                                                                                               | `readOnly`                    | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                       | `hiddenRow`                   | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                       | `edit.addButton`              | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                       | `edit.saveButton`             | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                       | `edit.deleteButton`           | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                       | `edit.alertOnDelete`          | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                       | `edit.saveAndNextButton`      | [Boolsk](#boolske-verdier) | ✅        | ❌       |
+| [Kodelistebaserte komponenter](../../../guides/development/options/sources/from-data-model/#støtte-for-uttrykk) | `source.label`                | [Streng](#strenger)        | ✅        | ❌       |
+| [Kodelistebaserte komponenter](../../../guides/development/options/sources/from-data-model/#støtte-for-uttrykk) | `source.description`          | [Streng](#strenger)        | ✅        | ❌       |
+| [Kodelistebaserte komponenter](../../../guides/development/options/sources/from-data-model/#støtte-for-uttrykk) | `source.helpText`             | [Streng](#strenger)        | ✅        | ❌       |
+| [Kodelistebaserte komponenter](../../../guides/development/options/sources/dynamic/#basert-på-uttrykk)          | `queryParameters.[*]`         | [Streng](#strenger)        | ✅        | ❌       |
+| Alle                                                                                                            | `textResourceBindings.[*]` \* | [Streng](#strenger)        | ✅        | ❌       |
 
 \* = Hvilke verdier man kan overstyre med textResourceBindings varierer fra komponent til komponent, men vil fungere på
 alle steder der det brukes. TextResourceBindings for repeterende grupper finner

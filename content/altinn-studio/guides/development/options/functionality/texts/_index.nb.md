@@ -20,7 +20,7 @@ Både `label` og `value` er påkrevde egenskaper for et svaralternativ.
 Ledetekster, som alle tekster, kan være enten ren tekst eller en nøkkel som peker til en tekstressurs. Hvis
 `label` er en nøkkel som peker til en tekstressurs, kan teksten endres i henhold til brukerens valgte språk.
 
-Den endelige teksten som vises for brukeren kan [også lagres i datamodellen](../data-binding/#storing-the-label) hvis
+Den endelige teksten som vises for brukeren kan [også lagres i datamodellen](../data-binding/#lagring-av-ledetekst--visningsverdi) hvis
 det er nødvendig.
 
 ## Beskrivelse og hjelpetekst

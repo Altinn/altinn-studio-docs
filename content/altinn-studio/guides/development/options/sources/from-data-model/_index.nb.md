@@ -7,7 +7,7 @@ aliases:
   - /nb/altinn-studio/guides/development/options/repeating-group-codelists
 ---
 
-I den forrige seksjonen om [dynamiske svaralternativer](../dynamic) beskrev vi hvordan man kan skrive kode på backend for å generere dynamiske svaralternativer for en komponent. Du kunne også sende visse verdier fra datamodellen til backend for å generere disse alternativene (via [spørringsparametere](../dynamic#spørringsparametere)). Denne fremgangsmåten skalerer dårlig når spørringsparametrene ender opp med å endre alternativene ofte, dvs. når alternativene er funksjonelt unike for en del av dataene i datamodellen.
+I den forrige seksjonen om [dynamiske svaralternativer](../dynamic) beskrev vi hvordan man kan skrive kode på backend for å generere dynamiske svaralternativer for en komponent. Du kunne også sende visse verdier fra datamodellen til backend for å generere disse alternativene (via [spørringsparametre](../dynamic#spørringsparametre)). Denne fremgangsmåten skalerer dårlig når spørringsparametrene ender opp med å endre alternativene ofte, dvs. når alternativene er funksjonelt unike for en del av dataene i datamodellen.
 
 En annen tilnærming er å sette opp svaralternativer basert på en 'repeterende gruppe' i datamodellen. En slik repeterende struktur i datamodellen kan også representere en liste over alternativer for en nedtrekksliste, radioknapper eller avmerkingsbokser. Dette er spesielt nyttig i kombinasjon med [RepeatingGroup](../../../../../reference/ux/fields/grouping/repeating) komponenten, da det lar brukeren legge til og fjerne elementer fra listen, og alternativene vil automatisk oppdateres.
 

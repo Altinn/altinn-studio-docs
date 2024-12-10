@@ -41,7 +41,7 @@ aliases:
 
    Du kan gjøre dette enten ved hjelp av [Altinn Studio](https://altinn.studio) og konfigurere *Kodeliste-ID* for komponenten din i brukergrensesnittet.
 
-   Eller du kan konfigurere komponenten ved å redigere egenskapen `optionsId` i FormLayout.json i henhold til [dokumentasjonen](/altinn-studio/guides/development/options/#connect-the-component-to-options-code-list).
+   Eller du kan konfigurere komponenten ved å redigere egenskapen `optionsId` form komponenten i layout-filen.
 
 ## Tilpasset konfigurasjon
 Mens konfigurasjonen nevnt ovenfor der du kaller `services.AddAltinnCodelists();` vil legge til alle tilgjengelige kodelister med standardverdier, kan det være tilfeller der du ønsker å tilpasse konfigurasjonen av en kodeliste. Eksemplene under vil variere noe avhengig av kilden til kodelisten siden de ulike kildene tilbyr ulike muligheter.

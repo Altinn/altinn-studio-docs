@@ -12,7 +12,7 @@ Legg merke til at det allerede finnes flere måter å gjøre svaralternativene d
 1. Du kan bruke [dynamikk](../../../dynamics) for å skjule og vise helt forskjellige komponenter basert på en betingelse. Disse
    komponentene kan være bundet til samme sted i datamodellen, men ha forskjellige svaralternativer. Merk at
    [automatisk opprydding](../automatic-cleanup) kan fjerne verdier fra datamodellen når du bruker denne metoden.
-2. Ved å bruke [dynamiske alternativer](../../sources/dynamic) og sende spørringsparametere til backenden, kan du skrive 
+2. Ved å bruke [dynamiske alternativer](../../sources/dynamic) og sende spørringsparametre til backenden, kan du skrive 
    kode for å generere et annet sett med alternativer basert på disse spørringsparametrene. Dette kan være nyttig,
    men kan føre til mye nettverkstrafikk hvis alternativene og spørringsparametrene endres ofte.
 3. Ved å bruke [svaralternativer fra en repeterende struktur i datamodellen](../../sources/from-data-model). I kombinasjon

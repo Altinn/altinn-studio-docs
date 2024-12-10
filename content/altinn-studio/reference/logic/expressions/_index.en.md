@@ -146,23 +146,23 @@ And for a person who is 15 years old (or younger, such as a 4-year-old), the tex
   
 Dynamic expressions are currently available for use in these properties, as defined in [layout files](../../ux/pages).  
   
-| Components                                                                                             | Property                      | Expected Value             | Frontend | Backend |
-|--------------------------------------------------------------------------------------------------------|-------------------------------|----------------------------|----------|---------|
-| [Pages/layouts](#showhide-entire-pages)                                                                | `hidden`                      | [Boolean](#boolean-values) | ✅        | ✅       |
-| All                                                                                                    | `hidden`                      | [Boolean](#boolean-values) | ✅        | ✅       |
-| Form components                                                                                        | `required`                    | [Boolean](#boolean-values) | ✅        | ✅       |
-| Form components                                                                                        | `readOnly`                    | [Boolean](#boolean-values) | ✅        | ❌       |
-| [Repeating groups](../../ux/fields/grouping/repeating)                                                 | `hiddenRow`                   | [Boolean](#boolean-values) | ✅        | ❌       |
-| [Repeating groups](../../ux/fields/grouping/repeating)                                                 | `edit.addButton`              | [Boolean](#boolean-values) | ✅        | ❌       |
-| [Repeating groups](../../ux/fields/grouping/repeating)                                                 | `edit.saveButton`             | [Boolean](#boolean-values) | ✅        | ❌       |
-| [Repeating groups](../../ux/fields/grouping/repeating)                                                 | `edit.deleteButton`           | [Boolean](#boolean-values) | ✅        | ❌       |
-| [Repeating groups](../../ux/fields/grouping/repeating)                                                 | `edit.alertOnDelete`          | [Boolean](#boolean-values) | ✅        | ❌       |
-| [Repeating groups](../../ux/fields/grouping/repeating)                                                 | `edit.saveAndNextButton`      | [Boolean](#boolean-values) | ✅        | ❌       |
-| [Option based components](../../../guides/development/options/static-codelists)                        | `source.label`                | [String](#strings)         | ✅        | ❌       |
-| [Option based components](../../../guides/development/options/static-codelists)                        | `source.description`          | [String](#strings)         | ✅        | ❌       |
-| [Option based components](../../../guides/development/options/static-codelists)                        | `source.helpText`             | [String](#strings)         | ✅        | ❌       |
-| [Option based components](../../../guides/development/options/dynamic-codelists/#based-on-expressions) | `queryParameters.[*]`         | [String](#strings)         | ✅        | ❌       |
-| All                                                                                                    | `textResourceBindings.[*]` \* | [String](#strings)         | ✅        | ❌       |
+| Components                                                                                                 | Property                      | Expected Value             | Frontend | Backend |
+|------------------------------------------------------------------------------------------------------------|-------------------------------|----------------------------|----------|---------|
+| [Pages/layouts](#showhide-entire-pages)                                                                    | `hidden`                      | [Boolean](#boolean-values) | ✅        | ✅       |
+| All                                                                                                        | `hidden`                      | [Boolean](#boolean-values) | ✅        | ✅       |
+| Form components                                                                                            | `required`                    | [Boolean](#boolean-values) | ✅        | ✅       |
+| Form components                                                                                            | `readOnly`                    | [Boolean](#boolean-values) | ✅        | ❌       |
+| [Repeating groups](../../ux/fields/grouping/repeating)                                                     | `hiddenRow`                   | [Boolean](#boolean-values) | ✅        | ❌       |
+| [Repeating groups](../../ux/fields/grouping/repeating)                                                     | `edit.addButton`              | [Boolean](#boolean-values) | ✅        | ❌       |
+| [Repeating groups](../../ux/fields/grouping/repeating)                                                     | `edit.saveButton`             | [Boolean](#boolean-values) | ✅        | ❌       |
+| [Repeating groups](../../ux/fields/grouping/repeating)                                                     | `edit.deleteButton`           | [Boolean](#boolean-values) | ✅        | ❌       |
+| [Repeating groups](../../ux/fields/grouping/repeating)                                                     | `edit.alertOnDelete`          | [Boolean](#boolean-values) | ✅        | ❌       |
+| [Repeating groups](../../ux/fields/grouping/repeating)                                                     | `edit.saveAndNextButton`      | [Boolean](#boolean-values) | ✅        | ❌       |
+| [Option based components](../../../guides/development/options/sources/from-data-model/#expression-support) | `source.label`                | [String](#strings)         | ✅        | ❌       |
+| [Option based components](../../../guides/development/options/sources/from-data-model/#expression-support) | `source.description`          | [String](#strings)         | ✅        | ❌       |
+| [Option based components](../../../guides/development/options/sources/from-data-model/#expression-support) | `source.helpText`             | [String](#strings)         | ✅        | ❌       |
+| [Option based components](../../../guides/development/options/sources/dynamic/#based-on-expressions)       | `queryParameters.[*]`         | [String](#strings)         | ✅        | ❌       |
+| All                                                                                                        | `textResourceBindings.[*]` \* | [String](#strings)         | ✅        | ❌       |
 
 \* = The values that can be overridden with textResourceBindings vary from component to component, but will work wherever
 used. For repeating groups, you can find [more information here](../../ux/fields/grouping/repeating#textresourcebindings)  
