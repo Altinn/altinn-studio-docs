@@ -82,6 +82,10 @@ dotnet user-secrets init
 dotnet user-secrets set "NetsPaymentSettings:SecretApiKey" "test-secret-key-used-for-documentation"
 ```
 
+{{%notice warning%}}
+Kall til `AddAzureKeyVaultAsConfigProvider()` må skje __etter__ metoden `ConfigureWebHostBuilder(builder.WebHost)` har kjørt, hvis ikke vil oppstart feile.
+{{% /notice %}}
+
 ### 2. Bruk av ISecretsClient
 
 Dersom man ikke ønsker å legge til Azure Key Vault som config provider så kan man alternativt benytte tjenesten ISecretsClient, som er en wrapper rundt uthenging av hemmeligheter fra Azure Key Vault. Her tilbys metoder for å hente ut en og en hemmelighet der de trengs.
@@ -175,6 +179,6 @@ Har man lastet opp en hemmelighet i Key Vault med navnet "secretId" vil innholde
 
 ```json
 {
-  "secretId": "local cecret dummy data"
+  "secretId": "local secret dummy data"
 }
 ```
