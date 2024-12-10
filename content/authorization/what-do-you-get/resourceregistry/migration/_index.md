@@ -71,6 +71,7 @@ In a request, you can ask about several things simultaneously if needed.
 
 #### Migration of Delegations
 
+
 For most linked services, there are [active delegations in Altinn 2](https://github.com/Altinn/altinn-access-management/issues/579). These are rights granted from one actor to a person or organization.
 
 For these users to continue to have access after transitioning to the resource registry, the rights must be migrated over.
@@ -79,6 +80,7 @@ In Altinn Studio, you can start a batch on services created **based on an import
 
 - Deactivates the Altinn 2 service so that no changes to delegation can be made.
 - Copies the delegations to the new resource in Altinn 3.
+
 
 Currently, this function is hidden behind a feature flag in Altinn Studio.
 
@@ -103,6 +105,7 @@ We hope for feedback from service owners to adjust the process.
 ##### Creating Reference to Altinn 2 Service
 
 If you have created a resource in the Altinn 3 resource registry without using the import functionality, you can add the reference manually.
+
 
 This can be done by the following methods:
 
