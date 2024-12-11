@@ -5,7 +5,7 @@
         "version": "1.0.0",
         "description": "API for Altinn Correspondence functionality."
     },
-    "servers": [
+"servers": [
         {
             "url": "https://platform.tt02.altinn.no",
             "description": "TT02"
@@ -317,7 +317,7 @@
                                         "type": "string"
                                     },
                                     "Correspondence.Sender": {
-                                        "pattern": "^(?:0192:|urn:altinn:organization:identifier-no):\\d{9}$",
+"pattern": "^(?:0192:|urn:altinn:organization:identifier-no):\\d{9}$",
                                         "type": "string"
                                     },
                                     "Correspondence.SendersReference": {
@@ -426,6 +426,12 @@
                                     "Correspondence.Notification.RequestedSendTime": {
                                         "type": "string",
                                         "format": "date-time"
+                                    },
+                                    "Correspondence.Notification.CustomNotificationRecipients": {
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/components/schemas/CustomNotificationRecipientExt"
+                                        }
                                     },
                                     "Correspondence.IgnoreReservation": {
                                         "type": "boolean"
@@ -539,6 +545,9 @@
                                     "style": "form"
                                 },
                                 "Correspondence.Notification.RequestedSendTime": {
+                                    "style": "form"
+                                },
+                                "Correspondence.Notification.CustomNotificationRecipients": {
                                     "style": "form"
                                 },
                                 "Correspondence.IgnoreReservation": {
@@ -1514,6 +1523,27 @@
                 ],
                 "type": "string"
             },
+            "CustomNotificationRecipientExt": {
+                "required": [
+                    "notificationRecipient",
+                    "recipientToOverride"
+                ],
+                "type": "object",
+                "properties": {
+                    "recipientToOverride": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "notificationRecipient": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/NotificationRecipientExt"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
             "ExternalReferenceExt": {
                 "required": [
                     "referenceType",
@@ -1735,6 +1765,13 @@
                     "requestedSendTime": {
                         "type": "string",
                         "format": "date-time",
+                        "nullable": true
+                    },
+                    "recipients": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CustomNotificationRecipientExt"
+                        },
                         "nullable": true
                     }
                 },

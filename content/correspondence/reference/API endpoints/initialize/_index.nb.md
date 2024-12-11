@@ -73,10 +73,10 @@ En liste over de genererte varslene med sendingsresultat. Hvert varsel vil inklu
 
 - _orderId_: ID-en til ordren.
 - _isReminder_: en boolsk verdi som indikerer om varselet er en påminnelse eller ikke.
-- _status_: viser statusen til varselet.
+- _status_: viser statusen til varselet i det tidspunktet meldingen(e) ble opprettet.
 
 | Status            | Beskrivelse                                                                 |
 |:-----------------:|:---------------------------------------------------------------------------:|
-| Success           | Betyr at varselordren ble opprettet vellykket med kontaktinformasjon.       |
-| MissingContact    | Kontaktinformasjon ble ikke funnet på tidspunktet for opprettelsen av meldingen. |
-| Failure           | Opprettelse av varselordre mislyktes.                                       |
+| Success           | Varselordren ble opprettet vellykket med kontaktinformasjon til __minst en__ av mottakerne til varslingen.       |
+| MissingContact    | Kontaktinformasjon ble __ikke funnet for noen__ av mottakerne av varslingen. |
+| Failure           | Opprettelse av varselordre mislyktes på grunn av en feil.  |
