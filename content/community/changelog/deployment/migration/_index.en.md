@@ -59,7 +59,7 @@ version: 1.1.0
 dependencies:
 - name: deployment
   repository: https://charts.altinn.studio/
-  version: 2.8.0
+  version: 3.2.0
 ```
 
 You are using the latest deployment strategy.
@@ -79,7 +79,7 @@ The migration is fairly simple and involves three changes in your deployment fol
     dependencies:
     - name: deployment
       repository: https://charts.altinn.studio/
-      version: 2.8.0
+      version: 3.2.0
     ```
    Your Chart.yaml should now look like this:
     ```yaml
@@ -92,7 +92,7 @@ The migration is fairly simple and involves three changes in your deployment fol
     dependencies:
     - name: deployment
       repository: https://charts.altinn.studio/
-      version: 2.8.0
+      version: 3.2.0
     ```
 3. Add a new line at the top of your values.yaml containing the string `deployment:` and indent all the old lines with
    two spaces (yaml treats spaces and tab differently so check that you add spaces) <br><br>Given that your values.yaml
