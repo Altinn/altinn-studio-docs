@@ -13,6 +13,6 @@ The following figure gives a high level solution overview.
 
 ![Altinn 3 Correspondence High Level Solution Overview](altinn3-correspondence-solution-overview-en.png "Altinn 3 Correspondence High Level Solution Overview")
 
-## Integration with Dialogporten and Felles arbeidsflate
+## Integration with Dialogporten and Arbeidsflate
 
-![Integration with Dialogporten and Felles arbeidsflate](altinn3-correspondence-and-dialogporten-en.png "Integration with Dialogporten and Felles arbeidsflate")
+![Integration with Dialogporten and Arbeidsflate](altinn3-correspondence-and-dialogporten-en.png "Integration with Dialogporten and Arbeidsflate")

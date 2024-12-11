@@ -60,9 +60,9 @@ weight: 20
   e.g., on-premises at the sender or in the sender's preferred cloud solution.
 
 
-### Integration with Altinn 3 Dialogporten and Felles Arbeidsflate
+### Integration with Dialogporten and Arbeidsflate
 
-- Unified user interface across multiple messaging solutions through Altinn 3 Felles Arbeidsflate.
+- Unified user interface across multiple messaging solutions through Altinn 3 Arbeidsflate.
 - Activity log in Altinn 3 Dialogporten.
 
 ## Summary of advantages of Altinn Correspondence
