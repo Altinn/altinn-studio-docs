@@ -96,7 +96,7 @@ Bestemmer om teksten vises under eller ved siden av ledeteksten. `horizontal` fo
 
 #### Eksempel
 
-Tekst med ledetekst og ikon.
+Tekst med ledetekst.
 
 ```json{hl_lines=["9-12"]}
 {
@@ -109,4 +109,4 @@ Tekst med ledetekst og ikon.
   "direction": "horizontal",
 },
 ```
-![Tekst eksempel](<text-example-with-icon.png> "Tekst med ikon og label")
+![Tekst eksempel](<text-example-with-icon.png> "Tekst med label")

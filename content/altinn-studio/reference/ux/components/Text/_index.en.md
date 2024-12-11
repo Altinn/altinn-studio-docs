@@ -117,5 +117,5 @@ Text with label.
 },
 ```
 <!-- 
-![Text example](<text-example-with-icon.png> "Text with icon and label")
+![Text example](<text-example-with-icon.png> "Text with label")
 -->
