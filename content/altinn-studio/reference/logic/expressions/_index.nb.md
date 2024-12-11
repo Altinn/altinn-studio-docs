@@ -259,37 +259,39 @@ Hva vil resultatet bli i de forskjellige eksemplene? Her er svarene:
 Disse funksjonene er tilgjengelige for bruk i uttrykk:
 
 | Funksjonsnavn                                | Parametre                                          | Returverdi                           | Frontend | Backend |
-| -------------------------------------------- | -------------------------------------------------- | ------------------------------------ | -------- | ------- |
-| [`equals`](#func-equals)                     | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
-| [`notEquals`](#func-equals)                  | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
-| [`not`](#func-not)                           | [Boolsk](#boolske-verdier)                         | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
-| [`greaterThan`](#func-gt)                    | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
-| [`greaterThanEq`](#func-gt)                  | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
-| [`lessThan`](#func-gt)                       | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
-| [`lessThanEq`](#func-gt)                     | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
-| [`concat`](#func-concat)                     | Ingen eller flere [strenger](#strenger)            | [Streng](#strenger)                  | ✅       | ✅      |
-| [`and`](#func-and)                           | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
-| [`or`](#func-and)                            | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
-| [`if`](#func-if)                             | [Se detaljert beskrivelse](#func-if)               | [Se detaljert beskrivelse](#func-if) | ✅       | ✅      |
-| [`contains`](#func-contains-not-contains)    | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
-| [`notContains`](#func-contains-not-contains) | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
-| [`commaContains`](#func-commaContains)       | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
-| [`startsWith`](#func-starts-ends-with)       | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
-| [`endsWith`](#func-starts-ends-with)         | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
-| [`lowerCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
-| [`upperCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
-| [`stringLength`](#func-stringLength)         | [Streng](#strenger)                                | [Tall](#tall)                        | ✅       | ✅      |
-| [`text`](#func-text)                         | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ❌      |
-| [`language`](#func-language)                 | Ingenting                                          | [Streng](#strenger)                  | ✅       | ❌      |
-| [`displayValue`](#func-displayValue)         | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ❌      |
-| [`round`](#func-round)                       | [Tall](#tall), valgfritt [Tall](#tall)             | [Streng](#strenger)                  | ✅       | ✅      |
-| [`instanceContext`](#func-instancecontext)   | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
-| [`frontendSettings`](#func-frontendsettings) | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
-| [`dataModel`](#func-datamodel)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
-| [`component`](#func-component)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅       | ✅      |
-| [`formatDate`](#func-formatDate)             | [Streng](#strenger), valgfri [Streng](#strenger)   | [Streng](#strenger)                  | ✅       | ❌      |
-| [`linkToPage`](#func-linkToPage)                 | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger)                   | ✅       | ❌      |  
-| [`linkToComponent`](#func-linkToComponent)                 | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger)                   | ✅       | ❌      |  
+|----------------------------------------------|----------------------------------------------------|--------------------------------------|----------|---------|
+| [`equals`](#func-equals)                     | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`notEquals`](#func-equals)                  | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`not`](#func-not)                           | [Boolsk](#boolske-verdier)                         | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`greaterThan`](#func-gt)                    | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`greaterThanEq`](#func-gt)                  | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`lessThan`](#func-gt)                       | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`lessThanEq`](#func-gt)                     | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`concat`](#func-concat)                     | Ingen eller flere [strenger](#strenger)            | [Streng](#strenger)                  | ✅        | ✅       |
+| [`and`](#func-and)                           | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`or`](#func-and)                            | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`if`](#func-if)                             | [Se detaljert beskrivelse](#func-if)               | [Se detaljert beskrivelse](#func-if) | ✅        | ✅       |
+| [`contains`](#func-contains-not-contains)    | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`notContains`](#func-contains-not-contains) | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`commaContains`](#func-commaContains)       | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`startsWith`](#func-starts-ends-with)       | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`endsWith`](#func-starts-ends-with)         | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`lowerCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
+| [`upperCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
+| [`stringLength`](#func-stringLength)         | [Streng](#strenger)                                | [Tall](#tall)                        | ✅        | ✅       |
+| [`text`](#func-text)                         | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ❌       |
+| [`language`](#func-language)                 | Ingenting                                          | [Streng](#strenger)                  | ✅        | ❌       |
+| [`displayValue`](#func-displayValue)         | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ❌       |
+| [`round`](#func-round)                       | [Tall](#tall), valgfritt [Tall](#tall)             | [Streng](#strenger)                  | ✅        | ✅       |
+| [`instanceContext`](#func-instancecontext)   | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
+| [`frontendSettings`](#func-frontendsettings) | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
+| [`dataModel`](#func-datamodel)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
+| [`component`](#func-component)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
+| [`formatDate`](#func-formatDate)             | [Streng](#strenger), valgfri [Streng](#strenger)   | [Streng](#strenger)                  | ✅        | ❌       |
+| [`linkToPage`](#func-linkToPage)             | [Streng](#strenger), [Streng](#strenger)           | [Streng](#strenger)                  | ✅        | ❌       |
+| [`linkToComponent`](#func-linkToComponent)   | [Streng](#strenger), [Streng](#strenger)           | [Streng](#strenger)                  | ✅        | ❌       |
+| [`argv`](#func-argv)                         | [Tall](#tall)                                      | [Streng](#strenger)                  | ✅        | ✅       |
+| [`value`](#func-value)                       | valgfri [Streng](#strenger)                        | [Streng](#strenger)                  | ✅        | ❌       |
 
 Detaljerte beskrivelser og eksempler
 
@@ -824,6 +826,39 @@ Det andre argumentet er id-en til komponenten lenken skal peke til.
 ```
 Resultatet vil bli `<a href="#/instance/<party-id>/<instance-id>/<TaskId>/<PageId>?focusNodeId=inputMyName">Oppgi navnet ditt</a>`
 Denne lenken vil ta brukeren til siden komponenten er på og fokusere på den spesifiserte komponenten, når brukeren klikker på lenken.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-argv" header="argv" %}}
+`argv`-funksjonen kan brukes for å hente ut argumenter som er sendt inn til uttrykket. Dette er foreløpig bare
+tilgjengelig for [validering vha. uttrykk](../validation/expression-validation).
+
+Funksjonen tar 1 argument, som er indeksen til argumentet du ønsker å hente ut. Indeksen starter på 0.
+
+```json
+["argv", 0]
+```
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-value" header="value" %}}
+I likhet med `argv` er `value`-funksjonen også en metode for å hente ut argumenter som er sendt inn til uttrykket.
+Funksjonen kan brukes uten argumenter for å hente ut en verdi, eller med et argument for å hente ut andre
+typer verdier. Dette er foreløpig tilgjengelig for
+[filtrering av svaralternativer](../../../guides/development/options/functionality/filtering) og blir snart tilgjengelig
+som et alternativ til `argv` i [validering vha. uttrykk](../validation/expression-validation).
+
+```json
+["value"]
+```
+
+Dette uttrykket henter ut verdien til svaralternativet (om brukt i filtrering av svaralternativer). I andre sammenhenger
+gir dette uttrykket foreløpig en feilmelding.
+
+```json
+["value", "label"]
+```
+
+Uttrykket over henter ut teksten til svaralternativet (om brukt i filtrering av svaralternativer). I andre sammenhenger
+gir dette uttrykket en feilmelding.
 {{% /expandlarge %}}
 
 ## Datatyper
