@@ -27,7 +27,7 @@ Used by senders and receiver to identify a specific Correspondence using externa
 
 ### messageSender
 
-Type: _string_
+Type: _string?_
 
 An alternative name for the sender of the correspondence. The name will be displayed instead of the organization name.
 
@@ -39,25 +39,26 @@ The correspondence content. Contains information about the title, body, etc.
 
 ### requestedPublishTime
 
-Type: _DateTimeOffset_
+Type: _DateTimeOffset?_
 
 When the correspondence should become visible to the recipient.
+If value is set to `null` during initialization, the correspondence is published immediately. 
 
 ### allowSystemDeleteAfter
 
-Type: _DateTimeOffset_
+Type: _DateTimeOffset?_
 
 The date for when Altinn can remove the correspondence from its database
 
 ### dueDateTime
 
-Type: _DateTimeOffset_
+Type: _DateTimeOffset?_
 
 The date and time for when the recipient must reply.
 
 ### externalReferences
 
-Type: [List\<ExternalReferencesExt>](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/ExternalReferenceExt.cs)
+Type: [List\<ExternalReferencesExt>?](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/ExternalReferenceExt.cs)
 
 A list of references senders can use to tell the recipient that the correspondence is related to the referenced item(s).
 Examples include Altinn App instances, Altinn Broker file transfers.
@@ -72,17 +73,17 @@ User-defined properties related to the Correspondence.
 
 Type: [List\<CorrespondenceReplyOptions>](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/CorrespondenceReplyOptionExt.cs)
 
-Options for how the recipient can reply to the correspondence.
+Options for how the recipient can reply to the correspondence by accessing one or more URLs.
 
 ### notification
 
-Type: [InitializeCorrespondenceNotificationExt](/correspondence/reference/api-endpoints/initialize/InitializeCorrespondenceNotificationExt)
+Type: [InitializeCorrespondenceNotificationExt?](/correspondence/reference/api-endpoints/initialize/InitializeCorrespondenceNotificationExt)
 
 Notifications directly related to the correspondence
 
 ### ignoreReservation
 
-Type: _bool_, false if not specified otherwise
+Type: _bool?_, false if not specified otherwise
 
 Specifies whether the correspondence can override reservation against digital communication in the __Contact and Reservation Register (KRR)__
 
@@ -94,7 +95,7 @@ The date and time of which the correspondence was published.
 
 ### isConfirmationNeeded
 
-Type: _bool_, false if not specified otherwise
+Type: _bool?_, false if not specified otherwise
 
 Specifies whether the recipient must confirm the correspondence have been read.
 If confirmation is needed and the recipient has not confirmed the correspondence within the due date, this will result in the event `CorrespondenceRecipientNeverConfirmed` being published.
