@@ -94,7 +94,7 @@ Specifies whether the correspondence can override reservation against digital co
 
 Type: _DateTimeOffset?_
 
-The date and time of which the correspondence was published. 
+The date and time of which the correspondence was published. This value is set automatically after the correspondence has been published.
 
 ### isConfirmationNeeded
 
