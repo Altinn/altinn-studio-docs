@@ -77,10 +77,10 @@ A list of the generated notifications with send results. Each notification will 
 
 - _orderId_: the ID of the order.
 - _isReminder_: a boolean indicating whether the notification is a reminder or not.
-- _status_: shows the status of the notification.
+- _status_: shows the status of the notification at the time of creating the correspondence(s).
 
 | Status            | Description                                                                 |
 |:-----------------:|:---------------------------------------------------------------------------:|
-| Success           | Means that the notification order was created successfully with contact information. |
-| MissingContact    | Contact information was not found at the time of creating the correspondence. |
-| Failure           | Creating notification order failed.                                         |
+| Success           | Notification order was created successfully with contact information for __at least one__ of the recipients for the notification. |
+| MissingContact    | Contact information was not found for __any of__ the recipients for the notification at the time of creating the correspondence. |
+| Failure           | Creating notification order failed due to an error.|
