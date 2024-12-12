@@ -9,7 +9,7 @@ weight: 10
 
 Due to a simplification of service configuration in Altinn 3 for Correspondence, migration in practice only consists of:
 
-- Creating a new resource in the [Resource Registry](../../../authorization/what-do-you-get/resourceregistry) based on the Altinn 2 service
+- Creating a new resource in the [Resource Registry](../../../authorization/what-do-you-get/resourceregistry) based on the Altinn 2 service.
 - Translate authorization rules to xacml-policy for access control.
   - Note that there is a simplification of rights for Correspondence between the Altinn 2 and Altinn 3 versions.
 

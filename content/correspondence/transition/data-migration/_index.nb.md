@@ -13,9 +13,9 @@ weight: 20
 - Den migrerte versjonen av et element vil ha en referanse til sin gamle Altinn 2 versjon, eksponert i feltet: "Altinn2CorrespondenceId" i CorrespondenceOverview endepunkt.
 - Etter migrering vil elementene ikke lenger være tilgjengelig i Altinn 2 API.
   - Men de er nå tilgjengelige på lik linje med andre Altinn 3 Meldinger;
-    - Altinn 3 Melding API
-    - Dialogporten
-    - Arbeidsflate
+    - Altinn 3 Melding API.
+    - Dialogporten.
+    - Arbeidsflate.
     - Visning i Altinn 2 Portal.
 - Ingen data saneres som resultat av migrering; Meldingene blir kun flagget i databasen, og det er mulig å utføre migrering på nytt og/eller hente ut data manuelt ved spesielle behov.
 
@@ -59,7 +59,7 @@ I starten vil hvert av disse stegene trigges manuelt av Flytt av data-teamet, me
 
 - Kun Meldinger som hverken er Arkiverte eller markert som slettet.
 - Meldingsinnholdet, inkludert tekst og alle vedlegg og metadata.
-- En begrenset form av varslingshistorikk: Tidspunkt og mottakeraddresse, men ikke tekstinnhold.
+- En begrenset form av varslingshistorikk: Tidspunkt og mottakeradresse, men ikke tekstinnhold.
 - Endringshistorikk; inkludert åpning og lesebekreftelse.
 - Altinn 2 CorrespondenceId og NotificationId som gjør det mulig å gjøre oppslag i Altinn 2 i tilfeller der man må gjøre mer detaljerte undersøkelser.
 
@@ -67,7 +67,7 @@ I starten vil hvert av disse stegene trigges manuelt av Flytt av data-teamet, me
 
 Det vil **ikke** være noen form for synkronisering av statusendringer på melding eller varslinger mellom de 2 løsningene etter at migrering er utført.
 
-Eksisterende status/historikk blir migrert over i steg 1, og etter steg 3 sperres Altinn 2 elementet for flere endringer, og er ikke lenger tilgjengelig eksternt. Dataene blir ikke slettet fra Altinn 2.
+Eksisterende status/historikk blir migrert over i steg 1, og etter steg 3 sperres Altinn 2 elementet for flere endringer, og er ikke lenger tilgjengelig eksternt. Data blir ikke slettet fra Altinn 2.
 
 Dette for å unngå stor teknisk kompleksitet og avhengighet på tvers.
 

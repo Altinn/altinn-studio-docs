@@ -7,10 +7,16 @@ toc: false
 weight: 60
 ---
 
+{{% notice warning  %}}
+Denne delen av dokumentasjonen er under utarbeidelse.
+Det er kapitler som bare er delvis ferdigstilt.
+Noe funksjonalitet er fremdeles under avklaring og utvikling og representerer ikke endelig versjon.
+{{% /notice %}}
+
 For å forenkle overgangen fra Altinn 2 til Altinn 3 versjon av Melding-produktet, så har man fulgt en overordnet strategi som har hatt som mål å balansere kompleksitet og brukervennlighet for alle parter.
 
 - Altinn 3 Melding har i stor grad lik datamodell som Altinn 2 for å muliggjøre mapping/migrering.
-- Alle Altinn 2 Meldinger og vedlegg migreres inn i Altinn 3 Melding.
+- Alle Altinn 2 Meldinger og vedlegg migreres til Altinn 3 Melding.
 - Alle Altinn 2 Meldingstjenester med data blir opprettet som Altinn 3 Meldingstjenester.
 - Man migrerer data/metadata i en prosess som også tilgjengeliggjør elementene i Dialogporten og Arbeidsflate.
 - Migrering av historiske data vil ta tid (uker/måneder), og overgangsløsning bygges med dette i mente.

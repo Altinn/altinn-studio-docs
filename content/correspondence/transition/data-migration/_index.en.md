@@ -13,9 +13,9 @@ The "Flytt av Data" project will take responsibility for migrating all historica
 - The migrated version of an element will have a reference to its old Altinn 2 version, exposed in the field: "Altinn2CorrespondenceId" in the CorrespondenceOverview endpoint.
 - After migration, the elements will no longer be available in the Altinn 2 API.
   - But they are now available on par with other Altinn 3 Correspondences;
-    - Altinn 3 Correspondence API
-    - Dialog Portal
-    - Unified Workspace
+    - Altinn 3 Correspondence API.
+    - Dialog Portal.
+    - Unified Workspace.
     - Display in Altinn 2 Portal.
 - No data is deleted as a result of migration; the Correspondences are only flagged in the database, and it is possible to perform the migration again and/or manually retrieve data if needed.
 

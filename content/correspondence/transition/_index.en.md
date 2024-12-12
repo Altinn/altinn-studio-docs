@@ -7,6 +7,12 @@ toc: true
 weight: 60
 ---
 
+{{% notice warning  %}}
+This section of the documentation is a work in progress.
+There are sections with missing or only partial documentation.
+Some functionality is still under analysis and development, and does not represent the final production version.
+{{% /notice %}}
+
 To simplify the transition from Altinn 2 to the Altinn 3 version of the Correspondence product, an overall strategy has been followed aiming to balance complexity and user-friendliness for all parties.
 
 - Altinn 3 Correspondence largely has the same data model as Altinn 2 to enable mapping/migration.
@@ -21,6 +27,6 @@ To simplify the transition from Altinn 2 to the Altinn 3 version of the Correspo
 
 ## Overall Process flow
 
-TODO: Short version of process flow with diagrams?
+TODO: Short version of process flow with diagrams.
 
 {{<children />}}

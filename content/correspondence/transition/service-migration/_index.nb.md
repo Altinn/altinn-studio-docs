@@ -9,9 +9,9 @@ weight: 10
 
 Grunnet en forenkling av tjenestekonfigurasjon i Altinn 3 for Melding, består migrering i praksis bare av:
 
-- Opprette ny ressurs i [Ressursregisteret](../../../authorization/what-do-you-get/resourceregistry) basert på Altinn 2 tjenesten
+- Opprette ny ressurs i [Ressursregisteret](../../../authorization/what-do-you-get/resourceregistry) basert på Altinn 2 tjenesten.
 - Oversettelse av autorisasjonsregler til xacml-policy for tilgangstyring.
-  - Merk at det er en forenkling av rettigheter for Melding mellom Altinn 2 og Altinn 3-versjonene.  
+  - Merk at det er en forenkling av rettigheter for Melding mellom Altinn 2 og Altinn 3-versjonene.
 
 ## Automatisk migrering av tjenestekonfigurasjon
 
