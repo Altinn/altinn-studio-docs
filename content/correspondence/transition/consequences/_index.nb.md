@@ -32,7 +32,7 @@ Her er en kort oppsummering av hvilke konsekvenser valgt overgangs- og migrering
 ### Via Arbeidsflate
 
 - Får opp meldingene som er opprettet i Altinn 3, samt de som er blitt migrert.
-- Meldinger i Altinn 2 som ikke er blitt migrert, vil ikke være tilgjengelig.
+- Meldinger i Altinn 2 som ikke er blitt migrert, **vil ikke være tilgjengelig** siden Arbeidsflate baserer seg på Dialogporten, og Altinn 2 Meldinger ikke er opprettet i Dialogporten fra før.
 
 ## SluttbrukerSystem
 
@@ -44,6 +44,7 @@ Her er en kort oppsummering av hvilke konsekvenser valgt overgangs- og migrering
 
 ## Dialogporten og Arbeidsflate
 
-- Altinn 2 elementer blir ikke tilgjengeliggjort før de er migrert, men migrering kan skje relativt raskt etter at de er opprettet i Altinn 2 (styrt av **migreringsventetid**).
+- Altinn 2 elementer er ikke tilgjengelige i Dialogporten før de har blitt migrert og en Dialog blir opprettet som peker til elementet.
+- Ved å redusere **migreringsventetid**, kan migrering skje relativt raskt etter at de er opprettet i Altinn 2, og dermed gjøre dem tilgjengelig i Dialogporten og Arbeidsflate.
 
 {{<children />}}
