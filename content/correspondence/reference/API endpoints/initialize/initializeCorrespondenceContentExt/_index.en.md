@@ -28,6 +28,6 @@ Type: _string_
 The main body of content of the correspondence.
 
 ### attachments
-Type: [List\<InitializeCorrespondenceAttachmentExt>]() 
+Type: [List\<InitializeCorrespondenceAttachmentExt>](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/InitializeCorrespondenceAttachmentExt.cs) 
 
 List of attachments to be uploaded _with_ the correspondence, using the __upload__ endpoint.
