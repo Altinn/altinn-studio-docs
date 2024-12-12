@@ -27,7 +27,7 @@ See [Authentication and Authorization](/notifications/reference/api/#authenticat
 
 ## Request
 
-### Content type
+### Content-Type
 
 application/json
 
@@ -50,9 +50,9 @@ Type:  _List\<string>_
 
 List of recipients for the correspondence. This can either be the organization number or the national identity number of the recipient.
 
-For *organization numbers*, the recipients must include the prefix `urn:altinn:organization:identifier-no` in front of the organization number.
+For *organization numbers*, the recipients must include the prefix `urn:altinn:organization:identifier-no` in front of the organization number. Example `urn:altinn:organization:identifier-no:123456789`
 
-For *national identity numbers*, the must have the prefix `urn:altinn:person:identifier-no` in front of the identity number.
+For *national identity numbers*, the recipients must have the prefix `urn:altinn:person:identifier-no` in front of the identity number. Example `urn:altinn:person:identifier-no:01019912345`
 
 ### Optional request properties
 
@@ -60,7 +60,7 @@ For *national identity numbers*, the must have the prefix `urn:altinn:person:ide
 
 Type:  _List\<string>_
 
-List of attachment ID(s) for the attachment(s) which should be included with the correspondence(s). These must be uploaded using the attachment endpoint beforehand.
+List of attachment ID(s) for the attachment(s) which should be included with the correspondence(s). These must be uploaded using the **attachment** endpoint beforehand.
 
 ## Response
 
@@ -76,7 +76,6 @@ List of attachment ID(s) for the attachment(s) which should be included with the
 - application/json
 
 ### Response body
-
 
 The response body returns a list of correspondences [InitializeCorrespondencesResponseExt](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/InitializeCorrespondencesResponseExt.cs), with one correspondence for each recipient.
 Find a short description of each property below.
