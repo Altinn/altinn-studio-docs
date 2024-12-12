@@ -76,7 +76,7 @@ Options for how the recipient can reply to the correspondence.
 
 ### notification
 
-Type: [InitializeCorrespondenceNotificationExt](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/InitializeCorrespondenceNotificationExt.cs)
+Type: [InitializeCorrespondenceNotificationExt](/correspondence/reference/api-endpoints/initialize/InitializeCorrespondenceNotificationExt)
 
 Notifications directly related to the correspondence
 
