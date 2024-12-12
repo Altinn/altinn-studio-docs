@@ -57,7 +57,7 @@ The date for when Altinn can remove the correspondence from its database
 
 Type: _DateTimeOffset?_
 
-The date and time for when the recipient must reply.
+The date and time for when the recipient must reply/confirm.
 
 ### externalReferences
 
