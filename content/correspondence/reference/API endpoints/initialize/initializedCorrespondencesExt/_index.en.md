@@ -6,7 +6,9 @@ description: Description of the properties for the object
 weight: 60
 toc: true
 ---
-Link to [InitializeCorrespondenceContentExt](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/InitializeCorrespondenceContentExt.cs)
+Link to [InitializedCorrespondencesExt](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/InitializedCorrespondencesExt.cs)
+
+Represents a correspondence that has been initialized
 
 #### correspondenceId
 

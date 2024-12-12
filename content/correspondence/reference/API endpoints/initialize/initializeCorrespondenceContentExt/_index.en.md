@@ -7,6 +7,9 @@ weight: 60
 toc: true
 ---
 
+Link to [InitializeCorrespondenceContentExt](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/InitializeCorrespondenceContentExt.cs)
+
+Represents the content of a reported element of the type correspondence.
 ### language
 Type: _string_
 

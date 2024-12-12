@@ -6,6 +6,9 @@ description: Description of the properties for the object
 weight: 60
 toc: true
 ---
+Link to [BaseCorrespondenceExt](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/BaseCorrespondenceExt.cs)
+
+Represents a request object for the operation, InitializeCorrespondence, that can create a correspondence in Altinn.
 
 ### resourceId
 
