@@ -82,7 +82,7 @@ Notifications directly related to the correspondence
 
 ### ignoreReservation
 
-Type: _bool_
+Type: _bool_, false if not specified otherwise
 
 Specifies whether the correspondence can override reservation against digital communication in the __Contact and Reservation Register (KRR)__
 
@@ -94,6 +94,7 @@ The date and time of which the correspondence was published.
 
 ### isConfirmationNeeded
 
-Type: _bool_
+Type: _bool_, false if not specified otherwise
 
 Specifies whether the recipient must confirm the correspondence have been read.
+If confirmation is needed and the recipient has not confirmed the correspondence within the due date, this will result in the event `CorrespondenceRecipientNeverConfirmed` being published.
