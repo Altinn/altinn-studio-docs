@@ -52,7 +52,7 @@ Body for sms if sms is chosen as notification channel
 ### sendReminder
 Type: _string?_
 
-Used to decide a reminder be sent if the notification is not confirmed within 7 days
+Used to decide a reminder be sent if the correspondence is not read within 7 days
 
 ### reminderEmailSubject
 Type: _string?_
