@@ -33,7 +33,7 @@ An alternative name for the sender of the correspondence. The name will be displ
 
 ### content
 
-Type: [InitializeCorrespondenceContentExt](/correspondence/reference/api-endpoints/initialize/initializeCorrespondenceContentExt)
+Type: [InitializeCorrespondenceContentExt](/correspondence/reference/api-endpoints/initialize/initializecorrespondencecontentext)
 
 The correspondence content. Contains information about the title, body, etc.
 
@@ -77,7 +77,7 @@ Options for how the recipient can reply to the correspondence by accessing one o
 
 ### notification
 
-Type: [InitializeCorrespondenceNotificationExt?](/correspondence/reference/api-endpoints/initialize/initializeCorrespondenceNotificationExt)
+Type: [InitializeCorrespondenceNotificationExt?](/correspondence/reference/api-endpoints/initialize/initializecorrespondencenotificationext)
 
 Notifications directly related to the correspondence
 
