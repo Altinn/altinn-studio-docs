@@ -15,7 +15,7 @@ Use the date picker if something is being planned, or for selecting a (relativel
 
 ### Example of usage:
 
-<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D4833%253A961" allowfullscreen></iframe>
+<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://embed.figma.com/proto/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio-Komponenter?page-id=7653%3A49596&node-id=8014-16586&node-type=frame&viewport=572%2C356%2C0.19&scaling=scale-down&content-scaling=fixed&embed-host=share" allowfullscreen></iframe>
 
 ---
 
@@ -30,4 +30,7 @@ Date fields should be used for dates further back in time, or for dates that the
 - If the foundational data exists, a specific date can be suggested in the field, or it can be preset with the current date.
   
 ### Example of usage:
-{{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5139%253A832" %}}
+
+<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://embed.figma.com/proto/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio-Komponenter?page-id=7653%3A49596&node-id=8300-25621&node-type=frame&viewport=2176%2C-50%2C0.76&scaling=scale-down&content-scaling=fixed&embed-host=share" allowfullscreen></iframe>
+
+---
