@@ -1,13 +1,12 @@
 ---
-title: Integrate Altinn app with Maskinporten
-linktitle: Maskinporten-App integration
+title: Integrate an Altinn app with Maskinporten
+linktitle: Maskinporten
 description: How to setup an integration between an Altinn App and Maskinporten.
 weight: 100
 toc: true
 aliases:
-
 - /app/maskinporten-app-integration/
-
+- /altinn-studio/guides/integration/maskinporten-app-integration
 ---
 
 This guide details how to set up an Altinn application with a HTTP client that utilizes Maskinporten authentication for

@@ -1,13 +1,12 @@
 ---
 title: Integrasjon av Altinn-app med Maskinporten
-linktitle: Maskinporten-App-integrasjon
+linktitle: Maskinporten
 description: Hvordan sette opp en integrasjon mellom en Altinn-app og Maskinporten.
 weight: 100
 toc: true
 aliases:
-
 - /app/maskinporten-app-integration/
-
+- /altinn-studio/guides/integration/maskinporten-app-integration
 ---
 
 Denne veiledningen viser hvordan du setter opp en Altinn-applikasjon med en HTTP-klient som benytter Maskinporten for
