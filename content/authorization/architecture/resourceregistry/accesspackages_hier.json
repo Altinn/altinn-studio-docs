@@ -300,9 +300,9 @@
           },
           {
             "id": "04b3a462-43f6-4435-9d12-2f42df6b45fc",
-            "urn": "NaN",
+            "urn": "urn:altinn:accesspackage:opptreforvirksomhetenskunder",
             "name": "Opptre for virksomhetens kunder",
-            "description": "NaN"
+            "description": "Denne tilgangspakken gir fullmakter til når en leverandørvirksomhet skal utføre tjenester på vegne av sine kunder via et programmeringsgrensesnitt (API). Fullmakten kan gis til til virksomhetsbruker som er knyttet til leverandørens organisasjonsnummer. Men denne fullmakten vil virksomhetsbrukeren kunne utføre alle tjenester som leverandøren har tilgang til å utføre på vegne av alle sine kunder/klienter. Fullmakten gir ikke virksomhetsbruker tilgang til å utføre tjenester på vegne av leverandøren selv, bare kunder av leverandøren. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. Denne fullmakten har tidligere hatt navnet “ECKEYROLE”, behovet for denne må vurderes opp mot ny løsning for systembruker."
           },
           {
             "id": "66bd8101-fbd8-491b-b1f5-2f53a9476ffd",
