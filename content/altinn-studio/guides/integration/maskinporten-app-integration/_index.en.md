@@ -10,138 +10,102 @@ aliases:
 
 ---
 
-This is a guide on how to set up an Altinn application to create a client that utilizes a Maskinporten integration for
-its requests. This is a use case that is relevant when the application are going to perform requests that needs to
-be authorized on behalf of the organization owning the application and not the end user owning the instance. By nature,
-these requests will have credentials from the private user who logged in to the application and created the new
-instance. In order to send these requests on behalf of the organization the following must be done;
+This guide details how to set up an Altinn application with a HTTP client that utilizes Maskinporten authentication for
+its requests. This is useful when the application needs to perform authorized requests on behalf of the app owner,
+as opposed to the active user.
 
-1. Ensure organization has access to Azure key vault
-2. Create the integration to Maskinporten
-   at [Samarbeidsportalen](https://samarbeid.digdir.no/)
-3. Store the keys from the integration in Azure key vault for
-   the organisation
-4. Set up the application to use the Maskinporten client by retrieving the secrets/keys from Azure key vault.
+In order to set this up, the following must be done:
+
+1. Ensure organization has access to Azure Key Vault.
+2. Create the integration to Maskinporten at [Samarbeidsportalen](https://samarbeid.digdir.no/).
+3. Store the authentication key for the integration in Azure Key Vault.
+4. Set up the application to use the Maskinporten client and retrieve secrets from Azure Key Vault.
 
 ## Azure Key Vault Access
-Before going forward in this guide, make sure you have access
-to Azure key vault for your organization, so the keys
-created further on in the guide can be added directly into
-the secrets in Azure.
+Before proceeding with this guide, make sure you have access to Azure Key Vault for your organization.
+This ensures that the keys created further on in the guide can be stored properly as secrets in Azure.
 
 If access is missing, please refer to [Access to logs and secrets](/altinn-studio/guides/administration/access-management/apps).
 
 ## Maskinporten Integration
 
-In this section the Maskinporten client will be set up. A part of setting up the client includes creating keys that
-should be stored in Azure Key vault later on in the guide. If different people in the organization have access to
+In this section we will set up the Maskinporten client. A part of setting up the client includes creating keys that
+should be stored in Azure Key Vault later on in the guide. If different people in the organization have access to
 different resources needed in this process, please cooperate and do the following steps on the same machine. This is
 recommended to avoid sending secrets between machines.
 
-When access to creating secrets in Azure key vault is
-confirmed, please proceed to create the integration.
+When access to creating secrets in Azure Key Vault is confirmed, please proceed to create the integration.
 
 {{% expandlarge id="guide-mp-int-samarbeid" header="Guide on how to register a new Maskinporten integration in Samarbeidsportalen" %}}
 
-{{% insert "content/altinn-studio/guides/shared/maskinporten-integration/maskinporten-integration-samarbeidsportal.md" %}}
+{{% insert "/content/altinn-studio/guides/shared/maskinporten-integration/maskinporten-integration-samarbeidsportal.md" %}}
 {{% /expandlarge %}}
 
 ## Azure Key Vault Configuration
 
-When preparing the application to use the secrets from Azure Key vault, there are some steps that needs to be done:
+When preparing the application to use secrets from Azure Key Vault, there are some steps that need to be done:
 
-1. Add the secrets retrieved during the Maskinporten client configuration to Azure Key vault:
+1. Add the secrets retrieved during the Maskinporten client configuration to Azure Key Vault:
    - The base64 encoded JWT public and private key pair
-   - The clientID for the integration
+   - The client ID for the integration
 
-   It is important that the name of these secrets in Azure key vault corresponds
-   with the name of the section in the appsettings file in the
-   application repository. E.g. if your appsettings section for
-   the Maskinporten integration section looks like this:
+   It is important that the name of these secrets in Azure Key Vault corresponds with the name of the section in the 
+   appsettings file in the application repository. E.g. if your appsettings section for the Maskinporten integration section looks like this:
 
    ```json
    {
-     "MaskinportenSettings": {
+       "MaskinportenSettings": {
        "Environment": "test",
        "ClientId": "",
        "Scope": "altinn:serviceowner/instances.read",
        "EncodedJwk": "",
        "ExhangeToAltinnToken": true,
        "EnableDebugLog": true
-     }
+       }
    }
    ```
-
-   The secrets in Azure key vault should have names like this:
-
+   
+   The secrets in Azure Key Vault should have names like this:
+   
    ```
    MaskinportenSettings--ClientId
    MaskinportenSettings--EncodedJwk
    ```
-2. For the application to be able to read the secrets from
-   Azure key vault the application need to be configured to
-   do so. See
-   the [secrets section](../../../reference/configuration/secrets)
-   to achieve this.
-3. Add the appsettings section example
-   from above into the `appsettings.{env}.json` file.
+2. For the application to be able to read the secrets from Azure Key Vault, it needs to be configured to do so.
+   See the [secrets section](../../../reference/configuration/secrets) to achieve this.
+3. Add the appsettings section example from above into the `appsettings.{env}.json` file.
 
-_NB: The secrets are read by the application on start up so
-if changing the secrets after the application is deployed, you
-will need to redeploy the application._
+_Note: The secrets are read by the application on launch so
+if you make changes after the application is deployed, you
+will need to redeploy the application for them to come into effect._
 
 ## Setup Application to use Maskinporten Integration
 
-When modifying the application to use the Maskinporten integration, we need to adapt the `Program.cs` file.
+When modifying the application to use the Maskinporten integration, we need to make some changes to the `Program.cs` file.
 
-First of all we need to add the MaskinportenHttpClient
-service with the appropriate configuration in the function `RegisterCustomAppServices`:
+First we need to add the MaskinportenHttpClient service with the appropriate configuration in the `RegisterCustomAppServices` method:
 
-```csharp
-services.AddMaskinportenHttpClient<SettingsJwkClientDefinition, AppClient>(config.GetSection("MaskinportenSettings"));
-```
+{{< highlight csharp "linenos=false,hl_lines=5" >}}
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+    // ...
 
-Then we need to add the Azure Key Vault configuration provider to our host.
-Start by adding these package references in the project file (`App.csproj`) - get the latest version from NuGet.org:
-
-{{< highlight csproj "linenos=false" >}}
-<PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.3.1" />
-<PackageReference Include="Azure.Identity" Version="1.11.4" />
+    services.AddMaskinportenHttpClient<SettingsJwkClientDefinition, YourCustomClient>(config.GetSection("MaskinportenSettings"));
+}
 {{< / highlight >}}
 
-Then we can complete the configuration by adding the Azure Key Vault configuration provider:
+Then we need to add the Azure Key Vault configuration provider to our host. This is done by modifying the `ConfigureWebHostBuilder` method:
 
-{{< highlight csharp "linenos=false,hl_lines=1 8-30" >}}
-using Azure.Identity;
-
-// ...
-
+{{< highlight csharp "linenos=false,hl_lines=5-9" >}}
 void ConfigureWebHostBuilder(IWebHostBuilder builder)
 {
     builder.ConfigureAppWebHost(args);
-    builder.ConfigureAppConfiguration(
-        (context, configuration) =>
-        {
-            var section = context.Configuration.GetSection("kvSetting");
-            var keyVaultUri = section.GetValue<string>("SecretUri");
-            var clientId = section.GetValue<string>("ClientId");
-            var clientSecret = section.GetValue<string>("ClientSecret");
-            var tenantId = section.GetValue<string>("TenantId");
 
-            if (
-                string.IsNullOrWhiteSpace(keyVaultUri)
-                || string.IsNullOrWhiteSpace(clientId)
-                || string.IsNullOrWhiteSpace(clientSecret)
-                || string.IsNullOrWhiteSpace(tenantId)
-            )
-                return;
-
-            configuration.AddAzureKeyVault(
-                new Uri(keyVaultUri),
-                new ClientSecretCredential(tenantId, clientId, clientSecret)
-            );
-        }
-    );
+    // Add Azure KV provider for TT02 & Prod environments
+    if (!builder.Environment.IsDevelopment())
+    {
+        builder.AddAzureKeyVaultAsConfigProvider();
+    }
 }
 {{< / highlight >}}
 
