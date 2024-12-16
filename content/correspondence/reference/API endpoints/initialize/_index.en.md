@@ -21,21 +21,53 @@ This endpoint prepares and queues a correspondence for sending. Before using thi
 
 This API requires authentication, and the request must also include:
 
-- Correspondence write scope __altinn:correspondence.write__ (for external system callers)
+- Correspondence write scope **altinn:correspondence.write** (for external system callers)
 
 See [Authentication and Authorization](/notifications/reference/api/#authentication--authorization) for more information.
 
-## Request body
+## Request
 
-[You can see an example of a request body here](https://docs.altinn.studio/api/correspondence/spec/#/Correspondence/post_correspondence_api_v1_correspondence)
+### Content-Type
+
+application/json
+
+### Request body
+
+The request body must contain the correspondence request formatted as an [InitializeCorrespondencesRequest](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/InitializeCorrespondencesExt.cs)
+
+### Required request properties
+
+#### correspondence
+
+Type: [BaseCorrespondenceExt](/correspondence/reference/api-endpoints/initialize/basecorrespondenceext/)
+
+The correspondence which is to be sent.
+
+
+#### recipients
+
+Type:  _List\<string>_
+
+List of recipients for the correspondence. This can either be the organization number or the national identity number of the recipient.
+
+For *organization numbers*, the recipients must include the prefix `urn:altinn:organization:identifier-no` in front of the organization number. Example `urn:altinn:organization:identifier-no:123456789`
+
+For *national identity numbers*, the recipients must have the prefix `urn:altinn:person:identifier-no` in front of the identity number. Example `urn:altinn:person:identifier-no:01019912345`
+
+### Optional request properties
+
+#### existingAttachments
+
+Type:  _List\<string>_
+
+List of attachment ID(s) for the attachment(s) which should be included with the correspondence(s). These must be uploaded using the **attachment** endpoint beforehand.
 
 ## Response
 
 ### Response codes
 
 - 200 OK: The correspondence has been successfully initialized
-
-  Refer to problem details in the response body for further information.
+- 400 Bad Request: The request was invalid. Refer to problem details in the response body for further information.
 - 401 Unauthorized: Indicates a missing, invalid, or expired authorization header.
 - 403 Forbidden: Indicates that the required scope or Platform Access Token is missing or invalid.
 
@@ -45,42 +77,17 @@ See [Authentication and Authorization](/notifications/reference/api/#authenticat
 
 ### Response body
 
-The response body returns a list of correspondences [InitializeCorrespondencesResponseExt](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/InitializeCorrespondencesResponseExt.cs), with one correspondence for each recipient. Each correspondence can have multiple different recipients where each recipient will be given a unique correspondenceId, status, etc.
+The response body returns a list of correspondences [InitializeCorrespondencesResponseExt](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/InitializeCorrespondencesResponseExt.cs), with one correspondence for each recipient.
+Find a short description of each property below.
 
-### Response body properties
+#### correspondences
+Type: [List\<InitializedCorrespondencesExt>](/correspondence/reference/api-endpoints/initialize/initializedcorrespondencesext/)
 
-#### correspondenceId
+Information about the correspondences created in the request.
+#### attachmentIds
+Type: _List\<Guid>_
 
-Type: _Guid_
 
-The ID of the correspondence that has been initialized
+The IDs of the attachments that were included with the correspondences
 
-#### status
-
-Type: _string_
-
-[The different statuses are defined here](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/Enums/CorrespondenceStatusExt.cs)
-
-Shows the status of the initialized correspondence
-
-#### recipient
-
-Type: _string_
-
-Shows the recipient in the format 0192:{{recipientOrgNumber}}
-
-#### notifications
-
-Type: _List of [InitializedCorrespondencesNotificationsExt](https://docs.altinn.studio/api/correspondence/spec/#/Correspondence/post_correspondence_api_v1_correspondence)_
-
-A list of the generated notifications with send results. Each notification will include the following properties:
-
-- _orderId_: the ID of the order.
-- _isReminder_: a boolean indicating whether the notification is a reminder or not.
-- _status_: shows the status of the notification at the time of creating the correspondence(s).
-
-| Status            | Description                                                                 |
-|:-----------------:|:---------------------------------------------------------------------------:|
-| Success           | Notification order was created successfully with contact information for __at least one__ of the recipients for the notification. |
-| MissingContact    | Contact information was not found for __any of__ the recipients for the notification at the time of creating the correspondence. |
-| Failure           | Creating notification order failed due to an error.|
+<!-- ## Examples -->
