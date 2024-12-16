@@ -135,7 +135,7 @@ Specify which components you want to show when tab is active, by adding their ID
 
 ## Example
 
-Tabs with paragraphs as child elements.
+`Tabs` with paragraphs as child elements.
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Code">}}
