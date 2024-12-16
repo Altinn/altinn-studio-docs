@@ -113,7 +113,7 @@ If no argument is given, the shortcode pulls the component name from 'schemaname
 <br>
 
 ### defaultTab
-This can be set to the `id`, for the spesific tab that you wish to be set as a default active tab.
+The ID of the specific tab that you wish to be selected by default.
 
 
 ### Tabs
