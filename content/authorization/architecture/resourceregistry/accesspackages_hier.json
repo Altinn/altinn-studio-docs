@@ -98,7 +98,7 @@
           },
           {
             "id": "4af2d44d-f9f8-4585-b679-7875bb1828ea",
-            "urn": "urn:altinn:accesspackage:ansettelsesforhold",
+            "urn": "urn:altinn:accesspackage:aordning",
             "name": "A-ordningen",
             "description": "Denne tilgangspakken gir fullmakter til tjenester som inngår i A-ordningen. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  OBS! Vær oppmerksompå at tilgangspakken inneholder fullmakter som kan ha sensitiv karakter. Vurder om fullmaktene skal gis som enkeltrettigheter."
           },
@@ -297,12 +297,6 @@
             "urn": "urn:altinn:accesspackage:programmeringsgrensesnitt",
             "name": "Programmeringsgrensesnitt (API)",
             "description": "Denne tilgangspakken gir fullmakter til å administrere tilgang til data og programmeringsgrensenitt (API) som benytter Maskinporten eller tilsvarende løsninger for APIsikring. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
-          },
-          {
-            "id": "04b3a462-43f6-4435-9d12-2f42df6b45fc",
-            "urn": "urn:altinn:accesspackage:opptreforvirksomhetenskunder",
-            "name": "Opptre for virksomhetens kunder",
-            "description": "Denne tilgangspakken gir fullmakter til når en leverandørvirksomhet skal utføre tjenester på vegne av sine kunder via et programmeringsgrensesnitt (API). Fullmakten kan gis til til virksomhetsbruker som er knyttet til leverandørens organisasjonsnummer. Men denne fullmakten vil virksomhetsbrukeren kunne utføre alle tjenester som leverandøren har tilgang til å utføre på vegne av alle sine kunder/klienter. Fullmakten gir ikke virksomhetsbruker tilgang til å utføre tjenester på vegne av leverandøren selv, bare kunder av leverandøren. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. Denne fullmakten har tidligere hatt navnet “ECKEYROLE”, behovet for denne må vurderes opp mot ny løsning for systembruker."
           },
           {
             "id": "66bd8101-fbd8-491b-b1f5-2f53a9476ffd",
@@ -627,7 +621,7 @@
           },
           {
             "id": "7e6d8dd4-35a3-49d6-a2c5-73cd35018646",
-            "urn": "urn:altinn:accesspackage:barnehagemyndighet",
+            "urn": "urn:altinn:accesspackage:statsforvalterbarnehage",
             "name": "Statsforvalter- barnehage",
             "description": "Denne fullmakten gir tilgang til tjenester for statsforvalter knyttet til barnehagesektor."
           },
@@ -749,7 +743,7 @@
           },
           {
             "id": "84e744a0-e93f-4caf-bb3f-24387f045d2d",
-            "urn": "urn:altinn:accesspackage:gummiplastogikkemetallholdigemineralprodukter",
+            "urn": "urn:altinn:accesspackage:metallerogmineraler",
             "name": "Metaller og mineraler",
             "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med metaller og mineraler. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
           },
