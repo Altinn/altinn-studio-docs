@@ -61,7 +61,7 @@ Add the following sections if relevant:
 |-----------------|----------|------------------------------------------------------------------------------------------------------|
 | `id`            | string   | Unik Id streng for komponenten.                                                                      |
 | `size`          | string   | Setter størrelsen på fanen. **Enum:**: `"small" \| "medium" \| "large"` <br/> **Default:** `medium`. |
-| `defaultTab`    | string   | Anngir en fane som er valgt som standard.                                                            |
+| `defaultTab`    | string   | Angir en fane som er valgt som standard.                                                            |
 | `tabs`          | Array    | En liste av fane objekter som inneholder konfigurasjon(`id, title, icon, children`) per fane.        |
 | `tabs.id`       | string   | Unik Id streng for fanen.                                                                            |
 | `tabs.title`    | string   | Tittelen for fanen.                                                                                  |
