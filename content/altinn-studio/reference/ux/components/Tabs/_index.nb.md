@@ -167,4 +167,4 @@ Faner med avsnitt som underordnede elementer.
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-![Tabs eksempel](<tabs-example.png> "Tabs med to faner")
+![Tabs-eksempel](<tabs-example.png> "Tabs med to faner")
