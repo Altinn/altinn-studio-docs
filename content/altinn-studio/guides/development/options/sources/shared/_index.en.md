@@ -1,7 +1,7 @@
 ---
-title: Common shared options
+title: Common shared code lists
 linktitle: Shared
-description: Options that are shared across applications
+description: Code lists that are shared across applications
 toc: false
 weight: 200
 aliases:

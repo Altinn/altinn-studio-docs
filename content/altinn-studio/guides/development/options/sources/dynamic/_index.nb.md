@@ -1,5 +1,5 @@
 ---
-title: Dynamiske svaralternativer
+title: Dynamiske kodelister
 linktitle: Dynamisk
 description: Generert ved kjøring fra C#-kode
 toc: false

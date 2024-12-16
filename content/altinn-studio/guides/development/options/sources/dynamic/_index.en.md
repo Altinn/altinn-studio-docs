@@ -1,5 +1,5 @@
 ---
-title: Dynamic options
+title: Dynamic code lists
 linktitle: Dynamic
 description: Generated runtime by custom C# code
 toc: false
@@ -14,7 +14,7 @@ For public code lists, implement the `IAppOptionsProvider` interface, while for 
 
 ### Public code lists
 
-Below you find an example of how to implement a public options provider.
+Below you find an example of how to implement a public code list provider.
 
 ```C#
 using Altinn.App.Common.Models;
@@ -75,7 +75,7 @@ The result of this implementation will be available at the endpoint `{org}/{app}
 }
 ```
 
-### Secured options
+### Secured code lists
 
 If you want to produce lists of options that are sensitive you can implement `IInstanceAppOptionsProvider`, which will validate that the user has read rights as defined in the authorization policy from the `policy.xml`-file.
 Below you'll find an example of how to implement a secured options provider.
