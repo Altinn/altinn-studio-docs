@@ -14,7 +14,7 @@ Se denne [veiledningen](../../../altinn-studio/getting-started/create-user/)
 
 ## Opprett ressursadministrasjonsarkivet for organisasjonen
 
-For å aktivere ressursadministrasjon trenger organisasjonen din et spesifikt depot kalt {org}-ressurser. Dette depotet vil fungere som et sentralisert knutepunkt for å administrere ressursene dine. For eksempel [skd-resources](https://altinn.studio/repos/skd/skd-resources) .
+For å aktivere ressursadministrasjon trenger organisasjonen din et spesifikt depot kalt {org}-resources. Dette depotet vil fungere som et sentralisert knutepunkt for å administrere ressursene dine. For eksempel [skd-resources](https://altinn.studio/repos/skd/skd-resources) .
 
 Du kan opprette dette depotet fra organisasjonssiden i Gitea-delen av Altinn Studio.
 
