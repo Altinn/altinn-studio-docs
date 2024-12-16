@@ -4,7 +4,6 @@ linktitle: Tilgangspakker
 description: Tilgangspakker er samlinger av fullmakter til tjenester og ressurser innen ulike områder.
 tags: [architecture, security, authorization, xacml]
 weight: 99
-hidden: true
 ---
 
 {{<notice warning>}}
