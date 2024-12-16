@@ -157,6 +157,7 @@ Dynamiske uttrykk er foreløpig tilgjengelig for bruk i disse egenskapene, som d
 | [Kodelistebaserte komponenter](../../../guides/development/options/sources/from-data-model/#støtte-for-uttrykk) | `source.description`          | [Streng](#strenger)        | ✅        | ❌       |
 | [Kodelistebaserte komponenter](../../../guides/development/options/sources/from-data-model/#støtte-for-uttrykk) | `source.helpText`             | [Streng](#strenger)        | ✅        | ❌       |
 | [Kodelistebaserte komponenter](../../../guides/development/options/sources/dynamic/#basert-på-uttrykk)          | `queryParameters.[*]`         | [Streng](#strenger)        | ✅        | ❌       |
+| [Kodelistebaserte komponenter](../../../guides/development/options/functionality/filtering)                     | `optionFilter`                | [Streng](#strenger)        | ✅        | ❌       |
 | Alle                                                                                                            | `textResourceBindings.[*]` \* | [Streng](#strenger)        | ✅        | ❌       |
 
 \* = Hvilke verdier man kan overstyre med textResourceBindings varierer fra komponent til komponent, men vil fungere på

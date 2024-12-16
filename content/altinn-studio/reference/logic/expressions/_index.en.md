@@ -162,6 +162,7 @@ Dynamic expressions are currently available for use in these properties, as defi
 | [Option based components](../../../guides/development/options/sources/from-data-model/#expression-support) | `source.description`          | [String](#strings)         | ✅        | ❌       |
 | [Option based components](../../../guides/development/options/sources/from-data-model/#expression-support) | `source.helpText`             | [String](#strings)         | ✅        | ❌       |
 | [Option based components](../../../guides/development/options/sources/dynamic/#based-on-expressions)       | `queryParameters.[*]`         | [String](#strings)         | ✅        | ❌       |
+| [Option based components](../../../guides/development/options/functionality/filtering)                     | `optionFilter`                | [String](#strings)         | ✅        | ❌       |
 | All                                                                                                        | `textResourceBindings.[*]` \* | [String](#strings)         | ✅        | ❌       |
 
 \* = The values that can be overridden with textResourceBindings vary from component to component, but will work wherever
