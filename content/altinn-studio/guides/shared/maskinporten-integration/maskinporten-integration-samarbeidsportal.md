@@ -49,7 +49,7 @@ To avoid spreading the business certificate across many systems,
 we opt for creating an asymmetric key (JSON Web Key) and associate it to the newly created integration.
 In this example we use [mkjwk.org](https://mkjwk.org/).
 
-- Navigate to `mkjwk.org` in a browser
+- Navigate to [mkjwk.org](https://mkjwk.org/) in a browser
 
 - Fill in values like the example below and click _Generate_
 

@@ -1,0 +1,979 @@
+[
+  {
+    "id": "7e2a3af8-08cb-43a9-bdd7-7d5c7e377145",
+    "urn": "accesspackage:areagroup:vanlig",
+    "name": "Vanlig",
+    "description": "Mest vanlige pakkenegruppene",
+    "type": "Organisasjon",
+    "areas": [
+      {
+        "id": "7d32591d-34b7-4afc-8afa-013722f8c05d",
+        "urn": "accesspackage:area:skatt_avgift_regnskap_og_toll",
+        "name": "Skatt, avgift, regnskap og toll",
+        "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til skatt, avgift, regnskap og toll.",
+        "icon": "BankNoteIcon",
+        "areaGroup": "Vanlig",
+        "packages": [
+          {
+            "id": "1dba50d6-f604-48e9-bd41-82321b13e85c",
+            "urn": "urn:altinn:accesspackage:skattnaering",
+            "name": "Skatt næring",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til skatt for næringer. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "4c859601-9b2b-4662-af39-846f4117ad7a",
+            "urn": "urn:altinn:accesspackage:skattegrunnlag",
+            "name": "Skattegrunnlag",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til innhenting av skattegrunnlag. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "9a61b136-7810-4939-ab6d-84938e9a12c6",
+            "urn": "urn:altinn:accesspackage:merverdiavgift",
+            "name": "Merverdiavgift",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til merverdiavgift. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "4f4d4567-2384-49fa-b34b-84b4b77139d8",
+            "urn": "urn:altinn:accesspackage:motorvognavgift",
+            "name": "Motorvognavgifter",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til motorvognavgifter. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "b4e69b54-895e-42c5-bf0d-861a571cd282",
+            "urn": "urn:altinn:accesspackage:regnskapokonomirapport",
+            "name": "Regnskap og økonomirapportering",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til regnskap og øknomirapportering som ikke tilhører skatt og merverdiavgift. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "a02fc602-872a-4671-b338-8b86a64b534a",
+            "urn": "urn:altinn:accesspackage:kravogutlegg",
+            "name": "Krav, betalinger og utlegg",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til krav og utlegg. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "1886712b-e077-445a-ab3f-8c8bdebccc67",
+            "urn": "urn:altinn:accesspackage:reviorattesterer",
+            "name": "Revisorattesterer",
+            "description": "Denne fullmakten gir tilgang til alle tjenester som krever revisorattestering. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "74c1dcf6-a760-4065-83f0-8edc6dec5dba",
+            "urn": "urn:altinn:accesspackage:saeravgifter",
+            "name": "Særavgifter",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til særavgifter. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "eb9006a6-dbd5-4155-9174-91e182a56715",
+            "urn": "urn:altinn:accesspackage:kredittogoppgjoer",
+            "name": "Kreditt- og oppgjørsordninger",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til kreditt- og oppgjørsordninger. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "deb7f8ae-8427-469d-b824-937c146c0489",
+            "urn": "urn:altinn:accesspackage:toll",
+            "name": "Toll",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til toll og fortolling. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          }
+        ]
+      },
+      {
+        "id": "6f7f3b02-8b5a-4823-9468-0f4646d3a790",
+        "urn": "accesspackage:area:personale",
+        "name": "Personale",
+        "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til personale.",
+        "icon": "PersonSuitIcon",
+        "areaGroup": "Vanlig",
+        "packages": [
+          {
+            "id": "cf575d42-72be-4d14-b0d2-77352221df4f",
+            "urn": "urn:altinn:accesspackage:ansettelsesforhold",
+            "name": "Ansettelsesforhold",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til ansettelsesforhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "fb0aa257-e7dc-4b7b-9528-77dfb749461c",
+            "urn": "urn:altinn:accesspackage:lonn",
+            "name": "Lønn",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til lønn og honorar. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "4af2d44d-f9f8-4585-b679-7875bb1828ea",
+            "urn": "urn:altinn:accesspackage:aordning",
+            "name": "A-ordningen",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester som inngår i A-ordningen. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  OBS! Vær oppmerksompå at tilgangspakken inneholder fullmakter som kan ha sensitiv karakter. Vurder om fullmaktene skal gis som enkeltrettigheter."
+          },
+          {
+            "id": "ae41bf08-c7ef-4bfe-b2b9-7bf6deb7798f",
+            "urn": "urn:altinn:accesspackage:pensjon",
+            "name": "Pensjon",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til pensjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "08ec673d-9126-4ed0-ae75-7ceec8633c77",
+            "urn": "urn:altinn:accesspackage:sykefravaer",
+            "name": "Sykefravær",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til sykefravær. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "71a2bd47-e885-49c7-8a58-7ef4bd936f41",
+            "urn": "urn:altinn:accesspackage:permisjon",
+            "name": "Permisjon",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til permisjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          }
+        ]
+      },
+      {
+        "id": "a8834a7c-ed89-4c73-b5d5-19a2347f3b13",
+        "urn": "accesspackage:area:miljo_ulykke_og_sikkerhet",
+        "name": "Miljø, ulykke og sikkerhet",
+        "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til miljø, ulykke og sikkerhet.",
+        "icon": "EarthIcon",
+        "areaGroup": "Vanlig",
+        "packages": [
+          {
+            "id": "5eb07bdc-5c3c-4c85-add3-5405b214b8a3",
+            "urn": "urn:altinn:accesspackage:renovasjon",
+            "name": "Renovasjon",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til renovasjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "04c5a001-5249-4765-ae8e-58617c404223",
+            "urn": "urn:altinn:accesspackage:miljoryddingmiljorensingoglignende",
+            "name": "Miljørydding, miljørensing og lignende",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til miljørydding, miljørensing og lignende. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "bacc9294-56fd-457f-930e-59ee4a7a3894",
+            "urn": "urn:altinn:accesspackage:baerekraft",
+            "name": "Bærekraft",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til tiltak og rapportering på bærekraft. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "cfe074fa-0a66-4a4b-974a-5d1db8eb94e6",
+            "urn": "urn:altinn:accesspackage:sikkerhetoginternkontroll",
+            "name": "Sikkerhet og internkontroll",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til sikkerhet og internkontroll. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "a03af7d5-74b9-4f18-aead-5d47edc36be5",
+            "urn": "urn:altinn:accesspackage:ulykke",
+            "name": "Ulykke",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til ulykke. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "fa84bffc-ac17-40cd-af9c-61c89f92e44c",
+            "urn": "urn:altinn:accesspackage:yrkesskade",
+            "name": "Yrkesskade",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til yrkesskade. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          }
+        ]
+      },
+      {
+        "id": "6f938de8-34f2-4bab-a0c6-3a3eb64aad3b",
+        "urn": "accesspackage:area:post_og_arkiv",
+        "name": "Post og arkiv",
+        "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til post og arkiv.",
+        "icon": "EnvelopeClosedIcon",
+        "areaGroup": "Vanlig",
+        "packages": [
+          {
+            "id": "91cf61ae-69ab-49d5-b51a-80591c91f255",
+            "urn": "urn:altinn:accesspackage:ordinaerposttilvirksomheten",
+            "name": "Ordinær post til virksomheten",
+            "description": "Denne fullmakten gir tilgang til all mottatt post som ikke innholder sensitiv/taushetsbelagt informasjon som sendes virksomheten. Fullmakten gis normalt til de i virksomheten som håndterer mottak av post. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "bb0569a6-2268-49b5-9d38-8158b26124c3",
+            "urn": "urn:altinn:accesspackage:posttilvirksomhetenmedtaushetsbelagtinnhold",
+            "name": "Post til virksomheten med taushetsbelagt innhold",
+            "description": "Denne fullmakten gir tilgang til all mottatt post som innholder sensitiv/taushetsbelagt informasjon som sendes virksomheten. Fullmakten gis normalt til de i virksomheten som håndterer mottak av post som har taushetsbelagt innhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          }
+        ]
+      },
+      {
+        "id": "3f5df819-7aca-49e1-bf6f-3e8f120f20d1",
+        "urn": "accesspackage:area:forhold_ved_virksomheten",
+        "name": "Forhold ved virksomheten",
+        "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til forhold ved virksomheten.",
+        "icon": "Buildings3Icon",
+        "areaGroup": "Vanlig",
+        "packages": [
+          {
+            "id": "06c13400-8683-4985-9802-cef13e247f24",
+            "urn": "urn:altinn:accesspackage:generellehelfotjenester",
+            "name": "Generelle helfotjenester",
+            "description": "Denne fullmakten gir tilgang til ordinære tjenester knyttet til virksomhetens dialog med Helfo der bruker kan få tilgang til personopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "2ee6e972-2423-4f3a-bd3c-d4871fcc9876",
+            "urn": "urn:altinn:accesspackage:helfosearligkategori",
+            "name": "Helfotjenester med personopplysninger av særlig kategori",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til virksomhetens dialog med Helfo der bruker kan få tilgang til personopplysninger av særlig kategori. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir"
+          },
+          {
+            "id": "956cfcf0-ab4c-44d8-98a2-d68c4d59321b",
+            "urn": "urn:altinn:accesspackage:startedriveendreaviklevirksomhet",
+            "name": "Starte, endre og avvikle virksomhet",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til å starte, endre og avvikle en virksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "7dfc669b-70e4-4974-9e11-d6dca4803aaa",
+            "urn": "urn:altinn:accesspackage:aksjerogeierforhold",
+            "name": "Aksjer og eierforhold",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til aksjer og eierforhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "4717e6e0-1ec2-4354-b825-d9a9e2588fb1",
+            "urn": "urn:altinn:accesspackage:attester",
+            "name": "Attester",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til attestering av virksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "df13707e-5252-496a-bc00-daffeed1e4b2",
+            "urn": "urn:altinn:accesspackage:dokumentbaserttilsyn",
+            "name": "Dokumentbasert tilsyn",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til dokumentbaserte tilsyn. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "75978efe-2437-421e-8c77-dd61925c7ba4",
+            "urn": "urn:altinn:accesspackage:infrastruktur",
+            "name": "Infrastruktur",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til virksomhetens infrastruktur. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "250568e6-ed9f-4bdc-b9e3-df08be7181ba",
+            "urn": "urn:altinn:accesspackage:patentvaremerkedesign",
+            "name": "Patent, varemerke og design",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til patent, varemerke og design. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "d3ba7bba-195b-4b69-ae68-df20ecd57097",
+            "urn": "urn:altinn:accesspackage:tilskuddstotteerstatning",
+            "name": "Tilskudd, støtte og erstatning",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til å søke tilskudd, støtte og erstatning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "600bf1be-61f6-423c-9a13-df93ee3214a5",
+            "urn": "urn:altinn:accesspackage:minesiderkommune",
+            "name": "Mine sider hos kommunen",
+            "description": "Denne fullmakten gir generell tilgang til tjenester av typen “mine side” tjenester hos kommuner. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "3050ee51-b60e-48cc-a247-e11e459f00f9",
+            "urn": "urn:altinn:accesspackage:politidomstol",
+            "name": "Politi og domstol",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til virksomhetens dialog om juridiske forhold med politi og jusitsmyndigheter. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "ac54a5ca-16d2-4132-ae0d-e5aa8bd1ff6e",
+            "urn": "urn:altinn:accesspackage:rapporteringstatistikk",
+            "name": "Rapportering av statistikk",
+            "description": "Denne fullmakten gir tilgang til alle pålagte rapportering av statistikk. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "594a2c4b-47a1-48c6-a01c-ed44ec4c05a4",
+            "urn": "urn:altinn:accesspackage:forskning",
+            "name": "Forskning",
+            "description": "Denne fullmakten gir tilgang til tjenester knyttet til forskning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "c0eb20c1-2268-48f5-88c5-f26cb47a6b1f",
+            "urn": "urn:altinn:accesspackage:eksplisitt",
+            "name": "Eksplisitt tjenestedelegering",
+            "description": "Denne fullmakten er ikke delegerbar, og er ikke knyttet til noen roller i ENhetsregisteret. Tilgang til tjenester knyttet til denne pakken kan gis av Hovedadministrator gjennom enkeltrettighetsdelegering."
+          }
+        ]
+      },
+      {
+        "id": "892e98c6-1696-46e7-9bb1-59c08761ec64",
+        "urn": "accesspackage:area:integrasjoner",
+        "name": "Integrasjoner",
+        "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til integrasjoner.",
+        "icon": "TenancyIcon",
+        "areaGroup": "Vanlig",
+        "packages": [
+          {
+            "id": "37d2ba7f-187f-45f5-9a96-2f23cf328dab",
+            "urn": "urn:altinn:accesspackage:programmeringsgrensesnitt",
+            "name": "Programmeringsgrensesnitt (API)",
+            "description": "Denne tilgangspakken gir fullmakter til å administrere tilgang til data og programmeringsgrensenitt (API) som benytter Maskinporten eller tilsvarende løsninger for APIsikring. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "66bd8101-fbd8-491b-b1f5-2f53a9476ffd",
+            "urn": "urn:altinn:accesspackage:maskinlesbarehendelser",
+            "name": "Maskinlesbare hendelser",
+            "description": "Denne tilgangspakken gir fullmakter til å administrere tilgang til maskinlesbare hendelser. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "44746bad-aae5-4a83-b2e1-30a7cc9b809d",
+            "urn": "urn:altinn:accesspackage:programmeringsgrensesnittNUF",
+            "name": "Programmeringsgrensesnitt NUF (API)",
+            "description": "Denne tilgangspakken gir fullmakter til å administrere tilgang til data og programmeringsgrensenitt (API) som benytter Maskinporten eller tilsvarende løsninger for APIsikring på vegne av norskregistrerte utenlandske foretak (NUF). Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          }
+        ]
+      },
+      {
+        "id": "e4ae823f-41db-46ed-873f-8a5d1378fff8",
+        "urn": "accesspackage:area:administrere_tilganger",
+        "name": "Administrere tilganger",
+        "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til administrere tilganger.",
+        "icon": "PadlockLockedIcon",
+        "areaGroup": "Vanlig",
+        "packages": [
+          {
+            "id": "c46a568e-59ba-4835-8c0f-9a3e7d3d308c",
+            "urn": "urn:altinn:accesspackage:klientadminstrasjonforregnskapsforerogtevisor",
+            "name": "Klientadministrasjon for regnskapsfører og revisor",
+            "description": "Denne tilgangspakken gir bruker mulighet til å administrere tilgang til tjenester det er naturlig at regnskapsfører eller revisor utfører. Bruker kan administrere tilgang til tjenestene til ansatte hos regnskapsfører eller revisor på vegne av deres kunder."
+          },
+          {
+            "id": "4691c710-e0ad-4152-9783-9d1e787f02d3",
+            "urn": "urn:altinn:accesspackage:tilgangsstyring",
+            "name": "Tilgangsstyring",
+            "description": "Denne tilgangspakken gir bruker mulighet til å gi videre tilganger for virksomheten som man selv innehar."
+          },
+          {
+            "id": "15d0015f-e21d-405a-89c5-a21476ba3df0",
+            "urn": "urn:altinn:accesspackage:hovedadministrator",
+            "name": "Hovedadministrator",
+            "description": "Denne tilgangspakken gir bruker mulighet til å administrere alle tilganger for virksomheten."
+          },
+          {
+            "id": "3abe9842-06a5-483f-b76d-a65dec152b2d",
+            "urn": "urn:altinn:accesspackage:kundeadministrator",
+            "name": "Kundeadministrator",
+            "description": "Denne tilgangspakken gir bruker mulighet til å administrere tilganger man har mottatt for sine kunder til ansatte i egen virksomheten."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3757643a-316d-4d0e-a52b-4dc7cdebc0b4",
+    "urn": "accesspackage:area:bransje",
+    "name": "Bransje",
+    "description": "For bransje pakkergrupper",
+    "type": "Organisasjon",
+    "areas": [
+      {
+        "id": "fc93d25e-80bc-469a-aa43-a6cee80eb3e2",
+        "urn": "accesspackage:area:jordbruk_skogbruk_jakt_fiske_og_akvakultur",
+        "name": "Jordbruk, skogbruk, jakt, fiske og akvakultur",
+        "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til jordbruk, skogbruk, jakt, fiske og akvakultur.",
+        "icon": "PlantIcon",
+        "areaGroup": "Bransje",
+        "packages": [
+          {
+            "id": "c5bbbc3f-605a-4dcb-a587-32124d7bb76d",
+            "urn": "urn:altinn:accesspackage:jordbruk",
+            "name": "Jordbruk",
+            "description": "Denne tilgangspakken gir tilgang til tjenester knyttet til jordbruk. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "7b8a3aaa-c8ed-4ac4-923a-335f4f9eb45a",
+            "urn": "urn:altinn:accesspackage:dyrehold",
+            "name": "Dyrehold",
+            "description": "Denne tilgangspakken gir tilgang til tjenester knyttet til dyrehold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "0bb5963e-df17-4f35-b913-3ce10a34b866",
+            "urn": "urn:altinn:accesspackage:reindrift",
+            "name": "Reindrift",
+            "description": "Denne tilgangspakken gir tilgang til tjenester knyttet til reindrift. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "906aec0d-ad1f-496b-a0bb-40f81b3303cb",
+            "urn": "urn:altinn:accesspackage:jaktogviltstell",
+            "name": "Jakt og viltstell",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til jakt og viltstell. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "f7e02568-90b6-477d-8abb-44984ddeb1f9",
+            "urn": "urn:altinn:accesspackage:skogbruk",
+            "name": "Skogbruk",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til skogbruk. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "9d2ec6e9-5148-4f47-9ae4-4536f6c9c1cb",
+            "urn": "urn:altinn:accesspackage:fiske",
+            "name": "Fiske",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til fiske. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "78c21107-7d2d-4e85-af82-47ea0e47ceca",
+            "urn": "urn:altinn:accesspackage:akvakultur",
+            "name": "Akvakultur",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til akvakultur og fiskeoppdrett. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          }
+        ]
+      },
+      {
+        "id": "536b317c-ef85-45d4-9b48-6511578e1952",
+        "urn": "accesspackage:area:bygg_anlegg_og_eiendom",
+        "name": "Bygg, anlegg og eiendom",
+        "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til bygg, anlegg og eiendom.",
+        "icon": "HardHatIcon",
+        "areaGroup": "Bransje",
+        "packages": [
+          {
+            "id": "1e40697b-e178-4920-8fbd-af5164b4d147",
+            "urn": "urn:altinn:accesspackage:byggesoknad",
+            "name": "Byggesøknad",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester som ansvarlig søker/tiltakshaver trenger, for eksempel byggesøknader, direkte signerte erklæringer, nabovarsel og eiendomssak. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "482eee1e-ec79-45bb-8bd0-af8459cbb9f0",
+            "urn": "urn:altinn:accesspackage:plansak",
+            "name": "Plansak",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester som forslagsstiller/ plankonsulent trenger, for eksempel varsel om planopppstart og høring og offentlig ettersyn. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "1e1e8bf9-096f-4de2-9db7-b176db55db09",
+            "urn": "urn:altinn:accesspackage:mottanaboogplanvarsel",
+            "name": "Motta nabo- og planvarsel",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester til å lese og svare på varsel om plan-/byggesak. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "ac655a2f-be29-4888-9a6c-b21e524fa90e",
+            "urn": "urn:altinn:accesspackage:oppforingbygganlegg",
+            "name": "Oppføring av bygg og anlegg",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester relatert til oppføring av bygninger og annlegg unntatt plan og byggesaksbehandling. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "b98ec05d-1ac5-4ced-8250-b6d75b83502b",
+            "urn": "urn:altinn:accesspackage:kjopogsalgeiendom",
+            "name": "Kjøp og salg av eiendom",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til kjøp og salg av eiendom. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "565a3110-3d51-4e72-ae4c-b89308e5c96e",
+            "urn": "urn:altinn:accesspackage:utleieeiendom",
+            "name": "Utleie av eiendom",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til utleie av eiendom. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "79329c4a-d856-4491-965e-bcc4ed5a7453",
+            "urn": "urn:altinn:accesspackage:eiendomsmegler",
+            "name": "Eiendomsmegler",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til omsetning og drift av fast eiendom på oppdrag, som eiendomsmegling og eiendomsforvaltning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          }
+        ]
+      },
+      {
+        "id": "6ff90072-566b-4acd-baac-ec477534e712",
+        "urn": "accesspackage:area:transport_og_lagring",
+        "name": "Transport og lagring",
+        "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til transport og lagring.",
+        "icon": "TruckIcon",
+        "areaGroup": "Bransje",
+        "packages": [
+          {
+            "id": "36c245db-3207-449e-92b1-94cb0a0f3031",
+            "urn": "urn:altinn:accesspackage:veitransport",
+            "name": "Veitransport",
+            "description": "Denne fullmakten gir tilgang til tjenester knyttet til person- og godstransport langs veinettet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "9cc8b401-b4cb-473d-a3fa-96171aeb1389",
+            "urn": "urn:altinn:accesspackage:transportiror",
+            "name": "Transport i rør",
+            "description": "Denne fullmakten gir tilgang til tjenester knyttet til transport i rør. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "9603dd83-be41-4190-b0a7-97490f4a601d",
+            "urn": "urn:altinn:accesspackage:sjofart",
+            "name": "Sjøfart",
+            "description": "Denne fullmakten gir tilgang til tjenester knyttet til skipsarbeidstakere og fartøy til sjøs. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "3b3bc323-207b-4d56-a21f-97b6875ccc28",
+            "urn": "urn:altinn:accesspackage:lufttransport",
+            "name": "Lufttransport",
+            "description": "Denne fullmakten gir tilgang til tjenester knyttet til luftfartøy og romfartøy. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "dfcd3923-cb66-45f7-9535-999b6c0c496d",
+            "urn": "urn:altinn:accesspackage:jernbanetransport",
+            "name": "Jernbanetransport",
+            "description": "Denne fullmakten gir tilgang til tjenester knyttet til jernbane, inkludert trikk, T-bane og sporvogn. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "86a8ff87-3a3d-4f32-a4ef-99c43494bc6e",
+            "urn": "urn:altinn:accesspackage:lagringogandretjenestertilknyttettransport",
+            "name": "Lagring og andre tjenester tilknyttet transport",
+            "description": "Denne fullmakten gir tilgang til tjenester knyttet til lagring og hjelpetjenester i forbindelse med transport, samt post- og kurervirksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          }
+        ]
+      },
+      {
+        "id": "eab59b26-833f-40ca-9e27-72107e8f1908",
+        "urn": "accesspackage:area:helse_pleie_omsorg_og_vern",
+        "name": "Helse, pleie, omsorg og vern",
+        "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til helse, pleie, omsorg og vern.",
+        "icon": "FirstAidIcon",
+        "areaGroup": "Bransje",
+        "packages": [
+          {
+            "id": "03404270-aa2d-498f-9e6a-103043d41f1f",
+            "urn": "urn:altinn:accesspackage:kommuneoverlege",
+            "name": "Kommuneoverlege",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til sykehus, lege, tannlege og hjemmesykepleie,fysioterapi, ambulanse og lignende, som er relevant for kommuneleger. Denne fullmakten kan gi bruker tilgang til personopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "5a642040-46cf-4466-b671-115a022e3048",
+            "urn": "urn:altinn:accesspackage:helsetjenesterpersonopplysingersaerligkategori",
+            "name": "Helsetjenester med personopplysninger av særlig kategori",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til sykehus, lege, tannlege og hjemmesykepleie,fysioterapi, ambulanse og lignende, som er av særlig kategori. Denne fullmakten kan gi bruker tilgang til sensitive personopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "4fa0fbbc-3841-4405-9d94-12731a8fdb81",
+            "urn": "urn:altinn:accesspackage:helsetjenester",
+            "name": "Helsetjenester",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til sykehus, lege, tannlege og hjemmesykepleie,fysioterapi, ambulanse og lignende. Denne fullmakten kan gi bruker tilgang til personopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "4d71e7b8-c6eb-4e33-9a64-1279a509a53b",
+            "urn": "urn:altinn:accesspackage:pleieomsorgstjenesteriinstitusjon",
+            "name": "Pleie og omsorgstjeneter i institusjon",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til pleie og omsorgstilbud i institursjon. Dette er tjenester som tilbyr institusjonsopphold kombinert med sykepleie, tilsyn eller annen form for pleie alt etter hva som kreves av beboerne. Denne fullmakten kan gi bruker tilgang til helseopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "70831546-6bfa-45a0-bdad-14e9db265847",
+            "urn": "urn:altinn:accesspackage:sosialeomsorgstjenesterutenbotilbudogflyktningemottak",
+            "name": "Sosiale omsorgstjenester uten botilbud og flyktningemottak",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til sosiale omsorgstjeneser uten botilbud for eldre, funksjonshemmede og rusmisbrukere samt flykningemottak, og tjenester relatert til arbeidstrening og andre sosiale tjenester, f eks i regi av velferdsorganisasjoner. Denne fullmakten kan gi bruker tilgang til helseopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "98c404f4-5350-42cd-86d0-15fd38f178c4",
+            "urn": "urn:altinn:accesspackage:familievern",
+            "name": "Familievern",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til familievern. Denne fullmakten kan gi bruker tilgang til helseopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. OBS! Vær oppmerksom på at tilgangspakken inneholder fullmakter som kan ha sensitiv karakter. Vurder om fullmaktene skal gis som enkeltrettigheter."
+          },
+          {
+            "id": "83ff0734-0de5-4c2a-939b-18a9452c00bc",
+            "urn": "urn:altinn:accesspackage:barnevern",
+            "name": "Barnevern",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til barnevern. Denne fullmakten kan gi bruker tilgang til helseopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. OBS! Vær oppmerksom på at tilgangspakken inneholder fullmakter som kan ha sensitiv karakter. Vurder om fullmaktene skal gis som enkeltrettigheter."
+          }
+        ]
+      },
+      {
+        "id": "7326614f-cf7c-492e-8e7f-d74e6e4a8970",
+        "urn": "accesspackage:area:oppvekst_og_utdaning",
+        "name": "Oppvekst og utdaning",
+        "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til oppvekst og utdaning.",
+        "icon": "HatSchoolIcon",
+        "areaGroup": "Bransje",
+        "packages": [
+          {
+            "id": "8cf4ec08-90dc-47d0-93f8-64a50c9b38b0",
+            "urn": "urn:altinn:accesspackage:godkjenningavpersonell",
+            "name": "Godkjenning av personell",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til å søke om godkjenning til enkeltpersoner. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "b56d2614-3f9d-4d93-8a8e-64d80b654ad7",
+            "urn": "urn:altinn:accesspackage:godkjenningavutdanningsvirksomhet",
+            "name": "Godkjenning av utdanningsvirksomhet",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til å søke om godkjenning av utdanningsvirksomheter. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "93f37a3d-f799-47b3-bc8e-675b5813abf4",
+            "urn": "urn:altinn:accesspackage:hoyereutdanningoghoyereyrkesfagligutdanning",
+            "name": "Høyere utdanning og høyere yrkesfaglig utdanning",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til høyere utdanning og høyere yrkesfaglig utdanning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "219ea5f7-eb30-424f-a958-67d3c7e7a4c2",
+            "urn": "urn:altinn:accesspackage:sfoleder",
+            "name": "SFO-leder",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til førskole og fritidsordning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "4cd69693-aff0-4e88-8b64-6b5620672468",
+            "urn": "urn:altinn:accesspackage:pptleder",
+            "name": "PPT-leder",
+            "description": "Denne fullmakten gir tilgang til tjenester innen drift av Pedagogisk-psykologisk tjeneste (PPT) som PPT-leder er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "40397a93-b047-4011-a6b8-6b8af16b6324",
+            "urn": "urn:altinn:accesspackage:opplaeringskontorleder",
+            "name": "Opplæringskontorleder",
+            "description": "Denne fullmakten gir tilgang til tjenester innen drift av opplæringskontor som opplæringskontorleder er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "499d0e1c-18d7-4f21-b110-723e3d13003a",
+            "urn": "urn:altinn:accesspackage:skoleleder",
+            "name": "Skoleleder",
+            "description": "Denne fullmakten gir tilgang til tjenester innen drift av skole som skoleleder er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "32bfd131-1570-4b0c-888b-733cbb72d0cb",
+            "urn": "urn:altinn:accesspackage:skoleeier",
+            "name": "Skoleeier",
+            "description": "Denne fullmakten gir tilgang til tjenester innen drift av skole som skoleeier er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "c1242df4-6af1-4e0b-b022-73c1099f5297",
+            "urn": "urn:altinn:accesspackage:statsforvalterskoleogopplearing",
+            "name": "Statsforvalter - skole og opplæring",
+            "description": "Denne fullmakten gir tilgang til tjenester for statsforvalter knyttet til skole- og opplæringssektor, herunder fagopplæring og voksenopplæring."
+          },
+          {
+            "id": "7e6d8dd4-35a3-49d6-a2c5-73cd35018646",
+            "urn": "urn:altinn:accesspackage:statsforvalterbarnehage",
+            "name": "Statsforvalter- barnehage",
+            "description": "Denne fullmakten gir tilgang til tjenester for statsforvalter knyttet til barnehagesektor."
+          },
+          {
+            "id": "0ecc481a-691c-496d-a3f2-748b8c450ed9",
+            "urn": "urn:altinn:accesspackage:barnehagemyndighet",
+            "name": "Barnehagemyndighet",
+            "description": "Denne fullmakten gir tilgang til tjenester innen drift av barnehage som barnehagemyndighet er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "dcb57f3e-0e5b-4ef7-a10c-74c53bc5a90d",
+            "urn": "urn:altinn:accesspackage:barnehageleder",
+            "name": "Barnehageleder",
+            "description": "Denne fullmakten gir tilgang til tjenester innen drift av barnehage som barnehageleder er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "9a14f2c1-f0bc-4965-97c0-76a4e191bbe1",
+            "urn": "urn:altinn:accesspackage:barnehageeier",
+            "name": "Barnehageeier",
+            "description": "Denne fullmakten gir tilgang til tjenester innen drift av barnehage som barnehageeier er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          }
+        ]
+      },
+      {
+        "id": "6e152c10-0f63-4060-9b14-66808e7ac320",
+        "urn": "accesspackage:area:energi_vann_avlop_og_avfall",
+        "name": "Energi, vann,avløp og avfall",
+        "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til energi, vann,avløp og avfall.",
+        "icon": "LightningIcon",
+        "areaGroup": "Bransje",
+        "packages": [
+          {
+            "id": "f56bdb15-686b-46f8-9343-bde5d7c17648",
+            "urn": "urn:altinn:accesspackage:elektrisitetprodusereoverforedistrubere",
+            "name": "Elektrisitet - produsere, overføre og distribuere",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til elektrisitet: produsere, overføre og distribuere. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "27afe398-b25b-4287-b0fa-c1d03d6c9fa9",
+            "urn": "urn:altinn:accesspackage:dampvarmtvann",
+            "name": "Damp- og varmtvann",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til damp- og varmtvann. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "e7cda008-f265-4452-b03c-c21b8b51dfe1",
+            "urn": "urn:altinn:accesspackage:vannkilderensedistrubere",
+            "name": "Vann - ta ut fra kilde, rense og distribuere",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til vann: ta ut fra kilde, rense og distribuere. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "fef4aac0-d227-4ef6-834b-cc2eb4b942ed",
+            "urn": "urn:altinn:accesspackage:samlebehandleavlopsvann",
+            "name": "Samle opp og behandle avløpsvann",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til samle opp og behandle avløpsvann. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "6dcffdde-cc5c-4b57-a5a2-cc5ae6ad44fc",
+            "urn": "urn:altinn:accesspackage:avfallbehandlegjenvinne",
+            "name": "Avfall - samle inn, behandle, bruke og gjenvinne",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til avfall: samle inn, behandle bruke og gjenvinne. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "ab656cf2-1e65-4b5a-a1e3-cd5bd4cb804c",
+            "urn": "urn:altinn:accesspackage:miljoryddingrensing",
+            "name": "Miljørydding - rensing og lignende virksomhet",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til miljøryddng, -rensing og lignende virksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "452bd15d-2cd2-4279-9470-cd97ba8ef1c7",
+            "urn": "urn:altinn:accesspackage:utvinningraoljenaturgasskull",
+            "name": "Utvinning av råolje, naturgass og kull",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til utvinning av råolje, naturgass og kull. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          }
+        ]
+      },
+      {
+        "id": "10c2dd29-5ab3-4a26-900e-8e2326150353",
+        "urn": "accesspackage:area:industrier",
+        "name": "Industrier",
+        "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til industrier.",
+        "icon": "CogIcon",
+        "areaGroup": "Bransje",
+        "packages": [
+          {
+            "id": "65c7bbe7-aeb4-4f18-b0b0-1b1b83bd24d1",
+            "urn": "urn:altinn:accesspackage:naeringsmidlerdrikkevarerogtobakk",
+            "name": "Næringsmidler, drikkevarer og tobakk",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med næringsmidler, drikkevarer og tobakk. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "c6231d60-5373-4179-b98b-1e7eb83da474",
+            "urn": "urn:altinn:accesspackage:tekstilerklaerlaervarer",
+            "name": "Tekstiler, klær og lærvarer",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med tekstiler, klær og lærvarer. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "deb1618f-395c-4a14-9a70-20e90e5f9a76",
+            "urn": "urn:altinn:accesspackage:trelasttrevarerpapirvarer",
+            "name": "Trelast, trevarer og papirvarer",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med trelast, trevarer og papirvarer. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "965f9aca-48f5-4a16-b5e3-228806ad4fa7",
+            "urn": "urn:altinn:accesspackage:trykkerierreproduksjonopptak",
+            "name": "Trykkerier og reproduksjon av innspilte opptak",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med trykkerier og reproduksjon av innspilte opptak. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "79203df9-d71b-460b-a828-22b0bf79f335",
+            "urn": "urn:altinn:accesspackage:oljeraffineringkjemiskfarmasoytiskindustri",
+            "name": "Oljeraffinering, kjemisk og farmasøytisk industri",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med oljeraffinering, kjemisk og farmasøytisk industri. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "573be5d2-3ddd-4862-9711-2350147a1b25",
+            "urn": "urn:altinn:accesspackage:gummiplastogikkemetallholdigemineralprodukter",
+            "name": "Gummi, plast og ikke-metallholdige mineralprodukter",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med gummi, plast og ikke-metallholdige mineralprodukter. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "84e744a0-e93f-4caf-bb3f-24387f045d2d",
+            "urn": "urn:altinn:accesspackage:metallerogmineraler",
+            "name": "Metaller og mineraler",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med metaller og mineraler. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "2857fd90-dad2-4cc3-9947-282c22f5d2dc",
+            "urn": "urn:altinn:accesspackage:metallvarerelektriskutstyrogmaskiner",
+            "name": "Metallvarer elektrisk utstyr og maskiner",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med metallvarer, elektrisk utstyr og maskiner. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "c37aabdf-a78a-4f59-999a-298a83e9e113",
+            "urn": "urn:altinn:accesspackage:verftogandretransportmidler",
+            "name": "Verft og andre transportmidler",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med verft og andre transportmidler. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "07bfd8a5-5b13-4937-84b9-2bd6ac726ea1",
+            "urn": "urn:altinn:accesspackage:moblerogannenindustri",
+            "name": "Møbler og annen industri",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med møbler og annen industri. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "ec492675-3a48-4ad9-b864-2d6865020642",
+            "urn": "urn:altinn:accesspackage:reparasjonoginstallasjonavmaskinerogutstyr",
+            "name": "Reparasjon og installasjon av maskiner og utstyr",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med reparasjon og installasjon av maskiner og utstyr. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "8c700369-8fff-40f1-b4ce-2f116416d804",
+            "urn": "urn:altinn:accesspackage:bergverk",
+            "name": "Bergverk",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med bergverk og tilhørende tjenester til bergverksdrift og utvinning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          }
+        ]
+      },
+      {
+        "id": "5996ba37-6db0-4391-8918-b1b0bd4b394b",
+        "urn": "accesspackage:area:kultur_og_frivillighet",
+        "name": "Kultur og frivillighet",
+        "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til kultur og frivillighet.",
+        "icon": "PresentationIcon",
+        "areaGroup": "Bransje",
+        "packages": [
+          {
+            "id": "75fa5863-3368-4ac6-9a4b-48f595e483ad",
+            "urn": "urn:altinn:accesspackage:kunstogunderholdning",
+            "name": "Kunst og underholdning",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til kunstnerisk og underholdningsaktiviteter. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "73418c0c-d4db-4e26-8581-4ccf1384aad7",
+            "urn": "urn:altinn:accesspackage:bibliotekermuseerarkiverogannenkultur",
+            "name": "Biblioteker, museer, arkiver og annen kultur",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til biblioteker, museer, arkiver, og annen kultur som botaniske og zoologiske hager, og drift av naturfenomener av historisk, kulturell eller undervisningsmessig interesse (f.eks. verdenskulturarv mv.). Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "cc5ccdec-6c67-4462-ab51-4d5eaafd64c1",
+            "urn": "urn:altinn:accesspackage:lotteriogspill",
+            "name": "Lotteri og spill",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til lotteri og spill, som f eks kasinoer, bingohaller og videospillhaller samt spillevirksomhet som f.eks. lotterier og veddemål som inngås utenfor banen. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "d2d00311-cc33-47ad-b33b-4eb15cce8d1d",
+            "urn": "urn:altinn:accesspackage:sportsogfritid",
+            "name": "Sport og fritid",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til sports- og fritidsaktiviteter. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "c82ab275-dad6-461a-bf0c-50be46b25ec9",
+            "urn": "urn:altinn:accesspackage:fornoyelser",
+            "name": "Fornøyelser",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til drift av fornøyelsesetablissementer. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "f05153b5-4784-46f0-805a-525ed31fde3b",
+            "urn": "urn:altinn:accesspackage:politikk",
+            "name": "Politikk",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til aktiviteter i forbindelse med politisk arbeid. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          }
+        ]
+      },
+      {
+        "id": "3797e9f0-dd83-404c-9897-e356c32ef600",
+        "urn": "accesspackage:area:handel_overnatting_og_servering",
+        "name": "Handel, overnatting og servering",
+        "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til handel, overnatting og servering.",
+        "icon": "WalletIcon",
+        "areaGroup": "Bransje",
+        "packages": [
+          {
+            "id": "a6d704b7-d56b-4517-be79-0acd5b55b35e",
+            "urn": "urn:altinn:accesspackage:varehandel",
+            "name": "Varehandel",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til varehandel, inkludert engros- og detaljhandel, import og eksport, og salg og reparasjon av motorvogner. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "77cdd23a-dddf-43e6-b5c2-0d8299b0888c",
+            "urn": "urn:altinn:accesspackage:overnatting",
+            "name": "Overnatting",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til overnattingsvirksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "6710a7a0-78f9-47e3-bfa6-0d875869befd",
+            "urn": "urn:altinn:accesspackage:servering",
+            "name": "Servering",
+            "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til serveringsvirksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          }
+        ]
+      },
+      {
+        "id": "e31169f6-d4c7-4e45-93c7-f90bc285b639",
+        "urn": "accesspackage:area:andre_tjenesteytende_naeringer",
+        "name": "Andre tjenesteytende næringer",
+        "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til andre tjenesteytende næringer.",
+        "icon": "ReceptionIcon",
+        "areaGroup": "Bransje",
+        "packages": [
+          {
+            "id": "a736c33b-c15a-43ac-85be-a684630e1e59",
+            "urn": "urn:altinn:accesspackage:postogtelekommunikasjon",
+            "name": "Post og telekommunikasjon",
+            "description": "Denne fullmakten gir tilgang til tjenester knyttet til post og telekommunikasjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "413d79fb-a419-4e74-98f7-aa91389deb81",
+            "urn": "urn:altinn:accesspackage:informasjonogkommunikasjon",
+            "name": "Informasjon og kommunikasjon",
+            "description": "Denne fullmakten gir tilgang til tjenester knyttet til informasjon og kommunikasjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "8f977b5f-a2f9-4712-88e2-ab1a51a6b26f",
+            "urn": "urn:altinn:accesspackage:finansieringogforsikring",
+            "name": "Finansiering og forsikring",
+            "description": "Denne fullmakten gir tilgang til tjenester knyttet til finansiering og forsikring. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "a8b18888-2216-4eaa-972d-ae96da04b1ac",
+            "urn": "urn:altinn:accesspackage:annentjenesteyting",
+            "name": "Annen tjenesteyting",
+            "description": "Denne fullmakten gir tilgang til tjenester knyttet til annen tjenesteyting som f eks organisasjoner og foreninger, reparasjon av datamaskiner og varer til personlig bruk og husholdningsbruk og en rekke personlige tjenester som ikke er nevnt annet sted. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "554f0321-53b8-4d97-be12-6a585c507159",
+    "urn": "accesspackage:area:spesiell",
+    "name": "Spesiell",
+    "description": "For de spesielle pakkegruppene",
+    "type": "Organisasjon",
+    "areas": [
+      {
+        "id": "64cbcdc8-01c9-448c-b3d2-eb9582beb3c2",
+        "urn": "accesspackage:area:fullmakter_for_regnskapsforer",
+        "name": "Fullmakter for regnskapsfører",
+        "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til fullmakter for regnskapsfører.",
+        "icon": "AreaChartIcon",
+        "areaGroup": "Spesiell",
+        "packages": [
+          {
+            "id": "955d5779-3e2b-4098-b11d-0431dc41ddbe",
+            "urn": "urn:altinn:accesspackage:regnskapsforermedsigneringsrettighet",
+            "name": "Regnskapsfører med signeringsrettighet",
+            "description": "Denne fullmakten gir tilgang til regnskapfører å kunne signere på vegne av kunden for alle tjenester som krever signeringsrett. Dette er tjenester som man har vurdert det som naturlig at en regnskapsfører utfører på vegne av sin kunde. Fullmakten gis kun til autoriserte regnskapsførere. Fullmakt hos regnskapfører oppstår når kunden registrerer regnskapsfører i Enhetsregisteret. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "a5f7f72a-9b89-445d-85bb-06f678a3d4d1",
+            "urn": "urn:altinn:accesspackage:regnskapsforerutensigneringsrettighet",
+            "name": "Regnskapsfører uten signeringsrettighet",
+            "description": "Denne fullmakten gir tilgang til å kunne utføre alle tjenester som ikke krever signeringsrett. Dette er tjenester som man har vurdert det som naturlig at en regnskapsfører utfører på vegne av sin kunde. Fullmakten gis kun til autoriserte regnskapsførere. Fullmakt hos regnskapfører oppstår når kunden registrerer regnskapsfører i Enhetsregisteret. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "43becc6a-8c6c-4e9e-bb2f-08fe588ada21",
+            "urn": "urn:altinn:accesspackage:regnskapsforerlonn",
+            "name": "Regnskapsfører lønn",
+            "description": "Denne fullmakten gir tilgang til regnskapsfører å rapportere lønn for sin kunde. Dette er tjenester som man har vurdert det som naturlig at en regnskapsfører utfører på vegne av sin kunde. Fullmakten gis kun til autoriserte regnskapsførere. Fullmakt hos regnskapfører oppstår når kunden registrerer regnskapsfører i Enhetsregisteret. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          }
+        ]
+      },
+      {
+        "id": "7df15290-f43c-4831-a1b4-3edfa43e526d",
+        "urn": "accesspackage:area:fullmakter_for_revisor",
+        "name": "Fullmakter for revisor",
+        "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til fullmakter for revisor.",
+        "icon": "ReceiptIcon",
+        "areaGroup": "Spesiell",
+        "packages": [
+          {
+            "id": "2f176732-b1e9-449b-9918-090d1fa986f6",
+            "urn": "urn:altinn:accesspackage:ansvarligrevisor",
+            "name": "Ansvarlig revisor",
+            "description": "Denne fullmakten gir revisor tilgang til å opptre som ansvarlig revisor for en kunde og utføre alle tjenester som krever denne fullmakten. Dette er tjenester som tjenestetilbyder har vurdert det som naturlig at en revisor utfører på vegne av sin kunde. Fullmakten gis kun til autoriserte revisorer. Fullmakt hos revisor oppstår når kunden registrerer regnskapsfører i Enhetsregisteret. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          },
+          {
+            "id": "96120c32-389d-46eb-8212-0a6540540c25",
+            "urn": "urn:altinn:accesspackage:revisormedarbeider",
+            "name": "Revisormedarbeider",
+            "description": "Denne fullmakten gir revisor tilgang til å opptre som revisormedarbeider for en kunde og utføre alle tjenester som krever denne fullmakten. Dette er tjenester som tjenestetilbyder har vurdert det som naturlig at en revisor utfører på vegne av sin kunde. Fullmakten gis kun til autoriserte revisorer. Fullmakt hos revisor oppstår når kunden registrerer regnskapsfører i Enhetsregisteret. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  "
+          }
+        ]
+      },
+      {
+        "id": "f3daddb7-6e21-455e-b6d2-65a281375b6b",
+        "urn": "accesspackage:area:fullmakter_for_konkursbo",
+        "name": "Fullmakter for konkursbo",
+        "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til fullmakter for konkursbo.",
+        "icon": "TrendDownIcon",
+        "areaGroup": "Spesiell",
+        "packages": [
+          {
+            "id": "a784a0b3-2ca1-46c1-97dc-f5df0dd1ab53",
+            "urn": "urn:altinn:accesspackage:konkursbotilgangsstyring",
+            "name": "Konkursbo tilgangsstyring",
+            "description": "Denne fullmakten gir rettighet til å administrere konkursbo. Fullmakten er en engangsdelegering, og den gir ikke tilgang til noen tjenester.  "
+          },
+          {
+            "id": "5ef836c7-69cc-4ea8-84d6-fb933cc4fc5c",
+            "urn": "urn:altinn:accesspackage:konkursbolesetilgang",
+            "name": "Konkursbo lesetilgang",
+            "description": "Denne fullmakten delegeres til kreditorer og andre som skal ha lesetilgang til det enkelte konkursbo.  "
+          },
+          {
+            "id": "0e219609-02c6-44e6-9c80-fe2c1997940e",
+            "urn": "urn:altinn:accesspackage:konkursboskrivetilgang",
+            "name": "Konkursbo skrivetilgang",
+            "description": "Denne fullmakten gir bostyrers medhjelper tilgang til å jobbe på vegne av bostyrer. Bostyrer delegerer denne fullmakten sammen med Konkursbo lesetilgang til medhjelper for hvert konkursbo.  "
+          }
+        ]
+      }
+    ]
+  }
+]

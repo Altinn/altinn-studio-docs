@@ -50,32 +50,32 @@ i den klassen der du har behov for å hente ut en hemmelighet.
 ### 1. Azure Key Vault som config provider (anbefalt)
 Om denne fremgangsmåten velges kan man bruke Azure Key Vault på standard måte via [IOptions-pattern](https://learn.microsoft.com/en-us/dotnet/core/extensions/options).
 
-Det finnes en hjelpemetode for å legge til Azure Key Vault på denne måten, som kan benyttes i program.cs.
+I namespace `Altinn.App.Api.Extensions` finnes det en hjelpemetode til dette formålet:
 
 ```cs
-if (!builder.Environment.IsDevelopment())
-{
-    builder.AddAzureKeyVaultAsConfigProvider();
-}
+IHostApplicationBuilder.AddAzureKeyVaultAsConfigProvider()
 ```
 
-Eksempel:
-```cs
-WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
-ConfigureServices(builder.Services, builder.Configuration);
-ConfigureWebHostBuilder(builder.WebHost);
+Denne metoden kan brukes i `Program.cs` på følgende måte:
 
-if (!builder.Environment.IsDevelopment())
+{{< highlight csharp "linenos=false,hl_lines=5-9" >}}
+void ConfigureWebHostBuilder(IWebHostBuilder builder)
 {
-    builder.AddAzureKeyVaultAsConfigProvider();
+    builder.ConfigureAppWebHost(args);
+
+    // Add Azure KV provider for TT02 & Prod environments
+    if (!builder.Environment.IsDevelopment())
+    {
+        builder.AddAzureKeyVaultAsConfigProvider();
+    }
 }
+{{< / highlight >}}
 
-WebApplication app = builder.Build();
-Configure();
-app.Run();
-```
+{{%notice warning%}}
+Kall til `AddAzureKeyVaultAsConfigProvider` må skje __etter__ metoden `ConfigureAppWebHost` har kjørt, hvis ikke vil oppstart feile.
+{{% /notice %}}
 
-Lokal mocking kan gjøres ved hjelp av [user secrets](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-8.0&tabs=windows).
+Lokal mocking kan gjøres ved hjelp av [user secrets](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-8.0&tabs=windows):
 
 ```
 dotnet user-secrets init
@@ -101,70 +101,63 @@ using Altinn.Platform.Storage.Interface.Models;
 using Altinn.App.Core.Internal.Secrets;
 using System.Threading.Tasks;
 
-namespace Altinn.App.AppLogic
+namespace Altinn.App.AppLogic;
+
+public class InstantiationHandler
 {
-    public class InstantiationHandler
+    private IProfile _profileService;
+    private IRegister _registerService;
+    private ISecretsClient _secretsClient;
+
+    /// <summary>
+    /// Set up access to profile and register services
+    /// </summary>
+    public InstantiationHandler(IProfile profileService, IRegister registerService, ISecretsClient secretsClient)
     {
-        private IProfile _profileService;
-        private IRegister _registerService;
-        private ISecretsClient _secretsClient;
+        _profileService = profileService;
+        _registerService = registerService;
+        _secretsClient = secretsClient;
+    }
 
-        /// <summary>
-        /// Set up access to profile and register services
-        /// </summary>
-        public InstantiationHandler(IProfile profileService, IRegister registerService, ISecretsClient secretsClient)
+    /// <summary>
+    /// Run events related to instantiation
+    /// </summary>
+    /// <remarks>
+    /// For example custom prefill.
+    /// </remarks>
+    /// <param name="instance">Instance information</param>
+    /// <param name="data">The data object created</param>
+    public async Task DataCreation(Instance instance, object data)
+    {
+
+        if (data.GetType() == typeof(Skjema))
         {
-            _profileService = profileService;
-            _registerService = registerService;
-            _secretsClient = secretsClient;
+            Skjema model = (Skjema)data;
+            model.etatid = await _secretsClient.GetSecretAsync("secretId");
         }
-
-        /// <summary>
-        /// Run events related to instantiation
-        /// </summary>
-        /// <remarks>
-        /// For example custom prefill.
-        /// </remarks>
-        /// <param name="instance">Instance information</param>
-        /// <param name="data">The data object created</param>
-        public async Task DataCreation(Instance instance, object data)
-        {
-
-            if (data.GetType() == typeof(Skjema))
-            {
-                Skjema model = (Skjema)data;
-                model.etatid = await _secretsClient.GetSecretAsync("secretId");
-            }
-            await Task.CompletedTask;
-        }
+        await Task.CompletedTask;
     }
 }
 ```
 
 1. Den private variabelen for servicen inkluderes i klassen
-
-    ```cs
-    private ISecretsClient _secretsClient;
-    ```
-
-2. ISecretsClient servicen dependency injectes inn i klassen. Og den private variabelen blir assignet en verdi.
-
-    ```cs
-    public InstantiationHandler(IProfile profileService, IRegister registerService, ISecretsClient secretsClient)
-            {
-                _profileService = profileService;
-                _registerService = registerService;
-                _secretsClient = secretsClient;
-            }
-
-    ```
-
-3. I metoden der man har behov for hemmeligheten kaller man på servicen.
-    `secretId` vil være navnet på hemmeligheten i KeyVault evt. i lokal mock.
-
-    ```cs
-    await _secretsClient_.GetSecretAsync("secretId");
-    ```
+   ```cs
+   private ISecretsClient _secretsClient;
+   ```
+3. ISecretsClient servicen dependency injectes inn i klassen. Og den private variabelen blir assignet en verdi.
+   ```cs
+   public InstantiationHandler(IProfile profileService, IRegister registerService, ISecretsClient secretsClient)
+   {
+       _profileService = profileService;
+       _registerService = registerService;
+       _secretsClient = secretsClient;
+   }
+   ```
+4. I metoden der man har behov for hemmeligheten kaller man på servicen.
+   `secretId` vil være navnet på hemmeligheten i Key Vault (evt. i lokal mock).
+   ```cs
+   await _secretsClient_.GetSecretAsync("secretId");
+   ```
 
 #### Lokal mock
 
@@ -175,6 +168,6 @@ Har man lastet opp en hemmelighet i Key Vault med navnet "secretId" vil innholde
 
 ```json
 {
-  "secretId": "local cecret dummy data"
+  "secretId": "local secret dummy data"
 }
 ```
