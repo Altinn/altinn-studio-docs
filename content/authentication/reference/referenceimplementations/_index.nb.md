@@ -10,4 +10,4 @@ weight: 5
 
 See details about the Archtecture for Altinn Authentication
 
-[Architecture](architecture)
+
