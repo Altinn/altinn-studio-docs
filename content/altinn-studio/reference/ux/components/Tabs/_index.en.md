@@ -125,7 +125,7 @@ A string identifier for the tab. Must be unique within the current list of tabs.
 The title of the tab can be added as text directly or referenced via a text key to a [text resource](/nb/altinn-studio/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app).
 
 #### `icon`
-An URL path to the icon.
+A URL path to the icon.
 
 #### `children`
 
