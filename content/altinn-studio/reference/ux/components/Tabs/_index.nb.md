@@ -112,7 +112,7 @@ If no argument is given, the shortcode pulls the component name from 'schemaname
 <br>
 
 ### defaultTab
-Dette kan settes til id'en til den spesifikke fanen du ønsker skal være valgt som standard.
+Dette kan settes til ID-en til den spesifikke fanen du ønsker skal være valgt som standard.
 
 ### tabs
 
