@@ -15,7 +15,7 @@ toc: true
 
 ## Usage
 
-The Tabs component allows you to organize and switch between different content sections by clicking on the header,
+The `Tabs` component allows you to organise and switch between different content sections by clicking on the header,
  allowing for a space-efficient and organized way to present information.
 
 ### Anatomy
