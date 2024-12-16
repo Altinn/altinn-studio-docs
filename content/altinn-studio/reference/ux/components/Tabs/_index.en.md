@@ -64,7 +64,7 @@ Add the following sections if relevant:
 | `size`          | string   | Sets the size of the tabs. **Enum:**: `"small" \| "medium" \| "large"` <br/> **Default:** `medium`. |
 | `defaultTab`    | string   | Configuring a tab to be selected by default.                                                            |
 | `tabs`          | Array    | A list of tab objects containing the config(`id, title, icon, children`) for each tab.              |
-| `tabs.id`       | string   | Unique id of the current tab.                                                                       |
+| `tabs.id`       | string   | Unique ID of the tab in question.                                                                  |
 | `tabs.title`    | string   | The title for the current tab.                                                                      |
 | `tabs.icon`     | string   | An URL to the icon for the current tab.                                                             |
 | `tabs.children` | Array    | The content of the tab.                                                                             |
