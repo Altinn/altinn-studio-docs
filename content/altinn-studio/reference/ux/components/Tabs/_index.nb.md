@@ -63,7 +63,7 @@ Add the following sections if relevant:
 | `size`          | string   | Setter størrelsen på fanen. **Enum:**: `"small" \| "medium" \| "large"` <br/> **Default:** `medium`. |
 | `defaultTab`    | string   | Angir en fane som er valgt som standard.                                                            |
 | `tabs`          | Array    | En liste av fane objekter som inneholder konfigurasjon(`id, title, icon, children`) per fane.        |
-| `tabs.id`       | string   | Unik Id streng for fanen.                                                                            |
+| `tabs.id`       | string   | Unik ID-streng for fanen. Må være unik blant alle fanene for denne komponenten.                                                                            |
 | `tabs.title`    | string   | Tittelen for fanen.                                                                                  |
 | `tabs.icon`     | string   | En URL streng som peker på ikonet til fanen.                                                         |
 | `tabs.children` | Array    | Spesifiserer hvilke komponenter du vil vise når fanen er aktiv.                                        |
