@@ -5,7 +5,7 @@
         "version": "1.0.0",
         "description": "API for Altinn Correspondence functionality."
     },
-    "servers": [
+"servers": [
         {
             "url": "https://platform.tt02.altinn.no",
             "description": "TT02"
@@ -317,7 +317,7 @@
                                         "type": "string"
                                     },
                                     "Correspondence.Sender": {
-                                        "pattern": "^\\d{4}:\\d{9}$",
+"pattern": "^(?:0192:|urn:altinn:organization:identifier-no):\\d{9}$",
                                         "type": "string"
                                     },
                                     "Correspondence.SendersReference": {
@@ -426,6 +426,12 @@
                                     "Correspondence.Notification.RequestedSendTime": {
                                         "type": "string",
                                         "format": "date-time"
+                                    },
+                                    "Correspondence.Notification.CustomNotificationRecipients": {
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/components/schemas/CustomNotificationRecipientExt"
+                                        }
                                     },
                                     "Correspondence.IgnoreReservation": {
                                         "type": "boolean"
@@ -541,6 +547,9 @@
                                 "Correspondence.Notification.RequestedSendTime": {
                                     "style": "form"
                                 },
+                                "Correspondence.Notification.CustomNotificationRecipients": {
+                                    "style": "form"
+                                },
                                 "Correspondence.IgnoreReservation": {
                                     "style": "form"
                                 },
@@ -591,13 +600,6 @@
                             "type": "string",
                             "format": "uuid"
                         }
-                    },
-                    {
-                        "name": "onBehalfOf",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
                     }
                 ],
                 "responses": {
@@ -627,13 +629,6 @@
                         "schema": {
                             "type": "string",
                             "format": "uuid"
-                        }
-                    },
-                    {
-                        "name": "onBehalfOf",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
                         }
                     }
                 ],
@@ -688,13 +683,6 @@
                             "type": "string",
                             "format": "uuid"
                         }
-                    },
-                    {
-                        "name": "onBehalfOf",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
                     }
                 ],
                 "responses": {
@@ -717,13 +705,6 @@
                         "schema": {
                             "type": "string",
                             "format": "uuid"
-                        }
-                    },
-                    {
-                        "name": "onBehalfOf",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
                         }
                     }
                 ],
@@ -748,13 +729,6 @@
                             "type": "string",
                             "format": "uuid"
                         }
-                    },
-                    {
-                        "name": "onBehalfOf",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
                     }
                 ],
                 "responses": {
@@ -777,13 +751,6 @@
                         "schema": {
                             "type": "string",
                             "format": "uuid"
-                        }
-                    },
-                    {
-                        "name": "onBehalfOf",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
                         }
                     }
                 ],
@@ -817,13 +784,6 @@
                             "type": "string",
                             "format": "uuid"
                         }
-                    },
-                    {
-                        "name": "onBehalfOf",
-                        "in": "query",
-                        "schema": {
-                            "type": "string"
-                        }
                     }
                 ],
                 "responses": {
@@ -836,23 +796,6 @@
     },
     "components": {
         "schemas": {
-            "AtachmentStatusEvent": {
-                "type": "object",
-                "properties": {
-                    "status": {
-                        "$ref": "#/components/schemas/AttachmentStatusExt"
-                    },
-                    "statusText": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "statusChanged": {
-                        "type": "string",
-                        "format": "date-time"
-                    }
-                },
-                "additionalProperties": false
-            },
             "AttachmentDataLocationTypeExt": {
                 "enum": [
                     "AltinnCorrespondenceAttachment",
@@ -909,7 +852,7 @@
                     },
                     "sender": {
                         "minLength": 1,
-                        "pattern": "^\\d{4}:\\d{9}$",
+                        "pattern": "^(?:0192:|urn:altinn:organization:identifier-no):\\d{9}$",
                         "type": "string"
                     },
                     "attachmentId": {
@@ -938,7 +881,7 @@
                     "statusHistory": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/AtachmentStatusEvent"
+                            "$ref": "#/components/schemas/AttachmentStatusEvent"
                         },
                         "nullable": true
                     }
@@ -994,7 +937,7 @@
                     },
                     "sender": {
                         "minLength": 1,
-                        "pattern": "^\\d{4}:\\d{9}$",
+                        "pattern": "^(?:0192:|urn:altinn:organization:identifier-no):\\d{9}$",
                         "type": "string"
                     },
                     "attachmentId": {
@@ -1019,6 +962,27 @@
                             "format": "uuid"
                         },
                         "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AttachmentStatusEvent": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "$ref": "#/components/schemas/AttachmentStatusExt"
+                    },
+                    "statusText": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "statusChanged": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "partyUuid": {
+                        "type": "string",
+                        "format": "uuid"
                     }
                 },
                 "additionalProperties": false
@@ -1048,7 +1012,7 @@
                     },
                     "sender": {
                         "minLength": 1,
-                        "pattern": "^\\d{4}:\\d{9}$",
+                        "pattern": "^(?:0192:|urn:altinn:organization:identifier-no):\\d{9}$",
                         "type": "string"
                     },
                     "sendersReference": {
@@ -1238,7 +1202,7 @@
                     },
                     "sender": {
                         "minLength": 1,
-                        "pattern": "^\\d{4}:\\d{9}$",
+                        "pattern": "^(?:0192:|urn:altinn:organization:identifier-no):\\d{9}$",
                         "type": "string"
                     },
                     "sendersReference": {
@@ -1378,7 +1342,7 @@
                     },
                     "sender": {
                         "minLength": 1,
-                        "pattern": "^\\d{4}:\\d{9}$",
+                        "pattern": "^(?:0192:|urn:altinn:organization:identifier-no):\\d{9}$",
                         "type": "string"
                     },
                     "sendersReference": {
@@ -1509,6 +1473,10 @@
                     "statusChanged": {
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "partyUuid": {
+                        "type": "string",
+                        "format": "uuid"
                     }
                 },
                 "additionalProperties": false
@@ -1555,6 +1523,27 @@
                 ],
                 "type": "string"
             },
+            "CustomNotificationRecipientExt": {
+                "required": [
+                    "notificationRecipient",
+                    "recipientToOverride"
+                ],
+                "type": "object",
+                "properties": {
+                    "recipientToOverride": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "notificationRecipient": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/NotificationRecipientExt"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
             "ExternalReferenceExt": {
                 "required": [
                     "referenceType",
@@ -1576,7 +1565,7 @@
                 "enum": [
                     "NewCorrespondenceAttachment",
                     "ExistingCorrespondenceAttachment",
-                    "ExisitingExternalStorage"
+                    "ExistingExternalStorage"
                 ],
                 "type": "string"
             },
@@ -1624,7 +1613,7 @@
                     },
                     "sender": {
                         "minLength": 1,
-                        "pattern": "^\\d{4}:\\d{9}$",
+                        "pattern": "^(?:0192:|urn:altinn:organization:identifier-no):\\d{9}$",
                         "type": "string"
                     }
                 },
@@ -1776,6 +1765,13 @@
                     "requestedSendTime": {
                         "type": "string",
                         "format": "date-time",
+                        "nullable": true
+                    },
+                    "recipients": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CustomNotificationRecipientExt"
+                        },
                         "nullable": true
                     }
                 },

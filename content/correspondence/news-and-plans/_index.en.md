@@ -4,7 +4,7 @@ linktitle: News and plans
 description: News and plans for development of Altinn 3 Correspondence.
 tags: []
 toc: false
-weight: 70
+weight: 80
 ---
 
 <!-- {{<children />}} -->
