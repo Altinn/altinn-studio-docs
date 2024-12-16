@@ -119,7 +119,7 @@ The ID of the specific tab that you wish to be selected by default.
 ### Tabs
 
 #### `id`
-A string identifier for the tab.
+A string identifier for the tab. Must be unique within the current list of tabs.
 
 #### `title`
 The title for the  can be added as text directly or referenced via a text key to a [text resource](/nb/altinn-studio/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app).
