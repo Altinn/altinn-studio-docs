@@ -1,7 +1,7 @@
 ---
-title: Options (code lists)
+title: Code lists and options
 linktitle: Options
-description: How to configure Options / Code lists for an app?
+description: How to set up code lists for components that use options
 toc: true
 weight: 40
 aliases:
@@ -9,7 +9,25 @@ aliases:
 - /altinn-studio/reference/data/options
 ---
 
-Several of the form components in Altinn 3 use options. The concept referred to as options is sometimes also called _code lists_.
+Several of the form components in Altinn 3 use options. By options, we mean a list of choices that can be selected by
+the user. In the most basic use-cases you might [set up a list of options directly in the component configuration](sources/static),
+but often you'll want to fetch the options from a _code list_.
+
+### Terms
+
+There are subtle differences between the terms _options_ and _code lists_:
+
+- **Options**: A list of choices that can be selected by the user. Think of the contacts in your phone. When you use
+  your contact list to dial someone, you are selecting from a list of options, and your phone uses the selected value
+  (the phone number) to dial the person.
+- **Code list**: A list of codes and their corresponding value and texts. Think of
+  the [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes. This list contains codes (like `NO`
+  or `SE`) and their corresponding labels (like `Norway` or `Sweden`).
+
+When selecting a value from (for example) a Dropdown component, you are selecting from a list of _options_, which
+might be sourced from a _code list_. In that case, options is _what they are_, and a code list is _where they came from_.
+
+### Supported components
 
 The following components support options:
 

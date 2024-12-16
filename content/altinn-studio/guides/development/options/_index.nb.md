@@ -1,5 +1,5 @@
 ---
-title: Svaralternativer
+title: Kodelister og svaralternativer
 linktitle: Svaralternativer
 description: Hvordan konfigurere svaralternativer for en app
 toc: true
@@ -9,7 +9,26 @@ aliases:
 - /nb/altinn-studio/reference/data/options
 ---
 
-Flere av skjemakomponentene i Altinn 3 bruker svaralternativer. Konseptet omtalt som svaralternativer kalles av og til også for _kodelister_ (eller _code lists_ og _options_ på engelsk).
+Flere av skjemakomponentene i Altinn 3 bruker svaralternativer. Med svaralternativer mener vi en liste med valg som
+kan velges av brukeren. I de enkleste tilfellene kan du
+[sette opp en liste med svaralternativer direkte i konfigurasjonen til komponenten](sources/static)
+men ofte kommer svaralternativene til å hentes fra en _kodeliste_.
+
+### Begreper
+
+Det er noen små forskjeller mellom begrepene _svaralternativer_ og _kodelister_:
+
+- **Svaralternativer**: En liste med valg som kan velges av brukeren. Tenk på kontaktene i telefonen din. Når du bruker
+  kontaktlisten din for å ringe noen, velger du fra en liste med svaralternativer, og telefonen din bruker den valgte verdien
+  (telefonnummeret) for å ringe personen.
+- **Kodeliste**: En liste med koder og deres tilhørende verdier og tekster. Tenk på
+  [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) landskoder. Denne listen inneholder koder (som `NO`
+  eller `SE`) og deres tilhørende ledetekst (som `Norge` eller `Sverige`).
+
+Når du velger en verdi fra (for eksempel) en nedtrekksliste, velger du fra en liste med _svaralternativer_, som
+kan være hentet fra en _kodeliste_. I dette tilfellet er svaralternativer _hva de er_, og en kodeliste er _hvor de kommer fra_.
+
+### Støttede komponenter
 
 Følgende komponenter støtter svaralternativer:
 
