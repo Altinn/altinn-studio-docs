@@ -129,7 +129,7 @@ A URL path to the icon.
 
 #### `children`
 
-Specify which components you want to show when tab is active, by adding their IDs to an array under `children`.
+Defines the components to display when a tab is active by adding their IDs to an array under the `children` property.
 
 <br>
 
