@@ -62,7 +62,7 @@ Add the following sections if relevant:
 |-----------------|----------|-----------------------------------------------------------------------------------------------------|
 | `id`            | string   | Unique ID string for the component.                                                                  |
 | `size`          | string   | Sets the size of the tabs. **Enum:**: `"small" \| "medium" \| "large"` <br/> **Default:** `medium`. |
-| `defaultTab`    | string   | Setting a tab that is default selected.                                                             |
+| `defaultTab`    | string   | Configuring a tab to be selected by default.                                                            |
 | `tabs`          | Array    | A list of tab objects containing the config(`id, title, icon, children`) for each tab.              |
 | `tabs.id`       | string   | Unique id of the current tab.                                                                       |
 | `tabs.title`    | string   | The title for the current tab.                                                                      |
