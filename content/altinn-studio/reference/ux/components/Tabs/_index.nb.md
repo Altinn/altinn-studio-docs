@@ -15,7 +15,7 @@ toc: true
 
 ## Bruk
 
-Tabs-komponenten lar deg organisere og bytte mellom ulike innholdsseksjoner ved å klikke på overskriften, noe som gir en plasseffektiv og organisert måte å presentere informasjon på.
+`Tabs`-komponenten lar deg organisere og bytte mellom ulike innholdsseksjoner ved å klikke på overskriftene. Dette gir en plasseffektiv og ryddig måte å presentere informasjon på.
 
 ### Anatomi
 
