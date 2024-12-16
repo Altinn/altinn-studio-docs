@@ -1,7 +1,7 @@
 ---
 title: Tabs
 linktitle: Tabs
-description: A component that allows you to organize and switch between different content.
+description: A component that allows you to organise and switch between different content in tabs.
 schemaname: Tabs # Component schema name used to autogenerate list of properties from json schema (replace with appropriate component name)
 weight: 10 # Do not change, the components will be sorted alphabetically
 toc: true
