@@ -12,7 +12,7 @@ For enklere brukstilfeller er statiske svaralternativer og kodelister det lettes
 i komponentkonfigurasjonen (dette kaller vi ofte svaralternativer) eller i en json-fil i
 app-repositoriet (den enkleste formen for kodeliste). Hvilken metode som bør brukes avhenger av
 gjenbruksbehovet. Hvis flere komponenter skal bruke de samme svaralternativene, anbefales det å
-[putte kodelisten i en json-fil](#fra-json-filer) og dermed gjøre den om til en kodeliste.
+[putte kodelisten i en json-fil](#fra-json-filer-kodeliste) og dermed gjøre den om til en kodeliste.
 
 Legg merke til at selv om slike svaralternativer kan være helt statisk, er det også mulig å gjøre dem (litt mer) dynamiske
 ved å [filtrere svaralternativene](../../functionality/filtering) ved hjelp av et uttrykk. Ønsker du enda mer

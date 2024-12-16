@@ -12,7 +12,7 @@ For simpler use-cases, a static list of options or a simple code list is easy to
 These can either be set directly in the component configuration (in which case we call them options) or in a json file
 in the application repository (the simplest form for code lists). Which method to use depends on the need for reusability.
 If multiple components need to use the same set of options, it is recommended to
-use the [json file method](#from-json-files) and thus turn it into a code list.
+use the [json file method](#from-json-files-code-list) and thus turn it into a code list.
 
 Note that even though a static list of options can be completely static, it is also possible to make it (a bit more) dynamic
 by [filtering the options](../../functionality/filtering) using expressions. If you want even more flexibility,
