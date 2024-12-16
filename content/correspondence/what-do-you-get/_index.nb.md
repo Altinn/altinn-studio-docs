@@ -70,9 +70,9 @@ weight: 20
   f.eks. on-premise hos avsender eller i avsenders prefererte skyløsning.
 
 
-### Integrasjon med Dialogporten og Felles arbeidsflate
+### Integrasjon med Dialogporten og Arbeidsflate
 
-- Enhetlig brukergrensesnitt på tvers av flere meldingsløsninger gjennom Altinn 3 Felles Arbeidsflate.
+- Enhetlig brukergrensesnitt på tvers av flere meldingsløsninger gjennom Altinn 3 Arbeidsflate.
 - Aktivitetslogg i Dialogporten.
 
 ## Oppsummering av fordelene med Altinn Melding?
