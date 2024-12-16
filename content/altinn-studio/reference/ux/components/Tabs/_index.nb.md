@@ -117,7 +117,7 @@ Dette kan settes til ID-en til den spesifikke fanen du ønsker skal være valgt 
 ### tabs
 
 #### `id`
-Unik Id streng for fanen.
+Unik ID-streng for fanen.
 
 #### `title`
 
