@@ -124,6 +124,10 @@ A string identifier for the tab. Must be unique within the current list of tabs.
 #### `title`
 The title of the tab can be added as text directly or referenced via a text key to a [text resource](/nb/altinn-studio/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app).
 
+#### `Size`
+Sets the size of the tabs. **Enum:** `"small" | "medium" | "large"` 
+<br/> **Default:** `medium`.
+
 #### `icon`
 A URL path to the icon.
 

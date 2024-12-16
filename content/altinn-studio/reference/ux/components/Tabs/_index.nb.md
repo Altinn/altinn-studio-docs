@@ -123,6 +123,10 @@ Unik ID-streng for fanen.
 
 Tittelen for kan legges til som tekst direkte eller refereres via en teksttast til en [tekstressurs](/nb/altinn-studio/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app).
 
+#### `Size`
+Setter størrelsen på fanen. **Enum:** `"small" | "medium" | "large"` 
+<br/> **Default:** `medium`.
+
 #### `icon`
 En URL-sti til ikonet.
 
