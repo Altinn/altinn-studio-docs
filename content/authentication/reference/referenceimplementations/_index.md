@@ -1,6 +1,6 @@
 ---
 title: Altinn Authentication - Reference Implementations
-linktitle: Reference Documentation
+linktitle: Reference Implementations
 description: Find reference implementations using Altinn Authentication functionality.
 weight: 5
 ---
