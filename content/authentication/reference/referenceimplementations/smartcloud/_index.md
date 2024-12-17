@@ -1,36 +1,34 @@
 ---
 title: SmartCloud - Altinn Reference Implementation
 linktitle: SmartCloud
-description: Here you will find our reference implementation for end-user systems.
+description: Reference implementation for integrating System User functionality into end-user systems.
 weight: 5
 ---
 
-SmartCloud is designed to demonstrate how system vendors can integrate System User functionality into their own products, including:
+SmartCloud demonstrates how system vendors can integrate System User functionality into their products, including:
 
 - Creating a system user token from Maskinporten
-- Using system user tokens from applications to call public APIs
-- Using APIs to register requests for creating system users
+- Using system user tokens to call public APIs
+- Registering requests for creating system users
 - Checking the status of system user requests
 - Listing all system users for a system
 
-## Creating a system user request
+## Creating a System User Request
 
-As part of the SmartCloud application, end users can sign up as users for SmartCloud. 
+End users can sign up as users for SmartCloud. Depending on the SmartCloud version, different rights will be requested.
 
-Depending on the version of SmartCloud, different rights will be requested.
+The request is sent from the [Redirect controller](https://github.com/TheTechArch/altinn-systemuser/blob/main/src/SystemUserClientSystem/SuperSystem/SuperSystem.Server/Controllers/RedirectController.cs#L35). The rights requested vary based on the product.
 
-The request is sent from the [Redirect controller](https://github.com/TheTechArch/altinn-systemuser/blob/main/src/SystemUserClientSystem/SuperSystem/SuperSystem.Server/Controllers/RedirectController.cs#L35). Depending on the product, the rights part of the request differs.
+SmartCloud authenticates with Maskinporten and requests a token with the scope **altinn:authentication/systemuser.request.write**.
 
-SmartCloud authenticates with Maskinporten and asks for a token with the scope **altinn:authentication/systemuser.request.write**.
+## Creating a Maskinporten System User Token
 
-## Creating a Maskinporten system user token
+SmartCloud includes code to generate a Maskinporten token for system users using the "logged in" organization number.
 
-SmartCloud includes code to generate a Maskinporten token for system users. 
+## Calling APIs with System User Token
 
-It uses the "logged in" organization number to create the Maskinporten token.
+With the generated system user token, SmartCloud can call various APIs.
 
-## Calling API with system user token
+- The [LogisticController](https://github.com/TheTechArch/altinn-systemuser/blob/main/src/SystemUserClientSystem/SuperSystem/SuperSystem.Server/Controllers/LogisticController.cs) calls the Logistics API, requiring read access for the resource.
 
-With the created system user token, SmartCloud can call various APIs.
-
-- The [LogisticController](https://github.com/TheTechArch/altinn-systemuser/blob/main/src/SystemUserClientSystem/SuperSystem/SuperSystem.Server/Controllers/LogisticController.cs) calls the Logistics API. Requires read access for the resource.
+The project can be studied [here](https://github.com/TheTechArch/altinn-systemuser/tree/main/src/SystemUserClientSystem/SuperSystem).
