@@ -1,11 +1,11 @@
 ---
 title: System Admin - Reference Implementations
-linktitle: Reference Documentation
-description: Reference implementations using Altinn Authentication functionality
+linktitle: System Admin
+description: The System Admin application demonstrates how a system vendor can register and update a system in the Altinn System Register.
 weight: 5
 ---
 
-The System Admin application demonstrates how a system vendor can register and update a system in the Altinn System Register.
+
 
 To add and update systems, the scope **altinn:authentication/systemregister.write** is required.
 

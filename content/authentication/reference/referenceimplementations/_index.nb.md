@@ -1,6 +1,6 @@
 ---
 title: Altinn Autentisering - Referanseimplementasjoner
-linktitle: Referansedokumentasjon
+linktitle: Referanseimplementasjoner
 description: Finn referanseimplementasjoner som bruker Altinn Autentiseringsfunksjonalitet.
 weight: 5
 ---
