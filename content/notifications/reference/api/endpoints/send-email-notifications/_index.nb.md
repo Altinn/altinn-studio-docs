@@ -17,7 +17,7 @@ This API requires authentication and the request must also include one of the fo
 - Maskinporten scope __altinn:serviceowner/notifications.create__ (for external system callers)
 - Platform Access Token (for Altinn Apps and internal Altinn systems)
 
-See [the Authentication and Authorization](/notifications/reference/api/#authentication--authorization) for more information.
+See [Authentication and Authorization](/notifications/reference/api/#authentication--authorization) for more information.
 
 ## Request
 
@@ -54,7 +54,7 @@ It can also include the same keywords for dynamic personalization as the body:
 #### recipients
 Type: _List of [RecipientExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/RecipientExt.cs)_
 
-A list containing one or more recipient objects, each recipient containing either an email address,
+A list containing one or more recipient objects, each recipient containing either
 a national identity number, an organization number, or an email address.
 
 ### Optional order request properties
@@ -127,10 +127,10 @@ Type: [_RecipientLookupResultExt_](https://github.com/Altinn/altinn-notification
 
 The result object describing the result of the recipient lookup containing the properties below.
 
-  - _status_: the result of the initial lookup
-  - _isReserved_: a list containing national identity numbers for recipients that are reserved
+  - _status_: the result of the initial lookup.
+  - _isReserved_: a list containing national identity numbers for recipients that are reserved.
   - _missingContact_: a list containing national identity numbers and organization numbers for recipients where contact
-    details for selected notification channel were not identified
+    details for selected notification channel were not identified.
 
 
 | Status         | Description                                               |
@@ -186,7 +186,7 @@ curl --location 'https://platform.altinn.no/notifications/api/v1/orders/email' \
 --data-raw '{
     "sendersReference": "ref-2023-12-02",
     "subject": "Important notification regarding your organization, $recipientName$",
-    "body": "Dear $recipientName$, This is an official notification regarding your organization, identified by the organization number $recipientNumber$. We kindly ask you to take the necessary actions.",
+    "body": "Dear $recipientName$, this is an official notification regarding your organization, identified by the organization number $recipientNumber$. Please take the necessary actions.",
     "contentType": "Plain",
     "recipients":[{"organizationNumber":"311000179"}]
 }'
