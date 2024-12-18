@@ -1,14 +1,12 @@
 ---
 title: Felles standard kodelister
-linktitle: Felles standard kodelister
-description: Hvordan bruke felles standard kodelister på tvers av applikasjoner i Altinn 3? 
+linktitle: Felles
+description: Delte standard kodelister som kan brukes i flere applikasjoner
 toc: false
 weight: 200
+aliases:
+  - /nb/altinn-studio/guides/development/options/common-codelists
 ---
-
-{{%notice info%}}
-Denne funksjonaliteten krever at applikasjonen benytter minimum [versjon 7.8.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v7.8.0) av Altinn.App.Core nuget pakken.
-{{% /notice%}}
 
 ## Hva er felles standard kodelister?
  Felles standard kodelister er lister som land, fylker, kommuner, kjønn, sivilstatus etc som man kan benytte i sin applikasjon uten at man selv trenger å vedlikeholde disse kodelistene selv. Se [komplett liste](https://github.com/Altinn/codelists-lib-dotnet#available-codelists) over tilgjengelige kodelister.
@@ -39,11 +37,11 @@ Denne funksjonaliteten krever at applikasjonen benytter minimum [versjon 7.8.0](
    Ved å kalle denne metoden vil du registrere alle kodelistene på tvers av alle kilder. Du kan også registrere kodelistene én og én hvis du vil ha kontroll på hvilke kodelister som er tatt i bruk eller konfigurere og tilpasse oppsettet av kodelisten.
 
 ### 3. Koble applikasjonen din til kodeverket du ønsker å bruke  
-   Se (dokuemntasjon)[https://github.com/Altinn/codelists-lib-dotnet#available-codelists] nedenfor for tilgjengelige kodelister.
+   Se [dokuemntasjon](https://github.com/Altinn/codelists-lib-dotnet#available-codelists) nedenfor for tilgjengelige kodelister.
 
    Du kan gjøre dette enten ved hjelp av [Altinn Studio](https://altinn.studio) og konfigurere *Kodeliste-ID* for komponenten din i brukergrensesnittet.
 
-   Eller du kan konfigurere komponenten ved å redigere egenskapen `optionsId` i FormLayout.json i henhold til [dokumentasjonen](/altinn-studio/guides/development/options/#connect-the-component-to-options-code-list).
+   Eller du kan konfigurere komponenten ved å redigere egenskapen `optionsId` form komponenten i layout-filen.
 
 ## Tilpasset konfigurasjon
 Mens konfigurasjonen nevnt ovenfor der du kaller `services.AddAltinnCodelists();` vil legge til alle tilgjengelige kodelister med standardverdier, kan det være tilfeller der du ønsker å tilpasse konfigurasjonen av en kodeliste. Eksemplene under vil variere noe avhengig av kilden til kodelisten siden de ulike kildene tilbyr ulike muligheter.
