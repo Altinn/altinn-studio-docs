@@ -76,6 +76,7 @@ Når applikasjonen forberedes til å bruke hemmeligheter fra Azure Key Vault, m�
 2. For at applikasjonen skal kunne lese hemmelighetene fra Azure Key Vault, må konfigureres først.
    Se [seksjoner om hemmeligheter](../../../reference/configuration/secrets) for hvordan dette oppnås.
 3. Legg til appsettings-eksempelet ovenfor i `appsettings.{env}.json`-filen.
+{.floating-bullet-numbers}
 
 _NB: Hemmelighetene leses av applikasjonen ved oppstart, så
 hvis du endrer hemmelighetene etter at applikasjonen er publisert, må du
