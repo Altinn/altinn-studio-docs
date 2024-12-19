@@ -62,7 +62,7 @@ Type: _DateTime_
 
 Default: _Current date and time_
 
-The date and time (with time zone specification) when the notification should be sent to the recipient.
+The date and time (with time zone specification) at which the notification should be sent to the recipient.
 
 #### sendersReference
 Type: _string_
