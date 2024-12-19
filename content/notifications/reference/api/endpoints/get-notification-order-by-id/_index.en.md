@@ -123,7 +123,7 @@ Response body contains the notification order with notification template and rec
 **Example Response:** _The following response illustrates a notification order designed to send an email to a single recipient._
 ```json
 {
-    "id": "ca964629-fba5-48e6-80b3-d75502c08f5b",
+    "id": "f1a1cc30-197f-4f34-8304-006ce4945fd1",
     "creator": "ttd",
     "sendersReference": "demo-2023-01",
     "requestedSendTime": "2023-12-12T14:13:27.8367317Z",
@@ -141,8 +141,8 @@ Response body contains the notification order with notification template and rec
         "contentType": "Plain"
     },
     "links": {
-        "self": "https://platform.altinn.no/notifications/api/v1/orders/ca964629-fba5-48e6-80b3-d75502c08f5b",
-        "status": "https://platform.altinn.no/notifications/api/v1/orders/ca964629-fba5-48e6-80b3-d75502c08f5b/status"
+        "self": "https://platform.altinn.no/notifications/api/v1/orders/f1a1cc30-197f-4f34-8304-006ce4945fd1",
+        "status": "https://platform.altinn.no/notifications/api/v1/orders/f1a1cc30-197f-4f34-8304-006ce4945fd1/status"
     }
 }
 ```
@@ -150,7 +150,7 @@ Response body contains the notification order with notification template and rec
 **Example Response:** _The following response illustrates a notification order designed to send a customized email to a single recipient._
 ```json
 {
-    "id": "9A7C2A8D-0099-488C-98AB-2E60B1BB9910",
+    "id": "f1a1cc30-197f-4f34-8304-006ce4945fd1",
     "creator": "ttd",
     "sendersReference": "demo-2023-02",
     "requestedSendTime": "2023-12-12T14:13:27.8367317Z",
@@ -168,8 +168,8 @@ Response body contains the notification order with notification template and rec
         "contentType": "Plain"
     },
     "links": {
-        "self": "https://platform.altinn.no/notifications/api/v1/orders/9A7C2A8D-0099-488C-98AB-2E60B1BB9910",
-        "status": "https://platform.altinn.no/notifications/api/v1/orders/9A7C2A8D-0099-488C-98AB-2E60B1BB9910/status"
+        "self": "https://platform.altinn.no/notifications/api/v1/orders/f1a1cc30-197f-4f34-8304-006ce4945fd1",
+        "status": "https://platform.altinn.no/notifications/api/v1/orders/f1a1cc30-197f-4f34-8304-006ce4945fd1/status"
     }
 }
 ```
@@ -177,7 +177,7 @@ Response body contains the notification order with notification template and rec
 **Example Response:** _The following response shows a notification order intended to send an SMS to a single recipient._
 ```json
 {
-    "id": "3436ADC9-C665-41D1-94BB-2B1C51738359",
+    "id": "f1a1cc30-197f-4f34-8304-006ce4945fd1",
     "creator": "ttd",
     "sendersReference": "demo-2023-03",
     "requestedSendTime": "2023-12-12T14:13:27.8367317Z",
@@ -193,8 +193,8 @@ Response body contains the notification order with notification template and rec
         "body": "A text message sent by a service owner through Altinn."
     },
     "links": {
-        "self": "https://platform.altinn.no/notifications/api/v1/orders/3436ADC9-C665-41D1-94BB-2B1C51738359",
-        "status": "https://platform.altinn.no/notifications/api/v1/orders/3436ADC9-C665-41D1-94BB-2B1C51738359/status"
+        "self": "https://platform.altinn.no/notifications/api/v1/orders/f1a1cc30-197f-4f34-8304-006ce4945fd1",
+        "status": "https://platform.altinn.no/notifications/api/v1/orders/f1a1cc30-197f-4f34-8304-006ce4945fd1/status"
     }
 }
 ```
@@ -202,7 +202,7 @@ Response body contains the notification order with notification template and rec
 **Example Response:** _The following response shows a notification order designed to send a customized SMS to a single recipient._
 ```json
 {
-    "id": "223D04F7-A619-447E-B8FD-22A99B3D6F6E",
+    "id": "f1a1cc30-197f-4f34-8304-006ce4945fd1",
     "creator": "ttd",
     "sendersReference": "demo-2023-04",
     "requestedSendTime": "2023-12-12T14:13:27.8367317Z",
@@ -218,8 +218,8 @@ Response body contains the notification order with notification template and rec
         "body": "Dear $recipientName$, this is an official notification regarding your organization, identified by the organization number $recipientNumber$. Please take the necessary actions."
     },
     "links": {
-        "self": "https://platform.altinn.no/notifications/api/v1/orders/223D04F7-A619-447E-B8FD-22A99B3D6F6E",
-        "status": "https://platform.altinn.no/notifications/api/v1/orders/223D04F7-A619-447E-B8FD-22A99B3D6F6E/status"
+        "self": "https://platform.altinn.no/notifications/api/v1/orders/f1a1cc30-197f-4f34-8304-006ce4945fd1",
+        "status": "https://platform.altinn.no/notifications/api/v1/orders/f1a1cc30-197f-4f34-8304-006ce4945fd1/status"
     }
 }
 ```

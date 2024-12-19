@@ -88,7 +88,7 @@ A status object describing the processing status of the notification order conta
 
   - _status_: current processing status.
   - _description_: an English description of the status and a timestamp.
-  - _lastUpdate_: the date and time when the status was last updated.
+  - _lastUpdate_: The date and time at which the status was most recently updated.
 
 | Status      | Description                                                                                       |
 |-------------|---------------------------------------------------------------------------------------------------|
