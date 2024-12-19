@@ -1,14 +1,12 @@
 ---
 title: Common shared code lists
-linktitle: Common shared code list
-description: How to re-use common code lists shared across applications?
+linktitle: Shared
+description: Code lists that are shared across applications
 toc: false
 weight: 200
+aliases:
+  - /altinn-studio/guides/development/options/common-codelists
 ---
-
-{{%notice info%}}
-This functionality requires that the application uses at least [version 7.8.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v7.8.0) of the Altinn.App.Core NuGet package.
-{{% /notice%}}
 
 ## What are common standard code lists?
 Common standard code lists are lists such as countries, counties, municipalities, genders, marital statuses, etc. that can be used in an application without the need to maintain these code lists yourself. See the [complete list](https://github.com/Altinn/codelists-lib-dotnet#available-codelists) of available code lists.
@@ -42,7 +40,7 @@ These code lists are created as a separate [NuGet package](https://www.nuget.org
 
    You can do this either using [Altinn Studio](https://altinn.studio) and configure the *code list ID* of your component in the user interface.
 
-   Or you can configure the component by editing the `optionsId` property in FormLayout.json according to the [documentation](/altinn-studio/guides/development/options/#connect-the-component-to-options-code-list).
+   Or you can configure the component by editing the `optionsId` property for the component in the layout file.
 
 ## Custom Configuration
 While the configuration mentioned above, where you use the method `services.AddAltinnCodelists();`, will register all available code lists with default values, there may be cases where you want to customize the configuration of a code list. The examples below will vary slightly depending on the source of the code list, as different sources offer different options.
