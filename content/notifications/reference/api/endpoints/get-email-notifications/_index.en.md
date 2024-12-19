@@ -11,12 +11,13 @@ toc: true
 
 GET /order/{id}/notifications/email
 
-{id} represents the ID of the notification order to retrieve notifications for.
+The {id} represents the unique identifier of the notification order for which notifications are to be retrieved.
 
 ## Authentication
 
-This API requires authentication and the request must also include one of the following: 
-- Maskinporten scope __altinn:serviceowner/notifications.create__ (for external system callers) 
+This API requires authentication and the request must also include one of the following:
+
+- Maskinporten scope __altinn:serviceowner/notifications.create__ (for external system callers)
 - Platform Access Token (for Altinn Apps and internal Altinn systems)
 
 See [Authentication and Authorization](../../../api/#authentication--authorization) for more information.
@@ -24,18 +25,16 @@ See [Authentication and Authorization](../../../api/#authentication--authorizati
 ## Response
 
 ### Response codes
-- 200 OK: The email notifications were successfully retrieved
-- 404 Not Found: No order matching the provided ID were found 
-
-  Refer to problem details in response body for further information.
+- 200 OK: The email notifications were successfully retrieved.
+- 404 Not Found: No order matching the provided ID were found. Refer to the problem details in the response body for further information.
 - 401 Unauthorized: Indicates a missing, invalid or expired authorization header.
-- 403 Forbidden: Indicates that required scope or Platform Access Token is missing or invalid.
+- 403 Forbidden: Indicates missing or invalid scope or Platform Access Token.
 
 ### Content-Type
 - application/json
 
-### Response body 
-The response body is formatted as an 
+### Response body
+The response body is formatted as an
 [EmailNotificationSummaryExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/EmailNotificationSummaryExt.cs)
 and serialized as a JSON string.
 
@@ -43,63 +42,61 @@ and serialized as a JSON string.
 ### Response body properties
 
 #### orderId
-Type: _Guid_
+Type: _Globally Unique Identifier (GUID)_
 
-The ID of the notification order the listed notifications are related to
+The ID of the notification order to which the retrieved notifications are associated.
 
 #### sendersReference
 Type: _string_
 
-The senders reference the creator provided upon the creation of the notification order
+The sender's reference provided by the creator in the notification order request.
 
 #### generated
 Type: _int_
 
-The total number of email notifications generated so far based on the notification order
+The total number of email notifications generated so far based on the notification order.
 
 #### succeeded
 Type: _int_
 
-The number of email notifications that have been sent successfully so far
+The number of email notifications that have been successfully sent so far.
 
 #### notifications
-Type: _List\<[EmailNotificationWithResult](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/EmailNotificationWithResultExt.cs)\>_
+Type: _List of [EmailNotificationWithResult](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/EmailNotificationWithResultExt.cs)_
 
-A list of the generated notifications with send result.
-Each notification will include the following properties: 
-  - id: the ID of the notification
-  - succeeded: a boolean indicating whether the send status is a successful one.
-  - _recipient_: the contact details of the recipient that the notification is sent to.
-  - _sendStatus_: the send status of the notification. 
+A list of generated notifications with their send results. Each notification will include the following properties:
+  - id: The ID of the notification.
+  - succeeded: A boolean indicating whether the notification was sent successfully.
+  - _recipient_: The contact details of the recipient to whom the notification was sent.
+  - _sendStatus_: The status of the notification's delivery.
 
-| Status                        | Description       |
-|:-----------------------------:|:-----------------:|
-| New                           | The email has been created, but has not been picked up for processing yet. |
-| Sending                       | The email is being processed and will be attempted sent shortly. |
-| Succeeded                     | The email has been accepted by the third party email service and will be sent shortly. |
-| Delivered                     | The email was delivered to the recipient. No errors reported, making it likely it was received by the recipient. |
-| Failed                        | The email was not sent due to an unspecified failure.|
-| Failed_RecipientNotIdentified | The email was not sent because the recipient's email address was not found. |
-| Failed_InvalidEmailFormat     | The email was not sent because the recipient’s email address is in an invalid format. |    
-| Failed_Bounced                | The email hard bounced, which may have happened because the email address does not exist or the domain is invalid. |
-| Failed_FilteredSpam           | The email was was identified as spam, and was rejected or blocked (not quarantined).|
-| Failed_Quarantined            | The email was quarantined (as spam, bulk mail, or phising).|
+| Status                        | Description                                                                                                     |
+|-------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| New                           | The email has been created but has not yet been picked up for processing.                                       |
+| Sending                       | The email is being processed and will be sent shortly.                                                          |
+| Succeeded                     | The email has been accepted by the third-party service and will be sent soon.                                   |
+| Delivered                     | The email was successfully delivered to the recipient. No errors were reported, indicating successful delivery. |
+| Failed                        | The email was not sent due to an unspecified failure.                                                           |
+| Failed_RecipientNotIdentified | The email was not sent because the recipient’s email address could not be found.                                |
+| Failed_InvalidEmailFormat     | The email was not sent due to an invalid email address format.                                                  |
+| Failed_Bounced                | The email bounced due to issues like a non-existent email address or invalid domain.                            |
+| Failed_FilteredSpam           | The email was identified as spam and rejected or blocked (not quarantined).                                     |
+| Failed_Quarantined            | The email was quarantined due to being flagged as spam, bulk mail, or phishing.                                 |
 
 ## Examples
+{{% notice info %}}
+In the example below we have included place holders for both the Platform Access and Altinn token.
+__You only need one of them__, reference the [Authentication section](#authentication) for which one applies to your use case.
+{{% /notice %}}
 
 ### Request
-{{% notice info %}}
-In the example we have included place holders for both the Platform Access and Altinn token.
-
-__You only need one of them__, reference [Authentication](#authentication) for which one applies to your use case.
-{{% /notice %}}
 
 
 ```bash
 curl --location 'https://platform.altinn.no/notifications/api/v1/orders/f1a1cc30-197f-4f34-8304-006ce4945fd1/notifications/email' \
 --header 'Content-Type: application/json' \
---header 'PlatformAccessToken: [INSERT PLATFORM ACCESS TOKEN]' \
---header 'Authorization: Bearer [INSERT ALTINN TOKEN]' 
+--header 'Authorization: Bearer [INSERT ALTINN TOKEN]' \
+--header 'PlatformAccessToken: [INSERT PLATFORM ACCESS TOKEN]'
 ```
 
 ### Response
