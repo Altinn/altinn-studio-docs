@@ -1,13 +1,24 @@
 ---
-title: Altinn Authentication - Reference documentation
-linktitle: Reference documentation
-description: Here you find various reference documentation for Altinn Authentication. Including our Architecture.
+title: Altinn Autentisering - Referanseimplementasjoner
+linktitle: Referanseimplementasjoner
+description: Finn referanseimplementasjoner som bruker Altinn Autentiseringsfunksjonalitet.
 weight: 5
 ---
 
+## Systembruker API
 
-## Architecture
+Demonstrerer tokenvalidering for å autentisere en systembrukertoken fra Maskinporten og kallet til Altinn PDP for å autorisere tilgang.
 
-See details about the Archtecture for Altinn Authentication
+[Les mer](systemuserapi)
 
+## SmartCloud
 
+SmartCloud er en referanseimplementasjon som viser hvordan en systemleverandør kan bruke Altinn Systembruker API.
+
+[Les mer](smartcloud)
+
+## Systemregister Admin
+
+Illustrerer hvordan en systemleverandør kan registrere og oppdatere et system i systemregisteret.
+
+[Les mer](systemadmin)
