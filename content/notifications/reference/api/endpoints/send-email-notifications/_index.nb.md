@@ -33,12 +33,12 @@ and serialized as JSON.
 
 
 ### Required order request properties
+
 #### __body__
 Type: _string_
 
 The body of the email in either plain text or HTML format.
-You can use the following keywords for dynamic personalization of the email body:
-
+You can use the following predefined, case-sensitive keywords for dynamic personalization of the email body:
 - `$recipientName$`: Replaced with the full name of the recipient (supports both individuals and organizations).
 - `$recipientNumber$`: Replaced with the organization number for recipients that are organizations. For individuals, this will remain empty.
 
@@ -46,8 +46,7 @@ You can use the following keywords for dynamic personalization of the email body
 Type: _string_
 
 The subject of the email.
-It can also include the same keywords for dynamic personalization as the body:
-
+It can also include the same predefined, case-sensitive keywords for dynamic personalization as the body:
 - `$recipientName$`: Replaced with the full name of the recipient (supports both individuals and organizations).
 - `$recipientNumber$`: Replaced with the organization number for recipients that are organizations. For individuals, this will remain empty.
 
@@ -155,8 +154,8 @@ In the examples below we have included place holders for both the Platform Acces
 __You only need one of them__, reference the [Authentication section](#authentication) for which one applies to your use case.
 {{% /notice %}}
 
-### Basic Request
-This example sends a simple email to three recipients identified by their email address, national identity number, and organization number.
+### Request
+This example demonstrates sending a simple email to three recipients identified by their email address, national identity number, and organization number.
 
 ```bash
 curl --location 'https://platform.altinn.no/notifications/api/v1/orders/email' \
@@ -175,7 +174,7 @@ curl --location 'https://platform.altinn.no/notifications/api/v1/orders/email' \
 }'
 ```
 
-### Basic Request using keywords
+### Request using keywords
 This example demonstrates sending a customized email to a recipient identified using their organization number.
 
 ```bash

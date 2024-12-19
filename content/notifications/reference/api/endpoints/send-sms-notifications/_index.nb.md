@@ -38,8 +38,7 @@ and serialized as JSON.
 Type: _string_
 
 The text content of the SMS.
-You can use the following keywords for dynamic personalization of the text content of the SMS:
-
+You can use the following predefined, case-sensitive keywords for dynamic personalization of the text content of the SMS:
 - `$recipientName$`: Replaced with the full name of the recipient (supports both individuals and organizations).
 - `$recipientNumber$`: Replaced with the organization number for recipients that are organizations. For individuals, this will remain empty.
 
@@ -145,8 +144,8 @@ In the examples below we have included place holders for both the Platform Acces
 __You only need one of them__, reference the [Authentication section](#authentication) for which one applies to your use case.
 {{% /notice %}}
 
-### Basic Request
-This example sends a simple SMS to three recipients identified by their mobile number, national identity number, and organization number.
+### Request
+This example demonstrates sending a simple SMS to three recipients identified by their mobile number, national identity number, and organization number.
 
 ```bash
 curl --location 'https://platform.altinn.no/notifications/api/v1/orders/sms' \
@@ -163,7 +162,7 @@ curl --location 'https://platform.altinn.no/notifications/api/v1/orders/sms' \
 }'
 ```
 
-### Basic Request using keywords
+### Request using keywords
 This example demonstrates sending a customized SMS to a recipient identified using their organization number.
 
 ```bash
