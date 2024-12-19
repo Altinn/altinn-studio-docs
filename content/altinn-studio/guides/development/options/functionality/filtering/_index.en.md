@@ -59,6 +59,45 @@ with arguments to access other values in the option as well.
 - `["value", "description"]` will return the [description of the current option](../texts), if set.
 - `["value", "helpText"]` will return the [help text of the current option](../texts), if set.
 
+### Used alongside options from the data model
+
+When using `optionFilter` with options from the data model, the expression will be evaluated for each _row_ in the
+repeating structure. This means that if you look up the data model (via the `dataModel` function) in the expression,
+you will have access to data from the row that the option was fetched from.
+
+If there is a `RepeatingGroup` component associated with this repeating structure, the `optionFilter` property can also
+look up values from the `component` function to access data from components inside the repeating group. The return value
+from this function will always be `null` if the row is hidden using
+[dynamics in the `hiddenRow` property](../../../../../reference/ux/fields/grouping/repeating/dynamics),
+even if a lookup with the `dataModel` function would return data from the hidden row.
+
+An example using this combination:
+
+```json {hl_lines=["10-15"]}
+{
+   "id": "choose-pet",
+   "type": "Dropdown",
+   ...
+   "source": {
+      "group": "MyPets",
+      "label": ["dataModel", "MyPets.Name"],
+      "value": "MyPets[{0}].Id"
+   },
+   "optionFilter": [
+      "and",
+      ["notEquals", ["dataModel", "MyPets.Name"], null],
+      ["notEquals", ["component", "pet-owned-by-someone-else"], true],
+      ["notEquals", ["value"], "example-cat-id"]
+   ]
+}
+```
+
+In this example, the `optionFilter` property will filter out all pets that:
+- Do not have a name (the path `MyPets.Name` is `null` or an empty string)
+- Are owned by someone else (the value in the `pet-owned-by-someone-else` component is `true`). In this example, we assume
+  that this component is set up inside a `RepeatingGroup` component that is associated with the `MyPets` structure.
+- Have the ID `example-cat-id`. Since the `value` field is fetched from the path `MyPets[{0}].Id`, the result will be
+  the same as if you wrote `["notEquals", ["dataModel", "MyPets.Id"], "example-cat-id"]`.
 
 ### Example: Filtering duplicate options in a repeating group
 

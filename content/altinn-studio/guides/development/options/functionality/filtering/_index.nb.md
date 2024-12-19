@@ -59,6 +59,47 @@ Denne funksjonen kan brukes med argumenter for å få tilgang til andre verdier 
 - `["value", "description"]` vil returnere [beskrivelsen av det nåværende alternativet](../texts), hvis satt.
 - `["value", "helpText"]` vil returnere [hjelpeteksten til det nåværende alternativet](../texts), hvis satt.
 
+### Sammen med kodelister fra repeterende strukturer
+
+Hvis du bruker [kodelister fra en repeterende struktur i datamodellen](../../sources/from-data-model), vil uttrykket
+i `optionFilter`-egenskapen bli evaluert for hvert _rad_ i den repeterende strukturen. Det betyr at om du gjør oppslag
+i datamodellen (via `dataModel`-funksjonen) i uttrykket, vil du få tilgang til data fra den nåværende raden som
+kodeliste-elementet er hentet fra.
+
+Dersom det finnes en `RepeatingGroup`-komponent knyttet til denne repeterende strukturen, vil `optionFilter`-egenskapen
+også kunne slå opp verdier fra `component`-funksjonen for å få tilgang til data fra komponenter inne i den repeterende
+gruppen. Returverdien fra denne funksjonen er alltid `null` om raden er skjult ved hjelp
+av [dynamikk i `hiddenRow`-egenskapen](../../../../../reference/ux/fields/grouping/repeating/dynamics), selv om et
+oppslag med `dataModel`-funksjonen ville returnert data fra den skjulte raden.
+
+Et eksempel på denne kombinasjonen:
+
+```json {hl_lines=["10-15"]}
+{
+   "id": "choose-pet",
+   "type": "Dropdown",
+   ...
+   "source": {
+      "group": "MyPets",
+      "label": ["dataModel", "MyPets.Name"],
+      "value": "MyPets[{0}].Id"
+   },
+   "optionFilter": [
+      "and",
+      ["notEquals", ["dataModel", "MyPets.Name"], null],
+      ["notEquals", ["component", "pet-owned-by-someone-else"], true],
+      ["notEquals", ["value"], "example-cat-id"]
+   ]
+}
+```
+
+I dette eksempelet vil `optionFilter`-egenskapen filtrere ut alle kjæledyr som:
+- Ikke har et navn (stien `MyPets.Name` er `null` eller en tom streng)
+- Eies av noen andre (verdien i `pet-owned-by-someone-else`-komponenten er `true`). I dette eksempelet antar vi at
+  denne komponenten er satt opp inne i en `RepeatingGroup`-komponent som er knyttet til `MyPets`-strukturen.
+- Har ID-en `example-cat-id`. Siden `value`-feltet hentes fra stien `MyPets[{0}].Id`, vil resultatet være det samme
+  som om man skrev `["notEquals", ["dataModel", "MyPets.Id"], "example-cat-id"]`.
+
 ### Eksempel: Filtrere duplikate alternativer i en repeterende gruppe
 
 I animasjonen under er en `RepeatingGroup`-komponent satt opp med en `Dropdown`-komponent inni. Denne
