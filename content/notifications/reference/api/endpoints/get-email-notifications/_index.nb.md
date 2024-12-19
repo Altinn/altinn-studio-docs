@@ -26,7 +26,7 @@ See [Authentication and Authorization](../../../api/#authentication--authorizati
 
 ### Response codes
 - 200 OK: The email notifications were successfully retrieved.
-- 404 Not Found: No order matching the provided ID were found. Refer to the problem details in the response body for further information.
+- 404 Not Found: No order matching the provided ID was found. Refer to the problem details in the response body for further information.
 - 401 Unauthorized: Indicates a missing, invalid or expired authorization header.
 - 403 Forbidden: Indicates missing or invalid scope or Platform Access Token.
 
