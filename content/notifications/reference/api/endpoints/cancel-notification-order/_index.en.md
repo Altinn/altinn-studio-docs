@@ -9,7 +9,7 @@ toc: true
 
 ## Endpoint
 
-PUT /order/{id}/cancel
+PUT /orders/{id}/cancel
 
 {id} represents the ID of the notification order to retrieve notifications for.
 
