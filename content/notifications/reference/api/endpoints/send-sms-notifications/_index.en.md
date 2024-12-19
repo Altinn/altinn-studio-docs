@@ -37,7 +37,7 @@ and serialized as JSON.
 #### __body__
 Type: _string_
 
-The contents of the SMS.
+The text content of the SMS.
 You can use the following keywords for dynamic personalization of the text content of the SMS:
 
 - `$recipientName$`: Replaced with the full name of the recipient (supports both individuals and organizations).

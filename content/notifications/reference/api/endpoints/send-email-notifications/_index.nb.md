@@ -77,7 +77,7 @@ The date and time (with time zone specification) when the notification should be
 Type: _string_
 
 An internal reference for notification creator to track the notification in
-the future. Could be a case number or another id. It is recommended, but not required,
+the future. Could be a case number or another identifier. It is recommended, but not required,
 that the sender's reference is unique within the organization's notification orders.
 
 #### resourceId
