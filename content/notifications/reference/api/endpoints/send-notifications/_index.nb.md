@@ -132,7 +132,7 @@ The result object describing the result of the recipient lookup containing the p
 | PartialSuccess | The recipient lookup was successful for some recipients.  |
 | Failed         | The recipient lookup failed for all recipients.           |
 
-\* Property is only included if order request requires recipient lookup.
+\* property is only included if the order request requires recipient lookup.
 
 
 ### Response headers
