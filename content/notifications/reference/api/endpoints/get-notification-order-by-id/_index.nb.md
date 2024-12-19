@@ -67,7 +67,7 @@ The date and time at which the notification order request was registered.
 #### notificationChannel
 Type: enum [_NotificationChannel_](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/NotificationChannelExt.cs)
 
-The notification channel used can be either _Email_ or _SMS_.
+The notification channel used to deliver the notification to recipient. It can be either _Email_ or _SMS_.
 
 #### ignoreReservation
 Type: _boolean_
@@ -210,7 +210,7 @@ Response body contains the notification order with notification template and rec
     "notificationChannel": "Sms",
     "recipients": [
         {
-            "mobileNumber": "+4799999999"
+            "organizationNumber":"311000179"
         }
     ],
     "smsTemplate": {

@@ -37,7 +37,7 @@ and serialized as JSON.
 #### __notificationChannel__
 Type: _enum_ _[NotificationChannelExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/NotificationChannelExt.cs)_
 
-The notification channel to use when sending the notification.
+The notification channel used to deliver the notification to recipient.
 
 #### recipients
 Type: _List of [RecipientExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/RecipientExt.cs)_
