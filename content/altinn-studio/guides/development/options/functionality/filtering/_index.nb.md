@@ -27,8 +27,9 @@ på den nåværende tilstanden i skjemaet.
 ### Konfigurasjon
 
 I eksempelet under er `optionFilter`-egenskapen satt til et dynamisk uttrykk som filtrerer ut alternativet
-`should-be-removed`. Merk at `optionFilter`-egenskapen settes opp med et uttrykk for hvilke alternativer som skal beholdes,
-så du må snu om logikken for å fjerne et alternativ.
+`should-be-removed`. Merk at `optionFilter`-egenskapen settes opp med et uttrykk som bestemmer hvilke alternativer som
+skal beholdes. Om du vil fjerne alternativer, må du snu om logikken. Dette kan for eksempel gjøres ved å pakke inn
+hele uttrykket i en `not`-funksjon.
 
 Uttrykket evalueres for hvert svaralternativ, og hvis det returnerer `true`, beholdes alternativet. Alle andre alternativer fjernes.
 
