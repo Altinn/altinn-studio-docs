@@ -15,7 +15,7 @@ The {id} represents the unique identifier of the notification order for which no
 
 ## Authentication
 
-This API requires authentication and the request must also include one of the following:
+This API requires authentication, and the request must include one of the following:
 
 - Maskinporten scope __altinn:serviceowner/notifications.create__ (for external system callers)
 - Platform Access Token (for Altinn Apps and internal Altinn systems)
@@ -85,8 +85,8 @@ A list of generated notifications with their send results. Each notification wil
 
 ## Examples
 {{% notice info %}}
-In the example below we have included place holders for both the Platform Access and Altinn token.
-__You only need one of them__, reference the [Authentication section](#authentication) for which one applies to your use case.
+In the example below we have included placeholders for both the Platform Access and Altinn Token.
+__You only need one of them__, see the [Authentication section](#authentication) for which one applies to your use case.
 {{% /notice %}}
 
 ### Request

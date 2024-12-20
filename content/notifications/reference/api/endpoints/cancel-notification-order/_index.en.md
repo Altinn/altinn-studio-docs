@@ -15,7 +15,7 @@ The {id} represents the unique identifier of the notification order for which no
 
 ## Authentication
 
-This API requires authentication and the request must also include one of the following:
+This API requires authentication, and the request must include one of the following:
 
 - Maskinporten scope __altinn:serviceowner/notifications.create__ (for external system callers)
 - Platform Access Token (for Altinn Apps and internal Altinn systems)
@@ -69,7 +69,7 @@ The date and time at which the notification order request was registered.
 #### notificationChannel
 Type: enum [_NotificationChannel_](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/NotificationChannelExt.cs)
 
-The notification channel used to deliver the notification to recipient. It can be either _Email_ or _SMS_.
+The notification channel used to deliver the notification to the recipient. It can be either _Email_ or _SMS_.
 
 #### ignoreReservation
 Type: _boolean_
@@ -99,8 +99,8 @@ A status object describing the processing status of the notification order conta
 
 ## Examples
 {{% notice info %}}
-In the example below we have included place holders for both the Platform Access and Altinn token.
-__You only need one of them__, reference the [Authentication section](#authentication) for which one applies to your use case.
+In the example below we have included placeholders for both the Platform Access and Altinn Token.
+__You only need one of them__, see the [Authentication section](#authentication) for which one applies to your use case.
 {{% /notice %}}
 
 ### Request
@@ -134,7 +134,7 @@ _Example: Successfully cancelled order response._
 ```
 
 #### 40x responses
-Response body contains problem details and status code 
+Response body contains the problem details and status code 
 
 _Example: 404 response body_
 ```json
