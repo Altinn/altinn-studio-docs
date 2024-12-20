@@ -12,10 +12,10 @@ For enklere brukstilfeller er statiske svaralternativer og kodelister det lettes
 i komponentkonfigurasjonen (dette kaller vi ofte svaralternativer) eller i en json-fil i
 app-repositoriet (den enkleste formen for kodeliste). Hvilken metode som bør brukes avhenger av
 gjenbruksbehovet. Hvis flere komponenter skal bruke de samme svaralternativene, anbefales det å
-[putte kodelisten i en json-fil](#fra-json-filer-kodeliste) og dermed gjøre den om til en kodeliste.
+[putte svaralternativene i en json-fil](#fra-json-filer-kodeliste) og dermed gjøre den om til en kodeliste.
 
-Legg merke til at selv om slike svaralternativer kan være helt statisk, er det også mulig å gjøre dem (litt mer) dynamiske
-ved å [filtrere svaralternativene](../../functionality/filtering) ved hjelp av et uttrykk. Ønsker du enda mer
+Legg merke til at selv om slike svaralternativer kan være helt statiske, er det også mulig å gjøre dem (litt mer) dynamiske
+ved å [filtrere svaralternativene](../../functionality/filtering) ved hjelp av uttrykk. Ønsker du enda mer
 fleksiilitet, kan du også [lage en egen kodebasert kodeliste](../dynamic).
 
 ## I komponentkonfigurasjonen (svaralternativer)
@@ -51,7 +51,7 @@ lagret i datamodellen når brukeren velger elementet. Egenskapen `label` er lede
 
 ## Fra JSON-filer (kodeliste)
 
-Ved å legge json-lister i `options`-mappen i app repo vil appen automatisk lese denne filen og eksponere det gjennom `options`-APIet.
+Ved å legge json-lister i `options`-mappen i app-repositoriet vil appen automatisk lese denne filen og eksponere det gjennom `options`-API-et.
 Options filene må ligge under `App/options/`. Lager man f.eks `land.json`, kan man sette opp en komponent med egenskapen `"optionsId": "land"`.
 Kodelisten kan hentes fra API via endepunktet `{org}/{app}/api/options/land`.
 
