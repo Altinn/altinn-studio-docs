@@ -8,7 +8,7 @@ aliases:
   - /altinn-studio/guides/development/options/static-codelists
 ---
 
-For simpler use-cases, a static list of options or a simple code list is easy to configure.
+For simpler use cases, a static list of options or a simple code list is easy to configure.
 These can either be set directly in the component configuration (in which case we call them options) or in a json file
 in the application repository (the simplest form for code lists). Which method to use depends on the need for reusability.
 If multiple components need to use the same set of options, it is recommended to
