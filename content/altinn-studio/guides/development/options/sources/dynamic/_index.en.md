@@ -53,13 +53,13 @@ namespace Altinn.App.Core
 }
 ```
 
-For your implementation to be picked up you need to add the following line in your `Program.cs`:
+For your implementation to work up you need to add the following line in your `Program.cs`:
 
 ```C#
 services.AddTransient<IAppOptionsProvider, CountryAppOptionsProvider>();
 ```
 
-The result of this implementation will be available at the endpoint `{org}/{app}/api/options/countries`. The identifier can be used in components, so to use the code list in a Dropdown component you can set `optionsId` as in the following example:
+The result of this implementation will be available at the endpoint `{org}/{app}/api/options/countries`. The identifier can be used in components, so to use the code list in a `Dropdown` component you can set `optionsId` as in the following example:
 
 ```json {hl_lines=[10]}
 {
@@ -77,7 +77,8 @@ The result of this implementation will be available at the endpoint `{org}/{app}
 
 ### Secured code lists
 
-If you want to produce lists of options that are sensitive you can implement `IInstanceAppOptionsProvider`, which will validate that the user has read rights as defined in the authorization policy from the `policy.xml`-file.
+If you need to generate sensitive code lists, you can implement the `IInstanceAppOptionsProvider` interface.
+This ensures that the user access is validated based on read rights defined in the authorization policy specified in the `policy.xml` file.
 Below you'll find an example of how to implement a secured options provider.
 
 ```C#
@@ -127,13 +128,13 @@ namespace Altinn.App.Core
 
 ```
 
-For your implementation to be picked up you need to add the following line in your `Program.cs`:
+For your implementation to work up you need to add the following line in your `Program.cs`:
 
 ```csharp
 services.AddTransient<IInstanceAppOptionsProvider, ChildrenAppOptionsProvider>();
 ```
 
-The result of this implementation will be available at the endpoint `{org}/{app}/instances/{instanceOwnerId}/{instanceGUID}/options/children`. The identifier can be used in components, so to use the code list in a Dropdown component you can set `optionsId` as in the following example. It is also important to set the `secure` property to `true` to indicate that this is a secured code list.
+The result of this implementation will be available at the endpoint `{org}/{app}/instances/{instanceOwnerId}/{instanceGUID}/options/children`. The identifier can be used in components, so to use the code list in a `Dropdown` component you can set `optionsId` as in the following example. It is also important to set the `secure` property to `true` to indicate that this is a secured code list.
 
 ```json {hl_lines=["10-11"]}
 {
@@ -190,7 +191,7 @@ More examples of expressions can be found in the [dynamics documentation](../../
 ### Based on the data model
 
 {{%notice warning%}}
-This approach is discouraged. From app-frontend version 4.9.0, it is possible to use the `queryParameters` property instead. As described above, this property allows you to add both static and dynamic query parameters using expressions, making them more flexible than `mapping`.
+This approach is discouraged. From app-frontend version 4.9.0, it is possible to use the `queryParameters` property instead. As explained above, `queryParameters` enabled you to include both static and dynamic query parameters through expressions, offering greater flexibility compared to `mapping`.
 
 At some point, the `mapping` property will be removed, but when that happens tools will be provided to migrate existing configurations to use `queryParameters` instead.
 {{% /notice%}}
@@ -265,7 +266,7 @@ For a complete example of how this is setup see our [demo app.](https://altinn.s
 
 ## Things to consider
 
-- The method `GetAppOptionsAsync` receives a language code in the `language` parameter. Language codes are based on ISO 639-1 or the W3C IANA Language Subtag Registry. The latter is built upon the ISO 639-1 standard but is guaranties uniques of the codes, whereas ISO 639-1 have conflicting usage for some codes.
+- The `GetAppOptionsAsync` method accepts a language code through the `language` parameter. Language codes follow either the ISO 639-1 standard or the W3C IANA Language Subtag Registry. While ISO 639-1 may have conflicting usages for certain codes, the W3C IANA registry builds on ISO 639-1 and ensures the uniqueness of its codes.
 - An app can have many implementations of these interfaces, one for each option list. The correct implementation is found by looking at the code list identifier that is requested, and comparing it to the `Id` property in the implementation. This is also the identifier used in the `optionsId` property in the component configuration. Therefore, the `Id` property in the implementation must be unique per app.
 - It may be tempting to implement a dynamic option list that fetches data from the data model and produces the option list based on this. This is not recommended, as the app frontend only fetches the option list once for each unique set of query parameters. This means that the user interface showing the option list will not update in line with changes in the data model.
     - An alternative is to use the functionality for [dynamic code lists based on the data model](../from-data-model), in some cases together with corresponding code in [DataProcessor](../../../../../reference/logic/dataprocessing).

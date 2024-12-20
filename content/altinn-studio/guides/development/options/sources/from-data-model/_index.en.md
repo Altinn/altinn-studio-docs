@@ -7,7 +7,7 @@ aliases:
   - /altinn-studio/guides/development/options/repeating-group-codelists
 ---
 
-In the previous section about [dynamic code lists](../dynamic) we covered how to write code on the backend to generate a dynamic code list for a component. You could use pass certain values from the data model to the backend to generate that code list (via [query parameters](../dynamic#query-parameters)), but that approach scales poorly when the query parameters would end up changing the code list frequently, i.e. when the options are functionally unique for some set of data in the data model.
+In the previous section about [dynamic code lists](../dynamic) we covered how to write code on the backend to generate a dynamic code list for a component. You could pass certain values from the data model to the backend to generate that code list (via [query parameters](../dynamic#query-parameters)), but that approach scales poorly when the query parameters would end up changing the code list frequently, i.e. when the options are functionally unique for some set of data in the data model.
 
 Another approach is to set up a code list based on a 'repeating group' in the data model. Such a repeating object in the data model could also represent a list of options for a dropdown, radio buttons, or checkboxes. This is especially useful combined with the [RepeatingGroup](../../../../../reference/ux/fields/grouping/repeating) component, as it allows the user to add and remove items from the list, and the code list will automatically update.
 
