@@ -1,13 +1,12 @@
 ---
 title: Integrasjon av Altinn-app med Maskinporten
-linktitle: Maskinporten-App-integrasjon
+linktitle: Maskinporten
 description: Hvordan sette opp en integrasjon mellom en Altinn-app og Maskinporten.
 weight: 100
 toc: true
 aliases:
-
 - /app/maskinporten-app-integration/
-
+- /altinn-studio/guides/integration/maskinporten-app-integration
 ---
 
 Denne veiledningen viser hvordan du setter opp en Altinn-applikasjon med en HTTP-klient som benytter Maskinporten for
@@ -77,6 +76,7 @@ Når applikasjonen forberedes til å bruke hemmeligheter fra Azure Key Vault, m�
 2. For at applikasjonen skal kunne lese hemmelighetene fra Azure Key Vault, må konfigureres først.
    Se [seksjoner om hemmeligheter](../../../reference/configuration/secrets) for hvordan dette oppnås.
 3. Legg til appsettings-eksempelet ovenfor i `appsettings.{env}.json`-filen.
+{.floating-bullet-numbers}
 
 _NB: Hemmelighetene leses av applikasjonen ved oppstart, så
 hvis du endrer hemmelighetene etter at applikasjonen er publisert, må du

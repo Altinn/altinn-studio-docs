@@ -165,7 +165,7 @@ jQuery(document).ready(function() {
 
     // clipboard
     var clipInit = false;
-    $('code').each(function() {
+    $('pre code').each(function() {
         var code = $(this),
             text = code.text();
 
