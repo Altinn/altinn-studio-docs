@@ -5,7 +5,7 @@ weight: 100
 toc: true
 ---
 
-På [forrige side](../) gikk vi gjennom hvordan man setter opp en [ressurs](../#altinn-resource) og versjonskravene 
+På [forrige side](../) gikk vi gjennom hvordan man setter opp en [ressurs](../#altinn-ressurs) og versjonskravene 
 for meldingsklienten.
 
 Vi kan nå gå videre til [oppsett av Maskinporten](#maskinporten) og [applikasjonskode](#applikasjonskode).
