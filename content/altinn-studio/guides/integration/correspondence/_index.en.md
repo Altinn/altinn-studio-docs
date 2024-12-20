@@ -7,7 +7,7 @@ toc: true
 ---
 
 This guide details how to integrate the correspondence messaging service with an Altinn application.
-This enables an app to securely send digital messages and attachments to organisations and individuals.
+This integration enables an app to securely send digital messages and attachments to organisations and individuals.
 
 ## Prerequisites
 1. A [Maskinporten client](#maskinporten) 
@@ -23,6 +23,11 @@ In order to use the [correspondence service](/correspondence/), a [Maskinporten]
 
 To set this up, follow the general steps outlined in the [Maskinporten integration guide](../maskinporten/), with a couple of modifications described below.
 - The correspondence client uses a new version of the Maskinporten client, which means the configuration object now looks like this:
+
+  {{< code-title >}}
+  App/appsettings.json
+  {{< /code-title >}}
+
   ```json
   "MaskinportenSettings": {
       "authority": "https://[test.]maskinporten.no/",
@@ -33,9 +38,12 @@ To set this up, follow the general steps outlined in the [Maskinporten integrati
 - The correspondence client will automatically find and use the Maskinporten client, and attempt to bind to the default 
   `MaskinportenSettings` configuration path.
 - If you require a different configuration path, you can configure it with the `ConfigureMaskinportenClient` extension method:
-  {{<highlight csharp "linenos=false,hl_lines=9-11">}}
-  // Program.cs
 
+  {{< code-title >}}
+  App/Program.cs
+  {{< /code-title >}}
+
+  {{<highlight csharp "linenos=false,hl_lines=7-9">}}
   void RegisterCustomAppServices(
      IServiceCollection services,
      IConfiguration config,
@@ -48,9 +56,12 @@ To set this up, follow the general steps outlined in the [Maskinporten integrati
   }
   {{</highlight>}}
 - If you require a custom configuration flow, you can make use of the available configuration delegate:
-  {{<highlight csharp "linenos=false,hl_lines=9-14">}}
-  // Program.cs
 
+  {{< code-title >}}
+  App/Program.cs
+  {{< /code-title >}}
+  
+  {{<highlight csharp "linenos=false,hl_lines=7-12">}}
   void RegisterCustomAppServices(
      IServiceCollection services,
      IConfiguration config,
@@ -95,7 +106,11 @@ a notification to the recipient, and an attached file.
 
 You will find all available options and associated documentation through IntelliSense in your favorite code editor.
 
-**Program.cs**
+### Service registration
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
 {{<highlight csharp "linenos=false,hl_lines=9">}}
 // ...
@@ -110,7 +125,12 @@ void RegisterCustomAppServices(
 }
 {{</highlight>}}
 
-**CorrespondenceClientDemo.cs**
+### Correspondence client implementation
+
+{{< code-title >}}
+App/CorrespondenceClientDemo.cs
+{{< /code-title >}}
+
 ```cs
 using System;
 using System.Threading.Tasks;
@@ -129,10 +149,10 @@ internal sealed class CorrespondenceClientDemo(
     CorrespondenceAuthorisation authorisation = CorrespondenceAuthorisation.Maskinporten;
     CorrespondenceRequest request = CorrespondenceRequestBuilder
       .Create()
-      .WithResourceId("a valid resource registry identifier")
-      .WithSender("sender's organisation number")
-      .WithSendersReference("sender's arbitrary reference for the correspondence")
-      .WithRecipient("recipient's organisation number")
+      .WithResourceId("A valid resource registry identifier")
+      .WithSender("Sender's organisation number")
+      .WithSendersReference("Sender's arbitrary reference for the correspondence")
+      .WithRecipient("Recipient's organisation number")
       .WithAllowSystemDeleteAfter(DateTime.Now.AddYears(1))
       .WithContent(
         language: "en",
@@ -156,7 +176,7 @@ internal sealed class CorrespondenceClientDemo(
           .Create()
           .WithFilename("attachment.txt")
           .WithName("The attachment 📎")
-          .WithSendersReference("sender's arbitrary reference for the attachment")
+          .WithSendersReference("Sender's arbitrary reference for the attachment")
           .WithDataType("text/plain")
           .WithData("This is the attachment content"u8.ToArray())
       )
@@ -181,7 +201,7 @@ internal sealed class CorrespondenceClientDemo(
 
 ### Notes on authorisation
 In the example above, we are using the `CorrespondenceAuthorisation.Maskinporten` enum to indicate that authorisation should
-be automatically handled by the Maskinporten client. This is by far the easiest and most convenient authorisation method, but
+be automatically handled internally with Maskinporten. This is by far the easiest and most convenient authorisation method, but
 it's not the only option available.
 
 If you require custom authorisation logic while sending correspondences, you are able to supply your own delegate for this purpose.
@@ -189,11 +209,13 @@ If you require custom authorisation logic while sending correspondences, you are
 Both the `SendCorrespondencePayload` and `GetCorrespondenceStatusPayload` accepts such a parameter. The implementation would look something like this:
 
 ```cs
+// ...
+
 new SendCorrespondencePayload(
   request,
   async () =>
   {
-    string accessToken = await _someTokenService.GetAccessToken();
+    string accessToken = await someTokenService.GetAccessToken();
     return JwtToken.Parse(accessToken);
   }
 );
