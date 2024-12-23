@@ -195,7 +195,7 @@ curl --location 'https://platform.altinn.no/notifications/api/v1/orders' \
 --header 'Authorization: Bearer [INSERT ALTINN TOKEN]' \
 --header 'PlatformAccessToken: [INSERT PLATFORM ACCESS TOKEN]' \
 --data-raw '{
-    "sendersReference": "586B753D-9A02-49C8-AC22-2060E3A7862F",
+    "sendersReference": "518997F5-549C-4EC6-B5B8-040B7D73F725",
     "emailTemplate": {
         "subject": "Important notification regarding your organization, $recipientName$",
         "body": "Dear $recipientName$, this is an official notification regarding your organization, identified by the organization number $recipientNumber$. Please take the necessary actions.",
