@@ -21,62 +21,69 @@ Dette endepunktet oppretter en melding og legger den i kø for sending. Før du 
 
 Dette API-et krever autentisering, og forespørselen må også inkludere:
 
-- Correspondence write scope __altinn:correspondence.write__ (for eksterne kall)
+- Correspondence write scope **altinn:correspondence.write** (for eksterne kall)
 
 Se [Autentisering og Autorisasjon](/notifications/reference/api/#authentication--authorization) for mer informasjon.
 
 ## Request body
 
-[Du kan se et eksempel på en request body her](https://docs.altinn.studio/api/correspondence/spec/#/Correspondence/post_correspondence_api_v1_correspondence)
+### Content-Type (Innholdstype)
+
+- application/json
+
+### Request body
+
+Request body må bestå av melding(er) i requesten på formatet i [InitializeCorrespondencesRequest](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/InitializeCorrespondencesExt.cs)
+
+### Påkrevde felter i requesten
+
+#### correspondence
+
+Type: [BaseCorrespondenceExt](/correspondence/reference/api-endpoints/initialize/basecorrespondenceext/)
+
+Meldingen(e) som skal opprettes.
+
+#### recipients
+
+Type: _List\<string>_
+
+Liste of mottakere til meldingen(ene). Dette kan enten være organisasjonsnummer eller personnummer.
+
+For _organisasjonsnummer_, er mottakerne nødt til å ha med prefiksen `urn:altinn:organization:identifier-no` foran organisasjonsnummeret. For eksempel "urn:altinn:organization:identifier-no:123456789"
+
+For _personnummer_, the must have the prefix `urn:altinn:person:identifier-no` in front of the identity number. For eksempel "urn:altinn:person:identifier-no:01019912345"
+
+### Valgfrie felter i requesten
+
+#### existingAttachments
+
+Type: _List\<string>_
+
+Liste med ID(er) til vedlegg(ene) som skal inkluderes med meldingen(e). Disse må lastes opp på forhånd ved å bruke **attachment** sitt endepunkt.
 
 ## Respons
 
 ### Responskoder
 
 - 200 OK: Responsen har blitt vellykket initialisert
-
-  Se problemdetaljer i responskroppen for mer informasjon.
+- 400 Bad Request: Requesten var ugyldig. Se problemdetaljer i responskroppen for mer informasjon.
 - 401 Unauthorized: Indikerer en manglende, ugyldig eller utløpt autorisasjonsheader.
 - 403 Forbidden: Indikerer at nødvendig omfang eller plattformtilgangstoken mangler eller er ugyldig.
 
-### Innholdstype
+### Content-Type (Innholdstype)
 
-- application/json
+application/json
 
-### Response body 
+### Response body
 
-Respons body returnerer en liste over meldinger [InitializeCorrespondencesResponseExt](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/InitializeCorrespondencesResponseExt.cs), med en melding for hver mottaker. Hver melding kan ha flere forskjellige mottakere hvor hver mottaker vil få en unik correspondenceId, status, etc.
+Respons body returnerer en liste over meldinger [InitializeCorrespondencesResponseExt](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/InitializeCorrespondencesResponseExt.cs), med en melding for hver mottaker.
+Nedenfor er en kort beskrivelse av hver av feltene.
 
-### Response body egenskaper
+#### correspondences
+Type: [List\<InitializedCorrespondencesExt>](/correspondence/reference/api-endpoints/initialize/initializedcorrespondencesext/)
 
-#### correspondenceId
-Type: _Guid_
+Informasjon on meldingen(e) som ble opprettet.
+#### attachmentIds
+Type: _List\<Guid>_
 
-ID-en til meldingen som har blitt initialisert
-
-#### status
-Type: _string_
-
-[De forskjellige statusene er definert her](https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Models/Enums/CorrespondenceStatusExt.cs)
-
-Viser statusen til den initialiserte meldingen
-
-#### recipient
-Type: _string_
-
-Viser mottakeren i formatet 0192:{{recipientOrgNumber}}
-
-#### notifications
-Type: _Liste over [InitializedCorrespondencesNotificationsExt](https://docs.altinn.studio/api/correspondence/spec/#/Correspondence/post_correspondence_api_v1_correspondence)_
-
-En liste over de genererte varslene med sendingsresultat. Hvert varsel vil inkludere følgende egenskaper:
-
-- _orderId_: ID-en til ordren.
-- _isReminder_: en boolsk verdi som indikerer om varselet er en påminnelse eller ikke.
-- _status_: viser statusen til varselet.
-
-| Status            | Beskrivelse                                                                 |
-|:-----------------:|:---------------------------------------------------------------------------:|
-| Success           | Betyr at varselordren ble opprettet vellykket med kontaktinformasjon.       |
-| MissingContact    | Kontaktinformasjon ble ikke funnet på tidspunktet for opprettelsen av meldingen. |
-| Failure           | Opprettelse av varselordre mislyktes.                                       |
+ID(ene) til vedleggene som ble inkludert med meldingen(e).

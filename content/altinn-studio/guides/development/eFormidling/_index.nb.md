@@ -20,7 +20,7 @@ Before setting up eFormidling you will need to have the following set up:
 
 ### Maskinporten Integration
 
-In order to enable eFormidling in your application you will need to [setup an integration between your app and Maskinporten](/altinn-studio/guides/integration/maskinporten-app-integration/).
+In order to enable eFormidling in your application you will need to [setup an integration between your app and Maskinporten](/altinn-studio/guides/integration/maskinporten/).
 
 * **NB!** In `Program.cs` add the following instead of what is described in the steps above in the `RegisterCustomAppServices`-method:
   

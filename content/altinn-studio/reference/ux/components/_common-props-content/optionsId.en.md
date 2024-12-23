@@ -19,7 +19,7 @@ To add options from a code list, select "Kodeliste" and enter a code list ID.
 
 <br>
 
-If you wish to [secure dynamic code lists](/altinn-studio/guides/development/options/dynamic-codelists/#secured-dynamic-options), you can check this option:
+If you wish to [secure dynamic code lists](/altinn-studio/guides/development/options/sources/dynamic/#secured-code-lists), you can check this option:
 
 {{% image file="component-settings/secure.png" %}}
 <!-- end asd -->

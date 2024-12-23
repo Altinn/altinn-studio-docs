@@ -11,4 +11,6 @@ If the user should only be able to pick one option, use [radio buttons](../radio
 
 ### Example of use:
 
-{{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5295%253A1181" %}}
+<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://embed.figma.com/proto/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio-Komponenter?page-id=7669%3A83879&node-id=8014-10784&node-type=frame&viewport=799%2C642%2C0.27&scaling=scale-down&content-scaling=fixed&embed-host=share" allowfullscreen></iframe>
+
+---

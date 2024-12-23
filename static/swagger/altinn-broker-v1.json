@@ -169,7 +169,7 @@
     "/broker/api/v1/filetransfer": {
       "post": {
         "tags": [
-          "File"
+          "FileTransfer"
         ],
         "summary": "Initialize a new fileTransfer",
         "description": "This endpoint initializes a new file for processing.",
@@ -178,7 +178,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/FileInitialize"
+                "$ref": "#/components/schemas/FileTransferInitalizeExt"
               }
             }
           }
@@ -187,7 +187,7 @@
           "200": {
             "description": "Successfully initialized the fileTransfer",
             "content": {
-              "text/plain": {
+              "application/json": {
                 "schema": {
                   "type": "string",
                   "format": "uuid"
@@ -199,7 +199,7 @@
       },
       "get": {
         "tags": [
-          "File"
+          "FileTransfer"
         ],
         "summary": "List files available for the caller",
         "description": "This endpoint retrieves a list of files available given for the caller given the query parameters.",
@@ -218,7 +218,7 @@
             "in": "query",
             "style": "form",
             "schema": {
-              "$ref": "#/components/schemas/FileStatus"
+              "$ref": "#/components/schemas/FileTransferStatusExt"
             }
           },
           {
@@ -226,7 +226,7 @@
             "in": "query",
             "style": "form",
             "schema": {
-              "$ref": "#/components/schemas/RecipientFileStatus"
+              "$ref": "#/components/schemas/RecipientFileTransferStatusExt"
             }
           },
           {
@@ -269,7 +269,7 @@
     "/broker/api/v1/filetransfer/{fileTransferId}/upload": {
       "post": {
         "tags": [
-          "File"
+          "FileTransfer"
         ],
         "summary": "Upload file",
         "description": "This endpoint allows for the uploading to an initialized file transfer",
@@ -279,7 +279,6 @@
             "name": "fileTransferId",
             "in": "path",
             "required": true,
-            "style": "simple",
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -296,7 +295,7 @@
     "/broker/api/v1/filetransfer/upload": {
       "post": {
         "tags": [
-          "File"
+          "FileTransfer"
         ],
         "summary": "Initialize and upload a file transfer",
         "description": "This endpoint allows for the initialization and uploading of a file transfer in a single operation",
@@ -306,6 +305,7 @@
             "multipart/form-data": {
               "schema": {
                 "required": [
+                  "FileTransfer",
                   "Metadata.FileName",
                   "Metadata.Recipients",
                   "Metadata.ResourceId",
@@ -357,7 +357,7 @@
                   "Metadata.DisableVirusScan": {
                     "type": "boolean"
                   },
-                  "File": {
+                  "FileTransfer": {
                     "type": "string",
                     "format": "binary"
                   }
@@ -388,7 +388,7 @@
                 "Metadata.DisableVirusScan": {
                   "style": "form"
                 },
-                "File": {
+                "FileTransfer": {
                   "style": "form"
                 }
               }
@@ -405,7 +405,7 @@
     "/broker/api/v1/filetransfer/{fileTransferId}": {
       "get": {
         "tags": [
-          "File"
+          "FileTransfer"
         ],
         "summary": "Retrieve file transfer status.",
         "description": "This endpoint retrieves the status of a specified file transfer",
@@ -428,7 +428,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FileOverview"
+                  "$ref": "#/components/schemas/FileTransferOverviewExt"
                 }
               }
             }
@@ -439,7 +439,7 @@
     "/broker/api/v1/filetransfer/{fileTransferId}/details": {
       "get": {
         "tags": [
-          "File"
+          "FileTransfer"
         ],
         "summary": "Retrieve file transfer details",
         "description": "Retrieve details about a file transfer for auditing purposes",
@@ -449,7 +449,6 @@
             "name": "fileTransferId",
             "in": "path",
             "required": true,
-            "style": "simple",
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -462,7 +461,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FileStatusDetails"
+                  "$ref": "#/components/schemas/FileTransferStatusDetailsExt"
                 }
               }
             }
@@ -473,7 +472,7 @@
     "/broker/api/v1/filetransfer/{fileTransferId}/download": {
       "get": {
         "tags": [
-          "File"
+          "FileTransfer"
         ],
         "summary": "Download a file",
         "description": "This endpoint is used for downloading the file from the specified file transfer",
@@ -483,7 +482,6 @@
             "name": "fileTransferId",
             "in": "path",
             "required": true,
-            "style": "simple",
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -500,7 +498,7 @@
     "/broker/api/v1/filetransfer/{fileTransferId}/confirmdownload": {
       "post": {
         "tags": [
-          "File"
+          "FileTransfer"
         ],
         "summary": "Confirm a file download.",
         "description": "This endpoint confirms the successful download of the specified file transfer",
@@ -524,11 +522,13 @@
         }
       }
     },
-	"/broker/api/v1/resource/{resourceId}": {
+    "/broker/api/v1/resource/{resourceId}": {
       "put": {
         "summary": "Configure a resource",
         "operationId": "configureResource",
-        "tags": ["Resource"],
+        "tags": [
+          "Resource"
+        ],
         "parameters": [
           {
             "name": "resourceId",
@@ -537,19 +537,9 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "token",
-            "in": "header",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "description": "Maskinporten token"
           }
         ],
         "requestBody": {
-          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -594,11 +584,13 @@
         ]
       }
     },
-	"/broker/api/v1/serviceowner": {
+    "/broker/api/v1/serviceowner": {
       "post": {
         "summary": "Initialize a service owner",
         "operationId": "initializeServiceOwner",
-        "tags": ["ServiceOwner"],
+        "tags": [
+          "ServiceOwner"
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -633,7 +625,9 @@
       "get": {
         "summary": "Get service owner details",
         "operationId": "getServiceOwner",
-        "tags": ["ServiceOwner"],
+        "tags": [
+          "ServiceOwner"
+        ],
         "responses": {
           "200": {
             "description": "Service owner details retrieved successfully",
@@ -714,16 +708,24 @@
           }
         ]
       },
-      "FileInitialize": {
+      "DeploymentStatusExt": {
+        "enum": [
+          "NotStarted",
+          "DeployingResources",
+          "Ready"
+        ],
+        "type": "string"
+      },
+      "FileTransferInitalizeExt": {
         "required": [
-          "Filename",
+          "fileName",
           "recipients",
           "resourceId",
           "sender"
         ],
         "type": "object",
         "properties": {
-          "Filename": {
+          "fileName": {
             "maxLength": 255,
             "minLength": 1,
             "type": "string"
@@ -774,7 +776,7 @@
         },
         "additionalProperties": false
       },
-      "FileOverview": {
+      "FileTransferOverviewExt": {
         "type": "object",
         "properties": {
           "fileTransferId": {
@@ -798,21 +800,20 @@
             "nullable": true
           },
           "useVirusScan": {
-            "type": "boolean",
-            "nullable": true
+            "type": "boolean"
           },
           "fileTransferSize": {
             "type": "integer",
             "format": "int64"
           },
-          "fileStatus": {
-            "$ref": "#/components/schemas/FileStatus"
+          "fileTransferStatus": {
+            "$ref": "#/components/schemas/FileTransferStatusExt"
           },
-          "fileStatusText": {
+          "fileTransferStatusText": {
             "type": "string",
             "nullable": true
           },
-          "fileStatusChanged": {
+          "fileTransferStatusChanged": {
             "type": "string",
             "format": "date-time"
           },
@@ -831,7 +832,7 @@
           "recipients": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RecipientFileStatusDetails"
+              "$ref": "#/components/schemas/RecipientFileTransferStatusDetailsExt"
             },
             "nullable": true
           },
@@ -850,7 +851,7 @@
         },
         "additionalProperties": false
       },
-      "FileStatusDetails": {
+      "FileTransferStatusDetailsExt": {
         "type": "object",
         "properties": {
           "fileTransferId": {
@@ -874,21 +875,20 @@
             "nullable": true
           },
           "useVirusScan": {
-            "type": "boolean",
-            "nullable": true
+            "type": "boolean"
           },
           "fileTransferSize": {
             "type": "integer",
             "format": "int64"
           },
-          "fileStatus": {
-            "$ref": "#/components/schemas/FileStatus"
+          "fileTransferStatus": {
+            "$ref": "#/components/schemas/FileTransferStatusExt"
           },
-          "fileStatusText": {
+          "fileTransferStatusText": {
             "type": "string",
             "nullable": true
           },
-          "fileStatusChanged": {
+          "fileTransferStatusChanged": {
             "type": "string",
             "format": "date-time"
           },
@@ -907,7 +907,7 @@
           "recipients": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RecipientFileStatusDetails"
+              "$ref": "#/components/schemas/RecipientFileTransferStatusDetailsExt"
             },
             "nullable": true
           },
@@ -923,41 +923,41 @@
               }
             }
           },
-          "fileStatusHistory": {
+          "fileTransferStatusHistory": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/FileStatusEvent"
+              "$ref": "#/components/schemas/FileTransferStatusEventExt"
             },
             "nullable": true
           },
-          "recipientFileStatusHistory": {
+          "recipientFileTransferStatusHistory": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RecipientFileStatusEvent"
+              "$ref": "#/components/schemas/RecipientFileTransferStatusEventExt"
             },
             "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "FileStatusEvent": {
+      "FileTransferStatusEventExt": {
         "type": "object",
         "properties": {
-          "fileStatus": {
-            "$ref": "#/components/schemas/FileStatus"
+          "fileTransferStatus": {
+            "$ref": "#/components/schemas/FileTransferStatusExt"
           },
-          "fileStatusText": {
+          "fileTransferStatusText": {
             "type": "string",
             "nullable": true
           },
-          "fileStatusChanged": {
+          "fileTransferStatusChanged": {
             "type": "string",
             "format": "date-time"
           }
         },
         "additionalProperties": false
       },
-      "FileStatus": {
+      "FileTransferStatusExt": {
         "enum": [
           "Initialized",
           "UploadStarted",
@@ -970,66 +970,49 @@
         ],
         "type": "string"
       },
-      "MaskinportenUser": {
-        "type": "object",
-        "properties": {
-          "clientId": {
-            "type": "string",
-            "nullable": true
-          },
-          "accessLevel": {
-            "$ref": "#/components/schemas/AccessLevel"
-          },
-          "organizationNumber": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "RecipientFileStatusDetails": {
+      "RecipientFileTransferStatusDetailsExt": {
         "type": "object",
         "properties": {
           "recipient": {
             "type": "string",
             "nullable": true
           },
-          "currentRecipientFileStatusCode": {
-            "$ref": "#/components/schemas/RecipientFileStatus"
+          "currentRecipientFileTransferStatusCode": {
+            "$ref": "#/components/schemas/RecipientFileTransferStatusExt"
           },
-          "currentRecipientFileStatusText": {
+          "currentRecipientFileTransferStatusText": {
             "type": "string",
             "nullable": true
           },
-          "currentRecipientFileStatusChanged": {
+          "currentRecipientFileTransferStatusChanged": {
             "type": "string",
             "format": "date-time"
           }
         },
         "additionalProperties": false
       },
-      "RecipientFileStatusEvent": {
+      "RecipientFileTransferStatusEventExt": {
         "type": "object",
         "properties": {
           "recipient": {
             "type": "string",
             "nullable": true
           },
-          "recipientFileStatusCode": {
-            "$ref": "#/components/schemas/RecipientFileStatus"
+          "recipientFileTransferStatusCode": {
+            "$ref": "#/components/schemas/RecipientFileTransferStatusExt"
           },
-          "recipientFileStatusText": {
+          "recipientFileTransferStatusText": {
             "type": "string",
             "nullable": true
           },
-          "recipientFileStatusChanged": {
+          "recipientFileTransferStatusChanged": {
             "type": "string",
             "format": "date-time"
           }
         },
         "additionalProperties": false
       },
-      "RecipientFileStatus": {
+      "RecipientFileTransferStatusExt": {
         "enum": [
           "Initialized",
           "DownloadStarted",
@@ -1037,7 +1020,47 @@
         ],
         "type": "string"
       },
-      "ResourceInitialize": {
+      "ResourceExt": {
+        "type": "object",
+        "properties": {
+          "maxFileTransferSize": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "fileTransferTimeToLive": {
+            "type": "string",
+            "nullable": true
+          },
+          "purgeFileTransferAfterAllRecipientsConfirmed": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "purgeFileTransferGracePeriod": {
+            "type": "string",
+            "nullable": true
+          },
+          "useManifestFileShim": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "externalServiceCodeLegacy": {
+            "type": "string",
+            "nullable": true
+          },
+          "externalServiceEditionCodeLegacy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ServiceOwnerInitializeExt": {
+        "required": [
+          "deletionTime",
+          "name"
+        ],
         "type": "object",
         "properties": {
           "name": {
@@ -1051,76 +1074,54 @@
         },
         "additionalProperties": false
       },
-      "ResourceOverview": {
+      "ServiceOwnerOverviewExt": {
+        "required": [
+          "name",
+          "storageProviders"
+        ],
         "type": "object",
         "properties": {
-          "id": {
+          "name": {
             "type": "string",
             "nullable": true
           },
-          "organizationNumber": {
-            "type": "string",
+          "storageProviders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StorageProviderExt"
+            },
             "nullable": true
-          },
-          "created": {
-            "type": "string",
-            "format": "date-time"
           }
         },
         "additionalProperties": false
       },
-      "ResourceExt": {
+      "StorageProviderExt": {
+        "required": [
+          "deploymentEnvironment",
+          "deploymentStatus",
+          "type"
+        ],
         "type": "object",
         "properties": {
-          "MaxFileTransferSize": {
-            "type": "integer",
-            "format": "int64"
+          "type": {
+            "$ref": "#/components/schemas/StorageProviderTypeExt"
           },
-          "FileTransferTimeToLive": {
-            "type": "integer",
-            "format": "int64"
+          "deploymentStatus": {
+            "$ref": "#/components/schemas/DeploymentStatusExt"
           },
-          "PurgeFileTransferAfterAllRecipientsConfirmed": {
-            "type": "boolean"
-          },
-          "PurgeFileTransferGracePeriod": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "UseManifestFileShim": {
-            "type": "boolean"
-          },
-          "ExternalServiceCodeLegacy": {
-            "type": "string"
-          },
-          "ExternalServiceEditionCodeLegacy": {
-            "type": "string"
-          }
-        }
-      },
-      "ServiceOwnerInitializeExt": {
-        "type": "object",
-        "properties": {
-          "Name": {
-            "type": "string"
-          },
-          "DeletionTime": {
+          "deploymentEnvironment": {
             "type": "string",
-            "format": "duration"
+            "nullable": true
           }
-        }
+        },
+        "additionalProperties": false
       },
-      "ServiceOwnerOverviewExt": {
-        "type": "object",
-        "properties": {
-          "Name": {
-            "type": "string"
-          },
-          "DeploymentStatus": {
-            "type": "string",
-            "enum": ["NotDeployed", "Deploying", "Deployed", "Failed"]
-          }
-        }
+      "StorageProviderTypeExt": {
+        "enum": [
+          "AltinnAzure",
+          "AltinnAzureWithoutVirusScan"
+        ],
+        "type": "string"
       }
     }
   }
