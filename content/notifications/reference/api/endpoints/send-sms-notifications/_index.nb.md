@@ -165,7 +165,7 @@ curl --location 'https://platform.altinn.no/notifications/api/v1/orders/sms' \
 ### Request using keywords
 This example demonstrates sending a customized SMS to a recipient identified using their organization number.
 
-```bash
+```bash{linenos=false,hl_lines="7"}
 curl --location 'https://platform.altinn.no/notifications/api/v1/orders/sms' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer [INSERT ALTINN TOKEN]' \

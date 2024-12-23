@@ -177,7 +177,7 @@ curl --location 'https://platform.altinn.no/notifications/api/v1/orders/email' \
 ### Request using keywords
 This example demonstrates sending a customized email to a recipient identified using their organization number.
 
-```bash
+```bash{linenos=false,hl_lines="7 8"}
 curl --location 'https://platform.altinn.no/notifications/api/v1/orders/email' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer [INSERT ALTINN TOKEN]' \

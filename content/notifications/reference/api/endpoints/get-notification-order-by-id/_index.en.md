@@ -148,7 +148,7 @@ Response body contains the notification order with notification template and rec
 ```
 
 **Example Response:** _The following response illustrates a notification order designed to send a customized email to a single recipient._
-```json
+```json{linenos=false,hl_lines="15 16"}
 {
     "id": "f1a1cc30-197f-4f34-8304-006ce4945fd1",
     "creator": "ttd",
@@ -200,7 +200,7 @@ Response body contains the notification order with notification template and rec
 ```
 
 **Example Response:** _The following response shows a notification order designed to send a customized SMS to a single recipient._
-```json
+```json{linenos=false,hl_lines="15"}
 {
     "id": "f1a1cc30-197f-4f34-8304-006ce4945fd1",
     "creator": "ttd",

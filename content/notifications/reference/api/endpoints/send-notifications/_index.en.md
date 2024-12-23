@@ -189,7 +189,7 @@ This example demonstrates sending a customized notification to two recipients, i
 The API first attempts to send a customized SMS, as SMS is the preferred communication channel.
 If a mobile number is unavailable for any recipient, the API automatically falls back to sending a customized email instead to that recipient.
 
-```bash
+```bash{linenos=false,hl_lines="8 9 13"}
 curl --location 'https://platform.altinn.no/notifications/api/v1/orders' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer [INSERT ALTINN TOKEN]' \
