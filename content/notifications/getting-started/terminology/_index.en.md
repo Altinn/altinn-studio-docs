@@ -43,7 +43,7 @@ weight: 15
   ```
   
   Here is an example of a notification order with placeholders keywords:
-  ```json
+  ```json{linenos=false,hl_lines="18 19"}
     {
       "id": "e1a439bf-0ac6-41f6-978f-f22f4bd9b8a0",
       "creator": "ttd",
