@@ -1,5 +1,7 @@
 ---
 title: Send Condition
+description: "Altinn Notifications offers a feature called Send Condition,
+which allows you to create notification orders that are sent to recipients only when a specified condition is met."
 linktitle: Send Condition
 tags: [notifications, send conditions]
 weight: 30
@@ -7,26 +9,23 @@ weight: 30
 
 ## Introduction
 
-The Send Condition feature allows you to register a notification order 
-for a notification to be sent only if a specified condition is met. 
-The requested send time can be either immediate or set for a future date.
+The Send Condition feature enables you to create a notification order that will only be sent to recipient(s)
+if a specified condition is met. You can choose to send the notification immediately or schedule it for a future date.
 
 ### Example Use Case
 
-A typical use case is setting reminders where a notification should be sent only if a user 
-has not yet completed a certain action. By using the send condition, the notification requesting 
-a user to complete an action and the reminder notification can be ordered simultaneously.
+A common use case is setting reminders, where a notification is sent only
+if a user has not completed a specific action. With the send condition,
+both the initial notification requesting the action and the reminder notification can be scheduled at the same time.
 
 ### Condition Evaluation
 
-A send condition is evaluated as either true or false. 
-It is true if the condition for sending the notification is met.
-
+A send condition is evaluated as either **true** or **false**, and it is considered **true** when the condition for sending the notification is met.
 
 ## Condition Endpoint
 
-The send condition is verified by the application using the condition endpoint provided in the notification order. 
-Below is an example of a notification order request with a condition endpoint:
+The send condition is checked by the application through the condition endpoint
+specified in the notification order. Below is an example of a notification order request with the condition endpoint:
 
 ```json {linenos=false,hl_lines="11"}
 {
@@ -45,9 +44,9 @@ Below is an example of a notification order request with a condition endpoint:
 
 ### Request
 
-The API client in Altinn Notifications will send a GET request to the provided endpoint with a bearer token. 
-The token will be a Maskinporten token containing Digitaliseringsdirektoratet's organization number as a part of the
-consumer claim and and the scope `altinn:system/notifications.condition.check`.
+The API client in Altinn Notifications will send a GET request to the provided endpoint with a bearer token.
+The token will be a Maskinporten token that includes Digitaliseringsdirektoratet's organization number as part of
+the consumer claim, along with the scope `altinn:system/notifications.condition.check`.
 
 - **Method:** GET
 - **Headers:**
@@ -66,7 +65,7 @@ Content-Type: application/json
 
 #### Example Decoded Token 
 
-Here is an example showing some of the claims in a decoded Maskinporten token from Altinn Notifications. 
+Here is an example displaying some of the claims in a decoded Maskinporten token from Altinn Notifications:
 
 ```json
 {
@@ -87,9 +86,9 @@ Here is an example showing some of the claims in a decoded Maskinporten token fr
 
 ### Response
 
-Upon evaluating the condition specified in the request, 
+After evaluating the condition specified in the request,
 the endpoint should respond with a JSON object indicating whether the notification should be sent.
-Response code must be 200 OK regardless if condition is met. 
+The response code must be 200 OK, regardless of whether the condition is met.
 
 Any other status code results in a retry attempt from the API client.
 

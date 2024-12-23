@@ -1,27 +1,25 @@
 ---
 title: Altinn App Integration
-description: How to get started sending notifications from an Altinn App
+description: How to get started sending notifications from an Altinn App.
 weight: 10
 ---
 
-## 1. Create and Configure your Altinn App
+## 1. Create and configure your Altinn App
 
-To begin, create and configure your Altinn aAp using Altinn Studio and your preferred code editor.
-Ensure you are using version 8.1.0 or higher of the app NuGet packages to support native notifications. 
-For optimal performance and security, we recommend always using the latest stable version.
+Start by creating and configuring your Altinn App using Altinn Studio and your preferred code editor. 
+Ensure that your app uses version 8.1.0 or higher of the NuGet packages to enable native notifications.
+For optimal performance and security, always use the latest stable version.
 
-Detailed documentation on Altinn App development in the [Altinn Studio documentation](/altinn-studio).
+For detailed guidance on Altinn App development, refer to the [Altinn Studio documentation](/altinn-studio).
 
-## 2. Review policy for relevant resources in Altinn Resource Registry
+## 2. Review policies for relevant resources in the Altinn Resource Registry
 
 {{% insert "content/notifications/shared/getting-started/resource/get-started-resource.en.md" %}}
 
+## 3. Understand guidelines and best practices for sending notifications
 
-## 3. Familiarize yourself with the guidelines and best practice for sending notifications
 {{% insert "content/notifications/shared/getting-started/guidelines/guidelines.en.md" %}}
 
-## 4. Configure your app to send notifications
+## 4. Set up your app to send notifications
 
-Please reference [the Altinn App reference documentation](/altinn-studio/reference/logic/notifications/) on how to 
-set up you app to send notifications. 
-
+Follow the instructions in the [Altinn App reference documentation](/altinn-studio/reference/logic/notifications/) to configure your app for sending notifications.

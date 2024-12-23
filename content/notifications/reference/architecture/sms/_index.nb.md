@@ -1,7 +1,7 @@
 ---
-title: Notifications sms
-linktitle: Notifications sms
-tags: [architecture, solution, notifications, sms]
+title: Notifications SMS
+linktitle: Notifications SMS
+tags: [architecture, solution, notifications, SMS]
 weight: 2
 toc: false
 ---
@@ -14,13 +14,13 @@ toc: false
 
 ## Integrations
 ### Kafka
-The Notifications sms microservice has an integration towards a Kafka broker, and this integration is used
+The Notifications SMS microservice has an integration towards a Kafka broker, and this integration is used
 both to publish and consume messages from topics relevant to the microservice. 
 
 **Consumers:**
 The following Kafka consumers are defined: 
 - [SendSmsQueueConsumer](https://github.com/Altinn/altinn-notifications-sms/blob/main/src/Altinn.Notifications.Sms.Integrations/Consumers/SendSmsQueueConsumer.cs):
-  Consumes sms objects with recipient data that are ready to be sent
+  Consumes SMS objects with recipient data that are ready to be sent
 
 **Producers:**
 A single producer [_KafkaProducer_](https://github.com/Altinn/altinn-notifications-sms/blob/main/src/Altinn.Notifications.Sms.Integrations/Producers/CommonProducer.cs) 
@@ -29,7 +29,7 @@ is implemented and used by all services that publish to Kafka.
 [Please reference the Kafka architecture section for a closer description of the Kafka setup.](../kafka/)
 
 ### Link Mobility
-Link Mobility is used as service provider for sending sms to the end users.
+Link Mobility is used as service provider for sending SMS to the end users.
 A client, [SmsClient](https://github.com/Altinn/altinn-notifications-sms/blob/main/src/Altinn.Notifications.Sms.Integrations/LinkMobility/SmsClient.cs)
 has been implemented based on the SDK made available by Link to interact with their API. 
 
@@ -49,7 +49,7 @@ Find descriptions of key dependencies below.
 | Service | Purpose | Resources |
 |-|-|-|
 | Apache Kafka on Confluent Cloud | Hosts the Kafka broker | [Documentation](https://www.confluent.io/confluent-cloud/)|
-| Link Mobility | Sends out sms to recipients and reports back | [Documentation](https://www.linkmobility.com/no/produkter/kanaler/mobil/sms)|
+| Link Mobility | Sends out SMS to recipients and reports back | [Documentation](https://www.linkmobility.com/no/produkter/kanaler/mobil/sms)|
 | Azure Monitor | Telemetry from the application is sent to Application Insights | [Documentation](https://azure.microsoft.com/en-us/products/monitor) |
 | Azure Key Vault | Safeguards secrets used by the microservice | [Documentation](https://azure.microsoft.com/en-us/products/key-vault) |
 | Azure Kubernetes Services (AKS)| Hosts the microservice and cron jobs | [Documentation](https://azure.microsoft.com/en-us/products/kubernetes-service/) |
@@ -60,7 +60,7 @@ Find descriptions of key dependencies below.
 | Altinn Notifications* | Service that orchestrates the sending of notifications.| [Repository](https://github.com/Altinn/altinn-notifications-sms) |
 
 \*Functional dependency to enable the full functionality of Altinn Notifications. Altinn Notifications generates the 
-sms messages that are to be sent through this sms service.
+SMS messages that are to be sent through this SMS service.
 
 ### .NET Libraries
 Notifications microservice takes use of a range of libraries to support the provided functionality. 
@@ -103,7 +103,7 @@ through use case tests on the orchestrating service, Altinn Notifications.
 The microservice runs in a Docker container hosted in AKS, 
 and it is deployed as a Kubernetes deployment with autoscaling capabilities.
 
-The notifications sms application runs on port 5092. 
+The notifications SMS application runs on port 5092. 
 
 See [DockerFile](https://github.com/Altinn/altinn-notifications-sms/blob/main/Dockerfile) for details.
 
