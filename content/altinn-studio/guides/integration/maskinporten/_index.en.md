@@ -1,13 +1,12 @@
 ---
-title: Integrate Altinn app with Maskinporten
-linktitle: Maskinporten-App integration
+title: Integrate an Altinn app with Maskinporten
+linktitle: Maskinporten
 description: How to setup an integration between an Altinn App and Maskinporten.
 weight: 100
 toc: true
 aliases:
-
 - /app/maskinporten-app-integration/
-
+- /altinn-studio/guides/integration/maskinporten-app-integration
 ---
 
 This guide details how to set up an Altinn application with a HTTP client that utilizes Maskinporten authentication for
@@ -74,6 +73,7 @@ When preparing the application to use secrets from Azure Key Vault, there are so
 2. For the application to be able to read the secrets from Azure Key Vault, it needs to be configured to do so.
    See the [secrets section](../../../reference/configuration/secrets) to achieve this.
 3. Add the appsettings section example from above into the `appsettings.{env}.json` file.
+{.floating-bullet-numbers}
 
 _Note: The secrets are read by the application on launch so
 if you make changes after the application is deployed, you
