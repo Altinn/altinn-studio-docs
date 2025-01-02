@@ -37,11 +37,11 @@ aliases:
    Ved å kalle denne metoden vil du registrere alle kodelistene på tvers av alle kilder. Du kan også registrere kodelistene én og én hvis du vil ha kontroll på hvilke kodelister som er tatt i bruk eller konfigurere og tilpasse oppsettet av kodelisten.
 
 ### 3. Koble applikasjonen din til kodeverket du ønsker å bruke  
-   Se [dokuemntasjon](https://github.com/Altinn/codelists-lib-dotnet#available-codelists) nedenfor for tilgjengelige kodelister.
+   Se [dokumentasjon](https://github.com/Altinn/codelists-lib-dotnet#available-codelists) nedenfor for tilgjengelige kodelister.
 
    Du kan gjøre dette enten ved hjelp av [Altinn Studio](https://altinn.studio) og konfigurere *Kodeliste-ID* for komponenten din i brukergrensesnittet.
 
-   Eller du kan konfigurere komponenten ved å redigere egenskapen `optionsId` form komponenten i layout-filen.
+   Eller du kan konfigurere komponenten ved å redigere egenskapen `optionsId` på komponenten i layout-filen.
 
 ## Tilpasset konfigurasjon
 Mens konfigurasjonen nevnt ovenfor der du kaller `services.AddAltinnCodelists();` vil legge til alle tilgjengelige kodelister med standardverdier, kan det være tilfeller der du ønsker å tilpasse konfigurasjonen av en kodeliste. Eksemplene under vil variere noe avhengig av kilden til kodelisten siden de ulike kildene tilbyr ulike muligheter.

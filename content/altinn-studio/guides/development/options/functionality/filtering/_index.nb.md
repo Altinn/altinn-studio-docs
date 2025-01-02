@@ -9,7 +9,7 @@ alternativer brukeren kan velge mellom.
 
 Legg merke til at det allerede finnes flere måter å gjøre svaralternativene dynamiske på:
 
-1. Du kan bruke [dynamikk](../../../dynamics) for å skjule og vise helt forskjellige komponenter basert på en betingelse. Disse
+1. Ved å bruke [dynamikk](../../../dynamics) for å skjule og vise helt forskjellige komponenter basert på en betingelse. Disse
    komponentene kan være bundet til samme sted i datamodellen, men ha forskjellige svaralternativer. Merk at
    [automatisk opprydding](../automatic-cleanup) kan fjerne verdier fra datamodellen når du bruker denne metoden.
 2. Ved å bruke [dynamiske alternativer](../../sources/dynamic) og sende spørringsparametre til backenden, kan du skrive 
@@ -19,16 +19,17 @@ Legg merke til at det allerede finnes flere måter å gjøre svaralternativene d
    med data prosessering på backenden, kan dette være en kraftig måte å lage egendefinerte svaralternativer på, selv når dynamiske
    alternativer basert på spørringsparametre ville være problematisk.
 
-Filtrering av svaralternativer via `optionFilter`-egenskapen fungerer med alle de nevnte metodene, og med
-vanlige [statiske svaralternativer](../../sources/static) også.
+Filtrering av svaralternativer via `optionFilter`-egenskapen fungerer med alle de nevnte metodene, inkludert
+[statiske svaralternativer](../../sources/static).
 Dette gjør det mulig å bruke et [dynamisk uttrykk](../../../dynamics) for å filtrere ut svaralternativer basert
 på den nåværende tilstanden i skjemaet.
 
 ### Konfigurasjon
 
 I eksempelet under er `optionFilter`-egenskapen satt til et dynamisk uttrykk som filtrerer ut alternativet
-`should-be-removed`. Merk at `optionFilter`-egenskapen settes opp med et uttrykk for hvilke alternativer som skal beholdes,
-så du må snu om logikken for å fjerne et alternativ.
+`should-be-removed`. Merk at `optionFilter`-egenskapen bruker et uttrykk for å bestemme hvilke alternativer som
+skal beholdes. Om du vil fjerne alternativer, må du snu om logikken. Dette kan for eksempel gjøres ved å pakke inn
+hele uttrykket i en `not`-funksjon.
 
 Uttrykket evalueres for hvert svaralternativ, og hvis det returnerer `true`, beholdes alternativet. Alle andre alternativer fjernes.
 
@@ -133,7 +134,7 @@ Konfigurasjonen for dette eksempelet er som følger:
 
 Noen ting å merke seg om konfigurasjonen:
 
-1. De allerede brukte ingrediens-typene lagres i en komma-separert liste i feltet `UsedTypes` i datamodellen. Dette feltet
+1. De allerede brukte ingredienstypene lagres i en kommaseparert liste i feltet `UsedTypes` i datamodellen. Dette feltet
    oppdateres ved hjelp av [dataprosessering](../../../../../reference/logic/dataprocessing) som finner alle unike
    ingredienstyper i `Ingredients`-lista.
 2. Hvis vi bare sjekket `UsedTypes`-feltet mot `value`-verdien til den nåværende `Dropdown`-komponenten, ville alternativet

@@ -19,7 +19,7 @@ In some cases it is desirable that one of the options is pre-selected. There are
 ### The `preselectedOptionIndex` property
 
 {{% notice info %}}
-This property is available for most components support options, with the notable exception of the `FileUploadWithTag`
+This property is available for most components that support options, with the notable exception of the `FileUploadWithTag`
 component. Only one option can be pre-selected at this time, and it is not possible to choose which option should
 be pre-selected based on the value property of the option.
 {{% /notice %}}
@@ -54,7 +54,7 @@ This functionality follows a set of rules:
    component is visible on the screen or not.
 4. Pre-selected values are not set for components that are hidden using [dynamics](../../../dynamics). If
    the component is shown again later, the pre-selection may be set.
-5. The preselected option is determined before [sorting](../sorting) is applied, but after [filtering](../filtering).
+5. The preselected option is determined after [filtering](../filtering), but before [sorting](../sorting) is applied.
 
 {{% notice warning %}}
 There are situations where pre-selection with this property is not optimal, and can lead to situations that may be

@@ -9,19 +9,20 @@ Some options for components may be dynamic. Either directly via [dynamic options
 where some values may be [filtered](../filtering) out.
 
 When the options are dynamic, the data model may contain values that are no longer valid. This can happen if the user
-(or prefill) has selected an option that is no longer available. In such cases, to avoid the data model from containing
-invalid values, unknown options are automatically removed from the data model.
+(or prefill) has selected an option that is no longer available. In such cases, to prevent the data model from containing
+invalid values, unknown options are automatically removed.
 
 ## How it works
 
 When the form is loaded, the options for all components are fetched and compared to their values in the data model. Even
-if a component is not visible (i.e. when on a page that is not currently shown), the app-frontend will still
+if a component is not visible (i.e. on a page that is not currently shown, _not_ when it's
+actively hidden using the `hidden` property), the app-frontend will still
 check the options for that component and remove any values that are not in the options list.
 
 This has some implications that you should be aware of:
 - If you configure multiple components pointing to the same field in the data model, the options for all those components
-  should be the same. If they are not, the data model will be cleaned up to only contain the options that are valid for
-  all components.
+  should be the same. If they are not, the field in the data model will be adjusted to include only the options that
+  are valid for all components.
 - If the component is not marked as `required`, the user can submit the form even if the value is removed from the data
   model. If you want to ensure that the user selects a valid option, you should mark the component as required.
 

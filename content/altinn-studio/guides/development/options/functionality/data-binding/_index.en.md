@@ -72,7 +72,7 @@ Components using options will usually only store the value of the selected optio
 usually sufficient, there are cases where you might want to store the label of the selected option as well. This can
 be useful for displaying the selected option in a simple presentation of the data without additional lookups or if
 you have a requirement to remember the label the user actually picked in case it has changed over time. When storing
-the label in the data model, it will respect the users chosen language, look up the actual text from the text resources
+the label in the data model, it will respect the user's chosen language, look up the actual text from the text resources
 and store the final value in the data model.
 
 This is configured by having a separate binding with the key `label`. The `label` binding should point to a field in the

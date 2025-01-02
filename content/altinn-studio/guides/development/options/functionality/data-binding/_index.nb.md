@@ -117,4 +117,3 @@ datamodellen som inneholder en `string`-verdi:
 
 Denne konfigurasjonen vil nå lagre metadataen til de hentede svaralternativene som en kommaseparert streng i
 feltet `soknad.nyGaranti.loyvetypeMetadata` i datamodellen.
-`

@@ -21,14 +21,15 @@ Keep in mind that there are different approaches to making options dynamic:
    even when dynamic options based on query parameters would be problematic.
 
 Filtering options via the `optionFilter` property works with all of the above, and with
-plain [static options](../../sources/static) as well. It makes it possible to use a [dynamic expression](../../../dynamics)
+plain [static options](../../sources/static) as well. It allows you to use a [dynamic expression](../../../dynamics)
 to filter out options based on the current state of the form.
 
 ### Configuration
 
 In the example below, the `optionFilter` property is set to a dynamic expression that filters out the
-option `should-be-removed`. Note that the `optionFilter` property accepts an expression for which options to keep,
-so you should invert the logic to remove an option.
+option `should-be-removed`. Note that the `optionFilter` property accepts an expression to determine which options
+to keep. To remove an option, you should invert the logic. One way to do this is by writing the expression
+inside a `not` function call.
 
 The expression is evaluated for each option, and if it returns `true`, the option is _kept_. All other options are _removed_.
 
@@ -141,8 +142,8 @@ A few things to note about the configuration:
    equal to the data set in the current `Dropdown` component.
 
 {{% notice warning %}}
-The example above relies on saving the form data to the backend and running data processing to update
-the `UsedTypes` field. For this reason, it is still fully possible to select the same ingredient in multiple rows
+The example above depends on saving the form data to the backend and running data processing to update
+the `UsedTypes` field. For this reason, it is still entirely possible to select the same ingredient in multiple rows
 in the repeating group if you're fast enough. When using a method like this you should
 also [implement validation](../../../../../reference/logic/validation) to catch any duplicates that might slip through.
 {{% /notice %}}
