@@ -10,12 +10,12 @@ aliases:
 
 | **Tilgangspakker i kategorien**|
 |---|
-|[Ansetttelsesforhold](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/personale/#ansettelsesforhold)|
-|[Lønn](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroupsaccessgroups/personale/#lønn)|
-|[Pensjon](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/personale/#pensjon)|
-|[Permisjon](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/personale/permisjon)|
-|[Sykefravær](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/personale/#sykefravaer)|
-|[A-ordningen](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/personale/#a-ordningen)|
+|[Ansetttelsesforhold](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/personale/#ansettelsesforhold)|
+|[Lønn](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/personale/#lønn)|
+|[Pensjon](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/personale/#pensjon)|
+|[Permisjon](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/personale/permisjon)|
+|[Sykefravær](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/personale/#sykefravaer)|
+|[A-ordningen](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/personale/#a-ordningen)|
 
 ### Ansettelsesforhold
 Denne tilgangspakken gir fullmakter til tjenester knyttet til ansettelsesforhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
@@ -40,7 +40,7 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til sykefravær. Ved r
 ### A-ordningen
 Denne tilgangspakken gir fullmakter til tjenester som inngår i A-ordningen. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 **OBS! Vær oppmerksom på at tilgangspakken inneholder fullmakter som kan ha sensitiv karakter. Vurder om fullmaktene skal gis som enkeltrettigheter.**  
-*urn:altinn:accesspackage:ansettelsesforhold*
+*urn:altinn:accesspackage:aordnig*
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
 |**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|

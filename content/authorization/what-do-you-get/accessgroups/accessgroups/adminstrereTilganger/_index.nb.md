@@ -10,10 +10,10 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Klientadministrasjon for regnskapsfører og revisor](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/administreretilganger/#klientadministrasjon-for-regnskapsforer-og-revisor)|
-|[Tilgangsstyring](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/administreretilganger/#tilgangsstyring)|
-|[Hovedadministrator](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/administreretilganger/#hovedadministrator)|
-|[Kundeadministrator](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/administreretilganger/#kundeadministrator)|
+|[Klientadministrasjon for regnskapsfører og revisor](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups//accessgroups/administreretilganger/#klientadministrasjon-for-regnskapsforer-og-revisor)|
+|[Tilgangsstyring](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/administreretilganger/#tilgangsstyring)|
+|[Hovedadministrator](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/administreretilganger/#hovedadministrator)|
+|[Kundeadministrator](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/administreretilganger/#kundeadministrator)|
 
 ### Klientadministrasjon for regnskapsfører og revisor
 Denne tilgangspakken gir bruker mulighet til å administrere tilgang til tjenester det er naturlig at regnskapsfører eller revisor utfører. Bruker kan administrere tilgang til tjenestene til ansatte hos regnskapsfører eller revisor på vegne av deres kunder.  
