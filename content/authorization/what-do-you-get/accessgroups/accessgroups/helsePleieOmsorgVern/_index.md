@@ -10,13 +10,13 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Kommuneoverlege](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/helsepleieomsorgvern/#kommuneoverlege)|
-|[Helsetjenester med personopplysninger av særlig kategori](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/helsepleieomsorgvern/#helsetjenester-med-personopplysninger-av-særlig-kategori)|
-|[Helsetjenester](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/helsepleieomsorgvern/#helsetjenester)|
-|[Pleie- og omsorgstjenester i institusjon](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/helsepleieomsorgvern/#pleie--og-omsorgstjenester-i-institusjon)|
-|[Sosiale omsorgstjenester uten botilbud og flykningemottak](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/helsepleieomsorgvern/#sosiale-omsorgstjenester-uten-botilbud-og-flykningemottak)|
-|[Barnevern](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/helsepleieomsorgvern/#barnevern)|
-|[Familievern](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/helsepleieomsorgvern/familievern)|
+|[Kommuneoverlege](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/helsepleieomsorgvern/#kommuneoverlege)|
+|[Helsetjenester med personopplysninger av særlig kategori](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/helsepleieomsorgvern/#helsetjenester-med-personopplysninger-av-særlig-kategori)|
+|[Helsetjenester](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/helsepleieomsorgvern/#helsetjenester)|
+|[Pleie- og omsorgstjenester i institusjon](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/helsepleieomsorgvern/#pleie--og-omsorgstjenester-i-institusjon)|
+|[Sosiale omsorgstjenester uten botilbud og flykningemottak](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/helsepleieomsorgvern/#sosiale-omsorgstjenester-uten-botilbud-og-flykningemottak)|
+|[Barnevern](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/helsepleieomsorgvern/#barnevern)|
+|[Familievern](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/helsepleieomsorgvern/familievern)|
 
 ### Kommuneoverlege
 Denne tilgangspakken gir fullmakter til tjenester knyttet til sykehus, lege, tannlege og hjemmesykepleie,fysioterapi, ambulanse og lignende, som er relevant for kommuneleger. Denne fullmakten kan gi bruker tilgang til personopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  

@@ -10,13 +10,13 @@ aliases:
 
 |**Tilgangpakker i kategorien**|
 |---|
-|[Byggesøknad](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/bygganleggeiendom/#byggesøknad)|
-|[Plansak](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/bygganleggeiendom/#plansak)|
-|[Motta nabo- og planvarsel](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/bygganleggeiendom/#motta-nabo--og-planvarsel)|
-|[Oppføring av bygg og anlegg](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/bygganleggeiendom/#oppføring-av-bygg-og-anlegg)|
-|[Kjøp og salg av eiendom](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/bygganleggeiendom/#kjøp-og-salg-av-eiendom)|
-|[Utleie av eiendom](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/bygganleggeiendom/#utleie-av-eiendom)|
-|[Eiendomsmegler](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/bygganleggeiendom/#eiendomsmegler)|
+|[Byggesøknad](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#byggesøknad)|
+|[Plansak](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#plansak)|
+|[Motta nabo- og planvarsel](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#motta-nabo--og-planvarsel)|
+|[Oppføring av bygg og anlegg](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#oppføring-av-bygg-og-anlegg)|
+|[Kjøp og salg av eiendom](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#kjøp-og-salg-av-eiendom)|
+|[Utleie av eiendom](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#utleie-av-eiendom)|
+|[Eiendomsmegler](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#eiendomsmegler)|
 
 
 ### Byggesøknad

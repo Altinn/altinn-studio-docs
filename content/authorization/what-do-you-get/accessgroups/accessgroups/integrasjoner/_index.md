@@ -10,9 +10,9 @@ aliases:
 
 | **Tilgangspakker i kategorien**|
 |---|
-| [Programmeringsgrensesnitt - API](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/integrasjoner/#programmeringsgrensesnitt--api)|
-| [Programmeringsgrensesnitt NUF - API](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/integrasjoner/#programmeringsgrensesnitt-nuf---api)|
-| [Maskinlesbare hendelser](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/integrasjoner/#maskinlesbare-hendelser)|
+| [Programmeringsgrensesnitt - API](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/integrasjoner/#programmeringsgrensesnitt--api)|
+| [Programmeringsgrensesnitt NUF - API](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/integrasjoner/#programmeringsgrensesnitt-nuf---api)|
+| [Maskinlesbare hendelser](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/integrasjoner/#maskinlesbare-hendelser)|
 
 
 ### Programmeringsgrensesnitt -API
