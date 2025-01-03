@@ -10,12 +10,12 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Veitransport](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/transportoglagring/#veitransport)|
-|[Transport i rør ](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/transportoglagring/#transport-i-rør)|
-|[Sjøfart](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/transportoglagring/#sjøfart)|
-|[Lufttransport](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/transportoglagring/#lufttransport)|
-|[Jernbanetransport](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/transportoglagring/#lufttransport)|
-|[Lagring og andre tjenester tilknyttet transport](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/transportoglagring/#lagring-og-andre-tjenester-tilknyttet-transport)| 
+|[Veitransport](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/transportoglagring/#veitransport)|
+|[Transport i rør ](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/transportoglagring/#transport-i-rør)|
+|[Sjøfart](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/transportoglagring/#sjøfart)|
+|[Lufttransport](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/transportoglagring/#lufttransport)|
+|[Jernbanetransport](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/transportoglagring/#lufttransport)|
+|[Lagring og andre tjenester tilknyttet transport](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/transportoglagring/#lagring-og-andre-tjenester-tilknyttet-transport)| 
 
 ### Veitransport
 Denne fullmakten gir tilgang til tjenester knyttet til person- og godstransport langs veinettet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  

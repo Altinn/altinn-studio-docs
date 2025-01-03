@@ -10,13 +10,13 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Jordbruk](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/jordbrukskogbrukjaktfiskeakvakultur/#jordbruk)|
-|[Dyrehold](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/jordbrukskogbrukjaktfiskeakvakultur/#dyrehold)|
-|[Reindrift](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/jordbrukskogbrukjaktfiskeakvakultur/#reindrift)|
-|[Jakt og viltstell](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/jordbrukskogbrukjaktfiskeakvakultur/#jakt-og-viltstell)|
-|[Skogbruk](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/jordbrukskogbrukjaktfiskeakvakultur/#skogbruk)|
-|[Fiske](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/jordbrukskogbrukjaktfiskeakvakultur/#fiske)|
-|[Akvakultur](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/jordbrukskogbrukjaktfiskeakvakultur/#akvakultur)|
+|[Jordbruk](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/jordbrukskogbrukjaktfiskeakvakultur/#jordbruk)|
+|[Dyrehold](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/jordbrukskogbrukjaktfiskeakvakultur/#dyrehold)|
+|[Reindrift](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/jordbrukskogbrukjaktfiskeakvakultur/#reindrift)|
+|[Jakt og viltstell](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/jordbrukskogbrukjaktfiskeakvakultur/#jakt-og-viltstell)|
+|[Skogbruk](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/jordbrukskogbrukjaktfiskeakvakultur/#skogbruk)|
+|[Fiske](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/jordbrukskogbrukjaktfiskeakvakultur/#fiske)|
+|[Akvakultur](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/jordbrukskogbrukjaktfiskeakvakultur/#akvakultur)|
 
 
 ### Jordbruk
