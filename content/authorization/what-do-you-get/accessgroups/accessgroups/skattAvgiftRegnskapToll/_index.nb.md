@@ -15,7 +15,7 @@ aliases:
 | [Merverdiavgift](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/skattavgiftregnskaptoll/#merverdiavgift)|
 | [Motorvognavgifter](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/skattavgiftregnskaptoll/#motorvognavgifter)|
 | [Særavgifter](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/skattavgiftregnskaptoll/#særavgifter)|
-| [Krav, betalinger og utlegg](https//docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/skattavgiftregnskaptoll/#krav-betalinger-og-utlegg)|
+| [Krav, betalinger og utlegg](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/skattavgiftregnskaptoll/#krav-betalinger-og-utlegg)|
 | [Kreditt- og oppgjørsordninger](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/skattavgiftregnskaptoll/#kreditt--og-oppgjørsordninger)|
 | [Regnskap og økonomirapportering](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/skattavgiftregnskaptoll/#regnskap-og-økonomirapportering)|
 | [Revisorattesterer](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/skattavgiftregnskaptoll/#revisorattesterer)|
