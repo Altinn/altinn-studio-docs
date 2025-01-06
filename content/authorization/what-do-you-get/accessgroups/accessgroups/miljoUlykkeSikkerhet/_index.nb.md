@@ -5,16 +5,16 @@ description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter 
 toc: true
 weight: 100
 aliases:
-- /authorization/modules/accessgroups/type-accessgroups
+- /authorization/modules/accessgroups
 ---
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Renovasjon](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/miljoulykkesikkerhet/#renovasjon)|
-|[Miljørydding, miljørensing og lignende](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/miljoulykkesikkerhet/#miljørydding-miljørensing-og-lignende)|
-|[Bærekraft](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/miljoulykkesikkerhet/#bærekraft)|
-|[Sikkerhet og internkontroll](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/miljoulykkesikkerhet/#sikkerhet-og-internkontroll)|
-|[Ulykke og yrkesskade](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/miljoulykkesikkerhet/#ulykke-og-yrkesskade)|
+|[Renovasjon](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/miljoulykkesikkerhet/#renovasjon)|
+|[Miljørydding, miljørensing og lignende](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/miljoulykkesikkerhet/#miljørydding-miljørensing-og-lignende)|
+|[Bærekraft](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/miljoulykkesikkerhet/#bærekraft)|
+|[Sikkerhet og internkontroll](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/miljoulykkesikkerhet/#sikkerhet-og-internkontroll)|
+|[Ulykke og yrkesskade](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/miljoulykkesikkerhet/#ulykke-og-yrkesskade)|
 
 ### Renovasjon
 Denne tilgangspakken gir fullmakter til tjenester knyttet til renovasjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  

@@ -5,13 +5,13 @@ description: Denne kategorien omfatter tilgangspakker som gir fullmakter til tje
 toc: true
 weight: 100
 aliases:
-- /authorization/modules/accessgroups/type-accessgroups
+- /authorization/modules/accessgroups
 ---
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Ansvarlig revisor](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/regnskapsforer/#regnskapsfører-med-signeringsrettighet)|
-|[Revisormedarbeider](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/regnskapsforer/#regnskapsfører-uten-signeringsrettighet)|
+|[Ansvarlig revisor](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/regnskapsforer/#regnskapsfører-med-signeringsrettighet)|
+|[Revisormedarbeider](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/regnskapsforer/#regnskapsfører-uten-signeringsrettighet)|
 
 
 ### Ansvarlig revisor
