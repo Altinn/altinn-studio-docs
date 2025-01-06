@@ -5,17 +5,17 @@ description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter 
 toc: true
 weight: 100
 aliases:
-- /authorization/modules/accessgroups/type-accessgroups
+- /authorization/modules/accessgroups
 ---
 
 |**TIlgangspakker i kategorien**|
 |---|
-|[Kunst og underholdning](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgoups/kulturfrivillighet/#kunst-og-underholdning)|
-|[Biblioteker, museer, arkiver og annen kultur](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgoups/kulturfrivillighet/#biblioteker-museer-arkiver-og-annen-kultur)|
-|[Lotteri og spill](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgoups/kulturfrivillighet/#lotteri-og-spill)|
-|[Sport og fritid](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgoups/kulturfrivillighet/#sport-og-fritid)|
-|[Fornøyelser](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgoups/kulturfrivillighet/#fornøyelser)|
-|[Politikk](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgoups/kulturfrivillighet/#politikk)|
+|[Kunst og underholdning](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgoups/kulturfrivillighet/#kunst-og-underholdning)|
+|[Biblioteker, museer, arkiver og annen kultur](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgoups/kulturfrivillighet/#biblioteker-museer-arkiver-og-annen-kultur)|
+|[Lotteri og spill](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgoups/kulturfrivillighet/#lotteri-og-spill)|
+|[Sport og fritid](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgoups/kulturfrivillighet/#sport-og-fritid)|
+|[Fornøyelser](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgoups/kulturfrivillighet/#fornøyelser)|
+|[Politikk](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgoups/kulturfrivillighet/#politikk)|
 
 
 ### Kunst og underholdning
