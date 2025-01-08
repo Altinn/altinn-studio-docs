@@ -12,6 +12,7 @@ To simplify the transition from Altinn 2 to the Altinn 3 version of the Message 
 ## Here are the main differences
 
 - Altinn 3 Message largely has the same data model as Altinn 2 to enable mapping and migration.
+  - The fields for MessageBody and MessageSummary have changed from supporting only text or html to being stored as Markdown. If the content contains HTML it will be converted to Markdown, - we advise you to use Markdown.
   - ReplyOptions have been simplified to only be URL + descriptive text, as this is flexible enough to cover the needs that the separate types in Altinn 2 offered.
 - Attachments are uploaded streamed and in a separate step before creating the message.
   - Attachments can be shared across multiple messages to reduce data usage when mass sending the same attachment to many parties.

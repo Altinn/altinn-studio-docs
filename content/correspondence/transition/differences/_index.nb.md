@@ -12,6 +12,7 @@ For å forenkle overgangen fra Altinn 2 til Altinn 3 versjon av Melding-produkte
 ## Her er de største differansene
 
 - Altinn 3 Melding har i stor grad lik datamodell som Altinn 2 for å muliggjøre mapping og migrering.
+  - Feltene for MessageBody og MessageSummary har blitt endret fra å støtte ren tekst eller html til å lagres som Markdown. Dersom man angir HTML konverteres dette til Markdown, men vi anbefaler bruk av ren tekst eller Markdown.
   - ReplyOptions har blitt forenklet til å kun være URL+beskrivende tekst, da dette er fleksibelt nok til å dekke behovene de separate typene i Altinn 2 tilbød.
 - Vedlegg lastes opp strømmet og i et separat steg før man lager meldingen.
   - Vedlegg kan deles på tvers av flere meldinger for å redusere databruk ved masseforsendelse av samme vedlegg til mange parter.
