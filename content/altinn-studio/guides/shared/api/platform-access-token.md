@@ -3,7 +3,7 @@ headless: true
 hidden: true
 ---
 
-The access to a subset of endpoints in the API is limited to callers within the Altinn eco-system.
+The access to a subset of endpoints in the API is limited to callers within the Altinn ecosystem.
 These APIs require additional authorization in the form of a
 Platform Access Token.
 

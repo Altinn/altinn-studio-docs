@@ -47,32 +47,32 @@ You can either add Azure Key Vault as a config provider and use the IOptions pat
 ### 1. Azure Key Vault as config provider (recommended)
 If this approach is chosen, you can use Azure Key Vault in the standard way via [IOptions-pattern](https://learn.microsoft.com/en-us/dotnet/core/extensions/options).
 
-There is a helper method to add Azure Key Vault in this way, which can be used in Program.cs.
+The `Altinn.App.Api.Extensions` namespace contains a helper method for this purpose:
 
 ```cs
-if (!builder.Environment.IsDevelopment())
-{
-    builder.AddAzureKeyVaultAsConfigProvider();
-}
+IHostApplicationBuilder.AddAzureKeyVaultAsConfigProvider()
 ```
 
-Example:
-```cs
-WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
-ConfigureServices(builder.Services, builder.Configuration);
-ConfigureWebHostBuilder(builder.WebHost);
+This method can be used in `Program.cs` like this:
 
-if (!builder.Environment.IsDevelopment())
+{{< highlight csharp "linenos=false,hl_lines=5-9" >}}
+void ConfigureWebHostBuilder(IWebHostBuilder builder)
 {
-    builder.AddAzureKeyVaultAsConfigProvider();
+    builder.ConfigureAppWebHost(args);
+
+    // Add Azure KV provider for TT02 & Prod environments
+    if (!builder.Environment.IsDevelopment())
+    {
+        builder.AddAzureKeyVaultAsConfigProvider();
+    }
 }
+{{< / highlight >}}
 
-WebApplication app = builder.Build();
-Configure();
-app.Run();
-```
+{{%notice warning%}}
+The call to `AddAzureKeyVaultAsConfigProvider` must occur __after__ the method `ConfigureAppWebHost` has been executed, otherwise the app will fail to start.
+{{% /notice %}}
 
-Local mocking can be done with the use of [user secrets](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-8.0&tabs=windows).
+Local mocking can be done with the use of [user secrets](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-8.0&tabs=windows):
 
 ```
 dotnet user-secrets init
@@ -97,73 +97,68 @@ using Altinn.Platform.Storage.Interface.Models;
 using Altinn.App.Core.Internal.Secrets;
 using System.Threading.Tasks;
 
-namespace Altinn.App.AppLogic
+namespace Altinn.App.AppLogic;
+
+public class InstantiationHandler
 {
-    public class InstantiationHandler
+    private IProfile _profileService;
+    private IRegister _registerService;
+    private ISecretsClient _secretsClient;
+
+    /// <summary>
+    /// Set up access to profile and register services
+    /// </summary>
+    public InstantiationHandler(IProfile profileService, IRegister registerService, ISecretsClient secretsClient)
     {
-        private IProfile _profileService;
-        private IRegister _registerService;
-        private ISecretsClient _secretsClient;
+        _profileService = profileService;
+        _registerService = registerService;
+        _secretsClient = secretsClient;
+    }
 
-        /// <summary>
-        /// Set up access to profile and register services
-        /// </summary>
-        public InstantiationHandler(IProfile profileService, IRegister registerService, ISecretsClient secretsClient)
+    /// <summary>
+    /// Run events related to instantiation
+    /// </summary>
+    /// <remarks>
+    /// For example custom prefill.
+    /// </remarks>
+    /// <param name="instance">Instance information</param>
+    /// <param name="data">The data object created</param>
+    public async Task DataCreation(Instance instance, object data)
+    {
+
+        if (data.GetType() == typeof(Skjema))
         {
-            _profileService = profileService;
-            _registerService = registerService;
-            _secretsClient = secretsClient;
+            Skjema model = (Skjema)data;
+            model.etatid = await _secretsClient.GetSecretAsync("secretId");
         }
-
-        /// <summary>
-        /// Run events related to instantiation
-        /// </summary>
-        /// <remarks>
-        /// For example custom prefill.
-        /// </remarks>
-        /// <param name="instance">Instance information</param>
-        /// <param name="data">The data object created</param>
-        public async Task DataCreation(Instance instance, object data)
-        {
-
-            if (data.GetType() == typeof(Skjema))
-            {
-                Skjema model = (Skjema)data;
-                model.etatid = await _secretsClient.GetSecretAsync("secretId");
-            }
-            await Task.CompletedTask;
-        }
+        await Task.CompletedTask;
     }
 }
 ```
 
-1. The private variable for the service is included in the class.
-
-    ```cs
-    private ISecretsClient _secretsClient;
-    ```
-
+1. The class contains a private variable to store the secrets client.
+   ```cs
+   private ISecretsClient _secretsClient;
+   ```
 2. The ISecretsClient service is injected in the constructor and is assigned to the private variable.
-
-    ```cs
-    public InstantiationHandler(IProfile profileService, IRegister registerService, ISecretsClient secretsClient)
-            {
-                _profileService = profileService;
-                _registerService = registerService;
-                _secretsClient = secretsClient;
-            }
-
-    ```
-
-3. How to get a specific secret using the name from Azure Key Vault and/or local mock.
-
-    ```cs
-    await _secretsClient_.GetSecretAsync("secretId");
-    ```
+   ```cs
+   public InstantiationHandler(IProfile profileService, IRegister registerService, ISecretsClient secretsClient)
+   {
+       _profileService = profileService;
+       _registerService = registerService;
+       _secretsClient = secretsClient;
+   }
+   ```
+3. The relevant secret is fetched from Azure Key Vault (or local mock).
+   ```cs
+   await _secretsClient_.GetSecretAsync("secretId");
+   ```
 
 #### Local mock
 
-To run your service locally without connecting to Azure Key Vault, you need to create a file named `secrets.json` under the _App_ folder. In the JSON structure, you can include dummy data for the secrets you need. If you have uploaded a secret in Key Vault with the name "secretId," the content of the JSON file will look like this:
+To run your service locally without connecting to Azure Key Vault, you need to create a file named `secrets.json` under 
+the _App_ folder. In the JSON structure, you can include dummy data for the secrets you need. If you have uploaded a 
+secret in Key Vault with the name "secretId," the content of the JSON file will look like this:
 
 ```json
 {
