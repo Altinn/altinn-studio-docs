@@ -52,8 +52,8 @@ weight: 20
 
 ### Støtte for ulike meldingsformater
 
-- Mulighet for å sende meldinger i ulike formater som PDF, XML, HTML, etc.
-- Støtte for vedlegg.
+- Mulighet for å sende meldinger med Markdown eller ren tekst.
+- Støtte for flere vedlegg per melding uten begrensing av type, der PDF, XML og HTML vil være de mest vanlige.
 
 ### Rapportering og statistikk
 
