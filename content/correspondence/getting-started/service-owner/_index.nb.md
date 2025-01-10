@@ -15,13 +15,13 @@ Denne prosessen vil forenkles gjennom en fremtidig oppdatering i Altinn Studio.
 Spesielt vil trinn 4-6 utføres via GUI i stedet for å kreve direkte API-kall.
 {{% /notice %}}
 
-Denne veiledningen er for deg som er tjenesteeier og ønsker å bruke Altinn Melding. Her finner du trinnvise instruksjoner for registrering, opprettelse av ressurs, konfigurering av tilganger og autentisering, integrasjon med Formidling API-et, samt oppsett av varsler. Veiledningen hjelper deg med å sette opp og administrere formidlingstjenesten.
+Denne veiledningen er for deg som er tjenesteeier og ønsker å bruke Altinn Melding. Her finner du trinnvise instruksjoner for registrering, opprettelse av ressurs, konfigurering av tilganger og autentisering, integrasjon med formidling API-et, samt oppsett av varsler. Veiledningen hjelper deg med å sette opp og administrere meldingstjenesten.
 
 ## 1. Kom i gang som tjenesteeier i Altinn {#get-started-as-service-owner-in-altinn}
 
-For å komme i gang med Altinn Melding må virksomheten din være registrert som en tjenesteeier i Altinn. For en trinnvis veiledning, se [Kom i gang med Altinn-guiden](https://www.altinndigital.no/kom-i-gang/guide-kom-i-gang-med-altinn/).
+For å komme i gang med Altinn melding må virksomheten din være registrert som en tjenesteeier i Altinn. For en trinnvis veiledning, se [Kom i gang med Altinn-guiden](https://www.altinndigital.no/kom-i-gang/guide-kom-i-gang-med-altinn/).
 
-Dette trinnet er bare nødvendig for nye virksomheter som ennå ikke har etablert seg som tjenesteeiere på Altinn-plattformen. Som en eksisterende tjenesteeier kan du gå direkte videre til de neste trinnene for å begynne å bruke Altinn Formidling.
+Dette trinnet er bare nødvendig for nye virksomheter som ennå ikke har etablert seg som tjenesteeiere på Altinn-plattformen. Som en eksisterende tjenesteeier kan du gå direkte videre til de neste trinnene for å begynne å bruke Altinn melding.
 
 ## 2. Nødvendige steg for alle roller {#perform-common-steps-for-api-key-and-maskinporten-client}
 
