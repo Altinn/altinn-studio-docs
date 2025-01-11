@@ -6,7 +6,7 @@ weight: 150
 
 ## Ledetekst
 
-Den vanligste tekstegenskapen for svaralternativer er `label`. `label` er teksten som vises for brukeren i
+Den vanligste tekstegenskapen for svaralternativer er `label` (ledetekst). Dette er teksten som vises for brukeren i
 brukergrensesnittet (i motsetning til `value`, som er [verdien som lagres i datamodellen](../data-binding)).
 Både `label` og `value` er påkrevde egenskaper for et svaralternativ.
 

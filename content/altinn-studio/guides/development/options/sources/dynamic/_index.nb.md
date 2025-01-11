@@ -8,9 +8,9 @@ aliases:
   - /nb/altinn-studio/guides/development/options/dynamic-codelists
 ---
 
-I en Altinn 3 app har man også mulighet til å ha dynamisk kodelister som produseres dynamisk ved kjøring av appen. Dette gjør det mulig å lage dynamiske verdier, for eksempel ved å hente og filtrere verdier fra andre kilder. Dynamiske kodelister kan enten være åpne (tilgjengelig for alle, uten autentisering), eller sikret slik at brukeren må ha tilgang til instansen for å hente kodelisten.
+I en Altinn 3 app har man også mulighet til å ha dynamiske kodelister som blir fortløpende generert ved kjøring av appen. Dette gjør det mulig å lage dynamiske verdier, for eksempel ved å hente og filtrere verdier fra andre kilder. Dynamiske kodelister kan enten være åpne (tilgjengelig for alle, uten autentisering), eller sikret slik at brukeren må ha tilgang til instansen for å hente kodelisten.
 
-For åpne kodelister implementerer man `IAppOptionsProvider` interfacet, mens for sikrede kodelister implementerer man `IInstanceAppOptionsProvider`. Fremgangsmåten er den samme for begge og modellen som returneres er lik. Implementeringen holdes adskilt for ikke å eksponere verdier som skulle vært sikret.
+For åpne kodelister implementerer man `IAppOptionsProvider` interfacet, mens for sikrede kodelister implementerer man `IInstanceAppOptionsProvider`. Fremgangsmåten er den samme for begge og modellen som returneres er lik. Implementeringen holdes adskilt for ikke å eksponere kodelister som skulle vært sikret.
 
 ## Åpne kodelister
 
@@ -59,7 +59,7 @@ For at denne implementasjonen skal plukkes opp av applikasjonen må den registre
 services.AddTransient<IAppOptionsProvider, CountryAppOptionsProvider>();
 ```
 
-Resultatet av denne implementasjonen vil bli tilgjengeleg på endepunktet `{org}/{app}/api/options/countries`.  Identifikatoren kan brukes i komponenter, så for å bruke kodelisten i en Dropdown-komponent kan man sette `optionsId` som i følgende eksempel:
+Resultatet av denne implementasjonen vil bli tilgjengeleg på endepunktet `{org}/{app}/api/options/countries`. Identifikatoren kan brukes i komponenter, så for å bruke kodelisten i en `Dropdown`-komponent kan man sette `optionsId` som i følgende eksempel:
 
 ```json {hl_lines=[10]}
 {
@@ -77,7 +77,7 @@ Resultatet av denne implementasjonen vil bli tilgjengeleg på endepunktet `{org}
 
 ## Sikrede kodelister
 
-Om du ønsker å produsere kodelister som inneholder sensitive data som ikke skal være tilgjengelige i et åpent API kan man implementere `IInstanceAppOptionsProvider`. Slike sikrede kodelister kontrollerer at brukeren har lesetilgang som definert i applikasjonens `policy.xaml`-fil før brukeren kan hente innholdet i kodelisten.
+Om du ønsker å produsere kodelister som inneholder sensitive data som ikke skal være tilgjengelige i et åpent API kan man implementere `IInstanceAppOptionsProvider`. Slike sikrede kodelister kontrollerer at brukeren har lesetilgang som definert i applikasjonens `policy.xml`-fil før brukeren kan hente innholdet i kodelisten.
 Under finner du et eksempel på hvordan man setter opp en sikret kodeliste.
 
 ```C#
@@ -133,7 +133,7 @@ For at denne implementasjonen skal plukkes opp av applikasjonen må den registre
 services.AddTransient<IInstanceAppOptionsProvider, ChildrenAppOptionsProvider>();
 ```
 
-Resultatet av denne implementasjonen vil bli tilgjengeleg på endepunktet `{org}/{app}/instances/{instanceOwnerId}/{instanceGUID}/options/children`.  Identifikatoren kan brukes i komponenter, så for å bruke kodelisten i en Dropdown-komponent kan man sette `optionsId` som i følgende eksempel. Det er også viktig å sette `secure`-egenskapen til `true` for å indikere at dette er en sikret kodeliste.
+Resultatet av denne implementasjonen vil bli tilgjengeleg på endepunktet `{org}/{app}/instances/{instanceOwnerId}/{instanceGUID}/options/children`. Identifikatoren kan brukes i komponenter, så for å bruke kodelisten i en `Dropdown`-komponent kan man sette `optionsId` som i følgende eksempel. Det er også viktig å sette `secure`-egenskapen til `true` for å indikere at dette er en sikret kodeliste.
 
 ```json {hl_lines=["10-11"]}
 {
@@ -266,7 +266,7 @@ For et komplett eksempel kan du se vår [demo app.](https://altinn.studio/repos/
 
 - Metoden `GetAppOptionsAsync` får inn en språkkode i parameteren `language`. Språkkoder bør baseres på ISO 639-1 standarden eller W3C IANA Language Subtag Registry standarden. Sistnevnte bygger på ISO 639-1 standarden men garanterer at alle kodene er unike, noe ISO 639-1 ikke gjør.
 - En app kan ha mange implementasjoner av disse interfacene, en for hver kodeliste. Den rette implementasjonen finnes gjennom å se på hvilken kodeliste-identifikator det spørres etter, og sammenlignes med `Id`-egenskapen i implementasjonen. Dette er også identifikatoren som brukes i `optionsId`-egenskapen i komponentkonfigurasjonen. Dermed må også `Id`-egenskapen i implementasjonen være unik per app.
-- Det kan være fristende å sette opp en dynamisk og sikret kodeliste hvor man henter ut data fra datamodellen og produserer kodelisten basert på dette. Dette er ikke anbefalt, da appens frontend bare henter kodelisten en gang hvor hvert unike sett med spørringsparametre. Det betyr at visningen av kodelisten ikke vil oppdatere seg i tråd med endringene i datamodellen.
+- Det kan være fristende å sette opp en dynamisk og sikret kodeliste hvor man henter ut data fra datamodellen og produserer kodelisten basert på dette. Dette er ikke anbefalt, da appens frontend bare henter kodelisten én gang for hvert unike sett med spørringsparametre. Det betyr at visningen av kodelisten ikke vil oppdatere seg i tråd med endringene i datamodellen.
     - Et alternativ er å bruke funksjonaliteten for [dynamiske kodelister basert på datamodell](../from-data-model), i noen tilfeller sammen med tilsvarende kode i [DataProcessor](../../../../../reference/logic/dataprocessing).
     - Et annet alternativ kan være å bruke spørringsparametre, som beskrevet over.
-- Dersom man bruker spørringsparametre, kan det være lurt å tenke gjennom hvor mange unike kombinasjoner av parametre som typisk vil bli brukt i appen. Hvis det er mange, kan det være lurt å vurdere å bruke en annen tilnærming, som for eksempel å hente ut all data og filtrere gyldige verdier i frontend ved hjelp av [`optionFilter`](../../functionality/filtering). Mange ulike kombinasjoner av spørringsparametre kan før til at appen må gjøre mye unødvendig arbeid for å hente nye kodeliste-verdier hver gang brukeren gjør en endring i skjemaet.
+- Dersom man bruker spørringsparametre kan det være lurt å tenke gjennom hvor mange unike kombinasjoner av parametre som typisk vil bli brukt i appen. Hvis det er mange, kan det være lurt å vurdere å bruke en annen tilnærming, som for eksempel å hente ut all data og filtrere gyldige alternativer i frontend ved hjelp av [`optionFilter`](../../functionality/filtering). Mange ulike kombinasjoner av spørringsparametre kan føre til at appen må gjøre mye unødvendig arbeid for å hente kodelisten på nytt hver gang brukeren gjør en endring i skjemaet.
