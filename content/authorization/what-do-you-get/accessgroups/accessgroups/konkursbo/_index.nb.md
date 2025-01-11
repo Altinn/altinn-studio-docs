@@ -5,14 +5,14 @@ description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter 
 toc: true
 weight: 100
 aliases:
-- /authorization/modules/accessgroups/type-accessgroups
+- /authorization/modules/accessgroups
 ---
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Konkursbo tilgangsstyring](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/type-accessgroups/konkursbo/#konkursbo-tilgangsstyring)|
-|[Konkursbo lesetilgang](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/type-accessgroups/konkursbo/#konkursbo-lesetilgang)|
-|[Konkursbo skrivetilgang](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/type-accessgroups/konkursbo/#konkursbo-skrivetilgang)|
+|[Konkursbo tilgangsstyring](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/konkursbo/#konkursbo-tilgangsstyring)|
+|[Konkursbo lesetilgang](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/konkursbo/#konkursbo-lesetilgang)|
+|[Konkursbo skrivetilgang](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/konkursbo/#konkursbo-skrivetilgang)|
 
 ### Konkursbo tilgangsstyring
 Denne fullmakten gir rettighet til å administrere konkursbo. Fullmakten er en engangsdelegering, og den gir ikke tilgang til noen tjenester.  
