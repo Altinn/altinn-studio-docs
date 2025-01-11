@@ -51,6 +51,7 @@ Add the following sections if relevant:
 
 - [`Text`](../text/)
 - [`Date`](../date/)
+- [`Option`](../option/)
 
 ## Properties
 
