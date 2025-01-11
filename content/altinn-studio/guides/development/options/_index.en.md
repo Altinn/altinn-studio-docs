@@ -40,6 +40,7 @@ The following components support options:
 | [Checkboxes](../../../reference/ux/components/checkboxes)               | Multiple choice       | Used to select one or more options from a list of checkboxes.                                      |
 | [MultipleSelect](../../../reference/ux/components/multipleselect)       | Multiple choice       | Used to select one or more options from a dropdown list.                                           |
 | [FileUploadWithTag](../../../reference/ux/components/fileuploadwithtag) | Single choice         | Used to upload a file and tag it with an option.                                                   |
+| [Option](../../../reference/ux/components/option)                       | Present single option | Used to present/display a single option.                                                           |
 
 In the categories below, you can learn more about how to produce a code list, configure that list to be used in a
 component in order to provide options in that component, as well as common functionality across
