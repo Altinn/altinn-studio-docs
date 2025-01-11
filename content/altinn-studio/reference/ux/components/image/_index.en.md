@@ -119,7 +119,7 @@ Choose 'Alternativ tekst for bilde' in the drop-down menu.
 
 ![Settings add text](innstilling-tekst.png)
 
-Click the plus sign to create a new text or the magnifying glass to pick an existing [text resource](../../../ux/texts/#add-and-change-texts-in-an-application).
+Click the plus sign to create a new text or the magnifying glass to pick an existing [text resource](../../texts/#add-and-change-texts-in-an-application).
 
 ![Settings for alternative text](innstilling-alternativ-tekst.png)
 

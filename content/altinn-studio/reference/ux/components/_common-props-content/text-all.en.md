@@ -11,7 +11,7 @@ hidden: true
 <!-- begin asd -->
 
 You can create a new text by clicking on the plus sign or select an existing one by clicking on the magnifying glass.
- See [Adding and Editing Texts in an App](../../../ux/texts/#add-and-change-texts-in-an-application) for more information.
+ See [Adding and Editing Texts in an App](../../texts/#add-and-change-texts-in-an-application) for more information.
 
 {{% image file="component-settings/textResourceBindings-all.png" %}}
 
@@ -20,7 +20,7 @@ You can create a new text by clicking on the plus sign or select an existing one
 
 <!-- begin code -->
 
-Text can be added directly as a text string or by providing the key to a [text resource].(../../../ux/texts/#add-and-change-texts-in-an-application).
+Text can be added directly as a text string or by providing the key to a [text resource](../../texts/#add-and-change-texts-in-an-application).
 
 {{< code-title >}}
 App/ui/layouts/{page}.json

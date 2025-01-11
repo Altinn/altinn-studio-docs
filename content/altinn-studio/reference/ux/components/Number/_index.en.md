@@ -100,7 +100,7 @@ We are currently updating how we implement components, and the list of propertie
 
 #### `textResourceBindings.title`
 
-Label for the number. This can be added as a hardcoded string or as a reference to a [text resource](../../../ux/texts/#add-and-change-texts-in-an-application).
+Label for the number. This can be added as a hardcoded string or as a reference to a [text resource](../../texts/#add-and-change-texts-in-an-application).
 
 #### `value`
 
