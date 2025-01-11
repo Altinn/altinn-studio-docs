@@ -128,7 +128,7 @@ namespace Altinn.App.Core
 
 ```
 
-For your implementation to work up you need to add the following line in your `Program.cs`:
+For your implementation to work you need to add the following line in your `Program.cs`:
 
 ```csharp
 services.AddTransient<IInstanceAppOptionsProvider, ChildrenAppOptionsProvider>();
@@ -191,7 +191,7 @@ More examples of expressions can be found in the [dynamics documentation](../../
 ### Based on the data model
 
 {{%notice warning%}}
-This approach is discouraged. From app-frontend version 4.9.0, it is possible to use the `queryParameters` property instead. As explained above, `queryParameters` enabled you to include both static and dynamic query parameters through expressions, offering greater flexibility compared to `mapping`.
+This approach is discouraged. From app-frontend version 4.9.0, it is possible to use the `queryParameters` property instead. As explained above, `queryParameters` enables you to include both static and dynamic query parameters through expressions, offering greater flexibility compared to `mapping`.
 
 At some point, the `mapping` property will be removed, but when that happens tools will be provided to migrate existing configurations to use `queryParameters` instead.
 {{% /notice%}}

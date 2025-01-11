@@ -67,7 +67,7 @@ situasjoner som kan oppleves som feil:
    bli satt igjen - selv om komponenten er på en side lenge før den brukeren ser på, og ikke vil se igjen.
 2. Når skjemaet sendes inn via API-et vil forhåndsvalg satt med denne egenskapen ikke ha noen effekt. Denne egenskapen
    krever at skjemaet er åpent i nettleseren for å fungere.
-3. Om skjemaet er i en tilstand hvor datamodellen ikke er skrivbar (f.eks. i PDF-generatoren), vil forhåndsvalget ikke
+3. Om skjemaet er i en tilstand hvor datamodellen ikke er skrivbar (f.eks. i PDF-generatoren), vil
    setting av forhåndsvalgte verdier potensielt føre til feilmeldinger og mislykket innsending dersom datamodellen ikke
    allerede hadde en verdi.
 
