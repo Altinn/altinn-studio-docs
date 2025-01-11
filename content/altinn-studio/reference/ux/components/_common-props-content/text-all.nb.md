@@ -11,7 +11,7 @@ hidden: true
 <!-- begin asd -->
 
 Du kan opprette en ny tekst ved å klikke på pluss-tegnet eller velge en eksisterende ved å klikke på forstørrelsesglasset.
- Se [Legge til og endre tekster i en app](/nb/altinn-studio/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app) for mer info.
+ Se [Legge til og endre tekster i en app](../../../ux/texts/#legge-til-og-endre-tekster-i-en-app) for mer info.
 
 {{% image file="component-settings/textResourceBindings-all.png" %}}
 
@@ -20,7 +20,7 @@ Du kan opprette en ny tekst ved å klikke på pluss-tegnet eller velge en eksist
 
 <!-- begin code -->
 
-Tekst kan legges til direkte som en tekststreng eller ved å oppgi nøkkelen til en [tekstressurs](/nb/altinn-studio/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app).
+Tekst kan legges til direkte som en tekststreng eller ved å oppgi nøkkelen til en [tekstressurs](../../../ux/texts/#legge-til-og-endre-tekster-i-en-app).
 
 {{< code-title >}}
 App/ui/layouts/{page}.json

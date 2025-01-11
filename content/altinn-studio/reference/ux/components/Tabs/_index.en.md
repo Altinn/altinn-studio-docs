@@ -122,7 +122,7 @@ The ID of the specific tab that you wish to be selected by default.
 A string identifier for the tab. Must be unique within the current list of tabs.
 
 #### `title`
-The title of the tab can be added as text directly or referenced via a text key to a [text resource](/nb/altinn-studio/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app).
+The title of the tab can be added as text directly or referenced via a text key to a [text resource](../../../ux/texts/#add-and-change-texts-in-an-application).
 
 #### `Size`
 Sets the size of the tabs. **Enum:** `"small" | "medium" | "large"` 

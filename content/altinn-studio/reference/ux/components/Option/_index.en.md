@@ -99,18 +99,18 @@ In addition, all properties for [connecting to code lists](../../../../guides/de
 
 #### `textResourceBindings.title`
 
-Label for the choice. This can be added as a hardcoded string or as a reference to a [text resource](../..//ux/texts/#legge-til-og-endre-tekster-i-en-app). This property is used to show the user
+Label for the choice. This can be added as a hardcoded string or as a reference to a [text resource](../..//ux/texts/#add-and-change-texts-in-an-application). This property is used to show the user
 what the choice is about, not what the choice is. If you want to show the selected municipality, this could be
 e.g. "Municipality" or "Your municipality". The actual choice (value) is retrieved from the code list, and is
 then displayed as e.g. "Oslo".
 
 #### `textResourceBindings.description`
 
-Description for the choice. This can be added as a hardcoded string or as a reference to a [text resource](../../../ux/texts).
+Description for the choice. This can be added as a hardcoded string or as a reference to a [text resource](../../../ux/texts/#add-and-change-texts-in-an-application).
 
 #### `textResourceBindings.help`
 
-Help text for the choice. This can be added as a hardcoded string or as a reference to a [text resource](../../../ux/texts).
+Help text for the choice. This can be added as a hardcoded string or as a reference to a [text resource](../../../ux/texts/#add-and-change-texts-in-an-application).
 
 #### `value`
 

@@ -90,7 +90,7 @@ We are currently updating how we implement components, and the list of propertie
 
 #### `textResourceBindings.title`
 
-Ledetekst for datoen. Denne kan legges til som en hardkodet streng eller som en referanse til en [tekstressurs](/nb/altinn-studio/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app).
+Ledetekst for datoen. Denne kan legges til som en hardkodet streng eller som en referanse til en [tekstressurs](../../../ux/texts/#legge-til-og-endre-tekster-i-en-app).
 
 #### `value`
 

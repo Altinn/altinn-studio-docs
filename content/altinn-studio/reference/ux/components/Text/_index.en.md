@@ -89,7 +89,7 @@ We are currently updating how we implement components, and the list of propertie
 
 #### `textResourceBindings.title`
 
-Label for the date. This can be added as a hardcoded string or as a reference to a [text resource](/nb/altinn-studio/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app).
+Label for the date. This can be added as a hardcoded string or as a reference to a [text resource](../../../ux/texts/#add-and-change-texts-in-an-application).
 
 #### `value`
 

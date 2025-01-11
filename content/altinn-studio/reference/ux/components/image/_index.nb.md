@@ -126,7 +126,7 @@ Velg 'Alternativ tekst for bilde' i nedtrekksmenyen.
 
 ![Innstilling legg til tekst](innstilling-tekst.png)
 
-Klikk plusstegnet for å opprette en ny tekst eller forstørrelsesglasset for å velge en eksisterende [tekstressurs](/nb/altinn-studio/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app).
+Klikk plusstegnet for å opprette en ny tekst eller forstørrelsesglasset for å velge en eksisterende [tekstressurs](../../../ux/texts/#legge-til-og-endre-tekster-i-en-app).
 
 ![Innstilling for alternativ tekst](innstilling-alternativ-tekst.png)
 

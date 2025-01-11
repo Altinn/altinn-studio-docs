@@ -83,7 +83,7 @@ Add the following sections if relevant:
 
 #### `textResourceBindings.title`
 
-Ledetekst for teksten. Denne kan legges til som en hardkodet streng eller som en referanse til en [tekstressurs](/nb/altinn-studio/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app).
+Ledetekst for teksten. Denne kan legges til som en hardkodet streng eller som en referanse til en [tekstressurs](../../../ux/texts/#legge-til-og-endre-tekster-i-en-app).
 
 #### `value`
 
