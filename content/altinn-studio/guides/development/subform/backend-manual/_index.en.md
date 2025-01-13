@@ -8,17 +8,17 @@ This documentation is a work in progess. Subforms are currently in preview-relea
 
 Subforms are contained in a subform table. Let us go through configuring a subform table and the subform contained within.
 
-1. [Create a data model](../../../../reference/data/data-modeling) for the subform.
+1. [Create a data model](../../../reference/data/data-modeling) for the subform.
 2. You should now see the three files under `App/model`. The c# class, the json schema and the xsd.
-3. Set [appLogic.allowInSubform](../../../../../api/models/app-metadata/#applicationlogic) to **true** in **applicationMetadata.json**.
+3. Set [appLogic.allowInSubform](../../../../api/models/app-metadata/#applicationlogic) to **true** in **applicationMetadata.json**.
 4. Create a folder under **App/ui** with your desired subform name.
 5. In the subform folder, add a `Settings.json` file and a folder called **layouts**.
 6. You can add page layouts to the layouts folder as you would for the main form.
    {{< notice warning >}}
    Subforms do not support attachments, and nesting subforms is not allowed (subform in subform).
    {{< /notice >}}
-7. The **Settings.json** file for the sub form is [configured as normal](../../../../reference/ux/pages/#settings).
-8. The button which closes the subform must be a [CustomButton](../../../../reference/ux/components/customButton) with a `closeSubform` action. Optionally you can also trigger validation before exiting.
+7. The **Settings.json** file for the sub form is [configured as normal](../../../reference/ux/pages/#settings).
+8. The button which closes the subform must be a [CustomButton](../../../reference/ux/components/customButton) with a `closeSubform` action. Optionally you can also trigger validation before exiting.
    ```json
    {
      "id": "subform-exitbutton",
