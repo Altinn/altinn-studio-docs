@@ -42,7 +42,7 @@ hidden: true
         },
    ```
 10. Naviger til layout for siden i hovedskjemaet der du ønsker å legge inn underskjematabellen.
-11. Legg til `Subform` med [ønsket konfigurasjon](/nb/altinn-studio/guides/development/subform/backend-manual/config-options). Eksempel:
+11. Legg til `Subform` med [ønsket konfigurasjon](/nb/altinn-studio/guides/development/subform/config-options). Eksempel:
     ```json
     {
       "id": "subform-test",

@@ -48,7 +48,7 @@ Subforms are contained in a subform table. Let us go through configuring a subfo
    }
    ```
 10. Navigate to the layout for the page in the main form in which you want to add the sub form table.
-11. Add `Subform` with the [configuration you want](/altinn-studio/guides/development/subform/backend-manual/config-options). Example:
+11. Add `Subform` with the [configuration you want](/altinn-studio/guides/development/subform/config-options). Example:
     ```json
     {
       "id": "subform-test",
