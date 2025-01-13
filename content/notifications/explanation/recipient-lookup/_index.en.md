@@ -72,4 +72,4 @@ which can be used to retrieve name and contact details when the recipient is ide
 __Altinn user profile__
 
 End users can register their preferred contact details for notifications related to organizations
-in their Altinn profile. These contact details can be used when the recipient is identified by their organization number.
+in their Altinn profile. These contact details can be used when the notification recipient is identified by an organization that the user can represent.
