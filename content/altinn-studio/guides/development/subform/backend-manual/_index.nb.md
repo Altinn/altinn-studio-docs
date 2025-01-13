@@ -2,17 +2,17 @@
 hidden: true
 ---
 
-1. [Opprett en datamodell](../../../reference/data/data-modeling) for underskjemaet.
+1. [Opprett en datamodell](/nb/altinn-studio/reference/data/data-modeling) for underskjemaet.
 2. Du skal nå se tre filer under `App/model`. Klassen i c#, json schema og xsd.
-3. Sett [appLogic.allowInSubform](../../../../api/models/app-metadata/#applicationlogic) til **true** i **applicationMetadata.json**.
+3. Sett [appLogic.allowInSubform](/nb/api/models/app-metadata/#applicationlogic) til **true** i **applicationMetadata.json**.
 4. Opprett en mappe under **App/ui** med ditt ønskede underskjemanavn.
 5. Naviger til underskjemamappen, legg til `Settings.json` filen og en mappe med navn **layouts**.
 6. Du kan legge til side layouts til layouts mappen slik du ville gjort for hovedskjemaet.
    {{< notice warning >}}
    Underskjema støtter ikke vedlegg, og nøsting av underskjema er ikke tillatt (underskjema i underskjema).
    {{< /notice >}}
-7. **Settings.json** filen for underskjema [konfigureres som normalt](../../../reference/ux/pages/#innstillinger).
-8. Knappen som brukes for å lukke underskjema må være en [CustomButton](../../../reference/ux/components/customButton) med `closeSubform` action. Det er valgfritt å validere underskjema før det lukkes.
+7. **Settings.json** filen for underskjema [konfigureres som normalt](/nb/reference/ux/pages/#innstillinger).
+8. Knappen som brukes for å lukke underskjema må være en [CustomButton](/nb/reference/ux/components/customButton) med `closeSubform` action. Det er valgfritt å validere underskjema før det lukkes.
    ```json
    {
      "id": "subform-exitbutton",
