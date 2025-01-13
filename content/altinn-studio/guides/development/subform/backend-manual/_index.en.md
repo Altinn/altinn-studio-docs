@@ -18,7 +18,7 @@ Subforms are contained in a subform table. Let us go through configuring a subfo
    Subforms do not support attachments, and nesting subforms is not allowed (subform in subform).
    {{< /notice >}}
 7. The **Settings.json** file for the sub form is [configured as normal](/altinn-studio/reference/ux/pages/#settings).
-8. The button which closes the subform must be a [CustomButton](/altinn-studio/reference/ux/components/customButton) with a `closeSubform` action. Optionally you can also trigger validation before exiting.
+8. The button which closes the subform must be a [CustomButton](/altinn-studio/reference/ux/components/custombutton) with a `closeSubform` action. Optionally you can also trigger validation before exiting.
    ```json
    {
      "id": "subform-exitbutton",
