@@ -46,31 +46,39 @@ You can use the following predefined, case-sensitive keywords for dynamic person
 Type: _string_
 
 The subject of the email.
-It can also include the same predefined, case-sensitive keywords for dynamic personalization as the body:
+It can also include the same predefined, case-sensitive keywords as the body:
 - `$recipientName$`: Replaced with the full name of the recipient (supports both individuals and organizations).
 - `$recipientNumber$`: Replaced with the organization number for recipients that are organizations. For individuals, this will remain empty.
 
 #### recipients
 Type: _List of [RecipientExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/RecipientExt.cs)_
 
-A list containing one or more recipient objects, each recipient containing either
-a national identity number, an organization number, or an email address.
+A list of recipient objects, each containing a national identity number, organization number, or email address.  
 
-### Optional order request properties
+Each recipient specifies who should receive the notification. While no single identifier is mandatory,
+at least one of the following identifiers must be provided for each recipient:
+| **Field**                | **Description**                                                                                                                                                                  |
+|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `emailAddress`           | The recipient's email address, used only for email-based notifications. A valid value must follow standard email formatting (e.g., user@example.com) and cannot contain invalid characters or domains. |
+| `nationalIdentityNumber` | The recipient's national identity number, used to retrieve personal contact details via Altinn’s Contact and Reservation Register (KRR). A valid value must be an 11-digit number that passes the Norwegian Mod11 checksum algorithm (e.g., 18874198354). |
+| `organizationNumber`     | The recipient's organization number, used to retrieve official contact information for the organization via Altinn’s Notification Addresses for Businesses registry. A valid value must be a 9-digit number representing a registered Norwegian organization (e.g., 313731596). |
+
+### Optional properties
 
 #### contentType
-Type: _enum_ _[EmailContentTypeExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/EmailContentTypeExt.cs)_
+Type: _enumeration_ _[EmailContentTypeExt](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Models/EmailContentTypeExt.cs)_
 
 Default: _Plain_
 
-The content type of the email can be either `Plain` or `Html`.
+This enumeration is used to specify the content type of the email to determine how the email should be formatted, it can be either `Plain` or `Html`.
 
 #### requestedSendTime
 Type: _DateTime_
 
 Default: _Current date and time_
 
-The date and time (with time zone specification) at which the notification should be sent to recipient.
+This value specifies the desired date and time (including time zone, e.g., "YYYY-MM-DDTHH:mm:ssZ" or "YYYY-MM-DDTHH:mm:ss+00:00")
+for sending the notification. If not provided, it defaults to the current date and time at the moment of the request.
 
 #### sendersReference
 Type: _string_
@@ -88,8 +96,13 @@ For an Altinn app with ID _{org}/{app}_ the format of the resourceId is `app_{or
 #### ignoreReservation
 Type: _boolean_
 
-A boolean indicating whether the notification content satisfies the requirements for overriding KRR reservations
-when sending notifications to an individual.
+Determines if the notification content can override reservations in the Contact and Reservation Register (KRR).
+
+A reservation prevents unsolicited notifications. If `ignoreReservation` is `true`, the notification will be sent despite any reservations.
+
+**When to Use:** Apply `ignoreReservation` for notifications that legally override reservations, such as essential government communications.
+
+**Important:** Misuse of `ignoreReservation` can lead to compliance issues. Ensure the notification qualifies for an exception before setting this property to `true`.
 
 #### conditionEndpoint
 Type: _Url_
