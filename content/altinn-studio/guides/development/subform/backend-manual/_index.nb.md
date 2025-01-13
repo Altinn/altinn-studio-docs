@@ -1,27 +1,18 @@
 ---
-title: Opprettelse av underskjema
-linktitle: Underskjema
-description: Et underskjema er et skjema i et skjema.
-weight: 120
+hidden: true
 ---
 
-{{% notice warning  %}}
-Dette dokumentet er under utvikling. Underskjema er kun i preview-release.
-{{% /notice %}}
-
-Underskjemaer tilhører en underskjematabell. La oss gå gjennom opprettelse av en underskjematabell med tilhørende underskjema.
-
-1. [Opprett en datamodell](../data/data-modeling) for underskjemaet.
+1. [Opprett en datamodell](../../../../reference/data/data-modeling) for underskjemaet.
 2. Du skal nå se tre filer under `App/model`. Klassen i c#, json schema og xsd.
-3. Sett [appLogic.allowInSubform](../../../api/models/app-metadata/#applicationlogic) til **true** i **applicationMetadata.json**.
+3. Sett [appLogic.allowInSubform](../../../../../api/models/app-metadata/#applicationlogic) til **true** i **applicationMetadata.json**.
 4. Opprett en mappe under **App/ui** med ditt ønskede underskjemanavn.
 5. Naviger til underskjemamappen, legg til `Settings.json` filen og en mappe med navn **layouts**.
 6. Du kan legge til side layouts til layouts mappen slik du ville gjort for hovedskjemaet.
    {{< notice warning >}}
    Underskjema støtter ikke vedlegg, og nøsting av underskjema er ikke tillatt (underskjema i underskjema).
    {{< /notice >}}
-7. **Settings.json** filen for underskjema [konfigureres som normalt](../ux/pages/#innstillinger).
-8. Knappen som brukes for å lukke underskjema må være en [CustomButton](../ux/components/custombutton) med `closeSubform` action. Det er valgfritt å validere underskjema før det lukkes.
+7. **Settings.json** filen for underskjema [konfigureres som normalt](../../../../reference/ux/pages/#innstillinger).
+8. Knappen som brukes for å lukke underskjema må være en [CustomButton](../../../../reference/ux/components/customButton) med `closeSubform` action. Det er valgfritt å validere underskjema før det lukkes.
    ```json
    {
      "id": "subform-exitbutton",
@@ -86,8 +77,8 @@ Underskjemaer tilhører en underskjematabell. La oss gå gjennom opprettelse av 
       ]
     }
     ```
-    {{< panel info >}}
-    Underskjema kan ha sin egen oppsummeringsside og være en del av hovedskjema sin oppsummering.
-    For å legge til underskjema i hovedskjema sin oppsummering, bruk id som lagt inn i hovedskjema layout, og type "component".
-    {{< /panel >}}
-    {{<children />}}
+
+{{< notice info >}}
+Underskjema kan ha sin egen oppsummeringsside og være en del av hovedskjema sin oppsummering.
+For å legge til underskjema i hovedskjema sin oppsummering, bruk id som lagt inn i hovedskjema layout, og type "component".
+{{< /notice >}}
