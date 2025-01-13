@@ -43,8 +43,8 @@ weight: 20
 - Functionality to assign messages to the correct user or unit within an organization.
 
 ### Support for Various Message Formats
-- Ability to send messages in various formats such as PDF, XML, HTML, etc.
-- Support for attachments.
+- Ability to send messages in Markdown or clean text.
+- Support for several attachments per correspondence, without limitation of type. PDF, XML and HTML will usually be the most common used.
 
 ### Reporting and Statistics
 - Tools to generate reports and statistics over sent and received messages.

@@ -4,7 +4,7 @@ description: Sorting the options in the list
 weight: 300
 ---
 
-Options are usually displayed in the order they are defined in, but it is also possible to sort them alphabetically by
+Options are usually displayed in the order they are defined, but it is also possible to sort them alphabetically by
 label. This can be useful to make it easier for the user to find the option they are looking for when the list does not
 need to be in a specific order.
 

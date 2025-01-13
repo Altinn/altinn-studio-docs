@@ -5,16 +5,16 @@ description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter 
 toc: true
 weight: 100
 aliases:
-- /authorization/modules/accessgroups/type-accessgroups
+- /authorization/modules/accessgroups
 ---
 
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Post- og telekommunikasjon](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/andretjenesteytende/#post--og-tele-kommunikasjon)|
-|[Informasjon og kommunikasjon](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/andretjenesteytende/#informasjon-og-kommunikasjon)|
-|[Finansiering og forsikring](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/andretjenesteytende/#finansiering-og-forsikring)|
-|[Annen tjenestyting](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/andretjenesteytende/#annen-tjenesteyting)|
+|[Post- og telekommunikasjon](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/andretjenesteytende/#post--og-tele-kommunikasjon)|
+|[Informasjon og kommunikasjon](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/andretjenesteytende/#informasjon-og-kommunikasjon)|
+|[Finansiering og forsikring](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/andretjenesteytende/#finansiering-og-forsikring)|
+|[Annen tjenestyting](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/andretjenesteytende/#annen-tjenesteyting)|
 
 
 ### Post- og telekommunikasjon
