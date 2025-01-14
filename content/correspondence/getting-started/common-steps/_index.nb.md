@@ -9,17 +9,12 @@ weight: 10
 
 {{<children />}}
 
-{{% notice warning  %}}
-Dette avsnittet av dokumentasjonen er under arbeid.
-Det er deler som mangler eller bare delvis er dokumentert.
-Noen funksjoner representerer ikke den endelige produksjonsversjonen.
-{{% /notice %}}
-
 Før du går i gang med spesifikke oppgaver som avsender, mottaker, eller tjenesteeier i Altinn Melding, er det noen grunnleggende forberedelser og krav som gjelder for alle brukere. Denne seksjonen dekker de nødvendige stegene du må gjennomføre for å sikre en smidig og effektiv oppstart. Her vil du finne veiledning om generelle systemkrav, påloggingsprosedyrer, og grunnleggende oppsett som må være på plass før du kan begynne å bruke tjenesten fullt ut. Det er viktig at alle brukere følger disse instruksjonene nøye for å unngå problemer senere i prosessen.
 
 ## 1. Skaff deg en Altinn API-nøkkel {#get-an-altinn-api-key}
 
-Først må du skaffe en abonnementsnøkkel fra Altinn. Når du sender en forespørsel til API-et, må du inkludere abonnementsnøkkelen i forespørselens `Ocp-Apim-Subscription-Key` header. Inkluderingen av abonnementsnøkkelen i forespørselen er nødvendig for at Altinn skal kunne verifisere at du har rett til å bruke API-et. Uten denne nøkkelen vil forespørselen din bli avvist. Dersom du mangler en API-nøkkel for Maskinporten-klientene du planlegger å bruke mot meldingstjenesten, ta kontakt med oss på [Altinn@Slack#produkt-melding](https://join.slack.com/t/altinn/shared_invite/zt-7c77c9si-ZnMFwGNtab1aFdC6H_vwog).
+Det første steget for å komme igang med Altinn Melding er å skaffe en abonnementsnøkkel. Denne får du ved ta kontakt med oss på [Altinn@Slack#produkt-melding](https://join.slack.com/t/altinn/shared_invite/zt-7c77c9si-ZnMFwGNtab1aFdC6H_vwog).
+Teknisk sett er dette en API nøkkel som må inkluderes i forespørselens `Ocp-Apim-Subscription-Key` header for å verifisere at du har rett til å bruke API-et. Uten denne nøkkelen vil forespørselen din bli avvist.
 
 ## 2. Registrer Maskinporten-klient med nødvendige scopes. {#register-your-maskinporten-client-with-correct-scopes}
 
