@@ -14,7 +14,7 @@ Før du går i gang med spesifikke oppgaver som avsender, mottaker, eller tjenes
 ## 1. Skaff deg en Altinn API-nøkkel {#get-an-altinn-api-key}
 
 Det første steget for å komme igang med Altinn Melding er å skaffe en abonnementsnøkkel. Denne får du ved ta kontakt med oss på [Altinn@Slack#produkt-melding](https://join.slack.com/t/altinn/shared_invite/zt-7c77c9si-ZnMFwGNtab1aFdC6H_vwog).
-Teknisk sett er dette en API nøkkel som må inkluderes i forespørselens `Ocp-Apim-Subscription-Key` header for å verifisere at du har rett til å bruke API-et. Uten denne nøkkelen vil forespørselen din bli avvist.
+Teknisk sett er dette en API nøkkel som må inkluderes i forespørselers `Ocp-Apim-Subscription-Key` header for å verifisere at du har rett til å bruke Meldings API-et. Uten denne nøkkelen vil forespørseler din bli avvist.
 
 ## 2. Registrer Maskinporten-klient med nødvendige scopes. {#register-your-maskinporten-client-with-correct-scopes}
 
