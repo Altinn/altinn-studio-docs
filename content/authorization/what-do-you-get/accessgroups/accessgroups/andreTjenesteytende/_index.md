@@ -11,7 +11,7 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Post- og telekommunikasjon](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/andretjenesteytende/#post--og-tele-kommunikasjon)|
+|[Post- og telekommunikasjon](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/andretjenesteytende/#post--og-telekommunikasjon)|
 |[Informasjon og kommunikasjon](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/andretjenesteytende/#informasjon-og-kommunikasjon)|
 |[Finansiering og forsikring](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/andretjenesteytende/#finansiering-og-forsikring)|
 |[Annen tjenestyting](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/andretjenesteytende/#annen-tjenesteyting)|

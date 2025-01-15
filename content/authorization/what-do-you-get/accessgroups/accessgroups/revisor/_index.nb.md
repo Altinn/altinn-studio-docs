@@ -10,8 +10,8 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Ansvarlig revisor](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/regnskapsforer/#regnskapsfører-med-signeringsrettighet)|
-|[Revisormedarbeider](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/regnskapsforer/#regnskapsfører-uten-signeringsrettighet)|
+|[Ansvarlig revisor](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/revisor/#ansvarlig-revisor)|
+|[Revisormedarbeider](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/revisor/#revisormedarbeider)|
 
 
 ### Ansvarlig revisor
