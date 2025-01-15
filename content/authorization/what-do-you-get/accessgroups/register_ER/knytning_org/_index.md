@@ -9,7 +9,7 @@ weight: 1
 *Innhold på siden er under arbeid. Innholdet vil ikke være gjeldende før nye [tilgangspakker](/authorization/what-do-you-get/accessgroups/type-accessgroups/) trer i kraft. Dette må derfor ikke ansees som en fasit pr nå*
 
 
-I mange tilfeller er det mulig å registrere andre organisasjoner i en eller flere roller på virksomeheten. 
+I mange tilfeller er det mulig å registrere andre organisasjoner i en eller flere roller på virksomheten. 
 Altinn vil i mange tilfeller da sørge for en knytning mellom disse virksomhetene slik at person som har bestemte roller i tilknyttet organisasjon da få fullmakter på vegne av den aktuelle virksomheten. 
 Vi kaller dette nøsting av fullmakter. 
 
