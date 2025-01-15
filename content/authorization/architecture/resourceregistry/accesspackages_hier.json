@@ -311,40 +311,6 @@
             "description": "Denne tilgangspakken gir fullmakter til å administrere tilgang til data og programmeringsgrensenitt (API) som benytter Maskinporten eller tilsvarende løsninger for APIsikring på vegne av norskregistrerte utenlandske foretak (NUF). Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
           }
         ]
-      },
-      {
-        "id": "e4ae823f-41db-46ed-873f-8a5d1378fff8",
-        "urn": "accesspackage:area:administrere_tilganger",
-        "name": "Administrere tilganger",
-        "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til administrere tilganger.",
-        "icon": "administrere_tilganger",
-        "areaGroup": "Vanlig",
-        "packages": [
-          {
-            "id": "c46a568e-59ba-4835-8c0f-9a3e7d3d308c",
-            "urn": "urn:altinn:accesspackage:klientadminstrasjonforregnskapsforerogtevisor",
-            "name": "Klientadministrasjon for regnskapsfører og revisor",
-            "description": "Denne tilgangspakken gir bruker mulighet til å administrere tilgang til tjenester det er naturlig at regnskapsfører eller revisor utfører. Bruker kan administrere tilgang til tjenestene til ansatte hos regnskapsfører eller revisor på vegne av deres kunder."
-          },
-          {
-            "id": "4691c710-e0ad-4152-9783-9d1e787f02d3",
-            "urn": "urn:altinn:accesspackage:tilgangsstyring",
-            "name": "Tilgangsstyring",
-            "description": "Denne tilgangspakken gir bruker mulighet til å gi videre tilganger for virksomheten som man selv innehar."
-          },
-          {
-            "id": "15d0015f-e21d-405a-89c5-a21476ba3df0",
-            "urn": "urn:altinn:accesspackage:hovedadministrator",
-            "name": "Hovedadministrator",
-            "description": "Denne tilgangspakken gir bruker mulighet til å administrere alle tilganger for virksomheten."
-          },
-          {
-            "id": "3abe9842-06a5-483f-b76d-a65dec152b2d",
-            "urn": "urn:altinn:accesspackage:kundeadministrator",
-            "name": "Kundeadministrator",
-            "description": "Denne tilgangspakken gir bruker mulighet til å administrere tilganger man har mottatt for sine kunder til ansatte i egen virksomheten."
-          }
-        ]
       }
     ]
   },
