@@ -38,7 +38,6 @@ The following diagram illustrates the overall data flow.
 - **Altinn Profile**: used to retrieve recipient information.
 - **Altinn Register**: used to retrieve recipient information.
 
-
 ### External
 - [**Azure Kubernetes Services**](https://azure.microsoft.com/en-us/products/kubernetes-service): hosts the docker containers for microservices and cron jobs 
   in a fully managed Kubernetes cluster.
