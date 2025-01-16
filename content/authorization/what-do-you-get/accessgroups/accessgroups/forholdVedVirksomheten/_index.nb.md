@@ -23,7 +23,7 @@ aliases:
 | [Politi og domstol](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/forholdvedvirksomheten/#politi-og-domstol)|
 | [Rapportering av statistikk](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/forholdvedvirksomheten/#rapportering-av-statistikk)|
 | [Forskning](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/forholdvedvirksomheten/#forskning)|
-| [Eksplisitt tjenestedelegering](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/forholdvedvirksomheten/#eksplisitt)|
+| [Eksplisitt tjenestedelegering](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/forholdvedvirksomheten/#eksplisitt-tjenestedelegering)|
 ### Generelle Helfo tjenester
 Denne fullmakten gir tilgang til ordinære tjenester knyttet til virksomhetens dialog med Helfo der bruker kan få tilgang til personopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:generellehelfotjenester*

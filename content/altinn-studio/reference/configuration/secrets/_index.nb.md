@@ -58,17 +58,16 @@ IHostApplicationBuilder.AddAzureKeyVaultAsConfigProvider()
 
 Denne metoden kan brukes i `Program.cs` på følgende måte:
 
-{{< highlight csharp "linenos=false,hl_lines=5-9" >}}
-void ConfigureWebHostBuilder(IWebHostBuilder builder)
-{
-    builder.ConfigureAppWebHost(args);
+{{< highlight csharp "linenos=false,hl_lines=4-9" >}}
 
-    // Add Azure KV provider for TT02 & Prod environments
-    if (!builder.Environment.IsDevelopment())
-    {
-        builder.AddAzureKeyVaultAsConfigProvider();
-    }
+ConfigureWebHostBuilder(IWebHostBuilder builder);
+
+// Add Azure KV provider for TT02 & Prod environments
+if (!builder.Environment.IsDevelopment())
+{
+    builder.AddAzureKeyVaultAsConfigProvider();
 }
+
 {{< / highlight >}}
 
 {{%notice warning%}}
