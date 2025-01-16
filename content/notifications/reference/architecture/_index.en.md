@@ -34,17 +34,9 @@ The following diagram illustrates the overall data flow.
 ## System and service dependencies 
 ### Internal
 
-- **Altinn Authorization**: used to authorize access to endpoints.
+- **Altinn Authorization**: used to filter recipients being sent to an organization.
 - **Altinn Profile**: used to retrieve recipient information.
 - **Altinn Register**: used to retrieve recipient information.
-
-
-{{% notice info %}}
-The number of internal dependencies for Notifications is currently quite limited,
-but during 2024 we expect the services below to be utilized by Notifications.
-- **Altinn Storage**: used to retrieve status for Altinn app instances to evaluate send conditions
-{{% /notice %}}
-
 
 ### External
 - [**Azure Kubernetes Services**](https://azure.microsoft.com/en-us/products/kubernetes-service): hosts the docker containers for microservices and cron jobs 

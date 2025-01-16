@@ -11,8 +11,8 @@ weight: 20
 **Altinn Notifications** provides a robust and reliable service for communicating with end users across multiple channels. Key benefits include:
 1. **Name Lookup**: Retrieve current names from national registries.
 2. **Contact Details Lookup**: Retrieve current contact information from national registries.
-3. **Role-Based Recipient Identification**: Use Altinn roles to identify the correct recipients within an organization.
-4. **Conditional Notifications**: Enable notifications that depend on specific conditions, such as the state of external resources or actions performed on Altinn App instances.
+3. **Authorization-Based Recipient Identification**: Use Altinn authorization to identify the correct recipients within an organization.
+4. **Conditional Notifications**: Enable notifications that depend on the result of a condition check. NOTE: Notifications will request condition result from external system.
 5. **API Access**: Programmatically send notifications and monitor their delivery status via the Altinn Notifications API.
 
 ## Notification Channels
@@ -65,7 +65,7 @@ Altinn Email notifications provide the capability to send plain text or HTML con
 Altinn offers recipient lookup functionality to determine names, contact details, and reservation status using a national identity number or organization number.
 
 - **Timing**: Lookup occurs during order placement and again at the scheduled send time.
-- **Responsibility**: It is the sender's responsibility to check the send status. Lookup results are provided in the order response and detailed in post-sending notifications.
+- **Responsibility**: It is the sender's responsibility to check the send status. Lookup results are provided in the order response and detailed in the finished notifications.
 
 [Learn more about recipient lookup in the explanation documentation.](/notifications/explanation/recipient-lookup)
 
