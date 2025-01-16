@@ -588,3 +588,24 @@ input[type="search"] {
     font-weight: bold; 
     font-size: 2rem !important;
   }
+
+/* Ordered list fix for list items containing block elements */
+.floating-bullet-numbers li::before {
+float: left;
+}
+
+/* Customisations for integration/correspondence */
+.correspondence-custom-list {
+    margin-bottom: 18px !important;
+    padding-left: 8px;
+}
+.correspondence-custom-list li {
+margin-left: 0 !important;
+margin-bottom: 0 !important;
+}
+#notice-paragraph-fix p {
+    margin-bottom: inherit;
+}
+#notice-paragraph-fix p:last-child {
+    margin-bottom: 0;
+}
