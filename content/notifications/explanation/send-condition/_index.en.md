@@ -16,7 +16,7 @@ if a specified condition is met. You can choose to send the notification immedia
 
 A common use case is setting reminders, where a notification is sent only
 if a user has not completed a specific action. With the send condition,
-both the initial notification requesting the action and the reminder notification can be scheduled at the same time.
+both the initial notification requesting the action and the reminder notification can be ordered at the same time with different send dates.
 
 ### Condition Evaluation
 
