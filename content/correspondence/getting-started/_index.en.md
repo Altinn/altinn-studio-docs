@@ -32,7 +32,7 @@ A resource represents a specific function or set of functions used to manage acc
 
 ### 2a. Create a new resource as a service owner.
 If you are a service owner you need to create a resource and follow the steps below:
-1. Log in to Altinn Studio and navigate to the resource dashboard, See [Resource Registry](../../../../authorization/guides/create-resource-resource-admin/) for a detailed guide.
+1. Log in to Altinn Studio and navigate to the resource dashboard, See [Resource Registry](../../authorization/guides/create-resource-resource-admin/) for a detailed guide.
 2. Create a new resource, follow the guide and fill in the necessary information and details about the service.
 3. Set policy rules for the resource. Your policy must be configured in such a way that that they permit the actions:
     - "read" meant for recipients to open and read a message
@@ -41,7 +41,7 @@ If you are a service owner you need to create a resource and follow the steps be
 
 Here is an [example policy](ExamplePolicy.xml).
 
-Note that this example policy sets a required user role "DAGL" for the user that has access to the resource, and requires the use of [Resource Rights Registry](../../../../authorization/what-do-you-get/resourceregistry/rrr/) to grant access to specific organisations.
+Note that this example policy sets a required user role "DAGL" for the user that has access to the resource, and requires the use of [Resource Rights Registry](../../authorization/what-do-you-get/resourceregistry/rrr/) to grant access to specific organisations.
 A user with that access can then delegate the access to the enterprise user / system user
 
 **TIP**: Verify your configurations using the [Postman collection](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json), substituting the test tokens with your own Altinn tokens (See "Login to Maskinporten (Initialize)" request in Authenticator folder).
