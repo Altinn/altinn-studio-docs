@@ -43,6 +43,7 @@ Altinn 3 Corresponednce lets you send general and/or personal correspondences to
 ### Support for Various Message Formats
 - Ability to send correspondences in Markdown or clean text.
 - Support for several attachments per correspondence, without limitation of type. PDF, XML and HTML will usually be the most common used.
+- Supports attachments up to 250 MB. 
 
 ### Advanced Support for Linking to Content and Attachments
 

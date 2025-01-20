@@ -51,6 +51,7 @@ Altinn 3 melding setter deg i stand til å opprette og sende generelle og/eller 
 
 - Mulighet for å sende meldinger med Markdown eller ren tekst.
 - Støtte for flere vedlegg per melding uten begrensing av type, der PDF, XML og HTML vil være de mest vanlige.
+- Støtte for vedlegg opp til 250 MB.
 
 ### Avansert støtte for lenking til innhold og vedlegg
 
