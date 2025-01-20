@@ -26,11 +26,11 @@ To get started with Altinn Correspondence, your enterprise must be registered as
 
 This step is only necessary for new enterprises that have not yet established themselves as service owners on the Altinn platform. As an existing service owner, you can proceed directly with the next steps to start using Altinn Correspondence.
 
-## 2. Create or get access to a resource in Altinn Resource Registry {#register-a-resource-in-altinn-resource-registry}. 
+## 2. Create or get access to a resource in Altinn Resource Registry {#register-a-resource-in-altinn-resource-registry}
 In order to send messages via Altinn Correspondence, they must first be associated with a resource. 
 A resource represents a specific function or set of functions used to manage access and rules for the correspondence. Resources are registered via Altinn Studio and are used to define access rules and access lists, ensuring that only authorized users can perform specific actions.
 
-### 2a. Create a new resource as a service owner.
+### 2a. Create a new resource as a service owner
 If you are a service owner you need to create a resource and follow the steps below:
 1. Log in to Altinn Studio and navigate to the resource dashboard, See [Resource Registry](../../authorization/guides/create-resource-resource-admin/) for a detailed guide.
 2. Create a new resource, follow the guide and fill in the necessary information and details about the service.
@@ -46,7 +46,7 @@ A user with that access can then delegate the access to the enterprise user / sy
 
 **TIP**: Verify your configurations using the [Postman collection](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json), substituting the test tokens with your own Altinn tokens (See "Login to Maskinporten (Initialize)" request in Authenticator folder).
 
-### 2b. Get access to a resouce for non service owners. 
+### 2b. Get access to a resouce for non service owners
 If you are not a service owner, contact the Service owner for the Correspondence Resource and ask for access to the Resource, supplying them with:
 - Organization number you will represent
 - System user
