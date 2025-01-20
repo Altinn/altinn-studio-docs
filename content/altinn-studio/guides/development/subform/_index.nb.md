@@ -1,19 +1,19 @@
 ---
-title: Hvordan konfigurere underskjema i din Altinn-app
+title: Konfigurere et underskjema i en app
 linktitle: Underskjema
-description: Følg disse grunnleggende stegene for å komme i gang med å integrere underskjema i din Altinn App.
+description: Følg disse stegene for å sette inn et underskjema i appen din.
 tags: [underskjema]
 weight: 50
 aliases:
   - /nb/altinn-studio/guides/subform/
 ---
 
-## 1. Introduksjon
+## 1. Innledning
 
 Et underskjema er et skjema som er en del av et annet skjema.
-Disse underskjemaene organiseres i tilhørende underskjematabeller. I denne guiden vil vi gå gjennom hvordan du oppretter en underskjematabell og konfigurerer underskjemaene knyttet til den.
+Du setter opp underskjemaene i tilhørende tabeller. Denne veiledningen forklarer hvordan du oppretter en tabell for underskjema og konfigurere underskjemaet som skal være knyttet til den.
 
-## 2. Konfigurering av underskjema
+## 2. Konfigurasjon av underskjema
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
