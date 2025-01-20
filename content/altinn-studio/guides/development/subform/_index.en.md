@@ -1,5 +1,5 @@
 ---
-title: How to configure subform in your Altinn app
+title: Configure subform in an app
 linktitle: Subform
 description: Follow these steps to get started with integrating subforms in your Altinn App.
 tags: [subform]
@@ -11,7 +11,7 @@ aliases:
 ## 1. Introduction
 
 A subform is a form that is part of another form.
-These subforms are organized in associated subform tables. In this guide, we will go through how to create a subform table and configure the subforms related to it.
+You set up subforms in the associated tables. This guide explains how to create a table for a subform and configure the subform to be linked to it.
 
 ## 2. Configuring the Subform
 
