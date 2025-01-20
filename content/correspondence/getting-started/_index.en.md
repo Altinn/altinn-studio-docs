@@ -92,4 +92,4 @@ Swagger for the correspondence API is hosted [here](/api/correspondence/spec/).
 
 In order to use events/webhooks for a Correspondence resource, you need to setup a subscription for the given resource.
 
-See the [developer guide](../developer-guides/events) for detailed instruction.
+See the [developer guide](./developer-guides/events) for detailed instruction.

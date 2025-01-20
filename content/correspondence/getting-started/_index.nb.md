@@ -88,4 +88,4 @@ Swagger for filoverførings-APIet er vert [her](/api/correspondence/spec/).
 
 For å kunne motta varsler om endringer eller hendelser knyttet til dine meldingstjenester, må du sette opp et abonnement for den aktuelle tjenesten.
 Dette trinnet er spesielt viktig for deg som ønsker å få automatiserte varsler om hendelser fra meldingstjenesten. Hvis du ikke trenger varsler, kan du hoppe over dette trinnet.
-Se [utviklerveiledningen for events](../developer-guides/events) for detaljerte instruksjoner om hvordan du setter opp abonnementet.
+Se [utviklerveiledningen for events](./developer-guides/events) for detaljerte instruksjoner om hvordan du setter opp abonnementet.
