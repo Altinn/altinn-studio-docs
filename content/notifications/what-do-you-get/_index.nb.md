@@ -1,87 +1,79 @@
 ---
 title: What do you get?
-description: "Service owners and internal Altinn systems can send notifications to individuals in a personal capacity 
-or a professional capacity through a role they have within an organization. 
-The contact point for the recipient does not need to be known, as Altinn has access to a wide range of registries
-to retrieve contact information given an organization number or a national identity number."
+description: "Service owners and internal Altinn systems can send customized notifications to individuals in a personal
+or professional capacity through roles they hold within an organization.
+The recipient's name and contact details do not need to be known upfront, as the Altinn Notifications API can retrieve
+this information from national registries using the national identity number or organization number."
 weight: 20
 ---
 
 ## Main Benefits
-
-Altinn Notifications offers a robust and reliable service for communicating with end users through various channels. 
-
-Key benefits include:
-
-1. **Contact Details Lookup**: Retrieve up-to-date contact information from national registries.
-2. **Role-Based Recipient Identification**: Altinn roles can be used to identify the correct recipients within an organization.
-3. **Conditional Notifications**: Notifications can have send conditions related to the state of, or actions performed on,
-external resources including Altinn App instances.
-4. **API Access**: Programmatically send notifications and track delivery status via the Altinn Notifications API.
+**Altinn Notifications** provides a robust and reliable service for communicating with end users across multiple channels. Key benefits include:
+1. **Name Lookup**: Retrieve current names from national registries.
+2. **Contact Details Lookup**: Retrieve current contact information from national registries.
+3. **Authorization-Based Recipient Identification**: Use Altinn authorization to identify the correct recipients within an organization.
+4. **Conditional Notifications**: Enable notifications that depend on the result of a condition check. NOTE: Notifications will request condition result from external system.
+5. **API Access**: Programmatically send notifications and monitor their delivery status via the Altinn Notifications API.
 
 ## Notification Channels
 
-Currently supported channels:
+Altinn Notifications supports the following communication channels:
 
-- **Email**: Sends informational and formatted emails directly to users' inboxes.
-- **SMS**: Sends concise and timely messages to users' mobile phones. Both national and international numbers.
-- **EmailPreferred**: Uses email as the primary communication channel and SMS as a fallback if email contact details are missing.
-- **SmsPreferred**: Uses SMS as the primary communication channel and email as a fallback if SMS contact details are missing.
+- **Email**: Sends customized and formatted emails directly to users’ inboxes. 
+- **SMS**: Delivers customized, concise, timely messages to users’ mobile phones, supporting both national and international numbers.
+- **EmailPreferred**: Prioritizes email as the primary channel, with SMS as a fallback when email contact information is unavailable.
+- **SmsPreferred**: Prioritizes SMS as the primary channel, with email as a fallback when SMS contact information is unavailable.
 
 ### Future Improvements
 
-Plans to expand notification channels to provide more flexibility and convenience. Future enhancements will support
-a wider range of communication platforms, enabling organizations and end users to communicate through their preferred channels.
+Altinn plans to expand its notification channels to include a broader range of communication platforms, offering even greater flexibility and convenience for organizations and users.
 
 ## SMS Notifications
 
-Altinn SMS notifications ensure timely delivery of concise messages to users' mobile phones. Here are the key details:
+Altinn SMS notifications ensure the timely delivery of concise messages to users’ mobile phones. Below are the key details:
 
 ### Send Window
-Altinn sends SMS notifications daily between 9 AM and 5 PM (Norway time). 
-Any SMS scheduled outside of these hours will be sent at 9 AM the following day.
 
-Notification orders can be placed at any time. 
+- SMS notifications are sent daily between **9 AM and 5 PM (Norway time)**.
+- Notifications scheduled outside this timeframe are sent at **9 AM the following day**.
+- Notification orders can be placed at any time.
 
 ### Supported Recipient Numbers
-- **Format**: Mobile numbers must include the country code, preferably with a "+", 
-but "00" is also acceptable (e.g., +47900XXXXX, 0047900XXXXX).
-- **Restrictions**: SMS to 5-digit numbers is not supported.
-- **Norwegian Numbers**: Must start with "4" or "9" after the country code "+47."
+
+- **Format**: Mobile numbers must include the country code, preferably with a "+" or "00" (e.g., +47900XXXXX, 0047900XXXXX).
+- **Restrictions**: SMS notifications to 5-digit numbers are not supported.
+- **Norwegian Numbers**: Must begin with "4" or "9" after the country code "+47."
   - Valid: +47400XXXXX, +47900XXXXX, 0047400XXXXX, 0047900XXXXX.
   - Invalid: +47500XXXXX, +47600XXXXX, 0047500XXXXX, 0047600XXXXX.
-- **International Numbers**: Supported, provided they include a valid country code.
+- **International Numbers**: Supported, as long as they include a valid country code.
 
 ## Email Notifications
 
-Altinn Email notifications allow for the delivery of both plain text and HTML content directly to users' inboxes. 
-
-Here are the specifics:
+Altinn Email notifications provide the capability to send plain text or HTML content directly to users’ inboxes.
 
 ### Content Types
-- **Supported Formats**: Plain text and HTML content types are supported.
+
+- **Supported Formats**: Both plain text and HTML formats are supported.
 
 ### Recipient Restrictions
-- **Single Recipient**: Each email notification is sent to a single recipient.
+
+- **Single Recipient**: Each email notification is sent to one recipient.
 - **Attachments**: Currently, email notifications do not support attachments.
 
 ## Recipient Lookup
 
-Altinn provides recipient lookup functionality to determine contact details and reservation status 
-using a national identity number or organization number. 
+Altinn offers recipient lookup functionality to determine names, contact details, and reservation status using a national identity number or organization number.
 
-- **Timing**: Lookup occurs both at the time of order placement and at the scheduled send time.
-- **Responsibility**: It is the responsibility of the entity ordering the notification to check the send status, 
-as lookup results are shared in the order response and detailed in the notification post-sending.
+- **Timing**: Lookup occurs during order placement and again at the scheduled send time.
+- **Responsibility**: It is the sender's responsibility to check the send status. Lookup results are provided in the order response and detailed in the finished notifications.
 
-[Read more about recipient lookup in the explanation documentation.](/notifications/explanation/recipient-lookup)
+[Learn more about recipient lookup in the explanation documentation.](/notifications/explanation/recipient-lookup)
 
 ## Send Condition
 
-The send condition feature allows notifications to be sent only if certain criteria are met, which can be evaluated immediately or in the future.
+The send condition feature ensures notifications are sent only when specific criteria are met. These conditions can be evaluated immediately or scheduled for future evaluation.
 
-- **Use Case**: Ideal for scenarios like reminders where a notification is sent only if a user has not completed a required action.
-- **Evaluation**: Conditions are checked by the application using the provided condition endpoint in the notification order.
+- **Use Case**: Ideal for scenarios like reminders, where a notification is sent only if a required action has not been completed.
+- **Evaluation**: Conditions are checked by the application using the condition endpoint provided in the notification order.
 
-[Read more about send conditions in the explanation documentation.](/notifications/explanation/send-condition)
-
+[Learn more about send conditions in the explanation documentation.](/notifications/explanation/send-condition)
