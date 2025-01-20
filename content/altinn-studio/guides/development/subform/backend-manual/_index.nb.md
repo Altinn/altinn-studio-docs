@@ -5,14 +5,14 @@ hidden: true
 1. [Opprett en datamodell](/nb/altinn-studio/reference/data/data-modeling) for underskjemaet.
 2. Du skal nå se tre filer under `App/model`. Klassen i c#, json schema og xsd.
 3. Sett [appLogic.allowInSubform](/nb/api/models/app-metadata/#applicationlogic) til **true** i **applicationMetadata.json**.
-4. Opprett en mappe under **App/ui** med ditt ønskede underskjemanavn.
+4. Opprett en mappe under **App/ui** med det navnet du vil ha på underskjemaet.
 5. Naviger til underskjemamappen, legg til `Settings.json` filen og en mappe med navn **layouts**.
 6. Du kan legge til side layouts til layouts mappen slik du ville gjort for hovedskjemaet.
    {{< notice warning >}}
    Underskjema støtter ikke vedlegg, og nøsting av underskjema er ikke tillatt (underskjema i underskjema).
    {{< /notice >}}
-7. **Settings.json** filen for underskjema [konfigureres som normalt](/nb/altinn-studio/reference/ux/pages/#innstillinger).
-8. Knappen som brukes for å lukke underskjema må være en [CustomButton](/nb/altinn-studio/reference/ux/components/custombutton) med `closeSubform` action. Det er valgfritt å validere underskjema før det lukkes.
+7. [Konfigurer filen for underskjema](/nb/altinn-studio/reference/ux/pages/#innstillinger), **Settings.json**, som normalt.
+8. Velg en egendefinert knapp for å lukke underskjemaet: [CustomButton](/nb/altinn-studio/reference/ux/components/custombutton) med `closeSubform` action. Du bestemmer selv om du vil at underskjemaet skal valideres før det før det lukkes.
    ```json
    {
      "id": "subform-exitbutton",
@@ -79,6 +79,6 @@ hidden: true
     ```
 
 {{< notice info >}}
-Underskjema kan ha sin egen oppsummeringsside og være en del av hovedskjema sin oppsummering.
-For å legge til underskjema i hovedskjema sin oppsummering, bruk id som lagt inn i hovedskjema layout, og type "component".
+Et underskjema kan ha sin egen oppsummeringsside, men kan også være en del av oppsummeringen for hovedskjemaet.
+Hvis du vil legge til underskjemaet i oppsummeringen til hovedskjemaet, bruker du den ID-en som lagt inn i utformingen for hovedskjemaet og typen "component".
 {{< /notice >}}
