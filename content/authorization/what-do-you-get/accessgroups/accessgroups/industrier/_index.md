@@ -10,18 +10,18 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Næringsmidler, drikkevarer og tobakk](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgoups/industrier/#næringsmidler-drikkevarer-og-tobakk)|
-|[Tekstiler, klær og lærvarer](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgoups/industrier/#tekstiler-klær-og-lærvarer)|
-|[Trelast, trevarer og papirvarer](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgoups/industrier/#trelast-trevarer-og-papirvarer)|
-|[Trykkerier og reproduksjon av innspilte opptak](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgoups/industrier/#trykkerier-og-reproduksjon-av-innspilte-opptak)|
-|[Oljeraffinering, kjemisk og farmasøytisk industri](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgoups/industrier/#oljeraffinering-kjemisk-og-farmasøytisk-industri)|
-|[Gummi, plast og ikke-metallholdige mineralprodukter](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgoups/industrier/#gummi-plast-og-ikke-metallholdige-mineralprodukter)|
-|[Metaller og mineraler](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgoups/industrier/#metaller-og-mineraler)|
-|[Metallvarer, elektrisk utstyr og maskiner](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgoups/industrier/#metallvarer-elektrisk-utstyr-og-maskiner)|
-|[Verft og andre transportmidler](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgoups/industrier/#verft-og-andre-transportmidler)|
-|[Møbler og annen industri](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgoups/industrier/#møbler-og-annen-industri)|
-|[Reparasjon og installasjon av maskiner og utstyr](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgoups/industrier/#reparasjon-og-installasjon-av-maskiner-og-utstyr)|
-|[Bergverk](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgoups/industrier/#bergverk)|
+|[Næringsmidler, drikkevarer og tobakk](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/industrier/#næringsmidler-drikkevarer-og-tobakk)|
+|[Tekstiler, klær og lærvarer](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/industrier/#tekstiler-klær-og-lærvarer)|
+|[Trelast, trevarer og papirvarer](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/industrier/#trelast-trevarer-og-papirvarer)|
+|[Trykkerier og reproduksjon av innspilte opptak](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/industrier/#trykkerier-og-reproduksjon-av-innspilte-opptak)|
+|[Oljeraffinering, kjemisk og farmasøytisk industri](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/industrier/#oljeraffinering-kjemisk-og-farmasøytisk-industri)|
+|[Gummi, plast og ikke-metallholdige mineralprodukter](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/industrier/#gummi-plast-og-ikke-metallholdige-mineralprodukter)|
+|[Metaller og mineraler](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/industrier/#metaller-og-mineraler)|
+|[Metallvarer, elektrisk utstyr og maskiner](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/industrier/#metallvarer-elektrisk-utstyr-og-maskiner)|
+|[Verft og andre transportmidler](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/industrier/#verft-og-andre-transportmidler)|
+|[Møbler og annen industri](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/industrier/#møbler-og-annen-industri)|
+|[Reparasjon og installasjon av maskiner og utstyr](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/industrier/#reparasjon-og-installasjon-av-maskiner-og-utstyr)|
+|[Bergverk](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/industrier/#bergverk)|
 
 
 ### Næringsmidler, drikkevarer og tobakk

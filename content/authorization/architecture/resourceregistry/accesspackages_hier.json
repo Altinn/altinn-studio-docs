@@ -11,7 +11,7 @@
         "urn": "accesspackage:area:skatt_avgift_regnskap_og_toll",
         "name": "Skatt, avgift, regnskap og toll",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til skatt, avgift, regnskap og toll.",
-        "icon": "BankNoteIcon",
+        "icon": "skatt_avgift_regnskap_og_toll",
         "areaGroup": "Vanlig",
         "packages": [
           {
@@ -81,7 +81,7 @@
         "urn": "accesspackage:area:personale",
         "name": "Personale",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til personale.",
-        "icon": "PersonSuitIcon",
+        "icon": "personale",
         "areaGroup": "Vanlig",
         "packages": [
           {
@@ -127,7 +127,7 @@
         "urn": "accesspackage:area:miljo_ulykke_og_sikkerhet",
         "name": "Miljø, ulykke og sikkerhet",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til miljø, ulykke og sikkerhet.",
-        "icon": "EarthIcon",
+        "icon": "miljo_ulykke_og_sikkerhet",
         "areaGroup": "Vanlig",
         "packages": [
           {
@@ -173,7 +173,7 @@
         "urn": "accesspackage:area:post_og_arkiv",
         "name": "Post og arkiv",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til post og arkiv.",
-        "icon": "EnvelopeClosedIcon",
+        "icon": "post_og_arkiv",
         "areaGroup": "Vanlig",
         "packages": [
           {
@@ -195,7 +195,7 @@
         "urn": "accesspackage:area:forhold_ved_virksomheten",
         "name": "Forhold ved virksomheten",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til forhold ved virksomheten.",
-        "icon": "Buildings3Icon",
+        "icon": "forhold_ved_virksomheten",
         "areaGroup": "Vanlig",
         "packages": [
           {
@@ -289,7 +289,7 @@
         "urn": "accesspackage:area:integrasjoner",
         "name": "Integrasjoner",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til integrasjoner.",
-        "icon": "TenancyIcon",
+        "icon": "integrasjoner",
         "areaGroup": "Vanlig",
         "packages": [
           {
@@ -311,40 +311,6 @@
             "description": "Denne tilgangspakken gir fullmakter til å administrere tilgang til data og programmeringsgrensenitt (API) som benytter Maskinporten eller tilsvarende løsninger for APIsikring på vegne av norskregistrerte utenlandske foretak (NUF). Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
           }
         ]
-      },
-      {
-        "id": "e4ae823f-41db-46ed-873f-8a5d1378fff8",
-        "urn": "accesspackage:area:administrere_tilganger",
-        "name": "Administrere tilganger",
-        "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til administrere tilganger.",
-        "icon": "PadlockLockedIcon",
-        "areaGroup": "Vanlig",
-        "packages": [
-          {
-            "id": "c46a568e-59ba-4835-8c0f-9a3e7d3d308c",
-            "urn": "urn:altinn:accesspackage:klientadminstrasjonforregnskapsforerogtevisor",
-            "name": "Klientadministrasjon for regnskapsfører og revisor",
-            "description": "Denne tilgangspakken gir bruker mulighet til å administrere tilgang til tjenester det er naturlig at regnskapsfører eller revisor utfører. Bruker kan administrere tilgang til tjenestene til ansatte hos regnskapsfører eller revisor på vegne av deres kunder."
-          },
-          {
-            "id": "4691c710-e0ad-4152-9783-9d1e787f02d3",
-            "urn": "urn:altinn:accesspackage:tilgangsstyring",
-            "name": "Tilgangsstyring",
-            "description": "Denne tilgangspakken gir bruker mulighet til å gi videre tilganger for virksomheten som man selv innehar."
-          },
-          {
-            "id": "15d0015f-e21d-405a-89c5-a21476ba3df0",
-            "urn": "urn:altinn:accesspackage:hovedadministrator",
-            "name": "Hovedadministrator",
-            "description": "Denne tilgangspakken gir bruker mulighet til å administrere alle tilganger for virksomheten."
-          },
-          {
-            "id": "3abe9842-06a5-483f-b76d-a65dec152b2d",
-            "urn": "urn:altinn:accesspackage:kundeadministrator",
-            "name": "Kundeadministrator",
-            "description": "Denne tilgangspakken gir bruker mulighet til å administrere tilganger man har mottatt for sine kunder til ansatte i egen virksomheten."
-          }
-        ]
       }
     ]
   },
@@ -360,7 +326,7 @@
         "urn": "accesspackage:area:jordbruk_skogbruk_jakt_fiske_og_akvakultur",
         "name": "Jordbruk, skogbruk, jakt, fiske og akvakultur",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til jordbruk, skogbruk, jakt, fiske og akvakultur.",
-        "icon": "PlantIcon",
+        "icon": "jordbruk_skogbruk_jakt_fiske_og_akvakultur",
         "areaGroup": "Bransje",
         "packages": [
           {
@@ -412,7 +378,7 @@
         "urn": "accesspackage:area:bygg_anlegg_og_eiendom",
         "name": "Bygg, anlegg og eiendom",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til bygg, anlegg og eiendom.",
-        "icon": "HardHatIcon",
+        "icon": "bygg_anlegg_og_eiendom",
         "areaGroup": "Bransje",
         "packages": [
           {
@@ -464,7 +430,7 @@
         "urn": "accesspackage:area:transport_og_lagring",
         "name": "Transport og lagring",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til transport og lagring.",
-        "icon": "TruckIcon",
+        "icon": "transport_og_lagring",
         "areaGroup": "Bransje",
         "packages": [
           {
@@ -510,7 +476,7 @@
         "urn": "accesspackage:area:helse_pleie_omsorg_og_vern",
         "name": "Helse, pleie, omsorg og vern",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til helse, pleie, omsorg og vern.",
-        "icon": "FirstAidIcon",
+        "icon": "helse_pleie_omsorg_og_vern",
         "areaGroup": "Bransje",
         "packages": [
           {
@@ -562,7 +528,7 @@
         "urn": "accesspackage:area:oppvekst_og_utdaning",
         "name": "Oppvekst og utdaning",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til oppvekst og utdaning.",
-        "icon": "HatSchoolIcon",
+        "icon": "oppvekst_og_utdaning",
         "areaGroup": "Bransje",
         "packages": [
           {
@@ -650,7 +616,7 @@
         "urn": "accesspackage:area:energi_vann_avlop_og_avfall",
         "name": "Energi, vann,avløp og avfall",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til energi, vann,avløp og avfall.",
-        "icon": "LightningIcon",
+        "icon": "energi_vann_avlop_og_avfall",
         "areaGroup": "Bransje",
         "packages": [
           {
@@ -702,7 +668,7 @@
         "urn": "accesspackage:area:industrier",
         "name": "Industrier",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til industrier.",
-        "icon": "CogIcon",
+        "icon": "industrier",
         "areaGroup": "Bransje",
         "packages": [
           {
@@ -784,7 +750,7 @@
         "urn": "accesspackage:area:kultur_og_frivillighet",
         "name": "Kultur og frivillighet",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til kultur og frivillighet.",
-        "icon": "PresentationIcon",
+        "icon": "kultur_og_frivillighet",
         "areaGroup": "Bransje",
         "packages": [
           {
@@ -830,7 +796,7 @@
         "urn": "accesspackage:area:handel_overnatting_og_servering",
         "name": "Handel, overnatting og servering",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til handel, overnatting og servering.",
-        "icon": "WalletIcon",
+        "icon": "handel_overnatting_og_servering",
         "areaGroup": "Bransje",
         "packages": [
           {
@@ -858,7 +824,7 @@
         "urn": "accesspackage:area:andre_tjenesteytende_naeringer",
         "name": "Andre tjenesteytende næringer",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til andre tjenesteytende næringer.",
-        "icon": "ReceptionIcon",
+        "icon": "andre_tjenesteytende_naeringer",
         "areaGroup": "Bransje",
         "packages": [
           {
@@ -901,7 +867,7 @@
         "urn": "accesspackage:area:fullmakter_for_regnskapsforer",
         "name": "Fullmakter for regnskapsfører",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til fullmakter for regnskapsfører.",
-        "icon": "AreaChartIcon",
+        "icon": "fullmakter_for_regnskapsforer",
         "areaGroup": "Spesiell",
         "packages": [
           {
@@ -929,7 +895,7 @@
         "urn": "accesspackage:area:fullmakter_for_revisor",
         "name": "Fullmakter for revisor",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til fullmakter for revisor.",
-        "icon": "ReceiptIcon",
+        "icon": "fullmakter_for_revisor",
         "areaGroup": "Spesiell",
         "packages": [
           {
@@ -951,7 +917,7 @@
         "urn": "accesspackage:area:fullmakter_for_konkursbo",
         "name": "Fullmakter for konkursbo",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til fullmakter for konkursbo.",
-        "icon": "TrendDownIcon",
+        "icon": "fullmakter_for_konkursbo",
         "areaGroup": "Spesiell",
         "packages": [
           {

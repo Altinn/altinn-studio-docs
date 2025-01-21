@@ -27,31 +27,23 @@ The following diagram illustrates the overall data flow.
 ![Topics](flowchart-email-notifications-process.drawio.svg "Flow chart including Kafka topics for email notification processing")
 {{% /expandlarge %}}
 
-{{% expandlarge id="notifications-topic-process-sms" header="Flow chart for sms notification processing" %}}
-![Topics](flowchart-sms-notifications-process.drawio.svg "Flow chart including Kafka topics for sms notification processing")
+{{% expandlarge id="notifications-topic-process-sms" header="Flow chart for SMS notification processing" %}}
+![Topics](flowchart-sms-notifications-process.drawio.svg "Flow chart including Kafka topics for SMS notification processing")
 {{% /expandlarge %}}
 
 ## System and service dependencies 
 ### Internal
 
-- **Altinn Authorization**: used to authorize access to endpoints
-- **Altinn Profile**: used to retrieve recipient information 
-- **Altinn Register**: used to retrieve recipient information
-
-
-{{% notice info %}}
-The number of internal dependencies for Notifications is currently quite limited, 
-but during 2024 we expect the services below to be utilized by Notifications. 
-- **Altinn Storage**: used to retrieve status for Altinn app instances to evaluate send conditions
-{{% /notice %}}
-
+- **Altinn Authorization**: used to filter recipients being sent to an organization.
+- **Altinn Profile**: used to retrieve recipient information.
+- **Altinn Register**: used to retrieve recipient information.
 
 ### External
 - [**Azure Kubernetes Services**](https://azure.microsoft.com/en-us/products/kubernetes-service): hosts the docker containers for microservices and cron jobs 
-  in a fully managed Kubernetes cluster
-- [**Kafka on Confluent cloud**](https://www.confluent.io/): hosts the kafka cluster the microservices consumes and produces messages to. Say something about why we use kafka vs something else. E.g. storage queues
-- [**PostgreSQL**](https://www.postgresql.org/): used for storage
-- [**Azure Communication Services**](https://azure.microsoft.com/en-us/products/communication-services): used to send emails
-- [**Azure Event Grid**](https://azure.microsoft.com/en-us/products/event-grid): used to subscribe to status updates for sent emails
-- [**LINK Mobility**](https://www.linkmobility.com/) used to send sms
-- [**Maskinporten**](https://www.digdir.no/felleslosninger/maskinporten/869) used to generate tokens for external REST API requests
+  in a fully managed Kubernetes cluster.
+- [**Kafka on Confluent cloud**](https://www.confluent.io/): hosts the kafka cluster the microservices consumes and produces messages to.
+- [**PostgreSQL**](https://www.postgresql.org/): used for storage.
+- [**Azure Communication Services**](https://azure.microsoft.com/en-us/products/communication-services): used to send emails.
+- [**Azure Event Grid**](https://azure.microsoft.com/en-us/products/event-grid): used to subscribe to status updates for sent emails.
+- [**LINK Mobility**](https://www.linkmobility.com/) used to send SMS.
+- [**Maskinporten**](https://www.digdir.no/felleslosninger/maskinporten/869) used to generate tokens for external REST API requests.

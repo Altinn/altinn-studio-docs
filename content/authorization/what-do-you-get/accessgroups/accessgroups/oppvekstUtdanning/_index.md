@@ -12,7 +12,7 @@ aliases:
 |---|
 |[Barnehageeier](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/oppvekstutdanning/#barnehageeier)|
 |[Barnehageleder](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/oppvekstutdanning/#barnehageleder)|
-|[Barnehagemyndighet](https://ldocs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/oppvekstutdanning/#barnehagemyndighet)|
+|[Barnehagemyndighet](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/oppvekstutdanning/#barnehagemyndighet)|
 |[Statsforvalter-barnehage](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/oppvekstutdanning/#statsforvalter-barnehage)|
 |[Statsforvalter-skole og opplæring](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/oppvekstutdanning/#statsforvalter-skole-og-opplæring)|
 |[Skoleeier](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/oppvekstutdanning/#skoleeier)|
@@ -37,11 +37,11 @@ Denne fullmakten gir tilgang til alle tjenester innen drift av barnehage som bar
 *urn:altinn:accesspackage:barnehagemyndighet*
 
 ### Statsforvalter-barnehage 
-Beskrivelse mangler  
+Denne fullmkaten gir tilgang til tjenester innen barnehageområdet som statsforvalteren er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.   
 *urn:altinn:accesspackage:statsforvalterbarnehage*
 
 ### Statsforvalter-skole og opplæring 
-Beskrivelse mangler  
+Denne fullmkaten gir tilgang til tjenester innen skole og opplæring som statsforvalteren er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:statsforvalterskoleogopplearing*
 
 ### Skoleeier 
