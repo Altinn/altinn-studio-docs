@@ -1,5 +1,5 @@
 ---
-title: Konfigurasjon av et underskjema
+title: Konfigurere et underskjema
 linktitle: Konfigurasjon
 description: Slik kan du konfigurere og utforme et underskjema
 weight: 120

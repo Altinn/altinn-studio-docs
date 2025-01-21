@@ -13,7 +13,7 @@ aliases:
 Et underskjema er et skjema som er en del av et annet skjema.
 Du setter opp underskjemaene i tilhørende tabeller. Denne veiledningen forklarer hvordan du oppretter en tabell for underskjema og konfigurere underskjemaet som skal være knyttet til den.
 
-## 2. Konfigurasjon av underskjema
+## 2. Konfigurere et underskjema
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
