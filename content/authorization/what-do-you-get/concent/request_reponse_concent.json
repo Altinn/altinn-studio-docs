@@ -1,10 +1,9 @@
 
 {
     "id": "b55b0a8c-46db-4239-a417-a89daabfabba",
-    "from": "urn:altinn:person:identifier-no:984851006",
-    "to": "urn:altinn:organization:identifier-no:01039012345",
-    "concented": "2024-06-01T00:00:00Z",
-    "validTo": "2024-12-10T00:00:00Z",
+    "from": "urn:altinn:person:identifier-no:01039012345",
+    "to": "urn:altinn:organization:identifier-no:984851006",
+    "ValidTo": "2019-09-30T10:30:00.000", 
     "requestmessage": {
         "nb": "Ved å samtykke, gir du Skatteetaten rett til å utlevere opplysninger om deg direkte til DNB BANK ASA. Banken får opplysningene for å behandle søknad om finansiering.",
         "nn": "Ved å samtykke, gir du Skatteetaten rett til å utlevere opplysningar om deg direkte til DNB BANK ASA. Banken får opplysningane for å behandle søknad om finansiering.",
@@ -42,5 +41,6 @@
                 "inntektsaar": "2016"
             }
         }
-    ]
+    ],
+    "PortalViewMode": "Hide"
 } 
