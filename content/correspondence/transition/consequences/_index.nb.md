@@ -10,12 +10,12 @@ Her er en kort oppsummering av hvilke konsekvenser valgt overgangs- og migrering
 
 ## Tjenesteeier
 
-- Ved opprettelse av meldingen i API, blir meldingen opprettet i miljøet som kalles («hjemstedet» til elementet).
+- Ved opprettelse av Meldingen i API, blir den opprettet i miljøet som kalles («hjemstedet» til elementet).
   - Dersom i A2 vil migrering skje til A3 etter **migreringsventetid**, men varsling vil fullføres i A2 uavhengig av migrering.
-  - Dersom i Altinn 3, så vil meldingen være tilgjengelig i Altinn 2 Portalen.
+  - Dersom i Altinn 3, så vil Meldingen være tilgjengelig i Altinn 2 Portalen.
 - Sjekk av status på Melding opprettet i A2 må gjøres mot A2 og eventuelt deretter mot A3 etter migrering.
   - Siden migrering først utføres etter **migreringsventetid**, antas det at TE ikke trenger å sjekke for samme element i både A2 og A3, men at endringer av interesse allerede har skjedd i A2.
-- Man må integrere seg mot Altinn 3 API for å opprette/følge opp nye meldinger der.
+- Man må integrere seg mot Altinn 3 API for å opprette/følge opp nye Meldinger der.
   - De kan bruke de migrerte tjenestene, eller etablere helt nye.
 
 ## Sluttbrukere
@@ -31,8 +31,8 @@ Her er en kort oppsummering av hvilke konsekvenser valgt overgangs- og migrering
 
 ### Via Arbeidsflate
 
-- Får opp meldingene som er opprettet i Altinn 3, samt de som er blitt migrert.
-- Meldinger i Altinn 2 som ikke er blitt migrert, vil ikke være tilgjengelig.
+- Får opp Meldingene som er opprettet i Altinn 3, samt de som er blitt migrert.
+- Meldinger i Altinn 2 som ikke er blitt migrert, **vil ikke være tilgjengelig** siden Arbeidsflate baserer seg på Dialogporten, og Altinn 2 Meldinger ikke er opprettet i Dialogporten fra før.
 
 ## SluttbrukerSystem
 
@@ -44,6 +44,7 @@ Her er en kort oppsummering av hvilke konsekvenser valgt overgangs- og migrering
 
 ## Dialogporten og Arbeidsflate
 
-- Altinn 2 elementer blir ikke tilgjengeliggjort før de er migrert, men migrering kan skje relativt raskt etter at de er opprettet i Altinn 2 (styrt av **migreringsventetid**).
+- Altinn 2 elementer er ikke tilgjengelige i Dialogporten før de har blitt migrert og en Dialog blir opprettet som peker til elementet.
+- Ved å redusere **migreringsventetid**, kan migrering skje relativt raskt etter at de er opprettet i Altinn 2, og dermed gjøre dem tilgjengelig i Dialogporten og Arbeidsflate.
 
 {{<children />}}

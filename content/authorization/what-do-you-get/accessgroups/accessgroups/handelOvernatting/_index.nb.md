@@ -5,14 +5,14 @@ description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter 
 toc: true
 weight: 100
 aliases:
-- /authorization/modules/accessgroups/type-accessgroups
+- /authorization/modules/accessgroups
 ---
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Varehandel](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/handelovernatting/#varehandel)|
-|[Overnatting](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/handelovernatting/#overnatting)|
-|[Servering](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/handelovernatting/#servering)|
+|[Varehandel](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/handelovernatting/#varehandel)|
+|[Overnatting](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/handelovernatting/#overnatting)|
+|[Servering](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/handelovernatting/#servering)|
 
 
 ### Varehandel

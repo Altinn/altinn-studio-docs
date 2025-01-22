@@ -7,9 +7,9 @@ toc: true
 weight: 20
 ---
 
-"Flytt av data"-prosjektet vil ta ansvar for å migrere alle historiske meldinger og vedlegg til ny løsning.
+"Flytt av data"-prosjektet vil ta ansvar for å migrere alle historiske Meldinger og vedlegg til ny løsning.
 
-- En automatisk jobb migrerer meldinger og tilhørende vedlegg fra Altinn 2 til Altinn 3 ved bruk av et dedikert API-endepunkt.
+- En automatisk jobb migrerer Meldinger og tilhørende vedlegg fra Altinn 2 til Altinn 3 ved bruk av et dedikert API-endepunkt.
 - Den migrerte versjonen av et element vil ha en referanse til sin gamle Altinn 2 versjon, eksponert i feltet: "Altinn2CorrespondenceId" i CorrespondenceOverview endepunkt.
 - Etter migrering vil elementene ikke lenger være tilgjengelig i Altinn 2 API.
   - Men de er nå tilgjengelige på lik linje med andre Altinn 3 Meldinger;
@@ -23,7 +23,7 @@ Migreringen vil foregå over tid, og man har fleksibilitet til å styre hvilke t
 
 ## Volum og migreringsrate
 
-Det er estimert over 500 millioner meldinger med vedlegg som skal migreres fra Altinn 2 til Altinn 3.
+Det er estimert over 500 millioner Meldinger med vedlegg som skal migreres fra Altinn 2 til Altinn 3.
 Det er derfor planlagt at man vi gjøre migrering skånsomt, og starte med mindre volumer over tid for å sanke erfaring og unngå forstyrrelse av miljø.
 
 Over tid vil man øke raten og til slutt kunne bli tilnærmet ajour med live trafikk i Altinn 2 mens det sakte reduseres og Altinn 2 tas ut av bruk.
@@ -35,7 +35,7 @@ For å unngå behovet for å bygge kompleks logikk for synkronisering på tvers 
 Ut fra analyse av bruken av Meldinger, så skjer majoriteten av aktiviteten på en Melding kun kort tid etter den er opprettet og kort tid etter tilknyttede varslinger og re-varslinger har gått ut.
 For de fleste; innenfor 14 dager etter opprettelse.
 
-Ved å utsette migrering til etter dette tidsrommet slipper man å ivareta en kompleks løsning for å synkronisere endringer på meldingen som: åpning, lesebekreftelse og sletting på tvers.
+Ved å utsette migrering til etter dette tidsrommet slipper man å ivareta en kompleks løsning for å synkronisere endringer på Meldingen som: åpning, lesebekreftelse og sletting på tvers.
 
 Etter hvert som sluttbrukere og sluttbrukersystemer har integrert seg mot Altinn 3 og bruker det som sin hoved-kanal, kan man redusere **migreringsventetiden** slik at elementene kan migreres få minutter etter opprettelse.
 
@@ -65,7 +65,7 @@ I starten vil hvert av disse stegene trigges manuelt av Flytt av data-teamet, me
 
 ## Synkronisering av statusendringer mellom Altinn 2 og 3
 
-Det vil **ikke** være noen form for synkronisering av statusendringer på melding eller varslinger mellom de 2 løsningene etter at migrering er utført.
+Det vil **ikke** være noen form for synkronisering av statusendringer på Melding eller varslinger mellom de 2 løsningene etter at migrering er utført.
 
 Eksisterende status/historikk blir migrert over i steg 1, og etter steg 3 sperres Altinn 2 elementet for flere endringer, og er ikke lenger tilgjengelig eksternt. Data blir ikke slettet fra Altinn 2.
 

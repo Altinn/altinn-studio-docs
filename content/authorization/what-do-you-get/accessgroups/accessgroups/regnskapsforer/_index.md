@@ -5,14 +5,14 @@ description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter 
 toc: true
 weight: 100
 aliases:
-- /authorization/modules/accessgroups/type-accessgroups
+- /authorization/modules/accessgroups
 ---
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Regnskapsfører med signeringsrettighet](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/regnskapsforer/#regnskapsfører-med-signeringsrettighet)|
-|[Regnskapsfører uten signeringsrettighet](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/regnskapsforer/#regnskapsfører-uten-signeringsrettighet)|
-|[Regnskapsfører lønn](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/accessgroups/regnskapsforer/#regnskapsfører-lønn)|
+|[Regnskapsfører med signeringsrettighet](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/regnskapsforer/#regnskapsfører-med-signeringsrettighet)|
+|[Regnskapsfører uten signeringsrettighet](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/regnskapsforer/#regnskapsfører-uten-signeringsrettighet)|
+|[Regnskapsfører lønn](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/regnskapsforer/#regnskapsfører-lønn)|
 
 
 ### Regnskapsfører med signeringsrettighet

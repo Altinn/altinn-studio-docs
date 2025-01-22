@@ -19,12 +19,12 @@ Noen ganger er det ønskelig at et av svaralternativene er forhåndsvalgt. Det f
 ### `preselectedOptionIndex`-egenskapen
 
 {{% notice info %}}
-Denne egenskapen er tilgjengelig for de fleste komponenter som støtter svaralternativer, med unntak av `FileUploadWithTag`
-komponenten. Kun ett alternativ kan være forhåndsvalgt til enhver tid, og det er ikke mulig å velge hvilket alternativ
-som skal være forhåndsvalgt basert på `value`-egenskapen til alternativet.
+Denne egenskapen er tilgjengelig for de fleste komponenter som støtter svaralternativer, med unntak
+av `FileUploadWithTag`-komponenten. Kun ett alternativ kan være forhåndsvalgt til enhver tid, og det er ikke mulig
+å velge hvilket alternativ som skal være forhåndsvalgt basert på `value`-egenskapen til alternativet.
 {{% /notice %}}
 
-Denne egenskapen lar deg velge et svaralternativ som forhåndsvalgt. Den tar et heltall som argument, som er indeksen
+Med denne egenskapen kan du forhåndsvelge et svaralternativ. Den tar et heltall som argument, som er indeksen
 til svaralternativet som skal være forhåndsvalgt. Indeksen starter på 0 for det første svaralternativet, 1 for det andre
 osv.
 
@@ -55,19 +55,20 @@ Denne funksjonaliteten følger et sett med regler:
    på skjermen eller ikke.
 4. Forhåndsvalgte verdier blir ikke satt for komponenter som er skjult ved hjelp av [dynamikk](../../../dynamics). Om
    komponenten senere blir vist igjen, vil forhåndsvalget kunne bli satt.
-5. Det forhåndsvalgte alternativet blir bestemt før [sortering](../sorting) blir utført, men etter [filtrering](../filtering).
+5. Det forhåndsvalgte alternativet blir bestemt etter [filtrering](../filtering), men før [sortering](../sorting) blir
+   utført.
 
 
 {{% notice warning %}}
 Det finnes situasjoner hvor forhåndsvalg med denne egenskapen ikke er optimalt, og kan føre til
 situasjoner som kan oppleves som feil:
 
-1. Dersom et alternativ blir valgt, brukeren velger det bort igjen, og laster skjemaet på nytt senere vil forhåndsvalget
+1. Dersom et alternativ blir valgt, brukeren velger det bort igjen, og så laster skjemaet på nytt senere, vil forhåndsvalget
    bli satt igjen - selv om komponenten er på en side lenge før den brukeren ser på, og ikke vil se igjen.
 2. Når skjemaet sendes inn via API-et vil forhåndsvalg satt med denne egenskapen ikke ha noen effekt. Denne egenskapen
    krever at skjemaet er åpent i nettleseren for å fungere.
-3. Om skjemaet er i en tilstand hvor datamodellen ikke er skrivbar (f.eks. i PDF-generatoren), vil potensielt
-   setting av forhåndsvalgte verdier kunne føre til feilmeldinger og mislykket innsending dersom datamodellen ikke
+3. Om skjemaet er i en tilstand hvor datamodellen ikke er skrivbar (f.eks. i PDF-generatoren), vil
+   setting av forhåndsvalgte verdier potensielt føre til feilmeldinger og mislykket innsending dersom datamodellen ikke
    allerede hadde en verdi.
 
 Av disse grunnene anbefales det å bruke denne egenskapen med forsiktighet, og å vurdere et av de andre alternativene

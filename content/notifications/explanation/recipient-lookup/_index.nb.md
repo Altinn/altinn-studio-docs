@@ -1,46 +1,42 @@
 ---
 title: Recipient lookup
+description: "Altinn Notifications offers a comprehensive recipient lookup service for notifications sent
+to national identity and organization numbers. This article explains the lookup process,
+including the registries used, ensuring accurate contact details and delivery."
 linktitle: Recipient lookup
 tags: [notifications, recipient lookup]
 weight: 30
 ---
 
 
-Sending notifications to a national identity number or organization number is supported.
-A lookup of the contact details and reservation status of the recipient will be done both at the time
-of ordering a request and at the requested send time.
+Altinn Notifications supports sending notifications to recipients identified by national identity or organization numbers.
+Recipient contact details and reservation status are checked during order placement and again at the requested send time.
 
-The entity ordering the notification is responsible for checking whether the notification
-will be sent or not, as recipient lookup results are shared in the response of the order request
-as well as detailed in the notification after requested send time.
+The ordering entity must verify whether notifications were sent, as lookup results are provided in the order response and updated after the requested send time.
 
-### Recipient lookup result
+### Recipient lookup
 {{% notice warning  %}}
-The recipient lookup result reflects the situation at a specific point in time.
-If the requested send time is significantly later than the time of ordering - the final lookup may have a different result.
-The status of a notification order should therefore always be checked after the requested send time
-to confirm whether notifications were successfully generated, sent and delivered.
+The recipient lookup result reflects the contact information available at a specific moment.
+If there's a significant delay between ordering and sending a notification, the final lookup may yield different results.
+Therefore, always verify the notification's status after the scheduled send time to confirm successful generation, dispatch, and delivery.
 {{% /notice %}}
 
 
-The _recipient lookup result_ provides insight into the probability of Altinn being able to send the notification
-to the recipients stated in the order. By checking the contents of this object, alternative
-measures can be taken before the requested send time if there are reserved persons or recipients where no contact details can be found.
+The _recipientLookup_ object indicates the likelihood of Altinn successfully delivering notifications
+to the specified recipients. Reviewing this information allows for alternative actions before the send time if recipients are reserved or lack contact details.
 
-|    Property    |                                                  Description                                                   |
-| :------------: | :------------------------------------------------------------------------------------------------------------: |
-|     status     |                                        The result of the initial lookup                                        |
-|   isReserved   |                    A list containing national identity numbers for all reserved recipients.                    |
-| missingContact | A list containing national identity number and/or organization numbers for recipients missing contact details. |
+| Property       | Description                                                                                                   |
+| -------------- | ------------------------------------------------------------------------------------------------------------- |
+| status         | The result of the initial lookup.                                                                             |
+| isReserved     | A list of national identity numbers for recipients who have chosen to opt out of electronic communication.    |
+| missingContact | A list of national identity and/or organization numbers for recipients who do not have contact details.       |
 
-
-The status property can hold one of three values.
-
-|     Status     |                       Description                        |
-| :------------: | :------------------------------------------------------: |
-|    Success     | The recipient lookup was successful for all recipients.  |
-| PartialSuccess | The recipient lookup was successful for some recipients. |
-|     Failed     |     The recipient lookup failed for all recipients.      |
+The status property can have one of three values:
+| Status         | Description                                     |
+| -------------- | ----------------------------------------------- |
+| Success        | Recipient lookup succeeded for all recipients.  |
+| PartialSuccess | Recipient lookup succeeded for some recipients. |
+| Failed         | Recipient lookup failed for all recipients.     |
 
 
 __Samples__
@@ -55,26 +51,25 @@ __Samples__
 
 ### Registries used for lookup
 
-When sending a notification through Altinn the sender can provide the contact details (email
-or SMS). In addition to this, Altinn uses a set of registries to retrieve the contact details
-if none have been provided by the sender.
+When sending a notification through Altinn, the sender can provide the contact details (email or SMS).
+Additionally, Altinn uses a set of registries to retrieve contact details if the sender has not provided them for a recipient.
 
-__The common contact register (Kontakt- og reservasjonsregisteret)__
+__The Contact and Reservation Register (Kontakt- og reservasjonsregisteret)__
 
-Altinn has a local copy of this register which can be used used to retrieve
-contact details if the recipient is identified by person number.
+Altinn maintains a local copy of this register, which can be used to retrieve
+name and contact details when the recipient is identified by their national identity number.
 
-[Read more about the common contact register is available here](https://eid.difi.no/en/privacy-policy/privacy-policy-common-contact-register-krr).
+[Read more about the Contact and Reservation Register here](https://eid.difi.no/en/privacy-policy/privacy-policy-common-contact-register-krr).
 
-__The National Registry for Notification Addresses for Businesses (Varslingsadresser for Enheter)__
+__The Notification Addresses for Businesses (Varslingsadresser for Enheter)__
 
-Altinn has a local copy of this register which can be used used to retrieve contact details if the
-recipient is identified by organization number.
+Altinn also maintains a local copy of this register, 
+which can be used to retrieve name and contact details when the recipient is identified by their organization number.
 
-[Read more about the notification addresses to apply in public administration here](https://www.brreg.no/en/other-topics/notification-addresses-to-apply-in-public-administration/?nocache=1704206499405).
+[Read more about the Notification Addresses for Businesses here](https://www.brreg.no/en/other-topics/notification-addresses-to-apply-in-public-administration/?nocache=1704206499405).
 
 
 __Altinn user profile__
 
-End users can register their preferred contact details for notifications related to organizations in their
-Altinn profile. These contact details can be used when the recipient is identified by organization number.
+End users can register their preferred contact details for notifications related to organizations
+in their Altinn profile. These contact details can be used when the notification recipient is identified by an organization that the user can represent.
