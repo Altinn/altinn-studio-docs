@@ -27,7 +27,7 @@ Base these values on your existing Altinn 2 service, and set the values to the s
 - MaxFileTransferSize = "1073741824" (1 GB - max allowed in Altinn 2).
 - FileTransferTimeToLive = The equivalent TimeToLive of the Altinn 2 service, most used "30D" - 30 days.
 - PurgeFileTransferAfterAllRecipientsConfirmed = The equivalent TimeToLive of the Altinn 2 service, most used "true"
-- PurgeFileTransferGracePeriod = "PT24H" - Files will not be deleted before 24hrs have passed. Must be [ISO8601 Duration](https://en.wikipedia.org/wiki/ISO_8601#Durations) and 24 hours is the max.
+- PurgeFileTransferGracePeriod = "PT24H" - Files will not be deleted before 24hrs have passed (was hard-coded to 48hrs in Altinn 2). Must be [ISO8601 Duration](https://en.wikipedia.org/wiki/ISO_8601#Durations) and 24 hours is the max.
 
 If you need to use the [Manifest file feature](../technical-overview/#manifest-file), you also need to set the following values.
 
@@ -64,6 +64,10 @@ The exact length of time depends on the work pattern of your recipients; how lon
 
 One method of enforcing this is to use Altinn 2 SRR to temporarily remove the "write" access for all the organizations you have approved as senders, but keep the "read" access for all recipients.
 Once the transition has been set up, you can give the "write" access back to all the senders, and the files will now be created i Altinn 3.
+
+{{% notice warning  %}}
+Be aware that SRR Rights in Altinn 2 are cached for 10 minutes (SC+SEC+Orgnr), so ensure to afford this amount of time between adding/removing the rights and other steps of your go-live plan.
+{{% /notice %}}
 
 ## End Users
 
