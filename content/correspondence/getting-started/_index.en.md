@@ -9,7 +9,7 @@ weight: 30
 
 {{<children />}}
 
-Aan enterprise may have three different roles when interacting with Altinn Correspondence;
+An enterprise may have three different roles when interacting with Altinn Correspondence;
 
 - Sender
 - Recipient
