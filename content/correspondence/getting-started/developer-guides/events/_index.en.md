@@ -1,5 +1,5 @@
 ---
-title: Altinn 3 Correspondence Developer guides
+title:  Events in Altinn 3 Correspondence
 linktitle: Events
 description: How to get started subscribing to Events from Altinn 3 Correspondence, for developers
 tags: [Correspondence, guide, events]

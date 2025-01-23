@@ -1,5 +1,5 @@
 ---
-title: Altinn 3 Correspondence Developer guides
+title: Notifications in Altinn 3 Correspondence
 linktitle: Notifications in Correspondence
 description: How to get started with Notifications in Altinn 3 Correspondence, for developers
 tags: [Correspondence, guide, events]
