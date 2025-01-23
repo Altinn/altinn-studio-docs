@@ -11,7 +11,7 @@
         "urn": "accesspackage:area:skatt_avgift_regnskap_og_toll",
         "name": "Skatt, avgift, regnskap og toll",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til skatt, avgift, regnskap og toll.",
-        "icon": "https://raw.githubusercontent.com/Altinn/altinn-studio-docs/accesspackage-icons/content/authorization/architecture/resourceregistry/accesspackage_iconsskatt_avgift_regnskap_og_toll.svg",
+        "icon": "https://raw.githubusercontent.com/Altinn/altinn-studio-docs/accesspackage-icons/content/authorization/architecture/resourceregistry/accesspackage_icons/skatt_avgift_regnskap_og_toll.svg",
         "areaGroup": "Vanlig",
         "packages": [
           {
