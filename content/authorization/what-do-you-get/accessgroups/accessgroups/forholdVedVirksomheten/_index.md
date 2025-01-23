@@ -24,6 +24,7 @@ aliases:
 | [Rapportering av statistikk](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/forholdvedvirksomheten/#rapportering-av-statistikk)|
 | [Forskning](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/forholdvedvirksomheten/#forskning)|
 | [Eksplisitt tjenestedelegering](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/forholdvedvirksomheten/#eksplisitt-tjenestedelegering)|
+| [Folkeregister](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/forholdvedvirksomheten/#folkeregister)|
 
 ### Generelle Helfo tjenester
 Denne fullmakten gir tilgang til ordinære tjenester knyttet til virksomhetens dialog med Helfo der bruker kan få tilgang til personopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
@@ -81,6 +82,10 @@ Denne fullmakten gir tilgang til tjenester knyttet til forskning. Ved regelverks
 Denne fullmakten er ikke delegerbar, og er ikke knyttet til noen roller i ENhetsregisteret. Tilgang til tjenester knyttet til denne pakken kan gis av Hovedadministrator gjennom enkeltrettighetsdelegering.  
 *urn:altinn:accesspackage:eksplisitt*
 
+### Folkeregister
+Denne tilgangspakken gir fullmakt til tjenester som en virksomhet kan ha mot folkeregister. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
+*urn:altinn:accesspackage:folkeregister*
+
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
 |**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
@@ -99,3 +104,4 @@ Denne fullmakten er ikke delegerbar, og er ikke knyttet til noen roller i ENhets
 |Rapportering av statistikk|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
 |Forskning|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
 |Eksplisitt tjenestedelegering||Nei|
+|Folkeregister|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
