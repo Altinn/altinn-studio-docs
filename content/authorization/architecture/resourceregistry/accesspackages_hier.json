@@ -11,7 +11,7 @@
         "urn": "accesspackage:area:skatt_avgift_regnskap_og_toll",
         "name": "Skatt, avgift, regnskap og toll",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til skatt, avgift, regnskap og toll.",
-        "icon": "skatt_avgift_regnskap_og_toll",
+        "icon": "https://raw.githubusercontent.com/Altinn/altinn-studio-docs/accesspackage-icons/content/authorization/architecture/resourceregistry/accesspackage_iconsskatt_avgift_regnskap_og_toll.svg",
         "areaGroup": "Vanlig",
         "packages": [
           {
@@ -81,7 +81,7 @@
         "urn": "accesspackage:area:personale",
         "name": "Personale",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til personale.",
-        "icon": "personale",
+        "icon": "https://raw.githubusercontent.com/Altinn/altinn-studio-docs/accesspackage-icons/content/authorization/architecture/resourceregistry/accesspackage_icons/personale.svg",
         "areaGroup": "Vanlig",
         "packages": [
           {
@@ -127,7 +127,7 @@
         "urn": "accesspackage:area:miljo_ulykke_og_sikkerhet",
         "name": "Miljø, ulykke og sikkerhet",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til miljø, ulykke og sikkerhet.",
-        "icon": "miljo_ulykke_og_sikkerhet",
+        "icon": "https://raw.githubusercontent.com/Altinn/altinn-studio-docs/accesspackage-icons/content/authorization/architecture/resourceregistry/accesspackage_icons/miljo_ulykke_og_sikkerhet.svg",
         "areaGroup": "Vanlig",
         "packages": [
           {
@@ -173,7 +173,7 @@
         "urn": "accesspackage:area:post_og_arkiv",
         "name": "Post og arkiv",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til post og arkiv.",
-        "icon": "post_og_arkiv",
+        "icon": "https://raw.githubusercontent.com/Altinn/altinn-studio-docs/accesspackage-icons/content/authorization/architecture/resourceregistry/accesspackage_icons/post_og_arkiv.svg",
         "areaGroup": "Vanlig",
         "packages": [
           {
@@ -195,7 +195,7 @@
         "urn": "accesspackage:area:forhold_ved_virksomheten",
         "name": "Forhold ved virksomheten",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til forhold ved virksomheten.",
-        "icon": "forhold_ved_virksomheten",
+        "icon": "https://raw.githubusercontent.com/Altinn/altinn-studio-docs/accesspackage-icons/content/authorization/architecture/resourceregistry/accesspackage_icons/forhold_ved_virksomheten.svg",
         "areaGroup": "Vanlig",
         "packages": [
           {
@@ -289,7 +289,7 @@
         "urn": "accesspackage:area:integrasjoner",
         "name": "Integrasjoner",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til integrasjoner.",
-        "icon": "integrasjoner",
+        "icon": "https://raw.githubusercontent.com/Altinn/altinn-studio-docs/accesspackage-icons/content/authorization/architecture/resourceregistry/accesspackage_icons/integrasjoner.svg",
         "areaGroup": "Vanlig",
         "packages": [
           {
@@ -326,7 +326,7 @@
         "urn": "accesspackage:area:jordbruk_skogbruk_jakt_fiske_og_akvakultur",
         "name": "Jordbruk, skogbruk, jakt, fiske og akvakultur",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til jordbruk, skogbruk, jakt, fiske og akvakultur.",
-        "icon": "jordbruk_skogbruk_jakt_fiske_og_akvakultur",
+        "icon": "https://raw.githubusercontent.com/Altinn/altinn-studio-docs/accesspackage-icons/content/authorization/architecture/resourceregistry/accesspackage_icons/jordbruk_skogbruk_jakt_fiske_og_akvakultur.svg",
         "areaGroup": "Bransje",
         "packages": [
           {
@@ -378,7 +378,7 @@
         "urn": "accesspackage:area:bygg_anlegg_og_eiendom",
         "name": "Bygg, anlegg og eiendom",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til bygg, anlegg og eiendom.",
-        "icon": "bygg_anlegg_og_eiendom",
+        "icon": "https://raw.githubusercontent.com/Altinn/altinn-studio-docs/accesspackage-icons/content/authorization/architecture/resourceregistry/accesspackage_icons/bygg_anlegg_og_eiendom.svg",
         "areaGroup": "Bransje",
         "packages": [
           {
@@ -430,7 +430,7 @@
         "urn": "accesspackage:area:transport_og_lagring",
         "name": "Transport og lagring",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til transport og lagring.",
-        "icon": "transport_og_lagring",
+        "icon": "https://raw.githubusercontent.com/Altinn/altinn-studio-docs/accesspackage-icons/content/authorization/architecture/resourceregistry/accesspackage_icons/transport_og_lagring.svg",
         "areaGroup": "Bransje",
         "packages": [
           {
@@ -476,7 +476,7 @@
         "urn": "accesspackage:area:helse_pleie_omsorg_og_vern",
         "name": "Helse, pleie, omsorg og vern",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til helse, pleie, omsorg og vern.",
-        "icon": "helse_pleie_omsorg_og_vern",
+        "icon": "https://raw.githubusercontent.com/Altinn/altinn-studio-docs/accesspackage-icons/content/authorization/architecture/resourceregistry/accesspackage_icons/helse_pleie_omsorg_og_vern.svg",
         "areaGroup": "Bransje",
         "packages": [
           {
@@ -528,7 +528,7 @@
         "urn": "accesspackage:area:oppvekst_og_utdaning",
         "name": "Oppvekst og utdaning",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til oppvekst og utdaning.",
-        "icon": "oppvekst_og_utdaning",
+        "icon": "https://raw.githubusercontent.com/Altinn/altinn-studio-docs/accesspackage-icons/content/authorization/architecture/resourceregistry/accesspackage_icons/oppvekst_og_utdaning.svg",
         "areaGroup": "Bransje",
         "packages": [
           {
@@ -616,7 +616,7 @@
         "urn": "accesspackage:area:energi_vann_avlop_og_avfall",
         "name": "Energi, vann,avløp og avfall",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til energi, vann,avløp og avfall.",
-        "icon": "energi_vann_avlop_og_avfall",
+        "icon": "https://raw.githubusercontent.com/Altinn/altinn-studio-docs/accesspackage-icons/content/authorization/architecture/resourceregistry/accesspackage_icons/energi_vann_avlop_og_avfall.svg",
         "areaGroup": "Bransje",
         "packages": [
           {
@@ -668,7 +668,7 @@
         "urn": "accesspackage:area:industrier",
         "name": "Industrier",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til industrier.",
-        "icon": "industrier",
+        "icon": "https://raw.githubusercontent.com/Altinn/altinn-studio-docs/accesspackage-icons/content/authorization/architecture/resourceregistry/accesspackage_icons/industrier.svg",
         "areaGroup": "Bransje",
         "packages": [
           {
@@ -750,7 +750,7 @@
         "urn": "accesspackage:area:kultur_og_frivillighet",
         "name": "Kultur og frivillighet",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til kultur og frivillighet.",
-        "icon": "kultur_og_frivillighet",
+        "icon": "https://raw.githubusercontent.com/Altinn/altinn-studio-docs/accesspackage-icons/content/authorization/architecture/resourceregistry/accesspackage_icons/kultur_og_frivillighet.svg",
         "areaGroup": "Bransje",
         "packages": [
           {
@@ -796,7 +796,7 @@
         "urn": "accesspackage:area:handel_overnatting_og_servering",
         "name": "Handel, overnatting og servering",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til handel, overnatting og servering.",
-        "icon": "handel_overnatting_og_servering",
+        "icon": "https://raw.githubusercontent.com/Altinn/altinn-studio-docs/accesspackage-icons/content/authorization/architecture/resourceregistry/accesspackage_icons/handel_overnatting_og_servering.svg",
         "areaGroup": "Bransje",
         "packages": [
           {
@@ -824,7 +824,7 @@
         "urn": "accesspackage:area:andre_tjenesteytende_naeringer",
         "name": "Andre tjenesteytende næringer",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til andre tjenesteytende næringer.",
-        "icon": "andre_tjenesteytende_naeringer",
+        "icon": "https://raw.githubusercontent.com/Altinn/altinn-studio-docs/accesspackage-icons/content/authorization/architecture/resourceregistry/accesspackage_icons/andre_tjenesteytende_naeringer.svg",
         "areaGroup": "Bransje",
         "packages": [
           {
@@ -867,7 +867,7 @@
         "urn": "accesspackage:area:fullmakter_for_regnskapsforer",
         "name": "Fullmakter for regnskapsfører",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til fullmakter for regnskapsfører.",
-        "icon": "fullmakter_for_regnskapsforer",
+        "icon": "https://raw.githubusercontent.com/Altinn/altinn-studio-docs/accesspackage-icons/content/authorization/architecture/resourceregistry/accesspackage_icons/fullmakter_for_regnskapsforer.svg",
         "areaGroup": "Spesiell",
         "packages": [
           {
@@ -895,7 +895,7 @@
         "urn": "accesspackage:area:fullmakter_for_revisor",
         "name": "Fullmakter for revisor",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til fullmakter for revisor.",
-        "icon": "fullmakter_for_revisor",
+        "icon": "https://raw.githubusercontent.com/Altinn/altinn-studio-docs/accesspackage-icons/content/authorization/architecture/resourceregistry/accesspackage_icons/fullmakter_for_revisor.svg",
         "areaGroup": "Spesiell",
         "packages": [
           {
@@ -917,7 +917,7 @@
         "urn": "accesspackage:area:fullmakter_for_konkursbo",
         "name": "Fullmakter for konkursbo",
         "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til fullmakter for konkursbo.",
-        "icon": "fullmakter_for_konkursbo",
+        "icon": "https://raw.githubusercontent.com/Altinn/altinn-studio-docs/accesspackage-icons/content/authorization/architecture/resourceregistry/accesspackage_icons/fullmakter_for_konkursbo.svg",
         "areaGroup": "Spesiell",
         "packages": [
           {
