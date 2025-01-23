@@ -48,7 +48,7 @@ En bruker med denne tilgangen kan deretter delegere tilgangen til virksomhetsbru
 **TIPS**: Verifiser konfigurasjonene dine ved hjelp av [Postman-samlingen](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json), og erstatt testtokenene med dine egne Altinn-token (Se forespørselen "Logg inn i Maskinporten (Initialiser)" i Authenticator-mappen).
 
 ### 2b. For avsender eller mottaker som ikke er tjenesteeier
-Kontant eieren av Meldingsressursen og spør om å få tilgang til ressursen. Oppgi følgende informasjon:
+Kontakt eieren av Meldingsressursen og spør om å få tilgang til ressursen. Oppgi følgende informasjon:
 - Organisasjonsnummer
 - System bruker
 
