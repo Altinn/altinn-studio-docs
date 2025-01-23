@@ -7,55 +7,50 @@ toc: true
 weight: 20
 ---
 
+Altinn 3 Corresponednce lets you send general and/or personal correspondences to users. The solution supports all languages, but have templates for Norwegian bokmål (nb), Norwegian nynorsk (nn) and English (en)
+
 ## Main Features
 
-### Creation and Sending of Messages
-- Ability for public agencies and other service providers to create and send messages to users.
-  - Languages supported: Norwegian bokmål (nb), Norwegian nynorsk (nn) and English (en)
-- Support for both general and personalized messages.
-
 ### Notifications
-- Automatic notifications via email or SMS to users when they receive new messages.
-- Customized notification settings based on user preferences.
+- Automatic notifications via email or SMS to users when they receive new correspondences.
+- Reminder notification after 7 days if the correspondence is unread.
+- Customized notification settings based on user preferences. This includes notification templates and custom notification addresses.
 
 ### Archiving and Storage
-- All messages are stored in the user's inbox in Altinn.
-- Retention policies that ensure messages are available as long as necessary according to legislation and guidelines.
+- All correspondences are stored in the user's inbox in Altinn.
+- Retention policies that ensure correspondences are available as long as necessary according to legislation and guidelines.
 
 ### Access Control and Security
-- Advanced access control ensuring that only authorized users can read the messages.
+- Advanced access control ensuring that only authorized users can read the correspondences.
 - Use of security mechanisms like encryption to protect the content.
 
 ### Search and Filtering Functions
-- User-friendly search and filtering functions to quickly find specific messages.
-- Ability to sort messages by various criteria such as date, sender, and message type.
+- User-friendly search and filtering functions to quickly find specific correspondences.
+- Ability to sort correspondences by various criteria such as date, sender, and message type.
 
 ### Integrations and APIs
-- APIs allowing integration with other systems for sending and receiving messages.
+- APIs allowing integration with other systems for sending and receiving correspondences.
 - Possibility for automated message handling through integrated systems.
 
 ### Receipts and Confirmations
-- The system provides receipts when a message is delivered and opened by the recipient.
-- Ability to send confirmations back to the sender that the message has been read.
+- The system provides receipts when a correspondence is delivered and opened by the recipient.
+- Ability to send confirmations back to the sender that the correspondence has been read.
 
 ### User Administration
 - Tools for managing user profiles and access.
-- Functionality to assign messages to the correct user or unit within an organization.
+- Functionality to assign correspondences to the correct user or unit within an organization.
 
 ### Support for Various Message Formats
-- Ability to send messages in Markdown or clean text.
+- Ability to send correspondences in Markdown or clean text.
 - Support for several attachments per correspondence, without limitation of type. PDF, XML and HTML will usually be the most common used.
-
-### Reporting and Statistics
-- Tools to generate reports and statistics over sent and received messages.
-- Overview of message flows and usage data.
+- Supports attachments up to 250 MB. 
 
 ### Advanced Support for Linking to Content and Attachments
 
-- As an alternative to sending message content and attachments directly in the messages,
+- As an alternative to sending correspondence content and attachments directly in the correspondences,
   the sender can choose to send links to content and attachments.
-- Altinn Melding has functionality for uploading files with message content and attachments,
-  for secure storage and reuse across multiple messages.
+- Altinn Correspondence has functionality for uploading files with correspondence content and attachments,
+  for secure storage and reuse across multiple correspondences.
 - It is also possible to link to content and attachments stored elsewhere,
   e.g., on-premises at the sender or in the sender's preferred cloud solution.
 

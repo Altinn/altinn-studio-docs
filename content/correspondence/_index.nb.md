@@ -7,11 +7,6 @@ toc: false
 weight: 1
 ---
 
-{{<notice warning>}} <!-- info -->
-Norsk oversettelse er under utarbeidelse.
-{{</notice>}}
-
-
 {{<children />}}
 
 
