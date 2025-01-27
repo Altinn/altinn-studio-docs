@@ -52,23 +52,27 @@ Tjenesteeier kan deretter lage et middleware e.l. som gjør ekstra autorisasjon 
 ```csharp
 WebApplication app = builder.Build();
 
-app.Run(async context =>
-{
-    var authenticationContext = context.RequestServices.GetRequiredService<IAuthenticationContext>();
-    var authenticated = authenticationContext.Current;
-    if (authenticated is Authenticated.User user)
+app.Use(
+    async (context, next) =>
     {
-        // Here we are expressing that for any API request for the authenticated party is a user, the user either has to
-        // * Be logged in through Altinn portal
-        // * Have consented to the custom app scope `myappscope` (it has consent required registered on the scope in ID-porten)
-        if (!user.InAltinnPortal && !user.Scopes.HasScope("myappscope"))
+        var authenticationContext = context.RequestServices.GetRequiredService<IAuthenticationContext>();
+        var authenticated = authenticationContext.Current;
+        if (authenticated is Authenticated.User user)
         {
-            context.Response.StatusCode = 403;
-            await context.Response.WriteAsync("Forbidden");
-            return;
+            // Here we are expressing that for any API request for the authenticated party is a user, the user either has to
+            // * Be logged in through Altinn portal
+            // * Have consented to the custom app scope `myappscope` (it has consent required registered on the scope in ID-porten)
+            if (!user.InAltinnPortal && !user.Scopes.HasScope("myappscope"))
+            {
+                context.Response.StatusCode = 403;
+                await context.Response.WriteAsync("Forbidden");
+                return;
+            }
         }
+
+        await next(context);
     }
-});
+);
 ```
 
 
@@ -268,13 +272,17 @@ Som eksemplifisert lenger opp, så kan man bruke `IAuthenticationContext` for å
 ```csharp
 WebApplication app = builder.Build();
 
-app.Run(async context =>
-{
-    var authenticationContext = context.RequestServices.GetRequiredService<IAuthenticationContext>();
-    var authenticated = authenticationContext.Current;
-    if (authenticated is Authenticated.SystemUser systemUser)
+app.Use(
+    async (context, next) =>
     {
-        ...
+        var authenticationContext = context.RequestServices.GetRequiredService<IAuthenticationContext>();
+        var authenticated = authenticationContext.Current;
+        if (authenticated is Authenticated.SystemUser systemUser)
+        {
+            ...
+        }
+
+        await next(context);
     }
-});
+);
 ```
