@@ -23,7 +23,7 @@
         "summary": "Get all applications.",
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -61,7 +61,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -102,7 +102,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -152,7 +152,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -220,7 +220,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -286,7 +286,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -366,7 +366,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -436,7 +436,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "OK"
           },
           "400": {
             "description": "Bad Request",
@@ -519,7 +519,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -559,7 +559,7 @@
             }
           },
           "422": {
-            "description": "Client Error",
+            "description": "Unprocessable Content",
             "content": {
               "application/json": {
                 "schema": {
@@ -601,7 +601,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -753,7 +753,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -823,7 +823,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "OK"
           },
           "400": {
             "description": "Bad Request",
@@ -878,7 +878,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -958,7 +958,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -1117,7 +1117,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -1179,7 +1179,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -1206,12 +1206,12 @@
         "tags": [
           "Instances"
         ],
-        "summary": "Get all instances that match the given query parameters. Parameters can be combined. Unknown or illegal parameter values will result in 400 - bad request.",
+        "summary": "Retrieves all instances that match the specified query parameters. Parameters can be combined. Invalid or unknown parameter values will result in a 400 Bad Request response.",
         "parameters": [
           {
             "name": "org",
             "in": "query",
-            "description": "application owner.",
+            "description": "The organization identifier.",
             "schema": {
               "type": "string"
             }
@@ -1219,7 +1219,7 @@
           {
             "name": "appId",
             "in": "query",
-            "description": "application id.",
+            "description": "The application identifier.",
             "schema": {
               "type": "string"
             }
@@ -1227,7 +1227,7 @@
           {
             "name": "process.currentTask",
             "in": "query",
-            "description": "Running process current task id.",
+            "description": "The current task identifier.",
             "schema": {
               "type": "string"
             }
@@ -1235,7 +1235,7 @@
           {
             "name": "process.isComplete",
             "in": "query",
-            "description": "Is process complete.",
+            "description": "A value indicating whether the process is completed.",
             "schema": {
               "type": "boolean"
             }
@@ -1243,7 +1243,7 @@
           {
             "name": "process.endEvent",
             "in": "query",
-            "description": "Process end state.",
+            "description": "The process end state.",
             "schema": {
               "type": "string"
             }
@@ -1251,42 +1251,43 @@
           {
             "name": "process.ended",
             "in": "query",
-            "description": "Process ended value.",
+            "description": "The process ended value.",
             "schema": {
-              "type": "string"
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             }
           },
           {
             "name": "instanceOwner.partyId",
             "in": "query",
-            "description": "Instance owner id.",
+            "description": "The instance owner party identifier.",
             "schema": {
               "type": "integer",
               "format": "int32"
             }
           },
           {
-            "name": "X-Ai-InstanceOwnerIdentifier",
-            "in": "header",
-            "description": "Instance owner identifier, i.e. Person:14817697543, Organisation:313541479.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
             "name": "lastChanged",
             "in": "query",
-            "description": "Last changed date.",
+            "description": "The last changed date.",
             "schema": {
-              "type": "string"
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             }
           },
           {
             "name": "created",
             "in": "query",
-            "description": "Created time.",
+            "description": "The creation date.",
             "schema": {
-              "type": "string"
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             }
           },
           {
@@ -1294,7 +1295,10 @@
             "in": "query",
             "description": "The visible after date time.",
             "schema": {
-              "type": "string"
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             }
           },
           {
@@ -1302,7 +1306,10 @@
             "in": "query",
             "description": "The due before date time.",
             "schema": {
-              "type": "string"
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             }
           },
           {
@@ -1316,7 +1323,7 @@
           {
             "name": "status.isSoftDeleted",
             "in": "query",
-            "description": "Is the instance soft deleted.",
+            "description": "A value indicating whether the instance is soft deleted.",
             "schema": {
               "type": "boolean"
             }
@@ -1324,7 +1331,7 @@
           {
             "name": "status.isHardDeleted",
             "in": "query",
-            "description": "Is the instance hard deleted.",
+            "description": "A value indicating whether the instance is hard deleted.",
             "schema": {
               "type": "boolean"
             }
@@ -1332,7 +1339,7 @@
           {
             "name": "status.isArchived",
             "in": "query",
-            "description": "Is the instance archived.",
+            "description": "A value indicating whether the instance is archived.",
             "schema": {
               "type": "boolean"
             }
@@ -1340,7 +1347,7 @@
           {
             "name": "continuationToken",
             "in": "query",
-            "description": "Continuation token.",
+            "description": "The continuation token.",
             "schema": {
               "type": "string"
             }
@@ -1353,11 +1360,37 @@
               "type": "integer",
               "format": "int32"
             }
+          },
+          {
+            "name": "X-Ai-InstanceOwnerIdentifier",
+            "in": "header",
+            "description": "The instance owner identifier.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "mainVersionInclude",
+            "in": "query",
+            "description": "Gets or sets altinn version to include",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "mainVersionExclude",
+            "in": "query",
+            "description": "Gets or sets altinn version to exclude",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -1457,7 +1490,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -1515,7 +1548,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -1581,7 +1614,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -1631,7 +1664,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -1708,7 +1741,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -1770,7 +1803,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -1811,7 +1844,7 @@
           }
         ],
         "requestBody": {
-          "description": "Collection of changes to the presentation texts collection.",
+          "description": "Collection of changes to the data values collection.",
           "content": {
             "application/json": {
               "schema": {
@@ -1822,7 +1855,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -1877,7 +1910,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "OK"
           }
         }
       }
@@ -1920,7 +1953,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "OK"
           }
         }
       },
@@ -1961,7 +1994,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "OK"
           }
         }
       }
@@ -1996,7 +2029,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "OK"
           }
         }
       }
@@ -2031,7 +2064,515 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/migration/instance": {
+      "post": {
+        "tags": [
+          "Migration"
+        ],
+        "summary": "Inserts new instance into the instance collection.",
+        "requestBody": {
+          "description": "The instance details to store.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Instance"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Instance"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/migration/dataelement/{instanceGuid}": {
+      "post": {
+        "tags": [
+          "Migration"
+        ],
+        "summary": "Inserts new data element",
+        "parameters": [
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The instanceGuid.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "createdticks",
+            "in": "query",
+            "description": "Element created timestamp ticks",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "changedticks",
+            "in": "query",
+            "description": "Element last changed timestamp ticks",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "datatype",
+            "in": "query",
+            "description": "Element data type",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "formid",
+            "in": "query",
+            "description": "A2 form id",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lformid",
+            "in": "query",
+            "description": "A2 logical form id",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "prestext",
+            "in": "query",
+            "description": "A2 presentation text",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "vispages",
+            "in": "query",
+            "description": "Semicolon separated list of visible pages",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataElement"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/migration/instanceevents": {
+      "post": {
+        "tags": [
+          "Migration"
+        ],
+        "summary": "Inserts instance events",
+        "requestBody": {
+          "description": "The instance events to store",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/InstanceEvent"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InstanceEvent"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/migration/application": {
+      "post": {
+        "tags": [
+          "Migration"
+        ],
+        "summary": "Inserts new application",
+        "requestBody": {
+          "description": "The application to store.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Application"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Instance"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/migration/text/{org}/{app}/{language}/{key}": {
+      "post": {
+        "tags": [
+          "Migration"
+        ],
+        "summary": "Inserts new text",
+        "parameters": [
+          {
+            "name": "org",
+            "in": "path",
+            "description": "The app owner org",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "app",
+            "in": "path",
+            "description": "The application that owns the text resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "language",
+            "in": "path",
+            "description": "Language",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "key",
+            "in": "path",
+            "description": "Text key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Instance"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/migration/policy/{org}/{app}": {
+      "post": {
+        "tags": [
+          "Migration"
+        ],
+        "summary": "Upload policy.xml",
+        "parameters": [
+          {
+            "name": "org",
+            "in": "path",
+            "description": "Org",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "app",
+            "in": "path",
+            "description": "App",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/migration/codelist/{name}/{language}/{version}": {
+      "post": {
+        "tags": [
+          "Migration"
+        ],
+        "summary": "Upload xls",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "Name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "language",
+            "in": "path",
+            "description": "Language",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "description": "Version",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/migration/pdfimage": {
+      "post": {
+        "tags": [
+          "Migration"
+        ],
+        "summary": "Upload image",
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/migration/xsl/{org}/{app}/{lformid}/{pagenumber}/{language}/{xsltype}/{isportrait}": {
+      "post": {
+        "tags": [
+          "Migration"
+        ],
+        "summary": "Upload xls",
+        "parameters": [
+          {
+            "name": "org",
+            "in": "path",
+            "description": "Org",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "app",
+            "in": "path",
+            "description": "App",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lformid",
+            "in": "path",
+            "description": "A2 logical form id",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pagenumber",
+            "in": "path",
+            "description": "Page number",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "language",
+            "in": "path",
+            "description": "Language",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "xsltype",
+            "in": "path",
+            "description": "Xsl type",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "isportrait",
+            "in": "path",
+            "description": "Format: portrait vs landscape",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/migration/delete/{instanceGuid}": {
+      "post": {
+        "tags": [
+          "Migration"
+        ],
+        "summary": "Delete migrated instance and releated data",
+        "parameters": [
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "Migrated instance to delete",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/migration/pdfproxy": {
+      "post": {
+        "tags": [
+          "Migration"
+        ],
+        "summary": "Proxy call to pdf generator - used for local testing",
+        "requestBody": {
+          "description": "Pdf request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PdfGeneratorRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
           }
         }
       }
@@ -2076,7 +2617,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -2087,6 +2628,78 @@
           },
           "404": {
             "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instances/{instanceOwnerPartyId}/{instanceGuid}/process/instanceandevents": {
+      "put": {
+        "tags": [
+          "Process"
+        ],
+        "summary": "Updates the process state of an instance.",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance that should have its process updated.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The new process state of the instance (including instance events).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProcessStateUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Instance"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -2128,11 +2741,44 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProcessHistoryList"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sblbridge/correspondencerecipient": {
+      "post": {
+        "tags": [
+          "SblBridge"
+        ],
+        "summary": "Endpoint to register Altinn 3 Correspondence recipient in SBL Bridge",
+        "requestBody": {
+          "description": "The party that has become an Altinn 3 Correspondence recipient",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SblBridgeParty"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -2145,7 +2791,7 @@
         "tags": [
           "Sign"
         ],
-        "summary": "Create signature document from listed data elements",
+        "summary": "Create signature document from listed data elements.",
         "parameters": [
           {
             "name": "instanceOwnerPartyId",
@@ -2160,7 +2806,7 @@
           {
             "name": "instanceGuid",
             "in": "path",
-            "description": "The guid of the instance",
+            "description": "The guid of the instance.",
             "required": true,
             "schema": {
               "type": "string",
@@ -2169,7 +2815,7 @@
           }
         ],
         "requestBody": {
-          "description": "Signrequest containing data element ids and sign status",
+          "description": "Signrequest containing data element ids and sign status.",
           "content": {
             "application/json-patch+json": {
               "schema": {
@@ -2263,7 +2909,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -2274,16 +2920,6 @@
           },
           "400": {
             "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
             "content": {
               "application/json": {
                 "schema": {
@@ -2332,7 +2968,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -2424,7 +3060,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -2491,7 +3127,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "OK"
           },
           "404": {
             "description": "Not Found",
@@ -2585,6 +3221,14 @@
           "copyInstanceSettings": {
             "$ref": "#/components/schemas/CopyInstanceSettings"
           },
+          "storageAccountNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "disallowUserInstantiation": {
+            "type": "boolean"
+          },
           "created": {
             "type": "string",
             "format": "date-time",
@@ -2639,6 +3283,16 @@
           },
           "autoDeleteOnProcessEnd": {
             "type": "boolean"
+          },
+          "disallowUserCreate": {
+            "type": "boolean"
+          },
+          "disallowUserDelete": {
+            "type": "boolean"
+          },
+          "allowInSubform": {
+            "type": "boolean",
+            "deprecated": true
           },
           "shadowFields": {
             "$ref": "#/components/schemas/ShadowFields"
@@ -2739,6 +3393,20 @@
             "type": "array",
             "items": {
               "type": "string"
+            },
+            "nullable": true
+          },
+          "userDefinedMetadata": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KeyValueEntry"
+            },
+            "nullable": true
+          },
+          "metadata": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KeyValueEntry"
             },
             "nullable": true
           },
@@ -2891,6 +3559,13 @@
             "nullable": true
           },
           "enabledFileValidators": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "allowedKeysForUserDefinedMetadata": {
             "type": "array",
             "items": {
               "type": "string"
@@ -3135,8 +3810,15 @@
           "user": {
             "$ref": "#/components/schemas/PlatformUser"
           },
+          "relatedUser": {
+            "$ref": "#/components/schemas/PlatformUser"
+          },
           "processInfo": {
             "$ref": "#/components/schemas/ProcessState"
+          },
+          "additionalInfo": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -3242,6 +3924,47 @@
         },
         "additionalProperties": false
       },
+      "KeyValueEntry": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MarginOptions": {
+        "type": "object",
+        "properties": {
+          "top": {
+            "type": "string",
+            "description": "Top margin, accepts values labeled with units.",
+            "nullable": true
+          },
+          "left": {
+            "type": "string",
+            "description": "Left margin, accepts values labeled with units",
+            "nullable": true
+          },
+          "bottom": {
+            "type": "string",
+            "description": "Bottom margin, accepts values labeled with units",
+            "nullable": true
+          },
+          "right": {
+            "type": "string",
+            "description": "Right margin, accepts values labeled with units",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "This class is created to match the PDF generator marking options."
+      },
       "MessageBoxConfig": {
         "type": "object",
         "properties": {
@@ -3320,6 +4043,11 @@
             "type": "string",
             "description": "Language nb, en, nn",
             "nullable": true
+          },
+          "filterMigrated": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether to filter migrated a1/a2 elements",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -3353,6 +4081,54 @@
         },
         "additionalProperties": false
       },
+      "PdfGeneratorRequest": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The Url that the PDF generator will used to obtain the HTML needed to created the PDF\r\nif Html is not specified. Don't use both!",
+            "nullable": true
+          },
+          "html": {
+            "type": "string",
+            "description": "The html that is input to the PDF generator if Url is not specified. Don't use both!",
+            "nullable": true
+          },
+          "options": {
+            "$ref": "#/components/schemas/PdfGeneratorRequestOptions"
+          }
+        },
+        "additionalProperties": false,
+        "description": "This class is created to match the input required to generate a PDF by the PDF generator service."
+      },
+      "PdfGeneratorRequestOptions": {
+        "type": "object",
+        "properties": {
+          "printBackground": {
+            "type": "boolean",
+            "description": "Indicate wheter the background should be included."
+          },
+          "format": {
+            "type": "string",
+            "description": "Defines the page size. Default is A4.",
+            "nullable": true
+          },
+          "landscape": {
+            "type": "boolean",
+            "description": "Whether to print in landscape orientation"
+          },
+          "margin": {
+            "$ref": "#/components/schemas/MarginOptions"
+          },
+          "scale": {
+            "type": "number",
+            "description": "Scales the rendering of the web page. Amount must be between 0.1 and 2",
+            "format": "float"
+          }
+        },
+        "additionalProperties": false,
+        "description": "This class is created to match the PDF generator options used by the PDF generator."
+      },
       "PlatformUser": {
         "type": "object",
         "properties": {
@@ -3375,6 +4151,19 @@
             "nullable": true
           },
           "nationalIdentityNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "systemUserId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "systemUserOwnerOrgNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "systemUserName": {
             "type": "string",
             "nullable": true
           }
@@ -3535,6 +4324,22 @@
         },
         "additionalProperties": false
       },
+      "ProcessStateUpdate": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "$ref": "#/components/schemas/ProcessState"
+          },
+          "events": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InstanceEvent"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ReadStatus": {
         "enum": [
           "Unread",
@@ -3586,6 +4391,18 @@
         },
         "additionalProperties": false
       },
+      "SblBridgeParty": {
+        "type": "object",
+        "properties": {
+          "partyId": {
+            "type": "integer",
+            "description": "Gets or sets the party id.",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a party in SBL Bridge"
+      },
       "ShadowFields": {
         "type": "object",
         "properties": {
@@ -3604,6 +4421,10 @@
         "type": "object",
         "properties": {
           "signatureDocumentDataType": {
+            "type": "string",
+            "nullable": true
+          },
+          "generatedFromTask": {
             "type": "string",
             "nullable": true
           },
