@@ -47,6 +47,11 @@ Tjenesteeier må lage et scope hos ID-porten via samarbeidsportalen som er app-s
 som har tenkt til å lage sluttbrukersystem for tjenesteeiers app. Deretter må sluttbrukersystemet legge til dette scopet på sin ID-porten klient
 _i tillegg_ til `altinn:instances.read` og `altinn:instances.write` (disse kreves fortsatt av Altinn plattformen).
 
+{{% notice info %}}
+På sikt ønsker vi at en app kan konfigureres med custom scope som erstatter `altinn:instances.read` og `altinn:instances.write`, 
+som også vil gjelde plattformtjenester i Altinn (f. eks. Storage), men det er ikke bestemt hvordan eller når dette skal løses.
+{{% /notice %}}
+
 Tjenesteeier kan deretter lage et middleware e.l. som gjør ekstra autorisasjon basert på den autentiserte brukeren. Eksempel:
 
 ```csharp
