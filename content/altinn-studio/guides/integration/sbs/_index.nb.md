@@ -37,7 +37,7 @@ Scopene `altinn:instances.read` og `altinn:instances.write` er ikke tjenesteeier
 Ved godkjenning gir brukeren systemet lov til å sende inn i alle Altinn apper hvor brukeren er autorisert til det (via XACML og annen config).
 {{% /notice %}}
 
-### Bedre scope
+### Bedre scope validering
 
 Gitt at `altinn:instances.read` og `altinn:instances.write` gir tilgang til alle apper i Altinn (der brukeren har tilgang),
 er det ofte behov for større grad av isolasjon slik at et mer spesifikt scope kreves, som er laget spesielt for en app.
