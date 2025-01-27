@@ -18,7 +18,7 @@ leverandørens system og appen. Det er i hovedsak 2 måter å lage denne intregr
 * Systembruker
   * Leverandør lager Maskinporten klient
   * Leverandør lager system i systemregisteret til Altinn Autentisering (i systemdefinisjonen uttrykker man behov for `altinn:instances.read` og `altinn:instances.write`)
-  * Kunde registrerer systembruker i systemregisteret. Dermed blir rettighetene delegert
+  * Kunde registrerer systembruker. Dermed blir rettighetene delegert.
   * Leverandør autentiserer med Maskinporten klient
   * Ved integrasjon mot Altinn apper så vil systemet autentisere mot Maskinporten også bruke dette tokenet ved innsending til Altinn
   * For mer informasjon, se [Altinn Autentisering brukerguide for systembrukere](/nb/authentication/guides/systemauthentication-for-systemproviders/)
@@ -89,7 +89,7 @@ på vegne av en organisasjon. I Systembruker-konseptet sitter følgende komponen
 
 * Maskinporten - autentiseringsmekanismen for alt som har med systembrukere å gjøre, inkl
   * Registrering system i systemregisteret (API hos Altinn Autentisering)
-  * Registrere systembruker i systemregisteret (API hos Altinn Autentisering)
+  * Registrere systembruker (API hos Altinn Autentisering)
   * Innsending fra systemet (leverandørens system/sluttbrukersystemet)
 * Systemregisteret
   * En komponent i Altinn Autentisering hvor alle systemdefinisjoner tilhørende sluttbrukersystemer ligger
@@ -98,7 +98,7 @@ på vegne av en organisasjon. I Systembruker-konseptet sitter følgende komponen
   * Systemet registreres og eies av sluttbrukersystem-leverandøren i systemregisteret
 * Systembruker
   * En virtuell bruker som eies av kunden til leverandøren/sluttbrukersystemet
-  * Når systembrukeren registreres (også i systemregisteret, da den registreres mot et eksisterende system), vil rettighetene systemet ber om måtte delegeres til systembrukeren. I praksis må den personen som oppretter systembrukeren (hos kunden) ha disse rettighetene som systemet ber om.
+  * Når systembrukeren registreres, vil rettighetene systemet ber om måtte delegeres til systembrukeren. I praksis må den personen som oppretter systembrukeren (hos kunden) ha disse rettighetene som systemet ber om.
 
 Dette konseptet lar dermed systemet impersonere systembrukeren i integrasjonen mot en Altinn app.
 Dermed _kan_ systemet gjøre kall mot Altinns APIer uten at en sluttbruker hos organisasjonen er tilstede.
