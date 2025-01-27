@@ -29,7 +29,7 @@ leverandørens system og appen. Det er i hovedsak 2 måter å lage denne intregr
 Ved ingrasjon fra sluttbrukersystem basert på ID-porten klient har man alltid direkte kontakt med sluttbruker.
 Når sluttbruker logger inn i sluttbrukersystem via ID-porten vil sluttbruker måtte godta at systemet gjør 
 `altinn:instances.read` og `altinn:instances.write` på vegne av brukeren (gitt at disse scopene er registrert i ID-porten klienten).
-Tokenet må deretter [veksles i Altinn Autentisering](/nb/api/authentication/spec/#/Authentication/get_exchange__tokenProvider_).
+Tokenet må deretter [veksles i Altinn Autentisering](/nb/api/authentication/spec/).
 Dette Altinn-tokenet kan deretter brukes til å sende inn skjema in en Altinn app på vegne a brukeren.
 
 {{% notice info %}}
