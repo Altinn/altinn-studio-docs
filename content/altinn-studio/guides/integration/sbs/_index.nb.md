@@ -17,7 +17,7 @@ leverandørens system og appen. Det er i hovedsak 2 måter å lage denne intregr
   * Egner seg godt for systemer der kontakt med sluttbruker er viktig, det er liten grad av automasjon og flyten i integrasjonen er fullstendig brukerstyrt.
 * Systembruker
   * Leverandør lager Maskinporten klient
-  * Leverandør lager system i systemregisteret til Altinn Autentisering (i systemdefinisjonen uttrykker man behov for `altinn:instances.read` og `altinn:instances.write`)
+  * Leverandør lager system i systemregisteret til Altinn Autentisering (i systemdefinisjonen uttrykker man behov for tilgang til appen som ressurs)
   * Kunde registrerer systembruker. Dermed blir rettighetene delegert.
   * Leverandør autentiserer med Maskinporten klient
   * Ved integrasjon mot Altinn apper så vil systemet autentisere mot Maskinporten også bruke dette tokenet ved innsending til Altinn
