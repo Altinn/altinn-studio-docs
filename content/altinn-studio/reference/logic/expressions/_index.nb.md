@@ -261,61 +261,61 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 
 ### Sammenligning av verdier
 
-| Funksjonsnavn                                | Parametre                                          | Returverdi                           | Frontend | Backend |
-|----------------------------------------------|----------------------------------------------------|--------------------------------------|----------|---------|
-| [`equals`](#func-equals)                     | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`notEquals`](#func-equals)                  | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`not`](#func-not)                           | [Boolsk](#boolske-verdier)                         | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`greaterThan`](#func-gt)                    | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`greaterThanEq`](#func-gt)                  | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`lessThan`](#func-gt)                       | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`lessThanEq`](#func-gt)                     | [Tall](#tall), [Tall](#tall)                       | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`concat`](#func-concat)                     | Ingen eller flere [strenger](#strenger)            | [Streng](#strenger)                  | ✅        | ✅       |
-| [`contains`](#func-contains-not-contains)    | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`notContains`](#func-contains-not-contains) | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`commaContains`](#func-commaContains)       | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`startsWith`](#func-starts-ends-with)       | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`endsWith`](#func-starts-ends-with)         | [Streng](#strenger), [Streng](#strenger)           | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| Funksjonsnavn                                | Parametre                                | Returverdi                 | Frontend | Backend |
+|----------------------------------------------|------------------------------------------|----------------------------|----------|---------|
+| [`equals`](#func-equals)                     | [Streng](#strenger), [Streng](#strenger) | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| [`notEquals`](#func-equals)                  | [Streng](#strenger), [Streng](#strenger) | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| [`not`](#func-not)                           | [Boolsk](#boolske-verdier)               | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| [`greaterThan`](#func-gt)                    | [Tall](#tall), [Tall](#tall)             | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| [`greaterThanEq`](#func-gt)                  | [Tall](#tall), [Tall](#tall)             | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| [`lessThan`](#func-gt)                       | [Tall](#tall), [Tall](#tall)             | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| [`lessThanEq`](#func-gt)                     | [Tall](#tall), [Tall](#tall)             | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| [`concat`](#func-concat)                     | Ingen eller flere [strenger](#strenger)  | [Streng](#strenger)        | ✅        | ✅       |
+| [`contains`](#func-contains-not-contains)    | [Streng](#strenger), [Streng](#strenger) | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| [`notContains`](#func-contains-not-contains) | [Streng](#strenger), [Streng](#strenger) | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| [`commaContains`](#func-commaContains)       | [Streng](#strenger), [Streng](#strenger) | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| [`startsWith`](#func-starts-ends-with)       | [Streng](#strenger), [Streng](#strenger) | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| [`endsWith`](#func-starts-ends-with)         | [Streng](#strenger), [Streng](#strenger) | [Boolsk](#boolske-verdier) | ✅        | ✅       |
 
 
 ### Logikk
 
-| Funksjonsnavn                                | Parametre                                          | Returverdi                           | Frontend | Backend |
-|----------------------------------------------|----------------------------------------------------|--------------------------------------|----------|---------|
-| [`and`](#func-and)                           | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`or`](#func-and)                            | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`if`](#func-if)                             | [Se detaljert beskrivelse](#func-if)               | [Se detaljert beskrivelse](#func-if) | ✅        | ✅       |
+| Funksjonsnavn      | Parametre                                          | Returverdi                           | Frontend | Backend |
+|--------------------|----------------------------------------------------|--------------------------------------|----------|---------|
+| [`and`](#func-and) | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`or`](#func-and)  | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
+| [`if`](#func-if)   | [Se detaljert beskrivelse](#func-if)               | [Se detaljert beskrivelse](#func-if) | ✅        | ✅       |
 
 ### Strenger og tall
 
-| Funksjonsnavn                                | Parametre                                          | Returverdi                           | Frontend | Backend |
-|----------------------------------------------|----------------------------------------------------|--------------------------------------|----------|---------|
-| [`lowerCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
-| [`upperCase`](#func-lowerCase-upperCase)     | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
-| [`stringLength`](#func-stringLength)         | [Streng](#strenger)                                | [Tall](#tall)                        | ✅        | ✅       |
-| [`text`](#func-text)                         | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ❌       |
-| [`language`](#func-language)                 | Ingenting                                          | [Streng](#strenger)                  | ✅        | ❌       |
-| [`displayValue`](#func-displayValue)         | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ❌       |
-| [`round`](#func-round)                       | [Tall](#tall), valgfritt [Tall](#tall)             | [Streng](#strenger)                  | ✅        | ✅       |
-| [`formatDate`](#func-formatDate)             | [Streng](#strenger), valgfri [Streng](#strenger)   | [Streng](#strenger)                  | ✅        | ❌       |
+| Funksjonsnavn                            | Parametre                                        | Returverdi          | Frontend | Backend |
+|------------------------------------------|--------------------------------------------------|---------------------|----------|---------|
+| [`lowerCase`](#func-lowerCase-upperCase) | [Streng](#strenger)                              | [Streng](#strenger) | ✅        | ✅       |
+| [`upperCase`](#func-lowerCase-upperCase) | [Streng](#strenger)                              | [Streng](#strenger) | ✅        | ✅       |
+| [`stringLength`](#func-stringLength)     | [Streng](#strenger)                              | [Tall](#tall)       | ✅        | ✅       |
+| [`text`](#func-text)                     | [Streng](#strenger)                              | [Streng](#strenger) | ✅        | ❌       |
+| [`language`](#func-language)             | Ingenting                                        | [Streng](#strenger) | ✅        | ❌       |
+| [`displayValue`](#func-displayValue)     | [Streng](#strenger)                              | [Streng](#strenger) | ✅        | ❌       |
+| [`round`](#func-round)                   | [Tall](#tall), valgfritt [Tall](#tall)           | [Streng](#strenger) | ✅        | ✅       |
+| [`formatDate`](#func-formatDate)         | [Streng](#strenger), valgfri [Streng](#strenger) | [Streng](#strenger) | ✅        | ❌       |
 
 ### Oppslag, komponenter og data
 
-| Funksjonsnavn                                | Parametre                                          | Returverdi                           | Frontend | Backend |
-|----------------------------------------------|----------------------------------------------------|--------------------------------------|----------|---------|
-| [`instanceContext`](#func-instancecontext)   | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
-| [`frontendSettings`](#func-frontendsettings) | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
-| [`dataModel`](#func-datamodel)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
-| [`component`](#func-component)               | [Streng](#strenger)                                | [Streng](#strenger)                  | ✅        | ✅       |
-| [`linkToPage`](#func-linkToPage)             | [Streng](#strenger), [Streng](#strenger)           | [Streng](#strenger)                  | ✅        | ❌       |
-| [`linkToComponent`](#func-linkToComponent)   | [Streng](#strenger), [Streng](#strenger)           | [Streng](#strenger)                  | ✅        | ❌       |
+| Funksjonsnavn                                | Parametre                                | Returverdi          | Frontend | Backend |
+|----------------------------------------------|------------------------------------------|---------------------|----------|---------|
+| [`instanceContext`](#func-instancecontext)   | [Streng](#strenger)                      | [Streng](#strenger) | ✅        | ✅       |
+| [`frontendSettings`](#func-frontendsettings) | [Streng](#strenger)                      | [Streng](#strenger) | ✅        | ✅       |
+| [`dataModel`](#func-datamodel)               | [Streng](#strenger)                      | [Streng](#strenger) | ✅        | ✅       |
+| [`component`](#func-component)               | [Streng](#strenger)                      | [Streng](#strenger) | ✅        | ✅       |
+| [`linkToPage`](#func-linkToPage)             | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅        | ❌       |
+| [`linkToComponent`](#func-linkToComponent)   | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅        | ❌       |
 
 ### Spesialfunksjoner
 
-| Funksjonsnavn                                | Parametre                                          | Returverdi                           | Frontend | Backend |
-|----------------------------------------------|----------------------------------------------------|--------------------------------------|----------|---------|
-| [`argv`](#func-argv)                         | [Tall](#tall)                                      | [Streng](#strenger)                  | ✅        | ✅       |
-| [`value`](#func-value)                       | valgfri [Streng](#strenger)                        | [Streng](#strenger)                  | ✅        | ❌       |
+| Funksjonsnavn          | Parametre                   | Returverdi          | Frontend | Backend |
+|------------------------|-----------------------------|---------------------|----------|---------|
+| [`argv`](#func-argv)   | [Tall](#tall)               | [Streng](#strenger) | ✅        | ✅       |
+| [`value`](#func-value) | valgfri [Streng](#strenger) | [Streng](#strenger) | ✅        | ❌       |
 
 Detaljerte beskrivelser og eksempler
 
