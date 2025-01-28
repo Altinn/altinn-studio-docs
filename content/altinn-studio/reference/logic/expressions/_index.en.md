@@ -262,6 +262,8 @@ Here we find the closest `age` component `age-1`, which is _36_, Kari's age.
 
 These functions are available for use in expressions:
 
+### Value comparison
+
 | Function Name                                | Parameters                                      | Return Value                         | Frontend | Backend |  
 |----------------------------------------------|-------------------------------------------------|--------------------------------------|----------|---------|  
 | [`equals`](#func-equals)                     | [String](#strings), [String](#strings)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
@@ -272,14 +274,24 @@ These functions are available for use in expressions:
 | [`lessThan`](#func-gt)                       | [Number](#numbers), [Number](#numbers)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
 | [`lessThanEq`](#func-gt)                     | [Number](#numbers), [Number](#numbers)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
 | [`concat`](#func-concat)                     | None or multiple [strings](#strings)            | [String](#strings)                   | ✅        | ✅       |  
-| [`and`](#func-and)                           | One or more [boolean values](#boolean-values)   | [Boolean](#boolean-values)           | ✅        | ✅       |  
-| [`or`](#func-and)                            | One or more [boolean values](#boolean-values)   | [Boolean](#boolean-values)           | ✅        | ✅       |  
-| [`if`](#func-if)                             | [See detailed description](#func-if)            | [See detailed description](#func-if) | ✅        | ✅       |  
 | [`contains`](#func-contains-not-contains)    | [String](#strings), [String](#strings)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
 | [`notContains`](#func-contains-not-contains) | [String](#strings), [String](#strings)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
 | [`commaContains`](#func-commaContains)       | [String](#strings), [String](#strings)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
 | [`startsWith`](#func-starts-ends-with)       | [String](#strings), [String](#strings)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
 | [`endsWith`](#func-starts-ends-with)         | [String](#strings), [String](#strings)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
+
+### Logic
+
+| Function Name                                | Parameters                                      | Return Value                         | Frontend | Backend |  
+|----------------------------------------------|-------------------------------------------------|--------------------------------------|----------|---------|  
+| [`and`](#func-and)                           | One or more [boolean values](#boolean-values)   | [Boolean](#boolean-values)           | ✅        | ✅       |  
+| [`or`](#func-and)                            | One or more [boolean values](#boolean-values)   | [Boolean](#boolean-values)           | ✅        | ✅       |  
+| [`if`](#func-if)                             | [See detailed description](#func-if)            | [See detailed description](#func-if) | ✅        | ✅       |  
+
+### Strings and numbers
+
+| Function Name                                | Parameters                                      | Return Value                         | Frontend | Backend |  
+|----------------------------------------------|-------------------------------------------------|--------------------------------------|----------|---------|  
 | [`lowerCase`](#func-lowerCase-upperCase)     | [String](#strings)                              | [String](#strings)                   | ✅        | ✅       |  
 | [`upperCase`](#func-lowerCase-upperCase)     | [String](#strings)                              | [String](#strings)                   | ✅        | ✅       |  
 | [`stringLength`](#func-stringLength)         | [String](#strings)                              | [Number](#numbers)                   | ✅        | ✅       |  
@@ -287,13 +299,24 @@ These functions are available for use in expressions:
 | [`language`](#func-language)                 | None                                            | [String](#strings)                   | ✅        | ❌       |  
 | [`displayValue`](#func-displayValue)         | [String](#strings)                              | [String](#strings)                   | ✅        | ❌       |  
 | [`round`](#func-round)                       | [Number](#numbers), optional [Number](#numbers) | [String](#strings)                   | ✅        | ✅       |  
+| [`formatDate`](#func-formatDate)             | [String](#strings), optional [String](#strings) | [String](#strings)                   | ✅        | ❌       |  
+
+### Lookup, components and data
+
+| Function Name                                | Parameters                                      | Return Value                         | Frontend | Backend |  
+|----------------------------------------------|-------------------------------------------------|--------------------------------------|----------|---------|  
 | [`instanceContext`](#func-instancecontext)   | [String](#strings)                              | [String](#strings)                   | ✅        | ✅       |  
 | [`frontendSettings`](#func-frontendsettings) | [String](#strings)                              | [String](#strings)                   | ✅        | ✅       |  
 | [`dataModel`](#func-datamodel)               | [String](#strings)                              | [String](#strings)                   | ✅        | ✅       |  
 | [`component`](#func-component)               | [String](#strings)                              | [String](#strings)                   | ✅        | ✅       |  
-| [`formatDate`](#func-formatDate)             | [String](#strings), optional [String](#strings) | [String](#strings)                   | ✅        | ❌       |  
 | [`linkToPage`](#func-linkToPage)             | [String](#strings), [String](#strings)          | [String](#strings)                   | ✅        | ❌       |  
 | [`linkToComponent`](#func-linkToComponent)   | [String](#strings), [String](#strings)          | [String](#strings)                   | ✅        | ❌       |  
+
+
+### Special functions
+
+| Function Name                                | Parameters                                      | Return Value                         | Frontend | Backend |  
+|----------------------------------------------|-------------------------------------------------|--------------------------------------|----------|---------|  
 | [`argv`](#func-argv)                         | [Number](#numbers)                              | [String](#strings)                   | ✅        | ✅       |  
 | [`value`](#func-value)                       | optional [String](#strings)                     | [String](#strings)                   | ✅        | ❌       |  
 
