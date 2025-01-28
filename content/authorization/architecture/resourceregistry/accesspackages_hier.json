@@ -281,6 +281,12 @@
             "urn": "urn:altinn:accesspackage:eksplisitt",
             "name": "Eksplisitt tjenestedelegering",
             "description": "Denne fullmakten er ikke delegerbar, og er ikke knyttet til noen roller i Enhetsregisteret. Tilgang til tjenester knyttet til denne pakken kan gis av Hovedadministrator gjennom enkeltrettighetsdelegering."
+          },
+          {
+            "id": "99b96ac3-0bbd-40e2-9e66-632b71d8531b",
+            "urn": "urn:altinn:accesspackage:folkeregister",
+            "name": "Folkeregister",
+            "description": "Denne tilgangspakken gir fullmakt til tjenester som en virksomhet kan ha mot folkeregister. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
           }
         ]
       },
