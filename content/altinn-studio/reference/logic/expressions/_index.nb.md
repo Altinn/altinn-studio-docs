@@ -261,21 +261,22 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 
 ### Sammenligning av verdier
 
-| Funksjonsnavn                                | Parametre                                | Returverdi                 | Frontend | Backend |
-|----------------------------------------------|------------------------------------------|----------------------------|----------|---------|
-| [`equals`](#func-equals)                     | [Streng](#strenger), [Streng](#strenger) | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| [`notEquals`](#func-equals)                  | [Streng](#strenger), [Streng](#strenger) | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| [`not`](#func-not)                           | [Boolsk](#boolske-verdier)               | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| [`greaterThan`](#func-gt)                    | [Tall](#tall), [Tall](#tall)             | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| [`greaterThanEq`](#func-gt)                  | [Tall](#tall), [Tall](#tall)             | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| [`lessThan`](#func-gt)                       | [Tall](#tall), [Tall](#tall)             | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| [`lessThanEq`](#func-gt)                     | [Tall](#tall), [Tall](#tall)             | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| [`concat`](#func-concat)                     | Ingen eller flere [strenger](#strenger)  | [Streng](#strenger)        | ✅        | ✅       |
-| [`contains`](#func-contains-not-contains)    | [Streng](#strenger), [Streng](#strenger) | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| [`notContains`](#func-contains-not-contains) | [Streng](#strenger), [Streng](#strenger) | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| [`commaContains`](#func-commaContains)       | [Streng](#strenger), [Streng](#strenger) | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| [`startsWith`](#func-starts-ends-with)       | [Streng](#strenger), [Streng](#strenger) | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| [`endsWith`](#func-starts-ends-with)         | [Streng](#strenger), [Streng](#strenger) | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| Funksjonsnavn                                | Parametre                                 | Returverdi                 | Frontend | Backend |
+|----------------------------------------------|-------------------------------------------|----------------------------|----------|---------|
+| [`compare`](#func-compare)                   | [Se detaljert beskrivelse](#func-compare) | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| [`equals`](#func-equals)                     | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| [`notEquals`](#func-equals)                  | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| [`not`](#func-not)                           | [Boolsk](#boolske-verdier)                | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| [`greaterThan`](#func-gt)                    | [Tall](#tall), [Tall](#tall)              | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| [`greaterThanEq`](#func-gt)                  | [Tall](#tall), [Tall](#tall)              | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| [`lessThan`](#func-gt)                       | [Tall](#tall), [Tall](#tall)              | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| [`lessThanEq`](#func-gt)                     | [Tall](#tall), [Tall](#tall)              | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| [`concat`](#func-concat)                     | Ingen eller flere [strenger](#strenger)   | [Streng](#strenger)        | ✅        | ✅       |
+| [`contains`](#func-contains-not-contains)    | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| [`notContains`](#func-contains-not-contains) | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| [`commaContains`](#func-commaContains)       | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| [`startsWith`](#func-starts-ends-with)       | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅        | ✅       |
+| [`endsWith`](#func-starts-ends-with)         | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅        | ✅       |
 
 
 ### Logikk
@@ -288,27 +289,33 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 
 ### Strenger og tall
 
-| Funksjonsnavn                            | Parametre                                        | Returverdi          | Frontend | Backend |
-|------------------------------------------|--------------------------------------------------|---------------------|----------|---------|
-| [`lowerCase`](#func-lowerCase-upperCase) | [Streng](#strenger)                              | [Streng](#strenger) | ✅        | ✅       |
-| [`upperCase`](#func-lowerCase-upperCase) | [Streng](#strenger)                              | [Streng](#strenger) | ✅        | ✅       |
-| [`stringLength`](#func-stringLength)     | [Streng](#strenger)                              | [Tall](#tall)       | ✅        | ✅       |
-| [`text`](#func-text)                     | [Streng](#strenger)                              | [Streng](#strenger) | ✅        | ❌       |
-| [`language`](#func-language)             | Ingenting                                        | [Streng](#strenger) | ✅        | ❌       |
-| [`displayValue`](#func-displayValue)     | [Streng](#strenger)                              | [Streng](#strenger) | ✅        | ❌       |
-| [`round`](#func-round)                   | [Tall](#tall), valgfritt [Tall](#tall)           | [Streng](#strenger) | ✅        | ✅       |
-| [`formatDate`](#func-formatDate)         | [Streng](#strenger), valgfri [Streng](#strenger) | [Streng](#strenger) | ✅        | ❌       |
+| Funksjonsnavn                             | Parametre                                                     | Returverdi          | Frontend | Backend |
+|-------------------------------------------|---------------------------------------------------------------|---------------------|----------|---------|
+| [`lowerCase`](#func-lowerCase-upperCase)  | [Streng](#strenger)                                           | [Streng](#strenger) | ✅        | ✅       |
+| [`upperCase`](#func-lowerCase-upperCase)  | [Streng](#strenger)                                           | [Streng](#strenger) | ✅        | ✅       |
+| [`lowerCaseFirst`](#func-lcFirst-ucFirst) | [Streng](#strenger)                                           | [Streng](#strenger) | ✅        | ✅       |  
+| [`upperCaseFirst`](#func-lcFirst-ucFirst) | [Streng](#strenger)                                           | [Streng](#strenger) | ✅        | ✅       |  
+| [`stringLength`](#func-stringLength)      | [Streng](#strenger)                                           | [Tall](#tall)       | ✅        | ✅       |
+| [`stringIndexOf`](#func-stringIndexOf)    | [Streng](#strenger), [Streng](#strenger)                      | [Tall](#tall)       | ✅        | ✅       |  
+| [`stringSlice`](#func-stringSlice)        | [Streng](#strenger), [Tall](#tall), valgfritt [Tall](#tall)   | [Streng](#strenger) | ✅        | ✅       |  
+| [`stringReplace`](#func-stringReplace)    | [Streng](#strenger), [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅        | ✅       |  
+| [`text`](#func-text)                      | [Streng](#strenger)                                           | [Streng](#strenger) | ✅        | ❌       |
+| [`language`](#func-language)              | Ingenting                                                     | [Streng](#strenger) | ✅        | ❌       |
+| [`displayValue`](#func-displayValue)      | [Streng](#strenger)                                           | [Streng](#strenger) | ✅        | ❌       |
+| [`round`](#func-round)                    | [Tall](#tall), valgfritt [Tall](#tall)                        | [Streng](#strenger) | ✅        | ✅       |
+| [`formatDate`](#func-formatDate)          | [Dato/tid](#datoer), valgfri [Streng](#strenger)              | [Streng](#strenger) | ✅        | ❌       |
 
 ### Oppslag, komponenter og data
 
-| Funksjonsnavn                                | Parametre                                | Returverdi          | Frontend | Backend |
-|----------------------------------------------|------------------------------------------|---------------------|----------|---------|
-| [`instanceContext`](#func-instancecontext)   | [Streng](#strenger)                      | [Streng](#strenger) | ✅        | ✅       |
-| [`frontendSettings`](#func-frontendsettings) | [Streng](#strenger)                      | [Streng](#strenger) | ✅        | ✅       |
-| [`dataModel`](#func-datamodel)               | [Streng](#strenger)                      | [Streng](#strenger) | ✅        | ✅       |
-| [`component`](#func-component)               | [Streng](#strenger)                      | [Streng](#strenger) | ✅        | ✅       |
-| [`linkToPage`](#func-linkToPage)             | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅        | ❌       |
-| [`linkToComponent`](#func-linkToComponent)   | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅        | ❌       |
+| Funksjonsnavn                                  | Parametre                                | Returverdi          | Frontend | Backend |
+|------------------------------------------------|------------------------------------------|---------------------|----------|---------|
+| [`instanceContext`](#func-instancecontext)     | [Streng](#strenger)                      | [Streng](#strenger) | ✅        | ✅       |
+| [`frontendSettings`](#func-frontendsettings)   | [Streng](#strenger)                      | [Streng](#strenger) | ✅        | ✅       |
+| [`countDataElements`](#func-countDataElements) | [Streng](#strenger)                      | [Tall](#tall)       | ✅        | ✅       |
+| [`dataModel`](#func-datamodel)                 | [Streng](#strenger)                      | [Streng](#strenger) | ✅        | ✅       |
+| [`component`](#func-component)                 | [Streng](#strenger)                      | [Streng](#strenger) | ✅        | ✅       |
+| [`linkToPage`](#func-linkToPage)               | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅        | ❌       |
+| [`linkToComponent`](#func-linkToComponent)     | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅        | ❌       |
 
 ### Spesialfunksjoner
 
@@ -318,6 +325,50 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`value`](#func-value) | valgfri [Streng](#strenger) | [Streng](#strenger) | ✅        | ❌       |
 
 Detaljerte beskrivelser og eksempler
+
+{{% expandlarge id="func-compare" header="compare" %}}
+{{% notice info %}}
+Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](../../../guides/administration/maintainance/dependencies#nuget)
+versjon 8.5.x eller nyere. I frontend er disse funksjonene tilgjengelige i versjon 4.x.x og nyere, inkludert den siste
+rullerende versjonen av v4.
+{{% /notice %}}
+
+Funksjonen `compare` er en generisk sammenligningsfunksjon som kan brukes til å sammenligne to verdier. Funksjonen tar
+tre eller fire argumenter. Den første og siste argumentene er alltid verdiene som skal sammenlignes. Argumentene i
+midten må være en gyldig operator, potensielt med et `not` foran for å invertere sammenligningen.
+
+Noen eksempler:
+
+```json
+["compare", 5, "greaterThan", 3]
+```
+
+```json
+["compare", "foo", "equals", "bar"]
+```
+
+```json
+["compare", 5, "not", "equals", 3]
+```
+
+Funksjonen returnerer en boolsk verdi basert på sammenligningen. De aksepterte datatypene for sammenligning avhenger av
+operatoren som brukes. For eksempel kan operatoren `equals` sammenligne strenger, tall og boolske verdier, mens
+`greaterThan` og `lessThan` kun kan sammenligne tall.
+
+| Operator        | Parametre              | Beskrivelse                                                                                          |
+|-----------------|------------------------|------------------------------------------------------------------------------------------------------|
+| `equals`        | [Alle typer](#datatyper) | Returnerer `true` om de to verdiene er like, `false` ellers.                                       |
+| `greaterThan`   | [Tall](#tall)          | Returnerer `true` om det første tallet er større enn det andre tallet, `false` ellers.             |
+| `greaterThanEq` | [Tall](#tall)          | Returnerer `true` om det første tallet er større enn eller lik det andre tallet, `false` ellers.   |
+| `lessThan`      | [Tall](#tall)          | Returnerer `true` om det første tallet er mindre enn det andre tallet, `false` ellers.             |
+| `lessThanEq`    | [Tall](#tall)          | Returnerer `true` om det første tallet er mindre enn eller lik det andre tallet, `false` ellers.   |
+| `isBefore`      | [Dato/tid](#datoer)    | Returnerer `true` om den første datoen er før den andre datoen, `false` ellers.                    |
+| `isBeforeEq`    | [Dato/tid](#datoer)    | Returnerer `true` om den første datoen er før eller lik den andre datoen, `false` ellers.          |
+| `isAfter`       | [Dato/tid](#datoer)    | Returnerer `true` om den første datoen er etter den andre datoen, `false` ellers.                   |
+| `isAfterEq`     | [Dato/tid](#datoer)    | Returnerer `true` om den første datoen er etter eller lik den andre datoen, `false` ellers.         |
+| `isSameDay`     | [Dato/tid](#datoer)    | Returnerer `true` om de to datoene er på samme dag, `false` ellers.                                |
+
+{{% /expandlarge %}}
 
 {{% expandlarge id="func-equals" header="equals / notEquals" %}}
 Disse to funksjonene sammenligner to strenger for å sjekke om de er like (`equals`) eller ulike (`notEquals`). Om
@@ -530,6 +581,71 @@ Dersom strengen er `null` vil `stringLength` returnere `0`.
 
 {{% /expandlarge %}}
 
+{{% expandlarge id="func-stringIndexOf" header="stringIndexOf" %}}
+{{% notice info %}}
+Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](../../../guides/administration/maintainance/dependencies#nuget)
+versjon 8.5.x eller nyere. I frontend er disse funksjonene tilgjengelige i versjon 4.x.x og nyere, inkludert den siste
+rullerende versjonen av v4.
+{{% /notice %}}
+
+Funksjonen `stringIndexOf` tar imot to argumenter: en streng og en delstreng. Den returnerer indeksen til første
+forekomst av delstrengen i strengen. Dersom delstrengen ikke finnes i strengen, vil funksjonen returnere `null`.
+
+Eksempel:
+
+```json
+["stringIndexOf", ["dataModel", "My.Model.FullName"], " "]
+```
+
+Dette eksempelet returnerer indeksen til det første mellomrommet i fullt navn. Om fullt navn er "John Doe", vil
+funksjonen returnere 4.
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-stringSlice" header="stringSlice" %}}
+{{% notice info %}}
+Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](../../../guides/administration/maintainance/dependencies#nuget)
+versjon 8.5.x eller nyere. I frontend er disse funksjonene tilgjengelige i versjon 4.x.x og nyere, inkludert den siste
+rullerende versjonen av v4.
+{{% /notice %}}
+
+Funksjonen `stringSlice` tar imot en streng som første argument (den originale strengen) og ett eller to tall som andre
+og tredje argument (startindeksen og valgfri lengde). Den returnerer en delstreng av den originale strengen som
+starter på indeksen gitt i andre argument. Om et tredje argument er gitt, vil delstrengen være av lengden gitt i
+tredje argument.
+
+Eksempel:
+
+```json
+["stringSlice", ["dataModel", "My.Model.FullName"], 5, 3]
+```
+
+Dette eksempelet returnerer en delstreng av fullt navn som starter på den 5. bokstaven og med en lengde på 3. Om fullt
+navn er "John Doe", vil funksjonen returnere "Doe".
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-stringReplace" header="stringReplace" %}}
+{{% notice info %}}
+Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](../../../guides/administration/maintainance/dependencies#nuget)
+versjon 8.5.x eller nyere. I frontend er disse funksjonene tilgjengelige i versjon 4.x.x og nyere, inkludert den siste
+rullerende versjonen av v4.
+{{% /notice %}}
+
+Funksjonen `stringReplace` tar imot tre argumenter: en streng, en delstreng som skal erstattes, og en erstatningsstreng.
+Den returnerer en ny streng hvor alle forekomster av delstrengen i strengen er erstattet med erstatningsstrengen.
+
+Eksempel:
+
+```json
+["stringReplace", ["dataModel", "My.Model.FullName"], " ", "-"]
+```
+
+Dette eksempelet erstatter alle mellomrom i fullt navn med bindestreker. Om fullt navn er "John Doe", vil funksjonen
+returnere "John-Doe".
+
+{{% /expandlarge %}}
+
 {{% expandlarge id="func-contains-not-contains" header="contains / notContains" %}}
 Disse to funksjonene sjekker om streng A inkluderer eller ikke inkluderer streng B.
 Både `contains` og `notContains` skiller mellom store og små bokstaver.
@@ -596,6 +712,24 @@ gjøres uavhengig av om det ble brukt store eller små bokstaver i input-verdien
 ```json
 ["equals", ["upperCase", ["dataModel", "My.Model.LastName"]], "SMITH"]
 ```
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-lcFirst-ucFirst" header="lowerCaseFirst/upperCaseFirst" %}}
+{{% notice info %}}
+Disse funksjonene er kun tilgjengelige på backend med [nuget-pakker](../../../guides/administration/maintainance/dependencies#nuget)
+versjon 8.5.x eller nyere. I frontend er disse funksjonene tilgjengelige i versjon 4.x.x og nyere, inkludert den siste
+rullerende versjonen av v4.
+{{% /notice %}}
+
+Funksjonene `lowerCaseFirst` og `upperCaseFirst` tar en streng som input og returnerer en ny streng der den første
+bokstaven er konvertert til henholdsvis liten eller stor bokstav.
+
+```json
+["upperCaseFirst", ["dataModel", "My.Model.LastName"]]
+```
+
+I dette eksempelet, gitt et etternavn "smith", vil funksjonen returnere "Smith".
 
 {{% /expandlarge %}}
 
@@ -684,6 +818,29 @@ i detalj der](../../ux/texts#datakilder).
 **Merk**: Datakilden heter `applicationSettings` når brukt i språk/tekster, men verdiene må alltid lagres under
 nøkkelen `FrontEndSettings` i `appsettings.{miljø}.json`). Av den grunn har funksjonen fått navnet `frontendSettings`
 her, for å indikere at oppslag ikke kan gjøres i resten av `appsettings.{miljø}.json`.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-countDataElements" header="countDataElements (oppslag)" %}}
+{{% notice info %}}
+Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](../../../guides/administration/maintainance/dependencies#nuget)
+versjon 8.5.x eller nyere. I frontend er disse funksjonene tilgjengelige i versjon 4.x.x og nyere, inkludert den siste
+rullerende versjonen av v4.
+{{% /notice %}}
+
+Denne funksjonen gjør det mulig å telle antall elementer av en gitt datatype i gjeldende instans. Første argument
+må være en streng som er definert som en datatype i `applicationmetadata.json`. Funksjonen vil returnere antallet
+elementer av den gitte datatypen i gjeldende instans.
+
+For eksempel, om du har en `FileUpload`-komponent som laster opp filer til datatypen `Attachment`, kan du bruke denne
+funksjonen til å telle antall vedlegg som er lastet opp. På samme måte kan du telle antall [underskjema-elementer](../../subform)
+ved å referere til datamodell-ID-en til underskjemaet.
+
+Eksempel:
+
+```json
+["countDataElements", "Attachment"]
+```
+
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-datamodel" header="dataModel (oppslag)" %}}
@@ -975,6 +1132,29 @@ mangler, og det er forskjell på f.eks. en `null`-verdi, en tom [streng](#streng
 
 Dersom man gjør et oppslag i en funksjon som `dataModel`, og verdien man leter etter ikke finnes/er satt, vil som regel
 `null` bli resultatet.
+
+### Datoer
+
+Datoer kan være strenger (eller `DateTime`/`DateOnly` i C#-datamodellen). Bare noen få datoformater kan tolkes
+i uttrykksfunksjoner som tillater datoer som argument, og formatet må følge ISO 8601.
+
+Noen eksempler på gyldige datoformater:
+
+- `2023-10-30T14:54:00.000Z` (UTC-tidssone)
+- `2023-10-30T14:54:00.000+02:00` (med tidssoneforskyvning)
+- `2023-10-30T14:54:00.000` (antatt å være i lokal tidssone)
+- `2023-10-30T14:54:00` (antatt å være i lokal tidssone, uten millisekunder)
+- `2023-10-30` (Bare dato, antatt å være midnatt i lokal tidssone)
+- `2023` (Bare år, antatt å være midnatt 1. januar i lokal tidssone)
+
+Det er viktig å merke seg at datoer som inkluderer en tidssoneforskyvning (eller `Z` for UTC) blir konvertert til
+lokal tidssone når de brukes i uttrykk. Dette betyr at bruk av funksjonen `formatDate` for å formatere en dato kan gi
+forskjellige resultater på frontend og backend dersom tidssonen på serveren er forskjellig fra brukerens tidssone i
+nettleseren.
+
+Av denne grunn kan det være å foretrekke å spesifisere datoer og tider uten en tidssoneforskyvning eller `Z` dersom du
+ønsker at datoen/tiden skal vises på samme måte uavhengig av brukerens tidssone. På samme vis er det anbefalt å unngå
+å sammenligne datoer i forskjellige tidssoner.
 
 ## Tips og triks
 
