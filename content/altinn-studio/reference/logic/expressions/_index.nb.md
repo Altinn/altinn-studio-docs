@@ -303,7 +303,7 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`language`](#func-language)              | Ingenting                                                     | [Streng](#strenger) | ✅        | ❌       |
 | [`displayValue`](#func-displayValue)      | [Streng](#strenger)                                           | [Streng](#strenger) | ✅        | ❌       |
 | [`round`](#func-round)                    | [Tall](#tall), valgfritt [Tall](#tall)                        | [Streng](#strenger) | ✅        | ✅       |
-| [`formatDate`](#func-formatDate)          | [Dato/tid](#datoer), valgfri [Streng](#strenger)              | [Streng](#strenger) | ✅        | ❌       |
+| [`formatDate`](#func-formatDate)          | [Dato/tid](#datoer), valgfri [Streng](#strenger)              | [Streng](#strenger) | ✅        | ✅       |
 
 ### Oppslag, komponenter og data
 
