@@ -329,7 +329,7 @@ Detaljerte beskrivelser og eksempler
 {{% expandlarge id="func-compare" header="compare" %}}
 {{% notice info %}}
 Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](../../../guides/administration/maintainance/dependencies#nuget)
-versjon 8.5.x eller nyere. I frontend er disse funksjonene tilgjengelige i versjon 4.x.x og nyere, inkludert den siste
+versjon 8.5.x eller nyere. I frontend er denne funksjonen tilgjengelige i versjon 4.x.x og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
 
@@ -584,7 +584,7 @@ Dersom strengen er `null` vil `stringLength` returnere `0`.
 {{% expandlarge id="func-stringIndexOf" header="stringIndexOf" %}}
 {{% notice info %}}
 Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](../../../guides/administration/maintainance/dependencies#nuget)
-versjon 8.5.x eller nyere. I frontend er disse funksjonene tilgjengelige i versjon 4.x.x og nyere, inkludert den siste
+versjon 8.5.x eller nyere. I frontend er denne funksjonen tilgjengelige i versjon 4.x.x og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
 
@@ -605,7 +605,7 @@ funksjonen returnere 4.
 {{% expandlarge id="func-stringSlice" header="stringSlice" %}}
 {{% notice info %}}
 Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](../../../guides/administration/maintainance/dependencies#nuget)
-versjon 8.5.x eller nyere. I frontend er disse funksjonene tilgjengelige i versjon 4.x.x og nyere, inkludert den siste
+versjon 8.5.x eller nyere. I frontend er denne funksjonen tilgjengelige i versjon 4.x.x og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
 
@@ -628,7 +628,7 @@ navn er "John Doe", vil funksjonen returnere "Doe".
 {{% expandlarge id="func-stringReplace" header="stringReplace" %}}
 {{% notice info %}}
 Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](../../../guides/administration/maintainance/dependencies#nuget)
-versjon 8.5.x eller nyere. I frontend er disse funksjonene tilgjengelige i versjon 4.x.x og nyere, inkludert den siste
+versjon 8.5.x eller nyere. I frontend er denne funksjonen tilgjengelige i versjon 4.x.x og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
 
@@ -823,7 +823,7 @@ her, for å indikere at oppslag ikke kan gjøres i resten av `appsettings.{milj�
 {{% expandlarge id="func-countDataElements" header="countDataElements (oppslag)" %}}
 {{% notice info %}}
 Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](../../../guides/administration/maintainance/dependencies#nuget)
-versjon 8.5.x eller nyere. I frontend er disse funksjonene tilgjengelige i versjon 4.x.x og nyere, inkludert den siste
+versjon 8.5.x eller nyere. I frontend er denne funksjonen tilgjengelige i versjon 4.x.x og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
 
@@ -925,14 +925,21 @@ i gjeldende rad, før det letes oppover i sidestrukturen.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-formatDate" header="formatDate" %}}
-Funksjonen `formatDate` tar imot en dato som første argument, og et format som andre argument. Datoargumentet er en streng,
-mens formatargumentet er en valgfri streng som støtter _noen_ tokens i
+
+{{% notice info %}}
+Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](../../../guides/administration/maintainance/dependencies#nuget)
+versjon 8.5.x eller nyere. I frontend er denne funksjonen tilgjengelige i versjon 4.0.0 og nyere, inkludert den siste
+rullerende versjonen av v4.
+{{% /notice %}}
+
+Funksjonen `formatDate` tar imot en [dato](#datoer) som første argument, og et format som andre argument.
+Formatargumentet er en valgfri streng som støtter _noen_ tokens i
 [Unicode Tokens](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table).
 
 Dette er de tokenene vi støtter:
 
 | Enhet           | Token    | Resultat                             |
-| --------------- | -------- | ------------------------------------ |
+|-----------------|----------|--------------------------------------|
 | Era             | `G..GGG` | f.Kr., e.Kr.                         |
 | Era             | `GGGG`   | før Kristus, etter Kristus           |
 | Era             | `GGGGG`  | f.Kr., e.Kr.                         |
@@ -966,12 +973,17 @@ Dette er de tokenene vi støtter:
 | Brøkdels sekund | `SS`     | 00, 01, ..., 99                      |
 | Brøkdels sekund | `SSS`    | 000, 001, ..., 999                   |
 
-Dersom man ikke gir et format som andre argument, vil funksjonen bruke formatet `dd.MM.yyyy` som standard.
+Dersom man ikke gir et format som andre argument, vil funksjonen bruke et standardformat som varierer basert på
+gjeldende språk.
+
+Som med alle datoer og tidspunkt, vil de konverteres til lokal tidssone dersom datoen/tiden har spesifisert en annen
+tidssone. Dette betyr også at uttrykk som bruker `formatDate` kan gi forskjellige resultater på frontend og backend
+dersom tidssonen i nettleseren er forskjellig fra tidssonen på serveren.
 
 Eksempel:
 
 ```json
-["formatDate", "2023-10-30T14:54:00.000Z", "HH:mm"]
+["formatDate", "2023-10-30T14:54:00", "HH:mm"]
 ```
 Vil resultere i `14:54`
 

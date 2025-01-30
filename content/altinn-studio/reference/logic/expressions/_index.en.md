@@ -332,7 +332,7 @@ Detailed descriptions and examples
 {{% expandlarge id="func-compare" header="compare" %}}
 {{% notice info %}}
 This function is only available on the backend when using [nuget packages](../../../guides/administration/maintainance/dependencies#nuget)
-version 8.5.x or later. In the frontend, these functions are available in version 4.x.x and above, including the latest
+version 8.5.x or later. In the frontend, this function is available in version 4.x.x and above, including the latest
 rolling release.
 {{% /notice %}}
 The `compare` function is a generic comparison function that can be used to compare two values. The function takes three
@@ -587,7 +587,7 @@ If the string is `null`, `stringLength` will return 0.
 {{% expandlarge id="func-stringIndexOf" header="stringIndexOf" %}}
 {{% notice info %}}
 This function is only available on the backend when using [nuget packages](../../../guides/administration/maintainance/dependencies#nuget)
-version 8.5.x or later. In the frontend, these functions are available in version 4.x.x and above, including the latest
+version 8.5.x or later. In the frontend, this function is available in version 4.x.x and above, including the latest
 rolling release.
 {{% /notice %}}
 
@@ -608,7 +608,7 @@ return 4.
 {{% expandlarge id="func-stringSlice" header="stringSlice" %}}
 {{% notice info %}}
 This function is only available on the backend when using [nuget packages](../../../guides/administration/maintainance/dependencies#nuget)
-version 8.5.x or later. In the frontend, these functions are available in version 4.x.x and above, including the latest
+version 8.5.x or later. In the frontend, this function is available in version 4.x.x and above, including the latest
 rolling release.
 {{% /notice %}}
 
@@ -631,7 +631,7 @@ is "John Doe", the function will return "Doe".
 {{% expandlarge id="func-stringReplace" header="stringReplace" %}}
 {{% notice info %}}
 This function is only available on the backend when using [nuget packages](../../../guides/administration/maintainance/dependencies#nuget)
-version 8.5.x or later. In the frontend, these functions are available in version 4.x.x and above, including the latest
+version 8.5.x or later. In the frontend, this function is available in version 4.x.x and above, including the latest
 rolling release.
 {{% /notice %}}
 
@@ -831,7 +831,7 @@ stored under the key `FrontEndSettings` in `appsettings.{environment}.json`. For
 
 {{% notice info %}}
 This function is only available on the backend when using [nuget packages](../../../guides/administration/maintainance/dependencies#nuget)
-version 8.5.x or later. In the frontend, these functions are available in version 4.x.x and above, including the latest
+version 8.5.x or later. In the frontend, this function is available in version 4.x.x and above, including the latest
 rolling release.
 {{% /notice %}}
 
@@ -934,14 +934,20 @@ component in the current row before looking up through the page structure.
 
 {{% expandlarge id="func-formatDate" header="formatDate" %}} 
 
-The formatDate function takes a date as its first argument, and a format as its second argument. The date argument is a
-string, while the format argument is an optional string that supports some tokens in
+{{% notice info %}}
+This function is only available on the backend when using [nuget packages](../../../guides/administration/maintainance/dependencies#nuget)
+version 8.5.x or later. In the frontend, this function is available in version 4.0.0 and above, including the latest
+rolling release.
+{{% /notice %}}
+
+The formatDate function takes a [date](#dates) as its first argument, and a format as its second argument.
+The format argument is an optional string that supports some tokens in
 [Unicode Tokens](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table).
 
 These are the tokens we support:
 
 | Unit              | Token    | Result                                  |
-| ----------------- | -------- | --------------------------------------- |
+|-------------------|----------|-----------------------------------------|
 | Era               | `G..GGG` | BC, AD                                  |
 | Era               | `GGGG`   | Before Christ, Anno Domini              |
 | Era               | `GGGGG`  | B, A                                    |
@@ -975,11 +981,16 @@ These are the tokens we support:
 | Fractional second | `SS`     | 00, 01, ..., 99                         |
 | Fractional second | `SSS`    | 000, 001, ..., 999                      |
 
-If the format argument is not provided, the function will use the format `MM/dd/yy` as default.
+If the format argument is not provided, the function will use a default format that varies by language.
+
+As with all dates/times, they will be converted to the local timezone when a timezone offset (or UTC) has been provided.
+For this reason, expressions evaluated on the frontend and the backend may differ when the local timezone in the browser
+is different from the local timezone in the backend.
+
 Example:
 
 ```json
-["formatDate", "2023-10-30T14:54:00.000Z", "HH:mm"]
+["formatDate", "2023-10-30T14:54:00", "HH:mm"]
 ```
 Would result in `14:54`
 
