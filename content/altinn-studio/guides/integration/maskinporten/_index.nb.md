@@ -97,17 +97,16 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 }
 {{< / highlight >}}
 
-Deretter må vi legge til Azure Key Vault som konfigurasjonsleverandør til vår host. Dette gjøres ved å endre metoden `ConfigureWebHostBuilder`:
+Deretter må vi legge til Azure Key Vault som konfigurasjonsleverandør til vår host. Dette gjøres ved å legge til den markerte koden etter `ConfigureWebHostBuilder` metoden:
 
-{{< highlight csharp "linenos=false,hl_lines=5-9" >}}
-void ConfigureWebHostBuilder(IWebHostBuilder builder)
+{{< highlight csharp "linenos=false,hl_lines=4-9" >}}
+
+ConfigureWebHostBuilder(IWebHostBuilder builder);
+
+// Add Azure KV provider for TT02 & Prod environments
+if (!builder.Environment.IsDevelopment())
 {
-    builder.ConfigureAppWebHost(args);
-
-    // Add Azure KV provider for TT02 & Prod environments
-    if (!builder.Environment.IsDevelopment())
-    {
-        builder.AddAzureKeyVaultAsConfigProvider();
-    }
+    builder.AddAzureKeyVaultAsConfigProvider();
 }
+
 {{< / highlight >}}

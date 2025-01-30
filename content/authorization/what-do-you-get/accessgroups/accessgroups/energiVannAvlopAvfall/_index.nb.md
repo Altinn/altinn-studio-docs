@@ -10,13 +10,13 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Elektrisitet - produsere, overføre og distribuere](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgoups/energivannavlopavfall/#elektrisitet---produsere-overføre-og-distribuere)|
-|[Damp- og varmtvann](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgoups/energivannavlopavfall/#damp--og-varmtvann)|
-|[Vann - ta ut fra kilde, rense og distribuere](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgoups/energivannavlopavfall/#vann---ta-ut-fra-kilde-rense-og-distribuere)|
-|[Samle opp og behandle avløpsvann](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgoups/energivannavlopavfall/#samle-opp-og-behandle-avløpsvann)|
-|[Avfall - samle inn, behandle bruke og gjenvinne](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgoups/energivannavlopavfall/#avfall---samle-inn-behandle-bruke-og-gjenvinne)|
-|[Miljørydding, -rensing og lignende virksomhet](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgoups/energivannavlopavfall/#miljørydding--rensing-og-lignende-virksomhet)|
-|[Utvinning av råolje, naturgass og kull](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgoups/energivannavlopavfall/#utvinning-av-råolje-naturgass-og-kull)|
+|[Elektrisitet - produsere, overføre og distribuere](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/energivannavlopavfall/#elektrisitet---produsere-overføre-og-distribuere)|
+|[Damp- og varmtvann](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/energivannavlopavfall/#damp--og-varmtvann)|
+|[Vann - ta ut fra kilde, rense og distribuere](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/energivannavlopavfall/#vann---ta-ut-fra-kilde-rense-og-distribuere)|
+|[Samle opp og behandle avløpsvann](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/energivannavlopavfall/#samle-opp-og-behandle-avløpsvann)|
+|[Avfall - samle inn, behandle bruke og gjenvinne](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/energivannavlopavfall/#avfall---samle-inn-behandle-bruke-og-gjenvinne)|
+|[Miljørydding, -rensing og lignende virksomhet](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/energivannavlopavfall/#miljørydding--rensing-og-lignende-virksomhet)|
+|[Utvinning av råolje, naturgass og kull](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/energivannavlopavfall/#utvinning-av-råolje-naturgass-og-kull)|
 
 ### Elektrisitet - produsere, overføre og distribuere
 Denne tilgangspakken gir fullmakter til tjenester knyttet til elektrisitet: produsere, overføre og distribuere. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  

@@ -17,7 +17,7 @@ This integration enables an app to securely send digital messages and attachment
 When sending a correspondence, it needs to be tied to an Altinn resource. This resource controls the access policy for
 the Correspondence, which is evaluated for both senders and receivers.
 
-Please refer to the [resource registration guide](/correspondence/getting-started/service-owner/#register-a-resource-in-altinn-resource-registry)
+Please refer to the [resource registration guide](/correspondence/getting-started/#register-a-resource-in-altinn-resource-registry)
 for more information on the setup process.
 
 {{<notice info notice-paragraph-fix>}}

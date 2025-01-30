@@ -17,7 +17,7 @@ En slik integrasjon gjør det mulig for en app å sende digitale meldinger og ve
 Når du sender en korrespondanse må den knyttes til en Altinn-ressurs. Denne ressursen kontrollerer tilgangsstyring for
 meldinger. Disse evalueres for både avsendere og mottakere.
 
-Vennligst se [veiledningen for ressursregistrering](/correspondence/getting-started/service-owner/#register-a-resource-in-altinn-resource-registry)
+Vennligst se [veiledningen for ressursregistrering](/correspondence/getting-started/#register-a-resource-in-altinn-resource-registry)
 for mer informasjon om oppsett og opprettelse.
 
 {{<notice info notice-paragraph-fix>}}

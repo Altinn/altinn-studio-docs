@@ -11,10 +11,10 @@ aliases:
 | **Tilgangspakker i kategorien**|
 |---|
 |[Ansetttelsesforhold](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/personale/#ansettelsesforhold)|
-|[Lønn](https://docs.altinn.studio/authorization/what-do-you-get/accessgroupsaccessgroups/personale/#lønn)|
+|[Lønn](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/personale/#lønn)|
 |[Pensjon](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/personale/#pensjon)|
-|[Permisjon](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/personale/permisjon)|
-|[Sykefravær](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/personale/#sykefravaer)|
+|[Permisjon](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/personale/#permisjon)|
+|[Sykefravær](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/personale/#sykefravær)|
 |[A-ordningen](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/personale/#a-ordningen)|
 
 ### Ansettelsesforhold

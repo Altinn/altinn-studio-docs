@@ -1,5 +1,5 @@
 ---
-title: Altinn 3 Correspondence Utviklerguider
+title: Varsling i Altinn 3 Melding
 linktitle: Varsling gjennom Altinn Melding
 description: Hvordan komme i gang med varslinger gjennom Altinn 3 Melding, for utviklere
 tags: [Melding, guide, events, hendelser, Correspondence]

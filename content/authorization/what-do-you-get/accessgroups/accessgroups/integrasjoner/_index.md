@@ -32,5 +32,5 @@ Denne tilgangspakken gir fullmakter til å administrere tilgang til maskinlesbar
 |**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
 |---|---|---|
 |Programmeringsgrensesnitt - API|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
-|Programmeringsgrensensnitt NUF - API|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Programmeringsgrensensnitt NUF - API|Kontaktperson NUF|Ja|
 |Maskinlesbare hendelser|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|

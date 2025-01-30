@@ -10,12 +10,12 @@ aliases:
 
 |**TIlgangspakker i kategorien**|
 |---|
-|[Kunst og underholdning](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgoups/kulturfrivillighet/#kunst-og-underholdning)|
-|[Biblioteker, museer, arkiver og annen kultur](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgoups/kulturfrivillighet/#biblioteker-museer-arkiver-og-annen-kultur)|
-|[Lotteri og spill](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgoups/kulturfrivillighet/#lotteri-og-spill)|
-|[Sport og fritid](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgoups/kulturfrivillighet/#sport-og-fritid)|
-|[Fornøyelser](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgoups/kulturfrivillighet/#fornøyelser)|
-|[Politikk](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgoups/kulturfrivillighet/#politikk)|
+|[Kunst og underholdning](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/kulturfrivillighet/#kunst-og-underholdning)|
+|[Biblioteker, museer, arkiver og annen kultur](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/kulturfrivillighet/#biblioteker-museer-arkiver-og-annen-kultur)|
+|[Lotteri og spill](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/kulturfrivillighet/#lotteri-og-spill)|
+|[Sport og fritid](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/kulturfrivillighet/#sport-og-fritid)|
+|[Fornøyelser](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/kulturfrivillighet/#fornøyelser)|
+|[Politikk](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/kulturfrivillighet/#politikk)|
 
 
 ### Kunst og underholdning
