@@ -12,6 +12,7 @@ toc: true
 yet, and must be configured manually in the JSON files.
 {{% /panel %}}
 
+
 ## Introduction
 
 The `CustomButton` component provides a way to define custom behaviour tied to the clicking of a button.
@@ -20,6 +21,13 @@ are separated into two types: `ClientActions` and `ServerActions`. The `ClientAc
 and have predefined functionality such as navigating to a new page. The `ServerActions` are executed on the server-side,
 and have entirely custom functionality that you define yourself. The `ServerActions` can also return a list of `ClientActions`
 which execute after the server-side action has finished.
+
+## Anatomy
+<!-- Brief description of the component and how it is used. -->
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="280" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=113-7792&viewport=-814%2C659%2C1.32&scaling=contain&content-scaling=responsive&starting-point-node-id=113%3A7792&show-proto-sidebar=1&embed-host=share" allowfullscreen></iframe>
+
+This example is taken from <a href="https://www.figma.com/community/file/1344307804742953785/altinn-studio-komponenter" target="_blank">Altinn Studio Komponenter</a>. Note that the example is not identical to the actual code but has been adapted to create prototypes in Figma.
+
 
 ## ClientActions
 

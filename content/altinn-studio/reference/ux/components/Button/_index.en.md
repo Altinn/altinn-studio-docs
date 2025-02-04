@@ -30,12 +30,17 @@ EXAMPLES
 {{% /notice %}}
 
 ---
-
 ## Usage
 
 <!-- Brief description of the component and how it is used. -->
-
+- There should only be one primary button per page. Secondary options can be added as secondary buttons, which look like links.
+- The text on the button should be clear.
+- On the final step of the form (submission), the primary button should be green.
 ### Anatomy
+<!-- Brief description of the component and how it is used. -->
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="270" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=113-7797&viewport=621%2C1853%2C0.97&scaling=contain&content-scaling=responsive&starting-point-node-id=113%3A7797&embed-host=share" allowfullscreen></iframe>
+This example is taken from <a href="https://www.figma.com/community/file/1344307804742953785/altinn-studio-komponenter" target="_blank">Altinn Studio Komponenter</a>. Note that the example is not identical to the actual code but has been adapted to create prototypes in Figma.
+
 
 <!-- 
 
@@ -185,4 +190,55 @@ App/ui/layouts/{page}.json
 
 ## Examples
 
-<!-- One or more examples of configuration (if relevant) -->
+
+---
+
+### Button Group
+<iframe style="border: 0px solid rgb(0 0 0 / 90%);border-radius: 0px;" width="100%" height="250" src="https://embed.figma.com/proto/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio-Komponenter?page-id=7597%3A3003&node-id=8670-66926&node-type=frame&viewport=-1896%2C-131%2C1.06&scaling=contain&content-scaling=responsive&starting-point-node-id=8670%3A66926&embed-host=share&hide-ui=true" allowfullscreen></iframe>
+
+## Example
+
+```json
+{
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "button-group1",
+        "type": "ButtonGroup",
+        "children": [
+          "nav-buttons",
+          "submit-button"
+        ]
+      },
+      {
+        "id": "nav-buttons",
+        "type": "NavigationButtons",
+        "textResourceBindings": {
+          "next": "Next",
+          "back": "Back"
+        },
+        "showBackButton": true
+      },
+      {
+        "id": "submit-button",
+        "type": "Button",
+        "textResourceBindings": {
+          "title": "Submit"
+        }
+      }
+    ]
+  }
+}
+```
+
+## Configuration
+
+To configure a button group, simply add a new component with the type `ButtonGroup` to the layout file before the buttons you want to group together.
+You specify which button components to include in the button group by adding their ID's to the button group's `children` property.
+The following component types can be added to a button group:
+
+- `Button` (Submit button)
+- `NavigationButtons`
+- `PrintButton`
+- `InstantiationButton`

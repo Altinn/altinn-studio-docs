@@ -3,10 +3,20 @@ title: ButtonGroup
 description: Arrange different types of button components horizontally
 weight: 10
 ---
+{{% notice warning %}}
+🚧 This documentation is a work in progress.
+{{% /notice %}}
 
-![ButtonGroup](button-group.png "A back button and a submit button inside of a ButtonGroup")
+---
+## Usage
 
-## Example
+<!-- Brief description of the component and how it is used. -->
+
+### Anatomy
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="280" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=113-7794&viewport=-814%2C659%2C1.32&scaling=contain&content-scaling=responsive&starting-point-node-id=113%3A7794&show-proto-sidebar=1&embed-host=share" allowfullscreen></iframe>
+
+This example is taken from <a href="https://www.figma.com/community/file/1344307804742953785/altinn-studio-komponenter" target="_blank">Altinn Studio Komponenter</a>. Note that the example is not identical to the actual code but has been adapted to create prototypes in Figma.
+
 
 ```json
 {
