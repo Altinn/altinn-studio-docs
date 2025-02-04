@@ -142,7 +142,7 @@ App/ui/layouts/{page}.json
 
 ### Overskrift og tekstinnhold
 
-Overskrift (ledetekst) og tekstinnhold legges til ved å opprette ny eller velge en eksisterende [tekstressurs](/nb/altinn-studio/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app).
+Overskrift (ledetekst) og tekstinnhold legges til ved å opprette ny eller velge en eksisterende [tekstressurs](../../../ux/texts/#legge-til-og-endre-tekster-i-en-app).
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
