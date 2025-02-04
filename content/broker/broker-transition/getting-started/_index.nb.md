@@ -20,13 +20,14 @@ For å konfigurere ressursen din korrekt for å bruke den i overgangsløsningen,
 
 ### Konfigurer Ressurs til bruk i overgangsløsningen
 
-For å konfigurere ressusen slik at den fungerer optimalt i overgangsløsningen, og at den oppfører seg mest mulig som en ALtinn 2 tjeneste, så bør du [sette følgende konfigurasjonverdier på ressursen](../../getting-started/developer-guides/service-owner/#operation-configure-resource-in-broker-api).
+For å konfigurere ressursen slik at den fungerer optimalt i overgangsløsningen, og at den oppfører seg mest mulig som en Altinn 2 tjeneste, så bør du [sette følgende konfigurasjonverdier på ressursen](../../getting-started/developer-guides/service-owner/#operation-configure-resource-in-broker-api).
+
 Ta utgangspunkt i den eksisterende Altinn 2 tjenesten din og sett verdiene like der det er aktuelt.
 
 - MaxFileTransferSize = "1073741824" (1 GB - maksgrense i Altinn 2).
-- FileTransferTimeToLive = Hvor lenge en fil er tilgengelig før den saneres uavhengig av nedlastningstatus. De fleste Altinn 2 tjenster bruker "30D" - 30 dager.
+- FileTransferTimeToLive = Hvor lenge en fil er tilgengelig før den saneres uavhengig av nedlastningsstatus. De fleste Altinn 2 tjenester bruker "30D" - 30 dager.
 - PurgeFileTransferAfterAllRecipientsConfirmed = Om filer skal saneres umiddelbart etter at alle mottakere har bekreftet, de fleste bruker "true"
-- PurgeFileTransferGracePeriod = "48H" - Filer slettes ikke før 48 timer har passert (var hard-kodet i Altinn 2).
+- PurgeFileTransferGracePeriod = "24H" - Filer slettes ikke før 24 timer har passert (var hard-kodet til 48 timer i Altinn 2). Må spesifiseres som [ISO8601 Duration](https://en.wikipedia.org/wiki/ISO_8601#Durations) og 24 timer er maks.
 
 Dersom du trenger å bruke[Manifest fil](../technical-overview/#manifest-fil), må også følgende verdier settes:
 
@@ -34,7 +35,7 @@ Dersom du trenger å bruke[Manifest fil](../technical-overview/#manifest-fil), m
 - ExternalServiceCodeLegacy = den eksterne tjenestekoden til Altinn 2-tjenesten.
 - ExternalServiceEditionCodeLegacy = den eksterne tjenesteutgavekoden til Altinn 2-tjenesten.
 
-Når du er ferdig med å overføre alle brukerene fra Altinn 2 til Altinn 3 API'ene, kan du endre konfigurasjonen til nye verdier etter din egen preferanse.
+Når du er ferdig med å overføre alle brukerne fra Altinn 2 til Altinn 3 API'ene, kan du endre konfigurasjonen til nye verdier etter din egen preferanse.
 For de 3 siste verdiene som kun brukes for overgangsløsningen er det ryddig å sette til False/null.
 
 ### Bestill overgangsoppsett
@@ -59,10 +60,14 @@ Etter at overgangsoppsettet er aktivert, vil ikke Altinn 2 tjenesten lenger send
 Dette betyr at eksisterende filer i Altinn 2 Formidling sitt datalager blir utilgjengelig for sluttbrukere etter overgang.
 
 Vi anbefaler derfor at dere planlegger en periode med nedetid for tjenesten der ingen nye filer opprettes, men alle mottakere kan laste ned filene sine før du utfører overgangen.
-Nøyaktig hvor lang denne tiden bør være, varierer fra tjeneste til tjeneste, avhengig av hvor raskt mottakerne laster ned filene etter de er tilgjengeligjort. Dersom dere ikke har innsikt i dette, ta kontakt med oss, så kan vi ta ut statistikk som kan hjelpe med å avklare dette.
+Nøyaktig hvor lang denne tiden bør være, varierer fra tjeneste til tjeneste, avhengig av hvor raskt mottakerne laster ned filene etter de er gjort tilgjengelig. Dersom dere ikke har innsikt i dette, ta kontakt med oss, så kan vi ta ut statistikk som kan hjelpe med å avklare dette.
 
-En metode for å håndheve nedetiden er å bruke Altinn 2 SRR for midlertidig å fjerne "write"-tilgangen for alle organisasjonene dere har godkjent som avsendere, men beholde "read"-tilgangen for alle mottakere.
+En måte for å gjennomføre dette er å bruke Altinn 2 SRR for midlertidig å fjerne "write"-tilgangen for alle organisasjonene dere har godkjent som avsendere, men beholde "read"-tilgangen for alle mottakere.
 Når overgangen er satt opp, kan dere gi "write"-tilgangen tilbake til alle avsenderne, og filene vil nå bli opprettet i Altinn 3.
+
+{{% notice warning  %}}
+Merk at det er en caching-tid på 10 minutter for SRR-rettigheter i Altinn 2 (SC+SEC+Orgnr), så pass på å ta hensyn til dette i planene.
+{{% /notice %}}
 
 ## Sluttbrukere
 
@@ -71,7 +76,7 @@ Men alle forbrukere bør få det tekniske teamet til å gå gjennom denne dokume
 
 Funksjonelt sett vil kvitteringer ikke lenger ha en kvitteringsid, og dersom skrudd på; vil ikke manifest filene ha en File List.
 
-I tillegg, mens en vil ble virus-scannet under opplasting i Altinn 2, blir den i Altinn 3 gjort asynkront etter opplasting. Dette betyr at en opplastet fil i Altinn 3 ikke vil være umiddelbart tilgjengelig, i motsetning til i Altinn2.
+Mens en fil ble virus-scannet under opplasting i Altinn 2, blir dette gjort asynkront etter opplasting i Altinn 3. Dette betyr at en opplastet fil i Altinn 3 ikke vil være umiddelbart tilgjengelig, i motsetning til i Altinn2.
 Filen vil bli gjort tilgjengelig når den automatiske virus skanningen er fullført.
 
 Samtaler for å få kvittering gjennom ekstern Receipt SOAP endepunkt støttes ikke. Hvis dette er et krav fra en tjenesteeier eller sluttbruker, kan du sende oss en endringsforespørsel.

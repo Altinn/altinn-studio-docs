@@ -6,59 +6,64 @@ aliases:
 weight: 10
 ---
 
-Altinn Notifications is a service that enables efficient communication with end users through various channels. We offer:
+**Altinn Notifications** is a service designed to facilitate efficient communication with end users through various channels. Key features include:
 
 - A robust API for sending notifications via email and SMS.
-- Integration with Altinn's existing services to ensure seamless communication.
-- Lookup of contact details in national registries using national identification numbers or organization numbers, ensuring that current information is used.
+- Seamless integration with Altinn's services to streamline communication workflows.
+- Real-time lookup of names and contact details from national registries using national identification numbers or organization numbers, ensuring using up-to-date information.
 
 ## Capabilities
 
-**Email Notifications**: Send informational and formatted emails to users.
+**Email Notifications**: Send customized, formatted and informative emails directly to users.
 
-**SMS Notifications**: Send concise and timely messages to users' mobile phones.
+**SMS Notifications**: Send customized, concise and timely messages to users’ mobile devices.
 
-**Contact Details Lookup**: Retrieve updated contact details from national registries.
+**Name Lookup**: Retrieve current names from national registries.
+
+**Contact Details Lookup**: Retrieve updated contact information from national registries.
 
 ## How It Works
-Integrate your internal services and Altinn applications with Altinn Notifications 
-to enable notifications based on specific events or conditions. 
+Altinn Notifications enables integration with internal services and Altinn applications to send notifications triggered by specific events or conditions.
 
 ### API Access
-Developers can use the Altinn Notifications API to send notifications and track delivery status programmatically.
 
+Developers can use the Altinn Notifications API to send notifications programmatically and track their delivery status.
 
 ### Integration with Altinn Services
-Altinn Notifications uses:
-- **Register**: Retrieves contact details for businesses.
-- **Profile**: Retrieves contact details for end users.
+
+Altinn Notifications leverages the following Altinn services:
+
+- **Register**: Retrieves names and contact details for businesses.
+- **Profile**: Retrieves names and contact details for individual users.
 - **Resource Registry**: Identifies authorized recipients within an organization.
 - **Authorization**: Ensures secure and compliant communication.
 
 ### Communication Providers
-Altinn Notifications utilizes the following providers:
 
-- **Email**: Azure Communication Services.
+Altinn Notifications uses these providers to send messages:
+
+- **Email**: Azure Communication Services.  
 - **SMS**: LinkMobility.
 
 ## Eligible Users
-The following parties can send messages via Altinn Notifications, provided they have authorization through Maskinporten:
 
-- Registered service owners
-- Altinn Apps
-- Internal Altinn services
+The following entities can send messages via Altinn Notifications, provided they are authorized through Maskinporten:
+
+- Registered service owners  
+- Altinn Apps  
+- Internal Altinn services  
 
 ## Core Principles
 
-- **Reliability**: Ensures notifications are delivered promptly and accurately.
-- **Flexibility**: Supports various notification channels and custom templates.
-- **Integration**: Works seamlessly with other Altinn services.
-- **Security**: Ensures secure communications in compliance with relevant regulations.
+- **Reliability**: Ensures notifications are delivered promptly and accurately.  
+- **Flexibility**: Supports multiple notification channels and customizable templates.  
+- **Integration**: Works seamlessly with other Altinn services.  
+- **Security**: Guarantees secure communication in compliance with regulations.
 
 ## Open Source and Collaboration
 
-Altinn Notifications is an open-source project, welcoming community contributions.
+Altinn Notifications is an open-source project that welcomes community contributions.
 
-Join our community on GitHub to contribute to the development of Altinn Notifications. Your feedback and contributions help create a robust and reliable notification service.
+Join our community on GitHub to participate in the development of Altinn Notifications. Your feedback and contributions are invaluable for building a robust and reliable notification service.
 
-For more information, please refer to our [user guide](/notifications/guides/).
+For additional details, please refer to our [user guide](/notifications/guides/).

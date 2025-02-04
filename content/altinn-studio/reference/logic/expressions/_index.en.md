@@ -146,22 +146,24 @@ And for a person who is 15 years old (or younger, such as a 4-year-old), the tex
   
 Dynamic expressions are currently available for use in these properties, as defined in [layout files](../../ux/pages).  
   
-| Components                                                                                                                             | Property                      | Expected Value             | Frontend | Backend |  
-| -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | -------------------------- | -------- | ------- |  
-| [Pages/layouts](#showhide-entire-pages)                                                                                                | `hidden`                      | [Boolean](#boolean-values) | ✅       | ✅      |  
-| All                                                                                                                                    | `hidden`                      | [Boolean](#boolean-values) | ✅       | ✅      |  
-| Form components                                                                                                                        | `required`                    | [Boolean](#boolean-values) | ✅       | ✅      |  
-| Form components                                                                                                                        | `readOnly`                    | [Boolean](#boolean-values) | ✅       | ❌      |  
-| [Repeating groups](../../ux/fields/grouping/repeating)                                                                                 | `hiddenRow`                   | [Boolean](#boolean-values) | ✅       | ❌      |  
-| [Repeating groups](../../ux/fields/grouping/repeating)                                                                                 | `edit.addButton`              | [Boolean](#boolean-values) | ✅       | ❌      |  
-| [Repeating groups](../../ux/fields/grouping/repeating)                                                                                 | `edit.saveButton`             | [Boolean](#boolean-values) | ✅       | ❌      |  
-| [Repeating groups](../../ux/fields/grouping/repeating)                                                                                 | `edit.deleteButton`           | [Boolean](#boolean-values) | ✅       | ❌      |  
-| [Repeating groups](../../ux/fields/grouping/repeating)                                                                                 | `edit.alertOnDelete`          | [Boolean](#boolean-values) | ✅       | ❌      |  
-| [Repeating groups](../../ux/fields/grouping/repeating)                                                                                 | `edit.saveAndNextButton`      | [Boolean](#boolean-values) | ✅       | ❌      |  
-| [RadioButtons](../../ux/components/radiobuttons), [Checkboxes](../../ux/components/checkbox), [Dropdown](../../ux/components/dropdown) | `source.label`                | [String](#strings)         | ✅       | ❌      |
-| [RadioButtons](../../ux/components/radiobuttons), [Checkboxes](../../ux/components/checkbox), [Dropdown](../../ux/components/dropdown) | `source.description`          | [String](#strings)         | ✅       | ❌      |
-| [RadioButtons](../../ux/components/radiobuttons), [Checkboxes](../../ux/components/checkbox), [Dropdown](../../ux/components/dropdown) | `source.helpText`             | [String](#strings)         | ✅       | ❌      |
-| All                                                                                                                                    | `textResourceBindings.[*]` \* | [String](#strings)         | ✅       | ❌      |                                                   
+| Components                                                                                                 | Property                      | Expected Value             | Frontend | Backend |
+|------------------------------------------------------------------------------------------------------------|-------------------------------|----------------------------|----------|---------|
+| [Pages/layouts](#showhide-entire-pages)                                                                    | `hidden`                      | [Boolean](#boolean-values) | ✅        | ✅       |
+| All                                                                                                        | `hidden`                      | [Boolean](#boolean-values) | ✅        | ✅       |
+| Form components                                                                                            | `required`                    | [Boolean](#boolean-values) | ✅        | ✅       |
+| Form components                                                                                            | `readOnly`                    | [Boolean](#boolean-values) | ✅        | ❌       |
+| [Repeating groups](../../ux/fields/grouping/repeating)                                                     | `hiddenRow`                   | [Boolean](#boolean-values) | ✅        | ❌       |
+| [Repeating groups](../../ux/fields/grouping/repeating)                                                     | `edit.addButton`              | [Boolean](#boolean-values) | ✅        | ❌       |
+| [Repeating groups](../../ux/fields/grouping/repeating)                                                     | `edit.saveButton`             | [Boolean](#boolean-values) | ✅        | ❌       |
+| [Repeating groups](../../ux/fields/grouping/repeating)                                                     | `edit.deleteButton`           | [Boolean](#boolean-values) | ✅        | ❌       |
+| [Repeating groups](../../ux/fields/grouping/repeating)                                                     | `edit.alertOnDelete`          | [Boolean](#boolean-values) | ✅        | ❌       |
+| [Repeating groups](../../ux/fields/grouping/repeating)                                                     | `edit.saveAndNextButton`      | [Boolean](#boolean-values) | ✅        | ❌       |
+| [Option based components](../../../guides/development/options/sources/from-data-model/#expression-support) | `source.label`                | [String](#strings)         | ✅        | ❌       |
+| [Option based components](../../../guides/development/options/sources/from-data-model/#expression-support) | `source.description`          | [String](#strings)         | ✅        | ❌       |
+| [Option based components](../../../guides/development/options/sources/from-data-model/#expression-support) | `source.helpText`             | [String](#strings)         | ✅        | ❌       |
+| [Option based components](../../../guides/development/options/sources/dynamic/#based-on-expressions)       | `queryParameters.[*]`         | [String](#strings)         | ✅        | ❌       |
+| [Option based components](../../../guides/development/options/functionality/filtering)                     | `optionFilter`                | [String](#strings)         | ✅        | ❌       |
+| All                                                                                                        | `textResourceBindings.[*]` \* | [String](#strings)         | ✅        | ❌       |
 
 \* = The values that can be overridden with textResourceBindings vary from component to component, but will work wherever
 used. For repeating groups, you can find [more information here](../../ux/fields/grouping/repeating#textresourcebindings)  
@@ -260,38 +262,40 @@ Here we find the closest `age` component `age-1`, which is _36_, Kari's age.
 
 These functions are available for use in expressions:
 
-| Function Name                                | Parameters                                                                                       | Return Value                         | Frontend | Backend |  
-|----------------------------------------------|--------------------------------------------------------------------------------------------------| ------------------------------------ | -------- | ------- |  
-| [`equals`](#func-equals)                     | [String](#strings), [String](#strings)                                                           | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`notEquals`](#func-equals)                  | [String](#strings), [String](#strings)                                                           | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`not`](#func-not)                           | [Boolean](#boolean-values)                                                                       | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`greaterThan`](#func-gt)                    | [Number](#numbers), [Number](#numbers)                                                           | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`greaterThanEq`](#func-gt)                  | [Number](#numbers), [Number](#numbers)                                                           | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`lessThan`](#func-gt)                       | [Number](#numbers), [Number](#numbers)                                                           | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`lessThanEq`](#func-gt)                     | [Number](#numbers), [Number](#numbers)                                                           | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`concat`](#func-concat)                     | None or multiple [strings](#strings)                                                             | [String](#strings)                   | ✅       | ✅      |  
-| [`and`](#func-and)                           | One or more [boolean values](#boolean-values)                                                    | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`or`](#func-and)                            | One or more [boolean values](#boolean-values)                                                    | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`if`](#func-if)                             | [See detailed description](#func-if)                                                             | [See detailed description](#func-if) | ✅       | ✅      |  
-| [`contains`](#func-contains-not-contains)    | [String](#strings), [String](#strings)                                                           | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`notContains`](#func-contains-not-contains) | [String](#strings), [String](#strings)                                                           | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`commaContains`](#func-commaContains)       | [String](#strings), [String](#strings)                                                           | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`startsWith`](#func-starts-ends-with)       | [String](#strings), [String](#strings)                                                           | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`endsWith`](#func-starts-ends-with)         | [String](#strings), [String](#strings)                                                           | [Boolean](#boolean-values)           | ✅       | ✅      |  
-| [`lowerCase`](#func-lowerCase-upperCase)     | [String](#strings)                                                                               | [String](#strings)                   | ✅       | ✅      |  
-| [`upperCase`](#func-lowerCase-upperCase)     | [String](#strings)                                                                               | [String](#strings)                   | ✅       | ✅      |  
-| [`stringLength`](#func-stringLength)         | [String](#strings)                                                                               | [Number](#numbers)                   | ✅       | ✅      |  
-| [`text`](#func-text)                         | [String](#strings)                                                                               | [String](#strings)                   | ✅       | ❌      |  
-| [`language`](#func-language)                 | None                                                                                             | [String](#strings)                   | ✅       | ❌      |  
-| [`displayValue`](#func-displayValue)         | [String](#strings)                                                                               | [String](#strings)                   | ✅       | ❌      |  
-| [`round`](#func-round)                       | [Number](#numbers), optional [Number](#numbers)                                                  | [String](#strings)                   | ✅       | ✅      |  
-| [`instanceContext`](#func-instancecontext)   | [String](#strings)                                                                               | [String](#strings)                   | ✅       | ✅      |  
-| [`frontendSettings`](#func-frontendsettings) | [String](#strings)                                                                               | [String](#strings)                   | ✅       | ✅      |  
-| [`dataModel`](#func-datamodel)               | [String](#strings)                                                                               | [String](#strings)                   | ✅       | ✅      |  
-| [`component`](#func-component)               | [String](#strings)                                                                               | [String](#strings)                   | ✅       | ✅      |  
-| [`formatDate`](#func-formatDate)             | [String](#strings), optional [String](#strings)                                                  | [String](#strings)                   | ✅       | ❌      |  
-| [`linkToPage`](#func-linkToPage)                 | [String](#strings), [String](#strings) | [String](#strings)                   | ✅       | ❌      |  
-| [`linkToComponent`](#func-linkToComponent)                 | [String](#strings), [String](#strings) | [String](#strings)                   | ✅       | ❌      |  
+| Function Name                                | Parameters                                      | Return Value                         | Frontend | Backend |  
+|----------------------------------------------|-------------------------------------------------|--------------------------------------|----------|---------|  
+| [`equals`](#func-equals)                     | [String](#strings), [String](#strings)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
+| [`notEquals`](#func-equals)                  | [String](#strings), [String](#strings)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
+| [`not`](#func-not)                           | [Boolean](#boolean-values)                      | [Boolean](#boolean-values)           | ✅        | ✅       |  
+| [`greaterThan`](#func-gt)                    | [Number](#numbers), [Number](#numbers)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
+| [`greaterThanEq`](#func-gt)                  | [Number](#numbers), [Number](#numbers)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
+| [`lessThan`](#func-gt)                       | [Number](#numbers), [Number](#numbers)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
+| [`lessThanEq`](#func-gt)                     | [Number](#numbers), [Number](#numbers)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
+| [`concat`](#func-concat)                     | None or multiple [strings](#strings)            | [String](#strings)                   | ✅        | ✅       |  
+| [`and`](#func-and)                           | One or more [boolean values](#boolean-values)   | [Boolean](#boolean-values)           | ✅        | ✅       |  
+| [`or`](#func-and)                            | One or more [boolean values](#boolean-values)   | [Boolean](#boolean-values)           | ✅        | ✅       |  
+| [`if`](#func-if)                             | [See detailed description](#func-if)            | [See detailed description](#func-if) | ✅        | ✅       |  
+| [`contains`](#func-contains-not-contains)    | [String](#strings), [String](#strings)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
+| [`notContains`](#func-contains-not-contains) | [String](#strings), [String](#strings)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
+| [`commaContains`](#func-commaContains)       | [String](#strings), [String](#strings)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
+| [`startsWith`](#func-starts-ends-with)       | [String](#strings), [String](#strings)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
+| [`endsWith`](#func-starts-ends-with)         | [String](#strings), [String](#strings)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
+| [`lowerCase`](#func-lowerCase-upperCase)     | [String](#strings)                              | [String](#strings)                   | ✅        | ✅       |  
+| [`upperCase`](#func-lowerCase-upperCase)     | [String](#strings)                              | [String](#strings)                   | ✅        | ✅       |  
+| [`stringLength`](#func-stringLength)         | [String](#strings)                              | [Number](#numbers)                   | ✅        | ✅       |  
+| [`text`](#func-text)                         | [String](#strings)                              | [String](#strings)                   | ✅        | ❌       |  
+| [`language`](#func-language)                 | None                                            | [String](#strings)                   | ✅        | ❌       |  
+| [`displayValue`](#func-displayValue)         | [String](#strings)                              | [String](#strings)                   | ✅        | ❌       |  
+| [`round`](#func-round)                       | [Number](#numbers), optional [Number](#numbers) | [String](#strings)                   | ✅        | ✅       |  
+| [`instanceContext`](#func-instancecontext)   | [String](#strings)                              | [String](#strings)                   | ✅        | ✅       |  
+| [`frontendSettings`](#func-frontendsettings) | [String](#strings)                              | [String](#strings)                   | ✅        | ✅       |  
+| [`dataModel`](#func-datamodel)               | [String](#strings)                              | [String](#strings)                   | ✅        | ✅       |  
+| [`component`](#func-component)               | [String](#strings)                              | [String](#strings)                   | ✅        | ✅       |  
+| [`formatDate`](#func-formatDate)             | [String](#strings), optional [String](#strings) | [String](#strings)                   | ✅        | ❌       |  
+| [`linkToPage`](#func-linkToPage)             | [String](#strings), [String](#strings)          | [String](#strings)                   | ✅        | ❌       |  
+| [`linkToComponent`](#func-linkToComponent)   | [String](#strings), [String](#strings)          | [String](#strings)                   | ✅        | ❌       |  
+| [`argv`](#func-argv)                         | [Number](#numbers)                              | [String](#strings)                   | ✅        | ✅       |  
+| [`value`](#func-value)                       | optional [String](#strings)                     | [String](#strings)                   | ✅        | ❌       |  
 
 Detailed descriptions and examples
 
@@ -831,6 +835,38 @@ is the id of the component the link should point to.
 Would result in `<a href="#/instance/<party-id>/<instance-id>/<TaskId>/<PageId>?focusNodeId=inputMyName">Specify your name</a>`
 When clicked, this link will take the user to the page the component is on and focus on the specified component.
 
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-argv" header="argv" %}}
+The `argv` function can be used to retrieve arguments sent to the expression. This is currently only available for
+[expression-based validation](../validation/expression-validation).
+
+The function takes 1 argument, which is the index of the argument you want to retrieve. The index starts at 0.
+
+```json
+["argv", 0]
+```
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-value" header="value" %}}
+Like `argv`, the `value` function is also a method for retrieving arguments sent to the expression. The function can be used
+without arguments to retrieve a value, or with an argument to retrieve other types of values. This is currently available
+for [filtering of options](../../../guides/development/options/functionality/filtering) and will soon be available
+as an alternative to `argv` in [expression-based validation](../validation/expression-validation).
+
+```json
+["value"]
+```
+
+This expression retrieves the value of the option (if used in filtering options). In other contexts, this expression currently
+returns an error message.
+
+```json
+["value", "label"]
+```
+
+The expression above retrieves the text of the option (if used in filtering options). In other contexts, this expression
+returns an error message.
 {{% /expandlarge %}}
 
 ## Data Types
