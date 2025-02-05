@@ -104,14 +104,15 @@ Improvements are planned to provide feedback on this during the creation of a me
 ## Custom recipients for Notifications
 
 For all correspondences created with Notifications enabled, the notifications will be sent to the recipient specified in the creation of the correspondence.
-However, it is also possible to choose optional recipients of the notification that are not necessarily the recipient(s) of the correspondence.
+However, it is also possible to choose optional recipients of the notification that are not necessarily the recipient(s) of the correspondence. 
+In practice this means that custom recipients will override/replace the original recipient provided for the notification.
 This can be achieved by populating the `recipients` field under `notification` as follows:
 
 ```json
 {
   "notification": {
     ...,
-    "recipients": [
+    "customNotificationRecipients": [
       {
         "recipientToOverride": "string",
         "notificationRecipient": [
@@ -127,6 +128,23 @@ This can be achieved by populating the `recipients` field under `notification` a
   }
 }
 ```
+
+## How to use it
+```
+correspondence.notification.customNotificationRecipients[0].recipientToOverride
+correspondence.notification.customNotificationRecipients[0].recipients[0].organizationNumber
+correspondence.notification.customNotificationRecipients[0].recipients[0].nationalIdentityNumber
+correspondence.notification.customNotificationRecipients[0].recipients[0].mobileNumber
+correspondence.notification.customNotificationRecipients[0].recipients[0].emailAddress
+```
+
+{{% panel theme="warning" %}}
+⚠️ IMPORTANT: 
+Keep in mind the value that is given to `notificationTemplate` and `notificationChannel`, as these will impact the custom recipient. Further details are provided [here](#notification-templates).
+{{% /panel %}}
+
+
+## Explanation of template and channel
 
 For each of the optional recipients, they must override an existing recipient in the `Correspondence.Recipients` list.
 This value corresponds to either the organization number or national identity number of the recipient for the correspondence.
