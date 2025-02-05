@@ -21,7 +21,10 @@ kommunenummeret og vise frem kommunenavnet.
 
 ### Anatomi
 
-[//]: # (TODO: Add screenshots of the component and describe the anatomy)
+1. **Horisontal**: Et valg strukturert horisontalt.
+   ![Option horisontal anatomi](option-horizontal.png "Option horisontal")
+2. **Vertikal**: Et valg strukturert vertikalt.
+   ![Option vertikal anatomi](option-vertical.png "Option vertikal")
 
 
 <!-- 

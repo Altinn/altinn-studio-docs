@@ -21,7 +21,10 @@ the municipality number and display the municipality name.
 
 ### Anatomy
 
-[//]: # (TODO: Add screenshots of the component and describe the anatomy)
+1. **Horizontal**: An option structured horizontally
+   ![Option horizontal anatomy](option-horizontal.png "Option horizontal")
+2. **Vertical**: An option structured vertically
+   ![Option vertical anatomy](option-vertical.png "Option vertical")
 
 
 <!-- 
