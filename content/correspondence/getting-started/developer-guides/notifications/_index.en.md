@@ -129,7 +129,7 @@ This can be achieved by populating the `recipients` field under `notification` a
 }
 ```
 
-## How to use it
+### How to use it
 ```
 correspondence.notification.customNotificationRecipients[0].recipientToOverride
 correspondence.notification.customNotificationRecipients[0].recipients[0].organizationNumber
@@ -144,7 +144,7 @@ Keep in mind the value that is given to `notificationTemplate` and `notification
 {{% /panel %}}
 
 
-## Explanation of template and channel
+### Explanation of template and channel
 
 For each of the optional recipients, they must override an existing recipient in the `Correspondence.Recipients` list.
 This value corresponds to either the organization number or national identity number of the recipient for the correspondence.
