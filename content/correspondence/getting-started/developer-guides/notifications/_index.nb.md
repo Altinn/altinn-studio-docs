@@ -104,13 +104,15 @@ Det er planlagt forbedringer for å gi tilbakemelding omkring dette under oppret
 
 For meldinger som er opprettet med varsling aktivert vil mottakeren av varslingen være den samme som mottakeren av meldingen.
 Det er derimot mulig benytte valgfrie mottakere av varsling, som ikke nødvendigvis er mottaker av meldingen.
-Dette gjøres ved å fylle ut `recipients`-feltet under `notification` slik:
+Det er også mulig å legge til valgfrie mottakere av varselet som ikke nødvendigvis er mottaker(e) av meldingen. 
+I praksis betyr dette at valgfrie mottakere vil overstyre/erstatte den opprinnelige mottakeren som er angitt for varselet.
+Dette gjøres ved å fylle ut `customNotificationRecipients`-feltet under `notification` slik:
 
 ```json
 {
   "notification": {
     ...,
-    "recipients": [
+    "customNotificationRecipients": [
       {
         "recipientToOverride": "string",
         "notificationRecipient": [
@@ -125,8 +127,23 @@ Dette gjøres ved å fylle ut `recipients`-feltet under `notification` slik:
     ]
   }
 }
+
+```
+### Hvordan bruke valgfri mottaker
+```
+correspondence.notification.customNotificationRecipients[0].recipientToOverride
+correspondence.notification.customNotificationRecipients[0].recipients[0].organizationNumber
+correspondence.notification.customNotificationRecipients[0].recipients[0].nationalIdentityNumber
+correspondence.notification.customNotificationRecipients[0].recipients[0].mobileNumber
+correspondence.notification.customNotificationRecipients[0].recipients[0].emailAddress
 ```
 
+{{% panel theme="warning" %}}
+⚠️ VIKTIG: 
+Husk verdien som gis til `notificationTemplate` og `notificationChannel`, da disse vil påvirke den valgfri mottakeren. Flere detaljer er gitt [her](#varslingsmaler).
+{{% /panel %}}
+
+### Explanation of template and channel
 Alle valgfrie mottakere må overstyre en eksisterende mottaker i listen til `Correspondence.Recipients`l
 Denne verdien vil være enten organisasjonsnummeret eller fødselsnummeret til mottakeren av korrespondansen.
 
