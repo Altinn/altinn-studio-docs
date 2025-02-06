@@ -136,7 +136,7 @@ Here are the overrides that are common for all components:
 |-----------------|---------|----------|-------------------------------------------------------------------------------------------------------------|
 | componentId     | string  | yes      | ID of the compoment you are overriding                                                                      |
 | hidden          | boolean | no       | Exclude the component from summary                                                                          |
-| forceShow       | boolean | no       | Will force show the component in a summary even if hideEmptyFields is set to true in the summary component. |
+| forceShowInSummary       | boolean | no       | Will force show the component in a summary even if hideEmptyFields is set to true in the summary component. |
 | emptyFieldText  | string  | no       | Custom text to show for empty fields.                                                                        |
 | hideEmptyFields | boolean | no       | Exclude empty fields for summary. Only works if the field is not required.                                    |
 | isCompact       | boolean | no       | Option to display a more compact version. (Map, Paragraph and Header does not have this)                    |
