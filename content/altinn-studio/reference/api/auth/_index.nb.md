@@ -76,6 +76,15 @@ Interfacet `IAuthenticationContext` kan brukes i custom kode til å sjekke hva s
 som er assosiert med denne. Her er eksempel på en implementasjon av `IInstantiationValidator` som bare tillater
 instansiering av brukere innlogget via Altinn portal:
 
+{{% notice info %}}
+`IAuthenticationContext.Current` bruker informasjon om innlogget bruker fra ASP.NET Core sin authentication stack.
+Det vil si at ASP.NET Core auth middleware må ha kjørt for at man skal få riktig informasjon.
+Middleware for auth legges til i `UseAltinnAppCommonConfiguration`. Så hvis man skal akssessere `IAuthenticationContext.Current`
+i et ASP.NET Core middleware så må denne legges til **etter** at `UseAltinnAppCommonConfiguration` har blitt kalt.
+Alle interfaces som implementeres i en app, slik som `IInstantiationValidator` i eksempelet under, kjører på et tidspunkt
+hvor autentiseringsinformasjonen er tilgjengelig, så der er det helt trygt.
+{{% /notice %}}
+
 ```csharp
 using System.Threading.Tasks;
 using Altinn.App.Core.Features;

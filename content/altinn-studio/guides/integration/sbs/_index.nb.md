@@ -52,10 +52,21 @@ På sikt ønsker vi at en app kan konfigureres med custom scope som erstatter `a
 som også vil gjelde plattformtjenester i Altinn (f. eks. Storage), men det er ikke bestemt hvordan eller når dette skal løses.
 {{% /notice %}}
 
+#### Validering med ASP.NET Core middleware
+
+{{% notice info %}}
+`IAuthenticationContext.Current` bruker informasjon om innlogget bruker fra ASP.NET Core sin authentication stack.
+Det vil si at ASP.NET Core auth middleware må ha kjørt for at man skal få riktig informasjon.
+Middleware for auth legges til i `UseAltinnAppCommonConfiguration`. Så hvis man skal akssessere `IAuthenticationContext.Current`
+i et middleware så må denne legges til **etter** at `UseAltinnAppCommonConfiguration` har blitt kalt.
+{{% /notice %}}
+
 Tjenesteeier kan deretter lage et middleware e.l. som gjør ekstra autorisasjon basert på den autentiserte brukeren. Eksempel:
 
 ```csharp
 WebApplication app = builder.Build();
+
+...
 
 app.Use(
     async (context, next) =>
@@ -80,6 +91,58 @@ app.Use(
 );
 ```
 
+
+#### Validering med XACML policy
+
+Scope fra token kan også brukes som attributt i XACML.
+
+{{% notice info %}}
+Matcheren `urn:oasis:names:tc:xacml:1.0:function:string-is-in` er ikke nødvendigvis helt trygg.
+Scopet `annentest:app.a` vil også matche her, siden `test:app.a` er en substreng av denne.
+Vi vurderer om en bedre match funksjon kan implementeres.
+{{% /notice %}}
+
+```xml
+<xacml:Rule RuleId="urn:altinn:example:ruleid:1" Effect="Permit">
+  <xacml:Description>A rule giving clients with scope "test:app.a" the right to instantiate a instance of a given app of [ORG]/[APP]</xacml:Description>
+  <xacml:Target>
+    <xacml:AnyOf>
+      <xacml:AllOf>
+        <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-is-in">
+          <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">test:app.a</xacml:AttributeValue>
+          <xacml:AttributeDesignator AttributeId="urn:altinn:scope" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
+        </xacml:Match>
+      </xacml:AllOf>
+    </xacml:AnyOf>
+    <xacml:AnyOf>
+      <xacml:AllOf>
+        <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+          <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">[ORG]</xacml:AttributeValue>
+          <xacml:AttributeDesignator AttributeId="urn:altinn:org" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
+        </xacml:Match>
+        <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+          <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">[APP]</xacml:AttributeValue>
+          <xacml:AttributeDesignator AttributeId="urn:altinn:app" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
+        </xacml:Match>
+      </xacml:AllOf>
+    </xacml:AnyOf>
+    <xacml:AnyOf>
+      <xacml:AllOf>
+        <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
+          <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">instantiate</xacml:AttributeValue>
+          <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
+        </xacml:Match>
+      </xacml:AllOf>
+      <xacml:AllOf>
+        <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
+          <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">read</xacml:AttributeValue>
+          <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
+        </xacml:Match>
+      </xacml:AllOf>
+    </xacml:AnyOf>
+  </xacml:Target>
+</xacml:Rule>
+```
 
 ## Integrasjon med systembruker
 
@@ -158,6 +221,31 @@ Se dokumentasjon for [registrering av Maskinporten-klient her](/technology/solut
 #### 3. Fiken registrerer system i systemregisteret
 
 Med access token fra autentisering med den nyopprettede Maskinporten-klient kan vi registrere Fiken som system i systemregisteret til Altinn Autentisering.
+For å hente token som kan brukes til systemregistrering vil Fiken legge inn scope som gir tilgang til systemregisteret:
+
+```http
+POST https://test.maskinporten.no/token
+
+{
+  "aud": "https://test.maskinporten.no/",
+  "sub": "2829136a-1dd4-4a13-8150-d605a3fc39e6",
+  "scope": "altinn:authentication/systemuser.request.read altinn:authentication/systemuser.request.write altinn:authentication/systemregister.write",
+  "iss": "2829136a-1dd4-4a13-8150-d605a3fc39e6",
+  "exp": 1718124835,
+  "iat": 1718124715,
+  "jti": "89365ecd-772b-4462-a4de-ac36af8ef3e2"
+}
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "access_token": "<access_token>",
+  ...
+}
+```
+
+Dette tokenet kan brukes direkte mot systemregister API.
 I JSON-definisjonen nedenfor registeres systemet med klient IDen fra steget over og med `Rights` som gir tilgang til Brønnøysundregisterets aarsregnskaps-app.
 
 ```http
@@ -193,9 +281,18 @@ Content-Type: application/json
   "AllowedRedirectUrls": [ "https://fiken.no/receipt" ],
   "ClientId": [ "a2ed712d-4144-4471-839f-80ae4a68146b" ]
 }
+
+
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+"772e52bc-63c3-45c0-80b7-f3bb1581469f"
 ```
 
 #### 4. Fiken forespør systembruker for kunden
+
+Som systemleverandør (Fiken) kan man etterspørre systembruker for en kunde.
+I responsen får man en `confirmUrl` som kan videresendes kunden slik at kunden kan godkjenne og fullføre opprettelsen av systembrukeren.
 
 ```http
 POST https://platform.tt02.altinn.no/authentication/api/v1/systemuser/request/vendor/
@@ -218,18 +315,94 @@ Content-Type: application/json
   ],
   "redirectUrl": "https://fiken.no/receipt"
 }
+
+
+HTTP/1.1 201 Created
+Content-Type: application/json; charset=utf-8
+
+{
+  "id": "d111dbab-d619-4f15-bf29-58fe570a9ae6",
+  "externalRef": "313725138_Fikenbruker",
+  "systemId": "913312465_Fiken",
+  "partyOrgNo": "313725138",
+  "rights": [
+    {
+      "resource": [
+        {
+          "id": "urn:altinn:resource",
+          "value": "app_brg_aarsregnskap",
+        }
+      ]
+    }
+  ],
+  "status": "New",
+  "redirectUrl": "https://fiken.no/receipt",
+  "confirmUrl": "https://authn.ui.tt02.altinn.no/authfront/ui/auth/vendorrequest?id=d111dbab-d619-4f15-bf29-58fe570a9ae6"
+}
 ```
 
 
 #### 5. Kunden godkjenner forespørsel om systembruker
 
-Person hos kunden, f. eks. daglig leder, godkjenner forespørsel om systembruker.
+Person hos kunden, f. eks. daglig leder, godkjenner forespørsel om systembruker ved å følge `confirmUrl` fra responsen over.
+Hvis testing foregår i tt02 så kan du f. eks. finne DAGL For organisasjonen til systembrukeren.
+Kunden i dette tilfellet har en DAGL med fødselsnummer `14830199986`, så denne kan brukes ved innlogging med TestID.
+Personen som godkjenner systembrukeren (systemtilgangen) må selv ha de rettighetene som skal delegeres til systembrukeren. 
+I dette tilfellet, hvor DAGL skal godkjenne, så må appen ha en regel som gir DAGL `instantiate` og `read`. Eksempel:
+
+```xml
+<xacml:Rule RuleId="urn:altinn:example:ruleid:1" Effect="Permit">
+  <xacml:Description>Gives DAGL instantiate and read for the app</xacml:Description>
+  <xacml:Target>
+    <xacml:AnyOf>
+      <xacml:AllOf>
+        <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
+          <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">dagl</xacml:AttributeValue>
+          <xacml:AttributeDesignator AttributeId="urn:altinn:rolecode" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
+        </xacml:Match>
+      </xacml:AllOf>
+    </xacml:AnyOf>
+    <xacml:AnyOf>
+      <xacml:AllOf>
+        <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+          <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">[ORG]</xacml:AttributeValue>
+          <xacml:AttributeDesignator AttributeId="urn:altinn:org" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
+        </xacml:Match>
+        <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+          <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">[APP]</xacml:AttributeValue>
+          <xacml:AttributeDesignator AttributeId="urn:altinn:app" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
+        </xacml:Match>
+      </xacml:AllOf>
+    </xacml:AnyOf>
+    <xacml:AnyOf>
+      <xacml:AllOf>
+        <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
+          <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">instantiate</xacml:AttributeValue>
+          <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
+        </xacml:Match>
+      </xacml:AllOf>
+      <xacml:AllOf>
+        <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
+          <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">read</xacml:AttributeValue>
+          <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
+        </xacml:Match>
+      </xacml:AllOf>
+    </xacml:AnyOf>
+  </xacml:Target>
+</xacml:Rule>
+```
+
 
 #### 6. Fiken kan autentisere mot Maskinporten med systembrukeren
 
 Nå kan Fiken autentisere systembrukeren med Maskinporten.
 Dette gjøres ved å legge til `authorization_details` claim i assertion med `/token` requestet til Maskinporten.
 Her bruker vi bare scopene `altinn:instances.read` og `altinn:instances.write` som lar oss sende inn i en Altinn app.
+
+{{% notice info %}}
+Hvis man bruker `externalRef` ved forespørsel om systembruker, så må denne også være med i assertion for token.
+I eksempelet over sendes `313725138_Fikenbruker` som `externalRef`, så vi sender den med under.
+{{% /notice %}}
 
 ```http
 POST https://test.maskinporten.no/token
@@ -243,7 +416,8 @@ POST https://test.maskinporten.no/token
         "authority": "iso6523-actorid-upis",
         "ID": "0192:313725138"
       },
-      "type": "urn:altinn:systemuser"
+      "type": "urn:altinn:systemuser",
+      "externalRef": "313725138_Fikenbruker"
     }
   ],
   "scope": "altinn:instances.read altinn:instances.write",
@@ -252,6 +426,20 @@ POST https://test.maskinporten.no/token
   "iat": 1718124715,
   "jti": "89365ecd-772b-4462-a4de-ac36af8ef3e2"
 }
+```
+
+Når vi nå har systembruker token fra Maskinporten, må vi foreløpig exchange denne til et Altinn token for å bruke den mot en app.
+I fremtiden vil dette ikke være nødvendig, og denne dokumentasjonen vil oppdateres.
+
+```http
+GET https://platform.tt02.altinn.no/authentication/api/v1/exchange/maskinporten
+Authorization: Bearer <access-token>
+
+
+HTTP/1.1 200 OK
+Content-Type: text/plain; charset=utf-8
+
+<access-token>
 ```
 
 #### 7. Fiken kan instansiere i appen
