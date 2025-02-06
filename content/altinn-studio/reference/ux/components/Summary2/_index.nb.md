@@ -154,7 +154,7 @@ Her er overstyringene som er felles for alle komponenter:
 |-----------------|---------|---------|------------------------------------------------------------------------------------------------------------------------|
 | componentId     | string  | ja      | ID-en til komponenten du overstyrer                                                                                    |
 | hidden          | boolean | nei     | Ekskluder komponenten fra oppsummeringen                                                                               |
-| forceShow       | boolean | nei     | Vil tvangsvise komponenten i en oppsummering selv om hideEmptyFields er satt til true i oppsummeringskomponenten. |
+| forceShowInSummary       | boolean | nei     | Vil tvangsvise komponenten i en oppsummering selv om hideEmptyFields er satt til true i oppsummeringskomponenten. |
 | emptyFieldText  | string  | nei     | Egendefinert tekst som skal vises for tomme felt.                                                                      |
 
 I tillegg støtter noen komponenter komponentspesifikke overstyringer:
