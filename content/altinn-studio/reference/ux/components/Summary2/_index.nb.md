@@ -135,7 +135,7 @@ Her er overstyringene som er felles for alle komponenter:
 |-----------------|---------|---------|------------------------------------------------------------------------------------------------------------------------|
 | componentId     | string  | ja      | ID-en til komponenten du overstyrer                                                                                    |
 | hidden          | boolean | nei     | Ekskluder komponenten fra oppsummeringen                                                                               |
-| forceShow       | boolean | nei     | Vil tvangsvise komponenten i en oppsummering selv om hideEmptyFields er satt til true i oppsummeringskomponenten.      |
+| forceShowInSummary       | boolean | nei     | Vil tvangsvise komponenten i en oppsummering selv om hideEmptyFields er satt til true i oppsummeringskomponenten.      |
 | emptyFieldText  | string  | nei     | Egendefinert tekst som skal vises for tomme felt.                                                                       |
 | hideEmptyFields | boolean | nei     | Ekskluder tomme felt fra oppsummeringen. Fungerer bare hvis feltet ikke er påkrevd.                                    |
 | isCompact       | boolean | nei     | Mulighet for å vise en kompakt versjon. (Map, Paragraph og Header har ikke støtte for dette)                           |

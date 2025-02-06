@@ -9,15 +9,6 @@ weight: 40
 
 {{<children />}}
 
-{{% notice warning  %}}
-Denne delen av dokumentasjonen er under arbeid, og refererer derfor i stor grad til eksterne kilder.
-{{% /notice %}}
-
-{{% notice warning  %}}
-For øyeblikket er varslinger for Melding ikke klare for fullskala bruk, på grunn av kommende endringer i Altinn Notifications.
-Dette dokumenterer det forventede scenarioet, men kan endres.
-{{% /notice %}}
-
 For å bruke varslinger i en meldingstjeneste, legges en varslingsbestilling til når en melding opprettes.
 Varslingen vil bli sendt ut på publikasjonstidspunktet for meldingen. 
 Hvis revarsel er aktivert, vil revarselet sendes ut etter 7 dager dersom meldingen ikke er lest.
@@ -56,18 +47,16 @@ En varslingsbestilling gjøres ved å legge til følgende når du initialiserer 
 
 ## Keyword støtte
 
-{{% notice warning  %}}
-Keywords er ikke ferdig implementert, men forventes å være på plass i Q4 2024. Mer dokumentasjon kommer da.
-{{% /notice %}}
 Keywords er en liste tokens som lar deg personalisere varslingene med for eksempel mottakers navn.
-For eksempel vil man kunne bruke \$sendersName\$ for å vise organisasjonsnavnet til avsender.
+| Verdi                 | Beskrivelse                                                                                                                            | Ekstra                                                                               |
+|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------- |--------------------------------------------------------------------------------------|
+| \$sendersName\$       | Blir byttet ut med avsenders navn. Enten "MessageSender" om attributten har en verdi, eller basert på ett oppslag i Altinn Register.   | Støttes for alle scenarioer                                                          |
+| \$recipientName\$     | Blir byttet ut med mottakers navn. Dette vil være enten organisasjonsnavn eller personens navn.                                        | Støttes ikke dersom varsel blir sendt direkte til e-post adresse eller telefonnummer |
+| \$recipientNumber\$   | Dersom mottaker er en organisasjon vises Organisasjonsnummer. Dersom mottaker er en privatperson vises ingenting                       | Støttes ikke dersom varsel blir sendt direkte til e-post adresse eller telefonnummer |
 
 ## Varslingsmaler
 
 Det tilbys to typer varslingsmaler når du bruker varsling gjennom Meldings-API`et.
-{{% notice warning  %}}
-NOTE: Disse malene vil kunne endres fremmover. Spesielt da Keywords blir ferdig implementert.
-{{% /notice %}}
 
 **CustomText:**
 
@@ -78,13 +67,14 @@ NOTE: Disse malene vil kunne endres fremmover. Spesielt da Keywords blir ferdig 
 - En generisk Altinn-tekst med mulighet for å supplere med ekstra tekst. Foreløpig støttede språk er norsk, nynorsk og engelsk. Språk velges basert på språket definert i meldingen
 
 **Tittel:** Du har mottatt en melding i Altinn {textToken}<br>
-**Innhold:** Hei \$recipientName\$, du har mottatt en ny melding i Altinn fra \$sendersName\$. {textToken} Logg deg inn i Altinn inboks for å se denne meldingen.
+**Innhold:** Hei \$recipientName\$, du har mottatt en ny melding fra \$sendersName\$. {textToken} Logg deg inn i Altinn for å se denne meldingen.
 
 **Revarsel tittel:** Påminnelse - du har mottatt en melding i Altinn {textToken}<br>
-**Revarsel innhold:** Hei \$recipientName\$, dette er en påminnelse om at du har mottatt en ny melding i Altinn fra \$sendersName\$. {textToken} Logg deg inn i Altinn inboks for å se denne meldingen.
+**Revarsel innhold:** Hei \$recipientName\$, dette er en påminnelse om at du har mottatt en ny melding fra \$sendersName\$. {textToken} Logg deg inn i Altinn for å se denne meldingen.
 
 I teksten vil textToken bli byttet ut med verdien gitt i for eksempel "EmailSubject" for tittelen. SMS bruker kun innholdet, ikke tittelen.
-
+\$recipientName\$ vil bli byttet ut med mottakers navn. Dette vil være enten organisasjonsnavn eller personens navn.
+ 
 NB! Linker skal ALDRI brukes i varslinger.
 
 ## Varslingskanaler
@@ -114,13 +104,15 @@ Det er planlagt forbedringer for å gi tilbakemelding omkring dette under oppret
 
 For meldinger som er opprettet med varsling aktivert vil mottakeren av varslingen være den samme som mottakeren av meldingen.
 Det er derimot mulig benytte valgfrie mottakere av varsling, som ikke nødvendigvis er mottaker av meldingen.
-Dette gjøres ved å fylle ut `recipients`-feltet under `notification` slik:
+Det er også mulig å legge til valgfrie mottakere av varselet som ikke nødvendigvis er mottaker(e) av meldingen. 
+I praksis betyr dette at valgfrie mottakere vil overstyre/erstatte den opprinnelige mottakeren som er angitt for varselet.
+Dette gjøres ved å fylle ut `customNotificationRecipients`-feltet under `notification` slik:
 
 ```json
 {
   "notification": {
     ...,
-    "recipients": [
+    "customNotificationRecipients": [
       {
         "recipientToOverride": "string",
         "notificationRecipient": [
@@ -135,8 +127,23 @@ Dette gjøres ved å fylle ut `recipients`-feltet under `notification` slik:
     ]
   }
 }
+
+```
+### Hvordan bruke valgfri mottaker
+```
+correspondence.notification.customNotificationRecipients[0].recipientToOverride
+correspondence.notification.customNotificationRecipients[0].recipients[0].organizationNumber
+correspondence.notification.customNotificationRecipients[0].recipients[0].nationalIdentityNumber
+correspondence.notification.customNotificationRecipients[0].recipients[0].mobileNumber
+correspondence.notification.customNotificationRecipients[0].recipients[0].emailAddress
 ```
 
+{{% panel theme="warning" %}}
+⚠️ VIKTIG: 
+Husk verdien som gis til `notificationTemplate` og `notificationChannel`, da disse vil påvirke den valgfri mottakeren. Flere detaljer er gitt [her](#varslingsmaler).
+{{% /panel %}}
+
+### Explanation of template and channel
 Alle valgfrie mottakere må overstyre en eksisterende mottaker i listen til `Correspondence.Recipients`l
 Denne verdien vil være enten organisasjonsnummeret eller fødselsnummeret til mottakeren av korrespondansen.
 

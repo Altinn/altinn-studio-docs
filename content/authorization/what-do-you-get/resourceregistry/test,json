@@ -1,0 +1,106 @@
+{
+    "Attributes": [
+        {
+            "Id": null,
+            "Content": null,
+            "Category": "urn:oasis:names:tc:xacml:1.0:subject-category:access-subject",
+            "Attributes": []
+        },
+        {
+            "Id": null,
+            "Content": null,
+            "Category": "urn:oasis:names:tc:xacml:3.0:attribute-category:action",
+            "Attributes": [
+                {
+                    "Issuer": null,
+                    "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+                    "AttributeValues": [
+                        {
+                            "Value": "read",
+                            "DataType": "http://www.w3.org/2001/XMLSchema#string",
+                            "Elements": [],
+                            "Attributes": []
+                        }
+                    ],
+                    "IncludeInResult": false
+                }
+            ]
+        },
+        {
+            "Id": null,
+            "Content": null,
+            "Category": "urn:oasis:names:tc:xacml:3.0:attribute-category:resource",
+            "Attributes": [
+                {
+                    "Issuer": null,
+                    "AttributeId": "urn:altinn:partyid",
+                    "AttributeValues": [
+                        {
+                            "Value": "61481986",
+                            "DataType": "http://www.w3.org/2001/XMLSchema#string",
+                            "Elements": [],
+                            "Attributes": []
+                        }
+                    ],
+                    "IncludeInResult": false
+                },
+                {
+                    "Issuer": null,
+                    "AttributeId": "urn:altinn:instance-id",
+                    "AttributeValues": [
+                        {
+                            "Value": "61481986/c0cd2a60-88cd-4d3d-8032-4c5af4cb12f9",
+                            "DataType": "http://www.w3.org/2001/XMLSchema#string",
+                            "Elements": [],
+                            "Attributes": []
+                        }
+                    ],
+                    "IncludeInResult": false
+                },
+                {
+                    "Issuer": null,
+                    "AttributeId": "urn:altinn:org",
+                    "AttributeValues": [
+                        {
+                            "Value": "krt",
+                            "DataType": "http://www.w3.org/2001/XMLSchema#string",
+                            "Elements": [],
+                            "Attributes": []
+                        }
+                    ],
+                    "IncludeInResult": false
+                },
+                {
+                    "Issuer": null,
+                    "AttributeId": "urn:altinn:app",
+                    "AttributeValues": [
+                        {
+                            "Value": "krt-1189a-1",
+                            "DataType": "http://www.w3.org/2001/XMLSchema#string",
+                            "Elements": [],
+                            "Attributes": []
+                        }
+                    ],
+                    "IncludeInResult": false
+                },
+                {
+                    "Issuer": null,
+                    "AttributeId": "urn:altinn:task",
+                    "AttributeValues": [
+                        {
+                            "Value": "Task_1",
+                            "DataType": "http://www.w3.org/2001/XMLSchema#string",
+                            "Elements": [],
+                            "Attributes": []
+                        }
+                    ],
+                    "IncludeInResult": false
+                }
+            ]
+        }
+    ],
+    "XPathVersion": null,
+    "CombinedDecision": false,
+    "RequestReferences": [],
+    "ReturnPolicyIdList": false
+}

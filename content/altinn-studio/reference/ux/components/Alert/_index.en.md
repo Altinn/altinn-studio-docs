@@ -20,8 +20,8 @@ aliases:
 Alerts are commonly used to display important information to users that should be highlighted.
 
 ### Anatomy
-
-![Alert anatomy](Alert-anatomy.png)
+<iframe style="border: 0px solid rgb(0 0 0 / 90%);border-radius: 0px;" width="100%" height="250" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1-4276&viewport=621%2C1853%2C0.97&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1%3A4276&show-proto-sidebar=1&embed-host=share&hide-ui=true
+" allowfullscreen></iframe>
 
 {{% anatomy-list %}}
 1. **Heading**: A brief and descriptive title.
@@ -138,7 +138,7 @@ App/ui/layouts/{page}.json
 
 ### Heading and content
 
-You can add heading and content by creating a new or pick an existing [text resource](/altinn-studio/reference/ux/texts/#add-and-change-texts-in-an-application).
+You can add heading and content by creating a new or pick an existing [text resource](../../texts/#add-and-change-texts-in-an-application).
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}

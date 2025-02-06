@@ -9,14 +9,6 @@ weight: 40
 
 {{<children />}}
 
-{{% notice warning  %}}
-This section of the documentation is a work in progress and currently makes extensive reference to external sources.
-{{% /notice %}}
-
-{{% notice warning  %}}
-Currently, the Events for Correspondence are not ready for full-scale use due to pending changes in Altinn Events and Authorization.
-This documents the expected scenario, but may be subject to change.
-{{% /notice %}}
 
 To use notifications in Altinn Correspondence, a notification order is placed when a message is created.
 The notification will primarily be sent out at the publication time of the message.
@@ -56,16 +48,17 @@ A notification order is made by adding the following when initializing a message
 
 ## Keyword support
 
-A list of keywords will soon be implemented in Altinn Notifications, but it is not available yet.
-This feature will allow you to incorporate keywords into the text, such as \$sendersName\$ to display the name of the organization that sent the correspondence,
-or \$recipientName\$ to use the name of the individual or organization receiving the correspondence. Further details will be provided when it is ready.
+Keywords is a list of tokens which enable personalization in notifications. These will be automaticly supplied with text by Altinn.
+
+| Value                 | Description                                                                                                                           | Extra                                                                                    |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------- |-------------------------------------------------------------------------------------------|
+| \$sendersName\$       | Will be supplied with the senders name. Either by the "MessageSender" attribute if it has value, or by a lookup in Altinn Register.   | Supported for all scenarios                                                               |
+| \$recipientName\$     | Will be supplied with the recipients name, which will be either det organizations name or a persons name                              | Is not supported when notifications is sent directly to an email adress or a phone number |
+| \$recipientNumber\$   | If the recipient is a organization, it will be supplied with the organization number, otherwise it will be left empty                 | Is not supported when notifications is sent directly to an email adress or a phone number |
 
 ## Notification Templates
 
 Two types of notification templates are offered when using notifications through the Correspondence API.
-{{% notice warning  %}}
-NOTE: These templates are not the final version and will change, especially when keywords are ready.
-{{% /notice %}}
 
 **CustomText:**
 
@@ -77,10 +70,10 @@ A generic Altinn text with the option to supplement with additional text. Curren
 The language is chosen based on the language defined in the message.
 
 **Title:** You have received a message in Altinn {textToken}<br>
-**Content:** Hello \$recipientName\$, you have received a new message in Altinn from \$sendersName\$. {textToken} Log in to Altinn inbox to see this message.
+**Content:** Hello \$recipientName\$, you have received a new message from \$sendersName\$. {textToken} Log in to Altinn to see this message.
 
 **Reminder Title:** Reminder - you have received a message in Altinn {textToken}<br>
-**Reminder Content:** Hello \$recipientName\$, this is a reminder that you have received a new message in Altinn from \$sendersName\$. {textToken} Log in to Altinn inbox to see this message.
+**Reminder Content:** Hello \$recipientName\$, this is a reminder that you have received a new message from \$sendersName\$. {textToken} Log in to Altinn to see this message.
 
 In the text, textToken will be replaced with the value given in, for example, "EmailSubject" for the title. SMS uses only the content, not the title.
 
@@ -111,14 +104,15 @@ Improvements are planned to provide feedback on this during the creation of a me
 ## Custom recipients for Notifications
 
 For all correspondences created with Notifications enabled, the notifications will be sent to the recipient specified in the creation of the correspondence.
-However, it is also possible to choose optional recipients of the notification that are not necessarily the recipient(s) of the correspondence.
-This can be achieved by populating the `recipients` field under `notification` as follows:
+However, it is also possible to choose optional recipients of the notification that are not necessarily the recipient(s) of the correspondence. 
+In practice this means that custom recipients will override/replace the original recipient provided for the notification.
+This can be achieved by populating the `customNotificationRecipients` field under `notification` as follows:
 
 ```json
 {
   "notification": {
     ...,
-    "recipients": [
+    "customNotificationRecipients": [
       {
         "recipientToOverride": "string",
         "notificationRecipient": [
@@ -134,6 +128,23 @@ This can be achieved by populating the `recipients` field under `notification` a
   }
 }
 ```
+
+### How to use it
+```
+correspondence.notification.customNotificationRecipients[0].recipientToOverride
+correspondence.notification.customNotificationRecipients[0].recipients[0].organizationNumber
+correspondence.notification.customNotificationRecipients[0].recipients[0].nationalIdentityNumber
+correspondence.notification.customNotificationRecipients[0].recipients[0].mobileNumber
+correspondence.notification.customNotificationRecipients[0].recipients[0].emailAddress
+```
+
+{{% panel theme="warning" %}}
+⚠️ IMPORTANT: 
+Keep in mind the value that is given to `notificationTemplate` and `notificationChannel`, as these will impact the custom recipient. Further details are provided [here](#notification-templates).
+{{% /panel %}}
+
+
+### Explanation of template and channel
 
 For each of the optional recipients, they must override an existing recipient in the `Correspondence.Recipients` list.
 This value corresponds to either the organization number or national identity number of the recipient for the correspondence.
