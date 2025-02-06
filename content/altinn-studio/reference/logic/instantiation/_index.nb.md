@@ -9,7 +9,7 @@ toc: true
 Applikasjonslogikk knyttet til instansiering kan defineres ved å implmentere interfaces og registrere dem i `Program.cs`
 
  - `IInstantiationValidator` - lag egne sjekker for å avgjøre om en bruker/avgiver får lov til å instansiere.
- - `IInstantiationProcessor` - lag tilpasset prefill data, dette er beskrevet i [prefill kapitlet](/nb/altinn-studio/guides/prefill/custom/).
+ - `IInstantiationProcessor` - lag tilpasset prefill data, dette er beskrevet i [prefill kapitlet](/nb/altinn-studio/guides/development/prefill/custom/).
 
 ## Egendefinerte valideringsregler for instansiering
 Valideringsregler for instansiering kan innebære å validere tidspunkt til spesifikke brukerrestriksjoner og komplekse sjekker som krever eksterne API-kall.

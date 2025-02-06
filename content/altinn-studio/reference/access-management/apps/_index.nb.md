@@ -23,4 +23,4 @@ for å laste opp hemmeligheter som sertifikater, passord og api-nøkler.
 
 
 ## Bestilling
-Se [guide for å bestille tilganger](../../../guides/access-management/apps/).
+Se [guide for å bestille tilganger](../../../guides/administration/access-management/apps/).

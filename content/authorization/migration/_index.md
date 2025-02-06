@@ -25,7 +25,7 @@ Alle tjenester som i dag bruker Altinn som autorisasjonsløsning må flyttes fra
 Det er laget en egen [plan](../migration/servicemigrationplan/) for hvilken rekkefølge dette skal skje og når de enkelte tjenestene skal være ferdig migrert.
 
 ### Nye tilgangspakker og ny brukerflate for tilgangsstyring for virksomheter
-*Dette arbeidet vil starte opp Q1 2023. Målet er å lansere ny brukerflate og tilgangspakker Q3 2024.*
+*Dette arbeidet vil starte opp Q1 2023. Målet er å lansere ney tilgangspakker Q4 2024 og ny brukerflate Q1 2025.*
 
 I dag administrerer hvem som kan opptre på virksomhetens vegne i Altinns profil. Denne brukerflaten vil få et nytt utseende i Altinn 3. 
 
@@ -35,7 +35,7 @@ Dagens roller i Altinn 2.0 er forholdsvis store og rommer tilgang til veldig man
 I tilegg skal Altinn styre tilgang til mange tusen tjenester. 
 Resultatet er at dette kan oppleves som forvirrende, overveldende, usikkert og frusterende for enkelte tilgansstyrere.
 
-Den nye brukerflaten i Altinn Autorisasjon har som mål å tilby en tilrettelagt og nøyaktig tilgangsstyring som forenkle arbeidsflyten og oppleves som betyrggende for brukeren 
+Den nye brukerflaten i Altinn Autorisasjon har som mål å tilby en tilrettelagt og nøyaktig tilgangsstyring som forenkle arbeidsflyten og oppleves som betyrggende for brukeren. 
 Dette skal også sikre at man ikke får tilgang til mer enn man strengt tatt trenger.
 
 En konsekvens av dette er at dagens [roller i Altinn 2.0](/altinn-studio/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/altinn_roles_enterprices/) 
@@ -51,7 +51,7 @@ Tilgangspakkene vil tilgjengeliggjøres i Altinn Studio og ressursregisteret, og
 Vi vil utvikle en veileder og informasjonmateriell som skal hjelpe virksomheter i overgangen mellom Altinn 2.0-roller og Altinn 3.0-tilgangspakker, slik at de unngår at ansatte mister nødvendige tilganger når Altinn 2.0-rollene fases ut. Virksomhetene kommer til å få god tid til å rydde opp gamle 2.0 roller som er delegert før disse fjernes. 
 
 ### Nye Tilgangspakker og ny brukerflate for tilgangsstyring for innbyggere
-*Dette arbeidet starter Q1 2024.*
+*Dette arbeidet starter Q4 2024.*
 
 I dag administrerer innbygger hvem som kan opptre på egne vegne i Altinns profil. 
 Denne brukerflaten har høy brukerterskel for mange innbyggere og i forbindelse med migrering til Altinn 3 så vil denne gjøres om. 
@@ -60,7 +60,7 @@ I ny brukerflate vil man legge større vekt på behov som innbyggere har.
 
 
 ### Migrering av autorative kilder/registre og ta i bruk nye autorative kilder
-*Dette arbeidet starter Q1 2024.*
+*Dette arbeidet starter Q3 2024.*
 
 I dag har Altinn en kopi av Enhetsregisteret og Folkeregisteret som er vår autorative kilde for å si hvem som i utgangspunktet har fullmakt til opptre på vegne av en virksomhet.
 Disse registrene skal flyttes fra Altinn 2 til Altinn 3 plattfromen.  
@@ -68,8 +68,8 @@ Disse registrene skal flyttes fra Altinn 2 til Altinn 3 plattfromen.
 I forbindelse med migrering av våre Autorative kilder vil man sikre at det blir enklere å ta i bruk andre autorative kilder for å gi tilgang til tjenester via Altinn Autorisasjon. 
 Disse nye kildene kan være kopier som etableres i Altinn Autorisasjon eller det kan skje ved oppslag mot eksterne registre som vi har tilgang til. 
 
-Følgende nye klider er aktuelle som nye autorative kilder: 
-- Vergemål (Folkeregisteret), 
+Følgende nye klider er aktuelle som nye autorative kilder, men nye kilder vil ikke implementeres før vi er ferdig med å flytte basisfunksjonalitet fra Altinn 2 til Altinn 3: 
+- Vergemål (dette får vi fra Folkeregisteret når FReg reetableres på Altinn 3), 
 - Advokatregisteret (Tilsynsrådet for advokater), 
 - Arbeidstaker og arbeidsgiverregisteret (NAV), 
 - Fullmaktsregister for innbygger hos eHelse, 

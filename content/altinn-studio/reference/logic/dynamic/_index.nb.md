@@ -16,10 +16,27 @@ Dynamikk er hendelser som skjer på klient-siden. Disse kan deles opp i to kateg
 - Beregning - kjøre beregninger på klient-side, og oppdatere felter med ny verdi
 - Vis/skjul felter - bestemme om felter skal vises eller skjules basert på verdier i skjema.
 
-Det er to måter å legge til og endre dynamikkregler for en Altinn App.
-1. Direkte i Altinn Studio under _Lage_-fanen. Velg _Rediger dynamikk_ i høyre-menyen.
-2. I lokalt utviklingsmiljø ved å jobbe i filen `RuleHandler.js` som finnes i `App/ui`-mappen .
+Dynamikkregler via javascript for en Altinn App redigeres direkte i _RuleHandler_-filen.
 
+{{% panel theme="warning" %}}
+⚠️ Fordi vi flytter mer og mer av denne funksjonaliteten over til [dynamiske uttrykk](../expressions), følger ikke filen
+_RuleHandler.js_ med i nye apper (per 7. oktober 2024).
+Dersom du ikke finner filen i `App/ui/form`-mappen, kan du legge til filen der.
+Som et minimum bør filen inneholde følgende:
+
+```javascript
+var ruleHandlerObject = {};
+var ruleHandlerHelper = {};
+
+var conditionalRuleHandlerObject = {};
+var conditionalRuleHandlerHelper = {};
+```
+
+{{% /panel %}}
+
+Det er to måter å legge til og endre dynamikkregler for en Altinn App.
+1. Direkte i Altinn Studio, på appens filområde. Velg "Åpne repository" i profil-menyen øverst til høyre, og naviger til `App/ui/form`, og velg filen `RuleHandler.js`.
+2. I lokalt utviklingsmiljø ved å jobbe i filen `RuleHandler.js` som finnes i `App/ui/form`-mappen .
 
 All dynamikk skrives som funksjoner i JavaScript i _RuleHandler_-filen. 
 Funksjonene som er definert i denne filen kan videre konfigureres til å kjøres for feltene i skjemaet.

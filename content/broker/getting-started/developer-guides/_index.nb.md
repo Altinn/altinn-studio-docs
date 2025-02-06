@@ -20,7 +20,7 @@ Vi ønsker bidrag til løsningen velkommen.
 
 Se [Readme-filen på GitHub](https://github.com/Altinn/altinn-broker/blob/main/README.md) for en introduksjon til Altinn 3 Formidling, og hvordan du bygger og kjører den i din utviklermiljø.
 
-Repoet inneholder også en [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json) med eksempler.
+Repoet inneholder også en [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json) med eksempler.
 
 Swagger for filoverførings-APIet er vert [her](/api/broker/spec/).
 

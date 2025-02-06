@@ -14,7 +14,7 @@ Det er tjenesteeier som må håndtere oppbevaring av betalingsinformasjon i henh
 
 ## Nets Easy
 
-Støtte for å bruke Nets Easy som betalingsleverandør følger med applikasjonen. Guide for oppsett av Nets Easy finner du [her](/nb/altinn-studio/guides/payment/).
+Støtte for å bruke Nets Easy som betalingsleverandør følger med applikasjonen. Guide for oppsett av Nets Easy finner du [her](/nb/altinn-studio/guides/development/payment/).
 
 Tjenesteeier må ha avtale med Nets Easy.
 Du finner informasjon om hvordan du oppretter avtalen her: [payments.nets.eu](https://payments.nets.eu/nb-NO/checkout).

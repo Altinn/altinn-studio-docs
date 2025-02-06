@@ -61,7 +61,7 @@ for å bekrefte.
 
 [1]: https://altinn.studio/repos
 [2]: /nb/altinn-studio/getting-started/create-user/
-[3]: /nb/altinn-studio/guides/access-management/studio/
+[3]: /nb/altinn-studio/guides/administration/access-management/studio/
 
 ## Altinn Studio Datamodellering
 
@@ -75,8 +75,8 @@ format og kan ut fra dette generere XSD- og C#-modeller (se [Datamodeller for Ap
 {{% expandlarge id="links" header="Nyttige lenker" %}}
 * [Registrerte feil og mangler for Altinn Studio Datamodellering](https://github.com/orgs/Altinn/projects/1/views/10)
 * [Planlagt ny funksjonalitet for Altinn Studio Datamodellering](https://github.com/orgs/Altinn/projects/1/views/6)
-* [Utvikling av datamodell for Altinn 2](/nb/altinn-studio/guides/altinn-2-datamodel/)
-* [Overgang fra Seres til Altinn Studio Datamodellering](/nb/altinn-studio/guides/seres-migration/)
+* [Utvikling av datamodell for Altinn 2](/nb/altinn-studio/guides/altinn-2/altinn-2-datamodel/)
+* [Overgang fra Seres til Altinn Studio Datamodellering](/nb/altinn-studio/guides/altinn-2/seres-migration/)
 {{% /expandlarge %}}
 
 ### Navigere til Altinn Studio Datamodellering
@@ -242,6 +242,6 @@ En generert XSD fil kan lastes ned ved å gå til repoet: klikk på person-ikone
 
 ![Last ned XSD fra repo](./download-xsd.png "Last ned XSD fra repo")
 
-[1]: /nb/altinn-studio/guides/altinn-2-datamodel/#dataformatid-og-dataformatversion
-[2]: /nb/altinn-studio/guides/altinn-2-datamodel/altinn-2-datamodel/#xsd-attributter
-[3]: /nb/altinn-studio/guides/altinn-2-datamodel/#xsd-namespaces
+[1]: /nb/altinn-studio/guides/altinn-2/altinn-2-datamodel/#dataformatid-og-dataformatversion
+[2]: /nb/altinn-studio/guides/altinn-2/altinn-2-datamodel/altinn-2-datamodel/#xsd-attributter
+[3]: /nb/altinn-studio/guides/altinn-2/altinn-2-datamodel/#xsd-namespaces

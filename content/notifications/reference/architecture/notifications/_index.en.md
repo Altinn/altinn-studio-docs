@@ -17,9 +17,9 @@ The following API controllers are defined:
 - [EmailNotificationsController](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/EmailNotificationsController.cs):
   API for retrieving email notifications related to a single order
 - [SmsNotificationsOrdersController](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/SmsNotificationOrdersController.cs):
-  API for placing new sms notification order requests  
+  API for placing new SMS notification order requests  
 - [SmsNotificationsController](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/SmsNotificationsController.cs):
-  API for retrieving sms notifications related to a single order
+  API for retrieving SMS notifications related to a single order
 
 ### Internal API
 The API controllers listed below are exclusively for use within in the Altinn organization: 
@@ -45,8 +45,8 @@ followed by a diagram showing the relation between the tables.
 | orders             | Contains metadata for each notification order                                                  |
 | emailtexts         | Holds the static common texts related to an email notification                                 |
 | emailnotifications | Holds metadata for each email notification along with recipient contact details                |
-| smstexts           | Holds the static common texts related to an sms notification                                   |
-| smsnotifications   | Holds metadata for each sms notification along with recipient contact details                  |
+| smstexts           | Holds the static common texts related to an SMS notification                                   |
+| smsnotifications   | Holds metadata for each SMS notification along with recipient contact details                  |
 | resourcelimitlog   | Keeps track of resource limits outages for dependent systems e.g. Azure Communication services |
 
 <!--Schema extracted through pgAdmin using ERD tool for schema-->
@@ -73,7 +73,7 @@ The following Kafka consumers are defined:
 - [EmailStatusConsumer](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Integrations/Kafka/Consumers/EmailStatusConsumer.cs):
   Consumes updates on the send state of an email notification
 - [SmsStatusConsumer](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Integrations/Kafka/Consumers/SmsStatusConsumer.cs):
-  Consumes updates on the send state of an sms notification
+  Consumes updates on the send state of an SMS notification
 
 </br>
 
@@ -102,7 +102,8 @@ The clients are used to retrieve recipient data and to authorize user access.
 - [ProfileClient](https://github.com/Altinn/altinn-notifications/tree/main/src/Altinn.Notifications.Integrations/Profile/ProfileClient) 
   consumes Altinn Profile's internal API to retrieve contact points for individuals.
 - [RegisterClient](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Integrations/Register/RegisterClient.cs)
-  consumes Altinn Register's internal API to retrieve the official and user registered contact points associated with organizations.
+  consumes Altinn Register's internal API to retrieve official and user-registered contact points associated with organizations.
+  Additionally, it uses the same API to fetch the names of individuals and organizations when keywords are utilized.
 - [AuthorizationService](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications.Integrations/Authorization/AuthorizationService.cs)
   consumes Altinn Authorization's Decision API to verify that all users with registered contact points for an organization are authorized. The decision request will ask
   if a given user still have read access to the resource that the notification is about.
@@ -123,7 +124,7 @@ The following cron jobs are defined:
 | ---------------------- | ------------ | ------------------------------------------------------------------------------------- |
 | pending-orders-trigger | */1 * * * *  | Sends request to endpoint to start processing of past due orders                      |
 | send-email-trigger     | */1 * * * *  | Sends request to endpoint to start the process of sending all new email notifications |
-| send-sms-trigger       | * 7-16 * * * | Sends request to endpoint to start the process of sending all new sms notifications   |
+| send-sms-trigger       | * 7-16 * * * | Sends request to endpoint to start the process of sending all new SMS notifications   |
 
 Each cron job runs in a Docker container [based of the official docker image for curl](https://hub.docker.com/r/curlimages/curl)
 and sends a request to an endpoints in the [Trigger controller](https://github.com/Altinn/altinn-notifications/blob/main/src/Altinn.Notifications/Controllers/TriggerController.cs).
@@ -150,13 +151,13 @@ Find descriptions of key dependencies below.
 
 
 ### Altinn Services
-| Service                     | Purpose                                              | Resources                                                          |
-| --------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------ |
-| Altinn Authorization        | Authorizes access to the API and resources           | [Repository](https://github.com/altinn/altinn-authorization)       |
-| Altinn Notifications Email* | Service for sending emails related to a notification | [Repository](https://github.com/altinn/altinn-notifications-email) |
-| Altinn Notifications Sms*   | Service for sending sms related to a notification    | [Repository](https://github.com/altinn/altinn-notifications-sms)   |
-| Altinn Profile              | Provides contact details for individuals             | [Repository](https://github.com/altinn/altinn-profile)             |
-| Altinn Register             | Provides official contact details for organizations  | [Repository](https://github.com/altinn/altinn-register)            |
+| Service                     | Purpose                                                                                               | Resources                                                          |
+| --------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| Altinn Authorization        | Authorizes access to the API and resources                                                            | [Repository](https://github.com/altinn/altinn-authorization)       |
+| Altinn Notifications Email* | Service for sending emails related to a notification                                                  | [Repository](https://github.com/altinn/altinn-notifications-email) |
+| Altinn Notifications SMS*   | Service for sending SMS related to a notification                                                     | [Repository](https://github.com/altinn/altinn-notifications-sms)   |
+| Altinn Profile              | Provides contact details for individuals                                                              | [Repository](https://github.com/altinn/altinn-profile)             |
+| Altinn Register             | Provides official contact details for organizations and names for both individuals and organizations  | [Repository](https://github.com/altinn/altinn-register)            |
 
 \*Functional dependency to enable the full functionality of Altinn Notifications.
 

@@ -20,7 +20,7 @@ We also welcome contributions to the solution.
 
 See the [readme file at github](https://github.com/Altinn/altinn-broker/blob/main/README.md) for an introduction to Altinn 3 Broker, and how to build and run it in your dev environment.
 
-The Repo also contains a [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json) with examples.
+The Repo also contains a [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json) with examples.
 
 Swagger for the File Transfer API is hosted [here](/api/broker/spec/).
 

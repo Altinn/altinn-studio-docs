@@ -5,7 +5,7 @@ description: Oversikt over tilgjengelige felter for forhåndsutfylling med konfi
 weight: 10
 ---
 Les mer om forhåndsutfylling [her](../../../concepts/prefill/), og se veiledning for hvordan det settes opp
-[her](../../../guides/prefill/config/).
+[her](../../../guides/development/prefill/config/).
 
 ## Felter i _prefill.json_-filen
 
@@ -84,7 +84,7 @@ vil data som hentes ut herfra være knyttet til Ola. For objektene Party.Organiz
 samme feltene som man ser i ER og DSF-prefill. Merk at Party.Organization vil være null om brukeren er logget inn som en 
 privatperson, og tilsvarende for Party.Person om man er logget inn med en virksomhetsbruker. Preutfyllingen vil feile 
 om objektet man preutfyller fra ikke finnes. Om man ønsker å dynamisk preutfylle basert på disse verdiene må dette settes 
-opp som [egendefinert prefill](../../../guides/prefill/custom/).
+opp som [egendefinert prefill](../../../guides/development/prefill/custom/).
 Tilgjengelige verdier for prefill inkluderer:
 
 - UserId

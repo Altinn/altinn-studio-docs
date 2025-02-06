@@ -1,5 +1,5 @@
 ---
-title: Altinn 3 Correspondence Utviklerguider
+title: Hendelser i Altinn 3 Melding
 linktitle: Hendelser
 description: Hvordan komme i gang med å abonnere på hendelser fra Altinn 3 Correspondence, for utviklere
 tags: [Melding, guide, events, hendelser, Correspondence]

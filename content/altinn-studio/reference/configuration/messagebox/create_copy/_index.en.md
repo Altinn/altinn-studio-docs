@@ -10,7 +10,7 @@ The primary purpose of the create new copy feature is to make it easy for a user
 
 {{%notice info%}}
 The Create new copy functionality was introduced in version 7.9.0 of the nuget packages.
-[See how to update the nuget references of your application here](/altinn-studio/reference/maintainance/dependencies/).
+[See how to update the nuget references of your application here](/altinn-studio/guides/administration/maintainance/dependencies/).
 {{% /notice%}}
 
 ## Configuration
@@ -66,4 +66,4 @@ applicationmetadata.json
 ```
 ## Programing interface
 
-During the copying of an instance the logic will perform a method call to **IInstantiationProcessor.DataCreation**. This makes it possible to perform programmatic changes to the data as it is being copied. [Programmatic prefill](/altinn-studio/guides/prefill/custom/).
+During the copying of an instance the logic will perform a method call to **IInstantiationProcessor.DataCreation**. This makes it possible to perform programmatic changes to the data as it is being copied. [Programmatic prefill](/altinn-studio/guides/development/prefill/custom/).

@@ -40,14 +40,14 @@ Ressurser registreres via Altinn Studio og brukes til å definere tilgangsregler
     - "read" for mottakere
     - "write" for avsendere.
 
-Alternativt, for å sette opp en ressurs som fungerer raskt, kan du bruke vår [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json) og kjøre forespørslene "Create resource" og "Create resource policy" med en token som har scopet "altinn:resourceregistry/resource.write".
+Alternativt, for å sette opp en ressurs som fungerer raskt, kan du bruke vår [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json) og kjøre forespørslene "Create resource" og "Create resource policy" med en token som har scopet "altinn:resourceregistry/resource.write".
 
 Her er en [eksempelpolicy](ExamplePolicy.xml).
 
 Merk at denne eksempelpolicyen angir en påkrevd brukerrolle "DAGL(daglig leder)" for brukeren som har tilgang til ressursen, og krever bruk av [Ressursrettighetsregister](../../../../authorization/what-do-you-get/resourceregistry/) (gå til engelsk språk for å se dokumentasjon for RRR) for å gi tilgang til spesifikke organisasjoner.
 En bruker med denne tilgangen kan deretter delegere tilgangen til virksomhetsbrukeren/systembrukeren
 
-**TIPS**: Verifiser konfigurasjonene dine ved hjelp av [Postman-samlingen](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json), og erstatt testtokenene med dine egne Altinn-token (Se forespørselen "Logg inn i Maskinporten (Initialiser)" i Authenticator-mappen).
+**TIPS**: Verifiser konfigurasjonene dine ved hjelp av [Postman-samlingen](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json), og erstatt testtokenene med dine egne Altinn-token (Se forespørselen "Logg inn i Maskinporten (Initialiser)" i Authenticator-mappen).
 
 ## 4. Registrer deg som tjenesteeier i Formidling API-et {#register-yourself-as-a-service-owner-in-broker-api}
 
@@ -58,14 +58,11 @@ For detaljerte instruksjoner for å konfiguere din organisasjon som tjenesteeier
 
 ## 5. Konfigurer den eksisterende tjenesten din i Formidling {#configure-your-existing-resource-in-broker}
 
-Deretter må du konfigurere den spesifikke Formidlingskonfigurasjonen for ressursen. 
+Deretter må du konfigurere den spesifikke Formidlingskonfigurasjonen for ressursen.
 Bruk ID-en til ressursen du opprettet i trinn 3, og kall API-operasjonen for å konfigurere tjenesten.
 
  For detaljerte instruksjoner om hvordan du konfigurerer ressursen i Formidling, følg [denne lenken](../developer-guides/service-owner/#operation-configure-resource-in-broker-api), som gir deg all nødvendig informasjon for å fullføre konfigurasjonen og sikre at ressursen din er riktig satt opp i formidlingstjenesten.
 
 ## Hvordan migrere fra Altinn 2 til Altinn 3 {#how-to-migrate-from-Altinn-2-to-Altinn-3}
 
-Hvis du har en eksisterende løsning i Altinn 2 du ønsker å migrere, kan du enten opprette en ny uavhengig Altinn Formidlingstjeneste i Altinn 3, eller bruke overgangsløsningen, beskrevet her.
-
-TODO: Lenke til overgangsløsning dokumentasjon når den er tilgjengelig.
-
+Hvis du har en eksisterende løsning i Altinn 2 du ønsker å migrere, kan du enten opprette en ny uavhengig Altinn Formidlingstjeneste i Altinn 3, eller bruke overgangsløsningen, [beskrevet her](../../broker-transition/).

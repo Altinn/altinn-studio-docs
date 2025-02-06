@@ -1,5 +1,5 @@
 ---
-title: Bidra inn i Altinn Studio
+title: Bidra
 description: Bidra i utviklingen av Altinn Studio
 weight: 1000
 ---

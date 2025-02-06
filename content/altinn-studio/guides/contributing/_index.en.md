@@ -1,5 +1,5 @@
 ---
-title: Contributing to Altinn Studio
+title: Contributing
 description: Contribute to the development of Altinn Studio
 weight: 1000
 ---

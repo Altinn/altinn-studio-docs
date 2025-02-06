@@ -306,8 +306,51 @@ Det er mulig å se en forhåndsvisning av hvordan den genererte PDF-en kommer ti
 2. Kjør opp appen din lokalt eller åpne appen din i testmiljøet, og start en instans.
 3. Åpne utviklerverktøyet ved å trykke på knappen nederst i høyre hjørne, eller bruk hurtigtasten `Ctrl+Shift+K`/`⌘+Shift+K`.
    <br><br>
-   ![Knappen som åpner utviklerverktøyet, skjermbilde](dev-tools-button.png) 
+   ![Knappen som åpner utviklerverktøyet, skjermbilde](dev-tools-button.png)
 4. Trykk på `Forhåndsvis PDF`-knappen i utviklerverktøyet.
    <br><br>
-   ![Utviklerverktøyet, skjermbilde](preview-button.png) 
+   ![Utviklerverktøyet, skjermbilde](preview-button.png)
 
+## PDF footer
+
+{{%notice warning%}}
+
+Denne funksjonaliteten er kun tilgjengelig i versjon 8.3.8 og høyere.
+
+{{% /notice%}}
+
+### Forutsetninger
+
+For å bruke PDF footer-funksjonaliteten må applikasjonen din støtte tidssoner. Dette gjøres ved å legge til følgende
+linjer i `Dockerfile`:
+
+```Dockerfile
+  # Add globalization timezone support
+  RUN apk add --no-cache icu-libs tzdata
+  ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
+```
+
+Linjene må legges til etter "FROM"-seksjonen som ender på "AS final"
+
+### Configuration
+
+Di kan legge til en footer i den genererte PDF-en ved å legge til `"DisplayFooter": true` i `PdfGeneratorSettings`-seksjonen
+i `appsettings.json`-filen.
+
+```json
+  "PdfGeneratorSettings": {
+    "DisplayFooter": true
+  }
+```
+
+### Innhold
+
+Footeren vil inneholde følgende informasjon:
+
+- Navnet på appen
+- Navnet på organisasjonen
+- Dato og tid for når PDF-en ble generert
+- Altinn referanse-ID
+- Sidenummer
+
+   ![PDF footer eksempel](pdf-footer-example.png)

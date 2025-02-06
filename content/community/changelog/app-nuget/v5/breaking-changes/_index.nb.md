@@ -113,7 +113,7 @@ If you have implemented custom code to control Pdf generation, and depending on 
         ```
 
 ## 2. Obsolete method GetOptionId removed from App/AppBase/IAltinnApp
-In [version 4.24.0](../../v4/whats-new/) we introduced a new way of supporting dynamic options making the GetOptionId methods in obsolete. The methods have now been removed and you should use the new way of implementing options as described [in the documentation](../../../../../altinn-studio/reference/data/options/)
+In [version 4.24.0](../../v4/whats-new/) we introduced a new way of supporting dynamic options making the GetOptionId methods in obsolete. The methods have now been removed and you should use the new way of implementing options as described [in the documentation](../../../../../altinn-studio/guides/development/options/)
 
 When you update you app you should then remove the following from App.cs as this method is removed from AppBase.cs:
 ```csharp

@@ -9,7 +9,7 @@ weight: 1
 *Innhold på siden er under arbeid. Innholdet vil ikke være gjeldende før nye [tilgangspakker](/authorization/what-do-you-get/accessgroups/type-accessgroups/) trer i kraft. Dette må derfor ikke ansees som en fasit pr nå*
 
 
-I mange tilfeller er det mulig å registrere andre organisasjoner i en eller flere roller på virksomeheten. 
+I mange tilfeller er det mulig å registrere andre organisasjoner i en eller flere roller på virksomheten. 
 Altinn vil i mange tilfeller da sørge for en knytning mellom disse virksomhetene slik at person som har bestemte roller i tilknyttet organisasjon da få fullmakter på vegne av den aktuelle virksomheten. 
 Vi kaller dette nøsting av fullmakter. 
 
@@ -21,7 +21,7 @@ Eksempel 1 på hvordan det fungerer:
 - "Bergen AS" registrerer "Trondheim AS" i rollen som daglig leder
 - Kari er daglig leder for "Trondheim AS" 
 
-I dette eksemplet vil Kari få fullmakter på vegne av "Bergen AS". Kari vil kunne opptre på vegne av "Bergen AS" med samme fullmater som en daglig leder. 
+I dette eksemplet vil Kari få fullmakter på vegne av "Bergen AS". Kari vil kunne opptre på vegne av "Bergen AS" med samme fullmakter som en daglig leder. 
 
 Eksempel 2 på hvordan det fungerer: 
 - "Bergen AS" registrerer "Trondheim AS" i rollen som daglig leder
@@ -67,15 +67,15 @@ I dette tilfellet vil Ola få regnskapsfullmakter på vegne av "Kari sitt ENK" o
 
 ## Oversikt over hvilke organisasjonsformer og roller som nøster knytning mellom organisasjoner i Altinn
 
-|Navn (kode)|Roller som nøstest videre til nøkkelroller i tilnyttet selskap|Merknader|
+|Navn (kode)|Roller som nøstes videre til nøkkelroller i tilnyttet selskap|Merknader|
 |-----------|--------------------------------------------------------------|----------|
 |Aksjeselskap (AS)|DAGL, LEDE, REVI, REGN||
 |Europeisk selskap (SE)|DAGL, LEDE, REVI, REGN||
 |Selskap med begrenset ansvar (BA)|DAGL, LEDE, REVI, REGN||
 |Samvirkeforetak (SA)|DAGL, LEDE, REVI, REGN||
 |Enkeltpersonforetak (ENK)|DAGL, LEDE, REVI, REGN||
-|Ansvarlig selskap med delt ansvar (ANS)|DAGL, LEDE, *DTPR, REVI, REGN||
-|Ansvarlig selskap med solidarisk ansvar (ANS|DAGL, LEDE, *DTSO, REVI, REGN||
+|Ansvarlig selskap med delt ansvar (DA)|DAGL, LEDE, *DTPR, REVI, REGN||
+|Ansvarlig selskap med solidarisk ansvar (ANS)|DAGL, LEDE, *DTSO, REVI, REGN||
 |Kommandittselskap (KS)|DAGL, LEDE, *KOMP, REVI, REGN||
 |Tingsrettslig sameie (SAM)|DAGL, LEDE, REVI, REGN||
 |Borettslag (BRL)|DAGL, LEDE, REVI, REGN||

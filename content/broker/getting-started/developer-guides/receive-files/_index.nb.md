@@ -42,7 +42,7 @@ Når du søker etter filer du ikke har lastet ned som mottaker, spesifiser følg
 
 **Eksempel:**
 
-'Broker\search' i vår [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
+'Broker\search' i vår [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
 
 **Hendelser utløst:** Ingen.
 
@@ -57,7 +57,7 @@ Du kan bruke enten FileTransferId fra [published](#event-published) hendelse ell
 
 **Hendelser utløst:** Ingen.
 
-**Eksempel:** 'Broker\{fileTransferId}\overview' i vår [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
+**Eksempel:** 'Broker\{fileTransferId}\overview' i vår [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
 
 ## Operasjon: Last ned fil {#operation-downloadfile}
 
@@ -71,7 +71,7 @@ Last ned fildataene som en strøm ved hjelp av FileTransferId mottatt fra oversi
 
 **Hendelser utløst**: Ingen
 
-**Eksempel:** 'Broker\{fileTransferId}\download' i vår [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
+**Eksempel:** 'Broker\{fileTransferId}\download' i vår [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
 
 ## Operasjon: Bekreft nedlastet {#operation-confirmdownloaded}
 
@@ -90,7 +90,7 @@ Last opp fildataene som en strøm ved hjelp av FileTransferId mottatt i Initiali
 
 - [downloadconfirmed](#event-downloadconfirmed).
 
-**Eksempel:** 'Broker\{fileTransferId}\confirm download' i vår [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
+**Eksempel:** 'Broker\{fileTransferId}\confirm download' i vår [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
 
 ## Hendelse: no.altinn.broker.published {#event-published}
 
