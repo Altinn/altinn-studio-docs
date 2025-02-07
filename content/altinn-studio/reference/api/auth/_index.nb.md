@@ -41,7 +41,7 @@ Altinn Autentisering støtter forskjellige type brukere, som er viktig å tenke 
   * Klienter autentisert via Maskinporten.
   * En systembruker eies av en organisasjon som er kunde/bruker hos et leverandørsystem. Systembrukeren eies av kunden, mens systemet eies av leverandøren.
   * Det er leverandøren som har Maskinporten klienten og som autentiserer seg. Konseptet lar systemet impersonere systembrukeren (inkl. rettigheter systembrukeren har fått delegert fra kunden)
-  * App API aksepterer både innvekslet Altinn token og Maskinporten token direkte.
+  * Appens API aksepterer både innvekslet Altinn token og Maskinporten token direkte
 
 ## Informasjon i appen
 
