@@ -150,7 +150,7 @@ Systembruker-konseptet fra Altinn Autentisering/Autorisasjon er laget for å st�
 mer automatiserte integrasjoner mellom sluttbrukersystemer og Altinn apper der innsending gjøres
 på vegne av en organisasjon. I Systembruker-konseptet sitter følgende komponenter:
 
-* Maskinporten - autentiseringsmekanismen for alt som har med systembrukere å gjøre, inkl
+* Maskinporten - autentiseringsmekanismen for alt som har med systembrukere å gjøre:
   * Registrering system i systemregisteret (API hos Altinn Autentisering)
   * Registrere systembruker (API hos Altinn Autentisering)
   * Innsending fra systemet (leverandørens system/sluttbrukersystemet)
