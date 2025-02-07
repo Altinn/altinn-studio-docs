@@ -8,7 +8,7 @@ toc: true
 Sluttbrukersystemer (SBS) er systemer utviklet av leverandører som forenkler innsending til Altinn for sine kunder.
 Denne guiden går gjennom konsepter og modeller som er relevante for integrasjon mellom en Altinn Studio app og sluttbrukersystemer.
 Ved integrasjon av sluttbrukersystem mot en Altinn Studio app så brukes maskin-til-maskin kommunikasjon mellom
-leverandørens system og appen. Det er i hovedsak 2 måter å lage denne intregrasjonen på
+leverandørens system og appen. Det er i hovedsak 2 måter å lage denne intregrasjonen på:
 
 * ID-porten klient med innveksling av token
   * Leverandør av sluttbrukersystemet lager en ID-porten klient og legger til de scopes som kreves i appen (f. eks. `altinn:instances.read` og `altinn:instances.write`)
