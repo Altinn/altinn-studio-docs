@@ -11,7 +11,7 @@ Ved integrasjon av sluttbrukersystem mot en Altinn Studio app så brukes maskin-
 leverandørens system og appen. Det er i hovedsak 2 måter å lage denne intregrasjonen på
 
 * ID-porten klient med innveksling av token
-  * Leverandør av system lager en ID-porten klient og legger til de scopes som kreves i appen (f. eks. `altinn:instances.read` og `altinn:instances.write`)
+  * Leverandør av sluttbrukersystemet lager en ID-porten klient og legger til de scopes som kreves i appen (f. eks. `altinn:instances.read` og `altinn:instances.write`)
   * Ved integrasjon mot Altinn apper så vil systemet veksle inn token til Altinn token
   * Fra appens perspektiv er det vanlig flyt (det er autentiserte sluttbrukere)
   * Egner seg godt for systemer der kontakt med sluttbruker er viktig, det er liten grad av automasjon og flyten i integrasjonen er fullstendig brukerstyrt.
