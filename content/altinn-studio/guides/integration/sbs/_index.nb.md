@@ -201,7 +201,7 @@ Denne guiden er ment som et Altinn Studio app-spesifikt eksempel på det samme k
 #### 1. Tjenesteeier lager app
 
 Utvikler hos Brønnøysundregisteret lager en app i Altinn Studio og kaller den `aarsregnskap`.
-For å støtte systembruker-basert integrasjon med SBS kreves ingen spesiell støtte i enn app, så den utvikles som normalt,
+For å støtte systembruker-basert integrasjon med SBS kreves ingen spesiell støtte i en app, så den utvikles som normalt,
 bl. a. med en XACML policy som lar DAGL fylle inn skjema og signere.
 
 #### 2. Fiken lager Maskinporten-klient
@@ -346,7 +346,7 @@ Content-Type: application/json; charset=utf-8
 
 Person hos kunden, f. eks. daglig leder, godkjenner forespørsel om systembruker ved å følge `confirmUrl` fra responsen over.
 Hvis testing foregår i tt02 så kan du f. eks. finne DAGL for organisasjonen til systembrukeren.
-Kunden i dette tilfellet har en DAGL med fødselsnummer `14830199986`, så denne kan brukes ved innlogging med TestID.
+Kunden i dette tilfellet, med fødselsnummer `14830199986`, har rollen DAGL (daglig leder) så denne kan brukes ved innlogging med TestID.
 Personen som godkjenner systembrukeren (systemtilgangen) må selv ha de rettighetene som skal delegeres til systembrukeren. 
 I dette tilfellet, hvor DAGL skal godkjenne, så må appen ha en regel som gir DAGL `instantiate` og `read`. Eksempel:
 
