@@ -180,6 +180,17 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
 
 ## Egendefinert konfigurasjon
 
+### Med Altinn Studio
+
+Å legge til et tilpasset PDF-oppsett i Studio kan gjøres ved å konvertere en side til et PDF-oppsett i sidekonfigurasjonen:
+
+![Skjermbilde av PDF-bryteren](pdf-page-switch.png)
+
+Ved å legge til en [Oppsummering]({{< ref "altinn-studio/reference/ux/components/summary2" >}} "Oppsummering") komponent på denne siden, kan du spesifisere hvilke deler av oppsettet som skal inkluderes i PDF-en.
+
+![Skjermbilde av en oppsummeringskomponent i en PDF-oppsett-side](pdf-summary-component.png)
+
+### Manual configuration
 {{%notice warning%}}
 
 Denne metoden er kun tilgjengelig i versjon 7.5 og høyere.
