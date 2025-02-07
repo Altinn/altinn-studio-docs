@@ -72,7 +72,7 @@ public abstract class Authenticated
 }
 ```
 
-Interfacet `IAuthenticationContext` kan brukes i custom kode til å sjekke hva slags bruker som er logget inn, og hvilke informasjon
+Interfacet `IAuthenticationContext` kan brukes i egendefinert kode til å sjekke hva slags bruker som er logget inn, og hvilke informasjon
 som er assosiert med denne. Her er eksempel på en implementasjon av `IInstantiationValidator` som bare tillater
 instansiering av brukere innlogget via Altinn portal:
 
