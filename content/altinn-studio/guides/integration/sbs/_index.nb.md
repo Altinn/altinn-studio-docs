@@ -161,7 +161,7 @@ på vegne av en organisasjon. I Systembruker-konseptet sitter følgende komponen
   * Systemet registreres og eies av sluttbrukersystem-leverandøren i systemregisteret
 * Systembruker
   * En virtuell bruker som eies av kunden til leverandøren/sluttbrukersystemet
-  * Når systembrukeren registreres, vil rettighetene systemet ber om måtte delegeres til systembrukeren. I praksis må den personen som oppretter systembrukeren (hos kunden) ha disse rettighetene som systemet ber om.
+  * Når systembrukeren registreres, vil rettighetene systemet ber om måtte delegeres til systembrukeren. I praksis må den personen som oppretter systembrukeren (hos kunden) ha disse rettighetene som systemet ber om
 
 Dette konseptet lar dermed systemet impersonere systembrukeren i integrasjonen mot en Altinn app.
 Dermed _kan_ systemet gjøre kall mot Altinns APIer uten at en sluttbruker hos organisasjonen er tilstede.
