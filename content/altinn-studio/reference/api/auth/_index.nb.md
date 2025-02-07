@@ -7,39 +7,39 @@ toc: true
 tags:
 ---
 
-Appens APIer er autentisert ved hjelp av [Altinn Autentisering](/nb/authentication).
-Requests mot APIer atentiseres ved å se etter
+Appens API-er er tilgangsstyrt ved hjelp av [Altinn Autentisering](/nb/authentication).
+Requests mot API-er autoriseres ved hjelp av følgende informasjon:
 
 * `AltinnStudioRuntime` cookie
 * `Authorization` header
 
 ## Innloggingsmetoder
 
-Altinn Autentisering støtter forskjellige type brukere, som er viktig å tenke på når man utvikler custom funksjonalitet i en app.
+Altinn Autentisering støtter forskjellige type brukere, som er viktig å tenke på når man utvikler egendefinert funksjonalitet i en app.
 
 * **Brukere**
-  * Kan være logget inn via Altinn Portal eller gjennom en ekstern IDporten klient. 
-  * Disse har User ID, Party ID og brukerprofil. Autentiseringsnivå er alltid større enn 0.
-  * Brukere kan representere andre parter gjennom partseleksjon.
-  * IDporten token må være vekslet inn til Altinn token via Altinn Autentisering.
+  * Kan være logget inn via Altinn Portal eller gjennom en ekstern ID-porten sesjon
+  * Disse har User ID, Party ID og brukerprofil. Autentiseringsnivå er alltid større enn 0
+  * Brukere kan representere andre parter gjennom partseleksjon
+  * ID-porten token må være vekslet inn til Altinn token via Altinn Autentisering
 * **Selvidentifiserte brukere**
-  * Kan være logget inn via Altinn Portal eller gjennom en ekstern IDporten klient. 
-  * Disse har User ID, Party ID og brukerprofil. Autentiseringsnivå er alltid 0 (vi vet ikke hvem brukeren er).
-  * Kan ikke representere andre enn seg selv, og vi har ikke noe SSN.
-  * IDporten token må være vekslet inn til Altinn token via Altinn Autentisering.
+  * Kan være logget inn via Altinn Portal eller gjennom en ekstern ID-porten sesjon
+  * Disse har User ID, Party ID og brukerprofil. Autentiseringsnivå er alltid 0 (vi vet ikke hvem brukeren er)
+  * Kan ikke representere andre enn seg selv og vi har ikke noe fødselsnummer
+  * ID-porten token må være vekslet inn til Altinn token via Altinn Autentisering
 * **Organisasjon**
-  * Klienter autentisert via Maskinporten. 
-  * Gjelder organisasjoner som har avtale med og tilgang til Maskinporten. 
-  * Maskinporten token må være vekslet inn til Altinn token.
-  * Kan ikke brukes til stort i en Altinn app, da de ikke er en gyldig avgiver (en organisasjon kan ikke sende inn på vegne av seg selv).
+  * Klienter autentisert via Maskinporten
+  * Gjelder organisasjoner som har avtale med, og tilgang til, Maskinporten
+  * Maskinporten token må være vekslet inn til Altinn token
+  * Kan ikke brukes til stort i en Altinn app, da de ikke er en gyldig avgiver (en organisasjon kan ikke sende inn på vegne av seg selv)
 * **Tjenesteeier**
-  * Klienter autentisert via Maskinporten.
-  * Gjelder organisasjoner som er registrert som tjenesteeier i Altinn (og eier av appen som kjører), som også har bedt om et tjenesteeier scope ved autentisering i Maskinporten (`altinn:serviceowner`
-  * Maskinporten token må være vekslet inn til Altinn token.
-  * Tjenesteeier er ikke en gyldig avgiver, men avhengig av XACML policy så kan tjenesteeiere instansiere og endre instanser.
+  * Klienter autentisert via Maskinporten
+  * Gjelder organisasjoner som er registrert som tjenesteeier i Altinn (og eier av appen som kjører), som også har bedt om et tjenesteeier scope ved autentisering i Maskinporten (`altinn:serviceowner`)
+  * Maskinporten token må være vekslet inn til Altinn token
+  * Tjenesteeier er ikke en gyldig avgiver, men avhengig av XACML policy så kan tjenesteeiere starte nye instanser og endre data i eksisterende instanser
 * **Systembruker**
-  * Klienter autentisert via Maskinporten.
-  * En systembruker eies av en organisasjon som er kunde/bruker hos et leverandørsystem. Systembrukeren eies av kunden, mens systemet eies av leverandøren.
+  * Klienter autentisert via Maskinporten
+  * En systembruker eies av en organisasjon som er kunde/bruker hos et leverandørsystem. Systembrukeren eies av kunden, mens systemet eies av leverandøren
   * Det er leverandøren som har Maskinporten klienten og som autentiserer seg. Konseptet lar systemet impersonere systembrukeren (inkl. rettigheter systembrukeren har fått delegert fra kunden)
   * Appens API aksepterer både innvekslet Altinn token og Maskinporten token direkte
 

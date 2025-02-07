@@ -16,7 +16,7 @@ leverandørens system og appen. Det er i hovedsak 2 måter å lage denne intregr
   * Fra appens perspektiv er det vanlig flyt (det er autentiserte sluttbrukere)
   * Egner seg godt for systemer der kontakt med sluttbruker er viktig, det er liten grad av automasjon og flyten i integrasjonen er fullstendig brukerstyrt.
 * Systembruker
-  * Leverandør lager Maskinporten klient
+  * [Leverandør lager Maskinporten klient](https://docs.altinn.studio//authentication/getting-started/maskinportenclient/)
   * Leverandør lager system i systemregisteret til Altinn Autentisering (i systemdefinisjonen uttrykker man behov for tilgang til ressurser, f. eks. en app)
   * Kunde registrerer systembruker. Dermed blir rettighetene delegert.
   * Leverandør autentiserer med Maskinporten klient
@@ -96,7 +96,7 @@ app.Use(
 
 Scope fra token kan også brukes som attributt i XACML.
 
-{{% notice info %}}
+{{% notice warning %}}
 Matcheren `urn:oasis:names:tc:xacml:1.0:function:string-is-in` er ikke nødvendigvis helt trygg.
 Scopet `annentest:app.a` vil også matche her, siden `test:app.a` er en substreng av denne.
 Vi vurderer om en bedre match funksjon kan implementeres.
@@ -151,7 +151,7 @@ mer automatiserte integrasjoner mellom sluttbrukersystemer og Altinn apper der i
 på vegne av en organisasjon. I Systembruker-konseptet sitter følgende komponenter:
 
 * Maskinporten - autentiseringsmekanismen for alt som har med systembrukere å gjøre:
-  * Registrering system i systemregisteret (API hos Altinn Autentisering)
+  * Registrering av system i systemregisteret (API hos Altinn Autentisering)
   * Registrere systembruker (API hos Altinn Autentisering)
   * Innsending fra systemet (leverandørens system/sluttbrukersystemet)
 * Systemregisteret
@@ -182,25 +182,25 @@ Merk at det er få steg for tjenesteeier å utføre her, men det er likevel vikt
 * Kunden: **Sindig Oriental Tiger AS (313725138)**
 * Miljø: **tt02**
 
-I dette eksempelet vil Fiken automatiske sende inn årsregnskap på slutten av året basert på det regnskapet som er oppført i Fiken av kunden.
+I dette eksempelet vil Fiken automatiske sende inn årsregnskap på slutten av året basert på det regnskapet som er oppført i deres systemer av kunden.
 Denne innsendingen skjer helt automatisk, men sluttbruker hos kunden må fortsatt inn og signere årsregnskapet etter at det er ferdig fyllt inn i `årsregnskap`.
-Nå skal vi sette opp integrasjonen fra scratch.
+Vi skal nå sette opp denne integrasjonen helt fra start.
 
-Vi har mer dokumentasjon rundt [systembruker-flyt for SBS her](/nb/authentication/guides/systemauthentication-for-systemproviders/).
+[Mer dokumentasjon rundt systembruker-flyt for SBS finner du her](/nb/authentication/guides/systemauthentication-for-systemproviders/).
 Denne guiden er ment som et Altinn Studio app-spesifikt eksempel på det samme konseptet.
 
 #### Forutsetninger
 
 * Brønnøysundregisteret trenger tilgang til Altinn Studio og tt02-miljøet
 * Fiken trenger avtale med Maskinporten for miljøet (tilgang til [Samarbeidsportalen for test](https://sjolvbetjening.test.samarbeid.digdir.no/))
-* Fiken trenger tilgang til Maskinporten/ID-porten scopene 
+* Fiken trenger tilgang til følgende Maskinporten/ID-porten scopes: 
   * `altinn:authentication/systemregister.write`, 
   * `altinn:authentication/systemuser.request.read`, `altinn:authentication/systemuser.request.write`
   * `altinn:instances.read`, `altinn:instances.write`
 
 #### 1. Tjenesteeier lager app
 
-Utvikler hos Brønnøysundregisteret med lager app i Altinn Studio, kaller den `aarsregnskap`.
+Utvikler hos Brønnøysundregisteret lager en app i Altinn Studio og kaller den `aarsregnskap`.
 For å støtte systembruker-basert integrasjon med SBS kreves ingen spesiell støtte i enn app, så den utvikles som normalt,
 bl. a. med en XACML policy som lar DAGL fylle inn skjema og signere.
 
@@ -220,7 +220,7 @@ Se dokumentasjon for [registrering av Maskinporten-klient her](/technology/solut
 
 #### 3. Fiken registrerer system i systemregisteret
 
-Med access token fra autentisering med den nyopprettede Maskinporten-klient kan vi registrere Fiken som system i systemregisteret til Altinn Autentisering.
+Med access token fra Maskinporten for den nyopprettede klienten kan vi registrere Fiken som system i systemregisteret til Altinn Autorisasjon.
 For å hente token som kan brukes til systemregistrering vil Fiken legge inn scope som gir tilgang til systemregisteret:
 
 ```http
@@ -246,7 +246,7 @@ Content-Type: application/json
 ```
 
 Dette tokenet kan brukes direkte mot systemregister API.
-I JSON-definisjonen nedenfor registeres systemet med klient IDen fra steget over og med `Rights` som gir tilgang til Brønnøysundregisterets aarsregnskaps-app.
+I JSON-definisjonen nedenfor registeres systemet med klient ID-en fra steget over og med `Rights` som gir tilgang til Brønnøysundregisterets aarsregnskaps-app.
 
 ```http
 POST https://platform.tt02.altinn.no/authentication/api/v1/systemregister/vendor/
@@ -345,7 +345,7 @@ Content-Type: application/json; charset=utf-8
 #### 5. Kunden godkjenner forespørsel om systembruker
 
 Person hos kunden, f. eks. daglig leder, godkjenner forespørsel om systembruker ved å følge `confirmUrl` fra responsen over.
-Hvis testing foregår i tt02 så kan du f. eks. finne DAGL For organisasjonen til systembrukeren.
+Hvis testing foregår i tt02 så kan du f. eks. finne DAGL for organisasjonen til systembrukeren.
 Kunden i dette tilfellet har en DAGL med fødselsnummer `14830199986`, så denne kan brukes ved innlogging med TestID.
 Personen som godkjenner systembrukeren (systemtilgangen) må selv ha de rettighetene som skal delegeres til systembrukeren. 
 I dette tilfellet, hvor DAGL skal godkjenne, så må appen ha en regel som gir DAGL `instantiate` og `read`. Eksempel:
@@ -428,7 +428,7 @@ POST https://test.maskinporten.no/token
 }
 ```
 
-Når vi nå har systembruker token fra Maskinporten, må vi foreløpig exchange denne til et Altinn token for å bruke den mot en app.
+Når vi nå har systembruker token fra Maskinporten, må vi foreløpig veksle inn denne til et Altinn token for å bruke den mot en app.
 I fremtiden vil dette ikke være nødvendig, og denne dokumentasjonen vil oppdateres.
 
 ```http
