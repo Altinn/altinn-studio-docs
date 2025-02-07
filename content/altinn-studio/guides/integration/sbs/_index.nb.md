@@ -20,7 +20,7 @@ leverandørens system og appen. Det er i hovedsak 2 måter å lage denne intregr
   * Leverandør lager system i systemregisteret til Altinn Autentisering (i systemdefinisjonen uttrykker man behov for tilgang til ressurser, f. eks. en app)
   * Kunde registrerer systembruker. Dermed blir rettighetene delegert.
   * Leverandør autentiserer med Maskinporten klient
-  * Ved integrasjon mot Altinn apper så vil systemet autentisere mot Maskinporten også bruke dette tokenet ved innsending til Altinn
+  * Ved integrasjon mot Altinn apper så vil systemet autentisere mot Maskinporten og så bruke dette tokenet ved innsending til Altinn
   * For mer informasjon, se [Altinn Autentisering brukerguide for systembrukere](/nb/authentication/guides/systemauthentication-for-systemproviders/)
   * Egner seg godt for systemer der det er større grad av automasjon (og mindre behov for kontakt/kobling til sluttbruker), og det er snakk om innsendinger på vegne av organisasjoner.
 
