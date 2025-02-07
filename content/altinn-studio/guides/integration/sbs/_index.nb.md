@@ -17,11 +17,11 @@ leverandørens system og appen. Det er i hovedsak 2 måter å lage denne intregr
   * Egner seg godt for systemer der kontakt med sluttbruker er viktig, det er liten grad av automasjon og flyten i integrasjonen er fullstendig brukerstyrt.
 * Systembruker
   * [Leverandør lager Maskinporten klient](https://docs.altinn.studio//authentication/getting-started/maskinportenclient/)
-  * Leverandør lager system i systemregisteret til Altinn Autentisering (i systemdefinisjonen uttrykker man behov for tilgang til ressurser, f. eks. en app)
+  * Leverandør lager system i systemregisteret til Altinn Autorisasjon (i systemdefinisjonen uttrykker man behov for tilgang til ressurser, f. eks. en app)
   * Kunde registrerer systembruker. Dermed blir rettighetene delegert.
   * Leverandør autentiserer med Maskinporten klient
   * Ved integrasjon mot Altinn apper så vil systemet autentisere mot Maskinporten og så bruke dette tokenet ved innsending til Altinn
-  * For mer informasjon, se [Altinn Autentisering brukerguide for systembrukere](/nb/authentication/guides/systemauthentication-for-systemproviders/)
+  * For mer informasjon, se [Altinn Autorisasjon brukerguide for systembrukere](/nb/authentication/guides/systemauthentication-for-systemproviders/)
   * Egner seg godt for systemer der det er større grad av automasjon (og mindre behov for kontakt/kobling til sluttbruker), og det er snakk om innsendinger på vegne av organisasjoner.
 
 ## Integrasjon med ID-porten
@@ -29,7 +29,7 @@ leverandørens system og appen. Det er i hovedsak 2 måter å lage denne intregr
 Ved ingrasjon fra sluttbrukersystem basert på ID-porten klient har man alltid direkte kontakt med sluttbruker.
 Når sluttbruker logger inn i sluttbrukersystem via ID-porten vil sluttbruker måtte godta at systemet gjør 
 `altinn:instances.read` og `altinn:instances.write` på vegne av brukeren (gitt at disse scopene er registrert i ID-porten klienten).
-Tokenet må deretter [veksles i Altinn Autentisering](/nb/api/authentication/spec/).
+Tokenet må deretter [veksles i Altinn Autorisasjon](/nb/api/authentication/spec/).
 Dette Altinn-tokenet kan deretter brukes til å sende inn skjema in en Altinn app på vegne av brukeren.
 
 {{% notice info %}}
@@ -146,16 +146,16 @@ Vi vurderer om en bedre match funksjon kan implementeres.
 
 ## Integrasjon med systembruker
 
-Systembruker-konseptet fra Altinn Autentisering/Autorisasjon er laget for å støtte
+Systembruker-konseptet fra Altinn Autorisasjon/Autorisasjon er laget for å støtte
 mer automatiserte integrasjoner mellom sluttbrukersystemer og Altinn apper der innsending gjøres
 på vegne av en organisasjon. I Systembruker-konseptet sitter følgende komponenter:
 
 * Maskinporten - autentiseringsmekanismen for alt som har med systembrukere å gjøre:
-  * Registrering av system i systemregisteret (API hos Altinn Autentisering)
-  * Registrere systembruker (API hos Altinn Autentisering)
+  * Registrering av system i systemregisteret (API hos Altinn Autorisasjon)
+  * Registrere systembruker (API hos Altinn Autorisasjon)
   * Innsending fra systemet (leverandørens system/sluttbrukersystemet)
 * Systemregisteret
-  * En komponent i Altinn Autentisering hvor alle systemdefinisjoner tilhørende sluttbrukersystemer ligger
+  * En komponent i Altinn Autorisasjon hvor alle systemdefinisjoner tilhørende sluttbrukersystemer ligger
 * System
   * Definisjonen for sluttbrukersystemet. Denne definisjonen inneholder bl. a. hvilke rettigheter systemet trenger fra systembrukeren, og hvilke Maskinporten klient (klient ID) systemet har tenkt til å bruke ved autentisering i Maskinporten.
   * Systemet registreres og eies av sluttbrukersystem-leverandøren i systemregisteret

@@ -7,7 +7,7 @@ toc: true
 tags:
 ---
 
-Appens API-er er tilgangsstyrt ved hjelp av [Altinn Autentisering](/nb/authentication).
+Appens API-er er tilgangsstyrt ved hjelp av [Altinn Autorisasjon](/nb/authentication).
 Requests mot API-er autoriseres ved hjelp av følgende informasjon:
 
 * `AltinnStudioRuntime` cookie
@@ -15,18 +15,18 @@ Requests mot API-er autoriseres ved hjelp av følgende informasjon:
 
 ## Innloggingsmetoder
 
-Altinn Autentisering støtter forskjellige type brukere, som er viktig å tenke på når man utvikler egendefinert funksjonalitet i en app.
+Altinn Autorisasjon støtter forskjellige type brukere, som er viktig å tenke på når man utvikler egendefinert funksjonalitet i en app.
 
 * **Brukere**
   * Kan være logget inn via Altinn Portal eller gjennom en ekstern ID-porten sesjon
   * Disse har User ID, Party ID og brukerprofil. Autentiseringsnivå er alltid større enn 0
   * Brukere kan representere andre parter gjennom partseleksjon
-  * ID-porten token må være vekslet inn til Altinn token via Altinn Autentisering
+  * ID-porten token må være vekslet inn til Altinn token via Altinn Autorisasjon
 * **Selvidentifiserte brukere**
   * Kan være logget inn via Altinn Portal eller gjennom en ekstern ID-porten sesjon
   * Disse har User ID, Party ID og brukerprofil. Autentiseringsnivå er alltid 0 (vi vet ikke hvem brukeren er)
   * Kan ikke representere andre enn seg selv og vi har ikke noe fødselsnummer
-  * ID-porten token må være vekslet inn til Altinn token via Altinn Autentisering
+  * ID-porten token må være vekslet inn til Altinn token via Altinn Autorisasjon
 * **Organisasjon**
   * Klienter autentisert via Maskinporten
   * Gjelder organisasjoner som har avtale med, og tilgang til, Maskinporten
