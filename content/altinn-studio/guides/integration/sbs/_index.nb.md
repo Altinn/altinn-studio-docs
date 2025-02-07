@@ -165,7 +165,7 @@ på vegne av en organisasjon. I Systembruker-konseptet sitter følgende komponen
 
 Dette konseptet lar dermed systemet impersonere systembrukeren i integrasjonen mot en Altinn app.
 Dermed _kan_ systemet gjøre kall mot Altinns API-er uten at en sluttbruker hos organisasjonen er tilstede.
-Dette er ikke mulig med ID-porten integrasjon, da man til enhver tid er avhengig av et gyldig token fra sluttbrukeren som jobber hos kunden (med tilstrekkelig tilganger).
+Dette er ikke mulig med en ID-porten integrasjon, da man til enhver tid er avhengig av et gyldig token fra sluttbrukeren som jobber hos kunden (med tilstrekkelig tilganger).
 
 ### Eksempel
 
