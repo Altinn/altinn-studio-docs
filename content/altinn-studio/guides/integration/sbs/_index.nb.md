@@ -348,7 +348,10 @@ Person hos kunden, f. eks. daglig leder, godkjenner forespørsel om systembruker
 Hvis testing foregår i tt02 så kan du f. eks. finne DAGL for organisasjonen til systembrukeren.
 Kunden i dette tilfellet, med fødselsnummer `14830199986`, har rollen DAGL (daglig leder) så denne kan brukes ved innlogging med TestID.
 Personen som godkjenner systembrukeren (systemtilgangen) må selv ha de rettighetene som skal delegeres til systembrukeren. 
-I dette tilfellet, hvor DAGL skal godkjenne, så må appen ha en regel som gir DAGL `instantiate` og `read`. Eksempel:
+I dette tilfellet, hvor DAGL skal godkjenne, så må appen ha en regel som gir DAGL `instantiate` og `read`.
+Siden systembrukeren får delegert de samme rettighetene som godkjenneren har (i dette tilfelle DAGL), så vil systembrukeren får `instantiate` og `read` i dette teilfellet.
+
+Eksempel:
 
 ```xml
 <xacml:Rule RuleId="urn:altinn:example:ruleid:1" Effect="Permit">
