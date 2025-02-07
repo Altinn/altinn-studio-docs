@@ -57,7 +57,7 @@ som også vil gjelde plattformtjenester i Altinn (f. eks. Storage), men det er i
 {{% notice info %}}
 `IAuthenticationContext.Current` bruker informasjon om innlogget bruker fra ASP.NET Core sin authentication stack.
 Det vil si at ASP.NET Core auth middleware må ha kjørt for at man skal få riktig informasjon.
-Middleware for auth legges til i `UseAltinnAppCommonConfiguration`. Så hvis man skal akssessere `IAuthenticationContext.Current`
+Middleware for auth legges til i `UseAltinnAppCommonConfiguration`. Så hvis man skal aksessere `IAuthenticationContext.Current`
 i et middleware så må denne legges til **etter** at `UseAltinnAppCommonConfiguration` har blitt kalt.
 {{% /notice %}}
 
@@ -462,8 +462,17 @@ Authorization: Bearer <access-token>
 
 Som eksemplifisert lenger opp, så kan man bruke `IAuthenticationContext` for å gjøre custom logikk basert på om det er systembruker som er innlogget i requestet:
 
+{{% notice info %}}
+`IAuthenticationContext.Current` bruker informasjon om innlogget bruker fra ASP.NET Core sin authentication stack.
+Det vil si at ASP.NET Core auth middleware må ha kjørt for at man skal få riktig informasjon.
+Middleware for auth legges til i `UseAltinnAppCommonConfiguration`. Så hvis man skal aksessere `IAuthenticationContext.Current`
+i et middleware så må denne legges til **etter** at `UseAltinnAppCommonConfiguration` har blitt kalt.
+{{% /notice %}}
+
 ```csharp
 WebApplication app = builder.Build();
+
+...
 
 app.Use(
     async (context, next) =>
