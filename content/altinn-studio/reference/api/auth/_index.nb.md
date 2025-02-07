@@ -47,7 +47,7 @@ Altinn Autentisering støtter forskjellige type brukere, som er viktig å tenke 
 
 `Altinn.App.Core`-biblioteket har abstraksjoner for å hente ut informasjon om innlogget bruker.
 Som standard er det ingen begrensninger på hvilke brukertyper en app tar i mot, men man kan begrense dette selv i et middleware eller en validator.
-Før `v8.6` av app bibliotekene var det vanlig å f. eks. hente brukerID direkte fra `HttpContext`, 
+Før `v8.6` av app bibliotekene var det vanlig å f. eks. hente bruker-ID direkte fra `HttpContext`, 
 men dette kan gi uventet resultat hvis innkommende request er autentisert med f. eks. systembruker.
 
 Fra `v8.6` av `Altinn.App.Core` finnes `IAuthenticationContext`- og `Authenticated`-typene:
