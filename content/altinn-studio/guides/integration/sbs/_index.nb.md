@@ -30,7 +30,7 @@ Ved ingrasjon fra sluttbrukersystem basert på ID-porten klient har man alltid d
 Når sluttbruker logger inn i sluttbrukersystem via ID-porten vil sluttbruker måtte godta at systemet gjør 
 `altinn:instances.read` og `altinn:instances.write` på vegne av brukeren (gitt at disse scopene er registrert i ID-porten klienten).
 Tokenet må deretter [veksles i Altinn Autentisering](/nb/api/authentication/spec/).
-Dette Altinn-tokenet kan deretter brukes til å sende inn skjema in en Altinn app på vegne a brukeren.
+Dette Altinn-tokenet kan deretter brukes til å sende inn skjema in en Altinn app på vegne av brukeren.
 
 {{% notice info %}}
 Scopene `altinn:instances.read` og `altinn:instances.write` er ikke tjenesteeier- eller app-spesifikke.
