@@ -28,7 +28,7 @@ Teksten kan bli overstyrt ved å endre tekstresurs-nøkkelen:
   "value": "Skriv ut"
 }
 ```
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="200" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=238-7624&viewport=-814%2C659%2C1.32&scaling=contain&content-scaling=responsive&starting-point-node-id=238%3A7624&show-proto-sidebar=1&embed-host=share" allowfullscreen></iframe>
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="200" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=238-7624&viewport=-814%2C659%2C1.32&scaling=contain&content-scaling=responsive&starting-point-node-id=238%3A7624&show-proto-sidebar=0&embed-host=share" allowfullscreen></iframe>
 
 
 PrintButton-komponenten støtter også grid-tilpassning om ønskelig.
