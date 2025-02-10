@@ -67,15 +67,15 @@ Add the following sections if relevant:
 We are currently updating how properties for components are documented. The list of properties may therefore be inaccurate.
 {{% /notice %}}
 
-| **Property**                       | **Type** | **Description**                                                                                                                                                 |
-|------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Property**                       | **Type** | **Description**                                                                                                                                         |
+|------------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `id`                               | string   | The component ID. Must be unique within all layouts/pages in a layout set. Cannot end with <hyphen><number>.                                            |
-| `value`                            | number   | A value from the code list. This property can be a [dynamic expression](../../../logic/expressions) that retrieves this value from e.g. the data model. |
-| `textResourceBindings.title`       | string   | Title (optional)                                                                                                                                           |
-| `textResourceBindings.description` | string   | Description (optional)                                                                                                                                         |
-| `textResourceBindings.help`        | string   | Help text (optional)                                                                                                                                         |
-| `direction`                        | string   | Sets the structured direction of the title and value.<br/><br/> **Enum:** [horizontal, vertical] <br/><br/>**Default:** horizontal                           |
-| `icon`                             | string   | The path to an icon to be displayed in connection with the choice (optional)                                                                                           |
+| `value`                            | string   | A value from the code list. This property can be a [dynamic expression](../../../logic/expressions) that retrieves this value from e.g. the data model. |
+| `textResourceBindings.title`       | string   | Title (optional)                                                                                                                                        |
+| `textResourceBindings.description` | string   | Description (optional)                                                                                                                                  |
+| `textResourceBindings.help`        | string   | Help text (optional)                                                                                                                                    |
+| `direction`                        | string   | Sets the structured direction of the title and value.<br/><br/> **Enum:** [horizontal, vertical] <br/><br/>**Default:** horizontal                      |
+| `icon`                             | string   | The path to an icon to be displayed in connection with the choice (optional)                                                                            |
 
 In addition, all properties for [connecting to code lists](../../../../guides/development/options/sources/) are supported.
 

@@ -6,11 +6,11 @@ tags: [architecture, solution]
 toc: false
 weight: 2
 ---
-Altinn skal i 2022-2026 [modernisere](functionalareas.drawio.svg) sin autorisasjonsarkitektur og komponenter. Derfor er beskrivelsen nedenfor en blanding av som den er og skal være.
+Altinn skal i perioden 2022-2026 [modernisere](functionalareas.drawio.svg) sin autorisasjonsarkitektur og komponenter. Derfor er beskrivelsen nedenfor en blanding av nåværende og fremtidig tilstand.
 
 Altinn bruker [attributt-basert tilgangskontroll (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control).
 
-Kort sagt, Altinn autorisasjon kontrollerer tilgang gjennom regler definert i XACML Policies. Hver regel definerer hvilken ressurs regelen beskriver, hvilken operasjon og hvem som kan utføre den.
+Kort sagt, Altinn autorisasjon kontrollerer tilgang gjennom regler definert i XACML Policies. Hver regel definerer hvilken ressurs regelen beskriver, hvilken operasjon som kan utføres, og hvem som kan utføre den.
 
 ## Altinn Autorisasjon - Komponenter
 
@@ -18,25 +18,25 @@ Diagrammet nedenfor viser fremtidige komponenter i en ny Altinn-arkitektur.
 
 ![Fremtidig løsning Altinn Autorisasjon](authorization_solution_components_future.drawio.svg "Fremtidig løsning Altinn Autorisasjon")
 
-Denne arkitekturen definerer følgende komponenter.
+Denne arkitekturen definerer følgende komponenter:
 
 ### Tilgangsadministrasjon
 
-Denne komponenten vil være ansvarlig for å administrere tilgang til seg selv og organisasjonen.
+Denne komponenten vil være ansvarlig for å administrere tilgang for både brukere og organisasjoner.
 
 - Gi sluttbrukerne en oversikt over hvilke rettigheter de og andre har.
-- Administrasjon av AccessGroups
-- Mulighet for å delegere og tilbakekalle rettigheter
+- Administrasjon av AccessGroups.
+- Mulighet for å delegere og tilbakekalle rettigheter.
 
 [Les mer](accessmanagement)
 
 ### Ressursregister
 
-Denne komponenten vil gi et register over
+Denne komponenten vil gi et register over:
 
-- Altinn 3 Apps
-- Altinn 2 apper
-– Eksterne tjenester vert på andre plattformer, men registrert i Altinn for autorisasjon.
+- Altinn 3 Apps.
+- Altinn 2 apper.
+- Eksterne tjenester vert på andre plattformer, men registrert i Altinn for autorisasjon.
 
 [Les mer](resourceregistry)
 
@@ -45,11 +45,11 @@ Denne komponenten vil gi et register over
 PDP-komponenten er ansvarlig for å vurdere om brukeren skal få tilgang til en gitt ressurs eller ikke.
 
 Komponenten har en kontekstbehandler, PIP-funksjonalitet, PRP-informasjon og mer.
-[Les mer](pdp)
 
+[Les mer](pdp)
 
 ### Altinn Samtykke
 
 Denne komponenten gir funksjonalitet for å be om samtykke og gi samtykke.
 
-[Github-problem](https://github.com/Altinn/altinn-authorization/issues/22)
+[Les mer](https://github.com/Altinn/altinn-authorization/issues/22)
