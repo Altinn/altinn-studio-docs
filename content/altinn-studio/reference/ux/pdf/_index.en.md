@@ -187,7 +187,7 @@ This method is only available in version 7.5 and higher.
 
 ### Using Altinn Studio
 
-Adding a custom PDF layout in Studio can be done by converting a page to a PDF layout in the page configuration:
+You can add a custom PDF layout in Studio by converting a page to a PDF layout in the page configuration:
 
 ![Screenshot of the PDF switch](pdf-page-switch.png)
 
