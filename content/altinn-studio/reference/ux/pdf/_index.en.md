@@ -191,7 +191,7 @@ Adding a custom PDF layout in Studio can be done by converting a page to a PDF l
 
 ![Screenshot of the PDF switch](pdf-page-switch.png)
 
-Adding a [Summary]({{< ref "altinn-studio/reference/ux/components/summary2" >}} "Summary") component to this page allows you to specify what parts of the layout should be included in the PDF.
+If you add a [Summary]({{< ref "altinn-studio/reference/ux/components/summary2" >}} "Summary") component to this page, you can specify what parts of the layout you want to include in the PDF.
 
 ![Screenshot of a summary2 component in a PDF layout page](pdf-summary-component.png)
 
