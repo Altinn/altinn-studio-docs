@@ -182,7 +182,7 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
 
 ### Med Altinn Studio
 
-Å legge til et tilpasset PDF-oppsett i Studio kan gjøres ved å konvertere en side til et PDF-oppsett i sidekonfigurasjonen:
+Du kan legge til et tilpasset PDF-oppsett i Studio ved å konvertere en side til PDF-oppsett i sidekonfigurasjonen:
 
 ![Skjermbilde av PDF-bryteren](pdf-page-switch.png)
 
