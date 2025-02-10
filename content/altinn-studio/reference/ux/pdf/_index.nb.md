@@ -186,7 +186,7 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
 
 ![Skjermbilde av PDF-bryteren](pdf-page-switch.png)
 
-Ved å legge til en [Oppsummering]({{< ref "altinn-studio/reference/ux/components/summary2" >}} "Oppsummering") komponent på denne siden, kan du spesifisere hvilke deler av oppsettet som skal inkluderes i PDF-en.
+Du kan bruke komponenten [Oppsummering]({{< ref "altinn-studio/reference/ux/components/summary2" >}} "Oppsummering"), til å angi hvilke deler av oppsettet du vil ha med i PDF-en.
 
 ![Skjermbilde av en oppsummeringskomponent i en PDF-oppsett-side](pdf-summary-component.png)
 
