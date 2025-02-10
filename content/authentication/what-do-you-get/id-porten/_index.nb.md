@@ -50,7 +50,7 @@ Med tykke klienter menes applikasjoner som installeres og kjøres lokalt på en 
 
 ## Veksling av access token til Altinn token
 
-Access-tokenet som utstedes fra ID-porten må veksles inn i et Altinn-token før det kan benyttes mot Altinns API'er. Dette Altinn-tokenet vil ha samme levetid som access-tokenet.
+**Access-tokenet** (IKKE ID TOKEN!) som utstedes fra ID-porten må veksles inn i et Altinn-token før det kan benyttes mot Altinns API'er. Dette Altinn-tokenet vil ha samme levetid som access-tokenet.
 
 Flytdiagrammet nedenfor viser hvordan tokenet veksles inn.
 
