@@ -21,7 +21,7 @@ Alert brukes ofte til å vise viktig informasjon som skal fremheves for brukerne
 
 ### Anatomi
 
-![Alert anatomy](Alert-anatomy.png)
+<iframe style="border: 0px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1-4276&viewport=854%2C1675%2C0.89&scaling=contain&content-scaling=responsive&starting-point-node-id=1%3A4276&show-proto-sidebar=0&embed-host=share&hide-ui=true" allowfullscreen></iframe>
 
 {{% anatomy-list %}}
 1. **Overskrift**: En kort beskrivende tittel .
@@ -185,12 +185,9 @@ Ved å endre alvorlighetsgrad endrer du varselets farger og ikon.
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Example">}}
-![Info card](info.png)
+<iframe style="border: 0px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=628-8250&viewport=854%2C1675%2C0.89&scaling=contain&content-scaling=responsive&starting-point-node-id=628%3A8250&show-proto-sidebar=0&embed-host=share" allowfullscreen></iframe>
 {{</content-version-container>}}
 
-{{<content-version-container version-label="Altinn Studio Designer">}}
-![Alert info innstillinger](Alert-info-settings.png "Alert info")
-{{</content-version-container>}}
 
 {{<content-version-container version-label="Kode">}}
 
@@ -224,12 +221,8 @@ App/ui/layouts/{page}.json
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Example">}}
-![Success card](success.png)
-{{</content-version-container>}}
-
-{{<content-version-container version-label="Altinn Studio Designer">}}
-![Alert success innstillinger](Alert-success-settings.png "Alert success")
-{{</content-version-container>}}
+<iframe style="border: 0px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=628-8254&viewport=854%2C1675%2C0.89&scaling=contain&content-scaling=responsive&starting-point-node-id=628%3A8254&show-proto-sidebar=0&embed-host=share
+" allowfullscreen></iframe>{{</content-version-container>}}
 
 {{<content-version-container version-label="Kode">}}
 
@@ -263,11 +256,7 @@ App/ui/layouts/{page}.json
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Example">}}
-![Warning card](warning.png)
-{{</content-version-container>}}
-
-{{<content-version-container version-label="Altinn Studio Designer">}}
-![Alert warning innstillinger](Alert-warning-settings.png "Alert warning")
+<iframe style="border: 0px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=628-8252&viewport=854%2C1675%2C0.89&scaling=contain&content-scaling=responsive&starting-point-node-id=628%3A8252&show-proto-sidebar=0&embed-host=share" allowfullscreen></iframe>
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Kode">}}
@@ -302,12 +291,10 @@ App/ui/layouts/{page}.json
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Example">}}
-![Danger card](danger.png)
+<iframe style="border: 0px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=628-8256&viewport=854%2C1675%2C0.89&scaling=contain&content-scaling=responsive&starting-point-node-id=628%3A8256&show-proto-sidebar=0&embed-host=share
+" allowfullscreen></iframe>
 {{</content-version-container>}}
 
-{{<content-version-container version-label="Altinn Studio Designer">}}
-![Alert danger innstillinger](Alert-danger-settings.png "Alert danger")
-{{</content-version-container>}}
 
 {{<content-version-container version-label="Kode">}}
 
@@ -335,3 +322,4 @@ App/ui/layouts/{page}.json
 ```
 {{</content-version-container>}}
 {{</content-version-selector>}}
+Disse eksemplene er hentet fra <a href="https://www.figma.com/community/file/1344307804742953785/altinn-studio-komponenter" target="_blank">Altinn Studio Komponenter</a>. Merk at eksemplene ikke er identisk med den faktiske koden, men er tilpasset for å lage prototyper i Figma.
