@@ -10,12 +10,21 @@ weight: 2
 
 ## Delegere/delegering
 
-Det å gi fullmakt. Hvis  det ikke betyr noe annet enn det anbefaler vi å slutte å bruke “delegere” i tekst.
-
+Det å gi fullmakt. Man kan delegere til innbygger, virksomhet, systembruker og selvidentifserte brukere i Altinn.
 
 ## Rettighet
 
-Hva noen har rett til å gjøre. Hvis ikke det betyr noe annet enn hva noen får tilgang/tillatelse til å gjøre, anbefaler vi å slutte å bruke “rettighet” i tekst
+Hva noen har rett til å gjøre. F.eks rett til å lese en melding, eller rett til å signere. 
+
+## Regel
+
+RTL: En regel definere hvem som har rettighet til å utføre noe. Tjeneste eiere definerer regler på ressurser og tjenester 
+i Altinn studio.
+
+## Policy
+
+En policy er en samling av en eller flere regler. Hver tjeneste eller ressurs i Altinn har en policy med minst en regel.
+
 
 ## Tilgang
 
