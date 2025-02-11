@@ -22,13 +22,13 @@ Denne guiden viser deg hvordan du kan avpublisere en applikasjon i Altinn Studio
    I listen over tilgjengelige miljøer og versjoner av apper, finn det miljøet hvor appen skal avpubliseres.
 
 4. Klikk på **"tre-dotter"-menyen** til høyre for miljønavnet og velg **Avpubliser appen**.  
-   Ved å klikke på **"tre-dotter"-menyen** i menyen ved siden av miljøet, velger du **Avpubliser appen**.
+   Ved å klikke på **"tre-dotter"-menyen** i menyen ved siden av miljønavnet, får du opp valget **Avpubliser appen** som du skal velge.
 
 5. Les gjennom og forstå informasjonen i modalen.  
    En modal vises med informasjon om hva som skjer ved avpublisering. Les denne nøye for å forstå konsekvensene.
 
 6. Klikk på **Avpubliser appen**-knappen.  
-   Når du har lest og forstått informasjonen, **klikk på "Avpubliser appen"**-knappen for å fortsette.
+   Når du har lest og forstått informasjonen, klikk på **Avpubliser appen**-knappen for å fortsette.
 
 7. Les og forstå innholdet i modalen som dukker opp.  
    En ny modal vises, hvor du bekrefter at du ønsker å fortsette med avpubliseringen. Les innholdet nøye før du går videre.
@@ -43,4 +43,4 @@ Denne guiden viser deg hvordan du kan avpublisere en applikasjon i Altinn Studio
     Når du klikker på **Avpubliser**, begynner prosessen med å avpublisere appen.
 
 11. Listen over versjoner i miljøet vil indikere at avpublisering er i gang og vise når prosessen er fullført.  
-    Etter at prosessen er fullført, vil listen over versjoner i miljøet vise at appen er avpublisert.
+    Etter at prosessen er fullført, vil listen over versjoner i miljøet vise at appen er avpublisert, eller indikere en feil dersom noe gikk galt.
