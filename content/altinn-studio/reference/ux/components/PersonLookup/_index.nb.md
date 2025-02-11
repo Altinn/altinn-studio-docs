@@ -75,7 +75,7 @@ Vi sier at det er påkrevd å oppgi en person, og vi overstyrer tittel.
 Vi velger å ikke bruke beskrivelse eller hjelpetekst.
 Resultatet vil vi ha i datamodellen på `Styre.Styreleder`.
 
-![alt text](image.png)
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1183-7931&viewport=634%2C2793%2C0.78&scaling=contain&content-scaling=responsive&starting-point-node-id=1183%3A7931&show-proto-sidebar=0&embed-host=share" allowfullscreen></iframe>
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Code">}}
