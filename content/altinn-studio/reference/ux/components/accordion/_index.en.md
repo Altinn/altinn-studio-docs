@@ -21,10 +21,9 @@ The Accordion component allows users to expand and collapse content sections by 
 
 ### Anatomy
 
-![Accordion closed anatomy](Accordion-closed-anatomy.png "Closed Accordion")
+<iframe style="border: 0px solid rgba(0, 0, 0, 0);" width="100%" height="250" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1320-9369&viewport=634%2C2793%2C0.78&scaling=contain&content-scaling=responsive&starting-point-node-id=1320%3A9369&show-proto-sidebar=0&embed-host=share&hide-ui=true" allowfullscreen></iframe>
 
-![Accordion open anatomy](Accordion-open-anatomy.png "Open Accordion")
-
+<iframe style="border: 0px solid rgba(0, 0, 0, 0);" width="100%" height="300" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1-4275&viewport=634%2C2793%2C0.78&scaling=contain&content-scaling=responsive&starting-point-node-id=1%3A4275&show-proto-sidebar=0&embed-host=share&hide-ui=true" allowfullscreen></iframe>
 {{% anatomy-list %}}
 1. **Header**: The clickable section title that users interact with to expand or collapse the content.
 2. **Content Area**: The area that expands or collapses, revealing or hiding additional information when the header is clicked. 
@@ -202,8 +201,8 @@ App/ui/layouts/{page}.json
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-![Accordion example](<Accordion-title-and-children.png> "Accordion with paragraph and button")
-
+<iframe style="border: 0px solid rgba(0, 0, 0, 0);" width="100%" height="450" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1320-9438&viewport=634%2C2793%2C0.78&scaling=contain&content-scaling=responsive&starting-point-node-id=1320%3A9438&show-proto-sidebar=0&embed-host=share&hide-ui=true
+" allowfullscreen></iframe>
 ### Heading Level
 
 The default heading level is `2`. To change it, add the `headingLevel` property as shown in the code example below.
