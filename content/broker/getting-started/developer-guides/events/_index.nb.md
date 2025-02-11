@@ -45,7 +45,7 @@ Du må sette opp følgende filtre:
 
 - sourceFilter
   - TT02: <https://platform.tt02.altinn.no/broker/api/v1/filetransfer>
-  - PROD: <https://platform.altinn.no/broker/api/v1/filetransfer>
+  - PROD: <https://api.altinn.no/broker/api/v1/filetransfer>
 - resourceFilter
   - "urn:altinn:resource:" + Ressurs-IDen for formidlingstjenesten
 - alternativesubjectfilter
