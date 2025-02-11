@@ -1,8 +1,8 @@
 ---
-title: Configure summary2 in an app
-linktitle: Summary2
-description: Follow these steps to insert an oppsummering2 in your app.
-tags: [summary2]
+title: Adding a Summary to an App
+linktitle: Summary
+description: How to add a summary to your app
+tags: [summary]
 weight: 50
 aliases:
   - /altinn-studio/guides/summary2/
@@ -12,10 +12,10 @@ aliases:
 
 ## 1. Introduction
 
-The summary component allows you to display a summary of the data that the user has filled in the form.  
-This can include a summary of individual components, pages, or page groups.
+With the **Summary** component, you can summarize and display the information the user has filled out in a form.  
+You can choose to summarize individual components, pages, or page groups.
 
-## 2. Configure an summary
+## 2. Adding a Summary
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
