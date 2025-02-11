@@ -1,9 +1,22 @@
 ---
-title: DigDir Scopes
-linktitle: DigDir Scopes
-description: The following list contains all API scopes controlled by DigDir. Not all are for Altinn use.
+title: Scopes used and controlled by Digitaliseringsdirektoratet
+linktitle: Scopes
+description: The following list contains all Altinn related API scopes controlled by Digdir in ID-porten and Maskinporten.
 ---
 
+For description of a particular scope, see https://sjolvbetjening.samarbeid.digdir.no/scopes.
+
+## Altinn 3
+
+Scopes used in Altinn 3
+
+|name                                         |allowed_integration_types|  authorization_max_lifetime|
+|---- |                                        -------------------------|  --------------------------|
+
+
+## Legacy
+
+Scopes in use by Altinn II only.
 
 |name                                         |allowed_integration_types|  authorization_max_lifetime|
 |---- |                                        -------------------------|  --------------------------|
