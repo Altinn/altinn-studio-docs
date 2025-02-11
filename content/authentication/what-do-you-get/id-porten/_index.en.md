@@ -50,7 +50,7 @@ Thick clients refer to applications that are installed and run locally on a comp
 
 ## Exchanging access token for Altinn token
 
-The access token issued by ID-porten must be exchanged for an Altinn token before it can be used against Altinn's APIs. This Altinn token will have the same lifespan as the access token.
+The **access token** (NOT ID TOKEN!) issued by ID-porten must be exchanged for an Altinn token before it can be used against Altinn's APIs. This Altinn token will have the same lifespan as the access token.
 
 The flowchart below shows how the token is exchanged.
 

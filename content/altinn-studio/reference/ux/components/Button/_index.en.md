@@ -30,12 +30,17 @@ EXAMPLES
 {{% /notice %}}
 
 ---
-
 ## Usage
 
 <!-- Brief description of the component and how it is used. -->
-
+- There should only be one primary button per page. Secondary options can be added as secondary buttons, which look like links.
+- The text on the button should be clear.
+- On the final step of the form (submission), the primary button should be green.
 ### Anatomy
+<!-- Brief description of the component and how it is used. -->
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="270" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=113-7797&viewport=621%2C1853%2C0.97&scaling=contain&content-scaling=responsive&starting-point-node-id=113%3A7797&embed-host=share" allowfullscreen></iframe>
+This example is taken from <a href="https://www.figma.com/community/file/1344307804742953785/altinn-studio-komponenter" target="_blank">Altinn Studio Komponenter</a>. Note that the example is not identical to the actual code but has been adapted to create prototypes in Figma.
+
 
 <!-- 
 
@@ -183,6 +188,3 @@ App/ui/layouts/{page}.json
 
 -->
 
-## Examples
-
-<!-- One or more examples of configuration (if relevant) -->
