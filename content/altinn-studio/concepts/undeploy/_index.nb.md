@@ -1,5 +1,5 @@
 ---
-title: Avpublisering av applikasjoner
+title: Avpublisere apper
 linktitle: Avpublisering
 description: Forklarer hva er avpublisering er og hva som skjer når du avpubliserer en app.
 toc: true
