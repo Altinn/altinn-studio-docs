@@ -1,6 +1,6 @@
 ---
 title: Ordliste Altinn autorisasjon
-linktitle: Ordlist
+linktitle: Ordliste
 description: Her finner du ordliste for Altinn autorisasjon
 tags: [architecture, terms]
 toc: false
@@ -92,9 +92,18 @@ I Altinn benyttes XACML formatet for å beskrive en policy.
 
 En regel definerer hvem som har rettighet til å utføre noe. Tjenesteeiere definerer regler på ressurser og tjenester i Altinn Studio.
 
+F.eks 
+
+- **Daglig leder** har lov til å **signere** på tjenesten **MVA-rapport**
+- Bruker med tilgangspakken **HR** har lov til å **lese** meldinger av typen **sykemelding**
+
 ## Rettighet
 
 Hva noen har rett til å gjøre, for eksempel rett til å lese en melding eller rett til å signere.
+
+En rettighet beskrives med handling + ressurs. 
+
+Se regel.
 
 ## Sluttbruker
 
@@ -106,9 +115,13 @@ Brukes i Ressursregisteret, Altinn Studio, i dokumentasjon og mot tjenesteeiere.
 
 Sluttbrukerløsning har tradisjonelt vært brukt om altinn.no.
 
-## Systemtilgang
+## Systemtilgang /Systembruker
+	
+Med en systemtilgang kan sluttbruker gi et fagsystem fullmakt til å løse oppgaver i Altinn. For eksempel automatisk oppslag i skatteopplysninger. Maskin-til-maskin.
 
-Med en systemtilgang kan du gi et fagsystem tilgang til å løse oppgaver i Altinn, for eksempel automatisk oppslag i skatteopplysninger. Maskin-til-maskin.
+**Systemtilgang** brukes eksternt i Altinn GUI med målgruppe Altinn-brukere, der brukeren selv lager en systemtilgang.
+
+**Systembruker** brukes om selve konseptet, der både tjenesteeier, systemleverandør og sluttbruker må utføre sin del for å få fullmakten til å fungere.
 
 ## Tilgang
 
@@ -122,7 +135,7 @@ Fullmakter til enkelttjenester er samlet i tilgangspakker.
 
 En tilgangspakke er en fullmakt til flere tjenester innenfor samme område.
 
-Tjenesteeier definerer hvilke handlinger/ressurser/tjenester som skal knyttes til en fullmaktspakke.
+Tjenesteeier definerer hvilke rettigheter som skal knyttes til en fullmaktspakke.
 
 ## Tilgangsstyrer
 
