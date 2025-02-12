@@ -1,6 +1,6 @@
 ---
 title: Ordliste Altinn autorisasjon
-linktitle: Ordlist
+linktitle: Ordliste
 description: Her finner du ordliste for Altinn autorisasjon
 tags: [architecture, terms]
 toc: false
@@ -115,9 +115,13 @@ Brukes i Ressursregisteret, Altinn Studio, i dokumentasjon og mot tjenesteeiere.
 
 Sluttbrukerløsning har tradisjonelt vært brukt om altinn.no.
 
-## Systemtilgang
+## Systemtilgang /Systembruker
+	
+Med en systemtilgang kan sluttbruker gi et fagsystem fullmakt til å løse oppgaver i Altinn. For eksempel automatisk oppslag i skatteopplysninger. Maskin-til-maskin.
 
-Med en systemtilgang kan du gi et fagsystem tilgang til å løse oppgaver i Altinn, for eksempel automatisk oppslag i skatteopplysninger. Maskin-til-maskin.
+**Systemtilgang** brukes eksternt i Altinn GUI med målgruppe Altinn-brukere, der brukeren selv lager en systemtilgang.
+
+**Systembruker** brukes om selve konseptet, der både tjenesteeier, systemleverandør og sluttbruker må utføre sin del for å få fullmakten til å fungere.
 
 ## Tilgang
 
