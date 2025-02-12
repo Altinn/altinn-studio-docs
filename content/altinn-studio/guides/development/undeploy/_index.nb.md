@@ -43,4 +43,4 @@ Denne guiden viser deg hvordan du kan avpublisere en applikasjon i Altinn Studio
     Når du klikker på **Avpubliser**, begynner prosessen med å avpublisere appen.
 
 11. Listen over versjoner i miljøet vil indikere at avpublisering er i gang og vise når prosessen er fullført.  
-    Etter at prosessen er fullført, vil listen over versjoner i miljøet vise at appen er avpublisert, eller indikere en feil dersom noe gikk galt.
+    Når appen er ferdig avpublisert, vil du se det i listen over versjoner i miljøet. Der vises det også hvis det har oppstått noen feil underveis i avpubliseringen. 
