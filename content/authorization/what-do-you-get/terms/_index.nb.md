@@ -86,6 +86,8 @@ Brukes i Ressursregisteret, Altinn Studio, i dokumentasjon og mot tjenesteeiere.
 
 En policy er en samling av en eller flere regler. Hver tjeneste eller ressurs i Altinn har en policy med minst én regel.
 
+I Altinn benyttes XACML formatet for å beskrive en policy.
+
 ## Regel
 
 En regel definerer hvem som har rettighet til å utføre noe. Tjenesteeiere definerer regler på ressurser og tjenester i Altinn Studio.
@@ -139,3 +141,8 @@ En tjeneste kan realiseres som en App i Altinn Studio og publiseres på Altinn p
 ## Tjenesteutviklingsløsning
 
 Løsning der tjenester blir konfigurert, for eksempel Altinn Studio og Ressursregisteret.
+
+
+## XACML
+
+xacml står for eXtensible Access Control Markup Language og er formatet som benyttes for å beskrive policy. Se Policy. 
