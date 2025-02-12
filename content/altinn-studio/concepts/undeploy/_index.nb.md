@@ -1,7 +1,7 @@
 ---
 title: Avpublisering av applikasjoner
 linktitle: Avpublisering
-description: Hva er avpublisering av applikasjoner og hva innebærer det.
+description: Forklarer hva er avpublisering er og hva som skjer når du avpubliserer en app.
 toc: true
 weight: 70
 ---
