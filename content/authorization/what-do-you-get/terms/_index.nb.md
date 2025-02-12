@@ -132,7 +132,9 @@ Den delen av Altinn som gir oversikt over brukere og fullmakter hos en virksomhe
 
 ## Tjeneste
 
-En tjeneste er en digital løsning som tilbyr funksjonalitet for dialog mellom en sluttbruker og en offentlig instans. Definert av Nina Kylstad.
+En tjeneste er en digital løsning som tilbyr funksjonalitet for dialog mellom en sluttbruker og en offentlig instans. 
+
+En tjeneste kan realiseres som en App i Altinn Studio og publiseres på Altinn plattformen eller lages på andre platformer/løsninger og registreres som en ressurs i ressursregisteret.
 
 ## Tjenesteutviklingsløsning
 
