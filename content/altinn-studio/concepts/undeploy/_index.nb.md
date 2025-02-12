@@ -20,7 +20,7 @@ Når applikasjonen er avpublisert, vil den ikke være tilgjengelig for brukere. 
 - **Aktive eksemplarer:**  
   Brukere som fortsatt har aktive eksemplarer av applikasjonen, vil ikke kunne interagere med disse om applikasjonen er avpublisert. Hvis eksemplarene ikke er fjernet før avpubliseringen, vil brukerne møte en feilside når de forsøker å åpne dem fra innboksen.
 
-### Viktige hensyn før du avpubliserer
+### Viktig å tenke på før du avpubliserer
 
 Før du gjennomfører avpubliseringen, bør du vurdere hvordan aktive instanser og data skal håndteres:
 
