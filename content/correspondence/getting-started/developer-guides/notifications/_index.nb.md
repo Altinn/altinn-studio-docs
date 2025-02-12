@@ -51,7 +51,7 @@ Keywords er en liste tokens som lar deg personalisere varslingene med for eksemp
 | Verdi                 | Beskrivelse                                                                                                                            | Ekstra                                                                               |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------- |--------------------------------------------------------------------------------------|
 | \$sendersName\$       | Blir byttet ut med avsenders navn. Enten "MessageSender" om attributten har en verdi, eller basert på ett oppslag i Altinn Register.   | Støttes for alle scenarioer                                                          |
-| \$recipientName\$     | Blir byttet ut med mottakers navn. Dette vil være enten organisasjonsnavn eller personens navn.                                        | Støttes ikke dersom varsel blir sendt direkte til e-post adresse eller telefonnummer |
+| \$recipientName\$     | Blir byttet ut med mottakers navn. Dette vil være enten organisasjonsnavn eller personens navn.                                        | Støttes for alle scenarioer                                                          |
 | \$recipientNumber\$   | Dersom mottaker er en organisasjon vises Organisasjonsnummer. Dersom mottaker er en privatperson vises ingenting                       | Støttes ikke dersom varsel blir sendt direkte til e-post adresse eller telefonnummer |
 
 ## Varslingsmaler
