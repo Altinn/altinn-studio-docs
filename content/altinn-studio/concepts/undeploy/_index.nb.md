@@ -8,7 +8,7 @@ weight: 70
 
 ## Avpublisere apper i Altinn Studio
 
-Avpublisering av applikasjoner i Altinn Studio innebærer å gjøre applikasjonen utilgjengelig for brukere, med å ta den bort fra et miljø. Avpublisering kan være aktuelt når applikasjonen er utdatert, og ikke skal brukes lengre. I denne artikkelen går vi gjennom hva som skjer ved avpublisering, hva du bør vurdere før og etter prosessen, og hvilke alternative handlinger du kan vurdere.
+Når du avpubliserer apper i Altinn Studio, gjør du appene utilgjengelig for brukere, ved å ta appen bort fra et miljø. Det kan være nyttig å avpublisere når en app er utdatert og ikke skal brukes lengre. I denne artikkelen går vi gjennom hva som skjer når du  avpubliserer, hva du bør vurdere før og etter prosessen, og hva du eventuelt heller kan velge å gjøre.
 
 ### Hva skjer når du avpubliserer en app?
 
