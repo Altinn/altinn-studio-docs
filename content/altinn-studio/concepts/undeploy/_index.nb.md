@@ -32,7 +32,7 @@ Før du gjennomfører avpubliseringen, bør du vurdere hvordan du vil håndtere 
 
 ### Alternative løsninger i stedet for å avpublisere
 
-Hvis du ønsker å unngå å avpublisere appen, finnes det flere alternative metoder for å gjøre appen utilgjengelig:
+Hvis du ikke vil avpublisere appen, kan du  gjøre appen utilgjengelig på flere andre måter:
 
 - **Bytte til en tidligere versjon:**  
   Dersom den nåværende versjonen av appen har feil, kan du velge å rulle tilbake til en tidligere versjon som fungerer bedre.
