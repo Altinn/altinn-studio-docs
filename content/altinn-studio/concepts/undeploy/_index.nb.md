@@ -43,7 +43,7 @@ Hvis du ikke vil avpublisere appen, kan du  gjøre appen utilgjengelig på flere
 - **Endre tilgangsinnstillinger:**  
   Du kan  justere tilgangsinnstillingene slik at brukerne ikke kan starte nye eksemplarer av applikasjonen.
 
-- **Implementere validering før avpublisering:**  
+- **Legge inn en validering før du avpubliserer:**  
   En annen tilnærming er å implementere validering i koden, som bestemmer når brukerne kan få tilgang til appen. Dette kan være nyttig dersom du ønsker å gi en overgangsperiode før appen blir helt utilgjengelig i miljøet.
 
 ### Hvordan avpublisere appen?
