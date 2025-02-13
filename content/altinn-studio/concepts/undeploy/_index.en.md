@@ -34,7 +34,7 @@ Before you proceed with unpublishing, you should consider how you will handle ac
 
 If you do not wish to unpublish the app, you can make it unavailable in several other ways:
 
-- **Switch to an Earlier Version:**  
+- **Switch to an earlier version:**  
   If the current version of the app has issues, you can choose to roll back to an earlier version that works better.
 
 - **Deactivate the App in the Code:**  
