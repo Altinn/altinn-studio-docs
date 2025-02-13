@@ -17,7 +17,7 @@ Once the app is unpublished, it becomes unavailable to users, both in the user i
 - **API endpoints become unavailable:**  
   When an app is unpublished, its API endpoints will no longer function. This means that external systems and users trying to communicate with the app via the API will experience errors.
 
-- **Active Instances:**  
+- **Active instances:**  
   Users who still have active instances of an unpublished app will no longer be able to access their instance. When they try to open the instance from their inbox, they will encounter an error page.
 
 ### Important Considerations Before Unpublishing
