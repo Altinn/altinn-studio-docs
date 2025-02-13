@@ -53,7 +53,7 @@ Keywords is a list of tokens which enable personalization in notifications. Thes
 | Value                 | Description                                                                                                                           | Extra                                                                                    |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------- |-------------------------------------------------------------------------------------------|
 | \$sendersName\$       | Will be supplied with the senders name. Either by the "MessageSender" attribute if it has value, or by a lookup in Altinn Register.   | Supported for all scenarios                                                               |
-| \$recipientName\$     | Will be supplied with the recipients name, which will be either det organizations name or a persons name                              | Is not supported when notifications is sent directly to an email adress or a phone number |
+| \$recipientName\$     | Will be supplied with the recipients name, which will be either det organizations name or a persons name                              | Supported for all scenarios                                                               |
 | \$recipientNumber\$   | If the recipient is a organization, it will be supplied with the organization number, otherwise it will be left empty                 | Is not supported when notifications is sent directly to an email adress or a phone number |
 
 ## Notification Templates
