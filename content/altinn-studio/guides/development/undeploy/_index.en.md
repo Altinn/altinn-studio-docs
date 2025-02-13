@@ -6,7 +6,7 @@ toc: true
 weight: 70
 ---
 
-## Unpublishing an App in Altinn Studio
+## Unpublishing an app in Altinn Studio
 
 This guide will take you through the steps to unpublish an app in Altinn Studio. Follow the steps carefully to ensure the process is completed correctly.
 
