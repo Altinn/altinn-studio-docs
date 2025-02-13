@@ -14,7 +14,7 @@ This guide will take you through the steps to unpublish an app in Altinn Studio.
 
 1. Go to the dashboard in Altinn Studio and select the app you want to unpublish.
 
-2. Click on **Publiser** in the top menu.
+2. Click **Publiser** in the top menu.
 
 3. In the list of available environments and versions of apps, find the environment and the app you want to unpublish.
 
