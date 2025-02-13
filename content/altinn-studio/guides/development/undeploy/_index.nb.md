@@ -21,7 +21,7 @@ Denne veiledningen tar deg gjennom stegene for  å avpublisere en app i Altinn S
 3. Finn miljøet du ønsker å fjerne appen fra.  
    I listen over tilgjengelige miljøer og versjoner av apper, finn det miljøet hvor appen skal avpubliseres.
 
-4. Klikk på **"tre-dotter"-menyen** til høyre for miljønavnet og velg **Avpubliser appen**.  
+4. Klikk på de tre prikkene til høyre for miljønavnet og velg **Avpubliser appen**.  
    Ved å klikke på **"tre-dotter"-menyen** i menyen ved siden av miljønavnet, får du opp valget **Avpubliser appen** som du skal velge.
 
 5. Les gjennom og forstå informasjonen i modalen.  
