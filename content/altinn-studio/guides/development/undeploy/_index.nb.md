@@ -13,7 +13,7 @@ Denne guiden viser deg hvordan du kan avpublisere en applikasjon i Altinn Studio
 ### Slik avpubliserer du en app:
 
 1. Velg appen du ønsker å avpublisere.  
-   Gå til Altinn Studio og velg den appen du vil avpublisere fra dashboardet.
+   Gå til dashboardet i Altinn Studio og velg den appen du vil avpublisere.
 
 2. Klikk på **Publiser** i toppmenyen.  
    Etter at du har valgt appen, finn og klikk på **Publiser** i toppmenyen.
