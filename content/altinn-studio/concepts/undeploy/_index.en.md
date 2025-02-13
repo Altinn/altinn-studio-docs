@@ -40,7 +40,7 @@ If you do not wish to unpublish the app, you can make it unavailable in several 
 - **Deactivate the app in the code:**  
   You can remove access to the app in the code, making it unavailable in that way. This allows you to avoid completely unpublishing the app.
 
-- **Change Access Settings:**  
+- **Change access settings:**  
   You can adjust the access settings so that users cannot start new instances of the application.
 
 - **Implement Validation Before Unpublishing:**  
