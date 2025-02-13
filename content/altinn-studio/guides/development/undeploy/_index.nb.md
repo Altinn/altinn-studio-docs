@@ -40,7 +40,7 @@ Denne veiledningen tar deg gjennom stegene for  å avpublisere en app i Altinn S
    Når navnet er bekreftet, klikk på **Avpubliser**-knappen for å starte prosessen.
 
 10. Avpubliseringen er i gang.  
-    Når du klikker på **Avpubliser**, begynner prosessen med å avpublisere appen.
+    Prosessen med å avpublisere starter og du ser at arbeidet er i gang, i listen over versjoner i miljøet.
 
 11. Listen over versjoner i miljøet vil indikere at avpublisering er i gang og vise når prosessen er fullført.  
     Når appen er ferdig avpublisert, vil du se det i listen over versjoner i miljøet. Der vises det også hvis det har oppstått noen feil underveis i avpubliseringen. 
