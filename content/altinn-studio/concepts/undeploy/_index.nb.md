@@ -48,4 +48,4 @@ Hvis du ikke vil avpublisere appen, kan du  gjøre appen utilgjengelig på flere
 
 ### Hvordan avpubliserer jeg en app?
 
-[Gå til guide som forklarer hvordan avpublisere en app](/nb/altinn-studio/guides/development/undeploy/).
+[Gå til veiledningen for å avpublisere apper](/nb/altinn-studio/guides/development/undeploy/).
