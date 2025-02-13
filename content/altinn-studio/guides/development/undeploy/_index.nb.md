@@ -1,5 +1,5 @@
 ---
-title: Avpublisering av applikasjoner
+title: Avpublisere apper
 linktitle: Avpublisering
 description: Hvordan du kan avpublisere applikasjoner i Altinn Studio.
 toc: true
