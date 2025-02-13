@@ -1,5 +1,5 @@
 ---
-title: Unpublishing Apps
+title: Unpublishing apps
 linktitle: Unpublishing
 description: Explains what unpublishing is and what happens when you unpublish an app.
 toc: true
