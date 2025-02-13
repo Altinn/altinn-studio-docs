@@ -35,7 +35,7 @@ Før du gjennomfører avpubliseringen, bør du vurdere hvordan du vil håndtere 
 Hvis du ikke vil avpublisere appen, kan du  gjøre appen utilgjengelig på flere andre måter:
 
 - **Bytte til en tidligere versjon:**  
-  Dersom den nåværende versjonen av appen har feil, kan du velge å rulle tilbake til en tidligere versjon som fungerer bedre.
+  Hvis den nåværende versjonen av appen har feil, kan du velge å rulle tilbake til en tidligere versjon som fungerer bedre.
 
 - **Deaktivere appen i koden:**  
   Du kan fjerne tilgang til appen i koden, slik at den ikke er tilgjengelig uten å måtte avpublisere den helt.
