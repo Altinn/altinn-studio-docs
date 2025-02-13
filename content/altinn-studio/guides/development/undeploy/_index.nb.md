@@ -27,7 +27,7 @@ Denne veiledningen tar deg gjennom stegene for  å avpublisere en app i Altinn S
 5. Les gjennom og forstå informasjonen i modalen.  
    Du får en melding om hva som skjer ved avpublisering. Sjekk at du har forstått konsekvensene.
 
-6. Klikk på **Avpubliser appen**-knappen.  
+6. Klikk på knappen **Avpubliser appen**.  
    Når du har lest og forstått informasjonen, klikk på **Avpubliser appen**-knappen for å fortsette.
 
 7. Les og forstå innholdet i modalen som dukker opp.  
