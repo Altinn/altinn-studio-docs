@@ -6,7 +6,7 @@ toc: true
 weight: 70
 ---
 
-## Avpublisere en applikasjon i Altinn Studio
+## Avpublisere en app i Altinn Studio
 
 Denne guiden viser deg hvordan du kan avpublisere en applikasjon i Altinn Studio. Følg trinnene nøye for å sikre at prosessen fullføres riktig.
 
