@@ -10,7 +10,7 @@ weight: 70
 
 This guide will take you through the steps to unpublish an app in Altinn Studio. Follow the steps carefully to ensure the process is completed correctly.
 
-### How to Unpublish an App:
+### How to unpublish an app:
 
 1. Go to the dashboard in Altinn Studio and select the app you want to unpublish.
 
