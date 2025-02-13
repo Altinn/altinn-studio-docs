@@ -18,7 +18,7 @@ Når appen er avpublisert er den  ikke tilgjengelig for brukere, verken i bruker
   Når appen er avpublisert, vil API-endepunktene til den ikke lenger fungere. Dette betyr at eksterne systemer og brukere som prøver å kommunisere med appen via API-et, vil oppleve feil.
 
 - **Aktive eksemplarer:**  
-  Brukere som fortsatt har aktive eksemplarer av applikasjonen, vil ikke kunne interagere med disse om applikasjonen er avpublisert. Hvis eksemplarene ikke er fjernet før avpubliseringen, vil brukerne møte en feilside når de forsøker å åpne dem fra innboksen.
+  Brukere som fortsatt har aktive eksemplarer av en avpublisert app, kan ikke lenger gå inn på eksemplaret sitt å gjøre noe. Når de prøver å åpne eksemplaret fra innboksen, møter de  en feilside.
 
 ### Viktig å tenke på før du avpubliserer
 
