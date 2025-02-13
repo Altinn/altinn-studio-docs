@@ -927,12 +927,6 @@
         "areaGroup": "Spesiell",
         "packages": [
           {
-            "id": "a784a0b3-2ca1-46c1-97dc-f5df0dd1ab53",
-            "urn": "urn:altinn:accesspackage:konkursbotilgangsstyring",
-            "name": "Konkursbo tilgangsstyring",
-            "description": "Denne fullmakten gir rettighet til å administrere konkursbo. Fullmakten er en engangsdelegering, og den gir ikke tilgang til noen tjenester.  "
-          },
-          {
             "id": "5ef836c7-69cc-4ea8-84d6-fb933cc4fc5c",
             "urn": "urn:altinn:accesspackage:konkursbolesetilgang",
             "name": "Konkursbo lesetilgang",
