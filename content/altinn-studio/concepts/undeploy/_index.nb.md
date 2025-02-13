@@ -25,7 +25,7 @@ Når appen er avpublisert er den  ikke tilgjengelig for brukere, verken i bruker
 Før du gjennomfører avpubliseringen, bør du vurdere hvordan du vil håndtere aktive eksemplarer og dataene fra dem:
 
 1. **Håndtere aktive eksemplarer:**  
-   Hvis det finnes aktive eksemplarer (for eksempel i brukerens innboks) som fortsatt er i bruk, må du vurdere hva som skal skje med disse. Ønsker du å fjerne eksemplarene, kan dette gjøres via appens API-er før du avpubliserer.
+   Hvis det finnes eksemplarer som fortsatt er i bruk (for eksempel i brukerens innboks), må du vurdere hva som skal skje med disse. Hvis du vil fjerne eksemplarene, kan du gjøre det via appens API-er før du avpubliserer.
 
 2. **Datahåndtering etter avpublisering:**  
    Når appen er avpublisert, kan du fortsatt hente ut data, men dette kan kun gjøres via Storage API etter avpublisering. Appens egne API-er vil ikke være tilgjengelige.
