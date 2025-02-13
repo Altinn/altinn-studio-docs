@@ -30,4 +30,4 @@ This guide will take you through the steps to unpublish an app in Altinn Studio.
 
 9. Click **Avpubliser**. The unpublishing process will begin, and you will see that it is in progress in the list of versions in the environment.
 
-10. When the app has been unpublished, you will see it in the list of versions in the environment. It will also indicate if any errors occurred during the unpublishing process.
+10. When the app has been unpublished, you will see it in the list of versions in the environment. The list item will also indicate if any errors occurred during the unpublishing process.
