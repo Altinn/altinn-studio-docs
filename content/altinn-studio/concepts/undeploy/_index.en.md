@@ -20,7 +20,7 @@ Once the app is unpublished, it becomes unavailable to users, both in the user i
 - **Active instances:**  
   Users who still have active instances of an unpublished app will no longer be able to access their instance. When they try to open the instance from their inbox, they will encounter an error page.
 
-### Important Considerations Before Unpublishing
+### Important considerations before you unpublish
 
 Before you proceed with unpublishing, you should consider how you will handle active instances and their data:
 
