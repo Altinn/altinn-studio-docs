@@ -46,6 +46,6 @@ Hvis du ikke vil avpublisere appen, kan du  gjøre appen utilgjengelig på flere
 - **Legge inn en validering før du avpubliserer:**  
   Hvis du legger inn en validering i koden, kan du bestemme når brukerne skal få tilgang til appen. Dette kan være nyttig hvis du vil gi brukerne en overgangsperiode før appen blir helt utilgjengelig i miljøet.
 
-### Hvordan avpublisere appen?
+### Hvordan avpubliserer jeg en app?
 
 [Gå til guide som forklarer hvordan avpublisere en app](/nb/altinn-studio/guides/development/undeploy/).
