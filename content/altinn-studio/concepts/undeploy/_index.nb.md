@@ -30,7 +30,7 @@ Før du gjennomfører avpubliseringen, bør du vurdere hvordan du vil håndtere 
 2. **Håndtere data etter avpublisering:**  
    Når appen er avpublisert, kan du fortsatt hente ut data, men du må bruke Storage API etter avpubliseringen. Det er fordi appens egne API-er ikke lenger er tilgjengelige.
 
-### Alternative løsninger i stedet for å avpublisere
+### Hva kan du gjøre i stedet for å avpublisere?
 
 Hvis du ikke vil avpublisere appen, kan du  gjøre appen utilgjengelig på flere andre måter:
 
