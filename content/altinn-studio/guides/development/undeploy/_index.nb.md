@@ -8,7 +8,7 @@ weight: 70
 
 ## Avpublisere en app i Altinn Studio
 
-Denne guiden viser deg hvordan du kan avpublisere en applikasjon i Altinn Studio. Følg trinnene nøye for å sikre at prosessen fullføres riktig.
+Denne veiledningen tar deg gjennom stegene for  å avpublisere en app i Altinn Studio. Følg trinnene nøye for å sikre at prosessen fullføres på riktig måte.
 
 ### Slik avpubliserer du en app:
 
