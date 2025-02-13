@@ -15,7 +15,7 @@ Når du avpubliserer apper i Altinn Studio, gjør du appene utilgjengelig for br
 Når appen er avpublisert er den  ikke tilgjengelig for brukere, verken i brukergrensesnittet eller via API-endepunktene.
 
 - **API-endepunktene blir utilgjengelige:**  
-  Når appen er avpublisert, vil API-endepunktene til applikasjonen ikke lenger fungere. Dette betyr at eksterne systemer og brukere som prøver å kommunisere med appen via API-et, vil oppleve feil.
+  Når appen er avpublisert, vil API-endepunktene til den ikke lenger fungere. Dette betyr at eksterne systemer og brukere som prøver å kommunisere med appen via API-et, vil oppleve feil.
 
 - **Aktive eksemplarer:**  
   Brukere som fortsatt har aktive eksemplarer av applikasjonen, vil ikke kunne interagere med disse om applikasjonen er avpublisert. Hvis eksemplarene ikke er fjernet før avpubliseringen, vil brukerne møte en feilside når de forsøker å åpne dem fra innboksen.
