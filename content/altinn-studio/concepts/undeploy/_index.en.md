@@ -27,7 +27,7 @@ Before you proceed with unpublishing, you should consider how you will handle ac
 1. **Handling active instances:**  
    If there are instances that are still in use (for example, in the user's inbox), you must consider what will happen to these. If you want to remove the instances, you can do so via the app’s APIs before unpublishing.
 
-2. **Handling Data After Unpublishing:**  
+2. **Handling data after unpublishing:**  
    Once the app is unpublished, you can still retrieve data, but you will need to use the Storage API after unpublishing. This is because the app’s own APIs will no longer be available.
 
 ### What Can You Do Instead of Unpublishing?
