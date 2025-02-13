@@ -10,7 +10,7 @@ weight: 70
 
 When you unpublish apps in Altinn Studio, you make the apps unavailable to users by removing them from an environment. This can be useful when an app is outdated and is no longer to be used. In this article, we will explain what happens when you unpublish, what you should consider before and after the process, and what alternatives you may wish to consider.
 
-### What Happens When You Unpublish an App?
+### What happens when you unpublish an app?
 
 Once the app is unpublished, it becomes unavailable to users, both in the user interface and via API endpoints.
 
