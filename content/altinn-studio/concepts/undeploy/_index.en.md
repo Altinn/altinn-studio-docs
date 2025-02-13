@@ -43,7 +43,7 @@ If you do not wish to unpublish the app, you can make it unavailable in several 
 - **Change access settings:**  
   You can adjust the access settings so that users cannot start new instances of the application.
 
-- **Implement Validation Before Unpublishing:**  
+- **Implement validation before you unpublish:**  
   By adding validation in the code, you can decide when users should have access to the app. This can be useful if you want to give users a transition period before the app becomes completely unavailable in the environment.
 
 ### How do I unpublish an app?
