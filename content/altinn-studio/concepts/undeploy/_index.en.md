@@ -24,7 +24,7 @@ Once the app is unpublished, it becomes unavailable to users, both in the user i
 
 Before you proceed with unpublishing, you should consider how you will handle active instances and their data:
 
-1. **Handling Active Instances:**  
+1. **Handling active instances:**  
    If there are instances that are still in use (for example, in the user's inbox), you must consider what will happen to these. If you want to remove the instances, you can do so via the app’s APIs before unpublishing.
 
 2. **Handling Data After Unpublishing:**  
