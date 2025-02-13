@@ -38,7 +38,7 @@ Hvis du ikke vil avpublisere appen, kan du  gjøre appen utilgjengelig på flere
   Hvis den nåværende versjonen av appen har feil, kan du velge å rulle tilbake til en tidligere versjon som fungerer bedre.
 
 - **Deaktivere appen i koden:**  
-  Du kan fjerne tilgang til appen i koden, slik at den ikke er tilgjengelig uten å måtte avpublisere den helt.
+  Du kan fjerne tilgang til appen i koden, slik at den blir utilgjengelig på den måten. Da slipper du å avpublisere den helt.
 
 - **Endre tilgangsinnstillinger:**  
   Ved å justere tilgangsinnstillingene kan du hindre at brukerne starter nye eksemplarer av applikasjonen.
