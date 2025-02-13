@@ -46,6 +46,6 @@ If you do not wish to unpublish the app, you can make it unavailable in several 
 - **Implement Validation Before Unpublishing:**  
   By adding validation in the code, you can decide when users should have access to the app. This can be useful if you want to give users a transition period before the app becomes completely unavailable in the environment.
 
-### How Do I Unpublish an App?
+### How do I unpublish an app?
 
 [Go to the guide for unpublishing apps](/nb/altinn-studio/guides/development/undeploy/).
