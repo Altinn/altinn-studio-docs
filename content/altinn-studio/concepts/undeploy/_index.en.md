@@ -14,7 +14,7 @@ When you unpublish apps in Altinn Studio, you make the apps unavailable to users
 
 Once the app is unpublished, it becomes unavailable to users, both in the user interface and via API endpoints.
 
-- **API Endpoints Become Unavailable:**  
+- **API endpoints become unavailable:**  
   When an app is unpublished, its API endpoints will no longer function. This means that external systems and users trying to communicate with the app via the API will experience errors.
 
 - **Active Instances:**  
