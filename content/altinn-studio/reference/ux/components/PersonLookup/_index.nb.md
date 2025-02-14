@@ -9,15 +9,28 @@ toc: true
 
 ## Bruk
 
-<!-- Brief description of the component and how it is used. -->
+<!-- Brief description of the component and how it is used. 
 
 PersonLookup-komponenten søker i det nasjonale folkeregisteret basert på brukerens oppgitte input for fødselsnummer og etternavn, og lagrer resultatet ved hjelp av en datamodellbinding.
+-->
+
 
 ## Anatomi
 
-TODO: add figma embed?
-
 Komponenten består av en hovedtittel, en hjelptekst, en beskrivelse, en fødselsnummer-input tittel, et fødselsnummer-input felt, en etternavn-input tittel, et etternavn-input navn og en hent-knapp.
+
+<iframe style="border: 0px solid rgba(0, 0, 0, 0);" width="100%" height="300" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1-43040&viewport=429%2C-4932%2C0.72&scaling=contain&content-scaling=responsive&starting-point-node-id=1%3A43040&show-proto-sidebar=0&embed-host=share" allowfullscreen></iframe>
+
+{{% anatomy-list %}}  
+1. **Overskrift** – Hovedtittel.  
+2. **Hjelpetekst** – Klikk for hjelpe-popup.  
+3. **Vis beskrivelse** – Du kan beskrive det.  
+4. **Personnummerfelt** – Hovedtittel for alternativet.  
+5. **Etternavn** – Inndatafelt for etternavn.  
+6. **Valgt alternativ** – Indikasjon på det valgte alternativet.  
+7. **Valgt alternativ** – Indikasjon på det valgte alternativet.  
+
+{{% /anatomy-list %}}  
 
 ## Oppførsel
 

@@ -15,10 +15,22 @@ The PersonLookup component searches the National Population Register based on us
 
 ## Anatomy
 
-TODO: add figma embed?
 The component consists of a main title, help text, description, NIN-input title, NIN-input, surname-input title, surname-input name and a fetch button.
+<iframe style="border: 0px solid rgba(0, 0, 0, 0);" width="100%" height="300" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1-43040&viewport=429%2C-4932%2C0.72&scaling=contain&content-scaling=responsive&starting-point-node-id=1%3A43040&show-proto-sidebar=0&embed-host=share" allowfullscreen></iframe>
 
-## Behavior
+{{% anatomy-list %}}
+1. **Heading** - Main title.
+2. **Help text** - Click for help pop-up.
+3. **Show descrpition** - You can describe it.
+4. **Personnumber input** - Main title for the option.
+5. **Surname** - Inputfield for surname.
+6. **Selcted option** - Indication of the selected option.
+7. **Selcted option** - Indication of the selected option.
+
+{{% /anatomy-list %}}
+
+
+## Behaviore
 
 TODO: SCREENSHOTS WITH ENGLISH LANGUAGE
 
