@@ -36,7 +36,7 @@ EXAMPLES
 <!-- Brief description of the component and how it is used. -->
 
 ### Anatomy
-
+<iframe style="border: 0px solid rgba(0, 0, 0, 1);" width="100%" height="600" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1707-13699&viewport=1020%2C-1913%2C1.35&scaling=contain&content-scaling=responsive&starting-point-node-id=1707%3A13699&show-proto-sidebar=0&embed-host=share" allowfullscreen></iframe>
 <!-- 
 
 Image/diagram with numbered callouts.
