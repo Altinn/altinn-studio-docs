@@ -1,90 +1,86 @@
 ---
-title: Lag et enkelt skjema
-description: Guide for å lage et enkelt skjema i Altinn Studio
+title: Lage et enkelt skjema
+description: Veiledning for å lage et enkelt skjema i Altinn Studio
 weight: 10
 aliases:
 - /nb/altinn-studio/guides/basic-form/
 ---
-Punktene under dekker et minimum av hva som må til for å lage og publisere et skjema på Altinn Studio.
+I denne veiledningen lærer du hvordan du lager og publiserer en app i Altinn Studio, for eksempel et enkelt skjema.
 
-{{% expandlarge id="create-service" header="Opprette tjenesten som skal inneholde skjemaet" %}}
-Nye tjenester opprettes fra ditt tjeneste-dashboard. 
+{{% expandlarge id="create-service" header="Opprett en ny app" %}}
+Logg inn i Altinn Studio. Hvis du ikke har en bruker, kan du opprette en fra forsiden. 
 
-1. Trykk på knappen "Opprett ny applikasjon" oppe til høyre på skjermen.
-2. Velg _eier_ av tjensten fra nedtrekkslisten.
-   - Velger du sin egen bruker, vil du kunne teste all funksjonalitet i Altinn Studio, men vil ikke få tilgang til 
-     testmiljø.
-   - Velger du en _organisasjon_ som du har rettiheter for vil du også ha mulighet til å publisere tjenesten til
-     organisasjonens test-miljø.
-3. Skriv inn navnet på tjenesten.
-   _Navnet kan kun inneholde små bokstaver, tall og bindestrek. Dette navnet brukes for å identifisere tjenesten, og kan 
-   ikke endres etter at det er satt. Visningsnavn kan settes og endres når tjenesten er opprettet._
-4. Trykk på knappen "Opprett applikasjon".
+1. Klikk på __Opprett ny app__ øverst til høyre i skjermbildet.
+2. I feltet __Eier__ velger du hvem som skal eie appen. Hva du kan velge her, avhenger av om du har rettigheter til å opprette en app for organisasjonen din, eller om appen blir registrert privat, på din bruker.
+   - Hvis du oppretter appen på din egen bruker, kan du teste all funksjonalitet i Altinn Studio, men du har ikke tilgang til 
+     testmiljøet.
+   - Hvis du har rettigheter til å opprette appen på en organisasjon, kan du også publisere tjenesten til
+     organisasjonens testmiljø.
+3. I feltet __Navn__ følger du reglene for appnavn og lager et kort of beskrivende navn på appen din.
+   _Navnet må ha minst to tegn og kan kun inneholde små bokstaver, tall og bindestrek. Navnet identifiserer appen din, og kan 
+   ikke endres etter at du har satt det. Du kan lage et eget visningsnavn etter at du har opprettet appen._
+4. Klikk på __Opprett app__.
 
-Når tjenesten er opprettet kommer du til tjenestens oversiktsside.
+Når appen er opprettet, ser du den på oversiktssiden.
 
 <video autoplay loop controls muted src="./create-service.mp4">Nettleseren din støtter ikke videoavspilling.</video>
 {{%/expandlarge%}}
 
 
-{{% expandlarge id="set-service-name" header="Legge inn visningsnavn for tjenesten" %}}
-Tjenesten trenger et visningsnavn som vises som overskrift på skjema og i brukerens innboks i Altinn.
+{{% expandlarge id="set-service-name" header="Legg inn det navnet som skal vises for appen" %}}
+Gi appen en eget visningsnavn, Dette navnet vises som overskrift på skjemaet og i brukerens innboks i Altinn.
 
-Legg inn visningsnavn ved å:
+1. Klikk på Innstillinger i menylinjen øverst til venstre.
+2.  I feltet __Navn på appen__ skriver du det navnet du vil at skjemaet dit skal ha, for eksempel "Innrapportering av sjeldne arter i bydel Sagene".
 
-1. Trykk på "Innstillinger"-knappen i meny-linjen øverst til venstre
-2. Endre på feltet "Applikasjonsnavn" til ønsket visningsnavn
-
-Endringen lagres i det man forlater feltet. Når visningsnavnet er endret kan du se at det også er oppdatert på 
-oversiktssiden.
+Navnet blir lagret når du klikker utenfor feltet, og det blir oppdatert på oversiktssiden.
 
 <video autoplay loop controls muted src="./set-service-name.mp4">Nettleseren din støtter ikke videoavspilling.</video>
 {{%/expandlarge%}}
 
 
-{{% expandlarge id="create-datamodel" header="Lage en datamodell for skjema" %}}
-Datamodellen definerer hvilke data man forventer å samle inn, og hvilket format disse skal være på. 
-> _**Man kan se på en datamodell som en innholdsfortegnelse for skjemaet.**_
+{{% expandlarge id="create-datamodel" header="Lag en datamodell for skjemaet ditt" %}}
+En datamodellen er en slags innholdsfortegnelse for skjemaet. 
+Datamodellen brukes til å bestemme _hva_ du vil  hente inn av data og _hvordan_ dataene
+skal se ut.
 
-For et enkelt skjema er det ofte en 1-1 knytning fra felter i datamodellen til felter i skjemaet, mens for mer avanserte
+For et enkelt skjema er det ofte en direkte knytning mellom et felt i datamodellen og et felt i skjemaet. For mer avanserte
 skjemaer kan datamodellen og skjemaet være ganske forskjellige.
 
-En helt enkel datamodell med noen eksempel-felter følger med når man oppretter en tjeneste. Man kan redigere feltnavnene
-for å gjøre det tydelig hva de representerer, og legge til egne felter. 
+Når du oppretter en app, følger det med en enkel datamodell med noen eksempelfelter. Du kan redigere feltnavnene
+for å tydelig vise hva de representerer, og du kan legge til egne felter. 
 
-Datamodellen brukes til å bestemme _hva_ som skal hentes inn av data. Den brukes også til å bestemme _hvordan_ dataene
-skal se ut/være, ved at man setter på begrensninger som valideres.
-
-1. Naviger til "Datamodell"-siden ved å trykke på "Datamodell" i meny-linjen øverst på siden.
-2. Klikk på et felt for å få opp redigeringsmuligheter, f.eks. for å endre navn på feltet.
-3. Klikk på "Legg til ny" og velg type. Relevante typer for enkle skjemaer er bl.a.
-   - Tekst - tekstinnhold, kan brukes for stort sett alle felter.
+1. Gå til  __Datamodell__ i toppmenyen.
+2. Velg ett av property-feltene for å vise panelet __Egenskaper__. Her kan du blant annet endre navn og sette format.
+3. Klikk på __Legg til__ og velg type. Vanlige typer for et enkelt skjema kan være
+   - Tekst 
    - Heltall
    - Desimaltall
-4. Når du er ferdig med å legge til felter, trykk på knappen "Generer modeller"
+4. Legg eventuelt til flere felt. 
+Hvis du vil gruppere flere felt, kan velge __Objekt__ fra Legg til-menyen, og så legge til felter i dette objektet.
+5. Klikk på  __Generer modeller__. Du får en melding om at datamodellen din er opprettet.
     
-Dersom man ønsker å gruppere felter, kan man legge til "Objekt", og så legge til felter under den gruppen.
+
 
 <video autoplay loop controls muted src="./create-datamodel.mp4">Nettleseren din støtter ikke videoavspilling.</video>
 {{%/expandlarge%}}
 
 
-{{% expandlarge id="create-form" header="Dra inn skjemakomponenter i skjema og konfigurere disse" %}}
-Skjema lages i Altinn Studio ved å navigere til "Lage"-siden. På denne siden 
+{{% expandlarge id="create-form" header="Dra inn skjemakomponenter i skjemaet og konfigurer dem" %}}
+Du lager selve skjemaet på __Utforming__-siden i Altinn Studio. Her kan du dra inn de skjemakomponentene du vil ha med på hver side i skjemaet. 
 
-Skjema lages ved å dra inn ønskede skjemakomponenter inn i hver enkelt skjemaside. 
+### Legg til felter i skjemaet
+Komponentene du kan bruke i skjemaet er delt i tre kategorier:
+- **Standard**: Her finner du alle enkle skjemakomponenter, for eksempel lite og stort tekstfelt, nedtrekksliste (ett eller flere svar),
+  avmerkingsbokser, radioknapper og innsendingsknapp.
+- **Tekst**: I denne kategorien finner du komponenter du kan bruke til å informere de som fyller ut skjemaet ditt, for eksempel overskrift, avsnitt, advarsel og informasjonspanel.
+- **Avansert**: Her ligger blant annet gruppe, repeterende gruppe, kart og liste.
 
-### Legge til felter i skjema
-Komponentene som kan brukes i skjema er fordelt på 3 kategorier:
-- **Standard**: Inneholder alle enkle skjemakomponenter som f.eks. teksfelter (langt og kort), nedtrekksliste (ett eller flere svar),
-  avkrysningsbokser, radioknapper, innsendingsknapp, og lignende.
-- **Tekst**: Inneholder tekst-komponenter som brukes for å informere brukeren. F.eks. overskrift, avsnitt, advarsel, informasjonspanel.
-- **Avansert**: Inneholder mer avanserte komponenter som gruppe, repeterende gruppe, kart, liste, og lignende.
+***VEILEDNINGEN ER UNDER OPPDATERING HERFRA OG NED***
 
-1. Klikk på siden du ønsker å redigere. Når man lager en tjeneste kommer det automatisk med en side som heter "Side1".
-2. Velg en komponent fra panelet til venstre, og dra den inn på siden. Komponenten er nå aktiv i konfigurasjonspanelet og 
-   kan konfigureres.
-3. Dersom komponenten i skjemaet skal brukes til å samle inn data, må den knyttes til tilhørende felt i datamodellen. 
+1. Klikk på den siden du ønsker å redigere. Det er alltid en Side 1 med i appen, men du kan enkelt legge til en ny.
+2. Velg en komponent fra panelet til venstre, og dra den inn på siden. Du ser nå panelet med egenskaper for komponenten til høyre for sideoversikten.
+3. Hvis du skal bruke komponenten til å samle inn data, må du knytte den til det feltet det tilhører i datamodellen. 
    - Åpne seksjonen i konfigurasjons-kolonnen som heter "Datamodellknytninger"
    - Klikk på tilgjengelig knytning (f.eks. "kort svar") og velg ønsket felt i datamodellen fra listen. Listen er søkbar.
    - Lukk oppsettet ved å trykke på X-ikonet, eller fjern knytningen ved å trykke på søppelbøtte-ikonet.
