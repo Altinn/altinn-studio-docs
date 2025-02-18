@@ -26,9 +26,9 @@ For å sette opp dette kan du følge de generelle stegene i [veiledningen for Ma
 
   ```json
   "MaskinportenSettings": {
-      "authority": "https://[test.]maskinporten.no/",
-      "clientId": "the client id",
-      "jwkBase64": "base64 encoded jwk"
+      "Authority": "https://[test.]maskinporten.no/",
+      "ClientId": "the client id",
+      "JwkBase64": "base64 encoded jwk"
   }
   ```
 - Meldingsklienten finner og bruker automatisk Maskinporten-klienten, og forsøker å binde seg til standard konfigurasjonssti `MaskinportenSettings`.
@@ -196,11 +196,11 @@ new SendCorrespondencePayload(
   async () =>
   {
     TokenResponse maskinportenResponse = await maskinportenService.GetToken(
-      "base64 encoded jwk",
-      "test|prod",
-      "the client id",
-      "altinn:serviceowner altinn:correspondence.write",
-      null
+      base64EncodedJwk: "...",
+      environment: "test|prod",
+      clientId: "the client id",
+      scope: "altinn:serviceowner altinn:correspondence.write",
+      resource: null
     );
 
     TokenResponse altinnResponse = await maskinportenService.ExchangeToAltinnToken(

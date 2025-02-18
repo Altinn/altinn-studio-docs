@@ -41,6 +41,7 @@ Følgende komponenter støtter svaralternativer:
 | [Checkboxes](../../../reference/ux/components/checkboxes)               | Flere valg       | Brukes for å velge ett eller flere alternativer fra en liste med avkrysningsbokser.                     |
 | [MultipleSelect](../../../reference/ux/components/multipleselect)       | Flere valg       | Brukes for å velge ett eller flere alternativer fra en nedtrekksliste.                                  |
 | [FileUploadWithTag](../../../reference/ux/components/fileuploadwithtag) | Ett valg         | Brukes for å laste opp en fil og knytte den til en 'tag'/merkelapp.                                     |
+| [Option](../../../reference/ux/components/option)                       | Vise ett valg    | Brukes for å vise/presentere et enkelt valg.                                                            |
 
 I kategoriene under kan du lære mer om hvordan du produserer en kodeliste, kobler den til en komponent for å vise
 frem svaralternativer, samt om felles funksjonalitet som kan brukes på tvers av disse komponentene.
