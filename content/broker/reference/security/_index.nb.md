@@ -4,7 +4,7 @@ linktitle: Sikkerhet
 description: Altinn 3 Formidling informasjonssikkerhet
 tags: []
 toc: true
-weight: 50
+weight: 60
 ---
 
 <!--
