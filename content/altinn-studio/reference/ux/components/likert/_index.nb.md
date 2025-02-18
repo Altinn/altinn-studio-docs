@@ -17,9 +17,15 @@ Merk at Likert-komponenten kun kan benyttes som del av en repeterende gruppe.
 Likert komponenten vises som en liste ved smale skjermer og som en tabell ved brede skjermer.
 Likert utnytter seg av samme konsept som repeterende grupper.
 
-![Desktop](desktop.png "Likert komponent ved bred (desktop) skjermstørrelse")
+### Likert eksempel
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=2026-19838&viewport=328%2C-2644%2C0.41&scaling=contain&content-scaling=fixed&starting-point-node-id=2026%3A19838&show-proto-sidebar=0&embed-host=share" allowfullscreen></iframe>
 
-![Mobil](mobile.png "Likert komponent ved smal (mobil) skjermstørrelse")
+### Likert på mobil 
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=2053-23104&viewport=328%2C-2644%2C0.41&scaling=contain&content-scaling=fixed&starting-point-node-id=2053%3A23104&show-proto-sidebar=0&embed-host=share" allowfullscreen></iframe>
+
+### Likert with a divider:
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=2026-20367&viewport=328%2C-2644%2C0.41&scaling=contain&content-scaling=fixed&starting-point-node-id=2026%3A20367&show-proto-sidebar=0&embed-host=share" allowfullscreen></iframe>
+
 
 ## Eksempel
 
