@@ -23,7 +23,7 @@ Din oppdaterte `layout-sets.json` kan se slik ut:
         "id": "signing",
         "dataType": "model",
         "tasks": [
-          "SigningTask"
+          "Task_2"
         ]
       }
     ]
