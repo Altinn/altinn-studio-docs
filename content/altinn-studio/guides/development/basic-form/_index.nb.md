@@ -16,7 +16,7 @@ Logg inn i Altinn Studio. Hvis du ikke har en bruker, kan du opprette en fra for
      testmiljøet.
    - Hvis du har rettigheter til å opprette appen på en organisasjon, kan du også publisere tjenesten til
      organisasjonens testmiljø.
-3. I feltet __Navn__ følger du reglene for appnavn og lager et kort of beskrivende navn på appen din.
+3. I feltet __Navn__ følger du reglene for appnavn og lager et kort og beskrivende navn på appen din.
    _Navnet må ha minst to tegn og kan kun inneholde små bokstaver, tall og bindestrek. Navnet identifiserer appen din, og kan 
    ikke endres etter at du har satt det. Du kan lage et eget visningsnavn etter at du har opprettet appen._
 4. Klikk på __Opprett app__.
