@@ -333,7 +333,7 @@ Detailed descriptions and examples
 {{% expandlarge id="func-compare" header="compare" %}}
 {{% notice info %}}
 This function is only available on the backend when using [nuget packages](../../../guides/administration/maintainance/dependencies#nuget)
-version 8.5.x or later. In the frontend, this function is available in version 4.x.x and above, including the latest
+version 8.6.0-preview.3 or later. In the frontend, this function is available in version 4.17.0 and above, including the latest
 rolling release.
 {{% /notice %}}
 The `compare` function is a generic comparison function that can be used to compare two values. The function takes three
@@ -588,7 +588,7 @@ If the string is `null`, `stringLength` will return 0.
 {{% expandlarge id="func-stringIndexOf" header="stringIndexOf" %}}
 {{% notice info %}}
 This function is only available on the backend when using [nuget packages](../../../guides/administration/maintainance/dependencies#nuget)
-version 8.5.x or later. In the frontend, this function is available in version 4.x.x and above, including the latest
+version 8.6.0-preview.3 or later. In the frontend, this function is available in version 4.17.0 and above, including the latest
 rolling release.
 {{% /notice %}}
 
@@ -609,7 +609,7 @@ return 4.
 {{% expandlarge id="func-stringSlice" header="stringSlice" %}}
 {{% notice info %}}
 This function is only available on the backend when using [nuget packages](../../../guides/administration/maintainance/dependencies#nuget)
-version 8.5.x or later. In the frontend, this function is available in version 4.x.x and above, including the latest
+version 8.6.0-preview.3 or later. In the frontend, this function is available in version 4.17.0 and above, including the latest
 rolling release.
 {{% /notice %}}
 
@@ -632,7 +632,7 @@ is "John Doe", the function will return "Doe".
 {{% expandlarge id="func-stringReplace" header="stringReplace" %}}
 {{% notice info %}}
 This function is only available on the backend when using [nuget packages](../../../guides/administration/maintainance/dependencies#nuget)
-version 8.5.x or later. In the frontend, this function is available in version 4.x.x and above, including the latest
+version 8.6.0-preview.3 or later. In the frontend, this function is available in version 4.17.0 and above, including the latest
 rolling release.
 {{% /notice %}}
 
@@ -722,7 +722,7 @@ regardless of whether uppercase or lowercase letters were used in the input valu
 {{% expandlarge id="func-lcFirst-ucFirst" header="lowerCaseFirst/upperCaseFirst" %}}
 {{% notice info %}}
 These functions are only available on the backend when using [nuget packages](../../../guides/administration/maintainance/dependencies#nuget)
-version 8.5.x or later. In the frontend, these functions are available in version 4.x.x and above, including the latest
+version 8.6.0-preview.3 or later. In the frontend, these functions are available in version 4.17.0 and above, including the latest
 rolling release.
 {{% /notice %}}
 
@@ -832,7 +832,7 @@ stored under the key `FrontEndSettings` in `appsettings.{environment}.json`. For
 
 {{% notice info %}}
 This function is only available on the backend when using [nuget packages](../../../guides/administration/maintainance/dependencies#nuget)
-version 8.5.x or later. In the frontend, this function is available in version 4.x.x and above, including the latest
+version 8.6.0-preview.3 or later. In the frontend, this function is available in version 4.17.0 and above, including the latest
 rolling release.
 {{% /notice %}}
 
@@ -937,7 +937,7 @@ component in the current row before looking up through the page structure.
 
 {{% notice info %}}
 This function is only available on the backend when using [nuget packages](../../../guides/administration/maintainance/dependencies#nuget)
-version 8.5.x or later. In the frontend, this function is available in version 4.0.0 and above, including the latest
+version 8.6.0-preview.3 or later. In the frontend, this function is available in version 4.0.0 and above, including the latest
 rolling release.
 {{% /notice %}}
 
