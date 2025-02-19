@@ -10,10 +10,6 @@ weight: 40
 {{<children />}}
 
 {{% notice warning  %}}
-This section of the documentation is a work in progress, and as such currently makes extensive reference to external sources.
-{{% /notice %}}
-
-{{% notice warning  %}}
 Currently the Events for Correspondence are not ready for full-scale use, due to pending changes in Altinn Events and Authorization.
 This documents the expected scenario, but may be subject to change.
 {{% /notice %}}
