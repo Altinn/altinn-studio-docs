@@ -9,11 +9,6 @@ weight: 20
 
 {{<children />}}
 
-{{% notice warning  %}}
-Denne delen av dokumentasjonen er under arbeid.
-Det er seksjoner med manglende eller bare delvis dokumentasjon.
-{{% /notice %}}
-
 Siden Altinn Formidling er åpen kildekode, kan du få tilgang til koden vår i [vårt offentlige GitHub-repo](https://github.com/Altinn/altinn-broker) og bygge en lokal Docker-instans for å teste mot.
 
 Vi ønsker bidrag til løsningen velkommen.
