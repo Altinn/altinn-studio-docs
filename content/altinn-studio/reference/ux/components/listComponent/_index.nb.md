@@ -187,3 +187,30 @@ man interfacet `IInstanceDataListProvider`, og tillegg må man legge til en `sec
 ## Mobilvisning
 Tabell i mobilvisning er ganske komprimert, og man kan derfor velge hvilke felter per rad man vil vise på mobil. Det gjør man 
 med feltet `tableHeadersMobile` som er en array med strings som representerer de headerverdiene man vil vise på mobil. 
+
+## Bruke avkrysningsbokser i list 
+
+For å bruke avkrysningsbokser trenger du å legge til datamodellbindingen `saveToList`. Dette skal referere til en repeterende gruppe i datamodellen.
+
+Datamodellbindingene i den repeterende gruppen skal ha unike nøkler som henviser til felt i den repeterende gruppestrukturen.
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Datamodellbinding">}}
+
+ ```json
+"dataModelBindings": {
+    "saveToList": "person",
+    "pofession": "person.profession",
+    "name": "person.name",
+    "age": "person.age"
+},
+```
+
+{{</content-version-container>}}
+
+{{<content-version-container version-label="Utseende">}}
+
+![ListWithCheckboxes](listWithCheckboxes.png "Bilde på list komponenten med avkrysningsbokser")
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
