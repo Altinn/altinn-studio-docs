@@ -9,11 +9,6 @@ weight: 40
 
 {{<children />}}
 
-{{% notice warning  %}}
-Currently the Events for Correspondence are not ready for full-scale use, due to pending changes in Altinn Events and Authorization.
-This documents the expected scenario, but may be subject to change.
-{{% /notice %}}
-
 In order to use events/webhooks for a Correspondence resource, you need to setup a subscription for the given resource.
 This subscription is used to configure the endpoint where the events published by correspondence end up. [You can read more about how to setup an Events subscription in Altinn Events here](/events/subscribe-to-events/developer-guides/setup-subscription/).
 
