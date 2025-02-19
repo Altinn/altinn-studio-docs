@@ -6,9 +6,6 @@ tags: []
 toc: false
 weight: 20
 ---
-{{% notice warning  %}}
-Merk: Ytterligere oversikt over produktfunksjonalitet er i  arbeid.
-{{% /notice %}}
 
 ## Produktfunksjonalitet
 

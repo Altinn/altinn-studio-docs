@@ -9,10 +9,6 @@ weight: 20
 
 {{<children />}}
 
-{{% notice warning  %}}
-This section of the documentation is a work in progress, and as such currently makes extensive reference to external sources.
-{{% /notice %}}
-
 Here are the detailed operations and events you will be using when Receiving files.
 
 ## Operation: Get FileTransfers {#operation-get-filetransfers}
