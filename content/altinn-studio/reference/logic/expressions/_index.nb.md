@@ -316,6 +316,7 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`component`](#func-component)                 | [Streng](#strenger)                      | [Streng](#strenger) | ✅        | ✅       |
 | [`linkToPage`](#func-linkToPage)               | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅        | ❌       |
 | [`linkToComponent`](#func-linkToComponent)     | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅        | ❌       |
+| [`optionLabel`](#func-optionLabel)             | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅        | ❌       |
 
 ### Spesialfunksjoner
 
@@ -1019,6 +1020,24 @@ Det andre argumentet er id-en til komponenten lenken skal peke til.
 ```
 Resultatet vil bli `<a href="#/instance/<party-id>/<instance-id>/<TaskId>/<PageId>?focusNodeId=inputMyName">Oppgi navnet ditt</a>`
 Denne lenken vil ta brukeren til siden komponenten er på og fokusere på den spesifiserte komponenten, når brukeren klikker på lenken.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-optionLabel" header="optionLabel" %}}
+Denne funksjonen kan brukes til å hente ut ledeteksten/labelen til et svaralternativ i en kodeliste. Teksten vil automatisk
+bli oversatt til brukerens valgte språk (om ledeteksten er en tekstressurs), så det er ikke nødvendig å sende resultatet
+gjennom `text`-funksjonen.
+
+Funksjonen tar 2 argumenter. Det første argumentet er kodeliste-ID-en, og det andre argumentet er kodeliste-verdien
+som skal slås opp i kodelisten.
+
+```json
+["optionLabel", "countries", "no"]
+```
+
+Sørg for at kodeliste-ID-en er en ren streng, og ikke et uttrykk. Kodeverdien derimot, kan være et uttrykk, f.eks.
+oppslag fra en sti i datamodellen.
+
+Om kodeliste-verdien ikke finnes i kodelisten, vil funksjonen returnere `null`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-argv" header="argv" %}}

@@ -318,6 +318,7 @@ These functions are available for use in expressions:
 | [`component`](#func-component)                 | [String](#strings)                     | [String](#strings) | ✅        | ✅       |  
 | [`linkToPage`](#func-linkToPage)               | [String](#strings), [String](#strings) | [String](#strings) | ✅        | ❌       |  
 | [`linkToComponent`](#func-linkToComponent)     | [String](#strings), [String](#strings) | [String](#strings) | ✅        | ❌       |
+| [`optionLabel`](#func-optionLabel)             | [String](#strings), [String](#strings) | [String](#strings) | ✅        | ❌       |
 
 
 ### Special functions
@@ -1025,6 +1026,25 @@ is the id of the component the link should point to.
 ```
 Would result in `<a href="#/instance/<party-id>/<instance-id>/<TaskId>/<PageId>?focusNodeId=inputMyName">Specify your name</a>`
 When clicked, this link will take the user to the page the component is on and focus on the specified component.
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-optionLabel" header="optionLabel" %}}
+The `optionLabel` function can be used to retrieve the text/label of an option in a code list. The text will automatically
+be translated to the user's selected language (if the label is a text resource), so there is no need to pass the result
+through the `text` function.
+
+The function takes 2 arguments. The first argument is the code list id, and the second argument is the code list value
+to find in the code list.
+
+```json
+["optionLabel", "countries", "no"]
+```
+
+Make sure the code list id is a plain string, and not a nested expression. The code value however, can be a
+nested expression, i.e. look up from a path in the data model.
+
+If no matching code list value is found, the function will return `null`.
 
 {{% /expandlarge %}}
 
