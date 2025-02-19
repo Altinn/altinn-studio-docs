@@ -7,12 +7,6 @@ toc: false
 weight: 60
 ---
 
-{{% notice warning  %}}
-Denne delen av dokumentasjonen er under utarbeidelse.
-Det er kapitler som bare er delvis ferdigstilt.
-Noe funksjonalitet er fremdeles under avklaring og utvikling og representerer ikke endelig versjon.
-{{% /notice %}}
-
 For å forenkle overgangen fra Altinn 2 til Altinn 3 versjon av melding-produktet, så har man fulgt en overordnet strategi som har hatt som mål å balansere kompleksitet og brukervennlighet for alle parter.
 
 - Altinn 3 melding har i stor grad lik datamodell som Altinn 2 for å muliggjøre mapping/migrering.
