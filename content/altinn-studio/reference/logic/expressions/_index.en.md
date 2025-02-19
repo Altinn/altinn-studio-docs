@@ -842,7 +842,7 @@ elements of the given data type in the current instance.
 
 For example, if you have a `FileUpload` component uploading files to the `Attachment` data type, you can use this
 function to count the number of attachments currently uploaded. Likewise, you can count the number
-of [subform elements](../../subform) by referencing the data model id.
+of [subform elements](../../../guides/development/subform) by referencing the data model id.
 
 Example:
 

@@ -833,7 +833,7 @@ må være en streng som er definert som en datatype i `applicationmetadata.json`
 elementer av den gitte datatypen i gjeldende instans.
 
 For eksempel, om du har en `FileUpload`-komponent som laster opp filer til datatypen `Attachment`, kan du bruke denne
-funksjonen til å telle antall vedlegg som er lastet opp. På samme måte kan du telle antall [underskjema-elementer](../../subform)
+funksjonen til å telle antall vedlegg som er lastet opp. På samme måte kan du telle antall [underskjema-elementer](../../../guides/development/subform)
 ved å referere til datamodell-ID-en til underskjemaet.
 
 Eksempel:
