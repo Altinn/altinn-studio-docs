@@ -138,7 +138,7 @@
           },
           {
             "id": "04c5a001-5249-4765-ae8e-58617c404223",
-            "urn": "urn:altinn:accesspackage:miljo-rydding-miljorensing-og-lignende",
+            "urn": "urn:altinn:accesspackage:miljorydding-miljorensing-og-lignende",
             "name": "Miljørydding, miljørensing og lignende",
             "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til miljørydding, miljørensing og lignende. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
           },
@@ -206,7 +206,7 @@
           },
           {
             "id": "2ee6e972-2423-4f3a-bd3c-d4871fcc9876",
-            "urn": "urn:altinn:accesspackage:helfo-searlig-kategori",
+            "urn": "urn:altinn:accesspackage:helfo-saerlig-kategori",
             "name": "Helfotjenester med personopplysninger av særlig kategori",
             "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til virksomhetens dialog med Helfo der bruker kan få tilgang til personopplysninger av særlig kategori. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir"
           },
@@ -300,14 +300,14 @@
         "packages": [
           {
             "id": "37d2ba7f-187f-45f5-9a96-2f23cf328dab",
-            "urn": "urn:altinn:accesspackage:delegerbare-maskinporten-scope",
-            "name": "Delegerbare Maskinporten Scope",
+            "urn": "urn:altinn:accesspackage:maskinporten-scopes",
+            "name": "Delegerbare Maskinporten scopes",
             "description": "Denne tilgangspakken gir fullmakter til å administrere tilgang til data og programmeringsgrensenitt (API) som benytter Maskinporten eller tilsvarende løsninger for APIsikring. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
           },
           {
             "id": "44746bad-aae5-4a83-b2e1-30a7cc9b809d",
-            "urn": "urn:altinn:accesspackage:delegerbare-maskinporten-scope-nuf",
-            "name": "Delegerbare Maskinporten Scope for NUF",
+            "urn": "urn:altinn:accesspackage:maskinporten-scopes-nuf",
+            "name": "Delegerbare Maskinporten scopes - NUF",
             "description": "Denne tilgangspakken gir fullmakter til å administrere tilgang til data og programmeringsgrensenitt (API) som benytter Maskinporten eller tilsvarende løsninger for APIsikring på vegne av norskregistrerte utenlandske foretak (NUF). Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
           },
           {
