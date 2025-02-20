@@ -11,6 +11,8 @@ Scopes som brukes i Altinn 3
 
 |name                                         |allowed_integration_types|  authorization_max_lifetime|
 |---- |                                        -------------------------|  --------------------------|
+| digdir:dialogporten                         | {maskinporten, api_klient}                 | 7776000 |
+| digdir:dialogporten.serviceprovider         | {maskinporten}                             |    3600 |
 
 ## Legacy
 I bruk mot Altinn II
