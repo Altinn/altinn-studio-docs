@@ -1,18 +1,29 @@
 ---
 title: Brukerstyrt signering
 linktitle: Brukerstyrt
-description: Følg disse stegene for å implementere brukerstyrt signering i din app
+description: Følg disse stegene for å implementere brukerstyrt signering i din tjeneste.
 tags: [signering]
 weight: 50
 aliases:
 - /nb/altinn-studio/guides/signing/runtime-delegated-signing
 ---
 
-## Eksempel app
+## Hva betyr brukerstyrt signering?
+
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/intro.nb.md" %}}
+
+## Avhengigheter
+Brukerstyrt signering avhenger av Meldingstjenesten (Correspondence) i Altinn, som krever eget oppsett.
+
+Melding brukes for å gi beskjed til signatar om at de har blitt bedt om å signere et skjema i Altinn, og for å sende signeringskvittering til innboksen ders når signeringen er utført.
+
+Se [hvordan](/nb/correspondence/getting-started/) du kommer i gang med det.
+
+## Eksempel på konfigurasjon
 
 I følgende [repo](https://altinn.studio/repos/ttd/signering-brukerstyrt) ligger det eksempel på en applikasjon med brukerstyrt signering.
 
-Hovedflyten er:
+Hovedflyten i applikasjonen er:
 1. Utfyller av skjema oppgir fødselsnummer og etternavn for de som skal signere, eventuel organisasjonsnummer.
 2. Når skjema er ferdig utfylt trykker utfyller "Til signering", som beveger prosessen til neste steg i prosessen, som er signeringssteget.
 3. I det signeringssteget initialiseres kaller appen en implementasjon av interfacet ```ISigneeProvider```, som dere må implementere, for å finne ut hvem som må få delegert tilgang til å signere.

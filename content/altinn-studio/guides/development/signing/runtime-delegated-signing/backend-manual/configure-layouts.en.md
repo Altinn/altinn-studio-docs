@@ -80,6 +80,3 @@ Example of usage of the standard components:
     }
   }
 ```
-
-<!-- screenshot -->
-<img>

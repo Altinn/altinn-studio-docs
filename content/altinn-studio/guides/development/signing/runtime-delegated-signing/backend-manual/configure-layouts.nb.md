@@ -83,6 +83,3 @@ Eksempel på bruk av komponentene:
     }
   }
   ```
-
-<!-- screenshot -->
-<img>

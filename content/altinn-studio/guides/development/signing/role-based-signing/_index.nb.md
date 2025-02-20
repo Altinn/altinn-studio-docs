@@ -1,12 +1,20 @@
 ---
-title: Rollebasert signering
-linktitle: Rollebasert
-description: Følg disse stegene for å implementere rollebasert signering i din app
+title: Rolle/tilgangspakke-basert signering
+linktitle: Rolle/Tilgangspakke
+description: Følg disse stegene for å implementere rolle/tilgangspakke-basert signering i din tjeneste.
 tags: [rollebasert, signering]
 weight: 50
 aliases:
 - /nb/altinn-studio/guides/signing/role-based-signing
 ---
+
+## Hva betyr rolle/tilgangspakke-basert signering?
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/intro.nb.md" %}}
+
+## Avhengigheter
+Dersom appen skal kunne sende signeringskvittering til innboksen til den som signerer så må oppsett for bruk av meldingstjenesten i Altinn være satt opp.
+
+Se [hvordan](/nb/correspondence/getting-started/) du kommer i gang med det.
 
 ## 1. Legg til en signeringsoppgave i appens prosess, med tilhørende konfigurasjon
 

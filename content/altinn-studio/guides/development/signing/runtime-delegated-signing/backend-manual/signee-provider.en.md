@@ -37,7 +37,7 @@ public class SigneesProvider : ISigneeProvider
     {
         Skjemadata formData = await GetFormData(instance);
 
-        List<SigneeParty> personSignees = [];
+        List<SigneeParty> signeeParties = [];
         foreach (StifterPerson stifterPerson in formData.StifterPerson)
         {
             var personSignee = new SigneeParty
@@ -59,15 +59,22 @@ public class SigneesProvider : ISigneeProvider
                                 "Hei "
                                 + stifterPerson.Fornavn
                                 + ",\n\nDu har mottatt stiftelsesdokumenter for signering i Altinn. Logg inn på Altinn for å signere dokumentene.\n\nMed vennlig hilsen\nBrønnøysundregistrene"
+                        },
+                        Sms = new Sms
+                        {
+                            MobileNumber = stifterPerson.Mobiltelefon,
+                            Body =
+                                "Hei "
+                                + stifterPerson.Fornavn
+                                + ",\n\nDu har mottatt stiftelsesdokumenter for signering i Altinn. Logg inn på Altinn for å signere dokumentene.\n\nMed vennlig hilsen\nBrønnøysundregistrene"
                         }
                     }
                 }
             };
 
-            personSignees.Add(personSignee);
+            signeeParties.Add(personSignee);
         }
 
-        List<SigneeParty> organisationSignees = [];
         foreach (StifterVirksomhet stifterVirksomhet in formData.StifterVirksomhet)
         {
             var organisationSignee = new SigneeParty
@@ -91,14 +98,22 @@ public class SigneesProvider : ISigneeProvider
                                 + stifterVirksomhet.Navn
                                 + ",\n\nNye stiftelsesdokumenter for signering i Altinn. Logg inn på Altinn for å signere dokumentene.\n\nMed vennlig hilsen\nBrønnøysundregistrene"
                         },
+                        Sms = new Sms
+                        {
+                            MobileNumber = stifterVirksomhet.Mobiltelefon,
+                            Body =
+                                "Hei "
+                                + stifterVirksomhet.Navn
+                                + ",\n\nDu har mottatt stiftelsesdokumenter for signering i Altinn. Logg inn på Altinn for å signere dokumentene.\n\nMed vennlig hilsen\nBrønnøysundregistrene"
+                        }
                     }
                 }
             };
 
-            organisationSignees.Add(organisationSignee);
+            signeeParties.Add(organisationSignee);
         }
 
-        return new SigneesResult { Signees = [.. personSignees, .. organisationSignees], };
+        return new SigneesResult { Signees = signeeParties };
     }
 
     private async Task<Skjemadata> GetFormData(Instance instance)
@@ -117,5 +132,4 @@ public class SigneesProvider : ISigneeProvider
             );
     }
 }
-
 ```

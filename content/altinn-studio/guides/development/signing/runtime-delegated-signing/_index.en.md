@@ -1,12 +1,23 @@
 ---
 title: Runtime delegated signing
 linktitle: Runtime delegated
-description: Follow these steps to implement runtime delegated signing in your app
+description: Follow these steps to implement runtime delegated signing in your service
 tags: [signing]
 weight: 50
 aliases:
 - /altinn-studio/guides/signing/runtime-delegated-signing
 ---
+
+## What does runetime delegated singing mean?
+
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/intro.nb.md" %}}
+
+## Prerequisites
+Runtime deleaged singing depends on then message service (Correspondence) in Altinn, which requires separate configuration.
+
+The message service is used to tell the signee that they have been asked to sign a form in Altinn, and to send them a receipt of what they signed when the signature has been submitted.
+
+See [how](/nb/correspondence/getting-started/) to get started.
 
 ## Example Application
 
@@ -66,6 +77,6 @@ Below are the key configuration steps for setting up such an application.
 
 ## Testing
 
-> **Note:** In this experimental version, delegation mocking is not implemented in local testing, so testing must be performed in the TT02 environment.
+> **Note:** Fow now, delegation mocking is not implemented in local testing, so testing must be performed in the TT02 environment.
 
 Authorization caching may cause delays in users seeing delegated forms in their Altinn inbox if they were logged in when delegation occurred. To avoid this, delegate access to a user not used in testing for the last hour.

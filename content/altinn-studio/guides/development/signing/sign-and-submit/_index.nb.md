@@ -8,17 +8,84 @@ aliases:
 - /nb/altinn-studio/guides/signing/sign-and-submit
 ---
 
-<!-- Legg til signeringsoppgave i appens prosess -->
-## 1. Legg til en signeringsoppgave i appens prosess, med tilhørende konfigurasjon
+## Hva betyr signer og send inn?
 
-{{<content-version-selector classes="border-box">}}
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/intro.nb.md" %}}
 
-{{<content-version-container version-label="Manuelt oppsett">}}
-{{% insert "content/altinn-studio/guides/development/signing/sign-and-submit/backend-manual/add-process-task.nb.md" %}}
-{{</content-version-container>}}
+## Avhengigheter
+Dersom appen skal kunne sende signeringskvittering til innboksen til den som signerer så må oppsett for bruk av meldingstjenesten i Altinn være satt opp.
 
-{{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/signing/sign-and-submit/studio/add-process-task.nb.md" %}}
-{{</content-version-container>}}
+## Konverter data-prosesssteget til et signeringssteg
 
-{{</content-version-selector>}}
+Se eksempel på et datasteg som har blitt konvertert til et signeringssteg nedenfor. 
+
+Steget vil fremdeles fungere som et vanlig datasteg, bare at man i tillegg kan signere samtidig som man sender inn skjemaet.
+
+1. Endre taskType på datasteget til `signing`.
+2. Legg til `sign` action som en mulig handling.
+3. Anngi hvilke data som skal signeres på i `<altinn:dataTypesToSign>`, feks. skjemadataene i datamodellen.
+5. Oppgi en datatype i `<altinn:signatureDataType>`. Hvordan den bør se ut finner du nedenfor.
+
+Ferdig konvertert eksempel i process.xml:
+
+```xml
+<bpmn:task id="Task_1" name="Fyll ut og signer">
+    <bpmn:extensionElements>
+    <altinn:taskExtension>
+        <altinn:taskType>signing</altinn:taskType>
+        <altinn:actions>
+            <altinn:action>sign</altinn:action>
+        </altinn:actions>
+        <altinn:signatureConfig>
+            <altinn:dataTypesToSign>
+                <altinn:dataType>model</altinn:dataType>
+            </altinn:dataTypesToSign>
+            <altinn:signatureDataType>signatureInformation-2mjK</altinn:signatureDataType>
+        </altinn:signatureConfig>
+    </altinn:taskExtension>
+    </bpmn:extensionElements>
+    <bpmn:incoming>Flow_0esyro2</bpmn:incoming>
+    <bpmn:outgoing>Flow_1438z6c</bpmn:outgoing>
+</bpmn:task>
+```
+
+Datatypen i applicationmetadata.json:
+
+```json
+{
+    "id": "signatureInformation-2mjK",
+    "allowedContentTypes": [
+    "application/json"
+    ],
+    "allowedContributors": ["app:owned"]
+}
+```
+
+## Tilgangsrettigheter
+
+Sørg for at den som fyller ut skjema har rettighet til å utføre action `sign`.
+
+Man kan feks. legge til dette rett ved der vedkommede får read og write.
+
+```xml
+<xacml:AnyOf>
+        <xacml:AllOf>
+          <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
+            <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">read</xacml:AttributeValue>
+            <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
+          </xacml:Match>
+        </xacml:AllOf>
+        <xacml:AllOf>
+          <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
+            <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">write</xacml:AttributeValue>
+            <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
+          </xacml:Match>
+        </xacml:AllOf>
+        <xacml:AllOf>
+          <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
+            <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">sign</xacml:AttributeValue>
+            <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
+          </xacml:Match>
+        </xacml:AllOf>
+      </xacml:AnyOf>
+```

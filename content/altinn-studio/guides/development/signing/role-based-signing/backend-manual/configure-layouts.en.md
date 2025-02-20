@@ -5,6 +5,8 @@ hidden: true
 Add a folder under `App/ui` for your singing task called `signing` or some other logical name.
 Update `App/ui/layout-sets.json` with a new page group, using the same `id` as the folder you just created.
 
+Your updated `layout-sets.json` can look something like this:
+
 ```json
   {
     "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
@@ -31,10 +33,11 @@ In the folder you created, add a new file called `signing.json`.
 
 There are standard components that can be used to build a layout set for a signing step. You are not required to use these components, but it's recommended.
 
-- SigneeList:
-  - Lists the signees and their signing status.
 - SigningDocumentList:
   - Lists the data being signed. For example attachments, xml-data or a PDF summary from an earlier step.
+- SigneeList:
+  - The real inteded use of this component is to show the signees expected to sign and their signing status.
+  - As of now this list doesn't support showing roles that should sign, only people and organisations that have been delegated access rights at runtime. But as soon as a person clicks "sign", they will show up, so we can use it as a "Signatures" list, to show who has signed.
 - SigningStatusPanel: 
   - Determines the current status of the singing task and present relevant information and buttons to the end user, for instance the "Sign"-button.
 
@@ -56,20 +59,18 @@ Example of usage of the standard components:
         }
       },
       {
-        "id": "signee-list",
-        "type": "SigneeList",
-        "textResourceBindings": {
-          "title": "Personer som skal signere",
-          "description": "Personer som skal signere beskrivelse",
-          "help": "Dette er personer som skal signere"
-        }
-      },
-      {
         "id": "signing-documents",
         "type": "SigningDocumentList",
         "textResourceBindings": {
           "title": "Dokumenter som skal signeres",
           "description": "Dokumenter som skal signeres beskrivelse"
+        }
+      },
+      {
+        "id": "signee-list",
+        "type": "SigneeList",
+        "textResourceBindings": {
+          "title": "Signaturer"
         }
       },
       {
@@ -81,5 +82,10 @@ Example of usage of the standard components:
   }
 ```
 
-<!-- screenshot -->
-<img>
+You can override the text that is shown when the list is empty, before anyone signed, by adding a text resource override for the key `signee_list.no_signees` in the text resource files.
+```json
+{
+  "id": "signee_list.no_signees",
+  "value": "No signatures yet."
+}
+```
