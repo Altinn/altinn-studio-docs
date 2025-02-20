@@ -22,6 +22,12 @@ Dialogs use by default a [UUIDv7](https://uuid7.com/) as its identifier, but Dia
 **Read more**
 * [Reference information for the dialog entity]({{<relref "../../reference/entities/dialog">}})
 
+## Content
+
+While the dialog mainly contains metadata, there is some content, namely a title, a short summary and a field for "additional information", used for providing non-personal textual information, eg. service owner contact information or links to documentation.
+
+Additionally, a dialog may contain a content reference called a [front channel embeds]({{<relref "../front-channel-embeds">}}), which is a URL to a special endpoint provided by the service owner that returns a "full" personlized content payload. 
+
 ## Transmissions
 
 A transmission is used to describe a single "communication" between the service owner and the party within a dialog Transmissions can typically be messages, pre-filled forms and receipts from the service provider, or submitted forms/messages from the party related to the dialog. The dialog may contain zero or more transmissions represented in a chronologically sorted list. Each transmission and the list of transmissions are immutable; it is only possible to append new tranmissions to the list, not change or delete transmissions.
@@ -59,8 +65,8 @@ All GUI actions have a URL. These URLs are used in the front channel (ie. the br
 GUI actions can, however, be marked as [write operations]({{<relref "../write-actions">}}) and can then also be used to make state changes.
 
 **Read more**
+* [Learn more about write actions]({{<relref "../write-actions">}})
 * [Reference information for the GUI action entity]({{<relref "../../reference/entities/action#gui-actions">}})
-* [Learn about write actions]({{<relref "../write-actions">}})
 
 ### API Actions
 
@@ -78,6 +84,7 @@ Dialogporten does not validate any data and does not see what data flows between
 An _activity_ describes an action or event that has occurred in connection with the dialog. Each activity is part of the activity history, which is a chronological list of activities. The service provider populates the activity history as various state changes occur.
 
 **Read more**
+* [Learn more about the activity log]({{<relref "../activity-log">}})
 * [Reference information for the dialog activity entity]({{<relref "../../reference/entities/activity">}})
 
 ## Dialog labels
