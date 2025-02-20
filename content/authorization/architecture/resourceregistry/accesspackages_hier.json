@@ -309,6 +309,12 @@
             "urn": "urn:altinn:accesspackage:delegerbare-maskinporten-scope-nuf",
             "name": "Delegerbare Maskinporten Scope for NUF",
             "description": "Denne tilgangspakken gir fullmakter til å administrere tilgang til data og programmeringsgrensenitt (API) som benytter Maskinporten eller tilsvarende løsninger for APIsikring på vegne av norskregistrerte utenlandske foretak (NUF). Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
+          },
+          {
+            "id": "66bd8101-fbd8-491b-b1f5-2f53a9476ffd",
+            "urn": "urn:altinn:accesspackage:maskinlesbare-hendelser",
+            "name": "Maskinlesbare hendelser",
+            "description": "Denne tilgangspakken gir fullmakter til å administrere tilgang til maskinlesbare hendelser. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
           }
         ]
       }
