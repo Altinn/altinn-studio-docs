@@ -1,2009 +1,2201 @@
 {
-    "openapi": "3.1.0",
-    "info": {
-        "title": "Altinn.Correspondence.API",
-        "version": "1.0.0",
-        "description": "API for Altinn Correspondence functionality."
-    },
-    "servers": [
-        {
-            "url": "https://platform.tt02.altinn.no",
-            "description": "TT02"
-        }
-    ],
-    "paths": {
-      "/correspondence/api/v1/attachment": {
-        "post": {
-          "tags": [
-            "Attachment"
-          ],
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/InitializeAttachmentExt"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "string",
-                    "format": "uuid"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/correspondence/api/v1/attachment/{attachmentId}/upload": {
-        "post": {
-          "tags": [
-            "Attachment"
-          ],
-          "parameters": [
-            {
-              "name": "attachmentId",
-              "in": "path",
-              "required": true,
+  "openapi": "3.1.0",
+  "info": {
+      "title": "Altinn.Correspondence.API",
+      "version": "1.0.0",
+      "description": "API for Altinn Correspondence functionality."
+  },
+  "servers": [
+      {
+          "url": "https://platform.tt02.altinn.no",
+          "description": "TT02"
+      }
+  ],
+  "paths": {
+    "/correspondence/api/v1/attachment": {
+      "post": {
+        "tags": [
+          "Attachment"
+        ],
+        "summary": "Initialize a new Attachment",
+        "description": "Only required if the attachment is to be shared, otherwise this is done as part of the Initialize Correspondence operation",
+        "requestBody": {
+          "content": {
+            "application/json": {
               "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/AttachmentOverviewExt"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/correspondence/api/v1/attachment/{attachmentId}": {
-        "get": {
-          "tags": [
-            "Attachment"
-          ],
-          "parameters": [
-            {
-              "name": "attachmentId",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/AttachmentOverviewExt"
-                  }
-                }
+                "$ref": "#/components/schemas/InitializeAttachmentExt"
               }
             }
           }
         },
-        "delete": {
-          "tags": [
-            "Attachment"
-          ],
-          "parameters": [
-            {
-              "name": "attachmentId",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/AttachmentOverviewExt"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/correspondence/api/v1/attachment/{attachmentId}/details": {
-        "get": {
-          "tags": [
-            "Attachment"
-          ],
-          "parameters": [
-            {
-              "name": "attachmentId",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/AttachmentDetailsExt"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/correspondence/api/v1/attachment/{attachmentId}/download": {
-        "get": {
-          "tags": [
-            "Attachment"
-          ],
-          "parameters": [
-            {
-              "name": "attachmentId",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK"
-            }
-          }
-        }
-      },
-      "/correspondence/api/v1/correspondence": {
-        "post": {
-          "tags": [
-            "Correspondence"
-          ],
-          "requestBody": {
+        "responses": {
+          "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/InitializeCorrespondencesExt"
+                  "type": "string",
+                  "format": "uuid"
                 }
               }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/InitializeCorrespondencesResponseExt"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "get": {
-          "tags": [
-            "Correspondence"
-          ],
-          "parameters": [
-            {
-              "name": "resourceId",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              }
-            },
-            {
-              "name": "from",
-              "in": "query",
-              "schema": {
-                "type": "string",
-                "format": "date-time"
-              }
-            },
-            {
-              "name": "to",
-              "in": "query",
-              "schema": {
-                "type": "string",
-                "format": "date-time"
-              }
-            },
-            {
-              "name": "status",
-              "in": "query",
-              "schema": {
-                "$ref": "#/components/schemas/CorrespondenceStatusExt"
-              }
-            },
-            {
-              "name": "role",
-              "in": "query",
-              "schema": {
-                "$ref": "#/components/schemas/CorrespondencesRoleType"
-              }
-            },
-            {
-              "name": "onBehalfOf",
-              "in": "query",
-              "schema": {
-                "type": "string"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/CorrespondencesExt"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/correspondence/api/v1/correspondence/upload": {
-        "post": {
-          "tags": [
-            "Correspondence"
-          ],
-          "requestBody": {
-            "content": {
-              "multipart/form-data": {
-                "schema": {
-                  "required": [
-                    "Correspondence.Content.Language",
-                    "Correspondence.Content.MessageBody",
-                    "Correspondence.Content.MessageSummary",
-                    "Correspondence.Content.MessageTitle",
-                    "Correspondence.Notification.NotificationTemplate",
-                    "Correspondence.ResourceId",
-                    "Correspondence.Sender",
-                    "Correspondence.SendersReference",
-                    "Recipients"
-                  ],
-                  "type": "object",
-                  "properties": {
-                    "Correspondence.ResourceId": {
-                      "maxLength": 255,
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "Correspondence.Sender": {
-                      "type": "string"
-                    },
-                    "Correspondence.SendersReference": {
-                      "maxLength": 4096,
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "Correspondence.MessageSender": {
-                      "maxLength": 256,
-                      "minLength": 0,
-                      "type": "string"
-                    },
-                    "Correspondence.Content.Language": {
-                      "type": "string"
-                    },
-                    "Correspondence.Content.MessageTitle": {
-                      "type": "string"
-                    },
-                    "Correspondence.Content.MessageSummary": {
-                      "type": "string"
-                    },
-                    "Correspondence.Content.MessageBody": {
-                      "type": "string"
-                    },
-                    "Correspondence.Content.Attachments": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/InitializeCorrespondenceAttachmentExt"
-                      }
-                    },
-                    "Correspondence.RequestedPublishTime": {
-                      "type": "string",
-                      "format": "date-time"
-                    },
-                    "Correspondence.AllowSystemDeleteAfter": {
-                      "type": "string",
-                      "format": "date-time"
-                    },
-                    "Correspondence.DueDateTime": {
-                      "type": "string",
-                      "format": "date-time"
-                    },
-                    "Correspondence.ExternalReferences": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/ExternalReferenceExt"
-                      }
-                    },
-                    "Correspondence.PropertyList": {
-                      "type": "object",
-                      "additionalProperties": {
-                        "type": "string"
-                      }
-                    },
-                    "Correspondence.ReplyOptions": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/CorrespondenceReplyOptionExt"
-                      }
-                    },
-                    "Correspondence.Notification.NotificationTemplate": {
-                      "$ref": "#/components/schemas/NotificationTemplateExt"
-                    },
-                    "Correspondence.Notification.EmailSubject": {
-                      "maxLength": 128,
-                      "minLength": 0,
-                      "type": "string"
-                    },
-                    "Correspondence.Notification.EmailBody": {
-                      "maxLength": 1024,
-                      "minLength": 0,
-                      "type": "string"
-                    },
-                    "Correspondence.Notification.SmsBody": {
-                      "maxLength": 160,
-                      "minLength": 0,
-                      "type": "string"
-                    },
-                    "Correspondence.Notification.SendReminder": {
-                      "type": "boolean"
-                    },
-                    "Correspondence.Notification.ReminderEmailSubject": {
-                      "maxLength": 128,
-                      "minLength": 0,
-                      "type": "string"
-                    },
-                    "Correspondence.Notification.ReminderEmailBody": {
-                      "maxLength": 1024,
-                      "minLength": 0,
-                      "type": "string"
-                    },
-                    "Correspondence.Notification.ReminderSmsBody": {
-                      "maxLength": 160,
-                      "minLength": 0,
-                      "type": "string"
-                    },
-                    "Correspondence.Notification.NotificationChannel": {
-                      "$ref": "#/components/schemas/NotificationChannelExt"
-                    },
-                    "Correspondence.Notification.ReminderNotificationChannel": {
-                      "$ref": "#/components/schemas/NotificationChannelExt"
-                    },
-                    "Correspondence.Notification.SendersReference": {
-                      "type": "string"
-                    },
-                    "Correspondence.Notification.RequestedSendTime": {
-                      "type": "string",
-                      "format": "date-time"
-                    },
-                    "Correspondence.Notification.CustomNotificationRecipients": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/CustomNotificationRecipientExt"
-                      }
-                    },
-                    "Correspondence.IgnoreReservation": {
-                      "type": "boolean"
-                    },
-                    "Correspondence.Published": {
-                      "type": "string",
-                      "format": "date-time"
-                    },
-                    "Correspondence.IsConfirmationNeeded": {
-                      "type": "boolean"
-                    },
-                    "Recipients": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "ExistingAttachments": {
-                      "type": "array",
-                      "items": {
-                        "type": "string",
-                        "format": "uuid"
-                      }
-                    },
-                    "attachments": {
-                      "type": "array",
-                      "items": {
-                        "type": "string",
-                        "format": "binary"
-                      }
-                    }
-                  }
-                },
-                "encoding": {
-                  "Correspondence.ResourceId": {
-                    "style": "form"
-                  },
-                  "Correspondence.Sender": {
-                    "style": "form"
-                  },
-                  "Correspondence.SendersReference": {
-                    "style": "form"
-                  },
-                  "Correspondence.MessageSender": {
-                    "style": "form"
-                  },
-                  "Correspondence.Content.Language": {
-                    "style": "form"
-                  },
-                  "Correspondence.Content.MessageTitle": {
-                    "style": "form"
-                  },
-                  "Correspondence.Content.MessageSummary": {
-                    "style": "form"
-                  },
-                  "Correspondence.Content.MessageBody": {
-                    "style": "form"
-                  },
-                  "Correspondence.Content.Attachments": {
-                    "style": "form"
-                  },
-                  "Correspondence.RequestedPublishTime": {
-                    "style": "form"
-                  },
-                  "Correspondence.AllowSystemDeleteAfter": {
-                    "style": "form"
-                  },
-                  "Correspondence.DueDateTime": {
-                    "style": "form"
-                  },
-                  "Correspondence.ExternalReferences": {
-                    "style": "form"
-                  },
-                  "Correspondence.PropertyList": {
-                    "style": "form"
-                  },
-                  "Correspondence.ReplyOptions": {
-                    "style": "form"
-                  },
-                  "Correspondence.Notification.NotificationTemplate": {
-                    "style": "form"
-                  },
-                  "Correspondence.Notification.EmailSubject": {
-                    "style": "form"
-                  },
-                  "Correspondence.Notification.EmailBody": {
-                    "style": "form"
-                  },
-                  "Correspondence.Notification.SmsBody": {
-                    "style": "form"
-                  },
-                  "Correspondence.Notification.SendReminder": {
-                    "style": "form"
-                  },
-                  "Correspondence.Notification.ReminderEmailSubject": {
-                    "style": "form"
-                  },
-                  "Correspondence.Notification.ReminderEmailBody": {
-                    "style": "form"
-                  },
-                  "Correspondence.Notification.ReminderSmsBody": {
-                    "style": "form"
-                  },
-                  "Correspondence.Notification.NotificationChannel": {
-                    "style": "form"
-                  },
-                  "Correspondence.Notification.ReminderNotificationChannel": {
-                    "style": "form"
-                  },
-                  "Correspondence.Notification.SendersReference": {
-                    "style": "form"
-                  },
-                  "Correspondence.Notification.RequestedSendTime": {
-                    "style": "form"
-                  },
-                  "Correspondence.Notification.CustomNotificationRecipients": {
-                    "style": "form"
-                  },
-                  "Correspondence.IgnoreReservation": {
-                    "style": "form"
-                  },
-                  "Correspondence.Published": {
-                    "style": "form"
-                  },
-                  "Correspondence.IsConfirmationNeeded": {
-                    "style": "form"
-                  },
-                  "Recipients": {
-                    "style": "form"
-                  },
-                  "ExistingAttachments": {
-                    "style": "form"
-                  },
-                  "attachments": {
-                    "style": "form"
-                  }
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/InitializeCorrespondencesResponseExt"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/correspondence/api/v1/correspondence/{correspondenceId}": {
-        "get": {
-          "tags": [
-            "Correspondence"
-          ],
-          "parameters": [
-            {
-              "name": "correspondenceId",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/CorrespondenceOverviewExt"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/correspondence/api/v1/correspondence/{correspondenceId}/details": {
-        "get": {
-          "tags": [
-            "Correspondence"
-          ],
-          "parameters": [
-            {
-              "name": "correspondenceId",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/CorrespondenceDetailsExt"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/correspondence/api/v1/correspondence/{correspondenceId}/content": {
-        "get": {
-          "tags": [
-            "Correspondence"
-          ],
-          "parameters": [
-            {
-              "name": "correspondenceId",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK"
-            }
-          }
-        }
-      },
-      "/correspondence/api/v1/correspondence/{correspondenceId}/markasread": {
-        "post": {
-          "tags": [
-            "Correspondence"
-          ],
-          "parameters": [
-            {
-              "name": "correspondenceId",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK"
-            }
-          }
-        }
-      },
-      "/correspondence/api/v1/correspondence/{correspondenceId}/confirm": {
-        "post": {
-          "tags": [
-            "Correspondence"
-          ],
-          "parameters": [
-            {
-              "name": "correspondenceId",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK"
-            }
-          }
-        }
-      },
-      "/correspondence/api/v1/correspondence/{correspondenceId}/archive": {
-        "post": {
-          "tags": [
-            "Correspondence"
-          ],
-          "parameters": [
-            {
-              "name": "correspondenceId",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK"
-            }
-          }
-        }
-      },
-      "/correspondence/api/v1/correspondence/{correspondenceId}/purge": {
-        "delete": {
-          "tags": [
-            "Correspondence"
-          ],
-          "parameters": [
-            {
-              "name": "correspondenceId",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK"
-            }
-          }
-        }
-      },
-      "/correspondence/api/v1/correspondence/{correspondenceId}/attachment/{attachmentId}/download": {
-        "get": {
-          "tags": [
-            "Correspondence"
-          ],
-          "parameters": [
-            {
-              "name": "correspondenceId",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            },
-            {
-              "name": "attachmentId",
-              "in": "path",
-              "required": true,
-              "schema": {
-                "type": "string",
-                "format": "uuid"
-              }
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK"
             }
           }
         }
       }
     },
-    "components": {
-      "schemas": {
-        "AttachmentDataLocationTypeExt": {
-          "enum": [
-            "AltinnCorrespondenceAttachment",
-            "ExternalStorage"
-          ],
-          "type": "string"
-        },
-        "AttachmentDetailsExt": {
-          "required": [
-            "attachmentId",
-            "correspondenceIds",
-            "name",
-            "resourceId",
-            "sender",
-            "sendersReference",
-            "status",
-            "statusChanged",
-            "statusText"
-          ],
-          "type": "object",
-          "properties": {
-            "fileName": {
-              "maxLength": 255,
-              "minLength": 0,
-              "type": "string",
-              "nullable": true
-            },
-            "name": {
-              "maxLength": 255,
-              "minLength": 1,
-              "type": "string"
-            },
-            "isEncrypted": {
-              "type": "boolean"
-            },
-            "checksum": {
-              "type": "string",
-              "nullable": true
-            },
-            "sendersReference": {
-              "maxLength": 4096,
-              "minLength": 1,
-              "type": "string"
-            },
-            "resourceId": {
-              "maxLength": 255,
-              "minLength": 1,
-              "type": "string"
-            },
-            "sender": {
-              "minLength": 1,
-              "type": "string"
-            },
-            "attachmentId": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "status": {
-              "$ref": "#/components/schemas/AttachmentStatusExt"
-            },
-            "statusText": {
-              "type": "string",
-              "nullable": true
-            },
-            "statusChanged": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "correspondenceIds": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "format": "uuid"
-              },
-              "nullable": true
-            },
-            "dataType": {
-              "type": "string",
-              "nullable": true
-            },
-            "statusHistory": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/AttachmentStatusEvent"
-              },
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "AttachmentOverviewExt": {
-          "required": [
-            "attachmentId",
-            "correspondenceIds",
-            "name",
-            "resourceId",
-            "sender",
-            "sendersReference",
-            "status",
-            "statusChanged",
-            "statusText"
-          ],
-          "type": "object",
-          "properties": {
-            "fileName": {
-              "maxLength": 255,
-              "minLength": 0,
-              "type": "string",
-              "nullable": true
-            },
-            "name": {
-              "maxLength": 255,
-              "minLength": 1,
-              "type": "string"
-            },
-            "isEncrypted": {
-              "type": "boolean"
-            },
-            "checksum": {
-              "type": "string",
-              "nullable": true
-            },
-            "sendersReference": {
-              "maxLength": 4096,
-              "minLength": 1,
-              "type": "string"
-            },
-            "resourceId": {
-              "maxLength": 255,
-              "minLength": 1,
-              "type": "string"
-            },
-            "sender": {
-              "minLength": 1,
-              "type": "string"
-            },
-            "attachmentId": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "status": {
-              "$ref": "#/components/schemas/AttachmentStatusExt"
-            },
-            "statusText": {
-              "type": "string",
-              "nullable": true
-            },
-            "statusChanged": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "correspondenceIds": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "format": "uuid"
-              },
-              "nullable": true
-            },
-            "dataType": {
-              "type": "string",
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "AttachmentStatusEvent": {
-          "type": "object",
-          "properties": {
-            "status": {
-              "$ref": "#/components/schemas/AttachmentStatusExt"
-            },
-            "statusText": {
-              "type": "string",
-              "nullable": true
-            },
-            "statusChanged": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "partyUuid": {
+    "/correspondence/api/v1/attachment/{attachmentId}/upload": {
+      "post": {
+        "tags": [
+          "Attachment"
+        ],
+        "summary": "Upload attachment data to Altinn Correspondence blob storage",
+        "parameters": [
+          {
+            "name": "attachmentId",
+            "in": "path",
+            "required": true,
+            "schema": {
               "type": "string",
               "format": "uuid"
             }
-          },
-          "additionalProperties": false
-        },
-        "AttachmentStatusExt": {
-          "enum": [
-            "Initialized",
-            "UploadProcessing",
-            "Published",
-            "Purged",
-            "Failed"
-          ],
-          "type": "string"
-        },
-        "BaseCorrespondenceExt": {
-          "required": [
-            "resourceId",
-            "sender",
-            "sendersReference"
-          ],
-          "type": "object",
-          "properties": {
-            "resourceId": {
-              "maxLength": 255,
-              "minLength": 1,
-              "type": "string"
-            },
-            "sender": {
-              "minLength": 1,
-              "type": "string"
-            },
-            "sendersReference": {
-              "maxLength": 4096,
-              "minLength": 1,
-              "type": "string"
-            },
-            "messageSender": {
-              "maxLength": 256,
-              "minLength": 0,
-              "type": "string",
-              "nullable": true
-            },
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
             "content": {
-              "$ref": "#/components/schemas/InitializeCorrespondenceContentExt"
-            },
-            "requestedPublishTime": {
-              "type": "string",
-              "format": "date-time",
-              "nullable": true
-            },
-            "allowSystemDeleteAfter": {
-              "type": "string",
-              "format": "date-time",
-              "nullable": true
-            },
-            "dueDateTime": {
-              "type": "string",
-              "format": "date-time",
-              "nullable": true
-            },
-            "externalReferences": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/ExternalReferenceExt"
-              },
-              "nullable": true
-            },
-            "propertyList": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "nullable": true
-            },
-            "replyOptions": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/CorrespondenceReplyOptionExt"
-              },
-              "nullable": true
-            },
-            "notification": {
-              "$ref": "#/components/schemas/InitializeCorrespondenceNotificationExt"
-            },
-            "ignoreReservation": {
-              "type": "boolean",
-              "nullable": true
-            },
-            "published": {
-              "type": "string",
-              "format": "date-time",
-              "nullable": true
-            },
-            "isConfirmationNeeded": {
-              "type": "boolean"
-            }
-          },
-          "additionalProperties": false
-        },
-        "CorrespondenceAttachmentExt": {
-          "required": [
-            "dataLocationType",
-            "name",
-            "sendersReference"
-          ],
-          "type": "object",
-          "properties": {
-            "fileName": {
-              "maxLength": 255,
-              "minLength": 0,
-              "type": "string",
-              "nullable": true
-            },
-            "name": {
-              "maxLength": 255,
-              "minLength": 1,
-              "type": "string"
-            },
-            "isEncrypted": {
-              "type": "boolean"
-            },
-            "checksum": {
-              "type": "string",
-              "nullable": true
-            },
-            "sendersReference": {
-              "maxLength": 4096,
-              "minLength": 1,
-              "type": "string"
-            },
-            "id": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "dataLocationType": {
-              "$ref": "#/components/schemas/AttachmentDataLocationTypeExt"
-            },
-            "created": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "status": {
-              "$ref": "#/components/schemas/AttachmentStatusExt"
-            },
-            "statusText": {
-              "type": "string",
-              "nullable": true
-            },
-            "statusChanged": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "expirationTime": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "dataType": {
-              "type": "string",
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "CorrespondenceContentExt": {
-          "required": [
-            "attachments",
-            "language",
-            "messageBody",
-            "messageSummary",
-            "messageTitle"
-          ],
-          "type": "object",
-          "properties": {
-            "language": {
-              "type": "string",
-              "nullable": true
-            },
-            "messageTitle": {
-              "type": "string",
-              "nullable": true
-            },
-            "messageSummary": {
-              "type": "string",
-              "nullable": true
-            },
-            "messageBody": {
-              "type": "string",
-              "nullable": true
-            },
-            "attachments": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/CorrespondenceAttachmentExt"
-              },
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "CorrespondenceDetailsExt": {
-          "required": [
-            "correspondenceId",
-            "created",
-            "recipient",
-            "resourceId",
-            "sender",
-            "sendersReference"
-          ],
-          "type": "object",
-          "properties": {
-            "resourceId": {
-              "maxLength": 255,
-              "minLength": 1,
-              "type": "string"
-            },
-            "sender": {
-              "minLength": 1,
-              "type": "string"
-            },
-            "sendersReference": {
-              "maxLength": 4096,
-              "minLength": 1,
-              "type": "string"
-            },
-            "messageSender": {
-              "maxLength": 256,
-              "minLength": 0,
-              "type": "string",
-              "nullable": true
-            },
-            "content": {
-              "$ref": "#/components/schemas/CorrespondenceContentExt"
-            },
-            "requestedPublishTime": {
-              "type": "string",
-              "format": "date-time",
-              "nullable": true
-            },
-            "allowSystemDeleteAfter": {
-              "type": "string",
-              "format": "date-time",
-              "nullable": true
-            },
-            "dueDateTime": {
-              "type": "string",
-              "format": "date-time",
-              "nullable": true
-            },
-            "externalReferences": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/ExternalReferenceExt"
-              },
-              "nullable": true
-            },
-            "propertyList": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "nullable": true
-            },
-            "replyOptions": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/CorrespondenceReplyOptionExt"
-              },
-              "nullable": true
-            },
-            "notification": {
-              "$ref": "#/components/schemas/InitializeCorrespondenceNotificationExt"
-            },
-            "ignoreReservation": {
-              "type": "boolean",
-              "nullable": true
-            },
-            "published": {
-              "type": "string",
-              "format": "date-time",
-              "nullable": true
-            },
-            "isConfirmationNeeded": {
-              "type": "boolean"
-            },
-            "recipient": {
-              "type": "string",
-              "nullable": true
-            },
-            "correspondenceId": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "created": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "status": {
-              "$ref": "#/components/schemas/CorrespondenceStatusExt"
-            },
-            "statusText": {
-              "type": "string",
-              "nullable": true
-            },
-            "statusChanged": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "notifications": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/NotificationExt"
-              },
-              "nullable": true
-            },
-            "statusHistory": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/CorrespondenceStatusEventExt"
-              },
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "CorrespondenceNotificationOverview": {
-          "type": "object",
-          "properties": {
-            "notificationOrderId": {
-              "type": "string",
-              "format": "uuid",
-              "nullable": true
-            },
-            "isReminder": {
-              "type": "boolean"
-            }
-          },
-          "additionalProperties": false
-        },
-        "CorrespondenceOverviewExt": {
-          "required": [
-            "correspondenceId",
-            "created",
-            "recipient",
-            "resourceId",
-            "sender",
-            "sendersReference"
-          ],
-          "type": "object",
-          "properties": {
-            "resourceId": {
-              "maxLength": 255,
-              "minLength": 1,
-              "type": "string"
-            },
-            "sender": {
-              "minLength": 1,
-              "type": "string"
-            },
-            "sendersReference": {
-              "maxLength": 4096,
-              "minLength": 1,
-              "type": "string"
-            },
-            "messageSender": {
-              "maxLength": 256,
-              "minLength": 0,
-              "type": "string",
-              "nullable": true
-            },
-            "content": {
-              "$ref": "#/components/schemas/CorrespondenceContentExt"
-            },
-            "requestedPublishTime": {
-              "type": "string",
-              "format": "date-time",
-              "nullable": true
-            },
-            "allowSystemDeleteAfter": {
-              "type": "string",
-              "format": "date-time",
-              "nullable": true
-            },
-            "dueDateTime": {
-              "type": "string",
-              "format": "date-time",
-              "nullable": true
-            },
-            "externalReferences": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/ExternalReferenceExt"
-              },
-              "nullable": true
-            },
-            "propertyList": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "nullable": true
-            },
-            "replyOptions": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/CorrespondenceReplyOptionExt"
-              },
-              "nullable": true
-            },
-            "notification": {
-              "$ref": "#/components/schemas/InitializeCorrespondenceNotificationExt"
-            },
-            "ignoreReservation": {
-              "type": "boolean",
-              "nullable": true
-            },
-            "published": {
-              "type": "string",
-              "format": "date-time",
-              "nullable": true
-            },
-            "isConfirmationNeeded": {
-              "type": "boolean"
-            },
-            "recipient": {
-              "type": "string",
-              "nullable": true
-            },
-            "correspondenceId": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "created": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "status": {
-              "$ref": "#/components/schemas/CorrespondenceStatusExt"
-            },
-            "statusText": {
-              "type": "string",
-              "nullable": true
-            },
-            "statusChanged": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "notifications": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/CorrespondenceNotificationOverview"
-              },
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "CorrespondenceReplyOptionExt": {
-          "required": [
-            "linkURL"
-          ],
-          "type": "object",
-          "properties": {
-            "linkURL": {
-              "type": "string",
-              "nullable": true
-            },
-            "linkText": {
-              "type": "string",
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "CorrespondenceStatusEventExt": {
-          "type": "object",
-          "properties": {
-            "status": {
-              "$ref": "#/components/schemas/CorrespondenceStatusExt"
-            },
-            "statusText": {
-              "type": "string",
-              "nullable": true
-            },
-            "statusChanged": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "partyUuid": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          "additionalProperties": false
-        },
-        "CorrespondenceStatusExt": {
-          "enum": [
-            "Initialized",
-            "ReadyForPublish",
-            "Published",
-            "Fetched",
-            "Read",
-            "Replied",
-            "Confirmed",
-            "PurgedByRecipient",
-            "PurgedByAltinn",
-            "Archived",
-            "Reserved",
-            "Failed"
-          ],
-          "type": "string"
-        },
-        "CorrespondencesExt": {
-          "type": "object",
-          "properties": {
-            "ids": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "format": "uuid"
-              },
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "CorrespondencesRoleType": {
-          "enum": [
-            "Recipient",
-            "Sender",
-            "RecipientAndSender"
-          ],
-          "type": "string"
-        },
-        "CustomNotificationRecipientExt": {
-          "required": [
-            "notificationRecipient",
-            "recipientToOverride"
-          ],
-          "type": "object",
-          "properties": {
-            "recipientToOverride": {
-              "type": "string",
-              "nullable": true
-            },
-            "notificationRecipient": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/NotificationRecipientExt"
-              },
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "ExternalReferenceExt": {
-          "required": [
-            "referenceType",
-            "referenceValue"
-          ],
-          "type": "object",
-          "properties": {
-            "referenceValue": {
-              "type": "string",
-              "nullable": true
-            },
-            "referenceType": {
-              "$ref": "#/components/schemas/ReferenceTypeExt"
-            }
-          },
-          "additionalProperties": false
-        },
-        "InitializeAttachmentDataLocationTypeExt": {
-          "enum": [
-            "NewCorrespondenceAttachment",
-            "ExistingCorrespondenceAttachment",
-            "ExistingExternalStorage"
-          ],
-          "type": "string"
-        },
-        "InitializeAttachmentExt": {
-          "required": [
-            "name",
-            "resourceId",
-            "sender",
-            "sendersReference"
-          ],
-          "type": "object",
-          "properties": {
-            "fileName": {
-              "maxLength": 255,
-              "minLength": 0,
-              "type": "string",
-              "nullable": true
-            },
-            "name": {
-              "maxLength": 255,
-              "minLength": 1,
-              "type": "string"
-            },
-            "isEncrypted": {
-              "type": "boolean"
-            },
-            "checksum": {
-              "type": "string",
-              "nullable": true
-            },
-            "sendersReference": {
-              "maxLength": 4096,
-              "minLength": 1,
-              "type": "string"
-            },
-            "resourceId": {
-              "maxLength": 255,
-              "minLength": 1,
-              "type": "string"
-            },
-            "sender": {
-              "minLength": 1,
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
-        },
-        "InitializeCorrespondenceAttachmentExt": {
-          "required": [
-            "dataLocationType",
-            "name",
-            "sendersReference"
-          ],
-          "type": "object",
-          "properties": {
-            "fileName": {
-              "maxLength": 255,
-              "minLength": 0,
-              "type": "string",
-              "nullable": true
-            },
-            "name": {
-              "maxLength": 255,
-              "minLength": 1,
-              "type": "string"
-            },
-            "isEncrypted": {
-              "type": "boolean"
-            },
-            "checksum": {
-              "type": "string",
-              "nullable": true
-            },
-            "sendersReference": {
-              "maxLength": 4096,
-              "minLength": 1,
-              "type": "string"
-            },
-            "id": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "dataLocationType": {
-              "$ref": "#/components/schemas/InitializeAttachmentDataLocationTypeExt"
-            },
-            "expirationTime": {
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          "additionalProperties": false
-        },
-        "InitializeCorrespondenceContentExt": {
-          "required": [
-            "language",
-            "messageBody",
-            "messageSummary",
-            "messageTitle"
-          ],
-          "type": "object",
-          "properties": {
-            "language": {
-              "type": "string",
-              "nullable": true
-            },
-            "messageTitle": {
-              "type": "string",
-              "nullable": true
-            },
-            "messageSummary": {
-              "type": "string",
-              "nullable": true
-            },
-            "messageBody": {
-              "type": "string",
-              "nullable": true
-            },
-            "attachments": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/InitializeCorrespondenceAttachmentExt"
-              },
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "InitializeCorrespondenceNotificationExt": {
-          "required": [
-            "notificationTemplate"
-          ],
-          "type": "object",
-          "properties": {
-            "notificationTemplate": {
-              "$ref": "#/components/schemas/NotificationTemplateExt"
-            },
-            "emailSubject": {
-              "maxLength": 128,
-              "minLength": 0,
-              "type": "string",
-              "nullable": true
-            },
-            "emailBody": {
-              "maxLength": 1024,
-              "minLength": 0,
-              "type": "string",
-              "nullable": true
-            },
-            "smsBody": {
-              "maxLength": 160,
-              "minLength": 0,
-              "type": "string",
-              "nullable": true
-            },
-            "sendReminder": {
-              "type": "boolean"
-            },
-            "reminderEmailSubject": {
-              "maxLength": 128,
-              "minLength": 0,
-              "type": "string",
-              "nullable": true
-            },
-            "reminderEmailBody": {
-              "maxLength": 1024,
-              "minLength": 0,
-              "type": "string",
-              "nullable": true
-            },
-            "reminderSmsBody": {
-              "maxLength": 160,
-              "minLength": 0,
-              "type": "string",
-              "nullable": true
-            },
-            "notificationChannel": {
-              "$ref": "#/components/schemas/NotificationChannelExt"
-            },
-            "reminderNotificationChannel": {
-              "$ref": "#/components/schemas/NotificationChannelExt"
-            },
-            "sendersReference": {
-              "type": "string",
-              "nullable": true
-            },
-            "requestedSendTime": {
-              "type": "string",
-              "format": "date-time",
-              "nullable": true
-            },
-            "recipients": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/CustomNotificationRecipientExt"
-              },
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "InitializeCorrespondencesExt": {
-          "required": [
-            "correspondence",
-            "recipients"
-          ],
-          "type": "object",
-          "properties": {
-            "correspondence": {
-              "$ref": "#/components/schemas/BaseCorrespondenceExt"
-            },
-            "recipients": {
-              "type": "array",
-              "items": {
-                "type": "string"
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttachmentOverviewExt"
+                }
               }
-            },
-            "existingAttachments": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "format": "uuid"
-              },
-              "nullable": true
             }
-          },
-          "additionalProperties": false
-        },
-        "InitializeCorrespondencesResponseExt": {
-          "type": "object",
-          "properties": {
-            "correspondences": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/InitializedCorrespondencesExt"
-              },
-              "nullable": true
-            },
-            "attachmentIds": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "format": "uuid"
-              },
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "InitializedCorrespondencesExt": {
-          "required": [
-            "recipient"
-          ],
-          "type": "object",
-          "properties": {
-            "correspondenceId": {
+          }
+        }
+      }
+    },
+    "/correspondence/api/v1/attachment/{attachmentId}": {
+      "get": {
+        "tags": [
+          "Attachment"
+        ],
+        "summary": "Get information about the file and its current status",
+        "parameters": [
+          {
+            "name": "attachmentId",
+            "in": "path",
+            "required": true,
+            "schema": {
               "type": "string",
               "format": "uuid"
-            },
-            "status": {
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttachmentOverviewExt"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Attachment"
+        ],
+        "summary": "Deletes the attachment",
+        "parameters": [
+          {
+            "name": "attachmentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttachmentOverviewExt"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/correspondence/api/v1/attachment/{attachmentId}/details": {
+      "get": {
+        "tags": [
+          "Attachment"
+        ],
+        "summary": "Get information about the file and its current status",
+        "parameters": [
+          {
+            "name": "attachmentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttachmentDetailsExt"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/correspondence/api/v1/attachment/{attachmentId}/download": {
+      "get": {
+        "tags": [
+          "Attachment"
+        ],
+        "summary": "Downloads the attachment data",
+        "parameters": [
+          {
+            "name": "attachmentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/correspondence/api/v1/correspondence": {
+      "post": {
+        "tags": [
+          "Correspondence"
+        ],
+        "summary": "Initialize Correspondences",
+        "description": "Requires uploads of specified attachments if any before it can be Published",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InitializeCorrespondencesExt"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InitializeCorrespondencesResponseExt"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Correspondence"
+        ],
+        "summary": "Gets a list of Correspondences for the authenticated user",
+        "description": "Meant for Receivers, but also available for Senders to track Correspondences",
+        "parameters": [
+          {
+            "name": "resourceId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Represents the important statuses for an Correspondence",
+            "schema": {
               "$ref": "#/components/schemas/CorrespondenceStatusExt"
-            },
-            "recipient": {
-              "type": "string",
-              "nullable": true
-            },
-            "notifications": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/InitializedCorrespondencesNotificationsExt"
+            }
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/CorrespondencesRoleType"
+            }
+          },
+          {
+            "name": "onBehalfOf",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CorrespondencesExt"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/correspondence/api/v1/correspondence/upload": {
+      "post": {
+        "tags": [
+          "Correspondence"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "Correspondence.Content.Language",
+                  "Correspondence.Content.MessageBody",
+                  "Correspondence.Content.MessageSummary",
+                  "Correspondence.Content.MessageTitle",
+                  "Correspondence.Notification.NotificationTemplate",
+                  "Correspondence.ResourceId",
+                  "Correspondence.Sender",
+                  "Correspondence.SendersReference",
+                  "Recipients"
+                ],
+                "type": "object",
+                "properties": {
+                  "Correspondence.ResourceId": {
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "type": "string",
+                    "description": "The Resource Id associated with the correspondence service."
+                  },
+                  "Correspondence.Sender": {
+                    "type": "string",
+                    "description": "The Sending organization of the correspondence."
+                  },
+                  "Correspondence.SendersReference": {
+                    "maxLength": 4096,
+                    "minLength": 1,
+                    "type": "string",
+                    "description": "A reference used by senders and receivers to identify a specific Correspondence using external identification methods."
+                  },
+                  "Correspondence.MessageSender": {
+                    "maxLength": 256,
+                    "minLength": 0,
+                    "type": "string",
+                    "description": "An alternative name for the sender of the correspondence. The name will be displayed instead of the organization name."
+                  },
+                  "Correspondence.Content.Language": {
+                    "type": "string",
+                    "description": "Gets or sets the language of the correspondence, specified according to ISO 639-1"
+                  },
+                  "Correspondence.Content.MessageTitle": {
+                    "type": "string",
+                    "description": "Gets or sets the correspondence message title. Subject."
+                  },
+                  "Correspondence.Content.MessageSummary": {
+                    "type": "string",
+                    "description": "Gets or sets a summary text of the correspondence."
+                  },
+                  "Correspondence.Content.MessageBody": {
+                    "type": "string",
+                    "description": "Gets or sets the main body of the correspondence."
+                  },
+                  "Correspondence.Content.Attachments": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/InitializeCorrespondenceAttachmentExt"
+                    },
+                    "description": "Gets or sets a list of attachments."
+                  },
+                  "Correspondence.RequestedPublishTime": {
+                    "type": "string",
+                    "description": "When the correspondence should become visible to the recipient.",
+                    "format": "date-time"
+                  },
+                  "Correspondence.AllowSystemDeleteAfter": {
+                    "type": "string",
+                    "description": "When Altinn can remove the correspondence from its database.",
+                    "format": "date-time"
+                  },
+                  "Correspondence.DueDateTime": {
+                    "type": "string",
+                    "description": "When the recipient must reply to the correspondence",
+                    "format": "date-time"
+                  },
+                  "Correspondence.ExternalReferences": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ExternalReferenceExt"
+                    },
+                    "description": "A list of references Senders can use to tell the recipient that the correspondence is related to the referenced item(s)\r\nExamples include Altinn App instances, Altinn Broker File Transfers"
+                  },
+                  "Correspondence.PropertyList": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "description": "User-defined properties related to the Correspondence"
+                  },
+                  "Correspondence.ReplyOptions": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/CorrespondenceReplyOptionExt"
+                    },
+                    "description": "Options for how the recipient can reply to the Correspondence"
+                  },
+                  "Correspondence.Notification.NotificationTemplate": {
+                    "$ref": "#/components/schemas/NotificationTemplateExt"
+                  },
+                  "Correspondence.Notification.EmailSubject": {
+                    "maxLength": 128,
+                    "minLength": 0,
+                    "type": "string",
+                    "description": "The email template to use for this notification"
+                  },
+                  "Correspondence.Notification.EmailBody": {
+                    "maxLength": 1024,
+                    "minLength": 0,
+                    "type": "string",
+                    "description": "The email template to use for this notification"
+                  },
+                  "Correspondence.Notification.SmsBody": {
+                    "maxLength": 160,
+                    "minLength": 0,
+                    "type": "string",
+                    "description": "The sms template to use for this notification"
+                  },
+                  "Correspondence.Notification.SendReminder": {
+                    "type": "boolean",
+                    "description": "Should a reminder be sent if the notification is not confirmed"
+                  },
+                  "Correspondence.Notification.ReminderEmailSubject": {
+                    "maxLength": 128,
+                    "minLength": 0,
+                    "type": "string",
+                    "description": "The email template to use for this notification"
+                  },
+                  "Correspondence.Notification.ReminderEmailBody": {
+                    "maxLength": 1024,
+                    "minLength": 0,
+                    "type": "string",
+                    "description": "The email template to use for this notification"
+                  },
+                  "Correspondence.Notification.ReminderSmsBody": {
+                    "maxLength": 160,
+                    "minLength": 0,
+                    "type": "string",
+                    "description": "The sms template to use for this notification"
+                  },
+                  "Correspondence.Notification.NotificationChannel": {
+                    "$ref": "#/components/schemas/NotificationChannelExt"
+                  },
+                  "Correspondence.Notification.ReminderNotificationChannel": {
+                    "$ref": "#/components/schemas/NotificationChannelExt"
+                  },
+                  "Correspondence.Notification.SendersReference": {
+                    "type": "string",
+                    "description": "Senders Reference for this notification"
+                  },
+                  "Correspondence.Notification.RequestedSendTime": {
+                    "type": "string",
+                    "description": "The date and time for when the notification should be sent.",
+                    "format": "date-time"
+                  },
+                  "Correspondence.Notification.CustomNotificationRecipients": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/CustomNotificationRecipientExt"
+                    },
+                    "description": "A list of recipients for the notification. If not set, the notification will be sent to the recipient of the Correspondence"
+                  },
+                  "Correspondence.IgnoreReservation": {
+                    "type": "boolean",
+                    "description": "Specifies whether the correspondence can override reservation against digital communication in KRR"
+                  },
+                  "Correspondence.Published": {
+                    "type": "string",
+                    "description": "Is null until the correspondence is published.",
+                    "format": "date-time"
+                  },
+                  "Correspondence.IsConfirmationNeeded": {
+                    "type": "boolean",
+                    "description": "Specifies whether reading the correspondence needs to be confirmed by the recipient"
+                  },
+                  "Recipients": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "List of recipients for the correspondence, either as organization or national identity number"
+                  },
+                  "ExistingAttachments": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "description": "Existing attachments that should be added to the correspondence"
+                  },
+                  "attachments": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                }
               },
-              "nullable": true
+              "encoding": {
+                "Correspondence.ResourceId": {
+                  "style": "form"
+                },
+                "Correspondence.Sender": {
+                  "style": "form"
+                },
+                "Correspondence.SendersReference": {
+                  "style": "form"
+                },
+                "Correspondence.MessageSender": {
+                  "style": "form"
+                },
+                "Correspondence.Content.Language": {
+                  "style": "form"
+                },
+                "Correspondence.Content.MessageTitle": {
+                  "style": "form"
+                },
+                "Correspondence.Content.MessageSummary": {
+                  "style": "form"
+                },
+                "Correspondence.Content.MessageBody": {
+                  "style": "form"
+                },
+                "Correspondence.Content.Attachments": {
+                  "style": "form"
+                },
+                "Correspondence.RequestedPublishTime": {
+                  "style": "form"
+                },
+                "Correspondence.AllowSystemDeleteAfter": {
+                  "style": "form"
+                },
+                "Correspondence.DueDateTime": {
+                  "style": "form"
+                },
+                "Correspondence.ExternalReferences": {
+                  "style": "form"
+                },
+                "Correspondence.PropertyList": {
+                  "style": "form"
+                },
+                "Correspondence.ReplyOptions": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.NotificationTemplate": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.EmailSubject": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.EmailBody": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.SmsBody": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.SendReminder": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.ReminderEmailSubject": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.ReminderEmailBody": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.ReminderSmsBody": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.NotificationChannel": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.ReminderNotificationChannel": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.SendersReference": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.RequestedSendTime": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.CustomNotificationRecipients": {
+                  "style": "form"
+                },
+                "Correspondence.IgnoreReservation": {
+                  "style": "form"
+                },
+                "Correspondence.Published": {
+                  "style": "form"
+                },
+                "Correspondence.IsConfirmationNeeded": {
+                  "style": "form"
+                },
+                "Recipients": {
+                  "style": "form"
+                },
+                "ExistingAttachments": {
+                  "style": "form"
+                },
+                "attachments": {
+                  "style": "form"
+                }
+              }
             }
-          },
-          "additionalProperties": false
+          }
         },
-        "InitializedCorrespondencesNotificationsExt": {
-          "type": "object",
-          "properties": {
-            "orderId": {
-              "type": "string",
-              "format": "uuid",
-              "nullable": true
-            },
-            "isReminder": {
-              "type": "boolean",
-              "nullable": true
-            },
-            "status": {
-              "$ref": "#/components/schemas/InitializedNotificationStatusExt"
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InitializeCorrespondencesResponseExt"
+                }
+              }
             }
-          },
-          "additionalProperties": false
-        },
-        "InitializedNotificationStatusExt": {
-          "enum": [
-            "Success",
-            "MissingContact",
-            "Failure"
-          ],
-          "type": "string"
-        },
-        "NotificationChannelExt": {
-          "enum": [
-            "Email",
-            "Sms",
-            "EmailPreferred",
-            "SmsPreferred"
-          ],
-          "type": "string"
-        },
-        "NotificationDetailsExt": {
-          "type": "object",
-          "properties": {
-            "id": {
+          }
+        }
+      }
+    },
+    "/correspondence/api/v1/correspondence/{correspondenceId}": {
+      "get": {
+        "tags": [
+          "Correspondence"
+        ],
+        "summary": "Get information about the Correspondence and its current status",
+        "description": "Mostly for use by recipients and occasional status checks",
+        "parameters": [
+          {
+            "name": "correspondenceId",
+            "in": "path",
+            "required": true,
+            "schema": {
               "type": "string",
               "format": "uuid"
-            },
-            "succeeded": {
-              "type": "boolean"
-            },
-            "recipient": {
-              "$ref": "#/components/schemas/NotificationRecipientExt"
-            },
-            "sendStatus": {
-              "$ref": "#/components/schemas/NotificationStatusExt"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CorrespondenceOverviewExt"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/correspondence/api/v1/correspondence/{correspondenceId}/details": {
+      "get": {
+        "tags": [
+          "Correspondence"
+        ],
+        "summary": "Get more detailed information about the Correspondence and its current status as well as noticiation statuses, if available",
+        "description": "Meant for Senders that want a complete overview of the status and history of the Correspondence, but also available for Receivers",
+        "parameters": [
+          {
+            "name": "correspondenceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CorrespondenceDetailsExt"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/correspondence/api/v1/correspondence/{correspondenceId}/markasread": {
+      "post": {
+        "tags": [
+          "Correspondence"
+        ],
+        "summary": "Mark Correspondence found by ID as read",
+        "description": "Meant for Receivers",
+        "parameters": [
+          {
+            "name": "correspondenceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/correspondence/api/v1/correspondence/{correspondenceId}/confirm": {
+      "post": {
+        "tags": [
+          "Correspondence"
+        ],
+        "summary": "Mark Correspondence found by ID as confirmed",
+        "description": "Meant for Receivers",
+        "parameters": [
+          {
+            "name": "correspondenceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/correspondence/api/v1/correspondence/{correspondenceId}/archive": {
+      "post": {
+        "tags": [
+          "Correspondence"
+        ],
+        "summary": "Mark Correspondence found by ID as archived",
+        "description": "Meant for Receivers",
+        "parameters": [
+          {
+            "name": "correspondenceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/correspondence/api/v1/correspondence/{correspondenceId}/purge": {
+      "delete": {
+        "tags": [
+          "Correspondence"
+        ],
+        "summary": "Delete Correspondence found by ID",
+        "description": "Meant for Receivers",
+        "parameters": [
+          {
+            "name": "correspondenceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/correspondence/api/v1/correspondence/{correspondenceId}/attachment/{attachmentId}/download": {
+      "get": {
+        "tags": [
+          "Correspondence"
+        ],
+        "summary": "Downloads the attachment data",
+        "parameters": [
+          {
+            "name": "correspondenceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
             }
           },
-          "additionalProperties": false
-        },
-        "NotificationExt": {
-          "type": "object",
-          "properties": {
-            "id": {
+          {
+            "name": "attachmentId",
+            "in": "path",
+            "required": true,
+            "schema": {
               "type": "string",
-              "nullable": true
-            },
-            "sendersReference": {
-              "type": "string",
-              "nullable": true
-            },
-            "requestedSendTime": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "creator": {
-              "type": "string",
-              "nullable": true
-            },
-            "created": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "isReminder": {
-              "type": "boolean"
-            },
-            "notificationChannel": {
-              "$ref": "#/components/schemas/NotificationChannelExt"
-            },
-            "ignoreReservation": {
-              "type": "boolean",
-              "nullable": true
-            },
-            "resourceId": {
-              "type": "string",
-              "nullable": true
-            },
-            "processingStatus": {
-              "$ref": "#/components/schemas/NotificationProcessStatusExt"
-            },
-            "notificationStatusDetails": {
-              "$ref": "#/components/schemas/NotificationStatusDetailsExt"
+              "format": "uuid"
             }
-          },
-          "additionalProperties": false
-        },
-        "NotificationProcessStatusExt": {
-          "type": "object",
-          "properties": {
-            "status": {
-              "type": "string",
-              "nullable": true
-            },
-            "description": {
-              "type": "string",
-              "nullable": true
-            },
-            "lastUpdate": {
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          "additionalProperties": false
-        },
-        "NotificationRecipientExt": {
-          "type": "object",
-          "properties": {
-            "emailAddress": {
-              "type": "string",
-              "nullable": true
-            },
-            "mobileNumber": {
-              "type": "string",
-              "nullable": true
-            },
-            "organizationNumber": {
-              "type": "string",
-              "nullable": true
-            },
-            "nationalIdentityNumber": {
-              "type": "string",
-              "nullable": true
-            },
-            "isReserved": {
-              "type": "boolean",
-              "nullable": true
-            }
-          },
-          "additionalProperties": false
-        },
-        "NotificationStatusDetailsExt": {
-          "type": "object",
-          "properties": {
-            "email": {
-              "$ref": "#/components/schemas/NotificationDetailsExt"
-            },
-            "sms": {
-              "$ref": "#/components/schemas/NotificationDetailsExt"
-            }
-          },
-          "additionalProperties": false
-        },
-        "NotificationStatusExt": {
-          "type": "object",
-          "properties": {
-            "status": {
-              "type": "string",
-              "nullable": true
-            },
-            "description": {
-              "type": "string",
-              "nullable": true
-            },
-            "lastUpdate": {
-              "type": "string",
-              "format": "date-time"
-            }
-          },
-          "additionalProperties": false
-        },
-        "NotificationTemplateExt": {
-          "enum": [
-            "CustomMessage",
-            "GenericAltinnMessage"
-          ],
-          "type": "string"
-        },
-        "ReferenceTypeExt": {
-          "enum": [
-            "Generic",
-            "AltinnAppInstance",
-            "AltinnBrokerFileTransfer",
-            "DialogportenDialogId",
-            "DialogportenProcessId"
-          ],
-          "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
         }
       }
     }
+  },
+  "components": {
+    "schemas": {
+      "AttachmentDataLocationTypeExt": {
+        "enum": [
+          "AltinnCorrespondenceAttachment",
+          "ExternalStorage"
+        ],
+        "type": "string",
+        "description": "Defines the location of the attachment data"
+      },
+      "AttachmentDetailsExt": {
+        "required": [
+          "attachmentId",
+          "correspondenceIds",
+          "resourceId",
+          "sender",
+          "sendersReference",
+          "status",
+          "statusChanged",
+          "statusText"
+        ],
+        "type": "object",
+        "properties": {
+          "fileName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "The name of the attachment file.",
+            "nullable": true
+          },
+          "isEncrypted": {
+            "type": "boolean",
+            "description": "A value indicating whether the attachment is encrypted or not."
+          },
+          "checksum": {
+            "type": "string",
+            "description": "MD5 checksum for file data.",
+            "nullable": true
+          },
+          "sendersReference": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string",
+            "description": "A reference value given to the attachment by the creator."
+          },
+          "resourceId": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string",
+            "description": "Gets or sets the Resource Id for the correspondence service."
+          },
+          "sender": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The Sending organisation of the correspondence."
+          },
+          "attachmentId": {
+            "type": "string",
+            "description": "Unique Id for this attachment",
+            "format": "uuid"
+          },
+          "status": {
+            "$ref": "#/components/schemas/AttachmentStatusExt"
+          },
+          "statusText": {
+            "type": "string",
+            "description": "Current attachment status text description",
+            "nullable": true
+          },
+          "statusChanged": {
+            "type": "string",
+            "description": "Timestamp for when the Current Attachment Status was changed",
+            "format": "date-time"
+          },
+          "correspondenceIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "List of correspondences that are using this attachment",
+            "nullable": true
+          },
+          "dataType": {
+            "type": "string",
+            "description": "The attachment data type in MIME format",
+            "nullable": true
+          },
+          "statusHistory": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttachmentStatusEvent"
+            },
+            "description": "The Status history for the Attachment",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents an overview of a shared attachment that can be used by multiple correspondences"
+      },
+      "AttachmentOverviewExt": {
+        "required": [
+          "attachmentId",
+          "correspondenceIds",
+          "resourceId",
+          "sender",
+          "sendersReference",
+          "status",
+          "statusChanged",
+          "statusText"
+        ],
+        "type": "object",
+        "properties": {
+          "fileName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "The name of the attachment file.",
+            "nullable": true
+          },
+          "isEncrypted": {
+            "type": "boolean",
+            "description": "A value indicating whether the attachment is encrypted or not."
+          },
+          "checksum": {
+            "type": "string",
+            "description": "MD5 checksum for file data.",
+            "nullable": true
+          },
+          "sendersReference": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string",
+            "description": "A reference value given to the attachment by the creator."
+          },
+          "resourceId": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string",
+            "description": "Gets or sets the Resource Id for the correspondence service."
+          },
+          "sender": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The Sending organisation of the correspondence."
+          },
+          "attachmentId": {
+            "type": "string",
+            "description": "Unique Id for this attachment",
+            "format": "uuid"
+          },
+          "status": {
+            "$ref": "#/components/schemas/AttachmentStatusExt"
+          },
+          "statusText": {
+            "type": "string",
+            "description": "Current attachment status text description",
+            "nullable": true
+          },
+          "statusChanged": {
+            "type": "string",
+            "description": "Timestamp for when the Current Attachment Status was changed",
+            "format": "date-time"
+          },
+          "correspondenceIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "List of correspondences that are using this attachment",
+            "nullable": true
+          },
+          "dataType": {
+            "type": "string",
+            "description": "The attachment data type in MIME format",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents an overview of a shared attachment that can be used by multiple correspondences"
+      },
+      "AttachmentStatusEvent": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/AttachmentStatusExt"
+          },
+          "statusText": {
+            "type": "string",
+            "description": "Attachment status text description",
+            "nullable": true
+          },
+          "statusChanged": {
+            "type": "string",
+            "description": "Timestamp for when the Attachment Status occurred",
+            "format": "date-time"
+          },
+          "partyUuid": {
+            "type": "string",
+            "description": "The UUID for the party that triggered this Attachment Status Event",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "description": "An entity representing a Attachment Status Event"
+      },
+      "AttachmentStatusExt": {
+        "enum": [
+          "Initialized",
+          "UploadProcessing",
+          "Published",
+          "Purged",
+          "Failed"
+        ],
+        "type": "string",
+        "description": "Represents the important statuses for an attachment"
+      },
+      "BaseCorrespondenceExt": {
+        "required": [
+          "resourceId",
+          "sender",
+          "sendersReference"
+        ],
+        "type": "object",
+        "properties": {
+          "resourceId": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string",
+            "description": "The Resource Id associated with the correspondence service."
+          },
+          "sender": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The Sending organization of the correspondence."
+          },
+          "sendersReference": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string",
+            "description": "A reference used by senders and receivers to identify a specific Correspondence using external identification methods."
+          },
+          "messageSender": {
+            "maxLength": 256,
+            "minLength": 0,
+            "type": "string",
+            "description": "An alternative name for the sender of the correspondence. The name will be displayed instead of the organization name.",
+            "nullable": true
+          },
+          "content": {
+            "$ref": "#/components/schemas/InitializeCorrespondenceContentExt"
+          },
+          "requestedPublishTime": {
+            "type": "string",
+            "description": "When the correspondence should become visible to the recipient.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "allowSystemDeleteAfter": {
+            "type": "string",
+            "description": "When Altinn can remove the correspondence from its database.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dueDateTime": {
+            "type": "string",
+            "description": "When the recipient must reply to the correspondence",
+            "format": "date-time",
+            "nullable": true
+          },
+          "externalReferences": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExternalReferenceExt"
+            },
+            "description": "A list of references Senders can use to tell the recipient that the correspondence is related to the referenced item(s)\r\nExamples include Altinn App instances, Altinn Broker File Transfers",
+            "nullable": true
+          },
+          "propertyList": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "User-defined properties related to the Correspondence",
+            "nullable": true
+          },
+          "replyOptions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CorrespondenceReplyOptionExt"
+            },
+            "description": "Options for how the recipient can reply to the Correspondence",
+            "nullable": true
+          },
+          "notification": {
+            "$ref": "#/components/schemas/InitializeCorrespondenceNotificationExt"
+          },
+          "ignoreReservation": {
+            "type": "boolean",
+            "description": "Specifies whether the correspondence can override reservation against digital communication in KRR",
+            "nullable": true
+          },
+          "published": {
+            "type": "string",
+            "description": "Is null until the correspondence is published.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isConfirmationNeeded": {
+            "type": "boolean",
+            "description": "Specifies whether reading the correspondence needs to be confirmed by the recipient"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a request object for the operation, InitializeCorrespondence, that can create a correspondence in Altinn."
+      },
+      "CorrespondenceAttachmentExt": {
+        "required": [
+          "dataLocationType",
+          "sendersReference"
+        ],
+        "type": "object",
+        "properties": {
+          "fileName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "The name of the attachment file.",
+            "nullable": true
+          },
+          "isEncrypted": {
+            "type": "boolean",
+            "description": "A value indicating whether the attachment is encrypted or not."
+          },
+          "checksum": {
+            "type": "string",
+            "description": "MD5 checksum for file data.",
+            "nullable": true
+          },
+          "sendersReference": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string",
+            "description": "A reference value given to the attachment by the creator."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "dataLocationType": {
+            "$ref": "#/components/schemas/AttachmentDataLocationTypeExt"
+          },
+          "created": {
+            "type": "string",
+            "description": "The date on which this attachment is created",
+            "format": "date-time"
+          },
+          "status": {
+            "$ref": "#/components/schemas/AttachmentStatusExt"
+          },
+          "statusText": {
+            "type": "string",
+            "description": "Current attachment status text description",
+            "nullable": true
+          },
+          "statusChanged": {
+            "type": "string",
+            "description": "Timestamp for when the Current Attachment Status was changed",
+            "format": "date-time"
+          },
+          "expirationTime": {
+            "type": "string",
+            "description": "When the attachment expires",
+            "format": "date-time"
+          },
+          "dataType": {
+            "type": "string",
+            "description": "The attachment data type in MIME format",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a binary attachment to a Correspondence"
+      },
+      "CorrespondenceContentExt": {
+        "required": [
+          "attachments",
+          "language",
+          "messageBody",
+          "messageSummary",
+          "messageTitle"
+        ],
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string",
+            "description": "Gets or sets the language of the correspondence, specified according to ISO 639-1",
+            "nullable": true
+          },
+          "messageTitle": {
+            "type": "string",
+            "description": "Gets or sets the correspondence message title. Subject.",
+            "nullable": true
+          },
+          "messageSummary": {
+            "type": "string",
+            "description": "Gets or sets a summary text of the correspondence.",
+            "nullable": true
+          },
+          "messageBody": {
+            "type": "string",
+            "description": "Gets or sets the main body of the correspondence.",
+            "nullable": true
+          },
+          "attachments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CorrespondenceAttachmentExt"
+            },
+            "description": "Gets or sets a list of attachments.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents the content of a reportee element of the type correspondence."
+      },
+      "CorrespondenceDetailsExt": {
+        "required": [
+          "correspondenceId",
+          "created",
+          "recipient",
+          "resourceId",
+          "sender",
+          "sendersReference"
+        ],
+        "type": "object",
+        "properties": {
+          "resourceId": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string",
+            "description": "The Resource Id associated with the correspondence service."
+          },
+          "sender": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The Sending organization of the correspondence."
+          },
+          "sendersReference": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string",
+            "description": "A reference used by senders and receivers to identify a specific Correspondence using external identification methods."
+          },
+          "messageSender": {
+            "maxLength": 256,
+            "minLength": 0,
+            "type": "string",
+            "description": "An alternative name for the sender of the correspondence. The name will be displayed instead of the organization name.",
+            "nullable": true
+          },
+          "content": {
+            "$ref": "#/components/schemas/CorrespondenceContentExt"
+          },
+          "requestedPublishTime": {
+            "type": "string",
+            "description": "When the correspondence should become visible to the recipient.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "allowSystemDeleteAfter": {
+            "type": "string",
+            "description": "When Altinn can remove the correspondence from its database.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dueDateTime": {
+            "type": "string",
+            "description": "When the recipient must reply to the correspondence",
+            "format": "date-time",
+            "nullable": true
+          },
+          "externalReferences": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExternalReferenceExt"
+            },
+            "description": "A list of references Senders can use to tell the recipient that the correspondence is related to the referenced item(s)\r\nExamples include Altinn App instances, Altinn Broker File Transfers",
+            "nullable": true
+          },
+          "propertyList": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "User-defined properties related to the Correspondence",
+            "nullable": true
+          },
+          "replyOptions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CorrespondenceReplyOptionExt"
+            },
+            "description": "Options for how the recipient can reply to the Correspondence",
+            "nullable": true
+          },
+          "notification": {
+            "$ref": "#/components/schemas/InitializeCorrespondenceNotificationExt"
+          },
+          "ignoreReservation": {
+            "type": "boolean",
+            "description": "Specifies whether the correspondence can override reservation against digital communication in KRR",
+            "nullable": true
+          },
+          "published": {
+            "type": "string",
+            "description": "Is null until the correspondence is published.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isConfirmationNeeded": {
+            "type": "boolean",
+            "description": "Specifies whether reading the correspondence needs to be confirmed by the recipient"
+          },
+          "recipient": {
+            "type": "string",
+            "description": "The recipient of the correspondence.",
+            "nullable": true
+          },
+          "correspondenceId": {
+            "type": "string",
+            "description": "Unique Id for this correspondence",
+            "format": "uuid"
+          },
+          "created": {
+            "type": "string",
+            "description": "When the correspondence was created",
+            "format": "date-time"
+          },
+          "status": {
+            "$ref": "#/components/schemas/CorrespondenceStatusExt"
+          },
+          "statusText": {
+            "type": "string",
+            "description": "The current status text for the Correspondence",
+            "nullable": true
+          },
+          "statusChanged": {
+            "type": "string",
+            "description": "Timestamp for when the Current Correspondence Status was changed",
+            "format": "date-time"
+          },
+          "notifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationExt"
+            },
+            "description": "Notifications directly related to this Correspondence.",
+            "nullable": true
+          },
+          "statusHistory": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CorrespondenceStatusEventExt"
+            },
+            "description": "The Status history for the Correspondence",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A more detailed object representing all the details for a correspondence, including status history and notifications"
+      },
+      "CorrespondenceNotificationOverview": {
+        "type": "object",
+        "properties": {
+          "notificationOrderId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "isReminder": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CorrespondenceOverviewExt": {
+        "required": [
+          "correspondenceId",
+          "created",
+          "recipient",
+          "resourceId",
+          "sender",
+          "sendersReference"
+        ],
+        "type": "object",
+        "properties": {
+          "resourceId": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string",
+            "description": "The Resource Id associated with the correspondence service."
+          },
+          "sender": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The Sending organization of the correspondence."
+          },
+          "sendersReference": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string",
+            "description": "A reference used by senders and receivers to identify a specific Correspondence using external identification methods."
+          },
+          "messageSender": {
+            "maxLength": 256,
+            "minLength": 0,
+            "type": "string",
+            "description": "An alternative name for the sender of the correspondence. The name will be displayed instead of the organization name.",
+            "nullable": true
+          },
+          "content": {
+            "$ref": "#/components/schemas/CorrespondenceContentExt"
+          },
+          "requestedPublishTime": {
+            "type": "string",
+            "description": "When the correspondence should become visible to the recipient.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "allowSystemDeleteAfter": {
+            "type": "string",
+            "description": "When Altinn can remove the correspondence from its database.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dueDateTime": {
+            "type": "string",
+            "description": "When the recipient must reply to the correspondence",
+            "format": "date-time",
+            "nullable": true
+          },
+          "externalReferences": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExternalReferenceExt"
+            },
+            "description": "A list of references Senders can use to tell the recipient that the correspondence is related to the referenced item(s)\r\nExamples include Altinn App instances, Altinn Broker File Transfers",
+            "nullable": true
+          },
+          "propertyList": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "User-defined properties related to the Correspondence",
+            "nullable": true
+          },
+          "replyOptions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CorrespondenceReplyOptionExt"
+            },
+            "description": "Options for how the recipient can reply to the Correspondence",
+            "nullable": true
+          },
+          "notification": {
+            "$ref": "#/components/schemas/InitializeCorrespondenceNotificationExt"
+          },
+          "ignoreReservation": {
+            "type": "boolean",
+            "description": "Specifies whether the correspondence can override reservation against digital communication in KRR",
+            "nullable": true
+          },
+          "published": {
+            "type": "string",
+            "description": "Is null until the correspondence is published.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isConfirmationNeeded": {
+            "type": "boolean",
+            "description": "Specifies whether reading the correspondence needs to be confirmed by the recipient"
+          },
+          "recipient": {
+            "type": "string",
+            "description": "The recipient of the correspondence.",
+            "nullable": true
+          },
+          "correspondenceId": {
+            "type": "string",
+            "description": "Unique Id for this correspondence",
+            "format": "uuid"
+          },
+          "created": {
+            "type": "string",
+            "description": "When the correspondence was created",
+            "format": "date-time"
+          },
+          "status": {
+            "$ref": "#/components/schemas/CorrespondenceStatusExt"
+          },
+          "statusText": {
+            "type": "string",
+            "description": "The current status text for the Correspondence",
+            "nullable": true
+          },
+          "statusChanged": {
+            "type": "string",
+            "description": "Timestamp for when the Current Correspondence Status was changed",
+            "format": "date-time"
+          },
+          "notifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CorrespondenceNotificationOverview"
+            },
+            "description": "An overview of the notifications for this correspondence",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "An object representing an overview of a correspondence with enough details to drive the business process"
+      },
+      "CorrespondenceReplyOptionExt": {
+        "required": [
+          "linkURL"
+        ],
+        "type": "object",
+        "properties": {
+          "linkURL": {
+            "type": "string",
+            "description": "Gets or sets the URL to be used as a reply/response to a correspondence.",
+            "nullable": true
+          },
+          "linkText": {
+            "type": "string",
+            "description": "Gets or sets the url text.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a ReplyOption with information provided by the sender.\r\nA reply option is a way for recipients to respond to a correspondence in addition to the normal Read and Confirm operations"
+      },
+      "CorrespondenceStatusEventExt": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/CorrespondenceStatusExt"
+          },
+          "statusText": {
+            "type": "string",
+            "description": "Correspondence Status Text description",
+            "nullable": true
+          },
+          "statusChanged": {
+            "type": "string",
+            "description": "Timestamp for when this Correspondence Status Event occurred",
+            "format": "date-time"
+          },
+          "partyUuid": {
+            "type": "string",
+            "description": "The UUID for the party that triggered this Correspondence Status Event",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "description": "An entity representing a Correspondence Status Event"
+      },
+      "CorrespondenceStatusExt": {
+        "enum": [
+          "Initialized",
+          "ReadyForPublish",
+          "Published",
+          "Fetched",
+          "Read",
+          "Replied",
+          "Confirmed",
+          "PurgedByRecipient",
+          "PurgedByAltinn",
+          "Archived",
+          "Reserved",
+          "Failed"
+        ],
+        "type": "string",
+        "description": "Represents the important statuses for an Correspondence"
+      },
+      "CorrespondencesExt": {
+        "type": "object",
+        "properties": {
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Correspondence ids",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "An entity representing a a list of Correspondences"
+      },
+      "CorrespondencesRoleType": {
+        "enum": [
+          "Recipient",
+          "Sender",
+          "RecipientAndSender"
+        ],
+        "type": "string"
+      },
+      "CustomNotificationRecipientExt": {
+        "required": [
+          "notificationRecipient",
+          "recipientToOverride"
+        ],
+        "type": "object",
+        "properties": {
+          "recipientToOverride": {
+            "type": "string",
+            "description": "Organization number or national identity number of the recipient to override with custom recipient(s)",
+            "nullable": true
+          },
+          "notificationRecipient": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationRecipientExt"
+            },
+            "description": "List of custom recipients to override the default recipients",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A class representing a a recipient of a notification"
+      },
+      "ExternalReferenceExt": {
+        "required": [
+          "referenceType",
+          "referenceValue"
+        ],
+        "type": "object",
+        "properties": {
+          "referenceValue": {
+            "type": "string",
+            "description": "The Reference Value",
+            "nullable": true
+          },
+          "referenceType": {
+            "$ref": "#/components/schemas/ReferenceTypeExt"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a reference to another item in the Altinn ecosystem"
+      },
+      "InitializeAttachmentDataLocationTypeExt": {
+        "enum": [
+          "NewCorrespondenceAttachment",
+          "ExistingCorrespondenceAttachment",
+          "ExistingExternalStorage"
+        ],
+        "type": "string",
+        "description": "Defines the location of the attachment data during the Initialize Correspondence Operation"
+      },
+      "InitializeAttachmentExt": {
+        "required": [
+          "resourceId",
+          "sender",
+          "sendersReference"
+        ],
+        "type": "object",
+        "properties": {
+          "fileName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "The name of the attachment file.",
+            "nullable": true
+          },
+          "isEncrypted": {
+            "type": "boolean",
+            "description": "A value indicating whether the attachment is encrypted or not."
+          },
+          "checksum": {
+            "type": "string",
+            "description": "MD5 checksum for file data.",
+            "nullable": true
+          },
+          "sendersReference": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string",
+            "description": "A reference value given to the attachment by the creator."
+          },
+          "resourceId": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string",
+            "description": "Gets or sets the Resource Id for the correspondence service."
+          },
+          "sender": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The Sending organisation of the correspondence."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a container object for attachments used when initiating a shared attachment"
+      },
+      "InitializeCorrespondenceAttachmentExt": {
+        "required": [
+          "dataLocationType",
+          "sendersReference"
+        ],
+        "type": "object",
+        "properties": {
+          "fileName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "The name of the attachment file.",
+            "nullable": true
+          },
+          "isEncrypted": {
+            "type": "boolean",
+            "description": "A value indicating whether the attachment is encrypted or not."
+          },
+          "checksum": {
+            "type": "string",
+            "description": "MD5 checksum for file data.",
+            "nullable": true
+          },
+          "sendersReference": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string",
+            "description": "A reference value given to the attachment by the creator."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "dataLocationType": {
+            "$ref": "#/components/schemas/InitializeAttachmentDataLocationTypeExt"
+          },
+          "expirationTime": {
+            "type": "string",
+            "description": "The expiration time of the attachment",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents an attachment to a specific correspondence as part of Initialize Correspondence Operation"
+      },
+      "InitializeCorrespondenceContentExt": {
+        "required": [
+          "language",
+          "messageBody",
+          "messageSummary",
+          "messageTitle"
+        ],
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string",
+            "description": "Gets or sets the language of the correspondence, specified according to ISO 639-1",
+            "nullable": true
+          },
+          "messageTitle": {
+            "type": "string",
+            "description": "Gets or sets the correspondence message title. Subject.",
+            "nullable": true
+          },
+          "messageSummary": {
+            "type": "string",
+            "description": "Gets or sets a summary text of the correspondence.",
+            "nullable": true
+          },
+          "messageBody": {
+            "type": "string",
+            "description": "Gets or sets the main body of the correspondence.",
+            "nullable": true
+          },
+          "attachments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InitializeCorrespondenceAttachmentExt"
+            },
+            "description": "Gets or sets a list of attachments.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents the content of a reportee element of the type correspondence."
+      },
+      "InitializeCorrespondenceNotificationExt": {
+        "required": [
+          "notificationTemplate"
+        ],
+        "type": "object",
+        "properties": {
+          "notificationTemplate": {
+            "$ref": "#/components/schemas/NotificationTemplateExt"
+          },
+          "emailSubject": {
+            "maxLength": 128,
+            "minLength": 0,
+            "type": "string",
+            "description": "The email template to use for this notification",
+            "nullable": true
+          },
+          "emailBody": {
+            "maxLength": 1024,
+            "minLength": 0,
+            "type": "string",
+            "description": "The email template to use for this notification",
+            "nullable": true
+          },
+          "smsBody": {
+            "maxLength": 160,
+            "minLength": 0,
+            "type": "string",
+            "description": "The sms template to use for this notification",
+            "nullable": true
+          },
+          "sendReminder": {
+            "type": "boolean",
+            "description": "Should a reminder be sent if the notification is not confirmed"
+          },
+          "reminderEmailSubject": {
+            "maxLength": 128,
+            "minLength": 0,
+            "type": "string",
+            "description": "The email template to use for this notification",
+            "nullable": true
+          },
+          "reminderEmailBody": {
+            "maxLength": 1024,
+            "minLength": 0,
+            "type": "string",
+            "description": "The email template to use for this notification",
+            "nullable": true
+          },
+          "reminderSmsBody": {
+            "maxLength": 160,
+            "minLength": 0,
+            "type": "string",
+            "description": "The sms template to use for this notification",
+            "nullable": true
+          },
+          "notificationChannel": {
+            "$ref": "#/components/schemas/NotificationChannelExt"
+          },
+          "reminderNotificationChannel": {
+            "$ref": "#/components/schemas/NotificationChannelExt"
+          },
+          "sendersReference": {
+            "type": "string",
+            "description": "Senders Reference for this notification",
+            "nullable": true
+          },
+          "requestedSendTime": {
+            "type": "string",
+            "description": "The date and time for when the notification should be sent.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "recipients": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomNotificationRecipientExt"
+            },
+            "description": "A list of recipients for the notification. If not set, the notification will be sent to the recipient of the Correspondence",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Used to specify a single notification connected to a specific Correspondence during the Initialize Correspondence operation"
+      },
+      "InitializeCorrespondencesExt": {
+        "required": [
+          "correspondence",
+          "recipients"
+        ],
+        "type": "object",
+        "properties": {
+          "correspondence": {
+            "$ref": "#/components/schemas/BaseCorrespondenceExt"
+          },
+          "recipients": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of recipients for the correspondence, either as organization or national identity number"
+          },
+          "existingAttachments": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Existing attachments that should be added to the correspondence",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InitializeCorrespondencesResponseExt": {
+        "type": "object",
+        "properties": {
+          "correspondences": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InitializedCorrespondencesExt"
+            },
+            "description": "The initialized correspondences",
+            "nullable": true
+          },
+          "attachmentIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "The IDs of the attachments that were included with the correspondences",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Response object for initializing correspondences. Contains information about the created correspondences and their attachments."
+      },
+      "InitializedCorrespondencesExt": {
+        "required": [
+          "recipient"
+        ],
+        "type": "object",
+        "properties": {
+          "correspondenceId": {
+            "type": "string",
+            "description": "The ID of the correspondence",
+            "format": "uuid"
+          },
+          "status": {
+            "$ref": "#/components/schemas/CorrespondenceStatusExt"
+          },
+          "recipient": {
+            "type": "string",
+            "description": "The recipient of the correspondence",
+            "nullable": true
+          },
+          "notifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InitializedCorrespondencesNotificationsExt"
+            },
+            "description": "Information about the notifications that were created for the correspondence",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a correspondence that has been initialized"
+      },
+      "InitializedCorrespondencesNotificationsExt": {
+        "type": "object",
+        "properties": {
+          "orderId": {
+            "type": "string",
+            "description": "The order ID of the notification",
+            "format": "uuid",
+            "nullable": true
+          },
+          "isReminder": {
+            "type": "boolean",
+            "description": "Boolean indicating if the notification is a reminder",
+            "nullable": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/InitializedNotificationStatusExt"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Information about the notifications that were created for the correspondence"
+      },
+      "InitializedNotificationStatusExt": {
+        "enum": [
+          "Success",
+          "MissingContact",
+          "Failure"
+        ],
+        "type": "string"
+      },
+      "NotificationChannelExt": {
+        "enum": [
+          "Email",
+          "Sms",
+          "EmailPreferred",
+          "SmsPreferred"
+        ],
+        "type": "string",
+        "description": "Enum describing available notification channels."
+      },
+      "NotificationDetailsExt": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The notification id",
+            "format": "uuid"
+          },
+          "succeeded": {
+            "type": "boolean",
+            "description": "Boolean indicating if the sending of the notification was successful"
+          },
+          "recipient": {
+            "$ref": "#/components/schemas/NotificationRecipientExt"
+          },
+          "sendStatus": {
+            "$ref": "#/components/schemas/NotificationStatusExt"
+          }
+        },
+        "additionalProperties": false,
+        "description": "An abstract class representing a status overview of a notification channels"
+      },
+      "NotificationExt": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Gets or sets the id of the notification order",
+            "nullable": true
+          },
+          "sendersReference": {
+            "type": "string",
+            "description": "Gets or sets the senders reference of the notification",
+            "nullable": true
+          },
+          "requestedSendTime": {
+            "type": "string",
+            "description": "Gets or sets the requested send time of the notification",
+            "format": "date-time"
+          },
+          "creator": {
+            "type": "string",
+            "description": "Gets or sets the short name of the creator of the notification order",
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "description": "Gets or sets the date and time of when the notification order was created",
+            "format": "date-time"
+          },
+          "isReminder": {
+            "type": "boolean",
+            "description": "whether the notification is a reminder notification"
+          },
+          "notificationChannel": {
+            "$ref": "#/components/schemas/NotificationChannelExt"
+          },
+          "ignoreReservation": {
+            "type": "boolean",
+            "description": "Gets or sets whether notifications generated by this order should ignore KRR reservations",
+            "nullable": true
+          },
+          "resourceId": {
+            "type": "string",
+            "description": "Gets or sets the id of the resource that the notification is related to",
+            "nullable": true
+          },
+          "processingStatus": {
+            "$ref": "#/components/schemas/NotificationProcessStatusExt"
+          },
+          "notificationStatusDetails": {
+            "$ref": "#/components/schemas/NotificationStatusDetailsExt"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a notification connected to a specific correspondence"
+      },
+      "NotificationProcessStatusExt": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Gets or sets the status",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "description": "Gets or sets the description",
+            "nullable": true
+          },
+          "lastUpdate": {
+            "type": "string",
+            "description": "Gets or sets the date time of when the status was last updated",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "An abstract class representing a status overview of a notification channels"
+      },
+      "NotificationRecipientExt": {
+        "type": "object",
+        "properties": {
+          "emailAddress": {
+            "type": "string",
+            "description": "the email address of the recipient",
+            "nullable": true
+          },
+          "mobileNumber": {
+            "type": "string",
+            "description": "the mobileNumber of the recipient",
+            "nullable": true
+          },
+          "organizationNumber": {
+            "type": "string",
+            "description": "the organization number of the recipient",
+            "nullable": true
+          },
+          "nationalIdentityNumber": {
+            "type": "string",
+            "description": "The SSN of the recipient",
+            "nullable": true
+          },
+          "isReserved": {
+            "type": "boolean",
+            "description": "Boolean indicating if the recipient is reserved",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A class representing a a recipient of a notification"
+      },
+      "NotificationStatusDetailsExt": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "$ref": "#/components/schemas/NotificationDetailsExt"
+          },
+          "sms": {
+            "$ref": "#/components/schemas/NotificationDetailsExt"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A class representing a summary of status overviews of all notification channels"
+      },
+      "NotificationStatusExt": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Gets or sets the status",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "description": "Gets or sets the description",
+            "nullable": true
+          },
+          "lastUpdate": {
+            "type": "string",
+            "description": "Gets or sets the date time of when the status was last updated",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A class representing a status summary"
+      },
+      "NotificationTemplateExt": {
+        "enum": [
+          "CustomMessage",
+          "GenericAltinnMessage"
+        ],
+        "type": "string",
+        "description": "Enum describing available notification channels."
+      },
+      "ReferenceTypeExt": {
+        "enum": [
+          "Generic",
+          "AltinnAppInstance",
+          "AltinnBrokerFileTransfer",
+          "DialogportenDialogId",
+          "DialogportenProcessId"
+        ],
+        "type": "string",
+        "description": "Defines what kind of reference"
+      }
+    }
   }
+}

@@ -354,3 +354,7 @@ Footeren vil inneholde følgende informasjon:
 - Sidenummer
 
    ![PDF footer eksempel](pdf-footer-example.png)
+## Lag en PDF i Figma
+Hvis du vil teste og sette opp PDF-en din, kan du gjøre det her:  
+[Altinn Studio Komponenter](https://www.figma.com/community/file/1344307804742953785/altinn-studio-komponenter).  
+Merk at eksempelet ikke er identisk med den faktiske koden, men er tilpasset for å lage prototyper i Figma.

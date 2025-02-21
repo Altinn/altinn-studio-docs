@@ -48,11 +48,12 @@ En varslingsbestilling gjøres ved å legge til følgende når du initialiserer 
 ## Keyword støtte
 
 Keywords er en liste tokens som lar deg personalisere varslingene med for eksempel mottakers navn.
-| Verdi                 | Beskrivelse                                                                                                                            | Ekstra                                                                               |
-|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------- |--------------------------------------------------------------------------------------|
-| \$sendersName\$       | Blir byttet ut med avsenders navn. Enten "MessageSender" om attributten har en verdi, eller basert på ett oppslag i Altinn Register.   | Støttes for alle scenarioer                                                          |
-| \$recipientName\$     | Blir byttet ut med mottakers navn. Dette vil være enten organisasjonsnavn eller personens navn.                                        | Støttes ikke dersom varsel blir sendt direkte til e-post adresse eller telefonnummer |
-| \$recipientNumber\$   | Dersom mottaker er en organisasjon vises Organisasjonsnummer. Dersom mottaker er en privatperson vises ingenting                       | Støttes ikke dersom varsel blir sendt direkte til e-post adresse eller telefonnummer |
+| Verdi                           | Beskrivelse                                                                                                                            | Ekstra                                                                               |
+|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------- |--------------------------------------------------------------------------------------|
+| \$sendersName\$                 | Blir byttet ut med avsenders navn. Enten "MessageSender" om attributten har en verdi, eller basert på ett oppslag i Altinn Register.   | Støttes for alle scenarioer                                                          |
+| \$correspondenceRecipientName\$ | Blir byttet ut med melding mottakers navn. Dette vil være enten organisasjonsnavn eller personens navn.                                | Støttes for alle scenarioer                                                          |
+| \$recipientName\$               | Blir byttet ut med varsling mottakers navn. Dette vil være enten organisasjonsnavn eller personens navn.                               | Støttes ikke dersom varsel blir sendt direkte til e-post adresse eller telefonnummer |
+| \$recipientNumber\$             | Dersom mottaker er en organisasjon vises Organisasjonsnummer. Dersom mottaker er en privatperson vises ingenting                       | Støttes ikke dersom varsel blir sendt direkte til e-post adresse eller telefonnummer |
 
 ## Varslingsmaler
 
@@ -66,11 +67,11 @@ Det tilbys to typer varslingsmaler når du bruker varsling gjennom Meldings-API`
 
 - En generisk Altinn-tekst med mulighet for å supplere med ekstra tekst. Foreløpig støttede språk er norsk, nynorsk og engelsk. Språk velges basert på språket definert i meldingen
 
-**Tittel:** Du har mottatt en melding i Altinn {textToken}<br>
-**Innhold:** Hei \$recipientName\$, du har mottatt en ny melding fra \$sendersName\$. {textToken} Logg deg inn i Altinn for å se denne meldingen.
+**Tittel:** En melding har blitt mottatt i Altinn {textToken}<br>
+**Innhold:** Hei. $correspondenceRecipientName$ har mottatt en ny melding fra $sendersName$. {textToken}Logg deg inn i Altinn for å se denne meldingen.
 
-**Revarsel tittel:** Påminnelse - du har mottatt en melding i Altinn {textToken}<br>
-**Revarsel innhold:** Hei \$recipientName\$, dette er en påminnelse om at du har mottatt en ny melding fra \$sendersName\$. {textToken} Logg deg inn i Altinn for å se denne meldingen.
+**Revarsel tittel:** Påminnelse - en melding har blitt mottatt i Altinn {textToken}<br>
+**Revarsel innhold:** Hei. Dette er en påminnelse om at $correspondenceRecipientName$ har mottatt en ny melding fra $sendersName$. {textToken}Logg deg inn i Altinn for å se denne meldingen.
 
 I teksten vil textToken bli byttet ut med verdien gitt i for eksempel "EmailSubject" for tittelen. SMS bruker kun innholdet, ikke tittelen.
 \$recipientName\$ vil bli byttet ut med mottakers navn. Dette vil være enten organisasjonsnavn eller personens navn.
