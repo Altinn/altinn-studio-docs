@@ -9,7 +9,7 @@ aliases:
 ---
 
 ## Hva betyr rolle/tilgangspakke-basert signering?
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/intro.nb.md" %}}
+{{% insert "content/altinn-studio/guides/development/signing/role-based-signing/intro.nb.md" %}}
 
 ## Avhengigheter
 Dersom appen skal kunne sende signeringskvittering til innboksen til den som signerer så må oppsett for bruk av meldingstjenesten i Altinn være satt opp.
