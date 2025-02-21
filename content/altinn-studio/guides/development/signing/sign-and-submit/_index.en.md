@@ -10,7 +10,7 @@ aliases:
 
 ## What does sign and submit mean?
 
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/intro.en.md" %}}
+{{% insert "content/altinn-studio/guides/development/signing/sign-and-submit/intro.en.md" %}}
 
 ## Prerequisites
 If the service should send a signature receipt to the inbox of the signee, the altinn message service (Correspondence) must be enabled.
