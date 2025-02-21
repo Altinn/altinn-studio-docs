@@ -10,7 +10,7 @@ aliases:
 
 ## What does runetime delegated singing mean?
 
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/intro.nb.md" %}}
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/intro.en.md" %}}
 
 ## Prerequisites
 Runtime deleaged singing depends on then message service (Correspondence) in Altinn, which requires separate configuration.
