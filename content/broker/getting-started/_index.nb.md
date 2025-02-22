@@ -7,10 +7,6 @@ toc: false
 weight: 30
 ---
 
-{{% notice warning  %}}
-I arbeid.
-{{% /notice %}}
-
 {{<children />}}
 
 På grunn av de ulike rollene en virksomhet kan ha i samhandling med Altinn Formidling, har vi delt veiledningene i flere deler basert på den aktuelle rollen;
