@@ -375,7 +375,7 @@ operator used. For example, the operator `equals` can compare strings, numbers, 
 
 {{% expandlarge id="func-equals" header="equals / notEquals" %}}
 These two functions compare two strings to check if they are equal (equals) or not equal (notEquals). If you send in 
-values other than strings, the values are converted and compared as strings (read more about conversion here).
+values other than strings, the values are converted and compared as strings ([read more about conversion here](#strings)).
 
 Examples:
 
