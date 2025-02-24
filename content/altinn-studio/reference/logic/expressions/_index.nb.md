@@ -1178,6 +1178,7 @@ Noen eksempler på gyldige datoformater:
 - `2023-10-30` (Bare dato, antatt å være midnatt i lokal tidssone)
 - `2023` (Bare år, antatt å være midnatt 1. januar i lokal tidssone)
 
+{{% notice info %}}
 Det er viktig å merke seg at datoer som inkluderer en tidssoneforskyvning (eller `Z` for UTC) blir konvertert til
 lokal tidssone når de brukes i uttrykk. Dette betyr at bruk av funksjonen `formatDate` for å formatere en dato kan gi
 forskjellige resultater på frontend og backend dersom tidssonen på serveren er forskjellig fra brukerens tidssone i
@@ -1186,6 +1187,7 @@ nettleseren.
 Av denne grunn kan det være å foretrekke å spesifisere datoer og tider uten en tidssoneforskyvning eller `Z` dersom du
 ønsker at datoen/tiden skal vises på samme måte uavhengig av brukerens tidssone. På samme vis er det anbefalt å unngå
 å sammenligne datoer i forskjellige tidssoner.
+{{% /notice %}}
 
 ## Tips og triks
 

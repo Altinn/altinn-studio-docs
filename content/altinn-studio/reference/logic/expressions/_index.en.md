@@ -1186,6 +1186,7 @@ Some examples of valid date strings:
 - `2023-10-30` (Date only, assumed to be midnight in the local timezone)
 - `2023` (Year only, assumed to be midnight January 1st in the local timezone)
 
+{{% notice info %}}
 It is important to note that dates including a timezone offset (or `Z` for UTC) are converted to the local timezone
 when used in expressions. This means that using the `formatDate` function to format a date might yield different results
 on the frontend and backend if the timezone on the server is different from the user's timezone in the browser.
@@ -1193,6 +1194,7 @@ on the frontend and backend if the timezone on the server is different from the 
 For this reason, it may be preferable to specify dates and times without a timezone offset or `Z` if you want the
 date/time to be displayed the same way regardless of the user's timezone. Likewise, when comparing dates, it is
 recommended to only compare dates in the same timezone.
+{{% /notice %}}
 
 ## Tips and Tricks
 
