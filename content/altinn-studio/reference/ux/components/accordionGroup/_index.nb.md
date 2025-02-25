@@ -19,9 +19,12 @@ toc: true
 
 ### Anatomi
 
-![AccordionGroup lukket](accordion-group-closed-anatomy.png "AccordionGroup i lukket tilstand")
+<iframe style="border: 0px solid rgba(0, 0, 0, 0);" width="100%" height="200" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1388-7863&viewport=634%2C2793%2C0.78&scaling=contain&content-scaling=responsive&starting-point-node-id=1388%3A7863&show-proto-sidebar=0&embed-host=share&hide-ui=true
+" allowfullscreen></iframe>
 
-![AccordionGroup åpen](accordion-group-open-anatomy.png "AccordionGroup med en åpen Accordion")
+<iframe style="border: 0px solid rgba(0, 0, 0, 0);" width="100%" height="300" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1388-8448&viewport=634%2C2793%2C0.78&scaling=contain&content-scaling=responsive&starting-point-node-id=1388%3A8448&show-proto-sidebar=0&embed-host=share&hide-ui=true
+" allowfullscreen></iframe>
+
 
 {{% anatomy-list %}}
 1. **AccordionGroup**: Gruppe med to eller flere Accordion-komponenter.
