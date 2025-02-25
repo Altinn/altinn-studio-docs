@@ -7,10 +7,6 @@ toc: false
 weight: 30
 ---
 
-{{% notice warning  %}}
-Work in progress.
-{{% /notice %}}
-
 {{<children />}}
 
 Due to the different distinct roles an enterprise may have in their interaction with Altinn Broker, we have divided our guides based on the specific role;
