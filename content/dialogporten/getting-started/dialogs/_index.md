@@ -17,10 +17,10 @@ The dialog is an abstract and common model for all ongoing or completed communic
 
 An important difference from [Altinn Correspondence]({{<relref "/correspondence">}}) is that dialogs in Dialogporten are _mutable_. The service provider can update the metadata and available actions on the dialog at any time (with some notable exceptions). Any change generates _events_, which authorized parties can act on, e.g., sending a notification or having an EUS perform an action.
 
-Dialogs use by default a [UUIDv7](https://uuid7.com/) as its identifier, but Dialogporten supports any valid UUID format. The service owner can specify the desired UUID upon creation to enable the use of the same identifier across systems and ensure idempotency.
+Dialogs use [UUIDv7](https://uuid7.com/) as its identifier. The service owner can specify the desired UUIDv7 upon creation to enable the use of the same identifier across systems and ensure idempotency. The date portion of the UUIDv7 cannot be set to a future date.
 
 **Read more**
-* [Reference information for the dialog entity]({{<relref "../../reference/entities/dialog">}})
+* {{<link "../../reference/entities/dialog">}}
 
 ## Content
 
@@ -39,7 +39,7 @@ Transmissions will by default inherit the authorization policy for the dialog it
 API actions and activity log entries may refer to single transmissions.
 
 **Read more**
-* [Reference information for the transmissions entity]({{<relref "../../reference/entities/transmission">}})
+* {{<link "../../reference/entities/transmission">}}
 
 ## Attachments
 
@@ -48,7 +48,7 @@ Attachments are files referenced by one or more URLs, supporting various represe
 Attachments can be used on both transmission and dialog level. 
 
 **Read more**
-* [Reference information for the attachment entity]({{<relref "../../reference/entities/attachment">}})
+* {{<link "../../reference/entities/attachment">}}
 
 ## Actions
 
@@ -65,7 +65,7 @@ All GUI actions have a URL. These URLs are used in the front channel (ie. the br
 GUI actions can, however, be marked as [write operations]({{<relref "../write-actions">}}) and can then also be used to make state changes.
 
 **Read more**
-* [Learn more about write actions]({{<relref "../write-actions">}})
+* {{<link "../write-actions">}}
 * [Reference information for the GUI action entity]({{<relref "../../reference/entities/action#gui-actions">}})
 
 ### API Actions
@@ -84,8 +84,8 @@ Dialogporten does not validate any data and does not see what data flows between
 An _activity_ describes an action or event that has occurred in connection with the dialog. Each activity is part of the activity history, which is a chronological list of activities. The service provider populates the activity history as various state changes occur.
 
 **Read more**
-* [Learn more about the activity log]({{<relref "../activity-log">}})
-* [Reference information for the dialog activity entity]({{<relref "../../reference/entities/activity">}})
+* {{<link "../activity-log">}}
+* {{<link "../../reference/entities/activity">}}
 
 ## Dialog labels
 
@@ -113,7 +113,7 @@ Common for these two system labels is that any change made to the dialog by the 
 Dialogporten keeps track of labellings, logging who performed them and at what time it was performed. This includes resetting of system labels due to dialog updates.
 
 **Read more**
-* [Reference information for the system label entity]({{<relref "../../reference/entities/systemlabel">}})
+* {{<link "../../reference/entities/systemlabel">}}
 
 
 {{<children />}}

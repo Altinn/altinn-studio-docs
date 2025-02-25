@@ -42,7 +42,7 @@ This is the entity returned in the service owner API when searching for dialogs
 
 This is the entity expected as input in the service owner API when creating a new dialog 
 
-{{<swaggerdisplayentity "V1ServiceOwnerDialogsCommandsCreate_DialogCommand">}}
+{{<swaggerdisplayentity "V1ServiceOwnerDialogsCommandsCreate_Dialog">}}
 
 ### Update (PUT)
 

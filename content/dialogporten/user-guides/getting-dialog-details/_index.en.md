@@ -105,7 +105,7 @@ Note that the data structure contains actual content - it contains instead refer
 Additional requests will have to be performed in order to fetch these resources. The end user system should expect that all these endpoints require authentication and that the same authorization is enforced as on the dialog, action or attachment itself. Typically will the endpoints require that the same kind of token (ID-porten or Maskinporten with system user) is provided but with a separate scope. For Altinn-based services, please refer to the documentation for Altinn Correspondence and Altinn APps.
 
 **Read more**
-* [Technical reference for the dialog entity]({{<relref "../../reference/entities/dialog/#details">}})
+* [Reference information about the dialog details entity]({{<relref "../../reference/entities/dialog/#details">}})
 
 ## Handling front channel embeds
 
@@ -122,14 +122,14 @@ The basic steps to handle front channel embeds are:
 The endpoints are expected to fully support the [CORS-protocol](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS), including pre-flight, enabling the use of [`fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch) and similar APIs within a constrained web browser environment.
 
 **Read more**
-* [Learn about front channel embeds]({{<relref "../../getting-started/front-channel-embeds">}})
-* [Learn about dialog tokens]({{<relref "../../getting-started/authorization/dialog-tokens">}})
-* [Technical reference for front channel embeds]({{<relref "../../reference/front-end/front-channel-embeds">}})
-* [Technical reference for dialog tokens]({{<relref "../../reference/authorization/dialog-tokens/">}})
+* {{<link "../../getting-started/front-channel-embeds">}}
+* {{<link "../../getting-started/authorization/dialog-tokens">}}
+* {{<link "../../reference/front-end/front-channel-embeds">}}
+* {{<link "../../reference/authorization/dialog-tokens/">}}
 
 
 ## Seen log updates
 
 **Read more**
-* [Learn about the seen log]({{<relref "../../getting-started/seen-log">}})
-* [Technical reference for the seen-log entity]({{<relref "../../reference/entities/seen">}})
+* {{<link "../../getting-started/seen-log">}}
+* {{<link "../../reference/entities/seen">}}
