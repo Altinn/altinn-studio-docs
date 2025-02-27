@@ -9,10 +9,6 @@ weight: 20
 
 {{<children />}}
 
-{{% notice warning  %}}
-Merk at denne delen av dokumentasjonen fortsatt er under arbeid og derfor i stor grad refererer til eksterne kilder.
-{{% /notice %}}
-
 ## Operasjon: Hent filoverføringer {#operation-get-filetransfers}
 
 **Endepunkt:** GET /broker/api/v1/filetransfer/(filtre)

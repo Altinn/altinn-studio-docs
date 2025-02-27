@@ -9,12 +9,6 @@ weight: 10
 
 {{<children />}}
 
-{{% notice warning  %}}
-Dette avsnittet av dokumentasjonen er under arbeid.
-Det er deler som mangler eller bare delvis er dokumentert.
-Noen funksjoner representerer ikke den endelige produksjonsversjonen.
-{{% /notice %}}
-
 Før du går i gang med spesifikke oppgaver som avsender, mottaker, eller tjenesteeier i Altinn Formidling, er det noen grunnleggende forberedelser og krav som gjelder for alle brukere. Denne seksjonen dekker de nødvendige stegene du må gjennomføre for å sikre en smidig og effektiv oppstart. Her vil du finne veiledning om generelle systemkrav, påloggingsprosedyrer, og grunnleggende oppsett som må være på plass før du kan begynne å bruke tjenesten fullt ut. Det er viktig at alle brukere følger disse instruksjonene nøye for å unngå problemer senere i prosessen.
 
 ## 1. Skaff deg en Altinn API-nøkkel {#get-an-altinn-api-key}

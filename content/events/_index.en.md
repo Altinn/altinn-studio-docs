@@ -56,6 +56,23 @@ anticipate the possibility of out-of-order message delivery.
  
 {{% / %}}
 
+## Limitations
+{{% notice warning %}}
+
+Intermittently, Altinn Apps using the opt-in events feature may fail to produce events as expected.
+There are mitigating measures in place, and events affected by this issue may experience a delay of several hours.
+See the above on pub/sub about out-of-order deliveries. Work is in progress to address this/reduce the delay.
+
+{{% / %}}
+
+#### Events are not guaranteed to be delivered.
+
+Push-events have a fixed schedule for delivery-attempts and backoff-timings, before entering a "dead letter" state (see [retry-schedule](subscribe-to-events/#retry-schedule)).
+
+Events expire after 90 days regardless of delivery status (see [publish events](publish-events/)).
+
+
+
 ## Terminology
 #### What is an event?
 
