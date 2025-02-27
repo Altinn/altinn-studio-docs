@@ -1,15 +1,15 @@
 {
   "openapi": "3.1.0",
   "info": {
-      "title": "Altinn.Correspondence.API",
-      "version": "1.0.0",
-      "description": "API for Altinn Correspondence functionality."
+    "title": "Altinn.Correspondence.API",
+    "version": "1.0.0",
+    "description": "API for Altinn Correspondence functionality."
   },
   "servers": [
-      {
-          "url": "https://platform.tt02.altinn.no",
-          "description": "TT02"
-      }
+    {
+      "url": "https://platform.tt02.altinn.no",
+      "description": "TT02"
+    }
   ],
   "paths": {
     "/correspondence/api/v1/attachment": {
@@ -17,8 +17,8 @@
         "tags": [
           "Attachment"
         ],
-        "summary": "Initialize a new Attachment",
-        "description": "Only required if the attachment is to be shared, otherwise this is done as part of the Initialize Correspondence operation",
+        "summary": "Initialize a new Attachment to be shared in correspondences",
+        "description": "Scopes: \r\n\r\n- altinn:correspondence.send \r\n\r\nOnly required if the attachment is to be shared, otherwise this is done as part of the Initialize Correspondence operation",
         "requestBody": {
           "content": {
             "application/json": {
@@ -39,6 +39,26 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -49,6 +69,7 @@
           "Attachment"
         ],
         "summary": "Upload attachment data to Altinn Correspondence blob storage",
+        "description": "Scopes: \r\n\r\n- altinn:correspondence.send \r\n",
         "parameters": [
           {
             "name": "attachmentId",
@@ -70,6 +91,39 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Bad Gateway"
           }
         }
       }
@@ -79,7 +133,8 @@
         "tags": [
           "Attachment"
         ],
-        "summary": "Get information about the file and its current status",
+        "summary": "Get information about the attachment and its current status",
+        "description": "Scopes: \r\n\r\n- altinn:correspondence.send \r\n",
         "parameters": [
           {
             "name": "attachmentId",
@@ -98,6 +153,26 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/AttachmentOverviewExt"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -109,6 +184,7 @@
           "Attachment"
         ],
         "summary": "Deletes the attachment",
+        "description": "Scopes: \r\n\r\n- altinn:correspondence.send \r\n",
         "parameters": [
           {
             "name": "attachmentId",
@@ -127,6 +203,36 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/AttachmentOverviewExt"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -139,7 +245,8 @@
         "tags": [
           "Attachment"
         ],
-        "summary": "Get information about the file and its current status",
+        "summary": "Get information about the attachment and its current status",
+        "description": "Scopes: \r\n\r\n- altinn:correspondence.send \r\n",
         "parameters": [
           {
             "name": "attachmentId",
@@ -161,6 +268,26 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -171,6 +298,7 @@
           "Attachment"
         ],
         "summary": "Downloads the attachment data",
+        "description": "Scopes: \r\n\r\n- altinn:correspondence.send \r\n",
         "parameters": [
           {
             "name": "attachmentId",
@@ -184,7 +312,45 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -195,7 +361,7 @@
           "Correspondence"
         ],
         "summary": "Initialize Correspondences",
-        "description": "Requires uploads of specified attachments if any before it can be Published",
+        "description": "Scopes: \r\n\r\n- altinn:correspondence.send \r\n\r\nRequires uploads of specified attachments if any before it can be Published",
         "requestBody": {
           "content": {
             "application/json": {
@@ -215,6 +381,56 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       },
@@ -223,7 +439,7 @@
           "Correspondence"
         ],
         "summary": "Gets a list of Correspondences for the authenticated user",
-        "description": "Meant for Receivers, but also available for Senders to track Correspondences",
+        "description": "Scopes: \r\n\r\n- altinn:correspondence.read \r\n\r\n- altinn:correspondence.send \r\n\r\nMeant for Receivers, but also available for Senders to track Correspondences",
         "parameters": [
           {
             "name": "resourceId",
@@ -281,6 +497,26 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -290,6 +526,8 @@
         "tags": [
           "Correspondence"
         ],
+        "summary": "Initialize Correspondences and uploads attachments in the same request",
+        "description": "Scopes: \r\n\r\n- altinn:correspondence.send",
         "requestBody": {
           "content": {
             "multipart/form-data": {
@@ -395,41 +633,41 @@
                     "maxLength": 128,
                     "minLength": 0,
                     "type": "string",
-                    "description": "The email template to use for this notification"
+                    "description": "The emais subject for the main notification"
                   },
                   "Correspondence.Notification.EmailBody": {
                     "maxLength": 1024,
                     "minLength": 0,
                     "type": "string",
-                    "description": "The email template to use for this notification"
+                    "description": "The email body for the main notification"
                   },
                   "Correspondence.Notification.SmsBody": {
                     "maxLength": 160,
                     "minLength": 0,
                     "type": "string",
-                    "description": "The sms template to use for this notification"
+                    "description": "The sms body for the main notification"
                   },
                   "Correspondence.Notification.SendReminder": {
                     "type": "boolean",
-                    "description": "Should a reminder be sent if the notification is not confirmed"
+                    "description": "Should a reminder be sent if the notification is not confirmed or opened"
                   },
                   "Correspondence.Notification.ReminderEmailSubject": {
                     "maxLength": 128,
                     "minLength": 0,
                     "type": "string",
-                    "description": "The email template to use for this notification"
+                    "description": "The email subject to use for the reminder notification"
                   },
                   "Correspondence.Notification.ReminderEmailBody": {
                     "maxLength": 1024,
                     "minLength": 0,
                     "type": "string",
-                    "description": "The email template to use for this notification"
+                    "description": "The email body to use for the reminder notification"
                   },
                   "Correspondence.Notification.ReminderSmsBody": {
                     "maxLength": 160,
                     "minLength": 0,
                     "type": "string",
-                    "description": "The sms template to use for this notification"
+                    "description": "The sms body to use for the reminder notification"
                   },
                   "Correspondence.Notification.NotificationChannel": {
                     "$ref": "#/components/schemas/NotificationChannelExt"
@@ -471,7 +709,7 @@
                     "items": {
                       "type": "string"
                     },
-                    "description": "List of recipients for the correspondence, either as organization or national identity number"
+                    "description": "List of recipients for the correspondence, either as organization(urn:altinn:organization:identifier-no:ORGNR) or national identity number(urn:altinn:person:identifier-no:SSN)"
                   },
                   "ExistingAttachments": {
                     "type": "array",
@@ -607,6 +845,56 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -617,7 +905,7 @@
           "Correspondence"
         ],
         "summary": "Get information about the Correspondence and its current status",
-        "description": "Mostly for use by recipients and occasional status checks",
+        "description": " Scopes: \r\n\r\n - altinn:correspondence.read \r\n\r\n - altinn:correspondence.send \r\n\r\nMostly for use by recipients and occasional status checks",
         "parameters": [
           {
             "name": "correspondenceId",
@@ -639,6 +927,36 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -649,7 +967,7 @@
           "Correspondence"
         ],
         "summary": "Get more detailed information about the Correspondence and its current status as well as noticiation statuses, if available",
-        "description": "Meant for Senders that want a complete overview of the status and history of the Correspondence, but also available for Receivers",
+        "description": " Scopes: \r\n\r\n - altinn:correspondence.read \r\n\r\n - altinn:correspondence.send \r\n\r\nMeant for Senders that want a complete overview of the status and history of the Correspondence, but also available for Receivers",
         "parameters": [
           {
             "name": "correspondenceId",
@@ -671,6 +989,36 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -681,7 +1029,7 @@
           "Correspondence"
         ],
         "summary": "Mark Correspondence found by ID as read",
-        "description": "Meant for Receivers",
+        "description": "Scopes: \r\n\r\n- altinn:correspondence.read \r\n",
         "parameters": [
           {
             "name": "correspondenceId",
@@ -695,7 +1043,35 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -706,7 +1082,7 @@
           "Correspondence"
         ],
         "summary": "Mark Correspondence found by ID as confirmed",
-        "description": "Meant for Receivers",
+        "description": "Scopes: \r\n\r\n- altinn:correspondence.read \r\n",
         "parameters": [
           {
             "name": "correspondenceId",
@@ -720,7 +1096,35 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -731,7 +1135,7 @@
           "Correspondence"
         ],
         "summary": "Mark Correspondence found by ID as archived",
-        "description": "Meant for Receivers",
+        "description": "Scopes: \r\n\r\n- altinn:correspondence.read \r\n",
         "parameters": [
           {
             "name": "correspondenceId",
@@ -745,7 +1149,35 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -756,7 +1188,7 @@
           "Correspondence"
         ],
         "summary": "Delete Correspondence found by ID",
-        "description": "Meant for Receivers",
+        "description": "Scopes: \r\n\r\n- altinn:correspondence.read \r\n\r\n- altinn:correspondence.send \r\n (Can only purge before the correspondence is published)",
         "parameters": [
           {
             "name": "correspondenceId",
@@ -770,7 +1202,45 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -780,7 +1250,6 @@
         "tags": [
           "Correspondence"
         ],
-        "summary": "Downloads the attachment data",
         "parameters": [
           {
             "name": "correspondenceId",
@@ -803,7 +1272,35 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -1157,6 +1654,7 @@
           },
           "id": {
             "type": "string",
+            "description": "A unique id for the correspondence attachment.",
             "format": "uuid"
           },
           "dataLocationType": {
@@ -1749,6 +2247,7 @@
           },
           "id": {
             "type": "string",
+            "description": "A unique id for the correspondence attachment.",
             "format": "uuid"
           },
           "dataLocationType": {
@@ -1802,7 +2301,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "Represents the content of a reportee element of the type correspondence."
+        "description": "Represents the content of a Correspondence."
       },
       "InitializeCorrespondenceNotificationExt": {
         "required": [
@@ -1817,46 +2316,46 @@
             "maxLength": 128,
             "minLength": 0,
             "type": "string",
-            "description": "The email template to use for this notification",
+            "description": "The emais subject for the main notification",
             "nullable": true
           },
           "emailBody": {
             "maxLength": 1024,
             "minLength": 0,
             "type": "string",
-            "description": "The email template to use for this notification",
+            "description": "The email body for the main notification",
             "nullable": true
           },
           "smsBody": {
             "maxLength": 160,
             "minLength": 0,
             "type": "string",
-            "description": "The sms template to use for this notification",
+            "description": "The sms body for the main notification",
             "nullable": true
           },
           "sendReminder": {
             "type": "boolean",
-            "description": "Should a reminder be sent if the notification is not confirmed"
+            "description": "Should a reminder be sent if the notification is not confirmed or opened"
           },
           "reminderEmailSubject": {
             "maxLength": 128,
             "minLength": 0,
             "type": "string",
-            "description": "The email template to use for this notification",
+            "description": "The email subject to use for the reminder notification",
             "nullable": true
           },
           "reminderEmailBody": {
             "maxLength": 1024,
             "minLength": 0,
             "type": "string",
-            "description": "The email template to use for this notification",
+            "description": "The email body to use for the reminder notification",
             "nullable": true
           },
           "reminderSmsBody": {
             "maxLength": 160,
             "minLength": 0,
             "type": "string",
-            "description": "The sms template to use for this notification",
+            "description": "The sms body to use for the reminder notification",
             "nullable": true
           },
           "notificationChannel": {
@@ -1903,7 +2402,7 @@
             "items": {
               "type": "string"
             },
-            "description": "List of recipients for the correspondence, either as organization or national identity number"
+            "description": "List of recipients for the correspondence, either as organization(urn:altinn:organization:identifier-no:ORGNR) or national identity number(urn:altinn:person:identifier-no:SSN)"
           },
           "existingAttachments": {
             "type": "array",
@@ -1934,12 +2433,12 @@
               "type": "string",
               "format": "uuid"
             },
-            "description": "The IDs of the attachments that were included with the correspondences",
+            "description": "The IDs of the attachments that is included in the correspondences",
             "nullable": true
           }
         },
         "additionalProperties": false,
-        "description": "Response object for initializing correspondences. Contains information about the created correspondences and their attachments."
+        "description": "Contains information about the created correspondences and their attachments."
       },
       "InitializedCorrespondencesExt": {
         "required": [
@@ -1991,7 +2490,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "Information about the notifications that were created for the correspondence"
+        "description": "Information about a notification that were created for the correspondence"
       },
       "InitializedNotificationStatusExt": {
         "enum": [
@@ -2038,27 +2537,27 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "Gets or sets the id of the notification order",
+            "description": "The id of the notification order",
             "nullable": true
           },
           "sendersReference": {
             "type": "string",
-            "description": "Gets or sets the senders reference of the notification",
+            "description": "An optional senders reference of the notification",
             "nullable": true
           },
           "requestedSendTime": {
             "type": "string",
-            "description": "Gets or sets the requested send time of the notification",
+            "description": "The requested send time of the notification",
             "format": "date-time"
           },
           "creator": {
             "type": "string",
-            "description": "Gets or sets the short name of the creator of the notification order",
+            "description": "The short name of the creator of the notification order",
             "nullable": true
           },
           "created": {
             "type": "string",
-            "description": "Gets or sets the date and time of when the notification order was created",
+            "description": "The date and time of when the notification order was created",
             "format": "date-time"
           },
           "isReminder": {
@@ -2070,12 +2569,12 @@
           },
           "ignoreReservation": {
             "type": "boolean",
-            "description": "Gets or sets whether notifications generated by this order should ignore KRR reservations",
+            "description": "Whether notifications generated by this order should ignore KRR reservations",
             "nullable": true
           },
           "resourceId": {
             "type": "string",
-            "description": "Gets or sets the id of the resource that the notification is related to",
+            "description": "The id of the resource that the notification is related to",
             "nullable": true
           },
           "processingStatus": {
@@ -2093,17 +2592,17 @@
         "properties": {
           "status": {
             "type": "string",
-            "description": "Gets or sets the status",
+            "description": "The actual status of the notification",
             "nullable": true
           },
           "description": {
             "type": "string",
-            "description": "Gets or sets the description",
+            "description": "The description of the status",
             "nullable": true
           },
           "lastUpdate": {
             "type": "string",
-            "description": "Gets or sets the date time of when the status was last updated",
+            "description": "The date time of when the status was last updated",
             "format": "date-time"
           }
         },
@@ -2160,17 +2659,17 @@
         "properties": {
           "status": {
             "type": "string",
-            "description": "Gets or sets the status",
+            "description": "The actual status of the notification",
             "nullable": true
           },
           "description": {
             "type": "string",
-            "description": "Gets or sets the description",
+            "description": "The description of the status",
             "nullable": true
           },
           "lastUpdate": {
             "type": "string",
-            "description": "Gets or sets the date time of when the status was last updated",
+            "description": "The date time of when the status was last updated",
             "format": "date-time"
           }
         },
@@ -2184,6 +2683,33 @@
         ],
         "type": "string",
         "description": "Enum describing available notification channels."
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": {}
       },
       "ReferenceTypeExt": {
         "enum": [
