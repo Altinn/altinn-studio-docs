@@ -147,24 +147,58 @@ In order to support automations via custom end-user systems not constrained by b
 
 Note that Dialogporten will not consider the validity or semantics of API actions, but will - as with GUI actions - perform authorization and flag `isAuthorized` accordingly.
 
-
 **Read more**
 * [Learn more about actions in dialogs]({{<relref "../../../getting-started/dialogs#actions">}})
 * {{<link "../../../reference/entities/action">}}
 * {{<link "../../../getting-started/write-actions">}}
 * {{<link "../../../getting-started/authorization/dialog-tokens">}}
 
-## Adding attachments
+## Defining attachments
 
-## Adding transmissions
+A logical attachment can have several representations aimed at both human users (typically unstructured data such as PDFs, media content etc) and for system/machines (typically structured data such as JSON or XML). Eg. a given attachment can be made available in PDF, DOCX, XML and JSON formats, which all contain the same logical content but in different formats. An attachment can also be indicated as a HTML (mediaType `text/html`), which should cause a normal browser navigation. End-user systems can provide embedded experiences for supported media types, eg. provide viewers/players for image and video attachments.
 
-## Adding activities
+Attachments can be defined on both the dialog and on individual transmissions. 
+
+**Read more**
+* [Learn more about attachments in dialogs]({{<relref "../../../getting-started/dialogs#attachments">}})
+
+## Defining transmissions
+
+Transmissions may contain an additional level content and attachments that represent a single instance of communication within a dialog, which can be subject to different authorization rules than the dialog level content. The transmission thus contains
+
+* information of who sent it; either a representative of the party or the service owner
+* the type of transmission, which should give end user systems an idea on how to appropiately display it to end-users. A service specific, structured extended type can also be supplied that custom end-users systems can utilize.
+* optionally another related transmission
+
+As with dialog level content, transmissions might contain a title, summary and a content reference (front channel embed). Service owners might use front channel embeds to track whether or not a particular transmission has been opened, which again can eg. trigger a `transmissionOpened` activity being added.
+
+{{<notyetwritten>}}
+
+**Read more**
+* [Learn more about transmissions in dialogs]({{<relref "../../../getting-started/dialogs#transmissions">}})
+* {{<link "../../../reference/entities/transmission">}}
+* {{<link "../../../reference/content-types">}}
+
+## Defining activities
+
+When creating a dialog, the service owner system should consider the state of the service instance that the dialog reflects and how "far along" in the process the user has progressed. A typical starting point is to add a `DialogCreated` activity.
+
+{{<notyetwritten>}}
+
+**Read more**
+* {{<link "../../../getting-started/activity-log">}}
+* {{<link "../../../reference/entities/activity">}}
+
 
 ## Ensuring idempotency
 
-## Supplying your own dialog ID
+Dialogporten offers two optional mechanisms to ensure that any given dialog is only created once:
 
-## Events
+* User-supplied dialog IDs. Service owner systems can define their own UUIDv7s (which might be deterministcally derived from internal identifiers)
+* A dedicated idempotency key
+
+The first option is a simple mechanism which for most service owner systems might be sufficient, while the other can more easily used to implement arbitrary business rules (eg. any given dialog should be associated with only one tuple of reporting party, reporting service and year/month).
+
 
 **Read more**
 * {{<link "../../../reference/openapi">}}
