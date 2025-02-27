@@ -7,6 +7,7 @@ weight: 10
 ![Grid](grid.png "Components arranged in a Grid")
 
 {{% expandlarge id="full-example" header="Show configuration for this screenshot" %}}
+
 ```json
 [
   {
@@ -31,7 +32,7 @@ weight: 10
             }
           },
           { "text": "Fordeling" },
-          { 
+          {
             "text": "Beløp",
             "columnOptions": {
               "width": "25%"
@@ -134,11 +135,12 @@ weight: 10
   }
 ]
 ```
+
 {{% /expandlarge %}}
 
 ## Configuration
 
-The Grid component is configured like any other, but it requires a configuration for rows and cells. To start with a 
+The Grid component is configured like any other, but it requires a configuration for rows and cells. To start with a
 2x2 Grid having two columns and two rows, we can use the following configuration:
 
 ```json
@@ -147,36 +149,28 @@ The Grid component is configured like any other, but it requires a configuration
   "type": "Grid",
   "rows": [
     {
-      "cells": [
-        { "text": "Cell 1" },
-        { "text": "Cell 2" }
-      ]
+      "cells": [{ "text": "Cell 1" }, { "text": "Cell 2" }]
     },
     {
-      "cells": [
-        { "text": "Cell 3" },
-        { "text": "Cell 4" }
-      ]
+      "cells": [{ "text": "Cell 3" }, { "text": "Cell 4" }]
     }
   ]
 }
-``` 
+```
 
 Each cell should either be an object with a `text` property (for text cells), an object with a `component` property
 (referencing other components), an object with a `labelFrom` property (referencing other components) or `null` (for an empty cell). Each row must have the same amount of cell objects as
 every other row.
 
 ### Rows
+
 On some rows, usually the first, you might want to configure a header row. To do this, add a `header` property to the row
 and set it to `true`. This will make the row have a different background color and make the text bold.
 
 ```json {hl_lines=[2]}
 {
   "header": true,
-  "cells": [
-    { "text": "Cell 1" },
-    { "text": "Cell 2" }
-  ]
+  "cells": [{ "text": "Cell 1" }, { "text": "Cell 2" }]
 }
 ```
 
@@ -186,10 +180,7 @@ configure a row as read-only, add a `readOnly` property to the row and set it to
 ```json {hl_lines=[2]}
 {
   "readOnly": true,
-  "cells": [
-    { "text": "Cell 3" },
-    { "text": "Cell 4" }
-  ]
+  "cells": [{ "text": "Cell 3" }, { "text": "Cell 4" }]
 }
 ```
 
@@ -197,6 +188,7 @@ Note that components inside a `readOnly` are not automatically set to `readOnly`
 inside a `readOnly` row read-only, you need to configure it manually for that component.
 
 Rows can also be hidden, and a whole row will automatically be hidden if the following rules are met:
+
 1. The row has at least one component reference (not just empty cells and text cells)
 2. All component references in the row points to components that are currently hidden
 
@@ -204,6 +196,7 @@ In other words, rows that only have text cells will never be hidden, and even if
 will not be taken into account when the Grid component decides whether to hide the row or not.
 
 ### Cells
+
 Cells can be configured to be either as either text cell or a component cell. To configure a cell as a text cell, add a `text`
 property to the cell and set it to the text you want to display. You can also specify a text resource key as the text
 to display in the cell. Additionally, it is possible to include a `help` property along with the `text` property to provide help text for the cell. Alternatively, you can retrieve the text content
@@ -267,6 +260,7 @@ You can override a column's `alignText` and `textOverflow` settings for a specif
 directly to the selected text cell.
 
 Example:
+
 ```json
 {
   "cells": [
