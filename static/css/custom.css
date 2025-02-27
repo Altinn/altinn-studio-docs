@@ -545,6 +545,11 @@ display: none;
     vertical-align:baseline;
 }
 
+/* Code text */
+code {
+    white-space : pre-wrap !important;
+}
+
 /* Clear search */
 
 input[type="search"] {
