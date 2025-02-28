@@ -26,7 +26,7 @@ Steget vil fremdeles fungere som et vanlig datasteg, bare at man i tillegg kan s
 3. Anngi hvilke data som skal signeres på i `<altinn:dataTypesToSign>`, feks. skjemadataene i datamodellen.
 5. Oppgi en datatype i `<altinn:signatureDataType>`. Hvordan den bør se ut finner du nedenfor.
 
-Ferdig konvertert eksempel i process.xml:
+Ferdig konvertert eksempel i `process.xml`:
 
 ```xml
 <bpmn:task id="Task_1" name="Fyll ut og signer">
