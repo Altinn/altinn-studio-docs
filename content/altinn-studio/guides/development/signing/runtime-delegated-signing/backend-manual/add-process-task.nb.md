@@ -76,7 +76,7 @@ Den første datatypen benyttes av signeringssteget til å lagre de faktiske sign
 }
 ```
 
-Denne datatypen benyttes for å lagre informasjon om signatarene som skal få deligert rettigheter til å signere og dere status.
+Denne datatypen benyttes for å lagre informasjon om signatarene som skal få deligert rettigheter til å signere og statusen deres.
 
 ```json
 {
