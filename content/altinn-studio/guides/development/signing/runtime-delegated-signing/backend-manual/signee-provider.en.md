@@ -6,7 +6,7 @@ To allow the app to determine who should receive access to read and sign, the C#
 
 The implementation must return a set of individuals and/or organizations that should receive rights to sign. This can be based on the data model, as shown in the example below.
 
-The Id property in this implementation must match the ID specified in <altinn:signeeProviderId>.
+The `Id` property in this implementation must match the ID specified in <altinn:signeeProviderId>.
 
 ```csharp
 using System;
