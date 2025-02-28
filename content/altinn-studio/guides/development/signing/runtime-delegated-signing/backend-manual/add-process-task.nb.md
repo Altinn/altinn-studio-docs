@@ -8,7 +8,7 @@ hidden: true
 Det må legges til et signeringssteg i appens prosess, som er definert i `App/config/process/process.bpmn`.
 
 Det anbefales å dra inn prosessteget via prosessdesigneren i Altinn Studio. Da får man generert BPMN-diagram som viser flyten i appen.
-Forløpig vil prosesseditoren bare delvis konfigurere steget riktig, så det må suppleres med manuell konfigurasjon. 
+Forløpig vil prosessdesigneren bare delvis konfigurere steget riktig, så det må suppleres med manuell konfigurasjon. 
 
 Signering benytter to user actions:
 - `sign`: Selve signeringshandlingen.
