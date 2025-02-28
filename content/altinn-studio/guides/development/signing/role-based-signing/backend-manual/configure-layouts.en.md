@@ -31,7 +31,7 @@ Your updated `layout-sets.json` can look something like this:
 
 In the folder you created, add a new file called `signing.json`.
 
-There are standard components that can be used to build a layout set for a signing step. You are not required to use these components, but it's recommended.
+There are standard components that can be used to build a layout set for a signing step. You are not required to use these components, but it is recommended.
 
 - SigningDocumentList:
   - Lists the data being signed. For example attachments, xml-data or a PDF summary from an earlier step.
