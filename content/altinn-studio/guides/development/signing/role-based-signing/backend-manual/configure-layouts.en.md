@@ -36,7 +36,7 @@ There are standard components that can be used to build a layout set for a signi
 - SigningDocumentList:
   - Lists the data being signed. For example attachments, XML data or a PDF summary from an earlier step.
 - SigneeList:
-  - The real inteded use of this component is to show the signees expected to sign and their signing status.
+  - Lists the signees expected to sign and their signing status.
   - As of now this list doesn't support showing roles that should sign, only people and organisations that have been delegated access rights at runtime. But as soon as a person clicks "sign", they will show up, so we can use it as a "Signatures" list, to show who has signed.
 - SigningStatusPanel: 
   - Determines the current status of the singing task and present relevant information and buttons to the end user, for instance the "Sign"-button.
