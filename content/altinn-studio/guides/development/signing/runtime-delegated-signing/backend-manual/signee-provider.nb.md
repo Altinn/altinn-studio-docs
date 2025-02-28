@@ -5,7 +5,7 @@ hidden: true
 For at appen skal vite hvem som skal få tilganger for å lese og signere må C# interface-et `ISigneeProvider` implementeres.
 
 Den må returnere et sett med personer og/eller virksomheter som skal få rettighetene. Det kan for eksempel være basert på datamodellen, som vist nedenfor.
-Id-propertien i denne implementasjonen må matche ID som ble angitt i `<altinn:signeeProviderId>`.
+`Id`-attributtet i denne implementasjonen må matche ID som ble angitt i `<altinn:signeeProviderId>`.
 
 ```csharp
 #nullable enable
