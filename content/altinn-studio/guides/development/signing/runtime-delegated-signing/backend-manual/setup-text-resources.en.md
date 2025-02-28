@@ -2,7 +2,7 @@
 hidden: true
 ---
 
-Add a [text resource file](../../../../reference/ux/texts/) under 'App/config/texts' for each language you want to support.
+Add a [text resource file](/altinn-studio/reference/ux/texts/) under 'App/config/texts' for each language you want to support.
 
 Here you define text resources to be used in communication with the user.
 

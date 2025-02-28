@@ -2,7 +2,7 @@
 hidden: true
 ---
 
-Legg til en [teksressurs-fil](../../../../reference/ux/texts/) under ´App/config/texts´ for hvert språk du vil støtte.
+Legg til en [teksressurs-fil](/nb/altinn-studio/reference/ux/texts/) under ´App/config/texts´ for hvert språk du vil støtte.
 
 Her definerer du tekstressurser som skal brukes i kommunikasjon med bruker.
 
