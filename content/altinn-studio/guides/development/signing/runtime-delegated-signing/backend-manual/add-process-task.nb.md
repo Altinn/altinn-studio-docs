@@ -10,7 +10,7 @@ Det må legges til et signeringssteg i appens prosess, som er definert i `App/co
 Det anbefales å dra inn prosessteget via prosessdesigneren i Altinn Studio. Da får man generert BPMN-diagram som viser flyten i appen.
 Forløpig vil prosessdesigneren bare delvis konfigurere steget riktig, så det må suppleres med manuell konfigurasjon. 
 
-Signering benytter to user actions:
+Signering benytter to burkerhandlinger (user actions):
 - `sign`: Selve signeringshandlingen.
 - `reject`: Dersom det skal være mulig å avbryte signeringssteget, så må det også legges til en gateway for å styre hvor prosessen skal gå videre når det skjer.
 
