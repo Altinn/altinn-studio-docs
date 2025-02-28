@@ -21,7 +21,7 @@ Se eksempel på et datasteg som har blitt konvertert til et signeringssteg neden
 
 Steget vil fremdeles fungere som et vanlig datasteg, bare at man i tillegg kan signere samtidig som man sender inn skjemaet.
 
-1. Endre taskType på datasteget til `signing`.
+1. Endre `taskType` på datasteget til `signing`.
 2. Legg til `sign` action som en mulig handling.
 3. Anngi hvilke data som skal signeres på i `<altinn:dataTypesToSign>`, feks. skjemadataene i datamodellen.
 5. Oppgi en datatype i `<altinn:signatureDataType>`. Hvordan den bør se ut finner du nedenfor.
