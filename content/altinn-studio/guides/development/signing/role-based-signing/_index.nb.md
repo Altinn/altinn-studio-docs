@@ -1,14 +1,14 @@
 ---
-title: Rolle/tilgangspakke-basert signering
-linktitle: Rolle/Tilgangspakke
-description: Følg disse stegene for å implementere rolle/tilgangspakke-basert signering i din tjeneste.
+title: Rolle- og tilgangspakkebasert signering
+linktitle: Rolle/tilgangspakke
+description: Følg disse stegene for å implementere rolle- og tilgangspakkebasert signering i din tjeneste.
 tags: [rollebasert, signering]
 weight: 50
 aliases:
 - /nb/altinn-studio/guides/signing/role-based-signing
 ---
 
-## Hva betyr rolle/tilgangspakke-basert signering?
+## Hva betyr rolle- og tilgangspakkebasert signering?
 {{% insert "content/altinn-studio/guides/development/signing/role-based-signing/intro.nb.md" %}}
 
 ## Avhengigheter

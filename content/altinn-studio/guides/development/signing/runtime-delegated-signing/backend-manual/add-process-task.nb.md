@@ -102,7 +102,7 @@ Datatypenes ID-er kan settes til noe annet, men det må matche ID-ene som legges
 
   Gi ```read```, ```write``` og eventuelt ```sign``` til den som fyller ut skjemaet.
 
-  For at appen skal kunne delegere rettigheter til de som skal signere så må appen få delegeringsrettighet for ```read``` og ```sign```.
+  For at appen skal kunne delegere rettigheter til de som skal signere så må appen få rettigheter til å delegere ```read``` og ```sign```.
   Se eksempel nedenfor.
 
   - Bytt ut ```ttd``` med riktig org.

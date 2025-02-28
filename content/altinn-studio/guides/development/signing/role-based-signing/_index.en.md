@@ -1,6 +1,6 @@
 ---
-title: Role/access package based signing
-linktitle: Role based
+title: Role and access package based signing
+linktitle: Role and access package
 description: Follow these steps to implement role based signing in your service.
 tags: [role based, signing]
 weight: 50
