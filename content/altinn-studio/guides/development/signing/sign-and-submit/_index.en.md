@@ -49,7 +49,7 @@ Finished converted example in `process.xml`:
 </bpmn:task>
 ```
 
-The data type in applicationmetadata.json:
+The data type in `applicationmetadata.json`:
 
 ```json
 {
