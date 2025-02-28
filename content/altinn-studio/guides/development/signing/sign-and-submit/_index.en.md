@@ -26,7 +26,7 @@ The task will still work like a normal data task, except that the instance owner
 3. Configure what data types should be signed, for instance the raw data model, in `<altinn:dataTypesToSign>`.
 4. Configure in which data type the actual signature should be stored. The data type is examplified below.
 
-Finished converted example in process.xml:
+Finished converted example in `process.xml`:
 
 ```xml
 <bpmn:task id="Task_1" name="Fyll ut og signer">
