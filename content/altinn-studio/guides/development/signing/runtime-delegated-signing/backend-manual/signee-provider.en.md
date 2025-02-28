@@ -2,7 +2,7 @@
 hidden: true
 ---
 
-To allow the app to determine who should receive access to read and sign, the C# interface ```ISigneeProvider``` must be implemented.
+To allow the app to determine who should receive access to read and sign, the C# interface `ISigneeProvider` must be implemented.
 
 The implementation must return a set of individuals and/or organizations that should receive rights. This can be based on the data model, as shown in the example below.
 
@@ -22,25 +22,25 @@ using Altinn.Platform.Storage.Interface.Models;
 
 namespace Altinn.App.logic;
 
-public class SigneesProvider : ISigneeProvider
+public class FounderSigneesProvider : ISigneeProvider
 {
     private readonly IDataClient _dataClient;
 
-    public SigneesProvider(IDataClient dataClient)
+    public FounderSigneesProvider(IDataClient dataClient)
     {
         _dataClient = dataClient;
     }
 
-    public string Id { get; init; } = "signees";
+    public string Id { get; init; } = "founders";
 
     public async Task<SigneesResult> GetSigneesAsync(Instance instance)
     {
         Skjemadata formData = await GetFormData(instance);
 
-        List<SigneeParty> signeeParties = [];
+        List<ProvidedSignee> providedSignees = [];
         foreach (StifterPerson stifterPerson in formData.StifterPerson)
         {
-            var personSignee = new SigneeParty
+            var personSignee = new PersonSignee
             {
                 FullName = string.Join(
                     " ",
@@ -54,37 +54,34 @@ public class SigneesProvider : ISigneeProvider
                         Email = new Email
                         {
                             EmailAddress = stifterPerson.Epost,
-                            Subject = "Stiftelsesdokumenter mottatt for signering i Altinn",
-                            Body =
-                                "Hei "
-                                + stifterPerson.Fornavn
-                                + ",\n\nDu har mottatt stiftelsesdokumenter for signering i Altinn. Logg inn på Altinn for å signere dokumentene.\n\nMed vennlig hilsen\nBrønnøysundregistrene"
+                            SubjectTextResourceKey = "signing.email_subject",
+                            BodyTextResourceKey = "signing.notification_content".Replace(
+                                "{0}",
+                                stifterPerson.Fornavn
+                            ),
                         },
                         Sms = new Sms
                         {
                             MobileNumber = stifterPerson.Mobiltelefon,
-                            Body =
-                                "Hei "
-                                + stifterPerson.Fornavn
-                                + ",\n\nDu har mottatt stiftelsesdokumenter for signering i Altinn. Logg inn på Altinn for å signere dokumentene.\n\nMed vennlig hilsen\nBrønnøysundregistrene"
+                            BodyTextResourceKey = "signing.notification_content".Replace(
+                                "{0}",
+                                stifterPerson.Fornavn
+                            ),
                         }
                     }
                 }
             };
 
-            signeeParties.Add(personSignee);
+            providedSignees.Add(personSignee);
         }
 
         foreach (StifterVirksomhet stifterVirksomhet in formData.StifterVirksomhet)
         {
-            var organisationSignee = new SigneeParty
+            var organisationSignee = new OrganisationSignee
             {
-                OnBehalfOfOrganisation = new SigneePartyOrganisation
-                {
-                    Name = stifterVirksomhet.Navn,
-                    OrganisationNumber =
-                        stifterVirksomhet.Organisasjonsnummer?.ToString() ?? string.Empty
-                },
+                Name = stifterVirksomhet.Navn,
+                OrganisationNumber =
+                    stifterVirksomhet.Organisasjonsnummer?.ToString() ?? string.Empty,
                 Notifications = new Notifications
                 {
                     OnSignatureAccessRightsDelegated = new Notification
@@ -92,28 +89,28 @@ public class SigneesProvider : ISigneeProvider
                         Email = new Email
                         {
                             EmailAddress = stifterVirksomhet.Epost,
-                            Subject = "Stiftelsesdokumenter mottatt for signering i Altinn",
-                            Body =
-                                "Hei "
-                                + stifterVirksomhet.Navn
-                                + ",\n\nNye stiftelsesdokumenter for signering i Altinn. Logg inn på Altinn for å signere dokumentene.\n\nMed vennlig hilsen\nBrønnøysundregistrene"
+                            SubjectTextResourceKey = "signing.email_subject",
+                            BodyTextResourceKey = "signing.notification_content".Replace(
+                                "{0}",
+                                stifterVirksomhet.Navn
+                            ),
                         },
                         Sms = new Sms
                         {
                             MobileNumber = stifterVirksomhet.Mobiltelefon,
-                            Body =
-                                "Hei "
-                                + stifterVirksomhet.Navn
-                                + ",\n\nDu har mottatt stiftelsesdokumenter for signering i Altinn. Logg inn på Altinn for å signere dokumentene.\n\nMed vennlig hilsen\nBrønnøysundregistrene"
+                            BodyTextResourceKey = "signing.notification_content".Replace(
+                                "{0}",
+                                stifterVirksomhet.Navn
+                            ),
                         }
                     }
                 }
             };
 
-            signeeParties.Add(organisationSignee);
+            providedSignees.Add(organisationSignee);
         }
 
-        return new SigneesResult { Signees = signeeParties };
+        return new SigneesResult { Signees = providedSignees };
     }
 
     private async Task<Skjemadata> GetFormData(Instance instance)
