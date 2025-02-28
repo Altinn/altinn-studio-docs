@@ -34,7 +34,7 @@ In the folder you created, add a new file called `signing.json`.
 There are standard components that can be used to build a layout set for a signing step. You are not required to use these components, but it is recommended.
 
 - SigningDocumentList:
-  - Lists the data being signed. For example attachments, xml-data or a PDF summary from an earlier step.
+  - Lists the data being signed. For example attachments, XML data or a PDF summary from an earlier step.
 - SigneeList:
   - The real inteded use of this component is to show the signees expected to sign and their signing status.
   - As of now this list doesn't support showing roles that should sign, only people and organisations that have been delegated access rights at runtime. But as soon as a person clicks "sign", they will show up, so we can use it as a "Signatures" list, to show who has signed.
