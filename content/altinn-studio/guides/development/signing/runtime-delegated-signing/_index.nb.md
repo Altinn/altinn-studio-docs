@@ -26,7 +26,7 @@ I følgende [repo](https://altinn.studio/repos/ttd/signering-brukerstyrt) ligger
 
 Hovedflyten i applikasjonen er:
 
-1. Utfyller av skjema oppgir fødselsnummer og etternavn for de som skal signere, eventuel organisasjonsnummer.
+1. Utfyller av skjema oppgir fødselsnummer og etternavn for personer eller organisasjonsnummer for organisasjoner som skal signere.
 2. Når skjema er ferdig utfylt trykker utfyller "Til signering", som beveger prosessen til neste steg i prosessen, som er signeringssteget.
 3. I det signeringssteget initialiseres kaller appen en implementasjon av interfacet `ISigneeProvider`, som dere må implementere, for å finne ut hvem som må få delegert tilgang til å signere.
 4. Signatarene får delegert rettigheter og mottar notifikasjon om at de har en signeringsoppgave.
