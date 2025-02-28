@@ -8,7 +8,7 @@ Det må legges til et prosessteg og en gateway i `App/config/process/process.bpm
 
 Det anbefales å dra inn prosessteget via prosessdesigneren i Altinn Studio. Da får man generert BPMN-diagram som viser flyten i appen. Forløpig vil prosessdesigneren bare delvis konfigurere steget riktig, så det må suppleres med noe manuell konfigurasjon.
 
-Signering benytter to user actions. Dersom Altinn-brukergrensesnittet brukes av appen, så vil disse bli kalt automatisk når man står i signeringssteget. Om kun API-et benyttes, så må disse kalles manuelt via `/actions`-endepunktet eller process next.
+Signering består av to brukerhandlinger (user actions). Dersom Altinn-brukergrensesnittet brukes av appen, så vil disse bli kalt automatisk når man står i signeringssteget. Om kun API-et benyttes, så må disse kalles manuelt via `/actions`-endepunktet eller process next.
 - `sign`: Selve signeringshandlingen.
 - `reject`: Dersom det skal være mulig å avbryte signeringssteget, så må det også legges til en gateway for å styre hvor prosessen skal gå videre da.
 
