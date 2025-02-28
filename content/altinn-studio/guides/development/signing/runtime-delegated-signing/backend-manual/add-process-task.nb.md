@@ -93,7 +93,7 @@ Denne datatypen benyttes for å lagre informasjon om signatarene som skal få de
 }
 ```
 
-Det er viktig å sette allowedContributers til ```"app:owned"```. Det gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv.
+Det er viktig å sette `allowedContributers` til ```"app:owned"```. Det gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv.
 
 Datatypenes ID-er kan settes til noe annet, men det må matche ID-ene som legges inn i `signatureDataType` og `signeeStatesDataTypeId` i prossessteget, som vist i punktet under.
 
