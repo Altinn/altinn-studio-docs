@@ -4,7 +4,7 @@ hidden: true
 
 Legg til en [teksressurs-fil](/nb/altinn-studio/reference/ux/texts/) under ´App/config/texts´ for hvert språk du vil støtte.
 
-Her definerer du tekstressurser som skal brukes i kommunikasjon med bruker.
+Her definerer du tekstressurser som skal brukes i kommunikasjonen med brukerene.
 
 Tekstressurs-id'er for signeringsflyten settes opp for å **overstyre** innholdet i meldinger som blir sendt til altinn-innboksen.
 
