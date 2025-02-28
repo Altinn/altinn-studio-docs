@@ -6,7 +6,7 @@ Legg til en [teksressurs-fil](/nb/altinn-studio/reference/ux/texts/) under ´App
 
 Her definerer du tekstressurser som skal brukes i kommunikasjonen med brukerene.
 
-Tekstressurs-id'er for signeringsflyten settes opp for å **overstyre** innholdet i meldinger som blir sendt til altinn-innboksen.
+Tekstressurs-ID-er for signeringsflyten settes opp for å **overstyre** innholdet i meldinger som blir sendt til Altinn-innboksen.
 
 `signing.correspondence_cta_title` - tittel på varselmelding til signatar </br>
 `signing.correspondence_cta_summary` - undertittel på varselmelding signatar </br>
