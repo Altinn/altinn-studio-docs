@@ -8,7 +8,7 @@ aliases:
 - /altinn-studio/guides/signing/
 ---
 
-The different scenarios below can to some extend be combined with each other, but many services will only need one of them.
+The different scenarios below can to some extent be combined with each other, but many services will only need one of them.
 
 ## Role/access package based signing
 {{% insert "content/altinn-studio/guides/development/signing/role-based-signing/intro.en.md" %}}
