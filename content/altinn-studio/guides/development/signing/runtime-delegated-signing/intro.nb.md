@@ -8,4 +8,4 @@ Typisk vil appen be skjemaeier om å oppgi fødselsnummer og etternavn for de de
 
 Når skjemaet er ferdig fylt ut, trykker man på "Send til signering".
 Da vil appen delegere rettigheter og sende en melding til innboksen i Altinn.
-Vedkommende vil også kunne varsles via e-post og SMS, avhengig av konfigurasjon.
+Vedkommende vil også kunne varsles via e-post og sms, avhengig av konfigurasjon.
