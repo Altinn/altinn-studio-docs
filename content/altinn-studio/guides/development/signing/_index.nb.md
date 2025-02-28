@@ -10,7 +10,7 @@ aliases:
 
 De ulike scenarioene nedenfor kan i noen grad kombineres med hverandre, men ofte trenger en tjeneste bare en av variantene.
 
-## Rolle/tilgangspakke-basert
+## Rolle-/tilgangspakkebasert
 {{% insert "content/altinn-studio/guides/development/signing/role-based-signing/intro.nb.md" %}}
 
 [Slik gjør du det](/nb/altinn-studio/guides/development/signing/role-based-signing)
