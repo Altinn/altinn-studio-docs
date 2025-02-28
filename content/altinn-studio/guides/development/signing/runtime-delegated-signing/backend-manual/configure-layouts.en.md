@@ -38,7 +38,7 @@ There are standard components that can be used to build a layout set for a signi
 - SigningStatusPanel: 
   - Determines the current status of the singing task and present relevant information and buttons to the end user, for instance the "Sign"-button.
 
-If you choose not to use the SingingStatusPanel to display the "Sign"-button, you must as a minimum add an action button with action `sign`, to allow the end user to sign.
+If you choose not to use the `SingingStatusPanel` to display the "Sign"-button, you must as a minimum add an action button with action `sign`, to allow the end user to sign.
 
 Example of usage of the standard components:
 
