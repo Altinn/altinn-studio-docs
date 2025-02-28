@@ -1336,6 +1336,13 @@
             "description": "The name of the attachment file.",
             "nullable": true
           },
+          "displayName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "A logical name for the file, which will be shown in Altinn Inbox.",
+            "nullable": true
+          },
           "isEncrypted": {
             "type": "boolean",
             "description": "A value indicating whether the attachment is encrypted or not."
@@ -1424,6 +1431,13 @@
             "minLength": 0,
             "type": "string",
             "description": "The name of the attachment file.",
+            "nullable": true
+          },
+          "displayName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "A logical name for the file, which will be shown in Altinn Inbox.",
             "nullable": true
           },
           "isEncrypted": {
@@ -1635,6 +1649,13 @@
             "minLength": 0,
             "type": "string",
             "description": "The name of the attachment file.",
+            "nullable": true
+          },
+          "displayName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "A logical name for the file, which will be shown in Altinn Inbox.",
             "nullable": true
           },
           "isEncrypted": {
@@ -2186,6 +2207,13 @@
             "description": "The name of the attachment file.",
             "nullable": true
           },
+          "displayName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "A logical name for the file, which will be shown in Altinn Inbox.",
+            "nullable": true
+          },
           "isEncrypted": {
             "type": "boolean",
             "description": "A value indicating whether the attachment is encrypted or not."
@@ -2228,6 +2256,13 @@
             "minLength": 0,
             "type": "string",
             "description": "The name of the attachment file.",
+            "nullable": true
+          },
+          "displayName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "A logical name for the file, which will be shown in Altinn Inbox.",
             "nullable": true
           },
           "isEncrypted": {
