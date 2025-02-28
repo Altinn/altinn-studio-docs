@@ -13,7 +13,7 @@ aliases:
 {{% insert "content/altinn-studio/guides/development/signing/sign-and-submit/intro.en.md" %}}
 
 ## Prerequisites
-If the service should send a signature receipt to the inbox of the signee, the altinn message service (Correspondence) must be enabled.
+If the service should send a signature receipt to the inbox of the signee, the Altinn message service (Correspondence) must be enabled.
 
 ## Convert data task step to a singing task
 
