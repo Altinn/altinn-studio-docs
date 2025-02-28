@@ -8,7 +8,7 @@ A singing task must be added to `App/config/process/process.bpmn`.
 
 We recommend doing this using the Altinn Studio process editor, so that the BPMN diagram is generated, to show the apps process.
 
-Signing normaly uses two user actions. If the Altinn user interface is used by the app, these will be called by button pressen in the signing step. If only the API is used, these must be called manually via the `/actions` endpoint or via process next.
+Signing normally uses two user actions. If the Altinn user interface is used by the app, these will be called by button pressen in the signing step. If only the API is used, these must be called manually via the `/actions` endpoint or via process next.
 - `sign`: The actual act of singing the data. Performed by the signees.
 - `reject`: If the end user sees something wrong with the singing step, the person concerned can press abort in the signing step. All signatures and the signee state is deleted, and runtime delegated access rights are revoked. Which process step the user is taken to after this is specified in a gateway, as exemplified below.
 
