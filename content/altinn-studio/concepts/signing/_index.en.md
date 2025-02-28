@@ -50,4 +50,3 @@ The service owner stores the signature object in their archival system. The sign
 
 ---
 
-Let me know if you need further adjustments!
