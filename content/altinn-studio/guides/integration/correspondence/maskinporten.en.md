@@ -26,9 +26,9 @@ To set this up, follow the general steps outlined in the [Maskinporten integrati
 
   ```json
   "MaskinportenSettings": {
-      "authority": "https://[test.]maskinporten.no/",
-      "clientId": "the client id",
-      "jwkBase64": "base64 encoded jwk"
+      "Authority": "https://[test.]maskinporten.no/",
+      "ClientId": "the client id",
+      "JwkBase64": "base64 encoded jwk"
   }
   ```
 - The correspondence client will automatically find and use the Maskinporten client, and attempt to bind to the default 
@@ -199,11 +199,11 @@ new SendCorrespondencePayload(
   async () =>
   {
     TokenResponse maskinportenResponse = await maskinportenService.GetToken(
-      "base64 encoded jwk",
-      "test|prod",
-      "the client id",
-      "altinn:serviceowner altinn:correspondence.write",
-      null
+      base64EncodedJwk: "...",
+      environment: "test|prod",
+      clientId: "the client id",
+      scope: "altinn:serviceowner altinn:correspondence.write",
+      resource: null
     );
 
     TokenResponse altinnResponse = await maskinportenService.ExchangeToAltinnToken(
