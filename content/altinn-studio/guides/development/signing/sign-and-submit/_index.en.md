@@ -21,7 +21,7 @@ Below is an example of a data task that has been converted to a signing task.
 
 The task will still work like a normal data task, except that the instance owner can sign the data at the same time as submitting the instance.
 
-1. Change the taskType to be `signing`.
+1. Change the `taskType` to be `signing`.
 2. Add `sign` to possible actions.
 3. Configure what data types should be signed, for instance the raw data model, in `<altinn:dataTypesToSign>`.
 4. Configure in which data type the actual signature should be stored. The data type is examplified below.
