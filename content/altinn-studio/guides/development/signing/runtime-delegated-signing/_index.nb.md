@@ -95,7 +95,7 @@ Nedenfor følger de viktiste konfigurasjonsstegene for å få satt opp en slik a
 
 > **Obs!** Foreløpig er det ikke laget mocking av delegasjon i localtest, så testing må i praksis utføres i TT02-miljøet.
 
-Det er caching i autorisasjonslaget som gjør at det kan ta tid før en bruker som har fått delegert tilgang til et skjema via brukerstyrt signering ser skjemaet i sin altinn innboks.
+Det er caching i autorisasjonslaget som gjør at det kan ta tid før en bruker som har fått delegert tilgang til et skjema via brukerstyrt signering ser skjemaet i sin Altinn innboks.
 
 Men dette vil altså bare inntreffe for:
 
