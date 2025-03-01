@@ -640,6 +640,7 @@ code {
     background: #FFF7DD;
     border: 1px solid #fbf0cb;
     padding: 0px 2px;
+    white-space : pre-wrap !important;
 }
 code + .copy-to-clipboard {
     margin-left: -1px;
