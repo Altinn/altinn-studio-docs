@@ -52,10 +52,9 @@ for å tydelig vise hva de representerer, og du kan legge til egne felter.
 4. Legg eventuelt til flere felt. 
 Hvis du vil gruppere flere felt, kan velge __Objekt__ fra Legg til-menyen, og så legge til felter i dette objektet.
 5. Klikk på  __Generer modeller__. Du får en melding om at datamodellen din er opprettet.
-    
 {{%/expandlarge%}}
 
-{{% expandlarge id="create-form" header="Dra inn skjemakomponenter i skjemaet og konfigurer dem" %}}
+{{% expandlarge id="create-form" header="Dra inn skjemakomponenter i skjemaet og velg egenskaper for dem" %}}
 Du lager selve skjemaet på __Utforming__-siden i Altinn Studio. Her kan du dra inn de skjemakomponentene du vil ha med på hver side i skjemaet. 
 
 ### Legge til felter i skjemaet
