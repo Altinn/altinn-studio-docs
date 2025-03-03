@@ -29,7 +29,7 @@ The ID given for resource will be the one used in Altinn API for checking access
 
 For external resources, the type will be generic access resource.
 
-![Create Resource](create_resource_2.png)
+![Create Resource](create_resource_15.png)
 
 
 ### Title
