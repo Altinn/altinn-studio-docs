@@ -26,5 +26,7 @@ Dersom du mangler skrivetilgang må du ta kontakt med personen som har administr
 
 8. Klikk deg inn på denne og se over at endringene stemmer overens med det nye navnet på applikasjonen din.
 9. Om alt ser greit ut så kan endringen merges ved å klikke på "**Merge pull request**".
-10. Siste steget som trengs er nå å pulle endringene dine til studio. Naviger så til fanen med den ny appen din og klikk "**Pull**" for å hente endringene du nettopp merget. ![Pull endringer](pull.png "Pull endringer")
-11. Voila! Du er nå klar til å utvikle på den kopierte appen.
+10. Siste steget som trengs er nå å sikre at alle endringene kommer inn til din bruker i Studio. Naviger til fanen med den ny appen din og klikk på hamburger-menyen til høyre for "Del dine endringer". Velg "Lokale endringer" fra menyen.
+11. Klikk på "Slett lokale endringer" nederst på dialogen som dukker opp.
+12. Fyll ut navnet på app'en for å bekrefte, og klikk på knappen "Slett mine endringer". Vent til dialogen forsvinner og du får en bekreftelse på at slettingen gikk ok.
+13. Voila! Du er nå klar til å utvikle på den kopierte appen.

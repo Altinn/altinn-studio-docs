@@ -26,5 +26,7 @@ If you don't have permissions you should talk to your organizations administrato
 7. Navigate to the tab "**Pull requests**" and the that the changes under the pull request named "Auto-generated: Final changes for cloning app.". ![Pull request](pull-request-summary.png "Pull-request-summary")
 8. Look through the pull request and make sure that the changes matches the new name of your application.
 9. If everything is in order the pull request can be merged by clicking "**Merge pull request**".
-10. The final step is now to pull these changes to studio. Navigate to the tab with your created app and click "**Pull**" to fetch the changes you just merged. ![Pull changes](pull.png "Pull changes")
-11. Voila! You are now ready to develop on your copied app.
+10. The final step needed is to ensure that all changes are reflected in your user account in Studio. Navigate to the tab with your new app and click on the hamburger menu to the right of "Share your changes." Select "Local changes" from the menu.
+11. Click "Delete local changes" at the bottom of the dialog that appears.
+12. Enter the name of the app to confirm, and click the "Delete my changes" button. Wait for the dialog to disappear and for a confirmation that the deletion was successful.
+13. Voila! You are now ready to develop on the copied app.
