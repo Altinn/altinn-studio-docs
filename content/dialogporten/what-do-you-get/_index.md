@@ -13,11 +13,12 @@ weight: 20
 ## Features for service owners using Altinn Studio
 * Automatic integration - all app instances will be available in Dialogporten
 * Greater flexibility and richness in how your app instances can be presented for end users than Altinn 2
-* SDK for use in Altinn Apps, allowing custom "dialog" updates to most accurately reflect the various states of your app
+* SDK for use in Altinn Apps utilizing a [Dialogporten API client]({{<relref "../user-guides/service-owners/api-client">}}), allowing custom dialog updates to most accurately reflect the various states of your app
 
 ## Features for service owners using other service platforms
 * Lets you make available your digital services and message as first-class citizens alongside those realized in Altinn Studio
 * Greater flexibility in how you digital communication with end-users can be presented
+* For platforms using .NET, an [API client]({{<relref "../user-guides/service-owners/api-client">}}) to make it easier to administrate dialogs and verify dialog tokens
 
 ## Features for end-user system (EUS) providers
 * Common format for digital service representations, making integrations easier regardless of platform
@@ -29,9 +30,7 @@ weight: 20
 * Various end-user systems and portals operating on the same metadata state (eg. same activity/seen log)
 
 ## Next steps
-Read more about getting started with Dialogporten
-
-* [Getting started]({{<relref "../getting-started">}})
+* {{<link "../getting-started">}}
 
 {{<children />}}
 
