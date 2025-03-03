@@ -10,7 +10,7 @@ aliases:
 Logg inn i Altinn Studio. Hvis du ikke har en bruker, kan du opprette en fra forsiden. 
 
 1. Klikk på __Opprett ny app__ øverst til høyre i skjermbildet.
-2. I feltet __Eier__ velger du hvem som skal eie appen. Hva du kan velge her, avhenger av om du har rettigheter til å opprette en app for organisasjonen din, eller om appen blir registrert privat, på din bruker.
+2. I feltet __Eier__ velger du hvem som skal eie appen. Hva du kan velge her, avhenger av om du har rett til å opprette en app for organisasjonen din, eller om appen blir registrert privat, på din bruker.
    - Hvis du oppretter appen på din egen bruker, kan du teste all funksjonalitet i Altinn Studio, men du har ikke tilgang til 
      testmiljøet.
    - Hvis du har rettigheter til å opprette appen på en organisasjon, kan du også publisere tjenesten til
