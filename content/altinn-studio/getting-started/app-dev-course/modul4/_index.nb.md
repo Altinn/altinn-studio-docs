@@ -39,7 +39,7 @@ Du kan bruke følgende bilde av Sogndals kommunevåpen i tjenesten:
 3. Endre navn på siden. Velg sidens ID under "Konfigurasjon", og skriv inn navnet `infoside`.
     - Det har automatisk dukket opp navigasjonsknapper på den nye siden. Åpne den første siden, og se at det også har 
     dukket opp navigasjonsknapper på denne. Åpne `infoside` igjen for å fortsette.
-4. Klikk på menyien (tre prikker) ved siden av sidenavnet `infoside` og velg "Flytt opp". Du vil se at den nye siden kommer øverst i skjemaoversikten. 
+4. Klikk på menyen (tre prikker) ved siden av sidenavnet `infoside` og velg "Flytt opp". Du vil se at den nye siden kommer øverst i skjemaoversikten. 
 5. Finn bildekomponenten i listen over standardkomponenter og dra den inn på infosiden.
 6. Du kan dra og slippe bildekomponenten for å flytte den rundt på siden. Pass på at den
     ligger øverst på siden.
