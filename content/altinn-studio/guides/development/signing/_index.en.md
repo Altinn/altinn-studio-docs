@@ -10,17 +10,17 @@ aliases:
 
 The different scenarios below can to some extent be combined with each other, but many services will only need one of them.
 
-## Role/access package based signing
-
-{{% insert "content/altinn-studio/guides/development/signing/role-based-signing/intro.en.md" %}}
-
-[How to configure](/altinn-studio/guides/development/signing/role-based-signing)
-
 ## Runetime delegated singing
 
 {{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/intro.en.md" %}}
 
 [How to configure](/altinn-studio/guides/development/signing/runtime-delegated-signing)
+
+## Role/access package based signing
+
+{{% insert "content/altinn-studio/guides/development/signing/role-based-signing/intro.en.md" %}}
+
+[How to configure](/altinn-studio/guides/development/signing/role-based-signing)
 
 ## Sign and submit
 
