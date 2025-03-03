@@ -79,7 +79,6 @@ Komponentene du kan bruke i skjemaet er delt i tre kategorier:
    fra komponent til komponent. På de fleste komponentene kan du bestemme om du vil
    - justere bredden til komponenten
    - sette at den skal være skrivebeskyttet
-{{%/expandlarge%}}
 
 ### Nyttig informasjon
 - Du må legge til en Send inn-knapp i skjemaet. Bruk komponenten __Send inn__.
