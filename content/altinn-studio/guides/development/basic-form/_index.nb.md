@@ -21,7 +21,7 @@ Logg inn i Altinn Studio. Hvis du ikke har en bruker, kan du opprette en fra for
 4. Klikk på __Opprett app__.
 
 Når appen er opprettet, ser du den på oversiktssiden.
-
+{{%/expandlarge%}}
 
 {{% expandlarge id="set-service-name" header="Legg inn det navnet som skal vises for appen" %}}
 Gi appen en eget visningsnavn, Dette navnet vises som overskrift på skjemaet og i brukerens innboks i Altinn.
@@ -30,7 +30,7 @@ Gi appen en eget visningsnavn, Dette navnet vises som overskrift på skjemaet og
 2.  I feltet __Navn på appen__ skriver du det navnet du vil at skjemaet dit skal ha, for eksempel "Innrapportering av sjeldne arter i bydel Sagene".
 
 Navnet blir lagret når du klikker utenfor feltet, og det blir oppdatert på oversiktssiden.
-
+{{%/expandlarge%}}
 
 {{% expandlarge id="create-datamodel" header="Lag en datamodell for skjemaet ditt" %}}
 En datamodell er en slags innholdsfortegnelse for skjemaet. 
