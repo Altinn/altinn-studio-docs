@@ -12,6 +12,8 @@ An authenticated electronic signature allows service owners to ensure traceabili
 
 Service owners must make their own assessment of which electronic signature they want and need for their services, based on the requirements for signature and traceability in the regulations for which each service owner is responsible.
 
+Technical guides for configuring signing can be found [here](/altinn-studio/guides/development/signing/).
+
 ## Functionality
 
 ### What is being signed?
