@@ -1,9 +1,9 @@
 ---
 title: Signer og send inn
 linktitle: Signer og send inn
-description: Følg disse stegene for å implementere signering og send inn i ett steg i din app
+description: Følg disse stegene for å implementere signering og send inn i ett steg i din app.
 tags: [signering]
-weight: 50
+weight: 52
 aliases:
 - /nb/altinn-studio/guides/signing/sign-and-submit
 ---
