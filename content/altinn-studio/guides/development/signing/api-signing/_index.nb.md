@@ -29,7 +29,7 @@ Dersom kun én person skal signere i et signeringssteg så kan man benytte "proc
 `PUT /{org}/{app}/instances/{instanceOwnerPartyId}/{instanceGuid}/process/next`
   
 Body:
-```
+```json
 {
   "action": "sign"
 }
@@ -45,7 +45,7 @@ Dersom man ønsker at flere skal kunne signere i parallell, så må man benytte 
 `POST /{org}/{app}/instances/{instanceOwnerPartyId}/{instanceGuid}/actions`
 
 Body:
-```
+```json
 {
   "action": "sign"
 }
@@ -61,7 +61,7 @@ Endepunktet kan også brukes selv om man ikke benytter brukerstyrt signering, me
 `GET /{org}/{app}/instances/{instanceOwnerPartyId}/{instanceGuid}/signing`
 
 Eksempel på respons før signering er utført, hvor en person og en virksomhet skal signere:
-```
+```json
 {
   "signeeStates": [
     {
@@ -85,7 +85,7 @@ Eksempel på respons før signering er utført, hvor en person og en virksomhet 
 ```
 
 Etter signering, hvor personen Bøylehest Matt har signert på vegne av seg selv, og personen Fisk Kunstig har signert på venge av organisasjonen Lydig Vennlig Katt Kjerne:
-```
+```json
 {
   "signeeStates": [
     {

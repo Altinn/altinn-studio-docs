@@ -27,3 +27,8 @@ The different scenarios below can to some extent be combined with each other, bu
 {{% insert "content/altinn-studio/guides/development/signing/sign-and-submit/intro.en.md" %}}
 
 [How to configure](/altinn-studio/guides/development/signing/sign-and-submit)
+
+## API based signing
+{{% insert "content/altinn-studio/guides/development/signing/api-signing/intro.en.md" %}}
+
+[How to configure](/altinn-studio/guides/development/signing/api-signing)
