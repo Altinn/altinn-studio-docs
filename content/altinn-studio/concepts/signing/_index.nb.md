@@ -12,6 +12,8 @@ Autentisert elektronisk signatur gjør det mulig for tjenesteeiere å sikre spor
 
 Tjenesteeierne må foreta en egen vurdering av hvilken elektronisk signatur de ønsker og har behov for i sine tjenester. Dette blant annet ut ifra hvilke krav som stilles til signatur og sporbarhet i det regelverket som den enkelte tjenesteeier har ansvar for.
 
+Tekniske guider for oppsett av signering finner du [her](/nb/altinn-studio/guides/development/signing/).
+
 ## Funksjonalitet
 
 ### Hva signeres det på?
