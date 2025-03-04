@@ -37,15 +37,20 @@ These entities have a flag, `isAuthorized`, which is either `true` or `false`. I
 
 ## Authentication level
 
-Resources in Altinn Authorization may contain a policy that adds a requirement for a minimum level of authentication in order to access that resource. In practice, this is used to enforce the use of personal two-factor authentication methods provided by ID-porten, which correspond to "High" in [eIDAS Levels of Assurance (LoA)](https://ec.europa.eu/digital-building-blocks/sites/display/DIGITAL/eIDAS+Levels+of+Assurance). These currently are:
+Resources in Altinn Authorization may contain a policy that adds a requirement for a minimum level of authentication in order to access that resource. Altinn supports [four security levels](https://info.altinn.no/en/help/logging-in/miscellaneous-about-logging-in/sikkerhetsniva/). 
 
-* BankID (and BankID variants)
-* Buypass
-* Commfides
-
-Other authentication methods, ie. MinID or Maskinporten/system users, are *not* considered as having a "High" Level of Assurance (but rather the second level, "Substantial").
+In ID-porten, authentication methods use the [eIDAS Levels of Assurance (LoA)](https://ec.europa.eu/digital-building-blocks/sites/display/DIGITAL/eIDAS+Levels+of+Assurance) to indicate security levels. There are three levels, "low", "substantial" and "high"; however ID-porten currently only supports authentication methods giving "substantial" or "high" levels of security. These are mapped to Altinn security levels 3 and 4, respectively.
 
 Attempting to access dialog details with a token with insufficient authentication level will result in a `403 Forbidden` error.
+
+### About system users
+
+While eIDAS LoA does not define authentication levels for non-interactive, enterprise authentications such as Maskinporten, for historic reasons, Altinn maps these authentications - which in practice, involves system users - to level 3.
+
+{{<notice warning>}}
+eIDAS mandates that both "substantial" and "high" levels of security can only be attained by multi-level authentication (MFA). So while one can assume that "substantial" maps to "level 3" and "high" maps to "level 4", the inverse is not necessarily true.
+{{</notice>}}
+
 
 ## Working with dialog details
 
