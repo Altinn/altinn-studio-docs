@@ -3,7 +3,7 @@ title: Rolle- og tilgangspakkebasert signering
 linktitle: Rolle/tilgangspakke
 description: Følg disse stegene for å implementere rolle- og tilgangspakkebasert signering i din tjeneste.
 tags: [rollebasert, signering]
-weight: 50
+weight: 51
 aliases:
 - /nb/altinn-studio/guides/signing/role-based-signing
 ---
