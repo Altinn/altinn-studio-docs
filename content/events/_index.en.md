@@ -8,13 +8,6 @@ aliases:
  - /altinn-events/
 ---
 
-
-{{% notice warning  %}}
-This section of the documentation is a work in progress. 
-There are sections with missing or only partial documentation.
-{{% /notice %}}
-
-
 ## Design goals
 
 Altinn Events was developed to make it easier for service developers to deliver dynamic and 
