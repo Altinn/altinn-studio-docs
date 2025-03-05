@@ -28,9 +28,6 @@ See [Authentication and Authorization](../../../api/#authentication--authorizati
 application/json
 
 ### Request body
-The request body should contain the
-[subscription request](https://raw.githubusercontent.com/Altinn/altinn-events/main/src/Events/Models/SubscriptionRequestModel.cs)
-serialized as JSON.
 
 {{% notice info %}}
 The list of required properties below shows what is generally required.
