@@ -11,6 +11,11 @@ toc: true
 
 POST /subscriptions
 
+{{% notice info %}}
+Example use case: Use this endpoint when you want to add a subscription to your Altinn Studio app's events. Use the filter
+properties to specify what events you want to subscribe to. 
+{{% /notice %}}
+
 ## Authentication
 
 This API requires authentication.

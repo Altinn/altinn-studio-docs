@@ -41,6 +41,7 @@ a validation event is sent to the endpoint to validate its response status.
 ```
 _Example of validation event_
 
+See more details in the developer guides
 
 ### IP for outgoing traffic
 {{% notice info %}}
