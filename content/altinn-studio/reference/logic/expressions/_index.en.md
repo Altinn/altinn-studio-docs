@@ -262,46 +262,120 @@ Here we find the closest `age` component `age-1`, which is _36_, Kari's age.
 
 These functions are available for use in expressions:
 
-| Function Name                                | Parameters                                      | Return Value                         | Frontend | Backend |  
-|----------------------------------------------|-------------------------------------------------|--------------------------------------|----------|---------|  
-| [`equals`](#func-equals)                     | [String](#strings), [String](#strings)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
-| [`notEquals`](#func-equals)                  | [String](#strings), [String](#strings)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
-| [`not`](#func-not)                           | [Boolean](#boolean-values)                      | [Boolean](#boolean-values)           | ✅        | ✅       |  
-| [`greaterThan`](#func-gt)                    | [Number](#numbers), [Number](#numbers)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
-| [`greaterThanEq`](#func-gt)                  | [Number](#numbers), [Number](#numbers)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
-| [`lessThan`](#func-gt)                       | [Number](#numbers), [Number](#numbers)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
-| [`lessThanEq`](#func-gt)                     | [Number](#numbers), [Number](#numbers)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
-| [`concat`](#func-concat)                     | None or multiple [strings](#strings)            | [String](#strings)                   | ✅        | ✅       |  
-| [`and`](#func-and)                           | One or more [boolean values](#boolean-values)   | [Boolean](#boolean-values)           | ✅        | ✅       |  
-| [`or`](#func-and)                            | One or more [boolean values](#boolean-values)   | [Boolean](#boolean-values)           | ✅        | ✅       |  
-| [`if`](#func-if)                             | [See detailed description](#func-if)            | [See detailed description](#func-if) | ✅        | ✅       |  
-| [`contains`](#func-contains-not-contains)    | [String](#strings), [String](#strings)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
-| [`notContains`](#func-contains-not-contains) | [String](#strings), [String](#strings)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
-| [`commaContains`](#func-commaContains)       | [String](#strings), [String](#strings)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
-| [`startsWith`](#func-starts-ends-with)       | [String](#strings), [String](#strings)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
-| [`endsWith`](#func-starts-ends-with)         | [String](#strings), [String](#strings)          | [Boolean](#boolean-values)           | ✅        | ✅       |  
-| [`lowerCase`](#func-lowerCase-upperCase)     | [String](#strings)                              | [String](#strings)                   | ✅        | ✅       |  
-| [`upperCase`](#func-lowerCase-upperCase)     | [String](#strings)                              | [String](#strings)                   | ✅        | ✅       |  
-| [`stringLength`](#func-stringLength)         | [String](#strings)                              | [Number](#numbers)                   | ✅        | ✅       |  
-| [`text`](#func-text)                         | [String](#strings)                              | [String](#strings)                   | ✅        | ❌       |  
-| [`language`](#func-language)                 | None                                            | [String](#strings)                   | ✅        | ❌       |  
-| [`displayValue`](#func-displayValue)         | [String](#strings)                              | [String](#strings)                   | ✅        | ❌       |  
-| [`round`](#func-round)                       | [Number](#numbers), optional [Number](#numbers) | [String](#strings)                   | ✅        | ✅       |  
-| [`instanceContext`](#func-instancecontext)   | [String](#strings)                              | [String](#strings)                   | ✅        | ✅       |  
-| [`frontendSettings`](#func-frontendsettings) | [String](#strings)                              | [String](#strings)                   | ✅        | ✅       |  
-| [`dataModel`](#func-datamodel)               | [String](#strings)                              | [String](#strings)                   | ✅        | ✅       |  
-| [`component`](#func-component)               | [String](#strings)                              | [String](#strings)                   | ✅        | ✅       |  
-| [`formatDate`](#func-formatDate)             | [String](#strings), optional [String](#strings) | [String](#strings)                   | ✅        | ❌       |  
-| [`linkToPage`](#func-linkToPage)             | [String](#strings), [String](#strings)          | [String](#strings)                   | ✅        | ❌       |  
-| [`linkToComponent`](#func-linkToComponent)   | [String](#strings), [String](#strings)          | [String](#strings)                   | ✅        | ❌       |  
-| [`argv`](#func-argv)                         | [Number](#numbers)                              | [String](#strings)                   | ✅        | ✅       |  
-| [`value`](#func-value)                       | optional [String](#strings)                     | [String](#strings)                   | ✅        | ❌       |  
+### Value comparison
+
+| Function Name                                | Parameters                                | Return Value               | Frontend | Backend |  
+|----------------------------------------------|-------------------------------------------|----------------------------|----------|---------|  
+| [`compare`](#func-compare)                   | [See detailed description](#func-compare) | [Boolean](#boolean-values) | ✅        | ✅       |
+| [`equals`](#func-equals)                     | [String](#strings), [String](#strings)    | [Boolean](#boolean-values) | ✅        | ✅       |  
+| [`notEquals`](#func-equals)                  | [String](#strings), [String](#strings)    | [Boolean](#boolean-values) | ✅        | ✅       |  
+| [`not`](#func-not)                           | [Boolean](#boolean-values)                | [Boolean](#boolean-values) | ✅        | ✅       |  
+| [`greaterThan`](#func-gt)                    | [Number](#numbers), [Number](#numbers)    | [Boolean](#boolean-values) | ✅        | ✅       |  
+| [`greaterThanEq`](#func-gt)                  | [Number](#numbers), [Number](#numbers)    | [Boolean](#boolean-values) | ✅        | ✅       |  
+| [`lessThan`](#func-gt)                       | [Number](#numbers), [Number](#numbers)    | [Boolean](#boolean-values) | ✅        | ✅       |  
+| [`lessThanEq`](#func-gt)                     | [Number](#numbers), [Number](#numbers)    | [Boolean](#boolean-values) | ✅        | ✅       |  
+| [`concat`](#func-concat)                     | None or multiple [strings](#strings)      | [String](#strings)         | ✅        | ✅       |  
+| [`contains`](#func-contains-not-contains)    | [String](#strings), [String](#strings)    | [Boolean](#boolean-values) | ✅        | ✅       |  
+| [`notContains`](#func-contains-not-contains) | [String](#strings), [String](#strings)    | [Boolean](#boolean-values) | ✅        | ✅       |  
+| [`commaContains`](#func-commaContains)       | [String](#strings), [String](#strings)    | [Boolean](#boolean-values) | ✅        | ✅       |  
+| [`startsWith`](#func-starts-ends-with)       | [String](#strings), [String](#strings)    | [Boolean](#boolean-values) | ✅        | ✅       |  
+| [`endsWith`](#func-starts-ends-with)         | [String](#strings), [String](#strings)    | [Boolean](#boolean-values) | ✅        | ✅       |
+
+### Logic
+
+| Function Name      | Parameters                                    | Return Value                         | Frontend | Backend |  
+|--------------------|-----------------------------------------------|--------------------------------------|----------|---------|  
+| [`and`](#func-and) | One or more [boolean values](#boolean-values) | [Boolean](#boolean-values)           | ✅        | ✅       |  
+| [`or`](#func-and)  | One or more [boolean values](#boolean-values) | [Boolean](#boolean-values)           | ✅        | ✅       |  
+| [`if`](#func-if)   | [See detailed description](#func-if)          | [See detailed description](#func-if) | ✅        | ✅       |  
+
+### Strings and numbers
+
+| Function Name                             | Parameters                                                          | Return Value       | Frontend | Backend |  
+|-------------------------------------------|---------------------------------------------------------------------|--------------------|----------|---------|  
+| [`lowerCase`](#func-lowerCase-upperCase)  | [String](#strings)                                                  | [String](#strings) | ✅        | ✅       |  
+| [`upperCase`](#func-lowerCase-upperCase)  | [String](#strings)                                                  | [String](#strings) | ✅        | ✅       |  
+| [`lowerCaseFirst`](#func-lcFirst-ucFirst) | [String](#strings)                                                  | [String](#strings) | ✅        | ✅       |  
+| [`upperCaseFirst`](#func-lcFirst-ucFirst) | [String](#strings)                                                  | [String](#strings) | ✅        | ✅       |  
+| [`stringLength`](#func-stringLength)      | [String](#strings)                                                  | [Number](#numbers) | ✅        | ✅       |  
+| [`stringIndexOf`](#func-stringIndexOf)    | [String](#strings), [String](#strings)                              | [Number](#numbers) | ✅        | ✅       |  
+| [`stringSlice`](#func-stringSlice)        | [String](#strings), [Number](#numbers), optional [Number](#numbers) | [String](#strings) | ✅        | ✅       |  
+| [`stringReplace`](#func-stringReplace)    | [String](#strings), [String](#strings), [String](#strings)          | [String](#strings) | ✅        | ✅       |  
+| [`text`](#func-text)                      | [String](#strings)                                                  | [String](#strings) | ✅        | ❌       |  
+| [`language`](#func-language)              | None                                                                | [String](#strings) | ✅        | ❌       |  
+| [`displayValue`](#func-displayValue)      | [String](#strings)                                                  | [String](#strings) | ✅        | ❌       |  
+| [`round`](#func-round)                    | [Number](#numbers), optional [Number](#numbers)                     | [String](#strings) | ✅        | ✅       |  
+| [`formatDate`](#func-formatDate)          | [Date/time](#dates), optional [String](#strings)                    | [String](#strings) | ✅        | ✅       |  
+
+### Lookup, components and data
+
+| Function Name                                  | Parameters                             | Return Value       | Frontend | Backend |  
+|------------------------------------------------|----------------------------------------|--------------------|----------|---------|  
+| [`instanceContext`](#func-instancecontext)     | [String](#strings)                     | [String](#strings) | ✅        | ✅       |  
+| [`frontendSettings`](#func-frontendsettings)   | [String](#strings)                     | [String](#strings) | ✅        | ✅       |
+| [`countDataElements`](#func-countDataElements) | [String](#strings)                     | [Number](#numbers) | ✅        | ✅       |
+| [`dataModel`](#func-datamodel)                 | [String](#strings)                     | [String](#strings) | ✅        | ✅       |  
+| [`component`](#func-component)                 | [String](#strings)                     | [String](#strings) | ✅        | ✅       |  
+| [`linkToPage`](#func-linkToPage)               | [String](#strings), [String](#strings) | [String](#strings) | ✅        | ❌       |  
+| [`linkToComponent`](#func-linkToComponent)     | [String](#strings), [String](#strings) | [String](#strings) | ✅        | ❌       |
+| [`optionLabel`](#func-optionLabel)             | [String](#strings), [String](#strings) | [String](#strings) | ✅        | ❌       |
+
+
+### Special functions
+
+| Function Name          | Parameters                  | Return Value       | Frontend | Backend |  
+|------------------------|-----------------------------|--------------------|----------|---------|  
+| [`argv`](#func-argv)   | [Number](#numbers)          | [String](#strings) | ✅        | ✅       |  
+| [`value`](#func-value) | optional [String](#strings) | [String](#strings) | ✅        | ❌       |  
 
 Detailed descriptions and examples
 
+{{% expandlarge id="func-compare" header="compare" %}}
+{{% notice info %}}
+This function is only available on the backend when using [nuget packages](../../../guides/administration/maintainance/dependencies#nuget)
+version 8.6.0-preview.3 or later. In the frontend, this function is available in version 4.17.0 and above, including the latest
+rolling release.
+{{% /notice %}}
+The `compare` function is a generic comparison function that can be used to compare two values. The function takes three
+or four arguments. The first and last arguments are always the values to compare. The arguments in the middle must be
+a valid operator, optionally preceded by a `not` to invert the comparison.
+
+Some examples:
+
+```json
+["compare", 5, "greaterThan", 3]
+```
+
+```json
+["compare", "foo", "equals", "bar"]
+```
+
+```json
+["compare", 5, "not", "equals", 3]
+```
+
+The function returns a boolean value based on the comparison. The accepted data types for comparison depend on the
+operator used. For example, the operator `equals` can compare strings, numbers, and booleans, while
+`greaterThan` and `lessThan` can only compare numbers.
+
+| Operator        | Parameters              | Description                                                                                          |
+|-----------------|-------------------------|------------------------------------------------------------------------------------------------------|
+| `equals`        | [Any type](#data-types) | Returns `true` if the two values are equal, `false` otherwise.                                       |
+| `greaterThan`   | [Number](#numbers)      | Returns `true` if the first number is greater than the second number, `false` otherwise.             |
+| `greaterThanEq` | [Number](#numbers)      | Returns `true` if the first number is greater than or equal to the second number, `false` otherwise. |
+| `lessThan`      | [Number](#numbers)      | Returns `true` if the first number is less than the second number, `false` otherwise.                |
+| `lessThanEq`    | [Number](#numbers)      | Returns `true` if the first number is less than or equal to the second number, `false` otherwise.    |
+| `isBefore`      | [Date/time](#dates)     | Returns `true` if the first date is before the second date, `false` otherwise.                       |
+| `isBeforeEq`    | [Date/time](#dates)     | Returns `true` if the first date is before or equal to the second date, `false` otherwise.           |
+| `isAfter`       | [Date/time](#dates)     | Returns `true` if the first date is after the second date, `false` otherwise.                        |
+| `isAfterEq`     | [Date/time](#dates)     | Returns `true` if the first date is after or equal to the second date, `false` otherwise.            |
+| `isSameDay`     | [Date/time](#dates)     | Returns `true` if the two dates are on the same day, `false` otherwise.                              |
+
+{{% /expandlarge %}}
+
 {{% expandlarge id="func-equals" header="equals / notEquals" %}}
 These two functions compare two strings to check if they are equal (equals) or not equal (notEquals). If you send in 
-values other than strings, the values are converted and compared as strings (read more about conversion here).
+values other than strings, the values are converted and compared as strings ([read more about conversion here](#strings)).
 
 Examples:
 
@@ -511,6 +585,71 @@ If the string is `null`, `stringLength` will return 0.
 
 {{% /expandlarge %}}
 
+{{% expandlarge id="func-stringIndexOf" header="stringIndexOf" %}}
+{{% notice info %}}
+This function is only available on the backend when using [nuget packages](../../../guides/administration/maintainance/dependencies#nuget)
+version 8.6.0-preview.3 or later. In the frontend, this function is available in version 4.17.0 and above, including the latest
+rolling release.
+{{% /notice %}}
+
+The function `stringIndexOf` takes two arguments: a string and a substring. It returns the index of the first occurrence
+of the _substring_ in the _string_. If the _substring_ is not found, the function returns `null`.
+
+Example:
+
+```json
+["stringIndexOf", ["dataModel", "My.Model.FullName"], " "]
+```
+
+This example returns the index of the first space in the full name. If the full name is "John Doe", the function will
+return 4.
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-stringSlice" header="stringSlice" %}}
+{{% notice info %}}
+This function is only available on the backend when using [nuget packages](../../../guides/administration/maintainance/dependencies#nuget)
+version 8.6.0-preview.3 or later. In the frontend, this function is available in version 4.17.0 and above, including the latest
+rolling release.
+{{% /notice %}}
+
+The function `stringSlice` takes a string as the first argument (the subject string) and one or two numbers as the
+second and third arguments (the start index and optional length). It returns a substring of the subject string starting
+at the index given in the second argument. If a third argument is provided, the substring will be of the length given in
+the third argument.
+
+Example:
+
+```json
+["stringSlice", ["dataModel", "My.Model.FullName"], 5, 3]
+```
+
+This example returns a substring of the full name starting at the 5th character and with a length of 3. If the full name
+is "John Doe", the function will return "Doe".
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-stringReplace" header="stringReplace" %}}
+{{% notice info %}}
+This function is only available on the backend when using [nuget packages](../../../guides/administration/maintainance/dependencies#nuget)
+version 8.6.0-preview.3 or later. In the frontend, this function is available in version 4.17.0 and above, including the latest
+rolling release.
+{{% /notice %}}
+
+The function `stringReplace` takes three arguments: a string, a substring to replace, and a replacement string. It returns
+a new string where all occurrences of the substring in the string are replaced with the replacement string.
+
+Example:
+
+```json
+["stringReplace", ["dataModel", "My.Model.FullName"], " ", "-"]
+```
+
+This example replaces all spaces in the full name with dashes. If the full name is "John Doe", the function will return
+"John-Doe".
+
+{{% /expandlarge %}}
+
 {{% expandlarge id="func-contains-not-contains" header="contains / notContains" %}}
 These two functions check whether string A includes or does not include string B.
 Both `contains` and `notContains` are case-sensitive. This means that the string "Hei" does not include "hei". If you 
@@ -563,7 +702,7 @@ and `MultipleSelect`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-lowerCase-upperCase" header="lowerCase/upperCase" %}}
-The functions `lowerCase` and `upperCase` take a string as input and return a new string where all characters are 
+The functions `lowerCase` and `upperCase` take a string as input and return a new string where all characters are
 converted to lowercase or uppercase, respectively.
 
 ```json
@@ -571,12 +710,30 @@ converted to lowercase or uppercase, respectively.
 ```
 
 These functions provide a simple way to convert between lowercase and uppercase letters within a string.
-One use case could be combining one of these functions with other comparison functions so that the comparisons are done 
+One use case could be combining one of these functions with other comparison functions so that the comparisons are done
 regardless of whether uppercase or lowercase letters were used in the input value.
 
 ```json
 ["equals", ["upperCase", ["dataModel", "My.Model.LastName"]], "SMITH"]
 ```
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-lcFirst-ucFirst" header="lowerCaseFirst/upperCaseFirst" %}}
+{{% notice info %}}
+These functions are only available on the backend when using [nuget packages](../../../guides/administration/maintainance/dependencies#nuget)
+version 8.6.0-preview.3 or later. In the frontend, these functions are available in version 4.17.0 and above, including the latest
+rolling release.
+{{% /notice %}}
+
+The functions `lowerCaseFirst` and `upperCaseFirst` take a string as input and return a new string where the first
+character is converted to lowercase or uppercase, respectively.
+
+```json
+["upperCaseFirst", ["dataModel", "My.Model.LastName"]]
+```
+
+In this example, given a last name of "smith", the function will return "Smith".
 
 {{% /expandlarge %}}
 
@@ -671,6 +828,30 @@ stored under the key `FrontEndSettings` in `appsettings.{environment}.json`. For
 
 {{% /expandlarge %}}
 
+{{% expandlarge id="func-countDataElements" header="countDataElements (lookup)" %}}
+
+{{% notice info %}}
+This function is only available on the backend when using [nuget packages](../../../guides/administration/maintainance/dependencies#nuget)
+version 8.6.0-preview.3 or later. In the frontend, this function is available in version 4.17.0 and above, including the latest
+rolling release.
+{{% /notice %}}
+
+This function allows counting the number of elements of a given data type in the current instance. The first argument
+must be a string that is defined as a data type in `applicationmetadata.json`. The function will return the number of
+elements of the given data type in the current instance.
+
+For example, if you have a `FileUpload` component uploading files to the `Attachment` data type, you can use this
+function to count the number of attachments currently uploaded. Likewise, you can count the number
+of [subform elements](../../../guides/development/subform) by referencing the data model id.
+
+Example:
+
+```json
+["countDataElements", "Attachment"]
+```
+
+{{% /expandlarge %}}
+
 {{% expandlarge id="func-datamodel" header="dataModel (lookup)" %}}
 This lookup function enables retrieving values directly from the current data model. The first and only argument must 
 point to a location in the data model and uses the same dot-separated format as used in `dataModelBindings`. When used 
@@ -754,14 +935,20 @@ component in the current row before looking up through the page structure.
 
 {{% expandlarge id="func-formatDate" header="formatDate" %}} 
 
-The formatDate function takes a date as its first argument, and a format as its second argument. The date argument is a
-string, while the format argument is an optional string that supports some tokens in
+{{% notice info %}}
+This function is only available on the backend when using [nuget packages](../../../guides/administration/maintainance/dependencies#nuget)
+version 8.6.0-preview.3 or later. In the frontend, this function is available in version 4.0.0 and above, including the latest
+rolling release.
+{{% /notice %}}
+
+The formatDate function takes a [date](#dates) as its first argument, and a format as its second argument.
+The format argument is an optional string that supports some tokens in
 [Unicode Tokens](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table).
 
 These are the tokens we support:
 
 | Unit              | Token    | Result                                  |
-| ----------------- | -------- | --------------------------------------- |
+|-------------------|----------|-----------------------------------------|
 | Era               | `G..GGG` | BC, AD                                  |
 | Era               | `GGGG`   | Before Christ, Anno Domini              |
 | Era               | `GGGGG`  | B, A                                    |
@@ -795,11 +982,16 @@ These are the tokens we support:
 | Fractional second | `SS`     | 00, 01, ..., 99                         |
 | Fractional second | `SSS`    | 000, 001, ..., 999                      |
 
-If the format argument is not provided, the function will use the format `MM/dd/yy` as default.
+If the format argument is not provided, the function will use a default format that varies by language.
+
+As with all dates/times, they will be converted to the local timezone when a timezone offset (or UTC) has been provided.
+For this reason, expressions evaluated on the frontend and the backend may differ when the local timezone in the browser
+is different from the local timezone in the backend.
+
 Example:
 
 ```json
-["formatDate", "2023-10-30T14:54:00.000Z", "HH:mm"]
+["formatDate", "2023-10-30T14:54:00", "HH:mm"]
 ```
 Would result in `14:54`
 
@@ -834,6 +1026,25 @@ is the id of the component the link should point to.
 ```
 Would result in `<a href="#/instance/<party-id>/<instance-id>/<TaskId>/<PageId>?focusNodeId=inputMyName">Specify your name</a>`
 When clicked, this link will take the user to the page the component is on and focus on the specified component.
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-optionLabel" header="optionLabel" %}}
+The `optionLabel` function can be used to retrieve the text/label of an option in a code list. The text will automatically
+be translated to the user's selected language (if the label is a text resource), so there is no need to pass the result
+through the `text` function.
+
+The function takes 2 arguments. The first argument is the code list id, and the second argument is the code list value
+to find in the code list.
+
+```json
+["optionLabel", "countries", "no"]
+```
+
+Make sure the code list id is a plain string, and not a nested expression. The code value however, can be a
+nested expression, i.e. look up from a path in the data model.
+
+If no matching code list value is found, the function will return `null`.
 
 {{% /expandlarge %}}
 
@@ -960,6 +1171,30 @@ value, an empty [string](#strings), and the [number](#numbers) `0`.
 
 If you perform a lookup in a function like `dataModel`, and the value you are searching for is not found/set, usually 
 `null` will be the result.
+
+### Dates
+
+Dates can be strings (or `DateTime`/`DateOnly` in the C# data model). Only certain date/time formats are
+accepted in expressions when parsed from a string, as allowed by ISO 8601 (e.g., `2023-10-30T14:54:00.000Z`).
+
+Some examples of valid date strings:
+
+- `2023-10-30T14:54:00.000Z` (UTC timezone)
+- `2023-10-30T14:54:00.000+02:00` (with timezone offset)
+- `2023-10-30T14:54:00.000` (assumed to be in the local timezone)
+- `2023-10-30T14:54:00` (assumed to be in the local timezone, without milliseconds)
+- `2023-10-30` (Date only, assumed to be midnight in the local timezone)
+- `2023` (Year only, assumed to be midnight January 1st in the local timezone)
+
+{{% notice info %}}
+It is important to note that dates including a timezone offset (or `Z` for UTC) are converted to the local timezone
+when used in expressions. This means that using the `formatDate` function to format a date might yield different results
+on the frontend and backend if the timezone on the server is different from the user's timezone in the browser.
+
+For this reason, it may be preferable to specify dates and times without a timezone offset or `Z` if you want the
+date/time to be displayed the same way regardless of the user's timezone. Likewise, when comparing dates, it is
+recommended to only compare dates in the same timezone.
+{{% /notice %}}
 
 ## Tips and Tricks
 

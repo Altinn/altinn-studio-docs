@@ -490,7 +490,15 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully downloaded the fileTransfer"
+            "description": "Successfully downloaded the fileTransfer",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
           }
         }
       }

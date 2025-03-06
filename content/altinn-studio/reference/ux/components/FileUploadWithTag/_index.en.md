@@ -36,25 +36,8 @@ EXAMPLES
 <!-- Brief description of the component and how it is used. -->
 
 ### Anatomy
+<iframe style="border: 0px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1644-13211&viewport=1020%2C-1913%2C1.35&scaling=contain&content-scaling=responsive&starting-point-node-id=1644%3A13211&show-proto-sidebar=0&embed-host=share" allowfullscreen></iframe>
 
-<!-- 
-
-Image/diagram with numbered callouts.
-1. Take a screenshot of the basic version of the component with good copy (text).
-2. Use the [PowerPoint file](../numbered-callouts-anatomy.pptx) to add numbers to the screenshot
-3. Group screenshot and numbering, save as image, and add to documentation
-4. Include key with description of callouts below using anatomy-list shortcode (see example for formatting).
-
-Example:
-
-![Example image and alt text anatomy](../image/image-and-alt-text-en.png)
-
-{{% anatomy-list %}}
-1. **Image**: Photo, screenshot, illustration, or graphic.
-2. **Alternative text**: Used by screen readers and displayed if the image can not be rendered.
-{{% /anatomy-list %}} 
-
--->
 
 <!-- 
 Add the following sections if relevant:

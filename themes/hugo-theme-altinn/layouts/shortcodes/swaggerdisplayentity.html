@@ -34,7 +34,22 @@
             if (entity.type === 'object' && entity.properties) {
                 html += `<dl class="swagger-entity-display${indentClass}">`;
                 for (let [propertyName, propertySchema] of Object.entries(entity.properties)) {
-                    const description = propertySchema.description ? propertySchema.description.replaceAll(/\n\s*?\n/g, "<br><br>") : '(undescribed)';
+                    const description = (propertySchema.description 
+                    ? propertySchema.description.replaceAll(/\n\s*?\n/g, "<br><br>") 
+                    : '(undescribed)').replace(/https:\/\/[^\s]+/g, (url) => 
+                    {
+                        const urlObj = new URL(url);
+                        const host = urlObj.origin;
+                        const path = urlObj.pathname + urlObj.hash;
+                        
+                        let displayText = `${host}/...${path}`;
+                        if (displayText.length > 50) {
+                            displayText = `${host}/...${path.slice(-20)}`;
+                        }
+                        
+                        return `<a href="${url}">${displayText}</a>`;
+                    });
+
                     if (propertySchema.oneOf) {
                         // Handling of oneOf. Assume just single type (ignore any type beyond the first).
                         const nullable = propertySchema.nullable; 
@@ -48,12 +63,21 @@
                     const enumNames = propertySchema.enum ? `<span class="sed-enum-header">Valid values</span><code class="sed-enum">${propertySchema.enum.join(', ')}</code>` : '';
 
                     let typeDesc = type;
+                    // For some reason, the "ref" property on complex/array objects that indicates the
+                    // type, is sometimes "$$ref" and other times "$ref". I have no idea why, so try finding
+                    // either ¯\_(ツ)_/¯ 
+                    const childType = propertySchema.hasOwnProperty("items") 
+                        ? propertySchema.items.hasOwnProperty("$$ref") 
+                            ? propertySchema.items["$$ref"].split(/\//).pop()
+                            : propertySchema.items.hasOwnProperty("$ref")
+                                ? propertySchema.items["$ref"].split(/\//).pop()
+                                : null
+                        : null;
+
                     if (type == "array") {
-                        let childType = propertySchema.items["$$ref"].split(/\//).pop();
                         typeDesc = `List of ${childType}`;
                     }
                     else if (type == "object") {
-                        let childType = propertySchema["$$ref"].split(/\//).pop();
                         typeDesc = childType;
                     }
                     

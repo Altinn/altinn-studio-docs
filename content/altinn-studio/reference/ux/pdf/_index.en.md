@@ -354,3 +354,10 @@ The footer will contain the following information:
 - The page number
 
    ![PDF footer example](pdf-footer-example.png)
+
+## Prototype PDF in Figma 
+
+If you want to test and set up your PDF, you can do it here:  
+[Altinn Studio Komponenter](https://www.figma.com/community/file/1344307804742953785/altinn-studio-komponenter).
+ 
+Note that the example is not identical to the actual code but has been adapted to create prototypes in Figma.

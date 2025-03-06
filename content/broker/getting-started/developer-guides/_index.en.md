@@ -9,11 +9,6 @@ weight: 20
 
 {{<children />}}
 
-{{% notice warning  %}}
-This section of the documentation is a work in progress.
-There are sections with missing or only partial documentation.
-{{% /notice %}}
-
 Since Altinn Broker is open source, you can access our code in [our public github repo](https://github.com/Altinn/altinn-broker) and build a local docker instance to test against.
 
 We also welcome contributions to the solution.
