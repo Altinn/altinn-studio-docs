@@ -10,8 +10,37 @@ Subscribing to events offers an event-driven solution where the event recipients
 All event subscribers will receive data to their own endpoint, asynchronously. This is the recommended approach for receiving 
 events from Altinn Events.
     
-If the recipient's webhook is unresponsive, for whatever reason, we offer a retry mechanism with up to 12 retries. 
+If the recipient's webhook is unresponsive, for whatever reason, Altinn Events offers a retry mechanism with up to 12 retries. 
 Technical details are listed below.
+
+
+### Making a subscription request
+The example below features a subscription request object, containing three properties. _Endpoint_ is the absolute path
+to the webhook in the recipients own API, while _SourceFilter_ and _SubjectFilter_ are filters on source and subject, respectively.
+
+```json
+{
+    "EndPoint":"https://www.skatteetaten.no/hook",
+    "SourceFilter":"https://hunderpasseren.no/by/bronnoysund",
+    "SubjectFilter":"/hund/ascii"
+}
+```
+_Example of subscription request object_
+
+### Validating a subscriber's endpoint
+Once a new subscription has been registered through the API, 
+a validation event is sent to the endpoint to validate its response status.
+
+```json
+{
+    "id": "694caa35-8b25-4cd7-b800-f6eeb93c56ed",
+    "source": "https://platform.altinn.no/events/api/v1/subscriptions/1234",
+    "type": "platform.events.validatesubscription",
+    "specversion": "1.0"
+}
+```
+_Example of validation event_
+
 
 ### IP for outgoing traffic
 {{% notice info %}}
