@@ -5,6 +5,14 @@ description: Documentation for event subscribers
 weight: 20
 ---
 
+### Explanation of what the service offers
+Subscribing to events offers an event-driven solution where the event recipients register an endpoint/webhook in their own API.
+All event subscribers will receive data to their own endpoint, asynchronously. This is the recommended approach for receiving 
+events from Altinn Events.
+    
+If the recipient's webhook is unresponsive, for whatever reason, we offer a retry mechanism with up to 12 retries. 
+Technical details are listed below.
+
 ### IP for outgoing traffic
 {{% notice info %}}
 A static IP is used when pushing events to allow subscribers to whitelist the IP address. </br> </br>

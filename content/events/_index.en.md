@@ -136,9 +136,8 @@ The official specification defines a scaleable approach to versioning and extens
 
 ## Who can use Altinn Events?
 
-Publishing of events is limited to Altinn apps at the moment. 
-We are working on extending this service to additional parties such as application owners and other parties during the 
-spring of 2023. Maskinporten authentication will be required in order to publish events on our platform.
+Publishing of _app_ events is limited to Altinn apps. The other supported type of event is the _generic_ event. 
+Maskinporten authentication will be required in order to publish events on our platform.
 
 Subscribing to events is openly available to end users, end user systems and application owners. 
 Once additional parties gain access to publishing, the right to subscribe to events published through Altinn

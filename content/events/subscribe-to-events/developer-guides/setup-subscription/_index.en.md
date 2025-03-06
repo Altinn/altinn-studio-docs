@@ -1,7 +1,7 @@
 ---
 title: How to set up a subscription
 linktitle: Set up a subscription
-description: How-to guide on setting up a subscribe for events from a specific resource
+description: How-to guide on setting up a subscription for events from a specific resource
 weight: 10
 toc: true
 ---
