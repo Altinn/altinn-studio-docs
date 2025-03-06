@@ -22,7 +22,7 @@ Komponenten består av en hovedtittel, en hjelptekst, en beskrivelse, en fødsel
 1. **Overskrift** – Hovedtittel.
 2. **Hjelpetekst** – Klikk for hjelpe-popup.
 3. **Vis beskrivelse** – Beskrivelse av komponenten.
-4. **Personnummerfelt** – Inndatafelt for førdselsnummer.
+4. **Personnummerfelt** – Inndatafelt for fødselsnummer.
 5. **Etternavn** – Inndatafelt for etternavn.
 6. **Hent opplysninger** – Hent opplysninger basert på inndata.
 
