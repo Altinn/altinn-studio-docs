@@ -52,21 +52,19 @@ Kontakt eieren av Meldingsressursen og spør om å få tilgang til ressursen. Op
 - Organisasjonsnummer
 - System bruker
 
-## 3. Skaff en Altinn API-nøkkel {#get-an-altinn-api-key}
-
-For å bruke Altinn Melding må man ha abonnementsnøkkel. Denne får du ved ta kontakt med oss på [Altinn@Slack#produkt-melding](https://join.slack.com/t/altinn/shared_invite/zt-7c77c9si-ZnMFwGNtab1aFdC6H_vwog).
-Teknisk sett er dette en API nøkkel som må inkluderes i forespørselers `Ocp-Apim-Subscription-Key` header for å verifisere at du har rett til å bruke Meldings API-et. Uten denne nøkkelen vil forespørseler din bli avvist.
-
-
-## 4. Registrer Maskinporten-klient med nødvendige scopes. {#register-your-maskinporten-client-with-correct-scopes}
-
-Registreringen av Maskinporten-klient med nødvendige scopes er viktig for å autentisere og sikre at du kan utføre nødvendige operasjoner via meldings-APIet. Dette trinnet sikrer at kun autoriserte klienter kan sende og motta filer, og opprettholder dermed sikkerheten i tjenesten.
-For å autentisere mot meldings-APIet, må du registrere Maskinporten-klienten(e) din med det nødvendige scopet for om de skal sende og/eller motta meldinger:
-
+## 3. Skaff Altinn API-nøkkel og tilgang til scopes {#get-an-altinn-api-key}
+For å bruke Altinn Melding må man ha en abonnementsnøkkel. Teknisk sett er dette en API-nøkkel som må inkluderes i forespørselens `Ocp-Apim-Subscription-Key` header for å verifisere at du har rett til å bruke Meldings API-et. Uten denne nøkkelen vil forespørselen din bli avvist.
+For å kunne autentisere og sikre at du kan utføre operasjoner via meldings-APIet, må Altinn gi deg tilgang på de scopes du trenger. Dette sikrer at kun autoriserte klienter kan sende og motta filer, og opprettholder dermed sikkerheten i tjenesten. Følgende scopes brukes for å sende og/eller motta meldinger:
 - `altinn:correspondence.write` 
 - `altinn:correspondence.read` 
 
-Slike scopes vedlikeholdes av Altinn og må være autorisert for de riktige API-operasjonene, og er derfor uavhengige av tilgangen satt av tjenesteeiere i steg 2 for den spesifikke meldingstjenesten.
+For å få Altinn API-nøkkel og scopes må du sende en forespørsel til: servicedesk@altinn.no 
+Forespørselen må inneholde de scopes du trenger. Vær obs på at du kan trenge flere enn kun read/write for melding, Utfyllende liste over scopes finner du her: 
+https://docs.altinn.studio/nb/api/authentication/digdirscopes/ 
+
+## 4. Registrer Maskinporten-klient med nødvendige scopes. {#register-your-maskinporten-client-with-correct-scopes}
+For å autentisere mot meldings-APIet, må du registrere Maskinporten-klienten(e) din med nødvendige scopes for om du skal sende og/eller motta meldinger:
+Scopene vedlikeholdes av Altinn og må være autorisert for de riktige API-operasjonene, og er derfor uavhengige av tilgangen satt av tjenesteeiere i steg 2 for den spesifikke meldingstjenesten.
 
 Bruk Samarbeidsportalen for selvbetjent registrering. Følg den detaljerte guiden som er tilgjengelig der. [Her er en detaljert guide](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web#selvbetjening-som-api-konsument).
 
