@@ -10,6 +10,8 @@ aliases:
 
 ## Instance events
 
+Instance events are first and foremost the activity log pieces tied to an instance.
+
 All instance events, e.g. creation, read, save, change process state, ...
 
 ```http
