@@ -39,12 +39,11 @@ Subforms are contained in a subform table. Let us go through configuring a subfo
      ]
    }
    ```
-9. Add a layout set to `layout-sets.json` with the data type of the data model from step 1. The **type** is **subform**. Choose your subform folder name as the id.
+9. Add a layout set to `layout-sets.json` with the data type of the data model from step 1. Choose your subform folder name as the id.
    ```json
    {
      "id": "subform-layout-folder-name",
-     "dataType": "your-subform-dataType",
-     "type": "subform"
+     "dataType": "your-subform-dataType"
    }
    ```
 10. Navigate to the layout for the page in the main form in which you want to add the sub form table.

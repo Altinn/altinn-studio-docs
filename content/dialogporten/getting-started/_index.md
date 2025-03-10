@@ -1,6 +1,6 @@
 ---
 title: 'Getting started'
-description: 'Tutorials and learning resources for Dialogporten'
+description: 'Learning resources for Dialogporten'
 weight: 30
 ---
 

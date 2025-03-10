@@ -29,7 +29,7 @@ IDen som er gitt for ressursen vil være den som brukes i Altinn API for å sjek
 For eksterne ressurser vil typen være generisk tilgangsressurs.
 
 
-![Create Resource](create_resource_2.png)
+![Create Resource](create_resource_15.png)
 
 ### Tittel
 
