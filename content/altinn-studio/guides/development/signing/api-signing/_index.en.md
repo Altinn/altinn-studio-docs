@@ -40,7 +40,7 @@ If more people should sign in sequence after each other, more signature steps ca
 
 ### Perform parallel signing
 
-If it should be possible for multiple signees to sign in parallel, the following endpoint can be used instead of "process next":
+If multiple signees should sign in parallel, the following endpoint can be used instead of "process next":
 
 `POST /{org}/{app}/instances/{instanceOwnerPartyId}/{instanceGuid}/actions`
 
