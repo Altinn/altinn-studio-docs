@@ -24,7 +24,7 @@ API-basert signering har samme krav til oppsett, bortsett fra at layout-set for 
 ## De sentrale API-kallene
 
 ### Utføre enkeltsignering
-Dersom kun én person skal signere i et signeringssteg så kan man benytte "process next" endepunktet:
+Dersom kun én person skal signere i et signeringssteg så kan man benytte "process next"-endepunktet:
 
 `PUT /{org}/{app}/instances/{instanceOwnerPartyId}/{instanceGuid}/process/next`
   
