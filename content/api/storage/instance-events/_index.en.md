@@ -10,6 +10,8 @@ aliases:
 
 ## Instance events
 
+Instance events are first and foremost the activity log pieces tied to an instance.
+
 All instance events, e.g. creation, read, save, change process state, ...
 
 ```http
@@ -38,15 +40,4 @@ Example of event data.
         }
     }
 }
-```
-### Application events (for application owners)
-
-> **WARNING**: This section will be redesigned
-
-Selected instance events. Created, first read, change process state. Optionally specified by application developer.
-
-Events can be queried. May be piped.
-
-```http
-GET {storagePath}/applications/org/app/events?created=gte:2019-03-30&process.currentTask=Task_2
 ```

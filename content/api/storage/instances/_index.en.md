@@ -20,10 +20,10 @@ basePath = https://{hostname}/storage/api/v1/instances
 
 It is possible to query instances based on a number of query parameters. 
 
-Application owners can search for from a single application or across all applications that they have.
+**Application owners** can search in a single application or across all applications that they own.
 Using this endpoint requires the scope 'altinn:instances.read'. And query parameter 'org' or 'appId' must be included in the request.
 
-Users can search for instances linked to either themselves or an instanceOwner they are authorized to read the instances of. 
+**Users** can search for instances linked to either themselves or an instanceOwner they are authorized to read the instances of. 
 Query parameter 'instanceOwner.partyId' must be included in the request if using this endpoint as an end user.
 
 Search for instances with a simple GET request towards the *instances* endpoint.
@@ -73,7 +73,7 @@ Get all instances of all applications of a given application owner *org* that ha
 GET {storagePath}/instances?org=org&process.ended=gt:2020-03-10
 ```
 
-Get all instances of all applications of a given application owner *org* that has not already been confirmed completed by *org*.
+Get all instances of all applications of a given application owner *org* that have not already been confirmed completed by *org*.
 ```http
 GET {storagePath}/instances?org=org&excludeConfirmedBy=org
 ```

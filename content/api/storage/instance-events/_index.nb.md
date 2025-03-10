@@ -2,19 +2,20 @@
 title: Instance events
 description: Plattform API for å jobbe med instans-hendelser.
 toc: true
-tags: [api, translate-to-norwegian]
+tags: [api]
 weight: 200
 ---
 
-## Instance events
+## Hendelser for instanser
 
-All instance events, e.g. creation, read, save, change process state, ...
+Instans eventer, eller _hendelser_, er først og fremst logghendelser tilknyttet en datainstans.
+Alle hendelser, for eksempel oprettelse, les, lagre, endrer tilstand ...
 
 ```http
 GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/events
 ```
 
-Example of event data.
+Eksempel på hendelsesdata
 
 ```json
 {
@@ -36,15 +37,4 @@ Example of event data.
         }
     }
 }
-```
-### Application events (for application owners)
-
-> **WARNING**: This section will be redesigned
-
-Selected instance events. Created, first read, change process state. Optinally specified by application developer.
-
-Events can be queried. May be piped.
-
-```http
-GET {storagePath}/applications/org/app/events?created=gte:2019-03-30&process.currentTask=Task_2
 ```

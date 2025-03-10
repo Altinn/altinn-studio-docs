@@ -1456,6 +1456,16 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -1562,6 +1572,16 @@
           },
           "400": {
             "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
             "content": {
               "application/json": {
                 "schema": {
@@ -2555,7 +2575,22 @@
         "requestBody": {
           "description": "Pdf request",
           "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PdfGeneratorRequest"
+              }
+            },
             "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PdfGeneratorRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PdfGeneratorRequest"
+              }
+            },
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/PdfGeneratorRequest"
               }
@@ -2762,7 +2797,22 @@
         "requestBody": {
           "description": "The party that has become an Altinn 3 Correspondence recipient",
           "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SblBridgeParty"
+              }
+            },
             "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SblBridgeParty"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SblBridgeParty"
+              }
+            },
+            "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/SblBridgeParty"
               }
@@ -3194,6 +3244,11 @@
           },
           "autoDeleteOnProcessEnd": {
             "type": "boolean"
+          },
+          "preventInstanceDeletionForDays": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           },
           "presentationFields": {
             "type": "array",
@@ -4446,6 +4501,11 @@
         "properties": {
           "userId": {
             "type": "string",
+            "nullable": true
+          },
+          "systemUserId": {
+            "type": "string",
+            "format": "uuid",
             "nullable": true
           },
           "personNumber": {
