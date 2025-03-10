@@ -8,7 +8,7 @@ aliases:
 - /nb/altinn-studio/guides/signing/api-signing
 ---
 
-## What do we mean by API based signing?
+## What do we mean by API-based signing?
 
 {{% insert "content/altinn-studio/guides/development/signing/api-signing/intro.en.md" %}}
 
