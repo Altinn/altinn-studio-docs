@@ -41,14 +41,3 @@ Example of event data.
     }
 }
 ```
-### Application events (for application owners)
-
-> **WARNING**: This section will be redesigned
-
-Selected instance events. Created, first read, change process state. Optionally specified by application developer.
-
-Events can be queried. May be piped.
-
-```http
-GET {storagePath}/applications/org/app/events?created=gte:2019-03-30&process.currentTask=Task_2
-```

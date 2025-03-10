@@ -73,7 +73,7 @@ Get all instances of all applications of a given application owner *org* that ha
 GET {storagePath}/instances?org=org&process.ended=gt:2020-03-10
 ```
 
-Get all instances of all applications of a given application owner *org* that has not already been confirmed completed by *org*.
+Get all instances of all applications of a given application owner *org* that have not already been confirmed completed by *org*.
 ```http
 GET {storagePath}/instances?org=org&excludeConfirmedBy=org
 ```
