@@ -1,7 +1,7 @@
 ---
-title: API based signing
-linktitle: API based signing
-description: Follow these steps to implement API based signing in your app.
+title: API-based signing
+linktitle: API-based signing
+description: Follow these steps to implement API-based signing in your app.
 tags: [signering]
 weight: 53
 aliases:
