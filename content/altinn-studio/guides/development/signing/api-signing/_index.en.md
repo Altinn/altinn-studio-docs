@@ -55,7 +55,7 @@ In this case, the process will still be in the signing step after the signature 
 
 ### Information about signees and signatures
 
-If [runtime delegated signing](/altinn-studio/guides/development/signing/runtime-delegated-signing/) is configured, the following endpoint can be used to get a list of the signees and their signing status.
+If [runtime-delegated signing](/altinn-studio/guides/development/signing/runtime-delegated-signing/) is configured, the following endpoint can be used to get a list of the signees and their signing status.
 The endpoint can also be used when runtime delegated signing is not used, but then it will only return signees that have already performed the sign action. It will then function as a signature list.
 
 `GET /{org}/{app}/instances/{instanceOwnerPartyId}/{instanceGuid}/signing`
