@@ -18,6 +18,12 @@ If you're just getting started or looking for information on how to use the Even
 
 POST /events
 
+{{% notice info %}}
+Example use case: Use this endpoint when you want to publish generic events - events that are not strictly Altinn Studio
+App events, but published by an event producer with the necessary access scopes.
+Note that the content type differs from app events 
+{{% /notice %}}
+
 ## Authentication
 This API requires authentication and the Maskinporten scope __altinn:events.publish__.
 

@@ -10,10 +10,6 @@ weight: 40
 {{<children />}}
 
 {{% notice warning  %}}
-Denne delen av dokumentasjonen er under arbeid, og refererer derfor i stor grad til eksterne kilder.
-{{% /notice %}}
-
-{{% notice warning  %}}
 For øyeblikket er hendelsene for Formidling ikke klare for fullskala bruk, på grunn av kommende endringer i Altinn Events og Autorisasjon.
 Dette dokumenterer det forventede scenarioet, men kan endres.
 {{% /notice %}}

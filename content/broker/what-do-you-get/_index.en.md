@@ -7,11 +7,6 @@ toc: false
 weight: 20
 ---
 
-{{% notice warning  %}}
-Notice: Addional feature descriptions under construction.
-{{% /notice %}}
-
-
 ## Main Features
 
 The following diagram lists the main features as high level user stories (epics).

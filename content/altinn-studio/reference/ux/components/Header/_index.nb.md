@@ -37,6 +37,7 @@ EKSEMPLER
 <!-- Kort beskrivelse av komponenten og hvordan den brukes. -->
 
 ### Anatomi
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://embed.figma.com/design/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?node-id=1994-9298&embed-host=share" allowfullscreen></iframe>
 
 <!-- 
 

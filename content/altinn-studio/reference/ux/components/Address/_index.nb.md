@@ -37,7 +37,14 @@ EKSEMPLER
 <!-- Kort beskrivelse av komponenten og hvordan den brukes. -->
 
 ### Anatomi
+<iframe style="border: 0px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1-40906&viewport=634%2C2793%2C0.78&scaling=contain&content-scaling=responsive&starting-point-node-id=0%3A40906&embed-host=share" allowfullscreen></iframe>
 
+{{% anatomy-list %}}
+1. **Header**
+2. **Descriptstion**
+3. **Inputfield**
+
+{{% /anatomy-list %}} 
 <!-- 
 
 Nummerert skjermbilde av komponenten
