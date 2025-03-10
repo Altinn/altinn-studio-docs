@@ -2142,7 +2142,7 @@
       },
       "CustomNotificationRecipientExt": {
         "required": [
-          "notificationRecipient",
+          "recipients",
           "recipientToOverride"
         ],
         "type": "object",
@@ -2152,7 +2152,7 @@
             "description": "Organization number or national identity number of the recipient to override with custom recipient(s)",
             "nullable": true
           },
-          "notificationRecipient": {
+          "recipients": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/NotificationRecipientExt"
@@ -2410,7 +2410,7 @@
             "format": "date-time",
             "nullable": true
           },
-          "recipients": {
+          "customNotificationRecipients": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CustomNotificationRecipientExt"
