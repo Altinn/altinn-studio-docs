@@ -36,7 +36,7 @@ Body:
 ```
 
 In this case, the process will automatically navigate to the next step once the signature has been saved.
-If more people should sign in sequence after each other, more signature steps can be added in a chain.
+When using this endpoint you need to have multiple signing steps if more than one party should sign.
 
 ### Perform parallel signing
 

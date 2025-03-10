@@ -36,7 +36,7 @@ Body:
 ```
 
 Da vil prosessen automatisk gå videre etter at signaturen er lagret.
-Man må da eventuelt ha flere signeringssteg dersom flere skal signere sekvensielt etter hverandre.
+Ved bruk av dette endepunktet må man ha flere signeringssteg dersom flere skal signere.
 
 ### Utføre parallellsignering
 
