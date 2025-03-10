@@ -1,9 +1,9 @@
 ---
 title: Sign and submit
 linktitle: Sign and submit
-description: Follow these steps to implement sign and submit in one step in you app
+description: Follow these steps to implement sign and submit in one step in you app.
 tags: [signing]
-weight: 50
+weight: 52
 aliases:
 - /altinn-studio/guides/signing/sign-and-submit
 ---

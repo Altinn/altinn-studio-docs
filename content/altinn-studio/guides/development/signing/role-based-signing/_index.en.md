@@ -3,7 +3,7 @@ title: Role and access package based signing
 linktitle: Role and access package
 description: Follow these steps to implement role based signing in your service.
 tags: [role based, signing]
-weight: 50
+weight: 51
 aliases:
   - /altinn-studio/guides/signing/role-based-signing
 ---

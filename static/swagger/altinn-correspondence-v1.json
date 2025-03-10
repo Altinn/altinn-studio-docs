@@ -18,7 +18,7 @@
           "Attachment"
         ],
         "summary": "Initialize a new Attachment to be shared in correspondences",
-        "description": "Scopes: \r\n\r\n- altinn:correspondence.send \r\n\r\nOnly required if the attachment is to be shared, otherwise this is done as part of the Initialize Correspondence operation",
+        "description": "Scopes: \r\n\r\n- altinn:correspondence.write \r\n\r\nOnly required if the attachment is to be shared, otherwise this is done as part of the Initialize Correspondence operation",
         "requestBody": {
           "content": {
             "application/json": {
@@ -69,7 +69,7 @@
           "Attachment"
         ],
         "summary": "Upload attachment data to Altinn Correspondence blob storage",
-        "description": "Scopes: \r\n\r\n- altinn:correspondence.send \r\n",
+        "description": "Scopes: \r\n\r\n- altinn:correspondence.write \r\n",
         "parameters": [
           {
             "name": "attachmentId",
@@ -134,7 +134,7 @@
           "Attachment"
         ],
         "summary": "Get information about the attachment and its current status",
-        "description": "Scopes: \r\n\r\n- altinn:correspondence.send \r\n",
+        "description": "Scopes: \r\n\r\n- altinn:correspondence.write \r\n",
         "parameters": [
           {
             "name": "attachmentId",
@@ -184,7 +184,7 @@
           "Attachment"
         ],
         "summary": "Deletes the attachment",
-        "description": "Scopes: \r\n\r\n- altinn:correspondence.send \r\n",
+        "description": "Scopes: \r\n\r\n- altinn:correspondence.write \r\n",
         "parameters": [
           {
             "name": "attachmentId",
@@ -246,7 +246,7 @@
           "Attachment"
         ],
         "summary": "Get information about the attachment and its current status",
-        "description": "Scopes: \r\n\r\n- altinn:correspondence.send \r\n",
+        "description": "Scopes: \r\n\r\n- altinn:correspondence.write \r\n",
         "parameters": [
           {
             "name": "attachmentId",
@@ -298,7 +298,7 @@
           "Attachment"
         ],
         "summary": "Downloads the attachment data",
-        "description": "Scopes: \r\n\r\n- altinn:correspondence.send \r\n",
+        "description": "Scopes: \r\n\r\n- altinn:correspondence.write \r\n",
         "parameters": [
           {
             "name": "attachmentId",
@@ -361,7 +361,7 @@
           "Correspondence"
         ],
         "summary": "Initialize Correspondences",
-        "description": "Scopes: \r\n\r\n- altinn:correspondence.send \r\n\r\nRequires uploads of specified attachments if any before it can be Published",
+        "description": "Scopes: \r\n\r\n- altinn:correspondence.write \r\n\r\nRequires uploads of specified attachments if any before it can be Published",
         "requestBody": {
           "content": {
             "application/json": {
@@ -439,7 +439,7 @@
           "Correspondence"
         ],
         "summary": "Gets a list of Correspondences for the authenticated user",
-        "description": "Scopes: \r\n\r\n- altinn:correspondence.read \r\n\r\n- altinn:correspondence.send \r\n\r\nMeant for Receivers, but also available for Senders to track Correspondences",
+        "description": "Scopes: \r\n\r\n- altinn:correspondence.read \r\n\r\n- altinn:correspondence.write \r\n\r\nMeant for Receivers, but also available for Senders to track Correspondences",
         "parameters": [
           {
             "name": "resourceId",
@@ -527,7 +527,7 @@
           "Correspondence"
         ],
         "summary": "Initialize Correspondences and uploads attachments in the same request",
-        "description": "Scopes: \r\n\r\n- altinn:correspondence.send",
+        "description": "Scopes: \r\n\r\n- altinn:correspondence.write",
         "requestBody": {
           "content": {
             "multipart/form-data": {
@@ -539,8 +539,8 @@
                   "Correspondence.Content.MessageTitle",
                   "Correspondence.Notification.NotificationTemplate",
                   "Correspondence.ResourceId",
-                  "Correspondence.Sender",
-                  "Correspondence.SendersReference",
+                  "correspondence.writeer",
+                  "correspondence.writeersReference",
                   "Recipients"
                 ],
                 "type": "object",
@@ -551,11 +551,11 @@
                     "type": "string",
                     "description": "The Resource Id associated with the correspondence service."
                   },
-                  "Correspondence.Sender": {
+                  "correspondence.writeer": {
                     "type": "string",
                     "description": "The Sending organization of the correspondence."
                   },
-                  "Correspondence.SendersReference": {
+                  "correspondence.writeersReference": {
                     "maxLength": 4096,
                     "minLength": 1,
                     "type": "string",
@@ -732,10 +732,10 @@
                 "Correspondence.ResourceId": {
                   "style": "form"
                 },
-                "Correspondence.Sender": {
+                "correspondence.writeer": {
                   "style": "form"
                 },
-                "Correspondence.SendersReference": {
+                "correspondence.writeersReference": {
                   "style": "form"
                 },
                 "Correspondence.MessageSender": {
@@ -905,7 +905,7 @@
           "Correspondence"
         ],
         "summary": "Get information about the Correspondence and its current status",
-        "description": " Scopes: \r\n\r\n - altinn:correspondence.read \r\n\r\n - altinn:correspondence.send \r\n\r\nMostly for use by recipients and occasional status checks",
+        "description": " Scopes: \r\n\r\n - altinn:correspondence.read \r\n\r\n - altinn:correspondence.write \r\n\r\nMostly for use by recipients and occasional status checks",
         "parameters": [
           {
             "name": "correspondenceId",
@@ -967,7 +967,7 @@
           "Correspondence"
         ],
         "summary": "Get more detailed information about the Correspondence and its current status as well as noticiation statuses, if available",
-        "description": " Scopes: \r\n\r\n - altinn:correspondence.read \r\n\r\n - altinn:correspondence.send \r\n\r\nMeant for Senders that want a complete overview of the status and history of the Correspondence, but also available for Receivers",
+        "description": " Scopes: \r\n\r\n - altinn:correspondence.read \r\n\r\n - altinn:correspondence.write \r\n\r\nMeant for Senders that want a complete overview of the status and history of the Correspondence, but also available for Receivers",
         "parameters": [
           {
             "name": "correspondenceId",
@@ -1188,7 +1188,7 @@
           "Correspondence"
         ],
         "summary": "Delete Correspondence found by ID",
-        "description": "Scopes: \r\n\r\n- altinn:correspondence.read \r\n\r\n- altinn:correspondence.send \r\n (Can only purge before the correspondence is published)",
+        "description": "Scopes: \r\n\r\n- altinn:correspondence.read \r\n\r\n- altinn:correspondence.write \r\n (Can only purge before the correspondence is published)",
         "parameters": [
           {
             "name": "correspondenceId",

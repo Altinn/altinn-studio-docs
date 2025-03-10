@@ -8,13 +8,6 @@ aliases:
  - /altinn-events/
 ---
 
-
-{{% notice warning  %}}
-This section of the documentation is a work in progress. 
-There are sections with missing or only partial documentation.
-{{% /notice %}}
-
-
 ## Design goals
 
 Altinn Events was developed to make it easier for service developers to deliver dynamic and 
@@ -143,9 +136,7 @@ The official specification defines a scaleable approach to versioning and extens
 
 ## Who can use Altinn Events?
 
-Publishing of events is limited to Altinn apps at the moment. 
-We are working on extending this service to additional parties such as application owners and other parties during the 
-spring of 2023. Maskinporten authentication will be required in order to publish events on our platform.
+Publishing of _app_ events is limited to Altinn apps created and deployed with altinn.studio. Generic, or non-app events can be published by an application owner system. The event produsing system must be registered as a resource in the resource registry.
 
 Subscribing to events is openly available to end users, end user systems and application owners. 
 Once additional parties gain access to publishing, the right to subscribe to events published through Altinn

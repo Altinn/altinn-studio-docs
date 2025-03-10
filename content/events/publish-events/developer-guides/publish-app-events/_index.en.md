@@ -36,7 +36,7 @@ application/json
 
 
 ### Request body
-The request body should contain the cloud event formatted as a
+The request body should contain the cloud event formatted as an
 [AppCloudEventRequestModel](https://github.com/Altinn/altinn-events/blob/main/src/Events/Models/AppCloudEventRequestModel.cs)
 and serialized as a JSON string.
 
