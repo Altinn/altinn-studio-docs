@@ -19,7 +19,7 @@ If the service should send a signature receipt to the inbox of the signee, the A
 ## Configuring signing
 
 You can see how to configure signing in an app using the guides found [here](/altinn-studio/guides/development/signing/).
-API based signing has the same requirements for configuration, except the layout-set for the signing step can be simpler.
+API-based signing has the same requirements for configuration, except the layout-set for the signing step can be simpler.
 
 ## The most important API calls
 
