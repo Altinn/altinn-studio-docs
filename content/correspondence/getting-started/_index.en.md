@@ -11,9 +11,9 @@ weight: 30
 
 An enterprise may have three different roles when interacting with Altinn Correspondence;
 
-- Sender
-- Recipient
-- Service Owner
+- sender
+- recipient
+- service Owner
 
 An enterprise may have one, or a combination of all three roles according to the context. Most enterprises will have *Sender* and/or *Recipient*, while *Service owners* frequently will have all three.
 As a **Service owner**, you are responsible for configuring the service and access management of the service. This means that you as a service owner need to set up and configure the solution before it can be taken into use. 
