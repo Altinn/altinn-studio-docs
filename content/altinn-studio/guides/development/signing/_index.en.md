@@ -16,7 +16,7 @@ The different scenarios below can to some extent be combined with each other, bu
 
 [How to configure](/altinn-studio/guides/development/signing/runtime-delegated-signing)
 
-## Role/access package based signing
+## Role/access package-based signing
 
 {{% insert "content/altinn-studio/guides/development/signing/role-based-signing/intro.en.md" %}}
 
