@@ -7,15 +7,11 @@ toc: false
 weight: 1
 ---
 
-Altinn Correspondence enables the secure exchange of correspondence,
-such as official letters, notifications, and other documents,
-between public agencies and individuals or businesses.
+Altinn Correspondence is a service within the Altinn platform used for securely sending and receiving messages. The service is utilized by public authorities, businesses and individuals. It has integrated authorization and encryption, ensuring that important information is transmitted safely and made easily accessible to the correct recipient.  
 
-The goal of Altinn Correspondence is to streamline and improve the efficiency of
-communication between the government and the public,
-ensuring that important information is delivered securely and can be accessed conveniently online.
+Altinn functions as a digital mailbox and plays a key role in digital communication with public authorities in Norway. Altinn Correspondence is used for sending digital letters , information notices, reports, approvals and certificates.
 
-The service is part of the broader Altinn platform, which aims to digitize and simplify processes related to public services and administration in Norway. 
+The goal is to streamline and improve communication between authorities and the public. Altinn Correspondence has traditionally been used for communication with public entities, but it can also be used for message exchanges between private parties.
 
 ![altinn3-correspondence-logo](./altinn3-correspondence-logo.png "Altinn 3 Correspondence features secure and easy to use message exchange")
 
