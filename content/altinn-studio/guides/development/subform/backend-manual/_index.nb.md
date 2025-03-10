@@ -33,14 +33,13 @@ hidden: true
      ]
    }
    ```
-9. Legg til et layout set i `layout-sets.json` med datatypen til datamodellen fra steg 1. Sett **type** til **subform**. Bruk navnet på underskjemamappen som id.
-   ```json
-        {
-            "id": "underskjema-mappe-navn",
-            "dataType": "underskjema-datatype",
-            "type": "subform"
-        },
-   ```
+9. Legg til et layout set i `layout-sets.json` med datatypen til datamodellen fra steg 1. Bruk navnet på underskjemamappen som id.
+    ```json
+    {
+      "id": "underskjema-mappe-navn",
+      "dataType": "underskjema-datatype"
+    }
+    ```
 10. Naviger til layout for siden i hovedskjemaet der du ønsker å legge inn underskjematabellen.
 11. Legg til `Subform` med [ønsket konfigurasjon](/nb/altinn-studio/guides/development/subform/config-options). Eksempel:
     ```json
