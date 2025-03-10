@@ -9,23 +9,25 @@ weight: 40
 
 ## Rate limits
 
+We have introduced the following rate limits to balance the resource usage per party and avoid overloading the infrastructure. Using Events/Webhooks in your solution should eliminate the need for polling many of these operations.
+
 Rate limit applies per subscription key (Ocp-Apim-Subscription-Key). Contact us for more capacity.
 
 - `POST /broker/api/v1/filetransfer`
   - Description: Initialize a file transfer
-  - Rate limit: 60 calls per minute
+  - Rate limit: 120 calls per minute
   
 - `POST /broker/api/v1/filetransfer/{fileTransferId}/upload`
   - Description: Upload to an initialized file using a binary stream
-  - Rate limit: 60 calls per minute
+  - Rate limit: 120 calls per minute
 
 - `POST /broker/api/v1/filetransfer/upload`
   - Description: Initialize and upload a file using form-data
-  - Rate limit: 60 calls per minute
+  - Rate limit: 120 calls per minute
 
 - `GET /broker/api/v1/filetransfer/{fileTransferId}`
   - Description: Get information about the file and its current status
-  - Rate limit: 60 calls per minute
+  - Rate limit: 120 calls per minute
 
 - `GET /broker/api/v1/filetransfer/{fileTransferId}/details`
   - Description: Get more detailed information about the file upload for auditing and troubleshooting purposes
@@ -37,8 +39,8 @@ Rate limit applies per subscription key (Ocp-Apim-Subscription-Key). Contact us 
 
 - `GET /broker/api/v1/filetransfer/{fileTransferId}/download`
   - Description: Downloads the file
-  - Rate limit: 60 calls per minute
+  - Rate limit: 120 calls per minute
 
 - `POST /broker/api/v1/filetransfer/{fileTransferId}/confirmdownload`
   - Description: Confirms that the file has been downloaded
-  - Rate limit: 60 calls per minute
+  - Rate limit: 120 calls per minute
