@@ -8,13 +8,6 @@ aliases:
  - /altinn-events/
 ---
 
-
-{{% notice warning  %}}
-This section of the documentation is a work in progress. 
-There are sections with missing or only partial documentation.
-{{% /notice %}}
-
-
 ## Design goals
 
 Altinn Events was developed to make it easier for service developers to deliver dynamic and 
@@ -55,6 +48,23 @@ Consequentially, developers should make every effort to process events idempoten
 anticipate the possibility of out-of-order message delivery. 
  
 {{% / %}}
+
+## Limitations
+{{% notice warning %}}
+
+Intermittently, Altinn Apps using the opt-in events feature may fail to produce events as expected.
+There are mitigating measures in place, and events affected by this issue may experience a delay of several hours.
+See the above on pub/sub about out-of-order deliveries. Work is in progress to address this/reduce the delay.
+
+{{% / %}}
+
+#### Events are not guaranteed to be delivered.
+
+Push-events have a fixed schedule for delivery-attempts and backoff-timings, before entering a "dead letter" state (see [retry-schedule](subscribe-to-events/#retry-schedule)).
+
+Events expire after 90 days regardless of delivery status (see [publish events](publish-events/)).
+
+
 
 ## Terminology
 #### What is an event?
@@ -126,9 +136,7 @@ The official specification defines a scaleable approach to versioning and extens
 
 ## Who can use Altinn Events?
 
-Publishing of events is limited to Altinn apps at the moment. 
-We are working on extending this service to additional parties such as application owners and other parties during the 
-spring of 2023. Maskinporten authentication will be required in order to publish events on our platform.
+Publishing of _app_ events is limited to Altinn apps created and deployed with altinn.studio. Generic, or non-app events can be published by an application owner system. The event produsing system must be registered as a resource in the resource registry.
 
 Subscribing to events is openly available to end users, end user systems and application owners. 
 Once additional parties gain access to publishing, the right to subscribe to events published through Altinn

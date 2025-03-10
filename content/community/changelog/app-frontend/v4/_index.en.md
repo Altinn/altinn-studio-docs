@@ -14,13 +14,6 @@ Make sure to read through this page before you continue with the [migration rout
 make the necessary changes throughout your app.
 {{% /notice %}}
 
-{{% notice warning %}}
-App frontend v4 is still in its early stages with release candidates. While we recommend you to try it out, test
-your app(s) with it, and build your future apps with v4, we do not recommend that you deploy to production at
-this stage. We will update this page with more information as it arrives, and there may arrive more breaking changes in future
-release candidates before the final stable release.
-{{% /notice %}}
-
 ## Requires backend version 8.0.0
 
 App frontend v4 requires at least version 8.0.0 of the `Altinn.App.Core` and `Altinn.App.Api` nuget packages.

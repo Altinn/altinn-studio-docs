@@ -118,7 +118,7 @@ Det er blitt laget en ny seksjon kalt `FrontEndSettings` for bruk i `appsetting.
 ## 4.24.0 (2020-01-21)
 
 Støtte for språk og query parametre inn til dynamiske kodelister.
-Ny måte å implementere dynamiske kodelister ved hjelp av IAppOptionsProvider. [Se dokumentasjon](../../../../../altinn-studio/reference/data/options/)
+Ny måte å implementere dynamiske kodelister ved hjelp av IAppOptionsProvider. [Se dokumentasjon](../../../../../altinn-studio/guides/development/options/)
 
 ## 4.23.0 (2022-01-15) - Støtte for BPMN Gateways
 Restrukturering av prosessmotor og støtte for BPMN gateways.
@@ -288,7 +288,7 @@ See details about data processing [here](../../../../../altinn-studio/reference/
 
 ## 4.6.2 (2021-06-01) - Duplicate keys in options causing crash
 
-This release has a fix for a crash related to PDF rendering when an app has [options](../../../../../altinn-studio/reference/data/options/) with duplicate entries. [#5887](https://github.com/Altinn/altinn-studio/issues/5887)
+This release has a fix for a crash related to PDF rendering when an app has [options](../../../../../altinn-studio/guides/development/options/) with duplicate entries. [#5887](https://github.com/Altinn/altinn-studio/issues/5887)
 
 ## 4.6.1. (2021-05-21) Changed alternative subject
 

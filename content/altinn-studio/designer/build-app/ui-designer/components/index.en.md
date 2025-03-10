@@ -113,7 +113,7 @@ See documentation here: https://docs.altinn.studio/altinn-studio/guides/design/g
       </td>
     </tr>
         <tr>
-      <td><a href="/altinn-studio/guides/design/guidelines/components/select/">Dropdown</a></td>
+      <td><a href="/altinn-studio/guides/design/guidelines/components/dropdown/">Dropdown</a></td>
       <td>
         <ul>
           <li>Link to data model</li>

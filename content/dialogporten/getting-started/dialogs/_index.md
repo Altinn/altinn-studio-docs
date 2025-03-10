@@ -17,10 +17,16 @@ The dialog is an abstract and common model for all ongoing or completed communic
 
 An important difference from [Altinn Correspondence]({{<relref "/correspondence">}}) is that dialogs in Dialogporten are _mutable_. The service provider can update the metadata and available actions on the dialog at any time (with some notable exceptions). Any change generates _events_, which authorized parties can act on, e.g., sending a notification or having an EUS perform an action.
 
-Dialogs use by default a [UUIDv7](https://uuid7.com/) as its identifier, but Dialogporten supports any valid UUID format. The service owner can specify the desired UUID upon creation to enable the use of the same identifier across systems and ensure idempotency.
+Dialogs use [UUIDv7](https://uuid7.com/) as its identifier. The service owner can specify the desired UUIDv7 upon creation to enable the use of the same identifier across systems and ensure idempotency. The date portion of the UUIDv7 cannot be set to a future date.
 
 **Read more**
-* [Reference information for the dialog entity]({{<relref "../../reference/entities/dialog">}})
+* {{<link "../../reference/entities/dialog">}}
+
+## Content
+
+While the dialog mainly contains metadata, there is some content, namely a title, a short summary and a field for "additional information", used for providing non-personal textual information, eg. service owner contact information or links to documentation.
+
+Additionally, a dialog may contain a content reference called a [front channel embeds]({{<relref "../front-channel-embeds">}}), which is a URL to a special endpoint provided by the service owner that returns a "full" personlized content payload. 
 
 ## Transmissions
 
@@ -33,7 +39,7 @@ Transmissions will by default inherit the authorization policy for the dialog it
 API actions and activity log entries may refer to single transmissions.
 
 **Read more**
-* [Reference information for the transmissions entity]({{<relref "../../reference/entities/transmission">}})
+* {{<link "../../reference/entities/transmission">}}
 
 ## Attachments
 
@@ -42,7 +48,7 @@ Attachments are files referenced by one or more URLs, supporting various represe
 Attachments can be used on both transmission and dialog level. 
 
 **Read more**
-* [Reference information for the attachment entity]({{<relref "../../reference/entities/attachment">}})
+* {{<link "../../reference/entities/attachment">}}
 
 ## Actions
 
@@ -59,8 +65,8 @@ All GUI actions have a URL. These URLs are used in the front channel (ie. the br
 GUI actions can, however, be marked as [write operations]({{<relref "../write-actions">}}) and can then also be used to make state changes.
 
 **Read more**
+* {{<link "../write-actions">}}
 * [Reference information for the GUI action entity]({{<relref "../../reference/entities/action#gui-actions">}})
-* [Learn about write actions]({{<relref "../write-actions">}})
 
 ### API Actions
 
@@ -78,7 +84,8 @@ Dialogporten does not validate any data and does not see what data flows between
 An _activity_ describes an action or event that has occurred in connection with the dialog. Each activity is part of the activity history, which is a chronological list of activities. The service provider populates the activity history as various state changes occur.
 
 **Read more**
-* [Reference information for the dialog activity entity]({{<relref "../../reference/entities/activity">}})
+* {{<link "../activity-log">}}
+* {{<link "../../reference/entities/activity">}}
 
 ## Dialog labels
 
@@ -98,15 +105,15 @@ User defined label functionality is under design, and will be made available at 
 {{</notice>}}
 
 ### System labels
-System labels are predefined, global labels defined by Dialogporten. These may be assigned to any dialog by any user with write access to the dialog in question. Currently there are two system labels defined; archive and bin. Assigning these labels will typically hide the dialog from the ordinary inbox views, and will make them available in other views. Both these labels are mutually exclusive (ie. it can only have one of either "archive" or "bin").
+System labels are predefined, global labels defined by Dialogporten. These may be assigned to any dialog by any user with write access to the dialog in question. Currently there are three system labels defined; `Archive` and `Bin` and `Default`. Assigning `Archive` or `Bin` labels will typically hide the dialog from the ordinary inbox views, and will make them available in other views. These system labels are mutually exclusive (ie. it can only have one of these labels at any time). By default, all dialogs will have the label `Default`, which indicates that default view/handling of the dialog should be applied. 
 
-Common for these two system labels is that any change made to the dialog by the service owner will remove them. Ie. if a user decides to place a dialog in the bin, and the service owner subsequently updates it with more information, the dialog will again be visible in the ordinary views as if the bin label was never assigned.
+Common for these two system labels is that any change made to the dialog by the service owner will reset them to `Default`. Ie. if a user decides to place a dialog in the bin, and the service owner subsequently updates it with more information, the dialog will again be visible in the ordinary views as if the `Bin` label was never assigned.
 
 ### Label log
 Dialogporten keeps track of labellings, logging who performed them and at what time it was performed. This includes resetting of system labels due to dialog updates.
 
 **Read more**
-* [Reference information for the system label entity]({{<relref "../../reference/entities/systemlabel">}})
+* {{<link "../../reference/entities/systemlabel">}}
 
 
 {{<children />}}

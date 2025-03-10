@@ -4,7 +4,7 @@ linktitle: Energi, vann, avløp, avfall
 description: Denne tilgangspakken er relevant for alle virksomheter
 weight: 117
 ---
-Tilbake til [hovedoversikt](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker)
+Tilbake til [hovedoversikt](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker)
 
 
 
@@ -34,4 +34,4 @@ Tilbake til [hovedoversikt](http://localhost:1313/authorization/what-do-you-get/
 {{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Energi, vann, avløp og avfall" {{% /notice %}}
 
 
-Tilbake til [hovedoversikt](http://localhost:1313/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker)
+Tilbake til [hovedoversikt](http://docs.altinn.studio/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker)

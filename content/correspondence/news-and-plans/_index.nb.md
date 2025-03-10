@@ -4,7 +4,7 @@ linktitle: Nyheter og planer
 description: Nyheter og videre planer for utvikling av Altinn 3 Melding
 tags: []
 toc: true
-weight: 70
+weight: 80
 ---
 
 ## Migrering fra Altinn 2 til Altinn 3
@@ -19,7 +19,7 @@ tjenestereiere og brukere være over på ny løsning. Altinn 2 plattformen skal 
 
 ### De viktigste nyhetene i Altinn 3 Melding (foreløpig oversikt)
 
-- Forbedret sluttbrukeropplevelse gjennom nytt brukergrensesnitt i Felles arbeidsflate.
+- Forbedret sluttbrukeropplevelse gjennom nytt brukergrensesnitt i Arbeidsflate.
 - Støtte for å sende lenker til meldingsinnhold og vedlegg,
   som alternativ til å sende meldingsinnhold og vedlegg direkte i meldingene.
   Filene kan lagres i Altinn 3 Melding Fillager eller i avsenders foretrukne løsning.  

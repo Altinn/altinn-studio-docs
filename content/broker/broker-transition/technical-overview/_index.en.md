@@ -17,6 +17,10 @@ This is an implementation of the soft shift solution described [here](../../refe
 Altinn 2 allows end users in Altinn 2 to make BrokerService requests for specific Broker Services that will be transferred to Altinn 3 instead of being stored in Altinn 2.
 Files transferred in this way will be available for Altinn 3 and Altinn 2 users.
 
+Authentication and authorization are primarily performed at the API endpoint being called (Altinn 2 or 3). For Altinn 2, authentication/authorization is performed at the service level before routing the service calls to Altinn 3 through a dedicated endpoint that can assume service-level authentication and authorization are OK. For Altinn 3, everything happens internally within the environment.
+This means that you need both an Altinn 2 service (with associated authorization rules and setup in SRR) and an Altinn 3 Broker Resource with access defined in the Resource Registry.
+This is a natural pattern when setting up a transition solution for an existing service, but it is worth noting if you want to set up dedicated test services.
+
 1. Requests that have the ability to specify ServiceCode / ServiceEdition.
 In this case Altinn will immediately determine that the request should be transferred to Altinn 3 via the Altinn 3 Broker Bridge.
 In cases where the SC/SE can be specified, but aren't, requests will not be transferred to Altinn 3.

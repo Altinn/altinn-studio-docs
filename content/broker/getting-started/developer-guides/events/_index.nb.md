@@ -10,10 +10,6 @@ weight: 40
 {{<children />}}
 
 {{% notice warning  %}}
-Denne delen av dokumentasjonen er under arbeid, og refererer derfor i stor grad til eksterne kilder.
-{{% /notice %}}
-
-{{% notice warning  %}}
 For øyeblikket er hendelsene for Formidling ikke klare for fullskala bruk, på grunn av kommende endringer i Altinn Events og Autorisasjon.
 Dette dokumenterer det forventede scenarioet, men kan endres.
 {{% /notice %}}
@@ -45,7 +41,7 @@ Du må sette opp følgende filtre:
 
 - sourceFilter
   - TT02: <https://platform.tt02.altinn.no/broker/api/v1/filetransfer>
-  - PROD: <https://platform.altinn.no/broker/api/v1/filetransfer>
+  - PROD: <https://api.altinn.no/broker/api/v1/filetransfer>
 - resourceFilter
   - "urn:altinn:resource:" + Ressurs-IDen for formidlingstjenesten
 - alternativesubjectfilter

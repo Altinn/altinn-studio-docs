@@ -7,18 +7,15 @@ toc: true
 weight: 20
 ---
 
+Altinn 3 melding setter deg i stand til å opprette og sende generelle og/eller personlige meldinger til brukere. Løsningen støtter alle språk, men har maler på norsk bokmål (nb), nynorsk (nn) og engelsk (en).  
+
 ## Funksjonalitet
-
-### Opprettelse og sending av meldinger
-
-- Mulighet for offentlige etater og andre tjenestetilbydere å opprette og sende meldinger til brukere.
-  - Språk støttet av tjenesten: norsk bokmål (nb), nynorsk (nn) og engelsk (en)
-- Støtte for både generelle og personlige meldinger.
 
 ### Varsling
 
 - Automatisk varsling via e-post eller SMS til brukere når de mottar nye meldinger.
-- Tilpassede varslingsinnstillinger basert på brukerpreferanser.
+- Re-varsling etter 7 dager dersom meldingen ikke blir åpnet. 
+- Tilpassede varslingsinnstillinger basert på brukerpreferanser. Dette innebærer varslingsmaler og egendefinerte varslingsadresser.
 
 ### Arkivering og oppbevaring
 
@@ -52,13 +49,9 @@ weight: 20
 
 ### Støtte for ulike meldingsformater
 
-- Mulighet for å sende meldinger i ulike formater som PDF, XML, HTML, etc.
-- Støtte for vedlegg.
-
-### Rapportering og statistikk
-
-- Verktøy for å generere rapporter og statistikker over sendte og mottatte meldinger.
-- Oversikt over meldingsstrømmer og bruksdata.
+- Mulighet for å sende meldinger med Markdown eller ren tekst.
+- Støtte for flere vedlegg per melding uten begrensing av type, der PDF, XML og HTML vil være de mest vanlige.
+- Støtte for vedlegg opp til 250 MB.
 
 ### Avansert støtte for lenking til innhold og vedlegg
 
@@ -70,9 +63,9 @@ weight: 20
   f.eks. on-premise hos avsender eller i avsenders prefererte skyløsning.
 
 
-### Integrasjon med Dialogporten og Felles arbeidsflate
+### Integrasjon med Dialogporten og Arbeidsflate
 
-- Enhetlig brukergrensesnitt på tvers av flere meldingsløsninger gjennom Altinn 3 Felles Arbeidsflate.
+- Enhetlig brukergrensesnitt på tvers av flere meldingsløsninger gjennom Altinn 3 Arbeidsflate.
 - Aktivitetslogg i Dialogporten.
 
 ## Oppsummering av fordelene med Altinn Melding?

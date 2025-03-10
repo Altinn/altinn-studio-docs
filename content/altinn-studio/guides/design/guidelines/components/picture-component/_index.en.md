@@ -17,9 +17,3 @@ It is important that alternative texts are written consequently. We recommend fo
 - Write short and start with the most important part of the image
 - End by saying if the photo is a photo, illustration or graphic.
 
-**Example** 
-"Three old wooden trolley. Photograph."
-
-### Example of use:
-
-{{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D2815%253A680" %}}

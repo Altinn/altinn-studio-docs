@@ -18,7 +18,8 @@ The service provider system will have to implement support for front channel emb
 
 
 **Read more**
-* [Technical reference for front channel embeds]({{<relref "../../reference/front-end/front-channel-embeds">}})
+* [Handling front channel embeds in dialog details]({{<relref "../../user-guides/getting-dialog-details/#handling-front-channel-embeds">}})
+* {{<link "../../reference/front-end/front-channel-embeds">}}
 
 {{<children />}}
 

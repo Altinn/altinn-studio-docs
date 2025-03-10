@@ -17,6 +17,10 @@ Dette er en implementering av den myke overgangen beskrevet [her](../../referenc
 Altinn 2 lar sluttbrukere gjøre kall for spesifikke formidlingstjenester og overføre disse forespørslene til Altinn 3 basert på "*ServiceCode*"/"*ServiceEdition*" verdier i forespørselen.
 Filer overført på denne måten vil være tilgjengelige for både Altinn 3 og Altinn 2 brukere.
 
+Autentisering og autorisasjon utføres primært i det API-endepunktet man kaller (Altinn 2 eller 3). For Altinn 2 så utføres autentisering/autorisasjon på tjenestenivå, før man ruter tjenestekallene over til Altinn 3 gjennom et dedikert endepunkt som kan anta at autentisering og autorisasjon på tjenestenivå er OK. For Altinn 3 skjer alt internt i det miljøet.
+Det medfører at man må ha både en Altinn 2 tjeneste(med tilhørende autorisasjonsregler og oppsett i SRR), samt en Altinn 3 Broker Resource med tilganger definert i Ressursregisteret.
+Dette er et naturlig mønster dersom man skal sette opp overgangsløsning for en eksisterende tjeneste, men er verdt å være OBS på dersom man vil sette opp dedikerte test-tjenester.
+
 1. Forespørsler som har muligheten til å spesifisere "*ServiceCode*"/"*ServiceEdition*".
 I dette tilfellet vil Altinn umiddelbart avgjøre at forespørselen skal overføres til Altinn 3 via "*Altinn 3 Broker Bridge*".
 I tilfeller der "*ServiceCode*/"*ServiceEdition"* kan spesifiseres, men ikke er spesifisert, vil ikke forespørsler bli overført til Altinn 3.

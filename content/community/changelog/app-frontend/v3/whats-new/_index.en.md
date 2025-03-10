@@ -78,7 +78,7 @@ The width declaration was moved to inline styling instead to resolve this issue.
 Issue [#14](https://github.com/Altinn/app-frontend-react/issues/14).
 
 ## 3.34.0 (2022-04-11) - Options from the data model
-Added possibility to setup options from repeating groups in the data model. Read more on [docs.](/altinn-studio/reference/data/options/repeating-group-codelists)
+Added possibility to setup options from repeating groups in the data model. Read more on [docs.](/altinn-studio/guides/development/options/repeating-group-codelists)
 Issue [#7626](https://github.com/Altinn/altinn-studio/issues/7626). 
 
 ## 3.33.5 (2022-04-11) - External dependency patching

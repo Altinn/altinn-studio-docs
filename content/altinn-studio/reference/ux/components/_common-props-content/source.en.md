@@ -6,7 +6,7 @@ hidden: true
 #### Source (`source`)
 
 One way to add options is by linking the component to a code list based on form data stored within the app itself.
- You can do this by adding a source (`source`); please refer to the [documentation](/altinn-studio/reference/data/options/repeating-group-codelists/) for instructions on how to configure this.
+ You can do this by adding a source (`source`); please refer to the [documentation](/altinn-studio/guides/development/options/repeating-group-codelists/) for instructions on how to configure this.
 
 <!-- end intro -->
 

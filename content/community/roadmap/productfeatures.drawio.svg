@@ -2618,7 +2618,7 @@
                 </switch>
             </g>
         </a>
-        <a xlink:href="https://docs.altinn.studio/altinn-studio/reference/data/options/" target="_blank">
+        <a xlink:href="https://docs.altinn.studio/altinn-studio/guides/development/options/" target="_blank">
             <rect x="1240" y="945" width="120" height="60" rx="9" ry="9" fill="#008a00" stroke="#005700" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -2639,7 +2639,7 @@
                 </switch>
             </g>
         </a>
-        <a xlink:href="https://docs.altinn.studio/altinn-studio/reference/data/options/" target="_blank">
+        <a xlink:href="https://docs.altinn.studio/altinn-studio/guides/development/options/" target="_blank">
             <rect x="1240" y="1045" width="120" height="60" rx="9" ry="9" fill="#008a00" stroke="#005700" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -2660,7 +2660,7 @@
                 </switch>
             </g>
         </a>
-        <a xlink:href="https://docs.altinn.studio/altinn-studio/reference/data/options/#dynamic-codelists-generated-runtime" target="_blank">
+        <a xlink:href="https://docs.altinn.studio/altinn-studio/guides/development/options/#dynamic-codelists-generated-runtime" target="_blank">
             <rect x="1240" y="1145" width="120" height="60" rx="9" ry="9" fill="#008a00" stroke="#005700" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -2681,7 +2681,7 @@
                 </switch>
             </g>
         </a>
-        <a xlink:href="https://docs.altinn.studio/altinn-studio/reference/data/options/#options-based-on-repeating-groups-from-redux" target="_blank">
+        <a xlink:href="https://docs.altinn.studio/altinn-studio/guides/development/options/#options-based-on-repeating-groups-from-redux" target="_blank">
             <rect x="1080" y="645" width="120" height="60" rx="9" ry="9" fill="#008a00" stroke="#005700" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>

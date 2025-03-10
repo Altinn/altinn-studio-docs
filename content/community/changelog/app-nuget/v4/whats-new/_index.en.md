@@ -119,7 +119,7 @@ Added a new section called `FrontEndSettings` for use in `appsetting.{environmen
 ## 4.24.0 (2020-01-21)
 
 Support language and query parameters in dynamic options.
-New way of implementing dynamic options by creating a class that implements IAppOptionsProvider.  [See doc](../../../../../altinn-studio/reference/data/options/)
+New way of implementing dynamic options by creating a class that implements IAppOptionsProvider.  [See doc](../../../../../altinn-studio/guides/development/options/)
 
 ## 4.23.0 (2022-01-15) - Updated backend support for BPMN gateways
 
@@ -309,7 +309,7 @@ See details about data processing [here](../../../../../altinn-studio/reference/
 
 ## 4.6.2 (2021-06-01) - Duplicate keys in options causing crash
 
-This release has a fix for a crash related to PDF rendering when an app have [options](../../../../../altinn-studio/reference/data/options/) with duplicate entries. [#5887](https://github.com/Altinn/altinn-studio/issues/5887)
+This release has a fix for a crash related to PDF rendering when an app have [options](../../../../../altinn-studio/guides/development/options/) with duplicate entries. [#5887](https://github.com/Altinn/altinn-studio/issues/5887)
 
 ## 4.6.1. (2021-05-21) Changed alternative subject
 

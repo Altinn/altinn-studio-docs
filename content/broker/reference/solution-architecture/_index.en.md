@@ -215,10 +215,10 @@ is used for scaling, operational insights, and securing Altinn Broker APIs.
 Altinn Broker runs on an APIM instance that is shared with other platform services in Altinn.
 
 ## Logging and Monitoring
-TBD
+TBD - spring 2025.
 
 ## Clearing and Billing
-TBD
+TBD - spring 2025.
 
 
 

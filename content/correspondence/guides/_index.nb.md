@@ -5,6 +5,7 @@ description: Praktisk brukerveiledning (how-to-guides) for oppsett og bruk av Al
 tags: []
 toc: false
 weight: 40
+hidden: true
 ---
 
 {{% notice warning  %}}
