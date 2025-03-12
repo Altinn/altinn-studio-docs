@@ -1,7 +1,7 @@
 ---
 title: How to set up a subscription
 linktitle: Set up a subscription
-description: How-to guide on setting up a subscribe for events from a specific resource
+description: How-to guide on setting up a subscription for events from a specific resource
 weight: 10
 toc: true
 ---
@@ -10,6 +10,11 @@ toc: true
 ## Endpoint
 
 POST /subscriptions
+
+{{% notice info %}}
+Example use case: Use this endpoint when you want to add a subscription to your Altinn Studio app's events. Use the filter
+properties to specify what events you want to subscribe to. 
+{{% /notice %}}
 
 ## Authentication
 
@@ -28,9 +33,6 @@ See [Authentication and Authorization](../../../api/#authentication--authorizati
 application/json
 
 ### Request body
-The request body should contain the
-[subscription request](https://raw.githubusercontent.com/Altinn/altinn-events/main/src/Events/Models/SubscriptionRequestModel.cs)
-serialized as JSON.
 
 {{% notice info %}}
 The list of required properties below shows what is generally required.

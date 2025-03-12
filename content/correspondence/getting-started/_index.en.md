@@ -11,9 +11,9 @@ weight: 30
 
 An enterprise may have three different roles when interacting with Altinn Correspondence;
 
-- Sender
-- Recipient
-- Service Owner
+- sender
+- recipient
+- service Owner
 
 An enterprise may have one, or a combination of all three roles according to the context. Most enterprises will have *Sender* and/or *Recipient*, while *Service owners* frequently will have all three.
 As a **Service owner**, you are responsible for configuring the service and access management of the service. This means that you as a service owner need to set up and configure the solution before it can be taken into use. 
@@ -51,20 +51,20 @@ If you are not a service owner, contact the Service owner for the Correspondence
 - Organization number you will represent
 - System user
 
-## 3. Get an Altinn API Key {#get-an-altinn-api-key}
-
-In order to use any Altinn APIs, you need a API-key for the APIs, you can get it by contacting us at [Altinn@Slack#produkt-melding](https://join.slack.com/t/altinn/shared_invite/zt-7c77c9si-ZnMFwGNtab1aFdC6H_vwog).
-This is passed as the header `Ocp-Apim-Subscription-Key` in every request.
-
-
-## 4. Register your Maskinporten Client with correct scopes {#register-your-maskinporten-client-with-correct-scopes}
-
-Register your Maskinporten client(s) to authenticate with the Correspondence API, assigning them the relevant scopes for whether they will be used for sending and/or receiving messages:
-
+## 3. Altinn API key and access to scopes {#get-an-altinn-api-key}
+In order to use Altinn Correspondence you need a subscription key. Technically, this is an API key that must be included in the header of the request `Ocp-Apim-Subscription-Key`, to verify that you have the right to use the Correspondence API. Without this key, your request will be denied.
+To authenticate and ensure that you can perform operations via the Correspondence API, Altinn must grant you access to the necessary scopes. This ensures that only authorized clients can send and receive files, thereby maintaining the security of the service. The following scopes are used to send and/or receive messages:
 - `altinn:correspondence.write` 
 - `altinn:correspondence.read` 
 
-These scopes are maintained by Altinn and are required to be authorized for the appropriate API operations, and as such are independent of the access set by Service Owners in step 2 for the specific Correspondence Service Resource.
+To obtain an Altinn API key and access to scopes, you must submit a request to: servicedesk@altinn.no.
+The request must include the scopes you need. Note that you may require more than just read/write access for Correspondence. A complete list of scopes can be found here:
+https://docs.altinn.studio/api/authentication/digdirscopes/
+
+## 4. Register your Maskinporten Client with the required scopes {#register-your-maskinporten-client-with-correct-scopes}
+In order to authenticate the Correspondence API, you must register your Maskinporten client(s) with the necessary scopes, depending on whether you need to send and/or receive messages.
+
+The scopes are maintained by Altinn, they are required for you to be authorized for the correct API operations. Note that this is not the same as the access granted by service owners in step 2 for the specific Correspondence service resource.
 
 Use Samarbeidsportalen self-service for registration. [Here's a detailed guide](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web#selvbetjening-som-api-konsument).
 

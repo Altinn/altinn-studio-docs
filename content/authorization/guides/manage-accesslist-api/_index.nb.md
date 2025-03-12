@@ -16,9 +16,11 @@ I Altinn 3 håndteres denne funksjonaliteten av Ressursrettighetsregisteret (RRR
 
 Klienten må være definert i Maskinporten med følgende scopes:
 
-- `altinn:resourceregistry/access-list.read`
-- `altinn:resourceregistry/access-list.write`
+- `altinn:resourceregistry/accesslist.read`
+- `altinn:resourceregistry/accesslist.write`
 - `altinn:resourceregistry/resource.write`
+
+For å få tilgang til scopene i Samarbeidsportalen må det bestilles tilgang til scopene. Dette gjøres ved å ta kontakt per e-post på tjenesteeier@altinn.no
 
 [Full swagger-dokumentasjon](https://docs.altinn.studio/api/resourceregistry/spec/#/)
 
