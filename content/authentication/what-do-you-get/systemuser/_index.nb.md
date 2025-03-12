@@ -26,6 +26,15 @@ Systembruker gir en rekke fordeler sammenlignet med dagens virksomhetsbruker og 
 - Vil støtte klientforhold til regnskapsfører/revisor fra Q1 2025
 - Vil støttes av Altinn Apps Q1 2025
 
+### Typer systembruker
+
+Fra april 2025 vil systembruker støtte at systembrukeren for en virksomhet tildeles rettigheter for virksomhetens kunder. 
+
+Løsningen krever at når man oppretter systembruker enten via portal eller via en forespørsel fra leverandør må det gjøres et aktivt valg hvilken type virksomhetsbruker.
+
+- Standard for egen virksomhet - Bruke mot digitale tjenester som behandles virksomhetens egne data
+- Agent type for kunder av virksomheten - Brukes mot digitale tjenester som behandlers kunders data. (f.eks regnskapsførerkunder)
+
 ## Maskinporten og systembrukertoken
 
 Maskinporten står sentralt i dette nye konseptet. Alle som skal benytte API med systembruker må autentisere seg mot Maskinporten for å motta et systembrukertoken.
@@ -87,6 +96,22 @@ I eksempelet nedenfor ser man hvordan [SmartCloud](https://smartcloudaltinn.azur
 Selve flyten vil variere fra system til system.
 
 I noen tilfeller kan man se for seg at systemleverandøren sender en epost til sluttbruker med lenke til bekreftelse, mens man i fremtiden også potensielt vil kunne se slike forspørsler fra Altinn arbeidsflate.
+
+### Leverandørstyrt opprettelse av Agent systembruker
+
+Ved leverandørstyrt opprettelse av systembruker for agentbruk så må leverandøren oppgi hvilke tilgangspakker som systembrukerne må få for kunder som skal behandles av systembrukeren. 
+
+Når systembrukerforspørsel aksepterers opprettes brukeren uten rettigheter til noen kunder. 
+
+Disse må da legges til i etterkant via GUI i Altinn og senere tilgjengelig via API.
+
+Foreløpig skisser
+
+![Illustration](agent_1.png)
+
+![Illustration](agent_2.png)
+
+![Illustration](agent_3.png)
 
 
 ### Administrasjon av systembruker
