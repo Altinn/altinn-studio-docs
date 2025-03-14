@@ -15,22 +15,22 @@ aliases:
 | [Maskinlesbare hendelser](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/integrasjoner/#maskinlesbare-hendelser)|
 
 
-### Programmeringsgrensesnitt -API
-Denne tilgangspakken gir fullmakter til å administrere tilgang til data og programmeringsgrensenitt (API) som benytter Maskinporten eller tilsvarende løsninger for APIsikring. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:programmeringsgrensesnitt*
+### Programming Interfaces - API
+This access package grants authority to manage access to data and programming interfaces (APIs) that use Maskinporten or equivalent solutions for API security. Changes to regulations or the introduction of new digital services may result in modifications to the access provided by this authority.
+urn:altinn:accesspackage:programmeringsgrensesnitt
 
-### Programmeringsgrensesnitt NUF - API
-Denne tilgangspakken gir fullmakter til å administrere tilgang til data og programmeringsgrensenitt (API) som benytter Maskinporten eller tilsvarende løsninger for APIsikring på vegne av norskregistrerte utenlandske foretak (NUF). Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:programmeringsgrensesnittNUF*
+### Programming Interfaces NUF - API
+This access package grants authority to manage access to data and programming interfaces (APIs) that use Maskinporten or equivalent solutions for API security on behalf of Norwegian registered foreign business (NUF). Changes to regulations or the introduction of new digital services may result in modifications to the access provided by this authority.
+urn:altinn:accesspackage:programmeringsgrensesnittNUF
 
-### Maskinlesbare hendelser
-Denne tilgangspakken gir fullmakter til å administrere tilgang til maskinlesbare hendelser. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:maskinlesbarehendelser*
+### Machine-Readable Events
+This access package grants authority to manage access to machine-readable events. Changes to regulations or the introduction of new digital services may result in modifications to the access provided by this authority.
+urn:altinn:accesspackage:maskinlesbarehendelser
 
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
 |**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
 |---|---|---|
-|Programmeringsgrensesnitt - API|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
-|Programmeringsgrensensnitt NUF - API|Kontaktperson NUF|Ja|
-|Maskinlesbare hendelser|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Delegable Maskinporten Scopes|General Manager, Chairman of the Board, Owner, Partner with Unlimited Liability, Partner with Limited Liability, General Partner, Managing Shipowner, Bankruptcy Trustee|Yes|
+|Delegable Maskinporten Scopes - NUF|Contactperson NUF|Yes|
+|Machine readable events|General Manager, Chairman of the Board, Owner, Partner with Unlimited Liability, Partner with Limited Liability, General Partner, Managing Shipowner, Bankruptcy Trustee|Yes|

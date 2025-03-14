@@ -4,6 +4,7 @@ linktitle: Tilgangspakker 3.0
 description: Her finner du forslag til nye tilgangspakker for virksomheter og innbyggere 
 toc: false
 weight: 100
+hidden: true
 ---
 
 Altinn skal fase ut eksisterende Altinn 2 roller som gir tilgang til tjenester gjennom tilgangsstyring i Altinn. I stedet for Altinn-roller vil det være ulike tilgangspakker som består av tjenester som hører til et ansvarsområde.
