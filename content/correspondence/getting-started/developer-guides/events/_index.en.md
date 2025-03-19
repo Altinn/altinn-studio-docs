@@ -1,5 +1,5 @@
 ---
-title: Altinn 3 Correspondence Developer guides
+title:  Events in Altinn 3 Correspondence
 linktitle: Events
 description: How to get started subscribing to Events from Altinn 3 Correspondence, for developers
 tags: [Correspondence, guide, events]
@@ -8,15 +8,6 @@ weight: 40
 ---
 
 {{<children />}}
-
-{{% notice warning  %}}
-This section of the documentation is a work in progress, and as such currently makes extensive reference to external sources.
-{{% /notice %}}
-
-{{% notice warning  %}}
-Currently the Events for Correspondence are not ready for full-scale use, due to pending changes in Altinn Events and Authorization.
-This documents the expected scenario, but may be subject to change.
-{{% /notice %}}
 
 In order to use events/webhooks for a Correspondence resource, you need to setup a subscription for the given resource.
 This subscription is used to configure the endpoint where the events published by correspondence end up. [You can read more about how to setup an Events subscription in Altinn Events here](/events/subscribe-to-events/developer-guides/setup-subscription/).
@@ -45,7 +36,7 @@ You are required to set up the following filters:
 
 - sourceFilter
   - TT02: <https://platform.tt02.altinn.no/correspondence/api/v1/correspondence>
-  - PROD: <https://platform.altinn.no/correspondence/api/v1/correspondence>
+  - PROD: <https://api.altinn.no/correspondence/api/v1/correspondence>
 - resourceFilter
   - "urn:altinn:resource:" + The Resource Id for the Correspondence Resource
 - alternativesubjectfilter

@@ -20,9 +20,9 @@ Accordion er en trekkspill-komponent som lar brukere utvide og lukke seksjoner m
 
 ### Anatomi
 
-![Accordion lukket anatomi](Accordion-closed-anatomy.png "Lukket Accordion")
+<iframe style="border: 0px solid rgba(0, 0, 0, 0);" width="100%" height="250" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1320-9369&viewport=634%2C2793%2C0.78&scaling=contain&content-scaling=responsive&starting-point-node-id=1320%3A9369&show-proto-sidebar=0&embed-host=share&hide-ui=true" allowfullscreen></iframe>
 
-![Accordion åpen anatomi](Accordion-open-anatomy.png "Åpen Accordion")
+<iframe style="border: 0px solid rgba(0, 0, 0, 0);" width="100%" height="300" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1-4275&viewport=634%2C2793%2C0.78&scaling=contain&content-scaling=responsive&starting-point-node-id=1%3A4275&show-proto-sidebar=0&embed-host=share&hide-ui=true" allowfullscreen></iframe>
 
 {{% anatomy-list %}}
 1. **Overskrift**: Den klikkbare seksjonstittelen som brukere samhandler med for å utvide eller lukke innholdet.
@@ -134,7 +134,7 @@ App/ui/layouts/{page}.json
 
 #### `textResourceBindings.title`
 
-Overskriften for Accordion kan legges til som en tekst direkte eller refereres via en tekstnøkkel til en [tekstressurs](/nb/altinn-studio/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app).
+Overskriften for Accordion kan legges til som en tekst direkte eller refereres via en tekstnøkkel til en [tekstressurs](../../../ux/texts/#legge-til-og-endre-tekster-i-en-app).
 
 #### `children`
 

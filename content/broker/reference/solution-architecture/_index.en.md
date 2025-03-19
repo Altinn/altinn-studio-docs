@@ -4,7 +4,7 @@ linktitle:  Solution Architecture
 description: Altinn 3 Broker solution architecture for basic use cases of Managed File Transfers.
 tags: []
 toc: true
-weight: 40
+weight: 50
 ---
 
 {{<notice info>}} <!-- info -->
@@ -215,10 +215,10 @@ is used for scaling, operational insights, and securing Altinn Broker APIs.
 Altinn Broker runs on an APIM instance that is shared with other platform services in Altinn.
 
 ## Logging and Monitoring
-TBD
+TBD - spring 2025.
 
 ## Clearing and Billing
-TBD
+TBD - spring 2025.
 
 
 

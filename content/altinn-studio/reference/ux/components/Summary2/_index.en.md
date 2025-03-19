@@ -20,6 +20,9 @@ It is customizable to suit your needs, and is also used for generating PDFs.
 
 For examples of how Summary2 looks in different components, [see this example app](https://ttd.apps.tt02.altinn.no/ttd/component-library)
 
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://embed.figma.com/design/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?node-id=1994-9298&embed-host=share" allowfullscreen></iframe>
+This example is taken from <a href="https://www.figma.com/community/file/1344307804742953785/altinn-studio-komponenter" target="_blank">Altinn Studio Komponenter</a>. Note that the example is not identical to the actual code but has been adapted to create prototypes in Figma.
+
 ## Configuration
 
 ### Component Summary
@@ -136,7 +139,7 @@ Here are the overrides that are common for all components:
 |-----------------|---------|----------|-------------------------------------------------------------------------------------------------------------|
 | componentId     | string  | yes      | ID of the compoment you are overriding                                                                      |
 | hidden          | boolean | no       | Exclude the component from summary                                                                          |
-| forceShow       | boolean | no       | Will force show the component in a summary even if hideEmptyFields is set to true in the summary component. |
+| forceShowInSummary       | boolean | no       | Will force show the component in a summary even if hideEmptyFields is set to true in the summary component. |
 | emptyFieldText  | string  | no       | Custom text to show for empty fields.                                                                        |
 | hideEmptyFields | boolean | no       | Exclude empty fields for summary. Only works if the field is not required.                                    |
 | isCompact       | boolean | no       | Option to display a more compact version. (Map, Paragraph and Header does not have this)                    |

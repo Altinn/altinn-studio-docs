@@ -23,17 +23,17 @@ Here is a brief summary of the consequences of the chosen transition and migrati
 
 ### Via Altinn 2 portal
 
-- Get a full overview in the Altinn portal of both Altinn 2 and 3 elements.
+- Will get a full overview in the Altinn portal of both Altinn 2 and 3 elements.
 - When they open an Altinn 3 element, it is displayed in the Altinn 2 Portal, similar to an Altinn 2 element.
 
 ### Via End-User System
 
-- First get Altinn 3 elements when the End-User System has integrated with A3.
+- Altinn 3 Correspondences will be available once the End-User System has integrated with A3.
 
 ### Via Arbeidsflate
 
-- Get Correspondences created in Altinn 3, as well as those that have been migrated.
-- Correspondences in Altinn 2 that have not been migrated will not be available.
+- Will get Correspondences created in Altinn 3, as well as those that have been migrated from Altinn 2.
+- Correspondences in Altinn 2 that have not been migrated **will not be available** since Arbeidsflate is based on Dialogporten, and Altinn 2 messages are not available in Dialogporten.
 
 ## End-User System
 
@@ -45,6 +45,7 @@ Here is a brief summary of the consequences of the chosen transition and migrati
 
 ## Dialogporten and Arbeidsflate
 
-- Altinn 2 elements are not made available until they are migrated, but migration can occur relatively quickly after they are created in Altinn 2.
+- Altinn 2 elements are not available in Dialogporten until after they have been migrated and a Dialog referencing the element is created.
+- By reducing the **migration wait time**,  migration can occur relatively quickly after Correspondences are created in Altinn 2, and thus make them available in Dialogporten and Arbeidsflate.
 
 {{<children />}}

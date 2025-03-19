@@ -150,49 +150,49 @@ __Content:__
      for a given notification and operation id for the last status check.
 {{% /expandsmall %}}
 
-### Sms
+### SMS
 
 <!--New expand-->
 {{% expandsmall id="altinn.notifications.sms.queue" header="altinn.notifications.sms.queue" %}}
 
-__Description:__ A topic dedicated to sms that are completed and ready to be sent to out.
+__Description:__ A topic dedicated to SMS that are completed and ready to be sent to out.
 
-__Event trigger:__ All required information has been retrieved and populated to the sms
+__Event trigger:__ All required information has been retrieved and populated to the SMS
 
 __Producer:__ Altinn Notifications, SmsNotificationService 
 
 __Content:__ 
 
 - Format: json
-- Data structure: [Sms](https://github.com/Altinn/altinn-notifications-sms/blob/main/src/Altinn.Notifications.Sms.Core/Sending/Sms.cs)
-- Description: An sms with all required properties present
+- Data structure: [SMS](https://github.com/Altinn/altinn-notifications-sms/blob/main/src/Altinn.Notifications.Sms.Core/Sending/Sms.cs)
+- Description: An SMS with all required properties present
 {{% /expandsmall %}}
 
 <!--New expand-->
 {{% expandsmall id="altinn.notifications.sms.queue.retry" header="altinn.notifications.sms.queue.retry" %}}
 
-__Description:__ A topic dedicated to sms messages that are completed and ready to be sent to out where at least
-one previous attempt of sending the sms has failed.
+__Description:__ A topic dedicated to SMS messages that are completed and ready to be sent to out where at least
+one previous attempt of sending the SMS has failed.
 
-__Event trigger:__ Initial attempt to send the sms has failed due to an unknown or intermittent reason.
+__Event trigger:__ Initial attempt to send the SMS has failed due to an unknown or intermittent reason.
 
-__Producer:__ Altinn Notifications Sms, SendSmsQueueConsumer  
+__Producer:__ Altinn Notifications SMS, SendSmsQueueConsumer  
 
 __Content:__ 
 
 - Format: json
-- Data structure: [Sms](https://github.com/Altinn/altinn-notifications-sms/blob/main/src/Altinn.Notifications.Sms.Core/Sending/Sms.cs)
-- Description: An sms with all required properties present.
+- Data structure: [SMS](https://github.com/Altinn/altinn-notifications-sms/blob/main/src/Altinn.Notifications.Sms.Core/Sending/Sms.cs)
+- Description: An SMS with all required properties present.
 {{% /expandsmall %}}
 
 <!--New expand-->
 {{% expandsmall id="altinn.notifications.sms.status.updated" header="altinn.notifications.sms.status.updated" %}}
 
-__Description:__ A topic dedicated to hold updates on the send status of an sms notification
+__Description:__ A topic dedicated to hold updates on the send status of an SMS notification
 
-__Event trigger:__ An update on the progress of sending an sms notification has been received from Link Mobility.
+__Event trigger:__ An update on the progress of sending an SMS notification has been received from Link Mobility.
 
-__Producer:__ Altinn Notifications Sms, StatusService
+__Producer:__ Altinn Notifications SMS, StatusService
 
 __Content:__ 
 

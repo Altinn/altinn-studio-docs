@@ -9,10 +9,6 @@ weight: 10
 
 {{<children />}}
 
-{{% notice warning  %}}
-This section of the documentation is a work in progress, and as such currently makes extensive reference to external sources, as well as describing more scenarios.
-{{% /notice %}}
-
 In this section you will find detailed descriptions of API-operations and events for use during FileTranfers, icluding operations like; initialize filetransfer, upload files, and getting filetransfer status.
 
 For more information, see our [swagger-page](/api/broker/spec/) and [GitHub-repo](https://github.com/Altinn/altinn-broker), which also contains an Postman-collection with examples.

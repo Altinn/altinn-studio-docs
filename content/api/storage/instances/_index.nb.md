@@ -2,30 +2,35 @@
 title: Instanser
 description: Platform API for instanser.
 toc: true
-tags: [api, translate-to-norwegian]
+tags: [api]
 weight: 100
 ---
 
 ## Overview
 
-An [instance](../../models/instance) works as a form of envelope or folder where data can be collected and exchanged between the user and owner of the application. The instance document is a way for Altinn and external parties to track the state of one specific data exchange. How long an instance can live and how many interactions there can be between the application owner and user will vary from one app to another. Advanced Apps will have their own documentation.
+En [instans](../../models/instance) virker som en slags _mappe_ eller gruppering
+der data kan samles og utveksles mellom bruker og applikasjonseier.
+Instans-dokumentet er en måte for Altinn og eksterne parter å kunne spore tilstanden på en type datautveksling.
+Levetiden på en instans og hvor mange interaksjoner melom applikasjonseier og bruker, avhenger av applikasjonen.
+Avanserte applikasjoner vil ha kunne ha egen dokumentasjon mht hvirdan dette er implementert.
 
 ```http
 basePath = https://{hostname}/storage/api/v1/instances
 ```
 
-## Query instances
+## Spørring mot instanser
 
-It is possible to query instances based on a number of query parameters. 
+Det er mulig å gjøre spørringer mot instanser basert på utvalgte parametere.
 
-Application owners can search for from a single application or across all applications that they have.
-Using this endpoint requires the scope 'altinn:instances.read'. And query parameter 'org' or 'appId' must be included in the request.
+Applikasjonseiere kan søke fra en enkelt applikasjon eller på tvers av alle sine applikasjoner.
+For å benytte dette endepunktet kreves scope 'altinn:instances.read'. 
+Parameter for 'org' or 'appId' må inkluderes i spørringen.
 
-Users can search for instances linked to either themselves or an instanceOwner they are authorized to read the instances of. 
-Query parameter 'instanceOwner.partyId' must be included in the request if using this endpoint as an end user.
+Brukere kan søke etter instanser knyttet til dem selv, eller instans-eier der de har nødvendig autorisasjon til å gjøre dette.
+Som sluttbruker må 'instanceOwner.partyId' være inkludert som parameter i spørringen.
 
-Search for instances with a simple GET request towards the *instances* endpoint.
-Available query parameters include:
+Det er mulig å søke etter instanser gjennom en enkel GET request mot *instances*-endepunktet.
+Tilgjengelige parametere er følgende:
 
 - **process.currentTask** (string)  
 Search for instances at a specific step in its process. 
@@ -55,47 +60,45 @@ Filter instances based on whether they are soft deleted.
 Filter instances based on whether they are hard deleted. 
 Note that hard deleted instances are only included if an application owner retrieves instances, and the results may include deleted drafts. 
 
-**Some examples**:
+**Noen eksempler**:
 
-Get all instances of application *org/app*, that is at process task with id *Task_2* (which is Submit, see process definition), and has last changed date greater than *2019-05-01*.
+Hent alle instanser av en applikasjon *org/app* der task id = _Submit_ (se prosess definisjon) og sist endret dato er større enn *2019-05-01*.
 ```http
 GET {storagePath}/instances?appId=org/app&process.currentTask=Task_2&lastChanged=gt:2019-05-01
 ```
 
-Get all instances of all applications of a given application owner *org* that has ended date greater than 2020-03-10.
+Hent alle instanser for _alle_ applikasjoner tilhørende en applikasjonseier *org* med dato større enn 2020-03-10.
 ```http
 GET {storagePath}/instances?org=org&process.ended=gt:2020-03-10
 ```
 
-Get all instances of all applications of a given application owner *org* that has not already been confirmed completed by *org*.
+Hent alle instanser for alle applikasjoner tilhørende applikasjonseier *org* som ikke allerede er bekreftet ferdigstilt av *org*
 ```http
 GET {storagePath}/instances?org=org&excludeConfirmedBy=org
 ```
 
-Get all instances of an application that are at a specific process task e.g. *Task_1*.
+Hent alle instanser av en applikasjon på et gitt prosesssteg
 ```http
 GET {storagePath}/instances?appId={org}/{app}&process.currentTask={taskId}
 ```
 
-On query parameters specifying date time you can use the following operators:
+For å gjøre filtreringer på tid, bruk følgende operatorer:
 
-* gt: - greater than
-* gte: - greater than or equal to
-* lt: - less than
-* lte: - less than or equal to
-* eq: - equal (can also be blank)
+* gt: - større enn
+* gte: - større eller lik
+* lt: - mindre enn
+* lte: - mindre enn eller lik
+* eq: - lik (kan også være tom)
 
-They can be combined to define a range:
+Operatorene kan kombineres for å lage et intervall:
 
 ```http
 dueBefore=gt:2019-02&dueBefore=lt:2019-03-01
 ```
 
-The query returns a result object (page) which includes a collection of instances that matched the query. 100 instances is returned by default. Use *size* to get more or less instances per page. To get to the next page you have to use the *continuationToken* present in the *next* link.
-
-The instances endpoint returns a query result object with information about how many total hits *totalHits* that the query matched and how many objects returned *count*. 
-
-The endpoint supports *application/json*.
+Spørringen returerer et resultatobjekt med en samling av instanser som oppfyller kriteriene for spørringen. Størrelsen er som standard *100* instanser, men man kan bruke *size*-parameteret for å endre antall treff per side. 
+For å hente neste site, bruk tokenet under _next_ i resultatobjektet. 
+Resultatobjektet inneholder informasjon om antall resultater som traff kriteriene totalt *totalHits*, og hvor mange som ble returnert *count*.
 
 ```json
 Accept: application/json

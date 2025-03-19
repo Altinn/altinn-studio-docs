@@ -9,12 +9,6 @@ weight: 10
 
 {{<children />}}
 
-{{% notice warning  %}}
-This section of the documentation is a work in progress.
-There are sections with missing or only partial documentation.
-Some functionality does not represent the final production version.
-{{% /notice %}}
-
 These are common steps that all roles (Service Owner, Senders and Recipients) need to complete in order to start using the Altinn Broker component.
 
 ## 1. Get an Altinn API Key {#get-an-altinn-api-key}
