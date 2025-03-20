@@ -24,7 +24,7 @@ En applikasjon har 4 modellfiler:
 * **JSON schema** (`<model>.schema.json`) : Datamodell i JSONschema-format som brukes av applikasjonen på klientsiden (frontend) for å validere data fortløpende.
 Det er også denne filen man jobber med i datamodelleringsverktøyet.
 * **XSD datamodell** (`<model>.XSD`) : Datamodell i _XML_-format som definerer hvilke elementer som kan brukes i et dokument.
-Denne brukes ikke direkte av applikasjonen, men kan lastes opp for å generere de andre modellfilene i Altinn Studioe eller lastes ned ved behov til f.eks. mottakssystemer.
+Denne brukes ikke direkte av applikasjonen, men kan lastes opp for å generere de andre modellfilene i Altinn Studio eller lastes ned ved behov til f.eks. mottakssystemer.
 * **JSON metadata** (`<model>.metadata.json`) : Brukes av Altinn Studio for å genererere `<model>.cs`-filen.
  _På sikt vil vi slutte å lagre denne filen i appen og kun generere den ved behov_.
 
