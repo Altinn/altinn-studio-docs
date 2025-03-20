@@ -18,6 +18,10 @@ The dialog tokens should be transferred as-is as a bearer token in a `Authorizat
 
 The altinn.no-portal will be using dialog tokens on all URLs associated with [write actions]({{<relref "../../front-end/write-actions">}}) and [front channel embeds]({{<relref "../../front-end/write-actions">}}). Other end user systems might also use the dialog token for API actions, subject to service specific protocols defined by the respective service owner.
 
+### Dialog token lifetime
+
+A fresh dialog token is issued for each fetch of the dialog aggregate. The lifetime (`exp` claim) is **10 minutes**, so end-user systems should refetch the dialog to ensure that the endpoints accept the token, and that it matches current authorization data.
+
 ## Receving and verifying dialog tokens (OAuth resource servers)
 
 The resource server will with the help of dialog tokens be able to fully authenticate and authorize requests that are otherwise unauthenticated (ie. without cookies or any other state). The dialog tokens should be transferred as a bearer token using a `Authorization` HTTP header. 
