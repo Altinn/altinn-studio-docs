@@ -187,32 +187,34 @@ In the same way as with code lists, you can secure the data list if they contain
  `IInstanceDataListProvider` for the class, and add the `secure` boolean to the component in layout.json.
 
 ## Mobile view
- The table is quite compressed in mobile view, and you can therefore choose which fields to show on mobile. That is done 
- with the field `tableHeadersMobile`, an array of strings representing the header and header values to show on mobile. 
+The table is quite compressed in mobile view, and you can therefore choose which fields to show on mobile. That is done 
+with the field `tableHeadersMobile`, an array of strings representing the header and header values to show on mobile. 
 
 ## Using checkboxes in List
 
- To use List with checkboxes you have to add datamodelbining `saveToList`. Should point to the repeating group in the data model. 
+To use List with checkboxes you have to add the dataModelBinding `group`. This should point to a repeating group structure
+in the data model, in other words a list of objects.
 
- Datamodelbindings within the repeating group should have unique keys that directs to fields in the repeating group struture. 
+The other data model bindings in the `List` component should then have unique keys that points to properties within that
+repeating group structure.
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Datamodelbinding">}}
 
  ```json
 "dataModelBindings": {
-    "saveToList": "person",
+    "group": "person",
     "pofession": "person.profession",
     "name": "person.name",
     "age": "person.age"
-},
+}
 ```
 
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Design">}}
 
-![ListWithCheckboxes](listWithCheckboxes.png "Image of list component with checkboxes")
+![ListWithCheckboxes](listWithCheckboxes.png "Image of List component with checkboxes")
 
 {{</content-version-container>}}
 {{</content-version-selector>}}
