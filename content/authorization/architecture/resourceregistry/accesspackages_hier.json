@@ -52,7 +52,7 @@
           },
           {
             "id": "1886712b-e077-445a-ab3f-8c8bdebccc67",
-            "urn": "urn:altinn:accesspackage:reviorattesterer",
+            "urn": "urn:altinn:accesspackage:revisorattesterer",
             "name": "Revisorattesterer",
             "description": "Denne fullmakten gir tilgang til alle tjenester som krever revisorattestering. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir."
           },

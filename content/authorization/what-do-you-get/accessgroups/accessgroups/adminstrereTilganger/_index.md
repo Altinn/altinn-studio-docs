@@ -1,40 +1,40 @@
 ---
-title: Administrere tilganger
-linktitle: Administrere tilganger
-description: Dette fullmaktsområdet omfatter fullmakter til å administrere tilganger. Tilgangspakkene i denne kategorien skal ikke knyttes til ressurser og tjenester. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
-toc: true
-weight: 100
-aliases:
+Title: Managing Access
+Linktitle: Managing Access
+Description: This authorization area includes mandates for managing access. The access packages in this category should not be linked to resources and services. Changes in regulations or the introduction of new digital services may lead to modifications in the access rights granted by these authorizations.
+TOC: true
+Weight: 100
+Aliases:
 - /authorization/modules/accessgroups
 ---
 
-|**Tilgangspakker i kategorien**|
+|**Access packages in this category**|
 |---|
-|[Klientadministrasjon for regnskapsfører og revisor](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#klientadministrasjon-for-regnskapsfører-og-revisor)|
-|[Tilgangsstyring](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#tilgangsstyring)|
-|[Hovedadministrator](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#hovedadminstrator)|
-|[Kundeadministrator](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#kundeadministrator)|
+|[Client administration for accountants and auditors](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#klientadministrasjon-for-regnskapsfører-og-revisor)|
+|[Access management](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#tilgangsstyring)|
+|[Main administrator](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#hovedadminstrator)|
+|[Maskinporten administrator](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#maskinporten-administrator)|
 
-### Klientadministrasjon for regnskapsfører og revisor
-Denne tilgangspakken gir bruker mulighet til å administrere tilgang til tjenester det er naturlig at regnskapsfører eller revisor utfører. Bruker kan administrere tilgang til tjenestene til ansatte hos regnskapsfører eller revisor på vegne av deres kunder.  
-*urn:altinn:accesspackage:klientadminstrasjonforregnskapsforerogtevisor*
+### Client administrator
+This role allows the user to manage access on behalf of clients and customers.
+*urn:altinn:accesspackage:klientadminstrasjon-for-regnskapsforer-og-revisor*
 
-### Tilgangsstyring
-Denne tilgangspakken gir bruker mulighet til å gi videre tilganger for virksomheten som man selv innehar.  
+### Access management
+This access package allows users to delegate access rights within the organization for roles they hold themselves.
 *urn:altinn:accesspackage:tilgangsstyring*
 
-### Hovedadminstrator
-Denne tilgangspakken gir bruker mulighet til å administrere alle tilganger for virksomheten.  
+### Main adminstrator
+This access package allows users to manage all access rights for the organization.
 *urn:altinn:accesspackage:hovedadministrator*
 
-### Kundeadministrator
-Denne tilgangspakken gir bruker mulighet til å administrere tilganger man har mottatt for sine kunder til ansatte i egen virksomheten.  
-*urn:altinn:accesspackage:kundeadministrator*
+### Maskinporten administrator
+This access package allows the user to manage access to Maskinporten scopes.  
+*urn:altinn:accesspackage:maskinporten-administrator*
 
-## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
-|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
+## Which Roles from the Entity Register Are Granted Access to the Package
+|**Access package**|**Entity register roles**|**Delegable**|
 |---|---|---|
-|Klientadministrasjon for regnskapsfører og revisor|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
-|Tilgangsstyring|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer, Kontaktperson NUF|Ja|
-|Hovedadministrator|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder|Ja|
-|Kundeadministrator|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Client administration for accountants and auditors|General Manager, Chair of the Board, Owner, Partner with Full Liability, Partner with Limited Liability, General Partner, Managing Shipowner, Bankruptcy Trustee|Yes|
+|Access management|General Manager, Chair of the Board, Owner, Partner with Full Liability, Partner with Limited Liability, General Partner, Managing Shipowner, Bankruptcy Trustee, Contact Person for NUF|Yes|
+|Main administrator|General Manager, Chair of the Board, Owner, Partner with Full Liability, Partner with Limited Liability, General Partner, Managing Shipowner|Yes|
+|Maskinporten administrator|General Manager, Chair of the Board, Owner, Partner with Full Liability, Partner with Limited Liability, General Partner, Managing Shipowner, Bankruptcy Trustee, Contact Person for NUF|Yes|
