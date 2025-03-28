@@ -46,5 +46,9 @@
     {
         "ActionId": "scopeaccess",
         "ActionTitle": "Rett til å delegere scope"
+    },
+    {
+        "ActionId": "access",
+        "ActionTitle": "Tilgang"
     }
 ]
