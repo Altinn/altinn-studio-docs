@@ -29,19 +29,19 @@ Denne tilgangspakken gir fullmakter til tjenester som forslagsstiller/ plankonsu
 
 ### Motta nabo- og planvarsel
 Denne tilgangspakken gir fullmakter til tjenester til å lese og svare på varsel om plan-/byggesak. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:mottanaboogplanvarsel*
+*urn:altinn:accesspackage:motta-nabo-og-planvarsel*
 
 ### Oppføring av bygg og anlegg
 Denne tilgangspakken gir fullmakter til tjenester relatert til oppføring av bygninger og annlegg unntatt plan og byggesaksbehandling. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:oppforingbygganlegg*
+*urn:altinn:accesspackage:oppforing-bygg-anlegg*
 
 ### Kjøp og salg av eiendom
 Denne tilgangspakken gir fullmakter til tjenester knyttet til kjøp og salg av eiendom. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:kjopogsalgeiendom*
+*urn:altinn:accesspackage:kjop-og-salg-eiendom*
 
 ### Utleie av eiendom
 Denne tilgangspakken gir fullmakter til tjenester knyttet til utleie av eiendom. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:utleieeiendom*
+*urn:altinn:accesspackage:utleie-eiendom*
 
 ### Eiendomsmegler
 Denne tilgangspakken gir fullmakter til tjenester knyttet til omsetning og drift av fast eiendom på oppdrag, som eiendomsmegling og eiendomsforvaltning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  

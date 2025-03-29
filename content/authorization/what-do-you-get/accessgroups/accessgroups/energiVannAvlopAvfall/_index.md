@@ -20,31 +20,31 @@ aliases:
 
 ### Elektrisitet - produsere, overføre og distribuere
 Denne tilgangspakken gir fullmakter til tjenester knyttet til elektrisitet: produsere, overføre og distribuere. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:elektrisitetprodusereoverforedistrubere*
+*urn:altinn:accesspackage:elektrisitet-produsere-overfore-distrubere*
 
 ### Damp- og varmtvann 
 Denne tilgangspakken gir fullmakter til tjenester knyttet til damp- og varmtvann. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:dampvarmtvann*
+*urn:altinn:accesspackage:damp-varmtvann*
 
 ### Vann - ta ut fra kilde, rense og distribuere 
 Denne tilgangspakken gir fullmakter til tjenester knyttet til vann: ta ut fra kilde, rense og distribuere. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:vannkilderensedistrubere*
+*urn:altinn:accesspackage:vannkilde-rense-distrubere*
 
 ### Samle opp og behandle avløpsvann
 Denne tilgangspakken gir fullmakter til tjenester knyttet til samle opp og behandle avløpsvann. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:samlebehandleavlopsvann*
+*urn:altinn:accesspackage:samle-behandle-avlopsvann*
 
 ### Avfall - samle inn, behandle bruke og gjenvinne
 Denne tilgangspakken gir fullmakter til tjenester knyttet til avfall: samle inn, behandle bruke og gjenvinne. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:avfallbehandlegjenvinne*
+*urn:altinn:accesspackage:avfall-behandle-gjenvinne*
 
 ### Miljørydding, -rensing og lignende virksomhet
 Denne tilgangspakken gir fullmakter til tjenester knyttet til miljøryddng, -rensing og lignende virksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:miljoryddingrensing*
+*urn:altinn:accesspackage:miljorydding-rensing*
 
 ### Utvinning av råolje, naturgass og kull
 Denne tilgangspakken gir fullmakter til tjenester knyttet til utvinning av råolje, naturgass og kull. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:utvinningraoljenaturgasskull*
+*urn:altinn:accesspackage:utvinning-raolje-naturgass-kull*
 
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
