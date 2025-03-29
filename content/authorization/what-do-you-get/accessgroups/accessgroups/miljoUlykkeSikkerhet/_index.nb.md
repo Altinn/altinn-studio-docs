@@ -23,7 +23,7 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til renovasjon. Ved re
 
 ### Miljørydding, miljørensing og lignende
 Denne tilgangspakken gir fullmakter til tjenester knyttet til miljørydding, miljørensing og lignende. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:miljoryddingmiljorensingoglignende*
+*urn:altinn:accesspackage:miljorydding-miljorensing-og-lignende*
 
 ### Bærekraft
 Denne tilgangspakken gir fullmakter til tjenester knyttet til tiltak og rapportering på bærekraft. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
@@ -31,7 +31,7 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til tiltak og rapporte
 
 ### Sikkerhet og internkontroll
 Denne tilgangspakken gir fullmakter til tjenester knyttet til sikkerhet og internkontroll. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:sikkerhetoginternkontroll*
+*urn:altinn:accesspackage:sikkerhet-og-internkontroll*
 
 ### Ulykke 
 Denne tilgangspakken gir fullmakter til tjenester knyttet til ulykke. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  

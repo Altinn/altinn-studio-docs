@@ -38,11 +38,11 @@ Denne fullmakten gir tilgang til alle tjenester innen drift av barnehage som bar
 
 ### Statsforvalter-barnehage 
 Denne fullmkaten gir tilgang til tjenester innen barnehageområdet som statsforvalteren er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.   
-*urn:altinn:accesspackage:statsforvalterbarnehage*
+*urn:altinn:accesspackage:statsforvalter-barnehage*
 
 ### Statsforvalter-skole og opplæring 
 Denne fullmkaten gir tilgang til tjenester innen skole og opplæring som statsforvalteren er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:statsforvalterskoleogopplearing*
+*urn:altinn:accesspackage:statsforvalter-skole-og-opplearing*
 
 ### Skoleeier 
 Denne fullmakten gir tilgang til alle tjenester innen drift av skole som skoleeier er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
@@ -58,23 +58,23 @@ Denne fullmakten gir tilgang til alle tjenester innen drift av opplæringskontor
 
 ### PPT-leder 
 Denne fullmakten gir tilgang til alle tjenester innen drift av Pedagogisk-psykologisk tjeneste (PPT) som PPT-leder er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:pptleder*
+*urn:altinn:accesspackage:ppt-leder*
 
 ### SFO-leder 
 Denne tilgangspakken gir fullmakter til tjenester knyttet til førskole og fritidsordning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:sfoleder*
+*urn:altinn:accesspackage:sfo-leder*
 
 ### Høyere utdanning og høyere yrkesfaglig utdanning 
 Denne tilgangspakken gir fullmakter til tjenester knyttet til høyere utdanning og høyere yrkesfaglig utdanning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:hoyereutdanningoghoyereyrkesfagligutdanning*
+*urn:altinn:accesspackage:hoyere-utdanning-og-hoyere-yrkesfaglig-utdanning*
 
 ### Godkjenning av personell 
 Denne tilgangspakken gir fullmakter til tjenester knyttet til å søke om godkjenning til enkeltpersoner. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:godkjenningavpersonell*
+*urn:altinn:accesspackage:godkjenning-av-personell*
 
 ### Godkjenning av utdanningsvirksomhet 
 Denne tilgangspakken gir fullmakter til tjenester knyttet til å søke om godkjenning av utdanningsvirksomheter. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:godkjenningavutdanningsvirksomhet*
+*urn:altinn:accesspackage:godkjenning-av-utdanningsvirksomhet*
 
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken

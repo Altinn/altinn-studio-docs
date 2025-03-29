@@ -26,45 +26,47 @@ aliases:
 
 ### Næringsmidler, drikkevarer og tobakk
 Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med næringsmidler, drikkevarer og tobakk. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:naeringsmidlerdrikkevarerogtobakk*
+*urn:altinn:accesspackage:naeringsmidler-drikkevarer-og-tobakk*
 
 ### Tekstiler, klær og lærvarer
 Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med tekstiler, klær og lærvarer. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:tekstilerklaerlaervarer*
+*urn:altinn:accesspackage:tekstiler-klaer-laervarer*
 
 ### Trelast, trevarer og papirvarer
 Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med trelast, trevarer og papirvarer. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:trelasttrevarerpapirvarer*
+*urn:altinn:accesspackage:trelast-trevarer-papirvarer*
 
 ### Trykkerier og reproduksjon av innspilte opptak
 Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med trykkerier og reproduksjon av innspilte opptak. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:trykkerierreproduksjonopptak*
+*urn:altinn:accesspackage:trykkerier-reproduksjon-opptak*
 
 ### Oljeraffinering, kjemisk og farmasøytisk industri
-Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med oljeraffinering, kjemisk og farmasøytisk industri. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  *urn:altinn:accesspackage:oljeraffineringkjemiskfarmasoytiskindustri*
+Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med oljeraffinering, kjemisk og farmasøytisk industri. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. 
+*urn:altinn:accesspackage:oljeraffinering-kjemisk-farmasoytisk-industri*
 
 ### Gummi, plast og ikke-metallholdige mineralprodukter
 Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med gummi, plast og ikke-metallholdige mineralprodukter. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:gummiplastogikkemetallholdigemineralprodukter*
+*urn:altinn:accesspackage:gummi-plast-og-ikke-metallholdige-mineralprodukter*
 
 ### Metaller og mineraler
 Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med metaller og mineraler. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:metallerogmineraler*
+*urn:altinn:accesspackage:metaller-og-mineraler*
 
 ### Metallvarer, elektrisk utstyr og maskiner
 Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med metallvarer, elektrisk utstyr og maskiner. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:metallvarerelektriskutstyrogmaskiner*
+*urn:altinn:accesspackage:metallvarer-elektriskutstyr-og-maskiner*
 
 ### Verft og andre transportmidler 
-Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med verft og andre transportmidler. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  *urn:altinn:accesspackage:verftogandretransportmidler*
+Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med verft og andre transportmidler. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
+*urn:altinn:accesspackage:verft-og-andre-transportmidler*
 
 ### Møbler og annen industri
 Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med møbler og annen industri. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:moblerogannenindustri*
+*urn:altinn:accesspackage:mobler-og-annen-industri*
 
 ### Reparasjon og installasjon av maskiner og utstyr
 Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med reparasjon og installasjon av maskiner og utstyr. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:reparasjonoginstallasjonavmaskinerogutstyr*
+*urn:altinn:accesspackage:reparasjon-og-installasjon-av-maskiner-og-utstyr*
 
 ### Bergverk
 Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med bergverk og tilhørende tjenester til bergverksdrift og utvinning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  

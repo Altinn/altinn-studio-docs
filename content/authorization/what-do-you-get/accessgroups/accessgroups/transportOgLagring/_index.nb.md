@@ -23,7 +23,7 @@ Denne fullmakten gir tilgang til tjenester knyttet til person- og godstransport 
 
 ### Transport i rør 
 Denne fullmakten gir tilgang til tjenester knyttet til transport i rør. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:transportiror*
+*urn:altinn:accesspackage:transport-i-ror*
 
 ### Sjøfart
 Denne fullmakten gir tilgang til tjenester knyttet til skipsarbeidstakere og fartøy til sjøs. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
@@ -39,7 +39,7 @@ Denne fullmakten gir tilgang til tjenester knyttet til jernbane, inkludert trikk
 
 ### Lagring og andre tjenester tilknyttet transport
 Denne fullmakten gir tilgang til tjenester knyttet til lagring og hjelpetjenester i forbindelse med transport, samt post- og kurervirksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:lagringogandretjenestertilknyttettransport*
+*urn:altinn:accesspackage:lagring-og-andre-tjenester-tilknyttet-transport*
 
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken

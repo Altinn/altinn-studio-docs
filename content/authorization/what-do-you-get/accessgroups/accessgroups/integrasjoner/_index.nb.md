@@ -17,15 +17,15 @@ aliases:
 
 ### Delegerbare Maskinporten scopes
 Denne tilgangspakken gir fullmakter til data og programmeringsgrensenitt (API) som benytter Maskinporten eller tilsvarende løsninger for APIsikring. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:programmeringsgrensesnitt*
+*urn:altinn:accesspackage:delegerbare-maskinporten-scopes*
 
 ### Delegerbare Maskinporten scopes - NUF
 Denne tilgangspakken gir fullmakter til data og programmeringsgrensenitt (API) som benytter Maskinporten eller tilsvarende løsninger for APIsikring på vegne av norskregistrerte utenlandske foretak (NUF). Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:programmeringsgrensesnittNUF*
+*urn:altinn:accesspackage:delegerbare-maskinporten-scopes-NUF*
 
 ### Maskinlesbare hendelser
 Denne tilgangspakken gir fullmakter til maskinlesbare hendelser. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:maskinlesbarehendelser*
+*urn:altinn:accesspackage:maskinlesbare-hendelser*
 
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
