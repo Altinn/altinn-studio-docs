@@ -54,7 +54,7 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbind
 
 ### Metallvarer, elektrisk utstyr og maskiner
 Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med metallvarer, elektrisk utstyr og maskiner. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:metallvarer-elektriskutstyr-og-maskiner*
+*urn:altinn:accesspackage:metallvarer-elektrisk-utstyr-og-maskiner*
 
 ### Verft og andre transportmidler 
 Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med verft og andre transportmidler. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  

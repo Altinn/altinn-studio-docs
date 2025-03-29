@@ -45,7 +45,7 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til kreditt- og oppgj�
 *urn:altinn:accesspackage:kreditt-og-oppgjoer*
 ### Regnskap og økonomirapportering
 Denne tilgangspakken gir fullmakter til tjenester knyttet til regnskap og øknomirapportering som ikke tilhører skatt og merverdiavgift. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:regnskap-okonomirapport*
+*urn:altinn:accesspackage:regnskap-okonomi-rapport*
 ### Revisorattesterer
 Denne fullmakten gir tilgang til alle tjenester som krever revisorattestering. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:reviorattesterer*
