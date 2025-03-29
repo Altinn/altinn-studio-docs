@@ -10,7 +10,7 @@ Aliases:
 
 |**Access packages in this category**|
 |---|
-|[Client administration for accountants and auditors](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#klientadministrator)|
+|[Client administrator](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#klientadministrator)|
 |[Access management](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#tilgangsstyring)|
 |[Main administrator](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#hovedadminstrator)|
 |[Maskinporten administrator](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#maskinporten-administrator)|

@@ -15,7 +15,6 @@ aliases:
 |[Vann - ta ut fra kilde, rense og distribuere](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/energivannavlopavfall/#vann---ta-ut-fra-kilde-rense-og-distribuere)|
 |[Samle opp og behandle avløpsvann](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/energivannavlopavfall/#samle-opp-og-behandle-avløpsvann)|
 |[Avfall - samle inn, behandle bruke og gjenvinne](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/energivannavlopavfall/#avfall---samle-inn-behandle-bruke-og-gjenvinne)|
-|[Miljørydding, -rensing og lignende virksomhet](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/energivannavlopavfall/#miljørydding--rensing-og-lignende-virksomhet)|
 |[Utvinning av råolje, naturgass og kull](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/energivannavlopavfall/#utvinning-av-råolje-naturgass-og-kull)|
 
 ### Elektrisitet - produsere, overføre og distribuere
@@ -38,10 +37,6 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til samle opp og behan
 Denne tilgangspakken gir fullmakter til tjenester knyttet til avfall: samle inn, behandle bruke og gjenvinne. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:avfall-behandle-gjenvinne*
 
-### Miljørydding, -rensing og lignende virksomhet
-Denne tilgangspakken gir fullmakter til tjenester knyttet til miljøryddng, -rensing og lignende virksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:miljorydding-rensing*
-
 ### Utvinning av råolje, naturgass og kull
 Denne tilgangspakken gir fullmakter til tjenester knyttet til utvinning av råolje, naturgass og kull. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:utvinning-raolje-naturgass-kull*
@@ -55,5 +50,4 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til utvinning av råol
 |Vann - ta ut fra kilde, rense og distribuere|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
 |Samle opp og behandle avløpsvann|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
 |Avfall - samle inn, behandle, bruke og gjenvinne|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Miljørydding - rensing og lignende virksomhet|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
 |Utvinning av råolje, naturgass og kull|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
