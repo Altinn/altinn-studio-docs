@@ -539,8 +539,8 @@
                   "Correspondence.Content.MessageTitle",
                   "Correspondence.Notification.NotificationTemplate",
                   "Correspondence.ResourceId",
-                  "correspondence.writeer",
-                  "correspondence.writeersReference",
+                  "Correspondence.Sender",
+                  "Correspondence.SendersReference",
                   "Recipients"
                 ],
                 "type": "object",
@@ -551,11 +551,11 @@
                     "type": "string",
                     "description": "The Resource Id associated with the correspondence service."
                   },
-                  "correspondence.writeer": {
+                  "Correspondence.Sender": {
                     "type": "string",
                     "description": "The Sending organization of the correspondence."
                   },
-                  "correspondence.writeersReference": {
+                  "Correspondence.SendersReference": {
                     "maxLength": 4096,
                     "minLength": 1,
                     "type": "string",
@@ -732,10 +732,10 @@
                 "Correspondence.ResourceId": {
                   "style": "form"
                 },
-                "correspondence.writeer": {
+                "Correspondence.Sender": {
                   "style": "form"
                 },
-                "correspondence.writeersReference": {
+                "Correspondence.SendersReference": {
                   "style": "form"
                 },
                 "Correspondence.MessageSender": {

@@ -14,12 +14,14 @@ For step-by-step information on how to use Altinn Events with Dialogporten, see 
 
 ## Event types
 
-| Type                             | Description                                     |
-| -------------------------------- | ----------------------------------------------- |
-| `dialogporten.dialog.created.v1` | A new dialog has been created.                  |
-| `dialogporten.dialog.updated.v1` | An existing dialog has been updated.            |
-| `dialogporten.dialog.deleted.v1` | A dialog has been deleted.                      |
-| `dialogporten.dialog.seen.v1`    | A dialog has been seen (opened) by an end-user. |
+| Type                                          | Description                                     |
+|-----------------------------------------------|-------------------------------------------------|
+| `dialogporten.dialog.created.v1`              | A new dialog has been created.                  |
+| `dialogporten.dialog.updated.v1`              | An existing dialog has been updated.            |
+| `dialogporten.dialog.deleted.v1`              | A dialog has been deleted.                      |
+| `dialogporten.dialog.restored.v1`             | A dialog has been restored.                     |
+| `dialogporten.dialog.seen.v1`                 | A dialog has been seen (opened) by an end-user. |
+| `dialogporten.dialog.transmission.created.v1` | A transmission has been created.                |
 
 The above events are produced directly by Dialogporten. In addition, there are events emitted whenever the service owner updates the [activity log]({{<relref "../../getting-started/activity-log">}}).
 
@@ -32,6 +34,14 @@ The above events are produced directly by Dialogporten. In addition, there are e
 | `dialogporten.dialog.activity.payment-made.v1`        | A payment activity within a dialog has been completed.        |
 | `dialogporten.dialog.activity.signature-provided.v1`  | A signature has been provided for a dialog.                   |
 | `dialogporten.dialog.activity.dialog-opened.v1`       | A dialog has been marked as opened.                           |
+| `dialogporten.dialog.activity.dialog-deleted.v1`      | A dialog has been marked as deleted.                          |
+| `dialogporten.dialog.activity.dialog-restored.v1`     | A dialog has been restored.                                   |
+| `dialogporten.dialog.activity.sent-to-signing.v1`     | A dialog has been sent to signing.                            |
+| `dialogporten.dialog.activity.sent-to-form-fill.v1`   | A dialog has been sent to form fill.                          |
+| `dialogporten.dialog.activity.sent-to-send-in.v1`     | A dialog has been sent to send in.                            |
+| `dialogporten.dialog.activity.sent-to-payment.v1`     | A dialog has been sent to payment.                            |
+| `dialogporten.dialog.activity.form-submitted.v1`      | A form associated with the dialog has been submitted.         |
+| `dialogporten.dialog.activity.form-saved.v1`          | A form associated with the dialog has been saved.             |
 
 ## Event format
 
@@ -114,4 +124,3 @@ As with all Altinn Events, the [Cloud Events](https://cloudevents.io/) format fo
 
 
 {{<children />}}
-
