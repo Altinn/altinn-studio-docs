@@ -52,7 +52,7 @@ Se også https://docs.altinn.studio/technology/terms/ og <https://data.norge.no/
 | Mellommann                       | En 'mellommann' er en enhet som fungerer som en megler eller formidler mellom to parter i en transaksjon eller kommunikasjonsprosess. |
 | Meldingsmegler                   | En ‘meldingsmegler’ er et system eller en tjeneste som fungerer som en mellommann for å legge til rette for meldingsutveksling mellom ulike parter eller systemer. |
 | Mottaker                         | En person eller enhet som mottar en melding, pakke eller tjeneste fra en avsender. Se også Dataforbruker. |
-| Om-premise                        | 'On-premise' betyr installasjon og drift av programvare og teknologiinfrastruktur direkte innenfor en organisasjons fysiske fasiliteter, i stedet for vertskap eksternt eller i skyen. |
+| On-premise                        | 'On-premise' betyr installasjon og drift av programvare og teknologiinfrastruktur direkte innenfor en organisasjons fysiske fasiliteter, i stedet for vertskap eksternt eller i skyen. |
 | Prosess                          | En rekke handlinger eller trinn for å oppnå et bestemt mål. |
 | Sluttbruker                      | En 'sluttbruker' er den endelige forbrukeren av aktuelle tjenester, typisk menneskelige brukere gjennom et grafisk brukergrensesnitt (GUI). |
 | Sluttbrukersystem                | Et 'sluttbrukersystem' tilbyr tjenester og brukergrensesnitt for sluttbrukere. |

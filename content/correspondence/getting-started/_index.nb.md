@@ -76,11 +76,11 @@ Siden Altinn Melding er åpen kildekode, kan du få tilgang til koden vår i [v�
 
 Vi ønsker bidrag til løsningen velkommen.
 
-Se [Readme-filen på GitHub](https://github.com/Altinn/altinn-correspondence/blob/main/README.md) for en introduksjon til Altinn 3 Melding, og hvordan du bygger og kjører den i din utviklermiljø.
+Se [Readme-filen på GitHub](https://github.com/Altinn/altinn-correspondence/blob/main/README.md) for en introduksjon til Altinn 3 Melding, og hvordan du bygger og kjører den i ditt utviklermiljø.
 
 Repoet inneholder også en [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-correspondence-postman-collection.json) med eksempler.
 
-Swagger for filoverførings-APIet er vert [her](/api/correspondence/spec/).
+Swagger for meldings-APIet er [her](/api/correspondence/spec/).
 
 ## 6. Sett opp hendelsesabonnementer {#set-up-event-subscriptions}
 

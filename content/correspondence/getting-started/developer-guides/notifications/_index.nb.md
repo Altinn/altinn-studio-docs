@@ -104,7 +104,7 @@ Det er planlagt forbedringer for å gi tilbakemelding omkring dette under oppret
 ## Valgfri mottakere for varsling
 
 For meldinger som er opprettet med varsling aktivert vil mottakeren av varslingen være den samme som mottakeren av meldingen.
-Det er derimot mulig benytte valgfrie mottakere av varsling, som ikke nødvendigvis er mottaker av meldingen.
+Det er derimot mulig å benytte valgfrie mottakere av varsling, som ikke nødvendigvis er mottaker av meldingen.
 Det er også mulig å legge til valgfrie mottakere av varselet som ikke nødvendigvis er mottaker(e) av meldingen. 
 I praksis betyr dette at valgfrie mottakere vil overstyre/erstatte den opprinnelige mottakeren som er angitt for varselet.
 Dette gjøres ved å fylle ut `customNotificationRecipients`-feltet under `notification` slik:
@@ -144,9 +144,9 @@ correspondence.notification.customNotificationRecipients[0].recipients[0].emailA
 Husk verdien som gis til `notificationTemplate` og `notificationChannel`, da disse vil påvirke den valgfri mottakeren. Flere detaljer er gitt [her](#varslingsmaler).
 {{% /panel %}}
 
-### Explanation of template and channel
-Alle valgfrie mottakere må overstyre en eksisterende mottaker i listen til `Correspondence.Recipients`l
-Denne verdien vil være enten organisasjonsnummeret eller fødselsnummeret til mottakeren av korrespondansen.
+### Mal og kanal
+Alle valgfrie mottakere må overstyre en eksisterende mottaker i listen til `Correspondence.Recipients`
+Denne verdien vil være enten organisasjonsnummeret eller fødselsnummeret til mottakeren av meldingen.
 
 Det er også kun mulig å oppgi ett av følgende felt for mottakeren:
 

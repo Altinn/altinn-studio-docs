@@ -24,13 +24,13 @@ Migreringen vil foregå over tid, og man har fleksibilitet til å styre hvilke t
 ## Volum og migreringsrate
 
 Det er estimert over 500 millioner Meldinger med vedlegg som skal migreres fra Altinn 2 til Altinn 3.
-Det er derfor planlagt at man vi gjøre migrering skånsomt, og starte med mindre volumer over tid for å sanke erfaring og unngå forstyrrelse av miljø.
+Det er derfor planlagt at man vil gjøre migrering skånsomt, og starte med mindre volumer over tid for å sanke erfaring og unngå forstyrrelse av miljø.
 
 Over tid vil man øke raten og til slutt kunne bli tilnærmet ajour med live trafikk i Altinn 2 mens det sakte reduseres og Altinn 2 tas ut av bruk.
 
 ## Kriterier for migrering
 
-For å unngå behovet for å bygge kompleks logikk for synkronisering på tvers har man valgt å forenkle prosessen ved å la TjenesteEier definere et minimum tidsintervall "**migreringsventetid**" per tjeneste.
+For å unngå behovet for å bygge kompleks logikk for synkronisering på tvers har man valgt å forenkle prosessen ved å la tjenesteeier definere et minimum tidsintervall "**migreringsventetid**" per tjeneste.
 
 Ut fra analyse av bruken av Meldinger, så skjer majoriteten av aktiviteten på en Melding kun kort tid etter den er opprettet og kort tid etter tilknyttede varslinger og re-varslinger har gått ut.
 For de fleste; innenfor 14 dager etter opprettelse.
