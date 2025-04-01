@@ -24,8 +24,6 @@ En oversikt over operasjoner i Altinn 3 Formidling API gis av følgende figur:
 ## Varsling til sluttbrukere via e-post og SMS
 Varsler til sluttbrukere om nye meldinger, filer og andre hendelser sendes via Altinns varslingstjeneste.
 
-Se også:
-
 ## Scenariobeskrivelser
 
 ### Ende-til-ende typisk sekvens

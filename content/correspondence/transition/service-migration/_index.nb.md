@@ -16,9 +16,9 @@ Grunnet en forenkling av tjenestekonfigurasjon i Altinn 3 for Melding, består m
 ## Automatisk migrering av tjenestekonfigurasjon
 
 Altinns "Flytt av data"-prosjekt vil ta ansvar for å migrere all nødvendig konfigurasjon for de Meldingstjenester som har data som skal migreres.
-Prosjektet vil opprette dette på vegne av TjenesteEiere slik at det kan brukes til migrering av historiske Meldingsdata.
+Prosjektet vil opprette dette på vegne av tjenesteeiere slik at det kan brukes til migrering av historiske Meldingsdata.
 
-Den automatiske migreringen vil bruke de eksisterende Altinn 2-rollene spesifisert i de gamle autorisasjonsreglene, oversatt etter beste-innsats.
+Den automatiske migreringen vil bruke de eksisterende Altinn 2-rollene spesifisert i de gamle autorisasjonsreglene, oversatt etter beste innsats.
 Disse rollene vil etter hvert bli faset ut til fordel for den nye [AccessLists](../../../authorization/what-do-you-get/resourceregistry/rrr/#access-lists)-funksjonaliteten, og det vil være et fremtidig prosjekt for å migrere alle policyer til den nye standarden i fremtiden, men dette er utenfor omfanget av Flytt av Data-prosjektet.
 
 NB: Det er enkelte nye metadata-felter som tjenestebeskrivelse på forskjellige språk som ikke automatisk vil kunne fylles ut, og som TE selv bør fylle ut i etterkant.

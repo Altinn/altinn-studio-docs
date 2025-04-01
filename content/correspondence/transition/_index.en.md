@@ -19,8 +19,4 @@ To simplify the transition from Altinn 2 to the Altinn 3 version of the Correspo
 - No transition solution is made for API endpoints:
   - End-user systems and Service Owner systems must maintain integration with both Altinn 2 and Altinn 3 during a transition period.
 
-## Overall Process flow
-
-TODO: Short version of process flow with diagrams.
-
 {{<children />}}

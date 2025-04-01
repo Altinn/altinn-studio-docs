@@ -34,10 +34,10 @@ Her er en kort oppsummering av hvilke konsekvenser valgt overgangs- og migrering
 - Får opp Meldingene som er opprettet i Altinn 3, samt de som er blitt migrert.
 - Meldinger i Altinn 2 som ikke er blitt migrert, **vil ikke være tilgjengelig** siden Arbeidsflate baserer seg på Dialogporten, og Altinn 2 Meldinger ikke er opprettet i Dialogporten fra før.
 
-## SluttbrukerSystem
+## Sluttbrukersystem
 
 - For å få full oversikt over elementer vil man måtte integrere seg mot både Altinn 2 og Altinn 3 API.
-- Når elementer blir migrert fra A2 til A3 vil det mulig å identifisere dette ved at A3-elementet inneholder Altinn 2 Correspondence ID.
+- Når elementer blir migrert fra A2 til A3 vil det være mulig å identifisere dette ved at A3-elementet inneholder Altinn 2 Correspondence ID.
   - Dette gjør det mulig å utelukke evt. duplikater.
 - Når elementet er migrert, så må SBS være integrert mot Altinn 3 API for å jobbe videre med det.
   - Men gitt at det migreres etter forventet aktiv tidsrom, burde det ikke være behov.
