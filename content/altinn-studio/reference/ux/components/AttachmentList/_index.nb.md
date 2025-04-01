@@ -1,30 +1,10 @@
 ---
 title: AttachmentList
 linktitle: AttachmentList
-description: # Kort beskrivelse av komponenten
-schemaname: AttachmentList # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
+description: Viser en liste over alle (eller noen) vedlegg som er lastet opp i skjemaet
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk
 toc: true
 ---
-
-<!-- HVORDAN BRUKE DENNE MALEN
-- Les kommentarer under hver seksjon for veiledning.
-- Slett kommentarer og deler av innholdet som ikke er relevant.
-- Gi norsk navn til title og linktitle i frontmatter
-- Når dokumentasjonen er klar til å publiseres, fjern "hidden: true" fra frontmatter
-- Hvis dokumentasjonen er fullstendig, fjern advarsel om at den er under oppdatering.
-
-FELLES EGENSKAPER
-Dokumentasjon for egenskaper som er felles for flere komponenter oppdateres i egne filer og legges til via shortcode.
-Legg til dokumentasjon: Bruk shortcode `property-docs` med hakeparenteser (`< >`) og argument `prop="{propName}"`. `propName` må samsvare med filnavn (som bør samsvare med JSON-skjema-navn).
-Oppdatere/opprette dokumentasjon:
-- Filer, maler og instruksjoner ligger under components/_common-props-content
-- Bilder legges i /assets/images/component-settings og legges til via egen shortcode (`image.html`)
-
-EKSEMPLER
-- Se Image, Checkboxes, RadioButtons og Dropdown. for eksempler.
-
--->
 
 {{% notice warning %}}
 🚧 Denne dokumentasjonen er under oppdatering.
@@ -34,11 +14,9 @@ EKSEMPLER
 
 ## Bruk
 
-<!-- Kort beskrivelse av komponenten og hvordan den brukes. -->
+
 
 ### Anatomi
-<iframe style="border: 0px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1-31398&viewport=634%2C2793%2C0.78&scaling=contain&content-scaling=responsive&starting-point-node-id=1%3A31398&embed-host=share" allowfullscreen></iframe>
-
 <!-- 
 
 Nummerert skjermbilde av komponenten
@@ -93,19 +71,11 @@ Legg til seksjoner dersom de er relevante:
 
 ## Egenskaper
 
-Følgende er en liste over tilgjengelige egenskaper for {{% title %}}. Listen er automatisk generert basert på komponentens JSON schema (se link).
+Følgende er en liste over tilgjengelige egenskaper for {{% title %}}.
 
 {{% notice warning %}}
 Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over egenskaper kan derfor være noe unøyaktig.
 {{% /notice %}}
-
-<!-- Shortkoden `component-props` genererer automatisk en liste over komponentegenskaper fra komponentens JSON schema.
-Komponentnavnet kan gis eksplisitt som argument (f.eks. `component-props "Grid"`).
-Hvis ingen argument gis, henter shortkoden komponentnavnet fra 'schemaname' i frontmatter.
-Hvis komponenten ikke har JSON schema, kommenter ut tekst og shortcode i denne delen og lag evt. tabell manuelt med de viktigste egenskapene (kolonner: Egenskap, Type, Beskrivelse).
- -->
-
-{{% component-props %}}
 
 ## Konfigurering
 
@@ -131,14 +101,15 @@ Grunnleggende komponent:
 App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```json{hl_lines="6-"}
+```json{hl_lines="6-9"}
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   {
     "data": {
       "layout": [
         {
-          // Basic component (required properties)
+          "id": "myAttachmentList",
+          "type": "AttachmentList"
         }
       ]
     }
@@ -184,7 +155,3 @@ App/ui/layouts/{page}.json
 {{</content-version-selector>}}
 
 -->
-
-## Eksempler
-
-<!-- Ett eller flere eksempler på konfigurasjon (hvis relevant) -->
