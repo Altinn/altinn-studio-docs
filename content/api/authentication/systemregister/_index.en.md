@@ -15,11 +15,11 @@ To get a machineporten token, the vendor must first establish a client in machin
 ## API Methods
 
 - [Create a new system](create/_index.en.md)
-- [Get a system]()
-- [Update a system]()
-- [Get Rights for a system]()
-- [Get accesspackages for a system]()
-- [Update Rights for a system]()
-- [Update accesspackages for a system]()
+- [Get a system](get/_index.en.md)
+- [Update a system](update/_index.en.md)
+- [Get Rights for a system](get/_index.en.md#get-rights-of-a-system)
+- [Get accesspackages for a system](get/_index.en.md#get-accesspackages-of-a-system)
+- [Update Rights for a system](update/_index.en.md#update-rights-for-a-system)
+- [Update accesspackages for a system](update/_index.en.md#update-accesspackages-for-a-system)
 
 

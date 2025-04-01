@@ -1,12 +1,15 @@
 ---
-title: Create a new system in system register
-description: API for the vendor to create a system in the system register
+title: Update a system in system register
+description: API for the vendor to update a system in the system register
 toc: true
 ---
-## Create a new system
+## Update a registered system
 
 ### Endpoint
-POST authentication/api/v1/systemregister/vendor
+PUT authentication/api/v1/systemregister/vendor/{systemid}
+
+### Description
+System owners or administrators from the Digitalization Directorate can update a system. The update request follows a similar model to the create request. The update endpoint replaces the existing system information with the data provided in the update request. For example, the existing list of rights will be entirely replaced by the list specified in the update request.
 
 ### Scopes
 Machineporten token with scope <mark>altinn:authentication/systemregister.write</mark>
@@ -16,6 +19,8 @@ application/json
 
 ## Arguments
 
+#### systemId
+The id should be in the format of {systemvendororgno}_{name chosen by the vendor}. F.example "310547891_testproduct". This is a unique id to identify the product.
 
 ### Required Arguments
 
@@ -218,3 +223,55 @@ This is to whitelist the urls that is allowed to be set in the redirecturl for a
   "isVisible": true
 }
 ```
+
+## Update rights for a system
+
+### Endpoint
+PUT authentication/api/v1/systemregister/vendor/{systemid}/rights
+
+### Description
+The system owner or the digitaliseringsdirectorate admin can update rights of a system. The update rights request takes just the rights information
+```
+[
+    {
+        "resource": [
+            {
+                "id": "urn:altinn:resource",
+                "value": "authentication-e2e-test"
+            },
+            {
+                "id": "urn:altinn:resource",
+                "value": "authentication-e2e-test"
+            }
+        ]
+    }
+]
+```
+### Scopes
+Machineporten token with scope <mark>altinn:authentication/systemregister.write</mark>
+
+### Content types
+application/json
+
+## Update accesspackages for a system
+
+### Endpoint
+PUT authentication/api/v1/systemregister/vendor/{systemid}/accesspackages
+
+### Description
+The system owner or the digitaliseringsdirectorate admin can update accesspackages of a system. The update accesspackages request takes just the accesspackage information
+```
+[
+    {
+        "urn": "urn:altinn:accesspackage:revisormedarbeider"
+    },
+    {
+        "urn": "urn:altinn:accesspackage:ansvarlig-revisor"
+    }
+]
+```
+### Scopes
+Machineporten token with scope <mark>altinn:authentication/systemregister.write</mark>
+
+### Content types
+application/json
