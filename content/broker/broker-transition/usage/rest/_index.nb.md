@@ -1,6 +1,6 @@
 ---
-title: Brukerveiledning REST
-linktitle: Brukerveiledning REST
+title: Bruksanvisning REST
+linktitle: Bruksanvisning REST
 description: Forskjell i bruk av REST-operasjoner mellom Altinn 2 og Altinn 3 overførte tjenester.
 tags: [Løsning, formidling, guide, overgang]
 toc: false

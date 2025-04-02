@@ -8,10 +8,6 @@ weight: 30
 
 {{<children />}}
 
-{{% notice warning  %}}
-Denne delen av dokumentasjonen er under arbeid, og inneholder derfor omfattende referanser til eksterne kilder, samt beskrivelser av flere scenarier.
-{{% /notice %}}
-
 ## Operasjon: Initialiser Tjenesteeier i Formidling API {#operation-initialize-service-owner-in-broker-api}
 
 **Endepunkt:** POST /broker/api/v1/serviceowner

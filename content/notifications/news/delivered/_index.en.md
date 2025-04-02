@@ -7,6 +7,12 @@ hidden: true
 
 <div style="display: flex; flex-direction: row; justify-content: flex-start; gap: 20px; flex-wrap: wrap;">
     {{<news-card
+        title="Support for message templates"
+        content="Support for placeholder keywords for dynamic changes in texts based on recipient."
+        timeline="Q4 2024"
+        githubUrl="https://github.com/Altinn/altinn-notifications/issues/545"
+    >}}
+    {{<news-card
         title="New notification channels"
         content="Support for notification channels SMS preferred and email preferred."
         timeline="Q4 2023"
@@ -24,23 +30,4 @@ hidden: true
         timeline="Q2 2024" 
         githubUrl="https://github.com/digdir/roadmap/issues/176"
     >}}
-    {{<news-card
-        title="Statistics"
-        content="Automated retrieval of monthly statistics for internal use only."
-        timeline="Q2 2024"
-        githubUrl="https://github.com/digdir/roadmap/issues/178"
-    >}}
-    {{<news-card
-        title="SMS notifications"
-        content="Support for sending SMS notification to provided mobile number"
-        timeline="Q1 2024"
-        githubUrl="https://github.com/digdir/roadmap/issues/160"
-    >}}
-    {{<news-card
-        title="Email notifications"
-        content="Support for sending email notification to provided email address."
-        timeline="Q4 2023"
-        githubUrl="https://github.com/digdir/roadmap/issues/158"
-    >}}
-
 </div>

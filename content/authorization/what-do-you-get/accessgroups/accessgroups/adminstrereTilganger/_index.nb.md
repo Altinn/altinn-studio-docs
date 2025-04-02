@@ -10,14 +10,15 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Klientadministrasjon for regnskapsfører og revisor](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#klientadministrasjon-for-regnskapsfører-og-revisor)|
+|[Klientadministrator](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#klientadministrator)|
 |[Tilgangsstyring](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#tilgangsstyring)|
 |[Hovedadministrator](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#hovedadminstrator)|
-|[Kundeadministrator](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#kundeadministrator)|
+|[Maskinporten administrator](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#maskinporten-administrator)|
 
-### Klientadministrasjon for regnskapsfører og revisor
-Denne tilgangspakken gir bruker mulighet til å administrere tilgang til tjenester det er naturlig at regnskapsfører eller revisor utfører. Bruker kan administrere tilgang til tjenestene til ansatte hos regnskapsfører eller revisor på vegne av deres kunder.  
-*urn:altinn:accesspackage:klientadminstrasjonforregnskapsforerogtevisor*
+### Klientadministrator
+Denne rollen gir bruker mulighet til å administrere tilganger som virksomheten har på vegne av klienter og kunder, enten via registrerte kundeforhold i Enhetsregisteret eller delegering til virksomheten.  
+Når kundeforholdet opphører, vil delegeringer gjort via klientadministrasjon også opphøre.
+*urn:altinn:accesspackage:klientadminstrator*
 
 ### Tilgangsstyring
 Denne tilgangspakken gir bruker mulighet til å gi videre tilganger for virksomheten som man selv innehar.  
@@ -27,14 +28,15 @@ Denne tilgangspakken gir bruker mulighet til å gi videre tilganger for virksomh
 Denne tilgangspakken gir bruker mulighet til å administrere alle tilganger for virksomheten.  
 *urn:altinn:accesspackage:hovedadministrator*
 
-### Kundeadministrator
-Denne tilgangspakken gir bruker mulighet til å administrere tilganger man har mottatt for sine kunder til ansatte i egen virksomheten.  
-*urn:altinn:accesspackage:kundeadministrator*
+### Maskinporten administrator
+Denne tilgangspakken gir bruker mulighet til å administrere tilgang til maskinporten scopes.  
+*urn:altinn:accesspackage:maskinporten-administrator*
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
 |**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
 |---|---|---|
-|Klientadministrasjon for regnskapsfører og revisor|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
-|Tilgangsstyring|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer, Kontaktperson NUF|Ja|
+|Klientadministrator|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Tilgangsstyring|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer, Kontaktperson NUF|Ja|
 |Hovedadministrator|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder|Ja|
-|Kundeadministrator|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Konkursbo tilgangsstyring|Privatperson|Ja|
+|Maskinporten administrator|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer, Kontaktperson NUF|Ja|

@@ -14,11 +14,11 @@ The following base urls correspond to each environment
 - TT02 (Application owner test environment)
 
   ```http
-  https://platform.tt02.altinn.cloud/{0}/api/v1
+  https://platform.tt02.altinn.no/{0}/api/v1
   ```
 
 - Production
 
   ```http
-   https://platform.altinn.cloud/{0}/api/v1
+   https://platform.altinn.no/{0}/api/v1
   ```

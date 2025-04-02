@@ -25,12 +25,16 @@ Dropdown lists are often used in forms to collect input from users where they ne
 
 ### Anatomy
 
-![Dropdown Anatomy](Dropdown-anatomy.png)
+<iframe style="border: 0px solid rgba(0, 0, 0, 0);" width="100%" height="550" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1778-14039&viewport=-1318%2C-5700%2C0.95&scaling=contain&content-scaling=responsive&starting-point-node-id=1778%3A14039&show-proto-sidebar=0&embed-host=share&hide-ui=true
+" allowfullscreen></iframe>
 
 {{% anatomy-list %}}
 1. **Heading** - Question or instruction.
-2. **Trigger** - Click to open the menu.
-3. **Menu** - List of options.
+2. **Description** - Here you can describe it.
+3. **Trigger** - Click to open the menu.
+4. **Option title** - Main title for the option.
+5. **Option description** - Here you can describe the option.
+6. **Selcted option** - Indication of the selected option.
 {{% /anatomy-list %}}
 
 ### Best Practices

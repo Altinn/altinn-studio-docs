@@ -97,6 +97,10 @@ aliases:
     </div>
 </div>
 
+## Testing
+For getting an actual SMS to your handset in the TT02 test environment, please send a request to [tjenesteeier@altinn.no](mailto:tjenesteeier@altinn.no) to add your number to the allow-list. Unlisted numbers are treated as real, but sent to a simulator instead of a real network provider.
+
+Test-emails are sent as normal. Please note that in some cases the recipient identifies this as spam, so please check the appropriate folders if the order has a success-state.
 
 ## News - upcoming
 {{% insert "content/notifications/news/upcoming/_index.en.md" %}}

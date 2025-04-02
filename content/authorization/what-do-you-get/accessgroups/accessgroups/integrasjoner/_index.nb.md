@@ -10,27 +10,27 @@ aliases:
 
 | **Tilgangspakker i kategorien**|
 |---|
-| [Programmeringsgrensesnitt - API](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/integrasjoner/#programmeringsgrensesnitt--api)|
-| [Programmeringsgrensesnitt NUF - API](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/integrasjoner/#programmeringsgrensesnitt-nuf---api)|
+| [Delegerbare Maskinporten scopes](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/integrasjoner/#maskinporten-scopes)|
+| [Delegerbare Maskinporten scopes - NUF](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/integrasjoner/#maskinporten-scopes---nuf)|
 | [Maskinlesbare hendelser](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/integrasjoner/#maskinlesbare-hendelser)|
 
 
-### Programmeringsgrensesnitt -API
-Denne tilgangspakken gir fullmakter til å administrere tilgang til data og programmeringsgrensenitt (API) som benytter Maskinporten eller tilsvarende løsninger for APIsikring. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:programmeringsgrensesnitt*
+### Delegerbare Maskinporten scopes
+Denne tilgangspakken gir fullmakter til data og programmeringsgrensenitt (API) som benytter Maskinporten eller tilsvarende løsninger for APIsikring. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
+*urn:altinn:accesspackage:delegerbare-maskinporten-scopes*
 
-### Programmeringsgrensesnitt NUF - API
-Denne tilgangspakken gir fullmakter til å administrere tilgang til data og programmeringsgrensenitt (API) som benytter Maskinporten eller tilsvarende løsninger for APIsikring på vegne av norskregistrerte utenlandske foretak (NUF). Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:programmeringsgrensesnittNUF*
+### Delegerbare Maskinporten scopes - NUF
+Denne tilgangspakken gir fullmakter til data og programmeringsgrensenitt (API) som benytter Maskinporten eller tilsvarende løsninger for APIsikring på vegne av norskregistrerte utenlandske foretak (NUF). Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
+*urn:altinn:accesspackage:delegerbare-maskinporten-scopes-NUF*
 
 ### Maskinlesbare hendelser
-Denne tilgangspakken gir fullmakter til å administrere tilgang til maskinlesbare hendelser. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:maskinlesbarehendelser*
+Denne tilgangspakken gir fullmakter til maskinlesbare hendelser. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
+*urn:altinn:accesspackage:maskinlesbare-hendelser*
 
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
 |**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
 |---|---|---|
-|Programmeringsgrensesnitt - API|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
-|Programmeringsgrensensnitt NUF - API|Kontaktperson NUF|Ja|
-|Maskinlesbare hendelser|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bobestyrer|Ja|
+|Delegerbare Maskinporten scopes|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Delegerbare Maskinporten scopes - NUF|Kontaktperson NUF|Ja|
+|Maskinlesbare hendelser|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|

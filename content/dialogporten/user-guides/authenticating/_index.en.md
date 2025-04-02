@@ -22,6 +22,10 @@ In addition, token issued by [Altinn Token Exhange]({{<ref "../../../authenticat
 
 End-user systems can either use a ID-porten token, identifying a person, or a Maskinporten token identifying a system user.
 
+{{<notice warning>}}
+Note that access to Dialogporten will _not_ in itself grant access to the content linked to hosted on other APIs, such as Altinn Correspondence og Altinn Apps. These APIs will usually require tokens with specific scopes, such as "altinn:correspondence.read" or "altinn:instances.read". The scopes can be provisioned to the same client and placed in the same token as the one used against Dialogporten.
+{{</notice>}} 
+
 ### ID-porten authentication
 
 ID-porten authentication should be employed by end-user systems that want to access Dialogporten and related services using the identity of a single person, and utilize their authorization in order to access dialogs available across the parties in which the authenticated user has access. This is the API that is being used by the common GUI frontend ("arbeidsflate") available after logging in to altinn.no.
@@ -29,7 +33,7 @@ ID-porten authentication should be employed by end-user systems that want to acc
 The following general steps must be performed in order to access the end-user API as a person:
 
 1. Create a ID-porten integration (OAuth2 client)
-2. Provision the scope `digdir:dialogporten` on the client. 
+2. Provision the scope `digdir:dialogporten` on the client, as well as any additional scopes required for access content data (ie. `altinn:correspondence.read`)  
 3. Redirect the user to the authorize-endpoint in ID-porten, where they authenticate themselves and consent to you integration getting access to call Dialogporten on your behalf 
 4. At your redirect endpoint, use the authorization code provided against the ID-porten token endpoint to get an access token
 5. Perform requests to the [end-user API]({{<ref "../../reference/openapi">}}) using the access token in a `Authorization: Bearer <token>` header.
@@ -53,7 +57,7 @@ The following general steps must be performed in order to access the end-user AP
 2. Navigate to profile settings, and the section "System Users"
 3. Create a new system user, and associate it either with a vendor supplied system, or opt to create your own Maskinporten integration
 4. Grant service rights to the system user
-5. Create a JWT grant identifying the system user and the `digdir:dialogporten` scope, sign it and send it to the Maskinporten token end-point in order to get a access token.
+5. Create a JWT grant identifying the system user and the `digdir:dialogporten` scope, as well as any additional scopes required for accessing content data (ie. `altinn:correspondence.read`), sign it and send it to the Maskinporten token end-point in order to get a access token.
 6. Perform requests to the [end-user API]({{<ref "../../reference/openapi">}}) using the access token in a `Authorization: Bearer <token>` header.
 
 For detailed steps on how to create and utilize a system user, see the link below.
@@ -80,7 +84,7 @@ Using these scopes requires the organization in the `consumer` claim of the to b
 The follwing general steps must be performed in order to access Dialogporten service owner API:
 
 1. Create a Maskinporten integration (OAuth2 client)
-2. Provision the scope `digdir:dialogporten.serviceprovider` on the client. 
+2. Provision the scope `digdir:dialogporten.serviceprovider` on the client
 3. Generate a JWT grant referring your client id and scope, sign it and send it to the Maskinporten token endpoint
 4. At your redirect endpoint, use the authorization code provided against the Maskinporten end-point in order to get a access token.
 5. Perform requests to the [service owner API]({{<ref "../../reference/openapi">}}) using the access token in a `Authorization: Bearer <token>` header.

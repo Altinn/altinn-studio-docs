@@ -36,7 +36,7 @@ EXAMPLES
 <!-- Brief description of the component and how it is used. -->
 
 ### Anatomy
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="270" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=547-7668&viewport=-2831%2C817%2C1.04&scaling=contain&content-scaling=responsive&starting-point-node-id=547%3A7668&show-proto-sidebar=1&embed-host=share" allowfullscreen></iframe>
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="270" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=547-7668&viewport=-2831%2C817%2C1.04&scaling=contain&content-scaling=responsive&starting-point-node-id=547%3A7668&show-proto-sidebar=0&embed-host=share" allowfullscreen></iframe>
 
 This example is taken from <a href="https://www.figma.com/community/file/1344307804742953785/altinn-studio-komponenter" target="_blank">Altinn Studio Komponenter</a>. Note that the example is not identical to the actual code but has been adapted to create prototypes in Figma.
 
