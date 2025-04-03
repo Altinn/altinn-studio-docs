@@ -35,7 +35,7 @@ Eksempel på tjenesteeiere er: Skatteetaten, NAV og Brønnøysundregistrene (m.f
 
 {{% /expandlarge %}}
 
-{{% expandlarge id="om-altinn-melding-systemleverandør" header="Systemleverandør" %}}
+{{% expandlarge id="om-altinn-melding-systemleverandor" header="Systemleverandør" %}}
 
 Det er innbyggere og virksomheter som mottar meldinger i Altinn fra det offentlige. Det kan også være en representant eller fullmektig, som har fått delegert rettigheter i Altinn for et personnummer/organisasjonsnummer.
 
