@@ -1,43 +1,28 @@
 # CodeRabbit Configuration
 # This file configures how CodeRabbit reviews your pull requests
 
-# Global settings
-global:
-  # Enable or disable CodeRabbit for all PRs
-  enabled: true
-  # Maximum number of files to review per PR
-  max_files: 50
-  # Maximum number of lines to review per PR
-  max_lines: 1000
-
-# Review settings
-review:
-  # Review settings for documentation files
+language: en-US
+tone_instructions: ""
+early_access: false
+enable_free_tier: true
+auto_resolve_threads: true
+reviews:
   docs:
-    # File patterns to match documentation files
     patterns:
       - "*.md"
       - "content/**/*"
       - "layouts/**/*"
       - "static/**/*"
-    # Review settings specific to documentation
     settings:
-      # Check for broken links
       check_links: true
-      # Check for proper markdown formatting
       check_markdown: true
-      # Check for proper heading hierarchy
       check_headings: true
-      # Check for grammar and spelling
       check_grammar: true
       check_spelling: true
-      # Language settings for grammar and spelling checks
       languages:
         - "en-US"
         - "nb-NO"
         - "nn-NO"
-
-  # Review settings for configuration files
   config:
     patterns:
       - "*.yaml"
@@ -45,36 +30,11 @@ review:
       - "*.toml"
       - "*.json"
     settings:
-      # Check for valid configuration syntax
       check_syntax: true
-
-# Comment settings
-comments:
-  # Enable or disable inline comments
-  inline: true
-  # Enable or disable summary comments
-  summary: true
-  # Customize comment templates
-  templates:
-    summary: |
-      ## CodeRabbit Review Summary
-      
-      Here's a summary of the changes and suggestions:
-      
-      {summary}
-      
-      Please review the suggestions and make any necessary changes.
-
-# Ignore settings
-ignore:
-  # Files or directories to ignore
-  paths:
-    - "public/**"
-    - ".git/**"
-    - "node_modules/**"
-    - "dist/**"
-  # File patterns to ignore
-  patterns:
-    - "*.lock"
-    - "*.log"
-    - "*.tmp" 
+chat:
+  auto_reply: true
+  create_issues: true
+knowledge_base: {}
+code_generation:
+  docstrings:
+    language: en-US
