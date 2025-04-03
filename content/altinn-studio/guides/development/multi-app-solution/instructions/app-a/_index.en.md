@@ -160,7 +160,7 @@ on details for how to adapt the API request in the AppInstantiationClient to ach
 ### Why manipulating the data for application B in application A
 
 It is natural to utilize the multi-app solution to control the presentation of information in application
-B dynamically depending on what data is inserted in an instance of application A. This means that all adaptions on
+B dynamically depending on what data is inserted in an instance of application A. This means that all adaptations on
 application B that is dependent on data retrieved from application A, must be done in application A and in some way
 delivered or represented in application B.
 

@@ -41,7 +41,7 @@ You are required to set up the following filters:
 
 - sourceFilter
   - TT02: <https://platform.tt02.altinn.no/broker/api/v1/filetransfer>
-  - PROD: <https://platform.altinn.no/broker/api/v1/filetransfer>
+  - PROD: <https://api.altinn.no/broker/api/v1/filetransfer>
 - resourceFilter
   - "urn:altinn:resource:" + The Resource Id for the Broker Resource
 - alternativesubjectfilter

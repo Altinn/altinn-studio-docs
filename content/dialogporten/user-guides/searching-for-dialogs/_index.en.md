@@ -15,16 +15,23 @@ Note that the data structure that is returned in searches differ from the one re
 
 ## Basic steps (REST)
 
-1. [Authenticate as a end-user]({{<relref "../authenticating">}})
+1. [Authenticate as a end-user]({{<relref "../authenticating#usage-for-end-user-systems">}})
+3. [Find the parties]({{<relref "../authorized-parties">}}) that the authenticated end-user is authorized to represent
 2. Perform a GET request to `/api/v1/enduser/dialogs`, supplying query parameters according to the table below:
 
 {{<swaggerdisplayoperation "get" "/api/v1/enduser/dialogs">}}
 
-* All parameters of different types are AND-ed, ie. if supplying `party` and `status`, only the dialogs of the provided status owned by the provided party will be returned
-* When supporting multiple values for the same parameter, these values are OR-ed, ie. if supplying two `status` parameters, dialogs having either of those values will be returned
+* All parameters of different types are AND-ed, ie. if supplying `party` and `status`, only the dialogs of the provided status owned by the provided party will be returned.
+* When supporting multiple values for the same parameter, these values are OR-ed, ie. if supplying two `status` parameters, dialogs having either of those values will be returned.
+* `org` parameters must be service owner codes as defined in the global [altinn-orgs.json](https://altinncdn.no/orgs/altinn-orgs.json), eg. `digdir` or `skd`.
+* `party` parameters must have one of the following formats
+    * `urn:altinn:person:identifier-no:<11 digit national identity numner>`
+    * `urn:altinn:organization:identifier-no:<9 digit CCR number>`
+* `serviceResource` parameters must refer to a resource in the [Resource Registry]({{<relref "../../../authorization/what-do-you-get/resourceregistry">}}) and use the following format:
+    * `urn:altinn:resource:<identifier>`
 
 {{<notice warning>}}
-Note the end-user search API requires that at least one `serviceResource` or `party` parameter is supplied. Up to 20 distinct values for each of these two types may be supplied.
+Note the end-user search API requires that at least one [`serviceResource`]({{<relref "../../getting-started/authorization/service-resource">}}) or [`party`]({{<relref "../../getting-started/authorization/parties">}}) parameter is supplied. Up to 20 distinct values for each of these two types may be supplied.
 {{</notice>}} 
 
 ### Returned information
