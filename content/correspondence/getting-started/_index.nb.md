@@ -14,7 +14,6 @@ Før du går i gang med spesifikke oppgaver som avsender, mottaker, eller tjenes
 I samhandling med Altinn Melding kan en virksomhet ha tre ulike roller: 
 
 - ServiceOwner/Tjenesteeier 
-- Sender/Avsender 
 - Recipient/Mottaker 
 
 En virksomhet kan ha en eller flere av disse rollene. De fleste virksomheter vil ha sender og/eller mottaker, mens en tjenesteeier ofte vil ha alle tre. Å være tjenesteeier innebærer ansvaret for konfigurasjon og tilgangsstyring av tjenesten. Dette medfører at en tjenesteeier må sette opp og definere løsningen før man kan ta den i bruk. 
