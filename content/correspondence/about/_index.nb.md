@@ -13,6 +13,8 @@ Digitaliseringsrundskrivet legger føringer om å bruke digital post til virksom
 ## Sikkerhet og tilgangsstyring
 Gjennom Altinn Autorisasjon blir kun de med tjenstlig behov gitt tilgang til å lese meldingen, noe som ivaretar konfidensialitet og personvern.
 
+test
+
 ## Varsling og revarsling
 Tjenesten tilbyr varsling og revarsling til mottaker på SMS og e‑post i samsvar med kravene i eForvaltningsforskriften. Det betyr at mottakere får beskjed når en ny melding venter.
 
