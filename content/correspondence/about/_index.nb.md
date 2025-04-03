@@ -8,12 +8,11 @@ weight: 1
 ---
 
 ## I tråd med Digitaliseringsrundskrivet
-Digitaliseringsrundskrivet legger føringer om å bruke digital post til virksomheter via Altinn. Når du velger Altinn Melding, innfrir du dette kravet og sikrer at meldinger sendes og mottas på en trygg måte.
+Digitaliseringskrvet legger føringer om å bruke digital post til virksomheter via Altinn. Når du velger Altinn Melding, innfrir du dette kravet og sikrer at meldinger sendes og mottas på en trygg måte.
 
+blabla ukeblad 
 ## Sikkerhet og tilgangsstyring
 Gjennom Altinn Autorisasjon blir kun de med tjenstlig behov gitt tilgang til å lese meldingen, noe som ivaretar konfidensialitet og personvern.
-
-test
 
 ## Varsling og revarsling
 Tjenesten tilbyr varsling og revarsling til mottaker på SMS og e‑post i samsvar med kravene i eForvaltningsforskriften. Det betyr at mottakere får beskjed når en ny melding venter.
@@ -37,7 +36,7 @@ Eksempel på tjenesteeiere er: Skatteetaten, NAV og Brønnøysundregistrene (m.f
 
 {{% /expandlarge %}}
 
-{{% expandlarge id="om-altinn-melding-systemleverandor" header="Syst
+{{% expandlarge id="om-altinn-melding-systemleverandør" header="Systemleverandør" %}}
 
 Det er innbyggere og virksomheter som mottar meldinger i Altinn fra det offentlige. Det kan også være en representant eller fullmektig, som har fått delegert rettigheter i Altinn for et personnummer/organisasjonsnummer.
 
