@@ -1,0 +1,40 @@
+# CodeRabbit Configuration
+# This file configures how CodeRabbit reviews your pull requests
+
+language: en-US
+tone_instructions: ""
+early_access: false
+enable_free_tier: true
+auto_resolve_threads: true
+reviews:
+  docs:
+    patterns:
+      - "*.md"
+      - "content/**/*"
+      - "layouts/**/*"
+      - "static/**/*"
+    settings:
+      check_links: true
+      check_markdown: true
+      check_headings: true
+      check_grammar: true
+      check_spelling: true
+      languages:
+        - "en-US"
+        - "nb-NO"
+        - "nn-NO"
+  config:
+    patterns:
+      - "*.yaml"
+      - "*.yml"
+      - "*.toml"
+      - "*.json"
+    settings:
+      check_syntax: true
+chat:
+  auto_reply: true
+  create_issues: true
+knowledge_base: {}
+code_generation:
+  docstrings:
+    language: en-US

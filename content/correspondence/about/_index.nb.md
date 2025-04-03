@@ -8,8 +8,9 @@ weight: 1
 ---
 
 ## I tråd med Digitaliseringsrundskrivet
-Digitaliseringsrundskrivet legger føringer om å bruke digital post til virksomheter via Altinn. Når du velger Altinn Melding, innfrir du dette kravet og sikrer at meldinger sendes og mottas på en trygg måte.
+Digitaliseringskrvet legger føringer om å bruke digital post til virksomheter via Altinn. Når du velger Altinn Melding, innfrir du dette kravet og sikrer at meldinger sendes og mottas på en trygg måte.
 
+blabla ukeblad 
 ## Sikkerhet og tilgangsstyring
 Gjennom Altinn Autorisasjon blir kun de med tjenstlig behov gitt tilgang til å lese meldingen, noe som ivaretar konfidensialitet og personvern.
 
