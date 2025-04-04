@@ -1,25 +1,25 @@
 ---
 title: Om Altinn Melding
 linktitle: Om Altinn Melding
-description: Altinn Melding er en sikker og effektiv tjeneste for det offentlige å sende digitale meldinger til virksomheter og innbyggere. Fordi alle organisasjonsnummer og personnummer allerede har en bruker i Altinn, når du alltid riktig mottaker.
+description: Altinn Melding er en sikker og effektiv digital tjeneste som gjør det mulig for offentlige virksomheter å sende meldinger til både innbyggere, næringsliv og andre offentlige virksomheter. Fordi alle organisasjonsnummer og personnummer allerede har en bruker i Altinn, når du alltid riktig mottaker.
 tags: []
 toc: false
 weight: 1
 ---
 
-## I tråd med Digitaliseringsrundskrivet
+### I tråd med Digitaliseringsrundskrivet
 Digitaliseringsrundskrivet legger føringer om å bruke digital post til virksomheter via Altinn. Når du velger Altinn Melding, innfrir du dette kravet og sikrer at meldinger sendes og mottas på en trygg måte.
 
-## Sikkerhet og tilgangsstyring
+### Sikkerhet og tilgangsstyring
 Gjennom Altinn Autorisasjon blir kun de med tjenstlig behov gitt tilgang til å lese meldingen, noe som ivaretar konfidensialitet og personvern.
 
-## Varsling og revarsling
+### Varsling og revarsling
 Tjenesten tilbyr varsling og revarsling til mottaker på SMS og e‑post i samsvar med kravene i eForvaltningsforskriften. Det betyr at mottakere får beskjed når en ny melding venter.
 
-## Fleksibel mottaksløsning
+### Fleksibel mottaksløsning
 Mottakeren kan lese meldingen direkte i Altinn-portalen eller integrere meldingen i sitt eget sak- og arkivsystem ved hjelp av Altinn API. Dette gir en smidig arbeidsflyt og full kontroll over informasjonsutvekslingen.
 
-## Integrasjon med Altinn Melding
+### Integrasjon med Altinn Melding
 Man kan bruke Altinn som tjenesteeier for å sende meldinger eller integrere seg mot Altinn som sluttbrukersystem for å vise meldinger:
 
 {{% expandlarge id="om-altinn-melding-tjenesteeier" header="Tjenesteeier" %}}
