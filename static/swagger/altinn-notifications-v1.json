@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.4",
   "info": {
     "title": "Altinn.Notifications",
     "version": "1.0"
@@ -136,6 +136,26 @@
           "403": {
             "description": "Caller is not authorized to access the requested resource"
           },
+          "201": {
+            "description": "The notification order was created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationOrderChainResponseExt"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "The notification order was created previously.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationOrderChainResponseExt"
+                }
+              }
+            }
+          },
           "400": {
             "description": "The notification order is invalid",
             "content": {
@@ -156,25 +176,11 @@
               }
             }
           },
-          "200": {
-            "description": "The notification order was created.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotificationOrderChainResponseExt"
-                }
-              }
-            }
+          "499": {
+            "description": "Request terminated - The client disconnected or cancelled the request before the server could complete processing"
           },
-          "201": {
-            "description": "The notification order was created.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotificationOrderChainResponseExt"
-                }
-              }
-            }
+          "500": {
+            "description": "An unexpected error occurred"
           }
         }
       }
@@ -734,11 +740,6 @@
         ],
         "type": "object",
         "properties": {
-          "senderName": {
-            "type": "string",
-            "description": "Gets or sets the display name of the sender.",
-            "nullable": true
-          },
           "senderEmailAddress": {
             "type": "string",
             "description": "Gets or sets the sender's email address.",
