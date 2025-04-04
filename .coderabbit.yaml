@@ -10,6 +10,10 @@ reviews:
   profile: "chill"
   high_level_summary: true
   path_instructions:
+    - path: '**/*.nb.md'
+      instructions: 'Check for Norwegian Bokmål (nb-NO) grammar and spelling with extra care. Pay special attention to specialized terminology and Norwegian-specific words.'
+    - path: '**/*.nn.md'
+      instructions: 'Check for Norwegian Nynorsk (nn-NO) grammar and spelling with extra care. Pay special attention to specialized terminology and Norwegian-specific words.'
     - path: "*.md"
       instructions: "Check for links, markdown formatting, headings, grammar, and spelling in multiple languages (en-US, nb-NO, nn-NO)."
     - path: "content/**/*"
@@ -29,7 +33,7 @@ reviews:
   tools:
     languagetool:
       enabled: true
-      level: "default"
+      level: "picky"
     markdownlint:
       enabled: true
     yamllint:
