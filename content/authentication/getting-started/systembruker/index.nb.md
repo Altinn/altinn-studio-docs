@@ -26,13 +26,13 @@ Tjenesten kan kreve egne scopes som ressurseier selv styrer tilgang til.
    For å få tilgang til systembruker-scopes i produksjonsmiljø kreves det at det er gjennomført test av sluttbrukersystemleverandør i Digdirs testmlijø, samt at leverandør underskriver avtale om bruk av systembruker
 
 
-Illustrert brukerreise kan lastes ned [her](systembruker_brukerreise.pdf).
+Se [Samarbeisportalen](https://samarbeid.digdir.no/altinn/systembruker/2542) for illustrert og webinar.
 
 ### Systembruker for sluttbrukersystemleveran
-Detaljert teknisk beskrivelse av steg for sluttbrukersysetmleverandør finnes under [her]().
+Detaljert teknisk beskrivelse av steg for sluttbrukersysetmleverandør finnes [her](../../guides/systemauthentication-for-systemproviders).
 
 ### Systembruker for ressurseier
-Detaljert teknisk beskrivelse av steg for ressurseier finnes under 1 [her](../../guides/systemauthentication-for-systemproviders).
+Detaljert teknisk beskrivelse av steg for ressurseier finnes [her](../../guides/systemauthentication-for-apiproviders).
 
 ### Demoklient
 For en demo av hvordan leverandørstyrt opprettelsee kan se ut, så vår demolklient [SmartCloud](http://smartcloudaltinn.azurewebsites.net).</br>

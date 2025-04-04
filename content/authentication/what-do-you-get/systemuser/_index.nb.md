@@ -13,7 +13,7 @@ Systembruker gjør det enkelt opprette en bruker, som gis nødvendige fullmakter
 
 Systembruker bygger videre på Maskinporten, som gir sikker autentisering og grovkornet tilgangsstyring, og utvider dette med finkornet tilgangsstyring
 
-Systembruker gjør det enkelt å sette opp en virtuel bruker som kan opperere på vegne av virksomehten, endten som egenoppreret system eller i et kunde - leverandørforhold 
+Systembruker gjør det enkelt å sette opp en virtuell bruker som kan opperere på vegne av virksomehten, endten som egenoppreret system eller i et kunde - leverandørforhold 
 Systembruker både brukes mot tjenster som kjører i Altinn og mot eksterne tjenester som bruker Altinn Autorisasjon som autorisasjonsløsning.
 
 For en overordnet funsjonell gjennomgang og brukerreise se [Samarbeidsportalen](https://samarbeid.digdir.no/altinn/systembruker/2542).
@@ -83,7 +83,7 @@ Etter systemet er valg blir det presentert hvilke rettigheter sluttbrukersysteme
 
 ### Leverandørstyrt opprettelse
 
-Ved leverandørstryrt opprettelse er det sluttbrukersystem-leverandøren som initierer opprettelsen. Dette skjer mens kunden er i sluttbrukersystemet. Leverandørern lager en foresppørsel om opprtetelse av systembruker, med tilhørende rettigheter, i altinn. I retur får hen en url kunden kan sendes til for å godkjenne opprettelsen. Etter opprettelsen er godkjennt vil kunden sendes tilbake til sluttbrukersystemet
+Ved leverandørstyrt opprettelse er det sluttbrukersystem-leverandøren som initierer opprettelsen. Dette skjer mens kunden er i sluttbrukersystemet. Leverandøren lager en forespørsel om opprettelse av systembruker, med tilhørende rettigheter, i altinn. I retur får hen en url kunden kan sendes til for å godkjenne opprettelsen. Etter opprettelsen er godkjennt vil kunden sendes tilbake til sluttbrukersystemet.
 
 ## Bruksmønster
 
@@ -96,7 +96,7 @@ I kundestyrt system er et sluttbrukersystem der kunden selv jobber.
 For å godkjenne opprettelse må vedkommende ha rollen tilgangsstyrer og selv ha tilgangen som delegeres
 Systembrukeren støtter både enkeltrettigheter og tilgangspakker (Q2 2025)
 
-![alt text](image-4.png)
+![Leverandørstyrt opprettelse av kundestyrt system](image-4.png)
 Bildet viser leverandørstyrt opprettelse
 
 
