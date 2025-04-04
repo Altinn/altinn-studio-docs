@@ -9,10 +9,18 @@ For beskrivelse av det enkelte scope, se https://sjolvbetjening.samarbeid.digdir
 ## Altinn 3
 Scopes som brukes i Altinn 3
 
-|name                                         |allowed_integration_types|  authorization_max_lifetime|
-|---- |                                        -------------------------|  --------------------------|
-| digdir:dialogporten                         | {maskinporten, api_klient}                 | 7776000 |
-| digdir:dialogporten.serviceprovider         | {maskinporten}                             |    3600 |
+| name                                       | allowed_integration_types | authorization_max_lifetime |
+|--------------------------------------------|---------------------------|----------------------------|
+| altinn:events.publish                      | {maskinporten}                               |         |
+| altinn:events.subscribe                    | {maskinporten, api_klient}                   |         |
+| altinn:instances.read                      | {maskinporten, api_klient}                   | 7776000 |
+| altinn:instances.write                     | {maskinporten, api_klient}                   | 7776000 |
+| altinn:serviceowner                        | {maskinporten}                               |    3600 |
+| altinn:serviceowner/instances.read         | {maskinporten}                               |    3600 |
+| altinn:serviceowner/instances.write        | {maskinporten}                               |    3600 |
+| altinn:serviceowner/notifications.create   | {maskinporten}                               |    3600 |
+| digdir:dialogporten                        | {maskinporten, api_klient}                   | 7776000 |
+| digdir:dialogporten.serviceprovider        | {maskinporten}                               |    3600 |
 
 ## Legacy
 I bruk mot Altinn II
@@ -43,7 +51,7 @@ I bruk mot Altinn II
 |altinn:dataaltinnno/advregperson             |{maskinporten}|
 |altinn:dataaltinnno/advregverifikasjon       |{maskinporten}|
 |altinn:dataaltinnno/advregverifikasjon       |{maskinporten}|
-|altinn:dataaltinnno/dihe                     |{maskinporten}                              |    7200|
+|altinn:dataaltinnno/dihe                     |{maskinporten}                               |    7200|
 |altinn:dataaltinnno/dihe                     |{maskinporten}                               |    7200
 |altinn:dataaltinnno/ebevis                   |{maskinporten}                               |    7200
 |altinn:dataaltinnno/ebevis                   |{maskinporten}                               |    7200
@@ -53,7 +61,7 @@ I bruk mot Altinn II
 |altinn:dataaltinnno/reelle                   |{maskinporten}|
 |altinn:dataaltinnno/tilda                    |{maskinporten}|
 |altinn:dataaltinnno/tilda                    |{maskinporten}|
-|altinn:delegationrequests.read               |{maskinporten}                              |    3600|
+|altinn:delegationrequests.read               |{maskinporten}                               |    3600|
 |altinn:delegationrequests.read               |{maskinporten}                               |    3600
 |altinn:delegationrequests.write              |{maskinporten}                               |    3600
 |altinn:delegationrequests.write              |{maskinporten}                               |    3600
