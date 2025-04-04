@@ -83,7 +83,7 @@ Content-Type: application/json; charset=utf-8
 
 > For produksjon endres domenet til **platform.altinn.no**
 
-Se [OpenAPI spec](/nb/api/authentication/spec/#/SystemRegister) for full dokumentasjon av API, paramenter og eksempler</br></br>
+Se [OpenAPI spec](/nb/api/authentication/spec#SystemRegister) for full dokumentasjon av API, paramenter og eksempler</br></br>
 
 
 **Id:** Unik id som benyttes for å identifisere sluttbrukersystemet. Gyldige tegn er a-z 0-9 og _. Må være i form [orgnr]_[navn].  
@@ -151,7 +151,7 @@ Content-Type: application/json; charset=utf-8
 
 > For produksjon endres domenet til **platform.altinn.no**
 
-Se [OpenAPI spec](/nb/api/authentication/spec/#/RequestSystemUser) for full dokumentasjon av API, paramenter og eksempler</br></br>
+Se [OpenAPI spec](/nb/api/authentication/spec#RequestSystemUser) for full dokumentasjon av API, paramenter og eksempler</br></br>
 
 
 **externalRef:** Brukes ved opprettelse av flere systembrukere på samme system. Dersom denne oppgis må den brukes i alle forespørsler den kan settes.  Hvis externalRef ikke er satt eksplisitt, blir den automatisk satt til organisasjonsnummer (orgnr.). Det er ikke nødvendig å spesifisere denne verdien i API-kallene, da den har en standardverdi.  
