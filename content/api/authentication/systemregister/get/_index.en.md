@@ -1,9 +1,12 @@
 ---
-title: Get a system in system register
-description: API for the vendor to get a system in the system register
-toc: true
+title: Get system information from system register
+linktitle: Get
+description: API for the vendor to get system information from the system register
+toc: false
+weight: 3
 ---
 ## Get a system
+Retrieves a system by the system id
 
 ### Endpoint
 GET authentication/api/v1/systemregister/vendor/{systemId}
@@ -15,9 +18,6 @@ Machineporten token with scope <mark>altinn:authentication/systemregister.write<
 application/json
 
 ## Arguments
-
-
-### Required Arguments
 
 #### systemId
 The id should be in the format of {systemvendororgno}_{name chosen by the vendor}. F.example "310547891_testproduct". This is a unique id to identify the product.
@@ -66,12 +66,11 @@ The id should be in the format of {systemvendororgno}_{name chosen by the vendor
 ```
 
 ## Get Rights of a system
+Get the rights defined for a system. This is an open api.
 
 ### Endpoint
 GET authentication/api/v1/systemregister/vendor/{systemId}/rights
 
-### Description
-This endpoint can be used to get the rights defined for a system. This is an open api.
 ### Scopes
 No authentication required
 
@@ -79,9 +78,6 @@ No authentication required
 application/json
 
 ## Arguments
-
-
-### Required Arguments
 
 #### systemId
 The id should be in the format of {systemvendororgno}_{name chosen by the vendor}. F.example "310547891_testproduct". This is a unique id to identify the product.
@@ -105,12 +101,10 @@ The id should be in the format of {systemvendororgno}_{name chosen by the vendor
 ```
 
 ## Get AccessPackages of a system
+Get the accesspackages defined for a system. This is an open api.
 
 ### Endpoint
 GET authentication/api/v1/systemregister/{systemId}/accesspackages
-
-### Description
-This endpoint can be used to get the accesspackages defined for a system. This is an open api.
 
 ### Scopes
 No authentication required
@@ -119,9 +113,6 @@ No authentication required
 application/json
 
 ## Arguments
-
-
-### Required Arguments
 
 #### systemId
 The id should be in the format of {systemvendororgno}_{name chosen by the vendor}. F.example "310547891_testproduct". This is a unique id to identify the product.

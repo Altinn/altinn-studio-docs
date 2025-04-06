@@ -1,23 +1,29 @@
 ---
-title: Create a new system in system register
-linktitle: Create
-description: API for the vendor to create a system in the system register
+title: Oppdater et system i systemregisteret.
+linktitle: Oppdater system
+description: API for leverandøren til å oppdatere et system i systemregisteret.
 toc: false
-weight: 2
+weight: 4
 ---
-## Create a new system
+## Oppdater et registrert system.
+Systemeiere eller administratorer fra Digitaliseringsdirektoratet kan oppdatere et system. Oppdateringsforespørselen følger et lignende modell som opprettingsforespørselen. Oppdateringsendepunktet erstatter den eksisterende systeminformasjonen med de dataene som er oppgitt i oppdateringsforespørselen. For eksempel vil den eksisterende listen over rettigheter bli fullstendig erstattet med listen som er spesifisert i oppdateringsforespørselen.
 
-### Endpoint
-POST authentication/api/v1/systemregister/vendor
+### Endepunkt
+PUT authentication/api/v1/systemregister/vendor/{systemid}
 
 ### Scopes
-Machineporten token with scope <mark>altinn:authentication/systemregister.write</mark>
+Machineporten-token med scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
 application/json
 
+## Argumenter
+
+#### systemId
+ID-en skal være i formatet {systemleverandørorgnr}_{navn valgt av leverandøren}. For eksempel '310547891_testprodukt'. Dette er en unik ID for å identifisere systemet.
+
 ## Request Body
-For detailed description about each entity in the body, please refer the description [here](../model)
+For detaljert beskrivelse av hver felt i request, vennligst se beskrivelsen [her](../model)
 
 ```
 {
@@ -64,10 +70,9 @@ For detailed description about each entity in the body, please refer the descrip
 }
 ```
 
+## Error Koder
 
-## Error Codes
-
-| Error Code     | Status Code | Error Message      | Detailed Description   |
+| Feil Kode     | Status Kode | Feil melding      | Detaljert beskrivelse   |
 |----------------|-------------|--------------------|------------------------|
 | AUTH.VLD-00000 | 400 | the org number identifier is not valid ISO6523 identifier | The organization identifier must be 0192, f.ex 0192:991825827 |
 | AUTH.VLD-00001 | 400 | The system id does not match the format orgnumber_xxxx...  | The systemid is expected to be in the format vendororgnumber_xxxxxx |
@@ -80,9 +85,9 @@ For detailed description about each entity in the body, please refer the descrip
 | AUTH.VLD-00008 | 400 | One or all the accesspackage(s) is not found in altinn's access packages or is not a part of REGN/REVI/Forretningsfører roller | The system id is already taken |
 | AUTH.VLD-00009 | 400 | One or more resource id is in wrong format. The vlaid format is urn:altinn:resource |
 
-## Examples
+## Eksempler
 
-### System with app and resource defined
+### System med app og ressurs
 ```
 {
   "id": "991825827_systemwithappandresource",
@@ -130,7 +135,8 @@ For detailed description about each entity in the body, please refer the descrip
 }
 ```
 
-### System with access package
+### System meg tilgangspakke
+
 ```
 {
   "id": "991825827_systemwithaccesspackageandresource",
@@ -174,3 +180,56 @@ For detailed description about each entity in the body, please refer the descrip
   "isVisible": true
 }
 ```
+
+## Oppdater rettighet for et system
+Systemeieren eller administratoren fra Digitaliseringsdirektoratet kan oppdatere rettighetene for et system. Oppdateringsforespørselen for rettigheter tar kun med rettighetsinformasjonen.
+
+### Endepunkt
+PUT authentication/api/v1/systemregister/vendor/{systemid}/rights
+
+### Request Body
+```
+[
+    {
+        "resource": [
+            {
+                "id": "urn:altinn:resource",
+                "value": "authentication-e2e-test"
+            },
+            {
+                "id": "urn:altinn:resource",
+                "value": "authentication-e2e-test"
+            }
+        ]
+    }
+]
+```
+### Scopes
+Machineporten-token med omfang <mark>altinn:authentication/systemregister.write</mark>
+
+### Content types
+application/json
+
+## Oppdater tilgangspakker for et system
+Systemeieren eller digitaliseringsdirektoratets administrator kan oppdatere tilgangspakker for et system. Oppdateringsforespørselen for tilgangspakker krever kun tilgangspakkeinformasjonen.
+
+### Endepunkt
+PUT authentication/api/v1/systemregister/vendor/{systemid}/accesspackages
+
+### Request Body
+
+```
+[
+    {
+        "urn": "urn:altinn:accesspackage:revisormedarbeider"
+    },
+    {
+        "urn": "urn:altinn:accesspackage:ansvarlig-revisor"
+    }
+]
+```
+### Scopes
+Machineporten-token med omfang <mark>altinn:authentication/systemregister.write</mark>
+
+### Content types
+application/json
