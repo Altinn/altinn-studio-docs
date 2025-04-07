@@ -1,0 +1,49 @@
+# CodeRabbit Configuration
+# This file configures how CodeRabbit reviews your pull requests
+
+language: en-US
+tone_instructions: "Please check documentation in English (en-US), Norwegian Bokmål (nb-NO), and Norwegian Nynorsk (nn-NO)."
+early_access: false
+enable_free_tier: true
+auto_resolve_threads: true
+reviews:
+  profile: "chill"
+  high_level_summary: true
+  path_instructions:
+    - path: '**/*.nb.md'
+      instructions: 'Check for Norwegian Bokmål (nb-NO) grammar and spelling with extra care. Pay special attention to specialized terminology and Norwegian-specific words.'
+    - path: '**/*.nn.md'
+      instructions: 'Check for Norwegian Nynorsk (nn-NO) grammar and spelling with extra care. Pay special attention to specialized terminology and Norwegian-specific words.'
+    - path: "*.md"
+      instructions: "Check for links, markdown formatting, headings, grammar, and spelling in multiple languages (en-US, nb-NO, nn-NO)."
+    - path: "content/**/*"
+      instructions: "Check for links, markdown formatting, headings, grammar, and spelling in multiple languages (en-US, nb-NO, nn-NO)."
+    - path: "layouts/**/*"
+      instructions: "Check for links, markdown formatting, headings, grammar, and spelling in multiple languages (en-US, nb-NO, nn-NO)."
+    - path: "static/**/*"
+      instructions: "Check for links, markdown formatting, headings, grammar, and spelling in multiple languages (en-US, nb-NO, nn-NO)."
+    - path: "*.yaml"
+      instructions: "Check syntax."
+    - path: "*.yml"
+      instructions: "Check syntax."
+    - path: "*.toml"
+      instructions: "Check syntax."
+    - path: "*.json"
+      instructions: "Check syntax."
+  tools:
+    languagetool:
+      enabled: true
+      level: "picky"
+    markdownlint:
+      enabled: true
+    yamllint:
+      enabled: true
+    biome:
+      enabled: true
+chat:
+  auto_reply: true
+  create_issues: true
+knowledge_base: {}
+code_generation:
+  docstrings:
+    language: en-US
