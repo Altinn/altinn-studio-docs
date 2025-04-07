@@ -1,7 +1,7 @@
 ---
 title: Getting Started system provider
 linktitle: Getting started system provider
-description: How to get started with Altinn 3 Correspondence for system provider. 
+description: "System provider: provides an end-user-system that receives and stores Altinn messages via machine-to-machine integration."
 tags: []
 toc: false
 weight: 20

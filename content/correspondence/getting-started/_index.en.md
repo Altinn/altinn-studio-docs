@@ -1,15 +1,13 @@
 ---
 title: Getting Started with Altinn Correspondence
 linktitle: Getting Started with Altinn Correspondence
-description: Tutorials for how to get started with Altinn 3 Correspondence, for service owners, senders and recipients.
+description: You can either use Altinn as a service owner to send messages, or integrate with Altinn as an end-user-system.
 tags: []
 toc: false
 weight: 30
 ---
 
 {{<children />}}
-
-You can either use Altinn as a service owner to send messages, or integrate with Altinn as an end-user-system.
 
 Service owner: a public entity that has entered into an agreement to configure and manage services in Altinn, such as a messaging service.
 

@@ -1,7 +1,7 @@
 ---
 title: Getting started serviceowner
 linktitle: Getting started serviceowner
-description: How to get started with Altinn 3 Correspondence for service owners.
+description: "Service owner: a public entity that has entered into an agreement to configure and manage services in Altinn, such as a messaging service."
 tags: []
 toc: false
 weight: 10
