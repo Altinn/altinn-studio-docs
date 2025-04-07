@@ -1,6 +1,6 @@
 ---
-title: Getting started serviceowner
-linktitle: Getting started serviceowner
+title: Getting started service owner
+linktitle: Getting started service owner
 description: "Service owner: a public entity that has entered into an agreement to configure and manage services in Altinn, such as a messaging service."
 tags: []
 toc: false
@@ -23,13 +23,13 @@ A resource represents a specific function or set of functions used to manage acc
 1. Log in to Altinn Studio and navigate to the resource dashboard. See [Resource Registry](https://docs.altinn.studio/authorization/guides/create-resource-resource-admin/) for a detailed guide.
 2. Create a new resource, follow the guide and fill in the necessary information and details about the service.
 3. Set policy rules for the resource. Your policy must be configured in such a way that they permit the actions:
-    - "read" meant for recipients to open and read a message
-    - "write" meant for senders to send a message
-    - "subscribe" to register event subscriptions in Altinn Events
+    - "read" meant for recipients to open and read a message.
+    - "write" meant for senders to send a message.
+    - "subscribe" to register event subscriptions in Altinn Events.
 
 Here is an [example policy](https://docs.altinn.studio/correspondence/getting-started/ExamplePolicy.xml).
 
-Note that this example policy sets a required user role "DAGL" for the user that has access to the resource, and requires the use of [Resource Rights Registry](https://docs.altinn.studio/authorization/what-do-you-get/resourceregistry/rrr/) to grant access to specific organisations.
+Note that this example policy sets a required user role "DAGL" for the user who has access to the resource, and requires the use of [Resource Rights Registry](https://docs.altinn.studio/authorization/what-do-you-get/resourceregistry/rrr/) to grant access to specific organisations.
 A user with that access can then delegate the access to the enterprise user / system user.
 
 **TIP**: Verify your configurations using the [Postman collection](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json), substituting the test tokens with your own Altinn tokens (See "Login to Maskinporten (Initialize)" request in Authenticator folder).
@@ -40,12 +40,12 @@ To authenticate and ensure that you can perform operations via the Correspondenc
 - `altinn:correspondence.write` 
 - `altinn:correspondence.read` 
 
-To obtain an Altinn API key and access to scopes, you must submit a request to: servicedesk@altinn.no.
+To obtain an Altinn API key and access to scopes, you must submit a request to: [servicedesk@altinn.no](mailto:servicedesk@altinn.no).
 The request must include the scopes you need. Note that you may require more than just read/write access for Correspondence. A complete list of scopes can be found here:
 https://docs.altinn.studio/api/authentication/digdirscopes/
 
 ### 4. Register your Maskinporten Client with the required scopes {#register-your-maskinporten-client-with-correct-scopes}
-In order to authenticate the Correspondence API, you must register your Maskinporten client(s) with the necessary scopes, depending on whether you need to send and/or receive messages.
+In order to authenticate the Correspondence API you must register your Maskinporten client(s) with the necessary scopes, depending on whether you need to send and/or receive messages.
 
 The scopes are maintained by Altinn, they are required for you to be authorized for the correct API operations. Note that this is not the same as the access granted by service owners in step 2 for the specific Correspondence service resource.
 
@@ -60,7 +60,7 @@ For all operations you will need to Authenticate using your Maskinporten Client,
 
 ### 6. Integrate with Correspondence API {#integrate-with-correspondence-api}
 
-Since Altinn Correspondence is open source, you can access our code in [our public GitHub repo](https://github.com/Altinn/altinn-correspondence) and build a local docker instance to test against.
+Since Altinn Correspondence is open source, you can access our code in [our public GitHub repository](https://github.com/Altinn/altinn-correspondence) and build a local docker instance to test against.
 
 We also welcome contributions to the solution.
 
@@ -72,6 +72,6 @@ Swagger for the correspondence API is hosted [here](https://docs.altinn.studio/a
 
 ### 7. Setup Event Subscriptions {#setup-event-subscriptions}
 
-In order to use events/webhooks for a Correspondence resource, you need to setup a subscription for the given resource.
+In order to use events/webhooks for a Correspondence resource, you need to set up a subscription for the given resource.
 
 See the [developer guide](https://docs.altinn.studio/correspondence/getting-started/developer-guides/events) for detailed instructions.
