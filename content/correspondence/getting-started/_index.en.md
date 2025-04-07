@@ -9,8 +9,8 @@ weight: 30
 
 {{<children />}}
 
-You can either use Altinn as a service owner to send messages, or you can integrate with Altinn as an end-user-system to display messages.
+You can either use Altinn as a service owner to send messages, or integrate with Altinn as an end-user-system.
 
 Service owner: a public entity that has entered into an agreement to configure and manage services in Altinn, such as a messaging service.
 
-System provider: provides an end-user system that receives and stores Altinn messages via machine-to-machine integration.
+System provider: provides an end-user-system that receives and stores Altinn messages via machine-to-machine integration.

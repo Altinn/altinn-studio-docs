@@ -20,14 +20,14 @@ This step is only necessary for new enterprises that have not yet established th
 In order to send messages via Altinn Correspondence, they must first be associated with a resource. 
 A resource represents a specific function or set of functions used to manage access and rules for the correspondence. Resources are registered via Altinn Studio and are used to define access rules and access lists, ensuring that only authorized users can perform specific actions.
 
-1. Log in to Altinn Studio and navigate to the resource dashboard, See [Resource Registry](../../authorization/guides/create-resource-resource-admin/) for a detailed guide.
+1. Log in to Altinn Studio and navigate to the resource dashboard, See [Resource Registry](https://docs.altinn.studio/authorization/guides/create-resource-resource-admin/) for a detailed guide.
 2. Create a new resource, follow the guide and fill in the necessary information and details about the service.
 3. Set policy rules for the resource. Your policy must be configured in such a way that that they permit the actions:
     - "read" meant for recipients to open and read a message
     - "write" meant for senders to send a message
     - "subscribe" to register event subscriptions in Altinn Events
 
-Here is an [example policy](ExamplePolicy.xml).
+Here is an [example policy](https://docs.altinn.studio/correspondence/getting-started/ExamplePolicy.xml).
 
 Note that this example policy sets a required user role "DAGL" for the user that has access to the resource, and requires the use of [Resource Rights Registry](../../authorization/what-do-you-get/resourceregistry/rrr/) to grant access to specific organisations.
 A user with that access can then delegate the access to the enterprise user / system user
@@ -69,10 +69,10 @@ See the [readme file at github](https://github.com/Altinn/altinn-correspondence/
 
 The Repo also contains a [PostMan collection](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json) with examples.
 
-Swagger for the correspondence API is hosted [here](/api/correspondence/spec/).
+Swagger for the correspondence API is hosted [here](https://docs.altinn.studio/api/correspondence/spec/).
 
 ### 7. Set up Event Subscriptions {#set-up-event-subscriptions}
 
 In order to use events/webhooks for a Correspondence resource, you need to setup a subscription for the given resource.
 
-See the [developer guide](./developer-guides/events) for detailed instruction.
+See the [developer guide](https://docs.altinn.studio/correspondence/getting-started/developer-guides/events) for detailed instruction.

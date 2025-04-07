@@ -11,4 +11,4 @@ weight: 20
 
 For å komme i gang som systemleverandør følg denne veiledningen: 
 
-https://docs.altinn.studio//authentication/guides/systemauthentication-for-systemproviders/
+https://docs.altinn.studio/authentication/guides/systemauthentication-for-systemproviders/

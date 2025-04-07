@@ -19,14 +19,14 @@ Dette steget er kun nødvendig for nye virksomheter som ikke er etablert som en 
 ### 2. Opprett eller få tilgang til ressurs {#register-a-resource-in-altinn-resource-registry}
 For å kunne sende meldinger over med Altinn Melding, må de først være tilknyttet en ressurs. Ressurser registreres via Altinn Studio og brukes til å definere tilgangsregler og tilgangslister, som sikrer at bare autoriserte brukere kan utføre bestemte handlinger.
 
-1. Logg inn på Altinn Studio og naviger til ressursdashboardet, Se [Ressursregister](../../authorization/guides/create-resource-resource-admin/) for en detaljert veiledning.
+1. Logg inn på Altinn Studio og naviger til ressursdashboardet, Se [Ressursregister](https://docs.altinn.studio/nb/authorization/guides/create-resource-resource-admin/) for en detaljert veiledning.
 2. Opprett ny ressurs, følg veiledningen og fyll inn nødvendig informasjon og detaljer om tjenesten.
 3. Angi tilgangsregler for ressursen. Tilgangsregler må for ressursen må konfigureres slik at de tillater følgende handlinger:
     - "read" ment for mottakere å åpne og lese en melding
     - "write" ment for avsendere å sende en melding
     - "subscribe" for å registrere hendelsesabonnement i Altinn Events
 
-Her er en [eksempelpolicy](ExamplePolicy.xml).
+Her er en [eksempelpolicy](https://docs.altinn.studio/nb/correspondence/getting-started/ExamplePolicy.xml).
 
 Merk at denne eksempelpolicyen angir en påkrevd brukerrolle "DAGL(daglig leder)" for brukeren som har tilgang til ressursen. Med en så åpen policy er det anbefalt å bruke [Ressursrettighetsregister](../../authorization/what-do-you-get/resourceregistry/) (gå til engelsk språk for å se dokumentasjon for RRR) for å gi tilgang til spesifikke organisasjoner.
 En bruker med denne tilgangen kan deretter delegere tilgangen til virksomhetsbrukeren/systembrukeren
