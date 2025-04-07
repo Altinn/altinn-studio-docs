@@ -29,7 +29,7 @@ A resource represents a specific function or set of functions used to manage acc
 
 Here is an [example policy](https://docs.altinn.studio/correspondence/getting-started/ExamplePolicy.xml).
 
-Note that this example policy sets a required user role "DAGL" for the user that has access to the resource, and requires the use of [Resource Rights Registry](../../authorization/what-do-you-get/resourceregistry/rrr/) to grant access to specific organisations.
+Note that this example policy sets a required user role "DAGL" for the user that has access to the resource, and requires the use of [Resource Rights Registry](https://docs.altinn.studio/authorization/what-do-you-get/resourceregistry/rrr/) to grant access to specific organisations.
 A user with that access can then delegate the access to the enterprise user / system user
 
 **TIP**: Verify your configurations using the [Postman collection](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json), substituting the test tokens with your own Altinn tokens (See "Login to Maskinporten (Initialize)" request in Authenticator folder).

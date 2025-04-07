@@ -28,7 +28,7 @@ For å kunne sende meldinger over med Altinn Melding, må de først være tilkny
 
 Her er en [eksempelpolicy](https://docs.altinn.studio/nb/correspondence/getting-started/ExamplePolicy.xml).
 
-Merk at denne eksempelpolicyen angir en påkrevd brukerrolle "DAGL(daglig leder)" for brukeren som har tilgang til ressursen. Med en så åpen policy er det anbefalt å bruke [Ressursrettighetsregister](../../authorization/what-do-you-get/resourceregistry/) (gå til engelsk språk for å se dokumentasjon for RRR) for å gi tilgang til spesifikke organisasjoner.
+Merk at denne eksempelpolicyen angir en påkrevd brukerrolle "DAGL(daglig leder)" for brukeren som har tilgang til ressursen. Med en så åpen policy er det anbefalt å bruke [Ressursrettighetsregister](https://docs.altinn.studio/nb/authorization/what-do-you-get/resourceregistry/) (gå til engelsk språk for å se dokumentasjon for RRR) for å gi tilgang til spesifikke organisasjoner.
 En bruker med denne tilgangen kan deretter delegere tilgangen til virksomhetsbrukeren/systembrukeren
 
 **TIPS**: Verifiser konfigurasjonene dine ved hjelp av [Postman-samlingen](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json), og erstatt testtokenene med dine egne Altinn-token. (Se forespørselen "Logg inn i Maskinporten (Initialiser)" i Authenticator-mappen.)
@@ -68,4 +68,4 @@ Swagger for meldings-APIet finner du [her](/api/correspondence/spec/).
 
 For å kunne motta varsler om endringer eller hendelser knyttet til dine meldingstjenester, må du sette opp et abonnement for den aktuelle tjenesten.
 Dette trinnet er spesielt viktig for deg som ønsker å få automatiserte varsler om hendelser fra meldingstjenesten. Hvis du ikke trenger varsler, kan du hoppe over dette trinnet.
-Se [utviklerveiledningen for events](./developer-guides/events) for detaljerte instruksjoner om hvordan du setter opp abonnementet.
+Se [utviklerveiledningen for events](https://docs.altinn.studio/nb/correspondence/getting-started/developer-guides/events) for detaljerte instruksjoner om hvordan du setter opp abonnementet.
