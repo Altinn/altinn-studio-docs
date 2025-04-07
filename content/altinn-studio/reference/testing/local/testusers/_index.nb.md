@@ -76,6 +76,17 @@ For å teste skjema relatert til barn og oppvekst (barnehage og skole) er det la
 
 NB! Disse er fra Tenors testdatasett, men ligger der med andre navn.
 
+### Systemer og systembrukere
+
+Med nyere versjon av localtest kan man teste apper med systembrukere lokalt.
+Det er lagt ved en innebygget system og systembruker knyttet til 950474084 Oslos Vakreste Borettslag.
+Du kan hente ut token ved hjelp av `/Home/GetTestSystemUserToken` i localtest eller besøke nettsiden `/Home/Tokens`.
+
+### Instansdelegering
+
+Instansdelegering er støttet i siste versjon av localtest, men brukere/avgivere man instansdelegerer fra og til må
+ha en `partyUuid` assosiert med seg. Se eksempel-fil under.
+
 ## App spesifikke brukere
 
 Om standard settet med brukere ikke passer for å teste din app lokalt, kan du legge sørge for at appen din svarer med et
