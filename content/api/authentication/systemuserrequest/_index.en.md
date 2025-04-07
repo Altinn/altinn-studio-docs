@@ -36,5 +36,6 @@ To get a machineporten token, the vendor must first establish a client in machin
 
 ## Internal API Methods For Agent System User
 
+
 - [Approve a system user request](internal#approve-an-agent-system-user-request)
 - [Reject a system user request](internal#reject-an-agent-system-user-request)

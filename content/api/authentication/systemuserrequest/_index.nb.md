@@ -1,38 +1,41 @@
 ---
 title: Systembruker forespørselen
-description: API for the vendor to manage the system user requests
+description: API for leverandøren til å administrere systembrukerforespørsler
 toc: true
-tags: [translate-to-norwegian]
 ---
 
-## System User Request API
-The system user request api provides api mehtods for the vendor to manage the system user requests.
+## Systembruker forespørsel API
+API-en for systembrukerforespørsler gir API-metoder for leverandøren til å administrere systembrukerforespørsler.
 
-## Security Scheme
-Bearer authentication scheme is used to authenticate the system vendor.
-System user request api requires that the system vendor authenticates with a bearer token which is a machineporten token with specific scope.
-To get a machineporten token, the vendor must first establish a client in machineporten. You can follow the steps in this [link](https://docs.altinn.studio/authentication/getting-started/maskinportenclient/) to setup a machineporten client.
+## Sikkerhetsskjema
+Bærerautentiseringsordningen brukes for å autentisere den eksterne.
+Systembruker-API-et krever at den eksterne autentiserer seg med et bærertoken, som er et maskinporten-token med spesifikk omfang.
+For å få et maskinporten-token, må den eksterne først opprette en klient i maskinporten. Du kan følge trinnene i denne lenken for å sette opp en maskinporten-klient.
 
-## External API Methods For Standard System User
+## Eksterne API metoder for Systembruker
+- [Fjern en systembruker forespørselen](external#slett-systembruker-forespørsel)
 
-- [Create a new system user request](create/_index.en.md)
-- [Get a system user request](get/_index.en.md)
+## Eksterne API metoder for Standard Systembruker
 
-## External API Methods For Agent System User
+- [Opprett systembruker forespørselen](external#opprett-en-standard-systembrukerforespørsel)
+- [Hent systembruker forespørselen](external#hent-en-systembruker-forespørsel)
+- [List standard systembruker forespørseler for leverandøren](external#hent-systembruker-forespørseler-for-leverandøren)
+- [Hent systembruker forespørselen for eksterne refereanse](external#hent-en-systembruker-foresporsel-med-eksterne-referanse)
 
-- [Create a new system user request](create/_index.en.md)
-- [Get a system user request](get/_index.en.md)
+## Eksterne API metoder for Agent Systembruker
 
-## Internal API Methods For Standard System User
+- [Opprett systembruker forespørselen for agent](external#opprett-en-agent-systembruker-forespørsel)
+- [Hent agent systembruker forespørselen](external#hent-en-agent-systembruker-forespørsel)
+- [List agent systembruker forespørseler for leverandøren](external#hent-agent-systembruker-forspørseler-for-en-leverandør)
+- [Hent systembruker forespørselen for eksterne refereanse](external#hent-en-agent-systembruker-forespørsel-med-eksterne-referanse)
 
-- [Approve a system user request](update/_index.en.md)
-- [Reject a system user request](get/_index.en.md#get-rights-of-a-system)
-- [Delete a system user request](get/_index.en.md#get-accesspackages-of-a-system)
+## Interne API metoder for Standard Systembruker
 
-## Internal API Methods For Agent System User
+- [Godkjenn en systembruker forespørsel](internal#godkjenn-en-systembrukerforespørsel)
+- [Avvis en systembrukerforespørsel](internal#avvis-en-systembrukerforespørsel)
 
-- [Create a new system user request](create/_index.en.md)
-- [Get a system user request](get/_index.en.md)
-- [Approve a system user request](update/_index.en.md)
-- [Reject a system user request](get/_index.en.md#get-rights-of-a-system)
-- [Delete a system user request](get/_index.en.md#get-accesspackages-of-a-system)
+## Interne API metoder For Agent Systembruker
+
+- [Hent agent systembruker for en party](internal#hent-en-agent-systembrukerforespørsel-etter-party-requestid)
+- [Godkjenn en systembruker forespørsel](internal#godkjenn-en-agent-systembrukerforespørsel)
+- [Avvis en systembrukerforespørsel](internal#avvis-en-agent-systembrukerforespørsel)

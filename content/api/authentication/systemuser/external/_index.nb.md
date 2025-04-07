@@ -12,7 +12,7 @@ For en detaljert beskrivelse av responsskjemaet, vennligst se [her](model)
 GET authentication/api/v1/systemuser/byExternalId?clientid=&systemproviderorgno=&systemuserownerorgno=&externalref=
 
 ### Scopes
-Machineporten token with scope <mark>altinn:maskinporten/systemuser.read</mark>
+Machineporten-token med scope <mark>altinn:maskinporten/systemuser.read</mark>
 
 ### Content types
 application/json
