@@ -178,9 +178,6 @@
           },
           "499": {
             "description": "Request terminated - The client disconnected or cancelled the request before the server could complete processing"
-          },
-          "500": {
-            "description": "An unexpected error occurred"
           }
         }
       }
@@ -1562,15 +1559,14 @@
       },
       "SmsSendingOptionsExt": {
         "required": [
-          "body",
-          "sender"
+          "body"
         ],
         "type": "object",
         "properties": {
           "sender": {
-            "minLength": 1,
             "type": "string",
-            "description": "Gets or sets the sender identifier displayed in the recipient's SMS message."
+            "description": "Gets or sets the sender identifier displayed in the recipient's SMS message.",
+            "nullable": true
           },
           "body": {
             "minLength": 1,
