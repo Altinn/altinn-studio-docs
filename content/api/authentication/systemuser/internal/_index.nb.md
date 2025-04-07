@@ -108,8 +108,7 @@ Party ID for organisasjonen.
 Henter en liste over delegeringer for en agent systembruker.
 
 ### Endepunkt
-GET authentication/api/v1/systemuser/agent/{party}/{facilitator}/{systemUserId}/delegations"
-
+GET authentication/api/v1/systemuser/agent/{party}/{facilitator}/{systemUserId}/delegations
 ### Scopes
 Dette er et internt API.
 
