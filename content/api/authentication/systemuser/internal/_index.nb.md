@@ -301,8 +301,7 @@ application/josn
 Dette er et intern API for å slette en agent systembruker
 
 ### Endepunkt 
-POST authentication/api/v1/systemuser/agent/{party}{systemuserid}?facilitatorid=
-
+POST authentication/api/v1/systemuser/agent/{party}/{systemuserid}?facilitatorid=
 ## Argumenter
 #### party
 Partyid (gammelt format) for organisasjonen som eier systembrukeren.
