@@ -11,17 +11,17 @@ weight: 10
 
 ### 1. Registrer deg som tjenesteeier hos Altinn {#get-started-as-service-owner-in-altinn}
 
-For å sette opp en meldingstjeneste i Altinn Melding, må virksomheten din være registrert som en tjenesteeier hos Altinn. Step by step guide finnes her:
+For å sette opp en meldingstjeneste i Altinn Melding, må virksomheten din være registrert som en tjenesteeier hos Altinn. Se hvordan du går frem her:
 [Kom i gang med Altinn](https://www.altinndigital.no/kom-i-gang/guide-kom-i-gang-med-altinn/).
 
 Dette steget er kun nødvendig for nye virksomheter som ikke er etablert som en tjenesteeier i Altinn. 
 
-### 2. Opprett eller få tilgang til ressurs {#register-a-resource-in-altinn-resource-registry}
+### 2. Opprett eller få tilgang til ressurs {#registeraresourceinaltinnresourceregistry}
 For å kunne sende meldinger over med Altinn Melding, må de først være tilknyttet en ressurs. Ressurser registreres via Altinn Studio og brukes til å definere tilgangsregler og tilgangslister, som sikrer at bare autoriserte brukere kan utføre bestemte handlinger.
 
 1. Logg inn på Altinn Studio og naviger til ressursdashboardet, Se [Ressursregister](https://docs.altinn.studio/nb/authorization/guides/create-resource-resource-admin/) for en detaljert veiledning.
 2. Opprett ny ressurs, følg veiledningen og fyll inn nødvendig informasjon og detaljer om tjenesten.
-3. Angi tilgangsregler for ressursen. Tilgangsregler må for ressursen må konfigureres slik at de tillater følgende handlinger:
+3. Angi tilgangsregler for ressursen. Tilgangsregler for ressursen må konfigureres slik at de tillater følgende handlinger:
     - "read" ment for mottakere å åpne og lese en melding
     - "write" ment for avsendere å sende en melding
     - "subscribe" for å registrere hendelsesabonnement i Altinn Events

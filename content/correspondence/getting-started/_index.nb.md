@@ -1,6 +1,6 @@
 ---
-title: Hvordan komme i gang
-linktitle: Komme i gang
+title: Hvordan komme i gang med Altinn 3 Melding
+linktitle: Hvordan komme i gang med Altinn 3 Melding
 description: Lær om hvordan komme i gang med Altinn 3 Melding, for tjenesteeiere, avsendere og mottakere
 tags: []
 toc: false
