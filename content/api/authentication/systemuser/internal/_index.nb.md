@@ -182,8 +182,7 @@ POST authentication/api/v1/systemuser/{party}/create
 Dette er et internt API.
 
 ### Content Types
-application/josn
-
+application/json
 ## Request body
 ```
 {
