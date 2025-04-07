@@ -64,7 +64,7 @@ Since Altinn Correspondence is open source, you can access our code in [our publ
 
 We also welcome contributions to the solution.
 
-See the [readme file on GitHub](https://github.com/Altinn/altinn-correspondence/blob/main/README.md) for an introduction to Altinn 3 Correspondenec, and how to build and run it in your dev environment.
+See the [readme file on GitHub](https://github.com/Altinn/altinn-correspondence/blob/main/README.md) for an introduction to Altinn 3 Correspondence, and how to build and run it in your dev environment.
 
 The Repo also contains a [Postman collection](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json) with examples.
 
