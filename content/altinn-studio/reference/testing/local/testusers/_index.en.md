@@ -6,100 +6,102 @@ toc: true
 tags: [translate-to-english]
 ---
 
-## Standard brukere
+## Standard users
 
-Disse kan man velge når man logger inn i lokal test.
+These are the standard users in the user selections in localtest.
 
 ![testbrukere](userselection.png "Valg av testbrukere")
 
 ### Sophie Salt
 
-Sophie er en svært driftig dame som bor i Oslo. Hun har startet en kjede med treningsententer som heter DDG Fitness og til nå er det startet 3 underenheter i Oslo, Bergen og Trondheim.
-Sophie har rollen DAGL og dens underroller for DDG Fitness AS og dens underhenheter.
+Sophie is a highly resourceful woman living in Oslo. She has established a fitness center chain called DDG Fitness, which currently has three branches in Oslo, Bergen, and Trondheim.
+Sophie holds the role of CEO (DAGL) and its sub-roles for DDG Fitness AS and its subsidiaries.
 
-I tilegg er hun ekspert på helse og har startet eget konsulentfirma for helsetjenester. Sophie har rollen LEDE + knyttede roller for EAS Health Consulting.
+Additionally, she is a health expert and has started her own consulting firm for health services. Sophie holds the role of LEDE (Leader) along with associated roles for EAS Health Consulting.
 
-Hun er også styremedlem i borettslaget der hun bor. "Oslos Vakreste Borettslag".  Sophie har rollen MEDL + knyttede roller for "Oslos Vakreste Borettslag".
+She is also a board member of the housing cooperative where she resides, named "Oslos Vakreste Borettslag" ("Oslo's Most Beautiful Housing Cooperative"). Sophie holds the role of MEDL (Member) along with associated roles for "Oslos Vakreste Borettslag".
 
-#### Avgivere
+#### Submitters (avgivere)
 
-| Avgiver                                                                                                                       | Roller                                                                                                                                        |
-| ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| [01039012345 Sophie Salt](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Person/01039012345.json)        | [Privatperson](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_501337/roles.json)              |
-| [897069650 DDG Fitness AS](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069650.json)            | [Daglig leder + knytninger](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_500000/roles.json) |
-| [897069651 DDG Fitness Bergen](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069651.json)        | [Daglig leder + knytninger](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_500001/roles.json) |
-| [897069652 DDG Fitness Oslo](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069652.json)          | [Daglig leder + knytninger](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_500002/roles.json) |
-| [897069653 DDG Fitness Trondheim](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069653.json)     | [Daglig leder + knytninger](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_500003/roles.json) |
-| [897069631 EAS Health Consulting](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069631.json)     | [Styreleder + knytninger](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_500600/roles.json)   |
-| [950474084 Oslos Vakreste Borettslag](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/950474084.json) | [Styremedlem + knytninger](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_500700/roles.json)  |
+| Submitter                                                                                                                     | Roles                                                                                                                                               |
+| ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [01039012345 Sophie Salt](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Person/01039012345.json)        | [Private](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_501337/roles.json)                         |
+| [897069650 DDG Fitness AS](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069650.json)            | [CEO + associated roles](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_500000/roles.json)          |
+| [897069651 DDG Fitness Bergen](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069651.json)        | [CEO + associated roles](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_500001/roles.json)          |
+| [897069652 DDG Fitness Oslo](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069652.json)          | [CEO + associated roles](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_500002/roles.json)          |
+| [897069653 DDG Fitness Trondheim](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069653.json)     | [CEO + associated roles](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_500003/roles.json)          |
+| [897069631 EAS Health Consulting](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069631.json)     | [Chairperson + associated roles](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_500600/roles.json)  |
+| [950474084 Oslos Vakreste Borettslag](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/950474084.json) | [Board Member + associated roles](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_500700/roles.json) |
 
-![testbrukere](selectparty.png "Avgiver valg Sophie Salt")
+![testbrukere](selectparty.png "Submitter Sophie Salt chosen")
 
 ### Pengelens Partner
 
-Pengelens Partner er regnskapsføreren for selskapet DDG Fitness AS.
+Pengelens Partner is the accountant for the company DDG Fitness AS.
 
-#### Avgivere
+#### Submitters (avgivere)
 
-| Avgiver                                                                                                                      | Roller                                                                                                                             |
-| ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| [01899699552 Pengelens Partner](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Person/01899699552.json) | [Privatperson](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1001/party_510001/roles.json)   |
-| [897069650 DDG Fitness AS](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069650.json)           | [Regnskapsfører](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1001/party_500000/roles.json) |
+| Submitter                                                                                                                    | Roles                                                                                                                          |
+| ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| [01899699552 Pengelens Partner](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Person/01899699552.json) | [Private](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1001/party_510001/roles.json)    |
+| [897069650 DDG Fitness AS](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069650.json)           | [Accountant](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1001/party_500000/roles.json) |
 
 ### Gjentagende Forelder
 
-Gjentagende Forelder er revisor for selskapet DDG Fitness AS.
+Gjentagende Forelder is the auditor for selskapet DDG Fitness AS.
 
-#### Avgivere
+#### Submitters (avgivere)
 
-| Avgiver                                                                                                                         | Roller                                                                                                                           |
-| ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| [17858296439 Gjentagende Forelder](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Person/17858296439.json) | [Privatperson](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1002/party_510002/roles.json) |
-| [897069650 DDG Fitness AS](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069650.json)              | [Revisor](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1002/party_500000/roles.json)      |
+| Submitter                                                                                                                       | Roles                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| [17858296439 Gjentagende Forelder](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Person/17858296439.json) | [Private](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1002/party_510002/roles.json) |
+| [897069650 DDG Fitness AS](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069650.json)              | [Auditor](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1002/party_500000/roles.json) |
 
 ### Ola Nordmann
 
-Ola Nordmann er en privatperson som kun kan representere seg selv.
-Er bosatt på Stokmarknes.
+Ola Nordmann is a private individual who can only represent himself.
+He resides in Stokmarknes.
 
-#### Avgivere
+#### Submitters (avgivere)
 
 - [01017512345 Ola Nordmann](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Person/01017512345.json)
 
-### Andre brukere
+### Other users
 
-For å teste skjema relatert til barn og oppvekst (barnehage og skole) er det lagt til noen spesifikke brukere.
-| Avgiver                          | Barn | Inntekt |
+To test forms related to children and upbringing (kindergarten and school), some specific users have been added.
+Submitter | Children | Income
 | -------------------------------- | ---- | ------- |
-| 01899699552 Pengelens Partner    | 0    | Lav     |
-| 17858296439 Gjentagende Forelder | 3    | Middels |
-| 29917097109 Rik forelder         | 2    | Høy     |
+01899699552 Pengelens Partner | 0 | Low
+17858296439 Gjentagende Forelder | 3 | Medium
+29917097109 Rik forelder | 2 | High
 
-NB! Disse er fra Tenors testdatasett, men ligger der med andre navn.
+Note: These originate from Tenor's test dataset but are listed there under different names.
 
-### Systemer og systembrukere
+### Systems and System Users
 
-Med nyere versjon av localtest kan man teste apper med systembrukere lokalt.
-Det er lagt ved en innebygget system og systembruker knyttet til 950474084 Oslos Vakreste Borettslag.
-Du kan hente ut token ved hjelp av `/Home/GetTestSystemUserToken` i localtest eller besøke nettsiden `/Home/Tokens`.
+With the newer version of localtest, you can test apps locally using system users.
+A built-in system and system user associated with 950474084 Oslos Vakreste Borettslag has been provided.
+You can obtain the token using `/Home/GetTestSystemUserToken` in localtest or visit the webpage `/Home/Tokens`.
 
-### Instansdelegering
+### Instance Delegation
 
-Instansdelegering er støttet i siste versjon av localtest, men brukere/avgivere man instansdelegerer fra og til må
-ha en `partyUuid` assosiert med seg. Se eksempel-fil under.
+Instance delegation is supported in the latest version of localtest,
+but the users/submitters you delegate instances from and to must have an associated `partyUuid`. See the example file below.
 
-## App spesifikke brukere
+## App-specific users
 
-Om standard settet med brukere ikke passer for å teste din app lokalt, kan du legge sørge for at appen din svarer med et
-json dokument på url `/[org]/[appId]/testData.json`. Den enkleste måten er å legge fila på `App/wwwroot/testData.json`.
+If the default set of users doesn't fit your needs when testing your app locally, you can configure your app to respond
+with a JSON document at the URL `/[org]/[appId]/testData.json`.
+The simplest way is to place the file at `App/wwwroot/testData.json`
 
-Typiske endringer du kan være interresert i er å bruke andre organisasjonsnummer/fødselsnummer for at oppslag i apier som
-appene er avhengig av skal virke, eller testing av autorisasjonsreglene med andre roller enn det standard brukerene har.
+Typical customizations you might be interested in include using alternative organization numbers or personal identification
+numbers, ensuring lookups in APIs your app depends on function correctly, or testing authorization rules with roles
+different from those assigned to the default users.
 
-### Json Struktur
+### Json Structure
 
-Det finnes et [JsonSchema](https://altinncdn.no/schemas/json/test-users/test-users.schema.v1.json) som hjelper deg å skrive
-en `testData.json` fil i verktøy som VSCode. En full versjon av brukerene som ligger i TestData mappa er tilgjengelig i
+The [JsonSchema](https://altinncdn.no/schemas/json/test-users/test-users.schema.v1.json) helps you write a `testData.json`
+file in an IDE such as VSCode. A full version of users from the `TestData`-folder is available in
 [testData.json](testData.json)
 
 ```json
