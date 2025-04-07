@@ -28,27 +28,27 @@ aliases:
 
 ### Generelle Helfo tjenester
 Denne fullmakten gir tilgang til ordinære tjenester knyttet til virksomhetens dialog med Helfo der bruker kan få tilgang til personopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:generellehelfotjenester*
+*urn:altinn:accesspackage:generelle-helfotjenester*
 
 ### Helfotjenester med personopplysninger av særlig kategori
 Denne tilgangspakken gir fullmakter til tjenester knyttet til virksomhetens dialog med Helfo der bruker kan få tilgang til personopplysninger av særlig kategori. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir  
-*urn:altinn:accesspackage:helfosearligkategori*
+*urn:altinn:accesspackage:helfo-searlig-kategori*
 
 ### Starte, endre og avvikle virksomhet
 Denne tilgangspakken gir fullmakter til tjenester knyttet til å starte, endre og avvikle en virksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:startedriveendreaviklevirksomhet*
+*urn:altinn:accesspackage:starte-drive-endre-avikle-virksomhet*
 
 ### Aksjer og eierforhold
 Denne tilgangspakken gir fullmakter til tjenester knyttet til aksjer og eierforhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:aksjerogeierforhold*
+*urn:altinn:accesspackage:aksjer-og-eierforhold*
 
 ### Attester
 Denne tilgangspakken gir fullmakter til tjenester knyttet til attestering av virksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:startedriveendreaviklevirksomhet*
+*urn:altinn:accesspackage:attester*
 
 ### Dokumentbasert tilsyn
 Denne tilgangspakken gir fullmakter til tjenester knyttet til dokumentbaserte tilsyn. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:dokumentbaserttilsyn*
+*urn:altinn:accesspackage:dokumentbasert-tilsyn*
 
 ### Infrastruktur
 Denne tilgangspakken gir fullmakter til tjenester knyttet til virksomhetens infrastruktur. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
@@ -56,23 +56,23 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til virksomhetens infr
 
 ### Patent, varemerke og design
 Denne tilgangspakken gir fullmakter til tjenester knyttet til patent, varemerke og design. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:patentvaremerkedesign*
+*urn:altinn:accesspackage:patent-varemerke-design*
 
 ### Tilskudd, støtte og erstatning
 Denne tilgangspakken gir fullmakter til tjenester knyttet til å søke tilskudd, støtte og erstatning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:tilskuddstotteerstatning*
+*urn:altinn:accesspackage:tilskudd-stotte-erstatning*
 
 ### Mine sider hos kommunen
 Denne fullmakten gir generell tilgang til tjenester av typen “mine side” tjenester hos kommuner. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:minesiderkommune*
+*urn:altinn:accesspackage:mine-sider-kommune*
 
 ### Politi og domstol
 Denne tilgangspakken gir fullmakter til tjenester knyttet til virksomhetens dialog om juridiske forhold med politi og jusitsmyndigheter. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:politidomstol*
+*urn:altinn:accesspackage:politi-domstol*
 
 ### Rapportering av statistikk
 Denne fullmakten gir tilgang til alle pålagte rapportering av statistikk. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:rapporteringstatistikk*
+*urn:altinn:accesspackage:rapportering-statistikk*
 
 ### Forskning
 Denne fullmakten gir tilgang til tjenester knyttet til forskning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  

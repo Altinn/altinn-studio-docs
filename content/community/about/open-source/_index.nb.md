@@ -1,16 +1,16 @@
 ---
 title: Altinn og åpen kildekode
 linktitle: Åpen kildekode
-description: Altinn 3 er åpen kildekode, med en åpen backlog, åpen dokumentasjon og åpen dialog og diskusjoner.
+description: Altinn er ekte åpen kildekode, med åpne backlogs og åpen dokumentasjon.
 toc: true
 aliases:
  - /åpen-kildekode
 ---
 
-Det er flere som har fått med seg at Altinn har tatt en fundamentalt ny og åpen retning de siste årene.
+Det er mange som har fått med seg at Altinn har tatt en fundamentalt ny og åpen retning de siste 10 årene.
 
 Vi har fått litt spørsmål om hvorfor vi har gjort dette, og tenker det kan være interessant
-at vi deler våre tanker om åpen kildekode, som en sentral nasjonal felleskomponent.
+at vi deler våre tanker om åpen kildekode, som en sentral nasjonal fellesløsning og digitalt fellesgode (DPG).
 
 ## Deling og gjenbruk
 
@@ -34,12 +34,13 @@ Gjenbruk er derimot noe vi i Altinn anser som en helt sentral motivasjon. Og vi 
 [Open Source, Open Standards and Re­Use](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/61962/open_source.pdf)
 (PDF) beskriver gjenbruk som både en policy og et prinsipp.
 - **EU** har lenge hatt en tydelig
-[open source strategi](https://ec.europa.eu/info/sites/default/files/en_ec_open_source_strategy_2020-2023.pdf) (PDF)
+[open source strategi](https://commission.europa.eu/document/download/97e59978-42c0-4b4a-9406-8f1a86837530_en?filename=en_ec_open_source_strategy_2020-2023.pdf) (PDF)
 som sier at kildekode skal deles, og ikke bare det, men at man også bør bidra tilbake.
-
 ![We share our code and enable incidental ciontributions to related open-source projects](eu-strategy.png "EU Governing Principle 5.3 - Share")
+- også har vi **Sveits** da, som virkelig
+[viser alle hvordan det skal gjøres](https://interoperable-europe.ec.europa.eu/collection/open-source-observatory-osor/news/new-open-source-law-switzerland)
 
-Vi legger til rette for gjenbruk og deling på alle nivåer i arkitekturen til Altinn 3, fra [våre prinsipper](/principles)
+Vi legger til rette for gjenbruk og deling på alle nivåer i arkitekturen til Altinn, fra [våre prinsipper](/principles)
 til hele plattformen og infrastrukturen, ned til design og GUI-komponenter, kode og konfigurasjon.
 
 Dette er også en av flere grunner til at Altinn nå er et [digitalt fellesgode (DPG)](https://digitalpublicgoods.net/),
@@ -49,7 +50,7 @@ der målsettingen er å kunne gjenbruke det vi utvikler ikke bare på nasjonalt 
 Vi oppfordrer også alle [de som lager tjenester](https://www.altinn.no/om-altinn/om-altinn-samarbeidet/)
 med Altinn Studio til å [dele sine apper](../../../altinn-studio/news/launched-apps/), og alt er tilrettelagt for at det skjer automatisk.
 Faktisk så må tjenesteeierne gjøre et aktivt valg for å ikke dele,
-siden deling og gjenbruk på tvers i det offentlige er helt sentralt i Altinn 3.
+siden deling og gjenbruk på tvers i det offentlige er helt sentralt i Altinn.
 
 ## Samarbeid
 
@@ -58,7 +59,7 @@ at alle kan bidra, gi input, bli hørt, følge med på det som skjer.
 
 Det er dette som har vært helt sentralt i "revolusjonen" med åpen kildekode,
 som har blitt den nye normalen for store deler av programvareutvikling i verden.
-Det er nå [40 millioner utviklere og over 28 millioner åpne repos](https://en.wikipedia.org/wiki/GitHub) på GitHub.
+Det er nå [100 millioner utviklere og over 28 millioner åpne repos](https://en.wikipedia.org/wiki/GitHub) på GitHub.
 
 Siden alle våre verktøy og avhengigeheter ligger åpent på GitHub så kan også vi i Altinn følge med,
 samarbeide og bidra tilbake til programvare som vi benytter.
@@ -73,7 +74,7 @@ og enkelt lenke til saker på tvers av programvare.
 Og siden Altinn er åpen kildekode på GitHub, så er det like enkelt for alle andre å gjøre det samme mot oss.
 Både det å [opprette nye issues](https://github.com/Altinn/altinn-studio/issues/new/choose),
 bidra i diskusjoner eller bidra med kode, noe labelen
-[external-contribution-❤️](https://github.com/search?q=org%3AAltinn+label%3Aexternal-contribution-%E2%9D%A4%EF%B8%8F&type=pullrequests)
+[community-contribution-❤️](https://github.com/search?q=org%3AAltinn+label%3Acommunity-contribution-%E2%9D%A4%EF%B8%8F&type=pullrequests)
 illustrerer godt.
 
 
@@ -112,11 +113,10 @@ så blir mange av de aller beste verktøyene der ute tilgjengelig - helt gratis.
 
 Her er noen av de fantastiske [SaaS](https://en.wikipedia.org/wiki/Software_as_a_service)-verktøyene som vi benytter:
 
-- [GitHub](https://github.com/features) - Håndtering av kildekode, backlogs, boards, automatisering, CI/CD, etc.
-- [ZenHub](https://www.zenhub.com/) - Epos, estimering, avhengigheter, rapporter.
+- [GitHub](https://github.com/features) - Kildekode, backlogs, boards, automatisering, CI/CD, CodeQL, etc.
+- [CodeRabbit](https://www.coderabbit.ai/) - KI-basert tilbakemelding på dine pull requests
 - [Cypress](https://www.cypress.io/) - Dashboards og automatisert testing av GUI.
 - [SonarCloud](https://sonarcloud.io/) - Statisk analyse av kildekode.
-- [LGTM](https://semmle.com/lgtm) - Sikkerhetsanalyse av kildekode.
 
 Og dette er bare et lite utvalg...  
 Alle verktøy og rammeverk som vi bygger Altinn på toppen av, er åpen programvare som er

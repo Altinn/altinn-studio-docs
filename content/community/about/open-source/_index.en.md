@@ -1,16 +1,16 @@
 ---
 title: Altinn and open source
 linktitle: Open source
-description: Altinn 3 is open source with an open backlog, open documentation and open dialogue and discussions.
+description: Altinn is open source with open backlogs and open documentation.
 toc: true
 aliases:
  - /open-source
 ---
 
-There are many who have noticed that Altinn has chosen a new and very open direction in recent years.
+There are many who have noticed that Altinn has chosen a new and very open direction in the last 10 years.
 
 We've received questions about why, and thought it would be interesting that we share our thoughts on open source,
-as as central national common component in Norway.
+as as central Norwegian national common component and a Digital Public Good.
 
 ## Sharing and reuse
 
@@ -34,10 +34,11 @@ But to be clear, reuse is something we in Altinn consider a *central* motivation
 [Open Source, Open Standards and Re­Use](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/61962/open_source.pdf)
 (PDF) describes reuse as both a policy and a principle.
 - **EU** has has had a clear
-[open source strategy](https://ec.europa.eu/info/sites/default/files/en_ec_open_source_strategy_2020-2023.pdf) (PDF)
+[open source strategy](https://commission.europa.eu/document/download/97e59978-42c0-4b4a-9406-8f1a86837530_en?filename=en_ec_open_source_strategy_2020-2023.pdf) (PDF)
 for a long time.
-
 ![We share our code and enable incidental contributions to related open-source projects](eu-strategy.png "EU Governing Principle 5.3 - Share")
+- and then we have **Switzerland**, showing everybody
+[how it should be done!](https://interoperable-europe.ec.europa.eu/collection/open-source-observatory-osor/news/new-open-source-law-switzerland)
 
 We facilitate reuse and sharing at all levels of the Altinn architecture, from [our principles](/principles)
 to the entire platform and infrastructure, down to design and UI-widgets, code and configuration.
@@ -48,7 +49,7 @@ accelerate the attainment of [the sustainable development goals](https://www.und
 
 We also encourage [the developers building apps](https://www.altinn.no/en/about-altinn/the-altinn-co-operation/)
 using Altinn Studio to also [share their apps](../../../altinn-studio/news/launched-apps/).
-In fact, you have to do an active decision *not* to share, since sharing and reuse is central to the concept of Altinn 3.
+In fact, you have to do an active decision *not* to share, since sharing and reuse is central to the concept of Altinn.
 
 ## Cooperation
 
@@ -57,7 +58,7 @@ that everyone can contribute, provide input, be heard, follow what's happening.
 
 This has been a central point in the open source "revolution",
 that has become the new norm for large parts of software development in the world.
-There are now [40 million developers and over 28 million open repositories](https://en.wikipedia.org/wiki/GitHub) on GitHub.
+There are now [100 million developers and over 28 million public repositories](https://en.wikipedia.org/wiki/GitHub) on GitHub.
 
 Since all the tools and dependencies we use are open source on Github, we in Altinn can also follow what's happening,
 and collaborate and contribute back to the software we're using.
@@ -71,7 +72,7 @@ and easily link to issues across software.
 And since Altinn is open source at Github, it is as easy for everyone else to do the same thing to us.
 Both [creating new issues](https://github.com/Altinn/altinn-studio/issues/new/choose),
 contribute in discussions or contribute code, something the label
-[external-contribution-❤️](https://github.com/search?q=org%3AAltinn+label%3Aexternal-contribution-%E2%9D%A4%EF%B8%8F&type=pullrequests)
+[community-contribution-❤️](https://github.com/search?q=org%3AAltinn+label%3Acommunity-contribution-%E2%9D%A4%EF%B8%8F&type=pullrequests)
 illustrates well.
 
 ## Vendor bindings
@@ -109,11 +110,10 @@ many of the very best tools out there are available - for free.
 
 Here are some of the wonderful [SaaS](https://en.wikipedia.org/wiki/Software_as_a_service)-tools that we use:
 
-- [GitHub](https://github.com/features) - Handling of source code, backlogs, boards, automation, CI/CD, etc.
-- [ZenHub](https://www.zenhub.com/) - Epics, estimates, agile reports.
+- [GitHub](https://github.com/features) - Source code, backlogs, boards, automation, CI/CD, CodeQL, etc.
+- [CodeRabbit](https://www.coderabbit.ai/) - AI reviews of your pull requsts
 - [Cypress](https://www.cypress.io/) - Dashboards and automated UI-testing.
 - [SonarCloud](https://sonarcloud.io/) - Static analysis of source code.
-- [LGTM](https://semmle.com/lgtm) - Security analysis of source code.
 
 And this is just a small selection...
 

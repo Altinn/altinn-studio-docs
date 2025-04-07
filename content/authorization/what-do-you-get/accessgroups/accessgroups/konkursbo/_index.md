@@ -17,11 +17,11 @@ aliases:
 
 ### Konkursbo lesetilgang
 Denne fullmakten delegeres til kreditorer og andre som skal ha lesetilgang til det enkelte konkursbo.  
-*urn:altinn:accesspackage:konkursbolesetilgang*
+*urn:altinn:accesspackage:konkursbo-lesetilgang*
 
 ### Konkursbo skrivetilgang
 Denne fullmakten gir bostyrers medhjelper tilgang til å jobbe på vegne av bostyrer. Bostyrer delegerer denne fullmakten sammen med Konkursbo lesetilgang til medhjelper for hvert konkursbo.  
-*urn:altinn:accesspackage:konkursboskrivetilgang*
+*urn:altinn:accesspackage:konkursbo-skrivetilgang*
 
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
