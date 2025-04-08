@@ -38,7 +38,7 @@ For detailed description about each entity in the body, please refer the descrip
 ```
 
 ### Response
-For detailed description about each entity in the response body, please refer the description [here](model/_index.en.md#standard-system-user-response)
+For detailed description about each entity in the response body, please refer the description [here](model#standard-system-user-response)
 
 ### Response Example
 ```
