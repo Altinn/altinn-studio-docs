@@ -17,12 +17,12 @@ To get a machineporten token, the external must first establish a client in mach
 - [Verify Party Integration](external#verify-party-integration)
 - [List all system users for a system](external#list-all-system-users-for-a-system)
 
-## Intenal API Methods
+## Internal API Methods
 - [Get System User](internal#get-systemuser-by-systemuserid)
 
 ## Internal API Methods For Standard system user
 
-- [Create a Standard Systme User](internal#create-a-standard-system-user)
+- [Create a Standard System User](internal#create-a-standard-system-user)
 - [List Standard System Users](internal#list-standard-system-users-for-party)
 - [Delete Standard System User](internal#delete-standard-systemuser)
 - [List All System Users for Register Component](internal#list-all-systemusers-for-register-component)

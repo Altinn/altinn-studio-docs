@@ -183,7 +183,7 @@ POST authentication/api/v1/systemuser/{party}/create
 This is an internal api
 
 ### Content Types
-application/josn
+application/json
 
 ## Example Request
 ```
@@ -238,7 +238,7 @@ POST authentication/api/v1/systemuser/agent/{party}/{systemUserId}/delegation/
 This is an internal api
 
 ### Content Types
-application/josn
+application/json
 
 ## Example Request
 ```
@@ -290,7 +290,7 @@ The party uuid of the organization that owns the agent system user
 This is an internal api
 
 ### Content Types
-application/josn
+application/json
 
 ## Example Request
 ```
@@ -317,7 +317,7 @@ The party uuid of the organization that owns the agent system user
 This is an internal api
 
 ### Content Types
-application/josn
+application/json
 
 ## Example Request
 ```

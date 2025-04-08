@@ -22,7 +22,7 @@ For å få et maskinporten-token, må den eksterne først opprette en klient i m
 
 ## Internal API metoder for Standard systembruker
 
-- [Opprett Standard Systmebruker](internal#opprett-en-standard-systembruker)
+- [Opprett Standard Systembruker](internal#opprett-en-standard-systembruker)
 - [List Standard Systembrukere](internal#list-opp-standard-systembrukere-for-partiet)
 - [Slett Standard Systembruker](internal#slett-standard-systembruker)
 - [List alle Systembrukere for Register komponent](internal#list-alle-systembrukere-for-registerkomponent)

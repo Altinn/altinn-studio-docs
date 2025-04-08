@@ -236,7 +236,7 @@ POST authentication/api/v1/systemuser/agent/{party}/{systemUserId}/delegation/
 Dette er et internt API.
 
 ### Content Types
-application/josn
+application/json
 
 ## Request body
 ```
@@ -289,7 +289,7 @@ Party UUID (ny format) for organisasjonen som eier agent systembrukeren.
 Dette er et internt API.
 
 ### Content Types
-application/josn
+application/json
 
 ## Request
 ```
@@ -315,7 +315,7 @@ Party UUID (ny format) for organisasjonen som eier agent systembrukeren.
 Dette er et internt API.
 
 ### Content Types
-application/josn
+application/json
 
 ## Request
 ```
