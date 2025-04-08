@@ -90,6 +90,9 @@ The party id of the organisation that must handle the request.
 #### requestId
 The unique identifier of the request
 
+### Response
+For en detailed description of each field in response, check the description [here](model#agent-systembruker-respons)
+
 ### Example of Response Model
 ```
 {

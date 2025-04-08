@@ -91,7 +91,7 @@ PartyID-en til organisasjonen som har tilgang til å behandle forespørselen.
 Den unike identifikatoren for forespørselen
 
 ### Respons
-For en detaljert beskrivelse av hver felt i responsen, vennligst se beskrivelsen [here](model#agent-response)
+For en detaljert beskrivelse av hver felt i responsen, vennligst se beskrivelsen [here](model#agent-systembruker-respons)
 
 #### Respons eksempel
 ```
