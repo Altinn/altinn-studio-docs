@@ -1093,7 +1093,7 @@
                 "type": "string"
               }
             },
-            "description": "User-defined properties related to the file",
+            "description": "User-defined properties related to the file"
           },
           "checksum": {
             "type": "string",
