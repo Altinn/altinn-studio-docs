@@ -91,7 +91,7 @@ The party id of the organisation that must handle the request.
 The unique identifier of the request
 
 ### Response
-For en detailed description of each field in response, check the description [here](model#agent-systembruker-respons)
+For en detailed description of each field in response, check the description [here](model/#agent-response)
 
 ### Example of Response Model
 ```
