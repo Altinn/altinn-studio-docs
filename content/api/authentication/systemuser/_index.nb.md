@@ -1,6 +1,6 @@
 ---
 title: Systembruker
-description: API for the eksterne og interne systemer to administer the system user
+description: API for the eksterne og interne systemer til å administrere the systembruker
 toc: true
 ---
 
@@ -15,7 +15,7 @@ For å få et maskinporten-token, må den eksterne først opprette en klient i m
 ## Eksterne API Metoder
 
 - [Verifiser party integrasjon](external#verifiser-party-integrasjon)
-- [List alle systembrukere for en system](external#list-opp-alle-systembrukere-for-en-system)
+- [List alle systembrukere for et system](external#list-opp-alle-systembrukere-for-en-system)
 
 ## Internal API Metoder
 - [Hent Systembruker](internal#hent-systembruker-etter-systembruker-id)

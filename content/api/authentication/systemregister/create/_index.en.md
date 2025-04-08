@@ -60,7 +60,7 @@ For detailed description about each entity in the body, please refer the descrip
   "allowedredirecturls": [
     "",
   ],
-  "isVisible": 
+  "isVisible": ""
 }
 ```
 

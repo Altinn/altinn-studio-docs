@@ -129,7 +129,7 @@ The unique identifier of the system user
 Fetches detailed information of a specific system user based on system user id
 
 ### Endpoint
-GET authentication/api/v1/systemuser/{party}/{systemUserId}"
+GET authentication/api/v1/systemuser/{party}/{systemUserId}
 
 ### Scopes
 This is an internal api.
@@ -147,7 +147,7 @@ The unique identifier of the system user
 Deletes the standard systm user
 
 ### Endpoint
-DELETE authentication/api/v1/systemuser/{party}/{systemUserId}"
+DELETE authentication/api/v1/systemuser/{party}/{systemUserId}
 
 ### Scopes
 This is an internal api.
@@ -301,7 +301,7 @@ application/json
 This is an internal api to delete an agent system user
 
 ### Endpoint 
-POST authentication/api/v1/systemuser/agent/{party}{systemuserid}?facilitatorid=
+POST authentication/api/v1/systemuser/agent/{party}/{systemuserid}?facilitatorid=
 
 ## Parameters
 #### party

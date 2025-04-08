@@ -1,7 +1,7 @@
 ---
 title: Opprett et nytt system i systemregister
 linktitle: Opprett system
-description: API for the vendor to create a system in the system register
+description: API for leverandøren til å opprette et system i system register
 toc: false
 weight: 2
 ---
@@ -59,7 +59,7 @@ For detaljert beskrivelse av hver enhet i request, vennligst se beskrivelsen [he
   "allowedredirecturls": [
     "",
   ],
-  "isVisible": 
+  "isVisible": ""
 }
 ```
 

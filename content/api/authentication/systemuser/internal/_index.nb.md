@@ -149,7 +149,7 @@ Sletter standard systembruker.
 DELETE authentication/api/v1/systemuser/{party}/{systemUserId}"
 
 ### Scopes
-This is an internal api.
+Dette er et internt API.
 
 ### Content types
 application/json
@@ -173,7 +173,7 @@ Dette er et internt API.
 application/json
 
 ## Opprett en standard systembruker
-Creates a standard system user. This is an internal api used by the frontend
+Oppretter en standard systembruker. Dette er et internt API som benyttes av frontenden
 
 ### Endepunkt 
 POST authentication/api/v1/systemuser/{party}/create
