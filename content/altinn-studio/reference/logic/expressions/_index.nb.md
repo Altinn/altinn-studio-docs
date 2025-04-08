@@ -799,6 +799,7 @@ argument:
 | `instanceId`             | Gjeldende instans-ID           | `512345/48c31ffc-dcdd-416d-8bc7-194bec3b7bf0`       |
 | `instanceOwnerPartyId`   | Gjeldende aktør-ID             | `512345`                                            |
 | `instanceOwnerPartyType` | Hva slags aktør eier instansen | `"org", "person", "selfIdentified" eller "unknown"` |
+| `instanceOwnerName`      | Navnet på instanse-eier        | `"Fornavn Etternavn", "Mitt Selskap AS"`            |
 | `appId`                  | Den aktive appen sin ID        | `org/app-name`                                      |
 
 Alle disse oppslagene vil gi verdien `null` om man jobber i en [tiltandsløs kontekst](../../configuration/stateless).

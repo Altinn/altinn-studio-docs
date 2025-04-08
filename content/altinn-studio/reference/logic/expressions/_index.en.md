@@ -199,8 +199,6 @@ when used in an `if`. Read more about this in the sections on [if](#func-if) and
 
 {{% /expandlarge %}}
 
-### Testing, feilsøking og utvikling av uttrykk 
-
 ### Testing, Debugging, and Developing Expressions  
   
 When writing an expression, it's useful to have an idea of what the result will be and whether the expression is valid. 
@@ -805,6 +803,7 @@ This function allows retrieving information about the current instance. The foll
 | `instanceId`             | Current instance ID            | `512345/48c31ffc-dcdd-416d-8bc7-194bec3b7bf0`       |
 | `instanceOwnerPartyId`   | Current actor ID               | `512345`                                            |
 | `instanceOwnerPartyType` | Type of actor owning instance  | `"org", "person", "selfIdentified", or "unknown"`   |
+| `instanceOwnerName`      | The nam of the instance owner  | `"Firstname Lastname", "My company AS"`             |
 | `appId`                  | ID of the active app           | `org/app-name`                                      |
 
 All these lookups will return a value of `null` if working in a [stateless context](../../configuration/stateless). 
