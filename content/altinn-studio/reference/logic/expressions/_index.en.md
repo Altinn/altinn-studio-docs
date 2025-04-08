@@ -803,7 +803,7 @@ This function allows retrieving information about the current instance. The foll
 | `instanceId`             | Current instance ID            | `512345/48c31ffc-dcdd-416d-8bc7-194bec3b7bf0`       |
 | `instanceOwnerPartyId`   | Current actor ID               | `512345`                                            |
 | `instanceOwnerPartyType` | Type of actor owning instance  | `"org", "person", "selfIdentified", or "unknown"`   |
-| `instanceOwnerName`      | The nam of the instance owner  | `"Firstname Lastname", "My company AS"`             |
+| `instanceOwnerName`      | The name of the instance owner  | `"Firstname Lastname", "My company AS"`             |
 | `appId`                  | ID of the active app           | `org/app-name`                                      |
 
 All these lookups will return a value of `null` if working in a [stateless context](../../configuration/stateless). 
