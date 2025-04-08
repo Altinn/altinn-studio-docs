@@ -67,17 +67,17 @@ For detailed description about each entity in the response body, please refer th
 | Error Code     | Status Code | Error Message      | Detailed Description   |
 |----------------|-------------|--------------------|------------------------|
 | AUTH-00011 | 400 | The Id does not refer to a Registered System. | No system with the system id found in altinn system register |
-| AUTH-00023 | 401 | Can't resolve the Organisation Number for the Vendor from the Token. |
-| AUTH-00004 | 400 | Failed to create new SystemUser, existing SystemUser tied to the given System-Id. |
-| AUTH-00006 | 400 | The combination of External Ids refer to an already Accepted SystemUser. |
-| AUTH-00007 | 400 | The combination of External Ids refer to a Pending Request, please reuse or delete. |
-| AUTH-00008 | 400 | The combination of External Ids refer to a Denied Request, please delete and renew the Request. |
-| AUTH-00009 | 400 | The combination of External Ids refer to a Rejected Request, please delete and renew the Request. |
-| AUTH-00000 | 400 | Can't resolve the Organisation Number from the logged in Reportee PartyId. |
-| AUTH-00026 | 400 | No redirect uris are set for the system |
-| AUTH-00021 | 400 | The RedirectUri was not found or not valid. |
-| AUTH-00001 | 400 | One or more Right not found or not delegable. |
-| AUTH-00012 | 400 | An error occured when storing the Request. |
+| AUTH-00023 | 401 | Can't resolve the Organisation Number for the Vendor from the Token. | - |
+| AUTH-00004 | 400 | Failed to create new SystemUser, existing SystemUser tied to the given System-Id. | - |
+| AUTH-00006 | 400 | The combination of External Ids refer to an already Accepted SystemUser. | - |
+| AUTH-00007 | 400 | The combination of External Ids refer to a Pending Request, please reuse or delete. | - |
+| AUTH-00008 | 400 | The combination of External Ids refer to a Denied Request, please delete and renew the Request. | - |
+| AUTH-00009 | 400 | The combination of External Ids refer to a Rejected Request, please delete and renew the Request. | - |
+| AUTH-00000 | 400 | Can't resolve the Organisation Number from the logged in Reportee PartyId. | - |
+| AUTH-00026 | 400 | No redirect uris are set for the system | - |
+| AUTH-00021 | 400 | The RedirectUri was not found or not valid. | - |
+| AUTH-00001 | 400 | One or more Right not found or not delegable. | - |
+| AUTH-00012 | 400 | An error occured when storing the Request. | - |
 
 
 ## Get a system user request
@@ -124,9 +124,9 @@ The unique identifier of the request
 | Error Code     | Status Code | Error Message      | Detailed Description   |
 |----------------|-------------|--------------------|------------------------|
 | - | 400 | The value '{invalidrequestid}' is not valid | When the request id is not a valid guid |
-| - | 401 | unauthorized |  |
-| - | 404 | NotFound |  |
-| AUTH-00010 | 404 | The Id does not refer to a Request in our system. |  |
+| - | 401 | unauthorized | - |
+| - | 404 | NotFound | - |
+| AUTH-00010 | 404 | The Id does not refer to a Request in our system. | - |
 
 ## Get a system user request by external reference
 
@@ -181,9 +181,9 @@ The unique external reference of the request provided by the vendor
 | Error Code     | Status Code | Error Message      | Detailed Description   |
 |----------------|-------------|--------------------|------------------------|
 | - | 400 | The value '{invalidrequestid}' is not valid | When the request id is not a valid guid |
-| - | 401 | unauthorized |  |
-| - | 404 | NotFound |  |
-| AUTH-00010 | 404 | The Id does not refer to a Request in our system. |  |
+| - | 401 | unauthorized | - |
+| - | 404 | NotFound | - |
+| AUTH-00010 | 404 | The Id does not refer to a Request in our system. | - |
 
 ## Get all system user requests for a vendor
 Returns apaginated list of requests
@@ -321,9 +321,9 @@ The id of the system that the vendor is requesting a list for
 | Error Code     | Status Code | Error Message      | Detailed Description   |
 |----------------|-------------|--------------------|------------------------|
 | - | 400 | The value '{invalidrequestid}' is not valid | When the request id is not a valid guid |
-| - | 401 | unauthorized |  |
-| - | 404 | NotFound |  |
-| AUTH-00010 | 404 | The Id does not refer to a Request in our system. |  |
+| - | 401 | unauthorized | - |
+| - | 404 | NotFound | - |
+| AUTH-00010 | 404 | The Id does not refer to a Request in our system. | - |
 
 ## Create an Agent System User Request
 This endpoint is used to create a system user request of type agent
@@ -379,17 +379,17 @@ For detailed description about each entity in the response, please refer the des
 | Error Code     | Status Code | Error Message      | Detailed Description   |
 |----------------|-------------|--------------------|------------------------|
 | AUTH-00011 | 400 | The Id does not refer to a Registered System. | No system with the system id found in altinn system register |
-| AUTH-00023 | 401 | Can't resolve the Organisation Number for the Vendor from the Token. |
-| AUTH-00004 | 400 | Failed to create new SystemUser, existing SystemUser tied to the given System-Id. |
-| AUTH-00006 | 400 | The combination of External Ids refer to an already Accepted SystemUser. |
-| AUTH-00007 | 400 | The combination of External Ids refer to a Pending Request, please reuse or delete. |
-| AUTH-00008 | 400 | The combination of External Ids refer to a Denied Request, please delete and renew the Request. |
-| AUTH-00009 | 400 | The combination of External Ids refer to a Rejected Request, please delete and renew the Request. |
-| AUTH-00000 | 400 | Can't resolve the Organisation Number from the logged in Reportee PartyId. |
-| AUTH-00026 | 400 | No redirect uris are set for the system |
-| AUTH-00021 | 400 | The RedirectUri was not found or not valid. |
-| AUTH-00001 | 400 | One or more Right not found or not delegable. |
-| AUTH-00012 | 400 | An error occured when storing the Request. |
+| AUTH-00023 | 401 | Can't resolve the Organisation Number for the Vendor from the Token. | - |
+| AUTH-00004 | 400 | Failed to create new SystemUser, existing SystemUser tied to the given System-Id. | - |
+| AUTH-00006 | 400 | The combination of External Ids refer to an already Accepted SystemUser. | - |
+| AUTH-00007 | 400 | The combination of External Ids refer to a Pending Request, please reuse or delete. | - |
+| AUTH-00008 | 400 | The combination of External Ids refer to a Denied Request, please delete and renew the Request. | - |
+| AUTH-00009 | 400 | The combination of External Ids refer to a Rejected Request, please delete and renew the Request. | - |
+| AUTH-00000 | 400 | Can't resolve the Organisation Number from the logged in Reportee PartyId. | - |
+| AUTH-00026 | 400 | No redirect uris are set for the system | - |
+| AUTH-00021 | 400 | The RedirectUri was not found or not valid. | - |
+| AUTH-00001 | 400 | One or more Right not found or not delegable. | - |
+| AUTH-00012 | 400 | An error occured when storing the Request. | - |
 
 ## Get An Agent system user request
 
@@ -430,9 +430,9 @@ The unique identifier of the request
 | Error Code     | Status Code | Error Message      | Detailed Description   |
 |----------------|-------------|--------------------|------------------------|
 | - | 400 | The value '{requestid}' is not valid | When the request id is not a valid guid |
-| - | 401 | unauthorized |  |
-| - | 404 | NotFound |  |
-| AUTH-00010 | 404 | The Id does not refer to a Request in our system. |  |
+| - | 401 | unauthorized | - |
+| - | 404 | NotFound | - |
+| AUTH-00010 | 404 | The Id does not refer to a Request in our system. | - |
 
 ## Get an Agent System User Request By External Reference
 
@@ -585,4 +585,4 @@ True - if the request is successfully deleted.
 
 | Error Code     | Status Code | Error Message      | Detailed Description   |
 |----------------|-------------|--------------------|------------------------|
-| AUTH-00010 | 400 | The Id does not refer to a Request in our system. |  |
+| AUTH-00010 | 400 | The Id does not refer to a Request in our system. | - |

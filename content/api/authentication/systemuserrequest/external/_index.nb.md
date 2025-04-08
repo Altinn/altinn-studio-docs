@@ -67,17 +67,17 @@ For en detaljert beskrivelse av hver felt i responsen, vennligst se beskrivelsen
 | Feil kode     | Status kode | Feil Melding      | Detaljert beskrivelse   |
 |----------------|-------------|--------------------|------------------------|
 | AUTH-00011 | 400 | The Id does not refer to a Registered System. | No system with the system id found in altinn system register |
-| AUTH-00023 | 401 | Can't resolve the Organisation Number for the Vendor from the Token. |
-| AUTH-00004 | 400 | Failed to create new SystemUser, existing SystemUser tied to the given System-Id. |
-| AUTH-00006 | 400 | The combination of External Ids refer to an already Accepted SystemUser. |
-| AUTH-00007 | 400 | The combination of External Ids refer to a Pending Request, please reuse or delete. |
-| AUTH-00008 | 400 | The combination of External Ids refer to a Denied Request, please delete and renew the Request. |
-| AUTH-00009 | 400 | The combination of External Ids refer to a Rejected Request, please delete and renew the Request. |
-| AUTH-00000 | 400 | Can't resolve the Organisation Number from the logged in Reportee PartyId. |
-| AUTH-00026 | 400 | No redirect uris are set for the system |
-| AUTH-00021 | 400 | The RedirectUri was not found or not valid. |
-| AUTH-00001 | 400 | One or more Right not found or not delegable. |
-| AUTH-00012 | 400 | An error occured when storing the Request. |
+| AUTH-00023 | 401 | Can't resolve the Organisation Number for the Vendor from the Token. | - |
+| AUTH-00004 | 400 | Failed to create new SystemUser, existing SystemUser tied to the given System-Id. | - |
+| AUTH-00006 | 400 | The combination of External Ids refer to an already Accepted SystemUser. | - |
+| AUTH-00007 | 400 | The combination of External Ids refer to a Pending Request, please reuse or delete. | - |
+| AUTH-00008 | 400 | The combination of External Ids refer to a Denied Request, please delete and renew the Request. | - |
+| AUTH-00009 | 400 | The combination of External Ids refer to a Rejected Request, please delete and renew the Request. | - |
+| AUTH-00000 | 400 | Can't resolve the Organisation Number from the logged in Reportee PartyId. | - |
+| AUTH-00026 | 400 | No redirect uris are set for the system | - |
+| AUTH-00021 | 400 | The RedirectUri was not found or not valid. | - |
+| AUTH-00001 | 400 | One or more Right not found or not delegable. | - |
+| AUTH-00012 | 400 | An error occured when storing the Request. | - |
 
 
 ## Hent en systembruker forespørsel
@@ -124,9 +124,9 @@ Den unike identifikatoren for forespørselen.
 | Feil kode     | Status kode | Feil Melding      | Detaljert beskrivelse   |
 |----------------|-------------|--------------------|------------------------|
 | - | 400 | The value '{invalidrequestid}' is not valid | When the request id is not a valid guid |
-| - | 401 | unauthorized |  |
-| - | 404 | NotFound |  |
-| AUTH-00010 | 404 | The Id does not refer to a Request in our system. |  |
+| - | 401 | unauthorized | - |
+| - | 404 | NotFound | - |
+| AUTH-00010 | 404 | The Id does not refer to a Request in our system. | - |
 
 ## Hent en systembruker foresporsel med eksterne referanse
 
@@ -178,9 +178,9 @@ Den unike eksterne referansen for forespørselen gitt av leverandøren
 | Feil kode     | Status kode | Feil Melding      | Detaljert beskrivelse   |
 |----------------|-------------|--------------------|------------------------|
 | - | 400 | The value '{invalidrequestid}' is not valid | When the request id is not a valid guid |
-| - | 401 | unauthorized |  |
-| - | 404 | NotFound |  |
-| AUTH-00010 | 404 | The Id does not refer to a Request in our system. |  |
+| - | 401 | unauthorized | - |
+| - | 404 | NotFound | - |
+| AUTH-00010 | 404 | The Id does not refer to a Request in our system. | - |
 
 ## Hent systembruker forespørseler for leverandøren
 Returnerer en paginert liste over forespørsler
@@ -319,9 +319,9 @@ ID-en til systemet som leverandøren ber om en liste for
 | Feil kode     | Status kode | Feil melding      | Detaljert beskrivelse   |
 |----------------|-------------|--------------------|------------------------|
 | - | 400 | The value '{invalidrequestid}' is not valid | When the request id is not a valid guid |
-| - | 401 | unauthorized |  |
-| - | 404 | NotFound |  |
-| AUTH-00010 | 404 | The Id does not refer to a Request in our system. |  |
+| - | 401 | unauthorized | - |
+| - | 404 | NotFound | - |
+| AUTH-00010 | 404 | The Id does not refer to a Request in our system. | - |
 
 
 ## Opprett en agent systembruker forespørsel
@@ -378,17 +378,17 @@ For en detaljert beskrivelse av hver felt i responsen, vennligst se beskrivelsen
 | Feil kode    | Status kode | Feil melding      | Detaljert beskrivelse   |
 |----------------|-------------|--------------------|------------------------|
 | AUTH-00011 | 400 | The Id does not refer to a Registered System. | No system with the system id found in altinn system register |
-| AUTH-00023 | 401 | Can't resolve the Organisation Number for the Vendor from the Token. |
-| AUTH-00004 | 400 | Failed to create new SystemUser, existing SystemUser tied to the given System-Id. |
-| AUTH-00006 | 400 | The combination of External Ids refer to an already Accepted SystemUser. |
-| AUTH-00007 | 400 | The combination of External Ids refer to a Pending Request, please reuse or delete. |
-| AUTH-00008 | 400 | The combination of External Ids refer to a Denied Request, please delete and renew the Request. |
-| AUTH-00009 | 400 | The combination of External Ids refer to a Rejected Request, please delete and renew the Request. |
-| AUTH-00000 | 400 | Can't resolve the Organisation Number from the logged in Reportee PartyId. |
-| AUTH-00026 | 400 | No redirect uris are set for the system |
-| AUTH-00021 | 400 | The RedirectUri was not found or not valid. |
-| AUTH-00001 | 400 | One or more Right not found or not delegable. |
-| AUTH-00012 | 400 | An error occured when storing the Request. |
+| AUTH-00023 | 401 | Can't resolve the Organisation Number for the Vendor from the Token. | - |
+| AUTH-00004 | 400 | Failed to create new SystemUser, existing SystemUser tied to the given System-Id. | - |
+| AUTH-00006 | 400 | The combination of External Ids refer to an already Accepted SystemUser. | - |
+| AUTH-00007 | 400 | The combination of External Ids refer to a Pending Request, please reuse or delete. | - |
+| AUTH-00008 | 400 | The combination of External Ids refer to a Denied Request, please delete and renew the Request. | - |
+| AUTH-00009 | 400 | The combination of External Ids refer to a Rejected Request, please delete and renew the Request. | - |
+| AUTH-00000 | 400 | Can't resolve the Organisation Number from the logged in Reportee PartyId. | - |
+| AUTH-00026 | 400 | No redirect uris are set for the system | - |
+| AUTH-00021 | 400 | The RedirectUri was not found or not valid. | - |
+| AUTH-00001 | 400 | One or more Right not found or not delegable. | - |
+| AUTH-00012 | 400 | An error occured when storing the Request. | - |
 
 ## Hent en agent systembruker forespørsel
 
@@ -432,9 +432,9 @@ For en detaljert beskrivelse av hver felt i responsen, vennligst se beskrivelsen
 | Feil kode    | Status kode | Feil melding      | Detaljert beskrivelse   |
 |----------------|-------------|--------------------|------------------------|
 | - | 400 | The value '{requestid}' is not valid | When the request id is not a valid guid |
-| - | 401 | unauthorized |  |
-| - | 404 | NotFound |  |
-| AUTH-00010 | 404 | The Id does not refer to a Request in our system. |  |
+| - | 401 | unauthorized | - |
+| - | 404 | NotFound | - |
+| AUTH-00010 | 404 | The Id does not refer to a Request in our system. | - |
 
 ## Hent en agent systembruker forespørsel med eksterne referanse
 
@@ -484,9 +484,9 @@ For en detaljert beskrivelse av hver felt i responsen, vennligst se beskrivelsen
 | Feil kode    | Status kode | Feil melding      | Detaljert beskrivelse   |
 |----------------|-------------|--------------------|------------------------|
 | - | 400 | The value '{requestid}' is not valid | When the request id is not a valid guid |
-| - | 401 | unauthorized |  |
-| - | 404 | NotFound |  |
-| AUTH-00010 | 404 | The Id does not refer to a Request in our system. |  |
+| - | 401 | unauthorized | - |
+| - | 404 | NotFound | - |
+| AUTH-00010 | 404 | The Id does not refer to a Request in our system. | - |
 
 
 ## Hent agent systembruker forspørseler for en leverandør
@@ -594,4 +594,4 @@ True – hvis forespørselen er slettet
 
 | Feil kode    | Status kode | Feil melding      | Detaljert beskrivelse   |
 |----------------|-------------|--------------------|------------------------|
-| AUTH-00010 | 400 | The Id does not refer to a Request in our system. |  |
+| AUTH-00010 | 400 | The Id does not refer to a Request in our system. | - |

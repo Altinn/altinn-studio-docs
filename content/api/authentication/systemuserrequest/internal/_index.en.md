@@ -30,13 +30,13 @@ True - if the request is successfully approved.
 
 | Error Code     | Status Code | Error Message      | Detailed Description   |
 |----------------|-------------|--------------------|------------------------|
-| AUTH-00013 | 409 | The Status of the Request is not New. |  |
-| AUTH-00014 | 403 | DelegationCheck failed with unknown error. |  |
-| AUTH-00016 | 403 | DelegationCheck failed with error: Has not access by a delegation of role in ER or Altinn. |  |
-| AUTH-00018 | 403 | DelegationCheck failed with error: Has not access by direct delegation. |  |
-| AUTH-00019 | 403 | DelegationCheck failed with error: The service requires explicit access in SRR and the reportee is missing this. |  |
-| AUTH-00020 | 403 | DelegationCheck failed with error: The service requires explicit authentication level and the reportee is missing this. |  |
-| AUTH-00003 | 400 | Failed to create the SystemUser. |  |
+| AUTH-00013 | 409 | The Status of the Request is not New. | - |
+| AUTH-00014 | 403 | DelegationCheck failed with unknown error. | - |
+| AUTH-00016 | 403 | DelegationCheck failed with error: Has not access by a delegation of role in ER or Altinn. | - |
+| AUTH-00018 | 403 | DelegationCheck failed with error: Has not access by direct delegation. | - |
+| AUTH-00019 | 403 | DelegationCheck failed with error: The service requires explicit access in SRR and the reportee is missing this. | - |
+| AUTH-00020 | 403 | DelegationCheck failed with error: The service requires explicit authentication level and the reportee is missing this. | - |
+| AUTH-00003 | 400 | Failed to create the SystemUser. | - |
 
 
 ## Reject a system user request
@@ -138,14 +138,14 @@ True - if the request is successfully approved.
 
 | Error Code     | Status Code | Error Message      | Detailed Description   |
 |----------------|-------------|--------------------|------------------------|
-| AUTH-00013 | 409 | The Status of the Request is not New. |  |
-| AUTH-00000 | 400 | Can't resolve the Organisation Number from the logged in Reportee PartyId. |  |
-| AUTH-00030 | 404 | The Id does not refer to an AgentRequest in our system. |  |
-| AUTH-00042 | 403 | Party does not match agent request's orgno |  |
-| AUTH-00003 | 400 | Failed to create the SystemUser. |  |
-| AUTH-00025 | 400 | The request id is valid but its not a valid request for creating an agent system user |  |
-| AUTH-00011 | 404 | The Id does not refer to a Registered System. |  |
-| AUTH-00017 | 404 | The SystemName was not found. |  |
+| AUTH-00013 | 409 | The Status of the Request is not New. | - |
+| AUTH-00000 | 400 | Can't resolve the Organisation Number from the logged in Reportee PartyId. | - |
+| AUTH-00030 | 404 | The Id does not refer to an AgentRequest in our system. | - |
+| AUTH-00042 | 403 | Party does not match agent request's orgno | - |
+| AUTH-00003 | 400 | Failed to create the SystemUser. | - |
+| AUTH-00025 | 400 | The request id is valid but its not a valid request for creating an agent system user | - |
+| AUTH-00011 | 404 | The Id does not refer to a Registered System. | - |
+| AUTH-00017 | 404 | The SystemName was not found. | - |
 
 
 ## Reject An Agent System User Request
@@ -175,8 +175,8 @@ True - if the request is successfully rejected.
 
 | Error Code     | Status Code | Error Message      | Detailed Description   |
 |----------------|-------------|--------------------|------------------------|
-| AUTH-00000 | 400 | Can't resolve the Organisation Number from the logged in Reportee PartyId. |  |
-| AUTH-00030 | 404 | The Id does not refer to an AgentRequest in our system. |  |
-| AUTH-00042 | 403 | Party does not match agent request's orgno |  |
-| AUTH-00013 | 409 | The Status of the Request is not New. |  |
-| AUTH-00010 | 400 | The Id does not refer to a Request in our system. |  |
+| AUTH-00000 | 400 | Can't resolve the Organisation Number from the logged in Reportee PartyId. | - |
+| AUTH-00030 | 404 | The Id does not refer to an AgentRequest in our system. | - |
+| AUTH-00042 | 403 | Party does not match agent request's orgno | - |
+| AUTH-00013 | 409 | The Status of the Request is not New. | - |
+| AUTH-00010 | 400 | The Id does not refer to a Request in our system. | - |

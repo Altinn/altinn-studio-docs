@@ -217,16 +217,16 @@ application/json
 
 | Error Code     | Status Code | Error Message      | Detailed Description   |
 |----------------|-------------|--------------------|------------------------|
-| AUTH-00011 | 404 | The Id does not refer to a Registered System. |  |
-| AUTH-00002 | 400 | The Delegation failed. |  |
-| AUTH-00000 | 400 | Can't resolve the Organisation Number from the logged in Reportee PartyId. |  |
-| AUTH-00004 | 400 | Failed to create new SystemUser, existing SystemUser tied to the given System-Id. |  |
-| AUTH-00014 | 400 | DelegationCheck failed with unknown error. |  |
-| AUTH-00003 | 400 | Failed to create the SystemUser |
-| AUTH-00016 | 403 | DelegationCheck failed with error: Has not access by a delegation of role in ER or Altinn. | |
-| AUTH-00018 | 403 | DelegationCheck failed with error: Has not access by direct delegation. |
-| AUTH-00019 | 403 | DelegationCheck failed with error: The service requires explicit access in SRR and the reportee is missing this. | |
-| AUTH-00020 | 403 | DelegationCheck failed with error: The service requires explicit authentication level and the reportee is missing this. | |
+| AUTH-00011 | 404 | The Id does not refer to a Registered System. | - |
+| AUTH-00002 | 400 | The Delegation failed. | - |
+| AUTH-00000 | 400 | Can't resolve the Organisation Number from the logged in Reportee PartyId. | - |
+| AUTH-00004 | 400 | Failed to create new SystemUser, existing SystemUser tied to the given System-Id. | - |
+| AUTH-00014 | 400 | DelegationCheck failed with unknown error. | - |
+| AUTH-00003 | 400 | Failed to create the SystemUser | - |
+| AUTH-00016 | 403 | DelegationCheck failed with error: Has not access by a delegation of role in ER or Altinn. | - |
+| AUTH-00018 | 403 | DelegationCheck failed with error: Has not access by direct delegation. | - |
+| AUTH-00019 | 403 | DelegationCheck failed with error: The service requires explicit access in SRR and the reportee is missing this. | - |
+| AUTH-00020 | 403 | DelegationCheck failed with error: The service requires explicit authentication level and the reportee is missing this. | - |
 
 ## Delegate To An Agent Systemuser
 This is an internal api to delegate to an agent system user
@@ -263,12 +263,12 @@ application/json
 
 | Error Code     | Status Code | Error Message      | Detailed Description   |
 |----------------|-------------|--------------------|------------------------|
-| AUTH-00000 | 400 | Can't resolve the Organisation Number from the logged in Reportee PartyId. |  |
-|  | 400 | SystemUser with Id {systemUserId} Not Found |  |
-| AUTH-00028 | 400 | The customer id was not provided or did not validate. |  |
-| AUTH-00015 | 404 | The SystemUser was not found. |  |
-| AUTH-00027 | 400 | The accesspackage provided in the request can't be mapped to a valid role. |  |
-| AUTH-00002 | 400 | The Delegation failed. |  |
+| AUTH-00000 | 400 | Can't resolve the Organisation Number from the logged in Reportee PartyId. | - |
+|  | 400 | SystemUser with Id {systemUserId} Not Found | - |
+| AUTH-00028 | 400 | The customer id was not provided or did not validate. | - |
+| AUTH-00015 | 404 | The SystemUser was not found. | - |
+| AUTH-00027 | 400 | The accesspackage provided in the request can't be mapped to a valid role. | - |
+| AUTH-00002 | 400 | The Delegation failed. | - |
 
 ## Delete Customer From An Agent Systemuser
 This is an internal api to remove a client from an agent system user

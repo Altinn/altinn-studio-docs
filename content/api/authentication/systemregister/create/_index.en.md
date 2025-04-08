@@ -74,11 +74,11 @@ For detailed description about each entity in the body, please refer the descrip
 | AUTH.VLD-00002 | 400 | The system id already exists | The system id is already taken |
 | AUTH.VLD-00003 | 400 | One or all the resources in rights is not found in altinn's resource register | Any service outside altinn must be registered as a resource in altinn's resource register. Either the service provider has failed to register the resource or is specified wrong in the system register request. 
 | AUTH.VLD-00004 | 400 | One of the client id is already tagged with an existing system | The ClientId can be tied to only one organisation. The vendor must use a different client id for the new system.
-| AUTH.VLD-00005 | 400 | One or more of the redirect urls format is not valid. The valid format is https://xxx.xx | |
+| AUTH.VLD-00005 | 400 | One or more of the redirect urls format is not valid. The valid format is https://xxx.xx | - |
 | AUTH.VLD-00006 | 400 | One or more duplicate rights found | Cehck your rights section and eliminate any duplicate app/resource |
 | AUTH.VLD-00007 | 400 | One or more duplicate access package(s) found | The system id is already taken |
 | AUTH.VLD-00008 | 400 | One or all the accesspackage(s) is not found in altinn's access packages or is not a part of REGN/REVI/Forretningsfører roller | The system id is already taken |
-| AUTH.VLD-00009 | 400 | One or more resource id is in wrong format. The vlaid format is urn:altinn:resource |
+| AUTH.VLD-00009 | 400 | One or more resource id is in wrong format. The vlaid format is urn:altinn:resource | - |
 
 ## Examples
 
