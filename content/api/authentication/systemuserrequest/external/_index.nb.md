@@ -15,7 +15,7 @@ Machineporten-token med scope <mark>altinn:maskinporten/systemuser.write</mark>
 application/json
 
 ### Request Body
-For en detaljert beskrivelse av hver felt i requesten, vennligst se beskrivelsen [her](model#standard-system-user-request)
+For en detaljert beskrivelse av hver felt i requesten, vennligst se beskrivelsen [her](model/_index.nb.md#standard-systembruker-request)
 
 ### Request Eksempel
 ```
@@ -38,7 +38,7 @@ For en detaljert beskrivelse av hver felt i requesten, vennligst se beskrivelsen
 ```
 
 ### Response
-For en detaljert beskrivelse av hver felt i responsen, vennligst se beskrivelsen [her](model/_index.en.md#standard-system-user-response)
+For en detaljert beskrivelse av hver felt i responsen, vennligst se beskrivelsen [her](model/_index.nb.md#standard-systembruker-respons)
 
 ### Respons Eksempel
 ```
@@ -337,7 +337,7 @@ Machineporten-token med scope <mark>altinn:authentication/systemuser.request.wri
 application/json
 
 ### Request Body
-For en detaljert beskrivelse av hver felt i requesten, vennligst se beskrivelsen [her](model#agent-request)
+For en detaljert beskrivelse av hver felt i requesten, vennligst se beskrivelsen [her](model/_index.nb.md#agent-systembruker-request)
 
 #### Request eksempel
 ```
@@ -354,7 +354,7 @@ For en detaljert beskrivelse av hver felt i requesten, vennligst se beskrivelsen
 } 
 ```
 ### Respons
-For en detaljert beskrivelse av hver felt i responsen, vennligst se beskrivelsen [here](model#agent-response)
+For en detaljert beskrivelse av hver felt i responsen, vennligst se beskrivelsen [here](model/_index.nb.md#agent-systembruker-respons)
 
 #### Respons eksempel
 ```
@@ -407,7 +407,7 @@ application/json
 Den unike identifikatoren for forespørselen.
 
 ### Respons
-For en detaljert beskrivelse av hver felt i responsen, vennligst se beskrivelsen [here](model#agent-response)
+For en detaljert beskrivelse av hver felt i responsen, vennligst se beskrivelsen [here](model/_index.nb.md#agent-systembruker-respons)
 
 #### Respons eksempel
 ```
@@ -459,7 +459,7 @@ Organisasjonsnummeret til kunden som må håndtere forespørselen
 Den unike eksterne referansen for forespørselen gitt av leverandøren
 
 ### Respons
-For en detaljert beskrivelse av hver felt i responsen, vennligst se beskrivelsen [here](model#agent-response)
+For en detaljert beskrivelse av hver felt i responsen, vennligst se beskrivelsen [here](model/_index.nb.md#agent-systembruker-respons)
 
 #### Respons eksempel
 ```
@@ -507,7 +507,7 @@ application/json
 ID-en til systemet som leverandøren ber om en liste for
 
 ### Respons
-For en detaljert beskrivelse av hver felt i responsen, vennligst se beskrivelsen [here](model#agent-response)
+For en detaljert beskrivelse av hver felt i responsen, vennligst se beskrivelsen [here](model/_index.nb.md#agent-systembruker-respons)
 
 ### Respons eksempel
 ```
