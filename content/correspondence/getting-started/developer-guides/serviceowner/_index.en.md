@@ -56,8 +56,7 @@ Use Samarbeidsportalen self-service for registration. [Here's a detailed guide](
 
 ### 5. Authentication {#authentication}
 
-For all operations you will need to Authenticate using your Maskinporten Client, then [acquire an Altinn Token from Altinn Authentication](https://docs.altinn.studio/authentication/reference/architecture/accesstoken/).
-
+For all operations, you will need to authenticate using your Maskinporten Client, then [acquire an Altinn Token from Altinn Authentication](https://docs.altinn.studio/authentication/reference/architecture/accesstoken/).
 ### 6. Integrate with Correspondence API {#integrate-with-correspondence-api}
 
 Since Altinn Correspondence is open source, you can access our code in [our public GitHub repository](https://github.com/Altinn/altinn-correspondence) and build a local docker instance to test against.
