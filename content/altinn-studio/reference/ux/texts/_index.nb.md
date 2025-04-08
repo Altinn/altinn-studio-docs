@@ -200,7 +200,8 @@ Det er per nå mulig å hente verdier fra 3 ulike datakilder.
    Ved å angi `instanceContext` som datakilde kan man hente ut enkelte verdier fra den aktive instansen. Vi har altså ikke gitt tilgang til hele instans objektet. Listen med egenskaper så langt er:
    1. `instanceOwnerPartyId` inneholder avgiver sin party id.
    2. `instanceId` inneholder id'en til den aktive instansen.
-   3. `appId` inneholder id'en til appen instansen er knyttet til.
+   3. `instanceOwnerName` inneholder navnet til instanse-eieren.
+   4. `appId` inneholder id'en til appen instansen er knyttet til.
     
 ### Standardverdi
 
