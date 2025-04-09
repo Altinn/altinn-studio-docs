@@ -32,6 +32,10 @@ Som sluttbruker må 'instanceOwner.partyId' være inkludert som parameter i spø
 Det er mulig å søke etter instanser gjennom en enkel GET request mot *instances*-endepunktet.
 Tilgjengelige parametere er følgende:
 
+- **org** (string)
+The organization identifier.
+- **appid** (string)
+The application identifier.
 - **process.currentTask** (string)  
 Search for instances at a specific step in its process. 
 - **process.isComplete** (bool)  
@@ -54,11 +58,22 @@ Filter instances based on their due date.
 Exclude instances already confirmed by a specific stakeholder. Usually the short name of an application owner.
 - **status.isArchived** (bool)
 Filter instances based on whether they are archived.
+- **size** (int)
+The page size returned
+- **mainVersionInclude** (int)
+The Altinn version to include. E.g. "mainVersionInclude=3" will filter the response to only get the Altinn 3 instances.
+- **mainVersionExclude** (int)
+The Altinn version to exclude. E.g. "mainVersionExclude=3" will filter the response to exclude Altinn 3 instances.
 - **status.isSoftDeleted** (bool)
 Filter instances based on whether they are soft deleted.
 - **status.isHardDeleted** (bool)
 Filter instances based on whether they are hard deleted. 
 Note that hard deleted instances are only included if an application owner retrieves instances, and the results may include deleted drafts. 
+
+### Header input parameter
+- **X-Ai-InstanceOwnerIdentifier** (string)  
+Filter instances based on the person number or organisation number, i.e  Person:14817697543, Organisation:313541479. 
+Denne headeren ble introdusert fordi det ikke var ønskelig å skrive personnummer og organisasjonsnumer lett synlig i URLen.
 
 **Noen eksempler**:
 
