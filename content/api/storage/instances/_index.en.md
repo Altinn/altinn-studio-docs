@@ -29,6 +29,10 @@ Query parameter 'instanceOwner.partyId' must be included in the request if using
 Search for instances with a simple GET request towards the *instances* endpoint.
 Available query parameters include:
 
+- **org** (string)
+The organization identifier.
+- **appid** (string)
+The application identifier.
 - **process.currentTask** (string)  
 Search for instances at a specific step in its process. 
 - **process.isComplete** (bool)  
@@ -51,6 +55,12 @@ Filter instances based on their due date.
 Exclude instances already confirmed by a specific stakeholder. Usually the short name of an application owner.
 - **status.isArchived** (bool)
 Filter instances based on whether they are archived.
+- **size** (int)
+The page size returned
+- **mainVersionInclude** (int)
+The Altinn version to include. E.g. "mainVersionInclude=3" will filter the response to only get the Altinn 3 instances.
+- **mainVersionExclude** (int)
+The Altinn version to exclude. E.g. "mainVersionExclude=3" will filter the response to exclude Altinn 3 instances.
 - **status.isSoftDeleted** (bool)
 Filter instances based on whether they are soft deleted.
 - **status.isHardDeleted** (bool)

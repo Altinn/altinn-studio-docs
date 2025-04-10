@@ -32,33 +32,48 @@ Som sluttbruker må 'instanceOwner.partyId' være inkludert som parameter i spø
 Det er mulig å søke etter instanser gjennom en enkel GET request mot *instances*-endepunktet.
 Tilgjengelige parametere er følgende:
 
+- **org** (string)
+Brukes for å identifisere en organisasjon.
+- **appid** (string)
+Identifikator for en applikasjon.
 - **process.currentTask** (string)  
-Search for instances at a specific step in its process. 
+Søk etter instanser på et gitt steg i prosessen. 
 - **process.isComplete** (bool)  
-Search for instances where the process is completed.
+Søk etter instanser der prosessen er ferdig.
 - **process.endEvent** (string)  
-Deprecated. The parameter doesn't have any code associated with it.
+Dette parameteret er utgått
 - **process.ended** (datetime)  
-Filter instances based on ended date.
+Hent instanser basert på dato de ble avsluttet.
 - **instanceOwner.partyId** (int)  
-Filter instances based on the instance owner party id.
+Hent instanser basert på eiers party id.
 - **lastChanged** (datetime)  
-Filter instances based on the last time they where worked on.
+Hent instanser basert på sist det ble gjort endringer på dem.
 - **created** (datetime)  
-Filter instances based on when they where initially created.
+Hent instanser basert på når de ble opprettet.
 - **visibleAfter** (datetime)  
-Filter instances based on when they became visible.
+Hent instanser etter når de ble synliggjort.
 - **dueBefore** (datetime)  
-Filter instances based on their due date.
+Hent instanser basert på fristdato.
 - **excludeConfirmedBy** (string)  
-Exclude instances already confirmed by a specific stakeholder. Usually the short name of an application owner.
+Ikke ta med instanser som allerede er bekreftet av en aksjonær. Vanligvis kortnavnet til en applikasjonseier.
 - **status.isArchived** (bool)
-Filter instances based on whether they are archived.
+Hent instanser basert på om de er arkivert.
+- **size** (int)
+Sett størrelsen/antall treff på lista som blir returnert.
+- **mainVersionInclude** (int)
+Resultatet inkluderer ønsket Altinn-versjon. For eksempel "mainVersionInclude=3" henter alle Altinn 3-instanser.
+- **mainVersionExclude** (int)
+Resultatet _ekskluderer_ ønsket Altinn-versjon. For eksempel "mainVersionExclude=3" henter _ikke_ Altinn 3-instanser.
 - **status.isSoftDeleted** (bool)
-Filter instances based on whether they are soft deleted.
+Henter instanser basert på om de er _mykt slettet_. Slettet, men ikke permanent slettet.
 - **status.isHardDeleted** (bool)
-Filter instances based on whether they are hard deleted. 
-Note that hard deleted instances are only included if an application owner retrieves instances, and the results may include deleted drafts. 
+Henter instanser som er permanent slettet.
+Merk at disse bare kan hentes av en applikasjonseier og resultatet kan også inneholde slettede kladder.
+
+### Headerparametere
+- **X-Ai-InstanceOwnerIdentifier** (string)  
+Denne headeren ble introdusert fordi det ikke var ønskelig å skrive personnummer og organisasjonsnumer lett synlig i URLen.
+Henter instanser basert på personnummer og organisasjonsnummer, for eksempel Person:14817697543, Organisation:313541479.
 
 **Noen eksempler**:
 
