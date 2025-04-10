@@ -8,6 +8,8 @@ weight: 400
 
 Altinn apps support prefill based on query parameters.
 
+Note: Requires minimum version v4.18.0 of frontend, v8.6.0 of backend to work. 
+
 This allows users to click a link like https://ttd.apps.tt02.altinn.no/ttd/stateless-app/set-query-params?jobTitle=designer, 
 and have the word 'designer' be prefilled into a datamodel field.
 
@@ -20,7 +22,8 @@ By going via a stateless task, we ensure that the data is displayed to the user 
 
 Second we highly recommend inspecting the value of the query parameters in your application. This way you ensure that only valid data can be prefilled, so that an attacker can't send someone a link like: 
 
-https%3A%2F%2Fttd.apps.tt02.altinn.no%2Fttd%2Fstateless-app%2Fset-query-params%3FjobTitle%3DIm%20a%20scammer
+```altinn.no/ttd/stateless-app/set-query-params?jobTitle=Im a scammer```
+
 
 and have the text "Im a scammer" show up in your application.
 
@@ -47,55 +50,12 @@ https://ttd.apps.tt02.altinn.no/ttd/stateless-app/set-query-params?jobTitle=desi
 
 Important note: the link to prefill only works on the path ```:org/:app/set-query-params```, like in the example above.
 
-Also note that only query parameters defined in <stateless_datamodel>.prefill.json will work. If you try to link to https://ttd.apps.tt02.altinn.no/ttd/stateless-app/set-query-params?somethingelse=designer,
+Also note that only query parameters defined in ```<stateless_datamodel>.prefill.json``` will work. If you try to link to https://ttd.apps.tt02.altinn.no/ttd/stateless-app/set-query-params?somethingelse=designer,
 you will get an error.
 
 ### 2. Configure InstantiationProcessor and InstantiationButton
 
-To save the value from the query parameter when instantiating from the stateless task, you need to implement an InstantiationProcessor.
-
-Here you will save the prefilled value from your stateless task, into your stateful task.
-
-In the example below we transfer the value of JobTitle from the stateless task into a value called PrefilledJobTitle in the stateful task.
-
-```c# 
-namespace Altinn.App.AppLogic.DataProcessing
-{
-/// <summary>
-/// Represents a business logic class responsible for running logic related to instantiation.
-/// </summary>
-public class InstantiationProcessor: IInstantiationProcessor
-{
-
-
-public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
-{
-      if (data.GetType() == typeof(Skjema))
-      {
-        if (prefill.ContainsKey("JobTitle"))
-        {
-          skjema.PrefilledJobTitle = prefill["JobTitle"];
-        }
-      }
-      await Task.CompletedTask;
-    }
-}
-``` 
-
-You also need to configure an InstantiationButton in your layout with the mapping:
-
-```json 
-{
-  "id": "instantiation-button-query-param",
-  "type": "InstantiationButton",
-  "textResourceBindings": {
-    "title": "Start instans"
-  },
-  "mapping": {
-    "JobTitle": "PrefilledJobTitle"
-  }
-}
-``` 
+Follow the steps here: [Starting and instance from a stateless form]({{<relref "/altinn-studio/reference/configuration/stateless#starting-an-instance-from-a-stateless-form">}}}).
 
 ### 3. (Optional but highly recommended) validate query parameter values
 

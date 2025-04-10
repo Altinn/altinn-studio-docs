@@ -8,6 +8,8 @@ weight: 400
 
 Altinn-apper støtter prefyll basert på spørringsparametere.
 
+Merk: Krever minimum versjon v4.18.0 av frontend, v8.6.0 av backend.
+
 Dette gjør det mulig for brukere å klikke på en lenke som https://ttd.apps.tt02.altinn.no/ttd/stateless-app/set-query-params?jobTitle=designer,
 og få ordet 'designer' forhåndsutfylt i et datamodellfelt.
 
@@ -20,7 +22,8 @@ Ved å gå via en stateless-oppgave sikrer vi at dataene blir vist til brukeren 
 
 For det andre anbefaler vi på det sterkeste at du inspiserer verdien av spørringsparametere i applikasjonen din. På denne måten sikrer du at kun gyldige data kan forhåndsutfylles, slik at en angriper ikke kan sende noen en lenke som:
 
-https%3A%2F%2Fttd.apps.tt02.altinn.no%2Fttd%2Fstateless-app%2Fset-query-params%3FjobTitle%3DIm%20a%20scammer
+```altinn.no/ttd/stateless-app/set-query-params?jobTitle=Im a scammer```
+
 
 og få teksten "Im a scammer" til å vises i applikasjonen din.
 
@@ -39,6 +42,7 @@ Example:
     "jobTitle": "JobTitle"
   }
 }
+```
 
 Dette krever at du har et felt kalt JobTitle i datamodellen din, og lar deg forhåndsutfylle dette feltet med en lenke som:
 
@@ -46,52 +50,11 @@ https://ttd.apps.tt02.altinn.no/ttd/stateless-app/set-query-params?jobTitle=desi
 
 Viktig merknad: lenken for prefyll fungerer kun på stien :org/:app/set-query-params, som i eksempelet ovenfor.
 
-Legg også merke til at kun spørringsparametere som er definert i <stateless_datamodel>.prefill.json vil fungere. Hvis du prøver å lenke til https://ttd.apps.tt02.altinn.no/ttd/stateless-app/set-query-params?somethingelse=designer, vil du få en feil.
+Legg også merke til at kun spørringsparametere som er definert i ```<stateless_datamodel>.prefill.json``` vil fungere. Hvis du prøver å lenke til https://ttd.apps.tt02.altinn.no/ttd/stateless-app/set-query-params?somethingelse=designer, vil du få en feil.
 
 ### 2. Konfigurer InstantiationProcessor og InstantiationButton
-For å lagre verdien fra spørringsparameteren når du instansierer fra stateless-oppgaven, må du implementere en InstantiationProcessor.
-
-Her lagrer du den forhåndsutfylte verdien fra stateless-oppgaven inn i stateful-oppgaven din.
-
-I eksempelet under overfører vi verdien av JobTitle fra stateless-oppgaven til en verdi kalt PrefilledJobTitle i stateful-oppgaven.
-```c# 
-namespace Altinn.App.AppLogic.DataProcessing
-{
-/// <summary>
-/// Represents a business logic class responsible for running logic related to instantiation.
-/// </summary>
-public class InstantiationProcessor: IInstantiationProcessor
-{
-
-
-public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
-{
-      if (data.GetType() == typeof(Skjema))
-      {
-        if (prefill.ContainsKey("JobTitle"))
-        {
-          skjema.PrefilledJobTitle = prefill["JobTitle"];
-        }
-      }
-      await Task.CompletedTask;
-    }
-}
-``` 
-
-Du må også konfigurere en InstantiationButton i layouten din med følgende mapping:
-
-```json 
-{
-  "id": "instantiation-button-query-param",
-  "type": "InstantiationButton",
-  "textResourceBindings": {
-    "title": "Start instans"
-  },
-  "mapping": {
-    "JobTitle": "PrefilledJobTitle"
-  }
-}
-``` 
+        
+Følg stegene her: [Starting and instance from a stateless form]({{<relref "/altinn-studio/reference/configuration/stateless#starting-an-instance-from-a-stateless-form">}}})
 
 ### 3. (Valgfritt, men sterkt anbefalt) valider verdier for spørringsparametere
 

@@ -6,7 +6,7 @@ weight: 30
 aliases:
 - /altinn-studio/guides/prefill/
 ---
-As of today, Altinn offers four methods for prefilling data in an app for a user.
+Altinn offers multiple methods for prefilling data in an app for a user.
 These methods can be combined freely to reach the desired result.
 
 {{<children />}}
