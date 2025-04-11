@@ -582,7 +582,8 @@
         }
     },
     {
-        "id": "samtykkemal_simleconsent",
+        "id": "samtykkemal_simpleconsent",
+        "title": "Enkelt samtykke (uten melding)",
         "isFullmakt": false,
         "hasCustomMessage": false,
         "texts": {
