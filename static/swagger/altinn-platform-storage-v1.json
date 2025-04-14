@@ -1210,19 +1210,36 @@
           {
             "name": "mainVersionInclude",
             "in": "query",
-            "description": "Gets or sets altinn version to include",
+            "description": "The Altinn version to include. E.g. \"mainVersionInclude=3\" will filter the response to only get the Altinn 3 instances.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 3
+            }
+          },
+          {
+            "name": "mainVersionExclude",
+            "in": "query",
+            "description": "The Altinn version to exclude. E.g. \"mainVersionExclude=3\" will filter the response to exclude Altinn 3 instances.",
             "schema": {
               "type": "integer",
               "format": "int32"
             }
           },
           {
-            "name": "mainVersionExclude",
+            "name": "searchString",
             "in": "query",
-            "description": "Gets or sets altinn version to exclude",
+            "description": "Gets or sets the search string.",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Gets or sets the value by which the result will be sorted.",
+            "schema": {
+              "type": "string"
             }
           }
         ],

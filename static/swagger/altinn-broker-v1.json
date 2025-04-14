@@ -1093,8 +1093,7 @@
                 "type": "string"
               }
             },
-            "description": "User-defined properties related to the file",
-            "nullable": true
+            "description": "User-defined properties related to the file"
           },
           "checksum": {
             "type": "string",

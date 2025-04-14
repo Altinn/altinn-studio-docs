@@ -5,6 +5,7 @@ description: News and plans for development of Altinn 3 Correspondence.
 tags: []
 toc: false
 weight: 80
+hidden: true
 ---
 
 <!-- {{<children />}} -->
