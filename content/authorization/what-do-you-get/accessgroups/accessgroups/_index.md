@@ -20,6 +20,7 @@ Fullmaktsområdene for tilgangsstyring er bygget på Statistisk sentralbyrå sin
 |[Bygg, anlegg og eiendom](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/)|
 |[Energi, vann, avløp og avfall](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/energivannavlopavfall/)|
 |[Forhold ved virksomheten](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/forholdvedvirksomheten/)|
+|[Forretningsfører](https://docs.altinn.studio/authorization/what-do-you-get/acessgroups/accessgroups/forretningsforer/)|
 |[Handel, overnatting og servering](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/handelovernatting/)|
 |[Helse, pleie, omsorg og vern](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/helsepleieomsorgvern/)|
 |[Industrier](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/industrier/)|
