@@ -1,15 +1,11 @@
 ---
 title: What do you get?
 linktitle: What do you get?
-description: Main features of Altinn Correspondence 
+description: An overview and description of the key functionalities and features of Altinn Correspondence. 
 tags: []
 toc: true
 weight: 20
 ---
-
-Altinn 3 Corresponednce lets you send general and/or personal correspondences to users. The solution supports all languages, but have templates for Norwegian bokmål (nb), Norwegian nynorsk (nn) and English (en)
-
-## Main Features
 
 ### Notifications
 - Automatic notifications via email or SMS to users when they receive new correspondences.
