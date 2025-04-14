@@ -136,6 +136,26 @@
           "403": {
             "description": "Caller is not authorized to access the requested resource"
           },
+          "201": {
+            "description": "The notification order was created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationOrderChainResponseExt"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "The notification order was created previously.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationOrderChainResponseExt"
+                }
+              }
+            }
+          },
           "400": {
             "description": "The notification order is invalid",
             "content": {
@@ -156,25 +176,8 @@
               }
             }
           },
-          "200": {
-            "description": "The notification order was created.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotificationOrderChainResponseExt"
-                }
-              }
-            }
-          },
-          "201": {
-            "description": "The notification order was created.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotificationOrderChainResponseExt"
-                }
-              }
-            }
+          "499": {
+            "description": "Request terminated - The client disconnected or cancelled the request before the server could complete processing"
           }
         }
       }
@@ -734,11 +737,6 @@
         ],
         "type": "object",
         "properties": {
-          "senderName": {
-            "type": "string",
-            "description": "Gets or sets the display name of the sender.",
-            "nullable": true
-          },
           "senderEmailAddress": {
             "type": "string",
             "description": "Gets or sets the sender's email address.",
@@ -1561,15 +1559,14 @@
       },
       "SmsSendingOptionsExt": {
         "required": [
-          "body",
-          "sender"
+          "body"
         ],
         "type": "object",
         "properties": {
           "sender": {
-            "minLength": 1,
             "type": "string",
-            "description": "Gets or sets the sender identifier displayed in the recipient's SMS message."
+            "description": "Gets or sets the sender identifier displayed in the recipient's SMS message.",
+            "nullable": true
           },
           "body": {
             "minLength": 1,

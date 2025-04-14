@@ -5,6 +5,7 @@ description: Nyheter og videre planer for utvikling av Altinn 3 Melding
 tags: []
 toc: true
 weight: 80
+hidden: true
 ---
 
 ## Migrering fra Altinn 2 til Altinn 3
