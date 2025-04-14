@@ -1,7 +1,7 @@
 ---
 title: Hva får du?
 linktitle: Hva får du?
-description: Overordnet oversikt og bekrivelse av nøkkelfunksjonalitetene og egenskapene til Altinn Melding.
+description: Overordnet oversikt og beskrivelse av nøkkelfunksjonalitetene og egenskapene til Altinn Melding.
 tags: []
 toc: true
 weight: 20
