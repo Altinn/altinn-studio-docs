@@ -16,6 +16,3 @@ For å få et maskinporten-token, må den eksterne først opprette en klient i m
 
 - [Verifiser party integrasjon](external#verifiser-party-integrasjon)
 - [List alle systembrukere for et system](external#list-opp-alle-systembrukere-for-en-system)
-
-## Internal API Metoder
-- [Hent Systembruker](internal#hent-systembruker-etter-systembruker-id)
