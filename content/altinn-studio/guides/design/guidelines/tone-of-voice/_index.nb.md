@@ -71,8 +71,7 @@ det hjelpsomt å indikere antall siffer.
 - Organisasjonsnummer deles opp i tre og tre: 123 456 789
 - Bankkonto deles opp i fire, to og fem: 1234 56 78901
 - Personnummer deles opp i seks og fem: 123456 78901
-- Mobilnummer deles opp i tre, to og tre: 987 65 432
-- Fasttelefon og faks deles opp i to og to: 98 76 54 32
+- Både fasttelefon og mobilnummer deles opp i to og to: 98 76 54 32. For mobilnummer ble dette endret i nummerforskriften i 2019, men feilen med 3-2-3 henger igjen flere steder).
 
 ### Tid og dato
 - Klokkeslett skriver vi kun med timer og minutter, aldri sekunder. Klokkeslett skrives slik: 13:45
