@@ -162,7 +162,7 @@ A list of rights the system user needs access to. It is currently described with
 
 ### RedirectUrl
 
-This URL is used after the end user has accepted or rejected the request. It must match one of the `AllowedRedirectUrls` configured for the system to which the request refers.
+This URL is used after the end user has accepted the request.
 
 ### Example
 
