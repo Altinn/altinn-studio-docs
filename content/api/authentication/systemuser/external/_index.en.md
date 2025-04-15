@@ -55,7 +55,7 @@ The external reference provided by the system vendor in the system user request.
 GET authentication/api/v1/systemuser/vendor/bysystem/{systemId}
 
 ### Scopes
-Machineporten token with scope <mark>altinn:maskinporten/systemregister.write</mark>
+Machineporten token with scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
 application/json
