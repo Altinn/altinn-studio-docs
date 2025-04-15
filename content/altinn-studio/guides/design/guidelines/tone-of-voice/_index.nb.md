@@ -68,10 +68,10 @@ Riktig og konsekvent oppdeling av tallene hjelper brukeren å lese og skille for
 Ingen av nummerne skal skilles med punktum, kun mellomrom. I felt hvor brukeren skal skrive inn lengre nummer er 
 det hjelpsomt å indikere antall siffer.
 
-- Organisasjonsnummer deles opp i tre og tre: 123 456 789
-- Bankkonto deles opp i fire, to og fem: 1234 56 78901
-- Personnummer deles opp i seks og fem: 123456 78901
-- Både fasttelefon og mobilnummer deles opp i to og to: 98 76 54 32. For mobilnummer ble dette endret i nummerforskriften i 2019, men feilen med 3-2-3 henger igjen flere steder).
+- Organisasjonsnummer deles opp i tre og tre: 123 456 789.
+- Bankkonto deles opp i fire, to og fem: 1234 56 78901.
+- Personnummer deles opp i seks og fem: 123456 78901.
+- Både fasttelefon og mobilnummer deles opp i to og to: 98 76 54 32.
 
 ### Tid og dato
 - Klokkeslett skriver vi kun med timer og minutter, aldri sekunder. Klokkeslett skrives slik: 13:45
