@@ -1,11 +1,11 @@
 ---
 title: System user
-description: API for the external and the internal to manage the system user
+description: API to retrieve the system user information
 toc: true
 ---
 
 ## System User API
-The system user API provides methods for external users to retrieve information about system users. The internal API helps manage system users.
+The system user API provides methods for external users to retrieve information about system users.
 
 ## Security Scheme
 Bearer authentication scheme is used to authenticate the external.
