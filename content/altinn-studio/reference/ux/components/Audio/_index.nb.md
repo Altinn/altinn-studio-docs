@@ -34,61 +34,25 @@ EKSEMPLER
 
 ## Bruk
 
-<!-- Kort beskrivelse av komponenten og hvordan den brukes. -->
+Lydkomponenten brukes til å vise en lydspiller i applikasjonen din. Den kan brukes frittstående eller som en mediekomponent innenfor andre komponenter som [Kort](../cards).
+
+Når den brukes innenfor en Kort-komponent, kan Lydkomponenten refereres til i `media`-egenskapen til et kort for å vise en lydspiller øverst eller nederst på kortet.
 
 ### Anatomi
 
-<!-- 
+En standard lydspiller inkluderer vanligvis:
 
-Nummerert skjermbilde av komponenten
-1. Ta et skjermbilde av basis-versjonen av komponenten.
-2. Bruk PowerPoint-filen (components/numbered-callouts-anatomy.pptx) for å legge til nummerering på skjermbildet 
-3. Grupper skjermbilde og nummerering, lagre som bilde og legg det til i dokumentasjonen.
-4. Legg til nummerert liste med beskrivelser, bruk anatomy-list shortcode (se eksempel for format).
-
-Eksempel:
-
-![Eksempel bilde og alt tekst anatomi](../image/image-and-alt-text-en.png)
-
-{{% anatomy-list %}}
-1. **Bilde**: Foto, skjermbilde, illustrasjon, eller grafikk.
-2. **Alternativ tekst**: Brukes av skjermlesere og vises dersom bildet ikke er tilgjengelig.
-{{% /anatomy-list %}} 
-
--->
-
-<!-- 
-Legg til seksjoner dersom de er relevante:
-
-### Oppførsel
-
-(Hvordan komponenten oppfører seg i ulike sammenhenger, f.eks. på mobil vs. desktop)
-
-### Stil
-
-(Visuell styling, e.g. plassering, padding, "dos and don'ts")
-
-### Beste praksis
-
-(Bransjestandarder, "dos and don'ts")
-
-### Veiledning for innhold
-
-(E.g. regler for tegnsetting, standard etiketter, etc.)
-
-### Tilgjengelighet
-
-(Komponent-spesifikk beste praksis for tilgjengelighet.)
-
-### Mobil
-
-(Hvordan implementere komponent i mobile miljøer.)
+1. Spill/pause-knapp
+2. Fremdriftsindikator
+3. Visning av nåværende tid og varighet
+4. Volumkontroll
+5. Nedlastingsknapp (valgfritt)
 
 ### Relatert
 
-(Liste over relaterte komponenter, inkluder lenker.)
-
--->
+- [Kort](../cards) - Kan bruke Lydkomponenter som medieinnhold
+- [Bilde](../image) - En annen mediekomponent som kan brukes i Kort
+- [Video](../video) - Videospillerkomponent som også kan brukes i Kort
 
 ## Egenskaper
 
@@ -137,7 +101,11 @@ App/ui/layouts/{page}.json
     "data": {
       "layout": [
         {
-          // Basic component (required properties)
+          "id": "myAudio",
+          "type": "Audio",
+          "source": "https://example.com/audio.mp3",
+          "title": "Lydtittel",
+          "description": "Lydbeskrivelse"
         }
       ]
     }
@@ -186,4 +154,29 @@ App/ui/layouts/{page}.json
 
 ## Eksempler
 
-<!-- Ett eller flere eksempler på konfigurasjon (hvis relevant) -->
+### Bruke Lyd i en Kort-komponent
+
+Lydkomponenten brukes ofte som en mediekomponent innenfor Kort. Her er et eksempel på hvordan man refererer til en Lydkomponent i en Kort-komponent:
+
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
+
+```json
+{
+  "id": "myCards",
+  "type": "Cards",
+  "minWidth": "250px",
+  "minMediaHeight": "150px",
+  "mediaPosition": "top",
+  "cards": [
+    {
+      "title": "Lydeksempel",
+      "description": "Dette kortet viser en lydspiller",
+      "media": "myAudio"
+    }
+  ]
+}
+```
+
+I dette eksempelet refererer `media`-egenskapen til kortet til ID-en til en Lydkomponent (`myAudio`) som er definert et annet sted i layouten.

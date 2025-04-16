@@ -34,65 +34,32 @@ EKSEMPLER
 
 ## Bruk
 
-<!-- Kort beskrivelse av komponenten og hvordan den brukes. -->
+Videokomponenten brukes til å vise en videospiller i applikasjonen din. Den kan brukes frittstående eller som en
+mediekomponent innenfor andre komponenter som [Cards](../cards).
+
+Når den brukes innenfor en Kort-komponent, kan Videokomponenten refereres til i `media`-egenskapen til et kort for å
+vise en video øverst eller nederst på kortet.
 
 ### Anatomi
 
-<!-- 
+En standard videospiller inkluderer vanligvis:
 
-Nummerert skjermbilde av komponenten
-1. Ta et skjermbilde av basis-versjonen av komponenten.
-2. Bruk PowerPoint-filen (components/numbered-callouts-anatomy.pptx) for å legge til nummerering på skjermbildet 
-3. Grupper skjermbilde og nummerering, lagre som bilde og legg det til i dokumentasjonen.
-4. Legg til nummerert liste med beskrivelser, bruk anatomy-list shortcode (se eksempel for format).
-
-Eksempel:
-
-![Eksempel bilde og alt tekst anatomi](../image/image-and-alt-text-en.png)
-
-{{% anatomy-list %}}
-1. **Bilde**: Foto, skjermbilde, illustrasjon, eller grafikk.
-2. **Alternativ tekst**: Brukes av skjermlesere og vises dersom bildet ikke er tilgjengelig.
-{{% /anatomy-list %}} 
-
--->
-
-<!-- 
-Legg til seksjoner dersom de er relevante:
-
-### Oppførsel
-
-(Hvordan komponenten oppfører seg i ulike sammenhenger, f.eks. på mobil vs. desktop)
-
-### Stil
-
-(Visuell styling, e.g. plassering, padding, "dos and don'ts")
-
-### Beste praksis
-
-(Bransjestandarder, "dos and don'ts")
-
-### Veiledning for innhold
-
-(E.g. regler for tegnsetting, standard etiketter, etc.)
-
-### Tilgjengelighet
-
-(Komponent-spesifikk beste praksis for tilgjengelighet.)
-
-### Mobil
-
-(Hvordan implementere komponent i mobile miljøer.)
+1. Videovisningsområde
+2. Spill/pause-kontroller
+3. Fremdriftsindikator
+4. Volumkontroll
+5. Fullskjermknapp
 
 ### Relatert
 
-(Liste over relaterte komponenter, inkluder lenker.)
-
--->
+- [Kort](../cards) - Kan bruke Videokomponenter som medieinnhold
+- [Bilde](../image) - En annen mediekomponent som kan brukes i Kort
+- [Lyd](../audio) - Lydspillerkomponent som også kan brukes i Kort
 
 ## Egenskaper
 
-Følgende er en liste over tilgjengelige egenskaper for {{% title %}}. Listen er automatisk generert basert på komponentens JSON schema (se link).
+Følgende er en liste over tilgjengelige egenskaper for {{% title %}}. Listen er automatisk generert basert på
+komponentens JSON schema (se link).
 
 {{% notice warning %}}
 Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over egenskaper kan derfor være noe unøyaktig.
@@ -101,7 +68,8 @@ Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over 
 <!-- Shortkoden `component-props` genererer automatisk en liste over komponentegenskaper fra komponentens JSON schema.
 Komponentnavnet kan gis eksplisitt som argument (f.eks. `component-props "Grid"`).
 Hvis ingen argument gis, henter shortkoden komponentnavnet fra 'schemaname' i frontmatter.
-Hvis komponenten ikke har JSON schema, kommenter ut tekst og shortcode i denne delen og lag evt. tabell manuelt med de viktigste egenskapene (kolonner: Egenskap, Type, Beskrivelse).
+Hvis komponenten ikke har JSON schema, kommenter ut tekst og shortcode i denne delen og lag evt. tabell manuelt med
+de viktigste egenskapene (kolonner: Egenskap, Type, Beskrivelse).
  -->
 
 {{% component-props %}}
@@ -110,7 +78,8 @@ Hvis komponenten ikke har JSON schema, kommenter ut tekst og shortcode i denne d
 
 {{% notice warning %}}
 Vi oppdaterer for øyeblikket Altinn Studio med flere muligheter for innstillinger!
- Dokumentasjonen oppdateres fortløpende, men det kan være flere innstillinger tilgjengelig enn det som beskrives her og noen innstillinger kan være i betaversjon.
+ Dokumentasjonen oppdateres fortløpende, men det kan være flere innstillinger tilgjengelig enn det som beskrives her
+og noen innstillinger kan være i betaversjon.
 {{% /notice %}}
 
 ### Legg til komponent
@@ -118,7 +87,8 @@ Vi oppdaterer for øyeblikket Altinn Studio med flere muligheter for innstilling
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-Du kan legge til en komponent i [Altinn Studio Designer](/nb/altinn-studio/getting-started/) ved å dra den fra komponent-listen til sideområdet.
+Du kan legge til en komponent i [Altinn Studio Designer](/nb/altinn-studio/getting-started/) ved å dra den fra
+komponent-listen til sideområdet.
 Når du velger komponenten, vises innstillingspanelet for den.
 
 {{</content-version-container>}}
@@ -137,7 +107,11 @@ App/ui/layouts/{page}.json
     "data": {
       "layout": [
         {
-          // Basic component (required properties)
+          "id": "myVideo",
+          "type": "Video",
+          "source": "https://example.com/video.mp4",
+          "title": "Videotittel",
+          "description": "Videobeskrivelse"
         }
       ]
     }
@@ -186,4 +160,31 @@ App/ui/layouts/{page}.json
 
 ## Eksempler
 
-<!-- Ett eller flere eksempler på konfigurasjon (hvis relevant) -->
+### Bruke Video i en Kort-komponent
+
+Videokomponenten brukes ofte som en mediekomponent innenfor Kort. Her er et eksempel på hvordan man refererer til
+en Videokomponent i en Kort-komponent:
+
+{{< code-title >}}
+App/ui/layouts/{page}.json
+{{< /code-title >}}
+
+```json
+{
+  "id": "myCards",
+  "type": "Cards",
+  "minWidth": "250px",
+  "minMediaHeight": "200px",
+  "mediaPosition": "top",
+  "cards": [
+    {
+      "title": "Videoeksempel",
+      "description": "Dette kortet viser en video",
+      "media": "myVideo"
+    }
+  ]
+}
+```
+
+I dette eksempelet refererer `media`-egenskapen til kortet til ID-en til en Videokomponent (`myVideo`) som er
+definert et annet sted i layouten.
