@@ -40,7 +40,7 @@ bruker i kortene.
 
 - `color` kan settes på komponenten for å styre bakgrunnsfargen til kortene. Her kan man
   velge mellom `neutral` og `subtle`.
-- `minWidth` brukes til å bestemme hvor bredt hvert kort må være, som en minimumsverdi. Standardverdien om man ikke har
+- `minWidth` brukes til å bestemme hvor bredt hvert kort må være, som en minimumsverdi. Standardverdien om man ikke 
   har angitt noe er `250px`, og dette vil være styrende for hvor mange kort man kan ha på en rad. I tillegg til `px`
   kan man også bruke `rem` og `%` for å spesifisere bredden.
 - `minMediaHeight` brukes til å bestemme minimums-høyden til komponenter man har spesifisert i `media`
