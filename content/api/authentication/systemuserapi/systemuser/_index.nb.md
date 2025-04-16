@@ -1,11 +1,11 @@
 ---
 title: Systembruker
-description: API for the eksterne og interne systemer til å administrere the systembruker
+description: API til å få systembruker informasjon
 toc: true
 ---
 
 ## Systembruker API
-Systembruker-API-et gir metoder for eksterne brukere å hente informasjon om systembrukere. Det interne API-et hjelper med å administrere systembrukere
+Systembruker-API-et gir metoder for eksterne brukere å hente informasjon om systembrukere.
 
 ## Sikkerhetsskjema
 Bærerautentiseringsordningen brukes for å autentisere den eksterne.

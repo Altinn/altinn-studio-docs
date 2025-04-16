@@ -12,6 +12,13 @@ Bærerautentiseringsordningen brukes for å autentisere den eksterne.
 Systembruker-API-et krever at den eksterne autentiserer seg med et bærertoken, som er et maskinporten-token med spesifikk omfang.
 For å få et maskinporten-token, må den eksterne først opprette en klient i maskinporten. Du kan følge trinnene i denne lenken for å sette opp en maskinporten-klient.
 
+## Systembruker typer
+For øyeblikket tilbyr vi to ulike type systembrukere
+1. Standard<br>
+    Utformet for organisasjoner som bruker tredjeparts programvare for å utføre operasjoner som samhandler med flere offentlige og private virksomheter.
+2. Agent<br>
+    Utformet for organisasjoner, som for eksempel regnskaps firma, som opererer på vegne av sine kunder ved bruk av tredjeparts programvaresystemer integrert med flere offentlige og private virksomheter.
+
 ## Eksterne API metoder for Systembruker
 - [Fjern en systembruker forespørselen](external#slett-systembruker-forespørsel)
 
