@@ -472,6 +472,47 @@
         }
       }
     },
+    "/future/shipment/{id}": {
+      "get": {
+        "tags": [
+          "Shipment"
+        ],
+        "summary": "Retrieve the delivery manifest for a specific notification order.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The unique identifier (GUID) of the notification order.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Caller is unauthorized"
+          },
+          "403": {
+            "description": "Caller is not authorized to access the requested resource"
+          },
+          "404": {
+            "description": "No shipment with the provided identifier was found"
+          },
+          "200": {
+            "description": "The shipment matching the provided identifier was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationDeliveryManifestExt"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/orders/sms": {
       "post": {
         "tags": [
@@ -803,6 +844,87 @@
         },
         "additionalProperties": false,
         "description": "Template for an email notification"
+      },
+      "IDeliveryManifestExt": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Gets the current status of the entity.",
+            "nullable": true,
+            "readOnly": true
+          },
+          "description": {
+            "type": "string",
+            "description": "Gets a detailed description of the current status.",
+            "nullable": true,
+            "readOnly": true
+          },
+          "lastUpdate": {
+            "type": "string",
+            "description": "Gets the UTC date and time when the status was last updated.",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "destination": {
+            "type": "string",
+            "description": "Gets the destination address where the deliverable entity is intended to be sent.",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents standardized destination and status information for trackable entities within the notification system."
+      },
+      "NotificationDeliveryManifestExt": {
+        "required": [
+          "lastUpdate",
+          "recipients",
+          "shipmentId",
+          "status",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "sequenceNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "shipmentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "sendersReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastUpdate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "recipients": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IDeliveryManifestExt"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents the root tracking entity for a notification shipment that\r\ncan be sent to multiple recipients through various communication channels."
       },
       "NotificationOrderChainReceiptExt": {
         "required": [
