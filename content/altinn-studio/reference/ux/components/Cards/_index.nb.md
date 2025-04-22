@@ -4,7 +4,6 @@ linktitle: Cards
 description: Viser innhold strukturert som en eller flere kort.
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk
 toc: true
-hidden: true # Fjern for ny komponent
 ---
 
 ## Bruk

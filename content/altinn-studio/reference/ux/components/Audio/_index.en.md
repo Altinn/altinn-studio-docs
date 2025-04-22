@@ -4,14 +4,6 @@ linktitle: Audio
 description: Audio player component
 weight: 10 # Do not change, the components will be sorted alphabetically
 toc: true
-hidden: true # Remove when creating new component page from template
----
-
-
-{{% notice warning %}}
-🚧 This documentation is a work in progress.
-{{% /notice %}}
-
 ---
 
 ## Usage
