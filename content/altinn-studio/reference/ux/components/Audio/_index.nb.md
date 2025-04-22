@@ -8,7 +8,7 @@ toc: true
 
 ## Bruk
 
-`Lydkomponenten` brukes til å vise en lydspiller i applikasjonen din. Den kan brukes frittstående eller som en
+`Audio` brukes til å vise en lydspiller i applikasjonen din. Den kan brukes frittstående eller som en
 mediekomponent i [Cards-komponenten](../cards).
 
 ### Anatomi
@@ -29,8 +29,8 @@ Skjermbildet ovenfor ble tatt fra Chrome-nettleseren.
 
 ### Relatert
 
-- [Kort](../cards) - Kan bruke Lydkomponenter som medieinnhold
-- [Bilde](../image) - Bildekomponent
+- [Cards](../cards) - Kan bruke Lydkomponenter som medieinnhold
+- [Image](../image) - Bildekomponent
 - [Video](../video) - Videospillerkomponent
 
 ## Egenskaper
