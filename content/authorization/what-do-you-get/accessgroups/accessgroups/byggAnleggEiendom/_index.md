@@ -1,7 +1,7 @@
 ---
 title: Bygg, anlegg og eiendom
 linktitle: Bygg, anlegg og eiendom
-description: Dentte fullmaktsområdet omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som angår bygge- og anleggsvirksomhet, samt oppføring, omsetning og drift av anlegg/eiendom. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som angår bygge- og anleggsvirksomhet, samt oppføring, omsetning og drift av anlegg/eiendom. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
 toc: true
 weight: 100
 aliases:
