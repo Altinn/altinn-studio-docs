@@ -109,7 +109,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 // Register your External API client
 services.AddTransient<IExternalApiClient, ExternalApiTestClient>();
 
-    // Other custom services<>
+    // Other custom services
 
 }
 {{</highlight>}}
@@ -177,7 +177,7 @@ For more information about expressions and how to use them in your Altinn applic
 
 The data fetched through the External API implementation is also available through a REST API endpoint. The endpoint follows this pattern:
 
-```
+```bash
 {org}/{app}/instances/{instanceOwnerPartyId:int}/{instanceGuid:guid}/api/external/{externalApiId}
 ```
 
@@ -191,13 +191,13 @@ Where:
 
 For example, to access the "externalApiTestId" External API for a specific instance, you would use:
 
-```
+```bash
 https://ttd.apps.altinn.no/ttd/my-app/instances/50001337/b2572673-5afa-4a23-9c4e-db2cb0f8a9c9/api/external/externalApiTestId
 ```
 
 You can also pass query parameters to the endpoint, which will be forwarded to the `GetExternalApiDataAsync` method:
 
-```
+```bash
 https://ttd.apps.altinn.no/ttd/my-app/instances/50001337/b2572673-5afa-4a23-9c4e-db2cb0f8a9c9/api/external/externalApiTestId?param=value
 ```
 

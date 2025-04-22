@@ -112,7 +112,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 // Registrer din eksterne API-klient
 services.AddTransient<IExternalApiClient, ExternalApiTestClient>();
 
-    // Andre tilpassede tjenester<>
+    // Andre tilpassede tjenester
 
 }
 {{</highlight>}}
