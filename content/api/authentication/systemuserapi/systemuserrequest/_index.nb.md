@@ -12,6 +12,13 @@ Bærerautentiseringsordningen brukes for å autentisere den eksterne.
 Systembruker-API-et krever at den eksterne autentiserer seg med et bærertoken, som er et maskinporten-token med spesifikk omfang.
 For å få et maskinporten-token, må den eksterne først opprette en klient i maskinporten. Du kan følge trinnene i denne lenken for å sette opp en maskinporten-klient.
 
+## Systembruker typer
+For øyeblikket tilbyr vi to ulike type systembrukere
+1. Standard<br>
+    Utformet for organisasjoner som bruker tredjeparts programvare for å utføre operasjoner som samhandler med flere offentlige og private virksomheter.
+2. Agent<br>
+    Utformet for organisasjoner, som for eksempel regnskaps firma, som opererer på vegne av sine kunder ved bruk av tredjeparts programvaresystemer integrert med flere offentlige og private virksomheter.
+
 ## Eksterne API metoder for Systembruker
 - [Fjern en systembruker forespørselen](external#slett-systembruker-forespørsel)
 
@@ -28,14 +35,3 @@ For å få et maskinporten-token, må den eksterne først opprette en klient i m
 - [Hent agent systembruker forespørselen](external#hent-en-agent-systembruker-forespørsel)
 - [List agent systembruker forespørseler for leverandøren](external#hent-agent-systembruker-forspørseler-for-en-leverandør)
 - [Hent systembruker forespørselen for eksterne refereanse](external#hent-en-agent-systembruker-forespørsel-med-eksterne-referanse)
-
-## Interne API metoder for Standard Systembruker
-
-- [Godkjenn en systembruker forespørsel](internal#godkjenn-en-systembrukerforespørsel)
-- [Avvis en systembrukerforespørsel](internal#avvis-en-systembrukerforespørsel)
-
-## Interne API metoder For Agent Systembruker
-
-- [Hent agent systembruker for en party](internal#hent-en-agent-systembrukerforespørsel-etter-party-requestid)
-- [Godkjenn en systembruker forespørsel](internal#godkjenn-en-agent-systembrukerforespørsel)
-- [Avvis en systembrukerforespørsel](internal#avvis-en-agent-systembrukerforespørsel)

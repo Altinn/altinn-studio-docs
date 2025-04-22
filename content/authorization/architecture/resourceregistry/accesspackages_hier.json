@@ -1412,6 +1412,25 @@
                         "resources": null
                     }
                 ]
+            },
+            {
+                "id": "0195efb8-7c80-76b3-bb86-ae9dfd74bca2",
+                "name": "Fullmakter for forretningsfører",
+                "urn": "accesspackage:area:fullmakter_for_forretningsforer",
+                "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til fullmakter for forretningsfører.",
+                "icon": "https://altinncdn.no/authorization/accesspackageicons/Aksel_Statistics-and-math_TrendDown.svg",
+                "packages": [
+                    {
+                        "id": "0195efb8-7c80-7cf2-bcc8-720a3fb39d44",
+                        "name": "Forretningsforer eiendom",
+                        "urn": "urn:altinn:accesspackage:forretningsforer-eiendom",
+                        "description": "Denne fullmakten gir forretningsfører for Borettslag og Eierseksjonssameie tilgang til å opptre på vegne av kunde, og utføre alle tjenester som krever denne fullmakten. Dette er tjenester som tjenestetilbyder har vurdert det som naturlig at en forretningsfører utfører på vegne av sin kunde. Fullmakt hos forretningsfører oppstår når Borettslaget eller Eierseksjonssameiet registrerer forretningsfører i Enhetsregisteret. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.",
+                        "isDelegable": true,
+                        "isAssignable": false,
+                        "area": null,
+                        "resources": null
+                    }
+                ]
             }
         ]
     }
