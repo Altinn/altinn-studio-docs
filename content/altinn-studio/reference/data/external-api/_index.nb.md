@@ -18,8 +18,7 @@ Et Eksternt API lar deg integrere data fra eksterne API-er i Altinn-applikasjone
 For å bruke funksjonen for Eksternt API, må du:
 
 1. Opprette en klasse som implementerer grensesnittet `IExternalApiClient`
-2. Plassere implementasjonen i mappen `config/logic` i applikasjonen din
-3. Registrere implementasjonen i filen `Program.cs` under `RegisterCustomAppServices`
+2. Registrere implementasjonen i filen `Program.cs` under `RegisterCustomAppServices`
 
 Grensesnittet `IExternalApiClient` krever at du implementerer:
 
@@ -32,10 +31,14 @@ Metoden `GetExternalApiDataAsync` kan returnere et hvilket som helst objekt (men
 
 Her er et eksempel på hvordan du implementerer grensesnittet `IExternalApiClient`:
 
+{{< code-title >}}
+App/logic/ExternalApiTestClient.cs
+{{< /code-title >}}
+
 ```csharp
 public class ExternalApiTestClient : IExternalApiClient
 {
-    public string Id => "externalApiTestId";
+public string Id => "externalApiTestId";
 
     public async Task<object> GetExternalApiDataAsync(
         InstanceIdentifier instanceIdentifier,
@@ -90,6 +93,7 @@ public class ExternalApiTestClient : IExternalApiClient
 
         return mockData;
     }
+
 }
 ```
 
@@ -99,23 +103,27 @@ I dette eksempelet returnerer vi testdata, men i en reell implementasjon ville d
 
 Etter å ha implementert grensesnittet `IExternalApiClient`, må du registrere implementasjonen din i filen `Program.cs`:
 
-```csharp
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+{{<highlight csharp "linenos=false,hl_lines=3-4">}}
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config)
 {
-    // Registrer din eksterne API-klient
-    services.AddTransient<IExternalApiClient, ExternalApiTestClient>();
+// Registrer din eksterne API-klient
+services.AddTransient<IExternalApiClient, ExternalApiTestClient>();
 
     // Andre tilpassede tjenester<>
+
 }
-```
+{{</highlight>}}
 
 ## Bruk av data fra det Eksterne API-et i applikasjonen din
 
 Funksjonen for Eksternt API er primært designet for å brukes gjennom uttrykk i Altinn-applikasjonen din. Dette lar deg vise data fra eksterne kilder eller implementere betinget logikk basert på eksterne data direkte i skjemaene og layoutene dine.
 
-### Tilgang til Eksternt API-data gjennom uttrykk
+### Tilgang til Eksternt API-data gjennom dynamiske uttrykk
 
-For å få tilgang til data fra din eksterne API-klient i uttrykk, kan du bruke funksjonen `externalApi`. Denne funksjonen krever to parametere:
+For å få tilgang til data fra din eksterne API-klient i dynamiske uttrykk, kan du bruke funksjonen `externalApi`. Denne funksjonen krever to parametere:
 
 1. `clientId`: ID-en til din eksterne API-klient
 2. `pathToProperty`: Dotnotasjon til egenskapen du vil ha tilgang til fra det returnerte objektet
@@ -166,13 +174,13 @@ Du kan også bruke Eksternt API-data for å kontrollere synligheten til komponen
 
 Dette vil skjule komponenten hvis det eksterne API-et returnerer en tom array.
 
-For mer informasjon om uttrykk og hvordan du bruker dem i Altinn-applikasjonen din, se [Uttrykksdokumentasjonen](../../logic/expressions).
+For mer informasjon om uttrykk og hvordan du bruker dem i Altinn-applikasjonen din, se [dokumentasjonen for dynamiske uttrykk](../../logic/expressions).
 
 ### Tilgang til data gjennom API-endepunktet
 
 Dataene som hentes gjennom implementasjonen av Eksternt API er også tilgjengelige gjennom et REST API-endepunkt. Endepunktet følger dette mønsteret:
 
-```
+```bash
 {org}/{app}/instances/{instanceOwnerPartyId:int}/{instanceGuid:guid}/api/external/{externalApiId}
 ```
 
@@ -186,18 +194,18 @@ Hvor:
 
 For eksempel, for å få tilgang til "externalApiTestId" Eksternt API for en spesifikk instans, ville du bruke:
 
-```
+```bash
 https://ttd.apps.altinn.no/ttd/my-app/instances/50001337/b2572673-5afa-4a23-9c4e-db2cb0f8a9c9/api/external/externalApiTestId
 ```
 
 Du kan også sende spørreparametere til endepunktet, som vil bli videresendt til `GetExternalApiDataAsync`-metoden:
 
-```
+```bash
 https://ttd.apps.altinn.no/ttd/my-app/instances/50001337/b2572673-5afa-4a23-9c4e-db2cb0f8a9c9/api/external/externalApiTestId?param=value
 ```
 
 {{% notice warning %}}
-**Sikkerhetsadvarsel**: Inkluder aldri sensitiv informasjon som fødselsnumre eller andre personlige identifikatorer i spørreparametere. Spørreparametere kan logges i serverlogger, vises i nettleserhistorikk og kan mellomlagres av proxyer. For å få tilgang til data fra Folkeregisteret eller andre sensitive kilder, bruk alltid sikre metoder som å hente identifikatoren fra instansdataene eller bruke post-forespørsler med kryptert nyttelast.
+**Sikkerhetsadvarsel**: Aldri inkluder sensitiv informasjon som fødselsnumre eller andre personlige identifikatorer i spørreparametere. Spørreparametere kan logges i serverlogger, vises i nettleserhistorikk og kan mellomlagres av proxyer. For å få tilgang til data fra Folkeregisteret eller andre sensitive kilder, bruk alltid sikre metoder som å hente identifikatoren fra instansdataene eller bruke post-forespørsler med kryptert nyttelast.
 {{% /notice %}}
 
 Responsen vil være JSON-representasjonen av objektet som returneres av `GetExternalApiDataAsync`-metoden.
@@ -205,6 +213,10 @@ Responsen vil være JSON-representasjonen av objektet som returneres av `GetExte
 ## Eksempel: Implementering av en reell Eksternt API-klient
 
 Her er et mer komplett eksempel på en Eksternt API-klient som kaller et reelt API:
+
+{{< code-title >}}
+App/logic/WeatherApiClient.cs
+{{< /code-title >}}
 
 ```csharp
 public class WeatherApiClient : IExternalApiClient
@@ -290,157 +302,109 @@ Registrer denne klienten i `Program.cs`:
 ```csharp
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config)
 {
-    // Registrer Weather API-klienten
+    // Registrer Weather API-klienten som IHttpClient
     services.AddHttpClient<WeatherApiClient>();
+    // Registrer Weather API-klienten som IExternalApiClient
     services.AddTransient<IExternalApiClient, WeatherApiClient>();
 
     // Andre tilpassede tjenester
 }
 ```
 
-## Eksempel: Bruk av Eksternt API med Maskinporten og DAN-klient
+## Eksempel: Bruk av Eksternt API med Maskinporten
 
-Data Altinn Norway (DAN)-klienten er en SDK som gir et rent API for å hente data fra ulike datasett på [data.altinn.no](https://data.altinn.no).
-DAN-klienten kan brukes med et Eksternt API for å gi tilgang til disse datasettene i en Altinn-applikasjon.
+For å bruke eksterne API-er som krever Maskinporten-autentisering, trenger du en Maskinporten-klient med tilgang til de nødvendige scopene for API-et du ønsker å integrere:
 
-For å komme i gang med DAN-klienten, kan du følge guiden her: https://docs.data.altinn.no/api/
+- `altinn:serviceowner` (hvis du er en tjenesteeier)
+- Eventuelle andre scopes som kreves av det spesifikke API-et du integrerer mot
+  {.correspondence-custom-list}
 
-Hvis du trenger tilgang til en av API-ene som krever autentisering gjennom Maskinporten, se [Maskinporten-integrasjonsguiden](../../../guides/integration/maskinporten).
+For å sette opp dette kan du følge de generelle stegene i [veiledningen for Maskinporten-integrasjon](../../../guides/integration/maskinporten/) med noen modifikasjoner beskrevet nedenfor.
 
-### Implementasjon
+- Eksternt API-klienten trenger en Maskinporten-klient for å kommunisere med beskyttede API-er. Konfigurasjonsobjektet ser typisk slik ut:
 
-#### Installering av DAN-klienten
+  {{< code-title >}}
+  App/appsettings.json
+  {{< /code-title >}}
 
-For å bruke DAN-klienten i applikasjonen din, må du legge til `Altinn.ApiClients.Dan` NuGet-pakken i `App.csproj`-filen:
-
-```xml
-<PackageReference Include="Altinn.ApiClients.Dan" Version="4.1.0" />
-```
-
-#### Implementering av en Eksternt API-klient med DAN
-
-Her er et eksempel på hvordan du implementerer en Eksternt API-klient som bruker DAN-klienten for å hente data fra FregPerson-datasettet:
-
-```csharp
-public class DanExternalClient(IDanClient danClient) : IExternalApiClient
-{
-    private readonly IDanClient _danClient = danClient;
-
-    public string Id => "externalDanApi";
-
-    public async Task<object> GetExternalApiDataAsync(
-        InstanceIdentifier instanceIdentifier,
-        Dictionary<string, string> queryParams = null)
-    {
-
-        // Kall DAN-klienten for å hente datasettet
-        var response = await _danClient.GetDataSet(
-            dataSetName: "danDataSetName"
-            /// andre parametere som trengs for det spesifikke API-et som brukes
-        );
-
-        return response;
-    }
-}
-```
-
-I dette eksempelet:
-
-- Vi injiserer `IDanClient` i vår eksterne API-klient
-- Vi kaller DAN-klientens `GetDataSet`-metode for å hente dataene
-- Vi returnerer responsen fra DAN-klienten
-
-#### Registrering av DAN-klienten og Eksternt API-klienten
-
-For å bruke DAN-klienten med din eksterne API-klient, må du registrere begge i applikasjonens tjenestebeholder. Om du trenger autentisering med Maskinporten, må du også registrere en Maskinporten-klientdefinisjon for å aktivere DAN-klienten til å autentisere med Maskinporten. Legg til følgende kode i `RegisterCustomAppServices`-metoden i `Program.cs`-filen din:
-
-```csharp
-void RegisterCustomAppServices(IServiceCollection services, IConfiguration config)
-{
-    // Registrer Maskinporten-klientdefinisjonen for DAN
-    services.RegisterMaskinportenClientDefinition<SettingsJwkClientDefinition>(
-        "my-client-definition-for-dan",
-        config.GetSection("MaskinportenSettingsForDanClient")
-    );
-
-    // Registrer DAN-klienten med Maskinporten-meldingshåndtereren
-    services
-        .AddDanClient(config.GetSection("DanSettings"))
-        .AddMaskinportenHttpMessageHandler<SettingsJwkClientDefinition>(
-            "my-client-definition-for-dan"
-        );
-
-    // Registrer din eksterne API-klient
-    services.AddTransient<IExternalApiClient, DanExternalClient>();
-
-    // Andre tilpassede tjenester
-}
-```
-
-Du kan fjerne `RegisterMaskinportenClientDefinition` og `AddMaskinportenHttpMessageHandler` hvis du ikke trenger Maskinporten for autentisering.
-
-Du må også legge til både DAN-klient- og Maskinporten-konfigurasjon i `appsettings.json`-filen din:
-
-```json
-{
-  "DanSettings": {
-    "Environment": "dev",
-    "EnableDebugLog": true
-  },
-  "MaskinportenSettingsForDanClient": {
-    "Environment": "test",
-    "ClientId": "",
-    "Scope": "", // relevante scopes for API-ene du vil bruke
-    "EncodedJwk": "",
-    "ExchangeToAltinnToken": false,
-    "EnableDebugLog": true
+  ```json
+  "MaskinportenSettings": {
+      "Authority": "https://[test.]maskinporten.no/",
+      "ClientId": "din-klient-id",
+      "JwkBase64": "base64-kodet-jwk"
   }
-}
-```
+  ```
 
-De faktiske verdiene for `ClientId` og `EncodedJwk` bør lagres i Azure Key Vault som beskrevet i [Maskinporten-integrasjonsguiden](../../../guides/integration/maskinporten). `Scope`-verdien bør samsvare med datasettet du vil ha tilgang til.
+- Hvis du trenger en annen konfigurasjonssti, kan du konfigurere den med hjelp av `ConfigureMaskinportenClient`:
 
-## Feilhåndtering
+  {{< code-title >}}
+  App/Program.cs
+  {{< /code-title >}}
 
-Når du implementerer `GetExternalApiDataAsync`-metoden, bør du håndtere eventuelle feil som kan oppstå når du kaller det eksterne API-et. Her er et eksempel på hvordan du håndterer feil:
+  {{<highlight csharp "linenos=false,hl_lines=7-9">}}
 
-```csharp
-public async Task<object> GetExternalApiDataAsync(
-    InstanceIdentifier instanceIdentifier,
-    Dictionary<string, string> queryParams = null)
-{
-    try
-    {
-        // Gjør API-kallet
-        var response = await _httpClient.GetAsync("https://api.example.com/data");
+  void RegisterCustomAppServices(
+  IServiceCollection services,
+  IConfiguration config,
+  IWebHostEnvironment env
+  )
+  {
+  services.ConfigureMaskinportenClient(
+  "DinUnikeMaskinportenSettingsSti"
+  );
+  }
+  {{</highlight>}}
 
-        // Sjekk om forespørselen var vellykket
-        if (response.IsSuccessStatusCode)
-        {
-            // Parse og returner responsen
-            var content = await response.Content.ReadAsStringAsync();
-            return JsonSerializer.Deserialize<MyDataModel>(content);
-        }
-        else
-        {
-            // Håndter feilrespons
-            var errorContent = await response.Content.ReadAsStringAsync();
-            _logger.LogError($"Eksternt API returnerte feil: {response.StatusCode}, {errorContent}");
+- Hvis du trenger et tilpasset konfigurasjonsoppsett, kan du bruke en delegatmetode:
+  {{< code-title >}}
+  App/Program.cs
+  {{< /code-title >}}
 
-            // Returner et feilobjekt eller kast et unntak
-            return new { Error = $"Eksternt API returnerte feil: {response.StatusCode}" };
-        }
-    }
-    catch (Exception ex)
-    {
-        // Håndter unntak
-        _logger.LogError($"Feil ved kall til eksternt API: {ex.Message}");
+  {{<highlight csharp "linenos=false,hl_lines=7-10">}}
+  void RegisterCustomAppServices(
+  IServiceCollection services,
+  IConfiguration config,
+  IWebHostEnvironment env
+  )
+  {
+  services.RegisterMaskinportenClientDefinition<SettingsJwkClientDefinition>(
+  "min-maskinporten-klient",
+  config.GetSection("MaskinportenSettings")
+  );
+  }
+  {{</highlight>}}
 
-        // Returner et feilobjekt eller kast et unntak
-        return new { Error = "Kunne ikke kalle eksternt API" };
-    }
-}
-```
+- Du kan registrere Maskinporten-klienten på HttpClient-klassen som trenger dette i `Program.cs` ved å bruke extention-metoden `UseMaskinportenAuthorisation`:
+  {{< code-title >}}
+  App/Program.cs
+  {{< /code-title >}}
+
+  {{<highlight csharp "linenos=false,hl_lines=7">}}
+  void RegisterCustomAppServices(
+  IServiceCollection services,
+  IConfiguration config,
+  IWebHostEnvironment env
+  )
+  {
+  services.AddHttpClient<WeatherApiClient>().UseMaskinportenAuthorisation("scope:1 scope:2");
+  }
+  {{</highlight>}}
+
+- Hvis du trenger Maskinporten for autorisasjon mot en annen Altinn applikasjon, trenger du et Altinn-token. For å få det kan du bruke `UseMaskinportenAltinnAuthorisation`:
+  {{< code-title >}}
+  App/Program.cs
+  {{< /code-title >}}
+
+  {{<highlight csharp "linenos=false,hl_lines=7">}}
+  void RegisterCustomAppServices(
+  IServiceCollection services,
+  IConfiguration config,
+  IWebHostEnvironment env
+  )
+  {
+  services.AddHttpClient<WeatherApiClient>().UseMaskinportenAltinnAuthorisation("scope:1 scope:2");
+  }
+  {{</highlight>}}
 
 ## Sikkerhetshensyn
 

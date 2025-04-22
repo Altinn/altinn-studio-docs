@@ -18,8 +18,7 @@ The External API feature allows you to integrate data from external APIs into yo
 To use the External API feature, you need to:
 
 1. Create a class that implements the `IExternalApiClient` interface
-2. Place the implementation in the `config/logic` folder of your application
-3. Register the implementation in the `Program.cs` file under `RegisterCustomAppServices`
+2. Register the implementation in the `Program.cs` file under `RegisterCustomAppServices`
 
 The `IExternalApiClient` interface requires you to implement:
 
@@ -30,7 +29,9 @@ The `GetExternalApiDataAsync` method can return any object (but not primitives),
 
 ## Implementation example
 
-Here's an example of how to implement the `IExternalApiClient` interface:
+{{< code-title >}}
+App/logic/ExternalApiTestClient.cs
+{{< /code-title >}}
 
 ```csharp
 public class ExternalApiTestClient : IExternalApiClient
@@ -99,24 +100,25 @@ In this example, we're returning mock data, but in a real implementation, you wo
 
 After implementing the `IExternalApiClient` interface, you need to register your implementation in the `Program.cs` file:
 
-```csharp
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+{{<highlight csharp "linenos=false,hl_lines=3-4">}}
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config)
 {
-    // Register your External API client
-    services.AddTransient<IExternalApiClient, ExternalApiTestClient>();
-
-    // Register the HTTP client if needed
-    services.AddHttpClient<ExternalApiHttpClient>();
+// Register your External API client
+services.AddTransient<IExternalApiClient, ExternalApiTestClient>();
 
     // Other custom services<>
+
 }
-```
+{{</highlight>}}
 
 ## Accessing data from the External API in your application
 
 The External API feature is primarily designed to be used through expressions in your Altinn application. This allows you to display data from external sources or implement conditional logic based on external data directly in your forms and layouts.
 
-### Accessing External API data through expressions
+### Accessing External API data through dynamic expressions
 
 To access data from your External API client in expressions, you can use the `externalApi` function. This function requires two parameters:
 
@@ -207,7 +209,9 @@ The response will be the JSON representation of the object returned by the `GetE
 
 ## Example: Implementing a real External API client
 
-Here's a more complete example of an External API client that calls a real API:
+{{< code-title >}}
+App/logic/WeatherApiClient.cs
+{{< /code-title >}}
 
 ```csharp
 public class WeatherApiClient : IExternalApiClient
@@ -301,149 +305,100 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 }
 ```
 
-## Example: Using External API with Maskinporten and DAN Client
+## Example: Using External API with Maskinporten
 
-The Data Altinn Norway (DAN) client is an SDK that provides a clean API for retrieving data from various datasets at [data.altinn.no](https://data.altinn.no).
-The DAN client can be used with an External API to provide access to these datasets in an Altinn application.
+To use external APIs that require Maskinporten authentication, you need a Maskinporten client with access to the necessary scopes for the API you want to integrate:
 
-To komme i gang with DAN client, you can follow the guide here: https://docs.data.altinn.no/api/
+- `altinn:serviceowner` (if you are a service owner)
+- Any other scopes required by the specific API you are integrating with
+  {.correspondence-custom-list}
 
-If you need access to one of the APIs requiring authentication through Maskinporten, see the [Maskinporten Integration Guide](../../../guides/integration/maskinporten).
+To set this up, you can follow the general steps in the [Maskinporten Integration Guide](../../../guides/integration/maskinporten/) with some modifications described below.
 
-### Implementation
+- The External API client needs a Maskinporten client to communicate with protected APIs. The configuration object typically looks like this:
 
-#### Installing the DAN Client
+  {{< code-title >}}
+  App/appsettings.json
+  {{< /code-title >}}
 
-To use the DAN client in your application, you need to add the `Altinn.ApiClients.Dan` NuGet package to the `App.csproj` file:
-
-```xml
-<PackageReference Include="Altinn.ApiClients.Dan" Version="4.1.0" />
-```
-
-#### Implementing an External API Client with DAN
-
-Here's an example of how to implement an External API client that uses the DAN client to retrieve data from the FregPerson dataset:
-
-```csharp
-public class DanExternalClient(IDanClient danClient) : IExternalApiClient
-{
-    private readonly IDanClient _danClient = danClient;
-
-    public string Id => "externalDanApi";
-
-    public async Task<object> GetExternalApiDataAsync(
-        InstanceIdentifier instanceIdentifier,
-        Dictionary<string, string> queryParams = null)
-    {
-
-        // Call the DAN client to get the dataset
-        var response = await _danClient.GetDataSet(
-            dataSetName: "danDataSetName"
-            /// other params needed for the specific API used
-        );
-
-        return response;
-    }
-}
-```
-
-In this example:
-
-- We inject the `IDanClient` into our External API client
-- We call the DAN client's `GetDataSet` method to retrieve the data
-- We return the response from the DAN client
-
-#### Registering the DAN Client and External API Client
-
-To use the DAN client with your External API client, you need to register both in your application's service container. You also need to register a Maskinporten client definition to enable the DAN client to authenticate with Maskinporten. Add the following code to the `RegisterCustomAppServices` method in your `Program.cs` file:
-
-```csharp
-void RegisterCustomAppServices(IServiceCollection services, IConfiguration config)
-{
-    // Register the Maskinporten client definition for DAN
-    services.RegisterMaskinportenClientDefinition<SettingsJwkClientDefinition>(
-        "my-client-definition-for-dan",
-        config.GetSection("MaskinportenSettingsForDanClient")
-    );
-
-    // Register the DAN client with the Maskinporten message handler
-    services
-        .AddDanClient(config.GetSection("DanSettings"))
-        .AddMaskinportenHttpMessageHandler<SettingsJwkClientDefinition>(
-            "my-client-definition-for-dan"
-        );
-
-    // Register your External API client
-    services.AddTransient<IExternalApiClient, DanExternalClient>();
-
-    // Other custom services
-}
-```
-
-You can remove `RegisterMaskinportenClientDefinition` and `AddMaskinportenHttpMessageHandler` if you do not need Maskinporten for authentication.
-
-You'll also need to add both the DAN client and Maskinporten configuration to your `appsettings.json` file:
-
-```json
-{
-  "DanSettings": {
-    "Environment": "dev",
-    "EnableDebugLog": true
-  },
-  "MaskinportenSettingsForDanClient": {
-    "Environment": "test",
-    "ClientId": "",
-    "Scope": "", // relevant scopes for the APIs you want to use
-    "EncodedJwk": "",
-    "ExchangeToAltinnToken": false,
-    "EnableDebugLog": true
+  ```json
+  "MaskinportenSettings": {
+      "Authority": "https://[test.]maskinporten.no/",
+      "ClientId": "your-client-id",
+      "JwkBase64": "base64-encoded-jwk"
   }
-}
-```
+  ```
 
-The actual values for `ClientId` and `EncodedJwk` should be stored in Azure Key Vault as described in the [Maskinporten Integration Guide](../../../guides/integration/maskinporten). The `Scope` value should match the dataset you want to access.
+- If you need a different configuration path, you can configure it using `ConfigureMaskinportenClient`:
 
-## Error handling
+  {{< code-title >}}
+  App/Program.cs
+  {{< /code-title >}}
 
-When implementing the `GetExternalApiDataAsync` method, you should handle any errors that might occur when calling the external API. Here's an example of how to handle errors:
+  {{<highlight csharp "linenos=false,hl_lines=7-9">}}
 
-```csharp
-public async Task<object> GetExternalApiDataAsync(
-    InstanceIdentifier instanceIdentifier,
-    Dictionary<string, string> queryParams = null)
-{
-    try
-    {
-        // Make the API call
-        var response = await _httpClient.GetAsync("https://api.example.com/data");
+  void RegisterCustomAppServices(
+  IServiceCollection services,
+  IConfiguration config,
+  IWebHostEnvironment env
+  )
+  {
+  services.ConfigureMaskinportenClient(
+  "YourUniqueMaskinportenSettingsPath"
+  );
+  }
+  {{</highlight>}}
 
-        // Check if the request was successful
-        if (response.IsSuccessStatusCode)
-        {
-            // Parse and return the response
-            var content = await response.Content.ReadAsStringAsync();
-            return JsonSerializer.Deserialize<MyDataModel>(content);
-        }
-        else
-        {
-            // Handle error response
-            var errorContent = await response.Content.ReadAsStringAsync();
-            _logger.LogError($"External API returned error: {response.StatusCode}, {errorContent}");
+- If you need a custom configuration setup, you can use a delegate method:
+  {{< code-title >}}
+  App/Program.cs
+  {{< /code-title >}}
 
-            // Return an error object or throw an exception
-            return new { Error = $"External API returned error: {response.StatusCode}" };
-        }
-    }
-    catch (Exception ex)
-    {
-        // Handle exceptions
-        _logger.LogError($"Error calling external API: {ex.Message}");
+  {{<highlight csharp "linenos=false,hl_lines=7-10">}}
+  void RegisterCustomAppServices(
+  IServiceCollection services,
+  IConfiguration config,
+  IWebHostEnvironment env
+  )
+  {
+  services.RegisterMaskinportenClientDefinition<SettingsJwkClientDefinition>(
+  "my-maskinporten-client",
+  config.GetSection("MaskinportenSettings")
+  );
+  }
+  {{</highlight>}}
 
-        // Return an error object or throw an exception
-        return new { Error = "Failed to call external API" };
-    }
-}
-```
+- You can register the Maskinporten client on the HttpClient class that needs it in `Program.cs` by using the extension method `UseMaskinportenAuthorisation`:
+  {{< code-title >}}
+  App/Program.cs
+  {{< /code-title >}}
+
+  {{<highlight csharp "linenos=false,hl_lines=7">}}
+  void RegisterCustomAppServices(
+  IServiceCollection services,
+  IConfiguration config,
+  IWebHostEnvironment env
+  )
+  {
+  services.AddHttpClient<WeatherApiClient>().UseMaskinportenAuthorisation("scope:1 scope:2");
+  }
+  {{</highlight>}}
+
+- If you need Maskinporten for authorization against another Altinn application, you need an Altinn token. To get it, you can use `UseMaskinportenAltinnAuthorisation`:
+  {{< code-title >}}
+  App/Program.cs
+  {{< /code-title >}}
+
+  {{<highlight csharp "linenos=false,hl_lines=7">}}
+  void RegisterCustomAppServices(
+  IServiceCollection services,
+  IConfiguration config,
+  IWebHostEnvironment env
+  )
+  {
+  services.AddHttpClient<WeatherApiClient>().UseMaskinportenAltinnAuthorisation("scope:1 scope:2");
+  }
+  {{</highlight>}}
 
 ## Security considerations
 
@@ -465,9 +420,9 @@ Here are some common issues you might encounter when implementing External API a
 
 If your External API data is not appearing in your UI components:
 
-1. **Check your implementation**: Ensure your `IExternalApiClient` implementation is correctly returning data.
+1. **Check your implementation**: Ensure your `IExternalApiClient` implementation is returning the data you expect.
 2. **Verify registration**: Make sure your client is properly registered in `Program.cs`.
-3. **Check expressions**: Verify that your expressions are correctly referencing the External API client ID and property paths.
+3. **Check expressions**: Verify that your expressions are referencing the correct ID for the external API client and correct dot notation to the property you want to extract.
 4. **Inspect network requests**: Use browser developer tools to check if the API endpoint is being called and what response it returns.
 5. **Check logs**: Look for any errors in your application logs related to the External API client.
 
