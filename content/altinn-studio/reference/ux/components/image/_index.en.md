@@ -15,6 +15,8 @@ aliases:
 
 Use images and illustrations to emphasize points or illustrate concepts that are difficult to explain using text.
 
+This component can be used standalone, or as a media component in [Cards](../cards).
+
 ### Anatomy
 ![Example image and alt text anatomy](image-and-alt-text-en.png)
 
