@@ -54,6 +54,19 @@ Følgende er en liste over tilgjengelige egenskaper for {{% title %}}.
 Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over egenskaper kan derfor være noe unøyaktig.
 {{% /notice %}}
 
+| **Egenskap**           | **Type** | **Beskrivelse**                                                                                                      |
+|------------------------|----------|----------------------------------------------------------------------------------------------------------------------|
+| `mediaPosition`        | `string` | Bestemmer posisjonen til media-komponenten. Kan være `top` eller `bottom`. Standard er `top`.                        |
+| `minMediaHeight`       | `string` | Bestemmer minimumshøyden til komponenter spesifisert i `media` (f.eks. bilde, video, lydklipp). Standard er `150px`. |
+| `minWidth`             | `string` | Bestemmer minimumsbredden til hvert kort. Standard er `250px`.                                                       |
+| `color`                | `string` | Bestemmer bakgrunnsfargen til kortene. Kan være `neutral` eller `subtle`.                                            |
+| `cards`                | `array`  | En liste med kort som skal vises.                                                                                    |
+| `cards[0].title`       | `string` | Tittelen/ledeteksten til kortet.                                                                                     |
+| `cards[0].description` | `string` | Beskrivelsen til kortet.                                                                                             |
+| `cards[0].footer`      | `string` | Bunnteksten til kortet.                                                                                              |
+| `cards[0].media`       | `string` | ID-en til en media-komponent som skal vises på toppen/bunnen av kortet.                                              |
+| `cards[0].children`    | `array`  | En liste med ID-er til komponenter som skal vises i kortet.                                                          |
+
 ## Konfigurering
 
 {{% notice warning %}}

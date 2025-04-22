@@ -49,6 +49,19 @@ The following is a list of available properties for {{% title %}}.
 We are currently updating how we implement components. The list of properties may therefore be somewhat inaccurate.
 {{% /notice %}}
 
+| **Property**           | **Type** | **Description**                                                                                                        |
+|------------------------|----------|------------------------------------------------------------------------------------------------------------------------|
+| `mediaPosition`        | `string` | Determines the position of the media component. Can be `top` or `bottom`. Default is `top`.                            |
+| `minMediaHeight`       | `string` | Determines the minimum height of components specified in `media` (e.g., image, video, audio clip). Default is `150px`. |
+| `minWidth`             | `string` | Determines the minimum width of each card. Default is `250px`.                                                         |
+| `color`                | `string` | Determines the background color of the cards. Can be `neutral` or `subtle`.                                            |
+| `cards`                | `array`  | An array of cards to display.                                                                                          |
+| `cards[0].title`       | `string` | The title of the card.                                                                                                 |
+| `cards[0].description` | `string` | The description of the card.                                                                                           |
+| `cards[0].footer`      | `string` | The footer text of the card.                                                                                           |
+| `cards[0].media`       | `string` | The ID of a media component to display on the top/bottom of the card.                                                  |
+| `cards[0].children`    | `array`  | An array of IDs of components to display in the card.                                                                  |
+
 ## Configuration
 
 {{% notice warning %}}
