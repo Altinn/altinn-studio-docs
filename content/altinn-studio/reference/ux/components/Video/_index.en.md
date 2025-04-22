@@ -8,13 +8,12 @@ toc: true
 
 ## Usage
 
-The Video component is used to display a video player in your application. It can be used standalone or as a media
-component within other components like [Cards](../cards).
-
-When used within a Cards component, the Video component can be referenced in the `media` property of a card to display
-a video at the top or bottom of the card.
+The `Video` component is used to display a video player in your application. It can be used standalone or as a media
+component in [Cards](../cards).
 
 ### Anatomy
+
+![Video-component](./video-component.png)
 
 A standard video player typically includes:
 
@@ -24,11 +23,15 @@ A standard video player typically includes:
 4. Volume control
 5. Fullscreen toggle
 
+The Video component is a simple wrapper around the [Video element in HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video),
+and visual appearance will vary depending on the browser, operating system, and other factors.
+The above screenshot was captured from the Chrome browser.
+
 ### Related
 
-- [Cards](../cards) - Can use Video components as media content
-- [Image](../image) - Another media component that can be used in Cards
-- [Audio](../audio) - Audio player component that can also be used in Cards
+- [Cards](../cards) - Can use the Video component as media content
+- [Image](../image) - Image component
+- [Audio](../audio) - Audio player component
 
 ## Properties
 
@@ -38,7 +41,10 @@ The following is a list of the properties available for {{% title %}}.
 We are currently updating how we implement components, and the list of properties may not be entirely accurate.
 {{% /notice %}}
 
-[//]: # (TODO: Add these)
+| **Property**                   | **Type** | **Description**                                                                                                         |
+|--------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------|
+| `textResourceBindings.altText` | string   | Alternative text displayed for screen readers                                                                           |
+| `video`                        | object   | An object containing the video files to play. The key is the language code, and the value is the URL to the video file. |
 
 ## Configuration
 
@@ -75,9 +81,13 @@ App/ui/layouts/{page}.json
         {
           "id": "myVideo",
           "type": "Video",
-          "source": "https://example.com/video.mp4",
-          "title": "Video title",
-          "description": "Video description"
+          "textResourceBindings": {
+            "altText": "Alternative text for the video (for screen readers)"
+          },
+          "video": {
+            "en": "https://example.com/video.mp4",
+            "nb": "/org/app/assets/video.mp4"
+          }
         }
       ]
     }
@@ -88,34 +98,3 @@ App/ui/layouts/{page}.json
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-
-## Examples
-
-### Using Video in a Cards component
-
-The Video component is commonly used as a media component within Cards. Here's an example of how to reference a Video
-component in a Cards component:
-
-{{< code-title >}}
-App/ui/layouts/{page}.json
-{{< /code-title >}}
-
-```json
-{
-  "id": "myCards",
-  "type": "Cards",
-  "minWidth": "250px",
-  "minMediaHeight": "200px",
-  "mediaPosition": "top",
-  "cards": [
-    {
-      "title": "Video Example",
-      "description": "This card displays a video",
-      "media": "myVideo"
-    }
-  ]
-}
-```
-
-In this example, the `media` property of the card references the ID of a Video component (`myVideo`) defined elsewhere
-in the layout.
