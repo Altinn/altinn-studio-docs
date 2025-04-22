@@ -5,6 +5,7 @@ description: How-to-guides for Altinn 3 Broker
 tags: []
 toc: false
 weight: 40
+hidden: true
 ---
 
 {{<children />}}

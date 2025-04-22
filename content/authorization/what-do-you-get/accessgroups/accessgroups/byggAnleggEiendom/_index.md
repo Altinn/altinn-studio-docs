@@ -1,7 +1,7 @@
 ---
 title: Bygg, anlegg og eiendom
 linktitle: Bygg, anlegg og eiendom
-description: Dentte fullmaktsområdet omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som angår bygge- og anleggsvirksomhet, samt oppføring, omsetning og drift av anlegg/eiendom. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som angår bygge- og anleggsvirksomhet, samt oppføring, omsetning og drift av anlegg/eiendom. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
 toc: true
 weight: 100
 aliases:
@@ -17,7 +17,7 @@ aliases:
 |[Kjøp og salg av eiendom](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#kjøp-og-salg-av-eiendom)|
 |[Utleie av eiendom](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#utleie-av-eiendom)|
 |[Eiendomsmegler](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#eiendomsmegler)|
-
+|[Tinglysing eiendom](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#tinglysing-eiendom)|
 
 ### Byggesøknad
 Denne tilgangspakken gir fullmakter til tjenester som ansvarlig søker/tiltakshaver trenger, for eksempel byggesøknader, direkte signerte erklæringer, nabovarsel og eiendomssak. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
@@ -47,6 +47,9 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til utleie av eiendom.
 Denne tilgangspakken gir fullmakter til tjenester knyttet til omsetning og drift av fast eiendom på oppdrag, som eiendomsmegling og eiendomsforvaltning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:eiendomsmegler*
 
+### Tinglysing eiendom
+Denne tilgangspakken gir fullmakter til tjenester knyttet til elektronisk tinglysing av rettigheter i eiendom. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
+*urn:altinn:accesspackage:tinglysing-eiendom*
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
 |**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
@@ -58,3 +61,4 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til omsetning og drift
 |Kjøp og salg av eiendom|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
 |Utleie av eiendom|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
 |Eiendomsmegler|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Tinglysing eiendom|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
