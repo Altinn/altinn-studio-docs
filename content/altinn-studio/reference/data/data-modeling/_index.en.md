@@ -189,11 +189,11 @@ The type is displayed next to the field name in the tree view.
 
 Drag and drop a type from the left side panel into the tree view (middle section). This will create a new field with the chosen type.
 
-You can also add a type reference as a sub field by dragging the type into an existing field.
+You can also add a type reference as a subfield by dragging the type into an existing field.
 
 {{% notice info %}}
 **NOTE**  
-To add a reference as a sub field, the parent field must be of type _Object_.
+To add a reference as a subfield, the parent field must be of type _Object_.
 {{% /notice %}}
 
 ### Deleting a Field
