@@ -207,7 +207,7 @@ Klikk på Slett-knappen til høyre for feltnavnet.
 2. Rediger egenskapene for noden/feltet som ønsket. Tilgjengelige egenskaper for feltet vil variere basert på base-typen
    for feltet.
 
-### Redigere/legge til XSD-attributter, namespaces, osv, inkl `dataFormatId og `dataFormatVersion`.
+### Redigere/legge til XSD-attributter, namespaces, osv, inkl dataFormatId og dataFormatVersion
 
 Dette er foreløpig ikke noe som støttes direkte i verktøyet og må gjøres manuelt. Beskrivelser
 for hvordan dette gjores finnes i lenkene under:
