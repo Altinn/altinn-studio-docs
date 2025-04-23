@@ -95,7 +95,7 @@ Datamodellen definerer hvilke data som kan sendes inn via en app, og hvilket for
 Vi støtter pr. nå kun opplasting av XSD datamodell.
 Ved opplasting av XSD-modell `<model>.xsd` vil verktøyet generere følgende filer: `<model>.cs` og `<model>.schema.json` (se [datamodell-filer](#datamodeller-for-applikasjoner)).
 
-1. Klikk på _Last opp datamodell_ fra startsiden om det ikke er noen eksisterende datamodeller eller _Last opp_ fra
+1. Klikk på _Last opp datamodell_ fra Datamodell-siden om det ikke er noen eksisterende datamodeller eller _Last opp_ fra
    verktøylinjen øverst i verktøyet.
 2. Velg en XSD datamodell-fil i filvelgeren og klikk _Last opp_.
 
