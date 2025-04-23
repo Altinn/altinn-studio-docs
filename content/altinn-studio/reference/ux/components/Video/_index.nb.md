@@ -44,7 +44,7 @@ Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over 
 | **Egenskap**                   | **Type** | **Beskrivelse**                                                                                                         |
 |--------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------|
 | `textResourceBindings.altText` | string   | Alternativ tekst som vises for skjermlesere                                                                             |
-| `video`                        | object   | Et objekt som inneholder videofilene som skal spilles. Nøkkelen er språkkoden, og verdien er URL-en til videofilen.     |
+| `video.src`                    | object   | Et objekt som inneholder videofilene som skal spilles. Nøkkelen er språkkoden, og verdien er URL-en til videofilen.     |
 
 ## Konfigurering
 
@@ -75,22 +75,22 @@ App/ui/layouts/{page}.json
 ```json{hl_lines="6-"}
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
-  {
-    "data": {
-      "layout": [
-        {
-          "id": "myVideo",
-          "type": "Video",
-          "textResourceBindings": {
-            "altText": "Alternativ tekst for videoen (for skjermlesere)"
-          },
-          "video": {
+  "data": {
+    "layout": [
+      {
+        "id": "myVideo",
+        "type": "Video",
+        "textResourceBindings": {
+          "altText": "Alternativ tekst for videoen (for skjermlesere)"
+        },
+        "video": {
+          "src": {
             "en": "https://example.com/video.mp4",
             "nb": "/org/app/assets/video.mp4"
           }
         }
-      ]
-    }
+      }
+    ]
   }
 }
 ```

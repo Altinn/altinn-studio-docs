@@ -94,37 +94,35 @@ App/ui/layouts/{page}.json
 ```json{hl_lines="6-"}
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
-  {
-    "data": {
-      "layout": [
-        {
-          "id": "myCards",
-          "type": "Cards",
-          "minWidth": "250px",
-          "minMediaHeight": "150px",
-          "mediaPosition": "top",
-          "color": "subtle",
-          "cards": [
-            {
-              "title": "Lydfil",
-              "description": "Dette kan også være en ID på en tekstressurs",
-              "media": "myAudio"
-            },
-            {
-              "title": "cards.video.title",
-              "description": "cards.video.description",
-              "media": "myVideo"
-            },
-            {
-              "title": "Med komponenter og footer, men uten media",
-              "description": "Eksempeltekst",
-              "children": ["myCheckboxes"],
-              "footer": "Eksempeltekst",
-            }
-          ]
-        }
-      ]
-    }
+  "data": {
+    "layout": [
+      {
+        "id": "myCards",
+        "type": "Cards",
+        "minWidth": "250px",
+        "minMediaHeight": "150px",
+        "mediaPosition": "top",
+        "color": "subtle",
+        "cards": [
+          {
+            "title": "Lydfil",
+            "description": "Dette kan også være en ID på en tekstressurs",
+            "media": "myAudio"
+          },
+          {
+            "title": "cards.video.title",
+            "description": "cards.video.description",
+            "media": "myVideo"
+          },
+          {
+            "title": "Med komponenter og footer, men uten media",
+            "description": "Eksempeltekst",
+            "children": ["myCheckboxes"],
+            "footer": "Eksempeltekst"
+          }
+        ]
+      }
+    ]
   }
 }
 ```

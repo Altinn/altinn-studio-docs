@@ -44,7 +44,7 @@ Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over 
 | **Egenskap**                   | **Type** | **Beskrivelse**                                                                                                         |
 |--------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------|
 | `textResourceBindings.altText` | string   | Alternativ tekst som vises for skjermlesere                                                                             |
-| `audio`                        | object   | Et objekt som inneholder lydfilene som skal spilles. Nøkkelen er språkkoden, og verdien er URL-en til lydfilen.         |
+| `audio.src`                    | object   | Et objekt som inneholder lydfilene som skal spilles. Nøkkelen er språkkoden, og verdien er URL-en til lydfilen.         |
 
 ## Konfigurering
 
@@ -73,22 +73,22 @@ App/ui/layouts/{page}.json
 ```json{hl_lines="6-"}
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
-  {
-    "data": {
-      "layout": [
-        {
-          "id": "myAudio",
-          "type": "Audio",
-          "textResourceBindings": {
-            "altText": "Alternativ tekst for lyden (for skjermlesere)"
-          },
-          "audio": {
+  "data": {
+    "layout": [
+      {
+        "id": "myAudio",
+        "type": "Audio",
+        "textResourceBindings": {
+          "altText": "Alternativ tekst for lyden (for skjermlesere)"
+        },
+        "audio": {
+          "src": {
             "en": "https://example.com/audio.mp3",
             "nb": "/org/app/assets/audio.wav"
           }
         }
-      ]
-    }
+      }
+    ]
   }
 }
 ```

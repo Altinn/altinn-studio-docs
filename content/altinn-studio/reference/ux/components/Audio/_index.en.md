@@ -44,7 +44,7 @@ We are currently updating how we implement components, and the list of propertie
 | **Property**                   | **Type** | **Description**                                                                                                         |
 |--------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------|
 | `textResourceBindings.altText` | string   | Alternative text displayed for screen readers                                                                           |
-| `audio`                        | object   | An object containing the audio files to play. The key is the language code, and the value is the URL to the audio file. |
+| `audio.src`                    | object   | An object containing the audio files to play. The key is the language code, and the value is the URL to the audio file. |
 
 ## Configuration
 
@@ -74,22 +74,22 @@ App/ui/layouts/{page}.json
 ```json{hl_lines="6-"}
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
-  {
-    "data": {
-      "layout": [
-        {
-          "id": "myAudio",
-          "type": "Audio",
-          "textResourceBindings": {
-            "altText": "Alternative text for the audio (for screen readers)"
-          },
-          "audio": {
+  "data": {
+    "layout": [
+      {
+        "id": "myAudio",
+        "type": "Audio",
+        "textResourceBindings": {
+          "altText": "Alternative text for the audio (for screen readers)"
+        },
+        "audio": {
+          "src": {
             "en": "https://example.com/audio.mp3",
             "nb": "/org/app/assets/audio.wav"
           }
         }
-      ]
-    }
+      }
+    ]
   }
 }
 ```

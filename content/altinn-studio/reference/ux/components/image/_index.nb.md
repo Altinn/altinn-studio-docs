@@ -98,20 +98,21 @@ App/ui/layouts/{page}.json
 ```json{hl_lines="6-14"}
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
-  {
-    "data": {
-      "layout": [
-        {
-          "id": "komponent-id",
-          "type": "Image",
-          "image": {
-            "src": {},
-             "width": "100%",
-             "align": "center"
-            }
+  "data": {
+    "layout": [
+      {
+        "id": "komponent-id",
+        "type": "Image",
+        "image": {
+          "src": {
+            "en": "https://example.com/image.jpg",
+            "nb": "/org/app/assets/image.png"
+          },
+          "width": "100%",
+          "align": "center"
         }
-      ]
-    }
+      }
+    ]
   }
 }
 ```

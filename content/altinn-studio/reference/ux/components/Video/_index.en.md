@@ -44,7 +44,7 @@ We are currently updating how we implement components, and the list of propertie
 | **Property**                   | **Type** | **Description**                                                                                                         |
 |--------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------|
 | `textResourceBindings.altText` | string   | Alternative text displayed for screen readers                                                                           |
-| `video`                        | object   | An object containing the video files to play. The key is the language code, and the value is the URL to the video file. |
+| `video.src`                    | object   | An object containing the video files to play. The key is the language code, and the value is the URL to the video file. |
 
 ## Configuration
 
@@ -75,24 +75,25 @@ App/ui/layouts/{page}.json
 ```json{hl_lines="6-"}
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
-  {
-    "data": {
-      "layout": [
-        {
-          "id": "myVideo",
-          "type": "Video",
-          "textResourceBindings": {
-            "altText": "Alternative text for the video (for screen readers)"
-          },
-          "video": {
+  "data": {
+    "layout": [
+      {
+        "id": "myVideo",
+        "type": "Video",
+        "textResourceBindings": {
+          "altText": "Alternative text for the video (for screen readers)"
+        },
+        "video": {
+          "src": {
             "en": "https://example.com/video.mp4",
             "nb": "/org/app/assets/video.mp4"
           }
         }
-      ]
-    }
+      }
+    ]
   }
 }
+
 ```
 
 {{</content-version-container>}}

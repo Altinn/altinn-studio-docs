@@ -89,37 +89,35 @@ App/ui/layouts/{page}.json
 ```json{hl_lines="6-"}
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
-  {
-    "data": {
-      "layout": [
-        {
-          "id": "myCards",
-          "type": "Cards",
-          "minWidth": "250px",
-          "minMediaHeight": "150px",
-          "mediaPosition": "top",
-          "color": "subtle",
-          "cards": [
-            {
-              "title": "Audio file",
-              "description": "This can also be an ID for a text resource",
-              "media": "myAudio"
-            },
-            {
-              "title": "cards.video.title",
-              "description": "cards.video.description",
-              "media": "myVideo"
-            },
-            {
-              "title": "With components and footer, but without media",
-              "description": "Example text",
-              "children": ["myCheckboxes"],
-              "footer": "Example text",
-            }
-          ]
-        }
-      ]
-    }
+  "data": {
+    "layout": [
+      {
+        "id": "myCards",
+        "type": "Cards",
+        "minWidth": "250px",
+        "minMediaHeight": "150px",
+        "mediaPosition": "top",
+        "color": "subtle",
+        "cards": [
+          {
+            "title": "Audio file",
+            "description": "This can also be an ID for a text resource",
+            "media": "myAudio"
+          },
+          {
+            "title": "cards.video.title",
+            "description": "cards.video.description",
+            "media": "myVideo"
+          },
+          {
+            "title": "With components and footer, but without media",
+            "description": "Example text",
+            "children": ["myCheckboxes"],
+            "footer": "Example text"
+          }
+        ]
+      }
+    ]
   }
 }
 ```
