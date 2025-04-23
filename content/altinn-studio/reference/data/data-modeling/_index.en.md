@@ -185,7 +185,7 @@ A type reference is a field that follows the structure of a custom type.
 
 Drag and drop a type from the left side panel into the tree view (middle section). This will create a new field with the chosen type.
 
-You can also add a type reference as a sub field - just drag the type into an existing field.
+You can also add a type reference as a sub field by dragging the type into an existing field.
 
 {{% notice info %}}
 **NOTE**  
