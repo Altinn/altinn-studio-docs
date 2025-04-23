@@ -9,7 +9,7 @@ toc: true
 This model is the request model for an agent system user request.
 
 #### externalref
-This is an optional reference set by the vendor for the system user request. If not provided, it defaults to partyOrgNo. If specified, this value must be used in the token request to Maskinporten.
+This is an optional reference set by the vendor for the system user request. If not provided, it defaults to partyOrgNo. If specified, this value must be used in the other api's f.ex token request to Maskinporten, retreive status of the request.
 
 #### systemid
 The id of the registered system in altinn
