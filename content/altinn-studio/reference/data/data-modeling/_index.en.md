@@ -5,11 +5,11 @@ description: Data model and Altinn Studio Data Modeling tool
 weight: 1
 toc: true
 aliases:
-- /altinn-studio/reference/data/data-models-tool/
-- /altinn-studio/reference/data/data-model/
-- /altinn-studio/reference/data/data-models-tool/app-datamodels
-- /altinn-studio/reference/data/data-models-tool/org-datamodels
-- /altinn-studio/reference/data/data-models-tool/known-issues
+  - /altinn-studio/reference/data/data-models-tool/
+  - /altinn-studio/reference/data/data-model/
+  - /altinn-studio/reference/data/data-models-tool/app-datamodels
+  - /altinn-studio/reference/data/data-models-tool/org-datamodels
+  - /altinn-studio/reference/data/data-models-tool/known-issues
 ---
 
 ## Data models
@@ -19,42 +19,43 @@ aliases:
 Data models for applications are located in the same folder structure as the rest of the application files. These are stored in the [Altinn Studio repository](https://altinn.studio/repos) under `App/models` in the application's file structure.
 An application has 4 model files:
 
-* **C# data model** (`<model>.cs`): Data model used by the application's backend/APIs to process and validate data.
-* **JSON schema** (`<model>.schema.json`): Data model in JSON schema format used by the application on the client-side (frontend) to validate data in real-time.
-This is also the file that is worked on in the data modeling tool.
-* **XSD data model** (`<model>.XSD`): Data model in XML format that defines the elements that can be used in a document.
-This is not directly used by the application but can be uploaded to generate the other model files in Altinn Studio or downloaded as needed.
-* **JSON metadata** (`<model>.metadata.json`): Used by Altinn Studio to generate the `<model>.cs` file.
-This file will not be stored in the application and will only be generated if needed.
+- **C# data model** (`<model>.cs`): Data model used by the application's backend/APIs to process and validate data.
+- **JSON schema** (`<model>.schema.json`): Data model in JSON schema format used by the application on the client-side (frontend) to validate data in real-time.
+  This is also the file that is worked on in the data modeling tool.
+- **XSD data model** (`<model>.XSD`): Data model in XML format that defines the elements that can be used in a document.
+  This is not directly used by the application but can be uploaded to generate the other model files in Altinn Studio or downloaded as needed.
+- **JSON metadata** (`<model>.metadata.json`): Used by Altinn Studio to generate the `<model>.cs` file.
+  This file will not be stored in the application and will only be generated if needed.
 
 ### Data models for organizations
 
 Data models for organizations are located in Altinn Studio's [repos][1].
- To access these, log in with an Altinn Studio user.
-  If this is your first time using Altinn Studio, you need to [create a user][2].
+To access these, log in with an Altinn Studio user.
+If this is your first time using Altinn Studio, you need to [create a user][2].
 
-The data models are located in the `<org>-datamodels` repository, where `<org>` is the organization you belong to. 
-For example, the data models for the organization 'Test Department (ttd)' are located under 
+The data models are located in the `<org>-datamodels` repository, where `<org>` is the organization you belong to.
+For example, the data models for the organization 'Test Department (ttd)' are located under
 https://altinn.studio/repos/ttd/ttd-datamodels.
 
 You can find the link to this repository in the [Altinn Studio Dashboard](/altinn-studio/getting-started/navigation/dashboard): https://altinn.studio/dashboard.
- Select _Edit_ (blue pencil icon) to access the Altinn Studio [Data Modeling](#altinn-studio-data-modeling) tool.
- Select _Gitea_ (green cup icon) to view the files directly in the repository.
+Select _Edit_ (blue pencil icon) to access the Altinn Studio [Data Modeling](#altinn-studio-data-modeling) tool.
+Select _Gitea_ (green cup icon) to view the files directly in the repository.
 
- ![Overview of data model repo](./datamodels-dashboard.png "Overview of data model repo")
+![Overview of data model repo](./datamodels-dashboard.png "Overview of data model repo")
 
 #### Access to Data Models
 
 By default, anyone can view an organization's data models.
- To gain access to edit the data models, the user needs to be part of the _Data models_ team in the organization.
-  Refer to the [access management][3] for more information.
+To gain access to edit the data models, the user needs to be part of the _Data models_ team in the organization.
+Refer to the [access management][3] for more information.
 
 #### Uploading XSD to Repository
+
 XSD files can be directly uploaded to the tool [Altinn Studio Datamodellering](#altinn-studio-data-modeling) and are described under [Upload and Display Data Model](#upload-and-display-data-model).
 
 If you only need to upload XSD files for storage and do not intend to use the tool to edit the model, you can upload XSD files directly to the `<org>-datamodels` repo.
- To do this, navigate to the desired folder and select "Add file" -> "Upload file." In the text field that appears at the top, you can enter the folder name you wish to use (optional).
- Upload the desired file, scroll down, optionally provide a message indicating the file type, and click "commit changes" to confirm.
+To do this, navigate to the desired folder and select "Add file" -> "Upload file." In the text field that appears at the top, you can enter the folder name you wish to use (optional).
+Upload the desired file, scroll down, optionally provide a message indicating the file type, and click "commit changes" to confirm.
 
 ![Upload XSD directly to `<org>-datamodels` repo](./file-upload.gif "Upload XSD directly to `<org>-datamodels` repo")
 
@@ -69,14 +70,15 @@ The Data Modeling tool in Altinn Studio is under development and will have limit
 {{% /notice %}}
 
 Altinn Studio Data Modeling is a tool for developing [data models](#data-models).
- It is based on a data model in JSON Schema format from which it can generate XSD and C# models (see [Data Model Files for Applications](#data-model-files-for-applications)).
+It is based on a data model in JSON Schema format from which it can generate XSD and C# models (see [Data Model Files for Applications](#data-model-files-for-applications)).
 
 {{% expandlarge id="links" header="Useful links" %}}
-* [Known issues and shortcomings for Altinn Studio Datamodellering](https://github.com/orgs/Altinn/projects/1/views/10)
-* [Planned new functionality for Altinn Studio Datamodellering](https://github.com/orgs/Altinn/projects/1/views/6)
-* [Development of data model for Altinn 2](/altinn-studio/guides/altinn-2/altinn-2-datamodel/)
-* [Migrating from Seres to Altinn Studio Datamodellering](/altinn-studio/guides/altinn-2/seres-migration/)
-{{% /expandlarge %}}
+
+- [Known issues and shortcomings for Altinn Studio Datamodellering](https://github.com/orgs/Altinn/projects/1/views/10)
+- [Planned new functionality for Altinn Studio Datamodellering](https://github.com/orgs/Altinn/projects/1/views/6)
+- [Development of data model for Altinn 2](/altinn-studio/guides/altinn-2/altinn-2-datamodel/)
+- [Migrating from Seres to Altinn Studio Datamodellering](/altinn-studio/guides/altinn-2/seres-migration/)
+  {{% /expandlarge %}}
 
 ### Navigating to Altinn Studio Data Modeling
 
@@ -108,6 +110,7 @@ A tree view of the data model can be opened to see a visual representation of th
 ## Selecting a Model from the Dropdown List
 
 There are two categories in the dropdown list:
+
 - _XSD_ - These files are shown when there are XSD models without a corresponding JSON Schema model file. When selecting a model from the XSD list, it will automatically be imported into the tool, and
   a JSON Schema file will be generated. This can then be further worked on in the data modeling tool.
 - _JSON Schema_ - models generated after the processing of uploaded XSD models.
@@ -120,25 +123,26 @@ Only data models placed in a repository's `App/models` folder will be shown in t
 
 To create a new data model from scratch:
 
-   1. Click _Lag ny_ (_Create new_) on the left-side of the toolbar.
-   2. Enter the name of the data model in the field.
-   3. Click _Opprett modell_ (_Create model_).
+1.  Click _Lag ny_ (_Create new_) on the left-side of the toolbar.
+2.  Enter the name of the data model in the field.
+3.  Click _Opprett modell_ (_Create model_).
 
 ![Create new data model](create-new-model.png "Create a new data model")
 
 The data model will be created with some example fields that you can work with or delete:
 
-  - `property1` (text, required)
-  - `property2` (text, required)
-  - `property3` (text)
+- `property1` (text, required)
+- `property2` (text, required)
+- `property3` (text)
 
 ![New data model](new-data-model.png "New data model")
 
 ## Editing a Data Model
+
 Select the model you wish to edit from the dropdown list on the toolbar.
 
 {{% notice info %}}
-The JSON schema model is automatically saved as you work on it. To generate other model files such as XSD (and C# file for apps), you need to
+The JSON schema model is automatically saved as you work on it. To generate other model files such as XSD and C# files, you need to
 click _Generer modeller_ (_Generate Models_) on the toolbar (see [Generating Model Files](#generating-model-files-xsd-and-c)).
 {{% /notice %}}
 
@@ -176,10 +180,10 @@ Note that it is not possible to delete types that are in use.
 ### Type References
 
 A type reference is a field that follows the structure of a custom type.
- For instance, if you have the type `Address` with fields `StreetName`, `PostalCode`, and `Location`, adding a reference to that type will automatically add these fields.
-  The type is displayed next to the field name in the tree view.
+For instance, if you have the type `Address` with fields `StreetName`, `PostalCode`, and `Location`, adding a reference to that type will automatically add these fields.
+The type is displayed next to the field name in the tree view.
 
- ![Type reference](type-references.png "Type references")
+![Type reference](type-references.png "Type references")
 
 ### Adding a Type Reference
 

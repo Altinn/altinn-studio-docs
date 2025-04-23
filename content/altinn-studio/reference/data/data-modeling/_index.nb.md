@@ -5,28 +5,28 @@ description: Datamodell og Datamodellering i Altinn Studio
 weight: 1
 toc: true
 aliases:
-- /nb/altinn-studio/reference/data/data-model/
-- /nb/altinn-studio/reference/data/data-models-tool/
-- /nb/altinn-studio/reference/data/data-models-tool/app-datamodels
-- /nb/altinn-studio/reference/data/data-models-tool/org-datamodels
-- /nb/altinn-studio/reference/data/data-models-tool/known-issues
+  - /nb/altinn-studio/reference/data/data-model/
+  - /nb/altinn-studio/reference/data/data-models-tool/
+  - /nb/altinn-studio/reference/data/data-models-tool/app-datamodels
+  - /nb/altinn-studio/reference/data/data-models-tool/org-datamodels
+  - /nb/altinn-studio/reference/data/data-models-tool/known-issues
 ---
 
 ## Datamodeller
 
 ### Datamodeller for applikasjoner
 
-Datamodeller for applikasjoner ligger i samme mappestruktur som resten av applikasjonsfilene. Disse ligger lagret i 
+Datamodeller for applikasjoner ligger i samme mappestruktur som resten av applikasjonsfilene. Disse ligger lagret i
 [Altinn Studio repository](https://altinn.studio/repos) under `App/models` i filstrukturen til appen.
 En applikasjon har 4 modellfiler:
 
-* **C# datamodell** (`<model>.cs`) : Datamodell som benyttes av applikasjonens backend/API'er for å behandle og validere data.
-* **JSON schema** (`<model>.schema.json`) : Datamodell i JSONschema-format som brukes av applikasjonen på klientsiden (frontend) for å validere data fortløpende.
-Det er også denne filen man jobber med i datamodelleringsverktøyet.
-* **XSD datamodell** (`<model>.XSD`) : Datamodell i _XML_-format som definerer hvilke elementer som kan brukes i et dokument.
-Denne brukes ikke direkte av applikasjonen, men kan lastes opp for å generere de andre modellfilene i Altinn Studioe eller lastes ned ved behov til f.eks. mottakssystemer.
-* **JSON metadata** (`<model>.metadata.json`) : Brukes av Altinn Studio for å genererere `<model>.cs`-filen.
-Denne filen blir ikke lagret i applikasjonen og vil kun bli generert ved behov.
+- **C# datamodell** (`<model>.cs`) : Datamodell som benyttes av applikasjonens backend/API'er for å behandle og validere data.
+- **JSON schema** (`<model>.schema.json`) : Datamodell i JSONschema-format som brukes av applikasjonen på klientsiden (frontend) for å validere data fortløpende.
+  Det er også denne filen man jobber med i datamodelleringsverktøyet.
+- **XSD datamodell** (`<model>.XSD`) : Datamodell i _XML_-format som definerer hvilke elementer som kan brukes i et dokument.
+  Denne brukes ikke direkte av applikasjonen, men kan lastes opp for å generere de andre modellfilene i Altinn Studioe eller lastes ned ved behov til f.eks. mottakssystemer.
+- **JSON metadata** (`<model>.metadata.json`) : Brukes av Altinn Studio for å genererere `<model>.cs`-filen.
+  Denne filen blir ikke lagret i applikasjonen og vil kun bli generert ved behov.
 
 ### Datamodeller for organisasjoner
 
@@ -34,11 +34,11 @@ Datamodeller for organisasjoner ligger i Altinn Studio sin [repos][1]-løsning.
 For å få tilgang til disse må man logge inn med Altinn Studio bruker. Om det er første gang du bruker Altinn Studio
 må du [lage en bruker][2].
 
-Datamodellene ligger i `<org>-datamodels`-repo, hvor `<org>` er den organisasjonen du tilhører. 
-F.eks. ligger datamodellene til organisasjonen `Testdepartementet (ttd)` under 
+Datamodellene ligger i `<org>-datamodels`-repo, hvor `<org>` er den organisasjonen du tilhører.
+F.eks. ligger datamodellene til organisasjonen `Testdepartementet (ttd)` under
 https://altinn.studio/repos/ttd/ttd-datamodels.
 
-Lenke til dette repoet finner man i [Altinn Studio Dashboard](/nb/altinn-studio/getting-started/navigation/dashboard) (https://altinn.studio/dashboard). Velg _Rediger_ (blått penn-ikon) for å komme til 
+Lenke til dette repoet finner man i [Altinn Studio Dashboard](/nb/altinn-studio/getting-started/navigation/dashboard) (https://altinn.studio/dashboard). Velg _Rediger_ (blått blyant-ikon) for å komme til
 Altinn Studio [Datamodellering](#altinn-studio-datamodellering) verktøet. Velg _Gitea_ (grønt kopp-ikon) for å se filene direkte i repo.
 
 ![Oversikt over datamodell-repo](./datamodels-dashboard.png "Oversikt over datamodell-repo")
@@ -49,10 +49,11 @@ Alle kan se på datamodellene til en organisasjon som standard. For å få tilga
 være del av _Datamodels_-teamet i organisasjonen. Se [tilgangsstyring][3] for mer informasjon.
 
 #### Laste opp XSD til repo
+
 XSD kan lastes opp direkte i verktøyet [Altinn Studio Datamodellering](#altinn-studio-datamodellering) og er beskrevet under [Laste Opp og Vise Datamodell](#laste-opp-og-vise-datamodell).
 
-Om man kun har behov for å laste opp XSD for lagring, og ikke skal bruke verktøyet for å redigere modellen, kan man også 
-laste opp XSD-filer direkte til `<org>-datamodels` repo. Naviger da til ønsket mappe og velg 
+Om man kun har behov for å laste opp XSD for lagring, og ikke skal bruke verktøyet for å redigere modellen, kan man også
+laste opp XSD-filer direkte til `<org>-datamodels` repo. Naviger da til ønsket mappe og velg
 "Add file" -> "Upload file". I tekstfeltet som dukker opp øverst kan man skrive inn mappenavn man ønsker å benytte (valgfritt).
 Last opp ønsket fil, scroll ned, skriv evt. en melding om hva slags fil det er, og trykk på "commit changes"
 for å bekrefte.
@@ -73,11 +74,12 @@ Altinn Studio Datamodellering er et verktøy for å utvikle [datamodeller](#data
 format og kan ut fra dette generere XSD- og C#-modeller (se [Datamodeller for Applikasjoner](#datamodeller-for-applikasjoner)).
 
 {{% expandlarge id="links" header="Nyttige lenker" %}}
-* [Registrerte feil og mangler for Altinn Studio Datamodellering](https://github.com/orgs/Altinn/projects/1/views/10)
-* [Planlagt ny funksjonalitet for Altinn Studio Datamodellering](https://github.com/orgs/Altinn/projects/1/views/6)
-* [Utvikling av datamodell for Altinn 2](/nb/altinn-studio/guides/altinn-2/altinn-2-datamodel/)
-* [Overgang fra Seres til Altinn Studio Datamodellering](/nb/altinn-studio/guides/altinn-2/seres-migration/)
-{{% /expandlarge %}}
+
+- [Registrerte feil og mangler for Altinn Studio Datamodellering](https://github.com/orgs/Altinn/projects/1/views/10)
+- [Planlagt ny funksjonalitet for Altinn Studio Datamodellering](https://github.com/orgs/Altinn/projects/1/views/6)
+- [Utvikling av datamodell for Altinn 2](/nb/altinn-studio/guides/altinn-2/altinn-2-datamodel/)
+- [Overgang fra Seres til Altinn Studio Datamodellering](/nb/altinn-studio/guides/altinn-2/seres-migration/)
+  {{% /expandlarge %}}
 
 ### Navigere til Altinn Studio Datamodellering
 
@@ -91,7 +93,7 @@ format og kan ut fra dette generere XSD- og C#-modeller (se [Datamodeller for Ap
 
 Datamodellen definerer hvilke data som kan sendes inn via en app, og hvilket format det skal sendes på.
 Vi støtter pr. nå kun opplasting av XSD datamodell.
- Ved opplasting av XSD-modell `<model>.xsd` vil verktøyet generere følgende filer: `<model>.cs` og `<model>.schema.json` (se [datamodell-filer](#datamodeller-for-applikasjoner)).
+Ved opplasting av XSD-modell `<model>.xsd` vil verktøyet generere følgende filer: `<model>.cs` og `<model>.schema.json` (se [datamodell-filer](#datamodeller-for-applikasjoner)).
 
 1. Klikk på _Last opp datamodell_ fra startsiden om det ikke er noen eksisterende datamodeller eller _Last opp_ fra
    verktøylinjen øverst i verktøyet.
@@ -109,8 +111,9 @@ Tre-visning av datamodellen kan åpnes for å se en visuell representasjon av da
 ## Velge modell fra nedtrekkslisten
 
 Nedtrekkslisten har to kategorier:
+
 - _XSD_ - Disse filene vises når det finnes XSD-modeller uten en tilhørende JSON Schema-modellfil. Når du velger en modell fra XSD-listen, blir den automatisk importert inn i verktøyet, og en JSON Schema-fil vil bli generert.
-Deretter kan denne jobbes videre med i verktøyet.
+  Deretter kan denne jobbes videre med i verktøyet.
 - _JSON Schema_ - modeller genert etter prosessering av opplastede XSD-filer.
 
 {{% notice info %}}
@@ -140,7 +143,7 @@ Datamodellen opprettes med noen eksempel-felter som man kan jobbe videre med ell
 Velg modellen du ønsker å redigere fra nedtrekkslisten på verktøylinjen.
 
 {{% notice info %}}
-JSON Schema-modellen lagres automatisk mens man jobber med den. For å generere andre modell-filer som XSD (og C#-fil for apper) må man
+JSON Schema-modellen lagres automatisk mens man jobber med den. For å generere andre modell-filer i XSD- og C#-format må man
 trykke på knappen _Generer modeller_ på verktøylinjen (se [Generere Modellfiler](#generere-og-laste-ned-modellfiler-xsd-og-c)).
 {{% /notice %}}
 
