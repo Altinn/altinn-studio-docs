@@ -6,9 +6,6 @@ toc: false
 weight: 1
 ---
 
-{{<notice warning>}}
- Denne funksjonaliteten er i test og kan endres
-{{</notice>}}
 
 ## Bakgrunn
 
@@ -23,6 +20,11 @@ For å kunne bruke systembruker som API-leverandør må følgende forutsetninger
 - Opprettelse av [nødvendige ressurser](/authorization/guides/create-resource-resource-admin/) som skal autoriseres
 - Tildelt scope for PDP-integrasjon
 - Integrasjon med Altinn PDP
+
+{{<notice warning>}}
+Systembruker er kun egnet for tilfeller der det ikke er behov for at Altinn kan koble operasjonene som utføres med hvilken person som utfører dem.
+Som tjenesteier må du gjøre en vurdering om det er behov for å knytte person til utført handling. Dersom dette er behov må tjensten benytte ID-porten.
+{{</notice>}}
 
 ## Validering av Maskinporten token
 
