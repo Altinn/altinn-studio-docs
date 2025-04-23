@@ -24,7 +24,7 @@ En applikasjon har 4 modellfiler:
 - **JSON schema** (`<model>.schema.json`) : Datamodell i JSONschema-format som brukes av applikasjonen på klientsiden (frontend) for å validere data fortløpende.
   Det er også denne filen man jobber med i datamodelleringsverktøyet.
 - **XSD datamodell** (`<model>.XSD`) : Datamodell i _XML_-format som definerer hvilke elementer som kan brukes i et dokument.
-  Denne brukes ikke direkte av applikasjonen, men kan lastes opp for å generere de andre modellfilene i Altinn Studioe eller lastes ned ved behov til f.eks. mottakssystemer.
+  Denne brukes ikke direkte av applikasjonen, men kan lastes opp for å generere de andre modellfilene i Altinn Studio eller lastes ned ved behov til f.eks. mottakssystemer.
 - **JSON metadata** (`<model>.metadata.json`) : Brukes av Altinn Studio for å genererere `<model>.cs`-filen.
   Denne filen blir ikke lagret i applikasjonen og vil kun bli generert ved behov.
 
@@ -38,8 +38,8 @@ Datamodellene ligger i `<org>-datamodels`-repo, hvor `<org>` er den organisasjon
 F.eks. ligger datamodellene til organisasjonen `Testdepartementet (ttd)` under
 https://altinn.studio/repos/ttd/ttd-datamodels.
 
-Lenke til dette repoet finner man i [Altinn Studio Dashboard](/nb/altinn-studio/getting-started/navigation/dashboard) (https://altinn.studio/dashboard). Velg _Rediger_ (blått blyant-ikon) for å komme til
-Altinn Studio [Datamodellering](#altinn-studio-datamodellering) verktøet. Velg _Gitea_ (grønt kopp-ikon) for å se filene direkte i repo.
+Lenke til dette repoet finner man i [Altinn Studio Dashboard](/nb/altinn-studio/getting-started/navigation/dashboard). Velg _Rediger_ (blått blyant-ikon) for å komme til
+Altinn Studio [Datamodellering](#altinn-studio-datamodellering) verktøyet. Velg _Gitea_ (grønt kopp-ikon) for å se filene direkte i repo.
 
 ![Oversikt over datamodell-repo](./datamodels-dashboard.png "Oversikt over datamodell-repo")
 
@@ -84,7 +84,7 @@ format og kan ut fra dette generere XSD- og C#-modeller (se [Datamodeller for Ap
 ### Navigere til Altinn Studio Datamodellering
 
 1. Logg inn i Altinn Studio. Hvis du ikke befinner deg i [Altinn Studio Dashboard](/nb/altinn-studio/getting-started/navigation/dashboard/), naviger dit ved å klikke på logoen øverst i venstre hjørne eller [her](https://altinn.studio/dashboard).
-2. Velg _rediger_ (blått blyant-ikon) ved enten:  
+2. Velg _Rediger_ (blått blyant-ikon) ved enten:  
    a. En app under "Mine applikasjoner", eller  
    b. Datamodellerings repo for din organisasjon.
 3. Velg fanen **Datamodell** i topp-menyen.
@@ -114,7 +114,7 @@ Nedtrekkslisten har to kategorier:
 
 - _XSD_ - Disse filene vises når det finnes XSD-modeller uten en tilhørende JSON Schema-modellfil. Når du velger en modell fra XSD-listen, blir den automatisk importert inn i verktøyet, og en JSON Schema-fil vil bli generert.
   Deretter kan denne jobbes videre med i verktøyet.
-- _JSON Schema_ - modeller genert etter prosessering av opplastede XSD-filer.
+- _JSON Schema_ - modeller generert etter prosessering av opplastede XSD-filer.
 
 {{% notice info %}}
 Kun datamodeller som er plassert i `App/models` i repositoriet vil bli vist i nedtrekkslisten.
@@ -151,7 +151,7 @@ trykke på knappen _Generer modeller_ på verktøylinjen (se [Generere Modellfil
 
 For å legge til felt på øverste nivå (rot-node), klikk "Legg til" (**1** i bildet under).
 
-Du kan legge til underfelt på felter av type Objekt ved å trykke på **+**-knappen til høyre for feltnavnet, eller ved å klike på feltet og velge fanen _Felter_ i panelet til høyre.
+Du kan legge til underfelt på felter av type Objekt ved å klikke på **+**-knappen til høyre for feltnavnet, eller ved å klikke på feltet og velge fanen _Felter_ i panelet til høyre.
 
 ### Legge til en ny type
 

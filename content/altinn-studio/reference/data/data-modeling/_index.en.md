@@ -37,7 +37,7 @@ The data models are located in the `<org>-datamodels` repository, where `<org>` 
 For example, the data models for the organization 'Test Department (ttd)' are located under
 https://altinn.studio/repos/ttd/ttd-datamodels.
 
-You can find the link to this repository in the [Altinn Studio Dashboard](/altinn-studio/getting-started/navigation/dashboard): https://altinn.studio/dashboard.
+You can find the link to this repository in the [Altinn Studio Dashboard](/altinn-studio/getting-started/navigation/dashboard).
 Select _Edit_ (blue pencil icon) to access the Altinn Studio [Data Modeling](#altinn-studio-data-modeling) tool.
 Select _Gitea_ (green cup icon) to view the files directly in the repository.
 
@@ -150,7 +150,7 @@ click _Generer modeller_ (_Generate Models_) on the toolbar (see [Generating Mod
 
 To add a field at the top-level (root node), click "Legg til" (**1** in below image).
 
-You can add sub-fields to fields of the Object type by pressing the adjacent **+** button or by clicking the field and select the tab _Felter_ (_Fields_) in the right-side panel.
+You can add sub-fields to fields of the Object type by clicking the adjacent **+** button or by clicking the field and selecting the tab _Felter_ (_Fields_) in the right-side panel.
 
 ### Adding a New Type
 
