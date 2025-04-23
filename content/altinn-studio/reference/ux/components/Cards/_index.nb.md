@@ -9,7 +9,7 @@ toc: true
 ## Bruk
 
 Cards-komponenten kan brukes til å vise ulike typer innhold (andre komponenter), i en kort-basert layout.
-Den kan brukes til å vise informasjon, bilder, videoer, og/eller skjemakomponenter.
+Den kan brukes til å vise informasjon, bilder, lydklipp, videoer, og skjemakomponenter.
 
 ### Anatomi
 
