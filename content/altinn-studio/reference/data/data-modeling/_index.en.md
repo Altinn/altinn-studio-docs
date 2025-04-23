@@ -111,8 +111,7 @@ A tree view of the data model can be opened to see a visual representation of th
 
 There are two categories in the dropdown list:
 
-- _XSD_ - These files are shown when there are XSD models without a corresponding JSON Schema model file. When selecting a model from the XSD list, it will automatically be imported into the tool, and
-  a JSON Schema file will be generated. This can then be further worked on in the data modeling tool.
+- _XSD_ - These files are shown when there are XSD models without a corresponding JSON Schema model file. Selecting a model from the XSD list automatically imports it into the tool and generates a JSON Schema file, which you can then work on in the data modeling tool.
 - _JSON Schema_ - models generated after the processing of uploaded XSD models.
 
 {{% notice info %}}
