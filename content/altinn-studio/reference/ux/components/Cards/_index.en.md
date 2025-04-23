@@ -9,7 +9,7 @@ toc: true
 ## Usage
 
 The Cards component can be used to display various types of content (other components) in a card-based layout.
-It can be used to display information, images, videos, and form components.
+It can be used to display information, images, audio, videos, and form components.
 
 ### Anatomy
 
