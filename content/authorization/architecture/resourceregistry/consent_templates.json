@@ -2,8 +2,8 @@
     {
         "id": "bst_krav",
         "title": "Brukerstyrt tilgang til kravoversikt",
-        "isFullmakt": false,
-        "hasCustomMessage": false,
+        "isPoa": false,
+        "isMessageSetInRequest": true,
         "texts": {
             "title": {
                 "person": {
@@ -84,8 +84,8 @@
     {
         "id": "consent_sharing",
         "title": "Samtykke til å dele data",
-        "isFullmakt": false,
-        "hasCustomMessage": false,
+        "isPoa": false,
+        "isMessageSetInRequest": true,
         "texts": {
             "title": {
                 "person": {
@@ -166,8 +166,8 @@
     {
         "id": "default",
         "title": "Samtykke til å dele data (standard)",
-        "isFullmakt": false,
-        "hasCustomMessage": false,
+        "isPoa": false,
+        "isMessageSetInRequest": true,
         "texts": {
             "title": {
                 "person": {
@@ -248,8 +248,8 @@
     {
         "id": "sblanesoknad",
         "title": "Samtykkebasert lånesøknad",
-        "isFullmakt": false,
-        "hasCustomMessage": true,
+        "isPoa": false,
+        "isMessageSetInRequest": false,
         "texts": {
             "title": {
                 "person": {
@@ -334,8 +334,8 @@
     {
         "id": "poa",
         "title": "Fullmakt til å utføre en tjeneste",
-        "isFullmakt": true,
-        "hasCustomMessage": false,
+        "isPoa": true,
+        "isMessageSetInRequest": true,
         "texts": {
             "title": {
                 "person": {
@@ -416,8 +416,8 @@
     {
         "id": "ebevis",
         "title": "eBevis for Skatteetaten-tjenester",
-        "isFullmakt": true,
-        "hasCustomMessage": true,
+        "isPoa": true,
+        "isMessageSetInRequest": false,
         "texts": {
             "title": {
                 "person": {
@@ -502,8 +502,8 @@
     {
         "id": "defaultnomessage",
         "title": "Samtykke til å hente data (uten melding)",
-        "isFullmakt": false,
-        "hasCustomMessage": false,
+        "isPoa": false,
+        "isMessageSetInRequest": true,
         "texts": {
             "title": {
                 "person": {
@@ -584,8 +584,8 @@
     {
         "id": "samtykkemal_simpleconsent",
         "title": "Enkelt samtykke (uten melding)",
-        "isFullmakt": false,
-        "hasCustomMessage": false,
+        "isPoa": false,
+        "isMessageSetInRequest": true,
         "texts": {
             "title": {
                 "person": {
