@@ -21,7 +21,7 @@ Datamodeller for applikasjoner ligger i samme mappestruktur som resten av applik
 En applikasjon har 4 modellfiler:
 
 - **C# datamodell** (`<model>.cs`) : Datamodell som benyttes av applikasjonens backend/API'er for å behandle og validere data.
-- **JSON schema** (`<model>.schema.json`) : Datamodell i JSONschema-format som brukes av applikasjonen på klientsiden (frontend) for å validere data fortløpende.
+- **JSON Schema** (`<model>.schema.json`) : Datamodell i JSON Schema-format som brukes av applikasjonen på klientsiden (frontend) for å validere data fortløpende.
   Det er også denne filen man jobber med i datamodelleringsverktøyet.
 - **XSD datamodell** (`<model>.XSD`) : Datamodell i _XML_-format som definerer hvilke elementer som kan brukes i et dokument.
   Denne brukes ikke direkte av applikasjonen, men kan lastes opp for å generere de andre modellfilene i Altinn Studio eller lastes ned ved behov til f.eks. mottakssystemer.
@@ -70,7 +70,7 @@ for å bekrefte.
 Verktøyet Datamodellering i Altinn Studio er under utvikling og vil ha noe begrenset funksjonalitet før det er ferdigstilt.
 {{% /notice %}}
 
-Altinn Studio Datamodellering er et verktøy for å utvikle [datamodeller](#datamodeller). Den baserer seg på en datamodell i JSONSchema
+Altinn Studio Datamodellering er et verktøy for å utvikle [datamodeller](#datamodeller). Den baserer seg på en datamodell i JSON Schema
 format og kan ut fra dette generere XSD- og C#-modeller (se [Datamodeller for Applikasjoner](#datamodeller-for-applikasjoner)).
 
 {{% expandlarge id="links" header="Nyttige lenker" %}}

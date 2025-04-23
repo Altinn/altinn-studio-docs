@@ -20,7 +20,7 @@ Data models for applications are located in the same folder structure as the res
 An application has 4 model files:
 
 - **C# data model** (`<model>.cs`): Data model used by the application's backend/APIs to process and validate data.
-- **JSON schema** (`<model>.schema.json`): Data model in JSON schema format used by the application on the client-side (frontend) to validate data in real-time.
+- **JSON Schema** (`<model>.schema.json`): Data model in JSON Schema format used by the application on the client-side (frontend) to validate data in real-time.
   This is also the file that is worked on in the data modeling tool.
 - **XSD data model** (`<model>.XSD`): Data model in XML format that defines the elements that can be used in a document.
   This is not directly used by the application but can be uploaded to generate the other model files in Altinn Studio or downloaded as needed.
@@ -123,9 +123,9 @@ Only data models placed in a repository's `App/models` folder will be shown in t
 
 To create a new data model from scratch:
 
-1.  Click _Lag ny_ (_Create new_) on the left-side of the toolbar.
-2.  Enter the name of the data model in the field.
-3.  Click _Opprett modell_ (_Create model_).
+1. Click _Lag ny_ (_Create new_) on the left-side of the toolbar.
+2. Enter the name of the data model in the field.
+3. Click _Opprett modell_ (_Create model_).
 
 ![Create new data model](create-new-model.png "Create a new data model")
 
@@ -142,7 +142,7 @@ The data model will be created with some example fields that you can work with o
 Select the model you wish to edit from the dropdown list on the toolbar.
 
 {{% notice info %}}
-The JSON schema model is automatically saved as you work on it. To generate other model files such as XSD and C# files, you need to
+The JSON Schema model is automatically saved as you work on it. To generate other model files such as XSD and C# files, you need to
 click _Generer modeller_ (_Generate Models_) on the toolbar (see [Generating Model Files](#generating-model-files-xsd-and-c)).
 {{% /notice %}}
 
@@ -150,7 +150,7 @@ click _Generer modeller_ (_Generate Models_) on the toolbar (see [Generating Mod
 
 To add a field at the top-level (root node), click "Legg til" (**1** in below image).
 
-You can add sub-fields to fields of the Object type by clicking the adjacent **+** button or by clicking the field and selecting the tab _Felter_ (_Fields_) in the right-side panel.
+You can add subfields to fields of the Object type by clicking the adjacent **+** button or by clicking the field and selecting the tab _Felter_ (_Fields_) in the right-side panel.
 
 ### Adding a New Type
 
