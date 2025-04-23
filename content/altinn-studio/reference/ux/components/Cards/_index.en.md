@@ -73,7 +73,7 @@ We are currently updating Altinn Studio with more configuration options!
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-You can add a component in [Altinn Studio Designer](/nb/altinn-studio/getting-started/) by dragging it from the component list to the page area.
+You can add a component in [Altinn Studio Designer](/altinn-studio/getting-started/) by dragging it from the component list to the page area.
 When you select the component, the settings panel for it will be displayed.
 
 {{</content-version-container>}}
