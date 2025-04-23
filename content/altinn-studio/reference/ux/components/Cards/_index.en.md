@@ -9,7 +9,7 @@ toc: true
 ## Usage
 
 The Cards component can be used to display various types of content (other components) in a card-based layout.
-It can be used to display information, images, videos, and/or form components.
+It can be used to display information, images, videos, and form components.
 
 ### Anatomy
 
@@ -33,9 +33,8 @@ Visually, a card will typically display content in this order:
 
 ### Style
 
-This component has several properties to control its appearance. It may be worth experimenting with the different properties 
-to achieve the desired look and something that works well with the form components and any media components 
-used in the cards.
+This component has several properties to control its appearance. Experiment with these settings to achieve a consistent
+look that complements both form and media components within the cards.
 
 - `color` can be set on the component to control the background color of the cards. You can choose between `neutral` and `subtle`.
 - `minWidth` is used to determine the minimum width of each card. The default value if not specified is `250px`, and this will determine how many cards can be on a row. In addition to `px`, you can also use `rem` and `%` to specify the width.

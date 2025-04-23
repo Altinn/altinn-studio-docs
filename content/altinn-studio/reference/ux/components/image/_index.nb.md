@@ -21,7 +21,7 @@ aliases:
 
 Bruk bilder og illustrasjoner for å fremheve poeng eller illustrere begreper som er vanskelige å forklare med tekst.
 
-Denne komponenten kan bli brukt frittstående, eller som en media-komponent i [Cards](../cards).
+Denne komponenten kan brukes frittstående eller som en mediakomponent i [Cards-komponenten](../cards).
 
 ### Anatomi
 

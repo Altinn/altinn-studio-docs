@@ -21,7 +21,7 @@ A standard audio player typically includes:
 2. Current time and duration display
 3. Progress bar
 4. Volume control
-5. Options button (to download, control speed, etc)
+5. Options button (to download, control speed, etc.)
 
 The Audio component is a simple wrapper around the [Audio element in HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio),
 and visual appearance will vary depending on the browser, operating system, and other factors.
@@ -29,7 +29,7 @@ The above screenshot was captured from the Chrome browser.
 
 ### Related
 
-- [Cards](../cards) - Can use Audio components as media content
+- [Cards](../cards) - Can use the Audio component as media content
 - [Image](../image) - Image component
 - [Video](../video) - Video player component
 
