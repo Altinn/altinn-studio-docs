@@ -51,7 +51,7 @@ Refer to the [access management][3] for more information.
 
 #### Uploading XSD to Repository
 
-XSD files can be directly uploaded to the tool [Altinn Studio Datamodellering](#altinn-studio-data-modeling) and are described under [Upload and Display Data Model](#upload-and-display-data-model).
+XSD files can be directly uploaded to the tool [Altinn Studio Data Modeling](#altinn-studio-data-modeling) and are described under [Upload and Display Data Model](#upload-and-display-data-model).
 
 If you only need to upload XSD files for storage and do not intend to use the tool to edit the model, you can upload XSD files directly to the `<org>-datamodels` repo.
 To do this, navigate to the desired folder and select "Add file" -> "Upload file." In the text field that appears at the top, you can enter the folder name you wish to use (optional).
