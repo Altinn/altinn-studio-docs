@@ -8,9 +8,9 @@ weight: 10
 
 Navigering til neste og forrige side skjer via navigasjonsknapper. Disse må legges til manuelt i hver layout-fil. 
 
-## Legge til knapper for navigering
+## Legg til navigasjonsknapper
 
-Knapper for navigering legges inn i alle layout-filer der det er behov. Om man ønsker at den skal dukke opp nederst på siden, må den legges inn nederst i layout-filen. Eksempel vises under
+Navigasjonsknapper legges inn i alle layout-filer der det er behov. Om man ønsker at de skal dukke opp nederst på siden, må den legges inn nederst i layout-filen. Eksempel vises under
 
 ```json
 {

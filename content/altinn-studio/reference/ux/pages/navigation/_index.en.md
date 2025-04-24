@@ -52,7 +52,7 @@ If you want to dynamically hide specific pages, this can be done using [Expressi
 
 ## Grouping pages
 
-If you want to group pages or show the pages in a side bar, you can use page groups as an alternative to the standard order. Replace the `pages.order` property with the `pages.groups` property as shown below:
+If you want to group pages or show the pages in a sidebar, you can use page groups as an alternative to the standard order. Replace the `pages.order` property with the `pages.groups` property as shown below:
 
 {{< code-title >}}
 App/ui/*/Settings.json
@@ -86,7 +86,7 @@ App/ui/*/Settings.json
 | markWhenCompleted | Optional. Marks pages in the group as completed when all validation errors are fixed (and the user has seen the page).    |
 | order             | Which pages are included in the group.                                                                                    |
 
-![Grouped navigation in side bar](grouped-navigation.png "Grouped navigation in side bar")
+![Grouped navigation in sidebar](grouped-navigation.png "Grouped navigation in sidebar")
 
 ### Show process tasks in the navigation menu
 
