@@ -139,8 +139,11 @@ forvirrende for brukeren. Sjekk at fremdriftsindikatoren gir mening og verdi for
 
 ### Konfigurasjon
 
-For å sette opp fremdriftsindikatoren, legg til denne linjen i `App/ui/<layout-set>/Settings.json`-filen:
+For å sette opp fremdriftsindikatoren, legg til denne linjen i `Settings.json`-filen:
 
+{{< code-title >}}
+App/ui/*/Settings.json
+{{< /code-title >}}
 ```json {hl_lines=9}
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",

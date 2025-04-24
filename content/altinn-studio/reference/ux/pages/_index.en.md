@@ -9,7 +9,7 @@ Multiple layout pages can easily be set up in Altinn Studio, if you want to do i
 
 ## Setup
 
-Layout pages are placed in the `layouts` folder for the layout set; each process task can have its own layout set. To configure the order of the layout pages, see [Navigation](/altinn-studio/reference/ux/pages/navigation/#order). Example of a file structure with two process, tasks each with its own layout set:
+Layout pages are placed in the `layouts` folder for the layout set; each process task can have its own layout set. To configure the order of the layout pages, see [Navigation](/altinn-studio/reference/ux/pages/navigation/#order). Example of a file structure with two process tasks, each with its own layout set:
 
 ```
 |- App/

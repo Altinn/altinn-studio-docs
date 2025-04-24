@@ -140,8 +140,11 @@ confusing to the user. Make sure the progress indicator is intuitive and provide
 
 ### Configuring progress indicator
 
-To set up this feature, add the following line to your `App/ui/<layout-set>/Settings.json` file:
+To set up this feature, add the following line to your `Settings.json` file:
 
+{{< code-title >}}
+App/ui/*/Settings.json
+{{< /code-title >}}
 ```json {hl_lines=9}
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
