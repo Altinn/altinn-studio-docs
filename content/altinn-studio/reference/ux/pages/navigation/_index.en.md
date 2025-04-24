@@ -70,7 +70,7 @@ App/ui/*/Settings.json
         "name": "group.form",
         "markWhenCompleted": true,
         "order": ["side1", "side2", "side3"]
-      }
+      },
       {
         "order": ["oppsummering"]
       }
@@ -88,7 +88,7 @@ App/ui/*/Settings.json
 
 ![Grouped navigation in side bar](grouped-navigation.png "Grouped navigation in side bar")
 
-### Show prosess tasks in the naviagation menu
+### Show process tasks in the navigation menu
 
 You can also show the other process tasks in the navigation menu. This can be configured for the entire app in `layout-sets.json` with the property `uiSettings.taskNavigation`, or for each layout set with the property `pages.taskNavigation` in `Settings.json` for the layout set. Example:
 

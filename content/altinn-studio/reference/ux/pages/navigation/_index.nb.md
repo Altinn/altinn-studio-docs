@@ -6,7 +6,7 @@ toc: true
 weight: 10
 ---
 
-Navigering til neste og forrige side skjer via navigerings-knapper. Disse må legges til manuelt i hver layout-fil. 
+Navigering til neste og forrige side skjer via navigasjonsknapper. Disse må legges til manuelt i hver layout-fil. 
 
 ## Legge til knapper for navigering
 
@@ -24,7 +24,7 @@ Knapper for navigering legges inn i alle layout-filer der det er behov. Om man �
 }
 ```
 
-![Navigeringsknapper](nav-button-next-prev.png "Navigeringsknapper")
+![Navigasjonsknapper](nav-button-next-prev.png "Navigasjonsknapper")
 
 | Parameter            | Beskrivelse                                                                                                                           |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
@@ -70,7 +70,7 @@ App/ui/*/Settings.json
         "name": "group.form",
         "markWhenCompleted": true,
         "order": ["side1", "side2", "side3"]
-      }
+      },
       {
         "order": ["oppsummering"]
       }
