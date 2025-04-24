@@ -6,13 +6,11 @@ toc: true
 weight: 10
 ---
 
-Navigering videre til neste side skjer via en navigerings-knapp. Denne må legges til manuelt i hver layout-fil hvor man ønsker navigering fremover. Navigering tilbake til forrige side gjøres via tilbake-pil i venstre hjørnet. Denne knappen vises alltid så lenge det er en side å gå tilbake til, og er ikke en del av layout-filen. Se bilde under.
+Navigering til neste og forrige side skjer via navigerings-knapper. Disse må legges til manuelt i hver layout-fil. 
 
-![Navigeringsknapper](nav-button-next.png "Navigeringsknapper")
+## Legge til knapper for navigering
 
-## Legge til knapp for navigering
-
-Knapp for navigering legges inn i alle layout-filer der det er behov. Om man ønsker at den skal dukke opp nederst på siden, må den legges inn nederst i layout-filen. Eksempel vises under
+Knapper for navigering legges inn i alle layout-filer der det er behov. Om man ønsker at den skal dukke opp nederst på siden, må den legges inn nederst i layout-filen. Eksempel vises under
 
 ```json
 {
@@ -22,13 +20,11 @@ Knapp for navigering legges inn i alle layout-filer der det er behov. Om man øn
     "next": "next",
     "back": "back"
   },
-  "dataModelBindings": {}
+  "showBackButton": true
 }
 ```
 
-Det er også mulighet for å vise en `tilbake`-knapp sammen med `neste`-knappen, ved å legge til parameteren `"showBackButton": true` på komponenten.
-
-![Navigeringsknapper med tilbakeknapp](nav-button-next-prev.png "Navigeringsknapper med tilbakeknapp")
+![Navigeringsknapper](nav-button-next-prev.png "Navigeringsknapper")
 
 | Parameter            | Beskrivelse                                                                                                                           |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
@@ -36,6 +32,20 @@ Det er også mulighet for å vise en `tilbake`-knapp sammen med `neste`-knappen,
 | type                 | Må være `"NavigationButtons"`                                                                                                         |
 | textResourceBindings | Setter man parametre `next` (og evt. `back`) her, vil man kunne overstyre med egne tekster som vises på knappen(e). Se eksempel over. |
 | showBackButton       | Valgfri. Gjør at 2 knapper (tilbake/neste) vises i stedet for bare en (neste).                                                        |
+
+## Rekkefølge
+
+Rekkefølgen på sidene defineres i `Settings.json` for layout-settet under `App/ui/<layout-set>/`. Dette gjøres på følgende vis:
+
+```json
+{
+  "pages": {
+    "order": ["side1", "side2"]
+  }
+}
+```
+
+Dersom du ønsker å dynamisk skjule enkelte sider, kan dette gjøres med [Dynamiske uttrykk](/nb/altinn-studio/reference/logic/expressions/#viseskjule-hele-sider).
 
 ## Fremdriftsindikator
 
@@ -53,8 +63,7 @@ forvirrende for brukeren. Sjekk at fremdriftsindikatoren gir mening og verdi for
 
 ### Konfigurasjon
 
-For å sette opp fremdriftsindikatoren, legg til denne linjen i `App/ui/Settings.json`-filen
-(du kan eventuelt ha en `Settings.json`-fil per [layout-set](../layout-sets)):
+For å sette opp fremdriftsindikatoren, legg til denne linjen i `App/ui/<layout-set>/Settings.json`-filen:
 
 ```json {hl_lines=9}
 {
@@ -114,33 +123,6 @@ Teksten på navigasjonsbarknappene vil som standard bruke filnavnet på siden ut
 },
 
 ```
-
-## Rekkefølge
-
-Standard rekkefølge for sidene er alfabetisk. Utover det kan man navngi hver side som man ønsker, det er da filnavnet som gjelder her. For å sikre at sidene kommer i ønsket rekkefølge kan man f.eks. sette en prefix med tall foran sidenavnet i filnavn. F.eks:
-
-```
-|- App/
-  |- ui/
-    |- layouts/
-      |- 1.firstPage.json
-      |- 2.secondPage.json
-      |- 3.aFinalPage.json
-```
-
-Det er også mulig å styre rekkefølgen på sidene ved hjelp av `Settings.json` under `App/ui/`. Dette gjøres på følgende vis:
-
-```json
-{
-  "pages": {
-    "order": ["side2", "side1"]
-  }
-}
-```
-
-Her vil sidene da vises i rekkefølgen spesifisert i `pages.order`. Om denne array'en ikke settes i repo så vil man bruke alfabetisk rekkefølge som utgangspunkt for rekkefølgen på sidene.
-
-Om du ønsker å dynamisk endre på rekkefølgen på sidene kan dette gjøres med [sporvalg.](../tracks/)
 
 ## Validering ved sidebytte
 

@@ -6,13 +6,11 @@ toc: true
 weight: 10
 ---
 
-Navigation to the next page happens via a navigation button. This button has to be added manually in every layout file where you want to be able to navigate forward. Navigating back is done via a back arrow in the top left corner. This button will always be shown if there is something to navigate backwards to, and is not part of the layout file. See image below.
+Navigation to the next and previous page happens via navigation buttons. These must be added manually in every layout file where you want to be able to navigate.
 
-![Navigation buttons](nav-button-next.png "Navigation buttons")
+## Add buttons for navigation
 
-## Add button for navigation
-
-Button for navigation is added to all layout files where it is needed. If you want the button to appear at the bottom of the page, it has to be added at the bottom in the layout file. Configuration example:
+Buttons for navigation are added to all layout files where it is needed. If you want the button to appear at the bottom of the page, it has to be added at the bottom in the layout file. Configuration example:
 
 ```json
 {
@@ -22,13 +20,11 @@ Button for navigation is added to all layout files where it is needed. If you wa
     "next": "next",
     "back": "back"
   },
-  "dataModelBindings": {}
+  "showBackButton": true
 }
 ```
 
-It is also possible to show a `back` button together with the `next` button by adding the parameter `showBackButton: true` in the button configuration.
-
-![Navigation buttons with back arrow](nav-button-next-prev.png "Navigation buttons with back arrow")
+![Navigation buttons](nav-button-next-prev.png "Navigation buttons")
 
 | Parameter            | Description                                                                                                           |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------- |
@@ -36,6 +32,20 @@ It is also possible to show a `back` button together with the `next` button by a
 | type                 | Has to be `"NavigationButtons"`                                                                                       |
 | textResourceBindings | By setting the parameters `next` (and `back`), you are able to override the default texts to be shown on the buttons. |
 | showBackButton       | Optional. Makes two buttons (back/next) appear instead of just one (next).                                            |
+
+## Order
+
+The page order is defined in the `Settings.json` file for the layout-set found in `App/ui/<layout-set>/`, by setting the `pages.order` property. Example:
+
+```json
+{
+  "pages": {
+    "order": ["side1", "side2"]
+  }
+}
+```
+
+If you want to dynamically hide specific pages, this can be done using [Expressions](/altinn-studio/reference/logic/expressions/#showhide-entire-pages).
 
 ## Progress indicator
 
@@ -53,8 +63,7 @@ confusing to the user. Make sure the progress indicator is intuitive and provide
 
 ### Configuring progress indicator
 
-To set up this feature, add the following line to your `App/ui/Settings.json` file
-(you may also have one file per [layout-set](../layout-sets)):
+To set up this feature, add the following line to your `App/ui/<layout-set>/Settings.json` file:
 
 ```json {hl_lines=9}
 {
@@ -114,31 +123,6 @@ The text in the navigation bar buttons will by default use the filename of the p
 },
 
 ```
-
-## Order
-
-Default order for the pages is alphabetically. Besides this you can name each page as you wish, and the filename is what will be used. To ensure the pages appear in a specific order, you could prefix them with numbers, f.ex:
-
-```
-|- App/
-  |- ui/
-    |- layouts/
-      |- 1.firstPage.json
-      |- 2.secondPage.json
-      |- 3.aFinalPage.json
-```
-
-It is also possible to override the order on the pages in the `Settings.json` file found under `App/ui/`, by setting the `pages.order` property. Example:
-
-```json
-{
-  "pages": {
-    "order": ["side2", "side1"]
-  }
-}
-```
-
-If you want to dynamically change the page order this can be done using [tracks.](../tracks/)
 
 ## Validation on page navigation
 
