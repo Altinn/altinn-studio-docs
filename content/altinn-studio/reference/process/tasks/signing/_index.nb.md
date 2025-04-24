@@ -140,7 +140,7 @@ Eksempel på en applicationmetadata.json-fil med en signaturdatatypen kalt "sign
 
 Signeringssteget trenger en layout som definerer hva som skal vises til brukeren. Dette gjøres via en egen layoutset som i sin tur knyttes til signering prosesssteget (`Task_2 i vårt eksempel`)
 
-Hvis du har en v3 applikasjon uten layoutset se [Flere skjema i samme app (layout-sets)](../../../ux/pages/layout-sets/) for hvordan dette settes opp.
+Hvis du har en v3 applikasjon uten layoutset se [Sider](../../../ux/pages/#oppsett) for hvordan dette settes opp.
 
 Opprett en ny mappe i `App/ui/` med navnet som beskriver dette layoutsettet, f.eks. _signering_. I denne mappen oppretter du så filen `Settings.json` og en mappe med navn `layouts`. 
 
