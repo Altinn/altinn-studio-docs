@@ -54,7 +54,7 @@ Legg inn denne teksten:
     ```text
     Sogndal kommune bruker informasjonen du oppgir i dette skjemaet til å skreddersy en pakke med kommunale tilbud til deg og de du eventuelt flytter til kommunen sammen med.
     ```
-20. Legg til en ny Avsnitt-komponent og lim inn denne xteksten:
+20. Legg til en ny Avsnitt-komponent og lim inn følgende tekst:
     ```text
     Du skal ikke bruke dette skjemaet hvis
     - du allerede bor i Sogndal kommune
