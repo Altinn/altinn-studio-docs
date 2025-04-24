@@ -51,7 +51,7 @@ skal se ut, ved at man setter på begrensninger som blir validert.
     `fornavn` og `etternavn` og sjekk at disse feltene er satt som påkrevd. Du kan beholde disse innstillingene som de er.
 7. Velg **Legg til** ved siden av `model` øverst i datamodellen og velg **Heltall**.
 Du ser nå at det er lagt til et nytt felt med navnet "name0" og type "Heltall" nederst i datamodellen. Endre navnet på heltallfeltet til `alder`.
-9. I egenskapspanelet for aldersfeltet går du ned til feltert som heter **Mindre enn eller lik**. Skriv inn tallet `120` i dette feltet.
+8. I egenskapspanelet for aldersfeltet går du ned til feltet som heter **Mindre enn eller lik**. Skriv inn tallet `120` i dette feltet.
 
 ### Legg til adresse
 1. Velg **Legg til** ved siden av `model` igjen, og deretter **Objekt**.
