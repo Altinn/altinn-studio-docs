@@ -35,8 +35,11 @@ Buttons for navigation are added to all layout files where it is needed. If you 
 
 ## Order
 
-The page order is defined in the `Settings.json` file for the layout-set found in `App/ui/<layout-set>/`, by setting the `pages.order` property. Example:
+The page order is defined in the `Settings.json` file for the layout set by setting the `pages.order` property. Example:
 
+{{< code-title >}}
+App/ui/*/Settings.json
+{{< /code-title >}}
 ```json
 {
   "pages": {
@@ -46,6 +49,80 @@ The page order is defined in the `Settings.json` file for the layout-set found i
 ```
 
 If you want to dynamically hide specific pages, this can be done using [Expressions](/altinn-studio/reference/logic/expressions/#showhide-entire-pages).
+
+## Grouping pages
+
+If you want to group pages or show the pages in a side bar, you can use page groups as an alternative to the standard order. Replace the `pages.order` property with the `pages.groups` property as shown below:
+
+{{< code-title >}}
+App/ui/*/Settings.json
+{{< /code-title >}}
+```json
+{
+  "pages": {
+    "groups": [
+      {
+        "name": "group.info",
+        "type": "info",
+        "order": ["info1", "info2"]
+      },
+      {
+        "name": "group.form",
+        "markWhenCompleted": true,
+        "order": ["side1", "side2", "side3"]
+      }
+      {
+        "order": ["oppsummering"]
+      }
+    ]
+  }
+}
+```
+
+| Parameter         | Description                                                                                                               |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| name              | Text resource defining the name of the page group. Required if `order` contains more than one page.                       |
+| type              | Optional. `"info" \| "default"`.                                                                                          |
+| markWhenCompleted | Optional. Marks pages in the group as completed when all validation errors are fixed (and the user has seen the page).    |
+| order             | Which pages are included in the group.                                                                                    |
+
+![Grouped navigation in side bar](grouped-navigation.png "Grouped navigation in side bar")
+
+### Show prosess tasks in the naviagation menu
+
+You can also show the other process tasks in the navigation menu. This can be configured for the entire app in `layout-sets.json` with the property `uiSettings.taskNavigation`, or for each layout set with the property `pages.taskNavigation` in `Settings.json` for the layout set. Example:
+
+{{< code-title >}}
+App/ui/layout-sets.json
+{{< /code-title >}}
+```json
+{
+  ...
+  "uiSettings": {
+    "taskNavigation": [
+      {
+        "name": "task.form",
+        "taskId": "Task_1"
+      },
+      {
+        "taskId": "Task_2"
+      },
+      {
+        "type": "receipt"
+      }
+    ]
+  }
+}
+```
+
+| Parameter | Description                                                       |
+| --------- | ----------------------------------------------------------------- |
+| name      | Optional. Text resource defining the name of the process task.    |
+| taskId    | Which process task. Required if `type` is not set.                |
+| type      | `"receipt"`. Required if `taskId` is not set.                     |
+
+![Showing other process tasks](task-navigation.png "Showing other process tasks")
+
 
 ## Progress indicator
 

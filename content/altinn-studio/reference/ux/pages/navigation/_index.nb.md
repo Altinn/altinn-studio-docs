@@ -35,8 +35,11 @@ Knapper for navigering legges inn i alle layout-filer der det er behov. Om man �
 
 ## Rekkefølge
 
-Rekkefølgen på sidene defineres i `Settings.json` for layout-settet under `App/ui/<layout-set>/`. Dette gjøres på følgende vis:
+Rekkefølgen på sidene defineres i `Settings.json` for layout-settet. Dette gjøres på følgende vis:
 
+{{< code-title >}}
+App/ui/*/Settings.json
+{{< /code-title >}}
 ```json
 {
   "pages": {
@@ -46,6 +49,79 @@ Rekkefølgen på sidene defineres i `Settings.json` for layout-settet under `App
 ```
 
 Dersom du ønsker å dynamisk skjule enkelte sider, kan dette gjøres med [Dynamiske uttrykk](/nb/altinn-studio/reference/logic/expressions/#viseskjule-hele-sider).
+
+## Gruppering av sider
+
+Dersom du ønsker å gruppere sider eller å vise sidene i en side-meny, kan du bruke side-grupper som et alternativ til tradisjonell rekkefølge. Da erstatter du `pages.order` med egenskapen `pages.groups` som vist nedenfor:
+
+{{< code-title >}}
+App/ui/*/Settings.json
+{{< /code-title >}}
+```json
+{
+  "pages": {
+    "groups": [
+      {
+        "name": "group.info",
+        "type": "info",
+        "order": ["info1", "info2"]
+      },
+      {
+        "name": "group.form",
+        "markWhenCompleted": true,
+        "order": ["side1", "side2", "side3"]
+      }
+      {
+        "order": ["oppsummering"]
+      }
+    ]
+  }
+}
+```
+
+| Parameter         | Beskrivelse                                                                                                           |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------- |
+| name              | Tekstressurs som angir navnet på side-gruppen. Påkrevd dersom `order` inneholder mer enn én side.                     |
+| type              | Valgfri. `"info" \| "default"`.                                                                                       |
+| markWhenCompleted | Valgfri. Markerer sider i gruppen som ferdig utfylt når alle valideringsfeil er rettet (og brukeren har sett siden).  |
+| order             | Hvilke sider som inngår i gruppen.                                                                                    |
+
+![Gruppert navigasjon i side-meny](grouped-navigation.png "Gruppert navigasjon i side-meny")
+
+### Synligjør prosess-steg i navigasjons-menyen
+
+Du kan også vise den øvrige prosessen i navigasjons-menyen. Det kan konfigureres for hele appen i `layout-sets.json` med egenskapen `uiSettings.taskNavigation`, eller per layout-sett med egenskapen `pages.taskNavigation` i `Settings.json` for layout-settet. Eksempel:
+
+{{< code-title >}}
+App/ui/layout-sets.json
+{{< /code-title >}}
+```json
+{
+  ...
+  "uiSettings": {
+    "taskNavigation": [
+      {
+        "name": "task.form",
+        "taskId": "Task_1"
+      },
+      {
+        "taskId": "Task_2"
+      },
+      {
+        "type": "receipt"
+      }
+    ]
+  }
+}
+```
+
+| Parameter | Beskrivelse                                                               |
+| --------- | ------------------------------------------------------------------------- |
+| name      | Valgfri. Tekstressurs som angir navnet på prosess-steget.                 |
+| taskId    | Hvilket prosess-steg det gjelder. Obligatorisk hvis ikke `type` er satt.  |
+| type      | `"receipt"`. Obligatorisk hvis ikke `taskId` er satt.                     |
+
+![Visning av øvrige prosess-steg](task-navigation.png "Visning av øvrige prosess-steg")
 
 ## Fremdriftsindikator
 

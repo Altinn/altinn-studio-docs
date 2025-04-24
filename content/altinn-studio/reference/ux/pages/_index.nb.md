@@ -96,7 +96,7 @@ De tilgjengelige innstillingene er følgende:
 | showProgress          | Boolean | se [Navigasjon](/nb/altinn-studio/reference/ux/pages/navigation/#fremdriftsindikator)                                                                                                    |
 | pdfLayoutName         | String  | se [PDF](/nb/altinn-studio/reference/ux/pdf/#egendefinert-konfigurasjon)                                                                                                                 |
 | order                 | Array   | se [Navigasjon](/nb/altinn-studio/reference/ux/pages/navigation/#rekkefølge)                                                                                                             |
-| groups                | Array   | se [Navigasjon](/nb/altinn-studio/reference/ux/pages/navigation/#todo-what-is-this)                                                                                                             |
+| groups                | Array   | se [Navigasjon](/nb/altinn-studio/reference/ux/pages/navigation/#gruppering-av-sider)                                                                                                             |
 | excludeFromPdf        | Array   | se [PDF](/nb/altinn-studio/reference/ux/pdf/#automatisk-konfigurasjon)                                                                                                                   |
 | expandedWidth         | Boolean | se [Utvidet skjemabredde](#utvidet-skjemabredde)                                                                                                                                             |
 

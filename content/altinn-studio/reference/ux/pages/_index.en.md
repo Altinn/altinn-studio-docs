@@ -96,7 +96,7 @@ The available settings are the following:
 | showProgress          | Boolean | see [Navigation](/altinn-studio/reference/ux/pages/navigation/#progress-indicator)                                                                                                     |
 | pdfLayoutName         | String  | see [PDF](/altinn-studio/reference/ux/pdf/#custom-layout-configuration)                                                                                                                |
 | order                 | Array   | see [Navigation](/altinn-studio/reference/ux/pages/navigation/#order)                                                                                                                  |
-| groups                | Array   | see [Navigation](/altinn-studio/reference/ux/pages/navigation/#todo-what-is-this)                                                                                                                  |
+| groups                | Array   | see [Navigation](/altinn-studio/reference/ux/pages/navigation/#grouping-pages)                                                                                                                  |
 | excludeFromPdf        | Array   | see [PDF](/altinn-studio/reference/ux/pdf/#automatic-configuration)                                                                                                                    |
 | expandedWidth         | Boolean | see [Expanded form width](#expanded-form-width)                                                                                                                                           |
 
