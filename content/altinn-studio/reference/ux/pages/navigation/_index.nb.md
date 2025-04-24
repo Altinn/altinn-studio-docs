@@ -88,7 +88,7 @@ App/ui/*/Settings.json
 
 ![Gruppert navigasjon i side-meny](grouped-navigation.png "Gruppert navigasjon i side-meny")
 
-### Synligjør prosess-steg i navigasjons-menyen
+### Synliggjør prosess-steg i navigasjons-menyen
 
 Du kan også vise den øvrige prosessen i navigasjons-menyen. Det kan konfigureres for hele appen i `layout-sets.json` med egenskapen `uiSettings.taskNavigation`, eller per layout-sett med egenskapen `pages.taskNavigation` i `Settings.json` for layout-settet. Eksempel:
 
