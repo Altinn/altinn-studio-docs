@@ -1,5 +1,7 @@
 {{ partial "header.html" . }}
 
+{{ .Content | safeHTML }}
+
 <style>
 #swagger-ui a {border-bottom: 0 !important;}
 #swagger-ui div.wrapper {padding: 0;}
