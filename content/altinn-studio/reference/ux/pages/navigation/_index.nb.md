@@ -6,13 +6,11 @@ toc: true
 weight: 10
 ---
 
-Navigering videre til neste side skjer via en navigerings-knapp. Denne må legges til manuelt i hver layout-fil hvor man ønsker navigering fremover. Navigering tilbake til forrige side gjøres via tilbake-pil i venstre hjørnet. Denne knappen vises alltid så lenge det er en side å gå tilbake til, og er ikke en del av layout-filen. Se bilde under.
+Navigering til neste og forrige side skjer via navigasjonsknapper. Disse må legges til manuelt i hver layout-fil. 
 
-![Navigeringsknapper](nav-button-next.png "Navigeringsknapper")
+## Legg til navigasjonsknapper
 
-## Legge til knapp for navigering
-
-Knapp for navigering legges inn i alle layout-filer der det er behov. Om man ønsker at den skal dukke opp nederst på siden, må den legges inn nederst i layout-filen. Eksempel vises under
+Navigasjonsknapper legges inn i alle layout-filer der det er behov. Om man ønsker at de skal dukke opp nederst på siden, må den legges inn nederst i layout-filen. Eksempel vises under
 
 ```json
 {
@@ -22,13 +20,11 @@ Knapp for navigering legges inn i alle layout-filer der det er behov. Om man øn
     "next": "next",
     "back": "back"
   },
-  "dataModelBindings": {}
+  "showBackButton": true
 }
 ```
 
-Det er også mulighet for å vise en `tilbake`-knapp sammen med `neste`-knappen, ved å legge til parameteren `"showBackButton": true` på komponenten.
-
-![Navigeringsknapper med tilbakeknapp](nav-button-next-prev.png "Navigeringsknapper med tilbakeknapp")
+![Navigasjonsknapper](nav-button-next-prev.png "Navigasjonsknapper")
 
 | Parameter            | Beskrivelse                                                                                                                           |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
@@ -36,6 +32,96 @@ Det er også mulighet for å vise en `tilbake`-knapp sammen med `neste`-knappen,
 | type                 | Må være `"NavigationButtons"`                                                                                                         |
 | textResourceBindings | Setter man parametre `next` (og evt. `back`) her, vil man kunne overstyre med egne tekster som vises på knappen(e). Se eksempel over. |
 | showBackButton       | Valgfri. Gjør at 2 knapper (tilbake/neste) vises i stedet for bare en (neste).                                                        |
+
+## Rekkefølge
+
+Rekkefølgen på sidene defineres i `Settings.json` for layout-settet. Dette gjøres på følgende vis:
+
+{{< code-title >}}
+App/ui/*/Settings.json
+{{< /code-title >}}
+```json
+{
+  "pages": {
+    "order": ["side1", "side2"]
+  }
+}
+```
+
+Dersom du ønsker å dynamisk skjule enkelte sider, kan dette gjøres med [Dynamiske uttrykk](/nb/altinn-studio/reference/logic/expressions/#viseskjule-hele-sider).
+
+## Gruppering av sider
+
+Dersom du ønsker å gruppere sider eller å vise sidene i en side-meny, kan du bruke side-grupper som et alternativ til tradisjonell rekkefølge. Da erstatter du `pages.order` med egenskapen `pages.groups` som vist nedenfor:
+
+{{< code-title >}}
+App/ui/*/Settings.json
+{{< /code-title >}}
+```json
+{
+  "pages": {
+    "groups": [
+      {
+        "name": "group.info",
+        "type": "info",
+        "order": ["info1", "info2"]
+      },
+      {
+        "name": "group.form",
+        "markWhenCompleted": true,
+        "order": ["side1", "side2", "side3"]
+      },
+      {
+        "order": ["oppsummering"]
+      }
+    ]
+  }
+}
+```
+
+| Parameter         | Beskrivelse                                                                                                           |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------- |
+| name              | Tekstressurs som angir navnet på side-gruppen. Påkrevd dersom `order` inneholder mer enn én side.                     |
+| type              | Valgfri. `"info" \| "default"`.                                                                                       |
+| markWhenCompleted | Valgfri. Markerer sider i gruppen som ferdig utfylt når alle valideringsfeil er rettet (og brukeren har sett siden).  |
+| order             | Hvilke sider som inngår i gruppen.                                                                                    |
+
+![Gruppert navigasjon i side-meny](grouped-navigation.png "Gruppert navigasjon i side-meny")
+
+### Synliggjør prosess-steg i navigasjons-menyen
+
+Du kan også vise den øvrige prosessen i navigasjons-menyen. Det kan konfigureres for hele appen i `layout-sets.json` med egenskapen `uiSettings.taskNavigation`, eller per layout-sett med egenskapen `pages.taskNavigation` i `Settings.json` for layout-settet. Eksempel:
+
+{{< code-title >}}
+App/ui/layout-sets.json
+{{< /code-title >}}
+```json
+{
+  ...
+  "uiSettings": {
+    "taskNavigation": [
+      {
+        "name": "task.form",
+        "taskId": "Task_1"
+      },
+      {
+        "taskId": "Task_2"
+      },
+      {
+        "type": "receipt"
+      }
+    ]
+  }
+}
+```
+
+| Parameter | Beskrivelse                                                               |
+| --------- | ------------------------------------------------------------------------- |
+| name      | Valgfri. Tekstressurs som angir navnet på prosess-steget.                 |
+| taskId    | Hvilket prosess-steg det gjelder. Obligatorisk hvis ikke `type` er satt.  |
+| type      | `"receipt"`. Obligatorisk hvis ikke `taskId` er satt.                     |
+
+![Visning av øvrige prosess-steg](task-navigation.png "Visning av øvrige prosess-steg")
 
 ## Fremdriftsindikator
 
@@ -53,9 +139,11 @@ forvirrende for brukeren. Sjekk at fremdriftsindikatoren gir mening og verdi for
 
 ### Konfigurasjon
 
-For å sette opp fremdriftsindikatoren, legg til denne linjen i `App/ui/Settings.json`-filen
-(du kan eventuelt ha en `Settings.json`-fil per [layout-set](../layout-sets)):
+For å sette opp fremdriftsindikatoren, legg til denne linjen i `Settings.json`-filen:
 
+{{< code-title >}}
+App/ui/*/Settings.json
+{{< /code-title >}}
 ```json {hl_lines=9}
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
@@ -114,33 +202,6 @@ Teksten på navigasjonsbarknappene vil som standard bruke filnavnet på siden ut
 },
 
 ```
-
-## Rekkefølge
-
-Standard rekkefølge for sidene er alfabetisk. Utover det kan man navngi hver side som man ønsker, det er da filnavnet som gjelder her. For å sikre at sidene kommer i ønsket rekkefølge kan man f.eks. sette en prefix med tall foran sidenavnet i filnavn. F.eks:
-
-```
-|- App/
-  |- ui/
-    |- layouts/
-      |- 1.firstPage.json
-      |- 2.secondPage.json
-      |- 3.aFinalPage.json
-```
-
-Det er også mulig å styre rekkefølgen på sidene ved hjelp av `Settings.json` under `App/ui/`. Dette gjøres på følgende vis:
-
-```json
-{
-  "pages": {
-    "order": ["side2", "side1"]
-  }
-}
-```
-
-Her vil sidene da vises i rekkefølgen spesifisert i `pages.order`. Om denne array'en ikke settes i repo så vil man bruke alfabetisk rekkefølge som utgangspunkt for rekkefølgen på sidene.
-
-Om du ønsker å dynamisk endre på rekkefølgen på sidene kan dette gjøres med [sporvalg.](../tracks/)
 
 ## Validering ved sidebytte
 

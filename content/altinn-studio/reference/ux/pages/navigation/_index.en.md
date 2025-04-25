@@ -6,13 +6,11 @@ toc: true
 weight: 10
 ---
 
-Navigation to the next page happens via a navigation button. This button has to be added manually in every layout file where you want to be able to navigate forward. Navigating back is done via a back arrow in the top left corner. This button will always be shown if there is something to navigate backwards to, and is not part of the layout file. See image below.
+Navigation to the next and previous page happens via navigation buttons. These must be added manually in every layout file where you want to be able to navigate.
 
-![Navigation buttons](nav-button-next.png "Navigation buttons")
+## Add buttons for navigation
 
-## Add button for navigation
-
-Button for navigation is added to all layout files where it is needed. If you want the button to appear at the bottom of the page, it has to be added at the bottom in the layout file. Configuration example:
+Buttons for navigation are added to all layout files where it is needed. If you want the button to appear at the bottom of the page, it has to be added at the bottom in the layout file. Configuration example:
 
 ```json
 {
@@ -22,13 +20,11 @@ Button for navigation is added to all layout files where it is needed. If you wa
     "next": "next",
     "back": "back"
   },
-  "dataModelBindings": {}
+  "showBackButton": true
 }
 ```
 
-It is also possible to show a `back` button together with the `next` button by adding the parameter `showBackButton: true` in the button configuration.
-
-![Navigation buttons with back arrow](nav-button-next-prev.png "Navigation buttons with back arrow")
+![Navigation buttons](nav-button-next-prev.png "Navigation buttons")
 
 | Parameter            | Description                                                                                                           |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------- |
@@ -36,6 +32,97 @@ It is also possible to show a `back` button together with the `next` button by a
 | type                 | Has to be `"NavigationButtons"`                                                                                       |
 | textResourceBindings | By setting the parameters `next` (and `back`), you are able to override the default texts to be shown on the buttons. |
 | showBackButton       | Optional. Makes two buttons (back/next) appear instead of just one (next).                                            |
+
+## Order
+
+The page order is defined in the `Settings.json` file for the layout set by setting the `pages.order` property. Example:
+
+{{< code-title >}}
+App/ui/*/Settings.json
+{{< /code-title >}}
+```json
+{
+  "pages": {
+    "order": ["side1", "side2"]
+  }
+}
+```
+
+If you want to dynamically hide specific pages, this can be done using [Expressions](/altinn-studio/reference/logic/expressions/#showhide-entire-pages).
+
+## Grouping pages
+
+If you want to group pages or show the pages in a sidebar, you can use page groups as an alternative to the standard order. Replace the `pages.order` property with the `pages.groups` property as shown below:
+
+{{< code-title >}}
+App/ui/*/Settings.json
+{{< /code-title >}}
+```json
+{
+  "pages": {
+    "groups": [
+      {
+        "name": "group.info",
+        "type": "info",
+        "order": ["info1", "info2"]
+      },
+      {
+        "name": "group.form",
+        "markWhenCompleted": true,
+        "order": ["side1", "side2", "side3"]
+      },
+      {
+        "order": ["oppsummering"]
+      }
+    ]
+  }
+}
+```
+
+| Parameter         | Description                                                                                                               |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| name              | Text resource defining the name of the page group. Required if `order` contains more than one page.                       |
+| type              | Optional. `"info" \| "default"`.                                                                                          |
+| markWhenCompleted | Optional. Marks pages in the group as completed when all validation errors are fixed (and the user has seen the page).    |
+| order             | Which pages are included in the group.                                                                                    |
+
+![Grouped navigation in sidebar](grouped-navigation.png "Grouped navigation in sidebar")
+
+### Show process tasks in the navigation menu
+
+You can also show the other process tasks in the navigation menu. This can be configured for the entire app in `layout-sets.json` with the property `uiSettings.taskNavigation`, or for each layout set with the property `pages.taskNavigation` in `Settings.json` for the layout set. Example:
+
+{{< code-title >}}
+App/ui/layout-sets.json
+{{< /code-title >}}
+```json
+{
+  ...
+  "uiSettings": {
+    "taskNavigation": [
+      {
+        "name": "task.form",
+        "taskId": "Task_1"
+      },
+      {
+        "taskId": "Task_2"
+      },
+      {
+        "type": "receipt"
+      }
+    ]
+  }
+}
+```
+
+| Parameter | Description                                                       |
+| --------- | ----------------------------------------------------------------- |
+| name      | Optional. Text resource defining the name of the process task.    |
+| taskId    | Which process task. Required if `type` is not set.                |
+| type      | `"receipt"`. Required if `taskId` is not set.                     |
+
+![Showing other process tasks](task-navigation.png "Showing other process tasks")
+
 
 ## Progress indicator
 
@@ -53,9 +140,11 @@ confusing to the user. Make sure the progress indicator is intuitive and provide
 
 ### Configuring progress indicator
 
-To set up this feature, add the following line to your `App/ui/Settings.json` file
-(you may also have one file per [layout-set](../layout-sets)):
+To set up this feature, add the following line to your `Settings.json` file:
 
+{{< code-title >}}
+App/ui/*/Settings.json
+{{< /code-title >}}
 ```json {hl_lines=9}
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
@@ -114,31 +203,6 @@ The text in the navigation bar buttons will by default use the filename of the p
 },
 
 ```
-
-## Order
-
-Default order for the pages is alphabetically. Besides this you can name each page as you wish, and the filename is what will be used. To ensure the pages appear in a specific order, you could prefix them with numbers, f.ex:
-
-```
-|- App/
-  |- ui/
-    |- layouts/
-      |- 1.firstPage.json
-      |- 2.secondPage.json
-      |- 3.aFinalPage.json
-```
-
-It is also possible to override the order on the pages in the `Settings.json` file found under `App/ui/`, by setting the `pages.order` property. Example:
-
-```json
-{
-  "pages": {
-    "order": ["side2", "side1"]
-  }
-}
-```
-
-If you want to dynamically change the page order this can be done using [tracks.](../tracks/)
 
 ## Validation on page navigation
 
