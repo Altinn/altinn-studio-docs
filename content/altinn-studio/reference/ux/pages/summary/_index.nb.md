@@ -8,10 +8,6 @@ weight: 30
 
 {{%notice warning%}}
 Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio kommer på et senere tidspunkt.
-
-<br>
-
-**MERK**: PDF-genereringen viser ikke oppsummerings-komponenter. For at PDF-generering skal fungere optimalt må du kanskje ekskludere enkelte komponenter, eller hele oppsummerings-sider fra PDF. Dette gjøres i `Settings.json`-filen knyttet til layout-filene, se [Ekskludering av sider og komponenter](/nb/altinn-studio/reference/ux/pdf/#ekskludering-av-sider-og-komponenter). 
 {{%/notice%}}
 
 ## Oppsett

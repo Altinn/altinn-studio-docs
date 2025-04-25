@@ -8,10 +8,6 @@ weight: 30
 
 {{%notice warning%}}
 Setup must be done manually as of today. Support for setup through Altinn Studio will be available at a later point in time.
-
-<br>
-
-**NOTE**: The PDF generation does not show any summary components. For PDF generation to work properly, you may want to exclude some components or whole summary-pages from the PDF. This is done in the `Settings.json` file associated with the layout-files, see [Excluding pages and components](/altinn-studio/reference/ux/pdf/#excluding-pages-and-components). 
 {{%/notice%}}
 
 ## Setup
