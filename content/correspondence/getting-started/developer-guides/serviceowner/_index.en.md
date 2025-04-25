@@ -49,7 +49,7 @@ In order to authenticate the Correspondence API you must register your Maskinpor
 
 The scopes are maintained by Altinn, they are required for you to be authorized for the correct API operations. Note that this is not the same as the access granted by service owners in step 2 for the specific Correspondence service resource.
 
-Use Samarbeidsportalen self-service for registration. [Here's a detailed guide](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web#selvbetjening-som-api-konsument).
+Use Samarbeidsportalen self-service for registration. [Here's a detailed guide](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web#innlogging-og-tilgang).
 
 - [Test environments](https://sjolvbetjening.test.samarbeid.digdir.no/)
 - [Production environment](https://sjolvbetjening.samarbeid.digdir.no/)

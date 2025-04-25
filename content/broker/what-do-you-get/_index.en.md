@@ -11,25 +11,44 @@ weight: 20
 Altinn Broker offers end-to-end file transfers, from creation, sending, receiving to tracking file transfers. This ensures that all parts of the messaging flow are handled efficiently and securely.
 
 ### Support for large payloads
-A unique feature of Altinn Broker is its ability to handle large data volumes (payloads). We aim to support very large payloads in the near future. This is the solution for those who need to transfer large amounts of information efficiently and securely.
+A unique feature of Altinn Broker is its ability to handle large data volumes (payloads). The system supports file transfers of up to 2 GB with virus scanning, and up to 1600 GB without. This is the ideal solution for those who need to transfer large amounts of information efficiently and securely.
 
-### GUI and API access
-Users have access to all functionalities through both a user-friendly interface (GUI) and via APIs. This provides you with the flexibility to integrate Altinn Broker into your own systems, allowing you to automate your processes.
+### Security
+Use of security mechanisms to protect content, you will find more information in this article: https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption
 
-### Notifications and tracking
-The system supports detailed notification and tracking mechanisms. This includes notifications in accordance with the E-Government Regulation, ensuring that you are always updated on the status of your transfers. The tracking provides a complete overview of the messaging flow, including delivery status and confirmations.
+### Logging
+Altinn Formidling ensures that all events and processes are thoroughly logged, making it easy to trace who did what and when.
 
-### High degree of auditability and detailed access control
-Altinn Broker offers a high degree of auditability, meaning that all events and processes are logged carefully for verification. The system also supports refined and detailed access control, ensuring that only authorized users can access specific transfers or functionalities.
+### Notifications
+- Automatic notifications via email or SMS to recievers.
+- Reminder notification after 7 days if the file is unread.
+- Customized notification settings based on user preferences. This includes notification templates and custom notification addresses.
+
+### Events
+You can receive notifications about events related to submitted messaging services by setting up a subscription for the specific service. For example, you can see whether the file has reached the recipient and whether it has been opened.
+
+### Access Control 
+The system offers advanced access control, ensuring that only authorized users can access specific file transfers.
 
 ### Support for various file formats
 The solution is flexible and supports both structured and unstructured files. This customization allows for adaptation to a wide range of use cases and data formats.
+
+### Availability
+The sender determines how long the file will be available for download by the recipient. After this period, the file will become inaccessible.
+
+- PurgeFileTransferAfterAllRecipientsConfirmed: Whether the file is deleted once all recipients have confirmed receipt.
+- PurgeFileTransferGracePeriod: If the above field is set to "false", this parameter specifies how long the file will remain available for download after confirmation (default is 2 hours, maximum is 24 hours).
+- FileTransferTimeToLive: How long a file is available for download (default is 30 days, maximum is one year).
+
+### API access
+All users, both senders and recipients, have access to functionalities through the Broker APIs. This provides you with the possibility to integrate Altinn Broker into your own systems, allowing you to automate your processes.
 
 ### Integrations and cloud Support
 Altinn Broker seeks to provide as standardized integrations as possible with other common solutions, easing integration with existing systems. The solution also offers buffering to handle large data volumes. It can be configured to use your own cloud solution for storage, should you have requirements for this.
 
 ### Overview of your consumption
 Altinn Broker utilizes Azure cloud solutions, allowing you to monitor your consumption of cloud resources. This includes monitoring data usage, processing capacity, storage, and other relevant resources. This ensures that you stay within budgeted limits and can optimize the use of cloud resources for better cost-effectiveness.
+
 
 ## Main Features
 
