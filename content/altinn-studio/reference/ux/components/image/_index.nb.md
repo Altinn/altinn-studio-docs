@@ -21,6 +21,8 @@ aliases:
 
 Bruk bilder og illustrasjoner for å fremheve poeng eller illustrere begreper som er vanskelige å forklare med tekst.
 
+Denne komponenten kan brukes frittstående eller som en mediakomponent i [Cards-komponenten](../cards).
+
 ### Anatomi
 
 ![Bilde og alt tekst anatomi](image-and-alt-text-en.png)
@@ -96,20 +98,21 @@ App/ui/layouts/{page}.json
 ```json{hl_lines="6-14"}
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
-  {
-    "data": {
-      "layout": [
-        {
-          "id": "komponent-id",
-          "type": "Image",
-          "image": {
-            "src": {},
-             "width": "100%",
-             "align": "center"
-            }
+  "data": {
+    "layout": [
+      {
+        "id": "komponent-id",
+        "type": "Image",
+        "image": {
+          "src": {
+            "en": "https://example.com/image.jpg",
+            "nb": "/org/app/assets/image.png"
+          },
+          "width": "100%",
+          "align": "center"
         }
-      ]
-    }
+      }
+    ]
   }
 }
 ```
