@@ -14,7 +14,7 @@ Altinn Broker offers end-to-end file transfers, from creation, sending, receivin
 A unique feature of Altinn Broker is its ability to handle large data volumes (payloads). The system supports file transfers of up to 2 GB with virus scanning, and up to 1600 GB without. This is the ideal solution for those who need to transfer large amounts of information efficiently and securely.
 
 ### Security
-Use of Microsoft security mechanisms to protect content. See [Azure Storage Service Encryption](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption) for more details.
+Leverages Microsoft Azure Storage Service Encryption to protect content. See [Azure Storage Service Encryption](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption) for more details.
 
 ### Logging
 Altinn Broker ensures that all events and processes are thoroughly logged, making it easy to trace who did what and when.
@@ -22,7 +22,7 @@ Altinn Broker ensures that all events and processes are thoroughly logged, makin
 ### Notifications
 - Automatic notifications via email or SMS to recipients.
 - Reminder after 7 days if a file remains unopened.
-- Customizeable notification templates and custom delivery addresses.
+- Customizable notification templates and custom delivery addresses.
 
 ### Events
 You can receive notifications about events related to submitted messaging services by setting up a subscription for the specific service. For example, you can see whether the file has reached the recipient and whether it has been opened.
