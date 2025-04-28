@@ -5,7 +5,7 @@
         "isPoa": false,
         "isMessageSetInRequest": true,
         "restrictedToServiceOwners": [
-            "skd"
+            "skd", "ttd"
         ],
         "texts": {
             "title": {
@@ -256,7 +256,7 @@
         "isPoa": false,
         "isMessageSetInRequest": false,
         "restrictedToServiceOwners": [
-            "skd"
+            "skd", "ttd"
         ],
         "texts": {
             "title": {
