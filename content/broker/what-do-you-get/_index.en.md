@@ -17,7 +17,7 @@ A unique feature of Altinn Broker is its ability to handle large data volumes (p
 Use of security mechanisms to protect content, you will find more information in this article: https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption
 
 ### Logging
-Altinn Formidling ensures that all events and processes are thoroughly logged, making it easy to trace who did what and when.
+Altinn Broker ensures that all events and processes are thoroughly logged, making it easy to trace who did what and when.
 
 ### Notifications
 - Automatic notifications via email or SMS to recievers.
