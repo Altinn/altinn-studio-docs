@@ -14,15 +14,15 @@ Altinn Broker offers end-to-end file transfers, from creation, sending, receivin
 A unique feature of Altinn Broker is its ability to handle large data volumes (payloads). The system supports file transfers of up to 2 GB with virus scanning, and up to 1600 GB without. This is the ideal solution for those who need to transfer large amounts of information efficiently and securely.
 
 ### Security
-Use of security mechanisms to protect content, you will find more information in this article: https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption
+Use of Microsoft security mechanisms to protect content. See [Azure Storage Service Encryption](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption) for more details.
 
 ### Logging
 Altinn Broker ensures that all events and processes are thoroughly logged, making it easy to trace who did what and when.
 
 ### Notifications
-- Automatic notifications via email or SMS to recievers.
-- Reminder notification after 7 days if the file is unread.
-- Customized notification settings based on user preferences. This includes notification templates and custom notification addresses.
+- Automatic notifications via email or SMS to recipients.
+- Reminder after 7 days if a file remains unopened.
+- Customizeable notification templates and custom delivery addresses.
 
 ### Events
 You can receive notifications about events related to submitted messaging services by setting up a subscription for the specific service. For example, you can see whether the file has reached the recipient and whether it has been opened.
@@ -36,9 +36,9 @@ The solution is flexible and supports both structured and unstructured files. Th
 ### Availability
 The sender determines how long the file will be available for download by the recipient. After this period, the file will become inaccessible.
 
-- PurgeFileTransferAfterAllRecipientsConfirmed: Whether the file is deleted once all recipients have confirmed receipt.
-- PurgeFileTransferGracePeriod: If the above field is set to "false", this parameter specifies how long the file will remain available for download after confirmation (default is 2 hours, maximum is 24 hours).
-- FileTransferTimeToLive: How long a file is available for download (default is 30 days, maximum is one year).
+- 'PurgeFileTransferAfterAllRecipientsConfirmed': Whether the file is deleted once all recipients have confirmed receipt.
+- 'PurgeFileTransferGracePeriod': If the above field is set to "false", this parameter specifies how long the file will remain available for download after confirmation (default is 2 hours, maximum is 24 hours).
+- 'FileTransferTimeToLive': How long a file is available for download (default is 30 days, maximum is one year).
 
 ### API access
 All users, both senders and recipients, have access to functionalities through the Broker APIs. This provides you with the possibility to integrate Altinn Broker into your own systems, allowing you to automate your processes.

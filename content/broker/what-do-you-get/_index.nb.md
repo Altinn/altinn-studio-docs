@@ -14,7 +14,7 @@ Altinn Formidling tilbyr ende-til-ende filoverføringer, fra opprettelse, sendin
 Et særegent trekk ved Altinn Formidling er evnen til å håndtere store datamengder (payloads). Systemet støtter filoverføring på inntil 2 GB med virusskanning, og opptil hele 1600 GB uten virusskanning. Dette er løsningen for deg som trenger å overføre store mengder informasjon effektivt og sikkert. 
 
 ### Sikkerhet
-Bruk av sikkerhetsmekanismer som beskytter innholdet, finn mer informasjon i denne artikkelen: https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption
+Bruk av sikkerhetsmekanismer som beskytter innholdet, finn mer informasjon i denne artikkelen [Azure Storage-tjenestekryptering](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption)
 
 ### Logging 
 Altinn Formidling sørger for at alle hendelser og prosesser blir nøye loggført, slik at det er enkelt å etterprøve hvem som har gjort hva og når.
@@ -25,7 +25,7 @@ Altinn Formidling sørger for at alle hendelser og prosesser blir nøye loggfør
 - Tilpassede varslingsinnstillinger basert på brukerpreferanser. Dette innebærer varslingsmaler og egendefinerte varslingsadresser.
 
 ### Events (hendelsesabonnementer)
-Du kan motta varsler om hendelser knyttet til sendte formidlingstjenester, ved å sette opp et abonnement for den aktuelle tjenesten. Du kan eksempelvis kunne se om filen er kommet frem til mottaker og om den er åpnet. 
+Du kan motta varsler om hendelser knyttet til sendte formidlingstjenester, ved å sette opp et abonnement for den aktuelle tjenesten. Du kan for eksempel se om filen er kommet frem til mottaker og om den er åpnet. 
 
 ### Tilgangsstyring
 Systemet tilbyr avansert tilgangsstyring, slik at du kan være trygg på at kun autoriserte brukere får tilgang til bestemte filoverføringer.
@@ -35,9 +35,9 @@ Løsningen er fleksibel og støtter både strukturerte og ustrukturerte filer. D
 
 ### Tilgjengelighet 
 Avsender bestemmer hvor lenge filen vil kunne lastes ned av mottaker. Etter denne perioden vil filen bli utilgjengelig. 
-- PurgeFileTransferAfterAllRecipientsConfirmed: Om filen slettes når alle mottakere har bekreftet.
-- PurgeFileTransferGracePeriod: Hvis feltet over er "false", så sier dette parametret hvor lenge det skal være mulig å laste ned filen (default er 2 timer, maks er 24 timer).
-- FileTransferTimeToLive: Hvor lenge en fil er tilgjengelig for nedlastning (default er 30 dager, maks er ett år).
+- 'PurgeFileTransferAfterAllRecipientsConfirmed': Om filen slettes når alle mottakere har bekreftet.
+- 'PurgeFileTransferGracePeriod': Hvis feltet over er "false", så sier dette parametret hvor lenge det skal være mulig å laste ned filen (default er 2 timer, maks er 24 timer).
+- 'FileTransferTimeToLive': Hvor lenge en fil er tilgjengelig for nedlastning (default er 30 dager, maks er ett år).
 
 ### API-tilgang
 Både avsender og mottaker får tilgang til alle funksjoner via API-er. Dette gir mulighet til å integrere Altinn Formidling i egne systemer, slik at du kan automatisere dine prosesser.
