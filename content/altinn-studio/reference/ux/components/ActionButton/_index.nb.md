@@ -1,7 +1,7 @@
 ---
 title: ActionButton (Handlingsknapp)
 linktitle: ActionButton
-description: # Knapp som starter en bestemt handling knyttet til den oppgaven i arbeidsflyten som brukerne er på, for eksempel signering, bekreftelse eller avvisning.
+description: Knapp som starter en bestemt handling knyttet til den oppgaven i arbeidsflyten som brukerne er på, for eksempel signering, bekreftelse eller avvisning.
 schemaname: ActionButton # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk
 toc: true
