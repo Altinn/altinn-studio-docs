@@ -7,11 +7,6 @@ weight: 10 # Ikke endre, komponentene sorteres alfabetisk
 toc: true
 aliases:
 - alertcomponent
----
-
-{{% notice warning %}}
-🚧 Denne dokumentasjonen er under oppdatering.
-{{% /notice %}}
 
 ---
 
@@ -24,9 +19,9 @@ Bruk varsler når du vil vise viktig informasjon til brukerne.
 <iframe style="border: 0px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1-4276&viewport=854%2C1675%2C0.89&scaling=contain&content-scaling=responsive&starting-point-node-id=1%3A4276&show-proto-sidebar=0&embed-host=share&hide-ui=true" allowfullscreen></iframe>
 
 {{% anatomy-list %}}
-1. **Overskrift**: En kort beskrivende tittel .
-2. **Ikon**: Et grafisk symbol som formidler alvorlighetsgraden av varselet.
-3. **Tekstinnhold**: Skritlig informasjon eller beskjed assosiert med varselet.
+1. **Overskrift**: En kort beskrivende tittel.
+2. **Ikon**: Et grafisk symbol som viser hvor alvorlig varelet er.
+3. **Tekstinnhold**: En melding som forteller hva varselet dreier seg om.
 {{% /anatomy-list %}}
 
 ### Tilgjengelighet
@@ -89,7 +84,8 @@ Hvis ingen argument gis, henter shortkoden komponentnavnet fra 'schemaname' i fr
 
 Du legger til komponenter i [Altinn Studio Designer](/nb/altinn-studio/getting-started/) ved å klikke på **Legg til komponent** når du står på en side i **Utforming**. 
 Du får opp de mest brukte komponentene, og kan klikke på **Vis alle** for å få en oversikt over alle komponentene i Altinn Studio. 
-Når du klikker på komponenten du vil legge til, vises den i et panel til høyre. Der kan du endre ID-en til komponenten hvis du vil, før du klikker på **Legg til**. Når du har lagt den til på siden, ser du egenskapene til kompoenten, og du kan endre dem.
+Når du klikker på komponenten du vil legge til, vises den i et panel til høyre. Der kan du endre ID-en til komponenten hvis du vil, før du klikker på **Legg til**. 
+Når du har lagt den til på siden, ser du egenskapene til komponenten, og kan endre dem.
 
 ### Innstillinger i Altinn Studio Designer
 
@@ -109,7 +105,8 @@ Innstillinger for egenskaper tilgjengelig i Altinn Studio Designer.
 - **Komponent-ID** (`id`): Automatisk generert komponent-ID (du kan endre den).
 - **Ledetekst** (`textResourceBindings.title`): Overskriften til varselet. Skriv en kort og informativ overskrift. Den skal forteller brukerne hva varselet dreier seg om.
 - **Tekstinnhold** (`textResourceBindings.body`): Utdyp innholdet i varselet. Pass på at du tar med informasjon som hjelper brukerne videre.
-- **Alvorlighetsgrad** (`severity`): Alvorlighetsgraden angir utsteendet på varselet med farger og ikon. Vi har fire alvorlighetsgrader: `info`, `success`, `warning`, og `danger`. Les mer på designsystemet.no om når du bruker de ulike.
+- **Alvorlighetsgrad** (`severity`): Alvorlighetsgraden angir utsteendet på varselet med farger og ikon. Vi har fire alvorlighetsgrader: `info`, `success`, `warning`, og `danger`. 
+Les mer på designsystemet.no om når du bruker de ulike alvorlighetsgradene.
 
 {{</content-version-container>}}
 {{<content-version-container version-label="Kode">}}
@@ -143,7 +140,7 @@ App/ui/layouts/{page}.json
 
 ### Overskrift og tekstinnhold
 
-På Utforming-siden går du til nedtrekkslisten Tekst i egenskapene for komponenten. Du legger til overskriften i Ledetekst og selve varselteksten i Tekstinnhold. [Legge ti og endre tekster i en app](../../../ux/texts/#legge-til-og-endre-tekster-i-en-app).
+På Utforming-siden går du til nedtrekkslisten **Tekst** i egenskapene for komponenten. Du legger til overskriften i **Ledetekst** og selve varselteksten i **Tekstinnhold**. [Legge ti og endre tekster i en app](../../../ux/texts/#legge-til-og-endre-tekster-i-en-app).
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
