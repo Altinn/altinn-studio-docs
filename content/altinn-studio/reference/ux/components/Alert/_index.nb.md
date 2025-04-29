@@ -140,7 +140,7 @@ App/ui/layouts/{page}.json
 
 ### Overskrift og tekstinnhold
 
-På Utforming-siden går du til nedtrekkslisten **Tekst** i egenskapene for komponenten. Du legger til overskriften i **Ledetekst** og selve varselteksten i **Tekstinnhold**. [Legge ti og endre tekster i en app](../../../ux/texts/#legge-til-og-endre-tekster-i-en-app).
+På Utforming-siden går du til nedtrekkslisten **Tekst** i egenskapene for komponenten. Du legger til overskriften i **Ledetekst** og selve varselteksten i **Tekstinnhold**. [Legge til og endre tekster i en app](../../../ux/texts/#legge-til-og-endre-tekster-i-en-app).
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
