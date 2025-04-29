@@ -4,7 +4,7 @@ linktitle: Altinn 2 Portal
 description: Visning av Altinn 3 Melding i Altinn 2 Portal
 tags: []
 toc: false
-weight: 30
+weight: 40
 ---
 
 For å raskt ha på plass en GUI-løsning for sluttbrukere uavhengig av leveransen av Arbeidsflate, utvides dagens Altinn 2 portal til å kunne hente ut og vise Altinn 3 Meldinger.
@@ -15,7 +15,7 @@ Visningen blir i stor grad lik som eksisterende visning av Altinn 2 Meldinger, o
 - Ingen "Arkiver" knapp
 - Annerledes oppførsel med sletting/papirkurv-funksjonalitet.
 
-NB: Utvikling og testing er underveis så beskrivelsen her vil kunne oppdateres.
+Løsningen er i produksjon og siste større endringer var i Altinn 2 sin 25.4 release, men vi utelukker ikke flere (mindre) endringer.
 
 ## Tiltak for gradvis økning av last
 

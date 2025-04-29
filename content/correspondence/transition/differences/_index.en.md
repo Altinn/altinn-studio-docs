@@ -4,7 +4,7 @@ linktitle: Differences
 description: Differences in Altinn Correspondence between Altinn 2 and Altinn 3
 tags: []
 toc: false
-weight: 60
+weight: 70
 ---
 
 To simplify the transition from Altinn 2 to the Altinn 3 version of the Correspondence product, the data model and process flow of Altinn 2 Correspondence have been used as a basis, with some simplifications and improvements.

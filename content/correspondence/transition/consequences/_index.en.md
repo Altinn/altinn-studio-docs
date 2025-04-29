@@ -4,7 +4,7 @@ linktitle: Consequences
 description: Consequences for the Parties using Altinn Correspondence
 tags: []
 toc: true
-weight: 40
+weight: 60
 ---
 
 Here is a brief summary of the consequences of the chosen transition and migration solution for the different parties:
