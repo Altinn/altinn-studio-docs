@@ -103,10 +103,10 @@ Innstillinger for egenskaper tilgjengelig i Altinn Studio Designer.
 ![Altert innstillingspanel](Alert-settings-panel.png "Innstillinger for Alert")
 
 - **Komponent-ID** (`id`): Automatisk generert komponent-ID (du kan endre den).
-- **Ledetekst** (`textResourceBindings.title`): Overskriften til varselet. Skriv en kort og informativ overskrift. Den skal forteller brukerne hva varselet dreier seg om.
+- **Ledetekst** (`textResourceBindings.title`): Overskriften til varselet. Skriv en kort og informativ overskrift. Den skal fortelle brukerne hva varselet dreier seg om.
 - **Tekstinnhold** (`textResourceBindings.body`): Utdyp innholdet i varselet. Pass på at du tar med informasjon som hjelper brukerne videre.
-- **Alvorlighetsgrad** (`severity`): Alvorlighetsgraden angir utsteendet på varselet med farger og ikon. Vi har fire alvorlighetsgrader: `info`, `success`, `warning`, og `danger`. 
-Les mer på designsystemet.no om når du bruker de ulike alvorlighetsgradene.
+- **Alvorlighetsgrad** (`severity`): Alvorlighetsgraden angir utseendet på varselet med farger og ikon. Vi har fire alvorlighetsgrader: `info`, `success`, `warning`, og `danger`.  
+Les mer på [designsystemet.no](https://designsystemet.no) om når du bruker de ulike alvorlighetsgradene.
 
 {{</content-version-container>}}
 {{<content-version-container version-label="Kode">}}
