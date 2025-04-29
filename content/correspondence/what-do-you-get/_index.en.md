@@ -7,34 +7,22 @@ toc: true
 weight: 20
 ---
 
+### Security
+Altinn Correspondence leverages Microsoft Azure Storage Service Encryption to protect content. See [Azure Storage Service Encryption](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption) for more details.
+
+### Logging
+Altinn Correspondence ensures that all events and processes are thoroughly logged, making it easy to trace who did what and when.
+
 ### Notifications
-- Automatic notifications via email or SMS to users when they receive new correspondences.
-- Reminder notification after 7 days if the correspondence is unread.
-- Customized notification settings based on user preferences. This includes notification templates and custom notification addresses.
+- Automatic notifications via email or SMS to recipients.
+- Reminder after 7 days if a file remains unopened.
+- Customizable notification templates and delivery addresses.
 
-### Archiving and Storage
-- All correspondences are stored in the user's inbox in Altinn.
-- Retention policies that ensure correspondences are available as long as necessary according to legislation and guidelines.
+### Events
+You can receive notifications about events related to submitted messaging services by setting up a subscription for the specific service. For example, you can see whether the file has reached the recipient and whether it has been opened.
 
-### Access Control and Security
-- Advanced access control ensuring that only authorized users can read the correspondences.
-- Use of security mechanisms like encryption to protect the content.
-
-### Search and Filtering Functions
-- User-friendly search and filtering functions to quickly find specific correspondences.
-- Ability to sort correspondences by various criteria such as date, sender, and message type.
-
-### Integrations and APIs
-- APIs allowing integration with other systems for sending and receiving correspondences.
-- Possibility for automated message handling through integrated systems.
-
-### Receipts and Confirmations
-- The system provides receipts when a correspondence is delivered and opened by the recipient.
-- Ability to send confirmations back to the sender that the correspondence has been read.
-
-### User Administration
-- Tools for managing user profiles and access.
-- Functionality to assign correspondences to the correct user or unit within an organization.
+### Access Control
+The system offers advanced access control, ensuring that only authorized users can access specific file transfers.
 
 ### Support for Various Message Formats
 - Ability to send correspondences in Markdown or clean text.
@@ -42,7 +30,6 @@ weight: 20
 - Supports attachments up to 250 MB. 
 
 ### Advanced Support for Linking to Content and Attachments
-
 - As an alternative to sending correspondence content and attachments directly in the correspondences,
   the sender can choose to send links to content and attachments.
 - Altinn Correspondence has functionality for uploading files with correspondence content and attachments,
@@ -50,11 +37,16 @@ weight: 20
 - It is also possible to link to content and attachments stored elsewhere,
   e.g., on-premises at the sender or in the sender's preferred cloud solution.
 
+### Archiving and Storage
+- All correspondences are stored in the user's inbox in Altinn.
+- Retention policies that ensure correspondences are available as long as necessary according to legislation and guidelines.
+
+### API  access
+- APIs allowing integration with other systems for sending and receiving correspondences.
+- Possibility for automated message handling through integrated systems.
 
 ### Integration with Dialogporten and Arbeidsflate
-
-- Unified user interface across multiple messaging solutions through Altinn 3 Arbeidsflate.
-- Activity log in Altinn 3 Dialogporten.
+Unified user interface through Altinn 3 Arbeidsflate and Dialogporten.
 
 ## Summary of advantages of Altinn Correspondence
 
