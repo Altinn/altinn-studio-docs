@@ -1,7 +1,7 @@
 ---
-title: Alert
+title: Alert (Varsel)
 linktitle: Alert
-description: Komponenten kan brukes til å vise en melding med ulike alvorlighetsgrader.
+description: Med Varsel kan du vise meldinger til brukerne med ulike alvorlighetsgrader.
 schemaname: Alert # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk
 toc: true
@@ -17,7 +17,7 @@ aliases:
 
 ## Bruk
 
-Alert brukes ofte til å vise viktig informasjon som skal fremheves for brukerne.
+Bruk varsler når du vil vise viktig informasjon til brukerne.
 
 ### Anatomi
 
@@ -87,8 +87,9 @@ Hvis ingen argument gis, henter shortkoden komponentnavnet fra 'schemaname' i fr
 
 ### Legg til komponent
 
-Du kan legge til en komponent i [Altinn Studio Designer](/nb/altinn-studio/getting-started/) ved å dra den fra venstre sidepanel til midten av siden.
-Når du velger komponenten, vises et panel med innstillinger for den på høyre side.
+Du legger til komponenter i [Altinn Studio Designer](/nb/altinn-studio/getting-started/) ved å klikke på **Legg til komponent** når du står på en side i **Utforming**. 
+Du får opp de mest brukte komponentene, og kan klikke på **Vis alle** for å få en oversikt over alle komponentene i Altinn Studio. 
+Når du klikker på komponenten du vil legge til, vises den i et panel til høyre. Der kan du endre ID-en til komponenten hvis du vil, før du klikker på **Legg til**. Når du har lagt den til på siden, ser du egenskapene til kompoenten, og du kan endre dem.
 
 ### Innstillinger i Altinn Studio Designer
 
@@ -105,10 +106,10 @@ Innstillinger for egenskaper tilgjengelig i Altinn Studio Designer.
 
 ![Altert innstillingspanel](Alert-settings-panel.png "Innstillinger for Alert")
 
-- **Komponent-ID** (`id`): Automatisk generert komponent-ID (kan redigeres).
-- **Ledetekst** (`textResourceBindings.title`): Overskrift.
-- **Tekstinnhold** (`textResourceBindings.body`): Innholdstekst.
-- **Alvorlighetsgrad** (`severity`): Påvirker varselets useende (farger og ikon).
+- **Komponent-ID** (`id`): Automatisk generert komponent-ID (du kan endre den).
+- **Ledetekst** (`textResourceBindings.title`): Overskriften til varselet. Skriv en kort og informativ overskrift. Den skal forteller brukerne hva varselet dreier seg om.
+- **Tekstinnhold** (`textResourceBindings.body`): Utdyp innholdet i varselet. Pass på at du tar med informasjon som hjelper brukerne videre.
+- **Alvorlighetsgrad** (`severity`): Alvorlighetsgraden angir utsteendet på varselet med farger og ikon. Vi har fire alvorlighetsgrader: `info`, `success`, `warning`, og `danger`. Les mer på designsystemet.no om når du bruker de ulike.
 
 {{</content-version-container>}}
 {{<content-version-container version-label="Kode">}}
@@ -142,7 +143,7 @@ App/ui/layouts/{page}.json
 
 ### Overskrift og tekstinnhold
 
-Overskrift (ledetekst) og tekstinnhold legges til ved å opprette ny eller velge en eksisterende [tekstressurs](../../../ux/texts/#legge-til-og-endre-tekster-i-en-app).
+På Utforming-siden går du til nedtrekkslisten Tekst i egenskapene for komponenten. Du legger til overskriften i Ledetekst og selve varselteksten i Tekstinnhold. [Legge ti og endre tekster i en app](../../../ux/texts/#legge-til-og-endre-tekster-i-en-app).
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
@@ -163,8 +164,8 @@ App/ui/layouts/{page}.json
         "id": "alert-id",
         "type": "Alert",
         "textResourceBindings": {
-          "title": "Vedrørende navneendring",
-          "body": "Ved å bekrefte navneendring bekrefter du at du ønsker å endre navnet ditt."
+          "title": "Om å endre navn",
+          "body": "Ved å bekrefte navneendringen, ber du om å få endret navnet ditt."
         },
         "severity": "info"
       }
@@ -203,8 +204,8 @@ App/ui/layouts/{page}.json
         "id": "alert-id",
         "type": "Alert",
         "textResourceBindings": {
-          "title": "Vedrørende navneendring",
-          "body": "Ved å bekrefte navneendring bekrefter du at du ønsker å endre navnet ditt."
+          "title": "Om å endre navn",
+          "body": "Ved å bekrefte navneendringen, ber du om å få endret navnet ditt."
         },
         "severity": "info"
       }
@@ -238,8 +239,8 @@ App/ui/layouts/{page}.json
         "id": "alert-id",
         "type": "Alert",
         "textResourceBindings": {
-          "title": "Vedrørende navneendring",
-          "body": "Ved å bekrefte navneendring bekrefter du at du ønsker å endre navnet ditt."
+          "title": "Om å endre navn",
+          "body": "Ved å bekrefte navneendringen, ber du om å få endret navnet ditt."
         },
         "severity": "success"
       }
@@ -273,8 +274,8 @@ App/ui/layouts/{page}.json
         "id": "alert-id",
         "type": "Alert",
         "textResourceBindings": {
-          "title": "Vedrørende navneendring",
-          "body": "Ved å bekrefte navneendring bekrefter du at du ønsker å endre navnet ditt."
+          "title": "Om å endre navn",
+          "body": "Ved å bekrefte navneendringen, ber du om å få endret navnet ditt."
         },
         "severity": "warning"
       }
@@ -310,8 +311,8 @@ App/ui/layouts/{page}.json
         "id": "alert-id",
         "type": "Alert",
         "textResourceBindings": {
-          "title": "Vedrørende navneendring",
-          "body": "Ved å bekrefte navneendring bekrefter du at du ønsker å endre navnet ditt."
+          "title": "Om å endre navn",
+          "body": "Ved å bekrefte navneendringen, ber du om å få endret navnet ditt."
         },
         "severity": "danger"
       }
