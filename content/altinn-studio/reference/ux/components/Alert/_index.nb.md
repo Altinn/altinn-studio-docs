@@ -20,7 +20,7 @@ Bruk varsler når du vil vise viktig informasjon til brukerne.
 
 {{% anatomy-list %}}
 1. **Overskrift**: En kort beskrivende tittel.
-2. **Ikon**: Et grafisk symbol som viser hvor alvorlig varelet er.
+2. **Ikon**: Et grafisk symbol som viser hvor alvorlig varselet er.
 3. **Tekstinnhold**: En melding som forteller hva varselet dreier seg om.
 {{% /anatomy-list %}}
 
