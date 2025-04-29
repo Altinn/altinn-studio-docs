@@ -11,7 +11,7 @@ weight: 20
 Altinn Correspondence leverages Microsoft Azure Storage Service Encryption to protect content. See [Azure Storage Service Encryption](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption) for more details.
 
 ### Logging
-Altinn Broker ensures that all events and processes are thoroughly logged, making it easy to trace who did what and when.
+Altinn Correspondence ensures that all events and processes are thoroughly logged, making it easy to trace who did what and when.
 
 ### Notifications
 - Automatic notifications via email or SMS to recipients.
