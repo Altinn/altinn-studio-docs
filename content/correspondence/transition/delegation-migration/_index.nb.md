@@ -1,7 +1,7 @@
 ---
-title: Migrering av Delegeringer
-linktitle: Delegerings Migrering
-description: Migrering av Delegeringer for Altinn Melding
+title: Migrering av delegeringer
+linktitle: Delegeringsmigrering
+description: Migrering av delegeringer for Altinn Melding
 tags: []
 toc: true
 weight: 30
