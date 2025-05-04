@@ -38,10 +38,10 @@ Migreringskomponenten vil per kjøring gjøre uttrekk av x antall elementer for 
 Migreringsprosessen per Melding vil være delt opp i flere steg for å redusere risiko, og vil kunne styres per Melding, med mulighet for å slette data og starte prosessen på nytt.
 Ingen data saneres fra Altinn 2.
 
-1. Migrering av Meldingsdata og vedlegg fra Altinn 2 til Altinn 3, der vi ikke er avhengig av [tjenestekonfigurasjon](../service-migration/).
-2. Migrering av nødvendig [tjenestekonfigurasjon](../service-migration/) og tilgangsrelger.
-3. Migrerering av tilhørende instans- og tjenestedelgeringer.
-4. Opprettelse av migrert Melding i Dialogporten / Arbeidsflate.
+1. Migrering av meldingsdata og vedlegg fra Altinn 2 til Altinn 3, der vi ikke er avhengig av [tjenestekonfigurasjon](../service-migration/).
+2. Migrering av nødvendig [tjenestekonfigurasjon](../service-migration/) og tilgangsregler.
+3. Migrering av tilhørende instans- og tjenestedelegeringer.
+4. Opprettelse av migrert melding i Dialogporten/Arbeidsflate.
 
 I starten vil steg 1,2 og 3 trigges manuelt som separate aksjoner av Flytt av data-teamet, og steg 4 trigges av Dialogporten/Arbeidsflate.
 
