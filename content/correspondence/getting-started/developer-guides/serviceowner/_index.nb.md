@@ -16,6 +16,8 @@ For å sette opp en meldingstjeneste i Altinn Melding, må virksomheten din vær
 
 Dette steget er kun nødvendig for nye virksomheter som ikke er etablert som en tjenesteeier i Altinn. 
 
+Når du er satt opp som tjeneste-eier i Altinn send oss en melding på Slack så vi kan konfigurere tjeneste-eieren din for Correspondence.
+
 ### 2. Opprett eller få tilgang til ressurs {#registeraresourceinaltinnresourceregistry}
 For å kunne sende meldinger over med Altinn Melding, må de først være tilknyttet en ressurs. Ressurser registreres via Altinn Studio og brukes til å definere tilgangsregler og tilgangslister, som sikrer at bare autoriserte brukere kan utføre bestemte handlinger.
 
