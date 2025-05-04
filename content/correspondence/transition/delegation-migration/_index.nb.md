@@ -7,7 +7,7 @@ toc: true
 weight: 30
 ---
 
-Delgeringer av rettigheter kan gjøres på forskjellige vis og dersom dette ikke migreres som en del av migrerings-jobben for migrering av meldinger, vil ytterste konsekvens være at brukere mister tilgang til meldinger.
+Delegeringer av rettigheter kan gjøres på forskjellige vis og dersom dette ikke migreres som en del av migrerings-jobben for migrering av meldinger, vil ytterste konsekvens være at brukere mister tilgang til meldinger.
 
 ## Kort om delegeringer
 
