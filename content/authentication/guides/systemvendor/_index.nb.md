@@ -154,7 +154,7 @@ Systembrukeren kan opprettes på to måter
 ### Opprettelse av en systembruker for agentsystembruker
   - Systembrukeren for en agentsystembruker kan kun opprettes ved en forespørsel fra en systembruker.
   - SmartCloud AS oppretter en systembrukerforespørsel (via Altinn API for systembrukerforespørsel) fra SmartCloud, som deretter sendes til Altinn.
-For detaljert informasjon om hvert inputfelt, se dokumentasjonen [her](../../../api/authentication/systemuserrequest/external/model/)
+For detaljert informasjon om hvert inputfelt, se dokumentasjonen [her](../../../api/authentication/systemuserapi/systemuserrequest/external/model/)
               
       ```
       {

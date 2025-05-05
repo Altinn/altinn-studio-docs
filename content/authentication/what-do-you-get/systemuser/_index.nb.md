@@ -138,8 +138,8 @@ Etter systembrukeren er opprettet vil den brukes som i modellen under
 
 ## Hvordan ta i bruk
 
-- [Hvordan bruke systembruker som systemleverandør](../../guides/systemauthentication-for-systemproviders/)
-- [Hvordan bruke systemberuker som apitilbyder/tjenesteeier](../../guides/systemauthentication-for-apiproviders/)
+- [Hvordan bruke systembruker som systemleverandør](../../guides/systemvendor/systemauthentication-for-systemproviders/)
+- [Hvordan bruke systemberuker som apitilbyder/tjenesteeier](../../guides/serviceowner/systemauthentication-for-apiproviders/)
 
 ## Leveranseplan
 
