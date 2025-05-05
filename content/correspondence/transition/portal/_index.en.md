@@ -4,7 +4,7 @@ linktitle: Altinn 2 Portal
 description: Display of Altinn 3 Messages in Altinn 2 Portal
 tags: []
 toc: false
-weight: 30
+weight: 40
 ---
 
 To quickly have a GUI solution for end users independent of the delivery of Arbeidsflate, the current Altinn 2 portal is extended to fetch and display Altinn 3 Correspondences.
@@ -15,7 +15,7 @@ The display will be largely similar to the existing display of Altinn 2 Correspo
 - No "Archive" button
 - Different behavior with delete/trash functionality.
 
-PS: Development and testing are ongoing, so this description may be updated.
+The solution is in production, and the last major changes were in Altinn 2 25.4 release, but minor changes might still occur.
 
 ## Measures to ensure gradual increase of load
 

@@ -134,14 +134,12 @@ App/ui/layouts/{page}.json
 ```json{hl_lines="6-"}
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
-  {
-    "data": {
-      "layout": [
-        {
-          // Basic component (required properties)
-        }
-      ]
-    }
+  "data": {
+    "layout": [
+      {
+        // Basic component (required properties)
+      }
+    ]
   }
 }
 ```

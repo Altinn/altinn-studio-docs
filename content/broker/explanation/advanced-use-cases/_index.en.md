@@ -5,6 +5,7 @@ description: Altinn 3 Broker Advanced Use Cases
 tags: []
 toc: true
 weight: 60
+hidden: true
 ---
 
 ## Many-to-many Brokering

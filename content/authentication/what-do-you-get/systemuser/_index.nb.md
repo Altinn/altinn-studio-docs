@@ -16,6 +16,8 @@ Systembruker bygger videre på Maskinporten, som gir sikker autentisering og gro
 Systembruker gjør det enkelt å sette opp en virtuell bruker som kan opperere på vegne av virksomehten, endten som egenoppreret system eller i et kunde - leverandørforhold 
 Systembruker både brukes mot tjenster som kjører i Altinn og mot eksterne tjenester som bruker Altinn Autorisasjon som autorisasjonsløsning.
 
+> Systembruker bør kun brukes i tilfeller der det ikke er behov for at Altinn kan koble operasjonene som utføres med hvilken person som utfører dem.
+
 For en overordnet funsjonell gjennomgang og brukerreise se [Samarbeidsportalen](https://samarbeid.digdir.no/altinn/systembruker/2542).
 
 ## Begrep

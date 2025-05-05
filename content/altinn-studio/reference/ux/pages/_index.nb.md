@@ -1,6 +1,6 @@
 ---
 title: Sider
-description: Hvordan sette opp en app med flere sider, sporvalg, oppsummering eller flere skjema.
+description: Hvordan sette opp en app med flere sider, flere layout-sett, eller oppsummering.
 toc: false
 weight: 10
 ---
@@ -9,16 +9,52 @@ Flere sider kan enkelt settes opp i Altinn Studio, men dersom du ønsker å gjø
 
 ## Oppsett
 
-Sider plasseres i `ui/layouts`-mappen i appen, for å konfigurere rekkefølgen på sidene, se [Navigasjon](/nb/altinn-studio/reference/ux/pages/navigation/). Dersom du har flere prosess-steg som har egne layoutsider er strukturen litt annerledes; dersom dette er tilfelle, se [Flere skjema](/nb/altinn-studio/reference/ux/pages/layout-sets).
+Sider plasseres i `layouts`-mappen for layout-settet; hvert prosess-steg kan ha et eget layout-sett. For å konfigurere rekkefølgen på sidene, se [Navigasjon](/nb/altinn-studio/reference/ux/pages/navigation/#rekkefølge). Eksempel på filstruktur ved to prosess-steg med hvert sitt layout-sett:
 
 ```
 |- App/
   |- ui/
-    |- layouts/
-      |- side1.json
-      |- side2.json
-      |- side3.json
-    |- Settings.json
+    | - layout-sets.json
+    |- skjema-a/
+      |- Settings.json
+      |- layouts/
+        |- side1.json
+        |- side2.json
+        |- side3.json
+    |- skjema-b/
+      |- Settings.json
+      |- layouts/
+        |- side1.json
+        |- side2.json
+        |- side3.json  
+```
+
+I `layout-sets.json`-filen defineres hvilket steg i prosessen (task) hvor hvert layout-set skal brukes.
+Merk at id'en er case sensitiv, så om du har stor bokstav i mappenavnet må id'en reflektere dette. Vi anbefaler små bokstaver i mappenavn.
+
+Eksempel:
+
+```json
+{
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
+  "sets": [
+    {
+      "id": "skjema-a",
+      "dataType": "schema_4222_160523_forms_212_20160523",
+      "tasks": [
+        "Task_1"
+      ]
+    },
+
+    {
+      "id": "skjema-b",
+      "dataType": "schema_3161_140411_forms_1549_11554",
+      "tasks": [
+        "Task_2"
+      ]
+    }
+  ]
+}
 ```
 
 ## Innstillinger
@@ -54,12 +90,13 @@ De tilgjengelige innstillingene er følgende:
 
 | Egenskap              | Type    | Verdi                                                                                                                                                                            |
 | --------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| hideCloseButton       | Boolean | Om lukk skjema-knappen øverst i høyre hjørne skal skjules eller ikke.                                                                                                            |
+| hideCloseButton       | Boolean | Om tilbake til innboks-knappen øverst i venstre hjørne skal skjules eller ikke.                                                                                                            |
 | showLanguageSelector  | Boolean | Om språkvelgeren skal vises eller ikke. Lar brukeren bytte språk etter de har startet skjemautfylligen.                                                                          |
 | showExpandWidthButton | Boolean | Om utvid bredde-knappen skal vises eller ikke. Lar brukeren utvide bredden til siden slik at den fyller hele nettleservinduet.                                                   |
 | showProgress          | Boolean | se [Navigasjon](/nb/altinn-studio/reference/ux/pages/navigation/#fremdriftsindikator)                                                                                                    |
 | pdfLayoutName         | String  | se [PDF](/nb/altinn-studio/reference/ux/pdf/#egendefinert-konfigurasjon)                                                                                                                 |
 | order                 | Array   | se [Navigasjon](/nb/altinn-studio/reference/ux/pages/navigation/#rekkefølge)                                                                                                             |
+| groups                | Array   | se [Navigasjon](/nb/altinn-studio/reference/ux/pages/navigation/#gruppering-av-sider)                                                                                                             |
 | excludeFromPdf        | Array   | se [PDF](/nb/altinn-studio/reference/ux/pdf/#automatisk-konfigurasjon)                                                                                                                   |
 | expandedWidth         | Boolean | se [Utvidet skjemabredde](#utvidet-skjemabredde)                                                                                                                                             |
 
