@@ -24,7 +24,7 @@ Her er en kort oppsummering av hvilke konsekvenser valgt overgangs- og migrering
 
 ### Via Altinn 2 portal
 
-- Får en full oversikt i Altinn portal av både Altinn 2 og 3 meldinger.
+- Får full oversikt i Altinn-portalen over både Altinn 2- og Altinn 3-meldinger.
 - Når de åpner et Altinn 3 element vises dette i Altinn 2 Portalen, tilnærmet likt som for et Altinn 2 element.
 
 ### Via Sluttbrukersystem
