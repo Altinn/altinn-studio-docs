@@ -28,8 +28,8 @@ Tjenesten kan kreve egne scopes som ressurseier selv styrer tilgang til.
 
 Se [Samarbeisportalen](https://samarbeid.digdir.no/altinn/systembruker/2542) for illustrert og webinar.
 
-### Systembruker for sluttbrukersystemleveran
-Detaljert teknisk beskrivelse av steg for sluttbrukersysetmleverandør finnes [her](../../guides/systemvendor/systemauthentication-for-systemproviders).
+### Systembruker for sluttbrukersystemleverandør
+Detaljert teknisk beskrivelse av steg for sluttbrukersysetmleverandør finnes [her](../../guides/systemvendor/systemauthentication-for-systemproviders/).
 
 ### Systembruker for ressurseier
 Detaljert teknisk beskrivelse av steg for ressurseier finnes [her](../../guides/serviceowner/systemauthentication-for-apiproviders).
