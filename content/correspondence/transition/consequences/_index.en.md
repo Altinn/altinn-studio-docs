@@ -12,9 +12,9 @@ Here is a brief summary of the consequences of the chosen transition and migrati
 ## Service Owner
 
 - When creating the Correspondence in the API, the Correspondence is created in the environment being called ("home" of the element).
-  - If in A2, migration will occur to A3 after **migration wait time**, but notification will be completed in A2 regardless of migration.
+  - If created in A2, migration will occur to A3 after **migration wait time**, but notification will be completed in A2 regardless of migration.
   - If in Altinn 3, the Correspondence will be available in the Altinn 2 Portal.
-- Checking the status of a Correspondence created in A2 must be done against A2 and possibly then against A3 after migration.
+- Checking the status of a Correspondence created in A2 must be done against A2 and after migration you may check against A3.
   - Since migration is performed after **migration wait time**, it is assumed that the Service Owner does not need to check for the same element in both A2 and A3, but that changes of interest have already occurred in A2.
 - Integration with Altinn 3 API is required to create/follow up on new Correspondences there.
   - They can use the migrated services or establish entirely new ones.

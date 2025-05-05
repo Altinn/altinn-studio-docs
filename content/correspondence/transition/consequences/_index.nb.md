@@ -11,10 +11,10 @@ Her er en kort oppsummering av hvilke konsekvenser valgt overgangs- og migrering
 ## Tjenesteeier
 
 - Ved opprettelse av Meldingen i API, blir den opprettet i miljøet som kalles («hjemstedet» til elementet).
-  - Dersom i A2 vil migrering skje til A3 etter kort tid, men **varsling** vil fullføres i A2 uavhengig av migrering.
+  - Dersom den opprettes i A2, vil migrering skje til A3 etter kort tid, men varslingen vil fullføres i A2 uavhengig av migrering.
   - Dersom i Altinn 3, så vil Meldingen være tilgjengelig i Altinn 2 Portalen.
     - A3 Meldinger vil ikke være tilgjengelige via A2 API.
-- Sjekk av status på Melding opprettet i A2 må gjøres mot A2 før migreringstidspunkt, deretter enten A2 eller A3.
+- Sjekk av status på melding opprettet i A2 må gjøres mot A2 før migreringstidspunktet, deretter mot enten A2 eller A3.
 
 - Man må integrere seg mot Altinn 3 API for å opprette/følge opp nye Meldinger der.
   - TE må opprette nye Ressurser i RessursRegisteret for sine nye tjenester, se [guide](../../getting-started/developer-guides/serviceowner/) her.
@@ -33,8 +33,8 @@ Her er en kort oppsummering av hvilke konsekvenser valgt overgangs- og migrering
 
 ### Via Arbeidsflate
 
-- Får opp Meldingene som er opprettet i Altinn 3, samt de meldinger som er blitt migrert fra Altinn 2 og tilgjengeligjort i Dialogporten.
-- Meldinger i Altinn 2 som ikke er blitt migrert, og ikke er blitt opprettet i **vil ikke være tilgjengelig** siden Arbeidsflate baserer seg på Dialogporten, og Altinn 2 Meldinger ikke er opprettet i Dialogporten fra før.
+- Viser meldingene opprettet i Altinn 3 og de migrerte Altinn 2-meldingene som er tilgjengeliggjort i Dialogporten.
+- Meldinger fra Altinn 2 som verken er migrert eller opprettet i Dialogporten, vil ikke vises i Arbeidsflate, da den baserer seg på Dialogporten.  
 
 ## SluttbrukerSystem
 
