@@ -12,7 +12,7 @@ weight: 1
 
 ## Background
 
-You can read about the background for system user concept [here](../../what-do-you-get/systemuser/).
+You can read about the background for system user concept [here](../../../what-do-you-get/systemuser/).
 
 ## Prerequisites
 

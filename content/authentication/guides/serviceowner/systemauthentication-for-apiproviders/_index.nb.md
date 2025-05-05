@@ -8,7 +8,7 @@ weight: 1
 
 ## Bakgrunn
 
-Bakgrunnen til systembruker konsept kan leses om [her](../../what-do-you-get/systemuser/).
+Bakgrunnen til systembruker konsept kan leses om [her](../../../what-do-you-get/systemuser/).
 
 ## Forutsetninger
 
