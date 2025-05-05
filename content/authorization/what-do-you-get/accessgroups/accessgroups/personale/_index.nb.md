@@ -40,7 +40,7 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til sykefravær. Ved r
 ### A-ordningen
 Denne tilgangspakken gir fullmakter til tjenester som inngår i A-ordningen. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 **OBS! Vær oppmerksom på at tilgangspakken inneholder fullmakter som kan ha sensitiv karakter. Vurder om fullmaktene skal gis som enkeltrettigheter.**  
-*urn:altinn:accesspackage:aordning*
+*urn:altinn:accesspackage:a-ordning*
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
 |**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|

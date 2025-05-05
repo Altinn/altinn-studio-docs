@@ -1,60 +1,36 @@
 ---
 title: Hva får du?
 linktitle: Hva får du?
-description: Egenskaper og produktfunksjonalitet i Altinn 3 Melding
+description: Overordnet oversikt og beskrivelse av nøkkelfunksjonalitetene og egenskapene til Altinn Melding.
 tags: []
 toc: true
 weight: 20
 ---
 
-Altinn 3 melding setter deg i stand til å opprette og sende generelle og/eller personlige meldinger til brukere. Løsningen støtter alle språk, men har maler på norsk bokmål (nb), nynorsk (nn) og engelsk (en).  
+### Sikkerhet
+Bruk av sikkerhetsmekanismer som beskytter innholdet, finn mer informasjon i denne artikkelen [Azure Storage-tjenestekryptering](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption)
 
-## Funksjonalitet
+### Logging 
+Altinn Melding sørger for at alle hendelser og prosesser blir nøye loggført, slik at det er enkelt å etterprøve hvem som har gjort hva og når.
 
 ### Varsling
-
 - Automatisk varsling via e-post eller SMS til brukere når de mottar nye meldinger.
 - Re-varsling etter 7 dager dersom meldingen ikke blir åpnet. 
 - Tilpassede varslingsinnstillinger basert på brukerpreferanser. Dette innebærer varslingsmaler og egendefinerte varslingsadresser.
 
-### Arkivering og oppbevaring
+### Events (hendelsesabonnementer)
+Du kan motta varsler om hendelser knyttet til sendte formidlingstjenester, ved å sette opp et abonnement for den aktuelle tjenesten. Du kan for eksempel se om filen er kommet frem til mottaker og om den er åpnet.
 
-- Alle meldinger lagres i brukerens meldingsboks i Altinn.
-- Oppbevaringsregler som sikrer at meldinger er tilgjengelige så lenge det er nødvendig i henhold til lovgivning og retningslinjer.
-
-### Tilgangskontroll og sikkerhet
-
-- Avansert tilgangskontroll som sikrer at kun autoriserte brukere kan lese meldingene.
-- Bruk av sikkerhetsmekanismer som kryptering for å beskytte innholdet.
-
-### Søke- og filtreringsfunksjoner
-
-- Brukervennlige søke- og filtreringsfunksjoner for å finne spesifikke meldinger raskt.
-- Mulighet til å sortere meldinger etter ulike kriterier som dato, avsender, og type melding.
-
-### Integrasjoner og API-er
-
-- API-er som tillater integrasjon med andre systemer for sending og mottak av meldinger.
-- Mulighet for automatisert meldingshåndtering via integrerte systemer.
-
-### Kvitteringer og bekreftelser
-
-- Systemet gir kvittering når en melding er levert og åpnet av mottakeren.
-- Mulighet for å sende bekreftelser tilbake til avsenderen om at meldingen er lest.
-
-### Brukeradministrasjon
-
-- Verktøy for administrasjon av brukerprofiler og tilganger.
-- Funksjonalitet for å tildele meldinger til riktig bruker eller enhet i en organisasjon.
+### Tilgangsstyring
+- Avansert tilgangsstyring sikrer at du kan være trygg på at kun autoriserte brukere får tilgang til bestemte filoverføringer.
+- Altinn Melding støtter ulike sikkerhetsnivåer (0–4) for å imøtekomme avsenders krav til meldingssikkerhet. 
 
 ### Støtte for ulike meldingsformater
-
 - Mulighet for å sende meldinger med Markdown eller ren tekst.
 - Støtte for flere vedlegg per melding uten begrensing av type, der PDF, XML og HTML vil være de mest vanlige.
 - Støtte for vedlegg opp til 250 MB.
 
 ### Avansert støtte for lenking til innhold og vedlegg
-
 - Som alternativ til å sende meldingsinnhold og vedlegg direkte i meldingene,
   kan avsender velge å sende lenker til innhold og vedlegg.
 - Altinn Melding har funksjonalitet for å laste opp filer med meldingsinnhold og vedlegg, 
@@ -62,14 +38,18 @@ Altinn 3 melding setter deg i stand til å opprette og sende generelle og/eller 
 - Det er også mulig å lenke til innhold og vedlegg som er lagret andre steder, 
   f.eks. on-premise hos avsender eller i avsenders prefererte skyløsning.
 
+### Arkivering og oppbevaring
+- Alle meldinger lagres i brukerens meldingsboks i Altinn.
+- Oppbevaringsregler som sikrer at meldinger er tilgjengelige så lenge det er nødvendig i henhold til lovgivning og retningslinjer.
+
+### API-tilgang
+- API-er som tillater integrasjon med andre systemer for sending og mottak av meldinger.
+- Mulighet for automatisert meldingshåndtering via integrerte systemer.
 
 ### Integrasjon med Dialogporten og Arbeidsflate
-
-- Enhetlig brukergrensesnitt på tvers av flere meldingsløsninger gjennom Altinn 3 Arbeidsflate.
-- Aktivitetslogg i Dialogporten.
+Enhetlig brukergrensesnitt på tvers gjennom Altinn 3 Arbeidsflate og Dialogporten.
 
 ## Oppsummering av fordelene med Altinn Melding?
-
 Altinn Melding tilbyr flere unike fordeler som gjør den til et foretrukket valg for digital kommunikasjon 
 med offentlige etater i Norge:
 
