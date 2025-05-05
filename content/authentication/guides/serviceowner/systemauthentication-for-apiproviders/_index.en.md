@@ -1,38 +1,36 @@
 ---
-title: Utilize system user for API providers
-linktitle: Systemusers for API
-description: System user is a new concept for API authentication. This guide describes how API providers can protect their APIs using this concept.
+title: How to use system user as API Provider
+linktitle: System user for API Provider
+description: System user is a new concept for API-authentication. This guide describes how an API provider can secure his API with this concept.
 toc: false
 weight: 1
 ---
 
 {{<notice warning>}}
- Denne funksjonaliteten er i test og kan endres
+ This functionality is in test and will change.
 {{</notice>}}
 
 ## Background
 
-You can read about the background of the system user concept [here](../../what-do-you-get/systemuser/).
-
+You can read about the background for system user concept [here](../../what-do-you-get/systemuser/).
 
 ## Prerequisites
 
-To use a system user as an API provider, the following prerequisites must be met:
+To use system user as an api provider, the following prerequisites must be fullfilled:
 
-- Agreement with Maskinporten as an API provider
-- Agreement with Digdir for access to the resource registry for resource creation
-- Creation of necessary resources to be authorized
+- Agreement with machineporten as [API-provider](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apitilbyder)
+- Agreement with Digdir for access to resource registry for creating resources
+- Creation of [necessary resources](/authorization/guides/create-resource-resource-admin/) which must be authorized
 - Assigned scope for PDP integration
 - Integration with Altinn PDP
 
-## Validation of Maskinporten Token
+## Validation of Maskinporten token
 
-The token itself is validated as a standardized Maskinporten token. [Read more at Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apitilbyder).
+The token itself is validated as a standardized Maskinporten token. [Read more at Machineporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apitilbyder).
 
-A system user token contains more details than a regular Maskinporten token.
+A system user token contains quite a few more details than a regular Maskinporten token.
 
 Below is an example token.
-
 
 ### JWT Token
 
@@ -60,26 +58,32 @@ Below is an example token.
     "ID" : "0192:314330897"
   }
 }
+
 ```
-Verdiene som er viktige for API leverandør er.
+
+Values that are important for an API provider are 
 
 
 | Verdi  | Betydning |
 |----|-----|
-|authorization_details:systemuser_id| Unik id for systembrukeren. Det er denne verdien som Altinn trenger for å kunne autorisere tilgang. Det er denne som har fått delegert tilganger. |
-|authorization_details:systemuser_org:id | Organisasjonen som har opprettet systembrukeren |
-|authorization_details:system_id |  Referanse til systemet som systembrukeren peker på |
-|Consumer:id | Organisasjonsnr til systemleverandør (organisasjon som har autentisert seg mot Maskinporten) |    
+|authorization_details:systemuser_id| nique ID for the system user. This is the value Altinn needs in order to authorize access. This is the one that has been delegated access rights. |
+|authorization_details:systemuser_org:id | The organization that created the system user |
+|authorization_details:system_id |  Reference to the system that the system user points to. |
+|Consumer:id | Organization number of the system provider (organization that has authenticated itself against Maskinporten) |    
 
-See also the documentation at [Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker).
+
+
+
+See also the documentation for system user at [Machineporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker). 
 
 ## Authorization of System User
 
-The API provider must call Altinn PDP to authorize access for the system user. This is done by sending a request to Altinn PDP.
+API-provider must call PDP to authorize access to system user. This is done by sending a request to Altinn PDP.
 
-The API provider must configure which actions and resources are accessed via the API to build the complete request.
+The API provider must configure which actions and resources are accessed via the API in order to construct the complete request.
 
-Below is an example of a request made by the system user **a545ca29-7fb8-4810-a2f2-0be171cb2a26**, attempting to perform a **read** operation on a resource of type **kravogbetaling** for the organization **923609016**.
+Below is an example of a call made by the system user **a545ca29-7fb8-4810-a2f2-0be171cb2a26** attempting to perform a **read** operation on a resource of the type **kravogbetaling** for the organization **923609016**.
+
 
 ```json
 {
@@ -125,9 +129,9 @@ Below is an example of a request made by the system user **a545ca29-7fb8-4810-a2
 
 ```
 
-Altinn PDP returnerer svaret som en XACML Json respons hvor det informeres om request autorisert eller ikke. 
+Altinn PDP returns the response as an XACML JSON response, informing whether the request is authorized or not.
 
-API tilbyder må i sitt API ha logikk for å kunne avvise eller godta forespørsel fra system basert på dette. 
+The API provider must have logic in their API to either reject or accept the request from the system based on this.
 
 
 ```json
@@ -159,6 +163,3 @@ API tilbyder må i sitt API ha logikk for å kunne avvise eller godta forespørs
   ]
 }
 ```
-
-
-Se flere eksempler på bruk av Altinn PDP her. 

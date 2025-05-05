@@ -18,8 +18,9 @@ There are two types of system users
 2. Agent
 
 ### Standard
-The standard system user is the user type for normal system user integration process
+A standard system user is a user type designated for organizations that wish to access services provided by public or private sector entities through third-party systems.
+Read guide on [how to establish standard system user integration](standard)
 
 ### Agent
-The agent system user is the user type for handling client delegation process
-
+An agent system user is a user type intended for organizations that integrate with third-party systems on behalf of their clients.
+Read guide on [how to establish agent system user integration](clientdelegation)
