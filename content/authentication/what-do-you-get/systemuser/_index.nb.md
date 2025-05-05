@@ -77,7 +77,7 @@ Systembrukeren opprettes av virksomhet eller fasilitoator som ønsker å bruke e
 Opprettelse kan skje via sluttbrukerstyrt opprettelse eller leverandørstyrt opprettelse
 
 
-### Sluttbrukerstyr opprettelse
+### Sluttbrukerstyrt opprettelse
 
 Ved sluttbrukerstyrt opprettelse er det kunden selv som går inn i altinn og velger systemet han ønsker opprette systembruker for fra en nedtrekksliste. 
 Etter systemet er valg blir det presentert hvilke rettigheter sluttbrukersystemetsystemet krever. Ved å akseptere dette blir systembrukeren opprettet

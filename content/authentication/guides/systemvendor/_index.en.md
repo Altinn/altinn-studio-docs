@@ -95,7 +95,7 @@ weight: 2
         "isVisible": true
     }
     ```
-  - Refer [here](../../../api/authentication/systemregister/model/) for the detailed description for information about each input. For all subsequent communications, the system vendor must reference the value specified in the 'id' field.
+  - Refer [here](../../../api/authentication/systemuserapi/systemregister/model/) for the detailed description for information about each input. For all subsequent communications, the system vendor must reference the value specified in the 'id' field.
 
 ### Creating a System User For Standard System User
 The system user can be created in two ways
@@ -104,7 +104,7 @@ The system user can be created in two ways
       - Smartcloud As must request "TILFELDIG SUBTIL APE" (end user) to login to altinn portal and create a system user for their system SmartCloud
   2. Vendor driven
       - SmartCloud AS creates a system user request (via altinn api for system user request) from within SmartCloud, which is sent to Altinn.
-      For detailed information on each input field, refer the documentation [here](../../../api/authentication/systemuserrequest/external/model/)
+      For detailed information on each input field, refer the documentation [here](../../../api/authentication/systemuserapi/systemuserrequest/external/model/)
 
       ```
       {
@@ -159,7 +159,7 @@ The system user can be created in two ways
 ### Creating a System User For Agent System User
   - The system user for agent system user can be created only by system user request
   - SmartCloud AS creates a system user request (via altinn api for system user request) from within SmartCloud, which is sent to Altinn.
-    For detailed information on each input field, refer the documentation [here](../../../api/authentication/systemuserrequest/external/model/)
+    For detailed information on each input field, refer the documentation [here](../../../api/authentication/systemuserapi/systemuserrequest/external/model/)
               
       ```
       {

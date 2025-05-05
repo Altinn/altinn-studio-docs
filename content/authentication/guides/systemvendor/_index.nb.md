@@ -95,7 +95,7 @@ weight: 2
       }
       ```
 
-   Se [her](../../../api/authentication/systemregister/model/) for en detaljert beskrivelse av hver enkelt input. Ved all videre kommunikasjon må systemleverandøren referere til verdien som er angitt i feltet 'id'.
+   Se [her](../../../api/authentication/systemuserapi/systemregister/model/) for en detaljert beskrivelse av hver enkelt input. Ved all videre kommunikasjon må systemleverandøren referere til verdien som er angitt i feltet 'id'.
 
 #### Opprettelse av systembruker for standard system bruker
 Systembrukeren kan opprettes på to måter
