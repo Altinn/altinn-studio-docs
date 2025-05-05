@@ -6,13 +6,13 @@ toc: false
 weight: 4
 ---
 
-#### Actions by End User (Morten, CEO of Regnskapsfirma AS)
+#### Actions by End User (DRESs MINST, Client Administrator for TILBAKEHOLDEN USYMMETRISK TIGER AS )
    1. Purchasing the Accounting System
-      - Morten, the CEO of Regnskapsfirma AS, purchases SmartCloud to manage different services for their clients .
+      - DRESs MINST, the CEO of TILBAKEHOLDEN USYMMETRISK TIGER AS , purchases SmartCloud to manage different services for their clients .
       - for example, The software offers a feature to view their client company's total tax and fee claims.
    2. Approving the System User Request
-      - As part of the software setup, Morten must approve the system user request from SmartCloud.
-      - In this example, Morten is sent to the agent system user request and must approve in Altinn portal, where Morten creates a system user, adds their clients to the system user which grants access to the access package "Regnskapfører med signeringsrettighet" which gives access to one or more services.
+      - As part of the software setup, DRESs MINST must approve the system user request from SmartCloud.
+      - In this example, DRESs MINST is sent to the agent system user request and must approve in Altinn portal, where DRESs MINST creates a system user, adds their clients to the system user which grants access to the access package "Regnskapfører med signeringsrettighet" which gives access to one or more services.
 
       Approve agent system user request
 
@@ -37,5 +37,5 @@ weight: 4
       ![system user with clients overview](../../systemvendor/systemuser-withclients.png)
 
    3. Granting the Required Permissions
-      - After Morten's approval and client addition, the system access includes the access package that gives access to various services for clients of Regnskapsfirma.
-Morten has granted authorization to SmartRegnskap for this specific access package and can revoke the access at any time via Altinn.
+      - After DRESs MINST's approval and client addition, the system access includes the access package that gives access to various services for clients of TILBAKEHOLDEN USYMMETRISK TIGER AS.
+DRESs MINST has granted authorization to SmartCloud for this specific access package and can revoke the access at any time via Altinn.

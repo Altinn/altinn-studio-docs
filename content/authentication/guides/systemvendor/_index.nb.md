@@ -10,50 +10,50 @@ weight: 2
    1. Kontakt Digdir
       - Systemleverandøren må ta kontakt med Digdir for å få tilgang til systemregisteret og systembruker-scopes. Det er et krav at leverandøren gjennomfører testing av systembruker i Digdirs testmiljø, og det må inngås en avtale om bruk av systembruker for integrasjon med produksjonsmiljøet.
    2. Opprette en Maskinporten-klient for systemet
-      - SmartCloud AS ønsker å integrere systembrukeren i sitt regnskapsprogram, SmartRegnskap.
-      - For å integrere må de opprette en klient i Maskinporten for SmartRegnskap, som får en klient-ID som brukes til autentisering og autorisering.
+      - SmartCloud AS ønsker å integrere systembrukeren i sitt regnskapsprogram, SmartCloud.
+      - For å integrere må de opprette en klient i Maskinporten for SmartCloud, som får en klient-ID som brukes til autentisering og autorisering.
    3. Registrering av systemet i Altinn systemregister
-      - SmartCloud AS registrerer deretter SmartRegnskap system i Altinn systemregister.
+      - SmartCloud AS registrerer deretter SmartCloud system i Altinn systemregister.
       - De definerer de nødvendige rettighetene for å få tilgang til 'Krav og betalinger' ved å knytte klient-ID-en til systemet.
 
       ```
       {
-      "id": "991825827_smartregnskap",
-      "systemVendorOrgNumber": "991825827",
-      "vendor":
+         "id": "991825827_smartcloud",
+         "systemVendorOrgNumber": "991825827",
+         "vendor":
          {
-            "authority" : "iso6523-actorid-upis",
-            "ID" : "0192:991825827"
+         "authority" : "iso6523-actorid-upis",
+         "ID" : "0192:991825827"
          },
-      "name": 
+         "name": 
          { 
-            "nb":"Smartregnskap",
-            "en":"Smart Accounting System",
-            "nn":"Smartregnskap"
+            "nb":"SmartCloud 1",
+            "en":"SmartCloud 1",
+            "nn":"Smart SKY"
          },
-      "description": 
+         "description": 
          { 
-            "nb":"RegnskapsSmartregnskap er et enkelt og smart regnskapsprogram for små bedrifter.",
-            "en":"Smartregnskap is a simple and smart accounting software for small businesses.",
-            "nn":"RegnskapsSmartregnskap er et enkelt og smart regnskapsprogram for små bedrifter."
+            "nb":"SmartCloud er verdens beste system.",
+            "en":"SmartCloud Rocks.",
+            "nn":"SmartSky er vestlandets beste system"
          },
-      "rights": [
+         "rights": [
          {
             "resource": [
             {
                "id": "urn:altinn:resource",
                "value": "ske-krav-og-betalinger"
             }
-            ]
+         ]
          }
-      ],
-      "clientId": [
+         ],
+         "clientId": [
          "xxxxxx-xxxx-xxxx-xxxx-xxxxxxx"
-      ],
-      "allowedredirecturls": [
+         ],
+         "allowedredirecturls": [
          "https://smartcloudxxxx/receipt"
-      ],
-      "isVisible": true
+         ],
+         "isVisible": true
       }
       ```
       - Registrering av systemet med nødvendige tilgangspakker i Altinns systemregister. I dette eksempelet registrerer vi et system med nødvendig tilgang til en tilgangspakke
@@ -101,9 +101,9 @@ weight: 2
 Systembrukeren kan opprettes på to måter
 
    1. Sluttbrukerstyrt
-      - SmartCloud AS må be Rør og Vann AS (sluttbruker) om å logge inn i Altinn-portalen og opprette en systembruker for deres system SmartRegnskap.
+      - SmartCloud AS må be TILFELDIG SUBTIL APES (sluttbruker) om å logge inn i Altinn-portalen og opprette en systembruker for deres system SmartCloud.
    2. Leverandørstyrt
-      - SmartCloud AS oppretter en systembrukerforespørsel (via Altinn API for systembrukerforespørsler) fra SmartRegnskap, som sendes til Altinn.
+      - SmartCloud AS oppretter en systembrukerforespørsel (via Altinn API for systembrukerforespørsler) fra SmartCloud, som sendes til Altinn.
 
       ```
       {
@@ -123,7 +123,7 @@ Systembrukeren kan opprettes på to måter
          "redirectUrl": "https://smartcloudxxxxxxx/receipt",
       }
       ```
-      - Denne forespørselen inkluderer de nødvendige rettigheter for å utføre oppgaver knyttet til tjenesten 'Krav og betalinger' på vegne av Rør og Vann AS .
+      - Denne forespørselen inkluderer de nødvendige rettigheter for å utføre oppgaver knyttet til tjenesten 'Krav og betalinger' på vegne av TILFELDIG SUBTIL APE.
       - Responsen er for eksempel
 
          ```
@@ -153,7 +153,7 @@ Systembrukeren kan opprettes på to måter
 
 ### Opprettelse av en systembruker for agentsystembruker
   - Systembrukeren for en agentsystembruker kan kun opprettes ved en forespørsel fra en systembruker.
-  - SmartCloud AS oppretter en systembrukerforespørsel (via Altinn API for systembrukerforespørsel) fra SmartRegnskap, som deretter sendes til Altinn.
+  - SmartCloud AS oppretter en systembrukerforespørsel (via Altinn API for systembrukerforespørsel) fra SmartCloud, som deretter sendes til Altinn.
 For detaljert informasjon om hvert inputfelt, se dokumentasjonen [her](../../../api/authentication/systemuserrequest/external/model/)
               
       ```

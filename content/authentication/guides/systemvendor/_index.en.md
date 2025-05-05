@@ -10,7 +10,7 @@ weight: 2
    1. Contact Digdir
       - The System vendor must contact Digdir to get access to the system register, system user scopes. It is required that the vendor runs the test of system user in Digdir's test environment and must sign an agreement of using system user to integrate with production environment.
    2. Creating a Maskinporten Client for the System
-      - SmartCloud AS wants to integrates the system user into their accounting software, SmartRegnskap.
+      - SmartCloud AS wants to integrates the system user into their accounting software, SmartCloud.
       - To integrate, they must create a client in Maskinporten for system SmartCloud, which gets a client ID that will be used for authentication and authorization.
    3. Registering the System in Altinn’s System Register
       - SmartCloud AS then registers SmartCloud system in the Altinn System Register.
@@ -18,7 +18,7 @@ weight: 2
 
   ```
     {
-    "id": "991825827_smartregnskap",
+    "id": "991825827_smartcloud",
     "systemVendorOrgNumber": "991825827",
     "vendor":
       {
@@ -27,15 +27,15 @@ weight: 2
       },
     "name": 
       { 
-          "nb":"Smartregnskap",
-          "en":"Smart Accounting System",
-          "nn":"Smartregnskap"
+          "nb":"SmartCloud 1",
+          "en":"SmartCloud 1",
+          "nn":"Smart SKY"
       },
     "description": 
       { 
-          "nb":"RegnskapsSmartregnskap er et enkelt og smart regnskapsprogram for små bedrifter.",
-          "en":"Smartregnskap is a simple and smart accounting software for small businesses.",
-          "nn":"RegnskapsSmartregnskap er et enkelt og smart regnskapsprogram for små bedrifter."
+          "nb":"SmartCloud er verdens beste system.",
+          "en":"SmartCloud Rocks.",
+          "nn":"SmartSky er vestlandets beste system"
       },
     "rights": [
       {
@@ -103,7 +103,7 @@ The system user can be created in two ways
   1. End user driven
       - Smartcloud As must request "TILFELDIG SUBTIL APE" (end user) to login to altinn portal and create a system user for their system SmartCloud
   2. Vendor driven
-      - SmartCloud AS creates a system user request (via altinn api for system user request) from within SmartRegnskap, which is sent to Altinn.
+      - SmartCloud AS creates a system user request (via altinn api for system user request) from within SmartCloud, which is sent to Altinn.
       For detailed information on each input field, refer the documentation [here](../../../api/authentication/systemuserrequest/external/model/)
 
       ```
@@ -126,7 +126,7 @@ The system user can be created in two ways
 
       ```
 
-  - This request includes the necessary access rights to perform tasks related to the "Krav og betalinger" service on behalf of Rør og Vann AS (the company, end user).
+  - This request includes the necessary access rights to perform tasks related to the "Krav og betalinger" service on behalf of TILFELDIG SUBTIL APE (the company, end user).
   - The response is for example
 
     ```
@@ -158,7 +158,7 @@ The system user can be created in two ways
 
 ### Creating a System User For Agent System User
   - The system user for agent system user can be created only by system user request
-  - SmartCloud AS creates a system user request (via altinn api for system user request) from within SmartRegnskap, which is sent to Altinn.
+  - SmartCloud AS creates a system user request (via altinn api for system user request) from within SmartCloud, which is sent to Altinn.
     For detailed information on each input field, refer the documentation [here](../../../api/authentication/systemuserrequest/external/model/)
               
       ```

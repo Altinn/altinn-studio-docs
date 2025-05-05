@@ -8,7 +8,7 @@ weight: 3
 
 #### Actions by End User (STADIG KONSERT, Dagligleder of TILFELDIG SUBTIL APE)
    1. Purchasing the Accounting System
-      - STADIG KONSERT, the CEO of Rør og Vann AS, purchases SmartCloud to manage the company’s tax and fee claims.
+      - STADIG KONSERT, the Dagligleder of TILFELDIG SUBTIL APE, purchases SmartCloud to manage the company’s tax and fee claims.
       - The software offers a feature to view the company's total tax and fee claims.
    2. Approving the System User Request
       - As part of the software setup, STADIG KONSERT can either create a system user in altinn portal via end user driven system user creation or approve a system user request sent by the SmartCloud.      
@@ -30,5 +30,5 @@ weight: 3
       ![system user overview](../../systemvendor/systemtilgang-overview.png)
 
    3. Granting the Required Permissions
-      - After STADIG KONSERT's approval, the system access includes the rights to view Rør og Vann AS’s tax and fee claims.
+      - After STADIG KONSERT's approval, the system access includes the rights to view TILFELDIG SUBTIL APE’s tax and fee claims.
 STADIG KONSERT has granted authorization to SmartCloud for this specific service and can revoke the access at any time via Altinn.
