@@ -39,8 +39,8 @@ Her er en kort oppsummering av hvilke konsekvenser valgt overgangs- og migrering
 ## SluttbrukerSystem
 
 - For å få full oversikt over meldinger vil man måtte integrere seg mot både Altinn 2 og Altinn 3 API.
-- Når meldinger blir migrert fra A2 til A3 vil det mulig å identifisere dette ved at A3-elementet inneholder Altinn 2 Correspondence ID.
-- Når elementet er migrert, så kan SBS jobbe med elementet enten via Altinn 2 eller Altinn 3 API. Men merk at **endringer utført via A3 API ikke synkroniseres til A2**.
+- Når meldinger blir migrert fra A2 til A3, vil det være mulig å identifisere dem ved at A3-elementet inneholder Altinn 2 Correspondence ID.
+- Når elementet er migrert, kan sluttbrukersystemet jobbe med det via enten Altinn 2- eller Altinn 3-API. Merk at **endringer utført via A3-API ikke synkroniseres til A2**.
   - Men de må sørge for å håndtere migrerte meldinger på en god måte slik at de ikke jobber med både Altinn 2 og Altinn 3 versjonen av det aktuelle elementet.
 
 ## Dialogporten og Arbeidsflate
