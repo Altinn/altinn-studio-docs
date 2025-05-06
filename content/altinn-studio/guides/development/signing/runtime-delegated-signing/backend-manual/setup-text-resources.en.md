@@ -2,22 +2,15 @@
 hidden: true
 ---
 
+If you wish to override the standard texts:
+
 Add a [text resource file](/altinn-studio/reference/ux/texts/) under 'App/config/texts' for each language you want to support.
 
 Here you define text resources to be used in communication with the user.
 
-Text resource IDs for the signing flow are set up to **override** the content in messages sent to the Altinn inbox.
-
-`signing.correspondence_cta_title` - title of notification message to signer </br>
-`signing.correspondence_cta_summary` - subtitle of notification message to signer </br>
-`signing.correspondence_cta_body` - content of notification message to signer
-
-`signing.correspondence_receipt_title` - title of receipt message
-`signing.correspondence_receipt_summary` - subtitle of receipt message
-`signing.correspondence_receipt_body` - content of receipt message
-
-You can also set up text resources to **override** the content in SMS and email sent to notify the signer of a signing task.
-You can name these whatever you want and connect them to the notification implementation in the next step (step 4).
+With the `ComminicationConfig` property on the provided signee in your implementation of the `ISigneeProvider` interface, 
+you may **override** the content sent to the Altinn inbox, plus SMS and email sent to notify the signer of a signing task.
+You can name these whatever you want and connect them to `ComminicationConfig` in the next step (step 4).
 
 Example of text resources for notifications with custom texts for email, as well as receipt:
 

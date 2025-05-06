@@ -63,7 +63,54 @@ Nedenfor følger de viktiste konfigurasjonsstegene for å få satt opp en slik a
 
 {{</content-version-selector>}}
 
-## 3. Legg til tekstressurser
+## 3. Valgfritt - Legg til tekstressurser
+
+Denne seksjonen er kun relevant for deg dersom du ønsker å endre på standardtekstene i kommunikasjon med signatarer - de 
+som skal signere.
+
+Standardverdiene som brukes dersom kommunikasjonstekstene ikke overstyres er som følger:
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Standardtekster bokmål">}}
+| Tekst                                    | StandardVerdi |
+| ---------------------------------------- | ------------- |
+| Innboksmelding til signatar - tittel     | "{appName}: Oppgave til signering" |
+| Innboksmelding til signatar - undertittel | "Din signatur ventes for {appName}." |
+| Innboksmelding til signatar - innhold    | "Du har en oppgave som venter på din signatur. <a href=\"{instanceUrl}\">Klikk her for å åpne applikasjonen</a>.<br /><br />Hvis du lurer på noe, kan du kontakte {appOwner}." |
+| Sms til signatar - innhold               | "Din signatur ventes for {appName}. Åpne Altinn-innboksen din for å fortsette." |
+| E-post til signatar - emne               | "{appName}: Oppgave til signering" |
+| E-post til signatar - innhold            | "Din signatur ventes for {appName}. Åpne Altinn-innboksen din for å fortsette.<br /><br />Hvis du lurer på noe, kan du kontakte {appOwner}." |
+| Kvittering til signatar - tittel         | "{appName}: Signeringen er bekreftet" |
+| Kvittering til signatar - undertittel     | "Du har signert for {appName}." |
+| Kvittering til signatar - innhold        | "Dokumentene du har signert er vedlagt. Disse kan lastes ned om ønskelig. <br /><br />Hvis du lurer på noe, kan du kontakte {appOwner}." |
+{{</content-version-container>}}
+{{<content-version-container version-label="Standardtekster nynorsk">}}
+| Tekst                                    | StandardVerdi |
+| ---------------------------------------- | ------------- |
+| Innboksmelding til signatar - tittel     | "{appName}: Oppgåve til signering" |
+| Innboksmelding til signatar - undertittel | "Signaturen din vert venta for {appName}." |
+| Innboksmelding til signatar - innhold    | "Du har ei oppgåve som ventar på signaturen din. <a href=\"{instanceUrl}\">Klikk her for å opne applikasjonen</a>.<br /><br />Om du lurer på noko, kan du kontakte {appOwner}." |
+| Sms til signatar - innhold               | "Signaturen din vert venta for {appName}. Opne Altinn-innboksen din for å gå vidare." |
+| E-post til signatar - emne               | "{appName}: Oppgåve til signering" |
+| E-post til signatar - innhold            | "Signaturen din vert venta for {appName}. Opne Altinn-innboksen din for å gå vidare.<br /><br />Om du lurer på noko, kan du kontakte {appOwner}." |
+| Kvittering til signatar - tittel         | "{appName}: Signeringa er stadfesta" |
+| Kvittering til signatar - undertittel     | "Du har signert for {appName}." |
+| Kvittering til signatar - innhold        | "Dokumenta du har signert er vedlagde. Dei kan lastast ned om ønskeleg. <br /><br />Om du lurer på noko, kan du kontakte {appOwner}." |
+{{</content-version-container>}}
+{{<content-version-container version-label="Standardtekster engelsk">}}
+| Tekst                                    | StandardVerdi |
+| ---------------------------------------- | ------------- |
+| Innboksmelding til signatar - tittel     | "{appName}: Task for signing" |
+| Innboksmelding til signatar - undertittel | "Your signature is requested for {appName}." |
+| Innboksmelding til signatar - innhold    | "You have a task waiting for your signature. <a href=\"{instanceUrl}\">Click here to open the application</a>.<br /><br />If you have any questions, you can contact {appOwner}." |
+| Sms til signatar - innhold               | "Your signature is requested for {appName}. Open your Altinn inbox to proceed." |
+| E-post til signatar - emne               | "{appName}: Task for signing" |
+| E-post til signatar - innhold            | "Your signature is requested for {appName}. Open your Altinn inbox to proceed.<br /><br />If you have any questions, you can contact {appOwner}." |
+| Kvittering til signatar - tittel         | "{appName}: Signature confirmed" |
+| Kvittering til signatar - undertittel     | "Your signature has been registered for {appName}." |
+| Kvittering til signatar - innhold        | "The signed documents are attached. They may be downloaded. <br /><br />If you have any questions, you can contact {appOwner}." |
+{{</content-version-container>}}
+{{</content-version-selector>}}
 
 {{<content-version-selector classes="border-box">}}
 
@@ -92,8 +139,6 @@ Nedenfor følger de viktiste konfigurasjonsstegene for å få satt opp en slik a
 {{</content-version-selector>}}
 
 ## 5. Testing
-
-> **Obs!** Foreløpig er det ikke laget mocking av delegasjon i localtest, så testing må i praksis utføres i TT02-miljøet.
 
 Det er caching i autorisasjonslaget som gjør at det kan ta tid før en bruker som har fått delegert tilgang til et skjema via brukerstyrt signering ser skjemaet i sin Altinn innboks.
 
