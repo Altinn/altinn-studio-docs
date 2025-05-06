@@ -1,6 +1,6 @@
 ---
 title: Using System User for System Providers
-linktitle: System User for SBS
+linktitle: System User for System Providers
 description: System User is a new concept for API authentication. This guide describes how system providers can use it.
 toc: false
 weight: 1
