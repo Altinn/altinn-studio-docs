@@ -115,7 +115,7 @@
     "/future/orders": {
       "post": {
         "tags": [
-          "FutureOrders"
+          "Orders"
         ],
         "summary": "Creates a new notification order that has non or more reminders.",
         "description": "The API will accept the request after some basic validation of the request.\r\nThe system will also attempt to verify that it will be possible to fulfill the order.",
@@ -475,7 +475,7 @@
     "/future/shipment/{id}": {
       "get": {
         "tags": [
-          "Shipment"
+          "Orders"
         ],
         "summary": "Retrieve the delivery manifest for a specific notification order.",
         "parameters": [
