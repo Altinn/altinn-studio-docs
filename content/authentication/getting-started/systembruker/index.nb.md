@@ -25,7 +25,7 @@ En fullmektig systembruker er en brukertype ment for virksomheter som integrerer
 ### Ta i bruk systembruker
 La oss forstå bruk av systembruker via et eksempel.
 
-### Eksempel: Tilgang til API-et 'Krav og betalinger
+### Eksempel: Tilgang til API-et 'Krav og betalinger'
 Følgende aktører/tjenester er involvert i bruk av systembruker
 1. Tjenesteeier/Tjenestetilbyder/Ressurseier - Skatteetaten
 2. tjeneste/API/Ressurs - Krav og betalinger
