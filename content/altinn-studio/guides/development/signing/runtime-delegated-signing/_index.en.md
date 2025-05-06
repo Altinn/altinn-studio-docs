@@ -8,13 +8,13 @@ aliases:
   - /altinn-studio/guides/signing/runtime-delegated-signing
 ---
 
-## What does runtime delegated singing mean?
+## What does runtime delegated signing mean?
 
 {{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/intro.en.md" %}}
 
 ## Prerequisites
 
-Runtime delegated singing depends on then message service (Correspondence) in Altinn, which requires separate configuration.
+Runtime delegated signing depends on then message service (Correspondence) in Altinn, which requires separate configuration.
 
 The message service is used to tell the signee that they have been asked to sign a form in Altinn, and to send them a receipt of what they signed when the signature has been submitted.
 
