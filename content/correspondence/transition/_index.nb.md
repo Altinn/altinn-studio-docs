@@ -30,6 +30,8 @@ For å forenkle overgangen fra Altinn 2 til Altinn 3 versjonen av melding-produk
 
 ## Overordnet prosessflyt for migrering av historiske meldinger
 
+TODO: Sekvensdiagram for prosessen.
+
 1. **Hovedmigrering av historiske meldingsdata:** 1-gangs jobb over tid.
    1. Migrering av historiske data og vedlegg - [migrering av meldingsdata](./data-migration/).
    2. [Migrering av tjenestekonfigurasjon](./service-migration/).

@@ -28,6 +28,8 @@ weight: 60
 
 ## Overall Process Flow for Migration of Historical Messages
 
+TODO: Flow chart of process.
+
 1. **Main migration of historical message data:** A one-time job over time.
    1. Migration of historical data and attachments - [migration of message data](./data-migration/).
    2. [Migration of service configuration](./service-migration/).
