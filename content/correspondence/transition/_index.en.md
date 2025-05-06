@@ -45,7 +45,7 @@ TODO: Flow chart of process.
 
 ### Responsibility Sharing
 
-The *Flytt av data* project is responsible for developing components for and executing steps 1 and 2, as well as steps 3 and 4 in collaboration with *Team Authorization*.
+The *"Flytt av data"* project is responsible for developing components for and executing steps 1 and 2, as well as steps 3 and 4 in collaboration with *Team Authorization*.
 
 *Team Dialogporten/Arbeidsflate* is responsible for step 5, in collaboration with the *Flytt av data* project.
 
