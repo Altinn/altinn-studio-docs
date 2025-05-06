@@ -19,8 +19,8 @@ There are two types of system users
 
 ### Standard
 A standard system user is a user type designated for organizations that wish to access services provided by public or private sector entities through third-party systems.
-Read guide on [how to establish standard system user integration](/authentication/getting-started/systembruker/standard/).
+Read guide on how to establish standard system user integration.
 
 ### Agent
 An agent system user is a user type intended for organizations that integrate with third-party systems on behalf of their clients.
-Read guide on [how to establish agent system user integration](/authentication/getting-started/systembruker/clientdelegation/).
+Read guide on how to establish agent system user integration.
