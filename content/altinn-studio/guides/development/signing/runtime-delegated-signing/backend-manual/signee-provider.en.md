@@ -87,8 +87,8 @@ public class FounderSigneesProvider : ISigneeProvider
                     InboxMessage = new InboxMessage
                     {
                         TitleTextResourceKey = "signing.correspondence_title_common",
-                        SummaryTextResourceKey = "signing.correspondence_summary_stifter_organisasjon",
-                        BodyTextResourceKey = "signing.correspondence_body_stifter_organisasjon"
+                        SummaryTextResourceKey = "signing.correspondence_summary_stifter_organisation",
+                        BodyTextResourceKey = "signing.correspondence_body_stifter_organisation"
                     },
                     Notification = new Notification
                     {

@@ -14,7 +14,7 @@ aliases:
 
 ## Prerequisites
 
-Runtime deleaged singing depends on then message service (Correspondence) in Altinn, which requires separate configuration.
+Runtime delegated singing depends on then message service (Correspondence) in Altinn, which requires separate configuration.
 
 The message service is used to tell the signee that they have been asked to sign a form in Altinn, and to send them a receipt of what they signed when the signature has been submitted.
 
@@ -65,7 +65,7 @@ Below are the key configuration steps for setting up such an application.
 
 ## 3. Optional - Setup text resources
 
-This section is only relevatn for those who want to override the standard texts in the communication with the signees.
+This section is only relevant for those who want to override the standard texts in the communication with the signees.
 
 The standard values for the communication texts are as follows:
 

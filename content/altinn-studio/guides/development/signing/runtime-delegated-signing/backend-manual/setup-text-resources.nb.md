@@ -6,10 +6,10 @@ Dersom du ønsker å overstyre standardtekstene:
 
 Legg til en [teksressurs-fil](/nb/altinn-studio/reference/ux/texts/) under ´App/config/texts´ for hvert språk du vil støtte.
 
-Med `ComminicationConfig` oppsettet for en oppgitt signatar i implementasjonen din av `ISigneeProvider` interfacet, kan
+Med `CommunicationConfig` oppsettet for en oppgitt signatar i implementasjonen din av `ISigneeProvider` interfacet, kan
 du knytte opp tekstressurser for å **overstyre** innholdet i melding til innboksen i Altinn, samt sms og e-post som sendes
 for å varsle signatar om en signeringsoppgave.
-Disse kan du kalle hva du vil, og koble dem opp til `ComminicationConfig` i neste punkt (punkt 4.).
+Disse kan du kalle hva du vil, og koble dem opp til `CommunicationConfig` i neste punkt (punkt 4.).
 
 
 Eksempel på tekstressurser for varsling med egne tekster for e-post, samt kvittering:
