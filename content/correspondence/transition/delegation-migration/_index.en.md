@@ -17,7 +17,7 @@ Delegations of rights can be done in different ways, and if this is not migrated
 - This happens continuously during the lifetime of the service and the message.
 - There is a difference in the rights models between Altinn 2 Message and Altinn 3:
   - "Read", "Write" => "Read"
-  - "ArchiveRead", "ArchiveDelete" => does not exist in A3.
+  - "ArchiveRead", "ArchiveDelete" => does not exist in A3, will be mapped to "Read"
 
 Based on these facts, it is clear that delegations must be migrated at both the service and instance levels from Altinn 2 to Altinn 3.
 Additionally, this cannot be done as a one-time job but must be synchronized when changes occur.
