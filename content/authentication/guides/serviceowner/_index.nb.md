@@ -30,5 +30,5 @@ For å bruke systembruker som API-leverandør, må følgende forutsetninger vær
        - Den siste steg for Skatteetaten er å registrere en ressurs i [ressursregisteret](../../../../api/resourceregistry/), knytte den til scopet og definere tilgangsreglene for eksterne brukere. Dette kan være en app i Altinn Studio eller et API på API-leverandørens egen plattform.
 
 #### Etter opprettelse av systembruker
-1. [Valider Maskinporten-token](systemauthentication-for-apiproviders#validation-of-maskinporten-token)
-2. [Autorisering av systembruker](systemauthentication-for-apiproviders#authorization-of-system-user)
+1. [Valider Maskinporten-token](systemauthentication-for-apiproviders/#validering-av-maskinporten-token)
+2. [Autorisering av systembruker](systemauthentication-for-apiproviders/#autorisasjon-av-systembruker)
