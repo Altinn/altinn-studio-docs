@@ -12,6 +12,7 @@ weight: 2
    2. Creating a Maskinporten Client for the System
       - SmartCloud AS wants to integrates the system user into their accounting software, SmartCloud.
       - To integrate, they must create a client in Maskinporten for system SmartCloud, which gets a client ID that will be used for authentication and authorization.
+      - Refer the guide for establishing machineporten integration [Machineporten as consumer](https://samarbeid.digdir.no/maskinporten/konsument/119)
    3. Registering the System in Altinn’s System Register
       - SmartCloud AS then registers SmartCloud system in the Altinn System Register.
       - They define the required rights for accessing "Krav og betalinger" by associating the client ID with the relevant permissions.
@@ -95,6 +96,9 @@ weight: 2
         "isVisible": true
     }
     ```
+
+    Refer [here](https://platform.tt02.altinn.no/accessmanagement/api/v1/meta/info/accesspackages/export) for list of available access packages on tt02 environment.
+    
   - Refer [here](../../../api/authentication/systemuserapi/systemregister/model/) for the detailed description for information about each input. For all subsequent communications, the system vendor must reference the value specified in the 'id' field.
 
 ### Creating a System User For Standard System User
@@ -202,5 +206,4 @@ The system user can be created in two ways
     - [Agent system user](../enduser/clientdelegation/)
 
 
-#### Getting Started For System Provider
-Follow the [guide for system provider](systemauthentication-for-systemproviders/)
+See [Samarbeisportalen](https://samarbeid.digdir.no/altinn/systembruker/2542) for illustrasjon and webinar.
