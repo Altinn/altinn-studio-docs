@@ -31,19 +31,20 @@ weight: 60
 1. **Main migration of historical message data:** A one-time job over time.
    1. Migration of historical data and attachments - [migration of message data](./data-migration/).
    2. [Migration of service configuration](./service-migration/).
-2. **Data synchronization period:** Starts when step 1 is completed and continues until Altinn 2 is shut down.
+2. **Data synchronization period:** Starts when step 1.1 has started and continues until Altinn 2 is shut down.
    1. Continuous migration of **new** messages.
    2. Continuous synchronization of status changes for migrated messages.
-3. **[Migration of delegations](./delegation-migration/):** Starts when step 1 is completed.
+3. **[Migration of delegations](./delegation-migration/):** Starts when step 1.2 is completed.
    A large "backlog" is expected when this starts, but in practice, it is the same job/component used in step 4.
 4. **Delegation synchronization period:** When steps 1 and 3 are completed, continues until Altinn 2 is shut down.
-   Continuous synchronization of changes in delegations.
+   Continuous synchronization of changes in delegations on service- and instance level.
 5. **Making historical messages available in Altinn 3/Dialogporten/Arbeidsflate:** This can theoretically happen after step 1 is completed, but for the best results, it should occur during period 4.
 6. **Ongoing migration and availability of messages:** Eventually, all new messages in Altinn 2 will almost immediately go through steps 2, 4, and 5 and thus be continuously available in the Dialogporten/Arbeidsflate.
 
 ### Responsibility Sharing
 
-The *Flytt av data* project is responsible for developing components for and executing steps 1 and 2, as well as steps 3 and 4 in collaboration with *Team Authorization*.  
+The *Flytt av data* project is responsible for developing components for and executing steps 1 and 2, as well as steps 3 and 4 in collaboration with *Team Authorization*.
+
 *Team Dialogporten/Arbeidsflate* is responsible for step 5, in collaboration with the *Flytt av data* project.
 
 {{<children />}}
