@@ -6,7 +6,11 @@ toc: false
 weight: 4
 ---
 
-#### Actions by End User (DRESs MINST, Client Administrator for TILBAKEHOLDEN USYMMETRISK TIGER AS )
+{{<notice warning>}}
+ This functionality is in test and will change.
+{{</notice>}}
+
+#### Guide for End User (DRESs MINST, Client Administrator for TILBAKEHOLDEN USYMMETRISK TIGER AS )
    1. Purchasing the Accounting System
       - DRESs MINST, the CEO of TILBAKEHOLDEN USYMMETRISK TIGER AS , purchases SmartCloud to manage different services for their clients .
       - for example, The software offers a feature to view their client company's total tax and fee claims.

@@ -15,8 +15,8 @@ For å bruke systembruker som API-leverandør, må følgende forutsetninger vær
 
 - Avtale med Maskinporten AS som [API-leverandøren](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apitilbyder)
 - Avtale med Digdir for tilgang til ressursregisteret for å opprette ressurser.
-- Oppretting av [nødvendige ressurser] (/authorization/guides/create-resource-resource-admin/) som må autoriseres
-- Tildelt omfang for PDP-integrasjon
+- Oppretting av [nødvendige ressurser](/authorization/guides/create-resource-resource-admin/) som må autoriseres
+- Tildelt scope for PDP-integrasjon
 - Integrasjon med Altinn PDP
 
 #### Forberedelse av API-leverandør (Skatteetaten)
@@ -28,6 +28,8 @@ For å bruke systembruker som API-leverandør, må følgende forutsetninger vær
        - Dette scopet er knyttet til de relevante tilgangene og tildeles organisasjoner som trenger tilgang til denne tjenesten, som for eksempel SmartCloud AS (systemleverandøren).
    3. Registrering av ressurser i ressursregisteret
        - Den siste steg for Skatteetaten er å registrere en ressurs i [ressursregisteret](../../../../api/resourceregistry/), knytte den til scopet og definere tilgangsreglene for eksterne brukere. Dette kan være en app i Altinn Studio eller et API på API-leverandørens egen plattform.
+         
+         se [api dokumentasjon](../../../api/authentication/systemuserapi/) for mer informasjon om tilgjengleige endepunkter.
 
 #### Etter opprettelse av systembruker
 1. [Valider Maskinporten-token](systemauthentication-for-apiproviders/#validering-av-maskinporten-token)

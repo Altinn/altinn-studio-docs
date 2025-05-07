@@ -6,6 +6,10 @@ toc: false
 weight: 2
 ---
 
+{{<notice warning>}}
+ This functionality is in test and will change.
+{{</notice>}}
+
 #### Actions by System Vendor (SmartCloud AS)
    1. Contact Digdir
       - The System vendor must contact Digdir to get access to the system register, system user scopes. It is required that the vendor runs the test of system user in Digdir's test environment and must sign an agreement of using system user to integrate with production environment.
@@ -207,3 +211,5 @@ The system user can be created in two ways
 
 
 See [Samarbeisportalen](https://samarbeid.digdir.no/altinn/systembruker/2542) for illustrasjon and webinar.
+
+Refer [api documentation](../../../api/authentication/systemuserapi/) for more information on available endpoints.
