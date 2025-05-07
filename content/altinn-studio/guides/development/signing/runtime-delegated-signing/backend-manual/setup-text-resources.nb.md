@@ -15,7 +15,7 @@ Disse kan du kalle hva du vil, og koble dem opp til `CommunicationConfig` i nest
 Eksempel på tekstressurser for varsling med egne tekster for e-post, samt kvittering:
 
 {{% notice warning %}}
-Legg merke til at tekstressursene for innhold i Altinn innboksen har en `$InstanceUrl` plassholder (placeholder). 
+Legg merke til at tekstressursene for innhold i Altinn innboksen har en `$instanceUrl$` plassholder (placeholder). 
 Det vil erstattes med en lenke til skjemaet. Hvis dette overstyres uten å bruke denne plassholderen, så vil IKKE mottaker
 kunne finne frem til skjemaet med signeringsoppgaven!
 {{% /notice %}}
@@ -35,11 +35,11 @@ kunne finne frem til skjemaet med signeringsoppgaven!
     },
     {
       "id": "signing.correspondence_body_stifter_person",
-      "value": "Du har blitt lagt til som signatar for stiftelsesdokumenter. <br /> $InstanceUrl <br /><br />Hvis du lurer på noe, ta kontakt med Brønnøysundregistrene på telefon 75 00 75 00."
+      "value": "Du har blitt lagt til som signatar for stiftelsesdokumenter. <br /> $instanceUrl$ <br /><br />Hvis du lurer på noe, ta kontakt med Brønnøysundregistrene på telefon 75 00 75 00."
     },
     {
       "id": "signing.correspondence_body_stifter_organisasjon",
-      "value": "Organisjonen har blitt lagt til som signatar for stiftelsesdokumenter. <br /> $InstanceUrl <br /><br />Ved spørsmål, ta kontakt med Brønnøysundregistrene på telefon 75 00 75 00."
+      "value": "Organisjonen har blitt lagt til som signatar for stiftelsesdokumenter. <br /> $instanceUrl$ <br /><br />Ved spørsmål, ta kontakt med Brønnøysundregistrene på telefon 75 00 75 00."
     },
     {
       "id": "signing.notification_content",

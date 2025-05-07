@@ -29,15 +29,15 @@ Example of text resources for notifications with custom texts for email, as well
 },
 {
   "id": "signing.correspondence_body_stifter_person",
-  "value": "You have been added as a signer for founding documents. <br /> $InstanceUrl <br /><br />"
+  "value": "You have been added as a signer for founding documents. <br /> $instanceUrl$ <br /><br />"
 },
 {
   "id": "signing.correspondence_body_stifter_organisation",
-  "value": "Your organisation has been added as a signer for founding documents. <br /> $InstanceUrl <br /><br />"
+  "value": "Your organisation has been added as a signer for founding documents. <br /> $instanceUrl$ <br /><br />"
 },
 {
   "id": "signing.notification_content",
-  "value": "Hello {0},\n\nYou have received founding documents for signing in Altinn. Log in to Altinn to sign the documents.\n\nBest regards,\nBrønnøysund Register Centre"
+  "value": "Hello $correspondenceRecipientName$,\n\nYou have received founding documents for signing in Altinn. Log in to Altinn to sign the documents.\n\nBest regards,\nBrønnøysund Register Centre"
 },
 {
   "id": "signing.email_subject",
