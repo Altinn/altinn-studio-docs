@@ -1,5 +1,5 @@
 ---
-title: API-leverandør sitt rolle i systembruker Integrasjon
+title: API-leverandør sin rolle i systembruker Integrasjon
 linktitle: API-leverandør
 toc: true
 weight: 1
