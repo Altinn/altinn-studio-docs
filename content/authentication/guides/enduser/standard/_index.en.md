@@ -6,6 +6,10 @@ toc: false
 weight: 3
 ---
 
+{{<notice warning>}}
+ This functionality is in test and will change.
+{{</notice>}}
+
 ### Guide for End User (STADIG KONSERT, Dagligleder of TILFELDIG SUBTIL APE)
 1. Purchasing the Accounting System
    - STADIG KONSERT, the Dagligleder of TILFELDIG SUBTIL APE, purchases SmartCloud to manage the company’s tax and fee claims.

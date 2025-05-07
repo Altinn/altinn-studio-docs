@@ -5,6 +5,11 @@ description: Her finner informasjon om hvordan komme i gang med Systembruker
 toc: false
 weight: 3
 ---
+
+{{<notice warning>}}
+ Denne funksjonaliteten er i test og kan endres
+{{</notice>}}
+
 ## Oversikt
 Denne veiledningen hjelper deg med å komme i gang med integrasjonsprosessen for systembruker.
 

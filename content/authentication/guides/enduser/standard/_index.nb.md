@@ -6,6 +6,10 @@ toc: false
 weight: 3
 ---
 
+{{<notice warning>}}
+ Denne funksjonaliteten er i test og kan endres
+{{</notice>}}
+
 ### Veiledning for sluttbruker (STADIG KONSERT, Dagligleder til TILFELDIG SUBTIL APE)
 1. Anskaffelse av regnskapssystemet
    - STADIG KONSERT,  dagligleder til TILFELDIG SUBTIL APE, anskaffer SmartCloud for å håndtere selskapets skatte- og avgiftskrav

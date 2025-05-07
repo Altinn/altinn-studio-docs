@@ -6,6 +6,10 @@ toc: false
 weight: 4
 ---
 
+{{<notice warning>}}
+ Denne funksjonaliteten er i test og kan endres
+{{</notice>}}
+
 #### Veiledning for sluttbruker (DRESs MINST, klientadministratør i TILBAKEHOLDEN USYMMETRISK TIGER AS )
    1. Anskaffelse av regnskapssystemet
       - DRESs MINST, klientadministratør i TILBAKEHOLDEN USYMMETRISK TIGER AS, anskaffer SmartCloud for å håndtere ulike tjenester for kundene.

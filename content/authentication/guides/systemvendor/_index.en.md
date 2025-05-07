@@ -6,6 +6,10 @@ toc: false
 weight: 2
 ---
 
+{{<notice warning>}}
+ This functionality is in test and will change.
+{{</notice>}}
+
 #### Actions by System Vendor (SmartCloud AS)
    1. Contact Digdir
       - The System vendor must contact Digdir to get access to the system register, system user scopes. It is required that the vendor runs the test of system user in Digdir's test environment and must sign an agreement of using system user to integrate with production environment.
