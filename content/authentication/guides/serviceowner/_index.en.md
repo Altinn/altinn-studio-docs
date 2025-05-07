@@ -30,6 +30,7 @@ To use system user as an api provider, the following prerequisites must be fullf
    3. Registering Resources in the Resource Register
        - The final step for Skatteetaten is to [register a resource](../../../../api/resourceregistry/) in the Resource Register, linking it to the scope and defining the access rules for external users. The service can define custom scopes, with access managed directly by the service owner
        This could be an application developed in Altinn Studio or an API hosted on the service owner's own platform.
+       Refer [api documentation](../../../api/authentication/systemuserapi/) for more information on available endpoints.
 
 #### Post System User Creation
 1. [Validate Machineporten token](systemauthentication-for-apiproviders#validation-of-maskinporten-token)

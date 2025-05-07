@@ -205,7 +205,7 @@ PUT authentication/api/v1/systemregister/vendor/{systemid}/rights
 ]
 ```
 ### Scopes
-Machineporten-token med omfang <mark>altinn:authentication/systemregister.write</mark>
+Machineporten-token med scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
 application/json
@@ -229,7 +229,7 @@ PUT authentication/api/v1/systemregister/vendor/{systemid}/accesspackages
 ]
 ```
 ### Scopes
-Machineporten-token med omfang <mark>altinn:authentication/systemregister.write</mark>
+Machineporten-token med scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
 application/json
