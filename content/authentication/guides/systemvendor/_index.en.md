@@ -207,3 +207,5 @@ The system user can be created in two ways
 
 
 See [Samarbeisportalen](https://samarbeid.digdir.no/altinn/systembruker/2542) for illustrasjon and webinar.
+
+Refer [api documentation](../../../api/authentication/systemuserapi/) for more information on available endpoints.

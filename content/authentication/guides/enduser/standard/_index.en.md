@@ -6,13 +6,13 @@ toc: false
 weight: 3
 ---
 
-#### Actions by End User (STADIG KONSERT, Dagligleder of TILFELDIG SUBTIL APE)
-   1. Purchasing the Accounting System
-      - STADIG KONSERT, the Dagligleder of TILFELDIG SUBTIL APE, purchases SmartCloud to manage the company’s tax and fee claims.
-      - The software offers a feature to view the company's total tax and fee claims.
-   2. Approving the System User Request
-      - As part of the software setup, STADIG KONSERT can either create a system user in altinn portal via end user driven system user creation or approve a system user request sent by the SmartCloud.      
-      - For example, STADIG KONSERT can create a system user for TILFELDIG SUBTIL APE from altinn portal like below
+### Guide for End User (STADIG KONSERT, Dagligleder of TILFELDIG SUBTIL APE)
+1. Purchasing the Accounting System
+   - STADIG KONSERT, the Dagligleder of TILFELDIG SUBTIL APE, purchases SmartCloud to manage the company’s tax and fee claims.
+   - The software offers a feature to view the company's total tax and fee claims.
+2. Approving the System User Request
+   - As part of the software setup, STADIG KONSERT can either create a system user in altinn portal via end user driven system user creation or approve a system user request sent by the SmartCloud.      
+   - For example, STADIG KONSERT can create a system user for TILFELDIG SUBTIL APE from altinn portal like below
       
       Select the system
       ![Select system as end user](../../systemvendor/systemtilgang-1.png)

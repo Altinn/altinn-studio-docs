@@ -202,3 +202,5 @@ For detaljert informasjon om hvert inputfelt, se dokumentasjonen [her](../../../
 - Bekreftelseslenken (confirmurl) sendes til sluttbrukeren, her revisjonsorganisasjonen, for godkjenning. Når den er godkjent, kan sluttbrukeren legge til klienter til systembrukeren. Følg veiledningen for sluttbruker for [Agent systembruker](../enduser/clientdelegation/)
 
 Se [Samarbeisportalen](https://samarbeid.digdir.no/altinn/systembruker/2542) for illustrert og webinar.
+
+se [api dokumentasjon](../../../api/authentication/systemuserapi/) for mer informasjon om endepunkter.

@@ -35,9 +35,10 @@ Følgende aktører/tjenester er involvert i bruk av systembruker
 6. Sluttbruker (For kunde administrasjon) - TILBAKEHOLDEN USYMMETRISK TIGER AS, regnskapsfirma (fra tt02 miljø)
 
 Følgende trinn bør utføres av ulike aktører for å etablere system- og systembrukerintegrasjon.
-1. [Forberedelse av tjenesteeier (Skatteetaten)](../../guides/serviceowner/)
-2. [Tiltak fra systemleverandør (SmartCloud AS)](../../guides/systemvendor/)
-3. [Tiltak fra sluttbruker (STADIG KONSERT, Dagligleder for TILFELDIG SUBTIL APE)](../../guides/enduser/standard)
+1. [Tjenesteeier (Skatteetaten)](../../guides/serviceowner/)
+2. [Systemleverandør (SmartCloud AS)](../../guides/systemvendor/)
+3. [Sluttbruker (STADIG KONSERT, Dagligleder for TILFELDIG SUBTIL APE)](../../guides/enduser/standard)
+3. [Sluttbruker for klientdelegering (DRESs MINST, Client Administrator for TILBAKEHOLDEN USYMMETRISK TIGER AS)](../../guides/enduser/clientdelegation/)
 
 Når alle brukere har fullført sine forutsetninger for systemintegrasjonen, er systembrukeren klar til å tas i bruk av tredjepartsystemene.
 

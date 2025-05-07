@@ -36,9 +36,10 @@ Following are the actors/services involved in using the system user
 6. End User (For Client adminstration) - TILBAKEHOLDEN USYMMETRISK TIGER AS, An auditing organisation (from tt02 environment)
 
 The following steps are necessary to establish system, system user integration
-1. [Preparation by Service Provider (skatteetaten)](../../guides/serviceowner/)
-2. [Actions by System Vendor (SmartCloud AS)](../../guides/systemvendor/)
-3. [Actions by End User (STADIG KONSERT, Dagligleder of TILFELDIG SUBTIL APE)](../../guides/enduser/standard)
+1. [Service Provider (skatteetaten)](../../guides/serviceowner/)
+2. [System Vendor (SmartCloud AS)](../../guides/systemvendor/)
+3. [End User (STADIG KONSERT, Dagligleder of TILFELDIG SUBTIL APE)](../../guides/enduser/standard)
+3. [End User For Client Delegation (DRESs MINST, Client Administrator for TILBAKEHOLDEN USYMMETRISK TIGER AS)](../../guides/enduser/clientdelegation/)
 
 Once all the users have completed their prerequisite for the system integration, system user is now ready to be used by the third party systems.
 

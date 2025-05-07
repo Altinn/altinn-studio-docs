@@ -6,13 +6,13 @@ toc: false
 weight: 3
 ---
 
-#### Tiltak fra sluttbruker (STADIG KONSERT, Dagligleder til TILFELDIG SUBTIL APE)
-   1. Anskaffelse av regnskapssystemet
-      - STADIG KONSERT,  dagligleder til TILFELDIG SUBTIL APE, anskaffer SmartCloud for å håndtere selskapets skatte- og avgiftskrav
-      - Programvaren tilbyr en funksjon for å vise totale skatte- og avgiftskrav.
-   2. Godkjenning av forespørsel om systembruker
-      - Som en del av programvareoppsettet, kan STADIG KONSERT enten opprette en systembruker i Altinn-portalen via sluttbrukerdrevet systembrukeropprettelse, eller godkjenne en forespørsel om systembruker sendt av SmartCloud.
-      - I dette eksemplet mottar STADIG KONSERT en forespørsel om systembruker og må godkjenne den i Altinn-portalen, der STADIG KONSERT tildeler de nødvendige tilganger til SmartCloud for tjenesten "Krav og betalinger
+### Veiledning for sluttbruker (STADIG KONSERT, Dagligleder til TILFELDIG SUBTIL APE)
+1. Anskaffelse av regnskapssystemet
+   - STADIG KONSERT,  dagligleder til TILFELDIG SUBTIL APE, anskaffer SmartCloud for å håndtere selskapets skatte- og avgiftskrav
+   - Programvaren tilbyr en funksjon for å vise totale skatte- og avgiftskrav.
+2. Godkjenning av forespørsel om systembruker
+   - Som en del av programvareoppsettet, kan STADIG KONSERT enten opprette en systembruker i Altinn-portalen via sluttbrukerdrevet systembrukeropprettelse, eller godkjenne en forespørsel om systembruker sendt av SmartCloud.
+   - I dette eksemplet mottar STADIG KONSERT en forespørsel om systembruker og må godkjenne den i Altinn-portalen, der STADIG KONSERT tildeler de nødvendige tilganger til SmartCloud for tjenesten "Krav og betalinger
 
       Velg system
       ![Velg et system](../../systemvendor/systemtilgang-1.png)
