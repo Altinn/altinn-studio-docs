@@ -15,7 +15,7 @@ For å bruke systembruker som API-leverandør, må følgende forutsetninger vær
 
 - Avtale med Maskinporten AS som [API-leverandøren](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apitilbyder)
 - Avtale med Digdir for tilgang til ressursregisteret for å opprette ressurser.
-- Oppretting av [nødvendige ressurser] (/authorization/guides/create-resource-resource-admin/) som må autoriseres
+- Oppretting av [nødvendige ressurser](/authorization/guides/create-resource-resource-admin/) som må autoriseres
 - Tildelt scope for PDP-integrasjon
 - Integrasjon med Altinn PDP
 

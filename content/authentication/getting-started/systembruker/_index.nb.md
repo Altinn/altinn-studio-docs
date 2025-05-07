@@ -10,9 +10,6 @@ weight: 3
  Denne funksjonaliteten er i test og kan endres
 {{</notice>}}
 
-## Oversikt
-Denne veiledningen hjelper deg med å komme i gang med integrasjonsprosessen for systembruker.
-
 ## Systembruker
 En systembruker er en ny type bruker i Altinn som gjør det mulig for en virksomhet å gi autorisasjoner til en upersonlig bruker, slik at den kan utføre oppgaver på vegne av virksomheten.
 Brukeren fungerer tett sammen med Maskinporten, og muliggjør tilgangsstyring gjennom både Maskinporten og Altinn Autorisasjon. Med systembrukeren blir autorisasjonsprosessen mer effektiv, og sikrer at systemleverandøren kun får de nødvendige tilgangene.

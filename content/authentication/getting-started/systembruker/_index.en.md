@@ -10,9 +10,6 @@ weight: 3
  This functionality is in test and will change.
 {{</notice>}}
 
-## Overview
-This guide will help you get started with the system user integration process.
-
 ## System User
 A System User is a new type of user in Altinn that allows an organization to grant authorizations to a non-personal user, enabling it to perform tasks on behalf of the organization.
 The user works closely with Maskinporten, enabling access control through both Maskinporten and Altinn Authorization. With the system user, the authorization process becomes more streamlined, ensuring that the system provider only has the necessary access permissions.
