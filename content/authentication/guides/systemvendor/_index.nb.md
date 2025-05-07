@@ -6,12 +6,18 @@ toc: false
 weight: 2
 ---
 
+{{<notice warning>}}
+ Denne funksjonaliteten er i test og kan endres
+{{</notice>}}
+
 #### Tiltak utført av systemleverandøren (SmartCloud AS)
    1. Kontakt Digdir
-      - Systemleverandøren må ta kontakt med Digdir for å få tilgang til systemregisteret og systembruker-scopes. Det er et krav at leverandøren gjennomfører testing av systembruker i Digdirs testmiljø, og det må inngås en avtale om bruk av systembruker for integrasjon med produksjonsmiljøet.
+      - Systemleverandøren må ta kontakt med Digdir for å få tilgang til systemregisteret og systembruker-scopes. Det er et krav at leverandøren gjennomfører testing av systembruker i Digdirs testmiljø, og det må inngås en avtale om bruk av systembruker for integrasjon med produksjonsmiljøet. Sluttbrukersystemleverandør kontakter Digdir for å få tilgang til systembruker scopes.  
+        I perioden frem til nye bruksvilkår er på plass må det også underskrives pilotavtale før systembruker kan brukes i produksjon.
    2. Opprette en Maskinporten-klient for systemet
       - SmartCloud AS ønsker å integrere systembrukeren i sitt regnskapsprogram, SmartCloud.
       - For å integrere må de opprette en klient i Maskinporten for SmartCloud, som får en klient-ID som brukes til autentisering og autorisering.
+      - Se veiledningen for å etablere Maskinporten-integrasjon [Maskinporten som konsument](https://samarbeid.digdir.no/maskinporten/konsument/119)
    3. Registrering av systemet i Altinn systemregister
       - SmartCloud AS registrerer deretter SmartCloud system i Altinn systemregister.
       - De definerer de nødvendige rettighetene for å få tilgang til 'Krav og betalinger' ved å knytte klient-ID-en til systemet.
@@ -56,7 +62,9 @@ weight: 2
          "isVisible": true
       }
       ```
-      - Registrering av systemet med nødvendige tilgangspakker i Altinns systemregister. I dette eksempelet registrerer vi et system med nødvendig tilgang til en tilgangspakke
+
+
+      - Registrering av systemet med nødvendige tilgangspakker i Altinns systemregister. I dette eksempelet registrerer vi et system med nødvendig tilgang til en tilgangspakke. Leverandører må registrere systemet med tilgangspakker dersom brukerne deres for eksempel er et regnskapsfirma som representerer sine kunder.
 
       ```
       {
@@ -95,9 +103,11 @@ weight: 2
       }
       ```
 
-   Se [her](../../../api/authentication/systemuserapi/systemregister/model/) for en detaljert beskrivelse av hver enkelt input. Ved all videre kommunikasjon må systemleverandøren referere til verdien som er angitt i feltet 'id'.
+Se [her](https://platform.tt02.altinn.no/accessmanagement/api/v1/meta/info/accesspackages/export) for list av tilgjengelige tilgangspakker på tt02 miljø.
 
-#### Opprettelse av systembruker for standard system bruker
+Se [her](../../../api/authentication/systemuserapi/systemregister/model/) for en detaljert beskrivelse av hver enkelt input. Ved all videre kommunikasjon må systemleverandøren referere til verdien som er angitt i feltet 'id'.
+
+#### Opprettelse av systembruker for en standard system bruker
 Systembrukeren kan opprettes på to måter
 
    1. Sluttbrukerstyrt
@@ -195,5 +205,6 @@ For detaljert informasjon om hvert inputfelt, se dokumentasjonen [her](../../../
 
 - Bekreftelseslenken (confirmurl) sendes til sluttbrukeren, her revisjonsorganisasjonen, for godkjenning. Når den er godkjent, kan sluttbrukeren legge til klienter til systembrukeren. Følg veiledningen for sluttbruker for [Agent systembruker](../enduser/clientdelegation/)
 
-#### Kom i gang for systemleverandør
-Følg [veiledningen for systemleverandør](systemauthentication-for-systemproviders/)
+Se [Samarbeisportalen](https://samarbeid.digdir.no/altinn/systembruker/2542) for illustrert og webinar.
+
+se [api dokumentasjon](../../../api/authentication/systemuserapi/) for mer informasjon om endepunkter.

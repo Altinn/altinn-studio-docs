@@ -11,14 +11,11 @@ Her er en kort oppsummering av hvilke konsekvenser valgt overgangs- og migrering
 ## Tjenesteeier
 
 - Ved opprettelse av Meldingen i API, blir den opprettet i miljøet som kalles («hjemstedet» til elementet).
-  - Dersom den opprettes i A2, vil migrering skje til A3 etter kort tid, men varslingen vil fullføres i A2 uavhengig av migrering.
+  - Dersom den opprettes i Altinn 2, vil migrering skje til Altinn 3 etter kort tid, men varslingen vil fullføres i A2 uavhengig av migrering.
   - Dersom i Altinn 3, så vil Meldingen være tilgjengelig i Altinn 2 Portalen.
     - A3 Meldinger vil ikke være tilgjengelige via A2 API.
-- Sjekk av status på melding opprettet i A2 må gjøres mot A2 før migreringstidspunktet, deretter mot enten A2 eller A3.
-
-- Man må integrere seg mot Altinn 3 API for å opprette/følge opp nye Meldinger der.
-  - TE må opprette nye Ressurser i RessursRegisteret for sine nye tjenester, se [guide](../../getting-started/developer-guides/serviceowner/) her.
-  - Ressurser for Migrerte meldinger blir opprettet av Flytt av Data prosjektet.
+- Sjekk av status på meldinger opprettet i A2 må gjøres mot A2 inntil melding er migrert, deretter kan man gå mot enten A2 eller A3.
+- Man må integrere seg mot Altinn 3 API for å opprette/følge opp nye meldinger der.
 
 ## Sluttbrukere
 
@@ -39,9 +36,9 @@ Her er en kort oppsummering av hvilke konsekvenser valgt overgangs- og migrering
 ## SluttbrukerSystem
 
 - For å få full oversikt over meldinger vil man måtte integrere seg mot både Altinn 2 og Altinn 3 API.
-- Når meldinger blir migrert fra A2 til A3, vil det være mulig å identifisere dem ved at A3-elementet inneholder Altinn 2 Correspondence ID.
-- Når elementet er migrert, kan sluttbrukersystemet jobbe med det via enten Altinn 2- eller Altinn 3-API. Merk at **endringer utført via A3-API ikke synkroniseres til A2**.
-  - Men de må sørge for å håndtere migrerte meldinger på en god måte slik at de ikke jobber med både Altinn 2 og Altinn 3 versjonen av det aktuelle elementet.
+- Når meldinger blir migrert fra A2 til A3, vil det være mulig å identifisere dem ved at A3-versjonen av meldingen inneholder Altinn 2 Correspondence ID.
+- Når meldingen er migrert, kan sluttbrukersystemet jobbe med det via enten Altinn 2- eller Altinn 3-API. Endringer på meldingene vil bli synkronisert på tvers, men vær OBS på at det kan være en forsinkelse før det er blitt oppdatert.
+  - SBS må sørge for å håndtere migrerte meldinger på en god måte slik at de ikke jobber med både Altinn 2 og Altinn 3 versjonen av det aktuelle elementet.
 
 ## Dialogporten og Arbeidsflate
 

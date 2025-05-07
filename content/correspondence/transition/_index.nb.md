@@ -30,22 +30,25 @@ For å forenkle overgangen fra Altinn 2 til Altinn 3 versjonen av melding-produk
 
 ## Overordnet prosessflyt for migrering av historiske meldinger
 
+TODO: Sekvensdiagram for prosessen.
+
 1. **Hovedmigrering av historiske meldingsdata:** 1-gangs jobb over tid.
    1. Migrering av historiske data og vedlegg - [migrering av meldingsdata](./data-migration/).
    2. [Migrering av tjenestekonfigurasjon](./service-migration/).
-2. **Data-synk periode:** Starter når steg 1 er utført, fortsetter til Altinn 2 skrus av.
+2. **Data-synk periode:** Starter når steg 1.1 er startet, fortsetter til Altinn 2 skrus av.
    1. Kontinuerlig migrering av **nye** meldinger.
    2. Kontinuerlig synk av statusendringer for migrerte meldinger.
-3. **[Migrering av delegeringer](./delegation-migration/):** Starter når steg 1 er utført.
+3. **[Migrering av delegeringer](./delegation-migration/):** Starter når steg 1.2 er utført.
    Vi forventer en stor "backlogg" når denne startes, men i praksis samme jobb/komponent som benyttes i steg 4.
 4. **Synk av delegering periode:** når steg 1 og 3 er fullført, fortsetter til Altinn 2 skrus av.
-   Kontinuerlig synk av endringer i delegering.
+   Kontinuerlig synk av endringer i delegeringer på tjeneste- og instansnivå.
 5. **Tilgjengeliggjøring av historiske meldinger i Altinn 3/Dialogporten/Arbeidsflate:** kan i teorien skje etter steg 1 er utført, men for best resultat; når man er i periode 4.
 6. **Løpende migrering og tilgjengeliggjøring av meldinger** til slutt vil man være i en fase der alle nye meldinger i Altinn 2 nesten umiddelbart går gjennom steg 2,4 og 5 og dermed fortløpende er tilgjengelige i Dialogporten/Arbeidsflate.
 
 ### Ansvarsdeling
 
-*Flytt av Data prosjektet* tar ansvar for utvikling av komponenter til, og utføring av steg 1 og 2, samt steg 3 og 4 i samarbeid med *Team Autorisasjon*.
+*"Flytt av Data" prosjektet* tar ansvar for utvikling av komponenter til, og utføring av steg 1 og 2, samt steg 3 og 4 i samarbeid med *Team Autorisasjon*.
+
 *Team Dialogporten/Arbeidsflate* tar ansvar for steg 5, i samarbeid med *Flytt av Data prosjektet*.
 
 {{<children />}}
