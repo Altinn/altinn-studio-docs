@@ -6,6 +6,10 @@ toc: false
 weight: 2
 ---
 
+{{<notice warning>}}
+ Denne funksjonaliteten er i test og kan endres
+{{</notice>}}
+
 #### Tiltak utført av systemleverandøren (SmartCloud AS)
    1. Kontakt Digdir
       - Systemleverandøren må ta kontakt med Digdir for å få tilgang til systemregisteret og systembruker-scopes. Det er et krav at leverandøren gjennomfører testing av systembruker i Digdirs testmiljø, og det må inngås en avtale om bruk av systembruker for integrasjon med produksjonsmiljøet. Sluttbrukersystemleverandør kontakter Digdir for å få tilgang til systembruker scopes.  
@@ -202,3 +206,5 @@ For detaljert informasjon om hvert inputfelt, se dokumentasjonen [her](../../../
 - Bekreftelseslenken (confirmurl) sendes til sluttbrukeren, her revisjonsorganisasjonen, for godkjenning. Når den er godkjent, kan sluttbrukeren legge til klienter til systembrukeren. Følg veiledningen for sluttbruker for [Agent systembruker](../enduser/clientdelegation/)
 
 Se [Samarbeisportalen](https://samarbeid.digdir.no/altinn/systembruker/2542) for illustrert og webinar.
+
+se [api dokumentasjon](../../../api/authentication/systemuserapi/) for mer informasjon om endepunkter.
