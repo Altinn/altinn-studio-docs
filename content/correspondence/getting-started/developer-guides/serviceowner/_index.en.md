@@ -23,8 +23,7 @@ See [Create a User in Altinn Studio](https://docs.altinn.studio/nb/altinn-studio
 
 ### 3. Activate the Resource Management System {#activate-resourceregistry}
 To send messages via Altinn Melding, the message must be linked to a resource. Resources are registered through Altinn Studio and are used to define access rules and access lists, ensuring that only authorized users can perform specific actions. 
-You activate the resource management system by creating a specific repository and a resource group for your organization. You can skip this step if you already have activated the resourse management.
-
+You activate the resource management system by creating a specific repository and a resource group for your organization. You can skip this step if you have already activated the resource management system.
 See [Resource Management](https://docs.altinn.studio/nb/authorization/getting-started/resource-admin-studio/#opprett-ressursadministrasjonsarkivet-for-organisasjonen) for more information.
 
 ### 4. Create a Resource {#registeraresourceinaltinnresourceregistry}
