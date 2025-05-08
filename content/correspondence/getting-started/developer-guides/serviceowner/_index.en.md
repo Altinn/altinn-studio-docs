@@ -54,6 +54,8 @@ Use Samarbeidsportalen self-service for registration. [Here's a detailed guide](
 - [Test environments](https://sjolvbetjening.test.samarbeid.digdir.no/)
 - [Production environment](https://sjolvbetjening.samarbeid.digdir.no/)
 
+**Note**: The resource policy on your resource must have assigned the required scopes to the organisation that your Maskinporten client(s) is registered on.
+
 ### 5. Authentication {#authentication}
 
 For all operations, you will need to authenticate using your Maskinporten Client, then [acquire an Altinn Token from Altinn Authentication](https://docs.altinn.studio/authentication/reference/architecture/accesstoken/).

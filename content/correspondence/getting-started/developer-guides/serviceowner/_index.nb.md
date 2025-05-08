@@ -53,6 +53,8 @@ Bruk Samarbeidsportalen for selvbetjent registrering. Følg den detaljerte guide
 - [Testmiljøer](https://sjolvbetjening.test.samarbeid.digdir.no/)
 - [Produksjonsmiljø](https://sjolvbetjening.samarbeid.digdir.no/)
 
+**Merk**: Ressurspolicyen på ressursen din må ha tildelt de nødvendige scopene til organisasjonen som Maskinporten-klienten(e) din er registrert på.
+
 ### 5. Integrer mot meldings-APIet {#integrate-against-correspondence-api}
 Siden Altinn Melding er åpen kildekode har du tilgang til koden vår i [vårt offentlige GitHub-repo](https://github.com/Altinn/altinn-correspondence) og bygge en lokal Docker-instans for å teste mot.
 
