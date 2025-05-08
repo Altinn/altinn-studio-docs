@@ -17,13 +17,13 @@ To get started with Altinn Correspondence, your enterprise must be registered as
 This step is only necessary for new enterprises that have not yet established themselves as service owners on the Altinn platform. As an existing service owner, you can proceed directly with the next steps to start using Altinn Correspondence.
 
 ### 2. Create a User in Altinn Studio {#register-user-altinn-studio}
-To be able to create a resource (step 3), you need a user in Altinn Studio. Your user must be linked to your organization. If you already have an Altinn Studio user, you can skip this step. Contact [Altinn Servicedesk](mailto:tjenesteeier@altinn.no) if you’re unsure who the administrator is or whether your organization is set up in Altinn Studio.
+To be able to create a resource (step 3), you need a user in Altinn Studio. Your user must be linked to your organization. (If you have an Altinn Studio user, you can skip this step.) Contact [Altinn Servicedesk](mailto:tjenesteeier@altinn.no) if you’re unsure who the administrator is or whether your organization is set up in Altinn Studio.
 
 See [Create a User in Altinn Studio](https://docs.altinn.studio/nb/altinn-studio/getting-started/create-user/) for a detailed guide.
 
 ### 3. Activate the Resource Management System {#activate-resourceregistry}
 To send messages via Altinn Melding, the message must be linked to a resource. Resources are registered through Altinn Studio and are used to define access rules and access lists, ensuring that only authorized users can perform specific actions. 
-You activate the resource management system by creating a specific repository and a resource group for your organization. You can skip this step if you have already activated the resource management system.
+You activate the resource management system by creating a specific repository and a resource group for your organization. (You can skip this step if you have activated the resource management system.)
 See [Resource Management](https://docs.altinn.studio/nb/authorization/getting-started/resource-admin-studio/#opprett-ressursadministrasjonsarkivet-for-organisasjonen) for more information.
 
 ### 4. Create a Resource {#registeraresourceinaltinnresourceregistry}
@@ -42,7 +42,7 @@ A user with that access can then delegate the access to the enterprise user / sy
 **TIP**: Verify your configurations using the [Postman collection](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json), substituting the test tokens with your own Altinn tokens (See "Login to Maskinporten (Initialize)" request in Authenticator folder).
 
 ### 5. Altinn API key and access to scopes {#get-an-altinn-api-key}
-In order to use Altinn Correspondence you need a subscription key. Technically, this is an API key that must be included in the header of the request `Ocp-Apim-Subscription-Key`, to verify that you have the right to use the Correspondence API. Without this key, your request will be denied.
+To use Altinn Correspondence, you need a subscription key. Technically, this is an API key that must be included in the header of the request `Ocp-Apim-Subscription-Key`, to verify that you have the right to use the Correspondence API. Without this key, your request will be denied.
 To authenticate and ensure that you can perform operations via the Correspondence API, Altinn must grant you access to the necessary scopes. This ensures that only authorized clients can send and receive files, thereby maintaining the security of the service. The following scopes are used to send and/or receive messages:
 - `altinn:correspondence.write` 
 - `altinn:correspondence.read` 
@@ -52,7 +52,7 @@ The request must include the scopes you need. Note that you may require more tha
 [Complete list of scopes](https://docs.altinn.studio/api/authentication/digdirscopes/)
 
 ### 6. Register your Maskinporten Client with the required scopes {#register-your-maskinporten-client-with-correct-scopes}
-In order to authenticate the Correspondence API you must register your Maskinporten client(s) with the necessary scopes, depending on whether you need to send and/or receive messages.
+To authenticate the Correspondence API you must register your Maskinporten client(s) with the necessary scopes, depending on whether you need to send and/or receive messages.
 
 The scopes are maintained by Altinn, they are required for you to be authorized for the correct API operations. Note that this is not the same as the access granted by service owners in step 2 for the specific Correspondence service resource.
 
@@ -75,7 +75,7 @@ The Repo also contains a [Postman collection](https://github.com/Altinn/altinn-c
 
 Swagger for the correspondence API is hosted [here](https://docs.altinn.studio/api/correspondence/spec/).
 
-### 9. Setup Event Subscriptions {#setup-event-subscriptions}
+### 9. Set up Event subscriptions {#setup-event-subscriptions}
 
 In order to use events/webhooks for a Correspondence resource, you need to set up a subscription for the given resource.
 
