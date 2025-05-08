@@ -22,13 +22,13 @@ weight: 4
 
       ![godkjenn agent systembruker](../../systemvendor/systemtilgang-agent-approve.png)
 
-      Etter behandling av forespørselen, sluttbruker er sendt til leverandør sitt kvitterings side
+      Etter at forespørselen er behandlet, blir sluttbrukeren sendt til leverandørens kvitteringsside.
       ![system leverandør kvitteringsside](../../systemvendor/systemtilgang-receipt-vendor.png)
 
-      Sluttbruker logger inn i altinn portalet for å administrere systembrukerne.
+      Sluttbruker logger inn i Altinn-portalen for å administrere Systembrukerne.
       ![list av systembrukerne](../../systemvendor/systemtilgang-overview-clientdelegation.png)
 
-      Klikker på den aktuelle systembrukeren for å administrere eller se. Klikker på 'Legg til klient' for å legge til klienter.
+      Klikker på den aktuelle Systembrukeren for å administrere eller se. Klikker på 'Legg til klient' for å legge til klienter.
       ![systembruker detalje](../../systemvendor/systemuser-agent.png)
 
       Legger til klientene
@@ -37,8 +37,8 @@ weight: 4
       Klientene er lagt til
       ![kunder er lagt til systembruker](../../systemvendor/addclient-added.png)
       
-      Oversikt over systembrukeren og klientene
+      Oversikt over Systembrukeren og klientene
       ![systembruker med kunder](../../systemvendor/systemuser-withclients.png)
 
    3. Tildel nødvendige tillatelser
-      - Etter DRESs MINST sitt godkjenning og tillegg av kunder, inkluderer systemtilgangen rettighetene til å vise skatte- og avgiftskrav for kundene til  TILBAKEHOLDEN USYMMETRISK TIGER AS. DRESs MINST har gitt SmartCloud autorisasjon for denne spesifikke tilgangspakken og kan fjerne tilgangen når som helst via Altinn.
+      - Etter godkjenning fra DRESs MINST og registrering av kunder, gir Systemtilgangen (Systembrukeren) rettigheter til å vise skatte- og avgiftskrav for kundene til TILBAKEHOLDEN USYMMETRISK TIGER AS. DRESs MINST har gitt SmartCloud autorisasjon for denne spesifikke tilgangspakken og kan når som helst fjerne tilgangen via Altinn.
