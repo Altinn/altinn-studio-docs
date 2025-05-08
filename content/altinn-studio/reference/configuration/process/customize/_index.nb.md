@@ -65,7 +65,7 @@ Dette resulterer i følgende visning:
 
 ### Custom form layout
 
-For bekreftelsessteget har man som apputvikler muligheten til å definere et eget [layout set](../../../ux/pages/layout-sets/) med tilhørende form layout filer og andre konfigurasjonsfiler som hører til data-steget.
+For bekreftelsessteget har man som apputvikler muligheten til å definere et eget [layout set](../../../ux/pages/#oppsett) med tilhørende form layout filer og andre konfigurasjonsfiler som hører til data-steget.
 
 Dette gjør det mulig å helt fritt styre innholdet på bekreftelsessiden, og man kan bruke komponentene man ellers har tilgjengelig i Altinn Studio.
 

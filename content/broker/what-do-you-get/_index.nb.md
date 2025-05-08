@@ -11,19 +11,36 @@ weight: 20
 Altinn Formidling tilbyr ende-til-ende filoverføringer, fra opprettelse, sending, mottak til sporing av fileoverføringer. Dette sikrer at alle deler av overføringsflyten håndteres effektivt og sikkert. 
  
 ### Støtte for store payloads
-Et særegent trekk ved Altinn Formidling er evne til å håndtere store datamengder (payloads). Vi har ambisjoner om å støtte svært store payloads i nær fremtid. Dette er løsningen for deg som trenger å overføre store mengder informasjon effektivt og sikkert. 
+Et særegent trekk ved Altinn Formidling er evnen til å håndtere store datamengder (payloads). Systemet støtter filoverføring på inntil 2 GB med virusskanning, og opptil hele 1600 GB uten virusskanning. Dette er løsningen for deg som trenger å overføre store mengder informasjon effektivt og sikkert. 
 
-### GUI og API-tilgang
-Brukere får tilgang til alle funksjoner både gjennom et brukervennlig grensesnitt (GUI) og via API-er. Dette gir deg fleksibilitet til å integrere Altinn Formidling i egne systemer, slik at du kan automatisere dine prosesser. 
+### Sikkerhet
+Bruk av sikkerhetsmekanismer som beskytter innholdet, finn mer informasjon i denne artikkelen [Azure Storage-tjenestekryptering](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption)
 
-### Varsling og sporing
-Systemet støtter detaljerte varslings- og sporingsmekanismer. Dette inkluderer varslinger i tråd med eForvaltningsforskriften, som sikrer at du alltid er oppdatert på statusen til deres overføringer. Sporingen gir full oversikt over overføringsflyten, inkludert leveringsstatus og bekreftelser. 
+### Logging 
+Altinn Formidling sørger for at alle hendelser og prosesser blir nøye loggført, slik at det er enkelt å etterprøve hvem som har gjort hva og når.
 
-### Høy grad av notoritet og detaljert tilgangsstyring
-Altinn Formidling tilbyr en høy grad av notoritet, noe som betyr at alle hendelser og prosesser loggføres nøye for etterprøvbarhet. Systemet støtter også spisset og detaljert tilgangsstyring, slik at du kan være trygg på at kun autoriserte brukere får tilgang til spesifikke filoverføringer eller funksjoner. 
+### Varsling
+- Automatisk varsling via e-post eller SMS til mottakere.
+- Re-varsling etter 7 dager dersom filen ikke blir åpnet. 
+- Tilpassede varslingsinnstillinger basert på brukerpreferanser. Dette innebærer varslingsmaler og egendefinerte varslingsadresser.
+
+### Events (hendelsesabonnementer)
+Du kan motta varsler om hendelser knyttet til sendte formidlingstjenester, ved å sette opp et abonnement for den aktuelle tjenesten. Du kan for eksempel se om filen er kommet frem til mottaker og om den er åpnet. 
+
+### Tilgangsstyring
+Systemet tilbyr avansert tilgangsstyring, slik at du kan være trygg på at kun autoriserte brukere får tilgang til bestemte filoverføringer.
 
 ### Støtte for ulike filformater 
 Løsningen er fleksibel og støtter både strukturerte og ustrukturerte filer. Dette gjør det mulig å tilpasse løsningen til en rekke forskjellige bruksområder og dataformater. 
+
+### Tilgjengelighet 
+Avsender bestemmer hvor lenge filen vil kunne lastes ned av mottaker. Etter denne perioden vil filen bli utilgjengelig. 
+- 'PurgeFileTransferAfterAllRecipientsConfirmed': Om filen slettes når alle mottakere har bekreftet.
+- 'PurgeFileTransferGracePeriod': Hvis feltet over er "false", så sier dette parametret hvor lenge det skal være mulig å laste ned filen (default er 2 timer, maks er 24 timer).
+- 'FileTransferTimeToLive': Hvor lenge en fil er tilgjengelig for nedlastning (default er 30 dager, maks er ett år).
+
+### API-tilgang
+Både avsender og mottaker får tilgang til alle funksjoner via API-er. Dette gir mulighet til å integrere Altinn Formidling i egne systemer, slik at du kan automatisere dine prosesser.
 
 ### Integrasjoner og sky-støtte 
 Altinn Formidling søker å tilby mest mulig standardiserte integrasjoner mot andre fellesløsninger, noe som letter integrasjonen med eksisterende systemer. Løsningen tilbyr også mellomlagring for å håndtere store datamengder. Løsningen kan konfigureres til å bruke egen skyløsning for lagring, dersom dere har krav om dette. 

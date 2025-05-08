@@ -45,6 +45,8 @@ Det er også mulig å se en [forhåndsvisning](#forhåndsvisning-i-nettleseren) 
 Denne metoden brukes som standard dersom du ikke har spesifisert en [egendefinert PDF-side](#egendefinert-konfigurasjon).
 Denne metoden trekker ut alle sidene og komponentene i den rekkefølgen de vises, og tar de med i PDF-dokumentet.
 
+**MERK**: Denne metoden viser ikke oppsummerings-komponenter fra skjemaet.
+
 ### Ekskludering av sider og komponenter
 
 Som regel har man behov for å ekskludere visse sider og komponenter som ikke er relevant for PDF-dokumentet.
