@@ -28,7 +28,7 @@ See [Resource Management](https://docs.altinn.studio/authorization/getting-start
 
 ### 4. Create a Resource {#registeraresourceinaltinnresourceregistry}
 1. Log in to Altinn Studio and navigate to the resource dashboard.
-2. Create a new resource, follow the guide, and fill in the necessary information and details about the service. See [Resource Registry](https://docs.altinn.studio/nb/authorization/guides/create-resource-resource-admin/#trinn-1-opprett-ressurs) for a detailed instruction.
+2. Create a new resource, follow the guide, and fill in the necessary information and details about the service. See [Resource Registry](https://docs.altinn.studio/authorization/guides/create-resource-resource-admin/#step-1-create-resource) for a detailed instruction.
 3. Set policy rules for the resource. Your policy must be configured in such a way that they permit the actions:
     - "read" meant for recipients to open and read a message.
     - "write" meant for senders to send a message.
