@@ -1,11 +1,13 @@
 ---
-title: "User Guides Authentication"
+title: "Brukerveiledning for autentisering"
 linktitle: "Bruker guider"
-description: "Read our collection of user guides related to Altinn Authentication."
+description: "Les vår samling av brukerveiledninger knyttet til Altinn-autentisering."
 toc: false
 weight: 4
 ---
 
-## Using Systemuser as system providers
+## Bruk Systembruker som systemleverandør
 
-This guide explains how a system vendor can use the system user concept in their software
+Denne veiledningen forklarer hvordan en systemleverandør kan bruke systembruker-konseptet i sin programvare.
+
+[Les veiledning](systemvendor/systemauthentication-for-systemproviders)

@@ -10,4 +10,4 @@ weight: 4
 
 This guide explains how a system vendor can use the system user concept in their software
 
-[Read guide](systemauthentication-for-systemproviders)
+[Read guide](systemvendor/systemauthentication-for-systemproviders)

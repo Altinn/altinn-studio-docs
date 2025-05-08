@@ -33,43 +33,43 @@ public class FounderSigneesProvider : ISigneeProvider
 
     public string Id { get; init; } = "founders";
 
-    public async Task<SigneesResult> GetSigneesAsync(Instance instance)
+        public async Task<SigneeProviderResult> GetSigneesAsync(Instance instance)
     {
         Skjemadata formData = await GetFormData(instance);
 
         List<ProvidedSignee> providedSignees = [];
         foreach (StifterPerson stifterPerson in formData.StifterPerson)
         {
-            var personSignee = new PersonSignee
+            var personSignee = new ProvidedPerson
             {
                 FullName = string.Join(
                     " ",
                     [stifterPerson.Fornavn, stifterPerson.Mellomnavn, stifterPerson.Etternavn]
                 ),
                 SocialSecurityNumber = stifterPerson.Foedselsnummer?.ToString() ?? string.Empty,
-                Notifications = new Notifications
+                CommunicationConfig = new CommunicationConfig
                 {
-                    OnSignatureAccessRightsDelegated = new Notification
+                    InboxMessage = new InboxMessage
+                    {
+                        TitleTextResourceKey = "signing.correspondence_title_common",
+                        SummaryTextResourceKey = "signing.correspondence_summary_stifter_person",
+                        BodyTextResourceKey = "signing.correspondence_body_stifter_person"
+                    },
+                    Notification = new Notification
                     {
                         Email = new Email
                         {
                             EmailAddress = stifterPerson.Epost,
                             SubjectTextResourceKey = "signing.email_subject",
-                            BodyTextResourceKey = "signing.notification_content".Replace(
-                                "{0}",
-                                stifterPerson.Fornavn
-                            ),
+                            BodyTextResourceKey = "signing.notification_content"
                         },
                         Sms = new Sms
                         {
                             MobileNumber = stifterPerson.Mobiltelefon,
-                            BodyTextResourceKey = "signing.notification_content".Replace(
-                                "{0}",
-                                stifterPerson.Fornavn
-                            ),
+                            BodyTextResourceKey = "signing.notification_content"
                         }
                     }
-                }
+                },
             };
 
             providedSignees.Add(personSignee);
@@ -77,14 +77,20 @@ public class FounderSigneesProvider : ISigneeProvider
 
         foreach (StifterVirksomhet stifterVirksomhet in formData.StifterVirksomhet)
         {
-            var organisationSignee = new OrganisationSignee
+            var organisationSignee = new ProvidedOrganization
             {
                 Name = stifterVirksomhet.Navn,
-                OrganisationNumber =
+                OrganizationNumber =
                     stifterVirksomhet.Organisasjonsnummer?.ToString() ?? string.Empty,
-                Notifications = new Notifications
+                CommunicationConfig = new CommunicationConfig
                 {
-                    OnSignatureAccessRightsDelegated = new Notification
+                    InboxMessage = new InboxMessage
+                    {
+                        TitleTextResourceKey = "signing.correspondence_title_common",
+                        SummaryTextResourceKey = "signing.correspondence_summary_stifter_organisasjon",
+                        BodyTextResourceKey = "signing.correspondence_body_stifter_organisasjon"
+                    },
+                    Notification = new Notification
                     {
                         Email = new Email
                         {
@@ -110,7 +116,7 @@ public class FounderSigneesProvider : ISigneeProvider
             providedSignees.Add(organisationSignee);
         }
 
-        return new SigneesResult { Signees = providedSignees };
+        return new SigneeProviderResult { Signees = providedSignees };
     }
 
     private async Task<Skjemadata> GetFormData(Instance instance)
