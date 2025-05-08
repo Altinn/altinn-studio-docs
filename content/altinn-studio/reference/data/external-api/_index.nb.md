@@ -355,24 +355,6 @@ For å sette opp dette kan du følge de generelle stegene i [veiledningen for Ma
   }
   {{</highlight>}}
 
-- Hvis du trenger et tilpasset konfigurasjonsoppsett, kan du bruke en delegatmetode:
-  {{< code-title >}}
-  App/Program.cs
-  {{< /code-title >}}
-
-  {{<highlight csharp "linenos=false,hl_lines=7-10">}}
-  void RegisterCustomAppServices(
-  IServiceCollection services,
-  IConfiguration config,
-  IWebHostEnvironment env
-  )
-  {
-  services.RegisterMaskinportenClientDefinition<SettingsJwkClientDefinition>(
-  "min-maskinporten-klient",
-  config.GetSection("MaskinportenSettings")
-  );
-  }
-  {{</highlight>}}
 
 - Du kan registrere Maskinporten-klienten på HttpClient-klassen som trenger dette i `Program.cs` ved å bruke extention-metoden `UseMaskinportenAuthorisation`:
   {{< code-title >}}
@@ -386,7 +368,7 @@ For å sette opp dette kan du følge de generelle stegene i [veiledningen for Ma
   IWebHostEnvironment env
   )
   {
-  services.AddHttpClient<WeatherApiClient>().UseMaskinportenAuthorisation("scope:1 scope:2");
+  services.AddHttpClient<WeatherApiClient>().UseMaskinportenAuthorisation("scope:1", "scope:2");
   }
   {{</highlight>}}
 
@@ -402,7 +384,7 @@ For å sette opp dette kan du følge de generelle stegene i [veiledningen for Ma
   IWebHostEnvironment env
   )
   {
-  services.AddHttpClient<WeatherApiClient>().UseMaskinportenAltinnAuthorisation("scope:1 scope:2");
+  services.AddHttpClient<WeatherApiClient>().UseMaskinportenAltinnAuthorisation("scope:1", "scope:2");
   }
   {{</highlight>}}
 

@@ -1,7 +1,7 @@
 ---
 title: External API
 linktitle: External API
-description: How to integrate external API data into your Altinn application.
+description: How to integrate External API data into your Altinn application.
 toc: true
 ---
 
@@ -11,7 +11,7 @@ Available from v8.2.8
 
 ## Introduction
 
-The External API feature allows you to integrate data from external APIs into your Altinn application. This is useful when you need to display or process data from external sources within your application. The feature works by implementing the `IExternalApiClient` interface and registering your implementation in the application's service container. When implemented, the external api data can be accessed through expressions (see the [Expressions documentation](../../logic/expressions)) or other classes in your application.
+The External API feature allows you to integrate data from External APIs into your Altinn application. This is useful when you need to display or process data from external sources within your application. The feature works by implementing the `IExternalApiClient` interface and registering your implementation in the application's service container. When implemented, the external api data can be accessed through expressions (see the [Expressions documentation](../../logic/expressions)) or other classes in your application.
 
 ## How it works
 
@@ -22,8 +22,8 @@ To use the External API feature, you need to:
 
 The `IExternalApiClient` interface requires you to implement:
 
-- An `Id` property that uniquely identifies your external API client
-- A `GetExternalApiDataAsync` method that returns the data from the external API
+- An `Id` property that uniquely identifies your External API client
+- A `GetExternalApiDataAsync` method that returns the data from the External API
 
 The `GetExternalApiDataAsync` method can return any object (but not primitives), allowing you to structure the returned data according to your needs.
 
@@ -94,7 +94,7 @@ public class ExternalApiTestClient : IExternalApiClient
 }
 ```
 
-In this example, we're returning mock data, but in a real implementation, you would typically use a HttpClient to make HTTP requests to an external API.
+In this example, we're returning mock data, but in a real implementation, you would typically use an HttpClient to make HTTP requests to an External API.
 
 ## Registering the External API client
 
@@ -183,8 +183,8 @@ The data fetched through the External API implementation is also available throu
 
 Where:
 
-- `{org}` is the organization code (e.g., "ttd")
-- `{app}` is the application name (e.g., "my-app")
+- `{org}` is the organization code (e.g. "ttd")
+- `{app}` is the application name (e.g. "my-app")
 - `{instanceOwnerPartyId:int}` is the party ID of the instance owner
 - `{instanceGuid:guid}` is the unique identifier of the instance
 - `{externalApiId}` is the ID of the External API client (the value returned by the `Id` property)
@@ -202,7 +202,7 @@ https://ttd.apps.altinn.no/ttd/my-app/instances/50001337/b2572673-5afa-4a23-9c4e
 ```
 
 {{% notice warning %}}
-**Security Warning**: Never include sensitive information such as Social Security Numbers (SSNs) or other personal identifiers in query parameters. Query parameters can be logged in server logs, appear in browser history, and may be cached by proxies. For accessing data from Folkeregisteret or other sensitive sources, always use secure methods like retrieving the identifier from the instance data or using post requests with encrypted payloads.
+**Security Warning**: Never include sensitive information such as National Identity Numbers or other personal identifiers in query parameters. Query parameters can be logged in server logs, appear in browser history, and may be cached by proxies. For accessing data from Folkeregisteret or other sensitive sources, always use secure methods like retrieving the identifier from the instance data or using post requests with encrypted payloads.
 {{% /notice %}}
 
 The response will be the JSON representation of the object returned by the `GetExternalApiDataAsync` method.
@@ -307,7 +307,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 ## Example: Using External API with Maskinporten
 
-To use external APIs that require Maskinporten authentication, you need a Maskinporten client with access to the necessary scopes for the API you want to integrate:
+To use External APIs that require Maskinporten authentication, you need a Maskinporten client with access to the necessary scopes for the API you want to integrate:
 
 - `altinn:serviceowner` (if you are a service owner)
 - Any other scopes required by the specific API you are integrating with
@@ -349,24 +349,6 @@ To set this up, you can follow the general steps in the [Maskinporten Integratio
   }
   {{</highlight>}}
 
-- If you need a custom configuration setup, you can use a delegate method:
-  {{< code-title >}}
-  App/Program.cs
-  {{< /code-title >}}
-
-  {{<highlight csharp "linenos=false,hl_lines=7-10">}}
-  void RegisterCustomAppServices(
-  IServiceCollection services,
-  IConfiguration config,
-  IWebHostEnvironment env
-  )
-  {
-  services.RegisterMaskinportenClientDefinition<SettingsJwkClientDefinition>(
-  "my-maskinporten-client",
-  config.GetSection("MaskinportenSettings")
-  );
-  }
-  {{</highlight>}}
 
 - You can register the Maskinporten client on the HttpClient class that needs it in `Program.cs` by using the extension method `UseMaskinportenAuthorisation`:
   {{< code-title >}}
@@ -380,7 +362,7 @@ To set this up, you can follow the general steps in the [Maskinporten Integratio
   IWebHostEnvironment env
   )
   {
-  services.AddHttpClient<WeatherApiClient>().UseMaskinportenAuthorisation("scope:1 scope:2");
+  services.AddHttpClient<WeatherApiClient>().UseMaskinportenAuthorisation("scope:1", "scope:2");
   }
   {{</highlight>}}
 
@@ -396,7 +378,7 @@ To set this up, you can follow the general steps in the [Maskinporten Integratio
   IWebHostEnvironment env
   )
   {
-  services.AddHttpClient<WeatherApiClient>().UseMaskinportenAltinnAuthorisation("scope:1 scope:2");
+  services.AddHttpClient<WeatherApiClient>().UseMaskinportenAltinnAuthorisation("scope:1", "scope:2");
   }
   {{</highlight>}}
 
@@ -404,13 +386,13 @@ To set this up, you can follow the general steps in the [Maskinporten Integratio
 
 When implementing an External API client, consider the following security aspects:
 
-1. **Authentication**: Ensure that your External API client authenticates properly with the external API. This might involve using API keys, OAuth tokens, or other authentication mechanisms.
+1. **Authentication**: Ensure that your External API client authenticates properly with the External API. This might involve using API keys, OAuth tokens, or other authentication mechanisms.
 
-2. **Data protection**: Be careful about what data you send to and receive from the external API. Avoid sending sensitive data unless necessary, and validate all incoming data.
+2. **Data protection**: Be careful about what data you send to and receive from the External API. Avoid sending sensitive data unless necessary, and validate all incoming data.
 
 3. **Error handling**: As shown in the example above, handle errors gracefully to prevent exposing sensitive information to end users.
 
-4. **Rate limiting**: Implement rate limiting to prevent overloading the external API and to comply with any usage limits imposed by the API provider.
+4. **Rate limiting**: Implement rate limiting to prevent overloading the External API and to comply with any usage limits imposed by the API provider.
 
 ## Troubleshooting
 
@@ -422,7 +404,7 @@ If your External API data is not appearing in your UI components:
 
 1. **Check your implementation**: Ensure your `IExternalApiClient` implementation is returning the data you expect.
 2. **Verify registration**: Make sure your client is properly registered in `Program.cs`.
-3. **Check expressions**: Verify that your expressions are referencing the correct ID for the external API client and correct dot notation to the property you want to extract.
+3. **Check expressions**: Verify that your expressions are referencing the correct ID for the External API client and correct dot notation to the property you want to extract.
 4. **Inspect network requests**: Use browser developer tools to check if the API endpoint is being called and what response it returns.
 5. **Check logs**: Look for any errors in your application logs related to the External API client.
 
