@@ -7,10 +7,11 @@ For at appen skal vite hvem som skal få tilganger for å lese og signere må C#
 Den må returnere et sett med personer og/eller virksomheter som skal få rettighetene. Det kan for eksempel være basert på datamodellen, som vist nedenfor.
 `Id`-attributtet i denne implementasjonen må matche ID som ble angitt i `<altinn:signeeProviderId>`.
 
-Legg merke til at `CommunicationConfig` er valgfritt. Her kan du overstyre standardtekster brukt i kommunikasjon med signatarene,
-som beskrevet i punkt 3. Du kan også overstyre e-post adresse og telefonnummer for signatarene. Om ikke overstyrt, vil e-post
-adressene og telefonnummerene populeres som beskrevet i [Recipient lookup](../../../../../notifications/explanation/recipient-lookup/)
-and [Address lookup](../../../../../notifications/explanation/address-lookup/).
+Legg merke til at `CommunicationConfig` er valgfritt. Her kan du overstyre standardtekster brukt i kommunikasjon med signatarene, som beskrevet i punkt 3.
+Du kan også overstyre e-post adresse og telefonnummer for signatarene. Om ikke overstyrt, vil e-post
+adressene og telefonnummerene populeres som beskrevet i [Recipient lookup](/notifications/explanation/recipient-lookup/) 
+og [Address lookup](/notifications/explanation/address-lookup/).
+
 ```csharp
 #nullable enable
 using System.Collections.Generic;
