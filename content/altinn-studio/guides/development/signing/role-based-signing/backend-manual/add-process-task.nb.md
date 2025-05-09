@@ -27,7 +27,7 @@ Signering består av to brukerhandlinger (user actions). Dersom Altinn-brukergre
         </altinn:dataTypesToSign>
         <altinn:signatureDataType>signatures</altinn:signatureDataType>
 
-        <!-- Vi har laget en standard validator som kan slås på her. Om denne ikke slås på bør man lage egen validering av signaturene. -->
+        <!-- Vi har laget en standard validator som kan slås på her. Den validerer at minCount på signatur-datatypen er oppfylt. Om denne ikke slås på, bør man skrive egen validering av signaturer. -->
         <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
 
       </altinn:signatureConfig>
