@@ -87,7 +87,7 @@ Denne datatypen benyttes for å lagre informasjon om signatarene som skal få de
     "id": "signeeState",
     "taskId": "SigningTask",
     "allowedContentTypes": [
-        "application/pdf"
+        "application/json"
     ],
     "allowedContributors": [
         "app:owned"

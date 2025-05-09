@@ -82,7 +82,7 @@ This data type is used to store information about the signers who should be dele
 {
     "id": "signeeState",
     "allowedContentTypes": [
-        "application/pdf"
+        "application/json"
     ],
     "allowedContributors": [
         "app:owned"
