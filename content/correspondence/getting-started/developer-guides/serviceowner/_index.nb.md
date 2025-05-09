@@ -62,6 +62,8 @@ Bruk Samarbeidsportalen for selvbetjent registrering. Følg den detaljerte guide
 - [Testmiljøer](https://sjolvbetjening.test.samarbeid.digdir.no/)
 - [Produksjonsmiljø](https://sjolvbetjening.samarbeid.digdir.no/)
 
+**Merk**: Ressurspolicyen på ressursen din må ha tildelt de nødvendige scopene til organisasjonen som Maskinporten-klienten(e) din er registrert på.
+
 ### 7. Autentisering {#authentication}
 For alle operasjoner må du autentisere deg ved hjelp av din Maskinporten-klient, og deretter hente et [Altinn-token fra Altinn Autentisering](https://docs.altinn.studio/authentication/reference/architecture/accesstoken/).
 
