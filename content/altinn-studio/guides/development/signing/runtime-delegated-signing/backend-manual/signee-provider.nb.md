@@ -9,14 +9,11 @@ Den må returnere et sett med personer og/eller virksomheter som skal få rettig
 
 ```csharp
 #nullable enable
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Altinn.App.Core.Features.Signing.Interfaces;
-using Altinn.App.Core.Features.Signing.Models;
-using Altinn.App.Core.Internal.Data;
-using Altinn.App.Core.Models;
+using Altinn.App.Core.Features;
+using Altinn.App.Core.Features.Signing;
 using Altinn.App.Models.Skjemadata;
 using Altinn.Platform.Storage.Interface.Models;
 
@@ -24,18 +21,15 @@ namespace Altinn.App.logic;
 
 public class FounderSigneesProvider : ISigneeProvider
 {
-    private readonly IDataClient _dataClient;
-
-    public FounderSigneesProvider(IDataClient dataClient)
-    {
-        _dataClient = dataClient;
-    }
-
     public string Id { get; init; } = "founders";
 
-        public async Task<SigneeProviderResult> GetSigneesAsync(Instance instance)
+    public async Task<SigneeProviderResult> GetSignees(GetSigneesParameters parameters)
     {
-        Skjemadata formData = await GetFormData(instance);
+        DataElement dataElement = parameters.InstanceDataAccessor
+            .GetDataElementsForType("Skjemadata")
+            .Single();
+
+        var formData = await parameters.InstanceDataAccessor.GetFormData<Skjemadata>(dataElement);
 
         List<ProvidedSignee> providedSignees = [];
         foreach (StifterPerson stifterPerson in formData.StifterPerson)
@@ -118,22 +112,5 @@ public class FounderSigneesProvider : ISigneeProvider
 
         return new SigneeProviderResult { Signees = providedSignees };
     }
-
-    private async Task<Skjemadata> GetFormData(Instance instance)
-    {
-        DataElement modelData = instance.Data.Single(x => x.DataType == "Skjemadata");
-        InstanceIdentifier instanceIdentifier = new(instance);
-
-        return (Skjemadata)
-            await _dataClient.GetFormData(
-                instanceIdentifier.InstanceGuid,
-                typeof(Skjemadata),
-                instance.Org,
-                instance.AppId,
-                instanceIdentifier.InstanceOwnerPartyId,
-                new Guid(modelData.Id)
-            );
-    }
 }
-
 ```
