@@ -93,7 +93,7 @@ Denne datatypen benyttes for å lagre informasjon om signatarene som skal få de
         "app:owned"
     ],
     "maxCount": 1,
-    "minCount": 1,
+    "minCount": 1
 }
 ```
 
