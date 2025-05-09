@@ -72,7 +72,8 @@ Den første datatypen benyttes av signeringssteget til å lagre de faktiske sign
     ],
     "allowedContributers": [
         "app:owned"
-    ]
+    ],
+    "minCount": 1
 }
 ```
 

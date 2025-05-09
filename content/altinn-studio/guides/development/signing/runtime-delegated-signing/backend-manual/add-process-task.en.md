@@ -68,7 +68,8 @@ The first data type is used by the signing stage to store the actual signatures 
     ],
     "allowedContributers": [
         "app:owned"
-    ]
+    ],
+    "minCount": 1
 }
 ```
 
