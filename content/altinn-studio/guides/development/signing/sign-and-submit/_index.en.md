@@ -67,6 +67,8 @@ The data type in `applicationmetadata.json`:
 }
 ```
 
+It is important to set `allowedContributors` to `"app:owned"`. This ensures that these data items cannot be edited via the app’s API but only by the app itself. Before version 8.6, this was misspelled `allowedContributers`.
+
 ## Access rights
 
 Make sure that the instance owner has rights to do the `sign` action.

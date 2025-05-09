@@ -53,14 +53,14 @@ This data type is used to store the actual signatures that are generated when a 
   "allowedContentTypes": [
       "application/json"
   ],
-  "allowedContributers": [
+  "allowedContributors": [
       "app:owned"
   ],
   "minCount": 1
 }
 ```
 
-It is important to set `allowedContributers` to `"app:owned"`. This ensures that these data items cannot be edited via the app’s API but only by the app itself.
+It is important to set `allowedContributors` to `"app:owned"`. This ensures that these data items cannot be edited via the app’s API but only by the app itself. Before version 8.6, this was misspelled `allowedContributers`.
 
 The ID can be set to something else, but they must match the IDs entered in `signatureDataType` in the process step, as shown in the process task step.
 

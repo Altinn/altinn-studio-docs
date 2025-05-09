@@ -67,6 +67,8 @@ Datatypen i `applicationmetadata.json`:
 }
 ```
 
+Det er viktig å sette `allowedContributors` til ```"app:owned"```. Det gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv. Før versjon 8.6 var denne konfigurasjonen feilstavet `allowedContributers`.
+
 ## Tilgangsrettigheter
 
 Sørg for at den som fyller ut skjema har rettighet til å utføre action `sign`.

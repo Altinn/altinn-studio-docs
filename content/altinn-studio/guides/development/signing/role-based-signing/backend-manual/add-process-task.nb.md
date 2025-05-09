@@ -51,14 +51,14 @@ Den benyttes av signeringssteget til å lagre de faktiske signaturene som genere
     "allowedContentTypes": [
         "application/json"
     ],
-    "allowedContributers": [
+    "allowedContributors": [
         "app:owned"
     ],
     "minCount": 1
 }
 ```
 
-Det er viktig å sette `allowedContributers` til ```"app:owned"```. Det gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv.
+Det er viktig å sette `allowedContributors` til ```"app:owned"```. Det gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv. Før versjon 8.6 var denne konfigurasjonen feilstavet `allowedContributers`.
 
 ID-en kan settes til noe annet, men det må matche ID-en som legges inn i `signatureDataType` i prossessteget.
 

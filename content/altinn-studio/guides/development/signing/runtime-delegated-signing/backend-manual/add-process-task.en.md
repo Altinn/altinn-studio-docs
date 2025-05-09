@@ -69,7 +69,7 @@ The first data type is used by the signing stage to store the actual signatures 
     "allowedContentTypes": [
         "application/json"
     ],
-    "allowedContributers": [
+    "allowedContributors": [
         "app:owned"
     ],
     "minCount": 1
@@ -84,7 +84,7 @@ This data type is used to store information about the signers who should be dele
     "allowedContentTypes": [
         "application/pdf"
     ],
-    "allowedContributers": [
+    "allowedContributors": [
         "app:owned"
     ],
     "maxCount": 1,
@@ -92,7 +92,7 @@ This data type is used to store information about the signers who should be dele
 }
 ```
 
-It is important to set `allowedContributers` to `"app:owned"`. This ensures that these data items cannot be edited via the app’s API but only by the app itself.
+It is important to set `allowedContributors` to `"app:owned"`. This ensures that these data items cannot be edited via the app’s API but only by the app itself. Before version 8.6, this was misspelled `allowedContributers`.
 
 The IDs of the data types can be changed, but they must match the IDs set in `signatureDataType` and `signeeStatesDataTypeId` in the process step, as shown in the next section.
 
