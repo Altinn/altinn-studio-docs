@@ -11,7 +11,7 @@ The `Id` property in this implementation must match the ID specified in <altinn:
 Note that `CommunicationConfig` is optional. Here you may override the standard texts used in communication with the signees,
 as explained in section 3. You may also override the email address and phone number for the signees. By default, the email
 addresses and the phone numbers used are populated as described in [Recipient lookup](/notifications/explanation/recipient-lookup/) 
-og [Address lookup](/notifications/explanation/address-lookup/).
+and [Address lookup](/notifications/explanation/address-lookup/).
 
 ```csharp
 #nullable enable
