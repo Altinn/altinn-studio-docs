@@ -40,7 +40,7 @@ Ferdig konvertert eksempel i `process.xml`:
             <altinn:dataTypesToSign>
                 <altinn:dataType>model</altinn:dataType>
             </altinn:dataTypesToSign>
-            <altinn:signatureDataType>signatureInformation-2mjK</altinn:signatureDataType>
+            <altinn:signatureDataType>signatures</altinn:signatureDataType>
 
             <!-- Vi har laget en standard validator som kan slås på her. Om denne slås av bør man lage egen validering av signaturene. -->
             <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
@@ -57,11 +57,13 @@ Datatypen i `applicationmetadata.json`:
 
 ```json
 {
-    "id": "signatureInformation-2mjK",
+    "id": "signatures",
     "allowedContentTypes": [
     "application/json"
     ],
-    "allowedContributors": ["app:owned"]
+    "allowedContributors": ["app:owned"],
+    "maxCount": 1,
+    "minCount": 1
 }
 ```
 
