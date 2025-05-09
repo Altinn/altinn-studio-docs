@@ -8,6 +8,11 @@ The implementation must return a set of individuals and/or organizations that sh
 
 The `Id` property in this implementation must match the ID specified in <altinn:signeeProviderId>.
 
+Note that `CommunicationConfig` is optional. Here you may override the standard texts used in communication with the signees,
+as explained in section 3. You may also override the email address and phone number for the signees. By default, the email
+addresses and the phone numbers used are populated as described in [Recipient lookup](/notifications/explanation/recipient-lookup/) 
+og [Address lookup](/notifications/explanation/address-lookup/).
+
 ```csharp
 #nullable enable
 using System.Collections.Generic;
@@ -42,6 +47,7 @@ public class FounderSigneesProvider : ISigneeProvider
                     [stifterPerson.Fornavn, stifterPerson.Mellomnavn, stifterPerson.Etternavn]
                 ),
                 SocialSecurityNumber = stifterPerson.Foedselsnummer?.ToString() ?? string.Empty,
+                // CommunicationConfig is optional
                 CommunicationConfig = new CommunicationConfig
                 {
                     InboxMessage = new InboxMessage
@@ -77,6 +83,7 @@ public class FounderSigneesProvider : ISigneeProvider
                 Name = stifterVirksomhet.Navn,
                 OrganizationNumber =
                     stifterVirksomhet.Organisasjonsnummer?.ToString() ?? string.Empty,
+                // CommunicationConfig is optional
                 CommunicationConfig = new CommunicationConfig
                 {
                     InboxMessage = new InboxMessage
