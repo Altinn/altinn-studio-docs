@@ -74,8 +74,8 @@ Example of usage of the standard components:
         }
       },
       {
-        "id": "signing-state",
-        "type": "SigningStatusPanel"
+        "id": "signing-actions",
+        "type": "SigningActions"
       }
     ]
     }

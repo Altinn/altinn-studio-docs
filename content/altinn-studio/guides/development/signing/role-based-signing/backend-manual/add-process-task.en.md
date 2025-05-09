@@ -26,6 +26,10 @@ Signing normally uses two user actions. If the Altinn user interface is used by 
           <altinn:dataType>ref-data-as-pdf</altinn:dataType>
         </altinn:dataTypesToSign>
         <altinn:signatureDataType>signatures</altinn:signatureDataType>
+
+        <!-- We have made a default validator that can be enabled here. It will validate that minCount on the signature data type is fulfilled. If default validation is not enabled, custom validation of the signatures should be added. -->
+        <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
+
       </altinn:signatureConfig>
     </altinn:taskExtension>
   </bpmn:extensionElements>
@@ -48,12 +52,17 @@ This data type is used to store the actual signatures that are generated when a 
   "id": "signatures",
   "allowedContentTypes": [
       "application/json"
-  ]
+  ],
+  "allowedContributors": [
+      "app:owned"
+  ],
+  "minCount": 1
 }
 ```
 
-The IDs can be set to something else, but they must match the IDs entered in `signatureDataType` in the process step, as shown in the process task step.
+It is important to set `allowedContributors` to `"app:owned"`. This ensures that these data items cannot be edited via the app’s API but only by the app itself. Before version 8.6, this was misspelled `allowedContributers`.
 
+The ID can be set to something else, but they must match the IDs entered in `signatureDataType` in the process step, as shown in the process task step.
 
 ### Tilgangsstyring
 

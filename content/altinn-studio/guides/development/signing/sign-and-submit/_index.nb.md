@@ -40,7 +40,11 @@ Ferdig konvertert eksempel i `process.xml`:
             <altinn:dataTypesToSign>
                 <altinn:dataType>model</altinn:dataType>
             </altinn:dataTypesToSign>
-            <altinn:signatureDataType>signatureInformation-2mjK</altinn:signatureDataType>
+            <altinn:signatureDataType>signatures</altinn:signatureDataType>
+
+            <!-- Vi har laget en standard validator som kan slås på her. Den validerer at minCount på signatur-datatypen er oppfylt. Om denne ikke slås på, bør man skrive egen validering av signaturer. -->
+            <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
+
         </altinn:signatureConfig>
     </altinn:taskExtension>
     </bpmn:extensionElements>
@@ -53,13 +57,17 @@ Datatypen i `applicationmetadata.json`:
 
 ```json
 {
-    "id": "signatureInformation-2mjK",
+    "id": "signatures",
     "allowedContentTypes": [
     "application/json"
     ],
-    "allowedContributors": ["app:owned"]
+    "allowedContributors": ["app:owned"],
+    "maxCount": 1,
+    "minCount": 1
 }
 ```
+
+Det er viktig å sette `allowedContributors` til ```"app:owned"```. Det gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv. Før versjon 8.6 var denne konfigurasjonen feilstavet `allowedContributers`.
 
 ## Tilgangsrettigheter
 
