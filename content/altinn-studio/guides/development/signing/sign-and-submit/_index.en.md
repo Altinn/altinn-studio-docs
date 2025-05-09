@@ -41,6 +41,10 @@ Finished converted example in `process.xml`:
                 <altinn:dataType>model</altinn:dataType>
             </altinn:dataTypesToSign>
             <altinn:signatureDataType>signatureInformation-2mjK</altinn:signatureDataType>
+
+            <!-- We have made a default validator that can be enabled here. If this is disabled, custom validation of the signatures should be added. -->
+            <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
+
         </altinn:signatureConfig>
     </altinn:taskExtension>
     </bpmn:extensionElements>

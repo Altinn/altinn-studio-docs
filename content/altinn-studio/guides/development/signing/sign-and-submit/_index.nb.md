@@ -41,6 +41,10 @@ Ferdig konvertert eksempel i `process.xml`:
                 <altinn:dataType>model</altinn:dataType>
             </altinn:dataTypesToSign>
             <altinn:signatureDataType>signatureInformation-2mjK</altinn:signatureDataType>
+
+            <!-- Vi har laget en standard validator som kan slås på her. Om denne slås av bør man lage egen validering av signaturene. -->
+            <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
+
         </altinn:signatureConfig>
     </altinn:taskExtension>
     </bpmn:extensionElements>

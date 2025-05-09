@@ -26,6 +26,10 @@ Signing normally uses two user actions. If the Altinn user interface is used by 
           <altinn:dataType>ref-data-as-pdf</altinn:dataType>
         </altinn:dataTypesToSign>
         <altinn:signatureDataType>signatures</altinn:signatureDataType>
+
+        <!-- We have made a default validator that can be enabled here. If this is disabled, custom validation of the signatures should be added. -->
+        <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
+
       </altinn:signatureConfig>
     </altinn:taskExtension>
   </bpmn:extensionElements>

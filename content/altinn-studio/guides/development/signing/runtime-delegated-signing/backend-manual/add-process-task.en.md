@@ -45,6 +45,9 @@ If the Altinn user interface is used by the application, these actions will be t
         <!-- If the signee should receive a receipt with the documents that were signed in their Altinn inbox, enter a correspondence resource her. Setup of this is documented separately. -->
         <altinn:correspondenceResource>app-correspondence-resource</altinn:correspondenceResource> <!-- optional -->
 
+        <!-- We have made a default validator that can be enabled here. It checks that all signees have signed, and that there is minimum one signature. If this is disabled, you should implement your own validator for the signatures. -->
+        <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
+
       </altinn:signatureConfig>
     </altinn:taskExtension>
   </bpmn:extensionElements>
