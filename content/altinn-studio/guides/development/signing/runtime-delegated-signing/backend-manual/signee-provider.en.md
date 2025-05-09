@@ -9,14 +9,12 @@ The implementation must return a set of individuals and/or organizations that sh
 The `Id` property in this implementation must match the ID specified in <altinn:signeeProviderId>.
 
 ```csharp
-using System;
+#nullable enable
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Altinn.App.Core.Features.Signing.Interfaces;
-using Altinn.App.Core.Features.Signing.Models;
-using Altinn.App.Core.Internal.Data;
-using Altinn.App.Core.Models;
+using Altinn.App.Core.Features;
+using Altinn.App.Core.Features.Signing;
 using Altinn.App.Models.Skjemadata;
 using Altinn.Platform.Storage.Interface.Models;
 
@@ -24,18 +22,15 @@ namespace Altinn.App.logic;
 
 public class FounderSigneesProvider : ISigneeProvider
 {
-    private readonly IDataClient _dataClient;
-
-    public FounderSigneesProvider(IDataClient dataClient)
-    {
-        _dataClient = dataClient;
-    }
-
     public string Id { get; init; } = "founders";
 
-    public async Task<SigneeProviderResult> GetSigneesAsync(Instance instance)
+    public async Task<SigneeProviderResult> GetSigneesAsync(GetSigneesParameters parameters)
     {
-        Skjemadata formData = await GetFormData(instance);
+        DataElement dataElement = parameters.InstanceDataAccessor
+            .GetDataElementsForType("Skjemadata")
+            .Single();
+
+        var formData = await parameters.InstanceDataAccessor.GetFormData<Skjemadata>(dataElement);
 
         List<ProvidedSignee> providedSignees = [];
         foreach (StifterPerson stifterPerson in formData.StifterPerson)
@@ -87,8 +82,8 @@ public class FounderSigneesProvider : ISigneeProvider
                     InboxMessage = new InboxMessage
                     {
                         TitleTextResourceKey = "signing.correspondence_title_common",
-                        SummaryTextResourceKey = "signing.correspondence_summary_stifter_organisation",
-                        BodyTextResourceKey = "signing.correspondence_body_stifter_organisation"
+                        SummaryTextResourceKey = "signing.correspondence_summary_stifter_organisasjon",
+                        BodyTextResourceKey = "signing.correspondence_body_stifter_organisasjon"
                     },
                     Notification = new Notification
                     {
@@ -117,22 +112,6 @@ public class FounderSigneesProvider : ISigneeProvider
         }
 
         return new SigneeProviderResult { Signees = providedSignees };
-    }
-
-    private async Task<Skjemadata> GetFormData(Instance instance)
-    {
-        DataElement modelData = instance.Data.Single(x => x.DataType == "Skjemadata");
-        InstanceIdentifier instanceIdentifier = new(instance);
-
-        return (Skjemadata)
-            await _dataClient.GetFormData(
-                instanceIdentifier.InstanceGuid,
-                typeof(Skjemadata),
-                instance.Org,
-                instance.AppId,
-                instanceIdentifier.InstanceOwnerPartyId,
-                new Guid(modelData.Id)
-            );
     }
 }
 ```

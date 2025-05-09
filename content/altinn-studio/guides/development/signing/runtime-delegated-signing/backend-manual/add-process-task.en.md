@@ -84,7 +84,7 @@ This data type is used to store information about the signers who should be dele
         "app:owned"
     ],
     "maxCount": 1,
-    "minCount": 0
+    "minCount": 1
 }
 ```
 

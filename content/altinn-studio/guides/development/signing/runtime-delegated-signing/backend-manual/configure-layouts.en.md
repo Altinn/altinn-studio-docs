@@ -44,13 +44,13 @@ Example of usage of the standard components:
 
 ```json
 {
-    "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
-    "data": {
-      "layout": [
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
       {
         "id": "headerSigningFounders",
         "type": "Header",
-        "size": "L",
+        "size": "M",
         "textResourceBindings": {
           "title": "Her kan man ha en overskrift"
         }
@@ -74,9 +74,9 @@ Example of usage of the standard components:
       },
       {
         "id": "signing-state",
-        "type": "SigningStatusPanel"
+        "type": "SigningActions"
       }
     ]
-    }
   }
+}
 ```
