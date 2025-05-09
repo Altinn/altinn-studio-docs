@@ -15,7 +15,10 @@ This data type is used to store information and status about the payment. Put it
 {
     "id": "paymentInformation",
     "allowedContentTypes": [
-        "application/json"
+      "application/json"
+    ],
+    "allowedContributers": [
+      "app:owned"
     ],
     "maxCount": 1,
     "minCount": 0,

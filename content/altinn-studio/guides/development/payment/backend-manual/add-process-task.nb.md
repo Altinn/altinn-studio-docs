@@ -13,7 +13,10 @@ Den første datatypen benyttes av betalingssteget for å lagre informasjon og st
 {
     "id": "paymentInformation",
     "allowedContentTypes": [
-        "application/json"
+      "application/json"
+    ],
+    "allowedContributers": [
+      "app:owned"
     ],
     "maxCount": 1,
     "minCount": 0,
