@@ -17,7 +17,7 @@ This data type is used to store information and status about the payment. Put it
     "allowedContentTypes": [
       "application/json"
     ],
-    "allowedContributers": [
+    "allowedContributors": [
       "app:owned"
     ],
     "maxCount": 1,
@@ -33,12 +33,17 @@ This data type is used to store the PDF-receipt for the payment. Configure it ne
     "allowedContentTypes": [
         "application/pdf"
     ],
+    "allowedContributors": [
+      "app:owned"
+    ],
     "maxCount": 1,
     "minCount": 0,
 }
 ```
 
- The IDs can be set to something else, but they must match the IDs entered in `paymentDataType` and `paymentReceiptPdfDataType` in the process step, as shown in step 2.
+It is important to set `allowedContributors` to `"app:owned"`. This ensures that these data items cannot be edited via the app’s API but only by the app itself. Before version 8.6, this was misspelled `allowedContributers`.
+
+The IDs can be set to something else, but they must match the IDs entered in `paymentDataType` and `paymentReceiptPdfDataType` in the process step, as shown in step 2.
 
 ### Extend the app process with payment task:
 

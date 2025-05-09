@@ -15,7 +15,7 @@ Den første datatypen benyttes av betalingssteget for å lagre informasjon og st
     "allowedContentTypes": [
       "application/json"
     ],
-    "allowedContributers": [
+    "allowedContributors": [
       "app:owned"
     ],
     "maxCount": 1,
@@ -31,10 +31,15 @@ Den andre datatypen benyttes for å lagre PDF-kvittering for betalingen. Legg de
     "allowedContentTypes": [
         "application/pdf"
     ],
+    "allowedContributors": [
+      "app:owned"
+    ],
     "maxCount": 1,
     "minCount": 0,
 }
 ```
+
+Det er viktig å sette `allowedContributors` til ```"app:owned"```. Det gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv. Før versjon 8.6 var denne konfigurasjonen feilstavet `allowedContributers`.
 
 ID-ene kan settes til noe annet, men det må matche ID-ene som legges inn i `paymentDataType` og `paymentReceiptPdfDataType` i prossessteget, som vist i punktet under.
 
