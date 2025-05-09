@@ -23,7 +23,7 @@ public class FounderSigneesProvider : ISigneeProvider
 {
     public string Id { get; init; } = "founders";
 
-    public async Task<SigneeProviderResult> GetSigneesAsync(GetSigneesParameters parameters)
+    public async Task<SigneeProviderResult> GetSignees(GetSigneesParameters parameters)
     {
         DataElement dataElement = parameters.InstanceDataAccessor
             .GetDataElementsForType("Skjemadata")
