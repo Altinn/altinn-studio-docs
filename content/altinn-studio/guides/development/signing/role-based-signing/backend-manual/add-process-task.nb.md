@@ -46,13 +46,16 @@ Den benyttes av signeringssteget til å lagre de faktiske signaturene som genere
     "id": "signatures",
     "allowedContentTypes": [
         "application/json"
-    ]
+    ],
+    "allowedContributers": ["app:owned"]
 }
 ```
+
+Det er viktig å sette `allowedContributers` til `"app:owned"`. Det gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv.
 
 ID-en kan settes til noe annet, men det må matche ID-en som legges inn i `signatureDataType` i prossessteget.
 
 
 ### Tilgangsstyring
 
-Gi ```read```, ```write``` og eventuelt ```sign``` til den som fyller ut skjemaet. Andre som skal signere må også få `read` og `write`.
+Gi `read`, `write` og eventuelt `sign` til den som fyller ut skjemaet. Andre som skal signere må også få `read` og `write`.
