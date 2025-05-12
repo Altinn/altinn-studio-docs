@@ -5,7 +5,8 @@
         "isPoa": false,
         "isMessageSetInRequest": true,
         "restrictedToServiceOwners": [
-            "skd", "ttd"
+            "skd",
+            "ttd"
         ],
         "texts": {
             "title": {
@@ -168,95 +169,13 @@
         }
     },
     {
-        "id": "default",
-        "title": "Samtykke til å dele data (standard)",
-        "isPoa": false,
-        "isMessageSetInRequest": true,
-        "restrictedToServiceOwners": null,
-        "texts": {
-            "title": {
-                "person": {
-                    "nb": "Samtykke til bruk av dine data",
-                    "nn": "Samtykke til bruk av dine data",
-                    "en": "Consent to use of your data"
-                },
-                "org": {
-                    "nb": "Samtykke til bruk av {OfferedBy} sine data",
-                    "nn": "Samtykke til bruk av {OfferedBy} sine data",
-                    "en": "Consent to use of the data of {OfferedBy}"
-                }
-            },
-            "heading": {
-                "person": {
-                    "nb": "{CoveredBy} ønsker å hente opplysninger om deg",
-                    "nn": "{CoveredBy} ønskjer å hente opplysningar om deg",
-                    "en": "{CoveredBy} requests information about you"
-                },
-                "org": {
-                    "nb": "{CoveredBy} ønsker å hente opplysninger om {OfferedBy}",
-                    "nn": "{CoveredBy} ønskjer å hente opplysningar om  {OfferedBy}",
-                    "en": "{CoveredBy} requests information about {OfferedBy}"
-                }
-            },
-            "serviceIntro": {
-                "person": {
-                    "nb": "Ved at du samtykker, får {CoveredBy} tilgang til følgende opplysninger om deg",
-                    "nn": "Ved at du samtykker, får {CoveredBy} tilgang til følgjande opplysningar om deg",
-                    "en": "By giving consent, {CoveredBy} gets access to the following information about you"
-                },
-                "org": {
-                    "nb": "Ved at du samtykker, får {CoveredBy} tilgang til følgende opplysninger om {OfferedBy}",
-                    "nn": "Ved at du samtykker, får {CoveredBy} tilgang til følgjande opplysningar om {OfferedBy}",
-                    "en": "By giving consent, {CoveredBy} gets access to the following information about {OfferedBy}"
-                }
-            },
-            "overriddenDelegationContext": null,
-            "expiration": {
-                "nb": "Samtykket er tidsavgrenset og vil gå ut {Expiration}",
-                "nn": "Samtykket er tidsavgrensa og vil gå ut {Expiration}",
-                "en": "The consent is time-limited, and will expire {Expiration}"
-            },
-            "expirationOneTime": {
-                "nb": "Samtykket gjelder én gangs utlevering av opplysningene.",
-                "nn": "Samtykket gjeld ein gongs utlevering av opplysningane.",
-                "en": "The consent applies for one-time disclosure of information."
-            },
-            "serviceIntroAccepted": {
-                "person": {
-                    "nb": "Samtykket gir {CoveredBy} tilgang til følgende opplysninger om deg",
-                    "nn": "Samtykket gir {CoveredBy} tilgang til følgjande opplysningar om deg",
-                    "en": "The consent gives {CoveredBy} access to the following information about you"
-                },
-                "org": {
-                    "nb": "Samtykket gir {CoveredBy} tilgang til følgende opplysninger om {OfferedBy}",
-                    "nn": "Samtykket gir {CoveredBy} tilgang til følgjande opplysningar om {OfferedBy}",
-                    "en": "The consent gives {CoveredBy} access to the following information about {OfferedBy}"
-                }
-            },
-            "handledBy": {
-                "nb": "{HandledBy} foretar dette oppslaget på vegne av {CoveredBy}.",
-                "nn": "{HandledBy} gjer dette oppslaget på vegne av {CoveredBy}.",
-                "en": "{HandledBy} performs the lookup on behalf of {CoveredBy}."
-            },
-            "historyUsedBody": {
-                "nb": "{CoveredBy} har hentet data for {OfferedBy}. Samtykket utløper {Expiration}",
-                "nn": "{CoveredBy} har henta data for {OfferedBy}. Samtykket utløper {Expiration}",
-                "en": "{CoveredBy} has retrieved data for {OfferedBy}. The consent expires {Expiration}"
-            },
-            "historyUsedByHandledByBody": {
-                "nb": "{HandledBy} har, på vegne av {CoveredBy}, hentet data om {OfferedBy}. Samtykket utløper {Expiration}",
-                "nn": "{HandledBy} har, på vegne av {CoveredBy}, henta data om {OfferedBy}. Samtykket utløper {Expiration}",
-                "en": "{HandledBy} has, on behalf of {CoveredBy}, retrieved data about {OfferedBy}. The consent expires {Expiration}"
-            }
-        }
-    },
-    {
         "id": "sblanesoknad",
         "title": "Samtykkebasert lånesøknad",
         "isPoa": false,
         "isMessageSetInRequest": false,
         "restrictedToServiceOwners": [
-            "skd", "ttd"
+            "skd",
+            "ttd"
         ],
         "texts": {
             "title": {
@@ -419,176 +338,6 @@
                 "nb": "{HandledBy} har, på vegne av {CoveredBy}, handlet på vegne av {OfferedBy}. Fullmakten utløper {Expiration}",
                 "nn": "{HandledBy} har, på vegne av {CoveredBy}, handla på vegne av {OfferedBy}. Samtykket utløper {Expiration}",
                 "en": "{HandledBy} has, on behalf of {CoveredBy}, acted on behalf of {OfferedBy}. The authority expires {Expiration}"
-            }
-        }
-    },
-    {
-        "id": "ebevis",
-        "title": "eBevis for Skatteetaten-tjenester",
-        "isPoa": true,
-        "isMessageSetInRequest": false,
-        "restrictedToServiceOwners": null,
-        "texts": {
-            "title": {
-                "person": {
-                    "nb": "Fullmakt for {CoveredBy} til å hente opplysninger om din virksomhet.",
-                    "nn": "Fullmakt for {CoveredBy} til å henta opplysningar om verksemda di.",
-                    "en": "Authorization to {CoveredBy} to collect information about your organization"
-                },
-                "org": {
-                    "nb": "Fullmakt for {CoveredBy} til å hente opplysninger om din virksomhet.",
-                    "nn": "Fullmakt for {CoveredBy} til å henta opplysningar om verksemda di.",
-                    "en": "Authorization to {CoveredBy} to collect information about your organization"
-                }
-            },
-            "heading": {
-                "person": {
-                    "nb": "{CoveredBy} har sendt en forespørsel om fullmakt til uthenting av opplysninger om din virksomhet.",
-                    "nn": "{CoveredBy} har sendt ein førespurnad om fullmakt til uthenting av opplysningar om verksemda di.",
-                    "en": "{CoveredBy} requests authorization to collect information about your organization."
-                },
-                "org": {
-                    "nb": "{CoveredBy} har sendt en forespørsel om fullmakt til uthenting av opplysninger om din virksomhet.",
-                    "nn": "{CoveredBy} har sendt ein førespurnad om fullmakt til uthenting av opplysningar om verksemda di.",
-                    "en": "{CoveredBy} requests authorization to collect information about your organization."
-                }
-            },
-            "serviceIntro": {
-                "person": {
-                    "nb": "Dersom du gir fullmakt får {CoveredBy} tilgang til følgende opplysninger:",
-                    "nn": "Dersom du gir fullmakt får {CoveredBy} tilgang til følgjande opplysningar:",
-                    "en": "If you grant this request, {CoveredBy} will have access to the following information:"
-                },
-                "org": {
-                    "nb": "Dersom du gir fullmakt får {CoveredBy} tilgang til følgende opplysninger:",
-                    "nn": "Dersom du gir fullmakt får {CoveredBy} tilgang til følgjande opplysningar:",
-                    "en": "If you grant this request, {CoveredBy} will have access to the following information:"
-                }
-            },
-            "overriddenDelegationContext": {
-                "nb": "{CoveredBy} trenger fullmakt til å hente ut skatteopplysninger om {OfferedBy} for å gjøre en kvalifisering i forbindelse med en anskaffelse. Se under for Doffin-referanse.",
-                "nn": "{CoveredBy} treng fullmakt til å henta ut skatteopplysningar om {OfferedBy} for å gjera ei kvalifisering i samband med eit innkjøp. Sjå under for Doffin-referanse.",
-                "en": "{CoveredBy} needs authorization to retrieve tax information about {OfferedBy} relating to a acquisition qualification process. See below for Doffin reference."
-            },
-            "expiration": {
-                "nb": "Du har rett til innsyn i opplysningene som hentes om din virksomhet. Ta kontakt med {CoveredBy} for innsyn. Du kan også selv bestille opplysninger om skatt og avgift (RF-1507) fra Skatteetaten i Altinn.  Fullmakten er tidsavgrenset og vil gå ut {Expiration}",
-                "nn": "Du har rett til innsyn i opplysningane som blir henta om verksemda di. Ta kontakt med {CoveredBy} for innsyn. Du kan òg sjølv bestilla opplysningar om skatt og avgift (RF-1507) frå Skatteetaten i Altinn.  Fullmakta er tidsavgrenset og vil gå ut {Expiration}",
-                "en": "You have the right to access the information obtained about your business. Contact {CoveredBy} for information to learn about what data was collected. You can also order information about taxes and fees (RF-1507) from the Tax Administration in Altinn. The authorization is time-limited and will expire {Expiration}"
-            },
-            "expirationOneTime": {
-                "nb": "Du har rett til innsyn i opplysningene som hentes om din virksomhet. Ta kontakt med {CoveredBy} for innsyn. Du kan også selv bestille opplysninger om skatt og avgift (RF-1507) fra Skatteetaten i Altinn.  Fullmakten gjelder én gangs bruk.",
-                "nn": "Du har rett til innsyn i opplysningane som blir henta om verksemda di. Ta kontakt med {CoveredBy} for innsyn. Du kan òg sjølv bestilla opplysningar om skatt og avgift (RF-1507) frå Skatteetaten i Altinn.  Fullmakta gjeld ein gongs bruk.",
-                "en": "You have the right to access the information obtained about your business. Contact {CoveredBy} for information to learn about what data was collected. You can also order information about taxes and fees (RF-1507) from the Tax Administration in Altinn. The authorization applies for one-time usage."
-            },
-            "serviceIntroAccepted": {
-                "person": {
-                    "nb": "Fullmakten omfatter følgende",
-                    "nn": "Fullmakta omfattar følgjande",
-                    "en": "The authorization covers the following"
-                },
-                "org": {
-                    "nb": "Fullmakten gitt på vegne av {OfferedBy} omfatter følgende",
-                    "nn": "Fullmakta gitt på vegne av {OfferedBy} omfattar følgjande",
-                    "en": "The authorization given on behalf of {OfferedBy} covers the following"
-                }
-            },
-            "handledBy": {
-                "nb": "Du kan når som helst trekke tilbake fullmakten, og den stanses dersom du ikke blir tildelt kontrakten.  Gå til din Altinn-profil for å administrere fullmakter. {HandledBy} foretar dette på vegne av {CoveredBy}.",
-                "nn": "Du kan når som helst trekka tilbake fullmakta, og den blir stansa dersom du ikkje blir tildelt kontrakten.  Gå til din Altinn-profil for å administrera fullmakter. {HandledBy} gjer dette på vegner av {CoveredBy}.",
-                "en": "You can withdraw the power of attorney at any time, and it will be voided if you are not awarded the contract. Go to your Altinn profile to manage authorizations. {HandledBy} performs this request on behalf of {CoveredBy}."
-            },
-            "historyUsedBody": {
-                "nb": "{CoveredBy} har benyttet seg av fullmakten fra {OfferedBy}. Fullmakten utløper {Expiration}",
-                "nn": "{CoveredBy} har nytta seg av fullmakta frå {OfferedBy}. Fullmakta utløper {Expiration}",
-                "en": "{CoveredBy} has utilized the authorization from {OfferedBy}. The authorization expires {Expiration}"
-            },
-            "historyUsedByHandledByBody": {
-                "nb": "{HandledBy} har, på vegne av {CoveredBy}, benyttet fullmakten fra {OfferedBy}. Fullmakten utløper {Expiration}",
-                "nn": "{HandledBy} har, på vegne av {CoveredBy}, nytta fullmakta frå {OfferedBy}. Fullmakta utløper {Expiration}",
-                "en": "{HandledBy} has, on behalf of {CoveredBy}, utilized the authorization from {OfferedBy}. The authorization expires {Expiration}"
-            }
-        }
-    },
-    {
-        "id": "defaultnomessage",
-        "title": "Samtykke til å hente data (uten melding)",
-        "isPoa": false,
-        "isMessageSetInRequest": true,
-        "restrictedToServiceOwners": null,
-        "texts": {
-            "title": {
-                "person": {
-                    "nb": "Samtykke til bruk av dine data",
-                    "nn": "Samtykke til bruk av dine data",
-                    "en": "Consent to use of your data"
-                },
-                "org": {
-                    "nb": "Samtykke til bruk av {OfferedBy} sine data",
-                    "nn": "Samtykke til bruk av {OfferedBy} sine data",
-                    "en": "Consent to use of the data of {OfferedBy}"
-                }
-            },
-            "heading": {
-                "person": {
-                    "nb": "{CoveredBy} ønsker å hente opplysninger om deg",
-                    "nn": "{CoveredBy} ønskjer å hente opplysningar om deg",
-                    "en": "{CoveredBy} requests information about you"
-                },
-                "org": {
-                    "nb": "{CoveredBy} ønsker å hente opplysninger om {OfferedBy}",
-                    "nn": "{CoveredBy} ønskjer å hente opplysningar om  {OfferedBy}",
-                    "en": "{CoveredBy} requests information about {OfferedBy}"
-                }
-            },
-            "serviceIntro": {
-                "person": {
-                    "nb": "Ved at du samtykker, får {CoveredBy} tilgang til følgende opplysninger om deg",
-                    "nn": "Ved at du samtykker, får {CoveredBy} tilgang til følgjande opplysningar om deg",
-                    "en": "By giving consent, {CoveredBy} gets access to the following information about you"
-                },
-                "org": {
-                    "nb": "Ved at du samtykker, får {CoveredBy} tilgang til følgende opplysninger om {OfferedBy}",
-                    "nn": "Ved at du samtykker, får {CoveredBy} tilgang til følgjande opplysningar om {OfferedBy}",
-                    "en": "By giving consent, {CoveredBy} gets access to the following information about {OfferedBy}"
-                }
-            },
-            "overriddenDelegationContext": null,
-            "expiration": {
-                "nb": "Samtykket er tidsavgrenset og vil gå ut {Expiration}",
-                "nn": "Samtykket er tidsavgrensa og vil gå ut {Expiration}",
-                "en": "The consent is time-limited, and will expire {Expiration}"
-            },
-            "expirationOneTime": {
-                "nb": "Samtykket gjelder én gangs utlevering av opplysningene.",
-                "nn": "Samtykket gjeld ein gongs utlevering av opplysningane.",
-                "en": "The consent applies for one-time disclosure of information."
-            },
-            "serviceIntroAccepted": {
-                "person": {
-                    "nb": "Samtykket gir {CoveredBy} tilgang til følgende opplysninger om deg",
-                    "nn": "Samtykket gir {CoveredBy} tilgang til følgjande opplysningar om deg",
-                    "en": "The consent gives {CoveredBy} access to the following information about you"
-                },
-                "org": {
-                    "nb": "Samtykket gir {CoveredBy} tilgang til følgende opplysninger om {OfferedBy}",
-                    "nn": "Samtykket gir {CoveredBy} tilgang til følgjande opplysningar om {OfferedBy}",
-                    "en": "The consent gives {CoveredBy} access to the following information about {OfferedBy}"
-                }
-            },
-            "handledBy": {
-                "nb": "{HandledBy} foretar dette oppslaget på vegne av {CoveredBy}.",
-                "nn": "{HandledBy} gjer dette oppslaget på vegne av {CoveredBy}.",
-                "en": "{HandledBy} performs the lookup on behalf of {CoveredBy}."
-            },
-            "historyUsedBody": {
-                "nb": "{CoveredBy} har hentet data for {OfferedBy}. Samtykket utløper {Expiration}",
-                "nn": "{CoveredBy} har henta data for {OfferedBy}. Samtykket utløper {Expiration}",
-                "en": "{CoveredBy} has retrieved data for {OfferedBy}. The consent expires {Expiration}"
-            },
-            "historyUsedByHandledByBody": {
-                "nb": "{HandledBy} har, på vegne av {CoveredBy}, hentet data om {OfferedBy}. Samtykket utløper {Expiration}",
-                "nn": "{HandledBy} har, på vegne av {CoveredBy}, henta data om {OfferedBy}. Samtykket utløper {Expiration}",
-                "en": "{HandledBy} has, on behalf of {CoveredBy}, retrieved data about {OfferedBy}. The consent expires {Expiration}"
             }
         }
     },
