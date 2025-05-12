@@ -17,7 +17,7 @@ public void ValidateData(object data, ModelStateDictionary validationResults)
         Skjema skjemaData = (Skjema)data;
 
         // Check if any of the founders are named "Bad Boy"
-        foreach (StifterPerson stifterPerson in formData.StifterPerson)
+        foreach (StifterPerson stifterPerson in skjemaData.StifterPerson)
         {
             if(stifterPerson?.Fornavn == "Bad" && 
                 stifterPerson?.Etternavn == "Boy")

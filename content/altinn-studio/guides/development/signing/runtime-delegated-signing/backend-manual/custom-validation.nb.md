@@ -7,7 +7,7 @@ Du kan bruke standardvalidatoren som nevnt i punkt 2. Den verifiserer at antall 
 beskrevet i [Hvordan legge til egendefinert validering](https://docs.altinn.studio/altinn-studio/reference/logic/validation/#server-side-validation).
 
 Et fiktivt eksempel er en validator som verifiserer at ingen av de oppgitte signatarene er `Slem Gutt`. I eksempelapplikasjonen
-skal alle stiferpersoner signere:
+skal alle stifterpersoner signere:
 
 ```csharp
 public void ValidateData(object data, ModelStateDictionary validationResults)
@@ -17,7 +17,7 @@ public void ValidateData(object data, ModelStateDictionary validationResults)
         Skjema skjemaData = (Skjema)data;
 
         // Se om noen av signatarene heter "Slem Gutt"
-        foreach (StifterPerson stifterPerson in formData.StifterPerson)
+        foreach (StifterPerson stifterPerson in skjemaData.StifterPerson)
         {
             if(stifterPerson?.Fornavn == "Slem" && 
                 stifterPerson?.Etternavn == "Gutt")
