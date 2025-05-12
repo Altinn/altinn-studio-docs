@@ -6,7 +6,7 @@ You can use the default validator as mentioned in step 2. It verifies thath the 
 `minCount` set in the data model configuration. Custom validation can be set up by implementing the `IInstanceValidator`
 interface as described in [How to add custom validation](https://docs.altinn.studio/altinn-studio/reference/logic/validation/#server-side-validation).
 
-A fictitious example is a validator which verifies that noen of the provided signees are named `Bad Boy`. In the example
+A fictitious example is a validator which verifies that none of the provided signees are named `Bad Boy`. In the example
 application, all founders need to sign:
 
 ```csharp
