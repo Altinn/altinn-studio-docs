@@ -9,7 +9,9 @@ The implementation must return a set of individuals and/or organizations that sh
 The `Id` property in this implementation must match the ID specified in <altinn:signeeProviderId>.
 
 Note that `CommunicationConfig` is optional. Here you may override the standard texts used in communication with the signees,
-as explained in section 3. You may also override the email address and phone number for the signees. By default, the email
+as explained in section 3. You may also override the email address and phone number for the signees. By default, a message 
+will be sent to the signees altinn inbox with a link to the relevant application instance and a notification
+will be sent via email. To turn on SMS notifications, set SMS = new Sms{ MobileNumber = ""}. If not overridden, the email 
 addresses and the phone numbers used are populated as described in [Recipient lookup](/notifications/explanation/recipient-lookup/) 
 and [Address lookup](/notifications/explanation/address-lookup/).
 
