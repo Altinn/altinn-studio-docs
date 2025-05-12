@@ -86,46 +86,46 @@
         }
     },
     {
-        "id": "consent_sharing",
-        "title": "Samtykke til å dele data",
+        "id": "default",
+        "title": "Samtykke til å dele data (standard)",
         "isPoa": false,
         "isMessageSetInRequest": true,
         "restrictedToServiceOwners": null,
         "texts": {
             "title": {
                 "person": {
-                    "nb": "Samtykke til å dele dine data",
-                    "nn": "Samtykke til å dele dine data",
-                    "en": "Consent to share your data"
+                    "nb": "Samtykke til bruk av dine data",
+                    "nn": "Samtykke til bruk av dine data",
+                    "en": "Consent to use of your data"
                 },
                 "org": {
-                    "nb": "Samtykke til å dele {OfferedBy} sine data",
-                    "nn": "Samtykke til å dele {OfferedBy} sine data",
-                    "en": "Consent to share of the data of {OfferedBy}"
+                    "nb": "Samtykke til bruk av {OfferedBy} sine data",
+                    "nn": "Samtykke til bruk av {OfferedBy} sine data",
+                    "en": "Consent to use of the data of {OfferedBy}"
                 }
             },
             "heading": {
                 "person": {
-                    "nb": "{CoveredBy} ønsker å dele opplysninger om deg",
-                    "nn": "{CoveredBy} ønskjer å dele opplysningar om deg",
-                    "en": "{CoveredBy} requests to share information about you"
+                    "nb": "{CoveredBy} ønsker å hente opplysninger om deg",
+                    "nn": "{CoveredBy} ønskjer å hente opplysningar om deg",
+                    "en": "{CoveredBy} requests information about you"
                 },
                 "org": {
-                    "nb": "{CoveredBy} ønsker å dele opplysninger om {OfferedBy}",
-                    "nn": "{CoveredBy} ønskjer å dele opplysningar om  {OfferedBy}",
-                    "en": "{CoveredBy} requests to share information about {OfferedBy}"
+                    "nb": "{CoveredBy} ønsker å hente opplysninger om {OfferedBy}",
+                    "nn": "{CoveredBy} ønskjer å hente opplysningar om  {OfferedBy}",
+                    "en": "{CoveredBy} requests information about {OfferedBy}"
                 }
             },
             "serviceIntro": {
                 "person": {
-                    "nb": "Ved at du samtykker, får {CoveredBy} tilgang til å dele følgende opplysninger om deg",
-                    "nn": "Ved at du samtykker, får {CoveredBy} tilgang å dele følgjande opplysningar om deg",
-                    "en": "By giving consent, {CoveredBy} gets access to share the following information about you"
+                    "nb": "Ved at du samtykker, får {CoveredBy} tilgang til følgende opplysninger om deg",
+                    "nn": "Ved at du samtykker, får {CoveredBy} tilgang til følgjande opplysningar om deg",
+                    "en": "By giving consent, {CoveredBy} gets access to the following information about you"
                 },
                 "org": {
-                    "nb": "Ved at du samtykker, får {CoveredBy} tilgang til å dele følgende opplysninger om {OfferedBy}",
-                    "nn": "Ved at du samtykker, får {CoveredBy} tilgang til å dele følgjande opplysningar om {OfferedBy}",
-                    "en": "By giving consent, {CoveredBy} gets access to share the following information about {OfferedBy}"
+                    "nb": "Ved at du samtykker, får {CoveredBy} tilgang til følgende opplysninger om {OfferedBy}",
+                    "nn": "Ved at du samtykker, får {CoveredBy} tilgang til følgjande opplysningar om {OfferedBy}",
+                    "en": "By giving consent, {CoveredBy} gets access to the following information about {OfferedBy}"
                 }
             },
             "overriddenDelegationContext": null,
@@ -141,9 +141,9 @@
             },
             "serviceIntroAccepted": {
                 "person": {
-                    "nb": "Samtykket gir {CoveredBy} tilgang til å dele følgende opplysninger om deg",
-                    "nn": "Samtykket gir {CoveredBy} tilgang til å dele følgjande opplysningar om deg",
-                    "en": "The consent gives {CoveredBy} access to share the following information about you"
+                    "nb": "Samtykket gir {CoveredBy} tilgang til følgende opplysninger om deg",
+                    "nn": "Samtykket gir {CoveredBy} tilgang til følgjande opplysningar om deg",
+                    "en": "The consent gives {CoveredBy} access to the following information about you"
                 },
                 "org": {
                     "nb": "Samtykket gir {CoveredBy} tilgang til følgende opplysninger om {OfferedBy}",
@@ -152,19 +152,19 @@
                 }
             },
             "handledBy": {
-                "nb": "{HandledBy} foretar delingen på vegne av {CoveredBy}.",
-                "nn": "{HandledBy} gjer delinga på vegne av {CoveredBy}.",
-                "en": "{HandledBy} performs the sharing on behalf of {CoveredBy}."
+                "nb": "{HandledBy} foretar dette oppslaget på vegne av {CoveredBy}.",
+                "nn": "{HandledBy} gjer dette oppslaget på vegne av {CoveredBy}.",
+                "en": "{HandledBy} performs the lookup on behalf of {CoveredBy}."
             },
             "historyUsedBody": {
-                "nb": "{CoveredBy} har delt data for {OfferedBy}. Samtykket utløper {Expiration}",
-                "nn": "{CoveredBy} har delt data for {OfferedBy}. Samtykket utløper {Expiration}",
-                "en": "{CoveredBy} has shared data for {OfferedBy}. The consent expires {Expiration}"
+                "nb": "{CoveredBy} har hentet data for {OfferedBy}. Samtykket utløper {Expiration}",
+                "nn": "{CoveredBy} har henta data for {OfferedBy}. Samtykket utløper {Expiration}",
+                "en": "{CoveredBy} has retrieved data for {OfferedBy}. The consent expires {Expiration}"
             },
             "historyUsedByHandledByBody": {
-                "nb": "{HandledBy} har, på vegne av {CoveredBy}, delt data om {OfferedBy}. Samtykket utløper {Expiration}",
-                "nn": "{HandledBy} har, på vegne av {CoveredBy}, delt data om {OfferedBy}. Samtykket utløper {Expiration}",
-                "en": "{HandledBy} has, on behalf of {CoveredBy}, shared data about {OfferedBy}. The consent expires {Expiration}"
+                "nb": "{HandledBy} har, på vegne av {CoveredBy}, hentet data om {OfferedBy}. Samtykket utløper {Expiration}",
+                "nn": "{HandledBy} har, på vegne av {CoveredBy}, henta data om {OfferedBy}. Samtykket utløper {Expiration}",
+                "en": "{HandledBy} has, on behalf of {CoveredBy}, retrieved data about {OfferedBy}. The consent expires {Expiration}"
             }
         }
     },
