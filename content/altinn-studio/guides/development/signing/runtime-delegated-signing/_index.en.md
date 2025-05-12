@@ -63,7 +63,11 @@ Below are the key configuration steps for setting up such an application.
 
 {{</content-version-selector>}}
 
-## 3. Optional - Setup text resources
+## 3. Optional - Custom validation
+
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/custom-validation.en.md" %}}
+
+## 4. Optional - Setup text resources
 
 This section is only relevant for those who want to override the standard texts in the communication with the signees.
 
@@ -123,7 +127,7 @@ The standard values for the communication texts are as follows:
 
 {{</content-version-selector>}}
 
-## 4. Tell the app who the signees are
+## 5. Tell the app who the signees are
 
 {{<content-version-selector classes="border-box">}}
 
@@ -137,6 +141,10 @@ The standard values for the communication texts are as follows:
 
 {{</content-version-selector>}}
 
-## 5. Testing
+## 6. Testing
+{{%notice warning%}}
+SMS notifications are not available in TT02 and other test environments. If used, this vil lead to a "notification failed"
+status in the SigneeList component. The signee will still receive a message in their altinn inbox.
+{{%/notice%}}
 
 Authorization caching may cause delays in users seeing delegated forms in their Altinn inbox if they were logged in when delegation occurred. To avoid this, delegate access to a user not used in testing for the last hour.

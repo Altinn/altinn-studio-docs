@@ -63,7 +63,11 @@ Nedenfor følger de viktiste konfigurasjonsstegene for å få satt opp en slik a
 
 {{</content-version-selector>}}
 
-## 3. Valgfritt - Legg til tekstressurser
+## 3. Valgfritt - Egendefinert validering
+
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/custom-validation.nb.md" %}}
+
+## 4. Valgfritt - Legg til tekstressurser
 
 Denne seksjonen er kun relevant for deg dersom du ønsker å endre på standardtekstene i kommunikasjon med signatarer - de 
 som skal signere.
@@ -124,7 +128,7 @@ Standardverdiene som brukes dersom kommunikasjonstekstene ikke overstyres er som
 
 {{</content-version-selector>}}
 
-## 4. Oppgi hvem som skal signere
+## 5. Oppgi hvem som skal signere
 
 {{<content-version-selector classes="border-box">}}
 
@@ -138,7 +142,12 @@ Standardverdiene som brukes dersom kommunikasjonstekstene ikke overstyres er som
 
 {{</content-version-selector>}}
 
-## 5. Testing
+## 6. Testing
+
+{{%notice warning%}}
+SMS varsler er ikke tilgjengelige i TT02 and other test environments. Dersom brukt vil det lede til en "varsling mislyktes"
+status i SigneeList komponenten. Signataren vil allikevel motta en melding i altinn innboksen.
+{{%/notice%}}
 
 Det er caching i autorisasjonslaget som gjør at det kan ta tid før en bruker som har fått delegert tilgang til et skjema via brukerstyrt signering ser skjemaet i sin Altinn innboks.
 
