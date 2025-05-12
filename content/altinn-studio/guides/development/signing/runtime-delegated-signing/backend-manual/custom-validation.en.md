@@ -2,7 +2,7 @@
 hidden: true
 ---
 
-You can use the default validator as mentioned in step 2. It verifies thath the amount of signatures is at a minimum the
+You can use the default validator as mentioned in step 2. It verifies that the number of signatures meets at least the
 `minCount` set in the data model configuration. Custom validation can be set up by implementing the `IInstanceValidator`
 interface as described in [How to add custom validation](https://docs.altinn.studio/altinn-studio/reference/logic/validation/#server-side-validation).
 
