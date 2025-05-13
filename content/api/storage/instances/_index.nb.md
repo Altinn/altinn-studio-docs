@@ -111,7 +111,7 @@ Operatorene kan kombineres for å lage et intervall:
 dueBefore=gt:2019-02&dueBefore=lt:2019-03-01
 ```
 
-Spørringen returerer et resultatobjekt med en samling av instanser som oppfyller kriteriene for spørringen. 
+Spørringen returnerer et resultatobjekt med en samling av instanser som oppfyller kriteriene for spørringen. 
 Størrelsen er som standard 100 instanser, men man kan bruke *size*-parameteret for å endre antall treff per side. 
 For å hente neste side, bruk *continuationToken* under *next* i resultatobjektet. 
 
