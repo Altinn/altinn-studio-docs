@@ -58,15 +58,14 @@ Brukeren skal kunne velge mellom offentlig og privat sektor. Til det er det natu
 1. Dra inn en komponent av typen **Radioknapper** øverst på den nye siden.
 2. Under **Tekst** i egenskapene til komponenten du har lagt til, legg til ledeteksten **Sektor**. Nå bør skjemabyggeren se slik ut:
    !["Skjemabygger med sektor"](skjemabygger_med_sektor.png)
-3. Nederst i tekstseksjonen kan man sette opp alternativer. Klikk på **Lag ny** knappen for å åpne kodeliste editoren.
-4. Du vil se at det dukker opp en modal, den ser [slik ut](kodeliste_editor.png).
-5. Klikk på **Legg til alternativ** knappen.
-6. Fyll inn koden `offentlig` i feltet under tittelen **Kode**. Dette er verdien som vil bli sendt til systemet når brukeren besvarer skjemaet.
-7. Fyll inn teksten **Offentlig** i det markerte feltet under, dette er teksten som brukeren vil se ved siden av radioknappen. !["Tekst ressurs velger"](tekst_ressurs_velger.png)
-8. Gjenta stegene fra trinn 5 til 7, og gi koden verdien `privat` og ledeteksten **Privat**.
-9. Etter innholdet er fyllt inn ser editoren [slik ut](kodeliste_editor_med_innhold.png). De grå feltene er genererte ID-er, disse vil derfor variere fra gang til gang.
-10. Lukk modalen med å trykke på krysset oppe i høyre hjørne.
-11. Nå mangler vi bare å koble komponenten til riktig felt i datamodellen. Åpne **Datamodellknytninger**, klikk på **Radioknapper** og velg `arbeidsforhold.sektor`.
+3. Nederst i tekstseksjonen kan man sette opp alternativer. Klikk på **Lag ny** knappen for å åpne kodeliste-editoren.
+4. Det vil dukke opp en modal, klikk på **Legg til alternativ** knappen.
+5. Fyll inn koden `offentlig` i feltet under tittelen **Kode**. Dette er verdien som vil bli sendt til systemet når brukeren besvarer skjemaet.
+6. Fyll inn teksten `Offentlig` i det markerte feltet under, dette er teksten som brukeren vil se ved siden av radioknappen. 
+   !["Tekst ressurs velger"](tekst_ressurs_velger.png)
+7. Gjenta stegene fra trinn 5 til 7, og gi koden verdien `privat` og ledeteksten `Privat`.
+8. Lukk modalen med å trykke på krysset oppe i høyre hjørne.
+9. Nå mangler vi bare å koble komponenten til riktig felt i datamodellen. Åpne **Datamodellknytninger**, klikk på **Radioknapper** og velg `arbeidsforhold.sektor`.
 
 ### Legg til avmerkingsbokser for bransje
 Brukeren skal også kunne velge én eller flere bransjer. Siden det skal være mulig å velge mer enn ett alternativ, er det naturlig å bruke [avmerkingsbokser](/nb/altinn-studio/reference/ux/components/checkboxes/). I stedet for å legge til alternativene manuelt, skal vi bruke [en fil med en _kodeliste_](industri.json). En kodelistefil er nyttig hvis vi for eksempel trenger å bruke de samme alternativene flere steder.

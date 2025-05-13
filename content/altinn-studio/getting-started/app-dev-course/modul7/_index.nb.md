@@ -64,12 +64,12 @@ Vi legger til radioknapper på infosiden, så brukeren kan bekrefte at skjemaet 
 3. Klikk på **Ledetekst** under **Tekst**-menyen til komponenten og kopier inn teksten:
     ```Jeg møter kriteriene for å bruke appen.```
 4. Lag en ny kodeliste ved å klikke på **Lag ny**.
-5. Velg `Boolsk` fra nedtrekkslisten.
+5. Velg `Boolsk` fra nedtrekkslisten for valg av kodenes datatype.          
 6. Klikk på **Legg til alternativ**.
 7. Fyll inn verdien `true` for koden, og `Ja` for ledeteksten.
 8. Klikk på **Legg til alternativ** igjen.
 9. Fyll inn `Nei` for ledeteksten. 
-10. Innholdet i modalen burde nå se [slik ut](radioknapper_bekreftelse.png). Lukk modalen.
+10. Lukk modalen.
 11. Klikk på **Radioknapper** under **Datamodellknytninger**-menyen 
 12. Velg **KanBrukeSkjema** som datamodellknytning. 
 
