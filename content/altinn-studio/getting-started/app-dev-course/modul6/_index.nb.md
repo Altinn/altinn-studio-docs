@@ -63,7 +63,7 @@ Brukeren skal kunne velge mellom offentlig og privat sektor. Til det er det natu
 5. Fyll inn koden `offentlig` i feltet under tittelen **Kode**. Dette er verdien som vil bli sendt til systemet når brukeren besvarer skjemaet.
 6. Fyll inn teksten `Offentlig` i det markerte feltet under. Dette er teksten som brukeren vil se ved siden av radioknappen. 
    !["Tekst ressurs velger"](tekst_ressurs_velger.png)
-7. Gjenta stegene fra trinn 4 til 7, men gi koden verdien `privat` og ledeteksten `Privat`.
+7. Gjenta stegene fra trinn 4 til 6, men gi koden verdien `privat` og ledeteksten `Privat`.
 8. Lukk dialogboksen ved å klikke på krysset oppe i høyre hjørne.
 9. Nå mangler vi bare å koble komponenten til riktig felt i datamodellen. Åpne **Datamodellknytninger**, klikk på **Radioknapper** og velg `arbeidsforhold.sektor`.
 
