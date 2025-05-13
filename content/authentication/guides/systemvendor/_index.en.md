@@ -2,7 +2,7 @@
 title: System Vendor Guide
 linktitle: System Vendor
 description: A guide for the sysem vendor to set up their system with altinn and establishing the integration.
-toc: false
+toc: true
 weight: 2
 ---
 

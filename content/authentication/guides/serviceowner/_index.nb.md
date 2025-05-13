@@ -1,6 +1,7 @@
 ---
-title: API-leverandør sin rolle i systembruker Integrasjon
+title: API-leverandør
 linktitle: API-leverandør
+description: En veiledning for API-leverandør for å registrere sin ressurs med Altinn og etablere systembrukerintegrasjonen.
 toc: true
 weight: 1
 ---
