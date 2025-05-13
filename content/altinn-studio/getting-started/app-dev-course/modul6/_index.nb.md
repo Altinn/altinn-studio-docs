@@ -58,13 +58,13 @@ Brukeren skal kunne velge mellom offentlig og privat sektor. Til det er det natu
 1. Dra inn en komponent av typen **Radioknapper** øverst på den nye siden.
 2. Under **Tekst** i egenskapene til komponenten du har lagt til, legg til ledeteksten **Sektor**. Nå bør skjemabyggeren se slik ut:
    !["Skjemabygger med sektor"](skjemabygger_med_sektor.png)
-3. Nederst i tekstseksjonen kan man sette opp alternativer. Klikk på **Lag ny** knappen for å åpne kodeliste-editoren.
-4. Det vil dukke opp en modal, klikk på **Legg til alternativ** knappen.
+3. Nederst i tekstseksjonen kan man sette opp alternativer. Klikk på **Lag ny**-knappen for å åpne kodelisteverktøyet.
+4. Klikk på **Legg til alternativ** i dialogboksen som dukker opp.
 5. Fyll inn koden `offentlig` i feltet under tittelen **Kode**. Dette er verdien som vil bli sendt til systemet når brukeren besvarer skjemaet.
-6. Fyll inn teksten `Offentlig` i det markerte feltet under, dette er teksten som brukeren vil se ved siden av radioknappen. 
+6. Fyll inn teksten `Offentlig` i det markerte feltet under. Dette er teksten som brukeren vil se ved siden av radioknappen. 
    !["Tekst ressurs velger"](tekst_ressurs_velger.png)
-7. Gjenta stegene fra trinn 5 til 7, og gi koden verdien `privat` og ledeteksten `Privat`.
-8. Lukk modalen med å trykke på krysset oppe i høyre hjørne.
+7. Gjenta stegene fra trinn 4 til 7, men gi koden verdien `privat` og ledeteksten `Privat`.
+8. Lukk dialogboksen ved å klikke på krysset oppe i høyre hjørne.
 9. Nå mangler vi bare å koble komponenten til riktig felt i datamodellen. Åpne **Datamodellknytninger**, klikk på **Radioknapper** og velg `arbeidsforhold.sektor`.
 
 ### Legg til avmerkingsbokser for bransje
@@ -81,12 +81,12 @@ Slik bruker du en kodeliste til å lage en liste med avmerkingsbokser:
 #### Laste opp og koble til kodelisten til komponenten
 1. Last ned [kodelisten](industri.json).
 2. Åpne siden der du la til **Bransje** og klikk på **Bransje**.
-3. Under **Tekst** i egenskapene for **Bransje**.
+3. Gå til **Tekst** i egenskapene for komponenten.
 4. Trykk på knappen med teksten **Last opp egen kodeliste**.
 5. Finn frem til filen du nettopp lastet ned. Den har navnet **industri.json**.
 6. Velg filen, og trykk på **Åpne**.
-7. Klikk på **Velg fra biblioteket** knappen.
-8. Velg **industri** fra listen i modalen som vist under.
+7. Klikk på **Velg fra biblioteket**.
+8. Velg **industri** fra listen i dialogboksen som vist under.
    !["Bruk kodeliste"-liste](bruk_kodeliste.png)
 
 Nå skal avmerkingsboksene være klare.
