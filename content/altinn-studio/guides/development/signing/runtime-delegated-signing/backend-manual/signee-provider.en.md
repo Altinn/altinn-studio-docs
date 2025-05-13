@@ -8,15 +8,18 @@ The implementation must return a set of individuals and/or organizations that sh
 
 The `Id` property in this implementation must match the ID specified in <altinn:signeeProviderId>.
 
+Note that `CommunicationConfig` is optional. Here you may override the standard texts used in communication with the signees,
+as explained in section 3. You may also override the email address and phone number for the signees. By default, the email
+addresses and the phone numbers used are populated as described in [Recipient lookup](/notifications/explanation/recipient-lookup/) 
+and [Address lookup](/notifications/explanation/address-lookup/).
+
 ```csharp
-using System;
+#nullable enable
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Altinn.App.Core.Features.Signing.Interfaces;
-using Altinn.App.Core.Features.Signing.Models;
-using Altinn.App.Core.Internal.Data;
-using Altinn.App.Core.Models;
+using Altinn.App.Core.Features;
+using Altinn.App.Core.Features.Signing;
 using Altinn.App.Models.Skjemadata;
 using Altinn.Platform.Storage.Interface.Models;
 
@@ -24,18 +27,15 @@ namespace Altinn.App.logic;
 
 public class FounderSigneesProvider : ISigneeProvider
 {
-    private readonly IDataClient _dataClient;
-
-    public FounderSigneesProvider(IDataClient dataClient)
-    {
-        _dataClient = dataClient;
-    }
-
     public string Id { get; init; } = "founders";
 
-    public async Task<SigneeProviderResult> GetSigneesAsync(Instance instance)
+    public async Task<SigneeProviderResult> GetSignees(GetSigneesParameters parameters)
     {
-        Skjemadata formData = await GetFormData(instance);
+        DataElement dataElement = parameters.InstanceDataAccessor
+            .GetDataElementsForType("Skjemadata")
+            .Single();
+
+        var formData = await parameters.InstanceDataAccessor.GetFormData<Skjemadata>(dataElement);
 
         List<ProvidedSignee> providedSignees = [];
         foreach (StifterPerson stifterPerson in formData.StifterPerson)
@@ -47,6 +47,7 @@ public class FounderSigneesProvider : ISigneeProvider
                     [stifterPerson.Fornavn, stifterPerson.Mellomnavn, stifterPerson.Etternavn]
                 ),
                 SocialSecurityNumber = stifterPerson.Foedselsnummer?.ToString() ?? string.Empty,
+                // CommunicationConfig is optional
                 CommunicationConfig = new CommunicationConfig
                 {
                     InboxMessage = new InboxMessage
@@ -82,13 +83,14 @@ public class FounderSigneesProvider : ISigneeProvider
                 Name = stifterVirksomhet.Navn,
                 OrganizationNumber =
                     stifterVirksomhet.Organisasjonsnummer?.ToString() ?? string.Empty,
+                // CommunicationConfig is optional
                 CommunicationConfig = new CommunicationConfig
                 {
                     InboxMessage = new InboxMessage
                     {
                         TitleTextResourceKey = "signing.correspondence_title_common",
-                        SummaryTextResourceKey = "signing.correspondence_summary_stifter_organisation",
-                        BodyTextResourceKey = "signing.correspondence_body_stifter_organisation"
+                        SummaryTextResourceKey = "signing.correspondence_summary_stifter_organisasjon",
+                        BodyTextResourceKey = "signing.correspondence_body_stifter_organisasjon"
                     },
                     Notification = new Notification
                     {
@@ -117,22 +119,6 @@ public class FounderSigneesProvider : ISigneeProvider
         }
 
         return new SigneeProviderResult { Signees = providedSignees };
-    }
-
-    private async Task<Skjemadata> GetFormData(Instance instance)
-    {
-        DataElement modelData = instance.Data.Single(x => x.DataType == "Skjemadata");
-        InstanceIdentifier instanceIdentifier = new(instance);
-
-        return (Skjemadata)
-            await _dataClient.GetFormData(
-                instanceIdentifier.InstanceGuid,
-                typeof(Skjemadata),
-                instance.Org,
-                instance.AppId,
-                instanceIdentifier.InstanceOwnerPartyId,
-                new Guid(modelData.Id)
-            );
     }
 }
 ```
