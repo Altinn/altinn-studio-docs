@@ -2060,7 +2060,8 @@
           "PurgedByAltinn",
           "Archived",
           "Reserved",
-          "Failed"
+          "Failed",
+          "AttachmentsDownloaded"
         ],
         "type": "string",
         "description": "Represents the important statuses for an Correspondence"
@@ -2693,7 +2694,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": {}
+        "additionalProperties": { }
       },
       "ReferenceTypeExt": {
         "enum": [
