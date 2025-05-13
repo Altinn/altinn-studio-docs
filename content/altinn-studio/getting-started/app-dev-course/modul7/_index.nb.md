@@ -63,14 +63,15 @@ Vi legger til radioknapper på infosiden, så brukeren kan bekrefte at skjemaet 
     !["Skjermbilde av radioknapper-komponenten satt inn i skjemabyggeren"](skjemabygger_med_radioknapper.png)
 3. Klikk på **Ledetekst** under **Tekst**-menyen til komponenten og kopier inn teksten:
     ```Jeg møter kriteriene for å bruke appen.```
-4. Lag en ny kodeliste ved å klikke på **Sett opp egne alternativer** og **Legg til alternativ**.
-5. Klikk på **Radioknapp 1** og sett verdien til ```true``` og ledeteksten til ```Ja```.
-6. Klikk på **Legg til alternativ** igjen.
-7. Klikk på **Radioknapp 2** og sett verdien til ```false``` og ledeteksten til ```Nei```.
-   !["Radioknapper for bekrefte relevant app"](radioknapper_bekreftelse.png)
-8. Klikk på **Radioknapper** under **Datamodellknytninger**-menyen 
-9. Velg **KanBrukeSkjema** som datamodellknytning. 
-
+4. Lag en ny kodeliste ved å klikke på **Lag ny**.
+5. Velg `Boolsk` fra nedtrekkslisten.
+6. Klikk på **Legg til alternativ**.
+7. Fyll inn verdien `true` for koden, og `Ja` for ledeteksten.
+8. Klikk på **Legg til alternativ** igjen.
+9. Fyll inn `Nei` for ledeteksten. 
+10. Innholdet i modalen burde nå se [slik ut](radioknapper_bekreftelse.png). Lukk modalen.
+11. Klikk på **Radioknapper** under **Datamodellknytninger**-menyen 
+12. Velg **KanBrukeSkjema** som datamodellknytning. 
 
 ### Vis og skjul sider ved hjelp av logiske uttrykk
 Sidene **Side1** og **Arbeidsforhold** skal vises når brukerne har bekreftet at de oppfyller kriteriene for appen. Dette gjør du 
