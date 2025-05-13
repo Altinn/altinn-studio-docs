@@ -66,12 +66,13 @@ Vi legger til radioknapper på infosiden, så brukeren kan bekrefte at skjemaet 
 4. Lag en ny kodeliste ved å klikke på **Lag ny**.
 5. Velg `Boolsk` fra nedtrekkslisten for valg av kodenes datatype.          
 6. Klikk på **Legg til alternativ**.
-7. Fyll inn verdien `true` for koden, og `Ja` for ledeteksten.
-8. Klikk på **Legg til alternativ** igjen.
-9. Fyll inn `Nei` for ledeteksten. 
-10. Lukk modalen.
-11. Klikk på **Radioknapper** under **Datamodellknytninger**-menyen 
-12. Velg **KanBrukeSkjema** som datamodellknytning. 
+7. Klikk på boksen for koden. Når den er sjekket er verdien `true`.
+8. Fyll inn teksten `Ja` for ledeteksten til alternativ 1.
+9. Klikk på **Legg til alternativ** igjen.
+10. Fyll inn teksten `Nei` for ledeteksten til alternativ 2.
+11. Lukk modalen.
+12. Klikk på **Radioknapper** under **Datamodellknytninger**-menyen 
+13. Velg **KanBrukeSkjema** som datamodellknytning. 
 
 ### Vis og skjul sider ved hjelp av logiske uttrykk
 Sidene **Side1** og **Arbeidsforhold** skal vises når brukerne har bekreftet at de oppfyller kriteriene for appen. Dette gjør du 
