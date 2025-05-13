@@ -6,10 +6,10 @@ toc: false
 weight: 1
 ---
 
-The authentication component does not function as an identity provider itself; instead, it establishes authentication sessions based on external identity providers such as
-- [ID-porten](https://eid.difi.no/en/id-porten), 
+The authentication component does not function as an identity provider itself; instead, it establishes authentication sessions based on external identity providers such as:
+- [ID-porten](https://eid.difi.no/en/id-porten)
 - [Maskinporten](https://samarbeid.digdir.no/maskinporten/maskinporten/25)
-- [Feide](https://www.feide.no/).
+- [Feide](https://www.feide.no/)
 
 The authentication component generates JWT tokens containing claims about the user and system, based on authentication information provided by external identity providers.
 
