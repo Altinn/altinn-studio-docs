@@ -55,7 +55,7 @@ version: 1.1.0
 dependencies:
 - name: deployment
   repository: https://charts.altinn.studio/
-  version: 2.8.0
+  version: 3.2.0
 ```
 
 Benytter din applikasjon siste deployment strategi.
@@ -75,7 +75,7 @@ Migreringen er rimelig enkel og involverer bare tre endringer i mappen `deployme
     dependencies:
     - name: deployment
       repository: https://charts.altinn.studio/
-      version: 2.8.0
+      version: 3.2.0
     ```
     Your Chart.yaml should now look like this:
     ```yaml
@@ -88,7 +88,7 @@ Migreringen er rimelig enkel og involverer bare tre endringer i mappen `deployme
     dependencies:
     - name: deployment
       repository: https://charts.altinn.studio/
-      version: 2.8.0
+      version: 3.2.0
     ```
 3. Legg til en ny linje i toppen av values.yaml og skriv inn `deployment:` på denne linjen. Legg til to space først på hver linje etter dette (yaml behandler tab og mellomrom forskjellig så forsikre deg om at det er mellomrom). <br><br>Gitt at din values.yaml ser ut som det her:
     ```yaml
