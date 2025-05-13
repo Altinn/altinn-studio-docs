@@ -107,19 +107,18 @@ They can be combined to define a range:
 dueBefore=gt:2019-02&dueBefore=lt:2019-03-01
 ```
 
-The query returns a result object (page) which includes a collection of instances that matched the query. 100 instances is returned by default. Use *size* to get more or less instances per page. To get to the next page you have to use the *continuationToken* present in the *next* link.
-
-The instances endpoint returns a query result object with information about how many total hits *totalHits* that the query matched and how many objects returned *count*. 
+The query returns a result object (page) which includes a collection of instances that matched the query.
+100 instances is returned by default. Use *size* to get more or fewer instances per page. 
+To get to the next page you have to use the *continuationToken* present in the *next* link.
 
 The endpoint supports *application/json*.
 
 ```json
 Accept: application/json
 {
-    "totalHits": 234,
     "count": 50,
     "self": "{storagePath}/instances?appId=org/app&size=50",
-    "next": "{storagePath}/instances?appId=org/app&size=50&continuationToken=%257b%2522token%2522%253a%2522%252bRID%..."
+    "next": "{storagePath}/instances?appId=org/app&size=50&continuationToken=%257b%2522token%2522%253a%2522%252bRID%...",
     "instances": [
             {...},
             {...},
