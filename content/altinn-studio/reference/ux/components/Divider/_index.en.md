@@ -1,7 +1,7 @@
 ---
 title: Divider
 linktitle: Divider
-description: # Brief description of what the component does
+description: Divider component for separating content on a page.
 schemaname: Divider # Component schema name used to autogenerate list of properties from json schema (replace with appropriate component name)
 weight: 10 # Do not change, the components will be sorted alphabetically
 toc: true
@@ -33,7 +33,8 @@ EXAMPLES
 
 ## Usage
 
-<!-- Brief description of the component and how it is used. -->
+Use the Divider component to separate content on a page. It can be used to create visual breaks between sections or
+to visually group related elements together.
 
 ### Anatomy
 

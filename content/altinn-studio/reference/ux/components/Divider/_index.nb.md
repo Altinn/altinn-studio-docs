@@ -1,7 +1,7 @@
 ---
-title: Divider
-linktitle: Divider
-description: # Kort beskrivelse av komponenten
+title: Skillelinje
+linktitle: Skillelinje
+description: Skillelinje komponent for å dele opp innhold på en side.
 schemaname: Divider # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk
 toc: true
@@ -34,7 +34,8 @@ EKSEMPLER
 
 ## Bruk
 
-<!-- Kort beskrivelse av komponenten og hvordan den brukes. -->
+Bruk Divider-komponenten for å skille innhold på en side. Den kan brukes til å bryte opp mellom seksjoner eller
+for å visuelt gruppere relaterte elementer sammen.
 
 ### Anatomi
 
