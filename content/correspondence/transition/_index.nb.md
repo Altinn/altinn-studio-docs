@@ -48,7 +48,8 @@ TODO: Sekvensdiagram for prosessen.
 ### Ansvarsdeling
 
 *"Flytt av Data" prosjektet* tar ansvar for utvikling av komponenter til, og utføring av steg 1 og 2, samt steg 3 og 4 i samarbeid med *Team Autorisasjon*.
+De tar også ansvar for å sette i gang steg 6, i nært samarbeid med de andre partene.
 
-*Team Dialogporten/Arbeidsflate* tar ansvar for steg 5, i samarbeid med *Flytt av Data prosjektet*.
+*Team Dialogporten/Arbeidsflate* tar ansvar for når steg 5 skal skje, mens *Team Melding og Formidling* utfører de nødvendige aksjonene.
 
 {{<children />}}
