@@ -47,6 +47,6 @@ Here is a brief summary of the consequences of the chosen transition and migrati
 
 - Altinn 2 elements are not available in Dialogporten until after they have been migrated and a Dialog referencing the element has been created.
 - Dialogporten / Arbeidsflate will decide when the migrated messages become available, and Team Melding og Formidling will be responsible for the technical implementation in Altinn 3 Correspondence to create dialogs and make the message available.
-- During the phase "Ongoing migration and availability of messages" the migration component for message data will automatically create the dialog as part of the operation to migrate fresh messsages to Altinn 3 Correspondence.
+- During the phase "Ongoing migration and availability of messages", the migration component for message data will automatically create the dialog as part of the operation to migrate fresh messages to Altinn 3 Correspondence.
 
 {{<children />}}
