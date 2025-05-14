@@ -12,9 +12,6 @@ Et eksempel er en validator som verifiserer at en signatur er gjort på vegne av
 public class SigningTaskValidator : IValidator
 {
     private readonly IProcessReader _processReader;
-    private readonly ISigningService _signingService;
-    private readonly IAppMetadata _appMetadata;
-    private readonly ILogger<SigningTaskValidator> _logger;
 
     public SigningTaskValidator(IProcessReader processReader)
     {
