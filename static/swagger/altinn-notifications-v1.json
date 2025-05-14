@@ -115,12 +115,12 @@
     "/future/orders": {
       "post": {
         "tags": [
-          "FutureOrders"
+          "Orders"
         ],
-        "summary": "Creates a new notification order that has one or more reminders.",
+        "summary": "Creates a new notification order that has non or more reminders.",
         "description": "The API will accept the request after some basic validation of the request.\r\nThe system will also attempt to verify that it will be possible to fulfill the order.",
         "requestBody": {
-          "description": "The notification order with reminders request",
+          "description": "The notification order request",
           "content": {
             "application/json": {
               "schema": {
@@ -135,6 +135,26 @@
           },
           "403": {
             "description": "Caller is not authorized to access the requested resource"
+          },
+          "201": {
+            "description": "The notification order was created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationOrderChainResponseExt"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "The notification order was created previously.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationOrderChainResponseExt"
+                }
+              }
+            }
           },
           "400": {
             "description": "The notification order is invalid",
@@ -156,25 +176,8 @@
               }
             }
           },
-          "200": {
-            "description": "The notification order was created.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotificationOrderChainResponseExt"
-                }
-              }
-            }
-          },
-          "201": {
-            "description": "The notification order was created.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotificationOrderChainResponseExt"
-                }
-              }
-            }
+          "499": {
+            "description": "Request terminated - The client disconnected or cancelled the request before the server could complete processing"
           }
         }
       }
@@ -469,6 +472,50 @@
         }
       }
     },
+    "/future/shipment/{id}": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Retrieve the delivery manifest for a specific notification order.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The unique identifier (GUID) of the notification order.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Caller is unauthorized"
+          },
+          "403": {
+            "description": "Caller is not authorized to access the requested resource"
+          },
+          "404": {
+            "description": "No shipment with the provided identifier was found"
+          },
+          "200": {
+            "description": "The shipment matching the provided identifier was retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationDeliveryManifestExt"
+                }
+              }
+            }
+          },
+          "499": {
+            "description": "Request terminated - The client disconnected or cancelled the request"
+          }
+        }
+      }
+    },
     "/orders/sms": {
       "post": {
         "tags": [
@@ -734,11 +781,6 @@
         ],
         "type": "object",
         "properties": {
-          "senderName": {
-            "type": "string",
-            "description": "Gets or sets the display name of the sender.",
-            "nullable": true
-          },
           "senderEmailAddress": {
             "type": "string",
             "description": "Gets or sets the sender's email address.",
@@ -805,6 +847,137 @@
         },
         "additionalProperties": false,
         "description": "Template for an email notification"
+      },
+      "IDeliveryManifestExt": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": [
+              "Order_Registered",
+              "Order_Processing",
+              "Order_Completed",
+              "Order_SendConditionNotMet",
+              "Order_Cancelled",
+              "SMS_New",
+              "SMS_Sending",
+              "SMS_Accepted",
+              "SMS_Delivered",
+              "SMS_Failed",
+              "SMS_Failed_InvalidRecipient",
+              "SMS_Failed_RecipientReserved",
+              "SMS_Failed_BarredReceiver",
+              "SMS_Failed_Deleted",
+              "SMS_Failed_Expired",
+              "SMS_Failed_Undelivered",
+              "SMS_Failed_RecipientNotIdentified",
+              "SMS_Failed_Rejected",
+              "Email_New",
+              "Email_Sending",
+              "Email_Succeeded",
+              "Email_Delivered",
+              "Email_Failed",
+              "Email_Failed_RecipientReserved",
+              "Email_Failed_RecipientNotIdentified",
+              "Email_Failed_InvalidFormat",
+              "Email_Failed_SuppressedRecipient",
+              "Email_Failed_TransientError",
+              "Email_Failed_Bounced",
+              "Email_Failed_FilteredSpam",
+              "Email_Failed_Quarantined"
+            ],
+            "type": "string",
+            "description": "Gets the current lifecycle status of the entity.",
+            "readOnly": true
+          },
+          "lastUpdate": {
+            "type": "string",
+            "description": "Gets the date and time when the status was last updated.",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "destination": {
+            "type": "string",
+            "description": "Gets the destination address where the deliverable entity is intended to be sent.",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents standardized destination and status information for trackable entities within the notification system."
+      },
+      "NotificationDeliveryManifestExt": {
+        "required": [
+          "lastUpdate",
+          "recipients",
+          "shipmentId",
+          "status",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "shipmentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "sendersReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "enum": [
+              "Order_Registered",
+              "Order_Processing",
+              "Order_Completed",
+              "Order_SendConditionNotMet",
+              "Order_Cancelled",
+              "SMS_New",
+              "SMS_Sending",
+              "SMS_Accepted",
+              "SMS_Delivered",
+              "SMS_Failed",
+              "SMS_Failed_InvalidRecipient",
+              "SMS_Failed_RecipientReserved",
+              "SMS_Failed_BarredReceiver",
+              "SMS_Failed_Deleted",
+              "SMS_Failed_Expired",
+              "SMS_Failed_Undelivered",
+              "SMS_Failed_RecipientNotIdentified",
+              "SMS_Failed_Rejected",
+              "Email_New",
+              "Email_Sending",
+              "Email_Succeeded",
+              "Email_Delivered",
+              "Email_Failed",
+              "Email_Failed_RecipientReserved",
+              "Email_Failed_RecipientNotIdentified",
+              "Email_Failed_InvalidFormat",
+              "Email_Failed_SuppressedRecipient",
+              "Email_Failed_TransientError",
+              "Email_Failed_Bounced",
+              "Email_Failed_FilteredSpam",
+              "Email_Failed_Quarantined"
+            ],
+            "type": "string",
+            "description": "Represents the lifecycle status of orders and individual notifications."
+          },
+          "lastUpdate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "recipients": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IDeliveryManifestExt"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents the root tracking entity for a notification shipment that\r\ncan be sent to multiple recipients through various communication channels."
       },
       "NotificationOrderChainReceiptExt": {
         "required": [
@@ -952,7 +1125,8 @@
               "Email",
               "Sms",
               "EmailPreferred",
-              "SmsPreferred"
+              "SmsPreferred",
+              "EmailAndSms"
             ],
             "type": "string",
             "description": "Gets or sets the preferred notification channel of the notification order"
@@ -1058,7 +1232,8 @@
               "Email",
               "Sms",
               "EmailPreferred",
-              "SmsPreferred"
+              "SmsPreferred",
+              "EmailAndSms"
             ],
             "type": "string",
             "description": "Gets or sets the notification channel",
@@ -1123,7 +1298,8 @@
               "Email",
               "Sms",
               "EmailPreferred",
-              "SmsPreferred"
+              "SmsPreferred",
+              "EmailAndSms"
             ],
             "type": "string",
             "description": "Gets or sets the preferred notification channel of the notification order"
@@ -1336,6 +1512,12 @@
         ],
         "type": "object",
         "properties": {
+          "emailSettings": {
+            "$ref": "#/components/schemas/EmailSendingOptionsExt"
+          },
+          "smsSettings": {
+            "$ref": "#/components/schemas/SmsSendingOptionsExt"
+          },
           "orgNumber": {
             "minLength": 1,
             "type": "string",
@@ -1351,17 +1533,11 @@
               "Email",
               "Sms",
               "EmailPreferred",
-              "SmsPreferred"
+              "SmsPreferred",
+              "EmailAndSms"
             ],
             "type": "string",
-            "description": "Gets or sets the required channel scheme for delivering the notification.",
-            "default": "SmsPreferred"
-          },
-          "emailSettings": {
-            "$ref": "#/components/schemas/EmailSendingOptionsExt"
-          },
-          "smsSettings": {
-            "$ref": "#/components/schemas/SmsSendingOptionsExt"
+            "description": "Gets or sets the required channel scheme for delivering the notification."
           }
         },
         "additionalProperties": false,
@@ -1374,6 +1550,12 @@
         ],
         "type": "object",
         "properties": {
+          "emailSettings": {
+            "$ref": "#/components/schemas/EmailSendingOptionsExt"
+          },
+          "smsSettings": {
+            "$ref": "#/components/schemas/SmsSendingOptionsExt"
+          },
           "nationalIdentityNumber": {
             "minLength": 1,
             "type": "string",
@@ -1389,7 +1571,8 @@
               "Email",
               "Sms",
               "EmailPreferred",
-              "SmsPreferred"
+              "SmsPreferred",
+              "EmailAndSms"
             ],
             "type": "string",
             "description": "Gets or sets the required channel scheme for delivering the notification.",
@@ -1398,12 +1581,6 @@
           "ignoreReservation": {
             "type": "boolean",
             "description": "Gets or sets a value indicating whether to bypass the recipient's reservation against electronic communication."
-          },
-          "emailSettings": {
-            "$ref": "#/components/schemas/EmailSendingOptionsExt"
-          },
-          "smsSettings": {
-            "$ref": "#/components/schemas/SmsSendingOptionsExt"
           }
         },
         "additionalProperties": false,
@@ -1561,15 +1738,14 @@
       },
       "SmsSendingOptionsExt": {
         "required": [
-          "body",
-          "sender"
+          "body"
         ],
         "type": "object",
         "properties": {
           "sender": {
-            "minLength": 1,
             "type": "string",
-            "description": "Gets or sets the sender identifier displayed in the recipient's SMS message."
+            "description": "Gets or sets the sender identifier displayed in the recipient's SMS message.",
+            "nullable": true
           },
           "body": {
             "minLength": 1,

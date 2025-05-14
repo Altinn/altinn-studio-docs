@@ -45,6 +45,9 @@ If the Altinn user interface is used by the application, these actions will be t
         <!-- If the signee should receive a receipt with the documents that were signed in their Altinn inbox, enter a correspondence resource her. Setup of this is documented separately. -->
         <altinn:correspondenceResource>app-correspondence-resource</altinn:correspondenceResource> <!-- optional -->
 
+        <!-- We have made a default validator that can be enabled here. It checks that all signees have signed and that minCount on the signature datatype is fulfilled. If default validation is not enabled, custom validation of the signatures should be added. -->
+        <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
+
       </altinn:signatureConfig>
     </altinn:taskExtension>
   </bpmn:extensionElements>
@@ -66,9 +69,10 @@ The first data type is used by the signing stage to store the actual signatures 
     "allowedContentTypes": [
         "application/json"
     ],
-    "allowedContributers": [
+    "allowedContributors": [
         "app:owned"
-    ]
+    ],
+    "minCount": 1
 }
 ```
 
@@ -78,17 +82,17 @@ This data type is used to store information about the signers who should be dele
 {
     "id": "signeeState",
     "allowedContentTypes": [
-        "application/pdf"
+        "application/json"
     ],
-    "allowedContributers": [
+    "allowedContributors": [
         "app:owned"
     ],
     "maxCount": 1,
-    "minCount": 0
+    "minCount": 1
 }
 ```
 
-It is important to set `allowedContributers` to `"app:owned"`. This ensures that these data items cannot be edited via the app’s API but only by the app itself.
+It is important to set `allowedContributors` to `"app:owned"`. This ensures that these data items cannot be edited via the app’s API but only by the app itself. Before version 8.6, this was misspelled `allowedContributers`.
 
 The IDs of the data types can be changed, but they must match the IDs set in `signatureDataType` and `signeeStatesDataTypeId` in the process step, as shown in the next section.
 

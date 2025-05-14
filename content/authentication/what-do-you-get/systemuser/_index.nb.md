@@ -1,6 +1,6 @@
 ---
 title: Systembruker
-description: En stor del av kommunikasjonen mellom det offentlige og næringslivet skjer via API i Altinn og hos andre platformleverandører i det offentlige. 
+description: Systembruker er en ny type bruker i Altinn som lar virksomheten gi fullmakter til en upersonlig bruker, slik at den kan løse oppgaver på vegne av virksomheten.
 tags: [platform, authentication]
 toc: false
 weight: 1
@@ -8,303 +8,168 @@ aliases:
  - /authentication/systemauthentication/
 ---
 
-Omtrent 50% av skjematrafikken kommer via API, med enkelte tjenester som har nesten 100% fra fagsystemer.
+En stor del av kommunikasjonen mellom det offentlige og næringslivet skjer via API i Altinn og hos andre platformleverandører i det offentlige. Mye av denne kommunikasjonen skjer på veien av virksomheten og trenger ikke utføres av en spesifkk person. 
+Systembruker gjør det enkelt opprette en bruker, som gis nødvendige fullmakter i forhold til oppgavene den skal utføre.
 
-Nye autentiserings- og autorisasjonsmekanismer utvikles nå for maskin-til-maskin-integrasjon på Altinn-plattformen og andre offentlige API-er.
+Systembruker bygger videre på Maskinporten, som gir sikker autentisering og grovkornet tilgangsstyring, og utvider dette med finkornet tilgangsstyring
 
-{{<vimeo 1026861837>}}
+Systembruker gjør det enkelt å sette opp en virtuell bruker som kan opperere på vegne av virksomehten, endten som egenoppreret system eller i et kunde - leverandørforhold 
+Systembruker både brukes mot tjenster som kjører i Altinn og mot eksterne tjenester som bruker Altinn Autorisasjon som autorisasjonsløsning.
+
+> Systembruker bør kun brukes i tilfeller der det ikke er behov for at Altinn kan koble operasjonene som utføres med hvilken person som utfører dem.
+
+For en overordnet funsjonell gjennomgang og brukerreise se [Samarbeidsportalen](https://samarbeid.digdir.no/altinn/systembruker/2542).
+
+## Begrep
+`Fasilitator`: Virksomhet som selger tjester i markedet og utfører disse i et sluttbrukersystem på vegne av sine kunder. Eksempel på dette er regnskapsføre og revisor.  
+`Sluttbruker`: Ansatt som jobber i sluttbrukersystem
+`Sluttbrukersystem`; Fagsystem virksomheten jobber i. Systemet kan kjøre i sky eller internt hos virksomheten, brukes av virksomheten selv eller av en fasilitator som oppererer på vegne av virksomheten.  
+`Sluttbrukersystemleverandør`: Virsomhet som utvikler og/eller leverer sluttbrukersystem.  
+
+
 
 ## Egenskaper med systembruker
 
 Systembruker gir en rekke fordeler sammenlignet med dagens virksomhetsbruker og sluttbrukersystemkonsept i Altinn 2: 
 
+**For sluttbrukersystemleverandør**
 - Mulighet for etablering av sluttbrukersystemintegrasjon uten utveksling av sertifikat/passord
-- Mulighet for enkel onboarding av kunder for systemleverandører 
+- Enkel onboarding av kunder for systemleverandører 
 - Fingranulert autorisasjon med maskin til maskin
 - Oversikt over tilganger systembrukere har 
 - Systemleverandør kan dele klientoppsett på tvers av sine kunder (trenger ikke mange sertifikat)
-- Vil støtte klientforhold til regnskapsfører/revisor fra Q1 2025
-- Vil støttes av Altinn Apps Q1 2025
+- Støtte klientforhold til regnskapsfører/revisor fra Q2 2025
+- Støttes av Altinn Apps Q1 2025
 
-### Typer systembruker
+**For sluttbruker**
+- Enkel opprettelse uten deling av sertifiakt eller passord
+- Enkelt oversikt over rettigheter gitt til sluttbrukersysem
+- Lett å fjerne systembruker når denne ikke lenger skal ha rettigheter 
 
-Fra april 2025 vil systembruker støtte at systembrukeren for en virksomhet tildeles rettigheter for virksomhetens kunder. 
+## Økosystem
 
-Løsningen krever at når man oppretter systembruker enten via portal eller via en forespørsel fra leverandør må det gjøres et aktivt valg hvilken type virksomhetsbruker.
+### Maskinporten
 
-- Standard for egen virksomhet - Bruke mot digitale tjenester som behandles virksomhetens egne data
-- Agent type for kunder av virksomheten - Brukes mot digitale tjenester som behandlers kunders data. (f.eks regnskapsførerkunder)
+Autentiseringsmekanismen for alt som har med systembrukere å gjøre:
+- Registrering av system i systemregisteret (API hos Altinn Autorisasjon)
+- Registrere systembruker (API hos Altinn Autorisasjon)
+- Innsending fra systemet (leverandørens system/sluttbrukersystemet)
+- Grovkornet tilagnastyring som gir tjenesteeiere mulighet til å styre tigang til sitt API
+- Autorisasjonsbærer i form av systembrukertoken (Maskinportentoken med utvidet informasjon om systembruker)
 
-## Maskinporten og systembrukertoken
 
-Maskinporten står sentralt i dette nye konseptet. Alle som skal benytte API med systembruker må autentisere seg mot Maskinporten for å motta et systembrukertoken.
+### Systemregisteret
+En komponent i Altinn Autorisasjon hvor alle systemdefinisjoner tilhørende sluttbrukersystemer ligger
 
-### Forskjeller fra vanlige maskinportentoken
+### Sluttbrukersystem
+Definisjonen for sluttbrukersystemet. Denne definisjonen inneholder bl. a. hvilke rettigheter systemet trenger fra systembrukeren, og hvilke Maskinporten klient (klient ID) systemet har tenkt til å bruke ved autentisering i Maskinporten.
+Systemet registreres og eies av sluttbrukersystem-leverandøren i systemregisteret
 
-Systembrukertoken inkluderer informasjon om både virksomheten og den spesifikke systembrukeren/systemet.
+### Systembruker
+En virtuell bruker som eies av kunden til leverandøren/sluttbrukersystemet eller fasilitator i et kunde - leverandørforhol
+Når systembrukeren registreres, vil rettighetene systemet ber om måtte delegeres til systembrukeren. I praksis må den personen som oppretter systembrukeren (hos kunden) ha disse rettighetene som systemet ber om
 
-## Opprettelse av systembruker
 
-Systembrukeren opprettes av aktøren som ønsker å bruke et fagsystem for integrasjon mot Altinn eller andre offentlige løsninger. Systembrukeren kobles til valgt system/systemleverandør og tildeles nødvendige rettigheter.
 
-### Eksempel
+## Opprettelse
 
-- **Virksomhet:** Rørlegger Hansen & Sønner AS
-- **Systembruker:** "SmartCloud "
-- **System:** "SmartCloud" fra SmartCloud AS
-- **Rettigheter:** SmartCloud AS registrerer at "SmartCloud" trenger rettigheter til "MVA" og "Årsregnskap".
-- **Godkjenning:** Hansen & Sønner AS aksepterer disse rettighetene ved opprettelse av systembrukeren.
+Systembrukeren opprettes av virksomhet eller fasilitoator som ønsker å bruke et sluttbrukersystem for integrasjon mot Altinn eller andre offentlige løsninger. Systembrukeren kobles til valgt system/systemleverandør og tildeles nødvendige rettigheter.
+Opprettelse kan skje via sluttbrukerstyrt opprettelse eller leverandørstyrt opprettelse
 
-Med dette oppsettet kan SmartCloud AS autentisere seg mot Maskinporten og få et systembrukertoken for systembrukeren til Rørlegger Hansen & Sønner AS. Dette tokenet kan brukes mot Altinns API eller andre tjenester som støtter det. SmartCloud AS kan dermed behandle data for Rørlegger Hansen & Sønner AS innenfor de tildelte rettighetene.
 
-## Løsningsbeskrivelse
+### Sluttbrukerstyrt opprettelse
 
-![Concept](concept.drawio.svg)
+Ved sluttbrukerstyrt opprettelse er det kunden selv som går inn i altinn og velger systemet han ønsker opprette systembruker for fra en nedtrekksliste. 
+Etter systemet er valg blir det presentert hvilke rettigheter sluttbrukersystemetsystemet krever. Ved å akseptere dette blir systembrukeren opprettet
 
-### Systemregister
 
-Som en del av det nye konseptet etableres et systemregister i Altinn. Systemregisteret vil inneholde en oversikt over systemer tilbudt av systemleverandører.
+### Leverandørstyrt opprettelse
 
-Systemleverandører vil få tilgang til å administrere systemene de leverer i registeret via API.
+Ved leverandørstyrt opprettelse er det sluttbrukersystem-leverandøren som initierer opprettelsen. Dette skjer mens kunden er i sluttbrukersystemet. Leverandøren lager en forespørsel om opprettelse av systembruker, med tilhørende rettigheter, i altinn. I retur får hen en url kunden kan sendes til for å godkjenne opprettelsen. Etter opprettelsen er godkjennt vil kunden sendes tilbake til sluttbrukersystemet.
 
-Registeret vil inneholde navn og beskrivelse av systemet, i tillegg til hvilke rettigheter som kreves for at systemet skal kunne fungere.
+## Bruksmønster
 
-Denne informasjonen vil hjelpe sluttbrukere med å gi riktige rettigheter til systembrukere som opprettes.
+Systembruker kan kjøpres under forskjellige bruksmønster ut fra hvordan kundeforholdet er med sluttbrukersystemleverandør.
 
-Systemleverandører vil kunne bruke informasjonen i registeret til å forhåndsutfylle informasjon for leverandørstyrt opprettelse av systembruker.
+### Kundestyrt system
 
-Som en del av systeminformasjonen må systemleverandører oppgi clientID fra Maskinporten for å definere hvilke Maskinporten-integrasjoner som skal kunne autentisere seg som systemet.
+<!--Bedre tittel?-->
+I kundestyrt system er et sluttbrukersystem der kunden selv jobber. 
+For å godkjenne opprettelse må vedkommende ha rollen tilgangsstyrer og selv ha tilgangen som delegeres
+Systembrukeren støtter både enkeltrettigheter og tilgangspakker (Q2 2025)
 
-### Leverandørstyrt opprettelse av systembruker
+![Leverandørstyrt opprettelse av kundestyrt system](image-4.png)
+Bildet viser leverandørstyrt opprettelse
 
-En viktig egenskap med det nye konseptet er å gjøre det enklere for systemleverandører å veilede sine kunder til riktig oppsett.
 
-I dag innebærer dette komplekse handlinger i Altinn-portalen, med påfølgende deling av passord/sertifikater med systemleverandøren. Den nye løsningen gir mulighet for en kraftig forenklet onboarding av kunder for systemleverandører.
+### Virksomhetsdelegering
+Kommer juni 2025
 
-Systemleverandøren vil kunne opprette en forespørsel for sin kunde om opprettelse av systembruker samt tildeling av nødvendige rettigheter. Dette kan sammenlignes med hvordan man i dag kan samtykke til å dele inntektsinformasjon med banker.
+Virksomhetsdelegering omfatter kunde - leverandørforhold som oppstår ved at kunde aktivt delegerer en eller flere tilgangspakker til sin leverandør. 
+For virksomhetsdelegering støttes kun leverandørstyrt opprettelse
 
-Brukeren blir presentert et forenklet GUI som beskriver at en systembruker/systemintegrasjon vil opprettes og at det vil tildeles rettigheter. Det vil også beskrive hvilket system/leverandør som får tilgang til denne systembrukeren.
+![Virksomhetsdelegering](image-1.png)
 
-I eksempelet nedenfor ser man hvordan [SmartCloud](https://smartcloudaltinn.azurewebsites.net/) sender brukeren til Altinn under onboarding av kunden. Her har Per Olsen hos "Rørlegger Olsen & Sønner AS" registrert seg som bruker hos SmartCloud.
+### Klientdelegering
 
-![Illustration](illustration4a.png "SmartCloud informerer om at systemtilgang må settes opp i Altinn")
+Klientdelegering omfatter et kunde - leverandørforhold som stammer fra rollene regnskapsfører (REGN) og Revisor (REVI) i Enhetsregisteret.
+Kunden registrerer regnskapsfører og revisor gjennom sammordnet registermelling. På bakgrunn av disse rollene får leverandøren delegert tilgangspakker som ligger inn under det aktuelle forholdet
+PÅ bakgrunn av dette kan leverandør legge kunden til en systembruker satt opp med tilsvarende tilgangspakke.  
+For klientdelegering støttes kun leverandørstyrt opprettelse.
 
-![Illustration](illustration4.png "Altinn presenterer ønske fra SmartCloud om opprettelse av systembruker")
+![Klientdelegering](image-2.png)
 
-![Illustration](illustration4b.png "Ved bekreftelse sender Altinn brukeren tilbake til ønsket side i SmartCloud")
 
-Selve flyten vil variere fra system til system.
+## Systembruker i bruk
 
-I noen tilfeller kan man se for seg at systemleverandøren sender en epost til sluttbruker med lenke til bekreftelse, mens man i fremtiden også potensielt vil kunne se slike forspørsler fra Altinn arbeidsflate.
+Etter systembrukeren er opprettet vil den brukes som i modellen under
 
-### Leverandørstyrt opprettelse av Agent systembruker
+![Concept](image.png)
 
-Ved leverandørstyrt opprettelse av systembruker for agentbruk så må leverandøren oppgi hvilke tilgangspakker som systembrukerne må få for kunder som skal behandles av systembrukeren. 
 
-Når systembrukerforspørsel aksepterers opprettes brukeren uten rettigheter til noen kunder. 
 
-Disse må da legges til i etterkant via GUI i Altinn og senere tilgjengelig via API.
+1. Sluttbrukersystem ber om systembrukertoken fra Maskinporten. Forespørselen angir nødvendige scopes til klient id og organisasjonsnummeret til sluttbrukervirsomheten det opptrer på vegne av.
+2. Maskinporten verifiserer mot Altinn at kunden har gitt systemet som er knyttet mot klienten, tilgang. Gitt at det finnes gyldig Systembruker returneres Maksinportoken med systembrukerinformasjon
+3. SBS gjør oppslag mot tjeneste med Maskinportentokenet. 
+4. Tjeneste autentiserer SBS og sjekker at tokenet innholder nødvendige scopes for å benytte tjenesten. Deretter gjøres det oppslag mot Altinn Autorisasjon for å sjekke at systembruker har nødvnedige fullmakter 
 
-Foreløpig skisser
 
-![Illustration](agent_1.png)
 
-![Illustration](agent_2.png)
-
-![Illustration](agent_3.png)
-
-
-### Administrasjon av systembruker
-
-Virksomheter vil kunne administrere sine systembrukere fra Altinn Profil. 
-
-Man vil kunne opprette systembrukere og deaktivere dem.
-
-![Illustration](illustration1.png "Administrasjon av systembrukere")
-
-Brukerne vil kunne opprette nye brukere og knytte mot systemer/leverandører. 
-
-![Illustration](illustration2.png "Administrasjon av systembrukere")
-
-Systemleverandøren må forhåndsdefinere hvilke rettigheter systemet trengs delegeres til systembrukeren. 
-
-![Illustration](illustration3.png "Opprettelse av integrasjon")
-
-
-![Illustration](illustration3b.png "Opprettelse av integrasjon")
-
-
-### Systembrukere og klientforhold
-
-I mange tilfeller har virksomhet regnskapsfører eller revisor som skal rapportere for virksomheten.
-
-Støtte for dette vil komme i leveranse 5 av klientdelegering.
-
-Hvis vi tar utgangspunkt i scenarioet over så har **Rørlegger Hansen & Sønner AS** valgt **Fine Tall AS** som regnskapsfører. 
-Dette er meldt inn via samordnet registermelding. 
-
-1. **Fine Tall AS** har opprette systembruker for systemet **SmartCloud** fra SmartCloud AS.
-2. Klientadministrator hos Fine Tall AS delegerer tilgangspakken "Regnskapsansvarlig lønn" for  **Rørlegger Hansen & Sønner AS** til systembrukeren som er opprettet.
-
-På denne måten vil da **SmartCloud** kunne rapportere for  **Rørlegger Hansen & Sønner AS** med systembrukeren for **Fine Tall AS**
-
-**Fine Tall AS** vil kunne administrere hvilke av sine kunder som skal håndteres av systembrukeren.  Denne administrasjonen vil kunne skje via GUI i Altinn eller via egne API for klientadministrasjon.
-
-Se mer detaljer i [Issue for Leveranse 5](https://github.com/Altinn/altinn-authentication/issues/548).
-
-## Teknisk flyt for autentisering/autorisasjon
-
-Diagrammet nedenfor viser hvordan et fagsystem kan autentisere seg når systembruker er opprettet og knyttet.
-
-1. Sluttbrukersystemet kaller Maskinporten med et JWT Grant hvor man oppgir hvem som er kunde samt nøkkel/klientinformasjon.
-2. Maskinporten verifiserer mot Altinn at kunden har gitt systemet som er knyttet mot klienten, tilgang.
-3. Ved bekreftelse utsteder Maskinporten et token som inneholder informasjon om systembruker og eieren av systembrukeren.
-4. Dette tokenet kan da benyttes i kall mot API (i Altinn eller utenfor Altinn).
-5. API kan autoriseres. 
-
-![Illustration](illustration5.png "Opprettelse av integrasjon")
-
-
-### JWT Grant
-
-```json
-{
-  "aud": "https://maskinporten.no/",
-  "iss": "0e85a8ba-77e8-4a6c-a0f5-74fc328a9ffb",
-
-  "scope": "digdir:dialogporten skatteetaten:mva"
-
-   "authorization_details": [ {
-    "type": "urn:altinn:systemuser",
-    "systemuser_org": {
-       "authority" : "iso6523-actorid-upis",  
-       "ID": "0192:999888777"  
-    }
-}]
-}
-
-```
-
-
-### JWT Token
-
-
-```json
-{
-  "iss" : "https://ver2.maskinporten.no/",
-  "client_amr" : "virksomhetssertifikat",
-  "token_type" : "Bearer",
-  "aud" : "unspecified",
-  "consumer" : {
-    "authority" : "iso6523-actorid-upis",
-    "ID" : "0192:910753614"
-  },
-  "authorization_details": [ {
-    "type": "urn:altinn:systemuser",
-    "systemuser_id": [ "a_unique_identifier_for_the_systemuser" ], 
-    "systemuser_org": {"authority" : "iso6523-actorid-upis",  "ID": "0192:999888777" },
-    "system_id": "a_unique_identifier_for_the_system",
-  }]
-  "scope" : "digdir:dialogporten skatteetaten:mva",
-  "exp" : 1578924303,
-  "iat" : 1578923303,
-  "jti" : "QPdTeNlE-RtrNczkCIZ0yAoSzJSIC3Jo7L6B_PmY2X4"
-}
-
-```
-Se også dokumentasjon hos [Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker). 
 
 ## Hvordan ta i bruk
 
-Det er skrevet egne guider for å ta i bruk systembruker:
-
-- [Hvordan bruke systembruker som systemleverandør](../../guides/systemauthentication-for-systemproviders/)
-- [Hvordan bruke systemberuker som apitilbyder/tjenesteeier](../../guides/systemauthentication-for-apiproviders/)
+- [Hvordan bruke systembruker som systemleverandør](../../guides/systemvendor/systemauthentication-for-systemproviders/)
+- [Hvordan bruke systemberuker som apitilbyder/tjenesteeier](../../guides/serviceowner/systemauthentication-for-apiproviders/)
 
 ## Leveranseplan
 
 Systembruker vil leveres som del av flere leveranser. 
 
+{{<mermaid>}}
+gantt
+    axisFormat %m.%Y
+    title Systembruker
+    dateFormat  DD.MM.YYYY
+    section Systembruker
+    L1 Sluttbrukerstyrt  : L1, 01.10.2023, 30.08.2024
+    L2 Leverandørstyrt   : L2,  after L1  , 31.10.2024
+    L3 Endre rettigheter : L3, after L2, 07.05.2025
+    L4 Tilgangspakker : L4, 01.01.2025, 07.05.2025
+    L5 Klientdelegering: active, L5, 01.01.2025, 02.04.2025
+    L6 Virksomhetsdelegering: L6, after L5, 04.06.2025
+    section Autorisasjon
+    Delegering av enkeltrettigheter : A1, 01.03.2024, 30.07.2024
+    Tilgangspakker: A2, 01.01.2025, 04.06.2025
+    Klientdelegering: A3, 01.07.2025, 6M
+    Ny brukerflate for tilgangsstyring for virksomheter : 01.08.2024, 04.06.2025
+    section Digdir
+    Systembruker maskinporten : 01.04.2024, 2M
+{{< /mermaid >}}
 
-### Leveranse 1
+Mer detaljert informasjon om leveranseplan og status finnes i [Digdirs Raoadmap](https://github.com/digdir/roadmap/issues/284)
 
-Første leveranse inneholder følgende funksjonalitet:
 
-#### Ressurs-/tjenesteeier​
 
-- Oppretter generisk autorisasjonsressurs i Ressursregister​
-- Melder inn nødvendige tilgangspakker til Digdir​
-- Tillater “Enterprise bruker”​
-- Integrere mot PDP​
-
-#### Fagsystem​
-
-- Melder inn navn, enkeltrettighet(er), beskrivelse​
-- Digdir legger inn i Systemregister​
-
-#### Virksomhet​
-
-- Sluttbrukerstyrt opprettelse
-
-[Github issue](https://github.com/Altinn/altinn-authentication/issues/525)
-
-### Leveranse 2
-
-#### Fagsystem​
-
-- API for systemregister administrasjon​
-- Leverandørstyrt flyt 
-
-[Github issue](https://github.com/Altinn/altinn-authentication/issues/544)
-
-### Leveranse 3
-
-#### Fagsystem​
-
-- Legge til/fjerne rettigheter på system ​
-
-#### Virksomhet​
-
-- Varsling og godkjenning av endrede rettigheter
-
-[Github issue](https://github.com/Altinn/altinn-authentication/issues/545)
-
-### Leveranse 4
-
-#### Fagsystem​
-
-- Legge til nødvendige tilgangspakker​
-
-#### Virksomhet​
-
-- Godkjenne endrede rettighetsbehov
-
-[Github issue](https://github.com/Altinn/altinn-authentication/issues/547)
-
-### Leveranse 5
-
-#### Virksomhet​
-
-- Støtte for leverandør – hjelper – kunde-forhold
-
-[Github issue](https://github.com/Altinn/altinn-authentication/issues/548)
-
-### Støtte for systembruker i Altinn Apps
-
-I første omgang vil systembruker brukes i scenario utenfor Altinn, men apper utviklet i Altinn-plattformen vil få støtte for dette også. 
-
-For å støtte systembruker i Altinn jobbes det med følgende:
-
-- Oppdatere App template til å støtte systembruker
-- Oppdatere Platform komponenter til å støtte systembruker
-  
-
-## Detaljerte issues
-
-Dette jobbes det med i flere issues på Github:
-
- [Analyse: Fremtidig løsning for sluttbrukersystemer](https://github.com/Altinn/altinn-authentication/issues/200)
- [Epic: New machine-machine authentication method](https://github.com/Altinn/altinn-authentication/issues/331)
 
 
 

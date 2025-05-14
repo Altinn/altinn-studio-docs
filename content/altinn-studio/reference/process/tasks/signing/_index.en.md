@@ -142,7 +142,7 @@ Example of a applicationmetadata.json with a signature datatype named signature:
 
 The signing step requires a layout that defines what should be displayed to the user. This is done through a separate layout set, which in turn is associated with the signing process step (`Task_2` in our example).
 
-If you have a v3 application without a layout set, see [Layout-sets](../../../ux/pages/layout-sets/) for how to set this up.
+If you have a v3 application without a layout set, see [Pages](../../../ux/pages/#setup) for how to set this up.
 
 Create a new folder in `App/ui/` with a name that describes this layout set, for example, _signing_. In this folder, create the file `Settings.json` and a folder named `layouts`.
 

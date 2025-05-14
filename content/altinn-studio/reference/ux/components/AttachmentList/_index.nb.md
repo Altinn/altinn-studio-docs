@@ -1,7 +1,7 @@
 ---
-title: AttachmentList
+title: AttachmentList (Liste over vedlegg)
 linktitle: AttachmentList
-description: Viser en liste over alle (eller noen) vedlegg som er lastet opp i skjemaet
+description: Viser en liste over alle (eller noen) vedlegg som er lastet opp i skjemaet, for den oppgaven de jobber på.
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk
 toc: true
 ---

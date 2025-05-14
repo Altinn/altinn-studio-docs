@@ -17,7 +17,7 @@ For Java Applications we use [Tomcat](http://tomcat.apache.org/).
 ### Language Virtual Machines & Code Containers
 
 Applicatons in Altinn Studio, Altinn Apps and Altinn Platform that is based on
-.NET Core uses [Common Language Runetime](https://docs.microsoft.com/en-us/dotnet/standard/clr) as a virual machine.
+.NET Core uses [Common Language Runtime](https://docs.microsoft.com/en-us/dotnet/standard/clr) as a virual machine.
 
 Applications in Altinn Apps and Altinn Platform that is based on Java runs on [Java Virtual Machine](https://en.wikipedia.org/wiki/Java_virtual_machine).
 

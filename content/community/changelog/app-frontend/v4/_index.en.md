@@ -24,7 +24,7 @@ See the [overview of changes in backend v8](/community/changelog/app-nuget/v8) f
 Layout sets is a way to support multiple forms in a single application.
 This entails a slightly different folder structure in the `ui` folder of your app, as well as a new `layout-sets.json` file.
 This used to be optional, but as of v4 it is required, even for apps with only a single data step.
-See the [documentation on layout sets](/altinn-studio/reference/ux/pages/layout-sets) for more information.
+See the [documentation on pages](/altinn-studio/reference/ux/pages/#setup) for more information.
 
 ## Defining a custom receipt is now done with a layout set
 

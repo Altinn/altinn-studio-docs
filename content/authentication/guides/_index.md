@@ -6,8 +6,4 @@ toc: false
 weight: 4
 ---
 
-## Using Systemuser as system providers
-
-This guide explains how a system vendor can use the system user concept in their software
-
-[Read guide](systemauthentication-for-systemproviders)
+{{<children />}}
