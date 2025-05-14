@@ -7,16 +7,19 @@ For at appen skal vite hvem som skal få tilganger for å lese og signere må C#
 Den må returnere et sett med personer og/eller virksomheter som skal få rettighetene. Det kan for eksempel være basert på datamodellen, som vist nedenfor.
 `Id`-attributtet i denne implementasjonen må matche ID som ble angitt i `<altinn:signeeProviderId>`.
 
+Legg merke til at `CommunicationConfig` er valgfritt. Her kan du overstyre standardtekster brukt i kommunikasjon med signatarene,
+som beskrevet i punkt 3. Du kan også overstyre e-post adresse og telefonnummer for signatarene. Dersom ikke overstyrt, vil en
+melding sendes til signatarenes altinn inboks med en lenke til den relevante applikasjonsintansen og en notifikasjon vil bli
+sendt via a-post. For å skru på sms-notifikasjon, sett SMS = new SMS{ MobileNumber = ""}. Om ikke overstyrt, vil e-post adressene 
+og telefonnummerene populeres som beskrevet i [Recipient lookup](/notifications/explanation/recipient-lookup/) og [Address lookup](/notifications/explanation/address-lookup/).
+
 ```csharp
 #nullable enable
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Altinn.App.Core.Features.Signing.Interfaces;
-using Altinn.App.Core.Features.Signing.Models;
-using Altinn.App.Core.Internal.Data;
-using Altinn.App.Core.Models;
+using Altinn.App.Core.Features;
+using Altinn.App.Core.Features.Signing;
 using Altinn.App.Models.Skjemadata;
 using Altinn.Platform.Storage.Interface.Models;
 
@@ -24,18 +27,15 @@ namespace Altinn.App.logic;
 
 public class FounderSigneesProvider : ISigneeProvider
 {
-    private readonly IDataClient _dataClient;
-
-    public FounderSigneesProvider(IDataClient dataClient)
-    {
-        _dataClient = dataClient;
-    }
-
     public string Id { get; init; } = "founders";
 
-        public async Task<SigneeProviderResult> GetSigneesAsync(Instance instance)
+    public async Task<SigneeProviderResult> GetSignees(GetSigneesParameters parameters)
     {
-        Skjemadata formData = await GetFormData(instance);
+        DataElement dataElement = parameters.InstanceDataAccessor
+            .GetDataElementsForType("Skjemadata")
+            .Single();
+
+        var formData = await parameters.InstanceDataAccessor.GetFormData<Skjemadata>(dataElement);
 
         List<ProvidedSignee> providedSignees = [];
         foreach (StifterPerson stifterPerson in formData.StifterPerson)
@@ -47,6 +47,7 @@ public class FounderSigneesProvider : ISigneeProvider
                     [stifterPerson.Fornavn, stifterPerson.Mellomnavn, stifterPerson.Etternavn]
                 ),
                 SocialSecurityNumber = stifterPerson.Foedselsnummer?.ToString() ?? string.Empty,
+                // CommunicationConfig er valgfritt
                 CommunicationConfig = new CommunicationConfig
                 {
                     InboxMessage = new InboxMessage
@@ -82,6 +83,7 @@ public class FounderSigneesProvider : ISigneeProvider
                 Name = stifterVirksomhet.Navn,
                 OrganizationNumber =
                     stifterVirksomhet.Organisasjonsnummer?.ToString() ?? string.Empty,
+                // CommunicationConfig er valgfritt
                 CommunicationConfig = new CommunicationConfig
                 {
                     InboxMessage = new InboxMessage
@@ -118,22 +120,5 @@ public class FounderSigneesProvider : ISigneeProvider
 
         return new SigneeProviderResult { Signees = providedSignees };
     }
-
-    private async Task<Skjemadata> GetFormData(Instance instance)
-    {
-        DataElement modelData = instance.Data.Single(x => x.DataType == "Skjemadata");
-        InstanceIdentifier instanceIdentifier = new(instance);
-
-        return (Skjemadata)
-            await _dataClient.GetFormData(
-                instanceIdentifier.InstanceGuid,
-                typeof(Skjemadata),
-                instance.Org,
-                instance.AppId,
-                instanceIdentifier.InstanceOwnerPartyId,
-                new Guid(modelData.Id)
-            );
-    }
 }
-
 ```

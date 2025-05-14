@@ -1,6 +1,7 @@
 ---
-title: API Provider's Role In System User Integration
+title: API Provider
 linktitle: API Provider
+description: A guide for the API provider to set up their resource with altinn and establishing the system user integration.
 toc: true
 weight: 1
 ---
