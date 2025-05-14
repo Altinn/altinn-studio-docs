@@ -35,6 +35,7 @@ Du kan motta varsler om hendelser knyttet til sendte formidlingstjenester, ved �
   kan avsender velge å sende lenker til innhold og vedlegg.
 - Altinn Melding har funksjonalitet for å laste opp filer med meldingsinnhold og vedlegg, 
   for sikker lagring og gjenbruk på tvers av flere meldinger.
+  Løsningen har en begrensning på max. 100 vedlegg pr. melding. 
 - Det er også mulig å lenke til innhold og vedlegg som er lagret andre steder, 
   f.eks. on-premise hos avsender eller i avsenders prefererte skyløsning.
 
@@ -47,7 +48,7 @@ Du kan motta varsler om hendelser knyttet til sendte formidlingstjenester, ved �
 - Mulighet for automatisert meldingshåndtering via integrerte systemer.
 
 ### Integrasjon med Dialogporten og Arbeidsflate
-Enhetlig brukergrensesnitt på tvers gjennom Altinn 3 Arbeidsflate og Dialogporten.
+En Altinn 3 Melding oppretter automatisk en dialog i Dialogporten. Løsningen gir et enhetlig brukergrensesnitt på tvers gjennom Altinn 3 Arbeidsflate og Dialogporten.
 
 ## Oppsummering av fordelene med Altinn Melding?
 Altinn Melding tilbyr flere unike fordeler som gjør den til et foretrukket valg for digital kommunikasjon 
