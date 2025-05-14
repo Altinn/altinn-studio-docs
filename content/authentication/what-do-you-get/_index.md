@@ -7,11 +7,6 @@ toc: true
 weight: 2
 ---
 
-The authentication component is not an ID-provider and only create authentication sessions based on external ID-providers.
-
-The authentication component creates JWT tokens with claims about user and system.
-The claims are based on the authentication information coming from the ID-providers.
-
 ## Token exchange for Altinn Portal
 When a user logs in to the Altinn Portal (Legacy Solution) it gets a Cookie containing information about the logged-in user. This cookie is
 a [propiaritary format for ASP.NET](https://support.microsoft.com/en-us/help/301240/how-to-implement-forms-based-authentication-in-your-asp-net-applicatio) (Full Framework)
@@ -61,13 +56,7 @@ Only the access token it to be exhanged using this endpoint.
 GET /exchange/{tokenProvider}?test={bool}
 ```
 
-
-## System Authentication
-
-
-
-
 ## Architecture
 
-The [application construction components](/authentication/reference/architecture/)
+See [application construction components](/authentication/reference/architecture/)
 for details how this component is constructued.

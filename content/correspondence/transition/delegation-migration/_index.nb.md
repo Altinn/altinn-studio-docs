@@ -17,7 +17,7 @@ Delegeringer av rettigheter kan gjøres på forskjellige vis og dersom dette ikk
 - Dette skjer løpende under tjenesten- og meldingens levetid.
 - Det er en differanse i rettighetsmodellene mellom Altinn 2 Melding og Altinn 3:
   - "Read","Write" => "Read"
-  - "ArchiveRead","ArchiveDelete" => finnes ikke i A3.
+  - "ArchiveRead","ArchiveDelete" => finnes ikke i A3, de som har dette, får "Read".
 
 Med disse fakta til grunn, så tilsier det at Delegeringer må migreres på både tjeneste- og instansnivå fra Altinn 2 til Altinn 3.
 Samt at det ikke kan gjøres som en en-gangs-jobb, men det må synkroniseres når det skjer endringer.

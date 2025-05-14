@@ -40,7 +40,11 @@ Finished converted example in `process.xml`:
             <altinn:dataTypesToSign>
                 <altinn:dataType>model</altinn:dataType>
             </altinn:dataTypesToSign>
-            <altinn:signatureDataType>signatureInformation-2mjK</altinn:signatureDataType>
+            <altinn:signatureDataType>signatures</altinn:signatureDataType>
+
+            <!-- We have made a default validator that can be enabled here. It will validate that minCount on the signature data type is fulfilled. If default validation is not enabled, custom validation of the signatures should be added. -->
+            <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
+
         </altinn:signatureConfig>
     </altinn:taskExtension>
     </bpmn:extensionElements>
@@ -53,13 +57,17 @@ The data type in `applicationmetadata.json`:
 
 ```json
 {
-    "id": "signatureInformation-2mjK",
+    "id": "signatures",
     "allowedContentTypes": [
     "application/json"
     ],
-    "allowedContributors": ["app:owned"]
+    "allowedContributors": ["app:owned"],
+    "maxCount": 1,
+    "minCount": 1
 }
 ```
+
+It is important to set `allowedContributors` to `"app:owned"`. This ensures that these data items cannot be edited via the app’s API but only by the app itself. Before version 8.6, this was misspelled `allowedContributers`.
 
 ## Access rights
 
