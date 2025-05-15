@@ -48,7 +48,7 @@ To authenticate and ensure that you can perform operations via the Correspondenc
 - `altinn:correspondence.write` 
 
 To obtain an Altinn API key and access to scopes, you must submit a request to: [servicedesk@altinn.no](mailto:servicedesk@altinn.no).
-The request must include the scopes you need. Note that you may require more than just read/write access for Correspondence. A complete list of scopes can be found here:
+The request must include the scopes you need. Note that you may require more than just altinn:correspondence.write for your integration. A complete list of scopes can be found here:
 [Complete list of scopes](https://docs.altinn.studio/api/authentication/digdirscopes/)
 
 ### 6. Register your Maskinporten Client with the required scopes {#register-your-maskinporten-client-with-correct-scopes}

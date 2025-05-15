@@ -48,7 +48,7 @@ For å kunne autentisere og sikre at du kan utføre operasjoner via meldings-API
 - `altinn:correspondence.write` 
 
 For å få Altinn API-nøkkel og scopes må du sende en forespørsel til: servicedesk@altinn.no 
-Forespørselen må inneholde de scopes du trenger. Vær obs på at du kan trenge flere scopes for integrasjonen din enn bare altinn:correspondence.write/altinn:correspondence.read. 
+Forespørselen må inneholde de scopes du trenger. Vær obs på at du kan trenge flere scopes for integrasjonen din enn bare altinn:correspondence.write. 
 Utfyllende liste over scopes finner du her: 
 https://docs.altinn.studio/nb/api/authentication/digdirscopes/ 
 
