@@ -26,6 +26,8 @@ Instantiation will fail if you attempt to prefill ER-data, but do not have an or
 - **UserProfile** here you enter fields from the data model that are to be prefilled with data from the users profile in Altinn.
 Note that it is the logged in user who instantiates the app the data is collected for.
 
+- **QueryParameters** here you can define fields from the datamodel that can be prefilled based on query parameters from the url. Note that this requires custom setup to work, see instructions [here](../../../guides/development/prefill/config/). 
+
 ## Available prefill values
 
 The JSON-schema definition of the prefill file is also available [here](https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json).

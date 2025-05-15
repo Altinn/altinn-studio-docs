@@ -652,6 +652,16 @@
                         "isAssignable": false,
                         "area": null,
                         "resources": null
+                    },
+                    {
+                        "id": "0195efb8-7c80-7642-b9b8-c748ee4fecd4",
+                        "name": "Tinglysing eiendom",
+                        "urn": "urn:altinn:accesspackage:tinglysing-eiendom",
+                        "description": "Denne tilgangspakken gir fullmakter til tjenester knyttet til elektronisk tinglysing av rettigheter i eiendom.",
+                        "isDelegable": true,
+                        "isAssignable": false,
+                        "area": null,
+                        "resources": null
                     }
                 ]
             },
@@ -944,9 +954,9 @@
             },
             {
                 "id": "6e152c10-0f63-4060-9b14-66808e7ac320",
-                "name": "Energi, vann,avløp og avfall",
+                "name": "Energi, vann, avløp og avfall",
                 "urn": "accesspackage:area:energi_vann_avlop_og_avfall",
-                "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til energi, vann,avløp og avfall.",
+                "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til energi, vann, avløp og avfall.",
                 "icon": "https://altinncdn.no/authorization/accesspackageicons/Aksel_Workplace_TapWater.svg",
                 "packages": [
                     {
@@ -1366,7 +1376,7 @@
                         "id": "2f176732-b1e9-449b-9918-090d1fa986f6",
                         "name": "Ansvarlig revisor",
                         "urn": "urn:altinn:accesspackage:ansvarlig-revisor",
-                        "description": "Denne fullmakten gir revisor tilgang til å opptre som ansvarlig revisor for en kunde og utføre alle tjenester som krever denne fullmakten. Dette er tjenester som tjenestetilbyder har vurdert det som naturlig at en revisor utfører på vegne av sin kunde. Fullmakten gis kun til autoriserte revisorer. Fullmakt hos revisor oppstår når kunden registrerer regnskapsfører i Enhetsregisteret. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.",
+                        "description": "Denne fullmakten gir revisor tilgang til å opptre som ansvarlig revisor for en kunde og utføre alle tjenester som krever denne fullmakten. Dette er tjenester som tjenestetilbyder har vurdert det som naturlig at en revisor utfører på vegne av sin kunde. Fullmakten gis kun til autoriserte revisorer. Fullmakt hos revisor oppstår når kunden registrerer revisor i Enhetsregisteret. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.",
                         "isDelegable": true,
                         "isAssignable": false,
                         "area": null,
@@ -1376,7 +1386,7 @@
                         "id": "96120c32-389d-46eb-8212-0a6540540c25",
                         "name": "Revisormedarbeider",
                         "urn": "urn:altinn:accesspackage:revisormedarbeider",
-                        "description": "Denne fullmakten gir revisor tilgang til å opptre som revisormedarbeider for en kunde og utføre alle tjenester som krever denne fullmakten. Dette er tjenester som tjenestetilbyder har vurdert det som naturlig at en revisor utfører på vegne av sin kunde. Fullmakten gis kun til autoriserte revisorer. Fullmakt hos revisor oppstår når kunden registrerer regnskapsfører i Enhetsregisteret. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.",
+                        "description": "Denne fullmakten gir revisor tilgang til å opptre som revisormedarbeider for en kunde og utføre alle tjenester som krever denne fullmakten. Dette er tjenester som tjenestetilbyder har vurdert det som naturlig at en revisor utfører på vegne av sin kunde. Fullmakten gis kun til autoriserte revisorer. Fullmakt hos revisor oppstår når kunden registrerer revisor i Enhetsregisteret. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.",
                         "isDelegable": true,
                         "isAssignable": false,
                         "area": null,
@@ -1406,6 +1416,25 @@
                         "name": "Konkursbo skrivetilgang",
                         "urn": "urn:altinn:accesspackage:konkursbo-skrivetilgang",
                         "description": "Denne fullmakten gir bostyrers medhjelper tilgang til å jobbe på vegne av bostyrer. Bostyrer delegerer denne fullmakten sammen med Konkursbo lesetilgang til medhjelper for hvert konkursbo.",
+                        "isDelegable": true,
+                        "isAssignable": false,
+                        "area": null,
+                        "resources": null
+                    }
+                ]
+            },
+            {
+                "id": "0195efb8-7c80-76b3-bb86-ae9dfd74bca2",
+                "name": "Fullmakter for forretningsfører",
+                "urn": "accesspackage:area:fullmakter_for_forretningsforer",
+                "description": "Dette fullmaktsområdet omfatter tilgangspakker knyttet til fullmakter for forretningsfører.",
+                "icon": "https://altinncdn.no/authorization/accesspackageicons/Aksel_Statistics-and-math_TrendDown.svg",
+                "packages": [
+                    {
+                        "id": "0195efb8-7c80-7cf2-bcc8-720a3fb39d44",
+                        "name": "Forretningsforer eiendom",
+                        "urn": "urn:altinn:accesspackage:forretningsforer-eiendom",
+                        "description": "Denne fullmakten gir forretningsfører for Borettslag og Eierseksjonssameie tilgang til å opptre på vegne av kunde, og utføre alle tjenester som krever denne fullmakten. Dette er tjenester som tjenestetilbyder har vurdert det som naturlig at en forretningsfører utfører på vegne av sin kunde. Fullmakt hos forretningsfører oppstår når Borettslaget eller Eierseksjonssameiet registrerer forretningsfører i Enhetsregisteret. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.",
                         "isDelegable": true,
                         "isAssignable": false,
                         "area": null,
