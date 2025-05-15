@@ -1,8 +1,8 @@
 ---
-title: Datepicker
-linktitle: Datepicker
-description: # Brief description of what the component does
-schemaname: Datepicker # Component schema name used to autogenerate list of properties from json schema (replace with appropriate component name)
+title: Divider
+linktitle: Divider
+description: Divider component for separating content on a page.
+schemaname: Divider # Component schema name used to autogenerate list of properties from json schema (replace with appropriate component name)
 weight: 10 # Do not change, the components will be sorted alphabetically
 toc: true
 ---
@@ -33,14 +33,16 @@ EXAMPLES
 
 ## Usage
 
-<!-- Brief description of the component and how it is used. -->
+Use the Divider component to separate content on a page. It can be used to create visual breaks between sections or
+to visually group related elements together.
 
 ### Anatomy
 
-<iframe style="border: 0px solid rgba(0, 0, 0, 1);" width="100%" height="700" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1707-13699&viewport=1020%2C-1913%2C1.35&scaling=contain&content-scaling=responsive&starting-point-node-id=1707%3A13699&show-proto-sidebar=0&embed-host=share" allowfullscreen></iframe>
+<iframe style="border: 0px solid rgba(0, 0, 0, 0);" width="100%" height="400" src="https://embed.figma.com/design/ycDW0BPrMDW3SKZ56de4hY/Link-fra-Figma-til-Docs?node-id=4717-10621&embed-host=share" allowfullscreen></iframe>
 
-<!-- 
+<!--
 Image/diagram with numbered callouts.
+
 1. Take a screenshot of the basic version of the component with good copy (text).
 2. Use the [PowerPoint file](../numbered-callouts-anatomy.pptx) to add numbers to the screenshot
 3. Group screenshot and numbering, save as image, and add to documentation
@@ -51,9 +53,10 @@ Example:
 ![Example image and alt text anatomy](../image/image-and-alt-text-en.png)
 
 {{% anatomy-list %}}
+
 1. **Image**: Photo, screenshot, illustration, or graphic.
 2. **Alternative text**: Used by screen readers and displayed if the image can not be rendered.
-{{% /anatomy-list %}} 
+{{% /anatomy-list %}}
 
 -->
 
@@ -137,7 +140,8 @@ App/ui/layouts/{page}.json
     "data": {
       "layout": [
         {
-          // Basic component (required properties)
+          "id": "myDivider",
+          "type": "Divider",
         }
       ]
     }
@@ -187,3 +191,10 @@ App/ui/layouts/{page}.json
 ## Examples
 
 <!-- One or more examples of configuration (if relevant) -->
+
+```json
+  {
+    "id": "myDivider",
+    "type": "Divider",
+  }
+```
