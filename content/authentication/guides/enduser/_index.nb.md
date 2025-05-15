@@ -19,20 +19,20 @@ weight: 3
    - I dette eksemplet mottar STADIG KONSERT en forespørsel om systembruker og må godkjenne den i Altinn-portalen, der STADIG KONSERT tildeler de nødvendige tilganger til SmartCloud for tjenesten "Krav og betalinger"
 
       Velg system
-      ![Velg et system](../systemvendor/systemtilgang-1.png)
+      ![Velg et system](../systemvendor/assets/systemtilgang-1.png)
       Opprett systembruker
-      ![Godkjenn opprettelse av valgt systemtilgang som sluttbruker.](../systemvendor/systemtilgang-2.png)
+      ![Godkjenn opprettelse av valgt systemtilgang som sluttbruker.](../systemvendor/assets/systemtilgang-2.png)
       Se listen over systembrukere
-      ![list systembrukere](../systemvendor/systemtilgang-4.png)
+      ![list systembrukere](../systemvendor/assets/systemtilgang-4.png)
       
       - I dette eksempelet, TILFELDIG SUBTIL APE får en systembrukerforespørsel fra SmartCloud og må godkjenne denne i Altinn-portalen, der TILFELDIG SUBTIL APE gir SmartCloud nødvendige tilgangene for til tjenesten 'Krav og betalinger'.
-      ![godkjenn systembruker forespørsel](../systemvendor/systemtilgang-approve-1.png)
+      ![godkjenn systembruker forespørsel](../systemvendor/assets/systemtilgang-approve-1.png)
 
       Når forespørselen er godkjent, sendes brukeren videre til den redirecturl som ble angitt i systembrukerforespørselen
-      ![leverandør sitt kvittering side](../systemvendor/systemtilgang-receipt-vendor.png)
+      ![leverandør sitt kvittering side](../systemvendor/assets/systemtilgang-receipt-vendor.png)
 
       STADIG KONSERT kan logge inn i Altinn igjen og representere TILFELDIG SUBTIL APE for å se at systembrukeren som ble godkjent, er oppført.
-      ![systembruker detalje](../systemvendor/systemtilgang-overview.png)
+      ![systembruker detalje](../systemvendor/assets/systemtilgang-overview.png)
 
    3. Tildele nødvendige tillatelser
       - Etter at STADIG KONSERT har godkjent forespørselen, omfatter systemtilgangen rettighetene til å vise skatte- og avgiftskravene for TILFELDIG SUBTIL APE. STADIG KONSERT har gitt SmartCloud nødvendige autorisasjoner for denne spesifikke tjenesten og har mulighet til å fjerne tilgangene når som helst via Altinn.
@@ -48,25 +48,25 @@ weight: 3
 
       Godkjenn agent systembruker forespørsel
 
-      ![godkjenn agent systembruker](../systemvendor/systemtilgang-agent-approve.png)
+      ![godkjenn agent systembruker](../systemvendor/assets/systemtilgang-agent-approve.png)
 
       Etter at forespørselen er behandlet, blir sluttbrukeren sendt til leverandørens kvitteringsside.
-      ![system leverandør kvitteringsside](../systemvendor/systemtilgang-receipt-vendor.png)
+      ![system leverandør kvitteringsside](../systemvendor/assets/systemtilgang-receipt-vendor.png)
 
       Sluttbruker logger inn i Altinn-portalen for å administrere Systembrukerne.
-      ![list av systembrukerne](../systemvendor/systemtilgang-overview-clientdelegation.png)
+      ![list av systembrukerne](../systemvendor/assets/systemtilgang-overview-clientdelegation.png)
 
       Klikker på den aktuelle Systembrukeren for å administrere eller se. Klikker på 'Legg til klient' for å legge til klienter.
-      ![systembruker detalje](../systemvendor/systemuser-agent.png)
+      ![systembruker detalje](../systemvendor/assets/systemuser-agent.png)
 
       Legger til klientene
-      ![Legg kunder til systembruker](../systemvendor/clientdelegation-addclient.png)
+      ![Legg kunder til systembruker](../systemvendor/assets/clientdelegation-addclient.png)
       
       Klientene er lagt til
-      ![kunder er lagt til systembruker](../systemvendor/addclient-added.png)
+      ![kunder er lagt til systembruker](../systemvendor/assets/addclient-added.png)
       
       Oversikt over Systembrukeren og klientene
-      ![systembruker med kunder](../systemvendor/systemuser-withclients.png)
+      ![systembruker med kunder](../systemvendor/assets/systemuser-withclients.png)
 
    3. Tildel nødvendige tillatelser
       - Etter godkjenning fra DRESs MINST og registrering av kunder, gir Systemtilgangen (Systembrukeren) rettigheter til å vise skatte- og avgiftskrav for kundene til TILBAKEHOLDEN USYMMETRISK TIGER AS. DRESs MINST har gitt SmartCloud autorisasjon for denne spesifikke tilgangspakken og kan når som helst fjerne tilgangen via Altinn.

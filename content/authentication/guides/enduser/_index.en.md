@@ -19,19 +19,19 @@ weight: 3
    - For example, STADIG KONSERT can create a system user for TILFELDIG SUBTIL APE from altinn portal like below
       
       Select the system
-      ![Select system as end user](../systemvendor/systemtilgang-1.png)
+      ![Select system as end user](../systemvendor/assets/systemtilgang-1.png)
       Create the system user
-      ![approve creation of slected system access as end user](../systemvendor/systemtilgang-2.png)
+      ![approve creation of slected system access as end user](../systemvendor/assets/systemtilgang-2.png)
       see the list of system users
-      ![list system users](../systemvendor/systemtilgang-4.png)
+      ![list system users](../systemvendor/assets/systemtilgang-4.png)
       - In this example, STADIG KONSERT is sent to the system user request and must approve in Altinn portal, where STADIG KONSERT grants the necessary access rights to SmartCloud for the "Krav og betalinger" service.
-      ![approve system user request](../systemvendor/systemtilgang-approve-1.png)
+      ![approve system user request](../systemvendor/assets/systemtilgang-approve-1.png)
 
       Once the request is approved, the user is sent to the redirecturl specified in the system user request
-      ![vendor receipt page](../systemvendor/systemtilgang-receipt-vendor.png)
+      ![vendor receipt page](../systemvendor/assets/systemtilgang-receipt-vendor.png)
 
       STADIG KONSERT can login to altinn again, to see that the system user that was approved is listed
-      ![system user overview](../systemvendor/systemtilgang-overview.png)
+      ![system user overview](../systemvendor/assets/systemtilgang-overview.png)
 
    3. Granting the Required Permissions
       - After STADIG KONSERT's approval, the system access includes the rights to view TILFELDIG SUBTIL APE’s tax and fee claims.
@@ -48,25 +48,25 @@ STADIG KONSERT has granted authorization to SmartCloud for this specific service
 
       Approve agent system user request
 
-      ![approve agent system request](../systemvendor/systemtilgang-agent-approve.png)
+      ![approve agent system request](../systemvendor/assets/systemtilgang-agent-approve.png)
 
       End user sent to the vendor's receipt page after approve/reject
-      ![system vendor receipt page](../systemvendor/systemtilgang-receipt-vendor.png)
+      ![system vendor receipt page](../systemvendor/assets/systemtilgang-receipt-vendor.png)
 
       End user logs in to the system to manage the system users
-      ![list of system users](../systemvendor/systemtilgang-overview-clientdelegation.png)
+      ![list of system users](../systemvendor/assets/systemtilgang-overview-clientdelegation.png)
 
       Clicks on the particular system user for managing/viewing. clicks on add client to add clients
-      ![system user overview](../systemvendor/systemuser-agent.png)
+      ![system user overview](../systemvendor/assets/systemuser-agent.png)
 
       Adds the clients
-      ![Add clients to the system user](../systemvendor/clientdelegation-addclient.png)
+      ![Add clients to the system user](../systemvendor/assets/clientdelegation-addclient.png)
       
       Clients are added
-      ![clients added to the system user](../systemvendor/addclient-added.png)
+      ![clients added to the system user](../systemvendor/assets/addclient-added.png)
       
       Overview of the system user and clients
-      ![system user with clients overview](../systemvendor/systemuser-withclients.png)
+      ![system user with clients overview](../systemvendor/assets/systemuser-withclients.png)
 
    3. Granting the Required Permissions
       - After DRESs MINST's approval and client addition, the system access includes the access package that gives access to various services for clients of TILBAKEHOLDEN USYMMETRISK TIGER AS.
