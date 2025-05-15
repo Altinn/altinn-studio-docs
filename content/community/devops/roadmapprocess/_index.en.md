@@ -28,6 +28,8 @@ Feature request opprettes i de forsjellige produkt eller team backloggene.
 - [Altinn Profile](https://github.com/Altinn/altinn-profile/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
 - [Altinn PDF](https://github.com/Altinn/altinn-pdf/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
 - [Altinn Events](https://github.com/Altinn/altinn-events/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
+- [Altinn Broker](https://github.com/Altinn/altinn-broker/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
+- [Altinn Correspondence](https://github.com/Altinn/altinn-correspondence/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
 
 En del av disse vil ha bakgrunn fra [Altinn Apps](https://github.com/Altinn/apps-backlog/issues/issues?page=2&q=is%3Aissue+is%3Aopen) backloggen hvor man finner backlog for apper som utvikles.
 

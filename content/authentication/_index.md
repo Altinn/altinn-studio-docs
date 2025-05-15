@@ -55,7 +55,7 @@ weight: 1
         <div class="a-list-container mb-2 mx-auto mx-lg-6">
             <ul class="a-list a-list-noIcon">
                 <li class="a-dotted a-clickable a-list-hasRowLink">
-                    <a href="guides/systemauthentication-for-systemproviders/" class="a-list-rowLink">
+                    <a href="guides/systemvendor/systemauthentication-for-systemproviders/" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
                                 Use systemusers as system vendor
@@ -64,7 +64,7 @@ weight: 1
                     </a>
                 </li>
                 <li class="a-dotted a-clickable a-list-hasRowLink">
-                    <a href="guides/systemauthentication-for-apiproviders/" class="a-list-rowLink">
+                    <a href="guides/serviceowner/systemauthentication-for-apiproviders/" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
                                 Use systemusers as API provider
