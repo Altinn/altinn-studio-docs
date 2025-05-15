@@ -7,7 +7,7 @@ weight: 3
 ---
 
 {{<notice warning>}}
- This functionality is in test and will change.
+  This functionality is in testing and is subject to change.
 {{</notice>}}
 
 ### Guide for End User (STADIG KONSERT, Dagligleder of TILFELDIG SUBTIL APE)
