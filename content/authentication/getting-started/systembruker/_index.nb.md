@@ -10,20 +10,6 @@ weight: 3
  Denne funksjonaliteten er i test og kan endres
 {{</notice>}}
 
-## Systembruker
-En systembruker er en ny type bruker i Altinn som gjør det mulig for en virksomhet å gi autorisasjon til en upersonlig bruker, slik at den kan utføre oppgaver på vegne av virksomheten.
-Brukeren fungerer tett sammen med Maskinporten, og muliggjør tilgangsstyring gjennom både Maskinporten og Altinn Autorisasjon. Med systembrukeren blir autorisasjonsprosessen mer effektiv, og sikrer at systemleverandøren kun får de nødvendige tilgangene.
-I fremtiden vil systembrukeren være essensiell for virksomheter som ønsker å automatisere rapportering og administrative oppgaver overfor offentlig sektor.
-Det finnes to typer systembrukere:
-1. Standard
-2. Agent
-
-### Standard
-En standard systembruker er en brukertype for virksomheter som ønsker å få tilgang til tjenester levert av offentlige eller private aktører gjennom tredjepartsystemer.
-
-### Agent
-En fullmektig systembruker er en brukertype ment for virksomheter som integrerer med tredjepartsystemer på vegne av sine kunder.
-
 ### Ta i bruk systembruker
 La oss forstå bruk av systembruker via et eksempel.
 

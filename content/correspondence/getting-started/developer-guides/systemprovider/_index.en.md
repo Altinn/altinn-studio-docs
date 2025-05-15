@@ -11,4 +11,4 @@ weight: 20
 
 To get started as a system provider, follow this guide:
 
-https://docs.altinn.studio/authentication/guides/systemvendor/systemauthentication-for-systemproviders/
+https://docs.altinn.studio/authentication/guides/systemvendor/
