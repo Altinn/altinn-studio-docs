@@ -46,10 +46,9 @@ En bruker med denne tilgangen kan deretter delegere tilgangen til virksomhetsbru
 For å bruke Altinn Melding må man ha en abonnementsnøkkel. Teknisk sett er dette en API-nøkkel som må inkluderes i forespørselens `Ocp-Apim-Subscription-Key` header for å verifisere at du har rett til å bruke Meldings API-et. Uten denne nøkkelen vil forespørselen din bli avvist.
 For å kunne autentisere og sikre at du kan utføre operasjoner via meldings-APIet, må Altinn gi deg tilgang på de scopes du trenger. Dette sikrer at kun autoriserte klienter kan sende og motta filer, og opprettholder dermed sikkerheten i tjenesten. Følgende scopes brukes for å sende og/eller motta meldinger:
 - `altinn:correspondence.write` 
-- `altinn:correspondence.read` 
 
 For å få Altinn API-nøkkel og scopes må du sende en forespørsel til: servicedesk@altinn.no 
-Forespørselen må inneholde de scopes du trenger. Vær obs på at du kan trenge flere scopes for integrasjonen din enn bare altinn:correspondence.write/altinn:correspondence.read. 
+Forespørselen må inneholde de scopes du trenger. Vær obs på at du kan trenge flere scopes for integrasjonen din enn bare altinn:correspondence.write. 
 Utfyllende liste over scopes finner du her: 
 https://docs.altinn.studio/nb/api/authentication/digdirscopes/ 
 
