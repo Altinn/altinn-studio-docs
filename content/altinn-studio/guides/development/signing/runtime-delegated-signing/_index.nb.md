@@ -144,9 +144,9 @@ Standardverdiene som brukes dersom kommunikasjonstekstene ikke overstyres er som
 
 {{</content-version-selector>}}
 
-## 5. Test brukerstyrt signering
+## 6. Test brukerstyrt signering
 
-> **Obs!** Foreløpig er det ikke laget mocking av delegasjon i localtest, så du må i praksis teste i TT02-miljøet.
+> **Obs!** Foreløpig er det ikke laget mocking av delegasjon i `localtest`, så du må i praksis teste i TT02-miljøet.
 
 Det er caching i autorisasjonslaget som gjør at det kan ta tid før en bruker som har fått delegert tilgang til et skjema via brukerstyrt signering, ser selve skjemaet i sin Altinn-innboks.
 
