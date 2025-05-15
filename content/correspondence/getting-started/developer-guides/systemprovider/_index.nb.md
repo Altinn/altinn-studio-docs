@@ -11,7 +11,7 @@ weight: 20
 
 For å komme i gang som systemleverandør følg denne veiledningen: 
 
-[Autentisering for systemleverandører](https://docs.altinn.studio/nb/authentication/guides/systemvendor/systemauthentication-for-systemproviders/)
+[Autentisering for systemleverandører](https://docs.altinn.studio/nb/authentication/guides/systemvendor/)
 
 ### Skaff Altinn API-nøkkel og tilgang til scopes {#get-an-altinn-api-key}
 For å bruke Altinn Melding må man ha en abonnementsnøkkel. Teknisk sett er dette en API-nøkkel som må inkluderes i forespørselens `Ocp-Apim-Subscription-Key` header for å verifisere at du har rett til å bruke Meldings API-et. Uten denne nøkkelen vil forespørselen din bli avvist.

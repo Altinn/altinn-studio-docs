@@ -21,7 +21,7 @@ leverandørens system og appen. Det er i hovedsak 2 måter å lage denne intregr
   * Kunde registrerer systembruker. Dermed blir rettighetene delegert.
   * Leverandør autentiserer med Maskinporten klient
   * Ved integrasjon mot Altinn apper så vil systemet autentisere mot Maskinporten og så bruke dette tokenet ved innsending til Altinn
-  * For mer informasjon, se [Altinn Autorisasjon brukerguide for systembrukere](/nb/authentication/guides/systemvendor/systemauthentication-for-systemproviders/)
+  * For mer informasjon, se [Altinn Autorisasjon brukerguide for systembrukere](/nb/authentication/guides/systemvendor/)
   * Egner seg godt for systemer der det er større grad av automasjon (og mindre behov for kontakt/kobling til sluttbruker), og det er snakk om innsendinger på vegne av organisasjoner.
 
 ## Integrasjon med ID-porten
@@ -186,7 +186,7 @@ I dette eksempelet vil Fiken automatiske sende inn årsregnskap på slutten av �
 Denne innsendingen skjer helt automatisk, men sluttbruker hos kunden må fortsatt inn og signere årsregnskapet etter at det er ferdig fyllt inn i `årsregnskap`.
 Vi skal nå sette opp denne integrasjonen helt fra start.
 
-[Mer dokumentasjon rundt systembruker-flyt for SBS finner du her](/nb/authentication/guides/systemvendor/systemauthentication-for-systemproviders/).
+[Mer dokumentasjon rundt systembruker-flyt for SBS finner du her](/nb/authentication/guides/systemvendor/).
 Denne guiden er ment som et Altinn Studio app-spesifikt eksempel på det samme konseptet.
 
 #### Forutsetninger

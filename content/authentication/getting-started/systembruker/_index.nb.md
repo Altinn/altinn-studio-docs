@@ -10,20 +10,6 @@ weight: 3
  Denne funksjonaliteten er i test og kan endres
 {{</notice>}}
 
-## Systembruker
-En systembruker er en ny type bruker i Altinn som gjør det mulig for en virksomhet å gi autorisasjon til en upersonlig bruker, slik at den kan utføre oppgaver på vegne av virksomheten.
-Brukeren fungerer tett sammen med Maskinporten, og muliggjør tilgangsstyring gjennom både Maskinporten og Altinn Autorisasjon. Med systembrukeren blir autorisasjonsprosessen mer effektiv, og sikrer at systemleverandøren kun får de nødvendige tilgangene.
-I fremtiden vil systembrukeren være essensiell for virksomheter som ønsker å automatisere rapportering og administrative oppgaver overfor offentlig sektor.
-Det finnes to typer systembrukere:
-1. Standard
-2. Agent
-
-### Standard
-En standard systembruker er en brukertype for virksomheter som ønsker å få tilgang til tjenester levert av offentlige eller private aktører gjennom tredjepartsystemer.
-
-### Agent
-En fullmektig systembruker er en brukertype ment for virksomheter som integrerer med tredjepartsystemer på vegne av sine kunder.
-
 ### Ta i bruk systembruker
 La oss forstå bruk av systembruker via et eksempel.
 
@@ -39,8 +25,8 @@ Følgende aktører/tjenester er involvert i bruk av systembruker
 Følgende trinn bør utføres av ulike aktører for å etablere system- og systembrukerintegrasjon.
 1. [Tjenesteeier (Skatteetaten)](../../guides/serviceowner/)
 2. [Systemleverandør (SmartCloud AS)](../../guides/systemvendor/)
-3. [Sluttbruker (STADIG KONSERT, Dagligleder for TILFELDIG SUBTIL APE)](../../guides/enduser/standard)
-3. [Sluttbruker for klientdelegering (DRESs MINST, Client Administrator for TILBAKEHOLDEN USYMMETRISK TIGER AS)](../../guides/enduser/clientdelegation/)
+3. [Sluttbruker (STADIG KONSERT, Dagligleder for TILFELDIG SUBTIL APE)](../../guides/enduser/#veiledning-for-sluttbruker-stadig-konsert-dagligleder-til-tilfeldig-subtil-ape)
+3. [Sluttbruker for klientdelegering (DRESs MINST, Client Administrator for TILBAKEHOLDEN USYMMETRISK TIGER AS)](../../guides/enduser/#veiledning-for-sluttbruker-dress-minst-klientadministratør-i-tilbakeholden-usymmetrisk-tiger-as-)
 
 Når alle brukere har fullført sine forutsetninger for systemintegrasjonen, er systembrukeren klar til å tas i bruk av tredjepartsystemene.
 
