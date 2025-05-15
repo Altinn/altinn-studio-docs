@@ -1,8 +1,8 @@
 ---
-title: Datepicker
-linktitle: Datepicker
-description: # Kort beskrivelse av komponenten
-schemaname: Datepicker # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
+title: Skillelinje
+linktitle: Skillelinje
+description: Skillelinje komponent for å dele opp innhold på en side.
+schemaname: Divider # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk
 toc: true
 ---
@@ -34,14 +34,14 @@ EKSEMPLER
 
 ## Bruk
 
-<!-- Kort beskrivelse av komponenten og hvordan den brukes. -->
+Bruk Divider-komponenten for å skille innhold på en side. Den kan brukes til å bryte opp mellom seksjoner eller
+for å visuelt gruppere relaterte elementer sammen.
 
 ### Anatomi
 
-<iframe style="border: 0px solid rgba(0, 0, 0, 0);" width="100%" height="700" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1707-13699&viewport=1020%2C-1913%2C1.35&scaling=contain&content-scaling=responsive&starting-point-node-id=1707%3A13699&show-proto-sidebar=0&embed-host=share" allowfullscreen></iframe>
+<iframe style="border: 0px solid rgba(0, 0, 0, 0);" width="100%" height="400" src="https://embed.figma.com/design/ycDW0BPrMDW3SKZ56de4hY/Link-fra-Figma-til-Docs?node-id=4717-10621&embed-host=share" allowfullscreen></iframe>
 
 <!-- 
-
 Nummerert skjermbilde av komponenten
 1. Ta et skjermbilde av basis-versjonen av komponenten.
 2. Bruk PowerPoint-filen (components/numbered-callouts-anatomy.pptx) for å legge til nummerering på skjermbildet 
@@ -139,7 +139,8 @@ App/ui/layouts/{page}.json
     "data": {
       "layout": [
         {
-          // Basic component (required properties)
+          "id": "myDivider",
+          "type": "Divider",
         }
       ]
     }
@@ -188,4 +189,11 @@ App/ui/layouts/{page}.json
 
 ## Eksempler
 
-<!-- Ett eller flere eksempler på konfigurasjon (hvis relevant) -->
+<!-- One or more examples of configuration (if relevant) -->
+
+```json
+  {
+    "id": "myDivider",
+    "type": "Divider",
+  }
+```
