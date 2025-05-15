@@ -25,8 +25,8 @@ Følgende aktører/tjenester er involvert i bruk av systembruker
 Følgende trinn bør utføres av ulike aktører for å etablere system- og systembrukerintegrasjon.
 1. [Tjenesteeier (Skatteetaten)](../../guides/serviceowner/)
 2. [Systemleverandør (SmartCloud AS)](../../guides/systemvendor/)
-3. [Sluttbruker (STADIG KONSERT, Dagligleder for TILFELDIG SUBTIL APE)](../../guides/enduser/standard)
-3. [Sluttbruker for klientdelegering (DRESs MINST, Client Administrator for TILBAKEHOLDEN USYMMETRISK TIGER AS)](../../guides/enduser/clientdelegation/)
+3. [Sluttbruker (STADIG KONSERT, Dagligleder for TILFELDIG SUBTIL APE)](../../guides/enduser/#veiledning-for-sluttbruker-stadig-konsert-dagligleder-til-tilfeldig-subtil-ape)
+3. [Sluttbruker for klientdelegering (DRESs MINST, Client Administrator for TILBAKEHOLDEN USYMMETRISK TIGER AS)](../../guides/enduser/#veiledning-for-sluttbruker-dress-minst-klientadministratør-i-tilbakeholden-usymmetrisk-tiger-as-)
 
 Når alle brukere har fullført sine forutsetninger for systemintegrasjonen, er systembrukeren klar til å tas i bruk av tredjepartsystemene.
 

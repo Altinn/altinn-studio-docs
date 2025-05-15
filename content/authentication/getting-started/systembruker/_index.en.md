@@ -25,8 +25,8 @@ Following are the actors/services involved in using the system user
 The following steps are necessary to establish system, system user integration
 1. [Service Provider (skatteetaten)](../../guides/serviceowner/)
 2. [System Vendor (SmartCloud AS)](../../guides/systemvendor/)
-3. [End User (STADIG KONSERT, Dagligleder of TILFELDIG SUBTIL APE)](../../guides/enduser/standard)
-3. [End User For Client Delegation (DRESs MINST, Client Administrator for TILBAKEHOLDEN USYMMETRISK TIGER AS)](../../guides/enduser/clientdelegation/)
+3. [End User (STADIG KONSERT, Dagligleder of TILFELDIG SUBTIL APE)](../../guides/enduser/#guide-for-end-user-stadig-konsert-dagligleder-of-tilfeldig-subtil-ape)
+3. [End User For Client Delegation (DRESs MINST, Client Administrator for TILBAKEHOLDEN USYMMETRISK TIGER AS)](../../guides/enduser/#guide-for-end-user-dress-minst-client-administrator-for-tilbakeholden-usymmetrisk-tiger-as-)
 
 Once all the users have completed their prerequisite for the system integration, system user is now ready to be used by the third party systems.
 
