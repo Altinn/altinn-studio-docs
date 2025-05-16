@@ -10,6 +10,7 @@ weight: 10
 Altinn Studio is a tool for efficiently realizing digital services. We offer:
 - a web-based tool for creating and testing services (apps) - Altinn Studio Designer
 - a template for services with standard functionality and the ability to add custom functionality
+- utility and client libraries to support app development and access the wider Altinn platform
 - a dedicated Kubernetes-environment for each service owner to run the services (testing and production)
 - a set of common support functions to assist services, e.g., PDF receipt generation, notifications, etc.
 
@@ -32,6 +33,10 @@ Services that typically consist of multiple forms, subprocesses, multiple users,
 \* Although it is possible to create this type of service today, we are working to make it easier to implement this type 
 of service by moving more functionality into the web tool.
 {{% /notice %}}
+
+### Custom app
+
+A Studio app is a fully fledged ASP.NET Core web application, which lets you design and implement anything you need.
 
 ## Altinn Studio is the "connector"
 A form is rarely just data fields to be submitted; more is needed to create a good service – e.g., connection
@@ -77,3 +82,21 @@ channel where questions can be asked.
 We also see that service owners help each other and share experiences across organizations.
 Backlog, user stories, plans, and roadmaps – everything is openly available on GitHub, providing both insight
 and comments.
+
+#### Governance
+
+The Studio product consists of multiple components. 
+Here are core services and libraries that are owned and governed by the Studio team:
+
+* [Studio Designer](https://altinn.studio/)
+  * New features and bugfixes are continuously deployed on a daily basis
+  * Development and work is tracked [in the Altinn/altinn-studio GitHub repository](https://github.com/Altinn/altinn-studio)
+* App libraries - [Altinn.App.Api, Altinn.App.Core](https://github.com/Altinn/app-lib-dotnet) and [the frontend](https://github.com/Altinn/app-frontend-react)
+  * Libraries hosted on NuGet.org. All Studio apps reference these libraries
+  * Versioned using [SemVer 2.0](https://semver.org/). Prereleases consist of `preview` and `rc` (release candidate) stages. When `rc` stage is reached we intend to only do bug fixes and patching until stabilization
+  * Development and work is tracked [in the Altinn/app-lib-dotnet](https://github.com/Altinn/app-lib-dotnet) and [Altinn/app-frontend-react](https://github.com/Altinn/app-frontend-react) GitHub repositories
+* Localtest - [local copy of core Altinn platform APIs](https://github.com/Altinn/app-localtest)
+  * New features and bugfixes are continuously deployed as needed
+  * Development and work is tracked [in the Altinn/app-localtest GitHub repository](https://github.com/Altinn/app-localtest)
+
+The apps themselves are owned and operated by the owning organisation.
