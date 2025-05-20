@@ -1,6 +1,6 @@
 ---
 title: Kom i gang systemleverandør
-linktitle: Kom i gang systemleverandør
+linktitle: Systemleverandør
 description: "Systemleverandør: tilbyr sluttbrukersystem som håndterer mottak og lagring av Altinn Melding, gjennom en maskin-til-maskin-integrasjon."
 tags: []
 toc: false

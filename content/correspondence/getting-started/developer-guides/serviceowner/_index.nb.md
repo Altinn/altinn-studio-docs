@@ -1,6 +1,6 @@
 ---
 title: Kom i gang tjenesteeier
-linktitle: Kom i gang tjenesteeier
+linktitle: Tjenesteeier
 description: "Tjenesteeier: en offentlig virksomhet som har inngått en avtale for å konfigurere og forvalte tjenester i Altinn, for eksempel en meldingstjeneste."
 tags: []
 toc: false
@@ -60,6 +60,8 @@ Bruk Samarbeidsportalen for selvbetjent registrering. Følg den detaljerte guide
 
 - [Testmiljøer](https://sjolvbetjening.test.samarbeid.digdir.no/)
 - [Produksjonsmiljø](https://sjolvbetjening.samarbeid.digdir.no/)
+
+En guide for hvordan man sette opp en maskinporten klient i selvbetjeningsportalen
 
 **Merk**: Ressurspolicyen på ressursen din må ha tildelt de nødvendige scopene til organisasjonen som Maskinporten-klienten(e) din er registrert på.
 
