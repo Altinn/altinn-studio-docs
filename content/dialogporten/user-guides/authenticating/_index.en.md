@@ -63,7 +63,7 @@ The following general steps must be performed in order to access the end-user AP
 For detailed steps on how to create and utilize a system user, see the link below.
 
 **Read more**
-* [Authenticating with system users]({{<ref "../../../authentication/guides/systemvendor/systemauthentication-for-systemproviders/">}})
+* [Authenticating with system users]({{<ref "../../../authentication/guides/systemvendor/">}})
 
 {{<children />}}
 

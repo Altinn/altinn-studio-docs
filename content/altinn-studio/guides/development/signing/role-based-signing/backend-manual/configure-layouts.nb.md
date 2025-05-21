@@ -75,8 +75,8 @@ Eksempel på bruk av komponentene:
       }
     },
     {
-      "id": "signing-state",
-      "type": "SigningStatusPanel"
+      "id": "signing-actions",
+      "type": "SigningActions"
     }
   ]
   }

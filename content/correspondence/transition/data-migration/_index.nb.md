@@ -74,6 +74,8 @@ Dette så det blir mulig for SluttbrukereSystemer å konsumere de ferske migrert
 
 Det vil være en 2-veis synkronisering av hendelser og statusendringer på meldinger mellom Altinn 2 og 3 etter at migrering er utført slik at dette holdes à jour.
 
+Denne løsningen refereres til som "CorrespondenceSync", mer er under analyse per nå, mer detaljer kommer senere.
+
 Eksisterende status/historikk blir migrert over i steg 1, men blir fortløpende synkronisert etterhvert som det inntreffer.
 
 ## Teknisk implementasjon
