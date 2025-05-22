@@ -96,7 +96,7 @@ using Altinn.Platform.Storage.Interface.Models;
 
 namespace Altinn.App.Core;
 
-internal sealed class ValidateInstanstiation(IAuthenticationContext authenticationContext) : IInstantiationValidator
+internal sealed class ValidateInstantiation(IAuthenticationContext authenticationContext) : IInstantiationValidator
 {
     public Task<InstantiationValidationResult?> Validate(Instance instance)
     {

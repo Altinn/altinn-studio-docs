@@ -16,7 +16,7 @@ the vendors system and the app. There are mainly two ways to create this integra
   * From the apps perspective, this is a normal flow (there are authenticated end-users)
   * Suitable for systems where contact with the end-user is important, there is a low degree of automation, and the integration flow is fully user-driven.
 * System user
-  * [Vendor creates Maskinporten client](https://docs.altinn.studio//authentication/getting-started/maskinportenclient/)
+  * [Vendor creates Maskinporten client](/authentication/getting-started/maskinportenclient/)
   * Vendor creates a system in the system registry of Altinn Authorization (in the system definition, you specify the need for access to resources, e.g., an app)
   * Customer registers a system user. The rights are then delegated.
   * Vendor authenticates with Maskinporten client

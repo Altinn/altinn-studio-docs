@@ -8,7 +8,7 @@ toc: true
 Sluttbrukersystemer (SBS) er systemer utviklet av leverandører som forenkler innsending til Altinn for sine kunder.
 Denne guiden går gjennom konsepter og modeller som er relevante for integrasjon mellom en Altinn Studio app og sluttbrukersystemer.
 Ved integrasjon av sluttbrukersystem mot en Altinn Studio app så brukes maskin-til-maskin kommunikasjon mellom
-leverandørens system og appen. Det er i hovedsak 2 måter å lage denne intregrasjonen på:
+leverandørens system og appen. Det er i hovedsak 2 måter å lage denne integrasjonen på:
 
 * ID-porten klient med innveksling av token
   * Leverandør av sluttbrukersystemet lager en ID-porten klient og legger til de scopes som kreves i appen (f. eks. `altinn:instances.read` og `altinn:instances.write`)
@@ -16,7 +16,7 @@ leverandørens system og appen. Det er i hovedsak 2 måter å lage denne intregr
   * Fra appens perspektiv er det vanlig flyt (det er autentiserte sluttbrukere)
   * Egner seg godt for systemer der kontakt med sluttbruker er viktig, det er liten grad av automasjon og flyten i integrasjonen er fullstendig brukerstyrt.
 * Systembruker
-  * [Leverandør lager Maskinporten klient](https://docs.altinn.studio//authentication/getting-started/maskinportenclient/)
+  * [Leverandør lager Maskinporten klient](/nb/authentication/getting-started/maskinportenclient/)
   * Leverandør lager system i systemregisteret til Altinn Autorisasjon (i systemdefinisjonen uttrykker man behov for tilgang til ressurser, f. eks. en app)
   * Kunde registrerer systembruker. Dermed blir rettighetene delegert.
   * Leverandør autentiserer med Maskinporten klient
@@ -26,11 +26,11 @@ leverandørens system og appen. Det er i hovedsak 2 måter å lage denne intregr
 
 ## Integrasjon med ID-porten
 
-Ved ingrasjon fra sluttbrukersystem basert på ID-porten klient har man alltid direkte kontakt med sluttbruker.
+Ved integrasjon fra sluttbrukersystem basert på ID-porten klient har man alltid direkte kontakt med sluttbruker.
 Når sluttbruker logger inn i sluttbrukersystem via ID-porten vil sluttbruker måtte godta at systemet gjør 
 `altinn:instances.read` og `altinn:instances.write` på vegne av brukeren (gitt at disse scopene er registrert i ID-porten klienten).
 Tokenet må deretter [veksles i Altinn Autorisasjon](/nb/api/authentication/spec/).
-Dette Altinn-tokenet kan deretter brukes til å sende inn skjema in en Altinn app på vegne av brukeren.
+Dette Altinn-tokenet kan deretter brukes til å sende inn skjema i en Altinn app på vegne av brukeren.
 
 {{% notice info %}}
 Scopene `altinn:instances.read` og `altinn:instances.write` er ikke tjenesteeier- eller app-spesifikke.
@@ -183,7 +183,7 @@ Merk at det er få steg for tjenesteeier å utføre her, men det er likevel vikt
 * Miljø: **tt02**
 
 I dette eksempelet vil Fiken automatiske sende inn årsregnskap på slutten av året basert på det regnskapet som er oppført i deres systemer av kunden.
-Denne innsendingen skjer helt automatisk, men sluttbruker hos kunden må fortsatt inn og signere årsregnskapet etter at det er ferdig fyllt inn i `årsregnskap`.
+Denne innsendingen skjer helt automatisk, men sluttbruker hos kunden må fortsatt signere årsregnskapet etter at det er ferdig utfylt i `årsregnskap`.
 Vi skal nå sette opp denne integrasjonen helt fra start.
 
 [Mer dokumentasjon rundt systembruker-flyt for SBS finner du her](/nb/authentication/guides/systemvendor/).

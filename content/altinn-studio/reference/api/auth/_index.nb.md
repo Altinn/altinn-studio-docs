@@ -41,8 +41,8 @@ Altinn Autorisasjon støtter forskjellige type brukere, som er viktig å tenke p
 {{% notice warning %}}
 Virksomhetsbrukere fra Altinn 2 er bare delvis støttet i Altinn 3. Autentisering og autorisasjon vil fungere, men det kan være
 mangler i andre deler av plattformen. Virksomhetsbrukere blir klassifisert som `Organisasjon` fra listen over.
-Det er ingen innebygd sperre for disse brukerne, så du vil blokkere requests fra virksomhetsbrukere i deres app
-må dette gjøres manuelt. Dette kan for eksempel gjøres ved hjelp av ASP.NET Core middleware.
+Det finnes ingen innebygd sperrefunksjon for disse brukerne. Hvis du ønsker å blokkere requests fra virksomhetsbrukere i appen, 
+må du gjøre dette manuelt, for eksempel ved hjelp av ASP.NET Core middleware.
 {{% /notice %}}
 
 ## Informasjon i appen
@@ -96,7 +96,7 @@ using Altinn.Platform.Storage.Interface.Models;
 
 namespace Altinn.App.Core;
 
-internal sealed class ValidateInstanstiation(IAuthenticationContext authenticationContext) : IInstantiationValidator
+internal sealed class ValidateInstantiation(IAuthenticationContext authenticationContext) : IInstantiationValidator
 {
     public Task<InstantiationValidationResult?> Validate(Instance instance)
     {
