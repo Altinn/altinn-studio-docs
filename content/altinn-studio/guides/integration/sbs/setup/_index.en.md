@@ -256,12 +256,12 @@ Content-Type: application/json
   },
   "Name": {
     "en": "Fiken",
-    "en": "Fiken",
+    "nb": "Fiken",
     "nn": "Fiken"
   },
   "Description": {
     "en": "Fiken Accounting",
-    "en": "Fiken Regnskap",
+    "nb": "Fiken Regnskap",
     "nn": "Fiken Regnskap"
   },
   "Rights": [
