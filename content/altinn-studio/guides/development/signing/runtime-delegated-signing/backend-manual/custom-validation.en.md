@@ -6,6 +6,8 @@ You can use the default validator as mentioned in step 2. It verifies that the n
 `minCount` set in the data model configuration. Custom validation can be set up by implementing the `IValidator` or `ITaskValidator`
 interface as described in [How to add custom validation](https://docs.altinn.studio/altinn-studio/reference/logic/validation/#server-side-validation).
 
+Note that if you configure the app to execute the sign action on the process next call, the [action will be done before the validation](https://docs.altinn.studio/altinn-studio/reference/logic/validation/#server-side-validation).
+
 A fictitious example is a validator which verifies that at minimum one signature is done on behalf of an organisation:
 
 ```csharp
