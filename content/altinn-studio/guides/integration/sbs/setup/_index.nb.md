@@ -173,7 +173,7 @@ La oss gå gjennom et konkret eksempel for SBS basert på systembruker-integrasj
 
 {{% notice info %}}
 Dette er et fiktivt eksempel, men vi bruker et kjent system, tjenesteeier og skjema for å gjøre eksempelet mer relaterbart.
-Merk at det er få steg for tjenesteeier å utføre her, men det er likevel viktig at tjenesteeier har kjennskap til prossessen.
+Merk at det er få steg for tjenesteeier å utføre her, men det er likevel viktig at tjenesteeier har kjennskap til prosessen.
 {{% /notice %}}
 
 * Systemet: **Fiken AS (913312465)**
@@ -182,7 +182,7 @@ Merk at det er få steg for tjenesteeier å utføre her, men det er likevel vikt
 * Kunden: **Sindig Oriental Tiger AS (313725138)**
 * Miljø: **tt02**
 
-I dette eksempelet vil Fiken automatiske sende inn årsregnskap på slutten av året basert på det regnskapet som er oppført i deres systemer av kunden.
+I dette eksempelet vil Fiken automatisk sende inn årsregnskap på slutten av året basert på det regnskapet som er oppført i deres systemer av kunden.
 Denne innsendingen skjer helt automatisk, men sluttbruker hos kunden må fortsatt signere årsregnskapet etter at det er ferdig utfylt i `årsregnskap`.
 Vi skal nå sette opp denne integrasjonen helt fra start.
 
