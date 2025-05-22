@@ -8,7 +8,7 @@ toc: true
 End-user systems (SBS) are systems developed by vendors to simplify submissions to Altinn for their customers.
 This guide covers concepts and models relevant for integration between an Altinn Studio app and end-user systems.
 When integrating an end-user system with an Altinn Studio app, machine-to-machine communication is used between
-the vendors system and the app. There are mainly two ways to create this integration:
+the vendor's system and the app. There are mainly two ways to create this integration:
 
 * ID-porten client with token exchange
   * The vendor of the end-user system creates an ID-porten client and adds the scopes required by the app (e.g., `altinn:instances.read` and `altinn:instances.write`)
