@@ -9,11 +9,6 @@ weight: 40
 
 {{<children />}}
 
-{{% notice warning  %}}
-For øyeblikket er hendelsene for Formidling ikke klare for fullskala bruk, på grunn av kommende endringer i Altinn Events og Autorisasjon.
-Dette dokumenterer det forventede scenarioet, men kan endres.
-{{% /notice %}}
-
 For å bruke hendelser/webhooks for en formidlingstjeneste, må du sette opp et abonnement for den gitte ressursen.
 Dette abonnementet brukes til å konfigurere endepunktet der hendelsene som publiseres av megleren havner. [Du kan lese mer om hvordan du setter opp et hendelsesabonnement i Altinn Events her](/events/subscribe-to-events/developer-guides/setup-subscription/).
 
