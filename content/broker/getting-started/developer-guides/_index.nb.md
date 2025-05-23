@@ -9,18 +9,13 @@ weight: 20
 
 {{<children />}}
 
-{{% notice warning  %}}
-Denne delen av dokumentasjonen er under arbeid.
-Det er seksjoner med manglende eller bare delvis dokumentasjon.
-{{% /notice %}}
-
 Siden Altinn Formidling er åpen kildekode, kan du få tilgang til koden vår i [vårt offentlige GitHub-repo](https://github.com/Altinn/altinn-broker) og bygge en lokal Docker-instans for å teste mot.
 
 Vi ønsker bidrag til løsningen velkommen.
 
 Se [Readme-filen på GitHub](https://github.com/Altinn/altinn-broker/blob/main/README.md) for en introduksjon til Altinn 3 Formidling, og hvordan du bygger og kjører den i din utviklermiljø.
 
-Repoet inneholder også en [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json) med eksempler.
+Repoet inneholder også en [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json) med eksempler.
 
 Swagger for filoverførings-APIet er vert [her](/api/broker/spec/).
 

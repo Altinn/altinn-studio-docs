@@ -21,7 +21,7 @@ Radioknapper brukes ofte i skjemaer for å samle input fra brukeren der de må v
 
 ### Anatomi
 
-![Anatomi RadioButtons](RadioButtons-anatomy.png)
+<iframe style="border: 0px solid rgba(0, 0, 0, 0.1);" width="100%" height="100%" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/Link-fra-Figma-til-Docs?page-id=0%3A1&node-id=1-45753&viewport=-2494%2C-11061%2C1.8&scaling=contain&content-scaling=responsive&starting-point-node-id=1%3A45753&show-proto-sidebar=0&embed-host=share&hide-ui=true" allowfullscreen></iframe>
 
 {{% anatomy-list %}}
 1. **Overskrift** - Spørsmål eller instruksjon.

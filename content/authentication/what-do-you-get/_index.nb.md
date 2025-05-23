@@ -1,69 +1,63 @@
 ---
-title: Hva får du?
+title: Autentisering
 linktitle: Hva får du?
-description: The authentication component provides functionality to authenticate users and systems accessing Altinn Apps and Altinn platform.
+description: Autentiseringskomponenten tilbyr funksjonalitet for å autentisere brukere og systemer som får tilgang til Altinn Apps og Altinn-plattformen.
 tags: [platform, authentication]
 toc: true
 weight: 2
 ---
 
-The authentication component is not an ID-provider and only create authentication sessions based on external ID-providers.
+## Tokenutveksling for Altinn-portalen
+Når en bruker logger inn i Altinn-portalen (gammel løsning), utstedes en informasjonskapsel (cookie) som inneholder informasjon om den autentiserte brukeren. Denne informasjonskapselen bruker [et proprietært format for ASP.NET](https://support.microsoft.com/en-us/help/301240/how-to-implement-forms-based-authentication-in-your-asp-net-applicatio) (Full rammeverk)
+og kan kun tolkes av applikasjoner bygget på .NET Framework som har tilgang til den symmetriske krypteringsnøkkelen.
 
-The authentication component creates JWT tokens with claims about user and system.
-The claims are based on the authentication information coming from the ID-providers.
+Altinn-plattformen er basert på ASP.NET Core og kan ikke tolke informasjonskapselen.
 
-## Token exchange for Altinn Portal
-When a user logs in to the Altinn Portal (Legacy Solution) it gets a Cookie containing information about the logged-in user. This cookie is
-a [propiaritary format for ASP.NET](https://support.microsoft.com/en-us/help/301240/how-to-implement-forms-based-authentication-in-your-asp-net-applicatio) (Full Framework)
-and can only be understood with application based on .NET Framework having access to the symmetric encryption key.
+For å gi en bruker tilgang til en app i Altinn Apps eller en komponent i Altinn-plattformen, vil den nåværende plattformen eksponere et API som kan dekryptere en ASP.NET-informasjonskapsel og returnere brukerinfo til autentiseringskomponenten i Altinn-plattformen.
 
-The Altinn Platform is based on .ASP.NET Core and can`t understand the cookie.
+## Tokenutveksling for Maskinporten
+Organisasjoner autentisert i Maskinporten kan bytte sitt JWT mot et gyldig Altinn-plattform JWT, som deretter kan brukes til å få tilgang til Altinn Apps og Altinn-plattformen.
 
-To allow for a user accessing an App in Altinn Apps or a component in Altinn Platform the current platform will
-expose an API that can decrypt an ASP.NET cookie and return user information to the Authentication component in Altinn Platform.
+## Tokenutveksling for ID-porten
+Sluttbrukere autentisert gjennom ID-porten kan bytte sitt JWT mot et gyldig Altinn-plattform JWT, som deretter kan brukes til å få tilgang til Altinn Apps og Altinn-plattformen.
 
-## Token exchange for maskinporten
-Organizations authenticated in maskinporten can exchange their JWT token for a valid Altinn Platform JWT token to be used against Altinn Apps and Altinn Platform.
+Løsningen er tilgjengelig på https://platform.altinn.cloud/authentication/api/v1. 
 
-## Token exchange for ID-porten
-End users authenticated through ID-porten can exchange their JWT token for a valid Altinn Platform JWT token to be used agains Altinn Apps and Altinn Platform.
-
-
-The solution is available at https://platform.altinn.cloud/authentication/api/v1. 
-
-## Authenticate user
-The authentication resource enables authenticating a user and redirecting it to another Altinn-url. 
-If the user is not authenticated already it will be sent to the login page before redirecting the user to its final destination {url}.
+## Autentiser bruker
+Autentiseringsressursen muliggjør autentisering av brukeren og videresender brukeren til en annen Altinn-URL. Hvis brukeren ikke allerede er autentisert, vil de bli sendt til innloggingssiden før de blir videresendt til sin endelige destinasjon på {url}.
 
 ```http
 GET /authentication?goto={url}
 ```
 
-## Refresh a valid JwtToken
+## Oppdater et gyldig JWT
 
 ```http
 GET /refresh
 ```
 
-## Exchange a JWT token from an external token provider
+## Bytt et JWT fra en ekstern tokenleverandør
 
 Accepted providers include: `maskinporten` and `id-porten`.
 Request must include a bearer token in the authorization header.
 Set test equal to true if retrieving a token for Testdepartementet.
-(This ony works with maskinporten as the token provider.)
+(This only works with maskinporten as the token provider.)
+
+Godkjente leverandører inkluderer: `Maskinporten` og `id-porten`.
+Forespørselen må inkludere et bearer-token i autorisasjonsheaderen.
+
+Sett parameteren test til true hvis du henter et token for Testdepartementet.
+(Bemerk: Dette fungerer kun med Maskinporten som tokenleverandør.)
 
 {{%notice info%}}
-A token from id-porten contains both an id-token and and access-token. 
-Only the access token it to be exhanged using this endpoint.
+Et token fra ID-porten inneholder både et ID-token og et access-token. Kun access-token skal byttes ved hjelp av dette endepunktet.
 {{% /notice%}}
 
 ```http
 GET /exchange/{tokenProvider}?test={bool}
 ```
 
+## Arkitektur
 
-
-## Architecture
-
-The [application construction components](/authentication/reference/architecture/)
-for details how this component is constructued.
+Se [applikasjonsutvikling komponenter](/authentication/reference/architecture/)
+For detaljer om hvordan denne komponenten er konstruert.

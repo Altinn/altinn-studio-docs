@@ -45,6 +45,8 @@ It is also possible to get a [preview](#preview-in-the-browser) of what the PDF 
 This method is used by default unless you specify a [custom PDF layout file](#custom-layout-configuration).
 This method extracts all of your pages and components in the order they appear, and displays them in the PDF document.
 
+**NOTE**: This method does not include any summary components from your layout files.
+
 ### Excluding pages and components
 
 Often, you will need to exclude certain pages or components that are not relevant to the PDF document.
@@ -306,7 +308,58 @@ It is possible to get a preview of what the generated PDF will look like in the 
 2. Start your app locally or open your app in the test environment, and start an instance.
 3. Open the developer tools by clicking the button in the bottom right corner, or use the keyboard shortcut `Ctrl+Shift+K`/`⌘+Shift+K`.
    <br><br>
-   ![The button that opens the developer tools, screenshot](dev-tools-button.png) 
+   ![The button that opens the developer tools, screenshot](dev-tools-button.png)
 4. Click the `Forhåndsvis PDF` (Preview PDF) button in the developer tools panel.
    <br><br>
-   ![Developer tools, screenshot](preview-button.png) 
+   ![Developer tools, screenshot](preview-button.png)
+
+## PDF footer
+
+{{%notice warning%}}
+
+This feature is only compatible wth version 8.3.8 and higher.
+
+{{% /notice%}}
+
+### Prerequisites
+
+In order to use the PDF footer feature, your application needs to add support for globalization timezones.
+This is done by adding the following lines to the `Dockerfile`:
+
+```Dockerfile
+  # Add globalization timezone support
+  RUN apk add --no-cache icu-libs tzdata
+  ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
+```
+
+The lines must be added after the "FROM" section ending with "AS final".
+
+### Configuration
+
+You can add a footer to the generated PDF by adding `"DisplayFooter": true` to the `PdfGeneratorSettings`
+section in the `appsettings.json` file.
+
+```json
+  "PdfGeneratorSettings": {
+    "DisplayFooter": true
+  }
+```
+
+### Content
+
+The footer will contain the following information:
+
+- The name of the app
+- The name of the organization
+- The date and time the PDF was generated
+- The Altinn reference ID
+- The page number
+
+   ![PDF footer example](pdf-footer-example.png)
+
+## Prototype PDF in Figma 
+
+If you want to test and set up your PDF, you can do it here:  
+[Altinn Studio Komponenter](https://www.figma.com/community/file/1344307804742953785/altinn-studio-komponenter).
+ 
+Note that the example is not identical to the actual code but has been adapted to create prototypes in Figma.

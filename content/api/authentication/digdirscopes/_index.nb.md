@@ -9,6 +9,8 @@ description: Listen nedenfor viser alle scopes kontrollert av DigDir i ID-porten
 |---- |                                        -------------------------|  --------------------------|
 |altinn:appdeploy                             |{maskinporten}                               |    3600|
 |altinn:appdeploy                             |{maskinporten}                               |    3600
+|altinn:broker.write                          |{maskinporten}                               |    3600
+|altinn:broker.read                           |{maskinporten}                               |    3600
 |altinn:brokerservice.read                    |{maskinporten, api_klient}                   | 7776000
 |altinn:brokerservice.read                    |{maskinporten, api_klient}                   | 7776000
 |altinn:brokerservice.write                   |{maskinporten, api_klient}                   | 7776000
@@ -19,6 +21,8 @@ description: Listen nedenfor viser alle scopes kontrollert av DigDir i ID-porten
 |altinn:consentrequests.write                 |{maskinporten}                               |    3600
 |altinn:consenttokens                         |{maskinporten}                               |    3600
 |altinn:consenttokens                         |{maskinporten}                               |    3600
+|altinn:correspondence.write                  |{maskinporten}                               |    3600
+|altinn:correspondence.read                   |{maskinporten}                               |    3600
 |altinn:dataaltinnno                          |{maskinporten}                               |    3600
 |altinn:dataaltinnno                          |{maskinporten}                               |    3600
 |altinn:dataaltinnno/advregbulk               |{maskinporten}|

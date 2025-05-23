@@ -5,6 +5,7 @@ description: Altinn 3 Correspondence Advanced Use Cases
 tags: []
 toc: true
 weight: 60
+hidden: true
 ---
 
 {{<notice warning>}} <!-- info -->

@@ -12,7 +12,7 @@ In order to receive events in the application you need create a subscription. Wh
 {{% notice warning %}}
 You should first make sure you have a client definition registered in Maskinporten for your application. See [Authenticating with Maskinporten](/api/authentication/maskinporten) on how register a client.<br><br>
 
-Currently the localtest environment does not support generating inbound events for an app. In order to do this you need use tools like Postman or REST Client in VS Code to send a request to the applicaionts event endpoint. 
+Currently the localtest environment does not support generating inbound events for an app. In order to do this you need use tools like Postman or REST Client in VS Code to send a request to the application's event endpoint. 
 {{% /notice %}}
 
 
@@ -40,7 +40,7 @@ Depending on what type of ClientDefinition you use you typically need to specify
 
 ```json
   "MaskinportenSettings": {
-    "Environment": "ver2",
+    "Environment": "test",
     "ClientId": "",
     "CertificatePkcs12Path": "",
     "CertificatePkcs12Password": ""
@@ -123,5 +123,5 @@ namespace Altinn.App.Core.EFormidling
 
 ```
 {{% notice theme="warning"  %}}
-If the hosted service fail to run successfully, ie. throws an exception, the application will fail to start. If you don't won't this behavior you should catch any exception and don't rethrow it.
+If the hosted service fails to run successfully, i.e. throws an exception, the application will fail to start. If you don't want this behaviour you should catch any exception and not rethrow it.
 {{% /notice %}}

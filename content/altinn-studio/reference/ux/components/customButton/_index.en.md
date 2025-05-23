@@ -12,6 +12,7 @@ toc: true
 yet, and must be configured manually in the JSON files.
 {{% /panel %}}
 
+
 ## Introduction
 
 The `CustomButton` component provides a way to define custom behaviour tied to the clicking of a button.
@@ -20,6 +21,13 @@ are separated into two types: `ClientActions` and `ServerActions`. The `ClientAc
 and have predefined functionality such as navigating to a new page. The `ServerActions` are executed on the server-side,
 and have entirely custom functionality that you define yourself. The `ServerActions` can also return a list of `ClientActions`
 which execute after the server-side action has finished.
+
+## Anatomy
+<!-- Brief description of the component and how it is used. -->
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="280" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=113-7792&viewport=-814%2C659%2C1.32&scaling=contain&content-scaling=responsive&starting-point-node-id=113%3A7792&show-proto-sidebar=0&embed-host=share" allowfullscreen></iframe>
+
+This example is taken from <a href="https://www.figma.com/community/file/1344307804742953785/altinn-studio-komponenter" target="_blank">Altinn Studio Komponenter</a>. Note that the example is not identical to the actual code but has been adapted to create prototypes in Figma.
+
 
 ## ClientActions
 
@@ -68,13 +76,40 @@ The object `metadata` will be passed to the function as an argument. This is how
 }
 ```
 
+A client action exists for the purpose of closing a subform. You can add the option to validate before exiting. A standard
+use case would be to have two buttons in the subform, e.g. **Exit** and **Done**, where **Exit** would not validate. This
+will allow the user to return to the main form without having to fill out the subform. Here is how you would add a button
+with this action:
+
+```json
+{
+  "id": "close-subform-done",
+  "type": "CustomButton",
+  "textResourceBindings": {
+    "title": "custom-button-title"
+  },
+  "actions": [
+    {
+      "type": "ClientAction",
+      "id": "closeSubform",
+      // Validation is optional
+      "validation": {
+        "page": "all",
+        "show": ["All"]
+      }
+    }
+  ]
+}
+```
+
 These are the available `ClientActions`:
 
-| Function name    | Parameters         | Behavior                                         |
-| ---------------- | ------------------ | ------------------------------------------------ |
-| `nextPage`       | -                  | Will navigate to the next page, if it exists     |
-| `previousPage`   | -                  | Will navigate to the previous page, if it exists |
-| `navigateToPage` | `{ page: string }` | Navigates to the specified page if it exists     |
+| Function name    | Parameters          | Behavior                                         |
+| ---------------- | ------------------- | ------------------------------------------------ |
+| `nextPage`       | -                   | Will navigate to the next page, if it exists     |
+| `previousPage`   | -                   | Will navigate to the previous page, if it exists |
+| `navigateToPage` | `{ page: string }`  | Navigates to the specified page if it exists     |
+| `closeSubform`   | optional validation | Closes the subform and returns to the main form  |
 
 ## ServerActions
 
@@ -167,7 +202,8 @@ and before the next action in the list is executed. You can chain as many action
 ## Instructions for Adding serverAction to Desired Process Step
 
 1. Adding serverAction to "Task_1" in the process.bpmn file:
-Open the process.bpmn file and add serverAction to the desired process step, such as "Task_1":
+   Open the process.bpmn file and add serverAction to the desired process step, such as "Task_1":
+
    ```xml
     <bpmn:task id="Task_1" name="Utfylling">
       <bpmn:incoming>SequenceFlow_1n56yn5</bpmn:incoming>
@@ -183,9 +219,8 @@ Open the process.bpmn file and add serverAction to the desired process step, suc
     </bpmn:task>
    ```
 
-
 2. Adding serverAction id to desired step in the policy.xml file:
-Navigate to the policy.xml file to add the serverAction id to the desired step, such as "Task_1":
+   Navigate to the policy.xml file to add the serverAction id to the desired step, such as "Task_1":
 
    ```xml
         <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">

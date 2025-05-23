@@ -1,0 +1,154 @@
+{
+    "identifier": "svv-dinside-sample",
+    "title": {
+        "en": "Your Page - Norwegian Public Roads Administration",
+        "nb": "Din Side - Statens vegvesen",
+        "nn": "Di Side - Statens vegvesen"
+    },
+    "description": {
+        "en": "The services can be used by individuals, businesses, and other organizations.",
+        "nb": "Din side gir deg tilgang til våre selvbetjeningsløsninger. Tjenestene kan brukes av privatpersoner, bedrifter og andre organisasjoner.",
+        "nn": "Tenestene kan brukast av privatpersonar, bedrifter og andre organisasjonar."
+    },
+    "rightDescription": {
+        "nb": "Du kan bruke tjenester fra Statens vegvesen på Din side på vegne av en virksomhet. Det forutsetter at du har fått tilgang til tjenestene i Altinn."
+    },
+    "homepage": "https://www.vegvesen.no/dinside/",
+    "status": "Completed",
+    "isPartOf": "",
+    "delegable": true,
+    "visible": true,
+    "hasCompetentAuthority": {
+        "organization": "971032081",
+        "orgcode": "SVV",
+        "name": {
+            "en": "The Norwegian Public Roads Administration",
+            "nb": "Statens vegvesen",
+            "nn": "Statens vegvesen"
+        }
+    },
+    "keywords": [],
+    "LimitedByRRR": false,
+    "SelfIdentifiedUserEnabled": false,
+    "EnterpriseUserEnabled": false,
+    "resourceType": "MaskinportenSchema",
+    "AvailableForType": [
+        "LegalEntityEnterprise",
+        "Company",
+        "Company"
+    ],
+    "subResurces": [
+        {
+            "title": {
+                "en": "Driver's License",
+                "nb": "Førerkort",
+                "nn": "Førarkort"
+            },
+            "description": {
+                "en": "Possibility to order a driver's license.",
+                "nb": "Mulighet til å bestille førerkort.",
+                "nn": "Moglegheit til å bestille førarkort."
+            },
+            "rightDescription": {
+                "nb": "Du kan bruke tjenester fra Statens vegvesen på Din side på vegne av en virksomhet. Det forutsetter at du har fått tilgang til tjenestene i Altinn."
+            },
+            "resourceAttributes": [
+                {
+                    "type": "urn:svv:dinsidearea",
+                    "value": "forerkort"
+                }
+            ]
+        },
+        {
+            "title": {
+                "en": "Driver's License",
+                "nb": "Salgsmelding",
+                "nn": "Førarkort"
+            },
+            "description": {
+                "en": "Possibility to order a driver's license.",
+                "nb": "En salgsmelding er kun en melding til Statens vegvesen om at kjøretøyet har skiftet eier. Vi trenger bare én salgsmelding fra enten kjøper eller selger. Vi anbefaler at det alltid skrives en kjøpekontrakt ved kjøp og salg av kjøretøy.",
+                "nn": "Moglegheit til å bestille førarkort."
+            },
+            "rightDescription": {
+                "nb": "Du kan bruke tjenester fra Statens vegvesen på Din side på vegne av en virksomhet. Det forutsetter at du har fått tilgang til tjenestene i Altinn."
+            },
+            "resourceAttributes": [
+                {
+                    "type": "urn:svv:dinsidearea",
+                    "value": "forerkort"
+                }
+            ]
+        },
+        {
+            "title": {
+                "nb": "Eierskifte av kjøretøy"
+            },
+            "description": {
+                "nb": "bla bla bla"
+            },
+            "rightDescription": {
+                "nb": "bla bla bla"
+            },
+            "resourceAttributes": [
+                {
+                    "type": "urn:svv:dinsidearea",
+                    "value": "eierskifte"
+                }
+            ]
+        },
+        {
+            "title": {
+                "nb": "Omregistrering av kjøretøy"
+     
+            },
+            "description": {
+                "nb": "Omregistrering av kjøretøy."
+            },
+            "rightDescription": {
+                "nb": "Omregistrering av kjøretøy"
+            },
+            "resourceAttributes": [
+                {
+                    "type": "urn:svv:dinsidearea",
+                    "value": "omregistrering"
+                }
+            ]
+        },
+        {
+            "title": {
+
+                "nb": "MinSide Autopass"
+            },
+            "description": {
+                "nb": "MinSide Autopass"
+            },
+            "rightDescription": {
+                "nb": "MinSide Autopass"
+            },
+            "resourceAttributes": [
+                {
+                    "type": "urn:svv:dinsidearea",
+                    "value": "autopass"
+                }
+            ]
+        },
+        {
+            "title": {
+                "nb": "Tap av vognkort"
+               },
+            "rightDescription": {
+                "nb": "Tjenesten Tap av vognkort fra Statens vegvesen er for bileiere som har mistet vognkortet sitt eller fått det ødelagt. Vognkortet er kjøretøyets registreringsdokument, og det består av to deler: Del 1 (som skal oppbevares i bilen) og Del 2 (som er bevis på eierskap og oppbevares hjemme). Dersom vognkortet går tapt, kan du bestille et nytt gjennom denne tjenesten. Dette kan gjøres digitalt på Statens vegvesen sine nettsider eller ved å oppsøke en trafikkstasjon. For å få nytt vognkort må man være den registrerte eieren av kjøretøyet, og det kreves en avgift for utstedelse av erstatningsvognkort."
+            },
+            "description": {
+                "nb": "Tap av vognkort"
+            },
+            "resourceAttributes": [
+                {
+                    "type": "urn:svv:dinsidearea",
+                    "value": "tapvognkort"
+                }
+            ]
+        }
+    ]
+}

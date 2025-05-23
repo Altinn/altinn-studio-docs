@@ -1,110 +1,35 @@
 ---
-title: AttachmentList
+title: AttachmentList (Liste over vedlegg)
 linktitle: AttachmentList
-description: # Kort beskrivelse av komponenten
-schemaname: AttachmentList # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
+description: Viser en liste over alle (eller noen) vedlegg som er lastet opp i skjemaet, for den oppgaven de jobber på.
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk
 toc: true
 ---
 
-<!-- HVORDAN BRUKE DENNE MALEN
-- Les kommentarer under hver seksjon for veiledning.
-- Slett kommentarer og deler av innholdet som ikke er relevant.
-- Gi norsk navn til title og linktitle i frontmatter
-- Når dokumentasjonen er klar til å publiseres, fjern "hidden: true" fra frontmatter
-- Hvis dokumentasjonen er fullstendig, fjern advarsel om at den er under oppdatering.
-
-FELLES EGENSKAPER
-Dokumentasjon for egenskaper som er felles for flere komponenter oppdateres i egne filer og legges til via shortcode.
-Legg til dokumentasjon: Bruk shortcode `property-docs` med hakeparenteser (`< >`) og argument `prop="{propName}"`. `propName` må samsvare med filnavn (som bør samsvare med JSON-skjema-navn).
-Oppdatere/opprette dokumentasjon:
-- Filer, maler og instruksjoner ligger under components/_common-props-content
-- Bilder legges i /assets/images/component-settings og legges til via egen shortcode (`image.html`)
-
-EKSEMPLER
-- Se Image, Checkboxes, RadioButtons og Dropdown. for eksempler.
-
--->
-
-{{% notice warning %}}
-🚧 Denne dokumentasjonen er under oppdatering.
-{{% /notice %}}
-
----
-
 ## Bruk
 
-<!-- Kort beskrivelse av komponenten og hvordan den brukes. -->
+Komponenten `AttachmentList` kan brukes til å vise alle vedlegg som er lastet opp i skjemaet, samt lenke til dem slik at
+brukeren kan laste dem ned. Man kan også begrense komponenten til å bare vise et utvalg vedleggstyper/datatyper.
 
 ### Anatomi
 
-<!-- 
-
-Nummerert skjermbilde av komponenten
-1. Ta et skjermbilde av basis-versjonen av komponenten.
-2. Bruk PowerPoint-filen (components/numbered-callouts-anatomy.pptx) for å legge til nummerering på skjermbildet 
-3. Grupper skjermbilde og nummerering, lagre som bilde og legg det til i dokumentasjonen.
-4. Legg til nummerert liste med beskrivelser, bruk anatomy-list shortcode (se eksempel for format).
-
-Eksempel:
-
-![Eksempel bilde og alt tekst anatomi](../image/image-and-alt-text-en.png)
-
-{{% anatomy-list %}}
-1. **Bilde**: Foto, skjermbilde, illustrasjon, eller grafikk.
-2. **Alternativ tekst**: Brukes av skjermlesere og vises dersom bildet ikke er tilgjengelig.
-{{% /anatomy-list %}} 
-
--->
-
-<!-- 
-Legg til seksjoner dersom de er relevante:
-
-### Oppførsel
-
-(Hvordan komponenten oppfører seg i ulike sammenhenger, f.eks. på mobil vs. desktop)
-
-### Stil
-
-(Visuell styling, e.g. plassering, padding, "dos and don'ts")
-
-### Beste praksis
-
-(Bransjestandarder, "dos and don'ts")
-
-### Veiledning for innhold
-
-(E.g. regler for tegnsetting, standard etiketter, etc.)
-
-### Tilgjengelighet
-
-(Komponent-spesifikk beste praksis for tilgjengelighet.)
-
-### Mobil
-
-(Hvordan implementere komponent i mobile miljøer.)
-
-### Relatert
-
-(Liste over relaterte komponenter, inkluder lenker.)
-
--->
+![AttachmentList](./AttachmentList.png)
 
 ## Egenskaper
 
-Følgende er en liste over tilgjengelige egenskaper for {{% title %}}. Listen er automatisk generert basert på komponentens JSON schema (se link).
+Følgende er en liste over tilgjengelige egenskaper for {{% title %}}.
 
 {{% notice warning %}}
 Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over egenskaper kan derfor være noe unøyaktig.
 {{% /notice %}}
 
-<!-- Shortkoden `component-props` genererer automatisk en liste over komponentegenskaper fra komponentens JSON schema.
-Komponentnavnet kan gis eksplisitt som argument (f.eks. `component-props "Grid"`).
-Hvis ingen argument gis, henter shortkoden komponentnavnet fra 'schemaname' i frontmatter.
-Hvis komponenten ikke har JSON schema, kommenter ut tekst og shortcode i denne delen og lag evt. tabell manuelt med de viktigste egenskapene (kolonner: Egenskap, Type, Beskrivelse).
- -->
-
-{{% component-props %}}
+| **Egenskap**                 | **Type** | **Beskrivelse**                                                                                                                                                            |
+|------------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `id`                         | streng   | Komponent-ID-en. Må være unik innenfor alle oppsett/sider i et oppsett-sett. Kan ikke slutte med <bindestrek><tall>.                                                       |
+| `type`                       | streng   | Må være `AttachmentList`.                                                                                                                                                  |
+| `textResourceBindings.title` | streng   | Ledetekst                                                                                                                                                                  |
+| `dataTypeIds`                | streng[] | Liste over datatyper som skal vises i listen. Hvis ingen datatyper er spesifisert, vises alle vedlegg.                                                                     |
+| `links`                      | boolsk   | Viser lenker til vedleggene i listen. Denne er aktivert som standard. Hvis den blir deaktivert (satt til `false`), vil bare navnene på vedleggene vises sammen med ikoner. |
 
 ## Konfigurering
 
@@ -130,14 +55,18 @@ Grunnleggende komponent:
 App/ui/layouts/{page}.json
 {{< /code-title >}}
 
-```json{hl_lines="6-"}
+```json{hl_lines="6-12"}
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   {
     "data": {
       "layout": [
         {
-          // Basic component (required properties)
+          "id": "myAttachmentList",
+          "type": "AttachmentList",
+          "textResourceBindings": {
+            "title": "Alle vedlegg"
+          }
         }
       ]
     }
@@ -148,42 +77,24 @@ App/ui/layouts/{page}.json
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-<!-- 
-Legg til seksjoner som beskriver konfigurasjonen av egenskaper som er spesifikke for komponenten.
-- Bruk nedenstående shortcode for Designer/Kode-faner for å vise innstillingene.
-- Inkluder skjermbilder og eksempler der det er hensiktsmessig.
-- Hvis innstillingene ikke er tilgjengelige i Altinn Studio, bruk kun fanen for kode og legg til følgende shortcode rett under overskriften til avsnittet:
-    {{% notice info %}}
-    Innstillingene for denne egenskapen er foreløpig ikke tilgjengelig i Altinn Studio og må konfigureres manuelt.
-    {{% /notice %}}
-- Legg til filsti eller annen informasjon inni code-title (vises øverst i kodeblokken).
-- Marker gjerne relevante deler av koden vha hl_lines.
-- Legg til dokumentasjon for felles egenskaper ved å bruke shortcode `property-docs` med hakeparenteser (`< >`) og argument `prop="{propName}"`. `propName` må samsvare med filnavn (som bør samsvare med JSON-skjema-navn).
+### Begrensning av vedleggstyper
 
-Shortcode for faner:
+Man kan begrense komponenten til vise frem et utvalg vedleggstyper/datatyper. Gyldige verdier er:
+- Alle datatyper som definert i `applicationmetadata.json` under `dataTypes`, med unntak av datamodeller (disse regnes aldri som vedlegg)
+- Datatypen `ref-data-as-pdf` (representerer automatisk genererte PDF-filer for et utfylt skjema).
 
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="Altinn Studio Designer">}}
+Eksempel:
 
-{{</content-version-container>}}
-
-{{<content-version-container version-label="Kode">}}
-
-{{< code-title >}}
-App/ui/layouts/{page}.json
-{{< /code-title >}}
-
-```json{hl_lines=""}
+```json{hl_lines="7-10"}
 {
-  // component properties
+  "id": "myAttachmentList",
+  "type": "AttachmentList",
+  "textResourceBindings": {
+    "title": "Noen vedlegg"
+  },
+  "dataTypeIds": [
+    "ref-data-as-pdf",
+    "my-custom-data-type"
+  ]
 }
 ```
-
-{{</content-version-container>}}
-{{</content-version-selector>}}
-
--->
-
-## Eksempler
-
-<!-- Ett eller flere eksempler på konfigurasjon (hvis relevant) -->

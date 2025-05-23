@@ -21,7 +21,7 @@ hverken skjemadata eller metadata om instanser av applikasjonen. Applikasjonen v
 
 Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre.
 
-**MERK:** for å benytte denne funksjonaliteten må man versjon >= 4.5.2 av [nuget-pakkene](../../maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
+**MERK:** for å benytte denne funksjonaliteten må man versjon >= 4.5.2 av [nuget-pakkene](../../../guides/administration/maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
 
 {{% /notice %}}
 
@@ -72,7 +72,7 @@ I feltet `onEntry.show` har du muligheten til å spesifisere et layout-sett som 
 
 Selve layout-settet er definert i konfigurasjonsfilen `App/ui/layout-sets.json`.
  Hvis filen ikke eksisterer, kan du opprette den.
-  Du kan finne mer informasjon om layout-sett [her](/nb/altinn-studio/reference/ux/pages/layout-sets/).
+  Du kan finne mer informasjon om layout-sett [her](/nb/altinn-studio/reference/ux/pages/#oppsett).
 
 Eksempel på layout-sett:
 
@@ -129,7 +129,7 @@ Appens frontend vil lese konfigurasjonen fra `applicationmetadata.json` og forst
 {{%notice warning%}}
 OBS! Skjemakomponenter som påvirker prosess (knapp for innsending eller instansiering) er ikke støttet for anonyme brukere!
 
-**MERK:** for å benytte denne funksjonaliteten må man bruke versjon >= 5.1.0 av [nuget-pakkene](../../maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
+**MERK:** for å benytte denne funksjonaliteten må man bruke versjon >= 5.1.0 av [nuget-pakkene](../../../guides/administration/maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
 
 {{%/notice%}}
 
@@ -469,7 +469,7 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
 
 Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre og vil ikke være støttet i Altinn Studio.
 
-**MERK:** for å benytte denne funksjonaliteten må man versjon >= 4.17.2 av [nuget-pakkene](../../maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
+**MERK:** for å benytte denne funksjonaliteten må man versjon >= 4.17.2 av [nuget-pakkene](../../../guides/administration/maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
 
 {{%/notice%}}
 

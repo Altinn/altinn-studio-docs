@@ -12,7 +12,7 @@ In order to receive events in the application you need create a subscription. Wh
 {{% notice warning %}}
 You should first make sure you have a client definition registered in Maskinporten for your application. See [Authenticating with Maskinporten](/api/authentication/maskinporten) on how register a client.<br><br>
 
-Currently the localtest environment does not support generating inbound events for an app. In order to do this you need use tools like Postman or REST Client in VS Code to send a request to the applicaionts event endpoint. 
+Currently the localtest environment does not support generating inbound events for an app. In order to do this you need use tools like Postman or REST Client in VS Code to send a request to the application's event endpoint. 
 {{% /notice %}}
 
 
@@ -40,7 +40,7 @@ Depending on what type of ClientDefintion you use you typically need to specify 
 
 ```json
   "MaskinportenSettings": {
-    "Environment": "ver2",
+    "Environment": "test",
     "ClientId": "",
     "CertificatePkcs12Path": "",
     "CertificatePkcs12Password": ""
@@ -50,7 +50,7 @@ Depending on what type of ClientDefintion you use you typically need to specify 
 Here is a [C# class of the settings available](https://github.com/Altinn/altinn-apiclient-maskinporten/blob/main/src/Altinn.ApiClients.Maskinporten/Config/MaskinportenSettings.cs) for reference.
 
 ### Protecting the event endpoint with a secret
-Receving events in the application is based on exposing a webhook endpoint to which the Event Service posts the event. Upon receiving an event, the application validates if a secret is provided before accepting the event. The secret  is provided by implementing the `IEventSecretCodeProvider` interface. By default there is an example implementation in place using a key from the key vault using a key with the name `EventSubscription--SecretCode` in the key vault the value of that key is used. You should hover not use the same key/value for multiple applications so it's recomended to create your own implementation.
+Receiving events in the application is based on exposing a webhook endpoint to which the Event Service posts the event. Upon receiving an event, the application validates if a secret is provided before accepting the event. The secret  is provided by implementing the `IEventSecretCodeProvider` interface. By default there is an example implementation in place using a key from the key vault using a key with the name `EventSubscription--SecretCode` in the key vault the value of that key is used. You should hover not use the same key/value for multiple applications so it's recommended to create your own implementation.
 
 When developing locally you should set the secret as a dotnet user-secret by running the following command in the root folder of the application:
 
@@ -77,7 +77,7 @@ using Microsoft.Extensions.Logging;
 namespace Altinn.App.Core.EFormidling
 {
     /// <summary>
-    /// Hosted service to set up prequisites for Eformidling integration.
+    /// Hosted service to set up perquisites for Eformidling integration.
     /// </summary>
     public class EformidlingStartup : IHostedService
     {
@@ -123,5 +123,5 @@ namespace Altinn.App.Core.EFormidling
 
 ```
 {{% notice theme="warning"  %}}
-If the hosted service fail to run succesfully, ie. throws an exception, the application will fail to start. If you don't won't this behavior you shold catch any exception and don't rethrow it.
+If the hosted service fail to run successfully, ie. throws an exception, the application will fail to start. If you don't want this behavior you should catch any exception and not rethrow it.
 {{% /notice %}}

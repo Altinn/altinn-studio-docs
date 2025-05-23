@@ -20,8 +20,8 @@ aliases:
 Alerts are commonly used to display important information to users that should be highlighted.
 
 ### Anatomy
+<iframe style="border: 0px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=628-7728&viewport=-659%2C1333%2C0.57&scaling=contain&content-scaling=responsive&starting-point-node-id=628%3A7728&show-proto-sidebar=0&embed-host=share" allowfullscreen></iframe>
 
-![Alert anatomy](Alert-anatomy.png)
 
 {{% anatomy-list %}}
 1. **Heading**: A brief and descriptive title.
@@ -138,7 +138,7 @@ App/ui/layouts/{page}.json
 
 ### Heading and content
 
-You can add heading and content by creating a new or pick an existing [text resource](/altinn-studio/reference/ux/texts/#add-and-change-texts-in-an-application).
+You can add heading and content by creating a new or pick an existing [text resource](../../texts/#add-and-change-texts-in-an-application).
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
@@ -181,12 +181,9 @@ By changing the severity level, you can change the styling (colors and icon) of 
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Example">}}
-![Info card](info.png)
+<iframe style="border: 0px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=628-8141&viewport=-659%2C1333%2C0.57&scaling=contain&content-scaling=responsive&starting-point-node-id=628%3A8141&show-proto-sidebar=0&embed-host=share" allowfullscreen></iframe>
 {{</content-version-container>}}
 
-{{<content-version-container version-label="Altinn Studio Designer">}}
-![Alert info innstillinger](Alert-info-settings.png "Alert info")
-{{</content-version-container>}}
 
 {{<content-version-container version-label="Code">}}
 
@@ -220,11 +217,8 @@ App/ui/layouts/{page}.json
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Example">}}
-![Success card](success.png)
-{{</content-version-container>}}
+<iframe style="border: 0px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=628-8184&viewport=-659%2C1333%2C0.57&scaling=contain&content-scaling=responsive&starting-point-node-id=628%3A8184&show-proto-sidebar=0&embed-host=share" allowfullscreen></iframe>
 
-{{<content-version-container version-label="Altinn Studio Designer">}}
-![Alert success innstillinger](Alert-success-settings.png "Alert success")
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Code">}}
@@ -259,12 +253,9 @@ App/ui/layouts/{page}.json
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Example">}}
-![Warning card](warning.png)
+<iframe style="border: 0px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=628-8169&viewport=-659%2C1333%2C0.57&scaling=contain&content-scaling=responsive&starting-point-node-id=628%3A8169&show-proto-sidebar=0&embed-host=share" allowfullscreen></iframe>
 {{</content-version-container>}}
 
-{{<content-version-container version-label="Altinn Studio Designer">}}
-![Alert warning innstillinger](Alert-warning-settings.png "Alert warning")
-{{</content-version-container>}}
 
 {{<content-version-container version-label="Code">}}
 
@@ -298,12 +289,10 @@ App/ui/layouts/{page}.json
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Example">}}
-![Danger card](danger.png)
+<iframe style="border: 0px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=628-8199&viewport=-659%2C1333%2C0.57&scaling=contain&content-scaling=responsive&starting-point-node-id=628%3A8199&show-proto-sidebar=0&embed-host=share" allowfullscreen></iframe>
 {{</content-version-container>}}
 
-{{<content-version-container version-label="Altinn Studio Designer">}}
-![Alert danger innstillinger](Alert-danger-settings.png "Alert danger")
-{{</content-version-container>}}
+
 
 {{<content-version-container version-label="Code">}}
 
@@ -331,3 +320,5 @@ App/ui/layouts/{page}.json
 ```
 {{</content-version-container>}}
 {{</content-version-selector>}}
+
+These examples are taken from <a href="https://www.figma.com/community/file/1344307804742953785/altinn-studio-komponenter" target="_blank">Altinn Studio Komponenter</a>. Note that the examples are not identical to the actual code but have been adapted to create prototypes in Figma.

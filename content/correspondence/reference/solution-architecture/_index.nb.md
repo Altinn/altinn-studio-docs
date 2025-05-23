@@ -9,10 +9,10 @@ weight: 40
 
 ## Overordnet løsningsarkitektur
 
-Følgende figur gir en oversikt over de vikigste byggeklossene i overordnet løsningsarktitektur for Altinn 3 Formidling.
+Følgende figur gir en oversikt over de vikigste byggeklossene i overordnet løsningsarktitektur for Altinn 3 Melding.
 
 ![Byggeklosser i Altinn 3 Melding - overordnet løsningsarkitektur](altinn3-correspondence-solution-overview-nb.png "Byggeklosser i Altinn 3 Melding - overordnet løsningsarkitektur")
 
-## Integrasjon med Dialogporten og Felles arbeidsflate
+## Integrasjon med Dialogporten og Arbeidsflate
 
-![Integrasjon med Dialogporten and Felles arbeidsflate](altinn3-correspondence-and-dialogporten-nb.png "Integrasjon med Dialogporten and Felles arbeidsflate")
+![Integrasjon med Dialogporten and Arbeidsflate](altinn3-correspondence-and-dialogporten-nb.png "Integrasjon med Dialogporten and Arbeidsflate")

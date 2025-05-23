@@ -4,7 +4,7 @@ linktitle:  Løsningsarkitektur
 description: Altinn 3 Formidling grunnleggende løsningsarkitektur
 tags: []
 toc: true
-weight: 40
+weight: 50
 ---
 
 {{<notice info>}} <!-- info -->
@@ -259,10 +259,10 @@ Altinn Formidling kjører på en APIM-instans som deles med andre plattformtjene
 Nettverksvirtualisering er realisert gjennom Microsoft Azure VNet.
 
 ## Logging og monitorering
-TBD (avklaringer i arbeid vår 2024).
+TBD (avklaringer i arbeid vår 2025).
 
 ## Avregning og fakturering
-TBD (avklaringer i arbeid vår 2024).
+TBD (avklaringer i arbeid vår 2025).
 
 ## Sikkerhetskontroller {#security-controls}
 

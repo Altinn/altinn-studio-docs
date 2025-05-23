@@ -1,11 +1,10 @@
 ---
-title: Integresjonsguider for sluttbrukersystemleverandører
-linktitle: Sluttbrukersystemer
-description: Her finner du forskjellige guider for integrasjon med Altinns API for sluttbrukersystemleverandører
-tags: [architecture, devops, todo]
+title: Integration Guides for End User System Providers
+linktitle: End User Systems
+description: Find various guides for integration with Altinn's API for end user system providers.
+tags: [architecture, devops, integration]
 toc: false
 hidden: false
 ---
-
 
 {{<children />}}

@@ -25,13 +25,17 @@ Nedtrekkslister brukes ofte i skjemaer for å samle input fra brukeren der de m�
 
 ### Anatomi
 
-![Anatomi Nedtrekksliste](Dropdown-anatomy.png)
+<iframe style="border: 0px solid rgba(0, 0, 0, 0);" width="100%" height="550" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1778-14039&viewport=-1318%2C-5700%2C0.95&scaling=contain&content-scaling=responsive&starting-point-node-id=1778%3A14039&show-proto-sidebar=0&embed-host=share&hide-ui=true
+" allowfullscreen></iframe>
 
 {{% anatomy-list %}}
 1. **Overskrift** - Spørsmål eller instruksjon.
-2. **Trigger** - Klikk for å åpne menyen
-3. **Meny** - Liste med alternativer
-{{% /anatomy-list %}} 
+2. **Beskrivelse** - Her kan du beskrive det.
+3. **Utløser** - Klikk for å åpne menyen.
+4. **Tittel på alternativ** - Hovedtittel for alternativet.
+5. **Beskrivelse av alternativ** - Her kan du beskrive alternativet.
+6. **Valgt alternativ** - Indikasjon på det valgte alternativet.
+{{% /anatomy-list %}}
 
 ### Beste praksis
 

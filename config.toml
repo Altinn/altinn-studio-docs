@@ -13,8 +13,7 @@ pluralizeListTitles = false
 preserveTaxonomyNames = true
 enableEmoji = true
 enableGitInfo = true
-disableKinds = ["RSS"] # page home section taxonomy taxonomyTerm RSS sitemap robotsTXT 404
-ignoreErrors = ["error-remote-getjson"]
+disableKinds = ["RSS", "taxonomy", "term"] # page home section taxonomy term RSS sitemap robotsTXT 404
 
 [languages]
   [languages.en]

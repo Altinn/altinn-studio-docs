@@ -55,7 +55,7 @@ You will see the version appear under "Previous builds of the application" with 
 9. You can now test the service in the TT02 test environment. Try filling out the service with some data and submit it to see what happens!
 
 ### Useful Documentation
-- [User Guide - Create a Simple Form](/altinn-studio/guides/basic-form)
+- [User Guide - Create a Simple Form](/altinn-studio/guides/development/basic-form)
 
 ## Summary
 In this module, we built a package of the first version of the service. We then published the package to the test environment and started the service in the test environment to test it.

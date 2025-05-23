@@ -2,7 +2,7 @@
 title: CustomButton
 linktitle: CustomButton
 description: Oversikt over CustomButton-komponenten
-tags: [ actions, translate-to-english ]
+tags: [actions, translate-to-english]
 weight: 10 # Do not change, the components will be sorted alphabetically
 toc: true
 ---
@@ -21,6 +21,11 @@ og har forhåndsdefinert funksjonalitet som å navigere til en ny side. `ServerA
 og har helt tilpasset funksjonalitet som du definerer selv. `ServerActions` kan også returnere en liste
 over `ClientActions`
 som utføres etter at server-siden handlingen er ferdig.
+
+### Anatomi
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="280" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1-2247&viewport=-814%2C659%2C1.32&scaling=contain&content-scaling=responsive&starting-point-node-id=1%3A2247&show-proto-sidebar=0&embed-host=share" allowfullscreen></iframe>
+Dette eksemplet er hentet fra <a href="https://www.figma.com/community/file/1344307804742953785/altinn-studio-komponenter" target="_blank">Altinn Studio Komponenter</a>. Merk at eksempelet ikke er identisk med den faktiske koden, men er tilpasset for å lage prototyper i Figma.
+
 
 ## ClientActions
 
@@ -70,13 +75,39 @@ Objektet `metadata` vil bli sendt til funksjonen som et argument. Slik gjør du 
 }
 ```
 
+Det finnes en klienthandling for å lukke et underskjema. Her er det valgfritt å validere underskjemadata før lukking.
+Et vanlig oppsett vil ha to knapper, f.eks. **Lukk** og **Ferdig**, der **Lukk** ikke validerer. Det vil gi brukeren
+muligheten til å gå ut av et underskjema uten å måtte fylle det ut først. Slik kan du legge til disse knappene:
+
+```json
+{
+  "id": "knapp-underskjema-ferdig",
+  "type": "CustomButton",
+  "textResourceBindings": {
+    "title": "custom-button-title"
+  },
+  "actions": [
+    {
+      "type": "ClientAction",
+      "id": "closeSubform",
+      // Validering er valgfritt
+      "validation": {
+        "page": "all",
+        "show": ["All"]
+      }
+    }
+  ]
+}
+```
+
 Dette er de tilgjengelige `ClientActions`:
 
 | Funksjonsnavn    | Parametere         | Oppførsel                                           |
-|------------------|--------------------|-----------------------------------------------------|
+| ---------------- | ------------------ | --------------------------------------------------- |
 | `nextPage`       | -                  | Vil navigere til neste side, hvis den eksisterer    |
 | `previousPage`   | -                  | Vil navigere til forrige side, hvis den eksisterer  |
 | `navigateToPage` | `{ page: string }` | Navigerer til den angitte siden hvis den eksisterer |
+| `closeSubform`   | valgfri validering | Lukker underskjema og returnerer til hovedskjema    |
 
 ## ServerActions
 
@@ -134,7 +165,7 @@ Serverhandlinger er kan konfigureres til å gjøre hva du vil. Slik definerer du
 
 ### Returnere klienthandlinger
 
-En ServerAction kan også returnere en liste med ClientActions som vil bli utført på klient-siden etter at 
+En ServerAction kan også returnere en liste med ClientActions som vil bli utført på klient-siden etter at
 server-siden handlingen er ferdig. Dette er nyttig hvis du vil navigere til en ny side etter at server-siden
 handlingen er ferdig. Slik gjør du det:
 
@@ -161,13 +192,14 @@ public class FillAction : IUserAction
 
 ## Utførelsesrekkefølge:
 
-Handlingene utføres i den rekkefølgen de er definert i actions-egenskapen til CustomButton-komponenten. 
-Hvis en ServerAction returnerer en liste med ClientActions, vil disse bli utført etter at server-siden 
+Handlingene utføres i den rekkefølgen de er definert i actions-egenskapen til CustomButton-komponenten.
+Hvis en ServerAction returnerer en liste med ClientActions, vil disse bli utført etter at server-siden
 handlingen er ferdig, og før neste handling i listen utføres. Du kan lenke sammen så mange handlinger du vil.
 
 ## Instrukser for å legge til serverAction i ønsket prosesssteg
 
 1. Legge til serverAction i process.bpmn-filen: Åpne process.bpmn-filen for å legge til serverAction i ønsket prosesssteg, for eksempel "Task_1":
+
    ```xml
     <bpmn:task id="Task_1" name="Utfylling">
       <bpmn:incoming>SequenceFlow_1n56yn5</bpmn:incoming>
@@ -184,7 +216,7 @@ handlingen er ferdig, og før neste handling i listen utføres. Du kan lenke sam
    ```
 
 2. Legge til serverAction id i ønsket steg i policy.xml-filen:
-Gå til policy.xml-filen for å legge til serverAction id på ønsket steg, for eksempel "Task_1":
+   Gå til policy.xml-filen for å legge til serverAction id på ønsket steg, for eksempel "Task_1":
 
    ```xml
         <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
@@ -193,4 +225,3 @@ Gå til policy.xml-filen for å legge til serverAction id på ønsket steg, for 
           </xacml:Match>
         </xacml:AllOf>
    ```
-   

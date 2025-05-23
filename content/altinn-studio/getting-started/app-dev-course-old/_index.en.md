@@ -10,7 +10,7 @@ hidden: true
 The intro course is divided into 7 modules and covers a fictional case for Sogndal Municipality.
 Each module has a description of the task and links to relevant documentation.
 
-You can choose to perform the tasks in [Altinn Studio Designer](/altinn-studio/getting-started) (drag-and-drop graphical user interface) or in a [local development environment](/altinn-studio/guides/local-dev) (requires some technical skills).
+You can choose to perform the tasks in [Altinn Studio Designer](/altinn-studio/getting-started) (drag-and-drop graphical user interface) or in a [local development environment](/altinn-studio/guides/development/local-dev) (requires some technical skills).
 You can also combine these approaches.
 
 Throughout these seven modules, you will have covered the most essential functionality for an Altinn app, as well as testing the application locally and in a test environment.

@@ -9,7 +9,7 @@ weight: 400
 
 {{%notice info%}}
 For at applikasjonen din skal kunne sende instansdata videre til eFormidling må den referere til nugetversjon >= 4.22.0.
-[Se hvordan du oppdaterer nugetreferanser for applikasjonen din her](/altinn-studio/reference/maintainance/dependencies/).
+[Se hvordan du oppdaterer nugetreferanser for applikasjonen din her](/altinn-studio/guides/administration/maintainance/dependencies/).
 {{% /notice%}}
 
 {{%notice info%}}

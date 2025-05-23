@@ -9,10 +9,6 @@ weight: 20
 
 {{<children />}}
 
-{{% notice warning  %}}
-This section of the documentation is a work in progress, and as such currently makes extensive reference to external sources.
-{{% /notice %}}
-
 Here are the detailed operations and events you will be using when Receiving files.
 
 ## Operation: Get FileTransfers {#operation-get-filetransfers}
@@ -44,7 +40,7 @@ When searching for files you have not downloaded as a recipient specify the foll
 
 **Example:**
 
-'Broker\search' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
+'Broker\search' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
 
 **Events triggered:** None.
 
@@ -59,7 +55,7 @@ You can use either the FileTransferId from the [published](#event-published) eve
 
 **Events triggered:** none.
 
-**Example:** 'Broker\{fileTransferId}\overview' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
+**Example:** 'Broker\{fileTransferId}\overview' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
 
 ## Operation: DownloadFile {#operation-downloadfile}
 
@@ -73,7 +69,7 @@ Download the file data as a stream using the FileTransferId received from overvi
 
 **Events triggered**: none
 
-**Example:** 'Broker\{fileTransferId}\download' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
+**Example:** 'Broker\{fileTransferId}\download' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
 
 ## Operation: ConfirmDownloaded {#operation-confirmdownloaded}
 
@@ -92,7 +88,7 @@ Upload the file data as a stream using the FileTransferId received in Initialize
 
 - [downloadconfirmed](#event-downloadconfirmed).
 
-**Example:** 'Broker\{fileTransferId}\confirm download' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json).
+**Example:** 'Broker\{fileTransferId}\confirm download' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
 
 ## Event: no.altinn.broker.published {#event-published}
 

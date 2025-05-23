@@ -9,18 +9,13 @@ weight: 20
 
 {{<children />}}
 
-{{% notice warning  %}}
-This section of the documentation is a work in progress.
-There are sections with missing or only partial documentation.
-{{% /notice %}}
-
 Since Altinn Broker is open source, you can access our code in [our public github repo](https://github.com/Altinn/altinn-broker) and build a local docker instance to test against.
 
 We also welcome contributions to the solution.
 
 See the [readme file at github](https://github.com/Altinn/altinn-broker/blob/main/README.md) for an introduction to Altinn 3 Broker, and how to build and run it in your dev environment.
 
-The Repo also contains a [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn3-broker-postman-collection.json) with examples.
+The Repo also contains a [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json) with examples.
 
 Swagger for the File Transfer API is hosted [here](/api/broker/spec/).
 

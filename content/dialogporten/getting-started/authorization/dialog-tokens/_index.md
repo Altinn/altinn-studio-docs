@@ -1,7 +1,7 @@
 ---
 title: 'Dialog Tokens'
 description: 'Learn how dialog tokens can be used to simplify authorization and enable higher confidentiality'
-weight: 20
+weight: 30
 ---
 
 ## Introduction

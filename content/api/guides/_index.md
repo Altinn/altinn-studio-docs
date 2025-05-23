@@ -1,25 +1,22 @@
 ---
-title: Guider
-linktitle: Guider
-description: Her finner du guider på hvordan man kan integrere seg med Altinn API
-tags: [architecture, devops, todo]
+title: Guides
+linktitle: Guides
+description: Here you will find guides on how to integrate with the Altinn API
+tags: [architecture, devops, integration]
 toc: false
 hidden: false
 ---
 
+We have divided the guides into two main areas based on use cases.
 
-Vi har delt guidene i to hovedområder basert på bruksområder. 
+## For service owners
 
+Here you will find guides on how you as a service owner can integrate with Altinn. This applies to several scenarios.
 
-## For tjenesteeiere
+Go to [guides for service owners](appownerintegration)
 
-Her finner guider om hvordan man som tjenesteier kan integrere seg med Altinn. Dette gjelder flere scenario.
+## For end-user systems
 
-Gå til [guider for tjenesteiere](appownerintegration)
+Here you will find detailed guides on how you can integrate with Altinn as an end-user system.
 
-
-## For sluttbrukersystemer
-
-Her finner du detaljerte guider hvordan man kan integrere seg mot Altinn som sluttbrukersystem
-
-Gå til [guider for sluttbrukersystem](endusersystems)
+Go to [guides for end-user systems](endusersystems)
