@@ -1,0 +1,18 @@
+{
+    "AuthorizationRequestId": "A8F76256-49A5-4CEC-94F5-958EA92393CA",
+    "From": "EC7D881B-5EAF-438B-9F02-8C1BA930A086",
+    "To": "871CEC0E-ED22-438D-A724-6BBE7E254DFF",
+    "Created": "2025-05-26 07:44:06.950",
+    "ValidTo": "2025-11-22 05:44:06.757",
+    "RequestMessage": {
+        "nb": "Hei, jeg ønsker å eksportere mitt samtykke.",
+        "en": "Hi, I would like to export my consent."
+    },
+    "RequestResorces": [
+        {
+            "ResourceType": "Consent",
+            "ResourceId": "12345",
+            "ResourceName": "Consent for data processing"
+        }
+    ]
+}
