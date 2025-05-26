@@ -19,7 +19,7 @@ For en slik tjeneste vil prosessen i selve appen være avsluttet når sluttbruke
 
 ## Instansiering av tjeneste
 
-Instansiering betyr i Altinn-sammenheng at det opprettes en dialog i en avgiver/parts innboks i Altinn. Denne instansieringen kan trigges av sluttbruker eller av tjenesteeier. I denne guiden forutsetter vi at den er instansiert av sluttbruker. Guide for tjenesteeier-instansiering finner du her (TODO).
+Instansiering betyr i Altinn-sammenheng at det opprettes en dialog i en avgiver/parts innboks i Altinn. Denne instansieringen kan trigges av sluttbruker eller av tjenesteeier. I denne guiden forutsetter vi at den er instansiert av sluttbruker. Guide for tjenesteeier-instansiering finner du [her](/nb/api/apps/instances/#create-instance).
 
 ## Overordnet prosess sluttbruker
 

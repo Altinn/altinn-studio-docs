@@ -19,7 +19,7 @@ For such a service, the process in the app itself will be completed when the end
 
 ## Instantiation of service
 
-Instantiation in Altinn means that a dialogue is created in a submitter/party's inbox in Altinn. This instantiation can be triggered by the end user or by the service owner. In this guide, we assume that it is instantiated by the end user. A guide for service owner instantiation can be found here (TODO).
+Instantiation in Altinn means that a dialogue is created in a submitter/party's inbox in Altinn. This instantiation can be triggered by the end user or by the service owner. In this guide, we assume that it is instantiated by the end user. A guide for service owner instantiation can be found [here](/api/apps/instances/#create-instance).
 
 ## Overall end user process
 
