@@ -45,6 +45,8 @@ Det er også mulig å se en [forhåndsvisning](#forhåndsvisning-i-nettleseren) 
 Denne metoden brukes som standard dersom du ikke har spesifisert en [egendefinert PDF-side](#egendefinert-konfigurasjon).
 Denne metoden trekker ut alle sidene og komponentene i den rekkefølgen de vises, og tar de med i PDF-dokumentet.
 
+**MERK**: Denne metoden viser ikke oppsummerings-komponenter fra skjemaet.
+
 ### Ekskludering av sider og komponenter
 
 Som regel har man behov for å ekskludere visse sider og komponenter som ikke er relevant for PDF-dokumentet.
@@ -180,6 +182,17 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
 
 ## Egendefinert konfigurasjon
 
+### Med Altinn Studio
+
+Du kan legge til et tilpasset PDF-oppsett i Studio ved å konvertere en side til PDF-oppsett i sidekonfigurasjonen:
+
+![Skjermbilde av PDF-bryteren](pdf-page-switch.png)
+
+Du kan bruke komponenten [Oppsummering]({{< ref "altinn-studio/reference/ux/components/summary2" >}} "Oppsummering"), til å angi hvilke deler av oppsettet du vil ha med i PDF-en.
+
+![Skjermbilde av en oppsummeringskomponent i en PDF-oppsett-side](pdf-summary-component.png)
+
+### Manual configuration
 {{%notice warning%}}
 
 Denne metoden er kun tilgjengelig i versjon 7.5 og høyere.

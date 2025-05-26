@@ -17,35 +17,35 @@ Ulike organisasjonsformer kan registrere ulike roller og hvilke fullmakter disse
 
 ## Rolletyper fra Enhetsregisteret
 Følgende rolletyper finnes i enhetsregisteret: 
-|Kode   |Navn                           |
-|-------|-------------------------------|
-|ADOS|Administrativ enhet - offentlig sektor|
-|BEST|Bestyrende reder|
-|BOBE|Bostyrer|
-|DAGL|Daglig leder|
-|DTPR|Deltaker med proratarisk ansvar (delt ansvar)|
-|DTSO|Deltaker med solidarisk ansvar (fullt ansvarlig)|
-|EIKM|Eierkommune|
-|FFØR|Forretningsfører|
-|HFOR|Opplysninger om foretaket i hjemlandet|
-|HLSE|Helseforetak|
-|INNH|Innehaver|
-|KDEB|Konkursdebitor|
-|KENK|Den personlige konkursen angår|
-|KIRK|Inngår i kirkelig fellesråd|
-|KOMP|Komplementar (i kommandittselskap?)|
-|KONT|Kontaktperson|
-|KTRF|Inngår i kontorfellesskap|
-|LEDE|Styrets leder|
-|MEDL|Styremedlem|
-|NEST|Nestleder|
-|OBS|Observatør|
-|OPMV|er særskilt oppdelt enhet til|
-|ORGL|Organisasjonsledd i offentlig sektor|
-|REGN|Regnskapsfører|
-|REPR|Norsk representant for utenlandsk enhet|
-|REVI|Revisor|
-|VARA|Varamedlem|
+|Kode   |Navn                           |Kommentar|
+|-------|-------------------------------|---------|
+|ADOS|Administrativ enhet - offentlig sektor|Ingen fullmakter|
+|BEST|Bestyrende reder|Nøkkelrolle, har de fleste fullmakter|
+|BOBE|Bostyrer|Nøkkelrolle, har de fleste fullmakter|
+|DAGL|Daglig leder|Nøkkelrolle, har de fleste fullmakter|
+|DTPR|Deltaker med proratarisk ansvar (delt ansvar)|Nøkkelrolle når rollen er registrert på fnr, har de fleste fullmakter|
+|DTSO|Deltaker med solidarisk ansvar (fullt ansvarlig)|Nøkkelrolle når rollen er registrert på fnr, har de fleste fullmakter|
+|EIKM|Eierkommune|Ingen fullmakter|
+|FFØR|Forretningsfører|Forretningsfører for Borettslag og Eierseksjonssameier har fullmakter, øvrige FFØR ingen fullmakter|
+|HFOR|Opplysninger om foretaket i hjemlandet|Ingen fullmakter|
+|HLSE|Helseforetak|Ingen fullmakter|
+|INNH|Innehaver|Nøkkelrolle, har de fleste fullmakter|
+|KDEB|Konkursdebitor|Ingen fullmakter|
+|KENK|Den personlige konkursen angår|Ingen fullmakter|
+|KIRK|Inngår i kirkelig fellesråd|Ingen fullmakter|
+|KOMP|Komplementar (i kommandittselskap?)|Ingen fullmakter|
+|KONT|Kontaktperson|Ingen fullmakter|
+|KTRF|Inngår i kontorfellesskap|Ingen fullmakter|
+|LEDE|Styrets leder|Nøkkelrolle, har de fleste fullmakter|
+|MEDL|Styremedlem|Ingen fullmakter|
+|NEST|Nestleder|Ingen fullmakter|
+|OBS|Observatør|Ingen fullmakter|
+|OPMV|er særskilt oppdelt enhet til|Ingen fullmakter|
+|ORGL|Organisasjonsledd i offentlig sektor|Ingen fullmakter|
+|REGN|Regnskapsfører|Utvalgte fullmakter for klienter/kunder|
+|REPR|Norsk representant for utenlandsk enhet|Ingen fullmakter|
+|REVI|Revisor|Utvalgte fullmakter for klienter/kunder|
+|VARA|Varamedlem|Ingen fullmakter|
 
 # Organisasjonsformer og roller som Altinn leser inn fra Enhetsregisteret
 

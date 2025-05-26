@@ -9,7 +9,7 @@ toc: true
 
 ## Endpoint
 
-PUT /order/{id}/cancel
+PUT /orders/{id}/cancel
 
 The {id} represents the unique identifier of the notification order for which notifications are to be cancelled.
 

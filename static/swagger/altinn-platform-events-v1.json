@@ -72,7 +72,7 @@
             "description": "Unauthorized"
           },
           "500": {
-            "description": "Server Error"
+            "description": "Internal Server Error"
           }
         }
       }
@@ -87,7 +87,7 @@
           {
             "name": "org",
             "in": "path",
-            "description": "The organisation short code",
+            "description": "The application owner acronym",
             "required": true,
             "schema": {
               "type": "string"
@@ -187,7 +187,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -206,7 +206,7 @@
             "description": "Unauthorized"
           },
           "500": {
-            "description": "Server Error"
+            "description": "Internal Server Error"
           }
         }
       }
@@ -319,7 +319,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -335,7 +335,7 @@
             "description": "Bad Request"
           },
           "500": {
-            "description": "Server Error"
+            "description": "Internal Server Error"
           }
         }
       }
@@ -358,7 +358,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "text/plain": {
                 "schema": {
@@ -449,7 +449,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/cloudevents+json": {
                 "schema": {
@@ -502,7 +502,7 @@
             }
           },
           "503": {
-            "description": "Server Error"
+            "description": "Service Unavailable"
           }
         }
       }
@@ -525,10 +525,10 @@
         },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "OK"
           },
           "503": {
-            "description": "Server Error"
+            "description": "Service Unavailable"
           }
         }
       }
@@ -581,7 +581,7 @@
             }
           },
           "503": {
-            "description": "Server Error"
+            "description": "Service Unavailable"
           }
         }
       }
@@ -613,7 +613,7 @@
                   "value": {
                     "endpoint": "https://org-reception-func.azurewebsites.net/api/processCompleteInstance?code=APIKEY",
                     "sourceFilter": "https://skd.apps.altinn.no/skd/mva-melding",
-                    "alternativeSubjectFilter": "/org/897069651",
+                    "alternativeSubjectFilter": "/organisation/897069651",
                     "typeFilter": "app.instance.process.completed"
                   }
                 },
@@ -626,7 +626,7 @@
                 },
                 "Subscription with Slack webhook": {
                   "value": {
-                    "endpoint": "https://hooks.slack.com/services/TSRSASBVNF3/ADRRSDSSSAahttsasdfasFO3w83456ss",
+                    "endpoint": "https://hooks.slack.com/services/{include-webhook}",
                     "resourceFilter": "urn:altinn:resource:app_ttd_apps-test"
                   }
                 }
@@ -664,6 +664,16 @@
                 }
               }
             }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       },
@@ -674,7 +684,7 @@
         "summary": "Get all subscription for the authorized consumer",
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -715,7 +725,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -726,6 +736,16 @@
           },
           "401": {
             "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
             "content": {
               "application/json": {
                 "schema": {
@@ -764,10 +784,20 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "OK"
           },
           "401": {
             "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
             "content": {
               "application/json": {
                 "schema": {
@@ -808,7 +838,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -838,7 +868,7 @@
         "summary": "Accepts an http post request and responds OK.",
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "OK"
           }
         }
       }
@@ -1058,8 +1088,8 @@
         },
         "additionalProperties": false,
         "example": {
-          "id": "ce2f5e3b-5e2d-40ac-9bc5-1cf8124579e7",
-          "resource": "urn:altinn:resource:altinapp.ttd.apps-test",
+          "id": "af0e7e0c-579c-4563-9398-10cdf031b80d",
+          "resource": "urn:altinn:resource:app_ttd_apps-test",
           "source": "https://ttd.apps.altinn.no/ttd/apps-test/instances/50015641/a72223a3-926b-4095-a2a6-bacc10815f2d",
           "specversion": "1.0",
           "type": "app.instance.created",
@@ -1531,7 +1561,8 @@
           },
           "isNotSerialized": {
             "type": "boolean",
-            "readOnly": true
+            "readOnly": true,
+            "deprecated": true
           },
           "isPinvokeImpl": {
             "type": "boolean",
@@ -1596,7 +1627,8 @@
           4,
           8,
           16,
-          28
+          28,
+          32
         ],
         "type": "integer",
         "format": "int32"
@@ -2476,10 +2508,6 @@
             "format": "int32",
             "readOnly": true
           },
-          "isInterface": {
-            "type": "boolean",
-            "readOnly": true
-          },
           "memberType": {
             "$ref": "#/components/schemas/MemberTypes"
           },
@@ -2503,6 +2531,10 @@
           },
           "module": {
             "$ref": "#/components/schemas/Module"
+          },
+          "isInterface": {
+            "type": "boolean",
+            "readOnly": true
           },
           "isNested": {
             "type": "boolean",
@@ -2569,6 +2601,14 @@
             "readOnly": true
           },
           "isByRefLike": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isFunctionPointer": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isUnmanagedFunctionPointer": {
             "type": "boolean",
             "readOnly": true
           },
@@ -2730,7 +2770,8 @@
           },
           "isSerializable": {
             "type": "boolean",
-            "readOnly": true
+            "readOnly": true,
+            "deprecated": true
           },
           "containsGenericParameters": {
             "type": "boolean",
@@ -2800,10 +2841,6 @@
             "format": "int32",
             "readOnly": true
           },
-          "isInterface": {
-            "type": "boolean",
-            "readOnly": true
-          },
           "memberType": {
             "$ref": "#/components/schemas/MemberTypes"
           },
@@ -2827,6 +2864,10 @@
           },
           "module": {
             "$ref": "#/components/schemas/Module"
+          },
+          "isInterface": {
+            "type": "boolean",
+            "readOnly": true
           },
           "isNested": {
             "type": "boolean",
@@ -2893,6 +2934,14 @@
             "readOnly": true
           },
           "isByRefLike": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isFunctionPointer": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isUnmanagedFunctionPointer": {
             "type": "boolean",
             "readOnly": true
           },
@@ -3054,7 +3103,8 @@
           },
           "isSerializable": {
             "type": "boolean",
-            "readOnly": true
+            "readOnly": true,
+            "deprecated": true
           },
           "containsGenericParameters": {
             "type": "boolean",

@@ -5,7 +5,7 @@ description: Systemadministrator-applikasjonen demonstrerer hvordan en systemlev
 weight: 5
 ---
 
-For å legge til og oppdatere systemer, kreves omfanget **altinn:authentication/systemregister.write**.
+For å legge til og oppdatere systemer, kreves scope **altinn:authentication/systemregister.write**.
 
 Applikasjonen bruker en Maskinporten-token som byttes mot en Altinn-token.
 

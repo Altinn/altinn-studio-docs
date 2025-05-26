@@ -9,7 +9,7 @@ toc: true
 
 ## Endpoint
 
-GET /order/{id}/notifications/sms
+GET /orders/{id}/notifications/sms
 
 The {id} represents the unique identifier of the notification order for which notifications are to be retrieved.
 

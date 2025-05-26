@@ -5,6 +5,7 @@ description: Nyheter og videre planer for utvikling av Altinn 3 Formidling
 tags: []
 toc: true
 weight: 70
+hidden: true
 ---
 
 ## Migrering til en framtidssikker teknologiplattform

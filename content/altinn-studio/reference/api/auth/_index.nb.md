@@ -22,11 +22,6 @@ Altinn Autorisasjon støtter forskjellige type brukere, som er viktig å tenke p
   * Disse har User ID, Party ID og brukerprofil. Autentiseringsnivå er alltid større enn 0
   * Brukere kan representere andre parter gjennom partseleksjon
   * ID-porten token må være vekslet inn til Altinn token via Altinn Autorisasjon
-* **Selvidentifiserte brukere**
-  * Kan være logget inn via Altinn Portal eller gjennom en ekstern ID-porten sesjon
-  * Disse har User ID, Party ID og brukerprofil. Autentiseringsnivå er alltid 0 (vi vet ikke hvem brukeren er)
-  * Kan ikke representere andre enn seg selv og vi har ikke noe fødselsnummer
-  * ID-porten token må være vekslet inn til Altinn token via Altinn Autorisasjon
 * **Organisasjon**
   * Klienter autentisert via Maskinporten
   * Gjelder organisasjoner som har avtale med, og tilgang til, Maskinporten
@@ -41,7 +36,14 @@ Altinn Autorisasjon støtter forskjellige type brukere, som er viktig å tenke p
   * Klienter autentisert via Maskinporten
   * En systembruker eies av en organisasjon som er kunde/bruker hos et leverandørsystem. Systembrukeren eies av kunden, mens systemet eies av leverandøren
   * Det er leverandøren som har Maskinporten klienten og som autentiserer seg. Konseptet lar systemet impersonere systembrukeren (inkl. rettigheter systembrukeren har fått delegert fra kunden)
-  * Appens API aksepterer både innvekslet Altinn token og Maskinporten token direkte
+  * Appens API aksepterer bare Maskinporten tokens som har blitt innvekslet til Altinn token (i fremtiden vil vi støtte Maskinporten tokens direkte)
+
+{{% notice warning %}}
+Virksomhetsbrukere fra Altinn 2 er bare delvis støttet i Altinn 3. Autentisering og autorisasjon vil fungere, men det kan være
+mangler i andre deler av plattformen. Virksomhetsbrukere blir klassifisert som `Organisasjon` fra listen over.
+Det finnes ingen innebygd sperrefunksjon for disse brukerne. Hvis du ønsker å blokkere requests fra virksomhetsbrukere i appen, 
+må du gjøre dette manuelt, for eksempel ved hjelp av ASP.NET Core middleware.
+{{% /notice %}}
 
 ## Informasjon i appen
 
@@ -94,7 +96,7 @@ using Altinn.Platform.Storage.Interface.Models;
 
 namespace Altinn.App.Core;
 
-internal sealed class ValidateInstanstiation(IAuthenticationContext authenticationContext) : IInstantiationValidator
+internal sealed class ValidateInstantiation(IAuthenticationContext authenticationContext) : IInstantiationValidator
 {
     public Task<InstantiationValidationResult?> Validate(Instance instance)
     {
@@ -125,5 +127,29 @@ internal sealed class ValidateInstanstiation(IAuthenticationContext authenticati
         }
     }
 }
+```
+
+Den samme autoriseringen kan gjøres globalt ved hjelp av ASP.NET Core middleware:
+
+```csharp
+WebApplication app = builder.Build();
+
+...
+
+app.Use(
+    async (context, next) =>
+    {
+        var authenticationContext = context.RequestServices.GetRequiredService<IAuthenticationContext>();
+        var authenticated = authenticationContext.Current;
+        if (authenticated is not Authenticated.User { InAltinnPortal: true })
+        {
+            context.Response.StatusCode = 403;
+            await context.Response.WriteAsync("Forbidden");
+            return;
+        }
+
+        await next(context);
+    }
+);
 ```
 
