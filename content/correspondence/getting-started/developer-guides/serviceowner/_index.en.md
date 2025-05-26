@@ -1,6 +1,6 @@
 ---
 title: Getting started service owner
-linktitle: Getting started service owner
+linktitle: Service owner
 description: "Service owner: a public entity that has entered into an agreement to configure and manage services in Altinn, such as a messaging service."
 tags: []
 toc: false

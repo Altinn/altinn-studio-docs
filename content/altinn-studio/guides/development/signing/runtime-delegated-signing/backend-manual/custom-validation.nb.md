@@ -6,6 +6,8 @@ Du kan bruke standardvalidatoren som nevnt i punkt 2. Den verifiserer at antall 
 `minCount` på feltet i datamodellen. Egendefinert validering kan settes opp ved å implementere `IValidator` eller `ITaskValidator`, som
 beskrevet i [Hvordan legge til egendefinert validering](https://docs.altinn.studio/altinn-studio/reference/logic/validation/#server-side-validation).
 
+Om appen er konfigurert slik at utførelsen av signeringshandlingen gjøres i prosessnavigasjonen, så vil handlingen [utføres før valideringen](https://docs.altinn.studio/altinn-studio/reference/logic/validation/#server-side-validation).
+
 Et eksempel er en validator som verifiserer at en signatur er gjort på vegne av en organisasjon:
 
 ```csharp

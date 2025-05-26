@@ -1,6 +1,6 @@
 ---
 title: Kom i gang tjenesteeier
-linktitle: Kom i gang tjenesteeier
+linktitle: Tjenesteeier
 description: "Tjenesteeier: en offentlig virksomhet som har inngått en avtale for å konfigurere og forvalte tjenester i Altinn, for eksempel en meldingstjeneste."
 tags: []
 toc: false
@@ -56,7 +56,7 @@ https://docs.altinn.studio/nb/api/authentication/digdirscopes/
 For å autentisere mot meldings-API-et, må du registrere Maskinporten-klienten(e) din med nødvendige scopes for om du skal sende og/eller motta meldinger:
 Scopene vedlikeholdes av Altinn og må være autorisert for de riktige API-operasjonene, og er derfor uavhengige av tilgangen satt av tjenesteeiere i steg 2 for den spesifikke meldingstjenesten.
 
-Bruk Samarbeidsportalen for selvbetjent registrering. Følg den detaljerte guiden som er tilgjengelig der. [Her er en detaljert guide](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web#innlogging-og-tilgang).
+Samarbeidsportalen benyttes for selvbetjent registrering. Tjenesteeiere som ikke har signert bruksvilkår for Maskinporten må gjøre dette før de kan ta løsningen i bruk. Følg den detaljerte guiden som er tilgjengelig [her](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web#innlogging-og-tilgang).
 
 - [Testmiljøer](https://sjolvbetjening.test.samarbeid.digdir.no/)
 - [Produksjonsmiljø](https://sjolvbetjening.samarbeid.digdir.no/)

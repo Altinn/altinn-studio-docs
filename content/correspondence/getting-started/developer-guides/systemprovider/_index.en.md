@@ -1,6 +1,6 @@
 ---
 title: Getting Started system provider
-linktitle: Getting started system provider
+linktitle: System provider
 description: "System provider: provides an end-user-system that receives and stores Altinn messages via machine-to-machine integration."
 tags: []
 toc: false
