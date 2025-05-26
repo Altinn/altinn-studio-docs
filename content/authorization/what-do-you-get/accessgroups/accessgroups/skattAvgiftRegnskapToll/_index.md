@@ -24,7 +24,7 @@ aliases:
 
 ### Skatt næring
 Denne tilgangspakken gir fullmakter til tjenester knyttet til skatt for næringer. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:skattnaering*
+*urn:altinn:accesspackage:skatt-naering*
 ### Skattegrunnlag
 Denne tilgangspakken gir fullmakter til tjenester knyttet til innhenting av skattegrunnlag. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:skattegrunnlag*
@@ -39,13 +39,13 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til særavgifter. Ved 
 *urn:altinn:accesspackage:saeravgifter*
 ### Krav, betalinger og utlegg
 Denne tilgangspakken gir fullmakter til tjenester knyttet til krav og utlegg. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:kravogutlegg*
+*urn:altinn:accesspackage:krav-og-utlegg*
 ### Kreditt- og oppgjørsordninger
 Denne tilgangspakken gir fullmakter til tjenester knyttet til kreditt- og oppgjørsordninger. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:kredittogoppgjoer*
+*urn:altinn:accesspackage:kreditt-og-oppgjoer*
 ### Regnskap og økonomirapportering
 Denne tilgangspakken gir fullmakter til tjenester knyttet til regnskap og øknomirapportering som ikke tilhører skatt og merverdiavgift. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:regnskapokonomirapport*
+*urn:altinn:accesspackage:regnskap-okonomi-rapport*
 ### Revisorattesterer
 Denne fullmakten gir tilgang til alle tjenester som krever revisorattestering. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:reviorattesterer*

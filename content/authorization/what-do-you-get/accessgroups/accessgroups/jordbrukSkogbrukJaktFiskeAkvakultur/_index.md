@@ -33,7 +33,7 @@ Denne tilgangspakken gir tilgang til tjenester knyttet til reindrift. Ved regelv
 
 ### Jakt og viltstell
 Denne tilgangspakken gir fullmakter til tjenester knyttet til jakt og viltstell. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:jaktogviltstell*
+*urn:altinn:accesspackage:jakt-og-viltstell*
 
 ### Skogbruk
 Denne tilgangspakken gir fullmakter til tjenester knyttet til skogbruk. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  

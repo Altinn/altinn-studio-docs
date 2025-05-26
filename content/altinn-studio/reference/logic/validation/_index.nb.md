@@ -189,6 +189,10 @@ Egendefinerte validering kan igjen deles opp i to kategorier; task-validering og
   - Task-validering vil kjøres hver gang validering trigges enten manuelt fra applikasjonen eller når man prøver å flytte seg framover i prosessen.
   - Data-validering vil kjøre dersom man står på et steg som har definerte dataelementer knyttet til seg.
 
+Validering for flytting til et nytt steg vil kjøre _etter_ eventuell handling som gjøres i flyttingen. Dette er fordi resultatet
+av handlingen kan være avgjørende for at validering skal bli godkjent. Om validering hadde skjedd før handlingen, ville det
+ført til en programlåsning (soft-lock).
+
 Valideringer skrives i C# og avhengig av hvilken versjon av applikasjonsmalen og Nuget pakkene du er på, så vil implementeringen variere litt. I tidligere versjon så er det en pre-definert fil med metoder du kan legge inn logikken, mens fra versjon 7 og fremover så implementerer du et grensesnitt i den klassen du selv vil. Grensesnittet er tilfeldigvis likt den pre-definerte filen. Eksemplene som refererer til metoder vil derfor være de samme for alle versjoner.
 
 {{<content-version-selector classes="border-box">}}

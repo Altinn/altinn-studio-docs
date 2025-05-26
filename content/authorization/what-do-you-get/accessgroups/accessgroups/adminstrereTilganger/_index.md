@@ -10,14 +10,14 @@ Aliases:
 
 |**Access packages in this category**|
 |---|
-|[Client administration for accountants and auditors](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#klientadministrasjon-for-regnskapsfører-og-revisor)|
+|[Client administrator](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#klientadministrator)|
 |[Access management](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#tilgangsstyring)|
 |[Main administrator](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#hovedadminstrator)|
 |[Maskinporten administrator](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#maskinporten-administrator)|
 
 ### Client administrator
 This role allows the user to manage access on behalf of clients and customers.
-*urn:altinn:accesspackage:klientadminstrasjon-for-regnskapsforer-og-revisor*
+*urn:altinn:accesspackage:klientadminstrator*
 
 ### Access management
 This access package allows users to delegate access rights within the organization for roles they hold themselves.
@@ -34,7 +34,7 @@ This access package allows the user to manage access to Maskinporten scopes.
 ## Which Roles from the Entity Register Are Granted Access to the Package
 |**Access package**|**Entity register roles**|**Delegable**|
 |---|---|---|
-|Client administration for accountants and auditors|General Manager, Chair of the Board, Owner, Partner with Full Liability, Partner with Limited Liability, General Partner, Managing Shipowner, Bankruptcy Trustee|Yes|
+|Client administrator|General Manager, Chair of the Board, Owner, Partner with Full Liability, Partner with Limited Liability, General Partner, Managing Shipowner, Bankruptcy Trustee|Yes|
 |Access management|General Manager, Chair of the Board, Owner, Partner with Full Liability, Partner with Limited Liability, General Partner, Managing Shipowner, Bankruptcy Trustee, Contact Person for NUF|Yes|
 |Main administrator|General Manager, Chair of the Board, Owner, Partner with Full Liability, Partner with Limited Liability, General Partner, Managing Shipowner|Yes|
 |Maskinporten administrator|General Manager, Chair of the Board, Owner, Partner with Full Liability, Partner with Limited Liability, General Partner, Managing Shipowner, Bankruptcy Trustee, Contact Person for NUF|Yes|
