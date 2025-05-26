@@ -193,8 +193,8 @@ See also documentation at [Maskinporten](https://docs.digdir.no/docs/Maskinporte
 
 There are separate guides for using system users.
 
-- [How to use system user as a system provider](../../guides/systemauthentication-for-systemproviders/)
-- [How to use system user as an API provider/service owner](../../guides/systemauthentication-for-apiproviders/)
+- [How to use system user as a system provider](../../guides/systemvendor/)
+- [How to use system user as an API provider/service owner](../../guides/serviceowner/)
 
 ## Delivery Plan
 

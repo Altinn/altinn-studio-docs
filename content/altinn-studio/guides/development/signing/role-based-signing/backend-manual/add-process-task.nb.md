@@ -26,6 +26,10 @@ Signering består av to brukerhandlinger (user actions). Dersom Altinn-brukergre
           <altinn:dataType>ref-data-as-pdf</altinn:dataType>
         </altinn:dataTypesToSign>
         <altinn:signatureDataType>signatures</altinn:signatureDataType>
+
+        <!-- Vi har laget en standard validator som kan slås på her. Den validerer at minCount på signatur-datatypen er oppfylt. Om denne ikke slås på, bør man skrive egen validering av signaturer. -->
+        <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
+
       </altinn:signatureConfig>
     </altinn:taskExtension>
   </bpmn:extensionElements>
@@ -46,12 +50,17 @@ Den benyttes av signeringssteget til å lagre de faktiske signaturene som genere
     "id": "signatures",
     "allowedContentTypes": [
         "application/json"
-    ]
+    ],
+    "allowedContributors": [
+        "app:owned"
+    ],
+    "minCount": 1
 }
 ```
 
-ID-en kan settes til noe annet, men det må matche ID-en som legges inn i `signatureDataType` i prossessteget.
+Det er viktig å sette `allowedContributors` til ```"app:owned"```. Det gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv. Før versjon 8.6 var denne konfigurasjonen feilstavet `allowedContributers`.
 
+ID-en kan settes til noe annet, men det må matche ID-en som legges inn i `signatureDataType` i prossessteget.
 
 ### Tilgangsstyring
 

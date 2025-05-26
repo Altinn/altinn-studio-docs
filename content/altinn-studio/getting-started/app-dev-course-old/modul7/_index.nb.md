@@ -62,7 +62,7 @@ Om man ikke møter kriteriene skal man tas videre til "Ikke for deg"-siden som o
 
 ### Oppgaver
 
-1. Opprett [layout-sets](/nb/altinn-studio/reference/ux/pages/layout-sets/) i appen. Flytt førstesiden og "Ikke for deg"-siden til "stateless"-settet (Husk å oppdatere `Settings.json`-filene).
+1. Opprett [layout-sets](/nb/altinn-studio/reference/ux/pages/#oppsett) i appen. Flytt førstesiden og "Ikke for deg"-siden til "stateless"-settet (Husk å oppdatere `Settings.json`-filene).
 2. Konfigurer appen til å starte opp som en "stateless" applikasjon.
 3. Legg til en `InstantiationButton`-komponent på førstesiden.
 4. Legg til logikk der brukeren enten kan starte en instans eller sendes videre til "Ikke for deg"-siden basert på om [de møter kriteriene](/nb/altinn-studio/getting-started/app-dev-course-old/case/#alternativ-arbeidsflyt-sporvalg).

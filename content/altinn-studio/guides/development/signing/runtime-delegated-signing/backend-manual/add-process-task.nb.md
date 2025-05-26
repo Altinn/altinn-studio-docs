@@ -49,6 +49,9 @@ Et signeringssteg kan se omtrent slik ut:
                 <!-- Dersom man ønsker at det skal bli generert en PDF av signeringssteget så kan man oppgi en datatype her av type application/pdf. -->
                 <altinn:signingPdfDataType>signing-step-pdf</altinn:signingPdfDataType> <!-- optional -->
 
+                <!-- Vi har laget en standard validator som kan slås på her. Den validerer at alle signatarer har signert og at minCount på signatur-datatypen er oppfylt. Om denne ikke slås på, bør man skrive egen validering av signaturer. -->
+                <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
+                
             </altinn:signatureConfig>
         </altinn:taskExtension>
     </bpmn:extensionElements>
@@ -70,9 +73,10 @@ Den første datatypen benyttes av signeringssteget til å lagre de faktiske sign
     "allowedContentTypes": [
         "application/json"
     ],
-    "allowedContributers": [
+    "allowedContributors": [
         "app:owned"
-    ]
+    ],
+    "minCount": 1
 }
 ```
 
@@ -83,17 +87,17 @@ Denne datatypen benyttes for å lagre informasjon om signatarene som skal få de
     "id": "signeeState",
     "taskId": "SigningTask",
     "allowedContentTypes": [
-        "application/pdf"
+        "application/json"
     ],
-    "allowedContributers": [
+    "allowedContributors": [
         "app:owned"
     ],
     "maxCount": 1,
-    "minCount": 0,
+    "minCount": 1
 }
 ```
 
-Det er viktig å sette `allowedContributers` til ```"app:owned"```. Det gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv.
+Det er viktig å sette `allowedContributors` til ```"app:owned"```. Det gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv. Før versjon 8.6 var denne konfigurasjonen feilstavet `allowedContributers`.
 
 Datatypenes ID-er kan settes til noe annet, men det må matche ID-ene som legges inn i `signatureDataType` og `signeeStatesDataTypeId` i prossessteget, som vist i punktet under.
 

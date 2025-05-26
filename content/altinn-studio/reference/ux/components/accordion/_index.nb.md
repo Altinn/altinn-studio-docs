@@ -1,5 +1,5 @@
 ---
-title: Accordion
+title: Accordion (Trekkspilliste)
 linktitle: Accordion
 description: En komponent som lar deg gruppere innhold i sammenleggbare seksjoner
 schemaname: Accordion # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)

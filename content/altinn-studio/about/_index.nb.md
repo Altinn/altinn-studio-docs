@@ -9,6 +9,7 @@ weight: 10
 Altinn Studio er et verktøy for å effektivt realisere digitale tjenester. Vi tilbyr:
 - et web basert verktøy for å lage og teste tjenester (apper) - Altinn Studio Designer
 - en mal for tjenester med standard funksjonalitet og mulighet for å legge til egen funksjonalitet
+- biblioteker til støtte for apputvikling og tilgang til Altinn plattformen
 - et dedikert Kubernetes-miljø for hver tjenesteeier for kjøring av tjenestene (test og produksjon)
 - ett sett med felles støttefunksjoner for å understøtte tjenestene, f.eks. generering av PDF kvittering, varsling, osv.
 
@@ -32,6 +33,10 @@ Tjenester som typisk består av flere skjema, delprosesser, flere brukere, og in
 \* Selv om det er mulig å lage denne tjenestetypen i dag, jobber vi med å gjøre det enklere å implementere denne 
 typen tjeneste ved å flytte mer funksjonalitet inn i web verktøyet.
 {{% /notice %}}
+
+### Skreddersydd applikasjon
+
+En Studio app er en komplett ASP.NET Core applikasjon. Dette lar deg designe og implementere det du trenger for organisasjonen din.
 
 ## Altinn Studio er "bindemiddelet"
 Et skjema er sjelden bare datafelter som skal sendes inn, det trengs mer for å lage en god tjeneste – f.eks. kobling 
@@ -80,3 +85,21 @@ kanal hvor man kan stille spørsmål.
 Vi ser også at tjenesteeiere hjelper hverandre og deler erfaring på tvers.
 Backlog, brukerhistorier, planer og veikart – alt ligger åpen tilgjengelig på GitHub og gir mulighet for både innsikt 
 og kommentarer.
+
+#### Forvaltning
+
+Studio-produktet består av flere komponenter. 
+Her er viktige tjenester og biblioteker som eies og forvaltes av Studio-teamet:
+
+* [Studio Designer](https://altinn.studio/)
+  * Nye funksjoner og feilrettinger publiseres kontinuerlig
+  * Utvikling og arbeid organiseres [i Altinn/altinn-studio GitHub-repo](https://github.com/Altinn/altinn-studio)
+* App-biblioteker - [Altinn.App.Api, Altinn.App.Core](https://github.com/Altinn/app-lib-dotnet) og [frontend](https://github.com/Altinn/app-frontend-react)
+  * Biblioteker hostet på NuGet.org. Alle Studio-apper refererer til disse bibliotekene
+  * Versjonert ved bruk av [SemVer 2.0](https://semver.org/). Forhåndsversjoner består av `preview`- og `rc` (release candidate)-stadier. Når `rc`-stadiet er nådd, har vi som mål kun å gjøre feilrettinger og patching frem til stabilisering.
+  * Utvikling og arbeid organiseres [i Altinn/app-lib-dotnet](https://github.com/Altinn/app-lib-dotnet) og [Altinn/app-frontend-react](https://github.com/Altinn/app-frontend-react) GitHub-repo.
+* Localtest - [lokal kopi av kjerne-APIene i Altinn-plattformen](https://github.com/Altinn/app-localtest)
+  * Nye funksjoner og feilrettinger publiseres kontinuerlig ved behov
+  * Utvikling og arbeid organiseres [i Altinn/app-localtest GitHub-repo](https://github.com/Altinn/app-localtest)
+
+Appene i seg selv eies og forvaltes av tjenesteeierorganisasjonene.

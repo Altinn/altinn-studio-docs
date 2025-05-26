@@ -45,6 +45,8 @@ It is also possible to get a [preview](#preview-in-the-browser) of what the PDF 
 This method is used by default unless you specify a [custom PDF layout file](#custom-layout-configuration).
 This method extracts all of your pages and components in the order they appear, and displays them in the PDF document.
 
+**NOTE**: This method does not include any summary components from your layout files.
+
 ### Excluding pages and components
 
 Often, you will need to exclude certain pages or components that are not relevant to the PDF document.
@@ -185,6 +187,17 @@ This method is only available in version 7.5 and higher.
 
 {{% /notice%}}
 
+### Using Altinn Studio
+
+You can add a custom PDF layout in Studio by converting a page to a PDF layout in the page configuration:
+
+![Screenshot of the PDF switch](pdf-page-switch.png)
+
+If you add a [Summary]({{< ref "altinn-studio/reference/ux/components/summary2" >}} "Summary") component to this page, you can specify what parts of the layout you want to include in the PDF.
+
+![Screenshot of a summary2 component in a PDF layout page](pdf-summary-component.png)
+
+### Manual configuration
 This method lets you fully customize the generated PDF by using a layout file to specify what it should contain.
 
 To use this method you need to create a new layout file for the PDF and set `pdfLayoutName` in `Settings.json` to point to that file:

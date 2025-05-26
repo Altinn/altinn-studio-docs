@@ -16,6 +16,8 @@ Systembruker bygger videre på Maskinporten, som gir sikker autentisering og gro
 Systembruker gjør det enkelt å sette opp en virtuell bruker som kan opperere på vegne av virksomehten, endten som egenoppreret system eller i et kunde - leverandørforhold 
 Systembruker både brukes mot tjenster som kjører i Altinn og mot eksterne tjenester som bruker Altinn Autorisasjon som autorisasjonsløsning.
 
+> Systembruker bør kun brukes i tilfeller der det ikke er behov for at Altinn kan koble operasjonene som utføres med hvilken person som utfører dem.
+
 For en overordnet funsjonell gjennomgang og brukerreise se [Samarbeidsportalen](https://samarbeid.digdir.no/altinn/systembruker/2542).
 
 ## Begrep
@@ -75,7 +77,7 @@ Systembrukeren opprettes av virksomhet eller fasilitoator som ønsker å bruke e
 Opprettelse kan skje via sluttbrukerstyrt opprettelse eller leverandørstyrt opprettelse
 
 
-### Sluttbrukerstyr opprettelse
+### Sluttbrukerstyrt opprettelse
 
 Ved sluttbrukerstyrt opprettelse er det kunden selv som går inn i altinn og velger systemet han ønsker opprette systembruker for fra en nedtrekksliste. 
 Etter systemet er valg blir det presentert hvilke rettigheter sluttbrukersystemetsystemet krever. Ved å akseptere dette blir systembrukeren opprettet
@@ -136,8 +138,8 @@ Etter systembrukeren er opprettet vil den brukes som i modellen under
 
 ## Hvordan ta i bruk
 
-- [Hvordan bruke systembruker som systemleverandør](../../guides/systemauthentication-for-systemproviders/)
-- [Hvordan bruke systemberuker som apitilbyder/tjenesteeier](../../guides/systemauthentication-for-apiproviders/)
+- [Hvordan bruke systembruker som systemleverandør](../../guides/systemvendor/)
+- [Hvordan bruke systemberuker som apitilbyder/tjenesteeier](../../guides/serviceowner/)
 
 ## Leveranseplan
 

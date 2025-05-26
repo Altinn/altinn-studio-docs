@@ -192,6 +192,9 @@ Custom validation can also be split into two categories; task-validation and dat
 - Task-validation will run each time validation is triggered either manually from the application or when you attempt to move forward in the process.
 - Data-validation will run if you're on a step that has defined data elements associated with it.
 
+Validation for process navigation will run _after_ any user action, if an action is specified. This is because the result of the 
+action may be what makes the task valid. If validation on process next was done before the action, this would lead to a soft-lock.
+
 Validations are written i C# and depending on the version of the application template and Nuget packages you are using,
 the way the implementation is done varies slightly. In the earlier versions it's a pre-created file where you put your
 logic, while from version 7 and onwards you implement an interface in whatever class you like. The interface happens to

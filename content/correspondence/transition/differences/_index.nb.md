@@ -4,7 +4,7 @@ linktitle: Forskjeller
 description: Forskjeller mellom Altinn 2 og Altinn 3 for Melding
 tags: []
 toc: false
-weight: 60
+weight: 70
 ---
 
 For å forenkle overgangen fra Altinn 2 til Altinn 3 versjon av Melding-produktet, så har man tatt utgangspunkt i datamodell og prosessflyt for Altinn 2 Melding, men med noe forenklinger og forbedringer.

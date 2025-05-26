@@ -1,7 +1,7 @@
 ---
-title: AccordionGroup
+title: AccordionGroup (Nestet trekkspilliste)
 linktitle: AccordionGroup
-description: En komponent som lar deg gruppere Accordions
+description: En komponent som gjør at du kan ha en trekkspilliste inne i en annen
 schemaname: AccordionGroup # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk
 toc: true
@@ -15,7 +15,7 @@ toc: true
 
 ## Bruk
 
-`AccordionGroup` brukes til å gruppere relaterte [`Accordion`-komponenter](../accordion/).
+Med `AccordionGroup` kan du neste trekkspillister, for eksempel for å gruppere tilknyttede emner. 
 
 ### Anatomi
 
@@ -31,6 +31,7 @@ toc: true
 3. **Innholdsområde**: Området som utvider eller kollapser, som viser eller skjuler ytterligere informasjon når overskriften klikkes.
 
 **Merk**: Overskrift og innholdsområde er egenskaper ved `Accordion` underelementer.
+**Merk**: I Designsystemet heter trekkspilliste nå Details/Detaljer.
 
 {{% /anatomy-list %}} 
 
@@ -147,7 +148,7 @@ App/ui/layouts/{page}.json
 
 Spesifiser hvilke komponenter av typen `Accordion` du vil gruppere ved å legge til deres ID-er til `AccordionGroup`-komponenten sin `children`-egenskap som vist under.
 `Accordion`-komponentene som skal grupperes må legges til den samme siden.
- Rekkefølgen i gruppen bestemmes av rekkefølgen på komponent-ID'ene i `children`.
+ Rekkefølgen i gruppen bestemmes av rekkefølgen på komponent-ID-ene i `children`.
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Kode">}}
