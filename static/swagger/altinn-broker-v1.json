@@ -1313,7 +1313,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "Overview of a broker file transfer which also includes the status history of the file transfer.|"
+        "description": "Overview of a broker file transfer which also includes the status history of the file transfer."
       },
       "FileTransferStatusEventExt": {
         "type": "object",
