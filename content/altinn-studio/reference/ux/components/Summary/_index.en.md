@@ -36,7 +36,6 @@ EXAMPLES
 <!-- Brief description of the component and how it is used. -->
 
 ### Anatomy
-
 <!-- 
 
 Image/diagram with numbered callouts.

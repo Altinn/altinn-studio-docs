@@ -26,8 +26,8 @@ Hun er også styremedlem i borettslaget der hun bor. "Oslos Vakreste Borettslag"
 | ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | [01039012345 Sophie Salt](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Person/01039012345.json)        | [Privatperson](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_501337/roles.json)              |
 | [897069650 DDG Fitness AS](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069650.json)            | [Daglig leder + knytninger](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_500000/roles.json) |
-| [897069651 DDG Fitness Bergen](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069651.json)        | [Daglig leder + knytninger](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_500001/roles.json) |
-| [897069652 DDG Fitness Oslo](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069652.json)          | [Daglig leder + knytninger](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_500002/roles.json) |
+| [897069651 DDG Fitness Oslo](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069651.json)        | [Daglig leder + knytninger](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_500001/roles.json) |
+| [897069652 DDG Fitness Bergen](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069652.json)          | [Daglig leder + knytninger](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_500002/roles.json) |
 | [897069653 DDG Fitness Trondheim](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069653.json)     | [Daglig leder + knytninger](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_500003/roles.json) |
 | [897069631 EAS Health Consulting](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069631.json)     | [Styreleder + knytninger](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_500600/roles.json)   |
 | [950474084 Oslos Vakreste Borettslag](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/950474084.json) | [Styremedlem + knytninger](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_500700/roles.json)  |
@@ -76,6 +76,17 @@ For å teste skjema relatert til barn og oppvekst (barnehage og skole) er det la
 
 NB! Disse er fra Tenors testdatasett, men ligger der med andre navn.
 
+### Systemer og systembrukere
+
+Med nyere versjon av localtest kan man teste apper med systembrukere lokalt.
+Det er lagt ved en innebygget system og systembruker knyttet til 950474084 Oslos Vakreste Borettslag.
+Du kan hente ut token ved hjelp av `/Home/GetTestSystemUserToken` i localtest eller besøke nettsiden `/Home/Tokens`.
+
+### Instansdelegering
+
+Instansdelegering er støttet i siste versjon av localtest, men brukere/avgivere man instansdelegerer fra og til må
+ha en `partyUuid` assosiert med seg. Se eksempel-fil under.
+
 ## App spesifikke brukere
 
 Om standard settet med brukere ikke passer for å teste din app lokalt, kan du legge sørge for at appen din svarer med et
@@ -92,127 +103,181 @@ en `testData.json` fil i verktøy som VSCode. En full versjon av brukerene som l
 
 ```json
 {
-    "$schema": "https://altinncdn.no/schemas/json/test-users/test-users.schema.v1.json",
-    "persons": [
-      {
-        "partyId": 512345,
-        "ssn": "01017512345",
-        "firstName": "Ola",
-        "middleName": "",
-        "lastName": "Nordmann",
-        "customClaims": [
+  "$schema": "https://altinncdn.no/schemas/json/test-users/test-users.schema.v1.json",
+  "persons": [
+    {
+      "partyId": 512345,
+      "partyUuid": "48153af4-265f-4b35-8ed9-232fafbc716e",
+      "ssn": "01017512345",
+      "firstName": "Ola",
+      "middleName": "",
+      "lastName": "Nordmann",
+      "customClaims": [
+        {
+          "type": "some:extra:claim",
+          "value": "claimValue",
+          "valueType": "http://www.w3.org/2001/XMLSchema#string"
+        }
+      ],
+      "partyRoles": {
+        "512345": [
           {
-            "type": "some:extra:claim",
-            "value": "claimValue",
-            "valueType": "http://www.w3.org/2001/XMLSchema#string"
+            "type": "altinn",
+            "value": "regna"
+          },
+          {
+            "type": "altinn",
+            "value": "dagl"
+          },
+          {
+            "type": "altinn",
+            "value": "priv"
           }
-        ],
-        "partyRoles": {
-          "512345": [
-            {
-              "type": "altinn",
-              "value": "regna"
-            },
-            {
-              "type": "altinn",
-              "value": "dagl"
-            },
-            {
-              "type": "altinn",
-              "value": "priv"
-            }
-          ]
-        },
-        "addressCity": "Stokarknes",
-        "addressHouseLetter": null,
-        "addressHouseNumber": "7",
-        "addressMunicipalName": "Hadsel",
-        "addressMunicipalNumber": "1866",
-        "addressPostalCode": "8450",
-        "addressStreetName": "Bl\u00E5b\u00E6rveien",
-        "mailingAddress": "Bl\u00E5b\u00E6reveien 7",
-        "mailingPostalCity": "Stokmarknes",
-        "mailingPostalCode": "8450",
-        "mobileNumber": "87654321",
-        "telephoneNumber": "12345678",
-        "email": "test@test.com",
-        "userId": 12345,
-        "language": "nb",
-        "userName": "OlaNordmann"
+        ]
       },
-      {
-        "partyId": 501337,
-        "ssn": "01039012345",
-        "firstName": "Sophie",
-        "middleName": "",
-        "lastName": "Salt",
-        "customClaims": [
+      "addressCity": "Stokarknes",
+      "addressHouseLetter": null,
+      "addressHouseNumber": "7",
+      "addressMunicipalName": "Hadsel",
+      "addressMunicipalNumber": "1866",
+      "addressPostalCode": "8450",
+      "addressStreetName": "Bl\u00E5b\u00E6rveien",
+      "mailingAddress": "Bl\u00E5b\u00E6reveien 7",
+      "mailingPostalCity": "Stokmarknes",
+      "mailingPostalCode": "8450",
+      "mobileNumber": "87654321",
+      "telephoneNumber": "12345678",
+      "email": "test@test.com",
+      "userId": 12345,
+      "language": "nb",
+      "userName": "OlaNordmann"
+    },
+    {
+      "partyId": 501337,
+      "partyUuid": "e9dd7d91-32d8-4933-a108-07562762d572",
+      "ssn": "01039012345",
+      "firstName": "Sophie",
+      "middleName": "",
+      "lastName": "Salt",
+      "customClaims": [
+        {
+          "type": "some:extra:claim",
+          "value": "claimValue",
+          "valueType": "http://www.w3.org/2001/XMLSchema#string"
+        }
+      ],
+      "partyRoles": {
+        "500000": [
           {
-            "type": "some:extra:claim",
-            "value": "claimValue",
-            "valueType": "http://www.w3.org/2001/XMLSchema#string"
+            "type": "altinn",
+            "value": "DAGL"
+          },
+          {
+            "type": "altinn",
+            "value": "UTINN"
           }
         ],
-        "partyRoles": {
-          "500000": [
-            {
-              "type": "altinn",
-              "value": "DAGL"
-            },
-            {
-              "type": "altinn",
-              "value": "UTINN"
-            }
-          ],
-          "501337": [
-            {
-              "type": "altinn",
-              "value": "PRIV"
-            },
-            {
-              "type": "altinn",
-              "value": "UTINN"
-            }
+        "501337": [
+          {
+            "type": "altinn",
+            "value": "PRIV"
+          },
+          {
+            "type": "altinn",
+            "value": "UTINN"
+          }
+        ],
+        "500700": [
+          {
+            "type": "altinn",
+            "value": "DAGL"
+          },
+          {
+            "type": "altinn",
+            "value": "UTINN"
+          }
+        ]
+      },
+      "addressCity": "Oslo",
+      "addressHouseLetter": null,
+      "addressHouseNumber": "9",
+      "addressMunicipalName": "Oslo",
+      "addressMunicipalNumber": "0301",
+      "addressPostalCode": "0151",
+      "addressStreetName": "Grev Wedels Plass",
+      "mailingAddress": "Grev Wedels Plass 9",
+      "mailingPostalCity": "Oslo",
+      "mailingPostalCode": "0157",
+      "mobileNumber": "87654321",
+      "telephoneNumber": "12345678",
+      "email": "1337@altinnstudiotestusers.com",
+      "userId": 1337,
+      "language": "nn",
+      "userName": "SophieDDG"
+    }
+  ],
+  "orgs": [
+    {
+      "partyId": 500000,
+      "partyUuid": "77cab4d6-84bb-4eb2-91bd-710415a72d8a",
+      "orgNumber": "897069650",
+      "parentPartyId": null,
+      "name": "DDG Fitness",
+      "businessAddress": "Sofies Gate 1",
+      "businessPostalCity": "By",
+      "businessPostalCode": "0170",
+      "eMailAddress": "central@ddgfitness.no",
+      "faxNumber": "92110000",
+      "internetAddress": "http://ddgfitness.no",
+      "mailingAddress": "Sofies Gate 1",
+      "mailingPostalCity": "Oslo",
+      "mailingPostalCode": "0170",
+      "mobileNumber": "92010000",
+      "telephoneNumber": "12345678",
+      "unitStatus": null,
+      "unitType": "AS"
+    },
+    {
+      "partyId": 500700,
+      "partyUuid": "117e86a4-117f-41b0-8f2d-c383e2a69f9e",
+      "orgNumber": "950474084",
+      "parentPartyId": null,
+      "name": "Oslos Vakreste Borettslag",
+      "businessAddress": "Sofies Gate 2",
+      "businessPostalCity": "By",
+      "businessPostalCode": "0170",
+      "eMailAddress": "epost@setra.no",
+      "faxNumber": "92110000",
+      "internetAddress": "http://setrabrl.no",
+      "mailingAddress": "Sofies Gate 2",
+      "mailingPostalCity": "Oslo",
+      "mailingPostalCode": "0170",
+      "mobileNumber": "92010000",
+      "telephoneNumber": "12345678",
+      "unitStatus": null,
+      "unitType": "BRL"
+    }
+  ],
+  "systems": [
+    {
+      "id": "913312465_sbs",
+      "name": "Sluttbrukersystem",
+      "systemUsers": [
+        {
+          "id": "d111dbab-d619-4f15-bf29-58fe570a9ae6",
+          "orgNumber": "950474084",
+          "actions": [
+            "read",
+            "write",
+            "instantiate",
+            "sign",
+            "confirm",
+            "reject",
+            "delete"
           ]
-        },
-        "addressCity": "Oslo",
-        "addressHouseLetter": null,
-        "addressHouseNumber": "9",
-        "addressMunicipalName": "Oslo",
-        "addressMunicipalNumber": "0301",
-        "addressPostalCode": "0151",
-        "addressStreetName": "Grev Wedels Plass",
-        "mailingAddress": "Grev Wedels Plass 9",
-        "mailingPostalCity": "Oslo",
-        "mailingPostalCode": "0157",
-        "mobileNumber": "87654321",
-        "telephoneNumber": "12345678",
-        "email": "1337@altinnstudiotestusers.com",
-        "userId": 1337,
-        "language": "nn",
-        "userName": "SophieDDG"
-      }
-    ],
-    "orgs": [
-      {
-        "partyId": 500000,
-        "orgNumber": "897069650",
-        "parentPartyId": null,
-        "name": "DDG Fitness",
-        "businessAddress": "Sofies Gate 1",
-        "businessPostalCity": "By",
-        "businessPostalCode": "0170",
-        "eMailAddress": "central@ddgfitness.no",
-        "faxNumber": "92110000",
-        "internetAddress": "http://ddgfitness.no",
-        "mailingAddress": "Sofies Gate 1",
-        "mailingPostalCity": "Oslo",
-        "mailingPostalCode": "0170",
-        "mobileNumber": "92010000",
-        "telephoneNumber": "12345678",
-        "unitStatus": null,
-        "unitType": "AS"
-      }
-    ]
-  }
+        }
+      ]
+    }
+  ]
+}
 ```

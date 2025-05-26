@@ -50,6 +50,7 @@ Add the following sections if relevant:
 
 - [`Number`](../number/)
 - [`Date`](../date/)
+- [`Option`](../option/)
 
 ## Egenskaper
 
@@ -82,7 +83,7 @@ Add the following sections if relevant:
 
 #### `textResourceBindings.title`
 
-Ledetekst for teksten. Denne kan legges til som en hardkodet streng eller som en referanse til en [tekstressurs](/nb/altinn-studio/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app).
+Ledetekst for teksten. Denne kan legges til som en hardkodet streng eller som en referanse til en [tekstressurs](../../../ux/texts/#legge-til-og-endre-tekster-i-en-app).
 
 #### `value`
 
@@ -96,7 +97,7 @@ Bestemmer om teksten vises under eller ved siden av ledeteksten. `horizontal` fo
 
 #### Eksempel
 
-Tekst med ledetekst og ikon.
+Tekst med ledetekst.
 
 ```json{hl_lines=["9-12"]}
 {
@@ -109,4 +110,4 @@ Tekst med ledetekst og ikon.
   "direction": "horizontal",
 },
 ```
-![Tekst eksempel](<text-example-with-icon.png> "Tekst med ikon og label")
+![Tekst eksempel](<text-example-with-icon.png> "Tekst med label")

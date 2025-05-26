@@ -45,6 +45,8 @@ It is also possible to get a [preview](#preview-in-the-browser) of what the PDF 
 This method is used by default unless you specify a [custom PDF layout file](#custom-layout-configuration).
 This method extracts all of your pages and components in the order they appear, and displays them in the PDF document.
 
+**NOTE**: This method does not include any summary components from your layout files.
+
 ### Excluding pages and components
 
 Often, you will need to exclude certain pages or components that are not relevant to the PDF document.
@@ -354,3 +356,10 @@ The footer will contain the following information:
 - The page number
 
    ![PDF footer example](pdf-footer-example.png)
+
+## Prototype PDF in Figma 
+
+If you want to test and set up your PDF, you can do it here:  
+[Altinn Studio Komponenter](https://www.figma.com/community/file/1344307804742953785/altinn-studio-komponenter).
+ 
+Note that the example is not identical to the actual code but has been adapted to create prototypes in Figma.

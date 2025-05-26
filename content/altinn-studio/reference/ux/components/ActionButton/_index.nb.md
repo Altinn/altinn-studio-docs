@@ -1,7 +1,7 @@
 ---
-title: ActionButton
+title: ActionButton (Handlingsknapp)
 linktitle: ActionButton
-description: # Kort beskrivelse av komponenten
+description: Knapp som starter en bestemt handling knyttet til den oppgaven i arbeidsflyten som brukerne er på, for eksempel signering, bekreftelse eller avvisning.
 schemaname: ActionButton # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk
 toc: true
@@ -33,10 +33,13 @@ EKSEMPLER
 ---
 
 ## Bruk
-
-<!-- Kort beskrivelse av komponenten og hvordan den brukes. -->
+Knapp som starter en bestemt handling knyttet til den oppgaven i arbeidsflyten som brukerne er på. 
+Oppgaven kan for eksempel være signering, bekreftelse eller avvisning.
 
 ### Anatomi
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="280" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1-2234&viewport=-814%2C659%2C1.32&scaling=contain&content-scaling=responsive&starting-point-node-id=1%3A2234&show-proto-sidebar=0&embed-host=share" allowfullscreen></iframe>
+Dette eksemplet er hentet fra <a href="https://www.figma.com/community/file/1344307804742953785/altinn-studio-komponenter" target="_blank">Altinn Studio Komponenter</a>. Merk at eksempelet ikke er identisk med den faktiske koden, men er tilpasset for å lage prototyper i Figma.
+
 
 <!-- 
 

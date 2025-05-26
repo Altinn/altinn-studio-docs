@@ -169,46 +169,75 @@
     "/broker/api/v1/filetransfer": {
       "post": {
         "tags": [
-          "File"
+          "FileTransfer"
         ],
-        "summary": "Initialize a new fileTransfer",
-        "description": "This endpoint initializes a new file for processing.",
-        "operationId": "InitializeFile",
+        "summary": "Initialize a file transfer",
+        "description": "One of the scopes: \r\n\r\n- altinn:broker.write",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/FileInitialize"
+                "$ref": "#/components/schemas/FileTransferInitalizeExt"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Successfully initialized the fileTransfer",
+            "description": "Returns the id of the initialized File transfer",
             "content": {
-              "text/plain": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uuid"
+                  "$ref": "#/components/schemas/FileTransferInitializeResponseExt"
                 }
               }
             }
+          },
+          "400": {
+            "description": "<ul>\r\n  <li>Service owner needs to be configured to use the broker API</li>\r\n  <li>In order to use file transfers without virus scan the service resource needs to be approved by Altinn. Please contact us @ Slack</li>\r\n</ul>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "You must use a bearer token that represents a system user with access to the resource in the Resource Rights Registry",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The resource needs to be registered as an Altinn 3 resource and it has to be associated with a service owner",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Storage provider is not ready yet. Please try again later"
           }
         }
       },
       "get": {
         "tags": [
-          "File"
+          "FileTransfer"
         ],
-        "summary": "List files available for the caller",
-        "description": "This endpoint retrieves a list of files available given for the caller given the query parameters.",
-        "operationId": "List files",
+        "summary": "Get files that can be accessed by the caller according to specified filters",
+        "description": "One of the scopes: \r\n\r\n- altinn:broker.read \r\n\r\n- altinn:broker.write \r\n\r\nResult is limited to 100 files. If your query returns more than 100 files, you will only receive the 100 last created.",
         "parameters": [
           {
             "name": "resourceId",
             "in": "query",
-            "style": "form",
             "schema": {
               "type": "string"
             }
@@ -216,23 +245,20 @@
           {
             "name": "status",
             "in": "query",
-            "style": "form",
             "schema": {
-              "$ref": "#/components/schemas/FileStatus"
+              "$ref": "#/components/schemas/FileTransferStatusExt"
             }
           },
           {
             "name": "recipientStatus",
             "in": "query",
-            "style": "form",
             "schema": {
-              "$ref": "#/components/schemas/RecipientFileStatus"
+              "$ref": "#/components/schemas/RecipientFileTransferStatusExt"
             }
           },
           {
             "name": "from",
             "in": "query",
-            "style": "form",
             "schema": {
               "type": "string",
               "format": "date-time"
@@ -241,7 +267,6 @@
           {
             "name": "to",
             "in": "query",
-            "style": "form",
             "schema": {
               "type": "string",
               "format": "date-time"
@@ -250,7 +275,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Returns the list of file transfers",
             "content": {
               "application/json": {
                 "schema": {
@@ -262,6 +287,26 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "You must use a bearer token that represents a system user with access to the resource in the Resource Rights Registry",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The resource needs to be registered as an Altinn 3 resource and it has to be associated with a service owner",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -269,17 +314,15 @@
     "/broker/api/v1/filetransfer/{fileTransferId}/upload": {
       "post": {
         "tags": [
-          "File"
+          "FileTransfer"
         ],
-        "summary": "Upload file",
-        "description": "This endpoint allows for the uploading to an initialized file transfer",
-        "operationId": "UploadFile",
+        "summary": "Upload to an initialized file using a binary stream.",
+        "description": "One of the scopes: \r\n\r\n- altinn:broker.write",
         "parameters": [
           {
             "name": "fileTransferId",
             "in": "path",
             "required": true,
-            "style": "simple",
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -288,7 +331,67 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully uploaded the fileTransfer"
+            "description": "Returns the id of the uploaded File transfer",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileTransferUploadResponseExt"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "<ul>\r\n  <li>Service owner needs to be configured to use the broker API</li>\r\n  <li>File size exceeds maximum</li>\r\n  <li>The checksum of uploaded file did not match the checksum specified in initialize call</li>\r\n</ul>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "You must use a bearer token that represents a system user with access to the resource in the Resource Rights Registry",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The resource needs to be registered as an Altinn 3 resource and it has to be associated with a service owner",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested file transfer was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "A file transfer has already been, or attempted to be, created. Create a new file transfer resource to try again",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Storage provider is not ready yet. Please try again later"
           }
         }
       }
@@ -296,16 +399,16 @@
     "/broker/api/v1/filetransfer/upload": {
       "post": {
         "tags": [
-          "File"
+          "FileTransfer"
         ],
-        "summary": "Initialize and upload a file transfer",
-        "description": "This endpoint allows for the initialization and uploading of a file transfer in a single operation",
-        "operationId": "UploadSingleFile",
+        "summary": "Initialize a filetransfer and uploads the file in the same request using form-data",
+        "description": "One of the scopes: \r\n\r\n- altinn:broker.write",
         "requestBody": {
           "content": {
             "multipart/form-data": {
               "schema": {
                 "required": [
+                  "FileTransfer",
                   "Metadata.FileName",
                   "Metadata.Recipients",
                   "Metadata.ResourceId",
@@ -316,28 +419,33 @@
                   "Metadata.FileName": {
                     "maxLength": 255,
                     "minLength": 1,
-                    "type": "string"
+                    "type": "string",
+                    "description": "The filename including extension"
                   },
                   "Metadata.ResourceId": {
                     "maxLength": 255,
                     "minLength": 1,
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Altinn resource ID"
                   },
                   "Metadata.SendersFileTransferReference": {
                     "maxLength": 4096,
                     "minLength": 1,
-                    "type": "string"
+                    "type": "string",
+                    "description": "Used by senders and receivers to identify specific file using external identification methods."
                   },
                   "Metadata.Sender": {
                     "pattern": "^\\d{4}:\\d{9}$",
-                    "type": "string"
+                    "type": "string",
+                    "description": "The sender organization of the file"
                   },
                   "Metadata.Recipients": {
                     "minItems": 1,
                     "type": "array",
                     "items": {
                       "type": "string"
-                    }
+                    },
+                    "description": "The recipient organizations of the broker fileTransfer"
                   },
                   "Metadata.PropertyList": {
                     "type": "object",
@@ -351,316 +459,525 @@
                       }
                     }
                   },
-                  "Metadata.Checksum": {
-                    "type": "string"
-                  },
-                  "Metadata.DisableVirusScan": {
-                    "type": "boolean"
-                  },
-                  "File": {
-                    "type": "string",
-                    "format": "binary"
-                  }
-                }
-              },
-              "encoding": {
-                "Metadata.FileName": {
-                  "style": "form"
-                },
-                "Metadata.ResourceId": {
-                  "style": "form"
-                },
-                "Metadata.SendersFileTransferReference": {
-                  "style": "form"
-                },
-                "Metadata.Sender": {
-                  "style": "form"
-                },
-                "Metadata.Recipients": {
-                  "style": "form"
-                },
-                "Metadata.PropertyList": {
-                  "style": "form"
+                  "description": "User-defined properties related to the file"
                 },
                 "Metadata.Checksum": {
-                  "style": "form"
+                  "type": "string",
+                  "description": "MD5 checksum for file data."
                 },
                 "Metadata.DisableVirusScan": {
-                  "style": "form"
+                  "type": "boolean",
+                  "description": "Disable virus scan. Requires special permission in production."
                 },
-                "File": {
-                  "style": "form"
+                "FileTransfer": {
+                  "type": "string",
+                  "description": "The file to be uploaded.",
+                  "format": "binary"
                 }
               }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/broker/api/v1/filetransfer/{fileTransferId}": {
-      "get": {
-        "tags": [
-          "File"
-        ],
-        "summary": "Retrieve file transfer status.",
-        "description": "This endpoint retrieves the status of a specified file transfer",
-        "operationId": "GetFileStatus",
-        "parameters": [
-          {
-            "name": "fileTransferId",
-            "in": "path",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FileOverview"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/broker/api/v1/filetransfer/{fileTransferId}/details": {
-      "get": {
-        "tags": [
-          "File"
-        ],
-        "summary": "Retrieve file transfer details",
-        "description": "Retrieve details about a file transfer for auditing purposes",
-        "operationId": "GetFileDetails",
-        "parameters": [
-          {
-            "name": "fileTransferId",
-            "in": "path",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FileStatusDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/broker/api/v1/filetransfer/{fileTransferId}/download": {
-      "get": {
-        "tags": [
-          "File"
-        ],
-        "summary": "Download a file",
-        "description": "This endpoint is used for downloading the file from the specified file transfer",
-        "operationId": "DownloadFile",
-        "parameters": [
-          {
-            "name": "fileTransferId",
-            "in": "path",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully downloaded the fileTransfer"
-          }
-        }
-      }
-    },
-    "/broker/api/v1/filetransfer/{fileTransferId}/confirmdownload": {
-      "post": {
-        "tags": [
-          "File"
-        ],
-        "summary": "Confirm a file download.",
-        "description": "This endpoint confirms the successful download of the specified file transfer",
-        "operationId": "ConfirmDownload",
-        "parameters": [
-          {
-            "name": "fileTransferId",
-            "in": "path",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-	"/broker/api/v1/resource/{resourceId}": {
-      "put": {
-        "summary": "Configure a resource",
-        "operationId": "configureResource",
-        "tags": ["Resource"],
-        "parameters": [
-          {
-            "name": "resourceId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "token",
-            "in": "header",
-            "required": true,
-            "schema": {
-              "type": "string"
             },
-            "description": "Maskinporten token"
+            "encoding": {
+              "Metadata.FileName": {
+                "style": "form"
+              },
+              "Metadata.ResourceId": {
+                "style": "form"
+              },
+              "Metadata.SendersFileTransferReference": {
+                "style": "form"
+              },
+              "Metadata.Sender": {
+                "style": "form"
+              },
+              "Metadata.Recipients": {
+                "style": "form"
+              },
+              "Metadata.PropertyList": {
+                "style": "form"
+              },
+              "Metadata.Checksum": {
+                "style": "form"
+              },
+              "Metadata.DisableVirusScan": {
+                "style": "form"
+              },
+              "FileTransfer": {
+                "style": "form"
+              }
+            }
           }
-        ],
-        "requestBody": {
-          "required": true,
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Returns the id of the uploaded File transfer",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ResourceExt"
-              },
-              "example": {
-                "MaxFileTransferSize": 2147483648,
-                "FileTransferTimeToLive": 30D,
-                "PurgeFileTransferAfterAllRecipientsConfirmed": true,
-                "PurgeFileTransferGracePeriod": 48H,
-                "UseManifestFileShim": false,
-                "ExternalServiceCodeLegacy": null,
-                "ExternalServiceEditionCodeLegacy": null
+                "type": "string"
               }
             }
           }
         },
-        "responses": {
-          "200": {
-            "description": "Resource configured successfully"
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "500": {
-            "description": "Internal server error"
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          },
-          {
-            "serviceOwnerPolicy": []
-          }
-        ]
-      }
-    },
-	"/broker/api/v1/serviceowner": {
-      "post": {
-        "summary": "Initialize a service owner",
-        "operationId": "initializeServiceOwner",
-        "tags": ["ServiceOwner"],
-        "requestBody": {
-          "required": true,
+        "400": {
+          "description": "<ul>\r\n  <li>Service owner needs to be configured to use the broker API</li>\r\n  <li>In order to use file transfers without virus scan the service resource needs to be approved by Altinn. Please contact us @ Slack</li>\r\n</ul>",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ServiceOwnerInitializeExt"
+                "$ref": "#/components/schemas/ProblemDetails"
+              }
+            }
+          }
+        },
+        "401": {
+          "description": "You must use a bearer token that represents a system user with access to the resource in the Resource Rights Registry",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProblemDetails"
+              }
+            }
+          }
+        },
+        "403": {
+          "description": "The resource needs to be registered as an Altinn 3 resource and it has to be associated with a service owner",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProblemDetails"
+              }
+            }
+          }
+        },
+        "503": {
+          "description": "Storage provider is not ready yet. Please try again later"
+        }
+      }
+    }
+  },
+  "/broker/api/v1/filetransfer/{fileTransferId}": {
+    "get": {
+      "tags": [
+        "FileTransfer"
+      ],
+      "summary": "Get information about the file transfer and its current status",
+      "description": "One of the scopes: \r\n\r\n- altinn:broker.read \r\n\r\n- altinn:broker.write",
+      "parameters": [
+        {
+          "name": "fileTransferId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Returns the file transfer overview",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FileTransferOverviewExt"
+              }
+            }
+          }
+        },
+        "401": {
+          "description": "You must use a bearer token that represents a system user with access to the resource in the Resource Rights Registry",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProblemDetails"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "The requested file transfer was not found",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProblemDetails"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/broker/api/v1/filetransfer/{fileTransferId}/details": {
+    "get": {
+      "tags": [
+        "FileTransfer"
+      ],
+      "summary": "Get more detailed information about the file transfer for auditing and troubleshooting purposes",
+      "description": "One of the scopes: \r\n\r\n- altinn:broker.read \r\n\r\n- altinn:broker.write",
+      "parameters": [
+        {
+          "name": "fileTransferId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Returns the file transfer overview",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FileTransferStatusDetailsExt"
+              }
+            }
+          }
+        },
+        "401": {
+          "description": "You must use a bearer token that represents a system user with access to the resource in the Resource Rights Registry",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProblemDetails"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "The requested file transfer was not found",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProblemDetails"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/broker/api/v1/filetransfer/{fileTransferId}/download": {
+    "get": {
+      "tags": [
+        "FileTransfer"
+      ],
+      "summary": "Downloads the file",
+      "description": "One of the scopes: \r\n\r\n- altinn:broker.read \r\n",
+      "parameters": [
+        {
+          "name": "fileTransferId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Returns the file",
+          "content": {
+            "application/octet-stream": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "<ul>\r\n  <li>No file uploaded yet</li>\r\n  <li>Service owner needs to be configured to use the broker API</li>\r\n</ul>",
+          "content": {
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/ProblemDetails"
+              }
+            }
+          }
+        },
+        "401": {
+          "description": "You must use a bearer token that represents a system user with access to the resource in the Resource Rights Registry",
+          "content": {
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/ProblemDetails"
+              }
+            }
+          }
+        },
+        "403": {
+          "description": "<ul>\r\n  <li>The requested file transfer's file is not ready for download. See file transfer status</li>\r\n  <li>\"The resource needs to be registered as an Altinn 3 resource and it has to be associated with a service owner</li>\r\n</ul>",
+          "content": {
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/ProblemDetails"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "The requested file transfer was not found",
+          "content": {
+            "application/octet-stream": {
+              "schema": {
+                "$ref": "#/components/schemas/ProblemDetails"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/broker/api/v1/filetransfer/{fileTransferId}/confirmdownload": {
+    "post": {
+      "tags": [
+        "FileTransfer"
+      ],
+      "summary": "Confirms that the file has been downloaded",
+      "description": "One of the scopes: \r\n \r\n- altinn:broker.read \r\n",
+      "parameters": [
+        {
+          "name": "fileTransferId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Returns the file"
+        },
+        "400": {
+          "description": "<ul>\r\n  <li>Cannot confirm before the files have been downloaded</li>\r\n  <li>No file uploaded yet</li>\r\n  <li>The requested file transfer's file is not ready for download. See file transfer status</li>\r\n</ul>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProblemDetails"
+              }
+            }
+          }
+        },
+        "401": {
+          "description": "You must use a bearer token that represents a system user with access to the resource in the Resource Rights Registry",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProblemDetails"
+              }
+            }
+          }
+        },
+        "403": {
+          "description": "The resource needs to be registered as an Altinn 3 resource and it has to be associated with a service owner",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProblemDetails"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "The requested file transfer was not found",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProblemDetails"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/broker/api/v1/resource/{resourceId}": {
+    "put": {
+      "tags": [
+        "Resource"
+      ],
+      "summary": "Configures a resource with settings to be used within the broker service.",
+      "description": "One of the scopes: \r\n \r\n- altinn:serviceowner \r\n",
+      "parameters": [
+        {
+          "name": "resourceId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ResourceExt"
+            },
+            "example": {
+              "MaxFileTransferSize": 2147483648,
+              "FileTransferTimeToLive": "30D",
+              "PurgeFileTransferAfterAllRecipientsConfirmed": true,
+              "PurgeFileTransferGracePeriod": "48H",
+              "UseManifestFileShim": false,
+              "ExternalServiceCodeLegacy": null,
+              "ExternalServiceEditionCodeLegacy": null
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Resource configured successfully"
+        },
+        "400": {
+          "description": "<ul>\r\n  <li>Invalid grace period format. Should follow ISO8601 standard for duration. Example: 'PT2H' for 2 hours</li>\r\n  <li>Grace period cannot exceed 24 hours</li>\r\n  <li>Max file transfer size cannot be negative</li>\r\n  <li>Max file transfer size cannot be zero</li>\r\n  <li>Max file transfer size cannot be set higher than the 2GB in production unless the resource has been pre-approved for disabled virus scan. Contact us @ Slack</li>\r\n  <li>Max file transfer size cannot be set higher than 100GB in production because it has not yet been tested for it. Contact us @ Slack if you need it</li>\r\n  <li>Invalid file transfer time to live format. Should follow ISO8601 standard for duration. Example: 'P30D' for 30 days</li>\r\n  <li>Time to live cannot exceed 365 days</li>\r\n</ul>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProblemDetails"
+              }
+            }
+          }
+        },
+        "401": {
+          "description": "You must use a bearer token that represents a system user with access to the resource in the Resource Rights Registry",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProblemDetails"
+              }
+            }
+          }
+        },
+        "403": {
+          "description": "The resource needs to be registered as an Altinn 3 resource and it has to be associated with a service owner",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProblemDetails"
+              }
+            }
+          }
+        }
+      }
+    },
+    "get": {
+      "tags": [
+        "Resource"
+      ],
+      "summary": "Gets information about a resource configuration in broker",
+      "description": "One of the scopes: \r\n \r\n- altinn:serviceowner \r\n",
+      "parameters": [
+        {
+          "name": "resourceId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Detailed information about the resource"
+        },
+        "401": {
+          "description": "You must use a bearer token that represents a system user with access to the resource in the Resource Rights Registry",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProblemDetails"
+              }
+            }
+          }
+        },
+        "403": {
+          "description": "The resource needs to be registered as an Altinn 3 resource and it has to be associated with a service owner",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProblemDetails"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/broker/api/v1/serviceowner": {
+    "post": {
+      "tags": [
+        "ServiceOwner"
+      ],
+      "summary": "Initializes the service owner for the calling organization within the brokerservice.",
+      "description": "One of the scopes: \r\n\r\n- altinn:serviceowner \r\n",
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ServiceOwnerInitializeExt"
+            },
+            "example": {
+              "Name": "Example Service Owner",
+              "DeletionTime": "P1D"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Service owner initialized successfully"
+        },
+        "409": {
+          "description": "Service owner already exists",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProblemDetails"
+              }
+            }
+          }
+        }
+      }
+    },
+    "get": {
+      "tags": [
+        "ServiceOwner"
+      ],
+      "summary": "Gets the service owner for the calling organization within the brokerservice.",
+      "description": "One of the scopes: \r\n\r\n- altinn:serviceowner \r\n",
+      "responses": {
+        "200": {
+          "description": "Service owner retrieved successfully",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ServiceOwnerOverviewExt"
               },
               "example": {
                 "Name": "Example Service Owner",
-                "DeletionTime": "P1D"
+                "DeploymentStatus": "Deployed"
               }
             }
           }
         },
-        "responses": {
-          "200": {
-            "description": "Service owner initialized successfully"
-          },
-          "409": {
-            "description": "Service owner already exists"
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          },
-          {
-            "serviceOwnerPolicy": []
-          }
-        ]
-      },
-      "get": {
-        "summary": "Get service owner details",
-        "operationId": "getServiceOwner",
-        "tags": ["ServiceOwner"],
-        "responses": {
-          "200": {
-            "description": "Service owner details retrieved successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ServiceOwnerOverviewExt"
-                },
-                "example": {
-                  "Name": "Example Service Owner",
-                  "DeploymentStatus": "Deployed"
-                }
+        "404": {
+          "description": "Service owner not found",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProblemDetails"
               }
             }
-          },
-          "404": {
-            "description": "Service owner not found"
           }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          },
-          {
-            "serviceOwnerPolicy": []
-          }
-        ]
+        }
       }
     }
   },
@@ -714,42 +1031,56 @@
           }
         ]
       },
-      "FileInitialize": {
+      "DeploymentStatusExt": {
+        "enum": [
+          "NotStarted",
+          "DeployingResources",
+          "Ready"
+        ],
+        "type": "string",
+        "description": "In the context of Azure deployment, \"Prepared\" corresponds to resource group deployed and \"Ready\" corresponds to all resources ready"
+      },
+      "FileTransferInitalizeExt": {
         "required": [
-          "Filename",
+          "fileName",
           "recipients",
           "resourceId",
           "sender"
         ],
         "type": "object",
         "properties": {
-          "Filename": {
+          "fileName": {
             "maxLength": 255,
             "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "description": "The filename including extension"
           },
           "resourceId": {
             "maxLength": 255,
             "minLength": 1,
-            "type": "string"
+            "type": "string",
+            "description": "The Altinn resource ID"
           },
           "sendersFileTransferReference": {
             "maxLength": 4096,
             "minLength": 1,
             "type": "string",
+            "description": "Used by senders and receivers to identify specific file using external identification methods.",
             "nullable": true
           },
           "sender": {
             "minLength": 1,
             "pattern": "^\\d{4}:\\d{9}$",
-            "type": "string"
+            "type": "string",
+            "description": "The sender organization of the file"
           },
           "recipients": {
             "minItems": 1,
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "description": "The recipient organizations of the broker fileTransfer"
           },
           "propertyList": {
             "type": "object",
@@ -761,20 +1092,36 @@
                 "maxLength": 300,
                 "type": "string"
               }
-            }
+            },
+            "description": "User-defined properties related to the file"
           },
           "checksum": {
             "type": "string",
+            "description": "MD5 checksum for file data.",
             "nullable": true
           },
           "disableVirusScan": {
             "type": "boolean",
+            "description": "Disable virus scan. Requires special permission in production.",
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "A model containing the metadata for a file transfer."
       },
-      "FileOverview": {
+      "FileTransferInitializeResponseExt": {
+        "type": "object",
+        "properties": {
+          "fileTransferId": {
+            "type": "string",
+            "description": "The ID of the file transfer.",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents the response from initializing a file transfer."
+      },
+      "FileTransferOverviewExt": {
         "type": "object",
         "properties": {
           "fileTransferId": {
@@ -783,56 +1130,67 @@
           },
           "resourceId": {
             "type": "string",
+            "description": "The Altinn resource ID for the broker service",
             "nullable": true
           },
           "fileName": {
             "type": "string",
+            "description": "The filename including extension",
             "nullable": true
           },
           "sendersFileTransferReference": {
             "type": "string",
+            "description": "Used by senders and receivers to identify specific file using external identification methods.",
             "nullable": true
           },
           "checksum": {
             "type": "string",
+            "description": "MD5 checksum for file data.",
             "nullable": true
           },
           "useVirusScan": {
             "type": "boolean",
-            "nullable": true
+            "description": "Is virus scan enabled for the file transfer"
           },
           "fileTransferSize": {
             "type": "integer",
+            "description": "File size in bytes",
             "format": "int64"
           },
-          "fileStatus": {
-            "$ref": "#/components/schemas/FileStatus"
+          "fileTransferStatus": {
+            "$ref": "#/components/schemas/FileTransferStatusExt"
           },
-          "fileStatusText": {
+          "fileTransferStatusText": {
             "type": "string",
+            "description": "Current file status text description",
             "nullable": true
           },
-          "fileStatusChanged": {
+          "fileTransferStatusChanged": {
             "type": "string",
+            "description": "Timestamp for when the Current File Status was changed",
             "format": "date-time"
           },
           "created": {
             "type": "string",
+            "description": "Date/Time in UTC for when the file was created",
             "format": "date-time"
           },
           "expirationTime": {
             "type": "string",
+            "description": "Date/Time in UTC for when the file will expire",
             "format": "date-time"
           },
           "sender": {
             "type": "string",
+            "description": "Sender of the fileTransfer",
             "nullable": true
           },
           "recipients": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RecipientFileStatusDetails"
+              "$ref": "#/components/schemas/RecipientFileTransferStatusDetailsExt"
             },
+            "description": "Recipients of the file",
             "nullable": true
           },
           "propertyList": {
@@ -845,283 +1203,368 @@
                 "maxLength": 300,
                 "type": "string"
               }
+            },
+            "description": "Up to ten arbitrary key value pairs"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "description": "Overview of a broker file transfer"
+    },
+    "FileTransferStatusDetailsExt": {
+      "type": "object",
+      "properties": {
+        "fileTransferId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "resourceId": {
+          "type": "string",
+          "description": "The Altinn resource ID for the broker service",
+          "nullable": true
+        },
+        "fileName": {
+          "type": "string",
+          "description": "The filename including extension",
+          "nullable": true
+        },
+        "sendersFileTransferReference": {
+          "type": "string",
+          "description": "Used by senders and receivers to identify specific file using external identification methods.",
+          "nullable": true
+        },
+        "checksum": {
+          "type": "string",
+          "description": "MD5 checksum for file data.",
+          "nullable": true
+        },
+        "useVirusScan": {
+          "type": "boolean",
+          "description": "Is virus scan enabled for the file transfer"
+        },
+        "fileTransferSize": {
+          "type": "integer",
+          "description": "File size in bytes",
+          "format": "int64"
+        },
+        "fileTransferStatus": {
+          "$ref": "#/components/schemas/FileTransferStatusExt"
+        },
+        "fileTransferStatusText": {
+          "type": "string",
+          "description": "Current file status text description",
+          "nullable": true
+        },
+        "fileTransferStatusChanged": {
+          "type": "string",
+          "description": "Timestamp for when the Current File Status was changed",
+          "format": "date-time"
+        },
+        "created": {
+          "type": "string",
+          "description": "Date/Time in UTC for when the file was created",
+          "format": "date-time"
+        },
+        "expirationTime": {
+          "type": "string",
+          "description": "Date/Time in UTC for when the file will expire",
+          "format": "date-time"
+        },
+        "sender": {
+          "type": "string",
+          "description": "Sender of the fileTransfer",
+          "nullable": true
+        },
+        "recipients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/RecipientFileTransferStatusDetailsExt"
+          },
+          "description": "Recipients of the file",
+          "nullable": true
+        },
+        "propertyList": {
+          "type": "object",
+          "additionalProperties": false,
+          "maxProperties": 10,
+          "nullable": true,
+          "patternProperties": {
+            "^.{1,50}$": {
+              "maxLength": 300,
+              "type": "string"
             }
-          }
+          },
+          "description": "Up to ten arbitrary key value pairs"
         },
-        "additionalProperties": false
-      },
-      "FileStatusDetails": {
-        "type": "object",
-        "properties": {
-          "fileTransferId": {
-            "type": "string",
-            "format": "uuid"
+        "fileTransferStatusHistory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/FileTransferStatusEventExt"
           },
-          "resourceId": {
-            "type": "string",
-            "nullable": true
-          },
-          "fileName": {
-            "type": "string",
-            "nullable": true
-          },
-          "sendersFileTransferReference": {
-            "type": "string",
-            "nullable": true
-          },
-          "checksum": {
-            "type": "string",
-            "nullable": true
-          },
-          "useVirusScan": {
-            "type": "boolean",
-            "nullable": true
-          },
-          "fileTransferSize": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "fileStatus": {
-            "$ref": "#/components/schemas/FileStatus"
-          },
-          "fileStatusText": {
-            "type": "string",
-            "nullable": true
-          },
-          "fileStatusChanged": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "created": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "expirationTime": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "sender": {
-            "type": "string",
-            "nullable": true
-          },
-          "recipients": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RecipientFileStatusDetails"
-            },
-            "nullable": true
-          },
-          "propertyList": {
-            "type": "object",
-            "additionalProperties": false,
-            "maxProperties": 10,
-            "nullable": true,
-            "patternProperties": {
-              "^.{1,50}$": {
-                "maxLength": 300,
-                "type": "string"
-              }
-            }
-          },
-          "fileStatusHistory": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FileStatusEvent"
-            },
-            "nullable": true
-          },
-          "recipientFileStatusHistory": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RecipientFileStatusEvent"
-            },
-            "nullable": true
-          }
+          "description": "The status history of the file transfer.",
+          "nullable": true
         },
-        "additionalProperties": false
-      },
-      "FileStatusEvent": {
-        "type": "object",
-        "properties": {
-          "fileStatus": {
-            "$ref": "#/components/schemas/FileStatus"
+        "recipientFileTransferStatusHistory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/RecipientFileTransferStatusEventExt"
           },
-          "fileStatusText": {
-            "type": "string",
-            "nullable": true
-          },
-          "fileStatusChanged": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "additionalProperties": false
-      },
-      "FileStatus": {
-        "enum": [
-          "Initialized",
-          "UploadStarted",
-          "UploadProcessing",
-          "Published",
-          "Cancelled",
-          "AllConfirmedDownloaded",
-          "Purged",
-          "Failed"
-        ],
-        "type": "string"
-      },
-      "MaskinportenUser": {
-        "type": "object",
-        "properties": {
-          "clientId": {
-            "type": "string",
-            "nullable": true
-          },
-          "accessLevel": {
-            "$ref": "#/components/schemas/AccessLevel"
-          },
-          "organizationNumber": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "RecipientFileStatusDetails": {
-        "type": "object",
-        "properties": {
-          "recipient": {
-            "type": "string",
-            "nullable": true
-          },
-          "currentRecipientFileStatusCode": {
-            "$ref": "#/components/schemas/RecipientFileStatus"
-          },
-          "currentRecipientFileStatusText": {
-            "type": "string",
-            "nullable": true
-          },
-          "currentRecipientFileStatusChanged": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "additionalProperties": false
-      },
-      "RecipientFileStatusEvent": {
-        "type": "object",
-        "properties": {
-          "recipient": {
-            "type": "string",
-            "nullable": true
-          },
-          "recipientFileStatusCode": {
-            "$ref": "#/components/schemas/RecipientFileStatus"
-          },
-          "recipientFileStatusText": {
-            "type": "string",
-            "nullable": true
-          },
-          "recipientFileStatusChanged": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "additionalProperties": false
-      },
-      "RecipientFileStatus": {
-        "enum": [
-          "Initialized",
-          "DownloadStarted",
-          "DownloadConfirmed"
-        ],
-        "type": "string"
-      },
-      "ResourceInitialize": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "deletionTime": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ResourceOverview": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "organizationNumber": {
-            "type": "string",
-            "nullable": true
-          },
-          "created": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ResourceExt": {
-        "type": "object",
-        "properties": {
-          "MaxFileTransferSize": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "FileTransferTimeToLive": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "PurgeFileTransferAfterAllRecipientsConfirmed": {
-            "type": "boolean"
-          },
-          "PurgeFileTransferGracePeriod": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "UseManifestFileShim": {
-            "type": "boolean"
-          },
-          "ExternalServiceCodeLegacy": {
-            "type": "string"
-          },
-          "ExternalServiceEditionCodeLegacy": {
-            "type": "string"
-          }
+          "description": "The status history of the file transfer for each recipient.",
+          "nullable": true
         }
       },
-      "ServiceOwnerInitializeExt": {
-        "type": "object",
-        "properties": {
-          "Name": {
-            "type": "string"
-          },
-          "DeletionTime": {
-            "type": "string",
-            "format": "duration"
-          }
+      "additionalProperties": false,
+      "description": "Overview of a broker file transfer which also includes the status history of the file transfer.|"
+    },
+    "FileTransferStatusEventExt": {
+      "type": "object",
+      "properties": {
+        "fileTransferStatus": {
+          "$ref": "#/components/schemas/FileTransferStatusExt"
+        },
+        "fileTransferStatusText": {
+          "type": "string",
+          "description": "The status text of the file transfer.",
+          "nullable": true
+        },
+        "fileTransferStatusChanged": {
+          "type": "string",
+          "description": "The date and time when the status of the file transfer was last changed.",
+          "format": "date-time"
         }
       },
-      "ServiceOwnerOverviewExt": {
-        "type": "object",
-        "properties": {
-          "Name": {
-            "type": "string"
-          },
-          "DeploymentStatus": {
-            "type": "string",
-            "enum": ["NotDeployed", "Deploying", "Deployed", "Failed"]
-          }
+      "additionalProperties": false,
+      "description": "Represents the status of a file transfer."
+    },
+    "FileTransferStatusExt": {
+      "enum": [
+        "Initialized",
+        "UploadStarted",
+        "UploadProcessing",
+        "Published",
+        "Cancelled",
+        "AllConfirmedDownloaded",
+        "Purged",
+        "Failed"
+      ],
+      "type": "string"
+    },
+    "FileTransferUploadResponseExt": {
+      "type": "object",
+      "properties": {
+        "fileTransferId": {
+          "type": "string",
+          "description": "The ID of the file transfer.",
+          "format": "uuid"
         }
-      }
+      },
+      "additionalProperties": false,
+      "description": "Represents the response from uploading a file transfer."
+    },
+    "ProblemDetails": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "nullable": true
+        },
+        "title": {
+          "type": "string",
+          "nullable": true
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "nullable": true
+        },
+        "detail": {
+          "type": "string",
+          "nullable": true
+        },
+        "instance": {
+          "type": "string",
+          "nullable": true
+        }
+      },
+      "additionalProperties": {}
+    },
+    "RecipientFileTransferStatusDetailsExt": {
+      "type": "object",
+      "properties": {
+        "recipient": {
+          "type": "string",
+          "description": "The recipient of the file transfer.",
+          "nullable": true
+        },
+        "currentRecipientFileTransferStatusCode": {
+          "$ref": "#/components/schemas/RecipientFileTransferStatusExt"
+        },
+        "currentRecipientFileTransferStatusText": {
+          "type": "string",
+          "description": "The current status text of the file transfer.",
+          "nullable": true
+        },
+        "currentRecipientFileTransferStatusChanged": {
+          "type": "string",
+          "description": "The date and time when the status of the file transfer was last changed.",
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Represents the current status of a file transfer for a specific recipient."
+    },
+    "RecipientFileTransferStatusEventExt": {
+      "type": "object",
+      "properties": {
+        "recipient": {
+          "type": "string",
+          "description": "The recipient of the file transfer.",
+          "nullable": true
+        },
+        "recipientFileTransferStatusCode": {
+          "$ref": "#/components/schemas/RecipientFileTransferStatusExt"
+        },
+        "recipientFileTransferStatusText": {
+          "type": "string",
+          "description": "The status text of the file transfer.",
+          "nullable": true
+        },
+        "recipientFileTransferStatusChanged": {
+          "type": "string",
+          "description": "The date and time when the status of the file transfer was last changed.",
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Represents the status of a file transfer to a recipient."
+    },
+    "RecipientFileTransferStatusExt": {
+      "enum": [
+        "Initialized",
+        "DownloadStarted",
+        "DownloadConfirmed"
+      ],
+      "type": "string"
+    },
+    "ResourceExt": {
+      "type": "object",
+      "properties": {
+        "maxFileTransferSize": {
+          "type": "integer",
+          "description": "The max upload size for the resource in bytes",
+          "format": "int64",
+          "nullable": true
+        },
+        "fileTransferTimeToLive": {
+          "type": "string",
+          "description": "The time before a file transfer expires (ISO8601 Duration format)",
+          "nullable": true
+        },
+        "purgeFileTransferAfterAllRecipientsConfirmed": {
+          "type": "boolean",
+          "description": "If the file transfer should be deleted after all recipients have confirmed",
+          "nullable": true
+        },
+        "purgeFileTransferGracePeriod": {
+          "type": "string",
+          "description": "The grace period before a file transfer is deleted after all recipients have confirmed (ISO8601 Duration format)",
+          "nullable": true
+        },
+        "useManifestFileShim": {
+          "type": "boolean",
+          "description": "If the manifest file shim should be used in the transition solution where manifest files are added to downloaded files",
+          "nullable": true
+        },
+        "externalServiceCodeLegacy": {
+          "type": "string",
+          "description": "The external service code used in Altinn 2 for the broker service",
+          "nullable": true
+        },
+        "externalServiceEditionCodeLegacy": {
+          "type": "integer",
+          "description": "The external service edition code used in Altinn 2 for the broker service",
+          "format": "int32",
+          "nullable": true
+        }
+      },
+      "additionalProperties": false,
+      "description": "A model representing the extended resource properties unique for the broker service."
+    },
+    "ServiceOwnerInitializeExt": {
+      "required": [
+        "deletionTime",
+        "name"
+      ],
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the service owner.",
+          "nullable": true
+        },
+        "deletionTime": {
+          "type": "string",
+          "description": "How long the service owner should keep files before they are deleted. \r\n\r\nMust be in ISO8601 Duration",
+          "nullable": true
+        }
+      },
+      "additionalProperties": false,
+      "description": "Represents the Broker properties of a service owner."
+    },
+    "ServiceOwnerOverviewExt": {
+      "required": [
+        "name",
+        "storageProviders"
+      ],
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the service owner.",
+          "nullable": true
+        },
+        "storageProviders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/StorageProviderExt"
+          },
+          "description": "The service owner's storage providers.",
+          "nullable": true
+        }
+      },
+      "additionalProperties": false,
+      "description": "Represents the Broker properties of a service owner."
+    },
+    "StorageProviderExt": {
+      "required": [
+        "deploymentEnvironment",
+        "deploymentStatus",
+        "type"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/StorageProviderTypeExt"
+        },
+        "deploymentStatus": {
+          "$ref": "#/components/schemas/DeploymentStatusExt"
+        },
+        "deploymentEnvironment": {
+          "type": "string",
+          "description": "The deployment environment of the storage provider.",
+          "nullable": true
+        }
+      },
+      "additionalProperties": false,
+      "description": "Represents the Broker properties of a storage provider."
+    },
+    "StorageProviderTypeExt": {
+      "enum": [
+        "AltinnAzure",
+        "AltinnAzureWithoutVirusScan"
+      ],
+      "type": "string",
+      "description": "Represents the deployment status of a storage provider."
     }
   }
 }

@@ -20,15 +20,19 @@ basePath = https://{hostname}/storage/api/v1/instances
 
 It is possible to query instances based on a number of query parameters. 
 
-Application owners can search for from a single application or across all applications that they have.
+**Application owners** can search in a single application or across all applications that they own.
 Using this endpoint requires the scope 'altinn:instances.read'. And query parameter 'org' or 'appId' must be included in the request.
 
-Users can search for instances linked to either themselves or an instanceOwner they are authorized to read the instances of. 
+**Users** can search for instances linked to either themselves or an instanceOwner they are authorized to read the instances of. 
 Query parameter 'instanceOwner.partyId' must be included in the request if using this endpoint as an end user.
 
 Search for instances with a simple GET request towards the *instances* endpoint.
 Available query parameters include:
 
+- **org** (string)
+The organization identifier.
+- **appid** (string)
+The application identifier.
 - **process.currentTask** (string)  
 Search for instances at a specific step in its process. 
 - **process.isComplete** (bool)  
@@ -51,6 +55,12 @@ Filter instances based on their due date.
 Exclude instances already confirmed by a specific stakeholder. Usually the short name of an application owner.
 - **status.isArchived** (bool)
 Filter instances based on whether they are archived.
+- **size** (int)
+The page size returned
+- **mainVersionInclude** (int)
+The Altinn version to include. E.g. "mainVersionInclude=3" will filter the response to only get the Altinn 3 instances.
+- **mainVersionExclude** (int)
+The Altinn version to exclude. E.g. "mainVersionExclude=3" will filter the response to exclude Altinn 3 instances.
 - **status.isSoftDeleted** (bool)
 Filter instances based on whether they are soft deleted.
 - **status.isHardDeleted** (bool)
@@ -73,7 +83,7 @@ Get all instances of all applications of a given application owner *org* that ha
 GET {storagePath}/instances?org=org&process.ended=gt:2020-03-10
 ```
 
-Get all instances of all applications of a given application owner *org* that has not already been confirmed completed by *org*.
+Get all instances of all applications of a given application owner *org* that have not already been confirmed completed by *org*.
 ```http
 GET {storagePath}/instances?org=org&excludeConfirmedBy=org
 ```
@@ -97,19 +107,16 @@ They can be combined to define a range:
 dueBefore=gt:2019-02&dueBefore=lt:2019-03-01
 ```
 
-The query returns a result object (page) which includes a collection of instances that matched the query. 100 instances is returned by default. Use *size* to get more or less instances per page. To get to the next page you have to use the *continuationToken* present in the *next* link.
-
-The instances endpoint returns a query result object with information about how many total hits *totalHits* that the query matched and how many objects returned *count*. 
-
-The endpoint supports *application/json*.
+The query returns a result object (page) which includes a collection of instances that matched the query.
+100 instances are returned by default. Use *size* to get more or fewer instances per page. 
+To get to the next page you have to use the *continuationToken* present in the *next* link.
 
 ```json
 Accept: application/json
 {
-    "totalHits": 234,
     "count": 50,
     "self": "{storagePath}/instances?appId=org/app&size=50",
-    "next": "{storagePath}/instances?appId=org/app&size=50&continuationToken=%257b%2522token%2522%253a%2522%252bRID%..."
+    "next": "{storagePath}/instances?appId=org/app&size=50&continuationToken=%257b%2522token%2522%253a%2522%252bRID%...",
     "instances": [
             {...},
             {...},

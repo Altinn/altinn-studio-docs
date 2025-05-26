@@ -1,72 +1,56 @@
 ---
 title: What do you get?
 linktitle: What do you get?
-description: Main features of Altinn Correspondence 
+description: An overview and description of the key functionalities and features of Altinn Correspondence. 
 tags: []
 toc: true
 weight: 20
 ---
 
-## Main Features
+### Security
+Altinn Correspondence leverages Microsoft Azure Storage Service Encryption to protect content. See [Azure Storage Service Encryption](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption) for more details.
 
-### Creation and Sending of Messages
-- Ability for public agencies and other service providers to create and send messages to users.
-  - Languages supported: Norwegian bokmål (nb), Norwegian nynorsk (nn) and English (en)
-- Support for both general and personalized messages.
+### Logging
+Altinn Correspondence ensures that all events and processes are thoroughly logged, making it easy to trace who did what and when.
 
 ### Notifications
-- Automatic notifications via email or SMS to users when they receive new messages.
-- Customized notification settings based on user preferences.
+- Automatic notifications via email or SMS to recipients.
+- Reminder after 7 days if a file remains unopened.
+- Customizable notification templates and delivery addresses.
 
-### Archiving and Storage
-- All messages are stored in the user's inbox in Altinn.
-- Retention policies that ensure messages are available as long as necessary according to legislation and guidelines.
+### Events
+You can receive notifications about events related to submitted messaging services by setting up a subscription for the specific service. For example, you can see whether the file has reached the recipient and whether it has been opened.
 
-### Access Control and Security
-- Advanced access control ensuring that only authorized users can read the messages.
-- Use of security mechanisms like encryption to protect the content.
-
-### Search and Filtering Functions
-- User-friendly search and filtering functions to quickly find specific messages.
-- Ability to sort messages by various criteria such as date, sender, and message type.
-
-### Integrations and APIs
-- APIs allowing integration with other systems for sending and receiving messages.
-- Possibility for automated message handling through integrated systems.
-
-### Receipts and Confirmations
-- The system provides receipts when a message is delivered and opened by the recipient.
-- Ability to send confirmations back to the sender that the message has been read.
-
-### User Administration
-- Tools for managing user profiles and access.
-- Functionality to assign messages to the correct user or unit within an organization.
+### Access Control
+The system offers advanced access control, ensuring that only authorized users can access specific file transfers.
 
 ### Support for Various Message Formats
-- Ability to send messages in various formats such as PDF, XML, HTML, etc.
-- Support for attachments.
-
-### Reporting and Statistics
-- Tools to generate reports and statistics over sent and received messages.
-- Overview of message flows and usage data.
+- Ability to send correspondences in Markdown or clean text.
+- Support for several attachments per correspondence, without limitation of type. PDF, XML and HTML will usually be the most common used.
+- Supports attachments up to 250 MB. 
 
 ### Advanced Support for Linking to Content and Attachments
-
-- As an alternative to sending message content and attachments directly in the messages,
+- As an alternative to sending correspondence content and attachments directly in the correspondences,
   the sender can choose to send links to content and attachments.
-- Altinn Melding has functionality for uploading files with message content and attachments,
-  for secure storage and reuse across multiple messages.
+- Altinn Correspondence has functionality for uploading files with correspondence content and attachments,
+  for secure storage and reuse across multiple correspondences.
+  The solution has a limitation of a maximum of 100 attachments per correspondence.
 - It is also possible to link to content and attachments stored elsewhere,
   e.g., on-premises at the sender or in the sender's preferred cloud solution.
 
+### Archiving and Storage
+- All correspondences are stored in the user's inbox in Altinn.
+- Retention policies that ensure correspondences are available as long as necessary according to legislation and guidelines.
 
-### Integration with Altinn 3 Dialogporten and Felles Arbeidsflate
+### API  access
+- APIs allowing integration with other systems for sending and receiving correspondences.
+- Possibility for automated message handling through integrated systems.
 
-- Unified user interface across multiple messaging solutions through Altinn 3 Felles Arbeidsflate.
-- Activity log in Altinn 3 Dialogporten.
+### Integration with Dialogporten and Arbeidsflate
+- An Altinn 3 Message automatically creates a dialogue in "Dialogporten". 
+- The solution provides a unified user interface across the Altinn 3 workspace "Arbeidsflate" and "Dialogporten".
 
 ## Summary of advantages of Altinn Correspondence
-
 Altinn Correspondence offers several unique benefits that make it the preferred choice for digital communication with public agencies in Norway:
 
 * Centralized communication: Altinn Correspondence serves as a central hub where all communications with public authorities can be managed from one account. This eliminates the need to manage multiple accounts or platforms.
