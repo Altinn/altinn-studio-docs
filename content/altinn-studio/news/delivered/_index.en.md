@@ -43,4 +43,3 @@ hidden: true
         githubUrl="https://github.com/digdir/roadmap/issues/80"
     >}}
 </div>
-</div>
