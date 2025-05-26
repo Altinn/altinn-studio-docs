@@ -5,7 +5,7 @@ weight: 2
 hidden: true
 ---
 
-<div style="display: flex; flex-direction: row; justify-content: flex-start; gap: 20px; flex-wrap: wrap;">
+<div style="display: flex; flex-direction: row; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
     {{<news-card
         title="Process editing tools"
         content="Ability to edit process associated with a service."
