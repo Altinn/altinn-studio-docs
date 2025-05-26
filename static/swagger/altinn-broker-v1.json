@@ -309,15 +309,258 @@
             }
           }
         }
+      },
+      "/broker/api/v1/filetransfer/{fileTransferId}/upload": {
+        "post": {
+          "tags": [
+            "FileTransfer"
+          ],
+          "summary": "Upload to an initialized file using a binary stream.",
+          "description": "One of the scopes: \r\n\r\n- altinn:broker.write",
+          "parameters": [
+            {
+              "name": "fileTransferId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Returns the id of the uploaded File transfer",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/FileTransferUploadResponseExt"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "<ul>\r\n  <li>Service owner needs to be configured to use the broker API</li>\r\n  <li>File size exceeds maximum</li>\r\n  <li>The checksum of uploaded file did not match the checksum specified in initialize call</li>\r\n</ul>",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "You must use a bearer token that represents a system user with access to the resource in the Resource Rights Registry",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "The resource needs to be registered as an Altinn 3 resource and it has to be associated with a service owner",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "The requested file transfer was not found",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "409": {
+              "description": "A file transfer has already been, or attempted to be, created. Create a new file transfer resource to try again",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            },
+            "503": {
+              "description": "Storage provider is not ready yet. Please try again later"
+            }
+          }
+        }
+      },
+      "/broker/api/v1/filetransfer/upload": {
+        "post": {
+          "tags": [
+            "FileTransfer"
+          ],
+          "summary": "Initialize a filetransfer and uploads the file in the same request using form-data",
+          "description": "One of the scopes: \r\n\r\n- altinn:broker.write",
+          "requestBody": {
+            "content": {
+              "multipart/form-data": {
+                "schema": {
+                  "required": [
+                    "FileTransfer",
+                    "Metadata.FileName",
+                    "Metadata.Recipients",
+                    "Metadata.ResourceId",
+                    "Metadata.Sender"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "Metadata.FileName": {
+                      "maxLength": 255,
+                      "minLength": 1,
+                      "type": "string",
+                      "description": "The filename including extension"
+                    },
+                    "Metadata.ResourceId": {
+                      "maxLength": 255,
+                      "minLength": 1,
+                      "type": "string",
+                      "description": "The Altinn resource ID"
+                    },
+                    "Metadata.SendersFileTransferReference": {
+                      "maxLength": 4096,
+                      "minLength": 1,
+                      "type": "string",
+                      "description": "Used by senders and receivers to identify specific file using external identification methods."
+                    },
+                    "Metadata.Sender": {
+                      "pattern": "^\\d{4}:\\d{9}$",
+                      "type": "string",
+                      "description": "The sender organization of the file"
+                    },
+                    "Metadata.Recipients": {
+                      "minItems": 1,
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "The recipient organizations of the broker fileTransfer"
+                    },
+                    "Metadata.PropertyList": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "maxProperties": 10,
+                      "nullable": true,
+                      "patternProperties": {
+                        "^.{1,50}$": {
+                          "maxLength": 300,
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "description": "User-defined properties related to the file"
+                  },
+                  "Metadata.Checksum": {
+                    "type": "string",
+                    "description": "MD5 checksum for file data."
+                  },
+                  "Metadata.DisableVirusScan": {
+                    "type": "boolean",
+                    "description": "Disable virus scan. Requires special permission in production."
+                  },
+                  "FileTransfer": {
+                    "type": "string",
+                    "description": "The file to be uploaded.",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Metadata.FileName": {
+                  "style": "form"
+                },
+                "Metadata.ResourceId": {
+                  "style": "form"
+                },
+                "Metadata.SendersFileTransferReference": {
+                  "style": "form"
+                },
+                "Metadata.Sender": {
+                  "style": "form"
+                },
+                "Metadata.Recipients": {
+                  "style": "form"
+                },
+                "Metadata.PropertyList": {
+                  "style": "form"
+                },
+                "Metadata.Checksum": {
+                  "style": "form"
+                },
+                "Metadata.DisableVirusScan": {
+                  "style": "form"
+                },
+                "FileTransfer": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the id of the uploaded File transfer",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "<ul>\r\n  <li>Service owner needs to be configured to use the broker API</li>\r\n  <li>In order to use file transfers without virus scan the service resource needs to be approved by Altinn. Please contact us @ Slack</li>\r\n</ul>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "You must use a bearer token that represents a system user with access to the resource in the Resource Rights Registry",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The resource needs to be registered as an Altinn 3 resource and it has to be associated with a service owner",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Storage provider is not ready yet. Please try again later"
+          }
+        }
       }
     },
-    "/broker/api/v1/filetransfer/{fileTransferId}/upload": {
-      "post": {
+    "/broker/api/v1/filetransfer/{fileTransferId}": {
+      "get": {
         "tags": [
           "FileTransfer"
         ],
-        "summary": "Upload to an initialized file using a binary stream.",
-        "description": "One of the scopes: \r\n\r\n- altinn:broker.write",
+        "summary": "Get information about the file transfer and its current status",
+        "description": "One of the scopes: \r\n\r\n- altinn:broker.read \r\n\r\n- altinn:broker.write",
         "parameters": [
           {
             "name": "fileTransferId",
@@ -331,17 +574,187 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns the id of the uploaded File transfer",
+            "description": "Returns the file transfer overview",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FileTransferUploadResponseExt"
+                  "$ref": "#/components/schemas/FileTransferOverviewExt"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "You must use a bearer token that represents a system user with access to the resource in the Resource Rights Registry",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested file transfer was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/broker/api/v1/filetransfer/{fileTransferId}/details": {
+      "get": {
+        "tags": [
+          "FileTransfer"
+        ],
+        "summary": "Get more detailed information about the file transfer for auditing and troubleshooting purposes",
+        "description": "One of the scopes: \r\n\r\n- altinn:broker.read \r\n\r\n- altinn:broker.write",
+        "parameters": [
+          {
+            "name": "fileTransferId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the file transfer overview",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileTransferStatusDetailsExt"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "You must use a bearer token that represents a system user with access to the resource in the Resource Rights Registry",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested file transfer was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/broker/api/v1/filetransfer/{fileTransferId}/download": {
+      "get": {
+        "tags": [
+          "FileTransfer"
+        ],
+        "summary": "Downloads the file",
+        "description": "One of the scopes: \r\n\r\n- altinn:broker.read \r\n",
+        "parameters": [
+          {
+            "name": "fileTransferId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the file",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
                 }
               }
             }
           },
           "400": {
-            "description": "<ul>\r\n  <li>Service owner needs to be configured to use the broker API</li>\r\n  <li>File size exceeds maximum</li>\r\n  <li>The checksum of uploaded file did not match the checksum specified in initialize call</li>\r\n</ul>",
+            "description": "<ul>\r\n  <li>No file uploaded yet</li>\r\n  <li>Service owner needs to be configured to use the broker API</li>\r\n</ul>",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "You must use a bearer token that represents a system user with access to the resource in the Resource Rights Registry",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "<ul>\r\n  <li>The requested file transfer's file is not ready for download. See file transfer status</li>\r\n  <li>\"The resource needs to be registered as an Altinn 3 resource and it has to be associated with a service owner</li>\r\n</ul>",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested file transfer was not found",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/broker/api/v1/filetransfer/{fileTransferId}/confirmdownload": {
+      "post": {
+        "tags": [
+          "FileTransfer"
+        ],
+        "summary": "Confirms that the file has been downloaded",
+        "description": "One of the scopes: \r\n \r\n- altinn:broker.read \r\n",
+        "parameters": [
+          {
+            "name": "fileTransferId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the file"
+          },
+          "400": {
+            "description": "<ul>\r\n  <li>Cannot confirm before the files have been downloaded</li>\r\n  <li>No file uploaded yet</li>\r\n  <li>The requested file transfer's file is not ready for download. See file transfer status</li>\r\n</ul>",
             "content": {
               "application/json": {
                 "schema": {
@@ -379,9 +792,51 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/broker/api/v1/resource/{resourceId}": {
+      "put": {
+        "tags": [
+          "Resource"
+        ],
+        "summary": "Configures a resource with settings to be used within the broker service.",
+        "description": "One of the scopes: \r\n \r\n- altinn:serviceowner \r\n",
+        "parameters": [
+          {
+            "name": "resourceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceExt"
+              },
+              "example": {
+                "MaxFileTransferSize": 2147483648,
+                "FileTransferTimeToLive": "30D",
+                "PurgeFileTransferAfterAllRecipientsConfirmed": true,
+                "PurgeFileTransferGracePeriod": "48H",
+                "UseManifestFileShim": false,
+                "ExternalServiceCodeLegacy": null,
+                "ExternalServiceEditionCodeLegacy": null
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Resource configured successfully"
           },
-          "409": {
-            "description": "A file transfer has already been, or attempted to be, created. Create a new file transfer resource to try again",
+          "400": {
+            "description": "<ul>\r\n  <li>Invalid grace period format. Should follow ISO8601 standard for duration. Example: 'PT2H' for 2 hours</li>\r\n  <li>Grace period cannot exceed 24 hours</li>\r\n  <li>Max file transfer size cannot be negative</li>\r\n  <li>Max file transfer size cannot be zero</li>\r\n  <li>Max file transfer size cannot be set higher than the 2GB in production unless the resource has been pre-approved for disabled virus scan. Contact us @ Slack</li>\r\n  <li>Max file transfer size cannot be set higher than 100GB in production because it has not yet been tested for it. Contact us @ Slack if you need it</li>\r\n  <li>Invalid file transfer time to live format. Should follow ISO8601 standard for duration. Example: 'P30D' for 30 days</li>\r\n  <li>Time to live cannot exceed 365 days</li>\r\n</ul>",
             "content": {
               "application/json": {
                 "schema": {
@@ -390,590 +845,135 @@
               }
             }
           },
-          "503": {
-            "description": "Storage provider is not ready yet. Please try again later"
-          }
-        }
-      }
-    },
-    "/broker/api/v1/filetransfer/upload": {
-      "post": {
-        "tags": [
-          "FileTransfer"
-        ],
-        "summary": "Initialize a filetransfer and uploads the file in the same request using form-data",
-        "description": "One of the scopes: \r\n\r\n- altinn:broker.write",
-        "requestBody": {
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "required": [
-                  "FileTransfer",
-                  "Metadata.FileName",
-                  "Metadata.Recipients",
-                  "Metadata.ResourceId",
-                  "Metadata.Sender"
-                ],
-                "type": "object",
-                "properties": {
-                  "Metadata.FileName": {
-                    "maxLength": 255,
-                    "minLength": 1,
-                    "type": "string",
-                    "description": "The filename including extension"
-                  },
-                  "Metadata.ResourceId": {
-                    "maxLength": 255,
-                    "minLength": 1,
-                    "type": "string",
-                    "description": "The Altinn resource ID"
-                  },
-                  "Metadata.SendersFileTransferReference": {
-                    "maxLength": 4096,
-                    "minLength": 1,
-                    "type": "string",
-                    "description": "Used by senders and receivers to identify specific file using external identification methods."
-                  },
-                  "Metadata.Sender": {
-                    "pattern": "^\\d{4}:\\d{9}$",
-                    "type": "string",
-                    "description": "The sender organization of the file"
-                  },
-                  "Metadata.Recipients": {
-                    "minItems": 1,
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "description": "The recipient organizations of the broker fileTransfer"
-                  },
-                  "Metadata.PropertyList": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "maxProperties": 10,
-                    "nullable": true,
-                    "patternProperties": {
-                      "^.{1,50}$": {
-                        "maxLength": 300,
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "description": "User-defined properties related to the file"
-                },
-                "Metadata.Checksum": {
-                  "type": "string",
-                  "description": "MD5 checksum for file data."
-                },
-                "Metadata.DisableVirusScan": {
-                  "type": "boolean",
-                  "description": "Disable virus scan. Requires special permission in production."
-                },
-                "FileTransfer": {
-                  "type": "string",
-                  "description": "The file to be uploaded.",
-                  "format": "binary"
+          "401": {
+            "description": "You must use a bearer token that represents a system user with access to the resource in the Resource Rights Registry",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
-            },
-            "encoding": {
-              "Metadata.FileName": {
-                "style": "form"
-              },
-              "Metadata.ResourceId": {
-                "style": "form"
-              },
-              "Metadata.SendersFileTransferReference": {
-                "style": "form"
-              },
-              "Metadata.Sender": {
-                "style": "form"
-              },
-              "Metadata.Recipients": {
-                "style": "form"
-              },
-              "Metadata.PropertyList": {
-                "style": "form"
-              },
-              "Metadata.Checksum": {
-                "style": "form"
-              },
-              "Metadata.DisableVirusScan": {
-                "style": "form"
-              },
-              "FileTransfer": {
-                "style": "form"
+            }
+          },
+          "403": {
+            "description": "The resource needs to be registered as an Altinn 3 resource and it has to be associated with a service owner",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
               }
             }
           }
         }
       },
-      "responses": {
-        "200": {
-          "description": "Returns the id of the uploaded File transfer",
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "string"
-              }
-            }
-          }
-        },
-        "400": {
-          "description": "<ul>\r\n  <li>Service owner needs to be configured to use the broker API</li>\r\n  <li>In order to use file transfers without virus scan the service resource needs to be approved by Altinn. Please contact us @ Slack</li>\r\n</ul>",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProblemDetails"
-              }
-            }
-          }
-        },
-        "401": {
-          "description": "You must use a bearer token that represents a system user with access to the resource in the Resource Rights Registry",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProblemDetails"
-              }
-            }
-          }
-        },
-        "403": {
-          "description": "The resource needs to be registered as an Altinn 3 resource and it has to be associated with a service owner",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProblemDetails"
-              }
-            }
-          }
-        },
-        "503": {
-          "description": "Storage provider is not ready yet. Please try again later"
-        }
-      }
-    }
-  },
-  "/broker/api/v1/filetransfer/{fileTransferId}": {
-    "get": {
-      "tags": [
-        "FileTransfer"
-      ],
-      "summary": "Get information about the file transfer and its current status",
-      "description": "One of the scopes: \r\n\r\n- altinn:broker.read \r\n\r\n- altinn:broker.write",
-      "parameters": [
-        {
-          "name": "fileTransferId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string",
-            "format": "uuid"
-          }
-        }
-      ],
-      "responses": {
-        "200": {
-          "description": "Returns the file transfer overview",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FileTransferOverviewExt"
-              }
-            }
-          }
-        },
-        "401": {
-          "description": "You must use a bearer token that represents a system user with access to the resource in the Resource Rights Registry",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProblemDetails"
-              }
-            }
-          }
-        },
-        "404": {
-          "description": "The requested file transfer was not found",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProblemDetails"
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "/broker/api/v1/filetransfer/{fileTransferId}/details": {
-    "get": {
-      "tags": [
-        "FileTransfer"
-      ],
-      "summary": "Get more detailed information about the file transfer for auditing and troubleshooting purposes",
-      "description": "One of the scopes: \r\n\r\n- altinn:broker.read \r\n\r\n- altinn:broker.write",
-      "parameters": [
-        {
-          "name": "fileTransferId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string",
-            "format": "uuid"
-          }
-        }
-      ],
-      "responses": {
-        "200": {
-          "description": "Returns the file transfer overview",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FileTransferStatusDetailsExt"
-              }
-            }
-          }
-        },
-        "401": {
-          "description": "You must use a bearer token that represents a system user with access to the resource in the Resource Rights Registry",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProblemDetails"
-              }
-            }
-          }
-        },
-        "404": {
-          "description": "The requested file transfer was not found",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProblemDetails"
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "/broker/api/v1/filetransfer/{fileTransferId}/download": {
-    "get": {
-      "tags": [
-        "FileTransfer"
-      ],
-      "summary": "Downloads the file",
-      "description": "One of the scopes: \r\n\r\n- altinn:broker.read \r\n",
-      "parameters": [
-        {
-          "name": "fileTransferId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string",
-            "format": "uuid"
-          }
-        }
-      ],
-      "responses": {
-        "200": {
-          "description": "Returns the file",
-          "content": {
-            "application/octet-stream": {
-              "schema": {
-                "type": "string",
-                "format": "binary"
-              }
-            }
-          }
-        },
-        "400": {
-          "description": "<ul>\r\n  <li>No file uploaded yet</li>\r\n  <li>Service owner needs to be configured to use the broker API</li>\r\n</ul>",
-          "content": {
-            "application/octet-stream": {
-              "schema": {
-                "$ref": "#/components/schemas/ProblemDetails"
-              }
-            }
-          }
-        },
-        "401": {
-          "description": "You must use a bearer token that represents a system user with access to the resource in the Resource Rights Registry",
-          "content": {
-            "application/octet-stream": {
-              "schema": {
-                "$ref": "#/components/schemas/ProblemDetails"
-              }
-            }
-          }
-        },
-        "403": {
-          "description": "<ul>\r\n  <li>The requested file transfer's file is not ready for download. See file transfer status</li>\r\n  <li>\"The resource needs to be registered as an Altinn 3 resource and it has to be associated with a service owner</li>\r\n</ul>",
-          "content": {
-            "application/octet-stream": {
-              "schema": {
-                "$ref": "#/components/schemas/ProblemDetails"
-              }
-            }
-          }
-        },
-        "404": {
-          "description": "The requested file transfer was not found",
-          "content": {
-            "application/octet-stream": {
-              "schema": {
-                "$ref": "#/components/schemas/ProblemDetails"
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "/broker/api/v1/filetransfer/{fileTransferId}/confirmdownload": {
-    "post": {
-      "tags": [
-        "FileTransfer"
-      ],
-      "summary": "Confirms that the file has been downloaded",
-      "description": "One of the scopes: \r\n \r\n- altinn:broker.read \r\n",
-      "parameters": [
-        {
-          "name": "fileTransferId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string",
-            "format": "uuid"
-          }
-        }
-      ],
-      "responses": {
-        "200": {
-          "description": "Returns the file"
-        },
-        "400": {
-          "description": "<ul>\r\n  <li>Cannot confirm before the files have been downloaded</li>\r\n  <li>No file uploaded yet</li>\r\n  <li>The requested file transfer's file is not ready for download. See file transfer status</li>\r\n</ul>",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProblemDetails"
-              }
-            }
-          }
-        },
-        "401": {
-          "description": "You must use a bearer token that represents a system user with access to the resource in the Resource Rights Registry",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProblemDetails"
-              }
-            }
-          }
-        },
-        "403": {
-          "description": "The resource needs to be registered as an Altinn 3 resource and it has to be associated with a service owner",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProblemDetails"
-              }
-            }
-          }
-        },
-        "404": {
-          "description": "The requested file transfer was not found",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProblemDetails"
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "/broker/api/v1/resource/{resourceId}": {
-    "put": {
-      "tags": [
-        "Resource"
-      ],
-      "summary": "Configures a resource with settings to be used within the broker service.",
-      "description": "One of the scopes: \r\n \r\n- altinn:serviceowner \r\n",
-      "parameters": [
-        {
-          "name": "resourceId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        }
-      ],
-      "requestBody": {
-        "content": {
-          "application/json": {
+      "get": {
+        "tags": [
+          "Resource"
+        ],
+        "summary": "Gets information about a resource configuration in broker",
+        "description": "One of the scopes: \r\n \r\n- altinn:serviceowner \r\n",
+        "parameters": [
+          {
+            "name": "resourceId",
+            "in": "path",
+            "required": true,
             "schema": {
-              "$ref": "#/components/schemas/ResourceExt"
-            },
-            "example": {
-              "MaxFileTransferSize": 2147483648,
-              "FileTransferTimeToLive": "30D",
-              "PurgeFileTransferAfterAllRecipientsConfirmed": true,
-              "PurgeFileTransferGracePeriod": "48H",
-              "UseManifestFileShim": false,
-              "ExternalServiceCodeLegacy": null,
-              "ExternalServiceEditionCodeLegacy": null
+              "type": "string"
             }
           }
-        }
-      },
-      "responses": {
-        "200": {
-          "description": "Resource configured successfully"
-        },
-        "400": {
-          "description": "<ul>\r\n  <li>Invalid grace period format. Should follow ISO8601 standard for duration. Example: 'PT2H' for 2 hours</li>\r\n  <li>Grace period cannot exceed 24 hours</li>\r\n  <li>Max file transfer size cannot be negative</li>\r\n  <li>Max file transfer size cannot be zero</li>\r\n  <li>Max file transfer size cannot be set higher than the 2GB in production unless the resource has been pre-approved for disabled virus scan. Contact us @ Slack</li>\r\n  <li>Max file transfer size cannot be set higher than 100GB in production because it has not yet been tested for it. Contact us @ Slack if you need it</li>\r\n  <li>Invalid file transfer time to live format. Should follow ISO8601 standard for duration. Example: 'P30D' for 30 days</li>\r\n  <li>Time to live cannot exceed 365 days</li>\r\n</ul>",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProblemDetails"
+        ],
+        "responses": {
+          "200": {
+            "description": "Detailed information about the resource"
+          },
+          "401": {
+            "description": "You must use a bearer token that represents a system user with access to the resource in the Resource Rights Registry",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
               }
             }
-          }
-        },
-        "401": {
-          "description": "You must use a bearer token that represents a system user with access to the resource in the Resource Rights Registry",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProblemDetails"
-              }
-            }
-          }
-        },
-        "403": {
-          "description": "The resource needs to be registered as an Altinn 3 resource and it has to be associated with a service owner",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProblemDetails"
+          },
+          "403": {
+            "description": "The resource needs to be registered as an Altinn 3 resource and it has to be associated with a service owner",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
               }
             }
           }
         }
       }
     },
-    "get": {
-      "tags": [
-        "Resource"
-      ],
-      "summary": "Gets information about a resource configuration in broker",
-      "description": "One of the scopes: \r\n \r\n- altinn:serviceowner \r\n",
-      "parameters": [
-        {
-          "name": "resourceId",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        }
-      ],
-      "responses": {
-        "200": {
-          "description": "Detailed information about the resource"
-        },
-        "401": {
-          "description": "You must use a bearer token that represents a system user with access to the resource in the Resource Rights Registry",
+    "/broker/api/v1/serviceowner": {
+      "post": {
+        "tags": [
+          "ServiceOwner"
+        ],
+        "summary": "Initializes the service owner for the calling organization within the brokerservice.",
+        "description": "One of the scopes: \r\n\r\n- altinn:serviceowner \r\n",
+        "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ProblemDetails"
-              }
-            }
-          }
-        },
-        "403": {
-          "description": "The resource needs to be registered as an Altinn 3 resource and it has to be associated with a service owner",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProblemDetails"
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "/broker/api/v1/serviceowner": {
-    "post": {
-      "tags": [
-        "ServiceOwner"
-      ],
-      "summary": "Initializes the service owner for the calling organization within the brokerservice.",
-      "description": "One of the scopes: \r\n\r\n- altinn:serviceowner \r\n",
-      "requestBody": {
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/ServiceOwnerInitializeExt"
-            },
-            "example": {
-              "Name": "Example Service Owner",
-              "DeletionTime": "P1D"
-            }
-          }
-        }
-      },
-      "responses": {
-        "200": {
-          "description": "Service owner initialized successfully"
-        },
-        "409": {
-          "description": "Service owner already exists",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProblemDetails"
-              }
-            }
-          }
-        }
-      }
-    },
-    "get": {
-      "tags": [
-        "ServiceOwner"
-      ],
-      "summary": "Gets the service owner for the calling organization within the brokerservice.",
-      "description": "One of the scopes: \r\n\r\n- altinn:serviceowner \r\n",
-      "responses": {
-        "200": {
-          "description": "Service owner retrieved successfully",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ServiceOwnerOverviewExt"
+                "$ref": "#/components/schemas/ServiceOwnerInitializeExt"
               },
               "example": {
                 "Name": "Example Service Owner",
-                "DeploymentStatus": "Deployed"
+                "DeletionTime": "P1D"
               }
             }
           }
         },
-        "404": {
-          "description": "Service owner not found",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProblemDetails"
+        "responses": {
+          "200": {
+            "description": "Service owner initialized successfully"
+          },
+          "409": {
+            "description": "Service owner already exists",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "ServiceOwner"
+        ],
+        "summary": "Gets the service owner for the calling organization within the brokerservice.",
+        "description": "One of the scopes: \r\n\r\n- altinn:serviceowner \r\n",
+        "responses": {
+          "200": {
+            "description": "Service owner retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceOwnerOverviewExt"
+                },
+                "example": {
+                  "Name": "Example Service Owner",
+                  "DeploymentStatus": "Deployed"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Service owner not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
               }
             }
           }
