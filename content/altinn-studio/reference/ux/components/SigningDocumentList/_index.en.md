@@ -31,8 +31,7 @@ The component consists of:
 
 ## Configuration - Example
 
-A datamodell must be created to persist any additional documents for the signing package:
-
+A data model must be created to persist any additional documents for the signing package:
     {
       "id": "extra-documents-to-sign",
       "allowedContentTypes": [
