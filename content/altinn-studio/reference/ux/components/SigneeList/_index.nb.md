@@ -1,7 +1,7 @@
 ---
 title: SigneeList
 linktitle: SigneeList
-description: En komponent som gir oversikt of signeringsprosessen
+description: En komponent som gir oversikt over signeringsprosessen
 schemaname: SigneeList 
 weight: 10 
 toc: true
