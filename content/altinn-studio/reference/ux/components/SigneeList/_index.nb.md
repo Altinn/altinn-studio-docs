@@ -28,10 +28,10 @@ populeres etter at en person har vært inne og signert på vegne av organisasjon
 1. **Tittel** - Tittel på komponenten.
 2. **Hjelp** - Klikk for en pop-up med ekstra informasjon. Valgfritt.
 3. **Beskrivelse** - Beskrivelse av komponenten.
-4. **SigneeList Tabell** - Table containing the status of the signees.
-    * Column 1 - Name of the signee.
-    * Column 2 - Name of organization if signing on behalf of a company
-    * Column 3 - Status of the signing process for the signee
+4. **SigneeList-tabell** – Tabell som viser status for signatarene.
+    * Kolonne 1 – Navn på signatar.
+    * Kolonne 2 – Navn på organisasjon ved signering på vegne av selskap.
+    * Kolonne 3 – Status for signeringsprosessen for signataren.
 
 ## Konfigurasjon
 
