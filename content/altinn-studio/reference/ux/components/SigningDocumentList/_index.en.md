@@ -16,7 +16,7 @@ toc: true
 ## Usage
 
 The **SigningDocumentList** component displays the signing package. The form data and any other documents which are to be
-signed on the current signing task will be displayed here. The component may only be used on a signing taks.
+signed on the current signing task will be displayed here. The component may only be used on a signing task.
 
 ### Anatomy
 
