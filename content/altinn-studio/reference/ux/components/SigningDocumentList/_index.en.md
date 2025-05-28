@@ -20,7 +20,7 @@ signed on the current signing task will be displayed here. The component may onl
 
 ### Anatomy
 
-![SigningDocumentList anatomy](singingdocumentlist-anatomy.png "SigningDocumentList")
+![SigningDocumentList anatomy](signingdocumentlist-anatomy.png "SigningDocumentList")
 
 The component consists of:
 

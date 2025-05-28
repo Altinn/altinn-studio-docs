@@ -20,7 +20,7 @@ det gjeldende signeringsteget vil vises her. Komponenten kan kun brukes på et s
 
 ### Anatomi
 
-![SigningDocumentList anatomi](singingdocumentlist-anatomy.png "SigningDocumentList")
+![SigningDocumentList anatomi](signingdocumentlist-anatomy.png "SigningDocumentList")
 
 Komponenten består av:
 
