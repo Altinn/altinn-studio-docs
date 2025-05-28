@@ -8,7 +8,7 @@ toc: true
 ---
 
 {{% notice warning %}}
-🚧 Denne dokumenteasjonen er under arbeid.
+🚧 Denne dokumentasjonen er under arbeid.
 {{% /notice %}}
 
 ---
