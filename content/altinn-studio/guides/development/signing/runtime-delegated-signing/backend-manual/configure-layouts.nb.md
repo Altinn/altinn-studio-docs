@@ -38,10 +38,10 @@ Det finnes et sett med ferdige komponenter for å bygge opp layout for et signer
   - Lister ut signatarer og tilhørende signeringsstatus. Les mer [her](https://docs.altinn.studio/altinn-studio/reference/ux/components/signeelist/).
 - SigningDocumentList:
   - Lister ut dataene som blir signert på. Feks. vedlegg, xml-data eller PDF-oppsummering fra tidligere steg. Les mer [her](https://docs.altinn.studio/altinn-studio/reference/ux/components/signingdocumentlist/).
-- SigningStatusPanel: 
-  - Utleder status for signeringssteget og viser relevante knapper til sluttbruker, feks. "Signer"-knappen.
+- SigningActions: 
+  - Utleder status for signeringssteget og viser relevante knapper til sluttbruker, feks. "Signer"-knappen. Les mer [her](https://docs.altinn.studio/altinn-studio/reference/ux/components/signingactions/).
 
-Dersom du ikke benytter `SigningStatusPanel` for å vise "Signer"-knappen, så må du legge til en egen action button med action "sign", for å la sluttbruker signere. Les mer [her](https://docs.altinn.studio/altinn-studio/reference/ux/components/signingactions/).
+Dersom du ikke benytter `SigningActions` for å vise "Signer"-knappen, så må du legge til en egen action button med action "sign", for å la sluttbruker signere. 
 
 Eksempel på bruk av komponentene:
 
