@@ -16,7 +16,7 @@ toc: true
 ## Usage
 
 The **SigningActions** component takes into account the currently logged in user and the state of the signing step to display
-actions that the user may execute. The component may only be used on a signing taks.
+actions that the user may execute. The component may only be used on a signing task.
 
 ### Anatomy
 
