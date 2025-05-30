@@ -11,13 +11,7 @@ weight: 10
 
 These are common steps that all roles (Service Owner, Senders and Recipients) need to complete in order to start using the Altinn Broker component.
 
-## 1. Get an Altinn API Key {#get-an-altinn-api-key}
-
-In order to use any Altinn APIs, you need a subscription key for the APIs. This is passed as the header `Ocp-Apim-Subscription-Key` in every request.
-
-If you do not already possess an API Key for the Maskinporten Client(s) you intend to use against Broker, you can get it by contacting us at [Altinn@Slack#produkt-formidling](https://join.slack.com/t/altinn/shared_invite/zt-7c77c9si-ZnMFwGNtab1aFdC6H_vwog).
-
-## 2. Register your Maskinporten Client with correct scopes {#register-your-maskinporten-client-with-correct-scopes}
+## 1. Get access to scopes {#get-access-to-scopes}
 
 Register your Maskinporten client(s) to authenticate with the Broker API, assigning them relevant scopes:
 
@@ -25,6 +19,12 @@ Register your Maskinporten client(s) to authenticate with the Broker API, assign
 - `altinn:broker.read` - For clients receiving files.
 
 These scopes are maintained by Altinn and are required to be authorized for the appropriate API operations, and as such are independent of the [access set by Service Owners](../service-owner#register-a-resource-in-altinn-resource-registry) for the specific Broker Service Resource.
+
+To obtain access to scopes, you must submit a request to: [servicedesk@altinn.no](mailto:servicedesk@altinn.no).
+Please include all necessary scopes in your request. For example, beyond `altinn:broker`-scopes, your integration may require additional scopes. 
+You can find the complete list of available scopes here: [Complete list of scopes](https://docs.altinn.studio/api/authentication/digdirscopes/)
+
+## 2. Register your Maskinporten Client with correct scopes {#register-your-maskinporten-client-with-correct-scopes}
 
 Use Samarbeidsportalen self-service for registration. [Here's a detailed guide](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web#selvbetjening-som-api-konsument).
 
