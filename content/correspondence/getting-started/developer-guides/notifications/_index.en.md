@@ -11,9 +11,13 @@ weight: 40
 
 
 To use notifications in Altinn Correspondence, a notification order is placed when a message is created.
-The notification will primarily be sent out at the publication time of the message.
+The notification will be sent out 5 minutes after the publication time of the message. If the publication time is in the past, the notification will be sent 5 minutes after the current time.
 If a reminder is activated, the reminder will be sent after 7 days if the message has not been read.
-In the test and staging environment, the reminder will be sent out after 1 hour if the message has not been read.
+In the test and staging environment, the reminder will be sent out after 1 day if the message has not been read.
+
+{{% notice info %}}
+Note: The reminder timing in test and staging environments is currently set to 1 day due to limitations in the notification service. This is a temporary change, and work is in progress to restore the previous 1-hour delay.
+{{% /notice %}}
 
 Notifications can be sent via either email or SMS. While email does not have a time window, SMS notifications are sent between 9:00 AM and 5:00 PM.
 If the sending time falls outside this window, the notification will be sent the following day.
@@ -26,25 +30,36 @@ A notification order is made by adding the following when initializing a message
 
 ```json
 {
-  "Correspondence": {
+  "correspondence": {
     ...,
     "notification": {
-      "notificationTemplate": CustomText (0) | GenericAltinnMessage(1),
-      "notificationChannel": Email(0) | Sms(1) | EmailPreferred(2) | SmsPreferred(3),
-      "SendReminder": boolean,
-      "EmailBody": string?,
-      "EmailSubject": string?,
-      "SmsBody": string?,
-      "ReminderNotificationChannel": Email(0) | Sms(1) | EmailPreferred(2) | SmsPreferred(3),
-      "ReminderEmailBody": string?,
-      "ReminderEmailSubject": string?,
-      "ReminderSmsBody": string?
+      "notificationTemplate": CustomMessage (0) | GenericAltinnMessage(1),
+      "notificationChannel": Email(0) | Sms(1) | EmailPreferred(2) | SmsPreferred(3) | EmailAndSms(4),
+      "sendReminder": boolean,
+      "emailBody": string?,
+      "emailSubject": string?,
+      "smsBody": string?,
+      "reminderNotificationChannel": Email(0) | Sms(1) | EmailPreferred(2) | SmsPreferred(3) | EmailAndSms(4),
+      "reminderEmailBody": string?,
+      "reminderEmailSubject": string?,
+      "reminderSmsBody": string?,
+      "requestedSendTime": DateTimeOffset?,
+      "customRecipient": {
+        "organizationNumber": string?,
+        "nationalIdentityNumber": string?,
+        "mobileNumber": string?,
+        "emailAddress": string?
+      }
     }
   },
   "Recipients": [],
   "ExistingAttachments":{...}
 }
 ```
+
+{{% notice info %}}
+Note: The notification service uses a V2 API internally. The notification order will be automatically converted to the V2 format when processed.
+{{% /notice %}}
 
 ## Keyword support
 
@@ -88,6 +103,7 @@ Supported notification channels:
 - **SMS:** Sends an SMS to the recipient. Supports both national and international phone numbers.
 - **EmailPreferred:** Uses email as the main communication channel, and SMS as a fallback if email is not available.
 - **SmsPreferred:** Uses SMS as the main communication channel, and email as a fallback if SMS is not available.
+- **EmailAndSms:** Sends both email and SMS to the recipient simultaneously.
   The first notification and the reminder notification can use different notification channels. 
   For example, the first notification is sent by email, while the reminder notification seven days later is sent by SMS.
 
@@ -107,6 +123,12 @@ Improvements are planned to provide feedback on this during the creation of a me
 For all correspondences created with Notifications enabled, the notifications will be sent to the recipient specified in the creation of the correspondence.
 However, it is also possible to choose optional recipients of the notification that are not necessarily the recipient(s) of the correspondence. 
 In practice this means that custom recipients will override/replace the original recipient provided for the notification.
+
+{{% notice warning %}}
+⚠️ DEPRECATED: The `customNotificationRecipients` field is deprecated and will be removed in a future version. Please use `customRecipient` instead.
+{{% /notice %}}
+
+### Using customNotificationRecipients (Deprecated)
 This can be achieved by populating the `customNotificationRecipients` field under `notification` as follows:
 
 ```json
@@ -130,7 +152,25 @@ This can be achieved by populating the `customNotificationRecipients` field unde
 }
 ```
 
+### Using customRecipient (Recommended)
+The recommended approach is to use the `customRecipient` field under `notification` as follows:
+
+```json
+{
+  "notification": {
+    ...,
+    "customRecipient": {
+      "organizationNumber": "string",
+      "nationalIdentityNumber": "string",
+      "mobileNumber": "string",
+      "emailAddress": "string"
+    }
+  }
+}
+```
+
 ### How to use it
+For deprecated approach:
 ```
 correspondence.notification.customNotificationRecipients[0].recipientToOverride
 correspondence.notification.customNotificationRecipients[0].recipients[0].organizationNumber
@@ -139,29 +179,33 @@ correspondence.notification.customNotificationRecipients[0].recipients[0].mobile
 correspondence.notification.customNotificationRecipients[0].recipients[0].emailAddress
 ```
 
+For recommended approach:
+```
+correspondence.notification.customRecipient.organizationNumber
+correspondence.notification.customRecipient.nationalIdentityNumber
+correspondence.notification.customRecipient.mobileNumber
+correspondence.notification.customRecipient.emailAddress
+```
+
 {{% panel theme="warning" %}}
 ⚠️ IMPORTANT: 
 Keep in mind the value that is given to `notificationTemplate` and `notificationChannel`, as these will impact the custom recipient. Further details are provided [here](#notification-templates).
 {{% /panel %}}
 
-
 ### Explanation of template and channel
 
-For each of the optional recipients, they must override an existing recipient in the `Correspondence.Recipients` list.
-This value corresponds to either the organization number or national identity number of the recipient for the correspondence.
-
-Furthermore, it is only possible to provide one of the following fields for the recipient
+For each of the optional recipients (in both approaches), it is only possible to provide one of the following fields:
 
 1. Organization number
 2. National identity number
 3. Mobile number and/or email address
 
-Lastly, if either mobile number or email address is used, they must follow the correct format in order to be able to send the notifications.
+If either mobile number or email address is used, they must follow the correct format in order to be able to send the notifications.
 For emails, most of the values are accepted as long as they are on the form 'user@example.com'.
 For mobile numbers, they must satisfy the _E.164 format_.
 
 {{% panel theme="warning" %}}
-⚠️ IMPORTANT: In order to use custom recipients for notifications, they must __all__ be valid. 
+⚠️ IMPORTANT: In order to use custom recipients for notifications, they must be valid. 
 Without valid recipients, the correspondence will not be sent out.
 
 Therefore, it is recommended to only use this feature if it is critical for the service. 
