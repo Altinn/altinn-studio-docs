@@ -19,7 +19,7 @@ For en slik tjeneste vil prosessen i selve appen være avsluttet når sluttbruke
 
 ## Instansiering av tjeneste
 
-Instansiering betyr i Altinn-sammenheng at det opprettes en dialog i en avgiver/parts innboks i Altinn. Denne instansieringen kan trigges av sluttbruker eller av tjenesteeier. I denne guiden forutsetter vi at den er instansiert av sluttbruker. Guide for tjenesteeier-instansiering finner du her (TODO).
+Instansiering betyr i Altinn-sammenheng at det opprettes en dialog i en avgiver/parts innboks i Altinn. Denne instansieringen kan trigges av sluttbruker eller av tjenesteeier. I denne guiden forutsetter vi at den er instansiert av sluttbruker. Guide for tjenesteeier-instansiering finner du [her](/nb/api/apps/instances/#create-instance).
 
 ## Overordnet prosess sluttbruker
 
@@ -29,7 +29,7 @@ Prosessen overordnet:
 2. Skjema fylles ut og eventuelle vedleggsdata lastes opp.
 3. Sluttbruker validerer data og eventuelle vedlegg og sender applikasjonsprosessen videre til bekreftelse.
 4. Sluttbruker ser over data og bekrefter at de er ferdige med prosessen.
-5. Applikasjon publiserer en hendelse om at sluttbruker er ferdig med utfyllingsprosessen. (Forutsetter at publisering er [slått på]())
+5. Applikasjon publiserer en hendelse om at sluttbruker er ferdig med utfyllingsprosessen. (Forutsetter at publisering er [slått på](/nb/altinn-studio/getting-started/app-dev-course/modul5/))
 6. Tjenesteeier mottar informasjon om hendelsen på sitt hendelsesmottak.
 7. Tjenesteeier kaller Altinn API for å laste ned data for instansen.
 8. Tjenesteeier bekrefter at data er nedlastet ok.
