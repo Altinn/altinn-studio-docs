@@ -674,12 +674,33 @@
                     "description": "The date and time for when the notification should be sent.",
                     "format": "date-time"
                   },
+                  "Correspondence.Notification.CustomRecipient.EmailAddress": {
+                    "type": "string",
+                    "description": "the email address of the recipient"
+                  },
+                  "Correspondence.Notification.CustomRecipient.MobileNumber": {
+                    "type": "string",
+                    "description": "the mobileNumber of the recipient"
+                  },
+                  "Correspondence.Notification.CustomRecipient.OrganizationNumber": {
+                    "type": "string",
+                    "description": "the organization number of the recipient"
+                  },
+                  "Correspondence.Notification.CustomRecipient.NationalIdentityNumber": {
+                    "type": "string",
+                    "description": "The SSN of the recipient"
+                  },
+                  "Correspondence.Notification.CustomRecipient.IsReserved": {
+                    "type": "boolean",
+                    "description": "Boolean indicating if the recipient is reserved"
+                  },
                   "Correspondence.Notification.CustomNotificationRecipients": {
                     "type": "array",
                     "items": {
                       "$ref": "#/components/schemas/CustomNotificationRecipientExt"
                     },
-                    "description": "A list of recipients for the notification. If not set, the notification will be sent to the recipient of the Correspondence"
+                    "description": "Only the first list of recipients will be used. If not set, the notification will be sent to the recipient of the Correspondence",
+                    "deprecated": true
                   },
                   "Correspondence.IgnoreReservation": {
                     "type": "boolean",
@@ -708,6 +729,11 @@
                       "format": "uuid"
                     },
                     "description": "Existing attachments that should be added to the correspondence"
+                  },
+                  "IdempotentKey": {
+                    "type": "string",
+                    "description": "Optional idempotency key to prevent duplicate correspondence creation",
+                    "format": "uuid"
                   },
                   "attachments": {
                     "type": "array",
@@ -800,6 +826,21 @@
                 "Correspondence.Notification.RequestedSendTime": {
                   "style": "form"
                 },
+                "Correspondence.Notification.CustomRecipient.EmailAddress": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.CustomRecipient.MobileNumber": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.CustomRecipient.OrganizationNumber": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.CustomRecipient.NationalIdentityNumber": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.CustomRecipient.IsReserved": {
+                  "style": "form"
+                },
                 "Correspondence.Notification.CustomNotificationRecipients": {
                   "style": "form"
                 },
@@ -816,6 +857,9 @@
                   "style": "form"
                 },
                 "ExistingAttachments": {
+                  "style": "form"
+                },
+                "IdempotentKey": {
                   "style": "form"
                 },
                 "attachments": {
@@ -1843,6 +1887,12 @@
             "description": "Notifications directly related to this Correspondence.",
             "nullable": true
           },
+          "altinn2CorrespondenceId": {
+            "type": "integer",
+            "description": "The identifier/reference from Altinn 2 for migrated correspondence. Will be null for correspondence created in Altinn 3.",
+            "format": "int32",
+            "nullable": true
+          },
           "statusHistory": {
             "type": "array",
             "items": {
@@ -2002,6 +2052,12 @@
             },
             "description": "An overview of the notifications for this correspondence",
             "nullable": true
+          },
+          "altinn2CorrespondenceId": {
+            "type": "integer",
+            "description": "The identifier/reference from Altinn 2 for migrated correspondence. Will be null for correspondence created in Altinn 3.",
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -2060,7 +2116,8 @@
           "PurgedByAltinn",
           "Archived",
           "Reserved",
-          "Failed"
+          "Failed",
+          "AttachmentsDownloaded"
         ],
         "type": "string",
         "description": "Represents the important statuses for an Correspondence"
@@ -2098,7 +2155,7 @@
         "properties": {
           "recipientToOverride": {
             "type": "string",
-            "description": "Organization number or national identity number of the recipient to override with custom recipient(s)",
+            "description": "This is not used, but is required by the API.",
             "nullable": true
           },
           "recipients": {
@@ -2106,12 +2163,12 @@
             "items": {
               "$ref": "#/components/schemas/NotificationRecipientExt"
             },
-            "description": "List of custom recipients to override the default recipients",
+            "description": "Only the first recipient will be used as custom recipient.",
             "nullable": true
           }
         },
         "additionalProperties": false,
-        "description": "A class representing a a recipient of a notification"
+        "description": "Represents a custom notification recipient with override options"
       },
       "ExternalReferenceExt": {
         "required": [
@@ -2359,13 +2416,17 @@
             "format": "date-time",
             "nullable": true
           },
+          "customRecipient": {
+            "$ref": "#/components/schemas/NotificationRecipientExt"
+          },
           "customNotificationRecipients": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CustomNotificationRecipientExt"
             },
-            "description": "A list of recipients for the notification. If not set, the notification will be sent to the recipient of the Correspondence",
-            "nullable": true
+            "description": "Only the first list of recipients will be used. If not set, the notification will be sent to the recipient of the Correspondence",
+            "nullable": true,
+            "deprecated": true
           }
         },
         "additionalProperties": false,
@@ -2395,6 +2456,12 @@
               "format": "uuid"
             },
             "description": "Existing attachments that should be added to the correspondence",
+            "nullable": true
+          },
+          "idempotentKey": {
+            "type": "string",
+            "description": "Optional idempotency key to prevent duplicate correspondence creation",
+            "format": "uuid",
             "nullable": true
           }
         },
@@ -2489,7 +2556,8 @@
           "Email",
           "Sms",
           "EmailPreferred",
-          "SmsPreferred"
+          "SmsPreferred",
+          "EmailAndSms"
         ],
         "type": "string",
         "description": "Enum describing available notification channels."
@@ -2500,7 +2568,8 @@
           "id": {
             "type": "string",
             "description": "The notification id",
-            "format": "uuid"
+            "format": "uuid",
+            "nullable": true
           },
           "succeeded": {
             "type": "boolean",
@@ -2633,6 +2702,20 @@
           },
           "sms": {
             "$ref": "#/components/schemas/NotificationDetailsExt"
+          },
+          "emails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationDetailsExt"
+            },
+            "nullable": true
+          },
+          "smses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationDetailsExt"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false,
