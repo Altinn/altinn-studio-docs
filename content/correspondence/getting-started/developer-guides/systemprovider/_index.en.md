@@ -13,8 +13,7 @@ To get started as a system provider, follow this guide:
 
 [Autentisering for systemleverandører](https://docs.altinn.studio/authentication/guides/systemvendor/)
 
-### Altinn API key and access to scopes {#get-an-altinn-api-key}
-To use Altinn Correspondence, you need a subscription key. Technically, this is an API key that must be included in the header of the request `Ocp-Apim-Subscription-Key`, to verify that you have the right to use the Correspondence API. Without this key, your request will be denied.
+### Access to scopes {#get-access-to-scopes}
 To authenticate and ensure that you can perform operations via the Correspondence API, Altinn must grant you access to the necessary scopes. This ensures that only authorized clients can send and receive files, thereby maintaining the security of the service. The following scopes are used to receive messages:
 - `altinn:correspondence.read`
 
