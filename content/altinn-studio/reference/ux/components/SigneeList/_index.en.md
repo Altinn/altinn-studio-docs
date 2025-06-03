@@ -19,7 +19,7 @@ The *SigneeList* component allows the instance owner to get an overview of the s
 communication has been successful, and wether the signee has signed yet. 
 
 In the case of user delegated signing for an organization, the name of the signee is populated after a person has signed
-on behalf of the organisation.
+on behalf of the organization.
 
 ### Anatomy
 
