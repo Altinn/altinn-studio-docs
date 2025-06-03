@@ -35,13 +35,13 @@ I mappen du opprettet, legg til en ny fil kalt `signing.json`.
 Det finnes et sett med ferdige komponenter for å bygge opp layout for et signeringssteg. Vi anbefaler å bruke disse, men de er ikke obligatoriske.
 
 - SigneeList:
-  - Lister ut signatarer og tilhørende signeringsstatus.
+  - Lister ut signatarer og tilhørende signeringsstatus. Les mer [her](https://docs.altinn.studio/altinn-studio/reference/ux/components/signeelist/).
 - SigningDocumentList:
-  - Lister ut dataene som blir signert på. Feks. vedlegg, xml-data eller PDF-oppsummering fra tidligere steg.
-- SigningStatusPanel: 
-  - Utleder status for signeringssteget og viser relevante knapper til sluttbruker, feks. "Signer"-knappen.
+  - Lister ut dataene som blir signert på. Feks. vedlegg, xml-data eller PDF-oppsummering fra tidligere steg. Les mer [her](https://docs.altinn.studio/altinn-studio/reference/ux/components/signingdocumentlist/).
+- SigningActions: 
+  - Utleder status for signeringssteget og viser relevante knapper til sluttbruker, feks. "Signer"-knappen. Les mer [her](https://docs.altinn.studio/altinn-studio/reference/ux/components/signingactions/).
 
-Dersom du ikke benytter `SigningStatusPanel` for å vise "Signer"-knappen, så må du legge til en egen action button med action "sign", for å la sluttbruker signere.
+Dersom du ikke benytter `SigningActions` for å vise "Signer"-knappen, så må du legge til en egen action button med action "sign", for å la sluttbruker signere. 
 
 Eksempel på bruk av komponentene:
 
