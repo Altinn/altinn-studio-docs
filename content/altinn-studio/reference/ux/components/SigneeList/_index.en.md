@@ -15,8 +15,8 @@ toc: true
 
 ## Usage
 
-The *SigneeList* component allows the instance owner to get an overview of the signing process. It shows wether the delegation and
-communication has been successful, and wether the signee has signed yet. 
+The *SigneeList* component allows the instance owner to get an overview of the signing process. It shows whether the delegation and
+communication have been successful, and whether the signee has signed yet.
 
 In the case of user delegated signing for an organization, the name of the signee is populated after a person has signed
 on behalf of the organization.
