@@ -11,7 +11,7 @@
         "nb": "Hei, jeg ønsker å eksportere mitt samtykke.",
         "en": "Hi, I would like to export my consent."
     },
-    "RequestResorces": [
+    "RequestResources": [
         {
             "ServiceCode": 5498,
             "ServiceEditionCode": 1,
@@ -24,7 +24,7 @@
         {
             "DelegatedDateTime": "2025-05-26 07:44:06.950",
             "ConsentEventType": "Delegate",
-            "Eventlanguage": 1044,
+            "EventLanguage": 1044,
             "ConsentTemplate": "default_nomessage"
         }
     ]
