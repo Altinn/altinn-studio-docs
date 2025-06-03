@@ -50,5 +50,7 @@ populeres etter at en person har vært inne og signert på vegne av organisasjon
           "description": "Personer som skal signere beskrivelse",
           //Hjelpetekst pop-up - valgfritt
           "help": "Dette er personer som skal signere"
+          //Tittl på oppsummering av komponenten. Brukes i pdf - valgfritt
+          "summaryTitle": "Følgende har signert"
         }
       },

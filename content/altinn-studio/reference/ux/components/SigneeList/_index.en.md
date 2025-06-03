@@ -45,10 +45,12 @@ on behalf of the organisation.
         //Customize the texts
         "textResourceBindings": {
           //The title
-          "title": "Personer som skal signere",
+          "title": "Status of signees",
           //The description
-          "description": "Personer som skal signere beskrivelse",
+          "description": "The signees and their status",
           //The help text pop-up - optional
-          "help": "Dette er personer som skal signere"
+          "help": "The people who are to sign the signing documents."
+          //The summary title of the component. Will be used as title in pdf - optional
+          "summaryTitle": "The following have signed"
         }
       },
