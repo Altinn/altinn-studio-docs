@@ -16,7 +16,7 @@ To get started with Altinn Correspondence, your enterprise must be registered as
 
 This step is only necessary for new enterprises that have not yet established themselves as service owners on the Altinn platform. 
 
-WHen you have s service owner, you can proceed directly to contacting us at Slack so that we can setup your service owner for correspondence.
+Once you are set up as a service owner in Altinn, contact us on Slack so that we can configure your service owner for Correspondence.
 
 ### 2. Create or get access to a resource in Altinn Resource Registry {#registeraresourceinaltinnresourceregistry}
 In order to send messages via Altinn Correspondence, they must first be associated with a resource. 
