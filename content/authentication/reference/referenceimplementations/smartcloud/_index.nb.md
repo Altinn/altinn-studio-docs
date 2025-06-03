@@ -19,7 +19,7 @@ Sluttbrukere kan registrere seg som brukere for SmartCloud. Avhengig av SmartClo
 
 Forespørselen sendes fra [Redirect controller](https://github.com/TheTechArch/altinn-systemuser/blob/main/src/SystemUserClientSystem/SuperSystem/SuperSystem.Server/Controllers/RedirectController.cs#L35). Rettighetene som forespørres varierer basert på produktet.
 
-SmartCloud autentiserer med Maskinporten og ber om en token med omfanget **altinn:authentication/systemuser.request.write**.
+SmartCloud autentiserer med Maskinporten og ber om en token med scope **altinn:authentication/systemuser.request.write**.
 
 ## Opprette en Maskinporten Systembrukertoken
 

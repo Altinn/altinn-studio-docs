@@ -1,8 +1,8 @@
 ---
-title: Utilize system user for API providers
-linktitle: Systemusers for API
-description: System user is a new concept for API authentication. This guide describes how API providers can protect their APIs using this concept.
-toc: false
+title: API-leverandør
+linktitle: API-leverandør
+description: En veiledning for API-leverandør for å registrere sin ressurs med Altinn og etablere systembrukerintegrasjonen.
+toc: true
 weight: 1
 ---
 
@@ -10,29 +10,37 @@ weight: 1
  Denne funksjonaliteten er i test og kan endres
 {{</notice>}}
 
-## Background
+## Forutsetninger for API-leverandøren
 
-You can read about the background of the system user concept [here](../../what-do-you-get/systemuser/).
+For å bruke systembruker som API-leverandør, må følgende forutsetninger være oppfylt:
 
+- Avtale med Maskinporten AS som [API-leverandøren](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apitilbyder)
+- Avtale med Digdir for tilgang til ressursregisteret for å opprette ressurser.
+- Oppretting av [nødvendige ressurser](/authorization/guides/create-resource-resource-admin/) som må autoriseres
+- Tildelt scope for PDP-integrasjon
+- Integrasjon med Altinn PDP
 
-## Prerequisites
+#### Forberedelse av API-leverandør (Skatteetaten)
+   1. Utvikling av tjenesten/API
+      - API-leverandør (Skatteetaten) må først utvikle API-et som skal brukes av eksterne parter, i dette tilfellet tjenesten 'Krav og betalinger'
+      - Dette API-et gjør det mulig for brukere å hente utestående skatte og avgiftskrav fra Skatteetaten.
+   2. Konfigurere tilgang i Maskinporten"
+       - Skatteetaten oppretter deretter et scope i Maskinporten (f.eks. skatteetaten:kravogbetalinger).
+       - Dette scopet er knyttet til de relevante tilgangene og tildeles organisasjoner som trenger tilgang til denne tjenesten, som for eksempel SmartCloud AS (systemleverandøren).
+   3. Registrering av ressurser i ressursregisteret
+       - Den siste steg for Skatteetaten er å registrere en ressurs i [ressursregisteret](../../../../api/resourceregistry/), knytte den til scopet og definere tilgangsreglene for eksterne brukere. Dette kan være en app i Altinn Studio eller et API på API-leverandørens egen plattform.
+         
+         se [api dokumentasjon](../../../api/authentication/systemuserapi/) for mer informasjon om tilgjengleige endepunkter.
 
-To use a system user as an API provider, the following prerequisites must be met:
+#### Etter opprettelse av systembruker
 
-- Agreement with Maskinporten as an API provider
-- Agreement with Digdir for access to the resource registry for resource creation
-- Creation of necessary resources to be authorized
-- Assigned scope for PDP integration
-- Integration with Altinn PDP
+## Validering av Maskinporten token
 
-## Validation of Maskinporten Token
+Selve tokenet valideres som et standardisert Maskinporten token. [Les mer hos Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apitilbyder).
 
-The token itself is validated as a standardized Maskinporten token. [Read more at Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apitilbyder).
+Et systembrukertoken inneholder en del flere detaljer enn et vanlig Maskinporten token. 
 
-A system user token contains more details than a regular Maskinporten token.
-
-Below is an example token.
-
+Nedenfor vises et eksempeltoken.
 
 ### JWT Token
 
@@ -60,7 +68,9 @@ Below is an example token.
     "ID" : "0192:314330897"
   }
 }
+
 ```
+
 Verdiene som er viktige for API leverandør er.
 
 
@@ -71,15 +81,20 @@ Verdiene som er viktige for API leverandør er.
 |authorization_details:system_id |  Referanse til systemet som systembrukeren peker på |
 |Consumer:id | Organisasjonsnr til systemleverandør (organisasjon som har autentisert seg mot Maskinporten) |    
 
-See also the documentation at [Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker).
 
-## Authorization of System User
 
-The API provider must call Altinn PDP to authorize access for the system user. This is done by sending a request to Altinn PDP.
 
-The API provider must configure which actions and resources are accessed via the API to build the complete request.
+Se også dokumentasjon hos [Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker). 
 
-Below is an example of a request made by the system user **a545ca29-7fb8-4810-a2f2-0be171cb2a26**, attempting to perform a **read** operation on a resource of type **kravogbetaling** for the organization **923609016**.
+## Autorisasjon av systembruker
+
+API-leverandøren må kalle Altinn PDP for å autorisere tilgangen til systembrukeren. Dette gjøres ved å sende et kall til Altinn PDP.
+
+API-leverandøren må konfigurere hvilke handlinger og ressurser som aksesseres via API-et for å bygge opp den totale forespørselen.
+
+Nedenfor vises et eksempel på et kall utført av systembruker **a545ca29-7fb8-4810-a2f2-0be171cb2a26** som prøver å gjøre en **read**-operasjon 
+på en ressurs av typen **kravogbetaling** for organisasjonen **923609016**.
+
 
 ```json
 {
