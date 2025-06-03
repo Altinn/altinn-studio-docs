@@ -6,9 +6,6 @@ toc: true
 weight: 1
 ---
 
-{{<notice warning>}}
- This functionality is in test and will change.
-{{</notice>}}
 
 ## Prerequisites For The API Provider
 

@@ -6,9 +6,6 @@ toc: true
 weight: 2
 ---
 
-{{<notice warning>}}
- This functionality is in test and will change.
-{{</notice>}}
 
 #### Actions by System Vendor (SmartCloud AS)
    1. Contact Digdir

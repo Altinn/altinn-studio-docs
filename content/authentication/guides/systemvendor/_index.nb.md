@@ -6,9 +6,7 @@ toc: false
 weight: 2
 ---
 
-{{<notice warning>}}
- Denne funksjonaliteten er i test og kan endres
-{{</notice>}}
+
 
 #### Tiltak utført av systemleverandøren (SmartCloud AS)
    1. Kontakt Digdir
