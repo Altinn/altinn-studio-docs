@@ -10,8 +10,7 @@ weight: 2
 
 #### Tiltak utført av systemleverandøren (SmartCloud AS)
    1. Kontakt Digdir
-      - Systemleverandøren må ta kontakt med Digdir for å få tilgang til systemregisteret og systembruker-scopes. Det er et krav at leverandøren gjennomfører testing av systembruker i Digdirs testmiljø, og det må inngås en avtale om bruk av systembruker for integrasjon med produksjonsmiljøet. Sluttbrukersystemleverandør kontakter Digdir for å få tilgang til systembruker scopes.  
-        I perioden frem til nye bruksvilkår er på plass må det også underskrives pilotavtale før systembruker kan brukes i produksjon.
+      - Systemleverandøren må ta kontakt med Digdir for å få tilgang til systemregisteret og systembruker-scopes. Prossedyren for dette er beskrevet på [Samarbeidsportalen](https://samarbeid.digdir.no/altinn/kom-i-gang/2868).
    2. Opprette en Maskinporten-klient for systemet
       - SmartCloud AS ønsker å integrere systembrukeren i sitt regnskapsprogram, SmartCloud.
       - For å integrere må de opprette en klient i Maskinporten for SmartCloud, som får en klient-ID som brukes til autentisering og autorisering.
