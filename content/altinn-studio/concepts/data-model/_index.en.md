@@ -1,6 +1,6 @@
 ---
 title: Data model
-description: A data model described a collection of data fields
+description: A data model describes a collection of data fields
 weight: 10
 ---
 
@@ -18,7 +18,7 @@ data is of good quality.
 Although the data model and the visual design of the form often correspond, there isn't always a one-to-one match. In 
 some cases, the data model may mirror the form exactly—each form field has a corresponding definition in the model. 
 In other cases, the data model may be more abstract or complex than the form itself—for example, if multiple forms 
-eed into a shared model, or if the same model is used across different forms.
+feed into a shared model, or if the same model is used across different forms.
 
 The purpose of a data model is to ensure consistency, structure, and reusability of data. It provides developers, 
 designers, and system owners with a shared understanding of what information needs to be handled and how it should be 
