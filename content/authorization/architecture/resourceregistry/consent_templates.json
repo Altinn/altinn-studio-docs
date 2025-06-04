@@ -1,7 +1,7 @@
 [
     {
         "id": "bst_krav",
-        "templateVersion": 1,
+        "version": 1,
         "title": "Brukerstyrt tilgang til kravoversikt",
         "isPoa": false,
         "isMessageSetInRequest": true,
@@ -88,7 +88,7 @@
     },
     {
         "id": "default",
-        "templateVersion": 1,
+        "version": 1,
         "title": "Samtykke til å dele data (standard)",
         "isPoa": false,
         "isMessageSetInRequest": true,
@@ -172,7 +172,7 @@
     },
     {
         "id": "sblanesoknad",
-        "templateVersion": 1,
+        "version": 1,
         "title": "Samtykkebasert lånesøknad",
         "isPoa": false,
         "isMessageSetInRequest": false,
@@ -263,7 +263,7 @@
     },
     {
         "id": "poa",
-        "templateVersion": 1,
+        "version": 1,
         "title": "Fullmakt til å utføre en tjeneste",
         "isPoa": true,
         "isMessageSetInRequest": true,
@@ -347,7 +347,7 @@
     },
     {
         "id": "samtykkemal_simpleconsent",
-        "templateVersion": 1,
+        "version": 1,
         "title": "Enkelt samtykke (uten melding)",
         "isPoa": false,
         "isMessageSetInRequest": true,
