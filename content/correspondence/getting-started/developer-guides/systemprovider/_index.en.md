@@ -11,7 +11,7 @@ weight: 20
 
 To get started as a system provider, follow this guide:
 
-[Autentisering for systemleverandører](https://docs.altinn.studio/authentication/guides/systemvendor/)
+[Leverandører av sluttbrukersystemer](https://samarbeid.digdir.no/altinn/kom-i-gang/2868)
 
 ### Access to scopes {#get-access-to-scopes}
 To authenticate and ensure that you can perform operations via the Correspondence API, Altinn must grant you access to the necessary scopes. This ensures that only authorized clients can send and receive files, thereby maintaining the security of the service. The following scopes are used to receive messages:
