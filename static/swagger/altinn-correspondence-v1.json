@@ -475,6 +475,13 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "sendersReference",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -631,6 +638,9 @@
                     "type": "string",
                     "description": "The email body for the main notification"
                   },
+                  "Correspondence.Notification.EmailContentType": {
+                    "$ref": "#/components/schemas/EmailContentType"
+                  },
                   "Correspondence.Notification.SmsBody": {
                     "maxLength": 160,
                     "minLength": 0,
@@ -652,6 +662,9 @@
                     "minLength": 0,
                     "type": "string",
                     "description": "The email body to use for the reminder notification"
+                  },
+                  "Correspondence.Notification.ReminderEmailContentType": {
+                    "$ref": "#/components/schemas/EmailContentType"
                   },
                   "Correspondence.Notification.ReminderSmsBody": {
                     "maxLength": 160,
@@ -799,6 +812,9 @@
                 "Correspondence.Notification.EmailBody": {
                   "style": "form"
                 },
+                "Correspondence.Notification.EmailContentType": {
+                  "style": "form"
+                },
                 "Correspondence.Notification.SmsBody": {
                   "style": "form"
                 },
@@ -809,6 +825,9 @@
                   "style": "form"
                 },
                 "Correspondence.Notification.ReminderEmailBody": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.ReminderEmailContentType": {
                   "style": "form"
                 },
                 "Correspondence.Notification.ReminderSmsBody": {
@@ -2170,6 +2189,13 @@
         "additionalProperties": false,
         "description": "Represents a custom notification recipient with override options"
       },
+      "EmailContentType": {
+        "enum": [
+          "Plain",
+          "Html"
+        ],
+        "type": "string"
+      },
       "ExternalReferenceExt": {
         "required": [
           "referenceType",
@@ -2367,6 +2393,9 @@
             "description": "The email body for the main notification",
             "nullable": true
           },
+          "emailContentType": {
+            "$ref": "#/components/schemas/EmailContentType"
+          },
           "smsBody": {
             "maxLength": 160,
             "minLength": 0,
@@ -2391,6 +2420,9 @@
             "type": "string",
             "description": "The email body to use for the reminder notification",
             "nullable": true
+          },
+          "reminderEmailContentType": {
+            "$ref": "#/components/schemas/EmailContentType"
           },
           "reminderSmsBody": {
             "maxLength": 160,
