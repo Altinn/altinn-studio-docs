@@ -40,7 +40,7 @@ Initialization → Validation → [Attachment Processing] → Publishing → Rec
 - **Recipient-Managed Phase**: Post-published flow tracks recipient interactions and actions
 - **Error Handling**: Comprehensive error handling at each phase with appropriate HTTP status codes
 - **Audit Trail**: Complete tracking of all status changes and timestamps
-- **API Flexibility**: Different APIs support different functionality (main API vs legacy API)
+- **API Flexibility**: Different APIs support different functionality (main API vs. legacy API)
 
 ## Navigation
 

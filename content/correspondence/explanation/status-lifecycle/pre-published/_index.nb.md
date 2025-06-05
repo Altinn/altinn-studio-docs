@@ -17,7 +17,7 @@ Følgende diagram viser den komplette flyten av en melding fra initialisering ti
 
 1. **Initialisert**: Meldingen er opprettet og har bestått første validering
 2. **Reservert**: Mottaker har valgt bort digital kommunikasjon i KRR, men melding kan opprettes med `IgnoreReservation` flagg
-3. **Klar for publisering**: Alle vedlegg (hvis noen) er behandlet og har bestått virusscanning
+3. **Klar for publisering**: Alle vedlegg (hvis noen) er behandlet og har bestått virusskanning
 4. **Publisert**: Meldingen er vellykket publisert og tilgjengelig for mottakere
 
 ## Feilhåndtering Under Initialisering

@@ -22,7 +22,7 @@ Etter at en melding er publisert, kan mottakere samhandle med den:
 5. **Slettet av Mottaker**: Meldingen er slettet av mottaker
 6. **Slettet av Altinn**: Meldingen er slettet av systemet
 
-## Statusflyt Regler
+## Regler for statusflyt
 
 - **Hentet** settes automatisk når mottakere kaller GetOverview eller GetDetails
 - **Lest** krever eksplisitt handling via `/markasread` endepunkt og krever forutgående Hentet status
@@ -72,4 +72,4 @@ Arkiveringsfunksjonalitet er **kun tilgjengelig** i Legacy API (`/correspondence
 - Varselsending stopper når melding markeres som lest
 - Varsler administreres uavhengig av meldingsstatus
 
-Systemet opprettholder et komplett revisjons-spor av alle mottakerinteraksjoner og statusendringer for compliance og feilsøking. 
+Systemet opprettholder et komplett revisjonsspor av alle mottakerinteraksjoner og statusendringer for compliance og feilsøking. 

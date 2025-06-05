@@ -25,10 +25,9 @@ After a correspondence is published, recipients can interact with it:
 ## Status Flow Rules
 
 - **Fetched** is automatically set when recipients call GetOverview or GetDetails
-- **Read** requires explicit action via `/markasread` endpoint and requires prior Fetched status
+- **Read** requires explicit action via `/markasread` endpoint and requires prior Fetched status. This status is optional - recipients can confirm directly from Fetched without reading
 - **Confirmed** requires explicit action via `/confirm` endpoint and requires prior Fetched status
-- **AttachmentsDownloaded** can occur from any published state and doesn't require Read status
-- **Read status is optional** - recipients can confirm directly from Fetched without reading
+- **AttachmentsDownloaded** can occur from any published state and does not require Read status
 - **Confirmation** is only required if the correspondence has `IsConfirmationNeeded = true`
 
 ## API Differences
