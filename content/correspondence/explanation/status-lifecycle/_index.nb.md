@@ -1,26 +1,26 @@
 ---
-title: Melding Livssyklus
-linktitle: Melding Livssyklus
-description: Altinn 3 Melding status livssyklus og tilstander oversikt.
+title: Meldings Livssyklus
+linktitle: Meldings Livssyklus
+description: Altinn 3 Meldings livssyklus og tilstander oversikt.
 tags: []
 toc: true
 weight: 14
 ---
 
-## Melding Livssyklus Oversikt
+## Oversikt
 
 En melding i Altinn 3 går gjennom flere statustilstander i løpet av sin livssyklus. Flyten er delt inn i to hovedfaser:
 
 ## To Hovedfaser
 
-### 1. [Flyt Før Publisering](pre-published/)
+### 1. [Livssyklus Før Publisering](pre-published/)
 Reisen fra meldingsopprettelse til publisering, inkludert:
 - Initialisering og validering
 - Vedleggsbehandling og virusskanning
 - Publiseringsprosess og feilhåndtering
 - Statustilstander: Initialisert, Reservert, Klar for publisering, Publisert, Feilet
 
-### 2. [Flyt Etter Publisering](post-published/)
+### 2. [Livssyklus Etter Publisering](post-published/)
 Mottaker interaksjoner etter publisering, inkludert:
 - Henting av meldingsdetaljer
 - Lesing og bekreftelsesprosesser
@@ -44,7 +44,7 @@ Initialisering → Validering → [Vedleggsbehandling] → Publisering → Motta
 
 ## Navigasjon
 
-- **[Flyt Før Publisering](pre-published/)** - Lær om meldingsopprettelse, validering og publisering
-- **[Flyt Etter Publisering](post-published/)** - Forstå mottaker interaksjoner og statushåndtering
+- **[Livssyklus Før Publisering](pre-published/)** - Lær om meldingsopprettelse, validering og publisering
+- **[Livssyklus Etter Publisering](post-published/)** - Forstå mottaker interaksjoner og statushåndtering
 
 Hver fase har sin egen detaljerte dokumentasjon med diagrammer, statusforklaringer og API-spesifikasjoner. 
