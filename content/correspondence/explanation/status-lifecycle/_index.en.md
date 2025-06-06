@@ -7,20 +7,20 @@ toc: true
 weight: 14
 ---
 
-## Correspondence Life Cycle Overview
+## Overview
 
 A correspondence in Altinn 3 goes through several status states during its life cycle. The flow is divided into two main phases:
 
 ## Two Main Phases
 
-### 1. [Pre-Published Flow](pre-published/)
+### 1. [Pre-Published Life Cycle](pre-published/)
 The journey from correspondence creation to publication, including:
 - Initialization and validation
 - Attachment processing and virus scanning
 - Publishing process and error handling
 - Status states: Initialized, Reserved, ReadyForPublish, Published, Failed
 
-### 2. [Post-Published Flow](post-published/)
+### 2. [Post-Published Life Cycle](post-published/)
 Recipient interactions after publication, including:
 - Fetching correspondence details
 - Reading and confirmation processes
@@ -44,7 +44,7 @@ Initialization → Validation → [Attachment Processing] → Publishing → Rec
 
 ## Navigation
 
-- **[Pre-Published Flow](pre-published/)** - Learn about correspondence creation, validation, and publishing
-- **[Post-Published Flow](post-published/)** - Understand recipient interactions and status management
+- **[Pre-Published Life Cycle](pre-published/)** - Learn about correspondence creation, validation, and publishing
+- **[Post-Published Life Cycle](post-published/)** - Understand recipient interactions and status management
 
 Each phase has its own detailed documentation with diagrams, status explanations, and API specifications. 
