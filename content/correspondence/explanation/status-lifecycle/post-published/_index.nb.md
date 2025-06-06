@@ -1,13 +1,13 @@
 ---
-title: Flyt Etter Publisering
-linktitle: Flyt Etter Publisering
-description: Altinn 3 Melding status livssyklus og mottaker interaksjoner etter publisering.
+title: Livssyklus Etter Publisering
+linktitle: Livssyklus Etter Publisering
+description: Altinn 3 Melding livssyklus og mottakers interaksjoner etter publisering.
 tags: []
 toc: true
 weight: 2
 ---
 
-## Flyt Etter Publisering
+## Livssyklus Etter Publisering
 
 Etter at en melding er publisert, kan mottakere samhandle med den:
 
@@ -22,26 +22,13 @@ Etter at en melding er publisert, kan mottakere samhandle med den:
 5. **Slettet av Mottaker**: Meldingen er slettet av mottaker
 6. **Slettet av Altinn**: Meldingen er slettet av systemet
 
-## Regler for statusflyt
+## Regler for status
 
 - **Hentet** settes automatisk når mottakere kaller GetOverview eller GetDetails
-- **Lest** krever eksplisitt handling via `/markasread` endepunkt og krever forutgående Hentet status
+- **Lest** krever eksplisitt handling via `/markasread` endepunkt og krever forutgående Hentet status. Denne statusen er valgfri - mottakere kan bekrefte direkte fra Hentet uten å lese
 - **Bekreftet** krever eksplisitt handling via `/confirm` endepunkt og krever forutgående Hentet status
 - **Vedlegg Lastet Ned** kan skje fra enhver publisert tilstand og krever ikke Lest status
-- **Lest status er valgfri** - mottakere kan bekrefte direkte fra Hentet uten å lese
 - **Bekreftelse** er kun påkrevd hvis meldingen har `IsConfirmationNeeded = true`
-
-## API Forskjeller
-
-### Hoved Melding API
-Hoved Altinn 3 Melding API (`/correspondence/api/v1/correspondence`) støtter:
-- Marker som Lest
-- Bekreft
-- Slett
-
-### Kun Legacy API
-Arkiveringsfunksjonalitet er **kun tilgjengelig** i Legacy API (`/correspondence/api/v1/legacy/correspondence`):
-- Arkiver melding
 
 ## Mottaker Interaksjonsprosess
 

@@ -1,13 +1,13 @@
 ---
-title: Flyt Før Publisering
-linktitle: Flyt Før Publisering
-description: Altinn 3 Melding status livssyklus og valideringsprosess før publisering.
+title: Livssyklus Før Publisering
+linktitle: Livssyklus Før Publisering
+description: Altinn 3 Melding livssyklus og valideringsprosess før publisering.
 tags: []
 toc: true
 weight: 1
 ---
 
-## Flyt Før Publisering
+## Livssyklus Før Publisering
 
 Følgende diagram viser den komplette flyten av en melding fra initialisering til publisering:
 
@@ -37,8 +37,8 @@ Systemet returnerer HTTP-feilsvar for valideringsfeil under initialisering (inge
 ## Vedleggsbehandling
 
 1. **Opplasting pågår**: Vedlegget lastes opp og behandles
-2. **Publisert**: Vedlegget har bestått virusscanning og er tilgjengelig for nedlasting
-3. **Feilet**: Vedlegget feilet virusscanning eller behandling
+2. **Publisert**: Vedlegget har bestått virusskanning og er tilgjengelig for nedlasting
+3. **Feilet**: Vedlegget feilet virusskanning eller behandling
 
 Alle vedlegg må nå **Publisert** status før meldingen kan publiseres.
 
@@ -52,7 +52,7 @@ Alle vedlegg må nå **Publisert** status før meldingen kan publiseres.
 
 ### Vedleggsbehandling (hvis aktuelt)
 - Filer lastes opp til blob storage
-- Virusscanning utføres
+- Virusskanning utføres
 - Vedlegg må bestå alle sjekker før melding kan publiseres
 
 ### Publiseringsprosess

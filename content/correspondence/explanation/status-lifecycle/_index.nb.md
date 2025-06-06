@@ -16,7 +16,7 @@ En melding i Altinn 3 går gjennom flere statustilstander i løpet av sin livssy
 ### 1. [Flyt Før Publisering](pre-published/)
 Reisen fra meldingsopprettelse til publisering, inkludert:
 - Initialisering og validering
-- Vedleggsbehandling og virusscanning
+- Vedleggsbehandling og virusskanning
 - Publiseringsprosess og feilhåndtering
 - Statustilstander: Initialisert, Reservert, Klar for publisering, Publisert, Feilet
 

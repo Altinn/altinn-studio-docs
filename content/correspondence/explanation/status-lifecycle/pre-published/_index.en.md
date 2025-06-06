@@ -1,13 +1,13 @@
 ---
-title: Pre-Published Flow
-linktitle: Pre-Published Flow
-description: Altinn 3 Correspondence pre-published status lifecycle and validation process.
+title: Pre-Published Life Cycle
+linktitle: Pre-Published Life Cycle
+description: Altinn 3 Correspondence pre-published lifecycle and validation process.
 tags: []
 toc: true
 weight: 1
 ---
 
-## Pre-Published Flow
+## Pre-Published Life Cycle
 
 The following diagram shows the complete flow of a correspondence from initialization to publication:
 

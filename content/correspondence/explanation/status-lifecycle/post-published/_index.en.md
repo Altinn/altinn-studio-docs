@@ -1,13 +1,13 @@
 ---
-title: Post-Published Flow
-linktitle: Post-Published Flow
-description: Altinn 3 Correspondence post-published status lifecycle and recipient interactions.
+title: Post-Published Lifecycle
+linktitle: Post-Published Lifecycle
+description: Altinn 3 Correspondence post-published lifecycle and recipient interactions.
 tags: []
 toc: true
 weight: 2
 ---
 
-## Post-Published Flow
+## Post-Published Lifecycle
 
 After a correspondence is published, recipients can interact with it:
 
@@ -22,25 +22,13 @@ After a correspondence is published, recipients can interact with it:
 5. **PurgedByRecipient**: Correspondence has been deleted by the recipient
 6. **PurgedByAltinn**: Correspondence has been deleted by the system
 
-## Status Flow Rules
+## Status Rules
 
 - **Fetched** is automatically set when recipients call GetOverview or GetDetails
 - **Read** requires explicit action via `/markasread` endpoint and requires prior Fetched status. This status is optional - recipients can confirm directly from Fetched without reading
 - **Confirmed** requires explicit action via `/confirm` endpoint and requires prior Fetched status
 - **AttachmentsDownloaded** can occur from any published state and does not require Read status
 - **Confirmation** is only required if the correspondence has `IsConfirmationNeeded = true`
-
-## API Differences
-
-### Main Correspondence API
-The main Altinn 3 Correspondence API (`/correspondence/api/v1/correspondence`) supports:
-- Mark as Read
-- Confirm
-- Purge (delete)
-
-### Legacy API Only
-Archive functionality is **only available** in the Legacy API (`/correspondence/api/v1/legacy/correspondence`):
-- Archive correspondence
 
 ## Recipient Interaction Process
 
