@@ -1,7 +1,7 @@
 ---
 title: Model for system register information
 linktitle: Model
-description: Model for the external to read/write system register information
+description: Model for read/write system register information
 toc: false
 weight: 1
 ---

@@ -6,13 +6,11 @@ toc: true
 weight: 2
 ---
 
-{{<notice warning>}}
- This functionality is in test and will change.
-{{</notice>}}
 
 #### Actions by System Vendor (SmartCloud AS)
    1. Contact Digdir
-      - The System vendor must contact Digdir to get access to the system register, system user scopes. It is required that the vendor runs the test of system user in Digdir's test environment and must sign an agreement of using system user to integrate with production environment.
+      - The System vendor must contact Digdir to get access to the system register, system user scopes. Procedures for this is described on [Samarbeisportalen]([Samarbeidsportalen](https://samarbeid.digdir.no/altinn/kom-i-gang/2868).
+
    2. Creating a Maskinporten Client for the System
       - SmartCloud AS wants to integrates the system user into their accounting software, SmartCloud.
       - To integrate, they must create a client in Maskinporten for system SmartCloud, which gets a client ID that will be used for authentication and authorization.

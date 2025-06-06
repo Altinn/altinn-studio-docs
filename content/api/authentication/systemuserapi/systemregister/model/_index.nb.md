@@ -1,7 +1,7 @@
 ---
 title: Modell for system register information
 linktitle: Modell
-description: Modell for eksterne til å lese/skrive systemregisterinformasjon.
+description: Modell for å lese/skrive systemregisterinformasjon.
 toc: false
 weight: 1
 ---

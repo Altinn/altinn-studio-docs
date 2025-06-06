@@ -1,7 +1,7 @@
 ---
 title: Model
 linktitle: Model
-description: Model for the external to process system user request
+description: Model to process system user request
 toc: true
 ---
 
