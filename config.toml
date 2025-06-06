@@ -58,7 +58,7 @@ editURL = "https://github.dev/altinn/altinn-studio-docs/blob/master/content/"
 noHomeIcon = true # default is false
 noSearch = false # default is false
 showVisitedLinks = false # default is false
-
+enableMermaid = true # enable Mermaid diagrams
 
 [outputs]
 home = ["HTML", "JSON"] # JSON generates index.json file used by search
