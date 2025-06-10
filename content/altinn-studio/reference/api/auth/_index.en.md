@@ -129,7 +129,7 @@ internal sealed class ValidateInstantiation(IAuthenticationContext authenticatio
                     new()
                     {
                         Message = "This app only supports user logins via the Altinn portal",
-                        Valid = false,    
+                        Valid = false,
                     }
                 );
         }
