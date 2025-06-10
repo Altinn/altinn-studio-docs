@@ -77,7 +77,7 @@ public abstract class Authenticated
 The `IAuthenticationContext` interface can be used in custom code to check what type of user is logged in, and what information 
 is associated with them. 
 
-### Limit access
+## Limit access
 
 Apps have different requirements for access. In some cases, you may want to restrict the use to specific authentication methods.
 There is currently no built-in configuration to restrict access in an app, but this is being considered.
@@ -91,7 +91,7 @@ All interfaces implemented in an app, such as `IInstantiationValidator` in the e
 when authentication information is available, so it is completely safe there.
 {{% /notice %}}
 
-#### Allow only Altinn portal users
+### ✅ Altinn portal-users
 
 Here is an example implementation of `IInstantiationValidator` that only allows instantiation by users logged in via the Altinn portal:
 
@@ -174,46 +174,7 @@ app.Use(
 );
 ```
 
-#### Block enterprise users (from Altinn 2)
-
-In this example, we block enterprise users from Altinn 2:
-
-{{% notice info %}}
-These tokens may exist until Altinn 2 is fully phased out.
-{{% /notice %}}
-
-```csharp
-WebApplication app = builder.Build();
-
-...
-
-app.UseAltinnAppCommonConfiguration();
-
-app.Use(
-    async (context, next) =>
-    {
-        var authenticationContext = context.RequestServices.GetRequiredService<IAuthenticationContext>();
-        var authenticated = authenticationContext.Current;
-        if (authentication.Current is Authenticated.Org)
-        {
-            context.Response.StatusCode = StatusCodes.Status403Forbidden;
-            await context.Response.WriteAsJsonAsync(
-                new ProblemDetails
-                {
-                    Title = "Forbidden",
-                    Detail = "Enterprise users are not allowed in this app",
-                    Status = StatusCodes.Status403Forbidden
-                }
-            );
-            return;
-        }
-
-        await next(context);
-    }
-);
-```
-
-#### Allow only system users
+### ✅ System users
 
 In this example, we only allow requests from system users:
 
@@ -241,6 +202,45 @@ app.Use(
                 {
                     Title = "Forbidden",
                     Detail = "This app can only be used as a system user",
+                    Status = StatusCodes.Status403Forbidden
+                }
+            );
+            return;
+        }
+
+        await next(context);
+    }
+);
+```
+
+### ❌ Enterprise users
+
+In this example, we block the deprecated enterprise users from Altinn 2:
+
+{{% notice info %}}
+These tokens may exist until Altinn 2 is fully phased out.
+{{% /notice %}}
+
+```csharp
+WebApplication app = builder.Build();
+
+...
+
+app.UseAltinnAppCommonConfiguration();
+
+app.Use(
+    async (context, next) =>
+    {
+        var authenticationContext = context.RequestServices.GetRequiredService<IAuthenticationContext>();
+        var authenticated = authenticationContext.Current;
+        if (authentication.Current is Authenticated.Org)
+        {
+            context.Response.StatusCode = StatusCodes.Status403Forbidden;
+            await context.Response.WriteAsJsonAsync(
+                new ProblemDetails
+                {
+                    Title = "Forbidden",
+                    Detail = "Enterprise users are not allowed in this app",
                     Status = StatusCodes.Status403Forbidden
                 }
             );

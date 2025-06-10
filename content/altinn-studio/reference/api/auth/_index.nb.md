@@ -77,7 +77,7 @@ public abstract class Authenticated
 Interfacet `IAuthenticationContext` kan brukes i egendefinert kode til å sjekke hva slags bruker som er logget inn, og hvilke informasjon
 som er assosiert med denne. 
 
-### Begrens tilgang
+## Begrens tilgang
 
 Skjemaer har forskjellige behov for tilgang. I noen tilfeller ønsker man å begrense bruk av et skjema til spesifikke autentiserings-metoder.
 Det er ingen innebygd konfigurasjon for å begrense tilgang i en app ennå, men det er noe som vurderes fortløpende.
@@ -91,7 +91,7 @@ Alle interfaces som implementeres i en app, slik som `IInstantiationValidator` i
 hvor autentiseringsinformasjonen er tilgjengelig, så der er det helt trygt.
 {{% /notice %}}
 
-#### Tillat bare Altinn portal-brukere
+### ✅ Altinn portal-brukere
 
 Her er eksempel på en implementasjon av `IInstantiationValidator` som bare tillater
 instansiering av brukere innlogget via Altinn portal:
@@ -175,46 +175,7 @@ app.Use(
 );
 ```
 
-#### Sperre ute virksomhetsbruker (fra Altinn 2)
-
-I dette eksempelet sperrer vi ute virksomhetsbrukere fra Altinn 2:
-
-{{% notice info %}}
-Disse tokenene vil kunne eksistere frem til Altinn 2 er fullstendig faset ut.
-{{% /notice %}}
-
-```csharp
-WebApplication app = builder.Build();
-
-...
-
-app.UseAltinnAppCommonConfiguration();
-
-app.Use(
-    async (context, next) =>
-    {
-        var authenticationContext = context.RequestServices.GetRequiredService<IAuthenticationContext>();
-        var authenticated = authenticationContext.Current;
-        if (authentication.Current is Authenticated.Org)
-        {
-            context.Response.StatusCode = StatusCodes.Status403Forbidden;
-            await context.Response.WriteAsJsonAsync(
-                new ProblemDetails
-                {
-                    Title = "Ikke tillatt",
-                    Detail = "Virksomhetsbrukere er ikke tillatt i denne appen",
-                    Status = StatusCodes.Status403Forbidden
-                }
-            );
-            return;
-        }
-
-        await next(context);
-    }
-);
-```
-
-#### Tillat bare systembrukere
+### ✅ Systembrukere
 
 I dette eksempelet tillater vi bare requests fra systembrukere:
 
@@ -242,6 +203,45 @@ app.Use(
                 {
                     Title = "Ikke tillatt",
                     Detail = "Denne appen kan bare brukes som systembruker",
+                    Status = StatusCodes.Status403Forbidden
+                }
+            );
+            return;
+        }
+
+        await next(context);
+    }
+);
+```
+
+### ❌ Virksomhetsbrukere
+
+I dette eksempelet sperrer vi ute virksomhetsbrukere fra Altinn 2:
+
+{{% notice info %}}
+Disse tokenene vil kunne eksistere frem til Altinn 2 er fullstendig faset ut.
+{{% /notice %}}
+
+```csharp
+WebApplication app = builder.Build();
+
+...
+
+app.UseAltinnAppCommonConfiguration();
+
+app.Use(
+    async (context, next) =>
+    {
+        var authenticationContext = context.RequestServices.GetRequiredService<IAuthenticationContext>();
+        var authenticated = authenticationContext.Current;
+        if (authentication.Current is Authenticated.Org)
+        {
+            context.Response.StatusCode = StatusCodes.Status403Forbidden;
+            await context.Response.WriteAsJsonAsync(
+                new ProblemDetails
+                {
+                    Title = "Ikke tillatt",
+                    Detail = "Virksomhetsbrukere er ikke tillatt i denne appen",
                     Status = StatusCodes.Status403Forbidden
                 }
             );
