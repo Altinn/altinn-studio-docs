@@ -75,8 +75,12 @@ public abstract class Authenticated
 ```
 
 Interfacet `IAuthenticationContext` kan brukes i egendefinert kode til å sjekke hva slags bruker som er logget inn, og hvilke informasjon
-som er assosiert med denne. Her er eksempel på en implementasjon av `IInstantiationValidator` som bare tillater
-instansiering av brukere innlogget via Altinn portal:
+som er assosiert med denne. 
+
+### Begrens tilgang
+
+Skjemaer har forskjellige behov for tilgang. I noen tilfeller ønsker man å begrense bruk av et skjema til spesifikke autentiserings-metoder.
+Det er ingen innebygd konfigurasjon for å begrense tilgang i en app ennå, men det er noe som vurderes fortløpende.
 
 {{% notice info %}}
 `IAuthenticationContext.Current` bruker informasjon om innlogget bruker fra ASP.NET Core sin authentication stack.
@@ -86,6 +90,11 @@ i et ASP.NET Core middleware så må denne legges til **etter** at `UseAltinnApp
 Alle interfaces som implementeres i en app, slik som `IInstantiationValidator` i eksempelet under, kjører på et tidspunkt
 hvor autentiseringsinformasjonen er tilgjengelig, så der er det helt trygt.
 {{% /notice %}}
+
+#### Tillat bare Altinn portal-brukere
+
+Her er eksempel på en implementasjon av `IInstantiationValidator` som bare tillater
+instansiering av brukere innlogget via Altinn portal:
 
 ```csharp
 using System.Threading.Tasks;
@@ -131,10 +140,16 @@ internal sealed class ValidateInstantiation(IAuthenticationContext authenticatio
 
 Den samme autoriseringen kan gjøres globalt ved hjelp av ASP.NET Core middleware:
 
+{{% notice info %}}
+Merk at denne varianten også blokkerer uautentiserte requests.
+{{% /notice %}}
+
 ```csharp
 WebApplication app = builder.Build();
 
 ...
+
+app.UseAltinnAppCommonConfiguration();
 
 app.Use(
     async (context, next) =>
@@ -143,8 +158,15 @@ app.Use(
         var authenticated = authenticationContext.Current;
         if (authenticated is not Authenticated.User { InAltinnPortal: true })
         {
-            context.Response.StatusCode = 403;
-            await context.Response.WriteAsync("Forbidden");
+            context.Response.StatusCode = StatusCodes.Status403Forbidden;
+            await context.Response.WriteAsJsonAsync(
+                new ProblemDetails
+                {
+                    Title = "Ikke tillatt",
+                    Detail = "Dette skjemaet kan kun fylles ut av en bruker i Altinn-portalen",
+                    Status = StatusCodes.Status403Forbidden
+                }
+            );
             return;
         }
 
@@ -153,3 +175,80 @@ app.Use(
 );
 ```
 
+#### Sperre ute virksomhetsbruker (fra Altinn 2)
+
+I dette eksempelet sperrer vi ute virksomhetsbrukere fra Altinn 2:
+
+{{% notice info %}}
+Disse tokenene vil kunne eksistere frem til Altinn 2 er fullstendig faset ut.
+{{% /notice %}}
+
+```csharp
+WebApplication app = builder.Build();
+
+...
+
+app.UseAltinnAppCommonConfiguration();
+
+app.Use(
+    async (context, next) =>
+    {
+        var authenticationContext = context.RequestServices.GetRequiredService<IAuthenticationContext>();
+        var authenticated = authenticationContext.Current;
+        if (authentication.Current is Authenticated.Org)
+        {
+            context.Response.StatusCode = StatusCodes.Status403Forbidden;
+            await context.Response.WriteAsJsonAsync(
+                new ProblemDetails
+                {
+                    Title = "Ikke tillatt",
+                    Detail = "Virksomhetsbrukere er ikke tillatt i denne appen",
+                    Status = StatusCodes.Status403Forbidden
+                }
+            );
+            return;
+        }
+
+        await next(context);
+    }
+);
+```
+
+#### Tillat bare systembrukere
+
+I dette eksempelet tillater vi bare requests fra systembrukere:
+
+{{% notice info %}}
+Merk at denne varianten også blokkerer uautentiserte requests.
+{{% /notice %}}
+
+```csharp
+WebApplication app = builder.Build();
+
+...
+
+app.UseAltinnAppCommonConfiguration();
+
+app.Use(
+    async (context, next) =>
+    {
+        var authenticationContext = context.RequestServices.GetRequiredService<IAuthenticationContext>();
+        var authenticated = authenticationContext.Current;
+        if (authentication.Current is not Authenticated.SystemUser)
+        {
+            context.Response.StatusCode = StatusCodes.Status403Forbidden;
+            await context.Response.WriteAsJsonAsync(
+                new ProblemDetails
+                {
+                    Title = "Ikke tillatt",
+                    Detail = "Denne appen kan bare brukes som systembruker",
+                    Status = StatusCodes.Status403Forbidden
+                }
+            );
+            return;
+        }
+
+        await next(context);
+    }
+);
+```
