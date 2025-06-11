@@ -1,7 +1,7 @@
 ---
 title: Autentisering
 linktitle: Autentisering
-description: Når det gjelder autentisering er det noen konfigurasjoner som kan være aktuell
+description: Når det gjelder autentisering er det noen konfigurasjoner som kan være aktuelle
 weight: 800
 toc: true
 tags:
@@ -48,7 +48,7 @@ må du gjøre dette manuelt, for eksempel ved hjelp av ASP.NET Core middleware.
 ## Informasjon i appen
 
 `Altinn.App.Core`-biblioteket har abstraksjoner for å hente ut informasjon om innlogget bruker.
-Som standard er det ingen begrensninger på hvilke brukertyper en app tar i mot, men man kan begrense dette selv i et middleware eller en validator.
+Som standard er det ingen begrensninger på hvilke brukertyper en app tar imot, men man kan begrense dette selv i et middleware eller en validator.
 Før `v8.6` av app bibliotekene var det vanlig å f. eks. hente bruker-ID direkte fra `HttpContext`, 
 men dette kan gi uventet resultat hvis innkommende request er autentisert med f. eks. systembruker.
 
@@ -79,7 +79,7 @@ som er assosiert med denne.
 
 ## Begrens tilgang
 
-Skjemaer har forskjellige behov for tilgang. I noen tilfeller ønsker man å begrense bruk av et skjema til spesifikke autentiserings-metoder.
+Apper har forskjellige behov for tilgang. I noen tilfeller ønsker man å begrense bruk av et skjema til spesifikke autentiserings-metoder.
 Det er ingen innebygd konfigurasjon for å begrense tilgang basert på autentiserings-metoder i en app ennå, men det er noe som vurderes fortløpende.
 
 {{% notice info %}}
@@ -234,7 +234,7 @@ app.Use(
     {
         var authenticationContext = context.RequestServices.GetRequiredService<IAuthenticationContext>();
         var authenticated = authenticationContext.Current;
-        if (authentication.Current is Authenticated.Org)
+        if (authenticated is Authenticated.Org)
         {
             context.Response.StatusCode = StatusCodes.Status403Forbidden;
             await context.Response.WriteAsJsonAsync(
