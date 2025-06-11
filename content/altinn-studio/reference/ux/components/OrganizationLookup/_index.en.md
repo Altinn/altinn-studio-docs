@@ -14,7 +14,7 @@ organization number and organization name with a data model binding.
 
 ## Anatomy
 
-![alt text](image.png)
+![Organization lookup component](image.png)
 
 {{% anatomy-list %}}
 
@@ -30,16 +30,16 @@ organization number and organization name with a data model binding.
 
 Before a user interacts with the component, it simply displays the input field.
 
-![alt text](image.png)
+![Input field for organization number and a fetch button](image.png)
 
 On a successful fetch the component adds a description to the fields, indicating that the data displayed is fetched from 
 the Register of Business Enterprises. The button transforms from a fetch button to a remove button.
 
-![alt text](image-1.png)
+![Locked input field, button changed from "fetch" to "remove"](image-1.png)
 
 The component has built in validation for the input field
 
-![alt text](image-2.png)
+![Validation of the input field](image-2.png)
 
 ## Properties
 

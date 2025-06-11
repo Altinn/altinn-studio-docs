@@ -13,7 +13,7 @@ toc: true
 
 ## Anatomi
 
-![alt text](image.png)
+![Organisasjonkomponent](image.png)
 
 {{% anatomy-list %}}
 
@@ -29,15 +29,15 @@ toc: true
 
 Før en bruker interagerer med komponenten, vises den slik.
 
-![alt text](image.png)
+![Inndata felt for organisasjonsnummer og knapp for å hente informasjon](image.png)
 
 Ved en vellykket henting legger komponenten til en beskrivelse i feltene, som indikerer at dataene som vises er hentet fra Enhetsregisteret. Knappen forvandles fra en hent-knapp til en fjern-knapp.
 
-![alt text](image-1.png)
+![Inndatafeltet er låst, knappen endret fra "Hent informasjon" til "Fjern"](image-1.png)
 
 Komponenten har innebygd validering for inputfeltet
 
-![alt text](image-2.png)
+![Validering for inndatafelt](image-2.png)
 
 ## Egenskaper
 
@@ -69,7 +69,7 @@ Dokumentasjonen oppdateres fortløpende, men det kan være flere innstillinger t
 I følgende eksempel konfigurerer vi opp komponenten for å legge til en revisororganisasjon.
 Vi sier at det er påkrevd å oppgi en organisasjon, og vi overstyrer tittel og beskrivelse.
 Vi velger å ikke bruke hjelpetekst.
-Resultatet vil vi ha i datamodellen på `Revisor`
+Resultatet vil vi ha i datamodellen på `Revisor`.
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Code">}}

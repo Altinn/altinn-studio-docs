@@ -32,25 +32,25 @@ Komponenten består av en hovedtittel, en hjelptekst, en beskrivelse, en fødsel
 
 Før en bruker interagerer med komponenten, vises den slik.
 
-![alt text](image-1.png)
+![To inndatafelter og en knapp for å hente informasjon](image-1.png)
 
 Ved en vellykket henting legger komponenten til en beskrivelse i feltene, som indikerer at dataene som vises er hentet fra folkeregisteret. Knappen forvandles fra en hent-knapp til en fjern-knapp.
 
-![alt text](image-2.png)
+![Inndatafeltene er låst, knappen endret fra "Hent informasjon" til "Fjern"](image-2.png)
 
 Komponenten har innebygd validering for inputfeltene både ved tap av fokus og ved henting. NIN-inputfeltet validerer formatet til det nasjonale identitetsnummeret i henhold til de offisielle retningslinjene for NIN.
 Etternavn-inputfeltet kontrollerer at et etternavn er oppgitt.
 Feilmeldingene for inputfeltsvalideringene vises på PersonLookup-komponenten.
 
-![alt text](image-3.png)
+![Innebygget validering for inndatafeltene](image-3.png)
 
 Gitt gyldig inndata, men med en uoverensstemmelse mellom fødselsnavn og etternavn, viser komponenten en feilmelding etter forsøk på henting. Det er en grense for antallet unike mislykkede oppslag før brukeren midlertidig blokkeres.
 
-![alt text](image-4.png)
+![Feilmelding ved ugyldig kombinasjon av fnr og etternavn](image-4.png)
 
 Når antallet tillatte unike mislykkede oppslag overskrides, gjenspeiler komponenten dette.
 
-![alt text](image-5.png)
+![Feilmelding ved for mange ugyldige søk](image-5.png)
 
 ## Egenskaper
 
