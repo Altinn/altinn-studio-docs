@@ -80,7 +80,7 @@ som er assosiert med denne.
 ## Begrens tilgang
 
 Skjemaer har forskjellige behov for tilgang. I noen tilfeller ønsker man å begrense bruk av et skjema til spesifikke autentiserings-metoder.
-Det er ingen innebygd konfigurasjon for å begrense tilgang i en app ennå, men det er noe som vurderes fortløpende.
+Det er ingen innebygd konfigurasjon for å begrense tilgang basert på autentiserings-metoder i en app ennå, men det er noe som vurderes fortløpende.
 
 {{% notice info %}}
 `IAuthenticationContext.Current` bruker informasjon om innlogget bruker fra ASP.NET Core sin authentication stack.
