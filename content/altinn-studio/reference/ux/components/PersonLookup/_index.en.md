@@ -81,7 +81,7 @@ The documentation is continuously updated, and there may be more settings availa
 ## Example
 
 In the following example, we configure the component to add a board chairman.
-We indicate that providing a person is mandatory, and we override the title.
+We indicate that providing an organization is mandatory, and we override the title.
 We choose not to use the description or the help text.
 The result will be in the data model at `Styre.Styreleder`.
 
