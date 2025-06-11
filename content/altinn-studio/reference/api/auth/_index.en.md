@@ -80,7 +80,7 @@ is associated with them.
 ## Limit access
 
 Apps have different requirements for access. In some cases, you may want to restrict the use to specific authentication methods.
-There is currently no built-in configuration to restrict access in an app, but this is being considered.
+There is currently no built-in configuration to restrict access based on authentication methods in an app, but this is being considered.
 
 {{% notice info %}}
 `IAuthenticationContext.Current` uses information about the logged-in user from ASP.NET Core's authentication stack.
