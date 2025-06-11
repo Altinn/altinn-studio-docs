@@ -75,17 +75,25 @@ public abstract class Authenticated
 ```
 
 The `IAuthenticationContext` interface can be used in custom code to check what type of user is logged in, and what information 
-is associated with them. Here is an example of an implementation of `IInstantiationValidator` that only allows 
-instantiation by users logged in via the Altinn portal:
+is associated with them. 
+
+## Limit access
+
+Apps have different requirements for access. In some cases, you may want to restrict the use to specific authentication methods.
+There is currently no built-in configuration to restrict access based on authentication methods in an app, but this is being considered.
 
 {{% notice info %}}
 `IAuthenticationContext.Current` uses information about the logged-in user from ASP.NET Core's authentication stack.
 This means that the ASP.NET Core auth middleware must have run for you to get the correct information.
-Auth middleware is added in `UseAltinnAppCommonConfiguration`. So if you need to access `IAuthenticationContext.Current`
+Auth middleware is added in `UseAltinnAppCommonConfiguration`. So if you want to access `IAuthenticationContext.Current`
 in an ASP.NET Core middleware, it must be added **after** `UseAltinnAppCommonConfiguration` has been called.
-All interfaces implemented in an app, such as `IInstantiationValidator` in the example below, run at a point
-where authentication information is available, so it is completely safe there.
+All interfaces implemented in an app, such as `IInstantiationValidator` in the example below, run at a time
+when authentication information is available, so it is completely safe there.
 {{% /notice %}}
+
+### ✅ Altinn portal-users
+
+Here is an example implementation of `IInstantiationValidator` that only allows instantiation by users logged in via the Altinn portal:
 
 ```csharp
 using System.Threading.Tasks;
@@ -100,9 +108,9 @@ internal sealed class ValidateInstantiation(IAuthenticationContext authenticatio
 {
     public Task<InstantiationValidationResult?> Validate(Instance instance)
     {
-        var current = authenticationContext.Current;
+        var authenticated = authenticationContext.Current;
 
-        switch (current)
+        switch (authenticated)
         {
             case Authenticated.User user:
                 if (!user.InAltinnPortal)
@@ -120,7 +128,7 @@ internal sealed class ValidateInstantiation(IAuthenticationContext authenticatio
                 return Task.FromResult<InstantiationValidationResult?>(
                     new()
                     {
-                        Message = "This form only supports user login via the Altinn portal",
+                        Message = "This app only supports user logins via the Altinn portal",
                         Valid = false,
                     }
                 );
@@ -131,10 +139,16 @@ internal sealed class ValidateInstantiation(IAuthenticationContext authenticatio
 
 The same authorization can be enforced globally using ASP.NET Core middleware:
 
+{{% notice info %}}
+Note that this approach will also block unauthenticated requests.
+{{% /notice %}}
+
 ```csharp
 WebApplication app = builder.Build();
 
 ...
+
+app.UseAltinnAppCommonConfiguration();
 
 app.Use(
     async (context, next) =>
@@ -143,8 +157,15 @@ app.Use(
         var authenticated = authenticationContext.Current;
         if (authenticated is not Authenticated.User { InAltinnPortal: true })
         {
-            context.Response.StatusCode = 403;
-            await context.Response.WriteAsync("Forbidden");
+            context.Response.StatusCode = StatusCodes.Status403Forbidden;
+            await context.Response.WriteAsJsonAsync(
+                new ProblemDetails
+                {
+                    Title = "Forbidden",
+                    Detail = "This app only supports users in the Altinn portal",
+                    Status = StatusCodes.Status403Forbidden
+                }
+            );
             return;
         }
 
@@ -153,3 +174,80 @@ app.Use(
 );
 ```
 
+### ✅ System users
+
+In this example, we only allow requests from system users:
+
+{{% notice info %}}
+Note that this approach will also block unauthenticated requests.
+{{% /notice %}}
+
+```csharp
+WebApplication app = builder.Build();
+
+...
+
+app.UseAltinnAppCommonConfiguration();
+
+app.Use(
+    async (context, next) =>
+    {
+        var authenticationContext = context.RequestServices.GetRequiredService<IAuthenticationContext>();
+        var authenticated = authenticationContext.Current;
+        if (authenticated is not Authenticated.SystemUser)
+        {
+            context.Response.StatusCode = StatusCodes.Status403Forbidden;
+            await context.Response.WriteAsJsonAsync(
+                new ProblemDetails
+                {
+                    Title = "Forbidden",
+                    Detail = "This app can only be used as a system user",
+                    Status = StatusCodes.Status403Forbidden
+                }
+            );
+            return;
+        }
+
+        await next(context);
+    }
+);
+```
+
+### ❌ Enterprise users
+
+In this example, we block the deprecated enterprise users from Altinn 2:
+
+{{% notice info %}}
+These tokens may exist until Altinn 2 is fully phased out.
+{{% /notice %}}
+
+```csharp
+WebApplication app = builder.Build();
+
+...
+
+app.UseAltinnAppCommonConfiguration();
+
+app.Use(
+    async (context, next) =>
+    {
+        var authenticationContext = context.RequestServices.GetRequiredService<IAuthenticationContext>();
+        var authenticated = authenticationContext.Current;
+        if (authenticated is Authenticated.Org)
+        {
+            context.Response.StatusCode = StatusCodes.Status403Forbidden;
+            await context.Response.WriteAsJsonAsync(
+                new ProblemDetails
+                {
+                    Title = "Forbidden",
+                    Detail = "Enterprise users are not allowed in this app",
+                    Status = StatusCodes.Status403Forbidden
+                }
+            );
+            return;
+        }
+
+        await next(context);
+    }
+);
+```
