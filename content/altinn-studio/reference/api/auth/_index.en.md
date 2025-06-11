@@ -108,9 +108,9 @@ internal sealed class ValidateInstantiation(IAuthenticationContext authenticatio
 {
     public Task<InstantiationValidationResult?> Validate(Instance instance)
     {
-        var current = authenticationContext.Current;
+        var authenticated = authenticationContext.Current;
 
-        switch (current)
+        switch (authenticated)
         {
             case Authenticated.User user:
                 if (!user.InAltinnPortal)
@@ -194,7 +194,7 @@ app.Use(
     {
         var authenticationContext = context.RequestServices.GetRequiredService<IAuthenticationContext>();
         var authenticated = authenticationContext.Current;
-        if (authentication.Current is not Authenticated.SystemUser)
+        if (authenticated is not Authenticated.SystemUser)
         {
             context.Response.StatusCode = StatusCodes.Status403Forbidden;
             await context.Response.WriteAsJsonAsync(
@@ -233,7 +233,7 @@ app.Use(
     {
         var authenticationContext = context.RequestServices.GetRequiredService<IAuthenticationContext>();
         var authenticated = authenticationContext.Current;
-        if (authentication.Current is Authenticated.Org)
+        if (authenticated is Authenticated.Org)
         {
             context.Response.StatusCode = StatusCodes.Status403Forbidden;
             await context.Response.WriteAsJsonAsync(
