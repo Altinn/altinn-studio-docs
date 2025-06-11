@@ -11,7 +11,7 @@ weight: 20
 
 For å komme i gang som systemleverandør følg denne veiledningen: 
 
-[Autentisering for systemleverandører](https://docs.altinn.studio/nb/authentication/guides/systemvendor/)
+[Leverandører av sluttbrukersystemer](https://samarbeid.digdir.no/altinn/kom-i-gang/2868)
 
 ### Tilgang til scopes {#get-access-to-scopes}
 For å kunne autentisere og sikre at du kan utføre operasjoner via meldings-APIet, må Altinn gi deg tilgang på de scopes du trenger. Dette sikrer at kun autoriserte klienter kan sende og motta filer, og opprettholder dermed sikkerheten i tjenesten. Følgende scopes brukes for å motta meldinger:

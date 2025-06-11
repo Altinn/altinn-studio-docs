@@ -6,9 +6,7 @@ toc: false
 weight: 3
 ---
 
-{{<notice warning>}}
- Denne funksjonaliteten er i test og kan endres
-{{</notice>}}
+
 
 ### Ta i bruk systembruker
 La oss forstå bruk av systembruker via et eksempel.

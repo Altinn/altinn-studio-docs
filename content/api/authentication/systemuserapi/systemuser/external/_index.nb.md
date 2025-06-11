@@ -1,7 +1,7 @@
 ---
-title: Eksterne API
-linktitle: Eksterne API
-description: API for the eksterne for å hente systembruker informasjon
+title: Systembruker API
+linktitle: Systembruker API
+description: API for å hente systembruker informasjon
 toc: true
 ---
 ## Verifiser Party-integrasjon
