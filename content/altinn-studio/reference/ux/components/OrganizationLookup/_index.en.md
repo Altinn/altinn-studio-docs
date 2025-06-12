@@ -1,7 +1,7 @@
 ---
 title: OrganizationLookup
 linktitle: OrganizationLookup
-description: Confirm with the Register of Business Enterprises
+description: The OrganizationLookup component lets you look up an organization within The Central Coordinating Register for Legal Entities by its organization number.
 schemaname: OrganizationLookup
 weight: 10
 toc: true
@@ -9,7 +9,7 @@ toc: true
 
 ## Usage
 
-The `OrganizationLookup` takes an organization number as input, verifies that the organization exists, and stores the 
+The `OrganizationLookup` component takes an organization number as input, verifies that the organization exists, and stores the 
 organization number and organization name with a data model binding.
 
 ## Anatomy

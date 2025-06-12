@@ -1,7 +1,7 @@
 ---
 title: OrganizationLookup
 linktitle: OrganizationLookup
-description: Bekreft med Enhetsregisteret
+description: OrganizationLookup-komponenten kan brukes til å slå opp en organisasjon i Enhetsregisteret vha. organisasjonsnummer.
 schemaname: OrganizationLookup
 weight: 10
 toc: true
@@ -9,7 +9,7 @@ toc: true
 
 ## Bruk
 
-`OrganizationLookup` tar et organisasjonsnummer som inndata, verifiserer at organisasjonen eksisterer, og lagrer organisasjonsnummeret og organisasjonsnavnet ved hjelp av en datamodellbinding.
+Komponenten `OrganizationLookup` tar et organisasjonsnummer som inndata, verifiserer at organisasjonen eksisterer, og lagrer organisasjonsnummeret og organisasjonsnavnet ved hjelp av en datamodellbinding.
 
 ## Anatomi
 
