@@ -10,7 +10,7 @@ weight: 1
 
 Your Altinn Studio user is personal to you and can be linked to one or more organizations to collaborate with others and access existing applications.
 
-{{% expandlarge id="lag-bruker-med-github-brukernavn" header="Create user with GitHub" %}}
+### Create user using Ansattporten
 
 1. Go to [altinn.studio](https://altinn.studio) and click "Create new user".
    ![Welcome](velkommen.png "Welcome")
@@ -30,7 +30,6 @@ Your Altinn Studio user is personal to you and can be linked to one or more orga
    {{% /notice %}}
 6. Give the Altinn Studio application access to your user account.
    ![Authorize the Altinn Studio application](./authorize-application.png "Authorize the Altinn Studio application")
-{{% /expandlarge %}}
 
 After your account is activated, click on the logo at the top left of the page to navigate to your service dashboard.
 You are now ready to create your first service.
