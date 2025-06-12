@@ -97,6 +97,7 @@ Her er viktige tjenester og biblioteker som eies og forvaltes av Studio-teamet:
 * App-biblioteker - [Altinn.App.Api, Altinn.App.Core](https://github.com/Altinn/app-lib-dotnet) og [frontend](https://github.com/Altinn/app-frontend-react)
   * Biblioteker hostet på NuGet.org. Alle Studio-apper refererer til disse bibliotekene
   * Versjonert ved bruk av [SemVer 2.0](https://semver.org/). Forhåndsversjoner består av `preview`- og `rc` (release candidate)-stadier. Når `rc`-stadiet er nådd, har vi som mål kun å gjøre feilrettinger og patching frem til stabilisering.
+  * HTTP APIer beskrevet i appen via OpenAPI spesifikasjon følger egen versjonering. API endringer her skjer i takt med major versjonsendring i resten av appen (bibliotekene). Merk at det kan være APIer som _ikke_ er beskrevet i OpenAPI spesifikasjoner, disse er ment til internt bruk og vi kan gjøre endringer på disse uten noe kommunikasjon.
   * Utvikling og arbeid organiseres [i Altinn/app-lib-dotnet](https://github.com/Altinn/app-lib-dotnet) og [Altinn/app-frontend-react](https://github.com/Altinn/app-frontend-react) GitHub-repo.
 * Localtest - [lokal kopi av kjerne-APIene i Altinn-plattformen](https://github.com/Altinn/app-localtest)
   * Nye funksjoner og feilrettinger publiseres kontinuerlig ved behov
