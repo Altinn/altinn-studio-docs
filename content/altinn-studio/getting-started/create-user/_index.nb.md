@@ -11,7 +11,7 @@ weight: 1
 Din Altinn Studio bruker er personlig for deg og kan knyttes til en eller flere organisasjoner for å samarbeide med 
 andre og få tilgang til eksisterende apper.
 
-{{% expandlarge id="lag-bruker-med-github-brukernavn" header="Lag bruker med GitHub brukernavn" %}}
+### Lag en bruker med Ansattporten
 
 1. Gå til [altinn.studio](https://altinn.studio) og klikk på "Opprett ny  bruker".
    ![Innlogging](./velkommen.png "Velkommen")
@@ -42,8 +42,6 @@ andre og få tilgang til eksisterende apper.
 
 6. Gi Altinn Studio applikasjonen tilgang til din brukerkonto
    ![Gi Altinn Studio applikasjonen tilgang til din brukerkonto](./authorize-application.png "Gi Altinn Studio applikasjonen tilgang til din brukerkonto")
-
-{{% /expandlarge %}}
 
 Etter at kontoen  er aktivert, trykk på logoen øverst til venstre på siden for å navigere til ditt tjeneste-dashboard.
 Du er nå klar til å lage din første tjeneste.
