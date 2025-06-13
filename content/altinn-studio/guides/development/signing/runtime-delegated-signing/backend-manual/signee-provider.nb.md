@@ -7,11 +7,14 @@ For at appen skal vite hvem som skal få tilganger for å lese og signere må C#
 Den må returnere et sett med personer og/eller virksomheter som skal få rettighetene. Det kan for eksempel være basert på datamodellen, som vist nedenfor.
 `Id`-attributtet i denne implementasjonen må matche ID som ble angitt i `<altinn:signeeProviderId>`.
 
+Når en organisasjon er oppgitt som signatar så vil de som har en [nøkkelrolle](/nb/altinn-studio/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_er/#nøkkelroller) i organisasjonen få `read` og `sign` rettigheter til instansen.
+
 Legg merke til at `CommunicationConfig` er valgfritt. Her kan du overstyre standardtekster brukt i kommunikasjon med signatarene,
 som beskrevet i punkt 3. Du kan også overstyre e-post adresse og telefonnummer for signatarene. Dersom ikke overstyrt, vil en
 melding sendes til signatarenes altinn inboks med en lenke til den relevante applikasjonsintansen og en notifikasjon vil bli
-sendt via a-post. For å skru på sms-notifikasjon, sett SMS = new SMS{ MobileNumber = ""}. Om ikke overstyrt, vil e-post adressene 
-og telefonnummerene populeres som beskrevet i [Recipient lookup](/notifications/explanation/recipient-lookup/) og [Address lookup](/notifications/explanation/address-lookup/).
+sendt via a-post. For å skru på sms-notifikasjon, sett SMS = new SMS{ MobileNumber = ""}. 
+
+Om ikke overstyrt, vil e-post adressene og telefonnummerene populeres som beskrevet i [Recipient lookup](/notifications/explanation/recipient-lookup/) og [Address lookup](/notifications/explanation/address-lookup/).
 
 ```csharp
 #nullable enable

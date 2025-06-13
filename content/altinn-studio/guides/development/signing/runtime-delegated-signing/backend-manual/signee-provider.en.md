@@ -6,13 +6,16 @@ To allow the app to determine who should receive access to read and sign, the C#
 
 The implementation must return a set of individuals and/or organizations that should receive rights to sign. This can be based on the data model, as shown in the example below.
 
+When an organization is provided as a signee, any person with a [key role](/altinn-studio/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_er/#nøkkelroller) for the organization will be given access to `read` and `sign`.
+
 The `Id` property in this implementation must match the ID specified in <altinn:signeeProviderId>.
 
 Note that `CommunicationConfig` is optional. Here you may override the standard texts used in communication with the signees,
 as explained in section 3. You may also override the email address and phone number for the signees. By default, a message 
 will be sent to the signees altinn inbox with a link to the relevant application instance and a notification
-will be sent via email. To turn on SMS notifications, set SMS = new Sms{ MobileNumber = ""}. If not overridden, the email 
-addresses and the phone numbers used are populated as described in [Recipient lookup](/notifications/explanation/recipient-lookup/) 
+will be sent via email. To turn on SMS notifications, set SMS = new Sms{ MobileNumber = ""}. 
+
+If not overridden, the email addresses and the phone numbers used are populated as described in [Recipient lookup](/notifications/explanation/recipient-lookup/) 
 and [Address lookup](/notifications/explanation/address-lookup/).
 
 ```csharp
