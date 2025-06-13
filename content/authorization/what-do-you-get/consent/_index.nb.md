@@ -97,29 +97,46 @@ Datakonsumenter starter prosessen ved å opprette en samtykkeforespørsel. Denne
 
 ```json
 {
-    "id": "01972f77-c6ec-7b16-85b9-df016b6f90a7",
-    "from": "urn:altinn:person:identifier-no:01025161013",
-    "requiredDelegator": null,
-    "to": "urn:altinn:organization:identifier-no:810419512",
-    "validTo": "2025-06-03T07:07:48.3377702+00:00",
-    "consentRights": [
+  "id": "0197593f-1794-7748-b5f2-91086bbecc3e",
+  "from": "urn:altinn:person:identifier-no:01025161013",
+  "requiredDelegator": null,
+  "to": "urn:altinn:organization:identifier-no:810419512",
+  "validTo": "2025-06-11T09:49:56.5063249+00:00",
+  "consentRights": [
+    {
+      "action": [
+        "read"
+      ],
+      "resource": [
         {
-            "action": ["read"],
-            "resource": [
-                {
-                    "type": "urn:altinn:resource",
-                    "value": "ttd_inntektsopplysninger"
-                }
-            ],
-            "metaData": {
-                "INNTEKTSAAR": "ADSF"
-            }
+          "type": "urn:altinn:resource",
+          "value": "ttd_inntektsopplysninger"
         }
-    ],
-    "requestmessage": {
-        "en": "Please approve this consent request"
+      ],
+      "metaData": {
+        "INNTEKTSAAR": "2022"
+      }
     },
-    "redirectUrl": "https://www.dnb.no"
+    {
+      "action": [
+        "read"
+      ],
+      "resource": [
+        {
+          "type": "urn:altinn:resource",
+          "value": "ttd_skattegrunnlag"
+        }
+      ],
+      "metaData": {
+        "fraOgMed": "2018-03",
+        "tilOgMed": "2018-06"
+      }
+    }
+  ],
+  "requestMessage": {
+    "en": "Please approve this consent request"
+  },
+  "redirectUrl": "https://www.dnb.no"
 }
 ```
 
@@ -131,7 +148,70 @@ Datakonsumenter starter prosessen ved å opprette en samtykkeforespørsel. Denne
 | `validTo`      | Påkrevd: Dato/tid samtykket er gyldig til                                   |
 | `consentRights`| Påkrevd: Rettigheter og ressurser det bes om tilgang til                    |
 | `requestmessage`| Valgfritt: Melding til bruker. Avhenger av tjenesten.                                     |
-| `redirectUrl`  | Valgfritt: URL for redirect etter samtykke. Må oppgis hvis bruker sendes tilbake.                                  |
+| `redirectUrl`  | Valgfritt: URL for redirect etter samtykke. Må oppgis hvis bruker sendes tilbake. 
+
+
+
+Respons samtykkeforespørsel
+
+```json
+{
+  "id": "0197593f-1794-7748-b5f2-91086bbecc3e",
+  "from": "urn:altinn:person:identifier-no:01025161013",
+  "to": "urn:altinn:organization:identifier-no:810419512",
+  "requiredDelegator": null,
+  "handledBy": null,
+  "validTo": "2025-06-11T09:49:56.506324+00:00",
+  "consentRights": [
+    {
+      "action": [
+        "read"
+      ],
+      "resource": [
+        {
+          "type": "urn:altinn:resource",
+          "value": "ttd_inntektsopplysninger"
+        }
+      ],
+      "metaData": {
+        "INNTEKTSAAR": "2022"
+      }
+    },
+    {
+      "action": [
+        "read"
+      ],
+      "resource": [
+        {
+          "type": "urn:altinn:resource",
+          "value": "ttd_skattegrunnlag"
+        }
+      ],
+      "metaData": {
+        "fraOgMed": "2018-03",
+        "tilOgMed": "2018-06"
+      }
+    }
+  ],
+  "requestMessage": {
+    "en": "Please approve this consent request"
+  },
+  "consented": null,
+  "redirectUrl": "https://www.dnb.no",
+  "consentRequestEvents": [
+    {
+      "consentEventID": "0197593f-6ac8-788b-873d-1a9949cfb389",
+      "created": "2025-06-10T09:50:17.45368+00:00",
+      "performedBy": "urn:altinn:organization:identifier-no:810419512",
+      "eventType": "Created",
+      "consentRequestID": "0197593f-1794-7748-b5f2-91086bbecc3e"
+    }
+  ],
+  "viewUri": "https://am.ui.localhost/accessmanagement/ui/consent/request?id=0197593f-1794-7748-b5f2-91086bbecc3e"
+}
+```
+
+                                 |
 
 ### 4. Bruk av leverandører
 
