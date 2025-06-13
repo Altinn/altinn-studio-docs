@@ -18,7 +18,7 @@ Altinn har definert et sett med nøkkelroller. Dette er roller som vurderes å h
 Nøkkelrollene vil tilsammen dekke de fleste organisasjonstypene som finnes og sikre at noen får tilgang til en gitt applikasjon på vegne av en virksomhet. 
 
 Det bør være en særskilt grunn til f.eks. å ikke gi Daglig leder tilgang til en applikasjon - dette kan f.eks. være at tjenesten gir tilgang til personsensitiv data som 
-daglig leder ikke har tjenestlig behov for å ha tilgang til. I slike tilfeller bør roller for taushetsbelagte tjenester vurderes istedet. Ta kontakt med tjenesteeier@altinn.no om det er aktuelt. 
+daglig leder ikke har tjenestlig behov for å ha tilgang til. I slike tilfeller bør roller for taushetsbelagte tjenester vurderes i stedet. Ta kontakt med tjenesteeier@altinn.no om det er aktuelt. 
 
 Innehaver av en nøkkelrolle fra Enhetsregisteret vil også alltid få rollen hovedadministrator og tilgangsstyrer på vegne av virksomheten. Les mer om hva dette er [her](https://www.altinn.no/hjelp/skjema/alle-altinn-roller/hovedadministrator/). 
 

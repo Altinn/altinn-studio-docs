@@ -12,7 +12,7 @@ Når en organisasjon er oppgitt som signatar så vil de som har en [nøkkelrolle
 Legg merke til at `CommunicationConfig` er valgfritt. Her kan du overstyre standardtekster brukt i kommunikasjon med signatarene,
 som beskrevet i punkt 3. Du kan også overstyre e-post adresse og telefonnummer for signatarene. Dersom ikke overstyrt, vil en
 melding sendes til signatarenes altinn inboks med en lenke til den relevante applikasjonsintansen og en notifikasjon vil bli
-sendt via a-post. For å skru på sms-notifikasjon, sett SMS = new SMS{ MobileNumber = ""}. 
+sendt via e-post. For å skru på sms-notifikasjon, sett SMS = new SMS{ MobileNumber = ""}. 
 
 Om ikke overstyrt, vil e-post adressene og telefonnummerene populeres som beskrevet i [Recipient lookup](/notifications/explanation/recipient-lookup/) og [Address lookup](/notifications/explanation/address-lookup/).
 
