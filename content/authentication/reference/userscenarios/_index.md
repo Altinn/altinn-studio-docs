@@ -117,6 +117,7 @@ Følgende forutsetninger gjelder for de fleste brukerscenariene:
 * Tjenesteeier har knyttet leserettighet for melding til én eller flere tilgangspakker for regnskapsførere.
 * Regnskapsfører vet hvilke meldinger som skal hentes.
 * Systemleverandør har definert meldingstjeneste i sitt system med krav til tilgangspakker for regnskapsførere.
+* Systemleverandør har nødvendige scope for dialogporten og Altinn meldingstjenester
 
 ### Steg
 
@@ -137,6 +138,21 @@ Følgende forutsetninger gjelder for de fleste brukerscenariene:
    * Altinn Autorisasjon validerer tilgangen.
    * Dialogportalen returnerer meldingene.
 
----
+## 5. Virksomhet skal sende fil via brokerservice
 
-*Dokumentet gir en strukturert oversikt over typiske arbeidsflyter når systembruker benyttes til rapportering og meldingstjenester i Altinn.*
+Virksomheten skal sende tinglysning via kartverkets formidlinstjenste. 
+
+### Forutsetninger
+
+- Det finnes en systemleverandør som tilbyr programvarestøtte for å sende tinglysning
+- Kartverket har definert hvilken enkeltressurs som gir tilgang til å sende tinglysning
+- Systemleverandør har registert system og bedt virksomhet akseptere opprettelse av systembruker knyttet mot dette systemet. 
+- Virksomhet har akseptert opprettelse av systembruker
+
+### Steg
+
+1. Bruker hos virksomhet benytter system for å sende tinglysning
+2. Systemleverandør henter ut systembruker token for virksomhet fra Maskinporten
+3. Systemet kaller broker API for å sende tinglysning med token
+4. Altinn autorisasjon autoriserer tilgang til API basert på delegeringer gjort under opprettelse av systembruker
+

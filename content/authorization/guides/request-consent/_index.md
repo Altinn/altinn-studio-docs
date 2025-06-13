@@ -9,11 +9,6 @@ weight: 10
 
 
 
-Altinn samtykke muligjør 
-
-
-
-
 ## Be om samtykke
 
 
@@ -35,7 +30,7 @@ Altinn samtykke muligjør
           "value": "ttd_inntektsopplysninger"
         }
       ],
-      "metaData": {
+      "metadata": {
         "INNTEKTSAAR": "ADSF"
       }
     },
@@ -49,7 +44,7 @@ Altinn samtykke muligjør
           "value": "ttd_skattegrunnlag"
         }
       ],
-      "metaData": {
+      "metadata": {
         "fraOgMed": "ADSF",
         "tilOgMed": "ADSF"
       }
