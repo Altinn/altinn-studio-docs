@@ -151,6 +151,11 @@
                 "nn": "{HandledBy} gjer dette oppslaget på vegne av {CoveredBy}.",
                 "en": "{HandledBy} performs the lookup on behalf of {CoveredBy}."
             },
+            "titleAccepted": {
+                "nb": "Samtykke gitt til {CoveredBy}",
+                "nn": "Samtykke gitt til {CoveredBy}",
+                "en": "Consent given to {CoveredBy}"
+            },
             "serviceIntroAccepted": {
                 "person": {
                     "nb": "Samtykket gir {CoveredBy} tilgang til følgende opplysninger om deg",
@@ -419,11 +424,6 @@
                 "nb": "{HandledBy} foretar dette på vegne av {CoveredBy}.",
                 "nn": "{HandledBy} gjer dette på vegne av {CoveredBy}.",
                 "en": "{HandledBy} performs this request on behalf of {CoveredBy}."
-            },
-            "titleAccepted": {
-                "nb": "Samtykke gitt til {CoveredBy}",
-                "nn": "Samtykke gitt til {CoveredBy}",
-                "en": "Consent given to {CoveredBy}"
             },
             "serviceIntroAccepted": {
                 "person": {
