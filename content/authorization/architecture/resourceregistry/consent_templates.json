@@ -425,6 +425,11 @@
                 "nn": "{HandledBy} gjer dette på vegne av {CoveredBy}.",
                 "en": "{HandledBy} performs this request on behalf of {CoveredBy}."
             },
+            "titleAccepted": {
+                "nb": "Samtykke gitt til {CoveredBy}",
+                "nn": "Samtykke gitt til {CoveredBy}",
+                "en": "Consent given to {CoveredBy}"
+            },
             "serviceIntroAccepted": {
                 "person": {
                     "nb": "Samtykket omfatter følgende:",
