@@ -9,176 +9,183 @@ weight: 5
 
 Følgende forutsetninger gjelder for de fleste brukerscenariene:
 
-1. **Systemleverandørens ansvar for tilgangskontroll**
-   1. Ha full oversikt over hvilke rettigheter systembrukere som knyttes til sitt system trenger (for eksempel tilgangspakker eller enkeltrettigheter for MVA-rapportering). Informasjon om nødvendige rettigheter hentes fra tjenesteeier eller potensielt API Altinn. Tjenesteeier må tydelig kommunisere krav til rettigheter.
-   2. Sette disse rettighetene på eget system i systemregisteret slik at systembrukeren for hver enkelt systemkunde kan tildeles de nødvendige rettighetene. 
+1. **Systemleverandørens ansvar for tilgangskontroll**  
+   - Ha full oversikt over hvilke rettigheter systembrukere trenger (f.eks. tilgangspakker eller enkeltrettigheter for MVA-rapportering).  
+     Informasjon om rettigheter innhentes fra tjenesteeier eller eventuelt via Altinn API. Tjenesteeier må kommunisere krav tydelig.  
+   - Konfigurere disse rettighetene i systemregisteret slik at systembrukere kan tildeles nødvendige rettigheter per kunde.
 
 ---
 
 ## 1. Registrert regnskapsfører rapporterer data for klient
 
-**Eksempel:** Rapportering av MVA.
+**Eksempel:** MVA-rapportering
 
 ### Forutsetninger
 
 - Regnskapsfører er registrert i Enhetsregisteret for aktuell klient.
-- Skatteetaten har inkludert MVA-rapportering i én eller flere tilgangspakker for regnskapsførere.
-- Regnskapsfører benytter et system som støtter MVA-rapportering.
+- Skatteetaten har inkludert MVA-rapportering i en tilgangspakke for regnskapsførere.
+- Systemet støtter innsending via tjeneste-API.
 
 ### Steg
 
-1. **Legge til klient**
-   - Regnskapsfører legger til klienten på systembrukeren. Tilganger videredelegeres automatisk.
-2. **Hente token**
-   - Systemleverandør henter systembruker-token fra Maskinporten.
-3. **Rapportere data**
-   - Systemet sender MVA-rapport via tjeneste-API ved bruk av token.
-4. **Godkjenning og bekreftelse**
-   - Altinn Autorisasjon validerer tilgangen.
-   - API-et godtar rapporten og returnerer bekreftelse.
+1. **Legg til klient**  
+   Regnskapsfører knytter klient til systembrukeren. Tilgang videredelegeres automatisk.
+2. **Hent token**  
+   Systemleverandør henter systembruker-token via Maskinporten.
+3. **Send rapport**  
+   Systemet sender MVA-rapport via API med gyldig token.
+4. **Validering og bekreftelse**  
+   Altinn Autorisasjon sjekker tilgang. API returnerer bekreftelse.
 
 ---
 
-## 2. Forretningsfører rapporterer inn data for oppgavegiver
+## 2. Forretningsfører rapporterer data for oppgavegiver
 
-**Eksempel:** [Innlevering av tredjepartsopplysninger for boligsameie](https://www.skatteetaten.no/bedrift-og-organisasjon/rapportering-og-bransjer/tredjepartsopplysninger/eiendom-og-bolig/boligsameie/rettledning/)
+**Eksempel:** [Rapportering for boligsameie](https://www.skatteetaten.no/bedrift-og-organisasjon/rapportering-og-bransjer/tredjepartsopplysninger/eiendom-og-bolig/boligsameie/rettledning/)
 
 ### Forutsetninger
 
-- Forretningsfører (f.eks. OBOS) er registrert i Enhetsregisteret for boligsameiet (f.eks. Tertitten borettslag).
-- Skatteetaten har definert tilgangspakken **forretningsforer-eiendom** med rettigheter til innsending.
-- Systemleverandør (f.eks. Visma) har registrert et system i Systemregisteret som benytter denne tilgangspakken.
+- Forretningsfører er registrert i Enhetsregisteret for borettslaget.
+- Tilgangspakken **forretningsforer-eiendom** har gitt tilgang til tjenesten.
+- Systemleverandøren har registrert systemet med relevant tilgang.
 
 ### Steg
 
-1. Systemleverandør sender forespørsel til forretningsfører om opprettelse av systembruker.
+1. Systemleverandør sender forespørsel om opprettelse av systembruker.
 2. Forretningsfører godkjenner forespørselen.
-3. Forretningsfører legger til oppgavegiver (Tertitten) på systembrukeren. Tilgangspakken **forretningsforer-eiendom** videredelegeres når dette gjøres
-4. Forretningsfører bruker systemet til å rapportere på vegne av Tertitten.
-5. Systemleverandør henter systembruker-token fra Maskinporten.
-6. Systemet poster data til rapporterings-API.
-7. API-et verifiserer tilgang ved bruk av Altinn PDP API.
+3. Forretningsfører legger til borettslaget som klient. Tilgangspakke videredelegeres automatisk.
+4. Rapportering skjer via systemet.
+5. Systembruker-token hentes fra Maskinporten.
+6. Innsending skjer via API.
+7. Tilgang verifiseres av Altinn PDP API.
 
 ---
 
 ## 3. Uregistrert regnskapsfører rapporterer data for klient
 
-**Scenario:** Klienten er ikke registrert som kunde hos regnskapsføreren i Enhetsregisteret, men sluttkunde har kjøpt regnskapstjenester hos regnskapsfører. 
+**Scenario:** Klienten er ikke registrert i Enhetsregisteret med regnskapsfører.
 
 ### Forutsetninger
 
-- MVA-rapportering ligger i en delegérbar tilgangspakke for regnskapsførere.
-- Regnskapsfører har opprettet en systembruker med riktig tilgangkrav med tanke på slike kunder.
+- Klient har kjøpt tjenester og delegerer manuelt nødvendige rettigheter.
+- Regnskapsfører har satt opp systembruker med riktig tilgang.
 
 ### Steg
 
-1. **Forespørsel om delegering**
-   - Regnskapsfører ber kunden om å delegere nødvendige tilgangspakke(r)
-2. **Delegering i Altinn**
-   - Kunden delegerer tilgang til regnskapsfører via Altinn.
-3. **Legge til klient**
-   - Regnskapsfører legger til klienten på systembrukeren. Tilgangen som ble gitt til regnskapsfører blir nå videredelegert til systembruker.
-4. **Hente token**
-   - Systemleverandør henter systembruker-token fra Maskinporten.
-5. **Rapportere data**
-   - Systemet sender MVA-rapport via tjeneste-API med token.
-6. **Godkjenning og bekreftelse**
-   - Altinn Autorisasjon validerer tilgangen.
-   - API-et returnerer bekreftelse.
+1. **Forespørsel om tilgang**  
+   Regnskapsfører ber klienten delegere nødvendige rettigheter.
+2. **Delegering**  
+   Klienten delegerer via Altinn.
+3. **Legg til klient**  
+   Regnskapsfører knytter klient til systembrukeren. Tilgang videredelegeres.
+4. **Hent token**  
+   Systembruker-token hentes fra Maskinporten.
+5. **Rapportering**  
+   Innsending skjer via API.
+6. **Validering**  
+   Altinn verifiserer tilgang og returnerer bekreftelse.
 
 ---
 
 ## 4. Virksomhet rapporterer egne data
 
-**Scenario:** En virksomhet rapporterer egne data via systembruker.
+**Scenario:** Virksomheten benytter systembruker for rapportering.
 
 ### Forutsetninger
 
-- MVA-rapportering er inkludert i en tilgangspakke som kan tildeles virksomhetens systembruker.
+- Systemet er satt opp med tilgangspakken for aktuell rapportering (f.eks. MVA).
 
 ### Steg
 
-1. **Anskaffelse av system**
-   - Virksomheten anskaffer et egnet system hos en systemleverandør.
-2. **Forespørsel om systembruker**
-   - Systemleverandør sender forespørsel om systembruker med tilhørende tilgangspakker.
-3. **Godkjenning og opprettelse**
-   - Virksomheten godkjenner forespørselen og systembruker opprettes med nødvendige rettigheter.
-4. **Rapportering**
-   - Systemet henter systembruker-token og kaller API for innsending.
-5. **Godkjenning og bekreftelse**
-   - Tilgang valideres og API returnerer bekreftelse.
+1. **Anskaffelse av system**  
+   Virksomheten kjøper system fra leverandør.
+2. **Forespørsel om systembruker**  
+   Leverandør sender forespørsel om nødvendige tilganger.
+3. **Godkjenning**  
+   Virksomheten godkjenner og systembrukeren opprettes.
+4. **Rapportering**  
+   Systemet henter token og sender data via API.
+5. **Validering**  
+   API sjekker tilgang og returnerer bekreftelse.
 
 ---
 
-## 5. Registrert regnskapsfører henter meldinger via dialogportalen for klient
+## 5. Regnskapsfører henter meldinger for klient via Dialogporten
 
-**Scenario:** Regnskapsfører henter meldinger sendt til klient via Dialogporten
+**Scenario:** Systembruker henter meldinger sendt til klient.
 
 ### Forutsetninger
 
-- Leserettighet til meldinger er inkludert i tilgangspakke for regnskapsførere.
-- Regnskapsfører kjenner meldingstype.
-- Systemleverandør har støtte for Altinn meldinger og nødvendige scope.
+- Tilgang til meldinger er inkludert i tilgangspakken.
+- Systemet støtter Dialogporten.
 
 ### Steg
 
-1. **Forespørsel om systembruker**
-   - Systemleverandør sender forespørsel med krav om meldingstilgang.
-2. **Godkjenning**
-   - Regnskapsfører/virksomhet godkjenner forespørselen.
-3. **Hente token**
-   - Systemleverandør henter systembruker-token fra Maskinporten.
-4. **Hente meldinger**
-   - Systemet kaller API for å hente meldinger.
-5. **Validering og levering**
-   - Altinn validerer tilgang og returnerer meldinger.
+1. **Forespørsel om systembruker**  
+   Leverandør sender forespørsel med krav til meldingsscope.
+2. **Godkjenning**  
+   Regnskapsfører/virksomhet godkjenner forespørselen.
+3. **Hent token**  
+   Token hentes fra Maskinporten.
+4. **Hent meldinger**  
+   Meldinger hentes via API.
+5. **Validering**  
+   Altinn validerer og returnerer meldinger.
 
 ---
 
-## 6. Virksomhet sender fil via formidlingstjeneste (brokerservice)
+## 6. Virksomhet sender fil via formidlingstjeneste (broker)
 
-**Scenario:** Virksomheten skal sende tinglysning via Kartverkets formidlingstjeneste.
+**Scenario:** Innsending av tinglysning via Kartverkets formidlingstjeneste.
 
 ### Forutsetninger
 
-- En systemleverandør tilbyr støtte for innsending.
-- Kartverket har definert ressurs som gir tilgang til tinglysning.
-- Systemleverandør har registrert sitt system og bedt virksomheten godkjenne systembruker.
-- Virksomheten har godkjent opprettelsen.
+- Kartverket har definert ressurs og tilgang.
+- Systemleverandør har registrert systemet og fått godkjenning.
 
 ### Steg
 
-1. Bruker i virksomheten benytter system for å sende tinglysning.
-2. Systemleverandør henter systembruker-token fra Maskinporten.
-3. Systemet kaller broker-API med token.
-4. Altinn validerer tilgang basert på rettigheter tildelt systembrukeren.
+1. Bruker sender tinglysning via systemet.
+2. Token hentes fra Maskinporten.
+3. API kalles med token.
+4. Tilgang valideres av Altinn.
 
 ---
 
-## NAV Scenario A: (støttes for øyeblikket ikke)
+## 7. Virksomhet har utviklet eget rapporteringssystem
 
-Regnskapsfører har kjøpt systemet Superavstemming fra leverandøren Kontrollen AS. 
-
-Superavstemming trenger nødvendige tilganger til å hente avstemmingsdata for a-melding (A06/A07) for de av klientene til regnskapsfører som systemet skal benyttes for. 
-
-Regnskapsfører ønsker å sikre at Superavstemming ikke får rettigheter utover å hente avstemmingsdata for a-melding.
-
+**Scenario:** Egetutviklet løsning for innsending via formidlingstjeneste.
 
 ### Forutsetninger
-- NAV har registrert en tilgangspakke som bare dekker området som kreves for å hente avstemningsdata og denne pakken er en del av de pakkene som en ER registrert regnskapsfører automatisk mottar for sine kunder. **Dette er ikke tilfellet i dag da det er definert 3 og bare 3 pakker som tildeles regnskapsfører**
-  eller
-- Det er mulig å be om granulerte rettigheter ned på sub ressurs/action for en gitt systembruker. **For øyeblikket støttes dette ikke**
-- Det er mulig å be om graunlerte rettigheter for klienter selv om tjenstetilbyder har fått tilgangene orignalt via tilgangspakker. **Dette støttes ikke og er relativt krevende å få til**
 
-### Steg 
-1. Kontrollen AS sender forespørsel om å opprette klientsystembruker hos regnskapsfører som bare inneholder leserettighet for a-melding.
-2. Regnskapsfører aksepterer opprettelse av en slik systembruker da den ser at systembrukeren vil kun få tilgang til de rettigheten som kreves for avstemning.
-3. Regnskapsfører legger til klienter på systembrukeren. I denne prosessen delegeres leserettighet for A-melding for hver enkelt klient. Regnskapsfører kan se hvilke rettigheter som delegers for hver kunde i dette skjermbildet.
-4. Regnskapsfører bruker system for å avstemme på en gitt klient
-5. System ber om systembrukertoken for systembrukeren
-6. Systemet kaller API for å lese A-meldings data
-7. API autoriserer tilgang mot Altinn PDP
+1. Avtale med DigDir og tilgang til systemregisteret.
+2. System registreres med nødvendige rettigheter.
+3. Forespørsel om systembruker sendes (til seg selv).
+4. Forespørsel godkjennes.
+5. Token hentes.
+6. Systemet sender data via API.
+
+---
+
+## NAV Scenario A (støttes ikke per i dag)
+
+**Eksempel:** Regnskapsfører bruker “Superavstemming” fra Kontrollen AS.
+
+### Utfordringer
+
+- NAV tilbyr ikke tilgangspakker med granularitet kun for A06/A07.
+- Granulerte rettigheter for systembrukere eller klienter støttes ikke.
+
+### Ønsket flyt
+
+1. Systemleverandør sender forespørsel om begrenset systembruker.
+2. Regnskapsfører godkjenner.
+3. Klienter legges til og tildeles kun A06/A07.
+4. Rapportering skjer via systemet.
+5. Token hentes og API kalles.
+6. Autorisasjon via Altinn PDP.
+
+---
 
 ---
 
