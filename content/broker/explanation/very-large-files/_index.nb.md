@@ -13,5 +13,5 @@ Den teoretiske maksimale størrelsen er 1,6TB, men vi gjennomfører regelmessig 
 
 # Hvordan bryte 2GB-grensen
 
-1. Kontakt oss på [@Slack#team-formidling](https://altinn.slack.com/archives/C06982E0UGH) for godkjenning.
+1. Kontakt oss på [@Slack#team-formidling](https://digdir-samarbeid.slack.com/archives/C06982E0UGH) for godkjenning.
 2. Sett "DisableVirusScan" i [fileoverføringsinitialiseringskallet](https://docs.altinn.studio/broker/getting-started/developer-guides/send-files/#operation-initialize-filetransfer) til true.
