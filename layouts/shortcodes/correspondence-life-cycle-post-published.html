@@ -3,11 +3,12 @@
     %% Post-published flow
     A[Start: Published] --> B{Recipient Actions}
     
-    B -->|GetOverview or GetDetails| C[Set Status: Fetched]
+    B -->|GetOverview or GetContent| C[Set Status: Fetched]
     B -->|Download Attachments from any state| G[Set Status: AttachmentsDownloaded]
     
+    C -->|GetContent first time| E[Set Status: Read]
     C --> D{Recipient Actions}
-    D -->|Mark as Read| E[Set Status: Read]
+    D -->|Mark as Read| E
     D -->|Continue to Confirm| H{Confirm?}
     
     E --> H{Confirm?}
