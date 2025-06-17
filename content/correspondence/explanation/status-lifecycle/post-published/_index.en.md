@@ -15,30 +15,31 @@ After a correspondence is published, recipients can interact with it:
 
 ## Post-Published Status States
 
-1. **Fetched**: Recipient has accessed the correspondence (via GetOverview or GetDetails API)
-2. **Read**: Recipient has explicitly marked the correspondence as read (requires prior Fetched status)
+1. **Fetched**: Recipient has accessed the correspondence (via GetOverview or GetContent API)
+2. **Read**: Recipient has either accessed the correspondence content for the first time or explicitly marked it as read (requires prior Fetched status)
 3. **AttachmentsDownloaded**: Recipient has downloaded one or more attachments (can occur at any time)
-4. **Confirmed**: Recipient has confirmed the correspondence (requires prior Fetched status, not Read)
+4. **Confirmed**: Recipient has confirmed the correspondence (requires prior Fetched status)
 5. **PurgedByRecipient**: Correspondence has been deleted by the recipient
 6. **PurgedByAltinn**: Correspondence has been deleted by the system
 
 ## Status Rules
 
-- **Fetched** is automatically set when recipients call GetOverview or GetDetails
-- **Read** requires explicit action via `/markasread` endpoint and requires prior Fetched status. This status is optional - recipients can confirm directly from Fetched without reading
+- **Fetched** is automatically set when recipients call GetOverview or GetContent
+- **Read** is set either automatically when accessing content for the first time or explicitly via `/markasread` endpoint.  This status is optional - recipients can confirm directly from Fetched without reading
 - **Confirmed** requires explicit action via `/confirm` endpoint and requires prior Fetched status
-- **AttachmentsDownloaded** can occur from any published state and does not require Read status
+- **AttachmentsDownloaded** can occur from any state after **Published**
 - **Confirmation** is only required if the correspondence has `IsConfirmationNeeded = true`
 
 ## Recipient Interaction Process
 
 ### Fetching Correspondence
 - Recipients access correspondence details (triggers Fetched status)
-- This is automatically triggered by GetOverview or GetDetails API calls
+- This is automatically triggered by GetOverview or GetContent API calls
 - Required before any other recipient actions
 
 ### Reading and Confirmation
-- Optionally mark as read (explicit action required)
+- Accessing content automatically marks as read (first time only)
+- Can also explicitly mark as read via `/markasread` endpoint
 - Download attachments at any time (triggers AttachmentsDownloaded status)
 - Confirm if required (only if `IsConfirmationNeeded = true`)
 - Read status is not required for confirmation
