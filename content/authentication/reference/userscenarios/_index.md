@@ -1,9 +1,36 @@
 ---
 title: "Brukerscenarier for systembruker"
-linktitle: "Referansedokumentasjon"
+linktitle: "Brukerscenarioer"
 description: "Oversikt over aktuelle brukerscenarier for systembruker"
 weight: 5
 ---
+
+## Begreper
+
+Her er de viktigste begrepene for usecasene
+
+### Systemleverandør
+
+Leverandør av programvare som selges i markedet. Har tilgang til systemregisteret i Altinn for å registrere programvare med rettighetsbehov. 
+
+### Sluttbrukesystem
+
+Programvare som i utgangspunktet kjører i public cloud. (scenario for lokalt installert programvare er ikke i scope på denne oversikten)
+
+Sluttbrukersystemet understøtter prosesser for virksomheter og innbyggere og kan implementere støtte fra alt fra lakselusrapportering til rapportering av MVA.
+
+### Systembruker 
+
+Virtuell bruker som systemleverandører kan få utstedt token for. Gir implisitt sluttbrukersystem rettighetene som systembrukeren har.
+Denne typen bruker får kun tildelt rettigheter fra systemkunden.
+
+### Systembruker for klientforhold
+
+Virtuell bruker som systemleverandør kan få utstedt token. Denne typen systembruker brukes når systembrukeren skal brukes i klientforhold hvor systembrukeren får delegert rettigheter for en til mange klienter.
+
+### Systembruker token
+
+Token utstedt fra Maskinporten som identifiserer en systembruker. Inneholder også informasjon om sluttbsystemet og systemleverandøren
 
 ## Generelle forutsetninger
 
@@ -13,6 +40,14 @@ Følgende forutsetninger gjelder for de fleste brukerscenariene:
    - Ha full oversikt over hvilke rettigheter systembrukere trenger (f.eks. tilgangspakker eller enkeltrettigheter for MVA-rapportering).  
      Informasjon om rettigheter innhentes fra tjenesteeier eller eventuelt via Altinn API. Tjenesteeier må kommunisere krav tydelig.  
    - Konfigurere disse rettighetene i systemregisteret slik at systembrukere kan tildeles nødvendige rettigheter per kunde.
+
+## Tilgangkonstroll i programvare.
+
+Med systembruker vil offentlige tjenester ikke kjenne identiteten til personen som sitter bak programvaren og utfører handlinger som resulterer i utstedelse av systembrukertoken og kall mot API. 
+
+For å unngå misbruk av systembrukere er det viktig at systemleverandører har system for å autentisere og autorisere bruk av løsningen med de tilhørende systembruker token. 
+
+Det kan f.eks være aktuelt i sammenheng med større virksomheter som regnskapsbyrå med mange kunder og ansatte hvor regnskapsbyrået ønsker å begrense tilgangene til data for de forskjellige kundene. 
 
 ---
 
@@ -29,7 +64,7 @@ Følgende forutsetninger gjelder for de fleste brukerscenariene:
 ### Steg
 
 1. **Legg til klient**  
-   Regnskapsfører knytter klient til systembrukeren. Tilgang videredelegeres automatisk.
+   Regnskapsfører knytter sin regnskapskunde (klient) til systembrukeren. Tilgang for regnskapskunde delegeres automatisk til systembrukeren i denne prosessen.
 2. **Hent token**  
    Systemleverandør henter systembruker-token via Maskinporten.
 3. **Send rapport**  
@@ -46,14 +81,14 @@ Følgende forutsetninger gjelder for de fleste brukerscenariene:
 ### Forutsetninger
 
 - Forretningsfører er registrert i Enhetsregisteret for borettslaget.
-- Tilgangspakken **forretningsforer-eiendom** har gitt tilgang til tjenesten.
-- Systemleverandøren har registrert systemet med relevant tilgang.
+- Tilgangspakken **forretningsforer-eiendom** gir tilgang til tjenesten. (definert av tjenesteeier)
+- Systemleverandøren har registrert systemet i systemregisteret med nevnte tilgangspakke.
 
 ### Steg
 
-1. Systemleverandør sender forespørsel om opprettelse av systembruker.
-2. Forretningsfører godkjenner forespørselen.
-3. Forretningsfører legger til borettslaget som klient. Tilgangspakke videredelegeres automatisk.
+1. Systemleverandør sender forespørsel om opprettelse av systembruker for klienter til forretningsfører (kunden til systemleverandøren).
+2. Forretningsfører godkjenner forespørselen. 
+3. Forretningsfører legger til borettslaget som kunde/klient på systembrukeren. Tilgangspakke videredelegeres automatisk i denne prosessen til systembrukeren opprettet i 2.
 4. Rapportering skjer via systemet.
 5. Systembruker-token hentes fra Maskinporten.
 6. Innsending skjer via API.
@@ -67,8 +102,8 @@ Følgende forutsetninger gjelder for de fleste brukerscenariene:
 
 ### Forutsetninger
 
-- Klient har kjøpt tjenester og delegerer manuelt nødvendige rettigheter.
-- Regnskapsfører har satt opp systembruker med riktig tilgang.
+- Klient(regnskapsførerkunde) har inngått avtale med regnskapsfører om regnskapstjenester.
+- Regnskapsfører har kjøpt sluttbrukersystem og har satt opp 
 
 ### Steg
 
@@ -167,7 +202,7 @@ Følgende forutsetninger gjelder for de fleste brukerscenariene:
 
 ---
 
-## NAV Scenario A (støttes ikke per i dag)
+## NAV Scenario A (funksjonalitet ikke priortert på nåværende tidspunkt)
 
 **Eksempel:** Regnskapsfører bruker “Superavstemming” fra Kontrollen AS.
 
@@ -189,7 +224,7 @@ Følgende forutsetninger gjelder for de fleste brukerscenariene:
 
 ---
 
-## NAV Scenario B: (under arbeid)
+## NAV Scenario B: (funksjonalitet ikke priortert på nåværende tidspunkt)
 Tjenesteleverandør har kjøpt systemet Superavstemming fra leverandøren Kontrollen AS. 
 Superavstemming trenger nødvendige tilganger til å hente avstemmingsdata for a-melding (A06/A07) for de av klientene til tjenesteleverandøren som systemet skal benyttes for. 
 Tjenesteleverandøren ønsker å sikre at Superavstemming ikke får rettigheter utover å hente avstemmingsdata for a-melding. 
@@ -198,7 +233,7 @@ Klienten har kun kjøpt tjenesten avstemming av a-melding fra tjenestetilbyderen
 
 ---
 
-## NAV Scenario C: (under arbeid)
+## NAV Scenario C: (funksjonalitet ikke priortert på nåværende tidspunkt)
 Tjenesteleverandør har kjøpt systemet Superavstemming fra leverandøren Kontrollen AS. 
 Superavstemming trenger nødvendige tilganger til å hente avstemmingsdata for a-melding (A06/A07) for de av klientene til tjenesteleverandøren som systemet skal benyttes for. 
 Tjenesteleverandøren ønsker å sikre at Superavstemming ikke får rettigheter utover å hente avstemmingsdata for a-melding. 
