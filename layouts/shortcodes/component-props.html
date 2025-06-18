@@ -15,10 +15,8 @@
     {{- $baseURL := "https://raw.githubusercontent.com/Altinn/app-frontend-react/chore/update-component-schemas/schemas/json/component/" -}}
     {{- $fileExtension := ".schema.v1.json" -}}
     {{- $URL := printf "%s%s%s" $baseURL $componentName $fileExtension -}}
-    {{/*
+
     {{- $jsonSchema := resources.GetRemote $URL | transform.Unmarshal -}}
-    */}}
-    {{- $jsonSchema := false -}}
 
     {{- with $jsonSchema -}}
         {{- $componentProps := index $jsonSchema "properties" -}}
