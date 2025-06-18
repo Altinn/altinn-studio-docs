@@ -16,8 +16,8 @@ Merk at datastrukturen som returneres i søk er forskjellig fra den som returner
 ## Grunnleggende trinn (REST)
 
 1. [Autentiser som en sluttbruker]({{<relref "../authenticating#bruk-for-sluttbrukersystemer">}})
-3. [Finn partene]({{<relref "../authorized-parties">}}) som den autentiserte sluttbrukeren er autorisert til å representere
-2. Utfør en GET-forespørsel til `/api/v1/enduser/dialogs`, og oppgi spørringsparametere i henhold til tabellen nedenfor:
+2. [Finn partene]({{<relref "../authorized-parties">}}) som den autentiserte sluttbrukeren er autorisert til å representere
+3. Utfør en GET-forespørsel til `/api/v1/enduser/dialogs`, og oppgi spørringsparametere i henhold til tabellen nedenfor:
 
 {{<swaggerdisplayoperation "get" "/api/v1/enduser/dialogs">}}
 

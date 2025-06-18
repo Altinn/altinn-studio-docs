@@ -16,7 +16,7 @@ Dialogporten støtter et skrivebeskyttet GraphQL API for sluttbrukere. Endepunkt
 Når du kjører lokalt, er et GraphQL-frontend ([Banana Cake Pop](https://chillicream.com/products/bananacakepop)) tilgjengelig på http://localhost:5181/graphql/. Se [README.md](https://github.com/digdir/dialogporten/blob/main/README.md) for mer informasjon om å kjøre Dialogporten lokalt.
 
 **Les mer**
-* [Teknisk informasjon om Dialporten V1 skjemaer](https://github.com/digdir/dialogporten/tree/main/docs/schema/V1)
+* [Teknisk informasjon om Dialogporten V1 skjemaer](https://github.com/digdir/dialogporten/tree/main/docs/schema/V1)
 * {{<link "../../user-guides/authenticating">}}
 
 {{<children />}}

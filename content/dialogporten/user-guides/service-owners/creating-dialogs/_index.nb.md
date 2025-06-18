@@ -18,7 +18,7 @@ Når du bruker Altinn Studio, vil dialoger automatisk opprettes for deg. En app 
 2. Utfør en POST-forespørsel og oppgi [create dialog DTO]({{<relref "../../../reference/entities/dialog#opprett-post">}})
 
 ## Velge en tjenesteressurs
-Tjenesteressursen som leveres kan være hvilken som helst ressurs i [Altinn Resource Registry]({{<relref "../../../../authorization/what-do-you-get/resourceregistry">}}) med en `hasCompententAuthority`-egenskap som samsvarer med det autentiserte organisasjonsnummeret.
+Tjenesteressursen som leveres kan være hvilken som helst ressurs i [Altinn Resource Registry]({{<relref "../../../../authorization/what-do-you-get/resourceregistry">}}) med en `hasCompetentAuthority`-egenskap som samsvarer med det autentiserte organisasjonsnummeret.
 
 {{<notice info>}}
 Å legge til støtte for ytterligere begrensninger (dvs. ekstra scope-krav) til tjenesteressurser spores i [denne saken](https://github.com/Altinn/dialogporten/issues/40).
@@ -54,7 +54,7 @@ På grunn av en [kjent begrensning](https://github.com/Altinn/dialogporten/issue
 
 ### Oppgi en forfallsdato
 
-Tidsstempelet ´dueAt´ er et hint til sluttbrukersystemer for å indikere for brukerne at en forfallsdato er knyttet til dialogen. Å passere forfallsdatoen har ingen effekt på dialogtilgjengeligheten.
+Tidsstempelet `dueAt` er et hint til sluttbrukersystemer for å indikere for brukerne at en forfallsdato er knyttet til dialogen. Å passere forfallsdatoen har ingen effekt på dialogtilgjengeligheten.
 
 ## Setter innhold
 

@@ -16,7 +16,7 @@ weight: 20
 * SDK for bruk i Altinn Apps som benytter en [Dialogporten API-klient]({{<relref "../user-guides/service-owners/api-client">}}), som tillater egendefinerte dialogoppdateringer for å skreddersy visning av de ulike tilstandene til din app
 
 ## Funksjoner for tjenesteeiere som bruker andre tjenesteplattformer
-* Lar deg gjøre dine digitale tjenester og meldinger tilgjengelige på samme måte som de realisert i Altinn Studio
+* Lar deg gjøre dine digitale tjenester og meldinger tilgjengelige på samme måte som de er realisert i Altinn Studio
 * Større fleksibilitet i hvordan din digitale kommunikasjon med sluttbrukere kan presenteres
 * For plattformer som bruker .NET, en [API client]({{<relref "../user-guides/service-owners/api-client">}}) for å gjøre det enklere å administrere dialoger og verifisere dialogtokens
 

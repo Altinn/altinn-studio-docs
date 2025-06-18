@@ -24,7 +24,7 @@ Innholdsleverandørs system (ILS)
 3. Innholdsleverandørs system (ILS) svarer med data i samsvar med den definerte innholdsmedietypen
 4. Sluttbrukersystemet håndterer svaret, gjengir dataene i samsvar med den definerte innholdsmedietypen, og bygger inn dataene i brukergrensesnittet
 
-### Trinn 1: identifisere en front-channel embed
+### Trinn 1: Identifisere en front-channel embed
 
 Se [innholdstyper]({{<relref "../../content-types">}}) for en liste over innholdsfelt der en FCE kan brukes som en medietype. Denne listen kan endres, så SBS-implementatorer anbefales å håndtere FCE-medietyper på alle innholdsfelt.
 

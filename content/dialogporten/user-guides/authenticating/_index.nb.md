@@ -16,7 +16,7 @@ Dialogporten API-et er delt inn i et tjenesteeier-API og et sluttbruker-API.
 
 {{<displayFootnotes>}}  
 
-I tillegg støttes token utstedt av [Altinn Token Exhange]({{<ref "../../../authentication/what-do-you-get/#exchange-a-jwt-token-from-an-external-token-provider">}}), ved bruk av enten ID-porten eller Maskinporten som input.
+I tillegg støttes token utstedt av [Altinn Token Exchange]({{<ref "../../../authentication/what-do-you-get/#exchange-a-jwt-token-from-an-external-token-provider">}}), ved bruk av enten ID-porten eller Maskinporten som input.
 
 ## Bruk for sluttbrukersystemer
 
@@ -26,7 +26,7 @@ Sluttbrukersystemer kan enten bruke et ID-porten-token, som identifiserer en per
 Merk at tilgang til Dialogporten _ikke_ i seg selv vil gi tilgang til innholdet som er lenket til og hostet på andre APIer, som Altinn Correspondence og Altinn Apps. Disse APIene vil vanligvis kreve tokens med spesifikke scopes, som "altinn:correspondence.read" eller "altinn:instances.read". Disse scope kan provisioneres til samme klient og plasseres i samme token som den som brukes mot Dialogporten.
 {{</notice>}} 
 
-### ID-porten autentisering
+### ID-porten-autentisering
 
 ID-porten-autentisering bør brukes av sluttbrukersystemer som ønsker å få tilgang til Dialogporten og relaterte tjenester ved hjelp av identiteten til en enkelt person, og bruke deres autorisasjon for å få tilgang til dialoger som er tilgjengelige på tvers av partene som den autentiserte brukeren har tilgang til. Dette er API-et som brukes av det vanlige GUI-grensesnittet ("arbeidsflate") som er tilgjengelig etter innlogging på altinn.no.
 
