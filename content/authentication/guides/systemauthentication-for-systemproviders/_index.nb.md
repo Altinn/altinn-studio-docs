@@ -37,7 +37,7 @@ I perioden frem til nye bruksvilkår er på plass må det også underskrives pil
 
 ### 4. Registrere sluttbrukersystem
 
-Før man kan opprette systembruker må man opprette systemet i systemregisteret. Ett system kan ha forskjellige moduler som har forkjellige konfigurasjoner i forhold til rettigheter det trenger. Man angir her det maksimale mengedn rettigheter modulen trenger og kan siden beskranke dette ved opprettelse av systemkbruker via leverandørstyrt forespørsel. Her angis også om det skal være mulig å opprette systembruker fra altinn.no [sluttbrukerstyrt opprettelse](../../what-do-you-get/systemuser#sluttbrukerstyr-opprettelse) eller om dette skal kontrolleres av leveranør via [Leverandørstyrt opprettelse](../../what-do-you-get/systemuser#leverandørstyrt-opprettelse).
+Før man kan opprette systembruker må man opprette systemet i systemregisteret. Ett system kan ha forskjellige moduler som har forkjellige konfigurasjoner i forhold til rettigheter det trenger. Man angir her det maksimale mengedn rettigheter modulen trenger og kan siden beskranke dette ved opprettelse av systemkbruker via leverandørstyrt forespørsel. Her angis også om det skal være mulig å opprette systembruker fra altinn.no [sluttbrukerstyrt opprettelse](../../what-do-you-get/systemuser#Sluttbrukerstyrt-opprettelse) eller om dette skal kontrolleres av leveranør via [Leverandørstyrt opprettelse](../../what-do-you-get/systemuser#leverandørstyrt-opprettelse).
 
 ```json
 POST https://platform.tt02.altinn.no/authentication/api/v1/systemregister/vendor/
