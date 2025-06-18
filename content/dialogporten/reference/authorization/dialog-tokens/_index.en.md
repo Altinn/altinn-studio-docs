@@ -77,7 +77,7 @@ Dialogporten provides [OAuth 2.0 Authorization Server Metadata (RFC8414)](https:
 ### Key sets and rotations
 The JSON Web Key sets published on the well-known-endpoints will always contain at least two JWKs. All endpoints that accepts and verifies dialog tokens issued by Dialogporten, should allow tokens signed by any of the keys present in the key set for the given environment. 
 
-The key set should be cached and refreshed with a frequency no more than 24 hours. Dialogporten will at any point introduce new keys into the key set, but will not sign any dialog tokens until the key has been published and available at the well-known endpoint for at least 48 hours. This will allow for consumers to refresh their caches and verify the signature of any token issued by Dialogporten.
+The key set should be cached and refreshed with a frequency no more than 24 hours. Dialogporten may at any point introduce new keys into the key set, but will not sign any dialog tokens until the key has been published and available at the well-known endpoint for at least 48 hours. This will allow for consumers to refresh their caches and verify the signature of any token issued by Dialogporten.
 
 ### Token validation recommendations
 Please consult [RFC 8725](https://datatracker.ietf.org/doc/html/rfc8725) and the aforementioned RFCs for information about best practices for JWS signature validation.

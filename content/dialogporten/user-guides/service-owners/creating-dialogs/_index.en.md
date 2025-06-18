@@ -86,6 +86,7 @@ This is the content type for [front channel embeds]({{<relref "../../../getting-
 
 **Read more**
 * {{<link "../../../reference/content-types">}}
+* {{<link "../../../reference/front-end/front-channel-embeds">}}
 
 ## Supplying search tags
 
