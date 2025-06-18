@@ -14,8 +14,8 @@ Når du bruker Altinn Studio, vil dialoger automatisk opprettes for deg. En app 
 
 ## Grunnleggende trinn
 
-1. Autentiser som en [tjenesteeier]({{<relref "../../authenticating/#usage-for-service-owner-systems">}})
-2. Utfør en POST-forespørsel og oppgi [create dialog DTO]({{<relref "../../../reference/entities/dialog#create-post">}})
+1. Autentiser som en [tjenesteeier]({{<relref "../../authenticating/#bruk-for-tjenesteeiersystemer">}})
+2. Utfør en POST-forespørsel og oppgi [create dialog DTO]({{<relref "../../../reference/entities/dialog#opprett-post">}})
 
 ## Velge en tjenesteressurs
 Tjenesteressursen som leveres kan være hvilken som helst ressurs i [Altinn Resource Registry]({{<relref "../../../../authorization/what-do-you-get/resourceregistry">}}) med en `hasCompententAuthority`-egenskap som samsvarer med det autentiserte organisasjonsnummeret.
@@ -149,7 +149,7 @@ For å støtte automatiseringer via tilpassede sluttbrukersystemer som ikke er b
 Merk at Dialogporten ikke vil vurdere gyldigheten eller semantikken til API-handlinger, men vil - som med GUI-handlinger - utføre autorisasjon og flagge `isAuthorized` tilsvarende.
 
 **Les mer**
-* [Lær mer om handlinger i dialoger]({{<relref "../../../getting-started/dialogs#actions">}})
+* [Lær mer om handlinger i dialoger]({{<relref "../../../getting-started/dialogs#handlinger">}})
 * {{<link "../../../reference/entities/action">}}
 * {{<link "../../../getting-started/write-actions">}}
 * {{<link "../../../getting-started/authorization/dialog-tokens">}}
@@ -161,7 +161,7 @@ Et logisk vedlegg kan ha flere representasjoner rettet mot både menneskelige br
 Vedlegg kan defineres både på dialogen og på individuelle overføringer.
 
 **Les mer**
-* [Lær mer om vedlegg i dialoger]({{<relref "../../../getting-started/dialogs#attachments">}})
+* [Lær mer om vedlegg i dialoger]({{<relref "../../../getting-started/dialogs#vedlegg">}})
 
 ## Definere overføringer
 
@@ -176,7 +176,7 @@ Som med innhold på dialognivå, kan overføringer inneholde en tittel, et samme
 {{<notyetwritten>}}
 
 **Les mer**
-* [Lær mer om overføringer i dialoger]({{<relref "../../../getting-started/dialogs#transmissions">}})
+* [Lær mer om overføringer i dialoger]({{<relref "../../../getting-started/dialogs#forsendelser">}})
 * {{<link "../../../reference/entities/transmission">}}
 * {{<link "../../../reference/content-types">}}
 

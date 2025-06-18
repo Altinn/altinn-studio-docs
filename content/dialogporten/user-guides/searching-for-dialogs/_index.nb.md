@@ -15,7 +15,7 @@ Merk at datastrukturen som returneres i søk er forskjellig fra den som returner
 
 ## Grunnleggende trinn (REST)
 
-1. [Autentiser som en sluttbruker]({{<relref "../authenticating#usage-for-end-user-systems">}})
+1. [Autentiser som en sluttbruker]({{<relref "../authenticating#bruk-for-sluttbrukersystemer">}})
 3. [Finn partene]({{<relref "../authorized-parties">}}) som den autentiserte sluttbrukeren er autorisert til å representere
 2. Utfør en GET-forespørsel til `/api/v1/enduser/dialogs`, og oppgi spørringsparametere i henhold til tabellen nedenfor:
 
@@ -36,7 +36,7 @@ Vær oppmerksom på at sluttbruker-søke-APIet krever at minst én [`serviceReso
 
 ### Returnert informasjon
 
-Dette vil returnere en [samling av dialoger]({{<relref "../../reference/entities/dialog/#search">}}), som inneholder et delsett av informasjonen som returneres på [dialogdetaljendepunktet]({{<relref "../../reference/entities/dialog/">}}). Avhengig av søkeparametere og tilgangen til den autentiserte brukeren, kan denne listen være tom.
+Dette vil returnere en [samling av dialoger]({{<relref "../../reference/entities/dialog/#søk">}}), som inneholder et delsett av informasjonen som returneres på [dialogdetaljendepunktet]({{<relref "../../reference/entities/dialog/">}}). Avhengig av søkeparametere og tilgangen til den autentiserte brukeren, kan denne listen være tom.
 
 Hvis ugyldige søkeparametere oppgis, vil API-et returnere `400 Bad Request` og et svar som forklarer hvilke feil som ble funnet. Dette svaret følger standard [ProblemDetails](https://datatracker.ietf.org/doc/html/rfc7807) formatet.
 
