@@ -63,7 +63,7 @@ Følgende generelle trinn må utføres for å få tilgang til sluttbruker-API-et
 For detaljerte trinn om hvordan du oppretter og bruker en systembruker, se lenken nedenfor.
 
 **Les mer**
-* [Autentisering med systembrukere]({{<ref "../../../authentication/guides/serviceowner/systemauthentication-for-apiproviders/">}})
+* [Autentisering med systembrukere]({{<ref "../../../authentication/guides/serviceowner">}})
 
 {{<children />}}
 

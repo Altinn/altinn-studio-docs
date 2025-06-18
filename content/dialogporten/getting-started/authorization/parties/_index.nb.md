@@ -16,9 +16,13 @@ Alle [dialoger]({{<relref "../../dialogs">}}) er assosiert med en part. Avhengig
 
 Siden Dialogporten benytter autorisasjonsmodellen i [Altinn Authorization]({{<relref "../../../../authorization/about">}}), må alle autentiserte brukere (dvs. personer eller systemer) representere parten for [service resource]({{<relref "../service-resource">}}) som dialogen er assosiert med.
 
+{{% notice info %}}
+"Aktør" og "avgiver" er andre begreper som i andre/historiske sammenhenger blir benyttet for å beskrive en "part"
+{{% /notice %}}
+
 ## Autoriserte parter
 
-Ved å bruke APIer levert av [Altinn Access Management]({{<relref "../../../../authorization/what-do-you-get/#access-management">}}), lar Dialogporten autentiserte brukere få en liste over alle parter de er autorisert til å representere i enhver kapasitet. Denne listen blir også referert til som "aktorlisten" eller i Altinn 2 som "rapportørlisten".
+Ved å bruke APIer levert av [Altinn Access Management]({{<relref "../../../../authorization/what-do-you-get/#access-management">}}), lar Dialogporten autentiserte brukere få en liste over alle parter de er autorisert til å representere i enhver kapasitet. Denne listen blir også referert til som "aktørlisten" eller i Altinn 2 som "avgiverlisten".
 
 Denne listen kan brukes av sluttbruker-systemer som en aktørvalgsmekanisme, slik at sluttbrukeren kan velge parten de vil representere, og danne grunnlaget for påfølgende forespørsler til Dialogporten for å [finne dialoger]({{<relref "../../../user-guides/searching-for-dialogs">}}).
 

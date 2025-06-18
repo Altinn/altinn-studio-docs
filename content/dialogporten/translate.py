@@ -25,7 +25,10 @@ special_translations = {
     "end user system": "sluttbrukersystem",
     "content provider system": "innholdsleverandørs system",
     "service resource": "tjenesteressurs",
-    "write action" : "skrivehandling"
+    "write action" : "skrivehandling",
+    "API client" : "API-klient",
+    "Altinn Correspondence": "Altinn Melding",
+    "dialog token": "dialogtoken"
 }
 
 do_not_translate = [
@@ -106,7 +109,7 @@ def generate_translation(model: genai.GenerativeModel, content: str) -> Union[st
                     # Candidate count should be 1 for deterministic output
                     candidate_count=1, 
                     # Optional: Adjust temperature (0.0-1.0). Lower is more deterministic.
-                    # temperature=0.2 
+                    temperature=0.2 
                 ),
                  safety_settings={ # Adjust safety settings if needed (e.g., for technical content)
                     'HARM_CATEGORY_HATE_SPEECH': 'BLOCK_ONLY_HIGH',

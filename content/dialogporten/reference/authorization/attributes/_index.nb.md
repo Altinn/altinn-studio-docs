@@ -123,7 +123,7 @@ Dette kan styres av en policyregel som dette:
 </xacml:Rule>
 ```
 
-Hvis forespørselen mislykkes, vil Dialogporten flagge GUI/API-handlingen eller overføringen med `isAuthorized: false` og fjerne de tilknyttede URL-ene. Dette gjør at sluttbruker-systemer kan indikere til brukeren at tilgang til den gitte handlingen er nektet.
+Hvis forespørselen mislykkes, vil Dialogporten flagge GUI/API-handlingen eller overføringen med `isAuthorized: false` og fjerne de tilknyttede URL-ene. Dette gjør at sluttbrukersystemer kan indikere til brukeren at tilgang til den gitte handlingen er nektet.
 
 {{<notice warning>}}
 Mens Dialogporten indikerer at handlingen er uautorisert, og fjerner URL-ene, bør endepunktet fortsatt alltid utføre autentisering/autorisasjon på innkommende forespørsler og ikke stole på at Dialogporten bare skjuler tilgangen til endepunktene
@@ -131,7 +131,7 @@ Mens Dialogporten indikerer at handlingen er uautorisert, og fjerner URL-ene, b�
 
 ## Bruke autorisasjonsattributter på overføringer
 
-For overføringer er mekanikken den samme, men det er ingen eksplisitte handlinger knyttet til overføring. Derfor er enten `read` eller `transmissionread`-handlinger utledet og brukt i XACML-forespørslene.
+For overføringer er mekanismen den samme, men det er ingen eksplisitte handlinger knyttet til overføring. Derfor er enten `read` eller `transmissionread`-handlinger utledet og brukt i XACML-forespørslene.
 
 Hvis et autorisasjonsattributt leveres som refererer til en separat ressurs/policy i Resource Registry (se nedenfor), vil `read` bli brukt som handlingen i autorisasjonssjekken. `read` brukes også hvis ingen autorisasjonsattributt er oppgitt i det hele tatt. Men hvis et autorisasjonsattributt som IKKE refererer til en separat ressurs/policy i Resource Registry leveres, vil `transmissionread` bli brukt som handlingen i autorisasjonssjekken.
 
@@ -259,7 +259,7 @@ Vil resultere i `Permit`, fordi forespørselen tilfredsstiller alle begrensninge
 
 Hvis autorisasjonsattributtverdien starter med enten `urn:altinn:resource` eller `urn:altinn:app`, og hele verdien avviker fra hva `ServiceResource` for den gitte dialogen er satt til, anses autorisasjonsattributtet som å referere til forskjellige ressurser i Resource Registry. På denne måten kan tilgang til de forskjellige delene av en dialog styres av forskjellige policyer.
 
-Et typisk brukstilfelle er å ha dialoger som alle refererer til forskjellige ressurser/policyer, men innenfor dem inneholder [overføringer]({{<relref "../../entities/transmission">}}) som representerer en felles type kommunikasjon (dvs. varsel om tvangsgebyr) som styres av samme autorisasjonspolicy, uavhengig av dialogen der den brukes.
+Et typisk brukstilfelle er å ha dialoger som alle refererer til forskjellige ressurser/policyer, men innenfor dem inneholder [forsendelser]({{<relref "../../entities/transmission">}}) som representerer en felles type kommunikasjon (dvs. varsel om tvangsgebyr) som styres av samme autorisasjonspolicy, uavhengig av dialogen der den brukes.
 
 Eksempel:
 ```json

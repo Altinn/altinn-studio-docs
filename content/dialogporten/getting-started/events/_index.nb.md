@@ -30,7 +30,7 @@ Eksempler på bruk:
 * Tjenesteeier som handler på at brukeren har sett en dialog eller åpnet en dialog for å avgjøre behovet for å sende påminnelser
 * En annen tjenesteeier, som har fått tilgang til å konsumere hendelser knyttet til en bestemt tjenesteprosess som når en sluttilstand, bruker disse hendelsene som en utløser for å initiere en relatert forretningsprosess proaktivt uten brukerinteraksjon.
 
-## Lav latens per-dialog oppdateringsdeteksjon for GUIer
+## Lav-forsinkelse per-dialog oppdateringsdeteksjon for GUIer
 
 Dialogporten støtter en tilpasset protokoll for oppdateringsabonnement, som bruker GraphQL-abonnementer levert direkte av Dialogporten. Dette er nyttig for online, interaktive GUIer der brukeren er til stede, noe som gjør at systemet kan overvåke en enkelt dialog for oppdateringer.
 

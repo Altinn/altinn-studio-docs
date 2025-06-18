@@ -8,11 +8,13 @@
             {{- $link := printf "/altinn-studio/reference/ux/components/commondefs#%s" $refItemName -}}
             </b><strong>See</strong>: <a href="{{- $link -}}">{{- $refItemName -}}</a><br>
         {{- else -}}
+        {{/*
             {{- $jsonCommonDefs := resources.GetRemote "https://raw.githubusercontent.com/Altinn/app-frontend-react/chore/update-component-schemas/schemas/json/component/common-defs.schema.v1.json" | transform.Unmarshal -}}
             {{- $defs := index $jsonCommonDefs "$defs" -}}
             {{- $description := index $defs $refItemName -}}
 
-            {{- template "add-row" (dict "property" $description "propName" $refItemName) -}}            
+            {{- template "add-row" (dict "property" $description "propName" $refItemName) -}}          
+        */}}  
 
         {{- end -}}
 

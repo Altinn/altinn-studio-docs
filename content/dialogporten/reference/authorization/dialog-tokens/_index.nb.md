@@ -16,7 +16,7 @@ Dialog tokens er innebygd i [single dialog response model]({{<relref "../../enti
 
 Dialog tokens skal overføres som de er som en bearer token i et `Authorization` HTTP-hode. Innholdet i dialog token bør normalt ikke vurderes av klientene, dvs. at tokenet skal behandles som en ugjennomsiktig streng.
 
-Altinn.no-portalen vil bruke dialog tokens på alle URLer knyttet til [write actions]({{<relref "../../front-end/write-actions">}}) og [front channel embeds]({{<relref "../../front-end/write-actions">}}). Andre sluttbruker-systemer kan også bruke dialog token for API-handlinger, underlagt tjenestespesifikke protokoller definert av den respektive tjenesteeier.
+Altinn.no-portalen vil bruke dialog tokens på alle URLer knyttet til [skrivehandlinger]({{<relref "../../front-end/write-actions">}}) og [front channel embeds]({{<relref "../../front-end/write-actions">}}). Andre sluttbruker-systemer kan også bruke dialog token for API-handlinger, underlagt tjenestespesifikke protokoller definert av den respektive tjenesteeier.
 
 ### Dialog token levetid
 
