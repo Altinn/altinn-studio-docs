@@ -45,9 +45,3 @@ Altinn Studio base all apps on this template. In addition, the template contains
 Altinn CLI is a command line application that app owners can use to access Altinn APIs.
 
 [Learn more about Altinn CLI](cli)
-
-## Altinn ReStorage
-
-Altinn ReStorage is a command-line application that operators can use to recover and restore data from Altinn Platform Storage.
-
-[Learn more about Altinn ReStorage](altinn-restorage)

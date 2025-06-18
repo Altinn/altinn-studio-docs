@@ -20,7 +20,7 @@ You will be required and responsible in following all [WCAG-demands](https://www
 
 {{% panel-contribute 
 src1="https://github.com/Altinn/altinn-studio/issues/new/choose" title1="Opprett en sak i github" 
-src2="https://altinn.slack.com/" title2="Skriv til oss på Slack" %}}
+src2="https://digdir-samarbeid.slack.com/" title2="Skriv til oss på Slack" %}}
 
 
 **Do you need a new component?**

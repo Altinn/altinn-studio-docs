@@ -42,12 +42,11 @@ En bruker med denne tilgangen kan deretter delegere tilgangen til virksomhetsbru
 
 **TIPS**: Verifiser konfigurasjonene dine ved hjelp av [Postman-samlingen](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json), og erstatt testtokenene med dine egne Altinn-token. (Se forespørselen "Logg inn i Maskinporten (Initialiser)" i Authenticator-mappen.)
 
-### 5. Skaff Altinn API-nøkkel og tilgang til scopes {#get-an-altinn-api-key}
-For å bruke Altinn Melding må man ha en abonnementsnøkkel. Teknisk sett er dette en API-nøkkel som må inkluderes i forespørselens `Ocp-Apim-Subscription-Key` header for å verifisere at du har rett til å bruke Meldings API-et. Uten denne nøkkelen vil forespørselen din bli avvist.
+### 5. Tilgang til scopes {#get-access-to-scopes}
 For å kunne autentisere og sikre at du kan utføre operasjoner via meldings-APIet, må Altinn gi deg tilgang på de scopes du trenger. Dette sikrer at kun autoriserte klienter kan sende og motta filer, og opprettholder dermed sikkerheten i tjenesten. Følgende scopes brukes for å sende og/eller motta meldinger:
 - `altinn:correspondence.write` 
 
-For å få Altinn API-nøkkel og scopes må du sende en forespørsel til: servicedesk@altinn.no 
+For å få tilgang til scopes må du sende en forespørsel til: servicedesk@altinn.no 
 Forespørselen må inneholde de scopes du trenger. Vær obs på at du kan trenge flere scopes for integrasjonen din enn bare altinn:correspondence.write. 
 Utfyllende liste over scopes finner du her: 
 https://docs.altinn.studio/nb/api/authentication/digdirscopes/ 

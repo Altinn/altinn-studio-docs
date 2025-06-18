@@ -1,0 +1,48 @@
+{{ $diagram := `
+    flowchart TD
+    %% Pre-published flow
+    A[Start] --> B[Initialize Correspondence]
+    B --> C[Validation]
+    C -->|Valid| D{Check Recipient}
+    C -->|Invalid| E[End with Error<br/>400 Bad Request:<br/>- Missing Content<br/>- Empty Message Fields<br/>- Invalid Format<br/>- Invalid Attachments<br/>- Invalid Dates<br/>- Invalid Language<br/><br/>401 Unauthorized:<br/>- No Access to Resource<br/>- Resource Not Whitelisted<br/>- Incorrect Resource Type]
+
+    D -->|Reserved & Not Ignored| F[Set Status: Reserved]
+    D -->|Not Reserved or Ignored| G[Set Status: Initialized]
+
+    G --> H{Has Attachments?}
+    H -->|Yes| I[Process Attachments<br/>- Upload Files<br/>- Scan for Malware]
+    I -->|Clean| J[Set Status: ReadyForPublish]
+    I -->|Malware Detected| I1[Set Status: Failed]
+    H -->|No| J
+
+    J --> K[Schedule Publish Job<br/>- Check Publish Time<br/>- Create Dialogporten Dialog<br/>- Schedule Notifications]
+    K -->|Publish Time Reached| K1[Publish Validation]
+    K -->|Publish Time Not Reached| K2[Wait for Publish Time]
+    K2 --> K1
+    
+    K1 --> K3{Check Recipient Status}
+    K3 -->|Valid| L[Set Status: Published]
+    K3 -->|Invalid| K5[Set Status: Failed<br/>- Recipient Reserved in KRR<br/>- Organization Not Found<br/>- Organization Bankrupt<br/>- Organization Deleted<br/>- Missing Required Roles]
+    
+    F --> M[End]
+    E --> M
+    I1 --> M
+    K5 --> M
+    L --> N[End]
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style M fill:#f9f,stroke:#333,stroke-width:2px
+    style N fill:#f9f,stroke:#333,stroke-width:2px
+    style F fill:#99ff99,stroke:#333,stroke-width:2px
+    style E fill:#ff9999,stroke:#333,stroke-width:2px
+    style L fill:#99ff99,stroke:#333,stroke-width:2px
+    style G fill:#99ff99,stroke:#333,stroke-width:2px
+    style J fill:#99ff99,stroke:#333,stroke-width:2px
+    style I1 fill:#ff9999,stroke:#333,stroke-width:2px
+    style K2 fill:#99ccff,stroke:#333,stroke-width:2px
+    style K5 fill:#ff9999,stroke:#333,stroke-width:2px
+` }}
+
+<div class="mermaid">
+    {{ $diagram }}
+    </div>

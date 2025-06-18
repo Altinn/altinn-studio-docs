@@ -1,6 +1,7 @@
 [
     {
         "id": "bst_krav",
+        "version": 1,
         "title": "Brukerstyrt tilgang til kravoversikt",
         "isPoa": false,
         "isMessageSetInRequest": true,
@@ -56,6 +57,16 @@
                 "nn": "Samtykket gjeld ein gongs utlevering av opplysningane.",
                 "en": "The consent applies for one-time disclosure of information."
             },
+            "handledBy": {
+                "nb": "{HandledBy} foretar dette oppslaget på vegne av {CoveredBy}.",
+                "nn": "{HandledBy} gjer dette oppslaget på vegne av {CoveredBy}.",
+                "en": "{HandledBy} performs the lookup on behalf of {CoveredBy}."
+            },
+            "titleAccepted": {
+                "nb": "Samtykke gitt til {CoveredBy}",
+                "nn": "Samtykke gitt til {CoveredBy}",
+                "en": "Consent given to {CoveredBy}"
+            },
             "serviceIntroAccepted": {
                 "person": {
                     "nb": "Samtykket gir {CoveredBy} tilgang til følgende opplysninger om deg",
@@ -67,11 +78,6 @@
                     "nn": "Samtykket gir {CoveredBy} tilgang til følgjande opplysningar om {OfferedBy}",
                     "en": "The consent gives {CoveredBy} access to the following information about {OfferedBy}"
                 }
-            },
-            "handledBy": {
-                "nb": "{HandledBy} foretar dette oppslaget på vegne av {CoveredBy}.",
-                "nn": "{HandledBy} gjer dette oppslaget på vegne av {CoveredBy}.",
-                "en": "{HandledBy} performs the lookup on behalf of {CoveredBy}."
             },
             "historyUsedBody": {
                 "nb": "{CoveredBy} har hentet data for {OfferedBy}. Samtykket utløper {Expiration}",
@@ -87,6 +93,7 @@
     },
     {
         "id": "default",
+        "version": 1,
         "title": "Samtykke til å dele data (standard)",
         "isPoa": false,
         "isMessageSetInRequest": true,
@@ -139,6 +146,16 @@
                 "nn": "Samtykket gjeld ein gongs utlevering av opplysningane.",
                 "en": "The consent applies for one-time disclosure of information."
             },
+            "handledBy": {
+                "nb": "{HandledBy} foretar dette oppslaget på vegne av {CoveredBy}.",
+                "nn": "{HandledBy} gjer dette oppslaget på vegne av {CoveredBy}.",
+                "en": "{HandledBy} performs the lookup on behalf of {CoveredBy}."
+            },
+            "titleAccepted": {
+                "nb": "Samtykke gitt til {CoveredBy}",
+                "nn": "Samtykke gitt til {CoveredBy}",
+                "en": "Consent given to {CoveredBy}"
+            },
             "serviceIntroAccepted": {
                 "person": {
                     "nb": "Samtykket gir {CoveredBy} tilgang til følgende opplysninger om deg",
@@ -150,11 +167,6 @@
                     "nn": "Samtykket gir {CoveredBy} tilgang til følgjande opplysningar om {OfferedBy}",
                     "en": "The consent gives {CoveredBy} access to the following information about {OfferedBy}"
                 }
-            },
-            "handledBy": {
-                "nb": "{HandledBy} foretar dette oppslaget på vegne av {CoveredBy}.",
-                "nn": "{HandledBy} gjer dette oppslaget på vegne av {CoveredBy}.",
-                "en": "{HandledBy} performs the lookup on behalf of {CoveredBy}."
             },
             "historyUsedBody": {
                 "nb": "{CoveredBy} har hentet data for {OfferedBy}. Samtykket utløper {Expiration}",
@@ -170,6 +182,7 @@
     },
     {
         "id": "sblanesoknad",
+        "version": 1,
         "title": "Samtykkebasert lånesøknad",
         "isPoa": false,
         "isMessageSetInRequest": false,
@@ -229,6 +242,16 @@
                 "nn": "Samtykket gjeld ein gongs utlevering av opplysningane.",
                 "en": "The consent applies for one-time disclosure of information."
             },
+            "handledBy": {
+                "nb": "{HandledBy} foretar dette oppslaget på vegne av {CoveredBy}.",
+                "nn": "{HandledBy} gjer dette oppslaget på vegne av {CoveredBy}.",
+                "en": "{HandledBy} performs the lookup on behalf of {CoveredBy}."
+            },
+            "titleAccepted": {
+                "nb": "Samtykke gitt til {CoveredBy}",
+                "nn": "Samtykke gitt til {CoveredBy}",
+                "en": "Consent given to {CoveredBy}"
+            },
             "serviceIntroAccepted": {
                 "person": {
                     "nb": "Samtykket gir {CoveredBy} tilgang til følgende opplysninger om deg",
@@ -240,11 +263,6 @@
                     "nn": "Samtykket gir {CoveredBy} tilgang til følgjande opplysningar om {OfferedBy}",
                     "en": "The consent gives {CoveredBy} access to the following information about {OfferedBy}"
                 }
-            },
-            "handledBy": {
-                "nb": "{HandledBy} foretar dette oppslaget på vegne av {CoveredBy}.",
-                "nn": "{HandledBy} gjer dette oppslaget på vegne av {CoveredBy}.",
-                "en": "{HandledBy} performs the lookup on behalf of {CoveredBy}."
             },
             "historyUsedBody": {
                 "nb": "{CoveredBy} har hentet data for {OfferedBy}. Samtykket utløper {Expiration}",
@@ -260,6 +278,7 @@
     },
     {
         "id": "poa",
+        "version": 1,
         "title": "Fullmakt til å utføre en tjeneste",
         "isPoa": true,
         "isMessageSetInRequest": true,
@@ -312,6 +331,16 @@
                 "nn": "Fullmakta gjeld bruk av tenestene éin gong",
                 "en": "The power of attorney applies for one-time access to the service."
             },
+            "handledBy": {
+                "nb": "{HandledBy} utfører tjenestene på vegne av {CoveredBy}.",
+                "nn": "{HandledBy} utfører tenestene på vegne av {CoveredBy}",
+                "en": "{HandledBy} utilizes the power of attorney on behalf of {CoveredBy}."
+            },
+            "titleAccepted": {
+                "nb": "Fullmakt gitt til {CoveredBy}",
+                "nn": "Fullmakt gitt til {CoveredBy}",
+                "en": "Power of attorney given to {CoveredBy}"
+            },
             "serviceIntroAccepted": {
                 "person": {
                     "nb": "Fullmakten gir {CoveredBy} tilgang til følgende tjenester på dine vegne",
@@ -323,11 +352,6 @@
                     "nn": "Fullmakta gjer {CoveredBy} tilgang til følgjande tenester på vegne av {OfferedBy}",
                     "en": "The power of attorney gives {CoveredBy} access to the following services on behalf of {OfferedBy}"
                 }
-            },
-            "handledBy": {
-                "nb": "{HandledBy} utfører tjenestene på vegne av {CoveredBy}.",
-                "nn": "{HandledBy} utfører tenestene på vegne av {CoveredBy}",
-                "en": "{HandledBy} utilizes the power of attorney on behalf of {CoveredBy}."
             },
             "historyUsedBody": {
                 "nb": "{CoveredBy} har handlet på vegne av {OfferedBy}. Fullmakten utløper {Expiration}",
@@ -343,6 +367,7 @@
     },
     {
         "id": "samtykkemal_simpleconsent",
+        "version": 1,
         "title": "Enkelt samtykke (uten melding)",
         "isPoa": false,
         "isMessageSetInRequest": true,
@@ -395,6 +420,16 @@
                 "nn": "Samtykket gjeld ein gongs bruk.",
                 "en": "The consent applies for one-time usage."
             },
+            "handledBy": {
+                "nb": "{HandledBy} foretar dette på vegne av {CoveredBy}.",
+                "nn": "{HandledBy} gjer dette på vegne av {CoveredBy}.",
+                "en": "{HandledBy} performs this request on behalf of {CoveredBy}."
+            },
+            "titleAccepted": {
+                "nb": "Samtykke gitt til {CoveredBy}",
+                "nn": "Samtykke gitt til {CoveredBy}",
+                "en": "Consent given to {CoveredBy}"
+            },
             "serviceIntroAccepted": {
                 "person": {
                     "nb": "Samtykket omfatter følgende:",
@@ -406,11 +441,6 @@
                     "nn": "Samtykket gitt på vegne av {OfferedBy} omfattar følgjande:",
                     "en": "The consent given on behalf of {OfferedBy} covers the following:"
                 }
-            },
-            "handledBy": {
-                "nb": "{HandledBy} foretar dette på vegne av {CoveredBy}.",
-                "nn": "{HandledBy} gjer dette på vegne av {CoveredBy}.",
-                "en": "{HandledBy} performs this request on behalf of {CoveredBy}."
             },
             "historyUsedBody": {
                 "nb": "{CoveredBy} har benyttet seg av samtykket fra {OfferedBy}. Samtykket utløper {Expiration}",

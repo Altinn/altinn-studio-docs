@@ -6,9 +6,6 @@ toc: false
 weight: 3
 ---
 
-{{<notice warning>}}
- Denne funksjonaliteten er under testing og kan endres
-{{</notice>}}
 
 ### Veiledning for sluttbruker (STADIG KONSERT, Dagligleder til TILFELDIG SUBTIL APE)
 1. Anskaffelse av regnskapssystemet
