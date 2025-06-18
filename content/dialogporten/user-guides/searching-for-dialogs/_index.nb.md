@@ -66,7 +66,7 @@ Dette er eksempelverdier som kan leveres i `OrderBy`-spørringsparameteren.
 * `createdat_asc`
 * `createdat_desc,duedate_asc`
 
-Gjeldende sortering finner du i [collection model]({{<relref "../../reference/entities/dialog/#search">}}), ved siden av feltene `continuationToken` og `hasNextPage`. Sorteringen er også innebygd i `continuationToken`, så når du paginerer, er det tilstrekkelig å oppgi fortsettelsestoken alene for å bevare sorteringen.
+Gjeldende sortering finner du i [collection model]({{<relref "../../reference/entities/dialog/#søk">}}), ved siden av feltene `continuationToken` og `hasNextPage`. Sorteringen er også innebygd i `continuationToken`, så når du paginerer, er det tilstrekkelig å oppgi fortsettelsestoken alene for å bevare sorteringen.
 
 ## Grunnleggende trinn (GraphQL)
 
