@@ -8,7 +8,7 @@ weight: 30
 
 Dialogporten tilbyr mekanismer for å gjøre det mulig for sluttbruker- og tjenesteeier-systemer å oppdage endringer som er gjort i dialoger, og eliminerer behovet for regelmessig polling av dialoglisten for endringer.
 
-_Hendelser_ refererer til tekniske applikasjonshendelser generert av Dialogporten (eller tjenesteleverandøren) og publisert gjennom [Event-komponenten i Altinn]("../../../events/"). Hendelser kan konsumeres av autoriserte parter og tjenesteleverandøren, i henhold til autorisasjonsreglene definert av tjenesteleverandøren.
+_Hendelser_ refererer til tekniske applikasjonshendelser generert av Dialogporten (eller tjenesteleverandøren) og publisert gjennom [Event-komponenten i Altinn]("../../../events). Hendelser kan konsumeres av autoriserte parter og tjenesteleverandøren, i henhold til autorisasjonsreglene definert av tjenesteleverandøren.
 
 ## Hvordan Dialogporten bruker hendelser
 

@@ -26,7 +26,7 @@ Innholdsleverandørs system (ILS)
 
 ### Trinn 1: identifisere en front-channel embed
 
-Se [content types]({{<relref "../../content-types">}}) for en liste over innholdsfelt der en FCE kan brukes som en medietype. Denne listen kan endres, så SBS-implementatorer anbefales å håndtere FCE-medietyper på alle innholdsfelt.
+Se [innholdstyper]({{<relref "../../content-types">}}) for en liste over innholdsfelt der en FCE kan brukes som en medietype. Denne listen kan endres, så SBS-implementatorer anbefales å håndtere FCE-medietyper på alle innholdsfelt.
 
 FCE-medietypene kan identifiseres ved prefikset `application/vnd.dialogporten.frontchannelembed-url`. Alle FCE-er gir imidlertid også et eksternt innholdstypesuffiks, som indikerer hvilken type data endepunktet hos ILS kan forventes å returnere. For øyeblikket er to formater tillatt (for Markdown og HTML), noe som gir oss disse gyldige medietypene:
 
@@ -81,7 +81,7 @@ ILS MÅ validere det mottatte token ved å sjekke tokensignaturen mot de Dialogp
 
 Gitt en vellykket autorisasjon og ingen andre feiltilstander, MÅ ILS svare med en `200 OK` og en `Content-Type`-header som samsvarer med den eksterne innholdsdelen av medietypen for FCE (for øyeblikket enten `text/markdown` eller `text/html`) og en kropp som inneholder innholdet for FCE. Kroppen KAN være tom, i så fall KAN ILS bruke svarkoden `204 No Content`.
 
-I tilfelle feil oppstår, se [feilhåndtering](#error-handling) nedenfor.
+I tilfelle feil oppstår, se [feilhåndtering](#feilhåndtering) nedenfor.
 
 ### Trinn 4. Håndtere svaret
 
@@ -89,7 +89,7 @@ SBS MÅ følge omdirigeringer (3xx) svar, men MÅ også håndtere uendelige omdi
 
 Gitt et vellykket svar (200) og en ikke-tom kropp, bør SBS gjengi innholdet og injisere det i brukergrensesnittet etter eget skjønn.
 
-I tilfelle feil oppstår, se [feilhåndtering](#error-handling) nedenfor.
+I tilfelle feil oppstår, se [feilhåndtering](#feilhåndtering) nedenfor.
 
 ## Feilhåndtering
 

@@ -18,7 +18,7 @@ Tjenesteeiers system må implementere støtte for front channel embeds for å h�
 
 
 **Les mer**
-* [Håndtering av front channel embeds i dialogdetaljer]({{<relref "../../user-guides/getting-dialog-details/#handling-front-channel-embeds">}})
+* [Håndtering av front channel embeds i dialogdetaljer]({{<relref "../../user-guides/getting-dialog-details/#håndtering-av-front-channel-embeds">}})
 * {{<link "../../reference/front-end/front-channel-embeds">}}
 
 {{<children />}}

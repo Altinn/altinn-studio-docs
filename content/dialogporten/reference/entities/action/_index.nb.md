@@ -10,11 +10,11 @@ weight: 50
 {{<notyetwritten>}}
 
 
-## GUI Handlinger
+## GUI-handlinger
 
 {{<swaggerdisplayentity "V1EndUserDialogsQueriesGet_DialogGuiAction">}}
 
-## API Handlinger
+## API-handlinger
 
 {{<swaggerdisplayentity "V1EndUserDialogsQueriesGet_DialogApiAction">}}
 

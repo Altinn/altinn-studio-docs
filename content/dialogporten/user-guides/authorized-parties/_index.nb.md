@@ -7,11 +7,11 @@ toc: true
 
 ## Introduksjon
 
-Dette viser hvordan du får en liste over [autoriserte parter]({{<relref "../../getting-started/authorization/parties#authorized-parties">}}) som den autentiserte brukeren kan representere.
+Dette viser hvordan du får en liste over [autoriserte parter]({{<relref "../../getting-started/authorization/parties#autoriserte-parter">}}) som den autentiserte brukeren kan representere.
 
 ## Grunnleggende trinn (REST)
 
-1. [Autentiser som en sluttbruker]({{<relref "../authenticating#usage-for-end-user-systems">}})
+1. [Autentiser som en sluttbruker]({{<relref "../authenticating#bruk-for-sluttbrukersystemer">}})
 2. Utfør en GET-forespørsel til `/api/v1/enduser/parties`
 
 ### Returnert informasjon

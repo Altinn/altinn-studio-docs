@@ -13,7 +13,7 @@ For trinnvise veiledninger om hvordan du bruker Dialogporten som sluttbruker ell
 
 ## Dialogen
 
-Dialogen er en abstrakt og felles modell for all pågående eller fullført kommunikasjon med en tjenesteeier, og inneholder beskrivende metadata, f.eks. hvem som er mottaker, adresser (URL), tekstlig innhold (tittel, sammendrag osv.), dato, status, en liste over relevante _handlinger_ som brukeren kan utføre, og en valgfri liste over [forsendelser](#transmissions). Handlinger kan defineres vilkårlig av tjenesteleverandøren, og all interaksjon med dialogen foregår i tjenesteleverandørens brukergrensesnitt eller mot tjenesteleverandørens API-endepunkter (bortsett fra GUI-handlinger som beskriver skrivehandlinger, se mer om dette i seksjonen [Handlinger](#actions)).
+Dialogen er en abstrakt og felles modell for all pågående eller fullført kommunikasjon med en tjenesteeier, og inneholder beskrivende metadata, f.eks. hvem som er mottaker, adresser (URL), tekstlig innhold (tittel, sammendrag osv.), dato, status, en liste over relevante _handlinger_ som brukeren kan utføre, og en valgfri liste over [forsendelser](#forsendelser). Handlinger kan defineres vilkårlig av tjenesteleverandøren, og all interaksjon med dialogen foregår i tjenesteleverandørens brukergrensesnitt eller mot tjenesteleverandørens API-endepunkter (bortsett fra GUI-handlinger som beskriver skrivehandlinger, se mer om dette i seksjonen [Handlinger](#handlinger)).
 
 En viktig forskjell fra [Altinn Melding]({{<relref "/correspondence">}}) er at dialoger i Dialogporten er _foranderlige_. Tjenesteleverandøren kan oppdatere metadataene og tilgjengelige handlinger i dialogen når som helst (med noen bemerkelsesverdige unntak). Enhver endring genererer _hendelser_, som autoriserte parter kan handle på, f.eks. sende et varsel eller få et SBS til å utføre en handling.
 
@@ -32,7 +32,7 @@ I tillegg kan en dialog inneholde en innholdsreferanse kalt en [front channel em
 
 En forsendelse brukes til å beskrive en enkelt "kommunikasjon" mellom tjenesteeieren og parten i en dialog. Forsendelser kan typisk være meldinger, forhåndsutfylte skjemaer og kvitteringer fra tjenesteleverandøren, eller innsendte skjemaer/meldinger fra parten knyttet til dialogen. Dialogen kan inneholde null eller flere forsendelser representert i en kronologisk sortert liste. Hver forsendelse og listen over forsendelser er uforanderlige; det er bare mulig å legge til nye forsendelser i listen, ikke endre eller slette forsendelser.
 
-En forsendelse inneholder noen tekstlige metadata (tittel, sammendrag) som forklarer hva forsendelsen er, inkludert [front channel embed]({{<relref "../front-channel-embeds">}}). I tillegg kan en forsendelse inneholde ett eller flere [vedlegg](#attachments).
+En forsendelse inneholder noen tekstlige metadata (tittel, sammendrag) som forklarer hva forsendelsen er, inkludert [front channel embed]({{<relref "../front-channel-embeds">}}). I tillegg kan en forsendelse inneholde ett eller flere [vedlegg](#vedlegg).
 
 Forsendelser vil som standard arve autorisasjonspolicyen for selve dialogen, men dette kan overstyres slik at individuelle forsendelser indikeres som utilgjengelige dersom sluttbruker mangler rettigheter, i så fall er bare metadataene tilgjengelige, men ikke noen front-channel embeds eller vedlegg.
 
@@ -66,7 +66,7 @@ GUI-handlinger kan imidlertid merkes som [skrivehandlinger]({{<relref "../write-
 
 **Les mer**
 * {{<link "../write-actions">}}
-* [Referanseinformasjon for GUI-handlingsenheten]({{<relref "../../reference/entities/action#gui-actions">}})
+* [Referanseinformasjon for GUI-handlingsenheten]({{<relref "../../reference/entities/action#gui-handlinger">}})
 
 ### API-handlinger
 
@@ -77,7 +77,7 @@ Dialogporten validerer ingen data og ser ikke hvilke data som flyter mellom SBS 
 {{</notice>}}
 
 **Les mer**
-* [Referanseinformasjon for API-handlingsenheten]({{<relref "../../reference/entities/action#api-actions">}})
+* [Referanseinformasjon for API-handlingsenheten]({{<relref "../../reference/entities/action#api-handlinger">}}) 
 
 ## Aktiviteter
 

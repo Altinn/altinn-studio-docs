@@ -20,9 +20,9 @@ Merk at datastrukturen som returneres når du henter enkeltdialoger, er forskjel
 Datastrukturen som returneres består av alle dataene som er tilgjengelige i søkeendepunktet, og i tillegg
 * tittel, sammendrag og tilleggsinformasjon (tekst)
 * [front channel embeds]({{<relref "../../getting-started/front-channel-embeds">}}) (dvs. referert innhold)
-* [handlinger]({{<relref "../../getting-started/dialogs/#actions">}}) som kan utføres
+* [handlinger]({{<relref "../../getting-started/dialogs/#handlinger">}}) som kan utføres
 * [aktivitetslogg]({{<relref "../../getting-started/activity-log">}})
-* [transmissions]({{<relref "../../getting-started/dialogs/#transmissions">}})
+* [forsendelser]({{<relref "../../getting-started/dialogs/#forsendelser">}})
 
 For fullstendige detaljer, se [dialogdetaljenheten]({{<relref "../../reference/entities/dialog/">}}).
 
@@ -31,7 +31,7 @@ For fullstendige detaljer, se [dialogdetaljenheten]({{<relref "../../reference/e
 Dialogporten vil utføre en autorisasjonssjekk mot Altinn Authorization for dialogen og dens komponenter, og sjekke om den autentiserte identiteten har tilgang til
 
 * noen eller alle av de definerte handlingene
-* noen eller alle av de definerte overføringene (transmissions)
+* noen eller alle av de definerte forsendelsene
 
 Disse enhetene har et flagg, `isAuthorized`, som enten er `true` eller `false`. Hvis `false`, erstattes URLene som er knyttet til handlingen eller overføringen med en spesiell verdi, `urn:dialogporten:unauthorized`.
 
@@ -110,7 +110,7 @@ Merk at datastrukturen inneholder faktisk innhold - den inneholder i stedet refe
 Ytterligere forespørsler må utføres for å hente disse ressursene. Sluttbrukersystemet bør forvente at alle disse endepunktene krever autentisering, og at den samme autorisasjonen håndheves som på selve dialogen, handlingen eller vedlegget. Vanligvis vil endepunktene kreve at den samme typen token (ID-porten eller Maskinporten med systembruker) leveres, men med et separat omfang. For Altinn-baserte tjenester, se dokumentasjonen for Altinn Correspondence og Altinn APps.
 
 **Les mer**
-* [Referanseinformasjon om dialogdetaljenheten]({{<relref "../../reference/entities/dialog/#details">}})
+* [Referanseinformasjon om dialogdetaljenheten]({{<relref "../../reference/entities/dialog/#detaljer">}})
 
 ## Håndtering av front channel embeds
 
