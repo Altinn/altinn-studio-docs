@@ -1,4 +1,11 @@
+{{ if eq .Page.Lang "nb" }}
 <div class="notices warning">
-    <h4>This section is incomplete</h4> 
+    <h4>Denne delen er ufullstendig</h4>
+    Vi jobber med saken, men dine bidrag også hjertelig velkomne. Klikk på "Endre denne siden på GitHub" nederst på siden for å komme i gang.
+</div>
+{{ else }} {{/* Default to English or specify .Page.Lang "en" */}}
+<div class="notices warning">
+    <h4>This section is incomplete</h4>
     While we're working on it, contributions are also very welcome. Hit "Edit this page on GitHub" on the bottom of this page to get started.
 </div>
+{{ end }}
