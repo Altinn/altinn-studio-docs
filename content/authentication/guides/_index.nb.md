@@ -6,8 +6,4 @@ toc: false
 weight: 4
 ---
 
-## Bruk Systembruker som systemleverandør
-
-Denne veiledningen forklarer hvordan en systemleverandør kan bruke systembruker-konseptet i sin programvare.
-
-[Les veiledning](systemvendor/systemauthentication-for-systemproviders)
+{{<children />}}

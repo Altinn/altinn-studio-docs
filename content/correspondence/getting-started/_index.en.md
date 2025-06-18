@@ -1,6 +1,6 @@
 ---
-title: Getting Started with Altinn Correspondence
-linktitle: Getting Started with Altinn Correspondence
+title: Getting Started
+linktitle: Getting Started
 description: You can either use Altinn as a service owner to send messages, or integrate with Altinn as an end-user-system.
 tags: []
 toc: false

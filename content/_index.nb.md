@@ -1,8 +1,5 @@
 ---
-title: Altinn Studio docs
-description: Lær om Altinn Studio
+title: Altinn docs
+description: Lær om Altinn
 jumbotron: true
 ---
-
-# Altinn Studio docs
-

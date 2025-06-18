@@ -34,6 +34,7 @@ The system offers advanced access control, ensuring that only authorized users c
   the sender can choose to send links to content and attachments.
 - Altinn Correspondence has functionality for uploading files with correspondence content and attachments,
   for secure storage and reuse across multiple correspondences.
+  The solution has a limitation of a maximum of 100 attachments per correspondence.
 - It is also possible to link to content and attachments stored elsewhere,
   e.g., on-premises at the sender or in the sender's preferred cloud solution.
 
@@ -46,10 +47,10 @@ The system offers advanced access control, ensuring that only authorized users c
 - Possibility for automated message handling through integrated systems.
 
 ### Integration with Dialogporten and Arbeidsflate
-Unified user interface through Altinn 3 Arbeidsflate and Dialogporten.
+- An Altinn 3 Message automatically creates a dialogue in "Dialogporten". 
+- The solution provides a unified user interface across the Altinn 3 workspace "Arbeidsflate" and "Dialogporten".
 
 ## Summary of advantages of Altinn Correspondence
-
 Altinn Correspondence offers several unique benefits that make it the preferred choice for digital communication with public agencies in Norway:
 
 * Centralized communication: Altinn Correspondence serves as a central hub where all communications with public authorities can be managed from one account. This eliminates the need to manage multiple accounts or platforms.

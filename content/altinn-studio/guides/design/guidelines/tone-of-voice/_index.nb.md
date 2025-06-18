@@ -75,5 +75,5 @@ det hjelpsomt å indikere antall siffer.
 
 ### Tid og dato
 - Klokkeslett skriver vi kun med timer og minutter, aldri sekunder. Klokkeslett skrives slik: 13.45 eller slik 13:45.
-- Dato skal som hovedregel skrives slik: 05.06.2017.
-- Unntaksvis kan datoer skrives slik i løpende tekst: 5. juni 2017.
+- Dato skal som hovedregel skrives slik: 05.06.2017
+- Unntaksvis kan datoer skrives slik i løpende tekst: 5. juni 2017

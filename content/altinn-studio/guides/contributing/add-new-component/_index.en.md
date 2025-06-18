@@ -33,7 +33,7 @@ When adding an icon there are different approaches given that;
 
 - Or, if the component needs a new custom icon:
 
-  Then you can either create an SVG for the component yourself or outsource this task to the designers in Altinn Studio by reaching out to them [in Slack](https://altinn.slack.com/) or [create an issue in Altinn Studio Github repository](https://github.com/Altinn/altinn-studio/issues/new/choose). When an SVG is created for the icon, convert the SVG to JSX, e.g. using [this tool](https://svg2jsx.com/). Create a new file in `libs/studio-icons/src/react/icons/[YOUR_COMPONENT_NAME]Icon.tsx` and use the same format as for the other icons in the folder. The icon file must be added to the index file in the same folder.
+  Then you can either create an SVG for the component yourself or outsource this task to the designers in Altinn Studio by reaching out to them [in Slack](https://digdir-samarbeid.slack.com/) or [create an issue in Altinn Studio Github repository](https://github.com/Altinn/altinn-studio/issues/new/choose). When an SVG is created for the icon, convert the SVG to JSX, e.g. using [this tool](https://svg2jsx.com/). Create a new file in `libs/studio-icons/src/react/icons/[YOUR_COMPONENT_NAME]Icon.tsx` and use the same format as for the other icons in the folder. The icon file must be added to the index file in the same folder.
 
 ### 3. Add the new component in the list of Studio components
 For providing fully support for a new component in Studio, there are a few things to do. The order is arbitrary. 

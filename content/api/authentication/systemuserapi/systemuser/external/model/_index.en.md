@@ -1,7 +1,7 @@
 ---
 title: Model for system user information
 linktitle: Model
-description: Model for the external to read system user information
+description: Model to read system user information
 toc: true
 ---
 ## Model

@@ -111,17 +111,16 @@ Operatorene kan kombineres for å lage et intervall:
 dueBefore=gt:2019-02&dueBefore=lt:2019-03-01
 ```
 
-Spørringen returerer et resultatobjekt med en samling av instanser som oppfyller kriteriene for spørringen. Størrelsen er som standard *100* instanser, men man kan bruke *size*-parameteret for å endre antall treff per side. 
-For å hente neste site, bruk tokenet under _next_ i resultatobjektet. 
-Resultatobjektet inneholder informasjon om antall resultater som traff kriteriene totalt *totalHits*, og hvor mange som ble returnert *count*.
+Spørringen returnerer et resultatobjekt med en samling av instanser som oppfyller kriteriene for spørringen. 
+Størrelsen er som standard 100 instanser, men man kan bruke *size*-parameteret for å endre antall treff per side. 
+For å hente neste side, bruk *continuationToken* under *next* i resultatobjektet. 
 
 ```json
 Accept: application/json
 {
-    "totalHits": 234,
     "count": 50,
     "self": "{storagePath}/instances?appId=org/app&size=50",
-    "next": "{storagePath}/instances?appId=org/app&size=50&continuationToken=%257b%2522token%2522%253a%2522%252bRID%..."
+    "next": "{storagePath}/instances?appId=org/app&size=50&continuationToken=%257b%2522token%2522%253a%2522%252bRID%...",
     "instances": [
             {...},
             {...},

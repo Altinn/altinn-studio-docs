@@ -129,5 +129,5 @@ F.eks.:
 [1]: https://www.altova.com/xmlspy-xml-editor
 [2]: https://code.visualstudio.com/
 [3]: https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml
-[4]: https://altinn.slack.com/archives/C041WMBLYMB
+[4]: https://digdir-samarbeid.slack.com/archives/C041WMBLYMB
 [5]: /nb/altinn-studio/reference/data/data-modeling/#altinn-studio-datamodellering

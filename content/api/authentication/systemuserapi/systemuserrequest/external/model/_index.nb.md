@@ -1,7 +1,7 @@
 ---
 title: Modell
 linktitle: Modell
-description: Modell for eksterne for å behandle systembrukerforespørselen
+description: Modell for å behandle systembrukerforespørselen
 toc: true
 ---
 
