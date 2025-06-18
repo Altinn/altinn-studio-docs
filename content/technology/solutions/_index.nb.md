@@ -44,9 +44,3 @@ Altinn Studio baserer alle apper på denne malen. I tillegg inneholder malen int
 Altinn CLI er en kommandolinjeapplikasjon som appeiere kan bruke for å få tilgang til Altinn APIer.
 
 [Les mer om Altinn CLI](/technology/solutions/cli)
-
-## Altinn ReStorage
-
-Altinn ReStorage er en kommandolinjeapplikasjon som operatører kan bruke til å gjenopprette og gjenopprette data fra Altinn Platform Storage.
-
-[Les mer om Altinn ReStorage](/technology/solutions/altinn-restorage)
