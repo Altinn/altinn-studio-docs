@@ -1,10 +1,20 @@
 ---
 title: Brukerveiledninger
-linktitle:  Brukerveiledninger
+linktitle: Brukerveiledninger
 description: Les vår samling av brukerveiledninger knyttet til Altinn Autorisasjon.
 toc: false
 weight: 4
 ---
+
+## Inndeling
+
+Brukerveiledningen er det inn i underområder ut fra hvilke rolle du opptrer som
+
+_Sluttbruker:_
+
+_Sluttbrukersystemleverandør:_
+
+_Ressurseier:_
 
 ## Opprette og publisere ressurser i Altinn Studio
 
@@ -20,7 +30,7 @@ Denne guiden forklarer hvordan en organisasjon kan opprette og publisere et API-
 
 ## Sette opp integrasjon med Altinn Autorisasjon fra eksterne tjenester
 
- Denne veiledningen beskriver hvordan du integrerer med Altinn Autorisasjon fra en ekstern tjeneste
+Denne veiledningen beskriver hvordan du integrerer med Altinn Autorisasjon fra en ekstern tjeneste
 
 [Les guide](integrating-link-service)
 

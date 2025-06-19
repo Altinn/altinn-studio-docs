@@ -12,10 +12,10 @@ For å aktivere ressursadministrasjon i Altinn Studio må du og din organisasjon
 
 [Les guide](resource-admin-studio)
 
-
 ## Tilgangslister i Altinn Studio
 
-Som del av ressursamdministrasjon kan man administrere tilgangslister. 
+Som del av ressursamdministrasjon kan man administrere tilgangslister.
 
 [Les guide](accesslist-admin-studio)
 
+{{<children />}}
