@@ -1,7 +1,9 @@
 ---
-title: Hvordan bruke Altinn Autorisasjon som sluttbruker
-linktitle: Sluttbruker
-description: Med Altinn Autorisasjon kan du se hva du har fullmakter til gjøre på vegne av deg selv og virksomheter, be om, gi og trekke fullmakter.
+title: End user functionality in Altinn Autorisasjon
+linktitle: End user
+description: How to use the different part of Altinn Autorisasjon
 toc: false
 weight: 1
 ---
+
+{{<children />}}
