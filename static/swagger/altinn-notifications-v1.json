@@ -4,7 +4,7 @@
     "title": "Altinn.Notifications",
     "version": "1.0"
   },
-	"servers": [
+  "servers": [
 		{
 		  "url": "https://platform.tt02.altinn.no/notifications/api/v1",
 		  "description": "TT02"
@@ -68,7 +68,7 @@
               }
             }
           }
-        }
+        }  
       }
     },
     "/orders/{id}/notifications/email": {
@@ -858,6 +858,7 @@
               "Order_Completed",
               "Order_SendConditionNotMet",
               "Order_Cancelled",
+              "Order_Processed",
               "SMS_New",
               "SMS_Sending",
               "SMS_Accepted",
@@ -934,6 +935,7 @@
               "Order_Completed",
               "Order_SendConditionNotMet",
               "Order_Cancelled",
+              "Order_Processed",
               "SMS_New",
               "SMS_Sending",
               "SMS_Accepted",
