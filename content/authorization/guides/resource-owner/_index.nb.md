@@ -5,3 +5,5 @@ description: Les om hvordan du som ressurseier kan bruke Altinn Autorisasjon inn
 toc: false
 weight: 1
 ---
+
+{{<children />}}
