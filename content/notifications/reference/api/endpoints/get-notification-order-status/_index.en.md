@@ -93,6 +93,7 @@ A status object describing the processing status of the notification order conta
 |-------------|---------------------------------------------------------------------------------------------------|
 | Registered  | The order has been registered and is pending the requested send time to begin processing.         |
 | Processing  | The order is currently being processed, and notifications are actively being generated.           |
+| Processed   | The order is successfully sent to the downstream transmission-provider and is awaiting confirmation of delivery from network provider. |
 | Completed   | The order processing has been completed, and all notifications have been successfully generated.  |
 | Cancelled   | The order processing was stopped because the order was cancelled.                                 |
 
