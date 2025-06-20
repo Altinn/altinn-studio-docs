@@ -1,7 +1,7 @@
 ---
-title: Systemleverandør veiledning
-linktitle: Systemleverandør
-description: En veiledning for systemleverandøren for å registrere sitt system med Altinn og etablere integrasjonen.
+title: Systembruker veiledning
+linktitle: Systembruker
+description: En veiledning for systemleverandører for å integrere mot og sette opp systembrukere i sitt sluttbrukersystem.
 toc: false
 weight: 2
 ---
@@ -186,7 +186,6 @@ Systembrukeren kan opprettes på to måter
         }
 
         ```
-
 
 - Denne forespørselen inkluderer nødvendige tilgangspakker for å utføre oppgaver knyttet til tjenestene som tilgangspakken gir tilgang til.
 - Responsen er noe ala :

@@ -1,7 +1,8 @@
 ---
-title: System Vendor Guide
-linktitle: System Vendor
-description: A guide for the sysem vendor to set up their system with altinn and establishing the integration.
+title: System user guide
+linktitle: System user
+description: A guide for the sysem vendor to set up integrate and setup system users for their systems.
+
 toc: true
 weight: 2
 ---

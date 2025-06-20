@@ -5,3 +5,5 @@ description: Les om hvordan du som sluttbrukersystemleverandør kan integrere mo
 toc: false
 weight: 1
 ---
+
+{{<children />}}
