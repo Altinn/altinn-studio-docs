@@ -1,6 +1,8 @@
 baseURL = "https://docs.altinn.studio/"
 languageCode = "en"
 defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+disableDefaultLanguageRedirect = false
 
 contentDir = "content"
 staticDir = "static"
@@ -16,13 +18,13 @@ enableGitInfo = true
 disableKinds = ["RSS", "taxonomy", "term"] # page home section taxonomy term RSS sitemap robotsTXT 404
 
 [languages]
-  [languages.en]
-    title = "Altinn Studio docs"
-    languageName = "English"
-    weight = 1
   [languages.nb]
-    title = "Altinn Studio docs"
+    title = "Altinn docs"
     languageName = "Bokmål"
+    weight = 1
+  [languages.en]
+    title = "Altinn docs"
+    languageName = "English"
     weight = 2
 # [languages.nn]
 #   title = "Altinn"
@@ -58,7 +60,7 @@ editURL = "https://github.dev/altinn/altinn-studio-docs/blob/master/content/"
 noHomeIcon = true # default is false
 noSearch = false # default is false
 showVisitedLinks = false # default is false
-
+enableMermaid = true # enable Mermaid diagrams
 
 [outputs]
 home = ["HTML", "JSON"] # JSON generates index.json file used by search

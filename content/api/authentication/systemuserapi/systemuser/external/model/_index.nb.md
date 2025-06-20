@@ -1,7 +1,7 @@
 ---
 title: Modell for systembruker
 linktitle: Modell
-description: Modell for eksterne til å prossessere systembruker informasjon
+description: Modell for systembruker informasjon
 toc: true
 ---
 ## Model

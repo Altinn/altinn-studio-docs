@@ -11,10 +11,9 @@ weight: 20
 
 For å komme i gang som systemleverandør følg denne veiledningen: 
 
-[Autentisering for systemleverandører](https://docs.altinn.studio/nb/authentication/guides/systemvendor/)
+[Leverandører av sluttbrukersystemer](https://samarbeid.digdir.no/altinn/kom-i-gang/2868)
 
-### Skaff Altinn API-nøkkel og tilgang til scopes {#get-an-altinn-api-key}
-For å bruke Altinn Melding må man ha en abonnementsnøkkel. Teknisk sett er dette en API-nøkkel som må inkluderes i forespørselens `Ocp-Apim-Subscription-Key` header for å verifisere at du har rett til å bruke Meldings API-et. Uten denne nøkkelen vil forespørselen din bli avvist.
+### Tilgang til scopes {#get-access-to-scopes}
 For å kunne autentisere og sikre at du kan utføre operasjoner via meldings-APIet, må Altinn gi deg tilgang på de scopes du trenger. Dette sikrer at kun autoriserte klienter kan sende og motta filer, og opprettholder dermed sikkerheten i tjenesten. Følgende scopes brukes for å motta meldinger:
 - `altinn:correspondence.read`
 

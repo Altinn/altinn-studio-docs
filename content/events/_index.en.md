@@ -1,4 +1,3 @@
-
 ---
 title: Events
 description: Description of the Events capabilities in Altinn 3.
@@ -81,7 +80,7 @@ a mechanism for encapsulating additional message payload, such as XML or binary 
 
 Here is an example of a typical event:
 
-```
+```json
 {
     "id":"eae8d8a7-4659-43c0-83cd-42f673eff8cf",
     "source":"https://someservice.com/rest/path/object-id-1234",
@@ -94,7 +93,7 @@ Here is an example of a typical event:
 
 Here is an example of an event publish through Altinn: 
 
-```
+```json
 {
     "id":"eae8d8a7-4659-43c0-83cd-42f673eff8cf",
     "source":"https://someservice.com/rest/path/object-id-1234",

@@ -6,9 +6,7 @@ toc: true
 weight: 1
 ---
 
-{{<notice warning>}}
- Denne funksjonaliteten er i test og kan endres
-{{</notice>}}
+
 
 ## Forutsetninger for API-leverandøren
 
