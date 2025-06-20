@@ -34,24 +34,24 @@ The component consists of a main title, help text, description, NIN-input title,
 
 Before a user interacts with the component, it simply displays the input fields.
 
-![alt text](image-1.png)
+![Two input fields and a fetch button](image-1.png)
 
 On a successful fetch the component adds a description to the fields, indicating that the data displayed is fetched from the National Population Register. The button transforms from a fetch button to a remove button.
 
-![alt text](image-2.png)
+![Locked input fields, button changed from "fetch" to "remove"](image-2.png)
 
 The component has built in validation for the input fields on blur and on fetch. The NIN-input field validates the format of the National identity number according to the official guidelines for NINs. The surname input field checks that a surname is provided.
 The error messages for the input validations are displayed on the PersonLookup component.
 
-![alt text](image-3.png)
+![Validation of input fields](image-3.png)
 
 Given valid input, but a mismatch between NIN and surname, the component displays an error message after attempting to fetch. There is a limit on the amount of unique failed lookups before the user is temporarily blocked.
 
-![alt text](image-4.png)
+![Error on unknown combination of ssn and surname](image-4.png)
 
 When the number of allowed unique failed lookups is exceeded, the components reflects this.
 
-![alt text](image-5.png)
+![Error on too many failed searches](image-5.png)
 
 ## Properties
 
@@ -81,7 +81,7 @@ The documentation is continuously updated, and there may be more settings availa
 ## Example
 
 In the following example, we configure the component to add a board chairman.
-We indicate that providing a person is mandatory, and we override the title.
+We indicate that providing an organization is mandatory, and we override the title.
 We choose not to use the description or the help text.
 The result will be in the data model at `Styre.Styreleder`.
 

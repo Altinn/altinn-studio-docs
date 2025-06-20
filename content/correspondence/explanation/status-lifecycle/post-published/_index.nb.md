@@ -15,31 +15,32 @@ Etter at en melding er publisert, kan mottakere samhandle med den:
 
 ## Statustilstander Etter Publisering
 
-1. **Hentet**: Mottaker har tilgang til meldingen (via GetOverview eller GetDetails API)
-2. **Lest**: Mottaker har eksplisitt markert meldingen som lest (krever forutgående Hentet status)
-3. **Vedlegg Lastet Ned**: Mottaker har lastet ned ett eller flere vedlegg (kan skje når som helst)
-4. **Bekreftet**: Mottaker har bekreftet meldingen (krever forutgående Hentet status, ikke Lest)
+1. **Hentet**: Mottaker har hentet meldingen (via GetOverview eller GetContent API)
+2. **Lest**: Mottaker har enten aksessert meldingsinnholdet for første gang eller eksplisitt markert den som lest (krever forutgående Hentet status)
+3. **Vedlegg Nedlastet**: Mottaker har nedlastet ett eller flere vedlegg (kan skje når som helst)
+4. **Bekreftet**: Mottaker har bekreftet meldingen (krever forutgående Hentet status)
 5. **Slettet av Mottaker**: Meldingen er slettet av mottaker
 6. **Slettet av Altinn**: Meldingen er slettet av systemet
 
 ## Regler for status
 
-- **Hentet** settes automatisk når mottakere kaller GetOverview eller GetDetails
-- **Lest** krever eksplisitt handling via `/markasread` endepunkt og krever forutgående Hentet status. Denne statusen er valgfri - mottakere kan bekrefte direkte fra Hentet uten å lese
+- **Hentet** settes automatisk når mottakere kaller GetOverview eller GetContent
+- **Lest** settes enten automatisk ved første GetContent-kall eller eksplisitt via `/markasread` endepunkt. Denne statusen er valgfri - mottakere kan bekrefte direkte fra Hentet uten å lese
 - **Bekreftet** krever eksplisitt handling via `/confirm` endepunkt og krever forutgående Hentet status
-- **Vedlegg Lastet Ned** kan skje fra enhver publisert tilstand og krever ikke Lest status
+- **Vedlegg Nedlastet** kan skje fra enhver tilstand etter **Publisert**
 - **Bekreftelse** er kun påkrevd hvis meldingen har `IsConfirmationNeeded = true`
 
 ## Mottaker Interaksjonsprosess
 
 ### Henting av Melding
 - Mottakere får tilgang til meldingsdetaljer (utløser Hentet status)
-- Dette utløses automatisk av GetOverview eller GetDetails API-kall
+- Dette utløses automatisk av GetOverview eller GetContent API-kall
 - Påkrevd før andre mottakerhandlinger
 
 ### Lesing og Bekreftelse
-- Eventuelt marker som lest (eksplisitt handling påkrevd)
-- Last ned vedlegg når som helst (utløser Vedlegg Lastet Ned status)
+- Første GetContent-kall markerer status som lest
+- Status kan også eksplisitt markeres som lest via `/markasread`-endepunkt
+- Last ned vedlegg når som helst (utløser Vedlegg Nedlastet status)
 - Bekreft hvis påkrevd (kun hvis `IsConfirmationNeeded = true`)
 - Lest status er ikke påkrevd for bekreftelse
 
