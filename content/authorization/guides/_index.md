@@ -10,19 +10,19 @@ weight: 4
 
 This guide explains how an org can create and publish a resource in Altinn Studio Resource Admin.
 
-[Read guide](./resource-owner/create-resource-resource-admin/)
+[Read guide](/authorization/guides/resource-owner/create-resource-resource-admin/)
 
 ## Creating and publishing API scheme in Altinn Studio
 
 This guide explains how an org can create and publish an API Scheme in Altinn Studio Resource Admin.
 
-[Read guide](./resource-owner/create-apischeme-resource-admin/)
+[Read guide](/authorization/guides/resource-owner/create-apischeme-resource-admin/)
 
 ## Setting up integration with Altinn Authorization from external services
 
 This guide describes how to integrate with Altinn Authorization from an external service
 
-[Read guide](./resource-owner/integrating-link-service/)
+[Read guide](/authorization/guides/resource-owner/integrating-link-service/)
 
 ## XACML
 

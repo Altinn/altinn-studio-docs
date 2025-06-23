@@ -8,11 +8,11 @@ weight: 1
 
 ## Prerequisites For The API Provider
 
-To use system user as an api provider, the following prerequisites must be fullfilled:
+To use system user as an api provider, the following prerequisites must be fulfilled:
 
-- Agreement with machineporten as [API-provider](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apitilbyder)
+- Agreement with Maskinporten as [API-provider](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apitilbyder)
 - Agreement with Digdir for access to resource registry for creating resources
-- Creation of [necessary resources](/authorization/guides/resource-owner/create-resource-resource-admin/) which must be authorized
+- Creation of [necessary resources](/content/authorization/guides/resource-owner/create-resource-resource-admin/) which must be authorized
 - Assigned scope for PDP integration
 - Integration with Altinn PDP
 
@@ -25,9 +25,9 @@ To use system user as an api provider, the following prerequisites must be fullf
     - Skatteetaten then creates a scope in Maskinporten (e.g., skatteetaten:kravogbetalinger).
     - This scope is tied to the relevant access rights and is granted to organizations needing access to this service, such as SmartCloud AS (the system provider).
 3.  Registering Resources in the Resource Register
-    - The final step for Skatteetaten is to [register a resource](/content/api/resourceregistry/) in the Resource Register, linking it to the scope and defining the access rules for external users. The service can define custom scopes, with access managed directly by the service owner
+    - The final step for Skatteetaten is to [register a resource](/api/resourceregistry/) in the Resource Register, linking it to the scope and defining the access rules for external users. The service can define custom scopes, with access managed directly by the service owner
       This could be an application developed in Altinn Studio or an API hosted on the service owner's own platform.
-      Refer [api documentation](/content/api/authentication/systemuserapi/) for more information on available endpoints.
+      Refer [api documentation](/api/authentication/systemuserapi/) for more information on available endpoints.
 
 #### Post System User Creation
 
@@ -71,12 +71,12 @@ Below is an example token.
 
 Values that are important for an API provider are
 
-| Verdi                                   | Betydning                                                                                                                                         |
-| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| authorization_details:systemuser_id     | nique ID for the system user. This is the value Altinn needs in order to authorize access. This is the one that has been delegated access rights. |
-| authorization_details:systemuser_org:id | The organization that created the system user                                                                                                     |
-| authorization_details:system_id         | Reference to the system that the system user points to.                                                                                           |
-| Consumer:id                             | Organization number of the system provider (organization that has authenticated itself against Maskinporten)                                      |
+| Value                                   | Meaning                                                                                                                                            |
+| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| authorization_details:systemuser_id     | Unique ID for the system user. This is the value Altinn needs in order to authorize access. This is the one that has been delegated access rights. |
+| authorization_details:systemuser_org:id | The organization that created the system user                                                                                                      |
+| authorization_details:system_id         | Reference to the system that the system user points to.                                                                                            |
+| Consumer:id                             | Organization number of the system provider (organization that has authenticated itself against Maskinporten)                                       |
 
 See also the documentation for system user at [Machineporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker).
 

@@ -51,7 +51,7 @@ Set test equal to true if retrieving a token for Testdepartementet.
 (This ony works with maskinporten as the token provider.)
 
 {{%notice info%}}
-A token from id-porten contains both an id-token and and access-token.
+A token from id-porten contains both and id-token and and access-token.
 Only the access token it to be exhanged using this endpoint.
 {{% /notice%}}
 
@@ -61,5 +61,5 @@ GET /exchange/{tokenProvider}?test={bool}
 
 ## Architecture
 
-See [application construction components](/authentication/reference/architecture/)
+See [application construction components](/authorization/reference/architecture/)
 for details how this component is constructued.

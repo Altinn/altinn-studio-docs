@@ -20,19 +20,19 @@ _Ressurseier:_
 
 Denne guiden forklarer hvordan en organisasjon kan opprette og publisere en ressurs i Altinn Studio Resource Admin.
 
-[Les guide](./resource-owner/create-resource-resource-admin/)
+[Les guide](/authorization/guides/resource-owner/create-resource-resource-admin/)
 
 ## Opprette og publisere API-skjema i Altinn Studio
 
 Denne guiden forklarer hvordan en organisasjon kan opprette og publisere et API-skjema i Altinn Studio Resource Admin.
 
-[Les guide](./resource-owner/create-apischeme-resource-admin/)
+[Les guide](/authorization/guides/resource-owner/create-apischeme-resource-admin/)
 
 ## Sette opp integrasjon med Altinn Autorisasjon fra eksterne tjenester
 
 Denne veiledningen beskriver hvordan du integrerer med Altinn Autorisasjon fra en ekstern tjeneste
 
-[Les guide](./resource-owner/integrating-link-service/)
+[Les guide](/authorization/guides/resource-owner/integrating-link-service/)
 
 ## XACML
 

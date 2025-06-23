@@ -11,7 +11,7 @@ weight: 2
 
 1.  Contact Digdir
 
-    - The System vendor must contact Digdir to get access to the system register, system user scopes. Procedures for this is described on [Samarbeisportalen]([Samarbeidsportalen](https://samarbeid.digdir.no/altinn/kom-i-gang/2868).
+    - The System vendor must contact Digdir to get access to the system register, system user scopes. Procedures for this is described on [Samarbeisportalen](https://samarbeid.digdir.no/altinn/kom-i-gang/2868).
 
 2.  Creating a Maskinporten Client for the System
     - SmartCloud AS wants to integrates the system user into their accounting software, SmartCloud.
@@ -177,13 +177,13 @@ The system user can be created in two ways
   ```
 
 - The confirmurl is sent to the end user for approval. Follow the guide for end user for
-  - [Standard system user](../enduser/#guide-for-end-user-stadig-konsert-dagligleder-of-tilfeldig-subtil-ape)
+  - [Standard system user](../../enduser/#guide-for-end-user-stadig-konsert-dagligleder-of-tilfeldig-subtil-ape)
 
 ### Creating a System User For Agent System User
 
 - The system user for agent system user can be created only by system user request
 - SmartCloud AS creates a system user request (via altinn api for system user request) from within SmartCloud, which is sent to Altinn.
-  For detailed information on each input field, refer the documentation [here](/content/api/authentication/systemuserapi/systemuserrequest/external/model/)
+  For detailed information on each input field, refer the documentation [here](/api/authentication/systemuserapi/systemuserrequest/external/model/)
 
   ```
   {
@@ -288,20 +288,6 @@ When the system needs to authenticate as the system user for the customer, the J
 
 See also documentation at [Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker).
 
-## Using system user token against API
-
-The token received from Maskinporten is attached as a bearer token to the APIs being called.
-
-## Testing system user in TT02
-
-To test system user in TT02, the following is required:
-
-- System provider registered in Maskinporten. Done via servicedesk@digdir.no
-- System provider registered in Altinn. Done via servicedesk@altinn.no
-- System integration registered in Maskinporten test.
-
-For creating system users, test users/organizations from Tenor can be used.
-
 ### Using system user token against API
 
 The token received from Maskinporten is attached as a Bearer Token to the APIs being called.
@@ -322,7 +308,7 @@ A reference implementation has been developed to demonstrate the use of system u
 It does the following:
 
 1. Creates a token based on configured JSON Web Key, client ID, scope, and organization number of the system user creator.
-2. Based on the token received, it makes calls to reference APIs that require system user.o
+2. Based on the token received, it makes calls to reference APIs that require system user.
 
 See code with documentation [here](https://github.com/TheTechArch/altinn-systemuser).
 

@@ -128,11 +128,11 @@ Etter systembrukeren er opprettet vil den brukes som i modellen under
 1. Sluttbrukersystem ber om systembrukertoken fra Maskinporten. Forespørselen angir nødvendige scopes til klient id og organisasjonsnummeret til sluttbrukervirsomheten det opptrer på vegne av.
 2. Maskinporten verifiserer mot Altinn at kunden har gitt systemet som er knyttet mot klienten, tilgang. Gitt at det finnes gyldig Systembruker returneres Maksinportoken med systembrukerinformasjon
 3. SBS gjør oppslag mot tjeneste med Maskinportentokenet.
-4. Tjeneste autentiserer SBS og sjekker at tokenet innholder nødvendige scopes for å benytte tjenesten. Deretter gjøres det oppslag mot Altinn Autorisasjon for å sjekke at systembruker har nødvnedige fullmakter
+4. Tjeneste autentiserer SBS og sjekker at tokenet inneholder nødvendige scopes for å benytte tjenesten. Deretter gjøres det oppslag mot Altinn Autorisasjon for å sjekke at systembruker har nødvnedige fullmakter
 
 ## Hvordan ta i bruk
 
-- [Hvordan bruke systembruker som systemleverandør](../../guides/system.-vendor/)
+- [Hvordan bruke systembruker som systemleverandør](../../guides/system-vendor/)
 - [Hvordan bruke systemberuker som apitilbyder/tjenesteeier](../../guides/resource-owner/)
 
 ## Leveranseplan
