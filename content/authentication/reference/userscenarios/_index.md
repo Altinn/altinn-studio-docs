@@ -11,7 +11,7 @@ Her er de viktigste begrepene for brukerscenarioene beskrevet på denne siden.
 
 ### Systemleverandør
 
-Leverandør av sluttbrukersystem som er tilgjengelig i markedet. Har tilgang til systemregisteret i Altinn for å registrere programvare med rettighetsbehov. 
+Leverandør av sluttbrukersystem som er tilgjengelig i markedet. Har tilgang til systemregisteret i Altinn for å registrere programvare med rettighetsbehov.
 
 ### Sluttbrukersystem
 
@@ -21,7 +21,7 @@ Sluttbrukersystemet understøtter prosesser for virksomheter og innbyggere og ka
 
 Sluttbrukersystemet har rett til å identifisere seg som systembrukere knyttet til systemet. Rettigheten som kreves vil avhenge av hvilke sluttbrukerprosesser som understøttes.
 
-### Systembruker 
+### Systembruker
 
 Virtuell bruker som systemleverandører kan få utstedt token for. Gir implisitt sluttbrukersystem rettighetene som systembrukeren har.  
 Denne typen bruker får kun tildelt rettigheter fra systemkunden.
@@ -63,18 +63,18 @@ Pakken har et navn/område som bør matche tjenestenes område.
 
 Følgende forutsetninger gjelder for de fleste brukerscenariene:
 
-1. **Systemleverandørens ansvar for tilgangskontroll**  
+1. **Systemleverandørens ansvar for tilgangskontroll**
    - Ha full oversikt over hvilke rettigheter systembrukere trenger (f.eks. tilgangspakker eller enkeltrettigheter for MVA-rapportering).  
-     Informasjon om rettigheter innhentes fra tjenesteeier eller eventuelt via Altinn API. Tjenesteeier må kommunisere krav tydelig.  
+     Informasjon om rettigheter innhentes fra tjenesteeier eller eventuelt via Altinn API. Tjenesteeier må kommunisere krav tydelig.
    - Konfigurere disse rettighetene i systemregisteret slik at systembrukere kan tildeles nødvendige rettigheter per kunde.
 
 ---
 
 ## Tilgangskontroll i sluttbrukersystem
 
-Med systembruker vil offentlige tjenester ikke kjenne identiteten til personen som sitter bak programvaren og utfører handlinger som resulterer i utstedelse av systembruker-token og kall mot API. 
+Med systembruker vil offentlige tjenester ikke kjenne identiteten til personen som sitter bak programvaren og utfører handlinger som resulterer i utstedelse av systembruker-token og kall mot API.
 
-For å unngå misbruk av systembrukere er det viktig at systemleverandører har systemer for å autentisere og autorisere bruk av sluttbrukersystemet med de tilhørende systembruker-token man som systemleverandør har mulighet til å hente ut. 
+For å unngå misbruk av systembrukere er det viktig at systemleverandører har systemer for å autentisere og autorisere bruk av sluttbrukersystemet med de tilhørende systembruker-token man som systemleverandør har mulighet til å hente ut.
 
 Dette kan for eksempel være aktuelt i sammenheng med større virksomheter, som regnskapsbyråer med mange kunder og ansatte, hvor byrået ønsker å begrense tilgangen til data for de forskjellige kundene.
 
@@ -89,7 +89,7 @@ Dette kan for eksempel være aktuelt i sammenheng med større virksomheter, som 
 - Regnskapsfører er registrert i Enhetsregisteret for aktuell klient.
 - Skatteetaten har inkludert MVA-rapportering i en tilgangspakke for regnskapsførere.
 - Systemet støtter innsending via tjeneste-API.
-- Regnskapsfører har opprettet en *systembruker for klientforhold* knyttet til sluttbrukersystemet.
+- Regnskapsfører har opprettet en _systembruker for klientforhold_ knyttet til sluttbrukersystemet.
 
 ### Steg
 
@@ -117,7 +117,7 @@ Dette kan for eksempel være aktuelt i sammenheng med større virksomheter, som 
 ### Steg
 
 1. Systemleverandør sender forespørsel om opprettelse av systembruker for klienter til forretningsfører (kunden til systemleverandøren). Tilgangspakken **forretningsforer-eiendom** legges inn som krav i forespørselen.
-2. Forretningsfører godkjenner forespørselen. 
+2. Forretningsfører godkjenner forespørselen.
 3. Klientadministrator legger til borettslaget som kunde/klient på systembrukeren. Tilgangspakken videredelegeres automatisk i denne prosessen til systembrukeren opprettet i steg 2.
 4. Rapportering skjer via systemet.
 5. Systembruker-token hentes fra Maskinporten.
