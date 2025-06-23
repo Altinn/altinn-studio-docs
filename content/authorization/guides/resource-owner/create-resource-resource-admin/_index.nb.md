@@ -6,11 +6,11 @@ toc: false
 weight: 1
 ---
 
-I Altinn Studio Resource admin kan du opprette ressurser som skal brukes som grunnlag for tilgangskontroll for tjenester utenfor Altinn-plattformen. 
+I Altinn Studio Resource admin kan du opprette ressurser som skal brukes som grunnlag for tilgangskontroll for tjenester utenfor Altinn-plattformen.
 
 ## Forutsetninger
 
-Du må ha tilgang til ressursadministrasjon for organisasjonen din. Se [Kom i gang-veiledningen](../../getting-started/resource-admin-studio)
+Du må ha tilgang til ressursadministrasjon for organisasjonen din. Se [Kom i gang-veiledningen](../../../getting-started/resource-admin-studio)
 
 ## Trinn 1 Opprett ressurs
 
@@ -18,16 +18,13 @@ Logg inn i Altinn Studio
 
 Opprett ressurs
 
-IDen som er gitt for ressursen vil være den som brukes i Altinn API for å sjekke tilgang 
-
+IDen som er gitt for ressursen vil være den som brukes i Altinn API for å sjekke tilgang
 
 ![Create Resource](create_resource_1.png)
-
 
 ### Ressurstype
 
 For eksterne ressurser vil typen være generisk tilgangsressurs.
-
 
 ![Create Resource](create_resource_15.png)
 
@@ -47,7 +44,6 @@ Du må definere beskrivelsen på bokmål, nynorsk og engelsk.
 
 ![Create Resource](create_resource_4.png)
 
-
 ### Delegasjonsbeskrivelse
 
 Dersom ressursen skal kunne delegeres som ressursdelegering må du aktivere delegering og angi delegasjonsbeskrivelse på bokmål, nynorsk og engelsk.
@@ -66,14 +62,12 @@ Statusen til tjenesten som ressursen peker på
 
 ![Create Resource](create_resource_7.png)
 
-
 ### Brukertyper
 
 Definerer hvilke typer brukere som har tilgang. Disse innstillingene kan brukes til filtrering på et senere tidspunkt. For tiden
-dette er bare informasjon. 
+dette er bare informasjon.
 
 ![Create Resource](create_resource_8.png)
-
 
 ### Party tyoe
 
@@ -90,7 +84,7 @@ Kontaktinformasjon for tjenesten. Kan bli presentert i servicekatalog på et sen
 ## Opprett policy
 
 Når ressursen er opprettet, må du definere policyen.
-Policyen må inneholde minst én regel. 
+Policyen må inneholde minst én regel.
 
 Hver regel inneholder ressurs, emne og handling
 
@@ -98,7 +92,6 @@ Hver regel inneholder ressurs, emne og handling
 
 Definer ressursen for regelen
 ![Create Resource](create_resource_11.png)
-
 
 ### Handling
 
@@ -115,10 +108,9 @@ Definer emnet for rollen. Du kan velge mellom ER-roller, Altinn-roller og tilgan
 ## Publisere
 
 Når du er ferdig med å angi ressursinnstillingene og policyen kan du publisere.
-Før publisering må du angi en ny versjons-ID og foreta endringer i ressurslageret. 
+Før publisering må du angi en ny versjons-ID og foreta endringer i ressurslageret.
 
 ![Create Resource](create_resource_14.png)
-
 
 ## Bekrefte
 

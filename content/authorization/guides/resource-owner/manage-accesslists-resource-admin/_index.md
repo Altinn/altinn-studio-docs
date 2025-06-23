@@ -8,7 +8,7 @@ weight: 1
 
 ## Background
 
-For certain services, restricting access to specific organizations is necessary. In Altinn 2, this was managed via the Service Rights Registry (SRR). 
+For certain services, restricting access to specific organizations is necessary. In Altinn 2, this was managed via the Service Rights Registry (SRR).
 
 In Altinn 3, this functionality is handled by the Resource Rights Registry (RRR) through Access Lists.
 
@@ -17,7 +17,7 @@ In Altinn 3, this functionality is handled by the Resource Rights Registry (RRR)
 - Resource Registry Admin privileges
 - Membership in the AccessList group for a specified environment
 
-Refer to [Getting Started with Access Lists ](../../getting-started/accesslist-admin-studio/) for more information.
+Refer to [Getting Started with Access Lists ](../../../getting-started/accesslist-admin-studio/) for more information.
 
 ## Create new Access List
 
@@ -40,10 +40,9 @@ Once created, you can add a description to your list.
 
 ## Adding members to list
 
-Add organizations as members to your list. 
+Add organizations as members to your list.
 
 In production environments, search by name or organization number. In TT02, use the test organization’s number as names won’t display.
-
 
 ![Access Lists](accesslist_3.png)
 
@@ -54,9 +53,7 @@ To assign your list to a resource:
 - Enable RRR for the resource.
 - Select one or more lists authorized as reportees for the resource.
 
-
 ![Access Lists](accesslist_5.png)
-
 
 ![Access Lists](accesslist_4.png)
 

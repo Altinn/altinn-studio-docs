@@ -132,8 +132,8 @@ Etter systembrukeren er opprettet vil den brukes som i modellen under
 
 ## Hvordan ta i bruk
 
-- [Hvordan bruke systembruker som systemleverandør](../../guides/systemvendor/)
-- [Hvordan bruke systemberuker som apitilbyder/tjenesteeier](../../guides/serviceowner/)
+- [Hvordan bruke systembruker som systemleverandør](../../guides/system.-vendor/)
+- [Hvordan bruke systemberuker som apitilbyder/tjenesteeier](../../guides/resource-owner/)
 
 ## Leveranseplan
 

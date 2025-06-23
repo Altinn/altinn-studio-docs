@@ -6,13 +6,13 @@ toc: false
 weight: 1
 ---
 
-I Altinn Studio Resource admin kan du opprette ressurser som skal brukes som grunnlag for tilgangskontroll for tjenester utenfor Altinn-plattformen. 
+I Altinn Studio Resource admin kan du opprette ressurser som skal brukes som grunnlag for tilgangskontroll for tjenester utenfor Altinn-plattformen.
 
 Denne guiden erstatter [denne guide](https://altinn.github.io/docs/utviklingsguider/api-delegering/api-eier/).
 
 ## Forutsetninger
 
-Du må ha tilgang til ressursadministrasjon for organisasjonen din. Se [Kom i gang-veiledningen](../../getting-started/resource-admin-studio)
+Du må ha tilgang til ressursadministrasjon for organisasjonen din. Se [Kom i gang-veiledningen](../../../getting-started/resource-admin-studio)
 
 ## Trinn 1 Opprett ressurs
 
@@ -26,7 +26,7 @@ IDen som er gitt for ressursen vil være den som brukes i Altinn API for å sjek
 
 ### Ressurstype
 
-For Api Scheme ressurser så 
+For Api Scheme ressurser så
 
 ![Create Resource](create_resource_2.png)
 
@@ -46,7 +46,6 @@ Du må definere beskrivelsen på bokmål, nynorsk og engelsk.
 
 ![Create Resource](create_resource_4.png)
 
-
 ### Delegasjonsbeskrivelse
 
 Dersom ressursen skal kunne delegeres som ressursdelegering må du aktivere delegering og angi delegasjonsbeskrivelse på bokmål, nynorsk og engelsk.
@@ -61,13 +60,13 @@ Nøkkelord kan angis for hjelp. Foreløpig ikke brukt, men kan brukes til forskj
 
 ### Status
 
-Statusen til API som API Scheme peker på. 
+Statusen til API som API Scheme peker på.
 
 ![Create Resource](create_resource_7.png)
 
 ### API Scope
 
-For API Scheme ressurser så må man oppgi maskinporten scope som skal beskytter API. Det er dette som blir delegert. 
+For API Scheme ressurser så må man oppgi maskinporten scope som skal beskytter API. Det er dette som blir delegert.
 
 ![Create Resource](create_resource_15.png)
 
@@ -80,7 +79,7 @@ Kontaktinformasjon for API. Kan bli presentert i servicekatalog på et senere ti
 ## Opprett policy
 
 Når ressursen er opprettet, må du definere policyen.
-Policyen må inneholde minst én regel. 
+Policyen må inneholde minst én regel.
 
 Hver regel inneholder ressurs, emne og handling
 
@@ -89,27 +88,24 @@ Hver regel inneholder ressurs, emne og handling
 Definer ressursen for regelen
 ![Create Resource](create_resource_11.png)
 
-
 ### Action
 
 For API Scheme er må man definere action "scopeaccess"
-
 
 ![Create Resource](create_resource_12.png)
 
 ### Subject
 
-Subject for API Scheme er rollen som gir mulighet til å delegere API scheme.  For Altinn dette er rollen "Programmeringsgrenssnitt"
+Subject for API Scheme er rollen som gir mulighet til å delegere API scheme. For Altinn dette er rollen "Programmeringsgrenssnitt"
 
 ![Create Resource](create_resource_13.png)
 
 ## Publisere
 
 Når du er ferdig med å angi ressursinnstillingene og policyen kan du publisere.
-Før publisering må du angi en ny versjons-ID og foreta endringer i ressurslageret. 
+Før publisering må du angi en ny versjons-ID og foreta endringer i ressurslageret.
 
 ![Create Resource](create_resource_14.png)
-
 
 ## Bekrefte
 

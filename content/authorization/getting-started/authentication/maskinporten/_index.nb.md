@@ -5,7 +5,7 @@ description: Altinn støtter bruk av Maskinporten-token i flere API-er
 toc: true
 weight: 100
 aliases:
-- /nb/api/authentication/maskinporten/
+  - /nb/api/authentication/maskinporten/
 ---
 
 - API for tjenesteeiere i sammenheng med data for Altinn Apps
@@ -29,12 +29,12 @@ For å kunne hente data fra Storage i Altinn 3 via API som tjenesteeier, må du 
 Følgende scopes er opprettet av Altinn og delegert til tjenesteeier. Disse scopene er nødvendige for å benytte API-ene relatert til instanser som tjenesteeier:
 
 ```js
-altinn:serviceowner/instances.read
-altinn:serviceowner/instances.write
+altinn: serviceowner / instances.read;
+altinn: serviceowner / instances.write;
 ```
 
-Klienter med *write* scope kan blant annet instansiere apper på vegne av brukere via appens eget API, laste opp data, oppdatere metadata og prosess-status.
-Klienter med *read* scope kan kun lese data, metadata og hendelser.
+Klienter med _write_ scope kan blant annet instansiere apper på vegne av brukere via appens eget API, laste opp data, oppdatere metadata og prosess-status.
+Klienter med _read_ scope kan kun lese data, metadata og hendelser.
 
 I de fleste tilfeller vil en klient for tjenesteeier ha behov for begge scopene.
 
@@ -61,4 +61,4 @@ Altinn godtar ikke Maskinporten-token direkte. Disse må veksles inn i Altinn-to
 ## Mer informasjon
 
 - For mer informasjon, se [dokumentasjon for API-konsument](https://docs.digdir.no/maskinporten_guide_apikonsument.html#prosedyre-for-api-konsument) fra Maskinporten.
-- Se også [scenario for autentisering](../../../api/scenarios/authentication/) for flere detaljer (på engelsk).
+- Se også [scenario for autentisering](/api/scenarios/authentication/) for flere detaljer (på engelsk).

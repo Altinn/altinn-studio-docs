@@ -106,7 +106,7 @@ weight: 2
 
 Se [her](https://platform.tt02.altinn.no/accessmanagement/api/v1/meta/info/accesspackages/export) for list av tilgjengelige tilgangspakker på tt02 miljø.
 
-Se [her](../../../api/authentication/systemuserapi/systemregister/model/) for en detaljert beskrivelse av hver enkelt input. Ved all videre kommunikasjon må systemleverandøren referere til verdien som er angitt i feltet 'id'.
+Se [her](/content/api/authentication/systemuserapi/systemregister/model/) for en detaljert beskrivelse av hver enkelt input. Ved all videre kommunikasjon må systemleverandøren referere til verdien som er angitt i feltet 'id'.
 
 #### Opprettelse av systembruker for en standard system bruker
 
@@ -163,13 +163,13 @@ Systembrukeren kan opprettes på to måter
 
       ```
 
-    - Bekreftelseslenken (confirmurl) sendes til sluttbrukeren for godkjenning. Følg veiledningen for [sluttbruker for Standard systembruker](../enduser/#veiledning-for-sluttbruker-stadig-konsert-dagligleder-til-tilfeldig-subtil-ape) for å håndtere forespørselen.
+    - Bekreftelseslenken (confirmurl) sendes til sluttbrukeren for godkjenning. Følg veiledningen for [sluttbruker for Standard systembruker](../../enduser/#veiledning-for-sluttbruker-stadig-konsert-dagligleder-til-tilfeldig-subtil-ape) for å håndtere forespørselen.
 
 ### Opprettelse av en systembruker for agentsystembruker
 
 - Systembrukeren for en agentsystembruker kan kun opprettes ved en forespørsel fra en systembruker.
 - SmartCloud AS oppretter en systembrukerforespørsel (via Altinn API for systembrukerforespørsel) fra SmartCloud, som deretter sendes til Altinn.
-  For detaljert informasjon om hvert inputfelt, se dokumentasjonen [her](../../../api/authentication/systemuserapi/systemuserrequest/external/model/)
+  For detaljert informasjon om hvert inputfelt, se dokumentasjonen [her](/api/authentication/systemuserapi/systemuserrequest/external/model/)
 
         ```
         {
@@ -212,7 +212,7 @@ Systembrukeren kan opprettes på to måter
 
 Se [Samarbeisportalen](https://samarbeid.digdir.no/altinn/systembruker/2542) for illustrert og webinar.
 
-se [api dokumentasjon](../../../api/authentication/systemuserapi/) for mer informasjon om endepunkter.
+se [api dokumentasjon](/api/authentication/systemuserapi/) for mer informasjon om endepunkter.
 
 ### 6. Test og Produksjonssetting
 

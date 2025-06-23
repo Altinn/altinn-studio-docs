@@ -6,12 +6,11 @@ toc: false
 weight: 1
 ---
 
-
-In Altinn Studio Resource admin, you can create resources to use as a basis for access control for services outside of the Altinn Platform. 
+In Altinn Studio Resource admin, you can create resources to use as a basis for access control for services outside of the Altinn Platform.
 
 ## Prerequisites
 
-You need to have access to resource administration for your organization. See [Getting started guide](../../getting-started/resource-admin-studio)
+You need to have access to resource administration for your organization. See [Getting started guide](../../../getting-started/resource-admin-studio)
 
 ## Step 1 Create Resource
 
@@ -21,14 +20,11 @@ Create Resource
 
 The ID given for resource will be the one used in Altinn API for checking access. This need to be globally unique
 
-
 ![Create Resource](create_resource_1.png)
-
 
 ### Resource Type
 
 For api scheme resources, the type will be Api Scheme access resource.
-
 
 ![Create Resource](create_resource_1.png)
 
@@ -42,12 +38,11 @@ You need to define the title in bokmål, nynorsk and english.
 
 ### Description
 
-The description  will be shown in Access Management and in service catalogues like data.altinn.no
+The description will be shown in Access Management and in service catalogues like data.altinn.no
 
 You need to define the description in bokmål, nynorsk and english.
 
 ![Create Resource](create_resource_4.png)
-
 
 ### Delegation description
 
@@ -82,7 +77,7 @@ Contact information for the service. Might be presented in service cataloge on a
 ## Create Policy
 
 When resource is created you need to define the policy.
-The policy needs to contain a minimum of 1 rule. 
+The policy needs to contain a minimum of 1 rule.
 
 Each rule contains of resource, subject and action
 
@@ -90,7 +85,6 @@ Each rule contains of resource, subject and action
 
 Define the resource for the rule
 ![Create Resource](create_resource_11.png)
-
 
 ### Action
 
@@ -106,11 +100,10 @@ Define the subject for the role. You can choose amongst ER roles, Altinn Roles, 
 
 ## Publish
 
-When you have finished setting the resource settings  and policy you can publish.
-Before publish you need to set a new version ID and commit changes to the resource repository. 
+When you have finished setting the resource settings and policy you can publish.
+Before publish you need to set a new version ID and commit changes to the resource repository.
 
 ![Create Resource](create_resource_14.png)
-
 
 ## Verify
 

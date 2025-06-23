@@ -5,7 +5,7 @@ description: Beskrivelse av hvordan systemer kan benytte ID-porten for å få ti
 toc: true
 weight: 200
 aliases:
-- /nb/api/authentication/id-porten/
+  - /nb/api/authentication/id-porten/
 ---
 
 Systemer for sluttbrukere kan autentisere brukere via ID-porten for å benytte API fra applikasjoner kjørende i Altinn Apps og enkelte funksjoner i Altinn Platform på vegne av sluttbruker.
@@ -56,7 +56,7 @@ Flytdiagrammet nedenfor viser hvordan tokenet veksles inn.
 
 ![Innveksling av token](eus_login_process_updated.svg "Innveksling av token")
 
-Se detaljer i [Altinns API dokumentasjon](../../../api/authentication/spec) under metoden `GET /exchange/{tokenProvider}`.
+Se detaljer i [Altinns API dokumentasjon](/api/authentication/spec) under metoden `GET /exchange/{tokenProvider}`.
 
 Sluttbrukere har i Altinn mulighet til å få oversikt over alle systemer og hvilke tilganger de har. På denne måten kan man trekke langvarige tilganger. Systemet vil da bli avvist neste gang det prøver å fornye access-token.
 

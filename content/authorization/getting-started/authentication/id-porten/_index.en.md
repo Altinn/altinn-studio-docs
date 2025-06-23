@@ -5,7 +5,7 @@ description: Description of how systems can use ID-porten to access APIs in Alti
 toc: true
 weight: 200
 aliases:
-- /nb/api/authentication/id-porten/
+  - /nb/api/authentication/id-porten/
 ---
 
 End-user systems can authenticate users via ID-porten to use APIs from applications running in Altinn Apps and certain functions in Altinn Platform on behalf of the end-user.
@@ -56,7 +56,7 @@ The flowchart below shows how the token is exchanged.
 
 ![Token exchange](eus_login_process_updated.svg "Token exchange")
 
-See details in [Altinn's API documentation](../../../api/authentication/spec) under the method `GET /exchange/{tokenProvider}`.
+See details in [Altinn's API documentation](/api/authentication/spec) under the method `GET /exchange/{tokenProvider}`.
 
 End-users in Altinn have the ability to get an overview of all systems and their accesses. This way, long-term accesses can be revoked. The system will then be rejected the next time it tries to renew the access token.
 

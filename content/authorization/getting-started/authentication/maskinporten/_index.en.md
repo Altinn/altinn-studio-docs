@@ -5,7 +5,7 @@ description: Altinn supports the use of Maskinporten tokens in several APIs
 toc: true
 weight: 100
 aliases:
-- /api/authentication/maskinporten/
+  - /api/authentication/maskinporten/
 ---
 
 - API for service owners in connection with data for Altinn Apps
@@ -29,12 +29,12 @@ To retrieve data from Storage in Altinn 3 via API as a service owner, you must c
 The following scopes are created by Altinn and delegated to the service owner. These scopes are necessary to use the APIs related to instances as a service owner:
 
 ```js
-altinn:serviceowner/instances.read
-altinn:serviceowner/instances.write
+altinn: serviceowner / instances.read;
+altinn: serviceowner / instances.write;
 ```
 
-Clients with *write* scope can, among other things, instantiate apps on behalf of users via the app's own API, upload data, update metadata, and process status.
-Clients with *read* scope can only read data, metadata, and events.
+Clients with _write_ scope can, among other things, instantiate apps on behalf of users via the app's own API, upload data, update metadata, and process status.
+Clients with _read_ scope can only read data, metadata, and events.
 
 In most cases, a client for the service owner will need both scopes.
 
@@ -61,4 +61,4 @@ Altinn does not accept Maskinporten tokens directly. These must be exchanged for
 ## More information
 
 - For more information, see [documentation for API consumers](https://docs.digdir.no/maskinporten_guide_apikonsument.html#prosedyre-for-api-konsument) from Maskinporten.
-- See also [authentication scenario](../../../api/scenarios/authentication/) for more details (in English).
+- See also [authentication scenario](/api/scenarios/authentication/) for more details (in English).

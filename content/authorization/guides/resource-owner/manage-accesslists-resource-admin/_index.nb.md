@@ -17,7 +17,7 @@ I Altinn 3 håndteres denne funksjonaliteten av Ressursrettsregisteret (RRR) gje
 - Administrasjonsrettigheter for Ressursregisteret
 - Medlemskap i Tilgangsliste-gruppen for et spesifisert miljø
 
-Se [ Komme i gang med Tilgangslister](../../getting-started/accesslist-admin-studio/) for mer informasjon.
+Se [ Komme i gang med Tilgangslister](../../../getting-started/accesslist-admin-studio/) for mer informasjon.
 
 ## Opprette ny Tilgangsliste
 
@@ -45,7 +45,6 @@ Legg til organisasjoner som medlemmer i listen din.
 
 I produksjonsmiljøer, søk etter navn eller organisasjonsnummer. I TT02 må du bruke testorganisasjonens nummer da navn ikke vil vises.
 
-
 ![Access Lists](accesslist_3.png)
 
 ## Tildele Tilgangsliste til ressurs
@@ -55,9 +54,7 @@ For å tildele listen din til en ressurs:
 - Aktiver RRR for ressursen.
 - Velg en eller flere lister autorisert som rapportører for ressursen.
 
-
 ![Access Lists](accesslist_5.png)
-
 
 ![Access Lists](accesslist_4.png)
 
