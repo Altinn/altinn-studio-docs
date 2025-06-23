@@ -1,6 +1,6 @@
 ---
-title: Prosess handling
-description: Applikasjons templaten støtter å definere en foretnings prosess for digitale tjenester
+title: Prosess
+description: Applikasjonen har en prosess som kan tilpasses etter behov
 tags: [altinn-apps, process, bpmn]
 weight: 60
 ---
