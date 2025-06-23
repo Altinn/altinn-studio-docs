@@ -11,7 +11,7 @@ In general, access to events for a given party will be authorized based on roles
 
 ## Generic events
 Granting a subscriber access to your published events is done through the policy of the 
-resource in the resource registry. 
+resource in the resource registry. In order to query events or setup subscription the authorization policy has to grant the "subscribe" action.
 
 {{% notice info  %}}
 
