@@ -7,24 +7,28 @@ weight: 5
 
 ## Begreper
 
-Her er de viktigste begrepene for brukerscenarioene på denne siden.
+Nedenfor finner du sentrale begreper som brukes i brukerscenarioene.
 
 ### Systemleverandør
 
-Leverandør av sluttbrukersystem tilgjengelig i markedet. Har tilgang til systemregisteret i Altinn for å registrere programvare med rettighetsbehov.
+Leverandør av sluttbrukersystem tilgjengelig i markedet. Har tilgang til systemregisteret i Altinn for å registrere programvare med nødvendige rettigheter.
+
+Ved lokal eller egenutviklet programvare registreres systemkunden også som leverandør.
 
 ### Sluttbrukersystem
 
-Programvare som vanligvis kjører i public cloud, men kan også kjøre lokalt med begrensninger. Se eksempel scenario.
-
-Sluttbrukersystemet støtter prosesser for virksomheter og innbyggere, og kan implementere alt fra lakselusrapportering til MVA-rapportering.
+Programvare som vanligvis kjører i public cloud, men kan også kjøres lokalt med noen begrensninger. Sluttbrukersystemet støtter virksomhets- og innbyggerprosesser, og kan for eksempel brukes til lakselusrapportering eller MVA-rapportering.
 
 Sluttbrukersystemet kan identifisere seg som systembruker knyttet til systemet. Hvilke rettigheter som kreves avhenger av hvilke prosesser som støttes.
 
 ### Systembruker
 
 Virtuell bruker som systemleverandører kan få utstedt token for. Gir sluttbrukersystemet de rettighetene systembrukeren har.  
-Denne brukertypen får kun tildelt rettigheter fra systemkunden.
+Systembrukeren får kun tildelt rettigheter fra systemkunden.
+
+### Systemkunde
+
+Virksomheten som har anskaffet sluttbrukersystem. Systembrukeren opprettes for systemkunden, og systemleverandøren gis fullmakt til å autentisere seg som systembrukeren på vegne av systemkunden.
 
 ### Systembruker for klientforhold
 
@@ -34,37 +38,27 @@ Virtuell bruker som systemleverandør kan få utstedt token for, og som brukes i
 
 Token utstedt fra Maskinporten som identifiserer en systembruker. Inneholder også informasjon om sluttbrukersystemet og systemleverandøren.
 
-### Systemkunde
-
-Virksomhet som har anskaffet sluttbrukersystem fra systemleverandør. En systemkunde kan ha flere systemer for ulike behov.
-
-En systemkunde kan være en virksomhet som rapporterer egne data, eller en virksomhet som tilbyr tjenester til andre – for eksempel regnskapsfører, revisor, forretningsfører eller andre rettighetsforhold mellom virksomheter opprettet i Altinn.
-
 ### Klient
 
-Virksomhet som har avtale med tjenestetilbyder om støtte for virksomhetsprosesser. Dette kan være en klient av regnskapskontor, revisor eller forretningsfører.
-
-Et annet ord med tilsvarende betydning er "kunde". Klient er et innarbeidet begrep i regnskaps- og revisorbransjen.  
-I rapporteringsforhold vil klienten ofte være det som kalles "part".
+Virksomhet som har avtale med tjenestetilbyder om støtte for virksomhetsprosesser. Klient brukes ofte i regnskaps- og revisorbransjen, og tilsvarer "kunde".  
+I rapporteringsforhold omtales klienten ofte som "part".
 
 ### Klientadministrator
 
-Ansatt hos systemkunden.  
-Ansvarlig for å knytte sine klienter (kunder) til riktige systembrukere.
+Ansatt hos systemkunden, ansvarlig for å knytte sine klienter (kunder) til riktige systembrukere.
 
 ### Tilgangspakke
 
-En samling rettigheter for offentlige tjenester. Pakken er definert i Altinn, og det er tjenesteeiere som velger å knytte rettigheter til en gitt pakke.  
-Pakken har et navn/område som bør matche tjenestenes område.
+En samling rettigheter for offentlige tjenester, definert i Altinn. Tjenesteeiere knytter rettigheter til en gitt pakke, som har et navn/område tilpasset tjenestene.
 
 ---
 
 ## Generelle forutsetninger
 
-Følgende forutsetninger gjelder for de fleste brukerscenariene:
+Følgende gjelder for de fleste brukerscenarier:
 
 1. **Systemleverandørens ansvar for tilgangskontroll**  
-   - Ha full oversikt over hvilke rettigheter systembrukere trenger (f.eks. tilgangspakker eller enkeltrettigheter for MVA-rapportering).  
+   - Ha oversikt over hvilke rettigheter systembrukere trenger (f.eks. tilgangspakker eller enkeltrettigheter for MVA-rapportering).  
      Informasjon om rettigheter innhentes fra tjenesteeier eller via Altinn API. Tjenesteeier må kommunisere krav tydelig.  
    - Konfigurere disse rettighetene i systemregisteret slik at systembrukere kan tildeles nødvendige rettigheter per kunde.
 
@@ -74,9 +68,9 @@ Følgende forutsetninger gjelder for de fleste brukerscenariene:
 
 Ved bruk av systembruker vil offentlige tjenester ikke kjenne identiteten til personen bak programvaren som utløser utstedelse av systembruker-token og API-kall.
 
-For å unngå misbruk er det viktig at systemleverandører har gode rutiner for autentisering og autorisering av brukere i sluttbrukersystemet, slik at kun autoriserte brukere får tilgang til systembruker-token.
+For å unngå misbruk må systemleverandører ha gode rutiner for autentisering og autorisering av brukere i sluttbrukersystemet, slik at kun autoriserte brukere får tilgang til systembruker-token.
 
-Dette er særlig aktuelt for større virksomheter, som regnskapsbyråer med mange kunder og ansatte, hvor det er behov for å begrense tilgangen til data for ulike kunder.
+Dette er spesielt viktig for større virksomheter, som regnskapsbyråer med mange kunder og ansatte, hvor det er behov for å begrense tilgangen til data for ulike kunder.
 
 ---
 
@@ -86,21 +80,21 @@ Dette er særlig aktuelt for større virksomheter, som regnskapsbyråer med mang
 
 ### Forutsetninger
 
-- Regnskapsfører er registrert i Enhetsregisteret for aktuell klient.
+- Regnskapsfører er [registrert i Enhetsregisteret](https://info.altinn.no/skjemaoversikt/bronnoysundregistrene/registrere-nye-og-endre-eksisterende-foretak-og-enheter---samordnet-registermelding/) for aktuell klient.
 - Skatteetaten har [definert policy på applikasjon](/altinn-studio/reference/configuration/authorization/) slik at brukere med tilgangspakken MVA rapportering får tilgang.
-- Sluttbrukersystemet er satt opp med nødvendige tilgangspakker for MVA-rapportering.
-- Regnskapsfører har opprettet en *systembruker for klientforhold* knyttet til sluttbrukersystemet.
+- [Sluttbrukersystemet er satt opp](/nb/authentication/guides/systemvendor/) med [nødvendige tilgangspakker](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/) for MVA-rapportering.
+- Regnskapsfører har opprettet en [*systembruker for klientforhold*](/nb/authentication/guides/systemvendor/#opprettelse-av-en-systembruker-for-agentsystembruker) knyttet til sluttbrukersystemet.
 
 ### Steg
 
 1. **Legg til klient**  
-   Klientadministrator hos regnskapsfører knytter regnskapskunden (klient) til systembrukeren. Tilgang for regnskapskunden delegeres automatisk til systembrukeren.
+   Klientadministrator hos regnskapsfører [knytter regnskapskunden (klient) til systembrukeren](/nb/authentication/guides/enduser/#veiledning-for-sluttbruker-dress-minst-klientadministratør-i-tilbakeholden-usymmetrisk-tiger-as-). Tilgang for regnskapskunden delegeres automatisk til systembrukeren.
 2. **Hent token**  
-   Sluttbrukersystemet henter systembruker-token via Maskinporten.
+   Sluttbrukersystemet [henter systembruker-token via Maskinporten](/nb/authentication/guides/systemvendor/).
 3. **Send rapport**  
    Sluttbrukersystemet sender MVA-rapport via API med gyldig token.
 4. **Validering og bekreftelse**  
-   Altinn Autorisasjon sjekker tilgang. API returnerer bekreftelse.
+   API kaller Altinn Autorisasjon PDP for å [sjekke tilgang](/nb/authorization/guides/integrating-link-service/). API returnerer bekreftelse.
 
 **Støtte:** Utvikles som del av systembrukerleveranse 5.
 
@@ -112,7 +106,7 @@ Dette er særlig aktuelt for større virksomheter, som regnskapsbyråer med mang
 
 ### Forutsetninger
 
-- Forretningsfører er registrert i Enhetsregisteret for boligsameiet.
+- Forretningsfører er [registrert i Enhetsregisteret](https://info.altinn.no/skjemaoversikt/bronnoysundregistrene/registrere-nye-og-endre-eksisterende-foretak-og-enheter---samordnet-registermelding/) for boligsameiet.
 - Tilgangspakken **forretningsforer-eiendom** gir tilgang til tjenesten (definert av tjenesteeier).
 - Systemleverandøren har registrert systemet i systemregisteret med nevnte tilgangspakke.
 
@@ -263,7 +257,7 @@ Oppsett med tilgangspakker utvikles som del av systembrukerleveranse 4.
 2. Forespørsel godkjennes og systembruker opprettes med riktige rettigheter.
 3. Systemet kan nå opprette Maskinporten-token for systembrukeren og kalle nødvendige API.
 
-**Merknad:** I slike scenarioer kan ikke systemleverandør dele eget sertifikat/nøkkelpar med systemkunde, da det kan medføre misbruk og tilgang til kundedata på tvers.
+**Merknad:** I slike scenarioer kan ikke systemleverandør dele eget sertifikat/nøkkelpar med systemkunde, da det kan medføre misbruk og tilgang til kundedata på tvers av systemkunder.
 
 ---
 
