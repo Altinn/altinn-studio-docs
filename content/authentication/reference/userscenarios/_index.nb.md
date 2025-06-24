@@ -13,6 +13,8 @@ Her er de viktigste begrepene for brukerscenarioene på denne siden.
 
 Leverandør av sluttbrukersystem tilgjengelig i markedet. Har tilgang til systemregisteret i Altinn for å registrere programvare med rettighetsbehov.
 
+For lokalt installert programvare eller egenutviklet programvare så registreres systemkunde også som leverandør.
+
 ### Sluttbrukersystem
 
 Programvare som vanligvis kjører i public cloud, men kan også kjøre lokalt med begrensninger. Se eksempel scenario.
@@ -25,6 +27,11 @@ Sluttbrukersystemet kan identifisere seg som systembruker knyttet til systemet. 
 
 Virtuell bruker som systemleverandører kan få utstedt token for. Gir sluttbrukersystemet de rettighetene systembrukeren har.  
 Denne brukertypen får kun tildelt rettigheter fra systemkunden.
+
+
+### Systemkunde
+
+Dette er virksomheten som har gått til anskaffelse av sluttbrukersystem. Systembrukeren oppettes for systemkunden, og systemleverandøren gis fullmakt til å autentisere seg som systembrukeren på vegne av systemkunden.
 
 ### Systembruker for klientforhold
 
@@ -86,21 +93,21 @@ Dette er særlig aktuelt for større virksomheter, som regnskapsbyråer med mang
 
 ### Forutsetninger
 
-- Regnskapsfører er registrert i Enhetsregisteret for aktuell klient.
+- Regnskapsfører er [registrert i Enhetsregisteret](https://info.altinn.no/skjemaoversikt/bronnoysundregistrene/registrere-nye-og-endre-eksisterende-foretak-og-enheter---samordnet-registermelding/) for aktuell klient.
 - Skatteetaten har [definert policy på applikasjon](/altinn-studio/reference/configuration/authorization/) slik at brukere med tilgangspakken MVA rapportering får tilgang.
-- Sluttbrukersystemet er satt opp med nødvendige tilgangspakker for MVA-rapportering.
-- Regnskapsfører har opprettet en *systembruker for klientforhold* knyttet til sluttbrukersystemet.
+- [Sluttbrukersystemet er satt opp](/nb/authentication/guides/systemvendor/) med [nødvendige tilgangspakker](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/) for MVA-rapportering.
+- Regnskapsfører har opprettet en [*systembruker for klientforhold*](/nb/authentication/guides/systemvendor/#opprettelse-av-en-systembruker-for-agentsystembruker) knyttet til sluttbrukersystemet.
 
 ### Steg
 
 1. **Legg til klient**  
-   Klientadministrator hos regnskapsfører knytter regnskapskunden (klient) til systembrukeren. Tilgang for regnskapskunden delegeres automatisk til systembrukeren.
+   Klientadministrator hos regnskapsfører [knytter regnskapskunden (klient) til systembrukeren](/nb/authentication/guides/enduser/#veiledning-for-sluttbruker-dress-minst-klientadministratør-i-tilbakeholden-usymmetrisk-tiger-as-). Tilgang for regnskapskunden delegeres automatisk til systembrukeren.
 2. **Hent token**  
-   Sluttbrukersystemet henter systembruker-token via Maskinporten.
+   Sluttbrukersystemet [henter systembruker-token via Maskinporten](/nb/authentication/guides/systemvendor/).
 3. **Send rapport**  
    Sluttbrukersystemet sender MVA-rapport via API med gyldig token.
 4. **Validering og bekreftelse**  
-   Altinn Autorisasjon sjekker tilgang. API returnerer bekreftelse.
+   API kaller Altinn Autorisasjon PDP for å [sjekke tilgang](/nb/authorization/guides/integrating-link-service/). API returnerer bekreftelse.
 
 **Støtte:** Utvikles som del av systembrukerleveranse 5.
 
@@ -112,7 +119,7 @@ Dette er særlig aktuelt for større virksomheter, som regnskapsbyråer med mang
 
 ### Forutsetninger
 
-- Forretningsfører er registrert i Enhetsregisteret for boligsameiet.
+- Forretningsfører er [registrert i Enhetsregisteret](https://info.altinn.no/skjemaoversikt/bronnoysundregistrene/registrere-nye-og-endre-eksisterende-foretak-og-enheter---samordnet-registermelding/) for boligsameiet.
 - Tilgangspakken **forretningsforer-eiendom** gir tilgang til tjenesten (definert av tjenesteeier).
 - Systemleverandøren har registrert systemet i systemregisteret med nevnte tilgangspakke.
 
@@ -180,6 +187,7 @@ Dette er særlig aktuelt for større virksomheter, som regnskapsbyråer med mang
    API sjekker tilgang og returnerer bekreftelse.
 
 **Støtte:** Oppsett med enkeltrettighet ble utviklet som del av systembrukerleveranse 2.  
+
 Oppsett med tilgangspakker utvikles som del av systembrukerleveranse 4.
 
 ---
@@ -263,7 +271,7 @@ Oppsett med tilgangspakker utvikles som del av systembrukerleveranse 4.
 2. Forespørsel godkjennes og systembruker opprettes med riktige rettigheter.
 3. Systemet kan nå opprette Maskinporten-token for systembrukeren og kalle nødvendige API.
 
-**Merknad:** I slike scenarioer kan ikke systemleverandør dele eget sertifikat/nøkkelpar med systemkunde, da det kan medføre misbruk og tilgang til kundedata på tvers.
+**Merknad:** I slike scenarioer kan ikke systemleverandør dele eget sertifikat/nøkkelpar med systemkunde, da det kan medføre misbruk og tilgang til kundedata på tvers av systemkunder.
 
 ---
 
