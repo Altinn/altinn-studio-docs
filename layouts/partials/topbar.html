@@ -21,6 +21,7 @@
           </a>
 
           <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">{{ T "show-hide-menu"}}</span></button>
+
           <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
             <ul id="exCollapsingNavbar">
               <li class="nav-item dropdown d-md-block">
@@ -32,27 +33,26 @@
               <li>
                 <a class="a-nav-link a-hvr-underline " href="{{ with .Site.GetPage `/community`}}{{.RelPermalink}}{{end}}">community</a>
               </li>
-              <li class="nav-item d-none d-md-block">
-                <button class="a-collapse-title nav-link adocs-toggle-search" type="button" data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent" onclick="setTimeout(function(){getElementById('search-by').focus();}, 10); return true;">
-                    <span>
-                        <i class="ai ai-search" aria-hidden="true">
-                          <span class="sr-only">{{T "search"}}</span></i>
-                    </span>
-                </button>
-              </li>
             </ul>
           </div>
         </nav> <!-- End .a-globalNav -->
 
         <ul class="nav nav-pills a-header-options" id="nav-list">
-          <li class="nav-item d-none d-md-block">
-            <img src="/images/{{ .Language }}.svg" class="" alt="" style="height: 0.8em; vertical-align: bottom;"/>&nbsp;
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search" aria-hidden="true">
+                        <span class="sr-only">{{T "search"}}</span></i>
+                  </span>
+              </button>
           </li>
-          <li class="nav-item dropdown d-none d-md-block">
+          <li class="nav-item dropdown d-md-block">
             {{- partial "language-switcher.html" . -}}
           </li>
-        
         </ul>
+
       </div><!-- End .col -->
     </div> <!-- End .row -->
   </div> <!-- End .container -->
