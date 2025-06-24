@@ -83,19 +83,19 @@ Dette er spesielt viktig for større virksomheter, som regnskapsbyråer med mang
 
 - Regnskapsfører er [registrert i Enhetsregisteret](https://info.altinn.no/skjemaoversikt/bronnoysundregistrene/registrere-nye-og-endre-eksisterende-foretak-og-enheter---samordnet-registermelding/) for aktuell klient.
 - Skatteetaten har [definert policy på applikasjon](/altinn-studio/reference/configuration/authorization/) slik at brukere med tilgangspakken MVA rapportering får tilgang.
-- [Sluttbrukersystemet er satt opp](/nb/authentication/guides/systemvendor/) med [nødvendige tilgangspakker](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/) for MVA-rapportering.
-- Regnskapsfører har opprettet en [_systembruker for klientforhold_](/nb/authentication/guides/systemvendor/#opprettelse-av-en-systembruker-for-agentsystembruker) knyttet til sluttbrukersystemet.
+- [Sluttbrukersystemet er satt opp](../../guides/system-vendor/) med [nødvendige tilgangspakker](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/) for MVA-rapportering.
+- Regnskapsfører har opprettet en [_systembruker for klientforhold_](../../guides/system-vendor//#opprettelse-av-en-systembruker-for-agentsystembruker) knyttet til sluttbrukersystemet.
 
 ### Steg
 
 1. **Legg til klient**  
    Klientadministrator hos regnskapsfører [knytter regnskapskunden (klient) til systembrukeren](/nb/authentication/guides/enduser/#veiledning-for-sluttbruker-dress-minst-klientadministratør-i-tilbakeholden-usymmetrisk-tiger-as-). Tilgang for regnskapskunden delegeres automatisk til systembrukeren.
 2. **Hent token**  
-   Sluttbrukersystemet [henter systembruker-token via Maskinporten](/nb/authentication/guides/systemvendor/).
+   Sluttbrukersystemet [henter systembruker-token via Maskinporten](../../guides/system-vendor/).
 3. **Send rapport**  
    Sluttbrukersystemet sender MVA-rapport via API med gyldig token.
 4. **Validering og bekreftelse**  
-   API kaller Altinn Autorisasjon PDP for å [sjekke tilgang](/nb/authorization/guides/integrating-link-service/). API returnerer bekreftelse.
+   API kaller Altinn Autorisasjon PDP for å [sjekke tilgang](../../guides/resource-owner/integrating-link-service/). API returnerer bekreftelse.
 
 **Støtte:** Utvikles som del av systembrukerleveranse 5.
 
