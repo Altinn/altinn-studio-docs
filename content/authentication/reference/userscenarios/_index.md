@@ -1,278 +1,308 @@
 ---
-title: "Brukerscenarier for systembruker"
-linktitle: "Brukerscenarioer"
-description: "Oversikt over aktuelle brukerscenarier for systembruker"
+title: "User Scenarios for System User"
+linktitle: "User Scenarios"
+description: "Overview of relevant user scenarios for system user"
 weight: 5
 ---
 
-## Begreper
+## Concepts
 
-Her er de viktigste begrepene for brukerscenarioene beskrevet på denne siden.
+Here are the key concepts for the user scenarios on this page.
 
-### Systemleverandør
+### System Provider
 
-Leverandør av sluttbrukersystem som er tilgjengelig i markedet. Har tilgang til systemregisteret i Altinn for å registrere programvare med rettighetsbehov. 
+Provider of end-user software available on the market. Has access to the system registry in Altinn to register software with required permissions.
 
-### Sluttbrukersystem
+### End-User System
 
-Programvare som i utgangspunktet kjører i public cloud. (Scenario for lokalt installert programvare er ikke i scope på denne oversikten.)
+Software that usually runs in the public cloud, but can also run locally with limitations. See example scenario.
 
-Sluttbrukersystemet understøtter prosesser for virksomheter og innbyggere og kan implementere støtte for alt fra lakselusrapportering til rapportering av MVA.
+The end-user system supports processes for organizations and citizens and can implement everything from salmon lice reporting to VAT reporting.
 
-Sluttbrukersystemet har rett til å identifisere seg som systembrukere knyttet til systemet. Rettigheten som kreves vil avhenge av hvilke sluttbrukerprosesser som understøttes.
+The end-user system can identify itself as a system user linked to the system. The required permissions depend on which processes are supported.
 
-### Systembruker 
+### System User
 
-Virtuell bruker som systemleverandører kan få utstedt token for. Gir implisitt sluttbrukersystem rettighetene som systembrukeren har.  
-Denne typen bruker får kun tildelt rettigheter fra systemkunden.
+Virtual user for which system providers can obtain a token. Grants the end-user system the permissions the system user has.  
+This user type can only be assigned permissions from the system customer.
 
-### Systembruker for klientforhold
+### System User for Client Relationships
 
-Virtuell bruker som systemleverandør kan få utstedt token for. Denne typen systembruker brukes når den skal benyttes i klientforhold, hvor systembrukeren får delegert rettigheter for én til mange klienter.
+Virtual user for which the system provider can obtain a token, used in client relationships where the system user is delegated permissions for one or more clients.
 
-### Systembruker-token
+### System User Token
 
-Token utstedt fra Maskinporten som identifiserer en systembruker. Inneholder også informasjon om sluttbrukersystemet og systemleverandøren.
+Token issued by Maskinporten that identifies a system user. Also contains information about the end-user system and the system provider.
 
-### Systemkunde
+### System Customer
 
-Virksomhet som har anskaffet sluttbrukersystem fra systemleverandør. En systemkunde kan ha anskaffet flere systemer for forskjellige behov.
+Organization that has acquired an end-user system from a system provider. A system customer can have several systems for different needs.
 
-En systemkunde kan være en virksomhet som rapporterer egne data, eller en virksomhet som tilbyr tjenester til andre – f.eks. regnskapsfører, revisor, forretningsfører eller andre rettighetsforhold mellom virksomheter opprettet i Altinn.
+A system customer can be an organization that reports its own data, or an organization that provides services to others – for example, an accountant, auditor, business manager, or other rights relationships between organizations established in Altinn.
 
-### Klient
+### Client
 
-Virksomhet som har inngått avtale med tjenestetilbyder om støtte for virksomhetsprosesser. Dette kan være en klient av regnskapskontor, revisor, forretningsfører.
+Organization that has an agreement with a service provider for support of business processes. This can be a client of an accounting office, auditor, or business manager.
 
-Et annet ord med tilsvarende betydning er "kunde". Klient er et innarbeidet begrep i regnskaps- og revisorbransjen.  
-I rapporteringsforhold vil klienten ofte være det som kalles "part".
+Another word with a similar meaning is "customer". Client is an established term in the accounting and auditing industry.  
+In reporting relationships, the client is often what is called a "party".
 
-### Klientadministrator
+### Client Administrator
 
-Ansatt hos systemkunden.  
-Ansvarlig for å knytte sine klienter (kunder) til riktige systembrukere.
+Employee at the system customer.  
+Responsible for linking their clients (customers) to the correct system users.
 
-### Tilgangspakke
+### Access Package
 
-En samling av rettigheter for offentlige tjenester. Pakken er definert i Altinn, og det er tjenesteeiere som velger å knytte rettigheter til en gitt pakke.  
-Pakken har et navn/område som bør matche tjenestenes område.
-
----
-
-## Generelle forutsetninger
-
-Følgende forutsetninger gjelder for de fleste brukerscenariene:
-
-1. **Systemleverandørens ansvar for tilgangskontroll**  
-   - Ha full oversikt over hvilke rettigheter systembrukere trenger (f.eks. tilgangspakker eller enkeltrettigheter for MVA-rapportering).  
-     Informasjon om rettigheter innhentes fra tjenesteeier eller eventuelt via Altinn API. Tjenesteeier må kommunisere krav tydelig.  
-   - Konfigurere disse rettighetene i systemregisteret slik at systembrukere kan tildeles nødvendige rettigheter per kunde.
+A collection of permissions for public services. The package is defined in Altinn, and it is the service owners who choose to link permissions to a given package.  
+The package has a name/area that should match the area of the services.
 
 ---
 
-## Tilgangskontroll i sluttbrukersystem
+## General Assumptions
 
-Med systembruker vil offentlige tjenester ikke kjenne identiteten til personen som sitter bak programvaren og utfører handlinger som resulterer i utstedelse av systembruker-token og kall mot API. 
+The following assumptions apply to most user scenarios:
 
-For å unngå misbruk av systembrukere er det viktig at systemleverandører har systemer for å autentisere og autorisere bruk av sluttbrukersystemet med de tilhørende systembruker-token man som systemleverandør har mulighet til å hente ut. 
-
-Dette kan for eksempel være aktuelt i sammenheng med større virksomheter, som regnskapsbyråer med mange kunder og ansatte, hvor byrået ønsker å begrense tilgangen til data for de forskjellige kundene.
-
----
-
-## 1. Registrert regnskapsfører rapporterer data for klient
-
-**Eksempel:** MVA-rapportering
-
-### Forutsetninger
-
-- Regnskapsfører er registrert i Enhetsregisteret for aktuell klient.
-- Skatteetaten har inkludert MVA-rapportering i en tilgangspakke for regnskapsførere.
-- Systemet støtter innsending via tjeneste-API.
-- Regnskapsfører har opprettet en *systembruker for klientforhold* knyttet til sluttbrukersystemet.
-
-### Steg
-
-1. **Legg til klient**  
-   Klientadministrator hos regnskapsfører knytter sin regnskapskunde (klient) til systembrukeren. Tilgang for regnskapskunden delegeres automatisk til systembrukeren i denne prosessen.
-2. **Hent token**  
-   Sluttbrukersystemet henter systembruker-token via Maskinporten.
-3. **Send rapport**  
-   Sluttbrukersystemet sender MVA-rapport via API med gyldig token.
-4. **Validering og bekreftelse**  
-   Altinn Autorisasjon sjekker tilgang. API returnerer bekreftelse.
+1. **System Provider's Responsibility for Access Control**  
+   - Have full overview of which permissions system users need (e.g., access packages or individual permissions for VAT reporting).  
+     Information about permissions is obtained from the service owner or via the Altinn API. The service owner must communicate requirements clearly.  
+   - Configure these permissions in the system registry so that system users can be assigned the necessary permissions per customer.
 
 ---
 
-## 2. Forretningsfører rapporterer data for oppgavegiver
+## Access Control in End-User System
 
-**Eksempel:** [Rapportering for boligsameie](https://www.skatteetaten.no/bedrift-og-organisasjon/rapportering-og-bransjer/tredjepartsopplysninger/eiendom-og-bolig/boligsameie/rettledning/)
+When using a system user, public services will not know the identity of the person behind the software that triggers the issuance of a system user token and API calls.
 
-### Forutsetninger
+To prevent misuse, it is important that system providers have good routines for authentication and authorization of users in the end-user system, so that only authorized users have access to the system user token.
 
-- Forretningsfører er registrert i Enhetsregisteret for borettslaget.
-- Tilgangspakken **forretningsforer-eiendom** gir tilgang til tjenesten (definert av tjenesteeier).
-- Systemleverandøren har registrert systemet i systemregisteret med nevnte tilgangspakke.
-
-### Steg
-
-1. Systemleverandør sender forespørsel om opprettelse av systembruker for klienter til forretningsfører (kunden til systemleverandøren). Tilgangspakken **forretningsforer-eiendom** legges inn som krav i forespørselen.
-2. Forretningsfører godkjenner forespørselen. 
-3. Klientadministrator legger til borettslaget som kunde/klient på systembrukeren. Tilgangspakken videredelegeres automatisk i denne prosessen til systembrukeren opprettet i steg 2.
-4. Rapportering skjer via systemet.
-5. Systembruker-token hentes fra Maskinporten.
-6. Innsending skjer via API.
-7. Tilgang verifiseres av Altinn PDP API.
+This is especially relevant for larger organizations, such as accounting firms with many customers and employees, where it is necessary to limit access to data for different customers.
 
 ---
 
-## 3. Uregistrert regnskapsfører rapporterer data for klient
+## 1. Registered Accountant Reports Data for Client
 
-**Scenario:** Klienten er ikke registrert i Enhetsregisteret med regnskapsfører.
+**Example:** VAT reporting
 
-### Forutsetninger
+### Assumptions
 
-- Klienten (regnskapsførerkunde) har inngått avtale med regnskapsfører om regnskapstjenester.
-- Regnskapsfører har kjøpt sluttbrukersystem og har satt det opp.
+- The accountant is registered in the Entity Register for the relevant client.
+- The Tax Administration has [defined policy on application](/altinn-studio/reference/configuration/authorization/) so that users with the VAT reporting access package get access.
+- The end-user system is set up with the necessary access packages for VAT reporting.
+- The accountant has created a *system user for client relationships* linked to the end-user system.
 
-### Steg
+### Steps
 
-1. **Forespørsel om tilgang**  
-   Regnskapsfører ber klienten delegere nødvendige rettigheter.
-2. **Delegering**  
-   Klienten delegerer via Altinn.
-3. **Legg til klient**  
-   Klientadministrator hos regnskapsfører knytter klient til systembrukeren. Tilgang videredelegeres til systembrukeren når dette utføres.
-4. **Hent token**  
-   Systembruker-token hentes fra Maskinporten.
-5. **Rapportering**  
-   Innsending skjer via API.
-6. **Validering**  
-   Altinn verifiserer tilgang og returnerer bekreftelse.
+1. **Add Client**  
+   The client administrator at the accountant links the accounting customer (client) to the system user. Access for the accounting customer is automatically delegated to the system user.
+2. **Retrieve Token**  
+   The end-user system retrieves the system user token via Maskinporten.
+3. **Send Report**  
+   The end-user system sends the VAT report via API with a valid token.
+4. **Validation and Confirmation**  
+   Altinn Authorization checks access. The API returns confirmation.
 
----
-
-## 4. Virksomhet rapporterer egne data
-
-**Scenario:** Virksomheten benytter systembruker for rapportering.
-
-### Forutsetninger
-
-- Systemet er satt opp med tilgangspakken for aktuell rapportering (f.eks. MVA).
-
-### Steg
-
-1. **Anskaffelse av system**  
-   Virksomheten kjøper system fra leverandør.
-2. **Forespørsel om systembruker**  
-   Leverandør sender forespørsel om opprettelse av systembruker med nødvendige tilganger.
-3. **Godkjenning**  
-   Virksomheten godkjenner, og systembrukeren opprettes.
-4. **Rapportering**  
-   Systemet henter token og sender data via API.
-5. **Validering**  
-   API sjekker tilgang og returnerer bekreftelse.
+**Support:** Developed as part of system user delivery 5.
 
 ---
 
-## 5. Regnskapsfører henter meldinger for klient via Dialogporten
+## 2. Business Manager Reports Data for Principal
 
-**Scenario:** Systembruker henter meldinger sendt til klient.
+**Example:** [Reporting for housing cooperatives](https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-boligsameie)
 
-### Forutsetninger
+### Assumptions
 
-- Tilgang til meldinger er inkludert i tilgangspakken.
-- Systemet støtter Dialogporten.
+- The business manager is registered in the Entity Register for the housing cooperative.
+- The access package **forretningsforer-eiendom** provides access to the service (defined by the service owner).
+- The system provider has registered the system in the system registry with the mentioned access package.
 
-### Steg
+### Steps
 
-1. **Forespørsel om systembruker**  
-   Leverandør sender forespørsel med krav til meldingsscope.
-2. **Godkjenning**  
-   Regnskapsfører/virksomhet godkjenner forespørselen.
-3. **Klientknytning**  
-   Klientadministrator har knyttet klient til systembrukeren.
-4. **Hent token**  
-   Token hentes fra Maskinporten.
-5. **Hent meldinger**  
-   Meldinger hentes via API.
-6. **Validering**  
-   Altinn validerer og returnerer meldinger.
+1. The system provider sends a request to create a system user for clients to the business manager (the customer). The access package **forretningsforer-eiendom** is included as a requirement.
+2. The business manager approves the request.
+3. The client administrator adds the housing cooperative as a customer/client to the system user. The access package is automatically redelegated to the system user.
+4. Reporting is done via the system.
+5. The system user token is retrieved from Maskinporten.
+6. Submission is done via API.
+7. Access is verified by the Altinn PDP API.
+
+**Support:** Developed as part of system user delivery 5.
 
 ---
 
-## 6. Virksomhet sender fil via formidlingstjeneste (broker)
+## 3. Unregistered Accountant Reports Data for Client
 
-**Scenario:** Innsending av tinglysning via Kartverkets formidlingstjeneste.
+**Scenario:** The client is not registered in the Entity Register with the accountant.
 
-### Forutsetninger
+### Assumptions
 
-- Kartverket har definert ressurs og tilgang.
-- Systemleverandør har registrert systemet og fått godkjenning.
+- The client (accounting customer) has an agreement with the accountant for accounting services.
+- The accountant has purchased the end-user system and set it up.
 
-### Steg
+### Steps
 
-1. Bruker sender tinglysning via systemet.
-2. Token hentes fra Maskinporten.
-3. API kalles med token.
-4. Tilgang valideres av Altinn.
+1. **Request for Access**  
+   The accountant asks the client to delegate the necessary permissions.
+2. **Delegation**  
+   The client delegates via Altinn.
+3. **Add Client**  
+   The client administrator at the accountant links the client to the system user. Access is redelegated to the system user.
+4. **Retrieve Token**  
+   The system user token is retrieved from Maskinporten.
+5. **Reporting**  
+   Submission is done via API.
+6. **Validation**  
+   Altinn verifies access and returns confirmation.
 
----
-
-## 7. Virksomhet har utviklet eget rapporteringssystem
-
-**Scenario:** Egenutviklet løsning for innsending via formidlingstjeneste.
-
-### Forutsetninger
-
-1. Avtale med DigDir og tilgang til systemregisteret.
-2. System registreres med nødvendige rettigheter.
-
-### Steg
-
-1. Forespørsel om systembruker sendes (til seg selv).
-2. Forespørsel godkjennes.
-3. Token hentes.
-4. Systemet sender data via API.
+**Support:** Developed as part of system user delivery 6.
 
 ---
 
-## NAV Scenario A (funksjonalitet ikke prioritert på nåværende tidspunkt)
+## 4. Organization Reports Its Own Data
 
-**Eksempel:** Regnskapsfører bruker “Superavstemming” fra Kontrollen AS.
+**Scenario:** The organization uses a system user for reporting.
 
-### Utfordringer
+### Assumptions
 
-- NAV tilbyr ikke tilgangspakker med granularitet kun for A06/A07.
-- Granulerte rettigheter for systembrukere eller klienter støttes ikke.
+- The system is set up with the resource that defines the service.
 
-### Steg
+### Steps
 
-1. Systemleverandør sender forespørsel om begrenset systembruker.
-2. Regnskapsfører godkjenner.
-3. Klienter legges til og tildeles kun A06/A07.
-4. Rapportering skjer via systemet.
-5. Token hentes og API kalles.
-6. Autorisasjon via Altinn PDP.
+1. **Acquisition of System**  
+   The organization purchases the system from the provider.
+2. **Request for System User**  
+   The provider sends a request to create a system user with the necessary permissions.
+3. **Approval**  
+   The organization approves, and the system user is created.
+4. **Reporting**  
+   The system retrieves a token and sends data via API.
+5. **Validation**  
+   The API checks access and returns confirmation.
 
----
-
-## NAV Scenario B (funksjonalitet ikke prioritert på nåværende tidspunkt)
-
-Tjenesteleverandør har kjøpt systemet Superavstemming fra leverandøren Kontrollen AS.  
-Superavstemming trenger nødvendige tilganger til å hente avstemmingsdata for a-melding (A06/A07) for de av klientene til tjenesteleverandøren som systemet skal benyttes for.  
-Tjenesteleverandøren ønsker å sikre at Superavstemming ikke får rettigheter utover å hente avstemmingsdata for a-melding.  
-Klienten har kun kjøpt tjenesten "avstemming av a-melding" fra tjenestetilbyderen og ønsker kun å delegere rettigheter for dette.  
-(Her vil det være noen få spesifikke rettigheter som er nødvendig, trolig ikke en hel tilgangspakke, ettersom tilgangspakker ser ut til å være litt mer grovkornede.)
+**Support:** Setup with individual permission was developed as part of system user delivery 2.  
+Setup with access packages is being developed as part of system user delivery 4.
 
 ---
 
-## NAV Scenario C (funksjonalitet ikke prioritert på nåværende tidspunkt)
+## 5. Accountant Retrieves Messages for Client via Dialogporten
 
-Tjenesteleverandør har kjøpt systemet Superavstemming fra leverandøren Kontrollen AS.  
-Superavstemming trenger nødvendige tilganger til å hente avstemmingsdata for a-melding (A06/A07) for de av klientene til tjenesteleverandøren som systemet skal benyttes for.  
-Tjenesteleverandøren ønsker å sikre at Superavstemming ikke får rettigheter utover å hente avstemmingsdata for a-melding.  
-Klienten har kjøpt flere tjenester fra tjenestetilbyderen, men ønsker kun å delegere nødvendige rettigheter for de tjenestene som inngår i leveransen.  
-(Her vil det være flere ulike rettigheter som er aktuelle, men det finnes ikke én passende tilgangspakke.)
+**Scenario:** System user retrieves messages sent to the client.
+
+### Assumptions
+
+- Access to messages is included in the access package.
+- The system supports Dialogporten.
+
+### Steps
+
+1. **Request for System User**  
+   The provider sends a request with requirements for message scope.
+2. **Approval**  
+   The accountant/organization approves the request.
+3. **Client Linking**  
+   The client administrator has linked the client to the system user.
+4. **Retrieve Token**  
+   Token is retrieved from Maskinporten.
+5. **Retrieve Messages**  
+   Messages are retrieved via API.
+6. **Validation**  
+   Altinn validates and returns messages.
+
+---
+
+## 6. Organization Sends File via Mediation Service (Broker)
+
+**Scenario:** Submission of registration via the Norwegian Mapping Authority's mediation service.
+
+### Assumptions
+
+- The Norwegian Mapping Authority has defined the resource and access.
+- The system provider has registered the system and received approval.
+
+### Steps
+
+1. User sends registration via the system.
+2. Token is retrieved from Maskinporten.
+3. API is called with the token.
+4. Access is validated by Altinn.
+
+---
+
+## 7. Organization Has Developed Its Own Reporting System
+
+**Scenario:** Self-developed solution for submission via mediation service.
+
+### Assumptions
+
+1. Agreement with DigDir and access to the system registry.
+2. System is registered with the necessary permissions.
+
+### Steps
+
+1. Request for system user is sent (to itself).
+2. Request is approved.
+3. Token is retrieved.
+4. The system sends data via API.
+
+---
+
+## 8. Organization Has Purchased SAP for Local Installation
+
+**Scenario:** SAP software is installed on the organization's own servers, without SAP having control.
+
+### Assumptions
+
+1. The organization has an agreement with Digdir for access to the system registry.
+2. The organization has created a Maskinporten client.
+3. The organization registers the system in the registry representing the SAP installation, with the necessary permissions.
+4. The client key is installed and available on the server.
+
+### Steps
+
+1. Request to create a system user is sent to the organization's own entity.
+2. Request is approved and the system user is created with the correct permissions.
+3. The system can now create Maskinporten tokens for the system user and call the necessary APIs.
+
+**Note:** In such scenarios, the system provider cannot share its own certificate/key pair with the system customer, as this may lead to misuse and access to customer data across organizations.
+
+---
+
+## NAV Scenario A (functionality not prioritized at this time)
+
+**Example:** Accountant uses “Superavstemming” from Kontrollen AS.
+
+### Challenges
+
+- NAV does not offer access packages with granularity only for A06/A07.
+- Granular permissions for system users or clients are not supported.
+
+### Steps
+
+1. System provider sends a request for a limited system user.
+2. Accountant approves.
+3. Clients are added and assigned only A06/A07.
+4. Reporting is done via the system.
+5. Token is retrieved and API is called.
+6. Authorization via Altinn PDP.
+
+---
+
+## NAV Scenario B (functionality not prioritized at this time)
+
+Service provider has purchased the system Superavstemming from Kontrollen AS.  
+Superavstemming needs the necessary permissions to retrieve reconciliation data for a-melding (A06/A07) for the clients the system will be used for.  
+The service provider wants to ensure that Superavstemming does not get permissions beyond retrieving reconciliation data for a-melding.  
+The client has only purchased the "reconciliation of a-melding" service and only wants to delegate permissions for this.  
+(Here, only a few specific permissions are necessary, probably not a whole access package, as access packages are often coarse-grained.)
+
+---
+
+## NAV Scenario C (functionality not prioritized at this time)
+
+Service provider has purchased the system Superavstemming from Kontrollen AS.  
+Superavstemming needs the necessary permissions to retrieve reconciliation data for a-melding (A06/A07) for the relevant clients.  
+The service provider wants to ensure that Superavstemming does not get permissions beyond what is necessary.  
+The client has purchased several services but only wants to delegate the necessary permissions for the relevant services.  
+(Here, several different permissions are relevant, but there is no single suitable access package.)
 
 ---
