@@ -8,7 +8,7 @@ weight: 1
 
 ## Prerequisites
 
-You need to have access to resource administration for your organization. See [Getting started guide](/content/authorization/getting-started/resource-admin-studio)
+You need to have access to resource administration for your organization. See [Getting started guide](/authorization/getting-started/resource-admin-studio/)
 
 ## Step 1 Create Resource
 
