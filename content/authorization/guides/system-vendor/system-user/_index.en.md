@@ -177,7 +177,7 @@ The system user can be created in two ways
   ```
 
 - The confirmurl is sent to the end user for approval. Follow the guide for end user for
-  - [Standard system user](../../end-user/#guide-for-end-user-stadig-konsert-dagligleder-of-tilfeldig-subtil-ape)
+  - [Standard system user](../../end-user/system-user/#guide-for-end-user-stadig-konsert-dagligleder-of-tilfeldig-subtil-ape)
 
 ### Creating a System User For Agent System User
 
@@ -223,7 +223,7 @@ The system user can be created in two ways
   ```
 
 - The confirmurl is sent to the end user, here the auditing organisation for approval. Once approved, the end user can add clients to the system user. Follow the guide for end user for
-  - [Agent system user](../../end-user/#guide-for-end-user-dress-minst-client-administrator-for-tilbakeholden-usymmetrisk-tiger-as-)
+  - [Agent system user](../../end-user/system-user/#guide-for-end-user-dress-minst-client-administrator-for-tilbakeholden-usymmetrisk-tiger-as-)
 
 See [Samarbeisportalen](https://samarbeid.digdir.no/altinn/systembruker/2542) for illustrasjon and webinar.
 
