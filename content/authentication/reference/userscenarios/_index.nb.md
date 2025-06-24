@@ -3,6 +3,7 @@ title: "Brukerscenarier for systembruker"
 linktitle: "Brukerscenarioer"
 description: "Oversikt over aktuelle brukerscenarier for systembruker"
 weight: 5
+aliases: ["/nb/authentication/reference/userscenarios"]
 ---
 
 ## Begreper
@@ -57,9 +58,9 @@ En samling rettigheter for offentlige tjenester, definert i Altinn. Tjenesteeier
 
 Følgende gjelder for de fleste brukerscenarier:
 
-1. **Systemleverandørens ansvar for tilgangskontroll**  
+1. **Systemleverandørens ansvar for tilgangskontroll**
    - Ha oversikt over hvilke rettigheter systembrukere trenger (f.eks. tilgangspakker eller enkeltrettigheter for MVA-rapportering).  
-     Informasjon om rettigheter innhentes fra tjenesteeier eller via Altinn API. Tjenesteeier må kommunisere krav tydelig.  
+     Informasjon om rettigheter innhentes fra tjenesteeier eller via Altinn API. Tjenesteeier må kommunisere krav tydelig.
    - Konfigurere disse rettighetene i systemregisteret slik at systembrukere kan tildeles nødvendige rettigheter per kunde.
 
 ---
@@ -83,7 +84,7 @@ Dette er spesielt viktig for større virksomheter, som regnskapsbyråer med mang
 - Regnskapsfører er [registrert i Enhetsregisteret](https://info.altinn.no/skjemaoversikt/bronnoysundregistrene/registrere-nye-og-endre-eksisterende-foretak-og-enheter---samordnet-registermelding/) for aktuell klient.
 - Skatteetaten har [definert policy på applikasjon](/altinn-studio/reference/configuration/authorization/) slik at brukere med tilgangspakken MVA rapportering får tilgang.
 - [Sluttbrukersystemet er satt opp](/nb/authentication/guides/systemvendor/) med [nødvendige tilgangspakker](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/) for MVA-rapportering.
-- Regnskapsfører har opprettet en [*systembruker for klientforhold*](/nb/authentication/guides/systemvendor/#opprettelse-av-en-systembruker-for-agentsystembruker) knyttet til sluttbrukersystemet.
+- Regnskapsfører har opprettet en [_systembruker for klientforhold_](/nb/authentication/guides/systemvendor/#opprettelse-av-en-systembruker-for-agentsystembruker) knyttet til sluttbrukersystemet.
 
 ### Steg
 

@@ -3,6 +3,7 @@ title: "User Scenarios for System User"
 linktitle: "User Scenarios"
 description: "Overview of relevant user scenarios for system user"
 weight: 5
+aliases: ["authentication/reference/userscenarios"]
 ---
 
 ## Concepts

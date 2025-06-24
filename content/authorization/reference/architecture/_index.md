@@ -19,7 +19,7 @@ The policy decision point is responsible for deciding if an authorization reques
 is authorized or not. It bases its decision on rules and information it has of the resource and the user/system
 trying to access and perform an operation on a resource.
 
-[Read more](./accesscontrol/)
+[Read more](accesscontrol)
 
 ### PAP - Policy Administration Point
 
@@ -40,11 +40,11 @@ The Policy Retrieval Point is responsible for finding the right policy.
 In Altinn, there are two sources of Policies. Altinn Access Management for delegated policies
 and Altinn Resource Registry
 
-[Read more](../../what-do-you-get/resourceregistry/prp/)
+[Read more](../../what-do-you-get/resourceregistry/prp)
 
 ### Context Handler - In production
 
-Responsible for enriching the decision request so authorization correctly can be evaluated. [Read more](./accesscontrol/contexthandler/)
+Responsible for enriching the decision request so authorization correctly can be evaluated. [Read more](accesscontrol/contexthandler)
 
 ### PIP - Policy information point - In production
 
@@ -54,7 +54,7 @@ Responsible for providing information about the subject and the resource to the 
 
 Responsible for enforcing the decision from PDP. PEP is the component that blocks a request or lets it through.
 
-[Read more](./accesscontrol/pep/)
+[Read more](accesscontrol/pep)
 
 For a functional description see details in [application solution components](../../).
 
