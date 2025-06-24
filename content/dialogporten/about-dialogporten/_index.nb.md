@@ -8,7 +8,7 @@ weight: 10
 Dialogporten er en løsning som fungerer som et felles API og metadata-lager for digitale dialoger. Hovedmålet med Dialogporten er å legge til rette for sikker og effektiv kommunikasjon mellom offentlige tjenesteplattformer (som Altinn) og brukere ved å tilby en standardisert måte å håndtere digitale dialoger og meldinger på. Dette innebærer å administrere metadataene knyttet til disse dialogene og sikre interoperabilitet på tvers av ulike systemer.
 
 ## Hva er lagret i Dialogporten?
-Dialogporten inneholder "dialoger", som er representasjoner av en bestemt instans av en digital tjeneste. En dialog består av en avsender (vanligvis en offentlig aktør), en mottaker (en borger eller organisasjon) og en referanse til en digital tjenestedefinisjon i [Altinn Resource Registry]({{<relref "../../authorization/what-do-you-get/resourceregistry">}}), som i seg selv inneholder informasjon om selve tjenesten samt autorisasjonspolicyer som styrer bruken av den.
+Dialogporten inneholder "dialoger", som er representasjoner av en bestemt instans av en digital tjeneste. En dialog består av en avsender (vanligvis en offentlig aktør), en mottaker (en borger eller organisasjon) og en referanse til en digital tjenestedefinisjon i [Altinn Resource Registry](../../authorization/what-do-you-get/resourceregistry), som i seg selv inneholder informasjon om selve tjenesten samt autorisasjonspolicyer som styrer bruken av den.
 
 I tillegg inneholder en dialog noe innhold som brukes til å beskrive statusen til dialogen for sluttbrukere og gi informasjon om hva brukeren bør gjøre (om noe), for eksempel et tittelfelt, en kort sammendragstekst og aktivitetshistorikk som viser de forskjellige handlingene som er utført og statusendringer gjennom hele dialogens levetid.
 
@@ -20,9 +20,9 @@ Dialogporten er "kun-les"{{<footnote "Det er to unntak; [dialogetiketter](../get
 {{<displayFootnotes>}}
 
 ## Hvordan bruker app-utviklere i Altinn Dialogporten?
-Altinn-plattformen vil automatisk gjøre alle [app-instanser]({{<relref "../../api/models/instance/">}}) og [Altinn-meldinger]({{<relref "../../../correspondence">}}) tilgjengelige i Dialogporten, eksponere relevant informasjon og handlinger, og vil oppdatere representasjonen etterhvert som app-instansen/Altinn-meldingen blir oppdatert.
+Altinn-plattformen vil automatisk gjøre alle [app-instanser](../../api/models/instance/) og [Altinn-meldinger](../../correspondence) tilgjengelige i Dialogporten, eksponere relevant informasjon og handlinger, og vil oppdatere representasjonen etterhvert som app-instansen/Altinn-meldingen blir oppdatert.
 
-For ytterligere kontroll benytter [app template]({{<relref "../../../app-template/_index.md">}}) en [Dialogporten API-klient]({{<relref "../user-guides/service-owners/api-client">}}) som gjør det mulig for appen å ta full kontroll over hvordan appen er representert i Dialogporten, og dermed portaler som Altinn-innboksen ("arbeidsflate").
+For ytterligere kontroll benytter [app template](/app-template) en [Dialogporten API-klient](../user-guides/service-owners/api-client) som gjør det mulig for appen å ta full kontroll over hvordan appen er representert i Dialogporten, og dermed portaler som Altinn-innboksen ("arbeidsflate").
 
 {{% notice warning %}}
 App template-integrasjonen er under utvikling. Foreløpig må app-utviklere bruke [Dialogporten API-klientens NuGet-pakke](https://www.nuget.org/packages/Altinn.ApiClients.Dialogporten) direkte.

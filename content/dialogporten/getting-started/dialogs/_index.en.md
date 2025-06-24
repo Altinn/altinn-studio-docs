@@ -9,13 +9,13 @@ toc: true
 
 This section explains the dialog model and its components from a functional standpoint. For technical information for the various entities, see links within each section of this page.
 
-For step-by-step guides on how to use Dialogporten as a end-user or service owner, see the [user guides]({{<relref "../../user-guides">}}).
+For step-by-step guides on how to use Dialogporten as a end-user or service owner, see the [user guides](../../user-guides).
 
 ## The dialog
 
 The dialog is an abstract and common model for all ongoing or completed communications with a service owners, and contains descriptive metadata, e.g., who is the receiving party, addresses (URL), textual content (title, summary etc), date, status, a list of relevant _actions_ that the user can perform, and an optional list of [transmissions](#transmissions). Actions can be arbitrarily defined by the service provider, and all interaction with the dialog takes place in the service provider's user interfaces or against the service provider's API endpoints (except for GUI actions that describe write operations, see more about this in the section [Actions](#actions)).
 
-An important difference from [Altinn Correspondence]({{<relref "/correspondence">}}) is that dialogs in Dialogporten are _mutable_. The service provider can update the metadata and available actions on the dialog at any time (with some notable exceptions). Any change generates _events_, which authorized parties can act on, e.g., sending a notification or having an EUS perform an action.
+An important difference from [Altinn Correspondence](../../../correspondence) is that dialogs in Dialogporten are _mutable_. The service provider can update the metadata and available actions on the dialog at any time (with some notable exceptions). Any change generates _events_, which authorized parties can act on, e.g., sending a notification or having an EUS perform an action.
 
 Dialogs use [UUIDv7](https://uuid7.com/) as its identifier. The service owner can specify the desired UUIDv7 upon creation to enable the use of the same identifier across systems and ensure idempotency. The date portion of the UUIDv7 cannot be set to a future date.
 
@@ -27,13 +27,13 @@ Dialogs use [UUIDv7](https://uuid7.com/) as its identifier. The service owner ca
 
 While the dialog mainly contains metadata, there is some content, namely a title, a short summary and a field for "additional information", used for providing non-personal textual information, eg. service owner contact information or links to documentation.
 
-Additionally, a dialog may contain a content reference called a [front channel embeds]({{<relref "../front-channel-embeds">}}), which is a URL to a special endpoint provided by the service owner that returns a "full" personlized content payload.
+Additionally, a dialog may contain a content reference called a [front channel embeds](../front-channel-embeds), which is a URL to a special endpoint provided by the service owner that returns a "full" personlized content payload.
 
 ## Transmissions
 
 A transmission is used to describe a single "communication" between the service owner and the party within a dialog Transmissions can typically be messages, pre-filled forms and receipts from the service provider, or submitted forms/messages from the party related to the dialog. The dialog may contain zero or more transmissions represented in a chronologically sorted list. Each transmission and the list of transmissions are immutable; it is only possible to append new tranmissions to the list, not change or delete transmissions.
 
-A transmission contains some textual metadata (title, summary) that explains what the transmission is, including [front channel embeds]({{<relref "../front-channel-embeds">}}). Additionally, a transmission may contain one or more [attachments](#attachments).
+A transmission contains some textual metadata (title, summary) that explains what the transmission is, including [front channel embeds](../front-channel-embeds). Additionally, a transmission may contain one or more [attachments](#attachments).
 
 Transmissions will by default inherit the authorization policy for the dialog itself, but this may be overridden such that individual transmissions are indicated as unavaiable if the end-user lacks privileges, in which case only the metadata is available, but not any front-channel embeds or attachments.
 
@@ -57,7 +57,7 @@ Attachments can be used on both transmission and dialog level.
 
 An _action_ describes an interaction that users can perform with or related to a dialog. Examples of actions are "Open", "Start signing", "Pay", "Confirm", "Learn more", "Cancel", etc. The list of relevant actions is part of the structured description of a dialog and can be changed at any time by the service provider through the API.
 
-An action is either a _"GUI" action_ or an _"API" action_. All actions - both GUI and API - have an identifier that maps to an _action_ (and optionally an [authorization attribute]({{<relref "../authorization/attributes">}})) in the authorization policy ([XACML]({{<relref "../../../../authorization/reference/xacml/">}})) associated with a [service resource]({{<relref "../authorization/service-resource">}}).
+An action is either a _"GUI" action_ or an _"API" action_. All actions - both GUI and API - have an identifier that maps to an _action_ (and optionally an [authorization attribute](../authorization/attributes)) in the authorization policy ([XACML](../../../../authorization/reference/xacml/) associated with a [service resource](../authorization/service-resource).
 
 ### GUI Actions
 
@@ -65,12 +65,12 @@ GUI actions are meant to be used with browser based end-user systems (portals), 
 
 All GUI actions have a URL. These URLs are used in the front channel (ie. the browser) when the user activates the action, and involve the user being redirected to the service provider's own user interface where the action is performed, either automatically or as a result of further user interaction. This redirection always occurs with a GET request, ensuring that any existing sessions with the service provider are used (i.e., that browsers will send session cookies), and that redirection via SSO login in ID-porten works. These URLs must therefore return either redirects or HTML, and since it is a GET request, it is not recommended that these actions directly result in state changes.
 
-GUI actions can, however, be marked as [write operations]({{<relref "../write-actions">}}) and can then also be used to make state changes.
+GUI actions can, however, be marked as [write operations](../write-actions) and can then also be used to make state changes.
 
 **Read more**
 
 - {{<link "../write-actions">}}
-- [Reference information for the GUI action entity]({{<relref "../../reference/entities/action#gui-actions">}})
+- [Reference information for the GUI action entity](../../reference/entities/action#gui-actions)
 
 ### API Actions
 
@@ -82,7 +82,7 @@ Dialogporten does not validate any data and does not see what data flows between
 
 **Read more**
 
-- [Reference information for the API action entity]({{<relref "../../reference/entities/action#api-actions">}})
+- [Reference information for the API action entity](../../reference/entities/action#api-actions)
 
 ## Activities
 
@@ -108,7 +108,7 @@ There are two main categories of labels; user defined labels and system labels.
 User defined labels are administered by the users, and may be shared with other users. Some user defined labels have global effect (ie. visible for everyone with access to the dialog), while other are personal (ie. only visible for the user owning the labels.)
 
 {{<notice warning>}}
-User defined label functionality is under design, and will be made available at a later stage. See the [news]({{<relref "../../news">}}) section for updated information.
+User defined label functionality is under design, and will be made available at a later stage. See the [news](../../news) section for updated information.
 {{</notice>}}
 
 ### System labels

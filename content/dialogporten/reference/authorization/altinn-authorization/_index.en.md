@@ -20,7 +20,7 @@ Dialogporten performs basic authentication and scope-based authorization via sel
 
 ## Dialog list authorization
 
-All list views in Dialogporten utilizes the [Authorized Parties API]({{<relref "../../../../authorization/guides/resource-owner/integrating-link-service/#integration-with-api-for-authorized-parties-issuers">}}), that yields a list of all parties the authenticated user can represent along with all roles/access packages and service/instance rights that user has been granted for each party.
+All list views in Dialogporten utilizes the [Authorized Parties API](../../../../authorization/guides/resource-owner/integrating-link-service/#integration-with-api-for-authorized-parties-issuers), that yields a list of all parties the authenticated user can represent along with all roles/access packages and service/instance rights that user has been granted for each party.
 
 Dialogporten maintains a map of which roles/access packages grant rights to each resource in the resource registry, and uses that to fetch only dialogs referring to service resources that the user has some kind of access to. Which actions (read, write, etc) are not considered - any right for the given party for the given resource is sufficient to see the dialog in the dialog list.
 
@@ -28,7 +28,7 @@ As only one request (for a given party/service resource tuple) will have to be p
 
 ## Dialog details authorization
 
-For dialog details, the [PDP API]({{<relref "../../../../authorization/guides/resource-owner/integrating-link-service/#integration-with-pdp">}}) is utilized, allow for fine-grained authorization of the various actions and transmissions defined within the dialog.
+For dialog details, the [PDP API](../../../../authorization/guides/resource-owner/integrating-link-service/#integration-with-pdp) is utilized, allow for fine-grained authorization of the various actions and transmissions defined within the dialog.
 
 All actions and transmissions are decorated with a `IsAuthorized` flag, which indicates to the end-user system whether or not the user has access. If not, all URLs are removed.
 

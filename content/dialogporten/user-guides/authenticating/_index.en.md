@@ -36,7 +36,7 @@ The following general steps must be performed in order to access the end-user AP
 2. Provision the scope `digdir:dialogporten` on the client, as well as any additional scopes required for access content data (ie. `altinn:correspondence.read`)
 3. Redirect the user to the authorize-endpoint in ID-porten, where they authenticate themselves and consent to you integration getting access to call Dialogporten on your behalf
 4. At your redirect endpoint, use the authorization code provided against the ID-porten token endpoint to get an access token
-5. Perform requests to the [end-user API]({{<ref "../../reference/openapi">}}) using the access token in a `Authorization: Bearer <token>` header.
+5. Perform requests to the [end-user API](../../reference/openapi) using the access token in a `Authorization: Bearer <token>` header.
 
 ID-porten implements a standard OAuth2 protocol, and issues refresh tokens that can be stored and reused in order to get fresh access tokens at a later stage. Authorizations (OAuth "consents") to the `digdir:dialogporten` scope are valid up to 90 days.
 
@@ -59,7 +59,7 @@ The following general steps must be performed in order to access the end-user AP
 3. Create a new system user, and associate it either with a vendor supplied system, or opt to create your own Maskinporten integration
 4. Grant service rights to the system user
 5. Create a JWT grant identifying the system user and the `digdir:dialogporten` scope, as well as any additional scopes required for accessing content data (ie. `altinn:correspondence.read`), sign it and send it to the Maskinporten token end-point in order to get a access token.
-6. Perform requests to the [end-user API]({{<ref "../../reference/openapi">}}) using the access token in a `Authorization: Bearer <token>` header.
+6. Perform requests to the [end-user API](../../reference/openapi) using the access token in a `Authorization: Bearer <token>` header.
 
 For detailed steps on how to create and utilize a system user, see the link below.
 
@@ -75,11 +75,11 @@ Service owner systems must use Maskinporten-issued tokens, optionally exchanged 
 
 There are several scopes defining access to various parts of the service owner API:
 
-| Scope                                                | Grants access to                                                                                                                                                                                               |
-| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `digdir:dialogporten.serviceprovider`                | All service owner APIs, except the search/list API                                                                                                                                                             |
-| `digdir:dialogporten.serviceprovider.search`         | All service owner APIs, including the search/list API                                                                                                                                                          |
-| `digdir:dialogporten.serviceprovider.correspondence` | Create and update dialogs referring a service resource of type `CorrespondenceService` in [Altinn Resource Registry]({{<ref "../../../authorization/what-do-you-get/resourceregistry/">}}) (internal use only) |
+| Scope                                                | Grants access to                                                                                                                                                                                   |
+| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `digdir:dialogporten.serviceprovider`                | All service owner APIs, except the search/list API                                                                                                                                                 |
+| `digdir:dialogporten.serviceprovider.search`         | All service owner APIs, including the search/list API                                                                                                                                              |
+| `digdir:dialogporten.serviceprovider.correspondence` | Create and update dialogs referring a service resource of type `CorrespondenceService` in [Altinn Resource Registry](../../../authorization/what-do-you-get/resourceregistry/) (internal use only) |
 
 Using these scopes requires the organization in the `consumer` claim of the to be registered as a service owner ("org") in Altinn. Failing that will cause any requests to fail.
 
@@ -89,7 +89,7 @@ The follwing general steps must be performed in order to access Dialogporten ser
 2. Provision the scope `digdir:dialogporten.serviceprovider` on the client
 3. Generate a JWT grant referring your client id and scope, sign it and send it to the Maskinporten token endpoint
 4. At your redirect endpoint, use the authorization code provided against the Maskinporten end-point in order to get a access token.
-5. Perform requests to the [service owner API]({{<ref "../../reference/openapi">}}) using the access token in a `Authorization: Bearer <token>` header.
+5. Perform requests to the [service owner API](../../reference/openapi) using the access token in a `Authorization: Bearer <token>` header.
 
 For detailed steps on how to use Maskinporten, see the link below.
 
