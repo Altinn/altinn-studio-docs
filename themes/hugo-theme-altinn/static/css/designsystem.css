@@ -413,6 +413,12 @@ mark,
   @media (min-width: 1400px) {
     .container {
       max-width: 1320px; } }
+  @media (min-width: 1600px) {
+    .container {
+      max-width: 1540px; } }
+  @media (min-width: 1920px) {
+    .container {
+      max-width: 1800px; } }
 
 .container-fluid {
   width: 100%;
