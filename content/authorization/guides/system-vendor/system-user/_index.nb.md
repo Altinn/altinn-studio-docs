@@ -9,11 +9,11 @@ weight: 2
 #### Tiltak utført av systemleverandøren (SmartCloud AS)
 
 1.  Kontakt Digdir
-    - Systemleverandøren må ta kontakt med Digdir for å få tilgang til systemregisteret og systembruker-scopes. Prossedyren for dette er beskrevet på [Samarbeidsportalen](https://samarbeid.digdir.no/altinn/kom-i-gang/2868).
+    - Systemleverandøren må ta kontakt med Digdir for å få tilgang til systemregisteret og systembruker-scopes. Prosedyren for dette er beskrevet på [Samarbeidsportalen](https://samarbeid.digdir.no/altinn/kom-i-gang/2868).
 2.  Opprette en Maskinporten-klient for systemet
     - SmartCloud AS ønsker å integrere systembrukeren i sitt regnskapsprogram, SmartCloud.
     - For å integrere må de opprette en klient i Maskinporten for SmartCloud, som får en klient-ID som brukes til autentisering og autorisering.
-    - På [Samarbeidsportalen](https://samarbeid.digdir.no/altinn/kom-i-gang-i-testmiljoet-tt02/2868) kan du lese mer om skrittene som må gjennomføres får du kan starte med integrasjon og test mot vårt testmiljø (TT02)
+    - På [Samarbeidsportalen](https://samarbeid.digdir.no/altinn/kom-i-gang-i-testmiljoet-tt02/2868) kan du lese mer om skrittene som må gjennomføres før du kan starte med integrasjon og test mot vårt testmiljø (TT02)
     - Se veiledningen for å etablere Maskinporten-integrasjon [Maskinporten som konsument](https://samarbeid.digdir.no/maskinporten/konsument/119)
     - Pass på at du får tildelt scopene:
       - `altinn:authentication/systemregister.write` - for registrering av system i systemregisteret
@@ -106,7 +106,7 @@ weight: 2
 
 Se [her](https://platform.tt02.altinn.no/accessmanagement/api/v1/meta/info/accesspackages/export) for list av tilgjengelige tilgangspakker på tt02 miljø.
 
-Se [her](/content/api/authentication/systemuserapi/systemregister/model/) for en detaljert beskrivelse av hver enkelt input. Ved all videre kommunikasjon må systemleverandøren referere til verdien som er angitt i feltet 'id'.
+Se [her](../../../../api/authentication/systemuserapi/systemregister/model/) for en detaljert beskrivelse av hver enkelt input. Ved all videre kommunikasjon må systemleverandøren referere til verdien som er angitt i feltet 'id'.
 
 #### Opprettelse av systembruker for en standard system bruker
 
@@ -163,13 +163,13 @@ Systembrukeren kan opprettes på to måter
 
       ```
 
-    - Bekreftelseslenken (confirmurl) sendes til sluttbrukeren for godkjenning. Følg veiledningen for [sluttbruker for Standard systembruker](../../enduser/#veiledning-for-sluttbruker-stadig-konsert-dagligleder-til-tilfeldig-subtil-ape) for å håndtere forespørselen.
+    - Bekreftelseslenken (confirmurl) sendes til sluttbrukeren for godkjenning. Følg veiledningen for [sluttbruker for Standard systembruker](../../end-user/#veiledning-for-sluttbruker-stadig-konsert-dagligleder-til-tilfeldig-subtil-ape) for å håndtere forespørselen.
 
 ### Opprettelse av en systembruker for agentsystembruker
 
 - Systembrukeren for en agentsystembruker kan kun opprettes ved en forespørsel fra en systembruker.
 - SmartCloud AS oppretter en systembrukerforespørsel (via Altinn API for systembrukerforespørsel) fra SmartCloud, som deretter sendes til Altinn.
-  For detaljert informasjon om hvert inputfelt, se dokumentasjonen [her](/api/authentication/systemuserapi/systemuserrequest/external/model/)
+  For detaljert informasjon om hvert inputfelt, se dokumentasjonen [her](../../../../api/authentication/systemuserapi/systemuserrequest/external/model/)
 
         ```
         {
@@ -208,11 +208,11 @@ Systembrukeren kan opprettes på to måter
 
   ```
 
-- Bekreftelseslenken (confirmurl) sendes til sluttbrukeren, her revisjonsorganisasjonen, for godkjenning. Når den er godkjent, kan sluttbrukeren legge til klienter til systembrukeren. Følg veiledningen for sluttbruker for [Agent systembruker](../enduser/#veiledning-for-sluttbruker-dress-minst-klientadministratør-i-tilbakeholden-usymmetrisk-tiger-as-)
+- Bekreftelseslenken (confirmurl) sendes til sluttbrukeren, her revisjonsorganisasjonen, for godkjenning. Når den er godkjent, kan sluttbrukeren legge til klienter til systembrukeren. Følg veiledningen for sluttbruker for [Agent systembruker](../../end-user/#veiledning-for-sluttbruker-dress-minst-klientadministratør-i-tilbakeholden-usymmetrisk-tiger-as-)
 
 Se [Samarbeisportalen](https://samarbeid.digdir.no/altinn/systembruker/2542) for illustrert og webinar.
 
-se [api dokumentasjon](/api/authentication/systemuserapi/) for mer informasjon om endepunkter.
+se [api dokumentasjon](../../../../api/authentication/systemuserapi/) for mer informasjon om endepunkter.
 
 ### 6. Test og Produksjonssetting
 

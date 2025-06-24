@@ -1,7 +1,7 @@
 ---
 title: System user guide
 linktitle: System user
-description: A guide for the sysem vendor to set up integrate and setup system users for their systems.
+description: A guide for the system vendor to set up integrate and setup system users for their systems.
 
 toc: true
 weight: 2
@@ -34,7 +34,7 @@ weight: 2
     - The system is typically web-based software available in the market, which end customers (businesses) can use for communication with the public sector.
     - SmartCloud AS then registers SmartCloud system in the Altinn System Register.
     - They define the required rights for accessing "Krav og betalinger" by associating the client ID with the relevant permissions.
-    - Refer [here](/api/authentication/systemuserapi/systemregister/model/) for the detailed description for information about each input.
+    - Refer [here](../../../../api/authentication/systemuserapi/systemregister/model/) for the detailed description for information about each input.
 
 ```
   {
@@ -128,7 +128,7 @@ The system user can be created in two ways
 2. Vendor driven
 
    - SmartCloud AS creates a system user request (via altinn api for system user request) from within SmartCloud, which is sent to Altinn.
-     For detailed information on each input field, refer the documentation [here](/api/authentication/systemuserapi/systemuserrequest/external/model/)
+     For detailed information on each input field, refer the documentation [here](../../../../api/authentication/systemuserapi/systemuserrequest/external/model/)
 
    ```
    {
@@ -177,13 +177,13 @@ The system user can be created in two ways
   ```
 
 - The confirmurl is sent to the end user for approval. Follow the guide for end user for
-  - [Standard system user](../../enduser/#guide-for-end-user-stadig-konsert-dagligleder-of-tilfeldig-subtil-ape)
+  - [Standard system user](../../end-user/#guide-for-end-user-stadig-konsert-dagligleder-of-tilfeldig-subtil-ape)
 
 ### Creating a System User For Agent System User
 
 - The system user for agent system user can be created only by system user request
 - SmartCloud AS creates a system user request (via altinn api for system user request) from within SmartCloud, which is sent to Altinn.
-  For detailed information on each input field, refer the documentation [here](/api/authentication/systemuserapi/systemuserrequest/external/model/)
+  For detailed information on each input field, refer the documentation [here](../../../../api/authentication/systemuserapi/systemuserrequest/external/model/)
 
   ```
   {
@@ -223,11 +223,11 @@ The system user can be created in two ways
   ```
 
 - The confirmurl is sent to the end user, here the auditing organisation for approval. Once approved, the end user can add clients to the system user. Follow the guide for end user for
-  - [Agent system user](../../enduser/#guide-for-end-user-dress-minst-client-administrator-for-tilbakeholden-usymmetrisk-tiger-as-)
+  - [Agent system user](../../end-user/#guide-for-end-user-dress-minst-client-administrator-for-tilbakeholden-usymmetrisk-tiger-as-)
 
 See [Samarbeisportalen](https://samarbeid.digdir.no/altinn/systembruker/2542) for illustrasjon and webinar.
 
-Refer [api documentation](/api/authentication/systemuserapi/) for more information on available endpoints.
+Refer [api documentation](../../../../api/authentication/systemuserapi/) for more information on available endpoints.
 
 ## Maskinporten authentication
 
@@ -297,10 +297,10 @@ The token received from Maskinporten is attached as a Bearer Token to the APIs b
 To test system user in TT02, the following is required:
 
 - System provider registered in Maskinporten. This is done via servicedesk@digdir.no.
-- System provider registered in Altinn. This is done via api for system vendor.
+- System provider registered in Altinn. This is done via API for system vendor.
 - System integration registered in Maskinporten test.
 
-For creating system users, test users/organizations from Tenor can be used.
+For creating system users, test users/organisations from Tenor can be used.
 
 ### Reference implementation and setup
 
