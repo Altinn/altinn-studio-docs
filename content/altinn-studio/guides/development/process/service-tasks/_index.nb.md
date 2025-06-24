@@ -9,10 +9,47 @@ weight: 10
 
 {{% insert "content/altinn-studio/guides/development/process/service-tasks/intro.nb.md" %}}
 
-### Egendefinerte systemoppgaver
+## Standard systemoppgaver
+Som standard så følger PDF-generering og eFormidling med appen.
+De må ligge som steg i prosessen for at de skal kjøre.
+
+Tidligere lå ikke denne funksjonaliteten i systemoppgaver, så dersom appen din ble satt opp før versjon 8.7, så bør du deaktivere funksjonalitenen som kjøres utenfor prosessdefinisjonen.
+- PDF: Slå av "enablePdfGeneration" på alle datatyper.
+- eFormidling:
+
+Slik legger du til PDF-generering i prosessen:
+```xml
+<bpmn:serviceTask id="Task_3" name="PDF">
+    <bpmn:extensionElements>
+        <altinn:taskExtension>
+            <altinn:taskType>pdf</altinn:taskType>
+            <altinn:pdfConfig>
+                <altinn:filename>pdfFileNameTextResourceKey</altinn:filename>
+            </altinn:pdfConfig>
+        </altinn:taskExtension>
+    </bpmn:extensionElements>
+    <bpmn:incoming>SequenceFlow_0c458hu</bpmn:incoming>
+    <bpmn:outgoing>SequenceFlow_5assd2s</bpmn:outgoing>
+</bpmn:serviceTask>
+```
+
+Slik legger du til eFormidling i prosessen:
+```xml
+<bpmn:serviceTask id="Task_4" name="eFormidling">
+    <bpmn:extensionElements>
+        <altinn:taskExtension>
+            <altinn:taskType>eFormidling</altinn:taskType>
+        </altinn:taskExtension>
+    </bpmn:extensionElements>
+    <bpmn:incoming>SequenceFlow_5assd2s</bpmn:incoming>
+    <bpmn:outgoing>SequenceFlow_2asasd1</bpmn:outgoing>
+</bpmn:serviceTask>
+```
+
+## Egendefinerte systemoppgaver
 En egendefinert systemoppgave krever endringer i prosessen, i tilgangsstyring og en implementasjon av interfacet `IServiceTask`.
 
-#### BPMN
+### BPMN
 
 ```xml
 <bpmn:serviceTask id="ExampleServiceTask" name="Example Service Task">
@@ -26,7 +63,7 @@ En egendefinert systemoppgave krever endringer i prosessen, i tilgangsstyring og
 </bpmn:serviceTask>
 ```
 
-#### Implementasjon
+### Implementasjon
 
 ```csharp
 using System;
@@ -81,8 +118,9 @@ public Task<bool> MoveToNextTaskAfterExecution(
     }
 ```
 
-#### Tilgangsstyring
-Systemoppgaver kjører med rettighetene til den brukeren som driver prosessen videre (process next). For at brukeren skal ha rettigheter til å kjøre en egendefinert systemoppgave må `Type` fra implementasjonen legges inn som en action i policy.xml.
+### Tilgangsstyring
+Systemoppgaver kjører med rettighetene til den brukeren som driver prosessen videre (process next). Standard systemoppgaver autoriseres som `write`-operasjoner. For at brukeren skal ha rettigheter til å kjøre en egendefinert systemoppgave må `Type` fra implementasjonen legges inn som en action i policy.xml.
+
 Legg den på samme sted som andre actions den relevante brukeren skal ha tilgang til.
 ```
 <xacml:AllOf>
