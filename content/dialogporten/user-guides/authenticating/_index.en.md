@@ -16,7 +16,7 @@ The Dialogporten API is divided into a service owner-API and a end user-API.
 
 {{<displayFootnotes>}}
 
-In addition, token issued by [Altinn Token Exhange]({{<ref "../../../authorization/what-do-you-get/#exchange-a-jwt-token-from-an-external-token-provider">}}) is also supported, when using either ID-porten or Maskinporten as input.
+In addition, token issued by [Altinn Token Exhange](../../../authorization/what-do-you-get/authentication/#exchange-a-jwt-token-from-an-external-token-provider) is also supported, when using either ID-porten or Maskinporten as input.
 
 ## Usage for end-user systems
 
@@ -46,7 +46,7 @@ For detailed steps on how to create an ID-porten integration and utilizing the O
 
 - [About ID-porten (norwegian)](https://samarbeid.digdir.no/id-porten/id-porten/18)
 - [Getting started with ID-porten](https://docs.digdir.no/docs/idporten/oidc/oidc_guide_english.html)
-- [Using Altinn Token Exchange]({{<ref "../../../authorization/what-do-you-get/#exchange-a-jwt-token-from-an-external-token-provider">}})
+- [Using Altinn Token Exchange](../../../authorization/what-do-you-get/authentication/#exchange-a-jwt-token-from-an-external-token-provider)
 
 ### Maskinporten authentication with system users
 

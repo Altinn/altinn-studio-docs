@@ -89,7 +89,7 @@ Dette er spesielt viktig for større virksomheter, som regnskapsbyråer med mang
 ### Steg
 
 1. **Legg til klient**  
-   Klientadministrator hos regnskapsfører [knytter regnskapskunden (klient) til systembrukeren](../../guides/guides/end-user/system-user/#veiledning-for-sluttbruker-dress-minst-klientadministratør-i-tilbakeholden-usymmetrisk-tiger-as-). Tilgang for regnskapskunden delegeres automatisk til systembrukeren.
+   Klientadministrator hos regnskapsfører [knytter regnskapskunden (klient) til systembrukeren](../../guides/end-user/system-user/#veiledning-for-sluttbruker-dress-minst-klientadministratør-i-tilbakeholden-usymmetrisk-tiger-as-). Tilgang for regnskapskunden delegeres automatisk til systembrukeren.
 2. **Hent token**  
    Sluttbrukersystemet [henter systembruker-token via Maskinporten](../../guides/system-vendor/system-user).
 3. **Send rapport**  

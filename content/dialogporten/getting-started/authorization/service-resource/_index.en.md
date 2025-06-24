@@ -10,7 +10,7 @@ All dialogs must refer to a main _service resource_. A service resource describe
 
 Service resources reside in [Altinn Resource Registry](../../../../authorization/what-do-you-get/resourceregistry/), alongside other types of resources which utilize Altinn Authorization for access management and control. The authorization policies are expressed in [XACML](../../../../authorization/reference/xacml/), which describes the access rules that governs all dialogs that refer to it. Dialogporten is integrated with Altinn Authorization, and will consult it for every request made to Dialogporten and enforce its decisions. The main service resource policy, along with the [party](../parties) associated with each dialog, is thus used to control what information a given user can retrieve from Dialogporten. Access managers within organizations use these service resources, or groups of related service resources, when handling who should have access to do what on behalf of an organization.
 
-For example, an action named "Go to signing" might refer to an _action_ called "sign" in the [XACML](../../../../authorization/guides/xacml/) policy for the main service resource. If the user does not posess this permission, the button may be grayed out and disabled.
+For example, an action named "Go to signing" might refer to an _action_ called "sign" in the [XACML](../../../../authorization/reference/xacml/) policy for the main service resource. If the user does not posess this permission, the button may be grayed out and disabled.
 
 ## Advanced usage
 

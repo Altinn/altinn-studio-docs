@@ -16,7 +16,7 @@ Dialogporten API-et er delt inn i et tjenesteeier-API og et sluttbruker-API.
 
 {{<displayFootnotes>}}
 
-I tillegg støttes token utstedt av [Altinn Token Exchange](../../../authentication/what-do-you-get/#bytt-et-jwt-fra-en-ekstern-tokenleverandør), ved bruk av enten ID-porten eller Maskinporten som input.
+I tillegg støttes token utstedt av [Altinn Token Exchange](../../../authorization/what-do-you-get/authentication/#bytt-et-jwt-fra-en-ekstern-tokenleverandør), ved bruk av enten ID-porten eller Maskinporten som input.
 
 ## Bruk for sluttbrukersystemer
 
@@ -46,7 +46,7 @@ For detaljerte trinn om hvordan du oppretter en ID-porten-integrasjon og bruker 
 
 - [Om ID-porten (norsk)](https://samarbeid.digdir.no/id-porten/id-porten/18)
 - [Kom i gang med ID-porten](https://docs.digdir.no/docs/idporten/oidc/oidc_guide_english.html)
-- [Bruke Altinn Token Exchange](../../../authentication/what-do-you-get/#bytt-et-jwt-fra-en-ekstern-tokenleverandør)
+- [Bruke Altinn Token Exchange](../../../authorization/what-do-you-get/authentication/#bytt-et-jwt-fra-en-ekstern-tokenleverandør)
 
 ### Maskinporten-autentisering med systembrukere
 
