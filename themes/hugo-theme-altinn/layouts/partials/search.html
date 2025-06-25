@@ -30,7 +30,9 @@
                 });
                 
                 var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
-                searchField.ariaLabel = "Søk";
+                if (searchField) {
+                    searchField.setAttribute('aria-label', '{{ T "search" }}');
+                }
 
                 var sKey = "as";
                 searchField.addEventListener("blur", () => {
