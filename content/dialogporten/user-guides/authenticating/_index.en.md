@@ -65,7 +65,7 @@ For detailed steps on how to create and utilize a system user, see the link belo
 
 **Read more**
 
-- [Authenticating with system users]({{<ref "../../../authorization/guides/system-vendor/system-user/">}})
+- [Authenticating with system users](../../../authorization/guides/system-vendor/system-user/)
 
 {{<children />}}
 

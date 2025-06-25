@@ -65,7 +65,7 @@ For detaljerte trinn om hvordan du oppretter og bruker en systembruker, se lenke
 
 **Les mer**
 
-- [Autentisering med systembrukere](../../../authentication/guides/serviceowner)
+- [Autentisering med systembrukere](../../../authorization/guides/system-vendor/system-user/)
 
 {{<children />}}
 
