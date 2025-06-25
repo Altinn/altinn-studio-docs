@@ -13,7 +13,7 @@ weight: 10
 Som standard så følger PDF-generering og eFormidling med appen.
 De må ligge som steg i prosessen for at de skal kjøre.
 
-Tidligere lå ikke denne funksjonaliteten i systemoppgaver, så dersom appen din ble satt opp før versjon 8.7, så bør du deaktivere funksjonalitenen som kjøres utenfor prosessdefinisjonen.
+Tidligere lå ikke denne funksjonaliteten i systemoppgaver, men var bakt inn i den grenerelle koden for å endre prosesssteg, så dersom appen din ble satt opp før versjon 8.7, så bør du deaktivere funksjonalitenen som kjøres utenfor prosessdefinisjonen.
 - PDF: Slå av "enablePdfGeneration" på alle datatyper.
 - eFormidling:
 
