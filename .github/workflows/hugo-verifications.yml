@@ -20,8 +20,11 @@ jobs:
         with:
           hugo-version: '0.147.9'
 
-      - name: Build docs
+      - name: Build
         run: hugo
+
+      - name: Build pagefind index
+        run: npx -y pagefind --site "public"
 
       - name: Verify links
         uses: untitaker/hyperlink@e66bb17cc9ae341677431edec3b893a0aa6ac747 # 0.1.44

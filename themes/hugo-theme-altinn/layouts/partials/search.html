@@ -1,27 +1,76 @@
 <div class="container">
     <div class="row">
-        <div class="col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
-            <div class="form-group a-form-group a-form-group-large">
-                <label class="a-h2" for="search-by">{{T "searching-for"}}</label>
-                <div class="a-form-group-items input-group">
-                    <input id="search-by" class="form-control xa-hasButton" type="search" placeholder="{{T "Search-placeholder"}}" autofocus>
-                    <!--div class="input-group-append">
-                        <button class="btn btn-secondary" type="button" name="search-button" id="search-submit" aria-label="Search">
-                        <i class="ai ai-clear" aria-hidden="true"></i>
-                        <span class="sr-only">Clear</span>
-                        </button>
-                    </div-->
-                </div>
-                <!--label for="all-langs">{{T "all-langs"}}</label>: <input id="all-langs" type="checkbox" checked-->
-            </div>
+         <!-- Search START -->
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">{{T "searching-for"}}</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
         </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', '{{ T "search" }}');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        <!-- Search END -->
     </div>
 </div>
-
-<script src="{{"js/horsey.js" | relURL}}"></script>
-<script>
-    var baseurl = "{{.Site.BaseURL}}";
-    var language = "{{.Lang}}";
-</script>
-<script src="https://cdn.jsdelivr.net/npm/@elastic/app-search-javascript@8.13.0/dist/elastic_app_search.umd.min.js" integrity="sha512-JOAz1AmB9AobRF+sPo2Z1U08qsvl4l1GO6B9M9Piw+3cSHAxCVHsc3aSVhxZVLP3GTZAbXJpH2c8RK6Ogp1Gdg==" crossorigin="anonymous"></script>
-<script src="{{"js/search.js" | relURL}}"></script>
