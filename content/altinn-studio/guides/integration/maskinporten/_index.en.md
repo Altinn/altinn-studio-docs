@@ -94,7 +94,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 For typed HTTP clients that need Maskinporten authorization, you can use the extension methods:
 
-{{< highlight csharp "linenos=false,hl_lines=5-6,8-9" >}}
+{{< highlight csharp "linenos=false,hl_lines=5-6 8-9" >}}
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
     // ...

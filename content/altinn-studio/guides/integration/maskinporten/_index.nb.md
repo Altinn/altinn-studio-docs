@@ -98,7 +98,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 For typede HTTP-klienter som trenger Maskinporten-autorisasjon, kan du bruke utvidelsesmetodene:
 
-{{< highlight csharp "linenos=false,hl_lines=5-6,8-9" >}}
+{{< highlight csharp "linenos=false,hl_lines=5-6 8-9" >}}
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
     // ...
