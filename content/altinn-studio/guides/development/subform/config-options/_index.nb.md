@@ -28,6 +28,7 @@ Du kan tilpasse disse nøklene i `textResourceBindings`-objektet:
 - `title` - Tittelen på underskjema-komponenten.
 - `description` - En beskrivelse av komponenten, som vises under tittelen.
 - `addButton` - Hva Legg-til knappen skal inneholde.
+- `tableEditButton` - Tekst for Rediger knappen.
 
 ## tableColumns
 
