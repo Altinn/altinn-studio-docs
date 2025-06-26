@@ -19,7 +19,7 @@ For such a service, the process in the app itself will be completed when the end
 
 ## Instantiation of service
 
-Instantiation in Altinn means that a dialogue is created in a submitter/party's inbox in Altinn. This instantiation can be triggered by the end user or by the service owner. In this guide, we assume that it is instantiated by the end user. A guide for service owner instantiation can be found here (TODO).
+Instantiation in Altinn means that a dialogue is created in a submitter/party's inbox in Altinn. This instantiation can be triggered by the end user or by the service owner. In this guide, we assume that it is instantiated by the end user. A guide for service owner instantiation can be found [here](/api/apps/instances/#create-instance).
 
 ## Overall end user process
 
@@ -29,7 +29,7 @@ The overall process:
 2. The form is filled out and any attachment data is uploaded.
 3. The end user validates the data and any attachments and sends the application process for confirmation.
 4. The end user reviews the data and confirms that they have completed the process.
-5. The application publishes an event that the end user has completed the filling process. (Assumes that publishing is [enabled]())
+5. The application publishes an event that the end user has completed the filling process. (Assumes that publishing is [enabled](/altinn-studio/getting-started/app-dev-course/modul5/))
 6. The service owner receives information about the event at their event receiver.
 7. The service owner calls the Altinn API to download data for the instance.
 8. The service owner confirms that the data has been downloaded successfully.

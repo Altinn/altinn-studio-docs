@@ -8,7 +8,7 @@
     <a aria-hidden="true" class="dropdown-item" href="{{ with .Site.GetPage `/authorization`}}{{.RelPermalink}}{{end}}">
       <p class="product-item">{{ T "authorization" }}</p>
     </a>
-    <a aria-hidden="true" class="dropdown-item" href="/dialogporten">
+    <a aria-hidden="true" class="dropdown-item" href="{{ with .Site.GetPage `/dialogporten`}}{{.RelPermalink}}{{end}}">
       <p class="product-item">{{ T "dialogporten" }}</p>
     </a>
     <a aria-hidden="true" class="dropdown-item" href="{{ with .Site.GetPage `/broker`}}{{.RelPermalink}}{{end}}">

@@ -38,4 +38,4 @@ I dag opprettes nye tjenester av typen «Delegerbare API ressurser» via et REST
 
 Vi kommer til å lage nye API for å registrere tjenester av typen “Delegerbare API ressurser», men i en overgangsfase må de som ønsker å opprette nye tjenester gjøre dette ved å sende epost til Digdir slik at vi kan gjøre det for dere. 
 
-Hvis dere har spørsmål så kan dere nå oss via altinn.slack.com eller ved å sende epost til tjenesteeier@altinn.no. 
+Hvis dere har spørsmål så kan dere nå oss via digdir-samarbeid.slack.com eller ved å sende epost til tjenesteeier@altinn.no. 
