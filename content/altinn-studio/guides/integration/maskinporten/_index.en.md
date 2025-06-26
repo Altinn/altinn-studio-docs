@@ -51,11 +51,11 @@ When preparing the application to use secrets from Azure Key Vault, there are so
 
    ```json
    {
-       "MaskinportenSettings": {
-            "Authority": "https://test.maskinporten.no/",
-            "ClientId": "",
-            "JwkBase64": ""
-       }
+     "MaskinportenSettings": {
+       "Authority": "https://test.maskinporten.no/",
+       "ClientId": "",
+       "JwkBase64": ""
+     }
    }
    ```
    

@@ -55,11 +55,11 @@ Når applikasjonen forberedes til å bruke hemmeligheter fra Azure Key Vault, m�
 
    ```json
    {
-       "MaskinportenSettings": {
-            "Authority": "https://test.maskinporten.no/",
-            "ClientId": "",
-            "JwkBase64": ""
-       }
+     "MaskinportenSettings": {
+       "Authority": "https://test.maskinporten.no/",
+       "ClientId": "",
+       "JwkBase64": ""
+     }
    }
    ```
    
