@@ -9,16 +9,14 @@ aliases:
 - /altinn-studio/guides/integration/maskinporten-app-integration
 ---
 
-Denne veiledningen viser hvordan du setter opp en Altinn-applikasjon med en HTTP-klient som benytter Maskinporten for
-autentisering av forespørslene. Dette er nyttig når applikasjonen må utføre autoriserte forespørsler på vegne av eieren
-av applikasjonen, i stedet for den aktive brukeren.
+Denne veiledningen viser hvordan du setter opp en Altinn-applikasjon til å bruke den innebygde Maskinporten-klienten (`IMaskinportenClient`) for å utføre autoriserte forespørsler på vegne av eieren av applikasjonen, i stedet for den aktive brukeren.
 
 For å sette dette opp, må følgende gjøres:
 
 1. Sørg for at organisasjonen har tilgang til Azure Key Vault.
 2. Opprett integrasjonen mot Maskinporten i [Samarbeidsportalen](https://samarbeid.digdir.no/).
 3. Lagre autentiseringsnøkkelen for integrasjonen i Azure Key Vault.
-4. Konfigurer applikasjonen til å bruke Maskinporten-klienten og hente hemmeligheter fra Azure Key Vault.
+4. Sett opp applikasjonen til å bruke Maskinporten-klienten og hente hemmeligheter fra Azure Key Vault.
 
 ## Tilgang til Azure Key Vault
 
@@ -54,24 +52,23 @@ Når applikasjonen forberedes til å bruke hemmeligheter fra Azure Key Vault, m�
    kodebasen til applikasjonen.
 
    For eksempel, hvis seksjonen for Maskinporten-integrasjonen ser slik ut:
+
    ```json
    {
      "MaskinportenSettings": {
-       "Environment": "test",
+       "Authority": "https://test.maskinporten.no/",
        "ClientId": "",
-       "Scope": "altinn:serviceowner/instances.read",
-       "EncodedJwk": "",
-       "ExhangeToAltinnToken": true,
-       "EnableDebugLog": true
+       "JwkBase64": ""
      }
    }
    ```
-
+   
    Må hemmelighetene i Azure Key Vault ha navn som dette:
-
+   
    ```
+   MaskinportenSettings--Authority
    MaskinportenSettings--ClientId
-   MaskinportenSettings--EncodedJwk
+   MaskinportenSettings--JwkBase64
    ```
 2. For at applikasjonen skal kunne lese hemmelighetene fra Azure Key Vault, må konfigureres først.
    Se [seksjoner om hemmeligheter](../../../reference/configuration/secrets) for hvordan dette oppnås.
@@ -84,16 +81,33 @@ publisere applikasjonen på nytt før endringene trer i kraft._
 
 ## Sett opp applikasjonen til å bruke Maskinporten-integrasjonen
 
-Når applikasjonen skal tilpasses for å bruke Maskinporten-integrasjonen, må vi gjøre noen endringer i `Program.cs`-filen.
+Applikasjonen inkluderer automatisk den innebygde `IMaskinportenClient` som kan injiseres i tjenestene dine. Klienten finner og bruker automatisk `MaskinportenSettings`-konfigurasjonen.
 
-Først må vi legge til MaskinportenHttpClient-tjenesten med riktig konfigurasjon i metoden `RegisterCustomAppServices`:
+Hvis du trenger å bruke en annen konfigurasjonsbane enn standardbanen, kan du konfigurere den i `RegisterCustomAppServices`-metoden:
 
-{{< highlight csharp "linenos=false,hl_lines=5" >}}
+{{< highlight csharp "linenos=false,hl_lines=5-7" >}}
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
     // ...
 
-    services.AddMaskinportenHttpClient<SettingsJwkClientDefinition, YourCustomClient>(config.GetSection("MaskinportenSettings"));
+    services.ConfigureMaskinportenClient(
+        "YourCustomMaskinportenSettingsPath"
+    );
+}
+{{< / highlight >}}
+
+For typede HTTP-klienter som trenger Maskinporten-autorisasjon, kan du bruke utvidelsesmetodene:
+
+{{< highlight csharp "linenos=false,hl_lines=5-6 8-9" >}}
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+    // ...
+
+    // For eksterne API-er som krever rå Maskinporten-tokens
+    services.AddHttpClient<YourCustomClient>().UseMaskinportenAuthorisation("scope:1", "scope:2");
+    
+    // For Altinn API-er som krever Altinn-tokens (veksler Maskinporten-token)
+    services.AddHttpClient<YourCustomClient2>().UseMaskinportenAltinnAuthorisation("scope:1", "scope:2");
 }
 {{< / highlight >}}
 
