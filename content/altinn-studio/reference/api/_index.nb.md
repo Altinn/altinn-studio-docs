@@ -6,8 +6,8 @@ weight: 50
 
 Appens APIer er dokumentert med OpenAPI. Det finnes to varianter av OpenAPI spesifikasjonen:
 
-Generisk app API - eksponerer alle endepunkter uten hensyn til konkret konfigurasjon av appen
-App-spesifikk API - eksponerer redusert sett APIer, hvor flere av de er relevante fra sluttbrukersystemer
+Generisk app API - eksponerer alle endepunkter uten hensyn til konkret konfigurasjon av appen.
+App-spesifikk API - eksponerer redusert sett APIer, hvor flere av de er relevante fra sluttbrukersystemer (tilgjengelig siden v8.6).
 
 Begge to er tilgjengelige på URL:
 

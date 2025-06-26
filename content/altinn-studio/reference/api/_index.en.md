@@ -7,7 +7,7 @@ weight: 50
 The app's APIs are documented with OpenAPI. There are two variants of the OpenAPI specification:
 
 - Generic app API – exposes all endpoints regardless of the specific configuration of the app.
-- App-specific API – exposes a reduced set of APIs, where several are relevant for end-user systems.
+- App-specific API – exposes a reduced set of APIs, where several are relevant for end-user systems (available since v8.6).
 
 Both are available at the following URL:
 
