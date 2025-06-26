@@ -142,6 +142,20 @@ Standardverdiene som brukes dersom kommunikasjonstekstene ikke overstyres er som
 
 {{</content-version-selector>}}
 
-## 6. Testing
+## 6. Varsle signatarene
+
+{{<content-version-selector classes="border-box">}}
+
+{{<content-version-container version-label="Manuelt oppsett">}}
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/custom-validation.nb.md" %}}
+{{</content-version-container>}}
+
+{{<content-version-container version-label="Altinn Studio Designer">}}
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/custom-validation.nb.md" %}}
+{{</content-version-container>}}
+
+{{</content-version-selector>}}
+
+## 7. Testing
 
 {{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/test.nb.md" %}}

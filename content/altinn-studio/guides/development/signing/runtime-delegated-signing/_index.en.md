@@ -141,6 +141,20 @@ The standard values for the communication texts are as follows:
 
 {{</content-version-selector>}}
 
-## 6. Testing
+## 6. Notify the signees
+
+{{<content-version-selector classes="border-box">}}
+
+{{<content-version-container version-label="Manual setup">}}
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/communication-config.en.md" %}}
+{{</content-version-container>}}
+
+{{<content-version-container version-label="Altinn Studio Designer">}}
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/communication-config.en.md" %}}
+{{</content-version-container>}}
+
+{{</content-version-selector>}}
+
+## 7. Testing
 
 {{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/test.en.md" %}}
