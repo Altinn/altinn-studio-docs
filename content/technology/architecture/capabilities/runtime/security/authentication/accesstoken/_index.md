@@ -6,25 +6,21 @@ tags: [architecture, security]
 toc: false
 ---
 
-
 ## Altinn Studio
 
 Altinn Studio Designer creates a JWT-based Access Token signed by a certificate that the Altinn Studio Designer has available when running in the Altinn Studio Kubernetes Cluster. The certificate is different for each environment.
 
 Using separate certificates makes it possible for each Altinn Platform environment to configure which Altinn Studio environment is allowed to deploy
-and modify applications in that specific environment. 
+and modify applications in that specific environment.
 
-Altinn Studio Designer generates a token with the help of the Access Token generator for each call to the platform components. 
+Altinn Studio Designer generates a token with the help of the Access Token generator for each call to the platform components.
 
-## Apps 
+## Apps
 
-An access token requirement is enabled for some platform APIs to limit the clients that can access. 
+An access token requirement is enabled for some platform APIs to limit the clients that can access.
 
 The application generates a token based on an org-specific certificate available in the Kubernetes Cluster for the given org.
 
-
 ## Implementation details
 
-To see Access Token construction details and examples of use, visit [Access Token construction components](/authentication/reference/architecture/accesstoken/).
-
-
+To see Access Token construction details and examples of use, visit [Access Token construction components](/authorization/reference/architecture/accesstoken/).

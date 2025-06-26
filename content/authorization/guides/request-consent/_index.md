@@ -1,16 +1,13 @@
 ---
 title: Samtykke for datakonsumenter
-description: XACML stands for "eXtensible Access Control Markup Language".
+description: Struktur på samtykkeforespørsel
 tags: [consent]
-linktitle: XACML
+linktitle: Samtykke
 toc: false
 weight: 10
 ---
 
-
-
 ## Be om samtykke
-
 
 ```json
 {
@@ -21,9 +18,7 @@ weight: 10
   "validTo": "2025-06-07T06:23:39.2925023+00:00",
   "consentRights": [
     {
-      "action": [
-        "read"
-      ],
+      "action": ["read"],
       "resource": [
         {
           "type": "urn:altinn:resource",
@@ -35,9 +30,7 @@ weight: 10
       }
     },
     {
-      "action": [
-        "read"
-      ],
+      "action": ["read"],
       "resource": [
         {
           "type": "urn:altinn:resource",
@@ -67,9 +60,7 @@ weight: 10
   "validTo": "2025-06-07T06:23:39.292502+00:00",
   "consentRights": [
     {
-      "action": [
-        "read"
-      ],
+      "action": ["read"],
       "resource": [
         {
           "type": "urn:altinn:resource",
@@ -81,9 +72,7 @@ weight: 10
       }
     },
     {
-      "action": [
-        "read"
-      ],
+      "action": ["read"],
       "resource": [
         {
           "type": "urn:altinn:resource",

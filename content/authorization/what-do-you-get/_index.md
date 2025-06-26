@@ -6,6 +6,7 @@ tags: [architecture, solution]
 toc: false
 weight: 2
 ---
+
 Altinn will modernize its authorization architecture and components during the period 2022-2026. Therefore, the description below is a mix of the current and future state.
 
 Altinn uses [attribute-based access control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control).
@@ -28,7 +29,7 @@ This component will be responsible for managing access for both users and organi
 - Management of AccessGroups.
 - Ability to delegate and revoke rights.
 
-[Read more](accessmanagement)
+[Read more](./accessmanagement/)
 
 ### Resource Registry
 
@@ -38,7 +39,7 @@ This component will provide a registry of:
 - Altinn 2 apps.
 - External services hosted on other platforms but registered in Altinn for authorization.
 
-[Read more](resourceregistry)
+[Read more](./resourceregistry/)
 
 ### Access Control
 
@@ -46,7 +47,7 @@ The PDP component is responsible for evaluating whether the user should be grant
 
 The component includes a context handler, PIP functionality, PRP information, and more.
 
-[Read more](pdp)
+[Read more](./pdp/)
 
 ### Altinn Consent
 

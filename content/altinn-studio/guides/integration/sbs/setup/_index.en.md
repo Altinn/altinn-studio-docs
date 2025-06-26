@@ -10,19 +10,19 @@ This guide covers concepts and models relevant for integration between an Altinn
 When integrating an end-user system with an Altinn Studio app, machine-to-machine communication is used between
 the vendor's system and the app. There are mainly two ways to create this integration:
 
-* ID-porten client with token exchange
-  * The vendor of the end-user system creates an ID-porten client and adds the scopes required by the app (e.g., `altinn:instances.read` and `altinn:instances.write`)
-  * When integrating with Altinn apps, the end-user system exchanges the token for an Altinn token
-  * From the apps perspective, this is a normal flow (there are authenticated end-users)
-  * Suitable for systems where contact with the end-user is important, there is a low degree of automation, and the integration flow is fully user-driven.
-* System user
-  * [Vendor creates Maskinporten client](/authentication/getting-started/maskinportenclient/)
-  * Vendor creates a system in the system registry of Altinn Authorization (in the system definition, you specify the need for access to resources, e.g., an app)
-  * Customer registers a system user. The rights are then delegated.
-  * Vendor authenticates with Maskinporten client
-  * When integrating with Altinn apps, the system authenticates with Maskinporten and uses this token when submitting to Altinn
-  * For more information, see [Altinn Authorization user guide for system users](/authentication/guides/systemvendor/)
-  * Suitable for systems with a higher degree of automation (and less need for contact/connection to the end-user), and for submissions on behalf of organizations.
+- ID-porten client with token exchange
+  - The vendor of the end-user system creates an ID-porten client and adds the scopes required by the app (e.g., `altinn:instances.read` and `altinn:instances.write`)
+  - When integrating with Altinn apps, the end-user system exchanges the token for an Altinn token
+  - From the apps perspective, this is a normal flow (there are authenticated end-users)
+  - Suitable for systems where contact with the end-user is important, there is a low degree of automation, and the integration flow is fully user-driven.
+- System user
+  - [Vendor creates Maskinporten client](/authorization/getting-started/maskinportenclient/)
+  - Vendor creates a system in the system registry of Altinn Authorization (in the system definition, you specify the need for access to resources, e.g., an app)
+  - Customer registers a system user. The rights are then delegated.
+  - Vendor authenticates with Maskinporten client
+  - When integrating with Altinn apps, the system authenticates with Maskinporten and uses this token when submitting to Altinn
+  - For more information, see [Altinn Authorization user guide for system users](/authorization/guides/system-vendor/)
+  - Suitable for systems with a higher degree of automation (and less need for contact/connection to the end-user), and for submissions on behalf of organizations.
 
 ## Integration using ID-porten
 
@@ -39,16 +39,16 @@ When granting consent, the user allows the system to submit to all Altinn apps w
 
 ### Better scope validation
 
-Given that `altinn:instances.read` and `altinn:instances.write` grant access to all apps in Altinn (where the user has access), 
-there is often a need for a higher degree of isolation so that a more specific scope is required, tailored for a particular app. 
+Given that `altinn:instances.read` and `altinn:instances.write` grant access to all apps in Altinn (where the user has access),
+there is often a need for a higher degree of isolation so that a more specific scope is required, tailored for a particular app.
 There is currently no built-in support for this, but it is possible to achieve by developing custom middleware in the app.
 
 The service owner must create an app-specific scope in ID-porten via the collaboration portal and delegate this to organizations
-that intend to build end-user systems for the service owner's app. The end-user system must then add this scope to its ID-porten client 
+that intend to build end-user systems for the service owner's app. The end-user system must then add this scope to its ID-porten client
 _in addition to_ `altinn:instances.read` and `altinn:instances.write` (these are still required by the Altinn platform).
 
 {{% notice info %}}
-In the future, we want an app to be configurable with a custom scope that replaces `altinn:instances.read` and `altinn:instances.write`, 
+In the future, we want an app to be configurable with a custom scope that replaces `altinn:instances.read` and `altinn:instances.write`,
 which will also apply to platform services in Altinn (e.g., Storage), but it has not yet been decided how or when this will be implemented.
 {{% /notice %}}
 
@@ -147,22 +147,23 @@ We are considering whether a better match function can be implemented.
 
 The system user concept from Altinn Authorization is designed to support more automated integrations between end-user systems and Altinn apps, where submissions are made on behalf of an organization. The system user concept consists of the following components:
 
-* Maskinporten – the authentication mechanism for everything related to system users:
-  * Registration of a system in the system registry (API at Altinn Authorization)
-  * Registering a system user (API at Altinn Authorization)
-  * Submission from the system (the vendors system/end-user system)
-* System Registry
-  * A component in Altinn Authorization where all system definitions belonging to end-user systems are stored
-* System
-  * The definition for the end-user system. This definition includes, among other things, which rights the system needs from the system user, and which Maskinporten client (client ID) the system intends to use when authenticating with Maskinporten.
-  * The system is registered and owned by the end-user system vendor in the system registry
-* System User
-  * A virtual user owned by the customer of the vendor/end-user system
-  * When the system user is registered, the rights requested by the system must be delegated to the system user. In practice, the person who creates the system user (at the customer) must have these rights that the system requests
+- Maskinporten – the authentication mechanism for everything related to system users:
+  - Registration of a system in the system registry (API at Altinn Authorization)
+  - Registering a system user (API at Altinn Authorization)
+  - Submission from the system (the vendors system/end-user system)
+- System Registry
+  - A component in Altinn Authorization where all system definitions belonging to end-user systems are stored
+- System
+  - The definition for the end-user system. This definition includes, among other things, which rights the system needs from the system user, and which Maskinporten client (client ID) the system intends to use when authenticating with Maskinporten.
+  - The system is registered and owned by the end-user system vendor in the system registry
+- System User
+  - A virtual user owned by the customer of the vendor/end-user system
+  - When the system user is registered, the rights requested by the system must be delegated to the system user. In practice, the person who creates the system user (at the customer) must have these rights that the system requests
 
 This concept allows the system to impersonate the system user in the integration with an Altinn app.
 Thus, the system _can_ make calls to Altinn's APIs without an end-user from the organization being present.
 This is not possible with an ID-porten integration, as you are always dependent on a valid token from the end-user working at the customer (with sufficient permissions).
+
 ### Example
 
 Let's walk through a concrete example for SBS based on system user integration.
@@ -172,27 +173,27 @@ This is a fictional example, but we use a well-known system, service owner, and 
 Note that there are few steps for the service owner to perform here, but it is still important that the service owner is familiar with the process.
 {{% /notice %}}
 
-* System: **Fiken AS (913312465)**
-* Service owner: **Brønnøysundregisteret (brg)**
-* App: **aarsregnskap**
-* Customer: **Sindig Oriental Tiger AS (313725138)**
-* Environment: **tt02**
+- System: **Fiken AS (913312465)**
+- Service owner: **Brønnøysundregisteret (brg)**
+- App: **aarsregnskap**
+- Customer: **Sindig Oriental Tiger AS (313725138)**
+- Environment: **tt02**
 
 In this example, Fiken will automatically submit the annual accounts at the end of the year based on the accounts registered in their systems by the customer.
 This submission happens fully automatically, but the end-user at the customer must still log in and sign the annual accounts after it has been filled in in `årsregnskap`.
 We will now set up this integration from scratch.
 
-[More documentation about the system user flow for SBS can be found here](/authentication/guides/systemvendor/).
+[More documentation about the system user flow for SBS can be found here](/authorization/guides/system-vendor/).
 This guide is intended as an Altinn Studio app-specific example of the same concept.
 
 #### Prerequisites
 
-* Brønnøysundregisteret needs access to Altinn Studio and the tt02 environment
-* Fiken needs an agreement with Maskinporten for the environment (access to the [Collaboration Portal for test](https://sjolvbetjening.test.samarbeid.digdir.no/))
-* Fiken needs access to the following Maskinporten/ID-porten scopes: 
-  * `altinn:authentication/systemregister.write`, 
-  * `altinn:authentication/systemuser.request.read`, `altinn:authentication/systemuser.request.write`
-  * `altinn:instances.read`, `altinn:instances.write`
+- Brønnøysundregisteret needs access to Altinn Studio and the tt02 environment
+- Fiken needs an agreement with Maskinporten for the environment (access to the [Collaboration Portal for test](https://sjolvbetjening.test.samarbeid.digdir.no/))
+- Fiken needs access to the following Maskinporten/ID-porten scopes:
+  - `altinn:authentication/systemregister.write`,
+  - `altinn:authentication/systemuser.request.read`, `altinn:authentication/systemuser.request.write`
+  - `altinn:instances.read`, `altinn:instances.write`
 
 #### 1. Service owner creates app
 
@@ -204,13 +205,13 @@ including an XACML policy that allows DAGL to fill in the form and sign.
 
 A Maskinporten client is required to use the system registry and to utilize the system user integration with `aarsregnskap`.
 
-* Go to [Collaboration Portal for test](https://sjolvbetjening.test.samarbeid.digdir.no/) -> "Administrasjon av tjenester" -> "Integrasjoner" -> "Ny integrasjon"
-* Fill out the form and create the client with the following scopes:
-  * `altinn:authentication/systemregister.write` – to register the system in the system registry
-  * `altinn:authentication/systemuser.request.read`, `altinn:authentication/systemuser.request.write` – to request a system user for the system
-  * `altinn:instances.read`, `altinn:instances.write` – to submit on behalf of the system user
-* Note down the client ID (for example, `a2ed712d-4144-4471-839f-80ae4a68146b`)
-* Generate and register JWKS for the client (keep both the private and public JWK)
+- Go to [Collaboration Portal for test](https://sjolvbetjening.test.samarbeid.digdir.no/) -> "Administrasjon av tjenester" -> "Integrasjoner" -> "Ny integrasjon"
+- Fill out the form and create the client with the following scopes:
+  - `altinn:authentication/systemregister.write` – to register the system in the system registry
+  - `altinn:authentication/systemuser.request.read`, `altinn:authentication/systemuser.request.write` – to request a system user for the system
+  - `altinn:instances.read`, `altinn:instances.write` – to submit on behalf of the system user
+- Note down the client ID (for example, `a2ed712d-4144-4471-839f-80ae4a68146b`)
+- Generate and register JWKS for the client (keep both the private and public JWK)
 
 See documentation for [registering a Maskinporten client here](/technology/solutions/cli/configuration/maskinporten-setup/).
 
@@ -424,6 +425,7 @@ POST https://test.maskinporten.no/token
   "jti": "89365ecd-772b-4462-a4de-ac36af8ef3e2"
 }
 ```
+
 Now that we have the system user token from Maskinporten, we currently need to exchange it for an Altinn token before it can be used with an app.
 In the future, this will no longer be necessary, and this documentation will be updated accordingly.
 

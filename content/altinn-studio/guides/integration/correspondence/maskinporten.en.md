@@ -11,13 +11,16 @@ for the correspondence client.
 We can now proceed to the [Maskinporten setup](#maskinporten-setup) and the [application code](#application-code).
 
 ## Maskinporten Setup
-In order to use the [correspondence service](/correspondence/), a [Maskinporten](/authentication/what-do-you-get/maskinporten/) client with the access to the following scopes is required:
+
+In order to use the [correspondence service](/correspondence/), a [Maskinporten](/authorization/getting-started/authentication/maskinporten/) client with the access to the following scopes is required:
+
 - `altinn:serviceowner`
 - `altinn:correspondence.read`
 - `altinn:correspondence.write`
-{.correspondence-custom-list}
+  {.correspondence-custom-list}
 
 To set this up, follow the general steps outlined in the [Maskinporten integration guide](../maskinporten/), with a couple of modifications described below.
+
 - The correspondence client uses a new, internal, client to communicate with Maskinporten. Because of this, the configuration object now looks like this:
 
   {{< code-title >}}
@@ -31,7 +34,8 @@ To set this up, follow the general steps outlined in the [Maskinporten integrati
       "JwkBase64": "base64 encoded jwk"
   }
   ```
-- The correspondence client will automatically find and use the Maskinporten client, and attempt to bind to the default 
+
+- The correspondence client will automatically find and use the Maskinporten client, and attempt to bind to the default
   `MaskinportenSettings` configuration path.
 - If you require a different configuration path, you can configure it with the `ConfigureMaskinportenClient` extension method:
 
@@ -41,40 +45,42 @@ To set this up, follow the general steps outlined in the [Maskinporten integrati
 
   {{<highlight csharp "linenos=false,hl_lines=7-9">}}
   void RegisterCustomAppServices(
-     IServiceCollection services,
-     IConfiguration config,
-     IWebHostEnvironment env
+  IServiceCollection services,
+  IConfiguration config,
+  IWebHostEnvironment env
   )
   {
-      services.ConfigureMaskinportenClient(
-          "UniqueMaskinportenSettingsPath"
-      );
+  services.ConfigureMaskinportenClient(
+  "UniqueMaskinportenSettingsPath"
+  );
   }
   {{</highlight>}}
+
 - If you require a custom configuration flow, you can make use of the available configuration delegate:
 
   {{< code-title >}}
   App/Program.cs
   {{< /code-title >}}
-  
+
   {{<highlight csharp "linenos=false,hl_lines=7-12">}}
   void RegisterCustomAppServices(
-     IServiceCollection services,
-     IConfiguration config,
-     IWebHostEnvironment env
+  IServiceCollection services,
+  IConfiguration config,
+  IWebHostEnvironment env
   )
   {
-      services.ConfigureMaskinportenClient(config =>
-      {
-          config.Authority = "https://[test.]maskinporten.no/";
-          config.ClientId = "the client id";
-          config.JwkBase64 = "base64 encoded jwk";
-      });
+  services.ConfigureMaskinportenClient(config =>
+  {
+  config.Authority = "https://[test.]maskinporten.no/";
+  config.ClientId = "the client id";
+  config.JwkBase64 = "base64 encoded jwk";
+  });
   }
   {{</highlight>}}
-{.connected-bullets}
+  {.connected-bullets}
 
 ## Application code
+
 Using the dependency injection framework in .NET, you can inject an `ICorrespondenceClient` in your service.
 This client can then be used to send correspondences and will be able to automatically handle the Maskinporten authorisation.
 
@@ -97,12 +103,12 @@ App/Program.cs
 // ...
 
 void RegisterCustomAppServices(
-    IServiceCollection services,
-    IConfiguration config,
-    IWebHostEnvironment env
+IServiceCollection services,
+IConfiguration config,
+IWebHostEnvironment env
 )
 {
-    services.AddTransient<ITheInterfaceYouAreImplementing, CorrespondenceClientDemo>();
+services.AddTransient<ITheInterfaceYouAreImplementing, CorrespondenceClientDemo>();
 }
 {{</highlight>}}
 
@@ -181,6 +187,7 @@ internal sealed class CorrespondenceClientDemo(
 ```
 
 ### Notes on authorisation
+
 In the example above, we are using the `CorrespondenceAuthorisation.Maskinporten` enum to indicate that authorisation should
 be automatically handled internally with Maskinporten. This is by far the easiest and most convenient authorisation method, but
 it's not the only option available.

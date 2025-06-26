@@ -10,24 +10,24 @@ Denne guiden går gjennom konsepter og modeller som er relevante for integrasjon
 Ved integrasjon av sluttbrukersystem mot en Altinn Studio app så brukes maskin-til-maskin kommunikasjon mellom
 leverandørens system og appen. Det er i hovedsak 2 måter å lage denne integrasjonen på:
 
-* ID-porten klient med innveksling av token
-  * Leverandør av sluttbrukersystemet lager en ID-porten klient og legger til de scopes som kreves i appen (f. eks. `altinn:instances.read` og `altinn:instances.write`)
-  * Ved integrasjon mot Altinn apper så vil sluttbrukersystemet veksle inn token til Altinn token
-  * Fra appens perspektiv er det vanlig flyt (det er autentiserte sluttbrukere)
-  * Egner seg godt for systemer der kontakt med sluttbruker er viktig, det er liten grad av automasjon og flyten i integrasjonen er fullstendig brukerstyrt.
-* Systembruker
-  * [Leverandør lager Maskinporten klient](/nb/authentication/getting-started/maskinportenclient/)
-  * Leverandør lager system i systemregisteret til Altinn Autorisasjon (i systemdefinisjonen uttrykker man behov for tilgang til ressurser, f. eks. en app)
-  * Kunde registrerer systembruker. Dermed blir rettighetene delegert.
-  * Leverandør autentiserer med Maskinporten klient
-  * Ved integrasjon mot Altinn apper så vil systemet autentisere mot Maskinporten og så bruke dette tokenet ved innsending til Altinn
-  * For mer informasjon, se [Altinn Autorisasjon brukerguide for systembrukere](/nb/authentication/guides/systemvendor/)
-  * Egner seg godt for systemer der det er større grad av automasjon (og mindre behov for kontakt/kobling til sluttbruker), og det er snakk om innsendinger på vegne av organisasjoner.
+- ID-porten klient med innveksling av token
+  - Leverandør av sluttbrukersystemet lager en ID-porten klient og legger til de scopes som kreves i appen (f. eks. `altinn:instances.read` og `altinn:instances.write`)
+  - Ved integrasjon mot Altinn apper så vil sluttbrukersystemet veksle inn token til Altinn token
+  - Fra appens perspektiv er det vanlig flyt (det er autentiserte sluttbrukere)
+  - Egner seg godt for systemer der kontakt med sluttbruker er viktig, det er liten grad av automasjon og flyten i integrasjonen er fullstendig brukerstyrt.
+- Systembruker
+  - [Leverandør lager Maskinporten klient](/nb/authorization/getting-started/maskinportenclient/)
+  - Leverandør lager system i systemregisteret til Altinn Autorisasjon (i systemdefinisjonen uttrykker man behov for tilgang til ressurser, f. eks. en app)
+  - Kunde registrerer systembruker. Dermed blir rettighetene delegert.
+  - Leverandør autentiserer med Maskinporten klient
+  - Ved integrasjon mot Altinn apper så vil systemet autentisere mot Maskinporten og så bruke dette tokenet ved innsending til Altinn
+  - For mer informasjon, se [Altinn Autorisasjon brukerguide for systembrukere](/nb/authorization/guides/system-vendor/)
+  - Egner seg godt for systemer der det er større grad av automasjon (og mindre behov for kontakt/kobling til sluttbruker), og det er snakk om innsendinger på vegne av organisasjoner.
 
 ## Integrasjon med ID-porten
 
 Ved integrasjon fra sluttbrukersystem basert på ID-porten klient har man alltid direkte kontakt med sluttbruker.
-Når sluttbruker logger inn i sluttbrukersystem via ID-porten vil sluttbruker måtte godta at systemet gjør 
+Når sluttbruker logger inn i sluttbrukersystem via ID-porten vil sluttbruker måtte godta at systemet gjør
 `altinn:instances.read` og `altinn:instances.write` på vegne av brukeren (gitt at disse scopene er registrert i ID-porten klienten).
 Tokenet må deretter [veksles i Altinn Autorisasjon](/nb/api/authentication/spec/).
 Dette Altinn-tokenet kan deretter brukes til å sende inn skjema i en Altinn app på vegne av brukeren.
@@ -48,7 +48,7 @@ som har tenkt til å lage sluttbrukersystem for tjenesteeiers app. Deretter må 
 _i tillegg_ til `altinn:instances.read` og `altinn:instances.write` (disse kreves fortsatt av Altinn plattformen).
 
 {{% notice info %}}
-På sikt ønsker vi at en app kan konfigureres med custom scope som erstatter `altinn:instances.read` og `altinn:instances.write`, 
+På sikt ønsker vi at en app kan konfigureres med custom scope som erstatter `altinn:instances.read` og `altinn:instances.write`,
 som også vil gjelde plattformtjenester i Altinn (f. eks. Storage), men det er ikke bestemt hvordan eller når dette skal løses.
 {{% /notice %}}
 
@@ -90,7 +90,6 @@ app.Use(
     }
 );
 ```
-
 
 #### Validering med XACML policy
 
@@ -150,18 +149,18 @@ Systembruker-konseptet fra Altinn Autorisasjon/Autorisasjon er laget for å stø
 mer automatiserte integrasjoner mellom sluttbrukersystemer og Altinn apper der innsending gjøres
 på vegne av en organisasjon. I Systembruker-konseptet sitter følgende komponenter:
 
-* Maskinporten - autentiseringsmekanismen for alt som har med systembrukere å gjøre:
-  * Registrering av system i systemregisteret (API hos Altinn Autorisasjon)
-  * Registrere systembruker (API hos Altinn Autorisasjon)
-  * Innsending fra systemet (leverandørens system/sluttbrukersystemet)
-* Systemregisteret
-  * En komponent i Altinn Autorisasjon hvor alle systemdefinisjoner tilhørende sluttbrukersystemer ligger
-* System
-  * Definisjonen for sluttbrukersystemet. Denne definisjonen inneholder bl. a. hvilke rettigheter systemet trenger fra systembrukeren, og hvilke Maskinporten klient (klient ID) systemet har tenkt til å bruke ved autentisering i Maskinporten.
-  * Systemet registreres og eies av sluttbrukersystem-leverandøren i systemregisteret
-* Systembruker
-  * En virtuell bruker som eies av kunden til leverandøren/sluttbrukersystemet
-  * Når systembrukeren registreres, vil rettighetene systemet ber om måtte delegeres til systembrukeren. I praksis må den personen som oppretter systembrukeren (hos kunden) ha disse rettighetene som systemet ber om
+- Maskinporten - autentiseringsmekanismen for alt som har med systembrukere å gjøre:
+  - Registrering av system i systemregisteret (API hos Altinn Autorisasjon)
+  - Registrere systembruker (API hos Altinn Autorisasjon)
+  - Innsending fra systemet (leverandørens system/sluttbrukersystemet)
+- Systemregisteret
+  - En komponent i Altinn Autorisasjon hvor alle systemdefinisjoner tilhørende sluttbrukersystemer ligger
+- System
+  - Definisjonen for sluttbrukersystemet. Denne definisjonen inneholder bl. a. hvilke rettigheter systemet trenger fra systembrukeren, og hvilke Maskinporten klient (klient ID) systemet har tenkt til å bruke ved autentisering i Maskinporten.
+  - Systemet registreres og eies av sluttbrukersystem-leverandøren i systemregisteret
+- Systembruker
+  - En virtuell bruker som eies av kunden til leverandøren/sluttbrukersystemet
+  - Når systembrukeren registreres, vil rettighetene systemet ber om måtte delegeres til systembrukeren. I praksis må den personen som oppretter systembrukeren (hos kunden) ha disse rettighetene som systemet ber om
 
 Dette konseptet lar dermed systemet impersonere systembrukeren i integrasjonen mot en Altinn app.
 Dermed _kan_ systemet gjøre kall mot Altinns API-er uten at en sluttbruker hos organisasjonen er tilstede.
@@ -176,27 +175,27 @@ Dette er et fiktivt eksempel, men vi bruker et kjent system, tjenesteeier og skj
 Merk at det er få steg for tjenesteeier å utføre her, men det er likevel viktig at tjenesteeier har kjennskap til prosessen.
 {{% /notice %}}
 
-* Systemet: **Fiken AS (913312465)**
-* Tjenesteier: **Brønnøysundregisteret (brg)**
-* App: **aarsregnskap**
-* Kunden: **Sindig Oriental Tiger AS (313725138)**
-* Miljø: **tt02**
+- Systemet: **Fiken AS (913312465)**
+- Tjenesteier: **Brønnøysundregisteret (brg)**
+- App: **aarsregnskap**
+- Kunden: **Sindig Oriental Tiger AS (313725138)**
+- Miljø: **tt02**
 
 I dette eksempelet vil Fiken automatisk sende inn årsregnskap på slutten av året basert på det regnskapet som er oppført i deres systemer av kunden.
 Denne innsendingen skjer helt automatisk, men sluttbruker hos kunden må fortsatt signere årsregnskapet etter at det er ferdig utfylt i `årsregnskap`.
 Vi skal nå sette opp denne integrasjonen helt fra start.
 
-[Mer dokumentasjon rundt systembruker-flyt for SBS finner du her](/nb/authentication/guides/systemvendor/).
+[Mer dokumentasjon rundt systembruker-flyt for SBS finner du her](/nb/authorization/guides/system-vendor/).
 Denne guiden er ment som et Altinn Studio app-spesifikt eksempel på det samme konseptet.
 
 #### Forutsetninger
 
-* Brønnøysundregisteret trenger tilgang til Altinn Studio og tt02-miljøet
-* Fiken trenger avtale med Maskinporten for miljøet (tilgang til [Samarbeidsportalen for test](https://sjolvbetjening.test.samarbeid.digdir.no/))
-* Fiken trenger tilgang til følgende Maskinporten/ID-porten scopes: 
-  * `altinn:authentication/systemregister.write`, 
-  * `altinn:authentication/systemuser.request.read`, `altinn:authentication/systemuser.request.write`
-  * `altinn:instances.read`, `altinn:instances.write`
+- Brønnøysundregisteret trenger tilgang til Altinn Studio og tt02-miljøet
+- Fiken trenger avtale med Maskinporten for miljøet (tilgang til [Samarbeidsportalen for test](https://sjolvbetjening.test.samarbeid.digdir.no/))
+- Fiken trenger tilgang til følgende Maskinporten/ID-porten scopes:
+  - `altinn:authentication/systemregister.write`,
+  - `altinn:authentication/systemuser.request.read`, `altinn:authentication/systemuser.request.write`
+  - `altinn:instances.read`, `altinn:instances.write`
 
 #### 1. Tjenesteeier lager app
 
@@ -208,13 +207,13 @@ bl. a. med en XACML policy som lar DAGL fylle inn skjema og signere.
 
 Man trenger en Maskinporten-klient for å bruke systemregisteret og for å ta i bruk systembruker-integrasjonen mot `aarsregnskap`.
 
-* Gå til [Samarbeidsportalen for test](https://sjolvbetjening.test.samarbeid.digdir.no/) -> "Administrasjon av tjenester" -> "Integrasjoner" -> "Ny integrasjon"
-* Fyll ut skjema og opprett klienten med scopes 
-  * `altinn:authentication/systemregister.write` - for å opprette systemet i systemregisteret
-  * `altinn:authentication/systemuser.request.read`, `altinn:authentication/systemuser.request.write` - for å forespørre systembruker for systemet
-  * `altinn:instances.read`, `altinn:instances.write` - for å sende inn på vegne av systembrukeren
-* Noter ned klient ID (`a2ed712d-4144-4471-839f-80ae4a68146b` f. eks.)
-* Lag og registrer JWKS på klienten (ta vare på privat og public JWK)
+- Gå til [Samarbeidsportalen for test](https://sjolvbetjening.test.samarbeid.digdir.no/) -> "Administrasjon av tjenester" -> "Integrasjoner" -> "Ny integrasjon"
+- Fyll ut skjema og opprett klienten med scopes
+  - `altinn:authentication/systemregister.write` - for å opprette systemet i systemregisteret
+  - `altinn:authentication/systemuser.request.read`, `altinn:authentication/systemuser.request.write` - for å forespørre systembruker for systemet
+  - `altinn:instances.read`, `altinn:instances.write` - for å sende inn på vegne av systembrukeren
+- Noter ned klient ID (`a2ed712d-4144-4471-839f-80ae4a68146b` f. eks.)
+- Lag og registrer JWKS på klienten (ta vare på privat og public JWK)
 
 Se dokumentasjon for [registrering av Maskinporten-klient her](/technology/solutions/cli/configuration/maskinporten-setup/).
 
@@ -341,13 +340,12 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-
 #### 5. Kunden godkjenner forespørsel om systembruker
 
 Person hos kunden, f. eks. daglig leder, godkjenner forespørsel om systembruker ved å følge `confirmUrl` fra responsen over.
 Hvis testing foregår i tt02 så kan du f. eks. finne DAGL for organisasjonen til systembrukeren.
 Kunden i dette tilfellet, med fødselsnummer `14830199986`, har rollen DAGL (daglig leder) så denne kan brukes ved innlogging med TestID.
-Personen som godkjenner systembrukeren (systemtilgangen) må selv ha de rettighetene som skal delegeres til systembrukeren. 
+Personen som godkjenner systembrukeren (systemtilgangen) må selv ha de rettighetene som skal delegeres til systembrukeren.
 I dette tilfellet, hvor DAGL skal godkjenne, så må appen ha en regel som gir DAGL `instantiate` og `read`.
 Siden systembrukeren får delegert de samme rettighetene som godkjenneren har (i dette tilfelle DAGL), så vil systembrukeren får `instantiate` og `read` i dette teilfellet.
 
@@ -394,7 +392,6 @@ Eksempel:
   </xacml:Target>
 </xacml:Rule>
 ```
-
 
 #### 6. Fiken kan autentisere mot Maskinporten med systembrukeren
 

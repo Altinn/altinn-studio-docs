@@ -1,6 +1,6 @@
 ---
-title: 'Autentisering'
-description: 'Hvordan autentisere mot Dialogporten'
+title: "Autentisering"
+description: "Hvordan autentisere mot Dialogporten"
 weight: 10
 toc: true
 ---
@@ -9,14 +9,14 @@ toc: true
 
 Dialogporten API-et er delt inn i et tjenesteeier-API og et sluttbruker-API.
 
-| API           | Støttede autentiseringsmetoder                                       |
-| ------------- | ---------------------------------------------------------------------- |
-| Sluttbruker      | ID-porten, Maskinporten{{<footnote "Kun ved bruk av systembrukere." >}} |
-| Tjenesteeier | Maskinporten{{<footnote "Støtter også leverandørtoken" >}}             |
+| API          | Støttede autentiseringsmetoder                                          |
+| ------------ | ----------------------------------------------------------------------- |
+| Sluttbruker  | ID-porten, Maskinporten{{<footnote "Kun ved bruk av systembrukere." >}} |
+| Tjenesteeier | Maskinporten{{<footnote "Støtter også leverandørtoken" >}}              |
 
-{{<displayFootnotes>}}  
+{{<displayFootnotes>}}
 
-I tillegg støttes token utstedt av [Altinn Token Exchange](../../../authentication/what-do-you-get/#bytt-et-jwt-fra-en-ekstern-tokenleverandør), ved bruk av enten ID-porten eller Maskinporten som input.
+I tillegg støttes token utstedt av [Altinn Token Exchange](../../../authorization/what-do-you-get/authentication/#bytt-et-jwt-fra-en-ekstern-tokenleverandør), ved bruk av enten ID-porten eller Maskinporten som input.
 
 ## Bruk for sluttbrukersystemer
 
@@ -24,7 +24,7 @@ Sluttbrukersystemer kan enten bruke et ID-porten-token, som identifiserer en per
 
 {{<notice warning>}}
 Merk at tilgang til Dialogporten _ikke_ i seg selv vil gi tilgang til innholdet som er lenket til og hostet på andre APIer, som Altinn Correspondence og Altinn Apps. Disse APIene vil vanligvis kreve tokens med spesifikke scopes, som "altinn:correspondence.read" eller "altinn:instances.read". Disse scope kan provisioneres til samme klient og plasseres i samme token som den som brukes mot Dialogporten.
-{{</notice>}} 
+{{</notice>}}
 
 ### ID-porten-autentisering
 
@@ -43,9 +43,10 @@ ID-porten implementerer en standard OAuth2-protokoll, og utsteder refresh tokens
 For detaljerte trinn om hvordan du oppretter en ID-porten-integrasjon og bruker OAuth2-protokollen, se ID-porten-dokumentasjonen som er lenket nedenfor.
 
 **Les mer**
-* [Om ID-porten (norsk)](https://samarbeid.digdir.no/id-porten/id-porten/18)
-* [Kom i gang med ID-porten](https://docs.digdir.no/docs/idporten/oidc/oidc_guide_english.html)
-* [Bruke Altinn Token Exchange](../../../authentication/what-do-you-get/#bytt-et-jwt-fra-en-ekstern-tokenleverandør)
+
+- [Om ID-porten (norsk)](https://samarbeid.digdir.no/id-porten/id-porten/18)
+- [Kom i gang med ID-porten](https://docs.digdir.no/docs/idporten/oidc/oidc_guide_english.html)
+- [Bruke Altinn Token Exchange](../../../authorization/what-do-you-get/authentication/#bytt-et-jwt-fra-en-ekstern-tokenleverandør)
 
 ### Maskinporten-autentisering med systembrukere
 
@@ -63,7 +64,8 @@ Følgende generelle trinn må utføres for å få tilgang til sluttbruker-API-et
 For detaljerte trinn om hvordan du oppretter og bruker en systembruker, se lenken nedenfor.
 
 **Les mer**
-* [Autentisering med systembrukere](../../../authentication/guides/serviceowner)
+
+- [Autentisering med systembrukere](../../../authorization/guides/system-vendor/system-user/)
 
 {{<children />}}
 
@@ -73,10 +75,10 @@ Tjenesteeiersystemer må bruke Maskinporten-utstedte tokens, eventuelt utvekslet
 
 Det finnes flere scopes som definerer tilgang til forskjellige deler av tjenesteeier-APIet:
 
-| Scope                                                | Gir tilgang til                                      |
-| ---------------------------------------------------- | ----------------------------------------------------- |
-| `digdir:dialogporten.serviceprovider`                | Alle tjenesteeier-APIer, unntatt søke/liste-API-et    |
-| `digdir:dialogporten.serviceprovider.search`         | Alle tjenesteeier-APIer, inkludert søke/liste-API-et |
+| Scope                                                | Gir tilgang til                                                                                                                                                                                         |
+| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `digdir:dialogporten.serviceprovider`                | Alle tjenesteeier-APIer, unntatt søke/liste-API-et                                                                                                                                                      |
+| `digdir:dialogporten.serviceprovider.search`         | Alle tjenesteeier-APIer, inkludert søke/liste-API-et                                                                                                                                                    |
 | `digdir:dialogporten.serviceprovider.correspondence` | Opprett og oppdater dialoger som refererer en tjenesteressurs av typen `CorrespondenceService` i [Altinn Resource Registry](../../../authorization/what-do-you-get/resourceregistry/) (kun intern bruk) |
 
 Bruk av disse scope krever at organisasjonen i `consumer` claim er registrert som en tjenesteeier ("org") i Altinn. Hvis ikke vil alle forespørsler mislykkes.
@@ -92,12 +94,14 @@ Følgende generelle trinn må utføres for å få tilgang til Dialogporten tjene
 For detaljerte trinn om hvordan du bruker Maskinporten, se lenken nedenfor.
 
 **Les mer**
-* [Om Maskinporten (norsk)](https://samarbeid.digdir.no/maskinporten/maskinporten/25)
-* [Kom i gang med Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_summary)
+
+- [Om Maskinporten (norsk)](https://samarbeid.digdir.no/maskinporten/maskinporten/25)
+- [Kom i gang med Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_summary)
 
 ### Gi tilgang til leverandører
 
 Tjenesteleverandør-scope er delegerbare via Altinn API-delegering. Tjenesteeierorganisasjoner kan bruke leverandører til å bruke Dialogporten tjenesteeier-APIer på sine vegne, ved hjelp av API-delegering i Altinn. API-et heter "Dialogporten Serviceowner API". Følg lenkene nedenfor for en veiledning om hvordan du gjør dette:
 
 **Les mer**
-* {{<link "../../../authorization/guides/create-apischeme-resource-admin/" title>}}
+
+- {{<link "../../../authorization/guides/end-user/create-apischeme-resource-admin/" title>}}

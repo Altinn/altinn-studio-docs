@@ -21,7 +21,6 @@ Tilgangsstyringen vil gi funksjonalitet for å administrere ulike aspekter ved a
 - Liste tilgangsgrupper medlemmer
 - Liste ressurser som er knyttet til tilgangspakker
 
-
 Dette designet er i tidlig fase.
 
 ## Delegering og administrasjon av delegert API-tilgang
@@ -44,4 +43,4 @@ Som en del av ny design vil ledelse av tilgangspakker overta for rollestyring
 
 ### Konstruksjon
 
-Se detaljer hvordan AccessManagement er [konstruert](/authorization/reference/architecture/accessmanagment/).
+Se detaljer hvordan AccessManagement er [konstruert](../../reference/architecture/accessmanagment/).
