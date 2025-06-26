@@ -17,37 +17,38 @@ Currently the localtest environment does not support generating inbound events f
 
 
 ## Configuring Maskinporten integration
-Even though we are authenticating through maskinporten, we can't use the received token directly since Altinn Events only supports an Altinn token. To solve this we need to exchange the Maskinporten token into an Altinn token. The example below adds a message handler to the EventsSubscriptionClient used to communicate with Maskinporten. This handler automatically requests a token from Maskinporten, exchanges it to an Altinn token and adds the token to the request to the Event System when creating a subscription.
+The application uses the built-in `IMaskinportenClient` to authenticate with Maskinporten and automatically exchange the token to an Altinn token for communicating with Altinn Events.
 
-This code should be added to _Program.cs_.
-
-```csharp
-services.AddMaskinportenHttpClient<MaskinportenClientDefinition, EventsSubscriptionClient>(
-    config.GetSection("MaskinportenSettings"), clientDefinition =>
-    {
-        clientDefinition.ClientSettings.Scope = "altinn:serviceowner/instances.read";
-        clientDefinition.ClientSettings.ExhangeToAltinnToken = true;
-    }).AddTypedClient<IEventsSubscription, EventsSubscriptionClient>();
-```
-
-Scope and ExchangeToAltinnToken need to be configured in code and not in _AppSettings.json_ if you have multiple external dependencies that requires the use of Maskinporten. This is to avoid scopes belonging to one external api being sent to another api. Some api's accept this while others will reject the request due to unknown scopes. It's also best practice not to leak unnecessary scopes to other api's that don't require it to avoid token misuse.
-
-{{% notice info %}}
-The `MaskinportenClientDefinition` in the example above is a custom implementation of `IClientDefinition` from the nuget package [Altinn.ApiClients.Maskinporten](https://github.com/Altinn/altinn-apiclient-maskinporten) which is included as a part of the `Altinn.App.Core` package. If you don't need a custom implementation you can use one of the [built in client definitions](https://github.com/Altinn/altinn-apiclient-maskinporten).
-{{% /notice %}}
-
-Depending on what type of ClientDefintion you use you typically need to specify either a certificate file and password, encoded jwk, encoded x509 certificate or enterprise username/password in order to authenticate with Maskinporten in addition to the environment and client id. These can be shared between the various integrations.
+You need to configure the Maskinporten settings in your _appsettings.json_:
 
 ```json
   "MaskinportenSettings": {
-    "Environment": "test",
-    "ClientId": "",
-    "CertificatePkcs12Path": "",
-    "CertificatePkcs12Password": ""
+    "Authority": "https://test.maskinporten.no/",
+    "ClientId": "your-client-id",
+    "JwkBase64": "base64-encoded-jwk"
   }
 ```
 
-Here is a [C# class of the settings available](https://github.com/Altinn/altinn-apiclient-maskinporten/blob/main/src/Altinn.ApiClients.Maskinporten/Config/MaskinportenSettings.cs) for reference.
+If you need to use a different configuration path than the default `MaskinportenSettings`, you can configure it in _Program.cs_:
+
+```csharp
+services.ConfigureMaskinportenClient(
+    "YourCustomMaskinportenSettingsPath"
+);
+```
+
+The built-in Maskinporten client will automatically handle token acquisition and exchange for Altinn APIs, including the Events service.
+
+You also need to configure the HTTP client for the Events API in your `RegisterCustomAppServices` method:
+
+```csharp
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+    // Configure HTTP client for Events API with Maskinporten authorization
+    services.AddHttpClient<IEventsSubscription, EventsSubscriptionClient>()
+        .UseMaskinportenAltinnAuthorisation("altinn:serviceowner/instances.read");
+}
+```
 
 ### Protecting the event endpoint with a secret
 Receiving events in the application is based on exposing a webhook endpoint to which the Event Service posts the event. Upon receiving an event, the application validates if a secret is provided before accepting the event. The secret  is provided by implementing the `IEventSecretCodeProvider` interface. By default there is an example implementation in place using a key from the key vault using a key with the name `EventSubscription--SecretCode` in the key vault the value of that key is used. You should hover not use the same key/value for multiple applications so it's recommended to create your own implementation.
