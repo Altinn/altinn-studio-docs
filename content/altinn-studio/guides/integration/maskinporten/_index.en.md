@@ -9,9 +9,7 @@ aliases:
 - /altinn-studio/guides/integration/maskinporten-app-integration
 ---
 
-This guide details how to set up an Altinn application with a HTTP client that utilizes Maskinporten authentication for
-its requests. This is useful when the application needs to perform authorized requests on behalf of the app owner,
-as opposed to the active user.
+This guide details how to set up an Altinn application to use the built-in Maskinporten client (`IMaskinportenClient`) for making authorized requests on behalf of the app owner, as opposed to the active user.
 
 In order to set this up, the following must be done:
 
@@ -54,12 +52,9 @@ When preparing the application to use secrets from Azure Key Vault, there are so
    ```json
    {
        "MaskinportenSettings": {
-       "Environment": "test",
-       "ClientId": "",
-       "Scope": "altinn:serviceowner/instances.read",
-       "EncodedJwk": "",
-       "ExhangeToAltinnToken": true,
-       "EnableDebugLog": true
+            "Authority": "https://test.maskinporten.no/",
+            "ClientId": "",
+            "JwkBase64": ""
        }
    }
    ```
@@ -67,8 +62,9 @@ When preparing the application to use secrets from Azure Key Vault, there are so
    The secrets in Azure Key Vault should have names like this:
    
    ```
+   MaskinportenSettings--Authority
    MaskinportenSettings--ClientId
-   MaskinportenSettings--EncodedJwk
+   MaskinportenSettings--JwkBase64
    ```
 2. For the application to be able to read the secrets from Azure Key Vault, it needs to be configured to do so.
    See the [secrets section](../../../reference/configuration/secrets) to achieve this.
@@ -81,16 +77,33 @@ will need to redeploy the application for them to come into effect._
 
 ## Setup Application to use Maskinporten Integration
 
-When modifying the application to use the Maskinporten integration, we need to make some changes to the `Program.cs` file.
+The application automatically includes the built-in `IMaskinportenClient` which can be injected into your services. The client will automatically find and use the `MaskinportenSettings` configuration.
 
-First we need to add the MaskinportenHttpClient service with the appropriate configuration in the `RegisterCustomAppServices` method:
+If you need to use a different configuration path than the default, you can configure it in the `RegisterCustomAppServices` method:
 
-{{< highlight csharp "linenos=false,hl_lines=5" >}}
+{{< highlight csharp "linenos=false,hl_lines=5-7" >}}
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
     // ...
 
-    services.AddMaskinportenHttpClient<SettingsJwkClientDefinition, YourCustomClient>(config.GetSection("MaskinportenSettings"));
+    services.ConfigureMaskinportenClient(
+        "YourCustomMaskinportenSettingsPath"
+    );
+}
+{{< / highlight >}}
+
+For typed HTTP clients that need Maskinporten authorization, you can use the extension methods:
+
+{{< highlight csharp "linenos=false,hl_lines=5-6,8-9" >}}
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+    // ...
+
+    // For external APIs that require raw Maskinporten tokens
+    services.AddHttpClient<YourCustomClient>().UseMaskinportenAuthorisation("scope:1", "scope:2");
+    
+    // For Altinn APIs that require Altinn tokens (exchanges Maskinporten token)
+    services.AddHttpClient<YourCustomClient2>().UseMaskinportenAltinnAuthorisation("scope:1", "scope:2");
 }
 {{< / highlight >}}
 
