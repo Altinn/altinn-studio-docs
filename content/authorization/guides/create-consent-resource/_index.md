@@ -1,54 +1,53 @@
 ---
-title: Opprette og publisere samtykkeressurs
-linktitle: Opprette samtykkeressurs
-description: Denne veiledningen forklarer hvordan du oppretter og publiserer en API-skjemaressurs via API.
+title: Create and Publish Consent Resource
+linktitle: Create Consent Resource
+description: This guide explains how to create and publish an API schema resource via API.
 toc: false
 weight: 1
 ---
 
-For å bruke Altinn Samtykke må du opprette samtykkeressurser for hvert sett med tjenester eller data som skal inngå i et samtykke.
+To use Altinn Consent, you must create consent resources for each set of services or data to be included in a consent.
 
-Eksempler på slike ressurser er Skatteetatens "inntekts-API" og skattegrunnlag, som banker bruker for innsyn i finansielle forhold ved lånesøknader.
+Examples of such resources are the Tax Administration's "income API" and tax base, which banks use to access financial information during loan applications.
 
-Denne veiledningen forklarer hvordan du setter opp en samtykkeressurs.
+This guide explains how to set up a consent resource.
 
-## Forutsetninger
+## Prerequisites
 
-Du må ha tilgang til ressursadministrasjon for din organisasjon. Se [Kom i gang-veiledningen](../../getting-started/resource-admin-studio).
+You must have access to resource administration for your organization. See the [Getting Started Guide](../../getting-started/resource-admin-studio).
 
-## Opprett ny ressurs
+## Create New Resource
 
-Velg **Opprett ressurs** øverst til høyre.
+Select **Create Resource** in the upper right corner.
 
-ID for ressursen bør navngis på formen `{tjenesteeierkode}-{forståeligressursid}`.
+The resource ID should be named in the format `{serviceowner-code}-{understandableresourceid}`.
 
 ![consentresource](consentresource1.png)
 
-## Navn og beskrivelse
+## Name and Description
 
-Gi samtykkeressursen et navn og en beskrivelse. Dette vises til brukere når de skal delegere tilgang til å gi samtykke på vegne av virksomheter.
+Give the consent resource a name and description. This is shown to users when they delegate access to give consent on behalf of organizations.
 
 ![consentresource](consentresource2.png)
 
-## Samtykkemal
+## Consent Template
 
-Valg av samtykkemal avgjør hvordan samtykket presenteres i Altinn for brukeren som skal akseptere det.
+The choice of consent template determines how the consent is presented in Altinn for the user who will accept it.
 
-For eksempel avgjør malen om du kan legge til egen tekst for samtykke.
+For example, the template decides whether you can add custom text for the consent.
 
 ![consentresource](consentresource3.png)
 
-## Metadata og samtykketekst
+## Metadata and Consent Text
 
-Metadata brukes for samtykketjenester hvor det er behov for informasjon utover selve tjenesten. Dette kan for eksempel være en begrensning på hvilke data eller hvilket år samtykket gjelder for.
+Metadata is used for consent services where information beyond the service itself is needed. For example, this could be a restriction on which data or which year the consent applies to.
 
-Disse metadataene kan presenteres som en del av samtykketeksten som vises til sluttbruker.
+This metadata can be presented as part of the consent text shown to the end user.
 
 ![consentresource](consentresource4.png)
 
-## Engangssamtykke
+## One-Time Consent
 
-Hvis man ønsker at tjenesten skal kun være tilgjengelig via engangsamtykke kan man sette dette.
+If you want the service to only be available via one-time consent, you can set this option.
 
-Dette betyr at den som ber om samtykke bare kan hente ut data 1 gang uansett periodelengde.
-
+This means that the party requesting consent can only retrieve data once, regardless of the period length.
