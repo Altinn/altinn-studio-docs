@@ -28,6 +28,7 @@ The following keys in the `textResourceBindings` object are available for custom
 - `title` - The title of the subform component.
 - `description` - The description text shown underneath the title.
 - `addButton` - The text for the add-button.
+- `tableEditButton` - The text for the edit button.
 
 ## tableColumns
 
