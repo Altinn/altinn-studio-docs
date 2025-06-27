@@ -149,11 +149,11 @@ som beskrevet i forrige punkt. Du kan også overstyre e-post adresse og telefonn
 
 {{% notice info %}}
 Dersom ikke overstyrt, vil en
-melding sendes til signatarenes altinn inboks med en lenke til den relevante applikasjonsintansen og en notifikasjon vil bli
+melding sendes til signatarenes Altinn-innboks med en lenke til den relevante applikasjons­instansen, og en notifikasjon vil bli
 sendt via e-post.
 {{% /notice %}}
 
-Om ikke overstyrt, vil e-post adressene og telefonnummerene populeres som beskrevet i [Recipient lookup](/notifications/explanation/recipient-lookup/) og [Address lookup](/notifications/explanation/address-lookup/).
+Om ikke overstyrt, vil e-postadressene og telefonnumrene populeres som beskrevet i [Recipient lookup](/notifications/explanation/recipient-lookup/) og [Address lookup](/notifications/explanation/address-lookup/).
 
 Dette er de mulige overstyringskonfigurasjonene for kommunikasjon med signatarer:
 
