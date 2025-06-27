@@ -360,7 +360,7 @@
             },
             "historyUsedByHandledByBody": {
                 "nb": "{HandledBy} har, på vegne av {CoveredBy}, handlet på vegne av {OfferedBy}. Fullmakten utløper {Expiration}",
-                "nn": "{HandledBy} har, på vegne av {CoveredBy}, handla på vegne av {OfferedBy}. Samtykket utløper {Expiration}",
+                "nn": "{HandledBy} har, på vegne av {CoveredBy}, handla på vegne av {OfferedBy}. Fullmakta utløper {Expiration}",
                 "en": "{HandledBy} has, on behalf of {CoveredBy}, acted on behalf of {OfferedBy}. The authority expires {Expiration}"
             }
         }
