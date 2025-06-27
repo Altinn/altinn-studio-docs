@@ -67,7 +67,21 @@ Nedenfor følger de viktiste konfigurasjonsstegene for å få satt opp en slik a
 
 {{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/custom-validation.nb.md" %}}
 
-## 4. Valgfritt - Legg til tekstressurser
+## 4. Oppgi hvem som skal signere
+
+{{<content-version-selector classes="border-box">}}
+
+{{<content-version-container version-label="Manuelt oppsett">}}
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/signee-provider.nb.md" %}}
+{{</content-version-container>}}
+
+{{<content-version-container version-label="Altinn Studio Designer">}}
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/signee-provider.nb.md" %}}
+{{</content-version-container>}}
+
+{{</content-version-selector>}}
+
+## 5. Valgfritt - Legg til tekstressurser
 
 Denne seksjonen er kun relevant for deg dersom du ønsker å endre på standardtekstene i kommunikasjon med signatarer - de 
 som skal signere.
@@ -128,20 +142,50 @@ Standardverdiene som brukes dersom kommunikasjonstekstene ikke overstyres er som
 
 {{</content-version-selector>}}
 
-## 5. Oppgi hvem som skal signere
+## 6. Valgfritt - skreddersy hvordan signatarene varsles
+
+Legg merke til at `CommunicationConfig` er valgfritt. Her kan du overstyre standardtekster brukt i kommunikasjon med signatarene,
+som beskrevet i forrige punkt. Du kan også overstyre e-post adresse og telefonnummer for signatarene. 
+
+{{% notice info %}}
+Dersom ikke overstyrt, vil en
+melding sendes til signatarenes Altinn-innboks med en lenke til den relevante applikasjons­instansen, og en notifikasjon vil bli
+sendt via e-post.
+{{% /notice %}}
+
+Om ikke overstyrt, vil e-postadressene og telefonnumrene populeres som beskrevet i [Recipient lookup](/notifications/explanation/recipient-lookup/) og [Address lookup](/notifications/explanation/address-lookup/).
+
+Dette er de mulige overstyringskonfigurasjonene for kommunikasjon med signatarer:
+
+| Property                                                      | Description                                         | Type                              |
+| ------------------------------------------------------------- | --------------------------------------------------- | --------------------------------- |
+| CommunicationConfig                                           | Objektet for kommunikasjonskonfigurasjon            | Object                            |
+| CommunicationConfig.InboxMessage                              | Objektet for innboksmeldingskonfigurasjon           | Object                            |
+| CommunicationConfig.InboxMessage.TitleTextResourceKey         | Tekstressursnøkkelen for innboksmeldingstittel      | String                            |
+| CommunicationConfig.InboxMessage.SummaryTextResourceKey       | Tekstressursnøkkelen for innboksmeldingssammendrag  | String                            |
+| CommunicationConfig.InboxMessage.BodyTextResourceKey          | Tekstressursnøkkelen for innboksmeldingsinnhold     | String                            |
+| CommunicationConfig.Notification                              | Objektet for varslingskonfigurasjon                 | Object                            |
+| CommunicationConfig.Notification.Email                        | Objektet for e-postvarselingskonfigurasjon          | Object                            |
+| CommunicationConfig.Notification.Email.EmailAddress           | Tekstressursnøkkelen for e-postadresse              | String                            |
+| CommunicationConfig.Notification.Email.SubjectTextResourceKey | Tekstressursnøkkelen for e-postemne                 | String                            |
+| CommunicationConfig.Notification.Email.BodyTextResourceKey    | Tekstressursnøkkelen for e-postinnhold              | String                            |
+| CommunicationConfig.Notification.Sms                          | Objektet for SMS-varslingskonfigurasjon             | Object                            |
+| CommunicationConfig.Notification.Sms.MobileNumber             | Tekstressursnøkkelen for mobilnummer                | String                            |
+| CommunicationConfig.Notification.Sms.BodyTextResourceKey      | Tekstressursnøkkelen for SMS-innhold                | String                            |
+| CommunicationConfig.Notification.NotificationChoice           | Varslingspreferansevalget                           | NotificationChoice enum (String)  |
 
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Manuelt oppsett">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/signee-provider.nb.md" %}}
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/communication-config.nb.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/signee-provider.nb.md" %}}
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/communication-config.nb.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}
 
-## 6. Testing
+## 7. Testing
 
 {{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/test.nb.md" %}}
