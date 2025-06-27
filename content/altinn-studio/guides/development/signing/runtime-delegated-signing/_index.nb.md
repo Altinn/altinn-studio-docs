@@ -177,11 +177,11 @@ Dette er de mulige overstyringskonfigurasjonene for kommunikasjon med signatarer
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Manuelt oppsett">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/custom-validation.nb.md" %}}
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/communication-config.nb.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/custom-validation.nb.md" %}}
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/communication-config.nb.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}
