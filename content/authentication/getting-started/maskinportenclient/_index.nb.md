@@ -14,7 +14,7 @@ For å bruke Altinn API, krever flere scenarier en Maskinporten-klient:
 
 ## Sette opp Maskinporten-integrasjon
 
-Maskinporten-klienter administreres i [Samarbeidsportalen](https://sjolvbetjening.samarbeid.digdir.no/integrations/) [testmiljøet](https://sjolvbetjening.test.samarbeid.digdir.no/integrations/)
+Maskinporten-klienter administreres i [Samarbeidsportalen](https://sjolvbetjening.samarbeid.digdir.no) [testmiljøet](https://sjolvbetjening.test.samarbeid.digdir.no)
 
 ![Maskinporten](maskinporten1.png "Sette opp klient")
 
