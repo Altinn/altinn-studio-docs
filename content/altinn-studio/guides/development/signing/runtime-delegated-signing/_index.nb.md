@@ -192,7 +192,7 @@ Dette er de mulige overstyringskonfigurasjonene for kommunikasjon med signatarer
 
 > **Obs!** Foreløpig er det ikke laget mocking av delegasjon i `localtest`, så du må i praksis teste i TT02-miljøet.
 
-Det er caching i autorisasjonslaget som gjør at det kan ta tid før en bruker som har fått delegert tilgang til et skjema via brukerstyrt signering, ser selve skjemaet i sin Altinn-innboks.
+Det er en forsinkelse i autorisasjonslaget. Det gjør at det kan ta tid før brukere som har fått delegert tilgang til et skjema med brukerstyrt signering, får se selve skjemaet i Altinn-innboksen.
 
 Dette skjer bare for
 
