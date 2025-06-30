@@ -11,9 +11,9 @@ Du kan velge å få varsler kun for enkelte tjenester i Altinn. Disse tjenestene
 ## Hvordan bruker man API-et?
 For å bruke API-et må man være en innlogget sluttbruker. Det er viktig at tilgangs-token som brukes inneholder userId for å indikere hvem som er innlogget bruker. 
 
-I sti må man indikere hvilken aktør man ønsker å administrere adresser på vegne av. Denne identifiseres med `partUuid`. 
+I stien må man angi hvilken aktør man ønsker å administrere adresser for. Denne identifiseres med `partyUuid`. 
 
-**Modell**
+## Modell
 
 ```json
 {
@@ -27,8 +27,8 @@ I sti må man indikere hvilken aktør man ønsker å administrere adresser på v
 }
 ```
 
-* **userId** (string) Intern id for brukeren i altinn.
-* **partyUUid** (Guid) Intern id for aktøren i altinn.
+* **userId** (string) Intern id for brukeren i Altinn.
+* **partyUUid** (Guid) Intern id for aktøren i Altinn.
 * **emailAddress** (string) Brukerens e-postadresse for varsling. Kan være null. 
 * **phoneNumber** (string) Telefonnummer for sms varsling til brukeren. Kan være null. 
-* **resourceIncludeList** (liste med string) En liste over hvilke tjenester brukeren ønsker varsling på. Kan være null. Listen godtar kun fulle urn-verdier med ressurs-Id. 
+* **resourceIncludeList** (liste med string) En liste over hvilke tjenester brukeren ønsker varsling på. Kan være null. Listen godtar kun fulle URN-verdier med ressurs-ID. 

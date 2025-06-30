@@ -1,6 +1,6 @@
 ---
 title: Your contact information for the organization
-description: Her finner du dokumentasjon for API-et til Profil-komponenten i Altinn 3-plattformen.
+description: Manage the users personal notification addresses for an organization.
 weight: 40
 ---
 
@@ -13,7 +13,7 @@ To use the API, you must be a logged-in end user. It is important that the acces
 
 In the path, you must indicate which party you want to manage addresses on behalf of. This is identified with `partyUuid`.
 
-**Model**
+### Model
 
 ```json
 {
@@ -29,6 +29,6 @@ In the path, you must indicate which party you want to manage addresses on behal
 
 * **userId** (string) Internal ID for the user in Altinn.
 * **partyUuid** (Guid) Internal ID for the party in Altinn.
-* **emailAddress** (string) The user's email address for notifications. Can be null.
-* **phoneNumber** (string) Phone number for SMS notifications to the user. Can be null.
-* **resourceIncludeList** (list of string) A list of services the user wants notifications for. Can be null. The list only accepts full URN values with resource ID.
+* **emailAddress** (string) The user's email address for notifications. May be null.
+* **phoneNumber** (string) Phone number for SMS notifications to the user. May be null.
+* **resourceIncludeList** (list of string) A list of services the user wants notifications for. May be null. The list must contain full URNs with resource IDs.

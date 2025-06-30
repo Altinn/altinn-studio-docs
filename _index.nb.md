@@ -13,11 +13,3 @@ Tidlig i prosessen vil vi råde deg til å tenke på hvordan du skal sende ut do
 
 Du kan velge mellom å sende fra maskin til maskin eller fra maskin til portal, for eksempel ved at brukerne mottar dokumentene i innboksen på altinn.no.
 
----
-title: Profile API
-linktitle: Profile
-description: Description of the API for the Profile component in the Altinn 3 platform
----
-
-{{<children />}}
-

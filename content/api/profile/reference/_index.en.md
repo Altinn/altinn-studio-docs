@@ -1,6 +1,6 @@
 ---
 title: Reference
-description: Find technical documentation for the functionality in Profile
+description: Technical documentation for Profile functionality
 weight: 20
 ---
 

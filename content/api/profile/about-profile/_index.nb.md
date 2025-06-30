@@ -1,6 +1,6 @@
 ---
 title: Om Profil
-description: En kort introduksjon til profil
+description: En kort introduksjon til Profil.
 weight: 10
 ---
 

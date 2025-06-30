@@ -13,11 +13,11 @@ The update usually runs every ten minutes.
 ## How do you use the API?
 There are endpoints for reading, adding, and deleting notification addresses.
 All endpoints require authentication. To use the API, you must be a logged-in end user. It is important that the access token used contains `userId` to indicate who the logged-in user is.
-The end user must also have one of a set of valid roles to manage the organization's notification address.
+The end user must also have one of a set of valid roles to manage the organization's notification addresses.
 
 In the path for managing notification addresses, you must include the organization's organization number.
 
-**Model**
+### Model
 ```json
 {
   "organizationNumber": "123456789",
@@ -40,6 +40,6 @@ In the path for managing notification addresses, you must include the organizati
 * **organizationNumber** (string) Contains the organization's organization number.
 * **notificationAddresses** (list of notification addresses)
     * **notificationAddressId** (int) An identifier for the address. Used to delete or update a stored address.
-    * **email** (string) Email address used for notifications to the organization. Is null if the address is a phone number.
-    * **phone** (string) Phone number used for notifications to the organization. Is null if the address is an email.
+    * **email** (string) Email address used for notifications to the organization. It is null if the address is a phone number.
+    * **phone** (string) Phone number used for notifications to the organization. It is null if the address is an email.
     * **countryCode** (string) Country code belonging to the phone number.
