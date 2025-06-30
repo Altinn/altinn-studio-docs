@@ -25,7 +25,7 @@ You can view your app's current outbound IPs via the monitoring dashboards:
 * **Production:**
   `https://<org>.apps.altinn.no/monitor/`
 
-An ext user is required to view the dashboards.
+An [ai-dev user](https://docs.altinn.studio/nb/altinn-studio/guides/administration/access-management/apps/) is required to view the dashboards.
 
 ➡️ Navigate to:
 `Dashboards → Altinn → PublicIPs`
