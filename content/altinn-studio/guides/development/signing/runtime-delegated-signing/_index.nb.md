@@ -194,7 +194,7 @@ Dette er de mulige overstyringskonfigurasjonene for kommunikasjon med signatarer
 
 Det er caching i autorisasjonslaget som gjør at det kan ta tid før en bruker som har fått delegert tilgang til et skjema via brukerstyrt signering, ser selve skjemaet i sin Altinn-innboks.
 
-Men dette skjer bare for
+Dette skjer bare for
 
 - de brukerne som er aktivt pålogget Altinn når et eksemplar (instans) blir delegert
 - de som ikke allerede har annen tilgang for InstanceOwner
