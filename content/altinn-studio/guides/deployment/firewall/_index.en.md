@@ -46,7 +46,3 @@ If your systems enforce IP-based access controls or firewall rules:
 * Ensure that both the `-prefix4` and `-prefix6` addresses are allowlisted.
 * Regularly verify your current outbound IPs through the provided monitoring dashboards.
 * Avoid hardcoding previous static IPs—use the dashboards as the source of truth.
-
----
-
-Let me know if you want this formatted in Markdown, rephrased in Norwegian, or embedded into an existing documentation layout.
