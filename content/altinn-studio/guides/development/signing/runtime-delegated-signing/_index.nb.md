@@ -35,7 +35,7 @@ Flyten i appen er slik:
 
 **Merk:** Vi støtter ikke automatisk innsending enda.
 
-Under ser du de viktiste stegene for å få satt opp en slik app.
+Følg trinnene under for å sette opp en slik app.
 
 ## 1. Legg til en signeringsoppgave i appens prosess, med tilhørende konfigurasjon
 
