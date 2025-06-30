@@ -1,6 +1,6 @@
 ---
-title: DigDir Scopes
-linktitle: DigDir Scopes
+title: Digdir Scopes
+linktitle: Digdir Scopes
 description: The following list contains all API scopes controlled by DigDir. Not all are for Altinn use.
 ---
 
