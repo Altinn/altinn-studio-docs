@@ -1,11 +1,11 @@
 ---
 title: Your contact information for the organization
-description: Manage the users personal notification addresses for an organization.
+description: Manage the user's personal notification addresses for an organization.
 weight: 40
 ---
 
 ## What is your contact information for the organization?
-If a user wants to receive personal notifications on behalf of an organization, they can set this up. This will typically be to the user's own phone number or company email. You can set up both, but only one of each.
+Users can configure personal notifications on behalf of an organization, typically to their own phone number or company e-mail. Both channels are allowed, but only one of each.
 Some users want to set up notifications only for specific services in Altinn. This can be added to a list of services you want notifications for, called `resourceIncludeList`. As of now, it is not possible to filter out individual services you do *not* want notifications for.
 
 ## How do you use the API?
@@ -27,8 +27,8 @@ In the path, you must indicate which party you want to manage addresses on behal
 }
 ```
 
-* **userId** (string) Internal ID for the user in Altinn.
-* **partyUuid** (Guid) Internal ID for the party in Altinn.
+* **userId** (int) Internal ID for the user in Altinn.
+* **partyUuid** (GUID) Internal ID for the party in Altinn.
 * **emailAddress** (string) The user's email address for notifications. May be null.
 * **phoneNumber** (string) Phone number for SMS notifications to the user. May be null.
 * **resourceIncludeList** (list of string) A list of services the user wants notifications for. May be null. The list must contain full URNs with resource IDs.
