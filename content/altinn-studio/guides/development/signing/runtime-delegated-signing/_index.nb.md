@@ -190,7 +190,7 @@ Dette er de mulige overstyringskonfigurasjonene for kommunikasjon med signatarer
 
 ## 6. Test brukerstyrt signering
 
-> **Obs!** Foreløpig er det ikke laget mocking av delegasjon i `localtest`, så du må i praksis teste i TT02-miljøet.
+> **Obs!** Du kan foreløpig ikke teste i `localtest`, du må teste i TT02-miljøet.
 
 Det er en forsinkelse i autorisasjonslaget. Det gjør at det kan ta tid før brukere som har fått delegert tilgang til et skjema med brukerstyrt signering, får se selve skjemaet i Altinn-innboksen.
 
