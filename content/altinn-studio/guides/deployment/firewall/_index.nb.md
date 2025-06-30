@@ -43,6 +43,4 @@ Dette er de gjeldende aktive adressene etter reetableringen av infrastrukturen s
 Hvis deres systemer benytter IP-basert tilgangskontroll eller brannmurregler:
 
 * Sørg for at både `-prefix4` og `-prefix6` adresser er hvitelistet.
-* Verifiser jevnlig deres utgående IP-adresser gjennom de oppgitte dashboardene.
-* Unngå å hardkode gamle statiske IP-adresser – bruk dashboardene som kilde til sannhet.
 
