@@ -1600,12 +1600,6 @@ input[type="search"] {
     }
 }
 
-@media (max-width: 767px) {
-    .adocs-collapseSearch {
-        display: none !important;
-    }
-}
-
 .arrow-tr {
     position: relative;
     background: #ffffff;

@@ -94,6 +94,7 @@ Here are core services and libraries that are owned and governed by the Studio t
 * App libraries - [Altinn.App.Api, Altinn.App.Core](https://github.com/Altinn/app-lib-dotnet) and [the frontend](https://github.com/Altinn/app-frontend-react)
   * Libraries hosted on NuGet.org. All Studio apps reference these libraries
   * Versioned using [SemVer 2.0](https://semver.org/). Prereleases consist of `preview` and `rc` (release candidate) stages. When `rc` stage is reached we intend to only do bug fixes and patching until stabilization
+  * HTTP APIs described in the app via OpenAPI specifications have their own versioning scheme. API changes here occur in line with major version changes in the rest of the app (the libraries). Note that there may be APIs that are _not_ described in OpenAPI specifications; these are intended for internal use and we may make changes to these without any communication.
   * Development and work is tracked [in the Altinn/app-lib-dotnet](https://github.com/Altinn/app-lib-dotnet) and [Altinn/app-frontend-react](https://github.com/Altinn/app-frontend-react) GitHub repositories
 * Localtest - [local copy of core Altinn platform APIs](https://github.com/Altinn/app-localtest)
   * New features and bugfixes are continuously deployed as needed
