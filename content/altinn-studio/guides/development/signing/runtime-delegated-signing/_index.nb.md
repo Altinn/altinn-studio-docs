@@ -196,7 +196,7 @@ Det er caching i autorisasjonslaget som gjør at det kan ta tid før en bruker s
 
 Men dette skjer bare for
 
-- de brukerne som er aktivt pålogget Altinn når et eksemplar/en instans blir delegert
+- de brukerne som er aktivt pålogget Altinn når et eksemplar (instans) blir delegert
 - de som ikke allerede har annen tilgang for InstanceOwner
 
 For at du skal slippe å oppleve problemer med dette mens du tester, kan du delegere til en person du ikke har brukt i testingen den siste timen.
