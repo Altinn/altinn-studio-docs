@@ -19,7 +19,7 @@ The following API is available in component
 
 ## Repository
 
-The resources is stored as json in a posgree database PostgreSQL.
+The resources is stored as JSOM in a PostgreSQL database.
 
 - [Table Setup](https://github.com/Altinn/altinn-resource-registry/blob/main/src/ResourceRegistry/Migration/v0.00-resource-registry/01-setup-tables.sql)
 

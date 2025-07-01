@@ -8,7 +8,7 @@ weight: 4
 
 ## Inndeling
 
-Brukerveiledningen er det inn i underområder ut fra hvilke rolle du opptrer som
+Brukerveiledningene er delt inn i underområder ut fra hvilken rolle du opptrer som.
 
 _Sluttbruker:_
 
@@ -38,4 +38,4 @@ Denne veiledningen beskriver hvordan du integrerer med Altinn Autorisasjon fra e
 
 Altinn Autorisasjon bruker XACML for tilgangskontroll. Denne veiledningen beskriver hvordan XACML Policy-formatet støttes i Altinn og XACML Request and Response-formatene for PDP.
 
-[Les veiledning](../reference/xacml)
+[Les veiledning](../reference/xacml/)

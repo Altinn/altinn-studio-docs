@@ -1,5 +1,5 @@
 ---
-title: Whats's new
+title: What's new
 description: What's new in Altinn Authorization
 weight: 50
 hidden: true

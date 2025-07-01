@@ -8,7 +8,7 @@ weight: 1
 
 ## Prerequisites For The API Provider
 
-To use system user as an api provider, the following prerequisites must be fulfilled:
+To use system user as an API-provider, the following prerequisites must be fulfilled:
 
 - Agreement with Maskinporten as [API-provider](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apitilbyder)
 - Agreement with Digdir for access to resource registry for creating resources

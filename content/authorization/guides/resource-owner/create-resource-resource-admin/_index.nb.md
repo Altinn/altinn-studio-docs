@@ -69,7 +69,7 @@ dette er bare informasjon.
 
 ![Create Resource](create_resource_8.png)
 
-### Party tyoe
+### Party type
 
 Definerer hvilken type part tjenesten er målrettet mot. Kan brukes til filtrering i servicekatalog på et senere tidspunkt.
 

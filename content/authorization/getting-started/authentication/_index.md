@@ -22,10 +22,10 @@ Backlog with open issues can be found [here](https://github.com/Altinn/altinn-au
 ## Token exchange for Altinn Portal
 
 When a user logs in to the Altinn Portal (Legacy Solution) it gets a Cookie containing information about the logged-in user. This cookie is
-a [propiaritary format for ASP.NET](https://support.microsoft.com/en-us/help/301240/how-to-implement-forms-based-authentication-in-your-asp-net-applicatio) (Full Framework)
+a [proprietary format for ASP.NET](https://support.microsoft.com/en-us/help/301240/how-to-implement-forms-based-authentication-in-your-asp-net-applicatio) (Full Framework)
 and can only be understood with application based on .NET Framework having access to the symmetric encryption key.
 
-The Altinn Platform is based on .ASP.NET Core and can`t understand the cookie.
+The Altinn Platform is based on .ASP.NET Core and can't understand the cookie.
 
 To allow for a user accessing an App in Altinn Apps or a component in Altinn Platform the current platform will
 expose an API that can decrypt an ASP.NET cookie and return user information to the Authentication component in Altinn Platform.
@@ -36,7 +36,7 @@ Organizations authenticated in maskinporten can exchange their JWT token for a v
 
 ## Token exchange for ID-porten
 
-End users authenticated through ID-porten can exchange their JWT token for a valid Altinn Platform JWT token to be used agains Altinn Apps and Altinn Platform.
+End users authenticated through ID-porten can exchange their JWT token for a valid Altinn Platform JWT token to be used against Altinn Apps and Altinn Platform.
 
 The solution is available at https://platform.altinn.cloud/authentication/api/v1.
 
@@ -64,7 +64,7 @@ Set test equal to true if retrieving a token for Testdepartementet.
 
 {{%notice info%}}
 A token from id-porten contains both an id-token and access-token.
-Only the access token is to be exhanged using this endpoint.
+Only the access token is to be exchanged using this endpoint.
 {{% /notice%}}
 
 ```http

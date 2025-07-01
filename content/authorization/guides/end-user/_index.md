@@ -1,7 +1,7 @@
 ---
-title: End user functionality in Altinn Autorisasjon
+title: End user functionality in Altinn Authorization
 linktitle: End user
-description: How to use the different part of Altinn Autorisasjon
+description: How to use the different parts of Altinn Authorization.
 toc: false
 weight: 1
 ---

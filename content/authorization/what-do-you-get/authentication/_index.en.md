@@ -24,7 +24,7 @@ Organizations authenticated in maskinporten can exchange their JWT token for a v
 
 ## Token exchange for ID-porten
 
-End users authenticated through ID-porten can exchange their JWT token for a valid Altinn Platform JWT token to be used agains Altinn Apps and Altinn Platform.
+End users authenticated through ID-porten can exchange their JWT token for a valid Altinn Platform JWT token to be used against Altinn Apps and Altinn Platform.
 
 The solution is available at https://platform.altinn.cloud/authentication/api/v1.
 
@@ -51,8 +51,8 @@ Set test equal to true if retrieving a token for Testdepartementet.
 (This ony works with maskinporten as the token provider.)
 
 {{%notice info%}}
-A token from id-porten contains both and id-token and and access-token.
-Only the access token it to be exhanged using this endpoint.
+A token from id-porten contains both an id-token and an access-token.
+Only the access-token is exchanged using this endpoint.  
 {{% /notice%}}
 
 ```http

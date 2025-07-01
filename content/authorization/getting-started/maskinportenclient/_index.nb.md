@@ -1,7 +1,7 @@
 ---
-title: Oppsett av Maskionporten-klient
+title: Oppsett av Maskinporten-klient
 linktitle: Maskinporten
-description: Her finner informasjon om hvordan du setter opp Maksinporten-integrasjon
+description: Her finner du informasjon om hvordan du setter opp Maskinporten-integrasjon
 toc: false
 weight: 3
 ---

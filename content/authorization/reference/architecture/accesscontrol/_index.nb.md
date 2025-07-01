@@ -73,7 +73,7 @@ This can easily be replaced with other implementation.
 
 ### Policy Information Point - Resources
 
-PIP for resoruces checks storage for instance information.
+PIP for resources checks storage for instance information.
 
 This is implemented as a service. [See implementation](https://github.com/Altinn/altinn-authorization/blob/main/src/Authorization/Repositories/InstanceMetadataRepository.cs)
 

@@ -62,8 +62,8 @@ The status of the service that the resource is pointing to
 
 ### User types
 
-Defines which types of user that can access. This settings does might be used for filtering at a later point. Currently
-this is just information.
+Defines which types of users that can access. These settings may be used for filtering at a later point. Currently
+this is just information only.
 
 ![Create Resource](create_resource_8.png)
 

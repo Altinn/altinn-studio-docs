@@ -11,8 +11,7 @@ created for supporting [JSON Web Tokens](https://jwt.io/) (JWT) as [bearer token
 on [JWTBearer](https://github.com/aspnet/Security/tree/master/src/Microsoft.AspNetCore.Authentication.JwtBearer)
 
 This is created for scenarios where you have need for APIs that will be accessed from system using bearer tokens and from
-Single Page Applications (SPA) where you want to protect the JWT from this SPA. ([XSS attacks](<https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)>)). When JWT is put in a
-[HTTP-only cookie](https://www.owasp.org/index.php/HttpOnly) it is not accessible from the SPA and can't be stolen by malicous javascript
+Single-page applications (SPA) where you want to protect the JWT from the SPA ([XSS attacks](<https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)>)). When the JWT is stored in an [HTTP-only cookie](https://www.owasp.org/index.php/HttpOnly) it is not accessible from the SPA and cannot be stolen by malicious JavaScript
 running in the browser.
 
 This is created as a [separate C# Project](https://github.com/Altinn/altinn-authentication/tree/main/src/jwtcookie/Authentication) and published as a
@@ -22,10 +21,10 @@ NuGet package [here](https://www.nuget.org/packages/JWTCookieAuthentication/).
 
 - Support Verification of JWT Tokens as bearer tokens
 - Support Verification of JWT Tokens from cookie
-- Configurable name of cookie used
+- Configurable cookie name
 - Automatic detection if request contains Authorization bearer token or JWT in cookie
 - Uses [Microsoft.IdentityModel.Tokens](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) for verification and generation.
-- Uses [OpenID connect](https://openid.net/connect/) well known endpoint to retrieve the JSON Web Key (JWK) used to sign JWT from the [JSON Web Key Set](https://auth0.com/docs/jwks)
+- Uses [OpenID connect](https://openid.net/connect/) well-known endpoint to retrieve the JSON Web Key (JWK) used to sign JWT from the [JSON Web Key Set](https://auth0.com/docs/jwks)
 - Support multiple OIDC providers configured.
 - Support rotating of JWK (TODO)
 
@@ -33,7 +32,7 @@ NuGet package [here](https://www.nuget.org/packages/JWTCookieAuthentication/).
 
 - Support Generation of JWT Tokens as bearer tokens
 - Support Generation of JWT Tokens inside Cookies
-- Configureble name of cookie used
+- Configurable cookie name
 - Configurable Signing Certificate
 - Uses standard JWT Library for verification and generation.
 - Uses OpenID connect well known endpoint to retrieve the JSON Web Key (JWK) used to sign JWT from the [JSON Web Key Set](https://auth0.com/docs/jwks)
@@ -83,7 +82,7 @@ services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
 
 ## How to get access to user information
 
-When a application is configured with JWTCookie authentication the information is available in httpContext about the user.
+When a application is configured with JWTCookie-authentication, the information is available in httpContext about the user.
 
 ```C#
  public static int GetUserId(HttpContext context)

@@ -7,12 +7,12 @@ aliases:
   - /authentication/systemauthentication/
 ---
 
-En stor del av kommunikasjonen mellom det offentlige og næringslivet skjer via API i Altinn og hos andre platformleverandører i det offentlige. Mye av denne kommunikasjonen skjer på veien av virksomheten og trenger ikke utføres av en spesifkk person.
+En stor del av kommunikasjonen mellom det offentlige og næringslivet skjer via API i Altinn og hos andre platformleverandører i det offentlige. Mye av denne kommunikasjonen skjer på vegne av virksomheten og trenger ikke utføres av en spesifikk person.
 Systembruker gjør det enkelt opprette en bruker, som gis nødvendige fullmakter i forhold til oppgavene den skal utføre.
 
 Systembruker bygger videre på Maskinporten, som gir sikker autentisering og grovkornet tilgangsstyring, og utvider dette med finkornet tilgangsstyring
 
-Systembruker gjør det enkelt å sette opp en virtuell bruker som kan opperere på vegne av virksomehten, endten som egenoppreret system eller i et kunde - leverandørforhold
+Systembruker gjør det enkelt å sette opp en virtuell bruker som kan operere på vegne av virksomheten, enten som egenopprettet system eller i et kunde–leverandørforhold
 Systembruker både brukes mot tjenster som kjører i Altinn og mot eksterne tjenester som bruker Altinn Autorisasjon som autorisasjonsløsning.
 
 > Systembruker bør kun brukes i tilfeller der det ikke er behov for at Altinn kan koble operasjonene som utføres med hvilken person som utfører dem.
@@ -24,7 +24,7 @@ For en overordnet funsjonell gjennomgang og brukerreise se [Samarbeidsportalen](
 `Fasilitator`: Virksomhet som selger tjester i markedet og utfører disse i et sluttbrukersystem på vegne av sine kunder. Eksempel på dette er regnskapsføre og revisor.  
 `Sluttbruker`: Ansatt som jobber i sluttbrukersystem
 `Sluttbrukersystem`; Fagsystem virksomheten jobber i. Systemet kan kjøre i sky eller internt hos virksomheten, brukes av virksomheten selv eller av en fasilitator som oppererer på vegne av virksomheten.  
-`Sluttbrukersystemleverandør`: Virsomhet som utvikler og/eller leverer sluttbrukersystem.
+`Sluttbrukersystemleverandør`: Virksomhet som utvikler og/eller leverer sluttbrukersystem.
 
 ## Egenskaper med systembruker
 
