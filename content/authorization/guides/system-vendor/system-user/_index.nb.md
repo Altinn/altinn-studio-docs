@@ -4,6 +4,8 @@ linktitle: Systembruker
 description: En veiledning for systemleverandører for å integrere mot og sette opp systembrukere i sitt sluttbrukersystem.
 toc: false
 weight: 2
+aliases:
+  - nb/authentication/guides/systemvendor/
 ---
 
 #### Tiltak utført av systemleverandøren (SmartCloud AS)

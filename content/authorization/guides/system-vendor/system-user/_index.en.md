@@ -2,9 +2,10 @@
 title: System user guide
 linktitle: System user
 description: A guide for the system vendor to set up integrate and setup system users for their systems.
-
 toc: true
 weight: 2
+aliases:
+  - /authentication/guides/systemvendor/
 ---
 
 #### Actions by System Vendor (SmartCloud AS)

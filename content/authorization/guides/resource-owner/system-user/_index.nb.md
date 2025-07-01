@@ -4,6 +4,8 @@ linktitle: Systembruker
 description: En veiledning for API-leverandør for å registrere sin ressurs med Altinn og etablere systembrukerintegrasjonen.
 toc: true
 weight: 1
+aliases:
+  - nb/authentication/guides/sy/nb/authentication/guides/serviceowner/
 ---
 
 ## Forutsetninger for API-leverandøren
