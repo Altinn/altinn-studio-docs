@@ -71,7 +71,7 @@ All examples are based on the data model shown below:
 
 ### Retrieve Organization Number from the Business Register (ER)
 
-This will fill the _Organization.OrgNo_ field with the organization number from the Business Register:
+This will fill the `Organization.OrgNo` field with the organization number from the Business Register:
 
 ```json
 "ER": {
@@ -81,7 +81,7 @@ This will fill the _Organization.OrgNo_ field with the organization number from 
 
 ### Example: Retrieve Personal Number from the Population Register (DSF)
 
-This will fill the _Person.PersonNr_ field with the personal number from the Population Register.
+This will fill the `Person.PersonNr` field with the personal number from the Population Register.
 
 ```json
 "DSF": {
@@ -91,7 +91,7 @@ This will fill the _Person.PersonNr_ field with the personal number from the Pop
 
 ### Example: Retrieve email from the user's Altinn profile
 
-This will fill the _User.Email_ field with the email retrieved from the user's Altinn profile.
+This will fill the `User.Email` field with the email retrieved from the user's Altinn profile.
 
 ```json
 "UserProfile": {

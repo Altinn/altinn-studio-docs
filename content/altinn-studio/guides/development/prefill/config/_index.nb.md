@@ -61,7 +61,7 @@ Formatet er `"datafelt": "skjemafelt"`, der:
 - `datafelt` er navnet på feltet _fra kilden_
 - `skjemafelt` er navnet på feltet i skjemaets datamodell.
 
-Se [fullstendig liste over tilgengelige datafelt for alle kildene](../../../../reference/data/prefill).
+Se [fullstendig liste over tilgjengelige datafelt for alle kildene](../../../../reference/data/prefill).
 
 ## Eksempler
 
@@ -71,7 +71,7 @@ Alle eksemplene tar utgangspunkt i datamodellen vist under:
 
 ### Hent organisasjonsnummer fra Enhetsregisteret (ER)
 
-Dette fyller ut feltet _Organisasjon.Orgnr med organisasjonsnummeret 
+Dette fyller ut feltet `Organisasjon.Orgnr` med organisasjonsnummeret 
 Enhetsregisteret:
 
 ```json
@@ -82,7 +82,7 @@ Enhetsregisteret:
 
 ### Eksempel: Hent personnummer fra Folkeregisteret (DSF)
 
-Dette fyller ut feltet _Person.Personnr med personnummer fra Folkeregistret.
+Dette fyller ut feltet `Person.Personnr` med personnummer fra Folkeregistret.
 
  ```json
 "DSF": {
@@ -92,7 +92,7 @@ Dette fyller ut feltet _Person.Personnr med personnummer fra Folkeregistret.
 
 ### Eksempel: Hent e-post fra brukerens Altinn-profil
 
-Dette fyller ut feltet _Bruker.Epost_ med e-post hentet fra brukerens Altinn-profil.
+Dette fyller ut feltet `Bruker.Epost` med e-post hentet fra brukerens Altinn-profil.
 
 ```json
 "UserProfile": {
