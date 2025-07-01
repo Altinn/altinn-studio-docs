@@ -9,7 +9,9 @@ aliases:
   - /technology/solutions/altinn-platform/authorization/
 ---
 
- <div class="row adocs-featuredBlocks">
+{{<children />}}
+
+ <!-- <div class="row adocs-featuredBlocks">
     <div class="col-12 col-lg-6 mb-5">
         <div style="text-align: center;">
             <h2 class="a-h3">Finn ut mer</h2>
@@ -96,4 +98,4 @@ aliases:
             </ul>
         </div>
     </div>
-</div>
+</div> -->

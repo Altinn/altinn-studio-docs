@@ -6,17 +6,17 @@ tags: [architecture, security]
 toc: true
 ---
 
-JWTCookieAuthentication is a [ASP.NET Core authentication service](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/)
-created for supporting [Json Web Tokens](https://jwt.io/) (JWT) as [bearer tokens](https://oauth.net/2/bearer-tokens/) and JWT in Cookies. It is based
+JWTCookieAuthentication is an [ASP.NET Core authentication service](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/)
+created for supporting [JSON Web Tokens](https://jwt.io/) (JWT) as [bearer tokens](https://oauth.net/2/bearer-tokens/) and JWT in Cookies. It is based
 on [JWTBearer](https://github.com/aspnet/Security/tree/master/src/Microsoft.AspNetCore.Authentication.JwtBearer)
 
 This is created for scenarios where you have need for APIs that will be accessed from system using bearer tokens and from
 Single Page Applications (SPA) where you want to protect the JWT from this SPA. ([XSS attacks](<https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)>)). When JWT is put in a
-[http only cookie](https://www.owasp.org/index.php/HttpOnly) it is not accessible from the SPA and can't be stolen by malicous javascript
+[HTTP-only cookie](https://www.owasp.org/index.php/HttpOnly) it is not accessible from the SPA and can't be stolen by malicous javascript
 running in the browser.
 
 This is created as a [separate C# Project](https://github.com/Altinn/altinn-authentication/tree/main/src/jwtcookie/Authentication) and published as a
-Nuget Package [here](https://www.nuget.org/packages/JWTCookieAuthentication/).
+NuGet package [here](https://www.nuget.org/packages/JWTCookieAuthentication/).
 
 ## Features Consumer
 
