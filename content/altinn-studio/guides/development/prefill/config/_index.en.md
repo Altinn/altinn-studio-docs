@@ -1,25 +1,33 @@
 ---
-title: Prefilling data using configuration
-linktitle: Config
-description: How to configure prefill for an app using configuration files.
-toc: false
-weight: 200
+title: Automatically Prefill Data - Configuration File  
+linktitle: Configuration  
+description: How to set up automatic form data pre-filling using a configuration file.
+toc: false  
+weight: 200  
 ---
 
-Using configuration only, Altinn apps support prefill with data from the Central Coordinating Register 
-(Enhetsregisteret), the National Population Register (Folkeregisteret) and user profile in Altinn.
+## What does this feature do?  
+Your Altinn app can automatically fill in parts of the form before the user begins. The data can be retrieved from:  
+- The Business Register (for company info)  
+- The Population Register (for personal info)  
+- The user's Altinn profile.  
 
-By following the description below, you will during instantiation of a form prefill the data model with
-the defined values obtained from Altinns data base.
+When someone starts the form, the fields you select will be automatically populated with the correct data.
 
-## Setup of prefill in the application repository
+## How to set it up
 
-Create a new json file in the app repo under `App/models`.
-The name of the file should contain the name of the data model and have the postfix ".prefill.json".
-If the data model is called _appModel_ you should now be able to find these three files in the map:
-_appModel.metadata.json_, _appModel.schema.json_, _appModel.prefill.json_
+### 1. Create a new file
 
-Paste the code below into the file.
+Navigate to the folder `App/models` in your app and create a new file.  
+**Important:** The file must be named `[dataModelName].prefill.json`  
+Example: If your data model is called _appModel_, you should have these files:  
+- `appModel.cs` 
+- `appModel.schema.json` 
+- `appModel.prefill.json`  &larr; *the new file*
+
+### 2. Add the base configuration
+
+Copy this configuration code into the new file:
 
 ```json
 {
@@ -34,45 +42,57 @@ Paste the code below into the file.
 }
 ```
 
-## Configuration of _prefill.json_
+### 3. Configure which data should be filled automatically
 
-Within the category you want to fetch data from (ER, DSF or UserProfile) in the _prefill.json_ file, add a new line
-with a key/value pair:
+The three groups in the code mirror the three available sources:  
+- `ER` - The Business Register  
+- `DSF` - The Population Register  
+- `UserProfile` - The user's Altinn profile  
 
-```json
-"<key>": "<value>"
-```
+Choose which sources you want to use. If any (or all) of the sources should not be used, leave them empty.
 
-- The key is the field the data is _fetched from_-
-- The value is the field to populate in the data model.
+Within the group for the relevant source, add lines indicating:  
+- Which data field (from the source) you want to retrieve data from  
+- Which form field should be filled out  
 
-A full overview of the available fields can be found [here](../../../../reference/data/prefill/#available-prefill-values).
+The format is `"datafield": "formfield"`, where:  
+- `datafield` is the name of the field _from the source_  
+- `formfield` is the name of the field in the form's data model.
 
-### Example: Field from the Central Coordinating Register (ER)
-The example below will populate the field _Datamodell.Organisasjon.Organisasjonsnummer_ with the organization number retrieved from the Central Coordinating register.
+See [full list of available data fields for all sources](../../../../reference/data/prefill).
+
+## Examples
+
+All examples are based on the data model shown below:
+
+![Data model for form](exampleModel.png "Data model for form")
+
+### Retrieve Organization Number from the Business Register (ER)
+
+This will fill the `Organization.OrgNo` field with the organization number from the Business Register:
 
 ```json
 "ER": {
-    "OrgNumber":"Datamodell.Organisasjon.Organisasjonsnummer"
+    "OrgNumber": "Organization.OrgNo"
 }
 ```
 
-### Example: Field from the National Population Register (DSF)
+### Example: Retrieve Personal Number from the Population Register (DSF)
 
-The example below will populate the field _Datamodell.Person.Nummer_ with the phone number retrieved from the National Population Register.
+This will fill the `Person.PersonNr` field with the personal number from the Population Register.
 
- ```json
+```json
 "DSF": {
-    "TelephoneNumber":"Datamodell.Person.Nummer"
+    "SSN": "Person.PersonNr"
 }
 ```
 
-### Example: Field from the user profile in Altinn
+### Example: Retrieve email from the user's Altinn profile
 
-The example below will populate the field _Datamodell.Bruker.Epost_ with the email retrieved from the users profile in Altinn.
+This will fill the `User.Email` field with the email retrieved from the user's Altinn profile.
 
 ```json
 "UserProfile": {
-    "Email":"Datamodell.Bruker.Epost"
+    "Email": "User.Email"
 }
 ```

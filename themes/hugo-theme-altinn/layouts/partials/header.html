@@ -15,7 +15,7 @@
     <link href="{{"css/nucleus.css" | relURL}}" rel="stylesheet">
     <link href="{{"css/font-awesome.min.css" | relURL}}" rel="stylesheet">
     <link href="{{"css/hybrid.css" | relURL}}" rel="stylesheet">
-    <link href="{{"css/horsey.css" | relURL}}" rel="stylesheet">
+
     <link href="{{"css/fortawesome.css" | relURL}}" rel="stylesheet">
     <link href="{{"css/designsystem.css" | relURL}}" rel="stylesheet">
     {{- with .Site.Params.themeStyle -}}
@@ -68,7 +68,7 @@
                     <span class="sr-only">Vis/skjul meny</span>
                   </a>
                 </span>
-                <span class="links">
+                <span class="links" data-pagefind-meta="🍞">
                   {{- if eq .Kind "taxonomy" -}}
                     <a href="/tags/">Tags</a> /
                   {{- end -}}
@@ -83,8 +83,12 @@
               <a class="label label-default" href="{{$.Site.BaseURL}}tags/{{ $tag | urlize }}">{{ $tag }}</a>
             {{- end -}}
           </div>
-        {{- end -}}        
-        <div id="body-inner">
+        {{- end -}}
+        {{- if and true .Params.disablepagefind -}}
+          <div id="body-inner">
+        {{- else -}}
+          <div id="body-inner" data-pagefind-body>
+        {{- end -}}
           {{- if not .IsHome -}}
             {{- if eq .Kind "taxonomy" -}}
               <h1 class="a-fontBold">Tag: {{- .Title -}}</h1>

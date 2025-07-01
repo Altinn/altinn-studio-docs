@@ -14033,10 +14033,14 @@ a.a-linkFeatured[href^="http"]:not([href*='altinn.no'])::after {
 .a-header-options {
   float: right;
   margin-top: -10px; }
-  @media (min-width: 768px) {
+  @media (min-width: 376px) {
     .a-header-options {
       left: auto;
-      margin-top: -7px; } }
+      margin-top: -7px;
+      margin-right:6em;} }
+  @media (min-width: 768px) {
+    .a-header-options {
+      margin-right:0; } }
   @media (min-width: 992px) {
     .a-header-options {
       margin-top: -6px; } }
@@ -14064,7 +14068,7 @@ a.a-linkFeatured[href^="http"]:not([href*='altinn.no'])::after {
     cursor: pointer;
     background: transparent;
     border: none; }
-    @media (min-width: 576px) {
+    @media (min-width: 376px) {
       .a-header-options .a-languageSwitcher {
         position: relative;
         right: 0; } }

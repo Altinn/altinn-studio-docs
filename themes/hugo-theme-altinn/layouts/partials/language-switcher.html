@@ -1,7 +1,7 @@
 <a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
-  {{ T "language" }}
+  <img src="/images/{{ .Language }}.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
 </a>
-<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;">
   {{- $currentPage := . -}}
   {{- if hugo.IsMultilingual -}}
     {{- range .AllTranslations -}}
@@ -10,11 +10,11 @@
       <p>
         <span class="a-h3">{{ .Language.LanguageName }}{{- if eq .Language.Lang $currentPage.Language.Lang }} ✓{{- end -}}</span><br>
         {{- if eq .Language.Lang "en" -}}
-        <span>Most content is available in english.</span>
+
         {{- else if eq .Language.Lang "nb" -}}
-        <span>Noe innhold er tilgjengelig på bokmål.</span>
+
         {{- else if eq .Language.Lang "nn" -}}
-        <span>Noko av innhaldet er tilgjengeleg på nynorsk.</span>
+
         {{- end -}}
       </p>
     </a>

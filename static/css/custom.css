@@ -107,12 +107,12 @@ a[href^=http]:not([href*='localhost']):not([href*='docs.altinn.studio']):not([hr
 }
 
 .a-globalNav .a-globalNav-logo {
-    margin-left: 3px;
+    margin-left: 0;
 }
 
 @media (min-width: 576px) {
     .a-globalNav .a-globalNav-logo {
-        margin-left: 12px;
+        margin-left: 0;
     }
 }
 
