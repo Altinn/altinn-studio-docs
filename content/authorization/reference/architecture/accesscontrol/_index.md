@@ -6,7 +6,7 @@ tags: [architecture, solution]
 toc: false
 ---
 
-See [solutions](/authorization/) for details about the functionality provided by this component.
+See [solutions](../../../../authorization/) for details about the functionality provided by this component.
 
 ![Access Management](accesscontrol.drawio.svg "Construction Components Altinn Access Control")
 
@@ -51,7 +51,7 @@ PRP is configured as a service in the Authorization Component and can easily be 
 ### Context Handler
 
 Context handler enriches the authorization request with information about the user and the resource requested.
-Roles are retrieved from SBL Brigde while resource information is retrieved from Instances in storage. 
+Roles are retrieved from SBL Brigde while resource information is retrieved from Instances in storage.
 
 [See code](https://github.com/Altinn/altinn-authorization/blob/main/src/Authorization/Services/Implementation/ContextHandler.cs).
 
@@ -104,7 +104,6 @@ information needed by PDP
 
 You need to implement funcionality to identify the correct XACML Policy. In Altinn we have different policies for the different apps, but in
 some simple scenarios you would only need to reference a static XACML Policy.
-
 
 ### PIP
 
