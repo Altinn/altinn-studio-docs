@@ -1,25 +1,35 @@
 ---
-title: Forhåndsutfylling av data med konfigurasjon
+title: Forhåndsutfyll data automatisk - konfigurasjonsfil
 linktitle: Konfigurasjon
-description: Hvordan sette opp forhåndsutfylling av data via konfigurasjonsfil.
+description: Hvordan sette opp automatisk forhåndsutfylling av data via konfigurasjonsfil.
 toc: false
 weight: 200
 ---
 
-Ved bruk av kun konfigurasjon støtter Altinn apps prefill med data fra Enhetsregisteret, Folkeregisteret og 
-brukerprofil i Altinn.
+Slik setter du opp automatisk utfylling av skjemadata med konfigurasjonsfil.
 
-Ved å følge beskrivelsen nedenfor vil man under oppstart av et eksemplar av skjema forhåndsutfylle datamodellen med
-de definerte verdiene hentet fra Altinns database.
+## Hva gjør denne funksjonen?
+Altinn-appen din kan automatisk fylle ut deler av skjemaet før brukeren begynner. Dataene kan hentes fra:
+- Enhetsregisteret (for bedriftsinfo)
+- Folkeregisteret (for personinfo)
+- Brukerens Altinn-profil.
 
-## Oppsett av forhåndsutfylling i appens repository
+Når noen starter skjemaet, blir feltene du velger fylt ut automatisk med riktige data.
 
-Opprett en ny json-fil i app repoet under `App/models`.
-Navnet på filen skal starte med navnet på datamodellen og slutte med ".prefill.json".
-Dersom datamodellen din heter _appModel_ skal du nå kunne finne disse tre filene i mappen:
-_appModel.metadata.json_, _appModel.schema.json_, _appModel.prefill.json_
+## Slik setter du det opp
 
-Lim inn innholdet nedenfor i filen.
+### 1. Opprett en ny fil
+
+Gå til mappen  `App/models` i appen din og opprett en ny fil.
+**Viktig:** Filen må hete `[datamodellnavn].prefill.json`
+Eksempel: Hvis datamodellen din heter _appModel_ skal du ha disse filene:
+- `appModel.cs` 
+- `appModel.schema.json` 
+- `appModel.prefill.json`  &larr; *den nye filen*
+
+### 2. Legg inn grunnkonfigurasjon
+
+Kopier denne konfigurasjonskoden inn i den nye filen:
 
 ```json
 {
@@ -34,44 +44,55 @@ Lim inn innholdet nedenfor i filen.
 }
 ```
 
-## Konfigurering av _prefill.json_-filen
+### 3. Konfigurer hvilke data som skal fylles ut automatisk
 
-Under ønsket gruppe (DSF, ER eller UserProfile) 
-i _prefill.json_-filen, legg inn en ny linje med nøkkel/verdi:
+De tre gruppene i koden speiler de tre kildene som er tilgjengelige:
+- `ER` - Enhetsregisteret
+- `DSF` - Folkeregisteret
+- `UserProfile` - Brukerens Altinn-profil
 
-```json
-"<nøkkel>": "<verdi>"
-```
+Du velger hvilke av kildene du ønsker å bruke. Om en (eller flere) av kildene ikke skal brukes, lar du de stå tomme.
 
-- Nøkkelen skal være feltet som data hentes _fra_.
-- Verdien skal være feltet fra datamodellen.
+Inne i gruppen for den aktuelle kilden legger du til linjer som forteller:
+- Hvilket felt (fra kilden) du vil hente data fra
+- Hvilket felt i skjemaet som skal fylles ut
 
-Full oversikt over tilgjengelige felter finner du [her](../../../../reference/data/prefill).
+Formatet er `"datafelt": "skjemafelt"`, der:
+- `datafelt` er navnet på feltet _fra kilden_
+- `skjemafelt` er navnet på feltet i skjemaets datamodell.
 
-### Eksempel: Felt fra Enhetsregisteret (ER)
+Se [fullstendig liste over tilgjengelige datafelt for alle kildene](../../../../reference/data/prefill).
 
-Eksempelet nedenfor vil populere feltet _Organisasjon.Organisasjonsnummer_ med organisasjonsnummeret 
-hentet fra enhetsregisteret.
+## Eksempler
+
+Alle eksemplene tar utgangspunkt i datamodellen vist under:
+
+![Datamodell for skjema](exampleModel.png "Datamodell for skjema")
+
+### Hent organisasjonsnummer fra Enhetsregisteret (ER)
+
+Dette fyller ut feltet `Organisasjon.Orgnr` med organisasjonsnummeret 
+Enhetsregisteret:
 
 ```json
 "ER": {
-    "OrgNumber":"Organisasjon.Organisasjonsnummer"
+    "OrgNumber":"Organisasjon.Orgnr"
 }
 ```
 
-### Eksempel: Felt fra Folkeregisteret (DSF)
+### Eksempel: Hent personnummer fra Folkeregisteret (DSF)
 
-Eksempelet nedenfor vil populere feltet _Person.Nummer_ med telefonnummer henter fra folkeregistret.
+Dette fyller ut feltet `Person.Personnr` med personnummer fra Folkeregistret.
 
  ```json
 "DSF": {
-    "TelephoneNumber":"Person.Nummer"
+    "SSN":"Person.Personnr"
 }
 ```
 
-### Eksempel: Felt fra brukerens profil i Altinn
+### Eksempel: Hent e-post fra brukerens Altinn-profil
 
-Eksempelet nedenfor vil populere feltet _Bruker.Epost_ med epost hentet fra brukerens profil i Altinn.
+Dette fyller ut feltet `Bruker.Epost` med e-post hentet fra brukerens Altinn-profil.
 
 ```json
 "UserProfile": {
