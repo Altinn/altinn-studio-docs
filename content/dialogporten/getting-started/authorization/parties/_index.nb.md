@@ -23,7 +23,7 @@ Siden Dialogporten benytter autorisasjonsmodellen i [Altinn Authorization](../..
 
 ## Autoriserte parter
 
-Ved å bruke APIer levert av [Altinn Access Management](../../../../authorization/what-do-you-get/#adgangskontroll/), lar Dialogporten autentiserte brukere få en liste over alle parter de er autorisert til å representere i enhver kapasitet. Denne listen blir også referert til som "aktørlisten" eller i Altinn 2 som "avgiverlisten".
+Ved å bruke APIer levert av [Altinn Access Management](../../../../authorization/what-do-you-get/), lar Dialogporten autentiserte brukere få en liste over alle parter de er autorisert til å representere i enhver kapasitet. Denne listen blir også referert til som "aktørlisten" eller i Altinn 2 som "avgiverlisten".
 
 Denne listen kan brukes av sluttbruker-systemer som en aktørvalgsmekanisme, slik at sluttbrukeren kan velge parten de vil representere, og danne grunnlaget for påfølgende forespørsler til Dialogporten for å [finne dialoger](../../../user-guides/searching-for-dialogs).
 

@@ -19,7 +19,7 @@ As Dialogporten utilizes the authorization model in [Altinn Authorization](../..
 
 ## Authorized parties
 
-By utilizing APIs provided by [Altinn Access Management](../../../../authorization/what-do-you-get/#access-management/), Dialogporten lets authenticated users get a list of all parties they are authorized to represent in any capacity. This list is also referred to as the "actor list" or in Altinn 2 as the "reportee list".
+By utilizing APIs provided by [Altinn Access Management](../../../../authorization/what-do-you-get/), Dialogporten lets authenticated users get a list of all parties they are authorized to represent in any capacity. This list is also referred to as the "actor list" or in Altinn 2 as the "reportee list".
 
 This list can be used by end-user systems as a actor selection mechanism, allow the end-user to select the party they want to represent, and form the basis for subsequent requests to Dialogporten to [find dialogs](../../../user-guides/searching-for-dialogs).
 
