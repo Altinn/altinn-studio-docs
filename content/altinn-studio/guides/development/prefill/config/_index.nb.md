@@ -1,12 +1,10 @@
 ---
 title: Forhåndsutfyll data automatisk - konfigurasjonsfil
 linktitle: Konfigurasjon
-description: Hvordan sette opp automatisk forhåndsutfylling av data via konfigurasjonsfil.
+description: Slik setter du opp automatisk utfylling av skjemadata med konfigurasjonsfil.
 toc: false
 weight: 200
 ---
-
-Slik setter du opp automatisk utfylling av skjemadata med konfigurasjonsfil.
 
 ## Hva gjør denne funksjonen?
 Altinn-appen din kan automatisk fylle ut deler av skjemaet før brukeren begynner. Dataene kan hentes fra:
