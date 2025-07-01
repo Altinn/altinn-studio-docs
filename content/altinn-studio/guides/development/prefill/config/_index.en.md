@@ -6,7 +6,7 @@ toc: false
 weight: 200  
 ---
 
-Here's how to set up automatic form data pre-filling.
+Here's how to set up automatic form data pre-filling using a configuration file.
 
 ## What does this feature do?  
 Your Altinn app can automatically fill in parts of the form before the user begins. The data can be retrieved from:  

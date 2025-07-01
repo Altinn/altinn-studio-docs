@@ -6,7 +6,7 @@ toc: false
 weight: 200
 ---
 
-Slik setter du opp automatisk utfylling av skjemadata.
+Slik setter du opp automatisk utfylling av skjemadata med konfigurasjonsfil.
 
 ## Hva gjør denne funksjonen?
 Altinn-appen din kan automatisk fylle ut deler av skjemaet før brukeren begynner. Dataene kan hentes fra:
