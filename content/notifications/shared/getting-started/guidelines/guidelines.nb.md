@@ -3,10 +3,10 @@ headless: true
 hidden: true
 ---
 
-To ensure effective communication, it is essential to strictly define what qualifies as a notification 
-and avoid overwhelming users with too many messages. 
+For å sikre effektiv kommunikasjon er det viktig å strengt definere hva som kvalifiserer som et varsel
+og unngå å overvelde brukere med for mange meldinger.
 
-Familiarize yourself with our guidelines to understand what notifications should and should not contain,
-promoting digital safety and preventing notification fatigue.
+Gjør deg kjent med våre retningslinjer for å forstå hva varsler bør og ikke bør inneholde,
+for å fremme digital sikkerhet og forhindre varslingstretthet.
 
-[For comprehensive details, please refer to our extensive documentation.](/notifications/guides/guidelines/)
+[For omfattende detaljer, vennligst se vår utfyllende dokumentasjon.](/notifications/guides/guidelines/)

@@ -1,45 +1,45 @@
 ---
-title: Recipient lookup
-description: "Altinn Notifications offers a comprehensive recipient lookup service for notifications sent
-to national identity and organization numbers. This article explains the lookup process,
-including the registries used, ensuring accurate contact details and delivery."
-linktitle: Recipient lookup
-tags: [notifications, recipient lookup]
+title: Mottakeroppslag
+description: "Altinn Varslinger tilbyr en omfattende tjeneste for mottakeroppslag for varsler sendt
+til fødselsnummer og organisasjonsnummer. Denne artikkelen forklarer oppslagsprosessen,
+inkludert hvilke registre som brukes, for å sikre nøyaktige kontaktdetaljer og levering."
+linktitle: Mottakeroppslag
+tags: [varslinger, mottakeroppslag]
 weight: 30
 ---
 
 
-Altinn Notifications supports sending notifications to recipients identified by national identity or organization numbers.
-Recipient contact details and reservation status are checked during order placement and again at the requested send time.
+Altinn Varslinger støtter sending av varsler til mottakere identifisert med fødselsnummer eller organisasjonsnummer.
+Mottakerens kontaktdetaljer og reservasjonsstatus blir sjekket ved bestilling og igjen på ønsket sendetidspunkt.
 
-The ordering entity must verify whether notifications were sent, as lookup results are provided in the order response and updated after the requested send time.
+Bestilleren må verifisere om varslene ble sendt, ettersom oppslagsresultater blir gitt i bestillingsresponsen og oppdatert etter ønsket sendetidspunkt.
 
-### Recipient lookup
+### Mottakeroppslag
 {{% notice warning  %}}
-The recipient lookup result reflects the contact information available at a specific moment.
-If there's a significant delay between ordering and sending a notification, the final lookup may yield different results.
-Therefore, always verify the notification's status after the scheduled send time to confirm successful generation, dispatch, and delivery.
+Resultatet av mottakeroppslaget reflekterer kontaktinformasjonen som er tilgjengelig på et bestemt tidspunkt.
+Hvis det er en betydelig forsinkelse mellom bestilling og sending av et varsel, kan det endelige oppslaget gi andre resultater.
+Derfor må du alltid verifisere statusen til varselet etter planlagt sendetidspunkt for å bekrefte vellykket generering, utsending og levering.
 {{% /notice %}}
 
 
-The _recipientLookup_ object indicates the likelihood of Altinn successfully delivering notifications
-to the specified recipients. Reviewing this information allows for alternative actions before the send time if recipients are reserved or lack contact details.
+Objektet _recipientLookup_ indikerer sannsynligheten for at Altinn lykkes med å levere varsler
+til de spesifiserte mottakerne. Gjennomgang av denne informasjonen gir mulighet for alternative handlinger før sendetidspunktet hvis mottakere er reservert eller mangler kontaktdetaljer.
 
-| Property       | Description                                                                                                   |
+| Egenskap       | Beskrivelse                                                                                                   |
 | -------------- | ------------------------------------------------------------------------------------------------------------- |
-| status         | The result of the initial lookup.                                                                             |
-| isReserved     | A list of national identity numbers for recipients who have chosen to opt out of electronic communication.    |
-| missingContact | A list of national identity and/or organization numbers for recipients who do not have contact details.       |
+| status         | Resultatet av det innledende oppslaget.                                                                             |
+| isReserved     | En liste over fødselsnumre for mottakere som har valgt å reservere seg mot elektronisk kommunikasjon.    |
+| missingContact | En liste over fødselsnumre og/eller organisasjonsnumre for mottakere som ikke har kontaktdetaljer.       |
 
-The status property can have one of three values:
-| Status         | Description                                     |
+Status-egenskapen kan ha en av tre verdier:
+| Status         | Beskrivelse                                     |
 | -------------- | ----------------------------------------------- |
-| Success        | Recipient lookup succeeded for all recipients.  |
-| PartialSuccess | Recipient lookup succeeded for some recipients. |
-| Failed         | Recipient lookup failed for all recipients.     |
+| Success        | Mottakeroppslag var vellykket for alle mottakere.  |
+| PartialSuccess | Mottakeroppslag var vellykket for noen mottakere. |
+| Failed         | Mottakeroppslag mislyktes for alle mottakere.     |
 
 
-__Samples__
+__Eksempler__
 ```json
 "recipientLookup": {
     "status": "Success",
@@ -49,27 +49,27 @@ __Samples__
 ```
 
 
-### Registries used for lookup
+### Registre som brukes for oppslag
 
-When sending a notification through Altinn, the sender can provide the contact details (email or SMS).
-Additionally, Altinn uses a set of registries to retrieve contact details if the sender has not provided them for a recipient.
+Når du sender et varsel gjennom Altinn, kan avsenderen oppgi kontaktdetaljene (e-post eller SMS).
+I tillegg bruker Altinn et sett med registre for å hente kontaktdetaljer hvis avsenderen ikke har oppgitt dem for en mottaker.
 
-__The Contact and Reservation Register (Kontakt- og reservasjonsregisteret)__
+__Kontakt- og reservasjonsregisteret__
 
-Altinn maintains a local copy of this register, which can be used to retrieve
-name and contact details when the recipient is identified by their national identity number.
+Altinn vedlikeholder en lokal kopi av dette registeret, som kan brukes til å hente
+navn og kontaktdetaljer når mottakeren er identifisert med sitt fødselsnummer.
 
-[Read more about the Contact and Reservation Register here](https://eid.difi.no/en/privacy-policy/privacy-policy-common-contact-register-krr).
+[Les mer om Kontakt- og reservasjonsregisteret her](https://eid.difi.no/en/privacy-policy/privacy-policy-common-contact-register-krr).
 
-__The Notification Addresses for Businesses (Varslingsadresser for Enheter)__
+__Varslingsadresser for virksomheter__
 
-Altinn also maintains a local copy of this register, 
-which can be used to retrieve name and contact details when the recipient is identified by their organization number.
+Altinn vedlikeholder også en lokal kopi av dette registeret,
+som kan brukes til å hente navn og kontaktdetaljer når mottakeren er identifisert med sitt organisasjonsnummer.
 
-[Read more about the Notification Addresses for Businesses here](https://www.brreg.no/en/other-topics/notification-addresses-to-apply-in-public-administration/?nocache=1704206499405).
+[Les mer om Varslingsadresser for virksomheter her](https://www.brreg.no/en/other-topics/notification-addresses-to-apply-in-public-administration/?nocache=1704206499405).
 
 
-__Altinn user profile__
+__Altinn brukerprofil__
 
-End users can register their preferred contact details for notifications related to organizations
-in their Altinn profile. These contact details can be used when the notification recipient is identified by an organization that the user can represent.
+Sluttbrukere kan registrere sine foretrukne kontaktdetaljer for varsler knyttet til organisasjoner
+i sin Altinn-profil. Disse kontaktdetaljene kan brukes når varselsmottakeren er identifisert med en organisasjon som brukeren kan representere.
