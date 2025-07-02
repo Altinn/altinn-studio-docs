@@ -1,93 +1,192 @@
 ---
-title: Forhåndsutfylling av data med egendefinert kode
-linktitle: Egendefinert
-description: Hvordan kode egendefinert forhåndsutfylling i applikasjonen.
+title: Forhåndsutfyll data med egendefinert kode
+linktitle: Egendefinert kode
+description: Slik setter du opp automatisk utfylling av skjemadata med din egen kode.
 toc: false
 weight: 300
 ---
 
-Altinn-apper muliggjør forhåndsutfylling av en instans med egne data,
-enten det er resultatet av et API-kall, beregninger gjort under instansiering eller annen logikk.
+## Hva gjør denne funksjonen?
+
+Du kan lage din egen kode for å fylle ut deler av skjemaet automatisk før brukeren begynner. Dette gir deg mer fleksibilitet enn den vanlige konfigurasjonsfilen. Du kan for eksempel:
+- Hente data fra et API
+- Gjøre beregninger
+- Bruke annen logikk du selv bestemmer
+
+## Slik setter du det opp
 
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="v7">}}
-I versjon 7 har vi endret måten forhåndsutfylling med egendefinert kode gjøres på. Vi benytter nå _dependency injection_ i stedet for overstyring av metoder. Hvis du tidligere plasserte koden din i _DataCreation_ metoden in _InstantiationHandler.cs_ klassen så vil du erfare at det er mer eller mindre det samme som nå gjøres.
-1. Opprett en klasse som implementerer `IInstantiationProcessor` grensesnittet som ligger i `Altinn.App.Core.Features` navnerommet.  
-    Du kan navngi og plassere filene i den mappestrukturen du selv ønsker i prosjektet ditt. Men vi anbefaler at du benytter meningsfulle navnerom som i et hvilket som helst annet .Net prosjekt.
-    Eksempelet nedenfor populerer feltet _Bruker.FulltNavn_ i modellen _Datamodell_ med verdien "Test Testesen".  
-    ```C# {hl_lines=[23]}
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
-    using Altinn.App.Core.Features;
-    using Altinn.App.Models;
-    using Altinn.Platform.Storage.Interface.Models;
 
-    public class Instantiation: IInstantiationProcessor
-    {
-        public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
-        {
-            if (data.GetType() == typeof(Datamodell))
-            {
-                Datamodell skjema = (Datamodell)data;
-                
-                Bruker b = new Bruker();
-                b.Navn = new Name();
-                b.FulltNavn = "Test Testesen";
-                
-                skjema.Bruker = b;
-            }
+I versjon 7 bruker vi dependency injection for egendefinert forhåndsutfylling.
 
-            await Task.CompletedTask;
-        }
-    }
-    ```
-2. Registrer din implementering i _Program.cs_ klassen
-    ```C#
-    services.AddTransient<IInstantiationProcessor, Instantiation>();
-    ```
-    Dette sørger for at din kode er kjent for applikasjonen og at koden blir kjørt når den skal.
+### 1. Lag en ny klasse
+
+Opprett en ny fil i app-prosjektet ditt. Du kan velge navn og plassering selv, men bruk fornuftige navnerom. 
+F.eks. `Altinn.App.Logic.Instantiation` eller lignende.
+
+Klassen må implementere `IInstantiationProcessor`-grensesnittet fra `Altinn.App.Core.Features`.
+
+### 2. Skriv koden for automatisk utfylling
+
+Implementer `DataCreation`-metoden i den nye klassen. I denne metoden setter du opp hvilke felt som skal fylles ut automatisk, og hvilken verdi de skal få.
+Her kan du f.eks. gjøre kall for å hente data fra en ekstern kilde, gjøre beregninger, eller annen relevant logikk.
+
+Se under for eksempler.
+
+### 3. Registrer klassen din
+
+Åpne `Program.cs` og legg til denne linjen:
+
+```csharp
+services.AddTransient<IInstantiationProcessor, MinUtfylling>();
+```
 
 {{</content-version-container>}}
+
 {{<content-version-container version-label="v4, v5, v6">}}
 
-Altinn apps muliggjør prefill av en instans med egendefinert data,
-det være seg resultet fra et API-kall, beregninger gjort under instansiering, eller annen logikk.
-Dette implementeres i metoden _DataCreation_ i filen _InstansiationHandler.cs_ som finnes i applikasjonsrepoet under `App/logic`.
+For versjon 4, 5 og 6 implementeres egendefinert forhåndsutfylling i `InstantiationHandler.cs`.
 
-Eksempelet nedenfor populerer feltet _Bruker.FulltNavn_ i modellen _Datamodell_ med verdien "Test Testesen".  
+### 1. Finn riktig fil
 
-```C# {hl_lines=[6]}
-public async Task DataCreation(Instance instance, object data)
-{
-    if (data.GetType() == typeof(Datamodell))
-    {
-        Datamodell model = (Datamodell)data;
-        model.Bruker.FulltNavn = "Test Testesen";
-    }
-}
-```
+Gå til mappen `App/logic` i app-prosjektet ditt og åpne filen `InstantiationHandler.cs`.
 
-Bytt ut _Datamodell_ med navnet på C# klassen som er blitt generert basert på xsd-en som
-ble lastet opp i Altinn Studio. Dersom du bruker en egnet kodeeditor vil du kunne definere felter
-som skal populeres ved bruk av intellisense.
+### 2. Implementer DataCreation-metoden
 
-Vær oppmerksom på at dersom du har komplekse typer i modellen din, må disse instansieres før man kan
-tilegne en verdi til ett av typens underelementer. Se eksempel nedenfor der vi legger til grunn at 'Bruker'
-og 'Name' er egne C# klasser.
+Skriv koden din i `DataCreation`-metoden. Her setter du opp hvilke felt som skal fylles ut automatisk, og hvilken verdi de skal få.
+Her kan du f.eks. gjøre kall for å hente data fra en ekstern kilde, gjøre beregninger, eller annen relevant logikk.
 
-```C#
-public async Task DataCreation(Instance instance, object data)
-{
-    if (data.GetType() == typeof(Datamodell))
-    {
-        Datamodell model = (Datamodell)data;
-        Bruker b = new Bruker();
-        b.Navn = new Name();
-        b.Navn.FulltNavn = "Test Testesen";
-    }
-}
-```
+Se under for eksempler.
+
 {{</content-version-container>}}
 
 {{</content-version-selector>}}
+
+## Eksempler
+
+{{<content-version-selector classes="border-box">}}
+
+{{<content-version-container version-label="v7">}}
+
+### Eksempel: Hent organisasjonsnummer og navn fra Enhetsregisteret
+
+Dette fyller ut feltet `Organisasjon.Orgnr` med et egendefinert organisasjonsnummer:
+
+*Merk at feltnavnene her kun er tenkte eksempler, tilpass til dine behov/data.*
+
+```csharp {hl_lines=[17,18]}
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Altinn.App.Core.Features;
+using Altinn.App.Models;
+using Altinn.Platform.Storage.Interface.Models;
+
+namespace Altinn.App.Logic.Instantiation;
+
+public class MinUtfylling : IInstantiationProcessor
+{
+    public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
+    {
+        if (data is Datamodell skjema)
+        {
+            skjema.Organisasjon = new Organisasjon
+            {
+                OrgNr = "987654321",
+                Navn = "TestOrganisasjon"
+            };
+        }
+
+        await Task.CompletedTask;
+    }
+}
+```
+
+### Eksempel: Hent personnummer og navn fra Folkeregisteret
+
+Dette fyller ut feltet `Person.Personnr` med personnummer og feltet `Person.Navn` med navn.
+
+*Merk at feltnavnene her kun er tenkte eksempler, tilpass til dine behov/data.*
+
+```csharp {hl_lines=[17,18]}
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Altinn.App.Core.Features;
+using Altinn.App.Models;
+using Altinn.Platform.Storage.Interface.Models;
+
+namespace Altinn.App.Logic.Instantiation;
+
+public class MinUtfylling : IInstantiationProcessor
+{
+    public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
+    {
+        if (data is Datamodell skjema)
+        {
+            skjema.Person = new Person
+            {
+                Personnr = "11223345678",
+                Navn = "Test Testesen"
+            };
+        }
+
+        await Task.CompletedTask;
+    }
+}
+```
+
+
+{{</content-version-container>}}
+
+{{<content-version-container version-label="v4, v5, v6">}}
+
+### Eksempel: Hent organisasjonsnummer og navn fra Enhetsregisteret
+
+Dette fyller ut feltet `Organisasjon.Orgnr` med egendefinert organisasjonsnummer:
+
+*Merk at feltnavnene her kun er tenkte eksempler, tilpass til dine behov/data.*
+
+```csharp {hl_lines=[7,8]}
+public async Task DataCreation(Instance instance, object data)
+{
+    if (data is Datamodell skjema)
+    {
+        skjema.Organisasjon = new Organisasjon
+        {
+            OrgNr = "987654321",
+            Navn = "TestOrganisasjon"
+        };
+    }
+}
+```
+
+### Eksempel: Eksempel: Sett personnummer og navn
+
+Dette fyller ut feltet `Person.Personnr` med personnummer og feltet `Person.Navn` med navn.
+
+*Merk at feltnavnene her kun er tenkte eksempler, tilpass til dine felter/data.*
+
+```csharp {hl_lines=[7,8]}
+    public async Task DataCreation(Instance instance, object data)
+{
+    if (data is Datamodell skjema)
+    {
+        skjema.Person = new Person
+        {
+            Personnr = "11223345678",
+            Navn = "Test Testesen"
+        };
+    }
+}
+```
+
+{{</content-version-container>}}
+
+{{</content-version-selector>}}
+
+## Tips
+- Du kan gjøre oppslag mot eksterne kilder for å hente inn data som så kan brukes til forhåndsutfylling.
+- Husk at alle navn/felter i eksemplene må byttes ut med navn på klassen/feltene for din datamodell.
+- Bruk en god kodeeditor for å få hjelp med å finne riktige feltnavn (intellisense).
+- Husk å opprette objekter for komplekse typer før du fyller ut underelementer.
