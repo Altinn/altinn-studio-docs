@@ -40,16 +40,23 @@ See [Resource Management](https://docs.altinn.studio/authorization/getting-start
 
 Here is an [example policy](https://docs.altinn.studio/correspondence/getting-started/ExamplePolicy.xml).
 
+**Important**: As a service owner, you only need to configure "read" rules via access packages in the GUI. The system automatically handles sender authorization for service owners using your organization number from the resource configuration.
+
 Note that this example policy sets a required user role "DAGL" for the user who has access to the resource, and requires the use of [Resource Rights Registry](https://docs.altinn.studio/authorization/what-do-you-get/resourceregistry/rrr/) to grant access to specific organisations.
 A user with that access can then delegate the access to the enterprise user / system user.
 
-**TIP**: Verify your configurations using the [Postman collection](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json), substituting the test tokens with your own Altinn tokens (See "Login to Maskinporten (Initialize)" request in Authenticator folder).
+**TIP**: Verify your configurations using the [Postman collection](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json), substituting the test tokens with either your own Altinn tokens (see "Login to Maskinporten (Initialize)" request in Authenticator folder) or your Maskinporten tokens, depending on what you are choosing for authentication method.
 
 ### 5. Access to scopes {#get-access-to-scopes}
 
-To authenticate and ensure that you can perform operations via the Correspondence API, Altinn must grant you access to the necessary scopes. This ensures that only authorized clients can send and receive files, thereby maintaining the security of the service. The following scopes are used to send and/or receive messages:
+To authenticate and ensure that you can perform operations via the Correspondence API, Altinn must grant you access to the necessary scopes. The scope requirements depend on your chosen authentication method:
 
-- `altinn:correspondence.write`
+**For Direct Maskinporten Authentication (Method 1):**
+- `altinn:serviceowner` (required for service owner access)
+- `altinn:correspondence.write` (required for sending messages)
+
+**For Traditional Altinn Token Exchange (Method 2):**
+- `altinn:correspondence.write` (required for sending messages)
 
 To obtain access to scopes, you must submit a request to: [servicedesk@altinn.no](mailto:servicedesk@altinn.no).
 The request must include the scopes you need. Note that you may require more than just altinn:correspondence.write for your integration. A complete list of scopes can be found here:
@@ -70,7 +77,25 @@ Use Samarbeidsportalen self-service for registration. [Here's a detailed guide](
 
 ### 7. Authentication {#authentication}
 
-For all operations, you will need to authenticate using your Maskinporten Client, then [acquire an Altinn Token from Altinn Authentication](https://docs.altinn.studio/authentication/reference/architecture/accesstoken/).
+For service owners, authentication is now more flexible with two supported methods:
+
+#### Method 1: Direct Maskinporten Authentication (New - Previously not supported)
+
+You can now authenticate directly using your Maskinporten client with the `altinn:serviceowner` and `altinn:correspondence.write` scopes.
+
+**Benefits:**
+- **No Altinn Token Exchange Required**: Use Maskinporten tokens directly without exchanging them for Altinn tokens
+
+
+#### Method 2: Traditional Altinn Token Exchange (Supported as before)
+
+For service owners who prefer the traditional approach or have existing integrations, you can continue to:
+
+1. Authenticate using your Maskinporten Client with the `altinn:correspondence.write` scope
+2. [Acquire an Altinn Token from Altinn Authentication](https://docs.altinn.studio/authentication/reference/architecture/accesstoken/)
+3. Use the Altinn token for API calls
+
+**Note**: **Automatic Sender Authorization**: The system automatically determines and uses your organization number from the resource configuration. You no longer need to specify the `Sender` field in your API requests (this field is now deprecated)
 
 ### 8. Integrate with Correspondence API {#integrate-with-correspondence-api}
 
