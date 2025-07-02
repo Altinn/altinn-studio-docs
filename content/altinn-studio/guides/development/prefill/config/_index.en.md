@@ -1,7 +1,7 @@
 ---
 title: Automatically Prefill Data - Configuration File  
 linktitle: Configuration  
-description: How to set up automatic form data pre-filling using a configuration file.
+description: How to set up automatic form data prefilling using a configuration file.
 toc: false  
 weight: 200  
 ---
@@ -13,6 +13,12 @@ Your Altinn app can automatically fill in parts of the form before the user begi
 - The user's Altinn profile.  
 
 When someone starts the form, the fields you select will be automatically populated with the correct data.
+
+## When should I use this?
+If you plan on using data from the sources listed above. There is a limited set of fields available. 
+See [full list of available data fields for all sources](../../../../reference/data/prefill).
+
+Do you need data from other sources? Go to [prefilling data using cusom code](../custom/).
 
 ## How to set it up
 

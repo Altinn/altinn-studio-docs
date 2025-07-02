@@ -14,6 +14,12 @@ Altinn-appen din kan automatisk fylle ut deler av skjemaet før brukeren begynne
 
 Når noen starter skjemaet, blir feltene du velger fylt ut automatisk med riktige data.
 
+## Når bør jeg bruke dette?
+Hvis du skal forhåndsutfylle data fra en av kildene listet over. Det er et begrenset sett med felter som er tilgjengelige,
+se [fullstendig liste over tilgjengelige datafelt for alle kildene](../../../../reference/data/prefill).
+
+Trenger du data fra andre kilder? Gå til [forhåndsutfylling med egendefinert kode](../custom/).
+
 ## Slik setter du det opp
 
 ### 1. Opprett en ny fil
