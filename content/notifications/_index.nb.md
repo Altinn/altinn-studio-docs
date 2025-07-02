@@ -104,7 +104,4 @@ Test-emails are sent as normal. Please note that in some cases the recipient ide
 
 **NB1**: If you are configuring a Tenor test user for SMS (in their capacity as an individual), please note that there is a separate SMS allow-listing process required (to get the KRR auth-code confirming the update). See [KRR testbrukere | KRR](https://docs.digdir.no/docs/Kontaktregisteret/krr_testbrukere#bruk-av-reelle-mobilnummer)
 
-**NB2**: There is a delay of up to 10 minutes for any changes to contact-information for a person or organization to take effect in Notifications. 
-
-## News - upcoming
-{{% insert "content/notifications/news/upcoming/_index.en.md" %}}
+**NB2**: There is a delay of up to 10 minutes for any changes to contact-information for a person or organization to take effect in Notifications.
