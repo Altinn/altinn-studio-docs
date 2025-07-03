@@ -8,7 +8,7 @@ weight: 500
 
 ## Introduksjon til stateless applikasjoner
 
-En stateless, eller tilstandsløs, applikasjon skiller ser fra standard applikasjoner ved at den ikke lagrer noe data,
+En stateless, eller tilstandsløs, applikasjon skiller seg fra standard applikasjoner ved at den ikke lagrer noe data,
 hverken skjemadata eller metadata om instanser av applikasjonen. Applikasjonen vil heller ikke havne i meldingsboksen til sluttbruker.
  En tilstandsløs applikasjon tilsvarer en innsynstjeneste i Altinn 2.
 
@@ -203,7 +203,7 @@ der man hved hjelp av Altinn-roller definerer hvem som har tilgang til å benytt
 Dersom man har behov for ytteligere sikring av tjenesten kan man implementere logikk for autorisasjon av brukere med tredjepartløsninger.
 Dette kan være API-er som er eksponert innenfor egen virksomhet eller åpne API fra andre tilbydere.
 
-I eksempelet nedenfor benyttes Finanstilsynets API til å fastslå om virksomheten som repesenteres av en bruker i Altinn 
+I eksempelet nedenfor benyttes Finanstilsynets API til å fastslå om virksomheten som representeres av en bruker i Altinn 
 har tilstrekkelige lisenser til å benytte tjenesten.
 
 ![GUI for autorisert bruker](extra-credentials-example-allowed.png "GUI for autorisert bruker")
