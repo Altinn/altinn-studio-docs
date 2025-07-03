@@ -18,14 +18,6 @@ Stateless applications work well as access services where an end-user or a syste
 
 ## Configuration
 
-{{% notice info %}}
-
-This is brand new functionality. Setup has to be completed manually until further notice.
-
-**Notice:** To make use of this functionality, version >= 4.5.2 of the [nuget-packages](../../../guides/administration/maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` and `Altinn.App.Api` is required.
-
-{{% /notice %}}
-
 You can manage the application's behavior during startup and set it up as a stateless application if needed by configuring its application metadata, which is stored in `applicationmetadata.json`.
 
 Example of configuration:
@@ -59,7 +51,6 @@ App/config/applicationmetadata.json
         "autoCreate": true,
         "classRef": "Altinn.App.Models.StatelessV1"
       },
-      "taskId": "Task_1",
       "maxCount": 1,
       "minCount": 1
     }
@@ -166,9 +157,8 @@ App/config/applicationmetadata.json
       "appLogic": {
         "autoCreate": true,
         "classRef": "Altinn.App.Models.StatelessV1",
-        "allowAnonymousOnStateless": true,
+        "allowAnonymousOnStateless": true
       },
-      "taskId": "Task_1",
       "maxCount": 1,
       "minCount": 1
     }

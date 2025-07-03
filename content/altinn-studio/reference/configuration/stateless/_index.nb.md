@@ -17,14 +17,6 @@ hverken skjemadata eller metadata om instanser av applikasjonen. Applikasjonen v
 
 ## Konfigurasjon
 
-{{% notice info %}}
-
-Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre.
-
-**MERK:** for å benytte denne funksjonaliteten må man versjon >= 4.5.2 av [nuget-pakkene](../../../guides/administration/maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
-
-{{% /notice %}}
-
 Du kan styre applikasjonens oppførsel under oppstart og konfigurere den som en tilstandsløs applikasjon etter behov ved å konfigurere applikasjonsmetadataen, som er lagret i applicationmetadata.json.
 
 Eksempel på konfigurasjon:
@@ -58,7 +50,6 @@ App/config/applicationmetadata.json
         "autoCreate": true,
         "classRef": "Altinn.App.Models.StatelessV1"
       },
-      "taskId": "Task_1",
       "maxCount": 1,
       "minCount": 1
     }
@@ -166,9 +157,8 @@ App/config/applicationmetadata.json
       "appLogic": {
         "autoCreate": true,
         "classRef": "Altinn.App.Models.StatelessV1",
-        "allowAnonymousOnStateless": true,
+        "allowAnonymousOnStateless": true
       },
-      "taskId": "Task_1",
       "maxCount": 1,
       "minCount": 1
     }
