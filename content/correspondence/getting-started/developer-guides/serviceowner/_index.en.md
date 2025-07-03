@@ -40,7 +40,7 @@ See [Resource Management](https://docs.altinn.studio/authorization/getting-start
 
 Here is an [example policy](https://docs.altinn.studio/correspondence/getting-started/ExamplePolicy.xml).
 
-**Important**: As a service owner, you only need to configure "read" rules via access packages in the GUI. The system automatically handles sender authorization for service owners using your organization number from the resource configuration.
+**Important**: As a service owner, you only need to configure "read" rules via access packages in the GUI.
 
 Note that this example policy sets a required user role "DAGL" for the user who has access to the resource, and requires the use of [Resource Rights Registry](https://docs.altinn.studio/authorization/what-do-you-get/resourceregistry/rrr/) to grant access to specific organisations.
 A user with that access can then delegate the access to the enterprise user / system user.
@@ -79,7 +79,7 @@ Use Samarbeidsportalen self-service for registration. [Here's a detailed guide](
 
 For service owners, authentication is now more flexible with two supported methods:
 
-#### Method 1: Direct Maskinporten Authentication (New - Previously not supported)
+#### Method 1: Direct Maskinporten Authentication
 
 You can now authenticate directly using your Maskinporten client with the `altinn:serviceowner` and `altinn:correspondence.write` scopes.
 
@@ -87,7 +87,7 @@ You can now authenticate directly using your Maskinporten client with the `altin
 - **No Altinn Token Exchange Required**: Use Maskinporten tokens directly without exchanging them for Altinn tokens
 
 
-#### Method 2: Traditional Altinn Token Exchange (Supported as before)
+#### Method 2: Traditional Altinn Token Exchange
 
 For service owners who prefer the traditional approach or have existing integrations, you can continue to:
 

@@ -41,7 +41,7 @@ Se [Ressursadministrasjon](https://docs.altinn.studio/nb/authorization/getting-s
 
 Her er en [eksempelpolicy](https://docs.altinn.studio/nb/correspondence/getting-started/ExamplePolicy.xml).
 
-**Viktig**: Som tjenesteeier trenger du kun å sette opp "read"-regler via tilgangspakker i GUI-et. Systemet håndterer automatisk avsenderautorisasjon for tjenesteeiere ved å bruke organisasjonsnummeret ditt fra ressurskonfigurasjonen.
+**Viktig**: Som tjenesteeier trenger du kun å sette opp "read"-regler via tilgangspakker i GUI-et.
 
 Merk at denne eksempelpolicyen angir en påkrevd brukerrolle "DAGL(daglig leder)" for brukeren som har tilgang til ressursen. Med en så åpen policy er det anbefalt å bruke [Ressursrettighetsregister](https://docs.altinn.studio/nb/authorization/what-do-you-get/resourceregistry/) (gå til engelsk språk for å se dokumentasjon for RRR) for å gi tilgang til spesifikke organisasjoner.
 En bruker med denne tilgangen kan deretter delegere tilgangen til virksomhetsbrukeren/systembrukeren
@@ -80,14 +80,14 @@ Samarbeidsportalen benyttes for selvbetjent registrering. Tjenesteeiere som ikke
 
 For tjenesteeiere er autentisering nå mer fleksibel med to støttede metoder:
 
-#### Metode 1: Direkte Maskinporten-autentisering (Ny - Tidligere ikke støttet)
+#### Metode 1: Direkte Maskinporten-autentisering
 
 Du kan nå autentisere direkte ved hjelp av din Maskinporten-klient med `altinn:serviceowner` og `altinn:correspondence.write` scopes.
 
 **Fordeler:**
 - **Ingen Altinn Token Exchange påkrevd**: Bruk Maskinporten-tokens direkte uten å veksle dem til Altinn-tokens
 
-#### Metode 2: Tradisjonell Altinn Token Exchange (Støttet som før)
+#### Metode 2: Tradisjonell Altinn Token Exchange
 
 For tjenesteeiere som foretrekker den tradisjonelle tilnærmingen eller har eksisterende integrasjoner, kan du fortsette å:
 
