@@ -1,38 +1,38 @@
 ---
-title: Send Condition
-description: "Altinn Notifications offers a feature called Send Condition,
-which allows you to create notification orders that are sent to recipients only when a specified condition is met."
-linktitle: Send Condition
-tags: [notifications, send conditions]
+title: Sendebetingelse
+description: "Altinn Varslinger tilbyr en funksjon kalt Sendebetingelse,
+som lar deg opprette varslingsordrer som kun sendes til mottakere når en spesifisert betingelse er oppfylt."
+linktitle: Sendebetingelse
+tags: [varslinger, sendebetingelser]
 weight: 30
 ---
 
-## Introduction
+## Introduksjon
 
-The Send Condition feature enables you to create a notification order that will only be sent to recipient(s)
-if a specified condition is met. You can choose to send the notification immediately or schedule it for a future date.
+Funksjonen Sendebetingelse lar deg opprette en varslingsordre som kun vil bli sendt til mottaker(e)
+hvis en spesifisert betingelse er oppfylt. Du kan velge å sende varselet umiddelbart eller planlegge det for en fremtidig dato.
 
-### Example Use Case
+### Eksempel på bruk
 
-A common use case is setting reminders, where a notification is sent only
-if a user has not completed a specific action. With the send condition,
-both the initial notification requesting the action and the reminder notification can be ordered at the same time with different send dates.
+Et vanlig bruksområde er å sette påminnelser, der et varsel kun sendes
+hvis en bruker ikke har fullført en bestemt handling. Med sendebetingelsen kan
+både det opprinnelige varselet som ber om handlingen og påminnelsesvarselet bestilles samtidig med forskjellige sendingsdatoer.
 
-### Condition Evaluation
+### Betingelsesevaluering
 
-A send condition is evaluated as either **true** or **false**, and it is considered **true** when the condition for sending the notification is met.
+En sendebetingelse blir evaluert som enten **sant** eller **usant**, og den anses som **sant** når betingelsen for å sende varselet er oppfylt.
 
-## Condition Endpoint
+## Betingelsesendepunkt
 
-The send condition is checked by the application through the condition endpoint
-specified in the notification order. Below is an example of a notification order request with the condition endpoint:
+Sendebetingelsen blir sjekket av applikasjonen gjennom betingelsesendepunktet
+spesifisert i varslingsordren. Nedenfor er et eksempel på en forespørsel om varslingsordre med betingelsesendepunktet:
 
 ```json {linenos=false,hl_lines="11"}
 {
-  "subject": "Reminder to complete task",
+  "subject": "Påminnelse om å fullføre oppgave",
   "sendersReference": "application:qwerty",
   "requestedSendTime": "2024-07-24T12:00:00Z",
-  "body": "Reminder to complete application by 31.07. Kind regards, service owner",
+  "body": "Påminnelse om å fullføre søknaden innen 31.07. Vennlig hilsen, tjenesteeier",
   "recipients": [
     {
       "emailAddress": "recipient@domain.com"
@@ -42,19 +42,19 @@ specified in the notification order. Below is an example of a notification order
 }
 ```
 
-### Request
+### Forespørsel
 
-The API client in Altinn Notifications will send a GET request to the provided endpoint with a bearer token.
-The token will be a Maskinporten token that includes Digitaliseringsdirektoratet's organization number as part of
-the consumer claim, along with the scope `altinn:system/notifications.condition.check`.
+API-klienten i Altinn Varslinger vil sende en GET-forespørsel til det oppgitte endepunktet med et bærertoken.
+Tokenet vil være et Maskinporten-token som inkluderer Digitaliseringsdirektoratets organisasjonsnummer som en del av
+forbruker-claimet, sammen med scopet `altinn:system/notifications.condition.check`.
 
-- **Method:** GET
+- **Metode:** GET
 - **Headers:**
   - `Authorization: Bearer <maskinporten_token>`
   - `Content-Type: application/json`
-- **URL Parameters:** None
+- **URL-parametre:** Ingen
 
-#### Example Request
+#### Eksempel på forespørsel
 
 ```http
 GET /application/qwerty/reminderRequired HTTP/1.1
@@ -63,9 +63,9 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI...
 Content-Type: application/json
 ```
 
-#### Example Decoded Token 
+#### Eksempel på dekodet token
 
-Here is an example displaying some of the claims in a decoded Maskinporten token from Altinn Notifications:
+Her er et eksempel som viser noen av kravene i et dekodet Maskinporten-token fra Altinn Varslinger:
 
 ```json
 {
@@ -77,22 +77,22 @@ Here is an example displaying some of the claims in a decoded Maskinporten token
   }
 }
 ```
-- scope: Specifies the scope of the token. This will always be  `altinn:system/notifications.condition.check`
-- iss: Specifies the issuer of the token.
-  - Production: _https://maskinporten.no/_ 
+- scope: Spesifiserer scopet til tokenet. Dette vil alltid være `altinn:system/notifications.condition.check`
+- iss: Spesifiserer utstederen av tokenet.
+  - Produksjon: _https://maskinporten.no/_ 
   - Test: _https://test.maskinporten.no/_ 
-- consumer: Specifies the consumer information. ID will always be `0192:991825827`, representing Digdir.
+- consumer: Spesifiserer forbrukerinformasjonen. ID vil alltid være `0192:991825827`, som representerer Digdir.
 
 
-### Response
+### Respons
 
-After evaluating the condition specified in the request,
-the endpoint should respond with a JSON object indicating whether the notification should be sent.
-The response code must be 200 OK, regardless of whether the condition is met.
+Etter å ha evaluert betingelsen spesifisert i forespørselen,
+skal endepunktet svare med et JSON-objekt som indikerer om varselet skal sendes.
+Responskoden må være 200 OK, uavhengig av om betingelsen er oppfylt.
 
-Any other status code results in a retry attempt from the API client.
+Enhver annen statuskode resulterer i et nytt forsøk fra API-klienten.
 
-#### Example Response
+#### Eksempel på respons
 
 ```json
 {
@@ -100,4 +100,4 @@ Any other status code results in a retry attempt from the API client.
 }
 ```
 
-- sendNotification: A boolean value (true or false) indicating whether the notification should be sent (true) or not (false).
+- sendNotification: En boolsk verdi (true eller false) som indikerer om varselet skal sendes (true) eller ikke (false).

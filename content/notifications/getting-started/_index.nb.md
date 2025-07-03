@@ -1,6 +1,6 @@
 ---
-title: Getting Started
-description: Get started with sending notifications
+title: Kom i gang
+description: Kom i gang med å sende varsler
 weight: 21
 ---
 

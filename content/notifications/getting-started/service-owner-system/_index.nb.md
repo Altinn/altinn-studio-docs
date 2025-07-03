@@ -1,29 +1,38 @@
 ---
-title: Service Owner System Integration
-description: How to get started sending notifications from a Service Owner System
+title: Tjenesteeiersystem-integrasjon
+description: Slik kommer du i gang med å sende varsler fra et tjenesteeiersystem
 weight: 10
 ---
 
-## 1. Get started as service owner in Altinn {#get-started-as-service-owner-in-altinn}
+## 1. Kom i gang som tjenesteeier i Altinn {#get-started-as-service-owner-in-altinn}
 
-To get started with Altinn Notifications, your enterprise must be registered as a service owner in Altinn.
-For a step-by-step guide, see the [Get started with Altinn guide (Norwegian language only)](https://www.altinndigital.no/kom-i-gang/guide-kom-i-gang-med-altinn/).
+For å komme i gang med Altinn Varslinger, må din virksomhet være registrert som tjenesteeier i Altinn.
+For en trinn-for-trinn-guide, se [guiden Kom i gang med Altinn](https://www.altinndigital.no/kom-i-gang/guide-kom-i-gang-med-altinn/).
 
-This step is only necessary for new enterprises that have not yet established themselves as service owners on the Altinn platform.
-If you are already an established service owner, you can proceed directly with the next steps to start using Altinn Notifications.
+Dette trinnet er kun nødvendig for nye virksomheter som ennå ikke har etablert seg som tjenesteeiere på Altinn-plattformen.
+Hvis du allerede er en etablert tjenesteeier, kan du gå direkte videre til de neste trinnene for å begynne å bruke Altinn Varslinger.
 
-## 2. Register your Maskinporten Client with correct scopes
+## 2. Registrer din Maskinporten-klient med riktige scopes
 
-{{% insert "content/notifications/shared/getting-started/maskinporten/get-started-maskinporten.en.md" %}}
+For å kunne ta i bruk Altinn Notifications API, må du ha en Maskinporten-klient med riktig scope.
 
-## 3. Review policy for relevant resources in Altinn Resource Registry
+Scope **altinn:serviceowner/notifications.create** er påkrevd for at klienter skal få tilgang til Varslings-API-et.
 
-{{% insert "content/notifications/shared/getting-started/resource/get-started-resource.en.md" %}}
+Alle registrerte tjenesteeiere har fått delegert dette scopet av Digdir og skal kunne finne det i sin liste over scopes i Samarbeidsportalen.
 
-## 4. Familiarize yourself with the guidelines and best practices for sending notifications
+Du kan finne en generell veiledning for hvordan du setter opp en ny Maskinporten-klient og tildeler scopes her:
+[Veiledning for Maskinporten-integrasjon via Samarbeidsportalen](/altinn-studio/guides/shared/maskinporten-integration/maskinporten-integration-samarbeidsportal/)
 
-{{% insert "content/notifications/shared/getting-started/guidelines/guidelines.en.md" %}}
+Når du setter opp klienten, sørg for å inkludere scopet **altinn:serviceowner/notifications.create**.
 
-## 5. Integrate against the Notifications API
+## 3. Se over policy for relevante ressurser i Altinn Ressursregister
 
-{{% insert "content/notifications/shared/getting-started/integrate-with-api/get-started-integrate-with-api.en.md" %}}
+{{% insert "content/notifications/shared/getting-started/resource/get-started-resource.nb.md" %}}
+
+## 4. Gjør deg kjent med retningslinjene og beste praksis for sending av varsler
+
+{{% insert "content/notifications/shared/getting-started/guidelines/guidelines.nb.md" %}}
+
+## 5. Integrer mot Varslings-API-et
+
+{{% insert "content/notifications/shared/getting-started/integrate-with-api/get-started-integrate-with-api.nb.md" %}}
