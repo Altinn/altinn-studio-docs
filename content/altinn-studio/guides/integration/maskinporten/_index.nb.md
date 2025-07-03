@@ -81,7 +81,7 @@ publisere applikasjonen på nytt før endringene trer i kraft._
 
 ## Sett opp applikasjonen til å bruke Maskinporten-integrasjonen
 
-Applikasjonen inkluderer automatisk den innebygde `IMaskinportenClient` som kan injiseres i tjenestene dine. Klienten finner og bruker automatisk `MaskinportenSettings`-konfigurasjonen.
+Applikasjonen inkluderer automatisk den innebygde `IMaskinportenClient` som kan brukes i tjenestene dine. Klienten finner og bruker automatisk `MaskinportenSettings`-konfigurasjonen.
 
 Hvis du trenger å bruke en annen konfigurasjonsbane enn standardbanen, kan du konfigurere den i `RegisterCustomAppServices`-metoden:
 
