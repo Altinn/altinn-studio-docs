@@ -13,13 +13,17 @@ You can create your own code to automatically fill out parts of the form before 
 - Perform calculations
 - Use other logic of your choice
 
+## When should I use this?
+If you need other data sources than those that are available through [configuration based setup](../config/) of prefill, 
+or if you need any logic as part of the prefill process.
+
 ## How to set it up
 
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="v7">}}
 
-In version 7, we use dependency injection for custom prefilling.
+In version 7, we use [dependency injection](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection) for custom prefilling.
 
 ### 1. Create a new class
 
