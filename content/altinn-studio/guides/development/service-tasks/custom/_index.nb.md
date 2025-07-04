@@ -14,41 +14,46 @@ En egendefinert systemoppgave krever:
 
 ```csharp
 using System;
-using System.Threading;
 using System.Threading.Tasks;
 using Altinn.App.Core.Internal.Data;
 using Altinn.App.Core.Internal.Process.ProcessTasks.ServiceTasks;
 using Altinn.App.Core.Models;
+using Altinn.App.Core.Models.Process;
 using Altinn.App.Models.model;
 using Altinn.Platform.Storage.Interface.Models;
-using Microsoft.Extensions.Logging;
 
 namespace Altinn.App.Code;
 
 public class ExampleServiceTask : IServiceTask
 {
     private readonly IDataClient _dataClient;
-    private readonly ILogger<ExampleServiceTask> _logger;
 
-    public ExampleServiceTask(IDataClient dataClient, ILogger<ExampleServiceTask> logger)
+    public ExampleServiceTask(IDataClient dataClient)
     {
         _dataClient = dataClient;
-        _logger = logger;
     }
     
     public string Type => "exampleServiceTask";
 
-    public async Task<ExecuteServiceTaskResult> Execute(ExecuteServiceTaskParameters parameters)
+    public async Task<ServiceTaskResult> Execute(ServiceTaskParameters parameters)
     {
+        Instance instance = parameters.InstanceDataMutator.Instance;
         DataElement dataElement = instance.Data.Find(x => x.DataType == "model");
 
         var instanceIdentifier = new InstanceIdentifier(instance);
         var formData = (model)await _dataClient.GetFormData(instanceIdentifier.InstanceGuid, typeof(model), instance.Org, instance.AppId, int.Parse(instance.InstanceOwner.PartyId), Guid.Parse(dataElement.Id));
 
-        if (formData.property1 == "Hei!")
-        {
-            _logger.LogInformation("Hei hei!");
-        }
+        if (formData.property1 != "Hei!")
+            return new ServiceTaskFailedResult
+            {
+                ErrorTitle = "Rude!",
+                ErrorMessage = "Didn't say 'Hei!'",
+                ErrorType = ProcessErrorType.Conflict
+            };
+        
+        formData.property2 = "Hei, hei!";
+        return new ServiceTaskSuccessResult();
+
     }
 }
 ```
@@ -57,7 +62,7 @@ public class ExampleServiceTask : IServiceTask
 Verdien i taskType må være like Type-property på C#-implementasjonen.
 
 ```xml
-<bpmn:serviceTask id="ExampleServiceTask" name="Example Service Task">
+<bpmn:serviceTask id="ExampleServiceTask" name="Hilsen">
     <bpmn:extensionElements>
         <altinn:taskExtension>
             <altinn:taskType>exampleServiceTask</altinn:taskType>
