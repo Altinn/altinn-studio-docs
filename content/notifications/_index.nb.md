@@ -96,3 +96,6 @@ Test-e-poster sendes som normalt. Vær oppmerksom på at i noen tilfeller identi
 **NB1**: Hvis du konfigurerer en Tenor testbruker for SMS (i deres kapasitet som enkeltperson), vær oppmerksom på at det er en egen SMS-tillatelsesprosess som kreves (for å få KRR auth-koden som bekrefter oppdateringen). Se [KRR testbrukere | KRR](https://docs.digdir.no/docs/Kontaktregisteret/krr_testbrukere#bruk-av-reelle-mobilnummer)
 
 **NB2**: Det er en forsinkelse på opptil 10 minutter før endringer i kontaktinformasjon for en person eller organisasjon trer i kraft i Varslinger.
+
+## Kildekode
+Kildekoden er på [Github](https://github.com/Altinn/altinn-notifications)
