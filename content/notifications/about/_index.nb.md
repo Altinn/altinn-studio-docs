@@ -38,13 +38,6 @@ Altinn Varslinger benytter følgende Altinn-tjenester:
 - **Ressursregister**: Identifiserer autoriserte mottakere innenfor en organisasjon.
 - **Autorisasjon**: Sikrer trygg og forskriftsmessig kommunikasjon.
 
-### Kommunikasjonsleverandører
-
-Altinn Varslinger bruker disse leverandørene til å sende meldinger:
-
-- **E-post**: Azure Communication Services.
-- **SMS**: LinkMobility.
-
 ## Berettigede brukere
 
 Følgende enheter kan sende meldinger via Altinn Varslinger, forutsatt at de er autorisert gjennom Maskinporten:
@@ -52,18 +45,3 @@ Følgende enheter kan sende meldinger via Altinn Varslinger, forutsatt at de er 
 - Registrerte tjenesteeiere
 - Altinn Apps
 - Interne Altinn-tjenester
-
-## Kjerne-prinsipper
-
-- **Pålitelighet**: Sikrer at varsler blir levert raskt og nøyaktig.
-- **Fleksibilitet**: Støtter flere varslingskanaler og tilpassbare maler.
-- **Integrasjon**: Fungerer sømløst med andre Altinn-tjenester.
-- **Sikkerhet**: Garanterer sikker kommunikasjon i samsvar med regelverk.
-
-## Åpen kildekode og samarbeid
-
-Altinn Varslinger er et åpen kildekode-prosjekt som ønsker bidrag fra fellesskapet velkommen.
-
-Bli med i vårt fellesskap på GitHub for å delta i utviklingen av Altinn Varslinger. Dine tilbakemeldinger og bidrag er uvurderlige for å bygge en robust og pålitelig varslingstjeneste.
-
-For ytterligere detaljer, vennligst se vår [brukerveiledning](/notifications/guides/).
