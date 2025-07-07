@@ -42,7 +42,7 @@ If the Altinn user interface is used by the application, these actions will be t
         <!-- If you want a PDF summary of the singing step, enter a datatype of type application/pdf here -->
         <altinn:signingPdfDataType>signing-step-pdf</altinn:signingPdfDataType> <!-- optional -->
 
-        <!-- Correspondence is used to communicate with the signees, and is required for user delegated signing. Add the correspondece resouce here. Setup of this resource is documeneted separately. -->
+        <!-- The correspondence service is used to communicate with the signees, and is required for user delegated signing. Add the correspondence resource here. Setup of this resource is documented separately. -->
         <altinn:correspondenceResource>app-correspondence-resource</altinn:correspondenceResource>
 
         <!-- We have made a default validator that can be enabled here. It checks that all signees have signed and that minCount on the signature datatype is fulfilled. If default validation is not enabled, custom validation of the signatures should be added. -->
@@ -68,7 +68,6 @@ If you want to use environment specific correspondence resources you may configu
     ...
 </altinn:signatureConfig>
 ```
-
 
 Altinn environment mapping:
 
