@@ -97,21 +97,21 @@ Denne datatypen benyttes for å lagre informasjon om signatarene som skal få de
 }
 ```
 
-Det er viktig å sette `allowedContributors` til ```"app:owned"```. Det gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv. Før versjon 8.6 var denne konfigurasjonen feilstavet `allowedContributers`.
+Det er viktig å sette `allowedContributors` til `"app:owned"`. Det gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv. Før versjon 8.6 var denne konfigurasjonen feilstavet `allowedContributers`.
 
 Datatypenes ID-er kan settes til noe annet, men det må matche ID-ene som legges inn i `signatureDataType` og `signeeStatesDataTypeId` i prossessteget, som vist i punktet under.
 
 
 ### Tilgangsstyring
 
-  Gi ```read```, ```write``` og eventuelt ```sign``` til den som fyller ut skjemaet.
+  Gi `read`, `write` og eventuelt `sign` til den som fyller ut skjemaet.
 
-  For at appen skal kunne delegere rettigheter til de som skal signere så må appen få rettigheter til å delegere ```read``` og ```sign```.
+  For at appen skal kunne delegere rettigheter til de som skal signere så må appen få rettigheter til å delegere `read` og `sign`.
   Se eksempel nedenfor.
 
-  - Bytt ut ```ttd``` med riktig org.
-  - Bytt ut ```app_ttd_signering-brukerstyrt``` med tilsvarende ```app_{org}_{appnavn}```.
-  - Bytt ut ```signering-brukerstyrt``` med appnavn.
+  - Bytt ut `ttd` med riktig org.
+  - Bytt ut `app_ttd_signering-brukerstyrt` med tilsvarende `app_{org}_{appnavn}`.
+  - Bytt ut `signering-brukerstyrt` med appnavn.
 
   ```xml
 
