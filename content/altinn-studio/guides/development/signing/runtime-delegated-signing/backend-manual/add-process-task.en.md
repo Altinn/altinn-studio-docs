@@ -36,18 +36,22 @@ If the Altinn user interface is used by the application, these actions will be t
         <!-- This data type is used to store the signees and related information -->
         <altinn:signeeStatesDataTypeId>signeesState</altinn:signeeStatesDataTypeId>
 
-        <!-- This ID tells the app which implementation of the C# interface ISigneeProvider that should be used for this singing step -->
+        <!-- This ID tells the app which implementation of the C# interface -->
+        <!-- ISigneeProvider that should be used for this singing step -->
         <altinn:signeeProviderId>signees</altinn:signeeProviderId>
 
         <!-- If you want a PDF summary of the singing step, enter a datatype of type application/pdf here -->
         <altinn:signingPdfDataType>signing-step-pdf</altinn:signingPdfDataType> <!-- optional -->
 
-        <!-- The correspondence service is used to communicate with the signees, and is required for user delegated signing. Add the correspondence resource here. Setup of this resource is documented separately. -->
+        <!-- The correspondence service is used to communicate with the signees, and is required -->
+        <!-- for user delegated signing. Add the correspondence resource here. -->
+        <!-- Setup of this resource is documented separately. -->
         <altinn:correspondenceResource>app-correspondence-resource</altinn:correspondenceResource>
 
-        <!-- We have made a default validator that can be enabled here. It checks that all signees have signed and that minCount on the signature datatype is fulfilled. If default validation is not enabled, custom validation of the signatures should be added. -->
+        <!-- We have made a default validator that can be enabled here. It checks that all signees -->
+        <!-- have signed and that minCount on the signature datatype is fulfilled. If default validation is not enabled, -->
+        <!-- custom validation of the signatures should be added. -->
         <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
-
       </altinn:signatureConfig>
     </altinn:taskExtension>
   </bpmn:extensionElements>
@@ -62,9 +66,9 @@ If you want to use environment specific correspondence resources you may configu
 ```xml
 <altinn:signatureConfig>
     ...
-  <altinn:correspondenceResource env="Development">correspondenceResourceStaging</altinn:correspondenceResource>
-  <altinn:correspondenceResource env="Staging">correspondenceResourceStaging</altinn:correspondenceResource>
-  <altinn:correspondenceResource env="Production">correspondenceResourceProd</altinn:correspondenceResource>
+  <altinn:correspondenceResource env="Development">app-correspondence-resource-1</altinn:correspondenceResource>
+  <altinn:correspondenceResource env="Staging">app-correspondence-resource-2</altinn:correspondenceResource>
+  <altinn:correspondenceResource env="Production">app-correspondence-resource</altinn:correspondenceResource>
     ...
 </altinn:signatureConfig>
 ```

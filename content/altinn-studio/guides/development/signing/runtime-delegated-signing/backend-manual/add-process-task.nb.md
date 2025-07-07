@@ -28,8 +28,8 @@ Et signeringssteg kan se omtrent slik ut:
             <altinn:action>reject</altinn:action>
             </altinn:actions>
             <altinn:signatureConfig>
-
-                <!-- De faktiske dataene som skal signeres. Kan være vedlegg, skjemadata i xml, eller PDF fra tidligere steg. -->
+                <!-- De faktiske dataene som skal signeres. Kan være vedlegg, skjemadata i xml, -->
+                <!-- eller PDF fra tidligere steg. -->
                 <altinn:dataTypesToSign>
                     <altinn:dataType>ref-data-as-pdf</altinn:dataType>
                 </altinn:dataTypesToSign>
@@ -40,18 +40,22 @@ Et signeringssteg kan se omtrent slik ut:
                 <!-- Denne datatypen brukes for lagre signatarene og tilhørende informasjon. -->
                 <altinn:signeeStatesDataTypeId>signeeState</altinn:signeeStatesDataTypeId>
 
-                <!-- Denne ID-en angir hvilken implementasjon av C# interface-et ISigneeProvider som skal benyttes for dette signeringssteget. -->
+                <!-- Denne ID-en angir hvilken implementasjon av C# interface-et -->
+                <!-- ISigneeProvider som skal benyttes for dette signeringssteget. -->
                 <altinn:signeeProviderId>signees</altinn:signeeProviderId>
 
-                <!-- Her oppgis en correspondence resource, som brukes for å si fra til signaterene om at de må inn og signere, samt signeringskvittering. -->
+                <!-- Her oppgis en correspondence resource, som brukes for å si fra til signaterene -->
+                <!-- om at de må inn og signere, samt signeringskvittering. Påkrevd. -->
                 <altinn:correspondenceResource>app-correspondence-resource</altinn:correspondenceResource>
 
-                <!-- Dersom man ønsker at det skal bli generert en PDF av signeringssteget så kan man oppgi en datatype her av type application/pdf. -->
+                <!-- Dersom man ønsker at det skal bli generert en PDF av signeringssteget -->
+                <!-- så kan man oppgi en datatype her av type application/pdf. -->
                 <altinn:signingPdfDataType>signing-step-pdf</altinn:signingPdfDataType> <!-- optional -->
 
-                <!-- Vi har laget en standard validator som kan slås på her. Den validerer at alle signatarer har signert og at minCount på signatur-datatypen er oppfylt. Om denne ikke slås på, bør man skrive egen validering av signaturer. -->
-                <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
-                
+                <!-- Vi har laget en standard validator som kan slås på her. Den validerer at -->
+                <!-- alle signatarer har signert og at minCount på signatur-datatypen er oppfylt. -->
+                <!-- Om denne ikke slås på, bør man skrive egen validering av signaturer. -->
+                <altinn:runDefaultValidator>true</altinn:runDefaultValidator
             </altinn:signatureConfig>
         </altinn:taskExtension>
     </bpmn:extensionElements>
@@ -66,9 +70,9 @@ Hvis du ønsker å bruke miljø-spesifikke correspondence ressurser kan du konfi
 ```xml
 <altinn:signatureConfig>
     ...
-  <altinn:correspondenceResource env="Development">correspondenceResourceDev</altinn:correspondenceResource>
-  <altinn:correspondenceResource env="Staging">correspondenceResourceStaging</altinn:correspondenceResource>
-  <altinn:correspondenceResource env="Production">correspondenceResourceProd</altinn:correspondenceResource>
+  <altinn:correspondenceResource env="Development">app-correspondence-resource-1</altinn:correspondenceResource>
+  <altinn:correspondenceResource env="Staging">app-correspondence-resource-2</altinn:correspondenceResource>
+  <altinn:correspondenceResource env="Production">app-correspondence-resource</altinn:correspondenceResource>
     ...
 </altinn:signatureConfig>
 ```
