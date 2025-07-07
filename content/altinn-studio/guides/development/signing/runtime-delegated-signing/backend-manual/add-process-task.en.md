@@ -99,7 +99,7 @@ The IDs of the data types can be changed, but they must match the IDs set in `si
 
 ### Access control
 
-  Give `read`m `write` and optionally `sign` to the role that should fill out the form.
+  Give `read`, `write` and optionally `sign` to the role that should fill out the form.
 
   In order for the service to be able to delegate access rights to the signees, the app needs to have the right to delegate the `read` and `sign` actions.
   Below is an example which you can use in your policy.xml file.
