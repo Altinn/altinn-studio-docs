@@ -66,7 +66,7 @@ Hvis du ønsker å bruke miljø-spesifikke correspondence ressurser kan du konfi
 ```xml
 <altinn:signatureConfig>
     ...
-  <altinn:correspondenceResource env="Development">correspondenceResourceStaging</altinn:correspondenceResource>
+  <altinn:correspondenceResource env="Development">correspondenceResourceDev</altinn:correspondenceResource>
   <altinn:correspondenceResource env="Staging">correspondenceResourceStaging</altinn:correspondenceResource>
   <altinn:correspondenceResource env="Production">correspondenceResourceProd</altinn:correspondenceResource>
     ...
