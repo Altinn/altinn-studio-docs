@@ -56,6 +56,27 @@ If the Altinn user interface is used by the application, these actions will be t
 </bpmn:task>
 ```
 
+#### Configure environment specific correspondence resources
+
+If you want to use environment specific correspondence resources you may configure them with the following syntax:
+```xml
+<altinn:signatureConfig>
+    ...
+  <altinn:correspondenceResource env="Development">correspondenceResourceStaging</altinn:correspondenceResource>
+  <altinn:correspondenceResource env="Staging">correspondenceResourceStaging</altinn:correspondenceResource>
+  <altinn:correspondenceResource env="Production">correspondenceResourceProd</altinn:correspondenceResource>
+    ...
+</altinn:signatureConfig>
+```
+
+
+Altinn environment mapping:
+
+**Development** -> "development", "dev", "local", "localtest"
+
+**Staging**     -> "staging", "test", "at22", "at23", "at24", "tt02", "yt01"
+
+**Production**  -> "production", "prod", "produksjon"
 
 ### Add data types for storing signing related data
 

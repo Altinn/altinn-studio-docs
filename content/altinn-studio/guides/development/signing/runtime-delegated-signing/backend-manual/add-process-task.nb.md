@@ -60,6 +60,27 @@ Et signeringssteg kan se omtrent slik ut:
 </bpmn:task>
 ```
 
+#### Konfigurere miljø-spesifikke correspondence ressurser
+
+Hvis du ønsker å bruke miljø-spesifikke correspondence ressurser kan du konfigurere dem ved å bruke følgende syntaks:
+```xml
+<altinn:signatureConfig>
+    ...
+  <altinn:correspondenceResource env="Development">correspondenceResourceStaging</altinn:correspondenceResource>
+  <altinn:correspondenceResource env="Staging">correspondenceResourceStaging</altinn:correspondenceResource>
+  <altinn:correspondenceResource env="Production">correspondenceResourceProd</altinn:correspondenceResource>
+    ...
+</altinn:signatureConfig>
+```
+
+Altinn miljø-mapping:
+
+**Development** -> "development", "dev", "local", "localtest"
+
+**Staging**     -> "staging", "test", "at22", "at23", "at24", "tt02", "yt01"
+
+**Production**  -> "production", "prod", "produksjon"
+
 ### Legg til datatyper for å lagre signeringsdata
 
 Disse datatypene legger til i `dataTypes` i `App/config/applicationmetadata.json`.
