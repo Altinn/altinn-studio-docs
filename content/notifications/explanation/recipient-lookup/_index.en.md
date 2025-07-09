@@ -32,6 +32,7 @@ to the specified recipients. Reviewing this information allows for alternative a
 | missingContact | A list of national identity and/or organization numbers for recipients who do not have contact details.       |
 
 The status property can have one of three values:
+
 | Status         | Description                                     |
 | -------------- | ----------------------------------------------- |
 | Success        | Recipient lookup succeeded for all recipients.  |
@@ -39,12 +40,12 @@ The status property can have one of three values:
 | Failed         | Recipient lookup failed for all recipients.     |
 
 
-__Samples__
+#### Samples
 ```json
 "recipientLookup": {
     "status": "Success",
-    "isReserved": [ "16069412345" ],
-    "missingContact": [ "810419652", "14029112345" ]
+    "isReserved": [ "08867597396" ],
+    "missingContact": [ "313830187", "20906898757" ]
   }
 ```
 
@@ -54,14 +55,14 @@ __Samples__
 When sending a notification through Altinn, the sender can provide the contact details (email or SMS).
 Additionally, Altinn uses a set of registries to retrieve contact details if the sender has not provided them for a recipient.
 
-__The Contact and Reservation Register (Kontakt- og reservasjonsregisteret)__
+#### The Contact and Reservation Register (Kontakt- og reservasjonsregisteret)
 
 Altinn maintains a local copy of this register, which can be used to retrieve
 name and contact details when the recipient is identified by their national identity number.
 
 [Read more about the Contact and Reservation Register here](https://eid.difi.no/en/privacy-policy/privacy-policy-common-contact-register-krr).
 
-__The Notification Addresses for Businesses (Varslingsadresser for Enheter)__
+#### The Notification Addresses for Businesses (Varslingsadresser for Enheter)
 
 Altinn also maintains a local copy of this register, 
 which can be used to retrieve name and contact details when the recipient is identified by their organization number.
@@ -69,7 +70,7 @@ which can be used to retrieve name and contact details when the recipient is ide
 [Read more about the Notification Addresses for Businesses here](https://www.brreg.no/en/other-topics/notification-addresses-to-apply-in-public-administration/?nocache=1704206499405).
 
 
-__Altinn user profile__
+#### Altinn user profile
 
 End users can register their preferred contact details for notifications related to organizations
 in their Altinn profile. These contact details can be used when the notification recipient is identified by an organization that the user can represent.

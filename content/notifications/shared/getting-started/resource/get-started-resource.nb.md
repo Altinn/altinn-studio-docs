@@ -4,20 +4,20 @@ hidden: true
 ---
 
 {{<notice info>}} 
-**Note:** All intended recipients _must_ be granted `read` through the policy of the resource. 
+**Merk:** Alle tiltenkte mottakere _må_ ha `lese`-tilgang gjennom ressursens policy. 
 {{</notice>}}
 
 
-Associating a notification with a resource results in the policy of said resource being used to identify 
-the correct recipients of the notification. All intended recipients _must_ be granted `read` through the policy of the
-resource. 
+Tilknytning av et varsel til en ressurs resulterer i at policyen for denne ressursen brukes til å identifisere
+de korrekte mottakerne av varselet. Alle tiltenkte mottakere _må_ ha `lese`-tilgang gjennom ressursens
+policy.
 
-A resource in this case can be both an Altinn App or a resource (tjenesteeierressurs).
+En ressurs i dette tilfellet kan være både en Altinn App eller en ressurs (tjenesteeierressurs).
 
-For Altinn Apps, you must also ensure that the access-subject has `read` granted for __all__  relevant tasks and events. 
+For Altinn Apps må du også sørge for at tilgangssubjektet har `lese`-tilgang for __alle__ relevante oppgaver og hendelser.
 
-A new Altinn Resources can be registered in Altinn Studio or through an API.
-[Please reference Altinn Resource Registry for instructions on how to create a new resource.](/authorization/what-do-you-get/resourceregistry/)
+En ny Altinn-ressurs kan registreres i Altinn Studio eller via et API.
+[Vennligst se Altinn Ressursregister for instruksjoner om hvordan du oppretter en ny ressurs.](/authorization/what-do-you-get/resourceregistry/)
 
-The policy for both Altinn Apps and other Altinn Resources can be managed in Altinn Studio. 
-[Please reference the Altinn Studio documentation on how to do this.](/altinn-studio)
+Policyen for både Altinn Apps og andre Altinn-ressurser kan administreres i Altinn Studio.
+[Vennligst se Altinn Studio-dokumentasjonen for hvordan du gjør dette.](/altinn-studio)
