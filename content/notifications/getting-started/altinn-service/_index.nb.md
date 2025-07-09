@@ -12,10 +12,7 @@ Scope **altinn:serviceowner/notifications.create** er påkrevd for at klienter s
 
 Alle registrerte tjenesteeiere har fått delegert dette scopet av Digdir og skal kunne finne det i sin liste over scopes i Samarbeidsportalen.
 
-Du kan finne en generell veiledning for hvordan du setter opp en ny Maskinporten-klient og tildeler scopes her:
-[Veiledning for Maskinporten-integrasjon via Samarbeidsportalen](/altinn-studio/guides/shared/maskinporten-integration/maskinporten-integration-samarbeidsportal/)
-
-Når du setter opp klienten, sørg for å inkludere scopet **altinn:serviceowner/notifications.create**.
+For en veiledning om hvordan du registrerer en ny Maskinporten-integrasjon i Samarbeidsportalen, se [Altinn Autorisasjon](/nb/authorization/getting-started/maskinportenclient/)
 
 ## 2. Integrer mot Varslings-API
 

@@ -12,10 +12,7 @@ The scope **altinn:serviceowner/notifications.create** is required for clients t
 
 All registered service owners have been delegated this scope by Digdir and should be able to find it in their list of scopes in Samarbeidsportalen.
 
-You can find a general guide on how to set up a new Maskinporten client and assign scopes here:
-[Guide for Maskinporten integration via Samarbeidsportalen](/altinn-studio/guides/shared/maskinporten-integration/maskinporten-integration-samarbeidsportal/)
-
-When setting up the client, make sure to include the scope **altinn:serviceowner/notifications.create**.
+For a guide on how to register a new Maskinporten integration in Samarbeidsportalen, please see [Altinn Authorization](/authorization/getting-started/maskinportenclient/)
 
 ## 2. Integrate against Notifications API
 

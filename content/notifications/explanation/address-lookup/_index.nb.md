@@ -112,11 +112,11 @@ uavhengig av hvor lang tid som har gått siden bestillingen ble lagt inn.
 ![Prosessdetaljer for varsel knyttet til en ressurs til organisasjonsnummer](org-with-resource-flow.drawio.svg)
 
 ### Fylle ut datakilder
-__Varslingsadresser som skal brukes i offentlig forvaltning__
+#### Varslingsadresser som skal brukes i offentlig forvaltning
 
 Vennligst se [forrige avsnitt som dekker utfylling av Varslingsadresser for virksomheter](#fylle-ut-varslingsadresser-for-virksomheter)
 
-__Personlig kontaktinformasjon for virksomheter__
+#### Personlig kontaktinformasjon for virksomheter
 
 Brukere tilknyttet en organisasjon kan registrere sine personlige kontaktdetaljer gjennom
 organisasjonens profil på Altinn-portalen. Hver bruker kan registrere én e-postadresse og ett mobilnummer.
@@ -130,12 +130,12 @@ motta varsler kun for spesifikke tjenester og/eller ressurser.
 
 ### Dataintegritet
 
-__Varslingsadresser som skal brukes i offentlig forvaltning__
+#### Varslingsadresser som skal brukes i offentlig forvaltning
 
 Vennligst se [forrige avsnitt som dekker dataintegritet for varslingsadresser som skal brukes i offentlig forvaltning](#dataintegritet-2)
 
 
-__Personlig kontaktinformasjon for virksomheter__
+#### Personlig kontaktinformasjon for virksomheter
 
 Sluttbrukere kan fritt legge inn sine foretrukne kontaktdetaljer, som er underlagt grunnleggende validering.
 Tilknyttede personer i organisasjonen blir spurt hver 90. dag om å bekrefte eller oppdatere sin kontaktinformasjon gjennom Altinn-portalen.

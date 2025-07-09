@@ -27,10 +27,7 @@ kunne finne det i sin liste over scopes i Samarbeidsportalen.
 
 Registrer din Maskinporten-klient(er) for å autentisere deg med Notifications API, og tildel dem dette scopet.
 
-
 Vennligst se [Maskinportens egen dokumentasjon](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument)
 om registrering av en ny integrasjon gjennom deres selvbetjenings-API.
-
-
 
 For en veiledning om hvordan du registrerer en ny Maskinporten-integrasjon i Samarbeidsportalen, se [Altinn Autorisasjon](/nb/authorization/getting-started/maskinportenclient/) 

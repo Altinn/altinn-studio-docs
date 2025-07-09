@@ -32,20 +32,21 @@ til de spesifiserte mottakerne. Gjennomgang av denne informasjonen gir mulighet 
 | missingContact | En liste over fødselsnumre og/eller organisasjonsnumre for mottakere som ikke har kontaktdetaljer.       |
 
 Status-egenskapen kan ha en av tre verdier:
-| Status         | Beskrivelse                                     |
-| -------------- | ----------------------------------------------- |
+
+| Status         | Beskrivelse                                        |
+| -------------- | -------------------------------------------------- |
 | Success        | Mottakeroppslag var vellykket for alle mottakere.  |
-| PartialSuccess | Mottakeroppslag var vellykket for noen mottakere. |
-| Failed         | Mottakeroppslag mislyktes for alle mottakere.     |
+| PartialSuccess | Mottakeroppslag var vellykket for noen mottakere.  |
+| Failed         | Mottakeroppslag mislyktes for alle mottakere.      |
 
 
-__Eksempler__
+#### Eksempler
 ```json
 "recipientLookup": {
-    "status": "Success",
-    "isReserved": [ "16069412345" ],
-    "missingContact": [ "810419652", "14029112345" ]
-  }
+  "status": "Success",
+  "isReserved": [ "08867597396" ],
+  "missingContact": [ "313830187", "20906898757" ]
+}
 ```
 
 
@@ -54,14 +55,14 @@ __Eksempler__
 Når du sender et varsel gjennom Altinn, kan avsenderen oppgi kontaktdetaljene (e-post eller SMS).
 I tillegg bruker Altinn et sett med registre for å hente kontaktdetaljer hvis avsenderen ikke har oppgitt dem for en mottaker.
 
-__Kontakt- og reservasjonsregisteret__
+#### Kontakt- og reservasjonsregisteret
 
 Altinn vedlikeholder en lokal kopi av dette registeret, som kan brukes til å hente
 navn og kontaktdetaljer når mottakeren er identifisert med sitt fødselsnummer.
 
 [Les mer om Kontakt- og reservasjonsregisteret her](https://eid.difi.no/en/privacy-policy/privacy-policy-common-contact-register-krr).
 
-__Varslingsadresser for virksomheter__
+#### Varslingsadresser for virksomheter
 
 Altinn vedlikeholder også en lokal kopi av dette registeret,
 som kan brukes til å hente navn og kontaktdetaljer når mottakeren er identifisert med sitt organisasjonsnummer.
@@ -69,7 +70,7 @@ som kan brukes til å hente navn og kontaktdetaljer når mottakeren er identifis
 [Les mer om Varslingsadresser for virksomheter her](https://www.brreg.no/en/other-topics/notification-addresses-to-apply-in-public-administration/?nocache=1704206499405).
 
 
-__Altinn brukerprofil__
+#### Altinn brukerprofil
 
 Sluttbrukere kan registrere sine foretrukne kontaktdetaljer for varsler knyttet til organisasjoner
 i sin Altinn-profil. Disse kontaktdetaljene kan brukes når varselsmottakeren er identifisert med en organisasjon som brukeren kan representere.

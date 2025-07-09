@@ -9,4 +9,3 @@ og unngå å overvelde brukere med for mange meldinger.
 Gjør deg kjent med våre retningslinjer for å forstå hva varsler bør og ikke bør inneholde,
 for å fremme digital sikkerhet og forhindre varslingstretthet.
 
-[For omfattende detaljer, vennligst se vår utfyllende dokumentasjon.](/notifications/guides/guidelines/)
