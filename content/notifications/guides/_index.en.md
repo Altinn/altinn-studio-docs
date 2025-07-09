@@ -17,7 +17,7 @@ In the meantime existing guidelines for sending notifications through Altinn 2 a
 ### Creating a new Maskinporten Client
 
 A Maskinporten Client, also known as a Maskinporten Integration, can generate tokens with a set of scopes on request.
-The token can then be exchanged for an Altinn token and used to gain access to the API.
+The token must then be exchanged for an Altinn token and used to gain access to the API.
 
 The scope **altinn:serviceowner/notifications.create** is required for clients to
 access the Notifications API.

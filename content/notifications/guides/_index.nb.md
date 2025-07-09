@@ -17,7 +17,7 @@ I mellomtiden gjelder eksisterende retningslinjer for sending av varsler gjennom
 ### Opprette en ny Maskinporten-klient
 
 En Maskinporten-klient, også kjent som en Maskinporten-integrasjon, kan generere tokens med et sett av scopes på forespørsel.
-Tokenet kan deretter veksles inn i et Altinn-token og brukes for å få tilgang til API-et.
+Tokenet må deretter veksles inn i et Altinn-token og brukes for å få tilgang til API-et.
 
 Scopet **altinn:serviceowner/notifications.create** er påkrevd for at klienter skal
 få tilgang til Notifications API.
