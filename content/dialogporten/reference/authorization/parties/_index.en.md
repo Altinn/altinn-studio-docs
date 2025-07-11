@@ -7,8 +7,8 @@ weight: 20
 {{<dialogportenswaggerselector>}}
 {{<swaggerload>}}
 
-{{<notyetwritten>}}
+{{<swaggerdisplayoperation "get" "/api/v1/enduser/parties">}}
 
-{{<swaggerdisplayentity "V1EndUserPartiesQueriesGet_AuthorizedParty">}}
+A sucessful request will return an array of authorized parties. The authorized party entity has the following fields:
 
-{{<children />}}
+{{<swaggerdisplayentity "V1AccessManagementQueriesGetParties_AuthorizedParty">}}

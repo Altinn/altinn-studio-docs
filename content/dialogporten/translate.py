@@ -22,6 +22,7 @@ special_translations = {
     "transmission": "forsendelse",
     "EUS" : "SBS",
     "CPS" : "ILS",
+    "CCR" : "ER",
     "end user system": "sluttbrukersystem",
     "content provider system": "innholdsleverandørs system",
     "service resource": "tjenesteressurs",
@@ -153,13 +154,20 @@ def generate_translation(model: genai.GenerativeModel, content: str) -> Union[st
         
     return None # Should not be reached if loop completes normally, but included for safety
 
-def process_file(source_path: Path, target_path: Path, model: genai.GenerativeModel, overwrite: bool):
+def process_file(source_path: Path, target_path: Path, model: genai.GenerativeModel, overwrite: bool, overwrite_only_older: bool):
     """Processes a single markdown file for translation."""
     print(f"Processing: {source_path}")
 
-    if target_path.exists() and not overwrite:
-        print(f"  Skipping: Target file '{target_path}' already exists. Use --overwrite to replace.")
+    if target_path.exists() and not overwrite and not overwrite_only_older:
+        print(f"  Skipping: Target file '{target_path}' already exists. Use --overwrite or --overwrite-only-older to replace.")
         return
+
+    if target_path.exists() and overwrite_only_older:
+        source_mtime = source_path.stat().st_mtime
+        target_mtime = target_path.stat().st_mtime
+        if target_mtime >= source_mtime:
+            print(f"  Skipping: Target file '{target_path}' is newer than or equal to source file '{source_path}'.")
+            return
 
     try:
         with open(source_path, 'r', encoding='utf-8') as f:
@@ -210,10 +218,15 @@ def main():
         help="Overwrite existing Norwegian (.nb.md) files."
     )
     parser.add_argument(
+        "-o", "--overwrite-only-older",
+        action="store_true",
+        help="Overwrite existing Norwegian (.nb.md) files only if they are older than the source files."
+    )
+    parser.add_argument(
         "-r", "--recursive",
         action="store_true",
         help="Recurse into subdirectories to find .en.md files."
-    )
+    )    
     parser.add_argument(
         "-m", "--model",
         default=MODEL_NAME,
@@ -246,6 +259,7 @@ def main():
     print(f"Source Directory: {source_directory}")
     print(f"Recursive: {args.recursive}")
     print(f"Overwrite: {args.overwrite}")
+    print(f"Overwrite Only Older: {args.overwrite_only_older}")
     print(f"Model: {args.model}")
     print("-" * 30)
 
@@ -267,8 +281,8 @@ def main():
         print(f"\n[{i+1}/{file_count}]")
         target_file_name = source_file_path.name.replace(".en.md", ".nb.md")
         target_file_path = source_file_path.with_name(target_file_name)
-        
-        process_file(source_file_path, target_file_path, model, args.overwrite)
+
+        process_file(source_file_path, target_file_path, model, args.overwrite, args.overwrite_only_older)
         # Add a small delay to avoid hitting potential rate limits
         time.sleep(1) 
 

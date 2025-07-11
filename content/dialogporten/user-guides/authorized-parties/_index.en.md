@@ -7,14 +7,15 @@ toc: true
 
 ## Introduction
 
-This shows how to get a list of [authorized parties]({{<relref "../../getting-started/authorization/parties#authorized-parties">}}) that the authenticated user can represent.
+This guilde shows how to use the Dialogporten proxy API to Altinn Access Managment for attaining the list of [authorized parties]({{<relref "../../getting-started/authorization/parties#authorized-parties">}}) that the authenticated user
+has access to. 
 
 ## Basic steps (REST)
 
 1. [Authenticate as an end-user]({{<relref "../authenticating#usage-for-end-user-systems">}})
 2. Perform a GET-request to `/api/v1/enduser/parties`
 
-### Returned infiormation
+### Returned information
 
 The data structure returned consists of all the parties that the end user can represent, which as a minimum, will include themselves. This includes
 * The name of the party (full name for persons, or organization name).
