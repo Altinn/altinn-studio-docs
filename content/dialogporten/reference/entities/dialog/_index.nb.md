@@ -8,9 +8,7 @@ toc: true
 {{<dialogportenswaggerselector>}}
 {{<swaggerload>}}
 
-{{<notyetwritten>}}
-
-## Dialog-entitet for sluttbrukere
+## Dialogentitet for sluttbrukere
 
 ### Detaljer
 
@@ -24,7 +22,7 @@ Dette er entiteten som returneres i sluttbruker-API-et når man søker etter dia
 
 {{<swaggerdisplayentity "V1EndUserDialogsQueriesSearch_Dialog">}}
 
-## Dialog-entitet for tjenesteeiere
+## Dialogentitet for tjenesteeiere
 
 ### Detaljer
 
@@ -52,11 +50,59 @@ Dette er entiteten som forventes som input i tjenesteeier-API-et når man oppdat
 
 ### Oppdater (PATCH)
 
-Dialogporten støtter [RFC 6902](https://datatracker.ietf.org/doc/html/rfc6902/) JSON Patch. Et patch-dokument bør konstrueres basert på PUT-entiteten beskrevet ovenfor.
+Dialogporten støtter [RFC 6902](https://datatracker.ietf.org/doc/html/rfc6902/) JSON Patch. Et patch-dokument må konstrueres basert på PUT-entiteten beskrevet ovenfor.
 
-Merk at listen over sendinger og aktiviteter er immutable; så erstatt/fjern-operasjoner aksepteres ikke på disse egenskapene.
+Merk at listen over forsendelser og aktiviteter er immutable; så replace/remove-operasjoner aksepteres ikke på disse egenskapene.
+
+### Eksempel
+
+Dette setter statusen, oppdaterer dialogsammendraget, fjerner alle GUI-handlinger (knapper) og legger til et vedlegg
+
+```json
+[
+    {
+        "op": "replace",
+        "path": "/status",
+        "value": "Completed"
+    },
+    {
+        "op": "replace",
+        "path": "/content/summary/value/1/value",
+        "value": "Din innsending er mottatt og godkjent."
+    },
+    {
+        "op": "replace",
+        "path": "/guiActions",
+        "value": []
+    },
+    {
+        "op": "add",
+        "path": "/attachments/-",
+        "value": {
+            "displayName": [
+                {
+                    "value": "Vedtaksbrev",
+                    "languageCode": "nb"
+                }
+            ],
+            "urls": [
+                {
+                    "url": "https://mintjenesteplattform/sak-1234/vedtak.pdf",
+                    "mediaType": "application/pdf",
+                    "consumerType": "Gui"
+                }
+            ]
+        }
+    }
+]
+```
+
+{{<notice info>}}
+Merk at lokaliseringer (ie. /content/summary) inneholder en array av languageCode og oversatte tekstpar. For å ha konsistent indeksering, er lokaliseringene sortert leksikografisk etter `languageCode`. Dette betyr at når man har f.eks. oversettelser for norsk nynorsk (`nn`), norsk bokmål (`nb`) og engelsk (`en`), vil rekkefølgen alltid være `en`, `nb`, `nn`, som betyr at indeks 1 alltid vil peke til `nb` uavhengig av rekkefølgen lokaliseringen ble lagt til i.
+{{</notice>}}
 
 **Se også**
 * https://jsonpatch.com/
+* [JSON Patch Builder Online](https://json-patch-builder-online.github.io/)
 
 {{<children />}}

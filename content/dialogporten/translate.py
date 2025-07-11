@@ -49,7 +49,7 @@ Translate the following Hugo markdown content from English to Norwegian (bokmål
 1.  **Preserve Markdown Formatting:** Keep all markdown syntax (like headers `##`, lists `* -`, bold `**`, italics `*`, code blocks ```, etc.) exactly as is.
 2.  **Preserve Hugo Frontmatter:** Keep the frontmatter section (between `---`) intact. Translate the *values* of frontmatter fields if they are human-readable text (e.g., `title:`, `description:`), but **do not** translate the field *names* (keys).
 3.  **Preserve Hugo Shortcodes:** Keep Hugo shortcodes (like `{{< shortcode >}}` or `{{% shortcode %}}`) exactly as they appear. Translate any parameters *within* the shortcode *only if* they represent human-readable text. Do not translate parameter names. Example: `{{< notice title="Important Note" >}}` should become `{{< notice title="Viktig Merknad" >}}`.
-4.  **Translate anchor references:** Translate anchor references (like `#section-name`) to Norwegian, but keep the structure intact. For example, `#introduction` should become `#introduksjon`.
+4.  **Translate anchor references in relrefs:** Translate anchor references (like `#section-name`) to Norwegian, but keep the structure intact. For example, `<relref "../../searching-for-dialogs#ordering">` should become `<relref "../../searching-for-dialogs#sortering">)`. Do NOT translate the path part (e.g., `../../searching-for-dialogs`).
 5.  **Keep Structure:** Maintain the original document structure, including paragraphs, line breaks, and spacing where appropriate within the text flow.
 6.  **Technical Terms:** Keep common technical terms, specific product names, and acronyms in English unless a standard Norwegian equivalent is widely accepted and obvious.
 7.  **Specific Translations:** Apply these translations strictly:
@@ -155,7 +155,7 @@ def generate_translation(model: genai.GenerativeModel, content: str) -> Union[st
         
     return None # Should not be reached if loop completes normally, but included for safety
 
-def process_file(source_path: Path, target_path: Path, model: genai.GenerativeModel, overwrite: bool, overwrite_only_older: bool) -> bool:
+def process_file(source_path: Path, target_path: Path, model: genai.GenerativeModel, overwrite: bool, overwrite_only_older: bool, only_source_files_newer_than: Union[int, None]) -> bool:
     """Processes a single markdown file for translation."""
     print(f"Processing: {source_path}")
 
@@ -168,6 +168,18 @@ def process_file(source_path: Path, target_path: Path, model: genai.GenerativeMo
         target_mtime = target_path.stat().st_mtime
         if target_mtime >= source_mtime:
             print(f"  Skipping: Target file '{target_path}' is newer than or equal to source file '{source_path}'.")
+            return False
+
+    if only_source_files_newer_than is not None:
+        try:
+            only_source_files_newer_than_seconds = int(only_source_files_newer_than)
+        except ValueError:
+            print(f"Error: Invalid value for --only-source-files-newer-than: '{only_source_files_newer_than}'. Must be an integer representing seconds.", file=sys.stderr)
+            return False
+
+        source_mtime = source_path.stat().st_mtime
+        if source_mtime < time.time() - only_source_files_newer_than_seconds:
+            print(f"  Skipping: Source file '{source_path}' is not newer than {only_source_files_newer_than_seconds} seconds.")
             return False
 
     try:
@@ -225,6 +237,18 @@ def main():
         "-O", "--overwrite-only-older",
         action="store_true",
         help="Overwrite existing Norwegian (.nb.md) files only if they are older than the source files."
+    )
+    parser.add_argument(
+        "-n", "--only-source-files-newer-than",
+        metavar="SECONDS",
+        type=str,
+        default=None,
+        help="Only process source files that are newer than the supplied argument amount of seconds."
+    )
+    parser.add_argument(
+        "-k", "--api-key-file",
+        default=API_KEY_FILE,
+        help="File containing the Google Gemini API key."
     )
     parser.add_argument(
         "-r", "--recursive",
@@ -286,7 +310,7 @@ def main():
         target_file_name = source_file_path.name.replace(".en.md", ".nb.md")
         target_file_path = source_file_path.with_name(target_file_name)
 
-        did_process = process_file(source_file_path, target_file_path, model, args.overwrite, args.overwrite_only_older)
+        did_process = process_file(source_file_path, target_file_path, model, args.overwrite, args.overwrite_only_older, args.only_source_files_newer_than)
         # Add a small delay to avoid hitting potential rate limits if we did process the file
         if did_process:
             time.sleep(1) 

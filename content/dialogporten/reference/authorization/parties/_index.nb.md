@@ -9,7 +9,6 @@ weight: 20
 
 {{<swaggerdisplayoperation "get" "/api/v1/enduser/parties">}}
 
+En vellykket forespørsel vil returnere en liste over autoriserte parter. Den autoriserte partenheten har følgende felt:
 
 {{<swaggerdisplayentity "V1AccessManagementQueriesGetParties_AuthorizedParty">}}
-
-{{<children />}}
