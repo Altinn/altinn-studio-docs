@@ -1,9 +1,9 @@
 ---
 title: OpenAPI (swagger) for Profile
-linktitle: OpenAPI
+linktitle: API specification
 type: openapi
 spec: "/swagger/altinn-platform-profile-v1.json"
 tags: [swagger, openapi]
-weight: 10
+weight: 50
 ---
 

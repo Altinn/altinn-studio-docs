@@ -1,7 +1,7 @@
 ---
-title: Profile API
-linktitle: Profile
-description: Beskrivelse av API-et til Profil-komponenten i Altinn 3-plattformen
+title: Profil API
+linktitle: Profil
+description: Beskrivelse av API-et til Profil-komponenten for Altinn Studio.
 ---
 
 {{<children />}}

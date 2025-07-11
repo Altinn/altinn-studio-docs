@@ -4,16 +4,6 @@
     "title": "Altinn Platform Profile",
     "version": "v1"
   },
-  "servers": [
-    {
-      "url": "https://platform.tt02.altinn.no/profile/api/v1",
-      "description": "TT02"
-    },
-    {
-      "url": "https://platform.altinn.no/profile/api/v1",
-      "description": "Production"
-    }
-  ],
   "paths": {
     "/users/current/party-groups/favorites": {
       "get": {
