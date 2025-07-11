@@ -12,6 +12,6 @@ All dialogs in Dialogporten must refer to a "resource", which is the entity that
 
 Resources are administered via the Altinn Studio Designer, or via API. 
 
-Please refer to the guide {{<link "../../../../authorization/guides/create-resource-resource-admin/" title>}} for more information.
+Please refer to the guide {{<link "../../../../authorization/guides/resource-owner/create-resource-resource-admin/" title>}} for more information.
 
 {{<children />}}

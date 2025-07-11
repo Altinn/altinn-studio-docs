@@ -12,6 +12,6 @@ Alle dialoger i Dialogporten må referere til en "ressurs", som er entiteten som
 
 Ressurser administreres via Altinn Studio Designer, eller via API.
 
-Se veiledningen {{<link "../../../../authorization/guides/create-resource-resource-admin/" title>}} for mer informasjon.
+Se veiledningen {{<link "../../../../authorization/guides/resource-owner/create-resource-resource-admin/" title>}} for mer informasjon.
 
 {{<children />}}
