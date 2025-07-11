@@ -49,11 +49,12 @@ Translate the following Hugo markdown content from English to Norwegian (bokmål
 1.  **Preserve Markdown Formatting:** Keep all markdown syntax (like headers `##`, lists `* -`, bold `**`, italics `*`, code blocks ```, etc.) exactly as is.
 2.  **Preserve Hugo Frontmatter:** Keep the frontmatter section (between `---`) intact. Translate the *values* of frontmatter fields if they are human-readable text (e.g., `title:`, `description:`), but **do not** translate the field *names* (keys).
 3.  **Preserve Hugo Shortcodes:** Keep Hugo shortcodes (like `{{< shortcode >}}` or `{{% shortcode %}}`) exactly as they appear. Translate any parameters *within* the shortcode *only if* they represent human-readable text. Do not translate parameter names. Example: `{{< notice title="Important Note" >}}` should become `{{< notice title="Viktig Merknad" >}}`.
-4.  **Keep Structure:** Maintain the original document structure, including paragraphs, line breaks, and spacing where appropriate within the text flow.
-5.  **Technical Terms:** Keep common technical terms, specific product names, and acronyms in English unless a standard Norwegian equivalent is widely accepted and obvious.
-6.  **Specific Translations:** Apply these translations strictly:
+4.  **Translate anchor references:** Translate anchor references (like `#section-name`) to Norwegian, but keep the structure intact. For example, `#introduction` should become `#introduksjon`.
+5.  **Keep Structure:** Maintain the original document structure, including paragraphs, line breaks, and spacing where appropriate within the text flow.
+6.  **Technical Terms:** Keep common technical terms, specific product names, and acronyms in English unless a standard Norwegian equivalent is widely accepted and obvious.
+7.  **Specific Translations:** Apply these translations strictly:
     {special_list}
-7.  **Do Not Translate:** Never translate these specific terms:
+8.  **Do Not Translate:** Never translate these specific terms:
     {do_not_translate_list}
 
 **Content to Translate:**
