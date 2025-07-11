@@ -1,6 +1,6 @@
 ---
-title: 'Dialoger'
-description: 'Lær om hvordan Dialogporten bruker en felles modell for å uttrykke tilstanden til en digital dialog'
+title: "Dialoger"
+description: "Lær om hvordan Dialogporten bruker en felles modell for å uttrykke tilstanden til en digital dialog"
 weight: 10
 toc: true
 ---
@@ -20,7 +20,8 @@ En viktig forskjell fra [Altinn Melding](../../../correspondence) er at dialoger
 Dialoger bruker [UUIDv7](https://uuid7.com/) som sin identifikator. Tjenesteeieren kan spesifisere ønsket UUIDv7 ved opprettelse for å muliggjøre bruk av samme identifikator på tvers av systemer og sikre idempotens. Datodelen av UUIDv7 kan ikke settes til en fremtidig dato.
 
 **Les mer**
-* {{<link "../../reference/entities/dialog">}}
+
+- {{<link "../../reference/entities/dialog">}}
 
 ## Innhold
 
@@ -39,7 +40,8 @@ Forsendelser vil som standard arve autorisasjonspolicyen for selve dialogen, men
 API-handlinger og aktivitetsloggoppføringer kan referere til enkelte forsendelser.
 
 **Les mer**
-* {{<link "../../reference/entities/transmission">}}
+
+- {{<link "../../reference/entities/transmission">}}
 
 ## Vedlegg
 
@@ -48,13 +50,14 @@ Vedlegg er filer referert av en eller flere URL-er, som støtter ulike represent
 Vedlegg kan brukes både på forsendelse- og dialognivå.
 
 **Les mer**
-* {{<link "../../reference/entities/attachment">}}
+
+- {{<link "../../reference/entities/attachment">}}
 
 ## Handlinger
 
 En _handling_ beskriver en interaksjon som brukere kan utføre med eller relatert til en dialog. Eksempler på handlinger er "Åpne", "Start signering", "Betal", "Bekreft", "Lær mer", "Avbryt" osv. Listen over relevante handlinger er en del av den strukturerte beskrivelsen av en dialog og kan endres når som helst av tjenesteleverandøren gjennom API-et.
 
-En handling er enten en _"GUI"-handling_ eller en _"API"-handling_. Alle handlinger - både GUI og API - har en identifikator som kartlegger til en _handling_ (og eventuelt et [autorisasjonsattributt](../authorization/attributes)) i autorisasjonspolicyen ([XACML](../../../../authorization/guides/xacml/)) knyttet til en [tjenesteressurs](../authorization/service-resource).
+En handling er enten en _"GUI"-handling_ eller en _"API"-handling_. Alle handlinger - både GUI og API - har en identifikator som kartlegger til en _handling_ (og eventuelt et [autorisasjonsattributt](../authorization/attributes)) i autorisasjonspolicyen ([XACML](../../../../authorization/reference/xacml/)) knyttet til en [tjenesteressurs](../authorization/service-resource).
 
 ### GUI-handlinger
 
@@ -65,8 +68,9 @@ Alle GUI-handlinger har en URL. Disse URL-ene brukes i front channel (dvs. nettl
 GUI-handlinger kan imidlertid merkes som [skrivehandlinger](../write-actions) og kan da også brukes til å gjøre tilstands-endringer.
 
 **Les mer**
-* {{<link "../write-actions">}}
-* [Referanseinformasjon for GUI-handlingsenheten](../../reference/entities/action#gui-handlinger)
+
+- {{<link "../write-actions">}}
+- [Referanseinformasjon for GUI-handlingsenheten](../../reference/entities/action#gui-handlinger)
 
 ### API-handlinger
 
@@ -77,15 +81,17 @@ Dialogporten validerer ingen data og ser ikke hvilke data som flyter mellom SBS 
 {{</notice>}}
 
 **Les mer**
-* [Referanseinformasjon for API-handlingsenheten](../../reference/entities/action#api-handlinger) 
+
+- [Referanseinformasjon for API-handlingsenheten](../../reference/entities/action#api-handlinger)
 
 ## Aktiviteter
 
 En _aktivitet_ beskriver en handling eller hendelse som har skjedd i forbindelse med dialogen. Hver aktivitet er en del av aktivitetshistorikken, som er en kronologisk liste over aktiviteter. Tjenesteleverandøren fyller ut aktivitetshistorikken etter hvert som ulike tilstands-endringer oppstår.
 
 **Les mer**
-* {{<link "../activity-log">}}
-* {{<link "../../reference/entities/activity">}}
+
+- {{<link "../activity-log">}}
+- {{<link "../../reference/entities/activity">}}
 
 ## Dialogetiketter
 
@@ -98,6 +104,7 @@ Etiketter påvirker ikke tilstanden til selve dialogen; dvs. dens status, innhol
 Det er to hovedkategorier av etiketter; brukerdefinerte etiketter og systemetiketter.
 
 ### Brukerdefinerte etiketter
+
 Brukerdefinerte etiketter administreres av brukerne, og kan deles med andre brukere. Noen brukerdefinerte etiketter har global effekt (dvs. synlig for alle med tilgang til dialogen), mens andre er personlige (dvs. bare synlig for brukeren som eier etikettene).
 
 {{<notice warning>}}
@@ -105,15 +112,17 @@ Brukerdefinert etikettfunksjonalitet er under design, og vil bli gjort tilgjenge
 {{</notice>}}
 
 ### Systemetiketter
+
 Systemetiketter er forhåndsdefinerte, globale etiketter definert av Dialogporten. Disse kan tildeles til hvilken som helst dialog av enhver bruker med skrivetilgang til den aktuelle dialogen. For øyeblikket er det definert tre systemetiketter; `Archive` og `Bin` og `Default`. Å tildele `Archive`- eller `Bin`-etiketter vil vanligvis skjule dialogen fra de vanlige innboksvisningene, og vil gjøre dem tilgjengelige i andre visninger. Disse systemetikettene er gjensidig utelukkende (dvs. det kan bare ha en av disse etikettene når som helst). Som standard vil alle dialoger ha etiketten `Default`, som indikerer at standardvisning/håndtering av dialogen skal brukes.
 
 Felles for disse to systemetikettene er at enhver endring som gjøres i dialogen av tjenesteeieren, vil tilbakestille dem til `Default`. Dvs. hvis en bruker bestemmer seg for å plassere en dialog i søppelkassen, og tjenesteeieren deretter oppdaterer den med mer informasjon, vil dialogen igjen være synlig i de vanlige visningene som om `Bin`-etiketten aldri ble tildelt.
 
 ### Etikettlogg
+
 Dialogporten holder oversikt over etiketter, og logger hvem som utførte dem og når de ble utført. Dette inkluderer tilbakestilling av systemetiketter på grunn av dialogoppdateringer.
 
 **Les mer**
-* {{<link "../../reference/entities/systemlabel">}}
 
+- {{<link "../../reference/entities/systemlabel">}}
 
 {{<children />}}

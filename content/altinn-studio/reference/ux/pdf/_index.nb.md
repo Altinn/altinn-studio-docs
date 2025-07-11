@@ -339,7 +339,7 @@ linjer i `Dockerfile`:
 
 ```Dockerfile
   # Add globalization timezone support
-  RUN apk add --no-cache icu-libs tzdata
+  RUN apk add --no-cache icu-libs icu-data-full tzdata
   ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
 ```
 

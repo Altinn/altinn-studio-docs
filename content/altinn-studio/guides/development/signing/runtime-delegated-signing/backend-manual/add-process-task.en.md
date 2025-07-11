@@ -36,18 +36,22 @@ If the Altinn user interface is used by the application, these actions will be t
         <!-- This data type is used to store the signees and related information -->
         <altinn:signeeStatesDataTypeId>signeesState</altinn:signeeStatesDataTypeId>
 
-        <!-- This ID tells the app which implementation of the C# interface ISigneeProvider that should be used for this singing step -->
+        <!-- This ID tells the app which implementation of the C# interface -->
+        <!-- ISigneeProvider that should be used for this singing step -->
         <altinn:signeeProviderId>signees</altinn:signeeProviderId>
 
         <!-- If you want a PDF summary of the singing step, enter a datatype of type application/pdf here -->
         <altinn:signingPdfDataType>signing-step-pdf</altinn:signingPdfDataType> <!-- optional -->
 
-        <!-- If the signee should receive a receipt with the documents that were signed in their Altinn inbox, enter a correspondence resource her. Setup of this is documented separately. -->
-        <altinn:correspondenceResource>app-correspondence-resource</altinn:correspondenceResource> <!-- optional -->
+        <!-- The correspondence service is used to communicate with the signees, and is required -->
+        <!-- for user delegated signing. Add the correspondence resource here. -->
+        <!-- Setup of this resource is documented separately. -->
+        <altinn:correspondenceResource>app-correspondence-resource</altinn:correspondenceResource>
 
-        <!-- We have made a default validator that can be enabled here. It checks that all signees have signed and that minCount on the signature datatype is fulfilled. If default validation is not enabled, custom validation of the signatures should be added. -->
+        <!-- We have made a default validator that can be enabled here. It checks that all signees -->
+        <!-- have signed and that minCount on the signature datatype is fulfilled. If default validation is not enabled, -->
+        <!-- custom validation of the signatures should be added. -->
         <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
-
       </altinn:signatureConfig>
     </altinn:taskExtension>
   </bpmn:extensionElements>
@@ -56,6 +60,26 @@ If the Altinn user interface is used by the application, these actions will be t
 </bpmn:task>
 ```
 
+#### Configure environment specific correspondence resources
+
+If you want to use environment specific correspondence resources you may configure them with the following syntax:
+```xml
+<altinn:signatureConfig>
+    ...
+  <altinn:correspondenceResource env="Development">app-correspondence-resource-1</altinn:correspondenceResource>
+  <altinn:correspondenceResource env="Staging">app-correspondence-resource-2</altinn:correspondenceResource>
+  <altinn:correspondenceResource env="Production">app-correspondence-resource</altinn:correspondenceResource>
+    ...
+</altinn:signatureConfig>
+```
+
+Altinn environment mapping:
+
+**Development** -> "development", "dev", "local", "localtest"
+
+**Staging**     -> "staging", "test", "at22", "at23", "at24", "tt02", "yt01"
+
+**Production**  -> "production", "prod", "produksjon"
 
 ### Add data types for storing signing related data
 
@@ -99,7 +123,7 @@ The IDs of the data types can be changed, but they must match the IDs set in `si
 
 ### Access control
 
-  Give `read`m `write` and optionally `sign` to the role that should fill out the form.
+  Give `read`, `write` and optionally `sign` to the role that should fill out the form.
 
   In order for the service to be able to delegate access rights to the signees, the app needs to have the right to delegate the `read` and `sign` actions.
   Below is an example which you can use in your policy.xml file.

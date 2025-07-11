@@ -38,32 +38,10 @@ Altinn Notifications leverages the following Altinn services:
 - **Resource Registry**: Identifies authorized recipients within an organization.
 - **Authorization**: Ensures secure and compliant communication.
 
-### Communication Providers
-
-Altinn Notifications uses these providers to send messages:
-
-- **Email**: Azure Communication Services.  
-- **SMS**: LinkMobility.
-
 ## Eligible Users
 
 The following entities can send messages via Altinn Notifications, provided they are authorized through Maskinporten:
 
 - Registered service owners  
 - Altinn Apps  
-- Internal Altinn services  
-
-## Core Principles
-
-- **Reliability**: Ensures notifications are delivered promptly and accurately.  
-- **Flexibility**: Supports multiple notification channels and customizable templates.  
-- **Integration**: Works seamlessly with other Altinn services.  
-- **Security**: Guarantees secure communication in compliance with regulations.
-
-## Open Source and Collaboration
-
-Altinn Notifications is an open-source project that welcomes community contributions.
-
-Join our community on GitHub to participate in the development of Altinn Notifications. Your feedback and contributions are invaluable for building a robust and reliable notification service.
-
-For additional details, please refer to our [user guide](/notifications/guides/).
+- Internal Altinn services

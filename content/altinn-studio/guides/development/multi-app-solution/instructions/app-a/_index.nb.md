@@ -4,9 +4,7 @@ linktitle: Applikasjon A
 description: Instruksjoner for å sette opp applikasjon A
 weight: 10
 aliases:
-
-- /app/multi-app-solution/instructions/app-a
-
+  - /app/multi-app-solution/instructions/app-a
 ---
 
 Applikasjon A er ansvarlig for å utløse opprettelsen av applikasjon B og sende data til den.
@@ -47,7 +45,7 @@ For å legge til steg for å utvide applikasjonsprosessen, må vi oppdatere `pro
    må dra nytte av _exclusive gateways_. Les mer om exclusive
    gateways [her](/altinn-studio/reference/configuration/process/exclusive-gateways).
 2. Filen `policy.xml`, der autorisasjonsreglene er definert, trenger oppdateringer slik at lese- og skriveoperasjoner
-   kan utføres på det nye steget. <br><br>Se [XACML-policy](/authorization/guides/xacml)
+   kan utføres på det nye steget. <br><br>Se [XACML-policy](/authorization/reference/xacml)
    , [policyredigerer](/altinn-studio/reference/configuration/authorization)
    og [Retningslinjer for autorisasjonsregler](/altinn-studio/reference/configuration/authorization/guidelines_authorization)
    for detaljer. De fleste apper tillater dette som standard med gjeldende mal.
@@ -84,22 +82,22 @@ Les om hvordan denne egendefinerte koden legges til [her](/altinn-studio/referen
    legger til ønskede data som den nye instansen av applikasjon B skal fylles ut med. Det resulterende instansobjektet
    vil se omtrent slik ut:
 
-    ```csharp
-    var instanceTemplate = new InstansiationInstance
-    {
-        InstanceOwner = new InstanceOwner
-        {
-            //OrganisationNumber = [mottakerOrgNr], Eller
-            //PersonNumber = [mottakerSsnNr],
-        },
-        Prefill = new()
-        {
-            {"noenDataIMottakerDataModell", noenVerdiFraDenneTriggerApplikasjonen},
-            {"merDataIMottakerDataModell", noenStatiskVerdi}, 
-            ...
-        },
-    };
-    ```
+   ```csharp
+   var instanceTemplate = new InstansiationInstance
+   {
+       InstanceOwner = new InstanceOwner
+       {
+           //OrganisationNumber = [mottakerOrgNr], Eller
+           //PersonNumber = [mottakerSsnNr],
+       },
+       Prefill = new()
+       {
+           {"noenDataIMottakerDataModell", noenVerdiFraDenneTriggerApplikasjonen},
+           {"merDataIMottakerDataModell", noenStatiskVerdi},
+           ...
+       },
+   };
+   ```
 
 2. For å faktisk utføre forespørselen for å opprette instansen, må vi legge til en klient. Se
    [konsumer dokumentasjonen](/nb/altinn-studio/reference/api/consume#implementere-klient) for å se et eksempel på hvordan
@@ -110,6 +108,7 @@ Les om hvordan denne egendefinerte koden legges til [her](/altinn-studio/referen
    en
    subscription key i
    headeren til forespørslene som sendes av http-klienten.
+
    ```csharp
        public AppClient(
             ...
@@ -128,37 +127,37 @@ Les om hvordan denne egendefinerte koden legges til [her](/altinn-studio/referen
    den
    følgende funksjonen, `CreateNewInstance`:
 
-    ```csharp
-    public async Task<Instance> CreateNewInstance(string AppOwnerOrgName, string applicationB, InstansiationInstance instanceTemplate)
-    {
-       string apiUrl = $"{AppOwnerOrgName}/{applicationB}/instances/create";
-                   
-       string envUrl = $"https://{AppOwnerOrgName}.apps.{_settings.HostName}";
-       
-       _client.BaseAddress = new Uri(envUrl);
-       
-       StringContent content = new StringContent(JsonConvert.SerializeObject(instanceTemplate), Encoding.UTF8, "application/json");
-       
-       HttpResponseMessage response = await _client.PostAsync(apiUrl, content);
-       
-       if (response.IsSuccessStatusCode)
-       {
-           Instance createdInstance = JsonConvert.DeserializeObject<Instance>(await response.Content.ReadAsStringAsync());
-           
-           return createdInstance;
-       }
-       throw await PlatformHttpException.CreateAsync(response);
-    }
-    ```
+   ```csharp
+   public async Task<Instance> CreateNewInstance(string AppOwnerOrgName, string applicationB, InstansiationInstance instanceTemplate)
+   {
+      string apiUrl = $"{AppOwnerOrgName}/{applicationB}/instances/create";
+
+      string envUrl = $"https://{AppOwnerOrgName}.apps.{_settings.HostName}";
+
+      _client.BaseAddress = new Uri(envUrl);
+
+      StringContent content = new StringContent(JsonConvert.SerializeObject(instanceTemplate), Encoding.UTF8, "application/json");
+
+      HttpResponseMessage response = await _client.PostAsync(apiUrl, content);
+
+      if (response.IsSuccessStatusCode)
+      {
+          Instance createdInstance = JsonConvert.DeserializeObject<Instance>(await response.Content.ReadAsStringAsync());
+
+          return createdInstance;
+      }
+      throw await PlatformHttpException.CreateAsync(response);
+   }
+   ```
 
 3. I filen `ProcessTaskEnd.cs`, legg til den nye _AppInstantiationClient_ i klassen `ProcessTaskEnd` på samme måte
    som _CountryClient_ legges til i klassen `DataProcessingHandler`
    i [konsumer dokumentasjonen](/nb/altinn-studio/reference/api/consume#benytte-klient-i-applikasjonslogikk).
    Videre, kall metoden som utløser forespørselen i appInstantiationClient slik:
 
-    ```csharp
-    Instance applicationBInstance = await _appInstantiationClient.CreateNewInstance([AppOwnerOrgName], [applicationB], [instanceTemplate]);
-    ```
+   ```csharp
+   Instance applicationBInstance = await _appInstantiationClient.CreateNewInstance([AppOwnerOrgName], [applicationB], [instanceTemplate]);
+   ```
 
 Hvis klienten skal autentisere seg selv som sluttbruker, heller enn applikasjonseieren via maskinporten, vennligst
 referanse
@@ -185,14 +184,14 @@ hentes ved å få tak i instansobjektet og hente dataen direkte på objektet, el
 definerte `GetBinaryData`-metoden på dataklienten.
 Se eksempelkode nedenfor for begge deler:
 
-   ```csharp
-   // Using the instance object directly with the GetInstance method on the InstanceClient
-   Instance updatedInstance = await _instanceClient.GetInstance(innsendingsApp, mutliAppOwner, int.Parse(instance.InstanceOwner.PartyId), instanceGuid);
-   DataElement pdf = updatedInstance.Data.FindLast(d => d.DataType == "ref-data-as-pdf");
-   
-   // Using the GetBinaryData method on the DataClient
-   var stream = await _dataClient.GetBinaryData(instance.Org, instance.AppId,int.Parse(instance.InstanceOwner.PartyId), instanceGuid, Guid.Parse(pdf.Id));
-   ```
+```csharp
+// Using the instance object directly with the GetInstance method on the InstanceClient
+Instance updatedInstance = await _instanceClient.GetInstance(innsendingsApp, mutliAppOwner, int.Parse(instance.InstanceOwner.PartyId), instanceGuid);
+DataElement pdf = updatedInstance.Data.FindLast(d => d.DataType == "ref-data-as-pdf");
+
+// Using the GetBinaryData method on the DataClient
+var stream = await _dataClient.GetBinaryData(instance.Org, instance.AppId,int.Parse(instance.InstanceOwner.PartyId), instanceGuid, Guid.Parse(pdf.Id));
+```
 
 _NB: For å bruke disse metodene i klassen `ProcessTaskEnd`, må konstruktøren konfigureres for å bruke
 InstanceClient og/eller DataClient._
@@ -214,12 +213,13 @@ Det er flere måter å kontrollere visse data i applikasjon B på, der en eller 
   .
 
 - **Alt 3:** Legg til data som binære data ved å sende en POST-forespørsel til instansen av applikasjon B.
+
   ```csharp
   public async Task<DataElement> InsertBinaryData(string org, string app, string instanceId, string contentType, string filename, Stream stream)
   {
     string envUrl = $"https://{org}.apps.{_settings.HostName}";
     _client.BaseAddress = new Uri(envUrl);
-  
+
     string apiUrl = $"{org}/{app}/instances/{instanceId}/data?dataType=vedlegg";
 
     StreamContent content = new(stream);
