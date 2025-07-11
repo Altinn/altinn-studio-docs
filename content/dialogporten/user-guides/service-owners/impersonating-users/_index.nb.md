@@ -28,7 +28,7 @@ Merk at når man imiterer brukere, gjelder også restriksjonene for sluttbruker-
 
 ### Returnert informasjon
 
-Se [dialogsøk DTO]({{<relref "../../../reference/entities/dialog#search-1">}}) for full informasjon.
+Se [dialogsøk DTO]({{<relref "../../../reference/entities/dialog#søk-1">}}) for full informasjon.
 
 ## Hente dialogdetaljer
 
@@ -36,6 +36,6 @@ Se [dialogsøk DTO]({{<relref "../../../reference/entities/dialog#search-1">}}) 
 
 ### Returnert informasjon
 
-Se [dialogdetaljer DTO]({{<relref "../../../reference/entities/dialog#details-1">}}) for tjenesteeier for full informasjon.
+Se [dialogdetaljer DTO]({{<relref "../../../reference/entities/dialog#detaljer-1">}}) for tjenesteeier for full informasjon.
 
 {{<children />}}
