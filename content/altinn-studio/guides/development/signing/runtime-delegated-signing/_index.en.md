@@ -67,7 +67,21 @@ Below are the key configuration steps for setting up such an application.
 
 {{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/custom-validation.en.md" %}}
 
-## 4. Optional - Setup text resources
+## 4. Tell the app who the signees are
+
+{{<content-version-selector classes="border-box">}}
+
+{{<content-version-container version-label="Manual setup">}}
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/signee-provider.en.md" %}}
+{{</content-version-container>}}
+
+{{<content-version-container version-label="Altinn Studio Designer">}}
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/signee-provider.en.md" %}}
+{{</content-version-container>}}
+
+{{</content-version-selector>}}
+
+## 5. Optional - Setup text resources
 
 This section is only relevant for those who want to override the standard texts in the communication with the signees.
 
@@ -127,20 +141,51 @@ The standard values for the communication texts are as follows:
 
 {{</content-version-selector>}}
 
-## 5. Tell the app who the signees are
+## 6. Optional - Customize how to notify the signees
+
+Note that `CommunicationConfig` is optional. Here you may override the standard texts used in communication with the signees,
+as explained in the previous section. You may also override the email address and phone number for the signees. 
+
+{{% notice info %}}
+By default, a message 
+will be sent to the signees altinn inbox with a link to the relevant application instance and a notification
+will be sent via email. The default texts described in the previous section will be used.
+{{% /notice %}}
+
+If not overridden, the email addresses and the phone numbers used are populated as described in [Recipient lookup](/notifications/explanation/recipient-lookup/) 
+and [Address lookup](/notifications/explanation/address-lookup/).
+
+These are the possible override configurations for the signee communication:
+
+| Property                                                      | Description                                         | Type                              |
+| ------------------------------------------------------------- | --------------------------------------------------- | --------------------------------- |
+| CommunicationConfig                                           | The object for communication configuration          | Object                            |
+| CommunicationConfig.InboxMessage                              | The object for inbox message configuration          | Object                            |
+| CommunicationConfig.InboxMessage.TitleTextResourceKey         | The text resource key for the inbox message title   | String                            |
+| CommunicationConfig.InboxMessage.SummaryTextResourceKey       | The text resource key for the inbox message summary | String                            |
+| CommunicationConfig.InboxMessage.BodyTextResourceKey          | The text resource key for the inbox message body    | String                            |
+| CommunicationConfig.Notification                              | The object for notification configuration           | Object                            |
+| CommunicationConfig.Notification.Email                        | The object for email notification configuration     | Object                            |
+| CommunicationConfig.Notification.Email.EmailAddress           | The text resource key for the email address         | String                            |
+| CommunicationConfig.Notification.Email.SubjectTextResourceKey | The text resource key for the email subject         | String                            |
+| CommunicationConfig.Notification.Email.BodyTextResourceKey    | The text resource key for the email body            | String                            |
+| CommunicationConfig.Notification.Sms                          | The object for sms notification configuration       | Object                            |
+| CommunicationConfig.Notification.Sms.MobileNumber             | The text resource key for the mobile number         | String                            |
+| CommunicationConfig.Notification.Sms.BodyTextResourceKey      | The text resource key for the sms body              | String                            |
+| CommunicationConfig.Notification.NotificationChoice           | The notification preferrence choice                 | NotificationChoice enum (String)  |
 
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Manual setup">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/signee-provider.en.md" %}}
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/communication-config.en.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/signee-provider.en.md" %}}
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/communication-config.en.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}
 
-## 6. Testing
+## 7. Testing
 
 {{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/test.en.md" %}}

@@ -1,6 +1,6 @@
 ---
-title: 'Opprette dialoger'
-description: 'Hvordan opprette en dialog i Dialogporten'
+title: "Opprette dialoger"
+description: "Hvordan opprette en dialog i Dialogporten"
 weight: 20
 ---
 
@@ -9,13 +9,13 @@ weight: 20
 Denne veiledningen viser hvordan du kan bruke tjenesteeier-API-et til å opprette dialoger for dine digitale tjenesteinstanser og/eller meldinger.
 
 {{<notice info>}}
-Når du bruker Altinn Studio, vil dialoger automatisk opprettes for deg. En app kan velge bort dette, se [veiledningen for integrering av Altinn Apps]({{<relref "../integrating-altinn-apps">}}) for mer informasjon.
+Når du bruker Altinn Studio, vil dialoger automatisk opprettes for deg. En app kan velge å ikke bruke dette, se [veiledningen for integrering av Altinn Apps](../integrating-altinn-apps) for mer informasjon.
 {{</notice>}}
 
 ## Grunnleggende trinn
 
-1. Autentiser som en [tjenesteeier]({{<relref "../../authenticating/#bruk-for-tjenesteeiersystemer">}})
-2. Utfør en POST-forespørsel og oppgi [create dialog DTO]({{<relref "../../../reference/entities/dialog#opprett-post">}})
+1. Autentiser som en [tjenesteeier](../../authenticating/#bruk-for-tjenesteeiersystemer)
+2. Utfør en POST-forespørsel og oppgi [create dialog DTO](../../../reference/entities/dialog#opprett-post)
 
 ## Velge en tjenesteressurs
 Tjenesteressursen som leveres kan være hvilken som helst ressurs i [Altinn Ressursregister]({{<relref "../../../../authorization/what-do-you-get/resourceregistry">}}) med en `hasCompententAuthority`-egenskap som samsvarer med det autentiserte organisasjonsnummeret.
@@ -85,8 +85,9 @@ Vanligvis bruker sluttbrukersystemer `org`-feltet for å indikere for sluttbruke
 Dette er innholdstypen for [front channel embeds]({{<relref "../../../getting-started/front-channel-embeds">}}), og kan settes på både dialoger og forsendelser i dialoger.
 
 **Les mer**
-* {{<link "../../../reference/content-types">}}
-* {{<link "../../../reference/front-end/front-channel-embeds">}}
+
+- {{<link "../../../reference/content-types">}}
+- {{<link "../../../reference/front-end/front-channel-embeds">}}
 
 ## Levere søketagger
 
@@ -105,8 +106,8 @@ Dialogporten støtter flere generiske dialogstatuser, som indikerer forskjellige
 | `RequiresAttention` | Brukes til å indikere at dialogen er i gang/under arbeid, men er i en tilstand der brukeren må gjøre noe - for eksempel korrigere en feil, eller andre forhold som hindrer videre behandling.   |
 | `Completed`         | Dialogen ble fullført. Dette betyr vanligvis at dialogen har nådd en sluttilstand der ingen ytterligere oppdateringer vil bli gjort.                                                                     |
 
-
 ### Hvilke statuser skal brukes når
+
 Når du oppretter dialoger, bør tjenesteplattformen vurdere både tilstanden og omstendighetene til dialogen som opprettes. Det er ingen faste regler, men følgende retningslinjer kan hjelpe med å bestemme hvilken status som er passende.
 
 * Representerer dialogen et søknadsskjema, som ble "kaldt" initiert av brukeren uten åpenbar interaksjon med tjenesteeieren? **Draft**
@@ -124,11 +125,11 @@ Handlinger er ikke obligatoriske, men de fleste dialoger bør indikere hvordan b
 
 ### Autorisere handlinger
 
-Handlinger har selv en `action`-egenskap som tilsvarer en [XACML-handling]({{<relref "../../../../authorization/guides/xacml/#action">}}) definert i den refererte tjenesteressursens [policy]({{<relref "../../../../authorization/guides/xacml/#xacml-policy">}}). Dialogporten vil sjekke om den autentiserte brukeren har lov til å utføre den spesifiserte handlingen på den refererte tjenesteressursen for dialogens part, og hvis ikke, vil den flagge handlingen som `isAuthorized: false` og fjerne den medfølgende URL-en. Sluttbrukersystemer bør indikere for sluttbrukeren at handlingen eksisterer, men at tilgang mangler - og om mulig gi informasjon om hvordan du ber om tilgang (som er utenfor omfanget for Dialogporten).
+Handlinger har selv en `action`-egenskap som tilsvarer en [XACML-handling](../../../../authorization/reference/xacml/#action) definert i den refererte tjenesteressursens [policy](../../../../authorization/reference/xacml/#xacml-policy). Dialogporten vil sjekke om den autentiserte brukeren har lov til å utføre den spesifiserte handlingen på den refererte tjenesteressursen for dialogens part, og hvis ikke, vil den flagge handlingen som `isAuthorized: false` og fjerne den medfølgende URL-en. Sluttbrukersystemer bør indikere for sluttbrukeren at handlingen eksisterer, men at tilgang mangler - og om mulig gi informasjon om hvordan du ber om tilgang (som er utenfor omfanget for Dialogporten).
 
 {{<notice warning>}}Selv om Dialogporten vil sjekke autorisasjon for handlingen og fjerne URL-en hvis sjekken mislykkes, MÅ tjenesteeiersystemet utføre sin egen autorisasjon basert på den samme policyen{{</notice>}}
 
-For ekstra kontroll kan et [autorisasjonsattributt]({{<relref "../../../getting-started/authorization/attributes">}}) leveres, som lar tjenesteeiere referere til spesifikke regler i policyen eller andre tjenesteressurser (som tjenesteeieren kontrollerer) fullstendig.
+For ekstra kontroll kan et [autorisasjonsattributt](../../../getting-started/authorization/attributes) leveres, som lar tjenesteeiere referere til spesifikke regler i policyen eller andre tjenesteressurser (som tjenesteeieren kontrollerer) fullstendig.
 
 ### Definere GUI-handlinger
 
@@ -149,10 +150,11 @@ For å støtte automatiseringer via tilpassede sluttbrukersystemer som ikke er b
 Merk at Dialogporten ikke vil vurdere gyldigheten eller semantikken til API-handlinger, men vil - som med GUI-handlinger - utføre autorisasjon og flagge `isAuthorized` tilsvarende.
 
 **Les mer**
-* [Lær mer om handlinger i dialoger]({{<relref "../../../getting-started/dialogs#handlinger">}})
-* {{<link "../../../reference/entities/action">}}
-* {{<link "../../../getting-started/write-actions">}}
-* {{<link "../../../getting-started/authorization/dialog-tokens">}}
+
+- [Lær mer om handlinger i dialoger](../../../getting-started/dialogs#handlinger)
+- {{<link "../../../reference/entities/action">}}
+- {{<link "../../../getting-started/write-actions">}}
+- {{<link "../../../getting-started/authorization/dialog-tokens">}}
 
 ## Definere vedlegg
 
@@ -161,7 +163,8 @@ Et logisk vedlegg kan ha flere representasjoner rettet mot både menneskelige br
 Vedlegg kan defineres både på dialogen og på individuelle forsendelser.
 
 **Les mer**
-* [Lær mer om vedlegg i dialoger]({{<relref "../../../getting-started/dialogs#vedlegg">}})
+
+- [Lær mer om vedlegg i dialoger](../../../getting-started/dialogs#vedlegg)
 
 ## Definere forsendelser
 
@@ -176,9 +179,10 @@ Som med innhold på dialognivå, kan forsendelser inneholde en tittel, et sammen
 {{<notyetwritten>}}
 
 **Les mer**
-* [Lær mer om overføringer i dialoger]({{<relref "../../../getting-started/dialogs#forsendelser">}})
-* {{<link "../../../reference/entities/transmission">}}
-* {{<link "../../../reference/content-types">}}
+
+- [Lær mer om overføringer i dialoger](../../../getting-started/dialogs#forsendelser)
+- {{<link "../../../reference/entities/transmission">}}
+- {{<link "../../../reference/content-types">}}
 
 ## Definere aktiviteter
 
@@ -187,16 +191,16 @@ Når du oppretter en dialog, bør tjenesteeiersystemet vurdere tilstanden til tj
 {{<notyetwritten>}}
 
 **Les mer**
-* {{<link "../../../getting-started/activity-log">}}
-* {{<link "../../../reference/entities/activity">}}
 
+- {{<link "../../../getting-started/activity-log">}}
+- {{<link "../../../reference/entities/activity">}}
 
 ## Sikre idempotens
 
 Dialogporten tilbyr to valgfrie mekanismer for å sikre at en gitt dialog bare opprettes én gang:
 
-* Brukerleverte dialog-ID-er. Tjenesteeiersystemer kan definere sine egne UUIDv7-er (som kan være deterministisk avledet fra interne identifikatorer)
-* En dedikert idempotensnøkkel
+- Brukerleverte dialog-ID-er. Tjenesteeiersystemer kan definere sine egne UUIDv7-er (som kan være deterministisk avledet fra interne identifikatorer)
+- En dedikert idempotensnøkkel
 
 Det første alternativet er en enkel mekanisme som for de fleste tjenesteeiersystemer kan være tilstrekkelig, mens det andre lettere kan brukes til å implementere vilkårlige forretningsregler (f.eks. enhver gitt dialog skal være knyttet til bare én tupel av rapporteringspart, rapporteringstjeneste og år/måned).
 
@@ -212,8 +216,8 @@ I noen tilfeller, vanligvis i scenarier med historisk datamigrering, er det øns
 
 Denne oppførselen kan aktiveres ved å legge til spørringsparameteren `?isSilentUpdate=true` til URL-en for POST/PUT/PATCH-forespørselen.
 
-
 **Les mer**
+
 * {{<link "../updating-dialogs">}}
 * {{<link "../../../reference/openapi">}}
 * {{<link "../api-client">}}

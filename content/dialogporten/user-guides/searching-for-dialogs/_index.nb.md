@@ -11,13 +11,13 @@ weight: 20
 
 Denne veiledningen viser hvordan et sluttbrukersystem kan søke etter dialoger i Dialogporten ved hjelp av enten REST eller GraphQL API-er. Dialogporten støtter en rekke parametere for filtrering, sortering og fritekstsøk.
 
-Merk at datastrukturen som returneres i søk, er forskjellig fra den som returneres på [detaljendepunktet]({{<relref "../getting-dialog-details">}}); mer informasjon om dialogen og hvilken tilgang den autoriserte brukeren har til ulike deler av den, er bare tilgjengelig i detaljvisningen.
+Merk at datastrukturen som returneres i søk er forskjellig fra den som returneres på [detaljendepunktet](../getting-dialog-details); mer informasjon om dialogen og hvilken tilgang den autoriserte brukeren har til ulike deler av den er bare tilgjengelig i detaljvisningen.
 
 ## Grunnleggende trinn (REST)
 
-1. [Autentiser som en sluttbruker]({{<relref "../authenticating#usage-for-end-user-systems">}})
-3. [Finn partene]({{<relref "../authorized-parties">}}) som den autentiserte sluttbrukeren er autorisert til å representere
-2. Utfør en GET-forespørsel til `/api/v1/enduser/dialogs`, og oppgi spørringsparametere i henhold til tabellen nedenfor:
+1. [Autentiser som en sluttbruker](../authenticating#bruk-for-sluttbrukersystemer)
+2. [Finn partene](../authorized-parties) som den autentiserte sluttbrukeren er autorisert til å representere
+3. Utfør en GET-forespørsel til `/api/v1/enduser/dialogs`, og oppgi spørringsparametere i henhold til tabellen nedenfor:
 
 {{<swaggerdisplayoperation "get" "/api/v1/enduser/dialogs">}}
 
@@ -27,16 +27,16 @@ Merk at datastrukturen som returneres i søk, er forskjellig fra den som returne
 * `party`-parametere må ha ett av følgende formater
     * `urn:altinn:person:identifier-no:<11 digit national identity numner>`
     * `urn:altinn:organization:identifier-no:<9 digit CCR number>`
-* `serviceResource`-parametere må referere til en ressurs i [Ressursregisteret]({{<relref "../../../authorization/what-do-you-get/resourceregistry">}}) og bruke følgende format:
+* `serviceResource`-parametere må referere til en ressurs i [Ressursregisteret](../../../authorization/what-do-you-get/resourceregistry) og bruke følgende format:
     * `urn:altinn:resource:<identifier>`
 
 {{<notice warning>}}
-Merk at sluttbrukersøk-API-et krever at minst én [`serviceResource`]({{<relref "../../getting-started/authorization/service-resource">}}) eller [`party`]({{<relref "../../getting-started/authorization/parties">}}) parameter er oppgitt. Opptil 20 distinkte verdier for hver av disse to typene kan leveres.
+Vær oppmerksom på at sluttbruker-søke-APIet krever at minst én [`serviceResource`](../../getting-started/authorization/service-resource) eller [`party`](../../getting-started/authorization/parties) parameter er oppgitt. Opptil 20 distinkte verdier for hver av disse to typene kan leveres.
 {{</notice>}}
 
 ### Returnert informasjon
 
-Dette vil returnere en [samling av dialoger]({{<relref "../../reference/entities/dialog/#søk">}}), som inneholder et delsett av informasjonen som returneres på [dialogdetaljendepunktet]({{<relref "../../reference/entities/dialog/">}}). Avhengig av søkeparametere og tilgangen til den autentiserte brukeren, kan denne listen være tom.
+Dette vil returnere en [samling av dialoger](../../reference/entities/dialog/#søk), som inneholder et delsett av informasjonen som returneres på [dialogdetaljendepunktet](../../reference/entities/dialog/). Avhengig av søkeparametere og tilgangen til den autentiserte brukeren, kan denne listen være tom.
 
 Hvis ugyldige søkeparametere oppgis, vil API-et returnere `400 Bad Request` og et svar som forklarer hvilke feil som ble oppdaget. Dette svaret følger standard [ProblemDetails](https://datatracker.ietf.org/doc/html/rfc7807) formatet.
 
@@ -67,6 +67,7 @@ Dette er eksempelverdier som kan oppgis i `OrderBy`-spørringsparameteren.
 * `createdat_asc`
 * `createdat_desc,duedate_asc`
 * `contentupdatedat_desc`
+
 
 Den gjeldende sorteringen finner du i [samlingsmodellen]({{<relref "../../reference/entities/dialog/#søk">}}), ved siden av feltene `continuationToken` og `hasNextPage`. Sorteringen er også innebygd i `continuationToken`, så når du paginerer, er det tilstrekkelig å oppgi fortsettelsestokenet alene for å bevare sorteringen.
 

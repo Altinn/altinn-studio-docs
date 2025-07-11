@@ -10,14 +10,6 @@ When an organization is provided as a signee, any person with a [key role](/alti
 
 The `Id` property in this implementation must match the ID specified in <altinn:signeeProviderId>.
 
-Note that `CommunicationConfig` is optional. Here you may override the standard texts used in communication with the signees,
-as explained in section 3. You may also override the email address and phone number for the signees. By default, a message 
-will be sent to the signees altinn inbox with a link to the relevant application instance and a notification
-will be sent via email. To turn on SMS notifications, set SMS = new Sms{ MobileNumber = ""}. 
-
-If not overridden, the email addresses and the phone numbers used are populated as described in [Recipient lookup](/notifications/explanation/recipient-lookup/) 
-and [Address lookup](/notifications/explanation/address-lookup/).
-
 ```csharp
 #nullable enable
 using System.Collections.Generic;
@@ -52,30 +44,8 @@ public class FounderSigneesProvider : ISigneeProvider
                     [stifterPerson.Fornavn, stifterPerson.Mellomnavn, stifterPerson.Etternavn]
                 ),
                 SocialSecurityNumber = stifterPerson.Foedselsnummer?.ToString() ?? string.Empty,
-                // CommunicationConfig is optional
-                CommunicationConfig = new CommunicationConfig
-                {
-                    InboxMessage = new InboxMessage
-                    {
-                        TitleTextResourceKey = "signing.correspondence_title_common",
-                        SummaryTextResourceKey = "signing.correspondence_summary_stifter_person",
-                        BodyTextResourceKey = "signing.correspondence_body_stifter_person"
-                    },
-                    Notification = new Notification
-                    {
-                        Email = new Email
-                        {
-                            EmailAddress = stifterPerson.Epost,
-                            SubjectTextResourceKey = "signing.email_subject",
-                            BodyTextResourceKey = "signing.notification_content"
-                        },
-                        Sms = new Sms
-                        {
-                            MobileNumber = stifterPerson.Mobiltelefon,
-                            BodyTextResourceKey = "signing.notification_content"
-                        }
-                    }
-                },
+
+                // CommunicationConfig added here is optional, shown and described in section 6
             };
 
             providedSignees.Add(personSignee);
@@ -88,36 +58,8 @@ public class FounderSigneesProvider : ISigneeProvider
                 Name = stifterVirksomhet.Navn,
                 OrganizationNumber =
                     stifterVirksomhet.Organisasjonsnummer?.ToString() ?? string.Empty,
-                // CommunicationConfig is optional
-                CommunicationConfig = new CommunicationConfig
-                {
-                    InboxMessage = new InboxMessage
-                    {
-                        TitleTextResourceKey = "signing.correspondence_title_common",
-                        SummaryTextResourceKey = "signing.correspondence_summary_stifter_organisasjon",
-                        BodyTextResourceKey = "signing.correspondence_body_stifter_organisasjon"
-                    },
-                    Notification = new Notification
-                    {
-                        Email = new Email
-                        {
-                            EmailAddress = stifterVirksomhet.Epost,
-                            SubjectTextResourceKey = "signing.email_subject",
-                            BodyTextResourceKey = "signing.notification_content".Replace(
-                                "{0}",
-                                stifterVirksomhet.Navn
-                            ),
-                        },
-                        Sms = new Sms
-                        {
-                            MobileNumber = stifterVirksomhet.Mobiltelefon,
-                            BodyTextResourceKey = "signing.notification_content".Replace(
-                                "{0}",
-                                stifterVirksomhet.Navn
-                            ),
-                        }
-                    }
-                }
+
+                // CommunicationConfig added here is optional, shown and described in section 6
             };
 
             providedSignees.Add(organisationSignee);

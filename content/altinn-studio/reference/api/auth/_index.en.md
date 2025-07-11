@@ -7,36 +7,36 @@ toc: true
 tags:
 ---
 
-The apps APIs are access-controlled using [Altinn Authorization](/authentication).
+The apps APIs are access-controlled using [Altinn Authorization](/authorization).
 Requests to the APIs are authorized using the following information:
 
-* `AltinnStudioRuntime` cookie
-* `Authorization` header
+- `AltinnStudioRuntime` cookie
+- `Authorization` header
 
 ## Login Methods
 
 Altinn Authorization supports different types of users, which is important to consider when developing custom functionality in an app.
 
-* **Users**
-  * Can log in via the Altinn Portal or through an external ID-porten session
-  * Have User ID, Party ID, and user profile. Authentication level is always greater than 0
-  * Can represent other parties through party selection
-  * ID-porten token must be exchanged for an Altinn token via Altinn Authorization
-* **Organization**
-  * Clients authenticated via Maskinporten
-  * Applies to organizations with an agreement and access to Maskinporten
-  * Maskinporten token must be exchanged for an Altinn token
-  * Cannot be used for much in an Altinn app, as organizations are not valid submitters (an organization cannot submit on behalf of itself)
-* **Service owner**
-  * Clients authenticated via Maskinporten
-  * Applies to organizations registered as service owners in Altinn (and owners of the running app), who have also requested a service owner scope when authenticating in Maskinporten (`altinn:serviceowner`)
-  * Maskinporten token must be exchanged for an Altinn token
-  * Service owner is not a valid submitter, but depending on the XACML policy, service owners can start new instances and modify data in existing instances
-* **System user**
-  * Clients authenticated via Maskinporten
-  * A system user is owned by an organization that is a customer/user of a supplier system. The system user is owned by the customer, while the system is owned by the supplier
-  * The supplier owns the Maskinporten client and authenticates. This allows the system to impersonate the system user (including rights the system user has been delegated from the customer)
-  * The apps API only accepts Maskinporten tokens that have been exchanged for an Altinn token (in the future, we will support Maskinporten tokens directly)
+- **Users**
+  - Can log in via the Altinn Portal or through an external ID-porten session
+  - Have User ID, Party ID, and user profile. Authentication level is always greater than 0
+  - Can represent other parties through party selection
+  - ID-porten token must be exchanged for an Altinn token via Altinn Authorization
+- **Organization**
+  - Clients authenticated via Maskinporten
+  - Applies to organizations with an agreement and access to Maskinporten
+  - Maskinporten token must be exchanged for an Altinn token
+  - Cannot be used for much in an Altinn app, as organizations are not valid submitters (an organization cannot submit on behalf of itself)
+- **Service owner**
+  - Clients authenticated via Maskinporten
+  - Applies to organizations registered as service owners in Altinn (and owners of the running app), who have also requested a service owner scope when authenticating in Maskinporten (`altinn:serviceowner`)
+  - Maskinporten token must be exchanged for an Altinn token
+  - Service owner is not a valid submitter, but depending on the XACML policy, service owners can start new instances and modify data in existing instances
+- **System user**
+  - Clients authenticated via Maskinporten
+  - A system user is owned by an organization that is a customer/user of a supplier system. The system user is owned by the customer, while the system is owned by the supplier
+  - The supplier owns the Maskinporten client and authenticates. This allows the system to impersonate the system user (including rights the system user has been delegated from the customer)
+  - The apps API only accepts Maskinporten tokens that have been exchanged for an Altinn token (in the future, we will support Maskinporten tokens directly)
 
 {{% notice warning %}}
 Enterprise users from Altinn 2 are only partially supported in Altinn 3. Authentication and authorization will work, but there may be
@@ -49,7 +49,7 @@ this must be done manually. This can, for example, be achieved using ASP.NET Cor
 
 The `Altinn.App.Core` library provides abstractions for retrieving information about the logged-in user.
 By default, there are no restrictions on which user types an app accepts, but you can enforce such restrictions yourself in middleware or a validator.
-Before version `v8.6` of the app libraries, it was common to, for example, retrieve the user ID directly from `HttpContext`, 
+Before version `v8.6` of the app libraries, it was common to, for example, retrieve the user ID directly from `HttpContext`,
 but this could yield unexpected results if the incoming request was authenticated as a system user.
 
 From version `v8.6` of `Altinn.App.Core`, the `IAuthenticationContext` and `Authenticated` types are available:
@@ -74,8 +74,8 @@ public abstract class Authenticated
 }
 ```
 
-The `IAuthenticationContext` interface can be used in custom code to check what type of user is logged in, and what information 
-is associated with them. 
+The `IAuthenticationContext` interface can be used in custom code to check what type of user is logged in, and what information
+is associated with them.
 
 ## Limit access
 

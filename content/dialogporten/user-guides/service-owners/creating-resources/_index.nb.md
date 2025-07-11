@@ -1,6 +1,6 @@
 ---
-title: 'Opprette ressurser'
-description: 'Hvordan opprette tjenesteressurser i Altinn Ressursregister'
+title: "Opprette ressurser"
+description: "Hvordan opprette tjenesteressurser i Altinn Ressursregister"
 weight: 10
 ---
 

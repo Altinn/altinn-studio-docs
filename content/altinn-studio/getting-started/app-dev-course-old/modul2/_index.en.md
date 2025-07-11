@@ -146,7 +146,7 @@ This task focuses on the first data collection page, aiming to streamline the us
 - It should be possible to change prefilled email and phone number
 
 ### Tasks
-1. Create a [prefill file](/altinn-studio/guides/development/prefill/config/#setup-of-prefill-in-the-application-repository).
+1. Create a [prefill file](/altinn-studio/guides/development/prefill/config).
 2. Configure prefilling for values available through Altinn's [prefill sources](/altinn-studio/reference/data/prefill) (all but age).
 3. Create [custom prefilling](/altinn-studio/guides/development/prefill/custom) for age based on the personal identification number (see Code assistance and Useful resources below).
 4. Configure settings for fields that should not be editable by the user.
