@@ -9,6 +9,6 @@ weight: 20
 
 {{<swaggerdisplayoperation "get" "/api/v1/enduser/parties">}}
 
-A sucessful request will return an array of authorized parties. The authorized party entity has the following fields:
+A successful request will return an array of authorized parties. The authorized party entity has the following fields:
 
 {{<swaggerdisplayentity "V1AccessManagementQueriesGetParties_AuthorizedParty">}}
