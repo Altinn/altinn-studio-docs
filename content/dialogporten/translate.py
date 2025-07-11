@@ -154,27 +154,27 @@ def generate_translation(model: genai.GenerativeModel, content: str) -> Union[st
         
     return None # Should not be reached if loop completes normally, but included for safety
 
-def process_file(source_path: Path, target_path: Path, model: genai.GenerativeModel, overwrite: bool, overwrite_only_older: bool):
+def process_file(source_path: Path, target_path: Path, model: genai.GenerativeModel, overwrite: bool, overwrite_only_older: bool) -> bool:
     """Processes a single markdown file for translation."""
     print(f"Processing: {source_path}")
 
     if target_path.exists() and not overwrite and not overwrite_only_older:
         print(f"  Skipping: Target file '{target_path}' already exists. Use --overwrite or --overwrite-only-older to replace.")
-        return
+        return False    
 
     if target_path.exists() and overwrite_only_older:
         source_mtime = source_path.stat().st_mtime
         target_mtime = target_path.stat().st_mtime
         if target_mtime >= source_mtime:
             print(f"  Skipping: Target file '{target_path}' is newer than or equal to source file '{source_path}'.")
-            return
+            return False
 
     try:
         with open(source_path, 'r', encoding='utf-8') as f:
             original_content = f.read()
     except Exception as e:
         print(f"  Error reading source file '{source_path}': {e}", file=sys.stderr)
-        return
+        return False
 
     if not original_content.strip():
         print(f"  Skipping: Source file '{source_path}' is empty.")
@@ -185,7 +185,7 @@ def process_file(source_path: Path, target_path: Path, model: genai.GenerativeMo
         #         f.write("")
         # except Exception as e:
         #     print(f"  Error creating empty target file '{target_path}': {e}", file=sys.stderr)
-        return
+        return False
 
     translated_content = generate_translation(model, original_content)
 
@@ -196,10 +196,13 @@ def process_file(source_path: Path, target_path: Path, model: genai.GenerativeMo
             with open(target_path, 'w', encoding='utf-8') as f:
                 f.write(translated_content)
             print(f"  Success: Translated content written to '{target_path}'")
+            return True
         except Exception as e:
             print(f"  Error writing target file '{target_path}': {e}", file=sys.stderr)
+            return True  # Return True to indicate processing was attempted, even if writing failed
     else:
         print(f"  Failed: Could not translate content for '{source_path}'.")
+        return True # Return True to indicate processing was attempted, even if translation failed
 
 # --- Main Execution ---
 
@@ -218,7 +221,7 @@ def main():
         help="Overwrite existing Norwegian (.nb.md) files."
     )
     parser.add_argument(
-        "-o", "--overwrite-only-older",
+        "-O", "--overwrite-only-older",
         action="store_true",
         help="Overwrite existing Norwegian (.nb.md) files only if they are older than the source files."
     )
@@ -282,9 +285,10 @@ def main():
         target_file_name = source_file_path.name.replace(".en.md", ".nb.md")
         target_file_path = source_file_path.with_name(target_file_name)
 
-        process_file(source_file_path, target_file_path, model, args.overwrite, args.overwrite_only_older)
-        # Add a small delay to avoid hitting potential rate limits
-        time.sleep(1) 
+        did_process = process_file(source_file_path, target_file_path, model, args.overwrite, args.overwrite_only_older)
+        # Add a small delay to avoid hitting potential rate limits if we did process the file
+        if did_process:
+            time.sleep(1) 
 
     print("\n" + "-" * 30)
     print("Translation process finished.")
