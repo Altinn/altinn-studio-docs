@@ -3,7 +3,7 @@
         {{ $o := .Get 1 }}
         let swaggerPath = '{{ $o }}';
         let swaggerOperation = '{{ .Get 0 }}';
-        let swaggerOperationId = '{{ .Get 0}}{{ replace $o "/" "_" }}';
+        let swaggerOperationId = '{{ .Get 0}}{{ replace (replace (replace $o "/" "_") "{" "_") "}" "_" }}';
 
         if (typeof window.addSwaggerOnloadHandler !== "function") {
             console.error("swaggerdisplayoperation: you must call {"+"{<swaggerload \"uri to swagger\">}} first");
@@ -58,9 +58,26 @@
             if (operation.parameters) {
                 html += `<dl class="swagger-entity-display${indentClass}">`;
 
-                // TODO! Handle path parameters first
+                for (let parameter of operation.parameters.filter((x) => x.in == "path")) {
+                    const parameterName = parameter.name;
+                    const description = parameter.description ? parameter.description.replaceAll(/\n\s*?\n/g, "<br><br>") : '(undescribed)';
+                    const type = parameter.schema.type || 'unknown';
+                    const nullable = parameter.schema.nullable ? ' (optional)' : '';
+                    const example = parameter.schema.example ? `<span class="sed-ex-header">Example</span><code class="sed-ex">${parameter.schema.example}</code>` : '';
+                    const validFormat = parameter.schema.format ? `<span class="sed-enum-header">Accepted format:</span>${getValidFormatExample(parameter.schema.format)}` : '';
+
+                    const anchor = "" + operationId + (parentName ? "_" + parentName : "") + "_" + parameterName;
+                    html += `<dt>
+                                <span class="sed-prop"><a href="#${anchor}" id="${anchor}">${parameterName}</a>${nullable}</span>
+                            </dt>`;
+                    html += `<dd>
+                                <span class="sed-desc">${description}</span>
+                                ${validFormat}
+                                ${example}
+                            </dd>`;
+                }
+
                 for (let parameter of operation.parameters.filter((x) => x.in == "query")) {
-                    console.log(parameter);
                     const parameterName = parameter.name;
                     const description = parameter.description ? parameter.description.replaceAll(/\n\s*?\n/g, "<br><br>") : '(undescribed)';
                     let parameterSchema = parameter.schema;
@@ -117,21 +134,44 @@
                 html += generateHtmlDefinitionList(operationId, displayName, operation.items, indentLevel);
             }
 
+            var parameterHtml = "";
+            if (html != "") {
+                parameterHtml = `                
+                <dl class="swagger-entity-display sed-head">
+                    <dt>Parameter</dt>
+                    <dd>Description</dd>
+                </dl>
+                ${html}
+                `;
+            }
+            else {
+                parameterHtml = "<em>This operation does not have any parameters</em>";
+            }
+
+            var descriptionHtml = "";
+            if (operation.description != "" && operation.description != operation.summary) {
+                descriptionHtml = `
+                <details>
+                    <summary>Show/hide description</summary>
+                    ${operation.description.replaceAll("\n", "<br>")}
+                </details>
+                `;
+            }
+
             if (indentLevel == 0) {
                 html = `
                     <div class="swagger-operation-display-container">
                         <h3>${displayName}</h3>
-                        <dl class="swagger-entity-display sed-head">
-                            <dt>Parameter</dt>
-                            <dd>Description</dd>
-                        </dl>
-                        ${html}
+                        <h4>${operation.summary}</h4>
+                        ${descriptionHtml}
+                        ${parameterHtml}
                     </div>
                     `;
             }
+
             return html;
         }
     })();
 </script>
 
-<div class="swagger-operation-display-container-outer" id="swagger-operation-display-container-{{ .Get 0}}{{ replace $o "/" "_" }}"></div>
+<div class="swagger-operation-display-container-outer" id="swagger-operation-display-container-{{ .Get 0}}{{ replace (replace (replace $o "/" "_") "{" "_") "}" "_" }}"></div>
