@@ -1,5 +1,5 @@
 ---
-title: Forhåndsutfyll data med egendefinert kode
+title: Forhåndsutfyll data automatisk - egendefinert kode
 linktitle: Egendefinert kode
 description: Slik setter du opp automatisk utfylling av skjemadata med din egen kode.
 toc: false
@@ -13,13 +13,17 @@ Du kan lage din egen kode for å fylle ut deler av skjemaet automatisk før bruk
 - Gjøre beregninger
 - Bruke annen logikk du selv bestemmer
 
+## Når bør jeg bruke dette?
+Hvis du har behov for kilder utover de som er tilgjengelige via [konfigurasjonsbasert oppsett](../config/), eller har behov
+for annen logikk som del av forhåndsutfyllingen.
+
 ## Slik setter du det opp
 
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="v7">}}
 
-I versjon 7 bruker vi dependency injection for egendefinert forhåndsutfylling.
+I versjon 7 bruker vi [dependency injection](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection) for egendefinert forhåndsutfylling.
 
 ### 1. Lag en ny klasse
 
