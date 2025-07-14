@@ -25,3 +25,7 @@ part of an ongoing effort to improve the user experience and align with modern d
 ![Validation errors before and after](errormessage.png)
 
 ## Other changes
+
+### Accordion
+
+![Accordion before and after](accordion.png)
