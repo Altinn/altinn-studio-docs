@@ -60,8 +60,7 @@ For å kunne autentisere og sikre at du kan utføre operasjoner via meldings-API
 - `altinn:correspondence.write` (påkrevd for å sende meldinger)
 
 For å få tilgang til scopes må du sende en forespørsel til: servicedesk@altinn.no
-Forespørselen må inneholde de scopes du trenger. Vær obs på at du kan trenge flere scopes for integrasjonen din enn bare altinn:correspondence.write. Utfyllende liste over scopes finner du her:
-https://docs.altinn.studio/nb/api/authentication/digdirscopes/
+Forespørselen må inkludere de scope-ene du trenger. Vær oppmerksom på at integrasjonen kan kreve flere scope-er enn bare `altinn:correspondence.write`. Se hele oversikten over tilgjengelige scope-er i [dokumentasjonen for Digdir-scopes](https://docs.altinn.studio/nb/api/authentication/digdirscopes/).
 
 ### 6. Registrer Maskinporten-klient med nødvendige scopes {#register-your-maskinporten-client-with-correct-scopes}
 
