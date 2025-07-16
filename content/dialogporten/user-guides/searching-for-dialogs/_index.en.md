@@ -50,6 +50,7 @@ Ordering can be performed on the following columns:
 
 * CreatedAt
 * UpdatedAt
+* ContentUpdatedAt
 * DueAt
 
 {{<notice warning>}}
@@ -65,6 +66,7 @@ These are example values that might be supplied in the `OrderBy` query parameter
 * `createdat`
 * `createdat_asc`
 * `createdat_desc,duedate_asc`
+* `contentupdatedat_desc`
 
 The current ordering can be found in the [collection model](../../reference/entities/dialog/#search), next to the `continuationToken` and `hasNextPage` fields. The ordering is also embedded into `continuationToken`, so when paginating, supplying the continution token alone is sufficient to preserve ordering.
 

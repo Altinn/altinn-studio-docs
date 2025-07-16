@@ -7,8 +7,8 @@ weight: 20
 {{<dialogportenswaggerselector>}}
 {{<swaggerload>}}
 
-{{<notyetwritten>}}
+{{<swaggerdisplayoperation "get" "/api/v1/enduser/parties">}}
 
-{{<swaggerdisplayentity "V1EndUserPartiesQueriesGet_AuthorizedParty">}}
+En vellykket forespørsel vil returnere en liste over autoriserte parter. Den autoriserte partenheten har følgende felt:
 
-{{<children />}}
+{{<swaggerdisplayentity "V1AccessManagementQueriesGetParties_AuthorizedParty">}}

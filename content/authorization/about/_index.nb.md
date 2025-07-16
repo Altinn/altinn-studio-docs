@@ -1,12 +1,12 @@
 ---
-title: Autorisasjon
-linktitle: Autorisasjon
+title: Om Altinn Autorisasjon
+linktitle: Om Altinn Autorisasjon
 description: Autorisasjonskomponentene gir tilgangsstyring og tilgangskontroll for digitale og analoge tjenester som kjører i Altinn-plattformen eller andre steder.
 tags: [architecture, solution]
 toc: false
 weight: 1
 aliases:
- - /technology/solutions/altinn-platform/authorization/
+  - /technology/solutions/altinn-platform/authorization/
 ---
 
 Det typiske scenariet er at en hendelse vil bli utløst, eller data vil bli lest, oppdatert eller opprettet av en digital eller analog tjeneste. En tjenesteeier eier denne tjenesten og har definert noen forretningsregler for hvem som har lov til å bruke tjenesten.

@@ -8,7 +8,7 @@ weight: 500
 
 ## Introduksjon til stateless applikasjoner
 
-En stateless, eller tilstandsløs, applikasjon skiller ser fra standard applikasjoner ved at den ikke lagrer noe data,
+En stateless, eller tilstandsløs, applikasjon skiller seg fra standard applikasjoner ved at den ikke lagrer noe data,
 hverken skjemadata eller metadata om instanser av applikasjonen. Applikasjonen vil heller ikke havne i meldingsboksen til sluttbruker.
  En tilstandsløs applikasjon tilsvarer en innsynstjeneste i Altinn 2.
 
@@ -16,14 +16,6 @@ hverken skjemadata eller metadata om instanser av applikasjonen. Applikasjonen v
   Det er også mulig å konfigurere en stateless-applikasjon for å tillate anonyme brukere, det vil si brukere som ikke er pålogget.
 
 ## Konfigurasjon
-
-{{% notice info %}}
-
-Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre.
-
-**MERK:** for å benytte denne funksjonaliteten må man versjon >= 4.5.2 av [nuget-pakkene](../../../guides/administration/maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
-
-{{% /notice %}}
 
 Du kan styre applikasjonens oppførsel under oppstart og konfigurere den som en tilstandsløs applikasjon etter behov ved å konfigurere applikasjonsmetadataen, som er lagret i applicationmetadata.json.
 
@@ -58,7 +50,6 @@ App/config/applicationmetadata.json
         "autoCreate": true,
         "classRef": "Altinn.App.Models.StatelessV1"
       },
-      "taskId": "Task_1",
       "maxCount": 1,
       "minCount": 1
     }
@@ -166,9 +157,8 @@ App/config/applicationmetadata.json
       "appLogic": {
         "autoCreate": true,
         "classRef": "Altinn.App.Models.StatelessV1",
-        "allowAnonymousOnStateless": true,
+        "allowAnonymousOnStateless": true
       },
-      "taskId": "Task_1",
       "maxCount": 1,
       "minCount": 1
     }
@@ -213,7 +203,7 @@ der man hved hjelp av Altinn-roller definerer hvem som har tilgang til å benytt
 Dersom man har behov for ytteligere sikring av tjenesten kan man implementere logikk for autorisasjon av brukere med tredjepartløsninger.
 Dette kan være API-er som er eksponert innenfor egen virksomhet eller åpne API fra andre tilbydere.
 
-I eksempelet nedenfor benyttes Finanstilsynets API til å fastslå om virksomheten som repesenteres av en bruker i Altinn 
+I eksempelet nedenfor benyttes Finanstilsynets API til å fastslå om virksomheten som representeres av en bruker i Altinn 
 har tilstrekkelige lisenser til å benytte tjenesten.
 
 ![GUI for autorisert bruker](extra-credentials-example-allowed.png "GUI for autorisert bruker")

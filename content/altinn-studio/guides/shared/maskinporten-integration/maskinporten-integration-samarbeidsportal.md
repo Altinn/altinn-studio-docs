@@ -101,7 +101,7 @@ from any client that can provide the private and public parts of the JWK.
 
     !["The JWK"](/altinn-studio/guides/shared/maskinporten-integration/jwk.png "The JWK")
 
-In Altinn libraries this key pair is referenced as EncodedJwk  and must be base64 encoded before
+In Altinn applications this key pair is referenced as `JwkBase64` and must be base64 encoded before
 it is included in application configuration or uploaded to a Key Vault.
 
 [Base64encode.org](https://www.base64encode.org/) can be used for encoding.

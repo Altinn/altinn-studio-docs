@@ -1909,6 +1909,10 @@ div.footnotes-entry > span {
         display: none
     }
 }
+
+.swagger-operation-display-container details, .swagger-operation-display-container h4 {
+    font-size: 80%;
+}
     
 #dialogporten-swagger-selector-container { 
     position: absolute;

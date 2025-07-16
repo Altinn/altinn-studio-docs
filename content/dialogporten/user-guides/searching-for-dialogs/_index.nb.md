@@ -9,7 +9,7 @@ weight: 20
 
 ## Introduksjon
 
-Denne veiledningen viser hvordan et sluttbrukersystem kan søke etter dialoger i Dialogporten ved hjelp av enten REST eller GraphQL APIer. Dialogporten støtter en rekke parametere for filtrering, sortering og fritekstsøk.
+Denne veiledningen viser hvordan et sluttbrukersystem kan søke etter dialoger i Dialogporten ved hjelp av enten REST eller GraphQL API-er. Dialogporten støtter en rekke parametere for filtrering, sortering og fritekstsøk.
 
 Merk at datastrukturen som returneres i søk er forskjellig fra den som returneres på [detaljendepunktet](../getting-dialog-details); mer informasjon om dialogen og hvilken tilgang den autoriserte brukeren har til ulike deler av den er bare tilgjengelig i detaljvisningen.
 
@@ -21,10 +21,10 @@ Merk at datastrukturen som returneres i søk er forskjellig fra den som returner
 
 {{<swaggerdisplayoperation "get" "/api/v1/enduser/dialogs">}}
 
-* Alle parametere av forskjellige typer er AND-et, dvs. hvis du oppgir `party` og `status`, vil bare dialogene med den angitte statusen som eies av den angitte parten, returneres.
-* Når du støtter flere verdier for samme parameter, er disse verdiene OR-et, dvs. hvis du oppgir to `status`-parametere, vil dialoger som har en av disse verdiene, returneres.
+* Alle parametere av forskjellige typer er AND-et, dvs. hvis du oppgir `party` og `status`, vil bare dialogene med den angitte statusen som eies av den angitte parten, bli returnert.
+* Når du støtter flere verdier for samme parameter, er disse verdiene OR-et, dvs. hvis du oppgir to `status`-parametere, vil dialoger som har en av disse verdiene, bli returnert.
 * `org`-parametere må være tjenesteeierkoder som definert i den globale [altinn-orgs.json](https://altinncdn.no/orgs/altinn-orgs.json), f.eks. `digdir` eller `skd`.
-* `party`-parametere må ha et av følgende formater
+* `party`-parametere må ha ett av følgende formater
     * `urn:altinn:person:identifier-no:<11 digit national identity numner>`
     * `urn:altinn:organization:identifier-no:<9 digit CCR number>`
 * `serviceResource`-parametere må referere til en ressurs i [Ressursregisteret](../../../authorization/what-do-you-get/resourceregistry) og bruke følgende format:
@@ -38,7 +38,7 @@ Vær oppmerksom på at sluttbruker-søke-APIet krever at minst én [`serviceReso
 
 Dette vil returnere en [samling av dialoger](../../reference/entities/dialog/#søk), som inneholder et delsett av informasjonen som returneres på [dialogdetaljendepunktet](../../reference/entities/dialog/). Avhengig av søkeparametere og tilgangen til den autentiserte brukeren, kan denne listen være tom.
 
-Hvis ugyldige søkeparametere oppgis, vil API-et returnere `400 Bad Request` og et svar som forklarer hvilke feil som ble funnet. Dette svaret følger standard [ProblemDetails](https://datatracker.ietf.org/doc/html/rfc7807) formatet.
+Hvis ugyldige søkeparametere oppgis, vil API-et returnere `400 Bad Request` og et svar som forklarer hvilke feil som ble oppdaget. Dette svaret følger standard [ProblemDetails](https://datatracker.ietf.org/doc/html/rfc7807) formatet.
 
 ### Paginasjon
 
@@ -50,23 +50,26 @@ Sortering kan utføres på følgende kolonner:
 
 * CreatedAt
 * UpdatedAt
+* ContentUpdatedAt
 * DueAt
 
 {{<notice warning>}}
-Siden `Id` er primærnøkkelkolonnen, er det også teknisk sett en sorterbar kolonne. Det anbefales imidlertid ikke å sortere etter `Id` fordi denne kolonnen, selv om den er en leksikografisk sorterbar UUIDv7, kan leveres av tjenesteeier eller inneholde en tidsstempledel som indikerer tidspunktet for migrering, ikke dialogoppretting. Så for de fleste formål er `CreatedBy` kolonnen du ønsker i stedet for `Id`.
+Siden `Id` er primærnøkkelkolonnen, er det også teknisk sett en sorterbar kolonne. Det anbefales imidlertid ikke å sortere etter `Id`, fordi denne kolonnen, selv om den er en leksikografisk sorterbar UUIDv7, kan leveres av tjenesteeieren eller inneholde en tidsstempeldel som indikerer tidspunktet for migrering, ikke opprettelse av dialog. Så for de fleste formål er `CreatedBy` kolonnen du vil ha i stedet for `Id`.
 {{</notice>}}
 
-Kolonner kan sorteres i stigende og synkende (standard) rekkefølge, og flere kolonner kan leveres i `OrderBy`-kolonnen.
+Kolonner kan sorteres i stigende og synkende (standard) rekkefølge, og flere kolonner kan oppgis i `OrderBy`-kolonnen.
 
 #### Eksempler
 
-Dette er eksempelverdier som kan leveres i `OrderBy`-spørringsparameteren.
+Dette er eksempelverdier som kan oppgis i `OrderBy`-spørringsparameteren.
 
 * `createdat`
 * `createdat_asc`
 * `createdat_desc,duedate_asc`
+* `contentupdatedat_desc`
 
-Gjeldende sortering finner du i [collection model](../../reference/entities/dialog/#søk), ved siden av feltene `continuationToken` og `hasNextPage`. Sorteringen er også innebygd i `continuationToken`, så når du paginerer, er det tilstrekkelig å oppgi fortsettelsestoken alene for å bevare sorteringen.
+
+Den gjeldende sorteringen finner du i [samlingsmodellen]({{<relref "../../reference/entities/dialog/#søk">}}), ved siden av feltene `continuationToken` og `hasNextPage`. Sorteringen er også innebygd i `continuationToken`, så når du paginerer, er det tilstrekkelig å oppgi fortsettelsestokenet alene for å bevare sorteringen.
 
 ## Grunnleggende trinn (GraphQL)
 

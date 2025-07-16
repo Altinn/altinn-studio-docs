@@ -3,13 +3,13 @@ hidden: true
 ---
 
 {{%notice info%}}
-Brukerstyrt signering krever minimum version 8.6.0 av Altinn nugets.
+Brukerstyrt signering krever versjon 8.6.0 av Altinn nugets, eller høyere.
 {{%/notice%}}
 
-Med brukerstyrt signering mener vi en app hvor de som skal signere tildeles rettigheter underveis i utfyllingen av skjemaet.
+Med brukerstyrt signering mener vi en app der de som skal signere får rettigheter til å signere mens de fyller ut skjemaet.
 
-Typisk vil appen be skjemaeier om å oppgi fødselsnummer og etternavn for de de personene som skal signere, eventuel organisasjosnummer dersom det er noen med rett til å signere i en bedrift som skal signere.
+Appen kan for eksempel be skjemaeieren om å oppgi fødselsnummer og etternavn for personer som skal signere, eller organisasjonsnummer hvis det er noen som skal ha rett til å signere på vegne av en virksomhet.
 
-Når skjemaet er ferdig fylt ut, trykker man på "Send til signering".
+Når skjemaet er ferdig fylt ut, klikker brukeren på **Send til signering**.
 Da vil appen delegere rettigheter og sende en melding til innboksen i Altinn.
-Vedkommende vil også kunne varsles via e-post og sms, avhengig av konfigurasjon.
+Det er også mulig å sette opp at de som skal signere får varsel på e-post og SMS.
