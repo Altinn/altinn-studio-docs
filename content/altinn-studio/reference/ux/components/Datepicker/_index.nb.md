@@ -117,7 +117,7 @@ Legg til seksjoner dersom de er relevante:
 | **hidden**                             | boolean   | Boolean eller uttrykk som indikerer om komponenten skal være skjult. Standard er false.                                                                                                                                                                                                                              |
 | **maxDate**                            | string    | Setter den maksimalt tillatte datoen som brukeren kan velge. Du kan bruke nøkkelordene `today`, `yesterday`, `tomorrow`, `oneYearFromNow` og `oneYearAgo` for å definere de makismalt tillatte datoene basert på dagens dato. Standard er 2100-01-01T12:00:00.000Z.                                                  |
 | **minDate**                            | string    | Setter den tidligste tillatte datoen som brukeren kan velge. Du kan bruke nøkkelordene `today`, `yesterday`, `tomorrow`, `oneYearFromNow` og `oneYearAgo` for å definere de tidligste tillatte datoene basert på dagens dato. Standard er 1900-01-01T12:00:00.000Z.                                                  |
-| **pageBreak**                          | boolean   | Angir om komponenten kan utløse sidebrytning i PDF.                                                                                                                                                                                                                                                                  |
+| **pageBreak**                          | object    | Angir om komponenten kan utløse sidebrytning i PDF.                                                                                                                                                                                                                                                                  |
 | `pageBreak.breakAfter`                 | string    | Kun PDF: Verdien eller uttrykket indikerer om et sidebrytning skal legges til etter komponenten.<br>Kan være: `auto` (standard), `always` eller `avoid`.                                                                                                                                                             |
 | `pageBreak.breakBefore`                | string    | Kun PDF: Verdien eller uttrykket indikerer om et sidebrytning skal legges til før komponenten.<br>Kan være: `auto` (standard), `always` eller `avoid`.                                                                                                                                                               |
 | **renderAsSummary**                    | boolean   | Boolean eller uttrykk som indikerer om komponenten skal bli laget som en oppsummering. Standard er false.                                                                                                                                                                                                            |
@@ -150,7 +150,6 @@ App/ui/layouts/{page}.json
 ```json{hl_lines="6-"}
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
-  {
     "data": {
       "layout": [
         {
