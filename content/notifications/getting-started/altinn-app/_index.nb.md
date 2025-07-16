@@ -1,25 +1,25 @@
 ---
-title: Altinn App Integration
-description: How to get started sending notifications from an Altinn App.
+title: Altinn App-integrasjon
+description: Slik kommer du i gang med å sende varsler fra en Altinn App.
 weight: 10
 ---
 
-## 1. Create and configure your Altinn App
+## 1. Opprett og konfigurer din Altinn App
 
-Start by creating and configuring your Altinn App using Altinn Studio and your preferred code editor. 
-Ensure that your app uses version 8.1.0 or higher of the NuGet packages to enable native notifications.
-For optimal performance and security, always use the latest stable version.
+Start med å opprette og konfigurere din Altinn App ved hjelp av Altinn Studio og din foretrukne kodeeditor.
+Sørg for at appen din bruker versjon 8.1.0 eller høyere av NuGet-pakkene for å aktivere innebygde varsler.
+For optimal ytelse og sikkerhet, bruk alltid den nyeste stabile versjonen.
 
-For detailed guidance on Altinn App development, refer to the [Altinn Studio documentation](/altinn-studio).
+For detaljert veiledning om utvikling av Altinn App, se [Altinn Studio-dokumentasjonen](/altinn-studio).
 
-## 2. Review policies for relevant resources in the Altinn Resource Registry
+## 2. Se over retningslinjer for relevante ressurser i Altinn Ressursregister
 
-{{% insert "content/notifications/shared/getting-started/resource/get-started-resource.en.md" %}}
+{{% insert "content/notifications/shared/getting-started/resource/get-started-resource.nb.md" %}}
 
-## 3. Understand guidelines and best practices for sending notifications
+## 3. Forstå retningslinjer og beste praksis for sending av varsler
 
-{{% insert "content/notifications/shared/getting-started/guidelines/guidelines.en.md" %}}
+{{% insert "content/notifications/shared/getting-started/guidelines/guidelines.nb.md" %}}
 
-## 4. Set up your app to send notifications
+## 4. Sett opp appen din for å sende varsler
 
-Follow the instructions in the [Altinn App reference documentation](/altinn-studio/reference/logic/notifications/) to configure your app for sending notifications.
+Følg instruksjonene i [Altinn App-referansedokumentasjonen](/altinn-studio/reference/logic/notifications/) for å konfigurere appen din for sending av varsler.

@@ -1,30 +1,29 @@
 ---
-title: Altinn Notifications API
+title: Altinn Varslinger API
 linktitle: API
-description: An overview of the Altinn Notifications API
+description: En oversikt over Altinn Varslinger API
 weight: 10
 toc: true
 ---
 
-The Altinn Notifications API is an HTTP-based RESTful API that provides endpoints and actions for ordering,
-managing and reviewing notifications sent through Altinn.
+Altinn Varslinger API er et HTTP-basert RESTful API som tilbyr endepunkter og handlinger for å bestille,
+håndtere og gjennomgå varslinger sendt gjennom Altinn.
 
 ## Base URL
 
 {{% insert "content/altinn-studio/guides/shared/api/base-urls.md" "notifications"%}}
 
-## Authentication & Authorization
+## Autentisering og Autorisasjon
 
-### Altinn token
+### Altinn-token
 
 {{% insert "content/altinn-studio/guides/shared/api/altinn-token.md" "Notifications"%}}
 
-### Maskinporten scopes
+### Maskinporten-scopes
 
 {{% insert "content/altinn-studio/guides/shared/api/maskinporten-scopes.md" %}}
 
 
-### Platform Access token
+### Plattform Aksess-token
 
 {{% insert "content/altinn-studio/guides/shared/api/platform-access-token.md" %}}
-

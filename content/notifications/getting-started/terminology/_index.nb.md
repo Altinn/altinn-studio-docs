@@ -1,15 +1,15 @@
 ---
-title: Terminology
-description: Words and terms used in Notifications
+title: Terminologi
+description: Ord og begreper som brukes i Varslinger
 weight: 15
 ---
 
-- #### Notification order
+- #### Varslingsordre
 
-  A _notification order_ represents a request to send one or more notifications to one or multiple recipients. 
-  A single order can result in the creation of multiple notifications.
+  En _varslingsordre_ representerer en forespørsel om å sende ett eller flere varsler til en eller flere mottakere.
+  En enkelt ordre kan resultere i opprettelsen av flere varsler.
 
-  Here is an example of a standard notification order:
+  Her er et eksempel på en standard varslingsordre:
   ```json
     {
       "id": "a56c0933-d609-4b5c-a5da-bccfd407c9b8",
@@ -20,7 +20,7 @@ weight: 15
       "notificationChannel": "Email",
       "recipients": [
         {
-          "emailAddress": "testuser_1@altinn.no"
+          "emailAddress": "testbruker_1@altinn.no"
         },
         {
           "organizationNumber": "313600947"
@@ -31,8 +31,8 @@ weight: 15
       ],
       "emailTemplate": {
         "fromAddress": "noreply@altinn.cloud",
-        "subject": "A test email from Altinn Notifications",
-        "body": "A message sent from an application owner through Altinn.",
+        "subject": "En test-e-post fra Altinn Varslinger",
+        "body": "En melding sendt fra en applikasjonseier gjennom Altinn.",
         "contentType": "Html"
       },
       "links": {
@@ -42,7 +42,7 @@ weight: 15
     } 
   ```
   
-  Here is an example of a notification order with placeholders keywords:
+  Her er et eksempel på en varslingsordre med plassholdernøkkelord:
   ```json{linenos=false,hl_lines="18 19"}
     {
       "id": "e1a439bf-0ac6-41f6-978f-f22f4bd9b8a0",
@@ -61,8 +61,8 @@ weight: 15
       ],
       "emailTemplate": {
         "fromAddress": "noreply@altinn.cloud",
-        "subject": "Important information for $recipientName$",
-        "body": "Hello $recipientName$, We have an important update regarding your ID: $recipientNumber$. Please review the details at your earliest convenience.",
+        "subject": "Viktig informasjon for $recipientName$",
+        "body": "Hei $recipientName$, Vi har en viktig oppdatering angående din ID: $recipientNumber$. Vennligst se gjennom detaljene så snart som mulig.",
         "contentType": "Html"
       },
       "links": {
@@ -72,11 +72,11 @@ weight: 15
     }
   ```
 
-- #### Notification
+- #### Varsel
 
-  A _notification_ refers to a single instance of an email or SMS sent to a specific recipient.
+  Et _varsel_ refererer til en enkelt forekomst av en e-post eller SMS sendt til en bestemt mottaker.
 
-  Here is an example of a set of notifications for an order:
+  Her er et eksempel på et sett med varsler for en ordre:
   ```json
     {
       "orderId": "a56c0933-d609-4b5c-a5da-bccfd407c9b8",
@@ -90,12 +90,12 @@ weight: 15
           "succeeded": true,
           "recipient":
             {
-              "emailAddress": "testuser_1@altinn.no"
+              "emailAddress": "testbruker_1@altinn.no"
             },
           "sendStatus":
             {
               "status": "Succeeded",
-              "description": "The email has been accepted by the third party email service and will be sent shortly.",
+              "description": "E-posten er akseptert av tredjeparts e-posttjeneste og vil bli sendt snart.",
               "lastUpdate": "2024-01-02T13:51:12.706808Z"
             }
         },
@@ -105,13 +105,13 @@ weight: 15
           "recipient":
             {
               "organizationNumber":"313600947",
-              "emailAddress": "testuser_2@altinn.no",
+              "emailAddress": "testbruker_2@altinn.no",
               "isReserved": false
             },
           "sendStatus": 
             {
               "status": "Sending",
-              "description": "The email is being processed and will be attempted sent shortly." ,
+              "description": "E-posten blir behandlet og vil bli forsøkt sendt snart." ,
               "lastUpdate": "2024-01-02T13:51:12.706808Z"
             }
         },
@@ -121,13 +121,13 @@ weight: 15
           "recipient":
             {
               "nationalIdentityNumber":"11876995923",
-              "emailAddress": "testuser_3@altinn.no",
+              "emailAddress": "testbruker_3@altinn.no",
               "isReserved": false
             },
           "sendStatus":
             {
               "status": "Sending",
-              "description": "The email is being processed and will be attempted sent shortly." ,
+              "description": "E-posten blir behandlet og vil bli forsøkt sendt snart." ,
               "lastUpdate": "2024-01-02T13:51:12.706808Z"
             }
         }
@@ -135,11 +135,11 @@ weight: 15
     }
     ```
 
-- #### Notification channel
+- #### Varslingskanal
 
-  A _notification channel_ refers to the communication pathways used by Altinn to deliver notifications to end users. Common channels include email and SMS.
+  En _varslingskanal_ refererer til kommunikasjonsveiene som Altinn bruker for å levere varsler til sluttbrukere. Vanlige kanaler inkluderer e-post og SMS.
 
-- #### Send condition
+- #### Sendebetingelse
 
-  A _send condition_ is evaluated as either true or false, based on whether the condition for sending the notification is met. 
-  The condition is checked by the application through the condition endpoint provided in the notification order. 
+  En _sendebetingelse_ blir evaluert som enten sann eller usann, basert på om betingelsen for å sende varselet er oppfylt.
+  Betingelsen blir sjekket av applikasjonen gjennom betingelsesendepunktet som er oppgitt i varslingsordren. 

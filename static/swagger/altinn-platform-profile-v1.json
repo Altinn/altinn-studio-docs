@@ -4,18 +4,458 @@
     "title": "Altinn Platform Profile",
     "version": "v1"
   },
-  "servers": [
-    {
-      "url": "https://platform.tt02.altinn.no/profile/api/v1",
-      "description": "TT02"
-    },
-    {
-      "url": "https://platform.altinn.no/profile/api/v1",
-      "description": "Production"
-    }
-  ],
   "paths": {
-    "/Users/{userID}": {
+    "/users/current/party-groups/favorites": {
+      "get": {
+        "tags": [
+          "Favorites"
+        ],
+        "summary": "Get the favorite parties for the current user",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GroupResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/users/current/party-groups/favorites/{partyUuid}": {
+      "put": {
+        "tags": [
+          "Favorites"
+        ],
+        "summary": "Add a party to the group of favorites for the current user",
+        "parameters": [
+          {
+            "name": "partyUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Returns status code 201 if the party is added to favorites"
+          },
+          "204": {
+            "description": "Returns status code 204 if the party is already in the favorites"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Favorites"
+        ],
+        "summary": "Remove a party from the group of favorites for the current user",
+        "parameters": [
+          {
+            "name": "partyUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Returns status code 204 if the party was deleted from favorites"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Returns status code 404 if the party was not found in favorites"
+          }
+        }
+      }
+    },
+    "/users/current/notificationsettings/parties/{partyUuid}": {
+      "get": {
+        "tags": [
+          "NotificationsSettings"
+        ],
+        "summary": "Get the notification addresses the current user has registered for a party",
+        "parameters": [
+          {
+            "name": "partyUuid",
+            "in": "path",
+            "description": "The UUID of the party for which the notification address is being set",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfessionalNotificationAddressResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "NotificationsSettings"
+        ],
+        "summary": "Add or update the notification addresses the current user has registered for a party",
+        "parameters": [
+          {
+            "name": "partyUuid",
+            "in": "path",
+            "description": "The UUID of the party for which the notification address is being set",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The request containing the notification address details",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProfessionalNotificationAddressRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "NotificationsSettings"
+        ],
+        "summary": "Delete the notification addresses the current user has registered for a party",
+        "parameters": [
+          {
+            "name": "partyUuid",
+            "in": "path",
+            "description": "The UUID of the party for which the notification address is being deleted",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfessionalNotificationAddressResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/organizations/{organizationNumber}/notificationaddresses/mandatory": {
+      "get": {
+        "tags": [
+          "Organizations"
+        ],
+        "summary": "Endpoint looking up the notification addresses for the given organization",
+        "parameters": [
+          {
+            "name": "organizationNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Organizations"
+        ],
+        "summary": "Create a new notification address for an organization.",
+        "parameters": [
+          {
+            "name": "organizationNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NotificationAddressModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the existing address if it is already registered. This means that duplicate create commands will only result in the creation one notification address.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationAddressResponse"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Returns the newly created notification address",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationAddressResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/organizations/{organizationNumber}/notificationaddresses/mandatory/{notificationAddressId}": {
+      "get": {
+        "tags": [
+          "Organizations"
+        ],
+        "summary": "Endpoint looking up a specific notification address for the given organization",
+        "parameters": [
+          {
+            "name": "organizationNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "notificationAddressId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationAddressResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Organizations"
+        ],
+        "summary": "Update a notification address for an organization",
+        "parameters": [
+          {
+            "name": "organizationNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "notificationAddressId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NotificationAddressModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the updated address if it is already registered",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationAddressResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "409": {
+            "description": "Returns problem details with a reference to the conflicting address in the instance parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Organizations"
+        ],
+        "summary": "Delete a notification address for an organization",
+        "parameters": [
+          {
+            "name": "organizationNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "notificationAddressId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationAddressResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/users/{userID}": {
       "get": {
         "tags": [
           "Users"
@@ -29,19 +469,63 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "description": "The user id",
               "format": "int32"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserProfile"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
       }
     },
-    "/Users/current": {
+    "/users/byuuid/{userUuid}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Gets the user profile for a given user uuid",
+        "parameters": [
+          {
+            "name": "userUuid",
+            "in": "path",
+            "description": "The user uuid",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserProfile"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/users/current": {
       "get": {
         "tags": [
           "Users"
@@ -49,12 +533,22 @@
         "summary": "Gets the current user based on the request context",
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserProfile"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
       }
     },
-    "/Users": {
+    "/users": {
       "post": {
         "tags": [
           "Users"
@@ -65,34 +559,550 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "string",
-                "description": "The user's social security number",
-                "nullable": true
-              }
-            },
-            "text/json": {
-              "schema": {
-                "type": "string",
-                "description": "The user's social security number",
-                "nullable": true
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "type": "string",
-                "description": "The user's social security number",
-                "nullable": true
+                "type": "string"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserProfile"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
       }
     }
   },
-  "components": { }
+  "components": {
+    "schemas": {
+      "GroupResponse": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the group",
+            "nullable": true
+          },
+          "isFavorite": {
+            "type": "boolean",
+            "description": "A flag indicating whether the group is a group of favorite parties"
+          },
+          "parties": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Array of party IDs that belong to this group",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "GroupResponse is used to represent a group of parties"
+      },
+      "NotificationAddressModel": {
+        "type": "object",
+        "properties": {
+          "countryCode": {
+            "pattern": "(^\\+([0-9]{1,3}))",
+            "type": "string",
+            "description": "Country code for phone number",
+            "nullable": true
+          },
+          "email": {
+            "pattern": "^((([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{}~])+(\\.([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{}~])+)*)@(((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9\\-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ]\\.)|[a-zA-Z0-9æøåÆØÅ]\\.){1,9})([a-zA-Z]{2,14})))$",
+            "type": "string",
+            "description": "Email address",
+            "nullable": true
+          },
+          "phone": {
+            "pattern": "(^[0-9]+$)",
+            "type": "string",
+            "description": "Phone number",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a notification address"
+      },
+      "NotificationAddressResponse": {
+        "type": "object",
+        "properties": {
+          "countryCode": {
+            "pattern": "(^\\+([0-9]{1,3}))",
+            "type": "string",
+            "description": "Country code for phone number",
+            "nullable": true
+          },
+          "email": {
+            "pattern": "^((([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{}~])+(\\.([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{}~])+)*)@(((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9\\-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ]\\.)|[a-zA-Z0-9æøåÆØÅ]\\.){1,9})([a-zA-Z]{2,14})))$",
+            "type": "string",
+            "description": "Email address",
+            "nullable": true
+          },
+          "phone": {
+            "pattern": "(^[0-9]+$)",
+            "type": "string",
+            "description": "Phone number",
+            "nullable": true
+          },
+          "notificationAddressId": {
+            "type": "integer",
+            "description": "Altinn.Profile.Models.NotificationAddressResponse.NotificationAddressId",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a notification address"
+      },
+      "Organization": {
+        "type": "object",
+        "properties": {
+          "orgNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "unitType": {
+            "type": "string",
+            "nullable": true
+          },
+          "telephoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobileNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "faxNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "eMailAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "internetAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailingAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailingPostalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailingPostalCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "businessAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "businessPostalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "businessPostalCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "unitStatus": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrganizationResponse": {
+        "type": "object",
+        "properties": {
+          "organizationNumber": {
+            "type": "string",
+            "description": "The organizations organization number",
+            "nullable": true
+          },
+          "notificationAddresses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationAddressResponse"
+            },
+            "description": "Represents a list of mandatory notification address",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a on organization with  notification addresses"
+      },
+      "Party": {
+        "type": "object",
+        "properties": {
+          "partyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "partyUuid": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "partyTypeName": {
+            "$ref": "#/components/schemas/PartyType"
+          },
+          "orgNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "ssn": {
+            "type": "string",
+            "nullable": true
+          },
+          "unitType": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "onlyHierarchyElementWithNoAccess": {
+            "type": "boolean"
+          },
+          "person": {
+            "$ref": "#/components/schemas/Person"
+          },
+          "organization": {
+            "$ref": "#/components/schemas/Organization"
+          },
+          "childParties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Party"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PartyType": {
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Person": {
+        "type": "object",
+        "properties": {
+          "ssn": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "middleName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "telephoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobileNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailingAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailingPostalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailingPostalCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressMunicipalNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressMunicipalName": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressStreetName": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressHouseNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressHouseLetter": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressPostalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateOfDeath": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      },
+      "ProfessionalNotificationAddressRequest": {
+        "type": "object",
+        "properties": {
+          "emailAddress": {
+            "pattern": "^((\"[^\"]+\")|(([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{|}~])+(\\.([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9\\-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ]\\.)|[a-zA-Z0-9æøåÆØÅ]\\.){1,9})([a-zA-Z]{2,14}))|((\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})))$",
+            "type": "string",
+            "description": "The email address. May be null if no email address is set.",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "pattern": "^(([0-9]{5})|([0-9]{8})|((00[0-9]{2})[0-9]+)|((\\+[0-9]{2})[0-9]+))$",
+            "type": "string",
+            "description": "The phone number. May be null if no phone number is set.",
+            "nullable": true
+          },
+          "resourceIncludeList": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "A list of resources that the user has registered to receive notifications for. The format is in URN. This is used to determine which resources the user can receive notifications for.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Request model for the professional notification address for an organization, also called personal notification address."
+      },
+      "ProfessionalNotificationAddressResponse": {
+        "type": "object",
+        "properties": {
+          "emailAddress": {
+            "pattern": "^((\"[^\"]+\")|(([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{|}~])+(\\.([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9\\-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ]\\.)|[a-zA-Z0-9æøåÆØÅ]\\.){1,9})([a-zA-Z]{2,14}))|((\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})))$",
+            "type": "string",
+            "description": "The email address. May be null if no email address is set.",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "pattern": "^(([0-9]{5})|([0-9]{8})|((00[0-9]{2})[0-9]+)|((\\+[0-9]{2})[0-9]+))$",
+            "type": "string",
+            "description": "The phone number. May be null if no phone number is set.",
+            "nullable": true
+          },
+          "resourceIncludeList": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "A list of resources that the user has registered to receive notifications for. The format is in URN. This is used to determine which resources the user can receive notifications for.",
+            "nullable": true
+          },
+          "userId": {
+            "type": "integer",
+            "description": "The user id of logged-in user for whom the specific contact information belongs to.",
+            "format": "int32"
+          },
+          "partyUuid": {
+            "type": "string",
+            "description": "Id of the party",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Response model for the professional notification address for an organization, also called personal notification address."
+      },
+      "ProfileSettingPreference": {
+        "type": "object",
+        "properties": {
+          "languageType": {
+            "type": "string",
+            "nullable": true,
+            "writeOnly": true
+          },
+          "language": {
+            "type": "string",
+            "nullable": true
+          },
+          "preSelectedPartyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "doNotPromptForParty": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserProfile": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userUuid": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "externalIdentity": {
+            "type": "string",
+            "nullable": true
+          },
+          "isReserved": {
+            "type": "boolean"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "partyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "party": {
+            "$ref": "#/components/schemas/Party"
+          },
+          "userType": {
+            "$ref": "#/components/schemas/UserType"
+          },
+          "profileSettingPreference": {
+            "$ref": "#/components/schemas/ProfileSettingPreference"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "ValidationProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          },
+          "errors": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      }
+    }
+  }
 }
