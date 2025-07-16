@@ -1,6 +1,6 @@
 ---
-title: Visuele endringer
-linktitle: Visuele endringer
+title: Visuelle endringer
+linktitle: Visuelle endringer
 description: Visuelle endringer etter oppdatering av designsystemet til v1.0.0
 toc: true
 ---
