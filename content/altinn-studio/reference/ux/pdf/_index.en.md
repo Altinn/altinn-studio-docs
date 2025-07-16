@@ -187,6 +187,17 @@ This method is only available in version 7.5 and higher.
 
 {{% /notice%}}
 
+### Using Altinn Studio
+
+You can add a custom PDF layout in Studio by converting a page to a PDF layout in the page configuration:
+
+![Screenshot of the PDF switch](pdf-page-switch.png)
+
+If you add a [Summary]({{< ref "altinn-studio/reference/ux/components/summary2" >}} "Summary") component to this page, you can specify what parts of the layout you want to include in the PDF.
+
+![Screenshot of a summary2 component in a PDF layout page](pdf-summary-component.png)
+
+### Manual configuration
 This method lets you fully customize the generated PDF by using a layout file to specify what it should contain.
 
 To use this method you need to create a new layout file for the PDF and set `pdfLayoutName` in `Settings.json` to point to that file:
@@ -328,7 +339,7 @@ This is done by adding the following lines to the `Dockerfile`:
 
 ```Dockerfile
   # Add globalization timezone support
-  RUN apk add --no-cache icu-libs tzdata
+  RUN apk add --no-cache icu-libs icu-data-full tzdata
   ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
 ```
 

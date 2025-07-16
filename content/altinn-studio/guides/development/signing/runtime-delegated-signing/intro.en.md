@@ -3,7 +3,7 @@ hidden: true
 ---
 
 {{%notice info%}}
-Runetime delegated signing requires minimum version 8.6.0 av Altinn nugets.
+Runtime delegated signing requires minimum version 8.6.0 av Altinn nugets.
 {{%/notice%}}
 
 By runtime delegated signing, we mean an app where those who need to sign are granted rights during the form-filling process.

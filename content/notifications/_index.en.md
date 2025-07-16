@@ -39,16 +39,7 @@ aliases:
                             </div>
                         </div>
                     </a>
-                </li>
-                <li class="a-dotted a-clickable a-list-hasRowLink">
-                    <a href="reference/architecture" class="a-list-rowLink">
-                        <div class="row">
-                            <div class="col">
-                                Architecture
-                            </div>
-                        </div>
-                    </a>
-                </li>
+                </li> 
             </ul>
         </div>
     </div>
@@ -98,9 +89,13 @@ aliases:
 </div>
 
 ## Testing
-For getting an actual SMS to your handset in the TT02 test environment, please send a request to [tjenesteeier@altinn.no](mailto:tjenesteeier@altinn.no) to add your number to the allow-list. Unlisted numbers are treated as real, but sent to a simulator instead of a real network provider.
+For getting an actual SMS to your handset in the TT02 test environment, please send a request to [tjenesteeier@altinn.no](mailto:tjenesteeier@altinn.no) to add your number to the allow-list. Unlisted numbers are treated as real, but sent to a simulator instead of a real network provider (i.e if passing validation, are accepted by the API and appears as successfully delivered to the handset).
 
 Test-emails are sent as normal. Please note that in some cases the recipient identifies this as spam, so please check the appropriate folders if the order has a success-state.
 
-## News - upcoming
-{{% insert "content/notifications/news/upcoming/_index.en.md" %}}
+**NB1**: If you are configuring a Tenor test user for SMS (in their capacity as an individual), please note that there is a separate SMS allow-listing process required (to get the KRR auth-code confirming the update). See [KRR testbrukere | KRR](https://docs.digdir.no/docs/Kontaktregisteret/krr_testbrukere#bruk-av-reelle-mobilnummer)
+
+**NB2**: There is a delay of up to 10 minutes for any changes to contact-information for a person or organization to take effect in Notifications.
+
+## Source code
+The code is on [Github](https://github.com/Altinn/altinn-notifications)

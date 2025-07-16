@@ -6,6 +6,8 @@ To allow the app to determine who should receive access to read and sign, the C#
 
 The implementation must return a set of individuals and/or organizations that should receive rights to sign. This can be based on the data model, as shown in the example below.
 
+When an organization is provided as a signee, any person with a [key role](/altinn-studio/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_er) for the organization will be given access to `read` and `sign`.
+
 The `Id` property in this implementation must match the ID specified in <altinn:signeeProviderId>.
 
 ```csharp
@@ -42,29 +44,8 @@ public class FounderSigneesProvider : ISigneeProvider
                     [stifterPerson.Fornavn, stifterPerson.Mellomnavn, stifterPerson.Etternavn]
                 ),
                 SocialSecurityNumber = stifterPerson.Foedselsnummer?.ToString() ?? string.Empty,
-                CommunicationConfig = new CommunicationConfig
-                {
-                    InboxMessage = new InboxMessage
-                    {
-                        TitleTextResourceKey = "signing.correspondence_title_common",
-                        SummaryTextResourceKey = "signing.correspondence_summary_stifter_person",
-                        BodyTextResourceKey = "signing.correspondence_body_stifter_person"
-                    },
-                    Notification = new Notification
-                    {
-                        Email = new Email
-                        {
-                            EmailAddress = stifterPerson.Epost,
-                            SubjectTextResourceKey = "signing.email_subject",
-                            BodyTextResourceKey = "signing.notification_content"
-                        },
-                        Sms = new Sms
-                        {
-                            MobileNumber = stifterPerson.Mobiltelefon,
-                            BodyTextResourceKey = "signing.notification_content"
-                        }
-                    }
-                },
+
+                // CommunicationConfig added here is optional, shown and described in section 6
             };
 
             providedSignees.Add(personSignee);
@@ -77,35 +58,8 @@ public class FounderSigneesProvider : ISigneeProvider
                 Name = stifterVirksomhet.Navn,
                 OrganizationNumber =
                     stifterVirksomhet.Organisasjonsnummer?.ToString() ?? string.Empty,
-                CommunicationConfig = new CommunicationConfig
-                {
-                    InboxMessage = new InboxMessage
-                    {
-                        TitleTextResourceKey = "signing.correspondence_title_common",
-                        SummaryTextResourceKey = "signing.correspondence_summary_stifter_organisasjon",
-                        BodyTextResourceKey = "signing.correspondence_body_stifter_organisasjon"
-                    },
-                    Notification = new Notification
-                    {
-                        Email = new Email
-                        {
-                            EmailAddress = stifterVirksomhet.Epost,
-                            SubjectTextResourceKey = "signing.email_subject",
-                            BodyTextResourceKey = "signing.notification_content".Replace(
-                                "{0}",
-                                stifterVirksomhet.Navn
-                            ),
-                        },
-                        Sms = new Sms
-                        {
-                            MobileNumber = stifterVirksomhet.Mobiltelefon,
-                            BodyTextResourceKey = "signing.notification_content".Replace(
-                                "{0}",
-                                stifterVirksomhet.Navn
-                            ),
-                        }
-                    }
-                }
+
+                // CommunicationConfig added here is optional, shown and described in section 6
             };
 
             providedSignees.Add(organisationSignee);

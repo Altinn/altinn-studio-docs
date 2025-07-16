@@ -19,7 +19,7 @@ For such a service, the process in the app itself will be completed when the end
 
 ## Instantiation of service
 
-Instantiation in Altinn means that a dialogue is created in a submitter/party's inbox in Altinn. This instantiation can be triggered by the end user or by the service owner. In this guide, we assume that it is instantiated by the end user. A guide for service owner instantiation can be found here (TODO).
+Instantiation in Altinn means that a dialogue is created in a submitter/party's inbox in Altinn. This instantiation can be triggered by the end user or by the service owner. In this guide, we assume that it is instantiated by the end user. A guide for service owner instantiation can be found [here](/api/apps/instances/#create-instance).
 
 ## Overall end user process
 
@@ -29,7 +29,7 @@ The overall process:
 2. The form is filled out and any attachment data is uploaded.
 3. The end user validates the data and any attachments and sends the application process for confirmation.
 4. The end user reviews the data and confirms that they have completed the process.
-5. The application publishes an event that the end user has completed the filling process. (Assumes that publishing is [enabled]())
+5. The application publishes an event that the end user has completed the filling process. (Assumes that publishing is [enabled](/altinn-studio/getting-started/app-dev-course/modul5/))
 6. The service owner receives information about the event at their event receiver.
 7. The service owner calls the Altinn API to download data for the instance.
 8. The service owner confirms that the data has been downloaded successfully.
@@ -42,7 +42,7 @@ Development of the application is covered in the Application Development Guide. 
 
 Requirements for the webhook to receive events can be found [here](/events/subscribe-to-events/developer-guides/setup-subscription/#request).
 
-The service owner must have registered an integration in Maskinporten. Creation of the integration is described in the Guide [here](/authentication/what-do-you-get/maskinporten/#access-as-a-service-owner).
+The service owner must have registered an integration in Maskinporten. Creation of the integration is described in the Guide [here](/authorization/getting-started/authentication/maskinporten/#access-as-a-service-owner).
 
 ## Detailed technical process
 
@@ -52,20 +52,20 @@ The first step in the process is that the receiving endpoint receives informatio
 
 ```json
 {
-    "id": "bd9edd59-b18c-4726-aa9e-6b150eade814",
-    "source": "https://ttd.apps.altinn.no/ttd/become-application-owner/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
-    "specversion": "1.0",
-    "type": "app.instance.created",
-    "resource": "urn:altinn:app:ttd.become-application-owner",
-    "resourceinstance": "bd9edd59-b18c-4726-aa9e-6b150eade814",
-    "subject": "/party/1337",
-    "time": "2022-05-12T00:02:07.541482Z"
+  "id": "bd9edd59-b18c-4726-aa9e-6b150eade814",
+  "source": "https://ttd.apps.altinn.no/ttd/become-application-owner/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
+  "specversion": "1.0",
+  "type": "app.instance.created",
+  "resource": "urn:altinn:app:ttd.become-application-owner",
+  "resourceinstance": "bd9edd59-b18c-4726-aa9e-6b150eade814",
+  "subject": "/party/1337",
+  "time": "2022-05-12T00:02:07.541482Z"
 }
 ```
 
 ### Authentication against Maskinporten
 
-The service owner system calls the Maskinporten API with the correct Scopes for the service owner. This is described in detail [here](/authentication/what-do-you-get/maskinporten/#access-as-a-service-owner).
+The service owner system calls the Maskinporten API with the correct Scopes for the service owner. This is described in detail [here](/authorization/getting-started/authentication/maskinporten/#access-as-a-service-owner).
 
 Then the service owner system must call Altinn's [exchange endpoint](/api/authentication/spec/) with its Maskinporten token as a bearer token.
 
@@ -79,66 +79,66 @@ Events from Altinn Applications point to the Instance endpoint of a given applic
 
 ```json
 {
-    "id": "1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
-    "instanceOwner": {
-        "partyId": "1337",
-        "personNumber": "01039012345",
-        "organisationNumber": null,
-        "username": null
+  "id": "1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
+  "instanceOwner": {
+    "partyId": "1337",
+    "personNumber": "01039012345",
+    "organisationNumber": null,
+    "username": null
+  },
+  "appId": "ttd/become-application-owner",
+  "org": "ttd",
+  "selfLinks": {
+    "apps": "https://ttd.apps.altinn.no/ttd/become-application-owner/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
+    "platform": "https://ttd.apps.altinn.no/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814"
+  },
+  "dueBefore": null,
+  "visibleAfter": null,
+  "process": {
+    "started": "2020-11-18T15:56:41.5662973Z",
+    "startEvent": "StartEvent_1",
+    "currentTask": {
+      "flow": 2,
+      "started": "2020-11-18T15:56:41.5664762Z",
+      "elementId": "Task_1",
+      "name": "Filling out",
+      "altinnTaskType": "data",
+      "ended": null,
+      "validated": {
+        "timestamp": "2020-11-20T13:00:05.1800273+00:00",
+        "canCompleteTask": true
+      }
     },
-    "appId": "ttd/become-application-owner",
-    "org": "ttd",
-    "selfLinks": {
-        "apps": "https://ttd.apps.altinn.no/ttd/become-application-owner/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
-        "platform": "https://ttd.apps.altinn.no/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814"
-    },
-    "dueBefore": null,
-    "visibleAfter": null,
-    "process": {
-        "started": "2020-11-18T15:56:41.5662973Z",
-        "startEvent": "StartEvent_1",
-        "currentTask": {
-            "flow": 2,
-            "started": "2020-11-18T15:56:41.5664762Z",
-            "elementId": "Task_1",
-            "name": "Filling out",
-            "altinnTaskType": "data",
-            "ended": null,
-            "validated": {
-                "timestamp": "2020-11-20T13:00:05.1800273+00:00",
-                "canCompleteTask": true
-            }
-        },
-        "ended": null,
-        "endEvent": null
-    },
-    "status": null,
-    "completeConfirmations": null,
-    "data": [
-        {
-            "id": "8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
-            "instanceGuid": "bd9edd59-b18c-4726-aa9e-6b150eade814",
-            "dataType": "CourseDomain_BecomeServiceOwner_M_2020-05-25_5703_34553_SERES",
-            "filename": null,
-            "contentType": "application/xml",
-            "blobStoragePath": "ttd/become-application-owner/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
-            "selfLinks": {
-                "apps": "https://ttd.apps.altinn.no/ttd/become-application-owner/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
-                "platform": "https://ttd.apps.altinn.no/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d"
-            },
-            "size": 401,
-            "locked": false,
-            "refs": [],
-            "created": "2020-11-18T15:56:43.1089008Z",
-            "createdBy": null,
-            "lastChanged": "2020-11-18T15:56:43.1089008Z",
-            "lastChangedBy": null
-        }
-    ],
-    "created": "2020-11-18T15:56:42.1972942Z",
-    "createdBy": "1337",
-    "lastChanged": "2020-11-18T15:56:42.1972942Z",
-    "lastChangedBy": "1337"
+    "ended": null,
+    "endEvent": null
+  },
+  "status": null,
+  "completeConfirmations": null,
+  "data": [
+    {
+      "id": "8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
+      "instanceGuid": "bd9edd59-b18c-4726-aa9e-6b150eade814",
+      "dataType": "CourseDomain_BecomeServiceOwner_M_2020-05-25_5703_34553_SERES",
+      "filename": null,
+      "contentType": "application/xml",
+      "blobStoragePath": "ttd/become-application-owner/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
+      "selfLinks": {
+        "apps": "https://ttd.apps.altinn.no/ttd/become-application-owner/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
+        "platform": "https://ttd.apps.altinn.no/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d"
+      },
+      "size": 401,
+      "locked": false,
+      "refs": [],
+      "created": "2020-11-18T15:56:43.1089008Z",
+      "createdBy": null,
+      "lastChanged": "2020-11-18T15:56:43.1089008Z",
+      "lastChangedBy": null
+    }
+  ],
+  "created": "2020-11-18T15:56:42.1972942Z",
+  "createdBy": "1337",
+  "lastChanged": "2020-11-18T15:56:42.1972942Z",
+  "lastChangedBy": "1337"
 }
 ```
 

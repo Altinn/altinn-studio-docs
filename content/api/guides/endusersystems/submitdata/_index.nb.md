@@ -53,7 +53,7 @@ Disse scopene gir mulighet for å kalle alle apper i Altinn 3.
 
 Som del av påloggingsprosessen vil sluttbrukersystemet få tilgang til et access_token med informasjon om sluttbruker.
 
-Se detaljert påloggingsprosess med ID-porten og skjermbildet som sluttbruker blir presentert for, [her](../../../../authentication/what-do-you-get/id-porten/).
+Se detaljert påloggingsprosess med ID-porten og skjermbildet som sluttbruker blir presentert for, [her](../../../../authorization/getting-started/authentication/id-porten/).
 
 ### Innveksling av access_token til Altinn Token
 
@@ -65,7 +65,7 @@ Innveksling skjer mot [Autentiserings API](/api/authentication/spec/).
 
 Innvekslingen skjer ved at man setter Access Token fra ID-porten som et Bearer token i authorization headeren og gjør et GET-kall mot innvekslingsendepunktet hvor "id-porten" er brukt som token provider.
 
-Detaljert beskrivelse av innveksling med ID-porten token finner du [her](../../../../authentication/what-do-you-get/id-porten/).
+Detaljert beskrivelse av innveksling med ID-porten token finner du [her](../../../../authorization/getting-started/authentication/id-porten/).
 
 ### Instansiering og innsending av data
 
@@ -81,11 +81,11 @@ Dette kallet går mot [Instance API](/api/apps/instances/#create-instance) på a
 
 ```json
 {
-    "appId" : "org/app",
-    "instanceOwner": {
-        "personNumber": "12247918309",
-        "organisationNumber": null
-    }
+  "appId": "org/app",
+  "instanceOwner": {
+    "personNumber": "12247918309",
+    "organisationNumber": null
+  }
 }
 ```
 
@@ -93,66 +93,66 @@ Resultatet er en instans med skjemadata som igjen inneholder standard data og pr
 
 ```json
 {
-    "id": "1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
-    "instanceOwner": {
-        "partyId": "1337",
-        "personNumber": "01039012345",
-        "organisationNumber": null,
-        "username": null
+  "id": "1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
+  "instanceOwner": {
+    "partyId": "1337",
+    "personNumber": "01039012345",
+    "organisationNumber": null,
+    "username": null
+  },
+  "appId": "ttd/bli-applikasjonseier",
+  "org": "ttd",
+  "selfLinks": {
+    "apps": "https://local.altinn.cloud/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
+    "platform": "https://local.altinn.cloud/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814"
+  },
+  "dueBefore": null,
+  "visibleAfter": null,
+  "process": {
+    "started": "2020-11-18T15:56:41.5662973Z",
+    "startEvent": "StartEvent_1",
+    "currentTask": {
+      "flow": 2,
+      "started": "2020-11-18T15:56:41.5664762Z",
+      "elementId": "Task_1",
+      "name": "Utfylling",
+      "altinnTaskType": "data",
+      "ended": null,
+      "validated": {
+        "timestamp": "2020-11-20T13:00:05.1800273+00:00",
+        "canCompleteTask": true
+      }
     },
-    "appId": "ttd/bli-applikasjonseier",
-    "org": "ttd",
-    "selfLinks": {
-        "apps": "https://local.altinn.cloud/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
-        "platform": "https://local.altinn.cloud/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814"
-    },
-    "dueBefore": null,
-    "visibleAfter": null,
-    "process": {
-        "started": "2020-11-18T15:56:41.5662973Z",
-        "startEvent": "StartEvent_1",
-        "currentTask": {
-            "flow": 2,
-            "started": "2020-11-18T15:56:41.5664762Z",
-            "elementId": "Task_1",
-            "name": "Utfylling",
-            "altinnTaskType": "data",
-            "ended": null,
-            "validated": {
-                "timestamp": "2020-11-20T13:00:05.1800273+00:00",
-                "canCompleteTask": true
-            }
-        },
-        "ended": null,
-        "endEvent": null
-    },
-    "status": null,
-    "completeConfirmations": null,
-    "data": [
-        {
-            "id": "8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
-            "instanceGuid": "bd9edd59-b18c-4726-aa9e-6b150eade814",
-            "dataType": "Kursdomene_BliTjenesteeier_M_2020-05-25_5703_34553_SERES",
-            "filename": null,
-            "contentType": "application/xml",
-            "blobStoragePath": "ttd/bli-applikasjonseier/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
-            "selfLinks": {
-                "apps": "https://local.altinn.cloud/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
-                "platform": "https://local.altinn.cloud/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d"
-            },
-            "size": 401,
-            "locked": false,
-            "refs": [],
-            "created": "2020-11-18T15:56:43.1089008Z",
-            "createdBy": null,
-            "lastChanged": "2020-11-18T15:56:43.1089008Z",
-            "lastChangedBy": null
-        }
-    ],
-    "created": "2020-11-18T15:56:42.1972942Z",
-    "createdBy": "1337",
-    "lastChanged": "2020-11-18T15:56:42.1972942Z",
-    "lastChangedBy": "1337"
+    "ended": null,
+    "endEvent": null
+  },
+  "status": null,
+  "completeConfirmations": null,
+  "data": [
+    {
+      "id": "8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
+      "instanceGuid": "bd9edd59-b18c-4726-aa9e-6b150eade814",
+      "dataType": "Kursdomene_BliTjenesteeier_M_2020-05-25_5703_34553_SERES",
+      "filename": null,
+      "contentType": "application/xml",
+      "blobStoragePath": "ttd/bli-applikasjonseier/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
+      "selfLinks": {
+        "apps": "https://local.altinn.cloud/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
+        "platform": "https://local.altinn.cloud/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d"
+      },
+      "size": 401,
+      "locked": false,
+      "refs": [],
+      "created": "2020-11-18T15:56:43.1089008Z",
+      "createdBy": null,
+      "lastChanged": "2020-11-18T15:56:43.1089008Z",
+      "lastChangedBy": null
+    }
+  ],
+  "created": "2020-11-18T15:56:42.1972942Z",
+  "createdBy": "1337",
+  "lastChanged": "2020-11-18T15:56:42.1972942Z",
+  "lastChangedBy": "1337"
 }
 ```
 

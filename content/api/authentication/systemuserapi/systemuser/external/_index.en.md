@@ -1,7 +1,7 @@
 ---
-title: External API
-linktitle: External API
-description: API for the external to get system user information
+title: Systemuser API
+linktitle: Systemuser API
+description: API to get system user information
 toc: true
 ---
 ## Verify Party Integration

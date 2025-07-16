@@ -1,7 +1,7 @@
 ---
-title: Notifications
-linktitle: Notifications
-description: Altinn Notifications offers capabilities for one way communication with citizens and businesses operating in Norway.
+title: Varslinger
+linktitle: Varslinger
+description: Altinn Varslinger tilbyr funksjonalitet for enveis kommunikasjon med innbyggere og virksomheter i Norge.
 toc: false
 weight: 20
 aliases:
@@ -11,12 +11,12 @@ aliases:
  <div class="row adocs-featuredBlocks">
     <div class="col-12 col-lg-6 mb-5">
         <div style="text-align: center;">
-            <h2 class="a-h3">Find out more</h2>
-            <p class="a-js-truncate-2">Read more about Altinn Notifications</p>
+            <h2 class="a-h3">Finn ut mer</h2>
+            <p class="a-js-truncate-2">Les mer om Altinn Varslinger</p>
             <div class="a-illustration-icon">
                 <img src="./Notifications-1.svg">
                 <div class="a-illustration-overlay">
-                    <span class="sr-only">Find out more</span>
+                    <span class="sr-only">Finn ut mer</span>
                 </div>
             </div>
         </div>
@@ -26,7 +26,7 @@ aliases:
                     <a href="about" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
-                                About Notifications
+                                Om Varslinger
                             </div>
                         </div>
                     </a>
@@ -35,31 +35,22 @@ aliases:
                     <a href="reference/api" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
-                                API reference
+                                API-referanse
                             </div>
                         </div>
                     </a>
-                </li>
-                <li class="a-dotted a-clickable a-list-hasRowLink">
-                    <a href="reference/architecture" class="a-list-rowLink">
-                        <div class="row">
-                            <div class="col">
-                                Architecture
-                            </div>
-                        </div>
-                    </a>
-                </li>
+                </li> 
             </ul>
         </div>
     </div>
     <div class="col-12 col-lg-6 mb-5">
         <div style="text-align: center;">
-            <h2 class="a-h3">Get started</h2>
-            <p class="a-js-truncate-2">Send your first notification</p>
+            <h2 class="a-h3">Kom i gang</h2>
+            <p class="a-js-truncate-2">Send din første varsling</p>
             <div class="a-illustration-icon">
                 <img src="./Notifications-2.svg">
                 <div class="a-illustration-overlay">
-                    <span class="sr-only">Send your first notification</span>
+                    <span class="sr-only">Send din første varsling</span>
                 </div>
             </div>
         </div>
@@ -69,7 +60,7 @@ aliases:
                     <a href="getting-started/altinn-app" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
-                                Altinn App Integration
+                                Altinn App-integrasjon
                             </div>
                         </div>
                     </a>
@@ -78,7 +69,7 @@ aliases:
                     <a href="getting-started/altinn-service" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
-                                Altinn Service Integration
+                                Altinn Tjeneste-integrasjon
                             </div>
                         </div>
                     </a>
@@ -87,7 +78,7 @@ aliases:
                     <a href="getting-started/service-owner-system" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
-                                Service Owner System Integration
+                                Tjenesteeiersystem-integrasjon
                             </div>
                         </div>
                     </a>
@@ -98,9 +89,13 @@ aliases:
 </div>
 
 ## Testing
-For getting an actual SMS to your handset in the TT02 test environment, please send a request to [tjenesteeier@altinn.no](mailto:tjenesteeier@altinn.no) to add your number to the allow-list. Unlisted numbers are treated as real, but sent to a simulator instead of a real network provider. 
+For å motta en faktisk SMS på din mobiltelefon i TT02 testmiljøet, vennligst send en forespørsel til [tjenesteeier@altinn.no](mailto:tjenesteeier@altinn.no) for å legge nummeret ditt til tillatelseslisten. Nummer som ikke er på listen behandles som reelle, men sendes til en simulator i stedet for en ekte nettverksleverandør (dvs. hvis validering bestås, aksepteres de av API-et og vises som vellykket levert til mobiltelefonen).
 
-Test-emails are sent as normal. Please note that in some cases the recipient identifies this as spam, so please check the appropriate folders if the order has a success-state.
+Test-e-poster sendes som normalt. Vær oppmerksom på at i noen tilfeller identifiserer mottakeren dette som spam, så vennligst sjekk de aktuelle mappene hvis ordren har en suksess-tilstand.
 
-## News - upcoming
-{{% insert "content/notifications/news/upcoming/_index.en.md" %}}
+**NB1**: Hvis du konfigurerer en Tenor testbruker for SMS (i deres kapasitet som enkeltperson), vær oppmerksom på at det er en egen SMS-tillatelsesprosess som kreves (for å få KRR auth-koden som bekrefter oppdateringen). Se [KRR testbrukere | KRR](https://docs.digdir.no/docs/Kontaktregisteret/krr_testbrukere#bruk-av-reelle-mobilnummer)
+
+**NB2**: Det er en forsinkelse på opptil 10 minutter før endringer i kontaktinformasjon for en person eller organisasjon trer i kraft i Varslinger.
+
+## Kildekode
+Kildekoden er på [Github](https://github.com/Altinn/altinn-notifications)

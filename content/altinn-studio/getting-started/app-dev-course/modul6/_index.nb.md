@@ -24,7 +24,6 @@ I denne modulen skal vi jobbe med disse kravene fra kommunen:
 > - Bransje ([standardliste med bransjer](../industry.json))
 
 ## Oppgaver
-
 I mange tjenester trenger vi å gi brukerne et sett med svaralternativer for et datafelt.
 Slike sett med svaralternativer kalles _kodelister_ eller _alternativer_.
 
@@ -36,7 +35,6 @@ Du kan sette opp kodelister på tre måter i Altinn:
 I denne oppgaven skal vi se på de første to metodene.
 
 ### Legg til de nye feltene i datamodellen
-
 1. Gå til **Datamodell**.
 2. Velg **Legg til**.
 3. Velg **Objekt**.
@@ -47,7 +45,6 @@ I denne oppgaven skal vi se på de første to metodene.
 !["Datamodell med arbeidserfaring"](datamodell.png)
 
 ### Opprett en ny skjemaside for arbeidsforhold
-
 1. Gå til **Lage**.
 2. Opprett en ny side og kall den **Arbeidsforhold**.
 
@@ -61,15 +58,14 @@ Brukeren skal kunne velge mellom offentlig og privat sektor. Til det er det natu
 1. Dra inn en komponent av typen **Radioknapper** øverst på den nye siden.
 2. Under **Tekst** i egenskapene til komponenten du har lagt til, legg til ledeteksten **Sektor**. Nå bør skjemabyggeren se slik ut:
    !["Skjemabygger med sektor"](skjemabygger_med_sektor.png)
-3. Nederst i tekstseksjonen kan man sette opp alternativer. Fanen **Velg kodeliste** er valgt som utgangspunkt. Velg fanen **Sett opp egne alternativer** for å legge til egne alternativer.
-4. Velg **Legg til alternativ**. Du vil se at det dukker opp et alternativ under overskriften **Radioknapp 1** med en generert verdi.
-5. Klikk på **Radioknapp 1**.
-6. Bytt ut verdien med `offentlig`. Dette er verdien som vil bli sendt til systemet når brukeren besvarer skjemaet.
-7. Velg **Ledetekst**.
-8. Fyll inn teksten **Offentlig**. Dette er teksten som brukeren vil se ved siden av radioknappen.
-9. Gjenta stegene fra trinn 4 til trinn 8, men klikk på **Radioknapp 2** i stedet for **Radioknapp 1**, og gi knappen verdien `privat` og ledeteksten **Privat**.
-   !["Radioknapper for sektor"](radioknapper_sektor.png)
-10. Nå mangler vi bare å koble komponenten til riktig felt i datamodellen. Åpne **Datamodellknytninger**, klikk på **Radioknapper** og velg `arbeidsforhold.sektor`.
+3. Nederst i tekstseksjonen kan man sette opp alternativer. Klikk på **Lag ny**-knappen for å åpne kodelisteverktøyet.
+4. Klikk på **Legg til alternativ** i dialogboksen som dukker opp.
+5. Fyll inn koden `offentlig` i feltet under tittelen **Kode**. Dette er verdien som vil bli sendt til systemet når brukeren besvarer skjemaet.
+6. Fyll inn teksten `Offentlig` i det markerte feltet under. Dette er teksten som brukeren vil se ved siden av radioknappen. 
+   !["Tekst ressurs velger"](tekst_ressurs_velger.png)
+7. Gjenta stegene fra trinn 4 til 6, men gi koden verdien `privat` og ledeteksten `Privat`.
+8. Lukk dialogboksen ved å klikke på krysset oppe i høyre hjørne.
+9. Nå mangler vi bare å koble komponenten til riktig felt i datamodellen. Åpne **Datamodellknytninger**, klikk på **Radioknapper** og velg `arbeidsforhold.sektor`.
 
 ### Legg til avmerkingsbokser for bransje
 Brukeren skal også kunne velge én eller flere bransjer. Siden det skal være mulig å velge mer enn ett alternativ, er det naturlig å bruke [avmerkingsbokser](/nb/altinn-studio/reference/ux/components/checkboxes/). I stedet for å legge til alternativene manuelt, skal vi bruke [en fil med en _kodeliste_](industri.json). En kodelistefil er nyttig hvis vi for eksempel trenger å bruke de samme alternativene flere steder.
@@ -85,12 +81,13 @@ Slik bruker du en kodeliste til å lage en liste med avmerkingsbokser:
 #### Laste opp og koble til kodelisten til komponenten
 1. Last ned [kodelisten](industri.json).
 2. Åpne siden der du la til **Bransje** og klikk på **Bransje**.
-3. Under **Tekst** i egenskapene for **Bransje**, sjekk at fanen **Velg kodeliste** er valgt.
-4. Trykk på knappen med teksten **Last opp din egen kodeliste**.
+3. Gå til **Tekst** i egenskapene for komponenten.
+4. Trykk på knappen med teksten **Last opp egen kodeliste**.
 5. Finn frem til filen du nettopp lastet ned. Den har navnet **industri.json**.
 6. Velg filen, og trykk på **Åpne**.
-7. Velg **industri** fra nedtrekkslisten som vist under.
-   !["Bruk kodeliste"-nedtrekssliste](bruk_kodeliste.png)
+7. Klikk på **Velg fra biblioteket**.
+8. Velg **industri** fra listen i dialogboksen som vist under.
+   !["Bruk kodeliste"-liste](bruk_kodeliste.png)
 
 Nå skal avmerkingsboksene være klare.
 

@@ -94,12 +94,3 @@ When soft delete is on and you overwrite data, a soft deleted snapshot is genera
 For Altinn we have 90 days retention period. Inside that periode we can recover a blob to an earlier version.
 
 [See more about soft delete on Azure Documentation](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal).
-
-
-## Recovery
-
-[Altinn ReStorage](/technology/solutions/altinn-restorage/) is a command-line interface application that enables operators to
-retrieve version history and metadata about elements as well as restore and undelete them.
-
-Currently it supports restoring data elements. Further functionality is defined in [this epic](https://github.com/Altinn/altinn-studio/issues/4152) on GitHub.
-

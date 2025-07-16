@@ -60,6 +60,8 @@ Eventually, as full production for all components approaches, this will be handl
 
 There will be two-way synchronization of status changes and events on messages between Altinn 2 and Altinn 3 after migration is completed.
 
+This solution will be referred to as "CorrespondenceSync", but is currently under analysis and design; more details will be added later.
+
 Existing status/history will be migrated in step 1 but will be continuously synchronized as changes occur.
 
 ## Technical Implementation

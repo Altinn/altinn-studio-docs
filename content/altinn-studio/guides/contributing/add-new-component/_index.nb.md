@@ -32,7 +32,7 @@ Når du legger til et ikon, er det forskjellige tilnærminger gitt at;
 
 - Eller, hvis komponenten trenger et nytt tilpasset ikon:
 
-  Da kan du enten lage en SVG for komponenten selv eller deleger denne oppgaven til designerne i Altinn Studio ved å kontakte dem [i Slack](https://altinn.slack.com/) eller [opprette et issue i Altinn Studio Github repository](https://github.com/Altinn/altinn-studio/issues/new/choose). Når en SVG er opprettet for ikonet, konverter SVG til JSX, f.eks. ved å bruke [dette verktøyet](https://svg2jsx.com/). Opprett en ny fil i `libs/studio-icons/src/react/icons/[NAVNET_PÅ_DIN_KOMPONENT]Icon.tsx` og bruk samme format som for de andre ikonene i mappen. Ikonfilen må legges til indeksfilen i samme mappe.
+  Da kan du enten lage en SVG for komponenten selv eller deleger denne oppgaven til designerne i Altinn Studio ved å kontakte dem [i Slack](https://digdir-samarbeid.slack.com/) eller [opprette et issue i Altinn Studio Github repository](https://github.com/Altinn/altinn-studio/issues/new/choose). Når en SVG er opprettet for ikonet, konverter SVG til JSX, f.eks. ved å bruke [dette verktøyet](https://svg2jsx.com/). Opprett en ny fil i `libs/studio-icons/src/react/icons/[NAVNET_PÅ_DIN_KOMPONENT]Icon.tsx` og bruk samme format som for de andre ikonene i mappen. Ikonfilen må legges til indeksfilen i samme mappe.
 
 ### 3. Legg til den nye komponenten i listen over Studio-komponenter
 For å gi full støtte for en ny komponent i Studio, er det noen få ting å gjøre. Rekkefølgen er vilkårlig.

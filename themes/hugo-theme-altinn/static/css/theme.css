@@ -640,6 +640,7 @@ code {
     background: #FFF7DD;
     border: 1px solid #fbf0cb;
     padding: 0px 2px;
+    white-space : pre-wrap !important;
 }
 code + .copy-to-clipboard {
     margin-left: -1px;
@@ -1599,12 +1600,6 @@ input[type="search"] {
     }
 }
 
-@media (max-width: 767px) {
-    .adocs-collapseSearch {
-        display: none !important;
-    }
-}
-
 .arrow-tr {
     position: relative;
     background: #ffffff;
@@ -1913,6 +1908,10 @@ div.footnotes-entry > span {
     .sed-head {
         display: none
     }
+}
+
+.swagger-operation-display-container details, .swagger-operation-display-container h4 {
+    font-size: 80%;
 }
     
 #dialogporten-swagger-selector-container { 

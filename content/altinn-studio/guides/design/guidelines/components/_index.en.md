@@ -8,7 +8,7 @@ aliases:
 
 {{% panel-contribute 
 src1="https://github.com/Altinn/altinn-studio/issues/new/choose" title1="Create a new issue on github" 
-src2="https://altinn.slack.com/" title2="Write to us on Slack" %}}
+src2="https://digdir-samarbeid.slack.com/" title2="Write to us on Slack" %}}
 
 **Do you need a new component?**
 

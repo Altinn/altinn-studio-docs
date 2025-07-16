@@ -7,5 +7,4 @@ weight: 5
 aliases:
 ---
 
-
-[Architecture](architecture)
+{{<children />}}

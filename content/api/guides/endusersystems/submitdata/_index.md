@@ -53,7 +53,7 @@ These scopes allow calling all apps in Altinn 3.
 
 As part of the login process, the end user system will receive an access_token with information about the end user.
 
-See the detailed login process with ID-porten and the screen presented to the end user [here](../../../../authentication/what-do-you-get/id-porten/).
+See the detailed login process with ID-porten and the screen presented to the end user [here](../../../../authorization/getting-started/authentication/id-porten/).
 
 ### Exchange of Access Token to Altinn Token
 
@@ -65,7 +65,7 @@ The exchange is done against the [Authentication API](/api/authentication/spec/)
 
 The exchange is done by setting the Access Token from ID-porten as a Bearer token in the authorization header and making a GET call to the exchange endpoint where "id-porten" is used as the token provider.
 
-A detailed description of the exchange with ID-porten token can be found [here](../../../../authentication/what-do-you-get/id-porten/).
+A detailed description of the exchange with ID-porten token can be found [here](../../../../authorization/getting-started/authentication/id-porten/).
 
 ### Instantiation and Submission of Data
 
@@ -81,11 +81,11 @@ This call is made to the [Instance API](/api/apps/instances/#create-instance) on
 
 ```json
 {
-    "appId" : "org/app",
-    "instanceOwner": {
-        "personNumber": "12247918309",
-        "organisationNumber": null
-    }
+  "appId": "org/app",
+  "instanceOwner": {
+    "personNumber": "12247918309",
+    "organisationNumber": null
+  }
 }
 ```
 
@@ -93,66 +93,66 @@ The result is an instance with schema data that contains standard data and prefi
 
 ```json
 {
-    "id": "1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
-    "instanceOwner": {
-        "partyId": "1337",
-        "personNumber": "01039012345",
-        "organisationNumber": null,
-        "username": null
+  "id": "1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
+  "instanceOwner": {
+    "partyId": "1337",
+    "personNumber": "01039012345",
+    "organisationNumber": null,
+    "username": null
+  },
+  "appId": "ttd/become-application-owner",
+  "org": "ttd",
+  "selfLinks": {
+    "apps": "https://local.altinn.cloud/ttd/become-application-owner/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
+    "platform": "https://local.altinn.cloud/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814"
+  },
+  "dueBefore": null,
+  "visibleAfter": null,
+  "process": {
+    "started": "2020-11-18T15:56:41.5662973Z",
+    "startEvent": "StartEvent_1",
+    "currentTask": {
+      "flow": 2,
+      "started": "2020-11-18T15:56:41.5664762Z",
+      "elementId": "Task_1",
+      "name": "Filling",
+      "altinnTaskType": "data",
+      "ended": null,
+      "validated": {
+        "timestamp": "2020-11-20T13:00:05.1800273+00:00",
+        "canCompleteTask": true
+      }
     },
-    "appId": "ttd/become-application-owner",
-    "org": "ttd",
-    "selfLinks": {
-        "apps": "https://local.altinn.cloud/ttd/become-application-owner/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
-        "platform": "https://local.altinn.cloud/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814"
-    },
-    "dueBefore": null,
-    "visibleAfter": null,
-    "process": {
-        "started": "2020-11-18T15:56:41.5662973Z",
-        "startEvent": "StartEvent_1",
-        "currentTask": {
-            "flow": 2,
-            "started": "2020-11-18T15:56:41.5664762Z",
-            "elementId": "Task_1",
-            "name": "Filling",
-            "altinnTaskType": "data",
-            "ended": null,
-            "validated": {
-                "timestamp": "2020-11-20T13:00:05.1800273+00:00",
-                "canCompleteTask": true
-            }
-        },
-        "ended": null,
-        "endEvent": null
-    },
-    "status": null,
-    "completeConfirmations": null,
-    "data": [
-        {
-            "id": "8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
-            "instanceGuid": "bd9edd59-b18c-4726-aa9e-6b150eade814",
-            "dataType": "CourseDomain_BecomeServiceOwner_M_2020-05-25_5703_34553_SERES",
-            "filename": null,
-            "contentType": "application/xml",
-            "blobStoragePath": "ttd/become-application-owner/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
-            "selfLinks": {
-                "apps": "https://local.altinn.cloud/ttd/become-application-owner/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
-                "platform": "https://local.altinn.cloud/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d"
-            },
-            "size": 401,
-            "locked": false,
-            "refs": [],
-            "created": "2020-11-18T15:56:43.1089008Z",
-            "createdBy": null,
-            "lastChanged": "2020-11-18T15:56:43.1089008Z",
-            "lastChangedBy": null
-        }
-    ],
-    "created": "2020-11-18T15:56:42.1972942Z",
-    "createdBy": "1337",
-    "lastChanged": "2020-11-18T15:56:42.1972942Z",
-    "lastChangedBy": "1337"
+    "ended": null,
+    "endEvent": null
+  },
+  "status": null,
+  "completeConfirmations": null,
+  "data": [
+    {
+      "id": "8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
+      "instanceGuid": "bd9edd59-b18c-4726-aa9e-6b150eade814",
+      "dataType": "CourseDomain_BecomeServiceOwner_M_2020-05-25_5703_34553_SERES",
+      "filename": null,
+      "contentType": "application/xml",
+      "blobStoragePath": "ttd/become-application-owner/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
+      "selfLinks": {
+        "apps": "https://local.altinn.cloud/ttd/become-application-owner/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
+        "platform": "https://local.altinn.cloud/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d"
+      },
+      "size": 401,
+      "locked": false,
+      "refs": [],
+      "created": "2020-11-18T15:56:43.1089008Z",
+      "createdBy": null,
+      "lastChanged": "2020-11-18T15:56:43.1089008Z",
+      "lastChangedBy": null
+    }
+  ],
+  "created": "2020-11-18T15:56:42.1972942Z",
+  "createdBy": "1337",
+  "lastChanged": "2020-11-18T15:56:42.1972942Z",
+  "lastChangedBy": "1337"
 }
 ```
 

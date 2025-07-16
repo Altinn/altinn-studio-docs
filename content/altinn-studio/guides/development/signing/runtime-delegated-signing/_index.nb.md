@@ -1,7 +1,7 @@
 ---
 title: Brukerstyrt signering
-linktitle: Brukerstyrt
-description: Følg disse stegene for å implementere brukerstyrt signering i din tjeneste.
+linktitle: Brukerstyrt signering
+description: Slik setter du opp brukerstyrt signering i tjenesten din.
 tags: [signering]
 weight: 50
 aliases:
@@ -14,26 +14,28 @@ aliases:
 
 ## Avhengigheter
 
-Brukerstyrt signering avhenger av Meldingstjenesten (Correspondence) i Altinn, som krever eget oppsett.
+Brukerstyrt signering avhenger av Meldingstjenesten (Correspondence) i Altinn. Den må du sette opp utenom.
 
-Melding brukes for å gi beskjed til signatar om at de har blitt bedt om å signere et skjema i Altinn, og for å sende signeringskvittering til innboksen ders når signeringen er utført.
+Meldingstjenesten brukes for å gi beskjed til de som skal signere om at de må signere et skjema i Altinn, og for å sende en kvittering til innboksen deres når de har signert.
 
-Se hvordan du kommer i gang med det i [denne guiden](/nb/correspondence/getting-started/).
+[Slik kommer du i gang med meldingstjenesten](/nb/correspondence/getting-started/).
 
 ## Eksempel på konfigurasjon
 
-I følgende [repo](https://altinn.studio/repos/ttd/signering-brukerstyrt) ligger det eksempel på en applikasjon med brukerstyrt signering.
+I dette [repoet](https://altinn.studio/repos/ttd/signering-brukerstyrt) ligger det et eksempel på en app som har brukerstyrt signering.
 
-Hovedflyten i applikasjonen er:
+Flyten i appen er slik:
 
-1. Utfyller av skjema oppgir fødselsnummer og etternavn for personer eller organisasjonsnummer for organisasjoner som skal signere.
-2. Når skjema er ferdig utfylt trykker utfyller "Til signering", som beveger prosessen til neste steg i prosessen, som er signeringssteget.
-3. I det signeringssteget initialiseres kaller appen en implementasjon av interfacet `ISigneeProvider`, som dere må implementere, for å finne ut hvem som må få delegert tilgang til å signere.
-4. Signatarene får delegert rettigheter og mottar notifikasjon om at de har en signeringsoppgave.
-5. Signatarene finner skjemaet i sin innboks, åpner det, ser over data og trykker signer.
-6. Innsender signerer også, dersom appen satt opp slik, og sender deretter inn skjemaet. Automatisk innsending er p.t. ikke søttet.
+1. Den som fyller ut skjemaet oppgir fødselsnummer og etternavn, eller eventuelt organisasjonsnummer hvis den som skal signere representerer en virksomhet.
+2. Når skjemaet er ferdig utfylt, klikker den som fyller ut på "Til signering". Det beveger prosessen til neste steg, som er signeringssteget.
+3. Når signeringssteget blir startet, kaller appen opp en implementering av grensesnittet `ISigneeProvider`, som dere må implementere, for å finne ut hvem som må få tillatelse til å signere.
+4. De som skal signere får delegert de rettighetene de trenger, og de blir varslet om at de har en signeringsoppgave.
+5. Skjemaet de skal signere kommer i innboksen slik at de kan åpne det, se over informasjonen og signere.
+6. Innsenderen signerer også, hvis appen er satt opp til det, og deretter blir skjemaet sendt inn.
 
-Nedenfor følger de viktiste konfigurasjonsstegene for å få satt opp en slik applikasjon.
+**Merk:** Vi støtter ikke automatisk innsending enda.
+
+Følg trinnene under for å sette opp en slik app.
 
 ## 1. Legg til en signeringsoppgave i appens prosess, med tilhørende konfigurasjon
 
@@ -63,7 +65,25 @@ Nedenfor følger de viktiste konfigurasjonsstegene for å få satt opp en slik a
 
 {{</content-version-selector>}}
 
-## 3. Valgfritt - Legg til tekstressurser
+## 3. Valgfritt - Egendefinert validering
+
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/custom-validation.nb.md" %}}
+
+## 4. Oppgi hvem som skal signere
+
+{{<content-version-selector classes="border-box">}}
+
+{{<content-version-container version-label="Manuelt oppsett">}}
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/signee-provider.nb.md" %}}
+{{</content-version-container>}}
+
+{{<content-version-container version-label="Altinn Studio Designer">}}
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/signee-provider.nb.md" %}}
+{{</content-version-container>}}
+
+{{</content-version-selector>}}
+
+## 5. Valgfritt - Legg til tekstressurser
 
 Denne seksjonen er kun relevant for deg dersom du ønsker å endre på standardtekstene i kommunikasjon med signatarer - de 
 som skal signere.
@@ -124,27 +144,59 @@ Standardverdiene som brukes dersom kommunikasjonstekstene ikke overstyres er som
 
 {{</content-version-selector>}}
 
-## 4. Oppgi hvem som skal signere
+## 6. Valgfritt - skreddersy hvordan signatarene varsles
+
+Legg merke til at `CommunicationConfig` er valgfritt. Her kan du overstyre standardtekster brukt i kommunikasjon med signatarene,
+som beskrevet i forrige punkt. Du kan også overstyre e-post adresse og telefonnummer for signatarene. 
+
+{{% notice info %}}
+Dersom ikke overstyrt, vil en
+melding sendes til signatarenes Altinn-innboks med en lenke til den relevante applikasjons­instansen, og en notifikasjon vil bli
+sendt via e-post.
+{{% /notice %}}
+
+Om ikke overstyrt, vil e-postadressene og telefonnumrene populeres som beskrevet i [Recipient lookup](/notifications/explanation/recipient-lookup/) og [Address lookup](/notifications/explanation/address-lookup/).
+
+Dette er de mulige overstyringskonfigurasjonene for kommunikasjon med signatarer:
+
+| Property                                                      | Description                                         | Type                              |
+| ------------------------------------------------------------- | --------------------------------------------------- | --------------------------------- |
+| CommunicationConfig                                           | Objektet for kommunikasjonskonfigurasjon            | Object                            |
+| CommunicationConfig.InboxMessage                              | Objektet for innboksmeldingskonfigurasjon           | Object                            |
+| CommunicationConfig.InboxMessage.TitleTextResourceKey         | Tekstressursnøkkelen for innboksmeldingstittel      | String                            |
+| CommunicationConfig.InboxMessage.SummaryTextResourceKey       | Tekstressursnøkkelen for innboksmeldingssammendrag  | String                            |
+| CommunicationConfig.InboxMessage.BodyTextResourceKey          | Tekstressursnøkkelen for innboksmeldingsinnhold     | String                            |
+| CommunicationConfig.Notification                              | Objektet for varslingskonfigurasjon                 | Object                            |
+| CommunicationConfig.Notification.Email                        | Objektet for e-postvarselingskonfigurasjon          | Object                            |
+| CommunicationConfig.Notification.Email.EmailAddress           | Tekstressursnøkkelen for e-postadresse              | String                            |
+| CommunicationConfig.Notification.Email.SubjectTextResourceKey | Tekstressursnøkkelen for e-postemne                 | String                            |
+| CommunicationConfig.Notification.Email.BodyTextResourceKey    | Tekstressursnøkkelen for e-postinnhold              | String                            |
+| CommunicationConfig.Notification.Sms                          | Objektet for SMS-varslingskonfigurasjon             | Object                            |
+| CommunicationConfig.Notification.Sms.MobileNumber             | Tekstressursnøkkelen for mobilnummer                | String                            |
+| CommunicationConfig.Notification.Sms.BodyTextResourceKey      | Tekstressursnøkkelen for SMS-innhold                | String                            |
+| CommunicationConfig.Notification.NotificationChoice           | Varslingspreferansevalget                           | NotificationChoice enum (String)  |
 
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Manuelt oppsett">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/signee-provider.nb.md" %}}
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/communication-config.nb.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/signee-provider.nb.md" %}}
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/communication-config.nb.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}
 
-## 5. Testing
+## 6. Test brukerstyrt signering
 
-Det er caching i autorisasjonslaget som gjør at det kan ta tid før en bruker som har fått delegert tilgang til et skjema via brukerstyrt signering ser skjemaet i sin Altinn innboks.
+> **Obs!** Du kan foreløpig ikke teste i `localtest`, du må teste i TT02-miljøet.
 
-Men dette vil altså bare inntreffe for:
+Det er en forsinkelse i autorisasjonslaget. Det gjør at det kan ta tid før brukere som har fått delegert tilgang til et skjema med brukerstyrt signering, får se selve skjemaet i Altinn-innboksen.
 
-- De brukerne som er aktivt pålogget Altinn når instansdelegeringen skjer
-- Ikke allerede har annen tilgang for InstanceOwner
+Dette skjer bare for
 
-For å unngå å oppleve dette under testing kan man delegere til en person man ikke har brukt i testing den siste timen.
+- de brukerne som er aktivt pålogget Altinn når et eksemplar (instans) blir delegert
+- de som ikke allerede har annen tilgang for InstanceOwner
+
+For at du skal slippe å oppleve problemer med dette mens du tester, kan du delegere til en person du ikke har brukt i testingen den siste timen.

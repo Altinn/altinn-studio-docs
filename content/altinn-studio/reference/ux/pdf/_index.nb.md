@@ -182,6 +182,17 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
 
 ## Egendefinert konfigurasjon
 
+### Med Altinn Studio
+
+Du kan legge til et tilpasset PDF-oppsett i Studio ved å konvertere en side til PDF-oppsett i sidekonfigurasjonen:
+
+![Skjermbilde av PDF-bryteren](pdf-page-switch.png)
+
+Du kan bruke komponenten [Oppsummering]({{< ref "altinn-studio/reference/ux/components/summary2" >}} "Oppsummering"), til å angi hvilke deler av oppsettet du vil ha med i PDF-en.
+
+![Skjermbilde av en oppsummeringskomponent i en PDF-oppsett-side](pdf-summary-component.png)
+
+### Manual configuration
 {{%notice warning%}}
 
 Denne metoden er kun tilgjengelig i versjon 7.5 og høyere.
@@ -328,7 +339,7 @@ linjer i `Dockerfile`:
 
 ```Dockerfile
   # Add globalization timezone support
-  RUN apk add --no-cache icu-libs tzdata
+  RUN apk add --no-cache icu-libs icu-data-full tzdata
   ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
 ```
 
