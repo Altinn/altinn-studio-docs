@@ -29,3 +29,15 @@ part of an ongoing effort to improve the user experience and align with modern d
 ### Accordion
 
 ![Accordion before and after](accordion.png)
+
+### Dropdown
+
+![Dropdown before and after](dropdown.png)
+
+### Buttons
+
+![Buttons before and after](button.png)
+
+### Radio buttons
+
+![Radio buttons before and after](radio.png)
