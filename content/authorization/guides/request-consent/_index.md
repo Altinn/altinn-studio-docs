@@ -29,12 +29,9 @@ Nedenfor er en liste over noen av de som tilbyr samtykke løsninger vi Altinn 2 
     - [Oppdrag utenlandske virksomheter API](https://skatteetaten.github.io/api-dokumentasjon/en/api/oppdragutenlandskevirksomheter)
     - [Restanser API](https://skatteetaten.github.io/api-dokumentasjon/en/api/restanser)
 
-
 - [Lånekassen Saldo studielån](https://dokumentasjon.dsop.no/dsop_saldostudielan_om.html)
 
 Altinn tilbyr API for å kunne be om samtykke og for å kunne hente ut status på en gitt samtykkeforespørsel. 
-
-
 
 ## Be om samtykke
 
@@ -45,9 +42,10 @@ For å kunne be om samtykke må følgende oppfylles.
 - Datakonsument må ha lagt til disse scopene på sin maskinporten klient
 - Datakonsument må ha blitt gitt tilgang til å be om samtykke for en gitt ressurs / benytte seg av åpen ressurs.
 
+### API forespørsel
 
-
-Url Test: POST https://platform.tt02.altinn.no/
+Url Test: POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/
+Url Prod: POST https://platform.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/
 
 ```json
 {
@@ -89,6 +87,8 @@ Url Test: POST https://platform.tt02.altinn.no/
   "redirectUrl": "https://www.dnb.no"
 }
 ```
+
+Response
 
 ```json
 {
