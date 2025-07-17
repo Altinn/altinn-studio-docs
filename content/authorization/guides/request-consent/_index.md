@@ -1,12 +1,17 @@
 ---
 title: Samtykke for datakonsumenter
-description: Struktur på samtykkeforespørsel
+description: Hvordan benytte sammtykke for datakonsumenter
 tags: [consent]
 linktitle: Samtykke
 toc: false
 weight: 10
 ---
 
+## Begrepsliste
+
+- Datakonsument - Den virksomheten som har behov for innsyn i data for innbygger eller virksomhet
+
+## Beskrivelse
 
 En datakonsument kan be om samtykke fra innbygger og virksomheter. Det man ber om er tilgang til en viss type data.
 Disse datene er definert av noe som kalles en ressurs i Altinn som defineres av den aktøren som tilbyr API for å hente ut disse datene.
@@ -32,6 +37,15 @@ Altinn tilbyr API for å kunne be om samtykke og for å kunne hente ut status p�
 
 
 ## Be om samtykke
+
+For å kunne be om samtykke må følgende oppfylles. 
+
+- Datakonsumentet må ha registert maskinporten klient
+- Datakonsument må ha blitt delegert scope for samtykke fra Digdir
+- Datakonsument må ha lagt til disse scopene på sin maskinporten klient
+- Datakonsument må ha blitt gitt tilgang til å be om samtykke for en gitt ressurs / benytte seg av åpen ressurs.
+
+
 
 Url Test: POST https://platform.tt02.altinn.no/
 
