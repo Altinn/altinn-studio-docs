@@ -1,133 +1,83 @@
 ---
 title: Samtykke for datakonsumenter
-description: Hvordan benytte sammtykke for datakonsumenter
-tags: [consent]
+description: Hvordan bruke samtykkeløsningen for datakonsumenter i Altinn 3
 linktitle: Samtykke
 toc: false
 weight: 10
 ---
 
+## Introduksjon
+
+Denne dokumentasjonen beskriver hvordan datakonsumenter kan be om, hente ut og administrere samtykke ved hjelp av Altinn 3 sin samtykkeløsning. Samtykke gir datakonsumenter tilgang til spesifikke dataressurser for innbyggere eller virksomheter, slik definert av tilbyderen av API-et.
+
 ## Begrepsliste
 
-- Datakonsument - Den virksomheten som har behov for innsyn i data for innbygger eller virksomhet
+* **Datakonsument**: Virksomheten som etterspør innsyn i data om en innbygger eller annen virksomhet.
+* **Ressurs**: En kategori data definert av aktøren som tilbyr API-et i Altinn (f.eks. inntektsopplysninger, skattegrunnlag).
 
-## Beskrivelse
+## Tilbydere av samtykkeløsninger
 
-En datakonsument kan be om samtykke fra innbygger og virksomheter. Det man ber om er tilgang til en viss type data.
-Disse datene er definert av noe som kalles en ressurs i Altinn som defineres av den aktøren som tilbyr API for å hente ut disse datene.
+Nedenfor er noen sentrale aktører med samtykkeløsninger for Altinn 2. De fleste forventes å flytte til Altinn 3 i løpet av Q3 2025 eller Q1 2026:
 
-Det er flere aktører som tilbyr slike tjenester. 
+* **Skatteetaten**
 
-Nedenfor er en liste over noen av de som tilbyr samtykke løsninger vi Altinn 2 løsningen. Det er forventet at disse vil flytte sine løsninger til Altinn 3 i løpet av Q3 2025/ Q1 2026. 
+  * [Om samtykke](https://skatteetaten.github.io/api-dokumentasjon/en/om/samtykke)
+  * [Inntekts-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/inntekt)
+  * [Summert skattegrunnlag-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/summertskattegrunnlag)
+  * [Krav og betalinger-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/kravogbetalinger)
+  * [Arbeidsgiveravgift-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/arbeidsgiveravgift)
+  * [MVA meldingsopplysning-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/mva_meldingsopplysning)
+  * [Oppdrag utenlandske virksomheter-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/oppdragutenlandskevirksomheter)
+  * [Restanser-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/restanser)
+* **Lånekassen**
 
-- [Skatteetaten](https://skatteetaten.github.io/api-dokumentasjon/en/om/samtykke) 
-    - [Inntekts API](https://skatteetaten.github.io/api-dokumentasjon/en/api/inntekt)
-    - [Summert skattegrunnlag API](https://skatteetaten.github.io/api-dokumentasjon/en/api/summertskattegrunnlag)
-    - [Krav og betalinger API](https://skatteetaten.github.io/api-dokumentasjon/en/api/kravogbetalinger)
-    - [Arbeidsgiveravgift API](https://skatteetaten.github.io/api-dokumentasjon/en/api/arbeidsgiveravgift)
-    - [Mva meldingsopplysning API](https://skatteetaten.github.io/api-dokumentasjon/en/api/mva_meldingsopplysning)
-    - [Oppdrag utenlandske virksomheter API](https://skatteetaten.github.io/api-dokumentasjon/en/api/oppdragutenlandskevirksomheter)
-    - [Restanser API](https://skatteetaten.github.io/api-dokumentasjon/en/api/restanser)
+  * [Saldo studielån](https://dokumentasjon.dsop.no/dsop_saldostudielan_om.html)
 
-- [Lånekassen Saldo studielån](https://dokumentasjon.dsop.no/dsop_saldostudielan_om.html)
+Altinn tilbyr selv API-er for å be om samtykke og hente ut status på samtykkeforespørsler.
 
-Altinn tilbyr API for å kunne be om samtykke og for å kunne hente ut status på en gitt samtykkeforespørsel. 
+## 1. Be om samtykke
 
-## Be om samtykke
+### 1.1 Forutsetninger
 
-For å kunne be om samtykke må følgende oppfylles. 
+1. Datakonsumenten må ha registrert en Maskinporten-klient.
+2. Datakonsumenten må ha fått delegert scope for samtykke fra Digdir.
+3. De nødvendige scopene må være lagt til Maskinporten-klienten.
+4. Tilgang til å be om samtykke for gjeldende ressurs(er) må være gitt.
 
-- Datakonsumentet må ha registert maskinporten klient
-- Datakonsument må ha blitt delegert scope for samtykke fra Digdir
-- Datakonsument må ha lagt til disse scopene på sin maskinporten klient
-- Datakonsument må ha blitt gitt tilgang til å be om samtykke for en gitt ressurs / benytte seg av åpen ressurs.
+### 1.2 API-endepunkt
 
-### API forespørsel
+* **Test**: `POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/`
+* **Produksjon**: `POST https://platform.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/`
 
-Url Test: POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/
-Url Prod: POST https://platform.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/
+#### Forespørsel (eksempel)
 
 ```json
 {
   "id": "019743e8-cb17-7f9f-b690-fb1338003c23",
   "from": "urn:altinn:person:identifier-no:01025161013",
-  "requiredDelegator": null,
   "to": "urn:altinn:organization:identifier-no:810419512",
   "validTo": "2025-06-07T06:23:39.2925023+00:00",
   "consentRights": [
     {
       "action": ["read"],
-      "resource": [
-        {
-          "type": "urn:altinn:resource",
-          "value": "ttd_inntektsopplysninger"
-        }
-      ],
-      "metadata": {
-        "INNTEKTSAAR": "ADSF"
-      }
-    },
-    {
-      "action": ["read"],
-      "resource": [
-        {
-          "type": "urn:altinn:resource",
-          "value": "ttd_skattegrunnlag"
-        }
-      ],
-      "metadata": {
-        "fraOgMed": "ADSF",
-        "tilOgMed": "ADSF"
-      }
+      "resource": [{"type": "urn:altinn:resource", "value": "ttd_inntektsopplysninger"}],
+      "metadata": {"INNTEKTSAAR": "2024"}
     }
   ],
-  "requestMessage": {
-    "en": "Please approve this consent request"
-  },
+  "requestMessage": {"en": "Please approve this consent request"},
   "redirectUrl": "https://www.dnb.no"
 }
 ```
 
-Response
+#### Svar (eksempel)
 
 ```json
 {
   "id": "019743e8-cb17-7f9f-b690-fb1338003c23",
   "from": "urn:altinn:person:identifier-no:01025161013",
   "to": "urn:altinn:organization:identifier-no:810419512",
-  "requiredDelegator": null,
-  "handledBy": null,
   "validTo": "2025-06-07T06:23:39.292502+00:00",
-  "consentRights": [
-    {
-      "action": ["read"],
-      "resource": [
-        {
-          "type": "urn:altinn:resource",
-          "value": "ttd_inntektsopplysninger"
-        }
-      ],
-      "metaData": {
-        "INNTEKTSAAR": "ADSF"
-      }
-    },
-    {
-      "action": ["read"],
-      "resource": [
-        {
-          "type": "urn:altinn:resource",
-          "value": "ttd_skattegrunnlag"
-        }
-      ],
-      "metaData": {
-        "fraOgMed": "ADSF",
-        "tilOgMed": "ADSF"
-      }
-    }
-  ],
-  "requestmessage": null,
-  "consented": null,
-  "redirectUrl": "https://www.dnb.no",
+  "consentRights": [{"action": ["read"],"resource": [{"type": "urn:altinn:resource","value": "ttd_inntektsopplysninger"}],"metaData": {"INNTEKTSAAR": "2024"}}],
   "consentRequestEvents": [
     {
       "consentEventID": "019743e9-128b-74fc-bb3a-49a3997d63ff",
@@ -141,23 +91,50 @@ Response
 }
 ```
 
-## Be om samtykke for andre
+## 2. Hente samtykke-token
 
-Det er mulig å be om samtykke for andre virksomheter. F.eks i sammenhenger hvor man har en Bank som er med i et konsern og man f.eks har en fells organisasjon som gjør selve  forespørselene. 
+I Altinn 3 hentes samtykke-token som en del av Maskinporten-tokenet. Spesifiser følgende i JWT-en:
 
-Løsningen for dette er noe annerledes enn det som var løsningen i Altinn 2. For å gjøre dette i Altinn 3 krever det at virksomheten som skal opprette forspørsel for andre får delegert
-scopene fra virksomheten som skal stå som mottaker.
+```json
+{
+  "aud": "https://ver2.maskinporten.no/",
+  "scope": "<scope>",
+  "iss": "<client_id>",
+  "exp": 1584693183,
+  "iat": 1584693063,
+  "jti": "<jti>",
+  "type": "urn:altinn:consent",
+  "id": "<consent_request_id>",
+  "from": "urn:altinn:person:identifier-no:<pid>"
+}
+```
 
-F.eks Smart Bank Øst må delegere til Smart Bank IT-drift for at Smart Bank IT-drift kan opprette samtykkeforespørsler på vegne av Smart Bank Øst.
+## 3. Samtykke på vegne av andre
 
-Delegeringen av scope gjøres i tilgangststyring i Altinn under API delegering.
+For å opprette samtykkeforespørsler på vegne av andre virksomheter må scope delegeres:
 
+1. Virksomheten som skal være mottaker, delegerer nødvendige scop**e** i Altinn under API-delegering.
+2. Forespørselen opprettes som beskrevet over.
+3. Ved henting av token, oppgi i tillegg `consumer_org`:
 
-!["SCOPE delegering"](scopedelegation.jpg)
+```json
+{
+  "aud": "https://ver2.maskinporten.no/",
+  "scope": "<scope>",
+  "iss": "<client_id>",
+  "exp": 1584693183,
+  "iat": 1584693063,
+  "jti": "<jti>",
+  "type": "urn:altinn:consent",
+  "id": "<consent_request_id>",
+  "from": "urn:altinn:person:identifier-no:<pid>",
+  "consumer_org": "<kunde_orgnr>"
+}
+```
 
+![Scope-delegering i Altinn](scopedelegation.jpg)
 
-## Testimplementasjon
+## Ressurser
 
-Det er laget en testimplementasjon for å demonstrere samtykke i Altinn 3 løsningen. 
-
-Denne ligger foreløpig [her](https://github.com/TheTechArch/smartbank). 
+* [Maskinporten: API-konsument-guide](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument.html)
+* [GitHub: Testimplementasjon](https://github.com/TheTechArch/smartbank)
