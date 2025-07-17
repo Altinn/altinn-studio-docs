@@ -1,55 +1,53 @@
 ---
-title: Samtykke for datakonsumenter
-description: Hvordan bruke samtykkeløsningen for datakonsumenter i Altinn 3
-linktitle: Samtykke
+title: Consent for Data Consumers
+description: How to use the consent solution for data consumers in Altinn 3
+linktitle: Consent
 toc: false
 weight: 10
 ---
 
-## Introduksjon
+## Introduction
 
-Denne dokumentasjonen beskriver hvordan datakonsumenter kan be om, hente ut og administrere samtykke ved hjelp av Altinn 3 sin samtykkeløsning. Samtykke gir datakonsumenter tilgang til spesifikke dataressurser for innbyggere eller virksomheter, slik definert av tilbyderen av API-et.
+This documentation describes how data consumers can request, retrieve, and manage consent using Altinn 3's consent solution. Consent gives data consumers access to specific data resources for individuals or organizations, as defined by the API provider.
 
-## Begrepsliste
+## Glossary
 
-* **Datakonsument**: Virksomheten som etterspør innsyn i data om en innbygger eller annen virksomhet.
-* **Ressurs**: En kategori data definert av aktøren som tilbyr API-et i Altinn (f.eks. inntektsopplysninger, skattegrunnlag).
+* **Data Consumer**: The organization requesting access to data about an individual or another organization.
+* **Resource**: A category of data defined by the actor providing the API in Altinn (e.g., income information, tax base).
 
-## Tilbydere av samtykkeløsninger
+## Providers of Consent Solutions
 
-Nedenfor er noen sentrale aktører med samtykkeløsninger for Altinn 2. De fleste forventes å flytte til Altinn 3 i løpet av Q3 2025 eller Q1 2026:
+Below are some key actors with consent solutions for Altinn 2. Most are expected to migrate to Altinn 3 during Q3 2025 or Q1 2026:
 
-* **Skatteetaten**
+* **Skatteetaten (Norwegian Tax Administration)**
+  * [About Consent](https://skatteetaten.github.io/api-dokumentasjon/en/om/samtykke)
+  * [Income API](https://skatteetaten.github.io/api-dokumentasjon/en/api/inntekt)
+  * [Summed Tax Base API](https://skatteetaten.github.io/api-dokumentasjon/en/api/summertskattegrunnlag)
+  * [Claims and Payments API](https://skatteetaten.github.io/api-dokumentasjon/en/api/kravogbetalinger)
+  * [Employer's National Insurance Contribution API](https://skatteetaten.github.io/api-dokumentasjon/en/api/arbeidsgiveravgift)
+  * [VAT Reporting Information API](https://skatteetaten.github.io/api-dokumentasjon/en/api/mva_meldingsopplysning)
+  * [Foreign Companies Assignments API](https://skatteetaten.github.io/api-dokumentasjon/en/api/oppdragutenlandskevirksomheter)
+  * [Outstanding Claims API](https://skatteetaten.github.io/api-dokumentasjon/en/api/restanser)
+* **Lånekassen (Norwegian State Educational Loan Fund)**
+  * [Student Loan Balance](https://dokumentasjon.dsop.no/dsop_saldostudielan_om.html)
 
-  * [Om samtykke](https://skatteetaten.github.io/api-dokumentasjon/en/om/samtykke)
-  * [Inntekts-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/inntekt)
-  * [Summert skattegrunnlag-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/summertskattegrunnlag)
-  * [Krav og betalinger-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/kravogbetalinger)
-  * [Arbeidsgiveravgift-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/arbeidsgiveravgift)
-  * [MVA meldingsopplysning-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/mva_meldingsopplysning)
-  * [Oppdrag utenlandske virksomheter-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/oppdragutenlandskevirksomheter)
-  * [Restanser-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/restanser)
-* **Lånekassen**
+Altinn itself offers APIs for requesting consent and retrieving the status of consent requests.
 
-  * [Saldo studielån](https://dokumentasjon.dsop.no/dsop_saldostudielan_om.html)
+## 1. Request Consent
 
-Altinn tilbyr selv API-er for å be om samtykke og hente ut status på samtykkeforespørsler.
+### 1.1 Prerequisites
 
-## 1. Be om samtykke
+1. The data consumer must have a registered Maskinporten client.
+2. The data consumer must have been delegated the consent scope from Digdir.
+3. The necessary scopes must be added to the Maskinporten client.
+4. Access to request consent for the relevant resource(s) must be granted.
 
-### 1.1 Forutsetninger
-
-1. Datakonsumenten må ha registrert en Maskinporten-klient.
-2. Datakonsumenten må ha fått delegert scope for samtykke fra Digdir.
-3. De nødvendige scopene må være lagt til Maskinporten-klienten.
-4. Tilgang til å be om samtykke for gjeldende ressurs(er) må være gitt.
-
-### 1.2 API-endepunkt
+### 1.2 API Endpoint
 
 * **Test**: `POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/`
-* **Produksjon**: `POST https://platform.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/`
+* **Production**: `POST https://platform.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/`
 
-#### Forespørsel (eksempel)
+#### Request (example)
 
 ```json
 {
@@ -69,7 +67,7 @@ Altinn tilbyr selv API-er for å be om samtykke og hente ut status på samtykkef
 }
 ```
 
-#### Svar (eksempel)
+#### Response (example)
 
 ```json
 {
@@ -91,9 +89,9 @@ Altinn tilbyr selv API-er for å be om samtykke og hente ut status på samtykkef
 }
 ```
 
-## 2. Hente samtykke-token
+## 2. Retrieve Consent Token
 
-I Altinn 3 hentes samtykke-token som en del av Maskinporten-tokenet. Spesifiser følgende i JWT-en:
+In Altinn 3, the consent token is retrieved as part of the Maskinporten token. Specify the following in the JWT:
 
 ```json
 {
@@ -109,13 +107,13 @@ I Altinn 3 hentes samtykke-token som en del av Maskinporten-tokenet. Spesifiser 
 }
 ```
 
-## 3. Samtykke på vegne av andre
+## 3. Consent on Behalf of Others
 
-For å opprette samtykkeforespørsler på vegne av andre virksomheter må scope delegeres:
+To create consent requests on behalf of other organizations, the scope must be delegated:
 
-1. Virksomheten som skal være mottaker, delegerer nødvendige scop**e** i Altinn under API-delegering.
-2. Forespørselen opprettes som beskrevet over.
-3. Ved henting av token, oppgi i tillegg `consumer_org`:
+1. The organization that will be the recipient delegates the necessary scope(s) in Altinn under API delegation.
+2. The request is created as described above.
+3. When retrieving the token, also specify `consumer_org`:
 
 ```json
 {
@@ -128,13 +126,13 @@ For å opprette samtykkeforespørsler på vegne av andre virksomheter må scope 
   "type": "urn:altinn:consent",
   "id": "<consent_request_id>",
   "from": "urn:altinn:person:identifier-no:<pid>",
-  "consumer_org": "<kunde_orgnr>"
+  "consumer_org": "<customer_orgnr>"
 }
 ```
 
-![Scope-delegering i Altinn](scopedelegation.jpg)
+![Scope delegation in Altinn](scopedelegation.jpg)
 
-## Ressurser
+## Resources
 
-* [Maskinporten: API-konsument-guide](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument.html)
-* [GitHub: Testimplementasjon](https://github.com/TheTechArch/smartbank)
+* [Maskinporten: API Consumer Guide](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument.html)
+* [GitHub: Test Implementation](https://github.com/TheTechArch/smartbank)
