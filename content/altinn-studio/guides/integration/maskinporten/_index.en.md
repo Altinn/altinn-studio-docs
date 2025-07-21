@@ -35,7 +35,8 @@ When access to creating secrets in Azure Key Vault is confirmed, please proceed 
 
 {{% expandlarge id="guide-mp-int-samarbeid" header="Guide on how to register a new Maskinporten integration in Samarbeidsportalen" %}}
 
-{{% insert "/content/altinn-studio/guides/shared/maskinporten-integration/maskinporten-integration-samarbeidsportal.md" %}}
+{{% insert "content/shared/maskinporten/maskinporten-client-create.en.md" %}}
+
 {{% /expandlarge %}}
 
 ## Azure Key Vault Configuration
