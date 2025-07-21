@@ -63,6 +63,10 @@ Bruk ID-en til ressursen du opprettet i trinn 3, og kall API-operasjonen for å 
 
  For detaljerte instruksjoner om hvordan du konfigurerer ressursen i Formidling, følg [denne lenken](../developer-guides/service-owner/#operation-configure-resource-in-broker-api), som gir deg all nødvendig informasjon for å fullføre konfigurasjonen og sikre at ressursen din er riktig satt opp i formidlingstjenesten.
 
+## 6. Configure system
+
+Systembruker er den typiske autentiseringsmetoden man bruker for formidlingstjenesten.  [Se systembrukerdokumentasjon for hvordan dette settes opp](../../../../authorization/guides/system-vendor/system-user/).
+
 ## Hvordan migrere fra Altinn 2 til Altinn 3 {#how-to-migrate-from-Altinn-2-to-Altinn-3}
 
 Hvis du har en eksisterende løsning i Altinn 2 du ønsker å migrere, kan du enten opprette en ny uavhengig Altinn Formidlingstjeneste i Altinn 3, eller bruke overgangsløsningen, [beskrevet her](../../broker-transition/).
