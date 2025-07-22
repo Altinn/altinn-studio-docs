@@ -14,7 +14,7 @@ weight: 100
 You can now use your client with your key to retrieve Maskinporten tokens. 
 A detailed description on how to authenticate your client with JWT Grant is described [here](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument).
 
-This Maskinporten token can be exchanged into an altinn token. [This is described here](https://docs.altinn.studio/authentication/what-do-you-get/).
+This Maskinporten token can be exchanged into an altinn token. [This is described here](/authentication/what-do-you-get/).
 
 An altinn token is needed to authenticate against Altinn API (Such as the Correspondence API). This is given that your client has the required scopes and that you have a resource where your organisation has been given the permission to those scopes.
 

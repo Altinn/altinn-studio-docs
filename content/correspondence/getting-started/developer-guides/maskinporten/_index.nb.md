@@ -14,7 +14,7 @@ weight: 100
 Du kan nå bruke din klient med din nøkkel for å hente Maskinporten tokens.
 En detaljert beskrivelse av hvordan du autentiserer din klient med JWT Grant er beskrevet [her](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument).
 
-Et Maskinporten token kan byttes mot et Altinn-token. [Dette er beskrevet her](https://docs.altinn.studio//authentication/what-do-you-get/).
+Et Maskinporten token kan byttes mot et Altinn-token. [Dette er beskrevet her](/nb/authentication/what-do-you-get/).
 
 Et Altinn-token er nødvendig for å autentisere mot Altinn API (som f.eks Correspondence API). Autentiseringen mot Altinn API krever også at du har de nødvendige scopes på klienten og at du bruker en ressurs hvor din organisasjon har tillatelse til disse scopesene.
 
