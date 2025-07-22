@@ -132,7 +132,7 @@ public class Example(IMaskinportenClient maskinportenClient) : IProcessTaskEnd
 
 Lastly, we need to add the Azure Key Vault configuration provider to our host. This is done by adding the highlighted code _after_ the `ConfigureWebHostBuilder` method.
 
-{{< highlight csharp "linenos=false,hl_lines=4-9" >}}
+{{< highlight csharp "linenos=false,hl_lines=6-9" >}}
 //...
 
 ConfigureWebHostBuilder(IWebHostBuilder builder);
@@ -146,7 +146,7 @@ if (!builder.Environment.IsDevelopment())
 
 ## Legacy Compatibility
 
-{{% expandlarge header="Show details" %}}
+{{% expandlarge id="legacy-compatibility" header="Show details" %}}
 
 ### IMaskinportenTokenProvider
 Certain legacy services require an implementation of `IMaskinportenTokenProvider` to retrieve access tokens. The `MaskinportenClient` will automatically register this service if it has not already been supplied elsewhere.
@@ -166,7 +166,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
   // ...
 
   var legacySettings =
-    config.GetSection("Path-To-MaskinportenSettings").Get<LegacyMaskinportenSettings>()
+    config.GetSection("Maskinporten-Config-Path").Get<LegacyMaskinportenSettings>()
     ?? throw new MaskinportenConfigurationException("Maskinporten settings not found in config.");
 
   services.ConfigureMaskinportenClient(options =>
@@ -191,7 +191,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 ## Migration Paths
 
-{{% expandlarge header="Show details" %}}
+{{% expandlarge id="migration-paths" header="Show details" %}}
 
 In this section you will find couple of brief examples of how to migrate your configuration from the [standalone Maskinporten client](https://github.com/Altinn/altinn-apiclient-maskinporten) to the built-in one.
 
