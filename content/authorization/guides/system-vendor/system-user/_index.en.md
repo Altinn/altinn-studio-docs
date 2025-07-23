@@ -17,7 +17,7 @@ aliases:
    - SmartCloud AS wants to integrates the system user into their accounting software, SmartCloud.
    - To integrate, they must create a client in Maskinporten for system SmartCloud, which gets a client ID that will be used for authentication and authorization.
    - On the [Collaboration Portal](https://samarbeid.digdir.no/altinn/kom-i-gang-i-testmiljoet-tt02/2868), you can read more about the steps that must be completed before you can begin integration and testing against our test environment (TT02).
-   - Refer the guide for establishing machineporten integration [Machineporten as consumer](https://samarbeid.digdir.no/maskinporten/konsument/119)
+   - Refer the guide for establishing Maskinporten integration [Maskinporten as consumer](https://samarbeid.digdir.no/maskinporten/konsument/119)
    - To consume public APIs with system users, you need to register at least one MaskinPorten integration. This can be done in the [collaboration portal](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web#opprette-klient-for-%C3%A5-konsumere-api) or via [API](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_api#registrere-klient).
 3. Delegated access to the scope for registering a system in the system register: `altinn:authentication/systemregister.write`
 

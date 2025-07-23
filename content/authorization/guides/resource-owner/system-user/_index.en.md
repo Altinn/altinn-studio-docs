@@ -33,7 +33,7 @@ To use system user as an API-provider, the following prerequisites must be fulfi
 
 ## Validation of Maskinporten token
 
-The token itself is validated as a standardized Maskinporten token. [Read more at Machineporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apitilbyder).
+The token itself is validated as a standardized Maskinporten token. [Read more at Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apitilbyder).
 
 A system user token contains quite a few more details than a regular Maskinporten token.
 
@@ -78,7 +78,7 @@ Values that are important for an API provider are
 | authorization_details:system_id         | Reference to the system that the system user points to.                                                                                            |
 | Consumer:id                             | Organization number of the system provider (organization that has authenticated itself against Maskinporten)                                       |
 
-See also the documentation for system user at [Machineporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker).
+See also the documentation for system user at [Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker).
 
 ## Authorization of System User
 

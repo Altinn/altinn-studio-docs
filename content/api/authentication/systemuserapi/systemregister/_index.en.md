@@ -10,8 +10,8 @@ The system register api provides api mehtods for the vendor to manage the system
 
 ## Security Scheme
 Bearer authentication scheme is used to authenticate the system vendor.
-System register api requires that the system vendor authenticates with a bearer token which is a machineporten token with specific scope.
-To get a machineporten token, the vendor must first establish a client in machineporten. You can follow the steps in this [link](https://docs.altinn.studio/authentication/getting-started/maskinportenclient/) to setup a machineporten client.
+System register api requires that the system vendor authenticates with a bearer token which is a Maskinporten token with specific scope.
+To get a Maskinporten token, the vendor must first establish a client in Maskinporten. You can follow the steps in this [link](https://docs.altinn.studio/authentication/getting-started/maskinportenclient/) to setup a Maskinporten client.
 
 ## API Methods
 
