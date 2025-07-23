@@ -146,7 +146,7 @@ if (!builder.Environment.IsDevelopment())
 
 ## Legacy Compatibility
 
-{{% expandlarge id="legacy-compatibility" header="Show details" %}}
+{{% expandlarge id="legacy-compatibility-expander" header="Show details" %}}
 
 ### IMaskinportenTokenProvider
 Certain legacy services require an implementation of `IMaskinportenTokenProvider` to retrieve access tokens. The `MaskinportenClient` will automatically register this service if it has not already been supplied elsewhere.
@@ -191,7 +191,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 ## Migration Paths
 
-{{% expandlarge id="migration-paths" header="Show details" %}}
+{{% expandlarge id="migration-paths-expander" header="Show details" %}}
 
 In this section you will find couple of brief examples of how to migrate your configuration from the [standalone Maskinporten client](https://github.com/Altinn/altinn-apiclient-maskinporten) to the built-in one.
 
