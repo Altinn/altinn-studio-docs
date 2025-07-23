@@ -591,7 +591,10 @@ input[type="search"] {
 
 /* Ordered list fix for list items containing block elements */
 .floating-bullet-numbers li::before {
-float: left;
+    float: left;
+}
+.floating-bullet-numbers-sibling-ol + ol>li::before {
+    float: left;
 }
 
 /* Customisations for integration/correspondence */
