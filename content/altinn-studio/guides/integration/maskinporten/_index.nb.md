@@ -104,10 +104,10 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
     // ...
 
     // For eksterne API-er som krever rå Maskinporten-tokens
-    services.AddHttpClient<YourCustomClient>().UseMaskinportenAuthorisation("scope:1", "scope:2");
+    services.AddHttpClient<YourCustomClient>().UseMaskinportenAuthorization("scope:1", "scope:2");
     
     // For Altinn API-er som krever Altinn-tokens (veksler Maskinporten-token)
-    services.AddHttpClient<YourCustomClient2>().UseMaskinportenAltinnAuthorisation("scope:1", "scope:2");
+    services.AddHttpClient<YourCustomClient2>().UseMaskinportenAltinnAuthorization("scope:1", "scope:2");
 }
 {{< / highlight >}}
 

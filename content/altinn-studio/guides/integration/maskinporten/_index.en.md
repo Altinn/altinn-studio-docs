@@ -103,12 +103,12 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
   // ...
 
   // For external APIs that require raw Maskinporten tokens
-  services.AddHttpClient<CustomClient1>().UseMaskinportenAuthorisation("scope:1", "scope:2");
-  services.AddHttpClient("named-client1").UseMaskinportenAuthorisation("scope:1", "scope:2");
+  services.AddHttpClient<CustomClient1>().UseMaskinportenAuthorization("scope:1", "scope:2");
+  services.AddHttpClient("named-client1").UseMaskinportenAuthorization("scope:1", "scope:2");
 
   // For Altinn APIs that require Altinn tokens (exchanges Maskinporten token)
-  services.AddHttpClient<CustomClient2>().UseMaskinportenAltinnAuthorisation("scope:1", "scope:2");
-  services.AddHttpClient("named-client2").UseMaskinportenAltinnAuthorisation("scope:1", "scope:2");
+  services.AddHttpClient<CustomClient2>().UseMaskinportenAltinnAuthorization("scope:1", "scope:2");
+  services.AddHttpClient("named-client2").UseMaskinportenAltinnAuthorization("scope:1", "scope:2");
 }
 {{< / highlight >}}
 
@@ -219,7 +219,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
   services.ConfigureMaskinportenClient("Maskinporten-Config-Path");
   services
     .AddHttpClient<IEventsSubscription, EventsSubscriptionClient>()
-    .UseMaskinportenAltinnAuthorisation("altinn:serviceowner/instances.read");
+    .UseMaskinportenAltinnAuthorization("altinn:serviceowner/instances.read");
 }
 {{< / highlight >}}
 
@@ -251,7 +251,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
   services.ConfigureMaskinportenClient("Maskinporten-Config-Path");
   services
     .AddDanClient(config.GetSection("Dan-Config-Path"))
-    .UseMaskinportenAuthorisation("altinn:dataaltinnno");
+    .UseMaskinportenAuthorization("altinn:dataaltinnno");
 }
 {{< / highlight >}}
 
