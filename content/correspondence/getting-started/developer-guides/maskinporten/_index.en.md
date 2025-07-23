@@ -1,7 +1,7 @@
 ---
 title: Maskinporten Client
 linktitle: Maskinporten Client
-description: How to set up a Maskinporten client in selvbetjeningsportalen
+description: How to set up a Maskinporten client in the self-service portal
 tags: [Correspondence, guide, maskinporten]
 toc: true
 weight: 100

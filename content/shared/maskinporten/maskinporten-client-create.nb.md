@@ -3,11 +3,10 @@ headless: true
 hidden: true
 ---
 
-Maskinporten klienter opprettes i selvbetjeningsportalen.
-
-For produksjonsmiljøet opprettes klienter fra: https://sjolvbetjening.samarbeid.digdir.no.
-
-For testmiljøet opprettes klienter fra: https://sjolvbetjening.test.samarbeid.digdir.no.
+Maskinporten klienter opprettes i Selvbetjeningsportalen:
+- For produksjonsmiljøet opprettes klienter fra: https://sjolvbetjening.samarbeid.digdir.no.
+- For testmiljøet opprettes klienter fra: https://sjolvbetjening.test.samarbeid.digdir.no.
+{.mb-3}
 
 1. Start med å logge inn på din konto med din valgte metode.
 2. Når du er logget inn på din konto, vises organisasjonen du representerer i toppmenyen til høyre.
