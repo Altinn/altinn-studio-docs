@@ -57,9 +57,9 @@ When preparing the application to use secrets from Azure Key Vault, there are so
      }
    }
    ```
-   
+
    The secrets in Azure Key Vault should have names like this:
-   
+
    ```
    MaskinportenSettings--Authority
    MaskinportenSettings--ClientId
@@ -152,7 +152,7 @@ if (!builder.Environment.IsDevelopment())
 Certain legacy services require an implementation of `IMaskinportenTokenProvider` to retrieve access tokens. The `MaskinportenClient` will automatically register this service if it has not already been supplied elsewhere.
 
 ### Altinn.ApiClients.Maskinporten
-If you need to support existing usage of the [standalone Maskinporten client](https://github.com/Altinn/altinn-apiclient-maskinporten), while simultaneously wanting to use the built-in client for new features, it usually makes sense to leverage a single [Key Vault configuration](#key-vault-configuration).
+If you need to support existing usage of the [standalone Maskinporten client](https://github.com/Altinn/altinn-apiclient-maskinporten), while simultaneously wanting to use the built-in client for new features, it usually makes sense to leverage a single [Azure Key Vault configuration](#azure-key-vault-configuration).
 
 The example below illustrates how to map an `Altinn.ApiClients.Maskinporten.Config.MaskinportenSettings` object to the format required by the built-in client.
 
@@ -178,7 +178,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
       "prod" => "https://maskinporten.no/",
       "test" => "https://test.maskinporten.no/",
       "dev" => "https://maskinporten.dev/",
-      _ => throw new ArgumentException($"Unknown Maskinporten environment value {legacySettings.Environment}")
+      _ => throw new MaskinportenConfigurationException($"Unknown Maskinporten environment value {legacySettings.Environment}")
     };
   });
   
@@ -193,7 +193,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 {{% expandlarge id="migration-paths-expander" header="Show details" %}}
 
-In this section you will find couple of brief examples of how to migrate your configuration from the [standalone Maskinporten client](https://github.com/Altinn/altinn-apiclient-maskinporten) to the built-in one.
+In this section you will find couple of brief examples of how to migrate your existing configuration from the [standalone Maskinporten client](https://github.com/Altinn/altinn-apiclient-maskinporten) to the built-in one.
 
 ### Use of AddMaskinportenHttpClient
 The following example shows how an `EventSubscriptionClient` has traditionally been configured, and how you can achieve the same result using the built-in Maskinporten client.
