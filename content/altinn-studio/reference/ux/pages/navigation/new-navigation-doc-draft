@@ -85,7 +85,7 @@ Du kan gruppere sider og vise dem i en sidemeny som alternativ til tradisjonell 
 | markWhenCompleted | Valgfri. Markerer sider som ferdig utfylt når alle valideringsfeil er rettet og brukeren har sett siden |
 | order | Hvilke sider som inngår i gruppen |
 
-# Vise arbeidsflyt og oppgaver i navigasjonsmenyen
+## Vise arbeidsflyt og oppgaver i navigasjonsmenyen
 
 ## Vise arbeidsflyten ved å definere det i koden
 Du kan vise hele arbeidsflyten i navigasjonsmenyen på to måter. I koden gjør du det slik:
