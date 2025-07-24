@@ -103,7 +103,7 @@ Note that an Altinn Token should be included in the authorization header.
 
 ```bash
 curl \
---location 'https://plaform.altinn.no/events/api/v1/events' \
+--location 'https://platform.altinn.no/events/api/v1/events' \
 --header 'Content-Type: application/cloudevents+json' \
 --header 'Authorization: Bearer {insert Altinn token}' \
 --data '{

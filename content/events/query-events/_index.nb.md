@@ -1,6 +1,6 @@
 ---
-title: Spørr etter hendelser
-linktitle: Spørr etter hendelser
+title: Spør etter hendelser
+linktitle: Spør etter hendelser
 description: Dokumentasjon for å spørre etter hendelser fra API
 weight: 20
 ---
