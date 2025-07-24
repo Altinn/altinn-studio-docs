@@ -18,6 +18,4 @@ Dette Maskinporten-tokenet kan byttes mot et Altinn-token for bruk i Altinn sitt
 
 Et Altinn-token er nødvendig for å autentisere mot Altinn API-er (som f.eks. Correspondence API), forutsatt at klienten din har tilgang til de nødvendige scopene for det aktuelle API-et.
 
-I konteksten av en [Altinn Studio](/altinn-studio) app er integrasjon med Maskinporten tilgjengelig via den innebygde autentiseringsklienten. Følg ganske enkelt [brukerveiledningen](/altinn-studio/guides/integration/maskinporten) for å komme i gang.
-
-For andre _.Net_ apper kan du bruke dette [frittstående biblioteket](https://github.com/Altinn/altinn-apiclient-maskinporten) for å håndtere autentisering. Biblioteket tilbyr extension methods for å konfigurere HttpClients til å autentisere med Maskinporten basert på din oppgitte konfigurasjon.
+{{% insert "content/shared/maskinporten/maskinporten-authentication-methods.nb.md" %}}
