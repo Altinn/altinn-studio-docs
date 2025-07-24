@@ -47,11 +47,11 @@ Resource-parameteren må være et eksakt samsvar med ressursen på hendelsen.
 f.eks. _urn:altinn:resource:app_ttd_apps-test_
 
 ### subject
-- valgfri streng-egenskap som vanligvis identifiserer entiteten en sky-hendelse er relatert til. [Cloud Events-spesifikasjon](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#subject)
+- valgfri streng-egenskap som vanligvis identifiserer entiteten en Cloud Event er relatert til. [Cloud Events-spesifikasjon](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#subject)
 
 
 ### Altinn-AlternativeSubject (header)
-- alternativt subject for sky-hendelsene, type: string
+- alternativt subject for Cloud Events, type: string
 
 ### type
 - hendelsestypene som skal inkluderes, type: array[string]

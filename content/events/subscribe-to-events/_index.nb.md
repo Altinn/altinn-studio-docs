@@ -54,21 +54,21 @@ __Produksjon__: 20.100.46.139/32
 ### Leveringsplan med gjentakelser
 
 Abonnementsvalidering og push av hendelser til registrerte webhooks gjentas hvis forespørselen til 
-webhook feiler (Http status != 200). Cloud event-en vil bli forsøkt sendt opptil 12 ganger i henhold til planen nedenfor. 
+webhook feiler (Http status != 200). Cloud Event vil bli forsøkt sendt opptil 12 ganger i henhold til planen nedenfor. 
 
-Hvis det feiler på det 12. forsøket, plasseres cloud event-en i en dead letter-kø og vil ikke bli forsøkt på nytt.
+Hvis det feiler på det 12. forsøket, plasseres Cloud Event i en dead letter-kø og vil ikke bli forsøkt på nytt.
 
-- nytt forsøk etter 10 sekunder
-- nytt forsøk etter 30 sekunder
-- nytt forsøk etter 1 minutt
-- nytt forsøk etter 5 minutter
-- nytt forsøk etter 10 minutter
-- nytt forsøk etter 30 minutter
-- nytt forsøk etter 1 time
-- nytt forsøk etter 3 timer
-- nytt forsøk etter 6 timer
-- nytt forsøk etter 12 timer
-- nytt forsøk etter 12 timer
+- andre forsøk etter 10 sekunder
+- tredje forsøk etter 30 sekunder
+- fjerde forsøk etter 1 minutt
+- femte forsøk etter 5 minutter
+- sjette forsøk etter 10 minutter
+- sjuende forsøk etter 30 minutter
+- åttende forsøk etter 1 time
+- niende forsøk etter 3 timer
+- tiende forsøk etter 6 timer
+- ellevte forsøk etter 12 timer
+- tolvte forsøk etter 12 timer
 
 
 {{<children />}}

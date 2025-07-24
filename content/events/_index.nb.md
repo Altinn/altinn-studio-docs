@@ -59,7 +59,7 @@ Se ovenfor om pub/sub om leveranser i feil rekkefølge. Det arbeides med å løs
 
 #### Hendelser er ikke garantert å bli levert.
 
-Push-hendelser har en fast plan for leveringsforsøk og backoff-timinger, før de går inn i en "dead letter"-tilstand (se [leveringsplan med gjentakelser](subscribe-to-events/#leveringsplan-med-gjentakelser)).
+Push-hendelser har en fast plan for leveringsforsøk og backoff-timinger, før de går inn i en dead letter-kø (se [leveringsplan med gjentakelser](subscribe-to-events/#leveringsplan-med-gjentakelser)).
 
 Hendelser utløper etter 90 dager uavhengig av leveringsstatus (se [publiser hendelser](publish-events/)).
 

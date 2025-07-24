@@ -35,20 +35,20 @@ Se [Autentisering og autorisasjon](../../../api/#authentication--authorization) 
 application/json
 
 
-### Forespørselskropp
-Forespørselskroppen skal inneholde sky-hendelsen formatert som en
+### Request body
+Request body skal inneholde Cloud Event formatert som en
 [AppCloudEventRequestModel](https://github.com/Altinn/altinn-events/blob/main/src/Events/Models/AppCloudEventRequestModel.cs)
 og serialisert som en JSON-streng.
 
-Events vil håndtere å sette ID og tid på sky-hendelsen.
+Events vil håndtere å sette ID og tid på Cloud Event.
 
-### Påkrevde sky-hendelsesegenskaper og utvidelsesattributter
+### Påkrevde Cloud Event-egenskaper og utvidelsesattributter
 
 #### type
-- hendelsestype for sky-hendelsen, type: string
+- hendelsestype for Cloud Event, type: string
 
 #### source
-- hendelseskilde for sky-hendelsen, type: URI
+- hendelseskilde for Cloud Event, type: URI
 
 #### subject
 - party ID for instanceOwner, type: string
@@ -57,9 +57,9 @@ Events vil håndtere å sette ID og tid på sky-hendelsen.
 Format på subject-strengen: _/party/{partyId}_
 
 #### specversion
-- sky-hendelsens spesifikasjonsversjon, type: string
+- Cloud Events spesifikasjonsversjon, type: string
 
-### Valgfrie sky-hendelsesegenskaper og utvidelsesattributter
+### Valgfrie Cloud Event-egenskaper og utvidelsesattributter
 {{% notice info %}}
 I tillegg til egenskapene angitt nedenfor, vil alle egenskaper definert i
 [AppCloudEventRequestModel](https://github.com/Altinn/altinn-events/blob/main/src/Events/Models/AppCloudEventRequestModel.cs)
@@ -79,13 +79,13 @@ og `/organisation/987564321`.
 
 
 ## Respons
-En vellykket registrering av sky-hendelsen skal resultere i en _200 OK_-respons uten data.
+En vellykket registrering av Cloud Event skal resultere i en _200 OK_-respons uten data.
 
 ### Content-Type
 - application/json
 
 ### Responskoder
-- 201 Created: Sky-hendelsen ble registrert vellykket
+- 201 Created: Cloud Event ble registrert vellykket
 - 400 Bad Request: Forespørselen var ugyldig.
 
   Se problemdetaljer i responskroppen for mer informasjon.
@@ -116,7 +116,7 @@ curl \
 ### Respons
 
 #### 200 OK
-Responsen inneholder ID-en for sky-hendelsen.
+Responsen inneholder ID-en for Cloud Event.
 
 ```json
 "4815d141-8cf6-4555-8c3c-e069c7b80c79"

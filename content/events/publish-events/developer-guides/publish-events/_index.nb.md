@@ -37,31 +37,31 @@ Se [Autentisering og autorisasjon](../../../api/#authentication--authorization) 
 application/cloudevents+json
 
 
-### Forespørselskropp
-Forespørselskroppen skal inneholde sky-hendelsen serialisert som en JSON-streng.
+### Request body
+Request body skal inneholde Cloud Event serialisert som en JSON-streng.
 
-### Påkrevde sky-hendelsesegenskaper og utvidelsesattributter
+### Påkrevde Cloud Event-egenskaper og utvidelsesattributter
 
 ####  id
-- ID for sky-hendelsen, type: string
+- ID for Cloud Event, type: string
 
 #### type
-- hendelsestype for sky-hendelsen, type: string
+- hendelsestype for Cloud Event, type: string
 
 #### source
-- hendelseskilde for sky-hendelsen, type: URI
+- hendelseskilde for Cloud Event, type: URI
 
 #### resource
-- ID for ressursen som sky-hendelsen relaterer til, type: string
+- ID for ressursen som Cloud Event relaterer til, type: string
 
-Ressursen må være registrert i Altinn Ressursregister _før_ sky-hendelser publiseres.
+Ressursen må være registrert i Altinn Ressursregister _før_ Cloud Events publiseres.
 Format på resource-egenskapen: _urn:altinn:resource:[prop1].[prop2]_
 
-### Valgfrie sky-hendelsesegenskaper og utvidelsesattributter
+### Valgfrie Cloud Event-egenskaper og utvidelsesattributter
 {{% notice info %}}
 I tillegg til egenskapene angitt nedenfor, vil alle egenskaper definert i
 [Cloud Event v1.0.2](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md)-spesifikasjonen
-så vel som egendefinerte utvidelsesattributter definert på sky-hendelsen bli akseptert.
+så vel som egendefinerte utvidelsesattributter definert på Cloud Event bli akseptert.
 {{% /notice %}}
 
 #### resourceinstance
@@ -80,14 +80,14 @@ og `/organisation/987564321`.
 
 
 ## Respons
-En vellykket registrering av sky-hendelsen skal resultere i en _200 OK_-respons uten data.
+En vellykket registrering av Cloud Event skal resultere i en _200 OK_-respons uten data.
 
 ### Content-Type
 - application/cloudevents+json
 - application/json
 
 ### Responskoder
-- 200 OK: Sky-hendelsen ble registrert vellykket
+- 200 OK: Cloud Event ble registrert vellykket
 - 400 Bad Request: Forespørselen var ugyldig.
 
   Se problemdetaljer i responskroppen for mer informasjon.
@@ -98,7 +98,7 @@ En vellykket registrering av sky-hendelsen skal resultere i en _200 OK_-respons 
 
 ### Forespørsel
 
-Forespørselskropp for en sky-hendelse relatert til ressursen _urn:altinn:resource:dodsbo.domstoladmin.api_.
+Request body for en Cloud Event relatert til ressursen _urn:altinn:resource:dodsbo.domstoladmin.api_.
 Merk at et Altinn Token skal inkluderes i autorisasjonsheaderen.
 
 ```bash

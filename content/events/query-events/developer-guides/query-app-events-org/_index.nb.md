@@ -39,23 +39,23 @@ Se [Autentisering og autorisasjon](../../../api/#authentication--authorization) 
 Resultatsettet vil inkludere hendelser registrert etter den oppgitte hendelses-ID-en i kronologisk rekkefølge
 
 #### from
-- nedre grense for når sky-hendelsen ble registrert i UTC, type: string(date-time)
+- nedre grense for når Cloud Event ble registrert i UTC, type: string(date-time)
 
 Akseptert format er  `2023-02-16T18:00Z`
 
 #### to
-- øvre grense for når sky-hendelsen ble registrert i UTC, type: string(date-time)
+- øvre grense for når Cloud Event ble registrert i UTC, type: string(date-time)
 
 Akseptert format er  `2023-02-16T18:00Z`
 
 #### party
-- part-ID som representerer subjektet i sky-hendelsen
+- part-ID som representerer subjektet i Cloud Event
 
 #### unit
-- organisasjonsnummeret som representerer enheten i sky-hendelsens alternative subject
+- organisasjonsnummeret som representerer enheten i Cloud Events alternative subject
 
 #### person (header)
-- personnummeret som representerer personen i sky-hendelsens alternative subject
+- personnummeret som representerer personen i Cloud Events alternative subject
 
 #### type
 - hendelsestypene som skal inkluderes, type: array[string]
