@@ -32,7 +32,7 @@ Du legger inn navigasjonsknappene i alle layout-filer der det er behov. Ønsker 
 | textResourceBindings | Lar deg overstyre standardtekstene på knappene med egne tekster |
 | showBackButton | Valgfri. Viser både tilbake- og neste-knapp i stedet for bare neste-knapp |
 
-# Vise en sidemeny med rekkefølgen på sider/oppgaver
+## Vise en sidemeny med rekkefølgen på sider/oppgaver
 
 I koden definerer du rekkefølgen på sidene i `Settings.json` for layout-settet:
 
