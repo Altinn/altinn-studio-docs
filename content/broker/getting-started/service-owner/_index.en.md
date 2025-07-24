@@ -57,6 +57,10 @@ Now to configure the specific Broker configuration for the Resource.
 
 Using the ID of the resource you created in step 3, call the API operation to [configure resource](../developer-guides/service-owner/#operation-configure-resource-in-broker-api).
 
+## 6. Configure system
+
+Systemuser is the typical authentication method used with the Broker service. [Consult the systemuser documentation for how to set this up](../../../../authorization/guides/system-vendor/system-user/).
+
 ## How to migrate from Altinn 2 to Altinn 3 {#how-to-migrate-from-Altinn-2-to-Altinn-3}
 
 If you have an existing solution in Altinn 2 you wish to migrate, you can either create a new independent Altinn Broker service in Altinn 3, or use the transition solution, [described here](../../broker-transition/).
