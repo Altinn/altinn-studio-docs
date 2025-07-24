@@ -1,6 +1,6 @@
 ---
-title: Maskinporten-klient
-linktitle: Maskinporten-klient
+title: Maskinporten
+linktitle: Maskinporten
 description: Hvordan sette opp en Maskinporten-klient i selvbetjeningsportalen
 tags: [Correspondence, guide, maskinporten]
 toc: true
@@ -13,7 +13,7 @@ weight: 100
 
 Du kan nå bruke din klient med din nøkkel for å hente Maskinporten-tokens. En detaljert beskrivelse av hvordan du autentiserer din klient med JWT Grant er beskrevet [her](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument).
 
-Dette Maskinporten-tokenet kan byttes mot et Altinn-token for bruk i Altinn sitt økosystem. [Dette er beskrevet her](/nb/authentication/what-do-you-get).
+Dette Maskinporten-tokenet kan byttes mot et Altinn-token for bruk i Altinn sitt økosystem. [Dette er beskrevet her](/nb/authorization/what-do-you-get/authentication).
 
 Et Altinn-token er nødvendig for å autentisere mot Altinn API-er (som f.eks. Correspondence API), forutsatt at klienten din har tilgang til de nødvendige scopene for det aktuelle API-et.
 
