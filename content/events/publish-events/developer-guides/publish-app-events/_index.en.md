@@ -79,7 +79,7 @@ and `/organisation/987564321`.
 
 
 ## Response
-A successful registration of the cloud event should result in a _200 OK_ response without any data.
+A successful registration of the cloud event should result in a _201 Created_ response without any data.
 
 ### Content-Type
 - application/json
