@@ -103,12 +103,12 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
   // ...
 
   // For external APIs that require raw Maskinporten tokens
-  services.AddHttpClient<CustomClient1>().UseMaskinportenAuthorization("scope:1", "scope:2");
-  services.AddHttpClient("named-client1").UseMaskinportenAuthorization("scope:1", "scope:2");
+  services.AddHttpClient<CustomClient1>().UseMaskinportenAuthorization("scope1", "scope2");
+  services.AddHttpClient("named-client1").UseMaskinportenAuthorization("scope1", "scope2");
 
   // For Altinn APIs that require Altinn tokens (exchanges Maskinporten token)
-  services.AddHttpClient<CustomClient2>().UseMaskinportenAltinnAuthorization("scope:1", "scope:2");
-  services.AddHttpClient("named-client2").UseMaskinportenAltinnAuthorization("scope:1", "scope:2");
+  services.AddHttpClient<CustomClient2>().UseMaskinportenAltinnAuthorization("scope1", "scope2");
+  services.AddHttpClient("named-client2").UseMaskinportenAltinnAuthorization("scope1", "scope2");
 }
 {{< / highlight >}}
 
@@ -120,8 +120,8 @@ public class Example(IMaskinportenClient maskinportenClient) : IProcessTaskEnd
 {
   public async Task End(string taskId, Instance instance)
   {
-    var maskinportenToken = await maskinportenClient.GetAccessToken(["scope1", "scope1"]);
-    var altinnExchangedToken = await maskinportenClient.GetAltinnExchangedToken(["scope1", "scope1"]);
+    var maskinportenToken = await maskinportenClient.GetAccessToken(["scope1", "scope2"]);
+    var altinnExchangedToken = await maskinportenClient.GetAltinnExchangedToken(["scope1", "scope2"]);
 
     // Do something with the tokens...
   }
