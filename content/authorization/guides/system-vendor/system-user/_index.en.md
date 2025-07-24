@@ -69,7 +69,7 @@ aliases:
         "isVisible": true
       }
       ```
-   - Registering the System with required access packages in Altinn’s System Register. In tis example we register a system with required access for an accesspackage
+   - Registering the System with required access packages in Altinn’s System Register. In this example we register a system with the required access for an access package.
       ```json
       {
         "id": "991825827_smartcloud_ap",
