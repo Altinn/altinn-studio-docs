@@ -47,7 +47,7 @@ if your subscription request is not being accepted.
 - webhook URL to receive HTTP POST request from Altinn Events
 
 {{% notice warning %}}
-HTTPS endpoints must use publicly valid certificates. Self-signed certificates are not supported and will cause subscription validation to fail.
+HTTPS endpoints must use publicly trusted TLS-certificates. Self-signed certificates are not supported and will cause subscription validation to fail.
 {{% /notice %}}
 
 Endpoint should respond with 200 OK when an event is received. 

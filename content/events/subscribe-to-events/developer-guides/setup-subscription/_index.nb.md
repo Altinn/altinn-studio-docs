@@ -46,7 +46,7 @@ hvis abonnementsforespørselen din ikke blir akseptert.
 - webhook-URL for å motta HTTP POST-forespørsel fra Altinn Events
 
 {{% notice warning %}}
-HTTPS-endepunkter må bruke offentlig gyldige sertifikater. Selvsignerte sertifikater støttes ikke og vil føre til at abonnementsvalidering feiler.
+HTTPS-endepunkter må bruke offentlig gyldige TLS-sertifikater. Selvsignerte sertifikater støttes ikke og vil føre til feil ved validering av abonnement.
 {{% /notice %}}
 
 Endepunktet bør svare med 200 OK når en hendelse mottas. 
