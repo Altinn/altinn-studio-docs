@@ -30,7 +30,7 @@ Du legger inn navigasjonsknappene i alle layout-filer der det er behov. Ønsker 
 | id | Unik ID, som for alle andre komponenter |
 | type | Må være "NavigationButtons" |
 | textResourceBindings | Lar deg overstyre standardtekstene på knappene med egne tekster |
-| showBackButton | Valgfri. Viser både tilbake- og neste-knapp i stedet for bare neste-knapp |
+| showBackButton | Valgfri. Viser knappene Forrige og Neste i stedet for bare Neste-knapp |
 
 ## Vise en sidemeny med rekkefølgen på sider/oppgaver
 
@@ -127,13 +127,14 @@ Du kan vise hele arbeidsflyten i navigasjonsmenyen på to måter. I koden gjør 
 
 ## Vise navigasjon fra Studio
 
+
 ## Vise en fremdriftsindikator
 
-Fremdriftsindikatoren vises øverst i høyre hjørne og viser brukeren hvor langt de har kommet i utfyllingen.
+Fremdriftsindikatoren vises øverst i høyre hjørne og viser brukerne hvor langt de har kommet i utfyllingen.
 
 ### Viktig å vite
 
-[Prosess-steg](../../../configuration/process) teller mot det totale antall sider i fremdriftsindikatoren. Hvis du har satt opp [sporvalg](../tracks) eller [dynamisk skjulte sider](../../../logic/expressions#viseskjule-hele-sider), kan antallet sider variere mye og virke forvirrende for brukeren.
+[Stegene i arbeidsflyten](../../../configuration/process) teller mot det totale antall sider i fremdriftsindikatoren. Hvis du har satt opp [sporvalg](../tracks) eller [dynamisk skjulte sider](../../../logic/expressions#viseskjule-hele-sider), kan antallet sider variere mye og virke forvirrende for brukeren.
 
 **Sjekk at fremdriftsindikatoren gir mening og verdi for brukeren før du aktiverer den.**
 
