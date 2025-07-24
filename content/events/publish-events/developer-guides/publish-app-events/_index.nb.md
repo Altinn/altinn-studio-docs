@@ -79,7 +79,7 @@ og `/organisation/987564321`.
 
 
 ## Respons
-En vellykket registrering av Cloud Event skal resultere i en _201 Created_-respons uten data.
+En vellykket registrering av Cloud Event skal resultere i en _201 Created_-respons med GUID til Cloud Event-instansen som payload.
 
 ### Content-Type
 - application/json
