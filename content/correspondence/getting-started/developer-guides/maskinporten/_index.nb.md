@@ -1,7 +1,7 @@
 ---
-title: Maskinporten klient
-linktitle: Maskinporten klient
-description: Hvordan sette opp Maskinporten klient i selvbetjeningsportalen
+title: Maskinporten-klient
+linktitle: Maskinporten-klient
+description: Hvordan sette opp en Maskinporten-klient i selvbetjeningsportalen
 tags: [Correspondence, guide, maskinporten]
 toc: true
 weight: 100
@@ -11,13 +11,13 @@ weight: 100
 
 {{% insert "content/shared/maskinporten/maskinporten-client-create.nb.md" %}}
 
-Du kan nå bruke din klient med din nøkkel for å hente Maskinporten tokens.
+Du kan nå bruke din klient med din nøkkel for å hente Maskinporten-tokens.
 En detaljert beskrivelse av hvordan du autentiserer din klient med JWT Grant er beskrevet [her](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument).
 
-Et Maskinporten token kan byttes mot et Altinn-token. [Dette er beskrevet her](/nb/authentication/what-do-you-get/).
+Dette Maskinporten-tokenet kan byttes mot et Altinn-token for bruk i Altinn sitt økosystem. [Dette er beskrevet her](/authentication/what-do-you-get/).
 
-Et Altinn-token er nødvendig for å autentisere mot Altinn API (som f.eks Correspondence API). Autentiseringen mot Altinn API krever også at du har de nødvendige scopes på klienten og at du bruker en ressurs hvor din organisasjon har tillatelse til disse scopesene.
+Et Altinn-token er nødvendig for å autentisere mot Altinn API-er (som f.eks. Correspondence API), forutsatt at klienten din har tilgang til de nødvendige scopene for det aktuelle API-et.
 
-Fra en [Altinn Studio](/nb/altinn-studio) app er Maskinporten-integrasjon tilgjengelig via den innebygde autentiseringsklienten. Følg [brukerveiledningen](/nb/altinn-studio/guides/integration/maskinporten) for å komme i gang.
+I konteksten av en [Altinn Studio](/altinn-studio) app er integrasjon med Maskinporten tilgjengelig via den innebygde autentiseringsklienten. Følg ganske enkelt [brukerveiledningen](/altinn-studio/guides/integration/maskinporten) for å komme i gang.
 
-For andre _.Net_ apper kan du bruke dette [frittstående biblioteket](https://github.com/Altinn/altinn-apiclient-maskinporten) for å håndtere autentisering. Biblioteket gir extension methods for å konfigurere HttpClients til å autentisere med Maskinporten basert på din oppgitte konfigurasjon.
+For andre _.Net_ apper kan du bruke dette [frittstående biblioteket](https://github.com/Altinn/altinn-apiclient-maskinporten) for å håndtere autentisering. Biblioteket tilbyr extension methods for å konfigurere HttpClients til å autentisere med Maskinporten basert på din oppgitte konfigurasjon.
