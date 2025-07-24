@@ -26,7 +26,7 @@ hvor {org}/{app} utgjør applikasjons-ID-en for app-ressursen du ønsker å hent
 
 Dette API-et krever autentisering.
 
-Se [Autentisering og autorisasjon](../../../api/#authentication--authorization) for mer informasjon.
+Se [Autentisering og autorisasjon](../../../api/#autentisering-og-autorisasjon) for mer informasjon.
 
 
 ## Forespørsel

@@ -25,7 +25,7 @@ POST /app
 ## Autentisering
 Dette API-et krever autentisering og et Platform Access Token i headeren.
 
-Se [Autentisering og autorisasjon](../../../api/#authentication--authorization) for mer informasjon.
+Se [Autentisering og autorisasjon](../../../api/#autentisering-og-autorisasjon) for mer informasjon.
 
 
 ## Forespørsel

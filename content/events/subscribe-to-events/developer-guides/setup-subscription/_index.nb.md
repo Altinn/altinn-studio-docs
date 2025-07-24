@@ -23,7 +23,7 @@ Når du abonnerer på generiske hendelser kreves Maskinporten-scope __altinn:eve
 
 Hvis du abonnerer på hendelser som tjenesteeier kreves også Maskinporten-scope __altinn:serviceowner__. 
 
-Se [Autentisering og autorisasjon](../../../api/#authentication--authorization) for mer informasjon.
+Se [Autentisering og autorisasjon](../../../api/#autentisering-og-autorisasjon) for mer informasjon.
 
 
 ## Forespørsel
