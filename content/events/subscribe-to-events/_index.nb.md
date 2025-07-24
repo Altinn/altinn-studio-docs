@@ -58,17 +58,17 @@ webhook feiler (Http status != 200). Cloud event-en vil bli forsøkt sendt oppti
 
 Hvis det feiler på det 12. forsøket, plasseres cloud event-en i en dead letter-kø og vil ikke bli forsøkt på nytt.
 
-- 1. nytt forsøk etter 10 sekunder
-- 2. nytt forsøk etter 30 sekunder
-- 3. nytt forsøk etter 1 minutt
-- 4. nytt forsøk etter 5 minutter
-- 5. nytt forsøk etter 10 minutter
-- 6. nytt forsøk etter 30 minutter
-- 7. nytt forsøk etter 1 time
-- 8. nytt forsøk etter 3 timer
-- 9. nytt forsøk etter 6 timer
-- 10. nytt forsøk etter 12 timer
-- 11. nytt forsøk etter 12 timer
+- nytt forsøk etter 10 sekunder
+- nytt forsøk etter 30 sekunder
+- nytt forsøk etter 1 minutt
+- nytt forsøk etter 5 minutter
+- nytt forsøk etter 10 minutter
+- nytt forsøk etter 30 minutter
+- nytt forsøk etter 1 time
+- nytt forsøk etter 3 timer
+- nytt forsøk etter 6 timer
+- nytt forsøk etter 12 timer
+- nytt forsøk etter 12 timer
 
 
 {{<children />}}
