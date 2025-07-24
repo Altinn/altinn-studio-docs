@@ -68,10 +68,13 @@ $(document).ready(function() {
     function expandHashTarget() {
         const id = (window.location.hash || '#').substring(1);
         if (id != null && id.length > 0) {
-            const actualElement = document.getElementById(id);
-            const potentialSiblingExpanderElement = document.getElementById(id + '-expander');
+            const potentialExpanders = [
+                document.getElementById(id),
+                document.getElementById(id + '-expander'),
+                document.getElementById(id + '-expandable')
+            ];
             
-            for (const element of [actualElement, potentialSiblingExpanderElement]) {
+            for (const element of potentialExpanders) {
                 if (!element || !element.classList.contains('adocs-expand')) {
                     continue;
                 }
