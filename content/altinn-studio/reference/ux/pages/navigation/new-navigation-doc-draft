@@ -1,21 +1,15 @@
 # Navigasjon i Studio
-Når vi snakker om navigasjon, kan det være flere ting: Det å gi brukerne mulighettil å flytte seg fra side til side, det å få oversikt med et navigasjonfelt, og det å se alle oppgaver som er inkludert i en app. Denne artikkelen beskrive alle tre mulighetene.
+Når vi snakker om navigasjon, kan det være flere ting: Det å gi brukerne mulighet til å flytte seg fra side til side, det å få oversikt med et navigasjonfelt, og det å se alle oppgaver som er inkludert i en app. Denne artikkelen beskriver alle tre mulighetene.
 
-## Navigasjon mellom sider
+## Navigere mellom sider med knapper
 
-Slik setter du opp navigasjon mellom sider i appen din
+Brukerne navigerer mellom sider ved hjelp av navigasjonsknapper. Knappene legges til automatisk når du bruker Altinn Studio, men du kan også legge dem til manuelt i koden.
 
-## Oversikt
+### Legge til navigasjonsknapper manuelt i layoutfilen
 
-Brukerne navigerer mellom sider ved hjelp av navigasjonsknapper. Du må legge til disse knappene manuelt i hver layout-fil.
+Du legger inn navigasjonsknappene i alle layout-filer der det er behov. Ønsker du at de skal vises nederst på siden, må du plassere dem nederst i layout-filen.
 
-## Legge til navigasjonsknapper
-
-### Hvor skal knappene stå?
-
-Navigasjonsknappene legges inn i alle layout-filer der det er behov. Ønsker du at de skal vises nederst på siden, må du plassere dem nederst i layout-filen.
-
-### Eksempel på konfigurasjon:
+#### Eksempel på konfigurasjon:
 
 ```json
 {
@@ -38,9 +32,9 @@ Navigasjonsknappene legges inn i alle layout-filer der det er behov. Ønsker du 
 | textResourceBindings | Lar deg overstyre standardtekstene på knappene med egne tekster |
 | showBackButton | Valgfri. Viser både tilbake- og neste-knapp i stedet for bare neste-knapp |
 
-## Rekkefølge på sider
+# Vise en sidemeny med rekkefølgen på sider/oppgaver
 
-Rekkefølgen på sidene defineres i `Settings.json` for layout-settet:
+I koden definerer du rekkefølgen på sidene i `Settings.json` for layout-settet:
 
 **Filplassering:** `App/ui/*/Settings.json`
 
@@ -91,9 +85,10 @@ Du kan gruppere sider og vise dem i en sidemeny som alternativ til tradisjonell 
 | markWhenCompleted | Valgfri. Markerer sider som ferdig utfylt når alle valideringsfeil er rettet og brukeren har sett siden |
 | order | Hvilke sider som inngår i gruppen |
 
-## Vise prosess-steg i navigasjonsmenyen
+# Vise arbeidsflyt og oppgaver i navigasjonsmenyen
 
-Du kan vise hele prosessen i navigasjonsmenyen. Dette konfigureres enten:
+## Vise arbeidsflyten ved å definere det i koden
+Du kan vise hele arbeidsflyten i navigasjonsmenyen på to måter. I koden gjør du det slik:
 
 - **For hele appen:** i `layout-sets.json` med `uiSettings.taskNavigation`
 - **Per layout-sett:** i `Settings.json` med `pages.taskNavigation`
@@ -129,7 +124,10 @@ Du kan vise hele prosessen i navigasjonsmenyen. Dette konfigureres enten:
 | taskId | Hvilket prosess-steg det gjelder. Obligatorisk hvis ikke type er satt |
 | type | "receipt". Obligatorisk hvis ikke taskId er satt |
 
-## Fremdriftsindikator
+
+## Vise navigasjon fra Studio
+
+# Fremdriftsindikator
 
 Fremdriftsindikatoren vises øverst i høyre hjørne og viser brukeren hvor langt de har kommet i utfyllingen.
 
