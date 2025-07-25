@@ -9,7 +9,7 @@ toc: true
 POST authentication/api/v1/systemuser/request/vendor
 
 ### Scopes
-Machineporten-token med scope <mark>altinn:maskinporten/systemuser.write</mark>
+Maskinporten-token med scope <mark>altinn:maskinporten/systemuser.write</mark>
 
 ### Content types
 application/json
@@ -86,7 +86,7 @@ For en detaljert beskrivelse av hver felt i responsen, vennligst se beskrivelsen
 GET authentication/api/v1/systemuser/request/vendor/{requestId}
 
 ### Scopes
-Machineporten-token med scope <mark>altinn:authentication/systemuser.request.read</mark>
+Maskinporten-token med scope <mark>altinn:authentication/systemuser.request.read</mark>
 
 ### Content types
 application/json
@@ -134,7 +134,7 @@ Den unike identifikatoren for forespørselen.
 GET authentication/api/v1/systemuser/request/vendor/byexternalref/{systemid}/{orgno}/{externalref}
 
 ### Scopes
-Machineporten-token med scope <mark>altinn:authentication/systemuser.request.read</mark>
+Maskinporten-token med scope <mark>altinn:authentication/systemuser.request.read</mark>
 
 ### Content types
 application/json
@@ -189,7 +189,7 @@ Returnerer en paginert liste over forespørsler
 GET authentication/api/v1/systemuser/request/vendor/bysystem/{systemid}
 
 ### Scopes
-Machineporten token with scope <mark>altinn:authentication/systemuser.request.read</mark>
+Maskinporten token with scope <mark>altinn:authentication/systemuser.request.read</mark>
 
 ### Content types
 application/json
@@ -331,7 +331,7 @@ Dette endepunktet brukes til å opprette en systembrukerforespørsel av typen ag
 POST authentication/api/v1/systemuser/request/vendor/agent
 
 ### Scopes
-Machineporten-token med scope <mark>altinn:authentication/systemuser.request.write</mark>
+Maskinporten-token med scope <mark>altinn:authentication/systemuser.request.write</mark>
 
 ### Content types
 application/json
@@ -396,7 +396,7 @@ For en detaljert beskrivelse av hver felt i responsen, vennligst se beskrivelsen
 GET authentication/api/v1/systemuser/request/vendor/agent/{requestId}
 
 ### Scopes
-Machineporten-token med scope <mark>altinn:authentication/systemuser.request.read</mark>
+Maskinporten-token med scope <mark>altinn:authentication/systemuser.request.read</mark>
 
 ### Content types
 application/json
@@ -442,7 +442,7 @@ For en detaljert beskrivelse av hver felt i responsen, vennligst se beskrivelsen
 GET authentication/api/v1/systemuser/request/vendor/agent/byexternalref/{systemid}/{orgno}/{externalref}
 
 ### Scopes
-Machineporten-token med scope <mark>altinn:authentication/systemuser.request.read</mark>
+Maskinporten-token med scope <mark>altinn:authentication/systemuser.request.read</mark>
 
 ### Content types
 application/json
@@ -496,7 +496,7 @@ Returnerer en paginert liste over forespørsler
 GET authentication/api/v1/systemuser/request/vendor/agent/bysystem/{systemid}
 
 ### Scopes
-Machineporten-token med scope <mark>altinn:authentication/systemuser.request.read</mark>
+Maskinporten-token med scope <mark>altinn:authentication/systemuser.request.read</mark>
 
 ### Content types
 application/json
@@ -577,7 +577,7 @@ Dette endepunktet brukes av leverandøren for å slette systembrukerforespørsel
 DELETE /authentication/api/v1/systemuser/request/vendor/{requestid}
 
 ### Scopes
-Machineporten-token med scope <mark>altinn:authentication/systemuser.request.write</mark>
+Maskinporten-token med scope <mark>altinn:authentication/systemuser.request.write</mark>
 
 ### Content types
 application/json

@@ -5,14 +5,14 @@ description: API to get system user information
 toc: true
 ---
 ## Verify Party Integration
-Validates whether the organization requesting a token from Machineporten has a system user associated with the specified credentials.
+Validates whether the organization requesting a token from Maskinporten has a system user associated with the specified credentials.
 For a detailed description of the response model, please refer to this [link](model) 
 
 ### Endpoint
 GET authentication/api/v1/systemuser/byExternalId?clientid=&systemproviderorgno=&systemuserownerorgno=&externalref=
 
 ### Scopes
-Machineporten token with scope <mark>altinn:maskinporten/systemuser.read</mark>
+Maskinporten token with scope <mark>altinn:maskinporten/systemuser.read</mark>
 
 ### Content types
 application/json
@@ -20,7 +20,7 @@ application/json
 ## Query Parameters
 
 #### clientid
-The client id credential from the machineporten integration
+The client id credential from the Maskinporten integration
 
 #### systemproviderorgno
 The organization number of the system vendor
@@ -55,7 +55,7 @@ The external reference provided by the system vendor in the system user request.
 GET authentication/api/v1/systemuser/vendor/bysystem/{systemId}
 
 ### Scopes
-Machineporten token with scope <mark>altinn:authentication/systemregister.write</mark>
+Maskinporten token with scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
 application/json

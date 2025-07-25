@@ -92,7 +92,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
   // Configure HTTP client for Events API with Maskinporten authorization
   services.AddHttpClient<IEventsSubscription, EventsSubscriptionClient>()
-    .UseMaskinportenAltinnAuthorisation("altinn:serviceowner/instances.read");
+    .UseMaskinportenAltinnAuthorization("altinn:serviceowner/instances.read");
 }
 ```
 {{% /expandlarge %}}

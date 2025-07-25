@@ -12,7 +12,7 @@ Henter et system ved system-ID.
 GET authentication/api/v1/systemregister/vendor/{systemId}
 
 ### Scopes
-Machineporten-token med scope <mark>altinn:authentication/systemregister.write</mark>
+Maskinporten-token med scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
 application/json

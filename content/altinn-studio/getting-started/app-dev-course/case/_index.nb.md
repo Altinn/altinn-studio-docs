@@ -27,7 +27,7 @@ De har en del krav til tjenesten som er beskrevet i seksjonene nedenfor.
 
 ## Krav fra kommunen
 
-{{% expandlarge id="navngivning-expandable" header="Navngivning" %}}
+{{% expandlarge id="krav-fra-kommunen-expandable" header="Navngivning" %}}
 
 - Tjenesten må ha et fornuftig navn som gjør det enkelt å finne den igjen blant det store antallet
 tjenester Sogndal kommune har i Altinn Studio.
@@ -83,7 +83,7 @@ Følgende er det ønskelig at reflekteres i tjenesten:
 {{% /expandlarge %}}
 
 
-### Alternativ arbeidsflyt (sporvalg)
+## Alternativ arbeidsflyt (sporvalg)
 {{% expandlarge id="sporvalg-expandable" header="Krav" %}}
 
 En bruker som ikke oppfyller kravene for skjemaet skal stoppes så tidlig som mulig i arbeidsflyten.
@@ -111,7 +111,7 @@ Basert på svaret skal brukeren sendes videre til _Spor 1_ eller _Spor 2_.
 
 {{% /expandlarge %}}
 
-### Forhåndsutfylling av personopplysninger
+## Forhåndsutfylling av personopplysninger
 {{% expandlarge id="prefill-expandable" header="Krav" %}}
 
 - Følgende verdier skal forhåndsutfylles for brukeren:
@@ -127,7 +127,7 @@ Basert på svaret skal brukeren sendes videre til _Spor 1_ eller _Spor 2_.
 {{% /expandlarge %}}
 
 
-### Differensiert datagrunnlag for offentlig og privat sektor
+## Differensiert datagrunnlag for offentlig og privat sektor
 {{% expandlarge id="options-expandable" header="Krav" %}}
 
 Vi ønsker at brukerne skal ha et ulikt sett med svaralternativer for bransjevalget
@@ -139,7 +139,7 @@ basert på hvilken sektor de har krysset av for.
 {{% /expandlarge %}}
 
 
-### Skreddersydd tilbud for IT-kompetanse
+## Skreddersydd tilbud for IT-kompetanse
 {{% expandlarge id="dynamics-expandable" header="Krav" %}}
 
 Vi ønsker at dersom brukeren velger `IKT (data/it)` under bransje at det vises en tekst med en lenke til en av våre stillingsutlysninger.
@@ -156,7 +156,7 @@ Tekst og lenke skal **kun** vises om man har valgt `IKT (data/it)`. I alle andre
 {{% /expandlarge %}}
 
 
-### Bekreftelse før innsending
+## Bekreftelse før innsending
 {{% expandlarge id="bekreftelse-expandable" header="Krav" %}}
 
 Vi ønsker at brukeren før innsending presenteres for hva dataen skal benyttes til
@@ -189,7 +189,7 @@ Før du sender inn vil vi anbefale å se over svarene dine. Du kan ikke endre sv
 ```
 {{% /expandlarge %}}
 
-### Innhenting av tidligere bosteder
+## Innhenting av tidligere bosteder
 {{% expandlarge id="bosteder-expandable" header="Krav" %}}
 
 For å kunne skreddersy et best mulig tilbud til nye innflyttere, ønsker vi oss en oversikt over tidligere bosteder til innflytteren.
@@ -205,7 +205,7 @@ Det skal være mulig å legge inn opptill 10 tidligere bosteder.
 
 {{% /expandlarge %}}
 
-### Validering av tidligere bosteder
+## Validering av tidligere bosteder
 {{% expandlarge id="vendetta-expandable" header="Krav" %}}
 
 Dersom innflytter fyller inn postnummer `1337` som et av tidligere bosteder må vedkommende
@@ -220,7 +220,7 @@ Vi er beæret over å motta en '1337' innbygger til Sogndal kommune!
 
 {{% /expandlarge %}}
 
-### Dataprossessering av ugyldig gateadresse
+## Dataprossessering av ugyldig gateadresse
 {{% expandlarge id="dataprossesering-expandable" header="Krav" %}}
 
 En av kommunens databehandlere har sett seg lei av å manuelt rette opp i en gateadresse som ofte blir skrevet feil av innflyttere.

@@ -61,7 +61,7 @@ For detailed description about each entity in the body, please refer the descrip
 
 
 ### Scopes
-Machineporten token with scope <mark>altinn:authentication/systemregister.write</mark>
+Maskinporten token with scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
 application/json
@@ -206,7 +206,7 @@ PUT authentication/api/v1/systemregister/vendor/{systemid}/rights
 ]
 ```
 ### Scopes
-Machineporten token with scope <mark>altinn:authentication/systemregister.write</mark>
+Maskinporten token with scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
 application/json
@@ -230,7 +230,7 @@ PUT authentication/api/v1/systemregister/vendor/{systemid}/accesspackages
 ]
 ```
 ### Scopes
-Machineporten token with scope <mark>altinn:authentication/systemregister.write</mark>
+Maskinporten token with scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
 application/json

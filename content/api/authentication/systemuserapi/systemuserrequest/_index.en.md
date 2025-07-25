@@ -9,8 +9,8 @@ The system user request api provides api mehtods for the vendor to manage the sy
 
 ## Security Scheme
 Bearer authentication scheme is used to authenticate the system vendor.
-System user request api requires that the system vendor authenticates with a bearer token which is a machineporten token with specific scope.
-To get a machineporten token, the vendor must first establish a client in machineporten. You can follow the steps in this [link](https://docs.altinn.studio/authentication/getting-started/maskinportenclient/) to setup a machineporten client.
+System user request api requires that the system vendor authenticates with a bearer token which is a Maskinporten token with specific scope.
+To get a Maskinporten token, the vendor must first establish a client in Maskinporten. You can follow the steps in this [link](https://docs.altinn.studio/authentication/getting-started/maskinportenclient/) to setup a Maskinporten client.
 
 ## System User Types
 At present, we offer two different types of system users

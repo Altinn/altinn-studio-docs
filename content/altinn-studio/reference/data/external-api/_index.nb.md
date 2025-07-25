@@ -356,7 +356,7 @@ For å sette opp dette kan du følge de generelle stegene i [veiledningen for Ma
   {{</highlight>}}
 
 
-- Du kan registrere Maskinporten-klienten på HttpClient-klassen som trenger dette i `Program.cs` ved å bruke extention-metoden `UseMaskinportenAuthorisation`:
+- Du kan registrere Maskinporten-klienten på HttpClient-klassen som trenger dette i `Program.cs` ved å bruke extention-metoden `UseMaskinportenAuthorization`:
   {{< code-title >}}
   App/Program.cs
   {{< /code-title >}}
@@ -368,11 +368,11 @@ For å sette opp dette kan du følge de generelle stegene i [veiledningen for Ma
   IWebHostEnvironment env
   )
   {
-  services.AddHttpClient<WeatherApiClient>().UseMaskinportenAuthorisation("scope:1", "scope:2");
+  services.AddHttpClient<WeatherApiClient>().UseMaskinportenAuthorization("scope:1", "scope:2");
   }
   {{</highlight>}}
 
-- Hvis du trenger Maskinporten for autorisasjon mot en annen Altinn applikasjon, trenger du et Altinn-token. For å få det kan du bruke `UseMaskinportenAltinnAuthorisation`:
+- Hvis du trenger Maskinporten for autorisasjon mot en annen Altinn applikasjon, trenger du et Altinn-token. For å få det kan du bruke `UseMaskinportenAltinnAuthorization`:
   {{< code-title >}}
   App/Program.cs
   {{< /code-title >}}
@@ -384,7 +384,7 @@ For å sette opp dette kan du følge de generelle stegene i [veiledningen for Ma
   IWebHostEnvironment env
   )
   {
-  services.AddHttpClient<WeatherApiClient>().UseMaskinportenAltinnAuthorisation("scope:1", "scope:2");
+  services.AddHttpClient<WeatherApiClient>().UseMaskinportenAltinnAuthorization("scope:1", "scope:2");
   }
   {{</highlight>}}
 

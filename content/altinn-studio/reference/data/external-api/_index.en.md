@@ -350,7 +350,7 @@ To set this up, you can follow the general steps in the [Maskinporten Integratio
   {{</highlight>}}
 
 
-- You can register the Maskinporten client on the HttpClient class that needs it in `Program.cs` by using the extension method `UseMaskinportenAuthorisation`:
+- You can register the Maskinporten client on the HttpClient class that needs it in `Program.cs` by using the extension method `UseMaskinportenAuthorization`:
   {{< code-title >}}
   App/Program.cs
   {{< /code-title >}}
@@ -362,11 +362,11 @@ To set this up, you can follow the general steps in the [Maskinporten Integratio
   IWebHostEnvironment env
   )
   {
-  services.AddHttpClient<WeatherApiClient>().UseMaskinportenAuthorisation("scope:1", "scope:2");
+  services.AddHttpClient<WeatherApiClient>().UseMaskinportenAuthorization("scope:1", "scope:2");
   }
   {{</highlight>}}
 
-- If you need Maskinporten for authorization against another Altinn application, you need an Altinn token. To get it, you can use `UseMaskinportenAltinnAuthorisation`:
+- If you need Maskinporten for authorization against another Altinn application, you need an Altinn token. To get it, you can use `UseMaskinportenAltinnAuthorization`:
   {{< code-title >}}
   App/Program.cs
   {{< /code-title >}}
@@ -378,7 +378,7 @@ To set this up, you can follow the general steps in the [Maskinporten Integratio
   IWebHostEnvironment env
   )
   {
-  services.AddHttpClient<WeatherApiClient>().UseMaskinportenAltinnAuthorisation("scope:1", "scope:2");
+  services.AddHttpClient<WeatherApiClient>().UseMaskinportenAltinnAuthorization("scope:1", "scope:2");
   }
   {{</highlight>}}
 
