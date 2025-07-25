@@ -1,13 +1,14 @@
-# Navigasjon i Studio
-Når vi snakker om navigasjon, kan det være flere ting: Det å gi brukerne mulighet til å flytte seg fra side til side, det å få oversikt med et navigasjonfelt, og det å se alle oppgaver som er inkludert i en app. Denne artikkelen beskriver alle tre mulighetene.
+*This file will replace index.nb.md in the navigation folder, when reviewed and approved.*
+# Navigasjon i apper
+Når vi snakker om navigasjon, kan det være flere ting: Det å gi brukerne mulighet til å flytte seg fra side til side i en app, det å få oversikt over sider/emner i appen med et navigasjonfelt i toppen, eller det å se alle oppgaver som er inkludert i en app i en venstremeny. Denne artikkelen beskriver alle tre mulighetene.
 
-## Navigere mellom sider med knapper
+## Gå fra side til side med knapper
 
-Brukerne navigerer mellom sider ved hjelp av navigasjonsknapper. Knappene legges til automatisk når du bruker Altinn Studio, men du kan også legge dem til manuelt i koden.
+Brukerne flytter mellom sider i appen/skjemaet ved hjelp av navigasjonsknapper. Knappene legges til automatisk når du bruker Altinn Studio, men du kan også legge dem til manuelt i koden.
 
-### Legge til navigasjonsknapper manuelt i layoutfilen
+### Legge til navigasjonsknapper manuelt i layoutfilen (NavigationButtons)
 
-Du legger inn navigasjonsknappene i alle layout-filer der det er behov. Ønsker du at de skal vises nederst på siden, må du plassere dem nederst i layout-filen.
+Du legger inn navigasjonsknappene i alle layout-filer der det trengs. Hvis du vil at de skal vises nederst på siden, må du plassere dem nederst i layout-filen.
 
 #### Eksempel på konfigurasjon:
 
@@ -27,10 +28,10 @@ Du legger inn navigasjonsknappene i alle layout-filer der det er behov. Ønsker 
 
 | Parameter | Beskrivelse |
 |-----------|-------------|
-| id | Unik ID, som for alle andre komponenter |
+| id | Unik ID for komponenten. |
 | type | Må være "NavigationButtons" |
-| textResourceBindings | Lar deg overstyre standardtekstene på knappene med egne tekster |
-| showBackButton | Valgfri. Viser knappene Forrige og Neste i stedet for bare Neste-knapp |
+| textResourceBindings | Lar deg overstyre standardtekstene på knappene med egne tekster. |
+| showBackButton | Valgfritt. Viser knappene Forrige og Neste i stedet for bare Neste-knapp. |
 
 ## Vise en sidemeny med rekkefølgen på sider/oppgaver
 
@@ -80,14 +81,14 @@ Du kan gruppere sider og vise dem i en sidemeny som alternativ til tradisjonell 
 
 | Parameter | Beskrivelse |
 |-----------|-------------|
-| name | Tekstressurs som angir navnet på sidegruppen. Påkrevd hvis gruppen inneholder mer enn én side |
-| type | Valgfri. "info" eller "default" |
-| markWhenCompleted | Valgfri. Markerer sider som ferdig utfylt når alle valideringsfeil er rettet og brukeren har sett siden |
-| order | Hvilke sider som inngår i gruppen |
+| name | Tekstressurs som angir navnet på sidegruppen. Må være med hvis gruppen inneholder mer enn én side. |
+| type | Valgfritt. Bruk "info" eller "default". |
+| markWhenCompleted | Valgfritt. Markerer sider som ferdig utfylt når alle valideringsfeil er rettet og brukeren har sett siden. |
+| order | Angir hvilke sider som inngår i gruppen. |
 
 ## Vise arbeidsflyt og oppgaver i navigasjonsmenyen
 
-## Vise arbeidsflyten ved å definere det i koden
+### Vise arbeidsflyten ved å definere det i koden
 Du kan vise hele arbeidsflyten i navigasjonsmenyen på to måter. I koden gjør du det slik:
 
 - **For hele appen:** i `layout-sets.json` med `uiSettings.taskNavigation`
@@ -120,26 +121,36 @@ Du kan vise hele arbeidsflyten i navigasjonsmenyen på to måter. I koden gjør 
 
 | Parameter | Beskrivelse |
 |-----------|-------------|
-| name | Valgfri. Tekstressurs som angir navnet på steget |
-| taskId | Hvilket steg det gjelder. Obligatorisk hvis ikke type er satt |
-| type | "receipt". Obligatorisk hvis ikke taskId er satt |
+| name | Valgfri. Tekstressurs som angir navnet på oppgaven. |
+| taskId | Hvilken oppgave det gjelder. Obligatorisk hvis ikke type er satt. |
+| type | "receipt". Obligatorisk hvis ikke taskId er satt. |
 
 
-## Vise navigasjon fra Studio
-**Added** 
-Studio har nå en egen navigasjonsmeny, som du kan legge til fra brukergrensesnittet.
+## Vise navigasjon fra Altinn Studio
+*Added new documentation, please review and test*
+
+I Studio har vi en egen navigasjonsmeny, som du kan legge til fra **Utforming**-siden. Du kan velge om du vil vise alle sidene/oppgavene i navigasjonen, eller bare de du velger ut.
+
+### Legge til oppgaver i navigasjonen
+1. Åpne appen du vil sette inn navigasjonsmeny for.
+2. Klikk på **Utforming** i toppmenyen. Du kommer til Oversikt-siden for Utforming, der du ser de oppgavene som er tilgjengelige i appen. 
+3. Under **Andre innstillinger** ser du øverst en melding om at du ikke viser noen oppgaver i navigasjonsmenyen enda. Under den finner du en tabell med oppgaver som du kan velge å vise.
+4. Velg **Vis alle oppgavene** hvis du vil ha med alle i navigasjonsmenyen. Du ser at de blir tilgjengelige i den øverste tabellen. Velg enkeltoppgaver med **Vis oppgaven** hvis du ikke vil ha med alle oppgavene.
+5. Den øverste tabellen viser nå de oppgavene du har valgt å vise, og rekkefølgen de vises i. 
+Du kan klikke på de tre prikkene til høyre for hver oppgave, og velge om du vil skjule enkeltoppgaver, eller flytte dem opp og ned for å endre rekkefølgen på oppgavene i navigasjonen. Her kan du også endre visningsnavnet for en oppgave og gå direkte til utforming av den.
+4. Bruk knappen **Vis med navigasjonsmeny** for å forhåndsvise navigasjonsmenyen på venstre side i appen.
 
 ## Vise en fremdriftsindikator
 
-Fremdriftsindikatoren vises øverst i høyre hjørne og viser brukerne hvor langt de har kommet i utfyllingen.
+En fremdriftsindikator er et lite visuelt hjul, som viser hvor langt brukerne har kommet med å fylle ut eller lese et skjema. Den kan være nyttig for å gi brukerne oversikt over totalt antall sider, og hvor de er i utfyllingen. Fremdriftsindikatoren vises øverst i det høyre hjørnet.
 
 ### Viktig å vite
 
-[Stegene i arbeidsflyten](../../../configuration/process) teller mot det totale antall sider i fremdriftsindikatoren. Hvis du har satt opp [sporvalg](../tracks) eller [dynamisk skjulte sider](../../../logic/expressions#viseskjule-hele-sider), kan antallet sider variere mye og virke forvirrende for brukeren.
+[Oppgavene i arbeidsflyten](../../../configuration/process) teller med i det totale antall sider i fremdriftsindikatoren. Hvis du har satt opp [sporvalg](../tracks) eller [dynamisk skjulte sider](../../../logic/expressions#viseskjule-hele-sider), kan antallet sider variere mye og virke forvirrende for brukeren.
 
-**Sjekk at fremdriftsindikatoren gir mening og verdi for brukeren før du aktiverer den.**
+**Vurder om det gir mening og verdi for brukeren å legge til en fremdriftsindikator, før du velger å legge den til.**
 
-### Aktivere fremdriftsindikatoren
+### Legge til selve fremdriftsindikatoren
 
 **Filplassering:** `App/ui/*/Settings.json`
 
@@ -155,7 +166,7 @@ Fremdriftsindikatoren vises øverst i høyre hjørne og viser brukerne hvor lang
 
 ## Vise et navigasjonsfelt (NavigationBar)
 
-Et navigasjonsfelt gjør det enkelt for brukerne å se alle sidene i appen.
+Et navigasjonsfelt vises øverst på siden i en app/et skjema, og kan gjøre det enklere for brukerne å se alle sidene i appen. Det er viktig at du gir hver side gode navn, for at navigasjonsfeltet skal være nyttig.
 
 ### Hvordan fungerer det?
 
@@ -175,7 +186,7 @@ Du legger til navigasjonsfeltet ved å legge inn koden for det i alle layout-fil
 
 ### Vise nedtrekksmenyen på alle skjermer
 
-Du kan sette opp at du vil vise sidene i navigasjonsfeltet som nedtrekksmeny, også på større skjermer:
+I koden kan du sette opp at du vil vise sidene i navigasjonsfeltet som nedtrekksmeny, også på større skjermer:
 
 ```json
 {
@@ -187,11 +198,11 @@ Du kan sette opp at du vil vise sidene i navigasjonsfeltet som nedtrekksmeny, og
 
 ### Endre tekstene på knappene i navigasjonsfeltet
 
-Som standard henter knappene i navigasjonfeltet navnet sitt fra filnavnet til siden, uten filutvidelsen. For eksempel blir `side1.json` og `side2.json` til knappene "side1" og "side2".
+Knappene i navigasjonfeltet henter navnet sitt fra filnavnet til siden, uten filutvidelsen. For eksempel blir `side1.json` og `side2.json` til knappene "side1" og "side2".
 
-**Slik overstyrer du tekstene:**
+**Slik endrer du tekstene:**
 
-Legg til tekster i `resources.XX.json`, hvor `id` er navnet på filen uten filutvidelsen:
+Legg til tekster i `resources.XX.json`, der `id` er navnet på filen uten filutvidelsen:
 
 ```json
 {
@@ -206,7 +217,7 @@ Legg til tekster i `resources.XX.json`, hvor `id` er navnet på filen uten filut
 
 ## Angi validering ved sidebytte
 
-Du kan legge inn kode for å sjekke om det er valideringsfeil når brukeren prøver å gå til neste side. Hvis det er feil, stoppes navigeringen.
+Du kan legge inn kode for å sjekke om det er valideringsfeil når brukeren prøver å gå til neste side. *Valideringsfeil* kan for eksempel bety at brukeren har glemt å fylle ut et felt eller har fylt det ut med informasjon med feil format. Hvis det er feil, stoppes navigeringen med en av valideringskodene i avsnittet under.
 
 ### App frontend versjon 4
 
@@ -238,9 +249,9 @@ NavigationButtons-komponenten har egenskapene `validateOnNext` og `validateOnPre
 - AllExceptRequired
 - All
 
-### NavigationBar med validering
+### Bruke NavigationBar med validering
 
-NavigationBar-komponenten har tilsvarende egenskaper `validateOnForward` og `validateOnBackward`:
+NavigationBar-komponenten har tilsvarende egenskaper, `validateOnForward` og `validateOnBackward`:
 
 ```json
 {
@@ -255,7 +266,7 @@ NavigationBar-komponenten har tilsvarende egenskaper `validateOnForward` og `val
 
 ### App frontend versjon 3
 
-I versjon 3 legger du til en trigger på navigasjonsknappen:
+I versjon 3 legger du til en utløser på navigasjonsknappen:
 
 ```json
 {
@@ -268,10 +279,10 @@ I versjon 3 legger du til en trigger på navigasjonsknappen:
 }
 ```
 
-### Tilgjengelige triggere
+### Tilgjengelige utløsere
 
-| Trigger | Beskrivelse |
+| Utløser | Beskrivelse |
 |---------|-------------|
-| validatePage | Kjører validering på komponenter på den nåværende siden. |
-| validateAllPages | Kjører validering på alle komponenter på alle sider. Hindrer ikke navigering hvis det bare er feil på fremtidige sider. |
-| validateCurrentAndPreviousPages | Kjører validering på nåværende og tidligere sider. |
+| validatePage | Validerer komponentene på den gjeldende siden. |
+| validateAllPages | Validerer alle komponentene på alle sider. Hindrer ikke at brukeren går videre, hvis det bare er feil på fremtidige sider. |
+| validateCurrentAndPreviousPages | Validerer både gjeldende og tidligere sider. |
