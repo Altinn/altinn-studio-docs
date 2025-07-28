@@ -37,7 +37,7 @@ Du legger inn navigasjonsknappene i alle layout-filer der det trengs. Hvis du vi
 | Parameter            | Beskrivelse                                                               |
 | -------------------- | ------------------------------------------------------------------------- |
 | id                   | Unik ID for komponenten.                                                  |
-| type                 | Må være "NavigationButtons"                                               |
+| type                 | Må være "NavigationButtons".                                              |
 | textResourceBindings | Lar deg overstyre standardtekstene på knappene med egne tekster.          |
 | showBackButton       | Valgfritt. Viser knappene Forrige og Neste i stedet for bare Neste-knapp. |
 

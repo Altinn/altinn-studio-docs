@@ -37,7 +37,7 @@ Example configuration:
 | Parameter            | Description                                                                |
 | -------------------- | -------------------------------------------------------------------------- |
 | id                   | Unique ID for the component.                                               |
-| type                 | Must be "NavigationButtons"                                                |
+| type                 | Must be "NavigationButtons".                                               |
 | textResourceBindings | Allows you to override the default button texts with your own texts.       |
 | showBackButton       | Optional. Shows Previous and Next buttons instead of just the Next button. |
 
