@@ -9,8 +9,8 @@ toc: true
 {{% panel theme="warning" %}}
 ⚠️ Dynamikk er et område under aktiv utvikling. Denne funksjonaliteten er for øyeblikket tilgjengelig som en betaversjon
 i Altinn Studio og tilbyr begrensede konfigurasjonsalternativer. Grensesnittet tillater bare å bygge uttrykk med ett
-nivå av nøsting, noe som betyr at et ubegrenset antall ikke-nøstede uttrykk kan kombineres ved å bruke enten *ELLER*
-eller *OG*-operatoren. Imidlertid tillater verktøyet å redigere mer kompliserte uttrykk ved å skrive fritt. For
+nivå av nøsting, noe som betyr at et ubegrenset antall ikke-nøstede uttrykk kan kombineres ved å bruke enten _ELLER_
+eller _OG_-operatoren. Imidlertid tillater verktøyet å redigere mer kompliserte uttrykk ved å skrive fritt. For
 øyeblikket er verktøyet også begrenset til å koble uttrykk til boolske komponentfelt.
 Les [Uttrykk i Altinn Studio](../../../../altinn-studio/designer/build-app/expressions) om hvordan uttrykk lages i
 Altinn Studio.
@@ -142,23 +142,23 @@ Og for en person som er 15 år (eller yngre, som f.eks. en 4-åring), returneres
 Dynamiske uttrykk er foreløpig tilgjengelig for bruk i disse egenskapene, som definert i [layout-filer](../../ux/pages).
 
 | Komponenter                                                                                                     | Egenskap                      | Forventet verdi            | Frontend | Backend |
-|-----------------------------------------------------------------------------------------------------------------|-------------------------------|----------------------------|----------|---------|
-| [Sider/layouts](#viseskjule-hele-sider)                                                                         | `hidden`                      | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| Alle                                                                                                            | `hidden`                      | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| Skjemakomponenter                                                                                               | `required`                    | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| Skjemakomponenter                                                                                               | `readOnly`                    | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                       | `hiddenRow`                   | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                       | `edit.addButton`              | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                       | `edit.saveButton`             | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                       | `edit.deleteButton`           | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                       | `edit.alertOnDelete`          | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                       | `edit.saveAndNextButton`      | [Boolsk](#boolske-verdier) | ✅        | ❌       |
-| [Kodelistebaserte komponenter](../../../guides/development/options/sources/from-data-model/#støtte-for-uttrykk) | `source.label`                | [Streng](#strenger)        | ✅        | ❌       |
-| [Kodelistebaserte komponenter](../../../guides/development/options/sources/from-data-model/#støtte-for-uttrykk) | `source.description`          | [Streng](#strenger)        | ✅        | ❌       |
-| [Kodelistebaserte komponenter](../../../guides/development/options/sources/from-data-model/#støtte-for-uttrykk) | `source.helpText`             | [Streng](#strenger)        | ✅        | ❌       |
-| [Kodelistebaserte komponenter](../../../guides/development/options/sources/dynamic/#basert-på-uttrykk)          | `queryParameters.[*]`         | [Streng](#strenger)        | ✅        | ❌       |
-| [Kodelistebaserte komponenter](../../../guides/development/options/functionality/filtering)                     | `optionFilter`                | [Streng](#strenger)        | ✅        | ❌       |
-| Alle                                                                                                            | `textResourceBindings.[*]` \* | [Streng](#strenger)        | ✅        | ❌       |
+| --------------------------------------------------------------------------------------------------------------- | ----------------------------- | -------------------------- | -------- | ------- |
+| [Sider/layouts](#viseskjule-hele-sider)                                                                         | `hidden`                      | [Boolsk](#boolske-verdier) | ✅       | ✅      |
+| Alle                                                                                                            | `hidden`                      | [Boolsk](#boolske-verdier) | ✅       | ✅      |
+| Skjemakomponenter                                                                                               | `required`                    | [Boolsk](#boolske-verdier) | ✅       | ✅      |
+| Skjemakomponenter                                                                                               | `readOnly`                    | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                       | `hiddenRow`                   | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                       | `edit.addButton`              | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                       | `edit.saveButton`             | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                       | `edit.deleteButton`           | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                       | `edit.alertOnDelete`          | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](../../ux/fields/grouping/repeating)                                                       | `edit.saveAndNextButton`      | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Kodelistebaserte komponenter](../../../guides/development/options/sources/from-data-model/#støtte-for-uttrykk) | `source.label`                | [Streng](#strenger)        | ✅       | ❌      |
+| [Kodelistebaserte komponenter](../../../guides/development/options/sources/from-data-model/#støtte-for-uttrykk) | `source.description`          | [Streng](#strenger)        | ✅       | ❌      |
+| [Kodelistebaserte komponenter](../../../guides/development/options/sources/from-data-model/#støtte-for-uttrykk) | `source.helpText`             | [Streng](#strenger)        | ✅       | ❌      |
+| [Kodelistebaserte komponenter](../../../guides/development/options/sources/dynamic/#basert-på-uttrykk)          | `queryParameters.[*]`         | [Streng](#strenger)        | ✅       | ❌      |
+| [Kodelistebaserte komponenter](../../../guides/development/options/functionality/filtering)                     | `optionFilter`                | [Streng](#strenger)        | ✅       | ❌      |
+| Alle                                                                                                            | `textResourceBindings.[*]` \* | [Streng](#strenger)        | ✅       | ❌      |
 
 \* = Hvilke verdier man kan overstyre med textResourceBindings varierer fra komponent til komponent, men vil fungere på
 alle steder der det brukes. TextResourceBindings for repeterende grupper finner
@@ -262,68 +262,67 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 ### Sammenligning av verdier
 
 | Funksjonsnavn                                | Parametre                                 | Returverdi                 | Frontend | Backend |
-|----------------------------------------------|-------------------------------------------|----------------------------|----------|---------|
-| [`compare`](#func-compare)                   | [Se detaljert beskrivelse](#func-compare) | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| [`equals`](#func-equals)                     | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| [`notEquals`](#func-equals)                  | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| [`not`](#func-not)                           | [Boolsk](#boolske-verdier)                | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| [`greaterThan`](#func-gt)                    | [Tall](#tall), [Tall](#tall)              | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| [`greaterThanEq`](#func-gt)                  | [Tall](#tall), [Tall](#tall)              | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| [`lessThan`](#func-gt)                       | [Tall](#tall), [Tall](#tall)              | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| [`lessThanEq`](#func-gt)                     | [Tall](#tall), [Tall](#tall)              | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| [`concat`](#func-concat)                     | Ingen eller flere [strenger](#strenger)   | [Streng](#strenger)        | ✅        | ✅       |
-| [`contains`](#func-contains-not-contains)    | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| [`notContains`](#func-contains-not-contains) | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| [`commaContains`](#func-commaContains)       | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| [`startsWith`](#func-starts-ends-with)       | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-| [`endsWith`](#func-starts-ends-with)         | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅        | ✅       |
-
+| -------------------------------------------- | ----------------------------------------- | -------------------------- | -------- | ------- |
+| [`compare`](#func-compare)                   | [Se detaljert beskrivelse](#func-compare) | [Boolsk](#boolske-verdier) | ✅       | ✅      |
+| [`equals`](#func-equals)                     | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅       | ✅      |
+| [`notEquals`](#func-equals)                  | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅       | ✅      |
+| [`not`](#func-not)                           | [Boolsk](#boolske-verdier)                | [Boolsk](#boolske-verdier) | ✅       | ✅      |
+| [`greaterThan`](#func-gt)                    | [Tall](#tall), [Tall](#tall)              | [Boolsk](#boolske-verdier) | ✅       | ✅      |
+| [`greaterThanEq`](#func-gt)                  | [Tall](#tall), [Tall](#tall)              | [Boolsk](#boolske-verdier) | ✅       | ✅      |
+| [`lessThan`](#func-gt)                       | [Tall](#tall), [Tall](#tall)              | [Boolsk](#boolske-verdier) | ✅       | ✅      |
+| [`lessThanEq`](#func-gt)                     | [Tall](#tall), [Tall](#tall)              | [Boolsk](#boolske-verdier) | ✅       | ✅      |
+| [`concat`](#func-concat)                     | Ingen eller flere [strenger](#strenger)   | [Streng](#strenger)        | ✅       | ✅      |
+| [`contains`](#func-contains-not-contains)    | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅       | ✅      |
+| [`notContains`](#func-contains-not-contains) | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅       | ✅      |
+| [`commaContains`](#func-commaContains)       | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅       | ✅      |
+| [`startsWith`](#func-starts-ends-with)       | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅       | ✅      |
+| [`endsWith`](#func-starts-ends-with)         | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅       | ✅      |
 
 ### Logikk
 
 | Funksjonsnavn      | Parametre                                          | Returverdi                           | Frontend | Backend |
-|--------------------|----------------------------------------------------|--------------------------------------|----------|---------|
-| [`and`](#func-and) | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`or`](#func-and)  | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅        | ✅       |
-| [`if`](#func-if)   | [Se detaljert beskrivelse](#func-if)               | [Se detaljert beskrivelse](#func-if) | ✅        | ✅       |
+| ------------------ | -------------------------------------------------- | ------------------------------------ | -------- | ------- |
+| [`and`](#func-and) | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
+| [`or`](#func-and)  | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
+| [`if`](#func-if)   | [Se detaljert beskrivelse](#func-if)               | [Se detaljert beskrivelse](#func-if) | ✅       | ✅      |
 
 ### Strenger og tall
 
 | Funksjonsnavn                             | Parametre                                                     | Returverdi          | Frontend | Backend |
-|-------------------------------------------|---------------------------------------------------------------|---------------------|----------|---------|
-| [`lowerCase`](#func-lowerCase-upperCase)  | [Streng](#strenger)                                           | [Streng](#strenger) | ✅        | ✅       |
-| [`upperCase`](#func-lowerCase-upperCase)  | [Streng](#strenger)                                           | [Streng](#strenger) | ✅        | ✅       |
-| [`lowerCaseFirst`](#func-lcFirst-ucFirst) | [Streng](#strenger)                                           | [Streng](#strenger) | ✅        | ✅       |  
-| [`upperCaseFirst`](#func-lcFirst-ucFirst) | [Streng](#strenger)                                           | [Streng](#strenger) | ✅        | ✅       |  
-| [`stringLength`](#func-stringLength)      | [Streng](#strenger)                                           | [Tall](#tall)       | ✅        | ✅       |
-| [`stringIndexOf`](#func-stringIndexOf)    | [Streng](#strenger), [Streng](#strenger)                      | [Tall](#tall)       | ✅        | ✅       |  
-| [`stringSlice`](#func-stringSlice)        | [Streng](#strenger), [Tall](#tall), valgfritt [Tall](#tall)   | [Streng](#strenger) | ✅        | ✅       |  
-| [`stringReplace`](#func-stringReplace)    | [Streng](#strenger), [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅        | ✅       |  
-| [`text`](#func-text)                      | [Streng](#strenger)                                           | [Streng](#strenger) | ✅        | ❌       |
-| [`language`](#func-language)              | Ingenting                                                     | [Streng](#strenger) | ✅        | ❌       |
-| [`displayValue`](#func-displayValue)      | [Streng](#strenger)                                           | [Streng](#strenger) | ✅        | ❌       |
-| [`round`](#func-round)                    | [Tall](#tall), valgfritt [Tall](#tall)                        | [Streng](#strenger) | ✅        | ✅       |
-| [`formatDate`](#func-formatDate)          | [Dato/tid](#datoer), valgfri [Streng](#strenger)              | [Streng](#strenger) | ✅        | ✅       |
+| ----------------------------------------- | ------------------------------------------------------------- | ------------------- | -------- | ------- |
+| [`lowerCase`](#func-lowerCase-upperCase)  | [Streng](#strenger)                                           | [Streng](#strenger) | ✅       | ✅      |
+| [`upperCase`](#func-lowerCase-upperCase)  | [Streng](#strenger)                                           | [Streng](#strenger) | ✅       | ✅      |
+| [`lowerCaseFirst`](#func-lcFirst-ucFirst) | [Streng](#strenger)                                           | [Streng](#strenger) | ✅       | ✅      |
+| [`upperCaseFirst`](#func-lcFirst-ucFirst) | [Streng](#strenger)                                           | [Streng](#strenger) | ✅       | ✅      |
+| [`stringLength`](#func-stringLength)      | [Streng](#strenger)                                           | [Tall](#tall)       | ✅       | ✅      |
+| [`stringIndexOf`](#func-stringIndexOf)    | [Streng](#strenger), [Streng](#strenger)                      | [Tall](#tall)       | ✅       | ✅      |
+| [`stringSlice`](#func-stringSlice)        | [Streng](#strenger), [Tall](#tall), valgfritt [Tall](#tall)   | [Streng](#strenger) | ✅       | ✅      |
+| [`stringReplace`](#func-stringReplace)    | [Streng](#strenger), [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅       | ✅      |
+| [`text`](#func-text)                      | [Streng](#strenger)                                           | [Streng](#strenger) | ✅       | ❌      |
+| [`language`](#func-language)              | Ingenting                                                     | [Streng](#strenger) | ✅       | ❌      |
+| [`displayValue`](#func-displayValue)      | [Streng](#strenger)                                           | [Streng](#strenger) | ✅       | ❌      |
+| [`round`](#func-round)                    | [Tall](#tall), valgfritt [Tall](#tall)                        | [Streng](#strenger) | ✅       | ✅      |
+| [`formatDate`](#func-formatDate)          | [Dato/tid](#datoer), valgfri [Streng](#strenger)              | [Streng](#strenger) | ✅       | ✅      |
 
 ### Oppslag, komponenter og data
 
 | Funksjonsnavn                                  | Parametre                                | Returverdi          | Frontend | Backend |
-|------------------------------------------------|------------------------------------------|---------------------|----------|---------|
-| [`instanceContext`](#func-instancecontext)     | [Streng](#strenger)                      | [Streng](#strenger) | ✅        | ✅       |
-| [`frontendSettings`](#func-frontendsettings)   | [Streng](#strenger)                      | [Streng](#strenger) | ✅        | ✅       |
-| [`countDataElements`](#func-countDataElements) | [Streng](#strenger)                      | [Tall](#tall)       | ✅        | ✅       |
-| [`dataModel`](#func-datamodel)                 | [Streng](#strenger)                      | [Streng](#strenger) | ✅        | ✅       |
-| [`component`](#func-component)                 | [Streng](#strenger)                      | [Streng](#strenger) | ✅        | ✅       |
-| [`linkToPage`](#func-linkToPage)               | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅        | ❌       |
-| [`linkToComponent`](#func-linkToComponent)     | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅        | ❌       |
-| [`optionLabel`](#func-optionLabel)             | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅        | ❌       |
+| ---------------------------------------------- | ---------------------------------------- | ------------------- | -------- | ------- |
+| [`instanceContext`](#func-instancecontext)     | [Streng](#strenger)                      | [Streng](#strenger) | ✅       | ✅      |
+| [`frontendSettings`](#func-frontendsettings)   | [Streng](#strenger)                      | [Streng](#strenger) | ✅       | ✅      |
+| [`countDataElements`](#func-countDataElements) | [Streng](#strenger)                      | [Tall](#tall)       | ✅       | ✅      |
+| [`dataModel`](#func-datamodel)                 | [Streng](#strenger)                      | [Streng](#strenger) | ✅       | ✅      |
+| [`component`](#func-component)                 | [Streng](#strenger)                      | [Streng](#strenger) | ✅       | ✅      |
+| [`linkToPage`](#func-linkToPage)               | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅       | ❌      |
+| [`linkToComponent`](#func-linkToComponent)     | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅       | ❌      |
+| [`optionLabel`](#func-optionLabel)             | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅       | ❌      |
 
 ### Spesialfunksjoner
 
 | Funksjonsnavn          | Parametre                   | Returverdi          | Frontend | Backend |
-|------------------------|-----------------------------|---------------------|----------|---------|
-| [`argv`](#func-argv)   | [Tall](#tall)               | [Streng](#strenger) | ✅        | ✅       |
-| [`value`](#func-value) | valgfri [Streng](#strenger) | [Streng](#strenger) | ✅        | ❌       |
+| ---------------------- | --------------------------- | ------------------- | -------- | ------- |
+| [`argv`](#func-argv)   | [Tall](#tall)               | [Streng](#strenger) | ✅       | ✅      |
+| [`value`](#func-value) | valgfri [Streng](#strenger) | [Streng](#strenger) | ✅       | ❌      |
 
 Detaljerte beskrivelser og eksempler
 
@@ -356,18 +355,18 @@ Funksjonen returnerer en boolsk verdi basert på sammenligningen. De aksepterte 
 operatoren som brukes. For eksempel kan operatoren `equals` sammenligne strenger, tall og boolske verdier, mens
 `greaterThan` og `lessThan` kun kan sammenligne tall.
 
-| Operator        | Parametre              | Beskrivelse                                                                                          |
-|-----------------|------------------------|------------------------------------------------------------------------------------------------------|
-| `equals`        | [Alle typer](#datatyper) | Returnerer `true` om de to verdiene er like, `false` ellers.                                       |
-| `greaterThan`   | [Tall](#tall)          | Returnerer `true` om det første tallet er større enn det andre tallet, `false` ellers.             |
-| `greaterThanEq` | [Tall](#tall)          | Returnerer `true` om det første tallet er større enn eller lik det andre tallet, `false` ellers.   |
-| `lessThan`      | [Tall](#tall)          | Returnerer `true` om det første tallet er mindre enn det andre tallet, `false` ellers.             |
-| `lessThanEq`    | [Tall](#tall)          | Returnerer `true` om det første tallet er mindre enn eller lik det andre tallet, `false` ellers.   |
-| `isBefore`      | [Dato/tid](#datoer)    | Returnerer `true` om den første datoen er før den andre datoen, `false` ellers.                    |
-| `isBeforeEq`    | [Dato/tid](#datoer)    | Returnerer `true` om den første datoen er før eller lik den andre datoen, `false` ellers.          |
-| `isAfter`       | [Dato/tid](#datoer)    | Returnerer `true` om den første datoen er etter den andre datoen, `false` ellers.                   |
-| `isAfterEq`     | [Dato/tid](#datoer)    | Returnerer `true` om den første datoen er etter eller lik den andre datoen, `false` ellers.         |
-| `isSameDay`     | [Dato/tid](#datoer)    | Returnerer `true` om de to datoene er på samme dag, `false` ellers.                                |
+| Operator        | Parametre                | Beskrivelse                                                                                      |
+| --------------- | ------------------------ | ------------------------------------------------------------------------------------------------ |
+| `equals`        | [Alle typer](#datatyper) | Returnerer `true` om de to verdiene er like, `false` ellers.                                     |
+| `greaterThan`   | [Tall](#tall)            | Returnerer `true` om det første tallet er større enn det andre tallet, `false` ellers.           |
+| `greaterThanEq` | [Tall](#tall)            | Returnerer `true` om det første tallet er større enn eller lik det andre tallet, `false` ellers. |
+| `lessThan`      | [Tall](#tall)            | Returnerer `true` om det første tallet er mindre enn det andre tallet, `false` ellers.           |
+| `lessThanEq`    | [Tall](#tall)            | Returnerer `true` om det første tallet er mindre enn eller lik det andre tallet, `false` ellers. |
+| `isBefore`      | [Dato/tid](#datoer)      | Returnerer `true` om den første datoen er før den andre datoen, `false` ellers.                  |
+| `isBeforeEq`    | [Dato/tid](#datoer)      | Returnerer `true` om den første datoen er før eller lik den andre datoen, `false` ellers.        |
+| `isAfter`       | [Dato/tid](#datoer)      | Returnerer `true` om den første datoen er etter den andre datoen, `false` ellers.                |
+| `isAfterEq`     | [Dato/tid](#datoer)      | Returnerer `true` om den første datoen er etter eller lik den andre datoen, `false` ellers.      |
+| `isSameDay`     | [Dato/tid](#datoer)      | Returnerer `true` om de to datoene er på samme dag, `false` ellers.                              |
 
 {{% /expandlarge %}}
 
@@ -940,7 +939,7 @@ Formatargumentet er en valgfri streng som støtter _noen_ tokens i
 Dette er de tokenene vi støtter:
 
 | Enhet           | Token    | Resultat                             |
-|-----------------|----------|--------------------------------------|
+| --------------- | -------- | ------------------------------------ |
 | Era             | `G..GGG` | f.Kr., e.Kr.                         |
 | Era             | `GGGG`   | før Kristus, etter Kristus           |
 | Era             | `GGGGG`  | f.Kr., e.Kr.                         |
@@ -986,6 +985,7 @@ Eksempel:
 ```json
 ["formatDate", "2023-10-30T14:54:00", "HH:mm"]
 ```
+
 Vil resultere i `14:54`
 
 {{% /expandlarge %}}
@@ -998,10 +998,10 @@ direkte til den spesifiserte siden.
 Funksjonen tar 2 argumenter. Det første argumentet er lenketeksten som vil være synlig for
 brukeren. Det andre argumentet er id-en til siden linken skal peke til.
 
-
 ```json
 ["linkToPage", "Specify your name", "page1"]
 ```
+
 Resultatet vil bli `<a href="#/instance/<party-id>/<instance-id>/<TaskId>/page1">Oppgi navnet ditt</a>`
 Denne lenken vil ta brukeren til den spesifiserte siden når den blir klikket på.
 
@@ -1014,10 +1014,10 @@ som peker til en spesifikk komponent i skjemaet. Å klikke på denne lenken vil 
 Funksjonen tar 2 argumenter. Det første argumentet er lenketeksten som vil være synlig for brukeren.
 Det andre argumentet er id-en til komponenten lenken skal peke til.
 
-
 ```json
 ["linkToComponent", "Specify your name", "inputMyName"]
 ```
+
 Resultatet vil bli `<a href="#/instance/<party-id>/<instance-id>/<TaskId>/<PageId>?focusNodeId=inputMyName">Oppgi navnet ditt</a>`
 Denne lenken vil ta brukeren til siden komponenten er på og fokusere på den spesifiserte komponenten, når brukeren klikker på lenken.
 {{% /expandlarge %}}
@@ -1049,6 +1049,7 @@ Funksjonen tar 1 argument, som er indeksen til argumentet du ønsker å hente ut
 ```json
 ["argv", 0]
 ```
+
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-value" header="value" %}}
@@ -1212,7 +1213,7 @@ Uttrykk kan brukes til å vise/skjule hele sider. I eksempelet under vil hele si
 ```
 
 Dersom siden man stod på blir skjult, vil applikasjonen automatisk gå videre til neste tilgjengelige side
-i [side-rekkefølgen](../../ux/pages/navigation#rekkefølge). Om alle de neste sidene er skjult, vises den første mulige
+i [side-rekkefølgen](../../ux/pages/navigation). Om alle de neste sidene er skjult, vises den første mulige
 siden i rekkefølgen istedenfor.
 
 ### Streng eller mindre streng sammenligning?
