@@ -12,7 +12,7 @@ When we talk about navigation, it can mean several things: giving users the abil
 
 ## Moving from page to page with buttons
 
-Users move between pages in the app/form using navigation buttons. The buttons are added automatically when you use Altinn Studio, but you can also add them manually in the code.
+Users move between pages in the app/form using navigation buttons. The buttons are added automatically when you use Altinn Studio, but you can also add them manually in code.
 
 ### Adding navigation buttons manually in the layout file (NavigationButtons)
 
@@ -43,7 +43,7 @@ Example configuration:
 
 ## Showing a side menu with the order of pages/tasks
 
-In the code, you define the order of pages in `Settings.json` for the layout set:
+In code, you define the order of pages in `Settings.json` for the layout set:
 
 **File location:** `App/ui/*/Settings.json`
 
@@ -175,7 +175,7 @@ Consider whether it makes sense and provides value for the user to add a progres
 
 A navigation bar appears at the top of the page in an app/form and can make it easier for users to see all pages in the app. It's important that you give each page good names for the navigation bar to be useful.
 
-![Navigation field desktop](navigation-field-desktop-image)
+![Navigation field desktop](navigationbar-desktop.png "Navigation field desktop")
 
 ### How does it work?
 
@@ -195,7 +195,7 @@ You add the navigation bar by inserting the code for it in all layout files wher
 
 ### Showing the dropdown menu on all screens
 
-In the code, you can set up to show the pages in the navigation bar as a dropdown menu, even on larger screens:
+In code, you can set up to show the pages in the navigation bar as a dropdown menu, even on larger screens:
 
 ```json
 {
