@@ -135,7 +135,7 @@ I Studio har vi en egen navigasjonsmeny, som du kan legge til fra **Utforming**-
 1. Åpne appen du vil sette inn navigasjonsmeny for.
 2. Klikk på **Utforming** i toppmenyen. Du kommer til Oversikt-siden for Utforming, der du ser de oppgavene som er tilgjengelige i appen. 
 3. Under **Andre innstillinger** ser du øverst en melding om at du ikke viser noen oppgaver i navigasjonsmenyen enda. Under den finner du en tabell med oppgaver som du kan velge å vise.
-4. Velg **Vis alle oppgavene** hvis du vil ha med alle i navigasjonsmenyen. Du ser at de blir tilgjengelige i den øverste tabellen. Velg enkeltoppgaver med **Vis oppgaven** hvis du ikke vil ha med alle oppgavene.
+4. Velg **Vis oppgaven** for å legge til enkeltoppgaver i navigasjonsmenyen. Du ser at de blir tilgjengelige i den øverste tabellen. Velg **Vis alle oppgavene** hvis du vil ha med alle oppgavene.
 5. Den øverste tabellen viser nå de oppgavene du har valgt å vise, og rekkefølgen de vises i. 
 Du kan klikke på de tre prikkene til høyre for hver oppgave, og velge om du vil skjule enkeltoppgaver, eller flytte dem opp og ned for å endre rekkefølgen på oppgavene i navigasjonen. Her kan du også endre visningsnavnet for en oppgave og gå direkte til utforming av den.
 4. Bruk knappen **Vis med navigasjonsmeny** for å forhåndsvise navigasjonsmenyen i appen.
