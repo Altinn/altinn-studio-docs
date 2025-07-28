@@ -1,16 +1,15 @@
----
-title: Navigasjon mellom sider
-linktitle: Navigasjon
-description: Hvordan sette opp navigasjon mellom sider.
-toc: true
-weight: 10
----
+# Navigasjon i apper
+Når vi snakker om navigasjon, kan det være flere ting: Det å gi brukerne mulighet til å flytte seg fra side til side i en app, det å få oversikt over sider/emner i appen med et navigasjonfelt i toppen, eller det å se alle oppgaver som er inkludert i en app i en venstremeny. Denne artikkelen beskriver alle tre mulighetene.
 
-Navigering til neste og forrige side skjer via navigasjonsknapper. Disse må legges til manuelt i hver layout-fil. 
+## Gå fra side til side med knapper
 
-## Legg til navigasjonsknapper
+Brukerne flytter mellom sider i appen/skjemaet ved hjelp av navigasjonsknapper. Knappene legges til automatisk når du bruker Altinn Studio, men du kan også legge dem til manuelt i koden.
 
-Navigasjonsknapper legges inn i alle layout-filer der det er behov. Om man ønsker at de skal dukke opp nederst på siden, må den legges inn nederst i layout-filen. Eksempel vises under
+### Legge til navigasjonsknapper manuelt i layoutfilen (NavigationButtons)
+
+Du legger inn navigasjonsknappene i alle layout-filer der det trengs. Hvis du vil at de skal vises nederst på siden, må du plassere dem nederst i layout-filen.
+
+#### Eksempel på konfigurasjon:
 
 ```json
 {
@@ -24,22 +23,21 @@ Navigasjonsknapper legges inn i alle layout-filer der det er behov. Om man ønsk
 }
 ```
 
-![Navigasjonsknapper](nav-button-next-prev.png "Navigasjonsknapper")
+### Parametere for NavigationButtons
 
-| Parameter            | Beskrivelse                                                                                                                           |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| id                   | Unik ID, tilsvarende som for alle andre skjemakomponenter.                                                                            |
-| type                 | Må være `"NavigationButtons"`                                                                                                         |
-| textResourceBindings | Setter man parametre `next` (og evt. `back`) her, vil man kunne overstyre med egne tekster som vises på knappen(e). Se eksempel over. |
-| showBackButton       | Valgfri. Gjør at 2 knapper (tilbake/neste) vises i stedet for bare en (neste).                                                        |
+| Parameter | Beskrivelse |
+|-----------|-------------|
+| id | Unik ID for komponenten. |
+| type | Må være "NavigationButtons" |
+| textResourceBindings | Lar deg overstyre standardtekstene på knappene med egne tekster. |
+| showBackButton | Valgfritt. Viser knappene Forrige og Neste i stedet for bare Neste-knapp. |
 
-## Rekkefølge
+## Vise en sidemeny med rekkefølgen på sider/oppgaver
 
-Rekkefølgen på sidene defineres i `Settings.json` for layout-settet. Dette gjøres på følgende vis:
+I koden definerer du rekkefølgen på sidene i `Settings.json` for layout-settet:
 
-{{< code-title >}}
-App/ui/*/Settings.json
-{{< /code-title >}}
+**Filplassering:** `App/ui/*/Settings.json`
+
 ```json
 {
   "pages": {
@@ -48,15 +46,14 @@ App/ui/*/Settings.json
 }
 ```
 
-Dersom du ønsker å dynamisk skjule enkelte sider, kan dette gjøres med [Dynamiske uttrykk](/nb/altinn-studio/reference/logic/expressions/#viseskjule-hele-sider).
+**Skjule sider dynamisk:** Du kan skjule enkelte sider med [dynamiske uttrykk](/nb/altinn-studio/reference/logic/expressions/#viseskjule-hele-sider).
 
-## Gruppering av sider
+## Gruppere sider
 
-Dersom du ønsker å gruppere sider eller å vise sidene i en side-meny, kan du bruke side-grupper som et alternativ til tradisjonell rekkefølge. Da erstatter du `pages.order` med egenskapen `pages.groups` som vist nedenfor:
+Du kan gruppere sider og vise dem i en sidemeny som alternativ til tradisjonell rekkefølge. Da erstatter du `pages.order` med `pages.groups`:
 
-{{< code-title >}}
-App/ui/*/Settings.json
-{{< /code-title >}}
+**Filplassering:** `App/ui/*/Settings.json`
+
 ```json
 {
   "pages": {
@@ -79,25 +76,29 @@ App/ui/*/Settings.json
 }
 ```
 
-| Parameter         | Beskrivelse                                                                                                           |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------- |
-| name              | Tekstressurs som angir navnet på side-gruppen. Påkrevd dersom `order` inneholder mer enn én side.                     |
-| type              | Valgfri. `"info" \| "default"`.                                                                                       |
-| markWhenCompleted | Valgfri. Markerer sider i gruppen som ferdig utfylt når alle valideringsfeil er rettet (og brukeren har sett siden).  |
-| order             | Hvilke sider som inngår i gruppen.                                                                                    |
+### Parametere for sidegrupper
 
-![Gruppert navigasjon i side-meny](grouped-navigation.png "Gruppert navigasjon i side-meny")
+| Parameter | Beskrivelse |
+|-----------|-------------|
+| name | Tekstressurs som angir navnet på sidegruppen. Må være med hvis gruppen inneholder mer enn én side. |
+| type | Valgfritt. Bruk "info" eller "default". |
+| markWhenCompleted | Valgfritt. Markerer sider som ferdig utfylt når alle valideringsfeil er rettet og brukeren har sett siden. |
+| order | Angir hvilke sider som inngår i gruppen. |
 
-### Synliggjør prosess-steg i navigasjons-menyen
+## Vise arbeidsflyt og oppgaver i navigasjonsmenyen
 
-Du kan også vise den øvrige prosessen i navigasjons-menyen. Det kan konfigureres for hele appen i `layout-sets.json` med egenskapen `uiSettings.taskNavigation`, eller per layout-sett med egenskapen `pages.taskNavigation` i `Settings.json` for layout-settet. Eksempel:
+### Vise arbeidsflyten ved å definere det i koden
+Du kan vise hele arbeidsflyten i navigasjonsmenyen på to måter. I koden gjør du det slik:
 
-{{< code-title >}}
-App/ui/layout-sets.json
-{{< /code-title >}}
+- **For hele appen:** i `layout-sets.json` med `uiSettings.taskNavigation`
+- **Per layout-sett:** i `Settings.json` med `pages.taskNavigation`
+
+### Eksempel for hele appen:
+
+**Filplassering:** `App/ui/layout-sets.json`
+
 ```json
 {
-  ...
   "uiSettings": {
     "taskNavigation": [
       {
@@ -115,36 +116,43 @@ App/ui/layout-sets.json
 }
 ```
 
-| Parameter | Beskrivelse                                                               |
-| --------- | ------------------------------------------------------------------------- |
-| name      | Valgfri. Tekstressurs som angir navnet på prosess-steget.                 |
-| taskId    | Hvilket prosess-steg det gjelder. Obligatorisk hvis ikke `type` er satt.  |
-| type      | `"receipt"`. Obligatorisk hvis ikke `taskId` er satt.                     |
+### Parametere for stegene i arbeidsflyten
 
-![Visning av øvrige prosess-steg](task-navigation.png "Visning av øvrige prosess-steg")
+| Parameter | Beskrivelse |
+|-----------|-------------|
+| name | Valgfri. Tekstressurs som angir navnet på oppgaven. |
+| taskId | Hvilken oppgave det gjelder. Obligatorisk hvis ikke type er satt. |
+| type | "receipt". Obligatorisk hvis ikke taskId er satt. |
 
-## Fremdriftsindikator
 
-Det er mulig å aktivere en fremdriftsindikator som viser øverst i høyre hjørne av appen, som indikerer til brukeren
-hvor langt man har kommet i utfyllingen av en applikasjon med flere sider.
+## Vise navigasjon fra Altinn Studio
 
-![Fremdriftsindikator](progress.png "Fremdriftsindikator")
+I Studio har vi en egen navigasjonsmeny, som du kan legge til fra **Utforming**-siden. Du kan velge om du vil vise alle sidene/oppgavene i navigasjonen, eller bare de du velger ut.
 
-{{%notice info%}}
-Alle sider i gjeldende [prosess-steg](../../../configuration/process) teller mot det totale antall sider som vises i
-fremdriftsindikatoren. Hvis det er satt opp [sporvalg](../tracks) eller flere
-[dynamisk skjulte sider](../../../logic/expressions#viseskjule-hele-sider) vil antallet kunne variere mye og oppføre seg
-forvirrende for brukeren. Sjekk at fremdriftsindikatoren gir mening og verdi for brukeren før den aktiveres.
-{{%/notice%}}
+### Legge til oppgaver i navigasjonen
+1. Åpne appen du vil sette inn navigasjonsmeny for.
+2. Klikk på **Utforming** i toppmenyen. Du kommer til Oversikt-siden for Utforming, der du ser de oppgavene som er tilgjengelige i appen. 
+3. Under **Andre innstillinger** ser du øverst en melding om at du ikke viser noen oppgaver i navigasjonsmenyen enda. Under den finner du en tabell med oppgaver som du kan velge å vise.
+4. Velg **Vis alle oppgavene** hvis du vil ha med alle i navigasjonsmenyen. Du ser at de blir tilgjengelige i den øverste tabellen. Velg enkeltoppgaver med **Vis oppgaven** hvis du ikke vil ha med alle oppgavene.
+5. Den øverste tabellen viser nå de oppgavene du har valgt å vise, og rekkefølgen de vises i. 
+Du kan klikke på de tre prikkene til høyre for hver oppgave, og velge om du vil skjule enkeltoppgaver, eller flytte dem opp og ned for å endre rekkefølgen på oppgavene i navigasjonen. Her kan du også endre visningsnavnet for en oppgave og gå direkte til utforming av den.
+4. Bruk knappen **Vis med navigasjonsmeny** for å forhåndsvise navigasjonsmenyen på venstre side i appen.
 
-### Konfigurasjon
+## Vise en fremdriftsindikator
 
-For å sette opp fremdriftsindikatoren, legg til denne linjen i `Settings.json`-filen:
+En fremdriftsindikator er et lite visuelt hjul, som viser hvor langt brukerne har kommet med å fylle ut eller lese et skjema. Den kan være nyttig for å gi brukerne oversikt over totalt antall sider, og hvor de er i utfyllingen. Fremdriftsindikatoren vises øverst i det høyre hjørnet.
 
-{{< code-title >}}
-App/ui/*/Settings.json
-{{< /code-title >}}
-```json {hl_lines=9}
+### Viktig å vite
+
+[Oppgavene i arbeidsflyten](../../../configuration/process) teller med i det totale antall sider i fremdriftsindikatoren. Hvis du har satt opp [sporvalg](../tracks) eller [dynamisk skjulte sider](../../../logic/expressions#viseskjule-hele-sider), kan antallet sider variere mye og virke forvirrende for brukeren.
+
+**Vurder om det gir mening og verdi for brukeren å legge til en fremdriftsindikator, før du velger å legge den til.**
+
+### Legge til selve fremdriftsindikatoren
+
+**Filplassering:** `App/ui/*/Settings.json`
+
+```json
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
@@ -154,21 +162,19 @@ App/ui/*/Settings.json
 }
 ```
 
-## Navigasjonsbar
+## Vise et navigasjonsfelt (NavigationBar)
 
-Navigasjonsbar gir enkel tilgang til alle sider i en applikasjon.
+Et navigasjonsfelt vises øverst på siden i en app/et skjema, og kan gjøre det enklere for brukerne å se alle sidene i appen. Det er viktig at du gir hver side gode navn, for at navigasjonsfeltet skal være nyttig.
+![Navigasjonsfelt desktop](navigationbar-desktop.png "Navigasjonsfelt desktop")
 
-{{%notice info%}}
-Navigasjonsbar lister opp alle sider i appen, og egner seg derfor ikke til bruk ved sporvalg.
-{{%/notice%}}
+### Hvordan fungerer det?
 
-![Navigasjonsbar desktop](navigationbar-desktop.png "Navigasjonsbar desktop")
+- **Store skjermer:** Alle sider blir vist i listen. Hvis det ikke er plass på én linje, fortsetter listen på neste linje.
+- **Små skjermer:** Alle sider er skjult i en nedtrekksmeny. Den aktive siden vises i menyen. Brukerne kan klikke på menyen og få se alle sidene.
 
-På store skjermer vil alle sider listes opp. Dersom det ikke er plass på en linje, vil listen brytes og fortsette på neste linje. På mindre skjermer vil alle sider være skjult i en meny. Den siden som er aktiv vil vises i menyen. Når menyen klikkes på, vil en liste over alle sider vises.
+### Legge til navigasjonsfeltet i koden
 
-![Navigasjonsbar mobil - lukket og åpen](navigationbar-mobile.png "Navigasjonsbar mobil - lukket og åpen")
-
-Navigasjonsbar legges inn i alle layoutfiler der den skal brukes. Eksempel på konfigurasjon:
+Du legger til navigasjonsfeltet ved å legge inn koden for det i alle layout-filer der det skal brukes:
 
 ```json
 {
@@ -177,7 +183,9 @@ Navigasjonsbar legges inn i alle layoutfiler der den skal brukes. Eksempel på k
 }
 ```
 
-Det er også mulighet å konfigurere komponenten NavigationBar til å vise alle sider i en meny også på større skjermer. Dette gjøres ved å legge til "compact": true. Eksempel på konfigurasjon:
+### Vise nedtrekksmenyen på alle skjermer
+
+I koden kan du sette opp at du vil vise sidene i navigasjonsfeltet som nedtrekksmeny, også på større skjermer:
 
 ```json
 {
@@ -187,9 +195,13 @@ Det er også mulighet å konfigurere komponenten NavigationBar til å vise alle 
 }
 ```
 
-### Endre tekster på navigasjonsbarknapper
+### Endre tekstene på knappene i navigasjonsfeltet
 
-Teksten på navigasjonsbarknappene vil som standard bruke filnavnet på siden uten filendelsen. F.eks om man har `side1.json` og `side2.json` vil navigasjonsknappene hete `side1` og `side2`. For å overstyre disse tekstene, kan du legge til tekster i `resources.XX.json`, hvor `id` er navnet på filen uten filendelse. Eksempel:
+Knappene i navigasjonfeltet henter navnet sitt fra filnavnet til siden, uten filutvidelsen. For eksempel blir `side1.json` og `side2.json` til knappene "side1" og "side2".
+
+**Slik endrer du tekstene:**
+
+Legg til tekster i `resources.XX.json`, der `id` er navnet på filen uten filutvidelsen:
 
 ```json
 {
@@ -199,19 +211,18 @@ Teksten på navigasjonsbarknappene vil som standard bruke filnavnet på siden ut
 {
   "id": "side2",
   "value": "Siste side"
-},
-
+}
 ```
 
-## Validering ved sidebytte
+## Angi validering ved sidebytte
 
-Det er mulig å sjekke valideringsfeil i det brukeren prøver å bevege seg til neste side, dersom det er valideringsfeil vil det stoppe brukeren fra å navigere.
+Du kan legge inn kode for å sjekke om det er valideringsfeil når brukeren prøver å gå til neste side. *Valideringsfeil* kan for eksempel bety at brukeren har glemt å fylle ut et felt eller har fylt det ut med informasjon med feil format. Hvis det er feil, stoppes navigeringen med en av valideringskodene i avsnittet under.
 
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="v4 (App Frontend)">}}
-I versjon 4 av app frontend, har `NavigationButtons`-komponenten egenskapene `validateOnNext` og `validateOnPrevious` som kan konfigureres. Eksempel:
+### App frontend versjon 4
 
-```json {linenos=false,hl_lines=[5,6,7,8]}
+NavigationButtons-komponenten har egenskapene `validateOnNext` og `validateOnPrevious`:
+
+```json
 {
   "id": "nav-buttons1",
   "type": "NavigationButtons",
@@ -223,19 +234,25 @@ I versjon 4 av app frontend, har `NavigationButtons`-komponenten egenskapene `va
 }
 ```
 
-Hvor `page` kan være en av: `current | all | currentAndPrevious`, og `show` inneholder et sett med validerings-typer som skal sjekkes; dette kan være én eller flere av:
+**page kan være:**
+- `current` - bare denne siden
+- `all` - alle sider  
+- `currentAndPrevious` - denne og tidligere sider
 
-- `Schema`
-- `Component`
-- `Expression`
-- `CustomBackend`
-- `Required`
-- `AllExceptRequired`
-- `All`
+**show inneholder hvilke valideringstyper som blir sjekket:**
+- Schema
+- Component  
+- Expression
+- CustomBackend
+- Required
+- AllExceptRequired
+- All
 
-Tilsvarende, har `NavigationBar`-komponenten egenskapene `validateOnForward` og `validateOnBackward`:
+### Bruke NavigationBar med validering
 
-```json {linenos=false,hl_lines=[4,5,6,7]}
+NavigationBar-komponenten har tilsvarende egenskaper, `validateOnForward` og `validateOnBackward`:
+
+```json
 {
   "id": "nav1",
   "type": "NavigationBar",
@@ -246,27 +263,25 @@ Tilsvarende, har `NavigationBar`-komponenten egenskapene `validateOnForward` og 
 }
 ```
 
-{{</content-version-container>}}
-{{<content-version-container version-label="v3 (App Frontend)">}}
-I versjon 3 av app frontend kan du legge til en trigger på navigasjonsknappen:
+### App frontend versjon 3
 
-```json {linenos=false,hl_lines=[7]}
+I versjon 3 legger du til en utløser på navigasjonsknappen:
+
+```json
 {
   "id": "nav-buttons1",
   "type": "NavigationButtons",
   "textResourceBindings": {
-    "next": "Neste",
+    "next": "Neste"
   },
-  "triggers": ["validatePage"],
+  "triggers": ["validatePage"]
 }
 ```
 
-Det er tre ulike triggere som kan brukes ved side-navigasjon:
+### Tilgjengelige utløsere
 
-| Trigger                           | Beskrivelse                                                                                                                                                                               |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `validatePage`                    | Kjører validering på komponentene i den nåværende siden. IDen til siden som trigget valideringen sendes med til backend i headeren `LayoutId`.                                            |
-| `validateAllPages`                | Kjører validering på alle komponentene i alle sider i skjemaet. Hindrer ikke brukeren å navigere dersom det ikke finnes valideringsfeil på nåværende eller tidligere sider i rekkefølgen. |
-| `validateCurrentAndPreviousPages` | Kjører validering på alle komponentene i nåværende og tidligere sider i rekkefølgen.                                                                                                      |
-{{</content-version-container>}}
-{{</content-version-selector>}}
+| Utløser | Beskrivelse |
+|---------|-------------|
+| validatePage | Validerer komponentene på den gjeldende siden. |
+| validateAllPages | Validerer alle komponentene på alle sider. Hindrer ikke at brukeren går videre, hvis det bare er feil på fremtidige sider. |
+| validateCurrentAndPreviousPages | Validerer både gjeldende og tidligere sider. |
