@@ -1,7 +1,7 @@
 ---
-title: Navigation between pages
+title: Navigation in apps
 linktitle: Navigation
-description: How to set up navigation between pages.
+description: Setup of navigation in apps.
 toc: true
 weight: 10
 ---
@@ -34,12 +34,12 @@ Example configuration:
 
 ### Parameters for NavigationButtons
 
-| Parameter | Description |
-|-----------|-------------|
-| id | Unique ID for the component. |
-| type | Must be "NavigationButtons" |
-| textResourceBindings | Allows you to override the default button texts with your own texts. |
-| showBackButton | Optional. Shows Previous and Next buttons instead of just the Next button. |
+| Parameter            | Description                                                                |
+| -------------------- | -------------------------------------------------------------------------- |
+| id                   | Unique ID for the component.                                               |
+| type                 | Must be "NavigationButtons"                                                |
+| textResourceBindings | Allows you to override the default button texts with your own texts.       |
+| showBackButton       | Optional. Shows Previous and Next buttons instead of just the Next button. |
 
 ## Showing a side menu with the order of pages/tasks
 
@@ -87,12 +87,12 @@ You can group pages and display them in a side menu as an alternative to traditi
 
 #### Parameters for page groups
 
-| Parameter | Description |
-|-----------|-------------|
-| name | Text resource that specifies the name of the page group. Must be included if the group contains more than one page. |
-| type | Optional. Use "info" or "default". |
-| markWhenCompleted | Optional. Marks pages as completed when all validation errors are corrected and the user has seen the page. |
-| order | Specifies which pages are included in the group. |
+| Parameter         | Description                                                                                                         |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------- |
+| name              | Text resource that specifies the name of the page group. Must be included if the group contains more than one page. |
+| type              | Optional. Use "info" or "default".                                                                                  |
+| markWhenCompleted | Optional. Marks pages as completed when all validation errors are corrected and the user has seen the page.         |
+| order             | Specifies which pages are included in the group.                                                                    |
 
 ## Showing process and tasks in the navigation menu
 
@@ -128,11 +128,11 @@ Example for the entire app:
 
 #### Parameters for process steps
 
-| Parameter | Description |
-|-----------|-------------|
-| name | Optional. Text resource that specifies the name of the task. |
-| taskId | Which task it concerns. Mandatory if type is not set. |
-| type | "receipt". Mandatory if taskId is not set. |
+| Parameter | Description                                                  |
+| --------- | ------------------------------------------------------------ |
+| name      | Optional. Text resource that specifies the name of the task. |
+| taskId    | Which task it concerns. Mandatory if type is not set.        |
+| type      | "receipt". Mandatory if taskId is not set.                   |
 
 ### Showing navigation from Altinn Studio
 
@@ -245,11 +245,13 @@ The NavigationButtons component has the properties `validateOnNext` and `validat
 ```
 
 **page can be:**
+
 - `current` - only this page
 - `all` - all pages
 - `currentAndPrevious` - this and previous pages
 
 **show contains which validation types are checked:**
+
 - Schema
 - Component
 - Expression
@@ -290,8 +292,8 @@ In version 3, you add a trigger to the navigation button:
 
 #### Available triggers
 
-| Trigger | Description |
-|---------|-------------|
-| validatePage | Validates components on the current page. |
-| validateAllPages | Validates all components on all pages. Does not prevent the user from proceeding if there are only errors on future pages. |
-| validateCurrentAndPreviousPages | Validates both current and previous pages. |
+| Trigger                         | Description                                                                                                                |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| validatePage                    | Validates components on the current page.                                                                                  |
+| validateAllPages                | Validates all components on all pages. Does not prevent the user from proceeding if there are only errors on future pages. |
+| validateCurrentAndPreviousPages | Validates both current and previous pages.                                                                                 |

@@ -1,3 +1,11 @@
+---
+title: Navigasjon i apper
+linktitle: Navigation
+description: Oppsett av navigasjon i apper.
+toc: true
+weight: 10
+---
+
 # Navigasjon i apper
 
 Når vi snakker om navigasjon, kan det være flere ting: Det å gi brukerne mulighet til å flytte seg fra side til side i en app, det å få oversikt over sider/emner i appen med et navigasjonfelt i toppen, eller det å se alle oppgaver som er inkludert i en app i en venstremeny. Denne artikkelen beskriver alle tre mulighetene.
