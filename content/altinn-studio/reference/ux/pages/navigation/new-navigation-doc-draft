@@ -123,7 +123,7 @@ Du kan vise hele arbeidsflyten i navigasjonsmenyen på to måter. I koden gjør 
 |-----------|-------------|
 | name | Valgfri. Tekstressurs som angir navnet på oppgaven. |
 | taskId | Hvilken oppgave det gjelder. Obligatorisk hvis ikke type er satt. |
-| type | "receipt". Obligatorisk hvis ikke taskId er satt. |
+| type | Kan bare være "receipt". Obligatorisk hvis ikke taskId er satt. |
 
 
 ## Vise navigasjon fra Altinn Studio
