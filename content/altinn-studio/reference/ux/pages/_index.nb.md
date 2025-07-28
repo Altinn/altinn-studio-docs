@@ -89,10 +89,10 @@ De tilgjengelige innstillingene er følgende:
 | hideCloseButton       | Boolean | Om tilbake til innboks-knappen øverst i venstre hjørne skal skjules eller ikke.                                                |
 | showLanguageSelector  | Boolean | Om språkvelgeren skal vises eller ikke. Lar brukeren bytte språk etter de har startet skjemautfylligen.                        |
 | showExpandWidthButton | Boolean | Om utvid bredde-knappen skal vises eller ikke. Lar brukeren utvide bredden til siden slik at den fyller hele nettleservinduet. |
-| showProgress          | Boolean | se [Navigasjon](/nb/altinn-studio/reference/ux/pages/navigation/#fremdriftsindikator)                                          |
+| showProgress          | Boolean | se [Navigasjon](/nb/altinn-studio/reference/ux/pages/navigation/)                                                              |
 | pdfLayoutName         | String  | se [PDF](/nb/altinn-studio/reference/ux/pdf/#egendefinert-konfigurasjon)                                                       |
-| order                 | Array   | se [Navigasjon](/nb/altinn-studio/reference/ux/pages/navigation/#rekkefølge)                                                   |
-| groups                | Array   | se [Navigasjon](/nb/altinn-studio/reference/ux/pages/navigation/#gruppering-av-sider)                                          |
+| order                 | Array   | se [Navigasjon](/nb/altinn-studio/reference/ux/pages/navigation/)                                                              |
+| groups                | Array   | se [Navigasjon](/nb/altinn-studio/reference/ux/pages/navigation/)                                                              |
 | excludeFromPdf        | Array   | se [PDF](/nb/altinn-studio/reference/ux/pdf/#automatisk-konfigurasjon)                                                         |
 | expandedWidth         | Boolean | se [Utvidet skjemabredde](#utvidet-skjemabredde)                                                                               |
 
