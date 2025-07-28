@@ -1,4 +1,3 @@
-*This file will replace index.nb.md in the navigation folder, when reviewed and approved.*
 # Navigasjon i apper
 Når vi snakker om navigasjon, kan det være flere ting: Det å gi brukerne mulighet til å flytte seg fra side til side i en app, det å få oversikt over sider/emner i appen med et navigasjonfelt i toppen, eller det å se alle oppgaver som er inkludert i en app i en venstremeny. Denne artikkelen beskriver alle tre mulighetene.
 
@@ -127,7 +126,6 @@ Du kan vise hele arbeidsflyten i navigasjonsmenyen på to måter. I koden gjør 
 
 
 ## Vise navigasjon fra Altinn Studio
-*Added new documentation, please review and test*
 
 I Studio har vi en egen navigasjonsmeny, som du kan legge til fra **Utforming**-siden. Du kan velge om du vil vise alle sidene/oppgavene i navigasjonen, eller bare de du velger ut.
 
@@ -167,6 +165,7 @@ En fremdriftsindikator er et lite visuelt hjul, som viser hvor langt brukerne ha
 ## Vise et navigasjonsfelt (NavigationBar)
 
 Et navigasjonsfelt vises øverst på siden i en app/et skjema, og kan gjøre det enklere for brukerne å se alle sidene i appen. Det er viktig at du gir hver side gode navn, for at navigasjonsfeltet skal være nyttig.
+![Navigasjonsfelt desktop](navigationbar-desktop.png "Navigasjonsfelt desktop")
 
 ### Hvordan fungerer det?
 
