@@ -30,5 +30,8 @@
         "content/**/*index.*md": "${dirname}/${filename}.${extname}"
 
     },
-    "cSpell.language": "en,nb"
+    "cSpell.language": "en,nb",
+    "cSpell.words": [
+        "navigasjonsmenyen"
+    ]
 }
