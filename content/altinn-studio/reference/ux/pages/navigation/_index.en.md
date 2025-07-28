@@ -6,11 +6,19 @@ toc: true
 weight: 10
 ---
 
-Navigation to the next and previous page happens via navigation buttons. These must be added manually in every layout file where you want to be able to navigate.
+# Navigation in apps
 
-## Add buttons for navigation
+When we talk about navigation, it can mean several things: giving users the ability to move from page to page in an app, providing an overview of pages/topics in the app with a navigation field at the top, or showing all tasks included in an app in a left menu. This article describes all three possibilities.
 
-Buttons for navigation are added to all layout files where it is needed. If you want the button to appear at the bottom of the page, it has to be added at the bottom in the layout file. Configuration example:
+## Moving from page to page with buttons
+
+Users move between pages in the app/form using navigation buttons. The buttons are added automatically when you use Altinn Studio, but you can also add them manually in the code.
+
+### Adding navigation buttons manually in the layout file (NavigationButtons)
+
+You add navigation buttons to all layout files where needed. If you want them to appear at the bottom of the page, you must place them at the bottom of the layout file.
+
+Example configuration:
 
 ```json
 {
@@ -24,22 +32,21 @@ Buttons for navigation are added to all layout files where it is needed. If you 
 }
 ```
 
-![Navigation buttons](nav-button-next-prev.png "Navigation buttons")
+### Parameters for NavigationButtons
 
-| Parameter            | Description                                                                                                           |
-| -------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| id                   | Unique ID, the same as for all schema components.                                                                     |
-| type                 | Has to be `"NavigationButtons"`                                                                                       |
-| textResourceBindings | By setting the parameters `next` (and `back`), you are able to override the default texts to be shown on the buttons. |
-| showBackButton       | Optional. Makes two buttons (back/next) appear instead of just one (next).                                            |
+| Parameter | Description |
+|-----------|-------------|
+| id | Unique ID for the component. |
+| type | Must be "NavigationButtons" |
+| textResourceBindings | Allows you to override the default button texts with your own texts. |
+| showBackButton | Optional. Shows Previous and Next buttons instead of just the Next button. |
 
-## Order
+## Showing a side menu with the order of pages/tasks
 
-The page order is defined in the `Settings.json` file for the layout set by setting the `pages.order` property. Example:
+In the code, you define the order of pages in `Settings.json` for the layout set:
 
-{{< code-title >}}
-App/ui/*/Settings.json
-{{< /code-title >}}
+**File location:** `App/ui/*/Settings.json`
+
 ```json
 {
   "pages": {
@@ -48,15 +55,14 @@ App/ui/*/Settings.json
 }
 ```
 
-If you want to dynamically hide specific pages, this can be done using [Expressions](/altinn-studio/reference/logic/expressions/#showhide-entire-pages).
+**Hide pages dynamically:** You can hide certain pages with dynamic expressions.
 
-## Grouping pages
+### Grouping pages
 
-If you want to group pages or show the pages in a sidebar, you can use page groups as an alternative to the standard order. Replace the `pages.order` property with the `pages.groups` property as shown below:
+You can group pages and display them in a side menu as an alternative to traditional ordering. Then you replace `pages.order` with `pages.groups`:
 
-{{< code-title >}}
-App/ui/*/Settings.json
-{{< /code-title >}}
+**File location:** `App/ui/*/Settings.json`
+
 ```json
 {
   "pages": {
@@ -79,25 +85,30 @@ App/ui/*/Settings.json
 }
 ```
 
-| Parameter         | Description                                                                                                               |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| name              | Text resource defining the name of the page group. Required if `order` contains more than one page.                       |
-| type              | Optional. `"info" \| "default"`.                                                                                          |
-| markWhenCompleted | Optional. Marks pages in the group as completed when all validation errors are fixed (and the user has seen the page).    |
-| order             | Which pages are included in the group.                                                                                    |
+#### Parameters for page groups
 
-![Grouped navigation in sidebar](grouped-navigation.png "Grouped navigation in sidebar")
+| Parameter | Description |
+|-----------|-------------|
+| name | Text resource that specifies the name of the page group. Must be included if the group contains more than one page. |
+| type | Optional. Use "info" or "default". |
+| markWhenCompleted | Optional. Marks pages as completed when all validation errors are corrected and the user has seen the page. |
+| order | Specifies which pages are included in the group. |
 
-### Show process tasks in the navigation menu
+## Showing process and tasks in the navigation menu
 
-You can also show the other process tasks in the navigation menu. This can be configured for the entire app in `layout-sets.json` with the property `uiSettings.taskNavigation`, or for each layout set with the property `pages.taskNavigation` in `Settings.json` for the layout set. Example:
+### Showing the process by defining it in code
 
-{{< code-title >}}
-App/ui/layout-sets.json
-{{< /code-title >}}
+You can display the entire process in the navigation menu in two ways. In code, you do this:
+
+- **For the entire app:** in `layout-sets.json` with `uiSettings.taskNavigation`
+- **Per layout set:** in `Settings.json` with `pages.taskNavigation`
+
+Example for the entire app:
+
+**File location:** `App/ui/layout-sets.json`
+
 ```json
 {
-  ...
   "uiSettings": {
     "taskNavigation": [
       {
@@ -115,37 +126,42 @@ App/ui/layout-sets.json
 }
 ```
 
-| Parameter | Description                                                       |
-| --------- | ----------------------------------------------------------------- |
-| name      | Optional. Text resource defining the name of the process task.    |
-| taskId    | Which process task. Required if `type` is not set.                |
-| type      | `"receipt"`. Required if `taskId` is not set.                     |
+#### Parameters for process steps
 
-![Showing other process tasks](task-navigation.png "Showing other process tasks")
+| Parameter | Description |
+|-----------|-------------|
+| name | Optional. Text resource that specifies the name of the task. |
+| taskId | Which task it concerns. Mandatory if type is not set. |
+| type | "receipt". Mandatory if taskId is not set. |
 
+### Showing navigation from Altinn Studio
 
-## Progress indicator
+In Studio, we have a dedicated navigation menu that you can add from the Designer page. You can choose whether to show all pages/tasks in the navigation, or just the ones you select.
 
-It is possible to enable a progress indicator that shows up in the top-right corner of the app, indicating
-how far along the user is in filling out all the application pages.
+#### Adding tasks to navigation
 
-![Progress indicator](progress.png "Progress indicator")
+1. Open the app you want to add a navigation menu to.
+2. Click on **Utforming** in the top menu. You'll go to the Oversikt page for Utforming, where you can see the tasks available in the app.
+3. Under **Andre innstillinger**, you'll see a message at the top stating that you're not showing any tasks in the navigation menu yet. Below that, you'll find a table with tasks you can choose to display.
+4. Select **Vis alle oppgavene** if you want to include all tasks in the navigation menu. You'll see that they become available in the top table. Select individual tasks with **Vis oppgaven** if you don't want to include all tasks.
+5. The top table now shows the tasks you've chosen to display and the order they appear in. You can click on the three dots to the right of each task and choose whether to hide individual tasks or move them up and down to change the order of tasks in the navigation. Here you can also change the display name for a task and go directly to designing it.
+6. Use the **Vis med navigasjonsmeny** button to preview the navigation menu on the left side of the app.
 
-{{%notice info%}}
-All known pages in the current [process task](../../../configuration/process) will count towards the total number of
-pages shown in the progress indicator. If you have set up [tracks](../tracks) or
-many [dynamically hidden pages](../../../logic/expressions#showhide-entire-pages), this number may fluctuate and appear
-confusing to the user. Make sure the progress indicator is intuitive and provides value to the user before enabling it.
-{{%/notice%}}
+## Showing a progress indicator
 
-### Configuring progress indicator
+A progress indicator is a small visual wheel that shows how far users have progressed in filling out or reading a form. It can be useful for giving users an overview of the total number of pages and where they are in the completion process. The progress indicator appears at the top right corner.
 
-To set up this feature, add the following line to your `Settings.json` file:
+### Important to know
 
-{{< code-title >}}
-App/ui/*/Settings.json
-{{< /code-title >}}
-```json {hl_lines=9}
+Tasks in the process count towards the total number of pages in the progress indicator. If you have set up track selection or dynamically hidden pages, the number of pages can vary greatly and seem confusing to the user.
+
+Consider whether it makes sense and provides value for the user to add a progress indicator before choosing to add it.
+
+### Adding the progress indicator itself
+
+**File location:** `App/ui/*/Settings.json`
+
+```json
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
@@ -155,21 +171,20 @@ App/ui/*/Settings.json
 }
 ```
 
-## Navigation Bar
+## Showing a navigation bar (NavigationBar)
 
-The Navigation Bar gives easy access to all pages in an application.
+A navigation bar appears at the top of the page in an app/form and can make it easier for users to see all pages in the app. It's important that you give each page good names for the navigation bar to be useful.
 
-{{%notice info%}}
-The Navigation Bar lists all pages in the application, and is not suited for use with the tracks feature.
-{{%/notice%}}
+![Navigation field desktop](navigation-field-desktop-image)
 
-![Navigation Bar desktop](navigationbar-desktop.png "Navigation Bar desktop")
+### How does it work?
 
-On big screens, all pages will be visible. If there is not enough space on one line, the list will break and the rest of the pages will go on the next line. On smaller screens, all pages will be hidden in a menu. The current page is shown in the menu, and when the menu is clicked, all pages will show.
+- **Large screens:** All pages are shown in the list. If there isn't room on one line, the list continues on the next line.
+- **Small screens:** All pages are hidden in a dropdown menu. The active page is shown in the menu. Users can click on the menu to see all pages.
 
-![Navigation Bar mobile - closed and open](navigationbar-mobile.png "Navigation Bar mobile - closed and open")
+### Adding the navigation bar in code
 
-The Navigation Bar is added to all layout files. Configuration example:
+You add the navigation bar by inserting the code for it in all layout files where it should be used:
 
 ```json
 {
@@ -178,7 +193,9 @@ The Navigation Bar is added to all layout files. Configuration example:
 }
 ```
 
-It can also be configured to display Navigation Bar mobile also in desktop viewport. In this case, this has to be set for all layout files. Configuration example:
+### Showing the dropdown menu on all screens
+
+In the code, you can set up to show the pages in the navigation bar as a dropdown menu, even on larger screens:
 
 ```json
 {
@@ -188,31 +205,34 @@ It can also be configured to display Navigation Bar mobile also in desktop viewp
 }
 ```
 
-### Change texts on navigation bar buttons
+### Changing the texts on buttons in the navigation bar
 
-The text in the navigation bar buttons will by default use the filename of the page without the extension. F.ex if you have `page1.json` and `page2.json`, the buttons will contain `page1` and `page2`. To override these texts, you can add texts in the `resources.XX.json`, where the `id` is the filename without extension. Example:
+The buttons in the navigation bar get their names from the page's filename, without the file extension. For example, `side1.json` and `side2.json` become the buttons "side1" and "side2".
+
+**How to change the texts:**
+
+Add texts in `resources.XX.json`, where `id` is the filename without the extension:
 
 ```json
 {
-  "id": "page1",
+  "id": "side1",
   "value": "First page"
 },
 {
-  "id": "page2",
+  "id": "side2",
   "value": "Last page"
-},
-
+}
 ```
 
-## Validation on page navigation
+## Specifying validation on page change
 
-It is possible to check validation when the user tries to navigate to a different page, if there are validation errors, the user will be prevented from proceeding.
+You can add code to check for validation errors when the user tries to go to the next page. Validation errors can, for example, mean that the user has forgotten to fill in a field or has filled it in with information in the wrong format. If there are errors, navigation is stopped with one of the validation codes in the section below.
 
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="v4 (App Frontend)">}}
-In version 4 of app frontend, the `NavigationButtons` component have properties called `validateOnNext` and `validateOnPrevious` that can be configured. Example:
+### App frontend version 4
 
-```json {linenos=false,hl_lines=[5,6,7,8]}
+The NavigationButtons component has the properties `validateOnNext` and `validateOnPrevious`:
+
+```json
 {
   "id": "nav-buttons1",
   "type": "NavigationButtons",
@@ -224,19 +244,25 @@ In version 4 of app frontend, the `NavigationButtons` component have properties 
 }
 ```
 
-Where `page` can be one of: `current | all | currentAndPrevious`, and `show` contains a set of validation types to check; this can be one or more of:
+**page can be:**
+- `current` - only this page
+- `all` - all pages
+- `currentAndPrevious` - this and previous pages
 
-- `Schema`
-- `Component`
-- `Expression`
-- `CustomBackend`
-- `Required`
-- `AllExceptRequired`
-- `All`
+**show contains which validation types are checked:**
+- Schema
+- Component
+- Expression
+- CustomBackend
+- Required
+- AllExceptRequired
+- All
 
-Similarly, the `NavigationBar` component have the `validateOnForward` and `validateOnBackward` property:
+### Using NavigationBar with validation
 
-```json {linenos=false,hl_lines=[4,5,6,7]}
+The NavigationBar component has corresponding properties, `validateOnForward` and `validateOnBackward`:
+
+```json
 {
   "id": "nav1",
   "type": "NavigationBar",
@@ -247,28 +273,25 @@ Similarly, the `NavigationBar` component have the `validateOnForward` and `valid
 }
 ```
 
-{{</content-version-container>}}
-{{<content-version-container version-label="v3 (App Frontend)">}}
+### App frontend version 3
 
-In version 3 of app frontend, add a trigger to the navigation button component:
+In version 3, you add a trigger to the navigation button:
 
-```json {linenos=false,hl_lines=[7]}
+```json
 {
   "id": "nav-buttons1",
   "type": "NavigationButtons",
   "textResourceBindings": {
-    "next": "Neste",
+    "next": "Next"
   },
-  "triggers": ["validatePage"],
+  "triggers": ["validatePage"]
 }
 ```
 
-There are three different triggers that can be used on page navigation:
+#### Available triggers
 
-| Trigger                           | Description                                                                                                                                                   |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `validatePage`                    | Runs validation on the components in the current page. The ID of the page that triggered the validation will be sent in the header `LayoutId` to the backend. |
-| `validateAllPages`                | Runs validation on all components in all pages. Does not prevent the user from proceeding if there are no errors on the current or previous pages.            |
-| `validateCurrentAndPreviousPages` | Runs validation on all components in the current page and all previous pages in the current order.                                                            |
-{{</content-version-container>}}
-{{</content-version-selector>}}
+| Trigger | Description |
+|---------|-------------|
+| validatePage | Validates components on the current page. |
+| validateAllPages | Validates all components on all pages. Does not prevent the user from proceeding if there are only errors on future pages. |
+| validateCurrentAndPreviousPages | Validates both current and previous pages. |
