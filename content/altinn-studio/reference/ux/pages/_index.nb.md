@@ -9,7 +9,7 @@ Flere sider kan enkelt settes opp i Altinn Studio, men dersom du ønsker å gjø
 
 ## Oppsett
 
-Sider plasseres i `layouts`-mappen for layout-settet; hvert prosess-steg kan ha et eget layout-sett. For å konfigurere rekkefølgen på sidene, se [Navigasjon](/nb/altinn-studio/reference/ux/pages/navigation/). Eksempel på filstruktur ved to prosess-steg med hvert sitt layout-sett:
+Sider plasseres i `layouts`-mappen for layout-settet; hvert prosess-steg kan ha et eget layout-sett. For å konfigurere rekkefølgen på sidene, se [Navigasjon](/nb/altinn-studio/reference/ux/pages/navigation/#vise-en-sidemeny-med-rekkefølgen-på-sideroppgaver). Eksempel på filstruktur ved to prosess-steg med hvert sitt layout-sett:
 
 ```
 |- App/

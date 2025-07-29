@@ -53,7 +53,7 @@ You can use the following image of the Sogndal Municipality Coat of Arms in the 
 - [Add images to an application](/altinn-studio/reference/ux/components/image/)
 - [Side-by-side components using grid](/altinn-studio/reference/ux/styling/#components-placed-side-by-side-grid)
 - [File structure for multiple pages](/altinn-studio/reference/ux/pages/)
-- [Managing the order of multiple pages](/altinn-studio/reference/ux/pages/navigation/#order)
+- [Managing the order of multiple pages](/altinn-studio/reference/ux/pages/navigation/)
 
 ### Knowledge check
 

@@ -9,7 +9,7 @@ Multiple layout pages can easily be set up in Altinn Studio, if you want to do i
 
 ## Setup
 
-Layout pages are placed in the `layouts` folder for the layout set; each process task can have its own layout set. To configure the order of the layout pages, see [Navigation](/altinn-studio/reference/ux/pages/navigation/#order). Example of a file structure with two process tasks, each with its own layout set:
+Layout pages are placed in the `layouts` folder for the layout set; each process task can have its own layout set. To configure the order of the layout pages, see [Navigation](/altinn-studio/reference/ux/pages/navigation/#showing-a-side-menu-with-the-order-of-pagestasks). Example of a file structure with two process tasks, each with its own layout set:
 
 ```
 |- App/
@@ -41,17 +41,13 @@ Example:
     {
       "id": "form-a",
       "dataType": "schema_4222_160523_forms_212_20160523",
-      "tasks": [
-        "Task_1"
-      ]
+      "tasks": ["Task_1"]
     },
 
     {
       "id": "form-b",
       "dataType": "schema_3161_140411_forms_1549_11554",
-      "tasks": [
-        "Task_2"
-      ]
+      "tasks": ["Task_2"]
     }
   ]
 }
@@ -88,17 +84,17 @@ If you use layout sets there is a separate file for each layout set.
 
 The available settings are the following:
 
-| Property              | Type    | Value                                                                                                                                                                          |
-| --------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| hideCloseButton       | Boolean | Whether or not the back to inbox button in the upper left corner should be hidden.                                                                                                    |
-| showLanguageSelector  | Boolean | Whether or not the language selector should be visible. Allows the user to switch language after opening the form.                                                             |
-| showExpandWidthButton | Boolean | Whether or not the expand width button should be visible. Allows the user to expand the width of the page to fill the browser window.                                          |
-| showProgress          | Boolean | see [Navigation](/altinn-studio/reference/ux/pages/navigation/#progress-indicator)                                                                                                     |
-| pdfLayoutName         | String  | see [PDF](/altinn-studio/reference/ux/pdf/#custom-layout-configuration)                                                                                                                |
-| order                 | Array   | see [Navigation](/altinn-studio/reference/ux/pages/navigation/#order)                                                                                                                  |
-| groups                | Array   | see [Navigation](/altinn-studio/reference/ux/pages/navigation/#grouping-pages)                                                                                                                  |
-| excludeFromPdf        | Array   | see [PDF](/altinn-studio/reference/ux/pdf/#automatic-configuration)                                                                                                                    |
-| expandedWidth         | Boolean | see [Expanded form width](#expanded-form-width)                                                                                                                                           |
+| Property              | Type    | Value                                                                                                                                 |
+| --------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| hideCloseButton       | Boolean | Whether or not the back to inbox button in the upper left corner should be hidden.                                                    |
+| showLanguageSelector  | Boolean | Whether or not the language selector should be visible. Allows the user to switch language after opening the form.                    |
+| showExpandWidthButton | Boolean | Whether or not the expand width button should be visible. Allows the user to expand the width of the page to fill the browser window. |
+| showProgress          | Boolean | see [Navigation](/altinn-studio/reference/ux/pages/navigation/#progress-indicator)                                                    |
+| pdfLayoutName         | String  | see [PDF](/altinn-studio/reference/ux/pdf/#custom-layout-configuration)                                                               |
+| order                 | Array   | see [Navigation](/altinn-studio/reference/ux/pages/navigation/#order)                                                                 |
+| groups                | Array   | see [Navigation](/altinn-studio/reference/ux/pages/navigation/#grouping-pages)                                                        |
+| excludeFromPdf        | Array   | see [PDF](/altinn-studio/reference/ux/pdf/#automatic-configuration)                                                                   |
+| expandedWidth         | Boolean | see [Expanded form width](#expanded-form-width)                                                                                       |
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="v4 (App Frontend)">}}
