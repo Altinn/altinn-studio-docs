@@ -27,7 +27,7 @@ latest major version, you can use dynamic expressions for [several use cases](#u
 
 Starting from version `7.2.0` of the [nuget packages](../../../guides/administration/maintainance/dependencies#nuget) the expressions are also
 supported in the backend. This means that the server will be able to evaluate the expressions and remove data upon
-submission that is potentially stored in the [data model](../../data/data-model) /\*9+and is associated with
+submission that is potentially stored in the [data model](../../data/data-model) and is associated with
 fields/components that are later hidden. Note that this only applies to data in the data model that is associated with
 hidden components - data in the data model that is not associated with components (and is thus implicitly hidden from
 the user) will not be automatically removed.
