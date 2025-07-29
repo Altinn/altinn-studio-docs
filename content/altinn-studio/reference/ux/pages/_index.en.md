@@ -89,9 +89,9 @@ The available settings are the following:
 | hideCloseButton       | Boolean | Whether or not the back to inbox button in the upper left corner should be hidden.                                                    |
 | showLanguageSelector  | Boolean | Whether or not the language selector should be visible. Allows the user to switch language after opening the form.                    |
 | showExpandWidthButton | Boolean | Whether or not the expand width button should be visible. Allows the user to expand the width of the page to fill the browser window. |
-| showProgress          | Boolean | see [Navigation](/altinn-studio/reference/ux/pages/navigation/#progress-indicator)                                                    |
+| showProgress          | Boolean | see [Navigation](/altinn-studio/reference/ux/pages/navigation/#showing-a-progress-indicator)                                          |
 | pdfLayoutName         | String  | see [PDF](/altinn-studio/reference/ux/pdf/#custom-layout-configuration)                                                               |
-| order                 | Array   | see [Navigation](/altinn-studio/reference/ux/pages/navigation/#order)                                                                 |
+| order                 | Array   | see [Navigation](/altinn-studio/reference/ux/pages/navigation/#showing-a-side-menu-with-the-order-of-pagestasks)                      |
 | groups                | Array   | see [Navigation](/altinn-studio/reference/ux/pages/navigation/#grouping-pages)                                                        |
 | excludeFromPdf        | Array   | see [PDF](/altinn-studio/reference/ux/pdf/#automatic-configuration)                                                                   |
 | expandedWidth         | Boolean | see [Expanded form width](#expanded-form-width)                                                                                       |
