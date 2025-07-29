@@ -10,14 +10,6 @@ weight: 10
 
 Users move between pages in the app/form using navigation buttons. The buttons are added automatically when you use Altinn Studio, but you can also add them manually in code.
 
-# Navigation in apps
-
-When we talk about navigation, it can mean several things: giving users the ability to move from page to page in an app, providing an overview of pages/topics in the app with a navigation field at the top, or showing all tasks included in an app in a left menu. This article describes all three possibilities.
-
-## Moving from page to page with buttons
-
-Users move between pages in the app/form using navigation buttons. The buttons are added automatically when you use Altinn Studio, but you can also add them manually in code.
-
 ### Adding navigation buttons manually in the layout file (NavigationButtons)
 
 You add navigation buttons to all layout files where needed. If you want them to appear at the bottom of the page, you must place them at the bottom of the layout file.
