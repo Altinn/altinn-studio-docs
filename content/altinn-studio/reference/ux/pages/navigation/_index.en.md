@@ -1,14 +1,10 @@
 ---
 title: Navigation in apps
 linktitle: Navigation
-description: Setup of navigation in apps.
+description: When we talk about navigation, it can mean several things: giving users the ability to move from page to page in an app, providing an overview of pages/topics in the app with a navigation field at the top, or showing all tasks included in an app in a left menu. This article describes all three possibilities.
 toc: true
 weight: 10
 ---
-
-# Navigation in apps
-
-When we talk about navigation, it can mean several things: giving users the ability to move from page to page in an app, providing an overview of pages/topics in the app with a navigation field at the top, or showing all tasks included in an app in a left menu. This article describes all three possibilities.
 
 ## Moving from page to page with buttons
 
