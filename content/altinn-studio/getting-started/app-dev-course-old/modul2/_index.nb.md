@@ -29,20 +29,21 @@ La oss se nærmere på hvordan man kan opprette en ny side i applikasjonen
 som vises _før_ brukeren kommer til første datainnsamlingsside som ble laget i Modul 1.
 
 Opprettelse og administrasjon av flere sider kan gjøres i [Altinn Studio Designer](/nb/altinn-studio/getting-started/) (venstre panel).
- For manuelt oppsett av sider, se 'Nyttig dokumentasjon' lenger ned på siden.
+For manuelt oppsett av sider, se 'Nyttig dokumentasjon' lenger ned på siden.
 
 ### Krav fra kommunen
 
 Siden Sogndal kommune vil samle inn en betydelig mengde data i denne tjenesten, må de klargjøre hvem skjemaet er ment for og hvordan de vil bruke dataene. Noen i kommunen har laget et [utkast til en informasjonsside](infoside_tilflyttere.pdf) for dette formålet.
 
 Informasjonssiden bør gjenspeile følgende elementer:
- - plassering av bilder
- - tekststørrelser
- - formatering av tekst
+
+- plassering av bilder
+- tekststørrelser
+- formatering av tekst
 
 Du kan bruke følgende bilde av Sogndals kommunevåpen i applikasjonen:
 
-!["Sogndal kommunevåpen"](kommune-logo.png )
+!["Sogndal kommunevåpen"](kommune-logo.png)
 
 ### Oppgaver
 
@@ -56,19 +57,20 @@ Du kan bruke følgende bilde av Sogndals kommunevåpen i applikasjonen:
 - [Hvordan legge til bilder i en applikasjon](/nb/altinn-studio/reference/ux/components/images/)
 - [Sidestilte komponenter](/nb/altinn-studio/reference/ux/styling/#sidestilte-komponenter-grid)
 - [Filoppsett ved flere sider](/nb/altinn-studio/reference/ux/pages/)
-- [Administrere rekkefølge på flere sider](/nb/altinn-studio/reference/ux/pages/navigation/#rekkefølge)
+- [Navigasjon i apper](/nb/altinn-studio/reference/ux/pages/navigation/)
 
 ### Forståelsessjekk
 
 {{% expandsmall id="m2t1q1" header="Hvilken fil i applikasjonsrepoet må redigeres dersom du ønsker å manuelt endre rekkefølgen på eksisterende sider?" %}}
 Du kan konfigurere siderekkefølgen i `App/ui/Settings.json` ved å endre listen beskrevet under `pages.order`.
-Se [Administrere rekkefølge på flere sider](/nb/altinn-studio/reference/ux/pages/navigation/#rekkefølge).
+Se [Navigasjon i apper](/nb/altinn-studio/reference/ux/pages/navigation/).
 {{% /expandsmall %}}
 
 {{% expandsmall id="m2t1q2" header="Hvis du ønsker å gi en side et annet navn, men ikke har Altinn Studio tilgjengelig, hvilke filer må oppdateres med det nye filnavnet?" %}}
+
 - `App/ui/layouts/<page>.json`: Endre filnavnet (`<page>`) på siden som skal bytte navn.
 - `App/ui/Settings.json`: Endre navnet på siden under `pages.order`.
-{{% /expandsmall %}}
+  {{% /expandsmall %}}
 
 {{% expandsmall id="m2t1q3" header="Hvordan kan du tvinge tekst til å bryte dersom tekststrengen ikke er lang nok til å naturlig brytes?" %}}
 Alle tekstressurser støtter Markdown og dermed HTML-notasjon. Du kan derfor benytte `<br>` for å tvinge tekstbrytning.
@@ -86,24 +88,24 @@ I denne oppgaven vil du sette opp dynamiske uttrykk i applikasjonen for å dirig
 ### Krav fra kommunen
 
 En bruker som ikke oppfyller kravene for tjenesten, bør stoppes så tidlig som mulig i arbeidsflyten.
- Brukeren skal indikere om tjenesten gjelder dem på informasjonssiden.
+Brukeren skal indikere om tjenesten gjelder dem på informasjonssiden.
 
 Måten svaret samles inn på er valgfri, men et tips er å bruke en valg-komponent som [avkrysningsbokser](/nb/altinn-studio/reference/ux/components/checkboxes/), [radioknapper](/nb/altinn-studio/reference/ux/components/radiobuttons/) eller [nedtrekksliste](/nb/altinn-studio/reference/ux/components/dropdown/).
 Merk at en komponent må være knyttet til et felt i datamodellen for å lagre verdier (du kan bruke feltet `Innflytter.KanBrukeSkjema` i datamodellen).
 
 Brukeren skal sendes til ett av følgende spor basert på svaret deres:
 
-*Spor 1*
+_Spor 1_
 
 - Brukeren indikerer at tjenesten ikke gjelder deres situasjon.
 - Brukeren skal rettes til en side med følgende tekst:
 
-    > Dette skjemaet er ikke for deg.  
-    > [Se en oversikt over andre tilbud i kommunen her](https://www.sogndal.kommune.no/).
-    
-    Linje 2 i teksten er en hyperlenke som peker på https://www.sogndal.kommune.no/
+  > Dette skjemaet er ikke for deg.  
+  > [Se en oversikt over andre tilbud i kommunen her](https://www.sogndal.kommune.no/).
 
-*Spor 2*
+  Linje 2 i teksten er en hyperlenke som peker på https://www.sogndal.kommune.no/
+
+_Spor 2_
 
 - Brukeren har svart bekreftende på at tjenesten gjelder deres situasjon.
 - Brukeren sendes videre til datainnsamlingssidene.
@@ -115,6 +117,7 @@ Brukeren skal sendes til ett av følgende spor basert på svaret deres:
 3. Legg til logikk som aktiverer _spor 1_ eller _spor 2_ basert på brukerens svar.
 
 ### Nyttig dokumentasjon
+
 - [Dynamiske uttrykk](/nb/altinn-studio/reference/logic/expressions)
 - [Hvordan skjule hele sider](/nb/altinn-studio/reference/logic/expressions/#viseskjule-hele-sider)
 - [Formatering av tekst](/nb/altinn-studio/reference/ux/texts/#formatering-av-tekster)
@@ -130,11 +133,11 @@ Dersom du har logikk i en applikasjon der man kan fortsette til innsending for f
 {{% expandlarge id="prefill" header="Forhåndsutfylling av personopplysninger" %}}
 
 Altinn gir fordelen av å ha lett tilgjengelig [metadata](/nb/api/models/instance/#instance) for enkeltpersoner og bedrifter.
- Ved hjelp av forhåndsutfylling kan vi hente brukerdata og fylle ut felt sømløst.
- Dette reduserer behovet for manuell inntasting av data, spesielt for standardopplysninger som navn, adresser og e-postadresser.
+Ved hjelp av forhåndsutfylling kan vi hente brukerdata og fylle ut felt sømløst.
+Dette reduserer behovet for manuell inntasting av data, spesielt for standardopplysninger som navn, adresser og e-postadresser.
 
-Du kan integrere data fra Altinns [forhåndsutfyllingskilder](/nb/altinn-studio/reference/data/prefill) direkte i appen 
-ved å tilordne dataene til spesifikke felt i datamodellen. Dette automatiserer utfylling av felt under opprettelse av skjema. 
+Du kan integrere data fra Altinns [forhåndsutfyllingskilder](/nb/altinn-studio/reference/data/prefill) direkte i appen
+ved å tilordne dataene til spesifikke felt i datamodellen. Dette automatiserer utfylling av felt under opprettelse av skjema.
 Du kan også integrere egendefinerte løsninger for forhåndsutfylling.
 
 Denne oppgaven fokuserer på den første siden for datainnsamling og har som mål å effektivisere brukeropplevelsen ved å forhåndsutfylle brukerens personalia.
@@ -142,6 +145,7 @@ Denne oppgaven fokuserer på den første siden for datainnsamling og har som må
 ### Krav fra kommunen
 
 - Følgende verdier skal forhåndsutfylles for brukeren:
+
   - Fornavn: `Innflytter.Fornavn`
   - Mellomnavn: `Innflytter.Mellomnavn`
   - Etternavn: `Innflytter.Etternavn`
@@ -234,15 +238,17 @@ private static int CalculateAge(string sosialSecNumber)
         return age;
     }
 ```
+
 {{% /expandsmall %}}
 
 {{% notice info %}}
 **Merk:** Applikasjonen må kjøres lokalt for at forhåndsutfyllinger skal vises.
 {{% /notice %}}
 
-*Husk å pushe de lokale endringene dine så de blir tilgjengelige i Altinn Studio.*
+_Husk å pushe de lokale endringene dine så de blir tilgjengelige i Altinn Studio._
 
 ### Nyttig dokumentasjon
+
 - [Forhåndsutfylling fra nasjonale registre og brukerprofil](/nb/altinn-studio/guides/development/prefill/config)
 - [Tilgjengelige kilder og verdier for forhåndsutfylling](/nb/altinn-studio/reference/data/prefill)
 - [Egendefinert forhåndsutfylling](/nb/altinn-studio/guides/development/prefill/custom)
@@ -261,7 +267,7 @@ Ja, en standardkomponent med forhåndsutfylt data vil i utgangspunktet være red
 Komponenten kan settes til `readOnly` på én av to måter:
 
 **1\.** I Altinn Studio Designer ved å huke av ved "Det skal ikke være mulig å svare (read only)" for den aktuelle komponenten:
-![Altinn Studio innstilling for 'read only'. Bilde](<screenshot-readonly-setting.png>)
+![Altinn Studio innstilling for 'read only'. Bilde](screenshot-readonly-setting.png)
 
 **2\.** Sette egenskapen `readOnly` til `true` for komponenten i json-filen til siden:
 
@@ -326,6 +332,7 @@ public static string GetDOB(string fOrDNumber){
   return dobString;
 }
 ```
+
 {{% /expandsmall %}}
 {{% /expandlarge %}}
 
@@ -356,7 +363,7 @@ I dette steget har vi lagt til en enkel infoside med bilde og tekst.
 ### Komponenter
 
 {{% notice info %}}
-Se *Kode* for sidestilling av komponenter.
+Se _Kode_ for sidestilling av komponenter.
 {{% /notice %}}
 
 ![Komponenter på info-side. Bilde](screenshot-info-page-layout-1.png "Komponenter på info-side")
@@ -364,7 +371,7 @@ Se *Kode* for sidestilling av komponenter.
 ### Bilde
 
 I denne løsningen har vi lagret bildet i appen og brukt `wwwroot/kommune-logo.png` som kilde.
- Et alternativ er å bruke en ekstern URL for bildet som kilde.
+Et alternativ er å bruke en ekstern URL for bildet som kilde.
 
 {{% expandsmall id="wwwroot" header="Legg til mappe `wwwroot` og last opp bilde i Designer" %}}
 
@@ -373,9 +380,8 @@ Naviger til repository (klikk logo øverst i høyre hjørne eller tre prikker ti
 ![Repository legg til fil. Bilde](screenshot-repository-add-file.png "Repository")
 
 I feltet "Legg til mappe" fyller du inn `/App/wwwroot`.
- Last opp bildet og legg til en beskrivende commit-melding.
-  Klikk "Commit endringer" for å lagre.
-
+Last opp bildet og legg til en beskrivende commit-melding.
+Klikk "Commit endringer" for å lagre.
 
 ![Legg til fil. Bilde](screenshot-add-file.png "Legg til fil")
 
@@ -384,7 +390,6 @@ I feltet "Legg til mappe" fyller du inn `/App/wwwroot`.
 {{% /expandsmall %}}
 
 ![Innstillinger for bilde. Skjermbilde](screenshot-image-settings-wwwroot.png "Innstillinger for bilde")
-
 
 ### Tekst
 
@@ -485,6 +490,7 @@ App/config/texts/resource.nb.json
   ]
 }
 ```
+
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
@@ -508,7 +514,7 @@ Vi har lagt til en ny side vi kan sende brukere til dersom de ikke oppfyller kra
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
 {{% notice info %}}
-Se *Kode* for logikk ved veivalg.
+Se _Kode_ for logikk ved veivalg.
 {{% /notice %}}
 
 ### Radioknapper
@@ -519,7 +525,7 @@ Se *Kode* for logikk ved veivalg.
 
 ### Ny side
 
-Ny side for *Spor 1*.
+Ny side for _Spor 1_.
 
 ![Komponenter på siden ikke-for-deg. Bilde](screenshot-ikke-for-deg-layout.png "Komponenter på siden Ikke for deg")
 
@@ -572,7 +578,7 @@ App/ui/layouts/info.json
 ### Ny side 'Ikke for deg' og logikk ved veivalg
 
 Vi har lagt til en ny side som kun skal vises dersom brukeren ikke oppfyller kravene for å bruke tjenesten.
- En måte å oppnå dette på er ved å skjule siden hvis brukeren bekrefter at de *kan* bruke tjenesten.
+En måte å oppnå dette på er ved å skjule siden hvis brukeren bekrefter at de _kan_ bruke tjenesten.
 
 Logikk for å skjule siden er implementert ved hjelp av egenskapen `hidden` (se markert del av koden).
 Verdien fra valgt radioknapp lagres i feltet `Innflytter.KanBrukeSkjema` og kan nås gjennom komponenten (`["component", "bekreftelse"]`).
@@ -586,14 +592,7 @@ App/ui/layouts/ikke-for-deg.json
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
-    "hidden": [
-      "equals",
-      [
-        "component",
-        "bekreftelse"
-      ],
-      true
-    ],
+    "hidden": ["equals", ["component", "bekreftelse"], true],
     "layout": [
       {
         "id": "ikke-for-deg",
@@ -616,7 +615,7 @@ App/ui/layouts/ikke-for-deg.json
 ```
 
 Tilsvarende logikk er lagt til for skjemasiden.
- Denne siden vil bli skjult når alternativet for *ikke* å oppfylle tjenestekravene blir valgt (verdien av komponenten `bekreftelse` er `false`).
+Denne siden vil bli skjult når alternativet for _ikke_ å oppfylle tjenestekravene blir valgt (verdien av komponenten `bekreftelse` er `false`).
 
 {{< code-title >}}
 App/ui/layouts/innflytterPersonalia.json
@@ -644,7 +643,7 @@ App/ui/layouts/innflytterPersonalia.json
 ### Ekskludere side fra pdf
 
 Vi ønsker ikke å inkludere siden 'Ikke for deg' dersom det skal genereres en pdf-fil.
- Konfigurer egenskapen `excludeFromPdf` i `Settings.json` for å ekskludere sider fra pdf.
+Konfigurer egenskapen `excludeFromPdf` i `Settings.json` for å ekskludere sider fra pdf.
 
 {{< code-title >}}
 App/Settings.json
@@ -654,11 +653,7 @@ App/Settings.json
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
-    "order": [
-      "info",
-      "innflytterPersonalia",
-      "ikke-for-deg"
-    ],
+    "order": ["info", "innflytterPersonalia", "ikke-for-deg"],
     "excludeFromPdf": ["ikke-for-deg"]
   }
 }
@@ -708,7 +703,7 @@ App/config/texts/resource.nb.json
 {{% markdown %}}
 
 Under er et eksempel på hvordan datasiden kan se ut med forhåndsutfylt informasjon.
- Vi har også sidestilt flere av komponentene og lagt til en 'Send inn'-knapp.
+Vi har også sidestilt flere av komponentene og lagt til en 'Send inn'-knapp.
 
 ![Skjermbilde av forhåndsutfylt dataside](prefilled-data-screenshot.png "Oppdatert dataside med forhåndsutfylling")
 
@@ -718,7 +713,7 @@ Under er et eksempel på hvordan datasiden kan se ut med forhåndsutfylt informa
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
 {{% notice info %}}
-Se *Kode* for forhåndsutfylling og sidestilling av komponenter.
+Se _Kode_ for forhåndsutfylling og sidestilling av komponenter.
 {{% /notice %}}
 
 ![Komponenter på dataside. Bilde](screenshot-data-page-components.png "Komponenter på dataside")
@@ -736,12 +731,12 @@ Ny knapp:
 
 ### Oppdatert dataside
 
-* Komponentene for navn og alder er satt til `readOnly`.
-* Noen komponenter er sidestilt.
-* Det er lagt til en ny knapp.
+- Komponentene for navn og alder er satt til `readOnly`.
+- Noen komponenter er sidestilt.
+- Det er lagt til en ny knapp.
 
 Koden under viser et eksempel med noen av de endrede komponentene.
- For en fullstendig løsning, se [kildekode for Modul 2](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul2).
+For en fullstendig løsning, se [kildekode for Modul 2](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul2).
 
 {{< code-title >}}
 App/ui/layouts/innflytterPersonalia.json
@@ -826,7 +821,7 @@ App/models/datamodel.prefill.json
     "TelephoneNumber": "Innflytter.Kontaktinformasjon.Telefonnummer"
   },
   "UserProfile": {
-    "Email": "Innflytter.Kontaktinformasjon.Epost",
+    "Email": "Innflytter.Kontaktinformasjon.Epost"
   }
 }
 ```
@@ -834,7 +829,7 @@ App/models/datamodel.prefill.json
 ### Beregning og forhåndsutfylling av alder
 
 For egendefinert forhåndsutfylling av alder har vi opprettet en fil `InstantiationProcessor.cs` i mappen `logic/Instantiation` (vi har også opprettet den valgfrie mappen `Instantiation`).
- Metoden `DataCreation` henter personnummeret fra instansen som blir sendt til den. Deretter bruker den nummeret til å beregne alderen ved hjelp av metoden `CalculateAge` (utelatt, se kodehjelp under [Forhåndsutfylling](#prefill) i oppgavebeskrivelsen).
+Metoden `DataCreation` henter personnummeret fra instansen som blir sendt til den. Deretter bruker den nummeret til å beregne alderen ved hjelp av metoden `CalculateAge` (utelatt, se kodehjelp under [Forhåndsutfylling](#prefill) i oppgavebeskrivelsen).
 Den beregnede alderen blir så tilordnet datafeltet `skjema.Innflytter.Alder`.
 
 {{< code-title >}}
