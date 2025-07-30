@@ -9,7 +9,7 @@ toc: true
 POST authentication/api/v1/systemuser/request/vendor
 
 ### Scopes
-Maskinporten-token med scope <mark>altinn:maskinporten/systemuser.write</mark>
+Maskinporten-token med scope <mark>altinn:authentication/systemuser.request.write</mark>
 
 ### Content types
 application/json
