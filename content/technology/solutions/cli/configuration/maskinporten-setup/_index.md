@@ -3,7 +3,7 @@ title: Maskinporten setup
 description: Step-by-step guide on how to set up a client with Altinn-scopes and custom keys.
 ---
 
-## Setting up a maskinporten client with a custom key
+## Setting up a Maskinporten client with a custom key
 
 To follow this guide you must have a user in `Samarbeidsportalen` with access to `Selvbetjening`.  
 [Read more about creating user in Samarbeidsportalen here.](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web#opprette-bruker)
@@ -49,7 +49,7 @@ Copy the public key from the JSON Web key (marked 1 in the picture) and paste th
 
 !["Add public key"](nokkel_2.png "Add public key")
 
-Now the client in maskinporten is complete.
+Now the client in Maskinporten is complete.
 
 The last part will be to use the public and private keypair in the Altinn CLI application.
 Copy this (marked 2 in the picture) and Base64 encode it. [Base64encode.org](https://www.base64encode.org/) can be used for encoding. 

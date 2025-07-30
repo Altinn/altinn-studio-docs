@@ -45,7 +45,7 @@ GET /refresh
 Accepted providers include: `maskinporten` and `id-porten`.
 Request must include a bearer token in the authorization header.
 Set test equal to true if retrieving a token for Testdepartementet.
-(This only works with maskinporten as the token provider.)
+(This only works with Maskinporten as the token provider.)
 
 Godkjente leverandører inkluderer: `Maskinporten` og `id-porten`.
 Forespørselen må inkludere et bearer-token i autorisasjonsheaderen.

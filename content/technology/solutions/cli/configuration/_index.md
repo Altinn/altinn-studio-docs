@@ -49,14 +49,14 @@ CommandDefinitionFile | Path for custom command definitions. If file exists, def
 All clients interacting with an Altinn App and Altinn Platform must be authenticated using an Altinn Token. 
 In Altinn CLI, this is enabled by first authenticating through _Maskinporten_, and then converting the token. 
 
-Maskinporten settings cover the configuration for the registered client in maskinporten, 
+Maskinporten settings cover the configuration for the registered client in Maskinporten, 
 as well as enabling an automatic exchange into an Altinn Token before sending a request.
 
-[Read more about setting up a maskinporten client with a custom key here.](maskinporten-setup)
+[Read more about setting up a Maskinporten client with a custom key here.](maskinporten-setup)
 
 [A closer description of the config values is available here.](https://github.com/Altinn/altinn-apiclient-maskinporten)
 
-Your maskinporten setting should look something like the example below. 
+Your Maskinporten setting should look something like the example below. 
 Note that `ExchangeToAltinnToken` is set to `true`, and the scopes that are required. for interacting with an app or the platform.
 
 ```json

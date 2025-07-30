@@ -21,7 +21,7 @@ The access management will provide functionality to manage different aspects of 
 
 ## Delegation & Administration of Delegated API Access
 
-This functionality allows users to delegate access throug API with help of delegating access in maskinporten.
+This functionality allows users to delegate access throug API with help of delegating access in Maskinporten.
 
 ![API Delegations](apidelegations.jpg "API Delegations")
 
