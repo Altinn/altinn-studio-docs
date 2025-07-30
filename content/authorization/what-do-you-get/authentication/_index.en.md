@@ -18,9 +18,9 @@ The Altinn Platform is based on .ASP.NET Core and can`t understand the cookie.
 To allow for a user accessing an App in Altinn Apps or a component in Altinn Platform the current platform will
 expose an API that can decrypt an ASP.NET cookie and return user information to the Authentication component in Altinn Platform.
 
-## Token exchange for maskinporten
+## Token exchange for Maskinporten
 
-Organizations authenticated in maskinporten can exchange their JWT token for a valid Altinn Platform JWT token to be used against Altinn Apps and Altinn Platform.
+Organizations authenticated in Maskinporten can exchange their JWT token for a valid Altinn Platform JWT token to be used against Altinn Apps and Altinn Platform.
 
 ## Token exchange for ID-porten
 
@@ -48,7 +48,7 @@ GET /refresh
 Accepted providers include: `maskinporten` and `id-porten`.
 Request must include a bearer token in the authorization header.
 Set test equal to true if retrieving a token for Testdepartementet.
-(This ony works with maskinporten as the token provider.)
+(This ony works with Maskinporten as the token provider.)
 
 {{%notice info%}}
 A token from id-porten contains both an id-token and an access-token.

@@ -25,7 +25,7 @@ Dette designet er i tidlig fase.
 
 ## Delegering og administrasjon av delegert API-tilgang
 
-Denne funksjonaliteten lar brukere delegere tilgang gjennom API ved hjelp av å delegere tilgang i maskinporten.
+Denne funksjonaliteten lar brukere delegere tilgang gjennom API ved hjelp av å delegere tilgang i Maskinporten.
 
 ![API-delegasjoner](apidelegations.jpg "API-delegasjoner")
 

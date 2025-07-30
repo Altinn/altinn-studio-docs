@@ -11,7 +11,7 @@ weight: 2
 POST authentication/api/v1/systemregister/vendor
 
 ### Scopes
-Machineporten token with scope <mark>altinn:authentication/systemregister.write</mark>
+Maskinporten token with scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
 application/json

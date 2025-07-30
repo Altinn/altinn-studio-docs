@@ -9,7 +9,7 @@ toc: true
 Denne modellen er forespørselsmodellen for en agent systembrukerforespørsel.
 
 #### externalref
-Dette er en valgfri referanse satt av leverandøren for systembrukerforespørselen. Hvis den ikke er angitt, vil den som standard være partyOrgNo. Hvis du benytter externalRef, må denne referansen brukes videre i flyten i andre API-er. For eksempel, når du skal hente status på en forespørsel eller hente token fra maskinporten, må du inkludere externalRef i API-kallene.
+Dette er en valgfri referanse satt av leverandøren for systembrukerforespørselen. Hvis den ikke er angitt, vil den som standard være partyOrgNo. Hvis du benytter externalRef, må denne referansen brukes videre i flyten i andre API-er. For eksempel, når du skal hente status på en forespørsel eller hente token fra Maskinporten, må du inkludere externalRef i API-kallene.
 
 #### systemid
 ID-en til det registrerte systemet i Altinn
@@ -57,7 +57,7 @@ Datoen og tidspunktet forespørselen ble opprettet. Dette er nyttig for å ident
 Denne modellen er forespørselsmodellen for en agent systembrukerforespørsel.
 
 #### externalref
-Dette er en valgfri referanse satt av leverandøren for systembrukerforespørselen. Hvis den ikke er angitt, vil den som standard være partyOrgNo. Hvis du benytter externalRef, må denne referansen brukes videre i flyten i andre API-er. For eksempel, når du skal hente status på en forespørsel eller hente token fra maskinporten, må du inkludere externalRef i API-kallene.
+Dette er en valgfri referanse satt av leverandøren for systembrukerforespørselen. Hvis den ikke er angitt, vil den som standard være partyOrgNo. Hvis du benytter externalRef, må denne referansen brukes videre i flyten i andre API-er. For eksempel, når du skal hente status på en forespørsel eller hente token fra Maskinporten, må du inkludere externalRef i API-kallene.
 
 #### systemid
 ID-en til det registrerte systemet i Altinn.
@@ -78,7 +78,7 @@ Denne modellen er responsmodellen for agent systembrukerforespørsel.
 Den unike identifikatoren for den opprettede forespørselen. Denne ID-en brukes til å sjekke status eller administrere forespørselen.
 
 #### externalref
-Dette er en valgfri referanse satt av leverandøren for systembrukerforespørselen. Hvis den ikke er angitt, vil den som standard være partyOrgNo. Hvis du benytter externalRef, må denne referansen brukes videre i flyten i andre API-er. For eksempel, når du skal hente status på en forespørsel eller hente token fra maskinporten, må du inkludere externalRef i API-kallene.
+Dette er en valgfri referanse satt av leverandøren for systembrukerforespørselen. Hvis den ikke er angitt, vil den som standard være partyOrgNo. Hvis du benytter externalRef, må denne referansen brukes videre i flyten i andre API-er. For eksempel, når du skal hente status på en forespørsel eller hente token fra Maskinporten, må du inkludere externalRef i API-kallene.
 
 #### systemid
 ID-en til det registrerte systemet i Altinn.

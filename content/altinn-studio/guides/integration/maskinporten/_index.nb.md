@@ -13,45 +13,33 @@ Denne veiledningen viser hvordan du setter opp en Altinn-applikasjon til å bruk
 
 For å sette dette opp, må følgende gjøres:
 
-1. Sørg for at organisasjonen har tilgang til Azure Key Vault.
-2. Opprett integrasjonen mot Maskinporten i [Samarbeidsportalen](https://samarbeid.digdir.no/).
-3. Lagre autentiseringsnøkkelen for integrasjonen i Azure Key Vault.
-4. Sett opp applikasjonen til å bruke Maskinporten-klienten og hente hemmeligheter fra Azure Key Vault.
+1. [Sørg for at organisasjonen har tilgang til Azure Key Vault](#tilgang-til-azure-key-vault).
+2. [Opprett en Maskinporten-integrasjon i selvbetjeningsportalen](#maskinporten-integrasjon).
+3. [Lagre autentiseringsnøkkelen for integrasjonen i Azure Key Vault](#konfigurasjon-av-azure-key-vault).
+4. [Sett opp applikasjonen til å bruke Maskinporten-klienten og hente hemmeligheter fra Azure Key Vault](#applikasjonsoppsett).
 
 ## Tilgang til Azure Key Vault
-
-Før du går videre med denne veiledningen, må du forsikre deg om at du har tilgang til Azure Key Vault for organisasjonen din.
-Dette sikrer at nøklene som opprettes senere i veiledningen kan lagres riktig som hemmeligheter i Azure.
+Før du går videre med denne veiledningen, må du forsikre deg om at du har tilgang til Azure Key Vault for organisasjonen din. Dette sikrer at nøklene som opprettes senere i veiledningen kan lagres riktig som hemmeligheter i Azure.
 
 Hvis tilgang mangler, se [Tilgang til logger og hemmeligheter](/nb/altinn-studio/guides/administration/access-management/apps).
 
 ## Maskinporten-integrasjon
-
-I denne delen skal vi sette opp Maskinporten-klienten. En del av oppsettet inkluderer opprettelse av nøkler som senere
-skal lagres i Azure Key Vault. Hvis ulike personer i organisasjonen har tilgang til forskjellige ressurser som trengs i
-denne prosessen, anbefales det å samarbeide og utføre disse trinnene på samme maskin. Dette er for å unngå å sende
-hemmeligheter mellom maskiner.
+I denne delen skal vi sette opp Maskinporten-klienten. En del av oppsettet inkluderer opprettelse av nøkler som senere skal lagres i Azure Key Vault. Hvis ulike personer i organisasjonen har tilgang til forskjellige ressurser som trengs i forbindelse med dette, anbefales det å samarbeide og utføre disse trinnene på samme maskin. På den måten unngår man å sende hemmeligheter mellom personer og maskiner.
 
 Når tilgang til å opprette hemmeligheter i Azure Key Vault er bekreftet, kan du fortsette med å opprette integrasjonen.
 
 {{% expandlarge id="guide-mp-int-samarbeid" header="Veiledning om hvordan du registrerer en ny Maskinporten-integrasjon i Samarbeidsportalen" %}}
-
-{{% insert "/content/altinn-studio/guides/shared/maskinporten-integration/maskinporten-integration-samarbeidsportal.md" %}}
-
+{{% insert "content/shared/maskinporten/maskinporten-client-create.nb.md" %}}
 {{% /expandlarge %}}
 
 ## Konfigurasjon av Azure Key Vault
-
 Når applikasjonen forberedes til å bruke hemmeligheter fra Azure Key Vault, må følgende trinn utføres:
 
 1. Legg til hemmelighetene som ble hentet under konfigurasjon av Maskinporten-klienten, i Azure Key Vault:
     - Base64-kodet JWT offentlig og privat nøkkelpar
     - Klient-ID for integrasjonen
 
-   Det er viktig at navnet på disse hemmelighetene i Azure Key Vault tilsvarer navnet på seksjonen i appsettings-filen i
-   kodebasen til applikasjonen.
-
-   For eksempel, hvis seksjonen for Maskinporten-integrasjonen ser slik ut:
+   Det er viktig at navnet på disse hemmelighetene i Azure Key Vault tilsvarer navnet på seksjonen i appsettings-filen i kodebasen til applikasjonen. F.eks. hvis din appsettings-seksjon for Maskinporten-integrasjonen ser slik ut:
 
    ```json
    {
@@ -62,65 +50,197 @@ Når applikasjonen forberedes til å bruke hemmeligheter fra Azure Key Vault, m�
      }
    }
    ```
-   
-   Må hemmelighetene i Azure Key Vault ha navn som dette:
-   
+
+   Skal hemmelighetene i Azure Key Vault ha navn som dette:
+
    ```
    MaskinportenSettings--Authority
    MaskinportenSettings--ClientId
    MaskinportenSettings--JwkBase64
    ```
-2. For at applikasjonen skal kunne lese hemmelighetene fra Azure Key Vault, må konfigureres først.
-   Se [seksjoner om hemmeligheter](../../../reference/configuration/secrets) for hvordan dette oppnås.
+2. For at applikasjonen skal kunne lese hemmelighetene fra Azure Key Vault, må den konfigureres til å gjøre det. Se [secrets-seksjonen](../../../reference/configuration/secrets) for å oppnå dette.
 3. Legg til appsettings-eksempelet ovenfor i `appsettings.{env}.json`-filen.
 {.floating-bullet-numbers}
 
-_NB: Hemmelighetene leses av applikasjonen ved oppstart, så
-hvis du endrer hemmelighetene etter at applikasjonen er publisert, må du
-publisere applikasjonen på nytt før endringene trer i kraft._
+_Merk: Hemmelighetene leses av applikasjonen ved oppstart, så hvis du gjør endringer etter at applikasjonen er publisert, må du publisere applikasjonen på nytt for at de skal tre i kraft._
 
-## Sett opp applikasjonen til å bruke Maskinporten-integrasjonen
+## Applikasjonsoppsett
+Applikasjonen inkluderer automatisk den innebygde `IMaskinportenClient` som kan brukes i tjenestene dine.
 
-Applikasjonen inkluderer automatisk den innebygde `IMaskinportenClient` som kan brukes i tjenestene dine. Klienten finner og bruker automatisk `MaskinportenSettings`-konfigurasjonen.
-
-Hvis du trenger å bruke en annen konfigurasjonsbane enn standardbanen, kan du konfigurere den i `RegisterCustomAppServices`-metoden:
+### Konfigurasjonsstier
+Klienten vil automatisk lete etter en Maskinporten-konfigurasjon på standardstien _"MaskinportenSettings"_. Hvis du ønsker å bruke en annen sti, kanskje fordi du administrerer flere apper og hver av dem trenger ulik autorisasjon, kan du konfigurere dette via `ConfigureMaskinportenClient`-metoden.
 
 {{< highlight csharp "linenos=false,hl_lines=5-7" >}}
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
-    // ...
+  // ...
 
-    services.ConfigureMaskinportenClient(
-        "YourCustomMaskinportenSettingsPath"
-    );
+  services.ConfigureMaskinportenClient(
+      "YourCustomMaskinportenSettingsPath"
+  );
 }
 {{< / highlight >}}
 
-For typede HTTP-klienter som trenger Maskinporten-autorisasjon, kan du bruke utvidelsesmetodene:
+### Autorisering av Http-klienter
 
-{{< highlight csharp "linenos=false,hl_lines=5-6 8-9" >}}
+Typede og navngitte Http-klienter kan autoriseres med de tilgjengelige utvidelsesmetodene, som illustrert nedenfor.
+
+{{< highlight csharp "linenos=false,hl_lines=6-7 10-11" >}}
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
-    // ...
+  // ...
 
-    // For eksterne API-er som krever rå Maskinporten-tokens
-    services.AddHttpClient<YourCustomClient>().UseMaskinportenAuthorisation("scope:1", "scope:2");
-    
-    // For Altinn API-er som krever Altinn-tokens (veksler Maskinporten-token)
-    services.AddHttpClient<YourCustomClient2>().UseMaskinportenAltinnAuthorisation("scope:1", "scope:2");
+  // For external APIs that require raw Maskinporten tokens
+  services.AddHttpClient<CustomClient1>().UseMaskinportenAuthorization("scope1", "scope2");
+  services.AddHttpClient("named-client1").UseMaskinportenAuthorization("scope1", "scope2");
+
+  // For Altinn APIs that require Altinn tokens (exchanges Maskinporten token)
+  services.AddHttpClient<CustomClient2>().UseMaskinportenAltinnAuthorization("scope1", "scope2");
+  services.AddHttpClient("named-client2").UseMaskinportenAltinnAuthorization("scope1", "scope2");
 }
 {{< / highlight >}}
 
-Deretter må vi legge til Azure Key Vault som konfigurasjonsleverandør til vår host. Dette gjøres ved å legge til den markerte koden etter `ConfigureWebHostBuilder` metoden:
+### Manuell bruk
+Hvis du trenger å hente et Maskinporten-token manuelt, kan du bruke `IMaskinportenClient` i tjenesten din og hente tokens med `GetAccessToken`- og `GetAltinnExchangedToken`-metodene.
 
-{{< highlight csharp "linenos=false,hl_lines=4-9" >}}
+{{< highlight csharp "linenos=false,hl_lines=5-6" >}}
+public class Example(IMaskinportenClient maskinportenClient) : IProcessTaskEnd
+{
+  public async Task End(string taskId, Instance instance)
+  {
+    var maskinportenToken = await maskinportenClient.GetAccessToken(["scope1", "scope2"]);
+    var altinnExchangedToken = await maskinportenClient.GetAltinnExchangedToken(["scope1", "scope2"]);
+
+    // Do something with the tokens...
+  }
+}
+{{< / highlight >}}
+
+### Key Vault-konfigurasjon
+
+Til slutt må vi legge til Azure Key Vault-konfigurasjonsleverandøren til vår host. Dette gjøres ved å legge til den markerte koden _etter_ `ConfigureWebHostBuilder`-metoden.
+
+{{< highlight csharp "linenos=false,hl_lines=6-9" >}}
+//...
 
 ConfigureWebHostBuilder(IWebHostBuilder builder);
 
 // Add Azure KV provider for TT02 & Prod environments
 if (!builder.Environment.IsDevelopment())
 {
-    builder.AddAzureKeyVaultAsConfigProvider();
+  builder.AddAzureKeyVaultAsConfigProvider();
 }
-
 {{< / highlight >}}
+
+## Bakoverkompatibilitet
+
+{{% expandlarge id="bakoverkompatibilitet-expander" header="Vis detaljer" %}}
+
+### IMaskinportenTokenProvider
+Visse eldre tjenester krever en implementering av `IMaskinportenTokenProvider` for å hente tokens. `MaskinportenClient` vil automatisk registrere denne tjenesten hvis den ikke allerede er registrert andre steder.
+
+### Altinn.ApiClients.Maskinporten
+Hvis du trenger å støtte eksisterende bruk av den [frittstående Maskinporten-klienten](https://github.com/Altinn/altinn-apiclient-maskinporten), mens du samtidig vil bruke den innebygde klienten for nye funksjoner, gir det vanligvis mening å utnytte én enkelt [Azure Key Vault-konfigurasjon](#konfigurasjon-av-azure-key-vault).
+
+Eksempelet nedenfor illustrerer hvordan du kan omforme et `Altinn.ApiClients.Maskinporten.Config.MaskinportenSettings`-objekt til formatet som kreves av den innebygde klienten.
+
+{{< highlight csharp  >}}
+using Altinn.App.Core.Features.Maskinporten.Exceptions;
+using LegacyMaskinportenSettings = Altinn.ApiClients.Maskinporten.Config.MaskinportenSettings;
+// ...
+
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+  // ...
+
+  var legacySettings =
+    config.GetSection("Maskinporten-Config-Path").Get<LegacyMaskinportenSettings>()
+    ?? throw new MaskinportenConfigurationException("Maskinporten settings not found in config.");
+
+  services.ConfigureMaskinportenClient(options =>
+  {
+    options.ClientId = legacySettings.ClientId;
+    options.JwkBase64 = legacySettings.EncodedJwk;
+    options.Authority = legacySettings.Environment switch
+    {
+      "prod" => "https://maskinporten.no/",
+      "test" => "https://test.maskinporten.no/",
+      "dev" => "https://maskinporten.dev/",
+      _ => throw new MaskinportenConfigurationException($"Unknown Maskinporten environment value {legacySettings.Environment}")
+    };
+  });
+  
+  // More information about the Maskinporten environment mapping:
+  // https://github.com/Altinn/altinn-apiclient-maskinporten/blob/main/src/Altinn.ApiClients.Maskinporten/Services/MaskinportenService.cs#L343
+}
+{{< / highlight >}}
+
+{{% /expandlarge %}}
+
+## Migreringsveier
+
+{{% expandlarge id="migreringsveier-expander" header="Vis detaljer" %}}
+
+I denne seksjonen finner du noen korte eksempler på hvordan du kan migrere din eksisterende konfigurasjon fra den [frittstående Maskinporten-klienten](https://github.com/Altinn/altinn-apiclient-maskinporten) til den innebygde.
+
+### Bruk av AddMaskinportenHttpClient
+Følgende eksempel viser hvordan en `EventSubscriptionClient` tradisjonelt har blitt konfigurert, og hvordan du kan oppnå samme resultat ved å bruke den innebygde Maskinporten-klienten.
+
+{{< highlight csharp  >}}
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+  // ...
+
+  // Before: Altinn.ApiClients.Maskinporten client configuration
+  services
+    .AddMaskinportenHttpClient<SettingsJwkClientDefinition, EventsSubscriptionClient>(
+      config.GetSection("Maskinporten-Config-Path"),
+      clientDefinition =>
+      {
+        clientDefinition.ClientSettings.Scope = "altinn:serviceowner/instances.read";
+        clientDefinition.ClientSettings.ExhangeToAltinnToken = true;
+      }
+    )
+    .AddTypedClient<IEventsSubscription, EventsSubscriptionClient>();
+
+  // After: Built-in client configuration
+  services.ConfigureMaskinportenClient("Maskinporten-Config-Path");
+  services
+    .AddHttpClient<IEventsSubscription, EventsSubscriptionClient>()
+    .UseMaskinportenAltinnAuthorization("altinn:serviceowner/instances.read");
+}
+{{< / highlight >}}
+
+### Bruk av AddMaskinportenHttpMessageHandler
+Følgende eksempel viser hvordan `Altinn.ApiClients.Dan` typisk har blitt konfigurert, og hvordan du kan oppnå samme resultat ved å bruke den innebygde Maskinporten-klienten.
+
+{{< highlight csharp  >}}
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+  // ...
+
+  // Before: Altinn.ApiClients.Maskinporten client configuration
+  services.RegisterMaskinportenClientDefinition<SettingsJwkClientDefinition>(
+    "client-name",
+    config.GetSection("Maskinporten-Config-Path")
+  );
+
+  services
+    .AddDanClient(config.GetSection("Dan-Config-Path"))
+    .AddMaskinportenHttpMessageHandler<SettingsJwkClientDefinition>(
+      "client-name",
+      clientDefinition =>
+      {
+        clientDefinition.ClientSettings.Scope = "altinn:dataaltinnno";
+      }
+    );
+
+  // After: Built-in client configuration
+  services.ConfigureMaskinportenClient("Maskinporten-Config-Path");
+  services
+    .AddDanClient(config.GetSection("Dan-Config-Path"))
+    .UseMaskinportenAuthorization("altinn:dataaltinnno");
+}
+{{< / highlight >}}
+
+{{% /expandlarge %}}

@@ -10,7 +10,7 @@ weight: 2
 ### Endepunkt
 
 ### Scopes
-Machineporten-token med scope <mark style="background-color:lightgrey">altinn:authentication/systemregister.write</mark>
+Maskinporten-token med scope <mark style="background-color:lightgrey">altinn:authentication/systemregister.write</mark>
 
 ### Content typer
 application/json

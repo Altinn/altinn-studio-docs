@@ -28,7 +28,7 @@ Når API scopes er tildelt organisasjonen kan man sette opp en integrasjon i Mas
 
 Ved å autentisere seg mot Maskinporten med den aktuelle klientene får man da en token som er autorisert til disse API.
 
-Dette maskinporten tokenet må veksles inn til et Altinn token. 
+Dette Maskinporten tokenet må veksles inn til et Altinn token. 
 
 Oppsett av Maskinportenklient og innveksling er beskrevet [her](/api/authentication/maskinporten/).
 

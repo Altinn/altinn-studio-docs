@@ -63,7 +63,7 @@ Første steget i prosessen er at mottaksendepunktet mottar informasjon om Event 
 }
 ```
 
-### Autentisering mot maskinporten
+### Autentisering mot Maskinporten
 
 Tjenesteeiersystem kaller Maskinporten API med korrekt Scopes for tjenesteeier. Dette er beskrevet i detaljer [her](/nb/authorization/getting-started/authentication/maskinporten/#tilgang-som-tjenesteeier).
 
