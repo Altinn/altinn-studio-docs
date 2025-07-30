@@ -1,17 +1,17 @@
 ---
 title: Oppsett av Maskinporten-klient
 linktitle: Maskinporten
-description: Her finner du informasjon om hvordan du setter opp Maskinporten-integrasjon
+description: Her finner du informasjon om hvordan du setter opp Maskinporten-klient
 toc: false
 weight: 3
 ---
 
-For å bruke Altinn API, krever flere scenarier en Maskinporten-klient:
+For å bruke Altinn API-er, krever flere scenarier en Maskinporten-klient:
 - Kalle Altinn API som en organisasjon
 - Autentisering som en bedriftsbruker
 - Autentisering som systembruker
 
-## Sette opp en Maskinporten-integrasjon
+## Sette opp en Maskinporten-klient
 {{% insert "content/shared/maskinporten/maskinporten-client-create.nb.md" %}}
 
 ## Liste over scopes

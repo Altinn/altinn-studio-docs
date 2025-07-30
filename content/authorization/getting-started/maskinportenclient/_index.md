@@ -1,7 +1,7 @@
 ---
 title: Setting up Maskinporten client
 linktitle: Maskinporten
-description: This page describes the process of setting up a Maskinporten integration
+description: This page describes the process of setting up a Maskinporten client
 toc: false
 weight: 3
 ---
@@ -11,7 +11,7 @@ To use the Altinn API, several scenarios require a Maskinporten client:
 - Authenticating as an enterprise user
 - Authenticating as a system user
 
-## Setting up the Maskinporten Integration
+## Setting up the Maskinporten Client
 {{% insert "content/shared/maskinporten/maskinporten-client-create.en.md" %}}
 
 ## Scope list
