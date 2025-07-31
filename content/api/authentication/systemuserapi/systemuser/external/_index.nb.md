@@ -55,7 +55,7 @@ Den eksterne referansen oppgitt av systemleverandøren i systembrukerforespørse
 GET authentication/api/v1/systemuser/vendor/bysystem/{systemId}
 
 ### Scopes
-Maskinporten token med scope <mark>altinn:maskinporten/systemregister.write</mark>
+Maskinporten token med scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
 application/json
