@@ -14,7 +14,7 @@ aliases:
 
 ## Prerequisites
 
-Runtime delegated signing depends on then message service (Correspondence) in Altinn, which requires separate configuration.
+Runtime delegated signing depends on the message service (Correspondence) in Altinn, which requires separate configuration.
 
 The message service is used to tell the signee that they have been asked to sign a form in Altinn, and to send them a receipt of what they signed when the signature has been submitted.
 
@@ -22,20 +22,20 @@ See how to get started in [this guide](/nb/correspondence/getting-started/).
 
 ## Example Application
 
-In the following [repository](https://altinn.studio/repos/ttd/signering-brukerstyrt), you can find an example of an application with user-driven signing.
+In the following [repository](https://altinn.studio/repos/ttd/signering-brukerstyrt), you can find an example of an application with runtime delegated signing.
 
 The main flow is:
 
 1. The form filler enters the personal identification number and last name of the individuals who need to sign, or alternatively, the organization number if it is a company.
 2. Once the form is completed, the filler clicks a "Go to signing" button, which moves the process to the signing step.
-3. During the signing step, the application calls an implementation of the interface `ISigneeProvider`, which you must implement, to determine who should be delegated access to sign.
+3. During the signing step, the application calls an implementation of the interface `ISigneeProvider` to determine who should be delegated access to sign.
 4. The signers are delegated rights and receive a notification that they have a signing task.
 5. The signers find the form in their inbox, open it, review the data, and click "Sign."
-6. The submitter also signs if the app is configured this way and then submits the form. Automatic submission is currently not supported.
+6. The submitter also signs if the app is configured this way and then submits the form.
 
 Below are the key configuration steps for setting up such an application.
 
-## 1. Add and configure a singing task in the app process
+## 1. Add and configure a signing task in the app process
 
 {{<content-version-selector classes="border-box">}}
 
@@ -49,7 +49,7 @@ Below are the key configuration steps for setting up such an application.
 
 {{</content-version-selector>}}
 
-## 2. Add a singing layout set
+## 2. Add a signing layout set
 
 {{<content-version-selector classes="border-box">}}
 
