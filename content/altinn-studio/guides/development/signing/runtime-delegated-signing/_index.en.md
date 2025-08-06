@@ -31,7 +31,7 @@ The main flow is:
 3. During the signing step, the application calls an implementation of the interface `ISigneeProvider` to determine who should be delegated access to sign.
 4. The signers are delegated rights and receive a notification that they have a signing task.
 5. The signers find the form in their inbox, open it, review the data, and click "Sign."
-6. The submitter also signs if the app is configured this way and then submits the form. Automatic submission is currently not supported.
+6. The submitter also signs if the app is configured this way and then submits the form.
 
 Below are the key configuration steps for setting up such an application.
 
