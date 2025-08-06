@@ -8,6 +8,8 @@ In the folder you created, add a `layouts` folder and a `Settings.json` file.
 
 Add a new file called `signing.json` in the `layouts` folder.
 
+The folder structure should look like this:
+
 ```
 App/
 ├── ui/

@@ -8,6 +8,8 @@ I denne mappen, legg til en `layouts`-mappe og en `Settings.json`-fil.
 
 Legg til en layout-fil kalt f.eks. `signing.json` i `layouts`-mappen.
 
+Mappestrukturen skal se slik ut:
+
 ```
 App/
 ├── ui/
