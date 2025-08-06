@@ -15,6 +15,6 @@ Det følger med noen standard systemoppgaver:
 [eFormidling](/nb/altinn-studio/guides/development/service-tasks/eformidling)
 
 ## Egendefinert
-Det er mulig å lagne egne systemoppgaver og inkludere de i prosessflyten.
+Det er mulig å lage egne systemoppgaver og inkludere dem i prosessflyten.
 
 [Slik gjør du det](/nb/altinn-studio/guides/development/service-tasks/custom)
