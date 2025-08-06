@@ -14,7 +14,7 @@ aliases:
 
 ## Prerequisites
 
-Runtime delegated signing depends on then message service (Correspondence) in Altinn, which requires separate configuration.
+Runtime delegated signing depends on the message service (Correspondence) in Altinn, which requires separate configuration.
 
 The message service is used to tell the signee that they have been asked to sign a form in Altinn, and to send them a receipt of what they signed when the signature has been submitted.
 
