@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../altinn-profile"
+		}
+	],
+	"settings": {
+		"breadcrumbs.enabled": true,
+		"explorer.compactFolders": false,
+		"workbench.editor.customLabels.enabled": true,
+		"workbench.editor.customLabels.patterns": {
+			"content/**/*index.*md": "${dirname}/${filename}.${extname}"
+		}
+	}
+}
