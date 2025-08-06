@@ -118,7 +118,7 @@ This data type is used to store information about the signers and their status.
 
 It is important to set `allowedContributors` to `"app:owned"`. This ensures that these data items cannot be edited via the app’s API but only by the app itself.
 
-The IDs of the data types must match the IDs set in `signatureDataType` and `signeeStatesDataTypeId` in the process step, as shown in the next section.
+The IDs of the data types must match the IDs set for `signatureDataType` and `signeeStatesDataTypeId` in the process configuration.
 
 
 ### Access control
