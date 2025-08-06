@@ -13,12 +13,9 @@ En egendefinert systemoppgave krever:
 ### Implementasjon i C#
 
 ```csharp
-using System;
 using System.Threading.Tasks;
-using Altinn.App.Core.Internal.Data;
 using Altinn.App.Core.Internal.Process.ProcessTasks.ServiceTasks;
 using Altinn.App.Core.Models;
-using Altinn.App.Core.Models.Process;
 using Altinn.App.Models.model;
 using Altinn.Platform.Storage.Interface.Models;
 
@@ -26,34 +23,19 @@ namespace Altinn.App.Code;
 
 public class ExampleServiceTask : IServiceTask
 {
-    private readonly IDataClient _dataClient;
-
-    public ExampleServiceTask(IDataClient dataClient)
-    {
-        _dataClient = dataClient;
-    }
-    
     public string Type => "exampleServiceTask";
 
-    public async Task<ServiceTaskResult> Execute(ServiceTaskParameters parameters)
+    public async Task<ServiceTaskResult> Execute(ServiceTaskContext context)
     {
-        Instance instance = parameters.InstanceDataMutator.Instance;
+        Instance instance = context.InstanceDataMutator.Instance;
         DataElement dataElement = instance.Data.Find(x => x.DataType == "model");
 
-        var instanceIdentifier = new InstanceIdentifier(instance);
-        var formData = (model)await _dataClient.GetFormData(instanceIdentifier.InstanceGuid, typeof(model), instance.Org, instance.AppId, int.Parse(instance.InstanceOwner.PartyId), Guid.Parse(dataElement.Id));
-
-        if (formData.property1 != "Hei!")
-            return new ServiceTaskFailedResult
-            {
-                ErrorTitle = "Rude!",
-                ErrorMessage = "Didn't say 'Hei!'",
-                ErrorType = ProcessErrorType.Conflict
-            };
+        var formData = (model) await context.InstanceDataMutator.GetFormData(new DataElementIdentifier(dataElement));
         
-        formData.property2 = "Hei, hei!";
-        return new ServiceTaskSuccessResult();
+        if (formData.property1 != "true")
+            return new ServiceTaskFailedResult();
 
+        return new ServiceTaskSuccessResult();
     }
 }
 ```
