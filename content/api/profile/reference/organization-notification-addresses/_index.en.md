@@ -43,3 +43,10 @@ In the path for managing notification addresses, you must include the organizati
     * **email** (string) Email address used for notifications to the organization. It is null if the address is a phone number.
     * **phone** (string) Phone number used for notifications to the organization. It is null if the address is an email.
     * **countryCode** (string) Country code belonging to the phone number.
+
+{{% notice warning  %}}
+### Updating an address may result in a new id
+If you update an address to a value (email or phone number) that has been used before for the selected organization, you may receive the old `notificationAddressId` in return. 
+Therefore, it is important to always check the response when you have changed a notification address.
+{{% / notice %}}
+
