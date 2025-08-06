@@ -35,7 +35,7 @@ The main flow is:
 
 Below are the key configuration steps for setting up such an application.
 
-## 1. Add and configure a singing task in the app process
+## 1. Add and configure a signing task in the app process
 
 {{<content-version-selector classes="border-box">}}
 
@@ -49,7 +49,7 @@ Below are the key configuration steps for setting up such an application.
 
 {{</content-version-selector>}}
 
-## 2. Add a singing layout set
+## 2. Add a signing layout set
 
 {{<content-version-selector classes="border-box">}}
 

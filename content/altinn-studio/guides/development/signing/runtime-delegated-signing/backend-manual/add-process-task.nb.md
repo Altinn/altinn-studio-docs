@@ -142,7 +142,7 @@ Datatypenes ID-er må matche ID-ene som legges inn i `signatureDataType` og `sig
 
   <xacml:Rule RuleId="urn:altinn:org:ttd:signering-brukerstyrt:ruleid:7" Effect="Permit">
     <xacml:Description>
-        A rule defining all instance delegation rights the App itself is allowed to perform for instances of the app ttd/signering-brukerstyrt. In this example the app can delegate the Read and Sign actions for task SingingTask.
+        A rule defining all instance delegation rights the App itself is allowed to perform for instances of the app ttd/signering-brukerstyrt. In this example the app can delegate the Read and Sign actions for task SigningTask.
     </xacml:Description>
     <xacml:Target>
         <xacml:AnyOf>
@@ -184,7 +184,7 @@ Datatypenes ID-er må matche ID-ene som legges inn i `signatureDataType` og `sig
                 </xacml:Match>
                 <xacml:Match
                     MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">SingingTask</xacml:AttributeValue>
+                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">SigningTask</xacml:AttributeValue>
                     <xacml:AttributeDesignator
                         AttributeId="urn:altinn:task"
                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
