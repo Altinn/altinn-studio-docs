@@ -46,6 +46,6 @@ I stien for å administrere varslingsadresser må man ha med organisasjonsnummer
     * **countryCode** (string) Landkode som hører til telefonnummeret. 
 
 {{% notice warning  %}}
-**Oppdatering av en adresse kan føre til en ny id**
+**Oppdatering av en adresse kan føre til en ny ID**
 Dersom man oppdaterer en adresse til en verdi(e-post eller telefonnummer) som har blitt brukt før for valgte virksomhet, kan man få tilbake den gamle `notificationAddressId`. Derfor er det viktig å alltid sjekke responsen når man har endret en varslingsadresse. 
 {{% / notice %}}
