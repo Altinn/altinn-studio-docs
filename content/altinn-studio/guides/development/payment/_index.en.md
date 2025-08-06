@@ -9,7 +9,7 @@ aliases:
 ---
 
 ## 1. Before you begin
-1. Create Nets Easy agreement here: [payments.nets.eu](https://payments.nets.eu/nb-NO/checkout).
+Create Nets Easy agreement here: [payments.nets.eu](https://payments.nets.eu/nb-NO/checkout).
 
 <!-- Legg til betalingsoppgave i appens prosess -->
 ## 2. Add a payment task to the app process, with basic configuration

@@ -29,6 +29,7 @@ Before you proceed with unpublishing, you should consider how you will handle ac
 
 2. **Handling data after unpublishing:**  
    Once the app is unpublished, you can still retrieve data, but you will need to use the Storage API after unpublishing. This is because the app’s own APIs will no longer be available.
+{.floating-bullet-numbers}
 
 ### What can you do to make an app unavailable, instead of unpublishing?
 
