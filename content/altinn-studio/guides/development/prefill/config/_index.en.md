@@ -18,7 +18,7 @@ When someone starts the form, the fields you select will be automatically popula
 If you plan on using data from the sources listed above. There is a limited set of fields available. 
 See [full list of available data fields for all sources](../../../../reference/data/prefill).
 
-Do you need data from other sources? Go to [prefilling data using cusom code](../custom/).
+Do you need data from other sources? Go to [prefilling data using custom code](../custom/).
 
 ## How to set it up
 {.floating-bullet-numbers-sibling-ol}
