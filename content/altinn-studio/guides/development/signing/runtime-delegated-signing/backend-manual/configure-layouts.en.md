@@ -2,32 +2,20 @@
 hidden: true
 ---
 
-Add a folder under `App/ui` for your singing task. In the following examples, we will call this task `signing`.
-Update `App/ui/layout-sets.json` with a new page group, using the same `id` as the folder you just created.
+Add a task layout folder under `App/ui` for your singing task. In the following examples, we will call this folder `signing`.
 
-```json
-  {
-    "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
-    "sets": [
-      {
-        "id": "form",
-        "dataType": "model",
-        "tasks": [
-          "Task_1"
-        ]
-      },
-      {
-        "id": "signing",
-        "dataType": "model",
-        "tasks": [
-          "SigningTask"
-        ]
-      }
-    ]
-  }
+In the folder you created, add a `layouts` folder and a `Settings.json` file.
+
+Add a new file called `signing.json` in the `layouts` folder.
+
 ```
-
-In the folder you created, add a new file called `signing.json`.
+App/
+├── ui/
+│   └── signing/
+│       ├── layouts/
+│       │   └── signing.json
+│       └── Settings.json
+```
 
 There are standard components that can be used to build a layout set for a signing step. You are not required to use these components, but it's recommended.
 
@@ -79,4 +67,28 @@ Example of usage of the standard components:
     ]
   }
 }
+```
+
+Update `App/ui/layout-sets.json` with the `id` of the task folder you just created.
+
+```json
+  {
+    "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
+    "sets": [
+      {
+        "id": "form",
+        "dataType": "model",
+        "tasks": [
+          "Task_1"
+        ]
+      },
+      {
+        "id": "signing",
+        "dataType": "model",
+        "tasks": [
+          "SigningTask"
+        ]
+      }
+    ]
+  }
 ```
