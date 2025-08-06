@@ -2,7 +2,7 @@
 hidden: true
 ---
 
-Add a folder under `App/ui` for your singing task called `signing` or some other logical name.
+Add a folder under `App/ui` for your singing task. In the following examples, we will call this task `signing`.
 Update `App/ui/layout-sets.json` with a new page group, using the same `id` as the folder you just created.
 
 ```json
