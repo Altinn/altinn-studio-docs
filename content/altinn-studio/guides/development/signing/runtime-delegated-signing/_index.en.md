@@ -28,7 +28,7 @@ The main flow is:
 
 1. The form filler enters the personal identification number and last name of the individuals who need to sign, or alternatively, the organization number if it is a company.
 2. Once the form is completed, the filler clicks a "Go to signing" button, which moves the process to the signing step.
-3. During the signing step, the application calls an implementation of the interface `ISigneeProvider`, which you must implement, to determine who should be delegated access to sign.
+3. During the signing step, the application calls an implementation of the interface `ISigneeProvider` to determine who should be delegated access to sign.
 4. The signers are delegated rights and receive a notification that they have a signing task.
 5. The signers find the form in their inbox, open it, review the data, and click "Sign."
 6. The submitter also signs if the app is configured this way and then submits the form. Automatic submission is currently not supported.
