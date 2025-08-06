@@ -11,7 +11,7 @@ These are also used by the Brønnøysund Register Centre and are kept in sync th
 The update usually runs every ten minutes.
 
 ## How do you use the API?
-There are endpoints for reading, adding, and deleting notification addresses.
+There are endpoints for reading, adding, updating and deleting notification addresses.
 All endpoints require authentication. To use the API, you must be a logged-in end user. It is important that the access token used contains `userId` to indicate who the logged-in user is.
 The end user must also have one of a set of valid roles to manage the organization's notification addresses.
 
