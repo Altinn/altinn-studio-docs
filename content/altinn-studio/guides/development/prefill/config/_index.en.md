@@ -21,51 +21,50 @@ See [full list of available data fields for all sources](../../../../reference/d
 Do you need data from other sources? Go to [prefilling data using cusom code](../custom/).
 
 ## How to set it up
+{.floating-bullet-numbers-sibling-ol}
 
-### 1. Create a new file
+1. **Create a new file**
 
-Navigate to the folder `App/models` in your app and create a new file.  
-**Important:** The file must be named `[dataModelName].prefill.json`  
-Example: If your data model is called _appModel_, you should have these files:  
-- `appModel.cs` 
-- `appModel.schema.json` 
-- `appModel.prefill.json`  &larr; *the new file*
+   Navigate to the folder `App/models` in your app and create a new file named `[dataModelName].prefill.json`.
 
-### 2. Add the base configuration
+   If your data model is called _appModel_, you should now have the following files:
+   - `appModel.cs` 
+   - `appModel.schema.json` 
+   - `appModel.prefill.json`  &larr; *the new file*
 
-Copy this configuration code into the new file:
+2. **Add the base configuration**
 
-```json
-{
-    "$schema": "https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json",
-    "allowOverwrite": true,
-    "ER": {
-    },
-    "DSF": {
-    },
-    "UserProfile": {
-    }
-}
-```
+   Copy this configuration code into the new file:
 
-### 3. Configure which data should be filled automatically
+   ```json
+   {
+      "$schema": "https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json",
+      "allowOverwrite": true,
+      "ER": {},
+      "DSF": {},
+      "UserProfile": {}
+   }
+   ```
 
-The three groups in the code mirror the three available sources:  
-- `ER` - The Business Register  
-- `DSF` - The Population Register  
-- `UserProfile` - The user's Altinn profile  
+3. **Configure which data should be filled automatically**
 
-Choose which sources you want to use. If any (or all) of the sources should not be used, leave them empty.
+   The three groups in the code mirror the three available sources:  
+   - `ER` - The Business Register  
+   - `DSF` - The Population Register  
+   - `UserProfile` - The user's Altinn profile  
 
-Within the group for the relevant source, add lines indicating:  
-- Which data field (from the source) you want to retrieve data from  
-- Which form field should be filled out  
+   Choose which sources you want to use. If any (or all) of the sources should not be used, leave them empty.
 
-The format is `"datafield": "formfield"`, where:  
-- `datafield` is the name of the field _from the source_  
-- `formfield` is the name of the field in the form's data model.
+   Within the group for the relevant source, add lines indicating:  
+   - Which data field (from the source) you want to retrieve data from  
+   - Which form field should be filled out  
 
-See [full list of available data fields for all sources](../../../../reference/data/prefill).
+   The format is `"datafield": "formfield"`, where:  
+   - `datafield` is the name of the field _from the source_  
+   - `formfield` is the name of the field in the form's data model.
+
+   See [full list of available data fields for all sources](../../../../reference/data/prefill).
+
 
 ## Examples
 
@@ -79,7 +78,7 @@ This will fill the `Organization.OrgNo` field with the organization number from 
 
 ```json
 "ER": {
-    "OrgNumber": "Organization.OrgNo"
+  "OrgNumber": "Organization.OrgNo"
 }
 ```
 
@@ -89,7 +88,7 @@ This will fill the `Person.PersonNr` field with the personal number from the Pop
 
 ```json
 "DSF": {
-    "SSN": "Person.PersonNr"
+  "SSN": "Person.PersonNr"
 }
 ```
 
@@ -99,6 +98,6 @@ This will fill the `User.Email` field with the email retrieved from the user's A
 
 ```json
 "UserProfile": {
-    "Email": "User.Email"
+  "Email": "User.Email"
 }
 ```

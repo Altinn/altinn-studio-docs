@@ -22,11 +22,11 @@ Systemet må forespørre et sett med scopes i ID-porten som sluttbruker må akse
 
 Relevante scopes for Altinn 3 er:
 
-- **altinn:instances.meta** - Se oversikt over innboks og arkiv i Altinn
-- **altinn:instances.read** - Lese innholdet i innboks og arkiv i Altinn for alle elementer sluttbruker er autorisert for
-- **altinn:instances.write** - Fylle ut, signere og sende inn skjema i Altinn for alle elementer sluttbruker er autorisert for
-- **altinn:lookup** - Benytte innsynstjenester i Altinn
-- **altinn:reportees** - Se hvem du kan representere i Altinn
+- `altinn:instances.meta` - Se oversikt over innboks og arkiv i Altinn
+- `altinn:instances.read` - Lese innholdet i innboks og arkiv i Altinn for alle elementer sluttbruker er autorisert for
+- `altinn:instances.write` - Fylle ut, signere og sende inn skjema i Altinn for alle elementer sluttbruker er autorisert for
+- `altinn:lookup` - Benytte innsynstjenester i Altinn
+- `altinn:reportees` - Se hvem du kan representere i Altinn
 
 Bildet nedenfor viser hvordan sluttbruker må bekrefte tilgangen.
 

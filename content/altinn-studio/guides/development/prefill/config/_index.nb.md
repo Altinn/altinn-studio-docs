@@ -21,51 +21,49 @@ se [fullstendig liste over tilgjengelige datafelt for alle kildene](../../../../
 Trenger du data fra andre kilder? Gå til [forhåndsutfylling med egendefinert kode](../custom/).
 
 ## Slik setter du det opp
+{.floating-bullet-numbers-sibling-ol}
 
-### 1. Opprett en ny fil
+1. **Opprett en ny fil**
 
-Gå til mappen  `App/models` i appen din og opprett en ny fil.
-**Viktig:** Filen må hete `[datamodellnavn].prefill.json`
-Eksempel: Hvis datamodellen din heter _appModel_ skal du ha disse filene:
-- `appModel.cs` 
-- `appModel.schema.json` 
-- `appModel.prefill.json`  &larr; *den nye filen*
+   Gå til mappen  `App/models` i appen din og opprett en ny fil med navn `[datamodellnavn].prefill.json`
 
-### 2. Legg inn grunnkonfigurasjon
+   Hvis datamodellen din heter _appModel_ skal du ha disse filene:
+   - `appModel.cs` 
+   - `appModel.schema.json` 
+   - `appModel.prefill.json`  &larr; *den nye filen*
 
-Kopier denne konfigurasjonskoden inn i den nye filen:
+2. **Legg inn grunnkonfigurasjon**
 
-```json
-{
-    "$schema": "https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json",
-    "allowOverwrite": true,
-    "ER": {
-    },
-    "DSF": {
-    },
-    "UserProfile": {
-    }
-}
-```
+   Kopier denne konfigurasjonskoden inn i den nye filen:
 
-### 3. Konfigurer hvilke data som skal fylles ut automatisk
+   ```json
+   {
+      "$schema": "https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json",
+      "allowOverwrite": true,
+      "ER": {},
+      "DSF": {},
+      "UserProfile": {}
+   }
+   ```
 
-De tre gruppene i koden speiler de tre kildene som er tilgjengelige:
-- `ER` - Enhetsregisteret
-- `DSF` - Folkeregisteret
-- `UserProfile` - Brukerens Altinn-profil
+3. **Konfigurer hvilke data som skal fylles ut automatisk**
 
-Du velger hvilke av kildene du ønsker å bruke. Om en (eller flere) av kildene ikke skal brukes, lar du de stå tomme.
+   De tre gruppene i koden speiler de tre kildene som er tilgjengelige:
+   - `ER` - Enhetsregisteret
+   - `DSF` - Folkeregisteret
+   - `UserProfile` - Brukerens Altinn-profil
 
-Inne i gruppen for den aktuelle kilden legger du til linjer som forteller:
-- Hvilket felt (fra kilden) du vil hente data fra
-- Hvilket felt i skjemaet som skal fylles ut
+   Du velger hvilke av kildene du ønsker å bruke. Om en (eller flere) av kildene ikke skal brukes, lar du de stå tomme.
 
-Formatet er `"datafelt": "skjemafelt"`, der:
-- `datafelt` er navnet på feltet _fra kilden_
-- `skjemafelt` er navnet på feltet i skjemaets datamodell.
+   Inne i gruppen for den aktuelle kilden legger du til linjer som forteller:
+   - Hvilket felt (fra kilden) du vil hente data fra
+   - Hvilket felt i skjemaet som skal fylles ut
 
-Se [fullstendig liste over tilgjengelige datafelt for alle kildene](../../../../reference/data/prefill).
+   Formatet er `"datafelt": "skjemafelt"`, der:
+   - `datafelt` er navnet på feltet _fra kilden_
+   - `skjemafelt` er navnet på feltet i skjemaets datamodell.
+
+   Se [fullstendig liste over tilgjengelige datafelt for alle kildene](../../../../reference/data/prefill).
 
 ## Eksempler
 
@@ -80,7 +78,7 @@ Enhetsregisteret:
 
 ```json
 "ER": {
-    "OrgNumber":"Organisasjon.Orgnr"
+  "OrgNumber": "Organisasjon.Orgnr"
 }
 ```
 
@@ -90,7 +88,7 @@ Dette fyller ut feltet `Person.Personnr` med personnummer fra Folkeregistret.
 
  ```json
 "DSF": {
-    "SSN":"Person.Personnr"
+  "SSN": "Person.Personnr"
 }
 ```
 
@@ -100,6 +98,6 @@ Dette fyller ut feltet `Bruker.Epost` med e-post hentet fra brukerens Altinn-pro
 
 ```json
 "UserProfile": {
-    "Email":"Bruker.Epost"
+  "Email": "Bruker.Epost"
 }
 ```
