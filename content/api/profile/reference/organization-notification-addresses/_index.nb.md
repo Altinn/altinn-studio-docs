@@ -12,7 +12,7 @@ En oppdatering kjøres vanligvis hvert tiende minutt.
 
 
 ## Hvordan bruker man API-et?
-Det finnes endepunkter for å lese, legge til og slette varslingsadresser. 
+Det finnes endepunkter for å legge til, lese, endre og slette varslingsadresser. 
 Alle endepunkter krever autentisering. For å bruke API-et må man være en innlogget sluttbruker. Det er viktig at tilgangs-token som brukes inneholder `userId` for å indikere hvem som er innlogget bruker. 
 Sluttbrukeren må i tillegg ha en av et sett gyldige roller for å administrere virksomhetens varslingsadresse.
 
@@ -44,3 +44,8 @@ I stien for å administrere varslingsadresser må man ha med organisasjonsnummer
     * **email** (string) E-postadresse som brukes for varsling til virksomheten. Er null dersom adressen er et telefonnummer.
     * **phone** (string) Telefonnummeret som brukes for varsling til virksomheten. Er null dersom adressen er e-post. 
     * **countryCode** (string) Landkode som hører til telefonnummeret. 
+
+{{% notice warning  %}}
+**Oppdatering av en adresse kan føre til en ny ID**
+Dersom man oppdaterer en adresse til en verdi(e-post eller telefonnummer) som har blitt brukt før for valgte virksomhet, kan man få tilbake den gamle `notificationAddressId`. Derfor er det viktig å alltid sjekke responsen når man har endret en varslingsadresse. 
+{{% / notice %}}
