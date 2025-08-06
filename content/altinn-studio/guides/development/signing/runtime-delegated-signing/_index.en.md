@@ -22,7 +22,7 @@ See how to get started in [this guide](/nb/correspondence/getting-started/).
 
 ## Example Application
 
-In the following [repository](https://altinn.studio/repos/ttd/signering-brukerstyrt), you can find an example of an application with user-driven signing.
+In the following [repository](https://altinn.studio/repos/ttd/signering-brukerstyrt), you can find an example of an application with runtime delegated signing.
 
 The main flow is:
 
