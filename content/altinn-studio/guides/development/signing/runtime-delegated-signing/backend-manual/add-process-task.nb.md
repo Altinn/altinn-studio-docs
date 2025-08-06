@@ -89,7 +89,7 @@ Altinn miljø-mapping:
 
 Disse datatypene legger til i `dataTypes` i `App/config/applicationmetadata.json`.
 
-Den første datatypen benyttes av signeringssteget til å lagre de faktiske signaturene som genereres når brukeren utfører signeringshandlingen.
+Den første datatypen benyttes i signeringssteget til å lagre signaturene.
 
 ```json
 {
@@ -105,7 +105,7 @@ Den første datatypen benyttes av signeringssteget til å lagre de faktiske sign
 }
 ```
 
-Denne datatypen benyttes for å lagre informasjon om signatarene som skal få deligert rettigheter til å signere og statusen deres.
+Denne datatypen benyttes for å lagre informasjon om signatarene og statusen deres.
 
 ```json
 {
@@ -122,9 +122,9 @@ Denne datatypen benyttes for å lagre informasjon om signatarene som skal få de
 }
 ```
 
-Det er viktig å sette `allowedContributors` til `"app:owned"`. Det gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv. Før versjon 8.6 var denne konfigurasjonen feilstavet `allowedContributers`.
+Det er viktig å sette `allowedContributors` til `"app:owned"`. Det gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv.
 
-Datatypenes ID-er kan settes til noe annet, men det må matche ID-ene som legges inn i `signatureDataType` og `signeeStatesDataTypeId` i prossessteget, som vist i punktet under.
+Datatypenes ID-er må matche ID-ene som legges inn i `signatureDataType` og `signeeStatesDataTypeId` i prossesskonfigurasjonen.
 
 
 ### Tilgangsstyring
@@ -142,7 +142,7 @@ Datatypenes ID-er kan settes til noe annet, men det må matche ID-ene som legges
 
   <xacml:Rule RuleId="urn:altinn:org:ttd:signering-brukerstyrt:ruleid:7" Effect="Permit">
     <xacml:Description>
-        A rule defining all instance delegation rights the App itself is allowed to perform for instances of the app ttd/signering-brukerstyrt. In this example the app can delegate the Read and Sign actions for task SingingTask.
+        A rule defining all instance delegation rights the App itself is allowed to perform for instances of the app ttd/signering-brukerstyrt. In this example the app can delegate the Read and Sign actions for task SigningTask.
     </xacml:Description>
     <xacml:Target>
         <xacml:AnyOf>
@@ -184,7 +184,7 @@ Datatypenes ID-er kan settes til noe annet, men det må matche ID-ene som legges
                 </xacml:Match>
                 <xacml:Match
                     MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">SingingTask</xacml:AttributeValue>
+                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">SigningTask</xacml:AttributeValue>
                     <xacml:AttributeDesignator
                         AttributeId="urn:altinn:task"
                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"

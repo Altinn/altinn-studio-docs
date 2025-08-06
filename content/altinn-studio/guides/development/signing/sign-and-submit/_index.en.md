@@ -15,7 +15,7 @@ aliases:
 ## Prerequisites
 If the service should send a signature receipt to the inbox of the signee, the Altinn message service (Correspondence) must be enabled.
 
-## Convert data task step to a singing task
+## Convert data task step to a signing task
 
 Below is an example of a data task that has been converted to a signing task.
 

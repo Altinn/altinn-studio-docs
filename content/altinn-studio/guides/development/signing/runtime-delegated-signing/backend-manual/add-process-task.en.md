@@ -37,10 +37,10 @@ If the Altinn user interface is used by the application, these actions will be t
         <altinn:signeeStatesDataTypeId>signeesState</altinn:signeeStatesDataTypeId>
 
         <!-- This ID tells the app which implementation of the C# interface -->
-        <!-- ISigneeProvider that should be used for this singing step -->
+        <!-- ISigneeProvider that should be used for this signing step -->
         <altinn:signeeProviderId>signees</altinn:signeeProviderId>
 
-        <!-- If you want a PDF summary of the singing step, enter a datatype of type application/pdf here -->
+        <!-- If you want a PDF summary of the signing step, enter a datatype of type application/pdf here -->
         <altinn:signingPdfDataType>signing-step-pdf</altinn:signingPdfDataType> <!-- optional -->
 
         <!-- The correspondence service is used to communicate with the signees, and is required -->
@@ -85,7 +85,7 @@ Altinn environment mapping:
 
 These data types should be added to `dataTypes` in `App/config/applicationmetadata.json`.
 
-The first data type is used by the signing stage to store the actual signatures generated when a user completes the signing action.
+This data type is used during the signing task to store the signatures.
 
 ```json
 {
@@ -100,7 +100,7 @@ The first data type is used by the signing stage to store the actual signatures 
 }
 ```
 
-This data type is used to store information about the signers who should be delegated signing rights and their status.
+This data type is used to store information about the signers and their status.
 
 ```json
 {
@@ -116,9 +116,9 @@ This data type is used to store information about the signers who should be dele
 }
 ```
 
-It is important to set `allowedContributors` to `"app:owned"`. This ensures that these data items cannot be edited via the app’s API but only by the app itself. Before version 8.6, this was misspelled `allowedContributers`.
+It is important to set `allowedContributors` to `"app:owned"`. This ensures that these data items cannot be edited via the app’s API but only by the app itself.
 
-The IDs of the data types can be changed, but they must match the IDs set in `signatureDataType` and `signeeStatesDataTypeId` in the process step, as shown in the next section.
+The IDs of the data types must match the IDs set for `signatureDataType` and `signeeStatesDataTypeId` in the process configuration.
 
 
 ### Access control
@@ -136,7 +136,7 @@ The IDs of the data types can be changed, but they must match the IDs set in `si
   ```xml
   <xacml:Rule RuleId="urn:altinn:org:ttd:signering-brukerstyrt:ruleid:7" Effect="Permit">
     <xacml:Description>
-        A rule defining all instance delegation rights the App itself is allowed to perform for instances of the app ttd/signering-brukerstyrt. In this example the app can delegate the Read and Sign actions for task SingingTask.
+        A rule defining all instance delegation rights the App itself is allowed to perform for instances of the app ttd/signering-brukerstyrt. In this example the app can delegate the Read and Sign actions for task SigningTask.
     </xacml:Description>
     <xacml:Target>
         <xacml:AnyOf>
@@ -178,7 +178,7 @@ The IDs of the data types can be changed, but they must match the IDs set in `si
                 </xacml:Match>
                 <xacml:Match
                     MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">SingingTask</xacml:AttributeValue>
+                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">SigningTask</xacml:AttributeValue>
                     <xacml:AttributeDesignator
                         AttributeId="urn:altinn:task"
                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
