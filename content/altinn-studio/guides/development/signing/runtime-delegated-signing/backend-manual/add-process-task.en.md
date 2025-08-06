@@ -85,7 +85,7 @@ Altinn environment mapping:
 
 These data types should be added to `dataTypes` in `App/config/applicationmetadata.json`.
 
-The first data type is used during the signing task to store the actual signatures generated when a user completes the signing action.
+This data type is used during the signing task to store the signatures.
 
 ```json
 {
@@ -100,7 +100,7 @@ The first data type is used during the signing task to store the actual signatur
 }
 ```
 
-This data type is used to store information about the signers who should be delegated signing rights and their status.
+This data type is used to store information about the signers and their status.
 
 ```json
 {

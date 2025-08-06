@@ -89,7 +89,7 @@ Altinn miljø-mapping:
 
 Disse datatypene legger til i `dataTypes` i `App/config/applicationmetadata.json`.
 
-Den første datatypen benyttes i signeringssteget til å lagre de faktiske signaturene som genereres når brukeren utfører signeringshandlingen.
+Den første datatypen benyttes i signeringssteget til å lagre signaturene.
 
 ```json
 {
@@ -105,7 +105,7 @@ Den første datatypen benyttes i signeringssteget til å lagre de faktiske signa
 }
 ```
 
-Denne datatypen benyttes for å lagre informasjon om signatarene som skal få deligert rettigheter til å signere og statusen deres.
+Denne datatypen benyttes for å lagre informasjon om signatarene og statusen deres.
 
 ```json
 {
