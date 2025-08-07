@@ -29,6 +29,11 @@ As a member of this team, you can:
 #### Configuration
 This team is standard in all organizations and it is not possible to change the configuration for this team.
 
+#### Recommendation: Establish routines for absence of owners
+The organization should have its own routines for managing access control if one or more owners are unavailable — for example, due to vacation, leave of absence, or role changes.
+The Norwegian Digitalisation Agency (Digitaliseringsdirektoratet) and Altinn cannot add users, change teams, or make any other modifications to an organization’s access settings. This is for security reasons. 
+We therefore recommend that the organization has clear routines in place for how to handle situations where one or more owners are unavailable.
+
 ### Deploy-Production
 Members of this team can deploy applications to the production environment.
 
