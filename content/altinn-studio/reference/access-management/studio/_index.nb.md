@@ -29,6 +29,10 @@ Som medlem i dette teamet kan man blant annet:
 #### Konfigurasjon
 Dette teamet ligger inne som standard i alle organisasjoner og det er ikke mulig å endre konfigurasjonen for dette teamet.
 
+#### Anbefaling: Ha rutiner ved fravær av eiere
+Organisasjonen må selv ha rutiner for hvordan tilgangsstyring håndteres dersom en eller flere eiere er borte – for eksempel ved ferie, permisjon eller endringer i rolle.
+Digitaliseringsdirektoratet og Altinn kan ikke legge til brukere, endre team eller gjøre andre endringer i tilgangene til organisasjonen. Dette er av sikkerhetshensyn.
+
 ### Deploy-Production
 Medlemmer i dette teamet kan deploye applikasjoner til produksjonsmiljøet.
 
