@@ -51,19 +51,41 @@ Altinn itself offers APIs for requesting consent and retrieving the status of co
 
 ```json
 {
-  "id": "019743e8-cb17-7f9f-b690-fb1338003c23",
-  "from": "urn:altinn:person:identifier-no:01025161013",
-  "to": "urn:altinn:organization:identifier-no:810419512",
-  "validTo": "2025-06-07T06:23:39.2925023+00:00",
+  "id": "77ed8698-e619-4066-9eb4-5c1eb3f165a1",
+  "from": "urn:altinn:person:identifier-no:21818297804",
+  "to": "urn:altinn:organization:identifier-no:991825827",
+  "validTo": "2026-07-18T06:18:12.2597103+00:00",
   "consentRights": [
     {
-      "action": ["read"],
-      "resource": [{"type": "urn:altinn:resource", "value": "ttd_inntektsopplysninger"}],
-      "metadata": {"INNTEKTSAAR": "2024"}
+      "action": [
+        "consent"
+      ],
+      "resource": [
+        {
+          "type": "urn:altinn:resource",
+          "value": "samtykke-test-vegard"
+        }
+      ],
+      "metadata": {
+        "inntektsaar": "2023"
+      }
+    },
+    {
+      "action": [
+        "consent"
+      ],
+      "resource": [
+        {
+          "type": "urn:altinn:resource",
+          "value": "standard-samtykke-for-dele-data"
+        }
+      ],
+      "metadata": {
+        "inntektsaar": "2023"
+      }
     }
   ],
-  "requestMessage": {"en": "Please approve this consent request"},
-  "redirectUrl": "https://www.dnb.no"
+  "redirectUrl": "https://smartbankdemo.azurewebsites.net/private/loanapplication/consentresult?requestId=77ed8698-e619-4066-9eb4-5c1eb3f165a1\u0026environment=tt02"
 }
 ```
 
@@ -71,21 +93,55 @@ Altinn itself offers APIs for requesting consent and retrieving the status of co
 
 ```json
 {
-  "id": "019743e8-cb17-7f9f-b690-fb1338003c23",
-  "from": "urn:altinn:person:identifier-no:01025161013",
-  "to": "urn:altinn:organization:identifier-no:810419512",
-  "validTo": "2025-06-07T06:23:39.292502+00:00",
-  "consentRights": [{"action": ["read"],"resource": [{"type": "urn:altinn:resource","value": "ttd_inntektsopplysninger"}],"metaData": {"INNTEKTSAAR": "2024"}}],
-  "consentRequestEvents": [
+  "id": "77ed8698-e619-4066-9eb4-5c1eb3f165a1",
+  "from": "urn:altinn:person:identifier-no:21818297804",
+  "to": "urn:altinn:organization:identifier-no:991825827",
+  "requiredDelegator": null,
+  "handledBy": null,
+  "validTo": "2026-07-18T06:18:12.25971+00:00",
+  "consentRights": [
     {
-      "consentEventID": "019743e9-128b-74fc-bb3a-49a3997d63ff",
-      "created": "2025-06-06T06:23:57.298375+00:00",
-      "performedBy": "urn:altinn:organization:identifier-no:810419512",
-      "eventType": "Created",
-      "consentRequestID": "019743e8-cb17-7f9f-b690-fb1338003c23"
+      "action": [
+        "consent"
+      ],
+      "resource": [
+        {
+          "type": "urn:altinn:resource",
+          "value": "samtykke-test-vegard"
+        }
+      ],
+      "metadata": {
+        "inntektsaar": "2023"
+      }
+    },
+    {
+      "action": [
+        "consent"
+      ],
+      "resource": [
+        {
+          "type": "urn:altinn:resource",
+          "value": "standard-samtykke-for-dele-data"
+        }
+      ],
+      "metadata": {
+        "inntektsaar": "2023"
+      }
     }
   ],
-  "viewUri": "https://am.ui.localhost/accessmanagement/ui/consent/request?id=019743e8-cb17-7f9f-b690-fb1338003c23"
+  "requestMessage": null,
+  "consented": null,
+  "redirectUrl": "https://smartbankdemo.azurewebsites.net/private/loanapplication/consentresult?requestId=77ed8698-e619-4066-9eb4-5c1eb3f165a1&environment=tt02",
+  "consentRequestEvents": [
+    {
+      "consentEventID": "01981c2f-1de4-7b9f-a7c7-854f1dd4f115",
+      "created": "2025-07-18T06:18:26.65293+00:00",
+      "performedBy": "urn:altinn:organization:identifier-no:991825827",
+      "eventType": "Created",
+      "consentRequestID": "77ed8698-e619-4066-9eb4-5c1eb3f165a1"
+    }
+  ],
+  "viewUri": "https://am.ui.tt02.altinn.no/accessmanagement/ui/consent/request?id=77ed8698-e619-4066-9eb4-5c1eb3f165a1"
 }
 ```
 
