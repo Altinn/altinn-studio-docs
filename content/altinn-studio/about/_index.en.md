@@ -17,7 +17,7 @@ With Altinn Studio, you can develop digital services that cover a broad spectrum
 and information solutions to complex workflows with payment and signing functionality. The platform supports everything 
 from traditional forms to custom applications with advanced integrations.
 
-See [detailed overview of use cases](usecases) for a description of the possibilities.
+See [detailed overview of use cases](./usecases) for a description of the possibilities.
 
 ## Altinn Studio is the "connector"
 A form is rarely just data fields to be submitted; more is needed to create a good service – e.g., connection

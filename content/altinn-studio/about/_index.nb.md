@@ -7,8 +7,8 @@ weight: 10
 ---
 
 Altinn Studio er en plattform for å utvikle, drifte og forvalte digitale tjenester til innbyggere og næringsliv. Plattformen
-kjører på sikker, isolert og skalerbar infrastruktur, og er ferdig integrert mot en rekke fellesløsninger og åpne API.
-Altinn Studio støtter både brukergrensesnitt for manuell innsending og API for maskin-til-maskin innsending.
+kjører på sikker, isolert og skalerbar infrastruktur, og er ferdig integrert mot en rekke fellesløsninger og åpne API-er.
+Altinn Studio støtter både brukergrensesnitt for manuell innsending og API-er for maskin-til-maskin innsending.
 
 
 ## Hva kan jeg lage med Altinn Studio?
@@ -17,7 +17,7 @@ Med Altinn Studio kan du utvikle digitale tjenester som dekker et bredt spekter 
 og innsynsløsninger til komplekse arbeidsflyter med betalings- og signeringsfunksjonalitet. Plattformen støtter alt fra 
 tradisjonelle skjemaer til skreddersydde applikasjoner med avanserte integrasjoner.
 
-Se [detaljert oversikt over bruksområder](usecases) for en oversikt over mulighetene.
+Se [detaljert oversikt over bruksområder](./usecases) for en oversikt over mulighetene.
 
 ## Altinn Studio er "bindemiddelet"
 Et skjema er sjelden bare datafelter som skal sendes inn, det trengs mer for å lage en god tjeneste – f.eks. kobling 

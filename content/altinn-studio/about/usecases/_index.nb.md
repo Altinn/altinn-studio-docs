@@ -4,7 +4,8 @@ description: En oversikt over de ulike bruksområdene for apper utviklet med Alt
 weight: 30
 ---
 
-Altinn Studio er et fleksibelt verktøy for å lage digitale tjenester som dekker en rekke ulike bruksområder. Her en oversikt over hovedkategoriene, som kan brukes hver for seg, eller kombineres:
+Altinn Studio er et fleksibelt verktøy for å lage digitale tjenester som dekker en rekke ulike bruksområder. Her er en 
+oversikt over hovedkategoriene, som kan brukes hver for seg, eller kombineres:
 
 ## 1. Skjematjenester
 Tradisjonelle skjemaløsninger hvor brukere fyller inn og sender inn data på vegne av seg selv, andre personer eller sin bedrift. Disse tjenestene støtter:
@@ -26,7 +27,7 @@ Interaktive tjenester som veileder brukeren gjennom prosesser for å gi skredder
 - Fungere uten pålogging for allmenne spørsmål
 - Gi personaliserte svar basert på brukerens situasjon
 - Lede brukeren til riktige tjenester eller ressurser
-- Forenkle komplekse regelverket
+- Forenkle komplekse regelverk
 
 ## 4. Betalingstjenester
 Apper som inkluderer betalingsfunksjonalitet for gebyrer, avgifter eller andre offentlige tjenester:
@@ -43,7 +44,7 @@ Tjenester som krever elektronisk signatur for juridisk gyldige dokumenter:
 - Sikker oppbevaring av signerte dokumenter
 
 ## 6. Sammenhengende tjenester
-Komplekse tjenester som består av flere skjema, delprosesser og involverer flere brukere:
+Komplekse tjenester som består av flere skjemaer, delprosesser og involverer flere brukere:
 - Arbeidsflyt som spenner over flere steg
 - Ulike brukerroller med forskjellige rettigheter
 - Integrasjoner mellom etater
@@ -79,4 +80,4 @@ Alle disse bruksområdene drar nytte av Altinn Studios innebygde funksjoner:
 - **Fleksibilitet**: Både lavkode og tradisjonell programmering
 - **Skalerbarhet**: Skybasert infrastruktur med isolerte miljøer
 
-Altinn Studio gjør det mulig å lage alt fra enkle skjema til komplekse tjenestekjeder, alt avhengig av organisasjonens behov og ambisjonsnivå.
+Altinn Studio gjør det mulig å lage alt fra enkle skjemaer til komplekse tjenestekjeder, alt avhengig av organisasjonens behov og ambisjonsnivå.
