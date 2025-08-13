@@ -11,6 +11,7 @@ weight: 1
 Your Altinn Studio user is personal to you and can be linked to one or more organizations to collaborate with others and access existing applications.
 
 ### Create user using Ansattporten
+{.floating-bullet-numbers-sibling-ol}
 
 1. Go to [altinn.studio](https://altinn.studio) and click "Create new user".
    ![Welcome](velkommen.png "Welcome")

@@ -12,7 +12,7 @@ Systemeiere eller administratorer fra Digitaliseringsdirektoratet kan oppdatere 
 PUT authentication/api/v1/systemregister/vendor/{systemid}
 
 ### Scopes
-Machineporten-token med scope <mark>altinn:authentication/systemregister.write</mark>
+Maskinporten-token med scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
 application/json
@@ -205,7 +205,7 @@ PUT authentication/api/v1/systemregister/vendor/{systemid}/rights
 ]
 ```
 ### Scopes
-Machineporten-token med scope <mark>altinn:authentication/systemregister.write</mark>
+Maskinporten-token med scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
 application/json
@@ -229,7 +229,7 @@ PUT authentication/api/v1/systemregister/vendor/{systemid}/accesspackages
 ]
 ```
 ### Scopes
-Machineporten-token med scope <mark>altinn:authentication/systemregister.write</mark>
+Maskinporten-token med scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
 application/json

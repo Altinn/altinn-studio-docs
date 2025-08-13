@@ -7,36 +7,17 @@ aliases:
 weight: 10
 ---
 
-Altinn Studio is a tool for efficiently realizing digital services. We offer:
-- a web-based tool for creating and testing services (apps) - Altinn Studio Designer
-- a template for services with standard functionality and the ability to add custom functionality
-- utility and client libraries to support app development and access the wider Altinn platform
-- a dedicated Kubernetes-environment for each service owner to run the services (testing and production)
-- a set of common support functions to assist services, e.g., PDF receipt generation, notifications, etc.
+Altinn Studio is a platform for developing, operating, and managing digital services for citizens and businesses. The platform 
+runs on secure, isolated, and scalable infrastructure and is pre-integrated with a range of shared solutions and open APIs. 
+Altinn Studio supports both user interfaces for manual submission and APIs for machine-to-machine submission.
 
 ## What can I create with Altinn Studio?
 
-### Form services
-Traditional forms where the user fills in and submits data on behalf of themselves or others, possibly their business.
+With Altinn Studio, you can develop digital services that cover a broad spectrum of use cases - from simple form services 
+and information solutions to complex workflows with payment and signing functionality. The platform supports everything 
+from traditional forms to custom applications with advanced integrations.
 
-### Inspection services
-Services where a form is not submitted, but only a request for insight into existing data.
-
-### Guide
-Services that guide the user through a process to provide an answer or the right starting point for the way forward.
-This type of service also supports users who are not logged in.
-
-### Coordinated services *
-Services that typically consist of multiple forms, subprocesses, multiple users, and integrations with other agencies.
-
-{{% notice info %}}
-\* Although it is possible to create this type of service today, we are working to make it easier to implement this type 
-of service by moving more functionality into the web tool.
-{{% /notice %}}
-
-### Custom app
-
-A Studio app is a fully fledged ASP.NET Core web application, which lets you design and implement anything you need.
+See [detailed overview of use cases](./usecases) for a description of the possibilities.
 
 ## Altinn Studio is the "connector"
 A form is rarely just data fields to be submitted; more is needed to create a good service – e.g., connection

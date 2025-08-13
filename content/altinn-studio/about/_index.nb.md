@@ -6,37 +6,18 @@ aliases:
 weight: 10
 ---
 
-Altinn Studio er et verktøy for å effektivt realisere digitale tjenester. Vi tilbyr:
-- et web basert verktøy for å lage og teste tjenester (apper) - Altinn Studio Designer
-- en mal for tjenester med standard funksjonalitet og mulighet for å legge til egen funksjonalitet
-- biblioteker til støtte for apputvikling og tilgang til Altinn plattformen
-- et dedikert Kubernetes-miljø for hver tjenesteeier for kjøring av tjenestene (test og produksjon)
-- ett sett med felles støttefunksjoner for å understøtte tjenestene, f.eks. generering av PDF kvittering, varsling, osv.
+Altinn Studio er en plattform for å utvikle, drifte og forvalte digitale tjenester til innbyggere og næringsliv. Plattformen
+kjører på sikker, isolert og skalerbar infrastruktur, og er ferdig integrert mot en rekke fellesløsninger og åpne API-er.
+Altinn Studio støtter både brukergrensesnitt for manuell innsending og API-er for maskin-til-maskin innsending.
 
 
 ## Hva kan jeg lage med Altinn Studio?
 
-### Skjematjenester
-Tradisjonelle skjemaer hvor brukeren fyller inn og sender inn data på vegne av seg selv eller andre, ev. sin bedrift.
+Med Altinn Studio kan du utvikle digitale tjenester som dekker et bredt spekter av bruksområder - fra enkle skjematjenester 
+og innsynsløsninger til komplekse arbeidsflyter med betalings- og signeringsfunksjonalitet. Plattformen støtter alt fra 
+tradisjonelle skjemaer til skreddersydde applikasjoner med avanserte integrasjoner.
 
-### Innsynstjenester
-Tjenester hvor man ikke sender inn et skjema, men kun ber om innsyn i eksisterende data.
-
-### Veileder
-Tjenester som veileder brukeren gjennom en prosess for å kunne gi et svar eller rett utgangspunkt for veien videre.
-Denne typen tjeneste støtter også brukere som ikke har logget inn.
-
-### Sammenhengende tjenester *
-Tjenester som typisk består av flere skjema, delprosesser, flere brukere, og integrasjoner med andre etater.
-
-{{% notice info %}}
-\* Selv om det er mulig å lage denne tjenestetypen i dag, jobber vi med å gjøre det enklere å implementere denne 
-typen tjeneste ved å flytte mer funksjonalitet inn i web verktøyet.
-{{% /notice %}}
-
-### Skreddersydd applikasjon
-
-En Studio app er en komplett ASP.NET Core applikasjon. Dette lar deg designe og implementere det du trenger for organisasjonen din.
+Se [detaljert oversikt over bruksområder](./usecases) for en oversikt over mulighetene.
 
 ## Altinn Studio er "bindemiddelet"
 Et skjema er sjelden bare datafelter som skal sendes inn, det trengs mer for å lage en god tjeneste – f.eks. kobling 

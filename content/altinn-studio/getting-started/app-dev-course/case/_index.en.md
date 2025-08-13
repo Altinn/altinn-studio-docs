@@ -7,7 +7,7 @@ weight: 1
 ---
 
 {{% notice info %}}
-**TL;DR:** Below is a description of the ficticious case we will use in this course - a service that Sogndal
+**TL;DR:** Below is a description of the fictitious case we will use in this course - a service that Sogndal
 municipality can use to gather information about people moving into the municipality.
 <br/>
 <br/>
@@ -28,8 +28,7 @@ Sogndal has a few requirements for the services described in the sections below.
 
 ## Requirements from the municipality
 
-### Naming
-{{% expandlarge id="naming-expandable" header="Requirements" %}}
+{{% expandlarge id="naming-expandable" header="Naming" %}}
 
 - The application must have a sensible name that makes it easy to find it again among the large number
 of repositories, Sogndal keeps in Altinn Studio.
@@ -41,8 +40,7 @@ There is a wish that one or more of the words "newcomer" and "Sogndal" is includ
 
 {{% /expandlarge %}}
 
-### First page of data collecting
-{{% expandlarge id="first-page-datacollecting-expandable" header="Requirements" %}}
+{{% expandlarge id="data-expandable" header="Data" %}}
 
 - Name and age of the person who is a newcomer
   - First name  
@@ -59,8 +57,7 @@ There is a wish that one or more of the words "newcomer" and "Sogndal" is includ
 
 {{% /expandlarge %}}
 
-### Texts
-{{% expandlarge id="texts-expandable" header="Requirements" %}}
+{{% expandlarge id="texts-expandable" header="Texts" %}}
 
 - All input fields should have descriptive labels that clarify what should be filled in.
 - The application must be available in bokmål, nynorsk and english.
@@ -69,8 +66,7 @@ There is a wish that one or more of the words "newcomer" and "Sogndal" is includ
 
 {{% /expandlarge %}}
 
-### Information page
-{{% expandlarge id="infopage-expandable" header="Requirements" %}}
+{{% expandlarge id="information-page-expandable" header="Information page" %}}
 
 Someone in the municipality has created a sketch of the information page.
 
@@ -86,7 +82,7 @@ The following is desirable to be similar in the application:
 {{% /expandlarge %}}
 
 
-### Dynamic tracks
+## Dynamic tracks
 {{% expandlarge id="dynamic-tracks-expandable" header="Requirements" %}}
 
 A user who does not meet the requirements for the form should be stopped as early as possible in the process.
@@ -97,9 +93,7 @@ How this is done is optional, the field `Innflytter.KanBrukeSkjema` in the datam
 
 Based on the answer, the user will be sent to either _Track 1_ or _Track 2_.
 
-
 ### Track 1
-
 - The user has stated that the form does not apply to them
 - The user should then be sent to a page with the following text:
     ```md
@@ -109,14 +103,13 @@ Based on the answer, the user will be sent to either _Track 1_ or _Track 2_.
 - Line 2 in the text should be a link directing to https://www.sogndal.kommune.no/
 
 ### Track 2
-
 - The user has confirmed that the form does apply to them.
 - The user is sent to the data collecting pages.
 
 {{% /expandlarge %}}
 
-### Prefilling of personal information
-{{% expandlarge id="prefill-expandable" header="Requirements" %}}
+## Prefilling of personal information
+{{% expandlarge id="prefilling-of-personal-information-expandable" header="Requirements" %}}
 
 - The following should be prefilled for the user:
   - First name: Innflytter.fornavn
@@ -131,8 +124,8 @@ Based on the answer, the user will be sent to either _Track 1_ or _Track 2_.
 {{% /expandlarge %}}
 
 
-### Different data for public and private sector
-{{% expandlarge id="options-expandable" header="Requirements" %}}
+## Different data for public and private sector
+{{% expandlarge id="different-data-for-public-and-private-sector-expandable" header="Requirements" %}}
 
 We want the user to be presented with a different set of options for the industry choice
 based on which sector they are in.
@@ -143,8 +136,8 @@ based on which sector they are in.
 {{% /expandlarge %}}
 
 
-### Tailored offer for IT competence
-{{% expandlarge id="dynamics-expandable" header="Requirements" %}}
+## Tailored offer for IT competence
+{{% expandlarge id="tailored-offer-for-it-competence-expandable" header="Requirements" %}}
 
 If the user chooses `IKT (data/it)` under industry, a text with a link to our overview of vacant positions should appear.
 
@@ -161,8 +154,8 @@ this will be hidden.
 {{% /expandlarge %}}
 
 
-### Confirmation before submission
-{{% expandlarge id="confirmation-expandable" header="Requirements" %}}
+## Confirmation before submission
+{{% expandlarge id="confirmation-before-submission-expandable" header="Requirements" %}}
 
 The user should be presented with the data that will be used and consents (indirectly) to this
 by submitting the form.
@@ -193,8 +186,8 @@ Før du sender inn vil vi anbefale å se over svarene dine. Du kan ikke endre sv
 ```
 {{% /expandlarge %}}
 
-### Obtaining previous residences
-{{% expandlarge id="residences-expandable" header="Requirements" %}}
+## Obtaining previous residential addresses
+{{% expandlarge id="obtaining-previous-residential-addresses-expandable" header="Requirements" %}}
 
 To be able to tailor the best possible offers to newcomers we wish to obtain an overview of former residences of the newcomer.
 
@@ -208,8 +201,8 @@ It should be possible to enter up to 10 former residences.
 
 {{% /expandlarge %}}
 
-### Validation of previous residences
-{{% expandlarge id="vendetta-expandable" header="Requirements" %}}
+## Validation of previous residential addresses
+{{% expandlarge id="validation-of-previous-residential-addresses-expandable" header="Requirements" %}}
 
 Due to a personal vendetta among one of the employees in the municipality of Sogndal, a user who enters 
 postal code `4619` as a previous residence should **NOT** be allowed to move to Sogndal.
@@ -222,8 +215,8 @@ Du er ikke velkommen til vår kommune. Beklager!
 
 {{% /expandlarge %}}
 
-### Data processing of invalid street address
-{{% expandlarge id="dataprocessing-expandable" header="Requirements" %}}
+## Data processing of invalid street address
+{{% expandlarge id="data-processing-of-invalid-street-address-expandable" header="Requirements" %}}
 
 There is an address in Sogndal which is often misspelled by newcomers which leads to case workers having to spend a lot of time manually correcting it.
 Therefore, we want the app to automatically fix this mistake when the misspelled address is detected.

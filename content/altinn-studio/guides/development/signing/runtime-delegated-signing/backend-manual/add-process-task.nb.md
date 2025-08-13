@@ -28,8 +28,8 @@ Et signeringssteg kan se omtrent slik ut:
             <altinn:action>reject</altinn:action>
             </altinn:actions>
             <altinn:signatureConfig>
-
-                <!-- De faktiske dataene som skal signeres. Kan være vedlegg, skjemadata i xml, eller PDF fra tidligere steg. -->
+                <!-- De faktiske dataene som skal signeres. Kan være vedlegg, skjemadata i xml, -->
+                <!-- eller PDF fra tidligere steg. -->
                 <altinn:dataTypesToSign>
                     <altinn:dataType>ref-data-as-pdf</altinn:dataType>
                 </altinn:dataTypesToSign>
@@ -40,18 +40,22 @@ Et signeringssteg kan se omtrent slik ut:
                 <!-- Denne datatypen brukes for lagre signatarene og tilhørende informasjon. -->
                 <altinn:signeeStatesDataTypeId>signeeState</altinn:signeeStatesDataTypeId>
 
-                <!-- Denne ID-en angir hvilken implementasjon av C# interface-et ISigneeProvider som skal benyttes for dette signeringssteget. -->
+                <!-- Denne ID-en angir hvilken implementasjon av C# interface-et -->
+                <!-- ISigneeProvider som skal benyttes for dette signeringssteget. -->
                 <altinn:signeeProviderId>signees</altinn:signeeProviderId>
 
-                <!-- Her oppgis en correspondence resource, som brukes for å si fra til signaterene om at de må inn og signere, samt signeringskvittering. -->
+                <!-- Her oppgis en correspondence resource, som brukes for å si fra til signaterene -->
+                <!-- om at de må inn og signere, samt signeringskvittering. Påkrevd. -->
                 <altinn:correspondenceResource>app-correspondence-resource</altinn:correspondenceResource>
 
-                <!-- Dersom man ønsker at det skal bli generert en PDF av signeringssteget så kan man oppgi en datatype her av type application/pdf. -->
+                <!-- Dersom man ønsker at det skal bli generert en PDF av signeringssteget -->
+                <!-- så kan man oppgi en datatype her av type application/pdf. -->
                 <altinn:signingPdfDataType>signing-step-pdf</altinn:signingPdfDataType> <!-- optional -->
 
-                <!-- Vi har laget en standard validator som kan slås på her. Den validerer at alle signatarer har signert og at minCount på signatur-datatypen er oppfylt. Om denne ikke slås på, bør man skrive egen validering av signaturer. -->
-                <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
-                
+                <!-- Vi har laget en standard validator som kan slås på her. Den validerer at -->
+                <!-- alle signatarer har signert og at minCount på signatur-datatypen er oppfylt. -->
+                <!-- Om denne ikke slås på, bør man skrive egen validering av signaturer. -->
+                <altinn:runDefaultValidator>true</altinn:runDefaultValidator
             </altinn:signatureConfig>
         </altinn:taskExtension>
     </bpmn:extensionElements>
@@ -60,11 +64,32 @@ Et signeringssteg kan se omtrent slik ut:
 </bpmn:task>
 ```
 
+#### Konfigurere miljø-spesifikke correspondence ressurser
+
+Hvis du ønsker å bruke miljø-spesifikke correspondence ressurser kan du konfigurere dem ved å bruke følgende syntaks:
+```xml
+<altinn:signatureConfig>
+    ...
+  <altinn:correspondenceResource env="Development">app-correspondence-resource-1</altinn:correspondenceResource>
+  <altinn:correspondenceResource env="Staging">app-correspondence-resource-2</altinn:correspondenceResource>
+  <altinn:correspondenceResource env="Production">app-correspondence-resource</altinn:correspondenceResource>
+    ...
+</altinn:signatureConfig>
+```
+
+Altinn miljø-mapping:
+
+**Development** -> "development", "dev", "local", "localtest"
+
+**Staging**     -> "staging", "test", "at22", "at23", "at24", "tt02", "yt01"
+
+**Production**  -> "production", "prod", "produksjon"
+
 ### Legg til datatyper for å lagre signeringsdata
 
 Disse datatypene legger til i `dataTypes` i `App/config/applicationmetadata.json`.
 
-Den første datatypen benyttes av signeringssteget til å lagre de faktiske signaturene som genereres når brukeren utfører signeringshandlingen.
+Den første datatypen benyttes i signeringssteget til å lagre signaturene.
 
 ```json
 {
@@ -80,7 +105,7 @@ Den første datatypen benyttes av signeringssteget til å lagre de faktiske sign
 }
 ```
 
-Denne datatypen benyttes for å lagre informasjon om signatarene som skal få deligert rettigheter til å signere og statusen deres.
+Denne datatypen benyttes for å lagre informasjon om signatarene og statusen deres.
 
 ```json
 {
@@ -97,27 +122,27 @@ Denne datatypen benyttes for å lagre informasjon om signatarene som skal få de
 }
 ```
 
-Det er viktig å sette `allowedContributors` til ```"app:owned"```. Det gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv. Før versjon 8.6 var denne konfigurasjonen feilstavet `allowedContributers`.
+Det er viktig å sette `allowedContributors` til `"app:owned"`. Det gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv.
 
-Datatypenes ID-er kan settes til noe annet, men det må matche ID-ene som legges inn i `signatureDataType` og `signeeStatesDataTypeId` i prossessteget, som vist i punktet under.
+Datatypenes ID-er må matche ID-ene som legges inn i `signatureDataType` og `signeeStatesDataTypeId` i prossesskonfigurasjonen.
 
 
 ### Tilgangsstyring
 
-  Gi ```read```, ```write``` og eventuelt ```sign``` til den som fyller ut skjemaet.
+  Gi `read`, `write` og eventuelt `sign` til den som fyller ut skjemaet.
 
-  For at appen skal kunne delegere rettigheter til de som skal signere så må appen få rettigheter til å delegere ```read``` og ```sign```.
+  For at appen skal kunne delegere rettigheter til de som skal signere så må appen få rettigheter til å delegere `read` og `sign`.
   Se eksempel nedenfor.
 
-  - Bytt ut ```ttd``` med riktig org.
-  - Bytt ut ```app_ttd_signering-brukerstyrt``` med tilsvarende ```app_{org}_{appnavn}```.
-  - Bytt ut ```signering-brukerstyrt``` med appnavn.
+  - Bytt ut `ttd` med riktig org.
+  - Bytt ut `app_ttd_signering-brukerstyrt` med tilsvarende `app_{org}_{appnavn}`.
+  - Bytt ut `signering-brukerstyrt` med appnavn.
 
   ```xml
 
   <xacml:Rule RuleId="urn:altinn:org:ttd:signering-brukerstyrt:ruleid:7" Effect="Permit">
     <xacml:Description>
-        A rule defining all instance delegation rights the App itself is allowed to perform for instances of the app ttd/signering-brukerstyrt. In this example the app can delegate the Read and Sign actions for task SingingTask.
+        A rule defining all instance delegation rights the App itself is allowed to perform for instances of the app ttd/signering-brukerstyrt. In this example the app can delegate the Read and Sign actions for task SigningTask.
     </xacml:Description>
     <xacml:Target>
         <xacml:AnyOf>
@@ -159,7 +184,7 @@ Datatypenes ID-er kan settes til noe annet, men det må matche ID-ene som legges
                 </xacml:Match>
                 <xacml:Match
                     MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">SingingTask</xacml:AttributeValue>
+                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">SigningTask</xacml:AttributeValue>
                     <xacml:AttributeDesignator
                         AttributeId="urn:altinn:task"
                         Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"

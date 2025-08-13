@@ -1,71 +1,71 @@
 ---
-title: Subscribing
-description: How to set up event subscription in an app
+title: Abonnement
+description: Hvordan sette opp hendelses-abonnement i en app
 toc: false
-tags: [translate-to-norwegian]
 weight: 10
 ---
 
-## Subscribing to events
-In order to receive events in the application you need create a subscription. While you can create a subscription authenticated as a user, most scenarios will probably be to authenticate as the organization owning the application, and to create the subscription as part of the startup process of the application. This example covers authenticating as an organization through maskinporten.
+## Abonnere på hendelser
+For å motta hendelser i applikasjonen må du opprette et abonnement. Selv om du kan opprette et abonnement autentisert som innlogget bruker, vil de fleste scenarioer sannsynligvis være å autentisere som tjenesteeier for applikasjonen, og å opprette abonnementet som del av oppstartsprosessen til applikasjonen. Dette eksempelet dekker autentisering som tjenesteeier gjennom Maskinporten.
 
 {{% notice warning %}}
-You should first make sure you have a client definition registered in Maskinporten for your application. See [Authenticating with Maskinporten](/api/authentication/maskinporten) on how register a client.<br><br>
+Du bør først sørge for at du har en klientdefinisjon registrert i Maskinporten for applikasjonen din. Se [Autentisering med Maskinporten](/nb/api/authentication/maskinporten) for hvordan du registrerer en klient.<br><br>
 
-Currently the localtest environment does not support generating inbound events for an app. In order to do this you need use tools like Postman or REST Client in VS Code to send a request to the application's event endpoint. 
+For øyeblikket støtter ikke lokaltest-miljøet generering av innkommende hendelser for en app. For å gjøre dette må du bruke verktøy som Postman eller REST Client i VS Code for å sende en forespørsel til applikasjonens hendelsesendepunkt.
 {{% /notice %}}
 
 
-## Configuring Maskinporten integration
-Even though we are authenticating through maskinporten, we can't use the received token directly since Altinn Events only supports an Altinn token. To solve this we need to exchange the Maskinporten token into an Altinn token. The example below adds a message handler to the EventsSubscriptionClient used to communicate with Maskinporten. This handler automatically requests a token from Maskinporten, exchanges it to an Altinn token and adds the token to the request to the Event System when creating a subscription.
+## Konfigurering av Maskinporten-integrasjon
+Applikasjonen bruker den innebygde `IMaskinportenClient` for å autentisere med Maskinporten og automatisk utveksle tokenet til et Altinn-token for kommunikasjon med Altinn Events.
 
-This code should be added to _Program.cs_.
-
-```csharp
-services.AddMaskinportenHttpClient<MaskinportenClientDefinition, EventsSubscriptionClient>(
-    config.GetSection("MaskinportenSettings"), clientDefinition =>
-    {
-        clientDefinition.ClientSettings.Scope = "altinn:serviceowner/instances.read";
-        clientDefinition.ClientSettings.ExhangeToAltinnToken = true;
-    }).AddTypedClient<IEventsSubscription, EventsSubscriptionClient>();
-```
-
-Scope and ExchangeToAltinnToken need to be configured in code and not in _AppSettings.json_ if you have multiple external dependencies that requires the use of Maskinporten. This is to avoid scopes belonging to one external api being sent to another api. Some api's accept this while others will reject the request due to unknown scopes. It's also best practice not to leak unnecessary scopes to other api's that don't require it to avoid token misuse.
-
-{{% notice info %}}
-The `MaskinportenClientDefinition` in the example above is a custom implementation of `IClientDefinition` from the nuget package [Altinn.ApiClients.Maskinporten](https://github.com/Altinn/altinn-apiclient-maskinporten) which is included as a part of the `Altinn.App.Core` package. If you don't need a custom implementation you can use one of the [built in client definitions](https://github.com/Altinn/altinn-apiclient-maskinporten).
-{{% /notice %}}
-
-Depending on what type of ClientDefintion you use you typically need to specify either a certificate file and password, encoded jwk, encoded x509 certificate or enterprise username/password in order to authenticate with Maskinporten in addition to the environment and client id. These can be shared between the various integrations.
+Du må konfigurere Maskinporten-innstillingene i din _appsettings.json_:
 
 ```json
   "MaskinportenSettings": {
-    "Environment": "test",
-    "ClientId": "",
-    "CertificatePkcs12Path": "",
-    "CertificatePkcs12Password": ""
+    "Authority": "https://test.maskinporten.no/",
+    "ClientId": "your-client-id",
+    "JwkBase64": "base64-encoded-jwk"
   }
 ```
 
-Here is a [C# class of the settings available](https://github.com/Altinn/altinn-apiclient-maskinporten/blob/main/src/Altinn.ApiClients.Maskinporten/Config/MaskinportenSettings.cs) for reference.
+Hvis du trenger å bruke en annen konfigurasjonsbane enn standard `MaskinportenSettings`, kan du konfigurere det i _Program.cs_:
 
-### Protecting the event endpoint with a secret
-Receiving events in the application is based on exposing a webhook endpoint to which the Event Service posts the event. Upon receiving an event, the application validates if a secret is provided before accepting the event. The secret  is provided by implementing the `IEventSecretCodeProvider` interface. By default there is an example implementation in place using a key from the key vault using a key with the name `EventSubscription--SecretCode` in the key vault the value of that key is used. You should hover not use the same key/value for multiple applications so it's recommended to create your own implementation.
+```csharp
+services.ConfigureMaskinportenClient(
+    "YourCustomMaskinportenSettingsPath"
+);
+```
 
-When developing locally you should set the secret as a dotnet user-secret by running the following command in the root folder of the application:
+Den innebygde Maskinporten-klienten vil automatisk håndtere tokeninnhenting og utveksling for Altinn-API-er, inkludert Events-tjenesten.
+
+Du må også konfigurere HTTP-klienten for Events API i din `RegisterCustomAppServices`-metode:
+
+```csharp
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+    // Configure HTTP client for Events API with Maskinporten authorization
+    services.AddHttpClient<IEventsSubscription, EventsSubscriptionClient>()
+        .UseMaskinportenAltinnAuthorization("altinn:serviceowner/instances.read");
+}
+```
+
+### Beskytte hendelsesendepunktet med en hemmelighet
+Mottak av hendelser i applikasjonen er basert på å eksponere et webhook-endepunkt som Event Service sender hendelsen til. Ved mottak av en hendelse validerer applikasjonen om en hemmelighet er oppgitt før hendelsen aksepteres. Hemmeligheten oppgis ved å implementere `IEventSecretCodeProvider`-grensesnittet. Som standard finnes det en eksempelimplementasjon som bruker en nøkkel fra key vault med navnet `EventSubscription--SecretCode` i Azure KeyVault - verdien av denne nøkkelen brukes. Du bør imidlertid ikke bruke samme nøkkel/verdi for flere applikasjoner, så det anbefales å lage din egen implementasjon.
+
+Når du utvikler lokalt kan du sette hemmeligheten som en dotnet user-secret ved å kjøre følgende kommando i rotmappen til applikasjonen:
 
 ```bash
 dotnet user-secrets set "EventSubscription--SecretCode" "your-secret-code"
 ```
 
 {{% notice info %}}
-Note that the return url and the secret code is part of the subscription definition. This means that if you rotate the key, you should remove the existing subscription first, or else you will have two active subscriptions for the same events.
+Merk at retur-URL-en og hemmelighetskoden er del av abonnementdefinisjonen. Dette betyr at hvis du roterer nøkkelen, bør du fjerne det eksisterende abonnementet først, ellers vil du ha to aktive abonnementer for samme hendelser.
 {{% /notice %}}
 
-### Create subscription
-Once you have your client registered with Maskinporten, your config setup, your ClientDefinition in place and your webhook secret defined - you are ready to add the code required to make a subscription.
+### Opprette abonnement
+Når du har klienten registrert med Maskinporten, konfigurasjonen satt opp, ClientDefinition på plass og webhook-hemmeligheten definert - er du klar til å legge til koden som kreves for å opprette et abonnement.
 
-The example below is using the `IHostedService` from Microsoft which, in this case, run once after the services are registered in the container, but before the application is configured.
+Eksemplet nedenfor bruker `IHostedService` fra Microsoft som, i dette tilfellet, kjører én gang etter at tjenestene er registrert i containeren, men før applikasjonen konfigureres.
 
 ```csharp
 using Altinn.App.Core.Infrastructure.Clients.Events;
@@ -123,5 +123,5 @@ namespace Altinn.App.Core.EFormidling
 
 ```
 {{% notice theme="warning"  %}}
-If the hosted service fail to run successfully, ie. throws an exception, the application will fail to start. If you don't want this behavior you should catch any exception and not rethrow it.
+Hvis hosted service feiler i å kjøre, dvs. kaster en exception, vil hele applikasjonen feile på oppstart. Hvis du ikke ønsker denne oppførselen bør du fange opp eventuelle exceptions og ikke kaste dem videre.
 {{% /notice %}}

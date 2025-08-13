@@ -22,7 +22,7 @@ Before setting up eFormidling you will need to have the following set up:
 
 In order to enable eFormidling in your application you will need to [setup an integration between your app and Maskinporten](/altinn-studio/guides/integration/maskinporten/).
 
-* **NB!** In `Program.cs` add the following instead of what is described in the steps above in the `RegisterCustomAppServices`-method:
+* **NB!** Applikasjonen inkluderer automatisk den innebygde `IMaskinportenClient`. Hvis du trenger tilpasset konfigurasjon, kan du bruke:
   
   {{< code-title >}}
     App/Program.cs
@@ -30,8 +30,8 @@ In order to enable eFormidling in your application you will need to [setup an in
   ```csharp {hl_lines=[3,4]}
   void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
   {
-    services.Configure<MaskinportenSettings>(config.GetSection("MaskinportenSettings"));
-    services.AddMaskinportenJwkTokenProvider("MaskinportenSettings--EncodedJwk");
+    // Valgfritt: Kun nødvendig hvis du bruker ikke-standard konfigurasjonsbane
+    services.ConfigureMaskinportenClient("CustomMaskinportenSettingsPath");
   }
   ```
 
@@ -90,13 +90,9 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 {
   services.AddSingleton<IEventSecretCodeProvider, EventSecretCodeProvider>();
 
-  services.AddMaskinportenHttpClient<SettingsJwkClientDefinition, EventsSubscriptionClient>(
-  config.GetSection("MaskinportenSettings"), clientDefinition =>
-  {
-      clientDefinition.ClientSettings.Scope = "altinn:serviceowner/instances.read";
-      clientDefinition.ClientSettings.ExhangeToAltinnToken = true;
-      clientDefinition.ClientSettings.EnableDebugLogging = true;
-  }).AddTypedClient<IEventsSubscription, EventsSubscriptionClient>();
+  // Konfigurer HTTP-klient for Events API med Maskinporten-autorisasjon
+  services.AddHttpClient<IEventsSubscription, EventsSubscriptionClient>()
+    .UseMaskinportenAltinnAuthorization("altinn:serviceowner/instances.read");
 }
 ```
 {{% /expandlarge %}}

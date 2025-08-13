@@ -18,14 +18,6 @@ Stateless applications work well as access services where an end-user or a syste
 
 ## Configuration
 
-{{% notice info %}}
-
-This is brand new functionality. Setup has to be completed manually until further notice.
-
-**Notice:** To make use of this functionality, version >= 4.5.2 of the [nuget-packages](../../../guides/administration/maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` and `Altinn.App.Api` is required.
-
-{{% /notice %}}
-
 You can manage the application's behavior during startup and set it up as a stateless application if needed by configuring its application metadata, which is stored in `applicationmetadata.json`.
 
 Example of configuration:
@@ -59,7 +51,6 @@ App/config/applicationmetadata.json
         "autoCreate": true,
         "classRef": "Altinn.App.Models.StatelessV1"
       },
-      "taskId": "Task_1",
       "maxCount": 1,
       "minCount": 1
     }
@@ -166,9 +157,8 @@ App/config/applicationmetadata.json
       "appLogic": {
         "autoCreate": true,
         "classRef": "Altinn.App.Models.StatelessV1",
-        "allowAnonymousOnStateless": true,
+        "allowAnonymousOnStateless": true
       },
-      "taskId": "Task_1",
       "maxCount": 1,
       "minCount": 1
     }
@@ -305,7 +295,7 @@ Further down this page we will use the designation *user* synonymously with an o
     If the input value from the data model `userAuthorized` is false, the errorBox-component will be made visible,
     while the opposite happens to the search and result fields as those are hidden.
     
-    Default behaviour will be the opposite, that search and results are visibile while the error field is hidden.
+    Default behaviour will be the opposite, that search and results are visible while the error field is hidden.
 
     ```json
     {

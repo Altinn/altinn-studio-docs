@@ -5,19 +5,22 @@ weight: 100
 toc: true
 ---
 
-På [forrige side](../) gikk vi gjennom hvordan man setter opp en [ressurs](../#altinn-ressurs) og versjonskravene 
+På [forrige side](../) gikk vi gjennom hvordan man setter opp en [ressurs](../#altinn-ressurs) og versjonskravene
 for meldingsklienten.
 
 Vi kan nå gå videre til [oppsett av Maskinporten](#maskinporten) og [applikasjonskode](#applikasjonskode).
 
 ## Maskinporten
-For å bruke [meldingstjenesten](/correspondence/) behøver man en [Maskinporten](/authentication/what-do-you-get/maskinporten/)-klient med tilgang til følgende scopes:
+
+For å bruke [meldingstjenesten](/correspondence/) behøver man en [Maskinporten](/authorization/getting-started/authentication/maskinporten/)-klient med tilgang til følgende scopes:
+
 - `altinn:serviceowner`
 - `altinn:correspondence.read`
 - `altinn:correspondence.write`
 {.correspondence-custom-list}
 
 For å sette opp dette kan du følge de generelle stegene i [veiledningen for Maskinporten-integrasjons](../maskinporten/) med noen modifikasjoner beskrevet nedenfor.
+
 - Meldingsklienten bruker en ny, intern klient for å kommunisere med Maskinporten. Derfor blir konfigurasjonsobjektet seende slik ut:
 
   {{< code-title >}}
@@ -26,11 +29,12 @@ For å sette opp dette kan du følge de generelle stegene i [veiledningen for Ma
 
   ```json
   "MaskinportenSettings": {
-      "Authority": "https://[test.]maskinporten.no/",
-      "ClientId": "the client id",
-      "JwkBase64": "base64 encoded jwk"
+    "Authority": "https://[test.]maskinporten.no/",
+    "ClientId": "the client id",
+    "JwkBase64": "base64 encoded jwk"
   }
   ```
+
 - Meldingsklienten finner og bruker automatisk Maskinporten-klienten, og forsøker å binde seg til standard konfigurasjonssti `MaskinportenSettings`.
 - Hvis du trenger en annen konfigurasjonssti, kan du konfigurere den med hjelp av `ConfigureMaskinportenClient`:
 
@@ -40,40 +44,42 @@ For å sette opp dette kan du følge de generelle stegene i [veiledningen for Ma
 
   {{<highlight csharp "linenos=false,hl_lines=7-9">}}
   void RegisterCustomAppServices(
-     IServiceCollection services,
-     IConfiguration config,
-     IWebHostEnvironment env
+    IServiceCollection services,
+    IConfiguration config,
+    IWebHostEnvironment env
   )
   {
-      services.ConfigureMaskinportenClient(
-          "DinUnikeMaskinportenSettingsSti"
-      );
+    services.ConfigureMaskinportenClient(
+      "DinUnikeMaskinportenSettingsSti"
+    );
   }
   {{</highlight>}}
+
 - Hvis du trenger et tilpasset konfigurasjonsoppsett, kan du bruke en delegatmetode:
 
   {{< code-title >}}
   App/Program.cs
   {{< /code-title >}}
-  
+
   {{<highlight csharp "linenos=false,hl_lines=7-12">}}
   void RegisterCustomAppServices(
-     IServiceCollection services,
-     IConfiguration config,
-     IWebHostEnvironment env
+    IServiceCollection services,
+    IConfiguration config,
+    IWebHostEnvironment env
   )
   {
-      services.ConfigureMaskinportenClient(config =>
-      {
-          config.Authority = "https://[test.]maskinporten.no/";
-          config.ClientId = "klient-id";
-          config.JwkBase64 = "base64-kodet jwk";
-      });
+    services.ConfigureMaskinportenClient(config =>
+    {
+      config.Authority = "https://[test.]maskinporten.no/";
+      config.ClientId = "klient-id";
+      config.JwkBase64 = "base64-kodet jwk";
+    });
   }
   {{</highlight>}}
 {.connected-bullets}
 
 ## Applikasjonskode
+
 Ved å bruke avhengighetsinjeksjon i .NET, kan du registrere at tjenesten din trenger en `ICorrespondenceClient`.
 Denne klienten kan deretter brukes til å sende meldinger og vil automatisk håndtere Maskinporten-autorisering.
 
@@ -95,12 +101,12 @@ App/Program.cs
 // ...
 
 void RegisterCustomAppServices(
-    IServiceCollection services,
-    IConfiguration config,
-    IWebHostEnvironment env
+  IServiceCollection services,
+  IConfiguration config,
+  IWebHostEnvironment env
 )
 {
-    services.AddTransient<ITheInterfaceYouAreImplementing, CorrespondenceClientDemo>();
+  services.AddTransient<ITheInterfaceYouAreImplementing, CorrespondenceClientDemo>();
 }
 {{</highlight>}}
 
@@ -120,7 +126,7 @@ using Altinn.App.Core.Features.Correspondence.Models;
 namespace Altinn.App;
 
 internal sealed class CorrespondenceClientDemo(
-    ICorrespondenceClient correspondenceClient
+  ICorrespondenceClient correspondenceClient
 ) : ITheInterfaceYouAreImplementing
 {
   public async Task<SendCorrespondenceResponse> SendMessage()
@@ -179,6 +185,7 @@ internal sealed class CorrespondenceClientDemo(
 ```
 
 ### Notater om autorisering
+
 I eksempelet ovenfor bruker vi enum-verdien `CorrespondenceAuthorisation.Maskinporten` for å indikere at autorisering automatisk
 skal håndteres internt med Maskinporten. Dette er den enkleste og mest praktiske metoden for autorisasjon, men det er ikke den eneste tilgjengelige.
 

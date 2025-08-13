@@ -34,6 +34,7 @@ For manual page setup, refer to 'Useful Documentation' further down the page.
 Since Sogndal Municipality will collect a significant amount of data in this service, they need to clarify who the form is intended for and how they will use the data. Someone in the municipality has created a [draft of an information page](infoside_tilflyttere.pdf) for this purpose.
 
 The information page should reflect the following elements:
+
 - Placement of images
 - Text sizes
 - Text formatting
@@ -43,6 +44,7 @@ You can use the following image of the Sogndal Municipality Coat of Arms in the 
 ![Sogndal Municipality Coat of Arms](kommune-logo.png)
 
 ### Tasks
+
 1. Add a new page. Give it an appropriate name and position it before the form page you created in Module 1.
 2. [Add an image](/altinn-studio/reference/ux/components/image) of the Sogndal Municipality Coat of Arms.
 3. Add text according to the [draft](infoside_tilflyttere.pdf).
@@ -53,19 +55,20 @@ You can use the following image of the Sogndal Municipality Coat of Arms in the 
 - [Add images to an application](/altinn-studio/reference/ux/components/image/)
 - [Side-by-side components using grid](/altinn-studio/reference/ux/styling/#components-placed-side-by-side-grid)
 - [File structure for multiple pages](/altinn-studio/reference/ux/pages/)
-- [Managing the order of multiple pages](/altinn-studio/reference/ux/pages/navigation/#order)
+- [Managing the order of multiple pages](/altinn-studio/reference/ux/pages/navigation/)
 
 ### Knowledge check
 
 {{% expandsmall id="m2t1q1" header="Which file in the application repository do you need to edit if you want to manually change the page order of existing pages?" %}}
 You can configure the page order in `App/ui/Settings.json` by modifying the list described under `pages.order`.
-Refer to [Managing the order of multiple pages](/altinn-studio/reference/ux/pages/navigation/#order).
+Refer to [Managing the order of multiple pages](/altinn-studio/reference/ux/pages/navigation/#showing-a-side-menu-with-the-order-of-pagestasks).
 {{% /expandsmall %}}
 
 {{% expandsmall id="m2t1q2" header="If you want to give a page a different name but do not have Altinn Studio available, which files do you need to update with the new file name?" %}}
+
 - `App/ui/layouts/<page>.json`: Change the file name (`<page>`) of the page you want to rename.
 - `App/ui/Settings.json`: Update the page's name under `pages.order`.
-{{% /expandsmall %}}
+  {{% /expandsmall %}}
 
 {{% expandsmall id="m2t1q3" header="How can you force a text break if the text string is not long enough to break naturally?" %}}
 All text resources support Markdown and HTML notation, so using `<br>` can force line breaks in the text.
@@ -83,24 +86,24 @@ In this task, you will set up dynamic expressions on pages in the application to
 ### Requirements of the municipality
 
 A user who does not meet the requirements for the service should be stopped as early as possible in the workflow.
- The user should indicate whether the service applies to them on the information page.
+The user should indicate whether the service applies to them on the information page.
 
 The way the response is collected is optional, but a tip is to use a selection component such as [checkboxes](/altinn-studio/reference/ux/components/checkboxes/), [radio buttons](/altinn-studio/reference/ux/components/radiobuttons/), or [dropdown](/altinn-studio/reference/ux/components/dropdown/).
- Note that a component must be associated with a field in the data model to store values (you can use the field `Innflytter.KanBrukeSkjema` in the data model).
+Note that a component must be associated with a field in the data model to store values (you can use the field `Innflytter.KanBrukeSkjema` in the data model).
 
 The user should be directed to one of the following tracks based on their response:
 
-*Track 1*
+_Track 1_
 
 - The user indicates that the service does not apply to their situation.
 - The user should be directed to a page with the following text:
 
-    > This form is not for you.  
-    > [See an overview of other services offered by the municipality here](https://www.sogndal.kommune.no/).
-    
-    Line 2 in the text is a hyperlink that points to https://www.sogndal.kommune.no/
+  > This form is not for you.  
+  > [See an overview of other services offered by the municipality here](https://www.sogndal.kommune.no/).
 
-*Track 2*
+  Line 2 in the text is a hyperlink that points to https://www.sogndal.kommune.no/
+
+_Track 2_
 
 - The user has confirmed that the service applies to their situation.
 - The user should be directed to the data collection pages.
@@ -112,6 +115,7 @@ The user should be directed to one of the following tracks based on their respon
 3. Add logic to activate _track 1_ or _track 2_ based on the user's answer.
 
 ### Useful documentation
+
 - [Dynamic expressions](/altinn-studio/reference/logic/expressions)
 - [How to hide an entire page](/altinn-studio/reference/logic/expressions#showhide-entire-pages)
 - [Text formatting](/altinn-studio/reference/ux/texts/#formatting-of-texts)
@@ -135,6 +139,7 @@ This task focuses on the first data collection page, aiming to streamline the us
 ### Requirements of the municipality
 
 - You should configure prefilling for the following values:
+
   - First name: `Innflytter.Fornavn`
   - Middle name: `Innflytter.Mellomnavn`
   - Last name: `Innflytter.Etternavn`
@@ -146,7 +151,8 @@ This task focuses on the first data collection page, aiming to streamline the us
 - It should be possible to change prefilled email and phone number
 
 ### Tasks
-1. Create a [prefill file](/altinn-studio/guides/development/prefill/config/#setup-of-prefill-in-the-application-repository).
+
+1. Create a [prefill file](/altinn-studio/guides/development/prefill/config).
 2. Configure prefilling for values available through Altinn's [prefill sources](/altinn-studio/reference/data/prefill) (all but age).
 3. Create [custom prefilling](/altinn-studio/guides/development/prefill/custom) for age based on the personal identification number (see Code assistance and Useful resources below).
 4. Configure settings for fields that should not be editable by the user.
@@ -225,15 +231,17 @@ private static int CalculateAge(string sosialSecNumber)
         return age;
     }
 ```
+
 {{% /expandsmall %}}
 
 {{% notice info %}}
 **Note:** The application must be run locally to show prefilled values.
 {{% /notice %}}
 
-*Remember to push your local changes to make them available in Altinn Studio.*
+_Remember to push your local changes to make them available in Altinn Studio._
 
 ### Useful documentation
+
 - [Prefilling from national registers and user profile](/altinn-studio/guides/development/prefill/config)
 - [Available sources and values for prefilling](/altinn-studio/reference/data/prefill)
 - [Custom prefilling](/altinn-studio/guides/development/prefill/custom)
@@ -252,7 +260,7 @@ Yes, by default, a standard component with prefilled data is editable.
 You can set the component to `readOnly` in one of two ways:
 
 **1\.** In Altinn Studio Designer, by checking "Det skal ikke være mulig å svare (read only)" for the specific component:  
-![Altinn Studio setting for 'read only'. Image](<screenshot-readonly-setting.png>)
+![Altinn Studio setting for 'read only'. Image](screenshot-readonly-setting.png)
 
 **2\.** Set the `readOnly` property to `true` for the component in the JSON file of the page:
 
@@ -317,9 +325,9 @@ public static string GetDOB(string fOrDNumber){
   return dobString;
 }
 ```
+
 {{% /expandsmall %}}
 {{% /expandlarge %}}
-
 
 ## Summary
 
@@ -348,7 +356,7 @@ In this step, we have added a simple info page with an image and text.
 ### Components
 
 {{% notice info %}}
-See *Code* for horizontal alignment of components.
+See _Code_ for horizontal alignment of components.
 {{% /notice %}}
 
 ![Info page components. Image](screenshot-info-page-layout-1.png "Info page components")
@@ -356,7 +364,7 @@ See *Code* for horizontal alignment of components.
 ### Image
 
 In this solution, we have stored the image within the app and used `wwwroot/kommune-logo.png` as the source.
- Another option is to use an external URL for the image source.
+Another option is to use an external URL for the image source.
 
 {{% expandsmall id="wwwroot" header="Add directory `wwwroot`` and upload image in Designer" %}}
 
@@ -475,6 +483,7 @@ App/config/texts/resource.nb.json
   ]
 }
 ```
+
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
@@ -498,7 +507,7 @@ We have added a new page to show users who don't meet the service requirements (
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
 {{% notice info %}}
-See *Code* for dynamic tracks logic.
+See _Code_ for dynamic tracks logic.
 {{% /notice %}}
 
 ### Radio buttons
@@ -509,7 +518,7 @@ See *Code* for dynamic tracks logic.
 
 ### New Page
 
-New page for *Track 1*.
+New page for _Track 1_.
 
 ![Components on the not-for-you page. Image](screenshot-ikke-for-deg-layout.png "Components on the not-for-you page")
 
@@ -564,7 +573,7 @@ App/ui/layouts/info.json
 ### New page 'Not for You' and dynamic tracks logic
 
 We have added a new page to show users who don't meet the service requirements.
- One way to achieve this is by hiding the page if the user confirms that they *can* use the service.
+One way to achieve this is by hiding the page if the user confirms that they _can_ use the service.
 
 Logic to hide the page has been implemented using the `hidden` property (see highlighted section in the code).
 The value from the selected radio button is stored in the field `Innflytter.KanBrukeSkjema` and can be accessed through the component (`["component", "bekreftelse"]`).
@@ -578,14 +587,7 @@ App/ui/layouts/ikke-for-deg.json
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
-    "hidden": [
-      "equals",
-      [
-        "component",
-        "bekreftelse"
-      ],
-      true
-    ],
+    "hidden": ["equals", ["component", "bekreftelse"], true],
     "layout": [
       {
         "id": "ikke-for-deg",
@@ -608,7 +610,7 @@ App/ui/layouts/ikke-for-deg.json
 ```
 
 Equivalent logic has been added to the form page.
-This page will be hidden when the option for *not* meeting the service requirements is selected (the value of the `bekreftelse` component is `false`).
+This page will be hidden when the option for _not_ meeting the service requirements is selected (the value of the `bekreftelse` component is `false`).
 
 {{< code-title >}}
 App/ui/layouts/innflytterPersonalia.json
@@ -646,11 +648,7 @@ App/Settings.json
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
-    "order": [
-      "info",
-      "innflytterPersonalia",
-      "ikke-for-deg"
-    ],
+    "order": ["info", "innflytterPersonalia", "ikke-for-deg"],
     "excludeFromPdf": ["ikke-for-deg"]
   }
 }
@@ -700,7 +698,7 @@ App/config/texts/resource.nb.json
 {{% markdown %}}
 
 Below is an example of how the data page may appear with prefilled information.
- We have also aligned some components side by side and added a 'Submit' button.
+We have also aligned some components side by side and added a 'Submit' button.
 
 ![Screenshot of prefilled data page. Image](prefilled-data-screenshot.png "Updated data page with prefill")
 
@@ -710,7 +708,7 @@ Below is an example of how the data page may appear with prefilled information.
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
 {{% notice info %}}
-See *Code* for prefilling and horizontal alignment of components.
+See _Code_ for prefilling and horizontal alignment of components.
 {{% /notice %}}
 
 ![Data page components. Image](screenshot-data-page-components.png "Data page components")
@@ -728,9 +726,9 @@ New button:
 
 ### Updated Data Page
 
-* The components for name and age have been set to `readOnly`.
-* Some components are aligned side by side.
-* A new button has been added.
+- The components for name and age have been set to `readOnly`.
+- Some components are aligned side by side.
+- A new button has been added.
 
 The code below provides an example of some of the changed components.
 For a complete solution, please refer to the [Module 2 source code](https://altinn.studio/repos/testdep/flyttemelding-sogndal/src/branch/modul2).

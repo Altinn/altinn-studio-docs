@@ -6,15 +6,15 @@ toc: true
 
 ## Introduction
 
-Validations ensures that the user's input is valid with regard to the data model, 
+Validations ensures that the user's input is valid with regard to the data model,
 in addition to all custom rules that are set up for the application.
 Validations can be run either on the client- (the browser) or the server-side.
 
-Validations can also be set up to [trigger on page navigation](/altinn-studio/reference/ux/pages/navigation/#validation-on-page-navigation).
+Validations can also be set up to [trigger on page navigation](/altinn-studio/reference/ux/pages/navigation/#specifying-validation-on-page-change).
 
 ## Client-side validation
 
-This is validation that is run in the browser, before data is sent to server for saving. This makes it possible to give quick feedback to 
+This is validation that is run in the browser, before data is sent to server for saving. This makes it possible to give quick feedback to
 the user during the process of filling out the form.
 
 Client-side validation is based on the data model of the form, and uses this to determine what is valid input in a
@@ -41,6 +41,7 @@ Input in this field will be validated towards the limits that are set, and an er
 input is a text longer than four characters.
 
 ### Default error messages
+
 Default error messages has been set up for all validations done on the client-side. See the overview below.
 
 | Rule      | Error message bokmål          | Error message nynorsk         | Error message english                 |
@@ -55,18 +56,21 @@ Default error messages has been set up for all validations done on the client-si
 | enum      | 'Kun verdiene {0} er tillatt' | 'Kun verdiene {0} er tillatt' | 'Only the values {0} are permitted'   |
 
 ### More about error messages for required fields
+
 For a smoother user experience, error messages for missing data in required fields won't be displayed automatically
 while filling out a form, unless validation is triggered [for a single field](#single-field-validation), when saving
 a [row in a repeating group](#group-validation) or
-[when navigating to another page](/altinn-studio/reference/ux/pages/navigation/#validation-on-page-navigation).
+[when navigating to another page](/altinn-studio/reference/ux/pages/navigation/#specifying-validation-on-page-change).
 
 The error message for required fields is as defined above, _"You have to fill out {0}"_. The `{0}` symbol is replaced with the field that
 the error message is shown for. This is done in the following way:
+
 - If `shortName` text is defined for the component, this is used. _This is a new text that is currently used only for this specific error message._
 - If the `shortName` text is not defined, the `title` text for the component is used - this is the components label text. The text will be converted to use a lowercase letter first, unless the text looks like an acronym.
 - In some special cases (Address component) where there are multiple fields within the component, the default labels for the fields is used.
 
 #### Example: Component with only `title`
+
 ```json
 {
   "id": "firstName",
@@ -77,6 +81,7 @@ the error message is shown for. This is done in the following way:
   ... //etc
 }
 ```
+
 With resource texts:
 
 ```json
@@ -90,8 +95,10 @@ With resource texts:
 The error message would then be `"You have to fill out First name"`.
 
 #### Example: Component with `shortName`
+
 If the field's prompt is long or not suitable for use in the validation message, you can add a `shortName` text that can be used instead.
 _Note that this only applies to this specific validation message - the `shortName` text is not used otherwise in the solution as of now._
+
 ```json
 {
   "id": "firstName",
@@ -103,6 +110,7 @@ _Note that this only applies to this specific validation message - the `shortNam
   ... //etc
 }
 ```
+
 With resource texts:
 
 ```json
@@ -139,12 +147,13 @@ support.
 ```
 
 ### Custom error messages
-It is possible to define custom error messages that will be displayed when a field doesn't pass the validation check. This is done by including a parameter `errorMessage` where the field is defined in the JSON schema. 
+
+It is possible to define custom error messages that will be displayed when a field doesn't pass the validation check. This is done by including a parameter `errorMessage` where the field is defined in the JSON schema.
 The JSON schema file is in the folder `App/models` and has a naming patterns as follows; `*.schema.json`,
 
 An example of how to extend the example previously presented with a custom error message:
 
-```json  {hl_lines=[4]}
+```json {hl_lines=[4]}
 "someField": {
   "type": "string",
   "maxLength": "4",
@@ -156,6 +165,7 @@ The error text can be included directly. To enable language support, add a text 
 
 Notice that if you have a reference to a definition the error message must be added to the `property`-field and not the reference/definition.
 Example:
+
 ```json {hl_lines=[5]}
 {
   "properties": {
@@ -185,14 +195,16 @@ Server-side validation can be split into two categories:
 
 - **Validations against data model** - These run automatically whenever the user attempts to submit form data.
 - **Custom validations** - these are written by the application developer,
-and run when the user attempts to submit form data or move the process to a new step.
+  and run when the user attempts to submit form data or move the process to a new step.
 
 ## How to add custom validation
+
 Custom validation can also be split into two categories; task-validation and data-validation.
+
 - Task-validation will run each time validation is triggered either manually from the application or when you attempt to move forward in the process.
 - Data-validation will run if you're on a step that has defined data elements associated with it.
 
-Validation for process navigation will run _after_ any user action, if an action is specified. This is because the result of the 
+Validation for process navigation will run _after_ any user action, if an action is specified. This is because the result of the
 action may be what makes the task valid. If validation on process next was done before the action, this would lead to a soft-lock.
 
 Validations are written i C# and depending on the version of the application template and Nuget packages you are using,
@@ -209,12 +221,12 @@ instead of overriding methods. If you previously used to place your custom code 
 methods in the _ValidationHandler.cs_ class you will see that it's mostly the same.
 
 1. Create a class that implements the `IInstanceValidator` interface found in the `Altinn.App.Core.Features.Validation` namespace.  
-    You can name and place the file in any folder you like within your project, but we suggest you use meaningful namespaces like in any other .Net project.
+   You can name and place the file in any folder you like within your project, but we suggest you use meaningful namespaces like in any other .Net project.
 2. Register you custom implementation in the _Program.cs_ class
-    ```C#
-    services.AddTransient<IInstanceValidator, InstanceValidator>();
-    ```
-    This ensures your custom code is known to the application and that it will be executed.    
+   ```C#
+   services.AddTransient<IInstanceValidator, InstanceValidator>();
+   ```
+   This ensures your custom code is known to the application and that it will be executed.
 
 {{</content-version-container>}}
 
@@ -310,7 +322,7 @@ Where `showValidations` contains a set of validation types to check; this can be
 - `AllExceptRequired`
 - `All`
 
-**Note**: `"showValidations": ["AllExceptRequired"]` is the default value if the property is not set. 
+**Note**: `"showValidations": ["AllExceptRequired"]` is the default value if the property is not set.
 To avoid showing any validations immediately, set `showValidations` to an empty array `[]`.
 {{</content-version-container>}}
 {{<content-version-container version-label="v3 (App Frontend)">}}
@@ -331,7 +343,7 @@ Note that in version 3 of app frontend, JSON schema and component specific valid
 }
 ```
 
-The configuration above will result in your own custom validation in `ValidationHandler.cs` 
+The configuration above will result in your own custom validation in `ValidationHandler.cs`
 being triggered each time the field is updated. If you need to know which field
 triggered the validation, this is available in the http-context as a header of the request named _ValidationTriggerField_.
 
@@ -369,7 +381,7 @@ The example that revolves multiple complex validations show how this can be impl
 
 Several things has been done to get this code to run
 
-1. In _ValidationHandler.cs_ `using Microsoft.Extensions.Primitives;` is included at the top of the file to be able to use `StringValues`. 
+1. In _ValidationHandler.cs_ `using Microsoft.Extensions.Primitives;` is included at the top of the file to be able to use `StringValues`.
 2. In _App.cs_ `using Microsoft.AspNetCore.Http;` is included at the top of the file to be able to use `IHttpContextAccessor`.
 3. In _App.cs_ `IHttpContextAccessor` is dependency injected in the constructor and passed along to ValidationHandler.
 
@@ -429,7 +441,7 @@ private void ValidateKommune(flyttemelding model, ModelStateDictionary validatio
     if (model.kommune != null && !model.kommune.Equals("Oslo"))
     {
         validationResults.AddModelError(
-            nameof(model.kommune), 
+            nameof(model.kommune),
             "This is not a valid municipality.");
     }
 }
@@ -438,13 +450,14 @@ private void ValidateBoAdresse(flyttemelding model, ModelStateDictionary validat
     if (model.boaddresse != null && model.boaddresse.Length > 150)
     {
         validationResults.AddModelError(
-            nameof(model.boaddresse), 
+            nameof(model.boaddresse),
             "Address can not be longer than 150 characters.");
     }
 }
 ```
 
 ### Specify that validation errors are fixed
+
 When validation is triggered by a single field, all former validations on this field will be removed pending a response from the last validation.
 If a field triggers validation that updates/adds an error message to multiple fields at once, these will not be removed even when there no longer are any
 errors in these fields. This is because there is no way to know which fields may have been validated through a single field validation.
@@ -486,7 +499,7 @@ private void ValidateFullName(Datamodell model, ModelStateDictionary validationR
       "Full name can not be longer than 50 characters.");
     validationResults.addModelError(nameof(model.etternavn),
       "Full name can not be longer than 50 characters.");
-  } 
+  }
   else
   {
     validationResults.addModelError(nameof(model.fornavn),
@@ -497,11 +510,10 @@ private void ValidateFullName(Datamodell model, ModelStateDictionary validationR
 }
 ```
 
-If you are having trouble with getting this to work, and you are instead seeing validation messages that include the `*FIXED*`-prefix, 
+If you are having trouble with getting this to work, and you are instead seeing validation messages that include the `*FIXED*`-prefix,
 double check that you have `"FixedValidationPrefix": "*FIXED*"` set under `GeneralSettings` in `appsettings.json`.
 {{</content-version-container>}}
 {{</content-version-selector>}}
-
 
 ## Soft validations
 
@@ -523,32 +535,32 @@ public async Task ValidateData(object data, ModelStateDictionary modelState)
   if (data is TestModel testModel)
   {
       string firstName = testModel?.Person?.FirstName;
-      if (firstName != null && firstName.Contains("1337")) 
+      if (firstName != null && firstName.Contains("1337"))
       {
         validationResults.AddModelError(
-          "Person.FirstName", 
+          "Person.FirstName",
           "*WARNING*Are you sure your first name contains 1337?");
       }
 
       if (firstName != null && firstname.Contains("Altinn"))
       {
         validationResults.AddModelError(
-          "Person.FirstName", 
+          "Person.FirstName",
           "*SUCCESS*Altinn is a great name!");
       }
   }
-  
+
   await Task.CompletedTask;
 }
 ```
 
 Examples on display of different validations below:
 
-!["Information message"](info-message.jpeg "Example on information message (*INFO* - prefix)" )
+!["Information message"](info-message.jpeg "Example on information message (*INFO* - prefix)")
 
 !["Success message"](success-message.jpeg "Example on success message (*SUCCESS* - prefix)")
 
-!["Warning message"](warning-message.jpeg "Example on warning message (*WARNING* - prefix)" ) 
+!["Warning message"](warning-message.jpeg "Example on warning message (*WARNING* - prefix)")
 
 ## Group validation
 
@@ -556,6 +568,7 @@ It is possible to check validations in a repeating group when the user saves a r
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="v4 (App Frontend)">}}
+
 ```json {hl_lines=[7]}
 {
   "id": "demo-gruppe",
@@ -576,8 +589,9 @@ Where `validateOnSaveRow` contains a set of validation types to check; this can 
 - `Required`
 - `AllExceptRequired`
 - `All`
-{{</content-version-container>}}
-{{<content-version-container version-label="v3 (App Frontend)">}}
+  {{</content-version-container>}}
+  {{<content-version-container version-label="v3 (App Frontend)">}}
+
 ```json {hl_lines=[7]}
 {
   "id": "demo-gruppe",
@@ -612,7 +626,7 @@ public async Task ValidateData(object data, ModelStateDictionary validationResul
         {
             case "top-level-group":
                 // run validations specific to the group
-                
+
                 // Get row index for a non-nested group
                 int rowIndex = int.Parse(rowIndexValues.FirstOrDefault(string.Empty));
 
@@ -633,8 +647,8 @@ public async Task ValidateData(object data, ModelStateDictionary validationResul
     }
 }
 ```
+
 {{</content-version-container>}}
 {{</content-version-selector>}}
-
 
 For tips on how you solve complex validations, see the examples under [single field validation](#single-field-validation).

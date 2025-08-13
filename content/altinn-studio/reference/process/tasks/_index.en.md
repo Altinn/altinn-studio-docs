@@ -104,7 +104,7 @@ Example of a signing task (only supported in v8)
 </bpmn:task>
 ```
 
-As the example above shows a signing task needs additional information. See [Setting up signing](signing) for details on how to configure a singing task and the effects.
+As the example above shows a signing task needs additional information. See [Setting up signing](signing) for details on how to configure a signing task and the effects.
 
 ### Feedback Task
 

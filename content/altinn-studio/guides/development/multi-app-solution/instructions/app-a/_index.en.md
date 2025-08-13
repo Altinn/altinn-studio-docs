@@ -4,13 +4,11 @@ linktitle: Application A
 description: Instructions for setting up application A
 weight: 10
 aliases:
-
-- /app/multi-app-solution/instructions/app-a
-
+  - /app/multi-app-solution/instructions/app-a
 ---
 
-Application A is responsible for triggering the instantiation of application B and passing data to it. 
- To accomplish this, several steps must be followed.
+Application A is responsible for triggering the instantiation of application B and passing data to it.
+To accomplish this, several steps must be followed.
 
 1. Extend the application process with an additional process task.
 2. Add logic for instantiation of application B to an event trigger.
@@ -44,7 +42,7 @@ In order to add task types to extend the application process, we need to update 
    need to take advantage of _exclusive gateways_. Read more about exclusive
    gateways [here](/altinn-studio/reference/configuration/process/exclusive-gateways).
 2. The `policy.xml` file, where the authorization rules are defined, needs updates so read and write operations
-   can be done on the new task. <br><br>See [XACML policy](/authorization/guides/xacml)
+   can be done on the new task. <br><br>See [XACML policy](/authorization/reference/xacml)
    , [policy editor](/altinn-studio/reference/configuration/authorization)
    and [Guidelines for authorization rules](/altinn-studio/reference/configuration/authorization/guidelines_authorization)
    for details. Most apps allow this by default by the current template.
@@ -78,22 +76,22 @@ added [here](/altinn-studio/reference/configuration/process/pre-post-hooks).
    will add the desired data that the new instance of application B should be prefilled with. The resulting instance
    object, will look something like this:
 
-    ```csharp
-    var instanceTemplate = new InstansiationInstance
-    {
-        InstanceOwner = new InstanceOwner
-        {
-            //OrganisationNumber = [receiverOrgNr], Or
-            //PersonNumber = [receiverSsnNr],
-        },
-        Prefill = new()
-        {
-            {"someDataInReceiverDataModel", someValueFromThisTriggerAppliaction},
-            {"moreDataInReceiverDataModel", someStaticValue}, 
-            ...
-        },
-    };
-    ```
+   ```csharp
+   var instanceTemplate = new InstansiationInstance
+   {
+       InstanceOwner = new InstanceOwner
+       {
+           //OrganisationNumber = [receiverOrgNr], Or
+           //PersonNumber = [receiverSsnNr],
+       },
+       Prefill = new()
+       {
+           {"someDataInReceiverDataModel", someValueFromThisTriggerAppliaction},
+           {"moreDataInReceiverDataModel", someStaticValue},
+           ...
+       },
+   };
+   ```
 
 2. To actually perform the request to create the instance, we need to add a client. Refer
    to [the consume documentation](/altinn-studio/reference/api/consume#implement-the-client) to see an example of how
@@ -101,54 +99,55 @@ added [here](/altinn-studio/reference/configuration/process/pre-post-hooks).
    f.ex. `AppInstantiationClient`. In addition to the instructions in the referenced documentation, our constructor needs
    additional configuration to the HttpClient. Add the following code the the constructor to add a subscription key to
    the header of the requests sent by the http client.
-    ```csharp
-       public AppClient(
-            ...
-            HttpClient httpClient,
-            ...
-        {
-            ...
-            httpClient.DefaultRequestHeaders.Add(General.SubscriptionKeyHeaderName, platformSettings.Value.SubscriptionKey);
-            _client = httpClient;
-            ...
-        }
+
+   ```csharp
+      public AppClient(
+           ...
+           HttpClient httpClient,
+           ...
+       {
+           ...
+           httpClient.DefaultRequestHeaders.Add(General.SubscriptionKeyHeaderName, platformSettings.Value.SubscriptionKey);
+           _client = httpClient;
+           ...
+       }
    ```
 
    Instead of creating a function in the client named `GetCountry`, as in the referenced documentation above, implement
    the
    following function,`CreateNewInstance`:
 
-    ```csharp
-    public async Task<Instance> CreateNewInstance(string AppOwnerOrgName, string applicationB, InstansiationInstance instanceTemplate)
-    {
-       string apiUrl = $"{AppOwnerOrgName}/{applicationB}/instances/create";
-                   
-       string envUrl = $"https://{AppOwnerOrgName}.apps.{_settings.HostName}";
-       
-       _client.BaseAddress = new Uri(envUrl);
-       
-       StringContent content = new StringContent(JsonConvert.SerializeObject(instanceTemplate), Encoding.UTF8, "application/json");
-       
-       HttpResponseMessage response = await _client.PostAsync(apiUrl, content);
-       
-       if (response.IsSuccessStatusCode)
-       {
-           Instance createdInstance = JsonConvert.DeserializeObject<Instance>(await response.Content.ReadAsStringAsync());
-           
-           return createdInstance;
-       }
-       throw await PlatformHttpException.CreateAsync(response);
-    }
-    ```
+   ```csharp
+   public async Task<Instance> CreateNewInstance(string AppOwnerOrgName, string applicationB, InstansiationInstance instanceTemplate)
+   {
+      string apiUrl = $"{AppOwnerOrgName}/{applicationB}/instances/create";
+
+      string envUrl = $"https://{AppOwnerOrgName}.apps.{_settings.HostName}";
+
+      _client.BaseAddress = new Uri(envUrl);
+
+      StringContent content = new StringContent(JsonConvert.SerializeObject(instanceTemplate), Encoding.UTF8, "application/json");
+
+      HttpResponseMessage response = await _client.PostAsync(apiUrl, content);
+
+      if (response.IsSuccessStatusCode)
+      {
+          Instance createdInstance = JsonConvert.DeserializeObject<Instance>(await response.Content.ReadAsStringAsync());
+
+          return createdInstance;
+      }
+      throw await PlatformHttpException.CreateAsync(response);
+   }
+   ```
 
 3. In the `ProcessTaskEnd.cs` file, add the new _AppInstantiationClient_ to the `ProcessTaskEnd` class in the same way
    as the _CountryClient_ is added to the `DataProcessingHandler` class
    in [the consume documentation](/altinn-studio/reference/api/consume#using-the-client-in-the-application-logic).
    Further, call the method triggering the request in the appInstantiationClient like this:
 
-    ```csharp
-    Instance applicationBInstance = await _appInstantiationClient.CreateNewInstance([AppOwnerOrgName], [applicationB], [instanceTemplate]);
-    ```
+   ```csharp
+   Instance applicationBInstance = await _appInstantiationClient.CreateNewInstance([AppOwnerOrgName], [applicationB], [instanceTemplate]);
+   ```
 
 If the client should authenticate itself as the end user, rather than the application owner via maskinporten, please
 reference
@@ -175,19 +174,20 @@ field with the name `ref-data-as-pdf`. This can be fetched by getting the instan
 retrieved instance object, or by using the already defined `GetBinaryData` method on the dataClient.
 See example code below of both below:
 
-   ```csharp
-   // Using the instance object directly with the GetInstance method on the InstanceClient
-   Instance updatedInstance = await _instanceClient.GetInstance(innsendingsApp, mutliAppOwner, int.Parse(instance.InstanceOwner.PartyId), instanceGuid);
-   DataElement pdf = updatedInstance.Data.FindLast(d => d.DataType == "ref-data-as-pdf");
-   
-   // Using the GetBinaryData method on the DataClient
-   var stream = await _dataClient.GetBinaryData(instance.Org, instance.AppId,int.Parse(instance.InstanceOwner.PartyId), instanceGuid, Guid.Parse(pdf.Id));
-   ```
+```csharp
+// Using the instance object directly with the GetInstance method on the InstanceClient
+Instance updatedInstance = await _instanceClient.GetInstance(innsendingsApp, mutliAppOwner, int.Parse(instance.InstanceOwner.PartyId), instanceGuid);
+DataElement pdf = updatedInstance.Data.FindLast(d => d.DataType == "ref-data-as-pdf");
+
+// Using the GetBinaryData method on the DataClient
+var stream = await _dataClient.GetBinaryData(instance.Org, instance.AppId,int.Parse(instance.InstanceOwner.PartyId), instanceGuid, Guid.Parse(pdf.Id));
+```
 
 _NB: In order to use these methods in the `ProcessTaskEnd` class, the constructor needs to be configured to use the
 InstanceClient and/or the DataClient._
 
 <a name="control-data-in-app-b"></a>
+
 ### How to control data in application B from application A
 
 There are several ways to control certain data in application B, whereas one or multiple can be utilized:
@@ -204,12 +204,13 @@ There are several ways to control certain data in application B, whereas one or 
   .
 
 - **Alt 3:** Add data as binary data by doing a POST request to the instance of application B.
+
   ```csharp
   public async Task<DataElement> InsertBinaryData(string org, string app, string instanceId, string contentType, string filename, Stream stream)
   {
     string envUrl = $"https://{org}.apps.{_settings.HostName}";
     _client.BaseAddress = new Uri(envUrl);
-  
+
     string apiUrl = $"{org}/{app}/instances/{instanceId}/data?dataType=vedlegg";
 
     StreamContent content = new(stream);
@@ -231,4 +232,3 @@ There are several ways to control certain data in application B, whereas one or 
     }
   }
   ```
-  

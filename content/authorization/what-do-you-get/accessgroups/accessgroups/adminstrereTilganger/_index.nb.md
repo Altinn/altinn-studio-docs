@@ -29,7 +29,7 @@ Denne tilgangspakken gir bruker mulighet til å administrere alle tilganger for 
 *urn:altinn:accesspackage:hovedadministrator*
 
 ### Maskinporten administrator
-Denne tilgangspakken gir bruker mulighet til å administrere tilgang til maskinporten scopes.  
+Denne tilgangspakken gir bruker mulighet til å administrere tilgang til Maskinporten scopes.  
 *urn:altinn:accesspackage:maskinporten-administrator*
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken

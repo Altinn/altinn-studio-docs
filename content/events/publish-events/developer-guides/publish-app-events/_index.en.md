@@ -79,7 +79,7 @@ and `/organisation/987564321`.
 
 
 ## Response
-A successful registration of the cloud event should result in a _200 OK_ response without any data.
+A successful registration of the cloud event should result in a _201 Created_ response with the GUID to the Cloud Event-instance as payload.
 
 ### Content-Type
 - application/json
@@ -116,7 +116,7 @@ curl \
 ### Response
 
 #### 200 OK
-Response contains the ID for the cloud event.
+Response contains the ID for the Cloud Event.
 
 ```json
 "4815d141-8cf6-4555-8c3c-e069c7b80c79"

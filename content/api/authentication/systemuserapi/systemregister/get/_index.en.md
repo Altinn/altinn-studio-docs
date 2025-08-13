@@ -12,7 +12,7 @@ Retrieves a system by the system id
 GET authentication/api/v1/systemregister/vendor/{systemId}
 
 ### Scopes
-Machineporten token with scope <mark>altinn:authentication/systemregister.write</mark>
+Maskinporten token with scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
 application/json
