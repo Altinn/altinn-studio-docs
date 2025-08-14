@@ -3,4 +3,4 @@ title: Test of authorization rules
 linktitle: Testing
 description: <todo>
 ---
-To bi translated
+To be translated...
