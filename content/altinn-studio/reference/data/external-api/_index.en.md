@@ -6,7 +6,7 @@ toc: true
 ---
 
 {{% notice info %}}
-Available from v8.2.8
+Available from [v8.2.8](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.2.8)
 {{% /notice %}}
 
 ## Introduction
