@@ -211,7 +211,7 @@ Det er per nå mulig å hente verdier fra 4 ulike datakilder.
    ```cs
     new ValidationIssue()
     {
-        CustomTextKey = "too_long",
+        CustomTextKey = "good.text.id",
         CustomTextParameters = new() 
           {
             ["current_length"] = name.Length.ToString() 

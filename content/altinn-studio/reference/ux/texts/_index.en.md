@@ -216,7 +216,7 @@ It is currently possible to fetch values from 4 different data sources.
    ```cs
     new ValidationIssue()
     {
-        CustomTextKey = "too_long",
+        CustomTextKey = "good.text.id",
         CustomTextParameters = new() 
           {
             ["current_length"] = name.Length.ToString() 
