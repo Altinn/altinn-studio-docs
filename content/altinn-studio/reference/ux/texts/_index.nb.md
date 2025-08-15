@@ -189,7 +189,7 @@ Variabler i tekster kan inkluderes ved å følge oppsettet nedenfor. Det er vikt
 
 ### Datakilder
 
-Det er per nå mulig å hente verdier fra 3 ulike datakilder.
+Det er per nå mulig å hente verdier fra 4 ulike datakilder.
 
 1. Datamodell  
    Ved å angi `dataModel.<dataModelNavn>` som datakilde kan man hente ut verdier fra felter i skjema som brukeren fyller ut. Data kan hentes fra felter uavhengig av om de er synlige eller ikke. Hvis bruker endrer på data i et felt referert i en variabel så vil teksten bli oppdatert når brukeren stopper å skrive i feltet.
@@ -205,8 +205,8 @@ Det er per nå mulig å hente verdier fra 3 ulike datakilder.
    1. `instanceOwnerPartyId` inneholder avgiver sin party id.
    2. `instanceId` inneholder id'en til den aktive instansen.
    3. `appId` inneholder id'en til appen instansen er knyttet til.
-4. Egendefinerte tekst-parametere\
-   Ved å angi `customTextParameters` som datakilde kan man hente ut egendefinerte verdier der det er mulig å sette.
+4. Egendefinerte tekstparametere  
+   Ved å angi `customTextParameters` som datakilde kan man hente ut egendefinerte verdier der disse kan settes.
    Per nå kan `CustomTextParameters` settes i `ValidationIssue` og `InstantiationValidationResult`. Eksempel:
    ```cs
     new ValidationIssue()
