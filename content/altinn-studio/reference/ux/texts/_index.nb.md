@@ -206,6 +206,9 @@ Det er per nå mulig å hente verdier fra 4 ulike datakilder.
    2. `instanceId` inneholder id'en til den aktive instansen.
    3. `appId` inneholder id'en til appen instansen er knyttet til.
 4. Egendefinerte tekstparametere  
+   {{<notice info>}}
+   Krever versjon >= 8.7.0 av `Altinn.App.*` pakkene.
+   {{</notice>}}
    Ved å angi `customTextParameters` som datakilde kan man hente ut egendefinerte verdier der disse kan settes.
    Per nå kan `CustomTextParameters` settes i `ValidationIssue` og `InstantiationValidationResult`. Eksempel:
    ```cs

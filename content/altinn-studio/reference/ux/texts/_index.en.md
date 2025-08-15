@@ -211,6 +211,9 @@ It is currently possible to fetch values from 4 different data sources.
    2. `instanceId` contains the ID of the active instance.
    3. `appId` contains the ID of the application, which the active instance belongs to.
 4. Custom text parameters  
+   {{<notice info>}}
+   Requires version >= 8.7.0 of the `Altinn.App.*` packages.
+   {{</notice>}}
    By defining `customTextParameters` as the data source you can access custom values in the contexts that support it.
    Currently, `CustomTextParameters` can be used in `ValidationIssue` and `InstantiationValidationResult`. Example:
    ```cs
