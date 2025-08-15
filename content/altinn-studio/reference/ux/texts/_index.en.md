@@ -219,9 +219,9 @@ It is currently possible to fetch values from 4 different data sources.
         CustomTextKey = "good.text.id",
         CustomTextParameters = new() 
           {
-            ["current_length"] = name.Length.ToString() 
+            ["<custom text parameter key>"] = someValue 
           },
-        Field = "name",
+        Field = "someField",
         Severity = ValidationIssueSeverity.Error,
     }
    ```

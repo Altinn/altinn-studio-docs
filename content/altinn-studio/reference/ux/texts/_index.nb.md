@@ -214,9 +214,9 @@ Det er per nå mulig å hente verdier fra 4 ulike datakilder.
         CustomTextKey = "good.text.id",
         CustomTextParameters = new() 
           {
-            ["current_length"] = name.Length.ToString() 
+            ["<custom text parameter key>"] = someValue 
           },
-        Field = "name",
+        Field = "someField",
         Severity = ValidationIssueSeverity.Error,
     }
    ```
