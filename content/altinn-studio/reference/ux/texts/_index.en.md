@@ -211,7 +211,7 @@ It is currently possible to fetch values from 4 different data sources.
    2. `instanceId` contains the ID of the active instance.
    3. `appId` contains the ID of the application, which the active instance belongs to.
 4. Custom text parameters  
-   By defining `customTextParameters` as the data source you can access custom values where this is possible to set.
+   By defining `customTextParameters` as the data source you can access custom values in the contexts that support it.
    Currently, `CustomTextParameters` can be used in `ValidationIssue` and `InstantiationValidationResult`. Example:
    ```cs
     new ValidationIssue()
@@ -223,7 +223,7 @@ It is currently possible to fetch values from 4 different data sources.
           },
         Field = "someField",
         Severity = ValidationIssueSeverity.Error,
-    }
+    };
    ```
 
    

@@ -218,7 +218,7 @@ Det er per nå mulig å hente verdier fra 4 ulike datakilder.
           },
         Field = "someField",
         Severity = ValidationIssueSeverity.Error,
-    }
+    };
    ```
 
 ### Standardverdi
