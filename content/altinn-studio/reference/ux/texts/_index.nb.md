@@ -178,6 +178,10 @@ Variabler i tekster kan inkluderes ved å følge oppsettet nedenfor. Det er vikt
     {
       "key": "<instance value key>",
       "dataSource": "instanceContext"
+    },
+    {
+      "key": "<custom text parameter key>",
+      "dataSource": "customTextParameters"
     }
   ]
 }
@@ -201,7 +205,22 @@ Det er per nå mulig å hente verdier fra 3 ulike datakilder.
    1. `instanceOwnerPartyId` inneholder avgiver sin party id.
    2. `instanceId` inneholder id'en til den aktive instansen.
    3. `appId` inneholder id'en til appen instansen er knyttet til.
-    
+4. Egendefinerte tekst-parametere\
+   Ved å angi `customTextParameters` som datakilde kan man hente ut egendefinerte verdier der det er mulig å sette.
+   Per nå kan `CustomTextParameters` settes i `ValidationIssue` og `InstantiationValidationResult`. Eksempel:
+   ```cs
+    new ValidationIssue()
+    {
+        CustomTextKey = "too_long",
+        CustomTextParameters = new() 
+          {
+            ["current_length"] = name.Length.ToString() 
+          },
+        Field = "name",
+        Severity = ValidationIssueSeverity.Error,
+    }
+   ```
+
 ### Standardverdi
 
 Hvis en variabel ikke finnes i datakilden, vises stien til det feltet i datakilden. Hvis du imidlertid ønsker å vise noe annet enn denne stien, kan du legge til en standardverdi-alternativ til hver variabel.
