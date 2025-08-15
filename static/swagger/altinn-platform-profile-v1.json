@@ -1,9 +1,19 @@
 {
-  "openapi": "3.0.4",
+  "openapi": "3.0.3",
   "info": {
     "title": "Altinn Profile",
     "version": "v1"
   },
+    "servers": [
+    {
+      "url": "https://platform.tt02.altinn.no/profile/api/v1",
+      "description": "TT02"
+    },
+    {
+      "url": "https://platform.altinn.no/profile/api/v1",
+      "description": "Production"
+    }
+  ],
   "paths": {
     "/profile/api/v1/users/current/party-groups/favorites": {
       "get": {
