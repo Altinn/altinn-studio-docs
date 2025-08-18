@@ -6,6 +6,9 @@ toc: false
 tags: [api]
 aliases:
 - /teknologi/altinnstudio/altinn-api/app-api/
+cascade:
+  params:
+    product: product_studio
 ---
 
 ## Overview

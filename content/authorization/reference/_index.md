@@ -4,7 +4,9 @@ linktitle: Reference
 description: Reference
 toc: false
 weight: 5
-aliases:
+cascade:
+  params:
+    diataxis: diataxis_reference
 ---
 
 {{<children />}}

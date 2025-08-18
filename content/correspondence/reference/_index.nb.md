@@ -5,6 +5,9 @@ description: Referansedokumentasjon for Altinn 3 Melding
 tags: []
 toc: true
 weight: 70
+cascade:
+  params:
+    diataxis: diataxis_reference
 ---
 
 

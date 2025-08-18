@@ -5,6 +5,9 @@ description: Altinn Melding er en sikker og effektiv digital tjeneste som gjør 
 tags: []
 toc: false
 weight: 1
+cascade:
+  params:
+    diataxis: diataxis_explanation
 ---
 
 ### I tråd med Digitaliseringsrundskrivet

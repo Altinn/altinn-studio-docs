@@ -4,6 +4,9 @@ description: High-level description of Altinn Notifications
 aliases:
 - /altinn-notifications/
 weight: 10
+cascade:
+  params:
+    diataxis: diataxis_explanation
 ---
 
 **Altinn Notifications** is a service designed to facilitate efficient communication with end users through various channels. Key features include:

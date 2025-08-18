@@ -7,6 +7,9 @@ toc: false
 weight: 1
 aliases:
   - /technology/solutions/altinn-platform/authorization/
+cascade:
+  params:
+    diataxis: diataxis_explanation
 ---
 
 Det typiske scenariet er at en hendelse vil bli utløst, eller data vil bli lest, oppdatert eller opprettet av en digital eller analog tjeneste. En tjenesteeier eier denne tjenesten og har definert noen forretningsregler for hvem som har lov til å bruke tjenesten.

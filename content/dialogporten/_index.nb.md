@@ -1,8 +1,10 @@
 ---
-title: 'Dialogporten'
-linktitle: 'Dialogporten'
+title: Dialogporten
 description: 'Dialogporten er en løsning som tillater meldinger og dialoger implementert på Altinn 3 og andre digitale tjenesteplattformer tilgjengelig for sluttbruker-systemer i et felles format.'
 weight: 1
+cascade:
+  params:
+    product: product_dialogporten
 ---
 
 {{<notice warning>}}

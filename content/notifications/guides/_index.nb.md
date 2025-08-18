@@ -2,6 +2,9 @@
 title: Brukerveiledninger
 description: Brukerveiledninger for Altinn Notifications
 weight: 24
+cascade:
+  params:
+    diataxis: diataxis_how-to-guides
 ---
 
 ### Retningslinjer for varslingsinnhold
