@@ -5,6 +5,9 @@ description: What is Altinn 3 Correspondence?
 tags: []
 toc: false
 weight: 1
+cascade:
+  params:
+    diataxis: diataxis_explanation
 ---
 
 Altinn Correspondence is a service within the Altinn platform used for securely sending and receiving messages. The service is utilized by public authorities, businesses and individuals. It has integrated authorization and encryption, ensuring that important information is transmitted safely and made easily accessible to the correct recipient.  

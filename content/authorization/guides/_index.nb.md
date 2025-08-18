@@ -4,6 +4,9 @@ linktitle: Brukerveiledninger
 description: Les vår samling av brukerveiledninger knyttet til Altinn Autorisasjon.
 toc: false
 weight: 4
+cascade:
+  params:
+    diataxis: diataxis_how-to-guides
 ---
 
 ## Inndeling

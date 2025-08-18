@@ -5,6 +5,9 @@ weight: 40
 aliases:
  - /altinn3/
  - /teknologi/altinnstudio/
+cascade:
+  params:
+    diataxis: diataxis_reference
 ---
 
 Altinn Studio is the next generation Altinn application development and hosting solution.

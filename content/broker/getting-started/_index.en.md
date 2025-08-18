@@ -5,6 +5,9 @@ description: Tutorials for how to get started with Altinn 3 Broker, for service 
 tags: []
 toc: false
 weight: 30
+cascade:
+  params:
+    diataxis: diataxis_tutorials
 ---
 
 {{<children />}}

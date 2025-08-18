@@ -5,6 +5,9 @@ description: Lær om hvordan komme i gang med Altinn 3 Formidling, for tjenestee
 tags: []
 toc: false
 weight: 30
+cascade:
+  params:
+    diataxis: diataxis_tutorials
 ---
 
 {{<children />}}
