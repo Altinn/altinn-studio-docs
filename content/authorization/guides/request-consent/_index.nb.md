@@ -1,7 +1,7 @@
 ---
-title: Samtykke for datakonsumenter
+title: Samtykke for datakonsument
 description: Hvordan bruke samtykkeløsningen for datakonsumenter i Altinn 3
-linktitle: Samtykke
+linktitle: Samtykke for datakonsument
 toc: false
 weight: 10
 ---
@@ -202,3 +202,4 @@ For å opprette samtykkeforespørsler på vegne av andre virksomheter må scope 
 
 * [Maskinporten: API-konsument-guide](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument.html)
 * [GitHub: Testimplementasjon](https://github.com/TheTechArch/smartbank)
+* [Kjørende smartbank](https://smartbankdemo.azurewebsites.net/)
