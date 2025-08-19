@@ -1,7 +1,7 @@
 ---
-title: Samtykke for datakonsumenter
+title: Samtykke for datakonsument
 description: Hvordan bruke samtykkeløsningen for datakonsumenter i Altinn 3
-linktitle: Samtykke
+linktitle: Samtykke for datakonsument
 toc: false
 weight: 10
 ---
