@@ -153,15 +153,19 @@ I Altinn 3 hentes samtykke-token som en del av Maskinporten-tokenet. Spesifiser 
 
 ```json
 {
-  "aud": "https://ver2.maskinporten.no/",
-  "scope": "<scope>",
-  "iss": "<client_id>",
-  "exp": 1584693183,
-  "iat": 1584693063,
+  "aud": "https://test.maskinporten.no/",
+  "scope": "altinn:consentrequests.read",
+  "iss": "<clientid>",
+  "exp": 1752827349,
+  "iat": 1752827339,
   "jti": "<jti>",
-  "type": "urn:altinn:consent",
-  "id": "<consent_request_id>",
-  "from": "urn:altinn:person:identifier-no:<pid>"
+  "authorization_details": [
+    {
+      "from": "urn:altinn:person:identifier-no:25922947409",
+      "id": "77ed8698-e619-4066-9eb4-5c1eb3f165a1",
+      "type": "urn:altinn:consent"
+    }
+  ]
 }
 ```
 
@@ -175,16 +179,20 @@ For å opprette samtykkeforespørsler på vegne av andre virksomheter må scope 
 
 ```json
 {
-  "aud": "https://ver2.maskinporten.no/",
-  "scope": "<scope>",
-  "iss": "<client_id>",
-  "exp": 1584693183,
-  "iat": 1584693063,
+  "aud": "https://test.maskinporten.no/",
+  "scope": "altinn:consentrequests.read",
+  "iss": "<clientid>",
+  "exp": 1752827349,
+  "iat": 1752827339,
   "jti": "<jti>",
-  "type": "urn:altinn:consent",
-  "id": "<consent_request_id>",
-  "from": "urn:altinn:person:identifier-no:<pid>",
-  "consumer_org": "<kunde_orgnr>"
+    "consumer_org": "<kunde_orgnr>"
+  "authorization_details": [
+    {
+      "from": "urn:altinn:person:identifier-no:25922947409",
+      "id": "77ed8698-e619-4066-9eb4-5c1eb3f165a1",
+      "type": "urn:altinn:consent"
+    }
+  ]
 }
 ```
 
