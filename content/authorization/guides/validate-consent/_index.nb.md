@@ -1,17 +1,17 @@
 ---
-title: Consent for data source
-description: How to set up validation of consents for data sources
-linktitle: Consent for data sources
+title: Samtykke for datakilde
+description: Hvordan sette opp validering av samtykker for datakilder
+linktitle: Samtykke for datakilder
 toc: false
 weight: 10
 ---
 
-## Consent token
+## Samtykketoken
 
-In the new consent solution for Altinn 3, it is **Maskinporten** that issues the consent token.  
-The token is issued as a regular Maskinporten token, but also includes `authorization_details` attributes containing information about which rights the consent grants.
+I den nye samtykkeløsningen for Altinn 3 er det **Maskinporten** som utsteder samtykketoken.  
+Tokenet utstedes som et vanlig Maskinporten-token, men inneholder i tillegg `authorization_details`-attributter med informasjon om hvilke rettigheter samtykket gir.
 
-The example below shows a token from the **Smartbank** demo application in the TT02 test environment:
+Eksempelet under viser et token fra demoapplikasjonen **Smartbank** i testmiljøet TT02:
 
 ```json
 {
