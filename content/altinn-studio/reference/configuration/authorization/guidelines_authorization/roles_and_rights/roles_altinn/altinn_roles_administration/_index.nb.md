@@ -5,9 +5,8 @@ description: Altinn roller som kan benyttes for å gi tilgang til å administrer
 toc: true
 ---
 
-Administrator roller skal IKKE benyttes i autorisasjonsregler for en applikasjon.
-Det er allikevel nyttig å vite at de er tilgjengelig for aktøren og at det er nødvendig for bruker som skal styre tilganger for aktøren å ha disse. 
-
+Administratorroller skal IKKE benyttes i autorisasjonsregler for en applikasjon.
+Det er likevel nyttig å vite at de er tilgjengelige for aktøren, og at det er nødvendig for brukere som skal styre tilganger for aktøren å ha disse. 
 ## Tilgangsstyring
 Beskrivelse: Denne rollen gir administratortilgang til å gi videre rettigheter til andre.
 
