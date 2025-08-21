@@ -39,9 +39,7 @@ This is not implemented today but is on the backlog as a new source of external 
 
 ## Altinn roles
 These roles are used when the [actor](/technology/terms/#actor) is an organization or an individual.  
-Altinn roles can (unlike external roles) be administered and changed via Altinn Profile by the administrator for the [actor](/technology/terms/#actor).  
-
-You can read more about which roles from the Tax Administration are used [here](roles_altinn).  
+Altinn roles can (unlike external roles) be administered and changed via Altinn Profile by the administrator for the [actor](/technology/terms/#actor).
 
 ## API for role information
 There is an API for retrieving information about all roles registered in Altinn 2.  

@@ -42,8 +42,6 @@ Dette er ikke implmentert  i dag men ligger i backlogg som ny kilde til eksterne
 Disse rollene benyttes når [aktøren](/technology/terms/#actor) er en virksomhet eller person. 
 Altinn roller kan (i motsetning til eksterne roller) administres og endres via Altinn Profile av administrator for [aktøren](/technology/terms/#actor). 
 
-Du kan lese mer om hvilke roller fra Skatteetaten som benyttes [her](roles_altinn)
-
 ## API for rolleinformasjon
 Det finnes et API for å slå opp informasjon om aller roller som er registrert i Altinn 2. 
 Dokumentasjon av API finnes [her](https://altinn.github.io/docs/api/rest/metadata/) under overskriften "Hente metadata om rolledefinisjoner i Altinn". 
