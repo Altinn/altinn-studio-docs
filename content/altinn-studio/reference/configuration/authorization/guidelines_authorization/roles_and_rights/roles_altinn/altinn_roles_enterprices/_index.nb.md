@@ -36,10 +36,10 @@ Denne rollen gir rettighet til tjenester på vegne av enheter/foretak. Ved regel
 Tilgang til helse-, sosial- og velferdsrelaterte tjenester. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir.
 
 ## Kommunale tjenester
-Rollen gor tilgang til kommunale tjenester. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir.
+Rollen gir tilgang til kommunale tjenester. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir.
 
 ## Primærnæring og næringsmiddel
-Denne rollen gir rettighet til tjenester innen import, foredling, produksjon og/eller salg av primærnæringsprodukter og andre næringsmiddel, samt dyrehold, akvakultur, planter og kosmetikk. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir.
+Denne rollen gir rettighet til tjenester innen import, foredling, produksjon og/eller salg av primærnæringsprodukter og andre næringsmidler, samt dyrehold, akvakultur, planter og kosmetikk. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir.
 
 ## Post/arkiv
 Denne rollen gir rettighet til å lese meldinger som blir sendt til brukerens meldingsboks. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir.
@@ -55,7 +55,7 @@ Denne rollen gir revisor rettighet til å attestere tjenesten Merverdiavgift - s
 
 
 ## Roller som utgår
-Disse rollene skal ikke lengre benyttes for å tilgangsstyre til applikasjoner:
+Disse rollene skal ikke lenger benyttes for å tilgangsstyre til applikasjoner:
 
 ### Algetestdata
 Havforskningsinstituttet - registrering av algetestdata.

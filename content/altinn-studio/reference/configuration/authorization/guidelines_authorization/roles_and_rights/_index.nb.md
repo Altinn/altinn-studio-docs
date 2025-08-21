@@ -27,20 +27,20 @@ Disse rollene benyttes når [aktøren](/technology/terms/#actor) er en virksomhe
 Du kan lese mer om hvilke roller fra Skatteetaten som benyttes [her](roles_ske)
 
 ### Roller fra [Arbeidsgiver- og arbeidstakerregisteret](https://www.nav.no/no/bedrift/tjenester-og-skjemaer/aa-registeret-og-a-meldingen)
-Dette er ikke implmentert  i dag men ligger i backlogg som ny kilde til eksterne roller
+Dette er ikke implementert i dag men ligger i backlogg som ny kilde til eksterne roller
 
 ### Roller om [Vergemål fra Statens sivilrettsforvaltning](https://www.sivilrett.no/vergemaalsordninga.556842.no.html) 
-Dette er ikke implmentert  i dag men ligger i backlogg som ny kilde til eksterne roller
+Dette er ikke implementert i dag men ligger i backlogg som ny kilde til eksterne roller
 
 ### Roller om [Foreldreansvar](https://www.skatteetaten.no/person/folkeregister/fodsel-og-navnevalg/foreldreansvar/) 
-Dette er ikke implmentert  i dag men ligger i backlogg som ny kilde til eksterne roller
+Dette er ikke implementert i dag men ligger i backlogg som ny kilde til eksterne roller
 
 ### Roller fra [Advokatregisteret hos Tilsynsrådet for Advokater](https://tilsynet.no/register) 
-Dette er ikke implmentert  i dag men ligger i backlogg som ny kilde til eksterne roller
+Dette er ikke implementert i dag men ligger i backlogg som ny kilde til eksterne roller
 
 ## Altinn roller
 Disse rollene benyttes når [aktøren](/technology/terms/#actor) er en virksomhet eller person. 
-Altinn roller kan (i motsetning til eksterne roller) administres og endres via Altinn Profile av administrator for [aktøren](/technology/terms/#actor). 
+Altinn-roller kan (i motsetning til eksterne roller) administreres og endres via Altinn Profile av administrator for [aktøren](/technology/terms/#actor). 
 
 ## API for rolleinformasjon
 Det finnes et API for å slå opp informasjon om aller roller som er registrert i Altinn 2. 

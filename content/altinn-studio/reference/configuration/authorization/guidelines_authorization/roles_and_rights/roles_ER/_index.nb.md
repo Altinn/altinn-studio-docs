@@ -39,7 +39,7 @@ Les mer om hva dette er [her](https://www.altinn.no/hjelp/skjema/alle-altinn-rol
 
 
 
-## Rolle for norskregistert Utenlands foretak
+## Rolle for norskregistrert Utenlands foretak
 **Kontaktperson for utenlandsk foretak(KNUF)**
 
 Norsk avdeling av utenlansk foretak (NUF) er i utgangspunktet ikke et norsk selskap, men registreres i ER fordi det har aktivitet i Norge og trenger et organisasjonsnummer. 
