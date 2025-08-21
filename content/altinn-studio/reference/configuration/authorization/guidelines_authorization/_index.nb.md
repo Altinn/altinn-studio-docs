@@ -40,13 +40,8 @@ Som applikasjonseier må du alltid vurdere om intensjonene i beskrivelsen av rol
 Å gi feil personer tilgang til data de ikke burde ha er ingen god markedsføring for tjenesten din. Vi anbefaler deg derfor sterkt å kontakte Altinn for veiledning i valg av roller og oppsett av autorisasjonsregler hvis du er usikker.
 {{% /notice%}}
 
-## Autorisasjonsregler må testes
-Autorisasjonsregler må som alt annet testes før applikasjonen lanseres for å verifisere at riktige roller har tilgang til nødvendig data.
-
-[Her](test_authorization_application) kan du lese våre anbefalinger knyttet til testing av autorisasjonsregler.
-
-
 ## Altinn kan pålegge å endre autorisasjonsregler
 Selv om det er applikasjonseierens ansvar å konstruere riktig autorisasjonsregel og velge riktige roller, vil Altinn gjennomføre stikkkontroller med autorisasjonsreglene for tjenester som settes i produksjon.
 Hvis vi oppdager det vi anser som feil bruk av Altinn Autorisasjon så vil vi, om nødvendig, ta tjenesten ut av produksjon eller pålegge endringer i autorisasjonsregler.
 
+{{<children />}}
