@@ -43,10 +43,9 @@ Description: This role grants access to read messages sent to the user’s messa
 Delegable: yes  
 
 ## Primary industries and foodstuffs
-Description: This role grants access to services related to the import, processing, production, and/or sale of primary industry products and other foodstuffs, as well as animal husbandry, aquaculture, plants, and cosmetics.  
+Description: This role grants access to services related to the import, processing, production, or sale of primary-industry products and other foodstuffs, as well as animal husbandry, aquaculture, plants, and cosmetics.  
 
 Delegable: yes  
-
 ## Private individual – limited rights
 Description: This role allows the use of services on behalf of another private individual.  
 
