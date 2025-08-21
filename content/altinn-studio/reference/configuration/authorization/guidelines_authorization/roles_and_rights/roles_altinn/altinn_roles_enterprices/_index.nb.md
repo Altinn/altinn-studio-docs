@@ -12,7 +12,7 @@ Denne rollen gir rettighet til lønns- og personalrelaterte tjenester. Ved regel
 Denne rollen gir rettighet til regnskapsrelaterte skjema og tjenester. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir.
 
 ## Begrenset signeringsrettighet
-Tilgang til å fylle ut og signere utvalgte skjema og tjenester, hovedsaklig innenfor økonomiske og forretningsmessige forhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir.
+Tilgang til å fylle ut og signere utvalgte skjema og tjenester, hovedsakelig innenfor økonomiske og forretningsmessige forhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir.
 
 ## Samferdsel
 Rollen gir rettighet til tjenester relatert til samferdsel. For eksempel tjenester fra Statens Vegvesen, Sjøfartsdirektoratet og Luftfartstilsynet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir.
