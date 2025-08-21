@@ -33,20 +33,36 @@
   translation: teknologi
 - id: content
   translation: innhold
-- id: products
-  translation: produkter
-- id: studio
-  translation: Studio
-- id: authorization
+
+# Produkter
+- id: product
+  translation: Produkt
+- id: product_studio
+  translation: Altinn Studio
+- id: product_authorization
   translation: Autorisasjon
-- id: broker
+- id: product_broker
   translation: Formidling
-- id: correspondence
+- id: product_correspondence
   translation: Melding
-- id: notifications
-  translation: Varsling
-- id: dialogporten
+- id: product_dialogporten
   translation: Dialogporten
+- id: product_events
+  translation: Hendelser
+- id: product_notifications
+  translation: Varsling
+
+# Diataxis
+- id: diataxis
+  translation: Type
+- id: diataxis_explanation
+  translation: Forklaring
+- id: diataxis_how-to-guides
+  translation: Guider
+- id: diataxis_reference
+  translation: Referanse
+- id: diataxis_tutorials
+  translation: Veiledninger
 
 # Frontpage
 - id: altinn-your-dialogue

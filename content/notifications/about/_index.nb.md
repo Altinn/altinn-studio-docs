@@ -4,6 +4,9 @@ description: Overordnet beskrivelse av Altinn Varslinger
 aliases:
 - /altinn-notifications/
 weight: 10
+cascade:
+  params:
+    diataxis: diataxis_explanation
 ---
 
 **Altinn Varslinger** er en tjeneste utviklet for å fasilitere effektiv kommunikasjon med sluttbrukere gjennom ulike kanaler. Nøkkelfunksjoner inkluderer:
