@@ -92,7 +92,7 @@ Hvis en applikasjonsprosess har et bekreftelsessteg der det er mulig å avvise d
 <bpmn:sequenceFlow id="Flow_g1_end" sourceRef="Gateway_1" targetRef="EndEvent" />
 ```
 
-I eksempelet ovenfor er det definert to handlinger i _Task_2_: bekreft og avvis. [Les mer om handlinger](../tasks/)
+I eksempelet ovenfor er det definert to handlinger i _Task_2_: `confirm` og `reject`. [Les mer om handlinger](../tasks/)
 
 Det vi ønsker å få prosessmotoren til å velge _Flow_g1_t1_ hvis brukeren utfører handlingen _avvis_ og _Flow_g1_end_ hvis handlingen som ble utført var _bekreft_...
 
@@ -100,10 +100,10 @@ For å gjøre dette bruker vi uttrykksfunksjonen _gatewayAction_
 
 ```xml {hl_lines=[2,5]}
 <bpmn:sequenceFlow id="Flow_g1_t1" sourceRef="Gateway_1" targetRef="Task_1">
-    <bpmn:conditionExpression>["equals", ["gatewayAction"], "avvis"]</bpmn:conditionExpression>
+    <bpmn:conditionExpression>["equals", ["gatewayAction"], "reject"]</bpmn:conditionExpression>
 </bpmn:sequenceFlow>
 <bpmn:sequenceFlow id="Flow_g1_end" sourceRef="Gateway_1" targetRef="EndEvent">
-    <bpmn:conditionExpression>["equals", ["gatewayAction"], "bekreft"]</bpmn:conditionExpression>
+    <bpmn:conditionExpression>["equals", ["gatewayAction"], "confirm"]</bpmn:conditionExpression>
 </bpmn:sequenceFlow>
 ```
 
