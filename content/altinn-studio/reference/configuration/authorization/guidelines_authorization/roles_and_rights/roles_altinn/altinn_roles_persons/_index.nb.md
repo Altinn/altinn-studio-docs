@@ -1,11 +1,11 @@
 ---
-title: Altinnroller brukt av personer
+title: Altinnroller for personer
 linktitle: Personroller
-description: Denne siden beskriver hvilke Altinn roller som kan benyttes for å gi en bruker tilgang til en applikasjon på vegne av en person
+description: Altinn roller som kan benyttes for å gi en bruker tilgang til en applikasjon på vegne av en person.
 toc: true
 ---
 
-Følgende roller finnes i dag for personer
+Følgende roller finnes i dag for personer:
 
 ## Begrenset signeringsrettighet
 Beskrivelse: Tilgang til å signere utvalgte skjema og tjenester
@@ -41,7 +41,8 @@ Beskrivelse: Denne rollen gir rettighet til å lese meldinger som blir sendt til
 Kan delegeres: ja
 
 ## Primærnæring og næringsmiddel
-Beskrivelse: Denne rollen gir rettighet til tjenester innen import, foredling, produksjon og/eller salg av primærnæringsprodukter og andre næringsmiddel, samt dyrehold, akvakultur, planter og kosmetikk.
+Beskrivelse: Denne rollen gir rettighet til tjenester innen import, foredling, produksjon og/eller
+salg av primærnæringsprodukter og andre næringsmiddel, samt dyrehold, akvakultur, planter og kosmetikk.
 
 Kan delegeres: ja
 
@@ -56,12 +57,14 @@ Beskrivelse: Denne rollen gir rettighet til regnskapsrelaterte skjema og tjenest
 Kan delegeres: ja
 
 ## Samferdsel
-Beskrivelse: Rollen gir rettighet til tjenester relatert til samferdsel. For eksempel tjenester fra Statens Vegvesen, Sjøfartsdirektoratet og Luftfartstilsynet.
+Beskrivelse: Rollen gir rettighet til tjenester relatert til samferdsel.
+For eksempel tjenester fra Statens Vegvesen, Sjøfartsdirektoratet og Luftfartstilsynet.
 
 Kan delegeres: ja
 
 ## Skatteforhold for privatpersoner
-Beskrivelse: Tillatelsen gjelder alle opplysninger vedrørende dine eller ditt enkeltpersonsforetaks skatteforhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan Skatteetaten endre i tillatelsen.
+Beskrivelse: Tillatelsen gjelder alle opplysninger vedrørende dine eller ditt enkeltpersonsforetaks skatteforhold.
+Ved regelverksendringer eller innføring av nye digitale tjenester kan Skatteetaten endre i tillatelsen.
 
 Kan delegeres: ja
 

@@ -5,6 +5,9 @@ aliases:
 - /altinn-studio/
 - /technology/altinnstudio/solutions/altinn-studio/
 weight: 10
+cascade:
+  params:
+    diataxis: diataxis_explanation
 ---
 
 Altinn Studio is a platform for developing, operating, and managing digital services for citizens and businesses. The platform 

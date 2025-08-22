@@ -5,6 +5,9 @@ description: Beskrivelse av ulike Altinn API for sluttbrukere og applikasjonseie
 toc: true
 weight: 20
 tags: [translate-to-norwegian]
+cascade:
+  params:
+    diataxis: diataxis_reference
 ---
 
 ## API-ene

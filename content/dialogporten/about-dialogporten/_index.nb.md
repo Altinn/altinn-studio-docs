@@ -2,6 +2,9 @@
 title: 'Om Dialogporten'
 description: 'En kort introduksjon til Dialogporten.'
 weight: 10
+cascade:
+  params:
+    diataxis: diataxis_explanation
 ---
 
 ## Hva er Dialogporten?

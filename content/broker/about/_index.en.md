@@ -5,6 +5,9 @@ description: What is Altinn 3 Broker?
 tags: []
 toc: true
 weight: 1
+cascade:
+  params:
+    diataxis: diataxis_explanation
 ---
 
 <!--

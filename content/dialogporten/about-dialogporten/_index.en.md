@@ -2,6 +2,9 @@
 title: 'About Dialogporten'
 description: 'A brief introduction to Dialogporten.'
 weight: 10
+cascade:
+  params:
+    diataxis: diataxis_explanation
 ---
 
 ## What is Dialogporten?

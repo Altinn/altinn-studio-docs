@@ -45,10 +45,8 @@ slightest doubt.
 ## Authorization rules must be tested
 Authorization rules, like everything else, must be tested before the application is launched to verify that the correct roles have access to the necessary data.
 
-[Here](test_authorization_application) you can read our recommendations related to testing authorization rules.
-
 ## Altinn can impose changes to the authorization rules
 Although it is the application owner's responsibility to construct the correct authorization rule and select the correct roles, Altinn will supervise or carry out spot checks with the authorization rules for services that are put into production.
 If we discover what we consider incorrect use of Altinn Authorization, we may choose to intervene and remove the service from production or impose changes in the authorization rules.
 
-
+{{<children />}}

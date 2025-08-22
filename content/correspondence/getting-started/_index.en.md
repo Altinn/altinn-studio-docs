@@ -5,6 +5,9 @@ description: You can either use Altinn as a service owner to send messages, or i
 tags: []
 toc: false
 weight: 30
+cascade:
+  params:
+    diataxis: diataxis_tutorials
 ---
 
 {{<children />}}

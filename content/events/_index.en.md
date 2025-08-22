@@ -5,6 +5,9 @@ toc: true
 weight: 20
 aliases:
  - /altinn-events/
+cascade:
+  params:
+    product: product_events
 ---
 
 ## Design goals

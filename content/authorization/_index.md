@@ -1,12 +1,13 @@
 ---
 title: Authorization
-linktitle: Authorization
 description: The authorization components provide access management and control functionality for digital and analog services hosted in the Altinn Platform or other places.
-tags: [architecture, solution]
 toc: false
 weight: 1
 aliases:
   - /technology/solutions/altinn-platform/authorization/
+cascade:
+  params:
+    product: product_authorization
 ---
 
 {{<children />}}
