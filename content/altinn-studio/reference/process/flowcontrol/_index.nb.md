@@ -1,6 +1,6 @@
 ---
 title: Flytkontroll
-description: Kontroller proess flyt
+description: Kontroller proessflyt
 tags: [altinn-apps, process, bpmn, gateway]
 weight: 20
 toc: true
@@ -19,7 +19,7 @@ Eksklusive gateways tillater en annen vei i prosessen basert på direkte brukeri
 
 ### Kontrollere flyten ut av en gateway basert på data levert av brukeren ved hjelp av uttrykk
 
-Det er mulig å kontrollere hvilken flyt som velges ut av en gateway basert på data som ble levert av en bruker i en tidligere oppgave ved hjelp av samme uttrykkspråk som brukes til å skjule/ vise elementer i brukergrensesnittet.
+Det er mulig å kontrollere hvilken flyt som velges ut av en gateway basert på data som ble levert av en bruker i en tidligere oppgave ved hjelp av samme uttrykkspråk som brukes til å skjule/vise elementer i brukergrensesnittet.
 For å oppnå dette må vi først definere hvilke formdata som skal leveres som kontekst til uttrykket.
 
 Eksempel:
@@ -41,11 +41,11 @@ Eksempel:
 ```
 I eksempelet ovenfor legger gatewayen til formdata som er lagret i datatype _Schema_ som kontekst til uttrykkene. Formdata og datatyper er definert i filen _applicationmetadata.json_.
 
-Når gatewayen er koblet til en datatyper, kan vi dra nytte av uttrykkspråket for å definere om flytene ut av gatewayen er tilgjengelige.
+Når gatewayen er koblet til en datatype, kan vi dra nytte av uttrykkspråket for å definere om flytene ut av gatewayen er tilgjengelige.
 
 MERK: Det må være bare én flyt tilgjengelig etter filtrering av flyter, med mindre det er en standardflyt, og den er en del av de mulige flytene ut av gatewayen.
 
-Nå må vi definere disse uttrykkene i de utgående flytene fra gatewayen. I eksempelet på gatewayen har vi to utgående flyter: _Flow_g1_t2_ og _Flow_g1_end_
+Nå må vi definere disse uttrykkene i de utgående flytene fra gatewayen. I gateway-eksempelet har vi to utgående flyter: _Flow_g1_t2_ og _Flow_g1_end_
 
 Vi vil sende prosessen for å følge _Flow_g1_t2_ hvis feltet Amount i formdata er større enn eller lik 1000, eller _Flow_g1_end_ hvis det er mindre enn 1000.
 
@@ -162,7 +162,7 @@ Hvis kravene for gatewayen din ikke kan oppfylles gjennom uttrykk, har du muligh
       <bpmn:incoming>Flow_g2_end</bpmn:incoming>
     </bpmn:endEvent>
   </bpmn:process>
-  <!-- BPMN Diagram part is omitted for previty -->
+  <!-- BPMN Diagram part is omitted for brevity -->
 </bpmn:definitions>
 ```
 {{</content-version-container>}}
@@ -213,7 +213,7 @@ Hvis kravene for gatewayen din ikke kan oppfylles gjennom uttrykk, har du muligh
       <bpmn:incoming>Flow_g2_end</bpmn:incoming>
     </bpmn:endEvent>
   </bpmn:process>
-  <!-- BPMN Diagram part is omitted for previty -->
+  <!-- BPMN Diagram part is omitted for brevity -->
 </bpmn:definitions>
 ```
 
