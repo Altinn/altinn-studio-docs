@@ -104,7 +104,7 @@ To do this we use the expression function _gatewayAction_
     <bpmn:conditionExpression>["equals", ["gatewayAction"], "reject"]</bpmn:conditionExpression>
 </bpmn:sequenceFlow>
 <bpmn:sequenceFlow id="Flow_g1_end" sourceRef="Gateway_1" targetRef="EndEvent">
-    <bpmn:conditionExpression>["lessThan", ["gatewayAction"], "confirm"]</bpmn:conditionExpression>
+    <bpmn:conditionExpression>["equals", ["gatewayAction"], "confirm"]</bpmn:conditionExpression>
 </bpmn:sequenceFlow>
 ```
 

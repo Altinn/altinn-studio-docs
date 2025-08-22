@@ -1,57 +1,10 @@
 ---
 title: Flytkontroll
-description: Kontroller proess flyt
+description: Kontroller prosessflyt
 tags: [altinn-apps, process, bpmn, gateway]
 weight: 20
 toc: true
 ---
-
-## Eksklusive gateways
-
-Eksklusive gateways tillater en annen vei i prosessen basert på direkte brukerinndata, data eller andre aspekter tilgjengelig fra koden.
-
-## Gateways som kontrollerer flyten med uttrykk
-
-### Forutsetninger
-
-* Applikasjonen din bruker versjon 8.0.0 eller nyere av Altinn-pakkene.
-* Applikasjon med en prosess som inneholder en eksklusiv gateway.
-
-### Kontrollere flyten ut av en gateway basert på data levert av brukeren ved hjelp av uttrykk
-
-Det er mulig å kontrollere hvilken flyt som velges ut av en gateway basert på data som ble levert av en bruker i en tidligere oppgave ved hjelp av samme uttrykkspråk som brukes til å skjule/ vise elementer i brukergrensesnittet.
-For å oppnå dette må vi først definere hvilke formdata som skal leveres som kontekst til uttrykket.
-
-Eksempel:
-```xml {hl_lines=["6-10"]}
-...
-<bpmn:exclusiveGateway id="Gateway_1">
-    <bpmn:incoming>Flow_t1_g1</bpmn:incoming>
-    <bpmn:incoming>Flow_g1_t2</bpmn:incoming>
-    <bpmn:outgoing>Flow_g1_end</bpmn:outgoing>
-    <bpmn:extensionElements>
-        <altinn:gatewayExtension>
-            <altinn:connectedDataTypeId>Schema</altinn:connectedDataTypeId>
-        </altinn:gatewayExtension>
-    </bpmn:extensionElements>
-</bpmn:exclusiveGateway>
-<bpmn:sequenceFlow id="Flow_g1_t2" sourceRef="Gateway_1" targetRef="Task_2" />
-<bpmn:sequenceFlow id="Flow_g1_end" sourceRef="Gateway_1" targetRef="EndEvent" />
-...
-```
-I eksempelet ovenfor legger gatewayen til formdata som er lagret i datatype _Schema_ som kontekst til uttrykkene. Formdata og datatyper er definert i filen _applicationmetadata.json_.
-
-Når gatewayen er koblet til en datatyper, kan vi dra nytte av uttrykkspråket for å definere om flytene ut av gatewayen er tilgjengelige.
-
-MERK: Det må være bare én flyt tilgjengelig etter filtrering av flyter, med mindre det er en standardflyt, og den er en del av de mulige flytene ut av gatewayen.
-
-Nå må vi definere disse uttrykkene i de utgående flytene fra gatewayen. I eksempelet på gatewayen har vi to utgående flyter: _Flow_g1_t2_ og _Flow_g1_end_
-
-Vi vil sende prosessen for å følge _Flow_g1_t2_ hvis feltet Amount i formdata er større enn eller lik 1000, eller _Flow_g1_end_ hvis det er mindre enn 1000.
-
-For å oppnå dette må vi legge til
-
-# Prosessflyt
 
 ## Eksklusive gateways
 
@@ -86,19 +39,17 @@ Eksempel:
 <bpmn:sequenceFlow id="Flow_g1_end" sourceRef="Gateway_1" targetRef="EndEvent" />
 ...
 ```
-I eksempelet ovenfor legger gatewayen til formdata som er lagret i datatypen _Schema_ som kontekst til uttrykkene. Formdata og datatyper er definert i filen _applicationmetadata.json_.
+I eksempelet ovenfor legger gatewayen til formdata som er lagret i datatype _Schema_ som kontekst til uttrykkene. Formdata og datatyper er definert i filen _applicationmetadata.json_.
 
-Når gatewayen er koblet til en datatypen, kan vi dra nytte av uttrykkspråket for å definere om flytene ut av gatewayen er tilgjengelige.
+Når gatewayen er koblet til en datatype, kan vi dra nytte av uttrykkspråket for å definere om flytene ut av gatewayen er tilgjengelige.
 
-MERK: Det må bare være én flyt tilgjengelig etter filtrering av flytene, med mindre det er en standardflyt, og den er en del av de mulige flytene ut av gatewayen.
+MERK: Det må være bare én flyt tilgjengelig etter filtrering av flyter, med mindre det er en standardflyt, og den er en del av de mulige flytene ut av gatewayen.
 
-Nå må vi definere disse uttrykkene i de utgående flytene fra gatewayen. I eksemplet på gatewayen har vi to utgående flyter: _Flow_g1_t2_ og _Flow_g1_end_
+Nå må vi definere disse uttrykkene i de utgående flytene fra gatewayen. I gateway-eksempelet har vi to utgående flyter: _Flow_g1_t2_ og _Flow_g1_end_
 
-Vi ønsker at prosessen skal følge _Flow_g1_t2_ hvis feltet Amount i formdata er større enn eller lik 1000, eller _Flow_g1_end_ hvis det er mindre enn 1000.
+Vi vil sende prosessen for å følge _Flow_g1_t2_ hvis feltet Amount i formdata er større enn eller lik 1000, eller _Flow_g1_end_ hvis det er mindre enn 1000.
 
-For å oppnå dette må vi leg
-
-til betingelsesuttrykkene i de utgående flytene.
+For å oppnå dette må vi legge til betingelsesuttrykk (conditionExpressions) til de utgående flytene.
 
 ```xml {hl_lines=[2,5]}
 <bpmn:sequenceFlow id="Flow_g1_t2" sourceRef="Gateway_1" targetRef="Task_2">
@@ -141,20 +92,18 @@ Hvis en applikasjonsprosess har et bekreftelsessteg der det er mulig å avvise d
 <bpmn:sequenceFlow id="Flow_g1_end" sourceRef="Gateway_1" targetRef="EndEvent" />
 ```
 
-I eksempelet ovenfor er det definert to handlinger i _Task_2_: bekreft og avvis. [Les mer om handlinger](../tasks/)
+I eksempelet ovenfor er det definert to handlinger i _Task_2_: `confirm` og `reject`. [Les mer om handlinger](../tasks/)
 
-Det vi ønsker å oppnå
-
-er å få prosessmotoren til å velge _Flow_g1_t1_ hvis brukeren utfører handlingen _avvis_ og _Flow_g1_end_ hvis handlingen som ble utført var _bekreft_...
+Vi ønsker å få prosessmotoren til å velge _Flow_g1_t1_ hvis brukeren utfører handlingen _reject_ og _Flow_g1_end_ hvis handlingen som ble utført var _confirm_.
 
 For å gjøre dette bruker vi uttrykksfunksjonen _gatewayAction_
 
 ```xml {hl_lines=[2,5]}
 <bpmn:sequenceFlow id="Flow_g1_t1" sourceRef="Gateway_1" targetRef="Task_1">
-    <bpmn:conditionExpression>["equals", ["gatewayAction"], "avvis"]</bpmn:conditionExpression>
+    <bpmn:conditionExpression>["equals", ["gatewayAction"], "reject"]</bpmn:conditionExpression>
 </bpmn:sequenceFlow>
 <bpmn:sequenceFlow id="Flow_g1_end" sourceRef="Gateway_1" targetRef="EndEvent">
-    <bpmn:conditionExpression>["lessThan", ["gatewayAction"], "bekreft"]</bpmn:conditionExpression>
+    <bpmn:conditionExpression>["equals", ["gatewayAction"], "confirm"]</bpmn:conditionExpression>
 </bpmn:sequenceFlow>
 ```
 
@@ -211,7 +160,7 @@ Hvis kravene for gatewayen din ikke kan oppfylles gjennom uttrykk, har du muligh
       <bpmn:incoming>Flow_g2_end</bpmn:incoming>
     </bpmn:endEvent>
   </bpmn:process>
-  <!-- BPMN Diagram part is omitted for previty -->
+  <!-- BPMN Diagram part is omitted for brevity -->
 </bpmn:definitions>
 ```
 {{</content-version-container>}}
@@ -262,7 +211,7 @@ Hvis kravene for gatewayen din ikke kan oppfylles gjennom uttrykk, har du muligh
       <bpmn:incoming>Flow_g2_end</bpmn:incoming>
     </bpmn:endEvent>
   </bpmn:process>
-  <!-- BPMN Diagram part is omitted for previty -->
+  <!-- BPMN Diagram part is omitted for brevity -->
 </bpmn:definitions>
 ```
 
