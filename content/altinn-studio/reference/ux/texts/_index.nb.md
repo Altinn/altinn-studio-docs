@@ -178,6 +178,10 @@ Variabler i tekster kan inkluderes ved å følge oppsettet nedenfor. Det er vikt
     {
       "key": "<instance value key>",
       "dataSource": "instanceContext"
+    },
+    {
+      "key": "<custom text parameter key>",
+      "dataSource": "customTextParameters"
     }
   ]
 }
@@ -185,7 +189,7 @@ Variabler i tekster kan inkluderes ved å følge oppsettet nedenfor. Det er vikt
 
 ### Datakilder
 
-Det er per nå mulig å hente verdier fra 3 ulike datakilder.
+Det er per nå mulig å hente verdier fra 4 ulike datakilder.
 
 1. Datamodell  
    Ved å angi `dataModel.<dataModelNavn>` som datakilde kan man hente ut verdier fra felter i skjema som brukeren fyller ut. Data kan hentes fra felter uavhengig av om de er synlige eller ikke. Hvis bruker endrer på data i et felt referert i en variabel så vil teksten bli oppdatert når brukeren stopper å skrive i feltet.
@@ -201,7 +205,25 @@ Det er per nå mulig å hente verdier fra 3 ulike datakilder.
    1. `instanceOwnerPartyId` inneholder avgiver sin party id.
    2. `instanceId` inneholder id'en til den aktive instansen.
    3. `appId` inneholder id'en til appen instansen er knyttet til.
-    
+4. Egendefinerte tekstparametere  
+   {{<notice info>}}
+   Krever versjon >= 8.7.0 av `Altinn.App.*` pakkene.
+   {{</notice>}}
+   Ved å angi `customTextParameters` som datakilde kan man hente ut egendefinerte verdier der disse kan settes.
+   Per nå kan `CustomTextParameters` settes i `ValidationIssue` og `InstantiationValidationResult`. Eksempel:
+   ```cs
+    new ValidationIssue()
+    {
+        CustomTextKey = "good.text.id",
+        CustomTextParameters = new() 
+          {
+            ["<custom text parameter key>"] = someValue 
+          },
+        Field = "someField",
+        Severity = ValidationIssueSeverity.Error,
+    };
+   ```
+
 ### Standardverdi
 
 Hvis en variabel ikke finnes i datakilden, vises stien til det feltet i datakilden. Hvis du imidlertid ønsker å vise noe annet enn denne stien, kan du legge til en standardverdi-alternativ til hver variabel.

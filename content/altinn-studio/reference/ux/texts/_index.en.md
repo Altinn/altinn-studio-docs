@@ -180,6 +180,10 @@ Variables in texts can be included by following the syntax below. It is importan
     {
       "key": "<instance value key>",
       "dataSource": "instanceContext"
+    },
+    {
+      "key": "<custom text parameter key>",
+      "dataSource": "customTextParameters"
     }
   ]
 }
@@ -187,7 +191,7 @@ Variables in texts can be included by following the syntax below. It is importan
 
 ### Data sources
 
-It is currently possible to fetch values from 3 different data sources.
+It is currently possible to fetch values from 4 different data sources.
 
 1. Data model  
    By defining `dataModel.<dataModelNavn>` as the data source you can fetch values from the fields in the form that the user is filling out. Data can be fetched from fields regardless if they are visible or not. If the user changes data
@@ -206,6 +210,25 @@ It is currently possible to fetch values from 3 different data sources.
    1. `instanceOwnerPartyId` contains the party ID of the instance owner.
    2. `instanceId` contains the ID of the active instance.
    3. `appId` contains the ID of the application, which the active instance belongs to.
+4. Custom text parameters  
+   {{<notice info>}}
+   Requires version >= 8.7.0 of the `Altinn.App.*` packages.
+   {{</notice>}}
+   By defining `customTextParameters` as the data source you can access custom values in the contexts that support it.
+   Currently, `CustomTextParameters` can be used in `ValidationIssue` and `InstantiationValidationResult`. Example:
+   ```cs
+    new ValidationIssue()
+    {
+        CustomTextKey = "good.text.id",
+        CustomTextParameters = new() 
+          {
+            ["<custom text parameter key>"] = someValue 
+          },
+        Field = "someField",
+        Severity = ValidationIssueSeverity.Error,
+    };
+   ```
+
    
 ### Default value
 

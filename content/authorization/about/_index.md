@@ -1,12 +1,14 @@
 ---
 title: About Authorization
 linktitle: About Authorization
-description: Altinn Authorization is intended to provide the ability to control who can do what with which data in the public sector and in the interaction between public and private sectors.
-tags: [architecture, solution]
+description: The authorization components provide access management and control functionality for digital and analog services hosted in the Altinn Platform or other places.
 toc: false
 weight: 1
 aliases:
   - /technology/solutions/altinn-platform/authorization/
+cascade:
+  params:
+    diataxis: diataxis_explanation
 ---
 
 Altinn Authorization offers a collection of components and services that public entities, system providers, businesses, and citizens can use to achieve this.

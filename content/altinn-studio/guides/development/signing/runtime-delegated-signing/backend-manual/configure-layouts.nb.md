@@ -2,35 +2,22 @@
 hidden: true
 ---
 
-Legg til en ny mappe under `App/ui` for signeringsoppgaven din. Kall den f.eks. `signing`.
+Legg til en ny mappe under `App/ui` for signeringssteget ditt. Kall den f.eks. `signing`.
 
-Oppdater filen `App/ui/layout-sets.json` med ny sidegruppe, som har samme `id` som mappen du nettopp opprettet.
+I denne mappen, legg til en `layouts`-mappe og en `Settings.json`-fil.
 
-Din oppdaterte `layout-sets.json` kan se slik ut:
+Legg til en layout-fil kalt f.eks. `signing.json` i `layouts`-mappen.
 
-  ```json
-  {
-    "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
-    "sets": [
-      {
-        "id": "form",
-        "dataType": "model",
-        "tasks": [
-          "Task_1"
-        ]
-      },
-      {
-        "id": "signing",
-        "dataType": "model",
-        "tasks": [
-          "SigningTask"
-        ]
-      }
-    ]
-  }
-  ``` 
+Mappestrukturen skal se slik ut:
 
-I mappen du opprettet, legg til en ny fil kalt `signing.json`.
+```
+App/
+├── ui/
+│   └── signing/
+│       ├── layouts/
+│       │   └── signing.json
+│       └── Settings.json
+```
 
 Det finnes et sett med ferdige komponenter for å bygge opp layout for et signeringssteg. Vi anbefaler å bruke disse, men de er ikke obligatoriske.
 
@@ -45,7 +32,7 @@ Dersom du ikke benytter `SigningActions` for å vise "Signer"-knappen, så må d
 
 Eksempel på bruk av komponentene:
 
-  ```json
+```json
 {
   "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
   "data": {
@@ -82,4 +69,30 @@ Eksempel på bruk av komponentene:
     ]
   }
 }
-  ```
+```
+
+Oppdater filen `App/ui/layout-sets.json` med ny sidegruppe, som har samme `id` som mappen du nettopp opprettet.
+
+Din oppdaterte `layout-sets.json` kan se slik ut:
+
+  ```json
+  {
+    "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
+    "sets": [
+      {
+        "id": "form",
+        "dataType": "model",
+        "tasks": [
+          "Task_1"
+        ]
+      },
+      {
+        "id": "signing",
+        "dataType": "model",
+        "tasks": [
+          "SigningTask"
+        ]
+      }
+    ]
+  }
+  ``` 

@@ -1,16 +1,20 @@
 ---
 title: Roller fra Enhetsregisteret
-linktitle: ER-Roller
-description: Denne siden beskriver roller fra Enhetsregisteret som kan benyttes til å gi tilgang til en applikasjon. 
+linktitle: ER-roller
+description: Roller fra Enhetsregisteret som kan benyttes til å gi tilgang til en applikasjon. 
 toc: true
 ---
 
+Enhetsregisteret (ER) er det offisielle registeret over virksomheter i Norge.
 
-I Enhetsregisteret er det offisielle registeret over virksomheter i Norge. I registeret kan man registrere ulike [organisasjonsformer](https://www.brreg.no/bedrift/organisasjonsformer/) og til de ulike typene finnes forskjellige roller. 
+I registeret kan man registrere ulike [organisasjonsformer](https://www.brreg.no/bedrift/organisasjonsformer/) og
+til de ulike typene finnes forskjellige roller. 
 
-Når man velger roller er det derfor viktig å vurdere hvilke typer organisasjoner som skal benytte tjenesten og med det hvilke roller man må knytte til tjenesten for å gi disse tilgang
+Når man velger roller er det derfor viktig å vurdere hvilke typer organisasjoner som skal benytte tjenesten
+og med det hvilke roller man må knytte til tjenesten for å gi disse tilgang.
 
-Fullstendig oversikt over organisasjonsformer og roller som leses inn fra Enhetsregisteret finner du på [Fullmakter fra Enhetsregisteret](/authorization/what-do-you-get/accessgroups/register_er/)
+Fullstendig oversikt over organisasjonsformer og roller som leses inn fra Enhetsregisteret
+finner du på [Fullmakter fra Enhetsregisteret](/authorization/what-do-you-get/accessgroups/register_er/)
 
 
 ## Nøkkelroller
@@ -20,7 +24,8 @@ Nøkkelrollene vil tilsammen dekke de fleste organisasjonstypene som finnes og s
 Det bør være en særskilt grunn til f.eks. å ikke gi Daglig leder tilgang til en applikasjon - dette kan f.eks. være at tjenesten gir tilgang til personsensitiv data som 
 daglig leder ikke har tjenestlig behov for å ha tilgang til. I slike tilfeller bør roller for taushetsbelagte tjenester vurderes i stedet. Ta kontakt med tjenesteeier@altinn.no om det er aktuelt. 
 
-Innehaver av en nøkkelrolle fra Enhetsregisteret vil også alltid få rollen hovedadministrator og tilgangsstyrer på vegne av virksomheten. Les mer om hva dette er [her](https://www.altinn.no/hjelp/skjema/alle-altinn-roller/hovedadministrator/). 
+Innehaver av en nøkkelrolle fra Enhetsregisteret vil også alltid få rollen hovedadministrator og tilgangsstyrer på vegne av virksomheten.
+Les mer om hva dette er [her](https://www.altinn.no/hjelp/skjema/alle-altinn-roller/hovedadministrator/). 
 
 - **Daglig leder (DAGL)** - kan knyttes til de fleste organisasjonstyper. 
 - **Styrets leder (STYR)** - kan knyttes til alle organisasjonstyper som har et styre.
@@ -34,7 +39,7 @@ Innehaver av en nøkkelrolle fra Enhetsregisteret vil også alltid få rollen ho
 
 
 
-## Rolle for norskregistert Utenlands foretak
+## Rolle for norskregistrert Utenlands foretak
 **Kontaktperson for utenlandsk foretak(KNUF)**
 
 Norsk avdeling av utenlansk foretak (NUF) er i utgangspunktet ikke et norsk selskap, men registreres i ER fordi det har aktivitet i Norge og trenger et organisasjonsnummer. 
@@ -48,8 +53,8 @@ Vurderingen avhenger f eks av
 - av hvilken type tjeneste man tilbyr
 - om dette er en tjeneste det er naturlig at rollen utfører
 - applikasjonen gir tilgang til informasjon som denne rollen bør ha tilgang til 
-  
-### Følgende øvrige roller hentes fra Enhetsregisteret: 
+
+## Roller som hentes fra Enhetsregisteret
 - Forretningsfører (FFØR)
 - Kontaktperson i kommune (KOMK)
 - Kontaktperson i Administrativ Enhet - offentlig sektor (KEMN)

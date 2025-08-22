@@ -6,6 +6,9 @@ tags: []
 toc: false
 weight: 40
 hidden: true
+cascade:
+  params:
+    diataxis: diataxis_how-to-guides
 ---
 
 {{% notice warning  %}}

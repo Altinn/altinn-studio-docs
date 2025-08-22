@@ -37,10 +37,12 @@ En varslingsbestilling gjøres ved å legge til følgende når du initialiserer 
       "sendReminder": boolean,
       "emailBody": string?,
       "emailSubject": string?,
+      "emailContentType": Plain(0) | Html(1),
       "smsBody": string?,
       "reminderNotificationChannel": Email(0) | Sms(1) | EmailPreferred(2) | SmsPreferred(3) | EmailAndSms(4),
       "reminderEmailBody": string?,
       "reminderEmailSubject": string?,
+      "reminderEmailContentType": Plain(0) | Html(1),
       "reminderSmsBody": string?,
       "requestedSendTime": DateTimeOffset?,
       "customRecipient": {
@@ -102,8 +104,7 @@ Støttede varslingskanaler:
 - **EmailPreferred:** Bruker e-post som hoved kommunikasjonskanal, og SMS som fallback hvis e-post ikke er tilgjengelig.
 - **SmsPreferred:** Bruker SMS som hoved kommunikasjonskanal, og e-post som fallback om SMS ikke finnes.
 - **EmailAndSms:** Sender både e-post og SMS til mottakeren samtidig.
-
-Hovedvarsel og revarsel kan bruke forskjellige notifikasjonskanaler.
+Hovedvarsel og revarsel kan bruke forskjellige notifikasjonskanaler. 
 For eksempel kan man velge å sende første varsel på e-post, men så går det ett revarsel på sms etter 7 dager.
 
 ## Kansellering av varsling
@@ -120,7 +121,6 @@ Det er planlagt forbedringer for å gi tilbakemelding omkring dette under oppret
 ## Valgfri mottakere for varsling
 
 For meldinger som er opprettet med varsling aktivert vil mottakeren av varslingen være den samme som mottakeren av meldingen.
-Det er derimot mulig benytte valgfrie mottakere av varsling, som ikke nødvendigvis er mottaker av meldingen.
 Det er også mulig å legge til valgfrie mottakere av varselet som ikke nødvendigvis er mottaker(e) av meldingen. 
 I praksis betyr dette at valgfrie mottakere vil overstyre/erstatte den opprinnelige mottakeren som er angitt for varselet.
 
@@ -138,7 +138,7 @@ Dette gjøres ved å fylle ut `customNotificationRecipients`-feltet under `notif
     "customNotificationRecipients": [
       {
         "recipientToOverride": "string",
-        "notificationRecipient": [
+        "recipients": [
           {
             "organizationNumber": "string",
             "nationalIdentityNumber": "string",
@@ -169,6 +169,28 @@ Den anbefalte måten er å bruke `customRecipient`-feltet under `notification` s
 }
 ```
 
+### Valideringsregler for valgfrie mottakere
+
+Når du bruker valgfrie mottakere, gjelder følgende valideringsregler:
+
+1. **Kun én mottaker**: Valgfrie mottakere kan kun brukes når meldingen har nøyaktig én mottaker. Flere mottakere er ikke tillatt.
+
+2. **Kun én identifikator påkrevd**: Den valgfrie mottakeren må ha nøyaktig ett identifikatorfelt fylt ut:
+   - `organizationNumber` (for organisasjoner)
+   - `nationalIdentityNumber` (for personer)
+   - `emailAddress` (for direkte e-postvarsler)
+   - `mobileNumber` (for direkte SMS-varsler)
+
+3. **Keyword-begrensninger**: Når du bruker `emailAddress` eller `mobileNumber`, kan ikke `$recipientName$`-keywordet brukes i noe varslingsinnhold (e-postemne, e-postinnhold, SMS-innhold, revarselfelt) fordi navneoppslag ikke er tilgjengelig for direkte kontaktinformasjon.
+
+4. **Formatvalidering**:
+   - **E-postadresser**: Må være i gyldig e-postformat (f.eks. `bruker@eksempel.com`)
+   - **Mobilnumre**: Må følge E.164-standarden og være gyldige telefonnumre. Kan starte med `+` eller `00` for internasjonalt format. Norske numre som starter med 4 eller 9 får automatisk `+47`-prefiks hvis ingen landskode er oppgitt.
+
+5. **Organisasjonsnumre**: Må være i format `0192:organisasjonsnummer` eller `urn:altinn:organisasjonsnummer:organisasjonsnummer`
+
+6. **Fødselsnumre**: Må være gyldige 11-sifrede norske fødselsnumre
+
 ### Hvordan bruke valgfri mottaker
 For utgått tilnærming:
 ```
@@ -189,25 +211,12 @@ correspondence.notification.customRecipient.emailAddress
 
 {{% panel theme="warning" %}}
 ⚠️ VIKTIG: 
-Husk verdien som gis til `notificationTemplate` og `notificationChannel`, da disse vil påvirke den valgfri mottakeren. Flere detaljer er gitt [her](#varslingsmaler).
+Både `notificationTemplate` og `notificationChannel` er anvendelige når du bruker valgfrie mottakere:
+
+- **`notificationTemplate`**: Bestemmer innholdet (e-postemne, innhold, SMS-innhold) som vil bli sendt til den valgfrie mottakeren
+- **`notificationChannel`**: For organisasjon og person som valgfrie mottakere bestemmer dette kanalene som varslingene sendes til. For direkte e-post/mobil som valgfrie mottakere er kanalen ikke lenger anvendelig.
+
+Flere detaljer er gitt [her](#varslingsmaler).
 {{% /panel %}}
 
-### Explanation of template and channel
 
-For hver av de valgfrie mottakerne (i begge tilnærminger) er det kun mulig å oppgi ett av følgende felt:
-
-1. Organisasjonsnummer
-2. Fødselsnummer
-3. Mobilnummer og/eller e-postadresse
-
-Dersom enten mobilnummer eller e-postadresse brukes, må de ha riktig format for å kunne sende varslingene.
-For e-poster aksepteres de fleste verdier så lenge de er i formen 'bruker@eksempel.com'.
-For mobilnumre må de tilfredsstille _E.164-formatet_.
-
-{{% panel theme="warning" %}}
-⚠️ VIKTIG: For å bruke valgfrie mottakere for varslinger, må mottakerne være gyldige.
-Dersom mottakerne er ugyldige vil ikke meldingen bli sendt ut.
-
-Derfor anbefales det å kun bruke denne funksjonaliteten dersom det er kritisk for tjenesten.
-For store utsendelser av meldinger bør disse opprettes uten tilpassede mottakere.
-{{% /panel %}}

@@ -38,10 +38,12 @@ A notification order is made by adding the following when initializing a message
       "sendReminder": boolean,
       "emailBody": string?,
       "emailSubject": string?,
+      "emailContentType": Plain(0) | Html(1),
       "smsBody": string?,
       "reminderNotificationChannel": Email(0) | Sms(1) | EmailPreferred(2) | SmsPreferred(3) | EmailAndSms(4),
       "reminderEmailBody": string?,
       "reminderEmailSubject": string?,
+      "reminderEmailContentType": Plain(0) | Html(1),
       "reminderSmsBody": string?,
       "requestedSendTime": DateTimeOffset?,
       "customRecipient": {
@@ -104,8 +106,8 @@ Supported notification channels:
 - **EmailPreferred:** Uses email as the main communication channel, and SMS as a fallback if email is not available.
 - **SmsPreferred:** Uses SMS as the main communication channel, and email as a fallback if SMS is not available.
 - **EmailAndSms:** Sends both email and SMS to the recipient simultaneously.
-  The first notification and the reminder notification can use different notification channels. 
-  For example, the first notification is sent by email, while the reminder notification seven days later is sent by SMS.
+The first notification and the reminder notification can use different notification channels. 
+For example, the first notification is sent by email, while the reminder notification seven days later is sent by SMS.
 
 ## Cancellation of Notification
 
@@ -138,7 +140,7 @@ This can be achieved by populating the `customNotificationRecipients` field unde
     "customNotificationRecipients": [
       {
         "recipientToOverride": "string",
-        "notificationRecipient": [
+        "recipients": [
           {
             "organizationNumber": "string",
             "nationalIdentityNumber": "string",
@@ -169,6 +171,28 @@ The recommended approach is to use the `customRecipient` field under `notificati
 }
 ```
 
+### Validation Rules for Custom Recipients
+
+When using custom recipients, the following validation rules apply:
+
+1. **Single Recipient Only**: Custom recipients can only be used when the correspondence has exactly one recipient. Multiple recipients are not allowed.
+
+2. **Single Identifier Required**: The custom recipient must have exactly one identifier field populated:
+   - `organizationNumber` (for organizations)
+   - `nationalIdentityNumber` (for persons)
+   - `emailAddress` (for direct email notifications)
+   - `mobileNumber` (for direct SMS notifications)
+
+3. **Keyword Restrictions**: When using `emailAddress` or `mobileNumber`, the `$recipientName$` keyword cannot be used in any notification content (email subject, email body, SMS body, reminder fields) because name lookup is not available for direct contact information.
+
+4. **Format Validation**:
+   - **Email addresses**: Must be in valid email format (e.g., `user@example.com`)
+   - **Mobile numbers**: Must adhere to E.164 standard and be valid phone numbers. Can start with `+` or `00` for international format. Norwegian numbers starting with 4 or 9 will automatically get `+47` prefix if no country code is provided.
+
+5. **Organization Numbers**: Must be in format `0192:organizationnumber` or `urn:altinn:organizationnumber:organizationnumber`
+
+6. **National Identity Numbers**: Must be valid 11-digit Norwegian social security numbers
+
 ### How to use it
 For deprecated approach:
 ```
@@ -177,6 +201,7 @@ correspondence.notification.customNotificationRecipients[0].recipients[0].organi
 correspondence.notification.customNotificationRecipients[0].recipients[0].nationalIdentityNumber
 correspondence.notification.customNotificationRecipients[0].recipients[0].mobileNumber
 correspondence.notification.customNotificationRecipients[0].recipients[0].emailAddress
+
 ```
 
 For recommended approach:
@@ -185,29 +210,17 @@ correspondence.notification.customRecipient.organizationNumber
 correspondence.notification.customRecipient.nationalIdentityNumber
 correspondence.notification.customRecipient.mobileNumber
 correspondence.notification.customRecipient.emailAddress
+
 ```
 
 {{% panel theme="warning" %}}
 ⚠️ IMPORTANT: 
-Keep in mind the value that is given to `notificationTemplate` and `notificationChannel`, as these will impact the custom recipient. Further details are provided [here](#notification-templates).
+Both `notificationTemplate` and `notificationChannel` are applicable when using custom recipients:
+
+- **`notificationTemplate`**: Determines the content (email subject, body, SMS body) that will be sent to the custom recipient
+- **`notificationChannel`**: For organization and person custom recipient, this determines the channel(s) the notification(s) are sent to. For direct email/mobile custom recipients, the channel is not applicable any more.
+
+Further details are provided [here](#notification-templates).
 {{% /panel %}}
 
-### Explanation of template and channel
 
-For each of the optional recipients (in both approaches), it is only possible to provide one of the following fields:
-
-1. Organization number
-2. National identity number
-3. Mobile number and/or email address
-
-If either mobile number or email address is used, they must follow the correct format in order to be able to send the notifications.
-For emails, most of the values are accepted as long as they are on the form 'user@example.com'.
-For mobile numbers, they must satisfy the _E.164 format_.
-
-{{% panel theme="warning" %}}
-⚠️ IMPORTANT: In order to use custom recipients for notifications, they must be valid. 
-Without valid recipients, the correspondence will not be sent out.
-
-Therefore, it is recommended to only use this feature if it is critical for the service. 
-For large dispatches of correspondences these should be made without custom recipients.
-{{% /panel %}}

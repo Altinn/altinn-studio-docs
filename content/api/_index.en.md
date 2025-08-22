@@ -7,6 +7,9 @@ weight: 20
 aliases:
  - /altinn-api/
  - /teknologi/altinnstudio/altinn-api/
+cascade:
+  params:
+    diataxis: diataxis_reference
 ---
 
 ## The APIs

@@ -2,6 +2,9 @@
 title: Storage API
 linktitle: Storage
 description: Description of the Altinn 3 APIs supported by the storage component in the Altinn 3 Platform
+cascade:
+  params:
+    product: product_studio
 ---
 
 ## The two primary data structures

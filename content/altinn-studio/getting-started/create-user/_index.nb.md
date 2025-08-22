@@ -12,6 +12,7 @@ Din Altinn Studio bruker er personlig for deg og kan knyttes til en eller flere 
 andre og få tilgang til eksisterende apper.
 
 ### Lag en bruker med Ansattporten
+{.floating-bullet-numbers-sibling-ol}
 
 1. Gå til [altinn.studio](https://altinn.studio) og klikk på "Opprett ny  bruker".
    ![Innlogging](./velkommen.png "Velkommen")

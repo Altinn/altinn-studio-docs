@@ -5,6 +5,9 @@ description: Hva er Altinn Formidling?
 tags: []
 toc: true
 weight: 1
+cascade:
+  params:
+    diataxis: diataxis_explanation
 ---
 
 <!--

@@ -7,6 +7,9 @@ toc: false
 weight: 1
 aliases:
   - /technology/solutions/altinn-platform/authorization/
+cascade:
+  params:
+    diataxis: diataxis_explanation
 ---
 
 Altinn Autorisasjon tilbyr en samling av komponenter og tjenster offenlige virksomheter, systemleverandører, virksomheter og innbyggere kan benytte seg av for å oppnå dette.

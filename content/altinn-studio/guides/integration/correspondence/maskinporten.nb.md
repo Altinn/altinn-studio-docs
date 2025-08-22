@@ -17,7 +17,7 @@ For å bruke [meldingstjenesten](/correspondence/) behøver man en [Maskinporten
 - `altinn:serviceowner`
 - `altinn:correspondence.read`
 - `altinn:correspondence.write`
-  {.correspondence-custom-list}
+{.correspondence-custom-list}
 
 For å sette opp dette kan du følge de generelle stegene i [veiledningen for Maskinporten-integrasjons](../maskinporten/) med noen modifikasjoner beskrevet nedenfor.
 
@@ -29,9 +29,9 @@ For å sette opp dette kan du følge de generelle stegene i [veiledningen for Ma
 
   ```json
   "MaskinportenSettings": {
-      "Authority": "https://[test.]maskinporten.no/",
-      "ClientId": "the client id",
-      "JwkBase64": "base64 encoded jwk"
+    "Authority": "https://[test.]maskinporten.no/",
+    "ClientId": "the client id",
+    "JwkBase64": "base64 encoded jwk"
   }
   ```
 
@@ -44,14 +44,14 @@ For å sette opp dette kan du følge de generelle stegene i [veiledningen for Ma
 
   {{<highlight csharp "linenos=false,hl_lines=7-9">}}
   void RegisterCustomAppServices(
-  IServiceCollection services,
-  IConfiguration config,
-  IWebHostEnvironment env
+    IServiceCollection services,
+    IConfiguration config,
+    IWebHostEnvironment env
   )
   {
-  services.ConfigureMaskinportenClient(
-  "DinUnikeMaskinportenSettingsSti"
-  );
+    services.ConfigureMaskinportenClient(
+      "DinUnikeMaskinportenSettingsSti"
+    );
   }
   {{</highlight>}}
 
@@ -63,20 +63,20 @@ For å sette opp dette kan du følge de generelle stegene i [veiledningen for Ma
 
   {{<highlight csharp "linenos=false,hl_lines=7-12">}}
   void RegisterCustomAppServices(
-  IServiceCollection services,
-  IConfiguration config,
-  IWebHostEnvironment env
+    IServiceCollection services,
+    IConfiguration config,
+    IWebHostEnvironment env
   )
   {
-  services.ConfigureMaskinportenClient(config =>
-  {
-  config.Authority = "https://[test.]maskinporten.no/";
-  config.ClientId = "klient-id";
-  config.JwkBase64 = "base64-kodet jwk";
-  });
+    services.ConfigureMaskinportenClient(config =>
+    {
+      config.Authority = "https://[test.]maskinporten.no/";
+      config.ClientId = "klient-id";
+      config.JwkBase64 = "base64-kodet jwk";
+    });
   }
   {{</highlight>}}
-  {.connected-bullets}
+{.connected-bullets}
 
 ## Applikasjonskode
 
@@ -101,12 +101,12 @@ App/Program.cs
 // ...
 
 void RegisterCustomAppServices(
-IServiceCollection services,
-IConfiguration config,
-IWebHostEnvironment env
+  IServiceCollection services,
+  IConfiguration config,
+  IWebHostEnvironment env
 )
 {
-services.AddTransient<ITheInterfaceYouAreImplementing, CorrespondenceClientDemo>();
+  services.AddTransient<ITheInterfaceYouAreImplementing, CorrespondenceClientDemo>();
 }
 {{</highlight>}}
 
@@ -126,7 +126,7 @@ using Altinn.App.Core.Features.Correspondence.Models;
 namespace Altinn.App;
 
 internal sealed class CorrespondenceClientDemo(
-    ICorrespondenceClient correspondenceClient
+  ICorrespondenceClient correspondenceClient
 ) : ITheInterfaceYouAreImplementing
 {
   public async Task<SendCorrespondenceResponse> SendMessage()

@@ -28,7 +28,7 @@ Flyten i appen er slik:
 
 1. Den som fyller ut skjemaet oppgir fødselsnummer og etternavn, eller eventuelt organisasjonsnummer hvis den som skal signere representerer en virksomhet.
 2. Når skjemaet er ferdig utfylt, klikker den som fyller ut på "Til signering". Det beveger prosessen til neste steg, som er signeringssteget.
-3. Når signeringssteget blir startet, kaller appen opp en implementering av grensesnittet `ISigneeProvider`, som dere må implementere, for å finne ut hvem som må få tillatelse til å signere.
+3. Når signeringssteget blir startet, kaller appen opp en implementering av grensesnittet `ISigneeProvider` for å finne ut hvem som må få tillatelse til å signere.
 4. De som skal signere får delegert de rettighetene de trenger, og de blir varslet om at de har en signeringsoppgave.
 5. Skjemaet de skal signere kommer i innboksen slik at de kan åpne det, se over informasjonen og signere.
 6. Innsenderen signerer også, hvis appen er satt opp til det, og deretter blir skjemaet sendt inn.
