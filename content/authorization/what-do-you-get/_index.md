@@ -1,7 +1,7 @@
 ---
 title: What do you get?
 linktitle: What do you get?
-description: The authorization components provide access control and management functionality for digital and analog services hosted on the Altinn platform or elsewhere.
+description: Overview of components and functions provided by Altinn Authorization.
 tags: [architecture, solution]
 toc: false
 weight: 2

@@ -1,7 +1,8 @@
 ---
 title: Authorization
 linktitle: Authorization
-description: The authorization components provide access management and control functionality for digital and analog services hosted in the Altinn Platform or other places.
+description: Altinn Authorization is intended to provide the ability to control who can do what with which data in the public sector and in the interaction between public and private sectors.
+tags: [architecture, solution]
 tags: [architecture, solution]
 toc: false
 weight: 1
