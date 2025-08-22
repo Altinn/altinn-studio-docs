@@ -5,6 +5,9 @@ description: Reference documentation for Altinn 3 Correspondence
 tags: []
 toc: false
 weight: 70
+cascade:
+  params:
+    diataxis: diataxis_reference
 ---
 
 {{<children />}}

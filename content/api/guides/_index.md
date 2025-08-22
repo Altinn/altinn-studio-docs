@@ -5,6 +5,9 @@ description: Here you will find guides on how to integrate with the Altinn API
 tags: [architecture, devops, integration]
 toc: false
 hidden: false
+cascade:
+  params:
+    diataxis: diataxis_how-to-guides
 ---
 
 We have divided the guides into two main areas based on use cases.

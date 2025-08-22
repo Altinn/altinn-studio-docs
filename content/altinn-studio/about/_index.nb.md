@@ -4,6 +4,9 @@ description: Overordnet beskrivelse av Altinn Studio
 aliases:
 - /nb/teknologi/altinnstudio/solutions/altinn-studio/
 weight: 10
+cascade:
+  params:
+    diataxis: diataxis_explanation
 ---
 
 Altinn Studio er en plattform for å utvikle, drifte og forvalte digitale tjenester til innbyggere og næringsliv. Plattformen

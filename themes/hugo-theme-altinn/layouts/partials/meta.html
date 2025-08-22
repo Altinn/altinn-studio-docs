@@ -1,4 +1,6 @@
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}" />
 <meta name="altinn_pagedir" class="elastic" content="{{ with .Page.File }}{{ .Dir }}{{ end }}" />
 <meta name="altinn_title" class="elastic" content="{{ .Title }}" />
-{{ with .Site.Params.author }}<meta name="author" content="{{ . }}" />{{ end }}
+{{ with .Page.Params.product }}<meta name="product" data-pagefind-filter="{{ T "product" }}[content]" content="{{ T . }}" />{{ end }}
+{{ with .Page.Params.diataxis }}<meta name="diataxis" data-pagefind-filter="{{ T "diataxis" }}[content]" content="{{ T . }}" />{{ end }}
+{{ with .Page.Params.author }}<meta name="author" content="{{ . }}" />{{ end }}

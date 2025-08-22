@@ -4,6 +4,9 @@ linktitle: Getting started
 description: Getting started
 toc: false
 weight: 3
+cascade:
+  params:
+    diataxis: diataxis_tutorials
 ---
 
 ## Resource Administration in Altinn Studio
