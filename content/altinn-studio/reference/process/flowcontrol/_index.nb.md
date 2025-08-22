@@ -1,6 +1,6 @@
 ---
 title: Flytkontroll
-description: Kontroller proessflyt
+description: Kontroller prosessflyt
 tags: [altinn-apps, process, bpmn, gateway]
 weight: 20
 toc: true
