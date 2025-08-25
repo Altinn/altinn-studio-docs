@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "nye Altinn.Notifications",
+    "title": "Altinn.Notifications",
     "version": "1.0"
   },
   "servers": [
@@ -118,7 +118,7 @@
         "tags": [
           "Order"
         ],
-        "summary": "Creates a new notification order that has one or more reminders.",
+        "summary": "Creates a new notification order with zero or more reminders",
         "description": "The API will accept the request after some basic validation of the request.\r\nThe system will also attempt to verify that it will be possible to fulfill the order.",
         "requestBody": {
           "description": "The notification order request",
@@ -179,6 +179,68 @@
           },
           "499": {
             "description": "Request terminated - The client disconnected or cancelled the request before the server could complete processing"
+          }
+        }
+      }
+    },
+    "/future/orders/instant": {
+      "post": {
+        "tags": [
+          "InstantOrders"
+        ],
+        "summary": "Creates and sends an instant notification to a single recipient.",
+        "requestBody": {
+          "description": "The request payload containing the details of the instant notification to be sent.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InstantNotificationOrderRequestExt"
+              }
+            }
+          }
+        },
+        "responses": {
+          "401": {
+            "description": "Caller is unauthorized"
+          },
+          "403": {
+            "description": "Caller is not authorized to access the requested resource"
+          },
+          "201": {
+            "description": "The instant notification was created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstantNotificationOrderResponseExt"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "The notification order was created previously.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstantNotificationOrderResponseExt"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The notification order is invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "499": {
+            "description": "Request terminated - The client disconnected or cancelled the request before the server could complete processing"
+          },
+          "500": {
+            "description": "An internal server error occurred while processing the notification order"
           }
         }
       }
@@ -886,6 +948,62 @@
         "additionalProperties": false,
         "description": "Represents standardized destination and status information for trackable entities within the notification system."
       },
+      "InstantNotificationOrderRequestExt": {
+        "required": [
+          "idempotencyId",
+          "recipient"
+        ],
+        "type": "object",
+        "properties": {
+          "idempotencyId": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The unique identifier used to ensure the same notification is not processed multiple times."
+          },
+          "sendersReference": {
+            "type": "string",
+            "description": "The reference identifier assigned by the sender for tracking purposes.",
+            "nullable": true
+          },
+          "recipient": {
+            "$ref": "#/components/schemas/InstantNotificationRecipientExt"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a request to send a notification immediately to a single recipient."
+      },
+      "InstantNotificationOrderResponseExt": {
+        "required": [
+          "notification",
+          "notificationOrderId"
+        ],
+        "type": "object",
+        "properties": {
+          "notificationOrderId": {
+            "type": "string",
+            "description": "The unique identifier for the notification order chain.",
+            "format": "uuid"
+          },
+          "notification": {
+            "$ref": "#/components/schemas/NotificationOrderChainShipmentExt"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents the response model returned after processing a request to send an instant notification to a single recipient."
+      },
+      "InstantNotificationRecipientExt": {
+        "required": [
+          "recipientSms"
+        ],
+        "type": "object",
+        "properties": {
+          "recipientSms": {
+            "$ref": "#/components/schemas/ShortMessageDeliveryDetailsExt"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents recipient information for an urgent notification delivery."
+      },
       "NotificationDeliveryManifestExt": {
         "required": [
           "lastUpdate",
@@ -1335,7 +1453,6 @@
       },
       "NotificationReminderExt": {
         "required": [
-          "delayDays",
           "recipient"
         ],
         "type": "object",
@@ -1355,7 +1472,14 @@
             "type": "integer",
             "description": "Gets or sets the number of days to delay this reminder.",
             "format": "int32",
-            "default": 1
+            "default": 1,
+            "nullable": true
+          },
+          "requestedSendTime": {
+            "type": "string",
+            "description": "Gets or sets the earliest date and time when the reminder should be delivered.",
+            "format": "date-time",
+            "nullable": true
           },
           "recipient": {
             "$ref": "#/components/schemas/NotificationRecipientExt"
@@ -1588,6 +1712,51 @@
         },
         "additionalProperties": false,
         "description": "Represents the model for sending an SMS to a specific mobile number."
+      },
+      "ShortMessageContentExt": {
+        "required": [
+          "body"
+        ],
+        "type": "object",
+        "properties": {
+          "sender": {
+            "type": "string",
+            "description": "The sender identifier displayed in the recipient's SMS message.",
+            "nullable": true
+          },
+          "body": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The text content of the SMS message to be delivered to the recipient."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents the content and sender information for an SMS (Short Message Service) message."
+      },
+      "ShortMessageDeliveryDetailsExt": {
+        "required": [
+          "phoneNumber",
+          "smsSettings",
+          "timeToLiveInSeconds"
+        ],
+        "type": "object",
+        "properties": {
+          "phoneNumber": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The recipient's phone number in international format."
+          },
+          "timeToLiveInSeconds": {
+            "type": "integer",
+            "description": "The time-to-live duration, specified in seconds.",
+            "format": "int32"
+          },
+          "smsSettings": {
+            "$ref": "#/components/schemas/ShortMessageContentExt"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents delivery details for an SMS including recipient, content, and delivery parameters."
       },
       "SmsNotificationOrderRequestExt": {
         "required": [
