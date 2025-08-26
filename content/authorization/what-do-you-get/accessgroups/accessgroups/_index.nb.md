@@ -10,7 +10,6 @@ For å kunne styre tilgang til apper og ressurser, må det opprettes policyfiler
 
 Fullmaktsområdene for tilgangsstyring er bygget på Statistisk sentralbyrå sin kategorisering av virksomheter, og de inneholder et sett med tilgangspakker innenfor området. Apper og ressurser knyttes til tilgangspakker i Altinn studio og Ressursregisteret.
 
-Fullmaktsområdene for tilgangsstyring er bygget på Statistisk sentralbyrå sin kategorisering av virksomheter, og de inneholder et sett med tilgangspakker innenfor området. Apper og ressurser knyttes til tilgangspakker i Altinn studio og Ressursregisteret.
 ![Fullmaktsområder](hierarki-tilgangspakker.jpg "Struktur på fullmaktsområder")
 
 
