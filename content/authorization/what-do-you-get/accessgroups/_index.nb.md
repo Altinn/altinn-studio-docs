@@ -12,7 +12,7 @@ Det finnes unntak på tilgangspakker som ingen har fått forhåndstildelt, for e
 
 Tilgangspakkene er inndelt i fullmaktsområder, og inndelingen er inspirert og delvis basert på <a href="https://www.ssb.no/klass/klassifikasjoner/6"> SSB's kategorisering av virksomheter</a>. 
 
-I hvert område finnes tilgangspakker som naturlig hører hjemmme under det området. 
+I hvert område finnes tilgangspakker som naturlig hører hjemme under det området. 
 Fullmaktsområdene er ment som hjelp til å finne riktig tilgangspakke, både for tjenesteeier/ressurseier som konfigurerer tilgangsreglene for tjenesten/ressursen, og for sluttbruker som skal dele tilgang med andre.
 
 
