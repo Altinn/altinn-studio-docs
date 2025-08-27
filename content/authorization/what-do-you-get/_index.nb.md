@@ -7,17 +7,16 @@ toc: false
 weight: 2
 ---
 
-Altinn Autoriasjon tilbyr komponenter og tjenster som kan benyttes av offentlig virksomhet, systemleverandører/sluttbrukersystem, virksomheter og innbyggere for å utføre tilgangstyring og tilganskontorll i tjenster på og utenfor Altinn, samt fra egne sluttbrukersystemer.
+Altinn Autorisasjon tilbyr komponenter og tjenester som kan benyttes av offentlige virksomheter, systemleverandører/sluttbrukersystemer, virksomheter og innbyggere for å utføre tilgangsstyring og tilgangskontroll i tjenester på og utenfor Altinn, samt fra egne sluttbrukersystemer.
 
-**Ressurseier** kan opprette ressurser i ressursregisteret for tjenester med behov for tilgangsstyring. I ressursegisteret kan hen opprette regler som sier hvem som kan benytte en tjenste, til hva, umder hvilke forutsettninger. Dersom det er behov vor at en tjeneste kun skal kunne brukes av ett bestemt utvalg virksomheter kan dette styres gjennom tilgangslister
-Ved hjelp av vår autorisasjonstjenste (PDP) kan ressurseier sikre tilgangskontroll på ressursen. Tilgangskontrollen støtter brukere fra både ID-porten og maskinporten
+**Ressurseier** kan opprette ressurser i Ressursregisteret for tjenester med behov for tilgangsstyring. I Ressursregisteret kan hen opprette regler som sier hvem som kan benytte en tjeneste, til hva, under hvilke forutsetninger. Dersom det er behov for at en tjeneste kun skal kunne brukes av et bestemt utvalg virksomheter, kan dette styres gjennom tilgangslister.  
+Med autorisasjonstjenesten (PDP) kan ressurseier sikre tilgangskontroll på ressursen. Tilgangskontrollen støtter brukere fra både ID-porten og Maskinporten.
 
-**Sluttbrukersystem** kan bruke våre APIer til å autentisere sine brukere mot offentlige tjenster.
+**Sluttbrukersystem** kan bruke våre API-er til å autentisere sine brukere mot offentlige tjenester.
 
-**Sluttbruker** kan både opptre på vegne av en virksomhet eller seg selv. I Altinns portal eller via sluttbrukersystem kan bruker velge hvem hen opptrer på vegne av. Sluttbruker kan se hva han har fullmakt til på vegne av hvem, samt hvem som har fullmakt på vegne av seg selv. Dersom det er behov for å gi eller trekke tilbake fullmakter kan dette gjøres både via brukergransesnitt og API
+**Sluttbruker** kan opptre på vegne av en virksomhet eller seg selv. I Altinns portal eller via sluttbrukersystem kan bruker velge hvem vedkommende opptrer på vegne av. Sluttbruker kan se hvilke fullmakter som finnes, og hvem som har fullmakt på vegne av seg selv. Fullmakter kan gis eller trekkes tilbake via både brukergrensesnitt og API.
 
-**Autentisering** Altinn autorisasjon tilbyr funsjonalitet for autentisering med Id-porten og maskinporten mot Altinn. I tillegg tilbyr vi [Systembruker]() som gjør det mulig å gjøre finkornet tilgangsstyring gjennom maskinporten.
-
+**Autentisering** Altinn Autorisasjon tilbyr funksjonalitet for autentisering med ID-porten og Maskinporten mot Altinn. I tillegg tilbyr vi Systembruker som gjør det mulig å gjøre finkornet tilgangsstyring gjennom Maskinporten.
 {{<children />}}
 
 <!-- Altinn skal i perioden 2022-2026 [modernisere](functionalareas.drawio.svg) sin autorisasjonsarkitektur og komponenter. Derfor er beskrivelsen nedenfor en blanding av nåværende og fremtidig tilstand.
