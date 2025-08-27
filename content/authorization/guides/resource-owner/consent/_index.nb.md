@@ -13,7 +13,7 @@ Denne veiledningen forklarer hvordan du setter opp en samtykkeressurs.
 
 ## Forutsetninger
 
-Du må ha tilgang til ressursadministrasjon for din organisasjon. Se [Kom i gang-veiledningen](../../getting-started/resource-admin-studio).
+Du må ha tilgang til ressursadministrasjon for din organisasjon. Se [Kom i gang-veiledningen](../../../getting-started/resource-admin-studio).
 
 ## Opprett ny samtykkeressurs
 
