@@ -3,7 +3,7 @@ title: Planer for modernisering og migrering av API i Altinn
 linktitle: Endring API
 description: Siden er under konstruksjon - Her finner du foreløpig plan for hva som skjer med autorisasjons API i overgangen mellom Altinn 2 og Altinn 3. Planen vil bli endret underveis.
 toc: true
-tags: [architecture, plan, authorizaton]
+tags: [architecture, plan, authorization]
 ---
 
 _Siden er under konstruksjon_
