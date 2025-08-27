@@ -3,7 +3,6 @@ title: Access Management component
 linktitle: Access Management
 description: The Access Management provides functionality to end users for managing groups, roles and rights
 tags: [architecture, security, authorization, xacml]
-weight: 1
 ---
 
 {{<notice warning>}}

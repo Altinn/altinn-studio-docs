@@ -3,7 +3,6 @@ title: Setting up integration with Altinn Authorization from external services
 linktitle: External authorization
 description: This guide describes how to integrate with Altinn Authorization from an external service
 toc: false
-weight: 4
 ---
 
 ## Setting up integration with the ID port

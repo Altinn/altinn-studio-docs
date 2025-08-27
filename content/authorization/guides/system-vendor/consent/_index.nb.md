@@ -3,7 +3,6 @@ title: Samtykke for datakonsument
 description: Hvordan bruke samtykkeløsningen for datakonsumenter i Altinn 3
 linktitle: Samtykke for datakonsument
 toc: false
-weight: 10
 ---
 
 ## Introduksjon
@@ -12,26 +11,27 @@ Denne dokumentasjonen beskriver hvordan datakonsumenter kan be om, hente ut og a
 
 ## Begrepsliste
 
-* **Datakonsument**: Virksomheten som etterspør innsyn i data om en innbygger eller annen virksomhet.
-* **Ressurs**: En kategori data definert av aktøren som tilbyr API-et i Altinn (f.eks. inntektsopplysninger, skattegrunnlag).
+- **Datakonsument**: Virksomheten som etterspør innsyn i data om en innbygger eller annen virksomhet.
+- **Ressurs**: En kategori data definert av aktøren som tilbyr API-et i Altinn (f.eks. inntektsopplysninger, skattegrunnlag).
 
 ## Tilbydere av samtykkeløsninger
 
 Nedenfor er noen sentrale aktører med samtykkeløsninger for Altinn 2. De fleste forventes å flytte til Altinn 3 i løpet av Q3 2025 eller Q1 2026:
 
-* **Skatteetaten**
+- **Skatteetaten**
 
-  * [Om samtykke](https://skatteetaten.github.io/api-dokumentasjon/en/om/samtykke)
-  * [Inntekts-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/inntekt)
-  * [Summert skattegrunnlag-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/summertskattegrunnlag)
-  * [Krav og betalinger-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/kravogbetalinger)
-  * [Arbeidsgiveravgift-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/arbeidsgiveravgift)
-  * [MVA meldingsopplysning-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/mva_meldingsopplysning)
-  * [Oppdrag utenlandske virksomheter-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/oppdragutenlandskevirksomheter)
-  * [Restanser-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/restanser)
-* **Lånekassen**
+  - [Om samtykke](https://skatteetaten.github.io/api-dokumentasjon/en/om/samtykke)
+  - [Inntekts-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/inntekt)
+  - [Summert skattegrunnlag-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/summertskattegrunnlag)
+  - [Krav og betalinger-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/kravogbetalinger)
+  - [Arbeidsgiveravgift-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/arbeidsgiveravgift)
+  - [MVA meldingsopplysning-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/mva_meldingsopplysning)
+  - [Oppdrag utenlandske virksomheter-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/oppdragutenlandskevirksomheter)
+  - [Restanser-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/restanser)
 
-  * [Saldo studielån](https://dokumentasjon.dsop.no/dsop_saldostudielan_om.html)
+- **Lånekassen**
+
+  - [Saldo studielån](https://dokumentasjon.dsop.no/dsop_saldostudielan_om.html)
 
 Altinn tilbyr selv API-er for å be om samtykke og hente ut status på samtykkeforespørsler.
 
@@ -46,8 +46,8 @@ Altinn tilbyr selv API-er for å be om samtykke og hente ut status på samtykkef
 
 ### 1.2 API-endepunkt
 
-* **Test**: `POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/`
-* **Produksjon**: `POST https://platform.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/`
+- **Test**: `POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/`
+- **Produksjon**: `POST https://platform.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/`
 
 #### Forespørsel (eksempel)
 
@@ -59,9 +59,7 @@ Altinn tilbyr selv API-er for å be om samtykke og hente ut status på samtykkef
   "validTo": "2026-07-18T06:18:12.2597103+00:00",
   "consentRights": [
     {
-      "action": [
-        "consent"
-      ],
+      "action": ["consent"],
       "resource": [
         {
           "type": "urn:altinn:resource",
@@ -73,9 +71,7 @@ Altinn tilbyr selv API-er for å be om samtykke og hente ut status på samtykkef
       }
     },
     {
-      "action": [
-        "consent"
-      ],
+      "action": ["consent"],
       "resource": [
         {
           "type": "urn:altinn:resource",
@@ -103,9 +99,7 @@ Altinn tilbyr selv API-er for å be om samtykke og hente ut status på samtykkef
   "validTo": "2026-07-18T06:18:12.25971+00:00",
   "consentRights": [
     {
-      "action": [
-        "consent"
-      ],
+      "action": ["consent"],
       "resource": [
         {
           "type": "urn:altinn:resource",
@@ -117,9 +111,7 @@ Altinn tilbyr selv API-er for å be om samtykke og hente ut status på samtykkef
       }
     },
     {
-      "action": [
-        "consent"
-      ],
+      "action": ["consent"],
       "resource": [
         {
           "type": "urn:altinn:resource",
@@ -200,6 +192,6 @@ For å opprette samtykkeforespørsler på vegne av andre virksomheter må scope 
 
 ## Ressurser
 
-* [Maskinporten: API-konsument-guide](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument.html)
-* [GitHub: Testimplementasjon](https://github.com/TheTechArch/smartbank)
-* [Kjørende smartbank](https://smartbankdemo.azurewebsites.net/)
+- [Maskinporten: API-konsument-guide](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument.html)
+- [GitHub: Testimplementasjon](https://github.com/TheTechArch/smartbank)
+- [Kjørende smartbank](https://smartbankdemo.azurewebsites.net/)

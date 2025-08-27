@@ -4,7 +4,6 @@ linktitle: Autentisering
 description: Autentiseringskomponenten tilbyr funksjonalitet for å autentisere brukere og systemer som får tilgang til Altinn Apps og Altinn-plattformen.
 tags: [platform, authentication]
 toc: true
-weight: 2
 ---
 
 ## Tokenutveksling for Altinn-portalen

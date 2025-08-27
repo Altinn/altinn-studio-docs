@@ -3,7 +3,6 @@ title: Administrasjon av Tilgangslister i Altinn Studio
 linktitle: Tilgangsliste
 description: Følg disse trinnene for å administrere tilgangslister i Altinn Studio for din organisasjon.
 toc: false
-weight: 3
 ---
 
 ### Oppsett av administrasjon for ressursregister
