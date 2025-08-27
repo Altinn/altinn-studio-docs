@@ -11,4 +11,4 @@ This is work in progress
 
 Access Packages can be delegated or can be connected to external roles
 
-Example ER Role DAGL could give access to AccessPackage X,Y Z
+Example: ER role DAGL could provide access to Access Packages X, Y, and Z.
