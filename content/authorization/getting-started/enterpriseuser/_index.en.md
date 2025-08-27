@@ -3,9 +3,8 @@ title: Authentication with Enterprise Users
 linktitle: Enterprise Users
 description: The concept of enterprise users was introduced with Altinn 2.
 toc: true
-weight: 100
 aliases:
-- /api/authentication/enterpriseusers/
+  - /api/authentication/enterpriseusers/
 ---
 
 ## Overview

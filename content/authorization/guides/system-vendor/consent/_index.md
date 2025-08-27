@@ -3,7 +3,6 @@ title: Consent for Data Consumers
 description: How to use the consent solution for data consumers in Altinn 3
 linktitle: Consent
 toc: false
-weight: 10
 ---
 
 ## Introduction
@@ -12,24 +11,24 @@ This documentation describes how data consumers can request, retrieve, and manag
 
 ## Glossary
 
-* **Data Consumer**: The organization requesting access to data about an individual or another organization.
-* **Resource**: A category of data defined by the actor providing the API in Altinn (e.g., income information, tax base).
+- **Data Consumer**: The organization requesting access to data about an individual or another organization.
+- **Resource**: A category of data defined by the actor providing the API in Altinn (e.g., income information, tax base).
 
 ## Providers of Consent Solutions
 
 Below are some key actors with consent solutions for Altinn 2. Most are expected to migrate to Altinn 3 during Q3 2025 or Q1 2026:
 
-* **Skatteetaten (Norwegian Tax Administration)**
-  * [About Consent](https://skatteetaten.github.io/api-dokumentasjon/en/om/samtykke)
-  * [Income API](https://skatteetaten.github.io/api-dokumentasjon/en/api/inntekt)
-  * [Summed Tax Base API](https://skatteetaten.github.io/api-dokumentasjon/en/api/summertskattegrunnlag)
-  * [Claims and Payments API](https://skatteetaten.github.io/api-dokumentasjon/en/api/kravogbetalinger)
-  * [Employer's National Insurance Contribution API](https://skatteetaten.github.io/api-dokumentasjon/en/api/arbeidsgiveravgift)
-  * [VAT Reporting Information API](https://skatteetaten.github.io/api-dokumentasjon/en/api/mva_meldingsopplysning)
-  * [Foreign Companies Assignments API](https://skatteetaten.github.io/api-dokumentasjon/en/api/oppdragutenlandskevirksomheter)
-  * [Outstanding Claims API](https://skatteetaten.github.io/api-dokumentasjon/en/api/restanser)
-* **Lånekassen (Norwegian State Educational Loan Fund)**
-  * [Student Loan Balance](https://dokumentasjon.dsop.no/dsop_saldostudielan_om.html)
+- **Skatteetaten (Norwegian Tax Administration)**
+  - [About Consent](https://skatteetaten.github.io/api-dokumentasjon/en/om/samtykke)
+  - [Income API](https://skatteetaten.github.io/api-dokumentasjon/en/api/inntekt)
+  - [Summed Tax Base API](https://skatteetaten.github.io/api-dokumentasjon/en/api/summertskattegrunnlag)
+  - [Claims and Payments API](https://skatteetaten.github.io/api-dokumentasjon/en/api/kravogbetalinger)
+  - [Employer's National Insurance Contribution API](https://skatteetaten.github.io/api-dokumentasjon/en/api/arbeidsgiveravgift)
+  - [VAT Reporting Information API](https://skatteetaten.github.io/api-dokumentasjon/en/api/mva_meldingsopplysning)
+  - [Foreign Companies Assignments API](https://skatteetaten.github.io/api-dokumentasjon/en/api/oppdragutenlandskevirksomheter)
+  - [Outstanding Claims API](https://skatteetaten.github.io/api-dokumentasjon/en/api/restanser)
+- **Lånekassen (Norwegian State Educational Loan Fund)**
+  - [Student Loan Balance](https://dokumentasjon.dsop.no/dsop_saldostudielan_om.html)
 
 Altinn itself offers APIs for requesting consent and retrieving the status of consent requests.
 
@@ -44,8 +43,8 @@ Altinn itself offers APIs for requesting consent and retrieving the status of co
 
 ### 1.2 API Endpoint
 
-* **Test**: `POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/`
-* **Production**: `POST https://platform.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/`
+- **Test**: `POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/`
+- **Production**: `POST https://platform.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/`
 
 #### Request (example)
 
@@ -57,9 +56,7 @@ Altinn itself offers APIs for requesting consent and retrieving the status of co
   "validTo": "2026-07-18T06:18:12.2597103+00:00",
   "consentRights": [
     {
-      "action": [
-        "consent"
-      ],
+      "action": ["consent"],
       "resource": [
         {
           "type": "urn:altinn:resource",
@@ -71,9 +68,7 @@ Altinn itself offers APIs for requesting consent and retrieving the status of co
       }
     },
     {
-      "action": [
-        "consent"
-      ],
+      "action": ["consent"],
       "resource": [
         {
           "type": "urn:altinn:resource",
@@ -101,9 +96,7 @@ Altinn itself offers APIs for requesting consent and retrieving the status of co
   "validTo": "2026-07-18T06:18:12.25971+00:00",
   "consentRights": [
     {
-      "action": [
-        "consent"
-      ],
+      "action": ["consent"],
       "resource": [
         {
           "type": "urn:altinn:resource",
@@ -115,9 +108,7 @@ Altinn itself offers APIs for requesting consent and retrieving the status of co
       }
     },
     {
-      "action": [
-        "consent"
-      ],
+      "action": ["consent"],
       "resource": [
         {
           "type": "urn:altinn:resource",
@@ -190,5 +181,5 @@ To create consent requests on behalf of other organizations, the scope must be d
 
 ## Resources
 
-* [Maskinporten: API Consumer Guide](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument.html)
-* [GitHub: Test Implementation](https://github.com/TheTechArch/smartbank)
+- [Maskinporten: API Consumer Guide](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument.html)
+- [GitHub: Test Implementation](https://github.com/TheTechArch/smartbank)

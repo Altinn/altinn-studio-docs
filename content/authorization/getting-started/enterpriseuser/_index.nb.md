@@ -3,9 +3,8 @@ title: Autentisering med Virksomhetsbrukere
 linktitle: Virksomhetsbrukere
 description: Konseptet med virksomhetsbrukere ble introdusert med Altinn 2.
 toc: true
-weight: 100
 aliases:
-- /nb/api/authentication/enterpriseusers/
+  - /nb/api/authentication/enterpriseusers/
 ---
 
 ## Oversikt

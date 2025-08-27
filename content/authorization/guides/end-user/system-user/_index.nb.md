@@ -3,7 +3,6 @@ title: Sluttbrukerveiledning for systembruker
 linktitle: Systembruker
 description: Finn omfattende informasjon om hva en sluttbruker må være oppmerksom på, samt hvilke trinn som må følges for å etablere en systembrukerintegrasjon.
 toc: false
-weight: 3
 ---
 
 ### Veiledning for sluttbruker (STADIG KONSERT, Dagligleder til TILFELDIG SUBTIL APE)

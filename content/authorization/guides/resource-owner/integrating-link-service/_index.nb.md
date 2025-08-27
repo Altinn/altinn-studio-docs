@@ -1,24 +1,21 @@
 ---
 title: Sette opp integrasjon mot Altinn Autorisasjon fra eksterne tjenester
-linktitle:  Ekstern autorisasjon
-description:  Denne guiden beskriver hvordan man fra en ekstern tjeneste kan integrere seg mot Altinn Autorisasjon
+linktitle: Ekstern autorisasjon
+description: Denne guiden beskriver hvordan man fra en ekstern tjeneste kan integrere seg mot Altinn Autorisasjon
 toc: false
-weight: 4
 ---
 
-
-## Sette opp integrasjon med ID-porten 
+## Sette opp integrasjon med ID-porten
 
 For at man skal kunne autorisere sluttbrukere i en digital tjeneste er det nødvendig å kunne autentisere brukeren.
 
 Dette gjøres typisk ved hjelp av ID-porten
 
-
 ## Få tilgang til Altinns API
 
 For å få tilgang til Altinns API trenger tjenesteier følgende
 
-- API Subscription for produktene Access Management. 
+- API Subscription for produktene Access Management.
 - Scope for avgiverliste for tjenesteeierbruker "altinn:accessmanagement/authorizedparties.resourceowner"
 - Scope for PDP "altinn:authorization/authorize"
 
@@ -28,24 +25,24 @@ Når API scopes er tildelt organisasjonen kan man sette opp en integrasjon i Mas
 
 Ved å autentisere seg mot Maskinporten med den aktuelle klientene får man da en token som er autorisert til disse API.
 
-Dette Maskinporten tokenet må veksles inn til et Altinn token. 
+Dette Maskinporten tokenet må veksles inn til et Altinn token.
 
 Oppsett av Maskinportenklient og innveksling er beskrevet [her](/api/authentication/maskinporten/).
 
 ## Sette opp tilgangs håndtering i egen applikasjon
 
 I applikasjonen som tilbyr tjenesten må tjenesteeier sette opp tilgangshåndtering for når brukere aksesserer funksjonalitet
-som krever autorisasjon.  I Altinn kaller vi slik kode "Policy Enforcment Point" eller PEP. 
+som krever autorisasjon. I Altinn kaller vi slik kode "Policy Enforcment Point" eller PEP.
 
 Policy Enforcement Point sin oppgave er å kalle Policy Decision Point for å få svar på om sluttbruker/system er autorisert for å utføre forespurt operasjon.
 
 ## Integrasjon med API for autoriserte parter (Avgivere)
 
-For å kunne presentere en liste over avgivere som en sluttbruker kan velge mellom tilbyr Altinn et API for å kunne presentere dette. 
+For å kunne presentere en liste over avgivere som en sluttbruker kan velge mellom tilbyr Altinn et API for å kunne presentere dette.
 
 ![Autoriserte parter fra vegvesen.no](authorizedparty.png "Autoriserter parter fra Altinn presentert på vegvesen.no")
 
-API som Altinn tilbyr heter AuthorizedParties. Dokumentasjon finnes [her](https://docs.altinn.studio/nb/api/accessmanagement/resourceowneropenapi/#/Authorized%20Parties/post_resourceowner_authorizedparties) 
+API som Altinn tilbyr heter AuthorizedParties. Dokumentasjon finnes [her](https://docs.altinn.studio/nb/api/accessmanagement/resourceowneropenapi/#/Authorized%20Parties/post_resourceowner_authorizedparties)
 
 Input er personr til autentisert person på følgende format
 
@@ -63,7 +60,6 @@ Det er laget et eget PDP API som støtter at PEP gjør et autorisasjonskall base
 Dokumentasjonen finnes [her](https://docs.altinn.studio/nb/api/authorization/spec/#/Decision/post_authorize)
 
 Nedenfor vises eksempel på kall som autoriserer **01017012345** for **read** på ressursen **ttdintegrasjonstest1** for organisasjon **312824450**
-
 
 ```json
 {
@@ -106,7 +102,6 @@ Nedenfor vises eksempel på kall som autoriserer **01017012345** for **read** p�
     ]
   }
 }
-
 ```
 
 Response
@@ -125,7 +120,6 @@ Response
         {
           "id": "urn:altinn:obligation:authenticationLevel1",
           "attributeAssignment": [
-
             {
               "attributeId": "urn:altinn:obligation-assignment:1",
               "value": "2",
@@ -141,13 +135,12 @@ Response
 }
 ```
 
-
-
 ### Multi Resource-integrasjon med PDP
 
 Altinn PDP tilbyr en praktisk løsning i scenarier der flere elementer må autoriseres for en gitt bruker samtidig. Takket være XACML Jason-profilen, støtter den flere autorisasjonsforespørsler i en enkelt PDP-forespørsel, og lindrer potensielle komplikasjoner.
 
 I eksemplet nedenfor må en bruker være autorisert for tre ressurser som eies av en annen organisasjon og av to forskjellige typer.
+
 ```json
 {
   "Request": {
@@ -226,33 +219,22 @@ I eksemplet nedenfor må en bruker være autorisert for tre ressurser som eies a
     "MultiRequests": {
       "RequestReference": [
         {
-          "ReferenceId": [
-            "s1",
-            "a1",
-            "r1"
-          ]
+          "ReferenceId": ["s1", "a1", "r1"]
         },
         {
-          "ReferenceId": [
-            "s1",
-            "a1",
-            "r2"
-          ]
+          "ReferenceId": ["s1", "a1", "r2"]
         },
         {
-          "ReferenceId": [
-            "s1",
-            "a1",
-            "r3"
-          ]
+          "ReferenceId": ["s1", "a1", "r3"]
         }
       ]
     }
   }
 }
-
 ```
+
 Du får en liste over svar i retur. I forespørselen forteller du hvilke elementer du trenger i retur for hver forespørsel for å kunne kartlegge svaret på forespørselen.
+
 ```json
 {
   "Response": [
@@ -267,7 +249,6 @@ Du får en liste over svar i retur. I forespørselen forteller du hvilke element
         {
           "id": "urn:altinn:obligation:authenticationLevel1",
           "attributeAssignment": [
-
             {
               "attributeId": "urn:altinn:obligation-assignment:1",
               "value": "2",
@@ -353,7 +334,6 @@ Du får en liste over svar i retur. I forespørselen forteller du hvilke element
             }
           ]
         }
-
       ]
     },
     {
@@ -389,10 +369,8 @@ Du får en liste over svar i retur. I forespørselen forteller du hvilke element
             }
           ]
         }
-
       ]
     }
   ]
 }
-
 ```

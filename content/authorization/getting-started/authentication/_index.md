@@ -4,7 +4,6 @@ linktitle: Authentication
 description: The authentication component provides functionality to authenticate users and systems accessing Altinn Apps and Altinn platform.
 tags: [platform, authentication]
 toc: true
-weight: 100
 ---
 
 The authentication component does not function as an identity provider itself; instead, it establishes authentication sessions based on external identity providers such as:

@@ -3,7 +3,6 @@ title: Enduser guide for System user
 linktitle: System user
 description: Find comprehensive information on what an end user must be aware of and the steps to follow to establish a system user integration.
 toc: false
-weight: 3
 ---
 
 ### Guide for End User (STADIG KONSERT, Dagligleder of TILFELDIG SUBTIL APE)

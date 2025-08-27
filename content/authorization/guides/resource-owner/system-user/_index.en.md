@@ -3,7 +3,6 @@ title: System-user
 linktitle: System-user
 description: A guide for the API provider to set up their resource with Altinn and establishing the system user integration.
 toc: true
-weight: 1
 ---
 
 ## Prerequisites For The API Provider
