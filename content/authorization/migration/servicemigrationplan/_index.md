@@ -154,8 +154,7 @@ Informasjon om tjenestene vil etter flytting kunne slås opp her:
 
 #### API for delegering slås av
 
-I dag er det mulig for sluttbruker å benytte API for å slette eller opprette delegeringer til Delegerbare API ressurser se [API-beskrivlese](https://altinn.github.io/docs/api/rest/autorisasjon/roller-og-rettigheter/#slette-delegerte-tjenesterettigheter--roller)). I forbindelse med migrering av disse ressursene fra Altinn 2 til Altinn 3 vil det i en overgangsfase ikke lenger være mulig å utføre dette via API. Nye API vil bli tilbydt i løpet av Q4 2023.
-
+I dag er det mulig for sluttbrukere å benytte API for å slette eller opprette delegeringer til Delegerbare API-ressurser; se [API-beskrivelse](https://altinn.github.io/docs/api/rest/autorisasjon/roller-og-rettigheter/#slette-delegerte-tjenesterettigheter--roller). I forbindelse med migrering av disse ressursene fra Altinn 2 til Altinn 3 vil det i en overgangsfase ikke lenger være mulig å utføre dette via API. Nye API vil bli tilbys i løpet av Q4 2023.
 ### Tidsplan
 
 - Oppstart utvikling: Avsluttet
