@@ -48,6 +48,10 @@ When preparing the application to use secrets from Azure Key Vault, there are so
    It is important that the name of these secrets in Azure Key Vault corresponds with the name of the section in the 
    appsettings file in the application repository. E.g. if your appsettings section for the Maskinporten integration section looks like this:
 
+   {{< code-title >}}
+   App/appsettings.json
+   {{< /code-title >}}
+
    ```json
    {
      "MaskinportenSettings": {
@@ -82,6 +86,10 @@ The application automatically includes the built-in `IMaskinportenClient` which 
 
 The client will automatically look for a Maskinporten configuration at the default path _"MaskinportenSettings"_. If you wish to use a different path, perhaps because you are deploying multiple apps and you need each one to carry different credentials, you can configure this via the `ConfigureMaskinportenClient` method.
 
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 {{< highlight csharp "linenos=false,hl_lines=5-7" >}}
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
@@ -96,6 +104,10 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 ### Authorizing Http Clients
 
 Typed and named Http clients can be authorized with the available extension methods, as illustrated below.
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
 {{< highlight csharp "linenos=false,hl_lines=6-7 10-11" >}}
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
@@ -132,6 +144,10 @@ public class Example(IMaskinportenClient maskinportenClient) : IProcessTaskEnd
 
 Lastly, we need to add the Azure Key Vault configuration provider to our host. This is done by adding the highlighted code _after_ the `ConfigureWebHostBuilder` method.
 
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 {{< highlight csharp "linenos=false,hl_lines=6-9" >}}
 //...
 
@@ -155,6 +171,10 @@ Certain legacy services require an implementation of `IMaskinportenTokenProvider
 If you need to support existing usage of the [standalone Maskinporten client](https://github.com/Altinn/altinn-apiclient-maskinporten), while simultaneously wanting to use the built-in client for new features, it usually makes sense to leverage a single [Azure Key Vault configuration](#azure-key-vault-configuration).
 
 The example below illustrates how to map an `Altinn.ApiClients.Maskinporten.Config.MaskinportenSettings` object to the format required by the built-in client.
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
 {{< highlight csharp  >}}
 using Altinn.App.Core.Features.Maskinporten.Exceptions;
@@ -187,6 +207,10 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 }
 {{< / highlight >}}
 
+{{% notice warning %}}
+If your MaskinportenSettings is [configured in Key Vault](#key-vault-configuration), the mapping described in this step needs to take place either lazily or _after_ Key Vault has been added as an options provider. If the configuration delegate runs too early, not all values are loaded yet.
+{{% /notice %}}
+
 {{% /expandlarge %}}
 
 ## Migration Paths
@@ -197,6 +221,10 @@ In this section you will find couple of brief examples of how to migrate your ex
 
 ### Use of AddMaskinportenHttpClient
 The following example shows how an `EventSubscriptionClient` has traditionally been configured, and how you can achieve the same result using the built-in Maskinporten client.
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
 {{< highlight csharp  >}}
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
@@ -225,6 +253,10 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 ### Use of AddMaskinportenHttpMessageHandler
 The following example shows how `Altinn.ApiClients.Dan` has typically been configured, and how you can achieve the same result using the built-in Maskinporten client.
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
 {{< highlight csharp  >}}
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)

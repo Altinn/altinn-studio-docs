@@ -41,6 +41,10 @@ Når applikasjonen forberedes til å bruke hemmeligheter fra Azure Key Vault, m�
 
    Det er viktig at navnet på disse hemmelighetene i Azure Key Vault tilsvarer navnet på seksjonen i appsettings-filen i kodebasen til applikasjonen. F.eks. hvis din appsettings-seksjon for Maskinporten-integrasjonen ser slik ut:
 
+   {{< code-title >}}
+   App/appsettings.json
+   {{< /code-title >}}
+
    ```json
    {
      "MaskinportenSettings": {
@@ -70,20 +74,26 @@ Applikasjonen inkluderer automatisk den innebygde `IMaskinportenClient` som kan 
 ### Konfigurasjonsstier
 Klienten vil automatisk lete etter en Maskinporten-konfigurasjon på standardstien _"MaskinportenSettings"_. Hvis du ønsker å bruke en annen sti, kanskje fordi du administrerer flere apper og hver av dem trenger ulik autorisasjon, kan du konfigurere dette via `ConfigureMaskinportenClient`-metoden.
 
-{{< highlight csharp "linenos=false,hl_lines=5-7" >}}
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
+{{< highlight csharp "linenos=false,hl_lines=5" >}}
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
   // ...
 
-  services.ConfigureMaskinportenClient(
-      "YourCustomMaskinportenSettingsPath"
-  );
+  services.ConfigureMaskinportenClient("YourCustomMaskinportenSettingsPath");
 }
 {{< / highlight >}}
 
 ### Autorisering av Http-klienter
 
 Typede og navngitte Http-klienter kan autoriseres med de tilgjengelige utvidelsesmetodene, som illustrert nedenfor.
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
 {{< highlight csharp "linenos=false,hl_lines=6-7 10-11" >}}
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
@@ -120,6 +130,10 @@ public class Example(IMaskinportenClient maskinportenClient) : IProcessTaskEnd
 
 Til slutt må vi legge til Azure Key Vault-konfigurasjonsleverandøren til vår host. Dette gjøres ved å legge til den markerte koden _etter_ `ConfigureWebHostBuilder`-metoden.
 
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 {{< highlight csharp "linenos=false,hl_lines=6-9" >}}
 //...
 
@@ -143,6 +157,10 @@ Visse eldre tjenester krever en implementering av `IMaskinportenTokenProvider` f
 Hvis du trenger å støtte eksisterende bruk av den [frittstående Maskinporten-klienten](https://github.com/Altinn/altinn-apiclient-maskinporten), mens du samtidig vil bruke den innebygde klienten for nye funksjoner, gir det vanligvis mening å utnytte én enkelt [Azure Key Vault-konfigurasjon](#konfigurasjon-av-azure-key-vault).
 
 Eksempelet nedenfor illustrerer hvordan du kan omforme et `Altinn.ApiClients.Maskinporten.Config.MaskinportenSettings`-objekt til formatet som kreves av den innebygde klienten.
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
 {{< highlight csharp  >}}
 using Altinn.App.Core.Features.Maskinporten.Exceptions;
@@ -175,6 +193,10 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 }
 {{< / highlight >}}
 
+{{% notice warning %}}
+Hvis du har [konfigurert MaskinportenSettings i Key Vault](#key-vault-konfigurasjon), må mappingen som er beskrevet i dette steget enten gjøres via forsinket utførelse eller _etter_ at Key Vault er lagt til som en options provider. Hvis konfigurasjonsdelegaten kjøres for tidlig, er ikke alle verdier lastet inn ennå.
+{{% /notice %}}
+
 {{% /expandlarge %}}
 
 ## Migreringsveier
@@ -185,6 +207,10 @@ I denne seksjonen finner du noen korte eksempler på hvordan du kan migrere din 
 
 ### Bruk av AddMaskinportenHttpClient
 Følgende eksempel viser hvordan en `EventSubscriptionClient` tradisjonelt har blitt konfigurert, og hvordan du kan oppnå samme resultat ved å bruke den innebygde Maskinporten-klienten.
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
 {{< highlight csharp  >}}
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
@@ -213,6 +239,10 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 ### Bruk av AddMaskinportenHttpMessageHandler
 Følgende eksempel viser hvordan `Altinn.ApiClients.Dan` typisk har blitt konfigurert, og hvordan du kan oppnå samme resultat ved å bruke den innebygde Maskinporten-klienten.
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
 {{< highlight csharp  >}}
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
