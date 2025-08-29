@@ -29,7 +29,7 @@ For å sette opp dette kan du følge de generelle stegene i [veiledningen for Ma
 
   ```json
   "MaskinportenSettings": {
-    "Authority": "https://[test.]maskinporten.no/",
+    "Authority": "https://test.maskinporten.no/",
     "ClientId": "the client id",
     "JwkBase64": "base64 encoded jwk"
   }
@@ -42,16 +42,12 @@ For å sette opp dette kan du følge de generelle stegene i [veiledningen for Ma
   App/Program.cs
   {{< /code-title >}}
 
-  {{<highlight csharp "linenos=false,hl_lines=7-9">}}
-  void RegisterCustomAppServices(
-    IServiceCollection services,
-    IConfiguration config,
-    IWebHostEnvironment env
-  )
+  {{<highlight csharp "linenos=false,hl_lines=5">}}
+  void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
   {
-    services.ConfigureMaskinportenClient(
-      "DinUnikeMaskinportenSettingsSti"
-    );
+    // ...
+
+    services.ConfigureMaskinportenClient("DinUnikeMaskinportenSettingsSti");
   }
   {{</highlight>}}
 
@@ -61,13 +57,11 @@ For å sette opp dette kan du følge de generelle stegene i [veiledningen for Ma
   App/Program.cs
   {{< /code-title >}}
 
-  {{<highlight csharp "linenos=false,hl_lines=7-12">}}
-  void RegisterCustomAppServices(
-    IServiceCollection services,
-    IConfiguration config,
-    IWebHostEnvironment env
-  )
+  {{<highlight csharp "linenos=false,hl_lines=5-10">}}
+  void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
   {
+    // ...
+
     services.ConfigureMaskinportenClient(config =>
     {
       config.Authority = "https://[test.]maskinporten.no/";
@@ -97,15 +91,11 @@ Du finner alle tilgjengelige alternativer og tilhørende dokumentasjon via Intel
 App/Program.cs
 {{< /code-title >}}
 
-{{<highlight csharp "linenos=false,hl_lines=9">}}
-// ...
-
-void RegisterCustomAppServices(
-  IServiceCollection services,
-  IConfiguration config,
-  IWebHostEnvironment env
-)
+{{<highlight csharp "linenos=false,hl_lines=5">}}
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
+  // ...
+
   services.AddTransient<ITheInterfaceYouAreImplementing, CorrespondenceClientDemo>();
 }
 {{</highlight>}}

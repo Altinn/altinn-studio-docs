@@ -29,7 +29,7 @@ To set this up, follow the general steps outlined in the [Maskinporten integrati
 
   ```json
   "MaskinportenSettings": {
-    "Authority": "https://[test.]maskinporten.no/",
+    "Authority": "https://test.maskinporten.no/",
     "ClientId": "the client id",
     "JwkBase64": "base64 encoded jwk"
   }
@@ -43,16 +43,12 @@ To set this up, follow the general steps outlined in the [Maskinporten integrati
   App/Program.cs
   {{< /code-title >}}
 
-  {{<highlight csharp "linenos=false,hl_lines=7-9">}}
-  void RegisterCustomAppServices(
-    IServiceCollection services,
-    IConfiguration config,
-    IWebHostEnvironment env
-  )
+  {{<highlight csharp "linenos=false,hl_lines=5">}}
+  void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
   {
-    services.ConfigureMaskinportenClient(
-      "UniqueMaskinportenSettingsPath"
-    );
+    // ...
+
+    services.ConfigureMaskinportenClient("UniqueMaskinportenSettingsPath");
   }
   {{</highlight>}}
 
@@ -62,13 +58,11 @@ To set this up, follow the general steps outlined in the [Maskinporten integrati
   App/Program.cs
   {{< /code-title >}}
 
-  {{<highlight csharp "linenos=false,hl_lines=7-12">}}
-  void RegisterCustomAppServices(
-    IServiceCollection services,
-    IConfiguration config,
-    IWebHostEnvironment env
-  )
+  {{<highlight csharp "linenos=false,hl_lines=5-10">}}
+  void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
   {
+    // ...
+
     services.ConfigureMaskinportenClient(config =>
     {
       config.Authority = "https://[test.]maskinporten.no/";
@@ -99,15 +93,11 @@ You will find all available options and associated documentation through Intelli
 App/Program.cs
 {{< /code-title >}}
 
-{{<highlight csharp "linenos=false,hl_lines=9">}}
-// ...
-
-void RegisterCustomAppServices(
-  IServiceCollection services,
-  IConfiguration config,
-  IWebHostEnvironment env
-)
+{{<highlight csharp "linenos=false,hl_lines=5">}}
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
+  // ...
+
   services.AddTransient<ITheInterfaceYouAreImplementing, CorrespondenceClientDemo>();
 }
 {{</highlight>}}
