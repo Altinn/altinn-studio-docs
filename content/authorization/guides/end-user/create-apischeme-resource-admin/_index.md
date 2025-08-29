@@ -3,7 +3,6 @@ title: Creating and publishing API scheme in altinn Studio
 linktitle: Creating API Scheme
 description: This explaines how you can define a API scheme in Altinn
 toc: false
-weight: 1
 ---
 
 In Altinn Studio Resource admin, you can create resources to use as a basis for access control for services outside of the Altinn Platform.

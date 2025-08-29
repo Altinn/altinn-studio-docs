@@ -3,7 +3,6 @@ title: Create and Publish Delegable API Scheme
 linktitle: API Scheme via API
 description: This guide explains how to create and publish API Scheme via API.
 toc: false
-weight: 1
 ---
 
 Via the Resource Registry API, it is possible to register delegable API resources.
@@ -21,69 +20,69 @@ The delegable API schemes are defined in the Altinn Resource Registry as a resou
 
 The following attributes are necessary:
 
-| Attribute | Description |
-|-----------|-------------|
-| identifier | Globally unique ID for the resource. Also used in policy. Required. |
-| title | Title for the API Scheme. Displayed in the Altinn portal when delegating. Must be provided for en, nb, and nn (English, Bokmål, and Nynorsk). Required. |
-| description | Description for the API Scheme. Must be provided for en, nb, and nn (English, Bokmål, and Nynorsk). Required. |
-| rightDescription | Delegation description for the API Scheme. Must be provided for en, nb, and nn (English, Bokmål, and Nynorsk). Required. |
-| resourceReferences | A resource reference with reference type MaskinportenScope must be added. |
-| delegable | Must be set to true for the scope to be delegable to a provider. |
-| visible | Must be set to true for the scope to be delegable to a provider. |
-| hasCompetentAuthority | Defines the service owner. Must be set with the organization number and correct service owner code (NAV, SKD, SVV, etc.). |
-| resourceType | Must be set to MaskinportenSchema. |
+| Attribute             | Description                                                                                                                                             |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| identifier            | Globally unique ID for the resource. Also used in policy. Required.                                                                                     |
+| title                 | Title for the API Scheme. Displayed in the Altinn portal when delegating. Must be provided for en, nb, and nn (English, Bokmål, and Nynorsk). Required. |
+| description           | Description for the API Scheme. Must be provided for en, nb, and nn (English, Bokmål, and Nynorsk). Required.                                           |
+| rightDescription      | Delegation description for the API Scheme. Must be provided for en, nb, and nn (English, Bokmål, and Nynorsk). Required.                                |
+| resourceReferences    | A resource reference with reference type MaskinportenScope must be added.                                                                               |
+| delegable             | Must be set to true for the scope to be delegable to a provider.                                                                                        |
+| visible               | Must be set to true for the scope to be delegable to a provider.                                                                                        |
+| hasCompetentAuthority | Defines the service owner. Must be set with the organization number and correct service owner code (NAV, SKD, SVV, etc.).                               |
+| resourceType          | Must be set to MaskinportenSchema.                                                                                                                      |
 
 Below is an example from production of an API resource. ([See the same via API](https://platform.altinn.no/resourceregistry/api/v1/resource/maskinportenschema-aquaportalapi-write))
 
 ```json
 {
-    "identifier": "maskinportenschema-aquaportalapi-write",
-    "title": {
-        "en": "Write access to the Aqua Portal API.",
-        "nb": "Skrivetilgang til API for Akvakulturportalen.",
-        "nn": "Skrivetilgang til API for Akvakulturportalen."
-    },
-    "description": {
-        "en": "This service provides write access to aquaculture applications for county municipalities and other sector authorities.",
-        "nb": "Denne tjenesten gir skrivetilgang til akvakultursøknader for fylkeskommuner og andre sektormyndigheter.",
-        "nn": "Denne tenesta gir skrivetilgang til akvakultursøknader for fylkeskommunar og andre sektormyndigheiter."
-    },
-    "rightDescription": {
-        "en": "This service provides write access to aquaculture applications for county municipalities and other sector authorities.",
-        "nb": "Denne tjenesten gir skrivetilgang til akvakultursøknader for fylkeskommuner og andre sektormyndigheter.",
-        "nn": "Denne tenesta gir skrivetilgang til akvakultursøknader for fylkeskommunar og andre sektormyndigheiter."
-    },
-    "homepage": "https://www.fiskeridir.no/",
-    "status": "Active",
-    "contactPoints": [
-        {
-            "contactPage": "https://www.fiskeridir.no/"
-        }
-    ],
-    "isPartOf": "",
-    "resourceReferences": [
-        {
-            "referenceSource": "Altinn3",
-            "reference": "fdir:aquaportalapi.write",
-            "referenceType": "MaskinportenScope"
-        }
-    ],
-    "delegable": true,
-    "visible": true,
-    "hasCompetentAuthority": {
-        "organization": "971203420",
-        "orgcode": "FD",
-        "name": {
-            "en": "The Norwegian Directorate of Fisheries",
-            "nb": "Fiskeridirektoratet",
-            "nn": "Fiskeridirektoratet"
-        }
-    },
-    "keywords": [],
-    "limitedByRRR": false,
-    "selfIdentifiedUserEnabled": false,
-    "enterpriseUserEnabled": false,
-    "resourceType": "MaskinportenSchema"
+  "identifier": "maskinportenschema-aquaportalapi-write",
+  "title": {
+    "en": "Write access to the Aqua Portal API.",
+    "nb": "Skrivetilgang til API for Akvakulturportalen.",
+    "nn": "Skrivetilgang til API for Akvakulturportalen."
+  },
+  "description": {
+    "en": "This service provides write access to aquaculture applications for county municipalities and other sector authorities.",
+    "nb": "Denne tjenesten gir skrivetilgang til akvakultursøknader for fylkeskommuner og andre sektormyndigheter.",
+    "nn": "Denne tenesta gir skrivetilgang til akvakultursøknader for fylkeskommunar og andre sektormyndigheiter."
+  },
+  "rightDescription": {
+    "en": "This service provides write access to aquaculture applications for county municipalities and other sector authorities.",
+    "nb": "Denne tjenesten gir skrivetilgang til akvakultursøknader for fylkeskommuner og andre sektormyndigheter.",
+    "nn": "Denne tenesta gir skrivetilgang til akvakultursøknader for fylkeskommunar og andre sektormyndigheiter."
+  },
+  "homepage": "https://www.fiskeridir.no/",
+  "status": "Active",
+  "contactPoints": [
+    {
+      "contactPage": "https://www.fiskeridir.no/"
+    }
+  ],
+  "isPartOf": "",
+  "resourceReferences": [
+    {
+      "referenceSource": "Altinn3",
+      "reference": "fdir:aquaportalapi.write",
+      "referenceType": "MaskinportenScope"
+    }
+  ],
+  "delegable": true,
+  "visible": true,
+  "hasCompetentAuthority": {
+    "organization": "971203420",
+    "orgcode": "FD",
+    "name": {
+      "en": "The Norwegian Directorate of Fisheries",
+      "nb": "Fiskeridirektoratet",
+      "nn": "Fiskeridirektoratet"
+    }
+  },
+  "keywords": [],
+  "limitedByRRR": false,
+  "selfIdentifiedUserEnabled": false,
+  "enterpriseUserEnabled": false,
+  "resourceType": "MaskinportenSchema"
 }
 ```
 
@@ -145,6 +144,4 @@ When the resource and policy are defined, you can call the Resource Registry to:
 1. Create the resource.
 2. Create the policy for the resource.
 
-To do this, you must authenticate with Maskinporten and exchange the token for an Altinn token. 
-
-
+To do this, you must authenticate with Maskinporten and exchange the token for an Altinn token.

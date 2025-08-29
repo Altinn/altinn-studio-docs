@@ -1,56 +1,19 @@
 ---
 title: What do you get?
 linktitle: What do you get?
-description: The authorization components provide access control and management functionality for digital and analog services hosted on the Altinn platform or elsewhere.
+description: Overview of components and functions provided by Altinn Authorization.
 tags: [architecture, solution]
 toc: false
 weight: 2
 ---
 
-Altinn will modernize its authorization architecture and components during the period 2022-2026. Therefore, the description below is a mix of the current and future state.
+Altinn Authorization provides components and services that can be used by public entities, system providers/end-user systems, businesses, and individuals to perform access management and access control for services both on and outside the Altinn platform, as well as from their own end-user systems.
 
-Altinn uses [attribute-based access control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control).
+**Service owners** can register resources in the Resource Register for services that require access management. In the Resource Register, rules can be created specifying who can use a service, for what purpose, and under which conditions. If a service should only be available to a specific group of organizations, this can be managed through access lists.
+With the authorization service (PDP), the resource owner can ensure access control over the resource. This access control supports users from both ID-porten and Maskinporten.
 
-In short, Altinn authorization controls access through rules defined in XACML Policies. Each rule defines which resource the rule describes, which operation can be performed, and who can perform it.
+**System-vendors** can use our APIs to authenticate their users against public services.
 
-## Altinn Authorization - Components
+**End-user** can act on behalf of an organization or themselves. In the Altinn portal or via an end-user system, the user can select whom they are acting on behalf of. The end user can view which authorizations exist and who has authorization on their behalf. Authorizations can be granted or revoked via both the user interface and API.
 
-The diagram below shows future components in a new Altinn architecture.
-
-![Future solution Altinn Authorization](authorization_solution_components_future.drawio.svg "Future solution Altinn Authorization")
-
-This architecture defines the following components:
-
-### Access Management
-
-This component will be responsible for managing access for both users and organizations.
-
-- Provide end-users with an overview of their rights and the rights of others.
-- Management of AccessGroups.
-- Ability to delegate and revoke rights.
-
-[Read more](./accessmanagement/)
-
-### Resource Registry
-
-This component will provide a registry of:
-
-- Altinn 3 Apps.
-- Altinn 2 apps.
-- External services hosted on other platforms but registered in Altinn for authorization.
-
-[Read more](./resourceregistry/)
-
-### Access Control
-
-The PDP component is responsible for evaluating whether the user should be granted access to a given resource or not.
-
-The component includes a context handler, PIP functionality, PRP information, and more.
-
-[Read more](./pdp/)
-
-### Altinn Consent
-
-This component provides functionality for requesting and giving consent.
-
-[Read more](https://github.com/Altinn/altinn-authorization/issues/22)
+Authentication Altinn Authorization provides authentication functionality using ID-porten and Maskinporten against Altinn. In addition, we offer System User functionality, which enables fine-grained access management through Maskinporten.

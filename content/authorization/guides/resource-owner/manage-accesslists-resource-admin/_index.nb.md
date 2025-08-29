@@ -3,7 +3,6 @@ title: Administrer Tilgangslister i Altinn Studio
 linktitle: Admin av Tilgangsliste
 description: I Altinn Studio kan du administrere Tilgangsliste for Ressurser i Altinn Ressursregister.
 toc: false
-weight: 1
 ---
 
 ## Background

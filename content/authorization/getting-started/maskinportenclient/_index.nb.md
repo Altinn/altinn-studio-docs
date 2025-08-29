@@ -3,18 +3,20 @@ title: Oppsett av Maskinporten-klient
 linktitle: Maskinporten
 description: Her finner du informasjon om hvordan du setter opp Maskinporten-klient
 toc: false
-weight: 3
 ---
 
 For å bruke Altinn API-er, krever flere scenarier en Maskinporten-klient:
+
 - Kalle Altinn API som en organisasjon
 - Autentisering som en bedriftsbruker
 - Autentisering som systembruker
 
 ## Sette opp en Maskinporten-klient
+
 {{% insert "content/shared/maskinporten/maskinporten-client-create.nb.md" %}}
 
 ## Liste over scopes
+
 Avhengig av din bruk må du velge de scopene som er relevant for deg. I tabellen under finner du en samling med de vanligste scopene:
 
 | Scope                                | Bruk                         | Beskrivelse                                                                   |
@@ -27,6 +29,7 @@ Avhengig av din bruk må du velge de scopene som er relevant for deg. I tabellen
 For en liste over eldre scopes kan du referere til [Altinn 2 dokumentasjonen](https://altinn.github.io/docs/api/rest/kom-i-gang/scopes/).
 
 ## Autentisering
+
 En detaljert beskrivelse av hvordan du autentiserer klienten din med et JWT Grant, finner du [her](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument).
 
 {{% insert "content/shared/maskinporten/maskinporten-authentication-methods.nb.md" %}}

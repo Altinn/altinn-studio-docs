@@ -5,6 +5,9 @@ description: Du kan enten bruke Altinn som tjenesteeier for å sende meldinger e
 tags: []
 toc: false
 weight: 30
+cascade:
+  params:
+    diataxis: diataxis_tutorials
 ---
 
 {{<children />}}

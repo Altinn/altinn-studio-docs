@@ -3,7 +3,6 @@ title: Resource Administration in Altinn Studio
 linktitle: Resource Administration
 description: To enable resource administration in Altinn Studio, you and your organization must follow a few steps.
 toc: false
-weight: 3
 ---
 
 ## Create User & Organization
@@ -22,7 +21,7 @@ You can create this repository from the organization page in the Gitea section o
 
 ## Create Resource Administration Teams
 
-- Resources  Group that can be assignet to {org}-resources
+- Resources Group that can be assignet to {org}-resources
 - Resources-Publish-PROD - Right to publish to production
 - Resources-Publish-TT02: Team with rights to publish to TT02
 

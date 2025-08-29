@@ -3,7 +3,6 @@ title: Administrere tilgangslister via API
 linktitle: Tilgangslisteadministrasjon i API
 description: I Altinn Studio kan du administrere tilgangslister for ressurser i Altinn Ressursregister.
 toc: false
-weight: 1
 ---
 
 ## Bakgrunn
@@ -49,9 +48,7 @@ Medlemmet kan identifiseres med forskjellige ID-er. Bare én kan gis. Organisasj
 
 ```json
 {
-  "data": [
-    "urn:altinn:organization:identifier-no:123456789"
-  ]
+  "data": ["urn:altinn:organization:identifier-no:123456789"]
 }
 ```
 
@@ -63,13 +60,9 @@ Med en null eller tom liste er alle handlinger tillatt. Handlingene må samsvare
 
 **PUT** `/access-lists/{owner}/{identifier}/resource-connections/{resourceIdentifier}`
 
-
 ```json
 {
-  "actionFilters": [
-    "read",
-    "write"
-  ]
+  "actionFilters": ["read", "write"]
 }
 ```
 

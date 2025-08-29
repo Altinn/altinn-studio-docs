@@ -2,6 +2,9 @@
 title: User guides
 description: User guides in Altinn Notifications
 weight: 24
+cascade:
+  params:
+    diataxis: diataxis_how-to-guides
 ---
 
 ### Guidelines on notification content

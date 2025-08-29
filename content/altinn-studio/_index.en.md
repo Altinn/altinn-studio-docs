@@ -6,6 +6,9 @@ aliases:
 - /teknologi/altinnstudio/solutions/altinn-studio/
 - /app/
 weight: 1
+cascade:
+  params:
+    product: product_studio
 ---
  <div class="row adocs-featuredBlocks">
     <div class="col-12 col-lg-6 mb-5">
