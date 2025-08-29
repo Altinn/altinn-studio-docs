@@ -81,7 +81,7 @@ For tjenesteeiere er autentisering nå mer fleksibel med to støttede metoder:
 
 #### Metode 1: Direkte Maskinporten-autentisering
 
-Du kan nå autentisere direkte ved hjelp av din Maskinporten-klient med `altinn:serviceowner` og `altinn:correspondence.write` scopes.
+Du kan nå autentisere direkte ved hjelp av din [Maskinporten-klient](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument.html) med `altinn:serviceowner` og `altinn:correspondence.write` scopes.
 
 **Fordeler:**
 - **Ingen Altinn Token Exchange påkrevd**: Bruk Maskinporten-tokens direkte uten å veksle dem til Altinn-tokens
@@ -91,7 +91,7 @@ Du kan nå autentisere direkte ved hjelp av din Maskinporten-klient med `altinn:
 For tjenesteeiere som foretrekker den tradisjonelle tilnærmingen eller har eksisterende integrasjoner, kan du fortsette å:
 
 1. Autentisere ved hjelp av din Maskinporten-klient med `altinn:correspondence.write` scope
-2. [Hente et Altinn-token fra Altinn Autentisering](https://docs.altinn.studio/authentication/reference/architecture/accesstoken/)
+2. [Hente et Altinn-token fra Altinn Autentisering](https://docs.altinn.studio/nb/authorization/getting-started/authentication/#bytt-et-jwt-fra-en-ekstern-tokenleverandør)
 3. Bruke Altinn-tokenet for API-kall
 
 **Merk**: **Automatisk avsenderautorisasjon**: Systemet bestemmer og bruker automatisk organisasjonsnummeret ditt fra ressurskonfigurasjonen. Du trenger ikke lenger å spesifisere `Sender`-feltet i API-forespørslene dine (dette feltet er nå utdatert)
