@@ -81,10 +81,10 @@ For service owners, authentication is now more flexible with two supported metho
 
 #### Method 1: Direct Maskinporten Authentication
 
-You can now authenticate directly using your Maskinporten client with the `altinn:serviceowner` and `altinn:correspondence.write` scopes.
+You can now authenticate directly using your [Maskinporten client](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument.html) with the `altinn:serviceowner` and `altinn:correspondence.write` scopes.
 
 **Benefits:**
-- **No Altinn Token Exchange Required**: Use Maskinporten tokens directly without exchanging them for Altinn tokens
+- **No Altinn Token Exchange Required**: Use [Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument.html) tokens directly without exchanging them for Altinn tokens
 
 
 #### Method 2: Traditional Altinn Token Exchange
@@ -92,7 +92,7 @@ You can now authenticate directly using your Maskinporten client with the `altin
 For service owners who prefer the traditional approach or have existing integrations, you can continue to:
 
 1. Authenticate using your Maskinporten Client with the `altinn:correspondence.write` scope
-2. [Acquire an Altinn Token from Altinn Authentication](https://docs.altinn.studio/authentication/reference/architecture/accesstoken/)
+2. [Acquire an Altinn Token from Altinn Authentication](https://docs.altinn.studio/authorization/getting-started/authentication/#exchange-a-jwt-token-from-an-external-token-provider)
 3. Use the Altinn token for API calls
 
 **Note**: **Automatic Sender Authorization**: The system automatically determines and uses your organization number from the resource configuration. You no longer need to specify the `Sender` field in your API requests (this field is now deprecated)
