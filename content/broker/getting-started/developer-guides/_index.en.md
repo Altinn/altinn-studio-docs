@@ -36,8 +36,8 @@ As such, you should implement Event subscriptions to make your process optimized
 
 ## Authentication {#authentication}
 
-For all operations you will need to Authenticate using your Maskinporten Client 
-then [acquire an Altinn Token from Altinn Authentication](https://docs.altinn.studio/authentication/reference/architecture/accesstoken/).
+For all operations you will need to Authenticate using your [Maskinporten Client](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument.html)
+then [acquire an Altinn Token from Altinn Authentication](https://docs.altinn.studio/authorization/getting-started/authentication/#exchange-a-jwt-token-from-an-external-token-provider).
 
 Use the Altinn Token as a Bearer token for all Broker API requests along with the APIM subscription key as a header with the key `Ocp-Apim-Subscription-Key`.
 
