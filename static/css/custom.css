@@ -497,11 +497,11 @@ figure {
     position: relative;
     top: 30px;
     background-color:#222;
-    padding: 15px;
-    padding-top: 0px;
+    padding: 15px 15px 25px 15px;
     margin-top: -30px;
     border: 0;
     border-radius: 7px;
+    line-height: 1;
     box-shadow: 5px 0 5px rgba(68, 68, 68, 0.6);
 }
 
@@ -510,6 +510,7 @@ figure {
     color: #707880;
     border: 0;
     font-size: 75%;
+    white-space: nowrap !important;
 }
 
 .code-title .copy-to-clipboard {
@@ -611,4 +612,9 @@ margin-bottom: 0 !important;
 }
 #notice-paragraph-fix p:last-child {
     margin-bottom: 0;
+}
+
+/* Remove border bottom for last expander */
+#content .adocs-expand:last-of-type {
+    border-bottom: none;
 }
