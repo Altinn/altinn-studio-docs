@@ -20,7 +20,7 @@ Gjennom Altinn Autorisasjon blir kun de med tjenstlig behov gitt tilgang til å 
 Tjenesten tilbyr varsling og revarsling til mottaker på SMS og e‑post i samsvar med kravene i eForvaltningsforskriften. Det betyr at mottakere får beskjed når en ny melding venter.
 
 ### Fleksibel mottaksløsning
-En Altinn 3 Melding blir automatisk en dialog, og gjøres tilgjengelig gjennom Dialogporten i Altinn 3 Arbeidsflate. Mottakeren kan lese meldingen direkte i Arbeidsflate, eller integrere meldingen i sitt eget sak- og arkivsystem ved hjelp av Dialogportens API. Dette gir en smidig arbeidsflyt og full kontroll over informasjonsutvekslingen.
+En Altinn 3 Melding blir automatisk en dialog, og gjøres tilgjengelig gjennom Dialogporten i Altinn 3 Arbeidsflate. Mottakeren kan lese meldingen direkte i Arbeidsflate, eller integrere meldingen i sitt eget saks- og arkivsystem ved hjelp av Dialogportens API. Dette gir en smidig arbeidsflyt og full kontroll over informasjonsutvekslingen.
 
 ### Integrasjon med Altinn Melding
 Man kan bruke Altinn som tjenesteeier for å sende meldinger eller integrere seg mot Altinn som sluttbrukersystem for å vise meldinger:
