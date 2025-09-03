@@ -6,6 +6,9 @@ weight: 50
 ---
 
 <style>
+code {
+    max-height: 500px;
+}
 code.language-xml {
   white-space: pre !important;
 }
@@ -19,6 +22,11 @@ Available from [v8.7.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8
 Restricted data refers to any information that needs extra protection, such as personal, confidential, or classified data.
 
 You can read more about the concept [here](/altinn-studio/concepts/data-model/restricted-data).
+
+## Configuring Maskinporten
+Maskinporten must be configured in order for the app to perform actions on behalf of the service owner.
+
+You can find a detailed guide on that setup [here](/altinn-studio/guides/integration/maskinporten).
 
 ## Configuring the application metadata
 The [applicationmetadata.json](https://github.com/Altinn/app-template-dotnet/blob/main/src/App/config/applicationmetadata.json)
@@ -42,34 +50,39 @@ let's modify rule #2 to grant the new custom actions to bearers of a service own
 
 {{% insert "content/altinn-studio/guides/development/restricted-data/shared/Policy.xml.md" %}}
 
-## Configuring Maskinporten
-Maskinporten must be configured in order for the app to perform actions on behalf of the service owner.
-
-You will find a detailed guide that setup in the [integrations section](/altinn-studio/guides/integration/maskinporten).
-
 ## Interacting with the restricted data
-Because we have prevented the `restrictedDataModel` from being automatically created, we need to implement the required
-logic ourselves.
+Because the `restrictedDataModel` will not be automatically created by the system, and is not attached to the user's normal data flow,
+we need to implement all the relevant logic ourselves.
+
+In this section we'll create a service that helps us interact with the restricted data, before demonstrating how we can
+create, modify, and read restricted data elements in a normal app flow.
 
 ### Helper service
-You may find it convenient to create a helper service that can handle the data element creation and relevant authorization.
-
-This service can then be registered in `Program.cs` and injected wherever you need it.
+In order to simplify the authorization and interaction with the restricted data model, we'll create a helper service that
+takes care of this complexity for us.
 
 {{% insert "content/altinn-studio/guides/development/restricted-data/shared/RestrictedDataHelper.cs.md" %}}
 
+This service can then be registered in `Program.cs` and injected wherever you need it.
+
+{{% insert "content/altinn-studio/guides/development/restricted-data/shared/Program.cs.1.md" %}}
+
 ### Writing data
-As part of our restricted data example, we need to manually create the data element when an application enters the `Task_1` process step.
+As mentioned, we need to manually create the data element when an application enters the `Task_1` process step.
 
-To achieve this we can make use of the [RestrictedDataHelper service](#helper-service) described above, for instance in an implementation of `IProcessTaskStart`.
+To achieve this we can use the `UpdateOrCreateData` method from the [RestrictedDataHelper service](#helper-service).
 
-In the example below we are fetching some information from a fictional API and storing it in our restricted data model.
+The following example has implemented this logic in the `IProcessTaskStart` interface, where we fetch some information
+from a fictional API and store it in our restricted data model. This information will remain unavailable to the user of the
+application, but can be retrieved later by the app itself.
 
 {{% insert "content/altinn-studio/guides/development/restricted-data/shared/ProcessTaskStartHandler.cs.md" %}}
 
 ### Reading data
-Likewise when it comes to reading information from the restricted data type, we need to make use our [helper service](#helper-service).
+When we want to read information stored in the restricted data model, we can again make use of the [helper service](#helper-service).
 
-In the example below we are using the information stored in the previous step to perform some fictional tax calculations.
+This time we'll make use of the `GetOrCreateData` method in an implementation of the `IDataWriteProcessor` interface.
+The task at hand is to perform a fictional tax calculation based on the app user's reported income, along with the spousal
+details we stored in the previous step.
 
 {{% insert "content/altinn-studio/guides/development/restricted-data/shared/DataWriteHandler.cs.md" %}}
