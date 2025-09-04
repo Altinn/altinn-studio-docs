@@ -21,7 +21,6 @@ You should add data restrictions if your app:
 - Contains data that should be treated as read-only
 
 ## Further reading
-- [~Guide for configuring sensitive data types~](...)
-- [Guide for setting up a Maskinporten integration](/altinn-studio/guides/integration/maskinporten/)
+- [Guide for configuring sensitive data types](/altinn-studio/guides/development/restricted-data)
 - [More details about the applicationmetadata.json file](/api/models/app-metadata/#complete-example)
 - [More details about authorization policies and action attributes](/altinn-studio/reference/configuration/authorization/#action-attributes)

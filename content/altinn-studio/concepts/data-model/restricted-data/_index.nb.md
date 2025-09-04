@@ -21,7 +21,6 @@ Du bør legge til ekstra tilgangskontroller hvis appen din:
 - Inneholder data som kun skal være lesbare
 
 ## Les mer
-- [~Guide for å konfigurere beskyttede datatyper~](...)
-- [Guide for å sette opp en Maskinporten-integrasjon](/nb/altinn-studio/guides/integration/maskinporten/)
+- [Guide for konfigurasjon av beskyttede datatyper](/nb/altinn-studio/guides/development/restricted-data)
 - [Mer om applicationmetadata.json](/nb/api/models/app-metadata/#complete-example)
 - [Mer om autorisasjonspolicy og action attributter](/nb/altinn-studio/reference/configuration/authorization/#action-attributter)
