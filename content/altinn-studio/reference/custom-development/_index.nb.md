@@ -147,7 +147,7 @@ OBS! En av metodene i dette grensesnittet er avviklet. Bruk den nyere versjonen 
 Implementer dette grensesnittet for å håndtere betingede prosessoverganger.
 
 **Bruksområder:**
-- Dinamisk prosessflyt basert på data
+- Dynamisk prosessflyt basert på data
 - Forgrening i prosessen basert på forretningslogikk
 - Betinget routing mellom oppgaver
 
