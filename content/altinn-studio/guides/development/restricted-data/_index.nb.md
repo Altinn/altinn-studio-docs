@@ -1,6 +1,5 @@
 ---
 title: Beskyttede data
-linktitle: Beskyttede data
 description: Hvordan sette opp ekstra databeskyttelse for en app
 weight: 50
 ---
@@ -12,7 +11,7 @@ Tilgjengelig fra [v8.7.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/
 {{% /notice %}}
 
 ## Introduksjon
-Beskyttede data er informasjon som krever ekstra tilgangskontroll, for eksempel personopplysninger, konfidensiell eller klassifisert informasjon.
+Beskyttede data er informasjon som krever ekstra tilgangskontroll, for eksempel personopplysninger eller konfidensiell/klassifisert informasjon.
 
 Du kan lese mer om konseptet [her](/nb/altinn-studio/concepts/data-model/restricted-data).
 
@@ -22,14 +21,14 @@ Du må konfigurere Maskinporten for at appen skal kunne utføre handlinger på v
 Du finner en detaljert veiledning for oppsettet [her](/nb/altinn-studio/guides/integration/maskinporten).
 
 ## Konfigurasjon av datatyper
-[Applicationmetadata.json](https://github.com/Altinn/altinn-studio/blob/main/src/App/app-template-dotnet/src/App/config/applicationmetadata.json) filen definerer alle [datatyper](/nb/api/models/app-metadata/#datatype) i en applikasjon. Her angir du hvilke [handlinger](/nb/altinn-studio/reference/configuration/authorization/#action-attributter) som kreves for din beskyttede datatype.
+[applicationmetadata.json-filen](https://github.com/Altinn/altinn-studio/blob/main/src/App/app-template-dotnet/src/App/config/applicationmetadata.json) definerer alle [datatyper](/nb/api/models/app-metadata/#datatype) i en applikasjon. Her angir du hvilke [handlinger](/nb/altinn-studio/reference/configuration/authorization/#action-attributter) som kreves for din beskyttede datatype.
 
 I dette eksempelet konfigurerer vi en ny datatype, hvor vi spesifiserer egenskapene `actionRequiredToRead` og `actionRequiredToWrite`, og deaktiverer `autoCreate`. Vi bruker identifikatoren `restrictedDataModel`, men navnet i seg selv er ikke viktig.
 
 {{% insert "content/altinn-studio/guides/development/restricted-data/shared/Applicationmetadata.json.md" %}}
 
 {{% notice warning %}}
-Vi deaktiverer auto-create fordi vår [oppdaterte autorisasjonspolicy](#konfigurasjon-av-autorisasjonspolicy) ikke gir les- eller skrivetilgang til sluttbrukere. Forsøk på å opprette et dataelement av typen `restrictedDataModel` med en brukers autorisasjonstoken vil resultere i en 403-Forbidden-feil.
+Vi deaktiverer auto-create fordi vår [oppdaterte autorisasjonspolicy](#konfigurasjon-av-autorisasjonspolicy) ikke gir lese- eller skrivetilgang til sluttbrukere. Forsøk på å opprette et dataelement av typen `restrictedDataModel` med en brukers autorisasjonstoken vil resultere i en 403-Forbidden feil.
 {{% /notice %}}
 
 ## Konfigurasjon av autorisasjonspolicy
@@ -49,10 +48,10 @@ For å forenkle autorisasjon og interaksjon med den beskyttede datamodellen, kan
 
 Denne tjensten kan registreres i `Program.cs` og brukes med [dependency injection](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection) der den behøves.
 
-{{% insert "content/altinn-studio/guides/development/restricted-data/shared/Program.cs.1.md" %}}
+{{% insert "content/altinn-studio/guides/development/restricted-data/shared/Program.cs.md" %}}
 
 ### Skriving av data
-Som nevnt tidligere, må vi manuelt opprette dataelementet når applikasjonen går inn i prosess-steget `Task_1`.
+Som nevnt tidligere, må vi manuelt opprette dataelementet når applikasjonen går inn i prosessteget `Task_1`.
 
 For å gjøre dette bruker du metoden `UpdateOrCreateData` fra [RestrictedDataHelper-tjenesten](#hjelpetjeneste).
 

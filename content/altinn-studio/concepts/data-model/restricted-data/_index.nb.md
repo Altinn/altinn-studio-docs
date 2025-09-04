@@ -8,11 +8,11 @@ Tilgjengelig fra [v8.7.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/
 {{% /notice %}}
 
 ## Hva er beskyttede data?
-Beskyttede data er informasjon som krever ekstra tilgangskontroll, for eksempel personopplysninger, konfidensiell eller klassifisert informasjon.
+Beskyttede data er informasjon som krever ekstra tilgangskontroll, for eksempel personopplysninger eller konfidensiell/klassifisert informasjon.
 
-Som standard trenger man handlingene `read` og/eller `write` for å få tilgang til applikasjonens data. [Policy.xml](https://github.com/Altinn/app-template-dotnet/blob/main/src/App/config/authorization/policy.xml) filen er hovedkilden for reglene rundt autorisasjon, men rettigheter kan også [delegeres gjennom Altinn](/authorization/what-do-you-get/accessmanagement/#delegation-and-management-of-access-groups).
+Som standard trenger man handlingene `read` og/eller `write` for å få tilgang til applikasjonens data. [Policy.xml-filen](https://github.com/Altinn/app-template-dotnet/blob/main/src/App/config/authorization/policy.xml) er hovedkilden for reglene rundt autorisasjon, men rettigheter kan også [delegeres gjennom Altinn](/authorization/what-do-you-get/accessmanagement/#delegation-and-management-of-access-groups).
 
-Hvis appen din inneholder data som krever ekstra beskyttelse, kan du bruke [applicationmetadata.json](/api/models/app-metadata/#datatype) filen til å angi `actionRequiredToRead` og `actionRequiredToWrite` for spesifikke datatyper. Policyen må da inkludere disse handlingene, i tillegg til `read`/`write`, før brukere får tilgang til de beskyttede data typene.
+Hvis appen din inneholder data som krever ekstra beskyttelse, kan du bruke [applicationmetadata.json-filen](/api/models/app-metadata/#datatype) til å angi `actionRequiredToRead` og `actionRequiredToWrite` for spesifikke datatyper. Policyen må da inkludere disse handlingene, i tillegg til `read`/`write`, før brukere får tilgang til de beskyttede datatypene.
 
 ## Når bør jeg bruke dette?
 Du bør legge til ekstra tilgangskontroller hvis appen din:

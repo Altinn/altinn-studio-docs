@@ -7,7 +7,7 @@ hidden: true
 App/logic/ProcessTaskStartHandler.cs
 {{< /code-title >}}
 
-{{<highlight csharp "linenos=false, hl_lines=27-31">}}
+{{< highlight csharp "linenos=false, hl_lines=27-31" >}}
 public class ProcessTaskStartHandler(
   RestrictedDataHelper restrictedDataHelper,
   ISomeTaxService someTaxService
@@ -41,4 +41,4 @@ public class ProcessTaskStartHandler(
     );
   }
 }
-{{</highlight>}}
+{{< /highlight >}}

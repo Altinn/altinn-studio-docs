@@ -7,7 +7,7 @@ hidden: true
 App/config/applicationmetadata.json
 {{< /code-title >}}
 
-{{<highlight json "linenos=false, hl_lines=5 11-12">}}
+{{< highlight json "linenos=false, hl_lines=5 11-12" >}}
 {
   "id": "restrictedDataModel",
   "allowedContentTypes": ["application/xml"],
@@ -21,4 +21,4 @@ App/config/applicationmetadata.json
   "actionRequiredToRead": "customActionRead",
   "actionRequiredToWrite": "customActionWrite"
 }
-{{</highlight>}}
+{{< /highlight >}}

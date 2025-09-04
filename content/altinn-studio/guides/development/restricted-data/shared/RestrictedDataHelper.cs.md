@@ -7,7 +7,7 @@ hidden: true
 App/logic/RestrictedDataHelper.cs
 {{< /code-title >}}
 
-{{<highlight csharp "linenos=false, hl_lines=79 95 116">}}
+{{< highlight csharp "linenos=false, hl_lines=79 95 116" >}}
 /// <summary>
 /// Note: The logic in this service assumes a single data element of a given data type.
 /// </summary>
@@ -130,4 +130,4 @@ public class RestrictedDataHelper(IDataClient dataClient)
     Instance instance
   ) => (new InstanceIdentifier(instance), new AppIdentifier(instance));
 }
-{{</highlight>}}
+{{< /highlight >}}

@@ -1,5 +1,5 @@
 ---
-title: Restricted Data
+title: Restricted data
 description: Extra protections for restricted data types
 ---
 

@@ -14,4 +14,4 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
   services.AddTransient<RestrictedDataHelper>();
 }
-{{< / highlight >}}
+{{< /highlight >}}

@@ -1,6 +1,5 @@
 ---
-title: Restricted Data
-linktitle: Restricted Data
+title: Restricted data
 description: How to set up additional data protections for an app
 weight: 50
 ---
@@ -49,7 +48,7 @@ To simplify authorization and interaction with the restricted data model, we can
 
 This service can then be registered in `Program.cs` and [injected](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection) wherever you need it.
 
-{{% insert "content/altinn-studio/guides/development/restricted-data/shared/Program.cs.1.md" %}}
+{{% insert "content/altinn-studio/guides/development/restricted-data/shared/Program.cs.md" %}}
 
 ### Writing data
 As mentioned, we need to manually create the data element when the application enters the `Task_1` process step.
