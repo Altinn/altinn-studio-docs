@@ -1,10 +1,6 @@
----
-title: Tilgjengelige grensesnitt
-description: Oversikt over tilgjengelige grensesnitt (interfaces) for egendefinert kode
-weight: 25
----
+Denne siden gir en oversikt over alle tilgjengelige grensesnitt (interfaces) som kan implementeres for å legge til egendefinert kode i Altinn 3-apper. Grensesnittene er organisert etter funksjonsområde og inkluderer kun interface som er markert med `[ImplementableByApps]` attributtet.
 
-Denne siden gir en oversikt over alle tilgjengelige grensesnitt (interfaces) som kan implementeres for å legge til egendefinert kode i Altinn 3-apper. Grensesnittene er organisert etter funksjonsområde.
+**Se også:** [Hvordan implementere egendefinert kode](/nb/altinn-studio/guides/development/custom-code/) - steg-for-steg guide for å komme i gang.
 
 ## Kodelister og alternativer
 
@@ -51,17 +47,33 @@ Implementer dette grensesnittet for spesialisert håndtering av dataskriving.
 
 ## Validering
 
-### IInstanceValidator [AVVIKLET]
-{{<notice warning>}}
-OBS! Dette grensesnittet er avviklet. Bruk heller `ITaskValidator`, `IDataElementValidator` eller `IFormDataValidator` for spesifikk validering.
-{{</notice>}}
-
-Implementer dette grensesnittet for å validere hele appinstanser.
+### ITaskValidator
+Implementer dette grensesnittet for å validere spesifikke oppgaver i prosessen.
 
 **Bruksområder:**
-- Validering av komplekse forretningsregler
-- Tverrgående validering mellom dataelementer
-- Validering ved prosessovergang
+- Oppgave-spesifikk validering
+- Validering av tilstander ved oppgaveskift
+- Betinget validering basert på oppgavetype
+
+**Dokumentasjon:** [Validering](/nb/altinn-studio/reference/logic/validation/)
+
+### IDataElementValidator
+Implementer dette grensesnittet for å validere enkelte dataelementer.
+
+**Bruksområder:**
+- Spesialisert validering av spesifikke datatyper
+- Validering av vedlegg eller filer
+- Elementspesifikke forretningsregler
+
+**Dokumentasjon:** [Validering](/nb/altinn-studio/reference/logic/validation/)
+
+### IFormDataValidator
+Implementer dette grensesnittet for å validere skjemadata.
+
+**Bruksområder:**
+- Kompleks validering av skjemainnhold
+- Tverrgående feltvalidering
+- Dynamisk validering basert på skjemastatus
 
 **Dokumentasjon:** [Validering](/nb/altinn-studio/reference/logic/validation/)
 
@@ -75,31 +87,15 @@ Implementer dette grensesnittet for å validere om en bruker kan starte en ny in
 
 **Dokumentasjon:** [Instansiering](/nb/altinn-studio/reference/logic/instantiation/)
 
-### ITaskValidator
-Implementer dette grensesnittet for å validere spesifikke oppgaver i prosessen.
+### IValidateQueryParamPrefill
+Implementer dette grensesnittet for å validere preutfylling via spørringsparametre.
 
 **Bruksområder:**
-- Oppgave-spesifikk validering
-- Validering av tilstander ved oppgaveskift
-- Betinget validering basert på oppgavetype
+- Validering av data som sendes inn via URL-parametre
+- Sikring av preutfyllingdata
+- Kontroll av tillatte verdier fra eksterne kilder
 
-### IDataElementValidator
-Implementer dette grensesnittet for å validere enkelte dataelementer.
-
-**Bruksområder:**
-- Spesialisert validering av spesifikke datatyper
-- Validering av vedlegg eller filer
-- Elementspesifikke forretningsregler
-
-### IFormDataValidator
-Implementer dette grensesnittet for å validere skjemadata.
-
-**Bruksområder:**
-- Kompleks validering av skjemainnhold
-- Tverrgående feltvalidering
-- Dynamisk validering basert på skjemastatus
-
-## Instansiering og prosessering
+## Prosessering og livssyklus
 
 ### IInstantiationProcessor
 Implementer dette grensesnittet for å håndtere prosessering ved instansiering.
@@ -135,27 +131,13 @@ Implementer dette grensesnittet for å håndtere avslutning av hele prosessen.
 - Arkivering og rapportering
 - Opprydding av ressurser
 
-## Brukerhandlinger
-
-### IUserAction
-Implementer dette grensesnittet for å definere egendefinerte brukerhandlinger.
+### IProcessTaskAbandon
+Implementer dette grensesnittet for å håndtere avbrudde oppgaver.
 
 **Bruksområder:**
-- Egendefinerte knapper i brukergrensesnittet
-- Spesialiserte handlinger som ikke dekkes av standardfunksjonalitet
-- Integrasjon med eksterne tjenester fra brukergrensesnitt
-
-**Dokumentasjon:** [Serverhandlinger](/nb/altinn-studio/reference/process/actions/serveraction/)
-
-### IUserActionAuthorizer
-Implementer dette grensesnittet for å autorisere brukerhandlinger.
-
-**Bruksområder:**
-- Tilgangskontroll for egendefinerte handlinger
-- Betinget tilgang basert på brukerroller
-- Dynamisk autorisering basert på data eller tilstand
-
-## Prosessflyt
+- Opprydding ved oppgaveavbrudd
+- Logging av avbrutte prosesser
+- Håndtering av delvis fullførte oppgaver
 
 ### IProcessExclusiveGateway
 {{<notice warning>}}
@@ -169,72 +151,25 @@ Implementer dette grensesnittet for å håndtere betingede prosessoverganger.
 - Forgrening i prosessen basert på forretningslogikk
 - Betinget routing mellom oppgaver
 
-### IPageOrder [AVVIKLET]
-{{<notice warning>}}
-OBS! Dette grensesnittet er avviklet f.o.m. versjon 4 av frontend. Bruk heller 
-[dynamiske uttrykk](../logic/expressions/) for å styre om sider vises/skjules.
-{{</notice>}}
+## Brukerhandlinger
 
-Implementer dette grensesnittet for å styre rekkefølgen på sider i skjemaet.
+### IUserAction
+Implementer dette grensesnittet for å definere egendefinerte brukerhandlinger.
 
 **Bruksområder:**
-- Dynamisk siderekkefølge basert på brukerens valg
-- Hopping over sider basert på forretningslogikk
-- Betinget visning av sider
+- Egendefinerte knapper i brukergrensesnittet
+- Spesialiserte handlinger som ikke dekkes av standardfunksjonalitet
+- Integrasjon med externe tjenester fra brukergrensesnitt
 
-## Varslinger
+**Dokumentasjon:** [Serverhandlinger](/nb/altinn-studio/reference/process/actions/serveraction/)
 
-### IEmailNotificationClient
-Implementer dette grensesnittet for egendefinert e-postvarsling.
-
-**Bruksområder:**
-- Tilpassede e-postmaler
-- Integrasjon med eksterne e-posttjenester
-- Betinget utsending av e-post
-
-**Dokumentasjon:** [E-postvarslinger](/nb/altinn-studio/reference/logic/notifications/email/)
-
-### ISmsNotificationClient
-Implementer dette grensesnittet for egendefinert SMS-varsling.
+### IUserActionAuthorizer
+Implementer dette grensesnittet for å autorisere brukerhandlinger.
 
 **Bruksområder:**
-- Tilpassede SMS-meldinger
-- Integrasjon med eksterne SMS-tjenester  
-- Betinget utsending av SMS
-
-**Dokumentasjon:** [SMS-varslinger](/nb/altinn-studio/reference/logic/notifications/sms/)
-
-## Dataadgang og manipulering
-
-### IInstanceDataAccessor
-Implementer dette grensesnittet for å få tilgang til instansdata.
-
-**Bruksområder:**
-- Lesing av instansmetadata
-- Tilgang til tverrgående instansinformasjon
-- Inspeksjon av instanstilstand
-
-### IInstanceDataMutator
-Implementer dette grensesnittet for å modifisere instansdata.
-
-**Bruksområder:**
-- Programmatisk endring av instansdata
-- Oppdatering av metadata
-- Manipulering av instanstilstand
-
-## PDF og presentasjon
-
-### IPdfFormatter [AVVIKLET]
-{{<notice warning>}}
-OBS! Dette grensesnittet er avviklet og vil bli fjernet i fremtidige versjoner. Det ble brukt for den gamle PDF-generatoren og brukes nå bare for bakoverkompatibilitet. Lag heller en tilpasset PDF-layout.
-{{</notice>}}
-
-Implementer dette grensesnittet for å tilpasse PDF-generering.
-
-**Bruksområder:**
-- Egendefinerte PDF-layouter
-- Tillegg av vannmerker eller headere/footers
-- Spesialisert formatering av PDF-innhold
+- Tilgangskontroll for egendefinerte handlinger
+- Betinget tilgang basert på brukerroller
+- Dynamisk autorisering basert på data eller tilstand
 
 ## Hendelser
 
@@ -253,26 +188,32 @@ Implementer dette grensesnittet for å håndtere applikasjonshendelser.
 ### IValidator
 Generelt valideringsgrensesnitt for tilpassede valideringer.
 
-### IValidateQueryParamPrefill
-Implementer dette grensesnittet for å validere preutfylling via spørringsparametre.
+**Bruksområder:**
+- Basis for spesialiserte validatorer
+- Generell validering som ikke passer andre kategorier
+- Fleksibel validering med tilpassede regler
 
-### IProcessTaskAbandon
-Implementer dette grensesnittet for å håndtere avbrudde oppgaver.
+---
 
-### IDataListProvider og IInstanceDataListProvider
-Grensesnitt for å tilby datalistefunksjonalitet.
+## Utdaterte grensesnitt (avviklet)
 
-## Kom i gang
+Følgende grensesnitt er markert som avviklet og bør ikke brukes i nye implementasjoner:
 
-For å implementere et av disse grensesnittene:
+### IInstanceValidator [AVVIKLET]
 
-1. Opprett en ny klasse i din app som implementerer det ønskede grensesnittet
-2. Registrer implementasjonen i `Program.cs` med dependency injection
-3. Test implementasjonen lokalt før deployment
+Implementer dette grensesnittet for å validere hele appinstanser.
 
-**Eksempel:**
-```csharp
-services.AddTransient<IDataProcessor, MyDataProcessor>();
-```
+**Erstatning:** Bruk `ITaskValidator` for oppgavevalidering, `IDataElementValidator` for dataelementer eller `IFormDataValidator` for skjemadata.
 
-For detaljerte implementeringseksempler, se den tilknyttede dokumentasjonen for hvert grensesnitt.
+### IPageOrder [AVVIKLET]
+
+Implementer dette grensesnittet for å styre rekkefølgen på sider i skjemaet.
+
+**Erstatning:** Bruk [dynamiske uttrykk](../logic/expressions/) for betinget visning av sider.
+
+### IPdfFormatter [AVVIKLET]
+
+Implementer dette grensesnittet for å tilpasse PDF-generering.
+
+**Erstatning:** Opprett tilpassede PDF-layouter i stedet for å bruke dette grensesnittet.
+
