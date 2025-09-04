@@ -1,7 +1,7 @@
 ---
 title: About Altinn Correspondence
 linktitle: About Correspondence
-description: What is Altinn 3 Correspondence?
+description: Altinn Correspondence is a secure and efficient digital service that enables public sector organizations to send messages to citizens, businesses, and other public entities. Since all organization numbers and personal identification numbers have a inbox in Altinn Arbeidsglate you will always be able to reach the correct recipient. An Altinn 3 Correspondence automatically becomes a dialogue and is made available through Dialogporten in Altinn 3 Arbeidsflate.
 tags: []
 toc: false
 weight: 1
@@ -10,11 +10,20 @@ cascade:
     diataxis: diataxis_explanation
 ---
 
-Altinn Correspondence is a service within the Altinn platform used for securely sending and receiving messages. The service is utilized by public authorities, businesses and individuals. It has integrated authorization and encryption, ensuring that important information is transmitted safely and made easily accessible to the correct recipient.  
+### In line with the Digitalization Circular
+The Digitalization Circular requires the use of digital communication with organizations. By choosing Altinn Correspondence, you comply with this requirement and ensure that messages are sent and received securely.
 
-Altinn functions as a digital mailbox and plays a key role in digital communication with public authorities in Norway. Altinn Correspondence is used for sending digital letters , information notices, reports, approvals and certificates.
+### Security and access control
+Altinn Authorization ensures that only those with necessary access rights can read the message, maintaining strict confidentiality and protecting personal data.
 
-The goal is to streamline and improve communication between authorities and the public. Altinn Correspondence has traditionally been used for communication with public entities, but it can also be used for message exchanges between private parties.
+### Notification and reminders
+The service provides notifications and follow-up reminders to recipients via SMS and email, in accordance with the requirements of the eGovernment Regulations. This means recipients can be alerted when a new message is waiting.
+
+### Flexible message reception
+An Altinn 3 Correspondence automatically becomes a dialogue and is available through Dialogporten in Altinn 3 Arbeidsflate. Recipients can read the Correspondence directly in Arbeidsflate or integrate with their own systems using the Dialogporten API. This allows for a smooth workflow and full control over the exchange of information.
+
+### Integration with Altinn Correspondence
+You can use Altinn as a service owner to send messages, or integrate with Altinn as an end-user system to display messages.
 
 ![altinn3-correspondence-logo](./altinn3-correspondence-logo.png "Altinn 3 Correspondence features secure and easy to use message exchange")
 
@@ -31,4 +40,3 @@ How to navigate from there depends on your role and competencies.
 
 _Note: Further reading guides are planned. We appreciate your input._
 <!-- Erik TBD: Add reference to where to give input -->
--->
