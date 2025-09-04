@@ -11,12 +11,12 @@ the Altinn Studio online tool.
 ## Prerequisites
 
 - You have created an app in Altinn Studio
-- You have set up a [local development environment](/en/altinn-studio/guides/development/local-dev/)
+- You have set up a [local development environment](/altinn-studio/guides/development/local-dev/)
 - You have basic knowledge of C# and .NET
 
 ## Step 1: Choose the right interface
 
-Before you start coding, you need to identify which interface best fits your needs. See the [overview of available interfaces](/en/altinn-studio/reference/custom-development/) to find the one that suits you.
+Before you start coding, you need to identify which interface best fits your needs. See the [overview of available interfaces](/altinn-studio/reference/custom-development/) to find the one that suits you.
 
 **Example:** If you need to calculate values automatically when users fill in data, you should implement `IDataProcessor`.
 
@@ -225,9 +225,9 @@ public class CalculateAction : IUserAction
 
 ## Further reading
 
-- [Overview of all available interfaces](/en/altinn-studio/reference/custom-development/)
-- [Data processing](/en/altinn-studio/reference/logic/dataprocessing/)
-- [Validation](/en/altinn-studio/reference/logic/validation/)
-- [Instantiation](/en/altinn-studio/reference/logic/instantiation/)
-- [Process actions](/en/altinn-studio/reference/process/actions/)
-- [Local development](/en/altinn-studio/guides/development/local-dev/)
+- [Overview of all available interfaces](/altinn-studio/reference/custom-development/)
+- [Data processing](/altinn-studio/reference/logic/dataprocessing/)
+- [Validation](/altinn-studio/reference/logic/validation/)
+- [Instantiation](/altinn-studio/reference/logic/instantiation/)
+- [Process actions](/altinn-studio/reference/process/actions/)
+- [Local development](/altinn-studio/guides/development/local-dev/)

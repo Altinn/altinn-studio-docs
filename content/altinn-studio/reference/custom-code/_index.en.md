@@ -7,7 +7,7 @@ weight: 25
 This page provides an overview of all available interfaces that can be implemented to add custom code to Altinn apps. 
 The interfaces are organised by functional area and include only interfaces marked with the `[ImplementableByApps]` attribute.
 
-**See also:** [How to implement custom code](/en/altinn-studio/guides/development/custom-code/) - step-by-step guide to get started.
+**See also:** [How to implement custom code](/altinn-studio/guides/development/custom-code/) - step-by-step guide to get started.
 
 ## Code lists and options
 
@@ -19,7 +19,7 @@ Implement this interface to create open code lists that are generated dynamicall
 - Code lists that do not contain sensitive data
 - Static code lists that are generated programmatically
 
-**Documentation:** [Dynamic code lists](/en/altinn-studio/guides/development/options/sources/dynamic/)
+**Documentation:** [Dynamic code lists](/altinn-studio/guides/development/options/sources/dynamic/)
 
 ### IInstanceAppOptionsProvider
 Implement this interface to create secured code lists that require access to the instance.
@@ -29,7 +29,7 @@ Implement this interface to create secured code lists that require access to the
 - Code lists that vary based on the user's permissions
 - Code lists that require instance context
 
-**Documentation:** [Dynamic code lists](/en/altinn-studio/guides/development/options/sources/dynamic/)
+**Documentation:** [Dynamic code lists](/altinn-studio/guides/development/options/sources/dynamic/)
 
 ## Data handling
 
@@ -42,7 +42,7 @@ Implement this interface to process data during saving and loading.
 - Formatting and transforming data
 - Calls to external services when data changes
 
-**Documentation:** [Data processing](/en/altinn-studio/reference/logic/dataprocessing/)
+**Documentation:** [Data processing](/altinn-studio/reference/logic/dataprocessing/)
 
 ### IDataWriteProcessor
 Implement this interface for specialised handling of data writing.
@@ -62,7 +62,7 @@ Implement this interface to validate specific tasks in the process.
 - Validation of states during task transitions
 - Conditional validation based on task type
 
-**Documentation:** [Validation](/en/altinn-studio/reference/logic/validation/)
+**Documentation:** [Validation](/altinn-studio/reference/logic/validation/)
 
 ### IDataElementValidator
 Implement this interface to validate individual data elements.
@@ -72,7 +72,7 @@ Implement this interface to validate individual data elements.
 - Validation of attachments or files
 - Element-specific business rules
 
-**Documentation:** [Validation](/en/altinn-studio/reference/logic/validation/)
+**Documentation:** [Validation](/altinn-studio/reference/logic/validation/)
 
 ### IFormDataValidator
 Implement this interface to validate form data.
@@ -82,7 +82,7 @@ Implement this interface to validate form data.
 - Cross-field validation
 - Dynamic validation based on form status
 
-**Documentation:** [Validation](/en/altinn-studio/reference/logic/validation/)
+**Documentation:** [Validation](/altinn-studio/reference/logic/validation/)
 
 ### IInstantiationValidator
 Implement this interface to validate whether a user can start a new instance.
@@ -92,7 +92,7 @@ Implement this interface to validate whether a user can start a new instance.
 - Time-based restrictions
 - Validation against external systems at startup
 
-**Documentation:** [Instantiation](/en/altinn-studio/reference/logic/instantiation/)
+**Documentation:** [Instantiation](/altinn-studio/reference/logic/instantiation/)
 
 ### IValidateQueryParamPrefill
 Implement this interface to validate pre-population via query parameters.
@@ -112,7 +112,7 @@ Implement this interface to handle processing during instantiation.
 - Initialising external systems
 - Setting up instance-specific configurations
 
-**Documentation:** [Instantiation](/en/altinn-studio/reference/logic/instantiation/)
+**Documentation:** [Instantiation](/altinn-studio/reference/logic/instantiation/)
 
 ### IProcessTaskStart
 Implement this interface to handle the start of process tasks.
@@ -168,7 +168,7 @@ Implement this interface to define custom user actions.
 - Specialised actions not covered by standard functionality
 - Integration with external services from the user interface
 
-**Documentation:** [Server actions](/en/altinn-studio/reference/process/actions/serveraction/)
+**Documentation:** [Server actions](/altinn-studio/reference/process/actions/serveraction/)
 
 ### IUserActionAuthorizer
 Implement this interface to authorise user actions.
@@ -188,7 +188,7 @@ Implement this interface to handle application events.
 - Integration with event-driven architectures
 - Logging and monitoring of application activity
 
-**Documentation:** [Events](/en/altinn-studio/reference/logic/events/)
+**Documentation:** [Events](/altinn-studio/reference/logic/events/)
 
 ## Other interfaces
 

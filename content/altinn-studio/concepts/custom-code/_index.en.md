@@ -76,14 +76,14 @@ Custom code enables you to:
 
 To learn how to implement custom code, see the following documentation for examples:
 
-- [Instantiation](/en/altinn-studio/reference/logic/instantiation/) - validations and pre-population at startup
-- [Data processing](/en/altinn-studio/reference/logic/dataprocessing/) - calculations and data manipulation
-- [Validation](/en/altinn-studio/reference/logic/validation/) - custom validation rules
-- [Process actions](/en/altinn-studio/reference/process/actions/) - custom buttons and actions
-- [Dynamic code lists](/en/altinn-studio/guides/development/options/sources/dynamic/) - code lists generated at runtime
+- [Instantiation](/altinn-studio/reference/logic/instantiation/) - validations and pre-population at startup
+- [Data processing](/altinn-studio/reference/logic/dataprocessing/) - calculations and data manipulation
+- [Validation](/altinn-studio/reference/logic/validation/) - custom validation rules
+- [Process actions](/altinn-studio/reference/process/actions/) - custom buttons and actions
+- [Dynamic code lists](/altinn-studio/guides/development/options/sources/dynamic/) - code lists generated at runtime
 
 
-Also see [overview of all available interfaces that can be implemented](/en/altinn-studio/reference/custom-development).
+Also see [overview of all available interfaces that can be implemented](/altinn-studio/reference/custom-development).
 
 ## Considerations before you start
 
