@@ -5,7 +5,8 @@ toc: true
 weight: 500
 ---
 
-Denne guiden viser deg hvordan du kan implementere egendefinerte grensesnitt i din Altinn 3-app for å utvide funksjonaliteten utover det som er tilgjengelig i Altinn Studio.
+Denne guiden viser deg hvordan du kan implementere grensesnitt i din Altinn-app for å utvide funksjonaliteten utover det 
+som er tilgjengelig i Altinn Studio verktøyet.
 
 ## Forutsetninger
 
@@ -15,7 +16,8 @@ Denne guiden viser deg hvordan du kan implementere egendefinerte grensesnitt i d
 
 ## Steg 1: Velg riktig grensesnitt
 
-Før du begynner å kode, må du identifisere hvilket grensesnitt som passer best for ditt behov. Se [oversikten over tilgjengelige grensesnitt](/nb/altinn-studio/reference/custom-development/) for å finne det som passer.
+Før du begynner å kode, må du identifisere hvilket grensesnitt som passer best for ditt behov. 
+Se [oversikten over tilgjengelige grensesnitt](/nb/altinn-studio/reference/custom-development/) for å finne det som passer.
 
 **Eksempel:** Hvis du trenger å beregne verdier automatisk når bruker fyller inn data, bør du implementere `IDataProcessor`.
 

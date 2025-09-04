@@ -5,7 +5,8 @@ toc: true
 weight: 500
 ---
 
-This guide shows you how to implement custom interfaces in your Altinn 3 app to extend functionality beyond what is available in Altinn Studio.
+This guide shows you how to implement interfaces in your Altinn app to extend functionality beyond what is available in 
+the Altinn Studio online tool.
 
 ## Prerequisites
 

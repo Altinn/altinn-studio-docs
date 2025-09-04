@@ -4,7 +4,8 @@ description: Overview of available interfaces for custom code
 weight: 25
 ---
 
-This page provides an overview of all available interfaces that can be implemented to add custom code to Altinn 3 apps. The interfaces are organised by functional area and include only interfaces marked with the `[ImplementableByApps]` attribute.
+This page provides an overview of all available interfaces that can be implemented to add custom code to Altinn apps. 
+The interfaces are organised by functional area and include only interfaces marked with the `[ImplementableByApps]` attribute.
 
 **See also:** [How to implement custom code](/en/altinn-studio/guides/development/custom-code/) - step-by-step guide to get started.
 

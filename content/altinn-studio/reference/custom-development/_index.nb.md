@@ -1,4 +1,11 @@
-Denne siden gir en oversikt over alle tilgjengelige grensesnitt (interfaces) som kan implementeres for å legge til egendefinert kode i Altinn 3-apper. Grensesnittene er organisert etter funksjonsområde og inkluderer kun interface som er markert med `[ImplementableByApps]` attributtet.
+---
+title: Grensesnitt for egendefinert kode
+description: Oversikt over tilgjengelige grensesnitt til bruk i egendefinert kode
+weight: 25
+---
+
+Denne siden gir en oversikt over alle tilgjengelige grensesnitt (interfaces) som kan implementeres for å legge til egendefinert kode i Altinn-apper. 
+Grensesnittene er organisert etter funksjonsområde og inkluderer kun interface som er markert med `[ImplementableByApps]` attributtet.
 
 **Se også:** [Hvordan implementere egendefinert kode](/nb/altinn-studio/guides/development/custom-code/) - steg-for-steg guide for å komme i gang.
 
