@@ -165,7 +165,7 @@ OBS! En av metodene i dette grensesnittet er avviklet. Bruk den nyere versjonen 
 Implementer dette grensesnittet for å håndtere betingede prosessoverganger.
 
 **Bruksområder:**
-- Dinamisk prosessflyt basert på data
+- Dynamisk prosessflyt basert på data
 - Forgrening i prosessen basert på forretningslogikk
 - Betinget routing mellom oppgaver
 
@@ -257,8 +257,7 @@ Generelt valideringsgrensesnitt for tilpassede valideringer.
 Implementer dette grensesnittet for å validere preutfylling via spørringsparametre.
 
 ### IProcessTaskAbandon
-Implementer dette grensesnittet for å håndtere avbrudde oppgaver.
-
+Implementer dette grensesnittet for å håndtere avbrutte oppgaver.
 ### IDataListProvider og IInstanceDataListProvider
 Grensesnitt for å tilby datalistefunksjonalitet.
 
