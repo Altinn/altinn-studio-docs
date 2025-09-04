@@ -1,5 +1,5 @@
 ---
-title: Data Model
+title: Data model
 description: A data model describes a collection of data fields
 weight: 10
 ---
