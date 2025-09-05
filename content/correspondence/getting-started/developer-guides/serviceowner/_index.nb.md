@@ -108,7 +108,21 @@ Repoet inneholder også en [Postman-samling](https://github.com/Altinn/altinn-co
 
 Swagger for meldings-APIet finner du [her](/api/correspondence/spec/).
 
-### 9. Sett opp hendelsesabonnementer {#set-up-event-subscriptions}
+### 9. Test oppsett og formatering i Arbeidsflate og A2-innboks {#test-appearance-formatting}
+
+Før produksjonssetting bør du verifisere at meldinger vises riktig for mottakere.
+
+1. Send en testmelding til en testmottaker via ønsket verktøy (Postman, SDK eller din integrasjon).
+2. Verifiser i Arbeidsflate:
+   - Logg inn med testmottaker i [af.tt.altinn.no](https://af.tt.altinn.no/).
+   - Sjekk at innholdet i testmeldingen er formatert som tiltenkt.
+3. Verifiser i Altinn 2-innboks (A2):
+   - Logg inn med testmottaker i [info.tt02.altinn.no](https://info.tt02.altinn.no/).
+   - Sjekk at innholdet i testmeldingen er formatert som tiltenkt.
+
+**Merk**: Støttede formateringstagger (Markdown/HTML) er beskrevet her: [docs.altinn.studio/dialogporten/.../#markdown-and-html](https://docs.altinn.studio/dialogporten/reference/front-end/front-channel-embeds/#markdown-and-html)
+
+### 10. Sett opp hendelsesabonnementer {#set-up-event-subscriptions}
 
 For å kunne motta varsler om endringer eller hendelser knyttet til dine meldingstjenester, må du sette opp et abonnement for den aktuelle tjenesten.
 Dette trinnet er spesielt viktig for deg som ønsker å få automatiserte varsler om hendelser fra meldingstjenesten. Hvis du ikke trenger varsler, kan du hoppe over dette trinnet.
