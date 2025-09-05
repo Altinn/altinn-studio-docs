@@ -108,19 +108,19 @@ Repoet inneholder også en [Postman-samling](https://github.com/Altinn/altinn-co
 
 Swagger for meldings-APIet finner du [her](/api/correspondence/spec/).
 
-### 9. Test oppsett og formatering i Arbeidsflate og A2-innboks {#test-appearance-formatting}
+### 9. Test oppsett og formatering i Arbeidsflate og Altinn 2-innboks {#test-appearance-formatting}
 
 Før produksjonssetting bør du verifisere at meldinger vises riktig for mottakere.
 
 1. Send en testmelding til en testmottaker via ønsket verktøy (Postman, SDK eller din integrasjon).
 2. Verifiser i Arbeidsflate:
-   - Logg inn med testmottaker i [af.tt.altinn.no](https://af.tt.altinn.no/).
+   - Logg inn som testmottaker på [af.tt.altinn.no](https://af.tt.altinn.no/).
    - Sjekk at innholdet i testmeldingen er formatert som tiltenkt.
-3. Verifiser i Altinn 2-innboks (A2):
-   - Logg inn med testmottaker i [info.tt02.altinn.no](https://info.tt02.altinn.no/).
+3. Verifiser i Altinn 2-innboks:
+   - Logg inn som testmottaker på [info.tt02.altinn.no](https://info.tt02.altinn.no/).
    - Sjekk at innholdet i testmeldingen er formatert som tiltenkt.
 
-**Merk**: Støttede formateringstagger (Markdown/HTML) er beskrevet her: [docs.altinn.studio/dialogporten/.../#markdown-and-html](https://docs.altinn.studio/dialogporten/reference/front-end/front-channel-embeds/#markdown-and-html)
+**Merk**: Støttede formateringstagger (Markdown og HTML) er dokumentert her: [Oversikt over tillatte markdown og HTML tagger](https://docs.altinn.studio/nb/dialogporten/reference/front-end/front-channel-embeds/#markdown-og-html)
 
 ### 10. Sett opp hendelsesabonnementer {#set-up-event-subscriptions}
 
