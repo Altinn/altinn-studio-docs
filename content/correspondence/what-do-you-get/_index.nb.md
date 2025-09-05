@@ -26,7 +26,7 @@ Du kan motta varsler om hendelser knyttet til sendte formidlingstjenester, ved �
 - Altinn Melding støtter ulike sikkerhetsnivåer (0–4) for å imøtekomme avsenders krav til meldingssikkerhet. 
 
 ### Støtte for ulike meldingsformater
-- Mulighet for å sende meldinger med Markdown eller ren tekst.
+- Mulighet for å sende meldinger med Markdown, HTML eller ren tekst.
 - Støtte for flere vedlegg per melding uten begrensing av type, der PDF, XML og HTML vil være de mest vanlige.
 - Støtte for vedlegg opp til 250 MB.
 
