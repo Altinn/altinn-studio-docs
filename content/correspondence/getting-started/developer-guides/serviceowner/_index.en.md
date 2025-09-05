@@ -109,7 +109,21 @@ The Repo also contains a [Postman collection](https://github.com/Altinn/altinn-c
 
 Swagger for the correspondence API is hosted [here](https://docs.altinn.studio/api/correspondence/spec/).
 
-### 9. Set up Event subscriptions {#setup-event-subscriptions}
+### 9. Test layout and formatting in Arbeidsflate and Altinn 2 inbox {#test-appearance-formatting}
+
+Before going live, verify that correspondences render as intended for recipients.
+
+1. Send a test correspondence to a test recipient using your preferred tool (Postman, SDK, or your integration).
+2. Verify in Arbeidsflate:
+   - Log in with the test recipient in [af.tt.altinn.no](https://af.tt.altinn.no/).
+   - Check that the test correspondence content is formatted as intended.
+3. Verify in Altinn 2 inbox:
+   - Log in with the test recipient in [info.tt02.altinn.no](https://info.tt02.altinn.no/).
+   - Check that the test correspondence content is formatted as intended.
+
+**Note**: Supported formatting tags (Markdown and HTML) are documented here: [Overview of allowed markdown and HTML tags](https://docs.altinn.studio/dialogporten/reference/front-end/front-channel-embeds/#markdown-and-html)
+
+### 10. Set up Event subscriptions {#setup-event-subscriptions}
 
 In order to use events/webhooks for a Correspondence resource, you need to set up a subscription for the given resource.
 

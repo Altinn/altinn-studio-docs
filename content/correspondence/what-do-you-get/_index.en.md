@@ -25,7 +25,7 @@ You can receive notifications about events related to submitted messaging servic
 The system offers advanced access control, ensuring that only authorized users can access specific file transfers.
 
 ### Support for Various Message Formats
-- Ability to send correspondences in Markdown or clean text.
+- Ability to send correspondences in Markdown, HTML or clean text.
 - Support for several attachments per correspondence, without limitation of type. PDF, XML and HTML will usually be the most common used.
 - Supports attachments up to 250 MB. 
 
