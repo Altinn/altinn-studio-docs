@@ -11,7 +11,7 @@ Du kan redigere XACML-filen i et tekstredigeringsprogram etter eget valg.
 
 ## Regler fra applikasjonsmal
 
-Når du oppretter en app i Altinn studio, er den basert på gjeldende asp.net-mal og vil inkludere en autogenerert [XACML policy-fil](https://raw.githubusercontent.com/Altinn/altinn-studio/master/src/studio/AppTemplates/AspNet/App/config/authorization/policy.xml).
+Når du oppretter en app i Altinn studio, er den basert på gjeldende asp.net-mal og vil inkludere en autogenerert [XACML policy-fil](https://raw.githubusercontent.com/Altinn/app-template-dotnet/refs/heads/main/src/App/config/authorization/policy.xml).
 
 Applikasjonsutvikleren kan endre autorisasjonsreglene i *policy.xml*, som ligger i `App/config/authorization` i programlageret.
 Du kan finne detaljer om konfigurering av policyfilen nedenfor.
