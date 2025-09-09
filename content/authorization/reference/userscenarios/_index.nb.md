@@ -119,7 +119,6 @@ Denne tjenesten har satt opp at følgende tilgangspakker gir rettighet til å ra
 ### Forutsetninger
 
 - Forretningsfører er [registrert i Enhetsregisteret](https://info.altinn.no/skjemaoversikt/bronnoysundregistrene/registrere-nye-og-endre-eksisterende-foretak-og-enheter---samordnet-registermelding/) for boligsameiet.
-- Tilgangspakken **forretningsforer-eiendom** gir tilgang til tjenesten (definert av tjenesteeier).
 - Systemleverandøren har registrert systemet i systemregisteret med nevnte tilgangspakke.
 - Systemleverandøren har brukerhåndtering slik at forretningsfører teamet kan tilordnes rettighet til å benytte funksjonalitet som benytter seg av systembruker
 
@@ -127,7 +126,7 @@ Denne tjenesten har satt opp at følgende tilgangspakker gir rettighet til å ra
 
 1. Systemleverandør sender forespørsel om opprettelse av systembruker for klienter til forretningsfører (kunden). Tilgangspakken **forretningsforer-eiendom** legges inn som krav.
 2. Forretningsfører godkjenner forespørselen.
-3. Forretningsfører definerer forretningsførerteamet i systemet og tilordner hvilke autentiserte brukere (les ansatte) som kan benytte seg av forretningsfører funksjonaliteten. 
+3. Forretningsfører definerer forretningsførerteamet i sluttbrukersystemet og tilordner hvilke autentiserte brukere (les ansatte) som kan benytte seg av forretningsfører funksjonaliteten. 
 4. Klientadministrator legger til boligsameiet som kunde/klient på systembrukeren. Tilgangspakken videredelegeres automatisk til systembrukeren.
 5. Den ansatte logger inn og sluttbrukersystemet validerer at den ansatte kan bruke forretningsfører funksjonalitet. 
 6. Rapportering skjer via systemet.
@@ -135,15 +134,11 @@ Denne tjenesten har satt opp at følgende tilgangspakker gir rettighet til å ra
 8. Innsending skjer via API.
 9. Tilgang verifiseres av Altinn PDP API.
 
-![Team tilgang](team_access_.png "Kunder med flere typer klientforhold")
+![Team tilgang](team_access.png "Kunder med flere typer klientforhold")
 
 **Støtte:** Utvikles som del av systembrukerleveranse 5.
 
 ---
-
-
-
-
 
 ## 3. Uregistrert regnskapsfører rapporterer data for klient
 
@@ -311,7 +306,6 @@ Rett Revisisjon har kjøpt inn Maestro for å rapportere aksjonærregisteroppgav
 8. Maestro må spør maskinporten om systembrukertoken for riktig systembruker
 9. Maestro sender inn aksjonærregisteroppgaven med riktig systembrukertoken.
 10. SKD autoriserer at systembrukeren har rettighet til å rapportere aksjonærregisteroppgaven for Kunde A
-
 
 ![Scenario med systembruker for kunder med flere typer klientforhold](two_system_users.png "Kunder med flere typer klientforhold")
 
