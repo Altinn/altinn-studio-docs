@@ -139,6 +139,16 @@ Denne tjenesten har satt opp at følgende tilgangspakker gir rettighet til å ra
 **Støtte:** Utvikles som del av systembrukerleveranse 5.
 
 ---
+Scenario 3
+
+Rett Revisjon sin avdeling for små bedrifter fordeler oppgaver internt og nå fordeler de  Innrapportering betalinger til selvstendig næringsdrivende API <- skatteetaten docs
+til medarbeidere som er uregistrerte regnskapsførere for bedriftene.
+Noen får delegert tilgangspakker fra sine klienter
+Noen får videredelegert tilgangspakker fra Registrert revisor i Rett revisjon
+
+Rett revisjon er bekymret for at det kan utføres handlinger på vegne av bedriftene via systembruker som ikke er en del av ansvaret for de uregistrerte regnskapsførerne (i hovedsak ved uhell).
+
+---
 
 ## 3. Uregistrert regnskapsfører rapporterer data for klient
 
