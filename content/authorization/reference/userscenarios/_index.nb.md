@@ -139,14 +139,56 @@ Denne tjenesten har satt opp at følgende tilgangspakker gir rettighet til å ra
 **Støtte:** Utvikles som del av systembrukerleveranse 5.
 
 ---
-Scenario 3
 
-Rett Revisjon sin avdeling for små bedrifter fordeler oppgaver internt og nå fordeler de  Innrapportering betalinger til selvstendig næringsdrivende API <- skatteetaten docs
+## Scenario 3. Regnskapsfører med behov for å differensiere tilgang til systembruker
+
+Rett Revisjon sin avdeling for små bedrifter fordeler oppgaver internt og nå fordeler de  Innrapportering betalinger til selvstendig næringsdrivende 
 til medarbeidere som er uregistrerte regnskapsførere for bedriftene.
+
 Noen får delegert tilgangspakker fra sine klienter
+
 Noen får videredelegert tilgangspakker fra Registrert revisor i Rett revisjon
 
 Rett revisjon er bekymret for at det kan utføres handlinger på vegne av bedriftene via systembruker som ikke er en del av ansvaret for de uregistrerte regnskapsførerne (i hovedsak ved uhell).
+
+
+## Utfordring
+
+Ved bruk av systembruker kjenner man ikke identiteten til den som trigger prossene som gjør at systembrukeren gjør kall. Dette kan være 100% automatiserte prosesser eller noe som utføres av en bruker som er gitt tilgang til systemet.
+Eventuelle delegeringer i Altinn autorisasjon vil ikke ha noen betydning. 
+
+Et sluttbrukersystem har i utgangspunktet ingen god måte å verifisere hva en bruker er blitt delegert for en virksomhet.
+
+
+**Tjeneste:** [Rapportering for boligsameie](https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-boligsameie)
+
+Denne tjenesten har satt opp at følgende tilgangspakker gir rettighet til å rapportere boligsameie
+
+- regnskapsforer-med-signeringsrettighet
+- ansvarlig-revisor
+- skattegrunnlag
+- forretningsforer-eiendom
+
+
+## Forutsetninger
+
+- Forretningsfører er [registrert i Enhetsregisteret](https://info.altinn.no/skjemaoversikt/bronnoysundregistrene/registrere-nye-og-endre-eksisterende-foretak-og-enheter---samordnet-registermelding/) for boligsameiet.
+- Systemleverandøren har registrert systemet i systemregisteret med nevnte tilgangspakke.
+- Systemleverandøren har kundeadministrasjon som muligjør å tilordne klienter til enkeltansatte.
+
+### Steg
+
+1. Systemleverandør sender forespørsel om opprettelse av systembruker for klienter til forretningsfører (kunden). Tilgangspakken **forretningsforer-eiendom** legges inn som krav.
+2. Forretningsfører godkjenner forespørselen.
+3. Forretningsfører definerer forretningsførerteamet i sluttbrukersystemet og tilordner hvilke autentiserte brukere (les ansatte) som kan benytte seg av forretningsfører funksjonaliteten. 
+4. Klientadministrator legger til boligsameiet som kunde/klient på systembrukeren. Tilgangspakken videredelegeres automatisk til systembrukeren.
+5. Den ansatte logger inn og sluttbrukersystemet validerer at den ansatte kan bruke forretningsfører funksjonalitet for den valgte kunden
+6. Rapportering skjer via systemet.
+7. Systembruker-token hentes fra Maskinporten.
+8. Innsending skjer via API.
+9. Tilgang verifiseres av Altinn PDP API.
+
+![Team tilgang](accesscontrol.png "Kunder med flere typer klientforhold")
 
 ---
 
