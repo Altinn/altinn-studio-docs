@@ -1,7 +1,11 @@
 ---
 title: Guider
 linktitle: Guider
-description: Les vår samling av guider knyttet til Altinn Autorisasjon.
+description: Disse guidene skal hjelpe med å forstå, bruke og få mest mulig ut av løsningene våre. 
+Her finner du: 
+ - praktiske steg-for-steg beskrivelser
+ - visuelle eksempler og forklaringer
+  Dette for å gjøre det enklere å navigere, ta i bruk funksjonalitet og løse vanlige utfordringer.
 toc: false
 weight: 4
 cascade:
@@ -11,34 +15,12 @@ cascade:
 
 ## Inndeling
 
-Brukerveiledningene er delt inn i underområder ut fra hvilken rolle du opptrer som.
+Guidene er målgruppestyrt ut fra hvilken rolle du opptrer som.
 
-_Sluttbruker:_
+`Sluttbruker`: Sluttbruker er den egentlige brukeren av en tjeneste. Det kan være en person eller virksomhet som bruker Altinn selv, eller som benytter et system (for eksempel et regnskapsprogram) som kommuniserer med Altinn på deres vegne. 
 
-_Sluttbrukersystemleverandør:_
+`Sluttbrukersystemleverandør`: Sluttbrukersystemleverandør er den som leverer systemet eller programvaren sluttbrukeren benytter, for eksempel et regnskapsprogram.
 
-_Ressurseier:_
+`Tjenesteeier`: En tjenesteeier er en offentlig virksomhet, som en etat eller kommune, som lager og forvalter digitale tjenester – for eksempel skjemaer, innsendingstjenester og API-er.
 
-## Opprette og publisere ressurser i Altinn Studio
-
-Denne guiden forklarer hvordan en organisasjon kan opprette og publisere en ressurs i Altinn Studio Resource Admin.
-
-[Les guide](./resource-owner/create-resource-resource-admin/)
-
-## Opprette og publisere API-skjema i Altinn Studio
-
-Denne guiden forklarer hvordan en organisasjon kan opprette og publisere et API-skjema i Altinn Studio Resource Admin.
-
-[Les guide](./end-user/create-apischeme-resource-admin/)
-
-## Sette opp integrasjon med Altinn Autorisasjon fra eksterne tjenester
-
-Denne veiledningen beskriver hvordan du integrerer med Altinn Autorisasjon fra en ekstern tjeneste
-
-[Les guide](./resource-owner/integrating-link-service/)
-
-## XACML
-
-Altinn Autorisasjon bruker XACML for tilgangskontroll. Denne veiledningen beskriver hvordan XACML Policy-formatet støttes i Altinn og XACML Request and Response-formatene for PDP.
-
-[Les veiledning](../reference/xacml/)
+{{<children />}}
