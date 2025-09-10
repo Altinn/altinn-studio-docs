@@ -368,7 +368,7 @@ Rett Revisisjon har kjøpt inn Maestro for å rapportere aksjonærregisteroppgav
 **Merk** Alternativ løsning for dette vil være at man registerer et system pr kundetype og knytter hver systembruker mot dette. Dette gjør at man unngår extref, men må da håndtere tilsvarende mange klienter. 
 
 
-## 9b.  Nye kunder 
+## 9b. Nye kunder 
 
 Rett Revisjon har fått nye kunder.  Disse må knyttes til riktig systembruker basert på type klientforhold.
 
