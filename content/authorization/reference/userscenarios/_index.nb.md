@@ -244,6 +244,9 @@ Denne tjenesten har satt opp at følgende tilgangspakker gir rettighet til å ra
 **Støtte:** Oppsett med enkeltrettighet ble utviklet som del av systembrukerleveranse 2.  
 Oppsett med tilgangspakker utvikles som del av systembrukerleveranse 4.
 
+
+![alt text](standarduser.png "Rapportering av egne data")
+
 ---
 
 ## 5. Regnskapsfører henter meldinger for klient via Dialogporten
@@ -308,6 +311,7 @@ Oppsett med tilgangspakker utvikles som del av systembrukerleveranse 4.
 
 ---
 
+
 ## 8. Virksomhet har kjøpt inn SAP for lokal installasjon
 
 **Scenario:** SAP-programvare installeres på virksomhetens egne servere, uten at SAP har kontroll.
@@ -326,6 +330,8 @@ Oppsett med tilgangspakker utvikles som del av systembrukerleveranse 4.
 3. Systemet kan nå opprette Maskinporten-token for systembrukeren og kalle nødvendige API.
 
 **Merknad:** I slike scenarioer kan ikke systemleverandør dele eget sertifikat/nøkkelpar med systemkunde, da det kan medføre misbruk og tilgang til kundedata på tvers av systemkunder.
+
+
 
 ---
 
