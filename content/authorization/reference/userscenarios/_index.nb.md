@@ -136,7 +136,7 @@ Denne tjenesten har satt opp at følgende tilgangspakker gir rettighet til å ra
 
 ![Team tilgang](team_access.png "Kunder med flere typer klientforhold")
 
-**Støtte:** Utvikles som del av systembrukerleveranse 5.
+**Støtte:** Utviklet som del av systembrukerleveranse 5.
 
 ---
 
@@ -157,7 +157,7 @@ Rett revisjon er bekymret for at det kan utføres handlinger på vegne av bedrif
 Ved bruk av systembruker kjenner man ikke identiteten til den som trigger prossene som gjør at systembrukeren gjør kall. Dette kan være 100% automatiserte prosesser eller noe som utføres av en bruker som er gitt tilgang til systemet.
 Eventuelle delegeringer i Altinn autorisasjon vil ikke ha noen betydning. 
 
-Et sluttbrukersystem har i utgangspunktet ingen god måte å verifisere hva en bruker er blitt delegert for en virksomhet.
+Et sluttbrukersystem har i utgangspunktet ingen god måte å verifisere hva en bruker er blitt delegert for en virksomhet i Altinn. Derfor må man i utgangspunktet implementere lokal autentisering o g
 
 
 **Tjeneste:** [Rapportering for boligsameie](https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-boligsameie)
@@ -346,15 +346,18 @@ Tjenesten **Rapportering aksjonærregister** har et oppsett som gir følgende ti
 
 Rett Revisisjon har kjøpt inn Maestro for å rapportere aksjonærregisteroppgaven
 
+### Forutsetninger
+- Rett revisjon har delt med Maestro hvilket kundeforhold de har for hver enkel kunde.
+
 ### Steg
 
 1. Maestro sender forespørsel om å opprette systembruker for klientforhold som krever *revisormedarbeider*
 2. Maestro sender forespørsel om å opprette systembruker for klientforhold som krever *skattegrunnlag*
 3. Maestro sender forespørsel om å opprette systembruker for klientforhold som krever *regnskapsforer-med-signeringsrettighet*
 4. Rett revisjon aksepterer disse forespørselene
-5. Rett revisjon fordeler klientene sine på riktige systembruker (Rett revisjon må klare å skille disse)
+5. Rett revisjon fordeler klientene sine på riktige systembruker. (se hvilken pakke som er knyttet til systembruker)
 6. Rett Revisjon benytter Maestro for å rapportere for Kunde A
-7. Maestro må i innsendingsøyeblikket kunne vite hvilken type klientforhold kunde A har til Rett revisjon. Dette For å velge riktig systembruker.
+7. Maestro må i innsendingsøyeblikket kunne vite hvilken type klientforhold kunde A har til Rett revisjon. Dette For å velge riktig systembruker. Dette må deles av Rett Revisjon
 8. Maestro må spør maskinporten om systembrukertoken for riktig systembruker
 9. Maestro sender inn aksjonærregisteroppgaven med riktig systembrukertoken.
 10. SKD autoriserer at systembrukeren har rettighet til å rapportere aksjonærregisteroppgaven for Kunde A
@@ -363,6 +366,21 @@ Rett Revisisjon har kjøpt inn Maestro for å rapportere aksjonærregisteroppgav
 
 
 **Merk** Alternativ løsning for dette vil være at man registerer et system pr kundetype og knytter hver systembruker mot dette. Dette gjør at man unngår extref, men må da håndtere tilsvarende mange klienter. 
+
+
+### 9b.  Nye kunder 
+
+Rett Revisjon har fått nye kunder.  Disse må knyttes til riktig systembruker basert på type klientforhold.
+
+### Forutsetninger
+
+- Rett revisjon vet selv at de har fått nye kunder
+
+### Steg
+1. Gå til systembruker admin.
+2. Identifiser riktig systembruker basert på kunde man skal knytte til systenmbruker.
+3. Legg til kunde
+
 
 ### Utfordringer
 - Systemleverandøren trenger å vite type klientforhold mellom *Rett Revisjon* og deres klient. Hvordan får de denne informasjonen?
