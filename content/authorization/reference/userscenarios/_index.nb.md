@@ -157,7 +157,7 @@ Rett revisjon er bekymret for at det kan utføres handlinger på vegne av bedrif
 Ved bruk av systembruker kjenner man ikke identiteten til den som trigger prossene som gjør at systembrukeren gjør kall. Dette kan være 100% automatiserte prosesser eller noe som utføres av en bruker som er gitt tilgang til systemet.
 Eventuelle delegeringer i Altinn autorisasjon vil ikke ha noen betydning. 
 
-Et sluttbrukersystem har i utgangspunktet ingen god måte å verifisere hva en bruker er blitt delegert for en virksomhet i Altinn. Derfor må man i utgangspunktet implementere lokal autentisering o g
+Et sluttbrukersystem har i utgangspunktet ingen god måte å verifisere hva en bruker er blitt delegert for en virksomhet i Altinn. Derfor må man i utgangspunktet implementere lokal autentisering og autorisasjon av bruker.
 
 
 **Tjeneste:** [Rapportering for boligsameie](https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-boligsameie)
