@@ -368,7 +368,7 @@ Rett Revisisjon har kjøpt inn Maestro for å rapportere aksjonærregisteroppgav
 **Merk** Alternativ løsning for dette vil være at man registerer et system pr kundetype og knytter hver systembruker mot dette. Dette gjør at man unngår extref, men må da håndtere tilsvarende mange klienter. 
 
 
-### 9b.  Nye kunder 
+## 9b.  Nye kunder 
 
 Rett Revisjon har fått nye kunder.  Disse må knyttes til riktig systembruker basert på type klientforhold.
 
@@ -381,6 +381,19 @@ Rett Revisjon har fått nye kunder.  Disse må knyttes til riktig systembruker b
 2. Identifiser riktig systembruker basert på kunde man skal knytte til systenmbruker.
 3. Legg til kunde
 
+### Skjermbilder
+
+Nedenfor vises noen skjermbilder for dette scenarioet.
+
+![Forespørsel om systembruker](request_1.png "Forespørsel om systembruker")
+
+![Forespørsel om systembruker](request_2.png "Forespørsel om systembruker")
+
+![Forespørsel om systembruker](systemusers.png "Oversikt over systembrukere")
+
+![Forespørsel om systembruker](systemuserdetails.png "Detailjer om systembruker")
+
+![Forespørsel om systembruker](addclient.png "Knytt klient til systembruker")
 
 ### Utfordringer
 - Systemleverandøren trenger å vite type klientforhold mellom *Rett Revisjon* og deres klient. Hvordan får de denne informasjonen?
