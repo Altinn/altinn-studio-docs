@@ -103,9 +103,7 @@ Dette er spesielt viktig for større virksomheter, som regnskapsbyråer med mang
 
 ## 2. Forretningsfører rapporterer data for oppgavegiver
 
-Rett Revisjon er forretningsfører for flere boligsameier. De har et eget team som arbeider med boligsameier, og ønsker et systembrukeroppsett 
-som er begrenset til dette teamet og håndterer at teamet har registrerte og uregistrerte forretningsførere.
-
+Rett Revisjon er forretningsfører for flere boligsameier. De har et eget team som arbeider med boligsameier, og ønsker et systembrukeroppsett som er begrenset til dette teamet og håndterer at teamet har registrerte og uregistrerte forretningsførere.
 
 **Tjeneste:** [Rapportering for boligsameie](https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-boligsameie)
 
@@ -120,15 +118,15 @@ Denne tjenesten har satt opp at følgende tilgangspakker gir rettighet til å ra
 
 - Forretningsfører er [registrert i Enhetsregisteret](https://info.altinn.no/skjemaoversikt/bronnoysundregistrene/registrere-nye-og-endre-eksisterende-foretak-og-enheter---samordnet-registermelding/) for boligsameiet.
 - Systemleverandøren har registrert systemet i systemregisteret med nevnte tilgangspakke.
-- Systemleverandøren har brukerhåndtering slik at forretningsfører teamet kan tilordnes rettighet til å benytte funksjonalitet som benytter seg av systembruker
+- Systemleverandøren har brukerhåndtering slik at forretningsførerteamet kan tildeles rettigheter for funksjonalitet som bruker systembruker.
 
 ### Steg
 
 1. Systemleverandør sender forespørsel om opprettelse av systembruker for klienter til forretningsfører (kunden). Tilgangspakken **forretningsforer-eiendom** legges inn som krav.
 2. Forretningsfører godkjenner forespørselen.
-3. Forretningsfører definerer forretningsførerteamet i sluttbrukersystemet og tilordner hvilke autentiserte brukere (les ansatte) som kan benytte seg av forretningsfører funksjonaliteten. 
+3. Forretningsfører definerer forretningsførerteamet i sluttbrukersystemet og tilordner hvilke autentiserte brukere (dvs. ansatte) som kan benytte seg av forretningsfører-funksjonaliteten. 
 4. Klientadministrator legger til boligsameiet som kunde/klient på systembrukeren. Tilgangspakken videredelegeres automatisk til systembrukeren.
-5. Den ansatte logger inn og sluttbrukersystemet validerer at den ansatte kan bruke forretningsfører funksjonalitet. 
+5. Den ansatte logger inn og sluttbrukersystemet validerer at den ansatte kan bruke forretningsfører-funksjonalitet. 
 6. Rapportering skjer via systemet.
 7. Systembruker-token hentes fra Maskinporten.
 8. Innsending skjer via API.
@@ -140,25 +138,20 @@ Denne tjenesten har satt opp at følgende tilgangspakker gir rettighet til å ra
 
 ---
 
-## Scenario 3. Regnskapsfører med behov for å differensiere tilgang til systembruker
+## 3. Regnskapsfører med behov for å differensiere tilgang til systembruker
 
-Rett Revisjon sin avdeling for små bedrifter fordeler oppgaver internt og nå fordeler de  Innrapportering betalinger til selvstendig næringsdrivende 
-til medarbeidere som er uregistrerte regnskapsførere for bedriftene.
+Rett Revisjon sin avdeling for små bedrifter fordeler oppgaver internt og har nå fordelt innrapportering av betalinger til selvstendig næringsdrivende til medarbeidere som er uregistrerte regnskapsførere for bedriftene.
 
-Noen får delegert tilgangspakker fra sine klienter
+Noen får delegert tilgangspakker fra sine klienter.  
+Noen får videredelegert tilgangspakker fra registrert revisor i Rett Revisjon.
 
-Noen får videredelegert tilgangspakker fra Registrert revisor i Rett revisjon
+Rett Revisjon er bekymret for at det kan utføres handlinger på vegne av bedriftene via systembruker som ikke ligger innenfor ansvaret til de uregistrerte regnskapsførerne (ofte ved uhell).
 
-Rett revisjon er bekymret for at det kan utføres handlinger på vegne av bedriftene via systembruker som ikke er en del av ansvaret for de uregistrerte regnskapsførerne (i hovedsak ved uhell).
+### Utfordring
 
-
-## Utfordring
-
-Ved bruk av systembruker kjenner man ikke identiteten til den som trigger prossene som gjør at systembrukeren gjør kall. Dette kan være 100% automatiserte prosesser eller noe som utføres av en bruker som er gitt tilgang til systemet.
-Eventuelle delegeringer i Altinn autorisasjon vil ikke ha noen betydning. 
+Ved bruk av systembruker kjenner man ikke identiteten til den som trigger prosessene som gjør at systembrukeren gjør kall. Dette kan være 100 % automatiserte prosesser eller noe som utføres av en bruker som er gitt tilgang til systemet. Eventuelle delegeringer i Altinn autorisasjon vil ikke ha noen betydning. 
 
 Et sluttbrukersystem har i utgangspunktet ingen god måte å verifisere hva en bruker er blitt delegert for en virksomhet i Altinn. Derfor må man i utgangspunktet implementere lokal autentisering og autorisasjon av bruker.
-
 
 **Tjeneste:** [Rapportering for boligsameie](https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-boligsameie)
 
@@ -169,8 +162,7 @@ Denne tjenesten har satt opp at følgende tilgangspakker gir rettighet til å ra
 - skattegrunnlag
 - forretningsforer-eiendom
 
-
-## Forutsetninger
+### Forutsetninger
 
 - Forretningsfører er [registrert i Enhetsregisteret](https://info.altinn.no/skjemaoversikt/bronnoysundregistrene/registrere-nye-og-endre-eksisterende-foretak-og-enheter---samordnet-registermelding/) for boligsameiet.
 - Systemleverandøren har registrert systemet i systemregisteret med nevnte tilgangspakke.
@@ -180,9 +172,9 @@ Denne tjenesten har satt opp at følgende tilgangspakker gir rettighet til å ra
 
 1. Systemleverandør sender forespørsel om opprettelse av systembruker for klienter til forretningsfører (kunden). Tilgangspakken **forretningsforer-eiendom** legges inn som krav.
 2. Forretningsfører godkjenner forespørselen.
-3. Forretningsfører definerer forretningsførerteamet i sluttbrukersystemet og tilordner hvilke autentiserte brukere (les ansatte) som kan benytte seg av forretningsfører funksjonaliteten. 
+3. Forretningsfører definerer forretningsførerteamet i sluttbrukersystemet og tilordner hvilke autentiserte brukere (dvs. ansatte) som kan benytte seg av forretningsfører-funksjonaliteten. 
 4. Klientadministrator legger til boligsameiet som kunde/klient på systembrukeren. Tilgangspakken videredelegeres automatisk til systembrukeren.
-5. Den ansatte logger inn og sluttbrukersystemet validerer at den ansatte kan bruke forretningsfører funksjonalitet for den valgte kunden
+5. Den ansatte logger inn og sluttbrukersystemet validerer at den ansatte kan bruke forretningsfører-funksjonalitet for den valgte kunden.
 6. Rapportering skjer via systemet.
 7. Systembruker-token hentes fra Maskinporten.
 8. Innsending skjer via API.
@@ -192,7 +184,7 @@ Denne tjenesten har satt opp at følgende tilgangspakker gir rettighet til å ra
 
 ---
 
-## 3. Uregistrert regnskapsfører rapporterer data for klient
+## 4. Uregistrert regnskapsfører rapporterer data for klient
 
 **Scenario:** Klienten er ikke registrert i Enhetsregisteret med regnskapsfører.
 
@@ -220,7 +212,7 @@ Denne tjenesten har satt opp at følgende tilgangspakker gir rettighet til å ra
 
 ---
 
-## 4. Virksomhet rapporterer egne data
+## 5. Virksomhet rapporterer egne data
 
 **Scenario:** Virksomheten benytter systembruker for rapportering.
 
@@ -244,12 +236,11 @@ Denne tjenesten har satt opp at følgende tilgangspakker gir rettighet til å ra
 **Støtte:** Oppsett med enkeltrettighet ble utviklet som del av systembrukerleveranse 2.  
 Oppsett med tilgangspakker utvikles som del av systembrukerleveranse 4.
 
-
 ![alt text](standarduser.png "Rapportering av egne data")
 
 ---
 
-## 5. Regnskapsfører henter meldinger for klient via Dialogporten
+## 6. Regnskapsfører henter meldinger for klient via Dialogporten
 
 **Scenario:** Systembruker henter meldinger sendt til klient.
 
@@ -275,7 +266,7 @@ Oppsett med tilgangspakker utvikles som del av systembrukerleveranse 4.
 
 ---
 
-## 6. Virksomhet sender fil via formidlingstjeneste (broker)
+## 7. Virksomhet sender fil via formidlingstjeneste (broker)
 
 **Scenario:** Innsending av tinglysning via Kartverkets formidlingstjeneste.
 
@@ -293,7 +284,7 @@ Oppsett med tilgangspakker utvikles som del av systembrukerleveranse 4.
 
 ---
 
-## 7. Virksomhet har utviklet eget rapporteringssystem
+## 8. Virksomhet har utviklet eget rapporteringssystem
 
 **Scenario:** Egenutviklet løsning for innsending via formidlingstjeneste.
 
@@ -311,8 +302,7 @@ Oppsett med tilgangspakker utvikles som del av systembrukerleveranse 4.
 
 ---
 
-
-## 8. Virksomhet har kjøpt inn SAP for lokal installasjon
+## 9. Virksomhet har kjøpt inn SAP for lokal installasjon
 
 **Scenario:** SAP-programvare installeres på virksomhetens egne servere, uten at SAP har kontroll.
 
@@ -331,61 +321,55 @@ Oppsett med tilgangspakker utvikles som del av systembrukerleveranse 4.
 
 **Merknad:** I slike scenarioer kan ikke systemleverandør dele eget sertifikat/nøkkelpar med systemkunde, da det kan medføre misbruk og tilgang til kundedata på tvers av systemkunder.
 
-
-
 ---
 
-## 9. Rett revisjon er regnskapsfører og revisor rapporterer aksjonæregister oppgaven for kunder
+## 10. Rett Revisjon er regnskapsfører og revisor rapporterer aksjonærregisteroppgaven for kunder
 
-**Scenario:** Firmaet Rett Revisjon tilbyr regnskapstjenster og revisortjenester i markedet. For Revisorklientene er Rett Revisjon 
-registret i ER med rollen REVI for sine kunder. 
+**Scenario:** Firmaet Rett Revisjon tilbyr regnskapstjenester og revisortjenester i markedet. For revisorklientene er Rett Revisjon registrert i ER med rollen REVI for sine kunder.
 
-For regnskaps kunder har noe registrert at Rett Revisjon er regnskapsfører med rollen REGN, mens andre har igjen
-virksomhetsdelegert tilgangspakken Skattegrunnlag
+For regnskapskunder har noen registrert at Rett Revisjon er regnskapsfører med rollen REGN, mens andre har virksomhetsdelegerte tilgangspakker som Skattegrunnlag.
 
 Tjenesten **Rapportering aksjonærregister** har et oppsett som gir følgende tilgangspakker rettighet til å rapportere
 
 - regnskapsforer-med-signeringsrettighet (ER registrert regnskapsfører)
 - ansvarlig-revisor (ER registrert revisor)
-- skattegrunnlag (virksomhets delegert tilgangspakke fra daglig leder hos klient)
-- revisormedarbieder  (ER registrert revisor)
+- skattegrunnlag (virksomhetsdelegert tilgangspakke fra daglig leder hos klient)
+- revisormedarbeider (ER registrert revisor)
 
-Rett Revisisjon har kjøpt inn Maestro for å rapportere aksjonærregisteroppgaven
+Rett Revisjon har kjøpt inn Maestro for å rapportere aksjonærregisteroppgaven.
 
 ### Forutsetninger
-- Rett revisjon har delt med Maestro hvilket kundeforhold de har for hver enkel kunde.
+- Rett Revisjon har delt med Maestro hvilket kundeforhold de har for hver enkelt kunde.
 
 ### Steg
 
-1. Maestro sender forespørsel om å opprette systembruker for klientforhold som krever *revisormedarbeider*
-2. Maestro sender forespørsel om å opprette systembruker for klientforhold som krever *skattegrunnlag*
-3. Maestro sender forespørsel om å opprette systembruker for klientforhold som krever *regnskapsforer-med-signeringsrettighet*
-4. Rett revisjon aksepterer disse forespørselene
-5. Rett revisjon fordeler klientene sine på riktige systembruker. (se hvilken pakke som er knyttet til systembruker)
-6. Rett Revisjon benytter Maestro for å rapportere for Kunde A
-7. Maestro må i innsendingsøyeblikket kunne vite hvilken type klientforhold kunde A har til Rett revisjon. Dette For å velge riktig systembruker. Dette må deles av Rett Revisjon
-8. Maestro må spør maskinporten om systembrukertoken for riktig systembruker
+1. Maestro sender forespørsel om å opprette systembruker for klientforhold som krever *revisormedarbeider*.
+2. Maestro sender forespørsel om å opprette systembruker for klientforhold som krever *skattegrunnlag*.
+3. Maestro sender forespørsel om å opprette systembruker for klientforhold som krever *regnskapsforer-med-signeringsrettighet*.
+4. Rett Revisjon aksepterer disse forespørslene.
+5. Rett Revisjon fordeler klientene sine på riktige systembrukere (se hvilken pakke som er knyttet til systembruker).
+6. Rett Revisjon benytter Maestro for å rapportere for Kunde A.
+7. Maestro må i innsendingsøyeblikket vite hvilken type klientforhold Kunde A har til Rett Revisjon, for å velge riktig systembruker. Dette må deles av Rett Revisjon.
+8. Maestro må spørre Maskinporten om systembrukertoken for riktig systembruker.
 9. Maestro sender inn aksjonærregisteroppgaven med riktig systembrukertoken.
-10. SKD autoriserer at systembrukeren har rettighet til å rapportere aksjonærregisteroppgaven for Kunde A
+10. SKD autoriserer at systembrukeren har rettighet til å rapportere aksjonærregisteroppgaven for Kunde A.
 
 ![Scenario med systembruker for kunder med flere typer klientforhold](two_system_users.png "Kunder med flere typer klientforhold")
 
+**Merk** Alternativ løsning for dette vil være at man registrerer et system per kundetype og knytter hver systembruker mot dette. Dette gjør at man unngår extref, men må da håndtere tilsvarende mange klienter. 
 
-**Merk** Alternativ løsning for dette vil være at man registerer et system pr kundetype og knytter hver systembruker mot dette. Dette gjør at man unngår extref, men må da håndtere tilsvarende mange klienter. 
+## 10b. Nye kunder 
 
-
-## 9b. Nye kunder 
-
-Rett Revisjon har fått nye kunder.  Disse må knyttes til riktig systembruker basert på type klientforhold.
+Rett Revisjon har fått nye kunder. Disse må knyttes til riktig systembruker basert på type klientforhold.
 
 ### Forutsetninger
 
-- Rett revisjon vet selv at de har fått nye kunder
+- Rett Revisjon vet selv at de har fått nye kunder.
 
 ### Steg
-1. Gå til systembruker admin.
-2. Identifiser riktig systembruker basert på kunde man skal knytte til systenmbruker.
-3. Legg til kunde
+1. Gå til systembrukeradmin.
+2. Identifiser riktig systembruker basert på hvilken kunde man skal knytte til systembruker.
+3. Legg til kunde.
 
 ### Skjermbilder
 
@@ -397,7 +381,7 @@ Nedenfor vises noen skjermbilder for dette scenarioet.
 
 ![Forespørsel om systembruker](systemusers.png "Oversikt over systembrukere")
 
-![Forespørsel om systembruker](systemuserdetails.png "Detailjer om systembruker")
+![Forespørsel om systembruker](systemuserdetails.png "Detaljer om systembruker")
 
 ![Forespørsel om systembruker](addclient.png "Knytt klient til systembruker")
 
@@ -430,7 +414,7 @@ Tjenesteleverandør har kjøpt systemet Superavstemming fra Kontrollen AS.
 Superavstemming trenger nødvendige tilganger til å hente avstemmingsdata for a-melding (A06/A07) for de klientene systemet skal brukes for.  
 Tjenesteleverandøren ønsker å sikre at Superavstemming ikke får rettigheter utover å hente avstemmingsdata for a-melding.  
 Klienten har kun kjøpt tjenesten "avstemming av a-melding" og ønsker kun å delegere rettigheter for dette.  
-(Her er det noen få spesifikke rettigheter som er nødvendig, trolig ikke en hel tilgangspakke, da tilgangspakker ofte er grovkornede.)
+(Her er det noen få spesifikke rettigheter som er nødvendige, trolig ikke en hel tilgangspakke, da tilgangspakker ofte er grovkornede.)
 
 ---
 
