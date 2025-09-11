@@ -216,7 +216,8 @@ Følgende tilgangspakker er relevante for rapportering:
 
 ## 5. Virksomhet rapporterer egne data
 
-**Scenario:** Virksomheten benytter systembruker for rapportering.
+I dette scenarioet har møbelprodusenten Myke Møbler kjøpt seg tilgang på sluttbrukersystem. De står selv ansvarlig for
+rapporteringen.
 
 ### Forutsetninger
 
@@ -288,21 +289,22 @@ Oppsett med tilgangspakker utvikles som del av systembrukerleveranse 4.
 
 ## 8. Virksomhet har utviklet eget rapporteringssystem
 
-**Scenario:** Egenutviklet løsning for innsending via formidlingstjeneste.
+I dette scenarioet har konsulentfirmaet Leet Consulting laget et eget system for automatisk innraportering 
+av data til myndighetene.
 
 ### Forutsetninger
 
 1. Avtale med DigDir og tilgang til systemregisteret.
-2. System registreres med nødvendige rettigheter.
+2. System registreres med nødvendige rettigheter i systemregisteret
 
 ### Steg
 
-1. Forespørsel om systembruker sendes (til seg selv).
+1. Forespørsel om systembruker sendes (til seg selv) med krav om tilgangspakker
 2. Forespørsel godkjennes.
 3. Token hentes.
 4. Systemet sender data via API.
 
-![Team tilgang](homemadesystem.png "Hjemmelaget system")
+![Team tilgang](homemadesystem.png "Egenutviklet system")
 
 ---
 
