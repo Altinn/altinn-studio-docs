@@ -389,9 +389,6 @@ Below are some screenshots for this scenario.
 
 ![System user request](addclient.png "Link client to system user")
 
-### Challenges
-- The system vendor needs to know the type of client relationship between *Rett Revisjon* and their client. How do they obtain this information?
-
 ## NAV Scenario A (functionality not currently prioritized)
 
 Example: Accountant uses "Superavstemming" from Kontrollen AS.
