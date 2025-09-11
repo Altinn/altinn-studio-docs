@@ -1,309 +1,433 @@
 ---
-title: "User Scenarios for System User"
-linktitle: "User Scenarios"
-description: "Overview of relevant user scenarios for system user"
+title: "User scenarios for system user"
+linktitle: "User scenarios"
+description: "Overview of relevant user scenarios for system users"
 weight: 5
-aliases: ["authentication/reference/userscenarios"]
+aliases: ["/nb/authentication/reference/userscenarios"]
 ---
 
-## Concepts
+## Terms
 
-Here are the key concepts for the user scenarios on this page.
+Below are key terms used in the user scenarios.
 
-### System Provider
+### System vendor
 
-Provider of end-user software available on the market. Has access to the system registry in Altinn to register software with required permissions.
+Provider of end-user software available on the market. Has access to the system register in Altinn to register software with the necessary rights.
 
-### End-User System
+For locally installed or self-developed software, the system customer is also registered as the vendor.
 
-Software that usually runs in the public cloud, but can also run locally with limitations. See example scenario.
+### End-user system
 
-The end-user system supports processes for organizations and citizens and can implement everything from salmon lice reporting to VAT reporting.
+Software that usually runs in the public cloud, but can also be run locally with some limitations. The end-user system supports organization and citizen processes and can for example be used for lice reporting or VAT reporting.
 
-The end-user system can identify itself as a system user linked to the system. The required permissions depend on which processes are supported.
+The end-user system can identify itself as a system user associated with the system. Which rights are required depends on the processes supported.
 
-### System User
+### System user
 
-Virtual user for which system providers can obtain a token. Grants the end-user system the permissions the system user has.  
-This user type can only be assigned permissions from the system customer.
+Virtual user for which system vendors can obtain tokens. Grants the end-user system the rights that the system user has.  
+The system user is only assigned rights from the system customer.
 
-### System User for Client Relationships
+### System customer
 
-Virtual user for which the system provider can obtain a token, used in client relationships where the system user is delegated permissions for one or more clients.
+The organization that has procured the end-user system. The system user is created for the system customer, and the system vendor is given authority to authenticate as the system user on behalf of the system customer.
 
-### System User Token
+### System user for client relationships
 
-Token issued by Maskinporten that identifies a system user. Also contains information about the end-user system and the system provider.
+Virtual user for which the system vendor can obtain tokens, used in client relationships where the system user is delegated rights for one or more clients.
 
-### System Customer
+### System user token
 
-Organization that has acquired an end-user system from a system provider. A system customer can have several systems for different needs.
-
-A system customer can be an organization that reports its own data, or an organization that provides services to others – for example, an accountant, auditor, business manager, or other rights relationships between organizations established in Altinn.
+Token issued by Maskinporten that identifies a system user. Also contains information about the end-user system and the system vendor.
 
 ### Client
 
-Organization that has an agreement with a service provider for support of business processes. This can be a client of an accounting office, auditor, or business manager.
+Organization that has an agreement with a service provider for support of organization processes. “Client” is often used in accounting and auditor contexts and corresponds to "customer".  
+In reporting contexts the client is often referred to as the "party".
 
-Another word with a similar meaning is "customer". Client is an established term in the accounting and auditing industry.  
-In reporting relationships, the client is often what is called a "party".
+### Client administrator
 
-### Client Administrator
+Employee at the system customer responsible for linking their clients (customers) to the correct system users.
 
-Employee at the system customer.  
-Responsible for linking their clients (customers) to the correct system users.
+### Access package
 
-### Access Package
-
-A collection of permissions for public services. The package is defined in Altinn, and it is the service owners who choose to link permissions to a given package.  
-The package has a name/area that should match the area of the services.
+A collection of rights for public services, defined in Altinn. Service owners bind rights to a given package, which has a name/scope adapted to the services.
 
 ---
 
-## General Assumptions
+## General assumptions
 
-The following assumptions apply to most user scenarios:
+The following apply to most user scenarios:
 
-1. **System Provider's Responsibility for Access Control**
-   - Have full overview of which permissions system users need (e.g., access packages or individual permissions for VAT reporting).  
-     Information about permissions is obtained from the service owner or via the Altinn API. The service owner must communicate requirements clearly.
-   - Configure these permissions in the system registry so that system users can be assigned the necessary permissions per customer.
-
----
-
-## Access Control in End-User System
-
-When using a system user, public services will not know the identity of the person behind the software that triggers the issuance of a system user token and API calls.
-
-To prevent misuse, it is important that system providers have good routines for authentication and authorization of users in the end-user system, so that only authorized users have access to the system user token.
-
-This is especially relevant for larger organizations, such as accounting firms with many customers and employees, where it is necessary to limit access to data for different customers.
+1. System vendor responsibility for access control
+   - Have an overview of which rights system users need (e.g., access packages or individual rights for VAT reporting).  
+     Information about rights is obtained from the service owner or via the Altinn API. The service owner must communicate requirements clearly.
+   - Configure these rights in the system register so that system users can be granted the necessary rights per customer.
 
 ---
 
-## 1. Registered Accountant Reports Data for Client
+## Access control in the end-user system
 
-**Example:** VAT reporting
+When using a system user, public services will not know the identity of the person behind the software that triggers issuance of a system user token and API calls.
 
-### Assumptions
+To avoid misuse, system vendors must have good routines for authentication and authorization of users in the end-user system so that only authorized users get access to system user tokens.
 
-- The accountant is registered in the Entity Register for the relevant client.
-- The Tax Administration has [defined policy on application](/altinn-studio/reference/configuration/authorization/) so that users with the VAT reporting access package get access.
-- The end-user system is set up with the necessary access packages for VAT reporting.
-- The accountant has created a _system user for client relationships_ linked to the end-user system.
+This is especially important for larger organizations, such as accounting firms with many customers and employees, where there is a need to restrict access to data for different customers.
+
+---
+
+## 1. Registered accountant reports data for a client
+
+Example: VAT reporting
+
+### Preconditions
+
+- The accountant is [registered in the Enhetsregisteret](https://info.altinn.no/skjemaoversikt/bronnoysundregistrene/registrere-nye-og-endre-eksisterende-foretak-og-enheter---samordnet-registermelding/) for the relevant client.
+- The Tax Administration has [defined a policy on the application](/altinn-studio/reference/configuration/authorization/) so that users with the access package "VAT reporting" get access.
+- [The end-user system is configured](../../guides/system-vendor/system-user/) with the [necessary access packages](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/) for VAT reporting.
+- The accountant has created a [_system user for client relationships_](../../guides/system-vendor/system-user/) linked to the end-user system.
 
 ### Steps
 
-1. **Add Client**  
-   The client administrator at the accountant links the accounting customer (client) to the system user. Access for the accounting customer is automatically delegated to the system user.
-2. **Retrieve Token**  
-   The end-user system retrieves the system user token via Maskinporten.
-3. **Send Report**  
-   The end-user system sends the VAT report via API with a valid token.
-4. **Validation and Confirmation**  
-   Altinn Authorization checks access. The API returns confirmation.
+1. Add client  
+   The client administrator at the accounting firm [links the accounting client (client) to the system user](../../guides/end-user/system-user/). Access for the accounting client is automatically delegated to the system user.
+2. Retrieve token  
+   The end-user system [retrieves a system user token via Maskinporten](../../guides/system-vendor/system-user).
+3. Send report  
+   The end-user system sends the VAT report via the API with a valid token.
+4. Validation and confirmation  
+   The API calls Altinn Authorization PDP to [check access](../../guides/resource-owner/integrating-link-service/). The API returns confirmation.
 
-**Support:** Developed as part of system user delivery 5.
+Support: Developed as part of system user delivery 5.
 
 ---
 
-## 2. Business Manager Reports Data for Principal
+## 2. Property manager reports data for the principal
 
-**Example:** [Reporting for housing cooperatives](https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-boligsameie)
+Rett Revisjon is property manager for several housing cooperatives. They have a dedicated team working with housing cooperatives and want a system user setup limited to this team and able to handle both registered and unregistered property managers.
 
-### Assumptions
+Service: [Reporting for housing cooperatives](https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-boligsameie)
 
-- The business manager is registered in the Entity Register for the housing cooperative.
-- The access package **forretningsforer-eiendom** provides access to the service (defined by the service owner).
-- The system provider has registered the system in the system registry with the mentioned access package.
+This service has configured that the following access packages grant the right to report for housing cooperatives
+
+- regnskapsforer-med-signeringsrettighet
+- ansvarlig-revisor
+- skattegrunnlag
+- forretningsforer-eiendom
+
+### Preconditions
+
+- The property manager is [registered in the Enhetsregisteret](https://info.altinn.no/skjemaoversikt/bronnoysundregistrene/registrere-nye-og-endre-eksisterende-foretak-og-enheter---samordnet-registermelding/) for the housing cooperative.
+- The system vendor has registered the system in the system register with the mentioned access package.
+- The system vendor has user management such that the property manager team can be assigned rights for functionality that uses the system user.
 
 ### Steps
 
-1. The system provider sends a request to create a system user for clients to the business manager (the customer). The access package **forretningsforer-eiendom** is included as a requirement.
-2. The business manager approves the request.
-3. The client administrator adds the housing cooperative as a customer/client to the system user. The access package is automatically redelegated to the system user.
-4. Reporting is done via the system.
-5. The system user token is retrieved from Maskinporten.
-6. Submission is done via API.
-7. Access is verified by the Altinn PDP API.
+1. System vendor sends a request to create a system user for clients to the property manager (the customer). The access package **forretningsforer-eiendom** is included as a requirement.
+2. The property manager approves the request.
+3. The property manager defines the property manager team in the end-user system and assigns which authenticated users (i.e., employees) can use the property manager functionality.
+4. The client administrator adds the housing cooperative as a customer/client on the system user. The access package is automatically delegated to the system user.
+5. The employee logs in and the end-user system validates that the employee can use the property manager functionality.
+6. Reporting takes place via the system.
+7. A system user token is retrieved from Maskinporten.
+8. Submission is done via API.
+9. Access is verified by Altinn PDP API.
 
-**Support:** Developed as part of system user delivery 5.
+![Team access](team_access.png "Customers with multiple types of client relationships")
+
+Support: Developed as part of system user delivery 5.
 
 ---
 
-## 3. Unregistered Accountant Reports Data for Client
+## 3. Accountant needing to differentiate access to system user
 
-**Scenario:** The client is not registered in the Entity Register with the accountant.
+Rett Revisjon's small business division allocates tasks internally and has now delegated reporting of payments to self-employed individuals to staff who are unregistered accountants for those companies.
 
-### Assumptions
+Some are delegated access packages from their clients.  
+Some have access packages re-delegated from a registered auditor at Rett Revisjon.
+
+Rett Revisjon is concerned that actions may be performed on behalf of companies via the system user that exceed the responsibility of the unregistered accountants (often by accident).
+
+### Challenge
+
+When using a system user, the service does not know the identity of the person initiating the calls. It may be fully automated processes or actions performed by a logged-in user in the end-user system. Delegations in Altinn authorization do not affect who is actually using the system, and an end-user system therefore has no reliable way to verify which rights each user has been granted in Altinn.
+
+Consequence: the end-user system must handle local authentication and authorization so that only authorized employees get access to functionality that calls Altinn on behalf of clients.
+
+Service: [Payments to self-employed persons](https://www.skatteetaten.no/bedrift-og-organisasjon/rapportering-og-bransjer/tredjepartsopplysninger/andre-bransjer/betalinger-til-s-n/)
+
+The following access packages are relevant for reporting:
+
+- regnskapsforer-med-signeringsrettighet
+- ansvarlig-revisor
+- skattegrunnlag
+
+### Preconditions
+
+- Rett Revisjon is registered in the Enhetsregisteret for relevant clients.
+- Unregistered clients have organization-delegated the access package skattegrunnlag to Rett Revisjon.
+- The system vendor has registered the system in the system register with the required access packages.
+- The system supports customer management so clients can be assigned to employees/roles.
+- Rett Revisjon has defined which clients are registered vs. unregistered.
+
+### Steps
+
+1. System vendor sends a request to create a system user for registered clients (requirement: regnskapsforer-med-signeringsrettighet).
+2. System vendor sends a request to create a system user for unregistered clients (requirement: skattegrunnlag).
+3. Rett Revisjon approves the requests.
+4. Rett Revisjon defines which employees should have access to registered and unregistered clients in the end-user system.
+5. The client administrator distributes the clients across the correct system users (the accesses are re-delegated to the system user).
+6. The employee logs in to the end-user system; the system validates locally that the person has the rights for the chosen client.
+7. Reporting is sent via the system.
+8. A system user token is retrieved from Maskinporten.
+9. Submission is done via API.
+10. Access is verified by Altinn PDP API.
+
+![Team access](accesscontrol.png "The system must implement access control itself")
+
+---
+
+## 4. Unregistered accountant reports data for a client
+
+Scenario: The client is not registered in Enhetsregisteret with an accountant.
+
+### Preconditions
 
 - The client (accounting customer) has an agreement with the accountant for accounting services.
-- The accountant has purchased the end-user system and set it up.
+- The accountant has purchased the end-user system and configured it.
 
 ### Steps
 
-1. **Request for Access**  
-   The accountant asks the client to delegate the necessary permissions.
-2. **Delegation**  
+1. Request access  
+   The accountant asks the client to delegate the necessary rights.
+2. Delegation  
    The client delegates via Altinn.
-3. **Add Client**  
-   The client administrator at the accountant links the client to the system user. Access is redelegated to the system user.
-4. **Retrieve Token**  
+3. Add client  
+   The client administrator at the accounting firm links the client to the system user. Access is re-delegated to the system user.
+4. Retrieve token  
    The system user token is retrieved from Maskinporten.
-5. **Reporting**  
+5. Reporting  
    Submission is done via API.
-6. **Validation**  
+6. Validation  
    Altinn verifies access and returns confirmation.
 
-**Support:** Developed as part of system user delivery 6.
+Support: Developed as part of system user delivery 6.
 
 ---
 
-## 4. Organization Reports Its Own Data
+## 5. Organization reports its own data
 
-**Scenario:** The organization uses a system user for reporting.
+Scenario: The organization uses a system user for reporting.
 
-### Assumptions
+### Preconditions
 
-- The system is set up with the resource that defines the service.
+- The system is configured with the resource that defines the service.
 
 ### Steps
 
-1. **Acquisition of System**  
-   The organization purchases the system from the provider.
-2. **Request for System User**  
-   The provider sends a request to create a system user with the necessary permissions.
-3. **Approval**  
+1. Procurement of the system  
+   The organization purchases a system from a vendor.
+2. Request a system user  
+   The vendor sends a request to create a system user with the necessary accesses.
+3. Approval  
    The organization approves, and the system user is created.
-4. **Reporting**  
+4. Reporting  
    The system retrieves a token and sends data via API.
-5. **Validation**  
+5. Validation  
    The API checks access and returns confirmation.
 
-**Support:** Setup with individual permission was developed as part of system user delivery 2.  
-Setup with access packages is being developed as part of system user delivery 4.
+Support: Setup with single rights was developed as part of system user delivery 2.  
+Setup with access packages is developed as part of system user delivery 4.
+
+![alt text](standarduser.png "Reporting of own data")
 
 ---
 
-## 5. Accountant Retrieves Messages for Client via Dialogporten
+## 6. Accountant retrieves messages for a client via Dialogporten
 
-**Scenario:** System user retrieves messages sent to the client.
+Scenario: System user retrieves messages sent to a client.
 
-### Assumptions
+### Preconditions
 
 - Access to messages is included in the access package.
 - The system supports Dialogporten.
 
 ### Steps
 
-1. **Request for System User**  
-   The provider sends a request with requirements for message scope.
-2. **Approval**  
+1. Request a system user  
+   The vendor sends a request with requirements for message scope.
+2. Approval  
    The accountant/organization approves the request.
-3. **Client Linking**  
+3. Client linking  
    The client administrator has linked the client to the system user.
-4. **Retrieve Token**  
+4. Retrieve token  
    Token is retrieved from Maskinporten.
-5. **Retrieve Messages**  
-   Messages are retrieved via API.
-6. **Validation**  
+5. Retrieve messages  
+   Messages are fetched via API.
+6. Validation  
    Altinn validates and returns messages.
 
 ---
 
-## 6. Organization Sends File via Mediation Service (Broker)
+## 7. Organization sends a file via a brokerage service (broker)
 
-**Scenario:** Submission of registration via the Norwegian Mapping Authority's mediation service.
+Scenario: Submission of registration of title (tinglysning) via the Land Registry's brokerage service.
 
-### Assumptions
+### Preconditions
 
-- The Norwegian Mapping Authority has defined the resource and access.
-- The system provider has registered the system and received approval.
+- The Land Registry has defined a resource and access.
+- The system vendor has registered the system and received approval.
 
 ### Steps
 
-1. User sends registration via the system.
+1. User sends the registration via the system.
 2. Token is retrieved from Maskinporten.
-3. API is called with the token.
+3. The API is called with the token.
 4. Access is validated by Altinn.
 
 ---
 
-## 7. Organization Has Developed Its Own Reporting System
+## 8. Organization has developed its own reporting system
 
-**Scenario:** Self-developed solution for submission via mediation service.
+Scenario: Self-developed solution for submission via a brokerage service.
 
-### Assumptions
+### Preconditions
 
-1. Agreement with DigDir and access to the system registry.
-2. System is registered with the necessary permissions.
+1. Agreement with DigDir and access to the system register.
+2. The system is registered with the necessary rights.
 
 ### Steps
 
-1. Request for system user is sent (to itself).
-2. Request is approved.
+1. A request for a system user is sent (to itself).
+2. The request is approved.
 3. Token is retrieved.
 4. The system sends data via API.
 
+![Team access](homemadesystem.png "Homemade system")
+
 ---
 
-## 8. Organization Has Purchased SAP for Local Installation
+## 9. Organization has purchased SAP for local installation
 
-**Scenario:** SAP software is installed on the organization's own servers, without SAP having control.
+Scenario: SAP software is installed on the organization's own servers, without SAP having control.
 
-### Assumptions
+### Preconditions
 
-1. The organization has an agreement with Digdir for access to the system registry.
+1. The organization has an agreement with DigDir for access to the system register.
 2. The organization has created a Maskinporten client.
-3. The organization registers the system in the registry representing the SAP installation, with the necessary permissions.
-4. The client key is installed and available on the server.
+3. The organization registers the system in the register representing the SAP installation, with the necessary access rights.
+4. The key for the client is installed and available on the server.
 
 ### Steps
 
-1. Request to create a system user is sent to the organization's own entity.
-2. Request is approved and the system user is created with the correct permissions.
+1. A request to create a system user is sent to the organization itself.
+2. The request is approved and the system user is created with the correct rights.
 3. The system can now create Maskinporten tokens for the system user and call the necessary APIs.
 
-**Note:** In such scenarios, the system provider cannot share its own certificate/key pair with the system customer, as this may lead to misuse and access to customer data across organizations.
+Note: In such scenarios, the system vendor cannot share its own certificate/key pair with the system customer, as this could lead to misuse and access to customer data across system customers.
 
 ---
 
-## NAV Scenario A (functionality not prioritized at this time)
+## 10. Rett Revisjon is accountant and auditor reporting the shareholder register for clients
 
-**Example:** Accountant uses “Superavstemming” from Kontrollen AS.
+Scenario: The firm Rett Revisjon offers accounting and auditing services in the market. For audit clients, Rett Revisjon is registered in the ER with the role REVI for their customers.
+
+For accounting clients, some have registered Rett Revisjon as their accountant with the role REGN, while others have organization-delegated access packages such as Skattegrunnlag.
+
+The service "Reporting shareholder register" has a setup that grants the following access packages the right to report
+
+- regnskapsforer-med-signeringsrettighet (ER registered accountant)
+- ansvarlig-revisor (ER registered auditor)
+- skattegrunnlag (organization-delegated access package from the client's CEO)
+- revisormedarbeider (ER registered auditor)
+
+Rett Revisjon has purchased Maestro to report the shareholder register.
+
+### Preconditions
+- Rett Revisjon has shared with Maestro which client relationship they have for each customer.
+
+### Steps
+
+1. Maestro sends a request to create a system user for client relationships that require *revisormedarbeider*.
+2. Maestro sends a request to create a system user for client relationships that require *skattegrunnlag*.
+3. Maestro sends a request to create a system user for client relationships that require *regnskapsforer-med-signeringsrettighet*.
+4. Rett Revisjon accepts these requests.
+5. Rett Revisjon allocates their clients to the correct system users (see which package is linked to the system user).
+6. Rett Revisjon uses Maestro to report for Customer A.
+7. Maestro must at submission time know which type of client relationship Customer A has with Rett Revisjon to select the correct system user. This must be shared by Rett Revisjon.
+8. Maestro must request a system user token from Maskinporten for the correct system user.
+9. Maestro submits the shareholder register with the correct system user token.
+10. The Tax Administration authorizes that the system user has the right to report the shareholder register for Customer A.
+
+![Scenario with system user for customers with multiple types of client relationships](two_system_users.png "Customers with multiple types of client relationships")
+
+Note: An alternative solution would be to register a system per customer type and link each system user to that. This avoids extref but then you must manage a corresponding large number of clients.
+
+## 10b. New customers
+
+Rett Revisjon has acquired new customers. These must be linked to the correct system user based on the type of client relationship.
+
+### Preconditions
+
+- Rett Revisjon knows it has acquired new customers.
+
+### Steps
+1. Go to system user admin.
+2. Identify the correct system user based on which customer to link to the system user.
+3. Add the customer.
+
+### Screenshots
+
+Below are some screenshots for this scenario.
+
+![System user request](request_1.png "System user request")
+
+![System user request](request_2.png "System user request")
+
+![System user request](systemusers.png "Overview of system users")
+
+![System user request](systemuserdetails.png "System user details")
+
+![System user request](addclient.png "Link client to system user")
+
+### Challenges
+- The system vendor needs to know the type of client relationship between *Rett Revisjon* and their client. How do they obtain this information?
+
+## NAV Scenario A (functionality not currently prioritized)
+
+Example: Accountant uses "Superavstemming" from Kontrollen AS.
 
 ### Challenges
 
 - NAV does not offer access packages with granularity only for A06/A07.
-- Granular permissions for system users or clients are not supported.
+- Granular rights for system users or clients are not supported.
 
 ### Steps
 
-1. System provider sends a request for a limited system user.
-2. Accountant approves.
+1. System vendor sends a request for a limited system user.
+2. The accountant approves.
 3. Clients are added and assigned only A06/A07.
-4. Reporting is done via the system.
-5. Token is retrieved and API is called.
+4. Reporting occurs via the system.
+5. Token is retrieved and the API is called.
 6. Authorization via Altinn PDP.
 
 ---
 
-## NAV Scenario B (functionality not prioritized at this time)
+## NAV Scenario B (functionality not currently prioritized)
 
-Service provider has purchased the system Superavstemming from Kontrollen AS.  
-Superavstemming needs the necessary permissions to retrieve reconciliation data for a-melding (A06/A07) for the clients the system will be used for.  
-The service provider wants to ensure that Superavstemming does not get permissions beyond retrieving reconciliation data for a-melding.  
-The client has only purchased the "reconciliation of a-melding" service and only wants to delegate permissions for this.  
-(Here, only a few specific permissions are necessary, probably not a whole access package, as access packages are often coarse-grained.)
+The service provider has purchased the system Superavstemming from Kontrollen AS.  
+Superavstemming needs the necessary accesses to retrieve reconciliation data for the a-reporting (A06/A07) for the clients the system will be used for.  
+The service provider wants to ensure that Superavstemming does not receive rights beyond retrieving reconciliation data for a-reporting.  
+The client has only purchased the service "reconciliation of a-reporting" and wants to delegate rights only for this.  
+(Here there are a few specific rights needed, likely not a whole access package, as access packages are often coarse-grained.)
 
 ---
 
-## NAV Scenario C (functionality not prioritized at this time)
+## NAV Scenario C (functionality not currently prioritized)
 
-Service provider has purchased the system Superavstemming from Kontrollen AS.  
-Superavstemming needs the necessary permissions to retrieve reconciliation data for a-melding (A06/A07) for the relevant clients.  
-The service provider wants to ensure that Superavstemming does not get permissions beyond what is necessary.  
-The client has purchased several services but only wants to delegate the necessary permissions for the relevant services.  
-(Here, several different permissions are relevant, but there is no single suitable access package.)
+The service provider has purchased the system Superavstemming from Kontrollen AS.  
+Superavstemming needs the necessary accesses to retrieve reconciliation data for a-reporting (A06/A07) for the relevant clients.  
+The service provider wants to ensure that Superavstemming does not receive rights beyond what is necessary.  
+The client has purchased several services but wants to delegate only the necessary rights for the relevant services.  
+(Here there will be several different rights relevant, but there is no single suitable access package.)
 
 ---

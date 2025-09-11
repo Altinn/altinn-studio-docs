@@ -149,38 +149,40 @@ Rett Revisjon er bekymret for at det kan utføres handlinger på vegne av bedrif
 
 ### Utfordring
 
-Ved bruk av systembruker kjenner man ikke identiteten til den som trigger prosessene som gjør at systembrukeren gjør kall. Dette kan være 100 % automatiserte prosesser eller noe som utføres av en bruker som er gitt tilgang til systemet. Eventuelle delegeringer i Altinn autorisasjon vil ikke ha noen betydning. 
+Ved bruk av systembruker kjenner ikke tjenesten identiteten til personen som utløser kallene. Det kan være helt automatiserte prosesser eller handlinger utført av en innlogget bruker i sluttbrukersystemet. Delegasjoner i Altinn autorisasjon påvirker ikke hvem som faktisk bruker systemet, og et sluttbrukersystem har derfor i utgangspunktet ingen pålitelig måte å verifisere hvilke rettigheter den enkelte bruker har fått i Altinn. 
 
-Et sluttbrukersystem har i utgangspunktet ingen god måte å verifisere hva en bruker er blitt delegert for en virksomhet i Altinn. Derfor må man i utgangspunktet implementere lokal autentisering og autorisasjon av bruker.
+Konsekvens: sluttbrukersystemet må håndtere lokal autentisering og autorisasjon slik at kun autoriserte medarbeidere får tilgang til funksjonalitet som kaller Altinn på vegne av klienter.
 
-**Tjeneste:** [Rapportering for boligsameie](https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-boligsameie)
+**Tjeneste:** [Betalinger til selvstendig næringsdrivende](https://www.skatteetaten.no/bedrift-og-organisasjon/rapportering-og-bransjer/tredjepartsopplysninger/andre-bransjer/betalinger-til-s-n/)
 
-Denne tjenesten har satt opp at følgende tilgangspakker gir rettighet til å rapportere boligsameie
+Følgende tilgangspakker er relevante for rapportering:
 
 - regnskapsforer-med-signeringsrettighet
 - ansvarlig-revisor
 - skattegrunnlag
-- forretningsforer-eiendom
 
 ### Forutsetninger
 
-- Forretningsfører er [registrert i Enhetsregisteret](https://info.altinn.no/skjemaoversikt/bronnoysundregistrene/registrere-nye-og-endre-eksisterende-foretak-og-enheter---samordnet-registermelding/) for boligsameiet.
-- Systemleverandøren har registrert systemet i systemregisteret med nevnte tilgangspakke.
-- Systemleverandøren har kundeadministrasjon som muligjør å tilordne klienter til enkeltansatte.
+- Rett Revisjon er registrert i Enhetsregisteret for relevante kunder.
+- Uregistrerte kunder har virksomhetsdelegert tilgangspakken skattegrunnlag til Rett Revisjon.
+- Systemleverandøren har registrert systemet i systemregisteret med nødvendige tilgangspakker.
+- Systemet støtter kundeadministrasjon slik at klienter kan fordeles på ansatte/roller.
+- Rett Revisjon har definert hvilke kunder som er registrerte vs. uregistrerte.
 
 ### Steg
 
-1. Systemleverandør sender forespørsel om opprettelse av systembruker for klienter til forretningsfører (kunden). Tilgangspakken **forretningsforer-eiendom** legges inn som krav.
-2. Forretningsfører godkjenner forespørselen.
-3. Forretningsfører definerer forretningsførerteamet i sluttbrukersystemet og tilordner hvilke autentiserte brukere (dvs. ansatte) som kan benytte seg av forretningsfører-funksjonaliteten. 
-4. Klientadministrator legger til boligsameiet som kunde/klient på systembrukeren. Tilgangspakken videredelegeres automatisk til systembrukeren.
-5. Den ansatte logger inn og sluttbrukersystemet validerer at den ansatte kan bruke forretningsfører-funksjonalitet for den valgte kunden.
-6. Rapportering skjer via systemet.
-7. Systembruker-token hentes fra Maskinporten.
-8. Innsending skjer via API.
-9. Tilgang verifiseres av Altinn PDP API.
+1. Systemleverandør sender forespørsel om opprettelse av systembruker for registrerte klienter (krav: regnskapsforer-med-signeringsrettighet).
+2. Systemleverandør sender forespørsel om opprettelse av systembruker for uregistrerte klienter (krav: skattegrunnlag).
+3. Rett Revisjon godkjenner forespørslene.
+4. Rett Revisjon definerer hvilke medarbeidere som skal ha tilgang til registrerte og uregistrerte kunder i sluttbrukersystemet.
+5. Klientadministrator fordeler klientene på riktige systembrukere (tilgangene videredelegeres til systembrukeren).
+6. Den ansatte logger inn i sluttbrukersystemet; systemet validerer lokalt at vedkommende har rettigheter for valgt kunde.
+7. Rapportering sendes via systemet.
+8. Systembruker-token hentes fra Maskinporten.
+9. Innsending skjer via API.
+10. Tilgang verifiseres av Altinn PDP API.
 
-![Team tilgang](accesscontrol.png "Kunder med flere typer klientforhold")
+![Team tilgang](accesscontrol.png "Systemet må selv implementere tilgangskontroll")
 
 ---
 
@@ -214,7 +216,8 @@ Denne tjenesten har satt opp at følgende tilgangspakker gir rettighet til å ra
 
 ## 5. Virksomhet rapporterer egne data
 
-**Scenario:** Virksomheten benytter systembruker for rapportering.
+I dette scenarioet har møbelprodusenten Myke Møbler kjøpt seg tilgang på sluttbrukersystem. De står selv ansvarlig for
+rapporteringen.
 
 ### Forutsetninger
 
@@ -286,19 +289,22 @@ Oppsett med tilgangspakker utvikles som del av systembrukerleveranse 4.
 
 ## 8. Virksomhet har utviklet eget rapporteringssystem
 
-**Scenario:** Egenutviklet løsning for innsending via formidlingstjeneste.
+I dette scenarioet har konsulentfirmaet Leet Consulting laget et eget system for automatisk innraportering 
+av data til myndighetene.
 
 ### Forutsetninger
 
 1. Avtale med DigDir og tilgang til systemregisteret.
-2. System registreres med nødvendige rettigheter.
+2. System registreres med nødvendige rettigheter i systemregisteret
 
 ### Steg
 
-1. Forespørsel om systembruker sendes (til seg selv).
+1. Forespørsel om systembruker sendes (til seg selv) med krav om tilgangspakker
 2. Forespørsel godkjennes.
 3. Token hentes.
 4. Systemet sender data via API.
+
+![Team tilgang](homemadesystem.png "Egenutviklet system")
 
 ---
 
