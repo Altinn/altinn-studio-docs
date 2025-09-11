@@ -391,9 +391,6 @@ Nedenfor vises noen skjermbilder for dette scenarioet.
 
 ![Forespørsel om systembruker](addclient.png "Knytt klient til systembruker")
 
-### Utfordringer
-- Systemleverandøren trenger å vite type klientforhold mellom *Rett Revisjon* og deres klient. Hvordan får de denne informasjonen?
-
 ## NAV Scenario A (funksjonalitet ikke prioritert per nå)
 
 **Eksempel:** Regnskapsfører bruker “Superavstemming” fra Kontrollen AS.
