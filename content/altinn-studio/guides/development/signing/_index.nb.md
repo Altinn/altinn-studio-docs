@@ -8,6 +8,8 @@ aliases:
 - /nb/altinn-studio/guides/signing/
 ---
 
+{{% insert "content/altinn-studio/guides/development/signing/auth-requirements.nb.md" %}}
+
 De ulike scenarioene nedenfor kan i noen grad kombineres med hverandre, men ofte trenger en tjeneste bare en av variantene.
 
 ## Brukerstyrt
