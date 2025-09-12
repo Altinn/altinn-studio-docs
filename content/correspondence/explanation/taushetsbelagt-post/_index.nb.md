@@ -44,13 +44,12 @@ Dette kan for eksempel gjøres ved å ha entydig tekst i feltet `MessageTitle`. 
 
 ## Krav til varsling ved taushetsbelagt post
 
-Når en melding med taushetsbelagt innhold opprettes, SKAL mottakervirksomheten varsles med «Notification», for å sikre at virksomheten får beskjed om at de har mottatt en taushetsbelagt melding i innboksen. Merk at meldingen vil være usynlig i mottakerens innboks dersom ingen i virksomheten har fått tildelt lesetilgang via enkeltrettighet eller rolle/tilgangspakke.
+Når en melding med taushetsbelagt innhold opprettes, SKAL mottakervirksomheten varsles med `Notification`, for å sikre at virksomheten får beskjed om at de har mottatt en taushetsbelagt melding i innboksen. Merk at meldingen vil være usynlig i mottakerens innboks dersom ingen i virksomheten har fått tildelt lesetilgang via enkeltrettighet eller rolle/tilgangspakke.
 
-Varslingen må inneholde informasjon om at meldingen er taushetsbelagt, samt beskrivelse av hva virksomheten må gjøre for å sikre at rette vedkommende får tilgang til meldingen. I praksis betyr det at varslingen må si hva meldingen gjelder (uten å oppgi personopplysninger), hvem som skal ha meldingen, hvilken enkelttjeneste som må delegeres for å gi tilgang o.l.
+Varslingen må inneholde informasjon om at meldingen er taushetsbelagt, samt en beskrivelse av hva virksomheten må gjøre for å sikre at rette vedkommende får tilgang til meldingen. I praksis betyr det at varslingen må si hva meldingen gjelder (uten å oppgi personopplysninger), hvem som skal ha meldingen, og hvilken enkelttjeneste som må delegeres for å gi tilgang, og lignende.
 
-Vi anbefaler sterkt at teksten i varselet tilpasses innhold i forsendelsen hvis det er mulig. Hvis ikke anbefaler vi følgende standard/default varslingstekst:
+Vi anbefaler sterkt at teksten i varselet tilpasses innholdet i forsendelsen hvis det er mulig. Hvis ikke, anbefaler vi følgende standard varslingstekst:
 
-`navn på mottakervirksomhet`, har mottatt en taushetsbelagt melding fra `navn på avsender`. For å få tilgang til meldingen, er det nødvendig at noen i `navn på mottakervirksomhet` har fått tildelt lesetilgang rettighet til meldingstypen `Taushetsbelagt post xxxx` i Altinn. Selve meldingen vil være usynlig fram til lesetilgang er gitt. Les mer om  Taushetsbelagt post på Altinns nettsider.”
-
+`navn på mottakervirksomhet` har mottatt en taushetsbelagt melding fra `navn på avsender`. For å få tilgang til meldingen, er det nødvendig at noen i `navn på mottakervirksomhet` har fått tildelt lesetilgang til meldingstypen `Taushetsbelagt post xxxx` i Altinn. Selve meldingen vil være usynlig fram til lesetilgang er gitt. Les mer om taushetsbelagt post på Altinns nettsider.
 
 Altinn ser på en løsning hvor det sendes revarsel som en egen Melding/Correspondence til de som har rollen/tilgangspakke Post/arkiv, hvor det står at virksomheten har en uåpnet taushetsbelagt melding, etter 7 dager dersom meldingen ikke er åpnet. 
