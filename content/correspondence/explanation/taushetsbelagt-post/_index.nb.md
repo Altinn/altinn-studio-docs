@@ -24,10 +24,9 @@ Disse nøkkelrollene er:
 - Deltaker med fullt ansvar registrert på fødselsnummer (FNR)
 - Deltaker med delt ansvar registrert på fødselsnummer (FNR)
 - Norsk representant for utenlandsk enhet
-Merk at for Taushetsbelagt post blir lesetilgang ikke automatisk tildelt nøkkelroller i virksomheten (for eksempel daglig leder). Årsaken er at kun ansatte med tjenstlig behov skal kunne lese sensitive meldinger fra for eksempel fastleger, barnevern eller politi.
+Merk at for taushetsbelagt post blir lesetilgang ikke automatisk tildelt nøkkelroller i virksomheten (for eksempel daglig leder). Årsaken er at kun ansatte med tjenstlig behov skal kunne lese sensitive meldinger fra for eksempel fastleger, barnevern eller politi.
 
-Alle  nøkkelrollene er automatisk hovedadministrator i Altinn. Hovedadministrator  kan delegere alle tilganger i Altinn – og må delegere lesetilgang til taushetsbelagt post, for at noen skal kunne lese meldingen. NB Den som er hovedadministrator vil ikke kunne se eller lese taushetsbelagte meldinger, med mindre hen tildeler lesetilgang til seg selv. 
-
+Alle nøkkelrollene er automatisk hovedadministrator i Altinn. Hovedadministrator kan delegere alle tilganger i Altinn, og må delegere lesetilgang til taushetsbelagt post for at noen skal kunne lese meldingen. NB! Den som er hovedadministrator vil ikke kunne se eller lese taushetsbelagte meldinger, med mindre hen tildeler lesetilgang til seg selv.
 
 ### Tilgangsstyring
 
