@@ -30,9 +30,9 @@ Alle nøkkelrollene er automatisk hovedadministrator i Altinn. Hovedadministrato
 
 ### Tilgangsstyring
 
-På grunn av at  ingen får tilgang til de taushetsbelagte meldingene automatisk, MÅ altså hovedadministrator tildele rettighet til den som skal behandle eller fordele Taushetsbelagt post i virksomheten. I noen tilfeller kan det være at hovedadministrator må gi seg selv tilgang – dersom det er hen selv som skal viderefordele taushetsbelagt post  i virksomheten, eller selv er den som skal saksbehandle meldingen.
+På grunn av at ingen får tilgang til de taushetsbelagte meldingene automatisk, må hovedadministrator tildele rettighet til den som skal behandle eller fordele taushetsbelagt post i virksomheten. I noen tilfeller kan det være at hovedadministrator må gi seg selv tilgang – dersom det er hen selv som skal viderefordele taushetsbelagt post i virksomheten, eller selv er den som skal saksbehandle meldingen.
 
-Det er viktig at tjenesteeiere som sender taushetsbelagt post, er bevisst på dette og at varsler som sendes ut på SMS og/eller epost inneholder informasjon om  hvordan mottaker får tilgang til meldingen.
+Det er viktig at tjenesteeiere som sender taushetsbelagt post, er bevisst på dette, og at varsler som sendes ut på SMS og/eller e‑post inneholder informasjon om hvordan mottaker får tilgang til meldingen.
 
 
 ## Krav til utforming av taushetsbelagt post
