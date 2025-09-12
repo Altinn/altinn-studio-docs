@@ -37,10 +37,9 @@ Det er viktig at tjenesteeiere som sender taushetsbelagt post, er bevisst på de
 
 ## Krav til utforming av taushetsbelagt post
 
-Krav til utforming av taushetsbelagt post
 For å sikre at rette vedkommende i virksomheten får tilgang til de taushetsbelagte meldingene, er det viktig at avsender tilpasser innholdet i meldingen slik at det er enkelt å se hva meldingen gjelder, og hvem hos mottaker som skal ha tilgang til meldingen. 
 
-Dette kan f.eks. gjøres ved å ha entydig tekst i «MessageTitle». Bruk navnet til riktig mottaker (f.eks. saksbehandler) dersom dette er kjent, evt. benytt saksnummer eller annen informasjon som kan knytte meldingen til rett person i virksomheten.
+Dette kan for eksempel gjøres ved å ha entydig tekst i feltet `MessageTitle`. Bruk navnet til riktig mottaker (for eksempel saksbehandler) dersom dette er kjent, eventuelt benytt saksnummer eller annen informasjon som kan knytte meldingen til rett person i virksomheten.
 
 
 ## Krav til varsling ved taushetsbelagt post
