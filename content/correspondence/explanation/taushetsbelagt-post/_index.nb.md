@@ -7,12 +7,13 @@ toc: true
 weight: 14
 ---
 
-### Hva er taushetsbelagt post i Altinn?
+## Hva er taushetsbelagt post i Altinn?
 
-Taushetsbelagt post er en meldingstjeneste laget for å sende særlig sensitiv informasjon (for eksempel om enkeltpersoner knyttet til straffesaker eller barnevernssaker) fra offentlige virksomheter. Kun de som skal saksbehandle slik sensitiv post, skal ha tilgang til å lese den. Derfor er tilgangsstyringen for taushetsbelagt post strengere enn til andre meldingstjenester.  
+Taushetsbelagt post er en meldingstjeneste laget for å sende særlig sensitiv informasjon (for eksempel om enkeltpersoner knyttet til straffesaker eller barnevernssaker) fra offentlige virksomheter. 
+Kun de som skal saksbehandle slik sensitiv post, skal ha tilgang til å lese den. Derfor er tilgangsstyringen for taushetsbelagt post strengere enn til andre meldingstjenester.  
 
 
-## Ingen får automatisk tilgang til taushetsbelagt post
+### Ingen får automatisk tilgang til taushetsbelagt post
 
 For andre meldingstyper som sendes via Altinn, får de fleste nøkkelroller registrert i Enhetsregisteret hos Brønnøysundregistrene automatisk lesetilgang.
 
@@ -24,9 +25,11 @@ Disse nøkkelrollene er:
 - Deltaker med fullt ansvar registrert på fødselsnummer (FNR)
 - Deltaker med delt ansvar registrert på fødselsnummer (FNR)
 - Norsk representant for utenlandsk enhet
+
 Merk at for taushetsbelagt post blir lesetilgang ikke automatisk tildelt nøkkelroller i virksomheten (for eksempel daglig leder). Årsaken er at kun ansatte med tjenstlig behov skal kunne lese sensitive meldinger fra for eksempel fastleger, barnevern eller politi.
 
-Alle nøkkelrollene er automatisk hovedadministrator i Altinn. Hovedadministrator kan delegere alle tilganger i Altinn, og må delegere lesetilgang til taushetsbelagt post for at noen skal kunne lese meldingen. NB! Den som er hovedadministrator vil ikke kunne se eller lese taushetsbelagte meldinger, med mindre hen tildeler lesetilgang til seg selv.
+Alle nøkkelrollene er automatisk hovedadministrator i Altinn. Hovedadministrator kan delegere alle tilganger i Altinn, og må delegere lesetilgang til taushetsbelagt post for at noen skal kunne lese meldingen. 
+NB! Den som er hovedadministrator vil ikke kunne se eller lese taushetsbelagte meldinger, med mindre hen tildeler lesetilgang til seg selv.
 
 ### Tilgangsstyring
 
@@ -50,6 +53,7 @@ Varslingen må inneholde informasjon om at meldingen er taushetsbelagt, samt en 
 
 Vi anbefaler sterkt at teksten i varselet tilpasses innholdet i forsendelsen hvis det er mulig. Hvis ikke, anbefaler vi følgende standard varslingstekst:
 
-`navn på mottakervirksomhet` har mottatt en taushetsbelagt melding fra `navn på avsender`. For å få tilgang til meldingen, er det nødvendig at noen i `navn på mottakervirksomhet` har fått tildelt lesetilgang til meldingstypen `Taushetsbelagt post xxxx` i Altinn. Selve meldingen vil være usynlig fram til lesetilgang er gitt. Les mer om taushetsbelagt post på Altinns nettsider.
+`navn på mottakervirksomhet har mottatt en taushetsbelagt melding fra navn på avsender. For å få tilgang til meldingen, er det nødvendig at noen i navn på mottakervirksomhet har fått tildelt lesetilgang til meldingstypen Taushetsbelagt post xxxx i Altinn. Selve meldingen vil være usynlig fram til lesetilgang er gitt. Les mer om taushetsbelagt post på Altinns nettsider.`
 
-Altinn ser på en løsning hvor det sendes revarsel som en egen Melding/Correspondence til de som har rollen/tilgangspakke Post/arkiv, hvor det står at virksomheten har en uåpnet taushetsbelagt melding, etter 7 dager dersom meldingen ikke er åpnet. 
+#### Kommende funksjonalitet
+Altinn ser på en løsning hvor det sendes revarsel som en egen Melding/Correspondence til de som har rollen/tilgangspakke Post/arkiv. Meldingen skal inneholde samme informasjon som et SMS/epost varsel, at virksomheten har en uåpnet taushetsbelagt melding. Denne meldingen sendes til virksomhetens innboks etter 7 dager dersom den taushetsbelagte meldingen ikke er åpnet. 
