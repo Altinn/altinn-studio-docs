@@ -1,7 +1,7 @@
 ---
-title: Correspondence Life Cycle
-linktitle: Correspondence Life Cycle
-description: Altinn 3 Correspondence status life cycle and states overview.
+title: Confidential correspondences
+linktitle: Confidential correspondences
+description: Overview of confidential correspondence ("taushetsbelagt post") in Altinn 3.
 tags: []
 toc: true
 weight: 14
