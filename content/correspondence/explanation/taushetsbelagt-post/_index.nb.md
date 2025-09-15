@@ -26,6 +26,7 @@ Disse nøkkelrollene er:
 - Deltaker med delt ansvar registrert på fødselsnummer (FNR)
 - Norsk representant for utenlandsk enhet
 
+
 Merk at for taushetsbelagt post blir lesetilgang ikke automatisk tildelt nøkkelroller i virksomheten (for eksempel daglig leder). Årsaken er at kun ansatte med tjenstlig behov skal kunne lese sensitive meldinger fra for eksempel fastleger, barnevern eller politi.
 
 Alle nøkkelrollene er automatisk hovedadministrator i Altinn. Hovedadministrator kan delegere alle tilganger i Altinn, og må delegere lesetilgang til taushetsbelagt post for at noen skal kunne lese meldingen. 
@@ -53,7 +54,7 @@ Varslingen må inneholde informasjon om at meldingen er taushetsbelagt, samt en 
 
 Vi anbefaler sterkt at teksten i varselet tilpasses innholdet i forsendelsen hvis det er mulig. Hvis ikke, anbefaler vi følgende standard varslingstekst:
 
-`navn på mottakervirksomhet har mottatt en taushetsbelagt melding fra navn på avsender. For å få tilgang til meldingen, er det nødvendig at noen i navn på mottakervirksomhet har fått tildelt lesetilgang til meldingstypen Taushetsbelagt post xxxx i Altinn. Selve meldingen vil være usynlig fram til lesetilgang er gitt. Les mer om taushetsbelagt post på Altinns nettsider.`
+`"navn på mottakervirksomhet" har mottatt en taushetsbelagt melding fra "navn på avsender". For å få tilgang til meldingen, er det nødvendig at noen i "navn på mottakervirksomhet" har fått tildelt lesetilgang til meldingstypen "Taushetsbelagt post xxxx" i Altinn. Selve meldingen vil være usynlig fram til lesetilgang er gitt. Les mer om taushetsbelagt post på Altinns nettsider.`
 
 #### Kommende funksjonalitet
-Altinn ser på en løsning hvor det sendes revarsel som en egen Melding/Correspondence til de som har rollen/tilgangspakke Post/arkiv. Meldingen skal inneholde samme informasjon som et SMS/epost varsel, at virksomheten har en uåpnet taushetsbelagt melding. Denne meldingen sendes til virksomhetens innboks etter 7 dager dersom den taushetsbelagte meldingen ikke er åpnet. 
+Altinn ser på en løsning hvor det sendes en påminnelse som en egen Melding/Correspondence til de som har rollen/tilgangspakke Post/arkiv. Meldingen skal inneholde samme informasjon som i et varsel, at virksomheten har en uåpnet taushetsbelagt melding. Denne meldingen sendes til virksomhetens innboks etter 7 dager dersom den taushetsbelagte meldingen ikke er åpnet. 
