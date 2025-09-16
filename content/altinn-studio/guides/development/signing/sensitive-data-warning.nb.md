@@ -3,5 +3,5 @@ hidden: true
 ---
 
 {{% notice warning %}}
-Signaturdokumenter kan inneholde fødselsnummer. Hvis du ønsker å begrense tilgangen til disse dokumentene, bør du vurdere å implementere [ekstra databeskyttelse](/nb/altinn-studio/guides/development/restricted-data). Tilgjengelig fra [v8.7.2](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.7.2).
+Signaturdokumenter kan leses av alle med tilgang til en instans og kan inneholde sensitiv informasjon som fødselsnummer. Du kan begrense tilgangen disse dokumentene ved bruk av [ekstra databeskyttelse](/nb/altinn-studio/guides/development/restricted-data). Tilgjengelig fra [v8.7.2](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.7.2).
 {{% /notice %}}
