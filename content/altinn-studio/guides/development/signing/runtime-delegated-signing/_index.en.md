@@ -8,6 +8,10 @@ aliases:
   - /altinn-studio/guides/signing/runtime-delegated-signing
 ---
 
+{{%notice info%}}
+Available from [v8.6.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.6.0)
+{{%/notice%}}
+
 ## What does runtime delegated signing mean?
 
 {{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/intro.en.md" %}}
