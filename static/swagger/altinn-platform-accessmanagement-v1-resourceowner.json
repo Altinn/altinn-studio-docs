@@ -328,14 +328,31 @@
             "items": {
               "type": "string",
               "example": ["app_org_appname", "someresourceid"]
-            }
+            },
+            "nullable": true
+          },
+          "authorizedAccessPackages": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "regnskapsforer-lonn"
+            },
+            "nullable": true
           },
           "authorizedRoles": {
             "type": "array",
             "items": {
               "type": "string",
               "example": "PRIV"
-            }
+            },
+            "nullable": true
+          },
+          "authorizedInstances": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AuthorizedResource"
+            },
+            "nullable": true
           },
           "subunits": {
             "type": "array",
@@ -354,6 +371,22 @@
           "Organization",
           "SelfIdentified"
         ]
+      },
+      "AuthorizedResource": {
+        "type": "object",
+        "properties": {
+          "resourceId": {
+            "type": "string",
+            "nullable": true,
+            "example": "myresource"
+          },
+          "instanceId": {
+            "type": "string",
+            "nullable": true,
+            "example": "8c37834d-4fb6-4ea3-8a59-dc0a4cae16ce"
+          }
+        },
+        "additionalProperties": false
       },
       "ProblemDetails": {
         "type": "object",
