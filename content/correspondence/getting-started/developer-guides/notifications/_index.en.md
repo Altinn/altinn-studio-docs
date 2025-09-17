@@ -46,12 +46,14 @@ A notification order is made by adding the following when initializing a message
       "reminderEmailContentType": Plain(0) | Html(1),
       "reminderSmsBody": string?,
       "requestedSendTime": DateTimeOffset?,
-      "customRecipient": {
-        "organizationNumber": string?,
-        "nationalIdentityNumber": string?,
-        "mobileNumber": string?,
-        "emailAddress": string?
-      }
+      "customRecipients": [
+        {
+          "organizationNumber": string?,
+          "nationalIdentityNumber": string?,
+          "mobileNumber": string?,
+          "emailAddress": string?
+        }
+      ]
     }
   },
   "Recipients": [],
@@ -106,8 +108,8 @@ Supported notification channels:
 - **EmailPreferred:** Uses email as the main communication channel, and SMS as a fallback if email is not available.
 - **SmsPreferred:** Uses SMS as the main communication channel, and email as a fallback if SMS is not available.
 - **EmailAndSms:** Sends both email and SMS to the recipient simultaneously.
-The first notification and the reminder notification can use different notification channels. 
-For example, the first notification is sent by email, while the reminder notification seven days later is sent by SMS.
+  The first notification and the reminder notification can use different notification channels. 
+  For example, the first notification is sent by email, while the reminder notification seven days later is sent by SMS.
 
 ## Cancellation of Notification
 
@@ -123,11 +125,59 @@ Improvements are planned to provide feedback on this during the creation of a me
 ## Custom recipients for Notifications
 
 For all correspondences created with Notifications enabled, the notifications will be sent to the recipient specified in the creation of the correspondence.
-However, it is also possible to choose optional recipients of the notification that are not necessarily the recipient(s) of the correspondence. 
-In practice this means that custom recipients will override/replace the original recipient provided for the notification.
+However, it is also possible to choose additional recipients of the notification that are not necessarily the recipient(s) of the correspondence. 
+In practice this means that custom recipients will receive notifications **in addition to** the original correspondence recipient.
+
+### Using customRecipients (Recommended)
+The recommended approach is to use the `customRecipients` field under `notification` to specify multiple recipients:
+
+```json
+{
+  "notification": {
+    ...,
+    "customRecipients": [
+      {
+        "organizationNumber": "string",
+        "nationalIdentityNumber": "string",
+        "mobileNumber": "string",
+        "emailAddress": "string"
+      },
+      {
+        "organizationNumber": "string",
+        "nationalIdentityNumber": "string",
+        "mobileNumber": "string",
+        "emailAddress": "string"
+      }
+    ]
+  }
+}
+```
+
+**Note**: Notifications will be sent to both the default correspondence recipient AND all custom recipients listed above.
 
 {{% notice warning %}}
-⚠️ DEPRECATED: The `customNotificationRecipients` field is deprecated and will be removed in a future version. Please use `customRecipient` instead.
+⚠️ DEPRECATED: The `customRecipient` field is deprecated and will be removed in a future version. Please use `customRecipients` instead.
+{{% /notice %}}
+
+### Using customRecipient (Deprecated)
+For backward compatibility, you can still use the `customRecipient` field for a single recipient:
+
+```json
+{
+  "notification": {
+    ...,
+    "customRecipient": {
+      "organizationNumber": "string",
+      "nationalIdentityNumber": "string",
+      "mobileNumber": "string",
+      "emailAddress": "string"
+    }
+  }
+}
+```
+
+{{% notice warning %}}
+⚠️ DEPRECATED: The `customNotificationRecipients` field is deprecated and will be removed in a future version. Please use `customRecipients` instead.
 {{% /notice %}}
 
 ### Using customNotificationRecipients (Deprecated)
@@ -154,63 +204,54 @@ This can be achieved by populating the `customNotificationRecipients` field unde
 }
 ```
 
-### Using customRecipient (Recommended)
-The recommended approach is to use the `customRecipient` field under `notification` as follows:
-
-```json
-{
-  "notification": {
-    ...,
-    "customRecipient": {
-      "organizationNumber": "string",
-      "nationalIdentityNumber": "string",
-      "mobileNumber": "string",
-      "emailAddress": "string"
-    }
-  }
-}
-```
-
 ### Validation Rules for Custom Recipients
 
 When using custom recipients, the following validation rules apply:
 
-1. **Single Recipient Only**: Custom recipients can only be used when the correspondence has exactly one recipient. Multiple recipients are not allowed.
+1. **Additional Recipients**: Custom recipients are sent notifications **in addition to** the default correspondence recipient, not instead of them.
 
-2. **Single Identifier Required**: The custom recipient must have exactly one identifier field populated:
+2. **Single Recipient Only**: If custom recipients are specified, the correspondence must have only one default recipient (not multiple recipients).
+
+3. **Single Identifier Required**: Each custom recipient must have exactly one identifier field populated:
    - `organizationNumber` (for organizations)
    - `nationalIdentityNumber` (for persons)
    - `emailAddress` (for direct email notifications)
    - `mobileNumber` (for direct SMS notifications)
 
-3. **Keyword Restrictions**: When using `emailAddress` or `mobileNumber`, the `$recipientName$` keyword cannot be used in any notification content (email subject, email body, SMS body, reminder fields) because name lookup is not available for direct contact information.
+4. **Keyword Restrictions**: When using `emailAddress` or `mobileNumber`, the `$recipientName$` keyword cannot be used in any notification content (email subject, email body, SMS body, reminder fields) because name lookup is not available for direct contact information.
 
-4. **Format Validation**:
+5. **Format Validation**:
    - **Email addresses**: Must be in valid email format (e.g., `user@example.com`)
    - **Mobile numbers**: Must adhere to E.164 standard and be valid phone numbers. Can start with `+` or `00` for international format. Norwegian numbers starting with 4 or 9 will automatically get `+47` prefix if no country code is provided.
-
-5. **Organization Numbers**: Must be in format `0192:organizationnumber` or `urn:altinn:organizationnumber:organizationnumber`
-
-6. **National Identity Numbers**: Must be valid 11-digit Norwegian social security numbers
+   - **Organization Numbers**: Must be in format `0192:organizationnumber` or `urn:altinn:organizationnumber:organizationnumber`
+   - **National Identity Numbers**: Must be valid 11-digit Norwegian social security numbers
 
 ### How to use it
-For deprecated approach:
+For recommended approach (multiple recipients):
+```
+correspondence.notification.customRecipients[0].organizationNumber
+correspondence.notification.customRecipients[0].nationalIdentityNumber
+correspondence.notification.customRecipients[0].mobileNumber
+correspondence.notification.customRecipients[0].emailAddress
+correspondence.notification.customRecipients[1].organizationNumber
+// ... additional recipients
+```
+
+For deprecated single recipient approach:
+```
+correspondence.notification.customRecipient.organizationNumber
+correspondence.notification.customRecipient.nationalIdentityNumber
+correspondence.notification.customRecipient.mobileNumber
+correspondence.notification.customRecipient.emailAddress
+```
+
+For deprecated multiple recipients approach:
 ```
 correspondence.notification.customNotificationRecipients[0].recipientToOverride
 correspondence.notification.customNotificationRecipients[0].recipients[0].organizationNumber
 correspondence.notification.customNotificationRecipients[0].recipients[0].nationalIdentityNumber
 correspondence.notification.customNotificationRecipients[0].recipients[0].mobileNumber
 correspondence.notification.customNotificationRecipients[0].recipients[0].emailAddress
-
-```
-
-For recommended approach:
-```
-correspondence.notification.customRecipient.organizationNumber
-correspondence.notification.customRecipient.nationalIdentityNumber
-correspondence.notification.customRecipient.mobileNumber
-correspondence.notification.customRecipient.emailAddress
-
 ```
 
 {{% panel theme="warning" %}}
