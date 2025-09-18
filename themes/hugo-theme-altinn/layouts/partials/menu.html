@@ -10,13 +10,56 @@
       {{- end -}}
       {{- if eq .Site.Params.ordersectionsby "title" -}}
         {{- range .Site.Home.Sections.ByTitle -}}
-          {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
+          {{- $sectionPath := strings.TrimPrefix "/" .RelPermalink -}}
+          {{- $sectionPath = strings.TrimSuffix "/" $sectionPath -}}
+          <div class="menu-section" data-section="{{ $sectionPath }}">
+            {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
+          </div>
         {{- end -}}
       {{- else -}}
         {{- range .Site.Home.Sections.ByWeight -}}
-          {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
+          {{- $sectionPath := strings.TrimPrefix "/" .RelPermalink -}}
+          {{- $sectionPath = strings.TrimSuffix "/" $sectionPath -}}
+          <div class="menu-section" data-section="{{ $sectionPath }}">
+            {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
+          </div>
         {{- end -}}
       {{- end -}}
+
+      <style>
+        .menu-section {
+          display: none;
+        }
+        .menu-section.active {
+          display: block;
+        }
+      </style>
+
+      <script>
+        (function() {
+          var currentPath = window.location.pathname;
+          var rootPath = '';
+
+          // Extract root path from current URL
+          var pathParts = currentPath.split('/').filter(function(part) { return part.length > 0; });
+          if (pathParts.length > 0) {
+            rootPath = pathParts[0];
+          }
+
+          // Find all menu sections
+          var menuSections = document.querySelectorAll('.menu-section');
+
+          // Show only the matching section
+          for (var i = 0; i < menuSections.length; i++) {
+            var section = menuSections[i];
+            var sectionName = section.getAttribute('data-section');
+
+            if (!rootPath || sectionName === rootPath) {
+              section.classList.add('active');
+            }
+          }
+        })();
+      </script>
       {{- with .Site.Menus.shortcuts -}}
         {{- range sort . "Weight" -}}
           <li>
