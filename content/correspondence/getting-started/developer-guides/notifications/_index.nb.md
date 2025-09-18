@@ -61,9 +61,6 @@ En varslingsbestilling gjøres ved å legge til følgende når du initialiserer 
 }
 ```
 
-{{% notice info %}}
-Merk: Varslingstjenesten bruker et V2 API internt. Varslingsbestillingen vil automatisk bli konvertert til V2-format når den behandles.
-{{% /notice %}}
 
 ## Keyword støtte
 
@@ -296,8 +293,7 @@ Som standard, når du bruker valgfrie mottakere, sendes varsler til både standa
 ### Valideringsregler
 
 1. **Valgfrie mottakere påkrevd**: `overrideRegisteredContactInformation`-flagget kan kun settes til `true` når `customRecipients` er oppgitt og ikke tom
-2. **V2 API kun**: Denne funksjonen fungerer kun med V2 varslings-API (som brukes internt)
-3. **Standardverdi**: Hvis ikke spesifisert, standardiserer `overrideRegisteredContactInformation` til `false`
+2. **Standardverdi**: Hvis ikke spesifisert, standardiserer `overrideRegisteredContactInformation` til `false`
 
 ### Eksempel brukstilfeller
 

@@ -62,9 +62,7 @@ A notification order is made by adding the following when initializing a message
 }
 ```
 
-{{% notice info %}}
-Note: The notification service uses a V2 API internally. The notification order will be automatically converted to the V2 format when processed.
-{{% /notice %}}
+
 
 ## Keyword support
 
@@ -298,8 +296,7 @@ The `overrideRegisteredContactInformation` flag allows you to control whether th
 ### Validation Rules
 
 1. **Custom Recipients Required**: The `overrideRegisteredContactInformation` flag can only be set to `true` when `customRecipients` is provided and not empty
-2. **V2 API Only**: This feature only works with the V2 notification API (which is used internally)
-3. **Default Value**: If not specified, `overrideRegisteredContactInformation` defaults to `false`
+2. **Default Value**: If not specified, `overrideRegisteredContactInformation` defaults to `false`
 
 ### Example Use Cases
 
