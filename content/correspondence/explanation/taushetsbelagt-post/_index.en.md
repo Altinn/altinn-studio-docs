@@ -5,7 +5,6 @@ description: Overview of confidential correspondence ("taushetsbelagt post") in 
 tags: []
 toc: true
 weight: 14
-hidden: true
 ---
 
 ## What is Confidential information in Altinn?
