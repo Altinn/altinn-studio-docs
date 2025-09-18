@@ -53,7 +53,8 @@ A notification order is made by adding the following when initializing a message
           "mobileNumber": string?,
           "emailAddress": string?
         }
-      ]
+      ],
+      "overrideRegisteredContactInformation": boolean
     }
   },
   "Recipients": [],
@@ -263,5 +264,65 @@ Both `notificationTemplate` and `notificationChannel` are applicable when using 
 
 Further details are provided [here](#notification-templates).
 {{% /panel %}}
+
+## Override Default Recipient Behavior
+
+By default, when using custom recipients, notifications are sent to both the default correspondence recipient AND all custom recipients. However, you can override this behavior using the `overrideRegisteredContactInformation` flag.
+
+### Using overrideRegisteredContactInformation
+
+The `overrideRegisteredContactInformation` flag allows you to control whether the default correspondence recipient should be included in notifications:
+
+```json
+{
+  "notification": {
+    ...,
+    "customRecipients": [
+      {
+        "organizationNumber": "string",
+        "nationalIdentityNumber": "string",
+        "mobileNumber": "string",
+        "emailAddress": "string"
+      }
+    ],
+    "overrideRegisteredContactInformation": true
+  }
+}
+```
+
+### Behavior
+
+- **`overrideRegisteredContactInformation: false` (default)**: Notifications are sent to the default correspondence recipient AND all custom recipients
+- **`overrideRegisteredContactInformation: true`**: Notifications are sent ONLY to custom recipients (default correspondence recipient is excluded)
+
+### Validation Rules
+
+1. **Custom Recipients Required**: The `overrideRegisteredContactInformation` flag can only be set to `true` when `customRecipients` is provided and not empty
+2. **V2 API Only**: This feature only works with the V2 notification API (which is used internally)
+3. **Default Value**: If not specified, `overrideRegisteredContactInformation` defaults to `false`
+
+### Example Use Cases
+
+**Scenario 1: Additional Recipients (Default Behavior)**
+```json
+{
+  "notification": {
+    "customRecipients": [{"organizationNumber": "123456789"}],
+    "overrideRegisteredContactInformation": false
+  }
+}
+```
+Result: Notifications sent to both the default correspondence recipient AND the custom organization
+
+**Scenario 2: Override Default Recipient**
+```json
+{
+  "notification": {
+    "customRecipients": [{"organizationNumber": "123456789"}],
+    "overrideRegisteredContactInformation": true
+  }
+}
+```
+Result: Notifications sent ONLY to the custom organization (default correspondence recipient excluded)
 
 
