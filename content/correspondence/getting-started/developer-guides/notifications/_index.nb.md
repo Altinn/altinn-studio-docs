@@ -52,7 +52,8 @@ En varslingsbestilling gjøres ved å legge til følgende når du initialiserer 
           "mobileNumber": string?,
           "emailAddress": string?
         }
-      ]
+      ],
+      "overrideRegisteredContactInformation": boolean
     }
   },
   "Recipients": [],
@@ -60,9 +61,6 @@ En varslingsbestilling gjøres ved å legge til følgende når du initialiserer 
 }
 ```
 
-{{% notice info %}}
-Merk: Varslingstjenesten bruker et V2 API internt. Varslingsbestillingen vil automatisk bli konvertert til V2-format når den behandles.
-{{% /notice %}}
 
 ## Keyword støtte
 
@@ -261,5 +259,64 @@ Både `notificationTemplate` og `notificationChannel` er anvendelige når du bru
 
 Flere detaljer er gitt [her](#varslingsmaler).
 {{% /panel %}}
+
+## Overstyr standard mottaker oppførsel
+
+Som standard, når du bruker valgfrie mottakere, sendes varsler til både standard meldingsmottaker OG alle valgfrie mottakere. Du kan imidlertid overstyre denne oppførselen ved å bruke `overrideRegisteredContactInformation`-flagget.
+
+### Bruk av overrideRegisteredContactInformation
+
+`overrideRegisteredContactInformation`-flagget lar deg kontrollere om standard meldingsmottaker skal inkluderes i varsler:
+
+```json
+{
+  "notification": {
+    ...,
+    "customRecipients": [
+      {
+        "organizationNumber": "string",
+        "nationalIdentityNumber": "string",
+        "mobileNumber": "string",
+        "emailAddress": "string"
+      }
+    ],
+    "overrideRegisteredContactInformation": true
+  }
+}
+```
+
+### Oppførsel
+
+- **`overrideRegisteredContactInformation: false` (standard)**: Varsler sendes til standard meldingsmottaker OG alle valgfrie mottakere
+- **`overrideRegisteredContactInformation: true`**: Varsler sendes KUN til valgfrie mottakere (standard meldingsmottaker ekskluderes)
+
+### Valideringsregler
+
+1. **Valgfrie mottakere påkrevd**: `overrideRegisteredContactInformation`-flagget kan kun settes til `true` når `customRecipients` er oppgitt og ikke tom
+2. **Standardverdi**: Hvis ikke spesifisert, standardiserer `overrideRegisteredContactInformation` til `false`
+
+### Eksempel brukstilfeller
+
+**Scenario 1: Tilleggsmottakere (Standard oppførsel)**
+```json
+{
+  "notification": {
+    "customRecipients": [{"organizationNumber": "123456789"}],
+    "overrideRegisteredContactInformation": false
+  }
+}
+```
+Resultat: Varsler sendes til både standard meldingsmottaker OG den valgfrie organisasjonen
+
+**Scenario 2: Overstyr standard mottaker**
+```json
+{
+  "notification": {
+    "customRecipients": [{"organizationNumber": "123456789"}],
+    "overrideRegisteredContactInformation": true
+  }
+}
+```
+Resultat: Varsler sendes KUN til den valgfrie organisasjonen (standard meldingsmottaker ekskluderes)
 
 
