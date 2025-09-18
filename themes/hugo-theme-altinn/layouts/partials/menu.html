@@ -40,10 +40,21 @@
           var currentPath = window.location.pathname;
           var rootPath = '';
 
-          // Extract root path from current URL
+          // Extract path parts from current URL
           var pathParts = currentPath.split('/').filter(function(part) { return part.length > 0; });
+
           if (pathParts.length > 0) {
-            rootPath = pathParts[0];
+            // Check if first part is a language code (nb, en, etc.)
+            var languageCodes = ['nb', 'en', 'nn']; // Add more language codes as needed
+            var firstPart = pathParts[0];
+
+            if (languageCodes.indexOf(firstPart) !== -1 && pathParts.length > 1) {
+              // If first part is language code, use second part as root path
+              rootPath = pathParts[1];
+            } else {
+              // Otherwise use first part as root path
+              rootPath = firstPart;
+            }
           }
 
           // Find all menu sections
@@ -54,7 +65,11 @@
             var section = menuSections[i];
             var sectionName = section.getAttribute('data-section');
 
-            if (!rootPath || sectionName === rootPath) {
+            // Extract the product part from section name (e.g., "nb/authorization" -> "authorization")
+            var sectionParts = sectionName.split('/');
+            var sectionProduct = sectionParts.length > 1 ? sectionParts[sectionParts.length - 1] : sectionName;
+
+            if (!rootPath || sectionProduct === rootPath) {
               section.classList.add('active');
             }
           }
