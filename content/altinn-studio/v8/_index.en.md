@@ -1,5 +1,5 @@
 ---
-title: Altinn Studio
+title: Altinn Studio V8
 description: Altinn Studio - Your tool for developing digital services for citizens and businesses
 aliases:
 - /altinn-studio/

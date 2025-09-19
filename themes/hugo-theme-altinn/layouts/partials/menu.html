@@ -33,14 +33,15 @@
             aria-labelledby="version-selector-label"
             id="version-dropdown-menu">
             {{- range $altinnStudioPage.Sections -}}
+              {{- $folderName := path.Base .RelPermalink -}}
               <a
                 class="dropdown-item version-option"
                 href="{{ .RelPermalink }}"
-                data-version="{{ .LinkTitle }}"
+                data-version="{{ $folderName }}"
                 role="option"
                 tabindex="-1"
                 aria-selected="false">
-                <span class="version-item">{{ .LinkTitle }}</span>
+                <span class="version-item">{{ $folderName }}</span>
               </a>
             {{- end -}}
           </div>

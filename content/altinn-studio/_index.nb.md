@@ -1,8 +1,8 @@
 ---
-title: Altinn Studio Versions
-linktitle: Altinn Studio Versions
+title: Altinn Studio
+linktitle: Altinn Studio
 description: 
-toc: true
+toc: false
 weight: 1
 aliases:
   
