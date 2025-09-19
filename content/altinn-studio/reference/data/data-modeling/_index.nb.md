@@ -66,10 +66,6 @@ for å bekrefte.
 
 ## Altinn Studio Datamodellering
 
-{{% notice info %}}
-Verktøyet Datamodellering i Altinn Studio er under utvikling og vil ha noe begrenset funksjonalitet før det er ferdigstilt.
-{{% /notice %}}
-
 Altinn Studio Datamodellering er et verktøy for å utvikle [datamodeller](#datamodeller). Den baserer seg på en datamodell i JSON Schema
 format og kan ut fra dette generere XSD- og C#-modeller (se [Datamodeller for Applikasjoner](#datamodeller-for-applikasjoner)).
 
@@ -94,6 +90,10 @@ format og kan ut fra dette generere XSD- og C#-modeller (se [Datamodeller for Ap
 Datamodellen definerer hvilke data som kan sendes inn via en app, og hvilket format det skal sendes på.
 Vi støtter pr. nå kun opplasting av XSD datamodell.
 Ved opplasting av XSD-modell `<model>.xsd` vil verktøyet generere følgende filer: `<model>.cs` og `<model>.schema.json` (se [datamodell-filer](#datamodeller-for-applikasjoner)).
+
+{{% notice info %}}
+Du må være medlem av en organisasjon for å laste opp datamodeller.
+{{% /notice %}}
 
 1. Klikk på _Last opp datamodell_ fra Datamodell-siden om det ikke er noen eksisterende datamodeller eller _Last opp_ fra
    verktøylinjen øverst i verktøyet.

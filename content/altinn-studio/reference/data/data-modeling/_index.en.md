@@ -65,10 +65,6 @@ Upload the desired file, scroll down, optionally provide a message indicating th
 
 ## Altinn Studio Data Modeling
 
-{{% notice info %}}
-The Data Modeling tool in Altinn Studio is under development and will have limited functionality until it is completed.
-{{% /notice %}}
-
 Altinn Studio Data Modeling is a tool for developing [data models](#data-models).
 It is based on a data model in JSON Schema format from which it can generate XSD and C# models (see [Data Model Files for Applications](#data-model-files-for-applications)).
 
@@ -93,6 +89,10 @@ It is based on a data model in JSON Schema format from which it can generate XSD
 The data model defines the data that can be submitted through an app and the allowed format of the data.
 Currently, we only support uploading XSD data models.
 When uploading an XSD model `<model>.xsd`, the tool will generate the following files: `<model>.cs` and `<model>.schema.json` (see [Data Model Files](#data-model-files-for-applications)).
+
+{{% notice info %}}
+You must be a member of an organisation to upload data models.
+{{% /notice %}}
 
 1. Click _Last opp datamodell_ (_Upload Data Model_) from the data modeling page if there are no existing data models or _Last opp_ (_Upload_) from the
    toolbar at the top of the tool.

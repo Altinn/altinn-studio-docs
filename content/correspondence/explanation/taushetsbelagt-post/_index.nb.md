@@ -28,6 +28,9 @@ Disse nøkkelrollene er:
 - Norsk representant for utenlandsk enhet
 
 
+Merk at for taushetsbelagt post blir lesetilgang ikke automatisk tildelt nøkkelroller i virksomheten (for eksempel daglig leder). Årsaken er at kun ansatte med tjenstlig behov skal kunne lese sensitive meldinger fra for eksempel fastleger, barnevern eller politi.
+
+
 Merk at for taushetsbelagt post blir tilgang ikke automatisk tildelt nøkkelroller i virksomheten (for eksempel daglig leder). Årsaken er at kun ansatte med tjenstlig behov skal kunne lese sensitive meldinger fra for eksempel fastleger, barnevern eller politi.
 
 Alle nøkkelrollene er automatisk hovedadministrator i Altinn. Hovedadministrator kan delegere alle tilganger i Altinn, og må delegere tilgang til taushetsbelagt post for at noen skal kunne lese meldingen. 
@@ -57,6 +60,7 @@ Varslingen må inneholde informasjon om at meldingen er taushetsbelagt, samt en 
 - hvilken enkelttjeneste som må delegeres for å gi tilgang
 
 Vi anbefaler sterkt at teksten i varselet tilpasses innholdet i forsendelsen hvis det er mulig. Hvis ikke, anbefaler vi følgende standard varslingstekst:
+
 
 {{% notice warning  %}}
 `$recipientName$` `$recipientNumber$` har mottatt en taushetsbelagt melding: `messageTitle` fra `$sendersName$`. For å få tilgang til meldingen, er det nødvendig at noen i navn på mottakervirksomhet har fått tildelt tilgang til meldingstypen `Navn på tjenesten` i Altinn. Selve meldingen vil være usynlig fram til tilgang er gitt. Les mer om taushetsbelagt post på Altinns nettsider.

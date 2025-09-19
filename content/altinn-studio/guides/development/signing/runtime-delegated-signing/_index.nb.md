@@ -8,6 +8,10 @@ aliases:
   - /nb/altinn-studio/guides/signing/runtime-delegated-signing
 ---
 
+{{%notice info%}}
+Tilgjengelig fra [v8.6.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.6.0)
+{{%/notice%}}
+
 ## Hva betyr brukerstyrt signering?
 
 {{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/intro.nb.md" %}}

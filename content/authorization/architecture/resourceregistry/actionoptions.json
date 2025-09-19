@@ -17,7 +17,7 @@
     },
     {
         "ActionId": "sign",
-        "ActionTitle": "Sign"
+        "ActionTitle": "Signer"
     },
     {
         "ActionId": "instantiate",
@@ -49,6 +49,6 @@
     },
     {
         "ActionId": "access",
-        "ActionTitle": "Access"
+        "ActionTitle": "Tilgang"
     }
 ]
