@@ -67,9 +67,9 @@
       {{- end -}}
       {{- if eq .Site.Params.ordersectionsby "title" -}}
         {{- range .Site.Home.Sections.ByTitle -}}
-          {{- if ne .LinkTitle "altinn-studio" -}}
-            {{- $sectionPath := strings.TrimPrefix "/" .RelPermalink -}}
-            {{- $sectionPath = strings.TrimSuffix "/" $sectionPath -}}
+          {{- $sectionPath := strings.TrimPrefix "/" .RelPermalink -}}
+          {{- $sectionPath = strings.TrimSuffix "/" $sectionPath -}}
+          {{- if not (or (eq .LinkTitle "altinn-studio") (eq .Title "altinn-studio") (eq $sectionPath "altinn-studio")) -}}
             <div class="menu-section" data-section="{{ $sectionPath }}">
               {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
             </div>
@@ -77,9 +77,9 @@
         {{- end -}}
       {{- else -}}
         {{- range .Site.Home.Sections.ByWeight -}}
-          {{- if ne .LinkTitle "altinn-studio" -}}
-            {{- $sectionPath := strings.TrimPrefix "/" .RelPermalink -}}
-            {{- $sectionPath = strings.TrimSuffix "/" $sectionPath -}}
+          {{- $sectionPath := strings.TrimPrefix "/" .RelPermalink -}}
+          {{- $sectionPath = strings.TrimSuffix "/" $sectionPath -}}
+          {{- if not (or (eq .LinkTitle "altinn-studio") (eq .Title "altinn-studio") (eq $sectionPath "altinn-studio")) -}}
             <div class="menu-section" data-section="{{ $sectionPath }}">
               {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
             </div>
@@ -241,7 +241,6 @@
           // Find all menu sections
           var menuSections = document.querySelectorAll('.menu-section');
 
-
           // Show only the matching section
           for (var i = 0; i < menuSections.length; i++) {
             var section = menuSections[i];
@@ -268,8 +267,13 @@
                 shouldShow = sectionName === rootPath || sectionName.endsWith('/' + rootPath);
               }
             } else {
-              // Standard product matching
-              shouldShow = sectionProduct === rootPath || sectionName.indexOf(rootPath) !== -1;
+              // Standard product matching - be more specific to avoid duplicates
+              if (rootPath === 'altinn-studio') {
+                // For altinn-studio without version, only show the version container section
+                shouldShow = (sectionName === 'altinn-studio' && section.getAttribute('data-version-container') === 'true');
+              } else {
+                shouldShow = sectionProduct === rootPath || sectionName === rootPath;
+              }
             }
 
 
