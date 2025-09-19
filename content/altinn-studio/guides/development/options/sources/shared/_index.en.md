@@ -9,38 +9,96 @@ aliases:
 ---
 
 ## What are common standard code lists?
-Common standard code lists are lists such as countries, counties, municipalities, genders, marital statuses, etc. that can be used in an application without the need to maintain these code lists yourself. See the [complete list](https://github.com/Altinn/codelists-lib-dotnet#available-codelists) of available code lists.
+Common standard code lists are lists such as countries, counties, municipalities, genders, marital statuses, etc. that can be used in an application without the need to maintain these code lists yourself.
 
 These code lists are created as a separate [NuGet package](https://www.nuget.org/packages/Altinn.Codelists) that can be imported into your application. This is done to keep the core of an Altinn 3 application as small as possible and to be able to release and use new code lists without depending on having to upgrade the application (beyond v7.8.0).
 
+## Available code lists
+
+The following code lists are available from different sources:
+
+### Statistics Norway (SSB)
+| Code list ID | Description |
+|--------------|-------------|
+| fylker | The counties of Norway |
+| grunnbeløpfolketrygden | National insurance base amount |
+| kjønn | Sex |
+| kommuner | The communes of Norway (all) |
+| land | The countries of the world |
+| næringsgruppering | Industrial grouping |
+| sivilstand | Marital status |
+| yrker | Occupations |
+
+### Kartverket (KV)
+| Code list ID | Description |
+|--------------|-------------|
+| fylker-kv | The counties of Norway |
+| kommuner-kv | The communes of Norway with ability to filter on county |
+
+### Posten
+| Code list ID | Description |
+|--------------|-------------|
+| poststed | Norwegian postal codes |
+
 ## How to add common standard code lists to the application?
 ### 1. Add a reference to the [Altinn.Codelists NuGet package](https://www.nuget.org/packages/Altinn.Codelists)  
-   Open the command line to your application's repository and navigate to the App folder where the App.csproj file is located, and run the following command:
 
-   ```shell
-   dotnet add package Altinn.Codelists
-   ```
-   This will add the latest stable version of the package to your solution.
+Open the command line to your application's repository and navigate to the App folder where the App.csproj file is located, and run the following command:
 
-   Alternatively, you can directly edit your application's App.csproj file by adding the reference below to the `<itemgroup>` where you have package references. 
-   ```xml
-     <PackageReference Include="Altinn.Codelists" Version="0.5.0" />     
-   ```
-   Note that you then need to explicitly specify the version you would like. See the link in step one for available versions.
+```shell
+dotnet add package Altinn.Codelists
+```
+This will add the latest stable version of the package to your solution.
 
-### 2. Register the code lists in your app's DI container  
-   Add the following to your Program.cs file:
-   ```csharp
-   services.AddAltinnCodelists();
-   ```
-   By calling this method, you will register all codelists across all sources. You can also register code lists one by one if you want to have control over which code lists are used or configure and customize the setup of the code list.
+Alternatively, you can directly edit your application's App.csproj file by adding the reference below to the `<itemgroup>` where you have package references. 
+```xml
+<PackageReference Include="Altinn.Codelists" Version="8.0.1" />     
+```
+Note that you then need to explicitly specify the version you would like. See the link in step one for available versions.
 
-### 3. Connect your application to the code list you want to use  
-   See the [documentation](https://github.com/Altinn/codelists-lib-dotnet#available-codelists) below for available code lists.
+### 2. Register the code lists in your app's DI container
 
-   You can do this either using [Altinn Studio](https://altinn.studio) and configure the *code list ID* of your component in the user interface.
+Add the following to your Program.cs file:
+```csharp
+services.AddAltinnCodelists();
+```
+By calling this method, you will register all codelists across all sources. You can also register code lists one by one if you want to have control over which code lists are used or configure and customize the setup of the code list.
 
-   Or you can configure the component by editing the `optionsId` property for the component in the layout file.
+#### 2.1 Add individual sources
+
+Instead of registering all available code lists, you can choose to register only specific sources:
+
+**SSB (Statistics Norway) codelists:**
+```csharp
+services.AddSSBClassifications();
+```
+This registers all SSB-based code lists: fylker, kjønn, kommuner, land, næringsgruppering, sivilstand, yrker, and grunnbeløpfolketrygden.
+
+**Kartverket codelists:**
+```csharp
+services.AddKartverketAdministrativeUnits();
+```
+This registers Kartverket's administrative unit code lists: fylker-kv and kommuner-kv.
+
+**Posten codelists:**
+```csharp
+services.AddPosten();
+```
+This registers Posten's postal code list: poststed.
+
+**Individual SSB code lists:**
+You can also add individual SSB code lists with custom configuration:
+```csharp
+services.AddSSBClassificationCodelistProvider("næring", Classification.IndustryGrouping, new Dictionary<string, string> { { "level", "1" } });
+```
+
+### 3. Connect your application to the code list you want to use
+
+Use one of the code list IDs from the available code lists above.
+
+You can do this either using [Altinn Studio](https://altinn.studio) and configure the *code list ID* of your component in the user interface.
+
+Or you can configure the component by editing the `optionsId` property for the component in the layout file.
 
 ## Custom Configuration
 While the configuration mentioned above, where you use the method `services.AddAltinnCodelists();`, will register all available code lists with default values, there may be cases where you want to customize the configuration of a code list. The examples below will vary slightly depending on the source of the code list, as different sources offer different options.
