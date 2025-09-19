@@ -1,6 +1,25 @@
 <nav id="sidebar" class="{{if $.Site.Params.showVisitedLinks }}showVisitedLinks{{end}}">
 {{- $currentNode := . -}}
 {{- $showvisitedlinks := .Site.Params.showVisitedLinks -}}
+  {{- /* Version dropdown for Altinn Studio - above everything */ -}}
+  {{- $altinnStudioPage := .Site.GetPage "/altinn-studio" -}}
+  {{- if $altinnStudioPage -}}
+    <div id="version-dropdown-top" class="version-dropdown-container" style="display: none; padding: 10px; border-bottom: 1px solid #ddd; background: #f8f9fa;">
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle version-switcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#" style="color: #333; text-decoration: none;">
+          <span id="current-version-top">{{ T "select_version" | default "Select Version" }}</span>
+        </a>
+        <div class="dropdown-menu version-dropdown">
+          {{- range $altinnStudioPage.Sections -}}
+            <a class="dropdown-item version-option" href="{{ .RelPermalink }}" data-version="{{ .LinkTitle }}">
+              <p class="version-item">{{ .LinkTitle }}</p>
+            </a>
+          {{- end -}}
+        </div>
+      </div>
+    </div>
+  {{- end -}}
+
   <div class="highlightable">
     <ul id="docsmenu" class="topics">
       {{- if not .Site.Params.noHomeIcon -}}
@@ -10,37 +29,40 @@
       {{- end -}}
       {{- if eq .Site.Params.ordersectionsby "title" -}}
         {{- range .Site.Home.Sections.ByTitle -}}
-          {{- $sectionPath := strings.TrimPrefix "/" .RelPermalink -}}
-          {{- $sectionPath = strings.TrimSuffix "/" $sectionPath -}}
-          <div class="menu-section" data-section="{{ $sectionPath }}">
-            {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
-          </div>
+          {{- if ne .LinkTitle "altinn-studio" -}}
+            {{- $sectionPath := strings.TrimPrefix "/" .RelPermalink -}}
+            {{- $sectionPath = strings.TrimSuffix "/" $sectionPath -}}
+            <div class="menu-section" data-section="{{ $sectionPath }}">
+              {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
+            </div>
+          {{- end -}}
         {{- end -}}
       {{- else -}}
         {{- range .Site.Home.Sections.ByWeight -}}
-          {{- $sectionPath := strings.TrimPrefix "/" .RelPermalink -}}
-          {{- $sectionPath = strings.TrimSuffix "/" $sectionPath -}}
-          <div class="menu-section" data-section="{{ $sectionPath }}">
-            {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
-          </div>
+          {{- if ne .LinkTitle "altinn-studio" -}}
+            {{- $sectionPath := strings.TrimPrefix "/" .RelPermalink -}}
+            {{- $sectionPath = strings.TrimSuffix "/" $sectionPath -}}
+            <div class="menu-section" data-section="{{ $sectionPath }}">
+              {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
+            </div>
+          {{- end -}}
         {{- end -}}
       {{- end -}}
 
-      {{- /* Add version-specific sections for altinn-studio */ -}}
-      {{- $v8Page := .Site.GetPage "/altinn-studio/v8" -}}
-      {{- if $v8Page -}}
-        {{- $versionPath := strings.TrimPrefix "/" $v8Page.RelPermalink -}}
-        {{- $versionPath = strings.TrimSuffix "/" $versionPath -}}
-        <div class="menu-section" data-section="{{ $versionPath }}">
-          {{- template "section-tree-nav" dict "sect" $v8Page "currentnode" $v8Page "showvisitedlinks" $showvisitedlinks -}}
-        </div>
-      {{- end -}}
-      {{- $v9Page := .Site.GetPage "/altinn-studio/v9" -}}
-      {{- if $v9Page -}}
-        {{- $versionPath := strings.TrimPrefix "/" $v9Page.RelPermalink -}}
-        {{- $versionPath = strings.TrimSuffix "/" $versionPath -}}
-        <div class="menu-section" data-section="{{ $versionPath }}">
-          {{- template "section-tree-nav" dict "sect" $v9Page "currentnode" $v9Page "showvisitedlinks" $showvisitedlinks -}}
+      {{- /* Add main altinn-studio section with version handling */ -}}
+      {{- $altinnStudioPage := .Site.GetPage "/altinn-studio" -}}
+      {{- if $altinnStudioPage -}}
+        {{- $altinnStudioPath := strings.TrimPrefix "/" $altinnStudioPage.RelPermalink -}}
+        {{- $altinnStudioPath = strings.TrimSuffix "/" $altinnStudioPath -}}
+        <div class="menu-section" data-section="{{ $altinnStudioPath }}" data-version-container="true">
+          <!-- Version-specific content sections -->
+          {{- range $altinnStudioPage.Sections -}}
+            {{- $versionPath := strings.TrimPrefix "/" .RelPermalink -}}
+            {{- $versionPath = strings.TrimSuffix "/" $versionPath -}}
+            <div class="version-section" data-version-section="{{ $versionPath }}" style="display: none;">
+              {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
+            </div>
+          {{- end -}}
         </div>
       {{- end -}}
 
@@ -50,6 +72,33 @@
         }
         .menu-section.active {
           display: block;
+        }
+
+        /* Version dropdown styling */
+        .version-dropdown-container {
+          background: #f8f9fa;
+        }
+        .version-switcher {
+          display: block;
+          padding: 8px 12px;
+          color: #333 !important;
+          text-decoration: none !important;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          background: white;
+        }
+        .version-switcher:hover {
+          background: #e9ecef;
+        }
+        .version-dropdown {
+          min-width: 200px;
+        }
+        .version-item {
+          margin: 0;
+          padding: 4px 0;
+        }
+        .version-section {
+          padding-top: 10px;
         }
       </style>
 
@@ -94,6 +143,7 @@
           // Find all menu sections
           var menuSections = document.querySelectorAll('.menu-section');
 
+
           // Show only the matching section
           for (var i = 0; i < menuSections.length; i++) {
             var section = menuSections[i];
@@ -110,21 +160,110 @@
               shouldShow = true; // Show all if no root path
             } else if (rootPath.indexOf('/') > -1) {
               // Handle version-specific paths like "altinn-studio/v8"
-              // Look for exact match first, then fallback to product match
-              shouldShow = sectionName === rootPath ||
-                          sectionName.endsWith('/' + rootPath);
+              var rootProduct = rootPath.split('/')[0]; // Extract "altinn-studio" from "altinn-studio/v8"
+
+              // For altinn-studio version paths, only show the main altinn-studio section (not the version-specific ones)
+              if (rootProduct === 'altinn-studio') {
+                shouldShow = (sectionProduct === rootProduct && !sectionName.match(/\/v\d+$/));
+              } else {
+                // For other products with version paths, show exact matches
+                shouldShow = sectionName === rootPath || sectionName.endsWith('/' + rootPath);
+              }
             } else {
               // Standard product matching
               shouldShow = sectionProduct === rootPath || sectionName.indexOf(rootPath) !== -1;
             }
 
+
             if (shouldShow) {
               section.classList.add('active');
               section.style.display = 'block';
               section.style.visibility = 'visible';
+
+              // Handle version-specific logic for Altinn Studio
+              if (section.getAttribute('data-version-container') === 'true') {
+                showVersionDropdown();
+                handleVersionSwitching(section, currentPath);
+              }
             } else {
               section.classList.remove('active');
               section.style.display = 'none';
+            }
+          }
+
+          // Show/hide top version dropdown - show for both main altinn-studio and version-specific pages
+          var shouldShowVersionDropdown = false;
+
+          // Check if we're on any altinn-studio related page
+          if (rootPath === 'altinn-studio' || (rootPath && rootPath.indexOf('altinn-studio') === 0)) {
+            shouldShowVersionDropdown = true;
+          }
+
+          var topDropdown = document.getElementById('version-dropdown-top');
+          if (topDropdown) {
+            topDropdown.style.display = shouldShowVersionDropdown ? 'block' : 'none';
+
+            // If we're showing the dropdown, update the current version display
+            if (shouldShowVersionDropdown) {
+              updateVersionDropdownDisplay(currentPath);
+            }
+          }
+
+          function updateVersionDropdownDisplay(currentPath) {
+            // Extract current version from path
+            var pathParts = currentPath.split('/').filter(function(part) { return part.length > 0; });
+            var currentVersion = null;
+
+            // Find version in path (like v8, v9)
+            for (var i = 0; i < pathParts.length; i++) {
+              if (pathParts[i].match(/^v\d+$/)) {
+                currentVersion = pathParts[i];
+                break;
+              }
+            }
+
+            // Update version dropdown display in top dropdown
+            var versionSpan = document.getElementById('current-version-top');
+            if (versionSpan) {
+              if (currentVersion) {
+                versionSpan.textContent = currentVersion;
+              } else {
+                versionSpan.textContent = 'Select Version';
+              }
+            }
+          }
+
+          function showVersionDropdown() {
+            var topDropdown = document.getElementById('version-dropdown-top');
+            if (topDropdown) {
+              topDropdown.style.display = 'block';
+            }
+          }
+
+          function handleVersionSwitching(container, currentPath) {
+            // Extract current version from path
+            var pathParts = currentPath.split('/').filter(function(part) { return part.length > 0; });
+            var currentVersion = null;
+
+            // Find version in path (like v8, v9)
+            for (var i = 0; i < pathParts.length; i++) {
+              if (pathParts[i].match(/^v\d+$/)) {
+                currentVersion = pathParts[i];
+                break;
+              }
+            }
+
+            // Show the appropriate version section
+            var versionSections = container.querySelectorAll('.version-section');
+            for (var i = 0; i < versionSections.length; i++) {
+              var versionSection = versionSections[i];
+              var sectionPath = versionSection.getAttribute('data-version-section');
+
+              if (currentVersion && sectionPath && sectionPath.indexOf(currentVersion) !== -1) {
+                versionSection.style.display = 'block';
+              } else {
+                versionSection.style.display = 'none';
+              }
             }
           }
         })();
