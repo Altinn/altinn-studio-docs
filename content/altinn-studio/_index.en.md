@@ -1,6 +1,6 @@
 ---
-title: Altinn Studio Versions
-linktitle: Altinn Studio Versions
+title: Versjoner
+linktitle: altinn-studio
 description: 
 toc: true
 weight: 1

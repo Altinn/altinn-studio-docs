@@ -26,6 +26,24 @@
         {{- end -}}
       {{- end -}}
 
+      {{- /* Add version-specific sections for altinn-studio */ -}}
+      {{- $v8Page := .Site.GetPage "/altinn-studio/v8" -}}
+      {{- if $v8Page -}}
+        {{- $versionPath := strings.TrimPrefix "/" $v8Page.RelPermalink -}}
+        {{- $versionPath = strings.TrimSuffix "/" $versionPath -}}
+        <div class="menu-section" data-section="{{ $versionPath }}">
+          {{- template "section-tree-nav" dict "sect" $v8Page "currentnode" $v8Page "showvisitedlinks" $showvisitedlinks -}}
+        </div>
+      {{- end -}}
+      {{- $v9Page := .Site.GetPage "/altinn-studio/v9" -}}
+      {{- if $v9Page -}}
+        {{- $versionPath := strings.TrimPrefix "/" $v9Page.RelPermalink -}}
+        {{- $versionPath = strings.TrimSuffix "/" $versionPath -}}
+        <div class="menu-section" data-section="{{ $versionPath }}">
+          {{- template "section-tree-nav" dict "sect" $v9Page "currentnode" $v9Page "showvisitedlinks" $showvisitedlinks -}}
+        </div>
+      {{- end -}}
+
       <style>
         .menu-section {
           display: none;
@@ -51,9 +69,25 @@
             if (languageCodes.indexOf(firstPart) !== -1 && pathParts.length > 1) {
               // If first part is language code, use second part as root path
               rootPath = pathParts[1];
+
+              // Special handling for altinn-studio versions
+              if (rootPath === 'altinn-studio' && pathParts.length > 2) {
+                var versionPart = pathParts[2];
+                if (versionPart.match(/^v\d+$/)) { // matches v8, v9, etc.
+                  rootPath = 'altinn-studio/' + versionPart;
+                }
+              }
             } else {
               // Otherwise use first part as root path
               rootPath = firstPart;
+
+              // Special handling for altinn-studio versions
+              if (rootPath === 'altinn-studio' && pathParts.length > 1) {
+                var versionPart = pathParts[1];
+                if (versionPart.match(/^v\d+$/)) { // matches v8, v9, etc.
+                  rootPath = 'altinn-studio/' + versionPart;
+                }
+              }
             }
           }
 
@@ -69,8 +103,28 @@
             var sectionParts = sectionName.split('/');
             var sectionProduct = sectionParts.length > 1 ? sectionParts[sectionParts.length - 1] : sectionName;
 
-            if (!rootPath || sectionProduct === rootPath) {
+            // Check for exact section match
+            var shouldShow = false;
+
+            if (!rootPath) {
+              shouldShow = true; // Show all if no root path
+            } else if (rootPath.indexOf('/') > -1) {
+              // Handle version-specific paths like "altinn-studio/v8"
+              // Look for exact match first, then fallback to product match
+              shouldShow = sectionName === rootPath ||
+                          sectionName.endsWith('/' + rootPath);
+            } else {
+              // Standard product matching
+              shouldShow = sectionProduct === rootPath || sectionName.indexOf(rootPath) !== -1;
+            }
+
+            if (shouldShow) {
               section.classList.add('active');
+              section.style.display = 'block';
+              section.style.visibility = 'visible';
+            } else {
+              section.classList.remove('active');
+              section.style.display = 'none';
             }
           }
         })();
@@ -155,3 +209,4 @@
     {{- end -}}
   {{- end -}}
 {{- end -}}
+
