@@ -86,7 +86,7 @@ Datatypenes ID-er må matche ID-ene som legges inn i `signatureDataType` og `sig
 #### Tilgangsstyring for brukere
 Gi `read`, `write` og eventuelt `sign` til den som fyller ut skjemaet.
 
-Mer informasjon om action-attributter finner du [her](/nb/altinn-studio/reference/configuration/authorization/#action-attributes).
+Mer informasjon om action-attributter finner du [her](/nb/altinn-studio/reference/configuration/authorization/#action-attributter).
 
 #### Tilgangsstyring for appen
 For at appen skal kunne delegere rettigheter til de som skal signere så må appen få rettigheter til å delegere `read` og `sign`.
