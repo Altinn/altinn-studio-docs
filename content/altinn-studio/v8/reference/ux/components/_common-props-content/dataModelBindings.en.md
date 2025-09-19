@@ -5,7 +5,7 @@ hidden: true
 <!-- begin intro -->
 ### Data Model
 
-To store and manipulate the data collected by the component, the component must be linked to a field in a [data model](/altinn-studio/reference/data/data-modeling/#data-models).
+To store and manipulate the data collected by the component, the component must be linked to a field in a [data model](/altinn-studio/v8/reference/data/data-modeling/#data-models).
  The option values are stored as strings.
 
 <!-- end intro -->
@@ -14,7 +14,7 @@ To store and manipulate the data collected by the component, the component must 
 <!-- begin asd -->
 
 Select the field you want to link the component to from the dropdown menu.
- If there are no fields available, you must first [upload a data model](/altinn-studio/reference/data/data-modeling/#upload-and-display-data-model).
+ If there are no fields available, you must first [upload a data model](/altinn-studio/v8/reference/data/data-modeling/#upload-and-display-data-model).
 
 <!-- Bilde må ligge i /assets/images/component-settings. Erstatt filnavn. -->
 {{% image file="component-settings/dataModelBindings.png" %}}

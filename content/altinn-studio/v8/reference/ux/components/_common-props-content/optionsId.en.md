@@ -5,7 +5,7 @@ hidden: true
 <!-- begin intro -->
 #### Code List (`optionsId`)
 
-A [code list](/altinn-studio/guides/development/options) is a predefined list of options.
+A [code list](/altinn-studio/v8/guides/development/options) is a predefined list of options.
 
 <!-- end intro -->
 
@@ -19,7 +19,7 @@ To add options from a code list, select "Kodeliste" and enter a code list ID.
 
 <br>
 
-If you wish to [secure dynamic code lists](/altinn-studio/guides/development/options/sources/dynamic/#secured-code-lists), you can check this option:
+If you wish to [secure dynamic code lists](/altinn-studio/v8/guides/development/options/sources/dynamic/#secured-code-lists), you can check this option:
 
 {{% image file="component-settings/secure.png" %}}
 <!-- end asd -->
