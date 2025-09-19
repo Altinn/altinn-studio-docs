@@ -1,4 +1,5 @@
 ---
+headless: true
 hidden: true
 ---
 
@@ -11,7 +12,6 @@ du knytte opp tekstressurser for å **overstyre** innholdet i melding til innbok
 for å varsle signatar om en signeringsoppgave.
 Disse kan du kalle hva du vil, og koble dem opp til `CommunicationConfig` i neste punkt (punkt 4.).
 
-
 Eksempel på tekstressurser for varsling med egne tekster for e-post, samt kvittering:
 
 {{% notice warning %}}
@@ -20,35 +20,35 @@ Det vil erstattes med en lenke til skjemaet. Hvis dette overstyres uten å bruke
 kunne finne frem til skjemaet med signeringsoppgaven!
 {{% /notice %}}
 
-```
-    {
-      "id": "signing.correspondence_title_common",
-      "value": "Oppgave - Signer stiftelsesdokumenter"
-    },
-    {
-      "id": "signing.correspondence_summary_stifter_person",
-      "value": "Du har blitt lagt til som signatar."
-    },
-    {
-      "id": "signing.correspondence_summary_stifter_organisasjon",
-      "value": "Organisjonen har blitt lagt til som signatar."
-    },
-    {
-      "id": "signing.correspondence_body_stifter_person",
-      "value": "Du har blitt lagt til som signatar for stiftelsesdokumenter. <br /> $instanceUrl$ <br /><br />Hvis du lurer på noe, ta kontakt med Brønnøysundregistrene på telefon 75 00 75 00."
-    },
-    {
-      "id": "signing.correspondence_body_stifter_organisasjon",
-      "value": "Organisjonen har blitt lagt til som signatar for stiftelsesdokumenter. <br /> $instanceUrl$ <br /><br />Ved spørsmål, ta kontakt med Brønnøysundregistrene på telefon 75 00 75 00."
-    },
-    {
-      "id": "signing.notification_content",
-      "value": "Hei $correspondenceRecipientName$,\n\nDu har mottatt stiftelsesdokumenter for signering i Altinn. Logg inn på Altinn for å signere dokumentene.\n\nMed vennlig hilsen\nBrønnøysundregistrene"
-    },
-    {
-      "id": "signing.email_subject",
-      "value": "Stiftelsesdokumenter mottatt for signering i Altinn. Gå til Altinn-innboks for å signere."
-    },
+```json
+{
+  "id": "signing.correspondence_title_common",
+  "value": "Oppgave - Signer stiftelsesdokumenter"
+},
+{
+  "id": "signing.correspondence_summary_stifter_person",
+  "value": "Du har blitt lagt til som signatar."
+},
+{
+  "id": "signing.correspondence_summary_stifter_organisasjon",
+  "value": "Organisjonen har blitt lagt til som signatar."
+},
+{
+  "id": "signing.correspondence_body_stifter_person",
+  "value": "Du har blitt lagt til som signatar for stiftelsesdokumenter. <br /> $instanceUrl$ <br /><br />Hvis du lurer på noe, ta kontakt med Brønnøysundregistrene på telefon 75 00 75 00."
+},
+{
+  "id": "signing.correspondence_body_stifter_organisasjon",
+  "value": "Organisjonen har blitt lagt til som signatar for stiftelsesdokumenter. <br /> $instanceUrl$ <br /><br />Ved spørsmål, ta kontakt med Brønnøysundregistrene på telefon 75 00 75 00."
+},
+{
+  "id": "signing.notification_content",
+  "value": "Hei $correspondenceRecipientName$,\n\nDu har mottatt stiftelsesdokumenter for signering i Altinn. Logg inn på Altinn for å signere dokumentene.\n\nMed vennlig hilsen\nBrønnøysundregistrene"
+},
+{
+  "id": "signing.email_subject",
+  "value": "Stiftelsesdokumenter mottatt for signering i Altinn. Gå til Altinn-innboks for å signere."
+}
 ```
 
 Overstyring av kvittering er ikke mulig å gjøre per signatar, det gjøres generelt for alle signatarer. Her må navnet på
