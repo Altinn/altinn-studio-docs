@@ -193,7 +193,7 @@ You can add a custom PDF layout in Studio by converting a page to a PDF layout i
 
 ![Screenshot of the PDF switch](pdf-page-switch.png)
 
-If you add a [Summary]({{< ref "altinn-studio/reference/ux/components/summary2" >}} "Summary") component to this page, you can specify what parts of the layout you want to include in the PDF.
+If you add a [Summary]({{< ref "altinn-studio/v8/reference/ux/components/summary2" >}} "Summary") component to this page, you can specify what parts of the layout you want to include in the PDF.
 
 ![Screenshot of a summary2 component in a PDF layout page](pdf-summary-component.png)
 
@@ -277,7 +277,7 @@ You can specify that a component should start on a new page or that a page break
 }
 ```
 
-**Note**: The value of `breakBefore` and `breakAfter` can either be `auto` (default), `always`, `avoid`, or an [expression](/altinn-studio/reference/logic/expressions/) returning any of these values.
+**Note**: The value of `breakBefore` and `breakAfter` can either be `auto` (default), `always`, `avoid`, or an [expression](/altinn-studio/v8/reference/logic/expressions/) returning any of these values.
 {{% /expandlarge %}}
 
 {{% expandlarge id="exclude-components-from-groups" header="Exclude child components from groups" %}}

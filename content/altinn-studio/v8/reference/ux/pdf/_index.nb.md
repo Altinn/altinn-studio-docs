@@ -188,7 +188,7 @@ Du kan legge til et tilpasset PDF-oppsett i Studio ved å konvertere en side til
 
 ![Skjermbilde av PDF-bryteren](pdf-page-switch.png)
 
-Du kan bruke komponenten [Oppsummering]({{< ref "altinn-studio/reference/ux/components/summary2" >}} "Oppsummering"), til å angi hvilke deler av oppsettet du vil ha med i PDF-en.
+Du kan bruke komponenten [Oppsummering]({{< ref "altinn-studio/v8/reference/ux/components/summary2" >}} "Oppsummering"), til å angi hvilke deler av oppsettet du vil ha med i PDF-en.
 
 ![Skjermbilde av en oppsummeringskomponent i en PDF-oppsett-side](pdf-summary-component.png)
 
@@ -278,7 +278,7 @@ Du kan spesifisere at en komponent skal starte på en ny side eller at et sidesk
 }
 ```
 
-**NB**: Verdien av `breakBefore` og `breakAfter` kan enten være `auto` (standard), `always`, `avoid`, eller ett [uttrykk](/nb/altinn-studio/reference/logic/expressions/) som returnerer en av disse verdiene.
+**NB**: Verdien av `breakBefore` og `breakAfter` kan enten være `auto` (standard), `always`, `avoid`, eller ett [uttrykk](/nb/altinn-studio/v8/reference/logic/expressions/) som returnerer en av disse verdiene.
 {{% /expandlarge %}}
 
 {{% expandlarge id="exclude-components-from-groups" header="Ekskludere komponenter inne i en gruppe" %}}
