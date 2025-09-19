@@ -1,6 +1,6 @@
 ---
+headless: true
 hidden: true
 ---
 
-> This step needs to be done manually. Support for configuration in Altinn Studio Designer will come later.
-> Take a look at the "Manual setup"-tab for this section for guidance.
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/placeholder-manual-task.en.md" %}}

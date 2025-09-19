@@ -1,4 +1,5 @@
 ---
+headless: true
 hidden: true
 ---
 
@@ -14,7 +15,12 @@ You can name these whatever you want and connect them to `CommunicationConfig` i
 
 Example of text resources for notifications with custom texts for email, as well as receipt:
 
-```
+{{% notice warning %}}
+Please note that the text resources related to the [correspondence](#correspondence) contains an `$instanceUrl$` placeholder.
+This placeholder will be replaced with a link to the form instance, which is crucial in order for the user to access the correct form.
+{{% /notice %}}
+
+```json
 {
   "id": "signing.correspondence_title_common",
   "value": "Task - Sign founding documents"
@@ -52,7 +58,7 @@ resources must match the following keys in order to take effect.
 `signing.correspondence_receipt_summary` - summary
 `signing.correspondence_receipt_body` - content
 
-```
+```json
 {
   "id": "signing.correspondence_receipt_title",
   "value": "Receipt: Signing of founding documents"

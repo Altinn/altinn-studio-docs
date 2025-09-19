@@ -8,24 +8,30 @@ aliases:
   - /nb/altinn-studio/guides/signing/runtime-delegated-signing
 ---
 
+{{% insert "content/altinn-studio/guides/development/restricted-data/shared/style.css.md" %}}
+
 {{%notice info%}}
 Tilgjengelig fra [v8.6.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.6.0)
 {{%/notice%}}
 
 ## Hva betyr brukerstyrt signering?
-
 {{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/intro.nb.md" %}}
 
 ## Avhengigheter
 
-Brukerstyrt signering avhenger av Meldingstjenesten (Correspondence) i Altinn. Den må du sette opp utenom.
+### Maskinporten
+Maskinporten kreves av både [meldingstjenesten](#meldingstjenesten) og for interaksjon med [beskyttede data](/nb/altinn-studio/guides/development/restricted-data/).
+
+Hvis du trenger hjelp med oppsett av Maskinporten i din app, finner du all informasjonen du trenger i [denne guiden](/nb/altinn-studio/guides/integration/maskinporten/).
+
+### Meldingstjenesten
+Brukerstyrt signering avhenger av Meldingstjenesten (Correspondence) i Altinn, som krever et separat oppsett.
 
 Meldingstjenesten brukes for å gi beskjed til de som skal signere om at de må signere et skjema i Altinn, og for å sende en kvittering til innboksen deres når de har signert.
 
 [Slik kommer du i gang med meldingstjenesten](/nb/correspondence/getting-started/).
 
 ## Eksempel på konfigurasjon
-
 I dette [repoet](https://altinn.studio/repos/ttd/signering-brukerstyrt) ligger det et eksempel på en app som har brukerstyrt signering.
 
 Flyten i appen er slik:
@@ -192,15 +198,5 @@ Dette er de mulige overstyringskonfigurasjonene for kommunikasjon med signatarer
 
 {{</content-version-selector>}}
 
-## 6. Test brukerstyrt signering
-
-> **Obs!** Du kan foreløpig ikke teste i `localtest`, du må teste i TT02-miljøet.
-
-Det er en forsinkelse i autorisasjonslaget. Det gjør at det kan ta tid før brukere som har fått delegert tilgang til et skjema med brukerstyrt signering, får se selve skjemaet i Altinn-innboksen.
-
-Dette skjer bare for
-
-- de brukerne som er aktivt pålogget Altinn når et eksemplar (instans) blir delegert
-- de som ikke allerede har annen tilgang for InstanceOwner
-
-For at du skal slippe å oppleve problemer med dette mens du tester, kan du delegere til en person du ikke har brukt i testingen den siste timen.
+## 7. Test brukerstyrt signering
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/test.nb.md" %}}
