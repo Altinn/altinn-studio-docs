@@ -92,6 +92,13 @@ Du kan også legge til individuelle SSB kodelister med tilpasset konfigurasjon:
 services.AddSSBClassificationCodelistProvider("næring", Classification.IndustryGrouping, new Dictionary<string, string> { { "level", "1" } });
 ```
 
+**RestCountries klient:**
+For avansert landsinformasjon utover den grunnleggende SSB landskodelisten:
+```csharp
+services.AddRestCountriesClient();
+```
+Dette registrerer `ICountryClient`-grensesnittet som gir detaljert informasjon om alle verdens land med filtreringsmuligheter.
+
 ### 3. Koble applikasjonen din til kodeverket du ønsker å bruke
 
 Bruk en av kodeliste-ID-ene fra de tilgjengelige kodelistene ovenfor.

@@ -92,6 +92,13 @@ You can also add individual SSB code lists with custom configuration:
 services.AddSSBClassificationCodelistProvider("næring", Classification.IndustryGrouping, new Dictionary<string, string> { { "level", "1" } });
 ```
 
+**RestCountries client:**
+For advanced country information beyond the basic SSB countries codelist:
+```csharp
+services.AddRestCountriesClient();
+```
+This registers the `ICountryClient` interface that provides detailed information about all countries of the world with filtering capabilities.
+
 ### 3. Connect your application to the code list you want to use
 
 Use one of the code list IDs from the available code lists above.
