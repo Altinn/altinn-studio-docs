@@ -1,6 +1,6 @@
 ---
 title: Om Altinn Studio
-description: Overordnet beskrivelse av Altinn Studio
+description: Altinn Studio er et produkt som lar deg utvikle, drifte og forvalte offentlige digitale tjenester til innbyggere og næringsliv.
 aliases:
 - /nb/teknologi/altinnstudio/solutions/altinn-studio/
 weight: 10
@@ -9,13 +9,11 @@ cascade:
     diataxis: diataxis_explanation
 ---
 
-Altinn Studio er en plattform for å utvikle, drifte og forvalte digitale tjenester til innbyggere og næringsliv. Plattformen
-kjører på sikker, isolert og skalerbar infrastruktur, og er ferdig integrert mot en rekke fellesløsninger og åpne API-er.
-Altinn Studio støtter både brukergrensesnitt for manuell innsending og API-er for maskin-til-maskin innsending.
+Plattformen kjører på en sikker, isolert og skalerbar infrastruktur, og er ferdig integrert mot en rekke fellesløsninger og åpne API-er.
+Altinn Studio støtter både brukergrensesnitt for manuell innsending av data og API-er for maskin-til-maskin innsending.
 
 
 ## Hva kan jeg lage med Altinn Studio?
-
 Med Altinn Studio kan du utvikle digitale tjenester som dekker et bredt spekter av bruksområder - fra enkle skjematjenester 
 og innsynsløsninger til komplekse arbeidsflyter med betalings- og signeringsfunksjonalitet. Plattformen støtter alt fra 
 tradisjonelle skjemaer til skreddersydde applikasjoner med avanserte integrasjoner.
@@ -24,7 +22,7 @@ Se [detaljert oversikt over bruksområder](./usecases) for en oversikt over muli
 
 ## Altinn Studio er "bindemiddelet"
 Et skjema er sjelden bare datafelter som skal sendes inn, det trengs mer for å lage en god tjeneste – f.eks. kobling 
-mot ID-porten, innsending til saksbehandlingssystem via eFormidling eller kobling mot nasjonale registre.
+mot ID-porten, innsending til saksbehandlingssystem eller kobling mot nasjonale registre.
 
 Altinn Studio har ferdig utviklet integrasjoner mot flere av Digdir sine fellestjenester og nasjonale registre, og vil 
 fortsette å utvikle disse og legge til flere.

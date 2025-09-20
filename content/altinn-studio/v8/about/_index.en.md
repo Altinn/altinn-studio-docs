@@ -1,6 +1,6 @@
 ---
 title: About Altinn Studio
-description: High-level description of Altinn Studio
+description: Altinn Studio a platform that lets you develop, operate, and manage public digital services for citizens and businesses.
 aliases:
 - /altinn-studio/
 - /technology/altinnstudio/solutions/altinn-studio/
@@ -10,12 +10,10 @@ cascade:
     diataxis: diataxis_explanation
 ---
 
-Altinn Studio is a platform for developing, operating, and managing digital services for citizens and businesses. The platform 
-runs on secure, isolated, and scalable infrastructure and is pre-integrated with a range of shared solutions and open APIs. 
+The platform runs on a secure, isolated, and scalable infrastructure and is pre-integrated with a range of shared solutions and open APIs. 
 Altinn Studio supports both user interfaces for manual submission and APIs for machine-to-machine submission.
 
 ## What can I create with Altinn Studio?
-
 With Altinn Studio, you can develop digital services that cover a broad spectrum of use cases - from simple form services 
 and information solutions to complex workflows with payment and signing functionality. The platform supports everything 
 from traditional forms to custom applications with advanced integrations.
@@ -24,7 +22,7 @@ See [detailed overview of use cases](./usecases) for a description of the possib
 
 ## Altinn Studio is the "connector"
 A form is rarely just data fields to be submitted; more is needed to create a good service – e.g., connection
-to ID-porten, submission to the case processing system via eFormidling, or connection to national registers.
+to ID-porten, submission to the case processing system or connection to national registers.
 
 Altinn Studio has pre-developed integrations with several of Digdir's shared services and national registers, and will
 continue to develop and add more.
