@@ -1,5 +1,12 @@
 {{- $prop := .Get "prop" -}}
-{{- $contentPath := "/altinn-studio/reference/ux/components/_common-props-content/" -}}
+{{- $pathParts := split .Page.File.Path "/" -}}
+{{- $version := "" -}}
+{{- range $pathParts -}}
+  {{- if hasPrefix . "v" -}}
+    {{- $version = . -}}
+  {{- end -}}
+{{- end -}}
+{{- $contentPath := printf "/altinn-studio/%s/reference/ux/components/_common-props-content/" $version -}}
 {{- $page := printf "%s%s" $contentPath $prop -}}
 {{- .Scratch.Set "page" $page -}}
 

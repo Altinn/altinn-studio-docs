@@ -9,6 +9,7 @@ weight: 1
 cascade:
   params:
     product: product_studio
+    version: v9
 ---
  <div class="row adocs-featuredBlocks">
     <div class="col-12 col-lg-6 mb-5">
