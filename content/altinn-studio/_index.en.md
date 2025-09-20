@@ -1,12 +1,6 @@
 ---
-title: Versjoner
-linktitle: altinn-studio
-description: 
+title: Altinn Studio
+linktitle: Altinn Studio
 toc: true
 weight: 1
-aliases:
-
-cascade:
-  params:
-    diataxis: 
 ---

@@ -101,4 +101,4 @@ cascade:
 </div>
 
 ## News - upcoming
-{{% insert "content/altinn-studio/v8/news/upcoming/_index.nb.md" %}}
+{{% insert "content/altinn-studio/v8/news/upcoming/_index.en.md" %}}
