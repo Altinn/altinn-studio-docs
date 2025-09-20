@@ -35,7 +35,7 @@ Applications are created from the [Altinn Studio Dashboard](/altinn-studio/getti
 The application must have a descriptive name (ID), making it easy to find among the many applications Sogndal Municipality has in Altinn Studio.
 
 {{% notice info %}}
-If you want to test the app in a [test environment](/altinn-studio/reference/testing/deploy/) (described in [Module 3](/altinn-studio/getting-started/app-dev-course-old/modul3/)), you need to select an organization as the owner.
+If you want to test the app in a [test environment](/altinn-studio/v8/reference/testing/deploy/) (described in [Module 3](/altinn-studio/getting-started/app-dev-course-old/modul3/)), you need to select an organization as the owner.
 You must have [access to the organization](/altinn-studio/getting-started/create-user/#join-an-organization), and the organization must have access to a test environment.
 {{% /notice %}}
 
@@ -54,10 +54,10 @@ You must have [access to the organization](/altinn-studio/getting-started/create
 
 The data model defines the type and format of data that can be submitted through an app.
 
-With Altinn Studio's [Data Modeling tool](/altinn-studio/reference/data/data-modeling/),
- you can add a data model by [uploading an _xsd_ file](/altinn-studio/reference/data/data-modeling#upload-and-display-data-model)
-  or you can [create a new data model](/altinn-studio/reference/data/data-modeling/#create-a-new-data-model) from scratch.
-You can also start from an existing data model and edit it in a text editor or [directly in Altinn Studio](/altinn-studio/reference/data/data-modeling/#editing-a-data-model).
+With Altinn Studio's [Data Modeling tool](/altinn-studio/v8/reference/data/data-modeling/),
+ you can add a data model by [uploading an _xsd_ file](/altinn-studio/v8/reference/data/data-modeling#upload-and-display-data-model)
+  or you can [create a new data model](/altinn-studio/v8/reference/data/data-modeling/#create-a-new-data-model) from scratch.
+You can also start from an existing data model and edit it in a text editor or [directly in Altinn Studio](/altinn-studio/v8/reference/data/data-modeling/#editing-a-data-model).
 In this task, you will only upload a pre-existing data model.
 
 ### Requirements from the Municipality
@@ -68,7 +68,7 @@ Sogndal Municipality has created a [data model](datamodel.xsd) representing the 
 
 1. [Download the xsd file](datamodel.xsd). If the file opens in the browser, create a new text file and copy the content over. Save the file as `datamodel.xsd`.
 Alternatively, copy the file URL and run the command `curl <file-URL> > datamodel.xsd` from the command line. Open the file in a text editor and examine its content.
-2. [Upload the data model in Altinn Studio](/altinn-studio/reference/data/data-modeling/#upload-and-display-data-model)
+2. [Upload the data model in Altinn Studio](/altinn-studio/v8/reference/data/data-modeling/#upload-and-display-data-model)
 3. Click "Last opp dine endringer" and follow the instructions to save the changes.
 4. Open the app's repository from the [Altinn Studio Dashboard](/altinn-studio/getting-started/navigation/dashboard/) and look at the files in the `App/models` folder.
 
@@ -78,7 +78,7 @@ If you intend to carry out all or parts of the development locally, now is the t
 
 ### Useful Documentation
 
-- [Altinn Studio Data Modeling](/altinn-studio/reference/data/data-modeling/)
+- [Altinn Studio Data Modeling](/altinn-studio/v8/reference/data/data-modeling/)
 - [Description of Indicators in XSD](https://www.w3schools.com/xml/schema_complex_indicators.asp)
 - [Installing curl for Windows](https://developer.zendesk.com/documentation/api-basics/getting-started/installing-and-using-curl/#windows)
 - [Altinn Studio Repository](/altinn-studio/getting-started/navigation/repos/)
@@ -124,8 +124,8 @@ The mentioned files are all generated from the `.xsd` description of the data mo
 
 {{% expandlarge id="edit-texts" header="Create and Edit Texts" %}}
 
-[Texts in Altinn Studio](/altinn-studio/reference/ux/texts/) are stored in separate language files (also called resource files) and can be linked to form components using a text key.
-The texts can be [created and edited in Altinn Studio Designer](/altinn-studio/reference/ux/texts/#using-altinn-studio) or [directly in the file](/altinn-studio/reference/ux/texts/#changing-texts-directly-in-the-repository).
+[Texts in Altinn Studio](/altinn-studio/v8/reference/ux/texts/) are stored in separate language files (also called resource files) and can be linked to form components using a text key.
+The texts can be [created and edited in Altinn Studio Designer](/altinn-studio/v8/reference/ux/texts/#using-altinn-studio) or [directly in the file](/altinn-studio/v8/reference/ux/texts/#changing-texts-directly-in-the-repository).
 
 {{% notice warning %}}
 **NOTE**: The display name for the application must be changed both in `App/config/applicationmetadata.json` and in the language files.
@@ -137,9 +137,9 @@ All components must have suitable descriptive labels to make the service user-fr
 
 ### Tasks
 
-1. [Create text resources](/altinn-studio/reference/ux/texts/#add-and-change-texts-in-an-application) for the components of the first form. The text should provide descriptions of the required input and will appear above the respective fields. Refer to the upcoming task to identify the components for which you'll need these texts.
-2. [Change the display name for the application](/altinn-studio/reference/ux/texts/#change-application-title). It is important that the application's display name sounds good and describes the service well.
-3. [Add translation(s) for the texts](/altinn-studio/reference/ux/texts/#add-and-change-texts-in-an-application). The application must be available in Norwegian Bokmål, Norwegian Nynorsk, and English. In the initial version, supporting only one of these languages is sufficient.
+1. [Create text resources](/altinn-studio/v8/reference/ux/texts/#add-and-change-texts-in-an-application) for the components of the first form. The text should provide descriptions of the required input and will appear above the respective fields. Refer to the upcoming task to identify the components for which you'll need these texts.
+2. [Change the display name for the application](/altinn-studio/v8/reference/ux/texts/#change-application-title). It is important that the application's display name sounds good and describes the service well.
+3. [Add translation(s) for the texts](/altinn-studio/v8/reference/ux/texts/#add-and-change-texts-in-an-application). The application must be available in Norwegian Bokmål, Norwegian Nynorsk, and English. In the initial version, supporting only one of these languages is sufficient.
 
 
 Remember to upload your changes when working in Designer so that the repository will reflect these changes.
@@ -147,9 +147,9 @@ In the next step, you will create components and link them to the text resources
 
 ### Useful Documentation
 
-- [Texts in Altinn Studio](/altinn-studio/reference/ux/texts/)
-- [Editing Application Texts](/altinn-studio/reference/ux/texts/#add-and-change-texts-in-an-application)
-- [Formatting of Texts](/altinn-studio/reference/ux/texts/#formatting-of-texts)
+- [Texts in Altinn Studio](/altinn-studio/v8/reference/ux/texts/)
+- [Editing Application Texts](/altinn-studio/v8/reference/ux/texts/#add-and-change-texts-in-an-application)
+- [Formatting of Texts](/altinn-studio/v8/reference/ux/texts/#formatting-of-texts)
 - [ISO 639-1 Standard language codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 
 ### Knowledge Check

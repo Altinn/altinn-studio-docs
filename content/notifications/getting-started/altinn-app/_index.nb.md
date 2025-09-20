@@ -22,4 +22,4 @@ For detaljert veiledning om utvikling av Altinn App, se [Altinn Studio-dokumenta
 
 ## 4. Sett opp appen din for å sende varsler
 
-Følg instruksjonene i [Altinn App-referansedokumentasjonen](/altinn-studio/reference/logic/notifications/) for å konfigurere appen din for sending av varsler.
+Følg instruksjonene i [Altinn App-referansedokumentasjonen](/altinn-studio/v8/reference/logic/notifications/) for å konfigurere appen din for sending av varsler.

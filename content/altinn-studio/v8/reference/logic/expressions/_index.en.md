@@ -779,7 +779,7 @@ places [where expressions run on the backend](#use-cases), and if the functional
 The function `displayValue` looks up a component and returns a formatted text string representing the value in the data
 model. This differs from the [component](#func-component) function, which returns the raw value in the data model.
 This function is best suited for displaying a component's value to the user and less for further logic based on the
-returned value. This is particularly relevant for Input fields with [number formatting](/altinn-studio/reference/ux/styling/#formatting-numbers),
+returned value. This is particularly relevant for Input fields with [number formatting](/altinn-studio/v8/reference/ux/styling/#formatting-numbers),
 date fields, radio buttons (and other components with code lists), etc.
 
 Example:

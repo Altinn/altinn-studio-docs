@@ -6,7 +6,7 @@ toc: true
 weight: 40
 aliases:
 - /nb/altinn-studio/guides/options
-- /nb/altinn-studio/reference/data/options
+- /nb/altinn-studio/v8/reference/data/options
 ---
 
 Flere av skjemakomponentene i Altinn 3 bruker svaralternativer. Med svaralternativer mener vi en liste med valg som

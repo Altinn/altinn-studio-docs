@@ -21,7 +21,7 @@ You must configure Maskinporten to allow the app to perform actions on behalf of
 You can find a detailed guide on that setup [here](/altinn-studio/guides/integration/maskinporten).
 
 ## Configuring the data types
-The [applicationmetadata.json](https://github.com/Altinn/altinn-studio/blob/main/src/App/app-template-dotnet/src/App/config/applicationmetadata.json) file defines all [data types](/api/models/app-metadata/#datatype) in an application. Here, you specify which [actions](/altinn-studio/reference/configuration/authorization/#action-attributes) are required for your restricted data type.
+The [applicationmetadata.json](https://github.com/Altinn/altinn-studio/blob/main/src/App/app-template-dotnet/src/App/config/applicationmetadata.json) file defines all [data types](/api/models/app-metadata/#datatype) in an application. Here, you specify which [actions](/altinn-studio/v8/reference/configuration/authorization/#action-attributes) are required for your restricted data type.
 
 In this example, we configure a new data type, specifying the `actionRequiredToRead` and `actionRequiredToWrite` properties, and disabling `autoCreate`. We use the identifier `restrictedDataModel`, though the name itself is not significant.
 

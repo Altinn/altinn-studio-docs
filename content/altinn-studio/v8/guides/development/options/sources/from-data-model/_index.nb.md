@@ -41,7 +41,7 @@ Forklaring:
 Verdien hentet ut fra `value` må være unik for hvert repeterende element. Om man ikke har et felt som er unikt per rad, anbefales det å legge på et ekstra felt i datamodellen som kan benyttes som identifikator. For eksempel en GUID eller liknende. Dersom verdien ikke er unik vil den bli filtrert bort fra alle kodelister, og antallet svaralternativer tilgjengelige for brukeren kan da være noen færre enn forventet ut fra det som ligger i datamodellen.
 
 For `label`-feltet må vi definere en tekstressurs som kan bli brukt som ledetekst for hvert svaralternativ.
-I eksempelet under, brukes andre verdier fra den repeterende strukturen i ledeteksten via [variabler i tekst](/nb/altinn-studio/reference/ux/texts):
+I eksempelet under, brukes andre verdier fra den repeterende strukturen i ledeteksten via [variabler i tekst](/nb/altinn-studio/v8/reference/ux/texts):
 
 ```json
 {

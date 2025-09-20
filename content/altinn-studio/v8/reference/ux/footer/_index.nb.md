@@ -39,7 +39,7 @@ Nye komponenter kan legges til i `footer`-listen.
 | Egenskap | Verdi                                                                                                                |
 | -------- | -------------------------------------------------------------------------------------------------------------------- |
 | type     | `Email`                                                                                                              |
-| title    | Tekstresursen som skal vises. Støtter **ikke** [formattering](/nb/altinn-studio/reference/ux/texts/#formatering-av-tekster). |
+| title    | Tekstresursen som skal vises. Støtter **ikke** [formattering](/nb/altinn-studio/v8/reference/ux/texts/#formatering-av-tekster). |
 | target   | E-postadressen som lenkes til.                                                                                       |
 
 ### Eksempel
@@ -61,7 +61,7 @@ Nye komponenter kan legges til i `footer`-listen.
 | Egenskap | Verdi                                                                                                                |
 | -------- | -------------------------------------------------------------------------------------------------------------------- |
 | type     | `Phone`                                                                                                              |
-| title    | Tekstresursen som skal vises. Støtter **ikke** [formattering](/nb/altinn-studio/reference/ux/texts/#formatering-av-tekster). |
+| title    | Tekstresursen som skal vises. Støtter **ikke** [formattering](/nb/altinn-studio/v8/reference/ux/texts/#formatering-av-tekster). |
 | target   | Telefonnummeret som lenkes til.                                                                                      |
 
 ### Eksempel
@@ -83,7 +83,7 @@ Nye komponenter kan legges til i `footer`-listen.
 | Egenskap | Verdi                                                                                                                |
 | -------- | -------------------------------------------------------------------------------------------------------------------- |
 | type     | `Link`                                                                                                               |
-| title    | Tekstresursen som skal vises. Støtter **ikke** [formattering](/nb/altinn-studio/reference/ux/texts/#formatering-av-tekster). |
+| title    | Tekstresursen som skal vises. Støtter **ikke** [formattering](/nb/altinn-studio/v8/reference/ux/texts/#formatering-av-tekster). |
 | target   | URLen som lenkes til.                                                                                                |
 | icon     | Ikon som vises ved siden av lenken. Enten `information`, `email`, eller `phone`.                                     |
 
@@ -107,7 +107,7 @@ Nye komponenter kan legges til i `footer`-listen.
 | Egenskap | Verdi                                                                                                       |
 | -------- | ----------------------------------------------------------------------------------------------------------- |
 | type     | `Text`                                                                                                      |
-| title    | Tekstresursen som skal vises. Støtter [formattering](/nb/altinn-studio/reference/ux/texts/#formatering-av-tekster). |
+| title    | Tekstresursen som skal vises. Støtter [formattering](/nb/altinn-studio/v8/reference/ux/texts/#formatering-av-tekster). |
 
 ### Eksempel
 

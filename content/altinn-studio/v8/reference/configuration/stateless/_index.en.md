@@ -63,7 +63,7 @@ App/config/applicationmetadata.json
 In the `onEntry.show` field, you have the opportunity to specify a layout set that you want to display during application startup.
 
 The layout set itself is defined in the configuration file `App/ui/layout-sets.json`. If the file does not exist, you can create it.
-You can find more information about layout sets [here](/altinn-studio/reference/ux/pages/#setup).
+You can find more information about layout sets [here](/altinn-studio/v8/reference/ux/pages/#setup).
 
 Example of layout set:
 

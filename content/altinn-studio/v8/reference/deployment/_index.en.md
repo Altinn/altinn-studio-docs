@@ -20,7 +20,7 @@ This routine just needs to be followed once. When the cluster is set up, the sol
 
 ## Deployment of app to production
 
-Deploy of an application to production is done in [the same way as for test environments](/altinn-studio/reference/testing/deploy).
+Deploy of an application to production is done in [the same way as for test environments](/altinn-studio/v8/reference/testing/deploy).
 The user that performs the deploy must be a member of the `Deploy-Production` team for their organisation in Altinn Studio. 
 Administrating access to teams in Altinn Studio is done by the owners of your organisation. 
 

@@ -36,8 +36,8 @@ Det skal være mulig å legge inn opptil 10 tidligere bosteder.
 Merk at "Maksimalt antall repetisjoner" må endres lokalt.
 
 ### Nyttig dokumentasjon
-- [Oppsett for gruppering av felter](/nb/altinn-studio/reference/ux/fields/grouping)
-- [Oppsett for repeterende grupper](/nb/altinn-studio/reference/ux/fields/grouping/repeating)
+- [Oppsett for gruppering av felter](/nb/altinn-studio/v8/reference/ux/fields/grouping)
+- [Oppsett for repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating)
 
 ### Forståelsessjekk
 {{% expandsmall id="m6t1q1" header="Hvilket felt i datamodellen er det som bestemmer om et element er repeterende?" %}}
@@ -69,9 +69,9 @@ Vi er beæret over å motta en '1337' innbygger til Sogndal kommune!
 1. Legg til en validering på feltet `Postnr` for tidligere bostedsadresser.
 
 ### Nyttig dokumentasjon
-- [Serverside valideringer](/nb/altinn-studio/reference/logic/validation/#serverside-validering)
-- [Hvordan legge til egendefinert validering](/nb/altinn-studio/reference/logic/validation/#hvordan-legge-til-egendefinert-validering)
-- [Enkeltfeltvalideringer](/nb/altinn-studio/reference/logic/validation/#enkeltfeltvalidering)
+- [Serverside valideringer](/nb/altinn-studio/v8/reference/logic/validation/#serverside-validering)
+- [Hvordan legge til egendefinert validering](/nb/altinn-studio/v8/reference/logic/validation/#hvordan-legge-til-egendefinert-validering)
+- [Enkeltfeltvalideringer](/nb/altinn-studio/v8/reference/logic/validation/#enkeltfeltvalidering)
 
 ### Forståelsessjekk
 {{% expandsmall id="m6t2q1" header="Når kjøres valideringer serverside?" %}}
@@ -100,13 +100,13 @@ I alle andre tilfeller skal feltet forbli urørt.
 
 ### Oppgaver
 
-1. Opprett en fil for [dataprosessering](/nb/altinn-studio/reference/logic/dataprocessing/).
+1. Opprett en fil for [dataprosessering](/nb/altinn-studio/v8/reference/logic/dataprocessing/).
 2. Legg til prosessering av adressefeltet som beskrevet over.
 
 Husk å implementere løsningen i `Program.cs` som tidligere.
 
 ### Nyttig dokumentasjon
-- [Dataprosessering](/nb/altinn-studio/reference/logic/dataprocessing/)
+- [Dataprosessering](/nb/altinn-studio/v8/reference/logic/dataprocessing/)
 
 ### Forståelsessjekk
 {{% expandsmall id="m6t3q1" header="Når blir dataprosessering kjørt?" %}}
@@ -300,7 +300,7 @@ Oppdater koden slik at valideringen også omfatter nåværende adresse.
 {{% expandlarge id="processing-solution" header="Dataprosessering" %}}
 
 
-* **Opprett en klasse som implementerer `IdataProcessor` som beskrevet i [dataprosessering](/nb/altinn-studio/reference/logic/dataprocessing/) og legg til logikk for dataprosessering:**
+* **Opprett en klasse som implementerer `IdataProcessor` som beskrevet i [dataprosessering](/nb/altinn-studio/v8/reference/logic/dataprocessing/) og legg til logikk for dataprosessering:**
 
 {{< code-title >}}
 App/logic/DataProcessing/DataProcessor.cs

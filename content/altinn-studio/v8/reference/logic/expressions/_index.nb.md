@@ -775,7 +775,7 @@ automatisk slette skjulte data (`RemoveHiddenDataPreview`).
 Funksjonen `displayValue` gjør et oppslag på en komponent og returnerer en formattert tekststreng som representerer verdien i datamodellen.
 Dette er til forskjell fra [component](#func-component)-funksjonen som returnerer rå-verdien som ligger i datamodellen.
 Denne funksjonen egner seg best til visning av en komponent sin verdi for brukeren, og mindre til videre logikk basert på verdien som returneres.
-Dette er spesielt relevant for Input-felter med [tallformattering](/nb/altinn-studio/reference/ux/styling/#formatering-av-tall), datofelter, radioknapper (og andre komponenter med kodelister), osv.
+Dette er spesielt relevant for Input-felter med [tallformattering](/nb/altinn-studio/v8/reference/ux/styling/#formatering-av-tall), datofelter, radioknapper (og andre komponenter med kodelister), osv.
 
 Eksempel:
 

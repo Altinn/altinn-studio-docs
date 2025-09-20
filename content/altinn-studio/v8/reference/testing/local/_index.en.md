@@ -4,10 +4,10 @@ linktitle: Locally
 description: Description of how test of an app locally on your own machine.
 weight: 100
 aliases:
-- /altinn-studio/reference/testing/local/
+- /altinn-studio/v8/reference/testing/local/
 ---
 
-If you need to write a significant amount of code (e.g., [logic](/altinn-studio/reference/logic/)), or quickly check how a form looks, it can be useful to test changes without having to deploy the app to a test environment.
+If you need to write a significant amount of code (e.g., [logic](/altinn-studio/v8/reference/logic/)), or quickly check how a form looks, it can be useful to test changes without having to deploy the app to a test environment.
 
 When the app is created, it comes with all the necessary files and settings to run as a standalone application. By downloading all the files associated with the app from its repository, you can run the app locally on your own machine, thereby easily testing changes.
 

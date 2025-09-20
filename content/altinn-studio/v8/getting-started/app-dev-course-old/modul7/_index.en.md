@@ -33,8 +33,8 @@ To avoid people submitting incorrect information, the municipality wishes that t
 The municipality of Sogndal wants to use the categories **Personalia** for the users personal information and **Work** for the users work history.
 
 ### Useful documentation
-- [How to set up summary view of filled out form](/altinn-studio/reference/ux/pages/summary/)
-- [Categories in summary](/altinn-studio/reference/ux/pages/summary/#categories)
+- [How to set up summary view of filled out form](/altinn-studio/v8/reference/ux/pages/summary/)
+- [Categories in summary](/altinn-studio/v8/reference/ux/pages/summary/#categories)
 
 ### Knowledge check
 - Why should the summary page be ignore in the PDF generation?
@@ -52,9 +52,9 @@ an instance if you meet the requirements.
 
 ### Useful documentation
 
-- [Introduction to stateless applications](/altinn-studio/reference/configuration/stateless/#introduction-to-stateless-applications)
-- [Configuring stateless applications](/altinn-studio/reference/configuration/stateless/#configuration)
-- [Starting instance from stateless form](/altinn-studio/reference/configuration/stateless/)
+- [Introduction to stateless applications](/altinn-studio/v8/reference/configuration/stateless/#introduction-to-stateless-applications)
+- [Configuring stateless applications](/altinn-studio/v8/reference/configuration/stateless/#configuration)
+- [Starting instance from stateless form](/altinn-studio/v8/reference/configuration/stateless/)
 ### Knowledge check
 - What data is saved for stateless applications?
 
@@ -85,7 +85,7 @@ Here is an overview of our vacant positions.
 The last line of the text should still be a link to the vacant positions.
 
 ### Useful documentation
-- [Variables in texts](/altinn-studio/reference/ux/texts/#variables-in-texts)
+- [Variables in texts](/altinn-studio/v8/reference/ux/texts/#variables-in-texts)
 
 ### Knowledge check
 - What is displayed as part of the text about the relevant variable, but has now value in the data model?
@@ -114,7 +114,7 @@ https://fraktguide.bring.no/fraktguide/api/postalCode.json?country=no&pnr={postn
 - The number of calls to Bring's API should be limited to maximum of once a day per postal code
 
 ### Useful documentation
-[Consumption of external API](/altinn-studio/reference/api/consume/)
+[Consumption of external API](/altinn-studio/v8/reference/api/consume/)
 
 ### Knowledge check
 - How many times maximum will you make an API call in 24 hours with a _memorycache_ if the application is running with three replicas?

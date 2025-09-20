@@ -7,12 +7,12 @@ weight: 10
 
 ## På denne siden
 
-- [Hvorfor bruke IFrame-komponenten](/nb/altinn-studio/reference/ux/components/iframe/#hvorfor-bruke-iframe-komponenten)
-- [Sikkerhets- og ytelsesbekymringer](/nb/altinn-studio/reference/ux/components/iframe/#sikkerhets--og-ytelsesbekymringer)
-- [Bekymringer angående tilgjengelighetserklæring](/nb/altinn-studio/reference/ux/components/iframe/#bekymringer-angående-tilgjengelighetserklæring)
-- [Grunnleggende implementering av IFrame-komponenten](/nb/altinn-studio/reference/ux/components/iframe/#grunnleggende-implementering-av-iframe-komponenten)
-- [Avansert implementering av IFrame-komponenten](/nb/altinn-studio/reference/ux/components/iframe/#avansert-implementering-av-iframe-komponenten)
-- [Sandbox-restriksjoner](/nb/altinn-studio/reference/ux/components/iframe/#sandbox-restriksjoner)
+- [Hvorfor bruke IFrame-komponenten](/nb/altinn-studio/v8/reference/ux/components/iframe/#hvorfor-bruke-iframe-komponenten)
+- [Sikkerhets- og ytelsesbekymringer](/nb/altinn-studio/v8/reference/ux/components/iframe/#sikkerhets--og-ytelsesbekymringer)
+- [Bekymringer angående tilgjengelighetserklæring](/nb/altinn-studio/v8/reference/ux/components/iframe/#bekymringer-angående-tilgjengelighetserklæring)
+- [Grunnleggende implementering av IFrame-komponenten](/nb/altinn-studio/v8/reference/ux/components/iframe/#grunnleggende-implementering-av-iframe-komponenten)
+- [Avansert implementering av IFrame-komponenten](/nb/altinn-studio/v8/reference/ux/components/iframe/#avansert-implementering-av-iframe-komponenten)
+- [Sandbox-restriksjoner](/nb/altinn-studio/v8/reference/ux/components/iframe/#sandbox-restriksjoner)
 
 ## Hvorfor bruke IFrame-komponenten
 
@@ -69,7 +69,7 @@ Nå, hvis vi besøker appen vår, bør vi kunne se at IFrame-komponenten rendre 
 ## Avansert implementering av IFrame-komponenten
 
 Noen ganger er det ikke nok å bruke statisk HTML og CSS direkte skrevet inn i tekstressursfilen. Det er situasjoner der du må hente HTML dynamisk basert på visse kriterier eller utføre beregninger.
-For å hente HTML dynamisk kan du benytte deg av [ProcessDataRead](/nb/altinn-studio/reference/configuration/stateless/#datapopulering). Du kan lese mer om [dataprosessering her](/nb/altinn-studio/reference/logic/dataprocessing/).
+For å hente HTML dynamisk kan du benytte deg av [ProcessDataRead](/nb/altinn-studio/v8/reference/configuration/stateless/#datapopulering). Du kan lese mer om [dataprosessering her](/nb/altinn-studio/v8/reference/logic/dataprocessing/).
 
 ProcessDataRead og dataprosessering gir muligheten til å forbehandle data før det sendes tilbake til frontend for rendring.
 

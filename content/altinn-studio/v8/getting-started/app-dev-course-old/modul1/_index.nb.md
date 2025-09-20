@@ -36,7 +36,7 @@ Applikasjonen må ha et beskrivende navn (ID) som gjør det enkelt å finne den 
 applikasjoner Sogndal kommune har i Altinn Studio.
 
 {{% notice info %}}
-Dersom du skal teste appen i et [testmiljø](/nb/altinn-studio/reference/testing/deploy/) (beskrevet i [Modul 3](/nb/altinn-studio/getting-started/app-dev-course-old/modul3/)) må du velge en organisasjon som eier.
+Dersom du skal teste appen i et [testmiljø](/nb/altinn-studio/v8/reference/testing/deploy/) (beskrevet i [Modul 3](/nb/altinn-studio/getting-started/app-dev-course-old/modul3/)) må du velge en organisasjon som eier.
  Du må ha [tilgang til organisasjonen](/nb/altinn-studio/getting-started/create-user/#bli-del-av-en-organisasjon) og organisasjonen må ha tilgang til et testmiljø.
  {{% /notice %}}
 
@@ -55,10 +55,10 @@ Dersom du skal teste appen i et [testmiljø](/nb/altinn-studio/reference/testing
 
 Datamodellen definerer type og format for data som kan sendes inn via en app.
 
-Med Altinn Studios [verktøy for datamodellering](/nb/altinn-studio/reference/data/data-modeling/)
- kan du legge til en datamodell ved å [laste opp en _xsd_-fil](/nb/altinn-studio/reference/data/data-modeling/#laste-opp-og-vise-datamodell)
-  eller [lage en ny datamodell](/nb/altinn-studio/reference/data/data-modeling/#lage-ny-datamodell) fra bunnen av.
- Du kan også ta utgangspunkt i en eksisterende datamodell og redigere den i et tekstredigeringsprogram eller [direkte i Altinn Studio](/nb/altinn-studio/reference/data/data-modeling/#redigere-datamodell).
+Med Altinn Studios [verktøy for datamodellering](/nb/altinn-studio/v8/reference/data/data-modeling/)
+ kan du legge til en datamodell ved å [laste opp en _xsd_-fil](/nb/altinn-studio/v8/reference/data/data-modeling/#laste-opp-og-vise-datamodell)
+  eller [lage en ny datamodell](/nb/altinn-studio/v8/reference/data/data-modeling/#lage-ny-datamodell) fra bunnen av.
+ Du kan også ta utgangspunkt i en eksisterende datamodell og redigere den i et tekstredigeringsprogram eller [direkte i Altinn Studio](/nb/altinn-studio/v8/reference/data/data-modeling/#redigere-datamodell).
   I denne oppgaven skal du kun laste opp en ferdig datamodell.
 
 ### Krav fra kommunen
@@ -70,7 +70,7 @@ Sogndal kommune har opprettet en [datamodell](datamodel.xsd) som representerer t
 1. [Last ned xsd-filen](datamodel.xsd). Hvis filen åpnes i nettleseren kan du opprette en ny tekstfil og kopiere over innholdet. Lagre filen som `datamodel.xsd`.
  Alternativt kan du kopiere URLen til filen og kjøre kommandoen `curl <fil-URL> > datamodel.xsd` fra kommandolinjen. Åpne filen i et tekstredigeringsprogram
    og ta en nærmere titt på innholdet.
-2. [Last opp datamodellen i Altinn Studio](/nb/altinn-studio/reference/data/data-modeling/#laste-opp-og-vise-datamodell)
+2. [Last opp datamodellen i Altinn Studio](/nb/altinn-studio/v8/reference/data/data-modeling/#laste-opp-og-vise-datamodell)
 3. Klikk "Last opp dine endringer" og følg instruksjonene for å lagre endringene.
 4. Åpne repository til appen fra [Altinn Studio Dashboard](/nb/altinn-studio/getting-started/navigation/dashboard/) og ta en nærmere titt på filene i mappen `App/models`.
 
@@ -80,7 +80,7 @@ Hvis du skal gjøre hele eller deler av utviklingen lokalt kan du nå [klargjør
 
 ### Nyttig dokumentasjon
 
-- [Altinn Studio Datamodellering](/altinn-studio/reference/data/data-modeling/)
+- [Altinn Studio Datamodellering](/altinn-studio/v8/reference/data/data-modeling/)
 - [Beskrivelse av indikatorer i XSD](https://www.w3schools.com/xml/schema_complex_indicators.asp)
 - [Installere curl for Windows](https://developer.zendesk.com/documentation/api-basics/getting-started/installing-and-using-curl/#windows)
 - [Altinn Studio Repository](/nb/altinn-studio/getting-started/navigation/repos/)
@@ -126,8 +126,8 @@ De nevnte filene er alle generert ut ifra xsd-beskrivelsen av datamodellen. De b
 
 {{% expandlarge id="redigere-tekster" header="Opprette og redigere tekster" %}}
 
-[Tekster i Altinn Studio](/nb/altinn-studio/reference/ux/texts/) lagres i en egne språkfiler (også kalt tekstressurser) og kan knyttes til skjema-komponenter via en tekstnøkkel.
-Tekstene kan [opprettes og redigeres i Altinn Studio Designer](/nb/altinn-studio/reference/ux/texts/#altinn-studio-designer) eller [direkte i filen](/nb/altinn-studio/reference/ux/texts/#legge-til-og-endre-tekster-i-repository).
+[Tekster i Altinn Studio](/nb/altinn-studio/v8/reference/ux/texts/) lagres i en egne språkfiler (også kalt tekstressurser) og kan knyttes til skjema-komponenter via en tekstnøkkel.
+Tekstene kan [opprettes og redigeres i Altinn Studio Designer](/nb/altinn-studio/v8/reference/ux/texts/#altinn-studio-designer) eller [direkte i filen](/nb/altinn-studio/v8/reference/ux/texts/#legge-til-og-endre-tekster-i-repository).
 
 {{% notice warning %}}
 **MERK**: Visningsnavn for applikasjonen må endres både i `App/config/applicationmetadata.json` og i språkfilene.
@@ -139,18 +139,18 @@ overskrifter (labels).
 
 ### Oppgaver
 
-1. [Opprett tekstressurser](/nb/altinn-studio/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app) for komponentene til det første skjemaet. Tekstene skal beskrive hva som skal fylles inn og vil vises over feltene. Ta en titt på neste oppgave for å se hvilke komponenter du trenger tekst til.
-2. [Endre visningsnavn for applikasjonen](/nb/altinn-studio/reference/ux/texts/#endre-applikasjonstittel). Det er viktig at applikasjonens visningsnavn klinger godt og er beskrivende for tjenesten.
-3. [Legg til oversettelse(r) for tekstene](/nb/altinn-studio/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app). Applikasjonen må være tilgjengelig både på bokmål, nynorsk og engelsk. I en første versjon er det tilstrekkelig at kun ett av disse språkene støttes.
+1. [Opprett tekstressurser](/nb/altinn-studio/v8/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app) for komponentene til det første skjemaet. Tekstene skal beskrive hva som skal fylles inn og vil vises over feltene. Ta en titt på neste oppgave for å se hvilke komponenter du trenger tekst til.
+2. [Endre visningsnavn for applikasjonen](/nb/altinn-studio/v8/reference/ux/texts/#endre-applikasjonstittel). Det er viktig at applikasjonens visningsnavn klinger godt og er beskrivende for tjenesten.
+3. [Legg til oversettelse(r) for tekstene](/nb/altinn-studio/v8/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app). Applikasjonen må være tilgjengelig både på bokmål, nynorsk og engelsk. I en første versjon er det tilstrekkelig at kun ett av disse språkene støttes.
 
 Husk å laste opp endringer når du jobber i Designer så de reflekteres i repoet.
 I neste steg skal du opprette komponenter og knytte tekstene du har opprettet til disse.
 
 ### Nyttig dokumentasjon
 
-- [Tekster i Altinn Studio](/nb/altinn-studio/reference/ux/texts/)
-- [Redigere applikasjonstekster](/nb/altinn-studio/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app)
-- [Formatering av tekster](/nb/altinn-studio/reference/ux/texts/#formatering-av-tekster)
+- [Tekster i Altinn Studio](/nb/altinn-studio/v8/reference/ux/texts/)
+- [Redigere applikasjonstekster](/nb/altinn-studio/v8/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app)
+- [Formatering av tekster](/nb/altinn-studio/v8/reference/ux/texts/#formatering-av-tekster)
 - [ISO 639-1 standard](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 
 ### Forståelsessjekk

@@ -67,8 +67,8 @@ Legg inn denne teksten:
 
 
 ### Nyttig dokumentasjon
-- [Formatere tekster](/nb/altinn-studio/reference/ux/texts/#formatering-av-tekster)
-- [Sidestilte komponenter](/nb/altinn-studio/reference/ux/styling/#sidestilte-komponenter-grid)
+- [Formatere tekster](/nb/altinn-studio/v8/reference/ux/texts/#formatering-av-tekster)
+- [Sidestilte komponenter](/nb/altinn-studio/v8/reference/ux/styling/#sidestilte-komponenter-grid)
 
 ## Oppsummering
 I denne modulen har du lagt til en ny side i skjemaet. Du har lagt inn bilde og

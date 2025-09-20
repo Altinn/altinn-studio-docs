@@ -13,7 +13,7 @@ For at applikasjonen din skal kunne sende instansdata videre til eFormidling må
 {{% /notice%}}
 
 {{%notice info%}}
-I versjon 7 ble det innført en endring for å sikre at applikasjonen kjenner den endelige leveransestatsus for meldinger sent gjennom integrasjonspunktet til eFormidling og i tilfelle feilende leveranser vil disse logges eksplisitt. Denne endringer introduserer behovet for [hendelsestøtte i applikasjonen](/altinn-studio/reference/logic/events).
+I versjon 7 ble det innført en endring for å sikre at applikasjonen kjenner den endelige leveransestatsus for meldinger sent gjennom integrasjonspunktet til eFormidling og i tilfelle feilende leveranser vil disse logges eksplisitt. Denne endringer introduserer behovet for [hendelsestøtte i applikasjonen](/altinn-studio/v8/reference/logic/events).
 {{% /notice%}}
 
 Dersom man har behov for integrasjon med eFormidling i applikasjonen må dette aktiveres.

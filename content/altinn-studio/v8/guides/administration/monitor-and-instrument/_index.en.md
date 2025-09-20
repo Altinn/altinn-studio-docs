@@ -29,7 +29,7 @@ The new monitoring and instrumentation setup based on OpenTelemetry is enabled s
 You can now run the app, and the Altinn.App library will by default ship telemetry to localtest when running locally,
 and to Azure monitor when running in an environment.
 
-[Read more about configuration options on the configuration reference page](/altinn-studio/reference/monitoring/configuration/).
+[Read more about configuration options on the configuration reference page](/altinn-studio/v8/reference/monitoring/configuration/).
 
 ## Custom instrumentation
 
@@ -100,7 +100,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 Now you can run the app. Below in the next section we will take a look at visualisation of the telemetry above.
 
-[You can also read more about instrumentation on the instrumentation reference page](/altinn-studio/reference/monitoring/instrumentation).
+[You can also read more about instrumentation on the instrumentation reference page](/altinn-studio/v8/reference/monitoring/instrumentation).
 
 ## Visualisation
 
@@ -117,7 +117,7 @@ In addition to these, you can freely explore the emitted telemetry while debuggi
 Note that the telemetry from platform services in localtest are different from when the app runs in other environments.
 This is because the platform services that are running locally have differences in code and configuration.
 
-[Read more about local Grafana on the visualisation reference page](/altinn-studio/reference/monitoring/visualisation/#grafana).
+[Read more about local Grafana on the visualisation reference page](/altinn-studio/v8/reference/monitoring/visualisation/#grafana).
 
 If you've implemented the code above, you should be able to find the `altinn_app_started` metric in the explore tab for the *Metrics* datasource.
 You should also be able to find the log message and trace emitted above by using the other datasources.
@@ -142,7 +142,7 @@ By clicking the *Logs for this span*-button we can navigate to the relevant log 
 
 When the app is deployed to an environment, the telemetry is currently shipped to Azure Monitor.
 
-[Read more about Azure Monitor on the visualisation reference page](/altinn-studio/reference/monitoring/visualisation/#azure-monitor).
+[Read more about Azure Monitor on the visualisation reference page](/altinn-studio/v8/reference/monitoring/visualisation/#azure-monitor).
 
 In Azure Monitor, logs and traces can be found by using the *Transaction search* menu blade,
 while metrics are in the *Metrics* menu blade.

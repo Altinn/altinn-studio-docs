@@ -5,11 +5,11 @@ description: Data model and Altinn Studio Data Modeling tool
 weight: 1
 toc: true
 aliases:
-  - /altinn-studio/reference/data/data-models-tool/
-  - /altinn-studio/reference/data/data-model/
-  - /altinn-studio/reference/data/data-models-tool/app-datamodels
-  - /altinn-studio/reference/data/data-models-tool/org-datamodels
-  - /altinn-studio/reference/data/data-models-tool/known-issues
+  - /altinn-studio/v8/reference/data/data-models-tool/
+  - /altinn-studio/v8/reference/data/data-model/
+  - /altinn-studio/v8/reference/data/data-models-tool/app-datamodels
+  - /altinn-studio/v8/reference/data/data-models-tool/org-datamodels
+  - /altinn-studio/v8/reference/data/data-models-tool/known-issues
 ---
 
 ## Data models

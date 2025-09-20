@@ -7,4 +7,4 @@ hidden: true
 ---
 
 
-Read more in the [Application development handbook.](../../../../../../altinn-studio/reference/data/prefill/)
+Read more in the [Application development handbook.](../../reference/data/prefill/)

@@ -20,7 +20,7 @@ I denne modulen skal du utvide applikasjonen du har laget i foregående moduler 
 I mange applikasjoner er det behov for å gi brukeren et sett med svaralternativer for et datafelt.
 Svaralternativene refereres til som _kodelister_ eller _options_.
 
-I Altinn Studio er alternativer støttet av komponentene [radioknapper](/nb/altinn-studio/reference/ux/components/radiobuttons/), [avkrysningsbokser](/nb/altinn-studio/reference/ux/components/checkboxes/), [nedtrekkslister](/nb/altinn-studio/reference/ux/components/dropdown/) og [flervalg](/nb/altinn-studio/reference/ux/components/multipleselect/).
+I Altinn Studio er alternativer støttet av komponentene [radioknapper](/nb/altinn-studio/v8/reference/ux/components/radiobuttons/), [avkrysningsbokser](/nb/altinn-studio/v8/reference/ux/components/checkboxes/), [nedtrekkslister](/nb/altinn-studio/v8/reference/ux/components/dropdown/) og [flervalg](/nb/altinn-studio/v8/reference/ux/components/multipleselect/).
 
 {{% notice info %}}
 Det er tre måter å sette opp kodelister (legge til alternativer) i Altinn:
@@ -134,12 +134,12 @@ Tekst og lenke skal **kun** vises om man har valgt `IKT (data/it)`. I alle andre
 ### Oppgaver
 
 1. Legg til en komponent som kan vise den aktuelle teksten.
-2. Legg til [dynamikk for komponenten](/nb/altinn-studio/reference/logic/expressions/) som gjør at den kun vises dersom `IKT (data/it)` er valgt (**MERK**: Teksten skal vises også når flere alternativer er valgt, så lenge ett av dem er `IKT (data/it)`).
+2. Legg til [dynamikk for komponenten](/nb/altinn-studio/v8/reference/logic/expressions/) som gjør at den kun vises dersom `IKT (data/it)` er valgt (**MERK**: Teksten skal vises også når flere alternativer er valgt, så lenge ett av dem er `IKT (data/it)`).
 3. Flytt knappen 'Send inn' til siden for arbeidsforhold.
 
 
 ### Nyttig dokumentasjon
-- [Dynamiske uttrykk](/nb/altinn-studio/reference/logic/expressions/)
+- [Dynamiske uttrykk](/nb/altinn-studio/v8/reference/logic/expressions/)
 
 
 {{% /expandlarge %}}

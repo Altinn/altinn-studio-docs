@@ -37,8 +37,8 @@ It should be possible to enter up to 10 former residences.
 Note that the "Maximum number of repetitions" must be adjusted locally.
 
 ### Useful documentation
-- [Configuration of field grouping](/altinn-studio/reference/ux/fields/grouping)
-- [Configuration of repeating groups](/altinn-studio/reference/ux/fields/grouping/repeating)
+- [Configuration of field grouping](/altinn-studio/v8/reference/ux/fields/grouping)
+- [Configuration of repeating groups](/altinn-studio/v8/reference/ux/fields/grouping/repeating)
 
 ### Knowledge check
 {{% expandsmall id="m6t1q1" header="Which field in the data model determines whether an element is repeatable?" %}}
@@ -69,9 +69,9 @@ Vi er beæret over å motta en '1337' innbygger til Sogndal kommune!
 1. Add a validation to the `Postnr` field for previous residential addresses.
 
 ### Useful documentation
-- [Server-side validation](/altinn-studio/reference/logic/validation/#server-side-validation)
-- [How to implement custom validation](/altinn-studio/reference/logic/validation/#how-to-add-custom-validation)
-- [Single field validations](/altinn-studio/reference/logic/validation/#single-field-validation)
+- [Server-side validation](/altinn-studio/v8/reference/logic/validation/#server-side-validation)
+- [How to implement custom validation](/altinn-studio/v8/reference/logic/validation/#how-to-add-custom-validation)
+- [Single field validations](/altinn-studio/v8/reference/logic/validation/#single-field-validation)
 
 ### Knowledge check
 {{% expandsmall id="m6t2q1" header="When are server-side validations executed?" %}}
@@ -97,13 +97,13 @@ For all other addresses the field should remain the same.
 
 ### Tasks
 
-1. Create a file for [data processing](/altinn-studio/reference/logic/dataprocessing/).
+1. Create a file for [data processing](/altinn-studio/v8/reference/logic/dataprocessing/).
 2. Add processing of the address field as described above.
 
 Remember to implement the solution in `Program.cs` as before.
 
 ### Useful documentation
-- [Data processing](/altinn-studio/reference/logic/dataprocessing/)
+- [Data processing](/altinn-studio/v8/reference/logic/dataprocessing/)
 
 ### Knowledge check
 {{% expandsmall id="m6t3q1" header="When is data processing executed?" %}}
@@ -294,7 +294,7 @@ Update the code so that the validation also includes the current address.
 
 {{% expandlarge id="processing-solution" header="Data processing" %}}
 
-* **Create a class that implements `IDataProcessor` as described in [data processing](/altinn-studio/reference/logic/dataprocessing/) and add data processing logic:**
+* **Create a class that implements `IDataProcessor` as described in [data processing](/altinn-studio/v8/reference/logic/dataprocessing/) and add data processing logic:**
 
 {{< code-title >}}
 App/logic/DataProcessing/DataProcessor.cs

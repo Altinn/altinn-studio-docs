@@ -6,8 +6,8 @@ schemaname: Image # Komponentens schema-navn, brukes for å automatisk generere 
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk
 toc: true
 aliases:
-- /nb/altinn-studio/reference/ux/images/
-- /nb/altinn-studio/reference/ux/components/images
+- /nb/altinn-studio/v8/reference/ux/images/
+- /nb/altinn-studio/v8/reference/ux/components/images
 - /nb/altinn-studio/guides/design/guidelines/components/picture-component/
 ---
 

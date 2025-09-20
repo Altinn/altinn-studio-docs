@@ -5,7 +5,7 @@ description: Hva må gjøres for å utvikle datamodell til Altinn 2?
 weight: 100
 toc: true
 aliases:
-- /nb/altinn-studio/reference/data/data-model/altinn-2/
+- /nb/altinn-studio/v8/reference/data/data-model/altinn-2/
 - /nb/altinn-studio/guides/altinn-2-datamodel/
 ---
 
@@ -130,4 +130,4 @@ F.eks.:
 [2]: https://code.visualstudio.com/
 [3]: https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml
 [4]: https://digdir-samarbeid.slack.com/archives/C041WMBLYMB
-[5]: /nb/altinn-studio/reference/data/data-modeling/#altinn-studio-datamodellering
+[5]: /nb/altinn-studio/v8/reference/data/data-modeling/#altinn-studio-datamodellering

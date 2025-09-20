@@ -4,10 +4,10 @@ linktitle: Lokalt
 description: Beskrivelse av hvordan test av app lokalt på egen maskin kan gjøres
 weight: 100
 aliases:
-- /nb/altinn-studio/reference/testing/local/
+- /nb/altinn-studio/v8/reference/testing/local/
 ---
 
-Dersom man skal skrive en del kode (f.eks. [logikk](/nb/altinn-studio/reference/logic)), eller kjapt sjekke hvordan skjema ser ut kan det være nytting å kunne teste endringer uten å måtte deploye hele appen til testmiljø.
+Dersom man skal skrive en del kode (f.eks. [logikk](/nb/altinn-studio/v8/reference/logic)), eller kjapt sjekke hvordan skjema ser ut kan det være nytting å kunne teste endringer uten å måtte deploye hele appen til testmiljø.
 
 Når appen lages, kommer den med alle nødvendige filer og oppsett til å kunne kjøres som en frittstående applikasjon. Ved å laste ned alle filene knyttet til appen fra repoet til appen, kan man kjøre
 appen lokalt på egen maskin, og på den måten enkelt teste endringer.

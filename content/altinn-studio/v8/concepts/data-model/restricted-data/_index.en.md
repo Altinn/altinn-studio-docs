@@ -23,4 +23,4 @@ You should add data restrictions if your app:
 ## Further reading
 - [Guide for configuring sensitive data types](/altinn-studio/guides/development/restricted-data)
 - [More details about the applicationmetadata.json file](/api/models/app-metadata/#complete-example)
-- [More details about authorization policies and action attributes](/altinn-studio/reference/configuration/authorization/#action-attributes)
+- [More details about authorization policies and action attributes](/altinn-studio/v8/reference/configuration/authorization/#action-attributes)

@@ -23,4 +23,4 @@ Du bør legge til ekstra tilgangskontroller hvis appen din:
 ## Les mer
 - [Guide for konfigurasjon av beskyttede datatyper](/nb/altinn-studio/guides/development/restricted-data)
 - [Mer om applicationmetadata.json](/nb/api/models/app-metadata/#complete-example)
-- [Mer om autorisasjonspolicy og action attributter](/nb/altinn-studio/reference/configuration/authorization/#action-attributter)
+- [Mer om autorisasjonspolicy og action attributter](/nb/altinn-studio/v8/reference/configuration/authorization/#action-attributter)

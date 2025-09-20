@@ -13,7 +13,7 @@ Nuget versions >= 4.22.0 are required for your application to support eFormidlin
 {{% /notice%}}
 
 {{%notice info%}}
-In version 7 a change was introduced to ensure that the application knows the delivery status of messages sent through eFormidling and in the case of a failed delivery will log this explicitly. This introduces the need for [inbound event support in the application](/altinn-studio/reference/logic/events)   
+In version 7 a change was introduced to ensure that the application knows the delivery status of messages sent through eFormidling and in the case of a failed delivery will log this explicitly. This introduces the need for [inbound event support in the application](/altinn-studio/v8/reference/logic/events)   
 {{% /notice%}}
 
 Integration with eFormidling needs to be explicitly activated in the application. 

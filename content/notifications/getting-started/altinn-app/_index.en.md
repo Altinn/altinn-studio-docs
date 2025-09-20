@@ -22,4 +22,4 @@ For detailed guidance on Altinn App development, refer to the [Altinn Studio doc
 
 ## 4. Set up your app to send notifications
 
-Follow the instructions in the [Altinn App reference documentation](/altinn-studio/reference/logic/notifications/) to configure your app for sending notifications.
+Follow the instructions in the [Altinn App reference documentation](/altinn-studio/v8/reference/logic/notifications/) to configure your app for sending notifications.

@@ -48,4 +48,4 @@ Digdir logger at signeringshandlingen er utført. Det betyr at selv om signering
 
 Tjenesteeier lagrer signaturobjektet i sitt arkivsystem. Signaturobjektet inneholder en hash kode av dataene som tilhører dataelementet. Dersom signaturobjektet senere endres vil dette kunne verifiseres ved at hash koden i signaturobjektet ikke lenger stemmer, dette bidrar til sporbarhet for signaturobjektet. Dette forutsetter at signaturen, dvs. hash koden, også finnes på sluttbruker sin kvittering slik at begge parter har hver sin kopi.
 
-[Her kan du kan lese en teknisk beskrivelse for hvordan verifisering av signaturen gjøres.](https://docs.altinn.studio/nb/altinn-studio/reference/process/tasks/signing/#verifisering-av-sha256-hash)
+[Her kan du kan lese en teknisk beskrivelse for hvordan verifisering av signaturen gjøres.](/nb/altinn-studio/v8/reference/process/tasks/signing/#verifisering-av-sha256-hash)

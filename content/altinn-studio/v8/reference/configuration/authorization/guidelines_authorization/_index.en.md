@@ -9,7 +9,7 @@ toc: true
 Authorization rules are defined in accordance to the XACML 3.0 standard. The rules will define the conditions that must
 be met in order to give
 a certain user access to perform one or more steps of an
-application [defined work process](/altinn-studio/reference/configuration/process/).
+application [defined work process](/altinn-studio/v8/reference/configuration/process/).
 
 ## Make sure you know what you are doing!
 The owner of the service is responsible for creating authorization rules and choosing the right roles that grant access to protected information.

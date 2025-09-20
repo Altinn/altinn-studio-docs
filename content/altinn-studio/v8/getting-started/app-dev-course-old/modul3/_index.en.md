@@ -49,8 +49,8 @@ All changes related to scaling and resource use are made in the `deployment/valu
 
 
 ### Useful documentation
-- [Set custom rules for scaling](/altinn-studio/reference/configuration/deployment/#scaling)
-- [Set custom limits for resource use](/altinn-studio/reference/configuration/deployment/#resources-configuration)
+- [Set custom rules for scaling](/altinn-studio/v8/reference/configuration/deployment/#scaling)
+- [Set custom limits for resource use](/altinn-studio/v8/reference/configuration/deployment/#resources-configuration)
 {{% /expandlarge %}}
 
 {{% expandlarge id="build-application" header="Build application" %}}
@@ -63,7 +63,7 @@ Create a new build for the application with version number `0.0.1`
 and add a descriptive comment of what the version includes.
 
 ### Useful documentation
-- [Build app in Altinn Studio](/altinn-studio/reference/testing/deploy/#bygge-app)
+- [Build app in Altinn Studio](/altinn-studio/v8/reference/testing/deploy/#bygge-app)
 
 {{% /expandlarge %}}
 
@@ -75,14 +75,14 @@ In addition to this, TT02 is often used to verify that an application works as e
 {{% notice info %}}
 To be able to deploy an application to TT02,
 the organization that owns the application has to have an app cluster in the test environment.
-In addition to this, the developer deploying the application needs the [role Deploy-TT02](/altinn-studio/reference/access-management/studio/#deploy-tt02)
+In addition to this, the developer deploying the application needs the [role Deploy-TT02](/altinn-studio/v8/reference/access-management/studio/#deploy-tt02)
 for the organization in Altinn Studio.
 {{% /notice %}}
 
 **Deploy your application to TT02.**
 
 ### Useful documentation
-- [Deploy app to test environment](/altinn-studio/reference/testing/deploy/#deploy-av-app-til-testmiljø)
+- [Deploy app to test environment](/altinn-studio/v8/reference/testing/deploy/#deploy-av-app-til-testmiljø)
 - [Access control for the organization in Altinn Studio](/altinn-studio/guides/administration/access-management/studio/#access-management-for-the-organization)
 
 ### Knowledge check

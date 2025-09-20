@@ -21,7 +21,7 @@ Du må konfigurere Maskinporten for at appen skal kunne utføre handlinger på v
 Du finner en detaljert veiledning for oppsettet [her](/nb/altinn-studio/guides/integration/maskinporten).
 
 ## Konfigurasjon av datatyper
-[applicationmetadata.json-filen](https://github.com/Altinn/altinn-studio/blob/main/src/App/app-template-dotnet/src/App/config/applicationmetadata.json) definerer alle [datatyper](/nb/api/models/app-metadata/#datatype) i en applikasjon. Her angir du hvilke [handlinger](/nb/altinn-studio/reference/configuration/authorization/#action-attributter) som kreves for din beskyttede datatype.
+[applicationmetadata.json-filen](https://github.com/Altinn/altinn-studio/blob/main/src/App/app-template-dotnet/src/App/config/applicationmetadata.json) definerer alle [datatyper](/nb/api/models/app-metadata/#datatype) i en applikasjon. Her angir du hvilke [handlinger](/nb/altinn-studio/v8/reference/configuration/authorization/#action-attributter) som kreves for din beskyttede datatype.
 
 I dette eksempelet konfigurerer vi en ny datatype, hvor vi spesifiserer egenskapene `actionRequiredToRead` og `actionRequiredToWrite`, og deaktiverer `autoCreate`. Vi bruker identifikatoren `restrictedDataModel`, men navnet i seg selv er ikke viktig.
 

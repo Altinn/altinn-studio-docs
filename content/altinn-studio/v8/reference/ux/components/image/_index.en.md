@@ -5,8 +5,8 @@ toc: true
 schemaname: Image
 weight: 10
 aliases:
-- /altinn-studio/reference/ux/images/
-- /altinn-studio/reference/ux/components/images
+- /altinn-studio/v8/reference/ux/images/
+- /altinn-studio/v8/reference/ux/components/images
 - /altinn-studio/guides/design/guidelines/components/picture-component/
 ---
 

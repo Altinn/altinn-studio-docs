@@ -37,8 +37,8 @@ Sogndal kommune ønsker at man benytter kategoriene **Personalia** om brukerens 
 4. Gjør eventuelt andre nødvendige tilpasninger (f.eks. av tekster og knapper).
 
 ### Nyttig dokumentasjon
-- [Hvordan sette opp visning av oppsummering av utfylt skjema](/nb/altinn-studio/reference/ux/pages/summary/)
-- [Kategorier i oppsummering](/nb/altinn-studio/reference/ux/pages/summary/#kategorier)
+- [Hvordan sette opp visning av oppsummering av utfylt skjema](/nb/altinn-studio/v8/reference/ux/pages/summary/)
+- [Kategorier i oppsummering](/nb/altinn-studio/v8/reference/ux/pages/summary/#kategorier)
 
 ### Forståelsessjekk
 
@@ -62,15 +62,15 @@ Om man ikke møter kriteriene skal man tas videre til "Ikke for deg"-siden som o
 
 ### Oppgaver
 
-1. Opprett [layout-sets](/nb/altinn-studio/reference/ux/pages/#oppsett) i appen. Flytt førstesiden og "Ikke for deg"-siden til "stateless"-settet (Husk å oppdatere `Settings.json`-filene).
+1. Opprett [layout-sets](/nb/altinn-studio/v8/reference/ux/pages/#oppsett) i appen. Flytt førstesiden og "Ikke for deg"-siden til "stateless"-settet (Husk å oppdatere `Settings.json`-filene).
 2. Konfigurer appen til å starte opp som en "stateless" applikasjon.
 3. Legg til en `InstantiationButton`-komponent på førstesiden.
 4. Legg til logikk der brukeren enten kan starte en instans eller sendes videre til "Ikke for deg"-siden basert på om [de møter kriteriene](/nb/altinn-studio/getting-started/app-dev-course-old/case/#alternativ-arbeidsflyt-sporvalg).
 
 ### Nyttig dokumentasjon
-- [Introduksjon til stateless applikasjoner](/nb/altinn-studio/reference/configuration/stateless)
-- [Konfigurasjon av stateless applikasjoner](/nb/altinn-studio/reference/configuration/stateless/#konfigurasjon)
-- [Starte instans fra stateless skjema](/nb/altinn-studio/reference/configuration/stateless/#starte-instans-fra-et-stateless-skjema)
+- [Introduksjon til stateless applikasjoner](/nb/altinn-studio/v8/reference/configuration/stateless)
+- [Konfigurasjon av stateless applikasjoner](/nb/altinn-studio/v8/reference/configuration/stateless/#konfigurasjon)
+- [Starte instans fra stateless skjema](/nb/altinn-studio/v8/reference/configuration/stateless/#starte-instans-fra-et-stateless-skjema)
 
 ### Forståelsessjekk
 
@@ -109,7 +109,7 @@ Siste linje i teksten skal fortsatt være en lenke til stillingsutlysningene.
 1. Endre teksten slik som det er beskrevet over og erstatt "{innsenders navn}" med en variabel som er knyttet til `Fornavn`-feltet i datamodellen.
 
 ### Nyttig dokumentasjon
-- [Variabler i tekster](/nb/altinn-studio/reference/ux/texts/#variabler-i-tekster)
+- [Variabler i tekster](/nb/altinn-studio/v8/reference/ux/texts/#variabler-i-tekster)
 
 ### Forståelsessjekk
 {{% expandsmall id="text-variables-knowledge-check" header="Hva vises som en del av teksten om den aktuelle variabelen ikke har noen verdi i datamodellen?" %}}
@@ -142,7 +142,7 @@ https://fraktguide.bring.no/fraktguide/api/postalCode.json?country=no&pnr={postn
  - Antall kall til Bring sitt API skal begrenses til maksimalt én gang om dagen per postnummer
 
 ### Nyttig dokumentasjon
-[Konsumering av eksterne API](/nb/altinn-studio/reference/api/consume)
+[Konsumering av eksterne API](/nb/altinn-studio/v8/reference/api/consume)
 
 ### Forståelsessjekk
 - Med en _memorycache_, hvor mange ganger vil man maksimalt gjøre et API-kall i løpet av et døgn dersom applikasjonen kjører med tre replikas?

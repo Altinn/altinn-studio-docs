@@ -10,7 +10,7 @@ hidden: true
     `file="component-settings/{image.png}"`.
 4. **Legg til dokumentasjonen**: Bruk shortcode `property-docs` med hakeparenteser (`< >`) og argument `prop="{propName}"`. `propName` må samsvare med filnavn.
 
-For mer veiledning, se [_INSTRUCTIONS.md](/altinn-studio/reference/ux/components/_common-props-content/_instructions).
+For mer veiledning, se [_INSTRUCTIONS.md](/altinn-studio/v8/reference/ux/components/_common-props-content/_instructions).
 
 # Innhold
 

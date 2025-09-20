@@ -48,8 +48,8 @@ Alle endringer knyttet til skalering og ressursbruk gjøres i filen `App/deploym
 {{% /notice %}}
 
 ### Nyttig dokumentasjon
-- [Sette egendefinerte regler for skalering](/nb/altinn-studio/reference/configuration/deployment/#skalering)
-- [Sette egendefinerte grenser for ressursbruk](/nb/altinn-studio/reference/configuration/deployment/#konfigurasjon-av-ressurser)
+- [Sette egendefinerte regler for skalering](/nb/altinn-studio/v8/reference/configuration/deployment/#skalering)
+- [Sette egendefinerte grenser for ressursbruk](/nb/altinn-studio/v8/reference/configuration/deployment/#konfigurasjon-av-ressurser)
 {{% /expandlarge %}}
 
 {{% expandlarge id="bygge-applikasjon" header="Bygge applikasjon" %}}
@@ -64,7 +64,7 @@ som kan publiseres til ett eller flere miljø.
 og legg til en beskrivende kommentar om hva versjonen inneholder.
 
 ### Nyttig dokumentasjon
-- [Bygge app i Altinn Studio](/nb/altinn-studio/reference/testing/deploy/#bygge-app)
+- [Bygge app i Altinn Studio](/nb/altinn-studio/v8/reference/testing/deploy/#bygge-app)
 
 {{% /expandlarge %}}
 
@@ -76,7 +76,7 @@ før man produksjonssetter den.
 
 {{% notice info %}}
 For å kunne publisere en applikasjon til TT02 må organisasjonen som eier den ha et app-cluster i testmiljøet.
-I tillegg må utvikleren som skal gjennomføre publiseringen inneha [rollen Deploy-TT02](/nb/altinn-studio/reference/access-management/studio/#deploy-tt02).
+I tillegg må utvikleren som skal gjennomføre publiseringen inneha [rollen Deploy-TT02](/nb/altinn-studio/v8/reference/access-management/studio/#deploy-tt02).
 {{% /notice %}}
 
 ### Oppgaver
@@ -85,7 +85,7 @@ I tillegg må utvikleren som skal gjennomføre publiseringen inneha [rollen Depl
 
 ### Nyttig dokumentasjon
 
-- [Publisere app til testmiljø](/nb/altinn-studio/reference/testing/deploy/#deploy-av-app-til-testmiljø)
+- [Publisere app til testmiljø](/nb/altinn-studio/v8/reference/testing/deploy/#deploy-av-app-til-testmiljø)
 - [Tilgangsstyring for organisasjon i Altinn Studio](/nb/altinn-studio/guides/administration/access-management/studio/#tilgangsstyring-for-organisasjonen)
 
 ### Forståelsessjekk

@@ -13,8 +13,8 @@ kind: Secret
 metadata:
   name: altinn-tls-secret
 data:
-  tls.crt: [[BASE 64 ENCODED CERTIFICATE]]
-  tls.key: [[BASE 64 ENCODED PRIVATE KEY]]
+  tls.crt: [BASE 64 ENCODED CERTIFICATE]]
+  tls.key: [BASE 64 ENCODED PRIVATE KEY]]
 ```
 
 #### TLS Options

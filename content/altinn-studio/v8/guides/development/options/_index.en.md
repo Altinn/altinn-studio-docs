@@ -6,7 +6,7 @@ toc: true
 weight: 40
 aliases:
 - /altinn-studio/guides/options
-- /altinn-studio/reference/data/options
+- /altinn-studio/v8/reference/data/options
 ---
 
 Several of the form components in Altinn 3 use options. By options, we mean a list of choices that can be selected by

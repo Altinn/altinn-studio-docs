@@ -63,7 +63,7 @@ Dette vil gi en tellevisning som angir antall gjenværende tegn. Her er eksmpel 
 ```
 
 _Merk_: Når du bruker `maxLength` på et felt i skjema-layouten, vil det kun indikere hvor mange tegn som gjenstår. Det vil ikke validere antallet tegn og bruker kan forsatt sende inn skjemaet selv om antall tegn er over grensen.
-For å validere antall tegn må du også inkludere `maxLength`-egenskapen i datamodellen av skjemaet. Se [validering](/nb/altinn-studio/reference/logic/validation/) for mer informasjon. 
+For å validere antall tegn må du også inkludere `maxLength`-egenskapen i datamodellen av skjemaet. Se [validering](/nb/altinn-studio/v8/reference/logic/validation/) for mer informasjon. 
 
 
 

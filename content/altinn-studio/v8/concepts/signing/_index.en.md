@@ -48,7 +48,7 @@ Digdir logs that the signing action was performed. This means that even if the s
 
 The service owner stores the signature object in their archival system. The signature object contains a hash code of the data associated with the data element. If the signature object is later altered, this can be verified by the fact that the hash code in the signature object no longer matches. This contributes to the traceability of the signature object. This assumes that the signature, i.e., the hash code, also exists on the end user's receipt so that both parties have their own copy.
 
-[Here you can read the technical description of how signature verification is done.](https://docs.altinn.studio/nb/altinn-studio/reference/process/tasks/signing/#verifisering-av-sha256-hash)
+[Here you can read the technical description of how signature verification is done.](/nb/altinn-studio/v8/reference/process/tasks/signing/#verifisering-av-sha256-hash)
 
 ---
 

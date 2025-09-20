@@ -37,4 +37,4 @@ hide a row when the firstName within the data model is equal to "John".
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-You can read more about [expressions here](/altinn-studio/reference/logic/expressions).
+You can read more about [expressions here](/altinn-studio/v8/reference/logic/expressions).

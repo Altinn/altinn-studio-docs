@@ -9,7 +9,7 @@ weight: 15
 In addition to the documentation below, we have created a [sample application](https://altinn.studio/repos/ttd/eformidling-sample-app) showing the complete eFormidling setup.
 
 {{%notice info%}}
-This page describes the setup for a **v8** Altinn Application, for prior versions please refer to [the eFormidling setup for v7 documentation](/altinn-studio/reference/configuration/eformidling/).
+This page describes the setup for a **v8** Altinn Application, for prior versions please refer to [the eFormidling setup for v7 documentation](/altinn-studio/v8/reference/configuration/eformidling/).
 {{% /notice%}}
 
 ## Prerequisites
@@ -37,7 +37,7 @@ In order to enable eFormidling in your application you will need to [setup an in
 
 ### Events
 
-An [event subscription](/altinn-studio/reference/logic/events/subscribing/) needs to be setup in order to ensure that the application knows the delivery status of the messages sent through eFormidling.
+An [event subscription](/altinn-studio/v8/reference/logic/events/subscribing/) needs to be setup in order to ensure that the application knows the delivery status of the messages sent through eFormidling.
 
 {{% expandlarge id="event-subscription-setup" header="Event subscription setup" %}}
 
@@ -402,14 +402,14 @@ public class EFormidlingReceivers : IEFormidlingReceivers
 {{</content-version-selector>}}
 
 ### Adding a feedback task to the application process {#eFormidling-setup-process}
-While not strictly necessary, it is recommended to add a [feedback task](/altinn-studio/reference/process/tasks/#feedback-task) to your application. This is to ensure that the process is moved along when the message has been received.  
+While not strictly necessary, it is recommended to add a [feedback task](/altinn-studio/v8/reference/process/tasks/#feedback-task) to your application. This is to ensure that the process is moved along when the message has been received.  
 No further changes are needed when the task has been added as the eFormidling service we added earlier will automatically move the process along.  
-If you wish to customize the texts that are presented to the user during this step you can do so by overriding the [text keys](/altinn-studio/reference/configuration/process/customize/#feedback)
+If you wish to customize the texts that are presented to the user during this step you can do so by overriding the [text keys](/altinn-studio/v8/reference/configuration/process/customize/#feedback)
 
 ### Ensuring unique filenames {#eFormidling-setup-filenames}
 If the message sent by your application contains multiple attachments, it is important to ensure that these have unique filenames as the shipment will fail otherwise.  
 If the message includes the generated PDF of the form, you need to check that the other filename(s) are not the same as the application name.  
-One way to ensure unique filenames is through the use of [file validation](/altinn-studio/reference/logic/validation/files/).
+One way to ensure unique filenames is through the use of [file validation](/altinn-studio/v8/reference/logic/validation/files/).
 
 ## Testing
 Thorough testing for the eFormidling integration in an application is encouraged.  

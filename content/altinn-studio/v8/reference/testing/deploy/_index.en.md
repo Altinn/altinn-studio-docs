@@ -5,7 +5,7 @@ description: Description of how test in test environment can be performed.
 toc: true
 weight: 200
 aliases:
-- /altinn-studio/reference/testing/deploy/
+- /altinn-studio/v8/reference/testing/deploy/
 tags: [translate-to-english]
 ---
 

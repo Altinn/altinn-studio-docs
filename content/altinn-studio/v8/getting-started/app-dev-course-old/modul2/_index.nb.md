@@ -48,22 +48,22 @@ Du kan bruke følgende bilde av Sogndals kommunevåpen i applikasjonen:
 ### Oppgaver
 
 1. Legg til en ny side. Gi den et passende navn og plasser den foran skjemasiden du opprettet i Modul 1.
-2. [Legg til bilde](/nb/altinn-studio/reference/ux/components/image/#legg-til-komponent) av Sogndals kommunevåpen.
+2. [Legg til bilde](/nb/altinn-studio/v8/reference/ux/components/image/#legg-til-komponent) av Sogndals kommunevåpen.
 3. Legg til tekst i henhold til [skisse](infoside_tilflyttere.pdf).
 
 ### Nyttig dokumentasjon
 
-- [Formatering av tekst](/nb/altinn-studio/reference/ux/texts/#formatering-av-tekster)
-- [Hvordan legge til bilder i en applikasjon](/nb/altinn-studio/reference/ux/components/images/)
-- [Sidestilte komponenter](/nb/altinn-studio/reference/ux/styling/#sidestilte-komponenter-grid)
-- [Filoppsett ved flere sider](/nb/altinn-studio/reference/ux/pages/)
-- [Navigasjon i apper](/nb/altinn-studio/reference/ux/pages/navigation/)
+- [Formatering av tekst](/nb/altinn-studio/v8/reference/ux/texts/#formatering-av-tekster)
+- [Hvordan legge til bilder i en applikasjon](/nb/altinn-studio/v8/reference/ux/components/images/)
+- [Sidestilte komponenter](/nb/altinn-studio/v8/reference/ux/styling/#sidestilte-komponenter-grid)
+- [Filoppsett ved flere sider](/nb/altinn-studio/v8/reference/ux/pages/)
+- [Navigasjon i apper](/nb/altinn-studio/v8/reference/ux/pages/navigation/)
 
 ### Forståelsessjekk
 
 {{% expandsmall id="m2t1q1" header="Hvilken fil i applikasjonsrepoet må redigeres dersom du ønsker å manuelt endre rekkefølgen på eksisterende sider?" %}}
 Du kan konfigurere siderekkefølgen i `App/ui/Settings.json` ved å endre listen beskrevet under `pages.order`.
-Se [Navigasjon i apper](/nb/altinn-studio/reference/ux/pages/navigation/).
+Se [Navigasjon i apper](/nb/altinn-studio/v8/reference/ux/pages/navigation/).
 {{% /expandsmall %}}
 
 {{% expandsmall id="m2t1q2" header="Hvis du ønsker å gi en side et annet navn, men ikke har Altinn Studio tilgjengelig, hvilke filer må oppdateres med det nye filnavnet?" %}}
@@ -90,7 +90,7 @@ I denne oppgaven vil du sette opp dynamiske uttrykk i applikasjonen for å dirig
 En bruker som ikke oppfyller kravene for tjenesten, bør stoppes så tidlig som mulig i arbeidsflyten.
 Brukeren skal indikere om tjenesten gjelder dem på informasjonssiden.
 
-Måten svaret samles inn på er valgfri, men et tips er å bruke en valg-komponent som [avkrysningsbokser](/nb/altinn-studio/reference/ux/components/checkboxes/), [radioknapper](/nb/altinn-studio/reference/ux/components/radiobuttons/) eller [nedtrekksliste](/nb/altinn-studio/reference/ux/components/dropdown/).
+Måten svaret samles inn på er valgfri, men et tips er å bruke en valg-komponent som [avkrysningsbokser](/nb/altinn-studio/v8/reference/ux/components/checkboxes/), [radioknapper](/nb/altinn-studio/v8/reference/ux/components/radiobuttons/) eller [nedtrekksliste](/nb/altinn-studio/v8/reference/ux/components/dropdown/).
 Merk at en komponent må være knyttet til et felt i datamodellen for å lagre verdier (du kan bruke feltet `Innflytter.KanBrukeSkjema` i datamodellen).
 
 Brukeren skal sendes til ett av følgende spor basert på svaret deres:
@@ -118,9 +118,9 @@ _Spor 2_
 
 ### Nyttig dokumentasjon
 
-- [Dynamiske uttrykk](/nb/altinn-studio/reference/logic/expressions)
-- [Hvordan skjule hele sider](/nb/altinn-studio/reference/logic/expressions/#viseskjule-hele-sider)
-- [Formatering av tekst](/nb/altinn-studio/reference/ux/texts/#formatering-av-tekster)
+- [Dynamiske uttrykk](/nb/altinn-studio/v8/reference/logic/expressions)
+- [Hvordan skjule hele sider](/nb/altinn-studio/v8/reference/logic/expressions/#viseskjule-hele-sider)
+- [Formatering av tekst](/nb/altinn-studio/v8/reference/ux/texts/#formatering-av-tekster)
 
 ### Forståelsessjekk
 
@@ -136,7 +136,7 @@ Altinn gir fordelen av å ha lett tilgjengelig [metadata](/nb/api/models/instanc
 Ved hjelp av forhåndsutfylling kan vi hente brukerdata og fylle ut felt sømløst.
 Dette reduserer behovet for manuell inntasting av data, spesielt for standardopplysninger som navn, adresser og e-postadresser.
 
-Du kan integrere data fra Altinns [forhåndsutfyllingskilder](/nb/altinn-studio/reference/data/prefill) direkte i appen
+Du kan integrere data fra Altinns [forhåndsutfyllingskilder](/nb/altinn-studio/v8/reference/data/prefill) direkte i appen
 ved å tilordne dataene til spesifikke felt i datamodellen. Dette automatiserer utfylling av felt under opprettelse av skjema.
 Du kan også integrere egendefinerte løsninger for forhåndsutfylling.
 
@@ -159,7 +159,7 @@ Denne oppgaven fokuserer på den første siden for datainnsamling og har som må
 ### Oppgaver
 
 1. Opprett en [fil for forhåndsutfylling](/nb/altinn-studio/guides/development/prefill/config).
-2. Konfigurer forhåndsutfylling for verdier tilgjengelig i Altinns [forhåndsutfyllingskilder](/nb/altinn-studio/reference/data/prefill) (alle unntatt alder).
+2. Konfigurer forhåndsutfylling for verdier tilgjengelig i Altinns [forhåndsutfyllingskilder](/nb/altinn-studio/v8/reference/data/prefill) (alle unntatt alder).
 3. Opprett [egendefinert forhåndsutfylling](/nb/altinn-studio/guides/development/prefill/custom) for alder basert på personnummer (se Kodehjelp og Nyttig dokumentasjon under).
 4. Konfigurer innstillinger for felter som ikke skal kunne endres av brukeren.
 
@@ -250,7 +250,7 @@ _Husk å pushe de lokale endringene dine så de blir tilgjengelige i Altinn Stud
 ### Nyttig dokumentasjon
 
 - [Forhåndsutfylling fra nasjonale registre og brukerprofil](/nb/altinn-studio/guides/development/prefill/config)
-- [Tilgjengelige kilder og verdier for forhåndsutfylling](/nb/altinn-studio/reference/data/prefill)
+- [Tilgjengelige kilder og verdier for forhåndsutfylling](/nb/altinn-studio/v8/reference/data/prefill)
 - [Egendefinert forhåndsutfylling](/nb/altinn-studio/guides/development/prefill/custom)
 - [Instance](/nb/api/models/instance/#instance) - Metadata for applikasjonen.
 - [Beskrivelse av InstanceOwner-objektet](/nb/api/models/instance/#instanceowner) - Her finner du personnummeret.

@@ -20,7 +20,7 @@ In this module, you're expanding the application you made in the previous module
 In many applications there is a need to provide the user with a set of response options for a data field.
 These options are referred to as _code lists_ or _options_.
 
-In Altinn Studio, options are supported by the [radio buttons](/altinn-studio/reference/ux/components/radiobuttons/), [checkboxes](/altinn-studio/reference/ux/components/checkboxes/), [dropdown](/altinn-studio/reference/ux/components/dropdown/), and [multiple select](/altinn-studio/reference/ux/components/multipleselect/) components.
+In Altinn Studio, options are supported by the [radio buttons](/altinn-studio/v8/reference/ux/components/radiobuttons/), [checkboxes](/altinn-studio/v8/reference/ux/components/checkboxes/), [dropdown](/altinn-studio/v8/reference/ux/components/dropdown/), and [multiple select](/altinn-studio/v8/reference/ux/components/multipleselect/) components.
 
 {{% notice info %}}
 There are three ways to configure code lists (add options) in Altinn:
@@ -130,11 +130,11 @@ The text and link should **only** be visible if the user has chosen `IKT (data/i
 ### Tasks
 
 1. Add a component that can display the current text.
-2. Add [dynamics to the component](/altinn-studio/reference/logic/expressions/) that make it visible only if `IKT (data/it)` is selected (**NOTE**: The text should also be displayed when multiple options are selected, as long as one of them is `IKT (data/it)`).
+2. Add [dynamics to the component](/altinn-studio/v8/reference/logic/expressions/) that make it visible only if `IKT (data/it)` is selected (**NOTE**: The text should also be displayed when multiple options are selected, as long as one of them is `IKT (data/it)`).
 3. Move the 'Submit' button to the employment section.
 
 ### Useful documentation
-- [Dynamic expressions](/altinn-studio/reference/logic/expressions/)
+- [Dynamic expressions](/altinn-studio/v8/reference/logic/expressions/)
 
 ### Knowledge check
 - If you add a new function to `RuleHandlerHelper` - where will it run?

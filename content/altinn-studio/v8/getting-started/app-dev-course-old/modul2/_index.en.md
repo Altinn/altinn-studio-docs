@@ -46,22 +46,22 @@ You can use the following image of the Sogndal Municipality Coat of Arms in the 
 ### Tasks
 
 1. Add a new page. Give it an appropriate name and position it before the form page you created in Module 1.
-2. [Add an image](/altinn-studio/reference/ux/components/image) of the Sogndal Municipality Coat of Arms.
+2. [Add an image](/altinn-studio/v8/reference/ux/components/image) of the Sogndal Municipality Coat of Arms.
 3. Add text according to the [draft](infoside_tilflyttere.pdf).
 
 ### Useful Documentation
 
-- [Text formatting](/altinn-studio/reference/ux/texts/#formatting-of-texts)
-- [Add images to an application](/altinn-studio/reference/ux/components/image/)
-- [Side-by-side components using grid](/altinn-studio/reference/ux/styling/#components-placed-side-by-side-grid)
-- [File structure for multiple pages](/altinn-studio/reference/ux/pages/)
-- [Managing the order of multiple pages](/altinn-studio/reference/ux/pages/navigation/)
+- [Text formatting](/altinn-studio/v8/reference/ux/texts/#formatting-of-texts)
+- [Add images to an application](/altinn-studio/v8/reference/ux/components/image/)
+- [Side-by-side components using grid](/altinn-studio/v8/reference/ux/styling/#components-placed-side-by-side-grid)
+- [File structure for multiple pages](/altinn-studio/v8/reference/ux/pages/)
+- [Managing the order of multiple pages](/altinn-studio/v8/reference/ux/pages/navigation/)
 
 ### Knowledge check
 
 {{% expandsmall id="m2t1q1" header="Which file in the application repository do you need to edit if you want to manually change the page order of existing pages?" %}}
 You can configure the page order in `App/ui/Settings.json` by modifying the list described under `pages.order`.
-Refer to [Managing the order of multiple pages](/altinn-studio/reference/ux/pages/navigation/#showing-a-side-menu-with-the-order-of-pagestasks).
+Refer to [Managing the order of multiple pages](/altinn-studio/v8/reference/ux/pages/navigation/#showing-a-side-menu-with-the-order-of-pagestasks).
 {{% /expandsmall %}}
 
 {{% expandsmall id="m2t1q2" header="If you want to give a page a different name but do not have Altinn Studio available, which files do you need to update with the new file name?" %}}
@@ -88,7 +88,7 @@ In this task, you will set up dynamic expressions on pages in the application to
 A user who does not meet the requirements for the service should be stopped as early as possible in the workflow.
 The user should indicate whether the service applies to them on the information page.
 
-The way the response is collected is optional, but a tip is to use a selection component such as [checkboxes](/altinn-studio/reference/ux/components/checkboxes/), [radio buttons](/altinn-studio/reference/ux/components/radiobuttons/), or [dropdown](/altinn-studio/reference/ux/components/dropdown/).
+The way the response is collected is optional, but a tip is to use a selection component such as [checkboxes](/altinn-studio/v8/reference/ux/components/checkboxes/), [radio buttons](/altinn-studio/v8/reference/ux/components/radiobuttons/), or [dropdown](/altinn-studio/v8/reference/ux/components/dropdown/).
 Note that a component must be associated with a field in the data model to store values (you can use the field `Innflytter.KanBrukeSkjema` in the data model).
 
 The user should be directed to one of the following tracks based on their response:
@@ -116,9 +116,9 @@ _Track 2_
 
 ### Useful documentation
 
-- [Dynamic expressions](/altinn-studio/reference/logic/expressions)
-- [How to hide an entire page](/altinn-studio/reference/logic/expressions#showhide-entire-pages)
-- [Text formatting](/altinn-studio/reference/ux/texts/#formatting-of-texts)
+- [Dynamic expressions](/altinn-studio/v8/reference/logic/expressions)
+- [How to hide an entire page](/altinn-studio/v8/reference/logic/expressions#showhide-entire-pages)
+- [Text formatting](/altinn-studio/v8/reference/ux/texts/#formatting-of-texts)
 
 ### Knowledge check
 
@@ -132,7 +132,7 @@ If you have logic in an application where users can proceed to submission for mu
 
 Altinn provides the advantage of having readily accessible [metadata](/api/models/instance/#instance) for individuals and businesses. With prefilling, we can retrieve user data and populate fields seamlessly, reducing the need for manual data entry, especially for standard details like names, addresses, and emails.
 
-You can directly integrate data from Altinn's [prefill sources](/altinn-studio/reference/data/prefill) into the app by mapping the data to specific fields in the data model, automating field population during form creation. You can also integrate custom code-based solutions for prefilling.
+You can directly integrate data from Altinn's [prefill sources](/altinn-studio/v8/reference/data/prefill) into the app by mapping the data to specific fields in the data model, automating field population during form creation. You can also integrate custom code-based solutions for prefilling.
 
 This task focuses on the first data collection page, aiming to streamline the user experience by prefilling their details.
 
@@ -153,7 +153,7 @@ This task focuses on the first data collection page, aiming to streamline the us
 ### Tasks
 
 1. Create a [prefill file](/altinn-studio/guides/development/prefill/config).
-2. Configure prefilling for values available through Altinn's [prefill sources](/altinn-studio/reference/data/prefill) (all but age).
+2. Configure prefilling for values available through Altinn's [prefill sources](/altinn-studio/v8/reference/data/prefill) (all but age).
 3. Create [custom prefilling](/altinn-studio/guides/development/prefill/custom) for age based on the personal identification number (see Code assistance and Useful resources below).
 4. Configure settings for fields that should not be editable by the user.
 
@@ -243,7 +243,7 @@ _Remember to push your local changes to make them available in Altinn Studio._
 ### Useful documentation
 
 - [Prefilling from national registers and user profile](/altinn-studio/guides/development/prefill/config)
-- [Available sources and values for prefilling](/altinn-studio/reference/data/prefill)
+- [Available sources and values for prefilling](/altinn-studio/v8/reference/data/prefill)
 - [Custom prefilling](/altinn-studio/guides/development/prefill/custom)
 - [Instance](/api/models/instance/#instance) - Application metadata container
 - [Description of the InstanceOwner object](/api/models/instance/#instanceowner) - This is where you can find the national identity number.

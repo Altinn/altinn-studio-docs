@@ -238,7 +238,7 @@ volumes:
 
 Egendefinerte volumer kan legges til under `development` i `App/deployment/values.yaml`.
 
-På gjeldende tidspunkt er det kun ett bruksområde for å legge til andre volumer: [Hente hemmeligheter fra Azure Key Vault](/nb/altinn-studio/reference/configuration/secrets/).
+På gjeldende tidspunkt er det kun ett bruksområde for å legge til andre volumer: [Hente hemmeligheter fra Azure Key Vault](/nb/altinn-studio/v8/reference/configuration/secrets/).
 
 ## Service
 

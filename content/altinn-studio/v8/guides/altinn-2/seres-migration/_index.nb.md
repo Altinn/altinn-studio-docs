@@ -4,7 +4,7 @@ linktitle: Sereserstatning
 description: Hva må gjøres når Seres erstattes?
 weight: 100
 aliases:
-- /nb/altinn-studio/reference/data/data-model/seres-migration/
+- /nb/altinn-studio/v8/reference/data/data-model/seres-migration/
 - /nb/altinn-studio/guides/seres-migration
 ---
 
@@ -68,4 +68,4 @@ Har du planer om å gjøre endringer i en eller flere XSD'er som skal produksjon
 testes og helst gjøres med mindre endringer slik at det blir lettere å verifisere den genererte XSD'en før den lastes
 opp og tas i bruk i Altinn 2.
 
-[1]: /nb/altinn-studio/reference/data/data-modeling/#laste-opp-xsd-til-repo
+[1]: /nb/altinn-studio/v8/reference/data/data-modeling/#laste-opp-xsd-til-repo

@@ -51,7 +51,7 @@ I koden definerer du rekkefølgen på sidene i `Settings.json` for layout-settet
 }
 ```
 
-**Skjule sider dynamisk:** Du kan skjule enkelte sider med [dynamiske uttrykk](/nb/altinn-studio/reference/logic/expressions/#viseskjule-hele-sider).
+**Skjule sider dynamisk:** Du kan skjule enkelte sider med [dynamiske uttrykk](/nb/altinn-studio/v8/reference/logic/expressions/#viseskjule-hele-sider).
 
 ## Gruppere sider
 

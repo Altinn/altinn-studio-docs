@@ -85,5 +85,5 @@ of the type `list`:
 
 The receiving end will then receive a list of multiple unique ID's, one for each attachment.
 The same unique ID will also be displayed in
-the PDF receipt - but it is recommended to [hide this](/altinn-studio/reference/ux/pdf/#excluding-pages-and-components), as attachments
+the PDF receipt - but it is recommended to [hide this](/altinn-studio/v8/reference/ux/pdf/#excluding-pages-and-components), as attachments
 are shown separately on the receipt page and the unique ID can become confusing to the users.

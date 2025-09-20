@@ -5,7 +5,7 @@ weight: 40
 tags: [translate-to-english]
 ---
 
-Før vi går på konkrete tips må vi kort introdusere Helm Chart. Helm Chart er de(n) filen(e) som styrer hvordan applikasjonen din [deployes](/altinn-studio/reference/configuration/deployment/)) til Kubernetes. Det er også her man styrer CPU og minne allokering. Du finner `Chart.yaml`og `values.yaml`i deployment mappen i applikasjonen din. Dette er viktige filer som kan være lett å overse og ikke ha et aktivt forhold til.
+Før vi går på konkrete tips må vi kort introdusere Helm Chart. Helm Chart er de(n) filen(e) som styrer hvordan applikasjonen din [deployes](/altinn-studio/v8/reference/configuration/deployment/)) til Kubernetes. Det er også her man styrer CPU og minne allokering. Du finner `Chart.yaml`og `values.yaml`i deployment mappen i applikasjonen din. Dette er viktige filer som kan være lett å overse og ikke ha et aktivt forhold til.
 
 ## Tips 1 - Kjør siste versjon av Helm Chart
 Med siste versjon får du de mest oppdaterte innstillingene som standard. Se [Endringslogg for deployment](/community/changelog/deployment/) for hvordan oppgradere til siste versjon.

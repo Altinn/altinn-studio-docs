@@ -82,7 +82,7 @@ Dette er spesielt viktig for større virksomheter, som regnskapsbyråer med mang
 ### Forutsetninger
 
 - Regnskapsfører er [registrert i Enhetsregisteret](https://info.altinn.no/skjemaoversikt/bronnoysundregistrene/registrere-nye-og-endre-eksisterende-foretak-og-enheter---samordnet-registermelding/) for aktuell klient.
-- Skatteetaten har [definert policy på applikasjon](/altinn-studio/reference/configuration/authorization/) slik at brukere med tilgangspakken MVA rapportering får tilgang.
+- Skatteetaten har [definert policy på applikasjon](/altinn-studio/v8/reference/configuration/authorization/) slik at brukere med tilgangspakken MVA rapportering får tilgang.
 - [Sluttbrukersystemet er satt opp](../../guides/system-vendor/system-user/) med [nødvendige tilgangspakker](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/) for MVA-rapportering.
 - Regnskapsfører har opprettet en [_systembruker for klientforhold_](../../guides/system-vendor/system-user/#opprettelse-av-en-systembruker-for-agentsystembruker) knyttet til sluttbrukersystemet.
 

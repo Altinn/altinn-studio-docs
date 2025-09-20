@@ -4,7 +4,7 @@ description: How to use compound components (widgets).
 toc: true
 weight: 10
 aliases:
-- /altinn-studio/reference/ux/widgets/
+- /altinn-studio/v8/reference/ux/widgets/
 ---
 
 ## What is a widget?

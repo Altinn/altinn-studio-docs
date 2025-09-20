@@ -405,7 +405,7 @@ var conditionalRuleHandlerHelper = {
 ## Dynamics in PDF
 
 From Nuget versions 3.0.0 it is also possible to add dynamics for the PDF. This is done in the PDF Handler.
-The application must include the `layout/ui/Settings.json` file [defined here](../../../../altinn-studio/reference/ux/pages/navigation/).
+The application must include the `layout/ui/Settings.json` file [defined here](../ux/pages/navigation/).
 
 Configuring dynamics in PDF is similar to how validations are added on the server side.
 

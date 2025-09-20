@@ -42,7 +42,7 @@ The link component has the following properties:
 ## Dynamic URL
 
 In some cases you may want to have more information in query parameters like the instance id so that you can redirect the user back to the instance from your external page.
-This can be done by using an [expression](/altinn-studio/reference/logic/expressions) in the `target` property. See the following example:
+This can be done by using an [expression](/altinn-studio/v8/reference/logic/expressions) in the `target` property. See the following example:
 
 ```json
 {

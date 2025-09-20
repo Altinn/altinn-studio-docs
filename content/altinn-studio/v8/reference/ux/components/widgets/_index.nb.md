@@ -4,7 +4,7 @@ description: Hvordan bruke sammensatte komponenter (widgets).
 toc: true
 weight: 10
 aliases:
-- /nb/altinn-studio/reference/ux/widgets/
+- /nb/altinn-studio/v8/reference/ux/widgets/
 ---
 
 ## Hva er en widget?
