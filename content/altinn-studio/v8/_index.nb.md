@@ -17,7 +17,7 @@ cascade:
             <h2 class="a-h3">Finn ut mer</h2>
             <p class="a-js-truncate-2">Les mer om Altinn Studio</p>
             <div class="a-illustration-icon">
-                <img src="./Altinn-studio-2.svg">
+                <img src="./Altinn-studio-2.svg" alt="Illustrasjon: Om Altinn Studio">
                 <div class="a-illustration-overlay">
                     <span class="sr-only">Om Altinn Studio</span>
                 </div>
@@ -60,7 +60,7 @@ cascade:
             <h2 class="a-h3">Kom i gang</h2>
             <p class="a-js-truncate-2">Lag din første tjeneste</p>
             <div class="a-illustration-icon">
-                <img src="./Altinn-studio-3.svg">
+                <img src="./Altinn-studio-3.svg" alt="Illustrasjon: Lag din første tjeneste">
                 <div class="a-illustration-overlay">
                     <span class="sr-only">Lag din første tjeneste</span>
                 </div>

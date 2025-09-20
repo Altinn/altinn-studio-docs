@@ -17,7 +17,7 @@ cascade:
             <h2 class="a-h3">Find out more</h2>
             <p class="a-js-truncate-2">Read more about Altinn Studio</p>
             <div class="a-illustration-icon">
-                <img src="./Altinn-studio-2.svg">
+                <img src="./Altinn-studio-2.svg" alt="Illustration: About Altinn Studio">
                 <div class="a-illustration-overlay">
                     <span class="sr-only">About Altinn Studio</span>
                 </div>
@@ -60,7 +60,7 @@ cascade:
             <h2 class="a-h3">Get started</h2>
             <p class="a-js-truncate-2">Create your first service</p>
             <div class="a-illustration-icon">
-                <img src="./Altinn-studio-3.svg">
+                <img src="./Altinn-studio-3.svg" alt="Illustration: Create your first service">
                 <div class="a-illustration-overlay">
                     <span class="sr-only">Create your first service</span>
                 </div>

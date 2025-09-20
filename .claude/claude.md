@@ -3,7 +3,7 @@
 This is the configuration file for Claude Code in the Altinn Studio docs project.
 
 ## Project Overview
-This is a Hugo-based documentation site for Altinn products like Altinn Studio, Altinn Autorization etc. The project uses Hugo with a custom theme to generate static documentation.
+This is a Hugo-based documentation site for Altinn products like Altinn Studio, Altinn Authorization etc. The project uses Hugo with a custom theme to generate static documentation.
 
 ## Development Commands
 - **Start development server**: `hugo server --navigateToChanged`
