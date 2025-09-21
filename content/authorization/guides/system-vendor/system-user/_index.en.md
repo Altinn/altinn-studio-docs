@@ -314,7 +314,7 @@ The repository contains the necessary test certificate to run the application. T
 
 2. Get the system registered in the System Register with the correct client ID and linkage to necessary resources/access packages.
 
-3. Log in with a test user at tt02.altinn.no. The user must have the access management role in Altinn for a test organization and go to the page [https://authn.ui.tt02.altinn.no/authfront/ui/auth/creation](https://authn.ui.tt02.altinn.no/authfront/ui/auth/creation).
+3. Log in with a test user at tt02.altinn.no. The user must have the access management role in Altinn for a test organization and go to the page [https://am.ui.tt02.altinn.no/accessmanagement/ui/systemuser/create](https://am.ui.tt02.altinn.no/accessmanagement/ui/systemuser/create).
 
    ![Onboarding](delegering1.png "10. Select system")
 
