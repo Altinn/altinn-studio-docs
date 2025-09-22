@@ -8,6 +8,8 @@ aliases:
 - /nb/altinn-studio/guides/signing/sign-and-submit
 ---
 
+{{% insert "content/altinn-studio/guides/development/restricted-data/shared/style.css.md" %}}
+
 ## Hva betyr signer og send inn?
 
 {{% insert "content/altinn-studio/guides/development/signing/sign-and-submit/intro.nb.md" %}}

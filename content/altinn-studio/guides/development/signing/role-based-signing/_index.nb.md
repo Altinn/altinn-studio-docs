@@ -8,6 +8,8 @@ aliases:
 - /nb/altinn-studio/guides/signing/role-based-signing
 ---
 
+{{% insert "content/altinn-studio/guides/development/restricted-data/shared/style.css.md" %}}
+
 ## Hva betyr rolle- og tilgangspakkebasert signering?
 {{% insert "content/altinn-studio/guides/development/signing/role-based-signing/intro.nb.md" %}}
 

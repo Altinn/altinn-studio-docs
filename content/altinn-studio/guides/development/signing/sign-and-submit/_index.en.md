@@ -8,6 +8,8 @@ aliases:
 - /altinn-studio/guides/signing/sign-and-submit
 ---
 
+{{% insert "content/altinn-studio/guides/development/restricted-data/shared/style.css.md" %}}
+
 ## What does sign and submit mean?
 
 {{% insert "content/altinn-studio/guides/development/signing/sign-and-submit/intro.en.md" %}}
