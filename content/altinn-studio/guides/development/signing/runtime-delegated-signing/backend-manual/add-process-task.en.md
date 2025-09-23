@@ -34,7 +34,7 @@ If the Altinn user interface is used by the application, these actions will be t
         <altinn:signatureDataType>signatures</altinn:signatureDataType>
 
         <!-- This data type is used to store the signees and related information -->
-        <altinn:signeeStatesDataTypeId>signeesState</altinn:signeeStatesDataTypeId>
+        <altinn:signeeStatesDataTypeId>signeeState</altinn:signeeStatesDataTypeId>
 
         <!-- This ID tells the app which implementation of the C# interface -->
         <!-- ISigneeProvider that should be used for this signing step -->
