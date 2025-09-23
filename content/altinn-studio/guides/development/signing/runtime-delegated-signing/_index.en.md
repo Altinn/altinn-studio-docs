@@ -29,7 +29,7 @@ Runtime delegated signing depends on the messaging service ([Correspondence](/co
 
 The message service is used to tell the signee that they have been asked to sign a form in Altinn, and to send them a receipt of what they signed when the signature has been submitted.
 
-See how to get started in [this guide](/nb/correspondence/getting-started/).
+See how to get started in [this guide](/correspondence/getting-started/).
 
 ## Example Application
 In the following [repository](https://altinn.studio/repos/ttd/signering-brukerstyrt), you can find an example of an application with runtime delegated signing.

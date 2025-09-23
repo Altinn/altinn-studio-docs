@@ -105,5 +105,3 @@ Nedenfor finner du et eksempel på en slik policy. For at denne koden skal funge
 Gi `signature-access` til tjenesteeiere. Dette gjør at appen (via Maskinporten) kan skrive og lese data i signaturdokumentene, samtidig som tjenesteeiere kan lese og verifisere signaturer når de måtte ønske det.
 
 Mer informasjon rundt dette konseptet finner du [her](/altinn-studio/concepts/data-model/restricted-data/).
-
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/add-process-task-code-03.en.md" %}}

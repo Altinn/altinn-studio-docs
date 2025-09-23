@@ -14,7 +14,7 @@ hidden: true
 },
 {
   "id": "signing.correspondence_summary_stifter_organisation",
-  "value": "Organisjonen har blitt lagt til som signatar."
+  "value": "The organisation has been added as a signer."
 },
 {
   "id": "signing.correspondence_body_stifter_person",

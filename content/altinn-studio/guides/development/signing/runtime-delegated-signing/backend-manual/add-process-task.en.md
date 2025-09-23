@@ -101,5 +101,3 @@ Below is an example of a policy rule that accomplishes this. For the code to wor
 Give `signature-access` to service owners. This allows bearers of a service owner token to interact with the restricted data in signature objects.
 
 More information about this concept can be found [here](/altinn-studio/concepts/data-model/restricted-data/).
-
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/add-process-task-code-03.en.md" %}}
