@@ -12,6 +12,10 @@ Tilpassede API-scopes lar deg definere API-nivå klienttilgang til applikasjonen
 Tilpasset API scope-funksjonalitet er kun tilgjengelig fra v8.9.0-preview-utgivelser og senere i Altinn.App.Api-biblioteket.
 {{% /notice%}}
 
+{{%notice warning%}}
+Scope-konfigurasjon håndheves ikke ennå i Storage-API-er. Dette vil komme i en fremtidig utgivelse og dokumentasjonen vil bli oppdatert. Vi vil varsle på Slack når dette er tilgjengelig.
+{{% /notice%}}
+
 ## Oversikt
 
 Mens XACML muliggjør granulær tilgangskontroll til de faktiske underliggende ressursene (instanser), implementerer API scope-autorisasjonen

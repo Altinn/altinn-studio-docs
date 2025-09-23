@@ -12,6 +12,10 @@ Custom API scopes allow you to define API-level client access to your applicatio
 Custom API scope functionality is only available from v8.9.0-preview releases and onwards in the Altinn.App.Api library.
 {{% /notice%}}
 
+{{%notice warning%}}
+Scope configuration is not yet enforced in Storage APIs. This will come in a future release and the documentation will be updated. We will notify on Slack when this is available.
+{{% /notice%}}
+
 ## Overview
 
 While XACML enables granular access control to the actual underlying resource (instances), the API scope authorization implements
