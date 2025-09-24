@@ -2,6 +2,7 @@
 title: Registrering av system
 description: Hvordan kan du registrere system
 linktitle: Registrering av system
+hidden: true
 ---
 - SmartCloud AS registrerer deretter SmartCloud system i Altinn systemregister.
    - De definerer de nødvendige rettighetene for å få tilgang til 'Krav og betalinger' ved å knytte klient-ID-en til systemet.
