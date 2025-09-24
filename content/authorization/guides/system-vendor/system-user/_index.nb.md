@@ -8,8 +8,6 @@ aliases:
 ---
 
 
-[System](systemregistration)
-
 ## Tiltak utført av systemleverandøren (SmartCloud AS)
 
 {.floating-bullet-numbers-sibling-ol}
