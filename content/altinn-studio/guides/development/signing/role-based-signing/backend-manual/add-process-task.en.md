@@ -31,7 +31,9 @@ Signing normally uses two user actions. If the Altinn user interface is used by 
 
         <!--
          We have made a default validator that can be enabled here. 
-         It will validate that minCount on the signature data type is fulfilled. 
+         It will validate that the required number of signatures configured is fulfilled.
+         (specified by the `minCount` property on the signature data type)  
+         
          If default validation is not enabled, custom validation of the signatures should be added. 
          -->
         <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
