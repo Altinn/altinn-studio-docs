@@ -105,6 +105,6 @@ Etter registrering brukes verdien i id-feltet når systembruker knyttes til rett
 }
 ```
 
-Se her (https://platform.tt02.altinn.no/accessmanagement/api/v1/meta/info/accesspackages/export) for liste over tilgjengelige tilgangspakker i tt02-miljøet.
+Se [her](https://platform.tt02.altinn.no/accessmanagement/api/v1/meta/info/accesspackages/export) for liste over tilgjengelige tilgangspakker i tt02-miljøet.
 
-Se her (../../../../api/authentication/systemuserapi/systemregister/model/) for en detaljert beskrivelse av hvert enkelt felt. Ved videre kommunikasjon må systemleverandøren referere til verdien angitt i feltet "id".
+Se [her](../../../../../api/authentication/systemuserapi/systemregister/model/) for en detaljert beskrivelse av hvert enkelt felt. Ved videre kommunikasjon må systemleverandøren referere til verdien angitt i feltet "id".
