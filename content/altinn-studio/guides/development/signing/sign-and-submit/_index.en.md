@@ -42,11 +42,10 @@ Finished converted example in `process.xml`:
         </altinn:dataTypesToSign>
         <altinn:signatureDataType>signatures</altinn:signatureDataType>
 
-        <!-- 
-        We have made a default validator that can be enabled here.
-        It will validate that minCount on the signature data type is fulfilled.
-        If default validation is not enabled, custom validation of the signatures should be added.
-        -->
+        <!-- We have made a default validator that can be enabled here. -->
+        <!-- It will validate that the required number of signatures configured is fulfilled. -->
+        <!-- (specified by the `minCount` property on the signature data type) -->
+        <!-- If default validation is not enabled, custom validation of the signatures should be added. -->
         <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
 
       </altinn:signatureConfig>

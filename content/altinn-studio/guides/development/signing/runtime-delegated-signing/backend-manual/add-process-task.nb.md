@@ -52,8 +52,8 @@ Et signeringssteg kan se omtrent slik ut:
         <!-- så kan man oppgi en datatype her av type application/pdf. -->
         <altinn:signingPdfDataType>signing-step-pdf</altinn:signingPdfDataType> <!-- optional -->
 
-        <!-- Vi har laget en standard validator som kan slås på her. Den validerer at -->
-        <!-- alle signatarer har signert og at minCount på signatur-datatypen er oppfylt. -->
+        <!-- Vi har laget en standard validator som kan slås på her. -->
+        <!-- Den validerer at påkrevd antall signaturer (minCount på signatur-datatypen) er oppfylt. -->
         <!-- Om denne ikke slås på, bør man skrive egen validering av signaturer. -->
         <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
       </altinn:signatureConfig>

@@ -29,17 +29,13 @@ Signering består av to brukerhandlinger (user actions). Dersom Altinn-brukergre
         </altinn:dataTypesToSign>
         <altinn:signatureDataType>signatures</altinn:signatureDataType>
 
-        <!-- 
-         Vi har laget en standard validator som kan slås på her. 
-         Den validerer at påkrevd antall signaturer (minCount på signatur-datatypen) er oppfylt. 
-         Om denne ikke slås på, bør man skrive egen validering av signaturer. 
-         -->
+        <!-- Vi har laget en standard validator som kan slås på her. -->
+        <!-- Den validerer at påkrevd antall signaturer (minCount på signatur-datatypen) er oppfylt. -->
+        <!-- Om denne ikke slås på, bør man skrive egen validering av signaturer. -->
         <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
 
-        <!-- 
-         Valgfritt: Hvis du ønsker å sende kvitteringer for utført signatur, kan du spesifisere
-         din correspondence-ressurs i feltet under.
-         -->
+        <!-- Valgfritt: Hvis du ønsker å sende kvitteringer for utført signatur, -->
+        <!-- kan du spesifisere din correspondence-ressurs i feltet under. -->
         <altinn:correspondenceResource>app-correspondence-resource</altinn:correspondenceResource>
       </altinn:signatureConfig>
     </altinn:taskExtension>

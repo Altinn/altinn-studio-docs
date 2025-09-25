@@ -29,19 +29,14 @@ Signing normally uses two user actions. If the Altinn user interface is used by 
         </altinn:dataTypesToSign>
         <altinn:signatureDataType>signatures</altinn:signatureDataType>
 
-        <!--
-         We have made a default validator that can be enabled here. 
-         It will validate that the required number of signatures configured is fulfilled.
-         (specified by the `minCount` property on the signature data type)  
-         
-         If default validation is not enabled, custom validation of the signatures should be added. 
-         -->
+        <!-- We have made a default validator that can be enabled here. -->
+        <!-- It will validate that the required number of signatures configured is fulfilled. -->
+        <!-- (specified by the `minCount` property on the signature data type) -->
+        <!-- If default validation is not enabled, custom validation of the signatures should be added. -->
         <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
 
-        <!-- 
-         Optional: If you wish to send signature receipts, insert your correspondence resource
-         in the property below.
-         -->
+        <!-- Optional: If you wish to send signature receipts, -->
+        <!-- insert your correspondence resource in the property below. -->
         <altinn:correspondenceResource>app-correspondence-resource</altinn:correspondenceResource>
       </altinn:signatureConfig>
     </altinn:taskExtension>
@@ -75,7 +70,7 @@ This data type is used to store the actual signatures that are generated when a 
 }
 ```
 
-The the value of the `id` property _must_ match the value specified in the [signing task](#extend-the-app-process-with-a-signing-task) definition.
+The value of the `id` property _must_ match the value specified in the [signing task](#extend-the-app-process-with-a-signing-task) definition.
 
 It is important to set `allowedContributors` to `"app:owned"`. This ensures that these data items cannot be edited via the app’s API but only by the app itself. Before version 8.6, this was misspelled `allowedContributers`.
 
