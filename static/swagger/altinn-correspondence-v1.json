@@ -611,7 +611,7 @@
                     "items": {
                       "$ref": "#/components/schemas/ExternalReferenceExt"
                     },
-                    "description": "A list of references Senders can use to tell the recipient that the correspondence is related to the referenced item(s)\r\nExamples include Altinn App instances, Altinn Broker File Transfers"
+                    "description": "If an external reference of type DialogportenDialogId is set, a transmission will be created on the existing dialog instead."
                   },
                   "Correspondence.PropertyList": {
                     "type": "object",
