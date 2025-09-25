@@ -47,7 +47,8 @@ The system offers advanced access control, ensuring that only authorized users c
 - Possibility for automated message handling through integrated systems.
 
 ### Integration with Dialogporten and Arbeidsflate
-- An Altinn 3 Message automatically creates a dialogue in "Dialogporten". 
+- An Altinn 3 Message automatically creates a dialogue in "Dialogporten".
+- Messages with an existing dialogue as an external reference will create a transmission which provides a logical display of related messages.
 - The solution provides a unified user interface across the Altinn 3 workspace "Arbeidsflate" and "Dialogporten".
 
 ## Summary of advantages of Altinn Correspondence
