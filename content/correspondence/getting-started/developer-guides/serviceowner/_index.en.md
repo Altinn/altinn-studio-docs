@@ -38,7 +38,7 @@ See [Resource Management](https://docs.altinn.studio/authorization/getting-start
    - "write" meant for senders to send a message.
    - "subscribe" to register event subscriptions in Altinn Events.
       
-      Note: The roles in Altinn II will be replaced by access packages in Altinn 3. Example: the Altinn II role "Mail/archive" is replaced by the access pacage "Ordinær post til virksomheten". We recomend all our serviceowners to use both roles and access packages until June 2026. It's important to thoroughly assess which access package to assign to on each resource. 
+      Note: The roles in Altinn II will be replaced by access packages in Altinn 3. Example: the Altinn II role "Mail/archive" is replaced by the access package "Ordinær post til virksomheten". We recommend all our service owners use both roles and access packages until June 2026. It's important to thoroughly assess which access package to assign to each resource.
 
 Here is an [example policy](https://docs.altinn.studio/correspondence/getting-started/ExamplePolicy.xml).
 
