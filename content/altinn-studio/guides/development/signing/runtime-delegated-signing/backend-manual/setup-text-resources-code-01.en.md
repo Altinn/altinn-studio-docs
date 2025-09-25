@@ -10,19 +10,19 @@ hidden: true
 },
 {
   "id": "signing.correspondence_summary_stifter_person",
-  "value": "You have been added as a signer."
+  "value": "You have been added as a signee."
 },
 {
   "id": "signing.correspondence_summary_stifter_organisation",
-  "value": "The organisation has been added as a signer."
+  "value": "The organisation has been added as a signee."
 },
 {
   "id": "signing.correspondence_body_stifter_person",
-  "value": "You have been added as a signer for founding documents. <br /> $instanceUrl$ <br /><br />"
+  "value": "You have been added as a signee for founding documents. <br /> $instanceUrl$ <br /><br />"
 },
 {
   "id": "signing.correspondence_body_stifter_organisation",
-  "value": "Your organisation has been added as a signer for founding documents. <br /> $instanceUrl$ <br /><br />"
+  "value": "Your organisation has been added as a signee for founding documents. <br /> $instanceUrl$ <br /><br />"
 },
 {
   "id": "signing.notification_content",

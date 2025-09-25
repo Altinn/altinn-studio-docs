@@ -14,9 +14,16 @@ aliases:
 {{% insert "content/altinn-studio/guides/development/signing/role-based-signing/intro.nb.md" %}}
 
 ## Avhengigheter
-Dersom appen skal kunne sende signeringskvittering til innboksen til den som signerer så må oppsett for bruk av meldingstjenesten i Altinn være satt opp.
 
-Se [hvordan](/nb/correspondence/getting-started/) du kommer i gang med det.
+### Maskinporten
+Maskinporten er kreves hvis du ønsker å bruke [meldingstjenesten](#meldingstjenesten) og/eller legge [tilgangs­begrensninger](/nb/altinn-studio/guides/development/restricted-data/) på signaturobjektene.
+
+Hvis du trenger hjelp med oppsett av Maskinporten i din app, finner du all informasjonen du trenger i [denne guiden](/nb/altinn-studio/guides/integration/maskinporten/).
+
+### Meldingstjenesten
+Hvis appen din er [konfigurert til å sende signaturkvitteringer](#utvid-app-prosessen-med-et-signeringssteg), må Altinns meldings­tjeneste (Correspondence) være aktivert.
+
+[Slik kommer du i gang med meldingstjenesten](/nb/correspondence/getting-started/).
 
 ## 1. Legg til en signeringsoppgave i appens prosess, med tilhørende konfigurasjon
 
