@@ -24,7 +24,7 @@ If you need help setting up a Maskinporten integration for your app, you can fin
 ### Correspondence
 If your app is [configured to send signature receipts](#extend-the-app-process-with-a-signing-task), the Altinn message service (Correspondence) must be enabled.
 
-See how to get started in [this guide](/nb/correspondence/getting-started/).
+See how to get started in [this guide](/correspondence/getting-started/).
 
 ## 1. Add a signing task to the app process, with related configuration
 
