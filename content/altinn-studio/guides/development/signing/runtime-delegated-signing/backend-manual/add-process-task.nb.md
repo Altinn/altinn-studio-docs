@@ -3,7 +3,7 @@ headless: true
 hidden: true
 ---
 
-#### Utvid app prossesen med signing task
+#### Utvid app-prosessen med et signeringssteg
 
 Det må legges til et signeringssteg i appens prosess, som er definert i `App/config/process/process.bpmn`.
 
@@ -80,7 +80,7 @@ Denne datatypen benyttes for å lagre informasjon om signatarene og statusen der
 
 Det er viktig å sette `allowedContributors`, `actionRequiredToRead` og `actionRequiredToWrite` som beskrevet i eksemplene over. Dette gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv.
 
-Datatypenes ID-er må matche ID-ene som legges inn i `signatureDataType` og `signeeStatesDataTypeId` i prossesskonfigurasjonen.
+Datatypenes ID-er må matche ID-ene som legges inn i `signatureDataType` og `signeeStatesDataTypeId` i prosesskonfigurasjonen.
 
 
 #### Tilgangsstyring for brukere
@@ -104,4 +104,4 @@ Nedenfor finner du et eksempel på en slik policy. For at denne koden skal funge
 #### Tilgangsstyring for tjenesteeiere
 Gi `signature-access` til tjenesteeiere. Dette gjør at appen (via Maskinporten) kan skrive og lese data i signaturdokumentene, samtidig som tjenesteeiere kan lese og verifisere signaturer når de måtte ønske det.
 
-Mer informasjon rundt dette konseptet finner du [her](/altinn-studio/concepts/data-model/restricted-data/).
+Mer informasjon rundt dette konseptet finner du [her](/nb/altinn-studio/concepts/data-model/restricted-data/).

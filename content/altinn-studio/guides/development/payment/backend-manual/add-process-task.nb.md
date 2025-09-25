@@ -5,7 +5,7 @@ hidden: true
 > Her følger en beskrivelse for hvordan man setter opp en betalingsoppgave i prosessen. Dette involverer flere steg, i flere konfigurasjonsfiler.
 > Om du bruker Altinn Studio Designer, så blir all denne konfigurasjonen satt opp automatisk når du legger til betalingsoppgaven i prosessen.
 
-### Opprett to datatyper for å lagre betalingsinformasjon:
+### Opprett to datatyper for å lagre betalingsinformasjon
 
 Den første datatypen benyttes av betalingssteget for å lagre informasjon og status om betalingen. Legg den i `App/config/applicationmetadata.json` sin `dataTypes`-array. 
 
@@ -41,9 +41,9 @@ Den andre datatypen benyttes for å lagre PDF-kvittering for betalingen. Legg de
 
 Det er viktig å sette `allowedContributors` til ```"app:owned"```. Det gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv. Før versjon 8.6 var denne konfigurasjonen feilstavet `allowedContributers`.
 
-ID-ene kan settes til noe annet, men det må matche ID-ene som legges inn i `paymentDataType` og `paymentReceiptPdfDataType` i prossessteget, som vist i punktet under.
+ID-ene kan settes til noe annet, men det må matche ID-ene som legges inn i `paymentDataType` og `paymentReceiptPdfDataType` i prosessteget, som vist i punktet under.
 
-### Utvid app prossesen med payment task:
+### Utvid app prosessen med payment task
 
 Det må legges til et prosessteg og en gateway i `App/config/process/process.bpmn`, som i eksemplet nedenfor.
 

@@ -66,8 +66,10 @@ $(document).ready(function() {
      * When clicking a link navigating directly to an 'expandlarge' shortcode section, automatically open it
      */
     function expandHashTarget() {
-        const id = (window.location.hash || '#').substring(1);
+        let id = (window.location.hash || '#').substring(1);
         if (id != null && id.length > 0) {
+            id = decodeURIComponent(id).replace('æ', 'ae').replace('ø', 'oe').replace('å', 'aa');
+
             const potentialExpanders = [
                 document.getElementById(id),
                 document.getElementById(id + '-expander'),

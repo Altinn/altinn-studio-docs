@@ -3,7 +3,7 @@ headless: true
 hidden: true
 ---
 
-#### Utvid app-prossesen med et signeringssteg
+#### Utvid app-prosessen med et signeringssteg
 Det må legges til et prosessteg i `App/config/process/process.bpmn`, som i eksemplet nedenfor.
 
 {{% notice info %}}
@@ -71,7 +71,7 @@ Den benyttes av signeringssteget til å lagre de faktiske signaturene som genere
 }
 ```
 
-Verdien av `id`-feltet _må_ samstemme med verdien som har blitt spesifisert i [signeringssteget](#utvid-app-prossesen-med-et-signeringssteg).
+Verdien av `id`-feltet _må_ samstemme med verdien som har blitt spesifisert i [signeringssteget](#utvid-app-prosessen-med-et-signeringssteg).
 
 Det er viktig å sette `allowedContributors` til `"app:owned"`. Det gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv. Før versjon 8.6 var denne konfigurasjonen feilstavet `allowedContributers`.
 
