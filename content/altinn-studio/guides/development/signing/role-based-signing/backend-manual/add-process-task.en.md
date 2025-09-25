@@ -73,7 +73,7 @@ This data type is used to store the actual signatures that are generated when a 
 }
 ```
 
-The the value of the `id` property carry no special meaning here, but it _must_ match the value specified in the [signing task](#extend-the-app-process-with-a-signing-task) definition.
+The the value of the `id` property _must_ match the value specified in the [signing task](#extend-the-app-process-with-a-signing-task) definition.
 
 It is important to set `allowedContributors` to `"app:owned"`. This ensures that these data items cannot be edited via the app’s API but only by the app itself. Before version 8.6, this was misspelled `allowedContributers`.
 
