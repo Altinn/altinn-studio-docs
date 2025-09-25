@@ -99,4 +99,4 @@ Systembrukeren kan opprettes på to måter
 Se [Samarbeisportalen](https://samarbeid.digdir.no/altinn/systembruker/2542) for illustrert og webinar.
 {.mt-3}
 
-se [api dokumentasjon](../../../../api/authentication/systemuserapi/) for mer informasjon om endepunkter.
+se [api dokumentasjon](../../../../../api/authentication/systemuserapi/) for mer informasjon om endepunkter.
