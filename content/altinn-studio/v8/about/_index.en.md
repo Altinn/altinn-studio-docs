@@ -1,9 +1,6 @@
 ---
 title: About Altinn Studio
 description: Altinn Studio a platform that lets you develop, operate, and manage public digital services for citizens and businesses.
-aliases:
-- /altinn-studio/
-- /technology/altinnstudio/solutions/altinn-studio/
 weight: 10
 cascade:
   params:

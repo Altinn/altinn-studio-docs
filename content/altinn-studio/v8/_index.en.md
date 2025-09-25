@@ -1,10 +1,12 @@
 ---
-title: Altinn Studio V8
+title: Altinn Studio
+linktitle: Altinn Studio
+breadcrumbText: Current (V8)
 description: Altinn Studio - Your tool for developing digital services for citizens and businesses
 aliases:
-- /altinn-studio/
-- /teknologi/altinnstudio/solutions/altinn-studio/
-- /app/
+- /en/altinn-studio/
+- /en/teknologi/altinnstudio/solutions/altinn-studio/
+- /en/app/
 weight: 1
 cascade:
   params:

@@ -1,11 +1,8 @@
 ---
 title: Altinn Studio V9
 description: Altinn Studio - Your tool for developing digital services for citizens and businesses
-aliases:
-- /altinn-studio/
-- /teknologi/altinnstudio/solutions/altinn-studio/
-- /app/
 weight: 1
+draft: true
 cascade:
   params:
     product: product_studio

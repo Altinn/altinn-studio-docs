@@ -1,8 +1,6 @@
 ---
 title: Om Altinn Studio
 description: Altinn Studio er et produkt som lar deg utvikle, drifte og forvalte offentlige digitale tjenester til innbyggere og næringsliv.
-aliases:
-- /nb/teknologi/altinnstudio/solutions/altinn-studio/
 weight: 10
 cascade:
   params:
