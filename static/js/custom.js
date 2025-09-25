@@ -66,8 +66,16 @@ $(document).ready(function() {
      * When clicking a link navigating directly to an 'expandlarge' shortcode section, automatically open it
      */
     function expandHashTarget() {
-        const id = (window.location.hash || '#').substring(1);
+        let id = (window.location.hash || '#').substring(1);
         if (id != null && id.length > 0) {
+            id = decodeURIComponent(id)
+                .replace(/æ/g, 'ae')
+                .replace(/Æ/g, 'Ae')
+                .replace(/ø/g, 'oe')
+                .replace(/Ø/g, 'Oe')
+                .replace(/å/g, 'aa')
+                .replace(/Å/g, 'Aa');
+
             const potentialExpanders = [
                 document.getElementById(id),
                 document.getElementById(id + '-expander'),
