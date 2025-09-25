@@ -29,7 +29,7 @@ Du kan motta varsler om hendelser knyttet til sendte formidlingstjenester, ved �
 - Mulighet for å sende meldinger med Markdown, HTML eller ren tekst.
 - Støtte for opptil 100 vedlegg per melding.
 - Støtte for mange filtyper: .doc, .xls, .docx, .xlsx, .ppt, .pps, .zip, .pdf, .html, .txt, .xml, .jpg, .gif, .bmp, .png og .json.
-- Støtte for vedlegg opp til 2 GB.
+- Støtte for vedlegg opptil 2 GB.
 
 ### Avansert støtte for lenking til innhold og vedlegg
 - Som alternativ til å sende meldingsinnhold og vedlegg direkte i meldingene,
