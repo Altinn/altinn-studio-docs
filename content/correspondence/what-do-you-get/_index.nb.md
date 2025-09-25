@@ -48,7 +48,8 @@ Du kan motta varsler om hendelser knyttet til sendte formidlingstjenester, ved �
 - Mulighet for automatisert meldingshåndtering via integrerte systemer.
 
 ### Integrasjon med Dialogporten og Arbeidsflate
-- En Altinn 3 Melding oppretter automatisk en dialog i Dialogporten. 
+- En Altinn 3 Melding oppretter automatisk en dialog i Dialogporten.
+- Meldinger med en eksisterende dialog som ekstern referanse vil opprette en transmission som gir en logisk fremstilling av relaterte meldinger.
 - Løsningen gir et enhetlig brukergrensesnitt på tvers gjennom Altinn 3 Arbeidsflate og Dialogporten.
 
 ## Oppsummering av fordelene med Altinn Melding?
