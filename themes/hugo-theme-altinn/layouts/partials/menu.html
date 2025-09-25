@@ -70,7 +70,7 @@
         {{- range .Site.Home.Sections.ByTitle -}}
           {{- $sectionPath := strings.TrimPrefix "/" .RelPermalink -}}
           {{- $sectionPath = strings.TrimSuffix "/" $sectionPath -}}
-          {{- if not (or (eq .LinkTitle "altinn-studio") (eq .Title "altinn-studio") (eq $sectionPath "altinn-studio")) -}}
+          {{- if not (or (eq .LinkTitle "altinn-studio") (eq .Title "altinn-studio") (eq $sectionPath "altinn-studio") (eq $sectionPath "en/altinn-studio")) -}}
             <div class="menu-section" data-section="{{ $sectionPath }}">
               {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
             </div>
@@ -80,7 +80,7 @@
         {{- range .Site.Home.Sections.ByWeight -}}
           {{- $sectionPath := strings.TrimPrefix "/" .RelPermalink -}}
           {{- $sectionPath = strings.TrimSuffix "/" $sectionPath -}}
-          {{- if not (or (eq .LinkTitle "altinn-studio") (eq .Title "altinn-studio") (eq $sectionPath "altinn-studio")) -}}
+          {{- if not (or (eq .LinkTitle "altinn-studio") (eq .Title "altinn-studio") (eq $sectionPath "altinn-studio") (eq $sectionPath "en/altinn-studio")) -}}
             <div class="menu-section" data-section="{{ $sectionPath }}">
               {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
             </div>
@@ -88,18 +88,41 @@
         {{- end -}}
       {{- end -}}
 
-      {{- /* Add main altinn-studio section with version handling */ -}}
+      {{- /* Add main altinn-studio section with flattened version handling */ -}}
       {{- $altinnStudioPage := .Site.GetPage "/altinn-studio" -}}
+      {{- $altinnStudioPageEnglish := .Site.GetPage "/en/altinn-studio" -}}
+      {{- if and (not $altinnStudioPage) $altinnStudioPageEnglish -}}
+        {{- $altinnStudioPage = $altinnStudioPageEnglish -}}
+      {{- end -}}
       {{- if $altinnStudioPage -}}
         {{- $altinnStudioPath := strings.TrimPrefix "/" $altinnStudioPage.RelPermalink -}}
         {{- $altinnStudioPath = strings.TrimSuffix "/" $altinnStudioPath -}}
         <div class="menu-section" data-section="{{ $altinnStudioPath }}" data-version-container="true">
-          <!-- Version-specific content sections -->
+          <!-- Version sections as direct root menu items -->
           {{- range $altinnStudioPage.Sections -}}
             {{- $versionPath := strings.TrimPrefix "/" .RelPermalink -}}
             {{- $versionPath = strings.TrimSuffix "/" $versionPath -}}
             <div class="version-section" data-version-section="{{ $versionPath }}" style="display: none;">
-              {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
+              <!-- Version as root menu item -->
+              <li class="dd-item parent version-root-item">
+                <a href="{{ .RelPermalink }}">
+                  <span>{{safeHTML .Params.Pre}}{{ .LinkTitle }}{{safeHTML .Params.Post}}</span>
+                  <i class="fa fa-sort-down fa-lg category-icon"></i>
+                  {{- if $showvisitedlinks -}}
+                    <i style="color:grey" class="fa fa-circle-thin read-icon"></i>
+                  {{- end -}}
+                </a>
+                <ul class="version-content">
+                  {{- /* Show only the sections (children) of the version */ -}}
+                  {{- if .Sections -}}
+                    {{- range .Sections -}}
+                      {{- if not .Params.hidden -}}
+                        {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
+                      {{- end -}}
+                    {{- end -}}
+                  {{- end -}}
+                </ul>
+              </li>
             </div>
           {{- end -}}
         </div>
@@ -198,6 +221,16 @@
         }
         .version-section {
           padding-top: 10px;
+        }
+        
+        /* Ensure version root menu items are always visible */
+        .version-root-item {
+          display: block !important;
+        }
+        
+        /* Prevent duplicate menu items */
+        .version-content .version-section > li {
+          list-style: none;
         }
       </style>
 
@@ -356,16 +389,25 @@
               }
             }
 
-            // Show the appropriate version section
+            // Default to current version (v8) if no version specified
+            if (!currentVersion) {
+              currentVersion = 'v8'; // Default to current version
+            }
+
+            // Hide all version sections first
             var versionSections = container.querySelectorAll('.version-section');
+            for (var i = 0; i < versionSections.length; i++) {
+              versionSections[i].style.display = 'none';
+            }
+
+            // Show only the matching version section
             for (var i = 0; i < versionSections.length; i++) {
               var versionSection = versionSections[i];
               var sectionPath = versionSection.getAttribute('data-version-section');
 
               if (currentVersion && sectionPath && sectionPath.indexOf(currentVersion) !== -1) {
                 versionSection.style.display = 'block';
-              } else {
-                versionSection.style.display = 'none';
+                break; // Only show one version section
               }
             }
           }
