@@ -10,7 +10,7 @@ aliases:
 
 {{% insert "content/altinn-studio/guides/development/restricted-data/shared/style.css.md" %}}
 
-## What does sign and submit mean?
+## What is "sign and submit"?
 {{% insert "content/altinn-studio/guides/development/signing/sign-and-submit/intro.en.md" %}}
 
 ## Prerequisites
