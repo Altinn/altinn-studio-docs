@@ -33,15 +33,19 @@ Se [Ressursadministrasjon](https://docs.altinn.studio/nb/authorization/getting-s
 ### 4. Opprett en ressurs {#registeraresourceinaltinnresourceregistry}
 
 1. Logg inn på Altinn Studio og naviger til ressursdashboardet.
-2. Opprett ny ressurs, følg veiledningen og fyll inn nødvendig informasjon og detaljer om tjenesten: Se [Ressursregister](https://docs.altinn.studio/nb/authorization/guides/resource-owner/create-resource-resource-admin/#trinn-1-opprett-ressurs) for en detaljert veiledning.
-3. Angi tilgangsregler for ressursen. Tilgangsregler for ressursen må konfigureres slik at de tillater følgende handlinger:
+2. Opprett ny ressurs, følg veiledningen og fyll inn nødvendig informasjon og detaljer om tjenesten. Se [Ressursregister](https://docs.altinn.studio/nb/authorization/guides/resource-owner/create-resource-resource-admin/#trinn-1-opprett-ressurs) for en detaljert veiledning.
+3. Opprett policy: her angis tilgangsregler for ressursen. Tilgangsregler for ressursen må konfigureres slik at de tillater følgende handlinger:
    - "read" ment for at mottakere skal kunne åpne og lese en melding.
    - "write" ment for at avsendere skal kunne sende en melding.
    - "subscribe" for å registrere hendelsesabonnement i Altinn Events.
 
+   Obs. Altinn II rollene erstattes av tilgangspakker i Altinn 3. Eksempel: den gamle rollen "Post/arkiv" er erstattet av tilgangspakke "Ordinær post til virksomheten". Frem til juni 2026 anbefaler vi at man setter både roller og tilgangspakker på ressursen. Det er viktig at å ta en grundig vurdering på hvilken tilgangspakke ressursen skal ha.
+
 Her er en [eksempelpolicy](https://docs.altinn.studio/nb/correspondence/getting-started/ExamplePolicy.xml).
 
+{{% notice warning  %}}
 **Viktig**: Som tjenesteeier trenger du kun å sette opp "read"-regler via tilgangspakker i GUI-et.
+{{% /notice %}}
 
 Merk at denne eksempelpolicyen angir en påkrevd brukerrolle "DAGL(daglig leder)" for brukeren som har tilgang til ressursen. Med en så åpen policy er det anbefalt å bruke [Ressursrettighetsregister](https://docs.altinn.studio/nb/authorization/what-do-you-get/resourceregistry/) (gå til engelsk språk for å se dokumentasjon for RRR) for å gi tilgang til spesifikke organisasjoner.
 En bruker med denne tilgangen kan deretter delegere tilgangen til virksomhetsbrukeren/systembrukeren
