@@ -70,7 +70,7 @@
         {{- range .Site.Home.Sections.ByTitle -}}
           {{- $sectionPath := strings.TrimPrefix "/" .RelPermalink -}}
           {{- $sectionPath = strings.TrimSuffix "/" $sectionPath -}}
-          {{- if not (or (eq .LinkTitle "altinn-studio") (eq .Title "altinn-studio") (eq $sectionPath "altinn-studio") (eq $sectionPath "en/altinn-studio")) -}}
+          {{- if not (or (eq .LinkTitle "altinn-studio") (eq .Title "altinn-studio") (eq $sectionPath "altinn-studio") (eq $sectionPath "en/altinn-studio") (eq $sectionPath "nb/altinn-studio")) -}}
             <div class="menu-section" data-section="{{ $sectionPath }}">
               {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
             </div>
@@ -80,7 +80,7 @@
         {{- range .Site.Home.Sections.ByWeight -}}
           {{- $sectionPath := strings.TrimPrefix "/" .RelPermalink -}}
           {{- $sectionPath = strings.TrimSuffix "/" $sectionPath -}}
-          {{- if not (or (eq .LinkTitle "altinn-studio") (eq .Title "altinn-studio") (eq $sectionPath "altinn-studio") (eq $sectionPath "en/altinn-studio")) -}}
+          {{- if not (or (eq .LinkTitle "altinn-studio") (eq .Title "altinn-studio") (eq $sectionPath "altinn-studio") (eq $sectionPath "en/altinn-studio") (eq $sectionPath "nb/altinn-studio")) -}}
             <div class="menu-section" data-section="{{ $sectionPath }}">
               {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
             </div>
