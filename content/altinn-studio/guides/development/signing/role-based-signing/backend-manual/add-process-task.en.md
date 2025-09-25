@@ -49,7 +49,7 @@ Signing normally uses two user actions. If the Altinn user interface is used by 
 </bpmn:task>
 ```
 
-If you have chosen to send signing receipts by specify a correspondence resource, you can find additional details that configuration [here](/altinn-studio/guides/development/signing/runtime-delegated-signing/#configure-environment-specific-correspondence-resources).
+If you have chosen to send signing receipts by specifying a correspondence resource, you can find additional details that configuration [here](/altinn-studio/guides/development/signing/runtime-delegated-signing/#configure-environment-specific-correspondence-resources).
 
 #### Add data types for storing signing related data
 The value of the node `<altinn:signatureDataType>signatures</altinn:signatureDataType>` must match the ID of the data type you configured in the previous step.
