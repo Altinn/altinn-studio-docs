@@ -7,6 +7,7 @@ aliases:
   - nb/authentication/guides/systemvendor/
 ---
 
+
 ## Tiltak utført av systemleverandøren (SmartCloud AS)
 
 {.floating-bullet-numbers-sibling-ol}
