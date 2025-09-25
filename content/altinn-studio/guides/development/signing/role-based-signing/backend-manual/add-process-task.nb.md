@@ -31,7 +31,7 @@ Signering består av to brukerhandlinger (user actions). Dersom Altinn-brukergre
 
         <!-- 
          Vi har laget en standard validator som kan slås på her. 
-         Den validerer at minCount på signatur-datatypen er oppfylt. 
+         Den validerer at påkrevd antall signaturer (minCount på signatur-datatypen) er oppfylt. 
          Om denne ikke slås på, bør man skrive egen validering av signaturer. 
          -->
         <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
