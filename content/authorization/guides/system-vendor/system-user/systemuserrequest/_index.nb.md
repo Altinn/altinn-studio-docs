@@ -57,12 +57,12 @@ Systembrukeren kan opprettes på to måter
        "confirmUrl": "https://am.ui.tt02.altinn.no/accessmanagement/ui/systemuser/request?id=505f8488-3d48-4c15-8e21-35cb9432f815"
      }
      ```
-   - Bekreftelseslenken (`confirmurl`) sendes til sluttbrukeren for godkjenning. Følg veiledningen for [sluttbruker for Standard systembruker](../../end-user/system-user/#veiledning-for-sluttbruker-stadig-konsert-dagligleder-til-tilfeldig-subtil-ape) for å håndtere forespørselen.
+   - Bekreftelseslenken (`confirmurl`) sendes til sluttbrukeren for godkjenning. Følg veiledningen for [sluttbruker for Standard systembruker](../../../end-user/system-user/#veiledning-for-sluttbruker-stadig-konsert-dagligleder-til-tilfeldig-subtil-ape) for å håndtere forespørselen.
 
 ### Opprettelse av en systembruker for agentsystembruker
 
 - Systembrukeren for en agentsystembruker kan kun opprettes ved en forespørsel fra en systembruker.
-- SmartCloud AS oppretter en systembrukerforespørsel (via Altinn API for systembrukerforespørsel) fra SmartCloud, som deretter sendes til Altinn. For detaljert informasjon om hvert inputfelt, se dokumentasjonen [her](../../../../api/authentication/systemuserapi/systemuserrequest/external/model/)
+- SmartCloud AS oppretter en systembrukerforespørsel (via Altinn API for systembrukerforespørsel) fra SmartCloud, som deretter sendes til Altinn. For detaljert informasjon om hvert inputfelt, se dokumentasjonen [her](../../../../../api/authentication/systemuserapi/systemuserrequest/external/model/)
   ```json
   {
     "externalRef": "smartcloud_demo_agent_test",
@@ -94,7 +94,7 @@ Systembrukeren kan opprettes på to måter
     "confirmUrl": "https://am.ui.tt02.altinn.no/accessmanagement/ui/systemuser/agentrequest?id=605bb239-23b1-4d11-aae8-a40eb683aa1f"
   }
   ```
-- Bekreftelseslenken (`confirmurl`) sendes til sluttbrukeren, her revisjonsorganisasjonen, for godkjenning. Når den er godkjent, kan sluttbrukeren legge til klienter til systembrukeren. Følg veiledningen for sluttbruker for [Agent systembruker](../../end-user/system-user/#veiledning-for-sluttbruker-dress-minst-klientadministratør-i-tilbakeholden-usymmetrisk-tiger-as-)
+- Bekreftelseslenken (`confirmurl`) sendes til sluttbrukeren, her revisjonsorganisasjonen, for godkjenning. Når den er godkjent, kan sluttbrukeren legge til klienter til systembrukeren. Følg veiledningen for sluttbruker for [Agent systembruker](../../../end-user/system-user/#veiledning-for-sluttbruker-dress-minst-klientadministratør-i-tilbakeholden-usymmetrisk-tiger-as-)
 
 Se [Samarbeisportalen](https://samarbeid.digdir.no/altinn/systembruker/2542) for illustrert og webinar.
 {.mt-3}
