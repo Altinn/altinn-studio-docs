@@ -24,7 +24,7 @@ Steget vil fremdeles fungere som et vanlig datasteg, bare at man i tillegg kan s
 
 1. Endre `taskType` på datasteget til `signing`.
 2. Legg til `sign` action som en mulig handling.
-3. Anngi hvilke data som skal signeres på i `<altinn:dataTypesToSign>`, feks. skjemadataene i datamodellen.
+3. Anngi hvilke data som skal signeres på i `<altinn:dataTypesToSign>`, f.eks. skjemadataene i datamodellen.
 5. Oppgi en datatype i `<altinn:signatureDataType>`. Hvordan den bør se ut finner du nedenfor.
 
 Ferdig konvertert eksempel i `process.xml`:
@@ -61,21 +61,19 @@ Datatypen i `applicationmetadata.json`:
 ```json
 {
   "id": "signatures",
-  "allowedContentTypes": [
-  "application/json"
-  ],
+  "allowedContentTypes": ["application/json"],
   "allowedContributors": ["app:owned"],
   "maxCount": 1,
   "minCount": 1
 }
 ```
 
-Det er viktig å sette `allowedContributors` til ```"app:owned"```. Det gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv. Før versjon 8.6 var denne konfigurasjonen feilstavet `allowedContributers`.
+Det er viktig å sette `allowedContributors` til `"app:owned"`. Det gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv. Før versjon 8.6 var denne konfigurasjonen feilstavet `allowedContributers`.
 
 ## Tilgangsstyring
-Sørg for at den som fyller ut skjema har rettighet til å utføre action `sign`.
+Sørg for at den som fyller ut skjemaet har rettighet til å utføre action `sign`.
 
-Man kan feks. legge til dette rett ved der vedkommede får read og write.
+Man kan f.eks. legge til dette rett ved der vedkommende får `read` og `write`:
 
 ```xml
 ...

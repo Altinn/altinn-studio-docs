@@ -44,7 +44,7 @@ Et signeringssteg kan se omtrent slik ut:
         <!-- ISigneeProvider som skal benyttes for dette signeringssteget. -->
         <altinn:signeeProviderId>signees</altinn:signeeProviderId>
 
-        <!-- Her oppgis en correspondence resource, som brukes for å si fra til signaterene -->
+        <!-- Her oppgis en correspondence resource, som brukes for å si fra til signatarene -->
         <!-- om at de må inn og signere, samt signeringskvittering. Påkrevd. -->
         <altinn:correspondenceResource>app-correspondence-resource</altinn:correspondenceResource>
 

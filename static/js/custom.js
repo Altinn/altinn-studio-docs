@@ -68,7 +68,13 @@ $(document).ready(function() {
     function expandHashTarget() {
         let id = (window.location.hash || '#').substring(1);
         if (id != null && id.length > 0) {
-            id = decodeURIComponent(id).replace('æ', 'ae').replace('ø', 'oe').replace('å', 'aa');
+            id = decodeURIComponent(id)
+                .replace(/æ/g, 'ae')
+                .replace(/Æ/g, 'Ae')
+                .replace(/ø/g, 'oe')
+                .replace(/Ø/g, 'Oe')
+                .replace(/å/g, 'aa')
+                .replace(/Å/g, 'Aa');
 
             const potentialExpanders = [
                 document.getElementById(id),

@@ -61,7 +61,7 @@ If the Altinn user interface is used by the application, these actions will be t
 </bpmn:task>
 ```
 
-#### Configure environment specific correspondence resources
+#### Configure environment-specific correspondence resources
 {{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/add-process-task-environments.en.md" %}}
 
 #### Add data types for storing signing related data

@@ -39,11 +39,11 @@ Den andre datatypen benyttes for å lagre PDF-kvittering for betalingen. Legg de
 }
 ```
 
-Det er viktig å sette `allowedContributors` til ```"app:owned"```. Det gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv. Før versjon 8.6 var denne konfigurasjonen feilstavet `allowedContributers`.
+Det er viktig å sette `allowedContributors` til `"app:owned"`. Det gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv. Før versjon 8.6 var denne konfigurasjonen feilstavet `allowedContributers`.
 
 ID-ene kan settes til noe annet, men det må matche ID-ene som legges inn i `paymentDataType` og `paymentReceiptPdfDataType` i prosessteget, som vist i punktet under.
 
-### Utvid app prosessen med payment task
+### Utvid app-prosessen med payment task
 
 Det må legges til et prosessteg og en gateway i `App/config/process/process.bpmn`, som i eksemplet nedenfor.
 
