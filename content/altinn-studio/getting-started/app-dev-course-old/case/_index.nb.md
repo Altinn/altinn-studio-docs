@@ -214,8 +214,8 @@ Vi er beæret over å motta en '1337' innbygger til Sogndal kommune!
 
 {{% /expandlarge %}}
 
-### Dataprossessering av ugyldig gateadresse
-{{% expandlarge id="dataprossesering-expandable" header="Krav" %}}
+### Dataprosessering av ugyldig gateadresse
+{{% expandlarge id="dataprosessering-expandable" header="Krav" %}}
 
 En av kommunens databehandlere har sett seg lei av å manuelt rette opp i en gateadresse som ofte blir skrevet feil av innflyttere.
 Vi ønsker derfor å programmatisk fikse opp i dette under utfyllingen av appen.

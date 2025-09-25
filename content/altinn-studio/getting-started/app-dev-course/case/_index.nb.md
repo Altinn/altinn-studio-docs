@@ -84,7 +84,7 @@ Følgende er det ønskelig at reflekteres i tjenesten:
 
 
 ## Alternativ arbeidsflyt (sporvalg)
-{{% expandlarge id="sporvalg-expandable" header="Krav" %}}
+{{% expandlarge id="alternativ-arbeidsflyt-sporvalg-expandable" header="Krav" %}}
 
 En bruker som ikke oppfyller kravene for skjemaet skal stoppes så tidlig som mulig i arbeidsflyten.
 
@@ -112,7 +112,7 @@ Basert på svaret skal brukeren sendes videre til _Spor 1_ eller _Spor 2_.
 {{% /expandlarge %}}
 
 ## Forhåndsutfylling av personopplysninger
-{{% expandlarge id="prefill-expandable" header="Krav" %}}
+{{% expandlarge id="forhaandsutfylling-av-personopplysninger-expandable" header="Krav" %}}
 
 - Følgende verdier skal forhåndsutfylles for brukeren:
   - Fornavn: Innflytter.Fornavn
@@ -128,7 +128,7 @@ Basert på svaret skal brukeren sendes videre til _Spor 1_ eller _Spor 2_.
 
 
 ## Differensiert datagrunnlag for offentlig og privat sektor
-{{% expandlarge id="options-expandable" header="Krav" %}}
+{{% expandlarge id="differensiert-datagrunnlag-for-offentlig-og-privat-sektor-expandable" header="Krav" %}}
 
 Vi ønsker at brukerne skal ha et ulikt sett med svaralternativer for bransjevalget
 basert på hvilken sektor de har krysset av for.
@@ -140,7 +140,7 @@ basert på hvilken sektor de har krysset av for.
 
 
 ## Skreddersydd tilbud for IT-kompetanse
-{{% expandlarge id="dynamics-expandable" header="Krav" %}}
+{{% expandlarge id="skreddersydd-tilbud-for-it-kompetanse-expandable" header="Krav" %}}
 
 Vi ønsker at dersom brukeren velger `IKT (data/it)` under bransje at det vises en tekst med en lenke til en av våre stillingsutlysninger.
 
@@ -157,7 +157,7 @@ Tekst og lenke skal **kun** vises om man har valgt `IKT (data/it)`. I alle andre
 
 
 ## Bekreftelse før innsending
-{{% expandlarge id="bekreftelse-expandable" header="Krav" %}}
+{{% expandlarge id="bekreftelse-foer-innsending-expandable" header="Krav" %}}
 
 Vi ønsker at brukeren før innsending presenteres for hva dataen skal benyttes til
 og samtykker (indirekte) til dette ved å sende inn skjemaet.
@@ -190,7 +190,7 @@ Før du sender inn vil vi anbefale å se over svarene dine. Du kan ikke endre sv
 {{% /expandlarge %}}
 
 ## Innhenting av tidligere bosteder
-{{% expandlarge id="bosteder-expandable" header="Krav" %}}
+{{% expandlarge id="innhenting-av-tidligere-bosteder-expandable" header="Krav" %}}
 
 For å kunne skreddersy et best mulig tilbud til nye innflyttere, ønsker vi oss en oversikt over tidligere bosteder til innflytteren.
 
@@ -206,7 +206,7 @@ Det skal være mulig å legge inn opptill 10 tidligere bosteder.
 {{% /expandlarge %}}
 
 ## Validering av tidligere bosteder
-{{% expandlarge id="vendetta-expandable" header="Krav" %}}
+{{% expandlarge id="validering-av-tidligere-bosteder-expandable" header="Krav" %}}
 
 Dersom innflytter fyller inn postnummer `1337` som et av tidligere bosteder må vedkommende
  bekrefte sin uovertruffenhet ved å legge til et symbol i adressefeltet før de kan gå videre.
@@ -220,8 +220,8 @@ Vi er beæret over å motta en '1337' innbygger til Sogndal kommune!
 
 {{% /expandlarge %}}
 
-## Dataprossessering av ugyldig gateadresse
-{{% expandlarge id="dataprossesering-expandable" header="Krav" %}}
+## Dataprosessering av ugyldig gateadresse
+{{% expandlarge id="dataprosessering-av-ugyldig-gateadresse-expandable" header="Krav" %}}
 
 En av kommunens databehandlere har sett seg lei av å manuelt rette opp i en gateadresse som ofte blir skrevet feil av innflyttere.
 Vi ønsker derfor å programmatisk fikse opp i dette under utfyllingen av skjemaet i tjenesten.

@@ -37,10 +37,14 @@ See [Resource Management](https://docs.altinn.studio/authorization/getting-start
    - "read" meant for recipients to open and read a message.
    - "write" meant for senders to send a message.
    - "subscribe" to register event subscriptions in Altinn Events.
+      
+      Note: The roles in Altinn II will be replaced by access packages in Altinn 3. Example: the Altinn II role "Mail/archive" is replaced by the access package "Ordinær post til virksomheten". We recommend all our service owners use both roles and access packages until June 2026. It's important to thoroughly assess which access package to assign to each resource.
 
 Here is an [example policy](https://docs.altinn.studio/correspondence/getting-started/ExamplePolicy.xml).
 
+{{% notice warning  %}}
 **Important**: As a service owner, you only need to configure "read" rules via access packages in the GUI.
+{{% /notice %}}
 
 Note that this example policy sets a required user role "DAGL" for the user who has access to the resource, and requires the use of [Resource Rights Registry](https://docs.altinn.studio/authorization/what-do-you-get/resourceregistry/rrr/) to grant access to specific organisations.
 A user with that access can then delegate the access to the enterprise user / system user.

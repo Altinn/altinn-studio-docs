@@ -1,4 +1,5 @@
 ---
+headless: true
 hidden: true
 ---
 
@@ -51,34 +52,34 @@ Eksempel på bruk av komponentene:
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
-    {
-      "id": "headerSigningFounders",
-      "type": "Header",
-      "size": "L",
-      "textResourceBindings": {
-        "title": "Her kan man ha en overskrift"
+      {
+        "id": "headerSigningFounders",
+        "type": "Header",
+        "size": "L",
+        "textResourceBindings": {
+          "title": "Her kan man ha en overskrift"
+        }
+      },
+      {
+        "id": "signing-documents",
+        "type": "SigningDocumentList",
+        "textResourceBindings": {
+          "title": "Dokumenter som skal signeres",
+          "description": "Dokumenter som skal signeres beskrivelse"
+        }
+      },
+      {
+        "id": "signee-list",
+        "type": "SigneeList",
+        "textResourceBindings": {
+          "title": "Signaturer"
+        }
+      },
+      {
+        "id": "signing-actions",
+        "type": "SigningActions"
       }
-    },
-    {
-      "id": "signing-documents",
-      "type": "SigningDocumentList",
-      "textResourceBindings": {
-        "title": "Dokumenter som skal signeres",
-        "description": "Dokumenter som skal signeres beskrivelse"
-      }
-    },
-    {
-      "id": "signee-list",
-      "type": "SigneeList",
-      "textResourceBindings": {
-        "title": "Signaturer"
-      }
-    },
-    {
-      "id": "signing-actions",
-      "type": "SigningActions"
-    }
-  ]
+    ]
   }
 }
 ```

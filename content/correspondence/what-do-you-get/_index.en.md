@@ -26,8 +26,9 @@ The system offers advanced access control, ensuring that only authorized users c
 
 ### Support for Various Message Formats
 - Ability to send correspondences in Markdown, HTML or clean text.
-- Support for several attachments per correspondence, without limitation of type. PDF, XML and HTML will usually be the most common used.
-- Supports attachments up to 250 MB. 
+- Support for up to 100 attachments per correspondence.
+- Support for many file types: .doc, .xls, .docx, .xlsx, .ppt, .pps, .zip, .pdf, .html, .txt, .xml, .jpg, .gif, .bmp, .png and .json.
+- Supports attachments up to 2 GB. 
 
 ### Advanced Support for Linking to Content and Attachments
 - As an alternative to sending correspondence content and attachments directly in the correspondences,
