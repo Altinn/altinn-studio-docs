@@ -10,7 +10,7 @@ aliases:
 
 {{% insert "content/altinn-studio/guides/development/restricted-data/shared/style.css.md" %}}
 
-## What does role/access package-based signing mean?
+## What is role and access package based signing?
 
 {{% insert "content/altinn-studio/guides/development/signing/role-based-signing/intro.en.md" %}}
 
