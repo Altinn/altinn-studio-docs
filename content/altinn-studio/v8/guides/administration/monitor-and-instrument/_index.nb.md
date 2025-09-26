@@ -29,7 +29,7 @@ Det nye monitorerings- og instrumenteringsoppsettet basert på OpenTelemetry kan
 Når appen kjøres med denne innstillingen så vil Altinn.App biblioteket sende telemetri til localtest ved lokal kjøring
 og til Azure Monitor ved kjøring i et miljø.
 
-[Les mer om konfigurasjonsmuligheter på referansesiden for konfigurasjon](/nb/altinn-studio/v8/reference/monitoring/configuration).
+[Les mer om konfigurasjonsmuligheter på referansesiden for konfigurasjon]({{< relref "/altinn-studio/v8/reference/monitoring/configuration" >}}).
 
 ## Egendefinert instrumentering
 
@@ -102,7 +102,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 Nå kan du kjøre appen. Under i neste seksjon skal vi se på visualisering av telemetrien over.
 
-[Du kan også lese mer om instrumentering på referansesiden for instrumentering](/nb/altinn-studio/v8/reference/monitoring/instrumentation).
+[Du kan også lese mer om instrumentering på referansesiden for instrumentering]({{< relref "/altinn-studio/v8/reference/monitoring/instrumentation" >}}).
 
 ## Visualisering
 
@@ -119,7 +119,7 @@ I tillegg gir det muligheten til å fritt undersøke telemetrien som eksponeres 
 Det er verdt å merke seg at telemetrien fra plattform-tjenester i localtest vil se annerledes ut enn telemetri i andre miljøer. 
 Det er fordi plattform-tjenestene som kjører lokalt har annerledes kode og konfigurasjon.
 
-[Les mer om lokal Grafana på referansesiden for visualisering](/nb/altinn-studio/v8/reference/monitoring/visualisation/#grafana).
+[Les mer om lokal Grafana på referansesiden for visualisering]({{< relref "/altinn-studio/v8/reference/monitoring/visualisation/#grafana" >}}).
 
 Hvis du har implementert koden over, så skal du kunne finne `altinn_app_started`-metrikken på "Explore"-siden når "Metrics"-datakilden er valgt.
 Du kan også finne logger og traces fra koden over på denne siden ved hjelp av de andre datakildene.
@@ -145,7 +145,7 @@ oss, som vist i bildet under. Legg merke til at kildetype endres fra *Traces* ti
 
 Når appen er deployed til et test- eller produksjons-miljø så vil telemetrien sendes til Azure Monitor.
 
-[Les mer om Azure Monitor på referansesiden for visualisering](/nb/altinn-studio/v8/reference/monitoring/visualisation/#azure-monitor).
+[Les mer om Azure Monitor på referansesiden for visualisering]({{< relref "/altinn-studio/v8/reference/monitoring/visualisation/#azure-monitor" >}}).
 
 I Azure Monitor kan logger og traces finnes ved å bruke *Transaction search* menyen, mens metrikker er å finne under *Metrics*.
 

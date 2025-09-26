@@ -44,6 +44,6 @@ App/ui/layouts/{page}.json
 <!-- begin more -->
 Du kan også bruke `grid` for å sidestille komponenter.
 
-Se [Sidestilte komponenter (grid)](/nb/altinn-studio/v8/reference/ux/styling/#sidestilte-komponenter-grid) for detaljer og eksempler.
+Se [Sidestilte komponenter (grid)]({{< relref "/altinn-studio/v8/reference/ux/styling/#sidestilte-komponenter-grid" >}}) for detaljer og eksempler.
 
 <!-- end more -->

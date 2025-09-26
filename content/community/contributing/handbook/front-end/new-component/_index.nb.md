@@ -12,7 +12,7 @@ most important inputs.
 
 ![App structure](/app-template/architecture/app-frontend/app-frontend-form-rendering.drawio.svg)
 
-A detailed overview of the app frontend structure and architecture is available [here](/app-template/architecture/app-frontend/).
+A detailed overview of the app frontend structure and architecture is available [here]({{< relref "/app-template/architecture/app-frontend/" >}}).
 
 ### Adding a new form component
 Form components are defined in `src/layout`. Create a new folder, and take inspiration from the existing components.

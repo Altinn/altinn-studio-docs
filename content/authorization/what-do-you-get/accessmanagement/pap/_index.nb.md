@@ -13,7 +13,7 @@ av de andre policyadministrasjonspunktene i Altinn 3. PRP gir API for lagring av
 
 Autorisasjonspolicyen for apper er definert i Altinn Studio ved utvikling av appen.
 
-Se [Policy Administration Point i Altinn Studio](/altinn-studio/designer/build-app/authorization-rules/) for detaljer.
+Se [Policy Administration Point i Altinn Studio]({{< relref "/altinn-studio/v8/designer/build-app/authorization-rules/" >}}) for detaljer.
 
 ### Delegerte retningslinjer
 

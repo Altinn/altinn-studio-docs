@@ -7,4 +7,4 @@ hidden: true
 ---
 
 
-Read more in the [Application development handbook.](../../reference/data/prefill/)
+Read more in the [Application development handbook.]({{< relref "/altinn-studio/v8/reference/data/prefill" >}})

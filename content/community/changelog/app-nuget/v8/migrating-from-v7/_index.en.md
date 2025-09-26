@@ -78,7 +78,7 @@ The CLI will then make the necessary changes to your code to upgrade it to versi
             <CopyToOutputDirectory>lib\$(TargetFramework)\*.xml</CopyToOutputDirectory>
         </PackageReference>
     ```
-2. Next, you need to fix the breaking changes in your code. See the [changelog for v8](/community/changelog/app-nuget/v8/#breaking-changes) for more information.
+2. Next, you need to fix the breaking changes in your code. See the [changelog for v8]({{< relref "/community/changelog/app-nuget/v8/#breaking-changes" >}}) for more information.
    There may be additional breaking changes not documented in the changelog that are automatically fixed by the
    Altinn Studio CLI tool, so it is recommended to use the CLI tool to upgrade your app to v8 instead of
    doing it manually.

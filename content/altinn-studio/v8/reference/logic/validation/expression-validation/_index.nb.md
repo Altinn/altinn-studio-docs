@@ -5,7 +5,7 @@ toc: true
 ---
 
 Validering med uttrykk er en metode for å definere valideringer på en datamodell som kan gi større fleksibilitet enn begrensninger i datamodellen, samtidig som det er enklere å utvikle enn valideringer i backend-kode.
-Dette fungerer ved å definere regler ved hjelp av [dynamiske uttrykk](/nb/altinn-studio/v8/reference/logic/expressions).
+Dette fungerer ved å definere regler ved hjelp av [dynamiske uttrykk]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}}).
 
 ## Hvordan konfigurere validering med uttrykk
 
@@ -66,8 +66,8 @@ Datamodell-stien bruker akkurat samme format som `dataModelBindings` på en komp
 En regel består av følgende felter:
 
 - **message**: Validerings-meldingen som skal vises dersom regelen er brutt. Dette bør være en referanse til en tekst-ressurs.
-- **severity**: Hva slags type validerings-feil det er, kan være en av: `error`, `warning`, `info`, eller `success`. Dersom feltet utelates brukes `error`. Se [myke valideringer](/nb/altinn-studio/v8/reference/logic/validation/#myke-valideringer) for mer informasjon.
-- **condition**: Et dynamisk uttrykk som returnerer `true` hvis feilen skal vises, og `false` ellers. Se [dynamiske uttrykk](/nb/altinn-studio/v8/reference/logic/expressions) for mer informasjon.
+- **severity**: Hva slags type validerings-feil det er, kan være en av: `error`, `warning`, `info`, eller `success`. Dersom feltet utelates brukes `error`. Se [myke valideringer]({{< relref "/altinn-studio/v8/reference/logic/validation/#myke-valideringer" >}}) for mer informasjon.
+- **condition**: Et dynamisk uttrykk som returnerer `true` hvis feilen skal vises, og `false` ellers. Se [dynamiske uttrykk]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}}) for mer informasjon.
 
 ### Gjenbruk av regler
 

@@ -13,12 +13,12 @@ Available from [v8.7.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8
 ## Introduction
 Restricted data refers to information requiring additional protection, such as personal, confidential, or classified data.
 
-You can read more about the concept [here](/altinn-studio/concepts/data-model/restricted-data).
+You can read more about the concept [here]({{< relref "/altinn-studio/v8/concepts/data-model/restricted-data" >}}).
 
 ## Configuring Maskinporten
 You must configure Maskinporten to allow the app to perform actions on behalf of the service owner.
 
-You can find a detailed guide on that setup [here](/altinn-studio/guides/integration/maskinporten).
+You can find a detailed guide on that setup [here]({{< relref "/altinn-studio/v8/guides/integration/maskinporten" >}}).
 
 ## Configuring the data types
 The [applicationmetadata.json](https://github.com/Altinn/altinn-studio/blob/main/src/App/app-template-dotnet/src/App/config/applicationmetadata.json) file defines all [data types](/api/models/app-metadata/#datatype) in an application. Here, you specify which [actions](/altinn-studio/v8/reference/configuration/authorization/#action-attributes) are required for your restricted data type.

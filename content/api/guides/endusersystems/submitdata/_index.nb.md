@@ -23,7 +23,7 @@ I dag er det ca. 50% av dataene som blir rapportert til Altinn som blir sendt p�
 
 En tjeneste best책r av en applikasjon som er tilgjengelig i Altinns infrastruktur. Denne applikasjonen har et sett med konfigurasjoner som beskriver data som tjenesten skal motta eller sende ut, samt hvilken prosess tjenesten har.
 
-Eksempler p책 tjenester utviklet p책 den nye Altinn 3-plattformen finner du [her](/altinn-studio/news/launched-apps/).
+Eksempler p책 tjenester utviklet p책 den nye Altinn 3-plattformen finner du [her]({{< relref "/altinn-studio/v8/news/launched-apps/" >}}).
 
 ## Hvilke typer data eksponerer/mottar tjenestene via API?
 

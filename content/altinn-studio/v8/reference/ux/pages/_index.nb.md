@@ -9,7 +9,7 @@ Flere sider kan enkelt settes opp i Altinn Studio, men dersom du ønsker å gjø
 
 ## Oppsett
 
-Sider plasseres i `layouts`-mappen for layout-settet; hvert prosess-steg kan ha et eget layout-sett. For å konfigurere rekkefølgen på sidene, se [Navigasjon](/nb/altinn-studio/v8/reference/ux/pages/navigation/#vise-en-sidemeny-med-rekkefølgen-på-sideroppgaver). Eksempel på filstruktur ved to prosess-steg med hvert sitt layout-sett:
+Sider plasseres i `layouts`-mappen for layout-settet; hvert prosess-steg kan ha et eget layout-sett. For å konfigurere rekkefølgen på sidene, se [Navigasjon]({{< relref "/altinn-studio/v8/reference/ux/pages/navigation/#vise-en-sidemeny-med-rekkefølgen-på-sideroppgaver" >}}). Eksempel på filstruktur ved to prosess-steg med hvert sitt layout-sett:
 
 ```
 |- App/
@@ -89,11 +89,11 @@ De tilgjengelige innstillingene er følgende:
 | hideCloseButton       | Boolean | Om tilbake til innboks-knappen øverst i venstre hjørne skal skjules eller ikke.                                                |
 | showLanguageSelector  | Boolean | Om språkvelgeren skal vises eller ikke. Lar brukeren bytte språk etter de har startet skjemautfylligen.                        |
 | showExpandWidthButton | Boolean | Om utvid bredde-knappen skal vises eller ikke. Lar brukeren utvide bredden til siden slik at den fyller hele nettleservinduet. |
-| showProgress          | Boolean | se [Navigasjon](/nb/altinn-studio/v8/reference/ux/pages/navigation/#vise-en-fremdriftsindikator)                                  |
-| pdfLayoutName         | String  | se [PDF](/nb/altinn-studio/v8/reference/ux/pdf/#egendefinert-konfigurasjon)                                                       |
-| order                 | Array   | se [Navigasjon](/nb/altinn-studio/v8/reference/ux/pages/navigation/#vise-en-sidemeny-med-rekkefølgen-på-sideroppgaver)            |
-| groups                | Array   | se [Navigasjon](/nb/altinn-studio/v8/reference/ux/pages/navigation/#gruppere-sider)                                               |
-| excludeFromPdf        | Array   | se [PDF](/nb/altinn-studio/v8/reference/ux/pdf/#automatisk-konfigurasjon)                                                         |
+| showProgress          | Boolean | se [Navigasjon]({{< relref "/altinn-studio/v8/reference/ux/pages/navigation/#vise-en-fremdriftsindikator" >}})                                  |
+| pdfLayoutName         | String  | se [PDF]({{< relref "/altinn-studio/v8/reference/ux/pdf/#egendefinert-konfigurasjon" >}})                                                       |
+| order                 | Array   | se [Navigasjon]({{< relref "/altinn-studio/v8/reference/ux/pages/navigation/#vise-en-sidemeny-med-rekkefølgen-på-sideroppgaver" >}})            |
+| groups                | Array   | se [Navigasjon]({{< relref "/altinn-studio/v8/reference/ux/pages/navigation/#gruppere-sider" >}})                                               |
+| excludeFromPdf        | Array   | se [PDF]({{< relref "/altinn-studio/v8/reference/ux/pdf/#automatisk-konfigurasjon" >}})                                                         |
 | expandedWidth         | Boolean | se [Utvidet skjemabredde](#utvidet-skjemabredde)                                                                               |
 
 {{<content-version-selector classes="border-box">}}

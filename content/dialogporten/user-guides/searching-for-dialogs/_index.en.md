@@ -36,7 +36,7 @@ Note the end-user search API requires that at least one [`serviceResource`](../.
 
 ### Returned information
 
-This will return a [collection of dialogs](../../reference/entities/dialog/#search), which contains a subset of the information returned on the [dialog details endpoint](../../reference/entities/dialog/). Depending on search parameters and the access of the authenticated user, this list may be empty. 
+This will return a [collection of dialogs]({{< relref "/dialogporten/reference/entities/dialog/#search" >}}), which contains a subset of the information returned on the [dialog details endpoint]({{< relref "/dialogporten/reference/entities/dialog/" >}}). Depending on search parameters and the access of the authenticated user, this list may be empty. 
 
 If any invalid search parameters are supplied, the API will return `400 Bad Request` and a response explaining what errors were encountered. This response follows the standard [ProblemDetails](https://datatracker.ietf.org/doc/html/rfc7807) format.
 
@@ -68,7 +68,7 @@ These are example values that might be supplied in the `OrderBy` query parameter
 * `createdat_desc,duedate_asc`
 * `contentupdatedat_desc`
 
-The current ordering can be found in the [collection model](../../reference/entities/dialog/#search), next to the `continuationToken` and `hasNextPage` fields. The ordering is also embedded into `continuationToken`, so when paginating, supplying the continution token alone is sufficient to preserve ordering.
+The current ordering can be found in the [collection model]({{< relref "/dialogporten/reference/entities/dialog/#search" >}}), next to the `continuationToken` and `hasNextPage` fields. The ordering is also embedded into `continuationToken`, so when paginating, supplying the continution token alone is sufficient to preserve ordering.
 
 ## Basic steps (GraphQL)
 

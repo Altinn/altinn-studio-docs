@@ -12,7 +12,7 @@ Altinn applications are published to a Kubernetes cluster using a deployment Hel
 Based on tests and experiences, we have set some default values in a central [Helm chart](https://github.com/Altinn/altinn-studio-charts/blob/main/charts/deployment/values.yaml) as a starting point for publishing Altinn applications. These values may change as we gain more experience.
 
 {{% notice info %}}
-Starting from version [2.0.0](/community/changelog/deployment/v2) of the 'deployment Helm chart,' autoscaling is available and enabled by default.
+Starting from version [2.0.0]({{< relref "/community/changelog/deployment/v2" >}}) of the 'deployment Helm chart,' autoscaling is available and enabled by default.
 {{% /notice %}}
 
 #### Custom settings

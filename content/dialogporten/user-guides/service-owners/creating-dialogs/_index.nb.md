@@ -15,7 +15,7 @@ Når du bruker Altinn Studio, vil dialoger automatisk opprettes for deg. En app 
 ## Grunnleggende trinn
 
 1. Autentiser som en [tjenesteeier](../../authenticating/#bruk-for-tjenesteeiersystemer)
-2. Utfør en POST-forespørsel og oppgi [create dialog DTO](../../../reference/entities/dialog#opprett-post)
+2. Utfør en POST-forespørsel og oppgi [create dialog DTO]({{< relref "/dialogporten/reference/entities/dialog#opprett-post" >}})
 
 ## Velge en tjenesteressurs
 Tjenesteressursen som leveres kan være hvilken som helst ressurs i [Altinn Ressursregister]({{<relref "../../../../authorization/what-do-you-get/resourceregistry">}}) med en `hasCompententAuthority`-egenskap som samsvarer med det autentiserte organisasjonsnummeret.

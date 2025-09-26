@@ -44,9 +44,9 @@ Remember to upload changes when working in Designer so they are reflected in the
 
 ### Useful documentation
 
-- [User Guide - Create a Simple Form](/altinn-studio/guides/development/basic-form) 
-- [Available Components in Altinn Studio](/altinn-studio/designer/build-app/ui-designer/components/)
-- [Guidelines for Using Components](/altinn-studio/guides/design/guidelines/components/)
+- [User Guide - Create a Simple Form]({{< relref "/altinn-studio/v8/guides/development/basic-form" >}}) 
+- [Available Components in Altinn Studio]({{< relref "/altinn-studio/v8/designer/build-app/ui-designer/components" >}})
+- [Guidelines for Using Components]({{< relref "/altinn-studio/v8/guides/design/guidelines/components" >}})
 
 ## Summary
 

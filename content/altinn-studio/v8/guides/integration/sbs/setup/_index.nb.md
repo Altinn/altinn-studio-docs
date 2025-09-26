@@ -16,12 +16,12 @@ leverandørens system og appen. Det er i hovedsak 2 måter å lage denne integra
   - Fra appens perspektiv er det vanlig flyt (det er autentiserte sluttbrukere)
   - Egner seg godt for systemer der kontakt med sluttbruker er viktig, det er liten grad av automasjon og flyten i integrasjonen er fullstendig brukerstyrt.
 - Systembruker
-  - [Leverandør lager Maskinporten klient](/nb/authorization/getting-started/maskinportenclient/)
+  - [Leverandør lager Maskinporten klient]({{< relref "/authorization/getting-started/maskinportenclient/" >}})
   - Leverandør lager system i systemregisteret til Altinn Autorisasjon (i systemdefinisjonen uttrykker man behov for tilgang til ressurser, f. eks. en app)
   - Kunde registrerer systembruker. Dermed blir rettighetene delegert.
   - Leverandør autentiserer med Maskinporten klient
   - Ved integrasjon mot Altinn apper så vil systemet autentisere mot Maskinporten og så bruke dette tokenet ved innsending til Altinn
-  - For mer informasjon, se [Altinn Autorisasjon brukerguide for systembrukere](/nb/authorization/guides/system-vendor/)
+  - For mer informasjon, se [Altinn Autorisasjon brukerguide for systembrukere]({{< relref "/authorization/guides/system-vendor/" >}})
   - Egner seg godt for systemer der det er større grad av automasjon (og mindre behov for kontakt/kobling til sluttbruker), og det er snakk om innsendinger på vegne av organisasjoner.
 
 ## Integrasjon med ID-porten
@@ -29,7 +29,7 @@ leverandørens system og appen. Det er i hovedsak 2 måter å lage denne integra
 Ved integrasjon fra sluttbrukersystem basert på ID-porten klient har man alltid direkte kontakt med sluttbruker.
 Når sluttbruker logger inn i sluttbrukersystem via ID-porten vil sluttbruker måtte godta at systemet gjør
 `altinn:instances.read` og `altinn:instances.write` på vegne av brukeren (gitt at disse scopene er registrert i ID-porten klienten).
-Tokenet må deretter [veksles i Altinn Autorisasjon](/nb/api/authentication/spec/).
+Tokenet må deretter [veksles i Altinn Autorisasjon]({{< relref "/api/authentication/spec/" >}}).
 Dette Altinn-tokenet kan deretter brukes til å sende inn skjema i en Altinn app på vegne av brukeren.
 
 {{% notice info %}}
@@ -185,7 +185,7 @@ I dette eksempelet vil Fiken automatisk sende inn årsregnskap på slutten av å
 Denne innsendingen skjer helt automatisk, men sluttbruker hos kunden må fortsatt signere årsregnskapet etter at det er ferdig utfylt i `årsregnskap`.
 Vi skal nå sette opp denne integrasjonen helt fra start.
 
-[Mer dokumentasjon rundt systembruker-flyt for SBS finner du her](/nb/authorization/guides/system-vendor/).
+[Mer dokumentasjon rundt systembruker-flyt for SBS finner du her]({{< relref "/authorization/guides/system-vendor/" >}}).
 Denne guiden er ment som et Altinn Studio app-spesifikt eksempel på det samme konseptet.
 
 #### Forutsetninger

@@ -22,7 +22,7 @@ Runtime delegated signing depends on the message service (Correspondence) in Alt
 
 The message service is used to tell the signee that they have been asked to sign a form in Altinn, and to send them a receipt of what they signed when the signature has been submitted.
 
-See how to get started in [this guide](/nb/correspondence/getting-started/).
+See how to get started in [this guide]({{< relref "/correspondence/getting-started/" >}}).
 
 ## Example Application
 

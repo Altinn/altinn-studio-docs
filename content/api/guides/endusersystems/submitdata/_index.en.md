@@ -23,7 +23,7 @@ Today, approximately 50% of the data reported to Altinn is sent in this way from
 
 A service consists of an application that is available in Altinn's infrastructure. This application has a set of configurations that describe the data the service will receive or send out, as well as the process the service has.
 
-Examples of services developed on the new Altinn 3 platform can be found [here](/altinn-studio/news/launched-apps/).
+Examples of services developed on the new Altinn 3 platform can be found [here]({{< relref "/altinn-studio/v8/news/launched-apps/" >}}).
 
 ## What Types of Data Do Services Expose/Receive via API?
 

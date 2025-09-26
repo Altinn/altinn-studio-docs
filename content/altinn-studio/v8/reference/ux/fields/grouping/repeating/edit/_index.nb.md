@@ -44,8 +44,8 @@ Bestemmer om "Legg til ny"-knappen vises under tabellen. Nyttig å skjule denne 
 
 ## alwaysShowAddButton
 
-Bestemmer om "Legg til ny"-knappen vises under tabellen selv om en rad er åpen. Den vises dersom ``"alwaysShowAddButton": true`` og at følgende to betingelser er oppnådd: (1) [addButton](/altinn-studio/v8/reference/ux/fields/grouping/alternatives/#addbutton) er **ikke** satt til ``false``, (2) antall rader ikke overskrider [maxCount.](/nb/altinn-studio/v8/reference/ux/fields/grouping/setup/)\
-En brukercase for dette er å tillate brukeren til å legge til flere rader uten å måtte lagre og lukke eksisterende rad først, som er spesielt nyttig i kombinasjon med [openByDefault](/nb/altinn-studio/v8/reference/ux/fields/grouping/alternatives/#openbydefault) (hvor det kanskje ikke er åpenbart for brukeren at flere rader kan legges til).
+Bestemmer om "Legg til ny"-knappen vises under tabellen selv om en rad er åpen. Den vises dersom ``"alwaysShowAddButton": true`` og at følgende to betingelser er oppnådd: (1) [addButton](#addbutton) er **ikke** satt til ``false``, (2) antall rader ikke overskrider [maxCount.]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping" >}})\
+En brukercase for dette er å tillate brukeren til å legge til flere rader uten å måtte lagre og lukke eksisterende rad først, som er spesielt nyttig i kombinasjon med [openByDefault](#openbydefault) (hvor det kanskje ikke er åpenbart for brukeren at flere rader kan legges til).
 
 ## editButton
 Bestemmer om "Rediger"-knappen vises i tabellen. Standard oppførsel om parameteren ikke er satt er at "Rediger"-knapp vises.

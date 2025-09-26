@@ -9,7 +9,7 @@ weight: 15
 In addition to the documentation below, we have created a [sample application](https://altinn.studio/repos/ttd/eformidling-sample-app) showing the complete eFormidling setup.
 
 {{%notice info%}}
-This page describes the setup for a **v8** Altinn Application, for prior versions please refer to [the eFormidling setup for v7 documentation](/altinn-studio/v8/reference/configuration/eformidling/).
+This page describes the setup for a **v8** Altinn Application, for prior versions please refer to [the eFormidling setup for v7 documentation]( {{< relref "/altinn-studio/v8/reference/configuration/eformidling/">}}).
 {{% /notice%}}
 
 ## Prerequisites
@@ -20,7 +20,7 @@ Before setting up eFormidling you will need to have the following set up:
 
 ### Maskinporten Integration
 
-In order to enable eFormidling in your application you will need to [setup an integration between your app and Maskinporten](/altinn-studio/guides/integration/maskinporten/).
+In order to enable eFormidling in your application you will need to [setup an integration between your app and Maskinporten]({{< relref "/altinn-studio/v8/guides/integration/maskinporten/" >}}).
 
 * **NB!** Applikasjonen inkluderer automatisk den innebygde `IMaskinportenClient`. Hvis du trenger tilpasset konfigurasjon, kan du bruke:
   
@@ -37,7 +37,7 @@ In order to enable eFormidling in your application you will need to [setup an in
 
 ### Events
 
-An [event subscription](/altinn-studio/v8/reference/logic/events/subscribing/) needs to be setup in order to ensure that the application knows the delivery status of the messages sent through eFormidling.
+An [event subscription]( {{< relref "/altinn-studio/v8/reference/logic/events/subscribing/" >}}) needs to be setup in order to ensure that the application knows the delivery status of the messages sent through eFormidling.
 
 {{% expandlarge id="event-subscription-setup" header="Event subscription setup" %}}
 

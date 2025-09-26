@@ -14,7 +14,7 @@ aliases:
 ## Avhengigheter
 Dersom appen skal kunne sende signeringskvittering til innboksen til den som signerer så må oppsett for bruk av meldingstjenesten i Altinn være satt opp.
 
-Se [hvordan](/nb/correspondence/getting-started/) du kommer i gang med det.
+Se [hvordan]({{< relref "/correspondence/getting-started/" >}}) du kommer i gang med det.
 
 ## 1. Legg til en signeringsoppgave i appens prosess, med tilhørende konfigurasjon
 

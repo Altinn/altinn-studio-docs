@@ -20,7 +20,7 @@ Scope **altinn:serviceowner/notifications.create** er påkrevd for at klienter s
 
 Alle registrerte tjenesteeiere har fått delegert dette scopet av Digdir og skal kunne finne det i sin liste over scopes i Samarbeidsportalen.
 
-For en veiledning om hvordan du registrerer en ny Maskinporten-integrasjon i Samarbeidsportalen, se [Altinn Autorisasjon](/nb/authorization/getting-started/maskinportenclient/)
+For en veiledning om hvordan du registrerer en ny Maskinporten-integrasjon i Samarbeidsportalen, se [Altinn Autorisasjon]({{< relref "/authorization/getting-started/maskinportenclient/" >}})
 
 ## 3. Se over policy for relevante ressurser i Altinn Ressursregister
 

@@ -17,4 +17,4 @@ The number of PIP are expected to grow in the future.
 
 ### Implementation details
 
-See implementation details in the [construction components for PIP](../../../reference/architecture/accesscontrol/#policy-information-point---roles).
+See implementation details in the [construction components for PIP]({{< relref "/authorization/reference/architecture/accesscontrol/#policy-information-point---roles" >}}).

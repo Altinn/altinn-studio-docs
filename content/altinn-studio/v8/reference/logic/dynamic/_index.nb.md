@@ -411,7 +411,7 @@ var conditionalRuleHandlerHelper = {
 
 Fra versjon 3.0.0 er det også mulig å legge inn dynamikk for PDF. Dette gjøres i _PDF Handler_. Her kan man ved hjelp av logikk velge å skjulte felter eller sider i print.
 
-Appen må inkludere `ui/Settings.json`-filen som [forklart her](../ux/pages/navigation/).
+Appen må inkludere `ui/Settings.json`-filen som [forklart her]({{< relref "/altinn-studio/v8/reference/ux/pages/navigation" >}}).
 
 Teknisk er det veldlig likt hvordan man gjør det for validering.
 

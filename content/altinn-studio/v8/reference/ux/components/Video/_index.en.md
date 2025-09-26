@@ -59,7 +59,7 @@ some settings may be in beta version.
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-You can add a component in [Altinn Studio Designer](/altinn-studio/getting-started/) by dragging it from the list of
+You can add a component in [Altinn Studio Designer]({{< relref "/altinn-studio/v8/getting-started/" >}}) by dragging it from the list of
 components to the page area.
 Selecting the component brings up its configuration panel.
 

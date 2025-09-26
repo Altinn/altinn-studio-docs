@@ -6,7 +6,7 @@ tags: [architecture, solution]
 toc: false
 ---
 
-See [solutions](/authorization/what-do-you-get/accessmanagement/) for details about the functionality provided by this component.
+See [solutions]({{< relref "/authorization/what-do-you-get/accessmanagement/" >}}) for details about the functionality provided by this component.
 
 ![Access Management](accessmanagement.drawio.svg "Construction Components Altinn Resource Registry")
 

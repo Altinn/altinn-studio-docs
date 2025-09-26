@@ -100,7 +100,7 @@ Les om hvordan denne egendefinerte koden legges til [her](/altinn-studio/v8/refe
    ```
 
 2. For å faktisk utføre forespørselen for å opprette instansen, må vi legge til en klient. Se
-   [konsumer dokumentasjonen](/nb/altinn-studio/v8/reference/api/consume#implementere-klient) for å se et eksempel på hvordan
+   [konsumer dokumentasjonen]({{< relref "/altinn-studio/v8/reference/api/consume#implementere-klient" >}}) for å se et eksempel på hvordan
    en slik klient kan legges til i applikasjonen. Et passende navn for klienten som brukes i denne konteksten kan for
    eksempel være
    `AppInstantiationClient`. I tillegg til instruksjonene i den refererte dokumentasjonen, trenger
@@ -152,7 +152,7 @@ Les om hvordan denne egendefinerte koden legges til [her](/altinn-studio/v8/refe
 
 3. I filen `ProcessTaskEnd.cs`, legg til den nye _AppInstantiationClient_ i klassen `ProcessTaskEnd` på samme måte
    som _CountryClient_ legges til i klassen `DataProcessingHandler`
-   i [konsumer dokumentasjonen](/nb/altinn-studio/v8/reference/api/consume#benytte-klient-i-applikasjonslogikk).
+   i [konsumer dokumentasjonen]({{< relref "/altinn-studio/v8/reference/api/consume#benytte-klient-i-applikasjonslogikk" >}}).
    Videre, kall metoden som utløser forespørselen i appInstantiationClient slik:
 
    ```csharp

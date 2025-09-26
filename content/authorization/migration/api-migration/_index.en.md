@@ -21,7 +21,7 @@ Vi har delt API opp i to ulike brukergrupper og du finner migreringsstrategi for
 ## Ulike migrerings strategier for ulike API
 
 Som en hovedregel så vil alle eksisterende API i Altinn 2 fortsette å fungere så lenge Altinn 2 plattformen er i drift.
-Disse APIene vil som en hovedregel kun ha tilgang til informasjon fra Altinn 2 plattformen. Etterhvert som tjenesteeier flytter sine [ulike tjenester](/authorization/migration/servicemigrationplan/) ut fra Altinn 2, så vil det være begrenset om man
+Disse APIene vil som en hovedregel kun ha tilgang til informasjon fra Altinn 2 plattformen. Etterhvert som tjenesteeier flytter sine [ulike tjenester]({{< relref "/authorization/migration/servicemigrationplan/" >}}) ut fra Altinn 2, så vil det være begrenset om man
 får ut nødvendig informasjon fra APIene ettersom tjenestene forsvinner fra Altinn 2.
 
 For API finnes 2 hovedstrategier i overgang mellom Altinn 2 og Altinn 3:
@@ -50,7 +50,7 @@ Disse APIene kan benyttes for å integrere fagsystemer mot Altinn som benyttes h
 Disse fagsysteme kan typisk være regnskapssystem, HR system, landbrukssystem, post/arkiv system eller lignende.
 
 For å benytte disse APIene trengs en pålogget bruker som gir fagsystemet tilgang til å hente data på deres vegene i Altinn.
-[Her finner du migreringsplaner for sluttbrukersystem-API](/authorization/migration/api-migration/sbs-api/).
+[Her finner du migreringsplaner for sluttbrukersystem-API]({{< relref "/authorization/migration/api-migration/sbs-api/" >}}).
 
 ## Hva skjer med REST api for Tjenesteeier?
 
@@ -58,4 +58,4 @@ Disse APIene kan kun benyttes av offentlige virksomheter som har avtale om bruk 
 
 Det er tjenesteeier som autentiseres i kall mot API og kan hente ut informasjon om brukers fullmakter.
 Tjenesteeier kan kun hente ut informasjon om bruker som er nødvendig for å kunne utføre offentlig myndighetsutøvelse/tjenesteyting.
-[Her finner du migreringsplaner for tjenesteeeier-API](/authorization/migration/api-migration/te-api/).
+[Her finner du migreringsplaner for tjenesteeeier-API]({{< relref "/authorization/migration/api-migration/te-api/" >}}).

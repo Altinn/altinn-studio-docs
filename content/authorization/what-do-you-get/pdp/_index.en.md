@@ -15,7 +15,7 @@ The PDP evaluates the Context Request based on standard XACML 3.0 behaviour. The
 
 Policy Decision Point exposes a method that authorize the decision request.
 
-PDP uses the configured [Context Handler](../../reference/architecture/accesscontrol/contexthandler/) to enrich the decision request with attributes about the subject, resource and environment.
+PDP uses the configured [Context Handler]({{< relref "/authorization/reference/architecture/accesscontrol/contexthandler/" >}}) to enrich the decision request with attributes about the subject, resource and environment.
 
 If instanceID or dataID is used as Resource ID PDP will use the Context Handler to identifiy the correct appId,
 the instance workflow state and the reporteId for the existing resource.
@@ -26,7 +26,7 @@ For request for non existing instances the appId will be used and the reportee i
 
 The PDP component exposes a XACML 3.0 Json API to allow PDP checks. This API supports JSON formatet request.
 
-Documentation for this API is found [here](/api/authorization/spec/)
+Documentation for this API is found [here]({{< relref "/api/authorization/spec/" >}})
 
 Url for API is
 
@@ -37,7 +37,7 @@ Url for API is
 
 Api Key need to be sent as "Ocp-Apim-Subscription-Key" header.
 
-It requires a Altinn bearer token (header name Authorization). Use Maskinporten and exchange to Altinn. Details [here](/api/authentication/maskinporten/)
+It requires a Altinn bearer token (header name Authorization). Use Maskinporten and exchange to Altinn. Details [here](/api/authentication/maskinporten/")
 
 Example request from TT02
 

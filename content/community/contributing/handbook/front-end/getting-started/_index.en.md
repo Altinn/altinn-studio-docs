@@ -52,8 +52,8 @@ All of the frontend apps are set up with the same overall React + Redux architec
 
 ### App frontend
 
-Details of the architecture for app frontend can be found [here](/app-template/architecture/app-frontend).
+Details of the architecture for app frontend can be found [here]({{< relref "/app-template/architecture/app-frontend" >}}).
 
 ### Altinn Studio Designer frontend
 
-Details of the architecture for Altinn Studio Designer frontend can be found [here](/altinn-studio/architecture/designer/frontend/)
+Details of the Altinn Studio Designer can be found [here]({{< relref "/altinn-studio/v8/designer/" >}})

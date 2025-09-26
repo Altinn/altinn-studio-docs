@@ -33,14 +33,14 @@ The following components support options:
 
 | Component                                                               | Type                  | Use case                                                                                           |
 |-------------------------------------------------------------------------|-----------------------|----------------------------------------------------------------------------------------------------|
-| [Dropdown](../../../reference/ux/components/dropdown)                   | Single choice         | Used to select a single option from a dropdown list.                                               |
-| [RadioButtons](../../../reference/ux/components/radiobuttons)           | Single choice         | Used to select a single option from a list of radio buttons.                                       |
-| [List](../../../reference/ux/components/listcomponent)                  | Single choice         | Used to select a single option from a list/table (with one radio button per row).                  |
-| [Likert](../../../reference/ux/components/likert)                       | Single choice per row | Used to select a single option per row in a table, displayed as a scale. Commonly used in surveys. |
-| [Checkboxes](../../../reference/ux/components/checkboxes)               | Multiple choice       | Used to select one or more options from a list of checkboxes.                                      |
-| [MultipleSelect](../../../reference/ux/components/multipleselect)       | Multiple choice       | Used to select one or more options from a dropdown list.                                           |
-| [FileUploadWithTag](../../../reference/ux/components/fileuploadwithtag) | Single choice         | Used to upload a file and tag it with an option.                                                   |
-| [Option](../../../reference/ux/components/option)                       | Present single option | Used to present/display a single option.                                                           |
+| [Dropdown]({{< relref "/altinn-studio/v8/reference/ux/components/dropdown" >}})                   | Single choice         | Used to select a single option from a dropdown list.                                               |
+| [RadioButtons]({{< relref "/altinn-studio/v8/reference/ux/components/radiobuttons" >}})           | Single choice         | Used to select a single option from a list of radio buttons.                                       |
+| [List]({{< relref "/altinn-studio/v8/reference/ux/components/listcomponent" >}})                  | Single choice         | Used to select a single option from a list/table (with one radio button per row).                  |
+| [Likert]({{< relref "/altinn-studio/v8/reference/ux/components/likert" >}})                       | Single choice per row | Used to select a single option per row in a table, displayed as a scale. Commonly used in surveys. |
+| [Checkboxes]({{< relref "/altinn-studio/v8/reference/ux/components/checkboxes" >}})               | Multiple choice       | Used to select one or more options from a list of checkboxes.                                      |
+| [MultipleSelect]({{< relref "/altinn-studio/v8/reference/ux/components/multipleselect" >}})       | Multiple choice       | Used to select one or more options from a dropdown list.                                           |
+| [FileUploadWithTag]({{< relref "/altinn-studio/v8/reference/ux/components/fileuploadwithtag" >}}) | Single choice         | Used to upload a file and tag it with an option.                                                   |
+| [Option]({{< relref "/altinn-studio/v8/reference/ux/components/option" >}})                       | Present single option | Used to present/display a single option.                                                           |
 
 In the categories below, you can learn more about how to produce a code list, configure that list to be used in a
 component in order to provide options in that component, as well as common functionality across

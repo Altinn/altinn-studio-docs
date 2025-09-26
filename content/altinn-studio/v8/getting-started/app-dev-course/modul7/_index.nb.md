@@ -128,7 +128,7 @@ Nå skal vi legge inn en logikkregel for å skjule stillingsutlysningen hvis bru
 
 ## Nyttig dokumentasjon
 - [Brukerveiledning - Dynamikk](../../../guides/development/dynamics/)
-- [Dokumentasjon - Dynamiske uttrykk](../../../reference/logic/expressions/)
+- [Dokumentasjon - Dynamiske uttrykk]({{< relref "/altinn-studio/v8/reference/logic/expressions/" >}})
 
 ## Oppsummering
 I denne modulen har du satt opp logiske utrykk for å dynamisk bestemme hvilke sider og komponenter som skal vises til brukeren.

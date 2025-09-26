@@ -13,15 +13,15 @@ Tilgjengelig fra [v8.7.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/
 ## Introduksjon
 Beskyttede data er informasjon som krever ekstra tilgangskontroll, for eksempel personopplysninger eller konfidensiell/klassifisert informasjon.
 
-Du kan lese mer om konseptet [her](/nb/altinn-studio/concepts/data-model/restricted-data).
+Du kan lese mer om konseptet [her]({{< relref "/altinn-studio/v8/concepts/data-model/restricted-data" >}}).
 
 ## Konfigurasjon av Maskinporten
 Du må konfigurere Maskinporten for at appen skal kunne utføre handlinger på vegne av tjenesteeier.
 
-Du finner en detaljert veiledning for oppsettet [her](/nb/altinn-studio/guides/integration/maskinporten).
+Du finner en detaljert veiledning for oppsettet [her]({{< relref "/altinn-studio/v8/guides/integration/maskinporten" >}}).
 
 ## Konfigurasjon av datatyper
-[applicationmetadata.json-filen](https://github.com/Altinn/altinn-studio/blob/main/src/App/app-template-dotnet/src/App/config/applicationmetadata.json) definerer alle [datatyper](/nb/api/models/app-metadata/#datatype) i en applikasjon. Her angir du hvilke [handlinger](/nb/altinn-studio/v8/reference/configuration/authorization/#action-attributter) som kreves for din beskyttede datatype.
+[applicationmetadata.json-filen](https://github.com/Altinn/altinn-studio/blob/main/src/App/app-template-dotnet/src/App/config/applicationmetadata.json) definerer alle [datatyper]({{< relref "/api/models/app-metadata/#datatype" >}}) i en applikasjon. Her angir du hvilke [handlinger]({{< relref "/altinn-studio/v8/reference/configuration/authorization/#action-attributter" >}}) som kreves for din beskyttede datatype.
 
 I dette eksempelet konfigurerer vi en ny datatype, hvor vi spesifiserer egenskapene `actionRequiredToRead` og `actionRequiredToWrite`, og deaktiverer `autoCreate`. Vi bruker identifikatoren `restrictedDataModel`, men navnet i seg selv er ikke viktig.
 

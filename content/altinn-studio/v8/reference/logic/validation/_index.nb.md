@@ -10,7 +10,7 @@ Valideringer sørger for at brukerens input er gyldig med tanke på datamodellen
 i tillegg til alle egendefinerte regler som settes opp for applikasjonen.
 Valideringer kan kjøres enten på klient (dvs. browseren) eller serversiden.
 
-Man kan også sette opp validering til å [kjøre ved sidebytte](/nb/altinn-studio/v8/reference/ux/pages/navigation/#angi-validering-ved-sidebytte).
+Man kan også sette opp validering til å [kjøre ved sidebytte]({{< relref "/altinn-studio/v8/reference/ux/pages/navigation/#angi-validering-ved-sidebytte" >}}).
 
 ## Klientside-validering
 
@@ -57,7 +57,7 @@ Det er satt opp standard feilmeldinger for alle valideringene som gjøres på kl
 For en smidigere brukeropplevelse vises ikke feilmeldinger for manglende utfylling av påkrevde felter under
 utfylling av et skjema, med mindre validering trigges [på et enkeltfelt](#enkeltfeltvalidering), ved lagring
 av [en rad i en repeterende gruppe](#gruppevalidering) eller
-[ved navigering til en annen side](/nb/altinn-studio/v8/reference/ux/pages/navigation/#angi-validering-ved-sidebytte).
+[ved navigering til en annen side]({{< relref "/altinn-studio/v8/reference/ux/pages/navigation/#angi-validering-ved-sidebytte" >}}).
 
 Feilmeldingen for påkrevde felter er _"Du må fylle ut {0}"_. Her blir `{0}` erstattet med det feltet som feilmeldingen gjelder for.
 Dette gjøres på følgende måte:

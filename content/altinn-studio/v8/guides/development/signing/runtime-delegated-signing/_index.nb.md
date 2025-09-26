@@ -22,7 +22,7 @@ Brukerstyrt signering avhenger av Meldingstjenesten (Correspondence) i Altinn. D
 
 Meldingstjenesten brukes for å gi beskjed til de som skal signere om at de må signere et skjema i Altinn, og for å sende en kvittering til innboksen deres når de har signert.
 
-[Slik kommer du i gang med meldingstjenesten](/nb/correspondence/getting-started/).
+[Slik kommer du i gang med meldingstjenesten]({{< relref "/correspondence/getting-started/" >}}).
 
 ## Eksempel på konfigurasjon
 

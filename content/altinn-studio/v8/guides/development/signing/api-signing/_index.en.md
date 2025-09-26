@@ -18,7 +18,7 @@ If the service should send a signature receipt to the inbox of the signee, the A
 
 ## Configuring signing
 
-You can see how to configure signing in an app using the guides found [here](/altinn-studio/guides/development/signing/).
+You can see how to configure signing in an app using the guides found [here]({{< relref "/altinn-studio/v8/guides/development/signing/" >}}).
 API-based signing has the same requirements for configuration, except the layout-set for the signing step can be simpler.
 
 ## The most important API calls
@@ -55,7 +55,7 @@ In this case, the process will still be in the signing step after the signature 
 
 ### Information about signees and signatures
 
-If [runtime-delegated signing](/altinn-studio/guides/development/signing/runtime-delegated-signing/) is configured, the following endpoint can be used to get a list of the signees and their signing status.
+If [runtime-delegated signing]({{< relref "/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/" >}}) is configured, the following endpoint can be used to get a list of the signees and their signing status.
 The endpoint can also be used when runtime-delegated signing is not used, but then it will only return signees that have already performed the sign action. It will then function as a signature list.
 
 `GET /{org}/{app}/instances/{instanceOwnerPartyId}/{instanceGuid}/signing`

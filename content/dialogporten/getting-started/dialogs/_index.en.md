@@ -70,7 +70,7 @@ GUI actions can, however, be marked as [write operations](../write-actions) and 
 **Read more**
 
 - {{<link "../write-actions">}}
-- [Reference information for the GUI action entity](../../reference/entities/action#gui-actions)
+- [Reference information for the GUI action entity]({{< relref "/dialogporten/reference/entities/action#gui-actions" >}})
 
 ### API Actions
 
@@ -82,7 +82,7 @@ Dialogporten does not validate any data and does not see what data flows between
 
 **Read more**
 
-- [Reference information for the API action entity](../../reference/entities/action#api-actions)
+- [Reference information for the API action entity]({{< relref "/dialogporten/reference/entities/action#api-actions" >}})
 
 ## Activities
 

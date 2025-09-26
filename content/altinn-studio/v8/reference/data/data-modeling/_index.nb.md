@@ -32,13 +32,13 @@ Denne filen blir ikke lagret i applikasjonen og vil kun bli generert ved behov.
 
 Datamodeller for organisasjoner ligger i Altinn Studio sin [repos][1]-løsning.
 For å få tilgang til disse må man logge inn med Altinn Studio bruker. Om det er første gang du bruker Altinn Studio
-må du [lage en bruker][2].
+må du [lage en bruker]({{< relref "/altinn-studio/v8/getting-started/create-user" >}}).
 
 Datamodellene ligger i `<org>-datamodels`-repo, hvor `<org>` er den organisasjonen du tilhører.
 F.eks. ligger datamodellene til organisasjonen `Testdepartementet (ttd)` under
 https://altinn.studio/repos/ttd/ttd-datamodels.
 
-Lenke til dette repoet finner man i [Altinn Studio Dashboard](/nb/altinn-studio/getting-started/navigation/dashboard). Velg _Rediger_ (blått blyant-ikon) for å komme til
+Lenke til dette repoet finner man i [Altinn Studio Dashboard]({{< relref "/altinn-studio/v8/getting-started/navigation/dashboard" >}}). Velg _Rediger_ (blått blyant-ikon) for å komme til
 Altinn Studio [Datamodellering](#altinn-studio-datamodellering) verktøyet. Velg _Gitea_ (grønt kopp-ikon) for å se filene direkte i repo.
 
 ![Oversikt over datamodell-repo](./datamodels-dashboard.png "Oversikt over datamodell-repo")
@@ -61,8 +61,6 @@ for å bekrefte.
 ![Last opp XSD direkte til `<org>-datamodels` repo](./file-upload.gif "Last opp XSD direkte til <org>-datamodels repo")
 
 [1]: https://altinn.studio/repos
-[2]: /nb/altinn-studio/getting-started/create-user/
-[3]: /nb/altinn-studio/guides/administration/access-management/studio/
 
 ## Altinn Studio Datamodellering
 
@@ -73,13 +71,13 @@ format og kan ut fra dette generere XSD- og C#-modeller (se [Datamodeller for Ap
 
 - [Registrerte feil og mangler for Altinn Studio Datamodellering](https://github.com/orgs/Altinn/projects/1/views/10)
 - [Planlagt ny funksjonalitet for Altinn Studio Datamodellering](https://github.com/orgs/Altinn/projects/1/views/6)
-- [Utvikling av datamodell for Altinn 2](/nb/altinn-studio/guides/altinn-2/altinn-2-datamodel/)
-- [Overgang fra Seres til Altinn Studio Datamodellering](/nb/altinn-studio/guides/altinn-2/seres-migration/)
+- [Utvikling av datamodell for Altinn 2]({{< relref "/altinn-studio/v8/guides/altinn-2/altinn-2-datamodel/" >}})
+- [Overgang fra Seres til Altinn Studio Datamodellering]({{< relref "/altinn-studio/v8/guides/altinn-2/seres-migration/" >}})
   {{% /expandlarge %}}
 
 ### Navigere til Altinn Studio Datamodellering
 
-1. Logg inn i Altinn Studio. Hvis du ikke befinner deg i [Altinn Studio Dashboard](/nb/altinn-studio/getting-started/navigation/dashboard/), naviger dit ved å klikke på logoen øverst i venstre hjørne eller [her](https://altinn.studio/dashboard).
+1. Logg inn i Altinn Studio. Hvis du ikke befinner deg i [Altinn Studio Dashboard]({{< relref "/altinn-studio/v8/getting-started/navigation/dashboard/" >}}), naviger dit ved å klikke på logoen øverst i venstre hjørne eller [her](https://altinn.studio/dashboard).
 2. Velg _Rediger_ (blått blyant-ikon) ved enten:  
    a. En app under "Mine applikasjoner", eller  
    b. Datamodellerings repo for din organisasjon.
@@ -212,9 +210,9 @@ Klikk på Slett-knappen til høyre for feltnavnet.
 Dette er foreløpig ikke noe som støttes direkte i verktøyet og må gjøres manuelt. Beskrivelser
 for hvordan dette gjores finnes i lenkene under:
 
-- [dataFormatId og dataFormatVersion][1]
-- [XSD attributter generelt][2]
-- [XSD namespaces][3]
+- [dataFormatId og dataFormatVersion]({{< relref "/altinn-studio/v8/guides/altinn-2/altinn-2-datamodel/#dataformatid-og-dataformatversion" >}})
+- [XSD attributter generelt]({{< relref "/altinn-studio/v8/guides/altinn-2/altinn-2-datamodel/#xsd-attributter" >}})
+- [XSD namespaces]({{< relref "/altinn-studio/v8/guides/altinn-2/altinn-2-datamodel/#xsd-namespaces" >}})
 
 ## Generere og laste ned modellfiler (XSD og C#)
 
@@ -227,6 +225,3 @@ En generert XSD fil kan lastes ned ved å gå til repoet: klikk på person-ikone
 
 ![Last ned XSD fra repo](./download-xsd.png "Last ned XSD fra repo")
 
-[1]: /nb/altinn-studio/guides/altinn-2/altinn-2-datamodel/#dataformatid-og-dataformatversion
-[2]: /nb/altinn-studio/guides/altinn-2/altinn-2-datamodel/altinn-2-datamodel/#xsd-attributter
-[3]: /nb/altinn-studio/guides/altinn-2/altinn-2-datamodel/#xsd-namespaces

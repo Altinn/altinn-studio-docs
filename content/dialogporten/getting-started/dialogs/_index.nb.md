@@ -70,7 +70,7 @@ GUI-handlinger kan imidlertid merkes som [skrivehandlinger](../write-actions) og
 **Les mer**
 
 - {{<link "../write-actions">}}
-- [Referanseinformasjon for GUI-handlingsenheten](../../reference/entities/action#gui-handlinger)
+- [Referanseinformasjon for GUI-handlingsenheten]({{< relref "/dialogporten/reference/entities/action#gui-handlinger" >}})
 
 ### API-handlinger
 
@@ -82,7 +82,7 @@ Dialogporten validerer ingen data og ser ikke hvilke data som flyter mellom SBS 
 
 **Les mer**
 
-- [Referanseinformasjon for API-handlingsenheten](../../reference/entities/action#api-handlinger)
+- [Referanseinformasjon for API-handlingsenheten]({{< relref "/dialogporten/reference/entities/action#api-handlinger" >}})
 
 ## Aktiviteter
 

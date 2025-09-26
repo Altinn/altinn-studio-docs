@@ -31,4 +31,4 @@ This guide describes how to integrate with Altinn Authorization from an external
 
 Altinn Authorization uses XACML for Access control. This guide describes how the XACML Policy format is supported in Altinn and the XACML Request and Response formats for PDP.
 
-[Read Guide](../reference/xacml/)
+[Read Guide]({{< relref "/authorization/reference/xacml/" >}})

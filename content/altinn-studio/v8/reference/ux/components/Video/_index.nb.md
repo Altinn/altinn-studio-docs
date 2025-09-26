@@ -59,7 +59,7 @@ og noen innstillinger kan være i betaversjon.
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-Du kan legge til en komponent i [Altinn Studio Designer](/nb/altinn-studio/getting-started/) ved å dra den fra
+Du kan legge til en komponent i [Altinn Studio Designer]({{< relref "/altinn-studio/v8/getting-started/" >}}) ved å dra den fra
 komponent-listen til sideområdet.
 Når du velger komponenten, vises innstillingspanelet for den.
 

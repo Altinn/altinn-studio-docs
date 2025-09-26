@@ -15,7 +15,7 @@ When using Altinn Studio, dialogs will be automatically created for you. An app 
 ## Basic steps
 
 1. Authenticate as a [service owner](../../authenticating/#usage-for-service-owner-systems)
-2. Perform a POST request supplying the [create dialog DTO](../../../reference/entities/dialog#create-post)
+2. Perform a POST request supplying the [create dialog DTO]({{< relref "/dialogporten/reference/entities/dialog#create-post" >}})
 
 ## Selecting a service resource
 
@@ -59,7 +59,7 @@ The ´dueAt´ timestamp is a hint to end-user systems to indicate to the users t
 
 ## Setting content
 
-Dialogporten supports several content-fields used for different purposes. These can be set on both dialog and transmissions. For techical information about field names, allowed formats etc. see the [content-type reference](../../../reference/content-types).
+Dialogporten supports several content-fields used for different purposes. These can be set on both dialog and transmissions. For techical information about field names, allowed formats etc. see the [content-type reference]({{< relref "/dialogporten/reference/content-types" >}}).
 
 ### Title
 

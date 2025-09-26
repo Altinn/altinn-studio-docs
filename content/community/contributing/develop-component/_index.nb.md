@@ -22,7 +22,7 @@ flyt er en dialog.
 
 ## Utviklingshåndbok
 All informasjon du trenger for komme i gang finner du i vår [utviklingshåndbok](../handbook/). Håndboken inneholder blant annet
-informasjon du trenger for å skrive [konsistent kode](/community/contributing/handbook/front-end/routine/) og [bygge nye komponenter](/community/contributing/handbook/front-end/new-component/).
+informasjon du trenger for å skrive [konsistent kode]({{< relref "/community/contributing/handbook/front-end/routine/" >}}) og [bygge nye komponenter]({{< relref "/community/contributing/handbook/front-end/new-component/" >}}).
 
 ## Tilgjengelighetstest
 Apper bygget på Altinn 3 skal være tilgjengelig for alle og for å forsikre oss om dette skal vi oppfylle 

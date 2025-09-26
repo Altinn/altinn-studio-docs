@@ -9,7 +9,7 @@ weight: 10
 For å motta hendelser i applikasjonen må du opprette et abonnement. Selv om du kan opprette et abonnement autentisert som innlogget bruker, vil de fleste scenarioer sannsynligvis være å autentisere som tjenesteeier for applikasjonen, og å opprette abonnementet som del av oppstartsprosessen til applikasjonen. Dette eksempelet dekker autentisering som tjenesteeier gjennom Maskinporten.
 
 {{% notice warning %}}
-Du bør først sørge for at du har en klientdefinisjon registrert i Maskinporten for applikasjonen din. Se [Autentisering med Maskinporten](/nb/api/authentication/maskinporten) for hvordan du registrerer en klient.<br><br>
+Du bør først sørge for at du har en klientdefinisjon registrert i Maskinporten for applikasjonen din. Se [Autentisering med Maskinporten]({{< relref "/authorization/getting-started/authentication/maskinporten" >}}) for hvordan du registrerer en klient.<br><br>
 
 For øyeblikket støtter ikke lokaltest-miljøet generering av innkommende hendelser for en app. For å gjøre dette må du bruke verktøy som Postman eller REST Client i VS Code for å sende en forespørsel til applikasjonens hendelsesendepunkt.
 {{% /notice %}}

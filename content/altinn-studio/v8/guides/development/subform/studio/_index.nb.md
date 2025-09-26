@@ -12,7 +12,7 @@ Klikk **Utforming** i toppmenyen for å gå dit.
     Når du legger til tabellen, får du en veiledning i et eget vindu.
 2.  **Lag underskjemaet**  
     Følg veiledningen for å lage et nytt underskjema eller velge et eksisterende.
-    ![Opprette underskjema - veiledning](/altinn-studio/guides/development/subform/studio/create-subform-studio.png "Opprette underskjema - veiledning")
+    ![Opprette underskjema - veiledning](altinn-studio/v8/guides/development/subform/studio/create-subform-studio.png "Opprette underskjema - veiledning")
     {{< notice info >}} Hvis du trenger å endre datamodellen for underskjemaet, gå til **Datamodell** i toppmenyen og velg datamodellen fra nedtrekkslisten.
     På fanen **Metadata** kan du angi antall dataelementer brukeren kan eller skal legge til i underskjemaet.  
     Klikk på knappen **Generer modeller** for å kunne ta i bruk endringene.
@@ -31,4 +31,4 @@ Klikk **Utforming** i toppmenyen for å gå dit.
     Velg en komponent fra underskjemaet for hver kolonne.  
     Du kan legge til en egen tittel. Hvis du ikke gjør det, bruker appen komponentenes tittel.  
     Klikk på **Lagre** når du er ferdig.
-    ![Konfigurasjon av kolonner](/altinn-studio/guides/development/subform/studio/add-subform-column-studio.png "Konfigurasjon av kolonner")
+    ![Konfigurasjon av kolonner](/altinn-studio/v8/guides/development/subform/studio/add-subform-column-studio.png "Konfigurasjon av kolonner")

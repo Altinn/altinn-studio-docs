@@ -124,7 +124,7 @@ App/ui/layouts/{page}.json
 {{</content-version-container>}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-Det finnes for øyeblikket ikke mulighet for å konfigurere PersonLookup i [Altinn Studio Designer](/altinn-studio/getting-started/).
+Det finnes for øyeblikket ikke mulighet for å konfigurere PersonLookup i [Altinn Studio Designer]({{< relref "/altinn-studio/v8/getting-started/" >}}).
 
 {{</content-version-container>}}
 {{</content-version-selector>}}

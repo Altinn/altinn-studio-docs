@@ -18,7 +18,7 @@ Dersom appen skal kunne sende signeringskvittering til innboksen til den som sig
 
 ## Oppsett av signering
 
-Oppsett av signering kan gjøres ved hjelp av de andre guidene som du finner [her](/nb/altinn-studio/guides/development/signing/).
+Oppsett av signering kan gjøres ved hjelp av de andre guidene som du finner [her]({{< relref "/altinn-studio/v8/guides/development/signing/" >}}).
 API-basert signering har samme krav til oppsett, bortsett fra at layout-set for signeringssteget kan gjøres enklere.
 
 ## De sentrale API-kallene
@@ -55,7 +55,7 @@ Da blir prosessen fremdeles stående i signeringssteget, og flere kan eventuelt 
 
 ### Informasjon om signatarer og signaturer
 
-Dersom [brukerstyrt signering](/nb/altinn-studio/guides/development/signing/runtime-delegated-signing/) er satt opp, kan følgende endepunkt brukes for å hente ut en liste med signatarer og deres signeringsstatus.
+Dersom [brukerstyrt signering]({{< relref "/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/" >}}) er satt opp, kan følgende endepunkt brukes for å hente ut en liste med signatarer og deres signeringsstatus.
 Endepunktet kan også brukes selv om man ikke benytter brukerstyrt signering, men da vil kun signatarer som allerede har signert listes ut. Det fungerer da som en signaturliste.
 
 `GET /{org}/{app}/instances/{instanceOwnerPartyId}/{instanceGuid}/signing`

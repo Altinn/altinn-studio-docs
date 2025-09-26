@@ -14,7 +14,7 @@ Altinn skal erstatte rollene som gir tilgang til tjenester i Altinn 2 når vi fl
 **Utførte aktiviteter**
 
 1. Foreslå nye tilgangspakker (Q1 2023)
-2. Gjennomføre høring av versjon 1 av forslag til tilgangspakker (Q2/Q3 2023). Se [høringsbrev](/authorization/migration/informasjon-sent/letter-accessgroupes/) sendt ut i starten av juni. Frist 1.8.2023
+2. Gjennomføre høring av versjon 1 av forslag til tilgangspakker (Q2/Q3 2023). Se [høringsbrev](/authorization/migration/informasjon-sent/letter-accessgroupes) sendt ut i starten av juni. Frist 1.8.2023
 3. Etablere nye tilgangspakker versjon 2 (Q3 2023)
 4. Gjennomføre hørring av versjon 2 av forslag til tilgangspakker (Q3/Q4 2023).Høring er ennå ikke sendt ut men forslaget utvikles [her](). Antatt høringsfrist blir slutten av okotber 2023.
 5. Etablere endelig versjon av tilgangspakker
@@ -23,7 +23,7 @@ Altinn skal erstatte rollene som gir tilgang til tjenester i Altinn 2 når vi fl
 
 6. Tjenesteeiere kan begynne å sette tilgangspakker på apper og ressurser. Q4-24
    Fullstendig GUI og komplett liste over tilgangspakker vil bli tilgjengelig i Ressursregisteret/Altinn Studio i løpet av Q4-24. Tjenesteeiere som har behov for å knytte tilgangspakke til tjeneste før, kan be om å få aktuell(e) tilgangspakke(r) tilgjengelig manuelt.
-7. Lansere [ny brukerflate](/authorization/migration/#nye-tilgangspakker-og-ny-brukerflate-for-tilgangsstyring-for-virksomheter) for fullmaktstyring for virksomheter (Q1 2025)  
+7. Lansere [ny brukerflate]({{< relref "/authorization/migration/#nye-tilgangspakker-og-ny-brukerflate-for-tilgangsstyring-for-virksomheter" >}}) for fullmaktstyring for virksomheter (Q1 2025)  
    På ny brukerflate for tilgangsstyring, vil det være mulig å delegere roller, tilgangspakker og enkeltrettigheter, samt få oversikt over mottatte og gitte fullmakter. Det skal også være mulig å trekke tilbake gitte fullmakter og slette fullmakter man har fått.
 8. Avvikle Altinn 2 roller i løsningen (Q2 2026)
    - Altinn 2-rollene fases ut samtidig som hele Altinn 2 slås av i juni 2026.

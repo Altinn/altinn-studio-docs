@@ -63,7 +63,7 @@ I feltet `onEntry.show` har du muligheten til å spesifisere et layout-sett som 
 
 Selve layout-settet er definert i konfigurasjonsfilen `App/ui/layout-sets.json`.
  Hvis filen ikke eksisterer, kan du opprette den.
-  Du kan finne mer informasjon om layout-sett [her](/nb/altinn-studio/v8/reference/ux/pages/#oppsett).
+  Du kan finne mer informasjon om layout-sett [her]({{< relref "/altinn-studio/v8/reference/ux/pages/#oppsett" >}}).
 
 Eksempel på layout-sett:
 

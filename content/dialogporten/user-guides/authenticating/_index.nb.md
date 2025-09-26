@@ -36,7 +36,7 @@ Følgende generelle trinn må utføres for å få tilgang til sluttbruker-API-et
 2. Provisiones scope `digdir:dialogporten` på klienten, samt eventuelle tilleggs scope som kreves for tilgang til innholdsdata (dvs. `altinn:correspondence.read`)
 3. Omdiriger brukeren til autorisasjonsendepunktet i ID-porten, hvor de autentiserer seg og samtykker til at integrasjonen din får tilgang til å kalle Dialogporten på dine vegne
 4. På omdirigeringsendepunktet ditt bruker du autorisasjonskoden som er gitt mot ID-porten token-endepunktet for å få et tilgangstoken
-5. Utfør forespørsler til [sluttbruker-API](../../reference/openapi) ved hjelp av tilgangstokenet i en `Authorization: Bearer <token>` header.
+5. Utfør forespørsler til [sluttbruker-API]({{< relref "/dialogporten/reference/openapi" >}}) ved hjelp av tilgangstokenet i en `Authorization: Bearer <token>` header.
 
 ID-porten implementerer en standard OAuth2-protokoll, og utsteder refresh tokens som kan lagres og gjenbrukes for å få nye tilgangstokens på et senere tidspunkt. Autoriseringer (OAuth "samtykker") til `digdir:dialogporten` scope er gyldige i opptil 90 dager.
 
@@ -59,7 +59,7 @@ Følgende generelle trinn må utføres for å få tilgang til sluttbruker-API-et
 3. Opprett en ny systembruker, og knytt den enten til et leverandørlevert system, eller velg å opprette din egen Maskinporten-integrasjon
 4. Gi tjenesterettigheter til systembrukeren
 5. Opprett en JWT grant som identifiserer systembrukeren og `digdir:dialogporten` scope, samt eventuelle tilleggs scope som kreves for tilgang til innholdsdata (dvs. `altinn:correspondence.read`), signer den og send den til Maskinporten token-endepunktet for å få et tilgangstoken.
-6. Utfør forespørsler til [sluttbruker-API](../../reference/openapi) ved hjelp av tilgangstokenet i en `Authorization: Bearer <token>` header.
+6. Utfør forespørsler til [sluttbruker-API]({{< relref "/dialogporten/reference/openapi" >}}) ved hjelp av tilgangstokenet i en `Authorization: Bearer <token>` header.
 
 For detaljerte trinn om hvordan du oppretter og bruker en systembruker, se lenken nedenfor.
 
@@ -89,7 +89,7 @@ Følgende generelle trinn må utføres for å få tilgang til Dialogporten tjene
 2. Provisiones scope `digdir:dialogporten.serviceprovider` på klienten
 3. Generer en JWT grant som refererer til klient-ID-en din og scope, signer den og send den til Maskinporten token-endepunktet
 4. På omdirigeringsendepunktet ditt bruker du autorisasjonskoden som er gitt mot Maskinporten endepunktet for å få et tilgangstoken.
-5. Utfør forespørsler til [tjenesteeier API](../../reference/openapi) ved hjelp av tilgangstokenet i en `Authorization: Bearer <token>` header.
+5. Utfør forespørsler til [tjenesteeier API]({{< relref "/dialogporten/reference/openapi" >}}) ved hjelp av tilgangstokenet i en `Authorization: Bearer <token>` header.
 
 For detaljerte trinn om hvordan du bruker Maskinporten, se lenken nedenfor.
 

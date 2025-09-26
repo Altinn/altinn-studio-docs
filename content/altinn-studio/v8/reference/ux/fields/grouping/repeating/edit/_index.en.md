@@ -44,8 +44,8 @@ Determines whether the "Add new" button is displayed below the table. It is usef
 
 ## alwaysShowAddButton
 
-Determines whether the "Add new" button is displayed below the table when a row is open. It is displayed if ``"alwaysShowAddButton": true`` and the following two conditions are met: (1) [addButton](/altinn-studio/v8/reference/ux/fields/grouping/alternatives/#addbutton) is **not** set to ``false``, (2) number of rows has not reached its upper limit, [maxCount.](/nb/altinn-studio/v8/reference/ux/fields/grouping/setup/)\
-A use-case for this setting is to allow users to add more rows without clicking to save and close existing rows first, which is especially useful in combination with [openByDefault](/nb/altinn-studio/v8/reference/ux/fields/grouping/alternatives/#openbydefault) (where it might not be obvious to the user that more rows can be added).
+Determines whether the "Add new" button is displayed below the table when a row is open. It is displayed if ``"alwaysShowAddButton": true`` and the following two conditions are met: (1) [addButton](#addbutton) is **not** set to ``false``, (2) number of rows has not reached its upper limit, [maxCount.]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping" >}}).\
+A use-case for this setting is to allow users to add more rows without clicking to save and close existing rows first, which is especially useful in combination with [openByDefault](#openbydefault) (where it might not be obvious to the user that more rows can be added).
 
 ## editButton
 Determines whether the "Edit" button is displayed for each row in the table. The default behaviour if the parameter is

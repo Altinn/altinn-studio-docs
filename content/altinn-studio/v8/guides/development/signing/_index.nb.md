@@ -17,19 +17,19 @@ De ulike scenarioene nedenfor kan i noen grad kombineres med hverandre, men ofte
 ## Brukerstyrt
 {{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/intro.nb.md" %}}
 
-[Slik gjør du det](/nb/altinn-studio/guides/development/signing/runtime-delegated-signing)
+[Slik gjør du det]({{< relref "/altinn-studio/v8/guides/development/signing/runtime-delegated-signing" >}})
 
 ## Rolle-/tilgangspakkebasert
 {{% insert "content/altinn-studio/guides/development/signing/role-based-signing/intro.nb.md" %}}
 
-[Slik gjør du det](/nb/altinn-studio/guides/development/signing/role-based-signing)
+[Slik gjør du det]({{< relref "/altinn-studio/v8/guides/development/signing/role-based-signing" >}})
 
 ## Signer og send inn
 {{% insert "content/altinn-studio/guides/development/signing/sign-and-submit/intro.nb.md" %}}
 
-[Slik gjør du det](/nb/altinn-studio/guides/development/signing/sign-and-submit)
+[Slik gjør du det]({{< relref "/altinn-studio/v8/guides/development/signing/sign-and-submit" >}})
 
 ## API-basert signering
 {{% insert "content/altinn-studio/guides/development/signing/api-signing/intro.nb.md" %}}
 
-[Slik gjør du det](/nb/altinn-studio/guides/development/signing/api-signing)
+[Slik gjør du det]({{< relref "/altinn-studio/v8/guides/development/signing/api-signing" >}})

@@ -102,12 +102,12 @@ Når du jobber lokalt kan det være nyttig med forhåndsvisning av endringene du
 
 {{% notice info %}}
 **MERK**
-For å kunne kjøre appen i LocalTest må applikasjonen ha en tilknyttet [datamodell](/nb/altinn-studio/v8/reference/data/data-modeling/).
+For å kunne kjøre appen i LocalTest må applikasjonen ha en tilknyttet [datamodell]({{< relref "/altinn-studio/v8/reference/data/data-modeling/" >}}).
 {{% /notice %}}
 
 1. **Last ned og start LocalTest** ved å følg stegene [beskrevet på GitHub](https://github.com/Altinn/app-localtest/blob/master/README.md) (inkluderer start av app som også er forklart under).
 2. **Kjør applikasjonen i LocalTest**: Åpne et nytt terminalvindu og naviger til undermappen *App* i din applikasjon (`<app-name>/App`). Start appen med kommandoen `dotnet run` og vent på bekreftelse i terminalen.
-3. **Forhåndsvis og test applikasjonen**: Gå til [http://local.altinn.cloud](http://local.altinn.cloud) og logg inn med en [testbruker](/nb/altinn-studio/v8/reference/testing/local/testusers/).
+3. **Forhåndsvis og test applikasjonen**: Gå til [http://local.altinn.cloud](http://local.altinn.cloud) og logg inn med en [testbruker]({{< relref "/altinn-studio/v8/reference/testing/local/testusers/" >}}).
 
 ### Se endringer fortløpende
 

@@ -22,7 +22,7 @@ In order to set this up, the following must be done:
 Before proceeding with this guide, make sure you have access to Azure Key Vault for your organization.
 This ensures that the keys created further on in the guide can be stored properly as secrets in Azure.
 
-If access is missing, please refer to [Access to logs and secrets](/altinn-studio/guides/administration/access-management/apps).
+If access is missing, please refer to [Access to logs and secrets]({{< relref "/altinn-studio/v8/guides/administration/access-management/apps" >}}).
 
 ## Maskinporten Integration
 
@@ -70,7 +70,7 @@ When preparing the application to use secrets from Azure Key Vault, there are so
    MaskinportenSettings--JwkBase64
    ```
 2. For the application to be able to read the secrets from Azure Key Vault, it needs to be configured to do so.
-   See the [secrets section](../../../reference/configuration/secrets) to achieve this.
+   See the [secrets section]({{< relref "/altinn-studio/v8/reference/configuration/secrets" >}}) to achieve this.
 3. Add the appsettings section example from above into the `appsettings.{env}.json` file.
 {.floating-bullet-numbers}
 

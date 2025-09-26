@@ -19,7 +19,7 @@ For en slik tjeneste vil prosessen i selve appen være avsluttet når sluttbruke
 
 ## Instansiering av tjeneste
 
-Instansiering betyr i Altinn-sammenheng at det opprettes en dialog i en avgiver/parts innboks i Altinn. Denne instansieringen kan trigges av sluttbruker eller av tjenesteeier. I denne guiden forutsetter vi at den er instansiert av sluttbruker. Guide for tjenesteeier-instansiering finner du [her](/nb/api/apps/instances/#create-instance).
+Instansiering betyr i Altinn-sammenheng at det opprettes en dialog i en avgiver/parts innboks i Altinn. Denne instansieringen kan trigges av sluttbruker eller av tjenesteeier. I denne guiden forutsetter vi at den er instansiert av sluttbruker. Guide for tjenesteeier-instansiering finner du [her]({{< relref "/api/apps/instances/#create-instance" >}}).
 
 ## Overordnet prosess sluttbruker
 
@@ -29,7 +29,7 @@ Prosessen overordnet:
 2. Skjema fylles ut og eventuelle vedleggsdata lastes opp.
 3. Sluttbruker validerer data og eventuelle vedlegg og sender applikasjonsprosessen videre til bekreftelse.
 4. Sluttbruker ser over data og bekrefter at de er ferdige med prosessen.
-5. Applikasjon publiserer en hendelse om at sluttbruker er ferdig med utfyllingsprosessen. (Forutsetter at publisering er [slått på](/nb/altinn-studio/getting-started/app-dev-course/modul5/))
+5. Applikasjon publiserer en hendelse om at sluttbruker er ferdig med utfyllingsprosessen. (Forutsetter at publisering er [slått på]({{< relref "/altinn-studio/v8/getting-started/app-dev-course/modul5/" >}}))
 6. Tjenesteeier mottar informasjon om hendelsen på sitt hendelsesmottak.
 7. Tjenesteeier kaller Altinn API for å laste ned data for instansen.
 8. Tjenesteeier bekrefter at data er nedlastet ok.
@@ -42,7 +42,7 @@ Utvikling av applikasjon er dekket i Guide for applikasjonsutvikling. Aktivering
 
 Krav til webhook for mottak av events finner du [her](/events/subscribe-to-events/developer-guides/setup-subscription/#request).
 
-Tjenesteeier må ha registrert en integrasjon i Maskinporten. Opprettelse av integrasjon er beskrevet i Guide [her](/nb/authorization/getting-started/authentication/maskinporten/#tilgang-som-tjenesteeier)).
+Tjenesteeier må ha registrert en integrasjon i Maskinporten. Opprettelse av integrasjon er beskrevet i Guide [her]({{< relref "/authorization/getting-started/authentication/maskinporten/#tilgang-som-tjenesteeier" >}})).
 
 ## Detaljert teknisk prosess
 
@@ -65,7 +65,7 @@ Første steget i prosessen er at mottaksendepunktet mottar informasjon om Event 
 
 ### Autentisering mot Maskinporten
 
-Tjenesteeiersystem kaller Maskinporten API med korrekt Scopes for tjenesteeier. Dette er beskrevet i detaljer [her](/nb/authorization/getting-started/authentication/maskinporten/#tilgang-som-tjenesteeier).
+Tjenesteeiersystem kaller Maskinporten API med korrekt Scopes for tjenesteeier. Dette er beskrevet i detaljer [her]({{< relref "/authorization/getting-started/authentication/maskinporten/#tilgang-som-tjenesteeier" >}}).
 
 Deretter må tjenesteeiersystem kalle Altinns [innvekslingsendepunkt](/api/authentication/spec/) med sitt maskinportentoken som bearer token.
 

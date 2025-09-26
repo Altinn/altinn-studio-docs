@@ -9,11 +9,11 @@ weight: 400
 
 {{%notice info%}}
 Nuget versions >= 4.22.0 are required for your application to support eFormidling.
-[See how to update the nuget references of your application here](/altinn-studio/guides/administration/maintainance/dependencies/).  
+[See how to update the nuget references of your application here]({{< relref "/altinn-studio/v8/guides/administration/maintainance/dependencies/" >}}).  
 {{% /notice%}}
 
 {{%notice info%}}
-In version 7 a change was introduced to ensure that the application knows the delivery status of messages sent through eFormidling and in the case of a failed delivery will log this explicitly. This introduces the need for [inbound event support in the application](/altinn-studio/v8/reference/logic/events)   
+In version 7 a change was introduced to ensure that the application knows the delivery status of messages sent through eFormidling and in the case of a failed delivery will log this explicitly. This introduces the need for [inbound event support in the application]({{< relref "/altinn-studio/v8/reference/logic/events" >}})   
 {{% /notice%}}
 
 Integration with eFormidling needs to be explicitly activated in the application. 

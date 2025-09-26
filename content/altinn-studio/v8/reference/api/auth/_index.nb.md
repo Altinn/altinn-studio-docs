@@ -7,7 +7,7 @@ toc: true
 tags:
 ---
 
-Appens API-er er tilgangsstyrt ved hjelp av [Altinn Autorisasjon](/nb/authorization).
+Appens API-er er tilgangsstyrt ved hjelp av [Altinn Autorisasjon]({{< relref "/authorization" >}}).
 Requests mot API-er autoriseres ved hjelp av følgende informasjon:
 
 - `AltinnStudioRuntime` cookie

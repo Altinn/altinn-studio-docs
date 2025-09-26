@@ -12,7 +12,7 @@ Denne siden vil forklare hvordan visningen til de forskjellige stegene kan tilpa
 ## Data (tilsvarer utfyllingssteg i Altinn II)
 
 I denne prosess-task-typen vises skjema som kan fylles ut.  
-Skjema kan redigeres ved bruk av [UI editoren](/nb/altinn-studio/getting-started) eller ved å endre `FormLayout.json` direkte.
+Skjema kan redigeres ved bruk av [UI editoren]({{< relref "/altinn-studio/v8/getting-started" >}}) eller ved å endre `FormLayout.json` direkte.
 
 ## Bekreftelse (Confirmation)
 
@@ -401,7 +401,7 @@ Sluttresultatet i appen:
 
 ### Tilpasse tekster for enkel kvittering (Simple Receipt)
 
-Simple receipt er et konsept som er relevant for de applikasjonene som har aktivert `AutoDeleteOnProcessEnd: True` i `applicationmetadata.json` filen. For mer informasjon om hva dette innebærer [les her](/nb/altinn-studio/v8/reference/configuration/process/auto-delete/).
+Simple receipt er et konsept som er relevant for de applikasjonene som har aktivert `AutoDeleteOnProcessEnd: True` i `applicationmetadata.json` filen. For mer informasjon om hva dette innebærer [les her]({{< relref "/altinn-studio/v8/reference/configuration/process/auto-delete/" >}}).
 
 Tekstene i denne kvitteringen kan også overskrives ved å manuelt legge til hver definerte tekstnøkkel i appens tekstressursfil. Mer informasjon om hvordan dette gjøres finnes [her](../../../ux/texts).
 Følgende avsnitt viser en oversikt over hvilke tekster som kan tilpasses.

@@ -22,7 +22,7 @@ To achieve a nice workflow for developing, dialogue is essential.
 
 ## Development handbook
 All information you need to get started is included in our [development handbook](../handbook/). The handbook includes
-information on how to write [consistent code](/community/contributing/handbook/front-end/routine/) and [build new components](/community/contributing/handbook/front-end/new-component/).
+information on how to write [consistent code]({{< relref "/community/contributing/handbook/front-end/routine/" >}}) and [build new components]({{< relref "/community/contributing/handbook/front-end/new-component/" >}}).
 
 ## Accessibility testing
 

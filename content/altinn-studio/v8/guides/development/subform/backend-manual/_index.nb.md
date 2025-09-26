@@ -2,17 +2,17 @@
 hidden: true
 ---
 
-1. [Opprett en datamodell](/nb/altinn-studio/v8/reference/data/data-modeling) for underskjemaet.
+1. [Opprett en datamodell]({{< relref "/altinn-studio/v8/reference/data/data-modeling" >}}) for underskjemaet.
 2. Du skal nå se tre filer under `App/model`. Klassen i c#, json schema og xsd.
-3. Sett [appLogic.allowInSubform](/nb/api/models/app-metadata/#applicationlogic) til **true** i **applicationMetadata.json**.
+3. Sett [appLogic.allowInSubform]({{< relref "/api/models/app-metadata/#applicationlogic" >}}) til **true** i **applicationMetadata.json**.
 4. Opprett en mappe under **App/ui** med det navnet du vil ha på underskjemaet.
 5. Naviger til underskjemamappen, legg til `Settings.json` filen og en mappe med navn **layouts**.
 6. Du kan legge til side layouts til layouts mappen slik du ville gjort for hovedskjemaet.
    {{< notice warning >}}
    Underskjema støtter ikke vedlegg, og nøsting av underskjema er ikke tillatt (underskjema i underskjema).
    {{< /notice >}}
-7. [Konfigurer filen for underskjema](/nb/altinn-studio/v8/reference/ux/pages/#innstillinger), **Settings.json**, som normalt.
-8. Velg en egendefinert knapp for å lukke underskjemaet: [CustomButton](/nb/altinn-studio/v8/reference/ux/components/custombutton) med `closeSubform` action. Du bestemmer selv om du vil at underskjemaet skal valideres før det før det lukkes.
+7. [Konfigurer filen for underskjema]({{< relref "/altinn-studio/v8/reference/ux/pages/#innstillinger" >}}), **Settings.json**, som normalt.
+8. Velg en egendefinert knapp for å lukke underskjemaet: [CustomButton]({{< relref "/altinn-studio/v8/reference/ux/components/custombutton" >}}) med `closeSubform` action. Du bestemmer selv om du vil at underskjemaet skal valideres før det før det lukkes.
    ```json
    {
      "id": "subform-exitbutton",
@@ -41,7 +41,7 @@ hidden: true
     }
     ```
 10. Naviger til layout for siden i hovedskjemaet der du ønsker å legge inn underskjematabellen.
-11. Legg til `Subform` med [ønsket konfigurasjon](/nb/altinn-studio/guides/development/subform/config-options). Eksempel:
+11. Legg til `Subform` med [ønsket konfigurasjon]({{< relref "/altinn-studio/v8/guides/development/subform/config-options" >}}). Eksempel:
     ```json
     {
       "id": "subform-test",

@@ -12,7 +12,7 @@ Autentisert elektronisk signatur gjør det mulig for tjenesteeiere å sikre spor
 
 Tjenesteeierne må foreta en egen vurdering av hvilken elektronisk signatur de ønsker og har behov for i sine tjenester. Dette blant annet ut ifra hvilke krav som stilles til signatur og sporbarhet i det regelverket som den enkelte tjenesteeier har ansvar for.
 
-Tekniske guider for oppsett av signering finner du [her](/nb/altinn-studio/guides/development/signing/).
+Tekniske guider for oppsett av signering finner du [her]({{< relref "/altinn-studio/v8/guides/development/signing" >}}).
 
 ## Funksjonalitet
 
@@ -38,7 +38,7 @@ Tjenesteeier er behandlingsansvarlig for behandling av personopplysninger i sine
 
 Etter at prosessen i Altinn 3 er gjennomført, kan tjenesteeier laste ned alle data inkludert signeringsobjektet. Sluttbruker mottar en kvittering (PDF).
 
-Du kan konfigurere levetiden for persistens av instansen og dataene ved å konfigurere [Persistens](../../reference/data/persistence/). Hvis dette ikke er konfigurert, gjelder følgende:
+Du kan konfigurere levetiden for persistens av instansen og dataene ved å konfigurere [Persistens]({{< relref "/altinn-studio/v8/reference/data/persistence/" >}}). Hvis dette ikke er konfigurert, gjelder følgende:
 
 Tjenesteeier kvitterer ut at signeringsobjekt og at tilhørende data er lastet ned. Sluttbruker kan velge å beholde eller å slette sin kvittering på signeringen i sin innboks. Dersom sluttbruker velger å slette sin kvittering etter at tjenesteeier har lastet ned signeringsobjektet, så innebærer det at Digdir sletter signeringsobjektet i våre systemer. Signeringsobjektet og tilhørende data må dermed lagres i tjenesteeiers systemer om man ønsker å arkivere signaturen.
 
@@ -48,4 +48,4 @@ Digdir logger at signeringshandlingen er utført. Det betyr at selv om signering
 
 Tjenesteeier lagrer signaturobjektet i sitt arkivsystem. Signaturobjektet inneholder en hash kode av dataene som tilhører dataelementet. Dersom signaturobjektet senere endres vil dette kunne verifiseres ved at hash koden i signaturobjektet ikke lenger stemmer, dette bidrar til sporbarhet for signaturobjektet. Dette forutsetter at signaturen, dvs. hash koden, også finnes på sluttbruker sin kvittering slik at begge parter har hver sin kopi.
 
-[Her kan du kan lese en teknisk beskrivelse for hvordan verifisering av signaturen gjøres.](/nb/altinn-studio/v8/reference/process/tasks/signing/#verifisering-av-sha256-hash)
+[Her kan du kan lese en teknisk beskrivelse for hvordan verifisering av signaturen gjøres.]({{< relref "/altinn-studio/v8/reference/process/tasks/signing/#verifisering-av-sha256-hash" >}})

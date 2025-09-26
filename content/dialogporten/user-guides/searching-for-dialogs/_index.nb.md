@@ -36,7 +36,7 @@ Vær oppmerksom på at sluttbruker-søke-APIet krever at minst én [`serviceReso
 
 ### Returnert informasjon
 
-Dette vil returnere en [samling av dialoger](../../reference/entities/dialog/#søk), som inneholder et delsett av informasjonen som returneres på [dialogdetaljendepunktet](../../reference/entities/dialog/). Avhengig av søkeparametere og tilgangen til den autentiserte brukeren, kan denne listen være tom.
+Dette vil returnere en [samling av dialoger]({{< relref "/dialogporten/reference/entities/dialog/#søk" >}}), som inneholder et delsett av informasjonen som returneres på [dialogdetaljendepunktet]({{< relref "/dialogporten/reference/entities/dialog/" >}}). Avhengig av søkeparametere og tilgangen til den autentiserte brukeren, kan denne listen være tom.
 
 Hvis ugyldige søkeparametere oppgis, vil API-et returnere `400 Bad Request` og et svar som forklarer hvilke feil som ble oppdaget. Dette svaret følger standard [ProblemDetails](https://datatracker.ietf.org/doc/html/rfc7807) formatet.
 

@@ -13,7 +13,7 @@ This page explains the different views and how they can be customized.
 ## Data
 
 In this process task a form which the user can fill in data.
-The form can be edited using the [UI editor](/altinn-studio/getting-started) or by changing `FormLayout.json` manually.
+The form can be edited using the [UI editor]({{< relref "/altinn-studio/v8/getting-started" >}}) or by changing `FormLayout.json` manually.
 
 ## Confirmation
 
@@ -404,7 +404,7 @@ Resulting receipt in the application:
 
 ### Customizing texts in Simple Receipt
 
-Simple receipt is a concept that becomes relevant for those applications that have enabled `AutoDeleteOnProcessEnd: True` in their `applicationmetadata.json` file. For more information on what this implies [read here](/altinn-studio/v8/reference/configuration/process/auto-delete/).
+Simple receipt is a concept that becomes relevant for those applications that have enabled `AutoDeleteOnProcessEnd: True` in their `applicationmetadata.json` file. For more information on what this implies [read here]({{< relref "/altinn-studio/v8/reference/configuration/process/auto-delete/" >}}).
 
 The texts in this receipt can also be overridden by manually adding each defined text keys in the apps text resources. More information about how this is done can be found [here](../../../ux/texts).
 In the following section we will present an overview of the different texts that can be customized.

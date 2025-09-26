@@ -49,4 +49,4 @@ If you do not wish to unpublish the app, you can make it unavailable in several 
 
 ### How do I unpublish an app?
 
-[Go to the guide for unpublishing apps](/nb/altinn-studio/guides/development/undeploy/).
+[Go to the guide for unpublishing apps]({{< relref "/altinn-studio/v8/guides/development/undeploy" >}}).

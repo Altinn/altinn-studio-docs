@@ -60,8 +60,8 @@ ___
 ## Documentation
 - The different solutions are described in detail
 on docs
-[Terms](/terms)
-[Architecture](/architecture/)
+[Terms]({{< relref "/technology/terms" >}})
+[Architecture]({{< relref "/technology/architecture/" >}})
  
 ---
 ## The End

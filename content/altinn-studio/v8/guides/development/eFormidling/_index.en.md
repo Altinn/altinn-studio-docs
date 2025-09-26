@@ -20,7 +20,7 @@ Before setting up eFormidling you will need to have the following set up:
 
 ### Maskinporten Integration
 
-In order to enable eFormidling in your application you will need to [setup an integration between your app and Maskinporten](/altinn-studio/guides/integration/maskinporten/).
+In order to enable eFormidling in your application you will need to [setup an integration between your app and Maskinporten]({{< relref "/altinn-studio/v8/guides/integration/maskinporten/" >}}).
 
 * **NB!** The application automatically includes the built-in `IMaskinportenClient`. If you need custom configuration, you can use:
   
@@ -37,7 +37,7 @@ In order to enable eFormidling in your application you will need to [setup an in
 
 ### Events
 
-An [event subscription](/altinn-studio/v8/reference/logic/events/subscribing/) needs to be setup in order to ensure that the application knows the delivery status of the messages sent through eFormidling.
+An [event subscription]({{< relref "/altinn-studio/v8/reference/logic/events/subscribing/" >}}) needs to be setup in order to ensure that the application knows the delivery status of the messages sent through eFormidling.
 
 {{% expandlarge id="event-subscription-setup" header="Event subscription setup" %}}
 

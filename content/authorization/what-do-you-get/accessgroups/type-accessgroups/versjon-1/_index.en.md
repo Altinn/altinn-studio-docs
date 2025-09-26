@@ -67,29 +67,29 @@ Tilbakemelding kan du sende på e-post til servicedesk@altinn.no innen 1.8 2023.
 
 # Forslag til tilgangspakker på nivå 1: 
 ## tilgangspakker relevant for mange/alle virksomheter
-1. [Skatt, avgift, regnskap og toll](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-skatt-avgift-regnskap-og-toll)
-2. [Personale](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-personale)
-3. [Miljø, ulykke og sikkerhet](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-miljø-ulykke-og-sikkerhet)
-4. [Grunnlag for virksomheten](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-grunnlag-for-virksomheten)
-5. [Integrasjoner og API-er](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-integrasjoner-og-api-er)
-6. [Administrere tilganger](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-administrere-tilganger)
+1. [Skatt, avgift, regnskap og toll]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-skatt-avgift-regnskap-og-toll" >}})
+2. [Personale]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-personale" >}})
+3. [Miljø, ulykke og sikkerhet]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-miljø-ulykke-og-sikkerhet" >}})
+4. [Grunnlag for virksomheten]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-grunnlag-for-virksomheten" >}})
+5. [Integrasjoner og API-er]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-integrasjoner-og-api-er" >}})
+6. [Administrere tilganger]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-administrere-tilganger" >}})
 
 ## Bransjespesifikke tilgangspakker
-7. [Jordbruk, skogbruk, jakt, fiske og akvakultur](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-jordbruk-skogbruk-jakt-fiske-og-akvakultur)
-8. [Bygg, anlegg og eiendom](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-bygg-anlegg-og-eiendom)
-9. [Transport og lagring](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-transport-og-lagring)
-10. [Helse, pleie, omsorg og vern](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-helse-pleie-omsorg-og-vern)
-11. [Oppvekst og utdanning](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-oppvekst-og-utdanning)
-12. [Energi, vann, avløp og avfall](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-energi-vann-avløp-og-avfall)
-13. [Industrier](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå1-industrier)
-14. [Kultur og frivillighet](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-kultur-og-frivillighet)
-15. [Handel, overnatting og servering](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå1-handel-overnatting-og-servering)
-16. [Andre tjenesteytende næringer](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-andre-tjenesteytende-næringer)
+7. [Jordbruk, skogbruk, jakt, fiske og akvakultur]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-jordbruk-skogbruk-jakt-fiske-og-akvakultur" >}})
+8. [Bygg, anlegg og eiendom]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-bygg-anlegg-og-eiendom" >}})
+9. [Transport og lagring]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-transport-og-lagring" >}})
+10. [Helse, pleie, omsorg og vern]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-helse-pleie-omsorg-og-vern" >}})
+11. [Oppvekst og utdanning]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-oppvekst-og-utdanning" >}})
+12. [Energi, vann, avløp og avfall]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-energi-vann-avløp-og-avfall" >}})
+13. [Industrier]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå1-industrier" >}})
+14. [Kultur og frivillighet]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-kultur-og-frivillighet" >}})
+15. [Handel, overnatting og servering]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå1-handel-overnatting-og-servering" >}})
+16. [Andre tjenesteytende næringer]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#nivå-1-andre-tjenesteytende-næringer" >}})
 
 ## Andre spesialiserte tilgangspakker
-17. [tilgangspakker for regnskapsførere](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#tilgangspakker-for-regnskapsførere)
-18. [tilgangspakker for revisor](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#tilgangspakker-for-revisor)
-19. [tilgangspakker for konkursbo](/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#tilgangspakker-for-konkursbo)
+17. [tilgangspakker for regnskapsførere]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#tilgangspakker-for-regnskapsførere" >}})
+18. [tilgangspakker for revisor]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#tilgangspakker-for-revisor" >}})
+19. [tilgangspakker for konkursbo]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-1/#tilgangspakker-for-konkursbo" >}})
 
 ## Nivå 1: Skatt, avgift, regnskap og toll
 Tilgangspakken er nyttig for alle virksomheter som er skatte- og regnskapspliktige.

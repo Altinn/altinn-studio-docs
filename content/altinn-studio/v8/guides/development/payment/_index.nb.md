@@ -5,7 +5,7 @@ description: Følg disse grunnleggende stegene for å komme i gang med å integr
 tags: [betaling]
 weight: 50
 aliases:
-- /nb/altinn-studio/guides/payment/
+- /nb/altinn-studio/v8/guides/payment/
 ---
 
 <!-- Før du starter -->
@@ -20,11 +20,11 @@ Du finner informasjon om hvordan du oppretter avtalen her:
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/payment/studio/add-process-task.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/payment/studio/add-process-task.nb.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Manuelt oppsett">}}
-{{% insert "content/altinn-studio/guides/development/payment/backend-manual/add-process-task.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/payment/backend-manual/add-process-task.nb.md" %}}
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
@@ -33,11 +33,11 @@ Du finner informasjon om hvordan du oppretter avtalen her:
 ## 3. Gi tilganger til den som skal betale
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/payment/studio/access-rules.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/payment/studio/access-rules.nb.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Manuelt oppsett">}}
-{{% insert "content/altinn-studio/guides/development/payment/backend-manual/access-rules.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/payment/backend-manual/access-rules.nb.md" %}}
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
@@ -46,11 +46,11 @@ Du finner informasjon om hvordan du oppretter avtalen her:
 ## 4. Konfigurer visning av betalingsinformasjon
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/payment/studio/configure-layouts.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/payment/studio/configure-layouts.nb.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Manuelt oppsett">}}
-{{% insert "content/altinn-studio/guides/development/payment/backend-manual/configure-layouts.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/payment/backend-manual/configure-layouts.nb.md" %}}
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
@@ -59,11 +59,11 @@ Du finner informasjon om hvordan du oppretter avtalen her:
 ## 5. Beregn hva som skal betales
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/payment/studio/calculate-payment.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/payment/studio/calculate-payment.nb.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Manuelt oppsett">}}
-{{% insert "content/altinn-studio/guides/development/payment/backend-manual/calculate-payment.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/payment/backend-manual/calculate-payment.nb.md" %}}
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
@@ -72,10 +72,10 @@ Du finner informasjon om hvordan du oppretter avtalen her:
 ## 6. Koble appen til NETS Easy avtalen
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/payment/studio/configure-secrets.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/payment/studio/configure-secrets.nb.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Manuelt oppsett">}}
-{{% insert "content/altinn-studio/guides/development/payment/backend-manual/configure-secrets.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/payment/backend-manual/configure-secrets.nb.md" %}}
 {{</content-version-container>}}
 {{</content-version-selector>}}

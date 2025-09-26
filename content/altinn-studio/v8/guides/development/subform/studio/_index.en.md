@@ -12,7 +12,7 @@ Navigate there by clicking on **Utforming** in the top menu.
     When the table is added, a configuration window opens to guide you further.
 2.  **Create a subform**  
     Follow the instructions in the configuration window to create a new subform or select an existing one.
-    ![Creating a subform - guide](/altinn-studio/guides/development/subform/studio/create-subform-studio.png "Creating a subform - guide")
+    ![Creating a subform - guide](/altinn-studio/v8/guides/development/subform/studio/create-subform-studio.png "Creating a subform - guide")
     {{< notice info >}} If you need to modify the data model for the subform, navigate to **Datamodell** in the top menu and select the data model from the dropdown list.
     In ther **Metadata** tab, you can specify the number of data elements the user can/should add to the subform.
     Click **Generer** to save the changes.
@@ -32,4 +32,4 @@ Navigate there by clicking on **Utforming** in the top menu.
     Select a component from the subform for each column.
     You can add a custom title, otherwise the component's title is used.
     Click **Lagre** when you are done.
-    ![Column configuration](/altinn-studio/guides/development/subform/studio/add-subform-column-studio.png "Column configuration")
+    ![Column configuration](/altinn-studio/v8/guides/development/subform/studio/add-subform-column-studio.png "Column configuration")
