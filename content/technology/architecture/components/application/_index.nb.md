@@ -6,6 +6,6 @@ tags: [architecture, needstranslation]
 weight: 9
 ---
 
-For a functional overview of the different solutions part see [solutions](/technology/solutions/)
+For a functional overview of the different solutions part see [solutions](/nb/technology/solutions/)
 
 {{<children />}}

@@ -84,7 +84,7 @@ Den første leveransen inkluderte en ny tjenesteutviklingsløsning som består a
 kjøretidsmiljøer (Altinn Apps) og en ny plattform med gjenbrukbare micro-services (Altinn Platform). Den nye
 tjenesteutviklingsløsningen benytter seg av mulighetene og egenskapene som finnes i en ren skybasert infrastruktur.
 
-![Konsept](/community/about/concept3.svg "Altinn 3 konsept")
+![Konsept](/nb/community/about/concept3.svg "Altinn 3 konsept")
 
 Altinn skal understøtte tverrsektoriell samhandling, som også er knyttet til denne nye tjenesteutviklingsløsningen, og
 innfører behov for en rekke andre og nye samhandlingsfunksjoner. En skybasert løsning sikrer Altinns muligheter for å

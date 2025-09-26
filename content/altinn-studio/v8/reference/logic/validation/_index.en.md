@@ -10,7 +10,7 @@ Validations ensures that the user's input is valid with regard to the data model
 in addition to all custom rules that are set up for the application.
 Validations can be run either on the client- (the browser) or the server-side.
 
-Validations can also be set up to [trigger on page navigation](/altinn-studio/v8/reference/ux/pages/navigation/#specifying-validation-on-page-change).
+Validations can also be set up to [trigger on page navigation](/en/altinn-studio/v8/reference/ux/pages/navigation/#specifying-validation-on-page-change).
 
 ## Client-side validation
 
@@ -60,7 +60,7 @@ Default error messages has been set up for all validations done on the client-si
 For a smoother user experience, error messages for missing data in required fields won't be displayed automatically
 while filling out a form, unless validation is triggered [for a single field](#single-field-validation), when saving
 a [row in a repeating group](#group-validation) or
-[when navigating to another page](/altinn-studio/v8/reference/ux/pages/navigation/#specifying-validation-on-page-change).
+[when navigating to another page](/en/altinn-studio/v8/reference/ux/pages/navigation/#specifying-validation-on-page-change).
 
 The error message for required fields is as defined above, _"You have to fill out {0}"_. The `{0}` symbol is replaced with the field that
 the error message is shown for. This is done in the following way:

@@ -7,6 +7,6 @@ cascade:
     diataxis: diataxis_reference
 ---
 
-Dokumentasjon for teknologi er foreløpig [kun tilgjengelig på engelsk](/technology/).
+Dokumentasjon for teknologi er foreløpig [kun tilgjengelig på engelsk](/nb/technology/).
 
 {{<children />}}

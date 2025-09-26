@@ -64,8 +64,8 @@ You can use the following image of Sogndal's coat of arms in the service:
     Note the use of `-` to format the text as a bullet list, and `**` to emphasize text.
 
 ### Useful Documentation
-- [Formatting Texts](/altinn-studio/v8/reference/ux/texts/#formatting-of-texts)
-- [Side-by-side Components](/altinn-studio/v8/reference/ux/styling/#components-placed-side-by-side-grid)
+- [Formatting Texts](/en/altinn-studio/v8/reference/ux/texts/#formatting-of-texts)
+- [Side-by-side Components](/en/altinn-studio/v8/reference/ux/styling/#components-placed-side-by-side-grid)
 
 ## Summary
 In this module, we added a new page to the form. We included information components in the form, such as images and texts. We set the width of the image and text, and added simple text formatting.

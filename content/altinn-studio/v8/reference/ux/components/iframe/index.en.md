@@ -7,12 +7,12 @@ weight: 10
 
 ## On this page
 
-- [Why use the IFrame component](/altinn-studio/v8/reference/ux/components/iframe/#why-use-the-iframe-component)
-- [Security and Performance Concerns](/altinn-studio/v8/reference/ux/components/iframe/#security-and-performance-concerns)
-- [Accessibility Statement Concerns](/altinn-studio/v8/reference/ux/components/iframe/#accessibility-statement-concerns)
-- [Basic implementation of the IFrame component](/altinn-studio/v8/reference/ux/components/iframe/#basic-implementation-of-the-iframe-component)
-- [Advanced implementation of the IFrame component](/altinn-studio/v8/reference/ux/components/iframe/#advanced-implementation-of-the-iframe-component)
-- [Sandbox restrictions](/altinn-studio/v8/reference/ux/components/iframe/#sandbox-restrictions)
+- [Why use the IFrame component](/en/altinn-studio/v8/reference/ux/components/iframe/#why-use-the-iframe-component)
+- [Security and Performance Concerns](/en/altinn-studio/v8/reference/ux/components/iframe/#security-and-performance-concerns)
+- [Accessibility Statement Concerns](/en/altinn-studio/v8/reference/ux/components/iframe/#accessibility-statement-concerns)
+- [Basic implementation of the IFrame component](/en/altinn-studio/v8/reference/ux/components/iframe/#basic-implementation-of-the-iframe-component)
+- [Advanced implementation of the IFrame component](/en/altinn-studio/v8/reference/ux/components/iframe/#advanced-implementation-of-the-iframe-component)
+- [Sandbox restrictions](/en/altinn-studio/v8/reference/ux/components/iframe/#sandbox-restrictions)
 
 ## Why use the IFrame component
 
@@ -70,7 +70,7 @@ Now, if we visit our app, we should be able to see the IFrame component renderin
 ## Advanced implementation of the IFrame component
 
 Sometimes it's not enough to use static HTML and CSS directly written in the text resource file. There are situations where you need to fetch HTML dynamically based on certain criteria or perform calculations.
-To fetch HTML dynamically, you can make use of [ProcessDataRead](/altinn-studio/v8/reference/configuration/stateless/#populating-data). You can learn more about [data processing here](/altinn-studio/v8/reference/logic/dataprocessing).
+To fetch HTML dynamically, you can make use of [ProcessDataRead](/en/altinn-studio/v8/reference/configuration/stateless/#populating-data). You can learn more about [data processing here](/en/altinn-studio/v8/reference/logic/dataprocessing).
 
 ProcessDataRead and Data processing provide the capability to preprocess data before it is sent back to the frontend for rendering.
 

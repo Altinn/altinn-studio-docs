@@ -11,7 +11,7 @@ hidden: true
 <!-- begin asd -->
 
 You can create a new text by clicking on the plus sign or select an existing one by clicking on the magnifying glass.
- See [Adding and Editing Texts in an App](/altinn-studio/v8/reference/ux/texts/#add-and-change-texts-in-an-application) for more information.
+ See [Adding and Editing Texts in an App](/en/altinn-studio/v8/reference/ux/texts/#add-and-change-texts-in-an-application) for more information.
 
 {{% image file="component-settings/textResourceBindings-all.png" %}}
 

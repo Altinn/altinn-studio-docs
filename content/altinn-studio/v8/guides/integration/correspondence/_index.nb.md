@@ -6,7 +6,7 @@ weight: 100
 toc: true
 ---
 
-Denne veiledningen beskriver hvordan du integrerer [meldingstjenesten](/correspondence/) med en Altinn-applikasjon.
+Denne veiledningen beskriver hvordan du integrerer [meldingstjenesten](/nb/correspondence/) med en Altinn-applikasjon.
 En slik integrasjon gjør det mulig for en app å sende digitale meldinger og vedlegg sikkert til både organisasjoner og enkeltpersoner.
 
 ## Forutsetninger

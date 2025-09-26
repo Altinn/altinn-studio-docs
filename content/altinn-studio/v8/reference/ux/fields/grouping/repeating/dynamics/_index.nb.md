@@ -37,4 +37,4 @@ vi kan skjule en rad dersom fornavn i datamodellen er lik "John".
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-Du kan lese mer om [dynamiske utrykk her](/altinn-studio/v8/reference/logic/expressions).
+Du kan lese mer om [dynamiske utrykk her](/nb/altinn-studio/v8/reference/logic/expressions).

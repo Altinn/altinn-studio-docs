@@ -61,7 +61,7 @@ The next step in the process is to exchange the access_token from ID-porten for 
 
 An Altinn Token can be used against all service applications and relevant common components.
 
-The exchange is done against the [Authentication API](/api/authentication/spec/).
+The exchange is done against the [Authentication API](/en/api/authentication/spec/).
 
 The exchange is done by setting the Access Token from ID-porten as a Bearer token in the authorization header and making a GET call to the exchange endpoint where "id-porten" is used as the token provider.
 
@@ -77,7 +77,7 @@ There are mainly two flows to choose from here.
 
 In instantiation without schema data, the first call to Altinn will only contain information about who is the submitter and which service is being instantiated.
 
-This call is made to the [Instance API](/api/apps/instances/#create-instance) on the app. ([OpenAPI](/api/apps/spec))
+This call is made to the [Instance API](/en/api/apps/instances/#create-instance) on the app. ([OpenAPI](/en/api/apps/spec))
 
 ```json
 {
@@ -210,11 +210,11 @@ For an end user system, this means that the following operations must be complet
 
 #### Confirm Next on Data Step
 
-By sending PUT on [NEXT](/api/apps/process/#complete-and-move-to-next-task) on the process API, the service will validate the data and move the process to confirmation.
+By sending PUT on [NEXT](/en/api/apps/process/#complete-and-move-to-next-task) on the process API, the service will validate the data and move the process to confirmation.
 
 In case of data errors, an error message will be received.
 
-One can then call the [validation API](/api/apps/validation/#validate-stored-instance) to get details about the errors.
+One can then call the [validation API](/en/api/apps/validation/#validate-stored-instance) to get details about the errors.
 
 #### Confirm Next on Confirmation Step
 

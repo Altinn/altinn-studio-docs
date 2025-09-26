@@ -10,7 +10,7 @@ In this app template the App Backend is based on [ASP.NET Core](https://docs.mic
 a [Web Api application](https://docs.microsoft.com/en-us/aspnet/core/web-api/).
 
 The App Backend exposes REST-Api's consumed by a optional App Frontend and/or external systems / mobile apps.
-The structure of the API's is documented [here](/altinn-api/)
+The structure of the API's is documented [here](/en/altinn-api/)
 
 The diagram below show how the code is structured in different parts. 
 

@@ -131,4 +131,4 @@ F.eks.:
 [2]: https://code.visualstudio.com/
 [3]: https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml
 [4]: https://digdir-samarbeid.slack.com/archives/C041WMBLYMB
-[5]: /altinn-studio/v8/reference/data/data-modeling/#altinn-studio-data-modeling
+[5]: /en/altinn-studio/v8/reference/data/data-modeling/#altinn-studio-data-modeling

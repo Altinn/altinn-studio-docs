@@ -156,8 +156,8 @@ will be sent to the signees altinn inbox with a link to the relevant application
 will be sent via email. The default texts described in the previous section will be used.
 {{% /notice %}}
 
-If not overridden, the email addresses and the phone numbers used are populated as described in [Recipient lookup](/notifications/explanation/recipient-lookup/) 
-and [Address lookup](/notifications/explanation/address-lookup/).
+If not overridden, the email addresses and the phone numbers used are populated as described in [Recipient lookup](/en/notifications/explanation/recipient-lookup/) 
+and [Address lookup](/en/notifications/explanation/address-lookup/).
 
 These are the possible override configurations for the signee communication:
 

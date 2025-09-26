@@ -8,7 +8,7 @@ Before you start developing new functionality, it's a good idea to check if the 
 If you can't find it, we appreciate if you [propose your wanted component/functionality]({{< relref "/community/contributing/propose-component/" >}}) 
 and enter into dialog with us before starting.
 
-![Contributing process](contribute-develop-en.svg "The preferred process when components are developed")
+![Contributing process](/en/community/contributing/develop-component/contribute-develop-en.svg "The preferred process when components are developed")
 
 We apply the same criteria to externally developed components and functionality as we do with our own. Before developing
 starts, we thus would like to be included in specifying how the component should be designed, both functionally and technically.

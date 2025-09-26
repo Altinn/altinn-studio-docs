@@ -22,4 +22,4 @@ hidden: true
       the action should be "Reject".
 
     
-![Eksempel på en prosess med utfylling etterfulgt av betaling](/altinn-studio/v8/guides/development/payment/process-data-payment.png "Eksempel på en prosess med utfylling etterfulgt av betaling")
+![Eksempel på en prosess med utfylling etterfulgt av betaling](/en/altinn-studio/v8/guides/development/payment/process-data-payment.png "Eksempel på en prosess med utfylling etterfulgt av betaling")

@@ -73,7 +73,7 @@ Determines whether a warning panel will open when the user presses the “Delete
 ## Submission of attachments with API-call
 
 To accommodate being able to submit attachments without this being supported in GUI,
-you will need to add a [datatype object](/technology/solutions/altinn-platform/storage/#datatype)
+you will need to add a [datatype object](/en/technology/solutions/altinn-platform/storage/#datatype)
 in the _applicationMetadata.json_ (the file is under App/config in the application repo).
 It will then only be possible to submit attachments of this type through API-calls.
 For a more detailed description of the available fields, see

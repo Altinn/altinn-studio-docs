@@ -26,5 +26,5 @@ Use of OIDC provider is set in appSettings
 ```
 
 
-Read more about OIDC support under [architecture](/technology/architecture/capabilities/runtime/security/authentication/oidcproviders/).
+Read more about OIDC support under [architecture](/en/technology/architecture/capabilities/runtime/security/authentication/oidcproviders/).
 

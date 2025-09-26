@@ -7,13 +7,13 @@ weight: 10
 ---
 
 ## Introduction
-App Events is the support for [Altinn Events](/technology/solutions/altinn-platform/events/) within the application template, providing standard event functionality for the application developers.
+App Events is the support for [Altinn Events](/en/events/) within the application template, providing standard event functionality for the application developers.
 
 The functionality provided within the template is:
 
 1. __Pushing events__
-   * Enabling of standard events through [configuration](/altinn-studio/v8/reference/configuration/events#activate-generation-of-events-in-your-application)
-   * Pushing custom events through [code](/altinn-studio/v8/reference/configuration/events/#pushing-self-defined-events-into-your-application)
+   * Enabling of standard events through [configuration](/en/altinn-studio/v8/reference/configuration/events#activate-generation-of-events-in-your-application)
+   * Pushing custom events through [code](/en/altinn-studio/v8/reference/configuration/events/#pushing-self-defined-events-into-your-application)
 2. __Receiving events__
    * Subscribing to events
    * Validate subscription

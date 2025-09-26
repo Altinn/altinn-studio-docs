@@ -24,7 +24,7 @@ Combined with robust automation, they allow the devops team to make changes freq
 
 The Cloud Native blueprint below show the important aspect of a Cloud Native solution.
 
-![Cloud Native blueprint](/technology/architecture/patterns/cloudnative.svg "Cloud Native")
+![Cloud Native blueprint](/en/technology/architecture/patterns/cloudnative.svg "Cloud Native")
 
 The following listing describes the different Architecture Patterns selected for Altinn.
 
@@ -40,7 +40,7 @@ Example components are authorization and storage.
 
 Each application created in Altinn Studio will be a isolated microservice application with API's and front-end. 
 
-![Conceptual View](/technology/architecture/patterns/microservices.svg "Microservice Pattern Conceptual View")
+![Conceptual View](/en/technology/architecture/patterns/microservices.svg "Microservice Pattern Conceptual View")
 
 ### Benefits 
 
@@ -62,7 +62,7 @@ Applications/Components are organized into horizontal layers, each layer perform
 role within the application. Typical the layers will typical be Presentation, API, Business and dataacess where dataccess could be access to database or 
 API calls to other components.
 
-![Conceptual View](/technology/architecture/patterns/layered.svg "Layered Pattern Conceptual View")
+![Conceptual View](/en/technology/architecture/patterns/layered.svg "Layered Pattern Conceptual View")
 
 
 ### Benefits

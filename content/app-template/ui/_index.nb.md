@@ -50,7 +50,7 @@ The list of supported UI components is growing. This list includes UI components
 - Heading
 - Paragraph
 
-You can find UI-component documentation [here.](/altinn-studio/v8/reference/ux/components/)
+You can find UI-component documentation [here.](/nb/altinn-studio/v8/reference/ux/components/)
 
 ### Page Support
 
@@ -58,24 +58,24 @@ The App Template front end supports having multiple pages of UI components in th
 
 Multipage support is essential for digital services with a large amount of data that needs input.
 
-[Read how to configure pages.](/altinn-studio/v8/reference/ux/pages/)
+[Read how to configure pages.](/nb/altinn-studio/v8/reference/ux/pages/)
 
 ### Page Navigation
 
-[Read how to configure page navigation.](/altinn-studio/v8/reference/ux/pages/navigation/)
+[Read how to configure page navigation.](/nb/altinn-studio/v8/reference/ux/pages/navigation/)
 
 ### Dynamics
 
 Configuring dynamics that manipulate the UI based on data and other aspects is possible. Dynamics is configured using
 expressions.
 
-[Read how in the Application Developer Handbook.](/altinn-studio/v8/reference/logic/expressions)
+[Read how in the Application Developer Handbook.](/nb/altinn-studio/v8/reference/logic/expressions)
 
 ### Language support
 
 The front end support configuring the digital service with multiple languages. It even supports right-to-left languages.
 
-[Read more about language support.](/altinn-studio/v8/reference/ux/texts/translation/)
+[Read more about language support.](/nb/altinn-studio/v8/reference/ux/texts/translation/)
 
 ## Custom Frontend
 

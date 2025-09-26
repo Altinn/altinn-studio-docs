@@ -12,7 +12,7 @@ We can now proceed to the [Maskinporten setup](#maskinporten-setup) and the [app
 
 ## Maskinporten Setup
 
-In order to use the [correspondence service](/correspondence/), a [Maskinporten](/authorization/getting-started/authentication/maskinporten/) client with the access to the following scopes is required:
+In order to use the [correspondence service](/en/correspondence/), a [Maskinporten](/en/authorization/getting-started/authentication/maskinporten/) client with the access to the following scopes is required:
 
 - `altinn:serviceowner`
 - `altinn:correspondence.read`

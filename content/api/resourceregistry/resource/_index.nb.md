@@ -139,7 +139,7 @@ The below shows a complete resource from [production](https://platform.altinn.no
   }
   ```
 
-See more functional descriptions [here](/authorization/what-do-you-get/resourceregistry/)
+See more functional descriptions [here](/nb/authorization/what-do-you-get/resourceregistry/)
 
 
 #### Resource Policy M

@@ -19,7 +19,7 @@ For such a service, the process in the app itself will be completed when the end
 
 ## Instantiation of service
 
-Instantiation in Altinn means that a dialogue is created in a submitter/party's inbox in Altinn. This instantiation can be triggered by the end user or by the service owner. In this guide, we assume that it is instantiated by the end user. A guide for service owner instantiation can be found [here](/api/apps/instances/#create-instance).
+Instantiation in Altinn means that a dialogue is created in a submitter/party's inbox in Altinn. This instantiation can be triggered by the end user or by the service owner. In this guide, we assume that it is instantiated by the end user. A guide for service owner instantiation can be found [here](/en/api/apps/instances/#create-instance).
 
 ## Overall end user process
 
@@ -40,15 +40,15 @@ The overall process:
 
 Development of the application is covered in the Application Development Guide. Activation of event publishing from the application is described in the guide.
 
-Requirements for the webhook to receive events can be found [here](/events/subscribe-to-events/developer-guides/setup-subscription/#request).
+Requirements for the webhook to receive events can be found [here](/en/events/subscribe-to-events/developer-guides/setup-subscription/#request).
 
-The service owner must have registered an integration in Maskinporten. Creation of the integration is described in the Guide [here](/authorization/getting-started/authentication/maskinporten/#access-as-a-service-owner).
+The service owner must have registered an integration in Maskinporten. Creation of the integration is described in the Guide [here](/en/authorization/getting-started/authentication/maskinporten/#access-as-a-service-owner).
 
 ## Detailed technical process
 
 ### Service owner system receives Event from Altinn Events
 
-The first step in the process is that the receiving endpoint receives information about the Event from the Application running in Altinn. This assumes that [subscription is set up](/events/subscribe-to-events/developer-guides/setup-subscription/).
+The first step in the process is that the receiving endpoint receives information about the Event from the Application running in Altinn. This assumes that [subscription is set up](/en/events/subscribe-to-events/developer-guides/setup-subscription/).
 
 ```json
 {
@@ -65,9 +65,9 @@ The first step in the process is that the receiving endpoint receives informatio
 
 ### Authentication against Maskinporten
 
-The service owner system calls the Maskinporten API with the correct Scopes for the service owner. This is described in detail [here](/authorization/getting-started/authentication/maskinporten/#access-as-a-service-owner).
+The service owner system calls the Maskinporten API with the correct Scopes for the service owner. This is described in detail [here](/en/authorization/getting-started/authentication/maskinporten/#access-as-a-service-owner).
 
-Then the service owner system must call Altinn's [exchange endpoint](/api/authentication/spec/) with its Maskinporten token as a bearer token.
+Then the service owner system must call Altinn's [exchange endpoint](/en/api/authentication/spec/) with its Maskinporten token as a bearer token.
 
 ```http
 http://platform.altinn.no/authentication/api/v1/exchange/maskinporten/
@@ -156,7 +156,7 @@ It is recommended that the service owner uses the app endpoint for downloading. 
 
 ### Service owner system calls the endpoint to confirm data
 
-When instance data and data elements are downloaded and verified as okay, the service owner must confirm successful download. This is done by calling the [Complete endpoint](/api/apps/instances/#complete-instance) on the Application.
+When instance data and data elements are downloaded and verified as okay, the service owner must confirm successful download. This is done by calling the [Complete endpoint](/en/api/apps/instances/#complete-instance) on the Application.
 
 ## Reference system
 

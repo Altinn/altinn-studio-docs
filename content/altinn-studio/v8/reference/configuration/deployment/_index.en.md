@@ -230,7 +230,7 @@ volumes:
 
 Custom volumes can be added under the `development` section in `App/deployment/values.yaml`.
 
-At the moment, there is only one use case for adding other volumes: [Fetching secrets from Azure Key Vault](/altinn-studio/v8/reference/configuration/secrets/).
+At the moment, there is only one use case for adding other volumes: [Fetching secrets from Azure Key Vault](/en/altinn-studio/v8/reference/configuration/secrets/).
 
 ## Service
 

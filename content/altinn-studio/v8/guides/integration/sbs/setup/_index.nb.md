@@ -215,7 +215,7 @@ Man trenger en Maskinporten-klient for å bruke systemregisteret og for å ta i 
 - Noter ned klient ID (`a2ed712d-4144-4471-839f-80ae4a68146b` f. eks.)
 - Lag og registrer JWKS på klienten (ta vare på privat og public JWK)
 
-Se dokumentasjon for [registrering av Maskinporten-klient her](/technology/solutions/cli/configuration/maskinporten-setup/).
+Se dokumentasjon for [registrering av Maskinporten-klient her](/nb/technology/solutions/cli/configuration/maskinporten-setup/).
 
 #### 3. Fiken registrerer system i systemregisteret
 

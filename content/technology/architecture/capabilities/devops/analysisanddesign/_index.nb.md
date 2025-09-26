@@ -28,7 +28,7 @@ See [development application components]({{< relref "/technology/architecture/co
 
 The DevOps teams or stakeholders define user stories in our GitHub repositories
 
-[See our repositories](/technology/architecture/capabilities/devops/projectmanagement/).
+[See our repositories](/nb/technology/architecture/capabilities/devops/projectmanagement/).
 
 ### Requirement Validation
 

@@ -17,7 +17,7 @@ The Principles and patterns has been deciding factors how the [components](compo
 
 The diagram below show the relationships and you can **click the elements** to read more about each architecture artifact or select in menu or section below diagram. 
 
-<object data="/technology/architecture/architecture_decision_relationship.svg" type="image/svg+xml" style="width: 100%;"></object>
+<object data="/en/technology/architecture/architecture_decision_relationship.svg" type="image/svg+xml" style="width: 100%;"></object>
 
 [Download as Visio](architecture_decision_relationship.vsdx).
 

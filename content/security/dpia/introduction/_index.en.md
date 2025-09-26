@@ -87,7 +87,7 @@ The first delivery included a new service development solution consisting of dev
 environments (Altinn Apps), and a new platform with reusable micro-services (Altinn Platform). The new service
 development solution utilizes the possibilities and features available in a pure cloud-based infrastructure.
 
-![Concept](/community/about/concept3.svg "Altinn 3 concept")
+![Concept](/en/community/about/concept3.svg "Altinn 3 concept")
 
 Altinn is intended to support cross-sectoral collaboration, which is also related to this new service development
 solution, and introduces the need for a range of other and new collaboration functions. A cloud-based solution ensures

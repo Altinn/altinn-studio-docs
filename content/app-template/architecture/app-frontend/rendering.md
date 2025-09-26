@@ -38,8 +38,8 @@ displaying and/or updating data in the data model are loaded when an app is in a
 See the diagram below for an overview of what happens when the user loads an app in a `data` process task, after the initial loading of general 
 resources (and instantiation if needed) has completed.
 
-![Rendering the app - flow for data type process task](/app-template/architecture/app-frontend-rendering-data.drawio.svg "Rendering the app - flow for data type process task")
+![Rendering the app - flow for data type process task](/en/app-template/architecture/app-frontend-rendering-data.drawio.svg "Rendering the app - flow for data type process task")
 
 ## Rendering a form in `data` process task
 
-![Rendering a form in the data process task](/app-template/architecture/app-frontend-form-rendering.drawio.svg "Rendering a form in the data process task")
+![Rendering a form in the data process task](/en/app-template/architecture/app-frontend-form-rendering.drawio.svg "Rendering a form in the data process task")

@@ -20,7 +20,7 @@ toc: true
 ---
 
 ### Bredde på inputfelt
-Bredden på inputfeltet burde reflektere det som forventes av input fra brukeren. Vi har laget tre standard størrelser som burde dekke de fleste scenarioer og som skal fungere på forskjellige skjermstørrelser. [Les om hvordan du endrer størrelsen her](/altinn-studio/v8/reference/ux/styling/#innergrid-og-labelgrid)
+Bredden på inputfeltet burde reflektere det som forventes av input fra brukeren. Vi har laget tre standard størrelser som burde dekke de fleste scenarioer og som skal fungere på forskjellige skjermstørrelser. [Les om hvordan du endrer størrelsen her](/nb/altinn-studio/v8/reference/ux/styling/#innergrid-og-labelgrid)
 
 #### Lite input
 Brukes til for eksempel telefonnummer, postnummer og årstall

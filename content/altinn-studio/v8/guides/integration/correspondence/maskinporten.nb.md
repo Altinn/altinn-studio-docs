@@ -12,7 +12,7 @@ Vi kan nå gå videre til [oppsett av Maskinporten](#maskinporten) og [applikasj
 
 ## Maskinporten
 
-For å bruke [meldingstjenesten](/correspondence/) behøver man en [Maskinporten](/authorization/getting-started/authentication/maskinporten/)-klient med tilgang til følgende scopes:
+For å bruke [meldingstjenesten](/nb/correspondence/) behøver man en [Maskinporten](/nb/authorization/getting-started/authentication/maskinporten/)-klient med tilgang til følgende scopes:
 
 - `altinn:serviceowner`
 - `altinn:correspondence.read`

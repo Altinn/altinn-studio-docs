@@ -16,7 +16,7 @@ aliases:
 
 If the service should send a signature receipt to the inbox of the signee, the Altinn message service (Correspondence) must be enabled.
 
-See [how](/correspondence/getting-started/) to get started.
+See [how](/en/correspondence/getting-started/) to get started.
 
 ## 1. Add a signing task to the app process, with related configuration
 

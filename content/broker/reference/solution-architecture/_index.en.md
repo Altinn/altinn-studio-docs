@@ -31,7 +31,7 @@ These high level principals apply.
 
 ### General Altinn 3 Architecture Principles
 
-The [Altinn 3 Architecture Principles](/principles) apply.
+The [Altinn 3 Architecture Principles](/en/principles) apply.
 
 <!--
 ### Architecture Principles for Messaging and Data Sharing

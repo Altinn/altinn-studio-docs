@@ -55,7 +55,7 @@ Oppdaterte eksterne avhengigheter for uke 17 av 2022.
 ## 3.35.0 (2022-04-28) - Merke påkrevde felter
 Endret standard visning av felter til at påkrevde felter markeres med en *, mens felter som er valgfrie
 ikke har noen markering. Valgfrie felter kan settes opp til å markeres med `(Valgfri)` via `labelSettings`-property
-på feltet i form layout. Se [her](/altinn-studio/v8/reference/ux/fields/settings/).
+på feltet i form layout. Se [her](/nb/altinn-studio/v8/reference/ux/fields/settings/).
 
 ## 3.34.4 (2022-04-28) - Fjernet overskrift om vedlegg når det ikke er noen vedlegg
 Under kvitteringen ble det vist en overskrift over listen med vedlegg. Etter det ble mulig å skru av generering av

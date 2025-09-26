@@ -8,4 +8,4 @@ hidden: true
 Each app will have its unique set of APIs. Compared to current API it makes it possible to create APIs that
 have documentation that is target for the specific app.
 
-For more details, see [altinn api](/api).
+For more details, see [altinn api](/nb/api/).

@@ -31,7 +31,7 @@ Disse prinsippene gjelder.
 
 ### General Altinn 3 Architecture Principles
 
-[Altinn 3 arkitekturprinsipper ](/principles) gjelder.
+[Altinn 3 arkitekturprinsipper ](/nb/principles) gjelder.
 
 <!--
 ### Architecture Principles for Messaging and Data Sharing

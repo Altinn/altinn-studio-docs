@@ -23,4 +23,4 @@ Bruk av OIDC provider settes i appSettings
 ```json
     "AppOidcProvider": "uidp"
 ```
-Les mer om OIDC støtten under [arkitektur](/technology/architecture/capabilities/runtime/security/authentication/oidcproviders/).
+Les mer om OIDC støtten under [arkitektur](/nb/technology/architecture/capabilities/runtime/security/authentication/oidcproviders/).

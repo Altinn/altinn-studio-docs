@@ -34,7 +34,7 @@ Eksisterende REST API i Altinn 2 er dokumentert [her](https://www.altinn.no/api/
 ![ROLES REST-api for tjenesteeiere](roles.png "Roles-tjenesten")
 Tjenesten benyttes for å hente ut hvilke roller en bruker har for å 
 ### Migreringsstrategi
-I forbindelse med overgang til Altinn 3 erstattes dagens Altinn roller med nye tilgangspakker, se [brev sendt tjenesteeiere](/authorization/migration/informasjon-sent/letter-accessgroupes/).
+I forbindelse med overgang til Altinn 3 erstattes dagens Altinn roller med nye tilgangspakker, se [brev sendt tjenesteeiere](/en/authorization/migration/informasjon-sent/letter-accessgroupes/).
 Det er foreløpig ikke bestemt hva som vil skje med ROLES API når de nye tilgangsgruppene innføres. 
 #### Hvilke konsekvenser har dette for konsumenter
 Ikke avklart

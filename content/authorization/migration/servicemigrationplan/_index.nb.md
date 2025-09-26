@@ -159,4 +159,4 @@ I dag er det mulig for sluttbrukere å benytte API for å slette eller opprette 
 
 - Oppstart utvikling: Avsluttet
 - Migrering tjenester avsluttet: Alle tjenester ble flyttet 13.6.23
-- Informasjon sendt til tjenesteeiere finner du [her](/authorization/migration/informasjon-sent/letter-api-reources")
+- Informasjon sendt til tjenesteeiere finner du [her](/nb/authorization/migration/informasjon-sent/letter-api-reources")

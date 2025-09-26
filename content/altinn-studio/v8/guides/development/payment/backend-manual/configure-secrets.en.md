@@ -5,7 +5,7 @@ hidden: true
 ### Add config to appsettings.json:
 
 1. [Get your secret key from Nets.](https://developer.nexigroup.com/nexi-checkout/en-EU/docs/access-your-integration-keys/). Make sure you use the test key during development.
-2. Make your app ready for use of Azure Key Vault as a config provider, if this has not been done before. See [relevant documentation](/altinn-studio/v8/reference/configuration/secrets/).
+2. Make your app ready for use of Azure Key Vault as a config provider, if this has not been done before. See [relevant documentation](/en/altinn-studio/v8/reference/configuration/secrets/).
 3. Add your secret key to Key Vault, with the variable name `NetsPaymentSettings--SecretApiKey`. This way it will override `SecretApiKey` in `appsettings.json`.
 4. Add `NetsPaymentSettings` to your `appsettings.json`.
    

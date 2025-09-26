@@ -61,7 +61,7 @@ Neste steg i prosessen er å veksle access_token fra ID-porten til et Altinn Tok
 
 Et Altinn Token kan benyttes mot alle tjenesteapplikasjoner og relevante felleskomponenter.
 
-Innveksling skjer mot [Autentiserings API](/api/authentication/spec/).
+Innveksling skjer mot [Autentiserings API](/nb/api/authentication/spec/).
 
 Innvekslingen skjer ved at man setter Access Token fra ID-porten som et Bearer token i authorization headeren og gjør et GET-kall mot innvekslingsendepunktet hvor "id-porten" er brukt som token provider.
 
@@ -77,7 +77,7 @@ Det er i hovedsak to flyter man kan velge her.
 
 Ved instansiering uten skjemadata vil første kall mot Altinn kun inneholde informasjon om hvem som er avgiver og hvilken tjeneste man instansierer.
 
-Dette kallet går mot [Instance API](/api/apps/instances/#create-instance) på app. ([OpenAPI](/api/apps/spec))
+Dette kallet går mot [Instance API](/nb/api/apps/instances/#create-instance) på app. ([OpenAPI](/nb/api/apps/spec))
 
 ```json
 {
@@ -210,11 +210,11 @@ For et sluttbrukersystem betyr det at følgende operasjoner må gjennomføres f�
 
 #### Bekrefte Next på datasteg
 
-Ved å sende PUT på [NEXT](/api/apps/process/#complete-and-move-to-next-task) på prosess-API vil tjenesten validere data og sende prosessen videre til bekreftelse.
+Ved å sende PUT på [NEXT](/nb/api/apps/process/#complete-and-move-to-next-task) på prosess-API vil tjenesten validere data og sende prosessen videre til bekreftelse.
 
 Ved feil på data vil man få en feilmelding.
 
-Man kan da kalle [validerings-API](/api/apps/validation/#validate-stored-instance) for å få detaljer om feil.
+Man kan da kalle [validerings-API](/nb/api/apps/validation/#validate-stored-instance) for å få detaljer om feil.
 
 #### Bekrefte Next på bekreftelsesteg
 

@@ -31,4 +31,4 @@ Klikk **Utforming** i toppmenyen for å gå dit.
     Velg en komponent fra underskjemaet for hver kolonne.  
     Du kan legge til en egen tittel. Hvis du ikke gjør det, bruker appen komponentenes tittel.  
     Klikk på **Lagre** når du er ferdig.
-    ![Konfigurasjon av kolonner](/altinn-studio/v8/guides/development/subform/studio/add-subform-column-studio.png "Konfigurasjon av kolonner")
+    ![Konfigurasjon av kolonner](/nb/altinn-studio/v8/guides/development/subform/studio/add-subform-column-studio.png "Konfigurasjon av kolonner")

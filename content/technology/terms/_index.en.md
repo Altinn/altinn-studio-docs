@@ -38,7 +38,7 @@ Norway's E-Government platform. Launched December 4th 2003.
 Altinn Apps is the infrastructure for running apps developed in Altinn Studio.
 Each organisation that is using Altinn Studio will have its own Altinn Apps Kubernetes cluster, isolated from other organisations.
 
-See Altinn Apps [application architecture](/technology/architecture/components/application/construction/altinn-apps) or [deployment architecture](/technology/architecture/capabilities/runtime/appdeploy).
+See Altinn Apps [application architecture](/en/technology/architecture/components/application/construction/altinn-apps) or [deployment architecture](/en/technology/architecture/capabilities/runtime/appdeploy).
 
 ## Altinn CLI
 
@@ -159,7 +159,7 @@ The user which is logged in in Altinn and performs actions on behalf of an insta
 
 ## Kubernetes
 
-A system for managing docker containers. See also: [Relevant definitions within Kubernetes](/technology/tools/kubernetes/)
+A system for managing docker containers. See also: [Relevant definitions within Kubernetes](/en/technology/tools/kubernetes/)
 
 ## React
 

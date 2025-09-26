@@ -40,7 +40,7 @@ som sier at kildekode skal deles, og ikke bare det, men at man også bør bidra 
 - også har vi **Sveits** da, som virkelig
 [viser alle hvordan det skal gjøres](https://interoperable-europe.ec.europa.eu/collection/open-source-observatory-osor/news/new-open-source-law-switzerland)
 
-Vi legger til rette for gjenbruk og deling på alle nivåer i arkitekturen til Altinn, fra [våre prinsipper](/principles)
+Vi legger til rette for gjenbruk og deling på alle nivåer i arkitekturen til Altinn, fra [våre prinsipper](/nb/principles)
 til hele plattformen og infrastrukturen, ned til design og GUI-komponenter, kode og konfigurasjon.
 
 Dette er også en av flere grunner til at Altinn nå er et [digitalt fellesgode (DPG)](https://digitalpublicgoods.net/),
@@ -92,7 +92,7 @@ f.eks. om leverandøren velger å fase ut produktet.
 Om man baserer seg på åpen kildekode så kan man i en slik situasjon
 lage en [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo), om ikke noen andre gjør det.
 
-Altinn 3 er derfor [basert på programvare og biblioteker](/technology/tools/) som er åpen kildekode.
+Altinn 3 er derfor [basert på programvare og biblioteker](/nb/technology/tools/) som er åpen kildekode.
 
 Vi tenker at dette naturlig nok også er veldig viktig for de som vurderer om man skal ta i bruk Altinn.
 
@@ -120,7 +120,7 @@ Her er noen av de fantastiske [SaaS](https://en.wikipedia.org/wiki/Software_as_a
 
 Og dette er bare et lite utvalg...  
 Alle verktøy og rammeverk som vi bygger Altinn på toppen av, er åpen programvare som er
-[veldig godt likt](/technology/architecture/principles/#build-with-modern-and-popular-frameworks).
+[veldig godt likt](/nb/technology/architecture/principles/#build-with-modern-and-popular-frameworks).
 
 ## De beste folkene
 

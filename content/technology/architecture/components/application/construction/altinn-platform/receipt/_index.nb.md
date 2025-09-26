@@ -11,7 +11,7 @@ The receipt frontend view is available at <https://platform.at22.altinn.cloud/re
 
 The receipt component also exposes apis that are intended for use by the receipt frontend.
 If you need information about the user, instance or party you should use
-[their respective platform components](/technology/architecture/components/application/construction/altinn-platform/).
+[their respective platform components](/nb/technology/architecture/components/application/construction/altinn-platform/).
 
 Receipt backend exposes two enitities through API endpoints prefixed with <https://platform.at22.altinn.cloud/receipt/api/v1/>; _user_ and _extendedInstance_
 

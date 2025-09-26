@@ -39,8 +39,8 @@ Data type represents the requirements for data elements. Data types representing
 | description                      | A collection of data type descriptions in different languages.                                                                                                                              |
 | allowedContentTypes              | A list of Content-Types allowed by the data type.                                                                                                                                           |
 | allowedContributors              | A list of allowed contributors. This can be used to restrict who it is that can work with the data type.                                                                                    |
-| actionRequiredToRead             | An [action](/altinn-studio/v8/reference/configuration/authorization/#action-attributes), in addition to `read`, which is required to read data elements of this type.                           |
-| actionRequiredToWrite            | An [action](/altinn-studio/v8/reference/configuration/authorization/#action-attributes), in addition to `write`, which is required to write to data elements of this type.                      |
+| actionRequiredToRead             | An [action](/en/altinn-studio/v8/reference/configuration/authorization/#action-attributes), in addition to `read`, which is required to read data elements of this type.                           |
+| actionRequiredToWrite            | An [action](/en/altinn-studio/v8/reference/configuration/authorization/#action-attributes), in addition to `write`, which is required to write to data elements of this type.                      |
 | appLogic                         | A complex object with information on how a data type is connected to a model. See [ApplicationLogic](#applicationlogic).                                                                    |
 | taskId                           | A reference to a task from the application process. The value indicate that the data type requirements must be fulfilled before the process can move on from the given step in the process.  |
 | maxSize                          | The maximum allowed size of the data element.                                                                                                                                               |
@@ -152,7 +152,7 @@ Configure if copying data from an archived instance is allowed and what data typ
 | excludedDataTypes  | List of DataTypes that should be excluded when a new copy is made.               |
 | excludedDataFields | List of fields in the DataModel that should be excluded when a new copy is made.  |
 
-The portal message box will show a link called [Create new copy](/altinn-studio/v8/reference/configuration/messagebox/create_copy/) when the user selects an archived instance.
+The portal message box will show a link called [Create new copy](/en/altinn-studio/v8/reference/configuration/messagebox/create_copy/) when the user selects an archived instance.
 
 ## OnEntry
 

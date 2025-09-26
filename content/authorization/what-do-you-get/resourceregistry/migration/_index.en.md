@@ -24,11 +24,11 @@ In Altinn Studio, you can choose to create new resources based on existing linke
 
 Select "Import Resource".
 
-![Migration](/authorization/what-do-you-get/resourceregistry/migration/migrationstep1.png "Migration")
+![Migration](/en/authorization/what-do-you-get/resourceregistry/migration/migrationstep1.png "Migration")
 
 Provide the ID to be used in the Altinn resource registry. This ID will be central.
 
-![Migration](/authorization/what-do-you-get/resourceregistry/migration/migrationstep2.png "Migration")
+![Migration](/en/authorization/what-do-you-get/resourceregistry/migration/migrationstep2.png "Migration")
 
 When you click "Import", a new resource is created in Altinn Studio in the organization's repository.
 

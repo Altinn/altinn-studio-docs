@@ -10,7 +10,7 @@ When an instance is in a _data_ step, the form defined in the JSON form layout f
 Below you can see a simplified overview of the layers of components that are used to render the form, including some of the
 most important inputs.
 
-![App structure](/app-template/architecture/app-frontend/app-frontend-form-rendering.drawio.svg)
+![App structure](/nb/app-template/architecture/app-frontend/app-frontend-form-rendering.drawio.svg)
 
 A detailed overview of the app frontend structure and architecture is available [here]({{< relref "/app-template/architecture/app-frontend/" >}}).
 

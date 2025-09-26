@@ -6,7 +6,7 @@ weight: 100
 toc: true
 ---
 
-This guide details how to integrate the [correspondence messaging service](/correspondence/) with an Altinn application.
+This guide details how to integrate the [correspondence messaging service](/en/correspondence/) with an Altinn application.
 This integration enables an app to securely send digital messages and attachments to both organisations and individuals.
 
 ## Prerequisites
@@ -17,7 +17,7 @@ This integration enables an app to securely send digital messages and attachment
 When sending a correspondence, it needs to be tied to an Altinn resource. This resource controls the access policy for
 the Correspondence, which is evaluated for both senders and receivers.
 
-Please refer to the [resource registration guide](/correspondence/getting-started/developer-guides/serviceowner/#registeraresourceinaltinnresourceregistry)
+Please refer to the [resource registration guide](/en/correspondence/getting-started/developer-guides/serviceowner/#registeraresourceinaltinnresourceregistry)
 for more information on the setup process.
 
 {{<notice info notice-paragraph-fix>}}

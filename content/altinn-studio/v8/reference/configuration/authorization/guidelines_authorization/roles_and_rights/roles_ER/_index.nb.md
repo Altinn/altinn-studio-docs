@@ -14,7 +14,7 @@ Når man velger roller er det derfor viktig å vurdere hvilke typer organisasjon
 og med det hvilke roller man må knytte til tjenesten for å gi disse tilgang.
 
 Fullstendig oversikt over organisasjonsformer og roller som leses inn fra Enhetsregisteret
-finner du på [Fullmakter fra Enhetsregisteret](/authorization/what-do-you-get/accessgroups/register_er/)
+finner du på [Fullmakter fra Enhetsregisteret](/nb/authorization/what-do-you-get/accessgroups/register_er/)
 
 
 ## Nøkkelroller

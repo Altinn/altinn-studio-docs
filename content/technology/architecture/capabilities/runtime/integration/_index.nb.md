@@ -30,7 +30,7 @@ This also include app developers that create applications in Altinn Studio.
 In the same way the different applications and components consumes APIS from other sources both inside the Altinn 3 platform solutions
 and external sources. 
 
-The APIS exposed as standard from Apps and platform is described [here](/api)
+The APIS exposed as standard from Apps and platform is described [here](/nb/api)
 
 ### Publish & Subscribe
 

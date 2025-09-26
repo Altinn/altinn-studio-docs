@@ -5,7 +5,7 @@ description: This page contains information about the types of roles Altinn has 
 toc: true
 ---
 
-A role is a type of authorization a user has on behalf of the [actor](/technology/terms/#actor) the user is acting on behalf of.  
+A role is a type of authorization a user has on behalf of the [actor](/en/technology/terms/#actor) the user is acting on behalf of.  
 Roles can be assigned to individuals or organizations. These are identified with a national identity number (from the National Population Register) or an organization number (from the Register of Legal Entities).  
 There are two main types of roles to which an authorization rule can be linked: External roles and Altinn roles.  
 
@@ -18,11 +18,11 @@ External roles for an actor can only be changed by the responsible entity that o
 Altinn uses roles from the following authoritative registers:  
 
 ### Roles from the [Register of Legal Entities](https://www.brreg.no/om-oss/registrene-vare/om-enhetsregisteret/)  
-These roles are used when the [actor](/technology/terms/#actor) is an organization.  
+These roles are used when the [actor](/en/technology/terms/#actor) is an organization.  
 You can read more about which roles from the Register of Legal Entities are used in Altinn [here](roles_er).  
 
 ### Roles from the [Norwegian Tax Administration](https://www.skatteetaten.no/)  
-These roles are used when the [actor](/technology/terms/#actor) is an organization or an individual.  
+These roles are used when the [actor](/en/technology/terms/#actor) is an organization or an individual.  
 You can read more about which roles from the Tax Administration are used [here](roles_ske).  
 
 ### Roles from the [Employer and Employee Register](https://www.nav.no/no/bedrift/tjenester-og-skjemaer/aa-registeret-og-a-meldingen)  
@@ -38,8 +38,8 @@ This is not implemented today but is on the backlog as a new source of external 
 This is not implemented today but is on the backlog as a new source of external roles.  
 
 ## Altinn roles
-These roles are used when the [actor](/technology/terms/#actor) is an organization or an individual.  
-Altinn roles can (unlike external roles) be administered and changed via Altinn Profile by the administrator for the [actor](/technology/terms/#actor).
+These roles are used when the [actor](/en/technology/terms/#actor) is an organization or an individual.  
+Altinn roles can (unlike external roles) be administered and changed via Altinn Profile by the administrator for the [actor](/en/technology/terms/#actor).
 
 ## API for role information
 There is an API for retrieving information about all roles registered in Altinn 2.  

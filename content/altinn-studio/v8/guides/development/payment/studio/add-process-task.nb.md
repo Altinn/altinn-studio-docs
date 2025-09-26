@@ -24,4 +24,4 @@ hidden: true
       det oppsettet som legges til - aksjon skal være "Avvise".
 
     
-![Eksempel på en prosess med utfylling etterfulgt av betaling](/altinn-studio/v8/guides/development/payment/process-data-payment.png "Eksempel på en prosess med utfylling etterfulgt av betaling")
+![Eksempel på en prosess med utfylling etterfulgt av betaling](/nb/altinn-studio/v8/guides/development/payment/process-data-payment.png "Eksempel på en prosess med utfylling etterfulgt av betaling")

@@ -25,7 +25,7 @@ Dialogporten operates on a read-only basis{{<footnote "There are two exceptions;
 ## How do app developers in Altinn use Dialogporten?
 The Altinn platform will automatically make all app [instances]({{< relref "/api/models/instance/" >}}) and [correspondence]({{< relref "/correspondence" >}}) available in Dialogporten, exposing relevant information and actions, and will update the representation as the app instance/correspondence gets updated. 
 
-For additional control, the [app template](/app-template) utilizes a [Dialogporten API client]({{< relref "/dialogporten/user-guides/service-owners/api-client" >}}) that enables the app to take full control on how the app is represented in Dialogporten, and thus portals like Altinn Inbox ("arbeidsflate").
+For additional control, the [app template](/en/app-template) utilizes a [Dialogporten API client]({{< relref "/dialogporten/user-guides/service-owners/api-client" >}}) that enables the app to take full control on how the app is represented in Dialogporten, and thus portals like Altinn Inbox ("arbeidsflate").
 
 {{% notice warning %}}
 The app template integration is under development. For now, app developers must utilize the [Dialogporten API client NuGet package](https://www.nuget.org/packages/Altinn.ApiClients.Dialogporten) directly.

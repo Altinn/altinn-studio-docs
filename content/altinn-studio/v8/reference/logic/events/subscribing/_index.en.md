@@ -10,7 +10,7 @@ weight: 10
 In order to receive events in the application you need create a subscription. While you can create a subscription authenticated as a user, most scenarios will probably be to authenticate as the organization owning the application, and to create the subscription as part of the startup process of the application. This example covers authenticating as an organization through Maskinporten.
 
 {{% notice warning %}}
-You should first make sure you have a client definition registered in Maskinporten for your application. See [Authenticating with Maskinporten](/api/authentication/maskinporten) on how register a client.<br><br>
+You should first make sure you have a client definition registered in Maskinporten for your application. See [Authenticating with Maskinporten](/en/api/authentication/maskinporten) on how register a client.<br><br>
 
 Currently the localtest environment does not support generating inbound events for an app. In order to do this you need use tools like Postman or REST Client in VS Code to send a request to the application's event endpoint. 
 {{% /notice %}}

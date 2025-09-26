@@ -159,7 +159,7 @@ melding sendes til signatarenes Altinn-innboks med en lenke til den relevante ap
 sendt via e-post.
 {{% /notice %}}
 
-Om ikke overstyrt, vil e-postadressene og telefonnumrene populeres som beskrevet i [Recipient lookup](/notifications/explanation/recipient-lookup/) og [Address lookup](/notifications/explanation/address-lookup/).
+Om ikke overstyrt, vil e-postadressene og telefonnumrene populeres som beskrevet i [Recipient lookup](/nb/notifications/explanation/recipient-lookup/) og [Address lookup](/nb/notifications/explanation/address-lookup/).
 
 Dette er de mulige overstyringskonfigurasjonene for kommunikasjon med signatarer:
 

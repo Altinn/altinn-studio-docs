@@ -17,7 +17,7 @@ See the [readme file at github](https://github.com/Altinn/altinn-broker/blob/mai
 
 The Repo also contains a [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json) with examples.
 
-Swagger for the File Transfer API is hosted [here](/api/broker/spec/).
+Swagger for the File Transfer API is hosted [here](/en/api/broker/spec/).
 
 ## Overall API operation {#overall-api-operation}
 

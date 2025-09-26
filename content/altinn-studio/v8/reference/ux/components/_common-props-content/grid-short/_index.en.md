@@ -44,6 +44,6 @@ App/ui/layouts/{page}.json
 <!-- begin more -->
 You can also use `grid` to place items side by side.
 
-See [Components placed side by side (grid)](/altinn-studio/v8/reference/ux/styling/#components-placed-side-by-side-grid) for details and examples.
+See [Components placed side by side (grid)](/en/altinn-studio/v8/reference/ux/styling/#components-placed-side-by-side-grid) for details and examples.
 
 <!-- end more -->

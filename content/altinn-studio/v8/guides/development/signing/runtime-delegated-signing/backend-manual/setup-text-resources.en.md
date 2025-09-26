@@ -4,7 +4,7 @@ hidden: true
 
 If you wish to override the standard texts:
 
-Add a [text resource file](/altinn-studio/v8/reference/ux/texts/) under 'App/config/texts' for each language you want to support.
+Add a [text resource file](/en/altinn-studio/v8/reference/ux/texts/) under 'App/config/texts' for each language you want to support.
 
 Here you define text resources to be used in communication with the user.
 

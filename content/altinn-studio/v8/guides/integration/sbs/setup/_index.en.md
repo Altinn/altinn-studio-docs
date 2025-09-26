@@ -16,12 +16,12 @@ the vendor's system and the app. There are mainly two ways to create this integr
   - From the apps perspective, this is a normal flow (there are authenticated end-users)
   - Suitable for systems where contact with the end-user is important, there is a low degree of automation, and the integration flow is fully user-driven.
 - System user
-  - [Vendor creates Maskinporten client](/authorization/getting-started/maskinportenclient/)
+  - [Vendor creates Maskinporten client](/en/authorization/getting-started/maskinportenclient/)
   - Vendor creates a system in the system registry of Altinn Authorization (in the system definition, you specify the need for access to resources, e.g., an app)
   - Customer registers a system user. The rights are then delegated.
   - Vendor authenticates with Maskinporten client
   - When integrating with Altinn apps, the system authenticates with Maskinporten and uses this token when submitting to Altinn
-  - For more information, see [Altinn Authorization user guide for system users](/authorization/guides/system-vendor/)
+  - For more information, see [Altinn Authorization user guide for system users](/en/authorization/guides/system-vendor/)
   - Suitable for systems with a higher degree of automation (and less need for contact/connection to the end-user), and for submissions on behalf of organizations.
 
 ## Integration using ID-porten
@@ -29,7 +29,7 @@ the vendor's system and the app. There are mainly two ways to create this integr
 When integrating from an end-user system based on an ID-porten client, there is always direct contact with the end-user.
 When the end-user logs in to the end-user system via ID-porten, the user must consent to the system performing
 `altinn:instances.read` and `altinn:instances.write` on their behalf (provided these scopes are registered in the ID-porten client).
-The token must then be [exchanged in Altinn Authorization](/api/authentication/spec/).
+The token must then be [exchanged in Altinn Authorization](/en/api/authentication/spec/).
 This Altinn token can then be used to submit forms in an Altinn app on behalf of the user.
 
 {{% notice info %}}
@@ -183,7 +183,7 @@ In this example, Fiken will automatically submit the annual accounts at the end 
 This submission happens fully automatically, but the end-user at the customer must still log in and sign the annual accounts after it has been filled in in `årsregnskap`.
 We will now set up this integration from scratch.
 
-[More documentation about the system user flow for SBS can be found here](/authorization/guides/system-vendor/).
+[More documentation about the system user flow for SBS can be found here](/en/authorization/guides/system-vendor/).
 This guide is intended as an Altinn Studio app-specific example of the same concept.
 
 #### Prerequisites
@@ -213,7 +213,7 @@ A Maskinporten client is required to use the system registry and to utilize the 
 - Note down the client ID (for example, `a2ed712d-4144-4471-839f-80ae4a68146b`)
 - Generate and register JWKS for the client (keep both the private and public JWK)
 
-See documentation for [registering a Maskinporten client here](/technology/solutions/cli/configuration/maskinporten-setup/).
+See documentation for [registering a Maskinporten client here](/en/technology/solutions/cli/configuration/maskinporten-setup/).
 
 #### 3. Fiken registers system in the system registry
 

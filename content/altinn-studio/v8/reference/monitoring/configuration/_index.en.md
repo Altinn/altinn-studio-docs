@@ -29,7 +29,7 @@ When the app is run, you will both get auto-instrumentation based on HTTP (trace
 but also manual trace spans and metrics that are domain specific.
 
 The next sections will describe customizing the OpenTelemetry SDK and migrating from Application Insights.
-On the next page, there is [information on automatic and manual instrumentation](/altinn-studio/v8/reference/monitoring/instrumentation).
+On the next page, there is [information on automatic and manual instrumentation](/en/altinn-studio/v8/reference/monitoring/instrumentation).
 
 ## Configuring the OpenTelemetry SDK 
 

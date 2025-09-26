@@ -60,7 +60,7 @@ You can now include the maxLength property in input fields to specify the maximu
 }
 ```
 _Note_: When using `maxLength` within the form layout, it will only indicate the number of remaining characters. It doesn't validate the number of characters entered and user can still submit the form while it is exceeded the `maxLength`. 
-To validate the number of characters entered, you must also include the `maxLength` property in the JSON schema data model of the form. See [validation](/altinn-studio/v8/reference/logic/validation/) for more information.
+To validate the number of characters entered, you must also include the `maxLength` property in the JSON schema data model of the form. See [validation](/en/altinn-studio/v8/reference/logic/validation/) for more information.
 
 ## Configuring automatic save while typing
 

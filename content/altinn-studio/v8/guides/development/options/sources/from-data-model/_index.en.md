@@ -40,7 +40,7 @@ Explanation:
 The `value` field must be unique for each element. If the repeating group does not contain a field which is unique for each item it is recommended to add a field to the data model that can be used as identifier, for instance a GUID. Non-unique values will be filtered out from all code lists, so not choosing a unique value can make it seem like the code list is not being correctly populated.
 
 As for the `label` property, you have to define a text resource that can be used as a label for each option.
-In the example below, other values from the repeating structure is used in the label via [variables in text](/altinn-studio/v8/reference/ux/texts):
+In the example below, other values from the repeating structure is used in the label via [variables in text](/en/altinn-studio/v8/reference/ux/texts):
 
 ```json
 {

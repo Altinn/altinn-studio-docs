@@ -6,7 +6,7 @@ tags: [tech, gitea, git, repos, needstranslation]
 
 ![Gitea logo](gitea-logo.png "Gitea logo")
 
-[Gitea](https://gitea.io) is the product that is powering [Altinn Studio Repos](/altinn-studio-repos).
+[Gitea](https://gitea.io) is the product that is powering [Altinn Studio Repos](/nb/altinn-studio-repos).
 
 
 ## Links

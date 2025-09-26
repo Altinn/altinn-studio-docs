@@ -7,7 +7,7 @@ toc: true
 tags:
 ---
 
-The apps APIs are access-controlled using [Altinn Authorization](/authorization).
+The apps APIs are access-controlled using [Altinn Authorization](/en/authorization).
 Requests to the APIs are authorized using the following information:
 
 - `AltinnStudioRuntime` cookie

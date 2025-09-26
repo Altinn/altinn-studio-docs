@@ -8,7 +8,7 @@ aliases:
 - /teknologi/altinnstudio/architecture/capabilities/
 ---
 
-Functional capabilities are described in the functional description of the [solutions](/solutions).
+Functional capabilities are described in the functional description of the [solutions](/nb/solutions).
 
 ### Runtime capabilities
 

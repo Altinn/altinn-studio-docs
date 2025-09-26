@@ -10,7 +10,7 @@ weight: 40
 {{<children />}}
 
 For å bruke hendelser/webhooks for en formidlingstjeneste, må du sette opp et abonnement for den gitte ressursen.
-Dette abonnementet brukes til å konfigurere endepunktet der hendelsene som publiseres av megleren havner. [Du kan lese mer om hvordan du setter opp et hendelsesabonnement i Altinn Events her](/events/subscribe-to-events/developer-guides/setup-subscription/).
+Dette abonnementet brukes til å konfigurere endepunktet der hendelsene som publiseres av megleren havner. [Du kan lese mer om hvordan du setter opp et hendelsesabonnement i Altinn Events her](/nb/events/subscribe-to-events/developer-guides/setup-subscription/).
 
 Alle hendelser publisert av Altinn Formidling følger det samme mønsteret:
 
@@ -30,7 +30,7 @@ Alle hendelser publisert av Altinn Formidling følger det samme mønsteret:
 
 ## Hendelsesabonnement {#event-subcription}
 
-Dette abonnementet brukes til å konfigurere endepunktet der hendelsene som publiseres av Atlinn Formidling skal leveres. [Du kan lese mer om hvordan du setter opp et hendelsesabonnement i Altinn Events her](/events/subscribe-to-events/developer-guides/setup-subscription/).
+Dette abonnementet brukes til å konfigurere endepunktet der hendelsene som publiseres av Atlinn Formidling skal leveres. [Du kan lese mer om hvordan du setter opp et hendelsesabonnement i Altinn Events her](/nb/events/subscribe-to-events/developer-guides/setup-subscription/).
 
 Du må sette opp følgende filtre:
 

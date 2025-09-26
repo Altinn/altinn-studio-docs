@@ -39,7 +39,7 @@ New components can be added to the `footer` array.
 | Property | Value                                                                                                            |
 | -------- | ---------------------------------------------------------------------------------------------------------------- |
 | type     | `Email`                                                                                                          |
-| title    | The text resource to display. Does **not** support [formatting](/altinn-studio/v8/reference/ux/texts/#formatting-of-texts). |
+| title    | The text resource to display. Does **not** support [formatting](/en/altinn-studio/v8/reference/ux/texts/#formatting-of-texts). |
 | target   | The email address the link should point to.                                                                      |
 
 ### Example
@@ -61,7 +61,7 @@ New components can be added to the `footer` array.
 | Property | Value                                                                                                            |
 | -------- | ---------------------------------------------------------------------------------------------------------------- |
 | type     | `Phone`                                                                                                          |
-| title    | The text resource to display. Does **not** support [formatting](/altinn-studio/v8/reference/ux/texts/#formatting-of-texts). |
+| title    | The text resource to display. Does **not** support [formatting](/en/altinn-studio/v8/reference/ux/texts/#formatting-of-texts). |
 | target   | The phone number the link should point to.                                                                       |
 
 ### Example
@@ -83,7 +83,7 @@ New components can be added to the `footer` array.
 | Property | Value                                                                                                            |
 | -------- | ---------------------------------------------------------------------------------------------------------------- |
 | type     | `Link`                                                                                                           |
-| title    | The text resource to display. Does **not** support [formatting](/altinn-studio/v8/reference/ux/texts/#formatting-of-texts). |
+| title    | The text resource to display. Does **not** support [formatting](/en/altinn-studio/v8/reference/ux/texts/#formatting-of-texts). |
 | target   | The URL the link should point to.                                                                                |
 | icon     | Icon to display next to the link. Either `information`, `email`, or `phone`.                                     |
 
@@ -107,7 +107,7 @@ New components can be added to the `footer` array.
 | Property | Value                                                                                                |
 | -------- | ---------------------------------------------------------------------------------------------------- |
 | type     | `Text`                                                                                               |
-| title    | The text resource to display. Supports [formatting](/altinn-studio/v8/reference/ux/texts/#formatting-of-texts). |
+| title    | The text resource to display. Supports [formatting](/en/altinn-studio/v8/reference/ux/texts/#formatting-of-texts). |
 
 ### Example
 
