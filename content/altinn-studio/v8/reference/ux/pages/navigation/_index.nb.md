@@ -150,7 +150,7 @@ En fremdriftsindikator er et lite visuelt hjul, som viser hvor langt brukerne ha
 
 ### Viktig å vite
 
-[Oppgavene i arbeidsflyten](../../../configuration/process) teller med i det totale antall sider i fremdriftsindikatoren. Hvis du har satt opp [sporvalg](../tracks) eller [dynamisk skjulte sider](../../../logic/expressions#viseskjule-hele-sider), kan antallet sider variere mye og virke forvirrende for brukeren.
+[Oppgavene i arbeidsflyten]({{< relref "/altinn-studio/v8/reference/configuration/process" >}}) teller med i det totale antall sider i fremdriftsindikatoren. Hvis du har satt opp [sporvalg]({{< relref "/altinn-studio/v8/reference/ux/pages/tracks" >}}) eller [dynamisk skjulte sider]({{< relref "/altinn-studio/v8/reference/logic/expressions#viseskjule-hele-sider" >}}), kan antallet sider variere mye og virke forvirrende for brukeren.
 
 **Vurder om det gir mening og verdi for brukeren å legge til en fremdriftsindikator, før du velger å legge den til.**
 

@@ -7,7 +7,7 @@ tags: [architecture, needstranslation]
 ##	Processing Capabilities
 
 ### BPMN Process Execution
-As part of the Application design and build in Altinn Studio the application developer will [define a BPMN Process](../appdevelopment/) for the given App. 
+As part of the Application design and build in Altinn Studio the application developer will [define a BPMN Process]({{< relref "/technology/architecture/capabilities/runtime/appdevelopment/" >}}) for the given App. 
 
 The application framework used in the app template support reading and processing the process file. 
 

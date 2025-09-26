@@ -118,7 +118,7 @@ Det er blitt laget en ny seksjon kalt `FrontEndSettings` for bruk i `appsetting.
 ## 4.24.0 (2020-01-21)
 
 Støtte for språk og query parametre inn til dynamiske kodelister.
-Ny måte å implementere dynamiske kodelister ved hjelp av IAppOptionsProvider. [Se dokumentasjon](../../../../../altinn-studio/guides/development/options/)
+Ny måte å implementere dynamiske kodelister ved hjelp av IAppOptionsProvider. [Se dokumentasjon]({{< relref "/altinn-studio/v8/guides/development/options/" >}})
 
 ## 4.23.0 (2022-01-15) - Støtte for BPMN Gateways
 Restrukturering av prosessmotor og støtte for BPMN gateways.
@@ -134,13 +134,13 @@ Dersom en selvidentifisert bruker instansierer en instans vil dere brukernavn la
 ## 4.20.0 (2021-11-18) - Støtte for egendefinert redirect URL når man avslutter appen
 Lagt til støtte for ett spesifikt query parameter (returnUrl) for å videresende brukeren til den spesifiserte URLen når
 brukeren avslutter appen ved å trykke på avslutt-knappen i Altinn 3 appen.
-[Les mer om dette her](../../../../../../../altinn-studio/reference/configuration/queryparameters)   
+[Les mer om dette her]({{< relref "/altinn-studio/v8/reference/configuration/queryparameters" >}})   
 
 Relatert til [7183](https://github.com/Altinn/altinn-studio/issues/7183)
 
 ## 4.19.0 (2021-11-15) - Added support for instantiation based of a copy of an archived instance
 Lagt til støtte for å instansiere en applikasjon basert på en arkivert instans.
-[Det nye endepunktet er dokumentert her](../../../../../api/apps/instances). 
+[Det nye endepunktet er dokumentert her]({{< relref "/api/apps/instances" >}}). 
 Merk at støtte for kopiering av instans i meldingsboksen og konfigurasjon av funksjonaliteten via Altinn Studio enda er under utvikling.
 
 Relatert til [6695](https://github.com/Altinn/altinn-studio/issues/6695)
@@ -288,7 +288,7 @@ See details about data processing [here]({{< relref "/altinn-studio/v8/reference
 
 ## 4.6.2 (2021-06-01) - Duplicate keys in options causing crash
 
-This release has a fix for a crash related to PDF rendering when an app has [options](../../../../../altinn-studio/guides/development/options/) with duplicate entries. [#5887](https://github.com/Altinn/altinn-studio/issues/5887)
+This release has a fix for a crash related to PDF rendering when an app has [options]({{< relref "/altinn-studio/v8/guides/development/options/" >}}) with duplicate entries. [#5887](https://github.com/Altinn/altinn-studio/issues/5887)
 
 ## 4.6.1. (2021-05-21) Changed alternative subject
 
@@ -353,4 +353,4 @@ This change is related to [this issue](https://github.com/Altinn/altinn-studio/i
 Altinn.App.* librarires target .Net 5 now, which requires that the application does the same.
 In addition we have created two methods for referencing all app and platform sevices in Startup.cs 
 
-See [breaking changes](../breaking-changes) for how to update you app to be compatible with this version.
+See [breaking changes]({{< relref "/community/changelog/app-nuget/v4/breaking-changes" >}}) for how to update you app to be compatible with this version.

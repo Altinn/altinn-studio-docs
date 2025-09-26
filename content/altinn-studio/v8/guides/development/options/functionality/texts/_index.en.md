@@ -7,7 +7,7 @@ weight: 150
 ## Label
 
 The most common text property for options is the `label`. The `label` is the text that is displayed to the user in the
-UI (in contrast to the `value`, which is the value [stored in the data model](../data-binding)).
+UI (in contrast to the `value`, which is the value [stored in the data model]({{< relref "/altinn-studio/v8/guides/development/options/functionality/data-binding" >}})).
 Both `label` and `value` are required properties for an option.
 
 ```json
@@ -20,7 +20,7 @@ Both `label` and `value` are required properties for an option.
 Labels, as with all texts, can either be plain text or a key pointing to a text resource. If the label is a key pointing
 to a text resource, the text can change according to the selected language.
 
-The final text displayed to the user can [also be stored in the data model](../data-binding/#storing-the-label) if needed.
+The final text displayed to the user can [also be stored in the data model]({{< relref "/altinn-studio/v8/guides/development/options/functionality/data-binding/#storing-the-label" >}}) if needed.
 
 ## Description and help text
 
@@ -28,8 +28,8 @@ If you need to provide additional information about an option, you can use the `
 `description` and `helpText` can be displayed by the components `RadioButtons` and `Checkboxes`.
 
 Descriptions and help texts can be provided to `options` in the same way that a `label` is provided, via
-[static](../../sources/static), [dynamic](../../sources/dynamic)
-and [options from the data model](../../sources/from-data-model).
+[static]({{< relref "/altinn-studio/v8/guides/development/options/sources/static" >}}), [dynamic]({{< relref "/altinn-studio/v8/guides/development/options/sources/dynamic" >}})
+and [options from the data model]({{< relref "/altinn-studio/v8/guides/development/options/sources/from-data-model" >}}).
 
 Click on the headers below to expand the examples.
 
@@ -74,7 +74,7 @@ var options = new AppOptions
 {{% /expandlarge %}}
 
 {{% expandlarge id="from-data-model" header="Options based on repeating structures in the data model" %}}
-Note that the properties `label`, `description`, and `helpText` can also be [dynamic expressions](../../../dynamics) 
+Note that the properties `label`, `description`, and `helpText` can also be [dynamic expressions]({{< relref "/altinn-studio/v8/guides/development/dynamics" >}}) 
 this mode.
 
 ```json

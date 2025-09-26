@@ -12,14 +12,14 @@ that is available in the UI editor through the _f(x)_-icon at the top right corn
 
 {{% panel theme="warning" %}}
 ⚠️ Dynamics/logic are under active development. These rules will in the future be replaced by
-[dynamic expressions](../expressions). Currently only show/hide dynamics are supported using expressions, but
+[dynamic expressions]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}}). Currently only show/hide dynamics are supported using expressions, but
 calculation and validation will be supported in the future.
 {{% /panel %}}
 
 ![Logic menu](ui-editor-logic-menu.png?height=300px "Logic menu")
 
 For backend the logic is done by implementing various interfaces. These are described in separate chapters for example
-in [data processing](../dataprocessing/).
+in [data processing]({{< relref "/altinn-studio/v8/reference/logic/dataprocessing/" >}}).
 A complete project with examples on server-side application logic can be
 found [in our training course application](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/master).
 

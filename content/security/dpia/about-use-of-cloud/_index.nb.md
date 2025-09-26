@@ -51,7 +51,7 @@ og EU/EØS. Det er Digdir selv som styrer når og om man velger å ta kontakt me
 supportleverandør skal se og ha tilgang til.
 
 Mer informasjon om sikkerhet og konfigurasjonen av Altinns bruk av Azure
-finnes i dokumentert i [Sikkerhet i Altinn 3](../../whitepaper).
+finnes i dokumentert i [Sikkerhet i Altinn 3]({{< relref "/security/whitepaper" >}}).
 
 
 ## 3.3 Bruk av databehandler og underdatabehandlere

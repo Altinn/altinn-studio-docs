@@ -6,10 +6,10 @@ weight: 250
 
 Noen ganger er det ønskelig at et av svaralternativene er forhåndsvalgt. Det finnes ulike måter å oppnå dette på.
 
-1. I datamodellen kan du [forhåndsutfylle feltet](../../../prefill) med verdien som ønskes. Legg merke til at
+1. I datamodellen kan du [forhåndsutfylle feltet]({{< relref "/altinn-studio/v8/guides/development/prefill" >}}) med verdien som ønskes. Legg merke til at
    verdien også må tilhøre en av de gyldige svaralternativene for komponenter knyttet mot dette feltet i datamodellen,
-   ellers vil [verdien bli ryddet bort automatisk](../automatic-cleanup).
-2. Underveis i utfyllingen av et skjema kan man også bruke [dataprosessering](../../../../../reference/logic/dataprocessing)
+   ellers vil [verdien bli ryddet bort automatisk]({{< relref "/altinn-studio/v8/guides/development/options/functionality/automatic-cleanup" >}}).
+2. Underveis i utfyllingen av et skjema kan man også bruke [dataprosessering]({{< relref "/altinn-studio/v8/reference/logic/dataprocessing" >}})
    for å sette feltet til en ønsket forhåndsvalgt verdi. I noen tilfeller er det riktignok viktig å tillate brukeren
    å _ikke velge et alternativ_. Hvis feltet bare skrives over om det mangler en verdi, vil brukeren ikke kunne
    fjerne et forhåndsvalgt alternativ.
@@ -53,9 +53,9 @@ Denne funksjonaliteten følger et sett med regler:
    lenge appen er åpen i nettleseren. Dersom brukeren laster siden på nytt, vil forhåndsvalget kunne bli satt igjen.
 3. Forhåndsvalget settes med en gang siden har lastet og komponentene er klare, uavhengig av om komponenten vises
    på skjermen eller ikke.
-4. Forhåndsvalgte verdier blir ikke satt for komponenter som er skjult ved hjelp av [dynamikk](../../../dynamics). Om
+4. Forhåndsvalgte verdier blir ikke satt for komponenter som er skjult ved hjelp av [dynamikk]({{< relref "/altinn-studio/v8/guides/development/dynamics" >}}). Om
    komponenten senere blir vist igjen, vil forhåndsvalget kunne bli satt.
-5. Det forhåndsvalgte alternativet blir bestemt etter [filtrering](../filtering), men før [sortering](../sorting) blir
+5. Det forhåndsvalgte alternativet blir bestemt etter [filtrering]({{< relref "/altinn-studio/v8/guides/development/options/functionality/filtering" >}}), men før [sortering]({{< relref "/altinn-studio/v8/guides/development/options/functionality/sorting" >}}) blir
    utført.
 
 

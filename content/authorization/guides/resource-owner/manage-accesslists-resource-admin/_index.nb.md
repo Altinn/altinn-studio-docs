@@ -16,7 +16,7 @@ I Altinn 3 håndteres denne funksjonaliteten av Ressursrettsregisteret (RRR) gje
 - Administrasjonsrettigheter for Ressursregisteret
 - Medlemskap i Tilgangsliste-gruppen for et spesifisert miljø
 
-Se [ Komme i gang med Tilgangslister](../../../getting-started/accesslist-admin-studio/) for mer informasjon.
+Se [ Komme i gang med Tilgangslister]({{< relref "/authorization/getting-started/accesslist-admin-studio/" >}}) for mer informasjon.
 
 ## Opprette ny Tilgangsliste
 

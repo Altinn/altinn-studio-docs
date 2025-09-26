@@ -31,10 +31,10 @@ Any use of props that have been defined as optional should be done together with
 ### Redux
 
 #### Actions
-All actions should have sibling actions for _success_ and _error_. See [naming conventions](../../naming#actions) for actions. The success action is triggered when everything is ok, while the error action is triggered if something goes wrong.
+All actions should have sibling actions for _success_ and _error_. See [naming conventions]({{< relref "/community/contributing/handbook/naming#actions" >}}) for actions. The success action is triggered when everything is ok, while the error action is triggered if something goes wrong.
 
 #### Sagas
-If a saga needs to make an API call (or uses logic/utils that make API calls), this should be wrapped in a `try/catch` block. If an error occurs, this should be logged and the corresponding error action should be triggered. If no error occurs then the corresponding success action should be triggered. See [here](../redux) for more information on actions and sagas.
+If a saga needs to make an API call (or uses logic/utils that make API calls), this should be wrapped in a `try/catch` block. If an error occurs, this should be logged and the corresponding error action should be triggered. If no error occurs then the corresponding success action should be triggered. See [here]({{< relref "/community/contributing/handbook/front-end/redux" >}}) for more information on actions and sagas.
 
 #### Reducers
 If an error handling action is triggered, the reducer should update the corresponding error object in the state to reflect that an error has occured. 

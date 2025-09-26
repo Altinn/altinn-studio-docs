@@ -11,7 +11,7 @@ Available from [v8.2.8](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8
 
 ## Introduction
 
-The External API feature allows you to integrate data from External APIs into your Altinn application. This is useful when you need to display or process data from external sources within your application. The feature works by implementing the `IExternalApiClient` interface and registering your implementation in the application's service container. When implemented, the external api data can be accessed through expressions (see the [Expressions documentation](../../logic/expressions)) or other classes in your application.
+The External API feature allows you to integrate data from External APIs into your Altinn application. This is useful when you need to display or process data from external sources within your application. The feature works by implementing the `IExternalApiClient` interface and registering your implementation in the application's service container. When implemented, the external api data can be accessed through expressions (see the [Expressions documentation]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}})) or other classes in your application.
 
 ## How it works
 
@@ -171,7 +171,7 @@ You can also use External API data to control the visibility of components:
 
 This will hide the component if the External API returns an empty array.
 
-For more information about expressions and how to use them in your Altinn application, see the [Expressions documentation](../../logic/expressions).
+For more information about expressions and how to use them in your Altinn application, see the [Expressions documentation]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}}).
 
 ### Accessing the data through the API Endpoint
 
@@ -313,7 +313,7 @@ To use External APIs that require Maskinporten authentication, you need a Maskin
 - Any other scopes required by the specific API you are integrating with
   {.correspondence-custom-list}
 
-To set this up, you can follow the general steps in the [Maskinporten Integration Guide](../../../guides/integration/maskinporten/) with some modifications described below.
+To set this up, you can follow the general steps in the [Maskinporten Integration Guide]({{< relref "/altinn-studio/v8/guides/integration/maskinporten/" >}}) with some modifications described below.
 
 - The External API client needs a Maskinporten client to communicate with protected APIs. The configuration object typically looks like this:
 

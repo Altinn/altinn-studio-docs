@@ -16,7 +16,7 @@ Dialogporten API-et er delt inn i et tjenesteeier-API og et sluttbruker-API.
 
 {{<displayFootnotes>}}
 
-I tillegg støttes token utstedt av [Altinn Token Exchange](../../../authorization/what-do-you-get/authentication/#bytt-et-jwt-fra-en-ekstern-tokenleverandør), ved bruk av enten ID-porten eller Maskinporten som input.
+I tillegg støttes token utstedt av [Altinn Token Exchange]({{< relref "/authorization/what-do-you-get/authentication/#bytt-et-jwt-fra-en-ekstern-tokenleverandør" >}}), ved bruk av enten ID-porten eller Maskinporten som input.
 
 ## Bruk for sluttbrukersystemer
 
@@ -46,7 +46,7 @@ For detaljerte trinn om hvordan du oppretter en ID-porten-integrasjon og bruker 
 
 - [Om ID-porten (norsk)](https://samarbeid.digdir.no/id-porten/id-porten/18)
 - [Kom i gang med ID-porten](https://docs.digdir.no/docs/idporten/oidc/oidc_guide_english.html)
-- [Bruke Altinn Token Exchange](../../../authorization/what-do-you-get/authentication/#bytt-et-jwt-fra-en-ekstern-tokenleverandør)
+- [Bruke Altinn Token Exchange]({{< relref "/authorization/what-do-you-get/authentication/#bytt-et-jwt-fra-en-ekstern-tokenleverandør" >}})
 
 ### Maskinporten-autentisering med systembrukere
 
@@ -65,7 +65,7 @@ For detaljerte trinn om hvordan du oppretter og bruker en systembruker, se lenke
 
 **Les mer**
 
-- [Autentisering med systembrukere](../../../authorization/guides/system-vendor/system-user/)
+- [Autentisering med systembrukere]({{< relref "/authorization/guides/system-vendor/system-user/" >}})
 
 {{<children />}}
 
@@ -79,7 +79,7 @@ Det finnes flere scopes som definerer tilgang til forskjellige deler av tjeneste
 | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `digdir:dialogporten.serviceprovider`                | Alle tjenesteeier-APIer, unntatt søke/liste-API-et                                                                                                                                                      |
 | `digdir:dialogporten.serviceprovider.search`         | Alle tjenesteeier-APIer, inkludert søke/liste-API-et                                                                                                                                                    |
-| `digdir:dialogporten.serviceprovider.correspondence` | Opprett og oppdater dialoger som refererer en tjenesteressurs av typen `CorrespondenceService` i [Altinn Resource Registry](../../../authorization/what-do-you-get/resourceregistry/) (kun intern bruk) |
+| `digdir:dialogporten.serviceprovider.correspondence` | Opprett og oppdater dialoger som refererer en tjenesteressurs av typen `CorrespondenceService` i [Altinn Resource Registry]({{< relref "/authorization/what-do-you-get/resourceregistry/" >}}) (kun intern bruk) |
 
 Bruk av disse scope krever at organisasjonen i `consumer` claim er registrert som en tjenesteeier ("org") i Altinn. Hvis ikke vil alle forespørsler mislykkes.
 

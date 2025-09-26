@@ -11,12 +11,12 @@ weight: 20
 
 This guide shows how a end-user system can search for dialogs in Dialogporten using either REST or GraphQL APIs. Dialogporten supports a number of parameters for filtering, sorting and free-text searching.
 
-Note that the data structure that is returned in searches differ from the one returned on the [details endpoint](../getting-dialog-details); more information about the dialog and what access the authorized user has to various parts of it is only available in the details view. 
+Note that the data structure that is returned in searches differ from the one returned on the [details endpoint]({{< relref "/dialogporten/user-guides/getting-dialog-details" >}}); more information about the dialog and what access the authorized user has to various parts of it is only available in the details view. 
 
 ## Basic steps (REST)
 
-1. [Authenticate as a end-user](../authenticating#usage-for-end-user-systems)
-3. [Find the parties](../authorized-parties) that the authenticated end-user is authorized to represent
+1. [Authenticate as a end-user]({{< relref "/dialogporten/user-guides/authenticating#usage-for-end-user-systems" >}})
+3. [Find the parties]({{< relref "/dialogporten/user-guides/authorized-parties" >}}) that the authenticated end-user is authorized to represent
 2. Perform a GET request to `/api/v1/enduser/dialogs`, supplying query parameters according to the table below:
 
 {{<swaggerdisplayoperation "get" "/api/v1/enduser/dialogs">}}
@@ -27,11 +27,11 @@ Note that the data structure that is returned in searches differ from the one re
 * `party` parameters must have one of the following formats
     * `urn:altinn:person:identifier-no:<11 digit national identity numner>`
     * `urn:altinn:organization:identifier-no:<9 digit CCR number>`
-* `serviceResource` parameters must refer to a resource in the [Resource Registry](../../../authorization/what-do-you-get/resourceregistry) and use the following format:
+* `serviceResource` parameters must refer to a resource in the [Resource Registry]({{< relref "/authorization/what-do-you-get/resourceregistry" >}}) and use the following format:
     * `urn:altinn:resource:<identifier>`
 
 {{<notice warning>}}
-Note the end-user search API requires that at least one [`serviceResource`](../../getting-started/authorization/service-resource) or [`party`](../../getting-started/authorization/parties) parameter is supplied. Up to 20 distinct values for each of these two types may be supplied.
+Note the end-user search API requires that at least one [`serviceResource`]({{< relref "/dialogporten/getting-started/authorization/service-resource" >}}) or [`party`]({{< relref "/dialogporten/getting-started/authorization/parties" >}}) parameter is supplied. Up to 20 distinct values for each of these two types may be supplied.
 {{</notice>}} 
 
 ### Returned information

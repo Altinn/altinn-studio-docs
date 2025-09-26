@@ -82,7 +82,7 @@ PDF for kvittering genereres automatisk.
 
 ## Utvikling
 Ny funksjonalitet og feilrettinger legges ut fortløpende. Vi har også omfattende dokumentasjon, som inkluderer et 
-[kurs](../../altinn-studio/getting-started/app-dev-course/) i å bruke Altinn Studio til tjenesteutvikling. 
+[kurs]({{< relref "/altinn-studio/v8/getting-started/app-dev-course/" >}}) i å bruke Altinn Studio til tjenesteutvikling.
 
 Vi har etablert et enkelt oppsett for å kunne få et utviklingsmiljø som lar deg kjøre og teste tjenester lokalt på 
 egen maskin.

@@ -92,7 +92,7 @@ synlige når man scroller nedover tabellen.
 Det er mulig å tillate redigering av komponenter direkte i tabellen. Dette kan gjøres ved å
 sette `editInTable` til `true` for den komponenten som skal tillate redigering i tabellen, i [`tableColumns`-konfigurasjonen](#bredder-tekst-plassering-og-skjuling-av-overflødig-tekst). Dette er nyttig for komponenter og grupper som ikke er for
 store, og hvor det ikke er nødvendig å åpne en egen redigeringsmodus for å redigere dataene. Rent visuelt kan dette
-ligne på noen konfigurasjoner av [Grid-komponenten](../../../../components/grid), men tillater brukeren å legge/til
+ligne på noen konfigurasjoner av [Grid-komponenten]({{< relref "/altinn-studio/v8/reference/ux/components/grid" >}}), men tillater brukeren å legge/til
 fjerne rader i tabellen, og lagring av data mot en repeterende gruppe i datamodellen.
 
 ![Eksempel på redigering i tabell](components-in-table.png "Eksempel på redigering i tabell")
@@ -103,10 +103,10 @@ den utvidede redigeringsmodusen og kun tillate redigering i tabellen.
 
 ### Redigering av alle felter i tabell
 Om man ønsker å sette opp en repeterende gruppe hvor alle mulige felter skal redigeres i tabellen, finnes det en snarvei
-for dette. Ved å sette [`edit.mode` til `onlyTable`](../edit#mode) blir alle felter i tabellen redigerbare. Merk at ikke alle komponenter
+for dette. Ved å sette [`edit.mode` til `onlyTable`]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating/edit#mode" >}}) blir alle felter i tabellen redigerbare. Merk at ikke alle komponenter
 som kan vises i en repeterende gruppe er støttet i tabellen.
 Se en fullstendig liste over komponenter som er støttet i tabell-modus under
-dokumentasjonen for [Grid-komponenten](../../../../components/grid).
+dokumentasjonen for [Grid-komponenten]({{< relref "/altinn-studio/v8/reference/ux/components/grid" >}}).
 
 ![Eksempel på redigering av alle felter i tabell](only-editing-in-table.gif "Eksempel")
 

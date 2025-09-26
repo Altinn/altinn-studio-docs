@@ -63,9 +63,9 @@ Add the following sections if relevant:
 
 ### Related
 
-* For multiple choices with few options, use [Checkboxes](../checkboxes/).
-* For single selection with few options, use [RadioButtons](../radiobuttons/).
-* For single selection with many options, use [Dropdown](../dropdown/).
+* For multiple choices with few options, use [Checkboxes]({{< relref "/altinn-studio/v8/reference/ux/components/checkboxes/" >}}).
+* For single selection with few options, use [RadioButtons]({{< relref "/altinn-studio/v8/reference/ux/components/radiobuttons/" >}}).
+* For single selection with many options, use [Dropdown]({{< relref "/altinn-studio/v8/reference/ux/components/dropdown/" >}}).
 
 
 ## Properties

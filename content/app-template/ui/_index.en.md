@@ -83,4 +83,4 @@ Suppose the standard application front end does not fulfill your needs.
 
 The template supports that you can replace the standard front end with your custom front end based on your preferred technology.
 
- [Read more about architecture](../architecture).
+ [Read more about architecture]({{< relref "/app-template/architecture" >}}).

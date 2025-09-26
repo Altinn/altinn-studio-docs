@@ -10,7 +10,7 @@ toc: true
 
 **Er du en Altinn App-utvikler?**
 
-Vennligst se [Altinn Apps-dokumentasjonen for veiledning](../../../../altinn-studio/reference/configuration/events/) 
+Vennligst se [Altinn Apps-dokumentasjonen for veiledning]({{< relref "/altinn-studio/v8/reference/configuration/events/" >}}) 
 om hvordan du aktiverer hendelsesfunksjonaliteten og definerer egendefinerte hendelser i din Altinn App.</br></br>
 
 Siden publisering av app-hendelser håndteres av kjernelogikken i applikasjonen, er denne dokumentasjonen 
@@ -25,7 +25,7 @@ POST /app
 ## Autentisering
 Dette API-et krever autentisering og et Platform Access Token i headeren.
 
-Se [Autentisering og autorisasjon](../../../api/#autentisering-og-autorisasjon) for mer informasjon.
+Se [Autentisering og autorisasjon]({{< relref "/events/api/#autentisering-og-autorisasjon" >}}) for mer informasjon.
 
 
 ## Forespørsel

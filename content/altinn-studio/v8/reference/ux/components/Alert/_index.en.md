@@ -59,7 +59,7 @@ Add the following sections if relevant:
 -->
 ### Related
 
-- [`Panel`](../panel/)
+- [`Panel`]({{< relref "/altinn-studio/v8/reference/ux/components/panel/" >}})
 
 
 ## Properties
@@ -138,7 +138,7 @@ App/ui/layouts/{page}.json
 
 ### Heading and content
 
-You can add heading and content by creating a new or pick an existing [text resource](../../texts/#add-and-change-texts-in-an-application).
+You can add heading and content by creating a new or pick an existing [text resource]({{< relref "/altinn-studio/v8/reference/ux/texts/#add-and-change-texts-in-an-application" >}}).
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}

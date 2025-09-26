@@ -22,4 +22,4 @@ One way to do this is pictured below:
 solutions where you ask through a form. 
 {.connected-bullets}
 
-After working through the initial phase and defining the user requirements, we recommend that you set up a prototype that can be tested by relevant users. If you are creating a form, you can use our [prototype-Kit for Figma](../prototype).
+After working through the initial phase and defining the user requirements, we recommend that you set up a prototype that can be tested by relevant users. If you are creating a form, you can use our [prototype-Kit for Figma]({{< relref "/altinn-studio/v8/guides/design/prototype" >}}).

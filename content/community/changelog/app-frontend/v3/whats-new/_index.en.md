@@ -756,5 +756,5 @@ options were not loaded. Issue [#5619.](https://github.com/Altinn/altinn-studio/
 ## 3.0.0 (2021-02-23) - New font for App Frontend
 
 This version changes the font for the app frontend from Roboto to Altinn-DIN.
-For the apps to show fonts as expected, some changes need to be made. See [breaking changes](../breaking-changes)
+For the apps to show fonts as expected, some changes need to be made. See [breaking changes]({{< relref "/community/changelog/app-frontend/v3/breaking-changes" >}})
 for the details.

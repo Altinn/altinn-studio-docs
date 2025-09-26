@@ -7,7 +7,7 @@ weight: 60
 toc: true
 ---
 
-I denne modulen skal vi bygge videre på appen vår for å støtte enda flere av [kravene til Sogndal kommune](../case/#krav-fra-kommunen).
+I denne modulen skal vi bygge videre på appen vår for å støtte enda flere av [kravene til Sogndal kommune]({{< relref "/altinn-studio/v8/getting-started/app-dev-course/case/#krav-fra-kommunen" >}}).
 
 ## Temaer i denne modulen
 - Radioknapper
@@ -150,7 +150,7 @@ Til denne komponenten skal vi også bruke en kodelistefil, men denne gangen skal
 Nå skal din app ha fått en nedtrekksliste med alternativene som er spesifisert i kodelisten.
 
 ## Nyttig dokumentasjon
-Se [kodelisteguiden](../../../guides/development/options/) for å se hvordan kodelister settes opp i appkoden.
+Se [kodelisteguiden]({{< relref "/altinn-studio/v8/guides/development/options/" >}}) for å se hvordan kodelister settes opp i appkoden.
 
 ## Oppsummering
 I denne modulen har du lagt til en gruppe med radioknapper, en gruppe med avkrysningsbokser og en nedtrekksliste. Du har også satt opp svaralternativer manuelt i Studio og ved hjelp av JSON-filer i Gitea.

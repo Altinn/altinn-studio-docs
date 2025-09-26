@@ -23,7 +23,7 @@ application/json
 ID-en skal være i formatet {systemleverandørorgnr}_{navn valgt av leverandøren}. For eksempel '310547891_testprodukt'. Dette er en unik ID for å identifisere systemet.
 
 ## Request Body
-For detaljert beskrivelse av hver felt i request, vennligst se beskrivelsen [her](../model)
+For detaljert beskrivelse av hver felt i request, vennligst se beskrivelsen [her]({{< relref "/api/authentication/systemuserapi/systemregister/model" >}})
 
 ```
 {

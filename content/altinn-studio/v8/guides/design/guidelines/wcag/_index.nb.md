@@ -25,7 +25,7 @@ om ekstra beskrivelser og hjelpetekster må kobles til input elementet.
 få problemer med å tolke funksjonaliteten. 
 
 - **Feilmeldinger** Du er selv ansvarlig for at 
-[korrekte feilmeldinger](../components/error-message/) 
+[korrekte feilmeldinger]({{< relref "/altinn-studio/v8/guides/design/guidelines/components/error-message/" >}}) 
 blir lagt inn på hvert av skjemafeltene. 
 
 

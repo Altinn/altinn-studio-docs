@@ -142,11 +142,11 @@ Eksempel på en applicationmetadata.json-fil med en signaturdatatypen kalt "sign
 
 Signeringssteget trenger en layout som definerer hva som skal vises til brukeren. Dette gjøres via en egen layoutset som i sin tur knyttes til signering prosesssteget (`Task_2 i vårt eksempel`)
 
-Hvis du har en v3 applikasjon uten layoutset se [Sider](../../../ux/pages/#oppsett) for hvordan dette settes opp.
+Hvis du har en v3 applikasjon uten layoutset se [Sider]({{< relref "/altinn-studio/v8/reference/ux/pages/#oppsett" >}}) for hvordan dette settes opp.
 
 Opprett en ny mappe i `App/ui/` med navnet som beskriver dette layoutsettet, f.eks. _signering_. I denne mappen oppretter du så filen `Settings.json` og en mappe med navn `layouts`. 
 
-I `layouts` mappen opprettes filer som definerer hvordan sider i dette layoutsettet skal se ut. Det eneste komponenten som en signering layout må ha er en [`ActionButton`](../../../ux/components/actionbutton/) med `"action": "sign"` som definerer at når brukeren trykker på denne så utfører han action sign når han flytter prosessen videre.
+I `layouts` mappen opprettes filer som definerer hvordan sider i dette layoutsettet skal se ut. Det eneste komponenten som en signering layout må ha er en [`ActionButton`]({{< relref "/altinn-studio/v8/reference/ux/components/actionbutton/" >}}) med `"action": "sign"` som definerer at når brukeren trykker på denne så utfører han action sign når han flytter prosessen videre.
 
 Eksempel på en enkel layout med et read only tekst felt og en signeringsknapp kan se sånn her ut:
 
@@ -304,7 +304,7 @@ Hvis det skal være mulig å avslå å signere og for eksempel sende instansen t
 
 Denne legges da til i autorisasjonsregelen og det defineres en egen ActionButton som knyttes til action `reject`.
 
-Se [Kontroller proess flyt](../../flowcontrol/) for mer informasjon.
+Se [Kontroller proess flyt]({{< relref "/altinn-studio/v8/reference/process/flowcontrol/" >}}) for mer informasjon.
 
 ### Lagring av signeringobjekt når brukeren signerer
 

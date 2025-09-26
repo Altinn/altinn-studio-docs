@@ -65,7 +65,7 @@ Legg til følgende seksjoner dersom de er relevante:
 -->
 ### Relatert
 
-- [`Accordion`](../accordion/)
+- [`Accordion`]({{< relref "/altinn-studio/v8/reference/ux/components/accordion/" >}})
 
 
 ## Egenskaper

@@ -14,7 +14,7 @@ The most common scenario is wanting to re-process elements that have ended in th
 queue after too many failed attempts. 
 
 ### Prerequisites
-- [Azure Storage Explorer](../tools/#azure-storage-explorer) 
+- [Azure Storage Explorer]({{< relref "/community/contributing/handbook/azure-storage/tools/#azure-storage-explorer" >}}) 
 - An Azure AD account with write-permissions for the related storage account 
 
 ### How to
@@ -37,10 +37,10 @@ queue after too many failed attempts.
 Manually adding a message to a queue is useful both when testing new functionality and during incident management.
 
 You have two options when manually adding a message to a Storage Queue, 
-the [Azure Portal](https://portal.azure.com/) or [Azure Storage Explorer](../tools/#azure-storage-explorer).
+the [Azure Portal](https://portal.azure.com/) or [Azure Storage Explorer]({{< relref "/community/contributing/handbook/azure-storage/tools/#azure-storage-explorer" >}}).
 
 ### Prerequisites
-- [Azure Storage Explorer](../tools/#azure-storage-explorer) or a browser
+- [Azure Storage Explorer]({{< relref "/community/contributing/handbook/azure-storage/tools/#azure-storage-explorer" >}}) or a browser
 - An Azure AD account with write-permissions for the related storage account
 
 

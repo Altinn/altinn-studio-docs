@@ -4,9 +4,9 @@ description: Hvordan ukjente svaralternativer automatisk fjernes fra datamodelle
 weight: 100
 ---
 
-Noen svaralternativer for komponenter kan være dynamiske. Enten direkte via [dynamiske svaralternativer](../../sources/dynamic),
-[svaralternativer hentet fra en endrende datamodell](../../sources/from-data-model), eller ved [statiske svaralternativer](../../sources/static)
-hvor noen verdier kan være [filtrert](../filtering) bort.
+Noen svaralternativer for komponenter kan være dynamiske. Enten direkte via [dynamiske svaralternativer]({{< relref "/altinn-studio/v8/guides/development/options/sources/dynamic" >}}),
+[svaralternativer hentet fra en endrende datamodell]({{< relref "/altinn-studio/v8/guides/development/options/sources/from-data-model" >}}), eller ved [statiske svaralternativer]({{< relref "/altinn-studio/v8/guides/development/options/sources/static" >}})
+hvor noen verdier kan være [filtrert]({{< relref "/altinn-studio/v8/guides/development/options/functionality/filtering" >}}) bort.
 
 Når svaralternativene er dynamiske, kan datamodellen inneholde verdier som ikke lenger er gyldige. Dette kan skje hvis
 brukeren (eller forhåndsutfyllingen) har valgt et alternativ som ikke lenger er tilgjengelig. I slike tilfeller, for å
@@ -34,7 +34,7 @@ Dette har noen implikasjoner som du bør være klar over:
   komponenter som peker på det samme feltet i datamodellen, hvor noen er skjulte og noen er synlige. I slike
   tilfeller vil bare de synlige komponentene ha svaralternativene sjekket og ryddet opp. Dette er også tilfellet
   hvis en komponent er skjult fordi den er på en skjult side, eller inne i en annen skjult komponent.
-  Begrepet 'skjult' i denne sammenhengen refererer til [dynamiske uttrykk](../../../dynamics) brukt for å skjule
+  Begrepet 'skjult' i denne sammenhengen refererer til [dynamiske uttrykk]({{< relref "/altinn-studio/v8/guides/development/dynamics" >}}) brukt for å skjule
   komponenter, ikke hvilke komponenter som for øyeblikket er synlige på siden.
 - Fjerning av ukjente verdier skjer ikke for komponenten `FileUploadWithTag`.
 - Fjerning av ukjente verdier skjer ikke for komponenter konfigurert med `renderAsSummary` satt til `true`.

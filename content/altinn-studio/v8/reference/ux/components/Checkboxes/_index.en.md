@@ -52,9 +52,9 @@ Checkboxes are often used in forms to gather input from the user, allowing them 
 
 ### Related
 
-* For a more compact way to display multiple options with multiple selection, use [MultipleSelect](../multipleselect/).
-* If the user can only select one option from a list, use [RadioButtons](../radiobuttons).
-* For a more compact way to display multiple options with single selection, use [Dropdown](../dropdown).
+* For a more compact way to display multiple options with multiple selection, use [MultipleSelect]({{< relref "/altinn-studio/v8/reference/ux/components/multipleselect/" >}}).
+* If the user can only select one option from a list, use [RadioButtons]({{< relref "/altinn-studio/v8/reference/ux/components/radiobuttons" >}}).
+* For a more compact way to display multiple options with single selection, use [Dropdown]({{< relref "/altinn-studio/v8/reference/ux/components/dropdown" >}}).
 
 ## Properties
 

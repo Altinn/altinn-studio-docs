@@ -21,7 +21,7 @@ aliases:
 
 Bruk bilder og illustrasjoner for å fremheve poeng eller illustrere begreper som er vanskelige å forklare med tekst.
 
-Denne komponenten kan brukes frittstående eller som en mediakomponent i [Cards-komponenten](../cards).
+Denne komponenten kan brukes frittstående eller som en mediakomponent i [Cards-komponenten]({{< relref "/altinn-studio/v8/reference/ux/components/cards" >}}).
 
 ### Anatomi
 
@@ -129,7 +129,7 @@ Velg 'Alternativ tekst for bilde' i nedtrekksmenyen.
 
 ![Innstilling legg til tekst](innstilling-tekst.png)
 
-Klikk plusstegnet for å opprette en ny tekst eller forstørrelsesglasset for å velge en eksisterende [tekstressurs](../../../ux/texts/#legge-til-og-endre-tekster-i-en-app).
+Klikk plusstegnet for å opprette en ny tekst eller forstørrelsesglasset for å velge en eksisterende [tekstressurs]({{< relref "/altinn-studio/v8/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app" >}}).
 
 ![Innstilling for alternativ tekst](innstilling-alternativ-tekst.png)
 

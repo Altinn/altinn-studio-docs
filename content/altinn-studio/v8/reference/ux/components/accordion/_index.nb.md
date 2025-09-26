@@ -51,7 +51,7 @@ Legg til følgende seksjoner dersom de er relevante:
 -->
 ### Relatert
 
-- [`AccordionGroup`](../accordiongroup/)
+- [`AccordionGroup`]({{< relref "/altinn-studio/v8/reference/ux/components/accordiongroup/" >}})
 
 
 ## Egenskaper
@@ -134,7 +134,7 @@ App/ui/layouts/{page}.json
 
 #### `textResourceBindings.title`
 
-Overskriften for Accordion kan legges til som en tekst direkte eller refereres via en tekstnøkkel til en [tekstressurs](../../../ux/texts/#legge-til-og-endre-tekster-i-en-app).
+Overskriften for Accordion kan legges til som en tekst direkte eller refereres via en tekstnøkkel til en [tekstressurs]({{< relref "/altinn-studio/v8/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app" >}}).
 
 #### `children`
 

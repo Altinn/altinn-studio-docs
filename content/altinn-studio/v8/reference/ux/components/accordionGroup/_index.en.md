@@ -15,7 +15,7 @@ toc: true
 
 ## Usage
 
-`AccordionGroup` is used to group related [`Accordion`](../accordion/) components.
+`AccordionGroup` is used to group related [`Accordion`]({{< relref "/altinn-studio/v8/reference/ux/components/accordion/" >}}) components.
 
 ### Anatomy
 
@@ -64,7 +64,7 @@ Add the following sections if relevant:
 -->
 ### Related
 
-- [`Accordion`](../accordion/)
+- [`Accordion`]({{< relref "/altinn-studio/v8/reference/ux/components/accordion/" >}})
 
 
 ## Properties

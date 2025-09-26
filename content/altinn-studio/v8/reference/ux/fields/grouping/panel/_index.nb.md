@@ -6,13 +6,13 @@ description: Konfigurasjonsdetaljer for grupper vist som panel
 
 {{% notice warning %}}
 Deler av denne konfigurasjonen er ikke tilgjengelig i v4 og gjøres litt anderledes. Se
-[ikke-repeterende grupper](../non-repeating/) for mer informasjon på hvordan man kan gruppere komponenter visuelt.
+[ikke-repeterende grupper]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/non-repeating/" >}}) for mer informasjon på hvordan man kan gruppere komponenter visuelt.
 {{% /notice %}}
 
 ## Vise gruppen som del av Panel
 
 Gruppe-komponenter kan også sette en parameter, `panel`.
-Denne sier at gruppen skal vises som en del av [Panel-komponenten](../../../components/panel).
+Denne sier at gruppen skal vises som en del av [Panel-komponenten]({{< relref "/altinn-studio/v8/reference/ux/components/panel" >}}).
 
 Her vil du kjenne igjen utseende og innstillinger som kan settes på panel-komponenten. Eksempeloppsett:
 

@@ -53,9 +53,9 @@ Avkrysningsbokser brukes ofte i skjemaer for å samle input fra brukeren,
 
 ### Relatert
 
-* For en mer kompakt måte å vise flere alternativer med flervalg, bruk [MultipleSelect](../multipleselect/).
-* Hvis brukeren bare kan velge ett alternativ fra en liste, bruk [RadioButtons](../radiobuttons).
-* For en mer kompakt måte å vise flere alternativer med enkeltvalg, bruk en [rullegardinmeny](../dropdown).
+* For en mer kompakt måte å vise flere alternativer med flervalg, bruk [MultipleSelect]({{< relref "/altinn-studio/v8/reference/ux/components/multipleselect/" >}}).
+* Hvis brukeren bare kan velge ett alternativ fra en liste, bruk [RadioButtons]({{< relref "/altinn-studio/v8/reference/ux/components/radiobuttons" >}}).
+* For en mer kompakt måte å vise flere alternativer med enkeltvalg, bruk en [rullegardinmeny]({{< relref "/altinn-studio/v8/reference/ux/components/dropdown" >}}).
 
 ## Egenskaper
 

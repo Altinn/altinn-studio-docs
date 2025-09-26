@@ -12,12 +12,12 @@ som er tilgjengelig i UI-editoren via  _f(x)_-ikonet øverst til høyre.
 
 {{% panel theme="warning" %}}
 ⚠️ Dynamikk er et område under aktiv utvikling. Logikk-filer skrevet i JavaScript fases etterhvert ut og blir erstattet
-av [dynamiske uttrykk](../expressions).
+av [dynamiske uttrykk]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}}).
 {{% /panel %}}
 
 ![Logikkmeny](ui-editor-logic-menu.png?height=300px "Logikkmeny")
 
-For backend så håndteres logikk gjennom forskjellige grensesnitt. Disse er beskrevet på de forskjellige sidene under dette området som f. eks. [data prosessering](../dataprocessing/).
+For backend så håndteres logikk gjennom forskjellige grensesnitt. Disse er beskrevet på de forskjellige sidene under dette området som f. eks. [data prosessering]({{< relref "/altinn-studio/v8/reference/logic/dataprocessing/" >}}).
 Et komplett prosjekt med eksempler på serverside applikasjonslogikk ligger [i vår kursapplikasjon](https://altinn.studio/repos/ttd/tilflytter-sogndal-lf/src/branch/master).
 
 {{%panel info%}}

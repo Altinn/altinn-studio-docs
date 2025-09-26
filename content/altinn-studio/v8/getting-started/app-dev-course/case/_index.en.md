@@ -77,7 +77,7 @@ The following is desirable to be similar in the application:
 
 [Sketch of information page](../resources/infoside_tilflyttere.pdf)
 
-!["Sogndal coats of arms"](../resources/kommune-logo.png "A picture of the coats of arms of Sogndal that may be used in the application." )
+!["Sogndal coats of arms"](../resources/kommune-logo.png)
 
 {{% /expandlarge %}}
 

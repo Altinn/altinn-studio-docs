@@ -9,12 +9,12 @@ weight: 20
 Denne veiledningen viser hvordan du kan bruke tjenesteeier-API-et til å opprette dialoger for dine digitale tjenesteinstanser og/eller meldinger.
 
 {{<notice info>}}
-Når du bruker Altinn Studio, vil dialoger automatisk opprettes for deg. En app kan velge å ikke bruke dette, se [veiledningen for integrering av Altinn Apps](../integrating-altinn-apps) for mer informasjon.
+Når du bruker Altinn Studio, vil dialoger automatisk opprettes for deg. En app kan velge å ikke bruke dette, se [veiledningen for integrering av Altinn Apps]({{< relref "/dialogporten/user-guides/service-owners/integrating-altinn-apps" >}}) for mer informasjon.
 {{</notice>}}
 
 ## Grunnleggende trinn
 
-1. Autentiser som en [tjenesteeier](../../authenticating/#bruk-for-tjenesteeiersystemer)
+1. Autentiser som en [tjenesteeier]({{< relref "/dialogporten/user-guides/authenticating/#bruk-for-tjenesteeiersystemer" >}})
 2. Utfør en POST-forespørsel og oppgi [create dialog DTO]({{< relref "/dialogporten/reference/entities/dialog#opprett-post" >}})
 
 ## Velge en tjenesteressurs
@@ -125,11 +125,11 @@ Handlinger er ikke obligatoriske, men de fleste dialoger bør indikere hvordan b
 
 ### Autorisere handlinger
 
-Handlinger har selv en `action`-egenskap som tilsvarer en [XACML-handling](../../../../authorization/reference/xacml/#action) definert i den refererte tjenesteressursens [policy](../../../../authorization/reference/xacml/#xacml-policy). Dialogporten vil sjekke om den autentiserte brukeren har lov til å utføre den spesifiserte handlingen på den refererte tjenesteressursen for dialogens part, og hvis ikke, vil den flagge handlingen som `isAuthorized: false` og fjerne den medfølgende URL-en. Sluttbrukersystemer bør indikere for sluttbrukeren at handlingen eksisterer, men at tilgang mangler - og om mulig gi informasjon om hvordan du ber om tilgang (som er utenfor omfanget for Dialogporten).
+Handlinger har selv en `action`-egenskap som tilsvarer en [XACML-handling]({{< relref "/authorization/reference/xacml/#action" >}}) definert i den refererte tjenesteressursens [policy]({{< relref "/authorization/reference/xacml/#xacml-policy" >}}). Dialogporten vil sjekke om den autentiserte brukeren har lov til å utføre den spesifiserte handlingen på den refererte tjenesteressursen for dialogens part, og hvis ikke, vil den flagge handlingen som `isAuthorized: false` og fjerne den medfølgende URL-en. Sluttbrukersystemer bør indikere for sluttbrukeren at handlingen eksisterer, men at tilgang mangler - og om mulig gi informasjon om hvordan du ber om tilgang (som er utenfor omfanget for Dialogporten).
 
 {{<notice warning>}}Selv om Dialogporten vil sjekke autorisasjon for handlingen og fjerne URL-en hvis sjekken mislykkes, MÅ tjenesteeiersystemet utføre sin egen autorisasjon basert på den samme policyen{{</notice>}}
 
-For ekstra kontroll kan et [autorisasjonsattributt](../../../getting-started/authorization/attributes) leveres, som lar tjenesteeiere referere til spesifikke regler i policyen eller andre tjenesteressurser (som tjenesteeieren kontrollerer) fullstendig.
+For ekstra kontroll kan et [autorisasjonsattributt]({{< relref "/dialogporten/getting-started/authorization/attributes" >}}) leveres, som lar tjenesteeiere referere til spesifikke regler i policyen eller andre tjenesteressurser (som tjenesteeieren kontrollerer) fullstendig.
 
 ### Definere GUI-handlinger
 
@@ -151,7 +151,7 @@ Merk at Dialogporten ikke vil vurdere gyldigheten eller semantikken til API-hand
 
 **Les mer**
 
-- [Lær mer om handlinger i dialoger](../../../getting-started/dialogs#handlinger)
+- [Lær mer om handlinger i dialoger]({{< relref "/dialogporten/getting-started/dialogs#handlinger" >}})
 - {{<link "../../../reference/entities/action">}}
 - {{<link "../../../getting-started/write-actions">}}
 - {{<link "../../../getting-started/authorization/dialog-tokens">}}
@@ -164,7 +164,7 @@ Vedlegg kan defineres både på dialogen og på individuelle forsendelser.
 
 **Les mer**
 
-- [Lær mer om vedlegg i dialoger](../../../getting-started/dialogs#vedlegg)
+- [Lær mer om vedlegg i dialoger]({{< relref "/dialogporten/getting-started/dialogs#vedlegg" >}})
 
 ## Definere forsendelser
 
@@ -180,7 +180,7 @@ Som med innhold på dialognivå, kan forsendelser inneholde en tittel, et sammen
 
 **Les mer**
 
-- [Lær mer om overføringer i dialoger](../../../getting-started/dialogs#forsendelser)
+- [Lær mer om overføringer i dialoger]({{< relref "/dialogporten/getting-started/dialogs#forsendelser" >}})
 - {{<link "../../../reference/entities/transmission">}}
 - {{<link "../../../reference/content-types">}}
 

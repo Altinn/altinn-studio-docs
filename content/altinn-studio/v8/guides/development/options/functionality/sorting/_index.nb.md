@@ -11,7 +11,7 @@ når listen ikke må være i en spesifikk rekkefølge.
 Verdt å vite:
 
 1. Sorteringen kan endre seg underveis dersom brukeren endrer språk i skjemaet.
-2. Selve sorteringen gjøres etter [forhåndsvalgt verdi](../preselection) har blitt funnet. Det betyr at
+2. Selve sorteringen gjøres etter [forhåndsvalgt verdi]({{< relref "/altinn-studio/v8/guides/development/options/functionality/preselection" >}}) har blitt funnet. Det betyr at
    sorteringsrekkefølgen ikke skal påvirke hvilket svaralternativ som er forhåndsvalgt.
 
 ### Konfigurasjon

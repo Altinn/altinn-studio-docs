@@ -56,7 +56,7 @@ Responsible for enforcing the decision from PDP. PEP is the component that block
 
 [Read more]({{< relref "/authorization/reference/architecture/accesscontrol/pep" >}})
 
-For a functional description see details in [application solution components](../../).
+For a functional description see details in [application solution components]({{< relref "/authorization/" >}}).
 
 ## Construction diagram Authorization
 

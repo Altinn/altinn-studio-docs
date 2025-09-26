@@ -127,7 +127,7 @@ Nå skal vi legge inn en logikkregel for å skjule stillingsutlysningen hvis bru
 !["Skjermbilde av dynamikkinnstillinger for stillingsutlysningen"](dynamikk_stillingsutlysning.png)
 
 ## Nyttig dokumentasjon
-- [Brukerveiledning - Dynamikk](../../../guides/development/dynamics/)
+- [Brukerveiledning - Dynamikk]({{< relref "/altinn-studio/v8/guides/development/dynamics/" >}})
 - [Dokumentasjon - Dynamiske uttrykk]({{< relref "/altinn-studio/v8/reference/logic/expressions/" >}})
 
 ## Oppsummering

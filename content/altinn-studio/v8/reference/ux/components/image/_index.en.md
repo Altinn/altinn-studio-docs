@@ -15,7 +15,7 @@ aliases:
 
 Use images and illustrations to emphasize points or illustrate concepts that are difficult to explain using text.
 
-This component can be used standalone or as a media component in [Cards](../cards).
+This component can be used standalone or as a media component in [Cards]({{< relref "/altinn-studio/v8/reference/ux/components/cards" >}}).
 
 ### Anatomy
 ![Example image and alt text anatomy](image-and-alt-text-en.png)
@@ -122,7 +122,7 @@ Choose 'Alternativ tekst for bilde' in the drop-down menu.
 
 ![Settings add text](innstilling-tekst.png)
 
-Click the plus sign to create a new text or the magnifying glass to pick an existing [text resource](../../texts/#add-and-change-texts-in-an-application).
+Click the plus sign to create a new text or the magnifying glass to pick an existing [text resource]({{< relref "/altinn-studio/v8/reference/ux/texts/#add-and-change-texts-in-an-application" >}}).
 
 ![Settings for alternative text](innstilling-alternativ-tekst.png)
 

@@ -66,4 +66,4 @@ on docs
 ---
 ## The End
 
-[Tilbake](../)
+[Tilbake]({{< relref "/community/" >}})

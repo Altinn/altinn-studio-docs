@@ -9,7 +9,7 @@ cascade:
 
 ## Create a service with a basic form
 Get started with creating services on Altinn Studio by following our
-[guide for creating a basic form](../guides/development/basic-form/) or by trying out our
+[guide for creating a basic form]({{< relref "/altinn-studio/v8/guides/development/basic-form/" >}}) or by trying out our
 [service development course](./app-dev-course/).
 
 {{<children />}}

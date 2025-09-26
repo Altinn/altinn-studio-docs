@@ -47,7 +47,7 @@ Når Altinn 3 Overgangsløsning for formidlingstjeneste funksjonalitet er aktive
 
 Siden manifestfiler er blitt avviklet i Altinn 3 Formidlingstjeneste, har vi lagt til en funksjon for å muliggjøre oppretting/oppdatering av manifestfiler for overgangsløsningen.
 Funksjonen er implementert som en del av nedlastingsoperasjonen fra Altinn 2-siden, og på grunn av større påvirkning på ytelsen, er den som standard deaktivert.
-For å aktivere denne funksjonen må du [konfigurere Altinn 3-resursen](../getting-started/#konfigurer-ressurs-til-bruk-i-overgangsløsningen) med følgende egenskaper:
+For å aktivere denne funksjonen må du [konfigurere Altinn 3-resursen]({{< relref "/broker/broker-transition/getting-started/#konfigurer-ressurs-til-bruk-i-overgangsløsningen" >}}) med følgende egenskaper:
 
 - UseManifestFileShim = true
 - ExternalServiceCodeLegacy = den eksterne tjenestekoden til Altinn 2-tjenesten.

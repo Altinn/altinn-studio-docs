@@ -48,7 +48,7 @@ where the goal is to be able to reuse everything we develop not only at national
 accelerate the attainment of [the sustainable development goals](https://www.undp.org/sustainable-development-goals).
 
 We also encourage [the developers building apps](https://www.altinn.no/en/about-altinn/the-altinn-co-operation/)
-using Altinn Studio to also [share their apps](../../../altinn-studio/news/launched-apps/).
+using Altinn Studio to also [share their apps]({{< relref "/altinn-studio/v8/news/launched-apps/" >}}).
 In fact, you have to do an active decision *not* to share, since sharing and reuse is central to the concept of Altinn.
 
 ## Cooperation
@@ -87,7 +87,7 @@ for example if the vendor chooses to phase out the product.
 If your solution is built on top of open source products then you, or anybody else, can
 make a [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) in such a situation.
 
-Altinn 3 is therefore [based on software and libraries](../../../technology/tools/) which is open source.
+Altinn 3 is therefore [based on software and libraries]({{< relref "/technology/tools/" >}}) which is open source.
 
 We think this naturally is also very important for those who consider whether to adopt Altinn or not.
 

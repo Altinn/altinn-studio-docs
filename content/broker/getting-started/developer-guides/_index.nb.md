@@ -25,11 +25,11 @@ For å forstå hvordan Formidling-APIet fungerer, inkludert avhengighetene og ko
 
 ![Altinn Formidling oppsett-sekvens](Altinn-broker-setup-sequence.png "Altinn-formidling-oppsett-sekvens")
 
-Du må ha utført stegene i [Hvordan komme i gang](../../getting-started) for å sette opp tilgangskravene.
+Du må ha utført stegene i [Hvordan komme i gang]({{< relref "/broker/getting-started" >}}) for å sette opp tilgangskravene.
 
 ## Generell prosess {#overall-process}
 
-Generell prosessflyt gjenspeiler den implementerte virkeligheten av [filoverføringsprosessen](../../explanation/basic-concepts/#file-transfer-process-states)
+Generell prosessflyt gjenspeiler den implementerte virkeligheten av [filoverføringsprosessen]({{< relref "/broker/explanation/basic-concepts/#file-transfer-process-states" >}})
 
 Alle operasjoner er asynkrone, med mindre annet er angitt.
 Som sådan bør du implementere hendelsesabonnementer for å optimalisere prosessen din i stedet for å stole på polling for status.

@@ -59,7 +59,7 @@ Add the following sections if relevant:
 -->
 ### Related
 
-- [`AccordionGroup`](../accordiongroup/)
+- [`AccordionGroup`]({{< relref "/altinn-studio/v8/reference/ux/components/accordiongroup/" >}})
 
 
 ## Properties
@@ -141,7 +141,7 @@ App/ui/layouts/{page}.json
 
 #### `textResourceBindings.title`
 
-The title for the Accordion can be added as text directly or referenced via a text key to a [text resource](../../texts/#add-and-change-texts-in-an-application).
+The title for the Accordion can be added as text directly or referenced via a text key to a [text resource]({{< relref "/altinn-studio/v8/reference/ux/texts/#add-and-change-texts-in-an-application" >}}).
 
 #### `children`
 

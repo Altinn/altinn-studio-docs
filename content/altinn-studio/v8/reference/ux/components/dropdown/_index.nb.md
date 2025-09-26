@@ -58,9 +58,9 @@ Nedtrekkslister brukes ofte i skjemaer for 책 samle input fra brukeren der de m�
 
 ### Relatert
 
-* For enkeltvalg med f책 alternativer, bruk [radionkapper](../radiobuttons/).
-* Hvis brukeren kan velge flere alternativ fra en liste, bruk [Avkrysningsbokser](../checkboxes/).
-* For en mer kompakt m책te 책 vise flere alternativer med flervalg, bruk [MultipleSelect](../multipleselect/).
+* For enkeltvalg med f책 alternativer, bruk [radionkapper]({{< relref "/altinn-studio/v8/reference/ux/components/radiobuttons/" >}}).
+* Hvis brukeren kan velge flere alternativ fra en liste, bruk [Avkrysningsbokser]({{< relref "/altinn-studio/v8/reference/ux/components/checkboxes/" >}}).
+* For en mer kompakt m책te 책 vise flere alternativer med flervalg, bruk [MultipleSelect]({{< relref "/altinn-studio/v8/reference/ux/components/multipleselect/" >}}).
 
 ## Egenskaper
 

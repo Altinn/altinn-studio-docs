@@ -78,7 +78,7 @@ Følgende er det ønskelig at reflekteres i tjenesten:
 
 [Skisse på informasjonsside](../resources/infoside_tilflyttere.pdf)
 
-!["Sogndal kommunevåpen"](../resources/kommune-logo.png "Et bilde av Sogndals kommunevåpen som kan benyttes i tjenesten" )
+!["Sogndal kommunevåpen"](../resources/kommune-logo.png)
 
 {{% /expandlarge %}}
 

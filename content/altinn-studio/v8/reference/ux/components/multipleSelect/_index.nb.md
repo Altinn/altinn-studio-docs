@@ -67,9 +67,9 @@ Legg til seksjoner dersom de er relevante:
 
 ### Relatert
 
-* For flervalg med få alternativer, bruk [Avkrysningsbokser](../checkboxes/).
-* For enkeltvalg med få alternativer, bruk [radionkapper](../radiobuttons/).
-* For enkeltvalg med mang alternativer, bruk [Dropdown](../dropdown/).
+* For flervalg med få alternativer, bruk [Avkrysningsbokser]({{< relref "/altinn-studio/v8/reference/ux/components/checkboxes/" >}}).
+* For enkeltvalg med få alternativer, bruk [radionkapper]({{< relref "/altinn-studio/v8/reference/ux/components/radiobuttons/" >}}).
+* For enkeltvalg med mang alternativer, bruk [Dropdown]({{< relref "/altinn-studio/v8/reference/ux/components/dropdown/" >}}).
 
 ## Egenskaper
 

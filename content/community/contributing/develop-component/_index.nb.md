@@ -5,7 +5,7 @@ weight: 40
 ---
 
 Før du starter utvikling av ny funksjonalitet kan det være lurt å sjekke om oppgaven allerede ligger i backloggen vår. 
-Om du ikke finner den vil vi gjerne at du først [foreslår ønsket funksjonalitet/komponent](../propose-component/) 
+Om du ikke finner den vil vi gjerne at du først [foreslår ønsket funksjonalitet/komponent]({{< relref "/community/contributing/propose-component/" >}}) 
 og starter en dialog med oss før utviklingen starter.
 
 ![Contributing process](contribute-develop.svg "Ønsket forløp når nye komponenter skal utvikles")
@@ -21,7 +21,7 @@ flyt er en dialog.
 - Trenger du hjelp med design eller brukertesting
 
 ## Utviklingshåndbok
-All informasjon du trenger for komme i gang finner du i vår [utviklingshåndbok](../handbook/). Håndboken inneholder blant annet
+All informasjon du trenger for komme i gang finner du i vår [utviklingshåndbok]({{< relref "/community/contributing/handbook/" >}}). Håndboken inneholder blant annet
 informasjon du trenger for å skrive [konsistent kode]({{< relref "/community/contributing/handbook/front-end/routine/" >}}) og [bygge nye komponenter]({{< relref "/community/contributing/handbook/front-end/new-component/" >}}).
 
 ## Tilgjengelighetstest

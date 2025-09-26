@@ -9,19 +9,19 @@ options the user can choose from.
 
 Keep in mind that there are different approaches to making options dynamic:
 
-1. You can use [dynamics](../../../dynamics) to hide and show entirely different components based on a condition. These
+1. You can use [dynamics]({{< relref "/altinn-studio/v8/guides/development/dynamics" >}}) to hide and show entirely different components based on a condition. These
    components could be bound to the same location in the data model, but have different options. Note that
-   [automatic cleanup](../automatic-cleanup) may unexpectedly remove values from the data model when using this approach.
+   [automatic cleanup]({{< relref "/altinn-studio/v8/guides/development/options/functionality/automatic-cleanup" >}}) may unexpectedly remove values from the data model when using this approach.
    Test thoroughly to ensure form data is not lost when using this method.
-2. By using [dynamic options](../../sources/dynamic) and passing query parameters to the backend, you can write custom code
+2. By using [dynamic options]({{< relref "/altinn-studio/v8/guides/development/options/sources/dynamic" >}}) and passing query parameters to the backend, you can write custom code
    to generate a different set of options based on those query parameters. This may be useful, but can cause lots of traffic
    to the backend if the options are frequently changing.
-3. Using [options from the data model](../../sources/from-data-model) you can set up options based on a repeating structure in
+3. Using [options from the data model]({{< relref "/altinn-studio/v8/guides/development/options/sources/from-data-model" >}}) you can set up options based on a repeating structure in
    the data model. In combination with data processing on the backend, this can be a powerful way to create custom options
    even when dynamic options based on query parameters would be problematic.
 
 Filtering options via the `optionFilter` property works with all of the above, and with
-plain [static options](../../sources/static) as well. It allows you to use a [dynamic expression](../../../dynamics)
+plain [static options]({{< relref "/altinn-studio/v8/guides/development/options/sources/static" >}}) as well. It allows you to use a [dynamic expression]({{< relref "/altinn-studio/v8/guides/development/dynamics" >}})
 to filter out options based on the current state of the form.
 
 ### Configuration
@@ -57,8 +57,8 @@ with arguments to access other values in the option as well.
 - `["value"]` and `["value", "value"]` are equivalent, and will return the value of the current option.
 - `["value", "label"]` will return the label of the current option. This label is the text given in the `label` property
   of the option, before any text resources are looked up.
-- `["value", "description"]` will return the [description of the current option](../texts), if set.
-- `["value", "helpText"]` will return the [help text of the current option](../texts), if set.
+- `["value", "description"]` will return the [description of the current option]({{< relref "/altinn-studio/v8/guides/development/options/functionality/texts" >}}), if set.
+- `["value", "helpText"]` will return the [help text of the current option]({{< relref "/altinn-studio/v8/guides/development/options/functionality/texts" >}}), if set.
 
 ### Used alongside options from the data model
 
@@ -69,7 +69,7 @@ you will have access to data from the row that the option was fetched from.
 If there is a `RepeatingGroup` component associated with this repeating structure, the `optionFilter` property can also
 look up values from the `component` function to access data from components inside the repeating group. The return value
 from this function will always be `null` if the row is hidden using
-[dynamics in the `hiddenRow` property](../../../../../reference/ux/fields/grouping/repeating/dynamics),
+[dynamics in the `hiddenRow` property]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating/dynamics" >}}),
 even if a lookup with the `dataModel` function would return data from the hidden row.
 
 An example using this combination:
@@ -134,16 +134,16 @@ The configuration for this example is as follows:
 A few things to note about the configuration:
 
 1. The already used types are stored in a comma-separated list in the `UsedTypes` field in the data model. This field
-   is updated using a [data processor](../../../../../reference/logic/dataprocessing) that finds all the unique types
+   is updated using a [data processor]({{< relref "/altinn-studio/v8/reference/logic/dataprocessing" >}}) that finds all the unique types
    in the `Ingredients` array.
 2. If we just checked the `UsedTypes` field against the `value` of the current `Dropdown` component, as soon as an
    ingredient was chosen, it would be removed from the list of options and
-   would [be automatically cleaned up](../automatic-cleanup). For this reason, we also check that the `value` is not
+   would [be automatically cleaned up]({{< relref "/altinn-studio/v8/guides/development/options/functionality/automatic-cleanup" >}}). For this reason, we also check that the `value` is not
    equal to the data set in the current `Dropdown` component.
 
 {{% notice warning %}}
 The example above depends on saving the form data to the backend and running data processing to update
 the `UsedTypes` field. For this reason, it is still entirely possible to select the same ingredient in multiple rows
 in the repeating group if you're fast enough. When using a method like this you should
-also [implement validation](../../../../../reference/logic/validation) to catch any duplicates that might slip through.
+also [implement validation]({{< relref "/altinn-studio/v8/reference/logic/validation" >}}) to catch any duplicates that might slip through.
 {{% /notice %}}

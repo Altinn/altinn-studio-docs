@@ -4,8 +4,8 @@ linktitle: Prefill
 description: Reference of available fields when using prefill configuration file.
 weight: 10
 ---
-Read more about prefill [here](../../../concepts/prefill/), and see the guide for how to set it up in your app
-[here](../../../guides/development/prefill/config/).
+Read more about prefill [here]({{< relref "/altinn-studio/v8/concepts/prefill/" >}}), and see the guide for how to set it up in your app
+[here]({{< relref "/altinn-studio/v8/guides/development/prefill/config/" >}}).
 
 ## Fields in the  _prefill.json_ file
 
@@ -26,7 +26,7 @@ Instantiation will fail if you attempt to prefill ER-data, but do not have an or
 - **UserProfile** here you enter fields from the data model that are to be prefilled with data from the users profile in Altinn.
 Note that it is the logged in user who instantiates the app the data is collected for.
 
-- **QueryParameters** here you can define fields from the datamodel that can be prefilled based on query parameters from the url. Note that this requires custom setup to work, see instructions [here](../../../guides/development/prefill/config/). 
+- **QueryParameters** here you can define fields from the datamodel that can be prefilled based on query parameters from the url. Note that this requires custom setup to work, see instructions [here]({{< relref "/altinn-studio/v8/guides/development/prefill/config/" >}}). 
 
 ## Available prefill values
 
@@ -86,7 +86,7 @@ Kari Nordmann, the data retrieved from here would belong to Ola. For the objects
 you will find the same fields that are included in ER and DSF-prefill. Note that Party.Organization will be null if the
 user is logged in as an individual, and the equivalent if they are logged in with a business user. The prefill will fail
 if the object you prefill from does not exist, so if you wish to dynamically prefill based on these values it has to be
-setup as [custom prefill.](../../../guides/development/prefill/custom/).
+setup as [custom prefill.]({{< relref "/altinn-studio/v8/guides/development/prefill/custom/" >}}).
 Available values for prefill includes:
 
 - UserId

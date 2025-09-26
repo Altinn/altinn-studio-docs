@@ -7,7 +7,7 @@ tags:
 ---
 ## Autentiseringsnivå
 
-Påkrevd autentiseringsnivå settes i [XACML Policy](../authorization) som obligation.
+Påkrevd autentiseringsnivå settes i [XACML Policy]({{< relref "/altinn-studio/v8/reference/configuration/authorization" >}}) som obligation.
 
 ## ID-provider
 

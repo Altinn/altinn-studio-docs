@@ -186,4 +186,4 @@ Flow explained
 ## Implementation and construction details
 
 Details about the implementation of PDP is found under
-[construction components for PDP.](../../../authorization/reference/architecture/accesscontrol#policy-decision-point---pdp)
+[construction components for PDP.]({{< relref "/authorization/reference/architecture/accesscontrol#policy-decision-point---pdp" >}})

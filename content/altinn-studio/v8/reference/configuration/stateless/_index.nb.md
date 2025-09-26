@@ -120,7 +120,7 @@ Appens frontend vil lese konfigurasjonen fra `applicationmetadata.json` og forst
 {{%notice warning%}}
 OBS! Skjemakomponenter som påvirker prosess (knapp for innsending eller instansiering) er ikke støttet for anonyme brukere!
 
-**MERK:** for å benytte denne funksjonaliteten må man bruke versjon >= 5.1.0 av [nuget-pakkene](../../../guides/administration/maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
+**MERK:** for å benytte denne funksjonaliteten må man bruke versjon >= 5.1.0 av [nuget-pakkene]({{< relref "/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget" >}}) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
 
 {{%/notice%}}
 
@@ -173,8 +173,8 @@ App/config/applicationmetadata.json
 Når man benytter en stateless datatype så vil man kunne populere datamodellen i det app-frontend spør om skjemadataen.
 
 Datapopuleringen skjer i to steg på det initielle kallet fra frontend (GET):
-1. [Prefill](../../data/prefill/)
-2. [Dataprossesering](../../logic/dataprocessing/)
+1. [Prefill]({{< relref "/altinn-studio/v8/reference/data/prefill/" >}})
+2. [Dataprossesering]({{< relref "/altinn-studio/v8/reference/logic/dataprocessing/" >}})
 
 På påfølgende oppdateringer på samme skjemadata (POST) så vil man ikke kjøre prefill en gang til, men kalkuleringen trigges. Dette muliggjør manipulering av dataen basert på brukerens input selv i en stateless tilstand.
 
@@ -198,7 +198,7 @@ public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object 
 
 ## Autorisasjon med tredjepartsløsninger
 
-Tilgangsstyring for stateless applikasjoner kan løses med [standard app-autorisasjon](../authorization) 
+Tilgangsstyring for stateless applikasjoner kan løses med [standard app-autorisasjon]({{< relref "/altinn-studio/v8/reference/configuration/authorization" >}}) 
 der man hved hjelp av Altinn-roller definerer hvem som har tilgang til å benytte tjenesten.
 Dersom man har behov for ytteligere sikring av tjenesten kan man implementere logikk for autorisasjon av brukere med tredjepartløsninger.
 Dette kan være API-er som er eksponert innenfor egen virksomhet eller åpne API fra andre tilbydere.
@@ -289,7 +289,7 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
     Vi bruker dynamikkregler til å vise/skjule felter avhengig av om en bruker en autorisert eller ikke. 
     
     Det er lagt inn en dynamikkregel i `RuleHandler.js` som sjekker om et felt i datamodellen har verdien `false`. 
-    Konfigurasjon av regler er beskrevet nærmere [her](../../logic/dynamic/#legg-tilrediger-funksjoner-for-beregninger-eller-visskjul).
+    Konfigurasjon av regler er beskrevet nærmere [her]({{< relref "/altinn-studio/v8/reference/logic/dynamic/#legg-tilrediger-funksjoner-for-beregninger-eller-visskjul" >}}).
 
     I `RuleConfiguration.json` ser man hvordan regelen benyttes.
     Dersom inputverdien fra datamodellen `userAuthorized` er false, så vises errorBoks-komponenten,
@@ -459,7 +459,7 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
 
 Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre og vil ikke være støttet i Altinn Studio.
 
-**MERK:** for å benytte denne funksjonaliteten må man versjon >= 4.17.2 av [nuget-pakkene](../../../guides/administration/maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
+**MERK:** for å benytte denne funksjonaliteten må man versjon >= 4.17.2 av [nuget-pakkene]({{< relref "/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget" >}}) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
 
 {{%/notice%}}
 

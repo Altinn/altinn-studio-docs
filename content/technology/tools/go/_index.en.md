@@ -7,8 +7,8 @@ tags: [tech, programming]
 ![Gopher](go.png "The Go Gopher (\"the larger the cuter!!\")")
 
 Go is the programming language that has been used for developing many of the products we use in Altinn Studio,
-such as [Gitea](../gitea), [Kubernetes](../kubernetes), [Docker](../docker), [Traefik](../traefik), [Helm](../helm),
-[Grafana](../grafana), [Prometheus](../prometheus), [Terraform](../terraform) and [Hugo](../hugo).
+such as [Gitea]({{< relref "/technology/tools/gitea" >}}), [Kubernetes]({{< relref "/technology/tools/kubernetes" >}}), [Docker]({{< relref "/technology/tools/docker" >}}), [Traefik]({{< relref "/technology/tools/traefik" >}}), [Helm]({{< relref "/technology/tools/helm" >}}),
+[Grafana]({{< relref "/technology/tools/grafana" >}}), [Prometheus]({{< relref "/technology/tools/prometheus" >}}), [Terraform]({{< relref "/technology/tools/terraform" >}}) and [Hugo]({{< relref "/technology/tools/hugo" >}}).
 
 ## Links
 

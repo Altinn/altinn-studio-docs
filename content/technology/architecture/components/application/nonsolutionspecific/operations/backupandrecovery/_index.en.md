@@ -6,7 +6,7 @@ tags: [solution, architecture]
 toc: false
 ---
 
-As described below, the [backup and recovery capabilities](../../../../../capabilities/devops/platformoperations/backupandrecovery/)
+As described below, the [backup and recovery capabilities]({{< relref "/technology/architecture/capabilities/devops/platformoperations/backupandrecovery/" >}})
 there are serveral scenarious where the different type of data is lost.
 
 This page describes the application components that makes it possible to protect against data loss.

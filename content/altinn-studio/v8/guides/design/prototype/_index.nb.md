@@ -27,7 +27,7 @@ Dersom du ikke har tilgang på en slik ressurs anbefaler vi å gå gjennom en
 
 {{% highlighted-link src="https://www.figma.com/community/file/1344307804742953785/altinn-studio-komponenter" link="Altinn Studio Komponenter" %}}
 
-Når designeren/fagpersonen har designet ferdig skjemaet, og det er [brukertestet](../usertest/), 
+Når designeren/fagpersonen har designet ferdig skjemaet, og det er [brukertestet]({{< relref "/altinn-studio/v8/guides/design/usertest/" >}}), 
 kan det videre brukes som spesifikasjon til det utviklerne skal lage i Altinn Studio.  
 
 {{% panel %}}

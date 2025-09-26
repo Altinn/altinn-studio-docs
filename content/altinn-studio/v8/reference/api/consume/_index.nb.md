@@ -293,7 +293,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 ## Benytte klient i applikasjonslogikk
 
-For å berike skjemadata må vi koble klienten vår til logikken i _App/logic/DataProcessingHandler.cs_ i metoden _ProcessDataWrite_. Merk at for v7 av applikasjonsmalen er dette endret, se [dataprossessering](../../logic/dataprocessing/).
+For å berike skjemadata må vi koble klienten vår til logikken i _App/logic/DataProcessingHandler.cs_ i metoden _ProcessDataWrite_. Merk at for v7 av applikasjonsmalen er dette endret, se [dataprossessering]({{< relref "/altinn-studio/v8/reference/logic/dataprocessing/" >}}).
 
 Først må klienten tilgjengeliggjøres ved å _injecte_ den inn i konstruktøren til klassen.
 DataProcessingHandler har ingen konstruktør i utgangspunktet så den må opprettes i klassen. 

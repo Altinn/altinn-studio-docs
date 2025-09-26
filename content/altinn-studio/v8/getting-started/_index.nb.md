@@ -9,7 +9,7 @@ cascade:
 
 ## Lag en tjeneste med enkelt skjema
 Kom i gang med å lage tjenester på Altinn Studio ved å følge vår 
-[guide for å lage et enkelt skjema](../guides/development/basic-form/) eller ved å prøve deg på vårt
+[guide for å lage et enkelt skjema]({{< relref "/altinn-studio/v8/guides/development/basic-form/" >}}) eller ved å prøve deg på vårt
 [tjenesteutviklingskurs](./app-dev-course/).
 
 {{<children />}}

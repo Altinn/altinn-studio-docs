@@ -14,7 +14,7 @@ The data is also available in other endpoints where metadata about data elements
 {{%panel info%}}
 **Note:** 
 This is data that users with write permissions on the data element can freely edit via the API. 
-If you want to add metadata that cannot be edited via the apps API, you should use [metadata](../metadata) instead. 
+If you want to add metadata that cannot be edited via the apps API, you should use [metadata]({{< relref "/api/apps/data-elements/metadata" >}}) instead. 
 That field is not exposed via the app's API and can only be set through calls to storage, often via custom-developed C# code.
 {{% /panel%}}
 

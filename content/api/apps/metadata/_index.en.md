@@ -15,7 +15,7 @@ The endpoints documented here are all for accessing metadata on the app itself a
 
 ## Get app metadata
 
-Endpoint for downloading a copy of the [application metadata](../../models/app-metadata) document.
+Endpoint for downloading a copy of the [application metadata]({{< relref "/api/models/app-metadata" >}}) document.
 
 ```http
 GET {basePath}/api/v1/applicationmetadata

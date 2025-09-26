@@ -5,7 +5,7 @@ weight: 100
 toc: true
 ---
 
-På [forrige side](../) gikk vi gjennom hvordan man setter opp en [ressurs](../#altinn-ressurs) og versjonskravene
+På [forrige side]({{< relref "/altinn-studio/v8/guides/integration/" >}}) gikk vi gjennom hvordan man setter opp en [ressurs]({{< relref "/altinn-studio/v8/guides/integration/#altinn-ressurs" >}}) og versjonskravene
 for meldingsklienten.
 
 Vi kan nå gå videre til [oppsett av Maskinporten](#maskinporten) og [applikasjonskode](#applikasjonskode).
@@ -19,7 +19,7 @@ For å bruke [meldingstjenesten](/correspondence/) behøver man en [Maskinporten
 - `altinn:correspondence.write`
 {.correspondence-custom-list}
 
-For å sette opp dette kan du følge de generelle stegene i [veiledningen for Maskinporten-integrasjons](../maskinporten/) med noen modifikasjoner beskrevet nedenfor.
+For å sette opp dette kan du følge de generelle stegene i [veiledningen for Maskinporten-integrasjons]({{< relref "/altinn-studio/v8/guides/integration/maskinporten/" >}}) med noen modifikasjoner beskrevet nedenfor.
 
 - Meldingsklienten bruker en ny, intern klient for å kommunisere med Maskinporten. Derfor blir konfigurasjonsobjektet seende slik ut:
 

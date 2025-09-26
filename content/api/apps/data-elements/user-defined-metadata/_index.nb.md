@@ -15,7 +15,7 @@ Dataene er også tilgjengelige i andre endepunkter hvor man får ut metadata om 
 {{%panel info%}}
 **Merk:** 
 Dette er data som brukere med skriverettigheter på dataelementet kan redigere fritt via API-et. 
-Dersom man ønsker å legge til metadata som ikke kan redigeres via API-et bør man bruke [metadata](../metadata) i stedet. 
+Dersom man ønsker å legge til metadata som ikke kan redigeres via API-et bør man bruke [metadata]({{< relref "/api/apps/data-elements/metadata" >}}) i stedet. 
 Det feltet er ikke eksponert via appens API, og kan kun settes via kall til storage, gjerne via egenutviklet C#-kode.
 {{% /panel%}}
 

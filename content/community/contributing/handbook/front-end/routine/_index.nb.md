@@ -12,11 +12,11 @@ When selecting an issue from the backlog, assign yourself to the issue and set i
 
 1. Create a new branch from `main`. 
    - Naming convention for branches is `bug/<issue number>-<short description>` or `feature/<issue number>-<short description>`, depending on the issue type.
-2. Code your changes and test them by [running an app locally](../developing#app-frontend).
+2. Code your changes and test them by [running an app locally]({{< relref "/community/contributing/handbook/front-end/developing#app-frontend" >}}).
 3. Run unit tests
    - Update any failing tests
    - Add new tests when needed
-4. Make sure you update the `version` in `altinn-app-frontend/package.json`, following [semantic versioning](../versioning/). 
+4. Make sure you update the `version` in `altinn-app-frontend/package.json`, following [semantic versioning]({{< relref "/community/contributing/handbook/front-end/versioning/" >}}). 
 5. Commit/push your changes and [create a pull request](https://github.com/Altinn/altinn-studio/compare).
    - Tag the issue in the description of the PR. _Do not use "fix"/"fixes" issue, as this will close the issue when PR is merged._
    - Move the issue to the **Review/QA** pipeline in board and tag/notify any reviewers.
@@ -36,7 +36,7 @@ When selecting an issue from the backlog, assign yourself to the issue and set i
 ## Studio frontend
 
 1. Create a new branch from `main`. Naming convention for branches is `bug/<issue number>-<short description>` or `feature/<issue number>-<short description>`, depending on the issue type.
-2. Code your changes and test them by [running Designer locally](../developing#altinn-studio-designer).
+2. Code your changes and test them by [running Designer locally]({{< relref "/community/contributing/handbook/front-end/developing#altinn-studio-designer" >}}).
 3. Run unit tests
    - Update any failing tests
    - Add new tests when needed

@@ -13,10 +13,10 @@ but want to display this to the user without the user being able to change this 
 is a _read-only_ component, also known as a _display component_ or _presentation component_.
 
 An example of use could be that the municipality the user belongs to is
-[retrieved from the National Population Register (DSF) and stored in the data model via prefilling](../../../data/prefill).
+[retrieved from the National Population Register (DSF) and stored in the data model via prefilling]({{< relref "/altinn-studio/v8/reference/data/prefill" >}}).
 Even though the user should not change this value, it should be displayed for information, as all parts of
 the data model are part of the final submission. You can retrieve the list of
-municipalities from [common shared code lists](../../../../guides/development/options/sources/shared) to look up
+municipalities from [common shared code lists]({{< relref "/altinn-studio/v8/guides/development/options/sources/shared" >}}) to look up
 the municipality number and display the municipality name.
 
 ### Anatomy
@@ -57,9 +57,9 @@ Add the following sections if relevant:
 -->
 ### Related
 
-- [`Text`](../text/)
-- [`Date`](../date/)
-- [`Number`](../number/)
+- [`Text`]({{< relref "/altinn-studio/v8/reference/ux/components/text/" >}})
+- [`Date`]({{< relref "/altinn-studio/v8/reference/ux/components/date/" >}})
+- [`Number`]({{< relref "/altinn-studio/v8/reference/ux/components/number/" >}})
 
 ## Properties
 
@@ -70,14 +70,14 @@ We are currently updating how properties for components are documented. The list
 | **Property**                       | **Type** | **Description**                                                                                                                                         |
 |------------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `id`                               | string   | The component ID. Must be unique within all layouts/pages in a layout set. Cannot end with <hyphen><number>.                                            |
-| `value`                            | string   | A value from the code list. This property can be a [dynamic expression](../../../logic/expressions) that retrieves this value from e.g. the data model. |
+| `value`                            | string   | A value from the code list. This property can be a [dynamic expression]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}}) that retrieves this value from e.g. the data model. |
 | `textResourceBindings.title`       | string   | Title (optional)                                                                                                                                        |
 | `textResourceBindings.description` | string   | Description (optional)                                                                                                                                  |
 | `textResourceBindings.help`        | string   | Help text (optional)                                                                                                                                    |
 | `direction`                        | string   | Sets the structured direction of the title and value.<br/><br/> **Enum:** [horizontal, vertical] <br/><br/>**Default:** horizontal                      |
 | `icon`                             | string   | The path to an icon to be displayed in connection with the choice (optional)                                                                            |
 
-In addition, all properties for [connecting to code lists](../../../../guides/development/options/sources/) are supported.
+In addition, all properties for [connecting to code lists]({{< relref "/altinn-studio/v8/guides/development/options/sources/" >}}) are supported.
 
 ## Configuration
 
@@ -102,23 +102,23 @@ In addition, all properties for [connecting to code lists](../../../../guides/de
 
 #### `textResourceBindings.title`
 
-Label for the choice. This can be added as a hardcoded string or as a reference to a [text resource](../../texts/#add-and-change-texts-in-an-application). This property is used to show the user
+Label for the choice. This can be added as a hardcoded string or as a reference to a [text resource]({{< relref "/altinn-studio/v8/reference/ux/texts/#add-and-change-texts-in-an-application" >}}). This property is used to show the user
 what the choice is about, not what the choice is. If you want to show the selected municipality, this could be
 e.g. "Municipality" or "Your municipality". The actual choice (value) is retrieved from the code list, and is
 then displayed as e.g. "Oslo".
 
 #### `textResourceBindings.description`
 
-Description for the choice. This can be added as a hardcoded string or as a reference to a [text resource](../../texts/#add-and-change-texts-in-an-application).
+Description for the choice. This can be added as a hardcoded string or as a reference to a [text resource]({{< relref "/altinn-studio/v8/reference/ux/texts/#add-and-change-texts-in-an-application" >}}).
 
 #### `textResourceBindings.help`
 
-Help text for the choice. This can be added as a hardcoded string or as a reference to a [text resource](../../texts/#add-and-change-texts-in-an-application).
+Help text for the choice. This can be added as a hardcoded string or as a reference to a [text resource]({{< relref "/altinn-studio/v8/reference/ux/texts/#add-and-change-texts-in-an-application" >}}).
 
 #### `value`
 
 Here you specify the value to be displayed. This must match a value in the code list. The value can also be
-determined by a [dynamic expression](../../../logic/expressions).
+determined by a [dynamic expression]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}}).
 
 #### `direction`
 

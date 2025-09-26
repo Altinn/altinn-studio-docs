@@ -11,7 +11,7 @@ need to be in a specific order.
 Worth knowing:
 
 1. The sorting can change along the way if the user changes the language in the form.
-2. The actual sorting is done after the [preselected value](../preselection) has been found. This means that
+2. The actual sorting is done after the [preselected value]({{< relref "/altinn-studio/v8/guides/development/options/functionality/preselection" >}}) has been found. This means that
    the sorting order should not affect which option is preselected.
 
 ### Configuration

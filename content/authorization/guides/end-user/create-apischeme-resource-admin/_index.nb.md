@@ -9,7 +9,7 @@ In Altinn Studio Resource admin, you can create resources to use as a basis for 
 
 ## Prerequisites
 
-You need to have access to resource administration for your organization. See [Getting started guide](../../../getting-started/resource-admin-studio)
+You need to have access to resource administration for your organization. See [Getting started guide]({{< relref "/authorization/getting-started/resource-admin-studio" >}})
 
 ## Step 1 Create Resource
 

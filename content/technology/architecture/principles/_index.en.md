@@ -52,7 +52,7 @@ to run on the platform.
 
 ## Build with modern and popular frameworks
 
-![Modern platform](../../tools/tech-map.png "Popular tech")
+![Modern platform](../../tools/tech-map.png)
 
 **Principle**
 

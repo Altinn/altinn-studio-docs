@@ -22,7 +22,7 @@ The following values are allowed:
 | "showTable" | Default behaviour if nothing else has been specified. Displays the table for editing of group-element.                                                         |
 | "hideTable" | Hides the table when a group-element is open for editing.                                                                                                      |
 | "showAll"   | Hides the table. Shows all elements in the group in editing mode below each other. The save button is hidden.                                                  |
-| "onlyTable" | Shows the table, but never shows the editing area for a group row. Useful when [editing directly in table](../table#showing-components-directly-in-the-table). |
+| "onlyTable" | Shows the table, but never shows the editing area for a group row. Useful when [editing directly in table]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating/table#showing-components-directly-in-the-table" >}}). |
 
 {{</content-version-container >}}
 {{<content-version-container version-label="v3 (App Frontend)">}}
@@ -32,8 +32,8 @@ The following values are allowed:
 | "showTable" | Default behaviour if nothing else has been specified. Displays the table for editing of group-element.                                                         |
 | "hideTable" | Hides the table when a group-element is open for editing.                                                                                                      |
 | "showAll"   | Hides the table. Shows all elements in the group in editing mode below each other. The save button is hidden.                                                  |
-| "onlyTable" | Shows the table, but never shows the editing area for a group row. Useful when [editing directly in table](../table#showing-components-directly-in-the-table). |
-| "likert"    | Likert display. Must be used if the first and only component in the group is a [Likert component](../../../../components/likert)
+| "onlyTable" | Shows the table, but never shows the editing area for a group row. Useful when [editing directly in table]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating/table#showing-components-directly-in-the-table" >}}). |
+| "likert"    | Likert display. Must be used if the first and only component in the group is a [Likert component]({{< relref "/altinn-studio/v8/reference/ux/components/likert" >}})
 
 {{</content-version-container>}}
 {{</content-version-selector>}}
@@ -64,12 +64,12 @@ Determines whether the "Delete" button is displayed when a group element is in e
 ## multiPage
 
 Editing/filling out pages can be performed over multiple "pages"/displays. Requires more setup to work,
-[see the dedicated documentation for this feature](../multipage).
+[see the dedicated documentation for this feature]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating/multipage" >}}).
 
 ## filter
 
 Allows you to filter out some rows, so that only a subset of the rows are displayed. This option is deprecated and
-will be removed in a future version. More information and a description of alternatives can be found [in the documentation dedicated to dynamics in repeating groups](../dynamics).
+will be removed in a future version. More information and a description of alternatives can be found [in the documentation dedicated to dynamics in repeating groups]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating/dynamics" >}}).
 
 ## openByDefault
 

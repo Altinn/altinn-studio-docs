@@ -17,10 +17,10 @@ Den kan brukes til å vise informasjon, bilder, lydklipp, videoer, og skjemakomp
 
 I skjermbildet over ser vi en Cards-komponent med 4 kort.
 
-- Det første kortet har en **ledetekst**, **beskrivelse** og bruker en [**Image-komponent**](../image) for å vise et bilde som media.
-- Det andre kortet har en **ledetekst**, **beskrivelse** og bruker en [**Audio-komponent**](../audio) for å vise et lydklipp som media.
-- Det tredje kortet har en **ledetekst**, **beskrivelse** og bruker en [**Video-komponent**](../video) for å vise en video som media.
-- Det fjerde kortet har en **ledetekst**, **beskrivelse** og bruker en [**Checkboxes-komponent**](../checkboxes) for å vise en bekreftelses-sjekkboks under beskrivelsen.
+- Det første kortet har en **ledetekst**, **beskrivelse** og bruker en [**Image-komponent**]({{< relref "/altinn-studio/v8/reference/ux/components/image" >}}) for å vise et bilde som media.
+- Det andre kortet har en **ledetekst**, **beskrivelse** og bruker en [**Audio-komponent**]({{< relref "/altinn-studio/v8/reference/ux/components/audio" >}}) for å vise et lydklipp som media.
+- Det tredje kortet har en **ledetekst**, **beskrivelse** og bruker en [**Video-komponent**]({{< relref "/altinn-studio/v8/reference/ux/components/video" >}}) for å vise en video som media.
+- Det fjerde kortet har en **ledetekst**, **beskrivelse** og bruker en [**Checkboxes-komponent**]({{< relref "/altinn-studio/v8/reference/ux/components/checkboxes" >}}) for å vise en bekreftelses-sjekkboks under beskrivelsen.
 
 Visuelt vil et kort vanligvis vise innhold i denne rekkefølgen:
 

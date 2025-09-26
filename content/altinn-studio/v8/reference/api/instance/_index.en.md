@@ -10,7 +10,7 @@ toc: true
 An instantiated application will have a corresponding instance object. This object contains metadata about the specific
 instance.
 If you want to learn more about the instance and the affiliated API, you can read the technical documentation about this
-under [API](../../../../api).
+under [API]({{< relref "/altinn-studio/v8/reference/api/" >}}).
 
 ## Sub status
 
@@ -18,7 +18,7 @@ As an app-owner you can set a sub status for the instance. This gives the end us
 current state of the instance.
 The sub status is displayed both in the Altinn message box and on the receipt page.
 
-The sub status is an object which can be set in the instance object. How this is done is described under [API](../../../../api).
+The sub status is an object which can be set in the instance object. How this is done is described under [API]({{< relref "/altinn-studio/v8/reference/api/" >}}).
 Sub status is a simple object which contains `label` and `description`. These fields can either contain plain text, or a
 text key that refers to the application
 texts. It is worth noting that variables in text are not supported for these texts.
@@ -59,7 +59,7 @@ To achieve this, three steps are required:
 
 Service owners are by default not allowed to delete instances. 
 To get the required permissions, a rule must be added to `policy.xml` in `App/config/authorization`.
-The rule can be copied from our [rule library](../../configuration/authorization/rules/#org-can-delete-an-instance-of-orgapp-in-any-task-or-event).
+The rule can be copied from our [rule library]({{< relref "/altinn-studio/v8/reference/configuration/authorization/rules/#org-can-delete-an-instance-of-orgapp-in-any-task-or-event" >}}).
 
 ### Step 2: Identify incomplete instances by sending a request to storage
 

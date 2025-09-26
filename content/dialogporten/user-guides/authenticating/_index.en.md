@@ -16,7 +16,7 @@ The Dialogporten API is divided into a service owner-API and a end user-API.
 
 {{<displayFootnotes>}}
 
-In addition, token issued by [Altinn Token Exhange](../../../authorization/what-do-you-get/authentication/#exchange-a-jwt-token-from-an-external-token-provider) is also supported, when using either ID-porten or Maskinporten as input.
+In addition, token issued by [Altinn Token Exhange]({{< relref "/authorization/what-do-you-get/authentication/#exchange-a-jwt-token-from-an-external-token-provider" >}}) is also supported, when using either ID-porten or Maskinporten as input.
 
 ## Usage for end-user systems
 
@@ -46,7 +46,7 @@ For detailed steps on how to create an ID-porten integration and utilizing the O
 
 - [About ID-porten (norwegian)](https://samarbeid.digdir.no/id-porten/id-porten/18)
 - [Getting started with ID-porten](https://docs.digdir.no/docs/idporten/oidc/oidc_guide_english.html)
-- [Using Altinn Token Exchange](../../../authorization/what-do-you-get/authentication/#exchange-a-jwt-token-from-an-external-token-provider)
+- [Using Altinn Token Exchange]({{< relref "/authorization/what-do-you-get/authentication/#exchange-a-jwt-token-from-an-external-token-provider" >}})
 
 ### Maskinporten authentication with system users
 
@@ -65,7 +65,7 @@ For detailed steps on how to create and utilize a system user, see the link belo
 
 **Read more**
 
-- [Authenticating with system users](../../../authorization/guides/system-vendor/system-user/)
+- [Authenticating with system users]({{< relref "/authorization/guides/system-vendor/system-user/" >}})
 
 {{<children />}}
 
@@ -79,7 +79,7 @@ There are several scopes defining access to various parts of the service owner A
 | ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `digdir:dialogporten.serviceprovider`                | All service owner APIs, except the search/list API                                                                                                                                                 |
 | `digdir:dialogporten.serviceprovider.search`         | All service owner APIs, including the search/list API                                                                                                                                              |
-| `digdir:dialogporten.serviceprovider.correspondence` | Create and update dialogs referring a service resource of type `CorrespondenceService` in [Altinn Resource Registry](../../../authorization/what-do-you-get/resourceregistry/) (internal use only) |
+| `digdir:dialogporten.serviceprovider.correspondence` | Create and update dialogs referring a service resource of type `CorrespondenceService` in [Altinn Resource Registry]({{< relref "/authorization/what-do-you-get/resourceregistry/" >}}) (internal use only) |
 
 Using these scopes requires the organization in the `consumer` claim of the to be registered as a service owner ("org") in Altinn. Failing that will cause any requests to fail.
 

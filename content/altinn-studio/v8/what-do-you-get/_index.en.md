@@ -81,7 +81,7 @@ PDF receipts are generated automatically.
 
 ## Development
 New functionality and bug fixes are continuously released. We also have extensive documentation, including a
-[course](../../altinn-studio/getting-started/app-dev-course/) on using Altinn Studio for service development.
+[course]({{< relref "/altinn-studio/v8/getting-started/app-dev-course/" >}}) on using Altinn Studio for service development.
 
 We have established a simple setup to create a development environment that allows you to run and test services locally on
 your own machine.

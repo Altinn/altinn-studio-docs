@@ -22,7 +22,7 @@ Følgende verdier godtas:
 | "showTable" | Standard oppførsel om ingenting er satt. Viser tabellen over flaten for redigering av gruppe-element.                                                               |
 | "hideTable" | Skjuler tabellen når et gruppe-element er åpent for redigering.                                                                                                     |
 | "showAll"   | Skjuler tabellen. Viser alle elementene i gruppen i redigerings-modus, under hverandre. Lagre-knapp skjules.                                                        |
-| "onlyTable" | Viser tabellen, men viser aldri redigeringsområdet for en rad. Nyttig sammen med [komponentvisning i tabellen](../table#visning-av-komponenter-direkte-i-tabellen). |
+| "onlyTable" | Viser tabellen, men viser aldri redigeringsområdet for en rad. Nyttig sammen med [komponentvisning i tabellen]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating/table#visning-av-komponenter-direkte-i-tabellen" >}}). |
 
 {{</content-version-container >}}
 {{<content-version-container version-label="v3 (App Frontend)">}}
@@ -32,8 +32,8 @@ Følgende verdier godtas:
 | "showTable" | Standard oppførsel om ingenting er satt. Viser tabellen over flaten for redigering av gruppe-element.                                                               |
 | "hideTable" | Skjuler tabellen når et gruppe-element er åpent for redigering.                                                                                                     |
 | "showAll"   | Skjuler tabellen. Viser alle elementene i gruppen i redigerings-modus, under hverandre. Lagre-knapp skjules.                                                        |
-| "onlyTable" | Viser tabellen, men viser aldri redigeringsområdet for en rad. Nyttig sammen med [komponentvisning i tabellen](../table#visning-av-komponenter-direkte-i-tabellen). |
-| "likert"    | Likert visning, må brukes om eneste komponent i gruppen er en [Likert-komponent](../../../../components/likert)                                                     |
+| "onlyTable" | Viser tabellen, men viser aldri redigeringsområdet for en rad. Nyttig sammen med [komponentvisning i tabellen]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating/table#visning-av-komponenter-direkte-i-tabellen" >}}). |
+| "likert"    | Likert visning, må brukes om eneste komponent i gruppen er en [Likert-komponent]({{< relref "/altinn-studio/v8/reference/ux/components/likert" >}})                                                     |
 
 {{</content-version-container>}}
 {{</content-version-selector>}}
@@ -63,12 +63,12 @@ Bestemmer om "Slett"-knappen vises når et gruppeelement er i redigeringsmodus. 
 ## multiPage
 
 Sier at redigering/utfylling av gruppe kan gjøres over flere "sider"/visninger. Krever mer oppsett for å fungere,
-[se egen dokumentasjon for dette](../multipage).
+[se egen dokumentasjon for dette]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating/multipage" >}}).
 
 ## filter
 
 Lar deg filtrere bort enkelte rader, slik at kun et subsett av radene vises. Denne parameteren utgår og vil
-fjernes i en fremtidig versjon. Mer informasjon og beskrivelse av alternativer finnes [i dokumentasjonen dedikert til dynamikk i repeterende grupper](../dynamics).
+fjernes i en fremtidig versjon. Mer informasjon og beskrivelse av alternativer finnes [i dokumentasjonen dedikert til dynamikk i repeterende grupper]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating/dynamics" >}}).
 
 ## openByDefault
 

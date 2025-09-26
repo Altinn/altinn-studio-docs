@@ -55,9 +55,9 @@ Radio buttons are often used in forms to collect input from the user where they 
 
 ### Related
 
-* For a more compact way to display multiple options with single selection, use [Dropdown](../dropdown).
-* If users can choose multiple options from a list, use [Checkboxes](../checkboxes/).
-* For a more compact way to display multiple options with multiple selection, use [MultipleSelect](../multipleselect/).
+* For a more compact way to display multiple options with single selection, use [Dropdown]({{< relref "/altinn-studio/v8/reference/ux/components/dropdown" >}}).
+* If users can choose multiple options from a list, use [Checkboxes]({{< relref "/altinn-studio/v8/reference/ux/components/checkboxes/" >}}).
+* For a more compact way to display multiple options with multiple selection, use [MultipleSelect]({{< relref "/altinn-studio/v8/reference/ux/components/multipleselect/" >}}).
 
 ## Properties
 

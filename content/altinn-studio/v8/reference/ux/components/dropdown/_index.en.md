@@ -58,9 +58,9 @@ Dropdown lists are often used in forms to collect input from users where they ne
 
 ### Related
 
-* For single selection with few options, use [RadioButtons](../radiobuttons/).
-* If users can choose multiple options from a list, use [Checkboxes](../checkboxes/).
-* For a more compact way to display multiple options with multiple selections, use [MultipleSelect](../multipleselect/).
+* For single selection with few options, use [RadioButtons]({{< relref "/altinn-studio/v8/reference/ux/components/radiobuttons/" >}}).
+* If users can choose multiple options from a list, use [Checkboxes]({{< relref "/altinn-studio/v8/reference/ux/components/checkboxes/" >}}).
+* For a more compact way to display multiple options with multiple selections, use [MultipleSelect]({{< relref "/altinn-studio/v8/reference/ux/components/multipleselect/" >}}).
 
 ## Properties
 

@@ -18,7 +18,7 @@ usability test are able to complete their task without your help, and within a r
 
 ## Usablility testing in Figma
 
-Have you set up a prototype in Figma by using our [Prototype-Kit](../prototype/)? Great! You can now 
+Have you set up a prototype in Figma by using our [Prototype-Kit]({{< relref "/altinn-studio/v8/guides/design/prototype/" >}})? Great! You can now 
 use this for usability testing! 
 
 If you've added multiple steps in your form, you have to remember to link between these steps. 
@@ -64,4 +64,4 @@ You have likely found some things that you should improve after you have complet
 After any changes to the form layout or flow of your form you should consider doing another round of usability testing.
 
 
-You will soon be ready for developing! Remember to see our [guidelines for design and content](../guidelines) within the forms
+You will soon be ready for developing! Remember to see our [guidelines for design and content]({{< relref "/altinn-studio/v8/guides/design/guidelines" >}}) within the forms

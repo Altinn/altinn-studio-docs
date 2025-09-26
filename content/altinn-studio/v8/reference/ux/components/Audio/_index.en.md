@@ -9,7 +9,7 @@ toc: true
 ## Usage
 
 The `Audio` component is used to display an audio player in your application. It can be used standalone or as a media
-component in [Cards](../cards).
+component in [Cards]({{< relref "/altinn-studio/v8/reference/ux/components/cards" >}}).
 
 ### Anatomy
 
@@ -29,9 +29,9 @@ The above screenshot was captured from the Chrome browser.
 
 ### Related
 
-- [Cards](../cards) - Can use the Audio component as media content
-- [Image](../image) - Image component
-- [Video](../video) - Video player component
+- [Cards]({{< relref "/altinn-studio/v8/reference/ux/components/cards" >}}) - Can use the Audio component as media content
+- [Image]({{< relref "/altinn-studio/v8/reference/ux/components/image" >}}) - Image component
+- [Video]({{< relref "/altinn-studio/v8/reference/ux/components/video" >}}) - Video player component
 
 ## Properties
 

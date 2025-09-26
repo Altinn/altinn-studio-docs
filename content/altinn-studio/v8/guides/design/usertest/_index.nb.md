@@ -18,7 +18,7 @@ klarer å gjennomføre det de skal ha gjort på nettstedet eller løsningen din 
 
 ## Brukertesting i Figma
 
-Har du satt opp en prototype i Figma ved hjelp av vårt [Prototype-Kit](../prototype/)? Flott! Da kan du 
+Har du satt opp en prototype i Figma ved hjelp av vårt [Prototype-Kit]({{< relref "/altinn-studio/v8/guides/design/prototype/" >}})? Flott! Da kan du 
 benytte denne til brukertesting! 
 
 Dersom du har lagt til flere steg i ditt skjema, må du huske å lenke mellom disse stegene. Dette gjør du ved å velge 
@@ -60,4 +60,4 @@ Når du har vært gjennom et par brukertester har du sannsynligvis funnet ting d
 skjemaet eller formuleringen av innholdet. Vurder å kjøre en ekstra runde brukertesting etter du har gjort endringene.
 
 Nå er du snart klar for utvikling! Husk også å se våre [retningslinjer for design
-og innhold](../guidelines) i skjemaene.
+og innhold]({{< relref "/altinn-studio/v8/guides/design/guidelines" >}}) i skjemaene.

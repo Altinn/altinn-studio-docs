@@ -9,7 +9,7 @@ toc: false
 
 For å kunne administrere tilgangslister, må du først sette opp administrasjon av ressursregister.
 
-Se [denne veiledningen](../resource-admin-studio/).
+Se [denne veiledningen]({{< relref "/authorization/getting-started/resource-admin-studio/" >}}).
 
 ### Definere team for Tilgangsliste
 

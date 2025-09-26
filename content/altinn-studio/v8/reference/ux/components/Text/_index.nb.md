@@ -48,9 +48,9 @@ Add the following sections if relevant:
 -->
 ### Relatert
 
-- [`Number`](../number/)
-- [`Date`](../date/)
-- [`Option`](../option/)
+- [`Number`]({{< relref "/altinn-studio/v8/reference/ux/components/number/" >}})
+- [`Date`]({{< relref "/altinn-studio/v8/reference/ux/components/date/" >}})
+- [`Option`]({{< relref "/altinn-studio/v8/reference/ux/components/option/" >}})
 
 ## Egenskaper
 
@@ -83,7 +83,7 @@ Add the following sections if relevant:
 
 #### `textResourceBindings.title`
 
-Ledetekst for teksten. Denne kan legges til som en hardkodet streng eller som en referanse til en [tekstressurs](../../../ux/texts/#legge-til-og-endre-tekster-i-en-app).
+Ledetekst for teksten. Denne kan legges til som en hardkodet streng eller som en referanse til en [tekstressurs]({{< relref "/altinn-studio/v8/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app" >}}).
 
 #### `value`
 

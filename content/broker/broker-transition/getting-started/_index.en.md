@@ -12,7 +12,7 @@ weight: 1
 In order to use the Broker Transition solution in Altinn to create, upload and retrieve file metadata, a service owner must complete the following steps.
 
 1. Have an existing Altinn 2 Broker Service.
-2. Have or create a corresponding Altinn 3 Broker Resource. See how to get started with Altinn Broker [here](../../getting-started/).
+2. Have or create a corresponding Altinn 3 Broker Resource. See how to get started with Altinn Broker [here]({{< relref "/broker/getting-started/" >}}).
    To configure your resource to correctly function as a Broker Transition service, [see below](#configure-resource-for-transition-solution).
 3. Request a transition setup from the Altinn 2 Service to the Altinn 3 Resource, [see below](#request-transition-setup) for details.
 4. Go live with the transition solution while encouraging consumers to migrate to Altinn Broker.
@@ -20,7 +20,7 @@ In order to use the Broker Transition solution in Altinn to create, upload and r
 
 ### Configure Resource for Transition Solution
 
-To configure the resource to function in the Transition Solution, and work as closely as Altinn 2 service, you should set the following values when [configuring the resource](../../getting-started/developer-guides/service-owner/#operation-configure-resource-in-broker-api)
+To configure the resource to function in the Transition Solution, and work as closely as Altinn 2 service, you should set the following values when [configuring the resource]({{< relref "/broker/getting-started/developer-guides/service-owner/#operation-configure-resource-in-broker-api" >}})
 
 Base these values on your existing Altinn 2 service, and set the values to the same where applicable.
 
@@ -29,7 +29,7 @@ Base these values on your existing Altinn 2 service, and set the values to the s
 - PurgeFileTransferAfterAllRecipientsConfirmed = The equivalent TimeToLive of the Altinn 2 service, most used "true"
 - PurgeFileTransferGracePeriod = "PT24H" - Files will not be deleted before 24hrs have passed (was hard-coded to 48hrs in Altinn 2). Must be [ISO8601 Duration](https://en.wikipedia.org/wiki/ISO_8601#Durations) and 24 hours is the max.
 
-If you need to use the [Manifest file feature](../technical-overview/#manifest-file), you also need to set the following values.
+If you need to use the [Manifest file feature]({{< relref "/broker/broker-transition/technical-overview/#manifest-file" >}}), you also need to set the following values.
 
 - UseManifestFileShim = true.
 - ExternalServiceCodeLegacy = set to External Service Code for the legacy service.

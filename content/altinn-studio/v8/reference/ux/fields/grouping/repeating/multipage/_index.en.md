@@ -72,7 +72,7 @@ See example below:
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-Here a [mode](../edit#mode) that hides the table when editing has also been added.
+Here a [mode]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating/edit#mode" >}}) that hides the table when editing has also been added.
 The result will be as displayed below.
 
 ![Fill-out of group over multiple "pages"](group-multipage.gif "Fill-out of group over multiple pages")

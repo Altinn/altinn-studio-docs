@@ -7,9 +7,9 @@ aliases:
   - /nb/altinn-studio/guides/development/options/repeating-group-codelists
 ---
 
-I den forrige seksjonen om [dynamiske kodelister](../dynamic) beskrev vi hvordan man kan skrive kode på backend for å generere dynamiske kodelister. Du kunne også sende visse verdier fra datamodellen til backend for å generere denne kodelisten (via [spørringsparametre](../dynamic#spørringsparametre)). Denne fremgangsmåten skalerer dårlig når kodelisten ender opp med å endre alternativene ofte, dvs. når alternativene er funksjonelt unike for en del av dataene i datamodellen.
+I den forrige seksjonen om [dynamiske kodelister]({{< relref "/altinn-studio/v8/guides/development/options/sources/dynamic" >}}) beskrev vi hvordan man kan skrive kode på backend for å generere dynamiske kodelister. Du kunne også sende visse verdier fra datamodellen til backend for å generere denne kodelisten (via [spørringsparametre]({{< relref "/altinn-studio/v8/guides/development/options/sources/dynamic#spørringsparametre" >}})). Denne fremgangsmåten skalerer dårlig når kodelisten ender opp med å endre alternativene ofte, dvs. når alternativene er funksjonelt unike for en del av dataene i datamodellen.
 
-En annen tilnærming er å sette opp en kodeliste basert på en 'repeterende gruppe' i datamodellen. En slik repeterende struktur i datamodellen kan også representere en liste over alternativer for en nedtrekksliste, radioknapper eller avmerkingsbokser. Dette er spesielt nyttig i kombinasjon med [RepeatingGroup](../../../../../reference/ux/fields/grouping/repeating)-komponenten, da det lar brukeren legge til og fjerne elementer fra listen, og alternativene vil automatisk oppdateres.
+En annen tilnærming er å sette opp en kodeliste basert på en 'repeterende gruppe' i datamodellen. En slik repeterende struktur i datamodellen kan også representere en liste over alternativer for en nedtrekksliste, radioknapper eller avmerkingsbokser. Dette er spesielt nyttig i kombinasjon med [RepeatingGroup]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating" >}})-komponenten, da det lar brukeren legge til og fjerne elementer fra listen, og alternativene vil automatisk oppdateres.
 
 Denne funksjonaliteten krever ikke bruk av noen `RepeatingGroup`-komponent i layout-filen, men det krever at datamodellen inneholder en repeterende struktur.
 
@@ -67,7 +67,7 @@ I eksempelet under, brukes andre verdier fra den repeterende strukturen i ledete
 
 ### Støtte for uttrykk
 
-Egenskapene `label`, `description` og `helpText` støtter også [dynamiske uttrykk](../../../dynamics) i denne modusen.
+Egenskapene `label`, `description` og `helpText` støtter også [dynamiske uttrykk]({{< relref "/altinn-studio/v8/guides/development/dynamics" >}}) i denne modusen.
 
 ```json {hl_lines=["9-14"]}
 {

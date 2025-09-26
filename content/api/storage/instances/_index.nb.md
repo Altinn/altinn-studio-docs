@@ -8,7 +8,7 @@ weight: 100
 
 ## Overview
 
-En [instans](../../models/instance) virker som en slags _mappe_ eller gruppering
+En [instans]({{< relref "/api/models/instance" >}}) virker som en slags _mappe_ eller gruppering
 der data kan samles og utveksles mellom bruker og applikasjonseier.
 Instans-dokumentet er en måte for Altinn og eksterne parter å kunne spore tilstanden på en type datautveksling.
 Levetiden på en instans og hvor mange interaksjoner melom applikasjonseier og bruker, avhenger av applikasjonen.

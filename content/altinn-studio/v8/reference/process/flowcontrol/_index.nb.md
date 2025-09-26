@@ -92,7 +92,7 @@ Hvis en applikasjonsprosess har et bekreftelsessteg der det er mulig å avvise d
 <bpmn:sequenceFlow id="Flow_g1_end" sourceRef="Gateway_1" targetRef="EndEvent" />
 ```
 
-I eksempelet ovenfor er det definert to handlinger i _Task_2_: `confirm` og `reject`. [Les mer om handlinger](../tasks/)
+I eksempelet ovenfor er det definert to handlinger i _Task_2_: `confirm` og `reject`. [Les mer om handlinger]({{< relref "/altinn-studio/v8/reference/process/tasks/" >}})
 
 Vi ønsker å få prosessmotoren til å velge _Flow_g1_t1_ hvis brukeren utfører handlingen _reject_ og _Flow_g1_end_ hvis handlingen som ble utført var _confirm_.
 

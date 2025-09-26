@@ -83,19 +83,19 @@ Example: VAT reporting
 
 - The accountant is [registered in the Enhetsregisteret](https://info.altinn.no/skjemaoversikt/bronnoysundregistrene/registrere-nye-og-endre-eksisterende-foretak-og-enheter---samordnet-registermelding/) for the relevant client.
 - The Tax Administration has [defined a policy on the application]({{< relref "/altinn-studio/v8/reference/configuration/authorization/" >}}) so that users with the access package "VAT reporting" get access.
-- [The end-user system is configured](../../guides/system-vendor/system-user/) with the [necessary access packages](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/) for VAT reporting.
-- The accountant has created a [_system user for client relationships_](../../guides/system-vendor/system-user/) linked to the end-user system.
+- [The end-user system is configured]({{< relref "/authorization/guides/system-vendor/system-user/" >}}) with the [necessary access packages](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/) for VAT reporting.
+- The accountant has created a [_system user for client relationships_]({{< relref "/authorization/guides/system-vendor/system-user/" >}}) linked to the end-user system.
 
 ### Steps
 
 1. Add client  
-   The client administrator at the accounting firm [links the accounting client (client) to the system user](../../guides/end-user/system-user/). Access for the accounting client is automatically delegated to the system user.
+   The client administrator at the accounting firm [links the accounting client (client) to the system user]({{< relref "/authorization/guides/end-user/system-user/" >}}). Access for the accounting client is automatically delegated to the system user.
 2. Retrieve token  
-   The end-user system [retrieves a system user token via Maskinporten](../../guides/system-vendor/system-user).
+   The end-user system [retrieves a system user token via Maskinporten]({{< relref "/authorization/guides/system-vendor/system-user" >}}).
 3. Send report  
    The end-user system sends the VAT report via the API with a valid token.
 4. Validation and confirmation  
-   The API calls Altinn Authorization PDP to [check access](../../guides/resource-owner/integrating-link-service/). The API returns confirmation.
+   The API calls Altinn Authorization PDP to [check access]({{< relref "/authorization/guides/resource-owner/integrating-link-service/" >}}). The API returns confirmation.
 
 Support: Developed as part of system user delivery 5.
 

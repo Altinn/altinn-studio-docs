@@ -133,7 +133,7 @@ __14.__ Hvor mange sekunder før livenessproben timer ut
 Oppgradering til 2.0.0 fra 1.x.x vil føre til en kort nedetid ved første deploy. Påfølgende deployments vil gå som normalt
 {{% /notice%}}
 
-Hvis din apps _deployment_ mappe fortsatt har undermappen _templates_ vennligst følg [migrerings guiden](../../migration)
+Hvis din apps _deployment_ mappe fortsatt har undermappen _templates_ vennligst følg [migrerings guiden]({{< relref "/community/changelog/deployment/migration" >}})
 
 ### Changes introduced
 

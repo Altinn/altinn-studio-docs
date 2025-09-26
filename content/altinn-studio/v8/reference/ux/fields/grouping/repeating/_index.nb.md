@@ -103,8 +103,8 @@ Under vises et skjema med en repeterende gruppe som:
 
 Det er mulig å legge til ulike nøkler i textResourceBindings for å overstyre standardtekster:
 
-- `title` - tittel som blir vist over den repeterende gruppen og over hver gruppe-rad i en [Summary-komponent](../../../pages/summary).
-- `summaryTitle` - dersom denne er satt, vil den overstyre `title` i [Summary-komponenten](../../../pages/summary).
+- `title` - tittel som blir vist over den repeterende gruppen og over hver gruppe-rad i en [Summary-komponent]({{< relref "/altinn-studio/v8/reference/ux/pages/summary" >}}).
+- `summaryTitle` - dersom denne er satt, vil den overstyre `title` i [Summary-komponenten]({{< relref "/altinn-studio/v8/reference/ux/pages/summary" >}}).
 - `description` - beskrivelse som blir vist over den repeterende gruppen under tittelen.
 - `add_button` - blir lagt til på enden av "Legg til ny" teksten på knappen, og kan brukes til å f.eks ha tekst som sier "Legg til ny person".
 - `add_button_full` - blir brukt som egendefinert tekst på "Legg til ny" knappen. Overstyrer `add_button` dersom begge er satt.
@@ -205,7 +205,7 @@ Under vises et skjema med en repeterende gruppe som:
 
 Det er mulig å legge til ulike nøkler i textResourceBindings for å overstyre standardtekster:
 
-- `title` - tittel som blir vist over hver gruppe-rad i en [Summary-komponent](../../../pages/summary).
+- `title` - tittel som blir vist over hver gruppe-rad i en [Summary-komponent]({{< relref "/altinn-studio/v8/reference/ux/pages/summary" >}}).
 - `add_button` - blir lagt til på enden av "Legg til ny" teksten på knappen, og kan brukes til å f.eks ha tekst som sier "Legg til ny person".
 - `add_button_full` - blir brukt som egendefinert tekst på "Legg til ny" knappen. Overstyrer `add_button` dersom begge er satt.
 - `save_button` - blir brukt som tekst i "Lagre"-knappen når brukeren fyller ut data.

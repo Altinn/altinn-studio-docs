@@ -28,7 +28,7 @@ POST basePath?dataType=[dataTypeId]
 Accept: application/{xml/json}
 ```
 
-The **dataType** parameter is required and should reference one of the [data types defined on the application](../../models/app-metadata/#datatype) that requires app logic.
+The **dataType** parameter is required and should reference one of the [data types defined on the application]({{< relref "/api/models/app-metadata/#datatype" >}}) that requires app logic.
 
 If prefill or calculations are defined for the data type, these will be run on the data element before it is returned.
 
@@ -45,7 +45,7 @@ PUT basePath?dataType=[dataTypeId]
 Accept: application/{xml/json}
 ```
 
-The **dataType** parameter is required and should reference one of the [data types defined on the application](../../models/app-metadata/#datatype) that requires app logic.
+The **dataType** parameter is required and should reference one of the [data types defined on the application]({{< relref "/api/models/app-metadata/#datatype" >}}) that requires app logic.
 
 The Content-Type is used by Altinn to deserialize the request into a strongly typed object. A request must either be **application/json** or **application/xml**.
 No other Content-Types are supported. Content-Type is **not** validated against allowed Content-Types on the data type.

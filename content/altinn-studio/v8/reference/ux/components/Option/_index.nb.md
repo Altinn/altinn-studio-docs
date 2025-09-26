@@ -13,10 +13,10 @@ men ønsker å vise frem dette til brukeren uten at brukeren skal kunne endre de
 er en _read-only_ komponent, også kjent som en _visningskomponent_ eller _presentasjonskomponent_.
 
 Et eksempel på bruk kan være at kommunen brukeren tilhører er
-[hentet inn fra folkeregisteret og lagret i datamodellen vha. forhåndsutfylling](../../../data/prefill).
+[hentet inn fra folkeregisteret og lagret i datamodellen vha. forhåndsutfylling]({{< relref "/altinn-studio/v8/reference/data/prefill" >}}).
 Selv om brukeren ikke skal endre denne verdien bør den vises frem til informasjon, da alle deler av
 datamodellen er en del av den endelige innsendingen. Man kan hente inn listen over
-kommuner fra [felles standard kodelister](../../../../guides/development/options/sources/shared) for å slå opp
+kommuner fra [felles standard kodelister]({{< relref "/altinn-studio/v8/guides/development/options/sources/shared" >}}) for å slå opp
 kommunenummeret og vise frem kommunenavnet.
 
 ### Anatomi
@@ -57,9 +57,9 @@ Add the following sections if relevant:
 -->
 ### Relatert
 
-- [`Text`](../text/)
-- [`Date`](../date/)
-- [`Number`](../number/)
+- [`Text`]({{< relref "/altinn-studio/v8/reference/ux/components/text/" >}})
+- [`Date`]({{< relref "/altinn-studio/v8/reference/ux/components/date/" >}})
+- [`Number`]({{< relref "/altinn-studio/v8/reference/ux/components/number/" >}})
 
 ## Egenskaper
 
@@ -70,14 +70,14 @@ Vi oppdaterer for øyeblikket hvordan egenskaper for komponenter dokumenteres. L
 | **Egenskap**                       | **Type** | **Beskrivelse**                                                                                                                                                 |
 |------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `id`                               | string   | Komponent-ID-en. Må være unik innenfor alle oppsett/sider i et oppsett-sett. Kan ikke slutte med <bindestrek><tall>.                                            |
-| `value`                            | string   | En verdi som finnes i kodelisten. Denne egenskapen kan være et [dynamisk uttrykk](../../../logic/expressions) som henter denne verdien fra f.eks. datamodellen. |
+| `value`                            | string   | En verdi som finnes i kodelisten. Denne egenskapen kan være et [dynamisk uttrykk]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}}) som henter denne verdien fra f.eks. datamodellen. |
 | `textResourceBindings.title`       | string   | Ledetekst (valgfritt)                                                                                                                                           |
 | `textResourceBindings.description` | string   | Beskrivelse (valgfritt)                                                                                                                                         |
 | `textResourceBindings.help`        | string   | Hjelpetekst (valgfritt)                                                                                                                                         |
 | `direction`                        | string   | Setter den strukturerte retningen av ledetekst og verdi.<br/><br/> **Enum:** [horizontal, vertical] <br/><br/>**Default:** horizontal                           |
 | `icon`                             | string   | Stien til et ikon som skal vises i forbindelse med valget (valgfritt)                                                                                           |
 
-I tilegg støttes alle egenskaper for [kobling mot kodelister](../../../../guides/development/options/sources/).
+I tilegg støttes alle egenskaper for [kobling mot kodelister]({{< relref "/altinn-studio/v8/guides/development/options/sources/" >}}).
 
 
 ## Konfigurering
@@ -103,22 +103,22 @@ I tilegg støttes alle egenskaper for [kobling mot kodelister](../../../../guide
 
 #### `textResourceBindings.title`
 
-Ledetekst for valget. Denne kan legges til som en hardkodet streng eller som en referanse til en [tekstressurs](../../../ux/texts/#legge-til-og-endre-tekster-i-en-app). Denne egenskapen brukes for å vise til
+Ledetekst for valget. Denne kan legges til som en hardkodet streng eller som en referanse til en [tekstressurs]({{< relref "/altinn-studio/v8/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app" >}}). Denne egenskapen brukes for å vise til
 brukeren hva valget gjelder, ikke hva valget er. Skal man vise frem valgt kommune, kan denne
 være f.eks. "Kommune" eller "Din kommune". Selve valget (verdien) hentes fra kodelisten, og vises da som f.eks. "Oslo".
 
 #### `textResourceBindings.description`
 
-Beskrivelse for valget. Denne kan legges til som en hardkodet streng eller som en referanse til en [tekstressurs](../../../ux/texts/#legge-til-og-endre-tekster-i-en-app).
+Beskrivelse for valget. Denne kan legges til som en hardkodet streng eller som en referanse til en [tekstressurs]({{< relref "/altinn-studio/v8/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app" >}}).
 
 #### `textResourceBindings.help`
 
-Hjelpetekst for valget. Denne kan legges til som en hardkodet streng eller som en referanse til en [tekstressurs](../../../ux/texts/#legge-til-og-endre-tekster-i-en-app).
+Hjelpetekst for valget. Denne kan legges til som en hardkodet streng eller som en referanse til en [tekstressurs]({{< relref "/altinn-studio/v8/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app" >}}).
 
 #### `value`
 
 Her spesifiserer man verdien som skal vises frem. Denne må stemme overens med en verdi i kodelisten. Verdien kan også
-bestemmes ut ifra et [dynamisk uttrykk](../../../logic/expressions).
+bestemmes ut ifra et [dynamisk uttrykk]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}}).
 
 #### `direction`
 

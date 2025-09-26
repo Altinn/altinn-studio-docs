@@ -23,7 +23,7 @@ process task the app is currently in. This includes the following data:
 See the diagram below for an overview of what happens when the user loads the app for the first time, the flow goes up to 
 the process specific part, which is detailed in the other sections.
 
-![Rendering the app - general flow for all apps/processes](../app-frontend-rendering-general.drawio.svg "Rendering the app - general flow for all apps/processes")
+![Rendering the app - general flow for all apps/processes](../app-frontend-rendering-general.drawio.svg)
 
 ## Loading App resources for a `data` type process task
 A `data` type process task has a data model that can be populated, f.ex. through the use of forms. All the resources that are needed to support
@@ -38,8 +38,8 @@ displaying and/or updating data in the data model are loaded when an app is in a
 See the diagram below for an overview of what happens when the user loads an app in a `data` process task, after the initial loading of general 
 resources (and instantiation if needed) has completed.
 
-![Rendering the app - flow for data type process task](../app-frontend-rendering-data.drawio.svg "Rendering the app - flow for data type process task")
+![Rendering the app - flow for data type process task](/app-template/architecture/app-frontend-rendering-data.drawio.svg "Rendering the app - flow for data type process task")
 
 ## Rendering a form in `data` process task
 
-![Rendering a form in the data process task](../app-frontend-form-rendering.drawio.svg "Rendering a form in the data process task")
+![Rendering a form in the data process task](/app-template/architecture/app-frontend-form-rendering.drawio.svg "Rendering a form in the data process task")

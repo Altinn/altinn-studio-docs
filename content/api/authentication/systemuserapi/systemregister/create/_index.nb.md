@@ -16,7 +16,7 @@ Maskinporten-token med scope <mark style="background-color:lightgrey">altinn:aut
 application/json
 
 ## Request Body
-For detaljert beskrivelse av hver enhet i request, vennligst se beskrivelsen [her](../model)
+For detaljert beskrivelse av hver enhet i request, vennligst se beskrivelsen [her]({{< relref "/api/authentication/systemuserapi/systemregister/model" >}})
 
 ```
 {

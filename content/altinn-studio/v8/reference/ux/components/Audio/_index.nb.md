@@ -9,7 +9,7 @@ toc: true
 ## Bruk
 
 `Audio` brukes til å vise en lydspiller i applikasjonen din. Den kan brukes frittstående eller som en
-mediekomponent i [Cards-komponenten](../cards).
+mediekomponent i [Cards-komponenten]({{< relref "/altinn-studio/v8/reference/ux/components/cards" >}}).
 
 ### Anatomi
 
@@ -29,9 +29,9 @@ Skjermbildet ovenfor ble tatt fra Chrome-nettleseren.
 
 ### Relatert
 
-- [Cards](../cards) - Kan bruke Lydkomponenter som medieinnhold
-- [Image](../image) - Bildekomponent
-- [Video](../video) - Videospillerkomponent
+- [Cards]({{< relref "/altinn-studio/v8/reference/ux/components/cards" >}}) - Kan bruke Lydkomponenter som medieinnhold
+- [Image]({{< relref "/altinn-studio/v8/reference/ux/components/image" >}}) - Bildekomponent
+- [Video]({{< relref "/altinn-studio/v8/reference/ux/components/video" >}}) - Videospillerkomponent
 
 ## Egenskaper
 

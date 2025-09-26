@@ -225,7 +225,7 @@ The formatting is for frontend display only, and the numbers added to an input f
 },
 ```
 
-The following properties can be controlled with [dynamic expressions](../../logic/expressions):
+The following properties can be controlled with [dynamic expressions]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}}):
 
 - `formatting.number.prefix`
 - `formatting.number.suffix`

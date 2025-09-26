@@ -19,7 +19,7 @@ Skjema kan redigeres ved bruk av [UI editoren]({{< relref "/altinn-studio/v8/get
 I denne prosess-task-typen vises noen standard-tekster, og bruker kan velge å _bekrefte_ for å gå videre.
 
 Tekstene kan overstyres, ved at man legger inn tekstnøkkel som hører til hver tekst i språkfilene for appen. Info
-om hvordan dette gjøres finner du [her](../../../ux/texts). Se under for oversikt over de forskjellige tekstnøklene som kan
+om hvordan dette gjøres finner du [her]({{< relref "/altinn-studio/v8/reference/ux/texts" >}}). Se under for oversikt over de forskjellige tekstnøklene som kan
 overstyres.
 
 ![Bekreftelses-visningen](confirm-step.png "Tekster som kan endres/overstyres i bekreftelses-visningen")
@@ -57,7 +57,7 @@ Eksempel på overstyrte tekster i filen `resources.nb.json`:
 ```
 
 Merk at i eksempelet over har vi brukt html-taggen `<br/>` for å lage linjeskift.
-For lenke og utheving, [benytt markdown](../../../ux/texts#formatering-av-tekster).
+For lenke og utheving, [benytt markdown]({{< relref "/altinn-studio/v8/reference/ux/texts#formatering-av-tekster" >}}).
 
 Dette resulterer i følgende visning:
 
@@ -65,7 +65,7 @@ Dette resulterer i følgende visning:
 
 ### Custom form layout
 
-For bekreftelsessteget har man som apputvikler muligheten til å definere et eget [layout set](../../../ux/pages/#oppsett) med tilhørende form layout filer og andre konfigurasjonsfiler som hører til data-steget.
+For bekreftelsessteget har man som apputvikler muligheten til å definere et eget [layout set]({{< relref "/altinn-studio/v8/reference/ux/pages/#oppsett" >}}) med tilhørende form layout filer og andre konfigurasjonsfiler som hører til data-steget.
 
 Dette gjør det mulig å helt fritt styre innholdet på bekreftelsessiden, og man kan bruke komponentene man ellers har tilgjengelig i Altinn Studio.
 
@@ -164,7 +164,7 @@ For et komplett oppsett av denne muligheten kan du se vår [eksempel applikasjon
 
 Dette er et prosesssteg hvor applikasjonseier vil sjekke utfylte data for å generere en tilbakemelding før alle data kan arkiveres.
 
-Tekstene på siden kan overstyres ved at man legger inn tekstnøkler som hører til hver tekst i språkfilene for appen. Info om hvordan dette gjøres finner du [her](../../../ux/texts). Se under for oversikt over de forskjellige tekstnøklene som kan overstyres.
+Tekstene på siden kan overstyres ved at man legger inn tekstnøkler som hører til hver tekst i språkfilene for appen. Info om hvordan dette gjøres finner du [her]({{< relref "/altinn-studio/v8/reference/ux/texts" >}}). Se under for oversikt over de forskjellige tekstnøklene som kan overstyres.
 
 ![Tilbakemelding-visningen](feedback-default.png "Tekster som kan endres/overstyres i tilbakemelding-visningen")
 
@@ -192,7 +192,7 @@ Eksempel på overstyrte tekster i filen `resources.nb.json`:
 
 I denne prosess-task-typen er prosessen ferdig og noen standardtekster vises.
 
-Tekstene kan overstyres, ved at man legger inn tekstnøkkel som hører til hver tekst i språkfilene for appen. Info om hvordan dette gjøres finner du [her](../../../ux/texts).
+Tekstene kan overstyres, ved at man legger inn tekstnøkkel som hører til hver tekst i språkfilene for appen. Info om hvordan dette gjøres finner du [her]({{< relref "/altinn-studio/v8/reference/ux/texts" >}}).
 
 Dersom den reelle mottakeren av skjemaet er en annen organisasjon enn organisasjonen som eier appen, burde kvitteringen tydeligjøre dette i `Mottaker` feltet. Dette kan gjøres ved å sette tekstresursen `appReceiver` til navnet på den reelle mottakeren.
 
@@ -403,7 +403,7 @@ Sluttresultatet i appen:
 
 Simple receipt er et konsept som er relevant for de applikasjonene som har aktivert `AutoDeleteOnProcessEnd: True` i `applicationmetadata.json` filen. For mer informasjon om hva dette innebærer [les her]({{< relref "/altinn-studio/v8/reference/configuration/process/auto-delete/" >}}).
 
-Tekstene i denne kvitteringen kan også overskrives ved å manuelt legge til hver definerte tekstnøkkel i appens tekstressursfil. Mer informasjon om hvordan dette gjøres finnes [her](../../../ux/texts).
+Tekstene i denne kvitteringen kan også overskrives ved å manuelt legge til hver definerte tekstnøkkel i appens tekstressursfil. Mer informasjon om hvordan dette gjøres finnes [her]({{< relref "/altinn-studio/v8/reference/ux/texts" >}}).
 Følgende avsnitt viser en oversikt over hvilke tekster som kan tilpasses.
 
 ![Enkel kvitteringsvisning](simple-receipt-step.png "Tekster som kan endres/overstyres i kvitteringsvisningen")

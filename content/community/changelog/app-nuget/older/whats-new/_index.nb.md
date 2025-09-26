@@ -13,7 +13,7 @@ The Altinn.App.* packages has been updated to support auto delete when process e
 2.0.0-alpha of the packages.
 
 **Updating to this version will require changes in multiple files. See the entry
-in [breaking changes](../breaking-changes/#support-for-auto-delete-when-process-ends)**
+in [breaking changes]({{< relref "/community/changelog/app-nuget/older/breaking-changes/#support-for-auto-delete-when-process-ends" >}})**
 
 ## 1.3.1 (2020-11-06) New layout structure in Designer
 In order to support multiple pages in an app we have done some restructuring of the app-template.
@@ -21,14 +21,14 @@ When you are doing changes in Altinn Designer for your app the updated FormLayou
 For apps that have nuget references to `Altinn.App.Api`, `Altinn.App.Common`, and `Altinn.App.PlatformServices` with versions below version `1.2.0`
 this will make the app unable to find the FormLayout.json on the network call against the app.
 
-**Updating to this version will require changes in multiple files. See the entry in [breaking changes](../breaking-changes/#designer-moves-formlayoutjson-from-appui-to-appuilayouts)**
+**Updating to this version will require changes in multiple files. See the entry in [breaking changes]({{< relref "/community/changelog/app-nuget/older/breaking-changes/#designer-moves-formlayoutjson-from-appui-to-appuilayouts" >}})**
 
 ## 1.1.11-alpha (2020-10-02) - Registration of events
 
 The Altinn.App.* packages has been updated to work with the new Events component in Altinn. This is introduced with version 1.1.11-alpha of the packages.
 
 **Updating to this version will require changes in multiple files.
-See the entry in [breaking changes](../breaking-changes/#added-registration-of-events-to-the-new-events-component)**
+See the entry in [breaking changes]({{< relref "/community/changelog/app-nuget/older/breaking-changes/#added-registration-of-events-to-the-new-events-component" >}})**
 
 ## 1.1.0-alpha (2020-10-01) - Deleting instances from endpoint in app
 
@@ -36,7 +36,7 @@ See the entry in [breaking changes](../breaking-changes/#added-registration-of-e
 **This change only affects users and app owners that try to delete an instance.**
 
 **Updating to this version will require changes in multiple files.
-See the entry in [breaking changes](../breaking-changes/#support-for-deleting-instances-from-endpoint-in-app)**
+See the entry in [breaking changes]({{< relref "/community/changelog/app-nuget/older/breaking-changes/#support-for-deleting-instances-from-endpoint-in-app" >}})**
 
 ## 1.1.8-alpha (2020-09-23) - Update path of Data Protection Keys for Apps
 
@@ -45,7 +45,7 @@ When you are running apps locally, we are using the default behaviour (directory
 
 **The change affects all application created in Altinn Studio before 30.09.2020 using Altinn.App.PlatformServices 1.1.8-alpha and above**
 **Updating to this version will require changes in multiple files.
-See the entry in [breaking changes](../breaking-changes/#update-path-of-data-protection-keys-for-apps)**
+See the entry in [breaking changes]({{< relref "/community/changelog/app-nuget/older/breaking-changes/#update-path-of-data-protection-keys-for-apps" >}})**
 
 ## 1.1.2-alpha (2020-07-15) - Namespace renamed
 
@@ -53,7 +53,7 @@ A namespace was renamed in `Altinn.App.PlatformServices` Version="1.1.2-alpha ca
 if references to this namespace isn't changed. This affects all applications created before June 2020 that reference nuget versions >= 1.1.2-alpha.
 
 **Updating to this version will require changes in multiple files.
-See the entry in [breaking changes](../breaking-changes/#build-pipeline-failed-on-task-build-and-push-docker-image-to-acr)**
+See the entry in [breaking changes]({{< relref "/community/changelog/app-nuget/older/breaking-changes/#build-pipeline-failed-on-task-build-and-push-docker-image-to-acr" >}})**
 
 ## 1.1.0-alpha (2020-07-01) - Multiple changes
 
@@ -69,8 +69,8 @@ Introduced with issue: [#4451](https://github.com/Altinn/altinn-studio/issues/44
 
 
 **Updating to this version will require changes in multiple files.
-See the entries in breaking changes [here](../breaking-changes/#property-type-changed-for-userprofileprofilesettingpreference)
-and [here](../breaking-changes/#new-endpoint-introduced-in-altinnappsapi-exposing-application-text-resources)**
+See the entries in breaking changes [here]({{< relref "/community/changelog/app-nuget/older/breaking-changes/#property-type-changed-for-userprofileprofilesettingpreference" >}})
+and [here]({{< relref "/community/changelog/app-nuget/older/breaking-changes/#new-endpoint-introduced-in-altinnappsapi-exposing-application-text-resources" >}})**
 
 ## 1.0.86-alpha (2020-05-29) - Platform authorization for Register and Profile
 
@@ -78,7 +78,7 @@ Introduced with issue: [#4162](https://github.com/altinn/altinn-studio/issues/41
 **The change affects all application created in Altinn Studio before 03.06.2020.**
 
 **Updating to this version will require changes in multiple files.
-See the entry in [breaking changes](../breaking-changes/#platform-authorization-introduced-for-platform-register-and-profile)**
+See the entry in [breaking changes]({{< relref "/community/changelog/app-nuget/older/breaking-changes/#platform-authorization-introduced-for-platform-register-and-profile" >}})**
 
 ## 1.0.82-alpha (2020-05-15) - Updated client-side validation
 
@@ -90,7 +90,7 @@ As of v2 of app frontend, client-side validation has support for type-checking b
 When upgrading the frontend version to v2, the app _must_ use nuget versions 1.0.82-alpha or newer.
 
 **Updating to this version will require changes in multiple files.
-See the entry in [breaking changes](../breaking-changes/#updated-client-side-validation---frontend-v2-and-nuget-v1082-alpha)**
+See the entry in [breaking changes]({{< relref "/community/changelog/app-nuget/older/breaking-changes/#updated-client-side-validation---frontend-v2-and-nuget-v1082-alpha" >}})**
 
 ## 1.0.80-alpha Removed GET operations with body
 
@@ -140,4 +140,4 @@ Introduced with issue: [#3820](https://github.com/Altinn/altinn-studio/issues/38
 The base class that every application inherits has been altered to allow for both data and task validation.
 
 **Updating to this version will require changes in multiple files.
-See the entry in [breaking changes](../breaking-changes/#build-fails-after-upgrading-altinnapp-nugets-to-version-1062-alpha)**
+See the entry in [breaking changes]({{< relref "/community/changelog/app-nuget/older/breaking-changes/#build-fails-after-upgrading-altinnapp-nugets-to-version-1062-alpha" >}})**

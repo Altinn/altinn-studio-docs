@@ -10,8 +10,8 @@ based on input from user on previous parts of the form.
 
 {{% panel theme="warning" %}}
 ⚠️ Dynamic tracks are unsupported as of v4 (frontend). Hiding and showing entire pages
-are supported by [dynamic expressions](../../../logic/expressions)
-(read how to [hide entire pages here](../../../logic/expressions#showhide-entire-pages)).
+are supported by [dynamic expressions]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}})
+(read how to [hide entire pages here]({{< relref "/altinn-studio/v8/reference/logic/expressions#showhide-entire-pages" >}})).
 {{% /panel %}}
 
 ## Trigger calculation on tracks from frontend

@@ -18,7 +18,7 @@ Check that links, labels and buttons have explanatory texts. Make an evaluation 
 It is important to be conscious of using buttons and links, since screen readers can struggle with interpreting their functionality.
 
 - **Error messages**  
-You are responsible for [correct error messages](../components/error-message/) being created for the form fields.
+You are responsible for [correct error messages]({{< relref "/altinn-studio/v8/guides/design/guidelines/components/error-message/" >}}) being created for the form fields.
 
 {{% panel theme="warning" %}}
 **NB:** When creating solutions for your internal service, where Altinn's user interface is hidden from the user, you have to make sure that you follow all [WCAG-demands](https://www.uutilsynet.no/wcag-standarden/nettsteder/711). 

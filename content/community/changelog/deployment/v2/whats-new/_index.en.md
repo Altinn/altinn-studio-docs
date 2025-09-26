@@ -131,7 +131,7 @@ __14.__ How often (in seconds) to perform the probe
 Upgrading to 2.0.0 from 1.x.x leads to a short downtime during deployment. Subsequent deployments will run as normal.
 {{% /notice%}}
 
-If your apps _deployment_ folder contains the _templates_ folder please follow the [migration guide](../../migration).
+If your apps _deployment_ folder contains the _templates_ folder please follow the [migration guide]({{< relref "/community/changelog/deployment/migration" >}}).
 
 ### Changes introduced
 

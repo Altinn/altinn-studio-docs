@@ -119,7 +119,7 @@ Added a new section called `FrontEndSettings` for use in `appsetting.{environmen
 ## 4.24.0 (2020-01-21)
 
 Support language and query parameters in dynamic options.
-New way of implementing dynamic options by creating a class that implements IAppOptionsProvider.  [See doc](../../../../../altinn-studio/guides/development/options/)
+New way of implementing dynamic options by creating a class that implements IAppOptionsProvider.  [See doc]({{< relref "/altinn-studio/v8/guides/development/options/" >}})
 
 ## 4.23.0 (2022-01-15) - Updated backend support for BPMN gateways
 
@@ -140,14 +140,14 @@ Added Api in App to expose XACML Policy and BPMN Process
 
 The URL to an app can now contain a query parameter (returnUrl) which, if validated (valid URI and host name),
 can be used to redirect the user to that URL when the user clicks on the exit icon in an Altinn 3 app. 
-[Read more about it here](../../../../../../../altinn-studio/reference/configuration/queryparameters)   
+[Read more about it here]({{< relref "/altinn-studio/v8/reference/configuration/queryparameters" >}})   
 
 Related to [7183](https://github.com/Altinn/altinn-studio/issues/7183)
 
 ## 4.19.0 (2021-11-15) - Added support for instantiation based of a copy of an archived instance
 
 The app template now supports the instantiation of an app based on a copy of an archived instance. 
-[The new endpoint is documented here](../../../../../api/apps/instances). Note that support for copying an app in the message box and configuration 
+[The new endpoint is documented here]({{< relref "/api/apps/instances" >}}). Note that support for copying an app in the message box and configuration 
 of the application through Altinn Studio is still under development.
 
 Related to [6695](https://github.com/Altinn/altinn-studio/issues/6695)
@@ -309,7 +309,7 @@ See details about data processing [here]({{< relref "/altinn-studio/v8/reference
 
 ## 4.6.2 (2021-06-01) - Duplicate keys in options causing crash
 
-This release has a fix for a crash related to PDF rendering when an app have [options](../../../../../altinn-studio/guides/development/options/) with duplicate entries. [#5887](https://github.com/Altinn/altinn-studio/issues/5887)
+This release has a fix for a crash related to PDF rendering when an app have [options]({{< relref "/altinn-studio/v8/guides/development/options/" >}}) with duplicate entries. [#5887](https://github.com/Altinn/altinn-studio/issues/5887)
 
 ## 4.6.1. (2021-05-21) Changed alternative subject
 
@@ -377,4 +377,4 @@ This change is related to [this issue](https://github.com/Altinn/altinn-studio/i
 Altinn.App.* libraries target .Net 5 now, which requires that the application does the same.
 In addition we have created two methods for referencing all app and platform services in Startup.cs
 
-See [breaking changes](../breaking-changes) for how to update you app to be compatible with this version.
+See [breaking changes]({{< relref "/community/changelog/app-nuget/v4/breaking-changes" >}}) for how to update you app to be compatible with this version.

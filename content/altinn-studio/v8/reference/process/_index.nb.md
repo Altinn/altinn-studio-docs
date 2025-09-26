@@ -29,4 +29,4 @@ Malen følger [BPMN 2.0-standarden](https://www.bpmn.org/).
 
 I Altinn Studio kan apputvikleren konfigurere prosessen.
 
-[Les vår utviklerhåndbok for detaljer.](../configuration/process/)
+[Les vår utviklerhåndbok for detaljer.]({{< relref "/altinn-studio/v8/reference/configuration/process/" >}})

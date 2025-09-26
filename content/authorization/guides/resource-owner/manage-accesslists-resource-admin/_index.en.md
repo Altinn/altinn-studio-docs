@@ -16,7 +16,7 @@ In Altinn 3, this functionality is handled by the Resource Rights Registry (RRR)
 - Resource Registry Admin privileges
 - Membership in the AccessList group for a specified environment
 
-Refer to [Getting Started with Access Lists ](../../../getting-started/accesslist-admin-studio/) for more information.
+Refer to [Getting Started with Access Lists ]({{< relref "/authorization/getting-started/accesslist-admin-studio/" >}}) for more information.
 
 ## Create new Access List
 

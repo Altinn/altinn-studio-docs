@@ -93,7 +93,7 @@ It is possible to show components directly in the table view. This is done by se
 component in question, via the [tableColumns](#widths-alignment-and-overflow-for-columns) property. This is useful for
 components and groups that are not very complex, and where it is not necessary to show the component in the expanded edit view.
 Visually, this can make the repeating group functionality resemble some configurations of
-the [Grid component](../../../../components/grid), but allows the user to add/remove rows from the table - and allows
+the [Grid component]({{< relref "/altinn-studio/v8/reference/ux/components/grid" >}}), but allows the user to add/remove rows from the table - and allows
 for storing the data in a repeating structure in the data model.
 
 ![Example of editing in table](components-in-table.png "Example of editing in table")
@@ -104,9 +104,9 @@ edit view and only allow editing in the table.
 
 ### Editing all fields in table
 If you want to set up a repeating group where all possible fields should be editable in the table, there is a shortcut
-for this. By setting [`edit.mode` to `onlyTable`](../edit#mode), all fields in the table will be editable. Note that not
+for this. By setting [`edit.mode` to `onlyTable`]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating/edit#mode" >}}), all fields in the table will be editable. Note that not
 all components that can be shown in a repeating group are supported in the table. See a full list of components that are
-supported in table mode in the documentation for the [Grid component](../../../../components/grid).
+supported in table mode in the documentation for the [Grid component]({{< relref "/altinn-studio/v8/reference/ux/components/grid" >}}).
 
 ![Example of editing all fields in table](only-editing-in-table.gif "Example")
 

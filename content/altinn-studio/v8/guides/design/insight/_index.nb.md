@@ -29,4 +29,4 @@ løsninger hvor man spør i form av et skjema.
 
 Når du har kommet deg gjennom innsiktsfasen og definert brukerbehov, anbefaler vi at du setter sammen en 
 prototype som kan brukertestes på relevante brukere. Dersom du skal lage et skjema, kan du bruke vårt 
-[prototype-Kit for Figma](../prototype).
+[prototype-Kit for Figma]({{< relref "/altinn-studio/v8/guides/design/prototype" >}}).

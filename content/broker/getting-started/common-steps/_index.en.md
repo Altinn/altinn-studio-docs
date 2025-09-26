@@ -18,7 +18,7 @@ Register your Maskinporten client(s) to authenticate with the Broker API, assign
 - `altinn:broker.write` - For clients sending files.
 - `altinn:broker.read` - For clients receiving files.
 
-These scopes are maintained by Altinn and are required to be authorized for the appropriate API operations, and as such are independent of the [access set by Service Owners](../service-owner#register-a-resource-in-altinn-resource-registry) for the specific Broker Service Resource.
+These scopes are maintained by Altinn and are required to be authorized for the appropriate API operations, and as such are independent of the [access set by Service Owners]({{< relref "/broker/getting-started/service-owner#register-a-resource-in-altinn-resource-registry" >}}) for the specific Broker Service Resource.
 
 To obtain access to scopes, you must submit a request to: [servicedesk@altinn.no](mailto:servicedesk@altinn.no).
 Please include all necessary scopes in your request. For example, beyond `altinn:broker`-scopes, your integration may require additional scopes. 
@@ -42,16 +42,16 @@ Contact the Service owner for the Broker Resource and ask for access to the Reso
 This will in the future be handled by System User / Resource Registry /Access Lists through GUI.
 {{% /notice %}}
 
-**If you are a service owner creating your first Broker Service; skip to the [Service Owner](../service-owner/) guide.**
+**If you are a service owner creating your first Broker Service; skip to the [Service Owner]({{< relref "/broker/getting-started/service-owner/" >}}) guide.**
 
 ## 4. Integrate against Broker API {#integrate-against-broker-api}
 
 You are now ready to start integrating against the Broker APIs, 
-see the [developer guides](../developer-guides/) for next steps.
+see the [developer guides]({{< relref "/broker/getting-started/developer-guides/" >}}) for next steps.
 
 ## 5. Set up Event Subscriptions {#set-up-event-subscriptions}
 
 In order to use events/webhooks for a Broker resource, you need to setup a subscription for the given resource.
 
-See the [developer guide](../developer-guides/events) for detailed instruction.
+See the [developer guide]({{< relref "/broker/getting-started/developer-guides/events" >}}) for detailed instruction.
 

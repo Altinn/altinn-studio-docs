@@ -49,7 +49,7 @@ When the Altinn 3 Broker Transition Solution feature is enabled in Altinn 2, the
 
 Due to the manifest files being deprecated in Altinn 3, we have added a feature to enable creation/update of manifest files for the transition solution.
 The feature is implemented as part of the Download operation from the Altinn 2 side, and due to greater performance impact, is disabled by default.
-To enable this feature you need to [configure the Altinn 3 Resource](../getting-started/#configure-resource-for-transition-solution) with the properties:
+To enable this feature you need to [configure the Altinn 3 Resource]({{< relref "/broker/broker-transition/getting-started/#configure-resource-for-transition-solution" >}}) with the properties:
 
 - UseManifestFileShim = true
 - ExternalServiceCodeLegacy = The External Service Code of the Altinn 2 legacy service, this is only used to build the Manifest xml, and will not affect any other functionality.

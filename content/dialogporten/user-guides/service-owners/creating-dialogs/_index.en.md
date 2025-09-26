@@ -9,25 +9,25 @@ weight: 20
 This guide shows how you can use the service owner API to create dialogs for your digital service instances and/or messages.
 
 {{<notice info>}}
-When using Altinn Studio, dialogs will be automatically created for you. An app may opt-out of this, see [the integrating Altinn Apps guide](../integrating-altinn-apps) for more information.
+When using Altinn Studio, dialogs will be automatically created for you. An app may opt-out of this, see [the integrating Altinn Apps guide]({{< relref "/dialogporten/user-guides/service-owners/integrating-altinn-apps" >}}) for more information.
 {{</notice>}}
 
 ## Basic steps
 
-1. Authenticate as a [service owner](../../authenticating/#usage-for-service-owner-systems)
+1. Authenticate as a [service owner]({{< relref "/dialogporten/user-guides/authenticating/#usage-for-service-owner-systems" >}})
 2. Perform a POST request supplying the [create dialog DTO]({{< relref "/dialogporten/reference/entities/dialog#create-post" >}})
 
 ## Selecting a service resource
 
-The service resource supplied can be any resource in the [Altinn Resource Registry](../../../../authorization/what-do-you-get/resourceregistry) with a `hasCompententAuthority` property matching the authenticated organization number.
+The service resource supplied can be any resource in the [Altinn Resource Registry]({{< relref "/authorization/what-do-you-get/resourceregistry" >}}) with a `hasCompententAuthority` property matching the authenticated organization number.
 
 {{<notice info>}}
 Adding support for additional constraints (ie. extra scope requirements) to service resources is tracked in [this issue](https://github.com/Altinn/dialogporten/issues/40).
 {{</notice>}}
 
-Resource with type `CorrespondenceService` can not be referred, as these are reserved for use with [Altinn Correspondence](../../../../correspondence).
+Resource with type `CorrespondenceService` can not be referred, as these are reserved for use with [Altinn Correspondence]({{< relref "/correspondence" >}}).
 
-As with [search](../../searching-for-dialogs), the `serviceResource` dield refer to a resource in the Resource Registry and use the format `urn:altinn:resource:<identifier>`.
+As with [search]({{< relref "/dialogporten/user-guides/searching-for-dialogs" >}}), the `serviceResource` dield refer to a resource in the Resource Registry and use the format `urn:altinn:resource:<identifier>`.
 
 ## Dates
 
@@ -41,7 +41,7 @@ By default, both these will be set to the current timestamp when creating a dial
 
 There a two optional dates that may be set on a dialog that controls visibility for end-users.
 
-- `expiresAt` defines a future timestamp that when reached, renders the dialog inaccessible in the end-user API. End-user-systems should make an effort to warn users that the content is about to be inaccessible. Inaccessible dialogs are still visible in the service owner APIs, except when [impersonating a user](../impersonating-users), and the `expiresAt` field may at any point be set to `null` or a future value which will render it visible for the end-user again (and a `dialogporten.dialog.updated` event will be emitted).
+- `expiresAt` defines a future timestamp that when reached, renders the dialog inaccessible in the end-user API. End-user-systems should make an effort to warn users that the content is about to be inaccessible. Inaccessible dialogs are still visible in the service owner APIs, except when [impersonating a user]({{< relref "/dialogporten/user-guides/service-owners/impersonating-users" >}}), and the `expiresAt` field may at any point be set to `null` or a future value which will render it visible for the end-user again (and a `dialogporten.dialog.updated` event will be emitted).
 
 {{<notice warning>}}
 Inaccessible dialogs will at this time _not_ be sanized from the database, but this may change in the future where Dialogporten remove long since expired dialogs for privacy and system efficiency reasons.
@@ -83,7 +83,7 @@ Usually, end-user systems utilize the `org` field to indicate to the end-user wh
 
 ### Content reference
 
-This is the content type for [front channel embeds](../../../getting-started/front-channel-embeds), and can be set on both dialogs and transmissions within dialogs.
+This is the content type for [front channel embeds]({{< relref "/dialogporten/getting-started/front-channel-embeds" >}}), and can be set on both dialogs and transmissions within dialogs.
 
 **Read more**
 
@@ -126,11 +126,11 @@ Actions are not mandatory, but most dialogs should indicate how the user is expe
 
 ### Authorizing actions
 
-Actions have themselves an `action` property that corresponds to a [XACML action](../../../../authorization/reference/xacml/#action) defined in the referred service resource's [policy](../../../../authorization/reference/xacml/#xacml-policy). Dialogporten will check if the authenticated user is allowed to perform the specified action on the referred service resource for the dialog's party, and if not, will flag the action as `isAuthorized: false` and remove the supplied URL. End-user systems should indicate to the end-user that the action exists, but that access is missing - and if possible, provide information on how to request access (which is out of scope for Dialogporten).
+Actions have themselves an `action` property that corresponds to a [XACML action]({{< relref "/authorization/reference/xacml/#action" >}}) defined in the referred service resource's [policy]({{< relref "/authorization/reference/xacml/#xacml-policy" >}}). Dialogporten will check if the authenticated user is allowed to perform the specified action on the referred service resource for the dialog's party, and if not, will flag the action as `isAuthorized: false` and remove the supplied URL. End-user systems should indicate to the end-user that the action exists, but that access is missing - and if possible, provide information on how to request access (which is out of scope for Dialogporten).
 
 {{<notice warning>}}While Dialogporten will check authorization for the action and remove the URL if the check fails, the service owner system MUST perform its own authorization based on the same policy{{</notice>}}
 
-For added control, an [authorization attribute](../../../getting-started/authorization/attributes) can be supplied, which allows service owners to refer to specific rules within the policy or other service resources (which the service owner controls) entirely.
+For added control, an [authorization attribute]({{< relref "/dialogporten/getting-started/authorization/attributes" >}}) can be supplied, which allows service owners to refer to specific rules within the policy or other service resources (which the service owner controls) entirely.
 
 ### Defining GUI actions
 
@@ -138,7 +138,7 @@ For many dialogs, a single GUI action with a title with something like "Start fo
 
 #### Write actions
 
-If the `httpMethod` supplied for a GUI action is any other than `GET`, it is considered a [write action](../../../getting-started/write-actions), and the browser based end-user system must use [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) or similar to construct the request using the browsers scripting capabilities. As this makes GET-based redirected SSO with ID-porten impossible, in order for the service owner to be able to initiate a session, the end-user system will include the [dialog token](../../../getting-started/authorization/dialog-tokens) as a Authorization-header. The service owner system at the URL will also have to fully support the [CORS-protocol](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
+If the `httpMethod` supplied for a GUI action is any other than `GET`, it is considered a [write action]({{< relref "/dialogporten/getting-started/write-actions" >}}), and the browser based end-user system must use [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) or similar to construct the request using the browsers scripting capabilities. As this makes GET-based redirected SSO with ID-porten impossible, in order for the service owner to be able to initiate a session, the end-user system will include the [dialog token]({{< relref "/dialogporten/getting-started/authorization/dialog-tokens" >}}) as a Authorization-header. The service owner system at the URL will also have to fully support the [CORS-protocol](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
 
 #### Delete actions
 
@@ -152,7 +152,7 @@ Note that Dialogporten will not consider the validity or semantics of API action
 
 **Read more**
 
-- [Learn more about actions in dialogs](../../../getting-started/dialogs#actions)
+- [Learn more about actions in dialogs]({{< relref "/dialogporten/getting-started/dialogs#actions" >}})
 - {{<link "../../../reference/entities/action">}}
 - {{<link "../../../getting-started/write-actions">}}
 - {{<link "../../../getting-started/authorization/dialog-tokens">}}
@@ -165,7 +165,7 @@ Attachments can be defined on both the dialog and on individual transmissions.
 
 **Read more**
 
-- [Learn more about attachments in dialogs](../../../getting-started/dialogs#attachments)
+- [Learn more about attachments in dialogs]({{< relref "/dialogporten/getting-started/dialogs#attachments" >}})
 
 ## Defining transmissions
 
@@ -181,7 +181,7 @@ As with dialog level content, transmissions might contain a title, summary and a
 
 **Read more**
 
-- [Learn more about transmissions in dialogs](../../../getting-started/dialogs#transmissions)
+- [Learn more about transmissions in dialogs]({{< relref "/dialogporten/getting-started/dialogs#transmissions" >}})
 - {{<link "../../../reference/entities/transmission">}}
 - {{<link "../../../reference/content-types">}}
 

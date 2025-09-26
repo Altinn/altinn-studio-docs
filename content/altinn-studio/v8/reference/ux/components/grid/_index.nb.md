@@ -248,7 +248,7 @@ finnes et valgalternativ å velge mellom.
 
 Når komponenter vises i en tabell, vil de ikke vise `title`- og `description`-tekstressurser. Disse tekstressursene
 bør likevel settes på komponenten, da de vil bli brukt for tilgjengelighet og vil fortsatt bli vist når komponenten
-vises utenfor en Grid - som på [mindre skjermer](#mobilvisning) og i [et sammendrag](../../pages/summary).
+vises utenfor en Grid - som på [mindre skjermer](#mobilvisning) og i [et sammendrag]({{< relref "/altinn-studio/v8/reference/ux/pages/summary" >}}).
 
 ### Bredder, tekst og justering
 
@@ -299,5 +299,5 @@ Grid-komponenten automatisk vise enkeltkomponentene (som om de ikke var del av e
 til komponentene blir den samme som rekkefølgen til radene og cellene i Grid-konfigurasjonen (en og en rad av gangen),
 og rekkefølgen til enkeltkomponentene slik de er definert i layout-konfigurasjonen har ingen betydning.
 
-Det samme gjelder også for visning av en Grid-komponent i [et sammendrag](../../pages/summary), hvor de samme
+Det samme gjelder også for visning av en Grid-komponent i [et sammendrag]({{< relref "/altinn-studio/v8/reference/ux/pages/summary" >}}), hvor de samme
 komponentene referert til i Grid vil vises som sammendrag av enkeltkomponenter.
