@@ -17,9 +17,9 @@ aliases:
 ## Prerequisites
 
 ### Maskinporten
-Maskinporten is required if you wish to use the [message service](#correspondence) and/or place [access restrictions](/altinn-studio/guides/development/restricted-data/) on the signature objects.
+Maskinporten is required if you wish to use the [message service](#correspondence) and/or place [access restrictions](/en/altinn-studio/v8/guides/development/restricted-data/) on the signature objects.
 
-If you need help setting up a Maskinporten integration for your app, you can find all the information you need in [this guide](/altinn-studio/guides/integration/maskinporten/).
+If you need help setting up a Maskinporten integration for your app, you can find all the information you need in [this guide](/en/altinn-studio/v8/guides/integration/maskinporten/).
 
 ### Correspondence
 If your app is [configured to send signature receipts](#extend-the-app-process-with-a-signing-task), the Altinn message service (Correspondence) must be enabled.

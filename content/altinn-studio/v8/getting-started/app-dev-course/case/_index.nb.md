@@ -5,6 +5,7 @@ linktitle: Case
 tags: [apps, case, training]
 weight: 1
 ---
+
 {{% notice info %}}
 **TL;DR:** Under følger en beskrivelse av det fiktivet caset vi skal bruke i dette kurset - en tjenete Sogndal kommune
 kan bruke for å kartlegge informasjon om tilflyttere til kommunen. 

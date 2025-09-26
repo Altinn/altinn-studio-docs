@@ -60,8 +60,8 @@ Upload the desired file, scroll down, optionally provide a message indicating th
 ![Upload XSD directly to `<org>-datamodels` repo](./file-upload.gif "Upload XSD directly to `<org>-datamodels` repo")
 
 [1]: https://altinn.studio/repos
-[2]: /altinn-studio/getting-started/create-user/
-[3]: /altinn-studio/guides/administration/access-management/studio/
+[2]: /en/altinn-studio/v8/getting-started/create-user/
+[3]: /en/altinn-studio/v8/guides/administration/access-management/studio/
 
 ## Altinn Studio Data Modeling
 
