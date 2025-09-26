@@ -8,15 +8,23 @@ aliases:
   - /altinn-studio/guides/signing/role-based-signing
 ---
 
-## What does role/access package-based signing mean?
+{{% insert "content/altinn-studio/guides/development/restricted-data/shared/style.css.md" %}}
+
+## What is role and access package based signing?
 
 {{% insert "content/altinn-studio/guides/development/signing/role-based-signing/intro.en.md" %}}
 
 ## Prerequisites
 
-If the service should send a signature receipt to the inbox of the signee, the Altinn message service (Correspondence) must be enabled.
+### Maskinporten
+Maskinporten is required if you wish to use the [message service](#correspondence) and/or place [access restrictions](/altinn-studio/guides/development/restricted-data/) on the signature objects.
 
-See [how](/en/correspondence/getting-started/) to get started.
+If you need help setting up a Maskinporten integration for your app, you can find all the information you need in [this guide](/altinn-studio/guides/integration/maskinporten/).
+
+### Correspondence
+If your app is [configured to send signature receipts](#extend-the-app-process-with-a-signing-task), the Altinn message service (Correspondence) must be enabled.
+
+See how to get started in [this guide](/en/correspondence/getting-started/).
 
 ## 1. Add a signing task to the app process, with related configuration
 

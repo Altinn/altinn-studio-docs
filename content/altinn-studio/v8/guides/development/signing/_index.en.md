@@ -8,8 +8,6 @@ aliases:
   - /altinn-studio/guides/signing/
 ---
 
-{{% insert "content/altinn-studio/guides/development/signing/sensitive-data-warning.en.md" %}}
-
 {{% insert "content/altinn-studio/guides/development/signing/auth-requirements.en.md" %}}
 
 The different scenarios below can to some extent be combined with each other, but many services will only need one of them.

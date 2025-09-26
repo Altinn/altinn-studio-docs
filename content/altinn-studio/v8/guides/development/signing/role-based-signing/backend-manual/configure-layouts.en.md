@@ -1,4 +1,5 @@
 ---
+headless: true
 hidden: true
 ---
 
@@ -47,39 +48,39 @@ Example of usage of the standard components:
 
 ```json
 {
-    "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
-    "data": {
-      "layout": [
-      {
-        "id": "headerSigningFounders",
-        "type": "Header",
-        "size": "L",
-        "textResourceBindings": {
-          "title": "Her kan man ha en overskrift"
-        }
-      },
-      {
-        "id": "signing-documents",
-        "type": "SigningDocumentList",
-        "textResourceBindings": {
-          "title": "Dokumenter som skal signeres",
-          "description": "Dokumenter som skal signeres beskrivelse"
-        }
-      },
-      {
-        "id": "signee-list",
-        "type": "SigneeList",
-        "textResourceBindings": {
-          "title": "Signaturer"
-        }
-      },
-      {
-        "id": "signing-actions",
-        "type": "SigningActions"
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+    {
+      "id": "headerSigningFounders",
+      "type": "Header",
+      "size": "L",
+      "textResourceBindings": {
+        "title": "Her kan man ha en overskrift"
       }
-    ]
+    },
+    {
+      "id": "signing-documents",
+      "type": "SigningDocumentList",
+      "textResourceBindings": {
+        "title": "Dokumenter som skal signeres",
+        "description": "Dokumenter som skal signeres beskrivelse"
+      }
+    },
+    {
+      "id": "signee-list",
+      "type": "SigneeList",
+      "textResourceBindings": {
+        "title": "Signaturer"
+      }
+    },
+    {
+      "id": "signing-actions",
+      "type": "SigningActions"
     }
+  ]
   }
+}
 ```
 
 You can override the text that is shown when the list is empty, before anyone signed, by adding a text resource override for the key `signee_list.no_signees` in the text resource files.

@@ -171,10 +171,10 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-### 3. Sende prossessen videre
+### 3. Sende prosessen videre
 
-Prossessen for instansen sendes videre ved å kalle `/process/next`-endepunktet.
-Avhengig av prossessdesignet i appen vil dette da instansen til et neste steg eller fullføre instansen.
+Prosessen for instansen sendes videre ved å kalle `/process/next`-endepunktet.
+Avhengig av prosessdesignet i appen vil dette da instansen til et neste steg eller fullføre instansen.
 I eksempelet under ser vi at instansen er ferdig innsendt. Tjenesteeier vil gi spesifikk dokumentasjon for appen det gjelder.
 
 ```http

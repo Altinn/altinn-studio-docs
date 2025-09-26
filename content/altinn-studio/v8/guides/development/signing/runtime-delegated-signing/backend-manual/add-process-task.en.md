@@ -1,9 +1,9 @@
 ---
+headless: true
 hidden: true
 ---
 
-### Extend the Application Process with a Signing Task
-
+#### Extend the application process with a signing task
 A signing task must be added to `App/config/process/process.bpmn`, as shown in the example below.
 
 We recommend doing this using the Altinn Studio process editor, so that the BPMN diagram is generated, to show the apps process.
@@ -34,7 +34,7 @@ If the Altinn user interface is used by the application, these actions will be t
         <altinn:signatureDataType>signatures</altinn:signatureDataType>
 
         <!-- This data type is used to store the signees and related information -->
-        <altinn:signeeStatesDataTypeId>signeesState</altinn:signeeStatesDataTypeId>
+        <altinn:signeeStatesDataTypeId>signeeState</altinn:signeeStatesDataTypeId>
 
         <!-- This ID tells the app which implementation of the C# interface -->
         <!-- ISigneeProvider that should be used for this signing step -->
@@ -48,9 +48,10 @@ If the Altinn user interface is used by the application, these actions will be t
         <!-- Setup of this resource is documented separately. -->
         <altinn:correspondenceResource>app-correspondence-resource</altinn:correspondenceResource>
 
-        <!-- We have made a default validator that can be enabled here. It checks that all signees -->
-        <!-- have signed and that minCount on the signature datatype is fulfilled. If default validation is not enabled, -->
-        <!-- custom validation of the signatures should be added. -->
+        <!-- We have made a default validator that can be enabled here. -->
+        <!-- It will validate that the required number of signatures configured is fulfilled. -->
+        <!-- (specified by the `minCount` property on the signature data type) -->
+        <!-- If default validation is not enabled, custom validation of the signatures should be added. -->
         <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
       </altinn:signatureConfig>
     </altinn:taskExtension>
@@ -60,157 +61,44 @@ If the Altinn user interface is used by the application, these actions will be t
 </bpmn:task>
 ```
 
-#### Configure environment specific correspondence resources
+#### Configure environment-specific correspondence resources
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/add-process-task-environments.en.md" %}}
 
-If you want to use environment specific correspondence resources you may configure them with the following syntax:
-```xml
-<altinn:signatureConfig>
-    ...
-  <altinn:correspondenceResource env="Development">app-correspondence-resource-1</altinn:correspondenceResource>
-  <altinn:correspondenceResource env="Staging">app-correspondence-resource-2</altinn:correspondenceResource>
-  <altinn:correspondenceResource env="Production">app-correspondence-resource</altinn:correspondenceResource>
-    ...
-</altinn:signatureConfig>
-```
-
-Altinn environment mapping:
-
-**Development** -> "development", "dev", "local", "localtest"
-
-**Staging**     -> "staging", "test", "at22", "at23", "at24", "tt02", "yt01"
-
-**Production**  -> "production", "prod", "produksjon"
-
-### Add data types for storing signing related data
-
+#### Add data types for storing signing related data
 These data types should be added to `dataTypes` in `App/config/applicationmetadata.json`.
 
 This data type is used during the signing task to store the signatures.
 
-```json
-{
-    "id": "signatures",
-    "allowedContentTypes": [
-        "application/json"
-    ],
-    "allowedContributors": [
-        "app:owned"
-    ],
-    "minCount": 1
-}
-```
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/add-process-task-code-01.en.md" %}}
 
 This data type is used to store information about the signers and their status.
 
-```json
-{
-    "id": "signeeState",
-    "allowedContentTypes": [
-        "application/json"
-    ],
-    "allowedContributors": [
-        "app:owned"
-    ],
-    "maxCount": 1,
-    "minCount": 1
-}
-```
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/add-process-task-code-02.en.md" %}}
 
-It is important to set `allowedContributors` to `"app:owned"`. This ensures that these data items cannot be edited via the app’s API but only by the app itself.
+It is important to set `allowedContributors`, `actionRequiredToRead` og `actionRequiredToWrite` as illustrated in the examples above. This ensures that these data items cannot be edited via the app's API but only by the app itself.
 
 The IDs of the data types must match the IDs set for `signatureDataType` and `signeeStatesDataTypeId` in the process configuration.
 
+#### Access control for users
+Give `read`, `write` and optionally `sign` to the role that should fill out the form.
 
-### Access control
+More information about action attributes can be found [here](/altinn-studio/reference/configuration/authorization/#action-attributes).
 
-  Give `read`, `write` and optionally `sign` to the role that should fill out the form.
+#### Access control for the app
+In order for the service to be able to delegate access rights to the signees, the app itself needs to have the right to delegate the `read` and `sign` actions.
 
-  In order for the service to be able to delegate access rights to the signees, the app needs to have the right to delegate the `read` and `sign` actions.
-  Below is an example which you can use in your policy.xml file.
+Below is an example of a policy rule that accomplishes this. For the code to work in your own app, please follow these steps:
+- Replace `ttd` with the correct org.
+- Replace `app_ttd_signering-brukerstyrt` with your own org and app name inserted into this template: `app_{org}_{app-name}`.
+- Replace `signering-brukerstyrt` with your app name
+- Modify the RuleId attribute to fit nicely into your policy.xml.
 
-  - Replace `ttd` with the correct org.
-  - Replace `app_ttd_signering-brukerstyrt` with your own org and app name inserted into this template: `app_{org}_{app-name}`.
-  - Replace `signering-brukerstyrt` with your app name
-  - Modify the RuleId attribute to fit nicely into your policy.xml.
+<!-- Dummy to force end of list rendering -->
+<span></span>
 
-  ```xml
-  <xacml:Rule RuleId="urn:altinn:org:ttd:signering-brukerstyrt:ruleid:7" Effect="Permit">
-    <xacml:Description>
-        A rule defining all instance delegation rights the App itself is allowed to perform for instances of the app ttd/signering-brukerstyrt. In this example the app can delegate the Read and Sign actions for task SigningTask.
-    </xacml:Description>
-    <xacml:Target>
-        <xacml:AnyOf>
-            <xacml:AllOf>
-                <xacml:Match
-                    MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
-                    <xacml:AttributeValue
-                        DataType="http://www.w3.org/2001/XMLSchema#string">
-                        app_ttd_signering-brukerstyrt
-                    </xacml:AttributeValue>
-                    <xacml:AttributeDesignator
-                        AttributeId="urn:altinn:resource:delegation"
-                        Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
-                        DataType="http://www.w3.org/2001/XMLSchema#string"
-                        MustBePresent="false"
-                    />
-                </xacml:Match>
-            </xacml:AllOf>
-        </xacml:AnyOf>
-        <xacml:AnyOf>
-            <xacml:AllOf>
-                <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">ttd</xacml:AttributeValue>
-                    <xacml:AttributeDesignator
-                        AttributeId="urn:altinn:org"
-                        Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
-                        DataType="http://www.w3.org/2001/XMLSchema#string"
-                        MustBePresent="false"
-                    />
-                </xacml:Match>
-                <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">signering-brukerstyrt</xacml:AttributeValue>
-                    <xacml:AttributeDesignator
-                        AttributeId="urn:altinn:app"
-                        Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
-                        DataType="http://www.w3.org/2001/XMLSchema#string"
-                        MustBePresent="false"
-                    />
-                </xacml:Match>
-                <xacml:Match
-                    MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">SigningTask</xacml:AttributeValue>
-                    <xacml:AttributeDesignator
-                        AttributeId="urn:altinn:task"
-                        Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
-                        DataType="http://www.w3.org/2001/XMLSchema#string"
-                        MustBePresent="false"
-                    />
-                </xacml:Match>
-            </xacml:AllOf>
-        <xacml:AnyOf>
-            <xacml:AllOf>
-                <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
-                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">read</xacml:AttributeValue>
-                    <xacml:AttributeDesignator
-                        AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id"
-                        Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action"
-                        DataType="http://www.w3.org/2001/XMLSchema#string"
-                        MustBePresent="false"
-                    />
-                </xacml:Match>
-            </xacml:AllOf>
-            <xacml:AllOf>
-                <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
-                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">sign</xacml:AttributeValue>
-                    <xacml:AttributeDesignator
-                        AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id"
-                        Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action"
-                        DataType="http://www.w3.org/2001/XMLSchema#string"
-                        MustBePresent="false"
-                    />
-                </xacml:Match>
-            </xacml:AllOf>
-        </xacml:AnyOf>
-    </xacml:Target>
-  </xacml:Rule>
-  ```
+{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/add-process-task-code-03.en.md" %}}
+
+#### Access control for service owners
+Give `signature-access` to service owners. This allows bearers of a service owner token to interact with the restricted data in signature objects.
+
+More information about this concept can be found [here](/altinn-studio/concepts/data-model/restricted-data/).

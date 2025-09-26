@@ -8,27 +8,33 @@ aliases:
   - /altinn-studio/guides/signing/runtime-delegated-signing
 ---
 
+{{% insert "content/altinn-studio/guides/development/restricted-data/shared/style.css.md" %}}
+
 {{%notice info%}}
 Available from [v8.6.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.6.0)
 {{%/notice%}}
 
-## What does runtime delegated signing mean?
-
+## What is runtime delegated signing?
 {{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/intro.en.md" %}}
 
 ## Prerequisites
 
-Runtime delegated signing depends on the message service (Correspondence) in Altinn, which requires separate configuration.
+### Maskinporten
+Maskinporten is required both for the [messaging service](#correspondence) and the interaction with [restricted data](/altinn-studio/guides/development/restricted-data/).
+
+If you need help setting up a Maskinporten integration for your app, you can find all the information you need in [this guide](/altinn-studio/guides/integration/maskinporten/).
+
+### Correspondence
+Runtime delegated signing depends on the messaging service ([Correspondence](/correspondence/)) in Altinn, which requires separate configuration.
 
 The message service is used to tell the signee that they have been asked to sign a form in Altinn, and to send them a receipt of what they signed when the signature has been submitted.
 
 See how to get started in [this guide]({{< relref "/correspondence/getting-started/" >}}).
 
 ## Example Application
-
 In the following [repository](https://altinn.studio/repos/ttd/signering-brukerstyrt), you can find an example of an application with runtime delegated signing.
 
-The main flow is:
+The main flow is: 
 
 1. The form filler enters the personal identification number and last name of the individuals who need to sign, or alternatively, the organization number if it is a company.
 2. Once the form is completed, the filler clicks a "Go to signing" button, which moves the process to the signing step.
@@ -57,7 +63,7 @@ Below are the key configuration steps for setting up such an application.
 
 {{<content-version-selector classes="border-box">}}
 
-{{<content-version-container version-label="Manual setup">}}
+{{<content-version-container version-label="Manual setup">}} 
 {{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/configure-layouts.en.md" %}}
 {{</content-version-container>}}
 
@@ -191,5 +197,4 @@ These are the possible override configurations for the signee communication:
 {{</content-version-selector>}}
 
 ## 7. Testing
-
 {{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/test.en.md" %}}
