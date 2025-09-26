@@ -16,4 +16,4 @@ In addition mobile apps and external governmental portal consumes Altinn APIs to
 Organisations also have seperate APIs to interact with the apps. The below figure shows the different consumers of the API's and show that consumers both
 interact with the app APIs and the shared platform APIs.
 
-[See Open API spec](../../../../api/apps/spec/)
+[See Open API spec](/en/api/apps/spec/)

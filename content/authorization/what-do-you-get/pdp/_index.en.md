@@ -5,7 +5,7 @@ description: The Policy Decision Point is responsible to evaluate if users and s
 tags: [architecture, security, authorization, xacml]
 ---
 
-The Policy Decision Point is implemented in the [access control component](../../../../authorization/reference/architecture/accesscontrol/) that is deployed to Altinn Platform.
+The Policy Decision Point is implemented in the [access control component](/en/authorization/reference/architecture/accesscontrol/) that is deployed to Altinn Platform.
 
 The Policy Decision Point follow [eXtensible Access Control Markup Language (XACML) Version 3.0](https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html).
 

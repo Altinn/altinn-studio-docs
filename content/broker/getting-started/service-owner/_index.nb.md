@@ -32,7 +32,7 @@ For at filer skal kunne sendes med Altinn Formidling, må de være tilknyttet en
 En ressurs representerer en spesifikk funksjon eller et sett av funksjoner som brukes til å administrere tilgang og regler for filoverføring. 
 Ressurser registreres via Altinn Studio og brukes til å definere tilgangsregler og tilgangslister, som sikrer at bare autoriserte brukere kan utføre bestemte handlinger.
 
-1. Logg inn på Altinn Studio og naviger til ressursdashboardet, Se [Ressursregister](../../../../authorization/what-do-you-get/resourceregistry/) for en detaljert veiledning.
+1. Logg inn på Altinn Studio og naviger til ressursdashboardet, Se [Ressursregister](/nb/authorization/what-do-you-get/resourceregistry/) for en detaljert veiledning.
 2. Opprett ny ressurs, følg veiledningen og fyll inn nødvendig informasjon og detaljer om tjenesten.
 3. Angi tilgangsregler for ressursen.
 4. Tilgangsregler må for ressursen må konfigureres slik at de tillater følgende handlinger:
@@ -65,7 +65,7 @@ Bruk ID-en til ressursen du opprettet i trinn 3, og kall API-operasjonen for å 
 
 ## 6. Configure system
 
-Systembruker er den typiske autentiseringsmetoden man bruker for formidlingstjenesten.  [Se systembrukerdokumentasjon for hvordan dette settes opp](../../../../authorization/guides/system-vendor/system-user/).
+Systembruker er den typiske autentiseringsmetoden man bruker for formidlingstjenesten.  [Se systembrukerdokumentasjon for hvordan dette settes opp](/nb/authorization/guides/system-vendor/system-user/).
 
 ## Hvordan migrere fra Altinn 2 til Altinn 3 {#how-to-migrate-from-Altinn-2-to-Altinn-3}
 

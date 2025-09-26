@@ -28,7 +28,7 @@ Perform steps 1 and 2 of the [Common Get started steps]({{< relref "/broker/gett
 
 ## 3. Register a Resource in Altinn Resource Registry {#register-a-resource-in-altinn-resource-registry}
 
-All files sent using Broker is associated with a resource/service/"tjenesteressurs". See [Resource Registry](../../../../authorization/what-do-you-get/resourceregistry/).
+All files sent using Broker is associated with a resource/service/"tjenesteressurs". See [Resource Registry](/en/authorization/what-do-you-get/resourceregistry/).
 Resources can be registered through Altinn Studio, and are used for access rules and access lists.
 Your policy must be configured in such a way that that they permit the actions:
 
@@ -59,7 +59,7 @@ Using the ID of the resource you created in step 3, call the API operation to [c
 
 ## 6. Configure system
 
-Systemuser is the typical authentication method used with the Broker service. [Consult the systemuser documentation for how to set this up](../../../../authorization/guides/system-vendor/system-user/).
+Systemuser is the typical authentication method used with the Broker service. [Consult the systemuser documentation for how to set this up](/en/authorization/guides/system-vendor/system-user/).
 
 ## How to migrate from Altinn 2 to Altinn 3 {#how-to-migrate-from-Altinn-2-to-Altinn-3}
 

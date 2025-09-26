@@ -27,7 +27,7 @@ By authenticating against Maskinporten with the relevant client, one then receiv
 
 This Maskinporten token must be exchanged for an Altinn token.
 
-The setup of the Maskinporten client and the exchange process are described [here](/en/api/authentication/maskinporten/").
+The setup of the Maskinporten client and the exchange process are described [here](/en/authorization/getting-started/maskinportenclient/").
 
 ## Set up access management in your own application
 
