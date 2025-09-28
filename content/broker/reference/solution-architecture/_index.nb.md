@@ -227,7 +227,7 @@ Relativ lenke: [Varslingskomponenten i Altinn]({{< relref "/notifications/" >}})
 -->
 
 Varsler til menneskelige sluttbrukere via e-post og sms
-er realisert via [Varslingskomponenten i Altinn](nb/notifications/).
+er realisert via [Varslingskomponenten i Altinn](/nb/notifications/).
 
 
 ### Varsler til sluttbrukersystemer

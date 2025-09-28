@@ -57,7 +57,7 @@ Vedlegg kan brukes både på forsendelse- og dialognivå.
 
 En _handling_ beskriver en interaksjon som brukere kan utføre med eller relatert til en dialog. Eksempler på handlinger er "Åpne", "Start signering", "Betal", "Bekreft", "Lær mer", "Avbryt" osv. Listen over relevante handlinger er en del av den strukturerte beskrivelsen av en dialog og kan endres når som helst av tjenesteleverandøren gjennom API-et.
 
-En handling er enten en _"GUI"-handling_ eller en _"API"-handling_. Alle handlinger - både GUI og API - har en identifikator som kartlegger til en _handling_ (og eventuelt et [autorisasjonsattributt]({{< relref "/dialogporten/getting-started/authorization/attributes" >}})) i autorisasjonspolicyen ([XACML](../../../../authorization/reference/xacml/)) knyttet til en [tjenesteressurs]({{< relref "/dialogporten/getting-started/authorization/service-resource" >}}).
+En handling er enten en _"GUI"-handling_ eller en _"API"-handling_. Alle handlinger - både GUI og API - har en identifikator som kartlegger til en _handling_ (og eventuelt et [autorisasjonsattributt]({{< relref "/dialogporten/getting-started/authorization/attributes" >}})) i autorisasjonspolicyen ([XACML](/nb/authorization/reference/xacml/)) knyttet til en [tjenesteressurs]({{< relref "/dialogporten/getting-started/authorization/service-resource" >}}).
 
 ### GUI-handlinger
 

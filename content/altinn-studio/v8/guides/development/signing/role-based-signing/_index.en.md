@@ -26,7 +26,7 @@ If your app is [configured to send signature receipts](#extend-the-app-process-w
 
 See how to get started in [this guide](/en/correspondence/getting-started/).
 
-## 1. Add a signing task to the app process, with related configuration
+## 1. Add a signing task to the app process, with related configuration {#extend-the-app-process-with-a-signing-task}
 
 {{<content-version-selector classes="border-box">}}
 

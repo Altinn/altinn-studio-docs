@@ -32,4 +32,4 @@ In Altinn Platform different types of data is stored
 The requirement is that we are able to restore data up to 90 days.
 The platform support this requirement for all types of data listed above.
 
-[See all details about the backup and recovery components](/en/technology/architecture/capabilities/devops/platformoperations/backupandrecovery/).
+[See all details about the backup and recovery components](/en/technology/architecture/components/application/nonsolutionspecific/operations/backupandrecovery/).

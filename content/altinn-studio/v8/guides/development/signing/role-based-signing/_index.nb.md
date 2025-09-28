@@ -25,7 +25,7 @@ Hvis appen din er [konfigurert til å sende signaturkvitteringer](#utvid-app-pro
 
 [Slik kommer du i gang med meldingstjenesten](/nb/correspondence/getting-started/).
 
-## 1. Legg til en signeringsoppgave i appens prosess, med tilhørende konfigurasjon
+## 1. Legg til en signeringsoppgave i appens prosess, med tilhørende konfigurasjon {#utvid-app-prosessen-med-et-signeringssteg}
 
 {{<content-version-selector classes="border-box">}}
 

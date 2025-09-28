@@ -22,7 +22,7 @@ The UI part of the template is a flexible UI where the application developers ca
 
 The developer configures and maps UI components to the data models defined for the digital service in the UI designer in Altinn Studio.
 
-[Read more about the UI and fronted capabilities.](ui)
+[Read more about the UI and fronted capabilities.](/en/app-template/ui/)
 
 ## Flexible process support
 
@@ -30,14 +30,14 @@ The app template has a built-in process engine that handles typical processes fo
 
 The app developer can add business logic related to the process events.
 
-[Read more about the process capabilities.](processhandling)
+[Read more about the process capabilities.](/en/altinn-studio/v8/reference/process/)
 
 ## Application template API
 
 The application template contains API to support all common scenarios. 
 If you create an application based on the template, it is ready to be consumed by mobile applications, enterprise systems, and others.
 
-[Get all the details about the template APIs](app-api)
+[Get all the details about the template APIs](/en/api/apps/)
 
 ## Flexible and configurable business logic
 
@@ -48,4 +48,4 @@ If you create an application based on the template, it is ready to be consumed b
 
 The Altinn App Template has an architecture that allows various frameworks and technologies to realize it.
 
-[Read more about the template architecture](architecture)
+[Read more about the template architecture](/en/technology/architecture)

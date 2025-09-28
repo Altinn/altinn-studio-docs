@@ -160,7 +160,7 @@ Sluttresultatet i appen:
 
 For et komplett oppsett av denne muligheten kan du se vår [eksempel applikasjon.](https://altinn.studio/repos/ttd/custom-view-confirm)
 
-## Tilbakemelding (Feedback)
+## Tilbakemelding (Feedback) {#feedback}
 
 Dette er et prosesssteg hvor applikasjonseier vil sjekke utfylte data for å generere en tilbakemelding før alle data kan arkiveres.
 

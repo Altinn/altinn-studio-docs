@@ -126,7 +126,7 @@ Actions are not mandatory, but most dialogs should indicate how the user is expe
 
 ### Authorizing actions
 
-Actions have themselves an `action` property that corresponds to a [XACML action]({{< relref "/authorization/reference/xacml/#action" >}}) defined in the referred service resource's [policy]({{< relref "/authorization/reference/xacml/#xacml-policy" >}}). Dialogporten will check if the authenticated user is allowed to perform the specified action on the referred service resource for the dialog's party, and if not, will flag the action as `isAuthorized: false` and remove the supplied URL. End-user systems should indicate to the end-user that the action exists, but that access is missing - and if possible, provide information on how to request access (which is out of scope for Dialogporten).
+Actions have themselves an `action` property that corresponds to a [XACML action](/en/authorization/reference/xacml/#action) defined in the referred service resource's [policy](/en/authorization/reference/xacml/#xacml-policy). Dialogporten will check if the authenticated user is allowed to perform the specified action on the referred service resource for the dialog's party, and if not, will flag the action as `isAuthorized: false` and remove the supplied URL. End-user systems should indicate to the end-user that the action exists, but that access is missing - and if possible, provide information on how to request access (which is out of scope for Dialogporten).
 
 {{<notice warning>}}While Dialogporten will check authorization for the action and remove the URL if the check fails, the service owner system MUST perform its own authorization based on the same policy{{</notice>}}
 

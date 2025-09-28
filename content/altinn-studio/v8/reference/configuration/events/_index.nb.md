@@ -5,7 +5,7 @@ toc: true
 weight: 400
 ---
 
-## Aktivere generering av events i applikasjonen din
+## Aktivere generering av events i applikasjonen din {#activate-generation-of-events-in-your-application}
 
 {{%notice info%}}
 For at applikasjonen din skal kunne generere events må den referere til nugetversjon >= 1.2.4.
@@ -21,7 +21,7 @@ I filen `appsettings.json` i mappen _App_ må følgende legges til i seksjonen _
 "RegisterEventsWithEventsComponent": true
 ```
 
-## Pushe egendefinerte events i applikasjonen din
+## Pushe egendefinerte events i applikasjonen din {#pushing-self-defined-events-into-your-application}
 
 Servicen `IEvents` er eksponert i applikasjonen og kan dependency injectes
 i den klassen der du har behov for å generere et egendefinert event. 

@@ -27,7 +27,7 @@ Ved å autentisere seg mot Maskinporten med den aktuelle klientene får man da e
 
 Dette Maskinporten tokenet må veksles inn til et Altinn token.
 
-Oppsett av Maskinportenklient og innveksling er beskrevet [her](/nb/api/authentication/maskinporten/).
+Oppsett av Maskinportenklient og innveksling er beskrevet [her](/nb/authorization/getting-started/authentication/).
 
 ## Sette opp tilgangs håndtering i egen applikasjon
 

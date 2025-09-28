@@ -11,7 +11,7 @@ Innholdet i malen brukes av en partial (`get-content.html`) via shortcoden `prop
   * Shortcoden kalles med argumentet `prop="{propName}"`. `propName` må samsvare med filnavn (se under).
 
 ## Hvordan bruke malen
-1. **Filnavn**: Kopier malen (denne eller [_TEMPLATE.md](/altinn-studio/v8/reference/ux/components/_common-props-content/_template)) og gi den navn på formatet `{propName}.{languageCode}.md`. Opprett en fil for hvert språk. Alle filer skal ligge direkte under `_common-props-content`.
+1. **Filnavn**: Kopier malen (denne eller [_TEMPLATE.md](/nb/altinn-studio/v8/reference/ux/components/_common-props-content/_template)) og gi den navn på formatet `{propName}.{languageCode}.md`. Opprett en fil for hvert språk. Alle filer skal ligge direkte under `_common-props-content`.
 2. **Legg til innhold**: Legg til innhold mellom `begin`- og `end`-kommentarer. Se beskrivelse over hver seksjon. **NB! `begin`- og `end`-kommentarer må ikke endres eller slettes!**
 3. **Bilder**: Bilder skal ligge i mappen `/assets/images/component-settings/`. For å legge til bilder, bruk shortcode `image.html` med argument
     `file="component-settings/{screenshot.png}"`.

@@ -36,7 +36,7 @@ During the development of a feature, we have several processes and tools to help
 ### Development checklists
 We have a development checklists that ensures that developers and reviewers consider the different security aspects.
 
-See [checklist](checklist).
+See [checklist]({{<relref "checklist/">}}).
 
 ### IDE and tools
 We use both Visual Studio and Visual Studio Code. Those provide us with tools for static code analysis.

@@ -6,7 +6,7 @@ tags: [architecture, plan, authorization, needstranslation]
 ---
 
 ### Viktig informasjon til tjenesteeiere av «Delegerbare API ressurser» i Altinn
-[Infoskriv API ressurser](/en/authorization/migration/informasjon-sent/letter-api-resources/)
+[Infoskriv API ressurser](/en/authorization/migration/informasjon-sent/letter-api-resources)
 
 ### Høring til tjenesteeiere – forslag til nye tilgangspakker som skal erstatte dagens Altinn2 roller
-[Høring tilgangspakker](/en/authorization/migration/informasjon-sent/letter-accessgroupes/)
+[Høring tilgangspakker](/en/authorization/migration/informasjon-sent/letter-accessgroupes)

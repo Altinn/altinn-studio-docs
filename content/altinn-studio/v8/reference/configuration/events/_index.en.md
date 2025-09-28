@@ -5,7 +5,7 @@ toc: true
 weight: 400
 ---
 
-## Activate generation of events in your application
+## Activate generation of events in your application {#activate-generation-of-events-in-your-application}
 
 {{%notice info%}}
 To allow generating events for your application it must refer to nuget version >= 1.2.4.
@@ -21,7 +21,7 @@ In the file `appsettings.json` in the folder _App_ the following should be added
 "RegisterEventsWithEventsComponent": true
 ```
 
-## Pushing self defined events into your application
+## Pushing self defined events into your application {#pushing-self-defined-events-into-your-application}
 
 The service `IEvents` is exposed in the application and can be dependency injected
 into the class where you need to generate a self defined event.

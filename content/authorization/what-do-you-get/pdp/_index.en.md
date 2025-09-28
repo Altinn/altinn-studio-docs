@@ -37,7 +37,7 @@ Url for API is
 
 Api Key need to be sent as "Ocp-Apim-Subscription-Key" header.
 
-It requires a Altinn bearer token (header name Authorization). Use Maskinporten and exchange to Altinn. Details [here](/en/api/authentication/maskinporten/")
+It requires a Altinn bearer token (header name Authorization). Use Maskinporten and exchange to Altinn. Details [here](/en/authorization/getting-started/authentication/maskinporten/)
 
 Example request from TT02
 

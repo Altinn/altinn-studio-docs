@@ -40,7 +40,7 @@ for a long time.
 - and then we have **Switzerland**, showing everybody
 [how it should be done!](https://interoperable-europe.ec.europa.eu/collection/open-source-observatory-osor/news/new-open-source-law-switzerland)
 
-We facilitate reuse and sharing at all levels of the Altinn architecture, from [our principles](/en/principles)
+We facilitate reuse and sharing at all levels of the Altinn architecture, from [our principles](/en/technology/architecture/principles)
 to the entire platform and infrastructure, down to design and UI-widgets, code and configuration.
 
 This is also one of several reasons why Altinn is now a [Digital Public Good (DPG)](https://digitalpublicgoods.net/),

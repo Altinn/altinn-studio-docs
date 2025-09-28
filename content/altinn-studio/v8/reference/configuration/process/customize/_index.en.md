@@ -163,7 +163,7 @@ The end result:
 
 For a complete setup of this feature see our [example app.](https://altinn.studio/repos/ttd/custom-view-confirm)
 
-## Feedback
+## Feedback {#feedback}
 
 This is a process step where the application owner can validate the filled data to generate a feedback before the data is archived.
 

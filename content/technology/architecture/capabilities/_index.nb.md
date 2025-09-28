@@ -8,7 +8,7 @@ aliases:
 - /teknologi/altinnstudio/architecture/capabilities/
 ---
 
-Functional capabilities are described in the functional description of the [solutions](/nb/solutions).
+Functional capabilities are described in the functional description of the [solutions](/nb/technology/solutions).
 
 ### Runtime capabilities
 
@@ -19,7 +19,7 @@ An example could be authorization. The architecture provides the capability to a
 Since Altinn 3 is a platform letting its users develop applications and deploy them, you will see that many capabilities that 
 typical is DevOps capabilities in other projects, is part of the runtime capabilities. An example of this is the capability to build and deploy applications
 
-[Learn more about Altinn 3 runtime capabilities](runtime).
+[Learn more about Altinn 3 runtime capabilities](/nb/technology/architecture/capabilities/runtime/).
 
 ### DevOps capabilities
 
@@ -29,6 +29,6 @@ Some capabilities are provided by application and tools and other is provided by
 
 An example capability is to be able to configure the infrastructure.
 
-[Learn more about Altinn 3 DevOps capabilities](devops).
+[Learn more about Altinn 3 DevOps capabilities](/nb/technology/architecture/capabilities/devops/).
 
 {{<children />}}
