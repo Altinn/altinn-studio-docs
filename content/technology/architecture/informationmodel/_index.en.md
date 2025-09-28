@@ -53,7 +53,7 @@ aliases:
 |-----|------|
 | Instance | An instance works as a form of envelope or folder where data can be collected and exchanged between the user and owner of the application. The instance document is a way for Altinn and external parties to track the state of one specific data exchange.  |
 | Data element | The data element model is the main model for metadata related to a specific data element. A data element can be any data associated with an instance. The two most common type of data is the actual form data and attachments. |
-| Instance Events |  Instance events contains information about changes on instances. [Read more](/technology/solutions/altinn-platform/storage/#instanceevent)  |
+| Instance Events |  Instance events contains information about changes on instances. [Read more](/en/technology/solutions/altinn-platform/storage/#instanceevent)  |
 
 ### Altinn Notifications
 

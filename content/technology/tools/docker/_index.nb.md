@@ -6,7 +6,7 @@ tags: [tech, containers, needstranslation]
 
 ![Docker logo](docker.png "Docker logo")
 
-Docker is used as the container technology for hosting [Altinn Studio Designer](/nb/altinn-studio) and [Altinn Studio Repos](/nb/altinn-studio-repos).
+Docker is used as the container technology for hosting [Altinn Studio Designer](/nb/altinn-studio) and [Altinn Studio Repos](/nb/altinn-studio/v8/repos).
 
 In [Altinn Apps](/nb/altinn-studio-apps) it is used to host the different apps created in Altinn Studio as seperate containers.
 

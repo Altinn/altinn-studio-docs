@@ -40,7 +40,7 @@ som sier at kildekode skal deles, og ikke bare det, men at man også bør bidra 
 - også har vi **Sveits** da, som virkelig
 [viser alle hvordan det skal gjøres](https://interoperable-europe.ec.europa.eu/collection/open-source-observatory-osor/news/new-open-source-law-switzerland)
 
-Vi legger til rette for gjenbruk og deling på alle nivåer i arkitekturen til Altinn, fra [våre prinsipper](/nb/principles)
+Vi legger til rette for gjenbruk og deling på alle nivåer i arkitekturen til Altinn, fra [våre prinsipper](/nb/technology/architecture/principles)
 til hele plattformen og infrastrukturen, ned til design og GUI-komponenter, kode og konfigurasjon.
 
 Dette er også en av flere grunner til at Altinn nå er et [digitalt fellesgode (DPG)](https://digitalpublicgoods.net/),

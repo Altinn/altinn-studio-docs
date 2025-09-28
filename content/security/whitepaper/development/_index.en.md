@@ -32,7 +32,7 @@ Altinn has several important architecture principles that support security:
 - Prefer managed services (PaaS) over IaaS services
 - Defense in depth
 
-More information about the principles can be found at https://docs.altinn.studio/principles/
+More information about the principles can be found at https://docs.altinn.studio/technology/architecture/principles/
 
 ## Third-party vendors and supply chains
 

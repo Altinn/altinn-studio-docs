@@ -31,7 +31,7 @@ Altinn har flere viktige arkitekturprinsipper som understøtter sikkerhet:
 - Å foretrekke administrerte tjenester (PaaS) fremfor IaaS-tjenester
 - Sikkerhet i dybden
 
-Mer informasjon om prinsippene finnes på https://docs.altinn.studio/principles/
+Mer informasjon om prinsippene finnes på https://docs.altinn.studio/technology/architecture/principles/
 
 ## Tredjepartsleverandører og leverandørkjeder
 
