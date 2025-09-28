@@ -5,7 +5,7 @@ weight: 100
 toc: true
 ---
 
-På [forrige side]({{< relref "/altinn-studio/v8/guides/integration/" >}}) gikk vi gjennom hvordan man setter opp en [ressurs]({{< relref "/altinn-studio/v8/guides/integration/#altinn-ressurs" >}}) og versjonskravene
+På [forrige side]({{< relref "/altinn-studio/v8/guides/integration/" >}}) gikk vi gjennom hvordan man setter opp en [ressurs]({{< relref "/altinn-studio/v8/guides/integration/correspondence/#altinn-ressurs" >}}) og versjonskravene
 for meldingsklienten.
 
 Vi kan nå gå videre til [oppsett av Maskinporten](#maskinporten) og [applikasjonskode](#applikasjonskode).

@@ -13,7 +13,7 @@ Sikkerhetskoordinatoren deltar også i faggruppen sikkerhet i avdelingen BOD i D
 Utviklingsprosessen blir kontinuering forbedret.
 
 <figure>
-<object title="Sikker DevOps" data="devops.svg" type="image/svg+xml"></object>
+<object title="Sikker DevOps" data="/nb/security/whitepaper/development/devops.svg" type="image/svg+xml"></object>
 <figcaption>Figur 2 - Sikker DevOps</figcaption>
 </figure>
 

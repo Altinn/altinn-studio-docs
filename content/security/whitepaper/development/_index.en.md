@@ -14,7 +14,7 @@ The Security Coordinator also participates in the security group in the BOD depa
 The development process is continuously improved.
 
 <figure>
-<object title="Secure DevOps" data="devops.svg" type="image/svg+xml"></object>
+<object title="Secure DevOps" data="/en/security/whitepaper/development/devops.svg" type="image/svg+xml"></object>
 <figcaption>Figure 2 - Secure DevOps</figcaption>
 </figure>
 

@@ -5,7 +5,7 @@ weight: 100
 toc: true
 ---
 
-On the [previous page]({{< relref "/altinn-studio/v8/guides/integration/" >}}), we went through how to set up a [resource]({{< relref "/altinn-studio/v8/guides/integration/#altinn-resource" >}}) and the versioning requirements
+On the [previous page]({{< relref "/altinn-studio/v8/guides/integration/" >}}), we went through how to set up a [resource]({{< relref "/altinn-studio/v8/guides/integration/correspondence/#altinn-resource" >}}) and the versioning requirements
 for the correspondence client.
 
 We can now proceed to the [Maskinporten setup](#maskinporten-setup) and the [application code](#application-code).
