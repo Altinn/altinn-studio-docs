@@ -59,7 +59,7 @@ Add the following sections if relevant:
 -->
 ### Related
 
-- [`AccordionGroup`]({{< relref "/altinn-studio/v8/reference/ux/components/accordiongroup/" >}})
+- [`AccordionGroup`](/en/altinn-studio/v8/reference/ux/components/accordiongroup/)
 
 
 ## Properties
@@ -85,7 +85,7 @@ If no argument is given, the shortcode pulls the component name from 'schemaname
 
 ### Add component
 
-You can add a component in [Altinn Studio Designer]({{< relref "/altinn-studio/v8/getting-started/" >}}) by dragging it from the left-side panel to the middle page area.
+You can add a component in [Altinn Studio Designer](/en/altinn-studio/v8/getting-started/) by dragging it from the left-side panel to the middle page area.
 Selecting the component brings up its configuration panel on the right-hand side.
 
 ### Settings in Altinn Studio Designer
@@ -141,7 +141,7 @@ App/ui/layouts/{page}.json
 
 #### `textResourceBindings.title`
 
-The title for the Accordion can be added as text directly or referenced via a text key to a [text resource]({{< relref "/altinn-studio/v8/reference/ux/texts/#add-and-change-texts-in-an-application" >}}).
+The title for the Accordion can be added as text directly or referenced via a text key to a [text resource](/en/altinn-studio/v8/reference/ux/texts/#add-and-change-texts-in-an-application).
 
 #### `children`
 

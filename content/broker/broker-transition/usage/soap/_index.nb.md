@@ -57,7 +57,7 @@ Ingen funksjonell forskjell i request. Svaret vil inneholde en pseudo-kvittering
 Siden opplastingen og behandling av opplastet fil er en asynkron prosess i Altinn 3, vil den umiddelbare kvitteringsstatus mottatt fra request ikke nødvendigvis gjenspeile den endelige tilstanden til filen.
 Altinn 2 SOAP Formidlingstjeneste tilbyr ingen funksjon som lar sluttbrukere bekrefte at en fil er blitt behandlet og er klar til nedlasting for mottakere.
 
-Hvis mulig, bør du vurdere å legge til trinn som ringer til [Få fil kvittering]({{< relref "/broker/broker-transition/usage/rest/#get-file-receipt-outbox-sender" >}}) for å sikre at filen er blitt behandlet.
+Hvis mulig, bør du vurdere å legge til trinn som ringer til [Få fil kvittering](/nb/broker/broker-transition/usage/rest/#get-file-receipt-outbox-sender) for å sikre at filen er blitt behandlet.
 Hvis du ikke ønsker å implementere REST, er en mulig workaround å implementere en forespørsel som henter tilgjengelige filer for mottakerne for å sikre at filen du lastet opp er gjort tilgjengelig.
 {{% /notice %}}
 

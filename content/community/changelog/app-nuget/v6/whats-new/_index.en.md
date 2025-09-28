@@ -23,5 +23,5 @@ and sets changed rows/values to `null` when changes in `ProcessDataWrite()` caus
 Upgrades App to .Net 6. See Breaking
 
 
-See [breaking changes]({{< relref "/community/changelog/app-nuget/v6/breaking-changes" >}}) for how to update you app to be compatible with this version.
+See [breaking changes](/en/community/changelog/app-nuget/v6/breaking-changes/) for how to update you app to be compatible with this version.
 

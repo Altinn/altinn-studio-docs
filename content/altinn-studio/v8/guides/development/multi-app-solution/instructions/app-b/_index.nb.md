@@ -31,7 +31,7 @@ for applikasjon B er å hente ut dataene mottatt
 fra applikasjon A og representere eller behandle dem på en måte.
 
 Hvis du bruker presentasjonsfelt eller prefill, som forklart
-i [alternativ 1 og 2 i den siste delen av app A-instruksjonene]({{< relref "/altinn-studio/v8/guides/development/multi-app-solution/instructions/app-a#kontrollere-data-i-app-b" >}})
+i [alternativ 1 og 2 i den siste delen av app A-instruksjonene](/nb/altinn-studio/v8/guides/development/multi-app-solution/instructions/app-a#kontrollere-data-i-app-b)
 , er ingen tilpasset kode nødvendig.
 
 Hvis du benytter alternativ 3, må dataene aktivt hentes fra instansen. Dette gjøres ved å bruke

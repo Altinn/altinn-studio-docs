@@ -15,7 +15,7 @@ weight: 60
 
 Altinn Formidling følger beste praksis for informasjonssikkerhet
 slik dette er redegjort for under 
-[Altinn sikkerhet ]({{< relref "/security/" >}}).
+[Altinn sikkerhet ](/nb/security/).
 
 
 ## Trusselvurderinger
@@ -117,10 +117,10 @@ Trusselvurderinger for Altinn Formidling er gjort med utgangspunkt i
 
 ## Vurdering av personvernkonsekvenser (DPIA)
 
-Se under [Altinn sikkerhet ]({{< relref "/security/" >}}) for en detaljert 
+Se under [Altinn sikkerhet ](/nb/security/) for en detaljert 
 vurdering av personvernkonsekvenser (DPIA) om  skybasert drift av Altinn-løsningene. 
 Disse vurderingene dekker Altinn Formidling.
 
 ## Sikkerhetskontroller i Altinn Formidling
 
-Se [Altinn Formidling løsningsarkitektur om sikkerhetskontroller]({{< relref "/broker/reference/solution-architecture/#security-controls" >}}).
+Se [Altinn Formidling løsningsarkitektur om sikkerhetskontroller](/nb/broker/reference/solution-architecture/#security-controls).

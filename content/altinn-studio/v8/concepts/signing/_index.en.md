@@ -12,7 +12,7 @@ An authenticated electronic signature allows service owners to ensure traceabili
 
 Service owners must make their own assessment of which electronic signature they want and need for their services, based on the requirements for signature and traceability in the regulations for which each service owner is responsible.
 
-Technical guides for configuring signing can be found [here]({{< relref "/altinn-studio/v8/guides/development/signing" >}}).
+Technical guides for configuring signing can be found [here](/en/altinn-studio/v8/guides/development/signing/).
 
 ## Functionality
 
@@ -38,7 +38,7 @@ The service owner is the data controller for the processing of personal data in 
 
 After the process in Altinn 3 is completed, the service owner can download all data, including the signature object. The end user receives a receipt (PDF).
 
-You may configure the persistence lifetime of the instance and its data by configuring [Persistence]({{< relref "/altinn-studio/v8/reference/data/persistence/" >}}). If not configured, the following applies:
+You may configure the persistence lifetime of the instance and its data by configuring [Persistence](/en/altinn-studio/v8/reference/data/persistence/). If not configured, the following applies:
 
 The service owner acknowledges that the signature object and associated data have been downloaded. The end user can choose to keep or delete their receipt for the signing from their inbox. If the end user chooses to delete their receipt after the service owner has downloaded the signature object, this means that Digdir deletes the signature object from our systems. Therefore, if you wish to archive the signature, the signature object and associated data must be stored in the service owner's systems.
 
@@ -48,7 +48,7 @@ Digdir logs that the signing action was performed. This means that even if the s
 
 The service owner stores the signature object in their archival system. The signature object contains a hash code of the data associated with the data element. If the signature object is later altered, this can be verified by the fact that the hash code in the signature object no longer matches. This contributes to the traceability of the signature object. This assumes that the signature, i.e., the hash code, also exists on the end user's receipt so that both parties have their own copy.
 
-[Here you can read the technical description of how signature verification is done.]({{< relref "/altinn-studio/v8/reference/process/tasks/signing/#verifying-the-sha256-hash" >}})
+[Here you can read the technical description of how signature verification is done.](/en/altinn-studio/v8/reference/process/tasks/signing/#verifying-the-sha256-hash)
 
 ---
 

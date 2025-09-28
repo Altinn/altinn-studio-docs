@@ -60,10 +60,10 @@ ___
 ## Documentation
 - The different solutions are described in detail
 on docs
-[Terms]({{< relref "/technology/terms" >}})
-[Architecture]({{< relref "/technology/architecture/" >}})
+[Terms](/en/technology/terms/)
+[Architecture](/en/technology/architecture/)
  
 ---
 ## The End
 
-[Tilbake]({{< relref "/community/" >}})
+[Tilbake](/en/community/)

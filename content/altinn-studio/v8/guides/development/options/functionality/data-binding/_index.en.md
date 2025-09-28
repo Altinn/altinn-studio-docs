@@ -35,8 +35,8 @@ configuration with the key `simpleBinding`:
 In the example above, the component will store the choice of whether the user owns a cat in the field `Submitter.HasCat`
 in the data model. This field will get the value `y` if the user chooses "Yes" and `n` if the user chooses "No".
 
-For multi-choice components such as [`Checkboxes`]({{< relref "/altinn-studio/v8/reference/ux/components/checkboxes" >}}) and
-[`MultipleSelect`]({{< relref "/altinn-studio/v8/reference/ux/components/multipleselect" >}}), the component will store a comma-separated
+For multi-choice components such as [`Checkboxes`](/en/altinn-studio/v8/reference/ux/components/checkboxes/) and
+[`MultipleSelect`](/en/altinn-studio/v8/reference/ux/components/multipleselect/), the component will store a comma-separated
 list of selected values in the data model.
 
 ```json
@@ -92,7 +92,7 @@ data model of type `string`:
 
 ### Storing metadata
 
-When fetching options, especially [shared common code lists]({{< relref "/altinn-studio/v8/guides/development/options/sources/shared" >}}), you might want to store some
+When fetching options, especially [shared common code lists](/en/altinn-studio/v8/guides/development/options/sources/shared/), you might want to store some
 metadata describing how the options were fetched. This can be useful for reconstructing the options after the form
 has been submitted, as well as for logging purposes.
 

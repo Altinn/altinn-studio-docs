@@ -61,7 +61,7 @@ To achive this we need to add conditionExpressions to the outgoing flows
 ```
 If the user has submitted a Amount of 1000 the expressions in sequenceFlow _Flow_g1_end_ evaluates to false and the flow is removed from the possible flows to choose and the only available flow is _Flow_g1_t2_ and therefor it is chosen.
 
-To see more possibilities with expressions see [Expressions]({{< relref "/altinn-studio/v8/reference/logic/expressions/" >}})
+To see more possibilities with expressions see [Expressions](/en/altinn-studio/v8/reference/logic/expressions/)
 
 
 ### Controlling flow out of a gateway base on user action performed using expressions
@@ -93,7 +93,7 @@ If an applications process has a confirmation step where it is possible to rejec
 <bpmn:sequenceFlow id="Flow_g1_end" sourceRef="Gateway_1" targetRef="EndEvent" />
 ```
 
-In the example above there is defined two actions in _Task_2_ confirm and reject. [Read more about actions]({{< relref "/altinn-studio/v8/reference/process/tasks/" >}})
+In the example above there is defined two actions in _Task_2_ confirm and reject. [Read more about actions](/en/altinn-studio/v8/reference/process/tasks/)
 
 What we want to accomplish is to make the process engine choose _Flow_g1_t1_ if the user performs action _reject_ and _Flow_g1_end_ if action performed was _confirm…
 
@@ -110,7 +110,7 @@ To do this we use the expression function _gatewayAction_
 
 The expressions function _gatewayAction_ returns the action performed in the task the process just left. In the example above the previous task is _Task_2_.
 
-The _gatewayAction_ function can be combine with all the other functions in [expressions]({{< relref "/altinn-studio/v8/reference/logic/expressions/" >}})
+The _gatewayAction_ function can be combine with all the other functions in [expressions](/en/altinn-studio/v8/reference/logic/expressions/)
 
 ## Complex gateways requiring custom code
 

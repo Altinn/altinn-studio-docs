@@ -15,7 +15,7 @@ weight: 60
 ## Compliance with Best Practices for Information Security in Altinn
 
 Altinn Broker adheres to best practices for information security as detailed under Altinn Security.
-[Altinn Security ]({{< relref "/security/" >}}).
+[Altinn Security ](/en/security/).
 
 
 ## Threat assessments
@@ -25,12 +25,12 @@ Threat assessments for Altinn Broker are based on the
 
 ## Data Protection Impact Assessment (DPIA)
 
-Refer to [Altinn Security]({{< relref "/security/" >}}) for a detailed Data Protection Impact Assessment (DPIA) 
+Refer to [Altinn Security](/en/security/) for a detailed Data Protection Impact Assessment (DPIA) 
 on cloud-based operations of the Altinn solutions. 
 These assessments cover Altinn Formidling.
 
 ## Security Controls
 
-See [Altinn Broker solution architecure on security controls]({{< relref "/broker/reference/solution-architecture/#security-controls" >}}).
+See [Altinn Broker solution architecure on security controls](/en/broker/reference/solution-architecture/#security-controls).
 
 

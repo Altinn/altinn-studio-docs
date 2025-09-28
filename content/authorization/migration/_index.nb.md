@@ -18,11 +18,11 @@ Innen juni 2025 så skal dagens Altinn løsning være modernisert og migrert til
 ## Hva skal gjøres? 
 
 For å sikre fremtidige behov så tegnes det en ny arkitektur for Altinn Autorisasjon,
- [se ny løsningsarkitektur]({{< relref "/authorization/" >}}) 
+ [se ny løsningsarkitektur](/nb/authorization/) 
 
 ### Migrering av tjenester fra Altinn 2 til Altinn 3
 Alle tjenester som i dag bruker Altinn som autorisasjonsløsning må flyttes fra Altinn 2 til Altinn 3 plattformen. 
-Det er laget en egen [plan]({{< relref "/authorization/migration/servicemigrationplan/" >}}) for hvilken rekkefølge dette skal skje og når de enkelte tjenestene skal være ferdig migrert.
+Det er laget en egen [plan](/nb/authorization/migration/servicemigrationplan/) for hvilken rekkefølge dette skal skje og når de enkelte tjenestene skal være ferdig migrert.
 
 ### Nye tilgangspakker og ny brukerflate for tilgangsstyring for virksomheter
 *Dette arbeidet vil starte opp Q1 2023. Målet er å lansere ney tilgangspakker Q4 2024 og ny brukerflate Q1 2025.*
@@ -38,8 +38,8 @@ Resultatet er at dette kan oppleves som forvirrende, overveldende, usikkert og f
 Den nye brukerflaten i Altinn Autorisasjon har som mål å tilby en tilrettelagt og nøyaktig tilgangsstyring som forenkle arbeidsflyten og oppleves som betyrggende for brukeren. 
 Dette skal også sikre at man ikke får tilgang til mer enn man strengt tatt trenger.
 
-En konsekvens av dette er at dagens [roller i Altinn 2.0]({{< relref "/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/altinn_roles_enterprices/" >}}) 
-skal fases ut og erstattes med nye [tilgangspakker i Altinn 3.0]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/" >}})
+En konsekvens av dette er at dagens [roller i Altinn 2.0](/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/altinn_roles_enterprices/) 
+skal fases ut og erstattes med nye [tilgangspakker i Altinn 3.0](/nb/authorization/what-do-you-get/accessgroups/type-accessgroups/)
 
 #### Hva blir konsekvensen av at man innfører nye tilgangspakker? 
 I forkant av lansering av nye tilgangspakker og i en overgangsfase vil det være nødvendig å angi både gamle Altinn 2.0 roller og nye 3.0 tilgangspakker som rollekrav knyttet til tjenesten. 

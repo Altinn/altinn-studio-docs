@@ -23,7 +23,7 @@ GET /events
 
 This API requires authentication and the Maskinporten scope __altinn:events.subscribe__.
 
-See [Authentication and Authorization]({{< relref "/events/api/#authentication--authorization" >}}) for more information.
+See [Authentication and Authorization](/en/events/api/#authentication--authorization) for more information.
 
 
 ## Request

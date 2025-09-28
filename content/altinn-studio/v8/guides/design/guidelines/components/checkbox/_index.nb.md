@@ -3,7 +3,7 @@ title: Avkrysningsboks
 description: Avkrysningsbokser brukes i tilfeller der brukeren kan huke av ett eller flere alternativer fra en liste. 
 weight: 50
 ---
-Dersom brukeren kun kan velge et av alternativene, bruk [radioknapper]({{< relref "/altinn-studio/v8/guides/design/guidelines/components/radiobutton/" >}}) i stedet. 
+Dersom brukeren kun kan velge et av alternativene, bruk [radioknapper](/nb/altinn-studio/v8/guides/design/guidelines/components/radiobutton/) i stedet. 
 
 ### Retningslinjer:
 - Avkrysningsboksene skal stå foran tilhørende tekst, og skal aldri stå alene.

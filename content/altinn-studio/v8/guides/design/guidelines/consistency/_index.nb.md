@@ -27,7 +27,7 @@ src2="https://digdir-samarbeid.slack.com/" title2="Skriv til oss på Slack" %}}
 
 
 Vi ønsker at alle er med på å videreutvikle 
-[biblioteket av komponenter]({{< relref "/altinn-studio/v8/guides/design/guidelines/components" >}}) med både design og kode. 
+[biblioteket av komponenter](/nb/altinn-studio/v8/guides/design/guidelines/components/) med både design og kode. 
 I praksis vil dette si at Altinn ønsker å ta imot forslag til nye komponenter etter hvert som tjenesteeierne ser 
 behovet for det.
 

@@ -11,7 +11,7 @@ cascade:
 Dialogporten is a solution which serves as a common API and metadata state store for digital dialogs. The primary goal of Dialogporten is to facilitate secure and efficient communication between public service platforms (such as Altinn) and users by providing a standardized way to handle digital dialogs and messages. This involves managing the metadata associated with these dialogs and ensuring interoperability across different systems.
 
 ## What is stored in Dialogporten?
-Dialogporten contains "dialogs", which are representations of a particular instance of a digital service. A dialog consists of a sender (usually a government actor), a recipient (a citizen or organization) and a reference to a digital service definition in [Altinn Resource Registry]({{< relref "/authorization/what-do-you-get/resourceregistry" >}}), which itself contains information about the service itself as well as authorization policies governing its use.
+Dialogporten contains "dialogs", which are representations of a particular instance of a digital service. A dialog consists of a sender (usually a government actor), a recipient (a citizen or organization) and a reference to a digital service definition in [Altinn Resource Registry](/en/authorization/what-do-you-get/resourceregistry/), which itself contains information about the service itself as well as authorization policies governing its use.
 
 In addition, a dialog contains some content used to describe to end users the state of the dialog and give information on what the user should do (if anything), such as a title field, a short summary text, and activity history showing the various actions performed and state changes throughout the life-time of the dialog. 
 
@@ -23,9 +23,9 @@ Dialogporten operates on a read-only basis{{<footnote "There are two exceptions;
 {{<displayFootnotes>}}
 
 ## How do app developers in Altinn use Dialogporten?
-The Altinn platform will automatically make all app [instances]({{< relref "/api/models/instance/" >}}) and [correspondence]({{< relref "/correspondence" >}}) available in Dialogporten, exposing relevant information and actions, and will update the representation as the app instance/correspondence gets updated. 
+The Altinn platform will automatically make all app [instances](/en/api/models/instance/) and [correspondence](/en/correspondence/) available in Dialogporten, exposing relevant information and actions, and will update the representation as the app instance/correspondence gets updated. 
 
-For additional control, the [app template](/en/app-template) utilizes a [Dialogporten API client]({{< relref "/dialogporten/user-guides/service-owners/api-client" >}}) that enables the app to take full control on how the app is represented in Dialogporten, and thus portals like Altinn Inbox ("arbeidsflate").
+For additional control, the [app template](/en/app-template) utilizes a [Dialogporten API client](/en/dialogporten/user-guides/service-owners/api-client/) that enables the app to take full control on how the app is represented in Dialogporten, and thus portals like Altinn Inbox ("arbeidsflate").
 
 {{% notice warning %}}
 The app template integration is under development. For now, app developers must utilize the [Dialogporten API client NuGet package](https://www.nuget.org/packages/Altinn.ApiClients.Dialogporten) directly.

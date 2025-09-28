@@ -15,7 +15,7 @@ toc: true
 
 ## Usage
 
-`AccordionGroup` is used to group related [`Accordion`]({{< relref "/altinn-studio/v8/reference/ux/components/accordion/" >}}) components.
+`AccordionGroup` is used to group related [`Accordion`](/en/altinn-studio/v8/reference/ux/components/accordion/) components.
 
 ### Anatomy
 
@@ -64,7 +64,7 @@ Add the following sections if relevant:
 -->
 ### Related
 
-- [`Accordion`]({{< relref "/altinn-studio/v8/reference/ux/components/accordion/" >}})
+- [`Accordion`](/en/altinn-studio/v8/reference/ux/components/accordion/)
 
 
 ## Properties
@@ -89,7 +89,7 @@ If no argument is given, the shortcode pulls the component name from 'schemaname
 
 ### Add component
 
-You can add a component in [Altinn Studio Designer]({{< relref "/altinn-studio/v8/getting-started/" >}}) by dragging it from the left-side panel to the middle page area.
+You can add a component in [Altinn Studio Designer](/en/altinn-studio/v8/getting-started/) by dragging it from the left-side panel to the middle page area.
 Selecting the component brings up its configuration panel on the right-hand side.
 
 ### Settings in Altinn Studio Designer

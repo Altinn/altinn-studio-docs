@@ -13,4 +13,4 @@ When build is complete the build can be deployed to a given environment.
 ![Build & Deploy](deploy.png "Build & deploy")
 
 
-Read more about deployment in the [Application development handbook.]({{< relref "/altinn-studio/v8/reference/deployment/" >}})
+Read more about deployment in the [Application development handbook.](/en/altinn-studio/v8/reference/deployment/)

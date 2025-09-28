@@ -9,11 +9,11 @@ weight: 400
 
 {{%notice info%}}
 For at applikasjonen din skal kunne sende instansdata videre til eFormidling må den referere til nugetversjon >= 4.22.0.
-[Se hvordan du oppdaterer nugetreferanser for applikasjonen din her]({{< relref "/altinn-studio/v8/guides/administration/maintainance/dependencies/" >}}).
+[Se hvordan du oppdaterer nugetreferanser for applikasjonen din her](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies/).
 {{% /notice%}}
 
 {{%notice info%}}
-I versjon 7 ble det innført en endring for å sikre at applikasjonen kjenner den endelige leveransestatsus for meldinger sent gjennom integrasjonspunktet til eFormidling og i tilfelle feilende leveranser vil disse logges eksplisitt. Denne endringer introduserer behovet for [hendelsestøtte i applikasjonen]({{< relref "/altinn-studio/v8/reference/logic/events" >}}).
+I versjon 7 ble det innført en endring for å sikre at applikasjonen kjenner den endelige leveransestatsus for meldinger sent gjennom integrasjonspunktet til eFormidling og i tilfelle feilende leveranser vil disse logges eksplisitt. Denne endringer introduserer behovet for [hendelsestøtte i applikasjonen](/nb/altinn-studio/v8/reference/logic/events/).
 {{% /notice%}}
 
 Dersom man har behov for integrasjon med eFormidling i applikasjonen må dette aktiveres.

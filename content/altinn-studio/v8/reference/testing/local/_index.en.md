@@ -7,7 +7,7 @@ aliases:
 - /altinn-studio/v8/reference/testing/local/
 ---
 
-If you need to write a significant amount of code (e.g., [logic]({{< relref "/altinn-studio/v8/reference/logic/" >}})), or quickly check how a form looks, it can be useful to test changes without having to deploy the app to a test environment.
+If you need to write a significant amount of code (e.g., [logic](/en/altinn-studio/v8/reference/logic/)), or quickly check how a form looks, it can be useful to test changes without having to deploy the app to a test environment.
 
 When the app is created, it comes with all the necessary files and settings to run as a standalone application. By downloading all the files associated with the app from its repository, you can run the app locally on your own machine, thereby easily testing changes.
 
@@ -15,7 +15,7 @@ In the test environment, the app uses a set of platform services to retrieve/sto
 
 ## Running the app locally
 
-1. Navigate to the app repository in Altinn Studio. See [here]({{< relref "/altinn-studio/v8/getting-started/navigation/repos/" >}}) for how to navigate there.
+1. Navigate to the app repository in Altinn Studio. See [here](/en/altinn-studio/v8/getting-started/navigation/repos/) for how to navigate there.
 2. Download all the files in the repository
    - by using the `git clone` command [(read more)](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository)
    - by clicking the download icon (this downloads it as a zip file)

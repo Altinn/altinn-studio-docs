@@ -34,4 +34,4 @@ The template follows the [BPMN 2.0 standard.](https://www.bpmn.org/)
 
 In Altinn Studio, the App developer can configure the process.
 
-[Read our development handbook for details.]({{< relref "/altinn-studio/v8/reference/configuration/process/" >}})
+[Read our development handbook for details.](/en/altinn-studio/v8/reference/configuration/process/)

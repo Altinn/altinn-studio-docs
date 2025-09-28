@@ -16,9 +16,9 @@ Når noen starter skjemaet, blir feltene du velger fylt ut automatisk med riktig
 
 ## Når bør jeg bruke dette?
 Hvis du skal forhåndsutfylle data fra en av kildene listet over. Det er et begrenset sett med felter som er tilgjengelige,
-se [fullstendig liste over tilgjengelige datafelt for alle kildene]({{< relref "/altinn-studio/v8/reference/data/prefill" >}}).
+se [fullstendig liste over tilgjengelige datafelt for alle kildene](/nb/altinn-studio/v8/reference/data/prefill/).
 
-Trenger du data fra andre kilder? Gå til [forhåndsutfylling med egendefinert kode]({{< relref "/altinn-studio/v8/guides/development/prefill/custom/" >}}).
+Trenger du data fra andre kilder? Gå til [forhåndsutfylling med egendefinert kode](/nb/altinn-studio/v8/guides/development/prefill/custom/).
 
 ## Slik setter du det opp
 {.floating-bullet-numbers-sibling-ol}
@@ -63,7 +63,7 @@ Trenger du data fra andre kilder? Gå til [forhåndsutfylling med egendefinert k
    - `datafelt` er navnet på feltet _fra kilden_
    - `skjemafelt` er navnet på feltet i skjemaets datamodell.
 
-   Se [fullstendig liste over tilgjengelige datafelt for alle kildene]({{< relref "/altinn-studio/v8/reference/data/prefill" >}}).
+   Se [fullstendig liste over tilgjengelige datafelt for alle kildene](/nb/altinn-studio/v8/reference/data/prefill/).
 
 ## Eksempler
 

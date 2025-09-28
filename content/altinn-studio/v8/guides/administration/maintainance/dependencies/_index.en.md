@@ -45,7 +45,7 @@ Example.:
     - [Altinn.App.Api](https://www.nuget.org/packages/Altinn.App.Api)
     - [Altinn.App.Core](https://www.nuget.org/packages/Altinn.App.Core)
 - Update the reference to the latest version and save the file.
-- Check if there is any [breaking changes]({{< relref "/community/changelog/app-nuget" >}}) with the new version,
+- Check if there is any [breaking changes](/en/community/changelog/app-nuget/) with the new version,
   make necessary changes if there are any issues.
 - Build and deploy a new version of your app.
 {{</content-version-container>}}
@@ -71,7 +71,7 @@ Example.:
     - [Altinn.App.Common](https://www.nuget.org/packages/Altinn.App.Common)
     - [Altinn.App.PlatformServices](https://www.nuget.org/packages/Altinn.App.PlatformServices)
 - Update the reference to the latest version and save the file.
-- Check if there is any [breaking changes]({{< relref "/community/changelog/app-nuget" >}}) with the new version,
+- Check if there is any [breaking changes](/en/community/changelog/app-nuget/) with the new version,
   make necessary changes if there are any issues.
 - Build and deploy a new version of your app.
 
@@ -93,7 +93,7 @@ This javascript-file uses [Semantic Versioning](https://semver.org/):
 
 The app references by default to a _major_ version of app frontend, e.g. version 1.x.y
 With the default setup all _minor_ and _patch_ version will be automatically pulled in.
-If a new _major_ version is published you need to update your app to pull this new version, watch out for [breaking changes]({{< relref "/community/changelog/app-frontend" >}}))
+If a new _major_ version is published you need to update your app to pull this new version, watch out for [breaking changes](/en/community/changelog/app-frontend/))
 
 If you want to lock the frontend to a specific version of app frontend (e.g. 1.2.3) you specify this directly in the URL that points to app frontend.
 
@@ -121,7 +121,7 @@ _Reminder:_ If you depend on a _major_ version (e.g. 2), every _minor_ and _patc
 
 Deployments are defined with helm-charts. The standard deployment setup is fetched from altinn-studios helm repository if you leverage the latest deployment strategy (recommended).
 
-If you unsure if your app leverages the latest deployment strategy you can follow the migration guide [here]({{< relref "/community/changelog/deployment/migration" >}})
+If you unsure if your app leverages the latest deployment strategy you can follow the migration guide [here](/en/community/changelog/deployment/migration/)
 
 To find the latest version of the standard helm-chart you can either check for the latest release of the chart `deployment` [here](https://github.com/Altinn/altinn-studio-charts/releases)
 or add the helm repo locally and search for available version with these commands:
@@ -134,7 +134,7 @@ helm repo add altinn-studio https://charts.altinn.studio
 helm search repo -l altinn-studio/deployment
 ```
 
-If there is a new version of the helm chart check the [changelog]({{< relref "/community/changelog/deployment/" >}}) to see what's new in this release.
+If there is a new version of the helm chart check the [changelog](/en/community/changelog/deployment/) to see what's new in this release.
 
 To update to the new version update the dependency reference in `deployment/Chart.yaml`
 

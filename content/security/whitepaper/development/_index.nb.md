@@ -18,7 +18,7 @@ Utviklingsprosessen blir kontinuering forbedret.
 </figure>
 
 For å kunne sette utviklerne i fokus foretrekkes bruk av sikkerhetsverktøy og automatisering der dette er mulig.
-Dette er f.eks. integrasjon med [sikkerhetsverktøy]({{< relref "/community/contributing/handbook/securecoding/" >}}) i
+Dette er f.eks. integrasjon med [sikkerhetsverktøy](/nb/community/contributing/handbook/securecoding/) i
 bygge- og deployprosessene der identifiserte sikkerhetsfeil stopper prosessene.
 
 Altinn har flere viktige arkitekturprinsipper som understøtter sikkerhet:

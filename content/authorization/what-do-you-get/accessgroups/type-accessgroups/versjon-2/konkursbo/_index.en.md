@@ -5,7 +5,7 @@ linktitle: Konkursbo
 description: Denne tilgangspakken er relevant for alle virksomheter
 weight: 124
 ---
-Tilbake til [hovedoversikt]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker" >}})
+Tilbake til [hovedoversikt](/en/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker)
 
 
 ![Konkursbo](konk.jpg "Konkursbo")
@@ -15,11 +15,11 @@ Tilbake til [hovedoversikt]({{< relref "/authorization/what-do-you-get/accessgro
 	- **Konkursbo skrivetilgang:** (mangler)
 
 ## Egenskaper ved tilgangspakkene
-|Navn tillgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle]({{< relref "/authorization/what-do-you-get/accessgroups/register_er/#rolletyper-fra-enhetsregisteret" >}}) som får fullmakten|
+|Navn tillgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/en/authorization/what-do-you-get/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
 |---|---|---|---|
 |Fullmakter for konkursbo|nei|nei||
 |Konkursbo tilgangsstyring|ja|ja|PRIV|
 |Konkursbo lesetilgang|ja|ja|BOBE|
 |Konkursbo skrivetilgang|ja|ja|BOBE|
 
-Tilbake til [hovedoversikt]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker" >}})
+Tilbake til [hovedoversikt](/en/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker)

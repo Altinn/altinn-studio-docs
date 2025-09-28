@@ -34,14 +34,14 @@ Følgende komponenter støtter svaralternativer:
 
 | Komponent                                                               | Type             | Bruksområde                                                                                             |
 |-------------------------------------------------------------------------|------------------|---------------------------------------------------------------------------------------------------------|
-| [Dropdown]({{< relref "/altinn-studio/v8/reference/ux/components/dropdown" >}})                   | Ett valg         | Brukes for å velge ett alternativ fra en nedtrekksliste.                                                |
-| [RadioButtons]({{< relref "/altinn-studio/v8/reference/ux/components/radiobuttons" >}})           | Ett valg         | Brukes for å velge ett alternativ fra en liste med radioknapper.                                        |
-| [List]({{< relref "/altinn-studio/v8/reference/ux/components/listcomponent" >}})                  | Ett valg         | Brukes for å velge ett alternativ fra en liste/tabell (med en radioknapp per rad).                      |
-| [Likert]({{< relref "/altinn-studio/v8/reference/ux/components/likert" >}})                       | Ett valg per rad | Brukes for å velge ett alternativ per rad i en tabell, vist som en skala. Vanlig i spørreundersøkelser. |
-| [Checkboxes]({{< relref "/altinn-studio/v8/reference/ux/components/checkboxes" >}})               | Flere valg       | Brukes for å velge ett eller flere alternativer fra en liste med avkrysningsbokser.                     |
-| [MultipleSelect]({{< relref "/altinn-studio/v8/reference/ux/components/multipleselect" >}})       | Flere valg       | Brukes for å velge ett eller flere alternativer fra en nedtrekksliste.                                  |
-| [FileUploadWithTag]({{< relref "/altinn-studio/v8/reference/ux/components/fileuploadwithtag" >}}) | Ett valg         | Brukes for å laste opp en fil og knytte den til en 'tag'/merkelapp.                                     |
-| [Option]({{< relref "/altinn-studio/v8/reference/ux/components/option" >}})                       | Vise ett valg    | Brukes for å vise/presentere et enkelt valg.                                                            |
+| [Dropdown](/nb/altinn-studio/v8/reference/ux/components/dropdown/)                   | Ett valg         | Brukes for å velge ett alternativ fra en nedtrekksliste.                                                |
+| [RadioButtons](/nb/altinn-studio/v8/reference/ux/components/radiobuttons/)           | Ett valg         | Brukes for å velge ett alternativ fra en liste med radioknapper.                                        |
+| [List](/nb/altinn-studio/v8/reference/ux/components/listcomponent/)                  | Ett valg         | Brukes for å velge ett alternativ fra en liste/tabell (med en radioknapp per rad).                      |
+| [Likert](/nb/altinn-studio/v8/reference/ux/components/likert/)                       | Ett valg per rad | Brukes for å velge ett alternativ per rad i en tabell, vist som en skala. Vanlig i spørreundersøkelser. |
+| [Checkboxes](/nb/altinn-studio/v8/reference/ux/components/checkboxes/)               | Flere valg       | Brukes for å velge ett eller flere alternativer fra en liste med avkrysningsbokser.                     |
+| [MultipleSelect](/nb/altinn-studio/v8/reference/ux/components/multipleselect/)       | Flere valg       | Brukes for å velge ett eller flere alternativer fra en nedtrekksliste.                                  |
+| [FileUploadWithTag](/nb/altinn-studio/v8/reference/ux/components/fileuploadwithtag/) | Ett valg         | Brukes for å laste opp en fil og knytte den til en 'tag'/merkelapp.                                     |
+| [Option](/nb/altinn-studio/v8/reference/ux/components/option/)                       | Vise ett valg    | Brukes for å vise/presentere et enkelt valg.                                                            |
 
 I kategoriene under kan du lære mer om hvordan du produserer en kodeliste, kobler den til en komponent for å vise
 frem svaralternativer, samt om felles funksjonalitet som kan brukes på tvers av disse komponentene.

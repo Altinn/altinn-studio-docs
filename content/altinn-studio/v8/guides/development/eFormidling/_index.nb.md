@@ -20,7 +20,7 @@ Before setting up eFormidling you will need to have the following set up:
 
 ### Maskinporten Integration
 
-In order to enable eFormidling in your application you will need to [setup an integration between your app and Maskinporten]({{< relref "/altinn-studio/v8/guides/integration/maskinporten/" >}}).
+In order to enable eFormidling in your application you will need to [setup an integration between your app and Maskinporten](/nb/altinn-studio/v8/guides/integration/maskinporten/).
 
 * **NB!** Applikasjonen inkluderer automatisk den innebygde `IMaskinportenClient`. Hvis du trenger tilpasset konfigurasjon, kan du bruke:
   

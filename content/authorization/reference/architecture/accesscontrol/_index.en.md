@@ -6,7 +6,7 @@ tags: [architecture, solution]
 toc: false
 ---
 
-See [solutions]({{< relref "/authorization/" >}}) for details about the functionality provided by this component.
+See [solutions](/en/authorization/) for details about the functionality provided by this component.
 
 ![Access Management](accesscontrol.drawio.svg "Construction Components Altinn Access Control")
 

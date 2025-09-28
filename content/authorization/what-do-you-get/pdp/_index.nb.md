@@ -59,4 +59,4 @@ Flow forklart
 ## Implementerings- og konstruksjonsdetaljer
 
 Detaljer om implementering av PDP finnes under
-[konstruksjonskomponenter for PDP.]({{< relref "/authorization/reference/architecture/accesscontrol#policy-decision-point---pdp" >}})
+[konstruksjonskomponenter for PDP.](/nb/authorization/reference/architecture/accesscontrol#policy-decision-point---pdp)

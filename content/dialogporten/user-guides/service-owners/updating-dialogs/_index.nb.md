@@ -8,7 +8,7 @@ weight: 30
 
 Oppdatering av dialoger etter hvert som forretningsprosessen utvikler seg, eller hvis en relevant forretningshendelse inntreffer, er sentralt i Dialogporten-konseptet. Dette gjør det mulig for brukere å enkelt holde seg oppdatert på prosessen, og for sluttbrukersystem å umiddelbart reagere på enhver forretningshendelse definert av tjenesteeier, noe som gir mulighet for rike og ikke-poll-baserte integrasjoner til interne systemer.
 
-De fleste feltene i dialogen kan endres etter [dialogopprettelse]({{<relref "../creating-dialogs">}}), med noen få bemerkelsesverdige unntak.
+De fleste feltene i dialogen kan endres etter [dialogopprettelse](/nb/dialogporten/user-guides/service-owners/updating-dialogs/../creating-dialogs/), med noen få bemerkelsesverdige unntak.
 
 * Part og tjenesteressurs kan ikke endres
 * Opprettet/oppdatert-felt kan ikke endres
@@ -29,17 +29,17 @@ Dialoger inneholder separate felt for tidsstempelet for den siste innholdsoppdat
 Så endringer i f.eks. aktivitetslisten vil øke `updatedAt`-feltet, men _ikke_ `contentUpdatedAt`-feltet. Dette betyr at `contentUpdatedAt` kan
 referere til et tidligere tidspunkt enn `updatedAt`. Den kan aldri være nyere enn `updatedAt`, da enhver endring vil øke `updatedAt`.
 
-Sluttbrukersystem som viser lister over dialoger til brukere oppfordres til å [sortere]({{<relref "../../searching-for-dialogs#sortering">}}) etter `contentUpdatedAt` i synkende rekkefølge.
+Sluttbrukersystem som viser lister over dialoger til brukere oppfordres til å [sortere](/nb/dialogporten/user-guides/service-owners/updating-dialogs/../../searching-for-dialogs#sortering) etter `contentUpdatedAt` i synkende rekkefølge.
 
 ## Grunnleggende trinn
 
-1. [Finn dialogen]({{<relref "../../searching-for-dialogs">}}) du vil oppdatere
+1. [Finn dialogen](/nb/dialogporten/user-guides/service-owners/updating-dialogs/../../searching-for-dialogs/) du vil oppdatere
 2. Konstruer en forespørsels-body som inneholder feltene du vil oppdatere
 3. Send en PUT- eller PATCH-forespørsel. Vellykkede forespørsler returnerer `204 No Content`, mens brukerfeil (4xx returkoder) returnerer en [RFC9457 Problem Details](https://www.rfc-editor.org/rfc/rfc9457.html) respons-body.
 
 ## Bruke PUT og fullstendige forespørsels-bodyer
 
-Se [referansedokumentasjonen]({{<relref "../../../reference/entities/dialog/#oppdater-put">}}) for detaljer om forespørsels-bodyen. Felt som leveres
+Se [referansedokumentasjonen](/nb/dialogporten/user-guides/service-owners/updating-dialogs/../../../reference/entities/dialog/#oppdater-put) for detaljer om forespørsels-bodyen. Felt som leveres
 som ikke er tilstede i PUT DTO-definisjonen vil bli ignorert.
 
 {{<notice warning>}}
@@ -52,7 +52,7 @@ helt med mindre du har tenkt å legge til nye forsendelse og/eller aktiviteter.
 Dialogporten støtter også PATCH-operasjoner, som tillater en mer konsis forespørsel som bare inneholder feltene du vil endre. Dette kan resultere i mindre
 forespørsels-bodyer, og kan i noen tilfeller eliminere behovet for å GET dialogen først for å konstruere PUT DTO.
 
-Se [referansedokumentasjonen]({{<relref "../../../reference/entities/dialog/#oppdater-patch">}}) for detaljer og eksempler på hvordan du konstruerer en PATCH-forespørsel.
+Se [referansedokumentasjonen](/nb/dialogporten/user-guides/service-owners/updating-dialogs/../../../reference/entities/dialog/#oppdater-patch) for detaljer og eksempler på hvordan du konstruerer en PATCH-forespørsel.
 
 ## Separate endepunkter for forsendelse og aktiviteter
 

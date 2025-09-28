@@ -86,5 +86,5 @@ av typen `list`:
 Mottakersiden vil da få en liste med flere unike IDer, en for hvert vedlegg.
 
 Samme unike ID vil også vises i
-PDF-kvitteringen - men det enbefales å [skjule dette]({{< relref "/altinn-studio/v8/reference/ux/pdf/#ekskludering-av-sider-og-komponenter" >}}) ettersom vedlegg
+PDF-kvitteringen - men det enbefales å [skjule dette](/nb/altinn-studio/v8/reference/ux/pdf/#ekskludering-av-sider-og-komponenter) ettersom vedlegg
 vises separat på kvitteringssiden og den unike IDen kan bli forvirrende for brukerne.

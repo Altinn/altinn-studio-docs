@@ -8,9 +8,9 @@ weight: 50
 
 Dette inneholder referanseinformasjon og eksempler på hendelser produsert av Dialogporten ved hjelp av Altinn Events.
 
-For en funksjonell oversikt, se [komme i gang med hendelser]({{<relref "../../getting-started/events">}}).
+For en funksjonell oversikt, se [komme i gang med hendelser](/nb/dialogporten/reference/events/../../getting-started/events/).
 
-For trinnvis informasjon om hvordan du bruker Altinn Events med Dialogporten, se [brukerhåndbøkene for å oppdage endringer]({{<relref "../../user-guides/detecting-changes">}}).
+For trinnvis informasjon om hvordan du bruker Altinn Events med Dialogporten, se [brukerhåndbøkene for å oppdage endringer](/nb/dialogporten/reference/events/../../user-guides/detecting-changes/).
 
 ## Hendelsestyper
 
@@ -23,7 +23,7 @@ For trinnvis informasjon om hvordan du bruker Altinn Events med Dialogporten, se
 | `dialogporten.dialog.seen.v1`                 | En dialog har blitt sett (åpnet) av en sluttbruker. |
 | `dialogporten.dialog.transmission.created.v1` | En forsendelse har blitt opprettet.                |
 
-Hendelsene ovenfor er produsert direkte av Dialogporten. I tillegg er det hendelser som sendes ut når tjenesteeier oppdaterer [aktivitetsloggen]({{<relref "../../getting-started/activity-log">}}).
+Hendelsene ovenfor er produsert direkte av Dialogporten. I tillegg er det hendelser som sendes ut når tjenesteeier oppdaterer [aktivitetsloggen](/nb/dialogporten/reference/events/../../getting-started/activity-log/).
 
 | Type                                                  | Beskrivelse                                                   |
 | ----------------------------------------------------- | ------------------------------------------------------------- |

@@ -10,6 +10,6 @@ cascade:
 
 Please refer to the following sections for Dialogporten API reference information
 
-* [OpenAPI specifications]({{<relref "../../dialogporten/reference/openapi">}})
-* [GraphQL specifications]({{<relref "../../dialogporten/reference/graphql">}})
+* [OpenAPI specifications](/nb/api/dialogporten/../../dialogporten/reference/openapi/)
+* [GraphQL specifications](/nb/api/dialogporten/../../dialogporten/reference/graphql/)
     

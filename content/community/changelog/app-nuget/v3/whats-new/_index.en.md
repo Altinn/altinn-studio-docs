@@ -160,4 +160,4 @@ To enable this, there's some changes.
 ## 3.0.0 (2021-01-05) - Support for dynamics in PDF
 
 We have added a new PDF handler to make it possible to hide pages and components in PDF.
-See [breaking changes]({{< relref "/community/changelog/app-nuget/v3/breaking-changes" >}}) for how to update you app to be compatible with this version.
+See [breaking changes](/en/community/changelog/app-nuget/v3/breaking-changes/) for how to update you app to be compatible with this version.

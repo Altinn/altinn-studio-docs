@@ -131,7 +131,7 @@ The error message would then be `"You have to fill out your first name"`.
 
 If you want to replace the default error message for required fields completely, you can do this by adding the text key
 `requiredValidation` to the components `textResourceBindings` object. This will replace the default error message for
-required fields. The text can be a text key for a [text defined in the resource files]({{< relref "/altinn-studio/v8/reference/ux/texts" >}}) for multilingual
+required fields. The text can be a text key for a [text defined in the resource files](/en/altinn-studio/v8/reference/ux/texts/) for multilingual
 support.
 
 ```json
@@ -161,7 +161,7 @@ An example of how to extend the example previously presented with a custom error
 }
 ```
 
-The error text can be included directly. To enable language support, add a text key for a [text defined in the resource files]({{< relref "/altinn-studio/v8/reference/ux/texts" >}}).
+The error text can be included directly. To enable language support, add a text key for a [text defined in the resource files](/en/altinn-studio/v8/reference/ux/texts/).
 
 Notice that if you have a reference to a definition the error message must be added to the `property`-field and not the reference/definition.
 Example:
@@ -275,7 +275,7 @@ public void ValidateData(object data, ModelStateDictionary validationResults)
 See comments in code above for an explanation of what the different parts do.
 
 In the other parameter of the method `AddModelError`, where it says "_Error: First name cannot contain the value '
-1337'_", you can use a text key for a [text defined in the resource files]({{< relref "/altinn-studio/v8/reference/ux/texts" >}}) for multilingual support.
+1337'_", you can use a text key for a [text defined in the resource files](/en/altinn-studio/v8/reference/ux/texts/) for multilingual support.
 
 An example of a simple task validation that checks how long the user spent on Task_1 and returns an error if there has gone more than three days:
 

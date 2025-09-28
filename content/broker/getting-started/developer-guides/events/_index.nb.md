@@ -63,4 +63,4 @@ Hvis du ikke spesifiserer et *typeFilter*, vil du motta alle forskjellige typer 
 - `no.altinn.broker.downloadconfirmed`
 - `no.altinn.broker.fileneverconfirmeddownloaded`
 
-For ytterligere beskrivelse av hendelser og deres bruk, se utviklerguider for [sende filer]({{< relref "/broker/getting-started/developer-guides/send-files/" >}}) og [motta filer]({{< relref "/broker/getting-started/developer-guides/receive-files/" >}}), da disse beskriver hendelsene for de respektive rollene/prosessene.
+For ytterligere beskrivelse av hendelser og deres bruk, se utviklerguider for [sende filer](/nb/broker/getting-started/developer-guides/send-files/) og [motta filer](/nb/broker/getting-started/developer-guides/receive-files/), da disse beskriver hendelsene for de respektive rollene/prosessene.

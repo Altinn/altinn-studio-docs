@@ -5,7 +5,7 @@ linktitle: Transport og lagring
 description: Denne tilgangspakken er relevant for alle tjenester rettet mot virksomheter med aktivitet innen transport og lagring
 weight: 114
 ---
-Tilbake til [hovedoversikt]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker" >}})
+Tilbake til [hovedoversikt](/en/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker)
 
 
 ![Transport og lagring](tl2.jpg "Transport og lagring")
@@ -20,7 +20,7 @@ Tilbake til [hovedoversikt]({{< relref "/authorization/what-do-you-get/accessgro
 
 
 ## Egenskaper ved tilgangspakkene
-|Navn tillgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle]({{< relref "/authorization/what-do-you-get/accessgroups/register_er/#rolletyper-fra-enhetsregisteret" >}}) som får fullmakten|
+|Navn tillgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/en/authorization/what-do-you-get/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
 |---|---|---|---|
 |Transport og lagring| ja|nei||
 |Veitransport|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
@@ -31,4 +31,4 @@ Tilbake til [hovedoversikt]({{< relref "/authorization/what-do-you-get/accessgro
 
 {{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Transport og lagring" {{% /notice %}}
 
-Tilbake til [hovedoversikt]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker" >}})
+Tilbake til [hovedoversikt](/en/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker)

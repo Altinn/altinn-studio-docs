@@ -7,7 +7,7 @@ toc: true
 
 {{% panel theme="warning" %}}
 ⚠️ Dynamics are under active development. The `RuleHandler.js` file will in the future be replaced by
-[dynamic expressions]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}}). Currently only show/hide dynamics are supported using expressions, but
+[dynamic expressions](/en/altinn-studio/v8/reference/logic/expressions/). Currently only show/hide dynamics are supported using expressions, but
 calculation and validation will be supported in the future.
 {{% /panel %}}
 
@@ -21,7 +21,7 @@ Dynamics are events that happen on the client side. These can be separated in tw
 Rules used for javascript-based dynamics can be added and changed directly in the _RuleHandler_ file containing the rules.
 
 {{% panel theme="warning" %}}
-⚠️ Since we are moving more and more of this functionality over to [dynamic expressions]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}}), the file
+⚠️ Since we are moving more and more of this functionality over to [dynamic expressions](/en/altinn-studio/v8/reference/logic/expressions/), the file
 _RuleHandler.js_ is not a part of new apps as of 7th October 2024.
 If you do not find the file in the `App/ui/form`-folder, you can add it there. As a minimum, the file should contain the following:
 
@@ -405,7 +405,7 @@ var conditionalRuleHandlerHelper = {
 ## Dynamics in PDF
 
 From Nuget versions 3.0.0 it is also possible to add dynamics for the PDF. This is done in the PDF Handler.
-The application must include the `layout/ui/Settings.json` file [defined here]({{< relref "/altinn-studio/v8/reference/ux/pages/navigation/" >}})."/altinn-studio/v8/reference/logic/ux/pages/navigation/
+The application must include the `layout/ui/Settings.json` file [defined here](/en/altinn-studio/v8/reference/ux/pages/navigation/)."/altinn-studio/v8/reference/logic/ux/pages/navigation/
 
 Configuring dynamics in PDF is similar to how validations are added on the server side.
 

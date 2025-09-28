@@ -5,4 +5,4 @@ description: Referanse for avanserte Dialogporten-synkroniseringsalternativer.
 weight: 300
 ---
 
-Se [Integrering av Altinn Apps-guiden]({{<relref "/dialogporten/user-guides/service-owners/integrating-altinn-apps" >}}) for detaljer om hvordan du justerer synkronisering mellom appen din og Dialogporten.
+Se [Integrering av Altinn Apps-guiden](/nb/dialogporten/user-guides/service-owners/integrating-altinn-apps/) for detaljer om hvordan du justerer synkronisering mellom appen din og Dialogporten.

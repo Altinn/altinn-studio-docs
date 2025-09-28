@@ -127,8 +127,8 @@ Nå skal vi legge inn en logikkregel for å skjule stillingsutlysningen hvis bru
 !["Skjermbilde av dynamikkinnstillinger for stillingsutlysningen"](dynamikk_stillingsutlysning.png)
 
 ## Nyttig dokumentasjon
-- [Brukerveiledning - Dynamikk]({{< relref "/altinn-studio/v8/guides/development/dynamics/" >}})
-- [Dokumentasjon - Dynamiske uttrykk]({{< relref "/altinn-studio/v8/reference/logic/expressions/" >}})
+- [Brukerveiledning - Dynamikk](/nb/altinn-studio/v8/guides/development/dynamics/)
+- [Dokumentasjon - Dynamiske uttrykk](/nb/altinn-studio/v8/reference/logic/expressions/)
 
 ## Oppsummering
 I denne modulen har du satt opp logiske utrykk for å dynamisk bestemme hvilke sider og komponenter som skal vises til brukeren.

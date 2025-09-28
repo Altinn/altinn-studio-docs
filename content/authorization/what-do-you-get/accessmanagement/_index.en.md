@@ -44,4 +44,4 @@ This design is in early phase.
 
 ### Construction
 
-See details how AccessManagement is [constructed]({{< relref "/authorization/reference/architecture/accessmanagment/" >}}).
+See details how AccessManagement is [constructed](/en/authorization/reference/architecture/accessmanagment/).

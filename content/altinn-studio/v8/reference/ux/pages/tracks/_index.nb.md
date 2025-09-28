@@ -10,8 +10,8 @@ basert input fra sluttbruker på forutgående deler av skjemaet.
 
 {{% panel theme="warning" %}}
 ⚠️ Sporvalg støttes ikke lenger i v4 (frontend). Skjuling av hele sider støttes nå
-fortrinnsvis med [dynamiske uttrykk]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}})
-(se hvordan [sider vises/skjules her]({{< relref "/altinn-studio/v8/reference/logic/expressions#viseskjule-hele-sider" >}})).
+fortrinnsvis med [dynamiske uttrykk](/nb/altinn-studio/v8/reference/logic/expressions/)
+(se hvordan [sider vises/skjules her](/nb/altinn-studio/v8/reference/logic/expressions#viseskjule-hele-sider)).
 {{% /panel %}}
 
 ## Trigge kalkulering av sporvalg fra frontend

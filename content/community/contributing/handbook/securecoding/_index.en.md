@@ -20,7 +20,7 @@ application and infrastructure security for all phases.
 ## Planning phase
 During the planning phase, the requirements for features are gathered. Already in this phase, we identify changes that
 need special security considerations. Typically this is done as part of grooming to reach [Definition
-of Ready]({{< relref "/community/devops/definition-of-ready/" >}}).
+of Ready](/en/community/devops/definition-of-ready/).
 
 We mark our security-related features and bugs with the label
 [kind/security](https://github.com/search?q=org%3AAltinn+label%3Akind%2Fsecurity&type=issues).  
@@ -36,7 +36,7 @@ During the development of a feature, we have several processes and tools to help
 ### Development checklists
 We have a development checklists that ensures that developers and reviewers consider the different security aspects.
 
-See [checklist]({{<relref "checklist/">}}).
+See [checklist](/en/community/contributing/handbook/securecoding/checklist/).
 
 ### IDE and tools
 We use both Visual Studio and Visual Studio Code. Those provide us with tools for static code analysis.

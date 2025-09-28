@@ -14,7 +14,7 @@ You can create your own code to automatically fill out parts of the form before 
 - Use other logic of your choice
 
 ## When should I use this?
-If you need other data sources than those that are available through [configuration based setup]({{< relref "/altinn-studio/v8/guides/development/prefill/config/" >}}) of prefill, 
+If you need other data sources than those that are available through [configuration based setup](/en/altinn-studio/v8/guides/development/prefill/config/) of prefill, 
 or if you need any logic as part of the prefill process.
 
 ## How to set it up

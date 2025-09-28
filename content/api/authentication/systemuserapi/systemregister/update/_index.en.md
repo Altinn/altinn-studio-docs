@@ -12,7 +12,7 @@ System owners or administrators from the Digitalization Directorate can update a
 PUT authentication/api/v1/systemregister/vendor/{systemid}
 
 ### Request Body
-For detailed description about each entity in the body, please refer the description [here]({{< relref "/api/authentication/systemuserapi/systemregister/model" >}})
+For detailed description about each entity in the body, please refer the description [here](/en/api/authentication/systemuserapi/systemregister/model/)
 
 ```
 {

@@ -24,4 +24,4 @@ satt til `null`.
 Oppdaterer App til .Net 6. Se Breaking
 
 
-Se [breaking changes]({{< relref "/community/changelog/app-nuget/v6/breaking-changes" >}}) for hvordan oppdatere app til å bli kompatibel med denne versjonen.
+Se [breaking changes](/nb/community/changelog/app-nuget/v6/breaking-changes/) for hvordan oppdatere app til å bli kompatibel med denne versjonen.

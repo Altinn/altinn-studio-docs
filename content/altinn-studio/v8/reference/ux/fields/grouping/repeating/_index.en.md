@@ -103,8 +103,8 @@ Below is a form with a repeating group that:
 
 It is possible to add different keys in textResourceBindings to overrule default texts.
 
-- `title` - title to show above the group and over each group row in a [Summary component]({{< relref "/altinn-studio/v8/reference/ux/pages/summary" >}}).
-- `summaryTitle` - If set, overrides title when displaying a [Summary component]({{< relref "/altinn-studio/v8/reference/ux/pages/summary" >}}).
+- `title` - title to show above the group and over each group row in a [Summary component](/en/altinn-studio/v8/reference/ux/pages/summary/).
+- `summaryTitle` - If set, overrides title when displaying a [Summary component](/en/altinn-studio/v8/reference/ux/pages/summary/).
 - `description` - A description to show above the group beneath the title.
 - `add_button` - is added at the end of the "Add new" text on the button, and can be used to e.g. get text that says "Add new person".
 - `add_button_full` - is used as custom text on the "Add new" button. Overrides `add_button` if both are set.
@@ -204,7 +204,7 @@ Below is a form with a repeating group that:
 
 It is possible to add different keys in textResourceBindings to overrule default texts.
 
-- `title` - title to show above the group row in a [Summary component]({{< relref "/altinn-studio/v8/reference/ux/pages/summary" >}}).
+- `title` - title to show above the group row in a [Summary component](/en/altinn-studio/v8/reference/ux/pages/summary/).
 - `add_button` - is added at the end of the "Add new" text on the button, and can be used to e.g. get text that says "Add new person".
 - `add_button_full` - is used as custom text on the "Add new" button. Overrides `add_button` if both are set.
 - `save_button` - is used as text on the "Save" button when the user is filling out data.

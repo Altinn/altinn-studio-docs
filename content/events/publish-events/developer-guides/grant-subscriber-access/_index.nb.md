@@ -24,4 +24,4 @@ TODO: Har vi noe dokumentasjon vi kunne inkludere her for å veilede brukerne, T
 Å gi abonnenter tilgang til hendelser generert av en Altinn App gjøres gjennom applikasjonens
 autorisasjonspolicy. 
 
-Se [Altinn Apps dokumentasjonen]({{< relref "/altinn-studio/v8/reference/configuration/authorization/" >}}) for veiledning.
+Se [Altinn Apps dokumentasjonen](/nb/altinn-studio/v8/reference/configuration/authorization/) for veiledning.

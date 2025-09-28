@@ -77,7 +77,7 @@ Width deklarasjonen ble flyttet til inline styling for å løse problemet.
 Issue [#14](https://github.com/Altinn/app-frontend-react/issues/14). 
 
 ## 3.34.0 (2022-04-11) - Options fra datamodellen
-La til støtte for å sette opp options (kodelister) fra repeterende grupper i datamodellen. Les mer på [docs.]({{< relref "/altinn-studio/v8/guides/development/options/sources/from-data-model" >}})
+La til støtte for å sette opp options (kodelister) fra repeterende grupper i datamodellen. Les mer på [docs.](/nb/altinn-studio/v8/guides/development/options/sources/from-data-model/)
 Issue [#7626](https://github.com/Altinn/altinn-studio/issues/7626). 
 
 ## 3.33.5 (2022-04-11) - Oppdaterte ekstern avhengighet
@@ -722,5 +722,5 @@ options were not loaded. Issue [#5619.](https://github.com/Altinn/altinn-studio/
 ## 3.0.0 (2021-02-23) - New font for App Frontend
 
 This version changes the font for the app frontend from Roboto to Altinn-DIN.
-For the apps to show fonts as expected, some changes need to be made. See [breaking changes]({{< relref "/community/changelog/app-frontend/v3/breaking-changes" >}})
+For the apps to show fonts as expected, some changes need to be made. See [breaking changes](/nb/community/changelog/app-frontend/v3/breaking-changes/)
 for the details.

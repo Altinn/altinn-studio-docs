@@ -15,7 +15,7 @@ aliases:
 
 Use images and illustrations to emphasize points or illustrate concepts that are difficult to explain using text.
 
-This component can be used standalone or as a media component in [Cards]({{< relref "/altinn-studio/v8/reference/ux/components/cards" >}}).
+This component can be used standalone or as a media component in [Cards](/en/altinn-studio/v8/reference/ux/components/cards/).
 
 ### Anatomy
 ![Example image and alt text anatomy](image-and-alt-text-en.png)
@@ -76,7 +76,7 @@ We are currently updating Altinn Studio Designer with more configuration options
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-You can add a component in [Altinn Studio Designer]({{< relref "/altinn-studio/v8/getting-started/" >}}) by dragging it from the list of components to the page area.
+You can add a component in [Altinn Studio Designer](/en/altinn-studio/v8/getting-started/) by dragging it from the list of components to the page area.
 Selecting the component brings up its configuration panel.
 
 {{</content-version-container>}}
@@ -122,7 +122,7 @@ Choose 'Alternativ tekst for bilde' in the drop-down menu.
 
 ![Settings add text](innstilling-tekst.png)
 
-Click the plus sign to create a new text or the magnifying glass to pick an existing [text resource]({{< relref "/altinn-studio/v8/reference/ux/texts/#add-and-change-texts-in-an-application" >}}).
+Click the plus sign to create a new text or the magnifying glass to pick an existing [text resource](/en/altinn-studio/v8/reference/ux/texts/#add-and-change-texts-in-an-application).
 
 ![Settings for alternative text](innstilling-alternativ-tekst.png)
 

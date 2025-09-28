@@ -53,9 +53,9 @@ Avkrysningsbokser brukes ofte i skjemaer for å samle input fra brukeren,
 
 ### Relatert
 
-* For en mer kompakt måte å vise flere alternativer med flervalg, bruk [MultipleSelect]({{< relref "/altinn-studio/v8/reference/ux/components/multipleselect/" >}}).
-* Hvis brukeren bare kan velge ett alternativ fra en liste, bruk [RadioButtons]({{< relref "/altinn-studio/v8/reference/ux/components/radiobuttons" >}}).
-* For en mer kompakt måte å vise flere alternativer med enkeltvalg, bruk en [rullegardinmeny]({{< relref "/altinn-studio/v8/reference/ux/components/dropdown" >}}).
+* For en mer kompakt måte å vise flere alternativer med flervalg, bruk [MultipleSelect](/nb/altinn-studio/v8/reference/ux/components/multipleselect/).
+* Hvis brukeren bare kan velge ett alternativ fra en liste, bruk [RadioButtons](/nb/altinn-studio/v8/reference/ux/components/radiobuttons/).
+* For en mer kompakt måte å vise flere alternativer med enkeltvalg, bruk en [rullegardinmeny](/nb/altinn-studio/v8/reference/ux/components/dropdown/).
 
 ## Egenskaper
 
@@ -83,7 +83,7 @@ Vi oppdaterer for øyeblikket Altinn Studio med flere muligheter for innstilling
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-Du kan legge til en komponent i [Altinn Studio Designer]({{< relref "/altinn-studio/v8/getting-started/" >}}) ved å dra den fra komponent-listen til sideområdet.
+Du kan legge til en komponent i [Altinn Studio Designer](/nb/altinn-studio/v8/getting-started/) ved å dra den fra komponent-listen til sideområdet.
 Når du velger komponenten, vises innstillingspanelet for den.
 
 {{</content-version-container>}}

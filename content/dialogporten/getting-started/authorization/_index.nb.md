@@ -6,7 +6,7 @@ weight: 20
 
 ## Introduksjon
 
-Dialogporten er fullt integrert med ID-porten, Maskinporten og Altinn Autorisasjon. Tilgang til alle dialoger er underlagt den samme tilgangspolicyen som tjenesten de representerer, som er fullt administrerbar via roller, tilgangspakker og tjenesterettigheter i [Altinn Access Management]({{< relref "/authorization/what-do-you-get/accessmanagement" >}}).
+Dialogporten er fullt integrert med ID-porten, Maskinporten og Altinn Autorisasjon. Tilgang til alle dialoger er underlagt den samme tilgangspolicyen som tjenesten de representerer, som er fullt administrerbar via roller, tilgangspakker og tjenesterettigheter i [Altinn Access Management](/nb/authorization/what-do-you-get/accessmanagement/).
 
 **Les mer**
 

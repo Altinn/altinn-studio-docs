@@ -9,6 +9,6 @@ aliases:
 - /app/design/
 ---
 
-The pages for design and planning is currently only available in [norwegian]({{< relref "/altinn-studio/v8/guides/design/" >}}).
+The pages for design and planning is currently only available in [norwegian](/en/altinn-studio/v8/guides/design/).
 
 {{<children />}}

@@ -25,7 +25,7 @@ src2="https://digdir-samarbeid.slack.com/" title2="Skriv til oss på Slack" %}}
 
 **Do you need a new component?**
 
-We want everyone who is working on developing apps to contribute to our [library of components]({{< relref "/altinn-studio/v8/guides/design/guidelines/components" >}})
+We want everyone who is working on developing apps to contribute to our [library of components](/en/altinn-studio/v8/guides/design/guidelines/components/)
 with both design and code. Practically this means that Altinn is accepting suggestions of new components requested by service owners according to their needs. 
 
 {{% /panel-contribute %}}

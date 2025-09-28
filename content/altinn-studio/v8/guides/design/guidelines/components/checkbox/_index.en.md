@@ -3,7 +3,7 @@ title: Checkboxes
 description: Check boxes are used in cases where the user can select multiple alternatives in a list of options.
 weight: 50
 ---
-If the user should only be able to pick one option, use [radio buttons]({{< relref "/altinn-studio/v8/guides/design/guidelines/components/radiobutton/" >}}) instead.
+If the user should only be able to pick one option, use [radio buttons](/en/altinn-studio/v8/guides/design/guidelines/components/radiobutton/) instead.
 
 ### Guidelines:
 - Check boxes should always have a connected text to their right. 

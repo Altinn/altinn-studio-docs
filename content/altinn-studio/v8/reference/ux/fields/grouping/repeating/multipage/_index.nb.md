@@ -71,7 +71,7 @@ Se eksempel under:
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-Her har man også lagt inn en [mode]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating/edit#mode" >}}) som skjuler tabellen under redigering.
+Her har man også lagt inn en [mode](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/edit#mode) som skjuler tabellen under redigering.
 Resultatet blir som vist under.
 
 ![Utfylling i gruppe over flere "sider"](group-multipage.gif "Utfylling i gruppe over flere sider")

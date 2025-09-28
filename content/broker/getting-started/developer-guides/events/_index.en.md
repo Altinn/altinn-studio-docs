@@ -63,5 +63,5 @@ If you do not specify a Type Filter you will receive all the different types of 
 - `no.altinn.broker.downloadconfirmed`
 - `no.altinn.broker.fileneverconfirmeddownloaded`
 
-For further description of events and their usage, see [send files]({{< relref "/broker/getting-started/developer-guides/send-files/" >}}) and [receive files]({{< relref "/broker/getting-started/developer-guides/receive-files/" >}}) developer guides, as these describe the events in relation to the respective roles/process.
+For further description of events and their usage, see [send files](/en/broker/getting-started/developer-guides/send-files/) and [receive files](/en/broker/getting-started/developer-guides/receive-files/) developer guides, as these describe the events in relation to the respective roles/process.
 

@@ -7,7 +7,7 @@ weight: 60
 toc: true
 ---
 
-I denne modulen skal vi bygge videre på appen vår for å støtte enda flere av [kravene til Sogndal kommune]({{< relref "/altinn-studio/v8/getting-started/app-dev-course/case/#krav-fra-kommunen" >}}).
+I denne modulen skal vi bygge videre på appen vår for å støtte enda flere av [kravene til Sogndal kommune](/nb/altinn-studio/v8/getting-started/app-dev-course/case/#krav-fra-kommunen).
 
 ## Temaer i denne modulen
 - Radioknapper
@@ -53,7 +53,7 @@ Skjemaet du har laget skal nå ha tre sider.
 !["Tre sider"](tre_sider.png)
 
 ### Legg til radioknapper for sektor
-Brukeren skal kunne velge mellom offentlig og privat sektor. Til det er det naturlig å bruke [radioknapper]({{< relref "/altinn-studio/v8/reference/ux/components/radiobuttons/" >}}).
+Brukeren skal kunne velge mellom offentlig og privat sektor. Til det er det naturlig å bruke [radioknapper](/nb/altinn-studio/v8/reference/ux/components/radiobuttons/).
 
 1. Dra inn en komponent av typen **Radioknapper** øverst på den nye siden.
 2. Under **Tekst** i egenskapene til komponenten du har lagt til, legg til ledeteksten **Sektor**. Nå bør skjemabyggeren se slik ut:
@@ -68,7 +68,7 @@ Brukeren skal kunne velge mellom offentlig og privat sektor. Til det er det natu
 9. Nå mangler vi bare å koble komponenten til riktig felt i datamodellen. Åpne **Datamodellknytninger**, klikk på **Radioknapper** og velg `arbeidsforhold.sektor`.
 
 ### Legg til avmerkingsbokser for bransje
-Brukeren skal også kunne velge én eller flere bransjer. Siden det skal være mulig å velge mer enn ett alternativ, er det naturlig å bruke [avmerkingsbokser]({{< relref "/altinn-studio/v8/reference/ux/components/checkboxes/" >}}). I stedet for å legge til alternativene manuelt, skal vi bruke [en fil med en _kodeliste_](industri.json). En kodelistefil er nyttig hvis vi for eksempel trenger å bruke de samme alternativene flere steder.
+Brukeren skal også kunne velge én eller flere bransjer. Siden det skal være mulig å velge mer enn ett alternativ, er det naturlig å bruke [avmerkingsbokser](/nb/altinn-studio/v8/reference/ux/components/checkboxes/). I stedet for å legge til alternativene manuelt, skal vi bruke [en fil med en _kodeliste_](industri.json). En kodelistefil er nyttig hvis vi for eksempel trenger å bruke de samme alternativene flere steder.
 
 Slik bruker du en kodeliste til å lage en liste med avmerkingsbokser:
 
@@ -150,7 +150,7 @@ Til denne komponenten skal vi også bruke en kodelistefil, men denne gangen skal
 Nå skal din app ha fått en nedtrekksliste med alternativene som er spesifisert i kodelisten.
 
 ## Nyttig dokumentasjon
-Se [kodelisteguiden]({{< relref "/altinn-studio/v8/guides/development/options/" >}}) for å se hvordan kodelister settes opp i appkoden.
+Se [kodelisteguiden](/nb/altinn-studio/v8/guides/development/options/) for å se hvordan kodelister settes opp i appkoden.
 
 ## Oppsummering
 I denne modulen har du lagt til en gruppe med radioknapper, en gruppe med avkrysningsbokser og en nedtrekksliste. Du har også satt opp svaralternativer manuelt i Studio og ved hjelp av JSON-filer i Gitea.

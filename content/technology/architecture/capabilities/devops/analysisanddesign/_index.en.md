@@ -22,7 +22,7 @@ Some example issues are
 - [The issue for supporting Sirius App for tax department](https://github.com/Altinn/altinn-studio/issues/3747)
 - [The issue for supporting NSM POB](https://github.com/Altinn/altinn-studio/issues/4731)
   
-See [development application components]({{< relref "/technology/architecture/components/application/nonsolutionspecific/development/" >}})  to get an overview of our tools and applications.
+See [development application components](/en/technology/architecture/components/application/nonsolutionspecific/development/)  to get an overview of our tools and applications.
 
 ### User story Definition
 
@@ -52,7 +52,7 @@ See development application components for tools used.
 
 We use Figma to design the UI elements.
 
-We have made a [Figma Library]({{< relref "/altinn-studio/v8/guides/design/prototype/" >}}) available for anyone that wants to design apps.
+We have made a [Figma Library](/en/altinn-studio/v8/guides/design/prototype/) available for anyone that wants to design apps.
 
 And we have a Storybook Design system where all components are implemented.
 
@@ -62,7 +62,7 @@ See [Altinn Design System V2](https://designsystem.altinn.studio/)
 
 The DevOps team has the capability for data modeling and design.
 
-See [development application components]({{< relref "/technology/architecture/components/application/nonsolutionspecific/development/" >}}) to get an overview of our tools and applications.
+See [development application components](/en/technology/architecture/components/application/nonsolutionspecific/development/) to get an overview of our tools and applications.
 
 ### Architecture Design Enablement
 

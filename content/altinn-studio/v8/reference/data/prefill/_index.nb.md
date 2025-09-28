@@ -4,8 +4,8 @@ linktitle: Forhåndsutfylling
 description: Oversikt over tilgjengelige felter for forhåndsutfylling med konfigurasjonsfil
 weight: 10
 ---
-Les mer om forhåndsutfylling [her]({{< relref "/altinn-studio/v8/concepts/prefill/" >}}), og se veiledning for hvordan det settes opp
-[her]({{< relref "/altinn-studio/v8/guides/development/prefill/config/" >}}).
+Les mer om forhåndsutfylling [her](/nb/altinn-studio/v8/concepts/prefill/), og se veiledning for hvordan det settes opp
+[her](/nb/altinn-studio/v8/guides/development/prefill/config/).
 
 ## Felter i _prefill.json_-filen
 
@@ -84,7 +84,7 @@ vil data som hentes ut herfra være knyttet til Ola. For objektene Party.Organiz
 samme feltene som man ser i ER og DSF-prefill. Merk at Party.Organization vil være null om brukeren er logget inn som en 
 privatperson, og tilsvarende for Party.Person om man er logget inn med en virksomhetsbruker. Preutfyllingen vil feile 
 om objektet man preutfyller fra ikke finnes. Om man ønsker å dynamisk preutfylle basert på disse verdiene må dette settes 
-opp som [egendefinert prefill]({{< relref "/altinn-studio/v8/guides/development/prefill/custom/" >}}).
+opp som [egendefinert prefill](/nb/altinn-studio/v8/guides/development/prefill/custom/).
 Tilgjengelige verdier for prefill inkluderer:
 
 - UserId

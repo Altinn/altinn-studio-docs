@@ -6,7 +6,7 @@ description: Denne tilgangspakken er relevant for alle virksomheter som betaler 
 weight: 105
 ---
 
-Tilbake til [hovedoversikt]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/#oversikt-over-tilgangspakker" >}})
+Tilbake til [hovedoversikt](/en/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/#oversikt-over-tilgangspakker)
 
 
 
@@ -23,7 +23,7 @@ Tilbake til [hovedoversikt]({{< relref "/authorization/what-do-you-get/accessgro
 	- **Toll:** Denne tilgangspakken gir fullmakter til tjenester knyttet til toll og fortolling. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. **urn:altinn:accesspackage:toll**
 
 ## Egenskaper ved tilgangspakkene
-|Navn tillgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle]({{< relref "/authorization/what-do-you-get/accessgroups/register_er/#rolletyper-fra-enhetsregisteret" >}}) som får fullmakten|
+|Navn tillgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/en/authorization/what-do-you-get/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
 |---|---|---|---|
 |Skatt, avgift, regnskap og toll| ja|nei||
 |Skatt og Merverdiavgift|ja|nei||
@@ -37,6 +37,6 @@ Tilbake til [hovedoversikt]({{< relref "/authorization/what-do-you-get/accessgro
 {{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Skatt, avgift, regnskap og toll" {{% /notice %}}
 
 
-Tilbake til [hovedoversikt]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/#oversikt-over-tilgangspakker" >}})
+Tilbake til [hovedoversikt](/en/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/#oversikt-over-tilgangspakker)
 
 [def]: sart.jpg

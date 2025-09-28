@@ -9,7 +9,7 @@ weight: 10
 
 Grunnet en forenkling av tjenestekonfigurasjon i Altinn 3 for Melding, består migrering i praksis bare av:
 
-- Opprette ny ressurs i [Ressursregisteret]({{< relref "/authorization/what-do-you-get/resourceregistry" >}}) basert på Altinn 2 tjenesten.
+- Opprette ny ressurs i [Ressursregisteret](/nb/authorization/what-do-you-get/resourceregistry/) basert på Altinn 2 tjenesten.
 - Oversettelse av autorisasjonsregler til xacml-policy for tilgangstyring.
   - Merk at det er en forenkling av rettigheter for Melding mellom Altinn 2 og Altinn 3-versjonene.
 
@@ -20,7 +20,7 @@ Prosjektet vil opprette dette på vegne av TjenesteEiere slik at det kan brukes 
 Migreringen av data er gjort uavhengig av oppsett av tjenestene, slik at datamigrering kan gjøres før dette må settes opp.
 
 Den automatiske migreringen vil bruke de eksisterende Altinn 2-rollene spesifisert i de gamle autorisasjonsreglene, oversatt etter beste-innsats.
-Disse rollene vil etter hvert bli faset ut til fordel for den nye [AccessLists]({{< relref "/authorization/what-do-you-get/resourceregistry/rrr/#access-lists" >}})-funksjonaliteten, og det vil være et fremtidig prosjekt for å migrere alle policyer til den nye standarden i fremtiden, men dette er utenfor omfanget av Flytt av Data-prosjektet.
+Disse rollene vil etter hvert bli faset ut til fordel for den nye [AccessLists](/nb/authorization/what-do-you-get/resourceregistry/rrr/#access-lists)-funksjonaliteten, og det vil være et fremtidig prosjekt for å migrere alle policyer til den nye standarden i fremtiden, men dette er utenfor omfanget av Flytt av Data-prosjektet.
 
 NB: Det er enkelte nye metadata-felter som tjenestebeskrivelse på forskjellige språk som ikke automatisk vil kunne fylles ut, og som TE selv bør fylle ut i etterkant.
 
@@ -32,7 +32,7 @@ Denne vil ikke tilgjengeliggjøres for eksterne parter, men kun brukes av Flytt 
 ## Manuell migrering av tjenestekonfigurasjon
 
 Det vurderes en funksjon i Altinn studio som tjenesteeier kan benytte for å manuelt migrere en Meldingstjeneste-konfigurasjon.
-Den vil i så fall følge samme mønster som kan benyttes for [Migrering av Lenketjenester]({{< relref "/authorization/what-do-you-get/resourceregistry/migration/" >}})
+Den vil i så fall følge samme mønster som kan benyttes for [Migrering av Lenketjenester](/nb/authorization/what-do-you-get/resourceregistry/migration/)
 
 ### Teknisk implementasjon
 

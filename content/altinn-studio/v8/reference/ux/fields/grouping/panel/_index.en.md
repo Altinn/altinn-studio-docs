@@ -5,13 +5,13 @@ description: Configuration details for groups displayed as panels
 ---
 
 {{% notice warning %}}
-This concept is not available for version 4 of the App Frontend. See [non-repeating groups]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/non-repeating/" >}}) for more information about how to visually group components.
+This concept is not available for version 4 of the App Frontend. See [non-repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/non-repeating/) for more information about how to visually group components.
 {{% /notice %}}
 
 ## Display group as part of Panel
 
 On a Group component, the parameter `panel` can be set up.
-This says that the group should be displayed as part of the [Panel component]({{< relref "/altinn-studio/v8/reference/ux/components/panel" >}}).
+This says that the group should be displayed as part of the [Panel component](/en/altinn-studio/v8/reference/ux/components/panel/).
 
 Here, you will recognize the appearance and settings that can be set on the panel component. Example configuration:
 

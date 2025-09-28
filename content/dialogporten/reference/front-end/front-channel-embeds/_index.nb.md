@@ -7,7 +7,7 @@ toc: true
 
 ## Introduksjon
 
-Se [komme i gang med front channel embeds]({{<relref "../../../getting-started/front-channel-embeds">}}) for en introduksjon.
+Se [komme i gang med front channel embeds](/nb/dialogporten/reference/front-end/front-channel-embeds/../../../getting-started/front-channel-embeds/) for en introduksjon.
 
 Nedenfor er begrepene som brukes på denne siden.
 
@@ -26,7 +26,7 @@ Innholdsleverandørs system (ILS)
 
 ### Trinn 1: Identifisere en front-channel embed
 
-Se [innholdstyper]({{<relref "../../content-types">}}) for en liste over innholdsfelt der en FCE kan brukes som en medietype. Denne listen kan endres, så SBS-implementatorer anbefales å håndtere FCE-medietyper på alle innholdsfelt.
+Se [innholdstyper](/nb/dialogporten/reference/front-end/front-channel-embeds/../../content-types/) for en liste over innholdsfelt der en FCE kan brukes som en medietype. Denne listen kan endres, så SBS-implementatorer anbefales å håndtere FCE-medietyper på alle innholdsfelt.
 
 FCE-medietypene kan identifiseres ved prefikset `application/vnd.dialogporten.frontchannelembed-url`. Alle FCE-er gir imidlertid også et eksternt innholdstypesuffiks, som indikerer hvilken type data endepunktet hos ILS kan forventes å returnere. For øyeblikket er to formater tillatt (for Markdown og HTML), noe som gir oss disse gyldige medietypene:
 

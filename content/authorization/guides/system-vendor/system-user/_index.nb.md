@@ -91,7 +91,7 @@ aliases:
 
 Se [her](https://platform.tt02.altinn.no/accessmanagement/api/v1/meta/info/accesspackages/export) for list av tilgjengelige tilgangspakker på tt02 miljø.
 
-Se [her]({{< relref "/api/authentication/systemuserapi/systemregister/model/" >}}) for en detaljert beskrivelse av hver enkelt input. Ved all videre kommunikasjon må systemleverandøren referere til verdien som er angitt i feltet 'id'.
+Se [her](/nb/api/authentication/systemuserapi/systemregister/model/) for en detaljert beskrivelse av hver enkelt input. Ved all videre kommunikasjon må systemleverandøren referere til verdien som er angitt i feltet 'id'.
 
 ### Opprettelse av systembruker for en standard system bruker
 
@@ -143,12 +143,12 @@ Systembrukeren kan opprettes på to måter
        "confirmUrl": "https://am.ui.tt02.altinn.no/accessmanagement/ui/systemuser/request?id=505f8488-3d48-4c15-8e21-35cb9432f815"
      }
      ```
-   - Bekreftelseslenken (`confirmurl`) sendes til sluttbrukeren for godkjenning. Følg veiledningen for [sluttbruker for Standard systembruker]({{< relref "/authorization/guides/end-user/system-user/#veiledning-for-sluttbruker-stadig-konsert-dagligleder-til-tilfeldig-subtil-ape" >}}) for å håndtere forespørselen.
+   - Bekreftelseslenken (`confirmurl`) sendes til sluttbrukeren for godkjenning. Følg veiledningen for [sluttbruker for Standard systembruker](/nb/authorization/guides/end-user/system-user/#veiledning-for-sluttbruker-stadig-konsert-dagligleder-til-tilfeldig-subtil-ape) for å håndtere forespørselen.
 
 ### Opprettelse av en systembruker for agentsystembruker
 
 - Systembrukeren for en agentsystembruker kan kun opprettes ved en forespørsel fra en systembruker.
-- SmartCloud AS oppretter en systembrukerforespørsel (via Altinn API for systembrukerforespørsel) fra SmartCloud, som deretter sendes til Altinn. For detaljert informasjon om hvert inputfelt, se dokumentasjonen [her]({{< relref "/api/authentication/systemuserapi/systemuserrequest/external/model/" >}})
+- SmartCloud AS oppretter en systembrukerforespørsel (via Altinn API for systembrukerforespørsel) fra SmartCloud, som deretter sendes til Altinn. For detaljert informasjon om hvert inputfelt, se dokumentasjonen [her](/nb/api/authentication/systemuserapi/systemuserrequest/external/model/)
   ```json
   {
     "externalRef": "smartcloud_demo_agent_test",
@@ -180,12 +180,12 @@ Systembrukeren kan opprettes på to måter
     "confirmUrl": "https://am.ui.tt02.altinn.no/accessmanagement/ui/systemuser/agentrequest?id=605bb239-23b1-4d11-aae8-a40eb683aa1f"
   }
   ```
-- Bekreftelseslenken (`confirmurl`) sendes til sluttbrukeren, her revisjonsorganisasjonen, for godkjenning. Når den er godkjent, kan sluttbrukeren legge til klienter til systembrukeren. Følg veiledningen for sluttbruker for [Agent systembruker]({{< relref "/authorization/guides/end-user/system-user/#veiledning-for-sluttbruker-dress-minst-klientadministratør-i-tilbakeholden-usymmetrisk-tiger-as-" >}})
+- Bekreftelseslenken (`confirmurl`) sendes til sluttbrukeren, her revisjonsorganisasjonen, for godkjenning. Når den er godkjent, kan sluttbrukeren legge til klienter til systembrukeren. Følg veiledningen for sluttbruker for [Agent systembruker](/nb/authorization/guides/end-user/system-user/#veiledning-for-sluttbruker-dress-minst-klientadministratør-i-tilbakeholden-usymmetrisk-tiger-as-)
 
 Se [Samarbeisportalen](https://samarbeid.digdir.no/altinn/systembruker/2542) for illustrert og webinar.
 {.mt-3}
 
-se [api dokumentasjon]({{< relref "/api/authentication/systemuserapi/" >}}) for mer informasjon om endepunkter.
+se [api dokumentasjon](/nb/api/authentication/systemuserapi/) for mer informasjon om endepunkter.
 
 ## Test og Produksjonssetting
 

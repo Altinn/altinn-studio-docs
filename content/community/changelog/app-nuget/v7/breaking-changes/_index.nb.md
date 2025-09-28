@@ -12,7 +12,7 @@ If your application still is on version v5 or lower you should read the breaking
 
 ## Updating Altinn.App.* PackageReferences from v6 to v7
 
-As mentioned [here]({{< relref "/community/changelog/app-nuget/v7/" >}}) we have moved the code around and reduced the number of nugets to two.
+As mentioned [here](/nb/community/changelog/app-nuget/v7/) we have moved the code around and reduced the number of nugets to two.
 
 To upgrade from v6 nuget to v7 nugets the Altinn.App.* PackageReferences in `App/App.csproj` needs to be changed from:
 
@@ -44,7 +44,7 @@ Work your way through the rest of this page and you will remove them one at a ti
 
 ## Upgrading Program.cs
 
-It's highly recommended to follow the migration guide to [v6]({{< relref "/community/changelog/app-nuget/v6/breaking-changes/" >}}) if your application still hasn't been upgraded to v6 from v4 or v5.
+It's highly recommended to follow the migration guide to [v6](/nb/community/changelog/app-nuget/v6/breaking-changes/) if your application still hasn't been upgraded to v6 from v4 or v5.
 
 In previous versions Altinn provided code and registration of custom/override services which were hard to separate.
 As an attempt to make it easier to see customer provided services, we have extracted most of our code and introduced a new method at the top of Program.cs

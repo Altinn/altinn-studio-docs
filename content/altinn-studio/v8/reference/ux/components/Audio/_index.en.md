@@ -9,7 +9,7 @@ toc: true
 ## Usage
 
 The `Audio` component is used to display an audio player in your application. It can be used standalone or as a media
-component in [Cards]({{< relref "/altinn-studio/v8/reference/ux/components/cards" >}}).
+component in [Cards](/en/altinn-studio/v8/reference/ux/components/cards/).
 
 ### Anatomy
 
@@ -29,9 +29,9 @@ The above screenshot was captured from the Chrome browser.
 
 ### Related
 
-- [Cards]({{< relref "/altinn-studio/v8/reference/ux/components/cards" >}}) - Can use the Audio component as media content
-- [Image]({{< relref "/altinn-studio/v8/reference/ux/components/image" >}}) - Image component
-- [Video]({{< relref "/altinn-studio/v8/reference/ux/components/video" >}}) - Video player component
+- [Cards](/en/altinn-studio/v8/reference/ux/components/cards/) - Can use the Audio component as media content
+- [Image](/en/altinn-studio/v8/reference/ux/components/image/) - Image component
+- [Video](/en/altinn-studio/v8/reference/ux/components/video/) - Video player component
 
 ## Properties
 
@@ -59,7 +59,7 @@ some settings may be in beta version.
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-You can add a component in [Altinn Studio Designer]({{< relref "/altinn-studio/v8/getting-started/" >}}) by dragging it from the list of
+You can add a component in [Altinn Studio Designer](/en/altinn-studio/v8/getting-started/) by dragging it from the list of
 components to the page area. Selecting the component brings up its configuration panel.
 
 {{</content-version-container>}}

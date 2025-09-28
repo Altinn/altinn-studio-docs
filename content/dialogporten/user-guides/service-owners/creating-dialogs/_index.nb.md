@@ -9,24 +9,24 @@ weight: 20
 Denne veiledningen viser hvordan du kan bruke tjenesteeier-API-et til å opprette dialoger for dine digitale tjenesteinstanser og/eller meldinger.
 
 {{<notice info>}}
-Når du bruker Altinn Studio, vil dialoger automatisk opprettes for deg. En app kan velge å ikke bruke dette, se [veiledningen for integrering av Altinn Apps]({{< relref "/dialogporten/user-guides/service-owners/integrating-altinn-apps" >}}) for mer informasjon.
+Når du bruker Altinn Studio, vil dialoger automatisk opprettes for deg. En app kan velge å ikke bruke dette, se [veiledningen for integrering av Altinn Apps](/nb/dialogporten/user-guides/service-owners/integrating-altinn-apps/) for mer informasjon.
 {{</notice>}}
 
 ## Grunnleggende trinn
 
-1. Autentiser som en [tjenesteeier]({{< relref "/dialogporten/user-guides/authenticating/#bruk-for-tjenesteeiersystemer" >}})
-2. Utfør en POST-forespørsel og oppgi [create dialog DTO]({{< relref "/dialogporten/reference/entities/dialog#opprett-post" >}})
+1. Autentiser som en [tjenesteeier](/nb/dialogporten/user-guides/authenticating/#bruk-for-tjenesteeiersystemer)
+2. Utfør en POST-forespørsel og oppgi [create dialog DTO](/nb/dialogporten/reference/entities/dialog#opprett-post)
 
 ## Velge en tjenesteressurs
-Tjenesteressursen som leveres kan være hvilken som helst ressurs i [Altinn Ressursregister]({{<relref "../../../../authorization/what-do-you-get/resourceregistry">}}) med en `hasCompententAuthority`-egenskap som samsvarer med det autentiserte organisasjonsnummeret.
+Tjenesteressursen som leveres kan være hvilken som helst ressurs i [Altinn Ressursregister](/nb/dialogporten/user-guides/service-owners/creating-dialogs/../../../../authorization/what-do-you-get/resourceregistry/) med en `hasCompententAuthority`-egenskap som samsvarer med det autentiserte organisasjonsnummeret.
 
 {{<notice info>}}
 Støtte for å legge til ytterligere begrensninger (dvs. ekstra omfangskrav) til tjenesteressurser spores i [denne saken](https://github.com/Altinn/dialogporten/issues/40).
 {{</notice>}}
 
-Ressurs med type `CorrespondenceService` kan ikke refereres, da disse er reservert for bruk med [Altinn Melding]({{<relref "../../../../correspondence">}}).
+Ressurs med type `CorrespondenceService` kan ikke refereres, da disse er reservert for bruk med [Altinn Melding](/nb/dialogporten/user-guides/service-owners/creating-dialogs/../../../../correspondence/).
 
-Som med [søk]({{<relref "../../searching-for-dialogs">}}), refererer `serviceResource`-feltet til en ressurs i Ressursregisteret og bruker formatet `urn:altinn:resource:<identifier>`.
+Som med [søk](/nb/dialogporten/user-guides/service-owners/creating-dialogs/../../searching-for-dialogs/), refererer `serviceResource`-feltet til en ressurs i Ressursregisteret og bruker formatet `urn:altinn:resource:<identifier>`.
 
 ## Datoer
 
@@ -40,7 +40,7 @@ Som standard vil begge disse settes til gjeldende tidsstempel når du oppretter 
 
 Det er to valgfrie datoer som kan settes på en dialog som kontrollerer synlighet for sluttbrukere.
 
-* `expiresAt` definerer et fremtidig tidsstempel som, når det er nådd, gjør dialogen utilgjengelig i sluttbruker-API-et. Sluttbrukersystemer bør gjøre en innsats for å advare brukere om at innholdet er i ferd med å bli utilgjengelig. Utilgjengelige dialoger er fortsatt synlige i tjenesteeier-API-ene, bortsett fra når du [impersonerer en bruker]({{<relref "../impersonating-users">}}), og `expiresAt`-feltet kan når som helst settes til `null` eller en fremtidig verdi som vil gjøre det synlig for sluttbrukeren igjen (og en `dialogporten.dialog.updated`-hendelse vil bli sendt).
+* `expiresAt` definerer et fremtidig tidsstempel som, når det er nådd, gjør dialogen utilgjengelig i sluttbruker-API-et. Sluttbrukersystemer bør gjøre en innsats for å advare brukere om at innholdet er i ferd med å bli utilgjengelig. Utilgjengelige dialoger er fortsatt synlige i tjenesteeier-API-ene, bortsett fra når du [impersonerer en bruker](/nb/dialogporten/user-guides/service-owners/creating-dialogs/../impersonating-users/), og `expiresAt`-feltet kan når som helst settes til `null` eller en fremtidig verdi som vil gjøre det synlig for sluttbrukeren igjen (og en `dialogporten.dialog.updated`-hendelse vil bli sendt).
 
 {{<notice warning>}}
 Utilgjengelige dialoger vil på dette tidspunktet _ikke_ bli sanert fra databasen, men dette kan endre seg i fremtiden der Dialogporten fjerner for lengst utløpte dialoger av personvern- og systemeffektivitetshensyn.
@@ -58,7 +58,7 @@ Tidsstempelet ´dueAt´ er et hint til sluttbrukersystemer for å indikere for b
 
 ## Sette innhold
 
-Dialogporten støtter flere innholdsfelter som brukes til forskjellige formål. Disse kan settes på både dialog og forsendelser. For teknisk informasjon om feltnavn, tillatte formater osv., se [innholdstype-referansen]({{<relref "../../../reference/content-types">}}).
+Dialogporten støtter flere innholdsfelter som brukes til forskjellige formål. Disse kan settes på både dialog og forsendelser. For teknisk informasjon om feltnavn, tillatte formater osv., se [innholdstype-referansen](/nb/dialogporten/user-guides/service-owners/creating-dialogs/../../../reference/content-types/).
 
 ### Tittel
 
@@ -82,7 +82,7 @@ Vanligvis bruker sluttbrukersystemer `org`-feltet for å indikere for sluttbruke
 
 ### Innholdsreferanse
 
-Dette er innholdstypen for [front channel embeds]({{<relref "../../../getting-started/front-channel-embeds">}}), og kan settes på både dialoger og forsendelser i dialoger.
+Dette er innholdstypen for [front channel embeds](/nb/dialogporten/user-guides/service-owners/creating-dialogs/../../../getting-started/front-channel-embeds/), og kan settes på både dialoger og forsendelser i dialoger.
 
 **Les mer**
 
@@ -129,7 +129,7 @@ Handlinger har selv en `action`-egenskap som tilsvarer en [XACML-handling](/nb/a
 
 {{<notice warning>}}Selv om Dialogporten vil sjekke autorisasjon for handlingen og fjerne URL-en hvis sjekken mislykkes, MÅ tjenesteeiersystemet utføre sin egen autorisasjon basert på den samme policyen{{</notice>}}
 
-For ekstra kontroll kan et [autorisasjonsattributt]({{< relref "/dialogporten/getting-started/authorization/attributes" >}}) leveres, som lar tjenesteeiere referere til spesifikke regler i policyen eller andre tjenesteressurser (som tjenesteeieren kontrollerer) fullstendig.
+For ekstra kontroll kan et [autorisasjonsattributt](/nb/dialogporten/getting-started/authorization/attributes/) leveres, som lar tjenesteeiere referere til spesifikke regler i policyen eller andre tjenesteressurser (som tjenesteeieren kontrollerer) fullstendig.
 
 ### Definere GUI-handlinger
 
@@ -137,7 +137,7 @@ For mange dialoger vil en enkelt GUI-handling med en tittel med noe som "Start s
 
 #### Skrivehandlinger
 
-Hvis `httpMethod` som leveres for en GUI-handling er noe annet enn `GET`, anses det som en [skrivehandling]({{<relref "../../../getting-started/write-actions">}}), og det nettleserbaserte sluttbrukersystemet må bruke [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) eller lignende for å konstruere forespørselen ved hjelp av nettleserens skriptfunksjoner. Siden dette gjør GET-basert omdirigert SSO med ID-porten umulig, vil sluttbrukersystemet inkludere [dialogtoken]({{<relref "../../../getting-started/authorization/dialog-tokens">}}) som et Authorization-header for at tjenesteeieren skal kunne starte en økt. Tjenesteeiersystemet på URL-en må også fullt ut støtte [CORS-protokollen](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
+Hvis `httpMethod` som leveres for en GUI-handling er noe annet enn `GET`, anses det som en [skrivehandling](/nb/dialogporten/user-guides/service-owners/creating-dialogs/../../../getting-started/write-actions/), og det nettleserbaserte sluttbrukersystemet må bruke [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) eller lignende for å konstruere forespørselen ved hjelp av nettleserens skriptfunksjoner. Siden dette gjør GET-basert omdirigert SSO med ID-porten umulig, vil sluttbrukersystemet inkludere [dialogtoken](/nb/dialogporten/user-guides/service-owners/creating-dialogs/../../../getting-started/authorization/dialog-tokens/) som et Authorization-header for at tjenesteeieren skal kunne starte en økt. Tjenesteeiersystemet på URL-en må også fullt ut støtte [CORS-protokollen](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
 
 #### Slettehandlinger
 
@@ -151,7 +151,7 @@ Merk at Dialogporten ikke vil vurdere gyldigheten eller semantikken til API-hand
 
 **Les mer**
 
-- [Lær mer om handlinger i dialoger]({{< relref "/dialogporten/getting-started/dialogs#handlinger" >}})
+- [Lær mer om handlinger i dialoger](/nb/dialogporten/getting-started/dialogs#handlinger)
 - {{<link "../../../reference/entities/action">}}
 - {{<link "../../../getting-started/write-actions">}}
 - {{<link "../../../getting-started/authorization/dialog-tokens">}}
@@ -164,7 +164,7 @@ Vedlegg kan defineres både på dialogen og på individuelle forsendelser.
 
 **Les mer**
 
-- [Lær mer om vedlegg i dialoger]({{< relref "/dialogporten/getting-started/dialogs#vedlegg" >}})
+- [Lær mer om vedlegg i dialoger](/nb/dialogporten/getting-started/dialogs#vedlegg)
 
 ## Definere forsendelser
 
@@ -180,7 +180,7 @@ Som med innhold på dialognivå, kan forsendelser inneholde en tittel, et sammen
 
 **Les mer**
 
-- [Lær mer om overføringer i dialoger]({{< relref "/dialogporten/getting-started/dialogs#forsendelser" >}})
+- [Lær mer om overføringer i dialoger](/nb/dialogporten/getting-started/dialogs#forsendelser)
 - {{<link "../../../reference/entities/transmission">}}
 - {{<link "../../../reference/content-types">}}
 
@@ -205,7 +205,7 @@ Dialogporten tilbyr to valgfrie mekanismer for å sikre at en gitt dialog bare o
 Det første alternativet er en enkel mekanisme som for de fleste tjenesteeiersystemer kan være tilstrekkelig, mens det andre lettere kan brukes til å implementere vilkårlige forretningsregler (f.eks. enhver gitt dialog skal være knyttet til bare én tupel av rapporteringspart, rapporteringstjeneste og år/måned).
 
 {{<notice info>}}
-For informasjon om hvordan du bruker HTTP-basert samtidighetkontroll via `ETag` / `If-Match`-headere, se veiledningen for [oppdatering av dialoger]({{<relref "../updating-dialogs">}}).
+For informasjon om hvordan du bruker HTTP-basert samtidighetkontroll via `ETag` / `If-Match`-headere, se veiledningen for [oppdatering av dialoger](/nb/dialogporten/user-guides/service-owners/creating-dialogs/../updating-dialogs/).
 {{</notice>}}
 
 ## Stille dialogopprettelse

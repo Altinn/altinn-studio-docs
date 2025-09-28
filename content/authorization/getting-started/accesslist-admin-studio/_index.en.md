@@ -9,7 +9,7 @@ toc: false
 
 o manage access lists, first set up resource registry administration.
 
-Refer to [this guide]({{< relref "/authorization/getting-started/resource-admin-studio/" >}})
+Refer to [this guide](/en/authorization/getting-started/resource-admin-studio/)
 
 ## Defining Access List Teams
 

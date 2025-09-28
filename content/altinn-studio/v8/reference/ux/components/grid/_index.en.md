@@ -240,7 +240,7 @@ when being displayed inside a Grid.
 When displayed in a table, components will not render their `title` and `description` text resources. However, these
 text resources should still be set on the component, as they will be used for accessibility purposes, and will still
 be displayed when the component is displayed outside of a Grid - such as on [smaller screens](#mobile-support) and in
-[a Summary]({{< relref "/altinn-studio/v8/reference/ux/pages/summary" >}}).
+[a Summary](/en/altinn-studio/v8/reference/ux/pages/summary/).
 
 ### Widths, text and alignment
 
@@ -291,5 +291,5 @@ component will automatically display the components (as if they were not part of
 of the components will be the same as the order of the rows and cells in the Grid configuration (one row at a time),
 and the order of the components as they are defined in the layout configuration has no significance.
 
-The same applies to displaying a Grid component in [a Summary]({{< relref "/altinn-studio/v8/reference/ux/pages/summary" >}}), where the same components
+The same applies to displaying a Grid component in [a Summary](/en/altinn-studio/v8/reference/ux/pages/summary/), where the same components
 referenced in the Grid will be displayed as a summary of single components.

@@ -192,8 +192,8 @@ See also documentation at [Maskinporten](https://docs.digdir.no/docs/Maskinporte
 
 There are separate guides for using system users.
 
-- [How to use system user as a system provider]({{< relref "/authorization/guides/system-vendor/" >}})
-- [How to use system user as an API provider/service owner]({{< relref "/authorization/guides/resource-owner/" >}})
+- [How to use system user as a system provider](/en/authorization/guides/system-vendor/)
+- [How to use system user as an API provider/service owner](/en/authorization/guides/resource-owner/)
 
 ## Delivery Plan
 

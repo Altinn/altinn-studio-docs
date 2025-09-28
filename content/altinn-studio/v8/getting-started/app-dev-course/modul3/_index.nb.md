@@ -46,9 +46,9 @@ Sett opp skjemaet ut fra kravene til kommunen.
 
 ## Nyttig dokumentasjon
 
-- [Brukerveiledning - lag en enkel tjeneste]({{< relref "/altinn-studio/v8/guides/development/basic-form" >}})
-- [Tilgjengelige komponenter i Altinn Studio]({{< relref "/altinn-studio/v8/designer/build-app/ui-designer/components/" >}})
-- [Retningslinjer for bruk av komponenter]({{< relref "/altinn-studio/v8/guides/design/guidelines/components/" >}})
+- [Brukerveiledning - lag en enkel tjeneste](/nb/altinn-studio/v8/guides/development/basic-form/)
+- [Tilgjengelige komponenter i Altinn Studio](/nb/altinn-studio/v8/designer/build-app/ui-designer/components/)
+- [Retningslinjer for bruk av komponenter](/nb/altinn-studio/v8/guides/design/guidelines/components/)
 
 ## Oppsummering
 

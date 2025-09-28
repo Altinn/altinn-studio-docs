@@ -57,7 +57,7 @@ Legg til følgende seksjoner dersom de er relevante:
 -->
 ### Relatert
 
-- [`Panel`]({{< relref "/altinn-studio/v8/reference/ux/components/panel/" >}})
+- [`Panel`](/nb/altinn-studio/v8/reference/ux/components/panel/)
 
 
 ## Egenskaper
@@ -82,7 +82,7 @@ Hvis ingen argument gis, henter shortkoden komponentnavnet fra 'schemaname' i fr
 
 ### Legg til komponent
 
-Du legger til komponenter i [Altinn Studio Designer]({{< relref "/altinn-studio/v8/getting-started/" >}}) ved å klikke på **Legg til komponent** når du står på en side i **Utforming**. 
+Du legger til komponenter i [Altinn Studio Designer](/nb/altinn-studio/v8/getting-started/) ved å klikke på **Legg til komponent** når du står på en side i **Utforming**. 
 Du får opp de mest brukte komponentene, og kan klikke på **Vis alle** for å få en oversikt over alle komponentene i Altinn Studio. 
 Når du klikker på komponenten du vil legge til, vises den i et panel til høyre. Der kan du endre ID-en til komponenten hvis du vil, før du klikker på **Legg til**. 
 Når du har lagt den til på siden, ser du egenskapene til komponenten, og kan endre dem.
@@ -140,7 +140,7 @@ App/ui/layouts/{page}.json
 
 ### Overskrift og tekstinnhold
 
-På Utforming-siden går du til nedtrekkslisten **Tekst** i egenskapene for komponenten. Du legger til overskriften i **Ledetekst** og selve varselteksten i **Tekstinnhold**. [Legge til og endre tekster i en app]({{< relref "/altinn-studio/v8/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app" >}}).
+På Utforming-siden går du til nedtrekkslisten **Tekst** i egenskapene for komponenten. Du legger til overskriften i **Ledetekst** og selve varselteksten i **Tekstinnhold**. [Legge til og endre tekster i en app](/nb/altinn-studio/v8/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app).
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}

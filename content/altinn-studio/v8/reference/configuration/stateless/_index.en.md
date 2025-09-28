@@ -120,7 +120,7 @@ The App frontend will read the configuration from `applicationmetadata.json` and
 {{% notice warning %}}
 Note! Form components that affect process (Button for submission or instantiation) are not supported for anonymous users!
 
-**Note:** To make use of this functionality you must use version >= 5.1.0 of the [nuget-packages]({{< relref "/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget" >}}) `Altinn.App.PlatformServices`, `Altinn.App.Common` and `Altinn.App.Api`.
+**Note:** To make use of this functionality you must use version >= 5.1.0 of the [nuget-packages](/en/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` and `Altinn.App.Api`.
 
 {{% /notice %}}
 
@@ -173,8 +173,8 @@ App/config/applicationmetadata.json
 When using a stateless data type you will be able to populate the data model in when the app front-end requests the form data.
 
 Data will be populated in two steps during the initial call from the front-end (GET):
-1. [Prefill]({{< relref "/altinn-studio/v8/reference/data/prefill/" >}})
-2. [Data processing]({{< relref "/altinn-studio/v8/reference/logic/dataprocessing/" >}})
+1. [Prefill](/en/altinn-studio/v8/reference/data/prefill/)
+2. [Data processing](/en/altinn-studio/v8/reference/logic/dataprocessing/)
 
 The following updates to the same form data (POST) will then run prefill one more time, but the calculation is triggered. This allows manipulating the data based on the user's input even in stateless application.
 
@@ -199,7 +199,7 @@ public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object 
 
 ## Authorization with third party solutions
 
-Controlling access for stateless applications can be done with [standard app-authorization]({{< relref "/altinn-studio/v8/reference/configuration/authorization" >}}) 
+Controlling access for stateless applications can be done with [standard app-authorization](/en/altinn-studio/v8/reference/configuration/authorization/) 
 Where by using Altinn roles you define who has access to the service.
 If you require further securing of your service you can implement logic for authorization of users with third party solutions.
 This can be an API which is exposed in your organization or an open API from a different provider.
@@ -289,7 +289,7 @@ Further down this page we will use the designation *user* synonymously with an o
     We use dynamic rules to show/hide fields depending on the users level of authorization 
     
     There has been added a dynamic rule in `RuleHandler.js` which checks if a field in the datamodel has the value `false`.
-    Configuration of rules is described more closely [here]({{< relref "/altinn-studio/v8/reference/logic/dynamic/#add-or-edit-functions-for-dynamics" >}}).
+    Configuration of rules is described more closely [here](/en/altinn-studio/v8/reference/logic/dynamic/#add-or-edit-functions-for-dynamics).
 
     In `RuleConfiguration.json` you can see how the rule is utilized.
     If the input value from the data model `userAuthorized` is false, the errorBox-component will be made visible,
@@ -460,7 +460,7 @@ The other check calls `_finanstilsynet.HasReqiuiredLicence()`, a method which lo
 
 This is brand new functionality. Setup must be completed manually until further notice and will not be supported in Altinn Studio.
 
-**Note:** To make use of this functionality you must use version >= 4.17.2 of the [nuget-packages]({{< relref "/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget" >}}) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
+**Note:** To make use of this functionality you must use version >= 4.17.2 of the [nuget-packages](/en/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
 
 {{%/notice%}}
 

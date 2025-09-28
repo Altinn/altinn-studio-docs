@@ -8,7 +8,7 @@ toc: false
 {{%notice warning%}}
 This functionality must be set up manually directly in form layout for now.
 
-**NOTE:** This functionality requires app-frontend v3 or newer. See [this link]({{< relref "/community/changelog/app-frontend/v3/breaking-changes/" >}})
+**NOTE:** This functionality requires app-frontend v3 or newer. See [this link](/en/community/changelog/app-frontend/v3/breaking-changes/)
 for more information.
 
 {{%/notice%}}

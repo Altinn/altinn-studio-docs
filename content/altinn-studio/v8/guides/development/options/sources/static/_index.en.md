@@ -15,8 +15,8 @@ If multiple components need to use the same set of options, it is recommended to
 use the [json file method](#from-json-files-code-list) and thus turn it into a code list.
 
 Note that even though a list of options can be completely static, it is also possible to make it (a bit more) dynamic
-by [filtering the options]({{< relref "/altinn-studio/v8/guides/development/options/functionality/filtering" >}}) using expressions. If you want even more flexibility,
-you can also [create your own code-based code list]({{< relref "/altinn-studio/v8/guides/development/options/sources/dynamic" >}}).
+by [filtering the options](/en/altinn-studio/v8/guides/development/options/functionality/filtering/) using expressions. If you want even more flexibility,
+you can also [create your own code-based code list](/en/altinn-studio/v8/guides/development/options/sources/dynamic/).
 
 ## In component configuration (options)
 

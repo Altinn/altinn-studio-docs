@@ -54,7 +54,7 @@ Legg også merke til at kun spørringsparametere som er definert i ```<stateless
 
 ### 2. Konfigurer InstantiationProcessor og InstantiationButton
         
-Følg stegene her: [Konfigurere tilgang uten innlogging]({{< relref "/altinn-studio/v8/reference/configuration/stateless#konfigurere-tilgang-uten-innlogging" >}})
+Følg stegene her: [Konfigurere tilgang uten innlogging](/nb/altinn-studio/v8/reference/configuration/stateless#konfigurere-tilgang-uten-innlogging)
 
 ### 3. (Valgfritt, men sterkt anbefalt) valider verdier for spørringsparametere
 

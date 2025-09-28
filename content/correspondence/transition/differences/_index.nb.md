@@ -19,7 +19,7 @@ For å forenkle overgangen fra Altinn 2 til Altinn 3 versjon av Melding-produkte
 - API tilrettelegger for masseforsendelser av Meldinger ved bruk av maler/keywords og mottakerlister samt nevnte delte vedlegg.
   - Dette gjør det enkelt å sende 1 request med liste av mottakere og få laget opp til 200 Meldinger som resultat.
 - Varslingsmaler har blitt kraftig forenklet fra Altinn 2; det støttes kun predefinerte maler som representerer "majoritetsbruk".
-  - Trenger man mer avansert funksjonalitet oppfordres man til å integrere seg direkte med [Altinn-Notifications]({{< relref "/notifications/" >}})
+  - Trenger man mer avansert funksjonalitet oppfordres man til å integrere seg direkte med [Altinn-Notifications](/nb/notifications/)
 - Prosessen er mer asynkron enn før, men publiserer Altinn-Events ved viktige prosess-steg slik at både sluttbruker-systemer som henter Meldinger for brukere, og avsender av Meldingene kan følge løpet uten å måtte polle webservicer for status.
 - Alle Meldinger blir opprettet i Dialogporten og dermed tilgjengelig for Arbeidsflate og andre systemer som integreres seg mot Dialogporten, uten at avsender av Meldingene trenger å utføre bestemte aksjoner.
 - Autorisasjonsmodellen er noe forenklet:

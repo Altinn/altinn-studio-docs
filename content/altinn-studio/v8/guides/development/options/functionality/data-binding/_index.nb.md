@@ -35,8 +35,8 @@ komponentens konfigurasjon med nøkkelen `simpleBinding`:
 I eksempelet over vil komponenten lagre valget av om brukeren eier en katt i feltet `Submitter.HasCat` i datamodellen.
 Dette feltet får verdien `y` om brukeren velger "Ja" og `n` om brukeren velger "Nei".
 
-For flervalgskomponenter som f.eks. [`Checkboxes`]({{< relref "/altinn-studio/v8/reference/ux/components/checkboxes" >}}) og
-[`MultipleSelect`]({{< relref "/altinn-studio/v8/reference/ux/components/multipleselect" >}}), vil komponenten lagre en kommaseparert
+For flervalgskomponenter som f.eks. [`Checkboxes`](/nb/altinn-studio/v8/reference/ux/components/checkboxes/) og
+[`MultipleSelect`](/nb/altinn-studio/v8/reference/ux/components/multipleselect/), vil komponenten lagre en kommaseparert
 liste av valgte verdier i datamodellen.
 
 ```json
@@ -92,7 +92,7 @@ datamodellen av typen `string`:
 
 ### Lagring av metadata
 
-Når appen henter svaralternativer, spesielt [felles kodelister]({{< relref "/altinn-studio/v8/guides/development/options/sources/shared" >}}), kan det være nyttig å lagre
+Når appen henter svaralternativer, spesielt [felles kodelister](/nb/altinn-studio/v8/guides/development/options/sources/shared/), kan det være nyttig å lagre
 noen metadata som beskriver hvordan svaralternativene ble hentet. Dette kan være nyttig for å rekonstruere
 svaralternativene etter at skjemaet er sendt inn, samt for logging.
 

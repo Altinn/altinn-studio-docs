@@ -17,7 +17,7 @@ make the necessary changes throughout your app.
 ## Requires backend version 8.0.0
 
 App frontend v4 requires at least version 8.0.0 of the `Altinn.App.Core` and `Altinn.App.Api` nuget packages.
-See the [overview of changes in backend v8]({{< relref "/community/changelog/app-nuget/v8" >}}) for more information on how to upgrade.
+See the [overview of changes in backend v8](/en/community/changelog/app-nuget/v8/) for more information on how to upgrade.
 
 ## Using layout sets is now required
 
@@ -154,7 +154,7 @@ Showing and hiding pages using [tracks](/en/altinn-studio/v8/reference/ux/pages/
 This also means that the trigger `calculatePageOrder` no longer has any effect and should be removed from any components where it is used.
 Instead, you should use dynamic expressions on the `hidden` property of a layout page to determine whether pages should be visible or hidden.
 
-To opt-in for an automatic AI-generated Pull Request to help you migrate from the old tracks feature, see the [Opt-in to Altinn AI for tracks migration]({{< relref "/community/changelog/app-frontend/v4/migrating-from-v3/#opt-in-to-altinn-ai-for-tracks-migration" >}}).
+To opt-in for an automatic AI-generated Pull Request to help you migrate from the old tracks feature, see the [Opt-in to Altinn AI for tracks migration](/en/community/changelog/app-frontend/v4/migrating-from-v3/#opt-in-to-altinn-ai-for-tracks-migration).
 
 See the [documentation on dynamic expressions](/en/altinn-studio/v8/reference/logic/expressions/#showhide-entire-pages) for more information.
 

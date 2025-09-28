@@ -10,7 +10,7 @@ Valideringer sørger for at brukerens input er gyldig med tanke på datamodellen
 i tillegg til alle egendefinerte regler som settes opp for applikasjonen.
 Valideringer kan kjøres enten på klient (dvs. browseren) eller serversiden.
 
-Man kan også sette opp validering til å [kjøre ved sidebytte]({{< relref "/altinn-studio/v8/reference/ux/pages/navigation/#angi-validering-ved-sidebytte" >}}).
+Man kan også sette opp validering til å [kjøre ved sidebytte](/nb/altinn-studio/v8/reference/ux/pages/navigation/#angi-validering-ved-sidebytte).
 
 ## Klientside-validering
 
@@ -57,7 +57,7 @@ Det er satt opp standard feilmeldinger for alle valideringene som gjøres på kl
 For en smidigere brukeropplevelse vises ikke feilmeldinger for manglende utfylling av påkrevde felter under
 utfylling av et skjema, med mindre validering trigges [på et enkeltfelt](#enkeltfeltvalidering), ved lagring
 av [en rad i en repeterende gruppe](#gruppevalidering) eller
-[ved navigering til en annen side]({{< relref "/altinn-studio/v8/reference/ux/pages/navigation/#angi-validering-ved-sidebytte" >}}).
+[ved navigering til en annen side](/nb/altinn-studio/v8/reference/ux/pages/navigation/#angi-validering-ved-sidebytte).
 
 Feilmeldingen for påkrevde felter er _"Du må fylle ut {0}"_. Her blir `{0}` erstattet med det feltet som feilmeldingen gjelder for.
 Dette gjøres på følgende måte:
@@ -128,7 +128,7 @@ Da vil valideringmeldingen bli `"Du må fylle ut fornavnet ditt"`.
 
 Hvis du ønsker å erstatte standardfeilmeldingen for obligatoriske felt fullstendig, kan du gjøre dette ved å legge til
 tekstnøkkelen `requiredValidation` i komponentens `textResourceBindings`-objekt. Dette vil erstatte standardfeilmeldingen
-for obligatoriske felt. Teksten kan være en [tekstnøkkel for en tekst som er definert i ressursfilene]({{< relref "/altinn-studio/v8/reference/ux/texts" >}})
+for obligatoriske felt. Teksten kan være en [tekstnøkkel for en tekst som er definert i ressursfilene](/nb/altinn-studio/v8/reference/ux/texts/)
 for flerspråklig støtte.
 
 ```json
@@ -158,7 +158,7 @@ F.eks., man kan utvide eksempelet over:
 }
 ```
 
-Man kan skrive ønsket tekst direkte inn her, eller bruke en tekstnøkkel for en [tekst definert i ressursfilene]({{< relref "/altinn-studio/v8/reference/ux/texts" >}}) for språkstøtte.
+Man kan skrive ønsket tekst direkte inn her, eller bruke en tekstnøkkel for en [tekst definert i ressursfilene](/nb/altinn-studio/v8/reference/ux/texts/) for språkstøtte.
 
 Legg merke til at om man har en referanse til en definisjon så må feilmeldingen ligge på `property`-feltet, og ikke på referansen/definisjonen.
 Eksempel:
@@ -264,7 +264,7 @@ public void ValidateData(object data, ModelStateDictionary validationResults)
 
 Se kommentarer i koden over for en forklaring på hva de ulike delene gjør.
 
-I det andre parameteret til metoden `AddModelError`, der det står "_Error: First name cannot contain the value '1337'_", kan man bruke en tekstnøkkel for en [tekst definert i ressursfilene]({{< relref "/altinn-studio/v8/reference/ux/texts" >}}) for språkstøtte.
+I det andre parameteret til metoden `AddModelError`, der det står "_Error: First name cannot contain the value '1337'_", kan man bruke en tekstnøkkel for en [tekst definert i ressursfilene](/nb/altinn-studio/v8/reference/ux/texts/) for språkstøtte.
 
 Et eksempel på en enkel task-validering som sjekker hvor lang tid brukeren har brukt på Task_1 og returnerer en feil dersom det har tatt lenger enn 3 dager.
 

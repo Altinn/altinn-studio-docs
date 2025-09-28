@@ -60,5 +60,5 @@ GET /exchange/{tokenProvider}?test={bool}
 
 ## Architecture
 
-See [application construction components]({{< relref "/authorization/reference/architecture/" >}})
+See [application construction components](/en/authorization/reference/architecture/)
 for details how this component is constructued.

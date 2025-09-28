@@ -42,4 +42,4 @@ Som en del av ny design vil ledelse av tilgangspakker overta for rollestyring
 
 ### Konstruksjon
 
-Se detaljer hvordan AccessManagement er [konstruert]({{< relref "/authorization/reference/architecture/accessmanagment/" >}}).
+Se detaljer hvordan AccessManagement er [konstruert](/nb/authorization/reference/architecture/accessmanagment/).

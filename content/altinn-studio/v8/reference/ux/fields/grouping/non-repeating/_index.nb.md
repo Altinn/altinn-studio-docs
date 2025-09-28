@@ -6,7 +6,7 @@ weight: 2
 ---
 
 Felter i skjema kan settes opp til å bli del av en _gruppe_. Dette kan brukes til å f.eks. sette opp dynamikk på en enkelt gruppe av felter,
-i stedet for på hvert enkelt felt. I tillegg må felter kunnne grupperes for å støtte [repeterende grupper]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating" >}}) i skjema.
+i stedet for på hvert enkelt felt. I tillegg må felter kunnne grupperes for å støtte [repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/) i skjema.
 
 En gruppe settes opp i `FormLayout.json`, sammen med de andre komponentene i skjemaet. Dette kan enten gjøres manuelt direkte i filen,
 eller via skjemaeditor i Atinn Studio ved å bruke Gruppe-komponenten.
@@ -85,7 +85,7 @@ Det er mulig å sette opp en gruppe slik at komponentene i gruppen vises visuelt
 | id                                            | Ja      | Unik ID, tilsvarer ID på andre komponenter. Må være unik i layout-filen, og bør være unik på tvers av sider.                                                      |
 | type                                          | Ja      | Må settes til `Group`                                                                                                                                             |
 | [textResourceBindings](#textresourcebindings) | Nei     | Kan settes for grupper, se [nærmere beskrivelse under](#textresourcebindings).                                                                                    |
-| maxCount                                      | Nei     | Antall ganger en gruppe kan repetere. Må enten unnlates eller settes til `0` for ikke-repeterende grupper, ellers blir det en [repeterende gruppe]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating" >}}). |
+| maxCount                                      | Nei     | Antall ganger en gruppe kan repetere. Må enten unnlates eller settes til `0` for ikke-repeterende grupper, ellers blir det en [repeterende gruppe](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/). |
 | children                                      | Ja      | Liste over komponent-IDer som inkluderes i gruppen.                                                                                                               |
 | showGroupingIndicator                         | Nei     | Viser en vertikal linje til venstre for gruppen for å indikere at feltene har en sammenheng. Kan være `true` eller `false`.                                       |
 

@@ -12,7 +12,7 @@ i Altinn Studio og tilbyr begrensede konfigurasjonsalternativer. Grensesnittet t
 nivå av nøsting, noe som betyr at et ubegrenset antall ikke-nøstede uttrykk kan kombineres ved å bruke enten _ELLER_
 eller _OG_-operatoren. Imidlertid tillater verktøyet å redigere mer kompliserte uttrykk ved å skrive fritt. For
 øyeblikket er verktøyet også begrenset til å koble uttrykk til boolske komponentfelt.
-Les [Uttrykk i Altinn Studio]({{< relref "/altinn-studio/v8/designer/build-app/expressions" >}}) om hvordan uttrykk lages i
+Les [Uttrykk i Altinn Studio](/nb/altinn-studio/v8/designer/build-app/expressions/) om hvordan uttrykk lages i
 Altinn Studio.
 {{% /panel %}}
 
@@ -25,9 +25,9 @@ Uttrykkene er tilgjengelige i alle Altinn 3-apper som bruker frontend-versjon
 [3.54.0](https://github.com/Altinn/app-frontend-react/releases/tag/v3.54.0) eller nyere. Bruker man denne versjonen
 (eller siste hovedversjon) har man mulighet til å benytte dynamiske uttrykk til [flere bruksområder](#bruksområder).
 
-Fra versjon `7.2.0` av [nuget-pakkene]({{< relref "/altinn-studio/v8/guides/administration/maintainance/dependencies/#nuget" >}}) er også uttrykkene støttet i backend.
+Fra versjon `7.2.0` av [nuget-pakkene](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies/#nuget) er også uttrykkene støttet i backend.
 Det gjør at serveren vil kunne evaluere uttrykkene og fjerne data ved innsending som potensielt er lagret
-i [datamodellen]({{< relref "/altinn-studio/v8/reference/data/data-modeling/" >}}) og er knyttet til felter/komponenter som i ettertid er skjult.
+i [datamodellen](/nb/altinn-studio/v8/reference/data/data-modeling/) og er knyttet til felter/komponenter som i ettertid er skjult.
 Merk at dette bare gjelder data i datamodellen som er knyttet til skjulte komponenter - data i datamodellen som ikke
 er knyttet til komponenter (og dermed implisitt skjult for brukeren) vil ikke fjernes automatisk.
 
@@ -35,7 +35,7 @@ Det gjør det også mulig å unnlate å sende inn data som ellers er tilknyttet 
 feltene er skjult i skjemaet ved hjelp av dynamiske uttrykk. Dette gjelder også ved innsending direkte fra API.
 
 **NB:** Automatisk fjerning av skjult data må foreløpig aktiveres manuelt (_opt-in_) ved at man legger til følgende
-linje i `App/appsettings.json` etter at man har oppgradert [nuget-pakkene]({{< relref "/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget" >}})
+linje i `App/appsettings.json` etter at man har oppgradert [nuget-pakkene](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
 til `7.2.0` eller nyere:
 
 {{<content-version-selector classes="border-box">}}
@@ -139,7 +139,7 @@ Og for en person som er 15 år (eller yngre, som f.eks. en 4-åring), returneres
 
 ### Bruksområder
 
-Dynamiske uttrykk er foreløpig tilgjengelig for bruk i disse egenskapene, som definert i [layout-filer]({{< relref "/altinn-studio/v8/reference/ux/pages" >}}).
+Dynamiske uttrykk er foreløpig tilgjengelig for bruk i disse egenskapene, som definert i [layout-filer](/nb/altinn-studio/v8/reference/ux/pages/).
 
 | Komponenter                                                                                                     | Egenskap                      | Forventet verdi            | Frontend | Backend |
 | --------------------------------------------------------------------------------------------------------------- | ----------------------------- | -------------------------- | -------- | ------- |
@@ -147,22 +147,22 @@ Dynamiske uttrykk er foreløpig tilgjengelig for bruk i disse egenskapene, som d
 | Alle                                                                                                            | `hidden`                      | [Boolsk](#boolske-verdier) | ✅       | ✅      |
 | Skjemakomponenter                                                                                               | `required`                    | [Boolsk](#boolske-verdier) | ✅       | ✅      |
 | Skjemakomponenter                                                                                               | `readOnly`                    | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| [Repeterende grupper]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating" >}})                                                       | `hiddenRow`                   | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| [Repeterende grupper]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating" >}})                                                       | `edit.addButton`              | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| [Repeterende grupper]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating" >}})                                                       | `edit.saveButton`             | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| [Repeterende grupper]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating" >}})                                                       | `edit.deleteButton`           | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| [Repeterende grupper]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating" >}})                                                       | `edit.alertOnDelete`          | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| [Repeterende grupper]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating" >}})                                                       | `edit.saveAndNextButton`      | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| [Kodelistebaserte komponenter]({{< relref "/altinn-studio/v8/guides/development/options/sources/from-data-model/#støtte-for-uttrykk" >}}) | `source.label`                | [Streng](#strenger)        | ✅       | ❌      |
-| [Kodelistebaserte komponenter]({{< relref "/altinn-studio/v8/guides/development/options/sources/from-data-model/#støtte-for-uttrykk" >}}) | `source.description`          | [Streng](#strenger)        | ✅       | ❌      |
-| [Kodelistebaserte komponenter]({{< relref "/altinn-studio/v8/guides/development/options/sources/from-data-model/#støtte-for-uttrykk" >}}) | `source.helpText`             | [Streng](#strenger)        | ✅       | ❌      |
-| [Kodelistebaserte komponenter]({{< relref "/altinn-studio/v8/guides/development/options/sources/dynamic/#basert-på-uttrykk" >}})          | `queryParameters.[*]`         | [Streng](#strenger)        | ✅       | ❌      |
-| [Kodelistebaserte komponenter]({{< relref "/altinn-studio/v8/guides/development/options/functionality/filtering" >}})                     | `optionFilter`                | [Streng](#strenger)        | ✅       | ❌      |
+| [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `hiddenRow`                   | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `edit.addButton`              | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `edit.saveButton`             | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `edit.deleteButton`           | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `edit.alertOnDelete`          | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `edit.saveAndNextButton`      | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Kodelistebaserte komponenter](/nb/altinn-studio/v8/guides/development/options/sources/from-data-model/#støtte-for-uttrykk) | `source.label`                | [Streng](#strenger)        | ✅       | ❌      |
+| [Kodelistebaserte komponenter](/nb/altinn-studio/v8/guides/development/options/sources/from-data-model/#støtte-for-uttrykk) | `source.description`          | [Streng](#strenger)        | ✅       | ❌      |
+| [Kodelistebaserte komponenter](/nb/altinn-studio/v8/guides/development/options/sources/from-data-model/#støtte-for-uttrykk) | `source.helpText`             | [Streng](#strenger)        | ✅       | ❌      |
+| [Kodelistebaserte komponenter](/nb/altinn-studio/v8/guides/development/options/sources/dynamic/#basert-på-uttrykk)          | `queryParameters.[*]`         | [Streng](#strenger)        | ✅       | ❌      |
+| [Kodelistebaserte komponenter](/nb/altinn-studio/v8/guides/development/options/functionality/filtering/)                     | `optionFilter`                | [Streng](#strenger)        | ✅       | ❌      |
 | Alle                                                                                                            | `textResourceBindings.[*]` \* | [Streng](#strenger)        | ✅       | ❌      |
 
 \* = Hvilke verdier man kan overstyre med textResourceBindings varierer fra komponent til komponent, men vil fungere på
 alle steder der det brukes. TextResourceBindings for repeterende grupper finner
-du [mer informasjon om her]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating#textresourcebindings" >}})
+du [mer informasjon om her](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating#textresourcebindings)
 
 {{% expandlarge id="rep-group-edit-button-text" header="Eksempel: Styre redigeringsknapp-tekst i repeterende gruppe" %}}
 
@@ -215,7 +215,7 @@ og er kun relevant når du skal prøve et uttrykk i utviklerverktøyene som er a
 repeterende gruppe. Dette kan endres i fremtiden, og slike endringer vil ikke påvirke uttrykk som man har definert i en
 applikasjon. Der hentes konteksten ut fra hvor uttrykket er definert i layout-filen.
 
-Se for deg en [repeterende gruppe]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating" >}}) for personer med to felt; `navn` og `alder`.
+Se for deg en [repeterende gruppe](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/) for personer med to felt; `navn` og `alder`.
 Gitt dette uttrykket:
 
 `["component", "alder"]`
@@ -328,7 +328,7 @@ Detaljerte beskrivelser og eksempler
 
 {{% expandlarge id="func-compare" header="compare" %}}
 {{% notice info %}}
-Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker]({{< relref "/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget" >}})
+Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
 versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelige i versjon 4.17.0 og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
@@ -583,7 +583,7 @@ Dersom strengen er `null` vil `stringLength` returnere `0`.
 
 {{% expandlarge id="func-stringIndexOf" header="stringIndexOf" %}}
 {{% notice info %}}
-Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker]({{< relref "/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget" >}})
+Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
 versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelige i versjon 4.17.0 og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
@@ -604,7 +604,7 @@ funksjonen returnere 4.
 
 {{% expandlarge id="func-stringSlice" header="stringSlice" %}}
 {{% notice info %}}
-Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker]({{< relref "/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget" >}})
+Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
 versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelige i versjon 4.17.0 og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
@@ -627,7 +627,7 @@ navn er "John Doe", vil funksjonen returnere "Doe".
 
 {{% expandlarge id="func-stringReplace" header="stringReplace" %}}
 {{% notice info %}}
-Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker]({{< relref "/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget" >}})
+Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
 versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelige i versjon 4.17.0 og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
@@ -717,7 +717,7 @@ gjøres uavhengig av om det ble brukt store eller små bokstaver i input-verdien
 
 {{% expandlarge id="func-lcFirst-ucFirst" header="lowerCaseFirst/upperCaseFirst" %}}
 {{% notice info %}}
-Disse funksjonene er kun tilgjengelige på backend med [nuget-pakker]({{< relref "/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget" >}})
+Disse funksjonene er kun tilgjengelige på backend med [nuget-pakker](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
 versjon 8.6.0-preview.3 eller nyere. I frontend er disse funksjonene tilgjengelige i versjon 4.17.0 og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
@@ -775,7 +775,7 @@ automatisk slette skjulte data (`RemoveHiddenDataPreview`).
 Funksjonen `displayValue` gjør et oppslag på en komponent og returnerer en formattert tekststreng som representerer verdien i datamodellen.
 Dette er til forskjell fra [component](#func-component)-funksjonen som returnerer rå-verdien som ligger i datamodellen.
 Denne funksjonen egner seg best til visning av en komponent sin verdi for brukeren, og mindre til videre logikk basert på verdien som returneres.
-Dette er spesielt relevant for Input-felter med [tallformattering]({{< relref "/altinn-studio/v8/reference/ux/styling/#formatering-av-tall" >}}), datofelter, radioknapper (og andre komponenter med kodelister), osv.
+Dette er spesielt relevant for Input-felter med [tallformattering](/nb/altinn-studio/v8/reference/ux/styling/#formatering-av-tall), datofelter, radioknapper (og andre komponenter med kodelister), osv.
 
 Eksempel:
 
@@ -800,20 +800,20 @@ argument:
 | `instanceOwnerPartyType` | Hva slags aktør eier instansen | `"org", "person", "selfIdentified" eller "unknown"` |
 | `appId`                  | Den aktive appen sin ID        | `org/app-name`                                      |
 
-Alle disse oppslagene vil gi verdien `null` om man jobber i en [tiltandsløs kontekst]({{< relref "/altinn-studio/v8/reference/configuration/stateless" >}}).
+Alle disse oppslagene vil gi verdien `null` om man jobber i en [tiltandsløs kontekst](/nb/altinn-studio/v8/reference/configuration/stateless/).
 Om man gir andre nøkler enn de over, vil oppslaget resultere i en feilmelding. Denne oppførselen er unik blant
 oppslagsfunksjonene, og gjøres for å sikre at man ikke prøver å hente informasjon som finnes i instansen men som ikke
 (enda) er eksponert via en nøkkel her. [Gi oss en tilbakemelding](https://github.com/Altinn/app-frontend-react/issues/new?assignees=&labels=kind%2Ffeature-request%2Cstatus%2Ftriage&template=feature_request.yml) om du har ønsker om å hente ut
 instansdata som ikke er tilgjengelig i denne funksjonen.
 
-Oppslaget gjøres i samme datakilde som er tilgjengelig for [språk/tekster]({{< relref "/altinn-studio/v8/reference/ux/texts#datakilder" >}}).
+Oppslaget gjøres i samme datakilde som er tilgjengelig for [språk/tekster](/nb/altinn-studio/v8/reference/ux/texts#datakilder).
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-frontendsettings" header="frontendSettings (oppslag)" %}}
 Dette oppslaget gjør det mulig å hente informasjon fra en datakilde som kan styres ulikt for hvert kjøretidsmiljø.
 
 Oppslaget gjøres i samme datakilde som er tilgjengelig for [språk/tekster, og oppsettet er beskrevet
-i detalj der]({{< relref "/altinn-studio/v8/reference/ux/texts#datakilder" >}}).
+i detalj der](/nb/altinn-studio/v8/reference/ux/texts#datakilder).
 
 **Merk**: Datakilden heter `applicationSettings` når brukt i språk/tekster, men verdiene må alltid lagres under
 nøkkelen `FrontEndSettings` i `appsettings.{miljø}.json`). Av den grunn har funksjonen fått navnet `frontendSettings`
@@ -822,7 +822,7 @@ her, for å indikere at oppslag ikke kan gjøres i resten av `appsettings.{milj�
 
 {{% expandlarge id="func-countDataElements" header="countDataElements (oppslag)" %}}
 {{% notice info %}}
-Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker]({{< relref "/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget" >}})
+Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
 versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelige i versjon 4.17.0 og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
@@ -832,7 +832,7 @@ må være en streng som er definert som en datatype i `applicationmetadata.json`
 elementer av den gitte datatypen i gjeldende instans.
 
 For eksempel, om du har en `FileUpload`-komponent som laster opp filer til datatypen `Attachment`, kan du bruke denne
-funksjonen til å telle antall vedlegg som er lastet opp. På samme måte kan du telle antall [underskjema-elementer]({{< relref "/altinn-studio/v8/guides/development/subform" >}})
+funksjonen til å telle antall vedlegg som er lastet opp. På samme måte kan du telle antall [underskjema-elementer](/nb/altinn-studio/v8/guides/development/subform/)
 ved å referere til datamodell-ID-en til underskjemaet.
 
 Eksempel:
@@ -846,7 +846,7 @@ Eksempel:
 {{% expandlarge id="func-datamodel" header="dataModel (oppslag)" %}}
 Denne oppslagsfunksjonen gjør det mulig å hente verdier direkte fra gjeldende datamodell. Første og eneste argument
 må peke et sted i datamodellen, og bruker det samme punktum-separerte formatet som brukt i `dataModelBindings`. Ved
-bruk inne i [repeterende grupper]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating" >}}) trenger man _ikke_ bruke plassholdere for
+bruk inne i [repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/) trenger man _ikke_ bruke plassholdere for
 indekser til gruppen - uttrykket finner selv den relative plasseringen i kontekst av en repeterende gruppe.
 
 Legg merke til at oppslag bare fungerer mot [datatyper](#datatyper) som allerede er støttet i uttrykkene. Dersom man
@@ -920,14 +920,14 @@ komponent basert på om en annen komponent er vist eller ikke. Dersom komponente
 side gir også oppslaget verdien `null` selv om datamodellen har en verdi tilknyttet komponenten.
 
 I likhet med [`dataModel`](#func-datamodel) vil oppslag mot en komponent-id forsøke å finne komponenten i nærheten av
-uttrykket i kontekst av [repeterende grupper]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating" >}}). Det vil først søkes etter komponenten
+uttrykket i kontekst av [repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/). Det vil først søkes etter komponenten
 i gjeldende rad, før det letes oppover i sidestrukturen.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-formatDate" header="formatDate" %}}
 
 {{% notice info %}}
-Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker]({{< relref "/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget" >}})
+Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
 versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelige i versjon 4.0.0 og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
@@ -1042,7 +1042,7 @@ Om kodeliste-verdien ikke finnes i kodelisten, vil funksjonen returnere `null`.
 
 {{% expandlarge id="func-argv" header="argv" %}}
 `argv`-funksjonen kan brukes for å hente ut argumenter som er sendt inn til uttrykket. Dette er foreløpig bare
-tilgjengelig for [validering vha. uttrykk]({{< relref "/altinn-studio/v8/reference/logic/validation/expression-validation" >}}).
+tilgjengelig for [validering vha. uttrykk](/nb/altinn-studio/v8/reference/logic/validation/expression-validation/).
 
 Funksjonen tar 1 argument, som er indeksen til argumentet du ønsker å hente ut. Indeksen starter på 0.
 
@@ -1056,8 +1056,8 @@ Funksjonen tar 1 argument, som er indeksen til argumentet du ønsker å hente ut
 I likhet med `argv` er `value`-funksjonen også en metode for å hente ut argumenter som er sendt inn til uttrykket.
 Funksjonen kan brukes uten argumenter for å hente ut en verdi, eller med et argument for å hente ut andre
 typer verdier. Dette er foreløpig tilgjengelig for
-[filtrering av svaralternativer]({{< relref "/altinn-studio/v8/guides/development/options/functionality/filtering" >}}) og blir snart tilgjengelig
-som et alternativ til `argv` i [validering vha. uttrykk]({{< relref "/altinn-studio/v8/reference/logic/validation/expression-validation" >}}).
+[filtrering av svaralternativer](/nb/altinn-studio/v8/guides/development/options/functionality/filtering/) og blir snart tilgjengelig
+som et alternativ til `argv` i [validering vha. uttrykk](/nb/altinn-studio/v8/reference/logic/validation/expression-validation/).
 
 ```json
 ["value"]
@@ -1213,7 +1213,7 @@ Uttrykk kan brukes til å vise/skjule hele sider. I eksempelet under vil hele si
 ```
 
 Dersom siden man stod på blir skjult, vil applikasjonen automatisk gå videre til neste tilgjengelige side
-i [side-rekkefølgen]({{< relref "/altinn-studio/v8/reference/ux/pages/navigation" >}}). Om alle de neste sidene er skjult, vises den første mulige
+i [side-rekkefølgen](/nb/altinn-studio/v8/reference/ux/pages/navigation/). Om alle de neste sidene er skjult, vises den første mulige
 siden i rekkefølgen istedenfor.
 
 ### Streng eller mindre streng sammenligning?

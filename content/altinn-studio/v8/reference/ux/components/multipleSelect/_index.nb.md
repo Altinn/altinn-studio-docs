@@ -67,9 +67,9 @@ Legg til seksjoner dersom de er relevante:
 
 ### Relatert
 
-* For flervalg med få alternativer, bruk [Avkrysningsbokser]({{< relref "/altinn-studio/v8/reference/ux/components/checkboxes/" >}}).
-* For enkeltvalg med få alternativer, bruk [radionkapper]({{< relref "/altinn-studio/v8/reference/ux/components/radiobuttons/" >}}).
-* For enkeltvalg med mang alternativer, bruk [Dropdown]({{< relref "/altinn-studio/v8/reference/ux/components/dropdown/" >}}).
+* For flervalg med få alternativer, bruk [Avkrysningsbokser](/nb/altinn-studio/v8/reference/ux/components/checkboxes/).
+* For enkeltvalg med få alternativer, bruk [radionkapper](/nb/altinn-studio/v8/reference/ux/components/radiobuttons/).
+* For enkeltvalg med mang alternativer, bruk [Dropdown](/nb/altinn-studio/v8/reference/ux/components/dropdown/).
 
 ## Egenskaper
 
@@ -93,7 +93,7 @@ Vi oppdaterer for øyeblikket Altinn Studio med flere muligheter for innstilling
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-Du kan legge til en komponent i [Altinn Studio Designer]({{< relref "/altinn-studio/v8/getting-started/" >}}) ved å dra den fra komponent-listen til sideområdet.
+Du kan legge til en komponent i [Altinn Studio Designer](/nb/altinn-studio/v8/getting-started/) ved å dra den fra komponent-listen til sideområdet.
 Når du velger komponenten, vises innstillingspanelet for den.
 
 {{</content-version-container>}}

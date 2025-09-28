@@ -21,7 +21,7 @@ For å sette dette opp, må følgende gjøres:
 ## Tilgang til Azure Key Vault
 Før du går videre med denne veiledningen, må du forsikre deg om at du har tilgang til Azure Key Vault for organisasjonen din. Dette sikrer at nøklene som opprettes senere i veiledningen kan lagres riktig som hemmeligheter i Azure.
 
-Hvis tilgang mangler, se [Tilgang til logger og hemmeligheter]({{< relref "/altinn-studio/v8/guides/administration/access-management/apps" >}}).
+Hvis tilgang mangler, se [Tilgang til logger og hemmeligheter](/nb/altinn-studio/v8/guides/administration/access-management/apps/).
 
 ## Maskinporten-integrasjon
 I denne delen skal vi sette opp Maskinporten-klienten. En del av oppsettet inkluderer opprettelse av nøkler som senere skal lagres i Azure Key Vault. Hvis ulike personer i organisasjonen har tilgang til forskjellige ressurser som trengs i forbindelse med dette, anbefales det å samarbeide og utføre disse trinnene på samme maskin. På den måten unngår man å sende hemmeligheter mellom personer og maskiner.
@@ -62,7 +62,7 @@ Når applikasjonen forberedes til å bruke hemmeligheter fra Azure Key Vault, m�
    MaskinportenSettings--ClientId
    MaskinportenSettings--JwkBase64
    ```
-2. For at applikasjonen skal kunne lese hemmelighetene fra Azure Key Vault, må den konfigureres til å gjøre det. Se [secrets-seksjonen]({{< relref "/altinn-studio/v8/reference/configuration/secrets" >}}) for å oppnå dette.
+2. For at applikasjonen skal kunne lese hemmelighetene fra Azure Key Vault, må den konfigureres til å gjøre det. Se [secrets-seksjonen](/nb/altinn-studio/v8/reference/configuration/secrets/) for å oppnå dette.
 3. Legg til appsettings-eksempelet ovenfor i `appsettings.{env}.json`-filen.
 {.floating-bullet-numbers}
 

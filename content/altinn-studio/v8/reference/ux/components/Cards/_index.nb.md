@@ -17,10 +17,10 @@ Den kan brukes til å vise informasjon, bilder, lydklipp, videoer, og skjemakomp
 
 I skjermbildet over ser vi en Cards-komponent med 4 kort.
 
-- Det første kortet har en **ledetekst**, **beskrivelse** og bruker en [**Image-komponent**]({{< relref "/altinn-studio/v8/reference/ux/components/image" >}}) for å vise et bilde som media.
-- Det andre kortet har en **ledetekst**, **beskrivelse** og bruker en [**Audio-komponent**]({{< relref "/altinn-studio/v8/reference/ux/components/audio" >}}) for å vise et lydklipp som media.
-- Det tredje kortet har en **ledetekst**, **beskrivelse** og bruker en [**Video-komponent**]({{< relref "/altinn-studio/v8/reference/ux/components/video" >}}) for å vise en video som media.
-- Det fjerde kortet har en **ledetekst**, **beskrivelse** og bruker en [**Checkboxes-komponent**]({{< relref "/altinn-studio/v8/reference/ux/components/checkboxes" >}}) for å vise en bekreftelses-sjekkboks under beskrivelsen.
+- Det første kortet har en **ledetekst**, **beskrivelse** og bruker en [**Image-komponent**](/nb/altinn-studio/v8/reference/ux/components/image/) for å vise et bilde som media.
+- Det andre kortet har en **ledetekst**, **beskrivelse** og bruker en [**Audio-komponent**](/nb/altinn-studio/v8/reference/ux/components/audio/) for å vise et lydklipp som media.
+- Det tredje kortet har en **ledetekst**, **beskrivelse** og bruker en [**Video-komponent**](/nb/altinn-studio/v8/reference/ux/components/video/) for å vise en video som media.
+- Det fjerde kortet har en **ledetekst**, **beskrivelse** og bruker en [**Checkboxes-komponent**](/nb/altinn-studio/v8/reference/ux/components/checkboxes/) for å vise en bekreftelses-sjekkboks under beskrivelsen.
 
 Visuelt vil et kort vanligvis vise innhold i denne rekkefølgen:
 
@@ -79,7 +79,7 @@ Vi oppdaterer for øyeblikket Altinn Studio med flere muligheter for innstilling
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-Du kan legge til en komponent i [Altinn Studio Designer]({{< relref "/altinn-studio/v8/getting-started/" >}}) ved å dra den fra komponent-listen til sideområdet.
+Du kan legge til en komponent i [Altinn Studio Designer](/nb/altinn-studio/v8/getting-started/) ved å dra den fra komponent-listen til sideområdet.
 Når du velger komponenten, vises innstillingspanelet for den.
 
 {{</content-version-container>}}

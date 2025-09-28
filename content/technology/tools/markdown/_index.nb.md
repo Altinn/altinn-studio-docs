@@ -6,7 +6,7 @@ tags: [tech, programming, needstranslation]
 
 ![Markdown logo](markdown-mark.svg "Markdown logo")
 
-We're writing all our documentation using markdown, and we use [Hugo]({{< relref "/technology/tools/hugo" >}}) for converting the markdown to HTML.
+We're writing all our documentation using markdown, and we use [Hugo](/nb/technology/tools/hugo/) for converting the markdown to HTML.
 
 Markdown is also used to format text in apps developed in Altinn Studio.
 

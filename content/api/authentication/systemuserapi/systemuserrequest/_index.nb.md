@@ -10,7 +10,7 @@ API-en for systembrukerforespørsler gir API-metoder for leverandøren til å ad
 ## Sikkerhetsskjema
 Bærerautentiseringsordningen brukes for å autentisere den eksterne.
 Systembruker-API-et krever at den eksterne autentiserer seg med et bærertoken, som er et Maskinporten-token med spesifikk scope.
-For å få et Maskinporten-token, må den eksterne først opprette en klient i Maskinporten. Du kan [følge trinnene beskrevet her]({{< relref "/authorization/getting-started/maskinportenclient/" >}}) for å sette opp en Maskinporten-klient.
+For å få et Maskinporten-token, må den eksterne først opprette en klient i Maskinporten. Du kan [følge trinnene beskrevet her](/nb/authorization/getting-started/maskinportenclient/) for å sette opp en Maskinporten-klient.
 
 ## Systembruker typer
 For øyeblikket tilbyr vi to ulike type systembrukere

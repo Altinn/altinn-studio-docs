@@ -16,9 +16,9 @@ When someone starts the form, the fields you select will be automatically popula
 
 ## When should I use this?
 If you plan on using data from the sources listed above. There is a limited set of fields available. 
-See [full list of available data fields for all sources]({{< relref "/altinn-studio/v8/reference/data/prefill" >}}).
+See [full list of available data fields for all sources](/en/altinn-studio/v8/reference/data/prefill/).
 
-Do you need data from other sources? Go to [prefilling data using custom code]({{< relref "/altinn-studio/v8/guides/development/prefill/custom/" >}}).
+Do you need data from other sources? Go to [prefilling data using custom code](/en/altinn-studio/v8/guides/development/prefill/custom/).
 
 ## How to set it up
 {.floating-bullet-numbers-sibling-ol}
@@ -63,7 +63,7 @@ Do you need data from other sources? Go to [prefilling data using custom code]({
    - `datafield` is the name of the field _from the source_  
    - `formfield` is the name of the field in the form's data model.
 
-   See [full list of available data fields for all sources]({{< relref "/altinn-studio/v8/reference/data/prefill" >}}).
+   See [full list of available data fields for all sources](/en/altinn-studio/v8/reference/data/prefill/).
 
 
 ## Examples

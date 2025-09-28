@@ -13,12 +13,12 @@ weight: 20
 ## Funksjoner for tjenesteeiere som bruker Altinn Studio
 * Automatisk integrasjon - alle applikasjonsinstanser vil være tilgjengelige i Dialogporten
 * Større fleksibilitet og rikhet i hvordan dine applikasjonsinstanser kan presenteres for sluttbrukere enn Altinn 2
-* SDK for bruk i Altinn Apps som benytter en [Dialogporten API-klient]({{<relref "../user-guides/service-owners/api-client">}}), som tillater egendefinerte dialogoppdateringer for å skreddersy visning av de ulike tilstandene til din app
+* SDK for bruk i Altinn Apps som benytter en [Dialogporten API-klient](/nb/dialogporten/what-do-you-get/../user-guides/service-owners/api-client/), som tillater egendefinerte dialogoppdateringer for å skreddersy visning av de ulike tilstandene til din app
 
 ## Funksjoner for tjenesteeiere som bruker andre tjenesteplattformer
 * Lar deg gjøre dine digitale tjenester og meldinger tilgjengelige på samme måte som de er realisert i Altinn Studio
 * Større fleksibilitet i hvordan din digitale kommunikasjon med sluttbrukere kan presenteres
-* For plattformer som bruker .NET, en [API client]({{<relref "../user-guides/service-owners/api-client">}}) for å gjøre det enklere å administrere dialoger og verifisere dialogtokens
+* For plattformer som bruker .NET, en [API client](/nb/dialogporten/what-do-you-get/../user-guides/service-owners/api-client/) for å gjøre det enklere å administrere dialoger og verifisere dialogtokens
 
 ## Funksjoner for sluttbrukersystem (EUS) leverandører
 * Felles format for digitale tjenesterepresentasjoner, som gjør integrasjoner enklere uavhengig av plattform

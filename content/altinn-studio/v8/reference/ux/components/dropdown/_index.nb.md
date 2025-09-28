@@ -58,9 +58,9 @@ Nedtrekkslister brukes ofte i skjemaer for å samle input fra brukeren der de m�
 
 ### Relatert
 
-* For enkeltvalg med få alternativer, bruk [radionkapper]({{< relref "/altinn-studio/v8/reference/ux/components/radiobuttons/" >}}).
-* Hvis brukeren kan velge flere alternativ fra en liste, bruk [Avkrysningsbokser]({{< relref "/altinn-studio/v8/reference/ux/components/checkboxes/" >}}).
-* For en mer kompakt måte å vise flere alternativer med flervalg, bruk [MultipleSelect]({{< relref "/altinn-studio/v8/reference/ux/components/multipleselect/" >}}).
+* For enkeltvalg med få alternativer, bruk [radionkapper](/nb/altinn-studio/v8/reference/ux/components/radiobuttons/).
+* Hvis brukeren kan velge flere alternativ fra en liste, bruk [Avkrysningsbokser](/nb/altinn-studio/v8/reference/ux/components/checkboxes/).
+* For en mer kompakt måte å vise flere alternativer med flervalg, bruk [MultipleSelect](/nb/altinn-studio/v8/reference/ux/components/multipleselect/).
 
 ## Egenskaper
 
@@ -84,7 +84,7 @@ Vi oppdaterer for øyeblikket Altinn Studio med flere muligheter for innstilling
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-Du kan legge til en komponent i [Altinn Studio Designer]({{< relref "/altinn-studio/v8/getting-started/" >}}) ved å dra den fra komponent-listen til sideområdet.
+Du kan legge til en komponent i [Altinn Studio Designer](/nb/altinn-studio/v8/getting-started/) ved å dra den fra komponent-listen til sideområdet.
 Når du velger komponenten, vises innstillingspanelet for den.
 
 {{</content-version-container>}}

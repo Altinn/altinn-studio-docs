@@ -13,13 +13,13 @@ This page explains the different views and how they can be customized.
 ## Data
 
 In this process task a form which the user can fill in data.
-The form can be edited using the [UI editor]({{< relref "/altinn-studio/v8/getting-started" >}}) or by changing `FormLayout.json` manually.
+The form can be edited using the [UI editor](/en/altinn-studio/v8/getting-started/) or by changing `FormLayout.json` manually.
 
 ## Confirmation
 
 In this process task some standard texts are presented and the user can choose to _confirm_ to go forward.
 
-These texts can be overridden by manually adding each defined text keys in the apps text resources. More information about how this is done can be found [here]({{< relref "/altinn-studio/v8/reference/ux/texts" >}}).
+These texts can be overridden by manually adding each defined text keys in the apps text resources. More information about how this is done can be found [here](/en/altinn-studio/v8/reference/ux/texts/).
 In the following section we will present an overview of the different texts that can be customized.
 
 ![Confirm view](confirm-step.png "Texts that can be customized in the confirm view")
@@ -57,7 +57,7 @@ Example of custom texts in the file `resources.nb.json`:
 ```
 
 Note that in the example we have used the html-tag `<br/>` to make a line shift.
-For links and formatting [use markdown]({{< relref "/altinn-studio/v8/reference/ux/texts#formatting-of-texts" >}}).
+For links and formatting [use markdown](/en/altinn-studio/v8/reference/ux/texts#formatting-of-texts).
 
 This results in the following view:
 
@@ -66,7 +66,7 @@ This results in the following view:
 ### Custom form layout
 
 For the confirm task the app developer has the possibility for configuring their
-own [layout set]({{< relref "/altinn-studio/v8/reference/ux/pages/#setup" >}}) with corresponding form layout definitions and other ui-configuration
+own [layout set](/en/altinn-studio/v8/reference/ux/pages/#setup) with corresponding form layout definitions and other ui-configuration
 files which are included in the data step.
 
 This makes the confirmation page customizable, and can use the components that are supported in Altinn Studio.
@@ -195,7 +195,7 @@ Example of custom texts in the file `resources.nb.json`:
 
 In this process task the process will be ended and some standard texts are shown.
 
-These texts can be overridden by manually adding each defined text key in the app's text resources. More information about how this is done can be found [here]({{< relref "/altinn-studio/v8/reference/ux/texts" >}}).
+These texts can be overridden by manually adding each defined text key in the app's text resources. More information about how this is done can be found [here](/en/altinn-studio/v8/reference/ux/texts/).
 
 If the actual recipient of the form is a different organization than the organization owning the app, the receipt should reflect this in the `Receiver` field. This can be done by setting the text resource `appReceiver` to the name of the actual recipient.
 
@@ -404,9 +404,9 @@ Resulting receipt in the application:
 
 ### Customizing texts in Simple Receipt
 
-Simple receipt is a concept that becomes relevant for those applications that have enabled `AutoDeleteOnProcessEnd: True` in their `applicationmetadata.json` file. For more information on what this implies [read here]({{< relref "/altinn-studio/v8/reference/configuration/process/auto-delete/" >}}).
+Simple receipt is a concept that becomes relevant for those applications that have enabled `AutoDeleteOnProcessEnd: True` in their `applicationmetadata.json` file. For more information on what this implies [read here](/en/altinn-studio/v8/reference/configuration/process/auto-delete/).
 
-The texts in this receipt can also be overridden by manually adding each defined text keys in the apps text resources. More information about how this is done can be found [here]({{< relref "/altinn-studio/v8/reference/ux/texts" >}}).
+The texts in this receipt can also be overridden by manually adding each defined text keys in the apps text resources. More information about how this is done can be found [here](/en/altinn-studio/v8/reference/ux/texts/).
 In the following section we will present an overview of the different texts that can be customized.
 
 ![Simple receipt view](simple-receipt-step.png "Texts that can be customized in the simple receipt view")

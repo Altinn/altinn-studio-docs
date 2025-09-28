@@ -35,7 +35,7 @@ Under arbeid... Her må det gjøres en større opprydding i filstrukturen.
 │  │  └── {{<icon name="fa-code">}} ...  
 │  │  
 │  ├── {{<icon name="fa-git-square">}} tjeneste-1  
-│  │  ├──  {{<icon name="fa-folder-open">}} Deployment ([helm]({{<relref "/technology/tools/helm/_index.en.md">}}))  
+│  │  ├──  {{<icon name="fa-folder-open">}} Deployment ([helm](/en/technology/tools/helm/))  
 │  │  │      ├── {{<icon name="fa-folder-open">}} templates  
 │  │  │      │     ├── {{<icon name="fa-code">}} _helpers.tpl  
 │  │  │      │     ├── {{<icon name="fa-code">}} deployment.yaml  
@@ -77,7 +77,7 @@ Under arbeid... Her må det gjøres en større opprydding i filstrukturen.
 │  │  │        │     │     │    │      ├──{{<icon name="fa-code">}} data-id1.xml  
 │  │  │        │     │     │    ├──{{<icon name="fa-folder-open">}} data-id...   
 │  │  ├──  {{<icon name="fa-folder-open">}} Workflow  
-│  │  │      └── {{<icon name="fa-code">}} workflow.bpmn ([BPMN]({{<relref "/technology/tools/bpmn/_index.en.md">}}))  
+│  │  │      └── {{<icon name="fa-code">}} workflow.bpmn ([BPMN](/en/technology/tools/bpmn/))  
 │  │  ├──  {{<icon name="fa-code">}} [App.csproj](app-csproj)    
 │  │  ├──  {{<icon name="fa-code">}} config.json        
 │  │  ├──  .gitignore  

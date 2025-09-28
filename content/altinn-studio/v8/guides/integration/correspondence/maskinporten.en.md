@@ -5,7 +5,7 @@ weight: 100
 toc: true
 ---
 
-On the [previous page]({{< relref "/altinn-studio/v8/guides/integration/" >}}), we went through how to set up a [resource]({{< relref "/altinn-studio/v8/guides/integration/correspondence/#altinn-resource" >}}) and the versioning requirements
+On the [previous page](/en/altinn-studio/v8/guides/integration/), we went through how to set up a [resource](/en/altinn-studio/v8/guides/integration/correspondence/#altinn-resource) and the versioning requirements
 for the correspondence client.
 
 We can now proceed to the [Maskinporten setup](#maskinporten-setup) and the [application code](#application-code).
@@ -19,7 +19,7 @@ In order to use the [correspondence service](/en/correspondence/), a [Maskinport
 - `altinn:correspondence.write`
 {.correspondence-custom-list}
 
-To set this up, follow the general steps outlined in the [Maskinporten integration guide]({{< relref "/altinn-studio/v8/guides/integration/maskinporten/" >}}), with a couple of modifications described below.
+To set this up, follow the general steps outlined in the [Maskinporten integration guide](/en/altinn-studio/v8/guides/integration/maskinporten/), with a couple of modifications described below.
 
 - The correspondence client uses a new, internal, client to communicate with Maskinporten. Because of this, the configuration object now looks like this:
 

@@ -23,7 +23,7 @@ GET /app/party
 
 This API requires authentication.
 
-See [Authentication and Authorization]({{< relref "/events/api/#authentication--authorization" >}}) for more information.
+See [Authentication and Authorization](/en/events/api/#authentication--authorization) for more information.
 
 
 ## Request

@@ -17,10 +17,10 @@ It can be used to display information, images, audio, videos, and form component
 
 In the screenshot above, we see a Cards component with 4 cards.
 
-- The first card has a **title**, **description**, and uses an [**Image component**]({{< relref "/altinn-studio/v8/reference/ux/components/image" >}}) to display an image as media.
-- The second card has a **title**, **description**, and uses an [**Audio component**]({{< relref "/altinn-studio/v8/reference/ux/components/audio" >}}) to display an audio clip as media.
-- The third card has a **title**, **description**, and uses a [**Video component**]({{< relref "/altinn-studio/v8/reference/ux/components/video" >}}) to display a video as media.
-- The fourth card has a **title**, **description**, and uses a [**Checkboxes component**]({{< relref "/altinn-studio/v8/reference/ux/components/checkboxes" >}}) to display a confirmation checkbox below the description.
+- The first card has a **title**, **description**, and uses an [**Image component**](/en/altinn-studio/v8/reference/ux/components/image/) to display an image as media.
+- The second card has a **title**, **description**, and uses an [**Audio component**](/en/altinn-studio/v8/reference/ux/components/audio/) to display an audio clip as media.
+- The third card has a **title**, **description**, and uses a [**Video component**](/en/altinn-studio/v8/reference/ux/components/video/) to display a video as media.
+- The fourth card has a **title**, **description**, and uses a [**Checkboxes component**](/en/altinn-studio/v8/reference/ux/components/checkboxes/) to display a confirmation checkbox below the description.
 
 Visually, a card will typically display content in this order:
 
@@ -73,7 +73,7 @@ We are currently updating Altinn Studio with more configuration options!
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-You can add a component in [Altinn Studio Designer]({{< relref "/altinn-studio/v8/getting-started/" >}}) by dragging it from the component list to the page area.
+You can add a component in [Altinn Studio Designer](/en/altinn-studio/v8/getting-started/) by dragging it from the component list to the page area.
 When you select the component, the settings panel for it will be displayed.
 
 {{</content-version-container>}}

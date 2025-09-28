@@ -34,7 +34,7 @@ Options are often used as filter criteria that can be a part of the API call.
 ## Application command
 
 The Application command is used to interact with application instances. 
-Required configurations are [top level configurations]({{< relref "/technology/solutions/cli/configuration/#top-level-configurations" >}}) and [maskinporten settings]({{< relref "/technology/solutions/cli/configuration/#maskinporten-settings" >}})
+Required configurations are [top level configurations](/en/technology/solutions/cli/configuration/#top-level-configurations) and [maskinporten settings](/en/technology/solutions/cli/configuration/#maskinporten-settings)
 
 ### CreateInstance
 TODO.
@@ -53,7 +53,7 @@ Application GetInstances org={org} app={app}
 The batch command allows you to interact with an application through providing batches of data.
 
 Some configurations are required to be in place before running the batch command.
-Read about the setup of [MaskinportenSettings]({{< relref "/technology/solutions/cli/configuration/#maskinporten-settings" >}}) and [IntantiationConfig]({{< relref "/technology/solutions/cli/configuration/#instantiation-configuration" >}}).
+Read about the setup of [MaskinportenSettings](/en/technology/solutions/cli/configuration/#maskinporten-settings) and [IntantiationConfig](/en/technology/solutions/cli/configuration/#instantiation-configuration).
 
 ### CreateInstancesA2
 
@@ -63,7 +63,7 @@ Read about the setup of [MaskinportenSettings]({{< relref "/technology/solutions
 
 The Storage command is used to fetch and upload instance data.  
 
-Required configurations are [top level configurations]({{< relref "/technology/solutions/cli/configuration/#top-level-configurations" >}}) and [maskinporten settings]({{< relref "/technology/solutions/cli/configuration/#maskinporten-settings" >}})
+Required configurations are [top level configurations](/en/technology/solutions/cli/configuration/#top-level-configurations) and [maskinporten settings](/en/technology/solutions/cli/configuration/#maskinporten-settings)
 
 ### GetData
 

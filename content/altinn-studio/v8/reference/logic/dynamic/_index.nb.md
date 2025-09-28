@@ -6,7 +6,7 @@ toc: true
 
 {{% panel theme="warning" %}}
 ⚠️ Dynamikk er et område under aktiv utvikling. Logikk-filer skrevet i JavaScript fases etterhvert ut og blir erstattet
-av [dynamiske uttrykk]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}}). Foreløpig gjelder dette dynamikk for vis/skjul, men etterhvert skal uttrykk
+av [dynamiske uttrykk](/nb/altinn-studio/v8/reference/logic/expressions/). Foreløpig gjelder dette dynamikk for vis/skjul, men etterhvert skal uttrykk
 også kunne brukes for å utføre beregninger og styre valideringsmeldinger.
 {{% /panel %}}
 
@@ -20,7 +20,7 @@ Dynamikk er hendelser som skjer på klient-siden. Disse kan deles opp i to kateg
 Dynamikkregler via javascript for en Altinn App redigeres direkte i _RuleHandler_-filen.
 
 {{% panel theme="warning" %}}
-⚠️ Fordi vi flytter mer og mer av denne funksjonaliteten over til [dynamiske uttrykk]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}}), følger ikke filen
+⚠️ Fordi vi flytter mer og mer av denne funksjonaliteten over til [dynamiske uttrykk](/nb/altinn-studio/v8/reference/logic/expressions/), følger ikke filen
 _RuleHandler.js_ med i nye apper (per 7. oktober 2024).
 Dersom du ikke finner filen i `App/ui/form`-mappen, kan du legge til filen der.
 Som et minimum bør filen inneholde følgende:
@@ -411,7 +411,7 @@ var conditionalRuleHandlerHelper = {
 
 Fra versjon 3.0.0 er det også mulig å legge inn dynamikk for PDF. Dette gjøres i _PDF Handler_. Her kan man ved hjelp av logikk velge å skjulte felter eller sider i print.
 
-Appen må inkludere `ui/Settings.json`-filen som [forklart her]({{< relref "/altinn-studio/v8/reference/ux/pages/navigation/" >}}).
+Appen må inkludere `ui/Settings.json`-filen som [forklart her](/nb/altinn-studio/v8/reference/ux/pages/navigation/).
 
 Teknisk er det veldlig likt hvordan man gjør det for validering.
 

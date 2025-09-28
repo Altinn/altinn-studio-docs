@@ -15,7 +15,7 @@ This will fix most of the breaking changes automatically, but you may still need
 ## Migrate automatically using the Altinn Studio CLI
 
 {{% notice info %}}
-**Note**: You also need to upgrade the nuget packages to version 8.0. This can also be done using the Altinn Studio CLI. See [Migration from v7]({{< relref "/community/changelog/app-nuget/v8/migrating-from-v7" >}}) for more information.
+**Note**: You also need to upgrade the nuget packages to version 8.0. This can also be done using the Altinn Studio CLI. See [Migration from v7](/en/community/changelog/app-nuget/v8/migrating-from-v7/) for more information.
 {{% /notice %}}
 
 The Altinn Studio CLI is a command line tool for upgrading Altinn Apps. The tool is able to upgrade and fix most breaking changes between version 3 and 4 of the Altinn App-frontend.
@@ -135,7 +135,7 @@ In addition to changing the version, you should also remove the links to the thi
         }
       }
     ```
-4. Fix any [breaking changes]({{< relref "/community/changelog/app-frontend/v4" >}}) affecting your app, including upgrading the nuget packages to version 8.0.
+4. Fix any [breaking changes](/en/community/changelog/app-frontend/v4/) affecting your app, including upgrading the nuget packages to version 8.0.
 
 ## Opt-in to Altinn AI for tracks migration
 

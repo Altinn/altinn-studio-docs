@@ -31,7 +31,7 @@ required prerequisites are met.
    owner.*
 
 If step 2 and 3 of the technical requirements are missing see
-section [Maskinporten-App Integration]({{< relref "/altinn-studio/v8/guides/integration/maskinporten" >}})
+section [Maskinporten-App Integration](/en/altinn-studio/v8/guides/integration/maskinporten/)
 
 \* _If the end user of application A have the required roles to instantiate application B on behalf of the intended
 recipient, you can skip these technical requirements_

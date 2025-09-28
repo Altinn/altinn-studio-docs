@@ -8,7 +8,7 @@ weight: 800
 
 ## Authentication level
 
-Required authentication level is set in the [XACML Policy]({{< relref "/altinn-studio/v8/reference/configuration/authorization/" >}}) as an obligation.
+Required authentication level is set in the [XACML Policy](/en/altinn-studio/v8/reference/configuration/authorization/) as an obligation.
 
 ## ID-provider
 

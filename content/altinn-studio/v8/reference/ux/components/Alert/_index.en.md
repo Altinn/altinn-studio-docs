@@ -59,7 +59,7 @@ Add the following sections if relevant:
 -->
 ### Related
 
-- [`Panel`]({{< relref "/altinn-studio/v8/reference/ux/components/panel/" >}})
+- [`Panel`](/en/altinn-studio/v8/reference/ux/components/panel/)
 
 
 ## Properties
@@ -84,7 +84,7 @@ If no argument is given, the shortcode pulls the component name from 'schemaname
 
 ### Add component
 
-You can add a component in [Altinn Studio Designer]({{< relref "/altinn-studio/v8/getting-started/" >}}) by dragging it from the left-side panel to the middle page area.
+You can add a component in [Altinn Studio Designer](/en/altinn-studio/v8/getting-started/) by dragging it from the left-side panel to the middle page area.
 Selecting the component brings up its configuration panel on the right-hand side.
 
 ### Settings in Altinn Studio Designer
@@ -138,7 +138,7 @@ App/ui/layouts/{page}.json
 
 ### Heading and content
 
-You can add heading and content by creating a new or pick an existing [text resource]({{< relref "/altinn-studio/v8/reference/ux/texts/#add-and-change-texts-in-an-application" >}}).
+You can add heading and content by creating a new or pick an existing [text resource](/en/altinn-studio/v8/reference/ux/texts/#add-and-change-texts-in-an-application).
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}

@@ -49,9 +49,9 @@ Add the following sections if relevant:
 -->
 ### Related
 
-- [`Number`]({{< relref "/altinn-studio/v8/reference/ux/components/number/" >}})
-- [`Text`]({{< relref "/altinn-studio/v8/reference/ux/components/text/" >}})
-- [`Option`]({{< relref "/altinn-studio/v8/reference/ux/components/option/" >}})
+- [`Number`](/en/altinn-studio/v8/reference/ux/components/number/)
+- [`Text`](/en/altinn-studio/v8/reference/ux/components/text/)
+- [`Option`](/en/altinn-studio/v8/reference/ux/components/option/)
 
 ## Properties
 
@@ -90,7 +90,7 @@ We are currently updating how we implement components, and the list of propertie
 
 #### `textResourceBindings.title`
 
-Label for the date. This can be added as a hardcoded string or as a reference to a [text resource]({{< relref "/altinn-studio/v8/reference/ux/texts/#add-and-change-texts-in-an-application" >}}).
+Label for the date. This can be added as a hardcoded string or as a reference to a [text resource](/en/altinn-studio/v8/reference/ux/texts/#add-and-change-texts-in-an-application).
 
 #### `value`
 

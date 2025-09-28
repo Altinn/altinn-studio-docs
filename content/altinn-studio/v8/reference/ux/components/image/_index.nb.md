@@ -21,7 +21,7 @@ aliases:
 
 Bruk bilder og illustrasjoner for å fremheve poeng eller illustrere begreper som er vanskelige å forklare med tekst.
 
-Denne komponenten kan brukes frittstående eller som en mediakomponent i [Cards-komponenten]({{< relref "/altinn-studio/v8/reference/ux/components/cards" >}}).
+Denne komponenten kan brukes frittstående eller som en mediakomponent i [Cards-komponenten](/nb/altinn-studio/v8/reference/ux/components/cards/).
 
 ### Anatomi
 
@@ -83,7 +83,7 @@ Vi oppdaterer for øyeblikket Altinn Studio med flere muligheter for innstilling
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-Du kan legge til en komponent i [Altinn Studio Designer]({{< relref "/altinn-studio/v8/getting-started/" >}}) ved å dra den fra komponent-listen til sideområdet.
+Du kan legge til en komponent i [Altinn Studio Designer](/nb/altinn-studio/v8/getting-started/) ved å dra den fra komponent-listen til sideområdet.
 Når du velger komponenten, vises innstillingspanelet for den.
 
 {{</content-version-container>}}
@@ -129,7 +129,7 @@ Velg 'Alternativ tekst for bilde' i nedtrekksmenyen.
 
 ![Innstilling legg til tekst](innstilling-tekst.png)
 
-Klikk plusstegnet for å opprette en ny tekst eller forstørrelsesglasset for å velge en eksisterende [tekstressurs]({{< relref "/altinn-studio/v8/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app" >}}).
+Klikk plusstegnet for å opprette en ny tekst eller forstørrelsesglasset for å velge en eksisterende [tekstressurs](/nb/altinn-studio/v8/reference/ux/texts/#legge-til-og-endre-tekster-i-en-app).
 
 ![Innstilling for alternativ tekst](innstilling-alternativ-tekst.png)
 

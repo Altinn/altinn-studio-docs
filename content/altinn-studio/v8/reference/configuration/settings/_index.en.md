@@ -89,4 +89,4 @@ It is technically possible to override all other data sources by using command l
 
 Every application owner should have access to their own Azure KeyVault for storage of sensitive values. Sensitive values includes values which you don't want to be visible in code or configuration files. Examples include usernames and passwords for external APIs, certificates, private keys, etc.
 
-Currently values from KeyVault are not read into the configuration control of an App. Instead the secrets component is used. This is documented under [Secrets]({{< relref "/altinn-studio/v8/reference/configuration/secrets" >}}).
+Currently values from KeyVault are not read into the configuration control of an App. Instead the secrets component is used. This is documented under [Secrets](/en/altinn-studio/v8/reference/configuration/secrets/).

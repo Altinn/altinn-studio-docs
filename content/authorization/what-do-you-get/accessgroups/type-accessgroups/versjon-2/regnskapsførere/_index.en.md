@@ -5,7 +5,7 @@ linktitle: Regnskapsførere
 description: Denne tilgangspakken er relevant for alle virksomheter
 weight: 122
 ---
-Tilbake til [hovedoversikt]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker" >}})
+Tilbake til [hovedoversikt](/en/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker)
 
 
 ![Regnskapsførere](regn.jpg "Regnskapsførere")
@@ -16,7 +16,7 @@ Tilbake til [hovedoversikt]({{< relref "/authorization/what-do-you-get/accessgro
 
 
 ## Egenskaper ved tilgangspakkene
-|Navn tillgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle]({{< relref "/authorization/what-do-you-get/accessgroups/register_er/#rolletyper-fra-enhetsregisteret" >}}) som får fullmakten|
+|Navn tillgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/en/authorization/what-do-you-get/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
 |---|---|---|---|
 |Fullmakter for regnskapsførere| ja|nei||
 |Regnskapsfører med signeringsrettighet|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
@@ -24,4 +24,4 @@ Tilbake til [hovedoversikt]({{< relref "/authorization/what-do-you-get/accessgro
 |Regnskapsfører lønn|ja|ja|DAGL, LEDE, INNH, DTPR, DTSO, KOMP, BEST, REPR, BOBE|
 
 
-Tilbake til [hovedoversikt]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker" >}})
+Tilbake til [hovedoversikt](/en/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker)

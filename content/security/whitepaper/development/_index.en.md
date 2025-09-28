@@ -19,7 +19,7 @@ The development process is continuously improved.
 </figure>
 
 To be able to put the developers in focus, the use of security tools and automation is preferred where possible.
-This includes integration with [security tools]({{< relref "/community/contributing/handbook/securecoding/" >}}) in
+This includes integration with [security tools](/en/community/contributing/handbook/securecoding/) in
 the build and deploy processes where identified security flaws stop the processes.
 
 Altinn has several important architecture principles that support security:

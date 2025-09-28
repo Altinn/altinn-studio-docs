@@ -23,7 +23,7 @@ I dag er det ca. 50% av dataene som blir rapportert til Altinn som blir sendt p�
 
 En tjeneste består av en applikasjon som er tilgjengelig i Altinns infrastruktur. Denne applikasjonen har et sett med konfigurasjoner som beskriver data som tjenesten skal motta eller sende ut, samt hvilken prosess tjenesten har.
 
-Eksempler på tjenester utviklet på den nye Altinn 3-plattformen finner du [her]({{< relref "/altinn-studio/v8/news/launched-apps/" >}}).
+Eksempler på tjenester utviklet på den nye Altinn 3-plattformen finner du [her](/nb/altinn-studio/v8/news/launched-apps/).
 
 ## Hvilke typer data eksponerer/mottar tjenestene via API?
 
@@ -53,7 +53,7 @@ Disse scopene gir mulighet for å kalle alle apper i Altinn 3.
 
 Som del av påloggingsprosessen vil sluttbrukersystemet få tilgang til et access_token med informasjon om sluttbruker.
 
-Se detaljert påloggingsprosess med ID-porten og skjermbildet som sluttbruker blir presentert for, [her]({{< relref "/authorization/getting-started/authentication/id-porten/" >}}).
+Se detaljert påloggingsprosess med ID-porten og skjermbildet som sluttbruker blir presentert for, [her](/nb/authorization/getting-started/authentication/id-porten/).
 
 ### Innveksling av access_token til Altinn Token
 
@@ -65,7 +65,7 @@ Innveksling skjer mot [Autentiserings API](/nb/api/authentication/spec/).
 
 Innvekslingen skjer ved at man setter Access Token fra ID-porten som et Bearer token i authorization headeren og gjør et GET-kall mot innvekslingsendepunktet hvor "id-porten" er brukt som token provider.
 
-Detaljert beskrivelse av innveksling med ID-porten token finner du [her]({{< relref "/authorization/getting-started/authentication/id-porten/" >}}).
+Detaljert beskrivelse av innveksling med ID-porten token finner du [her](/nb/authorization/getting-started/authentication/id-porten/).
 
 ### Instansiering og innsending av data
 

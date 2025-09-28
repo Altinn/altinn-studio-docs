@@ -10,7 +10,7 @@ aliases:
 
 ## Overview
 
-An [instance]({{< relref "/api/models/instance" >}}) works as a form of envelope or folder where data can be collected and exchanged between the user and owner of the application. The instance document is a way for Altinn and external parties to track the state of one specific data exchange. How long an instance can live and how many interactions there can be between the application owner and user will vary from one app to another. Advanced Apps will have their own documentation.
+An [instance](/en/api/models/instance/) works as a form of envelope or folder where data can be collected and exchanged between the user and owner of the application. The instance document is a way for Altinn and external parties to track the state of one specific data exchange. How long an instance can live and how many interactions there can be between the application owner and user will vary from one app to another. Advanced Apps will have their own documentation.
 
 ```http
 basePath = https://{hostname}/storage/api/v1/instances

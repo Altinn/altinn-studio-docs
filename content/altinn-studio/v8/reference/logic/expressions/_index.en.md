@@ -12,7 +12,7 @@ Altinn Studio and offers limited configuration options. The UI only allows to bu
 nesting, meaning an unlimited number of un-nested expressions can be combined using either the _OR_ or _AND_ operator.
 However, the tool allows to edit more complicated expressions by freestyle writing. Currently the tool is also limited
 to connecting expression to boolean component fields.
-See [Expressions in Altinn Studio]({{< relref "/altinn-studio/v8/designer/build-app/expressions" >}}) on how to use Altinn Studio
+See [Expressions in Altinn Studio](/en/altinn-studio/v8/designer/build-app/expressions/) on how to use Altinn Studio
 to configure an expression.
 {{% /panel %}}
 
@@ -25,9 +25,9 @@ These expressions are available in all Altinn 3 apps that use frontend version
 [3.54.0](https://github.com/Altinn/app-frontend-react/releases/tag/v3.54.0) or later. By using this version or the
 latest major version, you can use dynamic expressions for [several use cases](#use-cases).
 
-Starting from version `7.2.0` of the [nuget packages]({{< relref "/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget" >}}) the expressions are also
+Starting from version `7.2.0` of the [nuget packages](/en/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget) the expressions are also
 supported in the backend. This means that the server will be able to evaluate the expressions and remove data upon
-submission that is potentially stored in the [data model]({{< relref "/altinn-studio/v8/reference/data/data-modeling/" >}}) and is associated with
+submission that is potentially stored in the [data model](/en/altinn-studio/v8/reference/data/data-modeling/) and is associated with
 fields/components that are later hidden. Note that this only applies to data in the data model that is associated with
 hidden components - data in the data model that is not associated with components (and is thus implicitly hidden from
 the user) will not be automatically removed.
@@ -36,7 +36,7 @@ It also makes it possible to omit submitting data that is otherwise associated w
 fields are hidden in the form using dynamic expressions. This also applies when submitting directly from the API.
 
 **Note:** Note that automatic removal of hidden data must currently be manually activated (opt-in) by adding the following
-line to `App/appsettings.json` after upgrading the [nuget packages]({{< relref "/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget" >}})
+line to `App/appsettings.json` after upgrading the [nuget packages](/en/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
 to `7.2.0` or later:
 
 {{<content-version-selector classes="border-box">}}
@@ -145,7 +145,7 @@ And for a person who is 15 years old (or younger, such as a 4-year-old), the tex
 
 ### Use Cases
 
-Dynamic expressions are currently available for use in these properties, as defined in [layout files]({{< relref "/altinn-studio/v8/reference/ux/pages" >}}).
+Dynamic expressions are currently available for use in these properties, as defined in [layout files](/en/altinn-studio/v8/reference/ux/pages/).
 
 | Components                                                                                                 | Property                      | Expected Value             | Frontend | Backend |
 | ---------------------------------------------------------------------------------------------------------- | ----------------------------- | -------------------------- | -------- | ------- |
@@ -153,21 +153,21 @@ Dynamic expressions are currently available for use in these properties, as defi
 | All                                                                                                        | `hidden`                      | [Boolean](#boolean-values) | ✅       | ✅      |
 | Form components                                                                                            | `required`                    | [Boolean](#boolean-values) | ✅       | ✅      |
 | Form components                                                                                            | `readOnly`                    | [Boolean](#boolean-values) | ✅       | ❌      |
-| [Repeating groups]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating" >}})                                                     | `hiddenRow`                   | [Boolean](#boolean-values) | ✅       | ❌      |
-| [Repeating groups]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating" >}})                                                     | `edit.addButton`              | [Boolean](#boolean-values) | ✅       | ❌      |
-| [Repeating groups]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating" >}})                                                     | `edit.saveButton`             | [Boolean](#boolean-values) | ✅       | ❌      |
-| [Repeating groups]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating" >}})                                                     | `edit.deleteButton`           | [Boolean](#boolean-values) | ✅       | ❌      |
-| [Repeating groups]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating" >}})                                                     | `edit.alertOnDelete`          | [Boolean](#boolean-values) | ✅       | ❌      |
-| [Repeating groups]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating" >}})                                                     | `edit.saveAndNextButton`      | [Boolean](#boolean-values) | ✅       | ❌      |
-| [Option based components]({{< relref "/altinn-studio/v8/guides/development/options/sources/from-data-model/#expression-support" >}}) | `source.label`                | [String](#strings)         | ✅       | ❌      |
-| [Option based components]({{< relref "/altinn-studio/v8/guides/development/options/sources/from-data-model/#expression-support" >}}) | `source.description`          | [String](#strings)         | ✅       | ❌      |
-| [Option based components]({{< relref "/altinn-studio/v8/guides/development/options/sources/from-data-model/#expression-support" >}}) | `source.helpText`             | [String](#strings)         | ✅       | ❌      |
-| [Option based components]({{< relref "/altinn-studio/v8/guides/development/options/sources/dynamic/#based-on-expressions" >}})       | `queryParameters.[*]`         | [String](#strings)         | ✅       | ❌      |
-| [Option based components]({{< relref "/altinn-studio/v8/guides/development/options/functionality/filtering" >}})                     | `optionFilter`                | [String](#strings)         | ✅       | ❌      |
+| [Repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                     | `hiddenRow`                   | [Boolean](#boolean-values) | ✅       | ❌      |
+| [Repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                     | `edit.addButton`              | [Boolean](#boolean-values) | ✅       | ❌      |
+| [Repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                     | `edit.saveButton`             | [Boolean](#boolean-values) | ✅       | ❌      |
+| [Repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                     | `edit.deleteButton`           | [Boolean](#boolean-values) | ✅       | ❌      |
+| [Repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                     | `edit.alertOnDelete`          | [Boolean](#boolean-values) | ✅       | ❌      |
+| [Repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                     | `edit.saveAndNextButton`      | [Boolean](#boolean-values) | ✅       | ❌      |
+| [Option based components](/en/altinn-studio/v8/guides/development/options/sources/from-data-model/#expression-support) | `source.label`                | [String](#strings)         | ✅       | ❌      |
+| [Option based components](/en/altinn-studio/v8/guides/development/options/sources/from-data-model/#expression-support) | `source.description`          | [String](#strings)         | ✅       | ❌      |
+| [Option based components](/en/altinn-studio/v8/guides/development/options/sources/from-data-model/#expression-support) | `source.helpText`             | [String](#strings)         | ✅       | ❌      |
+| [Option based components](/en/altinn-studio/v8/guides/development/options/sources/dynamic/#based-on-expressions)       | `queryParameters.[*]`         | [String](#strings)         | ✅       | ❌      |
+| [Option based components](/en/altinn-studio/v8/guides/development/options/functionality/filtering/)                     | `optionFilter`                | [String](#strings)         | ✅       | ❌      |
 | All                                                                                                        | `textResourceBindings.[*]` \* | [String](#strings)         | ✅       | ❌      |
 
 \* = The values that can be overridden with textResourceBindings vary from component to component, but will work wherever
-used. For repeating groups, you can find [more information here]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating#textresourcebindings" >}})
+used. For repeating groups, you can find [more information here](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating#textresourcebindings)
 
 {{% expandlarge id="rep-group-edit-button-text" header="Example: Change repeating group edit button text" %}}
 
@@ -222,7 +222,7 @@ the developer tools that depends on a known position in a repeating group. This 
 changes will not affect expressions defined in an application. The context is retrieved from where the expression is
 defined in the layout file.
 
-Imagine a [repeating group]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating" >}}) for people with two fields: `name` and `age`. Given the
+Imagine a [repeating group](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/) for people with two fields: `name` and `age`. Given the
 following expression:
 
 `["component", "age"]`
@@ -333,7 +333,7 @@ Detailed descriptions and examples
 
 {{% expandlarge id="func-compare" header="compare" %}}
 {{% notice info %}}
-This function is only available on the backend when using [nuget packages]({{< relref "/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget" >}})
+This function is only available on the backend when using [nuget packages](/en/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
 version 8.6.0-preview.3 or later. In the frontend, this function is available in version 4.17.0 and above, including the latest
 rolling release.
 {{% /notice %}}
@@ -584,7 +584,7 @@ If the string is `null`, `stringLength` will return 0.
 
 {{% expandlarge id="func-stringIndexOf" header="stringIndexOf" %}}
 {{% notice info %}}
-This function is only available on the backend when using [nuget packages]({{< relref "/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget" >}})
+This function is only available on the backend when using [nuget packages](/en/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
 version 8.6.0-preview.3 or later. In the frontend, this function is available in version 4.17.0 and above, including the latest
 rolling release.
 {{% /notice %}}
@@ -605,7 +605,7 @@ return 4.
 
 {{% expandlarge id="func-stringSlice" header="stringSlice" %}}
 {{% notice info %}}
-This function is only available on the backend when using [nuget packages]({{< relref "/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget" >}})
+This function is only available on the backend when using [nuget packages](/en/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
 version 8.6.0-preview.3 or later. In the frontend, this function is available in version 4.17.0 and above, including the latest
 rolling release.
 {{% /notice %}}
@@ -628,7 +628,7 @@ is "John Doe", the function will return "Doe".
 
 {{% expandlarge id="func-stringReplace" header="stringReplace" %}}
 {{% notice info %}}
-This function is only available on the backend when using [nuget packages]({{< relref "/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget" >}})
+This function is only available on the backend when using [nuget packages](/en/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
 version 8.6.0-preview.3 or later. In the frontend, this function is available in version 4.17.0 and above, including the latest
 rolling release.
 {{% /notice %}}
@@ -718,7 +718,7 @@ regardless of whether uppercase or lowercase letters were used in the input valu
 
 {{% expandlarge id="func-lcFirst-ucFirst" header="lowerCaseFirst/upperCaseFirst" %}}
 {{% notice info %}}
-These functions are only available on the backend when using [nuget packages]({{< relref "/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget" >}})
+These functions are only available on the backend when using [nuget packages](/en/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
 version 8.6.0-preview.3 or later. In the frontend, these functions are available in version 4.17.0 and above, including the latest
 rolling release.
 {{% /notice %}}
@@ -804,12 +804,12 @@ This function allows retrieving information about the current instance. The foll
 | `instanceOwnerPartyType` | Type of actor owning instance | `"org", "person", "selfIdentified", or "unknown"` |
 | `appId`                  | ID of the active app          | `org/app-name`                                    |
 
-All these lookups will return a value of `null` if working in a [stateless context]({{< relref "/altinn-studio/v8/reference/configuration/stateless" >}}).
+All these lookups will return a value of `null` if working in a [stateless context](/en/altinn-studio/v8/reference/configuration/stateless/).
 Using keys other than those listed above will result in an error message. This behavior is unique among lookup functions
 to ensure that information not (yet) exposed via a key here is not attempted to be retrieved from the instance.
 [Provide feedback](https://github.com/Altinn/app-frontend-react/issues/new?assignees=&labels=kind%2Ffeature-request%2Cstatus%2Ftriage&template=feature_request.yml) if you wish to retrieve instance data not available in this function.
 
-The lookup is performed in the same data source available for [language/texts]({{< relref "/altinn-studio/v8/reference/ux/texts#data-sources" >}}).
+The lookup is performed in the same data source available for [language/texts](/en/altinn-studio/v8/reference/ux/texts#data-sources).
 
 {{% /expandlarge %}}
 
@@ -817,7 +817,7 @@ The lookup is performed in the same data source available for [language/texts]({
 This post allows retrieving information from a data source that can be controlled differently for each runtime
 environment.
 
-The lookup is performed within the same data source available for [language/texts, and the setup is detailed there]({{< relref "/altinn-studio/v8/reference/ux/texts#data-sources" >}}).
+The lookup is performed within the same data source available for [language/texts, and the setup is detailed there](/en/altinn-studio/v8/reference/ux/texts#data-sources).
 
 **Note**: The data source is named `applicationSettings` when used in language/texts, but the values must always be
 stored under the key `FrontEndSettings` in `appsettings.{environment}.json`. For this reason, the function has been named
@@ -828,7 +828,7 @@ stored under the key `FrontEndSettings` in `appsettings.{environment}.json`. For
 {{% expandlarge id="func-countDataElements" header="countDataElements (lookup)" %}}
 
 {{% notice info %}}
-This function is only available on the backend when using [nuget packages]({{< relref "/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget" >}})
+This function is only available on the backend when using [nuget packages](/en/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
 version 8.6.0-preview.3 or later. In the frontend, this function is available in version 4.17.0 and above, including the latest
 rolling release.
 {{% /notice %}}
@@ -839,7 +839,7 @@ elements of the given data type in the current instance.
 
 For example, if you have a `FileUpload` component uploading files to the `Attachment` data type, you can use this
 function to count the number of attachments currently uploaded. Likewise, you can count the number
-of [subform elements]({{< relref "/altinn-studio/v8/guides/development/subform" >}}) by referencing the data model id.
+of [subform elements](/en/altinn-studio/v8/guides/development/subform/) by referencing the data model id.
 
 Example:
 
@@ -852,7 +852,7 @@ Example:
 {{% expandlarge id="func-datamodel" header="dataModel (lookup)" %}}
 This lookup function enables retrieving values directly from the current data model. The first and only argument must
 point to a location in the data model and uses the same dot-separated format as used in `dataModelBindings`. When used
-within [repeating groups]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating" >}}), there's _no_ need to use placeholders for indexes within
+within [repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/), there's _no_ need to use placeholders for indexes within
 the group - the expression automatically finds the relative position within the context of a repeating group.
 
 Please note that lookups only function against [data types](#data-types) already supported in the expressions. If one looks up
@@ -923,14 +923,14 @@ display of a component based on whether another component is visible or not. If 
 different (yet hidden) page, the lookup also yields `null`, even if the data model has a value associated with the component.
 
 Similar to [`dataModel`](#func-datamodel), lookups on a component ID will attempt to find the component in the vicinity
-of the expression within the context of [repeating groups]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating" >}}). It will first search for the
+of the expression within the context of [repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/). It will first search for the
 component in the current row before looking up through the page structure.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-formatDate" header="formatDate" %}}
 
 {{% notice info %}}
-This function is only available on the backend when using [nuget packages]({{< relref "/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget" >}})
+This function is only available on the backend when using [nuget packages](/en/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
 version 8.6.0-preview.3 or later. In the frontend, this function is available in version 4.0.0 and above, including the latest
 rolling release.
 {{% /notice %}}
@@ -1045,7 +1045,7 @@ If no matching code list value is found, the function will return `null`.
 
 {{% expandlarge id="func-argv" header="argv" %}}
 The `argv` function can be used to retrieve arguments sent to the expression. This is currently only available for
-[expression-based validation]({{< relref "/altinn-studio/v8/reference/logic/validation/expression-validation" >}}).
+[expression-based validation](/en/altinn-studio/v8/reference/logic/validation/expression-validation/).
 
 The function takes 1 argument, which is the index of the argument you want to retrieve. The index starts at 0.
 
@@ -1058,8 +1058,8 @@ The function takes 1 argument, which is the index of the argument you want to re
 {{% expandlarge id="func-value" header="value" %}}
 Like `argv`, the `value` function is also a method for retrieving arguments sent to the expression. The function can be used
 without arguments to retrieve a value, or with an argument to retrieve other types of values. This is currently available
-for [filtering of options]({{< relref "/altinn-studio/v8/guides/development/options/functionality/filtering" >}}) and will soon be available
-as an alternative to `argv` in [expression-based validation]({{< relref "/altinn-studio/v8/reference/logic/validation/expression-validation" >}}).
+for [filtering of options](/en/altinn-studio/v8/guides/development/options/functionality/filtering/) and will soon be available
+as an alternative to `argv` in [expression-based validation](/en/altinn-studio/v8/reference/logic/validation/expression-validation/).
 
 ```json
 ["value"]
@@ -1213,7 +1213,7 @@ Expressions can be used to show/hide entire pages. In the example below, the ent
 }
 ```
 
-If the page you are on is hidden, the application will automatically move to the next available page in the [page order]({{< relref "/altinn-studio/v8/reference/ux/pages/navigation" >}}).
+If the page you are on is hidden, the application will automatically move to the next available page in the [page order](/en/altinn-studio/v8/reference/ux/pages/navigation/).
 If all the next pages are hidden, the first possible page in the order will be displayed instead.
 
 ### String or smaller String Comparison?

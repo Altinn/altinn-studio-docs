@@ -108,7 +108,7 @@ Add auditor:
 {{</content-version-container>}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-There is currently no support for the OrganisationLookup component in [Altinn Studio Designer]({{< relref "/altinn-studio/v8/getting-started/" >}}).
+There is currently no support for the OrganisationLookup component in [Altinn Studio Designer](/en/altinn-studio/v8/getting-started/).
 
 {{</content-version-container>}}
 {{</content-version-selector>}}

@@ -23,7 +23,7 @@ Se eksempel: [Starte enkeltpersonforetak](https://brg.apps.altinn.no/brg/anonym-
 
 Brukeren skal slippe å svare på mer enn nødvendig. Dersom brukeren har svart nei på et spørsmål og du dermed kan 
 skjule flere oppfølgingsspørsmål (eller hele sider), kan du gjøre dette med
-[dynamiske uttrykk]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}}).
+[dynamiske uttrykk](/nb/altinn-studio/v8/reference/logic/expressions/).
 
 ### Disabled
 Ved å vise skjemafelt som disabled forventer man at brukeren skal vite hvorfor de ikke kan bruke elementet, 

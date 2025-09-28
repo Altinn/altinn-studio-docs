@@ -10,7 +10,7 @@ toc: true
 {{% notice info %}}
 Denne seksjonen dekker de spesifikke API-kravene for publisering av hendelser.
 Hvis du akkurat har kommet i gang eller leter etter informasjon om hvordan du bruker Events API, vennligst se 
-[den generelle API-dokumentasjonen.]({{< relref "/events/api/" >}})
+[den generelle API-dokumentasjonen.](/nb/events/api/)
 {{% /notice %}}
 
 
@@ -27,7 +27,7 @@ Merk at innholdstypen er forskjellig fra app-hendelser
 ## Autentisering
 Dette API-et krever autentisering og Maskinporten-scopet __altinn:events.publish__.
 
-Se [Autentisering og autorisasjon]({{< relref "/events/api/#autentisering-og-autorisasjon" >}}) for mer informasjon.
+Se [Autentisering og autorisasjon](/nb/events/api/#autentisering-og-autorisasjon) for mer informasjon.
 
 
 ## Forespørsel

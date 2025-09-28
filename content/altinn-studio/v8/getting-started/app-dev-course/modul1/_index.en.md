@@ -7,7 +7,7 @@ toc: true
 
 In this first module, we will create the service itself and set up a display name for the service.
 
-[Navigate]({{< relref "/altinn-studio/v8/getting-started/navigation/" >}}) to [your service overview](https://altinn.studio). If you are not logged in to Altinn Studio, you will need to log in before you can see your service overview. If you have never created any services in Altinn Studio, this overview will be empty for now.
+[Navigate](/en/altinn-studio/v8/getting-started/navigation/) to [your service overview](https://altinn.studio). If you are not logged in to Altinn Studio, you will need to log in before you can see your service overview. If you have never created any services in Altinn Studio, this overview will be empty for now.
 
 ### Topics covered in this module:
 - Create a new service

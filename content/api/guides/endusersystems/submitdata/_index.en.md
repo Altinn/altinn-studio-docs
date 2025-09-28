@@ -23,7 +23,7 @@ Today, approximately 50% of the data reported to Altinn is sent in this way from
 
 A service consists of an application that is available in Altinn's infrastructure. This application has a set of configurations that describe the data the service will receive or send out, as well as the process the service has.
 
-Examples of services developed on the new Altinn 3 platform can be found [here]({{< relref "/altinn-studio/v8/news/launched-apps/" >}}).
+Examples of services developed on the new Altinn 3 platform can be found [here](/en/altinn-studio/v8/news/launched-apps/).
 
 ## What Types of Data Do Services Expose/Receive via API?
 
@@ -53,7 +53,7 @@ These scopes allow calling all apps in Altinn 3.
 
 As part of the login process, the end user system will receive an access_token with information about the end user.
 
-See the detailed login process with ID-porten and the screen presented to the end user [here]({{< relref "/authorization/getting-started/authentication/id-porten/" >}}).
+See the detailed login process with ID-porten and the screen presented to the end user [here](/en/authorization/getting-started/authentication/id-porten/).
 
 ### Exchange of Access Token to Altinn Token
 
@@ -65,7 +65,7 @@ The exchange is done against the [Authentication API](/en/api/authentication/spe
 
 The exchange is done by setting the Access Token from ID-porten as a Bearer token in the authorization header and making a GET call to the exchange endpoint where "id-porten" is used as the token provider.
 
-A detailed description of the exchange with ID-porten token can be found [here]({{< relref "/authorization/getting-started/authentication/id-porten/" >}}).
+A detailed description of the exchange with ID-porten token can be found [here](/en/authorization/getting-started/authentication/id-porten/).
 
 ### Instantiation and Submission of Data
 

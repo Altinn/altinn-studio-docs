@@ -9,7 +9,7 @@ toc: true
 ## Bruk
 
 `Video` brukes til å vise en videospiller i applikasjonen din. Den kan brukes frittstående eller som en
-mediekomponent i [Cards-komponenten]({{< relref "/altinn-studio/v8/reference/ux/components/cards" >}}).
+mediekomponent i [Cards-komponenten](/nb/altinn-studio/v8/reference/ux/components/cards/).
 
 ### Anatomi
 
@@ -29,9 +29,9 @@ Skjermbildet ovenfor ble tatt fra Chrome-nettleseren.
 
 ### Relatert
 
-- [Cards]({{< relref "/altinn-studio/v8/reference/ux/components/cards" >}}) - Kan bruke Videokomponenten som medieinnhold
-- [Image]({{< relref "/altinn-studio/v8/reference/ux/components/image" >}}) - Bildekomponent
-- [Audio]({{< relref "/altinn-studio/v8/reference/ux/components/audio" >}}) - Lydspillerkomponent
+- [Cards](/nb/altinn-studio/v8/reference/ux/components/cards/) - Kan bruke Videokomponenten som medieinnhold
+- [Image](/nb/altinn-studio/v8/reference/ux/components/image/) - Bildekomponent
+- [Audio](/nb/altinn-studio/v8/reference/ux/components/audio/) - Lydspillerkomponent
 
 ## Egenskaper
 
@@ -59,7 +59,7 @@ og noen innstillinger kan være i betaversjon.
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-Du kan legge til en komponent i [Altinn Studio Designer]({{< relref "/altinn-studio/v8/getting-started/" >}}) ved å dra den fra
+Du kan legge til en komponent i [Altinn Studio Designer](/nb/altinn-studio/v8/getting-started/) ved å dra den fra
 komponent-listen til sideområdet.
 Når du velger komponenten, vises innstillingspanelet for den.
 

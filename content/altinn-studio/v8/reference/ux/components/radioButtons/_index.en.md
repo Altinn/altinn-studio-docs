@@ -55,9 +55,9 @@ Radio buttons are often used in forms to collect input from the user where they 
 
 ### Related
 
-* For a more compact way to display multiple options with single selection, use [Dropdown]({{< relref "/altinn-studio/v8/reference/ux/components/dropdown" >}}).
-* If users can choose multiple options from a list, use [Checkboxes]({{< relref "/altinn-studio/v8/reference/ux/components/checkboxes/" >}}).
-* For a more compact way to display multiple options with multiple selection, use [MultipleSelect]({{< relref "/altinn-studio/v8/reference/ux/components/multipleselect/" >}}).
+* For a more compact way to display multiple options with single selection, use [Dropdown](/en/altinn-studio/v8/reference/ux/components/dropdown/).
+* If users can choose multiple options from a list, use [Checkboxes](/en/altinn-studio/v8/reference/ux/components/checkboxes/).
+* For a more compact way to display multiple options with multiple selection, use [MultipleSelect](/en/altinn-studio/v8/reference/ux/components/multipleselect/).
 
 ## Properties
 
@@ -87,7 +87,7 @@ We are currently updating Altinn Studio Designer with more configuration options
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 
-You can add a component in [Altinn Studio Designer]({{< relref "/altinn-studio/v8/getting-started/" >}}) by dragging it from the list of components to the page area.
+You can add a component in [Altinn Studio Designer](/en/altinn-studio/v8/getting-started/) by dragging it from the list of components to the page area.
 Selecting the component brings up its configuration panel.
 
 {{</content-version-container>}}

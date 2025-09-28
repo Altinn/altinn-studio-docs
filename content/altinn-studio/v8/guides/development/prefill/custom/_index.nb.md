@@ -14,7 +14,7 @@ Du kan lage din egen kode for å fylle ut deler av skjemaet automatisk før bruk
 - Bruke annen logikk du selv bestemmer
 
 ## Når bør jeg bruke dette?
-Hvis du har behov for kilder utover de som er tilgjengelige via [konfigurasjonsbasert oppsett]({{< relref "/altinn-studio/v8/guides/development/prefill/config/" >}}), eller har behov
+Hvis du har behov for kilder utover de som er tilgjengelige via [konfigurasjonsbasert oppsett](/nb/altinn-studio/v8/guides/development/prefill/config/), eller har behov
 for annen logikk som del av forhåndsutfyllingen.
 
 ## Slik setter du det opp

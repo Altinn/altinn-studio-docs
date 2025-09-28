@@ -37,7 +37,7 @@ The data models are located in the `<org>-datamodels` repository, where `<org>` 
 For example, the data models for the organization 'Test Department (ttd)' are located under
 https://altinn.studio/repos/ttd/ttd-datamodels.
 
-You can find the link to this repository in the [Altinn Studio Dashboard]({{< relref "/altinn-studio/v8/getting-started/navigation/dashboard" >}}).
+You can find the link to this repository in the [Altinn Studio Dashboard](/en/altinn-studio/v8/getting-started/navigation/dashboard/).
 Select _Edit_ (blue pencil icon) to access the Altinn Studio [Data Modeling](#altinn-studio-data-modeling) tool.
 Select _Gitea_ (green cup icon) to view the files directly in the repository.
 
@@ -72,13 +72,13 @@ It is based on a data model in JSON Schema format from which it can generate XSD
 
 - [Known issues and shortcomings for Altinn Studio Datamodellering](https://github.com/orgs/Altinn/projects/1/views/10)
 - [Planned new functionality for Altinn Studio Datamodellering](https://github.com/orgs/Altinn/projects/1/views/6)
-- [Development of data model for Altinn 2]({{< relref "/altinn-studio/v8/guides/altinn-2/altinn-2-datamodel/" >}})
-- [Migrating from Seres to Altinn Studio Datamodellering]({{< relref "/altinn-studio/v8/guides/altinn-2/seres-migration/" >}})
+- [Development of data model for Altinn 2](/en/altinn-studio/v8/guides/altinn-2/altinn-2-datamodel/)
+- [Migrating from Seres to Altinn Studio Datamodellering](/en/altinn-studio/v8/guides/altinn-2/seres-migration/)
   {{% /expandlarge %}}
 
 ### Navigating to Altinn Studio Data Modeling
 
-1. Log in to Altinn Studio. If you are not in the [Altinn Studio Dashboard]({{< relref "/altinn-studio/v8/getting-started/navigation/dashboard/" >}}), navigate there by clicking on the logo in the top left corner or [here](https://altinn.studio/dashboard).
+1. Log in to Altinn Studio. If you are not in the [Altinn Studio Dashboard](/en/altinn-studio/v8/getting-started/navigation/dashboard/), navigate there by clicking on the logo in the top left corner or [here](https://altinn.studio/dashboard).
 2. Select _Edit_ (blue pencil icon) either for:  
    a. An app under "Mine applikasjoner" (My Applications) or  
    b. Data Modeling repository for your organization.

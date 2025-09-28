@@ -6,7 +6,7 @@ description: Denne tilgangspakken er relevant for alle virksomheter
 weight: 123
 ---
 
-Tilbake til [hovedoversikt]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/#oversikt-over-tilgangspakker" >}})
+Tilbake til [hovedoversikt](/en/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/#oversikt-over-tilgangspakker)
 
 
 ![Revisor](revi.jpg "Revisor")
@@ -17,10 +17,10 @@ Tilbake til [hovedoversikt]({{< relref "/authorization/what-do-you-get/accessgro
 
 
 ## Egenskaper ved tilgangspakkene
-|Navn tillgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle]({{< relref "/authorization/what-do-you-get/accessgroups/register_er/#rolletyper-fra-enhetsregisteret" >}}) som får fullmakten|
+|Navn tillgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/en/authorization/what-do-you-get/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
 |---|---|---|---|
 |Fullmakter for revisor|nei|nei||
 |Ansvarlig revisor|ja|ja|REVI|
 |Revisormedarbeider|ja|ja|REVI|
 
-Tilbake til [hovedoversikt]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/#oversikt-over-tilgangspakker" >}})
+Tilbake til [hovedoversikt](/en/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-3/#oversikt-over-tilgangspakker)

@@ -23,7 +23,7 @@ GET /events
 
 Dette API-et krever autentisering og Maskinporten-scopet __altinn:events.subscribe__.
 
-Se [Autentisering og autorisasjon]({{< relref "/events/api/#autentisering-og-autorisasjon" >}}) for mer informasjon.
+Se [Autentisering og autorisasjon](/nb/events/api/#autentisering-og-autorisasjon) for mer informasjon.
 
 
 ## Forespørsel

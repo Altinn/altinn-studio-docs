@@ -15,8 +15,8 @@ gjenbruksbehovet. Hvis flere komponenter skal bruke de samme svaralternativene, 
 [putte svaralternativene i en json-fil](#fra-json-filer-kodeliste) og dermed gjøre den om til en kodeliste.
 
 Legg merke til at selv om slike svaralternativer kan være helt statiske, er det også mulig å gjøre dem (litt mer) dynamiske
-ved å [filtrere svaralternativene]({{< relref "/altinn-studio/v8/guides/development/options/functionality/filtering" >}}) ved hjelp av uttrykk. Ønsker du enda mer
-fleksiilitet, kan du også [lage en egen kodebasert kodeliste]({{< relref "/altinn-studio/v8/guides/development/options/sources/dynamic" >}}).
+ved å [filtrere svaralternativene](/nb/altinn-studio/v8/guides/development/options/functionality/filtering/) ved hjelp av uttrykk. Ønsker du enda mer
+fleksiilitet, kan du også [lage en egen kodebasert kodeliste](/nb/altinn-studio/v8/guides/development/options/sources/dynamic/).
 
 ## I komponentkonfigurasjonen (svaralternativer)
 

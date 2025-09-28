@@ -23,4 +23,4 @@ for å laste opp hemmeligheter som sertifikater, passord og api-nøkler.
 
 
 ## Bestilling
-Se [guide for å bestille tilganger]({{< relref "/altinn-studio/v8/guides/administration/access-management/apps/" >}}).
+Se [guide for å bestille tilganger](/nb/altinn-studio/v8/guides/administration/access-management/apps/).

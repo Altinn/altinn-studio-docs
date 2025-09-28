@@ -29,4 +29,4 @@ Further use with the Altinn App API and Platform API is similar to using an Alti
 
 ## Transition to System Users
 
-Support for enterprise users is expected to end in 2026 along with Altinn 2. [System users will replace this concept]({{< relref "/authorization/getting-started/systemuser/" >}}).
+Support for enterprise users is expected to end in 2026 along with Altinn 2. [System users will replace this concept](/en/authorization/getting-started/systemuser/).

@@ -225,7 +225,7 @@ Formateringen er kun for visning i frontend, og tallene som legges inn i et inpu
 },
 ```
 
-Følgende egenskaper kan styres ved hjelp av [dynamiske uttrykk]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}}):
+Følgende egenskaper kan styres ved hjelp av [dynamiske uttrykk](/nb/altinn-studio/v8/reference/logic/expressions/):
 
 - `formatting.number.prefix`
 - `formatting.number.suffix`

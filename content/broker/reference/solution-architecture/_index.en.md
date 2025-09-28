@@ -85,7 +85,7 @@ The following figure gives a high level solution overview.
 ![Altinn 3 Broker High Level Solution Overview](altinn3-broker-highlevel-solution-overview.en.png "Altinn 3 Broker High Level Solution Overview")
 
 This diagram expands on 
-the [basic context overview]({{< relref "/broker/explanation/basic-concepts#context-overview" >}}) 
+the [basic context overview](/en/broker/explanation/basic-concepts#context-overview) 
 by indicating the involved building blocks.
 
 The Altinn application components (right side) realize the functionality as indicated by the 
@@ -98,10 +98,10 @@ here's a summary of how these components relates to and serves Altinn 3 Broker:
 * [ID-porten](https://www.digdir.no/felleslosninger/id-porten/864): Auhentication of human end users.
 * [Maskinporten](https://www.digdir.no/felleslosninger/maskinporten/869): Authentication and authorization of machines (End User Systems). 
   Authorization features are realized in cooperation with the Altinn Authorization component.
-* [Altinn Authorization]({{< relref "/authorization/" >}}). Register services resources and authorize access.
-* [Altinn Notifications]({{< relref "/notifications/" >}}). Notifications to human end users via e-mail and sms.
-* [Altinn Events]({{< relref "/events/" >}}). Notifications to webhooks in End User Systems.
-* [Altinn Studio]({{< relref "/altinn-studio/" >}}). Applications and user interface for self service configuration of the solutions.
+* [Altinn Authorization](/en/authorization/). Register services resources and authorize access.
+* [Altinn Notifications](/en/notifications/). Notifications to human end users via e-mail and sms.
+* [Altinn Events](/en/events/). Notifications to webhooks in End User Systems.
+* [Altinn Studio](/en/altinn-studio/). Applications and user interface for self service configuration of the solutions.
 * Altinn Billing. Invoicing of customers.
 
 ## Related solutions
@@ -167,7 +167,7 @@ Learn](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-en
 ## Metadata storage
 
 The following information model details the
-[conceptual information model under basic concepts]({{< relref "/broker/explanation/basic-concepts#conceptual-information-model" >}}).
+[conceptual information model under basic concepts](/en/broker/explanation/basic-concepts#conceptual-information-model).
 
 ![Altinn 3 Broker Metadata Storage Information Model](altinn3-broker-metadata-storage-information-model.en.png "Altinn 3 Broker Metadata Storage Information Model")
 
@@ -192,11 +192,11 @@ TBD.
 ### Notifications to human end users
 
 For notifications to human recipients via e-mail and sms,
-Altinn Broker uses the [Altinn Notifications]({{< relref "/notifications/" >}}) component.
+Altinn Broker uses the [Altinn Notifications](/en/notifications/) component.
 
 ### Notifications to End User Systems
 
-End User Systems may register custom webhooks for receiving events; see [Altinn Events]({{< relref "/events/" >}}).
+End User Systems may register custom webhooks for receiving events; see [Altinn Events](/en/events/).
 
 See [the Altinn 3 Broker OpenAPI specification](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-v1.json) 
 for specification of the supported events.

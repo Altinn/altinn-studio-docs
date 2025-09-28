@@ -55,7 +55,7 @@ you will get an error.
 
 ### 2. Configure InstantiationProcessor and InstantiationButton
 
-Follow the steps here: [Starting an instance from a stateless form]({{< relref "/altinn-studio/v8/reference/configuration/stateless#starting-an-instance-from-a-stateless-form" >}})
+Follow the steps here: [Starting an instance from a stateless form](/en/altinn-studio/v8/reference/configuration/stateless#starting-an-instance-from-a-stateless-form)
 
 
 ### 3. (Optional but highly recommended) validate query parameter values

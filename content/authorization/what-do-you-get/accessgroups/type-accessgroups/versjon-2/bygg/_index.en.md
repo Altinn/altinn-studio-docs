@@ -5,7 +5,7 @@ linktitle: Bygg, anlegg, eiendom
 description: Denne tilgangspakken er relevant for for tjenester rettet mot virksomheter med aktivitet innen bygg, anlegg og eiendom
 weight: 113
 ---
-Tilbake til [hovedoversikt]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker" >}})
+Tilbake til [hovedoversikt](/en/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker)
 
 
 ## tilgangspakke 
@@ -23,7 +23,7 @@ Tilbake til [hovedoversikt]({{< relref "/authorization/what-do-you-get/accessgro
 
 
 ## Egenskaper ved tilgangspakkene
-|Navn tilgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle]({{< relref "/authorization/what-do-you-get/accessgroups/register_er/#rolletyper-fra-enhetsregisteret" >}}) som får fullmakten|
+|Navn tilgangspakke|Kan delegeres til ansatte?|Kan knytte tjenester til?|[ER rolle](/en/authorization/what-do-you-get/accessgroups/register_er/#rolletyper-fra-enhetsregisteret) som får fullmakten|
 |---|---|---|---|
 |Bygg, anlegg og eiendom| ja|nei||
 |Plan og byggesaker|ja|nei||
@@ -38,4 +38,4 @@ Tilbake til [hovedoversikt]({{< relref "/authorization/what-do-you-get/accessgro
 
 {{% notice warning %}} Det er fortsatt uavklart hvilke fullmakter det vil være natulig å gi personer med rollen Forretningsførerer innenfor fullmaktsområdet "Bygg, anlegg og eiendom" {{% /notice %}}
 
-Tilbake til [hovedoversikt]({{< relref "/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker" >}})
+Tilbake til [hovedoversikt](/en/authorization/what-do-you-get/accessgroups/type-accessgroups/versjon-2/#oversikt-over-tilgangspakker)

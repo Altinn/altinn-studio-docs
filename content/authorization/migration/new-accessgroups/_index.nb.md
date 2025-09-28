@@ -23,7 +23,7 @@ Altinn skal erstatte rollene som gir tilgang til tjenester i Altinn 2 når vi fl
 
 6. Tjenesteeiere kan begynne å sette tilgangspakker på apper og ressurser. Q4-24
    Fullstendig GUI og komplett liste over tilgangspakker vil bli tilgjengelig i Ressursregisteret/Altinn Studio i løpet av Q4-24. Tjenesteeiere som har behov for å knytte tilgangspakke til tjeneste før, kan be om å få aktuell(e) tilgangspakke(r) tilgjengelig manuelt.
-7. Lansere [ny brukerflate]({{< relref "/authorization/migration/#nye-tilgangspakker-og-ny-brukerflate-for-tilgangsstyring-for-virksomheter" >}}) for fullmaktstyring for virksomheter (Q1 2025)  
+7. Lansere [ny brukerflate](/nb/authorization/migration/#nye-tilgangspakker-og-ny-brukerflate-for-tilgangsstyring-for-virksomheter) for fullmaktstyring for virksomheter (Q1 2025)  
    På ny brukerflate for tilgangsstyring, vil det være mulig å delegere roller, tilgangspakker og enkeltrettigheter, samt få oversikt over mottatte og gitte fullmakter. Det skal også være mulig å trekke tilbake gitte fullmakter og slette fullmakter man har fått.
 8. Avvikle Altinn 2 roller i løsningen (Q2 2026)
    - Altinn 2-rollene fases ut samtidig som hele Altinn 2 slås av i juni 2026.

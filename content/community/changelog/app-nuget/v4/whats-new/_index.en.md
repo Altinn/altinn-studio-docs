@@ -119,7 +119,7 @@ Added a new section called `FrontEndSettings` for use in `appsetting.{environmen
 ## 4.24.0 (2020-01-21)
 
 Support language and query parameters in dynamic options.
-New way of implementing dynamic options by creating a class that implements IAppOptionsProvider.  [See doc]({{< relref "/altinn-studio/v8/guides/development/options/" >}})
+New way of implementing dynamic options by creating a class that implements IAppOptionsProvider.  [See doc](/en/altinn-studio/v8/guides/development/options/)
 
 ## 4.23.0 (2022-01-15) - Updated backend support for BPMN gateways
 
@@ -140,14 +140,14 @@ Added Api in App to expose XACML Policy and BPMN Process
 
 The URL to an app can now contain a query parameter (returnUrl) which, if validated (valid URI and host name),
 can be used to redirect the user to that URL when the user clicks on the exit icon in an Altinn 3 app. 
-[Read more about it here]({{< relref "/altinn-studio/v8/reference/configuration/queryparameters" >}})   
+[Read more about it here](/en/altinn-studio/v8/reference/configuration/queryparameters/)   
 
 Related to [7183](https://github.com/Altinn/altinn-studio/issues/7183)
 
 ## 4.19.0 (2021-11-15) - Added support for instantiation based of a copy of an archived instance
 
 The app template now supports the instantiation of an app based on a copy of an archived instance. 
-[The new endpoint is documented here]({{< relref "/api/apps/instances" >}}). Note that support for copying an app in the message box and configuration 
+[The new endpoint is documented here](/en/api/apps/instances/). Note that support for copying an app in the message box and configuration 
 of the application through Altinn Studio is still under development.
 
 Related to [6695](https://github.com/Altinn/altinn-studio/issues/6695)
@@ -279,7 +279,7 @@ Issue [#6418](https://github.com/Altinn/altinn-studio/issues/6418)
 
 ## 4.9.0 (2021-06-29) - Support for marking a single field validation error as fixed
 It is now possible to mark a previous validation error as fixed by using the prefix `*FIXED*` in front of the original error. 
-[Documentation on how to implement the functionality]({{< relref "/altinn-studio/v8/reference/logic/validation/#specify-that-validation-errors-are-fixed" >}}).
+[Documentation on how to implement the functionality](/en/altinn-studio/v8/reference/logic/validation/#specify-that-validation-errors-are-fixed).
 
 
 ## 4.8.0 (2021-06-22) - Application version number available in AppSettings
@@ -305,11 +305,11 @@ The process to update is
 5. Remove CalculationHandler when code has been moved to DataProcessingHandler.
 6. Compile and test your app. 
 
-See details about data processing [here]({{< relref "/altinn-studio/v8/reference/logic/dataprocessing/" >}})
+See details about data processing [here](/en/altinn-studio/v8/reference/logic/dataprocessing/)
 
 ## 4.6.2 (2021-06-01) - Duplicate keys in options causing crash
 
-This release has a fix for a crash related to PDF rendering when an app have [options]({{< relref "/altinn-studio/v8/guides/development/options/" >}}) with duplicate entries. [#5887](https://github.com/Altinn/altinn-studio/issues/5887)
+This release has a fix for a crash related to PDF rendering when an app have [options](/en/altinn-studio/v8/guides/development/options/) with duplicate entries. [#5887](https://github.com/Altinn/altinn-studio/issues/5887)
 
 ## 4.6.1. (2021-05-21) Changed alternative subject
 
@@ -319,7 +319,7 @@ Altinn Apps now uses org instead of organization as subject when publishing even
 Altinn Apps now support data fields.
 Data fields allows for adding data values, from either form fields or a custom source, to the instance object.
 Form data can be added by configuring data fields in `applicationmetadata.json` while custom sources require coding.
-Documentation on how to add data values to an instance can be found [here]({{< relref "/altinn-studio/v8/reference/configuration/datafields/" >}}).
+Documentation on how to add data values to an instance can be found [here](/en/altinn-studio/v8/reference/configuration/datafields/).
 
 
 ## 4.5.2 (2021-05-04) - Endpoints for stateless data elements exposed through app. Bug stopping local testing fixed
@@ -346,7 +346,7 @@ Altinn Apps now support presentation fields.
 By specifying presentation fields in `applicationmetadata.json`, specified data values from the form data
 will be stored on the instance in order to show them along with the app title in the Altinn messagebox.
 Further documentation on how to configure presentation fields is
-found [here]({{< relref "/altinn-studio/v8/reference/configuration/messagebox/presentationfields/" >}}).
+found [here](/en/altinn-studio/v8/reference/configuration/messagebox/presentationfields/).
 
 This change is related to [this epic](https://app.zenhub.com/workspace/o/altinn/altinn-studio/issues/594).
 
@@ -377,4 +377,4 @@ This change is related to [this issue](https://github.com/Altinn/altinn-studio/i
 Altinn.App.* libraries target .Net 5 now, which requires that the application does the same.
 In addition we have created two methods for referencing all app and platform services in Startup.cs
 
-See [breaking changes]({{< relref "/community/changelog/app-nuget/v4/breaking-changes" >}}) for how to update you app to be compatible with this version.
+See [breaking changes](/en/community/changelog/app-nuget/v4/breaking-changes/) for how to update you app to be compatible with this version.

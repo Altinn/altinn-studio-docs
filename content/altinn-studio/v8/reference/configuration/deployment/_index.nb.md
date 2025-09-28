@@ -14,7 +14,7 @@ Basert på tester og erfaringer har vi satt noen standard verdier i et sentralt 
 Disse verdiene kan endre seg etter hvert som vi får mer erfaring.
 
 {{% notice info %}}
-Fra versjon [2.0.0]({{< relref "/community/changelog/deployment/v2" >}}) av 'deployment Helm chart' er autoskalering tilgjengelig og aktivert som standard.
+Fra versjon [2.0.0](/nb/community/changelog/deployment/v2/) av 'deployment Helm chart' er autoskalering tilgjengelig og aktivert som standard.
 {{% /notice %}}
 
 #### Egendefinerte verdier
@@ -238,7 +238,7 @@ volumes:
 
 Egendefinerte volumer kan legges til under `development` i `App/deployment/values.yaml`.
 
-På gjeldende tidspunkt er det kun ett bruksområde for å legge til andre volumer: [Hente hemmeligheter fra Azure Key Vault]({{< relref "/altinn-studio/v8/reference/configuration/secrets/" >}}).
+På gjeldende tidspunkt er det kun ett bruksområde for å legge til andre volumer: [Hente hemmeligheter fra Azure Key Vault](/nb/altinn-studio/v8/reference/configuration/secrets/).
 
 ## Service
 

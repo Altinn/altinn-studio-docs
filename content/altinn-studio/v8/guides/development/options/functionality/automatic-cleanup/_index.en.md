@@ -4,9 +4,9 @@ description: How unknown options are automatically removed from the data model
 weight: 100
 ---
 
-Some options for components may be dynamic. Either directly via [dynamic options]({{< relref "/altinn-studio/v8/guides/development/options/sources/dynamic" >}}),
-[options derived from a changing data model]({{< relref "/altinn-studio/v8/guides/development/options/sources/from-data-model" >}}), or by [static options]({{< relref "/altinn-studio/v8/guides/development/options/sources/static" >}})
-where some values may be [filtered]({{< relref "/altinn-studio/v8/guides/development/options/functionality/filtering" >}}) out.
+Some options for components may be dynamic. Either directly via [dynamic options](/en/altinn-studio/v8/guides/development/options/sources/dynamic/),
+[options derived from a changing data model](/en/altinn-studio/v8/guides/development/options/sources/from-data-model/), or by [static options](/en/altinn-studio/v8/guides/development/options/sources/static/)
+where some values may be [filtered](/en/altinn-studio/v8/guides/development/options/functionality/filtering/) out.
 
 When the options are dynamic, the data model may contain values that are no longer valid. This can happen if the user
 (or prefill) has selected an option that is no longer available. In such cases, to prevent the data model from containing
@@ -34,7 +34,7 @@ This has some implications that you should be aware of:
   multiple components pointing to the same field in the data model, where some are hidden and some are visible. In such
   cases, only the visible components will have their options checked and cleaned up. This is also the case if a component
   is hidden due to being on a hidden page, or inside another hidden component. The term 'hidden' in this sense refers to
-  [dynamic expressions]({{< relref "/altinn-studio/v8/guides/development/dynamics" >}}) used to hide components, not which components are currently visible on
+  [dynamic expressions](/en/altinn-studio/v8/guides/development/dynamics/) used to hide components, not which components are currently visible on
   the page.
 - Removal of unknown values does not happen for the `FileUploadWithTag` component.
 - Removal of unknown values does not happen for components configured with `renderAsSummary` set to `true`.

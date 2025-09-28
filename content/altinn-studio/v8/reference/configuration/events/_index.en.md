@@ -9,7 +9,7 @@ weight: 400
 
 {{%notice info%}}
 To allow generating events for your application it must refer to nuget version >= 1.2.4.
-See how you update nuget references for your application [here]({{< relref "/altinn-studio/v8/guides/administration/maintainance/dependencies/" >}}).
+See how you update nuget references for your application [here](/en/altinn-studio/v8/guides/administration/maintainance/dependencies/).
 {{% /notice%}}
 
 Generation and storing of events is not enabled by default in applications per 22.10.2020.

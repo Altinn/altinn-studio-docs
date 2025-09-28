@@ -39,8 +39,8 @@ Vi oppdaterer listene over etter hvert som vi legger til nye moduler.
 Introkurset er delt opp i seks moduler og dekker et fiktivt case for Sogndal kommune.
 Hver modul beskriver oppgaven og har lenker til relevant dokumentasjon.
 
-Du kan velge å utføre oppgavene i [Altinn Studio Designer]({{< relref "/altinn-studio/v8/getting-started/" >}}) 
-(grafisk brukergrensesnitt med dra-og-slipp) eller i et [lokalt utviklingsmiljø]({{< relref "/altinn-studio/v8/guides/development/local-dev" >}}) 
+Du kan velge å utføre oppgavene i [Altinn Studio Designer](/nb/altinn-studio/v8/getting-started/) 
+(grafisk brukergrensesnitt med dra-og-slipp) eller i et [lokalt utviklingsmiljø](/nb/altinn-studio/v8/guides/development/local-dev/) 
 (krever noe teknisk kompetanse).
 Du kan også kombinere disse fremgangsmåtene. Du kan utføre oppgavene i alle modulene i Altinn Studio Designer.
 
@@ -49,7 +49,7 @@ samt testing av applikasjonen lokalt og i testmiljø.
 
 ## Før du starter
 
-Først må du [opprette en bruker i Altinn Studio]({{< relref "/altinn-studio/v8/getting-started/create-user/" >}}).
+Først må du [opprette en bruker i Altinn Studio](/nb/altinn-studio/v8/getting-started/create-user/).
 
 Les gjennom ønskene til Sogndal kommune og jobb deg gjennom modul for modul.
 

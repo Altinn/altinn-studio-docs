@@ -92,7 +92,7 @@ It is possible to visually group components together. This can be done by settin
 | id                                            | Yes      | Unique ID, same as ID on other components. Must be unique in the layout file, and should be unique across pages.                                               |
 | type                                          | Yes      | Must be 'Group'                                                                                                                                                |
 | [textResourceBindings](#textresourcebindings) | No       | Can be set for groups, see [description](#textresourcebindings).                                                                                               |
-| maxCount                                      | No       | The number of times a group can repeat. Must be omitted or set to `0` for non-repeating groups, otherwise the group becomes a [repeating group]({{< relref "/altinn-studio/v8/reference/ux/fields/grouping/repeating" >}}). |
+| maxCount                                      | No       | The number of times a group can repeat. Must be omitted or set to `0` for non-repeating groups, otherwise the group becomes a [repeating group](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/). |
 | children                                      | Yes      | List of the component IDs that are to be included in the group.                                                                                                |
 | showGroupingIndicator                         | No       | Shows a vertical line to the left of the group to indicate that the fields are related. Can be `true` or `false`.                                              |
 

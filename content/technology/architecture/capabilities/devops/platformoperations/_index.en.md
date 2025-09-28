@@ -12,7 +12,7 @@ toc: false
 
 This include running scripts for infrastructure and jobs both manual and scheduled.
 
-See [operations application components]({{< relref "/technology/architecture/components/application/nonsolutionspecific/operations/" >}}) for details about tools and applications used.
+See [operations application components](/en/technology/architecture/components/application/nonsolutionspecific/operations/) for details about tools and applications used.
 
 ### Infrastructure Configuration & Management
 
@@ -31,7 +31,7 @@ See details [here](backupandrecovery).
 
 ### Performance Profiling
 
-See [operations application components]({{< relref "/technology/architecture/components/application/nonsolutionspecific/operations/" >}}) for details about tools and applications used.
+See [operations application components](/en/technology/architecture/components/application/nonsolutionspecific/operations/) for details about tools and applications used.
 
 ### Performance Tuning
 
@@ -42,12 +42,12 @@ This is typical done based on metrix that indicates slow performance.
 
 This capability include automatic and manuel monitoring of the availability, healt and performance of the different components deployed to the cloud.
 
-See [operations application components]({{< relref "/technology/architecture/components/application/nonsolutionspecific/operations/" >}}) for details about tools and applications used.
+See [operations application components](/en/technology/architecture/components/application/nonsolutionspecific/operations/) for details about tools and applications used.
 
 ### Cloud Capacity Management
 
 The devops team uses differen tools to manage capacity in cloud.
 
-See [operations application components]({{< relref "/technology/architecture/components/application/nonsolutionspecific/operations/" >}}) for details about tools and applications used.
+See [operations application components](/en/technology/architecture/components/application/nonsolutionspecific/operations/) for details about tools and applications used.
 
 {{<children />}}

@@ -7,7 +7,7 @@ toc: true
 
 I denne første modulen skal vi opprette selve tjenesten og sette opp et visningsnavn for tjenesten.
 
-[Naviger]({{< relref "/altinn-studio/v8/getting-started/navigation/" >}}) til [din tjenesteoversikt](https://altinn.studio). Dersom du ikke er logget inn i Altinn
+[Naviger](/nb/altinn-studio/v8/getting-started/navigation/) til [din tjenesteoversikt](https://altinn.studio). Dersom du ikke er logget inn i Altinn
 Studio må du logge inn før du får se din tjenesteoversikt. Om du aldri har lagd noen tjenester i Altinn Studio vil denne 
 oversikten være tom foreløpig.
 

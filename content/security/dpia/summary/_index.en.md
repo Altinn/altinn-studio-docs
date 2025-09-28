@@ -9,27 +9,27 @@ has chosen to conduct a Data Protection Impact Assessment (DPIA) in connection w
 provider for the operation of Altinn 3. Altinn is in a transitional phase from the existing solution (Altinn II) to a
 new version that is developed and operated in the cloud, and is based on open source (Altinn 3).
 
-In [chapter 1]({{< relref "/security/dpia/introduction" >}}), we write more about Altinn and the cloud journey we have embarked on. Then, in [chapter
-2]({{< relref "/security/dpia/processing-and-purpose" >}}), we provide a systematic description of the processing of personal data in Altinn, and
+In [chapter 1](/en/security/dpia/introduction/), we write more about Altinn and the cloud journey we have embarked on. Then, in [chapter
+2](/en/security/dpia/processing-and-purpose/), we provide a systematic description of the processing of personal data in Altinn, and
 what the purpose and legal basis for this are. Altinn acts mostly in the role of data processor on behalf of the many
 public entities that use the solution for development and operation of their digital services. Therefore, it is also
 important to specify that these public entities – which we refer to as service owners in Altinn – must make their own
 assessments for their specific services, in their role as data controllers.
 
-In [chapter 3]({{< relref "/security/dpia/about-use-of-cloud" >}}), we address certain legal issues that are particularly relevant for the use of
+In [chapter 3](/en/security/dpia/about-use-of-cloud/), we address certain legal issues that are particularly relevant for the use of
 cloud services. We make it clear that we do not plan to transfer personal data out of Norway / EU / EEA and we discuss
 our assessments regarding the choice of data processor.
 
-We address the rights and freedoms of the registered (users) in [chapter 4]({{< relref "/security/dpia/privacy-assessments/" >}}), and assess the
+We address the rights and freedoms of the registered (users) in [chapter 4](/en/security/dpia/privacy-assessments/), and assess the
 necessity and proportionality of the processing that takes place in Altinn – against the risks, benefits, and effects of
 digitalization and the use of cloud services.
 
-In [chapter 5]({{< relref "/security/dpia/about-security-in-altinn/" >}}), we go into detail about the information security in Altinn, risks, and
+In [chapter 5](/en/security/dpia/about-security-in-altinn/), we go into detail about the information security in Altinn, risks, and
 what measures we take in Altinn to reduce the risks. There are also significant advantages for the registered's privacy
 associated with the use of cloud services, including that, in our assessment, one will receive the best protection of
 information security against major known threat actors.
 
-Our assessments lead us to the [conclusion]({{< relref "/security/dpia/conclusion/" >}}) that the choices and measures we have implemented in Altinn
+Our assessments lead us to the [conclusion](/en/security/dpia/conclusion/) that the choices and measures we have implemented in Altinn
 mean that we believe the registered overall receive the best privacy by using our digital services, as we use a
 professional, serious, and internationally recognized cloud service provider that relies on trust in the market. And
 this trust also means that privacy in Norway and Europe will be respected.

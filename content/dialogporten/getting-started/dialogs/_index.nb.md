@@ -9,13 +9,13 @@ toc: true
 
 Denne seksjonen forklarer dialogmodellen og dens komponenter fra et funksjonelt synspunkt. For teknisk informasjon om de ulike enhetene, se lenker i hver seksjon på denne siden.
 
-For trinnvise veiledninger om hvordan du bruker Dialogporten som sluttbruker eller tjenesteeier, se [brukerhåndbøkene]({{< relref "/dialogporten/user-guides" >}}).
+For trinnvise veiledninger om hvordan du bruker Dialogporten som sluttbruker eller tjenesteeier, se [brukerhåndbøkene](/nb/dialogporten/user-guides/).
 
 ## Dialogen
 
 Dialogen er en abstrakt og felles modell for all pågående eller fullført kommunikasjon med en tjenesteeier, og inneholder beskrivende metadata, f.eks. hvem som er mottaker, adresser (URL), tekstlig innhold (tittel, sammendrag osv.), dato, status, en liste over relevante _handlinger_ som brukeren kan utføre, og en valgfri liste over [forsendelser](#forsendelser). Handlinger kan defineres vilkårlig av tjenesteleverandøren, og all interaksjon med dialogen foregår i tjenesteleverandørens brukergrensesnitt eller mot tjenesteleverandørens API-endepunkter (bortsett fra GUI-handlinger som beskriver skrivehandlinger, se mer om dette i seksjonen [Handlinger](#handlinger)).
 
-En viktig forskjell fra [Altinn Melding]({{< relref "/correspondence" >}}) er at dialoger i Dialogporten er _foranderlige_. Tjenesteleverandøren kan oppdatere metadataene og tilgjengelige handlinger i dialogen når som helst (med noen bemerkelsesverdige unntak). Enhver endring genererer _hendelser_, som autoriserte parter kan handle på, f.eks. sende et varsel eller få et SBS til å utføre en handling.
+En viktig forskjell fra [Altinn Melding](/nb/correspondence/) er at dialoger i Dialogporten er _foranderlige_. Tjenesteleverandøren kan oppdatere metadataene og tilgjengelige handlinger i dialogen når som helst (med noen bemerkelsesverdige unntak). Enhver endring genererer _hendelser_, som autoriserte parter kan handle på, f.eks. sende et varsel eller få et SBS til å utføre en handling.
 
 Dialoger bruker [UUIDv7](https://uuid7.com/) som sin identifikator. Tjenesteeieren kan spesifisere ønsket UUIDv7 ved opprettelse for å muliggjøre bruk av samme identifikator på tvers av systemer og sikre idempotens. Datodelen av UUIDv7 kan ikke settes til en fremtidig dato.
 
@@ -27,13 +27,13 @@ Dialoger bruker [UUIDv7](https://uuid7.com/) som sin identifikator. Tjenesteeier
 
 Mens dialogen hovedsakelig inneholder metadata, er det noe innhold, nemlig en tittel, et kort sammendrag og et felt for "tilleggsinformasjon", brukt for å gi ikke-personlig tekstlig informasjon, f.eks. tjenesteeiers kontaktinformasjon eller lenker til dokumentasjon.
 
-I tillegg kan en dialog inneholde en innholdsreferanse kalt en [front channel embed]({{< relref "/dialogporten/getting-started/front-channel-embeds" >}}), som er en URL til et spesielt endepunkt levert av tjenesteeieren som returnerer en "full" personlig tilpasset nyttelast.
+I tillegg kan en dialog inneholde en innholdsreferanse kalt en [front channel embed](/nb/dialogporten/getting-started/front-channel-embeds/), som er en URL til et spesielt endepunkt levert av tjenesteeieren som returnerer en "full" personlig tilpasset nyttelast.
 
 ## Forsendelser
 
 En forsendelse brukes til å beskrive en enkelt "kommunikasjon" mellom tjenesteeieren og parten i en dialog. Forsendelser kan typisk være meldinger, forhåndsutfylte skjemaer og kvitteringer fra tjenesteleverandøren, eller innsendte skjemaer/meldinger fra parten knyttet til dialogen. Dialogen kan inneholde null eller flere forsendelser representert i en kronologisk sortert liste. Hver forsendelse og listen over forsendelser er uforanderlige; det er bare mulig å legge til nye forsendelser i listen, ikke endre eller slette forsendelser.
 
-En forsendelse inneholder noen tekstlige metadata (tittel, sammendrag) som forklarer hva forsendelsen er, inkludert [front channel embed]({{< relref "/dialogporten/getting-started/front-channel-embeds" >}}). I tillegg kan en forsendelse inneholde ett eller flere [vedlegg](#vedlegg).
+En forsendelse inneholder noen tekstlige metadata (tittel, sammendrag) som forklarer hva forsendelsen er, inkludert [front channel embed](/nb/dialogporten/getting-started/front-channel-embeds/). I tillegg kan en forsendelse inneholde ett eller flere [vedlegg](#vedlegg).
 
 Forsendelser vil som standard arve autorisasjonspolicyen for selve dialogen, men dette kan overstyres slik at individuelle forsendelser indikeres som utilgjengelige dersom sluttbruker mangler rettigheter, i så fall er bare metadataene tilgjengelige, men ikke noen front-channel embeds eller vedlegg.
 
@@ -57,7 +57,7 @@ Vedlegg kan brukes både på forsendelse- og dialognivå.
 
 En _handling_ beskriver en interaksjon som brukere kan utføre med eller relatert til en dialog. Eksempler på handlinger er "Åpne", "Start signering", "Betal", "Bekreft", "Lær mer", "Avbryt" osv. Listen over relevante handlinger er en del av den strukturerte beskrivelsen av en dialog og kan endres når som helst av tjenesteleverandøren gjennom API-et.
 
-En handling er enten en _"GUI"-handling_ eller en _"API"-handling_. Alle handlinger - både GUI og API - har en identifikator som kartlegger til en _handling_ (og eventuelt et [autorisasjonsattributt]({{< relref "/dialogporten/getting-started/authorization/attributes" >}})) i autorisasjonspolicyen ([XACML](/nb/authorization/reference/xacml/)) knyttet til en [tjenesteressurs]({{< relref "/dialogporten/getting-started/authorization/service-resource" >}}).
+En handling er enten en _"GUI"-handling_ eller en _"API"-handling_. Alle handlinger - både GUI og API - har en identifikator som kartlegger til en _handling_ (og eventuelt et [autorisasjonsattributt](/nb/dialogporten/getting-started/authorization/attributes/)) i autorisasjonspolicyen ([XACML](/nb/authorization/reference/xacml/)) knyttet til en [tjenesteressurs](/nb/dialogporten/getting-started/authorization/service-resource/).
 
 ### GUI-handlinger
 
@@ -65,12 +65,12 @@ GUI-handlinger er ment å brukes med nettleserbaserte sluttbrukersystemer (porta
 
 Alle GUI-handlinger har en URL. Disse URL-ene brukes i front channel (dvs. nettleseren) når brukeren aktiverer handlingen, og innebærer at brukeren blir omdirigert til tjenesteleverandørens eget brukergrensesnitt der handlingen utføres, enten automatisk eller som et resultat av ytterligere brukerinteraksjon. Denne omdirigeringen skjer alltid med en GET-forespørsel, noe som sikrer at eventuelle eksisterende økter med tjenesteleverandøren brukes (dvs. at nettlesere vil sende sesjonsinformasjonskapsler), og at omdirigering via SSO-pålogging i ID-porten fungerer. Disse URL-ene må derfor returnere enten omdirigeringer eller HTML, og siden det er en GET-forespørsel, anbefales det ikke at disse handlingene direkte resulterer i tilstands-endringer.
 
-GUI-handlinger kan imidlertid merkes som [skrivehandlinger]({{< relref "/dialogporten/getting-started/write-actions" >}}) og kan da også brukes til å gjøre tilstands-endringer.
+GUI-handlinger kan imidlertid merkes som [skrivehandlinger](/nb/dialogporten/getting-started/write-actions/) og kan da også brukes til å gjøre tilstands-endringer.
 
 **Les mer**
 
 - {{<link "../write-actions">}}
-- [Referanseinformasjon for GUI-handlingsenheten]({{< relref "/dialogporten/reference/entities/action#gui-handlinger" >}})
+- [Referanseinformasjon for GUI-handlingsenheten](/nb/dialogporten/reference/entities/action#gui-handlinger)
 
 ### API-handlinger
 
@@ -82,7 +82,7 @@ Dialogporten validerer ingen data og ser ikke hvilke data som flyter mellom SBS 
 
 **Les mer**
 
-- [Referanseinformasjon for API-handlingsenheten]({{< relref "/dialogporten/reference/entities/action#api-handlinger" >}})
+- [Referanseinformasjon for API-handlingsenheten](/nb/dialogporten/reference/entities/action#api-handlinger)
 
 ## Aktiviteter
 
@@ -108,7 +108,7 @@ Det er to hovedkategorier av etiketter; brukerdefinerte etiketter og systemetike
 Brukerdefinerte etiketter administreres av brukerne, og kan deles med andre brukere. Noen brukerdefinerte etiketter har global effekt (dvs. synlig for alle med tilgang til dialogen), mens andre er personlige (dvs. bare synlig for brukeren som eier etikettene).
 
 {{<notice warning>}}
-Brukerdefinert etikettfunksjonalitet er under design, og vil bli gjort tilgjengelig på et senere tidspunkt. Se [nyheter]({{< relref "/dialogporten/news" >}}) -seksjonen for oppdatert informasjon.
+Brukerdefinert etikettfunksjonalitet er under design, og vil bli gjort tilgjengelig på et senere tidspunkt. Se [nyheter](/nb/dialogporten/news/) -seksjonen for oppdatert informasjon.
 {{</notice>}}
 
 ### Systemetiketter

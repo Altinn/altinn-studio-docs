@@ -11,7 +11,7 @@ Tilgjengelig fra [v8.2.8](https://github.com/Altinn/app-lib-dotnet/releases/tag/
 
 ## Introduksjon
 
-Et Eksternt API lar deg integrere data fra eksterne API-er i Altinn-applikasjonen din. Dette er nyttig når du trenger å vise eller behandle data fra eksterne kilder i applikasjonen din. Dette fungerer ved å implementere grensesnittet `IExternalApiClient` og registrere implementasjonen i applikasjonens tjenestebeholder. Når den er implementert, kan dataene fra det eksterne API-et nås gjennom uttrykk (se [dokumentasjonen for uttrykk]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}})) eller i andre klasser i applikasjonen din.
+Et Eksternt API lar deg integrere data fra eksterne API-er i Altinn-applikasjonen din. Dette er nyttig når du trenger å vise eller behandle data fra eksterne kilder i applikasjonen din. Dette fungerer ved å implementere grensesnittet `IExternalApiClient` og registrere implementasjonen i applikasjonens tjenestebeholder. Når den er implementert, kan dataene fra det eksterne API-et nås gjennom uttrykk (se [dokumentasjonen for uttrykk](/nb/altinn-studio/v8/reference/logic/expressions/)) eller i andre klasser i applikasjonen din.
 
 ## Hvordan det fungerer
 
@@ -174,7 +174,7 @@ Du kan også bruke Eksternt API-data for å kontrollere synligheten til komponen
 
 Dette vil skjule komponenten hvis det eksterne API-et returnerer en tom array.
 
-For mer informasjon om uttrykk og hvordan du bruker dem i Altinn-applikasjonen din, se [dokumentasjonen for dynamiske uttrykk]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}}).
+For mer informasjon om uttrykk og hvordan du bruker dem i Altinn-applikasjonen din, se [dokumentasjonen for dynamiske uttrykk](/nb/altinn-studio/v8/reference/logic/expressions/).
 
 ### Tilgang til data gjennom API-endepunktet
 
@@ -319,7 +319,7 @@ For å bruke eksterne API-er som krever Maskinporten-autentisering, trenger du e
 - Eventuelle andre scopes som kreves av det spesifikke API-et du integrerer mot
   {.correspondence-custom-list}
 
-For å sette opp dette kan du følge de generelle stegene i [veiledningen for Maskinporten-integrasjon]({{< relref "/altinn-studio/v8/guides/integration/maskinporten/" >}}) med noen modifikasjoner beskrevet nedenfor.
+For å sette opp dette kan du følge de generelle stegene i [veiledningen for Maskinporten-integrasjon](/nb/altinn-studio/v8/guides/integration/maskinporten/) med noen modifikasjoner beskrevet nedenfor.
 
 - Eksternt API-klienten trenger en Maskinporten-klient for å kommunisere med beskyttede API-er. Konfigurasjonsobjektet ser typisk slik ut:
 

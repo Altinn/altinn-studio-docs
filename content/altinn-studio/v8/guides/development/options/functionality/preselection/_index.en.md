@@ -6,10 +6,10 @@ weight: 250
 
 In some cases it is desirable that one of the options is pre-selected. There are different ways to achieve this.
 
-1. In the data model, you can [prefill the field]({{< relref "/altinn-studio/v8/guides/development/prefill" >}}) with the desired value. Note that
+1. In the data model, you can [prefill the field](/en/altinn-studio/v8/guides/development/prefill/) with the desired value. Note that
    the value must also belong to one of the valid options for components linked to this field in the data model,
-   otherwise the [value will be automatically cleaned up]({{< relref "/altinn-studio/v8/guides/development/options/functionality/automatic-cleanup" >}}).
-2. While filling out the form, you can also use [data processing]({{< relref "/altinn-studio/v8/reference/logic/dataprocessing" >}})
+   otherwise the [value will be automatically cleaned up](/en/altinn-studio/v8/guides/development/options/functionality/automatic-cleanup/).
+2. While filling out the form, you can also use [data processing](/en/altinn-studio/v8/reference/logic/dataprocessing/)
    to set the field to a desired pre-selected value. Beware that in some cases it is important to allow the user
    to _not choose an option_. If the field is simply overwritten when it lacks a value, the user will not be able
    to remove a pre-selected option using this approach.
@@ -52,9 +52,9 @@ This functionality follows a set of rules:
    the app is open in the browser. If the user reloads the page, the pre-selection may be set again.
 3. The pre-selection is set as soon as the page has loaded and the components are ready, regardless of whether the
    component is visible on the screen or not.
-4. Pre-selected values are not set for components that are hidden using [dynamics]({{< relref "/altinn-studio/v8/guides/development/dynamics" >}}). If
+4. Pre-selected values are not set for components that are hidden using [dynamics](/en/altinn-studio/v8/guides/development/dynamics/). If
    the component is shown again later, the pre-selection may be set.
-5. The preselected option is determined after [filtering]({{< relref "/altinn-studio/v8/guides/development/options/functionality/filtering" >}}), but before [sorting]({{< relref "/altinn-studio/v8/guides/development/options/functionality/sorting" >}}) is applied.
+5. The preselected option is determined after [filtering](/en/altinn-studio/v8/guides/development/options/functionality/filtering/), but before [sorting](/en/altinn-studio/v8/guides/development/options/functionality/sorting/) is applied.
 
 {{% notice warning %}}
 There are situations where pre-selection with this property is not optimal, and can lead to situations that may be

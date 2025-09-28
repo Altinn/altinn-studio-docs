@@ -9,7 +9,7 @@ toc: false
 
 To access resource administration in Altinn Studio, you need to have a user account.
 
-See this [guide]({{< relref "/altinn-studio/v8/getting-started/create-user/" >}})
+See this [guide](/en/altinn-studio/v8/getting-started/create-user/)
 
 ## Create the Resource Admin Repository for the Organization
 

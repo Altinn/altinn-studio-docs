@@ -61,7 +61,7 @@ For å oppnå dette må vi legge til betingelsesuttrykk (conditionExpressions) t
 ```
 Hvis brukeren har sendt inn en Amount på 1000, vil uttrykkene i sekvensflyten _Flow_g1_end_ evaluere til falsk, og flyten blir fjernet fra de mulige flytene å velge mellom, og den eneste tilgjengelige flyten er _Flow_g1_t2_, og derfor blir den valgt.
 
-For å se flere muligheter med uttrykk, se [Uttrykk]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}})
+For å se flere muligheter med uttrykk, se [Uttrykk](/nb/altinn-studio/v8/reference/logic/expressions/)
 
 ### Kontrollere flyten ut av en gateway basert på brukerhandling utført ved hjelp av uttrykk
 
@@ -92,7 +92,7 @@ Hvis en applikasjonsprosess har et bekreftelsessteg der det er mulig å avvise d
 <bpmn:sequenceFlow id="Flow_g1_end" sourceRef="Gateway_1" targetRef="EndEvent" />
 ```
 
-I eksempelet ovenfor er det definert to handlinger i _Task_2_: `confirm` og `reject`. [Les mer om handlinger]({{< relref "/altinn-studio/v8/reference/process/tasks/" >}})
+I eksempelet ovenfor er det definert to handlinger i _Task_2_: `confirm` og `reject`. [Les mer om handlinger](/nb/altinn-studio/v8/reference/process/tasks/)
 
 Vi ønsker å få prosessmotoren til å velge _Flow_g1_t1_ hvis brukeren utfører handlingen _reject_ og _Flow_g1_end_ hvis handlingen som ble utført var _confirm_.
 
@@ -109,7 +109,7 @@ For å gjøre dette bruker vi uttrykksfunksjonen _gatewayAction_
 
 Uttrykksfunksjonen _gatewayAction_ returnerer handlingen utført i oppgaven som prosessen nettopp forlot. I eksempelet ovenfor er forrige oppgave _Task_2_.
 
-Funksjonen _gatewayAction_ kan kombineres med alle de andre funksjonene i [uttrykk]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}})
+Funksjonen _gatewayAction_ kan kombineres med alle de andre funksjonene i [uttrykk](/nb/altinn-studio/v8/reference/logic/expressions/)
 
 ## Komplekse gateways som krever tilpasset kode
 
