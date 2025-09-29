@@ -11,9 +11,9 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Regnskapsfører med signeringsrettighet](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/regnskapsforer/#regnskapsfører-med-signeringsrettighet)|
-|[Regnskapsfører uten signeringsrettighet](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/regnskapsforer/#regnskapsfører-uten-signeringsrettighet)|
-|[Regnskapsfører lønn](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/regnskapsforer/#regnskapsfører-lønn)|
+|[Regnskapsfører med signeringsrettighet](#regnskapsfører-med-signeringsrettighet)|
+|[Regnskapsfører uten signeringsrettighet](#regnskapsfører-uten-signeringsrettighet)|
+|[Regnskapsfører lønn](#regnskapsfører-lønn)|
 
 
 ### Regnskapsfører med signeringsrettighet

@@ -10,10 +10,10 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Klientadministrator](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#klientadministrator)|
-|[Tilgangsstyring](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#tilgangsstyring)|
-|[Hovedadministrator](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#hovedadminstrator)|
-|[Maskinporten administrator](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#maskinporten-administrator)|
+|[Klientadministrator](#klientadministrator)|
+|[Tilgangsstyring](#tilgangsstyring)|
+|[Hovedadministrator](#hovedadminstrator)|
+|[Maskinporten administrator](#maskinporten-administrator)|
 
 ### Klientadministrator
 Denne rollen gir bruker mulighet til å administrere tilganger som virksomheten har på vegne av klienter og kunder, enten via registrerte kundeforhold i Enhetsregisteret eller delegering til virksomheten.  

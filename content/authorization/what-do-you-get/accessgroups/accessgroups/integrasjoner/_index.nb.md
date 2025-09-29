@@ -10,9 +10,9 @@ aliases:
 
 | **Tilgangspakker i kategorien**|
 |---|
-| [Delegable Maskinporten scopes](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/integrasjoner/#programmeringsgrensesnitt--api)|
-| [Delegable Maskinporten scopes - NUF](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/integrasjoner/#programmeringsgrensesnitt-nuf---api)|
-| [Maskinlesbare hendelser](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/integrasjoner/#maskinlesbare-hendelser)|
+| [Delegable Maskinporten scopes](#delegable-maskinporten-scopes)|
+| [Delegable Maskinporten scopes - NUF](#delegable-maskinporten-scopes----nuf)|
+| [Maskinlesbare hendelser](#machine-readable-events)|
 
 
 ### Delegable Maskinporten scopes

@@ -11,9 +11,9 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Varehandel](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/handelovernatting/#varehandel)|
-|[Overnatting](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/handelovernatting/#overnatting)|
-|[Servering](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/handelovernatting/#servering)|
+|[Varehandel](#varehandel)|
+|[Overnatting](#overnatting)|
+|[Servering](#servering)|
 
 
 ### Varehandel
