@@ -10,7 +10,7 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Forretningsfører eiendom](#forretningsforer-eiendom)|
+|[Forretningsfører eiendom](#forretningsfører-eiendom)|
 
 
 ### Forretningsfører eiendom
