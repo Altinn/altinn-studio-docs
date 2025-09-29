@@ -51,7 +51,7 @@
         </div>
         <div class="row">
           <div class="col-sm-12 col-md-10">
-              {{- partial "menu-serverside-v2.html" . -}}
+              {{- partial "sidebar-menu.html" . -}}
         <script>
           {{ template "activeMenus" dict "page" . "value" (printf "$(\"li.dd-item a[href='%s']\").parent().addClass(\"active\");" .RelPermalink) }}
         </script>
