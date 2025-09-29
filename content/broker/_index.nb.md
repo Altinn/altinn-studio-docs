@@ -4,6 +4,8 @@ linktitle: Formidling
 description: Altinn 3 Formidling ('Broker' på engelsk) tilbyr styrt filoverføring med støtte for store filer og avansert funksjonalitet for informasjonssikkerhet, statusmonitorering og tjenestekvalitet.   
 toc: false
 weight: 1
+aliases: 
+- /broker/
 cascade:
   params:
     product: product_broker

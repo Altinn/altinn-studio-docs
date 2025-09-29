@@ -3,6 +3,8 @@ title: App Template
 description: The application template provided as part of the Altinn platform accelerates the development of digital services.
 tags: [altinn-apps, needstranslation]
 weight: 4
+aliases: 
+- /app-template
 ---
 
 The App is created, designed and build in Altinn Studio and deployed to Altinn Apps.
