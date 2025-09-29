@@ -1,37 +1,33 @@
 ---
-title: Administrere tilgangslister via API
-linktitle: Tilgangslisteadministrasjon i API
-description: I Altinn Studio kan du administrere tilgangslister for ressurser i Altinn Ressursregister.
+title: Manage Access Lists throug AP
+linktitle: Access List Admin in API
+description: In Altinn Studio you can manage Access List for Resources in Altinn Resource Registry.
 toc: false
 ---
 
-## Bakgrunn
+## Background
 
-For visse tjenester er det nødvendig å begrense tilgangen til spesifikke organisasjoner. I Altinn 2 ble dette håndtert via Tjenesterettighetsregisteret (SRR).
+For certain services, restricting access to specific organizations is necessary. In Altinn 2, this was managed via the Service Rights Registry (SRR).
 
-I Altinn 3 håndteres denne funksjonaliteten av Ressursrettighetsregisteret (RRR) gjennom tilgangslister. Tilgangslister lar deg definere og administrere hvilke organisasjoner som har tilgang til spesifikke ressurser, noe som sikrer et mer sikkert og kontrollert miljø.
+In Altinn 3, this functionality is handled by the Resource Rights Registry (RRR) through Access Lists. Access Lists allow you to define and manage which organizations have access to specific resources, ensuring a more secure and controlled environment.
 
-## Forutsetninger
+## Prerequistes
 
-Klienten må være definert i Maskinporten med følgende scopes:
+Client defined in Maskinporten with the following scopes
 
-- `altinn:resourceregistry/accesslist.read`
-- `altinn:resourceregistry/accesslist.write`
-- `altinn:resourceregistry/resource.write`
+- altinn:resourceregistry/access-list.read
+- altinn:resourceregistry/access-list.write
+- altinn:resourceregistry/resource.write
 
-For å få tilgang til scopene i Samarbeidsportalen må det bestilles tilgang til scopene. Dette gjøres ved å ta kontakt per e-post på tjenesteeier@altinn.no
+[Full swagger documentation](https://docs.altinn.studio/api/resourceregistry/spec/#/)
 
-[Full swagger-dokumentasjon](https://docs.altinn.studio/api/resourceregistry/spec/#/)
+## Create new Access List
 
-## Opprette ny tilgangsliste
+The first step is to create the list.
 
-Det første steget er å opprette listen.
+Put for /access-lists/{owner}/{identifier}
 
-**PUT** `/access-lists/{owner}/{identifier}`
-
-Hvor `owner` er organisasjonskoden og `identifier` er en valgt ID for listen.
-
-Eksempel på payload:
+Where owner is organization code and identifer is a choosen ID fo the
 
 ```json
 {
@@ -40,11 +36,11 @@ Eksempel på payload:
 }
 ```
 
-## Legge til medlemmer i listen
+## Adding members to list
 
-Post til /access-lists/{owner}/{identifier}/members med et medlem.
+Post to /access-lists/{owner}/{identifier}/members with a member.
 
-Medlemmet kan identifiseres med forskjellige ID-er. Bare én kan gis. Organisasjonsnummer ville
+The member can be identifed with different ID. Only one can be given. Organization number would
 
 ```json
 {
@@ -52,13 +48,13 @@ Medlemmet kan identifiseres med forskjellige ID-er. Bare én kan gis. Organisasj
 }
 ```
 
-## Tilordne tilgangsliste til ressurs
+## Assign Access List to resource
 
-Når en tilgangsliste tilordnes en ressurs, kan handlingene begrenses med et handlingsfilter. I tilfeller der én tilgangsliste skal ha lesetilgang og en annen tilgangsliste skal ha lese- og skrivetilgang.
+When a Access list to a resource can limit the action with a action filter. In cases where one AccessList should have read and another accessList should have read and write
 
-Med en null eller tom liste er alle handlinger tillatt. Handlingene må samsvare med handlingene i XACML-policyen.
+With null or empty list all actions is allowed. The actions need to match action in XACML Policy
 
-**PUT** `/access-lists/{owner}/{identifier}/resource-connections/{resourceIdentifier}`
+/access-lists/{owner}/{identifier}/resource-connections/{resourceIdentifier}
 
 ```json
 {
@@ -66,4 +62,4 @@ Med en null eller tom liste er alle handlinger tillatt. Handlingene må samsvare
 }
 ```
 
-Etter oppdatering, publiser ressursen til forskjellige miljøer. Merk: Hvis du aktiverer RRR før du setter opp listen, vil tilgangen bli tapt for alle.
+After updating, publish the resource to various environments. Note: If you enable RRR before setting up the list, access will be lost for all.

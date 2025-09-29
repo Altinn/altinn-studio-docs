@@ -19,7 +19,7 @@ To simplify the transition from Altinn 2 to the Altinn 3 version of the Correspo
 - The API facilitates mass sending of Correspondences using templates/keywords and recipient lists as well as the mentioned shared attachments.
   - This makes it easy to send 1 request with a list of recipients and create up to 200 Correspondences as a result.
 - Notification templates have been greatly simplified from Altinn 2; only a predefined set of templates representing "majority use" are supported, including one highly customizable one.
-  - If more advanced functionality is needed, it is encouraged to integrate directly with [Altinn-Notifications](../../../notifications/)
+  - If more advanced functionality is needed, it is encouraged to integrate directly with [Altinn-Notifications](/en/notifications/)
 - The process is more asynchronous than before, but publishes Altinn-Events at important process steps so that both end-user systems fetching Correspondences for recipients and the senders of the Correspondences can follow the process without having to poll web services for status.
 - All Correspondences are created in the Dialogporten and thus available for Arbeidsflate and other systems that integrate with the Dialogporten, without the sender of the Correspondences needing to perform specific actions.
 - The authorization model is somewhat simplified:

@@ -10,15 +10,14 @@ aliases:
 
 |**Tilgangpakker i kategorien**|
 |---|
-|[Byggesøknad](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#byggesøknad)|
-|[Plansak](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#plansak)|
-|[Motta nabo- og planvarsel](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#motta-nabo--og-planvarsel)|
-|[Oppføring av bygg og anlegg](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#oppføring-av-bygg-og-anlegg)|
-|[Kjøp og salg av eiendom](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#kjøp-og-salg-av-eiendom)|
-|[Utleie av eiendom](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#utleie-av-eiendom)|
-|[Eiendomsmegler](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#eiendomsmegler)|
-|[Tinglysing eiendom](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#tinglysing-eiendom)|
-
+|[Byggesøknad](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#byggesøknad)|
+|[Plansak](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#plansak)|
+|[Motta nabo- og planvarsel](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#motta-nabo--og-planvarsel)|
+|[Oppføring av bygg og anlegg](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#oppføring-av-bygg-og-anlegg)|
+|[Kjøp og salg av eiendom](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#kjøp-og-salg-av-eiendom)|
+|[Utleie av eiendom](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#utleie-av-eiendom)|
+|[Eiendomsmegler](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#eiendomsmegler)|
+|[Tinglysing eiendom](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/#tinglysing-eiendom)|
 
 ### Byggesøknad
 Denne tilgangspakken gir fullmakter til tjenester som ansvarlig søker/tiltakshaver trenger, for eksempel byggesøknader, direkte signerte erklæringer, nabovarsel og eiendomssak. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
@@ -51,7 +50,6 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til omsetning og drift
 ### Tinglysing eiendom
 Denne tilgangspakken gir fullmakter til tjenester knyttet til elektronisk tinglysing av rettigheter i eiendom. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:tinglysing-eiendom*
-
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
 |**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|

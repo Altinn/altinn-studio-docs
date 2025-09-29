@@ -6,7 +6,7 @@ weight: 10
 
 ## Introduction
 
-See [getting started with authorization attributes]({{<relref "../../../getting-started/authorization/attributes/"  >}}) for a functional overview of authorization attributes and what they can be used for.
+See [getting started with authorization attributes](/en/dialogporten/reference/authorization/attributes/../../../getting-started/authorization/attributes/) for a functional overview of authorization attributes and what they can be used for.
 
 Authorization attributes are a way to control how the XACML request is constructed for a given dialog, making it possible to have more fine grained rules and even refer to several distinct resource policies.
 
@@ -259,7 +259,7 @@ Will result in `Permit`, because the request satisfies all the constraints defin
 
 If the authorization attribute value starts with either `urn:altinn:resource` or `urn:altinn:app`, and the full value differs from what `ServiceResource` for the given dialog is set to, the authorization attribute is considered as referring to different resources in the Resource Registry. This way, access to the various part of a dialog might be governed by different policies. 
 
-A typical use case is having dialogs that all refer to different resources/policies, but within them contain [transmissions]({{<relref "../../entities/transmission">}}) representing a shared kind of communication (ie. notice of coercive fine) that are governed by the same authorization policy, regardless of the dialog in which it is used.
+A typical use case is having dialogs that all refer to different resources/policies, but within them contain [transmissions](/en/dialogporten/reference/authorization/attributes/../../entities/transmission/) representing a shared kind of communication (ie. notice of coercive fine) that are governed by the same authorization policy, regardless of the dialog in which it is used.
 
 Example:
 ```json

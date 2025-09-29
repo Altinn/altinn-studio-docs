@@ -17,7 +17,7 @@ Se [Readme-filen på GitHub](https://github.com/Altinn/altinn-broker/blob/main/R
 
 Repoet inneholder også en [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json) med eksempler.
 
-Swagger for filoverførings-APIet er vert [her](/api/broker/spec/).
+Swagger for filoverførings-APIet er vert [her](/nb/api/broker/spec/).
 
 ## Generell API-operasjon {#overall-api-operation}
 
@@ -25,11 +25,11 @@ For å forstå hvordan Formidling-APIet fungerer, inkludert avhengighetene og ko
 
 ![Altinn Formidling oppsett-sekvens](Altinn-broker-setup-sequence.png "Altinn-formidling-oppsett-sekvens")
 
-Du må ha utført stegene i [Hvordan komme i gang](../../getting-started) for å sette opp tilgangskravene.
+Du må ha utført stegene i [Hvordan komme i gang](/nb/broker/getting-started/) for å sette opp tilgangskravene.
 
 ## Generell prosess {#overall-process}
 
-Generell prosessflyt gjenspeiler den implementerte virkeligheten av [filoverføringsprosessen](../../explanation/basic-concepts/#file-transfer-process-states)
+Generell prosessflyt gjenspeiler den implementerte virkeligheten av [filoverføringsprosessen](/nb/broker/explanation/basic-concepts/#file-transfer-process-states)
 
 Alle operasjoner er asynkrone, med mindre annet er angitt.
 Som sådan bør du implementere hendelsesabonnementer for å optimalisere prosessen din i stedet for å stole på polling for status.

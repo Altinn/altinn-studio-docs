@@ -10,7 +10,7 @@ Updating dialogs as the business process advances, or if any relevant business e
  concept, allowing users to easily keep updated on the process, and end-user systems to immediately react to any business event
  defined by the service owner, allowing for rich and non-poll-based integrations to internal systems.
 
-Most fields of the dialog can be changed after [dialog creation]({{<relref "../creating-dialogs">}}), with some notable exceptions.
+Most fields of the dialog can be changed after [dialog creation](/en/dialogporten/user-guides/service-owners/updating-dialogs/../creating-dialogs/), with some notable exceptions.
 
 * Party and service resource cannot be changed
 * Created/updated fields cannot be changed
@@ -31,17 +31,17 @@ Dialogs contain separate fields for the timestamp of the lastest content update 
 So changes to ie. the activity list will bump the `updatedAt` field, but _not_ the `contentUpdatedAt` field. This means that `contentUpdatedAt` may
 refer to an earlier point in time than `updatedAt`. It can never newer than `updatedAt`, as any change will bump `updatedAt`.
 
-End-user systems that display lists of dialogs to users are encouraged to [sort]({{<relref "../../searching-for-dialogs#ordering">}}) by `contentUpdatedAt` in descending order.
+End-user systems that display lists of dialogs to users are encouraged to [sort](/en/dialogporten/user-guides/service-owners/updating-dialogs/../../searching-for-dialogs#ordering) by `contentUpdatedAt` in descending order.
 
 ## Basic steps
 
-1. [Find the dialog]({{<relref "../../searching-for-dialogs">}}) you want to update
+1. [Find the dialog](/en/dialogporten/user-guides/service-owners/updating-dialogs/../../searching-for-dialogs/) you want to update
 2. Construct a request body containing the fields you want to updated
 3. Send a PUT or PATCH request. Successfull requests return `204 No Content`, while user errors (4xx return codes) return a [RFC9457 Problem Details](https://www.rfc-editor.org/rfc/rfc9457.html) reponse body.
 
 ## Using PUT and full request bodies
 
-See the [reference documentation]({{<relref "../../../reference/entities/dialog/#update-put">}}) for details on the request body. Fields supplied 
+See the [reference documentation](/en/dialogporten/user-guides/service-owners/updating-dialogs/../../../reference/entities/dialog/#update-put) for details on the request body. Fields supplied 
 that are not present in the PUT DTO definition will be ignored.
 
 {{<notice warning>}}
@@ -54,7 +54,7 @@ completely unless you intend to add new transmissions and/or activities.
 Dialogporten also supports PATCH operations, which allows a more concise request only containing the fields you want to alter. This can result in smaller 
 request bodies, and can in some cases eliminate the need to GET the dialog first in order to construct the PUT DTO.
 
-See the [reference documentation]({{<relref "../../../reference/entities/dialog/#update-patch">}}) for details and examples on how to construct a PATCH request.
+See the [reference documentation](/en/dialogporten/user-guides/service-owners/updating-dialogs/../../../reference/entities/dialog/#update-patch) for details and examples on how to construct a PATCH request.
 
 ## Separate endpoints for transmissions and activities
 

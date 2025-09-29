@@ -7,8 +7,8 @@ cascade:
     diataxis: diataxis_reference
 ---
 
-Se seksjonene nedenfor for detaljert teknisk referanseinformasjon. Den viktigste ressursen for deg som utvikler, enten for en sluttbrukersystem (EUS)-leverandør eller for en tjenesteeier, er [REST OpenAPI-spesifikasjonene]({{<relref "./openapi">}}), siden denne inneholder detaljert informasjon på modell-/feltnivå.
+Se seksjonene nedenfor for detaljert teknisk referanseinformasjon. Den viktigste ressursen for deg som utvikler, enten for en sluttbrukersystem (EUS)-leverandør eller for en tjenesteeier, er [REST OpenAPI-spesifikasjonene](/nb/dialogporten/reference/./openapi/), siden denne inneholder detaljert informasjon på modell-/feltnivå.
 
-Se [Entities]({{<relref "entities">}}) for informasjon, hentet fra OpenAPI-spesifikasjonen, om dataoverføringsobjektene (DTO) som brukes i Dialogporten.
+Se [Entities](/nb/dialogporten/reference/entities/) for informasjon, hentet fra OpenAPI-spesifikasjonen, om dataoverføringsobjektene (DTO) som brukes i Dialogporten.
 
 {{<children />}}

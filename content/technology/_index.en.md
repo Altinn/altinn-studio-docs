@@ -11,7 +11,7 @@ cascade:
 ---
 
 Altinn Studio is the next generation Altinn application development and hosting solution.
-All you need for testing Studio is to [register an account](../altinn-studio/getting-started/create-user).
+All you need for testing Studio is to [register an account](/en/altinn-studio/v8/getting-started/create-user/).
 
 Altinn 3 have an open backlog on GitHub and the code is open source. Everybody can [create bugs], [request features] or [ask questions].
 

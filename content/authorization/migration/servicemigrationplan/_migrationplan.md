@@ -10,4 +10,4 @@ tags: [architecture, plan, authorizaton]
 For siste oppdaterte plan se [Roadmap for Autorisasjon, Digdir](https://github.com/orgs/digdir/projects/8/views/5).
 
 Her er et bilde av planen fra 13.6.2023
-![Roadmap for Autrisasjon](/authorization/migration/roadmap_130623.png "Fremdriftsplan for migrering av Altinn Autrisasjon")
+![Roadmap for Autrisasjon](/nb/authorization/migration/roadmap_130623.png "Fremdriftsplan for migrering av Altinn Autrisasjon")

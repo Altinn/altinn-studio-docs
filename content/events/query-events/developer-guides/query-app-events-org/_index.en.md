@@ -26,7 +26,7 @@ where {org}/{app} makes up the application ID for the app resource you want to r
 
 This API requires authentication.
 
-See [Authentication and Authorization](../../../api/#authentication--authorization) for more information.
+See [Authentication and Authorization](/en/events/api/#authentication--authorization) for more information.
 
 
 ## Request

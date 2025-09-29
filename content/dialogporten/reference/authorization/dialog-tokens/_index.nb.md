@@ -6,17 +6,17 @@ weight: 20
 
 ## Introduksjon
 
-Se [komme i gang med dialog tokens]({{<relref "../../../getting-started/authorization/dialog-tokens/">}}) for en funksjonell oversikt over dialog tokens og hva de kan brukes til.
+Se [komme i gang med dialog tokens](/nb/dialogporten/reference/authorization/dialog-tokens/../../../getting-started/authorization/dialog-tokens/) for en funksjonell oversikt over dialog tokens og hva de kan brukes til.
 
 Dialog tokens muliggjør u-proxyede frontend-forespørsler til endepunkter som krever autentisering og autorisasjon, uten å måtte stole på ID-porten SSO og redirects.
 
 ## Bruk for sluttbruker-systemer (OAuth-klienter)
 
-Dialog tokens er innebygd i [single dialog response model]({{<relref "../../entities/dialog">}}) (se `dialogToken`), og er en selvstendig, signert JWT som inneholder claims fra den autentiserte brukeren og selve dialogen, inkludert hvilke handlinger og autorisasjonsattributter brukeren er autorisert for.
+Dialog tokens er innebygd i [single dialog response model](/nb/dialogporten/reference/authorization/dialog-tokens/../../entities/dialog/) (se `dialogToken`), og er en selvstendig, signert JWT som inneholder claims fra den autentiserte brukeren og selve dialogen, inkludert hvilke handlinger og autorisasjonsattributter brukeren er autorisert for.
 
 Dialog tokens skal overføres som de er som en bearer token i et `Authorization` HTTP-hode. Innholdet i dialog token bør normalt ikke vurderes av klientene, dvs. at tokenet skal behandles som en ugjennomsiktig streng.
 
-Altinn.no-portalen vil bruke dialog tokens på alle URLer knyttet til [skrivehandlinger]({{<relref "../../front-end/write-actions">}}) og [front channel embeds]({{<relref "../../front-end/write-actions">}}). Andre sluttbruker-systemer kan også bruke dialog token for API-handlinger, underlagt tjenestespesifikke protokoller definert av den respektive tjenesteeier.
+Altinn.no-portalen vil bruke dialog tokens på alle URLer knyttet til [skrivehandlinger](/nb/dialogporten/reference/authorization/dialog-tokens/../../front-end/write-actions/) og [front channel embeds](/nb/dialogporten/reference/authorization/dialog-tokens/../../front-end/write-actions/). Andre sluttbruker-systemer kan også bruke dialog token for API-handlinger, underlagt tjenestespesifikke protokoller definert av den respektive tjenesteeier.
 
 ### Dialog token levetid
 
@@ -72,7 +72,7 @@ Dialog tokens benytter en [Edwards-Curve Digital Signature Algorithm (EdDSA)](ht
 
 ### Well-known endpoints
 
-Dialogporten tilbyr [OAuth 2.0 Authorization Server Metadata (RFC8414)](https://datatracker.ietf.org/doc/html/rfc8414) som muliggjør runtime nøkkeloppdagelse, rotasjon og tokenvalidering. Se [OpenAPI spesifikasjonen]({{<relref "../../openapi/">}}) (tag "Metadata") for de well-known URLene for det gitte miljøet.
+Dialogporten tilbyr [OAuth 2.0 Authorization Server Metadata (RFC8414)](https://datatracker.ietf.org/doc/html/rfc8414) som muliggjør runtime nøkkeloppdagelse, rotasjon og tokenvalidering. Se [OpenAPI spesifikasjonen](/nb/dialogporten/reference/authorization/dialog-tokens/../../openapi/) (tag "Metadata") for de well-known URLene for det gitte miljøet.
 
 ### Key sets and rotations
 The JSON Web Key sets published on the well-known-endpoints will always contain at least two JWKs. All endpoints that accepts and verifies dialog tokens issued by Dialogporten, should allow tokens signed by any of the keys present in the key set for the given environment. 

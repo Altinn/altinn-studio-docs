@@ -37,7 +37,7 @@ Explanation to the diagram:
 ## Terminology {#terminology}
 
 The following table gives brief descriptions of the main terms used to describe
-Altinn 3 Broker. Also see https://docs.altinn.studio/technology/terms/ and <https://data.norge.no/concepts>.
+Altinn 3 Broker. Also see https://docs.altinn.studio/en/technology/terms/ and <https://data.norge.no/concepts>.
 
 | **Term**                       | **Explanation**                                                                                                                                                                                                                                          |
 |--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

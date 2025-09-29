@@ -33,7 +33,7 @@ aliases:
    - The system is typically web-based software available in the market, which end customers (businesses) can use for communication with the public sector.
    - SmartCloud AS then registers SmartCloud system in the Altinn System Register.
    - They define the required rights for accessing "Krav og betalinger" by associating the client ID with the relevant permissions.
-   - Refer [here](../../../../api/authentication/systemuserapi/systemregister/model/) for the detailed description for information about each input.
+   - Refer [here](/en/api/authentication/systemuserapi/systemregister/model/) for the detailed description for information about each input.
      ```json
      {
        "id": "991825827_smartcloud",
@@ -99,7 +99,7 @@ aliases:
 
 Please refer to [this page](https://platform.tt02.altinn.no/accessmanagement/api/v1/meta/info/accesspackages/export) for a list of available access packages in the tt02 environment.
 
-You will find additional details regarding all possible inputs, in the [system register model](../../../../api/authentication/systemuserapi/systemregister/model/). For all subsequent communication, the system vendor must reference the value specified in the `id` field.
+You will find additional details regarding all possible inputs, in the [system register model](/en/api/authentication/systemuserapi/systemregister/model/). For all subsequent communication, the system vendor must reference the value specified in the `id` field.
 
 ### Creating a System User For Standard System User
 
@@ -109,7 +109,7 @@ The system user can be created in two ways
 1. End user driven
    - Smartcloud As must request "TILFELDIG SUBTIL APE" (end user) to login to altinn portal and create a system user for their system SmartCloud
 2. Vendor driven
-   - SmartCloud AS creates a system user request (via altinn api for system user request) from within SmartCloud, which is sent to Altinn. For detailed information on each input field, refer the documentation [here](../../../../api/authentication/systemuserapi/systemuserrequest/external/model/)
+   - SmartCloud AS creates a system user request (via altinn api for system user request) from within SmartCloud, which is sent to Altinn. For detailed information on each input field, refer the documentation [here](/en/api/authentication/systemuserapi/systemuserrequest/external/model/)
      ```json
      {
        "externalRef": "d5cc6e61-023e-4945-82cc-3f32d8ee28ee",
@@ -152,12 +152,12 @@ The system user can be created in two ways
      }
      ```
    - The `confirmurl` is sent to the end user for approval. Follow the guide for end user for
-     - [Standard system user](../../end-user/system-user/#guide-for-end-user-stadig-konsert-dagligleder-of-tilfeldig-subtil-ape)
+     - [Standard system user](/en/authorization/guides/end-user/system-user/#guide-for-end-user-stadig-konsert-dagligleder-of-tilfeldig-subtil-ape)
 
 ### Creating a System User For Agent System User
 
 - The system user for agent system user can be created only by system user request
-- SmartCloud AS creates a system user request (via altinn api for system user request) from within SmartCloud, which is sent to Altinn. For detailed information on each input field, refer the documentation [here](../../../../api/authentication/systemuserapi/systemuserrequest/external/model/)
+- SmartCloud AS creates a system user request (via altinn api for system user request) from within SmartCloud, which is sent to Altinn. For detailed information on each input field, refer the documentation [here](/en/api/authentication/systemuserapi/systemuserrequest/external/model/)
   ```json
   {
     "externalRef": "smartcloud_demo_agent_test",
@@ -190,12 +190,12 @@ The system user can be created in two ways
   }
   ```
 - The `confirmurl` is sent to the end user, here the auditing organisation for approval. Once approved, the end user can add clients to the system user. Follow the guide for end user for
-  - [Agent system user](../../end-user/system-user/#guide-for-end-user-dress-minst-client-administrator-for-tilbakeholden-usymmetrisk-tiger-as-)
+  - [Agent system user](/en/authorization/guides/end-user/system-user/#guide-for-end-user-dress-minst-client-administrator-for-tilbakeholden-usymmetrisk-tiger-as-)
 
 See [Samarbeisportalen](https://samarbeid.digdir.no/altinn/systembruker/2542) for illustration and webinar.
 {.mt-3}
 
-Refer to [API documentation](../../../../api/authentication/systemuserapi/) for more information on available endpoints.
+Refer to [API documentation](/en/api/authentication/systemuserapi/) for more information on available endpoints.
 
 ## Maskinporten authentication
 

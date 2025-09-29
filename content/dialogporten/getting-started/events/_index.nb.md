@@ -12,7 +12,7 @@ _Hendelser_ refererer til tekniske applikasjonshendelser generert av Dialogporte
 
 ## Hvordan Dialogporten bruker hendelser
 
-Dialogporten vil automatisk publisere hendelser av forhåndsdefinerte typer for alle endringer i Dialogporten, inkludert opprettelsen og oppdateringer utført på dialogen og dens overføringer og aktiviteter. Autorisasjonspolicyen knyttet til [hovedtjenesteressursen]({{<relref "../authorization/service-resource">}}) styrer hvem som har lov til å konsumere disse hendelsene på vegne av organisasjonen/innbyggeren som "eier" dialogen.
+Dialogporten vil automatisk publisere hendelser av forhåndsdefinerte typer for alle endringer i Dialogporten, inkludert opprettelsen og oppdateringer utført på dialogen og dens overføringer og aktiviteter. Autorisasjonspolicyen knyttet til [hovedtjenesteressursen](/nb/dialogporten/getting-started/events/../authorization/service-resource/) styrer hvem som har lov til å konsumere disse hendelsene på vegne av organisasjonen/innbyggeren som "eier" dialogen.
 
 Dialogporten vil også produsere hendelser når en dialog (eller en dialogendring) først blir sett, dvs. når en enkelt dialogs detaljer hentes fra API-et (sette hendelser sendes ikke som et resultat av forespørsler til søke-/liste-API-et).
 
@@ -34,10 +34,10 @@ Eksempler på bruk:
 
 Dialogporten støtter en tilpasset protokoll for oppdateringsabonnement, som bruker GraphQL-abonnementer levert direkte av Dialogporten. Dette er nyttig for online, interaktive GUIer der brukeren er til stede, noe som gjør at systemet kan overvåke en enkelt dialog for oppdateringer.
 
-Vanligvis brukes dette til å gjøre det mulig for GUIer å varsle sluttbrukeren umiddelbart hvis en dialog som for øyeblikket er åpnet/brukt har blitt endret, noe som er nyttig når man håndterer tilstandsendrende [skrivehandlinger]({{<relref "../write-actions">}}).
+Vanligvis brukes dette til å gjøre det mulig for GUIer å varsle sluttbrukeren umiddelbart hvis en dialog som for øyeblikket er åpnet/brukt har blitt endret, noe som er nyttig når man håndterer tilstandsendrende [skrivehandlinger](/nb/dialogporten/getting-started/events/../write-actions/).
 
 **Les mer**
-* [Brukerhåndbok for å oppdage endringer]({{<relref "../../user-guides/detecting-changes">}})
-* [Teknisk referanseinformasjon om Dialogporten-hendelser]({{<relref "../../reference/events">}})
+* [Brukerhåndbok for å oppdage endringer](/nb/dialogporten/getting-started/events/../../user-guides/detecting-changes/)
+* [Teknisk referanseinformasjon om Dialogporten-hendelser](/nb/dialogporten/getting-started/events/../../reference/events/)
 
 {{<children />}}

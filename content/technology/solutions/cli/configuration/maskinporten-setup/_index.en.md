@@ -16,7 +16,7 @@ The client you just created requires the following scopes:
 ## Using the Maskinporten client in the CLI
 In order to make use of your Maskinporten client, you need to add the JWK key pair from _step 6_ to the Altinn CLI configuration:
 
-Locate your [Maskinporten configuration in the appsettings.json file](../#maskinporten-settings) and add a base64 representation
+Locate your [Maskinporten configuration in the appsettings.json file](/en/technology/solutions/cli/configuration/#maskinporten-settings) and add a base64 representation
 of your key in the `EncodedJwk` field. 
 
 If you used the [Altinn JWKS tool](https://github.com/Altinn/altinn-authorization-utils/tree/main/src/Altinn.Cli)

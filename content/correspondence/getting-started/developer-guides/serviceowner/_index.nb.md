@@ -110,7 +110,7 @@ Se [Readme-filen på GitHub](https://github.com/Altinn/altinn-correspondence/blo
 
 Repoet inneholder også en [Postman-samling](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json) med eksempler.
 
-Swagger for meldings-APIet finner du [her](/api/correspondence/spec/).
+Swagger for meldings-APIet finner du [her](/nb/api/correspondence/spec/).
 
 ### 9. Test oppsett og formatering i Arbeidsflate og Altinn 2-innboks {#test-appearance-formatting}
 

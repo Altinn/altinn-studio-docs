@@ -12,7 +12,7 @@ Weight: 1
 For å bruke Formidling overgangsløsning i Altinn for å opprette, laste opp og hente fil metadata, må en tjenesteeier fullføre følgende trinn.
 
 1. Ha en eksisterende Altinn 2 Formidlingstjeneste.
-2. Ha eller lage en tilsvarende tjeneste i Altinn 3. Se hvordan du kommer i gang med Altinn 3 Formidling [her](../../getting-started/).
+2. Ha eller lage en tilsvarende tjeneste i Altinn 3. Se hvordan du kommer i gang med Altinn 3 Formidling [her](/nb/broker/getting-started/).
 For å konfigurere ressursen din korrekt for å bruke den i overgangsløsningen, [se under](#konfigurer-ressurs-til-bruk-i-overgangsløsningen).
 3. Bestill et overgangsoppsett fra Altinn 2 tjenesten til Altinn 3 tjenesten, [se under](#bestill-overgangsoppsett) for detaljer.
 4. Gå live med overgangsløsning mens du oppfordrer forbrukerne til å migrere til Altinn Formidling.
@@ -20,7 +20,7 @@ For å konfigurere ressursen din korrekt for å bruke den i overgangsløsningen,
 
 ### Konfigurer Ressurs til bruk i overgangsløsningen
 
-For å konfigurere ressursen slik at den fungerer optimalt i overgangsløsningen, og at den oppfører seg mest mulig som en Altinn 2 tjeneste, så bør du [sette følgende konfigurasjonverdier på ressursen](../../getting-started/developer-guides/service-owner/#operation-configure-resource-in-broker-api).
+For å konfigurere ressursen slik at den fungerer optimalt i overgangsløsningen, og at den oppfører seg mest mulig som en Altinn 2 tjeneste, så bør du [sette følgende konfigurasjonverdier på ressursen](/nb/broker/getting-started/developer-guides/service-owner/#operation-configure-resource-in-broker-api).
 
 Ta utgangspunkt i den eksisterende Altinn 2 tjenesten din og sett verdiene like der det er aktuelt.
 
@@ -29,7 +29,7 @@ Ta utgangspunkt i den eksisterende Altinn 2 tjenesten din og sett verdiene like 
 - PurgeFileTransferAfterAllRecipientsConfirmed = Om filer skal saneres umiddelbart etter at alle mottakere har bekreftet, de fleste bruker "true"
 - PurgeFileTransferGracePeriod = "24H" - Filer slettes ikke før 24 timer har passert (var hard-kodet til 48 timer i Altinn 2). Må spesifiseres som [ISO8601 Duration](https://en.wikipedia.org/wiki/ISO_8601#Durations) og 24 timer er maks.
 
-Dersom du trenger å bruke[Manifest fil](../technical-overview/#manifest-fil), må også følgende verdier settes:
+Dersom du trenger å bruke[Manifest fil](/nb/broker/broker-transition/technical-overview/#manifest-fil), må også følgende verdier settes:
 
 - UseManifestFileShim = true.
 - ExternalServiceCodeLegacy = den eksterne tjenestekoden til Altinn 2-tjenesten.

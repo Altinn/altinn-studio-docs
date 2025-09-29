@@ -67,7 +67,7 @@ Altinn offers recipient lookup functionality to determine names, contact details
 - **Timing**: Lookup occurs during order placement and again at the scheduled send time.
 - **Responsibility**: It is the sender's responsibility to check the send status. Lookup results are provided in the order response and detailed in the finished notifications.
 
-[Learn more about recipient lookup in the explanation documentation.](/notifications/explanation/recipient-lookup)
+[Learn more about recipient lookup in the explanation documentation.](/en/notifications/explanation/recipient-lookup)
 
 ## Send Condition
 
@@ -76,4 +76,4 @@ The send condition feature ensures notifications are sent only when specific cri
 - **Use Case**: Ideal for scenarios like reminders, where a notification is sent only if a required action has not been completed.
 - **Evaluation**: Conditions are checked by the application using the condition endpoint provided in the notification order.
 
-[Learn more about send conditions in the explanation documentation.](/notifications/explanation/send-condition)
+[Learn more about send conditions in the explanation documentation.](/en/notifications/explanation/send-condition)

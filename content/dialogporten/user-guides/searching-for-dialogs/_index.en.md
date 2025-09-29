@@ -11,12 +11,12 @@ weight: 20
 
 This guide shows how a end-user system can search for dialogs in Dialogporten using either REST or GraphQL APIs. Dialogporten supports a number of parameters for filtering, sorting and free-text searching.
 
-Note that the data structure that is returned in searches differ from the one returned on the [details endpoint](../getting-dialog-details); more information about the dialog and what access the authorized user has to various parts of it is only available in the details view. 
+Note that the data structure that is returned in searches differ from the one returned on the [details endpoint](/en/dialogporten/user-guides/getting-dialog-details/); more information about the dialog and what access the authorized user has to various parts of it is only available in the details view. 
 
 ## Basic steps (REST)
 
-1. [Authenticate as a end-user](../authenticating#usage-for-end-user-systems)
-3. [Find the parties](../authorized-parties) that the authenticated end-user is authorized to represent
+1. [Authenticate as a end-user](/en/dialogporten/user-guides/authenticating#usage-for-end-user-systems)
+3. [Find the parties](/en/dialogporten/user-guides/authorized-parties/) that the authenticated end-user is authorized to represent
 2. Perform a GET request to `/api/v1/enduser/dialogs`, supplying query parameters according to the table below:
 
 {{<swaggerdisplayoperation "get" "/api/v1/enduser/dialogs">}}
@@ -27,16 +27,16 @@ Note that the data structure that is returned in searches differ from the one re
 * `party` parameters must have one of the following formats
     * `urn:altinn:person:identifier-no:<11 digit national identity numner>`
     * `urn:altinn:organization:identifier-no:<9 digit CCR number>`
-* `serviceResource` parameters must refer to a resource in the [Resource Registry](../../../authorization/what-do-you-get/resourceregistry) and use the following format:
+* `serviceResource` parameters must refer to a resource in the [Resource Registry](/en/authorization/what-do-you-get/resourceregistry/) and use the following format:
     * `urn:altinn:resource:<identifier>`
 
 {{<notice warning>}}
-Note the end-user search API requires that at least one [`serviceResource`](../../getting-started/authorization/service-resource) or [`party`](../../getting-started/authorization/parties) parameter is supplied. Up to 20 distinct values for each of these two types may be supplied.
+Note the end-user search API requires that at least one [`serviceResource`](/en/dialogporten/getting-started/authorization/service-resource/) or [`party`](/en/dialogporten/getting-started/authorization/parties/) parameter is supplied. Up to 20 distinct values for each of these two types may be supplied.
 {{</notice>}} 
 
 ### Returned information
 
-This will return a [collection of dialogs](../../reference/entities/dialog/#search), which contains a subset of the information returned on the [dialog details endpoint](../../reference/entities/dialog/). Depending on search parameters and the access of the authenticated user, this list may be empty. 
+This will return a [collection of dialogs](/en/dialogporten/reference/entities/dialog/#search), which contains a subset of the information returned on the [dialog details endpoint](/en/dialogporten/reference/entities/dialog/). Depending on search parameters and the access of the authenticated user, this list may be empty. 
 
 If any invalid search parameters are supplied, the API will return `400 Bad Request` and a response explaining what errors were encountered. This response follows the standard [ProblemDetails](https://datatracker.ietf.org/doc/html/rfc7807) format.
 
@@ -68,7 +68,7 @@ These are example values that might be supplied in the `OrderBy` query parameter
 * `createdat_desc,duedate_asc`
 * `contentupdatedat_desc`
 
-The current ordering can be found in the [collection model](../../reference/entities/dialog/#search), next to the `continuationToken` and `hasNextPage` fields. The ordering is also embedded into `continuationToken`, so when paginating, supplying the continution token alone is sufficient to preserve ordering.
+The current ordering can be found in the [collection model](/en/dialogporten/reference/entities/dialog/#search), next to the `continuationToken` and `hasNextPage` fields. The ordering is also embedded into `continuationToken`, so when paginating, supplying the continution token alone is sufficient to preserve ordering.
 
 ## Basic steps (GraphQL)
 

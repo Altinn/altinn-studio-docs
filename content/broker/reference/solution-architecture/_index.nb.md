@@ -31,7 +31,7 @@ Disse prinsippene gjelder.
 
 ### General Altinn 3 Architecture Principles
 
-[Altinn 3 arkitekturprinsipper ](/principles) gjelder.
+[Altinn 3 arkitekturprinsipper ](/nb/technology/architecture/principles) gjelder.
 
 <!--
 ### Architecture Principles for Messaging and Data Sharing
@@ -84,7 +84,7 @@ Følgende figur gir en oversikt over de vikigste byggeklossene i overordnet løs
 
 
 Dette diagrammet bygger videre på 
-[den overordnede kontekstoversikten](../../explanation/basic-concepts#context-overview) 
+[den overordnede kontekstoversikten](/nb/broker/explanation/basic-concepts#context-overview) 
 ved å angi de viktigste Digdir-løsningene.
 Applikasjonskomponenter i form av Digdir-løsninger (på høyre side) realiserer funksjonaliteten 
 som indikert av  applikasjonstjenestene (nederst).
@@ -95,10 +95,10 @@ Her gis et sammendrag av hvordan disse komponentene forholder seg til og tjener 
 * [ID-porten](https://www.digdir.no/felleslosninger/id-porten/864): Autentisering av menneskelige sluttbrukere.
 * [Maskinporten](https://www.digdir.no/felleslosninger/maskinporten/869): Autentisering og autorisering av 
   maskiner (sluttbrukersystemer). Autorisasjonsfunksjonene realiseres i samarbeid med Altinn-autorisasjonskomponenten.
-* [Altinn Autorisasjon](../../../authorization/). Registrer tjenesteressurser og autoriser tilgang.
+* [Altinn Autorisasjon](/nb/authorization/). Registrer tjenesteressurser og autoriser tilgang.
 * Altinn Notifications. Varsler til menneskelige sluttbrukere via e-post og SMS.
 * Altinn Events. Varsler til webhooks i sluttbrukersystemer.
-* [Altinn Studio](../../../altinn-studio/). Verktøy for utvikling av digitale tjenester for innbyggere og virksomheter. Brukes også til applikasjoner og brukergrensesnitt for selvbetjent konfigurasjon av løsningskomponenenter i Altinn.
+* [Altinn Studio](/nb/altinn-studio/). Verktøy for utvikling av digitale tjenester for innbyggere og virksomheter. Brukes også til applikasjoner og brukergrensesnitt for selvbetjent konfigurasjon av løsningskomponenenter i Altinn.
 
 <!-- * Altinn Fakturering. Fakturering av kunder. -->
 
@@ -165,7 +165,7 @@ Learn](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-en
 ## Metadatalager
 
 Følgende informasjonsmodell detaljerer 
-[den konseptuelle informasjonsmodellen under _grunnleggende konsepter_:](../../explanation/basic-concepts#conceptual-information-model). 
+[den konseptuelle informasjonsmodellen under _grunnleggende konsepter_:](/nb/broker/explanation/basic-concepts#conceptual-information-model). 
 Her angis hvilke data som lagres, som utgangspunkt for vurdering av behov for 
 sikkerhetskontroller.
 
@@ -223,24 +223,24 @@ gjennom Altinn Autorisasjon.
 
 <!--  Erik 2024-04-28: 
 Altinn Notifications mangler norsk oversettelse , så bruk url i stedet for relativ lenke så lenge
-Relativ lenke: [Varslingskomponenten i Altinn](../../notifications/)
+Relativ lenke: [Varslingskomponenten i Altinn](/nb/notifications/)
 -->
 
 Varsler til menneskelige sluttbrukere via e-post og sms
-er realisert via [Varslingskomponenten i Altinn](https://docs.altinn.studio/notifications/).
+er realisert via [Varslingskomponenten i Altinn](/nb/notifications/).
 
 
 ### Varsler til sluttbrukersystemer
 
 <!--  Erik 2024-04-28: 
 Altinn Events mangler norsk oversettelse , så bruk url i stedet for relativ lenke så lenge
-Relativ lenke: [Altinn Events](../../events/)
+Relativ lenke: [Altinn Events](/nb/events/)
 -->
-Altinn Formidling baserer seg på støtten i [Altinn Events](https://docs.altinn.studio/events/)
+Altinn Formidling baserer seg på støtten i [Altinn Events](/nb/events/)
 for å sende varsler til _webhooks_ i sluttbrukersystemene.
 
-Det må da settes opp abonnementer i [Altinn Events](https://docs.altinn.studio/events/), 
-med tilgangsstyring av aktuelle tjenesteressurser i [Altinn Autorisasjon](../../../authorization/).
+Det må da settes opp abonnementer i [Altinn Events](/nb/events/), 
+med tilgangsstyring av aktuelle tjenesteressurser i [Altinn Autorisasjon](/nb/authorization/).
 
 Se også [Altinn 3 Broker OpenAPI specification](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-v1.json) 
 for spesifikasjon av  hendelser som støttes av Altinn Formidling.

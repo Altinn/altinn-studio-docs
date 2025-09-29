@@ -4,6 +4,7 @@ description: Beskrivelse av Events-funksjonaliteten i Altinn 3.
 toc: true
 weight: 20
 aliases:
+ - /events/
  - /altinn-events/
 cascade:
   params:

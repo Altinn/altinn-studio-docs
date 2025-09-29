@@ -67,7 +67,7 @@ Altinn tilbyr funksjonalitet for mottakeroppslag for å bestemme navn, kontaktde
 - **Tidspunkt**: Oppslag skjer ved bestilling og igjen på planlagt sendetidspunkt.
 - **Ansvar**: Det er avsenderens ansvar å sjekke sendestatus. Oppslagsresultater gis i bestillingsresponsen og detaljeres i de ferdige varslene.
 
-[Lær mer om mottakeroppslag i forklaringsdokumentasjonen.](/notifications/explanation/recipient-lookup)
+[Lær mer om mottakeroppslag i forklaringsdokumentasjonen.](/nb/notifications/explanation/recipient-lookup)
 
 ## Sendebetingelse
 
@@ -76,4 +76,4 @@ Sendebetingelsesfunksjonen sikrer at varsler kun sendes når spesifikke kriterie
 - **Bruksområde**: Ideelt for scenarier som påminnelser, der et varsel sendes kun hvis en påkrevd handling ikke er fullført.
 - **Evaluering**: Betingelser sjekkes av applikasjonen ved hjelp av betingelsesendepunktet som er oppgitt i varslingsordren.
 
-[Lær mer om sendebetingelser i forklaringsdokumentasjonen.](/notifications/explanation/send-condition)
+[Lær mer om sendebetingelser i forklaringsdokumentasjonen.](/nb/notifications/explanation/send-condition)

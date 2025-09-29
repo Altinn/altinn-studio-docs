@@ -72,7 +72,11 @@
                   {{- if eq .Kind "taxonomy" -}}
                     <a href="/tags/">Tags</a> /
                   {{- end -}}
-                  {{- template "breadcrumb" dict "page" . "value" .LinkTitle -}}
+                  {{- $currentBreadcrumbText := .LinkTitle -}}
+                  {{- if .Params.breadcrumbText -}}
+                    {{- $currentBreadcrumbText = .Params.breadcrumbText -}}
+                  {{- end -}}
+                  {{- template "breadcrumb" dict "page" . "value" $currentBreadcrumbText -}}
                 </span>
             </div>            
           </div>
@@ -108,7 +112,11 @@
 
 {{- define "breadcrumb" -}}
   {{- if .page.Parent.Parent -}}
-    {{- $value := (printf "<a href='%s'>%s</a> <span class='adocs-breadcrumb-divider'> / </span> %s" .page.Parent.RelPermalink .page.Parent.LinkTitle .value) -}}
+    {{- $breadcrumbText := .page.Parent.LinkTitle -}}
+    {{- if .page.Parent.Params.breadcrumbText -}}
+      {{- $breadcrumbText = .page.Parent.Params.breadcrumbText -}}
+    {{- end -}}
+    {{- $value := (printf "<a href='%s'>%s</a> <span class='adocs-breadcrumb-divider'> / </span> %s" .page.Parent.RelPermalink $breadcrumbText .value) -}}
     {{- template "breadcrumb" dict "page" .page.Parent "value" $value -}}
   {{- else -}}
   {{- .value|safeHTML -}}
