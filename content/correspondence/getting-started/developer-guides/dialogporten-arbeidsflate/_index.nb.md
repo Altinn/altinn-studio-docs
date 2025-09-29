@@ -10,12 +10,12 @@ weight: 40
 {{<children />}}
 
 ## Transmission
-En transmission kan opprettes gjennom Altinn 3 Melding API for å gruppere flere relaterte meldinger innenfor samme dialog.
+En transmission kan opprettes gjennom Altinn 3 Melding API for å gruppere flere relaterte instanser innenfor samme dialog.
 
 ### Hvordan komme i gang
 
 Når en melding opprettes vil entiteten få tildelt en dialogId som ligger i den eksterne referansen til meldingen.
-Fremtidige meldinger som er relatert til dialogen kan grupperes gjennom transmissions. Dette gjøres ved å referere til dialogId i den eksterne referansen.
+Fremtidige instanser som er relatert til dialogen kan grupperes gjennom transmissions. Dette gjøres ved å referere til dialogId i den eksterne referansen.
 
 ```json
 {
@@ -56,3 +56,8 @@ Responsen skal være i følgende format:
     }
 }
 ```
+#### Transmissions i arbeidsflate
+
+![Dialog med en indikert transmission](./af-transmission1.png)
+
+![Dialog med en transmission](./af-transmission2.png)

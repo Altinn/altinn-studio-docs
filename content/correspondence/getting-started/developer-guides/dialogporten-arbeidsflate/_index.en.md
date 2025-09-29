@@ -10,13 +10,12 @@ weight: 40
 {{<children />}}
 
 ## Transmissions
-A transmission can be created through the Altinn 3 Correspondence API to group multiple related correspondences within the same dialog.
-content/dialogporten/reference/entities/transmission/_index.en.md
+A transmission can be created through the Altinn 3 Correspondence API to group multiple related instances within the same dialog.
 
 ### How to get started
 
 When a correspondence is created the entity will be given a dialogId which resides in the external reference of the correspondence.
-Future correspondences which are related to the dialog can be grouped through transmissions. This is done by referring to the dialogId in the external reference.
+Future instances which are related to the dialog can be grouped through transmissions. This is done by referring to the dialogId in the external reference.
 
 ```json
 {
@@ -57,3 +56,9 @@ The response should be of the following format:
     }
 }
 ```
+
+#### Transmissions in arbeidsflate
+
+![Dialog with an indicated transmission](./af-transmission1.png)
+
+![Dialog with a transmission](./af-transmission2.png)
