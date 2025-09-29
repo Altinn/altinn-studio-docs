@@ -60,6 +60,10 @@
         {{- end -}}
       {{- else -}}
         {{/* Handle regular products */}}
+        {{- $supportedLanguages := slice -}}
+        {{- range .Site.Languages -}}
+          {{- $supportedLanguages = $supportedLanguages | append .Lang -}}
+        {{- end -}}
         {{- range .Site.Home.Sections -}}
           {{- $sectionPath := strings.TrimPrefix "/" .RelPermalink -}}
           {{- $sectionPath = strings.TrimSuffix "/" $sectionPath -}}
@@ -67,7 +71,7 @@
 
           {{- $sectionProduct := "" -}}
           {{- if gt (len $sectionParts) 0 -}}
-            {{- if and (gt (len $sectionParts) 1) (in (slice "en" "nb" "nn") (index $sectionParts 0)) -}}
+            {{- if and (gt (len $sectionParts) 1) (in $supportedLanguages (index $sectionParts 0)) -}}
               {{- $sectionProduct = index $sectionParts 1 -}}
             {{- else -}}
               {{- $sectionProduct = index $sectionParts 0 -}}

@@ -7,33 +7,49 @@
 
 {{- $relativeURL := .RelPermalink -}}
 
-{{/* Simple approach: check if URL contains specific product paths */}}
-{{- if or (hasPrefix $relativeURL "/en/authorization/") (hasPrefix $relativeURL "/nb/authorization/") (hasPrefix $relativeURL "/nn/authorization/") (eq $relativeURL "/en/authorization") (eq $relativeURL "/nb/authorization") (eq $relativeURL "/nn/authorization") -}}
-  {{- $currentProduct = "authorization" -}}
-{{- else if or (hasPrefix $relativeURL "/en/altinn-studio/") (hasPrefix $relativeURL "/nb/altinn-studio/") (hasPrefix $relativeURL "/nn/altinn-studio/") (eq $relativeURL "/en/altinn-studio") (eq $relativeURL "/nb/altinn-studio") (eq $relativeURL "/nn/altinn-studio") -}}
-  {{- $currentProduct = "altinn-studio" -}}
-  {{/* Extract version for altinn-studio */}}
-  {{- $pathParts := split (strings.Trim $relativeURL "/") "/" -}}
-  {{- if gt (len $pathParts) 2 -}}
-    {{- $versionPart := index $pathParts 2 -}}
+{{/* Parse the URL path into components */}}
+{{- $pathParts := split (strings.Trim $relativeURL "/") "/" -}}
+{{- $supportedLanguages := slice -}}
+{{- range .Site.Languages -}}
+  {{- $supportedLanguages = $supportedLanguages | append .Lang -}}
+{{- end -}}
+
+{{/* Determine if first part is a language code */}}
+{{- $firstPart := "" -}}
+{{- $productPart := "" -}}
+{{- $versionPart := "" -}}
+
+{{- if gt (len $pathParts) 0 -}}
+  {{- $firstPart = index $pathParts 0 -}}
+
+  {{/* Check if URL starts with a language code */}}
+  {{- if in $supportedLanguages $firstPart -}}
+    {{/* Language-prefixed URL: /en/product/ or /nb/product/ */}}
+    {{- if gt (len $pathParts) 1 -}}
+      {{- $productPart = index $pathParts 1 -}}
+      {{- if gt (len $pathParts) 2 -}}
+        {{- $versionPart = index $pathParts 2 -}}
+      {{- end -}}
+    {{- end -}}
+  {{- else -}}
+    {{/* Non-language-prefixed URL: /product/ */}}
+    {{- $productPart = $firstPart -}}
+    {{- if gt (len $pathParts) 1 -}}
+      {{- $versionPart = index $pathParts 1 -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{/* Set current product based on extracted product part */}}
+{{- if $productPart -}}
+  {{- $currentProduct = $productPart -}}
+
+  {{/* Special handling for altinn-studio versioning */}}
+  {{- if and (eq $productPart "altinn-studio") $versionPart -}}
     {{- if findRE "^v\\d+$" $versionPart -}}
       {{- $currentVersion = $versionPart -}}
     {{- end -}}
   {{- end -}}
-{{- else if or (hasPrefix $relativeURL "/en/broker/") (hasPrefix $relativeURL "/nb/broker/") (hasPrefix $relativeURL "/nn/broker/") (eq $relativeURL "/en/broker") (eq $relativeURL "/nb/broker") (eq $relativeURL "/nn/broker") -}}
-  {{- $currentProduct = "broker" -}}
-{{- else if or (hasPrefix $relativeURL "/en/dialogporten/") (hasPrefix $relativeURL "/nb/dialogporten/") (hasPrefix $relativeURL "/nn/dialogporten/") (eq $relativeURL "/en/dialogporten") (eq $relativeURL "/nb/dialogporten") (eq $relativeURL "/nn/dialogporten") -}}
-  {{- $currentProduct = "dialogporten" -}}
-{{- else if or (hasPrefix $relativeURL "/en/events/") (hasPrefix $relativeURL "/nb/events/") (hasPrefix $relativeURL "/nn/events/") (eq $relativeURL "/en/events") (eq $relativeURL "/nb/events") (eq $relativeURL "/nn/events") -}}
-  {{- $currentProduct = "events" -}}
-{{- else if or (hasPrefix $relativeURL "/en/correspondence/") (hasPrefix $relativeURL "/nb/correspondence/") (hasPrefix $relativeURL "/nn/correspondence/") (eq $relativeURL "/en/correspondence") (eq $relativeURL "/nb/correspondence") (eq $relativeURL "/nn/correspondence") -}}
-  {{- $currentProduct = "correspondence" -}}
-{{- else if or (hasPrefix $relativeURL "/en/notifications/") (hasPrefix $relativeURL "/nb/notifications/") (hasPrefix $relativeURL "/nn/notifications/") (eq $relativeURL "/en/notifications") (eq $relativeURL "/nb/notifications") (eq $relativeURL "/nn/notifications") -}}
-  {{- $currentProduct = "notifications" -}}
-{{- else if or (hasPrefix $relativeURL "/en/api/") (hasPrefix $relativeURL "/nb/api/") (hasPrefix $relativeURL "/nn/api/") (eq $relativeURL "/en/api") (eq $relativeURL "/nb/api") (eq $relativeURL "/nn/api") -}}
-  {{- $currentProduct = "api" -}}
-{{- else if or (hasPrefix $relativeURL "/en/community/") (hasPrefix $relativeURL "/nb/community/") (hasPrefix $relativeURL "/nn/community/") (eq $relativeURL "/en/community") (eq $relativeURL "/nb/community") (eq $relativeURL "/nn/community") -}}
-  {{- $currentProduct = "community" -}}
 {{- end -}}
 
 {{- return (dict "product" $currentProduct "version" $currentVersion) -}}
