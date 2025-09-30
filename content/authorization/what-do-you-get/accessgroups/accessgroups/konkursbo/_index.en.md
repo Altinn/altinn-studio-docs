@@ -11,8 +11,8 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Konkursbo lesetilgang](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/konkursbo/#konkursbo-lesetilgang)|
-|[Konkursbo skrivetilgang](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/konkursbo/#konkursbo-skrivetilgang)|
+|[Konkursbo lesetilgang](#konkursbo-lesetilgang)|
+|[Konkursbo skrivetilgang](#konkursbo-skrivetilgang)|
 
 
 
