@@ -14,7 +14,7 @@ aliases:
 |[Damp- og varmtvann](#damp--og-varmtvann)|
 |[Vann - ta ut fra kilde, rense og distribuere](#vann---ta-ut-fra-kilde-rense-og-distribuere)|
 |[Samle opp og behandle avløpsvann](#samle-opp-og-behandle-avløpsvann)|
-|[Avfall - samle inn, behandle bruke og gjenvinne](#avfall---samle-inn-behandle-bruke-og-gjenvinne)|
+|[Avfall - samle inn, behandle, bruke og gjenvinne](#avfall---samle-inn-behandle-bruke-og-gjenvinne)|
 |[Utvinning av råolje, naturgass og kull](#utvinning-av-råolje-naturgass-og-kull)|
 
 ### Elektrisitet - produsere, overføre og distribuere
@@ -33,8 +33,8 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til vann: ta ut fra ki
 Denne tilgangspakken gir fullmakter til tjenester knyttet til samle opp og behandle avløpsvann. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:samle-behandle-avlopsvann*
 
-### Avfall - samle inn, behandle bruke og gjenvinne
-Denne tilgangspakken gir fullmakter til tjenester knyttet til avfall: samle inn, behandle bruke og gjenvinne. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
+### Avfall - samle inn, behandle, bruke og gjenvinne
+Denne tilgangspakken gir fullmakter til tjenester knyttet til avfall: samle inn, behandle, bruke og gjenvinne. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:avfall-behandle-gjenvinne*
 
 ### Utvinning av råolje, naturgass og kull
