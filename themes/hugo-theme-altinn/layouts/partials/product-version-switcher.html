@@ -227,8 +227,14 @@
       }
 
       function updateAriaSelected() {
-        options.forEach(function(option, index) {
-          option.setAttribute('aria-selected', index === currentFocusIndex ? 'true' : 'false');
+        // Keep aria-selected on the actual selected version, not on the focused item
+        var currentVersion = button.querySelector('#current-version-top').textContent.trim();
+        options.forEach(function(option) {
+          var optionVersion = option.getAttribute('data-version');
+          option.setAttribute(
+            'aria-selected',
+            optionVersion === currentVersion ? 'true' : 'false'
+          );
         });
       }
 
