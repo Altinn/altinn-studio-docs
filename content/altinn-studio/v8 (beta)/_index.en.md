@@ -1,17 +1,12 @@
 ---
-title: V8
-linktitle: Altinn Studio
-breadcrumbText: Current (V8)
+title: V8 (beta)
 description: Altinn Studio - Your tool for developing digital services for citizens and businesses
-aliases:
-- /en/altinn-studio/
-- /en/teknologi/altinnstudio/solutions/altinn-studio/
-- /en/app/
 weight: 1
+draft: false
 cascade:
   params:
     product: product_studio
-    version: v8
+    version: v9
 ---
  <div class="row adocs-featuredBlocks">
     <div class="col-12 col-lg-6 mb-5">
@@ -19,7 +14,7 @@ cascade:
             <h2 class="a-h3">Find out more</h2>
             <p class="a-js-truncate-2">Read more about Altinn Studio</p>
             <div class="a-illustration-icon">
-                <img src="./Altinn-studio-2.svg" alt="Illustration: About Altinn Studio">
+                <img src="./Altinn-studio-2.svg">
                 <div class="a-illustration-overlay">
                     <span class="sr-only">About Altinn Studio</span>
                 </div>
@@ -62,7 +57,7 @@ cascade:
             <h2 class="a-h3">Get started</h2>
             <p class="a-js-truncate-2">Create your first service</p>
             <div class="a-illustration-icon">
-                <img src="./Altinn-studio-3.svg" alt="Illustration: Create your first service">
+                <img src="./Altinn-studio-3.svg">
                 <div class="a-illustration-overlay">
                     <span class="sr-only">Create your first service</span>
                 </div>
@@ -103,4 +98,4 @@ cascade:
 </div>
 
 ## News - upcoming
-{{% insert "content/altinn-studio/v8/news/upcoming/_index.en.md" %}}
+{{% insert "content/altinn-studio/news/upcoming/_index.nb.md" %}}

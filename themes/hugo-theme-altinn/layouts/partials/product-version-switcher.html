@@ -27,7 +27,18 @@
             aria-labelledby="version-selector-label"
             aria-describedby="version-selector-help"
             data-toggle="dropdown">
-            <span id="current-version-top">{{ if $currentVersion }}{{ $currentVersion }}{{ else }}{{ i18n "select_version" | default "Select Version" }}{{ end }}</span>
+            <span id="current-version-top">
+            {{- if $currentVersion -}}
+                {{- range $currentProductRootPage.Sections -}}
+                    {{- $folderName := path.Base .RelPermalink -}}
+                    {{- if eq $folderName $currentVersion -}}
+                        {{ .Title }}
+                    {{- end -}}
+                {{- end -}}
+            {{- else -}}
+                {{ i18n "select_version" | default "Select Version" }}
+            {{- end -}}
+            </span>
         </button>
         <div
             class="dropdown-menu version-dropdown"
@@ -43,7 +54,7 @@
                 role="option"
                 tabindex="-1"
                 aria-selected="{{if eq $folderName $currentVersion}}true{{else}}false{{end}}">
-                <span class="version-item">{{ $folderName }}</span>
+                <span class="version-item">{{ .Title }}</span>
             </a>
             {{- end -}}
         </div>

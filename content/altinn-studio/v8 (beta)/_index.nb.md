@@ -1,27 +1,22 @@
 ---
-title: V8
-linktitle: Altinn Studio
-breadcrumbText: Current (V8)
-description: Altinn Studio - Your tool for developing digital services for citizens and businesses
-aliases:
-- /en/altinn-studio/
-- /en/teknologi/altinnstudio/solutions/altinn-studio/
-- /en/app/
+title: V8 (beta)
+description: Altinn Studio - Ditt verktøy for utvikling av digitale tjenester til innbyggere og næringsliv
 weight: 1
+draft: false
 cascade:
   params:
     product: product_studio
-    version: v8
+    version: v9
 ---
  <div class="row adocs-featuredBlocks">
     <div class="col-12 col-lg-6 mb-5">
         <div style="text-align: center;">
-            <h2 class="a-h3">Find out more</h2>
-            <p class="a-js-truncate-2">Read more about Altinn Studio</p>
+            <h2 class="a-h3">Finn ut mer</h2>
+            <p class="a-js-truncate-2">Les mer om Altinn Studio</p>
             <div class="a-illustration-icon">
-                <img src="./Altinn-studio-2.svg" alt="Illustration: About Altinn Studio">
+                <img src="./Altinn-studio-2.svg">
                 <div class="a-illustration-overlay">
-                    <span class="sr-only">About Altinn Studio</span>
+                    <span class="sr-only">Om Altinn Studio</span>
                 </div>
             </div>
         </div>
@@ -31,7 +26,7 @@ cascade:
                     <a href="about" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
-                                About Altinn Studio
+                                Om Altinn Studio
                             </div>
                         </div>
                     </a>
@@ -40,7 +35,7 @@ cascade:
                     <a href="what-do-you-get" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
-                                What do you get?
+                                Hva får du?
                             </div>
                         </div>
                     </a>
@@ -49,7 +44,7 @@ cascade:
                     <a href="news" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
-                                News
+                                Nyheter
                             </div>
                         </div>
                     </a>
@@ -59,12 +54,12 @@ cascade:
     </div>
     <div class="col-12 col-lg-6 mb-5">
         <div style="text-align: center;">
-            <h2 class="a-h3">Get started</h2>
-            <p class="a-js-truncate-2">Create your first service</p>
+            <h2 class="a-h3">Kom i gang</h2>
+            <p class="a-js-truncate-2">Lag din første tjeneste</p>
             <div class="a-illustration-icon">
-                <img src="./Altinn-studio-3.svg" alt="Illustration: Create your first service">
+                <img src="./Altinn-studio-3.svg">
                 <div class="a-illustration-overlay">
-                    <span class="sr-only">Create your first service</span>
+                    <span class="sr-only">Lag din første tjeneste</span>
                 </div>
             </div>
         </div>
@@ -74,7 +69,7 @@ cascade:
                     <a href="getting-started/create-user/" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
-                                Create a user in Altinn Studio
+                                Opprett bruker
                             </div>
                         </div>
                     </a>
@@ -83,7 +78,7 @@ cascade:
                     <a href="getting-started/app-dev-course/" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
-                                Intro course
+                                Introkurs
                             </div>
                         </div>
                     </a>
@@ -92,7 +87,7 @@ cascade:
                     <a href="guides/development/basic-form" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
-                                User guide - simple form
+                                Brukerveiledning - enkelt skjema
                             </div>
                         </div>
                     </a>
@@ -102,5 +97,5 @@ cascade:
     </div>
 </div>
 
-## News - upcoming
-{{% insert "content/altinn-studio/v8/news/upcoming/_index.en.md" %}}
+## Nyheter - kommende
+{{% insert "content/altinn-studio/news/upcoming/_index.nb.md" %}}
