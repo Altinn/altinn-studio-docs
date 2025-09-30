@@ -15,11 +15,13 @@
             Version:
         {{- end -}}
         </label>
-        <div class="dropdown" role="combobox">
+        <div class="dropdown">
         <button
             type="button"
             id="version-selector-button"
             class="nav-link dropdown-toggle version-switcher"
+            role="combobox"
+            aria-controls="version-dropdown-menu"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-labelledby="version-selector-label"
