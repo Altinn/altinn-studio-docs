@@ -5,9 +5,7 @@ linktitle: Forespørsel om systembruker
 hidden: true
 ---
 
-
-
-### Opprettelse av systembruker for en standard system bruker
+### Opprettelse av systembruker for en standard systembruker
 
 Systembrukeren kan opprettes på to måter
 {.floating-bullet-numbers-sibling-ol}
