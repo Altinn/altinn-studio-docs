@@ -11,7 +11,7 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Forretningsfører eiendom](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/forretningsforer/#forretningsforer-eiendom)|
+|[Forretningsfører eiendom](#forretningsfører-eiendom)|
 
 
 ### Forretningsfører eiendom

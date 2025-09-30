@@ -10,16 +10,16 @@ aliases:
 
 | **Tilgangspakker i kategorien**|
 |---|
-| [Delegable Maskinporten scopes](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/integrasjoner/#programmeringsgrensesnitt--api)|
-| [Delegable Maskinporten scopes - NUF](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/integrasjoner/#programmeringsgrensesnitt-nuf---api)|
-| [Maskinlesbare hendelser](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/integrasjoner/#maskinlesbare-hendelser)|
+| [Delegable Maskinporten scopes](#delegable-maskinporten-scopes)|
+| [Delegable Maskinporten scopes - NUF](#delegable-maskinporten-scopes---nuf)|
+| [Maskinlesbare hendelser](#machine-readable-events)|
 
 
 ### Delegable Maskinporten scopes
 This access package grants authority to manage access to data and programming interfaces (APIs) that use Maskinporten or equivalent solutions for API security. Changes to regulations or the introduction of new digital services may result in modifications to the access provided by this authority.  
 *urn:altinn:accesspackage:delegerbare-maskinporten-scopes*
 
-### Delegable Maskinporten scopes -  NUF
+### Delegable Maskinporten scopes - NUF
 This access package grants authority to manage access to data and programming interfaces (APIs) that use Maskinporten or equivalent solutions for API security on behalf of Norwegian registered foreign business (NUF). Changes to regulations or the introduction of new digital services may result in modifications to the access provided by this authority.  
 *urn:altinn:accesspackage:delegerbare-maskinporten-scopes-NUF*
 
