@@ -1,6 +1,6 @@
 ---
 title: Demoklient
-description: For å vise hvordan leverandørstyrt opprettelse kan se ut har vi utviket demoklienten Smartcloud
+description: For å vise hvordan leverandørstyrt opprettelse kan se ut har vi utviklet demoklienten Smartcloud
 linktitle: Demoklient
 hidden: false
 weight: 10
@@ -8,7 +8,7 @@ weight: 10
 
 ## Demoklient
 
-For en demo av hvordan leverandørstyrt opprettelsee kan se ut, så vår demolklient [SmartCloud](http://smartcloudaltinn.azurewebsites.net).
+For en demo av hvordan leverandørstyrt opprettelse kan se ut, se vår demoklient [SmartCloud](http://smartcloudaltinn.azurewebsites.net).
 
 Se kode med dokumentasjon [her](https://github.com/TheTechArch/altinn-systemuser).
 
@@ -25,17 +25,6 @@ Systemtilbyder registrert i Altinn. Dette gjøres via API for systemleverandør.
 Systemintegrasjon registrert i Maskinporten test.
 
 For å opprette systembrukere kan testbrukere/organisasjoner fra Tenor benyttes.
-
-## Referanseimplementasjon og oppsett
-
-En referanseimplementasjon er utviklet for å demonstrere bruk av systembruker. Den er utviklet i C# og kan kjøres som en konsollapplikasjon.
-Den gjør følgende:
-
-Oppretter et token basert på konfigurert JSON Web Key, klient-ID, scope og organisasjonsnummeret til systembrukeroppretteren.
-
-Basert på mottatt token, gjør den kall mot referanse-API-er som krever systembruker.
-
-Se kode med dokumentasjon [her](https://github.com/TheTechArch/altinn-systemuser).
 
 ## Oppsett av referanseimplementasjon med egen konfigurasjon
 
