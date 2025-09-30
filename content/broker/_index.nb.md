@@ -1,7 +1,7 @@
 ---
 title: Altinn 3 Formidling
 linktitle: Formidling
-description: Altinn 3 Formidling ('Broker' på engelsk) tilbyr styrt filoverføring med støtte for store filer og avansert funksjonalitet for informasjonssikkerhet, statusmonitorering og tjenestekvalitet.   
+description: Altinn 3 Formidling ('Broker' på engelsk) tilbyr styrt filoverføring med støtte for store filer og avansert funksjonalitet for informasjonssikkerhet, statusmonitorering og tjenestekvalitet. Tjenesteeiere som har formidlingstjenester i Altinn II må reetablere disse i Altinn 3, i god tid før 19.juni 2026 når Altinn II slås av.  
 toc: false
 weight: 1
 aliases: 
