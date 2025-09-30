@@ -7,6 +7,53 @@ aliases:
   - nb/authentication/guides/systemvendor/
 ---
 
+## Opprettelse
+
+Systembrukeren opprettes av virksomhet eller tjenestetilbyder som ønsker å bruke et sluttbrukersystem for integrasjon mot Altinn eller andre offentlige løsninger. Systembrukeren kobles til valgt system/systemleverandør og tildeles nødvendige rettigheter.
+Opprettelse kan skje via sluttbrukerstyrt opprettelse eller leverandørstyrt opprettelse
+
+### Sluttbrukerstyrt opprettelse
+
+Ved sluttbrukerstyrt opprettelse er det kunden selv som går inn i altinn og velger systemet han ønsker opprette systembruker for fra en nedtrekksliste.
+Etter systemet er valg blir det presentert hvilke rettigheter sluttbrukersystemetsystemet krever. Ved å akseptere dette blir systembrukeren opprettet
+
+### Leverandørstyrt opprettelse
+
+Ved leverandørstyrt opprettelse er det sluttbrukersystem-leverandøren som initierer opprettelsen. Dette skjer mens kunden er i sluttbrukersystemet. Leverandøren lager en forespørsel om opprettelse av systembruker, med tilhørende rettigheter, i altinn. I retur får hen en url kunden kan sendes til for å godkjenne opprettelsen. Etter opprettelsen er godkjennt vil kunden sendes tilbake til sluttbrukersystemet.
+
+## Bruksmønster
+
+Systembruker kan kjøpres under forskjellige bruksmønster ut fra hvordan kundeforholdet er med sluttbrukersystemleverandør.
+
+### Kundestyrt system
+
+<!--Bedre tittel?-->
+
+I kundestyrt system er et sluttbrukersystem der kunden selv jobber.
+For å godkjenne opprettelse må vedkommende ha rollen tilgangsstyrer og selv ha tilgangen som delegeres
+Systembrukeren støtter både enkeltrettigheter og tilgangspakker (Q2 2025)
+
+![Leverandørstyrt opprettelse av kundestyrt system](image-4.png)
+Bildet viser leverandørstyrt opprettelse
+
+### Virksomhetsdelegering
+
+Kommer juni 2025
+
+Virksomhetsdelegering omfatter kunde - leverandørforhold som oppstår ved at kunde aktivt delegerer en eller flere tilgangspakker til sin leverandør.
+For virksomhetsdelegering støttes kun leverandørstyrt opprettelse
+
+![Virksomhetsdelegering](image-1.png)
+
+### Klientdelegering
+
+Klientdelegering omfatter et kunde - leverandørforhold som stammer fra rollene regnskapsfører (REGN) og Revisor (REVI) i Enhetsregisteret.
+Kunden registrerer regnskapsfører og revisor gjennom sammordnet registermelling. På bakgrunn av disse rollene får leverandøren delegert tilgangspakker som ligger inn under det aktuelle forholdet
+PÅ bakgrunn av dette kan leverandør legge kunden til en systembruker satt opp med tilsvarende tilgangspakke.  
+For klientdelegering støttes kun leverandørstyrt opprettelse.
+
+![Klientdelegering](image-2.png)
+
 ## Tiltak utført av systemleverandøren (SmartCloud AS)
 
 {.floating-bullet-numbers-sibling-ol}
