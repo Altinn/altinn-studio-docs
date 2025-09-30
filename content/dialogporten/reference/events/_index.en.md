@@ -8,9 +8,9 @@ weight: 50
 
 This contains reference information and examples of events produced by Dialogporten using Altinn Events. 
 
-For a functional overview, see [getting started with events]({{<relref "../../getting-started/events">}}).
+For a functional overview, see [getting started with events](/en/dialogporten/reference/events/../../getting-started/events/).
 
-For step-by-step information on how to use Altinn Events with Dialogporten, see the [user guides for detecting changes]({{<relref "../../user-guides/detecting-changes">}}).
+For step-by-step information on how to use Altinn Events with Dialogporten, see the [user guides for detecting changes](/en/dialogporten/reference/events/../../user-guides/detecting-changes/).
 
 ## Event types
 
@@ -23,7 +23,7 @@ For step-by-step information on how to use Altinn Events with Dialogporten, see 
 | `dialogporten.dialog.seen.v1`                 | A dialog has been seen (opened) by an end-user. |
 | `dialogporten.dialog.transmission.created.v1` | A transmission has been created.                |
 
-The above events are produced directly by Dialogporten. In addition, there are events emitted whenever the service owner updates the [activity log]({{<relref "../../getting-started/activity-log">}}).
+The above events are produced directly by Dialogporten. In addition, there are events emitted whenever the service owner updates the [activity log](/en/dialogporten/reference/events/../../getting-started/activity-log/).
 
 | Type                                                  | Description                                                   |
 | ----------------------------------------------------- | ------------------------------------------------------------- |

@@ -4,6 +4,7 @@ description: Altinn Autorisasjon er en samling løsninger som gir tilgangsstyrin
 toc: false
 weight: 1
 aliases:
+  - /authorization/
   - /technology/solutions/altinn-platform/authorization/
 cascade:
   params:

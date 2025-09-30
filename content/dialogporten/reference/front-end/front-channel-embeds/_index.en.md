@@ -7,7 +7,7 @@ toc: true
 
 ## Introduction
 
-See [getting started with front channel embeds]({{<relref "../../../getting-started/front-channel-embeds">}}) for an introduction.
+See [getting started with front channel embeds](/en/dialogporten/reference/front-end/front-channel-embeds/../../../getting-started/front-channel-embeds/) for an introduction.
 
 Below are the terms used on this page. 
 
@@ -26,7 +26,7 @@ Content provider system (CPS)
 
 ### Step 1: identifying a front-channel embed
 
-See [content types]({{<relref "../../content-types">}}) for a list of content fields for which a FCE may be used as a media type. This list might change, so EUS implementors are adviced to handle FCE media types on any content field.
+See [content types](/en/dialogporten/reference/front-end/front-channel-embeds/../../content-types/) for a list of content fields for which a FCE may be used as a media type. This list might change, so EUS implementors are adviced to handle FCE media types on any content field.
 
 The FCE media types can be identified by their prefix `application/vnd.dialogporten.frontchannelembed-url`. All FCEs however, also provide a remote content type suffix, which indicates the type of data that the endpoint at CPS can be expecte to return. Currently, two formats are allowed (for Markdown and HTML), which gives us these valid media types:
 

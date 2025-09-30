@@ -5,13 +5,14 @@ description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter 
 toc: true
 weight: 100
 aliases:
-- /authorization/modules/accessgroups
+- /authorization/modules/accessgroups/type-accessgroups
 ---
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Konkursbo lesetilgang](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/konkursbo/#konkursbo-lesetilgang)|
-|[Konkursbo skrivetilgang](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/konkursbo/#konkursbo-skrivetilgang)|
+|[Konkursbo lesetilgang](#konkursbo-lesetilgang)|
+|[Konkursbo skrivetilgang](#konkursbo-skrivetilgang)|
+
 
 ### Konkursbo lesetilgang
 Denne fullmakten delegeres til kreditorer og andre som skal ha lesetilgang til det enkelte konkursbo.  
@@ -25,6 +26,5 @@ Denne fullmakten gir bostyrers medhjelper tilgang til å jobbe på vegne av bost
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
 |**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
 |---|---|---|
-|Konkursbo tilgangsstyring|Privatperson|Ja|
 |Konkursbo lesetilgang|Bostyrer|Borolle delegering|
 |Konkursbo skrivetilgang|Bostyrer|Borolle delegering|

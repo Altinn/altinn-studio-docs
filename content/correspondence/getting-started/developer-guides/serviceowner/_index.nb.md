@@ -33,15 +33,19 @@ Se [Ressursadministrasjon](https://docs.altinn.studio/nb/authorization/getting-s
 ### 4. Opprett en ressurs {#registeraresourceinaltinnresourceregistry}
 
 1. Logg inn på Altinn Studio og naviger til ressursdashboardet.
-2. Opprett ny ressurs, følg veiledningen og fyll inn nødvendig informasjon og detaljer om tjenesten: Se [Ressursregister](https://docs.altinn.studio/nb/authorization/guides/resource-owner/create-resource-resource-admin/#trinn-1-opprett-ressurs) for en detaljert veiledning.
-3. Angi tilgangsregler for ressursen. Tilgangsregler for ressursen må konfigureres slik at de tillater følgende handlinger:
+2. Opprett ny ressurs, følg veiledningen og fyll inn nødvendig informasjon og detaljer om tjenesten. Se [Ressursregister](https://docs.altinn.studio/nb/authorization/guides/resource-owner/create-resource-resource-admin/#trinn-1-opprett-ressurs) for en detaljert veiledning.
+3. Opprett policy: her angis tilgangsregler for ressursen. Tilgangsregler for ressursen må konfigureres slik at de tillater følgende handlinger:
    - "read" ment for at mottakere skal kunne åpne og lese en melding.
    - "write" ment for at avsendere skal kunne sende en melding.
    - "subscribe" for å registrere hendelsesabonnement i Altinn Events.
 
+   Obs. Altinn II rollene erstattes av tilgangspakker i Altinn 3. Eksempel: den gamle rollen "Post/arkiv" er erstattet av tilgangspakke "Ordinær post til virksomheten". Frem til juni 2026 anbefaler vi at man setter både roller og tilgangspakker på ressursen. Det er viktig at å ta en grundig vurdering på hvilken tilgangspakke ressursen skal ha.
+
 Her er en [eksempelpolicy](https://docs.altinn.studio/nb/correspondence/getting-started/ExamplePolicy.xml).
 
+{{% notice warning  %}}
 **Viktig**: Som tjenesteeier trenger du kun å sette opp "read"-regler via tilgangspakker i GUI-et.
+{{% /notice %}}
 
 Merk at denne eksempelpolicyen angir en påkrevd brukerrolle "DAGL(daglig leder)" for brukeren som har tilgang til ressursen. Med en så åpen policy er det anbefalt å bruke [Ressursrettighetsregister](https://docs.altinn.studio/nb/authorization/what-do-you-get/resourceregistry/) (gå til engelsk språk for å se dokumentasjon for RRR) for å gi tilgang til spesifikke organisasjoner.
 En bruker med denne tilgangen kan deretter delegere tilgangen til virksomhetsbrukeren/systembrukeren
@@ -81,7 +85,7 @@ For tjenesteeiere er autentisering nå mer fleksibel med to støttede metoder:
 
 #### Metode 1: Direkte Maskinporten-autentisering
 
-Du kan nå autentisere direkte ved hjelp av din Maskinporten-klient med `altinn:serviceowner` og `altinn:correspondence.write` scopes.
+Du kan nå autentisere direkte ved hjelp av din [Maskinporten-klient](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument.html) med `altinn:serviceowner` og `altinn:correspondence.write` scopes.
 
 **Fordeler:**
 - **Ingen Altinn Token Exchange påkrevd**: Bruk Maskinporten-tokens direkte uten å veksle dem til Altinn-tokens
@@ -91,7 +95,7 @@ Du kan nå autentisere direkte ved hjelp av din Maskinporten-klient med `altinn:
 For tjenesteeiere som foretrekker den tradisjonelle tilnærmingen eller har eksisterende integrasjoner, kan du fortsette å:
 
 1. Autentisere ved hjelp av din Maskinporten-klient med `altinn:correspondence.write` scope
-2. [Hente et Altinn-token fra Altinn Autentisering](https://docs.altinn.studio/authentication/reference/architecture/accesstoken/)
+2. [Hente et Altinn-token fra Altinn Autentisering](https://docs.altinn.studio/nb/authorization/getting-started/authentication/#bytt-et-jwt-fra-en-ekstern-tokenleverandør)
 3. Bruke Altinn-tokenet for API-kall
 
 **Merk**: **Automatisk avsenderautorisasjon**: Systemet bestemmer og bruker automatisk organisasjonsnummeret ditt fra ressurskonfigurasjonen. Du trenger ikke lenger å spesifisere `Sender`-feltet i API-forespørslene dine (dette feltet er nå utdatert)
@@ -106,9 +110,23 @@ Se [Readme-filen på GitHub](https://github.com/Altinn/altinn-correspondence/blo
 
 Repoet inneholder også en [Postman-samling](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json) med eksempler.
 
-Swagger for meldings-APIet finner du [her](/api/correspondence/spec/).
+Swagger for meldings-APIet finner du [her](/nb/api/correspondence/spec/).
 
-### 9. Sett opp hendelsesabonnementer {#set-up-event-subscriptions}
+### 9. Test oppsett og formatering i Arbeidsflate og Altinn 2-innboks {#test-appearance-formatting}
+
+Før produksjonssetting bør du verifisere at meldinger vises riktig for mottakere.
+
+1. Send en testmelding til en testmottaker via ønsket verktøy (Postman, SDK eller din integrasjon).
+2. Verifiser i Arbeidsflate:
+   - Logg inn som testmottaker på [af.tt.altinn.no](https://af.tt.altinn.no/).
+   - Sjekk at innholdet i testmeldingen er formatert som tiltenkt.
+3. Verifiser i Altinn 2-innboks:
+   - Logg inn som testmottaker på [info.tt02.altinn.no](https://info.tt02.altinn.no/).
+   - Sjekk at innholdet i testmeldingen er formatert som tiltenkt.
+
+**Merk**: Støttede formateringstagger (Markdown og HTML) er dokumentert her: [Oversikt over tillatte markdown og HTML tagger](https://docs.altinn.studio/nb/dialogporten/reference/front-end/front-channel-embeds/#markdown-og-html)
+
+### 10. Sett opp hendelsesabonnementer {#set-up-event-subscriptions}
 
 For å kunne motta varsler om endringer eller hendelser knyttet til dine meldingstjenester, må du sette opp et abonnement for den aktuelle tjenesten.
 Dette trinnet er spesielt viktig for deg som ønsker å få automatiserte varsler om hendelser fra meldingstjenesten. Hvis du ikke trenger varsler, kan du hoppe over dette trinnet.

@@ -40,7 +40,7 @@ for a long time.
 - and then we have **Switzerland**, showing everybody
 [how it should be done!](https://interoperable-europe.ec.europa.eu/collection/open-source-observatory-osor/news/new-open-source-law-switzerland)
 
-We facilitate reuse and sharing at all levels of the Altinn architecture, from [our principles](/principles)
+We facilitate reuse and sharing at all levels of the Altinn architecture, from [our principles](/en/technology/architecture/principles)
 to the entire platform and infrastructure, down to design and UI-widgets, code and configuration.
 
 This is also one of several reasons why Altinn is now a [Digital Public Good (DPG)](https://digitalpublicgoods.net/),
@@ -48,7 +48,7 @@ where the goal is to be able to reuse everything we develop not only at national
 accelerate the attainment of [the sustainable development goals](https://www.undp.org/sustainable-development-goals).
 
 We also encourage [the developers building apps](https://www.altinn.no/en/about-altinn/the-altinn-co-operation/)
-using Altinn Studio to also [share their apps](../../../altinn-studio/news/launched-apps/).
+using Altinn Studio to also [share their apps](/en/altinn-studio/v8/news/launched-apps/).
 In fact, you have to do an active decision *not* to share, since sharing and reuse is central to the concept of Altinn.
 
 ## Cooperation
@@ -87,7 +87,7 @@ for example if the vendor chooses to phase out the product.
 If your solution is built on top of open source products then you, or anybody else, can
 make a [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) in such a situation.
 
-Altinn 3 is therefore [based on software and libraries](../../../technology/tools/) which is open source.
+Altinn 3 is therefore [based on software and libraries](/en/technology/tools/) which is open source.
 
 We think this naturally is also very important for those who consider whether to adopt Altinn or not.
 
@@ -118,7 +118,7 @@ Here are some of the wonderful [SaaS](https://en.wikipedia.org/wiki/Software_as_
 And this is just a small selection...
 
 Also, all tools and framework that we build Altinn 3 on top of, is open software that is also
-[very popular](/technology/architecture/principles/#build-with-modern-and-popular-frameworks).
+[very popular](/en/technology/architecture/principles/#build-with-modern-and-popular-frameworks).
 
 ## The best people
 

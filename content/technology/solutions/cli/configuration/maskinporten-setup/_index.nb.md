@@ -16,7 +16,7 @@ Maskinporten-klienten din trenger følgende scopes lagt til:
 ## Bruke Maskinporten-klienten i Altinn CLI
 For å kunne ta i bruk Maskinporten-klienten i Altinn CLI, må du legge til JWK nøkkelparet fra _steg 6_ i konfigurasjonen:
 
-Naviger til [Maskinporten-konfigurasjonen i appsettings.json](/technology/solutions/cli/configuration/#maskinporten-settings) og legg til en 
+Naviger til [Maskinporten-konfigurasjonen i appsettings.json](/nb/technology/solutions/cli/configuration/#maskinporten-settings) og legg til en 
 base64-formattert versjon av nøkkelen i `EncodedJwk` feltet.
 
 Hvis du brukte [Altinn JWKS-verktøyet](https://github.com/Altinn/altinn-authorization-utils/tree/main/src/Altinn.Cli) til opprettelse

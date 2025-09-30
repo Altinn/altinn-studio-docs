@@ -11,7 +11,7 @@ weight: 10
 
 In this section you will find detailed descriptions of API-operations and events for use during FileTranfers, icluding operations like; initialize filetransfer, upload files, and getting filetransfer status.
 
-For more information, see our [swagger-page](/api/broker/spec/) and [GitHub-repo](https://github.com/Altinn/altinn-broker), which also contains an Postman-collection with examples.
+For more information, see our [swagger-page](/en/api/broker/spec/) and [GitHub-repo](https://github.com/Altinn/altinn-broker), which also contains an Postman-collection with examples.
 
 ## Operation: Initialize FileTransfer {#operation-initialize-filetransfer}
 

@@ -34,4 +34,4 @@ Register your Maskinporten client(s) to authenticate with the Notifications API,
 Please reference [Maskinporten's own documentation](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument)
 on registering a new integration through their self service API.
 
-For a guide on how to register a new Maskinporten integration in Samarbeidsportalen, please see [Altinn Authorization](/authorization/getting-started/maskinportenclient/) 
+For a guide on how to register a new Maskinporten integration in Samarbeidsportalen, please see [Altinn Authorization](/en/authorization/getting-started/maskinportenclient/) 

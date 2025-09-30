@@ -10,12 +10,12 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Renovasjon](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/miljoulykkesikkerhet/#renovasjon)|
-|[Miljørydding, miljørensing og lignende](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/miljoulykkesikkerhet/#miljørydding-miljørensing-og-lignende)|
-|[Bærekraft](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/miljoulykkesikkerhet/#bærekraft)|
-|[Sikkerhet og internkontroll](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/miljoulykkesikkerhet/#sikkerhet-og-internkontroll)|
-|[Ulykke](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/miljoulykkesikkerhet/#ulykke)|
-|[Yrkesskade](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/miljoulykkesikkerhet/#yrkesskade)|
+|[Renovasjon](#renovasjon)|
+|[Miljørydding, miljørensing og lignende](#miljørydding-miljørensing-og-lignende)|
+|[Bærekraft](#bærekraft)|
+|[Sikkerhet og internkontroll](#sikkerhet-og-internkontroll)|
+|[Ulykke](#ulykke)|
+|[Yrkesskade](#yrkesskade)|
 
 ### Renovasjon
 Denne tilgangspakken gir fullmakter til tjenester knyttet til renovasjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  

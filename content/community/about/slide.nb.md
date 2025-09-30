@@ -171,4 +171,4 @@ Se [Archimate arkitekturmodell](https://altinn.github.io/ark-2020/706502fc-f537-
 
 ## The End
 
-[Tilbake](../)
+[Tilbake](/nb/community/)

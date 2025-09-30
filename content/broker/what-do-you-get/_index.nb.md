@@ -11,7 +11,7 @@ weight: 20
 Altinn Formidling tilbyr ende-til-ende filoverføringer, fra opprettelse, sending, mottak til sporing av fileoverføringer. Dette sikrer at alle deler av overføringsflyten håndteres effektivt og sikkert. 
  
 ### Støtte for store payloads
-Et særegent trekk ved Altinn Formidling er evnen til å håndtere store datamengder (payloads). Systemet støtter filoverføring på inntil 2 GB med virusskanning, og opptil hele 1600 GB uten virusskanning. Dette er løsningen for deg som trenger å overføre store mengder informasjon effektivt og sikkert. 
+Et særegent trekk ved Altinn Formidling er evnen til å håndtere store datamengder (payloads). Systemet støtter filoverføring på opptil hele 1600 GB uten virusskanning (inntil 2 GB med virusskanning). Dette er løsningen for deg som trenger å overføre store mengder informasjon effektivt og sikkert. 
 
 ### Sikkerhet
 Bruk av sikkerhetsmekanismer som beskytter innholdet, finn mer informasjon i denne artikkelen [Azure Storage-tjenestekryptering](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption)

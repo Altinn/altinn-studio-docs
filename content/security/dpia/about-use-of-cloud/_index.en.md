@@ -50,7 +50,7 @@ Digdir itself that controls when and if to contact support personnel, and what t
 access to.
 
 More information about security and the configuration of Altinn's use of Azure is documented in [Security in Altinn
-3](../../whitepaper).
+3](/en/security/whitepaper/).
 
 ## 3.3 Use of Data Processors and Sub-processors
 According to the agreements entered into, Microsoft is a data processor for Digdir for the processing of personal

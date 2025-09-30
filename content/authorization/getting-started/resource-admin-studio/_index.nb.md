@@ -9,7 +9,7 @@ toc: usant
 
 For å få tilgang til ressursadministrasjon i Altinn Studio må du ha en brukerkonto.
 
-Se denne [veiledningen](../../../altinn-studio/getting-started/create-user/)
+Se denne [veiledningen](/nb/altinn-studio/v8/getting-started/create-user/)
 
 ## Opprett ressursadministrasjonsarkivet for organisasjonen
 

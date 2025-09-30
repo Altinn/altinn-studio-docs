@@ -38,8 +38,8 @@ Migreringskomponenten vil per kjøring gjøre uttrekk av x antall elementer for 
 Migreringsprosessen per melding vil være delt opp i flere steg for å redusere risiko, og vil kunne styres per melding, med mulighet for å slette data og starte prosessen på nytt.
 Ingen data saneres fra Altinn 2.
 
-1. Migrering av meldingsdata og vedlegg fra Altinn 2 til Altinn 3, der vi ikke er avhengig av [tjenestekonfigurasjon](../service-migration/).
-2. Migrering av nødvendig [tjenestekonfigurasjon](../service-migration/) og tilgangsregler.
+1. Migrering av meldingsdata og vedlegg fra Altinn 2 til Altinn 3, der vi ikke er avhengig av [tjenestekonfigurasjon](/nb/correspondence/transition/service-migration/).
+2. Migrering av nødvendig [tjenestekonfigurasjon](/nb/correspondence/transition/service-migration/) og tilgangsregler.
 3. Migrering av tilhørende instans- og tjenestedelegeringer.
 4. Tilgjengeliggjøring av melding i Altinn 3 Melding API.
 5. Opprettelse av migrert melding i Dialogporten/Arbeidsflate.
@@ -68,7 +68,7 @@ Dette så det blir mulig for SluttbrukereSystemer å konsumere de ferske migrert
 - En begrenset form av varslingshistorikk: Tidspunkt og mottakeradresse, men ikke tekstinnhold.
 - Endringshistorikk; inkludert åpning og lesebekreftelse og informasjon om videresending og instansdelegering.
 - Altinn 2 CorrespondenceId og NotificationId som gjør det mulig å gjøre oppslag i Altinn 2 i tilfeller der man må gjøre mer detaljerte undersøkelser.
-- Tjeneste og instans-delegeringer gjøres som et separat steg, se [egen dokumentasjon](../delegation-migration/).
+- Tjeneste og instans-delegeringer gjøres som et separat steg, se [egen dokumentasjon](/nb/correspondence/transition/delegation-migration/).
 
 ## Synkronisering av statusendringer mellom Altinn 2 og 3
 

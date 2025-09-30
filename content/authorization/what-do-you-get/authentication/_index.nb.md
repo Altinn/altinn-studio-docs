@@ -62,5 +62,5 @@ GET /exchange/{tokenProvider}?test={bool}
 
 ## Arkitektur
 
-Se [applikasjonsutvikling komponenter](../../reference/architecture/)
+Se [applikasjonsutvikling komponenter](/nb/authorization/reference/architecture/)
 For detaljer om hvordan denne komponenten er konstruert.

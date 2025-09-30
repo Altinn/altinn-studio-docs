@@ -60,10 +60,10 @@ ___
 ## Documentation
 - The different solutions are described in detail
 on docs
-[Terms](/terms)
-[Architecture](/architecture/)
+[Terms](/nb/technology/terms/)
+[Architecture](/nb/technology/architecture/)
  
 ---
 ## The End
 
-[Tilbake](../)
+[Tilbake](/nb/community/)

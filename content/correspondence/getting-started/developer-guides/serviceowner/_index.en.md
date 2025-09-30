@@ -37,10 +37,14 @@ See [Resource Management](https://docs.altinn.studio/authorization/getting-start
    - "read" meant for recipients to open and read a message.
    - "write" meant for senders to send a message.
    - "subscribe" to register event subscriptions in Altinn Events.
+      
+      Note: The roles in Altinn II will be replaced by access packages in Altinn 3. Example: the Altinn II role "Mail/archive" is replaced by the access package "Ordinær post til virksomheten". We recommend all our service owners use both roles and access packages until June 2026. It's important to thoroughly assess which access package to assign to each resource.
 
 Here is an [example policy](https://docs.altinn.studio/correspondence/getting-started/ExamplePolicy.xml).
 
+{{% notice warning  %}}
 **Important**: As a service owner, you only need to configure "read" rules via access packages in the GUI.
+{{% /notice %}}
 
 Note that this example policy sets a required user role "DAGL" for the user who has access to the resource, and requires the use of [Resource Rights Registry](https://docs.altinn.studio/authorization/what-do-you-get/resourceregistry/rrr/) to grant access to specific organisations.
 A user with that access can then delegate the access to the enterprise user / system user.
@@ -81,10 +85,10 @@ For service owners, authentication is now more flexible with two supported metho
 
 #### Method 1: Direct Maskinporten Authentication
 
-You can now authenticate directly using your Maskinporten client with the `altinn:serviceowner` and `altinn:correspondence.write` scopes.
+You can now authenticate directly using your [Maskinporten client](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument.html) with the `altinn:serviceowner` and `altinn:correspondence.write` scopes.
 
 **Benefits:**
-- **No Altinn Token Exchange Required**: Use Maskinporten tokens directly without exchanging them for Altinn tokens
+- **No Altinn Token Exchange Required**: Use [Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument.html) tokens directly without exchanging them for Altinn tokens
 
 
 #### Method 2: Traditional Altinn Token Exchange
@@ -92,7 +96,7 @@ You can now authenticate directly using your Maskinporten client with the `altin
 For service owners who prefer the traditional approach or have existing integrations, you can continue to:
 
 1. Authenticate using your Maskinporten Client with the `altinn:correspondence.write` scope
-2. [Acquire an Altinn Token from Altinn Authentication](https://docs.altinn.studio/authentication/reference/architecture/accesstoken/)
+2. [Acquire an Altinn Token from Altinn Authentication](https://docs.altinn.studio/authorization/getting-started/authentication/#exchange-a-jwt-token-from-an-external-token-provider)
 3. Use the Altinn token for API calls
 
 **Note**: **Automatic Sender Authorization**: The system automatically determines and uses your organization number from the resource configuration. You no longer need to specify the `Sender` field in your API requests (this field is now deprecated)
@@ -109,7 +113,21 @@ The Repo also contains a [Postman collection](https://github.com/Altinn/altinn-c
 
 Swagger for the correspondence API is hosted [here](https://docs.altinn.studio/api/correspondence/spec/).
 
-### 9. Set up Event subscriptions {#setup-event-subscriptions}
+### 9. Test layout and formatting in Arbeidsflate and Altinn 2 inbox {#test-appearance-formatting}
+
+Before going live, verify that correspondences render as intended for recipients.
+
+1. Send a test correspondence to a test recipient using your preferred tool (Postman, SDK, or your integration).
+2. Verify in Arbeidsflate:
+   - Log in with the test recipient in [af.tt.altinn.no](https://af.tt.altinn.no/).
+   - Check that the test correspondence content is formatted as intended.
+3. Verify in Altinn 2 inbox:
+   - Log in with the test recipient in [info.tt02.altinn.no](https://info.tt02.altinn.no/).
+   - Check that the test correspondence content is formatted as intended.
+
+**Note**: Supported formatting tags (Markdown and HTML) are documented here: [Overview of allowed markdown and HTML tags](https://docs.altinn.studio/dialogporten/reference/front-end/front-channel-embeds/#markdown-and-html)
+
+### 10. Set up Event subscriptions {#setup-event-subscriptions}
 
 In order to use events/webhooks for a Correspondence resource, you need to set up a subscription for the given resource.
 

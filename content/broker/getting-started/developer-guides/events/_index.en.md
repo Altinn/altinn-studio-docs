@@ -10,7 +10,7 @@ weight: 40
 {{<children />}}
 
 In order to use events/webhooks for a Broker resource, you need to setup a subscription for the given resource.
-This subscription is used to configure the endpoint where the events published by broker end up. [You can read more about how to setup an Events subscription in Altinn Events here](/events/subscribe-to-events/developer-guides/setup-subscription/).
+This subscription is used to configure the endpoint where the events published by broker end up. [You can read more about how to setup an Events subscription in Altinn Events here](/en/events/subscribe-to-events/developer-guides/setup-subscription/).
 
 All Events published by Altinn Broker follow the same pattern:
 
@@ -30,7 +30,7 @@ All Events published by Altinn Broker follow the same pattern:
 
 ## Event Subscription {#event-subcription}
 
-This subscription is used to configure the endpoint where the events published by broker end up. [You can read more about how to setup an Events subscription in Altinn Events here](/events/subscribe-to-events/developer-guides/setup-subscription/).
+This subscription is used to configure the endpoint where the events published by broker end up. [You can read more about how to setup an Events subscription in Altinn Events here](/en/events/subscribe-to-events/developer-guides/setup-subscription/).
 
 You are required to set up the following filters:
 
@@ -63,5 +63,5 @@ If you do not specify a Type Filter you will receive all the different types of 
 - `no.altinn.broker.downloadconfirmed`
 - `no.altinn.broker.fileneverconfirmeddownloaded`
 
-For further description of events and their usage, see [send files](../send-files/) and [receive files](../receive-files/) developer guides, as these describe the events in relation to the respective roles/process.
+For further description of events and their usage, see [send files](/en/broker/getting-started/developer-guides/send-files/) and [receive files](/en/broker/getting-started/developer-guides/receive-files/) developer guides, as these describe the events in relation to the respective roles/process.
 

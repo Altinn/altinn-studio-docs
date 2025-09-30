@@ -6,7 +6,7 @@ tags: [architecture, solution]
 toc: false
 ---
 
-Also see [solution components](/authorization/what-do-you-get/resourceregistry/) for details about functionality.
+Also see [solution components](/nb/authorization/what-do-you-get/resourceregistry/) for details about functionality.
 
 ![Resource Registry](resourceregistry.drawio.svg "Construction Components Altinn Resource Registry")
 

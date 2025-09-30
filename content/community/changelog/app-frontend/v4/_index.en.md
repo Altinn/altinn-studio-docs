@@ -17,14 +17,14 @@ make the necessary changes throughout your app.
 ## Requires backend version 8.0.0
 
 App frontend v4 requires at least version 8.0.0 of the `Altinn.App.Core` and `Altinn.App.Api` nuget packages.
-See the [overview of changes in backend v8](/community/changelog/app-nuget/v8) for more information on how to upgrade.
+See the [overview of changes in backend v8](/en/community/changelog/app-nuget/v8/) for more information on how to upgrade.
 
 ## Using layout sets is now required
 
 Layout sets is a way to support multiple forms in a single application.
 This entails a slightly different folder structure in the `ui` folder of your app, as well as a new `layout-sets.json` file.
 This used to be optional, but as of v4 it is required, even for apps with only a single data step.
-See the [documentation on pages](/altinn-studio/reference/ux/pages/#setup) for more information.
+See the [documentation on pages](/en/altinn-studio/v8/reference/ux/pages/#setup) for more information.
 
 ## Defining a custom receipt is now done with a layout set
 
@@ -125,7 +125,7 @@ It should work mostly the same as before, but there are a few subtle changes tha
   of the null value. This has been changed so that the full path is shown in all cases instead.
 - To alleviate the problem of referring to null values, a new `defaultValue` property has been added to the text
   resources that, if set, will be shown instead of the data model path.
-  See the [documentation on text resources](/altinn-studio/reference/ux/texts/#default-value) for more information.
+  See the [documentation on text resources](/en/altinn-studio/v8/reference/ux/texts/#default-value) for more information.
 - Variables in text are now supported for items in nested repeating groups. Previously, only items in top-level repeating groups
   were supported in text resource variables.
 - Using `dataModel.default` as the data source in text resources is no longer recommended. Instead, refer to the
@@ -150,13 +150,13 @@ Unless the user changes this setting, they will be prompted with the following p
 
 ## Tracks are no longer supported
 
-Showing and hiding pages using [tracks](/altinn-studio/reference/ux/pages/tracks/) (calculate page order) is no longer supported.
+Showing and hiding pages using [tracks](/en/altinn-studio/v8/reference/ux/pages/tracks/) (calculate page order) is no longer supported.
 This also means that the trigger `calculatePageOrder` no longer has any effect and should be removed from any components where it is used.
 Instead, you should use dynamic expressions on the `hidden` property of a layout page to determine whether pages should be visible or hidden.
 
-To opt-in for an automatic AI-generated Pull Request to help you migrate from the old tracks feature, see the [Opt-in to Altinn AI for tracks migration](/community/changelog/app-frontend/v4/migrating-from-v3/#opt-in-to-altinn-ai-for-tracks-migration).
+To opt-in for an automatic AI-generated Pull Request to help you migrate from the old tracks feature, see the [Opt-in to Altinn AI for tracks migration](/en/community/changelog/app-frontend/v4/migrating-from-v3/#opt-in-to-altinn-ai-for-tracks-migration).
 
-See the [documentation on dynamic expressions](/altinn-studio/reference/logic/expressions/#showhide-entire-pages) for more information.
+See the [documentation on dynamic expressions](/en/altinn-studio/v8/reference/logic/expressions/#showhide-entire-pages) for more information.
 
 ## Data model schema validation works for more data models
 
@@ -173,7 +173,7 @@ a `Checkboxes` component to a `boolean` field, and provide an options list with 
 frontend will convert the strings to booleans.
 
 If you bind an `Input` component to a `number` field, the frontend will convert the string to a number while the user
-is typing. For the best possible user experience, set up [number formatting](/altinn-studio/reference/ux/styling/#formatting-numbers)
+is typing. For the best possible user experience, set up [number formatting](/en/altinn-studio/v8/reference/ux/styling/#formatting-numbers)
 on the `Input` component.
 
 **Note:** If you have set up a `RuleHandler.js` file in your app, you may need to update it to handle the new data types.
@@ -200,7 +200,7 @@ away from the field and starts typing in a new field (with a lower, or default `
 If your app relied on disabling `saveWhileTyping` to ensure your custom data processor was not called too often
 (as we've often seen done when a change in one field triggers an API call), you should consider making the expensive
 action in your data processor a custom action instead, via adding
-a [CustomButton component](/altinn-studio/reference/ux/components/custombutton/) nearby the field. This way the user controls
+a [CustomButton component](/en/altinn-studio/v8/reference/ux/components/custombutton/) nearby the field. This way the user controls
 when the action is triggered, not our automatic saving functionality.
 
 ## Components will not show up if they contain configuration errors
@@ -287,7 +287,7 @@ Example of old to new config:
 - `"maxCount"` is no longer required to create a repeating group, but is still able to be used to restrict the maximum
   number of addable rows.
 - `edit.filter` is no longer supported, but the same functionality (or better) can be achieved by using the
-  existing `hiddenRow` property with [expressions](/altinn-studio/reference/logic/expressions).
+  existing `hiddenRow` property with [expressions](/en/altinn-studio/v8/reference/logic/expressions).
 
 Example of old to new config:
 

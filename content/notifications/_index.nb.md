@@ -4,6 +4,7 @@ description: Altinn Varslinger tilbyr funksjonalitet for enveis kommunikasjon me
 toc: false
 weight: 20
 aliases:
+  - /notifications/ 
   - /altinn-notifications/
 cascade:
   params:
