@@ -46,7 +46,7 @@
 
   {{/* Special handling for altinn-studio versioning */}}
   {{- if and (eq $productPart "altinn-studio") $versionPart -}}
-    {{- if findRE "^v\\d+$" $versionPart -}}
+    {{- if findRE "^v\\d+.*$" $versionPart -}}
       {{- $currentVersion = $versionPart -}}
     {{- end -}}
   {{- end -}}

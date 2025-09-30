@@ -76,6 +76,9 @@
     flex-direction: column;
     gap: 6px;
   }
+  .dropdown {
+    position: relative;
+  }
   .version-label {
     font-size: 12px;
     font-weight: 600;
@@ -139,6 +142,10 @@
   }
   .version-dropdown {
     min-width: 200px;
+    max-height: none !important;
+    overflow-y: visible !important;
+    position: absolute;
+    z-index: 1000;
   }
   .version-item {
     margin: 0;
