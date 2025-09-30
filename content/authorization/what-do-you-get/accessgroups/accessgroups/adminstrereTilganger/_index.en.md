@@ -10,10 +10,10 @@ Aliases:
 
 |**Access packages in this category**|
 |---|
-|[Client administrator](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#klientadministrator)|
-|[Access management](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#tilgangsstyring)|
-|[Main administrator](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#hovedadminstrator)|
-|[Maskinporten administrator](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#maskinporten-administrator)|
+|[Client administrator](#client-administrator)|
+|[Access management](#access-management)|
+|[Main administrator](#main-administrator)|
+|[Maskinporten administrator](#maskinporten-administrator)|
 
 ### Client administrator
 This role allows the user to manage access on behalf of clients and customers.
@@ -23,7 +23,7 @@ This role allows the user to manage access on behalf of clients and customers.
 This access package allows users to delegate access rights within the organization for roles they hold themselves.
 *urn:altinn:accesspackage:tilgangsstyring*
 
-### Main adminstrator
+### Main administrator
 This access package allows users to manage all access rights for the organization.
 *urn:altinn:accesspackage:hovedadministrator*
 

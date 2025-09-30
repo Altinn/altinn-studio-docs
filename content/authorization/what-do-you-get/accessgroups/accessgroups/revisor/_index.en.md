@@ -11,8 +11,8 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Ansvarlig revisor](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/revisor/#ansvarlig-revisor)|
-|[Revisormedarbeider](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/revisor/#revisormedarbeider)|
+|[Ansvarlig revisor](#ansvarlig-revisor)|
+|[Revisormedarbeider](#revisormedarbeider)|
 
 
 ### Ansvarlig revisor
