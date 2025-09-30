@@ -23,7 +23,7 @@
     {{- end -}}
 
     {{- if and $altinnStudioPage (or (eq $currentProduct "altinn-studio") (not $currentProduct)) -}}
-        {{- partial "product-version-switcher.html" (dict "currentProduct" $currentProduct "currentVersion" $currentVersion "currentProductRootPage" $altinnStudioPage) -}}
+        {{- partial "product-version-switcher.html" (dict "currentProduct" $currentProduct "currentVersion" $currentVersion "currentProductRootPage" $altinnStudioPage "context" .) -}}
     {{- end -}}
 
     {{/* Only render the current product's menu server-side */}}
@@ -152,14 +152,14 @@
             {{ $pages := ($currentNode.Scratch.Get "pages") }}
           {{- if eq .Site.Params.ordersectionsby "title" -}}
             {{- range $pages.ByTitle -}}
-              {{- if and .Params.hidden (not $.showhidden) -}}
+              {{- if .Params.hidden -}}
               {{- else -}}
                 {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
               {{- end -}}
             {{ end }}
           {{- else -}}
             {{- range $pages.ByWeight -}}
-              {{- if and .Params.hidden (not $.showhidden) -}}
+              {{- if .Params.hidden -}}
               {{- else -}}
                 {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
               {{- end -}}
@@ -169,7 +169,7 @@
         {{- end -}}
       </li>
     {{- else -}}
-      {{- if not .Params.Hidden -}}
+      {{- if not .Params.hidden -}}
         <li class="dd-item">
           <a href="{{ .RelPermalink}}">
             <span>{{safeHTML .Params.Pre}}{{.LinkTitle}}{{safeHTML .Params.Post}}</span>

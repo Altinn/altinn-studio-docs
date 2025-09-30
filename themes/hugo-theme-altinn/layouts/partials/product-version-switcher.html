@@ -1,14 +1,15 @@
 {{- $currentProduct := .currentProduct -}}
 {{- $currentVersion := .currentVersion -}}
 {{- $currentProductRootPage := .currentProductRootPage -}}
+{{- $context := .context -}}
 
 {{/* Version dropdown for Altinn Studio */}}
 <div id="version-dropdown-top" class="altinn-studio-version-dropdown"{{if ne $currentProduct "altinn-studio"}} style="display: none;"{{end}}>
     <div class="version-selector-wrapper">
         <label class="version-label" for="version-selector-button" id="version-selector-label">
-        {{- if eq .Site.Language.Lang "nb" -}}
+        {{- if eq $context.Site.Language.Lang "nb" -}}
             Versjon:
-        {{- else if eq .Site.Language.Lang "nn" -}}
+        {{- else if eq $context.Site.Language.Lang "nn" -}}
             Versjon:
         {{- else -}}
             Version:
@@ -24,7 +25,7 @@
             aria-labelledby="version-selector-label"
             aria-describedby="version-selector-help"
             data-toggle="dropdown">
-            <span id="current-version-top">{{ if $currentVersion }}{{ $currentVersion }}{{ else }}{{ T "select_version" | default "Select Version" }}{{ end }}</span>
+            <span id="current-version-top">{{ if $currentVersion }}{{ $currentVersion }}{{ else }}{{ i18n "select_version" | default "Select Version" }}{{ end }}</span>
         </button>
         <div
             class="dropdown-menu version-dropdown"
@@ -46,9 +47,9 @@
         </div>
         </div>
         <div id="version-selector-help" class="sr-only">
-        {{- if eq .Site.Language.Lang "nb" -}}
+        {{- if eq $context.Site.Language.Lang "nb" -}}
             Bruk piltastene for å navigere mellom versjoner og Enter for å velge
-        {{- else if eq .Site.Language.Lang "nn" -}}
+        {{- else if eq $context.Site.Language.Lang "nn" -}}
             Bruk piltastane for å navigere mellom versjonar og Enter for å velje
         {{- else -}}
             Use arrow keys to navigate between versions and Enter to select
