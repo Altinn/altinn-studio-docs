@@ -8,7 +8,7 @@ aliases:
 - /authorization/modules/accessgroups
 ---
 
-|**Tilgangspakkeri kategorien**|
+|**Tilgangspakker i kategorien**|
 |---|
 |[Barnehageeier](#barnehageeier)|
 |[Barnehageleder](#barnehageleder)|
@@ -37,11 +37,11 @@ Denne fullmakten gir tilgang til alle tjenester innen drift av barnehage som bar
 *urn:altinn:accesspackage:barnehagemyndighet*
 
 ### Statsforvalter-barnehage 
-Denne fullmkaten gir tilgang til tjenester innen barnehageområdet som statsforvalteren er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.   
+Denne fullmakten gir tilgang til tjenester innen barnehageområdet som statsforvalteren er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.   
 *urn:altinn:accesspackage:statsforvalter-barnehage*
 
 ### Statsforvalter-skole og opplæring 
-Denne fullmkaten gir tilgang til tjenester innen skole og opplæring som statsforvalteren er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
+Denne fullmakten gir tilgang til tjenester innen skole og opplæring som statsforvalteren er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:statsforvalter-skole-og-opplearing*
 
 ### Skoleeier 

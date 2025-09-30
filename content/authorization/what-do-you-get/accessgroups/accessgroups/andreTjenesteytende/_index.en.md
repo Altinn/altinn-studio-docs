@@ -15,7 +15,7 @@ aliases:
 |[Post- og telekommunikasjon](#post--og-telekommunikasjon)|
 |[Informasjon og kommunikasjon](#informasjon-og-kommunikasjon)|
 |[Finansiering og forsikring](#finansiering-og-forsikring)|
-|[Annen tjenestyting](#annen-tjenesteyting)|
+|[Annen tjenesteyting](#annen-tjenesteyting)|
 
 
 ### Post- og telekommunikasjon

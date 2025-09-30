@@ -9,9 +9,9 @@ aliases:
 - /authorization/modules/accessgroups
 ---
 
-|**Tilgangpakker i kategorien**|
+|**Tilgangspakker i kategorien**|
 |---|
-|[Byggesøknad](#byggesøknad))|
+|[Byggesøknad](#byggesøknad)|
 |[Plansak](#plansak)|
 |[Motta nabo- og planvarsel](#motta-nabo--og-planvarsel)|
 |[Oppføring av bygg og anlegg](#oppføring-av-bygg-og-anlegg)|

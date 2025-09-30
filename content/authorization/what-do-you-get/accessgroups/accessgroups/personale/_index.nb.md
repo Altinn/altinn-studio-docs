@@ -10,7 +10,7 @@ aliases:
 
 | **Tilgangspakker i kategorien**|
 |---|
-|[Ansetttelsesforhold](#ansettelsesforhold)|
+|[Ansettelsesforhold](#ansettelsesforhold)|
 |[Lønn](#lønn)|
 |[Pensjon](#pensjon)|
 |[Permisjon](#permisjon)|

@@ -11,7 +11,7 @@ aliases:
 |**Tilgangspakker i kategorien**|
 |---|
 |[Veitransport](#veitransport)|
-|[Transport i rør ](#transport-i-rør)|
+|[Transport i rør](#transport-i-rør)|
 |[Sjøfart](#sjøfart)|
 |[Lufttransport](#lufttransport)|
 |[Jernbanetransport](#jernbanetransport)|

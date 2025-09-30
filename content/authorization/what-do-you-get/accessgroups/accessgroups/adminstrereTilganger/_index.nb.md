@@ -12,7 +12,7 @@ aliases:
 |---|
 |[Klientadministrator](#klientadministrator)|
 |[Tilgangsstyring](#tilgangsstyring)|
-|[Hovedadministrator](#hovedadminstrator)|
+|[Hovedadministrator](#hovedadministrator)|
 |[Maskinporten administrator](#maskinporten-administrator)|
 
 ### Klientadministrator
@@ -24,7 +24,7 @@ Når kundeforholdet opphører, vil delegeringer gjort via klientadministrasjon o
 Denne tilgangspakken gir bruker mulighet til å gi videre tilganger for virksomheten som man selv innehar.  
 *urn:altinn:accesspackage:tilgangsstyring*
 
-### Hovedadminstrator
+### Hovedadministrator
 Denne tilgangspakken gir bruker mulighet til å administrere alle tilganger for virksomheten.  
 *urn:altinn:accesspackage:hovedadministrator*
 

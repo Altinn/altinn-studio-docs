@@ -9,7 +9,7 @@ aliases:
 - /authorization/modules/accessgroups
 ---
 
-|**Tilgangspakkeri kategorien**|
+|**Tilgangspakker i kategorien**|
 |---|
 |[Barnehageeier](#barnehageeier)|
 |[Barnehageleder](#barnehageleder)|

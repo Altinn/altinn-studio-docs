@@ -9,7 +9,7 @@ aliases:
 - /authorization/modules/accessgroups
 ---
 
-|**TIlgangspakker i kategorien**|
+|**Tilgangspakker i kategorien**|
 |---|
 |[Kunst og underholdning](#kunst-og-underholdning)|
 |[Biblioteker, museer, arkiver og annen kultur](#biblioteker-museer-arkiver-og-annen-kultur)|
