@@ -94,7 +94,7 @@ Systembrukeren kan opprettes på to måter
   ```
 - Bekreftelseslenken (`confirmurl`) sendes til sluttbrukeren, her revisjonsorganisasjonen, for godkjenning. Når den er godkjent, kan sluttbrukeren legge til klienter til systembrukeren. Følg veiledningen for sluttbruker for [Agent systembruker](../../../end-user/system-user/#veiledning-for-sluttbruker-dress-minst-klientadministratør-i-tilbakeholden-usymmetrisk-tiger-as-)
 
-Se [Samarbeisportalen](https://samarbeid.digdir.no/altinn/systembruker/2542) for illustrert og webinar.
+Se [Samarbeidsportalen](https://samarbeid.digdir.no/altinn/systembruker/2542) for illustrert og webinar.
 {.mt-3}
 
 se [api dokumentasjon](../../../../../api/authentication/systemuserapi/) for mer informasjon om endepunkter.
