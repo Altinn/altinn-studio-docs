@@ -30,7 +30,7 @@ For en overordnet funsjonell gjennomgang og brukerreise se [Samarbeidsportalen](
 Systembruker gir en rekke fordeler sammenlignet med dagens virksomhetsbruker og sluttbrukersystemkonsept i Altinn 2.
 
 **For tjenesteeier**
-For å støtte systembruker på tjensten din må du velge maskinporten som autentiseringsmetod og gjøre oppslag mot vårt autorisasjons-API (PDP) med sytembrukerinformasjonen som finnes i maksinportentokenet
+For å støtte systembruker på tjenesten din må du velge maskinporten som autentiseringsmetod og gjøre oppslag mot vårt autorisasjons-API (PDP) med systembrukerinformasjonen som finnes i maskinportentokenet.
 
 Detaljert guide for å komme i gang finnes [her](./../../guides/resource-owner/system-user/)
 
