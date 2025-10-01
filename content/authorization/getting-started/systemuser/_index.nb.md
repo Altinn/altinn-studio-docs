@@ -41,7 +41,7 @@ For å kunne få tilgang til Maskinporten må du ha norsk organisasjonsnummer. F
 
 Gjennom signering av [bruksvilkår for Maskinporten og ID-porten](https://samarbeid.digdir.no/maskinporten/bruksvilkar-private-virksomheter/73#21_generelt) får man tilgang til både testmiljø og produksjonsmiljø hos Digdir.
 
-1. Oppkobling mot Maksinporten.  
+1. Oppkobling mot Maskinporten.  
    Følg fremgangsmåten for å koble opp til [Maskinporten](https://samarbeid.digdir.no/maskinporten/ta-i-bruk-maskinporten/97)
 2. Opprette en Maskinporten-klient.  
    En maskinporten-klient kan opprettes enten i Samarbeidsportal eller ved bruk av API. Opprettelse av en maskinporten-klient forutsetter oppkobling til Maskinporten. For mer informasjon, se[Maskinporten klient](https://docs.altinn.studio/nb/correspondence/getting-started/developer-guides/maskinporten/).
