@@ -97,7 +97,7 @@ Systemet registreres og eies av sluttbrukersystem-leverandøren i systemregister
 ![Concept](runtime.png)
 
 1. Sluttbrukersystem ber om systembrukertoken fra Maskinporten. Forespørselen angir nødvendige scopes, klient id og organisasjonsnummeret til sluttbrukervirsomheten det opptrer på vegne av.
-2. Maskinporten verifiserer mot Altinn Autoriasjon at kunden har gitt sluttbrukersystemet som er knyttet mot klienten, tilgang. Gitt at det finnes gyldig Systembruker returneres Maksinportoken med systembrukerinformasjon
+2. Maskinporten verifiserer mot Altinn Autorisasjon at kunden har gitt sluttbrukersystemet som er knyttet mot klienten, tilgang. Gitt at det finnes gyldig systembruker, returneres Maskinportentoken med systembrukerinformasjon.
 3. SBS gjør oppslag mot tjeneste med Maskinportentokenet.
 4. Tjeneste autentiserer SBS og sjekker at tokenet inneholder nødvendige scopes for å benytte tjenesten. Deretter gjøres det oppslag mot Altinn Autorisasjon for å sjekke at systembruker har nødvendige fullmakter
 
