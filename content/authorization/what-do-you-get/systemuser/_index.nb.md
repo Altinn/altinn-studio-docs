@@ -56,7 +56,7 @@ For mer informasjon for å komme i gang finnes [her](./../../guides/end-user/sys
 
 ### Ressurseier
 
-Ressurseier oppretter tjeneste i Ressursregisteret slik at Atlinn autorisasjon kan benyttes til Autorisasjon.
+Ressurseier oppretter tjeneste i Ressursregisteret slik at Altinn autorisasjon kan benyttes til autorisasjon.
 Videre oppretter eller bestemmer ressurseier hvilke scopes som skal brukes på sin tjeneste.
 Dersom scopene ikke er public tildeler ressurseier scope til de som skal ha tilgang til å benytte tjenesten
 Når tjenesten er i drift gjør ressurseier oppslag mot Altinn Autorisasjon for å avgjøre om systembruker kan gjøre forespurte handling på vegne av virksomheten den representerer
