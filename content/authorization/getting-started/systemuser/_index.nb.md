@@ -7,7 +7,7 @@ aliases:
   - /authentication/systemauthentication/
 ---
 
-Under følger er en overordnet sjekkliste over de nødvendige stegene du må gjennom som tjenesteeier og sluttbrukersystemleverandør for å ta i bruk systembruker.
+Under følger en overordnet sjekkliste over de nødvendige stegene du må gå gjennom som tjenesteeier og sluttbrukersystemleverandør for å ta i bruk systembruker.
 
 ## Tjenesteeier
 
