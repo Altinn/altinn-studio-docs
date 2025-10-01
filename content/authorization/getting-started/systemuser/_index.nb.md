@@ -23,7 +23,7 @@ Maskinporten-tokenet med systembrukerinformasjon inneholder ingen informasjon so
 
 {{< /expandsmall >}}
 {{< expandsmall header="3 Registerer ressurs" id="registrere_ressurs">}}
-Ressursregisteret inngholder beskrivelse av autorisasjonsressursen, samt tilgangsregler for denne. Sørg for å informere de som skal benytte tjesten om nødvendige tilgangspakker (og eventuelle enkeltrettgheter) som kreves for å benytte tjenesten.
+Ressursregisteret inneholder beskrivelse av autorisasjonsressursen, samt tilgangsregler for denne. Sørg for å informere de som skal benytte tjenesten om nødvendige tilgangspakker (og eventuelle enkeltrettigheter) som kreves for å benytte tjenesten.
 
 {{< /expandsmall >}}
 {{< expandsmall header="4 Integrer mot Altinn Autorisasjon" id="integrer_autorisasjon">}}
