@@ -19,7 +19,7 @@ Maskinporten er en av grunnstenene systembruker bygger videre på.
 Maskinporten sikrer autensitet og lar tjensteier gjøre en grovkornet tilgangsstyring gjennom scopes
 Maskinporten-token brukes også som informasjonsbærer for systembruker-informasjon, som gjør at tjenesteeier kan utføre tilgangskontroll mot Altinn Autorisasjon.
 
-Maskinporten-tokenet med systembrukerinformasjon inneholder ingen informasjon som peker tilbake på sluttbrukere. Dersom det er behov for å se hvem som har utført en opperasjon (sluttbruker) må ID-porten benyttes som autentiseringsmetode på tjesten
+Maskinporten-tokenet med systembrukerinformasjon inneholder ingen informasjon som peker tilbake på sluttbrukere. Dersom det er behov for å se hvem som har utført en operasjon (sluttbruker), må ID-porten benyttes som autentiseringsmetode på tjenesten.
 
 {{< /expandsmall >}}
 {{< expandsmall header="3 Registerer ressurs" id="registrere_ressurs">}}
