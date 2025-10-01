@@ -23,8 +23,7 @@ Ved leverandørstyrt opprettelse er det sluttbrukersystem-leverandøren som init
 
 ## Bruksmønster
 
-Systembruker kan kjøres under forskjellige bruksmønster ut fra hvordan kundeforholdet er med sluttbrukersystemleverandør.
-
+Systembruker kan kjøres under forskjellige bruksmønstre ut fra hvordan kundeforholdet er med sluttbrukersystemleverandør.
 ### Systembruker på vegne av seg selv - Eget system
 
 > Tidligere omtalt som standard systembruker
