@@ -71,7 +71,7 @@ Sluttbrukersystemleverandør velger også om systemet kan opprettes via Altinn b
 Systemer i systemregisteret kan sees på som mal for en systembruker
 
 **Systembruker** er en ikkepersonlig bruker som får tildelt fullmakter på vegne av virksomheten som eier den.
-Systembrukeren kan opprettes på forespørsel fra en systemleverandør eller via Altinn brukerflate dersom sluttbrukersysetmleverandør har tilgjengeliggjort dette.
+Systembrukeren kan opprettes på forespørsel fra en systemleverandør eller via Altinn brukerflate dersom sluttbrukersystemleverandør har tilgjengeliggjort dette.
 
 **PDP** er tjenesten ressurseiere kaller for å avtorisere at systembrukeren kan gjøre forespurte handling
 
