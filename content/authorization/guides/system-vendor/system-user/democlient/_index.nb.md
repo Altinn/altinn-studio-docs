@@ -18,13 +18,9 @@ For opprettelse av systembrukere kan testbrukere/organisasjoner fra Tenor benytt
 
 For å teste systembruker i TT02, kreves følgende:
 
-Systemtilbyder registrert i Maskinporten. Dette gjøres via servicedesk@digdir.no.
-
-Systemtilbyder registrert i Altinn. Dette gjøres via API for systemleverandør.
-
-Systemintegrasjon registrert i Maskinporten test.
-
-For å opprette systembrukere kan testbrukere/organisasjoner fra Tenor benyttes.
+- Systemtilbyder registrert i Maskinporten. Dette gjøres via servicedesk@digdir.no.
+- Systemtilbyder registrert i Altinn. Dette gjøres via API for systemleverandør.
+- Systemintegrasjon registrert i Maskinporten test.
 
 ## Oppsett av referanseimplementasjon med egen konfigurasjon
 
