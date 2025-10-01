@@ -36,7 +36,7 @@ Detaljert guide for å komme i gang finnes [her](./../../guides/resource-owner/s
 
 **For sluttbrukersystemleverandør**
 
-Systembruker gir deg en enkelt å sikker måte å opprette en bruker som kan brukes til å automatisere handlinger på vegne av dine kunder, uten at det er behov for å utveksle sertifikat eller andre hemmeligheter.
+Systembruker gir deg en enkel og sikker måte å opprette en bruker som kan brukes til å automatisere handlinger på vegne av dine kunder, uten at det er behov for å utveksle sertifikat eller andre hemmeligheter.
 Systembruker støtter både kunder som jobber på vegne av seg selv i ditt system og på vegne av klienter (regnskapsførere etc.).
 Du velger selv om du ønsker dine kunder skal kunne opprette systembruker fra Altinn portal, eller om du ønsker kontrollere og lede de gjennom prosessen i ditt sluttbrukersystem.
 For å kunne bruke systembruker må du sikre at tjenesteeier støtter dette på sin tjeneste.
