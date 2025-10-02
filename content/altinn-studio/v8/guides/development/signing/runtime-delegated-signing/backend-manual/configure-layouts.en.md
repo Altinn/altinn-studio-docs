@@ -11,7 +11,7 @@ Add a new file called `signing.json` in the `layouts` folder.
 
 The folder structure should look like this:
 
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/configure-layouts-code-01.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/backend-manual/configure-layouts-code-01.en.md" %}}
 
 There are standard components that can be used to build a layout set for a signing step. You are not required to use these components, but it's recommended.
 
@@ -26,8 +26,8 @@ If you choose not to use the `SigningActions` to display the "Sign"-button, you 
 
 Example of usage of the standard components:
 
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/configure-layouts-code-02.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/backend-manual/configure-layouts-code-02.en.md" %}}
 
 Update `App/ui/layout-sets.json` with the `id` of the task folder you just created.
 
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/configure-layouts-code-03.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/backend-manual/configure-layouts-code-03.en.md" %}}

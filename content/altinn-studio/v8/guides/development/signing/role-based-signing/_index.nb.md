@@ -8,10 +8,10 @@ aliases:
 - /nb/altinn-studio/guides/signing/role-based-signing
 ---
 
-{{% insert "content/altinn-studio/guides/development/restricted-data/shared/style.css.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/restricted-data/shared/style.css.md" %}}
 
 ## Hva betyr rolle- og tilgangspakkebasert signering?
-{{% insert "content/altinn-studio/guides/development/signing/role-based-signing/intro.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/role-based-signing/intro.nb.md" %}}
 
 ## Avhengigheter
 
@@ -30,11 +30,11 @@ Hvis appen din er [konfigurert til å sende signaturkvitteringer](#utvid-app-pro
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Manual setup">}}
-{{% insert "content/altinn-studio/guides/development/signing/role-based-signing/backend-manual/add-process-task.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/role-based-signing/backend-manual/add-process-task.nb.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/signing/role-based-signing/studio/add-process-task.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/role-based-signing/studio/add-process-task.nb.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}
@@ -44,11 +44,11 @@ Hvis appen din er [konfigurert til å sende signaturkvitteringer](#utvid-app-pro
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Manual setup">}}
-{{% insert "content/altinn-studio/guides/development/signing/role-based-signing/backend-manual/configure-layouts.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/role-based-signing/backend-manual/configure-layouts.nb.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/signing/role-based-signing/studio/configure-layouts.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/role-based-signing/studio/configure-layouts.nb.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}

@@ -1,0 +1,55 @@
+{{/*
+  Determines the current product and version from the page context
+  Returns: dict with "product" and "version" keys
+*/}}
+{{- $currentProduct := "" -}}
+{{- $currentVersion := "" -}}
+
+{{- $relativeURL := .RelPermalink -}}
+
+{{/* Parse the URL path into components */}}
+{{- $pathParts := split (strings.Trim $relativeURL "/") "/" -}}
+{{- $supportedLanguages := slice -}}
+{{- range .Site.Languages -}}
+  {{- $supportedLanguages = $supportedLanguages | append .Lang -}}
+{{- end -}}
+
+{{/* Determine if first part is a language code */}}
+{{- $languagePart := "" -}}
+{{- $productPart := "" -}}
+{{- $versionPart := "" -}}
+
+{{- if gt (len $pathParts) 0 -}}
+  {{- $languagePart = index $pathParts 0 -}}
+
+  {{/* Check if URL starts with a language code */}}
+  {{- if in $supportedLanguages $languagePart -}}
+    {{/* Language-prefixed URL: /en/product/ or /nb/product/ */}}
+    {{- if gt (len $pathParts) 1 -}}
+      {{- $productPart = index $pathParts 1 -}}
+      {{- if gt (len $pathParts) 2 -}}
+        {{- $versionPart = index $pathParts 2 -}}
+      {{- end -}}
+    {{- end -}}
+  {{- else -}}
+    {{/* Non-language-prefixed URL: /product/ */}}
+    {{- $productPart = $languagePart -}}
+    {{- if gt (len $pathParts) 1 -}}
+      {{- $versionPart = index $pathParts 1 -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{/* Set current product based on extracted product part */}}
+{{- if $productPart -}}
+  {{- $currentProduct = $productPart -}}
+
+  {{/* Only set version if it matches expected format eg v10 something */}}
+  {{- if $versionPart -}}
+    {{- if findRE "^v\\d+.*$" $versionPart -}}
+      {{- $currentVersion = $versionPart -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return (dict "product" $currentProduct "version" $currentVersion) -}}

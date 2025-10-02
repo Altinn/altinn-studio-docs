@@ -9,6 +9,6 @@ The implementation must return a set of individuals and/or organizations that sh
 
 When an organization is provided as a signee, any person with a [key role](/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_er) for the organization will be given access to `read` and `sign`.
 
-The `Id` property in this implementation must match the ID specified in <altinn:signeeProviderId>.
+The `Id` property in this implementation must match the ID specified in `<altinn:signeeProviderId>`.
 
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/signee-provider-code.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/backend-manual/signee-provider-code.en.md" %}}

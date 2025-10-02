@@ -17,11 +17,11 @@ You set up subforms in the associated tables. This guide explains how to create 
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/subform/studio/_index.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/subform/studio/_index.en.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Manuelt oppsett">}}
-{{% insert "content/altinn-studio/guides/development/subform/backend-manual/_index.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/subform/backend-manual/_index.en.md" %}}
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
