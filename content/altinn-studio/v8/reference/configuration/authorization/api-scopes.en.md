@@ -8,9 +8,9 @@ toc: true
 
 Custom API scopes allow you to define API-level client access to your application's instance-related APIs.
 
-{{%notice info%}}
-Custom API scope functionality is only available from v8.9.0-preview releases and onwards in the Altinn.App.Api library.
-{{% /notice%}}
+{{% notice info %}}
+Available from [v8.9.0-preview.1](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.9.0-preview.1)
+{{% /notice %}}
 
 {{%notice warning%}}
 Scope configuration is not yet enforced in Storage APIs. This will come in a future release and the documentation will be updated. We will notify on Slack when this is available.
@@ -31,30 +31,15 @@ access tokens which have scopes that are specific to one or more apps.
 
 ## Configuration
 
-App-specific API scopes are configured in the `applicationmetadata.json` file located in `App/config/` within your application repository.
+App-specific API scopes are configured in the [applicationmetadata.json](https://github.com/Altinn/altinn-studio/blob/main/src/App/template/src/App/config/applicationmetadata.json) 
+file located in `App/config/` within your application repository.
 
 ### Example
 
 Here is an example configuration using a similar scope structure but with a custom ID-porten scope prefix
 and using the `[app]` placeholer support (it will be substituted with the app name during runtime).
 
-```json
-{
-  "apiScopes": {
-    "users": {
-      "read": "<ID-porten prefix>:[app].instances.read",
-      "write": "<ID-porten prefix>:[app].instances.write",
-      "errorMessageTextResourceKey": "authorization.scopes.insufficient"
-    },
-    "serviceOwners": {
-      "read": "<ID-porten prefix>:[app]/serviceowner/instances.read",
-      "write": "<ID-porten prefix>:[app]/serviceowner/instances.write",
-      "errorMessageTextResourceKey": "authorization.scopes.insufficient"
-    },
-    "errorMessageTextResourceKey": "authorization.scopes.insufficient"
-  }
-}
-```
+{{% insert "content/altinn-studio/v8/reference/configuration/authorization/shared/api-scopes-example.md" %}}
 
 The `errorMessageTextResourceKey` specified above are the default values.
 They can be overridden at both levels, and the inner keys have precedence if set (they are optional).

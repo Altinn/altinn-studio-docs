@@ -8,9 +8,9 @@ toc: true
 
 Tilpassede API-scopes lar deg definere API-nivå klienttilgang til applikasjonens instans-relaterte API-er.
 
-{{%notice info%}}
-Tilpasset API scope-funksjonalitet er kun tilgjengelig fra v8.9.0-preview-utgivelser og senere i Altinn.App.Api-biblioteket.
-{{% /notice%}}
+{{% notice info %}}
+Tilgjengelig fra [v8.9.0-preview.1](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.9.0-preview.1)
+{{% /notice %}}
 
 {{%notice warning%}}
 Scope-konfigurasjon håndheves ikke ennå i Storage-API-er. Dette vil komme i en fremtidig utgivelse og dokumentasjonen vil bli oppdatert. Vi vil varsle på Slack når dette er tilgjengelig.
@@ -31,30 +31,15 @@ tilgangstokens som har scopes som er spesifikke for en eller flere apper.
 
 ## Konfigurasjon
 
-App-spesifikke API-scopes konfigureres i `applicationmetadata.json`-filen som ligger i `App/config/` i applikasjonsrepositoryet ditt.
+App-spesifikke API-scopes konfigureres i [`applicationmetadata.json`-filen](https://github.com/Altinn/altinn-studio/blob/main/src/App/template/src/App/config/applicationmetadata.json) 
+som ligger i `App/config/` i applikasjonsrepositoryet ditt.
 
 ### Eksempel
 
 Her er et eksempel på konfigurasjon som bruker en lignende scope-struktur, men med et tilpasset ID-porten scope-prefiks
 og bruker `[app]`-plassholderstøtten (den vil bli erstattet med app-navnet under kjøring).
 
-```json
-{
-  "apiScopes": {
-    "users": {
-      "read": "<ID-porten prefix>:[app].instances.read",
-      "write": "<ID-porten prefix>:[app].instances.write",
-      "errorMessageTextResourceKey": "authorization.scopes.insufficient"
-    },
-    "serviceOwners": {
-      "read": "<ID-porten prefix>:[app]/serviceowner/instances.read",
-      "write": "<ID-porten prefix>:[app]/serviceowner/instances.write",
-      "errorMessageTextResourceKey": "authorization.scopes.insufficient"
-    },
-    "errorMessageTextResourceKey": "authorization.scopes.insufficient"
-  }
-}
-```
+{{% insert "content/altinn-studio/v8/reference/configuration/authorization/shared/api-scopes-example.md" %}}
 
 `errorMessageTextResourceKey` spesifisert ovenfor er standardverdiene.
 De kan overstyres på begge nivåer, og de indre nøklene har prioritet hvis de er satt (de er valgfrie).
