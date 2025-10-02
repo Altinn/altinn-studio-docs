@@ -44,7 +44,7 @@ In this section we'll create a service that helps us interact with the restricte
 ### Helper service
 To simplify authorization and interaction with the restricted data model, we can create a helper service to handle this complexity.
 
-{{% insert "content/altinn-studio/v8guides/development/restricted-data/shared/RestrictedDataHelper.cs.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/restricted-data/shared/RestrictedDataHelper.cs.md" %}}
 
 This service can then be registered in `Program.cs` and [injected](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection) wherever you need it.
 
