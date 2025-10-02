@@ -7,13 +7,7 @@
 <div id="version-dropdown-top" class="altinn-studio-version-dropdown"{{if ne $currentProduct "altinn-studio"}} style="display: none;"{{end}}>
     <div class="version-selector-wrapper">
         <label class="version-label" for="version-selector-button" id="version-selector-label">
-        {{- if eq $context.Site.Language.Lang "nb" -}}
-            Versjon:
-        {{- else if eq $context.Site.Language.Lang "nn" -}}
-            Versjon:
-        {{- else -}}
-            Version:
-        {{- end -}}
+        {{ T "version" }}:
         </label>
         <div class="dropdown">
         <button
@@ -36,7 +30,7 @@
                     {{- end -}}
                 {{- end -}}
             {{- else -}}
-                {{ i18n "select_version" | default "Select Version" }}
+                {{ T "select-version" }}
             {{- end -}}
             </span>
         </button>
@@ -60,13 +54,7 @@
         </div>
         </div>
         <div id="version-selector-help" class="sr-only">
-        {{- if eq $context.Site.Language.Lang "nb" -}}
-            Bruk piltastene for å navigere mellom versjoner og Enter for å velge
-        {{- else if eq $context.Site.Language.Lang "nn" -}}
-            Bruk piltastane for å navigere mellom versjonar og Enter for å velje
-        {{- else -}}
-            Use arrow keys to navigate between versions and Enter to select
-        {{- end -}}
+          {{ T "nav-instructions" }}        
         </div>
     </div>
 </div>
