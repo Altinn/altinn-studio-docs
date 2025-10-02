@@ -5,8 +5,8 @@ weight: 60
 ---
 
 ## Upcoming
-{{% insert "content/altinn-studio/news/upcoming/_index.en.md" %}}
+{{% insert "content/altinn-studio/v8/news/upcoming/_index.en.md" %}}
 
 
 ## Recently delivered
-{{% insert "content/altinn-studio/news/delivered/_index.en.md" %}}
+{{% insert "content/altinn-studio/v8/news/delivered/_index.en.md" %}}
