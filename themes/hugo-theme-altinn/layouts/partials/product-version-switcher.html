@@ -3,8 +3,7 @@
 {{- $currentProductRootPage := .currentProductRootPage -}}
 {{- $context := .context -}}
 
-{{/* Version dropdown for Altinn Studio */}}
-<div id="version-dropdown-top" class="altinn-studio-version-dropdown"{{if ne $currentProduct "altinn-studio"}} style="display: none;"{{end}}>
+<div id="version-dropdown-top" class="product-version-dropdown">
     <div class="version-selector-wrapper">
         <label class="version-label" for="version-selector-button" id="version-selector-label">
         {{ T "version" }}:
@@ -61,13 +60,13 @@
 
 <style>
   /* Version dropdown styling */
-  .altinn-studio-version-dropdown {
+  .product-version-dropdown {
     background: #f8f9fa;
     padding: 10px;
     border-bottom: 1px solid #ddd !important;
     margin-bottom: 0;
   }
-  #sidebar .altinn-studio-version-dropdown {
+  #sidebar .product-version-dropdown {
     border-bottom: 1px solid #ddd !important;
   }
   .version-selector-wrapper {
