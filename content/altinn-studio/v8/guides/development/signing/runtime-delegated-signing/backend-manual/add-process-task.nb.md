@@ -86,7 +86,7 @@ Datatypenes ID-er må matche ID-ene som legges inn i `signatureDataType` og `sig
 #### Tilgangsstyring for brukere
 Gi `read`, `write` og eventuelt `sign` til den som fyller ut skjemaet.
 
-Mer informasjon om action-attributter finner du [her](/nb/altinn-studio/reference/configuration/authorization/#action-attributter).
+Mer informasjon om action-attributter finner du [her](/nb/altinn-studio/v8/reference/configuration/authorization/#action-attributter).
 
 #### Tilgangsstyring for appen
 For at appen skal kunne delegere rettigheter til de som skal signere så må appen få rettigheter til å delegere `read` og `sign`.
@@ -104,4 +104,4 @@ Nedenfor finner du et eksempel på en slik policy. For at denne koden skal funge
 #### Tilgangsstyring for tjenesteeiere
 Gi `signature-access` til tjenesteeiere. Dette gjør at appen (via Maskinporten) kan skrive og lese data i signaturdokumentene, samtidig som tjenesteeiere kan lese og verifisere signaturer når de måtte ønske det.
 
-Mer informasjon rundt dette konseptet finner du [her](/nb/altinn-studio/concepts/data-model/restricted-data/).
+Mer informasjon rundt dette konseptet finner du [her](/nb/altinn-studio/v8/concepts/data-model/restricted-data/).

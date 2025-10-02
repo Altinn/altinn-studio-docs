@@ -82,7 +82,7 @@ The IDs of the data types must match the IDs set for `signatureDataType` and `si
 #### Access control for users
 Give `read`, `write` and optionally `sign` to the role that should fill out the form.
 
-More information about action attributes can be found [here](/altinn-studio/reference/configuration/authorization/#action-attributes).
+More information about action attributes can be found [here](/en/altinn-studio/v8/reference/configuration/authorization/#action-attributes).
 
 #### Access control for the app
 In order for the service to be able to delegate access rights to the signees, the app itself needs to have the right to delegate the `read` and `sign` actions.
@@ -101,4 +101,4 @@ Below is an example of a policy rule that accomplishes this. For the code to wor
 #### Access control for service owners
 Give `signature-access` to service owners. This allows bearers of a service owner token to interact with the restricted data in signature objects.
 
-More information about this concept can be found [here](/altinn-studio/concepts/data-model/restricted-data/).
+More information about this concept can be found [here](/en/altinn-studio/v8/concepts/data-model/restricted-data/).
