@@ -128,8 +128,8 @@ Før produksjonssetting bør du verifisere at meldinger vises riktig for mottake
 
 ### 10. Hvitlist ressurs i produksjon {#whitelist-resource}
 
-Før du kan sende meldinger i produksjon, må ressursen din hvitelistes av Altinn.
-Be om hvitlisting i `#produkt-melding` i Digdir Samarbeid på slack eller send e‑post til [ServiceDesk](mailto:servicedesk@altinn.no). Husk å inkludere resourceId-en for ressursen som skal hvitelistes.
+Før du kan sende meldinger i produksjon, må ressursen din hvitlistes av Altinn.
+Be om hvitlisting i `#produkt-melding` i Digdir samarbeid på Slack eller send e‑post til [ServiceDesk](mailto:servicedesk@altinn.no). Husk å inkludere resourceId-en for ressursen som skal hvitelistes.
 
 Dette steget er kun nødvendig i produksjon (ikke ved testing i `TT02`).
 
