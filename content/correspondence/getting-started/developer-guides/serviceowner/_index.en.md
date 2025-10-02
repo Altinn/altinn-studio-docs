@@ -127,7 +127,14 @@ Before going live, verify that correspondences render as intended for recipients
 
 **Note**: Supported formatting tags (Markdown and HTML) are documented here: [Overview of allowed markdown and HTML tags](https://docs.altinn.studio/dialogporten/reference/front-end/front-channel-embeds/#markdown-and-html)
 
-### 10. Set up Event subscriptions {#setup-event-subscriptions}
+### 10. Whitelist resource in production {#whitelist-resource}
+
+Before you can send correspondences in production, your resource must be whitelisted by Altinn.
+Request whitelisting in `#produkt-melding` in Digdir samarbeid on Slack or email [ServiceDesk](mailto:servicedesk@altinn.no). Remember to include the resourceId of the resource to be whitelisted.
+
+This step is only required in production (not when testing using the `TT02` environment).
+
+### 11. Set up Event subscriptions {#setup-event-subscriptions}
 
 In order to use events/webhooks for a Correspondence resource, you need to set up a subscription for the given resource.
 
