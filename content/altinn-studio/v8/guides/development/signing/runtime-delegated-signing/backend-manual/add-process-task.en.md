@@ -75,7 +75,7 @@ This data type is used to store information about the signers and their status.
 
 {{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/backend-manual/add-process-task-code-02.en.md" %}}
 
-It is important to set `allowedContributors`, `actionRequiredToRead` og `actionRequiredToWrite` as illustrated in the examples above. This ensures that these data items cannot be edited via the app's API but only by the app itself.
+It is important to set `allowedContributors`, `actionRequiredToRead` and `actionRequiredToWrite` as illustrated in the examples above. This ensures that these data items cannot be edited via the app's API but only by the app itself.
 
 The IDs of the data types must match the IDs set for `signatureDataType` and `signeeStatesDataTypeId` in the process configuration.
 
