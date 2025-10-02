@@ -20,7 +20,7 @@ This step is only necessary for new enterprises that have not yet established th
 
 To be able to create a resource (step 3), you need a user in Altinn Studio. Your user must be linked to your organization. (If you have an Altinn Studio user, you can skip this step.) Contact [Altinn Servicedesk](mailto:tjenesteeier@altinn.no) if you’re unsure who the administrator is or whether your organization is set up in Altinn Studio.
 
-See [Create a User in Altinn Studio](https://docs.altinn.studio/altinn-studio/getting-started/create-user/) for a detailed guide.
+See [Create a User in Altinn Studio](https://docs.altinn.studio/en/altinn-studio/v8/getting-started/create-user/) for a detailed guide.
 
 ### 3. Activate the Resource Management System {#activate-resourceregistry}
 

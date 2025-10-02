@@ -21,7 +21,7 @@ Dette steget er kun nødvendig for nye virksomheter som ikke er etablert som en 
 For å kunne opprette en ressurs (steg 3) må du ha en bruker i Altinn Studio. Brukeren din må så knyttes til din organisasjon. (Har du allerede en Altinn Studio bruker kan du gå til steg 3.) Hvis du er usikker på hvem som er administrator eller du ikke vet om organisasjonen din er satt opp i Altinn Studio
 kan du spørre [Altinn Servicedesk](mailto:tjenesteeier@altinn.no) om hjelp.
 
-Se [Opprette bruker i Altinn Studio](https://docs.altinn.studio/nb/altinn-studio/getting-started/create-user/) for en detaljert veiledning.
+Se [Opprette bruker i Altinn Studio](https://docs.altinn.studio/nb/altinn-studio/v8/getting-started/create-user/) for en detaljert veiledning.
 
 ### 3. Aktivere ressursadministrasjonen {#activate-resourceregistry}
 
