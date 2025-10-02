@@ -3,6 +3,36 @@
 {{- $currentProductRootPage := .currentProductRootPage -}}
 {{- $context := .context -}}
 
+{{/* 
+  Renders a version switcher dropdown for the current product if versions are available.
+  Expects:
+    - currentProduct: string, e.g. "altinn-studio"
+    - currentVersion: string, e.g. "v10"
+    - currentProductRootPage: *Page, the root page of the current product (e.g. /altinn-studio/)
+    - context: *Page, the current page context
+*/}}
+
+{{- if not $currentProductRootPage -}}
+  {{- /* No product root page provided, cannot render version switcher */ -}}
+  {{- return -}}
+{{- end -}}
+
+{{- if not $currentProduct -}}
+  {{- /* No current product detected, cannot render version switcher */ -}}
+  {{- return -}}
+{{- end -}}
+
+{{- if not $currentVersion -}}
+  {{- /* No current version detected, cannot render version switcher */ -}}
+  {{- return -}}
+{{- end -}}
+
+{{- if not $currentProductRootPage.Sections -}}
+  {{- /* No sections found under product root page, no versions to show */ -}}
+  {{- return -}}
+{{- end -}}
+
+{{/* Render the version switcher dropdown */}}
 <div id="version-dropdown-top" class="product-version-dropdown">
     <div class="version-selector-wrapper">
         <label class="version-label" for="version-selector-button" id="version-selector-label">

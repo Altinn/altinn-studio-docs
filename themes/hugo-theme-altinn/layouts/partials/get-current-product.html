@@ -15,15 +15,15 @@
 {{- end -}}
 
 {{/* Determine if first part is a language code */}}
-{{- $firstPart := "" -}}
+{{- $languagePart := "" -}}
 {{- $productPart := "" -}}
 {{- $versionPart := "" -}}
 
 {{- if gt (len $pathParts) 0 -}}
-  {{- $firstPart = index $pathParts 0 -}}
+  {{- $languagePart = index $pathParts 0 -}}
 
   {{/* Check if URL starts with a language code */}}
-  {{- if in $supportedLanguages $firstPart -}}
+  {{- if in $supportedLanguages $languagePart -}}
     {{/* Language-prefixed URL: /en/product/ or /nb/product/ */}}
     {{- if gt (len $pathParts) 1 -}}
       {{- $productPart = index $pathParts 1 -}}
@@ -33,7 +33,7 @@
     {{- end -}}
   {{- else -}}
     {{/* Non-language-prefixed URL: /product/ */}}
-    {{- $productPart = $firstPart -}}
+    {{- $productPart = $languagePart -}}
     {{- if gt (len $pathParts) 1 -}}
       {{- $versionPart = index $pathParts 1 -}}
     {{- end -}}
@@ -44,8 +44,8 @@
 {{- if $productPart -}}
   {{- $currentProduct = $productPart -}}
 
-  {{/* Special handling for altinn-studio versioning */}}
-  {{- if and (eq $productPart "altinn-studio") $versionPart -}}
+  {{/* Only set version if it matches expected format eg v10 something */}}
+  {{- if $versionPart -}}
     {{- if findRE "^v\\d+.*$" $versionPart -}}
       {{- $currentVersion = $versionPart -}}
     {{- end -}}

@@ -15,76 +15,46 @@
         <a href="{{"/" | relURL}}"><i class="fa fa-fw fa-home"></i></a>
       </li>
     {{- end -}}
+    
+    {{- $currentProductRootPage := .Site.GetPage $currentProduct -}}
 
-    {{/* Version dropdown for Altinn Studio */}}
-    {{- $altinnStudioPage := .Site.GetPage "/altinn-studio" -}}
-    {{- if not $altinnStudioPage -}}
-      {{- $altinnStudioPage = .Site.GetPage "/en/altinn-studio" -}}
+    {{/*  If no version the don't show version switcher. There is a oposite version check in the product-version-switcher, but it does not prevent rendering the switcher for some reason. */}}
+    {{- if $currentVersion -}}
+        {{- partial "product-version-switcher.html" (dict "currentProduct" $currentProduct "currentVersion" $currentVersion "currentProductRootPage" $currentProductRootPage "context" .) -}}
     {{- end -}}
 
-    {{- if and $altinnStudioPage (or (eq $currentProduct "altinn-studio") (not $currentProduct)) -}}
-        {{- partial "product-version-switcher.html" (dict "currentProduct" $currentProduct "currentVersion" $currentVersion "currentProductRootPage" $altinnStudioPage "context" .) -}}
-    {{- end -}}
-
-    {{/* Only render the current product's menu server-side */}}
+    {{/* Only render the current product's menu server-side */}}    
     {{- if $currentProduct -}}
-      {{- if eq $currentProduct "altinn-studio" -}}
-        {{/* Handle Altinn Studio with version logic */}}
-        {{- if and $altinnStudioPage $currentVersion -}}
-          {{- range $altinnStudioPage.Sections -}}
-            {{- $versionName := path.Base .RelPermalink -}}
-            {{- if eq $versionName $currentVersion -}}
-              <li class="dd-item parent version-root-item">
-                <a href="{{ .RelPermalink }}">
-                  <span>{{safeHTML .Params.Pre}}{{ .LinkTitle }}{{safeHTML .Params.Post}}</span>
-                  <i class="fa fa-sort-down fa-lg category-icon"></i>
-                  {{- if $showvisitedlinks -}}
-                    <i style="color:grey" class="fa fa-circle-thin read-icon"></i>
-                  {{- end -}}
-                </a>
-                <ul class="version-content">
-                  {{- if .Sections -}}
-                    {{- range .Sections -}}
-                      {{- if not .Params.hidden -}}
-                        {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
-                      {{- end -}}
+      {{/* Handle products with version logic */}}
+      {{- if $currentVersion -}}
+        {{- range $currentProductRootPage.Sections -}}
+          {{- $versionName := path.Base .RelPermalink -}}
+          {{- if eq $versionName $currentVersion -}}
+            <li class="dd-item parent version-root-item">
+              <a href="{{ .RelPermalink }}">
+                <span>{{safeHTML .Params.Pre}}{{ .LinkTitle }}{{safeHTML .Params.Post}}</span>
+                <i class="fa fa-sort-down fa-lg category-icon"></i>
+                {{- if $showvisitedlinks -}}
+                  <i style="color:grey" class="fa fa-circle-thin read-icon"></i>
+                {{- end -}}
+              </a>
+              <ul class="version-content">
+                {{- if .Sections -}}
+                  {{- range .Sections -}}
+                    {{- if not .Params.hidden -}}
+                      {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
                     {{- end -}}
                   {{- end -}}
-                </ul>
-              </li>
-            {{- end -}}
+                {{- end -}}
+              </ul>
+            </li>
           {{- end -}}
-        {{- else -}}
-          {{/* No version specified - show main altinn-studio */}}
-          {{- template "section-tree-nav" dict "sect" $altinnStudioPage "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
         {{- end -}}
       {{- else -}}
-        {{/* Handle regular products */}}
-        {{- $supportedLanguages := slice -}}
-        {{- range .Site.Languages -}}
-          {{- $supportedLanguages = $supportedLanguages | append .Lang -}}
-        {{- end -}}
-        {{- range .Site.Home.Sections -}}
-          {{- $sectionPath := strings.TrimPrefix "/" .RelPermalink -}}
-          {{- $sectionPath = strings.TrimSuffix "/" $sectionPath -}}
-          {{- $sectionParts := split $sectionPath "/" -}}
-
-          {{- $sectionProduct := "" -}}
-          {{- if gt (len $sectionParts) 0 -}}
-            {{- if and (gt (len $sectionParts) 1) (in $supportedLanguages (index $sectionParts 0)) -}}
-              {{- $sectionProduct = index $sectionParts 1 -}}
-            {{- else -}}
-              {{- $sectionProduct = index $sectionParts 0 -}}
-            {{- end -}}
-          {{- end -}}
-
-          {{- if eq $sectionProduct $currentProduct -}}
-            {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
-            {{- break -}}
-          {{- end -}}
-        {{- end -}}
+        {{/* No version specified - show main altinn-studio */}}
+        {{- template "section-tree-nav" dict "sect" $currentProductRootPage "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
       {{- end -}}    
-    {{- end -}}
+    {{- end -}}        
 
     {{- with .Site.Menus.shortcuts -}}
       {{- range sort . "Weight" -}}
