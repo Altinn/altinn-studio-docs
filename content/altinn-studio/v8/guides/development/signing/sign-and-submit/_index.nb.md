@@ -8,10 +8,10 @@ aliases:
 - /nb/altinn-studio/guides/signing/sign-and-submit
 ---
 
-{{% insert "content/altinn-studio/guides/development/restricted-data/shared/style.css.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/restricted-data/shared/style.css.md" %}}
 
 ## Hva betyr "signer og send inn"?
-{{% insert "content/altinn-studio/guides/development/signing/sign-and-submit/intro.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/sign-and-submit/intro.nb.md" %}}
 
 ## Avhengigheter
 Dersom appen skal kunne sende signeringskvittering til innboksen til den som signerer så må oppsett for bruk av meldingstjenesten i Altinn være satt opp.

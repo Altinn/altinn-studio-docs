@@ -11,4 +11,4 @@ When an organization is provided as a signee, any person with a [key role](/en/a
 
 The `Id` property in this implementation must match the ID specified in <altinn:signeeProviderId>.
 
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/signee-provider-code.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/backend-manual/signee-provider-code.en.md" %}}

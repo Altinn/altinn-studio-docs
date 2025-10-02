@@ -11,4 +11,4 @@ Om appen er konfigurert slik at utførelsen av signeringshandlingen gjøres i pr
 
 Et eksempel er en validator som verifiserer at en signatur er gjort på vegne av en organisasjon:
 
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/custom-validation-code.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/backend-manual/custom-validation-code.en.md" %}}
