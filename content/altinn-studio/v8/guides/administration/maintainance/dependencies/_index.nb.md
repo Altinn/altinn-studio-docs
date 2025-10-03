@@ -48,6 +48,7 @@ F.eks.:
   og gjør ev. endringer som beskrives for å løse ev. problemer. Dette gjelder når det er _major_-versjonen (det første 
   tallet i versjonen) som er oppdatert.
 - Bygg og deploy appen på nytt.
+- (Når du oppdaterer forbi 8.6.0 vil du få en feil som fikses med å fjerne linjen <PackageReference Include="Swashbuckle.AspNetCore")
 
 {{</content-version-container>}}
 
