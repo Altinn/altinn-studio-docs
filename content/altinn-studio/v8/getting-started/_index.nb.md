@@ -5,6 +5,9 @@ weight: 21
 cascade:
   params:
     diataxis: diataxis_tutorials
+aliases:
+- /nb/altinn-studio/getting-started/
+- /altinn-studio/getting-started/
 ---
 
 ## Lag en tjeneste med enkelt skjema
