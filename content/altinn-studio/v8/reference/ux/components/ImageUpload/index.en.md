@@ -7,8 +7,6 @@ weight: 10 # Do not change, components are sorted alphabetically
 toc: true
 ---
 
----
-
 ## Usage
 
 Use the image upload component when users need to upload an image, such as a profile picture. The component has built-in functionality for cropping the image before it is saved.

@@ -7,8 +7,6 @@ weight: 10 # Ikke endre, komponentene sorteres alfabetisk
 toc: true
 ---
 
----
-
 ## Bruk
 
 Bruk bildeopplaster-komponenten når brukeren skal laste opp et bilde, for eksempel et profilbilde. Komponenten har innebygd funksjonalitet for å beskjære bildet før det lagres.
