@@ -47,7 +47,7 @@ Gjennom signering av [bruksvilkår for Maskinporten og ID-porten](https://samarb
    En maskinporten-klient kan opprettes enten i Samarbeidsportal eller ved bruk av API. Opprettelse av en maskinporten-klient forutsetter oppkobling til Maskinporten. For mer informasjon, se[Maskinporten klient](https://docs.altinn.studio/nb/correspondence/getting-started/developer-guides/maskinporten/).
 
 {{< /expandsmall >}}
-{{< expandsmall header="Oppkobling til Altinn" id="oppkobling_til_altinn">}}
+{{< expandsmall header="Få tilgang til systembruker-API" id="oppkobling_til_altinn">}}
 
 Gjennom signering av [bruksvilkår](https://samarbeid.digdir.no/altinn/bruksvilkar-sluttbrukersystemleverandorer-i-altinn/3002) for Altinn får man tilgang til både testmiljø og produksjonsmiljø hos Digdir.
 
@@ -62,17 +62,19 @@ Ved å fylle ut [Registreringsskjema for sluttbrukersystemleverandør](https://f
 {{< /expandsmall >}}
 {{< expandsmall header="Registrere system i systemregisteret" id="registrere_system_i_systemregisteret">}}
 
-For å ta i bruk Skatteetatens tjenester fra sluttbrukersystemet, må systemet registreres i Altinn sitt systemregister.
+For å ta i bruk tjenester fra sluttbrukersystemet, må systemet registreres i Altinn sitt systemregister.
 
 Dette kan gjøres via [API](https://docs.altinn.studio/nb/api/authentication/systemuserapi/systemregister/create/). Systemet må knyttes til Maskinporten-klienten opprettet i steg 3.
 
-Hvilke systemtilganger, tilgangspakker og/eller enkelttjenester, som systemet må ha avhenger av den enkelte tjeneste og beskrevet i den enkelte tjenestes dokumentasjon.
+Hvilke tilgangspakker og/eller enkelttjenester som systemet må ha avhenger av den enkelte tjeneste og beskrevet i den enkelte tjenestes dokumentasjon.
 
 > Dagens roller i Altinn skal erstattes av tilgangspakker. For mer informasjon se [tilgangspakker](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/).
 
 {{< /expandsmall >}}
 {{< expandsmall header="Be om tilgang til tjenesteeiers tjenester" id="be_om_tilgang_til_tjenesteeiers_tjenester">}}
-Tjenesteeier bestemmer selv hvilke scopes som benyttes for tilgangskontroll mot sine tjenester. Dette er ikke samme scopes som benyttes for systembruker og må tildeles av tjenesteier for tjenesten du skal benytte.
+Tjenesteeier bestemmer selv hvilke scopes som benyttes for tilgangskontroll mot sine tjenester.
+Dette er ikke samme scopes som benyttes for systembruker og må tildeles av tjenesteier for tjenesten du skal benytte.
+For å finne ut hvilke scopes du må be om, se tjesteeiers dokumentasjon eller ta kontakt med tjesteeier.
 
 {{< /expandsmall >}}
 {{< expandsmall header="Tilpasse systemet for kundene" id="tilpasse_systemet_for_kundene">}}
