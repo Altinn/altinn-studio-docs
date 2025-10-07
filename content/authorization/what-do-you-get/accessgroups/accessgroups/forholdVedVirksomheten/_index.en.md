@@ -60,7 +60,7 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til patent, varemerke 
 *urn:altinn:accesspackage:patent-varemerke-design*
 
 ### Tilskudd, støtte og erstatning
-Denne tilgangspakken gir fullmakter til tjenester knyttet til å søke tilskudd, støtte og erstatning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
+Denne tilgangspakken gir fullmakter til tjenester knyttet til å søke og rapportere på tilskudd, støtte og erstatning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:tilskudd-stotte-erstatning*
 
 ### Mine sider hos kommunen
