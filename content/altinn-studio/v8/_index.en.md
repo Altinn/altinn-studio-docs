@@ -1,5 +1,5 @@
 ---
-title: V8
+title: Altinn Studio
 linktitle: Altinn Studio
 breadcrumbText: Current (V8)
 description: Altinn Studio - Your tool for developing digital services for citizens and businesses

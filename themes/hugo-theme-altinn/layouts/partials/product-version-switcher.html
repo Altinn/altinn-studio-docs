@@ -55,7 +55,7 @@
                 {{- range $currentProductRootPage.Sections -}}
                     {{- $folderName := path.Base .RelPermalink -}}
                     {{- if eq $folderName $currentVersion -}}
-                        {{ .Title }}
+                        {{ .Params.breadcrumbText }}
                     {{- end -}}
                 {{- end -}}
             {{- else -}}
@@ -77,7 +77,7 @@
                 role="option"
                 tabindex="-1"
                 aria-selected="{{if eq $folderName $currentVersion}}true{{else}}false{{end}}">
-                <span class="version-item">{{ .Title }}</span>
+                <span class="version-item">{{ .Params.breadcrumbText }}</span>
             </a>
             {{- end -}}
         </div>
