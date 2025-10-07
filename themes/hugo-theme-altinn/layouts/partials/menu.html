@@ -115,7 +115,7 @@
                 <ul class="version-content">
                   {{- /* Show only the sections (children) of the version */ -}}
                   {{- if .Sections -}}
-                    {{- range .Sections -}}
+                    {{- range .Sections.ByWeight -}}
                       {{- if not .Params.hidden -}}
                         {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
                       {{- end -}}

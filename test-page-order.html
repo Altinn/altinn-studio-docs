@@ -1,0 +1,4 @@
+{{ $section := .Site.GetPage "/altinn-studio/v10/this-is-as/get-to-know-as" }}
+{{ range $section.Pages.ByWeight }}
+  {{ .Title }} - Weight: {{ .Weight }} - File: {{ .File.Path }}
+{{ end }}

@@ -1,22 +1,22 @@
 ---
-title: Altinn Studio V9
-description: Altinn Studio - Ditt verktøy for utvikling av digitale tjenester til innbyggere og næringsliv
+title: Altinn Studio V10
+description: Altinn Studio - Your tool to develop digital services for citizens and businesses
 weight: 1
-draft: false
-cascade:
+draft: true
+cascade: 
   params:
     product: product_studio
-    version: v9
+    version: v10
 ---
  <div class="row adocs-featuredBlocks">
     <div class="col-12 col-lg-6 mb-5">
         <div style="text-align: center;">
-            <h2 class="a-h3">Finn ut mer</h2>
-            <p class="a-js-truncate-2">Les mer om Altinn Studio</p>
+            <h2 class="a-h3">Find out more</h2>
+            <p class="a-js-truncate-2">Read more about Altinn Studio</p>
             <div class="a-illustration-icon">
                 <img src="./Altinn-studio-2.svg">
                 <div class="a-illustration-overlay">
-                    <span class="sr-only">Om Altinn Studio</span>
+                    <span class="sr-only">About Altinn Studio</span>
                 </div>
             </div>
         </div>
@@ -26,7 +26,7 @@ cascade:
                     <a href="about" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
-                                Om Altinn Studio
+                                About Altinn Studio
                             </div>
                         </div>
                     </a>
@@ -35,7 +35,7 @@ cascade:
                     <a href="what-do-you-get" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
-                                Hva får du?
+                                What do you get?
                             </div>
                         </div>
                     </a>
@@ -44,7 +44,7 @@ cascade:
                     <a href="news" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
-                                Nyheter
+                                News
                             </div>
                         </div>
                     </a>
@@ -54,12 +54,12 @@ cascade:
     </div>
     <div class="col-12 col-lg-6 mb-5">
         <div style="text-align: center;">
-            <h2 class="a-h3">Kom i gang</h2>
-            <p class="a-js-truncate-2">Lag din første tjeneste</p>
+            <h2 class="a-h3">Get started</h2>
+            <p class="a-js-truncate-2">Create your first service</p>
             <div class="a-illustration-icon">
                 <img src="./Altinn-studio-3.svg">
                 <div class="a-illustration-overlay">
-                    <span class="sr-only">Lag din første tjeneste</span>
+                    <span class="sr-only">Create your first service</span>
                 </div>
             </div>
         </div>
@@ -69,7 +69,7 @@ cascade:
                     <a href="getting-started/create-user/" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
-                                Opprett bruker
+                                Create a user in Altinn Studio
                             </div>
                         </div>
                     </a>
@@ -78,7 +78,7 @@ cascade:
                     <a href="getting-started/app-dev-course/" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
-                                Introkurs
+                                Intro course
                             </div>
                         </div>
                     </a>
@@ -87,7 +87,7 @@ cascade:
                     <a href="guides/development/basic-form" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
-                                Brukerveiledning - enkelt skjema
+                                User guide - simple form
                             </div>
                         </div>
                     </a>
@@ -97,5 +97,5 @@ cascade:
     </div>
 </div>
 
-## Nyheter - kommende
+## News - upcoming
 {{% insert "content/altinn-studio/news/upcoming/_index.nb.md" %}}

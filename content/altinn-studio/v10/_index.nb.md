@@ -1,12 +1,12 @@
 ---
-title: Altinn Studio V9
-description: Altinn Studio - Ditt verktøy for utvikling av digitale tjenester til innbyggere og næringsliv
+title: Altinn Studio V10
+description: Altinn Studio - Ditt verktøy for å utvikle digitale tjenester til innbyggere og næringsliv
 weight: 1
 draft: false
 cascade:
   params:
     product: product_studio
-    version: v9
+    version: v10
 ---
  <div class="row adocs-featuredBlocks">
     <div class="col-12 col-lg-6 mb-5">
