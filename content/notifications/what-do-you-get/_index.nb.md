@@ -1,79 +1,79 @@
 ---
-title: What do you get?
-description: "Service owners and internal Altinn systems can send customized notifications to individuals in a personal
-or professional capacity through roles they hold within an organization.
-The recipient's name and contact details do not need to be known upfront, as the Altinn Notifications API can retrieve
-this information from national registries using the national identity number or organization number."
+title: Hva får du?
+description: "Tjenesteeiere og interne Altinn-systemer kan sende tilpassede varsler til enkeltpersoner i en personlig
+eller profesjonell kapasitet gjennom roller de innehar i en organisasjon.
+Mottakerens navn og kontaktdetaljer trenger ikke å være kjent på forhånd, da Altinn Varslings-API-et kan hente
+denne informasjonen fra nasjonale registre ved hjelp av fødselsnummer eller organisasjonsnummer."
 weight: 20
 ---
 
-## Main Benefits
-**Altinn Notifications** provides a robust and reliable service for communicating with end users across multiple channels. Key benefits include:
-1. **Name Lookup**: Retrieve current names from national registries.
-2. **Contact Details Lookup**: Retrieve current contact information from national registries.
-3. **Authorization-Based Recipient Identification**: Use Altinn authorization to identify the correct recipients within an organization.
-4. **Conditional Notifications**: Enable notifications that depend on the result of a condition check. NOTE: Notifications will request condition result from external system.
-5. **API Access**: Programmatically send notifications and monitor their delivery status via the Altinn Notifications API.
+## Hovedfordeler
+**Altinn Varslinger** tilbyr en robust og pålitelig tjeneste for kommunikasjon med sluttbrukere på tvers av flere kanaler. Viktige fordeler inkluderer:
+1. **Navneoppslag**: Hent gjeldende navn fra nasjonale registre.
+2. **Kontaktdetaljoppslag**: Hent gjeldende kontaktinformasjon fra nasjonale registre.
+3. **Autorisasjonsbasert mottakeridentifikasjon**: Bruk Altinn-autorisasjon for å identifisere de korrekte mottakerne innenfor en organisasjon.
+4. **Betingede varsler**: Aktiver varsler som avhenger av resultatet av en betingelsessjekk. MERK: Varsler vil be om betingelsesresultat fra eksternt system.
+5. **API-tilgang**: Send varsler programmatisk og overvåk leveringsstatusen via Altinn Varslings-API-et.
 
-## Notification Channels
+## Varslingskanaler
 
-Altinn Notifications supports the following communication channels:
+Altinn Varslinger støtter følgende kommunikasjonskanaler:
 
-- **Email**: Sends customized and formatted emails directly to users’ inboxes. 
-- **SMS**: Delivers customized, concise, timely messages to users’ mobile phones, supporting both national and international numbers.
-- **EmailPreferred**: Prioritizes email as the primary channel, with SMS as a fallback when email contact information is unavailable.
-- **SmsPreferred**: Prioritizes SMS as the primary channel, with email as a fallback when SMS contact information is unavailable.
+- **E-post**: Sender tilpassede og formaterte e-poster direkte til brukernes innbokser.
+- **SMS**: Leverer tilpassede, konsise, tidsriktige meldinger til brukernes mobiltelefoner, og støtter både nasjonale og internasjonale numre.
+- **E-post foretrukket**: Prioriterer e-post som primærkanal, med SMS som reserve når e-postkontaktinformasjon ikke er tilgjengelig.
+- **SMS foretrukket**: Prioriterer SMS som primærkanal, med e-post som reserve når SMS-kontaktinformasjon ikke er tilgjengelig.
 
-### Future Improvements
+### Fremtidige forbedringer
 
-Altinn plans to expand its notification channels to include a broader range of communication platforms, offering even greater flexibility and convenience for organizations and users.
+Altinn planlegger å utvide sine varslingskanaler til å inkludere et bredere spekter av kommunikasjonsplattformer, noe som gir enda større fleksibilitet og bekvemmelighet for organisasjoner og brukere.
 
-## SMS Notifications
+## SMS-varsler
 
-Altinn SMS notifications ensure the timely delivery of concise messages to users’ mobile phones. Below are the key details:
+Altinn SMS-varsler sikrer rettidig levering av konsise meldinger til brukernes mobiltelefoner. Nedenfor er nøkkeldetaljene:
 
-### Send Window
+### Sendevindu
 
-- SMS notifications are sent daily between **9 AM and 5 PM (Norway time)**.
-- Notifications scheduled outside this timeframe are sent at **9 AM the following day**.
-- Notification orders can be placed at any time.
+- SMS-varsler sendes daglig mellom **kl. 09.00 og 17.00 (norsk tid)**.
+- Varsler planlagt utenfor dette tidsrommet sendes **kl. 09.00 neste dag**.
+- Varslingsordrer kan legges inn når som helst.
 
-### Supported Recipient Numbers
+### Støttede mottakernummer
 
-- **Format**: Mobile numbers must include the country code, preferably with a "+" or "00" (e.g., +47900XXXXX, 0047900XXXXX).
-- **Restrictions**: SMS notifications to 5-digit numbers are not supported.
-- **Norwegian Numbers**: Must begin with "4" or "9" after the country code "+47."
-  - Valid: +47400XXXXX, +47900XXXXX, 0047400XXXXX, 0047900XXXXX.
-  - Invalid: +47500XXXXX, +47600XXXXX, 0047500XXXXX, 0047600XXXXX.
-- **International Numbers**: Supported, as long as they include a valid country code.
+- **Format**: Mobilnumre må inkludere landskode, helst med "+" eller "00" (f.eks. +47900XXXXX, 0047900XXXXX).
+- **Restriksjoner**: SMS-varsler til 5-sifrede numre støttes ikke.
+- **Norske numre**: Må begynne med "4" eller "9" etter landskoden "+47."
+  - Gyldig: +47400XXXXX, +47900XXXXX, 0047400XXXXX, 0047900XXXXX.
+  - Ugyldig: +47500XXXXX, +47600XXXXX, 0047500XXXXX, 0047600XXXXX.
+- **Internasjonale numre**: Støttes, så lenge de inkluderer en gyldig landskode.
 
-## Email Notifications
+## E-postvarsler
 
-Altinn Email notifications provide the capability to send plain text or HTML content directly to users’ inboxes.
+Altinn E-postvarsler gir mulighet til å sende ren tekst eller HTML-innhold direkte til brukernes innbokser.
 
-### Content Types
+### Innholdstyper
 
-- **Supported Formats**: Both plain text and HTML formats are supported.
+- **Støttede formater**: Både ren tekst og HTML-formater støttes.
 
-### Recipient Restrictions
+### Mottakerbegrensninger
 
-- **Single Recipient**: Each email notification is sent to one recipient.
-- **Attachments**: Currently, email notifications do not support attachments.
+- **Enkeltmottaker**: Hver e-postvarsel sendes til én mottaker.
+- **Vedlegg**: Foreløpig støtter ikke e-postvarsler vedlegg.
 
-## Recipient Lookup
+## Mottakeroppslag
 
-Altinn offers recipient lookup functionality to determine names, contact details, and reservation status using a national identity number or organization number.
+Altinn tilbyr funksjonalitet for mottakeroppslag for å bestemme navn, kontaktdetaljer og reservasjonsstatus ved hjelp av fødselsnummer eller organisasjonsnummer.
 
-- **Timing**: Lookup occurs during order placement and again at the scheduled send time.
-- **Responsibility**: It is the sender's responsibility to check the send status. Lookup results are provided in the order response and detailed in the finished notifications.
+- **Tidspunkt**: Oppslag skjer ved bestilling og igjen på planlagt sendetidspunkt.
+- **Ansvar**: Det er avsenderens ansvar å sjekke sendestatus. Oppslagsresultater gis i bestillingsresponsen og detaljeres i de ferdige varslene.
 
-[Learn more about recipient lookup in the explanation documentation.](/notifications/explanation/recipient-lookup)
+[Lær mer om mottakeroppslag i forklaringsdokumentasjonen.](/nb/notifications/explanation/recipient-lookup)
 
-## Send Condition
+## Sendebetingelse
 
-The send condition feature ensures notifications are sent only when specific criteria are met. These conditions can be evaluated immediately or scheduled for future evaluation.
+Sendebetingelsesfunksjonen sikrer at varsler kun sendes når spesifikke kriterier er oppfylt. Disse betingelsene kan evalueres umiddelbart eller planlegges for fremtidig evaluering.
 
-- **Use Case**: Ideal for scenarios like reminders, where a notification is sent only if a required action has not been completed.
-- **Evaluation**: Conditions are checked by the application using the condition endpoint provided in the notification order.
+- **Bruksområde**: Ideelt for scenarier som påminnelser, der et varsel sendes kun hvis en påkrevd handling ikke er fullført.
+- **Evaluering**: Betingelser sjekkes av applikasjonen ved hjelp av betingelsesendepunktet som er oppgitt i varslingsordren.
 
-[Learn more about send conditions in the explanation documentation.](/notifications/explanation/send-condition)
+[Lær mer om sendebetingelser i forklaringsdokumentasjonen.](/nb/notifications/explanation/send-condition)

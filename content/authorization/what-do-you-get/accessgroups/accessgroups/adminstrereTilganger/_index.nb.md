@@ -10,10 +10,10 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Klientadministrator](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#klientadministrator)|
-|[Tilgangsstyring](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#tilgangsstyring)|
-|[Hovedadministrator](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#hovedadminstrator)|
-|[Maskinporten administrator](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/#maskinporten-administrator)|
+|[Klientadministrator](#klientadministrator)|
+|[Tilgangsstyring](#tilgangsstyring)|
+|[Hovedadministrator](#hovedadministrator)|
+|[Maskinporten administrator](#maskinporten-administrator)|
 
 ### Klientadministrator
 Denne rollen gir bruker mulighet til å administrere tilganger som virksomheten har på vegne av klienter og kunder, enten via registrerte kundeforhold i Enhetsregisteret eller delegering til virksomheten.  
@@ -24,12 +24,12 @@ Når kundeforholdet opphører, vil delegeringer gjort via klientadministrasjon o
 Denne tilgangspakken gir bruker mulighet til å gi videre tilganger for virksomheten som man selv innehar.  
 *urn:altinn:accesspackage:tilgangsstyring*
 
-### Hovedadminstrator
+### Hovedadministrator
 Denne tilgangspakken gir bruker mulighet til å administrere alle tilganger for virksomheten.  
 *urn:altinn:accesspackage:hovedadministrator*
 
 ### Maskinporten administrator
-Denne tilgangspakken gir bruker mulighet til å administrere tilgang til maskinporten scopes.  
+Denne tilgangspakken gir bruker mulighet til å administrere tilgang til Maskinporten scopes.  
 *urn:altinn:accesspackage:maskinporten-administrator*
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken

@@ -8,5 +8,3 @@ and avoid overwhelming users with too many messages.
 
 Familiarize yourself with our guidelines to understand what notifications should and should not contain,
 promoting digital safety and preventing notification fatigue.
-
-[For comprehensive details, please refer to our extensive documentation.](/notifications/guides/guidelines/)

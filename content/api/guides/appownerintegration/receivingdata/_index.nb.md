@@ -29,7 +29,7 @@ Prosessen overordnet:
 2. Skjema fylles ut og eventuelle vedleggsdata lastes opp.
 3. Sluttbruker validerer data og eventuelle vedlegg og sender applikasjonsprosessen videre til bekreftelse.
 4. Sluttbruker ser over data og bekrefter at de er ferdige med prosessen.
-5. Applikasjon publiserer en hendelse om at sluttbruker er ferdig med utfyllingsprosessen. (Forutsetter at publisering er [slått på](/nb/altinn-studio/getting-started/app-dev-course/modul5/))
+5. Applikasjon publiserer en hendelse om at sluttbruker er ferdig med utfyllingsprosessen. (Forutsetter at publisering er [slått på](/nb/altinn-studio/v8/getting-started/app-dev-course/modul5/))
 6. Tjenesteeier mottar informasjon om hendelsen på sitt hendelsesmottak.
 7. Tjenesteeier kaller Altinn API for å laste ned data for instansen.
 8. Tjenesteeier bekrefter at data er nedlastet ok.
@@ -40,34 +40,34 @@ Prosessen overordnet:
 
 Utvikling av applikasjon er dekket i Guide for applikasjonsutvikling. Aktivering av publisering av hendelser fra applikasjon er beskrevet i guide.
 
-Krav til webhook for mottak av events finner du [her](/events/subscribe-to-events/developer-guides/setup-subscription/#request).
+Krav til webhook for mottak av events finner du [her](/nb/events/subscribe-to-events/developer-guides/setup-subscription/#request).
 
-Tjenesteeier må ha registrert en integrasjon i Maskinporten. Opprettelse av integrasjon er beskrevet i Guide [her](/nb/authentication/what-do-you-get/maskinporten/#tilgang-som-tjenesteeier)).
+Tjenesteeier må ha registrert en integrasjon i Maskinporten. Opprettelse av integrasjon er beskrevet i Guide [her](/nb/authorization/getting-started/authentication/maskinporten/#tilgang-som-tjenesteeier)).
 
 ## Detaljert teknisk prosess
 
 ### Tjenesteeiersystem mottar Event fra Altinn Events
 
-Første steget i prosessen er at mottaksendepunktet mottar informasjon om Event fra Applikasjon kjørende i Altinn. Dette forutsetter at [abonnement er satt opp](/events/subscribe-to-events/developer-guides/setup-subscription/).
+Første steget i prosessen er at mottaksendepunktet mottar informasjon om Event fra Applikasjon kjørende i Altinn. Dette forutsetter at [abonnement er satt opp](/nb/events/subscribe-to-events/developer-guides/setup-subscription/).
 
 ```json
 {
-    "id": "bd9edd59-b18c-4726-aa9e-6b150eade814",
-    "source": "https://ttd.apps.altinn.no/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
-    "specversion": "1.0",
-    "type": "app.instance.created",
-    "resource": "urn:altinn:app:ttd.bli-applikasjonseier",
-    "resourceinstance": "bd9edd59-b18c-4726-aa9e-6b150eade814",
-    "subject": "/party/1337",
-    "time": "2022-05-12T00:02:07.541482Z"
+  "id": "bd9edd59-b18c-4726-aa9e-6b150eade814",
+  "source": "https://ttd.apps.altinn.no/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
+  "specversion": "1.0",
+  "type": "app.instance.created",
+  "resource": "urn:altinn:app:ttd.bli-applikasjonseier",
+  "resourceinstance": "bd9edd59-b18c-4726-aa9e-6b150eade814",
+  "subject": "/party/1337",
+  "time": "2022-05-12T00:02:07.541482Z"
 }
 ```
 
-### Autentisering mot maskinporten
+### Autentisering mot Maskinporten
 
-Tjenesteeiersystem kaller Maskinporten API med korrekt Scopes for tjenesteeier. Dette er beskrevet i detaljer [her](/nb/authentication/what-do-you-get/maskinporten/#tilgang-som-tjenesteeier).
+Tjenesteeiersystem kaller Maskinporten API med korrekt Scopes for tjenesteeier. Dette er beskrevet i detaljer [her](/nb/authorization/getting-started/authentication/maskinporten/#tilgang-som-tjenesteeier).
 
-Deretter må tjenesteeiersystem kalle Altinns [innvekslingsendepunkt](/api/authentication/spec/) med sitt maskinportentoken som bearer token.
+Deretter må tjenesteeiersystem kalle Altinns [innvekslingsendepunkt](/nb/api/authentication/spec/) med sitt maskinportentoken som bearer token.
 
 ```http
 http://platform.altinn.no/authenticaiton/api/v1/exchange/maskinporten/
@@ -79,66 +79,66 @@ Events fra Altinn Applikasjoner peker på Instance-endepunktet til en gitt appli
 
 ```json
 {
-    "id": "1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
-    "instanceOwner": {
-        "partyId": "1337",
-        "personNumber": "01039012345",
-        "organisationNumber": null,
-        "username": null
+  "id": "1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
+  "instanceOwner": {
+    "partyId": "1337",
+    "personNumber": "01039012345",
+    "organisationNumber": null,
+    "username": null
+  },
+  "appId": "ttd/bli-applikasjonseier",
+  "org": "ttd",
+  "selfLinks": {
+    "apps": "https://ttd.apps.altinn.no/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
+    "platform": "https://ttd.apps.altinn.no/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814"
+  },
+  "dueBefore": null,
+  "visibleAfter": null,
+  "process": {
+    "started": "2020-11-18T15:56:41.5662973Z",
+    "startEvent": "StartEvent_1",
+    "currentTask": {
+      "flow": 2,
+      "started": "2020-11-18T15:56:41.5664762Z",
+      "elementId": "Task_1",
+      "name": "Utfylling",
+      "altinnTaskType": "data",
+      "ended": null,
+      "validated": {
+        "timestamp": "2020-11-20T13:00:05.1800273+00:00",
+        "canCompleteTask": true
+      }
     },
-    "appId": "ttd/bli-applikasjonseier",
-    "org": "ttd",
-    "selfLinks": {
-        "apps": "https://ttd.apps.altinn.no/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814",
-        "platform": "https://ttd.apps.altinn.no/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814"
-    },
-    "dueBefore": null,
-    "visibleAfter": null,
-    "process": {
-        "started": "2020-11-18T15:56:41.5662973Z",
-        "startEvent": "StartEvent_1",
-        "currentTask": {
-            "flow": 2,
-            "started": "2020-11-18T15:56:41.5664762Z",
-            "elementId": "Task_1",
-            "name": "Utfylling",
-            "altinnTaskType": "data",
-            "ended": null,
-            "validated": {
-                "timestamp": "2020-11-20T13:00:05.1800273+00:00",
-                "canCompleteTask": true
-            }
-        },
-        "ended": null,
-        "endEvent": null
-    },
-    "status": null,
-    "completeConfirmations": null,
-    "data": [
-        {
-            "id": "8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
-            "instanceGuid": "bd9edd59-b18c-4726-aa9e-6b150eade814",
-            "dataType": "Kursdomene_BliTjenesteeier_M_2020-05-25_5703_34553_SERES",
-            "filename": null,
-            "contentType": "application/xml",
-            "blobStoragePath": "ttd/bli-applikasjonseier/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
-            "selfLinks": {
-                "apps": "https://ttd.apps.altinn.no/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
-                "platform": "https://ttd.apps.altinn.no/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d"
-            },
-            "size": 401,
-            "locked": false,
-            "refs": [],
-            "created": "2020-11-18T15:56:43.1089008Z",
-            "createdBy": null,
-            "lastChanged": "2020-11-18T15:56:43.1089008Z",
-            "lastChangedBy": null
-        }
-    ],
-    "created": "2020-11-18T15:56:42.1972942Z",
-    "createdBy": "1337",
-    "lastChanged": "2020-11-18T15:56:42.1972942Z",
-    "lastChangedBy": "1337"
+    "ended": null,
+    "endEvent": null
+  },
+  "status": null,
+  "completeConfirmations": null,
+  "data": [
+    {
+      "id": "8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
+      "instanceGuid": "bd9edd59-b18c-4726-aa9e-6b150eade814",
+      "dataType": "Kursdomene_BliTjenesteeier_M_2020-05-25_5703_34553_SERES",
+      "filename": null,
+      "contentType": "application/xml",
+      "blobStoragePath": "ttd/bli-applikasjonseier/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
+      "selfLinks": {
+        "apps": "https://ttd.apps.altinn.no/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d",
+        "platform": "https://ttd.apps.altinn.no/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d"
+      },
+      "size": 401,
+      "locked": false,
+      "refs": [],
+      "created": "2020-11-18T15:56:43.1089008Z",
+      "createdBy": null,
+      "lastChanged": "2020-11-18T15:56:43.1089008Z",
+      "lastChangedBy": null
+    }
+  ],
+  "created": "2020-11-18T15:56:42.1972942Z",
+  "createdBy": "1337",
+  "lastChanged": "2020-11-18T15:56:42.1972942Z",
+  "lastChangedBy": "1337"
 }
 ```
 
@@ -156,7 +156,7 @@ Det anbefales at tjenesteeier benytter app-endepunktet for nedlasting. På denne
 
 ### Tjenesteiersystem kaller endepunkt for å bekrefte data
 
-Når instance-data og dataelementer er lastet ned og verifisert ok, må tjenesteeier bekrefte ok nedlasting. Dette gjøres ved å kalle [Complete-endepunktet](/api/apps/instances/#complete-instance) på Applikasjon.
+Når instance-data og dataelementer er lastet ned og verifisert ok, må tjenesteeier bekrefte ok nedlasting. Dette gjøres ved å kalle [Complete-endepunktet](/nb/api/apps/instances/#complete-instance) på Applikasjon.
 
 ## Referansesystem
 

@@ -112,11 +112,11 @@ regardless of how much time has passed since the order was placed.
 ![Process details for notification associated with a resource to organization number](org-with-resource-flow.drawio.svg)
 
 ### Populating data sources
-__Notification addresses to apply in public administration__
+#### Notification addresses to apply in public administration
 
 Please revisit [the previous section covering populating Notification addresses for businesses](#populating-notification-addresses-for-businesses)
 
-__Personal contact information for enterprises__
+#### Personal contact information for enterprises
 
 Users affiliated with an organization can register their personal contact details through
 the organization’s profile on the Altinn portal. Each user can register one email address and one mobile number.
@@ -130,12 +130,12 @@ receive notifications only for specific services and/or resources.
 
 ### Data Integrity
 
-__Notification addresses to apply in public administration__
+#### Notification addresses to apply in public administration
 
 Please revisit [the previous section covering data integrity of notification addresses to apply in public administration](#data-integrity-2)
 
 
-__Personal contact information for enterprises__
+#### Personal contact information for enterprises
 
 End users are free to input their preferred contact details, which are subject to basic validation.
 Affiliates of the organization are prompted every 90 days to confirm or update their contact information through the Altinn Portal.

@@ -38,8 +38,8 @@ The migration component will extract a certain number of elements per run for al
 The migration process per correspondence will be divided into several steps to reduce risk and can be controlled per correspondence, with the ability to delete data and restart the process.
 No data is deleted from Altinn 2.
 
-1. Migration of message data and attachments from Altinn 2 to Altinn 3, where we are not dependent on [service configuration](../service-migration/).
-2. Migration of necessary [service configuration](../service-migration/) and access rules.
+1. Migration of message data and attachments from Altinn 2 to Altinn 3, where we are not dependent on [service configuration](/en/correspondence/transition/service-migration/).
+2. Migration of necessary [service configuration](/en/correspondence/transition/service-migration/) and access rules.
 3. Migration of associated instance and service delegations.
 4. Creation of the migrated message in the Dialog Portal/Unified Workspace.
 

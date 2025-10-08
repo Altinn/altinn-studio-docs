@@ -1,11 +1,13 @@
 ---
 title: Notifications
-linktitle: Notifications
 description: Altinn Notifications offers capabilities for one way communication with citizens and businesses operating in Norway.
 toc: false
 weight: 20
 aliases:
   - /altinn-notifications/
+cascade:
+  params:
+    product: product_notifications
 ---
 
  <div class="row adocs-featuredBlocks">
@@ -39,16 +41,7 @@ aliases:
                             </div>
                         </div>
                     </a>
-                </li>
-                <li class="a-dotted a-clickable a-list-hasRowLink">
-                    <a href="reference/architecture" class="a-list-rowLink">
-                        <div class="row">
-                            <div class="col">
-                                Architecture
-                            </div>
-                        </div>
-                    </a>
-                </li>
+                </li> 
             </ul>
         </div>
     </div>
@@ -106,5 +99,5 @@ Test-emails are sent as normal. Please note that in some cases the recipient ide
 
 **NB2**: There is a delay of up to 10 minutes for any changes to contact-information for a person or organization to take effect in Notifications.
 
-## News - upcoming
-{{% insert "content/notifications/news/upcoming/_index.en.md" %}}
+## Source code
+The code is on [Github](https://github.com/Altinn/altinn-notifications)

@@ -10,13 +10,13 @@ weight: 2
 ### Endepunkt
 
 ### Scopes
-Machineporten-token med scope <mark style="background-color:lightgrey">altinn:authentication/systemregister.write</mark>
+Maskinporten-token med scope <mark style="background-color:lightgrey">altinn:authentication/systemregister.write</mark>
 
 ### Content typer
 application/json
 
 ## Request Body
-For detaljert beskrivelse av hver enhet i request, vennligst se beskrivelsen [her](../model)
+For detaljert beskrivelse av hver enhet i request, vennligst se beskrivelsen [her](/nb/api/authentication/systemuserapi/systemregister/model/)
 
 ```
 {

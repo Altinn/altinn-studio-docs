@@ -33,20 +33,36 @@
   translation: teknologi
 - id: content
   translation: innhold
-- id: products
-  translation: produkter
-- id: studio
-  translation: Studio
-- id: authorization
+
+# Produkter
+- id: product
+  translation: Produkt
+- id: product_studio
+  translation: Altinn Studio
+- id: product_authorization
   translation: Autorisasjon
-- id: broker
+- id: product_broker
   translation: Formidling
-- id: correspondence
+- id: product_correspondence
   translation: Melding
-- id: notifications
-  translation: Varsling
-- id: dialogporten
+- id: product_dialogporten
   translation: Dialogporten
+- id: product_events
+  translation: Hendelser
+- id: product_notifications
+  translation: Varsling
+
+# Diataxis
+- id: diataxis
+  translation: Type
+- id: diataxis_explanation
+  translation: Forklaring
+- id: diataxis_how-to-guides
+  translation: Guider
+- id: diataxis_reference
+  translation: Referanse
+- id: diataxis_tutorials
+  translation: Veiledninger
 
 # Frontpage
 - id: altinn-your-dialogue
@@ -149,6 +165,14 @@
   translation: Samarbeid, del og lær av andre etater. Alt vi gjør er åpen kildekode på GitHub, og vi setter stor pris på dine tilbakemeldinger og bidrag!
 - id: caseblock-link
   translation: Community
+
+# Product version switcher
+- id: version
+  translation: Versjon
+- id: select-version
+  translation: Velg versjon
+- id: nav-instructions
+  translation: Bruk piltastene for å navigere mellom versjoner og Enter for å velge
 
 # Help
 - id: what-can-we-help-you-with

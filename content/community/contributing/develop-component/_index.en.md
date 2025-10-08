@@ -5,10 +5,10 @@ weight: 40
 ---
 
 Before you start developing new functionality, it's a good idea to check if the task is already in our backlog.
-If you can't find it, we appreciate if you [propose your wanted component/functionality](../propose-component/) 
+If you can't find it, we appreciate if you [propose your wanted component/functionality](/en/community/contributing/propose-component/) 
 and enter into dialog with us before starting.
 
-![Contributing process](contribute-develop-en.svg "The preferred process when components are developed")
+![Contributing process](/en/community/contributing/develop-component/contribute-develop-en.svg "The preferred process when components are developed")
 
 We apply the same criteria to externally developed components and functionality as we do with our own. Before developing
 starts, we thus would like to be included in specifying how the component should be designed, both functionally and technically.
@@ -21,8 +21,8 @@ To achieve a nice workflow for developing, dialogue is essential.
 - Decide if we should help you with design or user testing
 
 ## Development handbook
-All information you need to get started is included in our [development handbook](../handbook/). The handbook includes
-information on how to write [consistent code](/community/contributing/handbook/front-end/routine/) and [build new components](/community/contributing/handbook/front-end/new-component/).
+All information you need to get started is included in our [development handbook](/en/community/contributing/handbook/). The handbook includes
+information on how to write [consistent code](/en/community/contributing/handbook/front-end/routine/) and [build new components](/en/community/contributing/handbook/front-end/new-component/).
 
 ## Accessibility testing
 

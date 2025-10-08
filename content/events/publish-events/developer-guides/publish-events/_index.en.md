@@ -10,7 +10,7 @@ toc: true
 {{% notice info %}}
 This section covers the specific API requirements for publishing events.
 If you're just getting started or looking for information on how to use the Events API please refer to the
-[general API documentation.](../../../api/)
+[general API documentation.](/en/events/api/)
 {{% /notice %}}
 
 
@@ -27,7 +27,7 @@ Note that the content type differs from app events
 ## Authentication
 This API requires authentication and the Maskinporten scope __altinn:events.publish__.
 
-See [Authentication and Authorization](../../../api/#authentication--authorization) for more information.
+See [Authentication and Authorization](/en/events/api/#authentication--authorization) for more information.
 
 
 ## Request
@@ -103,7 +103,7 @@ Note that an Altinn Token should be included in the authorization header.
 
 ```bash
 curl \
---location 'https://plaform.altinn.no/events/api/v1/events' \
+--location 'https://platform.altinn.no/events/api/v1/events' \
 --header 'Content-Type: application/cloudevents+json' \
 --header 'Authorization: Bearer {insert Altinn token}' \
 --data '{

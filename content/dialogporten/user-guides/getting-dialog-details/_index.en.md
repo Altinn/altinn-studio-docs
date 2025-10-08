@@ -8,23 +8,23 @@ weight: 30
 
 This guide shows how a end-user system can access specific dialogs in Dialogporten using either REST or GraphQL APIs. 
 
-Note that the data structure that is returned when getting single dialogs differ from the one returned on the [search endpoint]({{<relref "../searching-for-dialogs">}}); the dialog details view offer more information about the dialog and what the user may access. 
+Note that the data structure that is returned when getting single dialogs differ from the one returned on the [search endpoint](/en/dialogporten/user-guides/getting-dialog-details/../searching-for-dialogs/); the dialog details view offer more information about the dialog and what the user may access. 
 
 ## Basic steps (REST)
 
-1. [Authenticate as a end-user]({{<relref "../authenticating">}})
-2. Find the dialog ID you want to access. To search for accessible dialogs, see the [search endpoint]({{<relref "../searching-for-dialogs">}}). Dialog IDs can also be [discovered via events]({{<relref "../detecting-changes">}}).
+1. [Authenticate as a end-user](/en/dialogporten/user-guides/getting-dialog-details/../authenticating/)
+2. Find the dialog ID you want to access. To search for accessible dialogs, see the [search endpoint](/en/dialogporten/user-guides/getting-dialog-details/../searching-for-dialogs/). Dialog IDs can also be [discovered via events](/en/dialogporten/user-guides/getting-dialog-details/../detecting-changes/).
 3. Perform a GET request to `/api/v1/enduser/dialogs/{dialogId}`.
 
 ## Returned information
 The data structure returned consists of all the data available in the search endpoint, and additionally 
 * title, summary and additional info (text)
-* [front channel embeds]({{<relref "../../getting-started/front-channel-embeds">}}) (ie. referenced content)
-* [actions]({{<relref "../../getting-started/dialogs/#actions">}}) that can be perfomed
-* [activity log]({{<relref "../../getting-started/activity-log">}})
-* [transmissions]({{<relref "../../getting-started/dialogs/#transmissions">}})
+* [front channel embeds](/en/dialogporten/user-guides/getting-dialog-details/../../getting-started/front-channel-embeds/) (ie. referenced content)
+* [actions](/en/dialogporten/user-guides/getting-dialog-details/../../getting-started/dialogs/#actions) that can be perfomed
+* [activity log](/en/dialogporten/user-guides/getting-dialog-details/../../getting-started/activity-log/)
+* [transmissions](/en/dialogporten/user-guides/getting-dialog-details/../../getting-started/dialogs/#transmissions)
 
-For full details, see the [dialog details entity]({{<relref "../../reference/entities/dialog/">}}).
+For full details, see the [dialog details entity](/en/dialogporten/user-guides/getting-dialog-details/../../reference/entities/dialog/).
 
 ## Authorization
 
@@ -110,7 +110,7 @@ Note that the data structure contains actual content - it contains instead refer
 Additional requests will have to be performed in order to fetch these resources. The end user system should expect that all these endpoints require authentication and that the same authorization is enforced as on the dialog, action or attachment itself. Typically will the endpoints require that the same kind of token (ID-porten or Maskinporten with system user) is provided but with a separate scope. For Altinn-based services, please refer to the documentation for Altinn Correspondence and Altinn APps.
 
 **Read more**
-* [Reference information about the dialog details entity]({{<relref "../../reference/entities/dialog/#details">}})
+* [Reference information about the dialog details entity](/en/dialogporten/user-guides/getting-dialog-details/../../reference/entities/dialog/#details)
 
 ## Handling front channel embeds
 
@@ -120,7 +120,7 @@ There may be several front channel embeds (FCEs) in a dialog:
 
 The basic steps to handle front channel embeds are:
 
-1. Perform a GET request to the URL indicated, supplying the the [dialogtoken]({{<relref "../../getting-started/authorization/dialog-tokens">}}) in a `Authorization: Bearer`-header
+1. Perform a GET request to the URL indicated, supplying the the [dialogtoken](/en/dialogporten/user-guides/getting-dialog-details/../../getting-started/authorization/dialog-tokens/) in a `Authorization: Bearer`-header
 2. Based on the indicated media type, parse the response (usually markdown) and convert to the presentation format (usually HTML)
 3. Inject the converted data into the GUI
 

@@ -8,7 +8,7 @@ weight: 40
 
 This guide shows you the ways you can set up a system to detect changes made to dialogs. 
 
-For a functional overview, see [getting started with events]({{<relref "../../getting-started/events">}}).
+For a functional overview, see [getting started with events](/en/dialogporten/user-guides/detecting-changes/../../getting-started/events/).
 
 There are two different ways to detect changes; using Altinn Events or GraphQL subscriptions.
 
@@ -29,9 +29,9 @@ If you're not sure, you probably want Altinn Events
 
 ## How to subscribe to Altinn Events
 
-Please refer to the [Altinn Event component documentation]({{<relref "../../../../events/subscribe-to-events">}}) for a generic guide on how to get started either subscribing via webook (recommended) or polling the event API for events.
+Please refer to the [Altinn Event component documentation](/en/events/subscribe-to-events/) for a generic guide on how to get started either subscribing via webook (recommended) or polling the event API for events.
 
-For technical information on the various event types and formats produced by Dialogporten, see the [technical reference for events]({{<relref "../../reference/events">}}). 
+For technical information on the various event types and formats produced by Dialogporten, see the [technical reference for events](/en/dialogporten/user-guides/detecting-changes/../../reference/events/). 
 
 ## How to Use GraphQL Subscriptions
 
@@ -42,7 +42,7 @@ Before you can set up a GraphQL subscription, you must fetch the dialog details 
 ### Step-by-Step Guide
 
 1. **Fetch Dialog Details**  
-   Obtain the dialog you want to monitor. This can usually be done through a GraphQL query or by utilizing a REST API endpoint. For more details on how to do this, refer to our guide on [getting dialog details]({{<relref "../getting-dialog-details">}}).
+   Obtain the dialog you want to monitor. This can usually be done through a GraphQL query or by utilizing a REST API endpoint. For more details on how to do this, refer to our guide on [getting dialog details](/en/dialogporten/user-guides/detecting-changes/../getting-dialog-details/).
 
 2. **Set Up the Subscription**  
    Once you have the dialog token, you can set up the subscription to the `dialogEvents`. Use the `dialogId` of the dialog you are interested in to subscribe to events related to it. Here’s how you can write the subscription query:

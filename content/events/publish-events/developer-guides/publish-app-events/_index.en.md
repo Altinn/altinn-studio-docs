@@ -10,7 +10,7 @@ toc: true
 
 **Are you an Altinn App developer?**
 
-Please reference the [Altinn Apps documentation for guidance](../../../../altinn-studio/reference/configuration/events/) 
+Please reference the [Altinn Apps documentation for guidance](/en/altinn-studio/v8/reference/configuration/events/) 
 on how to enable the events functionality and define custom events in your Altinn App.</br></br>
 
 As the publishing of app events is handled by core logic in the application, this documentation 
@@ -25,7 +25,7 @@ POST /app
 ## Authentication
 This API requires authentication and a Platform Access Token in the header.
 
-See [Authentication and Authorization](../../../api/#authentication--authorization) for more information.
+See [Authentication and Authorization](/en/events/api/#authentication--authorization) for more information.
 
 
 ## Request
@@ -79,7 +79,7 @@ and `/organisation/987564321`.
 
 
 ## Response
-A successful registration of the cloud event should result in a _200 OK_ response without any data.
+A successful registration of the cloud event should result in a _201 Created_ response with the GUID to the Cloud Event-instance as payload.
 
 ### Content-Type
 - application/json
@@ -116,7 +116,7 @@ curl \
 ### Response
 
 #### 200 OK
-Response contains the ID for the cloud event.
+Response contains the ID for the Cloud Event.
 
 ```json
 "4815d141-8cf6-4555-8c3c-e069c7b80c79"

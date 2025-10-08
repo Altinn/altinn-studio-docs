@@ -37,18 +37,23 @@ En varslingsbestilling gjøres ved å legge til følgende når du initialiserer 
       "sendReminder": boolean,
       "emailBody": string?,
       "emailSubject": string?,
+      "emailContentType": Plain(0) | Html(1),
       "smsBody": string?,
       "reminderNotificationChannel": Email(0) | Sms(1) | EmailPreferred(2) | SmsPreferred(3) | EmailAndSms(4),
       "reminderEmailBody": string?,
       "reminderEmailSubject": string?,
+      "reminderEmailContentType": Plain(0) | Html(1),
       "reminderSmsBody": string?,
       "requestedSendTime": DateTimeOffset?,
-      "customRecipient": {
-        "organizationNumber": string?,
-        "nationalIdentityNumber": string?,
-        "mobileNumber": string?,
-        "emailAddress": string?
-      }
+      "customRecipients": [
+        {
+          "organizationNumber": string?,
+          "nationalIdentityNumber": string?,
+          "mobileNumber": string?,
+          "emailAddress": string?
+        }
+      ],
+      "overrideRegisteredContactInformation": boolean
     }
   },
   "Recipients": [],
@@ -56,9 +61,6 @@ En varslingsbestilling gjøres ved å legge til følgende når du initialiserer 
 }
 ```
 
-{{% notice info %}}
-Merk: Varslingstjenesten bruker et V2 API internt. Varslingsbestillingen vil automatisk bli konvertert til V2-format når den behandles.
-{{% /notice %}}
 
 ## Keyword støtte
 
@@ -102,8 +104,7 @@ Støttede varslingskanaler:
 - **EmailPreferred:** Bruker e-post som hoved kommunikasjonskanal, og SMS som fallback hvis e-post ikke er tilgjengelig.
 - **SmsPreferred:** Bruker SMS som hoved kommunikasjonskanal, og e-post som fallback om SMS ikke finnes.
 - **EmailAndSms:** Sender både e-post og SMS til mottakeren samtidig.
-
-Hovedvarsel og revarsel kan bruke forskjellige notifikasjonskanaler.
+Hovedvarsel og revarsel kan bruke forskjellige notifikasjonskanaler. 
 For eksempel kan man velge å sende første varsel på e-post, men så går det ett revarsel på sms etter 7 dager.
 
 ## Kansellering av varsling
@@ -121,39 +122,41 @@ Det er planlagt forbedringer for å gi tilbakemelding omkring dette under oppret
 
 For meldinger som er opprettet med varsling aktivert vil mottakeren av varslingen være den samme som mottakeren av meldingen.
 Det er derimot mulig benytte valgfrie mottakere av varsling, som ikke nødvendigvis er mottaker av meldingen.
-Det er også mulig å legge til valgfrie mottakere av varselet som ikke nødvendigvis er mottaker(e) av meldingen. 
-I praksis betyr dette at valgfrie mottakere vil overstyre/erstatte den opprinnelige mottakeren som er angitt for varselet.
+I praksis betyr dette at valgfrie mottakere vil motta varsler **i tillegg til** den opprinnelige meldingsmottakeren.
 
-{{% notice warning %}}
-⚠️ UTGÅTT: Feltet `customNotificationRecipients` er utgått og vil bli fjernet i en fremtidig versjon. Vennligst bruk `customRecipient` i stedet.
-{{% /notice %}}
-
-### Bruk av customNotificationRecipients (Utgått)
-Dette gjøres ved å fylle ut `customNotificationRecipients`-feltet under `notification` slik:
+### Bruk av customRecipients (Anbefalt)
+Den anbefalte måten er å bruke `customRecipients`-feltet under `notification` for å spesifisere flere mottakere:
 
 ```json
 {
   "notification": {
     ...,
-    "customNotificationRecipients": [
+    "customRecipients": [
       {
-        "recipientToOverride": "string",
-        "notificationRecipient": [
-          {
-            "organizationNumber": "string",
-            "nationalIdentityNumber": "string",
-            "mobileNumber": "string",
-            "emailAddress": "string"
-          }
-        ]
+        "organizationNumber": "string",
+        "nationalIdentityNumber": "string",
+        "mobileNumber": "string",
+        "emailAddress": "string"
+      },
+      {
+        "organizationNumber": "string",
+        "nationalIdentityNumber": "string",
+        "mobileNumber": "string",
+        "emailAddress": "string"
       }
     ]
   }
 }
 ```
 
-### Bruk av customRecipient (Anbefalt)
-Den anbefalte måten er å bruke `customRecipient`-feltet under `notification` slik:
+**Merk**: Varsler vil bli sendt til både standard meldingsmottaker OG alle valgfrie mottakere som er listet ovenfor.
+
+{{% notice warning %}}
+⚠️ UTGÅTT: Feltet `customRecipient` er utgått og vil bli fjernet i en fremtidig versjon. Vennligst bruk `customRecipients` i stedet.
+{{% /notice %}}
+
+### Bruk av customRecipient (Utgått)
+For bakoverkompatibilitet kan du fortsatt bruke `customRecipient`-feltet for en enkelt mottaker:
 
 ```json
 {
@@ -169,8 +172,76 @@ Den anbefalte måten er å bruke `customRecipient`-feltet under `notification` s
 }
 ```
 
+{{% notice warning %}}
+⚠️ UTGÅTT: Feltet `customNotificationRecipients` er utgått og vil bli fjernet i en fremtidig versjon. Vennligst bruk `customRecipients` i stedet.
+{{% /notice %}}
+
+### Bruk av customNotificationRecipients (Utgått)
+Dette gjøres ved å fylle ut `customNotificationRecipients`-feltet under `notification` slik:
+
+```json
+{
+  "notification": {
+    ...,
+    "customNotificationRecipients": [
+      {
+        "recipientToOverride": "string",
+        "recipients": [
+          {
+            "organizationNumber": "string",
+            "nationalIdentityNumber": "string",
+            "mobileNumber": "string",
+            "emailAddress": "string"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+### Valideringsregler for valgfrie mottakere
+
+Når du bruker valgfrie mottakere, gjelder følgende valideringsregler:
+
+1. **Tilleggsmottakere**: Valgfrie mottakere får varsler **i tillegg til** standard meldingsmottaker, ikke i stedet for dem.
+
+2. **Kun én mottaker**: Hvis valgfrie mottakere er spesifisert, må meldingen ha kun én standard mottaker (ikke flere mottakere).
+
+3. **Kun én identifikator påkrevd**: Hver valgfrie mottaker må ha nøyaktig ett identifikatorfelt fylt ut:
+   - `organizationNumber` (for organisasjoner)
+   - `nationalIdentityNumber` (for personer)
+   - `emailAddress` (for direkte e-postvarsler)
+   - `mobileNumber` (for direkte SMS-varsler)
+
+4. **Keyword-begrensninger**: Når du bruker `emailAddress` eller `mobileNumber`, kan ikke `$recipientName$`-keywordet brukes i noe varslingsinnhold (e-postemne, e-postinnhold, SMS-innhold, revarselfelt) fordi navneoppslag ikke er tilgjengelig for direkte kontaktinformasjon.
+
+5. **Formatvalidering**:
+   - **E-postadresser**: Må være i gyldig e-postformat (f.eks. `bruker@eksempel.com`)
+   - **Mobilnumre**: Må følge E.164-standarden og være gyldige telefonnumre. Kan starte med `+` eller `00` for internasjonalt format. Norske numre som starter med 4 eller 9 får automatisk `+47`-prefiks hvis ingen landskode er oppgitt.
+   - **Organisasjonsnumre**: Må være i format `0192:organisasjonsnummer` eller `urn:altinn:organisasjonsnummer:organisasjonsnummer`
+   - **Fødselsnumre**: Må være gyldige 11-sifrede norske fødselsnumre
+
 ### Hvordan bruke valgfri mottaker
-For utgått tilnærming:
+For anbefalt tilnærming (flere mottakere):
+```
+correspondence.notification.customRecipients[0].organizationNumber
+correspondence.notification.customRecipients[0].nationalIdentityNumber
+correspondence.notification.customRecipients[0].mobileNumber
+correspondence.notification.customRecipients[0].emailAddress
+correspondence.notification.customRecipients[1].organizationNumber
+// ... ytterligere mottakere
+```
+
+For utgått enkelt mottaker tilnærming:
+```
+correspondence.notification.customRecipient.organizationNumber
+correspondence.notification.customRecipient.nationalIdentityNumber
+correspondence.notification.customRecipient.mobileNumber
+correspondence.notification.customRecipient.emailAddress
+```
+
+For utgått flere mottakere tilnærming:
 ```
 correspondence.notification.customNotificationRecipients[0].recipientToOverride
 correspondence.notification.customNotificationRecipients[0].recipients[0].organizationNumber
@@ -179,35 +250,73 @@ correspondence.notification.customNotificationRecipients[0].recipients[0].mobile
 correspondence.notification.customNotificationRecipients[0].recipients[0].emailAddress
 ```
 
-For anbefalt tilnærming:
-```
-correspondence.notification.customRecipient.organizationNumber
-correspondence.notification.customRecipient.nationalIdentityNumber
-correspondence.notification.customRecipient.mobileNumber
-correspondence.notification.customRecipient.emailAddress
-```
-
 {{% panel theme="warning" %}}
 ⚠️ VIKTIG: 
-Husk verdien som gis til `notificationTemplate` og `notificationChannel`, da disse vil påvirke den valgfri mottakeren. Flere detaljer er gitt [her](#varslingsmaler).
+Både `notificationTemplate` og `notificationChannel` er anvendelige når du bruker valgfrie mottakere:
+
+- **`notificationTemplate`**: Bestemmer innholdet (e-postemne, innhold, SMS-innhold) som vil bli sendt til den valgfrie mottakeren
+- **`notificationChannel`**: For organisasjon og person som valgfrie mottakere bestemmer dette kanalene som varslingene sendes til. For direkte e-post/mobil som valgfrie mottakere er kanalen ikke lenger anvendelig.
+
+Flere detaljer er gitt [her](#varslingsmaler).
 {{% /panel %}}
 
-### Explanation of template and channel
+## Overstyr standard mottaker oppførsel
 
-For hver av de valgfrie mottakerne (i begge tilnærminger) er det kun mulig å oppgi ett av følgende felt:
+Som standard, når du bruker valgfrie mottakere, sendes varsler til både standard meldingsmottaker OG alle valgfrie mottakere. Du kan imidlertid overstyre denne oppførselen ved å bruke `overrideRegisteredContactInformation`-flagget.
 
-1. Organisasjonsnummer
-2. Fødselsnummer
-3. Mobilnummer og/eller e-postadresse
+### Bruk av overrideRegisteredContactInformation
 
-Dersom enten mobilnummer eller e-postadresse brukes, må de ha riktig format for å kunne sende varslingene.
-For e-poster aksepteres de fleste verdier så lenge de er i formen 'bruker@eksempel.com'.
-For mobilnumre må de tilfredsstille _E.164-formatet_.
+`overrideRegisteredContactInformation`-flagget lar deg kontrollere om standard meldingsmottaker skal inkluderes i varsler:
 
-{{% panel theme="warning" %}}
-⚠️ VIKTIG: For å bruke valgfrie mottakere for varslinger, må mottakerne være gyldige.
-Dersom mottakerne er ugyldige vil ikke meldingen bli sendt ut.
+```json
+{
+  "notification": {
+    ...,
+    "customRecipients": [
+      {
+        "organizationNumber": "string",
+        "nationalIdentityNumber": "string",
+        "mobileNumber": "string",
+        "emailAddress": "string"
+      }
+    ],
+    "overrideRegisteredContactInformation": true
+  }
+}
+```
 
-Derfor anbefales det å kun bruke denne funksjonaliteten dersom det er kritisk for tjenesten.
-For store utsendelser av meldinger bør disse opprettes uten tilpassede mottakere.
-{{% /panel %}}
+### Oppførsel
+
+- **`overrideRegisteredContactInformation: false` (standard)**: Varsler sendes til standard meldingsmottaker OG alle valgfrie mottakere
+- **`overrideRegisteredContactInformation: true`**: Varsler sendes KUN til valgfrie mottakere (standard meldingsmottaker ekskluderes)
+
+### Valideringsregler
+
+1. **Valgfrie mottakere påkrevd**: `overrideRegisteredContactInformation`-flagget kan kun settes til `true` når `customRecipients` er oppgitt og ikke tom
+2. **Standardverdi**: Hvis ikke spesifisert, standardiserer `overrideRegisteredContactInformation` til `false`
+
+### Eksempel brukstilfeller
+
+**Scenario 1: Tilleggsmottakere (Standard oppførsel)**
+```json
+{
+  "notification": {
+    "customRecipients": [{"organizationNumber": "123456789"}],
+    "overrideRegisteredContactInformation": false
+  }
+}
+```
+Resultat: Varsler sendes til både standard meldingsmottaker OG den valgfrie organisasjonen
+
+**Scenario 2: Overstyr standard mottaker**
+```json
+{
+  "notification": {
+    "customRecipients": [{"organizationNumber": "123456789"}],
+    "overrideRegisteredContactInformation": true
+  }
+}
+```
+Resultat: Varsler sendes KUN til den valgfrie organisasjonen (standard meldingsmottaker ekskluderes)
+
+

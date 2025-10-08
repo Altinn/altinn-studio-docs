@@ -41,7 +41,7 @@
             }
           },
           "400": {
-            "description": "<ul>\r\n  <li>Resource type is not supported. Resource must be of type GenericAccessResource or CorrespondenceService. </li>\r\n  <li>Could not retrieve party uuid from lookup in Altinn Register </li>\r\n  <li>Filename is missing</li>\r\n  <li>Filename is too long</li>\r\n  <li>Filename contains invalid characters</li>\r\n  <li>Filetype not allowed</li>\r\n</ul>",
+            "description": "<ul>\r\n  <li>2010: Filename is missing</li>\r\n  <li>2011: Filename is too long</li>\r\n  <li>2012: Filename contains invalid characters</li>\r\n  <li>2013: Filetype not allowed</li>\r\n  <li>4002: Could not retrieve party uuid from lookup in Altinn Register </li>\r\n  <li>4009: Resource type is not supported. Resource must be of type GenericAccessResource or CorrespondenceService. </li>\r\n</ul>",
             "content": {
               "application/json": {
                 "schema": {
@@ -51,7 +51,7 @@
             }
           },
           "401": {
-            "description": "You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and orgaization in Altinn Authorization",
+            "description": "4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization",
             "content": {
               "application/json": {
                 "schema": {
@@ -93,7 +93,7 @@
             }
           },
           "400": {
-            "description": "<ul>\r\n  <li>File must have content and has a max file size of 250 MB</li>\r\n  <li>File has already been or is being uploaded</li>\r\n  <li>Cannot upload attachment to a correspondence that has been created</li>\r\n  <li>Could not retrieve party uuid from lookup in Altinn Register</li>\r\n  <li>Could not get data location url</li>\r\n  <li>Checksum mismatch</li>\r\n</ul>",
+            "description": "<ul>\r\n  <li>2003: Cannot upload attachment to a correspondence that has been created</li>\r\n  <li>2004: File must have content and has a max file size of 2GB</li>\r\n  <li>2005: File has already been or is being uploaded</li>\r\n  <li>2008: Checksum mismatch</li>\r\n  <li>2009: Could not get data location url</li>\r\n  <li>4002: Could not retrieve party uuid from lookup in Altinn Register</li>\r\n</ul>",
             "content": {
               "application/json": {
                 "schema": {
@@ -103,7 +103,7 @@
             }
           },
           "401": {
-            "description": "You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and orgaization in Altinn Authorization",
+            "description": "4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization",
             "content": {
               "application/json": {
                 "schema": {
@@ -113,7 +113,7 @@
             }
           },
           "404": {
-            "description": "The requested attachment was not found",
+            "description": "2001: The requested attachment was not found",
             "content": {
               "application/json": {
                 "schema": {
@@ -123,7 +123,7 @@
             }
           },
           "502": {
-            "description": "Error occurred during upload"
+            "description": "2002: Error occurred during upload"
           }
         }
       }
@@ -158,7 +158,7 @@
             }
           },
           "401": {
-            "description": "You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and orgaization in Altinn Authorization",
+            "description": "4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization",
             "content": {
               "application/json": {
                 "schema": {
@@ -168,7 +168,7 @@
             }
           },
           "404": {
-            "description": "The requested attachment was not found",
+            "description": "2001: The requested attachment was not found",
             "content": {
               "application/json": {
                 "schema": {
@@ -208,7 +208,7 @@
             }
           },
           "400": {
-            "description": "<ul>\r\n  <li>File has already been purged</li>\r\n  <li>Attachment cannot be purged as it is linked to at least one existing correspondence</li>\r\n  <li>Could not retrieve party uuid from lookup in Altinn Register</li>\r\n</ul>",
+            "description": "<ul>\r\n  <li>2006: File has already been purged</li>\r\n  <li>2007: Attachment cannot be purged as it is linked to at least one existing correspondence</li>\r\n  <li>4002: Could not retrieve party uuid from lookup in Altinn Register</li>\r\n</ul>",
             "content": {
               "application/json": {
                 "schema": {
@@ -218,7 +218,7 @@
             }
           },
           "401": {
-            "description": "You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and orgaization in Altinn Authorization",
+            "description": "4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization",
             "content": {
               "application/json": {
                 "schema": {
@@ -228,7 +228,7 @@
             }
           },
           "404": {
-            "description": "The requested attachment was not found",
+            "description": "2001: The requested attachment was not found",
             "content": {
               "application/json": {
                 "schema": {
@@ -270,7 +270,7 @@
             }
           },
           "401": {
-            "description": "You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and orgaization in Altinn Authorization",
+            "description": "4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization",
             "content": {
               "application/json": {
                 "schema": {
@@ -280,7 +280,7 @@
             }
           },
           "404": {
-            "description": "The requested attachment was not found",
+            "description": "2001: The requested attachment was not found",
             "content": {
               "application/json": {
                 "schema": {
@@ -323,7 +323,7 @@
             }
           },
           "401": {
-            "description": "You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and orgaization in Altinn Authorization",
+            "description": "4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization",
             "content": {
               "application/octet-stream": {
                 "schema": {
@@ -333,7 +333,7 @@
             }
           },
           "404": {
-            "description": "The requested attachment was not found",
+            "description": "2001: The requested attachment was not found",
             "content": {
               "application/octet-stream": {
                 "schema": {
@@ -351,7 +351,7 @@
           "Correspondence"
         ],
         "summary": "Initialize Correspondences",
-        "description": "One of the scopes: \r\n/>\r\n- altinn:correspondence.write \r\n\r\nRequires uploads of specified attachments if any before it can be Published",
+        "description": "One of the scopes: \r\n\r\n- altinn:correspondence.write \r\n\r\nRequires uploads of specified attachments if any before it can be Published",
         "requestBody": {
           "content": {
             "application/json": {
@@ -373,7 +373,7 @@
             }
           },
           "400": {
-            "description": "<ul>\r\n  <li>Resource type is not supported. Resource must be of type GenericAccessResource or CorrespondenceService</li>\r\n  <li>Could not retrieve party uuid from lookup in Altinn Register</li>\r\n  <li>Recipients must be unique</li>\r\n  <li>DueDateTime is required when confirmation is needed</li>\r\n  <li>DueDateTime cannot be prior to today</li>\r\n  <li>DueDateTime cannot be prior to RequestedPublishTime</li>\r\n  <li>AllowSystemDelete cannot be prior to today</li>\r\n  <li>AllowSystemDelete cannot be prior to RequestedPublishTime</li>\r\n  <li>The Content field must be provided for the correspondence</li>\r\n  <li>Message title cannot be empty</li>\r\n  <li>Message title must be plain text</li>\r\n  <li>Message body cannot be empty</li>\r\n  <li>Message body must be markdown</li>\r\n  <li>Message summary cannot be empty</li>\r\n  <li>Message summary must be markdown</li>\r\n  <li>Invalid language chosen. Supported languages is Norsk bokmål (nb), Nynorsk (nn) and English (en)</li>\r\n  <li>Recipient overrides with email or mobile number are not allowed when using notification recipient name because of name lookup</li>\r\n  <li>Could not find recipient with id: {id} to override</li>\r\n  <li>No recipients provided for one or more recipient overrides</li>\r\n  <li>Missing email information for custom recipient. Add email or use the OrganizationNumber or NationalIdentityNumber fields for contact information</li>\r\n  <li>Missing mobile number for custom recipient. Add mobile number or use the OrganizationNumber or NationalIdentityNumber fields for contact information</li>\r\n  <li>Organization number cannot be combined with email address, mobile number, or national identity number</li>\r\n  <li>National identity number cannot be combined with email address, mobile number, or organization number.</li>\r\n  <li>Invalid email provided for custom recipient</li>\r\n  <li>Invalid mobile number provided. Mobile number can contain only '+' and numeric characters, and it must adhere to the E.164 standard</li>\r\n  <li>Mismatch between uploaded files and attachment metadata</li>\r\n  <li>File must have content and has a max file size of 250 MB</li>\r\n  <li>The sender of the correspondence must be equal the sender of existing attachments</li>\r\n  <li>Existing attachment not found</li>\r\n  <li>Attachment is not published</li>\r\n</ul>",
+            "description": "<ul>\r\n  <li>1002: Message title must be plain text</li>\r\n  <li>1003: Message body must be markdown</li>\r\n  <li>1004: Message summary must be plain text</li>\r\n  <li>1006: Recipients must be unique</li>\r\n  <li>1007: Existing attachment not found</li>\r\n  <li>1008: DueDateTime cannot be prior to today</li>\r\n  <li>1009: DueDateTime cannot be prior to RequestedPublishTime</li>\r\n  <li>1010: AllowSystemDelete cannot be prior to today</li>\r\n  <li>1011: AllowSystemDelete cannot be prior to RequestedPublishTime</li>\r\n  <li>1012: AllowSystemDelete cannot be prior to DueDateTime</li>\r\n  <li>1013: Sender cannot delete correspondence that has been published</li>\r\n  <li>1016: DueDateTime is required when confirmation is needed</li>\r\n  <li>1017: The sender of the correspondence must be equal the sender of existing attachments</li>\r\n  <li>1018: Attachment is not published</li>\r\n  <li>1019: The Content field must be provided for the correspondence</li>\r\n  <li>1020: Message title cannot be empty</li>\r\n  <li>1021: Message body cannot be empty</li>\r\n  <li>1022: Message body cannot exceed 10000 characters</li>\r\n  <li>1023: Invalid language chosen. Supported languages is Norsk bokmål (nb), Nynorsk (nn) and English (en)</li>\r\n  <li>1033: The idempotency key must be a valid non-empty GUID</li>\r\n  <li>1035: Reply options must be well-formed URIs and HTTPS with a max length of 255 characters</li>\r\n  <li>1038: A correspondence cannot contain more than 100 attachments in total</li>\r\n  <li>1039: Message sender must be plain text</li>\r\n  <li>3001: The requested notification template with the given language was not found</li>\r\n  <li>3002: Email body and subject must be provided when sending email notifications</li>\r\n  <li>3003: Reminder email body and subject must be provided when sending reminder email notifications</li>\r\n  <li>3004: SMS body must be provided when sending SMS notifications</li>\r\n  <li>3005: Reminder SMS body must be provided when sending reminder SMS notifications</li>\r\n  <li>3006: Email body, subject and SMS body must be provided when sending preferred notifications</li>\r\n  <li>3007: Reminder email body, subject and SMS body must be provided when sending reminder preferred notifications</li>\r\n  <li>3011: Invalid email provided for custom recipient</li>\r\n  <li>3012: Invalid mobile number provided. Mobile number can contain only '+' and numeric characters, and it must adhere to the E.164 standard</li>\r\n  <li>3015: Recipient overrides with email or mobile number are not allowed when using notification recipient name because of name lookup</li>\r\n  <li>3017: Custom recipient with multiple recipients is not allowed</li>\r\n  <li>3018: Custom recipient with multiple identifiers is not allowed</li>\r\n  <li>3019: Custom recipient without identifier is not allowed</li>\r\n  <li>4002: Could not retrieve party uuid from lookup in Altinn Register</li>\r\n  <li>4009: Resource type is not supported. Resource must be of type GenericAccessResource or CorrespondenceService</li>\r\n</ul>",
             "content": {
               "application/json": {
                 "schema": {
@@ -383,7 +383,7 @@
             }
           },
           "401": {
-            "description": "You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and orgaization in Altinn Authorization",
+            "description": "<ul>\r\n  <li>4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization</li>\r\n</ul>",
             "content": {
               "application/json": {
                 "schema": {
@@ -393,7 +393,7 @@
             }
           },
           "403": {
-            "description": "Resource not whitelisted. Contact us on Slack or servicedesk@altinn.no",
+            "description": "<ul>\r\n  <li>4008: Resource not whitelisted. Contact us on Slack or servicedesk@altinn.no</li>\r\n</ul>",
             "content": {
               "application/json": {
                 "schema": {
@@ -403,7 +403,7 @@
             }
           },
           "404": {
-            "description": "<ul>\r\n  <li>Could not find partyId for the following recipients: {recipients}</li>\r\n  <li>The requested notification template with the given language was not found</li>\r\n</ul>",
+            "description": "<ul>\r\n  <li>1029: Could not find partyId for the following recipients: {recipients}</li>\r\n  <li>3001: The requested notification template with the given language was not found</li>\r\n</ul>",
             "content": {
               "application/json": {
                 "schema": {
@@ -413,7 +413,7 @@
             }
           },
           "422": {
-            "description": "Recipient {recipientId} has reserved themselves from public correspondences. Can be overridden using the 'IgnoreReservation' flag",
+            "description": "<ul>\r\n  <li>1030: Recipient {recipientId} has reserved themselves from public correspondences. Can be overridden using the 'IgnoreReservation' flag</li>\r\n</ul>",
             "content": {
               "application/json": {
                 "schema": {
@@ -421,6 +421,9 @@
                 }
               }
             }
+          },
+          "409": {
+            "description": "<ul>\r\n  <li>1034: A correspondence with the same idempotent key already exists</li>\r\n</ul>"
           }
         }
       },
@@ -482,6 +485,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "idempotentKey",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
           }
         ],
         "responses": {
@@ -496,7 +507,7 @@
             }
           },
           "400": {
-            "description": "<ul>\r\n  <li>Could not retrieve party uuid from lookup in Altinn Register</li>\r\n  <li>From date cannot be after to date</li>\r\n</ul>",
+            "description": "<ul>\r\n  <li>1027: From date cannot be after to date</li>\r\n  <li>4002: Could not retrieve party uuid from lookup in Altinn Register</li>\r\n</ul>",
             "content": {
               "application/json": {
                 "schema": {
@@ -506,7 +517,7 @@
             }
           },
           "401": {
-            "description": "<ul>\r\n  <li>You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and orgaization in Altinn Authorization</li>\r\n  <li>Could not determine the caller</li>\r\n</ul>",
+            "description": "<ul>\r\n  <li>4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization</li>\r\n  <li>4006: Could not determine the caller</li>\r\n</ul>",
             "content": {
               "application/json": {
                 "schema": {
@@ -524,7 +535,7 @@
           "Correspondence"
         ],
         "summary": "Initialize Correspondences and uploads attachments in the same request",
-        "description": "One of the scopes: \r\n\r\n- altinn:correspondence.write",
+        "description": "One of the scopes: \r\n\r\n- altinn:correspondence.write \r\n\r\nRequires uploads of specified attachments if any before it can be Published",
         "requestBody": {
           "content": {
             "multipart/form-data": {
@@ -532,11 +543,9 @@
                 "required": [
                   "Correspondence.Content.Language",
                   "Correspondence.Content.MessageBody",
-                  "Correspondence.Content.MessageSummary",
                   "Correspondence.Content.MessageTitle",
                   "Correspondence.Notification.NotificationTemplate",
                   "Correspondence.ResourceId",
-                  "Correspondence.Sender",
                   "Correspondence.SendersReference",
                   "Recipients"
                 ],
@@ -550,7 +559,8 @@
                   },
                   "Correspondence.Sender": {
                     "type": "string",
-                    "description": "The Sending organization of the correspondence."
+                    "description": "The Sending organization of the correspondence.",
+                    "deprecated": true
                   },
                   "Correspondence.SendersReference": {
                     "maxLength": 4096,
@@ -559,10 +569,10 @@
                     "description": "A reference used by senders and receivers to identify a specific Correspondence using external identification methods."
                   },
                   "Correspondence.MessageSender": {
-                    "maxLength": 256,
+                    "maxLength": 255,
                     "minLength": 0,
                     "type": "string",
-                    "description": "An alternative name for the sender of the correspondence. The name will be displayed instead of the organization name."
+                    "description": "An alternative name for the sender of the correspondence. The name, if set, will be displayed instead of the organization name in the inbox."
                   },
                   "Correspondence.Content.Language": {
                     "type": "string",
@@ -599,7 +609,7 @@
                   },
                   "Correspondence.DueDateTime": {
                     "type": "string",
-                    "description": "When the recipient must reply to the correspondence",
+                    "description": "When the recipient must reply to the correspondence.",
                     "format": "date-time"
                   },
                   "Correspondence.ExternalReferences": {
@@ -607,7 +617,7 @@
                     "items": {
                       "$ref": "#/components/schemas/ExternalReferenceExt"
                     },
-                    "description": "A list of references Senders can use to tell the recipient that the correspondence is related to the referenced item(s)\r\nExamples include Altinn App instances, Altinn Broker File Transfers"
+                    "description": "A list of references Senders can use to tell the recipient that the correspondence is related to the referenced item(s)\r\nIf an external reference of type DialogportenDialogId is set, a transmission will be created on the existing dialog instead."
                   },
                   "Correspondence.PropertyList": {
                     "type": "object",
@@ -687,6 +697,13 @@
                     "description": "The date and time for when the notification should be sent.",
                     "format": "date-time"
                   },
+                  "Correspondence.Notification.CustomRecipients": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/NotificationRecipientExt"
+                    },
+                    "description": "A list of additional recipients for the notification. These are processed in addition to the Correspondence recipient;\r\nif not set, only the Correspondence recipient receives the notification."
+                  },
                   "Correspondence.Notification.CustomRecipient.EmailAddress": {
                     "type": "string",
                     "description": "the email address of the recipient"
@@ -715,6 +732,10 @@
                     "description": "Only the first list of recipients will be used. If not set, the notification will be sent to the recipient of the Correspondence",
                     "deprecated": true
                   },
+                  "Correspondence.Notification.OverrideRegisteredContactInformation": {
+                    "type": "boolean",
+                    "description": "When set to true, only CustomRecipients will be used for notifications, overriding the default correspondence recipient.\r\nThis flag can only be used when CustomRecipients is provided.\r\nDefault value is false (use default contact info + custom recipients)."
+                  },
                   "Correspondence.IgnoreReservation": {
                     "type": "boolean",
                     "description": "Specifies whether the correspondence can override reservation against digital communication in KRR"
@@ -727,6 +748,10 @@
                   "Correspondence.IsConfirmationNeeded": {
                     "type": "boolean",
                     "description": "Specifies whether reading the correspondence needs to be confirmed by the recipient"
+                  },
+                  "Correspondence.IsConfidential": {
+                    "type": "boolean",
+                    "description": "Specifies whether the correspondence is confidential"
                   },
                   "Recipients": {
                     "type": "array",
@@ -845,6 +870,9 @@
                 "Correspondence.Notification.RequestedSendTime": {
                   "style": "form"
                 },
+                "Correspondence.Notification.CustomRecipients": {
+                  "style": "form"
+                },
                 "Correspondence.Notification.CustomRecipient.EmailAddress": {
                   "style": "form"
                 },
@@ -863,6 +891,9 @@
                 "Correspondence.Notification.CustomNotificationRecipients": {
                   "style": "form"
                 },
+                "Correspondence.Notification.OverrideRegisteredContactInformation": {
+                  "style": "form"
+                },
                 "Correspondence.IgnoreReservation": {
                   "style": "form"
                 },
@@ -870,6 +901,9 @@
                   "style": "form"
                 },
                 "Correspondence.IsConfirmationNeeded": {
+                  "style": "form"
+                },
+                "Correspondence.IsConfidential": {
                   "style": "form"
                 },
                 "Recipients": {
@@ -900,7 +934,7 @@
             }
           },
           "400": {
-            "description": "<ul>\r\n  <li>Resource type is not supported. Resource must be of type GenericAccessResource or CorrespondenceService</li>\r\n  <li>Could not retrieve party uuid from lookup in Altinn Register</li>\r\n  <li>Recipients must be unique</li>\r\n  <li>DueDateTime is required when confirmation is needed</li>\r\n  <li>DueDateTime cannot be prior to today</li>\r\n  <li>DueDateTime cannot be prior to RequestedPublishTime</li>\r\n  <li>AllowSystemDelete cannot be prior to today</li>\r\n  <li>AllowSystemDelete cannot be prior to RequestedPublishTime</li>\r\n  <li>The Content field must be provided for the correspondence</li>\r\n  <li>Message title cannot be empty</li>\r\n  <li>Message title must be plain text</li>\r\n  <li>Message body cannot be empty</li>\r\n  <li>Message body must be markdown</li>\r\n  <li>Message summary cannot be empty</li>\r\n  <li>Message summary must be markdown</li>\r\n  <li>Invalid language chosen. Supported languages is Norsk bokmål (nb), Nynorsk (nn) and English (en)</li>\r\n  <li>Recipient overrides with email or mobile number are not allowed when using notification recipient name because of name lookup</li>\r\n  <li>Could not find recipient with id: {id} to override</li>\r\n  <li>No recipients provided for one or more recipient overrides</li>\r\n  <li>Missing email information for custom recipient. Add email or use the OrganizationNumber or NationalIdentityNumber fields for contact information</li>\r\n  <li>Missing mobile number for custom recipient. Add mobile number or use the OrganizationNumber or NationalIdentityNumber fields for contact information</li>\r\n  <li>Organization number cannot be combined with email address, mobile number, or national identity number</li>\r\n  <li>National identity number cannot be combined with email address, mobile number, or organization number.</li>\r\n  <li>Invalid email provided for custom recipient</li>\r\n  <li>Invalid mobile number provided. Mobile number can contain only '+' and numeric characters, and it must adhere to the E.164 standard</li>\r\n  <li>Mismatch between uploaded files and attachment metadata</li>\r\n  <li>File must have content and has a max file size of 250 MB</li>\r\n  <li>The sender of the correspondence must be equal the sender of existing attachments</li>\r\n  <li>Existing attachment not found</li>\r\n  <li>Attachment is not published</li>\r\n</ul>",
+            "description": "<ul>\r\n  <li>1002: Message title must be plain text</li>\r\n  <li>1003: Message body must be markdown</li>\r\n  <li>1004: Message summary must be plain text</li>\r\n  <li>1005: Mismatch between uploaded files and attachment metadata</li>\r\n  <li>1006: Recipients must be unique</li>\r\n  <li>1007: Existing attachment not found</li>\r\n  <li>1008: DueDateTime cannot be prior to today</li>\r\n  <li>1009: DueDateTime cannot be prior to RequestedPublishTime</li>\r\n  <li>1010: AllowSystemDelete cannot be prior to today</li>\r\n  <li>1011: AllowSystemDelete cannot be prior to RequestedPublishTime</li>\r\n  <li>1012: AllowSystemDelete cannot be prior to DueDateTime</li>\r\n  <li>1013: Sender cannot delete correspondence that has been published</li>\r\n  <li>1016: DueDateTime is required when confirmation is needed</li>\r\n  <li>1017: The sender of the correspondence must be equal the sender of existing attachments</li>\r\n  <li>1018: Attachment is not published</li>\r\n  <li>1019: The Content field must be provided for the correspondence</li>\r\n  <li>1020: Message title cannot be empty</li>\r\n  <li>1021: Message body cannot be empty</li>\r\n  <li>1022: Message body cannot exceed 10000 characters</li>\r\n  <li>1023: Invalid language chosen. Supported languages is Norsk bokmål (nb), Nynorsk (nn) and English (en)</li>\r\n  <li>1033: The idempotency key must be a valid non-empty GUID</li>\r\n  <li>1035: Reply options must be well-formed URIs and HTTPS with a max length of 255 characters</li>\r\n  <li>1038: A correspondence cannot contain more than 100 attachments in total</li>\r\n  <li>1039: Message sender must be plain text</li>\r\n  <li>2001: The requested attachment was not found</li>\r\n  <li>2004: File must have content and has a max file size of 2GB</li>\r\n  <li>2008: Checksum mismatch</li>\r\n  <li>2009: Could not get data location url</li>\r\n  <li>2010: Filename is missing</li>\r\n  <li>2011: Filename is too long</li>\r\n  <li>2012: Filename contains invalid characters</li>\r\n  <li>2013: Filetype not allowed</li>\r\n  <li>3001: The requested notification template with the given language was not found</li>\r\n  <li>3002: Email body and subject must be provided when sending email notifications</li>\r\n  <li>3003: Reminder email body and subject must be provided when sending reminder email notifications</li>\r\n  <li>3004: SMS body must be provided when sending SMS notifications</li>\r\n  <li>3005: Reminder SMS body must be provided when sending reminder SMS notifications</li>\r\n  <li>3006: Email body, subject and SMS body must be provided when sending preferred notifications</li>\r\n  <li>3007: Reminder email body, subject and SMS body must be provided when sending reminder preferred notifications</li>\r\n  <li>3011: Invalid email provided for custom recipient</li>\r\n  <li>3012: Invalid mobile number provided. Mobile number can contain only '+' and numeric characters, and it must adhere to the E.164 standard</li>\r\n  <li>3015: Recipient overrides with email or mobile number are not allowed when using notification recipient name because of name lookup</li>\r\n  <li>3017: Custom recipient with multiple recipients is not allowed</li>\r\n  <li>3018: Custom recipient with multiple identifiers is not allowed</li>\r\n  <li>3019: Custom recipient without identifier is not allowed</li>\r\n  <li>4002: Could not retrieve party uuid from lookup in Altinn Register</li>\r\n  <li>4009: Resource type is not supported. Resource must be of type GenericAccessResource or CorrespondenceService</li>\r\n</ul>",
             "content": {
               "application/json": {
                 "schema": {
@@ -910,7 +944,7 @@
             }
           },
           "401": {
-            "description": "You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and orgaization in Altinn Authorization",
+            "description": "<ul>\r\n  <li>4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization</li>\r\n</ul>",
             "content": {
               "application/json": {
                 "schema": {
@@ -920,7 +954,7 @@
             }
           },
           "403": {
-            "description": "Resource not whitelisted. Contact us on Slack or servicedesk@altinn.no",
+            "description": "<ul>\r\n  <li>4008: Resource not whitelisted. Contact us on Slack or servicedesk@altinn.no</li>\r\n</ul>",
             "content": {
               "application/json": {
                 "schema": {
@@ -930,7 +964,7 @@
             }
           },
           "404": {
-            "description": "<ul>\r\n  <li>Could not find partyId for the following recipients: {recipients}</li>\r\n  <li>The requested notification template with the given language was not found</li>\r\n</ul>",
+            "description": "<ul>\r\n  <li>1029: Could not find partyId for the following recipients: {recipients}</li>\r\n  <li>3001: The requested notification template with the given language was not found</li>\r\n</ul>",
             "content": {
               "application/json": {
                 "schema": {
@@ -940,7 +974,7 @@
             }
           },
           "422": {
-            "description": "Recipient {recipientId} has reserved themselves from public correspondences. Can be overridden using the 'IgnoreReservation' flag",
+            "description": "<ul>\r\n  <li>1030: Recipient {recipientId} has reserved themselves from public correspondences. Can be overridden using the 'IgnoreReservation' flag</li>\r\n</ul>",
             "content": {
               "application/json": {
                 "schema": {
@@ -948,6 +982,12 @@
                 }
               }
             }
+          },
+          "409": {
+            "description": "<ul>\r\n  <li>1034: A correspondence with the same idempotent key already exists</li>\r\n</ul>"
+          },
+          "502": {
+            "description": "<ul>\r\n  <li>2002: Error occurred during upload</li>\r\n</ul>"
           }
         }
       }
@@ -982,7 +1022,7 @@
             }
           },
           "400": {
-            "description": "Could not retrieve party uuid from lookup in Altinn Register",
+            "description": "4002: Could not retrieve party uuid from lookup in Altinn Register",
             "content": {
               "application/json": {
                 "schema": {
@@ -992,7 +1032,7 @@
             }
           },
           "401": {
-            "description": "You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and orgaization in Altinn Authorization",
+            "description": "4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization",
             "content": {
               "application/json": {
                 "schema": {
@@ -1002,7 +1042,7 @@
             }
           },
           "404": {
-            "description": "The requested correspondence was not found",
+            "description": "1001: The requested correspondence was not found",
             "content": {
               "application/json": {
                 "schema": {
@@ -1044,7 +1084,7 @@
             }
           },
           "400": {
-            "description": "Could not retrieve party uuid from lookup in Altinn Register",
+            "description": "4002: Could not retrieve party uuid from lookup in Altinn Register",
             "content": {
               "application/json": {
                 "schema": {
@@ -1054,7 +1094,7 @@
             }
           },
           "401": {
-            "description": "You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and orgaization in Altinn Authorization",
+            "description": "4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization",
             "content": {
               "application/json": {
                 "schema": {
@@ -1064,7 +1104,7 @@
             }
           },
           "404": {
-            "description": "The requested correspondence was not found",
+            "description": "1001: The requested correspondence was not found",
             "content": {
               "application/json": {
                 "schema": {
@@ -1107,7 +1147,7 @@
             }
           },
           "400": {
-            "description": "Could not retrieve party uuid from lookup in Altinn Register",
+            "description": "4002: Could not retrieve party uuid from lookup in Altinn Register",
             "content": {
               "application/json": {
                 "schema": {
@@ -1117,7 +1157,7 @@
             }
           },
           "401": {
-            "description": "You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and orgaization in Altinn Authorization",
+            "description": "4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization",
             "content": {
               "application/json": {
                 "schema": {
@@ -1127,7 +1167,7 @@
             }
           },
           "404": {
-            "description": "The requested correspondence was not found",
+            "description": "1001: The requested correspondence was not found",
             "content": {
               "application/json": {
                 "schema": {
@@ -1170,7 +1210,7 @@
             }
           },
           "400": {
-            "description": "Could not retrieve party uuid from lookup in Altinn Register",
+            "description": "4002: Could not retrieve party uuid from lookup in Altinn Register",
             "content": {
               "application/json": {
                 "schema": {
@@ -1180,7 +1220,7 @@
             }
           },
           "401": {
-            "description": "You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and orgaization in Altinn Authorization",
+            "description": "4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization",
             "content": {
               "application/json": {
                 "schema": {
@@ -1190,7 +1230,7 @@
             }
           },
           "404": {
-            "description": "The requested correspondence was not found",
+            "description": "1001: The requested correspondence was not found",
             "content": {
               "application/json": {
                 "schema": {
@@ -1233,7 +1273,7 @@
             }
           },
           "400": {
-            "description": "<ul>\r\n  <li>Could not retrieve party uuid from lookup in Altinn Register</li>\r\n  <li>Could not retrieve highest status for correspondence</li>\r\n  <li>Correspondence has already been purged</li>\r\n  <li>Sender cannot delete correspondence that has been published</li>\r\n  <li>Cannot archive or delete a correspondence which has not been confirmed when confirmation is required</li>\r\n</ul>",
+            "description": "<ul>\r\n  <li>1013: Sender cannot delete correspondence that has been published</li>\r\n  <li>1014: Correspondence has already been purged</li>\r\n  <li>1015: Could not retrieve highest status for correspondence</li>\r\n  <li>1026: Cannot archive or delete a correspondence which has not been confirmed when confirmation is required</li>\r\n  <li>4002: Could not retrieve party uuid from lookup in Altinn Register</li>\r\n</ul>",
             "content": {
               "application/json": {
                 "schema": {
@@ -1243,7 +1283,7 @@
             }
           },
           "401": {
-            "description": "You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and orgaization in Altinn Authorization",
+            "description": "4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization",
             "content": {
               "application/json": {
                 "schema": {
@@ -1253,7 +1293,7 @@
             }
           },
           "404": {
-            "description": "The requested correspondence was not found",
+            "description": "1001: The requested correspondence was not found",
             "content": {
               "application/json": {
                 "schema": {
@@ -1305,7 +1345,7 @@
             }
           },
           "401": {
-            "description": "You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and orgaization in Altinn Authorization",
+            "description": "4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization",
             "content": {
               "application/octet-stream": {
                 "schema": {
@@ -1315,7 +1355,7 @@
             }
           },
           "404": {
-            "description": "<ul>\r\n  <li>The requested correspondence was not found</li>\r\n  <li>The requested attachment was not found</li>\r\n</ul>",
+            "description": "<ul>\r\n  <li>1001: The requested correspondence was not found</li>\r\n  <li>2001: The requested attachment was not found</li>\r\n</ul>",
             "content": {
               "application/octet-stream": {
                 "schema": {
@@ -1323,6 +1363,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "4002: Could not retrieve party uuid from lookup in Altinn Register"
           }
         }
       }
@@ -1343,7 +1386,6 @@
           "attachmentId",
           "correspondenceIds",
           "resourceId",
-          "sender",
           "sendersReference",
           "status",
           "statusChanged",
@@ -1387,9 +1429,10 @@
             "description": "Gets or sets the Resource Id for the correspondence service."
           },
           "sender": {
-            "minLength": 1,
             "type": "string",
-            "description": "The Sending organisation of the correspondence."
+            "description": "The Sending organisation of the correspondence.",
+            "nullable": true,
+            "deprecated": true
           },
           "attachmentId": {
             "type": "string",
@@ -1440,7 +1483,6 @@
           "attachmentId",
           "correspondenceIds",
           "resourceId",
-          "sender",
           "sendersReference",
           "status",
           "statusChanged",
@@ -1484,9 +1526,10 @@
             "description": "Gets or sets the Resource Id for the correspondence service."
           },
           "sender": {
-            "minLength": 1,
             "type": "string",
-            "description": "The Sending organisation of the correspondence."
+            "description": "The Sending organisation of the correspondence.",
+            "nullable": true,
+            "deprecated": true
           },
           "attachmentId": {
             "type": "string",
@@ -1558,7 +1601,6 @@
       "BaseCorrespondenceExt": {
         "required": [
           "resourceId",
-          "sender",
           "sendersReference"
         ],
         "type": "object",
@@ -1569,11 +1611,6 @@
             "type": "string",
             "description": "The Resource Id associated with the correspondence service."
           },
-          "sender": {
-            "minLength": 1,
-            "type": "string",
-            "description": "The Sending organization of the correspondence."
-          },
           "sendersReference": {
             "maxLength": 4096,
             "minLength": 1,
@@ -1581,10 +1618,10 @@
             "description": "A reference used by senders and receivers to identify a specific Correspondence using external identification methods."
           },
           "messageSender": {
-            "maxLength": 256,
+            "maxLength": 255,
             "minLength": 0,
             "type": "string",
-            "description": "An alternative name for the sender of the correspondence. The name will be displayed instead of the organization name.",
+            "description": "An alternative name for the sender of the correspondence. The name, if set, will be displayed instead of the organization name in the inbox.",
             "nullable": true
           },
           "content": {
@@ -1604,7 +1641,7 @@
           },
           "dueDateTime": {
             "type": "string",
-            "description": "When the recipient must reply to the correspondence",
+            "description": "When the recipient must reply to the correspondence.",
             "format": "date-time",
             "nullable": true
           },
@@ -1613,7 +1650,7 @@
             "items": {
               "$ref": "#/components/schemas/ExternalReferenceExt"
             },
-            "description": "A list of references Senders can use to tell the recipient that the correspondence is related to the referenced item(s)\r\nExamples include Altinn App instances, Altinn Broker File Transfers",
+            "description": "A list of references Senders can use to tell the recipient that the correspondence is related to the referenced item(s)\r\nIf an external reference of type DialogportenDialogId is set, a transmission will be created on the existing dialog instead.",
             "nullable": true
           },
           "propertyList": {
@@ -1649,6 +1686,10 @@
           "isConfirmationNeeded": {
             "type": "boolean",
             "description": "Specifies whether reading the correspondence needs to be confirmed by the recipient"
+          },
+          "isConfidential": {
+            "type": "boolean",
+            "description": "Specifies whether the correspondence is confidential"
           }
         },
         "additionalProperties": false,
@@ -1735,7 +1776,6 @@
           "attachments",
           "language",
           "messageBody",
-          "messageSummary",
           "messageTitle"
         ],
         "type": "object",
@@ -1778,7 +1818,6 @@
           "created",
           "recipient",
           "resourceId",
-          "sender",
           "sendersReference"
         ],
         "type": "object",
@@ -1790,9 +1829,10 @@
             "description": "The Resource Id associated with the correspondence service."
           },
           "sender": {
-            "minLength": 1,
             "type": "string",
-            "description": "The Sending organization of the correspondence."
+            "description": "The Sending organization of the correspondence.",
+            "nullable": true,
+            "deprecated": true
           },
           "sendersReference": {
             "maxLength": 4096,
@@ -1801,10 +1841,10 @@
             "description": "A reference used by senders and receivers to identify a specific Correspondence using external identification methods."
           },
           "messageSender": {
-            "maxLength": 256,
+            "maxLength": 255,
             "minLength": 0,
             "type": "string",
-            "description": "An alternative name for the sender of the correspondence. The name will be displayed instead of the organization name.",
+            "description": "An alternative name for the sender of the correspondence. The name, if set, will be displayed instead of the organization name in the inbox.",
             "nullable": true
           },
           "content": {
@@ -1824,7 +1864,7 @@
           },
           "dueDateTime": {
             "type": "string",
-            "description": "When the recipient must reply to the correspondence",
+            "description": "When the recipient must reply to the correspondence.",
             "format": "date-time",
             "nullable": true
           },
@@ -1833,7 +1873,7 @@
             "items": {
               "$ref": "#/components/schemas/ExternalReferenceExt"
             },
-            "description": "A list of references Senders can use to tell the recipient that the correspondence is related to the referenced item(s)\r\nExamples include Altinn App instances, Altinn Broker File Transfers",
+            "description": "A list of references Senders can use to tell the recipient that the correspondence is related to the referenced item(s)\r\nIf an external reference of type DialogportenDialogId is set, a transmission will be created on the existing dialog instead.",
             "nullable": true
           },
           "propertyList": {
@@ -1869,6 +1909,10 @@
           "isConfirmationNeeded": {
             "type": "boolean",
             "description": "Specifies whether reading the correspondence needs to be confirmed by the recipient"
+          },
+          "isConfidential": {
+            "type": "boolean",
+            "description": "Specifies whether the correspondence is confidential"
           },
           "recipient": {
             "type": "string",
@@ -1944,7 +1988,6 @@
           "created",
           "recipient",
           "resourceId",
-          "sender",
           "sendersReference"
         ],
         "type": "object",
@@ -1956,9 +1999,10 @@
             "description": "The Resource Id associated with the correspondence service."
           },
           "sender": {
-            "minLength": 1,
             "type": "string",
-            "description": "The Sending organization of the correspondence."
+            "description": "The Sending organization of the correspondence.",
+            "nullable": true,
+            "deprecated": true
           },
           "sendersReference": {
             "maxLength": 4096,
@@ -1967,10 +2011,10 @@
             "description": "A reference used by senders and receivers to identify a specific Correspondence using external identification methods."
           },
           "messageSender": {
-            "maxLength": 256,
+            "maxLength": 255,
             "minLength": 0,
             "type": "string",
-            "description": "An alternative name for the sender of the correspondence. The name will be displayed instead of the organization name.",
+            "description": "An alternative name for the sender of the correspondence. The name, if set, will be displayed instead of the organization name in the inbox.",
             "nullable": true
           },
           "content": {
@@ -1990,7 +2034,7 @@
           },
           "dueDateTime": {
             "type": "string",
-            "description": "When the recipient must reply to the correspondence",
+            "description": "When the recipient must reply to the correspondence.",
             "format": "date-time",
             "nullable": true
           },
@@ -1999,7 +2043,7 @@
             "items": {
               "$ref": "#/components/schemas/ExternalReferenceExt"
             },
-            "description": "A list of references Senders can use to tell the recipient that the correspondence is related to the referenced item(s)\r\nExamples include Altinn App instances, Altinn Broker File Transfers",
+            "description": "A list of references Senders can use to tell the recipient that the correspondence is related to the referenced item(s)\r\nIf an external reference of type DialogportenDialogId is set, a transmission will be created on the existing dialog instead.",
             "nullable": true
           },
           "propertyList": {
@@ -2035,6 +2079,10 @@
           "isConfirmationNeeded": {
             "type": "boolean",
             "description": "Specifies whether reading the correspondence needs to be confirmed by the recipient"
+          },
+          "isConfidential": {
+            "type": "boolean",
+            "description": "Specifies whether the correspondence is confidential"
           },
           "recipient": {
             "type": "string",
@@ -2227,7 +2275,6 @@
       "InitializeAttachmentExt": {
         "required": [
           "resourceId",
-          "sender",
           "sendersReference"
         ],
         "type": "object",
@@ -2268,9 +2315,10 @@
             "description": "Gets or sets the Resource Id for the correspondence service."
           },
           "sender": {
-            "minLength": 1,
             "type": "string",
-            "description": "The Sending organisation of the correspondence."
+            "description": "The Sending organisation of the correspondence.",
+            "nullable": true,
+            "deprecated": true
           }
         },
         "additionalProperties": false,
@@ -2333,7 +2381,6 @@
         "required": [
           "language",
           "messageBody",
-          "messageSummary",
           "messageTitle"
         ],
         "type": "object",
@@ -2448,6 +2495,14 @@
             "format": "date-time",
             "nullable": true
           },
+          "customRecipients": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationRecipientExt"
+            },
+            "description": "A list of additional recipients for the notification. These are processed in addition to the Correspondence recipient;\r\nif not set, only the Correspondence recipient receives the notification.",
+            "nullable": true
+          },
           "customRecipient": {
             "$ref": "#/components/schemas/NotificationRecipientExt"
           },
@@ -2459,6 +2514,10 @@
             "description": "Only the first list of recipients will be used. If not set, the notification will be sent to the recipient of the Correspondence",
             "nullable": true,
             "deprecated": true
+          },
+          "overrideRegisteredContactInformation": {
+            "type": "boolean",
+            "description": "When set to true, only CustomRecipients will be used for notifications, overriding the default correspondence recipient.\r\nThis flag can only be used when CustomRecipients is provided.\r\nDefault value is false (use default contact info + custom recipients)."
           }
         },
         "additionalProperties": false,
@@ -2816,7 +2875,8 @@
           "AltinnAppInstance",
           "AltinnBrokerFileTransfer",
           "DialogportenDialogId",
-          "DialogportenProcessId"
+          "DialogportenProcessId",
+          "DialogportenTransmissionId"
         ],
         "type": "string",
         "description": "Defines what kind of reference"

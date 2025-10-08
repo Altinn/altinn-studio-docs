@@ -3,14 +3,13 @@ title: Administrasjon av Tilgangslister i Altinn Studio
 linktitle: Tilgangsliste
 description: Følg disse trinnene for å administrere tilgangslister i Altinn Studio for din organisasjon.
 toc: false
-weight: 3
 ---
 
 ### Oppsett av administrasjon for ressursregister
 
 For å kunne administrere tilgangslister, må du først sette opp administrasjon av ressursregister.
 
-Se [denne veiledningen](../resource-admin-studio/).
+Se [denne veiledningen](/nb/authorization/getting-started/resource-admin-studio/).
 
 ### Definere team for Tilgangsliste
 

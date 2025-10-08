@@ -3,14 +3,13 @@ title: Ressursadministrasjon i Altinn Studio
 linktitle: Ressursadministrasjon
 description: For å aktivere ressursadministrasjon i Altinn Studio må du og din organisasjon følge noen få trinn.
 toc: usant
-weight: 3
 ---
 
 ## Opprett bruker og organisasjon
 
 For å få tilgang til ressursadministrasjon i Altinn Studio må du ha en brukerkonto.
 
-Se denne [veiledningen](../../../altinn-studio/getting-started/create-user/)
+Se denne [veiledningen](/nb/altinn-studio/v8/getting-started/create-user/)
 
 ## Opprett ressursadministrasjonsarkivet for organisasjonen
 

@@ -1,23 +1,26 @@
 <a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
-  <span>{{ T "products" }}</span>
+  <span>{{ T "product" }}</span>
 </a>
 <div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
-    <a aria-hidden="true" class="dropdown-item" href="{{ with .Site.GetPage `/altinn-studio`}}{{.RelPermalink}}{{end}}">
-      <p class="product-item">{{ T "studio" }}</p>
+    <a aria-hidden="true" class="dropdown-item" href="{{ with .Site.GetPage `/altinn-studio/v8`}}{{.RelPermalink}}{{end}}">
+      <p class="product-item">{{ T "product_studio" }}</p>
     </a>
     <a aria-hidden="true" class="dropdown-item" href="{{ with .Site.GetPage `/authorization`}}{{.RelPermalink}}{{end}}">
-      <p class="product-item">{{ T "authorization" }}</p>
+      <p class="product-item">{{ T "product_authorization" }}</p>
     </a>
     <a aria-hidden="true" class="dropdown-item" href="{{ with .Site.GetPage `/dialogporten`}}{{.RelPermalink}}{{end}}">
-      <p class="product-item">{{ T "dialogporten" }}</p>
+      <p class="product-item">{{ T "product_dialogporten" }}</p>
     </a>
     <a aria-hidden="true" class="dropdown-item" href="{{ with .Site.GetPage `/broker`}}{{.RelPermalink}}{{end}}">
-      <p class="product-item">{{ T "broker" }}</p>
+      <p class="product-item">{{ T "product_broker" }}</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="{{ with .Site.GetPage `/events`}}{{.RelPermalink}}{{end}}">
+      <p class="product-item">{{ T "product_events" }}</p>
     </a>
     <a aria-hidden="true" class="dropdown-item" href="{{ with .Site.GetPage `/correspondence`}}{{.RelPermalink}}{{end}}">
-      <p class="product-item">{{ T "correspondence" }}</p>
+      <p class="product-item">{{ T "product_correspondence" }}</p>
     </a>
     <a aria-hidden="true" class="dropdown-item" href="{{ with .Site.GetPage `/notifications`}}{{.RelPermalink}}{{end}}">
-      <p class="product-item">{{ T "notifications" }}</p>
+      <p class="product-item">{{ T "product_notifications" }}</p>
     </a>
 </div>

@@ -9,7 +9,7 @@ toc: true
 POST authentication/api/v1/systemuser/request/vendor
 
 ### Scopes
-Machineporten token with scope <mark>altinn:authentication/systemuser.request.write</mark>
+Maskinporten token with scope <mark>altinn:authentication/systemuser.request.write</mark>
 
 ### Content types
 application/json
@@ -86,7 +86,7 @@ For detailed description about each entity in the response body, please refer th
 GET authentication/api/v1/systemuser/request/vendor/{requestId}
 
 ### Scopes
-Machineporten token with scope <mark>altinn:authentication/systemuser.request.read</mark>
+Maskinporten token with scope <mark>altinn:authentication/systemuser.request.read</mark>
 
 ### Content types
 application/json
@@ -134,7 +134,7 @@ The unique identifier of the request
 GET authentication/api/v1/systemuser/request/vendor/byexternalref/{systemid}/{orgno}/{externalref}
 
 ### Scopes
-Machineporten token with scope <mark>altinn:authentication/systemuser.request.read</mark>
+Maskinporten token with scope <mark>altinn:authentication/systemuser.request.read</mark>
 
 ### Content types
 application/json
@@ -191,7 +191,7 @@ Returns apaginated list of requests
 GET authentication/api/v1/systemuser/request/vendor/bysystem/{systemid}
 
 ### Scopes
-Machineporten token with scope <mark>altinn:authentication/systemuser.request.read</mark>
+Maskinporten token with scope <mark>altinn:authentication/systemuser.request.read</mark>
 
 ### Content types
 application/json
@@ -332,7 +332,7 @@ This endpoint is used to create a system user request of type agent
 POST authentication/api/v1/systemuser/request/vendor/agent
 
 ### Scopes
-Machineporten token with scope <mark>altinn:authentication/systemuser.request.write</mark>
+Maskinporten token with scope <mark>altinn:authentication/systemuser.request.write</mark>
 
 ### Content types
 application/json
@@ -397,7 +397,7 @@ For detailed description about each entity in the response, please refer the des
 GET authentication/api/v1/systemuser/request/vendor/agent/{requestId}
 
 ### Scopes
-Machineporten token with scope <mark>altinn:authentication/systemuser.request.read</mark>
+Maskinporten token with scope <mark>altinn:authentication/systemuser.request.read</mark>
 
 ### Content types
 application/json
@@ -440,7 +440,7 @@ The unique identifier of the request
 GET authentication/api/v1/systemuser/request/vendor/agent/byexternalref/{systemid}/{orgno}/{externalref}
 
 ### Scopes
-Machineporten token with scope <mark>altinn:authentication/systemuser.request.read</mark>
+Maskinporten token with scope <mark>altinn:authentication/systemuser.request.read</mark>
 
 ### Content types
 application/json
@@ -490,7 +490,7 @@ Returns a paginated list of agent requests
 GET authentication/api/v1/systemuser/request/vendor/agent/bysystem/{systemid}
 
 ### Scopes
-Machineporten token with scope <mark>altinn:authentication/systemuser.request.read</mark>
+Maskinporten token with scope <mark>altinn:authentication/systemuser.request.read</mark>
 
 ### Content types
 application/json
@@ -568,7 +568,7 @@ This endpoint is used by the internal system to delete the system user request
 DELETE /authentication/api/v1/systemuser/request/vendor/{requestid}
 
 ### Scopes
-Machineporten token with scope <mark>altinn:authentication/systemuser.request.write</mark>
+Maskinporten token with scope <mark>altinn:authentication/systemuser.request.write</mark>
 
 ### Content types
 application/json

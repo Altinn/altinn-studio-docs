@@ -14,7 +14,13 @@ If you are already an established service owner, you can proceed directly with t
 
 ## 2. Register your Maskinporten Client with correct scopes
 
-{{% insert "content/notifications/shared/getting-started/maskinporten/get-started-maskinporten.en.md" %}}
+To use the Altinn Notifications API, you must have a Maskinporten client with the correct scope.
+
+The scope **altinn:serviceowner/notifications.create** is required for clients to access the Notifications API.
+
+All registered service owners have been delegated this scope by Digdir and should be able to find it in their list of scopes in Samarbeidsportalen.
+
+For a guide on how to register a new Maskinporten integration in Samarbeidsportalen, please see [Altinn Authorization](/en/authorization/getting-started/maskinportenclient/)
 
 ## 3. Review policy for relevant resources in Altinn Resource Registry
 

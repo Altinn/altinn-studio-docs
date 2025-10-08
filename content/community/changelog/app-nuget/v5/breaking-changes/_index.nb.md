@@ -113,7 +113,7 @@ If you have implemented custom code to control Pdf generation, and depending on 
         ```
 
 ## 2. Obsolete method GetOptionId removed from App/AppBase/IAltinnApp
-In [version 4.24.0](../../v4/whats-new/) we introduced a new way of supporting dynamic options making the GetOptionId methods in obsolete. The methods have now been removed and you should use the new way of implementing options as described [in the documentation](../../../../../altinn-studio/guides/development/options/)
+In [version 4.24.0](/nb/community/changelog/app-nuget/v4/whats-new/) we introduced a new way of supporting dynamic options making the GetOptionId methods in obsolete. The methods have now been removed and you should use the new way of implementing options as described [in the documentation](/nb/altinn-studio/v8/guides/development/options/)
 
 When you update you app you should then remove the following from App.cs as this method is removed from AppBase.cs:
 ```csharp
@@ -127,7 +127,7 @@ When you update you app you should then remove the following from App.cs as this
 ```
 
 ## 3. Obsolete method RunAppEvent removed from App/AppBase/IAltinnApp
-The RunAppEvent method is a old construct for hooking into various application events. This have been made obsolete by having concrete method overrides for each type of event as [described in the documentation](/app-template/architecture/app-backend/applogic-events/). The RunAppEvent method was passed in an `AppEventType` enum which specified the type of event that was fired. You would then need to have code checking the type and performing the logic needed. The table below shows the old enum values and their corresponding new methods that should be used instead.
+The RunAppEvent method is a old construct for hooking into various application events. This have been made obsolete by having concrete method overrides for each type of event as [described in the documentation](/nb/app-template/architecture/app-backend/applogic-events/). The RunAppEvent method was passed in an `AppEventType` enum which specified the type of event that was fired. You would then need to have code checking the type and performing the logic needed. The table below shows the old enum values and their corresponding new methods that should be used instead.
 
 | Enum                      |Corresponding method                       |
 | ---                       | ---                                       |

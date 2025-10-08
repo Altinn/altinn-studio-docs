@@ -21,7 +21,7 @@ The Altinn Studio CLI is a command line tool for upgrading Altinn Apps. The tool
 
 ### Verify that you have the latest version of the Altinn Studio CLI
 
-If you do not have the CLI installed, you can install it by following the instructions in the [installation guide](/altinn-studio/reference/cli/install).
+If you do not have the CLI installed, you can install it by following the instructions in the [installation guide](/en/altinn-studio/v8/reference/cli/install).
 
 Make sure you are using at least version `1.4.0` of the Altinn Studio CLI. You can check the version by running:
 
@@ -78,7 +78,7 @@ The CLI will then make the necessary changes to your code to upgrade it to versi
             <CopyToOutputDirectory>lib\$(TargetFramework)\*.xml</CopyToOutputDirectory>
         </PackageReference>
     ```
-2. Next, you need to fix the breaking changes in your code. See the [changelog for v8](/community/changelog/app-nuget/v8/#breaking-changes) for more information.
+2. Next, you need to fix the breaking changes in your code. See the [changelog for v8](/en/community/changelog/app-nuget/v8/#breaking-changes) for more information.
    There may be additional breaking changes not documented in the changelog that are automatically fixed by the
    Altinn Studio CLI tool, so it is recommended to use the CLI tool to upgrade your app to v8 instead of
    doing it manually.

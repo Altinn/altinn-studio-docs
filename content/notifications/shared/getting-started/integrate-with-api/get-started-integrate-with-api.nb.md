@@ -3,5 +3,5 @@ headless: true
 hidden: true
 ---
 
-You are now ready to start integrating against the Notifications APIs,
-[see the developer guides for next steps](/notifications/reference/api).
+Du er nå klar til å starte integrasjonen mot Varslings-API-ene,
+[se utviklerguidene for neste trinn](/nb/notifications/reference/api).

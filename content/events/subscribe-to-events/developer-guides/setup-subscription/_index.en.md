@@ -24,7 +24,7 @@ When subscribing to generic events the Maskinporten scope __altinn:events.subscr
 
 If you are subscribing to events as a service owner the Maskinporten scope __altinn:serviceowner__ is also requried. 
 
-See [Authentication and Authorization](../../../api/#authentication--authorization) for more information.
+See [Authentication and Authorization](/en/events/api/#authentication--authorization) for more information.
 
 
 ## Request
@@ -45,6 +45,10 @@ if your subscription request is not being accepted.
 
 #### endPoint
 - webhook URL to receive HTTP POST request from Altinn Events
+
+{{% notice warning %}}
+HTTPS endpoints must use publicly trusted TLS-certificates. Self-signed certificates are not supported and will cause subscription validation to fail.
+{{% /notice %}}
 
 Endpoint should respond with 200 OK when an event is received. 
 Additionally, it should return 200 OK when receiving our custom validation event:

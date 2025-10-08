@@ -1,7 +1,7 @@
 baseURL = "https://docs.altinn.studio/"
-languageCode = "en"
-defaultContentLanguage = "en"
-defaultContentLanguageInSubdir = false
+languageCode = "nb"
+defaultContentLanguage = "nb"
+defaultContentLanguageInSubdir = true
 disableDefaultLanguageRedirect = false
 
 contentDir = "content"
@@ -56,7 +56,7 @@ ordered = false
 fractions = false # disable automatic fraction rendering
 
 [params]
-editURL = "https://github.dev/altinn/altinn-studio-docs/blob/master/content/"
+editURL = "https://github.com/altinn/altinn-studio-docs/blob/master/content/"
 noHomeIcon = true # default is false
 noSearch = false # default is false
 showVisitedLinks = false # default is false

@@ -16,7 +16,7 @@ Application owners should be authenticated with [Maskinporten](https://www.digdi
 
 #### API-provider
 
-To provide an API in maskinporten Altinn has to do two operations.
+To provide an API in Maskinporten Altinn has to do two operations.
 
 1. As API-provider Altinn registers a scope in *Maskinporten*
     ```json

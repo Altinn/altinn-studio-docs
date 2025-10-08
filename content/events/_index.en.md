@@ -5,6 +5,9 @@ toc: true
 weight: 20
 aliases:
  - /altinn-events/
+cascade:
+  params:
+    product: product_events
 ---
 
 ## Design goals
@@ -100,7 +103,7 @@ Here is an example of an event publish through Altinn:
     "specversion":"1.0",
     "type":"app.instance.created",
     "resource":"urn:altinn:resource:someservice.resource",
-    "resourceinstance":"object-id-1234"
+    "resourceinstance":"object-id-1234",
     "subject":"/party/50019855",
     "time": "2022-05-12T00:02:07.541482Z"
 }

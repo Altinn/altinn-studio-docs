@@ -26,9 +26,10 @@ Du kan motta varsler om hendelser knyttet til sendte formidlingstjenester, ved �
 - Altinn Melding støtter ulike sikkerhetsnivåer (0–4) for å imøtekomme avsenders krav til meldingssikkerhet. 
 
 ### Støtte for ulike meldingsformater
-- Mulighet for å sende meldinger med Markdown eller ren tekst.
-- Støtte for flere vedlegg per melding uten begrensing av type, der PDF, XML og HTML vil være de mest vanlige.
-- Støtte for vedlegg opp til 250 MB.
+- Mulighet for å sende meldinger med Markdown, HTML eller ren tekst.
+- Støtte for opptil 100 vedlegg per melding.
+- Støtte for mange filtyper: .doc, .xls, .docx, .xlsx, .ppt, .pps, .zip, .pdf, .html, .txt, .xml, .jpg, .gif, .bmp, .png og .json.
+- Støtte for vedlegg opptil 2 GB.
 
 ### Avansert støtte for lenking til innhold og vedlegg
 - Som alternativ til å sende meldingsinnhold og vedlegg direkte i meldingene,
@@ -48,7 +49,8 @@ Du kan motta varsler om hendelser knyttet til sendte formidlingstjenester, ved �
 - Mulighet for automatisert meldingshåndtering via integrerte systemer.
 
 ### Integrasjon med Dialogporten og Arbeidsflate
-- En Altinn 3 Melding oppretter automatisk en dialog i Dialogporten. 
+- En Altinn 3 Melding oppretter automatisk en dialog i Dialogporten.
+- Meldinger med en eksisterende dialog som ekstern referanse vil opprette en transmission som gir en logisk fremstilling av relaterte meldinger.
 - Løsningen gir et enhetlig brukergrensesnitt på tvers gjennom Altinn 3 Arbeidsflate og Dialogporten.
 
 ## Oppsummering av fordelene med Altinn Melding?

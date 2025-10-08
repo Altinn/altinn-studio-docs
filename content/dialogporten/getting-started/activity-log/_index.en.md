@@ -15,7 +15,7 @@ The activity log is a immutable list of timestamped entries, each of a particula
 The service owner is responsible for populating the activity log, and should do so in relation to other changes made to the dialog. Activity log entries can refer to a particular transmission, eg. when it is opened and/or confirmed read.
 
 {{<notice info>}}
-The act of _adding_ [transmissions]({{<relref "../dialogs#transmissions">}}) should not be accompanied with a activity log entry, as the transmission list is immutable and thus acts as a log itself. Frontends should aggregate the activity log, transmission list and seen log in order to build a full chronology of the dialogs history
+The act of _adding_ [transmissions](/en/dialogporten/getting-started/activity-log/../dialogs#transmissions) should not be accompanied with a activity log entry, as the transmission list is immutable and thus acts as a log itself. Frontends should aggregate the activity log, transmission list and seen log in order to build a full chronology of the dialogs history
 {{</notice>}}
 
 The activity log can be queried via API, and can be used when creating conditional [notification orders]({{<ref "../../../notifications">}}), ie. when creating reminders.

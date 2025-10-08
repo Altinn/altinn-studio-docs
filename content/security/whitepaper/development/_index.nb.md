@@ -13,12 +13,12 @@ Sikkerhetskoordinatoren deltar også i faggruppen sikkerhet i avdelingen BOD i D
 Utviklingsprosessen blir kontinuering forbedret.
 
 <figure>
-<object title="Sikker DevOps" data="devops.svg" type="image/svg+xml"></object>
+<object title="Sikker DevOps" data="/nb/security/whitepaper/development/devops.svg" type="image/svg+xml"></object>
 <figcaption>Figur 2 - Sikker DevOps</figcaption>
 </figure>
 
 For å kunne sette utviklerne i fokus foretrekkes bruk av sikkerhetsverktøy og automatisering der dette er mulig.
-Dette er f.eks. integrasjon med [sikkerhetsverktøy](/community/contributing/handbook/securecoding/) i
+Dette er f.eks. integrasjon med [sikkerhetsverktøy](/nb/community/contributing/handbook/securecoding/) i
 bygge- og deployprosessene der identifiserte sikkerhetsfeil stopper prosessene.
 
 Altinn har flere viktige arkitekturprinsipper som understøtter sikkerhet:
@@ -31,11 +31,11 @@ Altinn har flere viktige arkitekturprinsipper som understøtter sikkerhet:
 - Å foretrekke administrerte tjenester (PaaS) fremfor IaaS-tjenester
 - Sikkerhet i dybden
 
-Mer informasjon om prinsippene finnes på https://docs.altinn.studio/principles/
+Mer informasjon om prinsippene finnes på https://docs.altinn.studio/technology/architecture/principles/
 
 ## Tredjepartsleverandører og leverandørkjeder
 
-!["Rammeverk og teknologier"](/technology/tools/tech-map.png "Figur 3 - Rammeverk og teknologier som benyttes i Altinn 3")
+!["Rammeverk og teknologier"](/nb/technology/tools/tech-map.png "Figur 3 - Rammeverk og teknologier som benyttes i Altinn 3")
 
 Altinn 3 er basert på åpen kildekode og benytter flere tredjepartsbiblioteker og produkter.
 Disse bibliotekene benytter andre biblioteker igjen, som igjen benytter andre biblioteker osv.

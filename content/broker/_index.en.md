@@ -1,10 +1,12 @@
 ---
 title: Altinn 3 Broker
 linktitle: Broker
-description: Altinn 3 Broker offers managed file transfer with support for large files and advanced features for information security, status monitoring and quality of service.
-tags: [Broker]
+description: Altinn 3 Broker offers managed file transfer with support for large files and advanced features for information security, status monitoring and quality of service. Service owners with Broker services in Altinn II must migrate these services in Altinn 3 prior to June 19th 2026, when Altinn II will be decommissioned. 
 toc: false
 weight: 1
+cascade:
+  params:
+    product: product_broker
 ---
 
 
