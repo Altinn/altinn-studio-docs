@@ -4,6 +4,9 @@ linktitle: Opprette bruker
 description: Konfigurer brukeren din i Altinn Studio for første gang.
 toc: true
 weight: 1
+aliases:
+- /altinn-studio/getting-started/create-user
+- /nb/altinn-studio/getting-started/create-user
 ---
 
 ## Lag en bruker i Altinn Studio

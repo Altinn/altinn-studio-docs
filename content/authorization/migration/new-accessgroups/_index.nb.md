@@ -4,6 +4,8 @@ linktitle: Nye tilgangspakker
 description: Her finner dere tidsplan for innføring av nye tilgangspakker, samt spørsmål og svar på ting vi fikk tilbakemeldinger på i høringsrundene.
 toc: true
 tags: [architecture, plan, authorization]
+aliases:
+- /authorization/migration/new-accessgroups
 ---
 
 Altinn skal erstatte rollene som gir tilgang til tjenester i Altinn 2 når vi flytter Altinn Autorisasjon til Altinn 3. I stedet for roller vil det i Altinn 3 være ulike tilgangspakker som består av tjenester som hører til et ansvarsområde.
