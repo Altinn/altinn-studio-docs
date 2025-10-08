@@ -19,17 +19,17 @@ At present, we offer two different types of system users
 2. Agent<br>
     Designed for organizations, such as auditing firms, that operate on behalf of their clients using third-party software systems integrated with multiple government/private agencies.
 
-## External API Methods For System User request
+## API Methods For System User request
 - [Delete a system user request](external#delete-system-user-request)
 
-## External API Methods For Standard System User request
+## API Methods For Standard System User request
 
 - [Create a new system user request](external#create-a-standard-system-user-request)
 - [Get a system user request](external#get-a-system-user-request)
 - [List standard system user requests for a vendor](external#get-all-system-user-requests-for-a-vendor)
 - [Get a system user request by external reference](external#get-a-system-user-request-by-external-reference)
 
-## External API Methods For Agent System User request
+## API Methods For Agent System User request
 
 - [Create a new system user request](external#create-an-agent-system-user-request)
 - [Get a system user request](external#get-an-agent-system-user-request)
