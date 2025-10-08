@@ -1,8 +1,7 @@
 ---
 title: Governance
 description: Overview of components, versioning and governance responsibilities in Altinn Studio.
-weight: 30
-tags: [needsReview]
+weight: 3
 ---
 
 The Studio product consists of several components. Here are important services and libraries that the Studio team owns and maintains:
@@ -18,7 +17,7 @@ The app libraries consist of [Altinn.App.Api, Altinn.App.Core](https://github.co
 
 - The libraries are hosted on NuGet.org. All Studio apps reference these libraries
 - We use [SemVer 2.0](https://semver.org/) for versioning. Pre-release versions consist of `preview` and `rc` (release candidate) stages. Once the `rc` stage is reached, our goal is only to make bug fixes and patching until stabilisation
-- HTTP APIs described in the app via OpenAPI specification follow their own versioning. API changes here occur in line with major version changes in the rest of the app (the libraries). Note that there may be APIs that are _not_ described in OpenAPI specifications. These are intended for internal use, and we can make changes to these without communication
+- HTTP APIs described in the app via OpenAPI specification follow their own versioning. API changes here occur in line with major version changes in the rest of the app (the libraries). Note that there may be APIs that are _not_ described in OpenAPI specifications. These are intended for internal use, and we can make changes to these without communicating it
 - Development and work is organised [in Altinn/app-lib-dotnet](https://github.com/Altinn/app-lib-dotnet) and [Altinn/app-frontend-react](https://github.com/Altinn/app-frontend-react) GitHub repos
 
 ## Localtest

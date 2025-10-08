@@ -2,7 +2,7 @@
 title: Altinn Studio V10
 description: Altinn Studio - Your tool to develop digital services for citizens and businesses
 weight: 1
-draft: true
+draft: false
 cascade: 
   params:
     product: product_studio

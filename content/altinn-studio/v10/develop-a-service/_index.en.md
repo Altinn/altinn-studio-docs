@@ -1,5 +1,5 @@
 ---
 title: Develop a service
 description: Develop and configure your digital service
-weight: 2
+weight: 3
 ---
