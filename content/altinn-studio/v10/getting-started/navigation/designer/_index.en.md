@@ -2,37 +2,41 @@
 title: Designer
 description: How to navigate in Altinn Studio Designer.
 toc: true
+tags: [needsReview]
 weight: 100
-tags: [translate-to-english]
 ---
 
-Designer er verktøyet du starer i etter å ha logget inn på https://altinn.studio.
-Det er et verktøy for å opprette, konfigurere og deploye apper.
+Designer is the tool you start in after logging in to
+https://altinn.studio.
+It is a tool for designing, setting up and publishing apps.
 
-## Navigere til en app
-Alle apper du har tilgang til å endre på vises på dashboardet.
-Gå til appen ved å klikke på appen. Dersom du ikke har en lokal klone av appen, vil du bli bedt om å opprette det.
+## Open an App
+You can see all the apps you have access to on the dashboard.
+Click on the app you want to use to open it.
 
-Hvis du ønsker å gå til app-repositoryet når du er inne i en app i Designer, er det en lenke i menyen som ligger i profilmenyen øverst til høyre.
+If you want to go to the repository for the app whilst working in the designer, you can go to the three dots at the top right and select **Repositorium**.
 
-![Profilmeny i Designer](designer-profile-menu.png "Lenke til repository")
+![Profile menu in Designer](designer-profile-menu.png "Link to repository")
 
-## Redigere en app
+## Edit an App
 
-Det er to navigasjonsmenyer - en toppmeny og en venstremeny.  
-I **toppmenyen** kan du navigere mellom ulike funksjonelle områder av applikasjonen.
-I **venstremenyen** kan du navigere innad i området.
+Use the top menu to build and modify your app. In the top menu, you select the areas of the app you want to work on.
 
-![Menyer i Altinn Studio Designer](nav-menus.png "Menyer i Altinn Studio Designer")
+![Menus in Altinn Studio Designer](nav-menus.png "Menus in Altinn Studio Designer")
 
-- _Om_
-  - Om appen
-- _Lage_
-  - Datamodell
-  - UI-Editor
-  - Tilgangsstyring
+- _Hjem_
+  - Provides an overview of which apps you have access to and which environments they are running in. You also have direct access to the various functions in the designer from here.
+- _Utforming_
+  - Here you choose which components you want to include, for example in a form you are creating. You set up, amongst other things, the order and criteria for how the fields in the form should be displayed and behave for end users.
+- _Datamodell_
+  - Here you can choose to use existing data models or create new ones.
 - _Språk_
-  - Tekster
-- Deploy
+  - Here you can manage texts in your service and translate them.
+- _Arbeidsflyt_
+  - Workflow gives you an overview of the processes you want to include in your service, for example payment and receipt.
+- _Publiser_
+  - Use Publish to build versions of your app and publish it to an environment.
+- _Bibliotek_
+  - In the library you will find both resources you have saved for your own apps and resources that are shared in the organisation, for example code lists and images.
 
 {{<children />}}

@@ -1,15 +1,14 @@
 ---
-title: Navigate Altinn Studio
-linktitle: Navigate Altinn Studio
-description: Navigating between the different parts of Altinn Studio.
+title: Using the Different Parts of Altinn Studio
+linktitle: The Different Parts of Altinn Studio
+description: How to use the different parts of Altinn Studio.
+tags: [needsReview]
 toc: true
-weight: 20
+weight: 1
 ---
+Altinn Studio offers different tools, depending on your prior knowledge, what you prefer and how complex what you are developing is.
+You can use the designer to get started and create simple forms or apps. You can also use the repository and the code if you prefer, for example if you want to develop more advanced functionality.
 
-As a user of Altinn Studio, you can use different tools, depending on expertise, preferences and the complexity of what you want to develop.
-
-How to navigate is different between the tools.
-
-![Altinn Studio tools](3-tools.png "The three tools in Altinn Studio: Designer, Repos and Code.")
+![Altinn Studio tools](3-tools.png "The three tools in Altinn Studio: designverktøyet, repositoriet og koden.")
 
 {{<children />}}

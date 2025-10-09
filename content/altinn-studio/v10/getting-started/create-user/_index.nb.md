@@ -3,7 +3,7 @@ title: Lage en bruker i Altinn Studio
 linktitle: Lage en bruker
 description: Slik lager du deg en bruker i Altinn Studio
 toc: true
-weight: 1
+weight: 2
 tags: [needsReview]
 ---
 

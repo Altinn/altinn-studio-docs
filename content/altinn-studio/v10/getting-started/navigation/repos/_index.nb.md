@@ -1,37 +1,38 @@
 ---
-title: Repos
-description: Slik navigerer du i Altinn Studio Repos.
+title: Repositorier
+description: Slik navigerer du i Altinn Studios repositorier.
 toc: true
 weight: 200
-tags: [needsReview, needsPlain]
+tags: [needsReview]
 ---
 
-Repos er verktøyet der appene er lagret som Git repositoryer, og kan bli funnet på https://altinn.studio/repos.
+Repositoriet er det verktøyet der appene er lagret som Git-repositorier. Du finner det på
+https://altinn.studio/repos.
 
 ## Hovedmeny
-![Menyer Repos](repos-menus.png "Menyer i Altinn Studio Repos")
+![Menyer Repositorier](repos-menus.png "Menyer i Altinn Studios repositorier")
 
 Hovedmenyen øverst inneholder disse elementene:
 
-- Altinn-logoen - tilbake til Altinn Studio-dashboardet.
-- Dashboard - Lister ut dine aktiviteter og de repositoryene og organisasjonene du har tilgang til. Du kan også se dashboard for den enkelte organisasjonen.
-- Issues - Lister ut åpne og lukkede issues som er relevant for deg.
-- Pull requests - Lister ut åpne og lukkede pull requests som er relevant for deg.
-- Utforsk - Gir deg tilgang til å se alle repositoryer, brukere og organisasjoner
+- Altinn-logoen - tar deg tilbake til Altinn Studio-kontrollpanelet.
+- **Dashboard** - viser dine aktiviteter og repositoriene og organisasjonene du har tilgang til. Du kan også se kontrollpanelet for den enkelte organisasjonen.
+- **Issues** - viser åpne og lukkede saker som er relevante for deg.
+- **Pull requests** - viser åpne og lukkede endringsforespørsler som er relevante for deg.
+- **Utforsk** - her kan du se alle repositorier, brukere og organisasjoner
 
-![Utforske repositoryer](repos-explore.png "Utforsk")
+![Utforske repositorier](repos-explore.png "Utforsk")
 
-## Navigere innad i et repository
-Når du har navigert til et repository dukker det opp et nytt sett menyvalg som er relevant for repositoryet.
+## Navigere innad i et repositorium
+Når du har navigert til et repositorium dukker det opp et nytt sett menyvalg som er relevant for repositoriet.
 
-![Menyer i et repository](navigate-repository.png "Menyer i et repository")
+![Menyer i et repositorium](navigate-repository.png "Menyer i et repositorium")
 
-- Kode - innholdet, alle filer appen består av
-- Issues - "saker" for repositoryet
-- Pull Requests - for repositoryet
-- Releases - opprettet for repositoryet
-- Aktivitet - hva har skjedd i repositoryet
+- **Kode** - innholdet, alle filer appen består av
+- **Issues** - saker for repositoriet
+- **Pull Requests** - endringsforespørsler for repositoriet
+- **Releases** - opprettet for repositoriet
+- **Aktivitet** - hva har skjedd i repositoriet
 
-Hvis du vil til Designer for det aktuelle repositoryet, er det et valg for dette i toppmenyen:
+Hvis du vil til Designer for det aktuelle repositoriet, er det et valg for dette i toppmenyen:
 
 ![Menyelementet Designer](navigate-to-designer.png "Navigere til Designer")

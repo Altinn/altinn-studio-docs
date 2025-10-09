@@ -1,14 +1,14 @@
 ---
-title: Navigere Altinn Studio
-linktitle: Navigere Altinn Studio
-description: Slik navigerer du mellom de ulike delene av Altinn Studio.
+title: Bruke de ulike delene av Altinn Studio
+linktitle: De ulike delene av Altinn Studio
+description: Slik bruker du de ulike delene av Altinn Studio.
+tags: [needsReview]
 toc: true
-weight: 20
+weight: 1
 ---
+Altinn Studio tilbyr ulike verktøy, avhengig av hva du kan fra før, hva du foretrekker og hvor komplekst det du skal utvikle er.
+Du kan buke designeren til å komme i gang og lage enkle skjema eller apper. Du kan også bruke repositoriet og koden hvis du foretrekker det, for eksempel hvis du vil utvikle mer avansert funksjonalitet.
 
-Som bruker av Altinn Studio kan du bruke ulike verktøy, avhengig av kompetanse, preferanser og kompleksiteten på det du skal utvikle.
-Hvordan du navigerer er ulikt mellom verktøyene.
-
-![Altinn Studio verktøy](3-tools.png "De tre verktøyene i Altinn Studio: Designer, Repos og Code.")
+![Altinn Studio verktøy](3-tools.png "De tre verktøyene i Altinn Studio: designverktøyet, repositoriet og koden.")
 
 {{<children />}}

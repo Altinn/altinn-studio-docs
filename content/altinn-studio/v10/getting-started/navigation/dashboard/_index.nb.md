@@ -3,7 +3,7 @@ title: Dashboard i Altinn Studio
 linktitle: Dashboard
 description: Hvordan bruke dashboardet i Altinn Studio
 weight: 150
-tags: [needsReview]
+tags: [needsReview, needsUpdate]
 ---
 
 ## Kontekst
