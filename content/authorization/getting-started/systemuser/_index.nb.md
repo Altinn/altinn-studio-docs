@@ -37,7 +37,7 @@ Maskinporten er en av grunnstenene systembruker bygger videre på.
 Maskinporten sikrer autensitet og lar tjensteier gjøre en grovkornet tilgangsstyring gjennom scopes
 Maskinporten token brukes også som informasjonsbærer for sytembruker informasjon, som gjør at tjenesteeier kan utføre tilangskontroll mot Altinn Autorisasjon
 
-For å kunne få tilgang til Maskinporten må du ha norsk organisasjonsnummer. For mer informasjon se [Maskinporten](https://www.digdir.no/felleslosninger/maskinporten/869).
+For å kunne få tilgang til Maskinporten må du ha norsk organisasjonsnummer. For mer informasjon, se [Maskinporten](https://www.digdir.no/felleslosninger/maskinporten/869).
 
 Gjennom signering av [bruksvilkår for Maskinporten og ID-porten](https://samarbeid.digdir.no/maskinporten/bruksvilkar-private-virksomheter/73#21_generelt) får man tilgang til både testmiljø og produksjonsmiljø hos Digdir.
 
