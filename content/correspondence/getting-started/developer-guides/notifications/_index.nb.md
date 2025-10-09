@@ -21,8 +21,8 @@ Merk: Tidsintervallet for revarsel i test- og stagingmiljøer er for øyeblikket
 Varslinger kan sendes via enten e-post eller SMS. Mens e-post ikke har noe tidsvindu, vil SMS-varsler bli sendt mellom kl. 09:00 og 17:00.
 Hvis avsendingstidspunktet faller utenfor dette tidsvinduet, vil varselet bli sendt neste dag.
 {{% notice warning  %}}
-I testmiljøet kan varslinger via SMS kun sendes til telefonnumre som er hvitlistet internt.
-For å få telefonnumre hvitelistet i testmiljøet, send en henvendelse til [servicedesk@altinn.no](mailto:servicedesk@altinn.no) med telefonnumrene som du ønsker hvitelistet.
+I testmiljøet kan du bare sende SMS-varsler til hvitlistede telefonnumre.
+Send en e-post til [tjenesteeier@altinn.no](mailto:tjenesteeier@altinn.no?subject=Hvitlisting%20av%20telefonnummer) med telefonnummeret som skal hvitlistes.
 {{% /notice %}}
 
 En varslingsbestilling gjøres ved å legge til følgende når du initialiserer en melding:
