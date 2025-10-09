@@ -46,10 +46,10 @@ For mer informasjon for å komme i gang finnes [her](./../../guides/system-vendo
 
 **For sluttbruker**
 
-Sluttbruker gjør det mulig at din sluttbrukerleverandør kan utføre handlinger på vegne av din virksomhet på en enkel og sikker måte.
-Du vil til enhver tid kunne se hvilke fullmakter du har gitt systembrukeren via Altinn brukerflate, og eventuelt slette systembrukeren dersom leverandøren ikke lenger trenger fullmaktene.
+Systembruker gjør det mulig for sluttbrukersystemleverandøren din å utføre handlinger på vegne av virksomheten din på en enkel og sikker måte.
+Du vil til enhver tid kunne se hvilke fullmakter du har gitt systembrukeren via Altinns brukerflate, og eventuelt slette systembrukeren dersom leverandøren ikke lenger trenger fullmaktene.
 
-For mer informasjon for å komme i gang finnes [her](./../../guides/end-user/system-user/)
+For mer informasjon for å komme i gang finnes [her](./../../guides/end-user/system-user/).
 
 ## Økosystem
 
