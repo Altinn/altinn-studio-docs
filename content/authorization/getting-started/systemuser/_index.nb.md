@@ -81,7 +81,7 @@ Erfaringsmessig tar dette punktet noe tid, da det krever involvering av brukere.
 
 En systembruker defineres ved at sluttbrukersystemleverandøren angir hvilke tilgangspakker den skal gi tilgang til.
 Hvilke tilgangspakker som er mulig å velge er angitt av tilgangspakkene som systemet ble konfigurert med ved registrering av systemet i systemregisteret.
-For å vite hvilke tilgangspakker en systembruker skal ha, må du som systemleverandør vite hvilke tjenester dine brukere trenger for utføre ulike arbeidsoppgaver.
+For å vite hvilke tilgangspakker en systembruker skal ha, må du som systemleverandør vite hvilke tjenester dine brukere trenger for å utføre ulike arbeidsoppgaver.
 
 Under [Guider](./../../guides/system-vendor/system-user/) kan du lese hvordan du setter opp systembruker for forkjellige frormål
 {{< /expandsmall >}}
