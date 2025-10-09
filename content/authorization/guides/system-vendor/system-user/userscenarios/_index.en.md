@@ -3,8 +3,12 @@ title: "User scenarios for system user"
 tags: [needstranslation]
 linktitle: "User scenarios"
 description: "Overview of relevant user scenarios for system users"
-weight: 5
-aliases: ["/nb/authentication/reference/userscenarios"]
+weight: 8
+aliases:
+  [
+    "/nb/authentication/reference/userscenarios",
+    /en/authorization/reference/userscenarios/,
+  ]
 ---
 
 ## Terms
@@ -239,7 +243,7 @@ Scenario: The organization uses a system user for reporting.
 Support: Setup with single rights was developed as part of system user delivery 2.  
 Setup with access packages is developed as part of system user delivery 4.
 
-![alt text](standarduser.png "Reporting of own data")
+![Organization reporting own data](standarduser.png "Reporting of own data")
 
 ---
 
@@ -344,13 +348,14 @@ The service "Reporting shareholder register" has a setup that grants the followi
 Rett Revisjon has purchased Maestro to report the shareholder register.
 
 ### Preconditions
+
 - Rett Revisjon has shared with Maestro which client relationship they have for each customer.
 
 ### Steps
 
-1. Maestro sends a request to create a system user for client relationships that require *revisormedarbeider*.
-2. Maestro sends a request to create a system user for client relationships that require *skattegrunnlag*.
-3. Maestro sends a request to create a system user for client relationships that require *regnskapsforer-med-signeringsrettighet*.
+1. Maestro sends a request to create a system user for client relationships that require _revisormedarbeider_.
+2. Maestro sends a request to create a system user for client relationships that require _skattegrunnlag_.
+3. Maestro sends a request to create a system user for client relationships that require _regnskapsforer-med-signeringsrettighet_.
 4. Rett Revisjon accepts these requests.
 5. Rett Revisjon allocates their clients to the correct system users (see which package is linked to the system user).
 6. Rett Revisjon uses Maestro to report for Customer A.
@@ -372,6 +377,7 @@ Rett Revisjon has acquired new customers. These must be linked to the correct sy
 - Rett Revisjon knows it has acquired new customers.
 
 ### Steps
+
 1. Go to system user admin.
 2. Identify the correct system user based on which customer to link to the system user.
 3. Add the customer.
