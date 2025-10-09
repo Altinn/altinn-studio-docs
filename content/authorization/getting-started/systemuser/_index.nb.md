@@ -44,7 +44,7 @@ Gjennom signering av [bruksvilkår for Maskinporten og ID-porten](https://samarb
 1. Oppkobling mot Maskinporten.  
    Følg fremgangsmåten for å koble opp til [Maskinporten](https://samarbeid.digdir.no/maskinporten/ta-i-bruk-maskinporten/97)
 2. Opprette en Maskinporten-klient.  
-   En maskinporten-klient kan opprettes enten i Samarbeidsportal eller ved bruk av API. Opprettelse av en maskinporten-klient forutsetter oppkobling til Maskinporten. For mer informasjon, se[Maskinporten klient](https://docs.altinn.studio/nb/correspondence/getting-started/developer-guides/maskinporten/).
+   En Maskinporten-klient kan opprettes enten i Samarbeidsportalen eller ved bruk av API. Opprettelse av en Maskinporten-klient forutsetter oppkobling til Maskinporten. For mer informasjon, se [Maskinporten-klient](https://docs.altinn.studio/nb/correspondence/getting-started/developer-guides/maskinporten/).
 
 {{< /expandsmall >}}
 {{< expandsmall header="Få tilgang til systembruker-API" id="oppkobling_til_altinn">}}
