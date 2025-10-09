@@ -49,7 +49,7 @@ Eventually, as full production for all components approaches, this will be handl
 
 ## What Data is Migrated?
 
-- Only correspondences that have not been deleted.
+- Only correspondences that have not been deleted. (added to "deleted items" or permanently deleted)
 - No correspondences for dead people.
 - Correspondence content, including text and all attachments and metadata.
 - A limited form of notification history: Time and recipient address, but not text content.
@@ -60,9 +60,24 @@ Eventually, as full production for all components approaches, this will be handl
 
 There will be two-way synchronization of status changes and events on messages between Altinn 2 and Altinn 3 after migration is completed.
 
-This solution will be referred to as "CorrespondenceSync", but is currently under analysis and design; more details will be added later.
+This solution will be referred to as "CorrespondenceSync".
 
 Existing status/history will be migrated in step 1 but will be continuously synchronized as changes occur.
+
+Because there are some differences and technical limitations, synchronization consists of the following events:
+
+### Events synchronized both ways
+
+- Opened / read
+- Confirmed
+- Permanent deletion
+
+### Events synchronized only from Altinn 2 to 3
+
+- Archiving
+- Move to trash / remove from trash
+- Notification sent
+- Forwarding
 
 ## Technical Implementation
 
@@ -71,7 +86,9 @@ Existing status/history will be migrated in step 1 but will be continuously sync
   - Consumes the migration endpoint.
   - Uses configuration in the Altinn 2 database to control migration.
   - Can be triggered manually with parameters, but will over time run more or less continuously.
-- A synchronization job "AltinnMessageSync" is created to synchronize status between Altinn 2 and Altinn 3 for messages.
-- A dedicated API-endpoint is created in Altinn 3 Correspondence that provides the Dialog Portal access to retrieve migrated elements and trigger the creation of dialogs based on them, as well as make the elements visible in the Altinn 3 API.
+- A synchronization job "AltinnCorrespondenceSync" is created to synchronize status events for messages from Altinn 2 to 3.
+  - It calls dedicated sync endpoints in the Altinn 3 Correspondence API.
+- In Altinn 3 Correspondence, the handlers for "Read", "Confirmed" and "Purged" are extended
+  - These call dedicated "Sync" endpoints in the Altinn 2 SBLBridge API.
 
 {{<children />}}
