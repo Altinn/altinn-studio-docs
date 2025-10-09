@@ -56,7 +56,7 @@ I POST Bodyen så brukes følgende model:
 
 I eksempelet over er det oppgitt disse verdiene i Post Body:
 
-- systemId : referansen til Systemet som SBSL har forhånds registrert i [Registrer System](/nb/authorization/guides/system-vendor/system-user/registersystem/)
+- systemId : referansen til Systemet som SBSL har forhånds registrert i [Registrer System](/nb/authorization/guides/system-vendor/system-user/systemregistration/)
 - partyOrgNo : er organisasjonsnummeret til Sluttbruker, slik det er i Enhets Registeret (kun sifrene)
 - externalRef : skal normalt ikke brukes. Det er kun i spesielle tilfeller når det er behov for å ha flere SystemBrukere pr System pr Orgno. Det vanlige er å ikke oppgi.
 - rights : en liste av de Enkel Rettigheter som er påkrevet for at SystemBrukeren kan integrerere mot TE API (Foretrekk å bruke Tilgangspakker istedet.)
@@ -82,13 +82,14 @@ I responsen som kommer tilbake er det samme struktur som i POST, men i tillegg s
 }
 ```
 
-- confirmUrl : dette er Dyplenken som SBSL må gi til Sluttbruker på en trygg måte, der Sluttbruker kan Godkjenne opprettelsen av SystemBrukeren. Feks direkte i den innloggede websiden eller system-programmet.
-- Id : dette er den unike referansen til selve Forespørselen, som kan brukes ved oppslag i API for hva som er status
-- status: den første responsen vil alltid være "New" (Dersom det ikke feiler). Andre mulige verdier er "Accepted", "TimedOut", "Denied" og "Rejected"
-  - Accepted er status etter at Sluttbruker har trykket på Godkjenn knappen
-  - TimedOut vil skje av seg selv etter 10 dager. Og brukes internt av oss. Da vil ikke lenger Forespørsel være tilgjengelig på eksternt API
-  - Rejected er når Sluttbruker trykker på Ikke godkjenn knappen istedetfor Godkjenn
-  - Denied er pr nå ikke i bruk
+confirmUrl: dyplenken SBSL må gi til sluttbruker på en trygg måte, der opprettelsen kan godkjennes (f.eks. direkte i innlogget webside/system).
+
+- id: unik referanse til forespørselen, kan brukes ved oppslag i API for status.
+- status: første respons er alltid "New" (dersom det ikke feiler). Andre mulige verdier: "Accepted", "TimedOut", "Denied" og "Rejected".
+  - Accepted: status etter at sluttbruker har trykket «Godkjenn».
+  - TimedOut: skjer automatisk etter 10 dager; forespørselen er ikke lenger tilgjengelig via eksternt API.
+  - Rejected: når sluttbruker trykker «Ikke godkjenn».
+  - Denied: ikke i bruk for øyeblikket.
 
 Fortsett på [Godkjenn SystemBruker](/nb/authorization/guides/end-user/system-user/accept-request/)
 
@@ -134,7 +135,7 @@ I POST Bodyen så brukes følgende model:
 
 I eksempelet over er det oppgitt disse verdiene:
 
-- systemId : referansen til Systemet som SBSL har forhånds registrert i [Registrer System](/nb/authorization/guides/system-vendor/system-user/registersystem/)
+- systemId : referansen til Systemet som SBSL har forhånds registrert i [Registrer System](/nb/authorization/guides/system-vendor/system-user/systemregistration/)
 - partyOrgNo : er organisasjonsnummeret til Sluttbruker, slik det er i Enhets Registeret (kun sifrene)
 - externalRef : skal normalt ikke brukes. Det er kun i spesielle tilfeller når det er behov for å ha flere SystemBrukere pr System pr Orgno. Det vanlige er å ikke oppgi.
 - accessPackages: en liste av de Tilgangspakker som er påkrevet. (Det anbefales at tilgangspakker brukes fremfor Enkelt Rettigheter dersom det lar seg gjøre.)
@@ -143,7 +144,7 @@ I eksempelet over er det oppgitt disse verdiene:
 Merk:
 
 - i url over så står det https://platform.tt02.altinn.no for TT02. For produksjon så vil det være https://platform.altinn.no som er roten.
-  scope som er oppgitt settes av Maskinporten i et claim, og blir opprettet i [Samarbeidsportalen](https://samarbeid.digdir.no/maskinporten/maskinporten/25)
+  Scope settes av Maskinporten (claim), og opprettes i [Samarbeidsportalen](https://samarbeid.digdir.no/maskinporten/maskinporten/25).
 
 ### Respons fra POST kall
 
@@ -159,13 +160,14 @@ I responsen som kommer tilbake er det samme struktur som i POST, men i tillegg s
 }
 ```
 
-- confirmUrl : dette er Dyplenken som SBSL må gi til Sluttbruker på en trygg måte, der Sluttbruker kan Godkjenne opprettelsen av SystemBrukeren
-- Id : dette er den unike referansen til selve Forespørselen, som kan brukes ved oppslag i API for hva som er status
-- status: den første responsen vil alltid være "New" (Dersom det ikke feiler). Andre mulige verdier er "Accepted", "TimedOut", "Denied" og "Rejected"
-  - Accepted er status etter at Sluttbruker har trykket på Godkjenn knappen
-  - TimedOut vil skje av seg selv etter 10 dager. Og brukes internt av oss. Da vil ikke lenger Forespørsel være tilgjengelig på eksternt API
-  - Rejected er når Sluttbruker trykker på Ikke godkjenn knappen istedetfor Godkjenn
-  - Denied er pr nå ikke i bruk
+confirmUrl: dyplenken som SBSL må gi til sluttbruker på en trygg måte, der opprettelsen kan godkjennes.
+
+- id: unik referanse til forespørselen, kan brukes ved oppslag i API for status.
+- status: første respons er alltid "New" (dersom det ikke feiler). Andre mulige verdier er "Accepted", "TimedOut", "Denied" og "Rejected".
+  - Accepted: etter at sluttbruker har trykket «Godkjenn».
+  - TimedOut: etter 10 dager er forespørselen ikke lenger tilgjengelig via eksternt API.
+  - Rejected: når sluttbruker trykker «Ikke godkjenn».
+  - Denied: ikke i bruk.
 
 Fortsett på [Godkjenn SystemBruker](/nb/authorization/guides/end-user/system-user/accept-request/)
 Etter at SystemBrukeren er Godkjent så må det [Delegeres Klienter](/nb/authorization/guides/end-user/system-user/delegate-clients/).
