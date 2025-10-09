@@ -10,7 +10,7 @@ aliases:
 
 ## Hva betyr API-basert signering?
 
-{{% insert "content/altinn-studio/guides/development/signing/api-signing/intro.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/api-signing/intro.nb.md" %}}
 
 ## Avhengigheter
 

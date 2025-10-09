@@ -1,5 +1,5 @@
 ---
-title: Altinn Studio V9
+title: V9
 description: Altinn Studio - Ditt verktøy for utvikling av digitale tjenester til innbyggere og næringsliv
 weight: 1
 draft: true

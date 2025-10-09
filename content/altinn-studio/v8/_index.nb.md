@@ -5,8 +5,11 @@ breadcrumbText: Gjeldende (V8)
 description: Altinn Studio - Ditt verktøy for utvikling av digitale tjenester til innbyggere og næringsliv
 aliases:
 - /altinn-studio/
+- /nb/altinn-studio/
 - /teknologi/altinnstudio/solutions/altinn-studio/
+- /nb/teknologi/altinnstudio/solutions/altinn-studio/
 - /app/
+- /nb/app/
 weight: 1
 cascade:
   params:

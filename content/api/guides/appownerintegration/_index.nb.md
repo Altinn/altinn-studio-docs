@@ -5,6 +5,8 @@ description: Finn guider for tjenesteeiere som ønsker å integrere seg med Alti
 tags: [architecture, devops, integration]
 toc: false
 hidden: false
+aliases:
+- /api/guides/appownerintegration
 ---
 
 {{<children />}}

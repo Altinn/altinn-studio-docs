@@ -21,7 +21,7 @@ Dette steget er kun nødvendig for nye virksomheter som ikke er etablert som en 
 For å kunne opprette en ressurs (steg 3) må du ha en bruker i Altinn Studio. Brukeren din må så knyttes til din organisasjon. (Har du allerede en Altinn Studio bruker kan du gå til steg 3.) Hvis du er usikker på hvem som er administrator eller du ikke vet om organisasjonen din er satt opp i Altinn Studio
 kan du spørre [Altinn Servicedesk](mailto:tjenesteeier@altinn.no) om hjelp.
 
-Se [Opprette bruker i Altinn Studio](https://docs.altinn.studio/nb/altinn-studio/getting-started/create-user/) for en detaljert veiledning.
+Se [Opprette bruker i Altinn Studio](https://docs.altinn.studio/nb/altinn-studio/v8/getting-started/create-user/) for en detaljert veiledning.
 
 ### 3. Aktivere ressursadministrasjonen {#activate-resourceregistry}
 
@@ -33,6 +33,8 @@ Se [Ressursadministrasjon](https://docs.altinn.studio/nb/authorization/getting-s
 ### 4. Opprett en ressurs {#registeraresourceinaltinnresourceregistry}
 
 1. Logg inn på Altinn Studio og naviger til ressursdashboardet.
+
+      *Obs. I forbindelse med Altinns migrering av eksisterende meldinger, opprettes det nye ressurser i deres (tjenesteeiers) ressursdashboard. Disse meldingsressursene er altså kun til bruk for Altinn II meldinger og skal ikke benyttes for nye utsendelser. Ressursene kjennes igjen ved at de inneholder "migratedcorrespondence" i ressurs-id. Se [Overgangsløsning](https://docs.altinn.studio/nb/correspondence/transition/) for mer informasjon.*
 2. Opprett ny ressurs, følg veiledningen og fyll inn nødvendig informasjon og detaljer om tjenesten. Se [Ressursregister](https://docs.altinn.studio/nb/authorization/guides/resource-owner/create-resource-resource-admin/#trinn-1-opprett-ressurs) for en detaljert veiledning.
 3. Opprett policy: her angis tilgangsregler for ressursen. Tilgangsregler for ressursen må konfigureres slik at de tillater følgende handlinger:
    - "read" ment for at mottakere skal kunne åpne og lese en melding.
@@ -126,7 +128,14 @@ Før produksjonssetting bør du verifisere at meldinger vises riktig for mottake
 
 **Merk**: Støttede formateringstagger (Markdown og HTML) er dokumentert her: [Oversikt over tillatte markdown og HTML tagger](https://docs.altinn.studio/nb/dialogporten/reference/front-end/front-channel-embeds/#markdown-og-html)
 
-### 10. Sett opp hendelsesabonnementer {#set-up-event-subscriptions}
+### 10. Hvitlist ressurs i produksjon {#whitelist-resource}
+
+Før du kan sende meldinger i produksjon, må ressursen din hvitlistes av Altinn.
+Be om hvitlisting i `#produkt-melding` i Digdir samarbeid på Slack eller send e‑post til [ServiceDesk](mailto:servicedesk@altinn.no). Husk å inkludere resourceId-en for ressursen som skal hvitelistes.
+
+Dette steget er kun nødvendig i produksjon (ikke ved testing i `TT02`).
+
+### 11. Sett opp hendelsesabonnementer {#set-up-event-subscriptions}
 
 For å kunne motta varsler om endringer eller hendelser knyttet til dine meldingstjenester, må du sette opp et abonnement for den aktuelle tjenesten.
 Dette trinnet er spesielt viktig for deg som ønsker å få automatiserte varsler om hendelser fra meldingstjenesten. Hvis du ikke trenger varsler, kan du hoppe over dette trinnet.

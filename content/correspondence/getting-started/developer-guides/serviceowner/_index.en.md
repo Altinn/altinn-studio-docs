@@ -20,7 +20,7 @@ This step is only necessary for new enterprises that have not yet established th
 
 To be able to create a resource (step 3), you need a user in Altinn Studio. Your user must be linked to your organization. (If you have an Altinn Studio user, you can skip this step.) Contact [Altinn Servicedesk](mailto:tjenesteeier@altinn.no) if you’re unsure who the administrator is or whether your organization is set up in Altinn Studio.
 
-See [Create a User in Altinn Studio](https://docs.altinn.studio/altinn-studio/getting-started/create-user/) for a detailed guide.
+See [Create a User in Altinn Studio](https://docs.altinn.studio/en/altinn-studio/v8/getting-started/create-user/) for a detailed guide.
 
 ### 3. Activate the Resource Management System {#activate-resourceregistry}
 
@@ -32,6 +32,8 @@ See [Resource Management](https://docs.altinn.studio/authorization/getting-start
 ### 4. Create a Resource {#registeraresourceinaltinnresourceregistry}
 
 1. Log in to Altinn Studio and navigate to the resource dashboard.
+   
+   *Note: As part of Altinn's migration of existing messages, new resources are being created in your (service owner) resource dashboard. These message resources are intended only for use for Altinn II messages and must not be used for new correspondences. They can be identified by the inclusion of "migratedcorrespondence" in the resource ID. See [Transition Solution](https://docs.altinn.studio/en/correspondence/transition/) for more information.*
 2. Create a new resource, follow the guide, and fill in the necessary information and details about the service. See [Resource Registry](https://docs.altinn.studio/authorization/guides/resource-owner/create-resource-resource-admin/#step-1-create-resource) for a detailed instruction.
 3. Set policy rules for the resource. Your policy must be configured in such a way that they permit the actions:
    - "read" meant for recipients to open and read a message.
@@ -127,7 +129,14 @@ Before going live, verify that correspondences render as intended for recipients
 
 **Note**: Supported formatting tags (Markdown and HTML) are documented here: [Overview of allowed markdown and HTML tags](https://docs.altinn.studio/dialogporten/reference/front-end/front-channel-embeds/#markdown-and-html)
 
-### 10. Set up Event subscriptions {#setup-event-subscriptions}
+### 10. Whitelist resource in production {#whitelist-resource}
+
+Before you can send correspondences in production, your resource must be whitelisted by Altinn.
+Request whitelisting in `#produkt-melding` in Digdir samarbeid on Slack or email [ServiceDesk](mailto:servicedesk@altinn.no). Remember to include the resourceId of the resource to be whitelisted.
+
+This step is only required in production (not when testing using the `TT02` environment).
+
+### 11. Set up Event subscriptions {#setup-event-subscriptions}
 
 In order to use events/webhooks for a Correspondence resource, you need to set up a subscription for the given resource.
 

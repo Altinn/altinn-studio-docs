@@ -65,18 +65,18 @@ Et signeringssteg kan se omtrent slik ut:
 ```
 
 #### Konfigurere miljø-spesifikke correspondence ressurser
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/add-process-task-environments.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/backend-manual/add-process-task-environments.nb.md" %}}
 
 #### Legg til datatyper for å lagre signeringsdata
 Disse datatypene legges til i `dataTypes` i `App/config/applicationmetadata.json`.
 
 Den første datatypen benyttes i signeringssteget til å lagre signaturene.
 
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/add-process-task-code-01.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/backend-manual/add-process-task-code-01.en.md" %}}
 
 Denne datatypen benyttes for å lagre informasjon om signatarene og statusen deres.
 
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/add-process-task-code-02.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/backend-manual/add-process-task-code-02.en.md" %}}
 
 Det er viktig å sette `allowedContributors`, `actionRequiredToRead` og `actionRequiredToWrite` som beskrevet i eksemplene over. Dette gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv.
 
@@ -86,7 +86,7 @@ Datatypenes ID-er må matche ID-ene som legges inn i `signatureDataType` og `sig
 #### Tilgangsstyring for brukere
 Gi `read`, `write` og eventuelt `sign` til den som fyller ut skjemaet.
 
-Mer informasjon om action-attributter finner du [her](/nb/altinn-studio/reference/configuration/authorization/#action-attributter).
+Mer informasjon om action-attributter finner du [her](/nb/altinn-studio/v8/reference/configuration/authorization/#action-attributter).
 
 #### Tilgangsstyring for appen
 For at appen skal kunne delegere rettigheter til de som skal signere så må appen få rettigheter til å delegere `read` og `sign`.
@@ -99,9 +99,9 @@ Nedenfor finner du et eksempel på en slik policy. For at denne koden skal funge
 <!-- Dummy to force end of list rendering -->
 <span></span>
 
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/add-process-task-code-03.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/backend-manual/add-process-task-code-03.en.md" %}}
 
 #### Tilgangsstyring for tjenesteeiere
 Gi `signature-access` til tjenesteeiere. Dette gjør at appen (via Maskinporten) kan skrive og lese data i signaturdokumentene, samtidig som tjenesteeiere kan lese og verifisere signaturer når de måtte ønske det.
 
-Mer informasjon rundt dette konseptet finner du [her](/nb/altinn-studio/concepts/data-model/restricted-data/).
+Mer informasjon rundt dette konseptet finner du [her](/nb/altinn-studio/v8/concepts/data-model/restricted-data/).
