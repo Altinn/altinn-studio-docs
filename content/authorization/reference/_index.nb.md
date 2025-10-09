@@ -1,5 +1,5 @@
 ---
-title: Referense
+title: Referanse
 linktitle: Referanse
 description: Teknisk dokumentasjon og referanseimplementasjon
 toc: false
