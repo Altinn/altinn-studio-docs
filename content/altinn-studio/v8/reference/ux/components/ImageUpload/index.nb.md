@@ -28,7 +28,7 @@ Komponenten har noen spesifikke egenskaper som kan konfigureres i tillegg til de
 |----------------|---------|-------------------------------------------------------------------------------------------------|---------|----------------|
 | id | string | Unik ID for komponenten | ja | |
 | type | string | Type komponent, for denne komponenten er det alltid `imageUpload` | ja | |
-| cropShape | enum | Bestemmer formen på beskjæringsområdet. Kan være `square` (firkant) eller `circle` (sirkel). | nei | `circle` |
+| cropShape | enum | Bestemmer formen på beskjæringsområdet. Kan være `rectangle` (rektangel) eller `circle` (sirkel). | nei | `circle` |
 | cropWidth | number | Angir bredden på beskjæringsområdet i piksler. | nei | `250` |
 | cropHeight | number | Angir høyden på beskjæringsområdet i piksler. | nei | `250` |
 

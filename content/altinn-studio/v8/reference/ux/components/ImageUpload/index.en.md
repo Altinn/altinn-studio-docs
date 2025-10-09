@@ -28,7 +28,7 @@ The component has some specific properties that can be configured in addition to
 |----------------|---------|-------------------------------------------------------------------------------------------------|---------|----------------|
 | id | string | Unique ID for the component | yes | |
 | type | string | Component type, for this component it is always `imageUpload` | yes | |
-| cropShape | enum | Determines the shape of the cropping area. Can be `square` or `circle`. | no | `circle` |
+| cropShape | enum | Determines the shape of the cropping area. Can be `ectangle` or `circle`. | no | `circle` |
 | cropWidth | number | Specifies the width of the cropping area in pixels. | no | `250` |
 | cropHeight | number | Specifies the height of the cropping area in pixels. | no | `250` |
 
