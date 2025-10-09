@@ -7,7 +7,7 @@ This repo contains the source for the [Altinn 3 documentation](https://docs.alti
 There are two ways to edit and test your changes to the docs:
 
 ## Running Hugo locally
-> When doing larger changes, restructuring and refactoring, changes in layouts, code, etc.
+
 > See [CONTRIBUTING](./CONTRIBUTING.md) for even more details.
 
 1. Install the required software ([Git](https://git-scm.com/downloads), [Hugo](https://gohugo.io/installation/) and [Visual Studio Code](https://code.visualstudio.com/))
