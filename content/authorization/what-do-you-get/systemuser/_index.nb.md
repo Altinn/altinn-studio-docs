@@ -65,10 +65,9 @@ Når tjenesten er i drift, gjør ressurseier oppslag mot Altinn Autorisasjon for
 Altinn Autorisasjon er løsningen som inneholder informasjon om hvem som kan gjøre hva, på vegne av hvem i offentlig sektor
 
 **Systemregister** er et register over sluttbrukersystem som kan be om å få opprettet systembruker.
-Sluttbrukersystemleverandører registrerer her metadata om system, fullmakter systemet kan be om samt hvilke maskinporten-klientid systemet benytter
-Sluttbrukersystemleverandør velger også om systemet kan opprettes via Altinn brukerflate eller om det skjer etter forespørsel fra sluttbrukersystemet.
-Systemer i systemregisteret kan sees på som mal for en systembruker
-
+Sluttbrukersystemleverandører registrerer her metadata om systemet, fullmakter systemet kan be om, samt hvilken Maskinporten-klient-ID systemet benytter.
+Sluttbrukersystemleverandør velger også om systemet kan opprettes via Altinn-portalen, eller om det skjer etter forespørsel fra sluttbrukersystemet.
+Systemer i systemregisteret kan sees på som en mal for en systembruker.
 **Systembruker** er en ikkepersonlig bruker som får tildelt fullmakter på vegne av virksomheten som eier den.
 Systembrukeren kan opprettes på forespørsel fra en systemleverandør eller via Altinn brukerflate dersom sluttbrukersystemleverandør har tilgjengeliggjort dette.
 
