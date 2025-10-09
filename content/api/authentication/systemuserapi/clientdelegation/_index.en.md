@@ -14,14 +14,14 @@ GET authentication/api/v1/exchange/id-porten (on test environment, add the query
 
 ## API Methods
 
-- [List all agent system users for the party](#list-all-agent-system-users-for-the-party)
+- [List all agent system users for the organisation](#list-all-agent-system-users-for-the-organisation)
 - [List all available clients for the system user](#list-all-the-potential-clients-for-the-system-user)
 - [List all delegated clients for the system user](#list-all-delegated-clients-for-the-system-user)
 - [Delegate a client to the system user](#delegate-a-client-to-the-system-user)
-- [Remove a delegated client from the system user](#remove-a-client-to-the-system-user)
+- [Remove a delegated client from the system user](#remove-a-client-from-the-system-user)
 
-## List All Agent System Users For The Party
-Lists all the agent system users for the party 
+## List All Agent System Users For The Organisation
+Returns a list of all agent system users linked to the organisation 
 
 ### Endpoint
 GET authentication/api/v1/enduser/systemuser/agents
@@ -84,90 +84,6 @@ The organization number of the system user owner
             }
         ],
         "userType": "agent"
-    },
-    {
-        "id": "f18f8ffe-d2d6-4ff5-a97a-d8b6e25c293b",
-        "integrationTitle": "Playwright-e2e-revisor-1750161480040-0.4388583986327166",
-        "systemId": "310547891_Playwright-e2e-revisor-1750161480040-0.4388583986327166",
-        "productName": "",
-        "systemInternalId": "ad3df1f1-6f90-4474-90fb-7fcfd5fcd421",
-        "partyId": "51117759",
-        "partyUuId": "",
-        "reporteeOrgNo": "314250052",
-        "created": "2025-06-17T11:58:03.755446Z",
-        "isDeleted": false,
-        "supplierName": "",
-        "supplierOrgno": "310547891",
-        "externalRef": "0.dn8ds5u5kgv1750161480737",
-        "accessPackages": [
-            {
-                "urn": "urn:altinn:accesspackage:ansvarlig-revisor"
-            }
-        ],
-        "userType": "agent"
-    },
-    {
-        "id": "3617b82d-7c7b-41a8-b725-241fd91f7b6e",
-        "integrationTitle": "Playwright-e2e-regnskapsfoerer-1750161480033-0.33885797100228543",
-        "systemId": "310547891_Playwright-e2e-regnskapsfoerer-1750161480033-0.33885797100228543",
-        "productName": "",
-        "systemInternalId": "df9ec3e1-1241-4a5a-aa63-e2507c17ad71",
-        "partyId": "51117759",
-        "partyUuId": "",
-        "reporteeOrgNo": "314250052",
-        "created": "2025-06-17T11:58:04.18921Z",
-        "isDeleted": false,
-        "supplierName": "",
-        "supplierOrgno": "310547891",
-        "externalRef": "0.zkgf0pshuj1750161480675",
-        "accessPackages": [
-            {
-                "urn": "urn:altinn:accesspackage:regnskapsforer-lonn"
-            }
-        ],
-        "userType": "agent"
-    },
-    {
-        "id": "d06fe261-c46b-4d8b-b54d-b87aa6711f4c",
-        "integrationTitle": "Playwright-e2e-revisor-1750230656654-0.46161420060319336",
-        "systemId": "310547891_Playwright-e2e-revisor-1750230656654-0.46161420060319336",
-        "productName": "",
-        "systemInternalId": "80cf387c-e21c-4ab3-994c-5a98992b7833",
-        "partyId": "51117759",
-        "partyUuId": "",
-        "reporteeOrgNo": "314250052",
-        "created": "2025-06-18T07:11:04.032557Z",
-        "isDeleted": false,
-        "supplierName": "",
-        "supplierOrgno": "310547891",
-        "externalRef": "0.v5jxgywn1r1750230658516",
-        "accessPackages": [
-            {
-                "urn": "urn:altinn:accesspackage:ansvarlig-revisor"
-            }
-        ],
-        "userType": "agent"
-    },
-    {
-        "id": "58cd5a57-ea49-4d04-bf7d-d48b338c68db",
-        "integrationTitle": "Playwright-e2e-revisor-1750059048470-0.4687499504311414",
-        "systemId": "310547891_Playwright-e2e-revisor-1750059048470-0.4687499504311414",
-        "productName": "",
-        "systemInternalId": "c7611df9-fed3-4e9c-af35-96df32158426",
-        "partyId": "51117759",
-        "partyUuId": "",
-        "reporteeOrgNo": "314250052",
-        "created": "2025-06-16T07:35:21.151487Z",
-        "isDeleted": false,
-        "supplierName": "",
-        "supplierOrgno": "310547891",
-        "externalRef": "0.epcdvs9an261750059049315",
-        "accessPackages": [
-            {
-                "urn": "urn:altinn:accesspackage:ansvarlig-revisor"
-            }
-        ],
-        "userType": "agent"
     }
 ]
 ```
@@ -188,6 +104,9 @@ application/json
 
 #### agent
 The unique identifier of the agent system user
+
+### Pagination
+The API currently does not support pagination, but this is planned for a future release. We have now laid the groundwork for pagination in the system.
 
 ### Example Request
 {{environmenturl}}/authentication/api/v1/enduser/systemuser/clients/available?agent=1b6cea43-f499-4aae-a633-51cf542795af
@@ -236,6 +155,9 @@ application/json
 
 #### agent
 The unique identifier of the agent system user
+
+### Pagination
+The API currently does not support pagination, but this is planned for a future release. We have now laid the groundwork for pagination in the system.
 
 ### Example Request
 {{environmenturl}}/authentication/api/v1/enduser/systemuser/clients/?agent=d06fe261-c46b-4d8b-b54d-b87aa6711f4c
@@ -289,8 +211,8 @@ The unique identifier of the client to be added to the system user
 }
 ```
 
-## Remove a client to the system user
-Removes a client from the system user
+## Remove a client from the system user
+Removes a delegated client from the system user
 
 ### Endpoint
 DELETE authentication/api/v1/enduser/systemuser/clients/
