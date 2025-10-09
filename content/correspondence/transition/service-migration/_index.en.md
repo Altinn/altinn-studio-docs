@@ -43,6 +43,6 @@ This has unfortunately not been prioritized due to few reported services needing
 
 Service owners who need to re-establish an Altinn 2 Message service as an Altinn 3 Message service should instead follow the [standard steps here](../../getting-started/developer-guides/serviceowner/).
 
-Some service owners have requested import of delegations from the old resource to the new; see the instructions for ordering this in the [delegation migration documentation](../delegation-migration/#manuell-import-av-delegeringer).
+Some service owners have requested import of delegations from the old resource to the new; see the instructions for ordering this in the [delegation migration documentation](../delegation-migration/#manual-import-of-delegations).
 
 {{<children />}}

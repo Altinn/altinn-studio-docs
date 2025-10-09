@@ -13,12 +13,12 @@ Grunnet en forenkling av tjenestekonfigurasjon i Altinn 3 for Melding, består m
 - Oversettelse av autorisasjonsregler til xacml-policy for tilgangstyring.
   - Merk at det er en forenkling av rettigheter for Melding mellom Altinn 2 og Altinn 3-versjonene.
 
-## Automatisk migrering av tjenestekonfigurasjon for migrasjonsformål
+## Automatisk migrering av tjenestekonfigurasjon for migrasjons-formål
 
 Altinns "Flytt av data"-prosjekt vil ta ansvar for å migrere all nødvendig konfigurasjon for de Meldingstjenester som har data som skal migreres.
 Prosjektet vil opprette dette på vegne av TjenesteEiere for å bruke dem til å styre tilgangen til historiske Meldingsdata.
 
-- Disse "migeringsressursene" vil får en ressursId på følgende form: `<tjenesteeierkode>-migratedcorrespondence-<Altinn2-tjenestekode>-<Altinn2-tjensteUtgavekode>`.
+- Disse "migreringsressursene" vil får en ressursId på følgende form: `<tjenesteeierkode>-migratedcorrespondence-<Altinn2-tjenestekode>-<Altinn2-tjenesteutgavekode>`.
 - I tillegg vil flere beskrivende felt få et postfix slik at det kan skilles fra Altinn 2 versjonen av tjenesten, per nå er `- migrert fra Altinn 2` benyttet, men dette vurderes endret.
 
 Migreringen av data er gjort uavhengig av oppsett av tjenestene, slik at datamigrering kan gjøres før dette må settes opp.
@@ -40,8 +40,8 @@ Dette kan følge samme mønster som benyttes for [Migrering av Lenketjenester](.
 
 Men dette er dessverre ikke blitt en prioritert funksjon på grunn av at det er meldt om få tjenester som skal reetableres, og det er lav kapasitet i relevante team.
 
-Tjenesteeiere som skal re-etablere Altinn 2 Meldingstjenster som Altinn 3 Meldingstjenester, henvises derfor til å følge [vanlige skritt her](../../getting-started/developer-guides/serviceowner/).
+Tjenesteeiere som skal re-etablere Altinn 2 Meldingstjenester som Altinn 3 Meldingstjenester, henvises derfor til å følge [vanlige skritt her](../../getting-started/developer-guides/serviceowner/).
 
-Enkelte tjenesteeiere har uttrykt behov for å få en import av delegeringer fra gammel ressurs til ny, se [her](../delegation-migration/_index.nb.md#manuell-import-av-delegeringer) for hvordan bestille dette.
+Enkelte tjenesteeiere har uttrykt behov for å få en import av delegeringer fra gammel ressurs til ny, se [her](../delegation-migration/#manuell-import-av-delegeringer) for hvordan bestille dette.
 
 {{<children />}}
