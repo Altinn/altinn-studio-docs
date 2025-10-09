@@ -1,0 +1,10 @@
+{{/* positional param: logical path, e.g. "/snippets/services" or "snippets/services" */}}
+{{ with .Get 0 }}
+{{ with $.Page.GetPage . }}
+{{- .RenderShortcodes -}}
+{{ else }}
+{{ errorf "include: unable to find %q (called from %s)" . $.Position }}
+{{ end }}
+{{ else }}
+{{ errorf "include: requires a positional path parameter (called from %s)" .Position }}
+{{ end }}
