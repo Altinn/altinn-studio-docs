@@ -62,7 +62,7 @@ Når tjenesten er i drift, gjør ressurseier oppslag mot Altinn Autorisasjon for
 
 ### Altinn Autorisasjon
 
-Altinn Autorisasjon er løsningen som inneholder informasjon om hvem som kan gjøre hva, på vegne av hvem i offentlig sektor
+Altinn Autorisasjon er løsningen som inneholder informasjon om hvem som kan gjøre hva, på vegne av hvem i offentlig sektor.
 
 **Systemregister** er et register over sluttbrukersystem som kan be om å få opprettet systembruker.
 Sluttbrukersystemleverandører registrerer her metadata om systemet, fullmakter systemet kan be om, samt hvilken Maskinporten-klient-ID systemet benytter.
