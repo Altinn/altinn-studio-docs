@@ -169,3 +169,20 @@ I responsen som kommer tilbake er det samme struktur som i POST, men i tillegg s
 
 Fortsett på [Godkjenn SystemBruker](/nb/authorization/guides/end-user/system-user/accept-request/)
 Etter at SystemBrukeren er Godkjent så må det [Delegeres Klienter](/nb/authorization/guides/end-user/system-user/delegate-clients/).
+
+Etter at en SystemBruker er godkjent kan SBSL enten sjekke om Request Status = Accepted, eller prøve på dette endepunktet for å se om det har blitt opprettet en SystemBruker:
+{{API_BASE_URL}}/authentication/api/v1/systemuser/vendor/byquery?system-id={system Id}&orgno={orngo for Sluttbruker}&external-ref={bare dersom brukt ved opprettelse}
+
+Og som response vil de få en SystemBruker DTO med litt informasjon slik:
+
+```json
+{
+  "id": "{en UUID som er SystemBrukers permanente Id}",
+  "systemId": "System Navnet",
+  "reporteeOrgNo": "{organisasjons nummer på 9 siffer for Sluttbruker}",
+  "created": "2025-10-01T09:50:41.059107Z",
+  "supplierOrgno": "{organisasjons nummer på 9 siffer for SBSL}",
+  "externalRef": "{bare dersom brukt}",
+  "userType": "agent"
+}
+```
