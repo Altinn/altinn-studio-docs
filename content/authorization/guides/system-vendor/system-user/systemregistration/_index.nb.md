@@ -55,7 +55,7 @@ Org-nummer i Id og ID må matche, og det må også matche det som ligger i token
 
 ## Viktige merknader
 
-- ClientId i systemregisteret er samme som brukes senere i Bruke systembruker mot Maskinporten.
+- ClientId i systemregisteret er den samme som brukes senere ved bruk av systembruker mot Maskinporten.
 - Systemer kan endres og slettes i etterkant.
 
 ## Modell for systemregisterinformasjon
