@@ -13,9 +13,9 @@ Betaling er et prosessteg du kan legge til i appen din når brukerne skal betale
 
 Når brukeren kommer til betalingssteget i appen, skjer følgende:
 
-1. Appen omdirigerer brukeren til en ekstern betalingsleverandør
-2. Brukeren gjennomfører betalingen hos betalingsleverandøren
-3. Appen returnerer brukeren til tjenesten når betalingen er fullført
+1. Appen omdirigerer brukeren til en ekstern betalingsleverandør.
+2. Brukeren gjennomfører betalingen hos betalingsleverandøren.
+3. Appen returnerer brukeren til tjenesten når betalingen er fullført.
 
 <object data="payment.drawio.svg" type="image/svg+xml" style="width: 100%;"></object>
 
