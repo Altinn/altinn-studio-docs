@@ -7,7 +7,7 @@ weight: 1
 
 ## Forutsetninger
 
-Systemleverandøren må ta kontakt med Digdir for å få tilgang til systemregisteret og systembruker-scopes. Prosedyren for dette er beskrevet på Samarbeidsportalen. Vi anbefaler at SBS orgnummer er lagt inn i vår testmiljø TT02. SBS må ta kontakt med servicedesk@altinn.no for å få opprettet ekte orgnummer i TT02. Ta kontakt med tjenesteeier for å finne ut hvilke tilgangspakker tjeneste-APIet er tilknyttet.
+Systemleverandøren må ta kontakt med Digdir for å få tilgang til systemregisteret og systembruker-scopes. Prosedyren er beskrevet på [Samarbeidsportalen](https://samarbeid.digdir.no/). Vi anbefaler at SBS-orgnummer er lagt inn i testmiljøet TT02. SBS må ta kontakt med servicedesk@altinn.no for å få opprettet ekte orgnummer i TT02. Ta kontakt med tjenesteeier for å finne ut hvilke tilgangspakker tjeneste-API-et er tilknyttet.
 
 ## Registrering av systemet i Altinns systemregister
 
