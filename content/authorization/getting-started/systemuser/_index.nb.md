@@ -22,7 +22,7 @@ Maskinporten-token brukes også som informasjonsbærer for systembruker-informas
 Maskinporten-tokenet med systembrukerinformasjon inneholder ingen informasjon som peker tilbake på sluttbrukere. Dersom det er behov for å se hvem som har utført en operasjon (sluttbruker), må ID-porten benyttes som autentiseringsmetode på tjenesten.
 
 {{< /expandsmall >}}
-{{< expandsmall header="3 Registerer ressurs" id="registrere_ressurs">}}
+{{< expandsmall header="3 Registrer ressurs" id="registrere_ressurs">}}
 Ressursregisteret inneholder beskrivelse av autorisasjonsressursen, samt tilgangsregler for denne. Sørg for å informere de som skal benytte tjenesten om nødvendige tilgangspakker (og eventuelle enkeltrettigheter) som kreves for å benytte tjenesten.
 
 {{< /expandsmall >}}
