@@ -80,7 +80,7 @@ For eksempel:
 }
 ```
 
-«0192» er referansen som angir at det er en verdi for Enhetsregisteret i henhold til Elektronisk adresseordning, og 991825827 er organisasjonsnummeret til Digitaliserigsdirektoratet.
+«0192» er referansen som angir at det er en verdi for Enhetsregisteret i henhold til Elektronisk adresseordning, og 991825827 er organisasjonsnummeret til Digitaliseringsdirektoratet.
 
 ### Description og Name
 
