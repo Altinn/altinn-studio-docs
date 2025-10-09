@@ -87,8 +87,8 @@ Autentiseringsmekanismen for alt som har med systembrukere å gjøre:
 
 ### Sluttbrukersystem
 
-Definisjonen for sluttbrukersystemet. Denne definisjonen inneholder bl. a. hvilke rettigheter systemet trenger fra systembrukeren, og hvilke Maskinporten klient (klient ID) systemet har tenkt til å bruke ved autentisering i Maskinporten.
-Systemet registreres og eies av sluttbrukersystem-leverandøren i systemregisteret
+Definisjon av sluttbrukersystemet: Denne inneholder bl.a. hvilke rettigheter systemet trenger fra systembrukeren, og hvilken Maskinporten-klient (klient-ID) systemet skal bruke ved autentisering i Maskinporten.
+Systemet registreres og eies av sluttbrukersystemleverandøren i systemregisteret.
 
 ## I bruk
 
