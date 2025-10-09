@@ -22,8 +22,8 @@ Note: The reminder timing in test and staging environments is currently set to 1
 Notifications can be sent via either email or SMS. While email does not have a time window, SMS notifications are sent between 9:00 AM and 5:00 PM.
 If the sending time falls outside this window, the notification will be sent the following day.
 {{% notice warning  %}}
-In the test environment, you can only send SMS notifications to whitelisted phone numbers. 
-Send an email to [tjenesteeier@altinn.no](mailto:tjenesteeier@altinn.no?subject=Whitelist%20phone%20number&body=Phone%20number%20to%20whitelist:%20) with the phone number that needs to be whitelisted.
+In the test environment, you can only send SMS notifications to whitelisted phone numbers.  
+Send an email to [tjenesteeier@altinn.no](mailto:tjenesteeier@altinn.no?subject=Whitelist%20phone%20number) with the phone number that needs to be whitelisted.
 {{% /notice %}}
 
 A notification order is made by adding the following when initializing a message:
