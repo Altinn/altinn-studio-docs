@@ -36,7 +36,7 @@ Løsningen er fleksibel og støtter både strukturerte og ustrukturerte filer. D
 ### Tilgjengelighet 
 Avsender bestemmer hvor lenge filen vil kunne lastes ned av mottaker. Etter denne perioden vil filen bli utilgjengelig. 
 - 'PurgeFileTransferAfterAllRecipientsConfirmed': Om filen slettes når alle mottakere har bekreftet.
-- 'PurgeFileTransferGracePeriod': Hvis feltet over er "false", så sier dette parametret hvor lenge det skal være mulig å laste ned filen (default er 2 timer, maks er 24 timer).
+- 'PurgeFileTransferGracePeriod': Hvis feltet over er "true", så sier dette parametret hvor lenge det skal være mulig å laste ned filen (default er 2 timer, maks er 24 timer).
 - 'FileTransferTimeToLive': Hvor lenge en fil er tilgjengelig for nedlastning (default er 30 dager, maks er ett år).
 
 ### API-tilgang
