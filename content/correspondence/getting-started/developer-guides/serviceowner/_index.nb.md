@@ -33,6 +33,8 @@ Se [Ressursadministrasjon](https://docs.altinn.studio/nb/authorization/getting-s
 ### 4. Opprett en ressurs {#registeraresourceinaltinnresourceregistry}
 
 1. Logg inn på Altinn Studio og naviger til ressursdashboardet.
+
+      *Obs. I forbindelse med Altinns migrering av eksisterende meldinger, opprettes det nye ressurser i deres (tjenesteeiers) ressursdashboard. Disse meldingsressursene er altså kun til bruk for Altinn II meldinger og skal ikke benyttes for nye utsendelser. Ressursene kjennes igjen ved at de inneholder "migratedcorrespondence" i ressurs-id. Se [Overgangsløsning](https://docs.altinn.studio/nb/correspondence/transition/) for mer informasjon.*
 2. Opprett ny ressurs, følg veiledningen og fyll inn nødvendig informasjon og detaljer om tjenesten. Se [Ressursregister](https://docs.altinn.studio/nb/authorization/guides/resource-owner/create-resource-resource-admin/#trinn-1-opprett-ressurs) for en detaljert veiledning.
 3. Opprett policy: her angis tilgangsregler for ressursen. Tilgangsregler for ressursen må konfigureres slik at de tillater følgende handlinger:
    - "read" ment for at mottakere skal kunne åpne og lese en melding.
