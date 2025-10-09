@@ -62,7 +62,20 @@ A notification order is made by adding the following when initializing a message
 }
 ```
 
+## Field Validation and Character Limits
 
+When creating notifications, the following validation rules and character limits apply. These limits are recommended by the Altinn Notifications service to ensure proper display and delivery:
+
+| Field | Maximum Length | Description |
+|-------|---------------|-------------|
+| `emailSubject` | 128 characters | Recommended by Altinn Notifications service to ensure the email subject is displayed correctly in email clients |
+| `emailBody` | 10,000 characters | Supports detailed content in both plain text and HTML format |
+| `smsBody` | 2,144 characters | Aligns with the Altinn Notifications service SMS processing limits. Equivalent to 16 SMS segments (16 × 134 characters per segment) |
+| `reminderEmailSubject` | 128 characters | Same recommendation as main email subject |
+| `reminderEmailBody` | 10,000 characters | Supports detailed content in both plain text and HTML format |
+| `reminderSmsBody` | 2,144 characters | Same limit as main SMS body |
+
+**Note:** If you exceed these limits, you will receive a `400 Bad Request` error response with details about which field exceeded the limit.
 
 ## Keyword support
 
