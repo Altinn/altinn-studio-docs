@@ -1,13 +1,13 @@
 ---
 title: Registrering av system
-description: Hvordan registerere system i Systemregisteret
+description: Hvordan registrere system i Systemregisteret
 linktitle: Registrering av system
 weight: 1
 ---
 
 ## Forutsetninger
 
-Systemleverandøren må ta kontakt med Digdir for å få tilgang til systemregisteret og systembruker-scopes. Prosedyren for dette er beskrevet på Samarbeidsportalen. Vi anbefaler at SBS orgnummer er least inn i vår test miljø TT02. SBS må ta kontakt med servicedesk@altinn.no for å få opprettet ekte org nummer i TT02. Ta kontakt med tjenesteeier for å finne ut hvilke tilgangspakker tjeneste-APIet er tilknyttet.
+Systemleverandøren må ta kontakt med Digdir for å få tilgang til systemregisteret og systembruker-scopes. Prosedyren for dette er beskrevet på Samarbeidsportalen. Vi anbefaler at SBS orgnummer er lagt inn i vår testmiljø TT02. SBS må ta kontakt med servicedesk@altinn.no for å få opprettet ekte orgnummer i TT02. Ta kontakt med tjenesteeier for å finne ut hvilke tilgangspakker tjeneste-APIet er tilknyttet.
 
 ## Registrering av systemet i Altinns systemregister
 

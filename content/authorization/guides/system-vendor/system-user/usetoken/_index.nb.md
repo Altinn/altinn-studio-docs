@@ -1,9 +1,8 @@
 ---
-title: Bruk av systembrukertoken
-description: Bruk av systembrukertoken
-linktitle: Bruk
-weight: 8
-hidden: true
+title: Bruk av Systembruker
+description: Beskrivelse av hvordan Systembrukeren brukes etter den er opprettet
+linktitle: Bruk av Systembruker
+weight: 5
 ---
 
 ### Request (JWT Grant)

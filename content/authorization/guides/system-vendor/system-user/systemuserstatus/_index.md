@@ -1,7 +1,7 @@
 ---
-title: Systembrukerstatus
-description: Systembrukerstatus
-linktitle: EndSystembrukerstatusre
+title: System-user status
+description: How to check status of system-user requests
+linktitle: System-user status
 weight: 3
 hidden: true
 ---

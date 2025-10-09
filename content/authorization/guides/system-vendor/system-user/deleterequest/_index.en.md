@@ -2,6 +2,6 @@
 title: Slette systembruker
 description: Slette systembruker
 linktitle: Slette systembruker
-weight: 6
+weight: 4
 hidden: true
 ---

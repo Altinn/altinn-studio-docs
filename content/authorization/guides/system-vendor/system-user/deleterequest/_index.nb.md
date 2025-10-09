@@ -1,8 +1,8 @@
 ---
-title: Slette systembruker
-description: Slette systembruker
-linktitle: Slette systembruker
-weight: 6
+title: Slette Systembruker
+description: Slette Systembruker
+linktitle: Slette Systembruker
+weight: 4
 hidden: false
 ---
 
