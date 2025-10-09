@@ -2,8 +2,12 @@
 title: "Brukerscenarier for systembruker"
 linktitle: "Brukerscenarioer"
 description: "Oversikt over aktuelle brukerscenarier for systembruker"
-weight: 5
-aliases: ["/nb/authentication/reference/userscenarios"]
+weight: 8
+aliases:
+  [
+    "/nb/authentication/reference/userscenarios",
+    "/nb/authorization/reference/userscenarios/",
+  ]
 ---
 
 ## Begreper
