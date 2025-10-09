@@ -22,7 +22,7 @@ Varslinger kan sendes via enten e-post eller SMS. Mens e-post ikke har noe tidsv
 Hvis avsendingstidspunktet faller utenfor dette tidsvinduet, vil varselet bli sendt neste dag.
 {{% notice warning  %}}
 I testmiljøet kan varslinger via SMS kun sendes til telefonnumre som er hvitlistet internt.
-Ta kontakt med oss på [Altinn@Slack#produkt-melding](https://join.slack.com/t/altinn/shared_invite/zt-7c77c9si-ZnMFwGNtab1aFdC6H_vwog) hvis dette er nødvendig for din tjeneste.
+For å få telefonnumre hvitelistet i testmiljøet, send en henvendelse til [servicedesk@altinn.no](mailto:servicedesk@altinn.no) med telefonnumrene som du ønsker hvitelistet.
 {{% /notice %}}
 
 En varslingsbestilling gjøres ved å legge til følgende når du initialiserer en melding:

@@ -23,7 +23,7 @@ Notifications can be sent via either email or SMS. While email does not have a t
 If the sending time falls outside this window, the notification will be sent the following day.
 {{% notice warning  %}}
 In the test environment, Notifications via SMS can only be sent to phone numbers that are whitelisted internally.
-Contact us at [Altinn@Slack#produkt-melding](https://join.slack.com/t/altinn/shared_invite/zt-7c77c9si-ZnMFwGNtab1aFdC6H_vwog) if this is required for your service.
+To get phone numbers whitelisted for the test environment, submit a request to [servicedesk@altinn.no](mailto:servicedesk@altinn.no) with the phone numbers you want whitelisted.
 {{% /notice %}}
 
 A notification order is made by adding the following when initializing a message:
