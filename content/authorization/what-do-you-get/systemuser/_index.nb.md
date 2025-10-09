@@ -21,9 +21,9 @@ Systembruker kan både brukes mot tjenester som kjører i Altinn og mot eksterne
 >
 > Ved behov for å knytte operasjonene til hvilket system som ligger bak, bruk **Systembruker**.
 >
-> Dersom man kun trenger å vite hvilken virksomhet og ev scope bruk **Maskinporten**.
+> Dersom man kun trenger å vite hvilken virksomhet og eventuelt scope, bruk **Maskinporten**.
 
-For en overordnet funsjonell gjennomgang og brukerreise se [Samarbeidsportalen](https://samarbeid.digdir.no/altinn/systembruker/2542).
+For en overordnet funksjonell gjennomgang og brukerreise, se [Samarbeidsportalen](https://samarbeid.digdir.no/altinn/systembruker/2542).
 
 ## Egenskaper med systembruker
 
