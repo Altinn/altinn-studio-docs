@@ -1,6 +1,6 @@
 ---
 title: Demoklient
-description: For å vise hvordan leverandørstyrt opprettelse kan se ut har vi utviklet demoklienten Smartcloud
+description: For å vise hvordan leverandørstyrt opprettelse kan se ut, har vi utviklet demoklienten Smartcloud
 linktitle: Demoklient
 hidden: false
 weight: 10

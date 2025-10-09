@@ -146,7 +146,7 @@ Et system kan være knyttet til flere klient-ID-er. Disse klient-ID-ene generere
 ### IsVisible
 
 - **True:** Systemet er synlig i Altinn-portalen, og kan brukes for å opprette en systembruker.
-- **False:** Systemet er ikke synlig i Altinn-portalen, og systembruker må opprettes gjennom leveradørstyrt opprettelse.
+- **False:** Systemet er ikke synlig i Altinn-portalen, og systembruker må opprettes gjennom leverandørstyrt opprettelse.
 
 ```json
 "isVisible": true

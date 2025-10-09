@@ -16,7 +16,7 @@ Under følger en overordnet sjekkliste over de nødvendige stegene du må gå gj
 {{< /expandsmall >}}
 {{< expandsmall header="2 Velg autentisering" id="velg_autentisering">}}
 Maskinporten er en av grunnstenene systembruker bygger videre på.
-Maskinporten sikrer autensitet og lar tjensteier gjøre en grovkornet tilgangsstyring gjennom scopes
+Maskinporten sikrer autentisitet og lar tjenesteeier gjøre en grovkornet tilgangsstyring gjennom scopes.
 Maskinporten-token brukes også som informasjonsbærer for systembruker-informasjon, som gjør at tjenesteeier kan utføre tilgangskontroll mot Altinn Autorisasjon.
 
 Maskinporten-tokenet med systembrukerinformasjon inneholder ingen informasjon som peker tilbake på sluttbrukere. Dersom det er behov for å se hvem som har utført en operasjon (sluttbruker), må ID-porten benyttes som autentiseringsmetode på tjenesten.
@@ -74,8 +74,7 @@ Hvilke tilgangspakker og/eller enkelttjenester som systemet må ha avhenger av d
 {{< expandsmall header="Be om tilgang til tjenesteeiers tjenester" id="be_om_tilgang_til_tjenesteeiers_tjenester">}}
 Tjenesteeier bestemmer selv hvilke scopes som benyttes for tilgangskontroll mot sine tjenester.
 Dette er ikke samme scopes som benyttes for systembruker og må tildeles av tjenesteier for tjenesten du skal benytte.
-For å finne ut hvilke scopes du må be om, se tjesteeiers dokumentasjon eller ta kontakt med tjesteeier.
-
+For å finne ut hvilke scopes du må be om, se tjenesteeiers dokumentasjon eller ta kontakt med tjenesteeier.
 {{< /expandsmall >}}
 {{< expandsmall header="Tilpasse systemet for kundene" id="tilpasse_systemet_for_kundene">}}
 Erfaringsmessig tar dette punktet noe tid, da det krever involvering av brukere. Vi oppfordrer derfor alle til å sette av nok tid til gjennomføringen av dette punktet.

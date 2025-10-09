@@ -1,7 +1,7 @@
 ---
-title: Registrering av system
-description: Hvordan kan du registrere system
-linktitle: Registrering av system
+title: System Registration
+description: How to register systems
+linktitle: System Registration
 weight: 1
 hidden: true
 ---

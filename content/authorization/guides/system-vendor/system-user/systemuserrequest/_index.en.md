@@ -1,7 +1,7 @@
 ---
-title: Forespørsel om systembruker
-description: Forespørsel om systembruker
-linktitle: Forespørsel om systembruker
+title: System-User Request
+description: System-User Request
+linktitle: System-User Request
 weight: 2
 hidden: true
 ---

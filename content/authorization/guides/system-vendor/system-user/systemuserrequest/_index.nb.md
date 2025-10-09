@@ -11,7 +11,7 @@ En SystemBruker for eget system kan opprettes på to forskjellige måter, ved br
 
 ### Brukerstyrt Opprettelse
 
-Ved en brukerstyrt opprettelse kan bruker gå inn i Altinn-portalen og velge fra en nedtrekksliste hvilket system de ønsker å knytte en systembruker til. Sannsynligvis er de allerede kunde hos systemleverandøren, og får veiledning til å finne riktig system på nedtrekkslisten. Etter at de har opprettet systembrukeren kan SluttbrukerSystemLeverandøren (SBSL) hente ut Systembruker-Token fra oss, og bruke det for å integrere mot TjenesteEiere's API på vegne av sluttbruker. En Brukerstyrt opprettelse kan være aktuelt for SBSL som ikke har laget et brukergrensesnitt i sitt system for å opprette SystemBrukeren. I en brukerstyrt opprettelse så blir det ikke opprettet en forespørsel, i stedet for vil sluttbrukeren direkte godkjenne alle tilgangene som er forhåndsdefinert i det registrerte systemet fra nedtrekksmenyen. Dersom det etterspørres en tilgang sluttbrukeren ikke kan delegere til Systembrukeren, så vil ikke opprettelsen kunne gå gjennom.
+Ved en brukerstyrt opprettelse kan bruker gå inn i Altinn-portalen og velge fra en nedtrekksliste hvilket system de ønsker å knytte en systembruker til. Sannsynligvis er de allerede kunde hos systemleverandøren, og får veiledning til å finne riktig system på nedtrekkslisten. Etter at de har opprettet systembrukeren kan SluttbrukerSystemLeverandøren (SBSL) hente ut Systembruker-Token fra oss, og bruke det for å integrere mot TjenesteEiere's API på vegne av sluttbruker. En Brukerstyrt opprettelse kan være aktuelt for SBSL som ikke har laget et brukergrensesnitt i sitt system for å opprette SystemBrukeren. I en brukerstyrt opprettelse så blir det ikke opprettet en forespørsel, i stedet for, vil sluttbrukeren direkte godkjenne alle tilgangene som er forhåndsdefinert i det registrerte systemet fra nedtrekksmenyen. Dersom det etterspørres en tilgang sluttbrukeren ikke kan delegere til Systembrukeren, så vil ikke opprettelsen kunne gå gjennom.
 
 ### Leverandørstyrt Opprettelse
 
@@ -19,7 +19,7 @@ Ved en leverandørstyrt opprettelse må SBSL sende et kall til vårt API for å 
 
 Forespørselen inneholder data om deres kunde samt en referanse til SBSL sitt registrerte system og et påkrevet utvalg av de tilganger som var forhånds-definert på det registrerte systemet. Merk at det er et OG-forhold på alle de påkrevde tilganger som etterspørres i Forespørselen. Dette betyr at Sluttbrukeren må kunne delegere alle TilgangsPakkene og EnkeltRettighetene til SystemBrukeren dersom de Godkjenner Forespørselen. Vi oppfordrer til å ikke etterspørre tilganger som ikke trengs.
 
-SBSL kan kalle på vårt API for å hente ut ventende Forespørsler, feks dersom sluttbruker lukket den opprinnelige, og kan spørres på nytt. Forespørselen venter i vår db inntil Sluttbruker følger dyplenken for å Godkjenne eller Avvise Forespørselen. Etter 10 dager vil den gå ut på tid, og ikke lenger være gyldig å bruke. En Godkjent Systembruker vil være aktiv inntil den blir slettet av Sluttbruker, så den kan opprettes i forveien før systemet trenger den for innleveringer.
+SBSL kan kalle på vårt API for å hente ut ventende Forespørsler, f.eks. dersom sluttbruker lukket den opprinnelige, og kan spørres på nytt. Forespørselen venter i vår db inntil Sluttbruker følger dyplenken for å Godkjenne eller Avvise Forespørselen. Etter 10 dager vil den gå ut på tid, og ikke lenger være gyldig å bruke. En Godkjent Systembruker vil være aktiv inntil den blir slettet av Sluttbruker, så den kan opprettes i forveien før systemet trenger den for innleveringer.
 
 Et eksempel på POST Forespørsel kallet:
 
@@ -56,7 +56,7 @@ I POST Bodyen så brukes følgende model:
 
 I eksempelet over er det oppgitt disse verdiene i Post Body:
 
-- systemId : referansen til Systemet som SBSL har forhånds registrert i [Registrer System]
+- systemId : referansen til Systemet som SBSL har forhånds registrert i [Registrer System](/nb/authorization/guides/system-vendor/system-user/registersystem/)
 - partyOrgNo : er organisasjonsnummeret til Sluttbruker, slik det er i Enhets Registeret (kun sifrene)
 - externalRef : skal normalt ikke brukes. Det er kun i spesielle tilfeller når det er behov for å ha flere SystemBrukere pr System pr Orgno. Det vanlige er å ikke oppgi.
 - rights : en liste av de Enkel Rettigheter som er påkrevet for at SystemBrukeren kan integrerere mot TE API (Foretrekk å bruke Tilgangspakker istedet.)
@@ -134,7 +134,7 @@ I POST Bodyen så brukes følgende model:
 
 I eksempelet over er det oppgitt disse verdiene:
 
-- systemId : referansen til Systemet som SBSL har forhånds registrert i [Registrer System]
+- systemId : referansen til Systemet som SBSL har forhånds registrert i [Registrer System](/nb/authorization/guides/system-vendor/system-user/registersystem/)
 - partyOrgNo : er organisasjonsnummeret til Sluttbruker, slik det er i Enhets Registeret (kun sifrene)
 - externalRef : skal normalt ikke brukes. Det er kun i spesielle tilfeller når det er behov for å ha flere SystemBrukere pr System pr Orgno. Det vanlige er å ikke oppgi.
 - accessPackages: en liste av de Tilgangspakker som er påkrevet. (Det anbefales at tilgangspakker brukes fremfor Enkelt Rettigheter dersom det lar seg gjøre.)
@@ -143,7 +143,7 @@ I eksempelet over er det oppgitt disse verdiene:
 Merk:
 
 - i url over så står det https://platform.tt02.altinn.no for TT02. For produksjon så vil det være https://platform.altinn.no som er roten.
-- scope som er oppgitt settes av Maskinporten et claim, og blir opprettet i [Samarbeidsportalen](https://samarbeid.digdir.no/maskinporten/maskinporten/25)
+  scope som er oppgitt settes av Maskinporten i et claim, og blir opprettet i [Samarbeidsportalen](https://samarbeid.digdir.no/maskinporten/maskinporten/25)
 
 ### Respons fra POST kall
 

@@ -6,22 +6,22 @@ tags: [architecture, solution]
 toc: false
 ---
 
-En stor del av kommunikasjonen mellom det offentlige og næringslivet skjer via API i Altinn og hos andre platformleverandører i det offentlige. Mye av denne kommunikasjonen skjer på vegne av virksomheten og trenger ikke utføres av en spesifikk person.
+En stor del av kommunikasjonen mellom det offentlige og næringslivet skjer via API i Altinn og hos andre plattformleverandører i det offentlige. Mye av denne kommunikasjonen skjer på vegne av virksomheten og trenger ikke utføres av en spesifikk person.
 Systembruker gjør det enkelt å opprette en bruker, som gis nødvendige fullmakter i forhold til oppgavene den skal utføre.
 
-Systembruker bygger videre på Maskinporten, som gir sikker autentisering og grovkornet tilgangsstyring, og utvider dette med finkornet tilgangsstyring
+Systembruker bygger videre på Maskinporten, som gir sikker autentisering og grovkornet tilgangsstyring, og utvider dette med finkornet tilgangsstyring.
 
-Systembruker gjør det enkelt å sette opp en virtuell bruker som kan operere på vegne av virksomheten, enten som egenopprettet system eller i et kunde–leverandørforhold
+Systembruker gjør det enkelt å sette opp en virtuell bruker som kan operere på vegne av virksomheten, enten som et egenopprettet system eller i et kunde–leverandørforhold.
 Systembruker kan både brukes mot tjenester som kjører i Altinn og mot eksterne tjenester som bruker Altinn Autorisasjon som autorisasjonsløsning.
 
-> Systembruker er ikke ment å erstatte ID-porten eller Maskinporten, men suplere og utvide det man allerede får gjennom disse komponentene.
+> Systembruker er ikke ment å erstatte ID-porten eller Maskinporten, men supplere og utvide det man allerede får gjennom disse komponentene.
 > ID-porten og systembruker kan brukes hver for seg eller i kombinasjon på samme tjeneste ut fra tjenesteeiers behov for å vite om det er en person eller system som kaller tjenesten.
 >
-> Ved behov for å koble operasjonene som utføres med hvilken person som utfører dem person bruk **ID-Porten**.
+> Ved behov for å knytte operasjonene til hvilken person som utfører dem, bruk **ID-porten**.
 >
-> Ved behov for å koble operasjonene som utføres med system som ligger bak bruk **Systembruker**.
+> Ved behov for å knytte operasjonene til hvilket system som ligger bak, bruk **Systembruker**.
 >
-> Dersom man kun trenger å vite hvilke virksomhet og ev scope bruk **Maskinporten**.
+> Dersom man kun trenger å vite hvilken virksomhet og ev scope bruk **Maskinporten**.
 
 For en overordnet funsjonell gjennomgang og brukerreise se [Samarbeidsportalen](https://samarbeid.digdir.no/altinn/systembruker/2542).
 
@@ -30,7 +30,7 @@ For en overordnet funsjonell gjennomgang og brukerreise se [Samarbeidsportalen](
 Systembruker gir en rekke fordeler sammenlignet med dagens virksomhetsbruker og sluttbrukersystemkonsept i Altinn 2.
 
 **For tjenesteeier**
-For å støtte systembruker på tjenesten din må du velge maskinporten som autentiseringsmetod og gjøre oppslag mot vårt autorisasjons-API (PDP) med systembrukerinformasjonen som finnes i maskinportentokenet.
+For å støtte systembruker på tjenesten din må du velge Maskinporten som autentiseringsmetode og gjøre oppslag mot vårt autorisasjons-API (PDP) med systembrukerinformasjonen som finnes i Maskinporten-tokenet.
 
 Detaljert guide for å komme i gang finnes [her](./../../guides/resource-owner/system-user/)
 
@@ -48,7 +48,7 @@ For mer informasjon for å komme i gang finnes [her](./../../guides/system-vendo
 **For sluttbruker**
 
 Sluttbruker gjør det mulig at din sluttbrukerleverandør kan utføre handlinger på vegne av din virksomhet på en enkel og sikker måte.
-Du vil til en hver tid kunne se hvilke fullmakter du har gitt systembrukeren via Altinn brukerflate og ev. slette systembrukeren dersom leverandøren ikke lenger trenger fullmaktene.
+Du vil til enhver tid kunne se hvilke fullmakter du har gitt systembrukeren via Altinn brukerflate, og eventuelt slette systembrukeren dersom leverandøren ikke lenger trenger fullmaktene.
 
 For mer informasjon for å komme i gang finnes [her](./../../guides/end-user/system-user/)
 
@@ -59,7 +59,7 @@ For mer informasjon for å komme i gang finnes [her](./../../guides/end-user/sys
 Ressurseier oppretter tjeneste i Ressursregisteret slik at Altinn autorisasjon kan benyttes til autorisasjon.
 Videre oppretter eller bestemmer ressurseier hvilke scopes som skal brukes på sin tjeneste.
 Dersom scopene ikke er public tildeler ressurseier scope til de som skal ha tilgang til å benytte tjenesten
-Når tjenesten er i drift gjør ressurseier oppslag mot Altinn Autorisasjon for å avgjøre om systembruker kan gjøre forespurte handling på vegne av virksomheten den representerer
+Når tjenesten er i drift, gjør ressurseier oppslag mot Altinn Autorisasjon for å avgjøre om systembruker kan utføre de forespurte handlingene på vegne av virksomheten den representerer.
 
 ### Altinn Autorisasjon
 
@@ -73,11 +73,11 @@ Systemer i systemregisteret kan sees på som mal for en systembruker
 **Systembruker** er en ikkepersonlig bruker som får tildelt fullmakter på vegne av virksomheten som eier den.
 Systembrukeren kan opprettes på forespørsel fra en systemleverandør eller via Altinn brukerflate dersom sluttbrukersystemleverandør har tilgjengeliggjort dette.
 
-**PDP** er tjenesten ressurseiere kaller for å avtorisere at systembrukeren kan gjøre forespurte handling
+**PDP** er tjenesten ressurseiere kaller for å autorisere at systembrukeren kan utføre de forespurte handlingene.
 
 ### Maskinporten
 
-Maskinporten brukes for fin- og grovkornet tilgangsstyring i løsningen. Maskinportentokenet inneholder informasjon om
+Maskinporten brukes for fin- og grovkornet tilgangsstyring i løsningen. Maskinporten-tokenet inneholder informasjon om
 
 Autentiseringsmekanismen for alt som har med systembrukere å gjøre:
 
@@ -96,10 +96,10 @@ Systemet registreres og eies av sluttbrukersystem-leverandøren i systemregister
 
 ![Concept](runtime.png)
 
-1. Sluttbrukersystem ber om systembrukertoken fra Maskinporten. Forespørselen angir nødvendige scopes, klient id og organisasjonsnummeret til sluttbrukervirsomheten det opptrer på vegne av.
+1. Sluttbrukersystem ber om systembrukertoken fra Maskinporten. Forespørselen angir nødvendige scopes, klient-ID og organisasjonsnummeret til sluttbrukervirksomheten det opptrer på vegne av.
 2. Maskinporten verifiserer mot Altinn Autorisasjon at kunden har gitt sluttbrukersystemet som er knyttet mot klienten, tilgang. Gitt at det finnes gyldig systembruker, returneres Maskinportentoken med systembrukerinformasjon.
 3. SBS gjør oppslag mot tjeneste med Maskinportentokenet.
-4. Tjeneste autentiserer SBS og sjekker at tokenet inneholder nødvendige scopes for å benytte tjenesten. Deretter gjøres det oppslag mot Altinn Autorisasjon for å sjekke at systembruker har nødvendige fullmakter
+4. Tjenesten autentiserer SBS og sjekker at tokenet inneholder nødvendige scopes for å benytte tjenesten. Deretter gjøres det oppslag mot Altinn Autorisasjon for å sjekke at systembruker har nødvendige fullmakter.
 
 ## Leveranseplan
 

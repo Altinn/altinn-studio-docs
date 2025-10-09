@@ -7,7 +7,7 @@ weight: 2
 
 # Tildeling av klienter til systembruker
 
-Dersom du oppretter systembruker for klientsystemer, kan klienter tildeles enten i Altinn-portalen eller via API. Dette steget gjelder ikke dersom du oppretter systembruker for eget system.
+Dersom du oppretter systembruker for klientsystemer, kan klienter tildeles enten i Altinn portalen eller via API. Dette steget gjelder ikke dersom du oppretter systembruker for eget system.
 
 ## I Altinn portalen
 

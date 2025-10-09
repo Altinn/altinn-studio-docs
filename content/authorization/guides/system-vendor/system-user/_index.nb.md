@@ -64,7 +64,7 @@ Du kan få fullmakter for kunden på to måter:
 - Klientene må ha gitt nødvendige rettigheter/delegeringer.
 - Systemet må sikre korrekt tilgang og identifisering av hvem det rapporteres for.
 - Dersom kundeforholdet fjernes/slettes fra Enhetsregisteret eller virksomhetsdelegeringen revokeres av kunden vil alle klientdelegeringer for den aktuelle fullmakten automatisk fjernes.
-- Klientdelegring til systembruker kan gjøres via GUI eller eget API
+- Klientdelegering til systembruker kan gjøres via GUI eller eget API
 
 > Klientsystemer kan kun opprettes med leverandørstyrt opprettelse.
 
@@ -74,7 +74,7 @@ Systembrukeren opprettes av virksomhet eller tjenestetilbyder som ønsker å bru
 Opprettelse kan skje via sluttbrukerstyrt opprettelse eller leverandørstyrt opprettelse.
 
 **Sluttbrukerstyrt opprettelse**
-Ved sluttbrukerstyrt opprettelse er det kunden selv som går inn i Altinn og velger systemet han ønsker opprette systembruker for fra en nedtrekksliste.
+Ved sluttbrukerstyrt opprettelse er det kunden selv som går inn i Altinn og velger systemet han ønsker å opprette systembruker for fra en nedtrekksliste.
 Etter systemet er valgt blir det presentert hvilke rettigheter sluttbrukersystemet krever. Ved å akseptere dette blir systembrukeren opprettet.
 
 **Leverandørstyrt opprettelse**

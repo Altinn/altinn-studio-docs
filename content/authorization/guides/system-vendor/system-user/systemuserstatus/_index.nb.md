@@ -1,7 +1,7 @@
 ---
 title: Systembrukerstatus
 description: Systembrukerstatus
-linktitle: Systembrukerstatusr
+linktitle: Systembrukerstatus
 weight: 3
 hidden: true
 ---

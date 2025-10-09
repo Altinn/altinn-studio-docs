@@ -1,6 +1,6 @@
 ---
 title: Reference implementation
-description: To demonstrate how vendor-controlled creation can look like, we have developed the demo client Smartcloud
+description: To demonstrate what vendor-controlled creation can look like, we have developed the demo client Smartcloud
 linktitle: Reference implementation
 hidden: false
 weight: 10
@@ -9,17 +9,6 @@ weight: 10
 ### Reference implementation and setup
 
 A reference implementation has been developed to demonstrate the use of system user. It is developed in C# and can be run as a console application.
-It does the following:
-
-1. Creates a token based on configured JSON Web Key, client ID, scope, and organization number of the system user creator.
-2. Based on the token received, it makes calls to reference APIs that require system user.
-
-See code with documentation [here](https://github.com/TheTechArch/altinn-systemuser).
-
-### Setting up reference implementation with own configuration
-
-A reference implementation has been developed to demonstrate the use of system user. It is developed in C# and can be run as a console application.
-
 It does the following:
 
 1. Creates a token based on configured JSON Web Key, client ID, scope, and organization number of the system user creator.

@@ -13,8 +13,10 @@ Det er bare Sluttbrukersystemleverandør (SBSL) som kan be om en endring av en S
 
 SBSL må sende inn en Change Request til vårt API på endepunkt:
 
-For enten TT02 eller PROD https://platform.tt02.altinn.no / eller https://platform.altinn.no/ 
-authentication/api/v1/ systemuser/changerequest/vendor? correlation-id={uuid}&system-id={system-id-string}&orgno={987654321}
+For enten TT02 eller PROD:
+https://platform.tt02.altinn.no/authentication/api/v1/systemuser/changerequest/vendor?correlation-id={uuid}&system-id={system-id-string}&orgno={987654321}
+eller
+https://platform.altinn.no/authentication/api/v1/systemuser/changerequest/vendor?correlation-id={uuid}&system-id={system-id-string}&orgno={987654321}
 
 Med Query Parameters: 
 **correlation-id** required ,  SBSL generer et gyldig UUID selv, unik for hver POST change request , brukes i senere GET call osv... 
@@ -72,7 +74,7 @@ To lister for påkrevde og ikke-påkrevde enkelt rettigheter (Rights), to lister
 
 Det er viktig å merke seg at det bare skal legges inn en resource pr Right, det er pr tid ikke støtte for sub-ressurser. Dersom det skal legges inn flere Rights er riktig syntax oppgitt over.
 
-Alle endringer er Idempotente, dvs det er helt ok å prøve å legge til en ressurs som allerede er delegert, eller å prøve å fjerne en ressurs som ikke er delegert. Da vil det ikke skje noenting.
+Alle endringer er Idempotente, dvs det er helt ok å prøve å legge til en ressurs som allerede er delegert, eller å prøve å fjerne en ressurs som ikke er delegert. Da vil det ikke skje noen.
 
 Responsen fra Post vil inneholde en kopi av det innsendte, uavhengig av hva som allerede er delegert, samt en dyplenke (confirmUrl) til godkjennings-siden som SBSL så må gi til Sluttbruker på en trygg måte. Når sluttbruker følger dyplenken vil de bli spurt om å logge inn i Altinn via Idporten, og kan godkjenne forespørselen. Deretter vil endringen bli utført.
 

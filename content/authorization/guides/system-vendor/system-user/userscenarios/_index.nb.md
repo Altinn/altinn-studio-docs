@@ -1,6 +1,6 @@
 ---
-title: "Brukerscenarier for systembruker"
-linktitle: "Brukerscenarioer"
+title: "Brukerscenarier"
+linktitle: "Brukerscenarier"
 description: "Oversikt over aktuelle brukerscenarier for systembruker"
 weight: 8
 aliases:

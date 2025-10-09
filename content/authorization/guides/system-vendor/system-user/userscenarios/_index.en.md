@@ -243,7 +243,7 @@ Scenario: The organization uses a system user for reporting.
 Support: Setup with single rights was developed as part of system user delivery 2.  
 Setup with access packages is developed as part of system user delivery 4.
 
-![alt text](standarduser.png "Reporting of own data")
+![Organization reporting own data](standarduser.png "Reporting of own data")
 
 ---
 

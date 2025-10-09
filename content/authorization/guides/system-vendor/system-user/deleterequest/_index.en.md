@@ -1,7 +1,7 @@
 ---
-title: Slette systembruker
-description: Slette systembruker
-linktitle: Slette systembruker
+title: Delete System-user
+description: Delete System-user
+linktitle: Delete System-user
 weight: 4
 hidden: true
 ---
