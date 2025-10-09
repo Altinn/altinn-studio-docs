@@ -32,8 +32,7 @@ Systembruker gir en rekke fordeler sammenlignet med dagens virksomhetsbruker og 
 **For tjenesteeier**
 For å støtte systembruker på tjenesten din må du velge Maskinporten som autentiseringsmetode og gjøre oppslag mot vårt autorisasjons-API (PDP) med systembrukerinformasjonen som finnes i Maskinporten-tokenet.
 
-Detaljert guide for å komme i gang finnes [her](./../../guides/resource-owner/system-user/)
-
+Detaljert veiledning for å komme i gang finnes [her](./../../guides/resource-owner/system-user/).
 **For sluttbrukersystemleverandør**
 
 Systembruker gir deg en enkel og sikker måte å opprette en bruker som kan brukes til å automatisere handlinger på vegne av dine kunder, uten at det er behov for å utveksle sertifikat eller andre hemmeligheter.
