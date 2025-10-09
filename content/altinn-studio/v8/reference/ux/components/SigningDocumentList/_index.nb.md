@@ -71,3 +71,5 @@ Komponenten legges til i et side-layout slik:
     },
 
 Vedleggstypen til et dokument kan endres ved å legge til en eller flere tags.
+
+Radene i tabellen sorteres først etter rekkefølgen av datatypene i `dataTypesToSign` i process.bpmn, og deretter etter dokumentenes opprettelsesdato.
