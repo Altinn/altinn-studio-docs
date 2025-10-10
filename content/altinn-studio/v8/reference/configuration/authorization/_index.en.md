@@ -127,5 +127,14 @@ Example with authentication level 2
 ```
 
 
+## API Scopes
+
+API scopes are used to authorize access to the APIs themselves, specifically the APIs that involve the "instance" resource. 
+There are built in scopes for users and service owners:
+* `altinn:instances.read` and `altinn:instances.write` for users (and systemusers)
+* `altinn:serviceowner/instances.read` and `altinn:serviceowner/instances.write` for service owners.
+
+These scopes can also be customized per app for both users and service owners.
+Learn more about [API Scopes Configuration](api-scopes).
 
 {{<children />}}
