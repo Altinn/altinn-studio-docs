@@ -14,15 +14,15 @@ Det er bare Sluttbrukersystemleverandør (SBSL) som kan be om en endring av en S
 SBSL må sende inn en Change Request til vårt API på endepunkt:
 
 For enten TT02 eller PROD:
-https://platform.tt02.altinn.no/authentication/api/v1/systemuser/changerequest/vendor?correlation-id={uuid}&system-id={system-id-string}&orgno={987654321}
+- https://platform.tt02.altinn.no/authentication/api/v1/systemuser/changerequest/vendor?correlation-id={uuid}&system-id={system-id-string}&orgno={987654321}
 eller
-https://platform.altinn.no/authentication/api/v1/systemuser/changerequest/vendor?correlation-id={uuid}&system-id={system-id-string}&orgno={987654321}
+- https://platform.altinn.no/authentication/api/v1/systemuser/changerequest/vendor?correlation-id={uuid}&system-id={system-id-string}&orgno={987654321}
 
 Med Query Parameters: 
-**correlation-id** required ,  SBSL generer et gyldig UUID selv, unik for hver POST change request , brukes i senere GET call osv... 
-**system-id**  required , SBSL sitt system i SystemRegisteret, som SystemBruker var opprett fra 
-**orgno**   required,  for Sluttbruker sin organisasjon, vanlig norsk orgno fra ER 
-**external-ref** nullable ,  fylles kun ut dersom den var oppgitt for å opprette SystemBrukeren, dersom den var brukt under opprettelse, må den være med
+- **correlation-id** required ,  SBSL generer et gyldig UUID selv, unik for hver POST change request , brukes i senere GET call osv... 
+- **system-id**  required , SBSL sitt system i SystemRegisteret, som SystemBruker var opprett fra 
+- **orgno**   required,  for Sluttbruker sin organisasjon, vanlig norsk orgno fra ER 
+- **external-ref** nullable ,  fylles kun ut dersom den var oppgitt for å opprette SystemBrukeren, dersom den var brukt under opprettelse, må den være med
 
 Eksempel på Post request body’en kan vi ta imot disse fem feltene:
 
