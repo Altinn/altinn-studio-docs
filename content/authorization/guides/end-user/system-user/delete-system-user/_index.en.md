@@ -1,5 +1,5 @@
 ---
-title: Delete system-user
+title: Delete System User
 description:
 linktitle: Delete
 weight: 3

@@ -1,7 +1,7 @@
 ---
-title: Enduser guide for System user
-linktitle: System user
-description: Find comprehensive information on what an end user must be aware of and the steps to follow to establish a system user integration.
+title: End-user Guide for System User
+linktitle: System User
+description: Find comprehensive information on what an end user must be aware of and the steps to follow to establish a System User integration.
 toc: false
 ---
 

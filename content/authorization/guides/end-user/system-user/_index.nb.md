@@ -1,7 +1,7 @@
 ---
-title: Sluttbrukerveiledning for systembruker
+title: Sluttbrukerveiledning for Systembruker
 linktitle: Systembruker
-description: Finn omfattende informasjon om hva en sluttbruker må være oppmerksom på, samt hvilke trinn som må følges for å etablere en systembrukerintegrasjon.
+description: Finn omfattende informasjon om hva en sluttbruker må være oppmerksom på, samt hvilke trinn som må følges for å etablere en Systembrukerintegrasjon.
 toc: false
 ---
 
