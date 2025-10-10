@@ -17,7 +17,7 @@ weight: 60
 - Migration of delegations is done as a separate step but should be performed before messages are made available to end users in the A3 API and Dialogporten/Arbeidsflate.
 - Migration of historical data will take time (weeks/months), and the transition solution is built with this in mind.
 - Eventually, the migration job will "catch up" with live/fresh data, so the elements can be made available in Altinn 3 shortly after they were created in Altinn 2.
-- Since changes can occur to migrated elements in Altinn 2, these changes must be synchronized to Altinn 3, but not the other way around.
+- Since changes can occur to migrated elements in both Altinn 2 and Altinn 3, these changes must be synchronized both ways, but there are certain limitations.
 
 ## Transition Solution
 
@@ -39,13 +39,26 @@ weight: 60
 4. **Delegation synchronization period:** When steps 1 and 3 are completed, continues until Altinn 2 is shut down.
    Continuous synchronization of changes in delegations on service- and instance level.
 5. **Making historical messages available in Altinn 3/Dialogporten/Arbeidsflate:** This can theoretically happen after step 1 is completed, but for the best results, it should occur during period 4.
+   - Data from 2025 will be made available first, and then work backwards.
 6. **Ongoing migration and availability of messages:** Eventually, all new messages in Altinn 2 will almost immediately go through steps 2, 4, and 5 and thus be continuously available in the Dialogporten/Arbeidsflate.
 
-### Responsibility Sharing
+## Responsibility Sharing
 
 The *"Flytt av data"* project is responsible for developing components for and executing steps 1 and 2, as well as steps 3 and 4 in collaboration with *Team Authorization*.
 They also take charge of step 6, while in close collaboration with the other parties.
 
 *Team Dialogporten/Arbeidsflate* is responsible for deciding the when step 5 happens, while *Team Melding og Formidling* executes the actions required.
+
+## Timeline / Dates
+
+As of 2025-10-09 the status is:
+
+In TT02/Staging:
+- Steps 1, 2, 3, 4 and 6 are completed.
+- Step 5 is completed for messages newer than 2025-08-01; the rest will be done immediately.
+
+In PROD/Production:
+- Steps 1, 2, 3, 4 are completed.
+- Steps 5 and 6 are pending some performance optimization before starting 6 and 5 in parallel.
 
 {{<children />}}
