@@ -34,19 +34,19 @@ Før du gjennomfører avpubliseringen, bør du vurdere hvordan du vil håndtere 
 
 ### Hva kan du gjøre i stedet for å avpublisere?
 
-Hvis du ikke vil avpublisere appen, kan du gjøre appen utilgjengelig på flere andre måter:
+Hvis du ikke vil avpublisere appen, kan du gjøre appen utilgjengelig på flere andre måter.
 
-- **Bytte til en tidligere versjon:**
-  Hvis den nåværende versjonen av appen har feil, kan du velge å rulle tilbake til en tidligere versjon som fungerer bedre.
+**Bytte til en tidligere versjon:**
+Hvis den nåværende versjonen av appen har feil, kan du velge å rulle tilbake til en tidligere versjon som fungerer bedre.
 
-- **Deaktivere appen i koden:**
-  Du kan fjerne tilgang til appen i koden, slik at den blir utilgjengelig på den måten. Da slipper du å avpublisere den helt.
+**Deaktivere appen i koden:**
+Du kan fjerne tilgang til appen i koden, slik at den blir utilgjengelig på den måten. Da slipper du å avpublisere den helt.
 
-- **Endre tilgangsinnstillinger:**
-  Du kan justere tilgangsinnstillingene slik at brukerne ikke kan starte nye eksemplarer av applikasjonen.
+**Endre tilgangsinnstillinger:**
+Du kan justere tilgangsinnstillingene slik at brukerne ikke kan starte nye eksemplarer av applikasjonen.
 
-- **Legge inn en validering før du avpubliserer:**
-  Hvis du legger inn en validering i koden, kan du bestemme når brukerne skal få tilgang til appen. Dette kan være nyttig hvis du vil gi brukerne en overgangsperiode før appen blir helt utilgjengelig i miljøet.
+**Legge inn en validering før du avpubliserer:**
+Hvis du legger inn en validering i koden, kan du bestemme når brukerne skal få tilgang til appen. Dette kan være nyttig hvis du vil gi brukerne en overgangsperiode før appen blir helt utilgjengelig i miljøet.
 
 ### Hvordan avpubliserer jeg en app?
 

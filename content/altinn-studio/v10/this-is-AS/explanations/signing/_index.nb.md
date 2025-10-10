@@ -37,6 +37,7 @@ Når brukeren signerer, skjer følgende:
 2. **Appen lager en hash-kode**: Signaturobjektet inneholder en såkalt hash-kode av dataene. Hashing er en enveismatematisk algoritme som beregner en unik kode med utgangspunkt i dataene. Hvis bare ett tegn i dataene endres, blir hash-koden annerledes. Dette gjør det synlig hvis noen endrer data etter signering.
 
 3. **Appen logger hendelsen**: Appen logger ID-en til den som signerte, sikkerhetsnivå for innloggingen, tidspunktet for handlingen, og hvilket steg i prosessen handlingen ble utført på.
+{.floating-bullet-numbers}
 
 Systemet lagrer loggdata knyttet til elektronisk signatur i Altinn 3 adskilt fra tjenestene i en sentral hendelsesloggdatabase.
 
@@ -44,11 +45,11 @@ Systemet lagrer loggdata knyttet til elektronisk signatur i Altinn 3 adskilt fra
 
 #### Behandling av personopplysninger
 
-For å sikre sporbarhet behandler systemet personopplysninger til loggformål. Systemet logger:
+For å sikre sporbarhet behandler systemet personopplysninger til loggformål. Systemet logger
 - ID-en til den som signerte (kan kobles til fødselsnummer)
-- Sikkerhetsnivå for innloggingen
-- Hvilket steg i prosessen handlingen ble utført på
-- Tidspunktet for handlingen
+- sikkerhetsnivå for innloggingen
+- hvilket steg i prosessen handlingen ble utført på
+- tidspunktet for handlingen
 
 Digdir er behandlingsansvarlig for behandling av disse personopplysningene til dette formålet.
 

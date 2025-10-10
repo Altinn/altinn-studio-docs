@@ -26,10 +26,10 @@ Policyen må da inkludere disse handlingene, i tillegg til `read`/`write`, før 
 
 ### Når bør du bruke dette?
 
-Du bør legge til ekstra tilgangskontroller hvis appen din:
-- Har flere brukere som ikke skal se hverandres data
-- Samler inn sensitiv eller klassifisert informasjon om tredjeparter
-- Inneholder data som kun skal være lesbare
+Du bør legge til ekstra tilgangskontroller hvis appen din
+- har flere brukere som ikke skal se hverandres data
+- samler inn sensitiv eller klassifisert informasjon om tredjeparter
+- inneholder data som kun skal være lesbare
 
 ### Les mer
 - [Guide for konfigurasjon av beskyttede datatyper](/nb/altinn-studio/v8/guides/development/restricted-data/)
