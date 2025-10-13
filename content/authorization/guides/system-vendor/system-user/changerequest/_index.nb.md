@@ -1,5 +1,5 @@
 ---
-title: Endre rettigheter på systembrukere
+title: Endre rettigheter på Systembruker
 description: Gjennomgang av hvordan man endrer rettigheter på Systembruker for eget system og for klientforhold
 linktitle: Endre Systembruker
 weight: 5
@@ -7,7 +7,7 @@ weight: 5
 
 # Endring av Systembruker for eget system  
 
-Det er bare Sluttbrukersystemleverandør (SBSL) som kan be om en endring av en Systembruker, dette fordi det er deres oppgave å vite hvilke tilganger som trengs for systemet, ihht hvordan de skal integrere seg mot en Tjeneste Eier sitt API. Men det er Sluttbruker selv som må godkjenne endringen, fordi det er Sluttbruker som “eier” SystemBrukeren. Dersom en organisasjon er både “leverandør” og sluttbruker, må de likevel igjennom prosessen med å opprette en endringsforespørsel, og deretter godkjenne den.
+Det er bare Sluttbrukersystemleverandør (SBSL) som kan be om en endring av en Systembruker, dette fordi det er deres oppgave å vite hvilke tilganger som trengs for systemet, ihht hvordan de skal integrere seg mot en Tjeneste Eier sitt API. Men det er Sluttbruker selv som må godkjenne endringen, fordi det er Sluttbruker som “eier” Systembrukeren. Dersom en virksomhet er både “leverandør” og sluttbruker, må de likevel igjennom prosessen med å opprette en endringsforespørsel, og deretter godkjenne den.
 
 ## Opprettelse av en Forespørsel om Endring 
 

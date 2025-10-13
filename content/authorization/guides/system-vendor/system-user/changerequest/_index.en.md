@@ -1,0 +1,139 @@
+---
+title: Change Rights on System Users
+description: Guide on how to change rights on System Users
+linktitle: Change System User
+weight: 5
+---
+
+# Changing System User for Own System  
+
+Only the End-User System Vendor (SBSL) can request a change to a System User, as it is their responsibility to know which accesses are needed for the system, according to how they integrate with a Service Owner's API. However, it is the End User themselves who must approve the change, because it is the End User who "owns" the System User. If an organization is both a "vendor" and an end user, they must still go through the process of creating a change request and then approving it.
+
+## Creating a Change Request 
+
+SBSL must submit a Change Request to our API at the endpoint:
+
+For either TT02 or PROD:
+https://platform.tt02.altinn.no/authentication/api/v1/systemuser/changerequest/vendor?correlation-id={uuid}&system-id={system-id-string}&orgno={987654321}
+or
+https://platform.altinn.no/authentication/api/v1/systemuser/changerequest/vendor?correlation-id={uuid}&system-id={system-id-string}&orgno={987654321}
+
+With Query Parameters: 
+**correlation-id** required, SBSL generates a valid UUID themselves, unique for each POST change request, used in subsequent GET calls etc... 
+**system-id** required, SBSL's system in the System Register, from which the System User was created 
+**orgno** required, for the End User's organization, standard Norwegian org number from ER 
+**external-ref** nullable, only filled out if it was specified to create the System User, if it was used during creation, it must be included
+
+Example of Post request body, we can receive these five fields:
+
+Two lists for required and unwanted individual rights (Rights), two lists for required and unwanted access packages (AccessPackages). In the example below, we have added a value for Rights and one for AccessPackages. RedirectUrl is optional to use, but must be validatable against what is pre-registered on the system, in the same way as for Create SystemUser.
+
+```json
+{
+  "requiredRights": [
+    {
+      "resource": [
+        {
+          "id": "urn:altinn:resource",
+          "value": "authentication-e2e-test"
+        }
+      ]
+    },
+    {
+      "resource": [
+        {
+          "id": "urn:altinn:resource",
+          "value": "en-annen-test2"
+        }
+      ]
+    }
+  ],
+  "unwantedRights": [
+    {
+      "resource": [
+        {
+          "id": "urn:altinn:resource",
+          "value": "testressurs"
+        }
+      ]
+    }
+  ],
+  "requiredAccessPackages": [
+    {
+      "urn": "urn:altinn:accesspackage:jordbruk"
+    }
+  ],
+  "unwantedAccessPackages": [
+    {
+      "urn": "urn:altinn:accesspackage:skogbruk"
+    }
+  ],
+  "redirectUrl": ""
+}
+```
+
+It is important to note that only one resource should be added per Right, as there is currently no support for sub-resources. If multiple Rights are to be added, the correct syntax is shown above.
+
+All changes are Idempotent, meaning it is perfectly fine to try to add a resource that is already delegated, or to try to remove a resource that is not delegated. In that case, nothing will happen.
+
+The response from Post will contain a copy of what was submitted, regardless of what is already delegated, as well as a deep link (confirmUrl) to the approval page that SBSL must then provide to the End User in a secure manner. When the end user follows the deep link, they will be asked to log in to Altinn via Idporten, and can approve the request. After that, the change will be executed.
+
+```json
+{
+  "id": "107319e1-8e4c-47f4-85be-6bdbd8b97b7f",
+  "externalRef": "f592dace-e26f-456d-bc8b-02cd6aff272d",
+  "systemId": "312605031_Virksomhetsbruker",
+  "systemUserId": "613bd887-b8a2-40ce-b7f2-ff31e40a4010",
+  "partyOrgNo": "312220865",
+  "requiredRights": [
+	  {
+		"resource": [
+		{
+			"id": "urn:altinn:resource",
+			"value": "authentication-e2e-test"
+		}]
+	},
+	{
+	"resource": [
+	{
+		"id": "urn:altinn:resource",
+		"value": "en-annen-test2"
+	}
+  ],
+  "unwantedRights": [
+    {
+      "resource": [
+        {
+          "id": "urn:altinn:resource",
+          "value": "testressurs"
+        }
+      ]
+    }
+  ],
+  "requiredAccessPackages": [
+	{
+		"urn": "urn:altinn:accesspackage:jordbruk"
+	}
+  ],
+  "unwantedAccessPackages": [
+    {
+      "urn": "urn:altinn:accesspackage:skogbruk"
+    }
+  ],
+  "status": "New",
+  "redirectUrl": "",
+  "confirmUrl": "https://am.ui.at22.altinn.cloud/accessmanagement/ui/systemuser/changerequest?id=107319e1-8e4c-47f4-85be-6bdbd8b97b7f&DONTCHOOSEREPORTEE=true"
+}
+```
+
+The "id" that comes in the response is the same as the SBSL sent in as a Correlation-id, and can be used to track the status of the change request. After the End User has clicked Approve, changes will occur, provided the logged-in End User has the necessary rights to delegate the accesses to the System User.
+
+## Multiple Changes 
+
+Each Change Request must have a Correlation-id which is a UUID generated by SBSL themselves upon creation.  
+If multiple changes are to be made to the System User, a **_new_** Correlation-id must be created for each change. 
+It is not necessary to delete a Request if SBSL is not going to use it; it will eventually time out and be automatically removed.
+
+## Changing System User for Client Relationships 
+
+Changing System User for Client Relationships is not currently possible. They must be deleted and recreated. A Client Delegation API is offered where SBSL themselves can retrieve which accesses have been granted, save them in their own system. Create a new System User with the new desired accesses; which is approved by the Service Provider; after which one client at a time (in an API) can be assigned to the new System User. If a difference remains, where some of the "old" clients could not be assigned to the new System User, it may be because not all the new accesses are delegated by these clients to the facilitator. This is most easily handled by SBSL themselves. The probability that there is at least one such client who does not have the new accesses delegated in a large system is high; and we therefore cannot offer a change request where everything must be approved in a single operation.
