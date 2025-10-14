@@ -1,19 +1,22 @@
 ---
 title: Opprette Systembruker
-description: Gjennomgang av hvordan du oppretter systembruker for eget og klientsystem
+description: Denne veiledningen viser hvordan du som sluttbrukersystemleverandør oppretter systembruker for eget system og systembruker for klientsystem.
 linktitle: Opprette Systembruker
 weight: 2
 ---
 
 ## Opprette Systembruker for eget system
 
-En SystemBruker for eget system kan opprettes på to forskjellige måter, ved brukerstyrt eller leverandørstyrt opprettelse.
+Opprettelse av en systembruker for eget system kan gjøres på to forskjellige måter. Disse er beskrevet under:
 
-### Brukerstyrt Opprettelse
+### 1. Brukerstyrt Opprettelse
 
-Ved en brukerstyrt opprettelse kan bruker gå inn i Altinn-portalen og velge fra en nedtrekksliste hvilket system de ønsker å knytte en systembruker til. Sannsynligvis er de allerede kunde hos systemleverandøren, og får veiledning til å finne riktig system på nedtrekkslisten. Etter at de har opprettet systembrukeren kan SluttbrukerSystemLeverandøren (SBSL) hente ut Systembruker-Token fra oss, og bruke det for å integrere mot TjenesteEiere's API på vegne av sluttbruker. En Brukerstyrt opprettelse kan være aktuelt for SBSL som ikke har laget et brukergrensesnitt i sitt system for å opprette SystemBrukeren. I en brukerstyrt opprettelse så blir det ikke opprettet en forespørsel, i stedet for, vil sluttbrukeren direkte godkjenne alle tilgangene som er forhåndsdefinert i det registrerte systemet fra nedtrekksmenyen. Dersom det etterspørres en tilgang sluttbrukeren ikke kan delegere til Systembrukeren, så vil ikke opprettelsen kunne gå gjennom.
+Ved en brukerstyrt opprettelse kan sluttbruker gå inn i Altinn-portalen og velge fra en nedtrekksliste hvilket system de ønsker å knytte en systembruker til. Dersom de trenger veiledning til å finne riktig system på nedtrekkslisten, kontakt systemleverandøren. Etter at de har opprettet systembrukeren kan sluttbrukersystemleverandøren (heretter kalt SBSL) hente ut Systembruker-Token, og bruke det for å integrere mot API fra Tjenesteeier på vegne av sluttbruker. 
+- En Brukerstyrt opprettelse kan være aktuelt dersom de ikke har laget et brukergrensesnitt i eget system for å opprette SystemBrukeren. 
+- I en brukerstyrt opprettelse vil sluttbrukeren direkte godkjenne alle tilgangene som er forhåndsdefinert i det registrerte systemet fra nedtrekksmenyen. Det blir derav ikke opprettet en forespørsel.
+- Gjøres det en forespørsel på tilgang sluttbrukeren ikke kan delegere til Systembrukeren, vil **ikke** opprettelsen kunne gå gjennom.
 
-### Leverandørstyrt Opprettelse
+### 2. Leverandørstyrt Opprettelse
 
 Ved en leverandørstyrt opprettelse må SBSL sende et kall til vårt API for å opprette en Forespørsel (Request). Hvordan det initieres er opp til SBSL selv, for eksempel med Kunden sittende innlogget i SBSL’s eget program eller webside. SBSL gjør dette ved å sende et POST kall til vårt API ( se eksempel under).
 
@@ -93,7 +96,7 @@ confirmUrl: dyplenken SBSL må gi til sluttbruker på en trygg måte, der oppret
 
 Fortsett på [Godkjenn SystemBruker](/nb/authorization/guides/end-user/system-user/accept-request/)
 
-# Opprette SystemBruker for Klient-Systemer
+## Opprette SystemBruker for Klient-Systemer
 
 Sammenlignet med Opprettelse av Vanlig SystemBruker så er det fire forskjeller.
 
@@ -102,7 +105,7 @@ Sammenlignet med Opprettelse av Vanlig SystemBruker så er det fire forskjeller.
 3. Etter at Sluttbruker har godkjent SystemBrukeren, må de inn i Altinn og delegere klienter/kunder/samarbeidspartnere til SystemBrukeren. Det er disse det så vil rapporteres på vegne av.
 4. Det er andre endepunkt for Opprettelse og Godkjenning
 
-## Kall for å Opprette SystemBruker for Klient-Systemer
+### Kall for å Opprette SystemBruker for Klient-Systemer
 
 SluttBrukerSystemLeverandøren (SBSL) må sende et kall til vårt API for å opprette en Forespørsel (Request). Hvordan det initieres er opp til SBSL selv, for eksempel med Kunden sittende innlogget i SBSL’s eget program eller webside. SBSL gjør dette ved å sende et POST kall til vårt API ( se eksempel under).
 
