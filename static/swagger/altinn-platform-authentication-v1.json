@@ -5,7 +5,7 @@
     "version": "v1"
   },
   "paths": {
-    "/authentication/api/v1/authentication": {
+    "/authentication": {
       "get": {
         "tags": [
           "Authentication"
@@ -59,7 +59,7 @@
         }
       }
     },
-    "/authentication/api/v1/refresh": {
+    "/refresh": {
       "get": {
         "tags": [
           "Authentication"
@@ -109,7 +109,7 @@
         }
       }
     },
-    "/authentication/api/v1/exchange/{tokenProvider}": {
+    "/exchange/{tokenProvider}": {
       "get": {
         "tags": [
           "Authentication"
@@ -199,7 +199,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/changerequest/vendor": {
+    "/systemuser/changerequest/vendor": {
       "post": {
         "tags": [
           "ChangeRequestSystemUser"
@@ -265,7 +265,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/changerequest/vendor/{requestId}": {
+    "/systemuser/changerequest/vendor/{requestId}": {
       "get": {
         "tags": [
           "ChangeRequestSystemUser"
@@ -346,7 +346,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/changerequest/vendor/byexternalref/{systemId}/{orgNo}/{externalRef}": {
+    "/systemuser/changerequest/vendor/byexternalref/{systemId}/{orgNo}/{externalRef}": {
       "get": {
         "tags": [
           "ChangeRequestSystemUser"
@@ -405,7 +405,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/changerequest/{party}/{requestId}": {
+    "/systemuser/changerequest/{party}/{requestId}": {
       "get": {
         "tags": [
           "ChangeRequestSystemUser"
@@ -455,7 +455,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/changerequest/{requestId}": {
+    "/systemuser/changerequest/{requestId}": {
       "get": {
         "tags": [
           "ChangeRequestSystemUser"
@@ -496,7 +496,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/changerequest/{party}/{requestId}/approve": {
+    "/systemuser/changerequest/{party}/{requestId}/approve": {
       "post": {
         "tags": [
           "ChangeRequestSystemUser"
@@ -548,7 +548,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/changerequest/vendor/bysystem/{systemId}": {
+    "/systemuser/changerequest/vendor/bysystem/{systemId}": {
       "get": {
         "tags": [
           "ChangeRequestSystemUser"
@@ -598,7 +598,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/changerequest/{party}/{requestId}/reject": {
+    "/systemuser/changerequest/{party}/{requestId}/reject": {
       "post": {
         "tags": [
           "ChangeRequestSystemUser"
@@ -650,7 +650,7 @@
         }
       }
     },
-    "/authentication/api/v1/introspection": {
+    "/introspection": {
       "post": {
         "tags": [
           "Introspection"
@@ -697,7 +697,7 @@
         }
       }
     },
-    "/authentication/api/v1/logout": {
+    "/logout": {
       "get": {
         "tags": [
           "Logout"
@@ -710,7 +710,7 @@
         }
       }
     },
-    "/authentication/api/v1/logout/handleloggedout": {
+    "/logout/handleloggedout": {
       "get": {
         "tags": [
           "Logout"
@@ -723,7 +723,7 @@
         }
       }
     },
-    "/authentication/api/v1/frontchannel_logout": {
+    "/frontchannel_logout": {
       "get": {
         "tags": [
           "Logout"
@@ -736,7 +736,7 @@
         }
       }
     },
-    "/authentication/api/v1/openid/.well-known/openid-configuration": {
+    "/openid/.well-known/openid-configuration": {
       "get": {
         "tags": [
           "OpenId"
@@ -756,7 +756,7 @@
         }
       }
     },
-    "/authentication/api/v1/openid/.well-known/openid-configuration/jwks": {
+    "/openid/.well-known/openid-configuration/jwks": {
       "get": {
         "tags": [
           "OpenId"
@@ -776,7 +776,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/request/vendor": {
+    "/systemuser/request/vendor": {
       "post": {
         "tags": [
           "RequestSystemUser"
@@ -826,7 +826,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/request/vendor/agent": {
+    "/systemuser/request/vendor/agent": {
       "post": {
         "tags": [
           "RequestSystemUser"
@@ -876,7 +876,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/request/vendor/{requestId}": {
+    "/systemuser/request/vendor/{requestId}": {
       "get": {
         "tags": [
           "RequestSystemUser"
@@ -957,7 +957,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/request/vendor/agent/{requestId}": {
+    "/systemuser/request/vendor/agent/{requestId}": {
       "get": {
         "tags": [
           "RequestSystemUser"
@@ -999,7 +999,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/request/vendor/byexternalref/{systemId}/{orgNo}/{externalRef}": {
+    "/systemuser/request/vendor/byexternalref/{systemId}/{orgNo}/{externalRef}": {
       "get": {
         "tags": [
           "RequestSystemUser"
@@ -1058,7 +1058,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/request/vendor/agent/byexternalref/{systemId}/{orgNo}/{externalRef}": {
+    "/systemuser/request/vendor/agent/byexternalref/{systemId}/{orgNo}/{externalRef}": {
       "get": {
         "tags": [
           "RequestSystemUser"
@@ -1117,7 +1117,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/request/{party}/{requestId}": {
+    "/systemuser/request/{party}/{requestId}": {
       "get": {
         "tags": [
           "RequestSystemUser"
@@ -1167,7 +1167,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/request/{requestId}": {
+    "/systemuser/request/{requestId}": {
       "get": {
         "tags": [
           "RequestSystemUser"
@@ -1208,7 +1208,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/request/agent/{party}/{requestId}": {
+    "/systemuser/request/agent/{party}/{requestId}": {
       "get": {
         "tags": [
           "RequestSystemUser"
@@ -1258,7 +1258,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/request/agent/{requestId}": {
+    "/systemuser/request/agent/{requestId}": {
       "get": {
         "tags": [
           "RequestSystemUser"
@@ -1299,7 +1299,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/request/{party}/{requestId}/approve": {
+    "/systemuser/request/{party}/{requestId}/approve": {
       "post": {
         "tags": [
           "RequestSystemUser"
@@ -1351,7 +1351,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/request/agent/{party}/{requestId}/approve": {
+    "/systemuser/request/agent/{party}/{requestId}/approve": {
       "post": {
         "tags": [
           "RequestSystemUser"
@@ -1403,7 +1403,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/request/vendor/bysystem/{systemId}": {
+    "/systemuser/request/vendor/bysystem/{systemId}": {
       "get": {
         "tags": [
           "RequestSystemUser"
@@ -1453,7 +1453,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/request/vendor/agent/bysystem/{systemId}": {
+    "/systemuser/request/vendor/agent/bysystem/{systemId}": {
       "get": {
         "tags": [
           "RequestSystemUser"
@@ -1503,7 +1503,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/request/{party}/{requestId}/reject": {
+    "/systemuser/request/{party}/{requestId}/reject": {
       "post": {
         "tags": [
           "RequestSystemUser"
@@ -1555,7 +1555,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/request/agent/{party}/{requestId}/reject": {
+    "/systemuser/request/agent/{party}/{requestId}/reject": {
       "post": {
         "tags": [
           "RequestSystemUser"
@@ -1607,7 +1607,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemregister": {
+    "/systemregister": {
       "get": {
         "tags": [
           "SystemRegister"
@@ -1646,7 +1646,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemregister/vendor": {
+    "/systemregister/vendor": {
       "get": {
         "tags": [
           "SystemRegister"
@@ -1736,7 +1736,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemregister/{systemId}": {
+    "/systemregister/{systemId}": {
       "get": {
         "tags": [
           "SystemRegister"
@@ -1777,7 +1777,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemregister/vendor/{systemId}": {
+    "/systemregister/vendor/{systemId}": {
       "get": {
         "tags": [
           "SystemRegister"
@@ -1956,7 +1956,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemregister/{systemId}/rights": {
+    "/systemregister/{systemId}/rights": {
       "get": {
         "tags": [
           "SystemRegister"
@@ -2015,7 +2015,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemregister/{systemId}/accesspackages": {
+    "/systemregister/{systemId}/accesspackages": {
       "get": {
         "tags": [
           "SystemRegister"
@@ -2074,7 +2074,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemregister/vendor/{systemId}/rights": {
+    "/systemregister/vendor/{systemId}/rights": {
       "put": {
         "tags": [
           "SystemRegister"
@@ -2144,7 +2144,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemregister/vendor/{systemId}/accesspackages": {
+    "/systemregister/vendor/{systemId}/accesspackages": {
       "put": {
         "tags": [
           "SystemRegister"
@@ -2214,7 +2214,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemregister/vendor/{systemId}/changelog": {
+    "/systemregister/vendor/{systemId}/changelog": {
       "get": {
         "tags": [
           "SystemRegister"
@@ -2264,7 +2264,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/{party}": {
+    "/systemuser/{party}": {
       "get": {
         "tags": [
           "SystemUser"
@@ -2314,7 +2314,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/agent/{party}": {
+    "/systemuser/agent/{party}": {
       "get": {
         "tags": [
           "SystemUser"
@@ -2364,7 +2364,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/agent/{party}/{facilitator}/{systemUserId}/delegations": {
+    "/systemuser/agent/{party}/{facilitator}/{systemUserId}/delegations": {
       "get": {
         "tags": [
           "SystemUser"
@@ -2432,7 +2432,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/{party}/{systemUserId}": {
+    "/systemuser/{party}/{systemUserId}": {
       "get": {
         "tags": [
           "SystemUser"
@@ -2535,7 +2535,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/byExternalId": {
+    "/systemuser/byExternalId": {
       "get": {
         "tags": [
           "SystemUser"
@@ -2582,7 +2582,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser": {
+    "/systemuser": {
       "put": {
         "tags": [
           "SystemUser"
@@ -2635,7 +2635,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/vendor/byquery": {
+    "/systemuser/vendor/byquery": {
       "get": {
         "tags": [
           "SystemUser"
@@ -2692,7 +2692,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/vendor/bysystem/{systemId}": {
+    "/systemuser/vendor/bysystem/{systemId}": {
       "get": {
         "tags": [
           "SystemUser"
@@ -2742,7 +2742,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/internal/systemusers/stream": {
+    "/systemuser/internal/systemusers/stream": {
       "get": {
         "tags": [
           "SystemUser"
@@ -2783,7 +2783,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/{party}/create": {
+    "/systemuser/{party}/create": {
       "post": {
         "tags": [
           "SystemUser"
@@ -2842,7 +2842,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/agent/{party}/{systemUserId}/delegation": {
+    "/systemuser/agent/{party}/{systemUserId}/delegation": {
       "post": {
         "tags": [
           "SystemUser"
@@ -2913,7 +2913,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/agent/{party}/delegation/{delegationId}": {
+    "/systemuser/agent/{party}/delegation/{delegationId}": {
       "delete": {
         "tags": [
           "SystemUser"
@@ -2973,7 +2973,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/agent/{party}/{systemUserId}": {
+    "/systemuser/agent/{party}/{systemUserId}": {
       "delete": {
         "tags": [
           "SystemUser"
@@ -3033,7 +3033,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/agent/{party}/clients": {
+    "/systemuser/agent/{party}/clients": {
       "get": {
         "tags": [
           "SystemUser"
@@ -3100,7 +3100,7 @@
         }
       }
     },
-    "/authentication/api/v1/systemuser/{party}/{systemUserId}/delegations": {
+    "/systemuser/{party}/{systemUserId}/delegations": {
       "get": {
         "tags": [
           "SystemUser"
@@ -3150,7 +3150,7 @@
         }
       }
     },
-    "/authentication/api/v1/enduser/systemuser/clients/available": {
+    "/enduser/systemuser/clients/available": {
       "get": {
         "tags": [
           "SystemUserClientDelegation"
@@ -3190,7 +3190,7 @@
         }
       }
     },
-    "/authentication/api/v1/enduser/systemuser/clients": {
+    "/enduser/systemuser/clients": {
       "get": {
         "tags": [
           "SystemUserClientDelegation"
@@ -3336,7 +3336,7 @@
         }
       }
     },
-    "/authentication/api/v1/enduser/systemuser/agents": {
+    "/enduser/systemuser/agents": {
       "get": {
         "tags": [
           "SystemUserClientDelegation"
