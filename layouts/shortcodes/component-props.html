@@ -12,21 +12,16 @@
 {{- define "getComponent" -}}
     {{- $componentName := . -}}
 
-    {{- $baseURL := "https://raw.githubusercontent.com/Altinn/app-frontend-react/main/schemas/json/component/" -}}
+    {{- $baseURL := "https://raw.githubusercontent.com/Altinn/app-frontend-react/chore/update-component-schemas/schemas/json/component/" -}}
     {{- $fileExtension := ".schema.v1.json" -}}
     {{- $URL := printf "%s%s%s" $baseURL $componentName $fileExtension -}}
 
-    {{- $resource := resources.GetRemote $URL -}}
-    {{- $jsonSchema := "" -}}
-
-    {{- if $resource -}}
-        {{- $jsonSchema = $resource | transform.Unmarshal -}}
-    {{- end -}}
+    {{- $jsonSchema := resources.GetRemote $URL | transform.Unmarshal -}}
 
     {{- with $jsonSchema -}}
         {{- $componentProps := index $jsonSchema "properties" -}}
         {{- $requiredProps := index $jsonSchema "required" -}}
-
+        
         <a href="{{- $URL -}}">JSON schema</a>
 
         {{- with $requiredProps -}}
@@ -35,6 +30,6 @@
 
         {{- template "properties-table" (dict "properties" $componentProps) -}}
     {{- else -}}
-        <em>JSON schema not yet available for '{{- $componentName -}}'. Component schemas are being migrated to the app-frontend-react repository.</em>
+        <em>Failed to retrieve JSON schema for '{{- $componentName -}}'. Make sure the component schemaname is spelled correctly.</em>
     {{- end -}}
 {{- end -}}
