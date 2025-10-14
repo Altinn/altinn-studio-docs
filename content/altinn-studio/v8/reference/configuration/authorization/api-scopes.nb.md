@@ -9,7 +9,7 @@ toc: true
 Tilpassede API-scopes lar deg definere API-nivå klienttilgang til applikasjonens instans-relaterte API-er.
 
 {{% notice info %}}
-Tilgjengelig fra [v8.9.0-preview.1](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.9.0-preview.1)
+Tilgjengelig fra [v8.9.0-preview.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.9.0-preview.0)
 {{% /notice %}}
 
 {{%notice warning%}}

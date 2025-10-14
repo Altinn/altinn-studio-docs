@@ -9,7 +9,7 @@ toc: true
 Custom API scopes allow you to define API-level client access to your application's instance-related APIs.
 
 {{% notice info %}}
-Available from [v8.9.0-preview.1](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.9.0-preview.1)
+Available from [v8.9.0-preview.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.9.0-preview.0)
 {{% /notice %}}
 
 {{%notice warning%}}
