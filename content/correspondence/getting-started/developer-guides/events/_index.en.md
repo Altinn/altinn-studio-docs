@@ -10,7 +10,7 @@ weight: 40
 {{<children />}}
 
 In order to use events/webhooks for a Correspondence resource, you need to setup a subscription for the given resource.
-This subscription is used to configure the endpoint where the events published by correspondence end up. [You can read more about how to setup an Events subscription in Altinn Events here](/en/events/subscribe-to-events/developer-guides/setup-subscription/).
+This subscription is used to configure the endpoint where the events published by correspondence end up.
 
 All Events published by Altinn Correspondence follow the same pattern:
 

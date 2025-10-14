@@ -8,10 +8,10 @@ aliases:
 - /altinn-studio/guides/signing/sign-and-submit
 ---
 
-{{% insert "content/altinn-studio/guides/development/restricted-data/shared/style.css.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/restricted-data/shared/style.css.md" %}}
 
 ## What is "sign and submit"?
-{{% insert "content/altinn-studio/guides/development/signing/sign-and-submit/intro.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/sign-and-submit/intro.en.md" %}}
 
 ## Prerequisites
 If the service should send a signature receipt to the inbox of the signee, the Altinn message service (Correspondence) must be enabled.

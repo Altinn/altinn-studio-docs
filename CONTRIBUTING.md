@@ -13,12 +13,12 @@ git clone https://github.com/Altinn/altinn-studio-docs
 2. We recommend downloading and using [visual studio code](https://code.visualstudio.com) with
    - [this markdown extension](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one) for editing markdown and
    - [the github extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) for helping with pull requests
-4. [Download the latest Hugo](https://github.com/gohugoio/hugo/releases) (extended) for your platform, and place the executable in the altinn-studio-docs folder.
+4. [Install Hugo](https://gohugo.io/installation/) (extended) for your platform
 
 ## Build / Edit / Test locally
 
 1. Open the altinn-studio-docs repo-folder in visual studio code
-2. Run `./hugo server --navigateToChanged`. Now the docs is running locally at http://docs.altinn.studio/
+2. Run `hugo server --navigateToChanged` from command line. Now the docs is running locally at http://localhost:1313/
 3. Edit and save files in the `content`-folder to automatically get a new local build of the site refreshed in your browser, so you can test your changes locally.
 
 ## Push your changes to GitHub

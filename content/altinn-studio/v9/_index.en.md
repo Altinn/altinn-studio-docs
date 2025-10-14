@@ -1,12 +1,12 @@
 ---
-title: Altinn Studio V9
+title: V9
 description: Altinn Studio - Your tool for developing digital services for citizens and businesses
 weight: 1
 draft: true
 cascade:
   params:
     product: product_studio
-    version: v9
+    version: v8-beta
 ---
  <div class="row adocs-featuredBlocks">
     <div class="col-12 col-lg-6 mb-5">

@@ -45,7 +45,7 @@ Signering består av to brukerhandlinger (user actions). Dersom Altinn-brukergre
 </bpmn:task>
 ```
 
-Hvis du har valgt å sende signeringskvitteringer ved å spesifisere en correspondence-ressurs, finner du flere detaljer om denne konfigurasjonen [her](/nb/altinn-studio/guides/development/signing/runtime-delegated-signing/#konfigurere-milj%C3%B8-spesifikke-correspondence-ressurser)
+Hvis du har valgt å sende signeringskvitteringer ved å spesifisere en correspondence-ressurs, finner du flere detaljer om denne konfigurasjonen [her](/nb/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/#konfigurere-milj%C3%B8-spesifikke-correspondence-ressurser)
 
 #### Legg til datatyper for å lagre signeringsdata
 Denne datatypen legges til i `dataTypes` i `App/config/applicationmetadata.json`.
@@ -71,9 +71,9 @@ Verdien av `id`-feltet _må_ samstemme med verdien som har blitt spesifisert i [
 
 Det er viktig å sette `allowedContributors` til `"app:owned"`. Det gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv. Før versjon 8.6 var denne konfigurasjonen feilstavet `allowedContributers`.
 
-Vi anbefaler å sette opp [databeskyttelse](/nb/altinn-studio/guides/development/restricted-data/) for signaturobjektene, ved å spesifisere feltene for `actionRequiredToRead` og `actionRequiredToWrite` i definisjonen ovenfor. Hvis du ikke ønsker å sette opp dette, kan du fjerne disse feltene.
+Vi anbefaler å sette opp [databeskyttelse](/nb/altinn-studio/v8/guides/development/restricted-data/) for signaturobjektene, ved å spesifisere feltene for `actionRequiredToRead` og `actionRequiredToWrite` i definisjonen ovenfor. Hvis du ikke ønsker å sette opp dette, kan du fjerne disse feltene.
 
 #### Tilgangsstyring
 Gi `read`, `write` og eventuelt `sign` til den som fyller ut skjemaet. Andre som skal signere må også få `read` og `write`.
 
-Mer informasjon om action attributter finner du [her](/nb/altinn-studio/reference/configuration/authorization/#action-attributter).
+Mer informasjon om action attributter finner du [her](/nb/altinn-studio/v8/reference/configuration/authorization/#action-attributter).

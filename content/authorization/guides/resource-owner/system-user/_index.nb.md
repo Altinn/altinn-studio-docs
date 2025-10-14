@@ -1,33 +1,33 @@
 ---
-title: Systembruker
+title: Systembruker for tjenesteeier
 linktitle: Systembruker
-description: En veiledning for API-leverandør for å registrere sin ressurs med Altinn og etablere systembrukerintegrasjonen.
+description: En veiledning for tjenesteeiere for å registrere sin ressurs med Altinn og etablere systembrukerintegrasjonen.
 toc: true
 aliases:
   - nb/authentication/guides/sy/nb/authentication/guides/serviceowner/
 ---
 
-## Forutsetninger for API-leverandøren
+## Forutsetninger for Tjenesteeier
 
-For å bruke systembruker som API-leverandør, må følgende forutsetninger være oppfylt:
+For å bruke systembruker som tjenesteeier, må følgende forutsetninger være oppfylt:
 
-- Avtale med Maskinporten AS som [API-leverandøren](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apitilbyder)
+- Avtale med Maskinporten AS som [Tjenesteeier](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apitilbyder)
 - Avtale med Digdir for tilgang til ressursregisteret for å opprette ressurser.
 - Oppretting av [nødvendige ressurser](/nb/authorization/guides/resource-owner/create-resource-resource-admin/) som må autoriseres
 - Tildelt scope for PDP-integrasjon
 - Integrasjon med Altinn PDP
 
-#### Forberedelse av API-leverandør (Skatteetaten)
+#### Forberedelse av Tjenesteeier (Skatteetaten)
 
 1.  Utvikling av tjenesten/API
-    - API-leverandør (Skatteetaten) må først utvikle API-et som skal brukes av eksterne parter, i dette tilfellet tjenesten 'Krav og betalinger'
+    - Tjenesteeier (Skatteetaten) må først utvikle API-et som skal brukes av eksterne parter, i dette tilfellet tjenesten 'Krav og betalinger'
     - Dette API-et gjør det mulig for brukere å hente utestående skatte og avgiftskrav fra Skatteetaten.
 2.  Konfigurere tilgang i Maskinporten
     - Skatteetaten oppretter deretter et scope i Maskinporten (f.eks. skatteetaten:kravogbetalinger).
     - Dette scopet er knyttet til de relevante tilgangene og tildeles organisasjoner som trenger tilgang til denne tjenesten, som for eksempel SmartCloud AS (systemleverandøren).
 3.  Registrering av ressurser i ressursregisteret
 
-    - Den siste steg for Skatteetaten er å registrere en ressurs i [ressursregisteret](/nb/api/resourceregistry/), knytte den til scopet og definere tilgangsreglene for eksterne brukere. Dette kan være en app i Altinn Studio eller et API på API-leverandørens egen plattform.
+    - Den siste steg for Skatteetaten er å registrere en ressurs i [ressursregisteret](/nb/api/resourceregistry/), knytte den til scopet og definere tilgangsreglene for eksterne brukere. Dette kan være en app i Altinn Studio eller et API på tjenesteeieren sin egen plattform.
 
       se [API dokumentasjon](/nb/api/authentication/systemuserapi/) for mer informasjon om tilgjengeleige endepunkter.
 
@@ -71,7 +71,7 @@ Nedenfor vises et eksempeltoken.
 }
 ```
 
-Verdiene som er viktige for API leverandør er.
+Verdiene som er viktige for tjenesteeier er.
 
 | Verdi                                   | Betydning                                                                                                                                         |
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -84,9 +84,9 @@ Se også dokumentasjon hos [Maskinporten](https://docs.digdir.no/docs/Maskinport
 
 ## Autorisasjon av systembruker
 
-API-leverandøren må kalle Altinn PDP for å autorisere tilgangen til systembrukeren. Dette gjøres ved å sende et kall til Altinn PDP.
+Tjenesteeier må kalle Altinn PDP for å autorisere tilgangen til systembrukeren. Dette gjøres ved å sende et kall til Altinn PDP.
 
-API-leverandøren må konfigurere hvilke handlinger og ressurser som aksesseres via API-et for å bygge opp den totale forespørselen.
+Tjenesteeier må konfigurere hvilke handlinger og ressurser som aksesseres via API-et for å bygge opp den totale forespørselen.
 
 Nedenfor vises et eksempel på et kall utført av systembruker **a545ca29-7fb8-4810-a2f2-0be171cb2a26** som prøver å gjøre en **read**-operasjon
 på en ressurs av typen **kravogbetaling** for organisasjonen **923609016**.
@@ -136,7 +136,7 @@ på en ressurs av typen **kravogbetaling** for organisasjonen **923609016**.
 
 Altinn PDP returnerer svaret som en XACML Json respons hvor det informeres om request autorisert eller ikke.
 
-API tilbyder må i sitt API ha logikk for å kunne avvise eller godta forespørsel fra system basert på dette.
+Tjenesteeier må i sitt API ha logikk for å kunne avvise eller godta forespørsel fra system basert på dette.
 
 ```json
 {
