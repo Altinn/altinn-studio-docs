@@ -13,7 +13,7 @@ toc: true
 
 ### Anatomi
 
-1. **Input feltene**: Brukeren kan skrive inn et klokkeslett ved hjelp av tastaturet, eller opp- og ned-pilene. Bytt mellom time/minutt/sekund med piltastene eller Tab-tasten.
+1. **Inputfeltene**: Brukeren kan skrive inn et klokkeslett ved hjelp av tastaturet, eller opp- og ned-pilene. Bytt mellom time/minutt/sekund med piltastene eller Tab-tasten.
    ![Timepicker inndata](simpletimepicker.png)
 2. **Nedtrekksmeny**: Ved å klikke på klokke-ikonet åpnes nedtrekksmenyen, som lar brukeren velge tidspunkt med musen.
    ![Timepicker nedtrekksmeny](dropdownopen.png "Timepicker nedtrekksmeny")

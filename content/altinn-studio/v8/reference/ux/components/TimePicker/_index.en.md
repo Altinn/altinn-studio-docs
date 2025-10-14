@@ -11,7 +11,7 @@ toc: true
 
 The `TimePicker` component allows users to select a time value in a form. It provides a user-friendly interface for time input with support for various time formats including 12-hour and 24-hour formats, with optional seconds display.
 
-1. **Simple**: The user can input a date using the keyboard, or the up and down arrows. Switch between hour/minute/second with arrow buttons or tab.
+1. **Simple**: The user can input a time using the keyboard, or the up and down arrows. Switch between hour/minute/second with arrow buttons or tab.
    ![Timepicker input](simpletimepicker.png "Timepicker input")
 2. **Dropdown**: Clicking on the clock icon opens the dropdown, allowing the user to pick the time with the mouse.
    ![Timepicker dropdown](dropdownopen.png "Timepicker dropdown")
