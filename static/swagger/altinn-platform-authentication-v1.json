@@ -2,7 +2,7 @@
   "openapi": "3.0.4",
   "info": {
     "title": "Altinn Platform Authentication",
-    "version": "1.0"
+    "version": "v1"
   },
   "paths": {
     "/authentication": {
