@@ -18,3 +18,8 @@ Antallet PIP-er forventes å øke i fremtiden.
 ### Implementasjonsdetaljer
 
 Se implementasjonsdetaljer i [konstruksjonskomponentene for PIP](/nb/authorization/reference/architecture/accesscontrol/#policy-information-point---roles).
+tags: [arkitektur, sikkerhet]
+weight: 1
+---
+Side 1 av 0
+Side 1 av 0
