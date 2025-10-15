@@ -30,7 +30,7 @@ Komponenten har noen spesifikke egenskaper som kan konfigureres i tillegg til de
 | Egenskap | Type   | Beskrivelse                                                       | Påkrevd | Standardverdi                            |
 | -------- | ------ | ----------------------------------------------------------------- | ------- | ---------------------------------------- |
 | id       | string | Unik ID for komponenten                                           | ja      |                                          |
-| type     | string | Type komponent, for denne komponenten er det alltid `imageUpload` | ja      |                                          |
+| type     | string | Type komponent, for denne komponenten er det alltid `ImageUpload` | ja      |                                          |
 | crop     | object | Konfigurasjon for beskjæringsområdet                              | nei     | `{ "shape": "circle", "diameter": 250 }` |
 
 #### Eksempler på `crop`-objektet
