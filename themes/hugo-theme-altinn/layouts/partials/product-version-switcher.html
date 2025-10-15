@@ -1,0 +1,296 @@
+{{- $currentProduct := .currentProduct -}}
+{{- $currentVersion := .currentVersion -}}
+{{- $currentProductRootPage := .currentProductRootPage -}}
+{{- $context := .context -}}
+
+{{/* 
+  Renders a version switcher dropdown for the current product if versions are available.
+  Expects:
+    - currentProduct: string, e.g. "altinn-studio"
+    - currentVersion: string, e.g. "v10"
+    - currentProductRootPage: *Page, the root page of the current product (e.g. /altinn-studio/)
+    - context: *Page, the current page context
+*/}}
+
+{{- if not $currentProductRootPage -}}
+  {{- /* No product root page provided, cannot render version switcher */ -}}
+  {{- return -}}
+{{- end -}}
+
+{{- if not $currentProduct -}}
+  {{- /* No current product detected, cannot render version switcher */ -}}
+  {{- return -}}
+{{- end -}}
+
+{{- if not $currentVersion -}}
+  {{- /* No current version detected, cannot render version switcher */ -}}
+  {{- return -}}
+{{- end -}}
+
+{{- if not $currentProductRootPage.Sections -}}
+  {{- /* No sections found under product root page, no versions to show */ -}}
+  {{- return -}}
+{{- end -}}
+
+{{/* Render the version switcher dropdown */}}
+<div id="version-dropdown-top" class="product-version-dropdown">
+    <div class="version-selector-wrapper">
+        <label class="version-label" for="version-selector-button" id="version-selector-label">
+        {{ T "version" }}:
+        </label>
+        <div class="dropdown">
+        <button
+            type="button"
+            id="version-selector-button"
+            class="nav-link dropdown-toggle version-switcher"
+            role="combobox"
+            aria-controls="version-dropdown-menu"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-labelledby="version-selector-label"
+            aria-describedby="version-selector-help"
+            data-toggle="dropdown">
+            <span id="current-version-top">
+            {{- if $currentVersion -}}
+                {{- range $currentProductRootPage.Sections -}}
+                    {{- $folderName := path.Base .RelPermalink -}}
+                    {{- if eq $folderName $currentVersion -}}
+                        {{ with .Params.breadcrumbText }}{{ . }}{{ else }}{{ .Title }}{{ end }}
+                    {{- end -}}
+                {{- end -}}
+            {{- else -}}
+                {{ T "select-version" }}
+            {{- end -}}
+            </span>
+        </button>
+        <div
+            class="dropdown-menu version-dropdown"
+            role="listbox"
+            aria-labelledby="version-selector-label"
+            id="version-dropdown-menu">
+            {{- range $currentProductRootPage.Sections -}}
+            {{- $folderName := path.Base .RelPermalink -}}
+            <a
+                class="dropdown-item version-option"
+                href="{{ .RelPermalink }}"
+                data-version="{{ $folderName }}"
+                role="option"
+                tabindex="-1"
+                aria-selected="{{if eq $folderName $currentVersion}}true{{else}}false{{end}}">
+                <span class="version-item">{{ with .Params.breadcrumbText }}{{ . }}{{ else }}{{ .Title }}{{ end }}</span>
+            </a>
+            {{- end -}}
+        </div>
+        </div>
+        <div id="version-selector-help" class="sr-only">
+          {{ T "nav-instructions" }}        
+        </div>
+    </div>
+</div>
+
+<style>
+  /* Version dropdown styling */
+  .product-version-dropdown {
+    background: #f8f9fa;
+    padding: 10px;
+    border-bottom: 1px solid #ddd !important;
+    margin-bottom: 0;
+  }
+  #sidebar .product-version-dropdown {
+    border-bottom: 1px solid #ddd !important;
+  }
+  .version-selector-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .dropdown {
+    position: relative;
+  }
+  .version-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555 !important;
+    margin: 0 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .version-switcher {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    color: #333 !important;
+    text-decoration: none !important;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    text-align: left;
+  }
+  .version-switcher::after {
+    margin-left: auto;
+  }
+  #sidebar .version-switcher {
+    border-bottom: 1px solid #ccc !important;
+  }
+  .version-switcher:hover,
+  .version-switcher:focus {
+    background: #e9ecef;
+    outline: none;
+    border-color: #007bff;
+  }
+  .version-switcher:focus {
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+  .version-option:focus,
+  .version-option:hover {
+    background: #007bff !important;
+    color: white !important;
+    outline: none;
+  }
+  .version-option[aria-selected="true"] {
+    background: #28a745 !important;
+    color: white !important;
+  }
+  .sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+  .version-dropdown {
+    min-width: 200px;
+    max-height: none !important;
+    overflow-y: visible !important;
+    position: absolute;
+    z-index: 1000;
+  }
+  .version-item {
+    margin: 0;
+    padding: 4px 0;
+  }
+  .version-section {
+    padding-top: 10px;
+  }
+
+   /* Ensure version root menu items are always visible */
+  .version-root-item {
+    display: block !important;
+  }
+
+  /* Prevent duplicate menu items */
+  .version-content .version-section > li {
+    list-style: none;
+  }
+</style>
+
+<script>
+  (function() {
+    // Simplified JavaScript - only for dropdown functionality
+    setupVersionSelectorAccessibility();
+
+    function setupVersionSelectorAccessibility() {
+      var button = document.getElementById('version-selector-button');
+      var dropdown = document.getElementById('version-dropdown-menu');
+
+      if (!button || !dropdown) return;
+
+      var options = dropdown.querySelectorAll('.version-option');
+      var currentFocusIndex = -1;
+
+      button.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
+          e.preventDefault();
+          if (dropdown.style.display === 'none' || !dropdown.classList.contains('show')) {
+            showDropdown();
+            focusOption(0);
+          }
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          showDropdown();
+          focusOption(options.length - 1);
+        }
+      });
+
+      dropdown.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          focusOption(currentFocusIndex + 1);
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          focusOption(currentFocusIndex - 1);
+        } else if (e.key === 'Enter') {
+          e.preventDefault();
+          if (currentFocusIndex >= 0 && options[currentFocusIndex]) {
+            window.location.href = options[currentFocusIndex].href;
+          }
+        } else if (e.key === 'Escape') {
+          e.preventDefault();
+          hideDropdown();
+          button.focus();
+        }
+      });
+
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (dropdown.style.display === 'none' || !dropdown.classList.contains('show')) {
+          showDropdown();
+        } else {
+          hideDropdown();
+        }
+      });
+
+      function showDropdown() {
+        button.setAttribute('aria-expanded', 'true');
+        dropdown.classList.add('show');
+        dropdown.style.display = 'block';
+      }
+
+      function hideDropdown() {
+        button.setAttribute('aria-expanded', 'false');
+        dropdown.classList.remove('show');
+        dropdown.style.display = 'none';
+        currentFocusIndex = -1;
+        updateAriaSelected();
+      }
+
+      function focusOption(index) {
+        if (index < 0) index = options.length - 1;
+        if (index >= options.length) index = 0;
+
+        currentFocusIndex = index;
+        options[currentFocusIndex].focus();
+        updateAriaSelected();
+      }
+
+      function updateAriaSelected() {
+        // Keep aria-selected on the actual selected version, not on the focused item
+        var currentVersion = button.querySelector('#current-version-top').textContent.trim();
+        options.forEach(function(option) {
+          var optionVersion = option.getAttribute('data-version');
+          option.setAttribute(
+            'aria-selected',
+            optionVersion === currentVersion ? 'true' : 'false'
+          );
+        });
+      }
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!button.contains(e.target) && !dropdown.contains(e.target)) {
+          hideDropdown();
+        }
+      });
+    }
+  })();
+</script>

@@ -4,6 +4,8 @@ linktitle: Vedlikehold
 description: Applikasjoner i produksjon krever jevnlig vedlikehold og oppdateringer.
 weight: 120
 aliases:
+- /altinn-studio/guides/administration/maintainance
+- /nb/altinn-studio/guides/administration/maintainance
 - /nb/altinn-studio/v8/reference/maintainance
 ---
 

@@ -8,14 +8,14 @@ aliases:
   - /nb/altinn-studio/guides/signing/runtime-delegated-signing
 ---
 
-{{% insert "content/altinn-studio/guides/development/restricted-data/shared/style.css.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/restricted-data/shared/style.css.md" %}}
 
 {{%notice info%}}
 Tilgjengelig fra [v8.6.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.6.0)
 {{%/notice%}}
 
 ## Hva betyr brukerstyrt signering?
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/intro.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/intro.nb.md" %}}
 
 ## Avhengigheter
 
@@ -52,11 +52,11 @@ Følg trinnene under for å sette opp en slik app.
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Manuelt oppsett">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/add-process-task.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/backend-manual/add-process-task.nb.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/add-process-task.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/studio/add-process-task.nb.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}
@@ -66,29 +66,29 @@ Følg trinnene under for å sette opp en slik app.
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Manuelt oppsett">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/configure-layouts.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/backend-manual/configure-layouts.nb.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/configure-layouts.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/studio/configure-layouts.nb.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}
 
 ## 3. Valgfritt - Egendefinert validering
 
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/custom-validation.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/backend-manual/custom-validation.nb.md" %}}
 
 ## 4. Oppgi hvem som skal signere
 
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Manuelt oppsett">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/signee-provider.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/backend-manual/signee-provider.nb.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/signee-provider.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/studio/signee-provider.nb.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}
@@ -145,11 +145,11 @@ Standardverdiene som brukes dersom kommunikasjonstekstene ikke overstyres er som
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Manual setup">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/setup-text-resources.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/backend-manual/setup-text-resources.nb.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/setup-text-resources.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/studio/setup-text-resources.nb.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}
@@ -189,14 +189,14 @@ Dette er de mulige overstyringskonfigurasjonene for kommunikasjon med signatarer
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Manuelt oppsett">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/communication-config.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/backend-manual/communication-config.nb.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/communication-config.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/studio/communication-config.nb.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}
 
 ## 7. Test brukerstyrt signering
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/test.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/test.nb.md" %}}

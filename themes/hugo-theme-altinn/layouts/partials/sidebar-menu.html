@@ -1,0 +1,138 @@
+<nav id="sidebar" class="{{if $.Site.Params.showVisitedLinks }}showVisitedLinks{{end}}">
+{{- $currentNode := . -}}
+{{- $showvisitedlinks := .Site.Params.showVisitedLinks -}}
+
+{{/* Get current product using our detection logic */}}
+{{- $productInfo := partial "get-current-product.html" . -}}
+{{- $currentProduct := $productInfo.product -}}
+{{- $currentVersion := $productInfo.version -}}
+
+
+<div class="highlightable">
+  <ul id="docsmenu" class="topics">
+    {{- if not .Site.Params.noHomeIcon -}}
+      <li class="dd-item">
+        <a href="{{"/" | relURL}}"><i class="fa fa-fw fa-home"></i></a>
+      </li>
+    {{- end -}}
+    
+    {{- $currentProductRootPage := .Site.GetPage $currentProduct -}}
+
+    {{/*  If no version the don't show version switcher. There is a oposite version check in the product-version-switcher, but it does not prevent rendering the switcher for some reason. */}}
+    {{- if $currentVersion -}}
+        {{- partial "product-version-switcher.html" (dict "currentProduct" $currentProduct "currentVersion" $currentVersion "currentProductRootPage" $currentProductRootPage "context" .) -}}
+    {{- end -}}
+
+    {{/* Only render the current product's menu server-side */}}    
+    {{- if $currentProduct -}}
+      {{/* Handle products with version logic */}}
+      {{- if $currentVersion -}}
+        {{- range $currentProductRootPage.Sections -}}
+          {{- $versionName := path.Base .RelPermalink -}}
+          {{- if eq $versionName $currentVersion -}}
+            <li class="dd-item parent version-root-item">
+              <a href="{{ .RelPermalink }}">
+                <span>{{safeHTML .Params.Pre}}{{ .LinkTitle }}{{safeHTML .Params.Post}}</span>
+                <i class="fa fa-sort-down fa-lg category-icon"></i>
+                {{- if $showvisitedlinks -}}
+                  <i style="color:grey" class="fa fa-circle-thin read-icon"></i>
+                {{- end -}}
+              </a>
+              <ul class="version-content">
+                {{- if .Sections -}}
+                  {{- range .Sections -}}
+                    {{- if not .Params.hidden -}}
+                      {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
+                    {{- end -}}
+                  {{- end -}}
+                {{- end -}}
+              </ul>
+            </li>
+          {{- end -}}
+        {{- end -}}
+      {{- else -}}
+        {{/* No version specified - show main altinn-studio */}}
+        {{- template "section-tree-nav" dict "sect" $currentProductRootPage "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
+      {{- end -}}    
+    {{- end -}}        
+
+    {{- with .Site.Menus.shortcuts -}}
+      {{- range sort . "Weight" -}}
+        <li>
+            {{- .Pre -}}
+            <a href="{{.RelPermalink}}">{{- safeHTML .Name -}}</a>
+            {{- .Post -}}
+        </li>
+      {{- end -}}
+      {{- if $.Site.Params.showVisitedLinks -}}
+        <a class="" href="#" data-clear-history-toggle=""><i class="fa  fa-history"></i> {{T "Clear-History"}}</a>
+      {{- end -}}
+    {{- end -}}
+  </ul>
+</div>
+</nav>
+
+<!-- templates -->
+{{- define "section-tree-nav" -}}
+  {{- $showvisitedlinks := .showvisitedlinks -}}
+  {{- $currentNode := .currentnode -}}
+  {{- $currentFileUniqueID := "" -}}
+  {{- with $currentNode.File }}{{ $currentFileUniqueID = .UniqueID }}{{ end -}}
+  {{- with .sect -}}
+    {{- if .IsSection -}}
+      {{ safeHTML .Params.head }}
+      <li class="dd-item{{if .Params.alwaysopen}} parent{{end}}">
+        <a href="{{ .RelPermalink}}"><span>{{safeHTML .Params.Pre}}{{.LinkTitle}}{{safeHTML .Params.Post}}</span>
+          {{- if .Params.titleSup -}}
+            <sup>{{.Params.titleSup}}</sup>
+          {{- end -}}
+          {{- $numberOfPages := (add (len .Pages) (len .Sections)) -}}
+          {{- if ne $numberOfPages 0 -}}
+            {{- if or (.IsAncestor $currentNode) (.Params.alwaysopen) -}}
+              <i class="fa fa-sort-down fa-lg category-icon"></i>
+            {{- else -}}
+              <i class="fa fa-caret-right fa-lg category-icon"></i>
+            {{- end -}}
+          {{- end -}}
+          {{- if $showvisitedlinks -}}
+            <i style="color:grey" class="fa fa-circle-thin read-icon"></i>
+          {{- end -}}
+        </a>
+        {{- if ne $numberOfPages 0 -}}
+          <ul>
+            {{- $currentNode.Scratch.Set "pages" .Pages -}}
+            {{- if .Sections -}}
+              {{- $currentNode.Scratch.Set "pages" (.Pages | union .Sections) -}}
+            {{- end -}}
+            {{ $pages := ($currentNode.Scratch.Get "pages") }}
+          {{- if eq .Site.Params.ordersectionsby "title" -}}
+            {{- range $pages.ByTitle -}}
+              {{- if .Params.hidden -}}
+              {{- else -}}
+                {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
+              {{- end -}}
+            {{ end }}
+          {{- else -}}
+            {{- range $pages.ByWeight -}}
+              {{- if .Params.hidden -}}
+              {{- else -}}
+                {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks -}}
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+          </ul>
+        {{- end -}}
+      </li>
+    {{- else -}}
+      {{- if not .Params.hidden -}}
+        <li class="dd-item">
+          <a href="{{ .RelPermalink}}">
+            <span>{{safeHTML .Params.Pre}}{{.LinkTitle}}{{safeHTML .Params.Post}}</span>
+          {{- if $showvisitedlinks -}}
+            <i style="color:grey" class="fa fa-circle-thin read-icon"></i>
+          {{- end -}}
+          </a></li>
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

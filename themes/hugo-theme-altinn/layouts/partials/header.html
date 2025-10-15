@@ -51,7 +51,8 @@
         </div>
         <div class="row">
           <div class="col-sm-12 col-md-10">
-              {{- partialCached "menu.html" . -}}
+              {{- $productInfo := partial "get-current-product.html" . -}}              
+              {{- partialCached "sidebar-menu.html" . $productInfo.product $productInfo.version -}}
         <script>
           {{ template "activeMenus" dict "page" . "value" (printf "$(\"li.dd-item a[href='%s']\").parent().addClass(\"active\");" .RelPermalink) }}
         </script>

@@ -11,4 +11,4 @@ Note that if you configure the app to execute the sign action on the process nex
 
 A fictitious example is a validator which verifies that at minimum one signature is done on behalf of an organisation:
 
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/custom-validation-code.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/backend-manual/custom-validation-code.en.md" %}}

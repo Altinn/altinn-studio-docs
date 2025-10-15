@@ -19,7 +19,7 @@ You can choose to summarize individual components, pages, or page groups.
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/summary2/studio/_index.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/summary2/studio/_index.en.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}

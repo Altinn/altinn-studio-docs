@@ -11,19 +11,19 @@ håndtere og gjennomgå varslinger sendt gjennom Altinn.
 
 ## Base URL
 
-{{% insert "content/altinn-studio/guides/shared/api/base-urls.md" "notifications"%}}
+{{% insert "content/altinn-studio/v8/guides/shared/api/base-urls.md" "notifications"%}}
 
 ## Autentisering og Autorisasjon
 
 ### Altinn-token
 
-{{% insert "content/altinn-studio/guides/shared/api/altinn-token.md" "Notifications"%}}
+{{% insert "content/altinn-studio/v8/guides/shared/api/altinn-token.md" "Notifications"%}}
 
 ### Maskinporten-scopes
 
-{{% insert "content/altinn-studio/guides/shared/api/maskinporten-scopes.md" %}}
+{{% insert "content/altinn-studio/v8/guides/shared/api/maskinporten-scopes.md" %}}
 
 
 ### Plattform Aksess-token
 
-{{% insert "content/altinn-studio/guides/shared/api/platform-access-token.md" %}}
+{{% insert "content/altinn-studio/v8/guides/shared/api/platform-access-token.md" %}}

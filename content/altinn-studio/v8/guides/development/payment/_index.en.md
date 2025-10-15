@@ -16,11 +16,11 @@ Create Nets Easy agreement here: [payments.nets.eu](https://payments.nets.eu/nb-
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/payment/studio/add-process-task.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/payment/studio/add-process-task.en.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Manual setup">}}
-{{% insert "content/altinn-studio/guides/development/payment/backend-manual/add-process-task.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/payment/backend-manual/add-process-task.en.md" %}}
 {{</content-version-container>}}
 {{</content-version-selector>}}
 

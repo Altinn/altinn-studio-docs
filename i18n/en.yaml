@@ -167,6 +167,14 @@
 - id: caseblock-link
   translation: Community
 
+# Product version switcher
+- id: version
+  translation: Version
+- id: select-version
+  translation: Select version
+- id: nav-instructions
+  translation: Use the arrow keys to navigate between versions and Enter to select
+
 # Help
 - id: what-can-we-help-you-with
   translation: What can we help you with?

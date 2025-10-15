@@ -18,7 +18,7 @@ Med komponenten **Oppsummering** kan du oppsummere og vise opplysninger som bruk
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/summary2/studio/_index.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/summary2/studio/_index.nb.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}

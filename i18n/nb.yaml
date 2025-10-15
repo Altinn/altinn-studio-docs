@@ -166,6 +166,14 @@
 - id: caseblock-link
   translation: Community
 
+# Product version switcher
+- id: version
+  translation: Versjon
+- id: select-version
+  translation: Velg versjon
+- id: nav-instructions
+  translation: Bruk piltastene for å navigere mellom versjoner og Enter for å velge
+
 # Help
 - id: what-can-we-help-you-with
   translation: Hva kan vi hjelpe deg med?

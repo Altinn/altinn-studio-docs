@@ -1,185 +1,334 @@
 ---
-title: Consent for Data Consumers
-description: How to use the consent solution for data consumers in Altinn 3
-linktitle: Consent
+
+title: Samtykke for datakonsument
+
+description: Hvordan bruke samtykkeløsningen for datakonsumenter i Altinn 3
+
+linktitle: Samtykke for datakonsument
+
 toc: false
+
 ---
+ 
+## Introduksjon
+ 
+Denne dokumentasjonen beskriver hvordan datakonsumenter kan be om, hente ut og administrere samtykke ved hjelp av Altinn 3 sin samtykkeløsning. Samtykke gir datakonsumenter tilgang til spesifikke dataressurser for innbyggere eller virksomheter, slik definert av tilbyderen av API-et.
+ 
+## Begrepsliste
+ 
+- **Datakonsument**: Virksomheten som etterspør innsyn i data om en innbygger eller annen virksomhet.
 
-## Introduction
+- **Ressurs**: En kategori data definert av aktøren som tilbyr API-et i Altinn (f.eks. inntektsopplysninger, skattegrunnlag).
+ 
+## Tilbydere av samtykkeløsninger
+ 
+Nedenfor er noen sentrale aktører med samtykkeløsninger for Altinn 2. De fleste forventes å flytte til Altinn 3 i løpet av Q3 2025 eller Q1 2026:
+ 
+- **Skatteetaten**
+ 
+  - [Om samtykke](https://skatteetaten.github.io/api-dokumentasjon/en/om/samtykke)
 
-This documentation describes how data consumers can request, retrieve, and manage consent using Altinn 3's consent solution. Consent gives data consumers access to specific data resources for individuals or organizations, as defined by the API provider.
+  - [Inntekts-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/inntekt)
 
-## Glossary
+  - [Summert skattegrunnlag-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/summertskattegrunnlag)
 
-- **Data Consumer**: The organization requesting access to data about an individual or another organization.
-- **Resource**: A category of data defined by the actor providing the API in Altinn (e.g., income information, tax base).
+  - [Krav og betalinger-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/kravogbetalinger)
 
-## Providers of Consent Solutions
+  - [Arbeidsgiveravgift-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/arbeidsgiveravgift)
 
-Below are some key actors with consent solutions for Altinn 2. Most are expected to migrate to Altinn 3 during Q3 2025 or Q1 2026:
+  - [MVA meldingsopplysning-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/mva_meldingsopplysning)
 
-- **Skatteetaten (Norwegian Tax Administration)**
-  - [About Consent](https://skatteetaten.github.io/api-dokumentasjon/en/om/samtykke)
-  - [Income API](https://skatteetaten.github.io/api-dokumentasjon/en/api/inntekt)
-  - [Summed Tax Base API](https://skatteetaten.github.io/api-dokumentasjon/en/api/summertskattegrunnlag)
-  - [Claims and Payments API](https://skatteetaten.github.io/api-dokumentasjon/en/api/kravogbetalinger)
-  - [Employer's National Insurance Contribution API](https://skatteetaten.github.io/api-dokumentasjon/en/api/arbeidsgiveravgift)
-  - [VAT Reporting Information API](https://skatteetaten.github.io/api-dokumentasjon/en/api/mva_meldingsopplysning)
-  - [Foreign Companies Assignments API](https://skatteetaten.github.io/api-dokumentasjon/en/api/oppdragutenlandskevirksomheter)
-  - [Outstanding Claims API](https://skatteetaten.github.io/api-dokumentasjon/en/api/restanser)
-- **Lånekassen (Norwegian State Educational Loan Fund)**
-  - [Student Loan Balance](https://dokumentasjon.dsop.no/dsop_saldostudielan_om.html)
+  - [Oppdrag utenlandske virksomheter-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/oppdragutenlandskevirksomheter)
 
-Altinn itself offers APIs for requesting consent and retrieving the status of consent requests.
+  - [Restanser-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/restanser)
+ 
+- **Lånekassen**
+ 
+  - [Saldo studielån](https://dokumentasjon.dsop.no/dsop_saldostudielan_om.html)
+ 
+Altinn tilbyr selv API-er for å be om samtykke og hente ut status på samtykkeforespørsler.
+ 
+## 1. Be om samtykke
+ 
+### 1.1 Forutsetninger
+ 
+1. Datakonsumenten må ha registrert en Maskinporten-klient.
 
-## 1. Request Consent
+2. Datakonsumenten må ha fått delegert scope for samtykke fra Digdir.
 
-### 1.1 Prerequisites
+3. De nødvendige scopene må være lagt til Maskinporten-klienten.
 
-1. The data consumer must have a registered Maskinporten client.
-2. The data consumer must have been delegated the consent scope from Digdir.
-3. The necessary scopes must be added to the Maskinporten client.
-4. Access to request consent for the relevant resource(s) must be granted.
-
-### 1.2 API Endpoint
-
+4. Tilgang til å be om samtykke for gjeldende ressurs(er) må være gitt.
+ 
+### 1.2 API-endepunkt
+ 
 - **Test**: `POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/`
-- **Production**: `POST https://platform.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/`
 
-#### Request (example)
-
+- **Produksjon**: `POST https://platform.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/`
+ 
+#### Forespørsel (eksempel)
+ 
 ```json
+
 {
+
   "id": "77ed8698-e619-4066-9eb4-5c1eb3f165a1",
+
   "from": "urn:altinn:person:identifier-no:21818297804",
+
   "to": "urn:altinn:organization:identifier-no:991825827",
+
   "validTo": "2026-07-18T06:18:12.2597103+00:00",
+
   "consentRights": [
+
     {
+
       "action": ["consent"],
+
       "resource": [
+
         {
+
           "type": "urn:altinn:resource",
+
           "value": "samtykke-test-vegard"
+
         }
+
       ],
+
       "metadata": {
+
         "inntektsaar": "2023"
+
       }
+
     },
+
     {
+
       "action": ["consent"],
+
       "resource": [
+
         {
+
           "type": "urn:altinn:resource",
+
           "value": "standard-samtykke-for-dele-data"
+
         }
+
       ],
+
       "metadata": {
+
         "inntektsaar": "2023"
+
       }
+
     }
+
   ],
-  "redirectUrl": "https://smartbankdemo.azurewebsites.net/private/loanapplication/consentresult?requestId=77ed8698-e619-4066-9eb4-5c1eb3f165a1\u0026environment=tt02"
+
+  "redirectUrl": "https://smartbankdemo.azurewebsites.net/private/loanapplication/consentresult?requestId=77ed8698-e6…
+
 }
+
 ```
-
-#### Response (example)
-
+ 
+#### Svar (eksempel)
+ 
 ```json
+
 {
+
   "id": "77ed8698-e619-4066-9eb4-5c1eb3f165a1",
+
   "from": "urn:altinn:person:identifier-no:21818297804",
+
   "to": "urn:altinn:organization:identifier-no:991825827",
+
   "requiredDelegator": null,
+
   "handledBy": null,
+
   "validTo": "2026-07-18T06:18:12.25971+00:00",
+
   "consentRights": [
+
     {
+
       "action": ["consent"],
+
       "resource": [
+
         {
+
           "type": "urn:altinn:resource",
+
           "value": "samtykke-test-vegard"
+
         }
+
       ],
+
       "metadata": {
+
         "inntektsaar": "2023"
+
       }
+
     },
+
     {
+
       "action": ["consent"],
+
       "resource": [
+
         {
+
           "type": "urn:altinn:resource",
+
           "value": "standard-samtykke-for-dele-data"
+
         }
+
       ],
+
       "metadata": {
+
         "inntektsaar": "2023"
+
       }
+
     }
+
   ],
+
   "requestMessage": null,
+
   "consented": null,
-  "redirectUrl": "https://smartbankdemo.azurewebsites.net/private/loanapplication/consentresult?requestId=77ed8698-e619-4066-9eb4-5c1eb3f165a1&environment=tt02",
+
+  "redirectUrl": "https://smartbankdemo.azurewebsites.net/private/loanapplication/consentresult?requestId=77ed8698-e6…,
+
   "consentRequestEvents": [
+
     {
+
       "consentEventID": "01981c2f-1de4-7b9f-a7c7-854f1dd4f115",
+
       "created": "2025-07-18T06:18:26.65293+00:00",
+
       "performedBy": "urn:altinn:organization:identifier-no:991825827",
+
       "eventType": "Created",
+
       "consentRequestID": "77ed8698-e619-4066-9eb4-5c1eb3f165a1"
+
     }
+
   ],
-  "viewUri": "https://am.ui.tt02.altinn.no/accessmanagement/ui/consent/request?id=77ed8698-e619-4066-9eb4-5c1eb3f165a1"
+
+  "viewUri": "https://am.ui.tt02.altinn.no/accessmanagement/ui/consent/request?id=77ed8698-e619-4066-9eb4-5c1eb3f…
+
 }
+
 ```
-
-## 2. Retrieve Consent Token
-
-In Altinn 3, the consent token is retrieved as part of the Maskinporten token. Specify the following in the JWT:
-
+ 
+## 2. Hente samtykke-token
+ 
+I Altinn 3 hentes samtykke-token som en del av Maskinporten-tokenet. Spesifiser følgende i JWT-en:
+ 
 ```json
+
 {
-  "aud": "https://ver2.maskinporten.no/",
-  "scope": "<scope>",
-  "iss": "<client_id>",
-  "exp": 1584693183,
-  "iat": 1584693063,
+
+  "aud": "https://test.maskinporten.no/",
+
+  "scope": "altinn:consentrequests.read",
+
+  "iss": "<clientid>",
+
+  "exp": 1752827349,
+
+  "iat": 1752827339,
+
   "jti": "<jti>",
-  "type": "urn:altinn:consent",
-  "id": "<consent_request_id>",
-  "from": "urn:altinn:person:identifier-no:<pid>"
+
+  "authorization_details": [
+
+    {
+
+      "from": "urn:altinn:person:identifier-no:25922947409",
+
+      "id": "77ed8698-e619-4066-9eb4-5c1eb3f165a1",
+
+      "type": "urn:altinn:consent"
+
+    }
+
+  ]
+
 }
+
 ```
+ 
+## 3. Samtykke på vegne av andre
+ 
+For å opprette samtykkeforespørsler på vegne av andre virksomheter må scope delegeres:
+ 
+1. Virksomheten som skal være mottaker, delegerer nødvendige scop**e** i Altinn under API-delegering.
 
-## 3. Consent on Behalf of Others
+2. Forespørselen opprettes som beskrevet over.
 
-To create consent requests on behalf of other organizations, the scope must be delegated:
-
-1. The organization that will be the recipient delegates the necessary scope(s) in Altinn under API delegation.
-2. The request is created as described above.
-3. When retrieving the token, also specify `consumer_org`:
-
+3. Ved henting av token, oppgi i tillegg `consumer_org`:
+ 
 ```json
+
 {
-  "aud": "https://ver2.maskinporten.no/",
-  "scope": "<scope>",
-  "iss": "<client_id>",
-  "exp": 1584693183,
-  "iat": 1584693063,
+
+  "aud": "https://test.maskinporten.no/",
+
+  "scope": "altinn:consentrequests.read",
+
+  "iss": "<clientid>",
+
+  "exp": 1752827349,
+
+  "iat": 1752827339,
+
   "jti": "<jti>",
-  "type": "urn:altinn:consent",
-  "id": "<consent_request_id>",
-  "from": "urn:altinn:person:identifier-no:<pid>",
-  "consumer_org": "<customer_orgnr>"
+
+    "consumer_org": "<kunde_orgnr>"
+
+  "authorization_details": [
+
+    {
+
+      "from": "urn:altinn:person:identifier-no:25922947409",
+
+      "id": "77ed8698-e619-4066-9eb4-5c1eb3f165a1",
+
+      "type": "urn:altinn:consent"
+
+    }
+
+  ]
+
 }
+
 ```
+ 
+![Scope-delegering i Altinn](scopedelegation.jpg)
+ 
+## Ressurser
+ 
+- [Maskinporten: API-konsument-guide](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument.html)
 
-![Scope delegation in Altinn](scopedelegation.jpg)
+- [GitHub: Testimplementasjon](https://github.com/TheTechArch/smartbank)
 
-## Resources
-
-- [Maskinporten: API Consumer Guide](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument.html)
-- [GitHub: Test Implementation](https://github.com/TheTechArch/smartbank)
+- [Kjørende smartbank](https://smartbankdemo.azurewebsites.net/)
+ 

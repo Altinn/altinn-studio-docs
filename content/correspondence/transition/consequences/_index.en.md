@@ -17,7 +17,7 @@ Here is a brief summary of the consequences of the chosen transition and migrati
     - A3 correspondences will not be available via A2 API.
 - Checking the status of a correspondence created in A2 must be done against A2 until it is migrated, and after migration you may check against either A3 or A2.
   - We recommend you start using Altinn 3 APIs as soon as possible, and when the [CorrespondenceSync](/en/correspondence/transition/data-migration/#synchronization-of-status-changes-between-altinn-2-and-3) solution is live, you should avoid using Altinn 2 APIs.
-- For new correspondences created in Altinn 3, integration with Altinn 3 API is required to do the same.
+- For new correspondences created in Altinn 3, integration with Altinn 3 API **is required** to do the same.
 
 ## End Users
 
@@ -37,8 +37,8 @@ Here is a brief summary of the consequences of the chosen transition and migrati
 
 ## End-User System
 
-- To get a full overview of elements, integration with both Altinn 2 and Altinn 3 API is required.
-- When elements are migrated from A2 to A3, it is possible to identify this by the A3 element containing the Altinn 2 Correspondence ID/ReporteeElementId.
+- To get a full overview of elements, integration with **both** Altinn 2 and Altinn 3 API is required.
+- When elements are migrated from A2 to A3, it is possible to identify this by the A3 element containing the Altinn 2 Correspondence ID/ReporteeElementId/AR.
 - When the element is migrated, the End-User System can continue working with it through either the Altinn 2 or Altinn 3 APIs. Changes to the messages will be synchronized, but be mindful that there may be some latency before the changes are synced.
 - The EUS must ensure that they handle the migrated messages in a controlled fashion, and that they do not interact with both the Altinn 2 or Altinn 3 version of the element.
   - We recommend that as soon as the [CorrespondenceSync](/en/correspondence/transition/data-migration/#synchronization-of-status-changes-between-altinn-2-and-3) solution is live, that you stop using Altinn 2 APIs, and use solely Altinn 3 APIs.

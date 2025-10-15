@@ -16,6 +16,7 @@ aliases:
 |[Permisjon](#permisjon)|
 |[Sykefravær](#sykefravær)|
 |[A-ordningen](#a-ordningen)|
+|[Lønn med personopplysninger av særlig kategori](#lønn-med-personopplysninger-av-særlig-kategori)|
 
 ### Ansettelsesforhold
 Denne tilgangspakken gir fullmakter til tjenester knyttet til ansettelsesforhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
@@ -42,6 +43,10 @@ Denne tilgangspakken gir fullmakter til tjenester som inngår i A-ordningen. Ved
 **OBS! Vær oppmerksom på at tilgangspakken inneholder fullmakter som kan ha sensitiv karakter. Vurder om fullmaktene skal gis som enkeltrettigheter.**  
 *urn:altinn:accesspackage:a-ordning*
 
+### Lønn med personopplysninger av særlig kategori
+Denne tilgangspakken gir fullmakter til tjenester knyttet til lønn og refusjon som inkluderer personopplysninger av særlig kategori. Denne fullmakten kan gi bruker tilgang til sensitive personopplysninger om ansatte, for eksempel knyttet til informasjon om ansattes sykefravær, foreldrepenger, pleiepenger eller lignende opplysninger. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
+*urn:altinn:accesspackage:lonn-personopplysninger-saerlig-kategori*
+
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
 |**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
 |---|---|---|
@@ -51,3 +56,4 @@ Denne tilgangspakken gir fullmakter til tjenester som inngår i A-ordningen. Ved
 |Permisjon|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
 |Sykefravær|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
 |A-ordningen|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Lønn med personopplysninger av særlig kategori|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
