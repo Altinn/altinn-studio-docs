@@ -4,7 +4,7 @@
     A[Start] --> B[Initialize Correspondence]
     B --> C[Validation]
     C -->|Valid| D{Check Recipient}
-    C -->|Invalid| E[End with Error<br/>400 Bad Request:<br/>- Missing Content<br/>- Empty Message Fields<br/>- Invalid Format<br/>- Invalid Attachments<br/>- Invalid Dates<br/>- Invalid Language<br/><br/>401 Unauthorized:<br/>- No Access to Resource<br/>- Resource Not Whitelisted<br/>- Incorrect Resource Type]
+    C -->|Invalid| E[End with Error<br/>400 Bad Request:<br/>- Missing Content<br/>- Empty Message Fields<br/>- Invalid Format<br/>- Invalid Attachments<br/>- Invalid Dates<br/>- Invalid Language<br/><br/>401 Unauthorized:<br/>- No Access to Resource<br/>- Incorrect Resource Type]
 
     D -->|Reserved & Not Ignored| F[Set Status: Reserved]
     D -->|Not Reserved or Ignored| G[Set Status: Initialized]
