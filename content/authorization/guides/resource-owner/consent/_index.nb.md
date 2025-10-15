@@ -1,12 +1,12 @@
 ---
 title: Samtykke for tjenesteeier
 linktitle: Samtykke
-description: Veiledningen forklarer tjenesteeiers oppgaver i ved bruke av Altinn Samtykke.
+description: Hvordan tjenesteeiere oppretter og konfigurerer samtykkeressurser i Altinn 3.
 toc: false
 ---
  
 For å bruke Altinn Samtykke må du opprette samtykkeressurser for hvert sett med tjenester eller data som skal inngå i et samtykke.
- 
+
 Eksempler på slike ressurser er Skatteetatens "inntekts-API" og skattegrunnlag, som banker bruker for innsyn i finansielle forhold ved lånesøknader.
  
 Denne veiledningen forklarer hvordan du setter opp en samtykkeressurs.
@@ -27,29 +27,32 @@ ID for ressursen bør navngis på formen `{tjenesteeierkode}-{forståeligressurs
  
 Gi samtykkeressursen et navn og en beskrivelse. Dette vises til brukere når de skal delegere tilgang til å gi samtykke på vegne av virksomheter.
  
-![consentresource](consentresource2.png)
+![consentresource](navn-beskrivelse.png)
  
 ### Samtykkemal
  
-Valg av samtykkemal avgjør hvordan samtykket presenteres i Altinn for brukeren som skal akseptere det.
+Velg en mal for hvordan samtykkeforespørselen skal presenteres i Altinn for brukeren som skal akseptere det.
  
-For eksempel avgjør malen om du kan legge til egen tekst for samtykke.
+Du kan se en forhåndsvisning av teksten i malen til høyre.
  
-![consentresource](consentresource3.png)
+![consentresource](samtykkemal.png)
  
 ### Metadata og samtykketekst
  
-Metadata brukes for samtykketjenester hvor det er behov for informasjon utover selve tjenesten. Dette kan for eksempel være en begrensning på hvilke data eller hvilket år samtykket gjelder for.
+Samtykketeksten er teksten sluttbrukeren ser når de skal gi samtykke i Altinn. Den bør tydelig forklare hvilke data som deles.
+
+Du kan sette inn metadata i samtykketeksten ved å bruke krøllparenteser  { }. Metadata brukes når samtykket krever tilleggsinformasjon utover selve tjenesten – for eksempel hvilket år, hvilken periode eller hvilke data samtykket gjelder for.
+
+List opp metadataene som skal brukes i samtykketeksten i feltet Metadata for samtykketekst. Se forhåndsvisningen til høyre og aktiver «variabler med eksempeltekst» for å kontrollere at metadataene vises riktig.
  
-Disse metadataene kan presenteres som en del av samtykketeksten som vises til sluttbruker.
- 
-![consentresource](consentresource4.png)
+![consentresource](metadata-samtykketekst2.png)
+![consentresource](forhandsvisning-samtykke.png)
  
 ### Engangssamtykke
  
 Hvis man ønsker at tjenesten skal kun være tilgjengelig via engangsamtykke kan man sette dette.
  
-Dette betyr at den som ber om samtykke bare kan hente ut data 1 gang uansett periodelengde.
+Dette betyr at den som ber om samtykke bare kan hente ut data én gang uansett periodelengde.
  
 ## Validering av samtykker
  

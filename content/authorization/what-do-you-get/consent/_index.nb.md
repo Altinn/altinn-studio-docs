@@ -1,11 +1,10 @@
 ---
 title: Samtykke
-description: Altinn samtykke fornyes som del av oppgraderingen til Altinn 3
+description: Altinn samtykke fornyes som del av oppgraderingen til Altinn 3.
 tags: [platform, register]
 ---
- 
+
 # Samtykke i Altinn 3
- 
 Altinn 3 viderefører og forbedrer samtykkeløsningen fra Altinn 2. Denne dokumentasjonen gir en oversikt over de viktigste endringene, hvordan samtykkeprosessen fungerer, og hva som kreves av både datakonsumenter og API-tilbydere.
  
 ## Hva er nytt i Altinn 3?
