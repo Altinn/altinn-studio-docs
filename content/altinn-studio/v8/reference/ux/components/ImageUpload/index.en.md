@@ -28,9 +28,28 @@ The component has some specific properties that can be configured in addition to
 |----------------|---------|-------------------------------------------------------------------------------------------------|---------|----------------|
 | id | string | Unique ID for the component | yes | |
 | type | string | Component type, for this component it is always `imageUpload` | yes | |
-| cropShape | enum | Determines the shape of the cropping area. Can be `ectangle` or `circle`. | no | `circle` |
-| cropWidth | number | Specifies the width of the cropping area in pixels. | no | `250` |
-| cropHeight | number | Specifies the height of the cropping area in pixels. | no | `250` |
+| crop | object | Configuration for the cropping area. | no | `{ "shape": "circle", "diameter": 250 }` |
+
+#### Examples of the `crop` object
+
+Circular cropping (default):
+
+```
+"crop": {
+   "shape": "circle",
+   "diameter": 250
+}
+```
+
+Rectangular cropping:
+
+```
+"crop": {
+   "shape": "rectangle",
+   "width": 270,
+   "height": 200
+}
+```
 
 {{% notice info %}}
 **Note:** For usability on smaller screens, we recommend a maximum size of 270 pixels in width for the cropping area. This ensures that users with screens down to 320 pixels wide can use the component without problems.

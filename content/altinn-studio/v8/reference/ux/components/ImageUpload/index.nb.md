@@ -23,15 +23,40 @@ Bruk bildeopplaster-komponenten når brukeren skal laste opp et bilde, for eksem
 
 ### Konfigurasjon
 
+#### Egenskaper for `imageUpload`-komponenten
+
 Komponenten har noen spesifikke egenskaper som kan konfigureres i tillegg til de generelle egenskapene som gjelder for alle komponenter. Nedenfor er en liste over de viktigste egenskapene:
 | Egenskap | Type | Beskrivelse | Påkrevd | Standardverdi |
 |----------------|---------|-------------------------------------------------------------------------------------------------|---------|----------------|
 | id | string | Unik ID for komponenten | ja | |
 | type | string | Type komponent, for denne komponenten er det alltid `imageUpload` | ja | |
-| cropShape | enum | Bestemmer formen på beskjæringsområdet. Kan være `rectangle` (rektangel) eller `circle` (sirkel). | nei | `circle` |
-| cropWidth | number | Angir bredden på beskjæringsområdet i piksler. | nei | `250` |
-| cropHeight | number | Angir høyden på beskjæringsområdet i piksler. | nei | `250` |
+| crop | object | Konfigurasjon for beskjæringsområdet. | nei | `{ "shape": "circle", "diameter": 250 }` |
+
+#### Eksempler på `crop`-objektet
+
+Sirkulær beskjæring (standard):
+
+```
+"crop": {
+   "shape": "circle",
+   "diameter": 250
+}
+```
+
+Rektangulær beskjæring:
+
+```
+"crop": {
+   "shape": "rectangle",
+   "width": 270,
+   "height": 200
+}
+```
 
 {{% notice info %}}
 **Merk:** For brukervennlighet på mindre skjermer, anbefaler vi en størrelse på maksimalt 270 piksler i bredden for beskjæringsområdet. Dette sikrer at brukere med skjermer ned til 320 piksler i bredde kan bruke komponenten uten problemer.
 {{% /notice %}}
+
+```
+
+```
