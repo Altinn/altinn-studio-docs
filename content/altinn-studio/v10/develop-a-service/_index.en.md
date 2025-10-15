@@ -1,5 +1,7 @@
 ---
-title: Develop a service
-description: Develop and configure your digital service
-weight: 3
+title: Develop a service in Altinn Studio
+description: Guides related to developing services in Altinn Studio
+weight: 20
 ---
+
+{{<children />}}

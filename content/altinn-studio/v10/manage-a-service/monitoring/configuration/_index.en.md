@@ -43,7 +43,7 @@ When the app runs with `UseOpenTelemetry`, you automatically get:
 
 **Example:** If a user submits a form, the system will automatically record how long it took, which HTTP status code was returned, and which external services were called along the way.
 
-For information on how to add custom telemetry, see [Instrumentation](/nb/altinn-studio/v10/manage-a-service/monitoring/instrumentation/).
+For information on how to add custom telemetry, see [Instrumentation](/en/altinn-studio/v10/manage-a-service/monitoring/instrumentation/).
 
 ## Configure OpenTelemetry SDK
 

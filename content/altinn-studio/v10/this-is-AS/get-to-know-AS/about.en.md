@@ -41,5 +41,5 @@ These are some of the principles that underpin the development of Altinn Studio:
 - **Isolation**: Each service owner gets their own environments for testing and production.
 
 See also:
-- [Open source and collaboration](./open-source)
-- [Governance](./governance)
+- [Open source and collaboration](/en/altinn-studio/v10/this-is-as/get-to-know-as/open-source)
+- [Components, versions and responsibilities](/en/altinn-studio/v10/this-is-as/get-to-know-as/governance)

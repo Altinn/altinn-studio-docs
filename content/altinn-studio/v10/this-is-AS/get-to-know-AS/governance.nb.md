@@ -1,10 +1,11 @@
 ---
-title: Forvaltning
+title: Oversikt over komponenter, versjonering og forvaltningsansvar
+linktitle: Komponenter, versjoner og ansvar
 description: Oversikt over komponenter, versjonering og forvaltningsansvar i Altinn Studio.
 weight: 3
 ---
 
-Studio-produktet består av flere komponenter. Her er viktige tjenester og biblioteker som Studio-teamet eier og forvalter:
+Her er viktige tjenester og biblioteker som Studio-teamet eier og forvalter:
 
 ## Studio Designer
 [Studio Designer](https://altinn.studio/) er verktøyet der du designer tjenester.

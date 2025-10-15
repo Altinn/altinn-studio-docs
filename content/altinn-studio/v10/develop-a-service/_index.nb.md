@@ -1,5 +1,7 @@
 ---
-title: Utvikle en tjeneste
-description: Utvikle og konfigurer din digitale tjeneste
+title: Utvikle tjenester med Altinn Studio
+description: Her finner du veiledninger for hvordan du utvikler en tjeneste i Altinn Studio
 weight: 20
 ---
+
+{{<children />}}

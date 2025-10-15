@@ -1,10 +1,11 @@
 ---
-title: Governance
+title: Overview of components, versioning and governance responsibilities
+linktitle: Components, versions and responsibilities
 description: Overview of components, versioning and governance responsibilities in Altinn Studio.
 weight: 3
 ---
 
-The Studio product consists of several components. Here are important services and libraries that the Studio team owns and maintains:
+Here are important services and libraries that the Studio team owns and maintains:
 
 ## Studio Designer
 [Studio Designer](https://altinn.studio/) is the tool where you design services.

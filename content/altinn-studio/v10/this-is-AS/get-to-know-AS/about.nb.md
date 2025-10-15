@@ -41,5 +41,5 @@ Dette er noen av prinsippene som ligger til grunn for utviklingen av Altinn Stud
 - **Isolasjon**: Hver tjenesteeier får sine egne miljøer for test og produksjon.
 
 Se også:
-- [Åpen kildekode og samarbeid](./open-source)
-- [Forvaltning](./governance)
+- [Åpen kildekode og samarbeid](/nb/altinn-studio/v10/this-is-as/get-to-know-as/open-source)
+- [Komponenter, versjoner og ansvar](/nb/altinn-studio/v10/this-is-as/get-to-know-as/governance)
