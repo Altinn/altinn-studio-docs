@@ -28,7 +28,7 @@ The component has some specific properties that can be configured in addition to
 | Property | Type   | Description                                                   | Required | Default value                            |
 | -------- | ------ | ------------------------------------------------------------- | -------- | ---------------------------------------- |
 | id       | string | Unique ID for the component                                   | yes      |                                          |
-| type     | string | Component type, for this component it is always `imageUpload` | yes      |                                          |
+| type     | string | Component type, for this component it is always `ImageUpload` | yes      |                                          |
 | crop     | object | Configuration for the cropping area                           | no       | `{ "shape": "circle", "diameter": 250 }` |
 
 #### Examples of the `crop` object
