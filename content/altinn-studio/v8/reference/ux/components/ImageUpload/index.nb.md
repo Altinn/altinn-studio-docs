@@ -26,17 +26,18 @@ Bruk bildeopplaster-komponenten når brukeren skal laste opp et bilde, for eksem
 #### Egenskaper for `imageUpload`-komponenten
 
 Komponenten har noen spesifikke egenskaper som kan konfigureres i tillegg til de generelle egenskapene som gjelder for alle komponenter. Nedenfor er en liste over de viktigste egenskapene:
-| Egenskap | Type | Beskrivelse | Påkrevd | Standardverdi |
-|----------------|---------|-------------------------------------------------------------------------------------------------|---------|----------------|
-| id | string | Unik ID for komponenten | ja | |
-| type | string | Type komponent, for denne komponenten er det alltid `imageUpload` | ja | |
-| crop | object | Konfigurasjon for beskjæringsområdet. | nei | `{ "shape": "circle", "diameter": 250 }` |
+
+| Egenskap | Type   | Beskrivelse                                                       | Påkrevd | Standardverdi                            |
+| -------- | ------ | ----------------------------------------------------------------- | ------- | ---------------------------------------- |
+| id       | string | Unik ID for komponenten                                           | ja      |                                          |
+| type     | string | Type komponent, for denne komponenten er det alltid `imageUpload` | ja      |                                          |
+| crop     | object | Konfigurasjon for beskjæringsområdet                              | nei     | `{ "shape": "circle", "diameter": 250 }` |
 
 #### Eksempler på `crop`-objektet
 
 Sirkulær beskjæring (standard):
 
-```
+```json
 "crop": {
    "shape": "circle",
    "diameter": 250
@@ -45,7 +46,7 @@ Sirkulær beskjæring (standard):
 
 Rektangulær beskjæring:
 
-```
+```json
 "crop": {
    "shape": "rectangle",
    "width": 270,
@@ -56,7 +57,3 @@ Rektangulær beskjæring:
 {{% notice info %}}
 **Merk:** For brukervennlighet på mindre skjermer, anbefaler vi en størrelse på maksimalt 270 piksler i bredden for beskjæringsområdet. Dette sikrer at brukere med skjermer ned til 320 piksler i bredde kan bruke komponenten uten problemer.
 {{% /notice %}}
-
-```
-
-```
