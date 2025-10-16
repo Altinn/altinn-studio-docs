@@ -24,19 +24,19 @@ The `TimePicker` component allows users to select a time value in a form. It pro
 
 ## Properties
 
-| **Property**                           | **Type**  | **Description**                                                                                                                                                                                                                          |
-|----------------------------------------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `id`                                   | string    | The component ID. Must be unique within all layouts/pages in a layout-set. Cannot end with <dash><number>.                                                                                                                               |
-| `dataModelBindings.simpleBinding`      | string    | Data model binding for the component's connection to a single field in the data model.                                                                                                                                                   |
-| `textResourceBindings.title`           | string    | The title/label text for the component.                                                                                                                                                                                                  |
-| `textResourceBindings.description`     | string    | The description text for the component (optional).                                                                                                                                                                                       |
-| `textResourceBindings.help`            | string    | The help text for the component (optional).                                                                                                                                                                                              |
-| `required`                             | boolean   | Boolean or expression indicating if the component is required when filling in the form. Defaults to false.                                                                                                                               |
-| `readOnly`                             | boolean   | Boolean or expression indicating if the component should be presented as read only. Defaults to false.                                                                                                                                   |
-| `format`                               | string    | Time format used for displaying and input. Defaults to `HH:mm`. <br/><br/>**Enum:** [HH:mm, HH:mm:ss, hh:mm a, hh:mm:ss a]                                                                                                              |
-| `minTime`                              | string    | Sets the earliest allowed time in HH:mm format. Can be a static value or an expression.                                                                                                                                                  |
-| `maxTime`                              | string    | Sets the latest allowed time in HH:mm format. Can be a static value or an expression.                                                                                                                                                    |
-| `hidden`                               | boolean   | Boolean value or expression indicating if the component should be hidden. Defaults to false.                                                                                                                                             |
+| **Property**                           | **Type**  | **Description**                                                                                                            |
+|----------------------------------------|-----------|----------------------------------------------------------------------------------------------------------------------------|
+| `id`                                   | string    | The component ID. Must be unique within all layouts/pages in a layout-set. Cannot end with <dash><number>.                 |
+| `dataModelBindings.simpleBinding`      | string    | Data model binding for the component's connection to a single field in the data model. The field should be a string.       |
+| `textResourceBindings.title`           | string    | The title/label text for the component.                                                                                    |
+| `textResourceBindings.description`     | string    | The description text for the component (optional).                                                                         |
+| `textResourceBindings.help`            | string    | The help text for the component (optional).                                                                                |
+| `required`                             | boolean   | Boolean or expression indicating if the component is required when filling in the form. Defaults to false.                 |
+| `readOnly`                             | boolean   | Boolean or expression indicating if the component should be presented as read only. Defaults to false.                     |
+| `format`                               | string    | Time format used for displaying and input. Defaults to `HH:mm`. <br/><br/>**Enum:** [HH:mm, HH:mm:ss, hh:mm a, hh:mm:ss a] |
+| `minTime`                              | string    | Sets the earliest allowed time in HH:mm format. Can be a static value or an expression.                                    |
+| `maxTime`                              | string    | Sets the latest allowed time in HH:mm format. Can be a static value or an expression.                                      |
+| `hidden`                               | boolean   | Boolean value or expression indicating if the component should be hidden. Defaults to false.                               |
 
 ## Configuration
 

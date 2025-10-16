@@ -21,23 +21,23 @@ toc: true
 ### Relatert
 
 - [`Date`](/nb/altinn-studio/v8/reference/ux/components/date/)
-- [`Input`](/nb/altinn-studio/v8/reference/ux/components/input/)
+- [`Input`](/nb/altinn-studio/v8/reference/ux/components/datepicker/)
 
 ## Egenskaper
 
-| **Property**                           | **Type**  | **Description**                                                                                                                                       |
-|----------------------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `id`                                   | string    | Unik ID-streng for komponenten. Kan ikke slutte med <bindestrek><tall>.                                                                              |
-| `dataModelBindings.simpleBinding`      | string    | Datamodellkobling til komponentens felt i datamodellen.                                                                                               |
-| `textResourceBindings.title`           | string    | Tittelen/ledeteksten for komponenten.                                                                                                                 |
-| `textResourceBindings.description`     | string    | Beskrivelsesfelt for komponenten (valgfritt).                                                                                                         |
-| `textResourceBindings.help`            | string    | Hjelpefelt for komponenten (valgfritt).                                                                                                               |
-| `required`                             | boolean   | Boolean eller uttrykk som indikerer om komponenten er påkrevd når en bruker fyller ut skjemaet. Standard er false.                                    |
-| `readOnly`                             | boolean   | Boolean eller uttrykk som indikerer om komponenten skal presenteres som kun lesbar. Standard er false.                                                |
-| `format`                               | string    | Tidsformat brukt for visning og inndata. Standard er `HH:mm`. <br/><br/>**Enum:** [HH:mm, HH:mm:ss, hh:mm a, hh:mm:ss a]                             |
-| `minTime`                              | string    | Setter det tidligste tillatte klokkeslettet i HH:mm-format. Kan være en statisk verdi eller et uttrykk.                                               |
-| `maxTime`                              | string    | Setter det seneste tillatte klokkeslettet i HH:mm-format. Kan være en statisk verdi eller et uttrykk.                                                 |
-| `hidden`                               | boolean   | Boolean eller uttrykk som indikerer om komponenten skal være skjult. Standard er false.                                                               |
+| **Property**                           | **Type**  | **Description**                                                                                                         |
+|----------------------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------|
+| `id`                                   | string    | Unik ID-streng for komponenten. Kan ikke slutte med <bindestrek><tall>.                                                 |
+| `dataModelBindings.simpleBinding`      | string    | Datamodellkobling til komponentens felt i datamodellen. Feltet må være av type string.                                  |
+| `textResourceBindings.title`           | string    | Tittelen/ledeteksten for komponenten.                                                                                   |
+| `textResourceBindings.description`     | string    | Beskrivelsesfelt for komponenten (valgfritt).                                                                           |
+| `textResourceBindings.help`            | string    | Hjelpefelt for komponenten (valgfritt).                                                                                 |
+| `required`                             | boolean   | Boolean eller uttrykk som indikerer om komponenten er påkrevd når en bruker fyller ut skjemaet. Standard er false.      |
+| `readOnly`                             | boolean   | Boolean eller uttrykk som indikerer om komponenten skal presenteres som kun lesbar. Standard er false.                  |
+| `format`                               | string    | Tidsformat brukt for visning og inndata. Standard er `HH:mm`. <br/><br/>**Enum:** [HH:mm, HH:mm:ss, hh:mm a, hh:mm:ss a] |
+| `minTime`                              | string    | Setter det tidligste tillatte klokkeslettet i HH:mm-format. Kan være en statisk verdi eller et uttrykk.                 |
+| `maxTime`                              | string    | Setter det seneste tillatte klokkeslettet i HH:mm-format. Kan være en statisk verdi eller et uttrykk.                   |
+| `hidden`                               | boolean   | Boolean eller uttrykk som indikerer om komponenten skal være skjult. Standard er false.                                 |
 
 ## Konfigurering
 
