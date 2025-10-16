@@ -20,7 +20,7 @@ The `TimePicker` component allows users to select a time value in a form. It pro
 ### Related
 
 - [`Date`](/en/altinn-studio/v8/reference/ux/components/date/)
-- [`Input`](/en/altinn-studio/v8/reference/ux/components/input/)
+- [`Datepicker`](/nb/altinn-studio/v8/reference/ux/components/date/)
 
 ## Properties
 

@@ -20,8 +20,8 @@ toc: true
 
 ### Relatert
 
-- [`Date`](/nb/altinn-studio/v8/reference/ux/components/date/)
-- [`Input`](/nb/altinn-studio/v8/reference/ux/components/datepicker/)
+- [`Datepicker`](/nb/altinn-studio/v8/reference/ux/components/datepicker)
+- [`Date`](/nb/altinn-studio/v8/reference/ux/components/date)
 
 ## Egenskaper
 
