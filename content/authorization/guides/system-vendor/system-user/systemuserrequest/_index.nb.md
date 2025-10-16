@@ -11,14 +11,14 @@ Opprettelse av en systembruker for eget system kan gjøres på to forskjellige m
 
 ### Brukerstyrt Opprettelse
 
-Ved en brukerstyrt opprettelse kan sluttbruker gå inn i Altinn-portalen og velge fra en nedtrekksliste hvilket system de ønsker å knytte en systembruker til. Dersom de trenger veiledning til å finne riktig system på nedtrekkslisten, kontakt systemleverandøren. Etter at de har opprettet systembrukeren kan sluttbrukersystemleverandøren (heretter kalt SBSL) hente ut Systembruker-Token, og bruke det for å integrere mot API fra tjenesteeier på vegne av sluttbruker. 
+Ved en brukerstyrt opprettelse kan sluttbruker gå inn i Altinn-portalen og velge fra en nedtrekksliste hvilket system de ønsker å knytte en systembruker til. Dersom de trenger veiledning til å finne riktig system på nedtrekkslisten, kontakt systemleverandøren. Etter at de har opprettet systembrukeren kan sluttbrukersystemleverandøren (heretter kalt SBSL) hente ut systembruker-token, og bruke det for å integrere mot API fra tjenesteeier på vegne av sluttbruker. 
 - En brukerstyrt opprettelse kan være aktuelt dersom de ikke har laget et brukergrensesnitt i eget system for å opprette systembrukeren. 
 - I en brukerstyrt opprettelse vil sluttbrukeren direkte godkjenne alle tilgangene som er forhåndsdefinert i det registrerte systemet fra nedtrekksmenyen. Det blir derav ikke opprettet en forespørsel.
 - Gjøres det en forespørsel på tilgang sluttbrukeren ikke kan delegere til systembrukeren, vil **ikke** opprettelsen kunne gå gjennom.
 
 ### Leverandørstyrt Opprettelse
 
-Ved en leverandørstyrt opprettelse må SBSL sende et kall til vårt API for å opprette en forespørsel (Request). Dette kan initieres av SBSL ved for eksempel:
+Ved en leverandørstyrt opprettelse må SBSL sende et kall til vårt API for å opprette en forespørsel. Dette kan initieres av SBSL ved for eksempel:
 - Ha kunden sittende innlogget i SBSLs eget program eller webside
 - SBSL gjør dette ved å sende et POST kall til vårt API.
 
@@ -108,7 +108,7 @@ I responsen som kommer tilbake er det samme struktur som i POST, men i tillegg s
 
 
 
-Fortsett på [Godkjenn SystemBruker]: (/nb/authorization/guides/end-user/system-user/accept-request/)
+Fortsett på [Godkjenn SystemBruker](/nb/authorization/guides/end-user/system-user/accept-request/)
 
 ## 2. Opprette systembruker for Klientsystem
 
@@ -161,10 +161,10 @@ I POST Bodyen så brukes følgende model:
 I eksempelet over er det oppgitt disse verdiene:
 
 - systemId : referansen til Systemet som SBSL har forhånds registrert i [Registrer System](/nb/authorization/guides/system-vendor/system-user/systemregistration/)
-- partyOrgNo : er organisasjonsnummeret til Sluttbruker, slik det er i Enhets Registeret (kun sifrene)
-- externalRef : skal normalt ikke brukes. Det er kun i spesielle tilfeller når det er behov for å ha flere SystemBrukere pr System pr Orgno. Det vanlige er å ikke oppgi.
-- accessPackages: en liste av de Tilgangspakker som er påkrevet. (Det anbefales at tilgangspakker brukes fremfor Enkelt Rettigheter dersom det lar seg gjøre.)
-- redirectUrl : er en valgfri verdi. Kan oppgis dersom det ønskes at Sluttbruker skal redirectes til en intern side hos SBSL, etter godkjenning. MÅ være forhånds registrert på Systemet i så fall.
+- partyOrgNo : er organisasjonsnummeret til sluttbruker, slik det er i enhetsregisteret (kun sifrene)
+- externalRef : skal normalt ikke brukes. Det er kun i spesielle tilfeller når det er behov for å ha flere systembrukere pr system pr Orgno. Det vanlige er å ikke oppgi.
+- accessPackages: en liste av de tilgangspakker som er påkrevet. (Det anbefales at tilgangspakker brukes fremfor enkeltrettigheter dersom det lar seg gjøre.)
+- redirectUrl : er en valgfri verdi. Kan oppgis dersom det ønskes at sluttbruker skal redirectes til en intern side hos SBSL, etter godkjenning. MÅ være forhånds registrert på Systemet i så fall.
 
 *Merk*:
 - I url over så står det https://platform.tt02.altinn.no for TT02.
@@ -197,8 +197,8 @@ I responsen som kommer tilbake er det samme struktur som i POST, men i tillegg s
 - confirmUrl: dyplenken som SBSL må gi til sluttbruker på en trygg måte, der opprettelsen kan godkjennes.
 
 
-Fortsett på [Godkjenn SystemBruker]: (/nb/authorization/guides/end-user/system-user/accept-request/)
-Etter at systembrukeren er godkjent så må det [Delegeres Klienter]: (/nb/authorization/guides/end-user/system-user/delegate-clients/).
+Fortsett på [Godkjenn SystemBruker](/nb/authorization/guides/end-user/system-user/accept-request/)
+Etter at systembrukeren er godkjent så må det [Delegeres Klienter](/nb/authorization/guides/end-user/system-user/delegate-clients/).
 
 Etter at en systembruker er godkjent kan SBSL enten: 
 - sjekke om Request Status = Accepted, eller
