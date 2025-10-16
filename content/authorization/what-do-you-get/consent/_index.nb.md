@@ -148,7 +148,7 @@ Datakonsumenter starter prosessen ved å opprette en samtykkeforespørsel. Denne
 | `validTo`      | Påkrevd: Dato/tid samtykket er gyldig til                                   |
 | `consentRights`| Påkrevd: Rettigheter og ressurser det bes om tilgang til                    |
 | `requestmessage`| Valgfritt: Melding til bruker. Avhenger av tjenesten.                                     |
-| `redirectUrl`  | Valgfritt: URL for redirect etter samtykke. Må oppgis hvis bruker sendes tilbake.
+| `redirectUrl`  | Valgfritt: URL for redirect etter samtykke. Må oppgis hvis bruker sendes tilbake. |
  
  
 Respons samtykkeforespørsel
