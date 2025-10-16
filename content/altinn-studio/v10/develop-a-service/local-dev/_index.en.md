@@ -1,116 +1,126 @@
 ---
-title: Local Development
-linktitle: Local Development
+title: Local development
+linktitle: Local development
 description: Getting started with local development
+tags: [needsReview]
 toc: true
 weight: 900
 aliases:
 - /altinn-studio/guides/local-dev/
 ---
 
-During application development, you will need to work both in Altinn Studio and in a local development environment.
- Here's an overview of how to get started with local development.
+When developing an application, you must work both in Altinn Studio and in a local development environment.
+Here is an overview of how to get started with local development.
 
-## How to clone the application to a local development environment
+## Clone the application to a local development environment
 
-1. Find the application you want to work with locally in the [Dashboard](/en/altinn-studio/v8/getting-started/navigation/dashboard/) in Altinn Studio.
-2. Navigate to the repository by clicking the _Repository_ button.
+1. Find the application you want to work with locally in the [Dashboard](/en/altinn-studio/v8/getting-started/navigation/dashboard/) in Altinn Studio
+2. Open the repository. Click the **Repository** button
     ![Repository button highlighted in an image](find-app-in-dashboard.png)
-3. Copy the repository link (the blue square) either manually or by clicking the button marked with a red circle.
+    *Replace this image.*
+3. Copy the repository link (the blue square) either manually or by clicking the button marked with a red circle
     ![Highlighted repository URL in Gitea in an image](copy-repo-link.png)
-4. Open a terminal in your local development environment.
-    - Navigate to the desired location for the application repository.
+    *Consider replacing this image.*
+4. Open a terminal in your local development environment:
+    - Go to the desired location for the application repository.
     - Enter the command `git clone` and paste the URL you copied in the previous step.
     ```cmd
     $ git clone https://altinn.studio/repos/<org>/<app-name>.git
     ```
-    -  If you have logged into Altinn Studio without creating a password (e.g. using Github login),
-    you can [create a personal access token in Gitea](https://altinn.studio/repos/user/settings/applications)
-    that can be used as a password when cloning:
+    -  If you have logged into Altinn Studio without creating a password (e.g. using GitHub login), you can [create a personal access token in Gitea](https://altinn.studio/repos/user/settings/applications) to use as a password when cloning:
     ```cmd
     $ git clone https://<username>:<access-token>@altinn.studio/repos/<org>/<app-name>.git
     ```
-    - You should see an output in the terminal similar to this:
+    - You should see a result in the terminal similar to this:
     ```cmd
     Cloning into 'app-name'...
     remote: Enumerating objects: 982, done.
     remote: Counting objects: 100% (982/982), done.
     remote: Compressing objects: 100% (950/950), done.
-    remote: Total 982 (delta 600), reused 0 (delta 0), pack-reused 0 
+    remote: Total 982 (delta 600), reused 0 (delta 0), pack-reused 0
     Receiving objects: 100% (982/982), 166.38 KiB | 1.51 MiB/s, done.
     Resolving deltas: 100% (600/600), done.
     ```
 
-A folder with the same name as the application has been created, and the contents of the application repository have been cloned into the folder.
- Now you can open your preferred development tool and start coding.
+The system creates a folder with the same name as the application and clones the contents of the application repository into the folder.
+Now you can open your preferred development tool and start coding.
 
-## How to synchronize changes in the local development environment
+## Synchronise changes in the local development environment
 
-Changes made locally need to be uploaded (pushed) to the repository from which the code was cloned.
- If changes are made in Altinn Studio Designer (and uploaded to the repository), these must be downloaded (pulled) to update the local code.
+You must upload (push) changes you make locally to the repository from which the code was cloned.
+If you make changes in Altinn Studio Designer (and upload these to the repository), you must download them (pull) to update the local code.
 
-Synchronizing changes made in the local development environment can be done in several ways.
- Many development tools have good integrations for this purpose, so check if your tool has that type of support.
+You can synchronise changes in the local development environment in several ways.
+Many development tools have good integrations for this purpose, so check whether your tool has that type of support.
 
-Below is a description of how you can synchronize changes from the command line.
+Below we describe how you can synchronise changes from the command line.
 
-### Uploading changes
+### Upload changes
 
-1. Navigate to your application repository in a terminal.
-2. Add the files you want to upload changes for (push) with the command `git add <file path>`.
-   The command can be executed for individual files, multiple files at once (space separated), or a directory.
+1. Go to your application repository in a terminal.
+2. Add the files for which you want to upload changes (push) with the command `git add <file path>`. You can run the command for individual files, multiple files at once (space separated), or a directory.
 3. Save (commit) the changes with a meaningful message using the command `git commit -m <commit message>`.
 4. Upload (push) the changes to the master branch with the command `git push`.
 
-### Downloading changes
+### Download changes
 
-Navigate to your application repository in a terminal and run the command `git pull`.
+Go to your application repository in a terminal and run the command `git pull`.
 
 [Read more about `git pull` here](https://git-scm.com/docs/git-pull)
 
-## How to synchronize changes in Altinn Studio
+## Synchronise changes in Altinn Studio
 
-If you're using Altinn Studio for development, changes need to be synchronized with the Altinn Repository.
+In Altinn Studio, you must synchronise changes in the same way as with local changes.
 
-### Downloading changes
-1. Click on _Hent endringer_ (_Fetch changes_) on the 'Lage' page of the application in Altinn Studio.
+### Download changes
+1. Click **Hent endringer** (Fetch changes) on the 'Lage' page of the application in Altinn Studio.
    ![Fetch changes in Altinn Studio](toolbar-hent.png)
+   *Replace this image.*
 2. If everything went well, you will see this confirmation.
- ![Fetch changes confirmation](pull-successful.png)
+    ![Fetch changes confirmation](pull-successful.png)
+    *Replace this image.*
 
-### Uploading changes
+### Upload changes
 
-1. Click on _Last opp dine endringer_ (_Upload your changes_) on the 'Lage' page of the application in Altinn Studio.
-   ![Upload changes in Altin Studio](toolbar-last-opp.png)
-2. Enter a descriptive message for the change(s) and click _Valider endringer_ (_Validate changes_).
+1. Click **Last opp dine endringer** (Upload your changes) on the 'Lage' page of the application in Altinn Studio.
+   ![Upload changes in Altinn Studio](toolbar-last-opp.png)
+   *Replace this image.*
+2. Enter a descriptive message for the change(s) and click **Valider endringer** (Validate changes).
     ![Commit message](commit-message.png)
-3. Wait for the changes to be validated. If a conflict occurs, click _Løs konflikt_ (_Resolve conflict_) and follow the instructions.
-4. Click _lagre_ (_Save_) to upload the changes to the repository (master).
+    *Replace this image.*
+3. Wait a moment whilst the system validates the changes. If a conflict occurs, click **Løs konflikt** (Resolve conflict) and follow the instructions.
+4. Click **Lagre** (Save) to upload the changes to the repository (master).
     ![Save validated changes](changes-validated.png)
+    *Replace this image.*
 5. If everything went well, you will see this confirmation.
     ![Save confirmation](push-successful.png)
+    *Replace this image.*
 
 ## Local testing
 
-When working locally, it can be useful to preview the changes you make. *LocalTest* is a program that spins up a local mock-up of the Altinn Platform. This allows you to test and verify local changes without having to synchronize with Altinn Studio.
+You can preview the changes you make when working locally.
+*LocalTest* is a programme that spins up a local mock-up of the Altinn Platform.
+It allows you to test and verify local changes without having to synchronise with Altinn Studio.
 
 {{% notice info %}}
 **NOTE**
 To run the app in LocalTest, the application must have an associated [data model](/en/altinn-studio/v8/reference/data/data-modeling/).
 {{% /notice %}}
 
-1. **Download and start LocalTest** by following the steps [described on GitHub](https://github.com/Altinn/app-localtest/blob/master/README.md) (includes starting the app, which is also explained below).
-2. **Run your application within LocalTest**: Open a new terminal window and navigate to the subfolder *App* in your application (`<app-name>/App`). Start the app with the command `dotnet run` and wait for confirmation in the terminal.
+1. **Download and start LocalTest** by following the steps [we describe on GitHub](https://github.com/Altinn/app-localtest/blob/master/README.md) (includes starting the app, which we also explain below).
+2. **Run your application within LocalTest**: Open a new terminal window and go to the subfolder *App* in your application (`<app-name>/App`). Start the app with the command `dotnet run` and wait for confirmation in the terminal.
 3. **Preview and test application**: Go to [http://local.altinn.cloud](http://local.altinn.cloud) and log in with a [test user](/en/altinn-studio/v8/reference/testing/local/testusers/).
 
 ### Preview changes in real-time
 
-- For changes related to JSON files, simply reload the page.
-- For changes in prefilling, the application must be instantiated again (go to [http://local.altinn.cloud](http://local.altinn.cloud) and log back in).
-- For changes in CS files, the application must be stopped (`ctrl+C`) and restarted (`dotnet run`).
+- If you change JSON files, simply reload the page.
+- If you change prefilling, you must start a new instance of the application (go to [http://local.altinn.cloud](http://local.altinn.cloud) and log in again).
+- If you change CS files, you must stop the application (`ctrl+C`) and start it again (`dotnet run`).
 
-To automatically update when there are changes in CS files, start the application with `dotnet watch`. This command will either start the application or reload it ([hot reload](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-watch#hot-reload)) when changes are made to the source code.
+You can update automatically when changing CS files by starting the application with `dotnet watch`.
+This command will either start the application or reload it ([hot reload](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-watch#hot-reload)) when changes are made to the source code.
 
-### Stopping the application and LocalTest
+### Stop the application and LocalTest
 
-To stop the application, press `ctrl+C` in the terminal window where you started it. To stop LocalTest, navigate to the `app-localtest` folder in the terminal and run the command `docker compose down`.
+Stop the application by pressing `ctrl+C` in the terminal window where you started it.
+Stop LocalTest by going to the `app-localtest` folder in the terminal and running the command `docker compose down`.

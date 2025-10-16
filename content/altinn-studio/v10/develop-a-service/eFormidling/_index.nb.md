@@ -1,29 +1,29 @@
 ---
 title: eFormidling
-description: How to configure integration with eFormidling for an app.
-tags: [eFormidling, translate-to-norwegian]
+description: Slik setter du opp eFormidling-integrasjon for appen din.
+tags: [eFormidling, needsReview]
 toc: true
 weight: 15
 ---
 
-In addition to the documentation below, we have created a [sample application](https://altinn.studio/repos/ttd/eformidling-sample-app) showing the complete eFormidling setup.
+Vi har laget en [eksempelapp](https://altinn.studio/repos/ttd/eformidling-sample-app) som viser det komplette eFormidling-oppsettet.
 
 {{%notice info%}}
-This page describes the setup for a **v8** Altinn Application, for prior versions please refer to [the eFormidling setup for v7 documentation]( {{< relref "/altinn-studio/v8/reference/configuration/eformidling/">}}).
+Denne siden beskriver oppsettet for en **v8** Altinn-app. For tidligere versjoner, se [eFormidling-oppsett for v7-dokumentasjonen](/nb/altinn-studio/v8/reference/configuration/eformidling/).
 {{% /notice%}}
 
-## Prerequisites
+## Forutsetninger
 
-Before setting up eFormidling you will need to have the following set up:
-  * [Maskinporten Integration](#maskinporten-integration)
-  * [Events](#events)
+Før du setter opp eFormidling må du konfigurere:
+  * [Maskinporten-integrasjon](#maskinporten-integrasjon)
+  * [Hendelser](#hendelser)
 
-### Maskinporten Integration
+### Maskinporten-integrasjon
 
-In order to enable eFormidling in your application you will need to [setup an integration between your app and Maskinporten](/nb/altinn-studio/v8/guides/integration/maskinporten/).
+For å aktivere eFormidling i appen din, må du [sette opp integrasjon mellom appen og Maskinporten](/nb/altinn-studio/v8/guides/integration/maskinporten/).
 
-* **NB!** Applikasjonen inkluderer automatisk den innebygde `IMaskinportenClient`. Hvis du trenger tilpasset konfigurasjon, kan du bruke:
-  
+* **Merk:** Appen inkluderer automatisk den innebygde `IMaskinportenClient`. Hvis du trenger tilpasset konfigurasjon, kan du bruke:
+
   {{< code-title >}}
     App/Program.cs
   {{< /code-title >}}
@@ -35,14 +35,14 @@ In order to enable eFormidling in your application you will need to [setup an in
   }
   ```
 
-### Events
+### Hendelser
 
-An [event subscription]( {{< relref "/altinn-studio/v8/reference/logic/events/subscribing/" >}}) needs to be setup in order to ensure that the application knows the delivery status of the messages sent through eFormidling.
+Du må sette opp et [hendelsesabonnement](/nb/altinn-studio/v8/reference/logic/events/subscribing/) slik at appen din får vite leveringsstatusen til meldinger som sendes gjennom eFormidling.
 
-{{% expandlarge id="event-subscription-setup" header="Event subscription setup" %}}
+{{% expandlarge id="event-subscription-setup" header="Sette opp hendelsesabonnement" %}}
 
-* Add a new secret `EventSubscription--SecretCode` to Azure key vault.
-* Create a new `.cs` file and add the following:
+* Legg til en ny hemmelighet `EventSubscription--SecretCode` i Azure Key Vault.
+* Opprett en ny `.cs`-fil og legg til følgende kode:
 {{< code-title >}}
   App/logic/Events/EventSecretCodeProvider.cs
 {{< /code-title >}}
@@ -74,13 +74,13 @@ An [event subscription]( {{< relref "/altinn-studio/v8/reference/logic/events/su
 
         var secretKey = "EventSubscription--SecretCode";
         string secretCode = await _keyVaultClient.GetSecretAsync(secretKey);
-        _secretCode = secretCode ?? throw new ArgumentException($"Unable to fetch event subscription secret code from key vault with the specified secret {secretKey}.");
+        _secretCode = secretCode ?? throw new ArgumentException($"Unable to fetch event subscription secret code from Key Vault with the specified secret {secretKey}.");
         return _secretCode;
       }
     }
   }
   ```
-* In `Program.cs` add the following to `RegisterCustomAppServices`:
+* I `Program.cs`, legg til følgende i `RegisterCustomAppServices`:
 {{< code-title >}}
   App/Program.cs
 {{< /code-title >}}
@@ -96,11 +96,11 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 }
 ```
 {{% /expandlarge %}}
-***
-## Setup eFormidling in your application {#eFormidling-setup}
 
-### Register eFormidling Services {#eFormidling-setup-program}
-In order to add support for eFormidling in your application you need to register its services by adding the following to the `RegisterCustomAppServices`-method in `Program.cs`:
+## Sette opp eFormidling i appen {#eFormidling-oppsett}
+
+### Registrere eFormidling-tjenester {#eFormidling-oppsett-program}
+For å legge til eFormidling-støtte i appen din, må du registrere tjenestene ved å legge til følgende i `RegisterCustomAppServices`-metoden i `Program.cs`:
 
 {{< code-title >}}
   App/Program.cs
@@ -113,39 +113,38 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 }
 ```
 
-### Configuring Shipment Metadata {#eFormidling-setup-applicationmetadata}
-Metadata related to the eFormidling shipment is required, and this is set up in `applicationmetadata.json`.  
+### Konfigurere metadata for meldingen {#eFormidling-oppsett-applicationmetadata}
+Du må konfigurere metadata for meldingen i `applicationmetadata.json`.
 
 {{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="Properties">}}
-In order to setup the required metadata you will need to create a new section `"eFormidling"` in `applicationmetadata.json` and populate values for the 
-parameters defined below.
+{{<content-version-container version-label="Egenskaper">}}
+For å sette opp nødvendig metadata, må du opprette en ny seksjon `"eFormidling"` i `applicationmetadata.json` og legge til verdier for parameterne som er definert nedenfor.
 
-|      **Property**          |      **Type**     |      **Description**                                                                                              |
+|      **Egenskap**          |      **Type**     |      **Beskrivelse**                                                                                              |
 |------------------------|---------------|---------------------------------------------------------------------------------------------------------------|
-|     serviceId **\***           |     string    |     ID that specifies the shipment type. (DPO, DPV, DPI or DPF)                                                |
-|     dpfShipmentType    |     string    |     The DPF shipment type used for routing in the receiving system                                          |
-|     receiver           |     string    |     Organisation number of the receiver (can be omitted). Only Norwegian organisations are supported.        |
-|     sendAfterTaskId    |     string    |     ID of the task to be completed before the shipment is sent.   |
-|     process **\*\***          |     string    |     Process type                                                                                              |
-|     standard **\*\*\***         |     string    |     The document standard                                |
-|     typeVersion        |     string    |     Version of the message type                                                                               |
-|     type **\*\*\***             |     string    |     The document type                                                                 |
-|     securityLevel **\*\*\***       |     number    |     Security level to be set on the _StandardBusinessDocument_                                              |
-|     dataTypes          |     array     |     List of data types to include in the shipment                                                            |
+|     serviceId **\***           |     string    |     ID som spesifiserer forsendelsestype. (DPO, DPV, DPI eller DPF)                                                |
+|     dpfShipmentType    |     string    |     DPF-forsendelsestype som brukes til ruting i mottakersystemet                                          |
+|     receiver           |     string    |     Organisasjonsnummer til mottaker (valgfritt). Kun norske organisasjoner støttes.        |
+|     sendAfterTaskId    |     string    |     ID for oppgaven som må fullføres før meldingen sendes.   |
+|     process **\*\***          |     string    |     Prosesstype                                                                                              |
+|     standard **\*\*\***         |     string    |     Dokumentstandarden                                |
+|     typeVersion        |     string    |     Versjon av meldingstypen                                                                               |
+|     type **\*\*\***             |     string    |     Dokumenttypen                                                                 |
+|     securityLevel **\*\*\***       |     number    |     Sikkerhetsnivå som skal settes på _StandardBusinessDocument_                                              |
+|     dataTypes          |     array     |     Liste over datatyper som skal inkluderes i meldingen                                                            |
 
-**\*** Altinn only supports DPF and DPO.
+**\*** Altinn støtter kun DPF og DPO.
 
-**\*\*** Available processes for each receiver can be found at:
+**\*\*** Du kan finne tilgjengelige prosesser for hver mottaker på:
 ```http
-https://platform.altinn.no/eformidling/api/capabilities/{orgnumber}
+https://platform.altinn.no/eformidling/api/capabilities/{orgnummer}
 ```
 
-**\*\*\*** Can be found within the pages describing each <a href="https://docs.digdir.no/docs/eFormidling/Utvikling/Dokumenttyper/" target="_blank" rel="noopener noreferrer">document type</a> or using the URL above.
+**\*\*\*** Du kan finne denne informasjonen på sidene som beskriver hver <a href="https://docs.digdir.no/docs/eFormidling/Utvikling/Dokumenttyper/" target="_blank" rel="noopener noreferrer">dokumenttype</a>, eller ved å bruke URL-en ovenfor.
 
 {{</content-version-container>}}
-{{<content-version-container version-label="Example">}}
-Below is an example of the configuration for the message type `arkivmelding`.
+{{<content-version-container version-label="Eksempel">}}
+Nedenfor er et eksempel på konfigurasjon for meldingstypen `arkivmelding`.
 {{< code-title >}}
   App/applicationmetadata.json
 {{< /code-title >}}
@@ -172,15 +171,15 @@ Below is an example of the configuration for the message type `arkivmelding`.
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-### Activate eFormidling Integration in your application  {#eFormidling-setup-appsettings}
-Integration with eFormidling needs to be explicitly activated in the application.  
-In `appsettings.json` you need to enable eFormidling in the `"AppSettings"`-section as well as add a new section `"EFormidlingClientSettings"`:
+### Aktivere eFormidling-integrasjon  {#eFormidling-oppsett-appsettings}
+Du må eksplisitt aktivere eFormidling-integrasjon i appen din.
+I `appsettings.json`, aktiver eFormidling i `"AppSettings"`-seksjonen og legg til en ny seksjon `"EFormidlingClientSettings"`:
 
 {{< code-title >}}
   App/appsettings.json
 {{< /code-title >}}
 
-```json {hl_lines=[5,"7-9"]} 
+```json {hl_lines=[5,"7-9"]}
 {
   ...
   "AppSettings": {
@@ -192,17 +191,17 @@ In `appsettings.json` you need to enable eFormidling in the `"AppSettings"`-sect
   }
 }
 ```
-If you do not wish to test the eFormidling integration locally, you can add an `"AppSettings"`-section to `appsettings.Development.json` and set `"EnableEFormidling"` to `false`.
+Hvis du ikke vil teste eFormidling-integrasjonen lokalt, kan du legge til en `"AppSettings"`-seksjon i `appsettings.Development.json` og sette `"EnableEFormidling"` til `false`.
 
-### Message Metadata Generation in the application {#eFormidling-setup-eFormidlingMetadata}
-It is the application developer's responsibility to create the message of the shipment sent through eFormidling.
+### Generere meldingsmetadata {#eFormidling-oppsett-eFormidlingMetadata}
+Du er ansvarlig for å opprette meldingen som sendes gjennom eFormidling.
 
 {{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="Code/Syntax">}}
+{{<content-version-container version-label="Kode/Syntaks">}}
 
-In order to create the shipment message you will need a class that implements the `IEFormidlingMetadata`-interface and create your message in the `GenerateEFormidlingMetadata`-method. Remember to register your class in [`Program.cs`](#eFormidling-setup-program).
+For å opprette meldingen, trenger du en klasse som implementerer `IEFormidlingMetadata`-grensesnittet og oppretter meldingen din i `GenerateEFormidlingMetadata`-metoden. Husk å registrere klassen din i [`Program.cs`](#eFormidling-oppsett-program).
 
-You will need to replace `YourMessageType` and `yourMessage` with your shipment message type.
+Du må erstatte `YourMessageType` og `yourMessage` med meldingstypen din.
 
 {{< code-title >}}
 App/logic/EFormidling/EFormidlingMetadata.cs
@@ -228,10 +227,10 @@ public class EFormidlingMetadata : IEFormidlingMetadata
 ```
 {{</content-version-container>}}
 
-{{<content-version-container version-label="Example">}}
-The following example shows a setup of an `EFormidlingMetadata`-class with the `arkivmelding` message type.
+{{<content-version-container version-label="Eksempel">}}
+Følgende eksempel viser hvordan du setter opp en `EFormidlingMetadata`-klasse med meldingstypen `arkivmelding`.
 
-In order for this example to work we have created a class <a download href="Arkivmelding.cs" filename="Arkivmelding.cs">`Arkivmelding`</a> (based on <a href="https://github.com/felleslosninger/docs/blob/gh-pages/resources/arkivmelding/arkivmelding.xsd" target="_blank" rel="noopener noreferrer">arkivmelding.xsd</a>). Bear in mind that this only includes the **required** parts of the arkivmelding, so if you wish to include other parts you must do so yourself.
+For at dette eksemplet skal fungere, har vi opprettet en klasse <a download href="Arkivmelding.cs" filename="Arkivmelding.cs">`Arkivmelding`</a> (basert på <a href="https://github.com/felleslosninger/docs/blob/gh-pages/resources/arkivmelding/arkivmelding.xsd" target="_blank" rel="noopener noreferrer">arkivmelding.xsd</a>). Dette inkluderer kun de **påkrevde** delene av arkivmeldingen. Hvis du vil inkludere andre deler, må du legge dem til selv.
 {{< code-title >}}
 App/logic/EFormidling/EFormidlingMetadata.cs
 {{< /code-title >}}
@@ -360,12 +359,12 @@ public class EFormidlingMetadata : IEFormidlingMetadata
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-### Dynamically setting the shipment receiver {#eFormidling-setup-eFormidlingReceivers}
+### Sette meldingsmottaker dynamisk {#eFormidling-oppsett-eFormidlingReceivers}
 
-If the receiver of a shipment needs to be set dynamically, a class implementing the `IEFormidlingReceivers`-interface needs to be created and registered in [`Program.cs`](#eFormidling-setup-program).
+Hvis du må sette meldingsmottakeren dynamisk, må du opprette en klasse som implementerer `IEFormidlingReceivers`-grensesnittet og registrere den i [`Program.cs`](#eFormidling-oppsett-program).
 
 {{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="Code/Syntax">}}
+{{<content-version-container version-label="Kode/Syntaks">}}
 {{< code-title >}}
 App/logic/EFormidling/EFormidlingReceivers.cs
 {{< /code-title >}}
@@ -386,8 +385,8 @@ public class EFormidlingReceivers : IEFormidlingReceivers
         Identifier identifier = new()
         {
             Authority = "iso6523-actorid-upis",
-            // All Norwegian organisations need a prefix of '0192:'
-            Value = "0192:{organisationNumber}"
+            // Alle norske organisasjoner må ha prefikset '0192:'
+            Value = "0192:{organisasjonsnummer}"
         };
 
         List<Receiver> receiverList = [new Receiver { Identifier = identifier }];
@@ -397,34 +396,33 @@ public class EFormidlingReceivers : IEFormidlingReceivers
 }
 ```
 
-**NB!** Note that only Norwegian organisations are supported, and that the prefix `0192:` is required before the organisation number.
+**Merk:** Kun norske organisasjoner støttes, og du må bruke prefikset `0192:` før organisasjonsnummeret.
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-### Adding a feedback task to the application process {#eFormidling-setup-process}
-While not strictly necessary, it is recommended to add a [feedback task](/nb/altinn-studio/v8/reference/process/tasks/#feedback-task) to your application. This is to ensure that the process is moved along when the message has been received.  
-No further changes are needed when the task has been added as the eFormidling service we added earlier will automatically move the process along.  
-If you wish to customize the texts that are presented to the user during this step you can do so by overriding the [text keys](/nb/altinn-studio/v8/reference/configuration/process/customize/#feedback)
+### Legge til tilbakemeldingsoppgave {#eFormidling-oppsett-process}
+Vi anbefaler at du legger til en [tilbakemeldingsoppgave](/nb/altinn-studio/v8/reference/process/tasks/#feedback-task) i app-prosessen din. Dette sikrer at prosessen fortsetter når meldingen er mottatt.
+Ingen ytterligere endringer er nødvendige når du har lagt til oppgaven, siden eFormidling-tjenesten automatisk flytter prosessen videre.
+Hvis du vil tilpasse tekstene som vises til brukeren i dette steget, kan du overstyre [tekstnøklene](/nb/altinn-studio/v8/reference/configuration/process/customize/#feedback).
 
-### Ensuring unique filenames {#eFormidling-setup-filenames}
-If the message sent by your application contains multiple attachments, it is important to ensure that these have unique filenames as the shipment will fail otherwise.  
-If the message includes the generated PDF of the form, you need to check that the other filename(s) are not the same as the application name.  
-One way to ensure unique filenames is through the use of [file validation](/nb/altinn-studio/v8/reference/logic/validation/files/).
+### Sikre unike filnavn {#eFormidling-oppsett-filenames}
+Hvis meldingen din inneholder flere vedlegg, må du sikre at de har unike filnavn. Ellers vil meldingen feile.
+Hvis meldingen din inkluderer den genererte PDF-en av skjemaet, må du sjekke at de andre filnavnene ikke er de samme som appnavnet.
+En måte å sikre unike filnavn på er gjennom [filvalidering](/nb/altinn-studio/v8/reference/logic/validation/files/).
 
 ## Testing
-Thorough testing for the eFormidling integration in an application is encouraged.  
-Safety measures and retry mechanisms are in place to ensure that a shipment reaches the receiver when errors are due to weak network connections.  
-However, invalid shipments, including but not limited to missing attachments or mistakes in the `"arkivmelding"`, will cause the shipment to fail without explicit warning to the end user or app owner.
+Test eFormidling-integrasjonen i appen din grundig.
+Sikkerhetstiltak og mekanismer for nye forsøk er på plass for å sikre at en melding når mottakeren når feil skyldes svake nettverksforbindelser.
+Imidlertid vil ugyldige meldinger (inkludert manglende vedlegg eller feil i `"arkivmelding"`) føre til at meldingen feiler uten advarsel til sluttbrukeren eller appeieren.
 
-### Local
+### Lokal testing
 {{%notice warning%}}
-For the time being it is **not** possible to test the eFormidling integration locally as <a href="https://github.com/felleslosninger/efm-mocks" target="_blank" rel="noopener noreferrer">efm-mocks</a>, which is necessary for local testing, is under renovation.
+For øyeblikket kan du ikke teste eFormidling-integrasjonen lokalt. Det er fordi vi renoverer <a href="https://github.com/felleslosninger/efm-mocks" target="_blank" rel="noopener noreferrer">efm-mocks</a> (nødvendig for lokal testing).
 {{% /notice%}}
 
-### Test environment (TT02)
-<!-- The following integration point exposes endpoints that allow you to monitor the status of a shipment in the test environment:
- -->You can monitor the status of a shipment sent in the test environment through the endpoint below.
+### Testmiljø (TT02)
+Du kan overvåke statusen til en melding som er sendt i testmiljøet gjennom endepunktet nedenfor.
 ```http
 https://platform.tt02.altinn.no/eformidling/api/conversations?messageId={instanceGuid}
 ```
-- `{instanceGuid}`: the GUID of the instance that has been archived.
+- `{instanceGuid}`: GUID-en til instansen som er arkivert.
