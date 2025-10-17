@@ -1,19 +1,22 @@
 ---
 title: Registrering av system
-description: Hvordan registrere system i Systemregisteret
+description: Denne veiledningen beskriver hvordan du som sluttbrukersystemleverandør registrerer et system i systemregisteret.
 linktitle: Registrering av system
 weight: 1
 ---
 
 ## Forutsetninger
 
-Systemleverandøren må ta kontakt med Digdir for å få tilgang til systemregisteret og systembruker-scopes. Prosedyren er beskrevet på [Samarbeidsportalen](https://samarbeid.digdir.no/). Vi anbefaler at SBS-orgnummer er lagt inn i testmiljøet TT02. SBS må ta kontakt med servicedesk@altinn.no for å få opprettet ekte orgnummer i TT02. Ta kontakt med tjenesteeier for å finne ut hvilke tilgangspakker tjeneste-API-et er tilknyttet.
+Systemleverandøren må ta kontakt med Digdir for å få tilgang til systemregisteret og systembruker-scopes. Prosedyren er beskrevet på [Samarbeidsportalen](https://samarbeid.digdir.no/altinn/kom-i-gang/2868). 
+- Vi anbefaler at SBS-orgnummer er lagt inn i testmiljøet TT02. 
+- SBS må ta kontakt med servicedesk@altinn.no for å få opprettet ekte orgnummer i TT02. 
+- Ta kontakt med tjenesteeier for å finne ut hvilke tilgangspakker tjeneste-API'et er tilknyttet.
 
-## Registrering av systemet i Altinns systemregister
+## Registrering av systemet i systemregisteret
 
-SBS leverandør registrerer deretter SBS system i Altinn systemregister via API. De definerer de nødvendige rettighetene for å få tilgang til en tjeneste ved å knytte klient-ID-en til systemet.
+Sluttbrukersystemleverandør registrerer deretter sluttbrukersystemet i Altinns systemregister via API. Der defineres de nødvendige rettighetene for å få tilgang til en tjeneste ved å knytte klient-ID'en til systemet.
 
-Org-nummer i Id og ID må matche, og det må også matche det som ligger i tokenet. Vi støtter både Maskinporten-token og Altinn-token.
+Org-nummer i "id" og "ID" må matche, samt det som ligger i tokenet. Det er støtte for både Maskinporten-token og Altinn-token.
 
 ```json
 {
@@ -104,7 +107,8 @@ Brukes for visning i Altinn-portalen.
 
 ### Rights og AccessPackages
 
-Definerer hvilke tjenester eller tilgangspakker som kreves. Disse må være satt **før** systembrukeren kan opprettes.
+Definerer hvilke tjenester eller tilgangspakker som kreves.  
+Disse **må** være satt **før** systembrukeren kan opprettes.
 
 ```json
 "rights": [
@@ -135,7 +139,7 @@ Definerer hvilke tjenester eller tilgangspakker som kreves. Disse må være satt
 
 ### ClientId
 
-Et system kan være knyttet til flere klient-ID-er. Disse klient-ID-ene genereres for integrasjoner i Maskinporten, og hver av dem er unik, knyttet spesifikt til et system.
+Et system kan være knyttet til flere klient-ID'er. Disse klient-ID'ene genereres for integrasjoner i Maskinporten, hver av dem er unik, og knyttet spesifikt til ett system.
 
 ```json
 "clientId": [
