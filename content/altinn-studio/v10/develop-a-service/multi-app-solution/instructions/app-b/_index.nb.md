@@ -1,8 +1,9 @@
 ---
 title: Applikasjon B
 linktitle: Applikasjon B
-description: Instruksjoner for å sette opp applikasjon B
+description: Slik setter du opp applikasjon B
 weight: 20
+tags: [needsReview]
 aliases:
 
 - /app/multi-app-solution/instructions/app-b
@@ -11,32 +12,26 @@ aliases:
 
 Applikasjon B er først og fremst ansvarlig for å håndtere og presentere data som den henter fra applikasjon A.
 Utover dette kan applikasjonen fungere som en vanlig Altinn-applikasjon der det siste trinnet er å sende inn skjemaet,
-og
-dermed
-avslutte livssyklusen til den opprettede instansen. På en annen side, hvis det ikke er en naturlig måte å avslutte
-instansen
-av applikasjon
-B på, må dette håndteres manuelt.
+og dermed avslutte livssyklusen til den opprettede instansen.
+Hvis det ikke er en naturlig måte å avslutte instansen av applikasjon B på, må du håndtere dette manuelt.
 
 Les følgende seksjoner for mer detaljer:
 
-- [Henting av data fra applikasjon A](#henting-av-data-fra-applikasjon-a)
-- [Stopp en aktiv instans](#stopp-en-aktiv-instans)
+- [Hente data fra applikasjon A](#hente-data-fra-applikasjon-a)
+- [Stoppe en aktiv instans](#stoppe-en-aktiv-instans)
 
-## Henting av data fra applikasjon A
+## Hente data fra applikasjon A
 
-Applikasjon B trenger mye mindre konfigurasjon, som et
-minimum. Hovedoppgaven
-for applikasjon B er å hente ut dataene mottatt
-fra applikasjon A og representere eller behandle dem på en måte.
+Applikasjon B trenger mye mindre konfigurasjon som et minimum.
+Hovedoppgaven for applikasjon B er å hente ut dataene mottatt fra applikasjon A og representere eller behandle dem på en måte.
 
 Hvis du bruker presentasjonsfelt eller prefill, som forklart
-i [alternativ 1 og 2 i den siste delen av app A-instruksjonene](/nb/altinn-studio/v8/guides/development/multi-app-solution/instructions/app-a#kontrollere-data-i-app-b)
-, er ingen tilpasset kode nødvendig.
+i [alternativ 1 og 2 i den siste delen av app A-instruksjonene](/nb/altinn-studio/v8/guides/development/multi-app-solution/instructions/app-a#kontrollere-data-i-app-b),
+trenger du ikke tilpasset kode.
 
-Hvis du benytter alternativ 3, må dataene aktivt hentes fra instansen. Dette gjøres ved å bruke
-`ProcessDataRead`-metoden i servicen `DataProcessor` sammen med `UpdateData`
-metoden på `dataClient`. Se eksempelkode nedenfor:
+Hvis du benytter alternativ 3, må du aktivt hente dataene fra instansen.
+Du gjør dette ved å bruke `ProcessDataRead`-metoden i servicen `DataProcessor` sammen med `UpdateData`-metoden på `dataClient`.
+Se eksempelkode nedenfor:
 
 ```csharp
 public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object data)
@@ -61,14 +56,11 @@ public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object 
 }
 ```
 
-## Stopp en aktiv instans
+## Stoppe en aktiv instans
 
-Siden denne applikasjonen, i de fleste tilfeller, vil fungere som
-et on-demand-dashboard for å hente inn data fra
-applikasjon A, har applikasjonen ingen naturlig måte å avslutte sin
-prosess på. For å omgå dette hindret, bør de innkommende skjemaene enten:
+Siden denne applikasjonen, i de fleste tilfeller, fungerer som
+et on-demand-dashboard for å hente inn data fra applikasjon A, har applikasjonen ingen naturlig måte å avslutte sin prosess på.
+For å omgå dette hindret, bør de innkommende skjemaene enten:
 
 1. slettes manuelt etter å ha blitt lest, eller
-2. de må implementeres med et krav om noen form for
-   brukerinteraksjon
-   som vil utløse avslutningen av prosessen. 
+2. implementeres med et krav om noen form for brukerinteraksjon som vil utløse avslutningen av prosessen. 

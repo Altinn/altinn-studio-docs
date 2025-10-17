@@ -1,5 +1,5 @@
 ---
-title: Utvikle tjenester med Altinn Studio
+title: Utvikle tjenester
 description: Her finner du veiledninger for hvordan du utvikler en tjeneste i Altinn Studio
 weight: 20
 ---

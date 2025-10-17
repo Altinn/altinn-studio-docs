@@ -1,5 +1,5 @@
 ---
-title: Planlegge en tjeneste
+title: Planlegge tjenester
 description: Plan og forbered din digitale tjeneste
 weight: 10
 ---

@@ -1,39 +1,38 @@
 ---
-title: Instruksjoner for å utvikle en flerappsløsning i Altinn
+title: Utvikle en flerappsløsning i Altinn
 linktitle: Instruksjoner
-description: Forklaringer om hvordan du går frem for å lage en generell flerappsløsning
+description: Slik går du frem for å lage en flerappsløsning
 weight: 20
+tags: [needsReview]
 aliases:
 
 - /app/multi-app-solution/instructions/app-b
 
 ---
 
-## Forutsetninger
+## Før du starter
 
-Før du starter på den tekniske implementeringen, må du sørge for at de nødvendige forutsetningene er oppfylt.
+Dette må du tenke på før du starter den tekniske implementeringen.
 
-### Funksjonelle forutsetninger
+### Funksjonelle krav
 
-1. App-utvikleren må ha tilgang til å opprette, utvikle og distribuere applikasjoner eid av en organisasjon.
-2. Et eksisterende Altinn-skjema (applikasjon A) der dataene som er ment å videresendes til applikasjon
-   B, er identifisert.
-3. Det skal være klart hvem instanse-eierne er, det vil si hvilke roller og tilganger de har.
+1. Du må ha tilgang til å opprette, utvikle og distribuere applikasjoner eid av en organisasjon.
+2. Du må ha et eksisterende Altinn-skjema (applikasjon A) der du har identifisert dataene som skal videresendes til applikasjon B.
+3. Du må vite hvem instans-eierne er, det vil si hvilke roller og tilganger de har.
 
-### Tekniske forutsetninger
+### Tekniske krav
 
-1. Applikasjonene dine bruker versjon 8 eller nyere av Altinn-nugets.
-2. Organisasjonen har allerede en eksisterende Maskinporten-klient med riktige altinn-spesifikke
-   scopes; `altinn:serviceowner/instances.read` og
+1. Applikasjonene dine må bruke versjon 8 eller nyere av Altinn-nugets.
+2. Organisasjonen må ha en eksisterende Maskinporten-klient med riktige altinn-spesifikke
+   scopes: `altinn:serviceowner/instances.read` og
    `altinn:serviceowner/instances.write`*
-3. En integrasjon mellom applikasjon(en) og klientene i Maskinporten. Dette må gjøres i applikasjonen(e)
-   som skal sende forespørsler til en annen applikasjon, hvor forespørslene må autoriseres av applikasjonenseier.*
+3. Du må ha en integrasjon mellom applikasjonen og klientene i Maskinporten. Dette må du gjøre i applikasjonene
+   som skal sende forespørsler til en annen applikasjon, der applikasjonseieren må autorisere forespørslene.*
 
-Hvis trinn 2 og 3 av de tekniske kravene mangler, se
-seksjonen [Maskinporten-App Integrering](/nb/altinn-studio/v8/guides/integration/maskinporten/)
+Hvis trinn 2 og 3 mangler, se
+[Maskinporten-App Integrering](/nb/altinn-studio/v8/guides/integration/maskinporten/)
 
-\* _Hvis sluttbrukeren av applikasjon A har de nødvendige rollene for å instansiere applikasjon B på vegne av den
-tiltenkte
-mottakeren, kan du hoppe over disse tekniske kravene._
+\* _Hvis sluttbrukeren av applikasjon A har de nødvendige rollene til å opprette applikasjon B på vegne av den
+tiltenkte mottakeren, kan du hoppe over disse tekniske kravene._
 
 {{<children description="true"/>}}

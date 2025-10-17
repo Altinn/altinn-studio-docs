@@ -1,39 +1,38 @@
 ---
-title: Instructions for making a multi-app solution in Altinn
+title: Develop a Multi-app Solution in Altinn
 linktitle: Instructions
-description: Explanations of how to go about when creating a general multi-app solution
+description: How you proceed to create a multi-app solution
 weight: 20
+tags: [needsReview]
 aliases:
 
 - /app/multi-app-solution/instructions/
 
 ---
 
-## Prerequisites
+## Before You Start
 
-Before starting on the technical implementation, please make sure the
-required prerequisites are met.
+This is what you need to consider before you start the technical implementation.
 
-### Functional Prerequisites
+### Functional Requirements
 
-1. The app developer must have access to create, develop and deploy applications owned by an organization.
-2. An existing Altinn form (application A) where the data that is intended forwarded to application B is identified.
-3. It should be clear who the instance owners are, meaning what roles and access they acquire.
+1. You must have access to create, develop and deploy applications owned by an organisation.
+2. You must have an existing Altinn form (application A) where you have identified the data to be forwarded to application B.
+3. You must know who the instance owners are, meaning which roles and access they have.
 
-### Technical Prerequisites
+### Technical Requirements
 
-1. Your applications are using version 8 or newer of the Altinn nugets.
-2. The organization possesses an already existing Maskinporten client with the altinn-specific
-   scopes; `altinn:serviceowner/instances.read` and
+1. Your applications must use version 8 or newer of the Altinn NuGet packages.
+2. The organisation must have an existing Maskinporten client with the correct Altinn-specific
+   scopes: `altinn:serviceowner/instances.read` and
    `altinn:serviceowner/instances.write`*
-3. An integration between the application(s) and the clients in Maskinporten. This must be done in the application(s)
-   that are going to send requests to another application, which requests needs to be authorized by the application
-   owner.*
+3. You must have an integration between the application and the clients in Maskinporten. You must do this in the applications
+   that will send requests to another application, where the application owner must authorise the requests.*
 
-If step 2 and 3 of the technical requirements are missing see
-section [Maskinporten-App Integration](/en/altinn-studio/v8/guides/integration/maskinporten/)
+If steps 2 and 3 are missing, see
+the section [Maskinporten-App Integration](/en/altinn-studio/v8/guides/integration/maskinporten/)
 
-\* _If the end user of application A have the required roles to instantiate application B on behalf of the intended
-recipient, you can skip these technical requirements_
+\* _If the end-user of application A has the necessary roles to create application B on behalf of the intended
+recipient, you can skip these technical requirements._
 
 {{<children description="true"/>}}
