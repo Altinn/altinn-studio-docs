@@ -32,7 +32,7 @@ You activate the resource management system by creating a specific repository an
 See [Resource Management](https://docs.altinn.studio/authorization/getting-started/resource-admin-studio/#create-the-resource-admin-repository-for-the-organization) for a detailed guide.
 {{% /expandlarge %}}
 
-{{% expandlarge id="egisteraresourceinaltinnresourceregistry" header="4. Create a Resource" %}}
+{{% expandlarge id="registeraresourceinaltinnresourceregistry" header="4. Create a Resource" %}}
 
 1. Log in to Altinn Studio and navigate to the resource dashboard.
    

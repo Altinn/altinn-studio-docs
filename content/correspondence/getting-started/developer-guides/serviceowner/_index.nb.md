@@ -33,7 +33,7 @@ Man aktiverer ressursadministrasjonen ved å opprette et spesifikt repo (reposit
 Se [Ressursadministrasjon](https://docs.altinn.studio/nb/authorization/getting-started/resource-admin-studio/#opprett-ressursadministrasjonsarkivet-for-organisasjonen) for en detaljert veiledning.
 {{% /expandlarge %}}
 
-{{% expandlarge id="egisteraresourceinaltinnresourceregistry" header="4. Opprett en ressurs" %}}
+{{% expandlarge id="registeraresourceinaltinnresourceregistry" header="4. Opprett en ressurs" %}}
 
 1. Logg inn på Altinn Studio og naviger til ressursdashboardet.
 
