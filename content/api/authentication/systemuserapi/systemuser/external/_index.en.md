@@ -4,34 +4,46 @@ linktitle: Systemuser API
 description: API to get system user information
 toc: true
 ---
+
 ## Verify Party Integration
+
 Validates whether the organization requesting a token from Maskinporten has a system user associated with the specified credentials.
-For a detailed description of the response model, please refer to this [link](model) 
+For a detailed description of the response model, please refer to this [link](model)
 
 ### Endpoint
+
 GET authentication/api/v1/systemuser/byExternalId?clientid=&systemproviderorgno=&systemuserownerorgno=&externalref=
 
 ### Scopes
+
 Maskinporten token with scope <mark>altinn:maskinporten/systemuser.read</mark>
 
+To apply for system user scopes, see [Prerequisites for system registration](/en/authorization/guides/system-vendor/system-user/systemregistration/#forutsetninger).
+
 ### Content types
+
 application/json
 
 ## Query Parameters
 
 #### clientid
+
 The client id credential from the Maskinporten integration
 
 #### systemproviderorgno
+
 The organization number of the system vendor
 
 #### systemownerorgno
+
 The organisation numner of the system user
 
 #### externalref
+
 The external reference provided by the system vendor in the system user request. This is an optional parameter and defaults to system user organisation number.
 
 ### Example Response
+
 ```
 {
     "id": "704013ee-e82a-433e-83c5-a40e6e00d746",
@@ -52,20 +64,25 @@ The external reference provided by the system vendor in the system user request.
 ## List all system users for a system
 
 ### Endpoint
+
 GET authentication/api/v1/systemuser/vendor/bysystem/{systemId}
 
 ### Scopes
+
 Maskinporten token with scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
+
 application/json
 
 ## Query Parameters
 
 #### systemid
+
 The unique identifier of the registered system
 
 ### Example Response
+
 ```
 {
     "links": {},
