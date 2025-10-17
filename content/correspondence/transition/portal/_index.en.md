@@ -7,7 +7,7 @@ toc: false
 weight: 40
 ---
 
-To quickly have a GUI solution for end users independent of the delivery of Arbeidsflate, the current Altinn 2 portal is extended to fetch and display Altinn 3 Correspondences.
+To quickly have a GUI solution for end users independent of the delivery of Arbeidsflate, the current Altinn 2 portal has been extended to fetch and display Altinn 3 Correspondences.
 This enables a similar user experience for end users who do not receive Correspondences via end-user systems, by allowing them to access their Correspondences in the same portal and view as before.
 
 The display will be largely similar to the existing display of Altinn 2 Correspondences, and all elements will be shown in the same list, but with some differences.

@@ -27,13 +27,13 @@ In Altinn 3, only one Maskinporten token is issued per consent. This token ident
 {
     "authorization_details": [
         {
-            "type": "urn:altinn:concent",
+            "type": "urn:altinn:consent",
             "id": "b55b0a8c-46db-4239-a417-a89daabfabba",
             "from": "urn:altinn:person:identifier-no:01039012345",
             "to": "urn:altinn:organization:identifier-no:984851006",
-            "concented": "2024-06-01T00:00:00Z",
+            "consented": "2024-06-01T00:00:00Z",
             "validTo": "2024-12-10T00:00:00Z",
-            "concentrights": [
+            "consentRights": [
                 {
                     "action": ["read", "write"],
                     "resource": [
@@ -132,6 +132,65 @@ Data consumers initiate the process by creating a consent request. This contains
 | `consentRights`  | Required: Rights and resources for which access is requested                |
 | `requestmessage` | Optional: Message to the user. Depends on the service.                     |
 | `redirectUrl`    | Optional: URL for redirect after consent. Must be provided if user is redirected. |
+
+Response consent request
+ 
+```json
+{
+  "id": "0197593f-1794-7748-b5f2-91086bbecc3e",
+  "from": "urn:altinn:person:identifier-no:01025161013",
+  "to": "urn:altinn:organization:identifier-no:810419512",
+  "requiredDelegator": null,
+  "handledBy": null,
+  "validTo": "2025-06-11T09:49:56.506324+00:00",
+  "consentRights": [
+    {
+      "action": [
+        "read"
+      ],
+      "resource": [
+        {
+          "type": "urn:altinn:resource",
+          "value": "ttd_inntektsopplysninger"
+        }
+      ],
+      "metaData": {
+        "INNTEKTSAAR": "2022"
+      }
+    },
+    {
+      "action": [
+        "read"
+      ],
+      "resource": [
+        {
+          "type": "urn:altinn:resource",
+          "value": "ttd_skattegrunnlag"
+        }
+      ],
+      "metaData": {
+        "fraOgMed": "2018-03",
+        "tilOgMed": "2018-06"
+      }
+    }
+  ],
+  "requestMessage": {
+    "en": "Please approve this consent request"
+  },
+  "consented": null,
+  "redirectUrl": "https://www.dnb.no",
+  "consentRequestEvents": [
+    {
+      "consentEventID": "0197593f-6ac8-788b-873d-1a9949cfb389",
+      "created": "2025-06-10T09:50:17.45368+00:00",
+      "performedBy": "urn:altinn:organization:identifier-no:810419512",
+      "eventType": "Created",
+      "consentRequestID": "0197593f-1794-7748-b5f2-91086bbecc3e"
+    }
+  ],
+  "viewUri": "https://am.ui.localhost/accessmanagement/ui/consent/request?id=0197593f-1794-7748-b5f2-91086bbecc3e"
+}
+```
 
 ### 4. Use of vendors
 

@@ -9,20 +9,21 @@ weight: 5
 
 Det er bare Sluttbrukersystemleverandør (SBSL) som kan be om en endring av en Systembruker, dette fordi det er deres oppgave å vite hvilke tilganger som trengs for systemet, ihht hvordan de skal integrere seg mot en Tjeneste Eier sitt API. Men det er Sluttbruker selv som må godkjenne endringen, fordi det er Sluttbruker som “eier” SystemBrukeren. Dersom en organisasjon er både “leverandør” og sluttbruker, må de likevel igjennom prosessen med å opprette en endringsforespørsel, og deretter godkjenne den.
 
+## Endepunkt for å hente en eksisterende SystemBruker for sitt eget system.
+- {{API_BASE_URL}}/authentication/api/v1/systemuser/vendor/byquery?system-id={system-id-string}&orgno={organisasjon nummer}&external-ref={bare dersom brukt ved opprettelse}
+
 ## Opprettelse av en Forespørsel om Endring 
 
-SBSL må sende inn en Change Request til vårt API på endepunkt:
+SBSL må sende inn en Change Request til vårt API på endepunkt. Der må det oppgis Id for SystemBrukeren som kan hentes på et eget endepunkt; samt en unik ny uuid for selve endringsforespørselen. 
 
 For enten TT02 eller PROD:
-https://platform.tt02.altinn.no/authentication/api/v1/systemuser/changerequest/vendor?correlation-id={uuid}&system-id={system-id-string}&orgno={987654321}
+- https://platform.tt02.altinn.no/authentication/api/v1/systemuser/changerequest/vendor?correlation-id={uuid}&system-user-id={system-user-uuid}
 eller
-https://platform.altinn.no/authentication/api/v1/systemuser/changerequest/vendor?correlation-id={uuid}&system-id={system-id-string}&orgno={987654321}
+- https://platform.altinn.no/authentication/api/v1/systemuser/changerequest/vendor?correlation-id={uuid}&system-user-id={system-user-uuid}
 
 Med Query Parameters: 
-**correlation-id** required ,  SBSL generer et gyldig UUID selv, unik for hver POST change request , brukes i senere GET call osv... 
-**system-id**  required , SBSL sitt system i SystemRegisteret, som SystemBruker var opprett fra 
-**orgno**   required,  for Sluttbruker sin organisasjon, vanlig norsk orgno fra ER 
-**external-ref** nullable ,  fylles kun ut dersom den var oppgitt for å opprette SystemBrukeren, dersom den var brukt under opprettelse, må den være med
+- **correlation-id** required ,  SBSL generer et gyldig UUID selv, unik for hver POST change request , brukes i senere GET call.
+- **system-user-id** required. Den unike UUID id for SystemBruker
 
 Eksempel på Post request body’en kan vi ta imot disse fem feltene:
 
