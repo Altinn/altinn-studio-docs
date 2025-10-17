@@ -49,9 +49,9 @@ Altinn itself offers APIs for requesting consent and retrieving the status of co
 
 #### Request (example)
 
-```json
+```jsonc
 {
-  "id": "77ed8698-e619-4066-9eb4-5c1eb3f165a1",
+  "id": "77ed8698-e619-4066-9eb4-5c1eb3f165a1", // per-request unique ID
   "from": "urn:altinn:person:identifier-no:21818297804",
   "to": "urn:altinn:organization:identifier-no:991825827",
   "validTo": "2026-07-18T06:18:12.2597103+00:00",
@@ -87,7 +87,7 @@ Altinn itself offers APIs for requesting consent and retrieving the status of co
 
 #### Response (example)
 
-```json
+```jsonc
 {
   "id": "77ed8698-e619-4066-9eb4-5c1eb3f165a1",
   "from": "urn:altinn:person:identifier-no:21818297804",
@@ -141,7 +141,7 @@ Altinn itself offers APIs for requesting consent and retrieving the status of co
 
 In Altinn 3, the consent token is retrieved as part of the Maskinporten token. Specify the following in the JWT:
 
-```json
+```jsonc
 {
   "aud": "https://ver2.maskinporten.no/",
   "scope": "<scope>",
@@ -163,7 +163,7 @@ To create consent requests on behalf of other organizations, the scope must be d
 2. The request is created as described above.
 3. When retrieving the token, also specify `consumer_org`:
 
-```json
+```jsonc
 {
   "aud": "https://ver2.maskinporten.no/",
   "scope": "<scope>",
