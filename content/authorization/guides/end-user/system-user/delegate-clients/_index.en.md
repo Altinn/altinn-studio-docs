@@ -36,15 +36,15 @@ This applies to relationships where you don't have any established client relati
 0. System user for Agent relationship is created for organization (Varm Økonomisk Ape, 311037889)
    ![Step 0 - Create system user](add_user0.png)
 
-1. **Grant authorization to the organization that owns the system user**
+1. Grant authorization to the organization that owns the system user
    ![Step 1 - Grant authorization](add_user1.png)
 
-2. **Delegate access package to the organization**
+2. Delegate access package to the organization
    You must log in as a potential "client" and then grant authorization to Varm Økonomisk Ape and delegate the access package that the System User is set up with to Varm Økonomisk Ape.
-   You have now established a client relationship that can be used for the System User
+   You have now established a client relationship that can be used for the System User.
    ![Step 2 - Delegate access package](add_user2.png)
 
-3. **The organization that owns the System User (Varm Økonomisk Ape) can now add clients for the System User**
+3. The organization that owns the System User (Varm Økonomisk Ape) can now add clients for the System User
    ![Step 3 - Add clients](add_user3.png)
 
 After establishing client relations through these steps, you can proceed with the standard client delegation process described above.
