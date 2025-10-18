@@ -32,10 +32,10 @@ Note that for clients that are browser-based, including the Altinn.no-portal, th
 
 | Claim            | Description                                                                                                                                                        | Example                                                                           |
 |------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| c                | Authenticated as a consumer of Dialogporten. The prefix for either individuals (typically ID-porten), organizations (typically Maskinporten), or self-registered users. | `"urn:altinn:person:identifier-no::12018212345` `"urn:altinn:organization:identifier-no::991825827"` `"urn:altinn:party-identifier:username::someemail@example.com"` |
+| c                | Authenticated as a consumer of Dialogporten. The prefix for either individuals (typically ID-porten), organizations (typically Maskinporten), or self-registered users. | `"urn:altinn:person:identifier-no:12018212345` `"urn:altinn:organization:identifier-no:991825827"` `"urn:altinn:party-identifier:username:someemail@example.com"` |
 | l                | Security level of authentication (4)                                                                                                                                | `4`                                                                               |
-| u                | Optional. If a provider token in Maskinporten has been used, the authenticated provider's organization number will be given here.                                     | `"urn:altinn:organization:identifier-no::991825827"`                                                                  |
-| p                | Whom the consumer is acting on behalf of (if not themselves), i.e., who owns the relevant dialogue.                                                                 | `"urn:altinn:person:identifier-no::12018212345"` `"urn:altinn:organization:identifier-no::991825827"`  `"urn:altinn:party-identifier:username::someemail@example.com"` |
+| u                | Optional. If a provider token in Maskinporten has been used, the authenticated provider's organization number will be given here.                                     | `"urn:altinn:organization:identifier-no:991825827"`                                                                  |
+| p                | Whom the consumer is acting on behalf of (if not themselves), i.e., who owns the relevant dialogue.                                                                 | `"urn:altinn:person:identifier-no:12018212345"` `"urn:altinn:organization:identifier-no:991825827"`  `"urn:altinn:party-identifier:username:someemail@example.com"` |
 | i                | Unique identifier of the dialogue.                                                                                                                                  | `"e0300961-85fb-4ef2-abff-681d77f9960e"`                                           |
 | s                | The service resource that the dialogue refers to.                                                                                                                   | `"urn:altinn:resource:super-simple-service"`                                      |
 | a                | Authorized actions/authorization attributes.                                                                                                                        | `"read;write;sign;elementread,urn:altinn:subresource:authorizationattribute1"`                                    |
@@ -50,10 +50,10 @@ Note that for clients that are browser-based, including the Altinn.no-portal, th
 }
 // .
 {
-  "c": "urn:altinn:person:identifier-no::12018212345", 
+  "c": "urn:altinn:person:identifier-no:12018212345", 
   "l": 4,  
-  "u": "urn:altinn:organization:identifier-no::825827991",
-  "p": "urn:altinn:organization:identifier-no::991825827", 
+  "u": "urn:altinn:organization:identifier-no:825827991",
+  "p": "urn:altinn:organization:identifier-no:991825827", 
   "i": "e0300961-85fb-4ef2-abff-681d77f9960e",
   "s": "urn:altinn:resource:super-simple-service",
   "a": "read;write;sign;elementread,urn:altinn:subresource:autorisasjonsattributt1",
