@@ -641,6 +641,7 @@ code {
     border: 1px solid #fbf0cb;
     padding: 0px 2px;
     white-space : pre-wrap !important;
+		word-wrap: break-word;
 }
 code + .copy-to-clipboard {
     margin-left: -1px;
