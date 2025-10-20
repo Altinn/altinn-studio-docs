@@ -42,11 +42,16 @@ Det er mulig å bestille en manuell import av delegeringer fra en Altinn 2 meldi
 
 NB: Pass på å ha etablert ny ressurs i de aktuelle miljø før bestilling.
 
+{{% notice warning  %}}
+**Viktig:** Altinn anbefaler **IKKE** å migrere rettigheter uten en grundig risikovurdering i forkant. Vår erfaring er at det ikke er alle virksomheter som har et aktivt forhold til hvem som har tilganger i Altinn. Dette kan medføre at det er flere personer med tilganger, som kanskje ikke har tjenestelig behov. Vi mener dermed kan medføre en risiko å ukritisk kopiere over eksisterende Altinn II delegeringer til nye Altinn 3 ressurser. 
+{{% /notice %}}
+
+
+
 For å få bestilt import av delegeringer så send en e-post:
-To:tjenesteeier@altinn.no
-Subjekt: "Import av delegeringer fra Altinn 2 Meldingstjeneste til Altinn 3 Ressurs"
-I teksten:
-Angi hvilke miljø og tidspunkt dette skal utføres, samt:
+- To: tjenesteeier@altinn.no
+- Subjekt: "Import av delegeringer fra Altinn 2 Meldingstjeneste til Altinn 3 Ressurs"
+- I teksten: Angi hvilke miljø og tidspunkt dette skal utføres, samt:
 Angi per tjeneste; Altinn 2 tjenestekode og utgavekode som skal være kilde samt den Altinn 3 Ressursen som skal få dette importert.
 Spesifiser: "Ønsker at saken sendes til Altinn 2 Forvaltning".
 
