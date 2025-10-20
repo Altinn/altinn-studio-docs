@@ -1,39 +1,37 @@
 ---
-title: Application B
-linktitle: Application B
-description: Instructions for setting up application B
+title: App B
+linktitle: App B
+description: How to set up app B
 weight: 20
+tags: [needsReview]
 aliases:
 
 - /app/multi-app-solution/instructions/app-b
 
 ---
 
-Application B is first and foremost responsible for handling and presenting data which it retrieves from application A.
-Beyond this the application can act as a regular Altinn application where the final step is to submit the form, thus
-ending the lifecycle of the created instance. However, if there is no natural way of ending the instance of application
-B, this must be handled manually. 
+App B is first and foremost responsible for handling and presenting data which it retrieves from app A.
+Beyond this, the app can function as a regular Altinn app where the final step is to submit the form,
+thereby ending the lifecycle of the created instance.
+If there is no natural way of ending the instance of app B, this must be handled manually.
 
+Read the following sections for more details:
 
-Read the following sections for more details on:
+- [Retrieve data from app A](#retrieve-data-from-app-a)
+- [Stop an active instance](#stop-an-active-instance)
 
-- [Getting Data From Application A](#getting-data-from-application-a)
-- [Stopping an active instance](#stopping-an-active-instance)
+## Retrieve data from app A
 
-## Getting Data From Application A
+App B needs much less configuration as a minimum.
+The main task for app B is to retrieve the data received from app A and represent or process it in some way.
 
-Application B needs much less configuration, as a
-bare minimum, at least. The main task
-for application B is to fetch the data received
-from application A and represent or process them in a way.
+If you are using presentation fields or prefill, as explained
+in [alternatives 1 and 2 in the final part of the app A instructions](/en/altinn-studio/v8/guides/development/multi-app-solution/instructions/app-a#control-data-in-app-b),
+you do not need custom code.
 
-If using presentation fields or prefill, as explained
-in [alternative 1 and 2 in the final part of app A instructions](/en/altinn-studio/v8/guides/development/multi-app-solution/instructions/app-a#control-data-in-app-b)
-, no custom code is required.
-
-If utilizing alternative 3, the data needs to be actively fetched from the instance. This is done by utilizing
-the `ProcessDataRead` method in the `DataProcessor` service along with the `UpdateData`
-method on the `dataClient`. See example code below:
+If you are using alternative 3, you must actively retrieve the data from the instance.
+You do this by using the `ProcessDataRead` method in the `DataProcessor` service together with the `UpdateData` method on the `dataClient`.
+See example code below:
 
 ```csharp
 public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object data)
@@ -49,7 +47,7 @@ public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object 
        if (data != null)
        {
            var instanceGuid = Guid.Parse(instance.Id.Split("/")[1]);
-          
+
            await _dataClient.UpdateData(model, instanceGuid, typeof(DataModel), instance.Org, instance.AppId, int.Parse(instance.InstanceOwner.PartyId), Guid.Parse(instance.Data.Where(de => de.DataType == [DATA_TYPE]).First().Id));
            edited = true;
        }
@@ -58,14 +56,11 @@ public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object 
 }
 ```
 
-## Stopping an active instance
+## Stop an active instance
 
-Since this application, in most cases, will act as
-an on-demand dashboard for collecting data from
-application A, the application has no natural way of ending its
-process. To bypass this obstacle, the incoming forms should either:
+Since this app, in most cases, functions as
+an on-demand dashboard for retrieving data from app A, the app has no natural way of ending its process.
+To circumvent this obstacle, the incoming forms should either:
 
 1. be manually deleted after being read, or
-2. they must be implemented with a demand of some sort of
-   user interaction
-   that will trigger the process to end. 
+2. be implemented with a requirement for some form of user interaction that will trigger the end of the process. 

@@ -1,7 +1,7 @@
 ---
-title: Applikasjon B
-linktitle: Applikasjon B
-description: Slik setter du opp applikasjon B
+title: App B
+linktitle: App B
+description: Slik setter du opp app B
 weight: 20
 tags: [needsReview]
 aliases:
@@ -10,20 +10,20 @@ aliases:
 
 ---
 
-Applikasjon B er først og fremst ansvarlig for å håndtere og presentere data som den henter fra applikasjon A.
-Utover dette kan applikasjonen fungere som en vanlig Altinn-applikasjon der det siste trinnet er å sende inn skjemaet,
+App B er først og fremst ansvarlig for å håndtere og presentere data som den henter fra app A.
+Utover dette kan appen fungere som en vanlig Altinn-app der det siste trinnet er å sende inn skjemaet,
 og dermed avslutte livssyklusen til den opprettede instansen.
-Hvis det ikke er en naturlig måte å avslutte instansen av applikasjon B på, må du håndtere dette manuelt.
+Hvis det ikke er en naturlig måte å avslutte instansen av app B på, må du håndtere dette manuelt.
 
 Les følgende seksjoner for mer detaljer:
 
-- [Hente data fra applikasjon A](#hente-data-fra-applikasjon-a)
+- [Hente data fra app A](#hente-data-fra-app-a)
 - [Stoppe en aktiv instans](#stoppe-en-aktiv-instans)
 
-## Hente data fra applikasjon A
+## Hente data fra app A
 
-Applikasjon B trenger mye mindre konfigurasjon som et minimum.
-Hovedoppgaven for applikasjon B er å hente ut dataene mottatt fra applikasjon A og representere eller behandle dem på en måte.
+App B trenger mye mindre konfigurasjon som et minimum.
+Hovedoppgaven for app B er å hente ut dataene mottatt fra app A og representere eller behandle dem på en måte.
 
 Hvis du bruker presentasjonsfelt eller prefill, som forklart
 i [alternativ 1 og 2 i den siste delen av app A-instruksjonene](/nb/altinn-studio/v8/guides/development/multi-app-solution/instructions/app-a#kontrollere-data-i-app-b),
@@ -58,8 +58,8 @@ public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object 
 
 ## Stoppe en aktiv instans
 
-Siden denne applikasjonen, i de fleste tilfeller, fungerer som
-et on-demand-dashboard for å hente inn data fra applikasjon A, har applikasjonen ingen naturlig måte å avslutte sin prosess på.
+Siden denne appen, i de fleste tilfeller, fungerer som
+et on-demand-dashboard for å hente inn data fra app A, har appen ingen naturlig måte å avslutte sin prosess på.
 For å omgå dette hindret, bør de innkommende skjemaene enten:
 
 1. slettes manuelt etter å ha blitt lest, eller

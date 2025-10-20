@@ -45,6 +45,7 @@ This is a Hugo-based documentation site for Altinn products like Altinn Studio, 
 - **Mouse actions**: Use "klikk" for mouse clicks
 - **Keyboard actions**: Use "trykk" for keyboard actions
 - **Selections**: Use "velg" when choosing from lists or multiple options
+- **Lists**: Use numbered lists ONLY when users must perform tasks in a specific order. If order doesn't matter (requirements, features, options, considerations), use bullet points
 
 ### Headings in Norwegian
 - **Main headings**: Use infinitive form of verb. Example: "Opprette tjenesten"
@@ -60,7 +61,11 @@ This is a Hugo-based documentation site for Altinn products like Altinn Studio, 
   - Tutorials and guides
 
 ### English Translation
-- Translate to British English
-- Follow Oxford Style Guide for capitalization in headings
+- Translate to British English (organisation, authorise, whilst, etc.)
+- **Headings in English**: Use sentence case - only capitalise the first word and proper nouns. Examples:
+  - ✅ Correct: "Understand what a multi-app solution is"
+  - ❌ Wrong: "Understand What a Multi-App Solution Is"
+  - ✅ Correct: "Integrate the app with Maskinporten"
+  - ❌ Wrong: "Integrate the App with Maskinporten"
 - **Important**: Since the product (Altinn Studio) is not available in English, keep all GUI element references in Norwegian when translating
-- Use translation tool or follow British English conventions
+- Use "end user" (not "end-user") throughout
