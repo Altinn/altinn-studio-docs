@@ -33,7 +33,7 @@ I Altinn 3 utstedes kun ett Maskinporten-token per samtykke. Dette tokenet ident
             "to": "urn:altinn:organization:identifier-no:984851006",
             "consented": "2024-06-01T00:00:00Z",
             "validTo": "2024-12-10T00:00:00Z",
-            "consentrights": [
+            "consentRights": [
                 {
                     "action": ["read", "write"],
                     "resource": [
@@ -148,7 +148,7 @@ Datakonsumenter starter prosessen ved å opprette en samtykkeforespørsel. Denne
 | `validTo`      | Påkrevd: Dato/tid samtykket er gyldig til                                   |
 | `consentRights`| Påkrevd: Rettigheter og ressurser det bes om tilgang til                    |
 | `requestmessage`| Valgfritt: Melding til bruker. Avhenger av tjenesten.                                     |
-| `redirectUrl`  | Valgfritt: URL for redirect etter samtykke. Må oppgis hvis bruker sendes tilbake.
+| `redirectUrl`  | Valgfritt: URL for redirect etter samtykke. Må oppgis hvis bruker sendes tilbake. |
  
  
 Respons samtykkeforespørsel
@@ -209,9 +209,8 @@ Respons samtykkeforespørsel
   "viewUri": "https://am.ui.localhost/accessmanagement/ui/consent/request?id=0197593f-1794-7748-b5f2-91086bbecc3e"
 }
 ```
- 
-                                 |
- 
+
+
 ### 4. Bruk av leverandører
  
 Det er mulig å benytte leverandører (tredjepartsaktører) til å opprette samtykkeforespørsler og hente ut data på vegne av datakonsumenten.
