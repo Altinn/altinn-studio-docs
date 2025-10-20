@@ -137,7 +137,7 @@ Før produksjonssetting bør du verifisere at meldinger vises riktig for mottake
 **Merk**: Støttede formateringstagger (Markdown og HTML) er dokumentert her: [Oversikt over tillatte markdown og HTML tagger](https://docs.altinn.studio/nb/dialogporten/reference/front-end/front-channel-embeds/#markdown-og-html)
 {{% /expandlarge %}}
 
-### 10. Sett opp hendelsesabonnementer {#set-up-event-subscriptions}
+{{% expandlarge id="set-up-event-subscriptions" header="10. Sett opp hendelsesabonnementer" %}}
 
 For å kunne motta varsler om endringer eller hendelser knyttet til dine meldingstjenester, må du sette opp et abonnement for den aktuelle tjenesten.
 Dette trinnet er spesielt viktig for deg som ønsker å få automatiserte varsler om hendelser fra meldingstjenesten. Hvis du ikke trenger varsler, kan du hoppe over dette trinnet.
