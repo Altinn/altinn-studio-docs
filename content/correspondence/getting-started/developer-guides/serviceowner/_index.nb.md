@@ -43,17 +43,24 @@ Se [Ressursadministrasjon](https://docs.altinn.studio/nb/authorization/getting-s
    - "read" ment for at mottakere skal kunne åpne og lese en melding.
    - "write" ment for at avsendere skal kunne sende en melding.
    - "subscribe" for å registrere hendelsesabonnement i Altinn Events.
+4. Altinn II rollene erstattes av tilgangspakker i Altinn 3. Frem til juni 2026 anbefaler vi at man setter både roller og tilgangspakker på ressursen. Det er viktig å ta en grundig vurdering på hvilken tilgangspakke ressursen skal ha. 
+   - **Vanlig post:** Den gamle Altinn II rollen "Post/arkiv" erstattes av tilgangspakken "Ordinær post til virksomheten".
+   - **Taushetsbelagt post:** Dersom ressursen skal være taushetsbelagt må dere: 
+      - velge tilgangspakken "Post til virksomheten med taushetsbelagt innhold"
+      - sende med flagget "IsConfidential" satt til: "true".
 
-   Obs. Altinn II rollene erstattes av tilgangspakker i Altinn 3. Eksempel: den gamle rollen "Post/arkiv" er erstattet av tilgangspakke "Ordinær post til virksomheten". Frem til juni 2026 anbefaler vi at man setter både roller og tilgangspakker på ressursen. Det er viktig at å ta en grundig vurdering på hvilken tilgangspakke ressursen skal ha.
+         Les mer om taushetsbelagt post [her](https://docs.altinn.studio/nb/correspondence/explanation/taushetsbelagt-post/).
 
-Her er en [eksempelpolicy](https://docs.altinn.studio/nb/correspondence/getting-started/ExamplePolicy.xml).
+**Eksempelpolicy:**
+
+Merk at denne eksempelpolicyen angir en påkrevd brukerrolle "DAGL(daglig leder)" for brukeren som har tilgang til ressursen. Med en så åpen policy er det anbefalt å bruke [Ressursrettighetsregister](https://docs.altinn.studio/nb/authorization/what-do-you-get/resourceregistry/) (gå til engelsk språk for å se dokumentasjon for RRR) for å gi tilgang til spesifikke organisasjoner.
+En bruker med denne tilgangen kan deretter delegere tilgangen til virksomhetsbruker/systembruker.
 
 {{% notice warning  %}}
 **Viktig**: Som tjenesteeier trenger du kun å sette opp "read"-regler via tilgangspakker i GUI-et.
 {{% /notice %}}
 
-Merk at denne eksempelpolicyen angir en påkrevd brukerrolle "DAGL(daglig leder)" for brukeren som har tilgang til ressursen. Med en så åpen policy er det anbefalt å bruke [Ressursrettighetsregister](https://docs.altinn.studio/nb/authorization/what-do-you-get/resourceregistry/) (gå til engelsk språk for å se dokumentasjon for RRR) for å gi tilgang til spesifikke organisasjoner.
-En bruker med denne tilgangen kan deretter delegere tilgangen til virksomhetsbrukeren/systembrukeren
+Her er [eksempelpolicyen](https://docs.altinn.studio/nb/correspondence/getting-started/ExamplePolicy.xml).
 
 **TIPS**: Verifiser konfigurasjonene dine ved hjelp av [Postman-samlingen](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json), og erstatt testtokenene med enten dine egne Altinn-tokens (se "Logg inn i Maskinporten (Initialiser)" forespørsel i Authenticator-mappen) eller dine Maskinporten-tokens, avhengig av hva du velger for autentiseringsmetode.
 {{% /expandlarge %}}
