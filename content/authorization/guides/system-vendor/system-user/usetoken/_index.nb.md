@@ -98,7 +98,7 @@ Tokenet inneholder en liste med systembrukere som tilhører kundens organisasjon
 **Merk:** Tokenet fra Maskinporten skal brukes som Bearer-token i API-kallene.
 {{% /notice%}}
 
-## Demoklient
+### Demoklient
 
 For en demonstrasjon av leverandørstyrt opprettelse, se vår demoklient [SmartCloud](http://smartcloudaltinn.azurewebsites.net).
 
