@@ -137,15 +137,7 @@ Før produksjonssetting bør du verifisere at meldinger vises riktig for mottake
 **Merk**: Støttede formateringstagger (Markdown og HTML) er dokumentert her: [Oversikt over tillatte markdown og HTML tagger](https://docs.altinn.studio/nb/dialogporten/reference/front-end/front-channel-embeds/#markdown-og-html)
 {{% /expandlarge %}}
 
-{{% expandlarge id="whitelist-resource" header="10. Hvitlist ressurs i produksjon" %}}
-
-Før du kan sende meldinger i produksjon, må ressursen din hvitlistes av Altinn.
-Be om hvitlisting i `#produkt-melding` i Digdir samarbeid på Slack eller send e‑post til [ServiceDesk](mailto:servicedesk@altinn.no). Husk å inkludere resourceId-en for ressursen som skal hvitelistes.
-
-Dette steget er kun nødvendig i produksjon (ikke ved testing i `TT02`).
-{{% /expandlarge %}}
-
-{{% expandlarge id="set-up-event-subscriptions" header="11. Sett opp hendelsesabonnementer" %}}
+{{% expandlarge id="set-up-event-subscriptions" header="10. Sett opp hendelsesabonnementer" %}}
 
 For å kunne motta varsler om endringer eller hendelser knyttet til dine meldingstjenester, må du sette opp et abonnement for den aktuelle tjenesten.
 Dette trinnet er spesielt viktig for deg som ønsker å få automatiserte varsler om hendelser fra meldingstjenesten. Hvis du ikke trenger varsler, kan du hoppe over dette trinnet.
