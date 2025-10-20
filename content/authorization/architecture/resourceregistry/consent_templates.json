@@ -299,12 +299,12 @@
             "heading": {
                 "person": {
                     "nb": "{CoveredBy} ønsker å utføre tjenester på dine vegne",
-                    "nn": "{CoveredBy} ønsker å utføre tenester på dine vegne",
+                    "nn": "{CoveredBy} ønskjer å utføre tenester på dine vegne",
                     "en": "{CoveredBy} requests power of attorney from you"
                 },
                 "org": {
                     "nb": "{CoveredBy} ønsker å utføre tjenester på vegne av {OfferedBy}",
-                    "nn": "{CoveredBy} ønsker å utføre tenester på vegne av {OfferedBy}",
+                    "nn": "{CoveredBy} ønskjer å utføre tenester på vegne av {OfferedBy}",
                     "en": "{CoveredBy} requests power of attorney from {OfferedBy}"
                 }
             },
