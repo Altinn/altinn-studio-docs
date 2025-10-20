@@ -43,7 +43,7 @@ Det er mulig å bestille en manuell import av delegeringer fra en Altinn 2 meldi
 NB: Pass på å ha etablert ny ressurs i de aktuelle miljø før bestilling.
 
 {{% notice warning  %}}
-**Viktig:** Altinn anbefaler **IKKE** å migrere rettigheter uten en grundig risikovurdering i forkant. Vår erfaring er at det ikke er alle virksomheter som har et aktivt forhold til hvem som har tilganger i Altinn. Dette kan medføre at det er flere personer med tilganger, som kanskje ikke har tjenestelig behov. Vi mener dermed kan medføre en risiko å ukritisk kopiere over eksisterende Altinn II delegeringer til nye Altinn 3 ressurser. 
+**Viktig:** Altinn anbefaler **IKKE** å migrere rettigheter uten en grundig risikovurdering i forkant. Vår erfaring er at det ikke er alle virksomheter som har et aktivt forhold til hvem som har tilganger i Altinn. Dette kan medføre at det er flere personer med tilganger, som kanskje ikke har tjenestlig behov. Vi mener dermed kan medføre en risiko å ukritisk kopiere over eksisterende Altinn II delegeringer til nye Altinn 3 ressurser. 
 {{% /notice %}}
 
 
