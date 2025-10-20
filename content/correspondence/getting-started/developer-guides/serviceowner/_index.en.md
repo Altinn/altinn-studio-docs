@@ -43,7 +43,7 @@ See [Resource Management](https://docs.altinn.studio/authorization/getting-start
    - "write" meant for senders to send a message.
    - "subscribe" to register event subscriptions in Altinn Events.
 4. The roles in Altinn II will be replaced by access packages in Altinn 3. We recommend all our service owners use both roles and access packages until June 2026. It's important to thoroughly assess which access package to assign to each resource. 
-   - **Ordinary mail:** The Altinn II role "Mail/Archive", this is now replaced by the access package "Ordinær post til virksomheten".
+   - **Ordinary mail:** The Altinn II role "Mail/Archive" this is now replaced by the access package "Ordinær post til virksomheten".
    - **Confidential mail:** If the resource is to be confidential, you have to:
       - select the access package "Post til virksomheten med taushetsbelagt innhold"
       - include the flag "IsConfidential" set to: "true".
@@ -52,7 +52,7 @@ See [Resource Management](https://docs.altinn.studio/authorization/getting-start
 
 **Example policy:**
 
-Note that this example policy sets a required user role "DAGL" for the user who has access to the resource, and requires the use of [Resource Rights Registry](https://docs.altinn.studio/authorization/what-do-you-get/resourceregistry/rrr/) to grant access to specific organisations.
+Note that this example policy sets a required user role "DAGL" for the user who has access to the resource, and requires the use of [Resource Rights Registry](https://docs.altinn.studio/authorization/what-do-you-get/resourceregistry/rrr/) to grant access to specific organizations.
 A user with that access can then delegate the access to the enterprise user/system user.
 
 {{% notice warning  %}}

@@ -43,8 +43,8 @@ Se [Ressursadministrasjon](https://docs.altinn.studio/nb/authorization/getting-s
    - "read" ment for at mottakere skal kunne åpne og lese en melding.
    - "write" ment for at avsendere skal kunne sende en melding.
    - "subscribe" for å registrere hendelsesabonnement i Altinn Events.
-4. Altinn II rollene erstattes av tilgangspakker i Altinn 3. Frem til juni 2026 anbefaler vi at man setter både roller og tilgangspakker på ressursen. Det er viktig at å ta en grundig vurdering på hvilken tilgangspakke ressursen skal ha. 
-   - **Vanlig post:** Den gamle rollen "Post/arkiv", erstattes av tilgangspakken "Ordinær post til virksomheten".
+4. Altinn II rollene erstattes av tilgangspakker i Altinn 3. Frem til juni 2026 anbefaler vi at man setter både roller og tilgangspakker på ressursen. Det er viktig å ta en grundig vurdering på hvilken tilgangspakke ressursen skal ha. 
+   - **Vanlig post:** Den gamle Altinn II rollen "Post/arkiv" erstattes av tilgangspakken "Ordinær post til virksomheten".
    - **Taushetsbelagt post:** Dersom ressursen skal være taushetsbelagt må dere: 
       - velge tilgangspakken "Post til virksomheten med taushetsbelagt innhold"
       - sende med flagget "IsConfidential" satt til: "true".
