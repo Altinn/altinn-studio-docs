@@ -138,7 +138,7 @@ Before going live, verify that correspondences render as intended for recipients
 **Note**: Supported formatting tags (Markdown and HTML) are documented here: [Overview of allowed markdown and HTML tags](https://docs.altinn.studio/dialogporten/reference/front-end/front-channel-embeds/#markdown-and-html)
 {{% /expandlarge %}}
 
-### 10. Set up Event subscriptions {#setup-event-subscriptions}
+{{% expandlarge id="set-up-event-subscriptions" header="10. Set up Event subscriptions" %}}
 
 In order to use events/webhooks for a Correspondence resource, you need to set up a subscription for the given resource.
 
