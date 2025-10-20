@@ -9,7 +9,7 @@ weight: 1
 
 The system provider must contact Digdir to gain access to the system registry and system user scopes. The procedure is described at [Samarbeidsportalen](https://samarbeid.digdir.no/altinn/kom-i-gang/2868). 
 - We recommend that the SBS organization number is added to the TT02 test environment. 
-- SBS must contact servicedesk@altinn.no to create a real organization number in TT02. 
+- SBS must contact [servicedesk@altinn.no](mailto:servicedesk@altinn.no) to create a real organization number in TT02.
 - Contact the service owner to find out which access packages the service API is associated with.
 
 ## System registration in Systemregisteret
