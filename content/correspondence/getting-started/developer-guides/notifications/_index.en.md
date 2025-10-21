@@ -22,8 +22,8 @@ Note: The reminder timing in test and staging environments is currently set to 1
 Notifications can be sent via either email or SMS. While email does not have a time window, SMS notifications are sent between 9:00 AM and 5:00 PM.
 If the sending time falls outside this window, the notification will be sent the following day.
 {{% notice warning  %}}
-In the test environment, Notifications via SMS can only be sent to phone numbers that are whitelisted internally.
-Contact us at [Altinn@Slack#produkt-melding](https://join.slack.com/t/altinn/shared_invite/zt-7c77c9si-ZnMFwGNtab1aFdC6H_vwog) if this is required for your service.
+In the test environment, you can only send SMS notifications to whitelisted phone numbers.  
+Send an email to [tjenesteeier@altinn.no](mailto:tjenesteeier@altinn.no?subject=Whitelist%20phone%20number) with the phone number that needs to be whitelisted.
 {{% /notice %}}
 
 A notification order is made by adding the following when initializing a message:
@@ -62,7 +62,20 @@ A notification order is made by adding the following when initializing a message
 }
 ```
 
+## Field Validation and Character Limits
 
+When creating notifications, the following validation rules and character limits apply. These limits are recommended by the Altinn Notifications service to ensure proper display and delivery:
+
+| Field | Maximum Length | Description |
+|-------|---------------|-------------|
+| `emailSubject` | 128 characters | Recommended by Altinn Notifications service to ensure the email subject is displayed correctly in email clients |
+| `emailBody` | 10,000 characters | Supports detailed content in both plain text and HTML format |
+| `smsBody` | 2,144 characters | Aligns with the Altinn Notifications service SMS processing limits. Equivalent to 16 SMS segments (16 × 134 characters per segment) |
+| `reminderEmailSubject` | 128 characters | Same recommendation as main email subject |
+| `reminderEmailBody` | 10,000 characters | Supports detailed content in both plain text and HTML format |
+| `reminderSmsBody` | 2,144 characters | Same limit as main SMS body |
+
+**Note:** If you exceed these limits, you will receive a `400 Bad Request` error response with details about which field exceeded the limit.
 
 ## Keyword support
 

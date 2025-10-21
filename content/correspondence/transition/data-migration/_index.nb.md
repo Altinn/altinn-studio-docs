@@ -24,7 +24,7 @@ Migreringen vil foregå over tid, med muligheter for å re-migrere elementer på
 
 ## Volum og migreringsrate
 
-Det er estimert over 500 millioner meldinger med vedlegg som skal migreres fra Altinn 2 til Altinn 3.
+Det er estimert over 500 millioner meldinger med vedlegg som migreres fra Altinn 2 til Altinn 3.
 Det er derfor planlagt at man vil gjøre migrering skånsomt, og starte med lavere rate for å sanke erfaring og unngå forstyrrelse av miljø.
 
 Over tid vil man øke raten og til slutt kunne bli tilnærmet à jour med live trafikk i Altinn 2 mens det sakte reduseres og Altinn 2 tas ut av bruk.
@@ -38,8 +38,8 @@ Migreringskomponenten vil per kjøring gjøre uttrekk av x antall elementer for 
 Migreringsprosessen per melding vil være delt opp i flere steg for å redusere risiko, og vil kunne styres per melding, med mulighet for å slette data og starte prosessen på nytt.
 Ingen data saneres fra Altinn 2.
 
-1. Migrering av meldingsdata og vedlegg fra Altinn 2 til Altinn 3, der vi ikke er avhengig av [tjenestekonfigurasjon](/nb/correspondence/transition/service-migration/).
-2. Migrering av nødvendig [tjenestekonfigurasjon](/nb/correspondence/transition/service-migration/) og tilgangsregler.
+1. Migrering av meldingsdata og vedlegg fra Altinn 2 til Altinn 3, der vi ikke er avhengig av [tjenestekonfigurasjon](../service-migration/).
+2. Migrering av nødvendig [tjenestekonfigurasjon](../service-migration/) og tilgangsregler.
 3. Migrering av tilhørende instans- og tjenestedelegeringer.
 4. Tilgjengeliggjøring av melding i Altinn 3 Melding API.
 5. Opprettelse av migrert melding i Dialogporten/Arbeidsflate.
@@ -62,21 +62,34 @@ Dette så det blir mulig for SluttbrukereSystemer å konsumere de ferske migrert
 
 ## Hvilke data blir migrert?
 
-- Kun meldinger som ikke er slettet.
+- Kun meldinger som ikke er slettet (lagt i papirkurv eller permanent slettet)
 - Ikke meldinger for døde personer.
 - Meldingsinnholdet, inkludert tekst og alle vedlegg og metadata.
 - En begrenset form av varslingshistorikk: Tidspunkt og mottakeradresse, men ikke tekstinnhold.
 - Endringshistorikk; inkludert åpning og lesebekreftelse og informasjon om videresending og instansdelegering.
 - Altinn 2 CorrespondenceId og NotificationId som gjør det mulig å gjøre oppslag i Altinn 2 i tilfeller der man må gjøre mer detaljerte undersøkelser.
-- Tjeneste og instans-delegeringer gjøres som et separat steg, se [egen dokumentasjon](/nb/correspondence/transition/delegation-migration/).
+- Tjeneste og instans-delegeringer gjøres som et separat steg, se [egen dokumentasjon](../delegation-migration/).
 
 ## Synkronisering av statusendringer mellom Altinn 2 og 3
 
 Det vil være en 2-veis synkronisering av hendelser og statusendringer på meldinger mellom Altinn 2 og 3 etter at migrering er utført slik at dette holdes à jour.
-
-Denne løsningen refereres til som "CorrespondenceSync", mer er under analyse per nå, mer detaljer kommer senere.
-
+Denne løsningen refereres til som "CorrespondenceSync".
 Eksisterende status/historikk blir migrert over i steg 1, men blir fortløpende synkronisert etterhvert som det inntreffer.
+
+Da det er noen differanser og tekniske begrensinger så består synkronisering av følgende hendelser:
+
+### Hendelser som synkroniseres begge veier
+
+- Åpnet / lest
+- Bekreftet
+- Permanent Sletting
+
+### Hendelser som synkroniseres kun fra Altinn 2 til 3
+
+- Arkivering
+- Legg i papirkurv / fjern fra papirkurv
+- Varsling sendt
+- Videresending
 
 ## Teknisk implementasjon
 
@@ -85,7 +98,9 @@ Eksisterende status/historikk blir migrert over i steg 1, men blir fortløpende 
   - Konsumerer migreringsendepunktet.
   - Benytter konfigurasjon i Altinn 2 databasen for å styre migrering
   - Kan trigges manuelt med parametre, men vil over tid kjøre mer-eller-mindre kontinuerlig  
-- Det opprettes en synkroniseringsjobb "AltinnMessageSync" for å synkronisere status mellom Altinn 2 og 3 for meldinger.
-- Det opprettes et dedikert API-endepunkt i Altinn 3 Melding som gir Dialogporten tilgang til å hente ut migrerte elementer og trigge opprettelse av dialoger basert på dem, samt synliggjøre elementene i Altinn 3 API. (Detaljer avklares)
+- Det opprettes en synkroniseringsjobb "AltinnCorrespondenceSync" for å synkronisere statushendelser for meldinger fra Altinn 2 til 3.
+  - Denne kaller dedikerte Sync-endepunkter i Altinn 3 Correspondence APIet
+- I Altinn 3 Correspondence utvides handlere for "Åpnet", "Bekreftet" og "Permanent Sletting"
+  - Disse kaller dedikerte "Sync"-endepunkter i Altinn 2 SBLBridge APIet
 
 {{<children />}}

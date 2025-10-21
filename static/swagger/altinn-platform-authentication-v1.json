@@ -199,6 +199,457 @@
         }
       }
     },
+    "/systemuser/changerequest/vendor": {
+      "post": {
+        "tags": [
+          "ChangeRequestSystemUser"
+        ],
+        "parameters": [
+          {
+            "name": "correlation-id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "system-user-id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangeRequestSystemUser"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangeRequestSystemUser"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangeRequestSystemUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/systemuser/changerequest/vendor/{requestId}": {
+      "get": {
+        "tags": [
+          "ChangeRequestSystemUser"
+        ],
+        "summary": "Retrieves the Status (Response model) for a Request\r\nbased only on the Request.Id GUID",
+        "parameters": [
+          {
+            "name": "requestId",
+            "in": "path",
+            "description": "The UUID for the Request",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ChangeRequestSystemUser"
+        ],
+        "summary": "Used by the Vendors to delete the chosen Request by guid",
+        "parameters": [
+          {
+            "name": "requestId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/systemuser/changerequest/vendor/byexternalref/{systemId}/{orgNo}/{externalRef}": {
+      "get": {
+        "tags": [
+          "ChangeRequestSystemUser"
+        ],
+        "summary": "Retrieves the Status (Response model) for a Request\r\nbased on the SystemId, OrgNo and the ExternalRef \r\n( which is enforced as a unique combination )",
+        "parameters": [
+          {
+            "name": "systemId",
+            "in": "path",
+            "description": "The Id for the chosen Registered System.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "externalRef",
+            "in": "path",
+            "description": "The chosen external ref the Vendor sent in to the Create Request",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "orgNo",
+            "in": "path",
+            "description": "The organisation number for the customer",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/systemuser/changerequest/{party}/{requestId}": {
+      "get": {
+        "tags": [
+          "ChangeRequestSystemUser"
+        ],
+        "summary": "Used by the BFF to authenticate the PartyId to retrieve the chosen Request by guid",
+        "parameters": [
+          {
+            "name": "party",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "requestId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/systemuser/changerequest/{requestId}": {
+      "get": {
+        "tags": [
+          "ChangeRequestSystemUser"
+        ],
+        "summary": "Used by the BFF to authenticate the userId to retrieve the chosen Request by guid without partyId",
+        "parameters": [
+          {
+            "name": "requestId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponseInternal"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponseInternal"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponseInternal"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/systemuser/changerequest/{party}/{requestId}/approve": {
+      "post": {
+        "tags": [
+          "ChangeRequestSystemUser"
+        ],
+        "summary": "Approves the systemuser request and updates the system user",
+        "parameters": [
+          {
+            "name": "party",
+            "in": "path",
+            "description": "the partyId",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "requestId",
+            "in": "path",
+            "description": "The UUID of the request to be approved",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/systemuser/changerequest/vendor/bysystem/{systemId}": {
+      "get": {
+        "tags": [
+          "ChangeRequestSystemUser"
+        ],
+        "summary": "Retrieves a list of Status-Response-model for all Requests that the Vendor has for a given system they own.",
+        "operationId": "vendor/changerequest/bysystem",
+        "parameters": [
+          {
+            "name": "systemId",
+            "in": "path",
+            "description": "The system the Vendor wants the list for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Optional continuation token",
+            "schema": {
+              "$ref": "#/components/schemas/GuidOpaque"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponsePaginated"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponsePaginated"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponsePaginated"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/systemuser/changerequest/{party}/{requestId}/reject": {
+      "post": {
+        "tags": [
+          "ChangeRequestSystemUser"
+        ],
+        "summary": "Rejects the systemuser request",
+        "parameters": [
+          {
+            "name": "party",
+            "in": "path",
+            "description": "the partyId",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "requestId",
+            "in": "path",
+            "description": "The UUID of the request to be rejected",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChangeRequestResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/introspection": {
       "post": {
         "tags": [
@@ -252,6 +703,19 @@
           "Logout"
         ],
         "summary": "Logs out user",
+        "responses": {
+          "302": {
+            "description": "Found"
+          }
+        }
+      }
+    },
+    "/logout/handleloggedout": {
+      "get": {
+        "tags": [
+          "Logout"
+        ],
+        "summary": "Redirects user to specific url if AltinnLogoutInfo is set",
         "responses": {
           "302": {
             "description": "Found"
@@ -362,6 +826,56 @@
         }
       }
     },
+    "/systemuser/request/vendor/agent": {
+      "post": {
+        "tags": [
+          "RequestSystemUser"
+        ],
+        "summary": "Creates a new system user request of type agent based on a specified system ID.",
+        "requestBody": {
+          "description": "The request model containing details for the agent system user.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAgentRequestSystemUser"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAgentRequestSystemUser"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAgentRequestSystemUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentRequestSystemResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentRequestSystemResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentRequestSystemResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/systemuser/request/vendor/{requestId}": {
       "get": {
         "tags": [
@@ -443,6 +957,48 @@
         }
       }
     },
+    "/systemuser/request/vendor/agent/{requestId}": {
+      "get": {
+        "tags": [
+          "RequestSystemUser"
+        ],
+        "summary": "Retrieves the status of an agent system user request based on the request's unique identifier (UUID).",
+        "parameters": [
+          {
+            "name": "requestId",
+            "in": "path",
+            "description": "The unique identifier (UUID) of the agent system user request.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentRequestSystemResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentRequestSystemResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentRequestSystemResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/systemuser/request/vendor/byexternalref/{systemId}/{orgNo}/{externalRef}": {
       "get": {
         "tags": [
@@ -472,6 +1028,65 @@
             "name": "orgNo",
             "in": "path",
             "description": "The organisation number for the customer",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestSystemResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestSystemResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestSystemResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/systemuser/request/vendor/agent/byexternalref/{systemId}/{orgNo}/{externalRef}": {
+      "get": {
+        "tags": [
+          "RequestSystemUser"
+        ],
+        "summary": "Retrieves the status of an agent system user request based on the unique combination of identifiers (system ID, organization number, and external reference).",
+        "parameters": [
+          {
+            "name": "systemId",
+            "in": "path",
+            "description": "The ID of the registered system.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "externalRef",
+            "in": "path",
+            "description": "The external reference provided by the vendor.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "orgNo",
+            "in": "path",
+            "description": "The organization number of the customer.",
             "required": true,
             "schema": {
               "type": "string"
@@ -552,6 +1167,138 @@
         }
       }
     },
+    "/systemuser/request/{requestId}": {
+      "get": {
+        "tags": [
+          "RequestSystemUser"
+        ],
+        "summary": "Used by the BFF to retrieve the chosen Request by Guid Id alone,\r\nauthorized manually via pdp that the logged in user can access the request.",
+        "parameters": [
+          {
+            "name": "requestId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestSystemResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestSystemResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestSystemResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/systemuser/request/agent/{party}/{requestId}": {
+      "get": {
+        "tags": [
+          "RequestSystemUser"
+        ],
+        "summary": "Used by the BFF to authenticate the PartyId to retrieve the chosen Request by guid\r\nIs different from the Vendor endpoint, since this authenticates the Facilitator and not the Vendor",
+        "parameters": [
+          {
+            "name": "party",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "requestId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentRequestSystemResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentRequestSystemResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentRequestSystemResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/systemuser/request/agent/{requestId}": {
+      "get": {
+        "tags": [
+          "RequestSystemUser"
+        ],
+        "summary": "Used by the BFF to authenticate the PartyId to retrieve the chosen Request by guid\r\nIs different from the Vendor endpoint, since this authenticates the Facilitator and not the Vendor",
+        "parameters": [
+          {
+            "name": "requestId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestSystemResponseInternal"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestSystemResponseInternal"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestSystemResponseInternal"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/systemuser/request/{party}/{requestId}/approve": {
       "post": {
         "tags": [
@@ -604,6 +1351,58 @@
         }
       }
     },
+    "/systemuser/request/agent/{party}/{requestId}/approve": {
+      "post": {
+        "tags": [
+          "RequestSystemUser"
+        ],
+        "summary": "Approves the systemuser request of type agent and creates a system user of type agent",
+        "parameters": [
+          {
+            "name": "party",
+            "in": "path",
+            "description": "the partyId",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "requestId",
+            "in": "path",
+            "description": "The UUID of the request to be approved",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentRequestSystemResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentRequestSystemResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentRequestSystemResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/systemuser/request/vendor/bysystem/{systemId}": {
       "get": {
         "tags": [
@@ -647,6 +1446,56 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/RequestSystemResponsePaginated"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/systemuser/request/vendor/agent/bysystem/{systemId}": {
+      "get": {
+        "tags": [
+          "RequestSystemUser"
+        ],
+        "summary": "Retrieves a paginated list of all system user requests of type agent for a given system owned by the vendor.",
+        "operationId": "vendor/bysystem/agent",
+        "parameters": [
+          {
+            "name": "systemId",
+            "in": "path",
+            "description": "The ID of the system the Vendor owns",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Optional continuation token",
+            "schema": {
+              "$ref": "#/components/schemas/GuidOpaque"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentRequestSystemResponsePaginated"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentRequestSystemResponsePaginated"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentRequestSystemResponsePaginated"
                 }
               }
             }
@@ -706,6 +1555,58 @@
         }
       }
     },
+    "/systemuser/request/agent/{party}/{requestId}/reject": {
+      "post": {
+        "tags": [
+          "RequestSystemUser"
+        ],
+        "summary": "Rejects the systemuser request of type agent",
+        "parameters": [
+          {
+            "name": "party",
+            "in": "path",
+            "description": "the partyId",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "requestId",
+            "in": "path",
+            "description": "The UUID of the request to be rejected",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/systemregister": {
       "get": {
         "tags": [
@@ -738,6 +1639,96 @@
                   "items": {
                     "$ref": "#/components/schemas/RegisteredSystemDTO"
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/systemregister/vendor": {
+      "get": {
+        "tags": [
+          "SystemRegister"
+        ],
+        "summary": "Retrieves the List of all the Registered Systems, except those marked as deleted.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RegisteredSystemDTO"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RegisteredSystemDTO"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RegisteredSystemDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "SystemRegister"
+        ],
+        "summary": "Create a new System",
+        "requestBody": {
+          "description": "The descriptor model of a new Registered System",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterSystemRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterSystemRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterSystemRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
                 }
               }
             }
@@ -809,17 +1800,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/RegisteredSystem"
+                  "$ref": "#/components/schemas/RegisteredSystemResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RegisteredSystem"
+                  "$ref": "#/components/schemas/RegisteredSystemResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RegisteredSystem"
+                  "$ref": "#/components/schemas/RegisteredSystemResponse"
                 }
               }
             }
@@ -882,6 +1873,46 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       },
@@ -940,6 +1971,15 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "useOldFormatForApp",
+            "in": "query",
+            "description": "The old format for the App",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
           }
         ],
         "responses": {
@@ -975,52 +2015,58 @@
         }
       }
     },
-    "/systemregister/vendor": {
-      "post": {
+    "/systemregister/{systemId}/accesspackages": {
+      "get": {
         "tags": [
           "SystemRegister"
         ],
-        "summary": "Create a new System",
-        "requestBody": {
-          "description": "The descriptor model of a new Registered System",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterSystemRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterSystemRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterSystemRequest"
-              }
+        "summary": "Retrieves a list of the predfined default rights for the Product type, if any",
+        "parameters": [
+          {
+            "name": "systemId",
+            "in": "path",
+            "description": "The Id of the Product",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "useOldFormatForApp",
+            "in": "query",
+            "description": "The old format for the App",
+            "schema": {
+              "type": "boolean",
+              "default": false
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "string",
-                  "format": "uuid"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AccessPackage"
+                  }
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uuid"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AccessPackage"
+                  }
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uuid"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AccessPackage"
+                  }
                 }
               }
             }
@@ -1098,7 +2144,177 @@
         }
       }
     },
+    "/systemregister/vendor/{systemId}/accesspackages": {
+      "put": {
+        "tags": [
+          "SystemRegister"
+        ],
+        "summary": "Updates the rights on a registered system",
+        "parameters": [
+          {
+            "name": "systemId",
+            "in": "path",
+            "description": "The human readable string id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "A list of access packages",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/AccessPackage"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/AccessPackage"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/AccessPackage"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemRegisterUpdateResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemRegisterUpdateResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemRegisterUpdateResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/systemregister/vendor/{systemId}/changelog": {
+      "get": {
+        "tags": [
+          "SystemRegister"
+        ],
+        "summary": "Gets the change log for a specific system identified by its internal ID.",
+        "parameters": [
+          {
+            "name": "systemId",
+            "in": "path",
+            "description": "the system internal id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SystemChangeLog"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SystemChangeLog"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SystemChangeLog"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/systemuser/{party}": {
+      "get": {
+        "tags": [
+          "SystemUser"
+        ],
+        "summary": "Returns the list of Default SystemUsers this PartyID has registered.\r\nNo Agent SystemUsers are returned, use the other endpoint for them.",
+        "parameters": [
+          {
+            "name": "party",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SystemUser"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SystemUser"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SystemUser"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/systemuser/agent/{party}": {
       "get": {
         "tags": [
           "SystemUser"
@@ -1117,81 +2333,98 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
-          },
-          "404": {
-            "description": "Not Found",
+            "description": "OK",
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SystemUser"
+                  }
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SystemUser"
+                  }
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SystemUser"
+                  }
                 }
               }
             }
           }
         }
-      },
-      "post": {
+      }
+    },
+    "/systemuser/agent/{party}/{facilitator}/{systemUserId}/delegations": {
+      "get": {
         "tags": [
           "SystemUser"
         ],
-        "summary": "Creates a new SystemUser\r\nThe unique Id for the systemuser is handled by the db.\r\nBut the calling client may send a guid for the request of creating a new system user\r\nto ensure that there is no mismatch if the same partyId creates several new SystemUsers at the same time",
+        "summary": "Get list of delegations to this agent systemuser",
         "parameters": [
           {
             "name": "party",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "facilitator",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "systemUserId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SystemUserRequestDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SystemUserRequestDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/SystemUserRequestDto"
-              }
-            }
-          }
-        },
         "responses": {
-          "201": {
-            "description": "Created",
+          "200": {
+            "description": "OK",
             "content": {
-              "application/json": {
+              "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/SystemUser"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DelegationResponse"
+                  }
                 }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
+              },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DelegationResponse"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DelegationResponse"
+                  }
                 }
               }
             }
@@ -1258,20 +2491,20 @@
         "summary": "Set the Delete flag on the identified SystemUser",
         "parameters": [
           {
+            "name": "party",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "systemUserId",
             "in": "path",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
-          },
-          {
-            "name": "party",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
             }
           }
         ],
@@ -1328,7 +2561,15 @@
           {
             "name": "systemUserOwnerOrgNo",
             "in": "query",
-            "description": "The legal number (Orgno) of the party owning the System User Integration",
+            "description": "The legal number (Orgno) of the party owning the System User Integration. (The ReporteeOrgno)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "externalRef",
+            "in": "query",
+            "description": "The External Reference is provided by the Vendor, and is used to identify their Customer in the Vendor's system.",
             "schema": {
               "type": "string"
             }
@@ -1346,8 +2587,9 @@
         "tags": [
           "SystemUser"
         ],
-        "summary": "Replaces the values for the existing system user with those from the update",
+        "summary": "Replaces the values for the existing system user with those from the update.",
         "requestBody": {
+          "description": "The DTO describing the updateed SystemUser.",
           "content": {
             "application/json": {
               "schema": {
@@ -1393,6 +2635,63 @@
         }
       }
     },
+    "/systemuser/vendor/byquery": {
+      "get": {
+        "tags": [
+          "SystemUser"
+        ],
+        "summary": "An endpoint where the Vendor can retrieve a SystemUser\r\nby the organisation number, system-id and optionally the external-ref",
+        "operationId": "vendor/byquery",
+        "parameters": [
+          {
+            "name": "system-id",
+            "in": "query",
+            "description": "Required: the id the vendor system used",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "external-ref",
+            "in": "query",
+            "description": "Optional: a disambiguation string",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "orgno",
+            "in": "query",
+            "description": "Required: the organisation number for the Reportee (owner of the SystemUser)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemUser"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemUser"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemUser"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/systemuser/vendor/bysystem/{systemId}": {
       "get": {
         "tags": [
@@ -1415,7 +2714,7 @@
             "in": "query",
             "description": "Optional continuation token",
             "schema": {
-              "$ref": "#/components/schemas/StringOpaque"
+              "$ref": "#/components/schemas/Int64Opaque"
             }
           }
         ],
@@ -1442,10 +2741,753 @@
           }
         }
       }
+    },
+    "/systemuser/internal/systemusers/stream": {
+      "get": {
+        "tags": [
+          "SystemUser"
+        ],
+        "summary": "Retrieves a list of all SystemUsers for internal use, \r\ncalled by the Register",
+        "operationId": "internal/systemusers/stream",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Optional continuation token",
+            "schema": {
+              "$ref": "#/components/schemas/Int64Opaque"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemUserRegisterDTOItemStream"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemUserRegisterDTOItemStream"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemUserRegisterDTOItemStream"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/systemuser/{party}/create": {
+      "post": {
+        "tags": [
+          "SystemUser"
+        ],
+        "summary": "Creates a new SystemUser.",
+        "parameters": [
+          {
+            "name": "party",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SystemUserRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SystemUserRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SystemUserRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemUser"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/systemuser/agent/{party}/{systemUserId}/delegation": {
+      "post": {
+        "tags": [
+          "SystemUser"
+        ],
+        "summary": "Creates a new delegation of a customer to an Agent SystemUser.\r\nThe endpoint is idempotent.",
+        "parameters": [
+          {
+            "name": "party",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "systemUserId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentDelegationInputDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentDelegationInputDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentDelegationInputDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DelegationResponse"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/systemuser/agent/{party}/delegation/{delegationId}": {
+      "delete": {
+        "tags": [
+          "SystemUser"
+        ],
+        "summary": "Delete a customer from an Agent SystemUser.",
+        "parameters": [
+          {
+            "name": "party",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "delegationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "facilitatorId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/systemuser/agent/{party}/{systemUserId}": {
+      "delete": {
+        "tags": [
+          "SystemUser"
+        ],
+        "summary": "Delete an Agent SystemUser.",
+        "parameters": [
+          {
+            "name": "party",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "systemUserId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "facilitatorId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/systemuser/agent/{party}/clients": {
+      "get": {
+        "tags": [
+          "SystemUser"
+        ],
+        "summary": "Get list of clients for a facilitator",
+        "parameters": [
+          {
+            "name": "facilitator",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "packages",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "party",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Customer"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Customer"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Customer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/systemuser/{party}/{systemUserId}/delegations": {
+      "get": {
+        "tags": [
+          "SystemUser"
+        ],
+        "summary": "Get list of delegations for a standard systemuser",
+        "parameters": [
+          {
+            "name": "party",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "systemUserId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StandardSystemUserDelegations"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StandardSystemUserDelegations"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StandardSystemUserDelegations"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/enduser/systemuser/clients/available": {
+      "get": {
+        "tags": [
+          "SystemUserClientDelegation"
+        ],
+        "summary": "Get Clients who can delegate to the system user",
+        "parameters": [
+          {
+            "name": "agent",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientInfoClientInfoPaginated"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientInfoClientInfoPaginated"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientInfoClientInfoPaginated"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/enduser/systemuser/clients": {
+      "get": {
+        "tags": [
+          "SystemUserClientDelegation"
+        ],
+        "summary": "Get the list of clients that have been delegated to the specified system user",
+        "parameters": [
+          {
+            "name": "agent",
+            "in": "query",
+            "description": "the agent system user id",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientInfoClientInfoPaginated"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientInfoClientInfoPaginated"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientInfoClientInfoPaginated"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "SystemUserClientDelegation"
+        ],
+        "summary": "Delegate a client to the system user",
+        "parameters": [
+          {
+            "name": "agent",
+            "in": "query",
+            "description": "the unique identifier of the system user",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "client",
+            "in": "query",
+            "description": "the customer identifier for delegating to the agent",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientDelegationResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientDelegationResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientDelegationResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "SystemUserClientDelegation"
+        ],
+        "summary": "Remove a client to the system user",
+        "parameters": [
+          {
+            "name": "agent",
+            "in": "query",
+            "description": "the unique identifier of the system user",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "client",
+            "in": "query",
+            "description": "the id of the customer",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DelegationResponse"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DelegationResponse"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DelegationResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/enduser/systemuser/agents": {
+      "get": {
+        "tags": [
+          "SystemUserClientDelegation"
+        ],
+        "summary": "Retrieves a list of all agent system users associated with the authenticated party.",
+        "description": "This method requires the caller to be authenticated and authorized with the Altinn.Platform.Authentication.Core.Constants.AuthzConstants.POLICY_CLIENTDELEGATION_READ policy. The party ID is determined based on the\r\n            caller's authentication context.",
+        "parameters": [
+          {
+            "name": "party",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SystemUser"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SystemUser"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SystemUser"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "AccessPackage": {
+        "type": "object",
+        "properties": {
+          "urn": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AgentDelegationInputDto": {
+        "required": [
+          "customerId",
+          "facilitatorId"
+        ],
+        "type": "object",
+        "properties": {
+          "customerId": {
+            "type": "string",
+            "nullable": true
+          },
+          "facilitatorId": {
+            "type": "string",
+            "nullable": true
+          },
+          "access": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClientRoleAccessPackages"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AgentRequestSystemResponse": {
+        "required": [
+          "accessPackages",
+          "id",
+          "partyOrgNo",
+          "status",
+          "systemId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "externalRef": {
+            "type": "string",
+            "nullable": true
+          },
+          "systemId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "partyOrgNo": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "accessPackages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccessPackage"
+            }
+          },
+          "status": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "redirectUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "confirmUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AgentRequestSystemResponsePaginated": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentRequestSystemResponse"
+            },
+            "description": "The items.",
+            "nullable": true
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginatedLinks"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A paginated Altinn.Platform.Authentication.Model.ListObject`1."
+      },
       "AttributePair": {
         "required": [
           "id",
@@ -1464,10 +3506,331 @@
         },
         "additionalProperties": false
       },
+      "ChangeRequestResponse": {
+        "required": [
+          "id",
+          "partyOrgNo",
+          "status",
+          "systemId",
+          "systemUserId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "externalRef": {
+            "type": "string",
+            "nullable": true
+          },
+          "systemId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "systemUserId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "partyOrgNo": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "requiredRights": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Right"
+            },
+            "nullable": true
+          },
+          "unwantedRights": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Right"
+            },
+            "nullable": true
+          },
+          "requiredAccessPackages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccessPackage"
+            },
+            "nullable": true
+          },
+          "unwantedAccessPackages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccessPackage"
+            },
+            "nullable": true
+          },
+          "status": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "redirectUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "confirmUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChangeRequestResponseInternal": {
+        "required": [
+          "id",
+          "partyId",
+          "partyOrgNo",
+          "partyUuid",
+          "status",
+          "systemId",
+          "systemUserId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "externalRef": {
+            "type": "string",
+            "nullable": true
+          },
+          "systemId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "systemUserId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "partyOrgNo": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "partyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "partyUuid": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "requiredRights": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Right"
+            },
+            "nullable": true
+          },
+          "unwantedRights": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Right"
+            },
+            "nullable": true
+          },
+          "requiredAccessPackages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccessPackage"
+            },
+            "nullable": true
+          },
+          "unwantedAccessPackages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccessPackage"
+            },
+            "nullable": true
+          },
+          "status": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "redirectUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "confirmUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChangeRequestResponsePaginated": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChangeRequestResponse"
+            },
+            "description": "The items.",
+            "nullable": true
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginatedLinks"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A paginated Altinn.Platform.Authentication.Model.ListObject`1."
+      },
+      "ChangeRequestSystemUser": {
+        "type": "object",
+        "properties": {
+          "requiredRights": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Right"
+            },
+            "nullable": true
+          },
+          "unwantedRights": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Right"
+            },
+            "nullable": true
+          },
+          "requiredAccessPackages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccessPackage"
+            },
+            "nullable": true
+          },
+          "unwantedAccessPackages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccessPackage"
+            },
+            "nullable": true
+          },
+          "redirectUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClientDelegationResponse": {
+        "type": "object",
+        "properties": {
+          "agent": {
+            "type": "string",
+            "description": "Gets or sets the unique identifier for the agent.",
+            "format": "uuid"
+          },
+          "client": {
+            "type": "string",
+            "description": "Gets or sets the unique identifier for the client.",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents the response containing delegation details between an agent and a client."
+      },
+      "ClientInfo": {
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string",
+            "description": "Gets or sets the unique identifier for the client.",
+            "format": "uuid"
+          },
+          "clientOrganizationNumber": {
+            "type": "string",
+            "description": "Gets or sets the organization number associated with the client.",
+            "nullable": true
+          },
+          "clientOrganizationName": {
+            "type": "string",
+            "description": "Gets or sets the name of the client organization.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents information about a client, including their organization number and name."
+      },
+      "ClientInfoClientInfoPaginated": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClientInfo"
+            },
+            "description": "The items.",
+            "nullable": true
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginatedLinks"
+          },
+          "systemUserInformation": {
+            "$ref": "#/components/schemas/SystemUserInfo"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A paginated Altinn.Platform.Authentication.Model.ListObject`1."
+      },
+      "ClientRoleAccessPackages": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "type": "string",
+            "nullable": true
+          },
+          "packages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateAgentRequestSystemUser": {
+        "required": [
+          "accessPackages",
+          "partyOrgNo",
+          "systemId"
+        ],
+        "type": "object",
+        "properties": {
+          "externalRef": {
+            "type": "string",
+            "nullable": true
+          },
+          "systemId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "partyOrgNo": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "accessPackages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccessPackage"
+            }
+          },
+          "redirectUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateRequestSystemUser": {
         "required": [
           "partyOrgNo",
-          "rights",
           "systemId"
         ],
         "type": "object",
@@ -1488,9 +3851,79 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Right"
-            }
+            },
+            "nullable": true
+          },
+          "accessPackages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccessPackage"
+            },
+            "nullable": true
           },
           "redirectUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Customer": {
+        "required": [
+          "displayName",
+          "organizationIdentifier",
+          "partyUuid"
+        ],
+        "type": "object",
+        "properties": {
+          "partyUuid": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "displayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "organizationIdentifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "access": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClientRoleAccessPackages"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DelegationResponse": {
+        "required": [
+          "agentSystemUserId",
+          "delegationId"
+        ],
+        "type": "object",
+        "properties": {
+          "agentSystemUserId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "delegationId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "customerId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "assignmentId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "customerName": {
             "type": "string",
             "nullable": true
           }
@@ -1641,7 +4074,19 @@
           }
         },
         "additionalProperties": false,
-        "description": "\r\n\r\n                An opaque value is a value that can be transmitted to another party\r\n                without divulging any type information or expectations about the value.\r\n            \r\n\r\n\r\n                Opaque values are typically usefull in APIs where the server wants to\r\n                be able to return a value that the client later needs to send back to\r\n                the server, but where the server does not want to expose the type of\r\n                the value to the client. For instance, in a pagination scenario, the\r\n                server can use an opaque int to do pagination by page number, while\r\n                allowing itself to later change the implementation to use a cursor\r\n                instead of a page number without breaking the API.\r\n            "
+        "description": "\r\nAn opaque value is a value that can be transmitted to another party\r\n                without divulging any type information or expectations about the value.\r\n\r\nOpaque values are typically usefull in APIs where the server wants to\r\n                be able to return a value that the client later needs to send back to\r\n                the server, but where the server does not want to expose the type of\r\n                the value to the client. For instance, in a pagination scenario, the\r\n                server can use an opaque int to do pagination by page number, while\r\n                allowing itself to later change the implementation to use a cursor\r\n                instead of a page number without breaking the API."
+      },
+      "Int64Opaque": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "integer",
+            "description": "Gets the inner value.",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false,
+        "description": "\r\nAn opaque value is a value that can be transmitted to another party\r\n                without divulging any type information or expectations about the value.\r\n\r\nOpaque values are typically usefull in APIs where the server wants to\r\n                be able to return a value that the client later needs to send back to\r\n                the server, but where the server does not want to expose the type of\r\n                the value to the client. For instance, in a pagination scenario, the\r\n                server can use an opaque int to do pagination by page number, while\r\n                allowing itself to later change the implementation to use a cursor\r\n                instead of a page number without breaking the API."
       },
       "IntrospectionResponse": {
         "type": "object",
@@ -1658,6 +4103,28 @@
         },
         "additionalProperties": false,
         "description": "Introspection response object"
+      },
+      "ItemStreamStats": {
+        "type": "object",
+        "properties": {
+          "pageStart": {
+            "type": "integer",
+            "description": "The first item on the page.",
+            "format": "int64"
+          },
+          "pageEnd": {
+            "type": "integer",
+            "description": "The last item on the page.",
+            "format": "int64"
+          },
+          "sequenceMax": {
+            "type": "integer",
+            "description": "The highest item in the database.",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Item stream statistics."
       },
       "JwkDocument": {
         "type": "object",
@@ -1755,7 +4222,6 @@
       },
       "RegisterSystemRequest": {
         "required": [
-          "clientId",
           "description",
           "id",
           "name",
@@ -1791,85 +4257,12 @@
             },
             "nullable": true
           },
-          "isDeleted": {
-            "type": "boolean"
-          },
-          "clientId": {
+          "accessPackages": {
             "type": "array",
             "items": {
-              "type": "string"
+              "$ref": "#/components/schemas/AccessPackage"
             },
             "nullable": true
-          },
-          "isVisible": {
-            "type": "boolean"
-          },
-          "allowedRedirectUrls": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "format": "uri"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "RegisteredSystem": {
-        "required": [
-          "description",
-          "name",
-          "systemId",
-          "systemInternalId",
-          "systemName",
-          "systemVendorOrgName",
-          "systemVendorOrgNumber"
-        ],
-        "type": "object",
-        "properties": {
-          "systemInternalId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "systemId": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "systemVendorOrgNumber": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "systemVendorOrgName": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "systemName": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "name": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "description": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "rights": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Right"
-            },
-            "nullable": true
-          },
-          "softDeleted": {
-            "type": "boolean"
           },
           "clientId": {
             "type": "array",
@@ -1933,12 +4326,91 @@
               "$ref": "#/components/schemas/Right"
             },
             "nullable": true
+          },
+          "accessPackages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccessPackage"
+            },
+            "nullable": true
+          },
+          "isVisible": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegisteredSystemResponse": {
+        "required": [
+          "description",
+          "id",
+          "name",
+          "vendor"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "vendor": {
+            "$ref": "#/components/schemas/VendorInfo"
+          },
+          "name": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "description": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "rights": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Right"
+            },
+            "nullable": true
+          },
+          "accessPackages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccessPackage"
+            },
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "clientId": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "isVisible": {
+            "type": "boolean"
+          },
+          "allowedRedirectUrls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
       },
       "RequestSystemResponse": {
         "required": [
+          "accessPackages",
           "id",
           "partyOrgNo",
           "rights",
@@ -1969,6 +4441,12 @@
               "$ref": "#/components/schemas/Right"
             }
           },
+          "accessPackages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccessPackage"
+            }
+          },
           "status": {
             "minLength": 1,
             "type": "string"
@@ -1978,6 +4456,76 @@
             "nullable": true
           },
           "confirmUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RequestSystemResponseInternal": {
+        "required": [
+          "accessPackages",
+          "id",
+          "partyOrgNo",
+          "rights",
+          "status",
+          "systemId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "externalRef": {
+            "type": "string",
+            "nullable": true
+          },
+          "systemId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "partyOrgNo": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "partyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "partyUuid": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "rights": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Right"
+            }
+          },
+          "accessPackages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccessPackage"
+            }
+          },
+          "status": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "redirectUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "confirmUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "systemUserType": {
             "type": "string",
             "nullable": true
           }
@@ -2019,17 +4567,69 @@
         },
         "additionalProperties": false
       },
-      "StringOpaque": {
+      "StandardSystemUserDelegations": {
         "type": "object",
         "properties": {
-          "value": {
+          "systemUserId": {
             "type": "string",
-            "description": "Gets the inner value.",
+            "format": "uuid"
+          },
+          "rights": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Right"
+            },
+            "nullable": true
+          },
+          "accessPackages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccessPackage"
+            },
             "nullable": true
           }
         },
-        "additionalProperties": false,
-        "description": "\r\n\r\n                An opaque value is a value that can be transmitted to another party\r\n                without divulging any type information or expectations about the value.\r\n            \r\n\r\n\r\n                Opaque values are typically usefull in APIs where the server wants to\r\n                be able to return a value that the client later needs to send back to\r\n                the server, but where the server does not want to expose the type of\r\n                the value to the client. For instance, in a pagination scenario, the\r\n                server can use an opaque int to do pagination by page number, while\r\n                allowing itself to later change the implementation to use a cursor\r\n                instead of a page number without breaking the API.\r\n            "
+        "additionalProperties": false
+      },
+      "SystemChangeLog": {
+        "type": "object",
+        "properties": {
+          "systemInternalId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "changedByOrgNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "changeType": {
+            "$ref": "#/components/schemas/SystemChangeType"
+          },
+          "changedData": {
+            "nullable": true
+          },
+          "clientId": {
+            "type": "string",
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SystemChangeType": {
+        "enum": [
+          "create",
+          "update",
+          "rightsupdate",
+          "accesspackageupdate",
+          "delete",
+          "unknown"
+        ],
+        "type": "string"
       },
       "SystemRegisterUpdateResult": {
         "type": "object",
@@ -2068,6 +4668,10 @@
             "type": "string",
             "nullable": true
           },
+          "partyUuId": {
+            "type": "string",
+            "nullable": true
+          },
           "reporteeOrgNo": {
             "type": "string",
             "nullable": true
@@ -2086,9 +4690,40 @@
           "supplierOrgno": {
             "type": "string",
             "nullable": true
+          },
+          "externalRef": {
+            "type": "string",
+            "nullable": true
+          },
+          "accessPackages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccessPackage"
+            },
+            "nullable": true
+          },
+          "userType": {
+            "$ref": "#/components/schemas/SystemUserType"
           }
         },
         "additionalProperties": false
+      },
+      "SystemUserInfo": {
+        "type": "object",
+        "properties": {
+          "systemUserId": {
+            "type": "string",
+            "description": "Gets or sets the unique identifier for the system user.",
+            "format": "uuid"
+          },
+          "systemUserOwnerOrg": {
+            "type": "string",
+            "description": "Gets or sets the organization associated with the system user.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "information about a system user."
       },
       "SystemUserPaginated": {
         "type": "object",
@@ -2108,6 +4743,73 @@
         "additionalProperties": false,
         "description": "A paginated Altinn.Platform.Authentication.Model.ListObject`1."
       },
+      "SystemUserRegisterDTO": {
+        "required": [
+          "id",
+          "integrationTitle",
+          "partyId",
+          "partyOrgNo"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "partyOrgNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "partyId": {
+            "type": "string",
+            "nullable": true
+          },
+          "integrationTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "lastChanged": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "sequenceNo": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "systemUserType": {
+            "$ref": "#/components/schemas/SystemUserType"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SystemUserRegisterDTOItemStream": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SystemUserRegisterDTO"
+            },
+            "description": "The items.",
+            "nullable": true
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginatedLinks"
+          },
+          "stats": {
+            "$ref": "#/components/schemas/ItemStreamStats"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A stream of all <typeparamref name=\"T\" /> items in a data source."
+      },
       "SystemUserRequestDto": {
         "type": "object",
         "properties": {
@@ -2121,6 +4823,13 @@
           }
         },
         "additionalProperties": false
+      },
+      "SystemUserType": {
+        "enum": [
+          "standard",
+          "agent"
+        ],
+        "type": "string"
       },
       "SystemUserUpdateDto": {
         "type": "object",

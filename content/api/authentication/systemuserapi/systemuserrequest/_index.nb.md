@@ -19,17 +19,17 @@ For øyeblikket tilbyr vi to ulike type systembrukere
 2. Agent<br>
     Utformet for organisasjoner, som for eksempel regnskaps firma, som opererer på vegne av sine kunder ved bruk av tredjeparts programvaresystemer integrert med flere offentlige og private virksomheter.
 
-## Eksterne API metoder for Systembruker
+## API metoder for Systembruker
 - [Fjern en systembruker forespørselen](external#slett-systembruker-forespørsel)
 
-## Eksterne API metoder for Standard Systembruker
+## API metoder for Standard Systembruker
 
 - [Opprett systembruker forespørselen](external#opprett-en-standard-systembrukerforespørsel)
 - [Hent systembruker forespørselen](external#hent-en-systembruker-forespørsel)
 - [List standard systembruker forespørseler for leverandøren](external#hent-systembruker-forespørseler-for-leverandøren)
 - [Hent systembruker forespørselen for eksterne refereanse](external#hent-en-systembruker-foresporsel-med-eksterne-referanse)
 
-## Eksterne API metoder for Agent Systembruker
+## API metoder for Agent Systembruker
 
 - [Opprett systembruker forespørselen for agent](external#opprett-en-agent-systembruker-forespørsel)
 - [Hent agent systembruker forespørselen](external#hent-en-agent-systembruker-forespørsel)
