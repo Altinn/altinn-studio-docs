@@ -34,7 +34,7 @@ Bildet viser leverandørstyrt opprettelse
 - Det er ikke nødvendig med delegeringer fra andre virksomheter.
 - Tilgangsstyringen er enkel og knyttet direkte til egen organisasjon.
 
-## Systembruker for klientsystem
+## Systembruker for klientsystem (tidligere agent-systembruker)
 
 Dette alternativet passer dersom systemet ditt skal gjøre det mulig for sluttbrukere å rapportere for andre virksomheter – for eksempel kunder, klienter eller samarbeidspartnere.
 
