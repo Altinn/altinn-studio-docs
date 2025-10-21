@@ -554,7 +554,7 @@
     "/orders/{id}/cancel": {
       "put": {
         "tags": [
-          "Deprecated"
+          "Order"
         ],
         "summary": "Cancel a notification order.",
         "description": "Endpoint for stopping the sending of a registered notification order.",
@@ -593,8 +593,7 @@
           "409": {
             "description": "The order cannot be cancelled due to current processing status."
           }
-        },
-        "deprecated": true
+        }
       }
     },
     "/future/shipment/{id}": {
