@@ -44,6 +44,7 @@ I POST Bodyen så brukes følgende model:
 {
   "systemId": "991825827_smartcloud",
   "partyOrgNo": "310904473",
+  "integrationTitle": "SmartCloud Krav og Betaling 2025",
   "externalRef": "bare_i_særtilfeller",
   "rights": [
     {
@@ -68,6 +69,7 @@ I eksempelet over er det oppgitt disse verdiene i Post Body:
 
 - systemId : referansen til Systemet som SBSL har forhånds registrert i [Registrer System](/nb/authorization/guides/system-vendor/system-user/systemregistration/)
 - partyOrgNo : er organisasjonsnummeret til sluttbruker, slik det er i enhetsregisteret (kun sifrene)
+- integrationTitle : er et visningsnavn som syns i Altinn Portal Brukerflater UI. Er valgfritt å sette, vil defaulte til Systemets visningsnavn hvis blank.
 - externalRef : skal normalt ikke brukes. Det er kun i spesielle tilfeller når det er behov for å ha flere systembrukere pr system pr Orgno. Det vanlige er å ikke oppgi.
 - rights : en liste av de enkelrettigheter som er påkrevet for at systembrukeren kan integrerere mot tjenesteeier`s API (foretrekkes å bruke tilgangspakker)
 - accessPackages: en liste av de Tilgangspakker som er påkrevet. (Det anbefales at tilgangspakker brukes fremfor enkeltrettigheter dersom det lar seg gjøre.)
@@ -162,6 +164,7 @@ I eksempelet over er det oppgitt disse verdiene:
 
 - systemId : referansen til Systemet som SBSL har forhånds registrert i [Registrer System](/nb/authorization/guides/system-vendor/system-user/systemregistration/)
 - partyOrgNo : er organisasjonsnummeret til sluttbruker, slik det er i enhetsregisteret (kun sifrene)
+- integrationTitle : er et visningsnavn som syns i Altinn Portal Brukerflater UI. Er valgfritt å sette, vil defaulte til Systemets visningsnavn hvis blank. (nullable)
 - externalRef : skal normalt ikke brukes. Det er kun i spesielle tilfeller når det er behov for å ha flere systembrukere pr system pr Orgno. Det vanlige er å ikke oppgi.
 - accessPackages: en liste av de tilgangspakker som er påkrevet. (Det anbefales at tilgangspakker brukes fremfor enkeltrettigheter dersom det lar seg gjøre.)
 - redirectUrl : er en valgfri verdi. Kan oppgis dersom det ønskes at sluttbruker skal redirectes til en intern side hos SBSL, etter godkjenning. MÅ være forhånds registrert på Systemet i så fall.
