@@ -1,5 +1,5 @@
 ---
-title: Klientdelegring for systemleverandør
+title: Klientdelegering for systemleverandør
 description: API for å håndtere kunder for et agentsystem
 linktitle: Klientdelegering
 weight: 5
@@ -28,7 +28,7 @@ Idporten token utvekslet som altinn token med scope <mark>altinn:clientdelegatio
 
 application/json
 
-## Query parametere
+### Query parametere
 
 #### party
 
@@ -40,7 +40,7 @@ orgnummer til eier systembruker
 
 ### Eksempel på respons
 
-```
+```json
 [
     {
         "id": "6af73152-3304-47d6-b418-01cf7f3cdfd5",
@@ -103,7 +103,7 @@ Idporten token utvekslet som altinn token med scope <mark>altinn:clientdelegatio
 
 application/json
 
-## Query parametere
+### Query parametere
 
 #### agent
 
@@ -119,7 +119,7 @@ API-et har foreløpig ikke støtte for paginering, men dette planlegges implemen
 
 ### Eksempel på respons
 
-```
+```json
 {
     "links": {},
     "systemUserInformation": {
@@ -162,7 +162,7 @@ Idporten token utvekslet som altinn token med scope <mark>altinn:clientdelegatio
 
 application/json
 
-## Query parametere
+### Query parametere
 
 #### agent
 
@@ -178,7 +178,7 @@ API-et har foreløpig ikke støtte for paginering, men dette planlegges implemen
 
 ### Eksempel på respons
 
-```
+```json
 {
     "links": {},
     "systemUserInformation": {
@@ -211,7 +211,7 @@ Idporten token utvekslet som altinn token med scope <mark>altinn:clientdelegatio
 
 application/json
 
-## Query parametere
+### Query parametere
 
 #### agent
 
@@ -227,7 +227,7 @@ Den unike identifikatoren til klienten som skal legges til systembrukeren
 
 ### Eksempel på respons
 
-```
+```json
 {
     "agent": "58cd5a57-ea49-4d04-bf7d-d48b338c68db",
     "client": "ff254c60-d02a-4ae8-bcd1-34cce38a823a"
@@ -250,7 +250,7 @@ Idporten token utvekslet som altinn token med scope <mark>altinn:clientdelegatio
 
 application/json
 
-## Query parametere
+### Query parametere
 
 #### agent
 
@@ -266,7 +266,7 @@ Den unike identifikatoren til klienten som skal fjernes fra systembrukeren
 
 ### Eksempel på respons
 
-```
+```json
 {
     "agent": "58cd5a57-ea49-4d04-bf7d-d48b338c68db",
     "client": "ff254c60-d02a-4ae8-bcd1-34cce38a823a"
