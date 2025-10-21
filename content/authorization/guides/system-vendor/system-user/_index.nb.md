@@ -36,6 +36,8 @@ Bildet viser leverandørstyrt opprettelse
 
 ## Systembruker for klientsystem
 
+(tidligere agent-systembruker)
+
 Dette alternativet passer dersom systemet ditt skal gjøre det mulig for sluttbrukere å rapportere for andre virksomheter – for eksempel kunder, klienter eller samarbeidspartnere.
 
 Du kan få fullmakter for kunden på to måter:
