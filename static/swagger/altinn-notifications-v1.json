@@ -752,7 +752,7 @@
             "in": "query",
             "description": "The sequence number to start fetching status feed entries from",
             "schema": {
-              "maximum": 9223372036854776000,
+              "maximum": 9223372036854775807,
               "minimum": 0,
               "type": "integer",
               "format": "int64"
