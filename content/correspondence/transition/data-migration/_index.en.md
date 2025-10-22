@@ -11,13 +11,13 @@ The "Flytt av Data" project will take responsibility for migrating all historica
 
 - An automated job migrates correspondences and associated attachments from Altinn 2 to Altinn 3 using a dedicated API endpoint.
 - The migrated version of an element will have a reference to its old Altinn 2 version, exposed in the field: "Altinn2CorrespondenceId" in the CorrespondenceOverview endpoint.
-- After migration, the elements will still be available in the Altinn 2 API.
+- After migration, the elements will still be available in Altinn 2, both in the Portal and via API.
 - After migration, changes to the element will be synchronized both ways, between the Altinn 2 and Altinn 3 versions of the element.
 - The Altinn 3 version of the migrated element will, once migration is complete, have an "IsMigrating" flag that keeps it hidden from regular API calls.
 - When the flag "IsMigrating" is removed, the migrated message will become available in the same manner as other Altinn 3 Correspondences.
   - Altinn 3 Correspondence API.
-  - Display in Altinn 2 Portal.
   - Can be created in Dialogporten and thus accessed in Arbeidsflate.
+  - The Altinn 3 version of the message will **not** be available in Altinn 2 Portal, which will continue to show the Altinn 2 version of the message.
 - No data is deleted as a result of migration; the correspondences are only flagged in the database, and it is possible to perform the migration again and/or manually retrieve data if needed.
 
 The migration will take place over time, and can be configured to re-migrate messages.
