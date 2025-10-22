@@ -11,7 +11,7 @@ weight: 20
 
 - En automatisk jobb migrerer meldinger og tilhørende vedlegg fra Altinn 2 til Altinn 3 ved bruk av et dedikert API-endepunkt.
 - Den migrerte versjonen av et element vil ha en referanse til sin gamle Altinn 2 versjon, eksponert i feltet: "Altinn2CorrespondenceId" i CorrespondenceOverview endepunkt.
-- Etter migrering vil elementene fremdeles være tilgjengelig i Altinn 2, både via API og i portalen.
+- Etter migrering vil elementene fremdeles være tilgjengelige i Altinn 2, både via API og i portalen.
 - Etter at migrering er utført vil endringer på elementet synkroniseres begge veier slik at både Altinn 2 og Altinn 3 versjonen av elementet holdes à jour.
 - Altinn 3 versjonen av det migrerte elementet vil umiddelbart etter migrering ha et internt flagg "IsMigrating" som holder det skjult fra å vises via de vanlige API-kallene.
 - Når flagget "IsMigrating" fjernes, blir de migrerte meldingene tilgjengelige på lik linje med andre Altinn 3 Meldinger;
