@@ -7,7 +7,7 @@ weight: 3
 
 # Sletting av systembruker
 
-En systembruker kan kun slettes av en sluttbrukersystemleverandør. Ved sletting fjernes alle tilknyttede delegeringer automatisk. Per i dag er sletting av systembruker kun mulig via Altinn-portalen. Brukeren med rollen tilgangsstyrer i sluttbrukervirksomheten må logge inn i Altinn-portalen for å gjennomføre slettingen. Leverandør kan ikke slette systembruker på vegne av kunden.
+Det er kun sluttbrukeren selv (med rollen tilgangsstyrer) som kan slette systembrukeren. Ved sletting fjernes alle tilknyttede delegeringer automatisk. Per i dag er sletting av systembruker kun mulig via Altinn-portalen. Brukeren med rollen tilgangsstyrer i sluttbrukervirksomheten må logge inn i Altinn-portalen for å gjennomføre slettingen.
 
 ## Slik sletter du systembruker
 
