@@ -7,15 +7,15 @@ description: For å komme i gang med med samtykkke må både datakonsument (slut
 ## Tjenesteeier
 
 1. Opprett tjeneste som krever samtykke
-   - Lag eller tilpass et API som tilbyr data som skal kunne deles basert på samtykke.  
-   - 
-   - API-et må kunne ta imot et gyldig **samtykketoken** (JWT) fra datakonsument som dokumentasjon på at sluttbruker har gitt samtykke.  
+
+   - Lag eller tilpass et API som tilbyr data som skal kunne deles basert på samtykke.
+   - API-et må kunne ta imot et gyldig **samtykketoken** (JWT) fra datakonsument som dokumentasjon på at sluttbruker har gitt samtykke.
    - Beskriv tydelig hvilke data som deles, og under hvilke betingelser.
 
-2. Registrer scopes for tjenesten   
+2. Registrer scopes for tjenesten
    - Tjenesten må tildeles ett eller flere **OAuth2-scopes** i **Maskinporten**.  
-    Disse scopes identifiserer hvilke rettigheter (ressurser) som krever samtykke.  
-   - Hvert scope bør være spesifikt for formålet, f.eks.:  
+     Disse scopes identifiserer hvilke rettigheter (ressurser) som krever samtykke.
+   - Hvert scope bør være spesifikt for formålet, f.eks.:
 3. Opprett samtykkeressurs i ressursregisteret
    Ressursregisteret inneholder beskrivelse av autorisasjonsressursen, samt tilgangsregler for denne. Sørg for å informere de som skal benytte tjenesten om nødvendige tilgangspakker (og eventuelle enkeltrettigheter) som kreves for å benytte tjenesten.
    - Scope
