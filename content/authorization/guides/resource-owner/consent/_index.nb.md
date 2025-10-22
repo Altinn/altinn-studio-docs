@@ -115,17 +115,24 @@ Tilgangsliste kan opprettes i på sidene for [tilgangsliste i Altinn Studio](htt
 
 ### Hvem skal kunne godkjenne en samtykkeforespørsel?
 
-Velg roller fra Enhetsregisteret, tilgangspakker og Altinn-roller for å angi hvem som kan gi samtykke på vegne av en virksomhet. Tilgangspakker tar over for Altinn-roller. Bruk dagens Altinn-roller og tilsvarende tilgangspakker til nye delegeringer er gjort og Altinn-roller er slått av. Roller fra Enhetsregisteret, som daglig leder og styrets leder, administreres i Brønnøysundregistrene og fungerer som før.
+Velg roller fra Enhetsregisteret, tilgangspakker og Altinn-roller for å angi hvem som kan gi samtykke på vegne av en virksomhet. Tilgangspakker tar over for Altinn-roller. Bruk dagens Altinn-roller og tilsvarende tilgangspakker til nye delegeringer er gjort og Altinn-roller er slått av. Roller fra Enhetsregisteret, som daglig leder og styrets leder, administreres i Brønnøysundregistrene og fungerer som tidligere.
 
  
 ![Create Resource](hvem-skal-kunne-godkjenne.png)
 
+
+
 ## Validering av samtykker
  
-I den nye samtykkeløsningen for Altinn 3 er det **Maskinporten** som utsteder samtykketoken.  
-Tokenet utstedes som et vanlig Maskinporten-token, men inneholder i tillegg `authorization_details`-attributter med informasjon om hvilke rettigheter samtykket gir.
- 
-Eksempelet under viser et token fra demoapplikasjonen **Smartbank** i testmiljøet TT02:
+Når du er ferdig med å konfigurere tilgangsregler for samtykket, må du validere at samtykket fungerer som forventet i tjenesten.
+Dette gjøres ved å kontrollere at rettighetene som er angitt i samtykke-tokenet (under `consentRights`) samsvarer med de rettighetene tjenesten krever.
+
+I den nye samtykkeløsningen for Altinn 3 er det Maskinporten som utsteder samtykke-tokenet.
+Tokenet utstedes som et vanlig Maskinporten-token, men inneholder i tillegg et attributt kalt `authorization_details`.
+Dette feltet inneholder informasjon om hvilke rettigheter samtykket gir, og brukes av tjenesten for å verifisere at nødvendig samtykke er gitt.
+
+Eksemplet nedenfor viser et samtykke-token fra demoapplikasjonen Smartbank i testmiljøet TT02.
+Her ser vi at tokenet har fått samtykket `samtykke-test-vegard` for inntektsåret 2022. Dette bekrefter at samtykkeoppsettet fungerer som forventet:
  
 ```json
 {
