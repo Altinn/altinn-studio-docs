@@ -24,4 +24,6 @@ Altinn 3 Melding støtter også batch-utsending. Dette er det å sende den samme
 Ved batch-utsending oppretter og lagrer systemet en melding per mottaker. 
 Dette gjør det mulig å håndtere meldingsstatuser og hendelser seperat for hver mottaker.
 
-Merk: Det er ikke støtte for å angi IdempotentKey på meldingene ved batch-utsending.
+{{% notice warning  %}}
+**Merk**: Det er ikke støtte for å angi IdempotentKey på meldingene ved batch-utsending.
+{{% /notice %}}

@@ -23,4 +23,6 @@ Altinn 3 Correspondence also supports batch sending. This means sending the same
 When using batch sending, the system creates and stores a separate correspondence for each recipient.
 This allows correspondence statuses and events to be handled individually for each recipient.
 
-Note: Specifying an IdempotentKey on the correspondences is not supported when using batch sending.
+{{% notice warning  %}}
+**Note**: Specifying an IdempotentKey on the correspondences is not supported when using batch sending.
+{{% /notice %}}
