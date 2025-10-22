@@ -2,7 +2,7 @@
 
 title: Samtykke for datakonsument
 
-description: Hvordan bruke samtykkeløsningen for datakonsumenter i Altinn 3
+description: Denne veiledningen beskriver hvordan datakonsumenter kan be om, hente og administrere samtykker ved hjelp av Altinn 3 sin samtykkeløsning.
 
 linktitle: Samtykke for datakonsument
 
@@ -10,57 +10,17 @@ toc: false
 
 ---
  
-## Introduksjon
- 
-Denne dokumentasjonen beskriver hvordan datakonsumenter kan be om, hente ut og administrere samtykke ved hjelp av Altinn 3 sin samtykkeløsning. Samtykke gir datakonsumenter tilgang til spesifikke dataressurser for innbyggere eller virksomheter, slik definert av tilbyderen av API-et.
- 
-## Begrepsliste
- 
-- **Datakonsument**: Virksomheten som etterspør innsyn i data om en innbygger eller annen virksomhet.
 
-- **Ressurs**: En kategori data definert av aktøren som tilbyr API-et i Altinn (f.eks. inntektsopplysninger, skattegrunnlag).
- 
-## Tilbydere av samtykkeløsninger
- 
-Nedenfor er noen sentrale aktører med samtykkeløsninger for Altinn 2. De fleste forventes å flytte til Altinn 3 i løpet av Q3 2025 eller Q1 2026:
- 
-- **Skatteetaten**
- 
-  - [Om samtykke](https://skatteetaten.github.io/api-dokumentasjon/en/om/samtykke)
+Gjennom samtykke får datakonsumenter tilgang til utvalgte dataressurser for innbyggere eller virksomheter, slik disse er definert av tjenesteeieren.
+Det er tjenesteeieren som fastsetter hvilke data som kan deles, hvor lenge samtykket gjelder, og under hvilke vilkår.
 
-  - [Inntekts-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/inntekt)
-
-  - [Summert skattegrunnlag-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/summertskattegrunnlag)
-
-  - [Krav og betalinger-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/kravogbetalinger)
-
-  - [Arbeidsgiveravgift-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/arbeidsgiveravgift)
-
-  - [MVA meldingsopplysning-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/mva_meldingsopplysning)
-
-  - [Oppdrag utenlandske virksomheter-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/oppdragutenlandskevirksomheter)
-
-  - [Restanser-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/restanser)
- 
-- **Lånekassen**
- 
-  - [Saldo studielån](https://dokumentasjon.dsop.no/dsop_saldostudielan_om.html)
- 
-Altinn tilbyr selv API-er for å be om samtykke og hente ut status på samtykkeforespørsler.
+### Forutsetning ###
+Du må ha gjennomført stegene beskrevet i Kom i gang med samtykke for datakonsumenter
+ før du følger denne veiledningen.
  
 ## 1. Be om samtykke
- 
-### 1.1 Forutsetninger
- 
-1. Datakonsumenten må ha registrert en Maskinporten-klient.
 
-2. Datakonsumenten må ha fått delegert scope for samtykke fra Digdir.
-
-3. De nødvendige scopene må være lagt til Maskinporten-klienten.
-
-4. Tilgang til å be om samtykke for gjeldende ressurs(er) må være gitt.
- 
-### 1.2 API-endepunkt
+Legg til de nødvendige parameterene i forespørselen:
  
 - **Test**: `POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/`
 
@@ -238,7 +198,7 @@ Altinn tilbyr selv API-er for å be om samtykke og hente ut status på samtykkef
 
 ```
  
-## 2. Hente samtykke-token
+## 2.1 Hente samtykke-token
  
 I Altinn 3 hentes samtykke-token som en del av Maskinporten-tokenet. Spesifiser følgende i JWT-en:
  
@@ -275,8 +235,8 @@ I Altinn 3 hentes samtykke-token som en del av Maskinporten-tokenet. Spesifiser 
 }
 
 ```
- 
-## 3. Samtykke på vegne av andre
+
+## 2.2 Samtykke på vegne av andre
  
 For å opprette samtykkeforespørsler på vegne av andre virksomheter må scope delegeres:
  
@@ -324,6 +284,15 @@ For å opprette samtykkeforespørsler på vegne av andre virksomheter må scope 
  
 ![Scope-delegering i Altinn](scopedelegation.jpg)
  
+
+## 3. Bruke samtykke
+
+
+(...)
+
+Etter dette er du klar for å ta i bruk samtykketjenesten. 
+
+
 ## Ressurser
  
 - [Maskinporten: API-konsument-guide](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument.html)
