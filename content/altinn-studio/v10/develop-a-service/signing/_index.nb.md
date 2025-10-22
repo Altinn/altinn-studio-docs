@@ -1,9 +1,9 @@
 ---
-title: Hvordan konfigurere signering i din Altinn-app 
+title: Hvordan konfigurere signering i din Altinn-app
 linktitle: Signering
 description: Nedenfor finner du veiledninger for vanlige oppsett av signering.
 tags: [signering]
-weight: 50
+weight: 130
 aliases:
 - /nb/altinn-studio/guides/signing/
 ---

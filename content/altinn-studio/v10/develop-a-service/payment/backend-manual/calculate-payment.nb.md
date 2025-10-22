@@ -1,20 +1,21 @@
 ---
 hidden: true
+tags: [needsReview, needsTranslation]
 ---
 
-### Implementer IOrderDetailsCalculator interfacet i C#
+### Implementere IOrderDetailsCalculator-interfacet i C#
 
-Legg til en ny klasse der du har din custom kode, f.eks:  `App/logic/OrderDetailsCalculator.cs`.
+Legg til en ny klasse der du har din custom-kode, for eksempel `App/logic/OrderDetailsCalculator.cs`.
 
-Her vil du implementere din logikk for å regne ut hva brukeren skal betale for.
-Du kan for eksempel aksessere skjemadata, legge til obligatoriske avgifter, eller kun legge til en fast kostnad for skjemaet. 
+Her implementerer du logikken din for å regne ut hva brukeren skal betale for.
+Du kan for eksempel aksessere skjemadata, legge til obligatoriske avgifter eller bare legge til en fast kostnad for skjemaet. 
 
-Returverdien fra metoden `CalculateOrderDetails` angir: 
-- Betalingsbehandler som skal benyttes for ordren. Disse tilgjengeliggjøres ved å implementere interfacet `IPaymentProcessor` og registrere dem som `transient` i `program.cs`. Fyll ut `Nets Easy` for å benytte standardimplementasjon for Nets Easy.
+Returverdien fra metoden `CalculateOrderDetails` angir:
+- Betalingsbehandler som skal brukes for ordren. Disse tilgjengeliggjøres ved å implementere interfacet `IPaymentProcessor` og registrere dem som `transient` i `program.cs`. Fyll ut `Nets Easy` for å bruke standardimplementasjonen for Nets Easy.
 - Valuta
 - Ordrelinjer
 - Detaljer om betalingsmottaker. Brukes i kvittering.
-- Detaljer om betaler (valgfritt), dersom du ønsker å forhåndsutfylle denne informasjonen hos Nets Easy. Kan brukes i kombinasjon med Nets Easy sitt flagg `MerchantHandlesConsumerData`, som vi har eksponert via appsettings.json `NetsPaymentSettings.MerchantHandlesConsumerData`. Om den er satt til `true` så må detaljer om betaler sendes med, ellers feiler det.
+- Detaljer om betaler (valgfritt), hvis du ønsker å forhåndsutfylle denne informasjonen hos Nets Easy. Kan brukes i kombinasjon med Nets Easy sitt flagg `MerchantHandlesConsumerData`, som vi har eksponert via appsettings.json `NetsPaymentSettings.MerchantHandlesConsumerData`. Hvis den er satt til `true`, må detaljer om betaler sendes med, ellers feiler det.
 
 I dette eksempelet regnes ordrelinjene ut basert på skjemadata:
 

@@ -3,7 +3,7 @@ title: eFormidling
 description: Slik setter du opp eFormidling-integrasjon for appen din.
 tags: [eFormidling, needsReview]
 toc: true
-weight: 15
+weight: 50
 ---
 
 Vi har laget en [eksempelapp](https://altinn.studio/repos/ttd/eformidling-sample-app) som viser det komplette eFormidling-oppsettet.

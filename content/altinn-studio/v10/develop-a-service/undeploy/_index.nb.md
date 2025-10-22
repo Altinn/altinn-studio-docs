@@ -3,7 +3,7 @@ title: Avpublisere apper
 linktitle: Avpublisering
 description: Forklarer hvordan du kan avpublisere apper i Altinn Studio.
 toc: true
-weight: 70
+weight: 10
 ---
 
 ## Avpublisere en app i Altinn Studio

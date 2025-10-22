@@ -1,13 +1,14 @@
 ---
 hidden: true
+tags: [needsReview, needsTranslation]
 ---
 
-> Her følger en beskrivelse for hvordan man setter opp en betalingsoppgave i prosessen. Dette involverer flere steg, i flere konfigurasjonsfiler.
-> Om du bruker Altinn Studio Designer, så blir all denne konfigurasjonen satt opp automatisk når du legger til betalingsoppgaven i prosessen.
+> Her følger en beskrivelse av hvordan du setter opp en betalingsoppgave i prosessen. Dette involverer flere steg i flere konfigurasjonsfiler.
+> Hvis du bruker Altinn Studio Designer, blir all denne konfigurasjonen satt opp automatisk når du legger til betalingsoppgaven i prosessen.
 
-### Opprett to datatyper for å lagre betalingsinformasjon
+### Opprette to datatyper for å lagre betalingsinformasjon
 
-Den første datatypen benyttes av betalingssteget for å lagre informasjon og status om betalingen. Legg den i `App/config/applicationmetadata.json` sin `dataTypes`-array. 
+Den første datatypen brukes av betalingssteget for å lagre informasjon og status om betalingen. Legg den i `dataTypes`-arrayen i `App/config/applicationmetadata.json`. 
 
 ```json
 {
@@ -23,7 +24,7 @@ Den første datatypen benyttes av betalingssteget for å lagre informasjon og st
 }
 ```
 
-Den andre datatypen benyttes for å lagre PDF-kvittering for betalingen. Legg den inn samme sted.
+Den andre datatypen brukes for å lagre PDF-kvittering for betalingen. Legg den inn på samme sted.
 
 ```json
 {
@@ -39,18 +40,18 @@ Den andre datatypen benyttes for å lagre PDF-kvittering for betalingen. Legg de
 }
 ```
 
-Det er viktig å sette `allowedContributors` til `"app:owned"`. Det gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv. Før versjon 8.6 var denne konfigurasjonen feilstavet `allowedContributers`.
+Det er viktig å sette `allowedContributors` til `"app:owned"`. Det gjør at disse dataene ikke kan redigeres via appens API, men bare av appen selv. Før versjon 8.6 var denne konfigurasjonen feilstavet `allowedContributers`.
 
-ID-ene kan settes til noe annet, men det må matche ID-ene som legges inn i `paymentDataType` og `paymentReceiptPdfDataType` i prosessteget, som vist i punktet under.
+ID-ene kan settes til noe annet, men de må være de samme som ID-ene du legger inn i `paymentDataType` og `paymentReceiptPdfDataType` i prosessteget, som vist i punktet under.
 
-### Utvid app-prosessen med payment task
+### Utvide app-prosessen med payment task
 
-Det må legges til et prosessteg og en gateway i `App/config/process/process.bpmn`, som i eksemplet nedenfor.
+Du må legge til et prosessteg og en gateway i `App/config/process/process.bpmn`, som i eksemplet nedenfor.
 
-Betaling benytter tre user actions. Dersom Altinn-brukergrensesnittet brukes av appen, så vil disse bli kalt automatisk når man står i betalingssteget. Om kun API-et benyttes, så må disse kalles manuelt via `/actions`-endepunktet.
+Betaling bruker tre user actions. Hvis Altinn-brukergrensesnittet brukes av appen, blir disse kalt automatisk når du står i betalingssteget. Hvis bare API-et brukes, må disse kalles manuelt via `/actions`-endepunktet.
 - `pay`: Setter i gang betalingen, ofte ved å gjøre API-kall til betalingsbehandler. Informasjon og status om den igangsatte betalingen lagres i en JSON-datatype som angis i prosesssteget for betaling.
-- `confirm`: Kalles når betaling er ferdig gjennomført for å drive prosessen videre til neste steg.
-- `reject`: Dersom sluttbruker ser noe feil med ordren, så kan vedkommende trykke "Tilbake" i betalingssteget. Da kanselleres betalingen og informasjon om den avbrutte betalingen slettes. Hvilket prosessteg man deretter ledes til angis i en gateway, som eksemplifisert nedenfor.
+- `confirm`: Kalles når betalingen er ferdig gjennomført, for å drive prosessen videre til neste steg.
+- `reject`: Hvis sluttbrukeren ser noe feil med ordren, kan vedkommende trykke **Tilbake** i betalingssteget. Da kanselleres betalingen og informasjon om den avbrutte betalingen slettes. Hvilket prosessteg du deretter ledes til, angis i en gateway, som eksemplifisert nedenfor.
 
 ```xml
     <bpmn:startEvent id="StartEvent_1">
@@ -110,12 +111,12 @@ Betaling benytter tre user actions. Dersom Altinn-brukergrensesnittet brukes av 
       <bpmn:incoming>Flow_g1_end</bpmn:incoming>
     </bpmn:endEvent>
 ```
-NB: Verdien til noden `<altinn:paymentDataType>paymentInformation</altinn:paymentDataType>` må samsvare med ID-en til datatypen du konfigurerte i forrige steg. Det samme gjelder datatypen for pdf-kvittering.
+NB: Verdien til noden `<altinn:paymentDataType>paymentInformation</altinn:paymentDataType>` må være den samme som ID-en til datatypen du konfigurerte i forrige steg. Det samme gjelder datatypen for PDF-kvittering.
 
-### Legg til sidegruppe for betaling
+### Legge til sidegruppe for betaling
 
-- Legg til en ny mappe under `App/ui` for betalingsoppgaven din. Kall den f.eks. "payment".
-- Oppdater filen `App/ui/layout-sets.json` med ny sidegruppe, som har samme `id` som mappen du nettopp opprettet.
+- Legg til en ny mappe under `App/ui` for betalingsoppgaven din. Kall den for eksempel "payment".
+- Oppdater filen `App/ui/layout-sets.json` med en ny sidegruppe som har samme `id` som mappen du nettopp opprettet.
   Din oppdaterte `layout-sets.json` kan se slik ut:
 
   ```json
@@ -140,7 +141,7 @@ NB: Verdien til noden `<altinn:paymentDataType>paymentInformation</altinn:paymen
   }
   ``` 
 
-- I din payment layoutSet mappe, legg til en ny fil, `payment.json`, med følgende layout:
+- I din payment layoutSet-mappe legger du til en ny fil, `payment.json`, med følgende layout:
 
   ```json
   {
@@ -159,4 +160,4 @@ NB: Verdien til noden `<altinn:paymentDataType>paymentInformation</altinn:paymen
   }
   ```
 
-  Dette er nødvendig for at betaling skal fungere. Uten dette vil betalingssteget ditt bare vise en hvit side.
+  Dette er nødvendig for at betaling skal fungere. Uten dette viser betalingssteget ditt bare en hvit side.

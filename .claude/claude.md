@@ -50,6 +50,7 @@ This is a Hugo-based documentation site for Altinn products like Altinn Studio, 
 ### Headings in Norwegian
 - **Main headings**: Use infinitive form of verb. Example: "Opprette tjenesten"
 - **Step-by-step subheadings**: Use imperative form of verb. Example: "Opprett ny tjeneste"
+- **"How to" style headings**: Use "Slik" + present tense verb. Examples: "Slik viser du betalingsinformasjon", "Slik setter du opp kvittering"
 
 ### URLs in Documentation
 - Add a soft line break before URLs so they start on a new line

@@ -1,22 +1,22 @@
 ---
-title: Forhåndsutfyll data automatisk - konfigurasjonsfil
+title: Forhåndsutfylle data automatisk - konfigurasjonsfil
 linktitle: Konfigurasjon
 description: Slik setter du opp automatisk utfylling av skjemadata med konfigurasjonsfil.
+tags: [needsReview, needsTranslation]
 toc: false
 weight: 200
 ---
 
 ## Hva gjør denne funksjonen?
-Altinn-appen din kan automatisk fylle ut deler av skjemaet før brukeren begynner. Dataene kan hentes fra:
-- Enhetsregisteret (for bedriftsinfo)
-- Folkeregisteret (for personinfo)
-- Brukerens Altinn-profil.
+Altinn-appen din kan automatisk fylle ut deler av skjemaet før brukeren begynner. Du kan hente dataene fra:
+- Enhetsregisteret (for bedriftsinformasjon)
+- Folkeregisteret (for personinformasjon)
+- Brukerens Altinn-profil
 
-Når noen starter skjemaet, blir feltene du velger fylt ut automatisk med riktige data.
+Når noen starter skjemaet, blir feltene du velger, fylt ut automatisk med riktige data.
 
 ## Når bør jeg bruke dette?
-Hvis du skal forhåndsutfylle data fra en av kildene listet over. Det er et begrenset sett med felter som er tilgjengelige,
-se [fullstendig liste over tilgjengelige datafelt for alle kildene](/nb/altinn-studio/v8/reference/data/prefill/).
+Hvis du skal forhåndsutfylle data fra en av kildene listet over. Det er et begrenset sett med felter som er tilgjengelige. Se [fullstendig liste over tilgjengelige datafelt for alle kildene](/nb/altinn-studio/v8/reference/data/prefill/).
 
 Trenger du data fra andre kilder? Gå til [forhåndsutfylling med egendefinert kode](/nb/altinn-studio/v8/guides/development/prefill/custom/).
 
@@ -53,7 +53,7 @@ Trenger du data fra andre kilder? Gå til [forhåndsutfylling med egendefinert k
    - `DSF` - Folkeregisteret
    - `UserProfile` - Brukerens Altinn-profil
 
-   Du velger hvilke av kildene du ønsker å bruke. Om en (eller flere) av kildene ikke skal brukes, lar du de stå tomme.
+   Du velger hvilke av kildene du ønsker å bruke. Hvis en (eller flere) av kildene ikke skal brukes, lar du dem stå tomme.
 
    Inne i gruppen for den aktuelle kilden legger du til linjer som forteller:
    - Hvilket felt (fra kilden) du vil hente data fra

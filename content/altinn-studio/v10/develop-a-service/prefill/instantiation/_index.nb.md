@@ -1,14 +1,13 @@
 ---
-title: Forhåndsutfylling med http post
+title: Forhåndsutfylle data med http post
 linktitle: Http post
-description: Hvordan konfigurere prefill for en app ved bruk av http post requests.
+description: Slik konfigurerer du forhåndsutfylling for en app ved bruk av http post requests.
+tags: [needsReview, needsTranslation]
 toc: false
 weight: 400
 ---
 
-Altinn apper støtter instansiering med prefill.
-Skjemadataen legges ved i en multipart i instansieringsrequesten som sendes til appen.
-Nedenfor ser du et eksempel på en request for å instansiere en app med prefill for partyId 12345.
+Du kan sende inn forhåndsutfylte data når du instansierer en app. Dataene sendes som en multipart i HTTP POST-requesten til appen. Nedenfor ser du et eksempel på hvordan du instansierer en app med forhåndsutfylte data for partyId 12345.
 
 ```http {hl_lines=[10]}
 Content-Type: multipart/form-data; boundary="abcdefg"

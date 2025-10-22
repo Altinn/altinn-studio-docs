@@ -1,14 +1,14 @@
 ---
 hidden: true
+tags: [needsReview, needsTranslation]
 ---
 
-### Legg til OrderDetails-komponenten i skjemaet ditt
+### Legge til OrderDetails-komponenten i skjemaet ditt
 
-Dette vil vise en tabell som viser elementene brukeren må betale for.
-Du kan plassere dette hvor som helst i appen din, men vi anbefaler å i det minste sette det på den siste siden før brukeren blir bedt om å betale.
+Dette viser en tabell som viser elementene brukeren må betale for.
+Du kan plassere dette hvor som helst i appen din, men vi anbefaler å sette det på den siste siden før brukeren blir bedt om å betale.
 
-For å få oppdatert ordrelinjene etter hvert som data som brukes til å beregne ordrelinjer endres, må du legge til en mapping til
-datafeltene som brukes til å beregne ordrelinjene.
+For å få oppdatert ordrelinjene etter hvert som data som brukes til å beregne ordrelinjer, endres, må du legge til en mapping til datafeltene som brukes til å beregne ordrelinjene.
 
 ```json
 {
@@ -24,11 +24,11 @@ datafeltene som brukes til å beregne ordrelinjene.
 }
 ```
 
-### Legg til layout for kvitteringen (Valgfritt)
+### Legge til layout for kvitteringen (valgfritt)
 
-Hvis du vil vise mer informasjon på kvittering som vises til kunden, må du legge til en egen tilpasset layout for den.
+Hvis du vil vise mer informasjon på kvitteringen som vises til kunden, må du legge til en egen tilpasset layout for den.
 
-Legg til en layout fil, f.eks. `receiptLayout.json`.
+Legg til en layout-fil, for eksempel `receiptLayout.json`.
 
 Her er et minimalt eksempel:
 
@@ -47,7 +47,7 @@ Her er et minimalt eksempel:
 }
 ```
 
-Oppdater din layoutSet-settings.json-fil, og spesifiser din kvitteringslayout i `pdfLayoutName` feltet:
+Oppdater din layoutSet-settings.json-fil, og spesifiser din kvitteringslayout i `pdfLayoutName`-feltet:
 
 ```json
 {
@@ -63,5 +63,4 @@ Oppdater din layoutSet-settings.json-fil, og spesifiser din kvitteringslayout i 
 }
 ```
 
-Dette er alt du trenger for å vise en gyldig kvittering, men du kan også tilpasse `receiptLayout.json` ved å legge til
-ytterligere komponenter, for eksempel en paragrafkomponent hvis du ønsker å legge til ytterligere informasjon.
+Dette er alt du trenger for å vise en gyldig kvittering, men du kan også tilpasse `receiptLayout.json` ved å legge til ytterligere komponenter, for eksempel en paragrafkomponent hvis du ønsker å legge til mer informasjon.

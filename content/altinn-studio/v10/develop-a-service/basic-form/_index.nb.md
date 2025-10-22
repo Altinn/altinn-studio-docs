@@ -1,7 +1,7 @@
 ---
 title: Lage et enkelt skjema
 description: I denne veiledningen lærer du hvordan du lager og publiserer en app i Altinn Studio, for eksempel et enkelt skjema.
-weight: 10
+weight: 90
 aliases:
 - /nb/altinn-studio/guides/basic-form/
 ---

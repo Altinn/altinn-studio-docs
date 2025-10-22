@@ -3,7 +3,7 @@ title: Kodelister og svaralternativer
 linktitle: Svaralternativer
 description: Hvordan konfigurere svaralternativer for en app
 toc: true
-weight: 40
+weight: 140
 aliases:
 - /nb/altinn-studio/guides/options
 - /nb/altinn-studio/v8/reference/data/options

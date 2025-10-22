@@ -1,7 +1,8 @@
 ---
-title: Forhåndsutfyll data automatisk - egendefinert kode
+title: Forhåndsutfylle data automatisk - egendefinert kode
 linktitle: Egendefinert kode
 description: Slik setter du opp automatisk utfylling av skjemadata med din egen kode.
+tags: [needsReview, needsTranslation]
 toc: false
 weight: 300
 ---
@@ -14,8 +15,7 @@ Du kan lage din egen kode for å fylle ut deler av skjemaet automatisk før bruk
 - Bruke annen logikk du selv bestemmer
 
 ## Når bør jeg bruke dette?
-Hvis du har behov for kilder utover de som er tilgjengelige via [konfigurasjonsbasert oppsett](/nb/altinn-studio/v8/guides/development/prefill/config/), eller har behov
-for annen logikk som del av forhåndsutfyllingen.
+Hvis du har behov for kilder utover de som er tilgjengelige via [konfigurasjonsbasert oppsett](/nb/altinn-studio/v8/guides/development/prefill/config/), eller har behov for annen logikk som del av forhåndsutfyllingen.
 
 ## Slik setter du det opp
 
@@ -35,7 +35,7 @@ Klassen må implementere `IInstantiationProcessor`-grensesnittet fra `Altinn.App
 ### 2. Skriv koden for automatisk utfylling
 
 Implementer `DataCreation`-metoden i den nye klassen. I denne metoden setter du opp hvilke felt som skal fylles ut automatisk, og hvilken verdi de skal få.
-Her kan du f.eks. gjøre kall for å hente data fra en ekstern kilde, gjøre beregninger, eller annen relevant logikk.
+Her kan du for eksempel gjøre kall for å hente data fra en ekstern kilde, gjøre beregninger eller annen relevant logikk.
 
 Se under for eksempler.
 
@@ -60,7 +60,7 @@ Gå til mappen `App/logic` i app-prosjektet ditt og åpne filen `InstantiationHa
 ### 2. Implementer DataCreation-metoden
 
 Skriv koden din i `DataCreation`-metoden. Her setter du opp hvilke felt som skal fylles ut automatisk, og hvilken verdi de skal få.
-Her kan du f.eks. gjøre kall for å hente data fra en ekstern kilde, gjøre beregninger, eller annen relevant logikk.
+Her kan du for eksempel gjøre kall for å hente data fra en ekstern kilde, gjøre beregninger eller annen relevant logikk.
 
 Se under for eksempler.
 

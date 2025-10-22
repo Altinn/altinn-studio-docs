@@ -2,7 +2,7 @@
 title: Kopiere app i Altinn Studio
 linktitle: Kopiere app
 description: Slik kopierer du en app i Altinn Studio.
-weight: 150
+weight: 80
 aliases:
 - /nb/app/copy-app/
 - /nb/altinn-studio/guides/copy-app/

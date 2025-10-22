@@ -4,7 +4,7 @@ linktitle: Lokal utvikling
 description: Slik kommer du i gang med lokal utvikling
 tags: [needsReview]
 toc: true
-weight: 999
+weight: 100
 aliases:
 - /nb/altinn-studio/guides/local-dev/
 ---
