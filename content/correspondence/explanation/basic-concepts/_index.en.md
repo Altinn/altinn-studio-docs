@@ -19,6 +19,8 @@ The basic messaging pattern supported by Altinn Correspondence is one-to-one mes
 
 ![One-to-one messaging](./altinn3-correspondence-pattern-1-1-messaging.en.png "One-to-one messaging")
 
-Altinn 3 Correspondence also supports one-to-many messaging patterns.
+Altinn 3 Correspondence also supports batch sending. This means sending the same correspondence to multiple recipients in a single request.
+When using batch sending, the system creates and stores a separate correspondence for each recipient.
+This allows correspondence statuses and events to be handled individually for each recipient.
 
-![One-to-many messaging](./altinn3-correspondence-pattern-1-n-messaging.en.png "One-to-many messaging")
+Note: Specifying an IdempotentKey on the correspondences is not supported when using batch sending.
