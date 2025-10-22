@@ -17,7 +17,7 @@ weight: 20
 - Når flagget "IsMigrating" fjernes, blir de migrerte meldingene tilgjengelige på lik linje med andre Altinn 3 Meldinger;
   - Altinn 3 Melding API.
   - Kan opprettes i Dialogporten/Arbeidsflate.
-  - A3 versjonen av meldingen vil **ikke** være tilgjenglig i Altinn 2 Portal, da den vil fortsette å vise Altinn 2 versjon av meldingen.
+  - A3 versjonen av meldingen vil **ikke** være tilgjengelig i Altinn 2 Portal, da den vil fortsette å vise Altinn 2 versjonen av meldingen.
 - Ingen data saneres som resultat av migrering; meldingene blir kun flagget i databasen, og det er mulig å utføre migrering på nytt og/eller hente ut data manuelt ved spesielle behov.
 
 Migreringen vil foregå over tid, med muligheter for å re-migrere elementer på nytt.
