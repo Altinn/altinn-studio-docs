@@ -1,31 +1,24 @@
 ---
-
 title: Samtykke for datakonsument
 
 description: Hvordan bruke samtykkeløsningen for datakonsumenter i Altinn 3
 
-linktitle: Samtykke for datakonsument
+linktitle: Samtykke
 
 toc: false
-
 ---
- 
-## Introduksjon
- 
-Denne dokumentasjonen beskriver hvordan datakonsumenter kan be om, hente ut og administrere samtykke ved hjelp av Altinn 3 sin samtykkeløsning. Samtykke gir datakonsumenter tilgang til spesifikke dataressurser for innbyggere eller virksomheter, slik definert av tilbyderen av API-et.
- 
-## Begrepsliste
- 
-- **Datakonsument**: Virksomheten som etterspør innsyn i data om en innbygger eller annen virksomhet.
 
-- **Ressurs**: En kategori data definert av aktøren som tilbyr API-et i Altinn (f.eks. inntektsopplysninger, skattegrunnlag).
- 
+## Introduksjon
+
+Denne dokumentasjonen beskriver hvordan datakonsumenter kan be om, hente ut og administrere samtykke ved hjelp av Altinn 3 sin samtykkeløsning. Samtykke gir datakonsumenter tilgang til spesifikke dataressurser for innbyggere eller virksomheter, slik definert av tilbyderen av API-et.
+
+
 ## Tilbydere av samtykkeløsninger
- 
+
 Nedenfor er noen sentrale aktører med samtykkeløsninger for Altinn 2. De fleste forventes å flytte til Altinn 3 i løpet av Q3 2025 eller Q1 2026:
- 
+
 - **Skatteetaten**
- 
+
   - [Om samtykke](https://skatteetaten.github.io/api-dokumentasjon/en/om/samtykke)
 
   - [Inntekts-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/inntekt)
@@ -41,17 +34,17 @@ Nedenfor er noen sentrale aktører med samtykkeløsninger for Altinn 2. De flest
   - [Oppdrag utenlandske virksomheter-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/oppdragutenlandskevirksomheter)
 
   - [Restanser-API](https://skatteetaten.github.io/api-dokumentasjon/en/api/restanser)
- 
+
 - **Lånekassen**
- 
+
   - [Saldo studielån](https://dokumentasjon.dsop.no/dsop_saldostudielan_om.html)
- 
+
 Altinn tilbyr selv API-er for å be om samtykke og hente ut status på samtykkeforespørsler.
- 
+
 ## 1. Be om samtykke
- 
+
 ### 1.1 Forutsetninger
- 
+
 1. Datakonsumenten må ha registrert en Maskinporten-klient.
 
 2. Datakonsumenten må ha fått delegert scope for samtykke fra Digdir.
@@ -59,15 +52,15 @@ Altinn tilbyr selv API-er for å be om samtykke og hente ut status på samtykkef
 3. De nødvendige scopene må være lagt til Maskinporten-klienten.
 
 4. Tilgang til å be om samtykke for gjeldende ressurs(er) må være gitt.
- 
+
 ### 1.2 API-endepunkt
- 
+
 - **Test**: `POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/`
 
 - **Produksjon**: `POST https://platform.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/`
- 
+
 #### Forespørsel (eksempel)
- 
+
 ```json
 
 {
@@ -137,9 +130,9 @@ Altinn tilbyr selv API-er for å be om samtykke og hente ut status på samtykkef
 }
 
 ```
- 
+
 #### Svar (eksempel)
- 
+
 ```json
 
 {
@@ -237,15 +230,13 @@ Altinn tilbyr selv API-er for å be om samtykke og hente ut status på samtykkef
 }
 
 ```
- 
+
 ## 2. Hente samtykke-token
- 
+
 I Altinn 3 hentes samtykke-token som en del av Maskinporten-tokenet. Spesifiser følgende i JWT-en:
- 
+
 ```json
-
 {
-
   "aud": "https://test.maskinporten.no/",
 
   "scope": "altinn:consentrequests.read",
@@ -259,33 +250,27 @@ I Altinn 3 hentes samtykke-token som en del av Maskinporten-tokenet. Spesifiser 
   "jti": "<jti>",
 
   "authorization_details": [
-
     {
-
       "from": "urn:altinn:person:identifier-no:25922947409",
 
       "id": "77ed8698-e619-4066-9eb4-5c1eb3f165a1",
 
       "type": "urn:altinn:consent"
-
     }
-
   ]
-
 }
-
 ```
- 
+
 ## 3. Samtykke på vegne av andre
- 
+
 For å opprette samtykkeforespørsler på vegne av andre virksomheter må scope delegeres:
- 
+
 1. Virksomheten som skal være mottaker, delegerer nødvendige scop**e** i Altinn under API-delegering.
 
 2. Forespørselen opprettes som beskrevet over.
 
 3. Ved henting av token, oppgi i tillegg `consumer_org`:
- 
+
 ```json
 
 {
@@ -321,14 +306,13 @@ For å opprette samtykkeforespørsler på vegne av andre virksomheter må scope 
 }
 
 ```
- 
+
 ![Scope-delegering i Altinn](scopedelegation.jpg)
- 
+
 ## Ressurser
- 
+
 - [Maskinporten: API-konsument-guide](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument.html)
 
 - [GitHub: Testimplementasjon](https://github.com/TheTechArch/smartbank)
 
 - [Kjørende smartbank](https://smartbankdemo.azurewebsites.net/)
- 
