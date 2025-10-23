@@ -35,7 +35,7 @@ Et eksempel på POST forespørsel kallet for *systembruker for eget system*:
 
 ```http
 POST https://platform.tt02.altinn.no/authentication/api/v1/systemuser/request/vendor
-Scope: altinn:authentication/systemuser.write
+Scope: altinn:authentication/systemuser.request.write
 ```
 
 I POST Bodyen så brukes følgende model:
