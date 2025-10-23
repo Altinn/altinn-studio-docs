@@ -1,117 +1,106 @@
 ---
-title: Migration of Linked Services to Resource Registry
+title: Migration of Linked Services to the Resource Registry
 linktitle: Migration of Linked Services
-description: The resource registry is essential for those who want to use Altinn authorization for access control and management for services they operate outside of Altinn.
+description: The Resource Registry is essential for service owners who rely on Altinn Authorization for access management to services they operate outside Altinn.
 tags: [architecture, security, authorization, xacml, needstranslation]
 weight: 1
 ---
 
-In the resource registry, you can create entirely new resources or base resources on Altinn 2 linked services.
+In the Resource Registry you can create brand-new resources or base them on Altinn 2 linked services.
 
 {{% notice warning %}}
-Altinn 2 linked services where Altinn offers startup control will not be continued.
+Altinn 2 linked services where Altinn provides startup control will not be continued.
 
-This means that those who currently use startup control must implement this in their own solutions and link the user directly to their solution, for example from the Altinn service catalog.
+Organisations that rely on startup control must implement it themselves and redirect users straight to their solution, for example from the Altinn service catalogue.
 {{% /notice %}}
 
 ### Import from Altinn 2 Linked Services
 
-If you have existing linked services in Altinn 2 used for external authorization, they must be moved to the resource registry in the Altinn 3 platform.
+Linked services in Altinn 2 that are used for external authorisation must be moved to the Resource Registry on the Altinn 3 platform.
 
-In Altinn Studio, you can choose to create new resources based on existing linked services.
+Altinn Studio lets you create new resources based on those linked services.
 
-**This function is essential if you want to migrate existing delegations for an existing Altinn 2 service so that they also apply to the new resource in Altinn 3.**
+**Use this option if you need to migrate existing delegations from an Altinn 2 service so they also apply to the new resource in Altinn 3.**
 
 Select "Import Resource".
 
 ![Migration](/en/authorization/what-do-you-get/resourceregistry/migration/migrationstep1.png "Migration")
 
-Provide the ID to be used in the Altinn resource registry. This ID will be central.
+Provide the ID to be used in the Resource Registry. This ID becomes the primary reference to the resource.
 
 ![Migration](/en/authorization/what-do-you-get/resourceregistry/migration/migrationstep2.png "Migration")
 
-When you click "Import", a new resource is created in Altinn Studio in the organization's repository.
+When you click "Import", Altinn Studio creates a new resource in your organisation’s repository.
 
-Since the resource registry requires more complete data than was possible to set in Altinn 2, you must fill in additional values:
+The Resource Registry requires more complete data than Altinn 2. You must add:
 
 - Title in Bokmål, Nynorsk, and English
 - Delegation text in Bokmål, Nynorsk, and English
 - Description in Bokmål, Nynorsk, and English
-- Contact information for the service (can be displayed in the service catalog)
+- Contact information for the service (can be displayed in the service catalogue)
 
 ![Migration](migrationstep3.png "Migration")
 
 #### Access Rules
 
-Upon import, access rules similar to those in Altinn 2 are created.
+Import creates access rules that mirror those in Altinn 2.
 
-Relevant access packages should also be added to prepare the service for transition to access packages from Altinn roles.
+Add any relevant access packages so the service is ready for a transition to access packages based on Altinn roles.
 
 ![Migration](migrationstep4.png "Migration")
 
 {{% notice warning %}}
-For delegation migration to work, it is important that the policy contains the rules that exist in Altinn 2. For example, you cannot remove the signing rule if it was part of the service in Altinn 2.
+For delegation migration to succeed, the policy must still contain the rules that exist in Altinn 2. For example, you cannot remove the signing rule if it was part of the service there.
 {{% /notice %}}
 
 #### Publishing
 
-When the resource properties are complete, it can be published to the test environment or production.
+When the resource information is complete, you can publish it to the test or production environment.
 
 #### Changing API Integration
 
-To perform access control on users in external services, the service owner must make calls to Altinn access control (PDP) to check access. This is done via an API based on the XACML standard.
+To enforce access control in external services, the service owner must call Altinn access control (PDP). The API is based on the XACML standard.
 
 The request contains:
 
-- Information about who wants to perform the request
-- What type of resource it is and who is the party for that resource
-- What operation the end user wants to perform
+- Who wants to perform the request
+- Which resource the request concerns, and the party associated with it
+- Which operation the end user wants to perform
 
-In a request, you can ask about several things simultaneously if needed.
+You can check multiple operations in the same request if needed.
 
 #### Migration of Delegations
 
+Most linked services have [active delegations in Altinn 2](https://github.com/Altinn/altinn-access-management/issues/579). These rights are granted from an actor to a person or organisation. To preserve user access after moving to the Resource Registry, the delegations must be migrated.
 
-For most linked services, there are [active delegations in Altinn 2](https://github.com/Altinn/altinn-access-management/issues/579). These are rights granted from one actor to a person or organization.
+In Altinn Studio you can start a batch job for services **created from an imported Altinn 2 resource**. The job:
 
-For these users to continue to have access after transitioning to the resource registry, the rights must be migrated over.
+- deactivates the Altinn 2 service so delegations cannot change during the migration
+- copies the delegations to the new resource in Altinn 3
 
-In Altinn Studio, you can start a batch on services created **based on an imported resource from Altinn 2** that:
-
-- Deactivates the Altinn 2 service so that no changes to delegation can be made.
-- Copies the delegations to the new resource in Altinn 3.
-
-
-Currently, this function is hidden behind a feature flag in Altinn Studio.
+The functionality is currently hidden behind a feature flag in Altinn Studio.
 
 ```javascript
-localStorage.setItem('featureFlags', "[\"resourceMigration\"]")
+localStorage.setItem("featureFlags", '["resourceMigration"]');
 ```
 
-Run the command above in the browser console (available via developer tools).
+Run the command in the browser console (developer tools).
 
-Starting the batch job will take about 10 minutes before the job starts. The first thing the job does is deactivate the service before migrating to Altinn 3.
+After you start the batch job it takes roughly ten minutes before it kicks off. The first step is to deactivate the service in Altinn 2 before migrating to Altinn 3.
 
-The service must be migrated to the environment where you will migrate delegations. We strongly recommend testing this in TT02 before running the job in Altinn 3.
+The service must already be deployed to the environment in which you plan to migrate delegations. We strongly recommend testing in TT02 before running the job in production.
 
 ![Migrate](migrationstep5.png "Migration options in Altinn Studio")
 
 ![Migrate](migrationstep6.png "Migration options in Altinn Studio")
 
-After running, the delegations will be transferred. This must currently be checked manually as counting is not yet available.
-
-We hope for feedback from service owners to adjust the process.
+When the job finishes, the delegations are transferred. Verify the result manually for now—counts are not yet available. We welcome feedback from service owners so we can fine-tune the process.
 
 ##### Creating Reference to Altinn 2 Service
 
-If you have created a resource in the Altinn 3 resource registry without using the import functionality, you can add the reference manually.
+If you have created a resource in the Altinn 3 Resource Registry without using the import functionality, you can add the reference manually.
 
-
-This can be done by the following methods:
-
-**Edit Resource File in Gitea**
-
-The format of what needs to be added is as follows:
+Add the reference by editing the resource file in Gitea with content similar to:
 
 ```json
 "resourceReferences": [
@@ -133,4 +122,4 @@ The format of what needs to be added is as follows:
 ]
 ```
 
-This can be added by editing the resource in Gitea. Remember to use the correct service codes and URL.
+Remember to use the correct service codes and URL.
