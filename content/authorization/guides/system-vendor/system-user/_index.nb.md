@@ -20,7 +20,7 @@ Opprettelse kan skje via sluttbrukerstyrt opprettelse eller leverandørstyrt opp
 
 #### Brukerstyrt opprettelse
 
-Ved en sluttbrukerstyrt opprettelse er det sluttbrukeren selv som initierer prosessen ved å logge inn i Altinn. Der velger brukeren hvilket system de ønsker å opprette en systembruker for.
+Ved en brukerstyrt opprettelse er det sluttbrukeren selv som initierer prosessen ved å logge inn i Altinn. Der velger brukeren hvilket system de ønsker å opprette en systembruker for.
 
 Sluttbrukeren blir presentert for de forhåndsdefinerte tilgangene som systemet krever. Når disse aksepteres, godkjennes tilgangene direkte, og systembrukeren blir opprettet uten at det genereres en separat forespørsel. Denne prosessen forutsetter at sluttbrukeren har myndighet til å delegere alle tilgangene systemet ber om.
 
