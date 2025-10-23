@@ -28,8 +28,8 @@ Dette er den foretrukne metoden hvor du som SBSL initierer opprettelsen via API.
 
 1.  **Initier forespørsel:** Send en HTTP POST-forespørsel til API-endepunktet.
 
-      * **Test (TT02):** ` https://platform.tt02.altinn.no/authentication/api/v1/systemuser/request/vendor`
-      * **Produksjon:** ` https://platform.altinn.no/authentication/api/v1/systemuser/request/vendor`
+      * **Test (TT02):** `https://platform.tt02.altinn.no/authentication/api/v1/systemuser/request/vendor`
+      * **Produksjon:** `https://platform.altinn.no/authentication/api/v1/systemuser/request/vendor`
 
 2.  **Konfigurer Request Body:** Inkluder en JSON-body som spesifiserer system, kunde og tilganger. Det anbefales å bruke `accessPackages` fremfor `rights`.
 
