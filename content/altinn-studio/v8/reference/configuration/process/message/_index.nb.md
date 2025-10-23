@@ -13,6 +13,6 @@ Vi har lagd noen verktøy som skal gjøre det enkelt å komme i gang med å sett
 Vi har lagd en standard datamodell for meldinger, for å gjøre det enkelt å komme i gang. Denne datamodellen kan man finne [her](https://altinncdn.no/schemas/xsd/message/message.schema.v1.xsd). Denne kan enten brukes som den er, brukes som et utgangspunkt, eller man kan bruke en helt annen datamodell. 
 
 ## Layout
-Layout'en kan man definere helt selv, på samme måte som for skjema.
+Layouten kan man definere helt selv, på samme måte som for skjemaet.
 
 ![Standard meldings-visning](message-app.png "Standard meldings-visning")
