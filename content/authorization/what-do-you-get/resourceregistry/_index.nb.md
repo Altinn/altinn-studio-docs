@@ -76,9 +76,9 @@ Tabellen under viser hvilke attributter en ressurs har i Ressursregisteret. For 
 
 Ressursregisteret lagrer policyene (retningslinjene) som defineres for apper og andre tjenesteressurser.
 
-### Appretningslinjer
+### App-retningslinjer
 
-App-policyene gjelder for apper [opprettet i Altinn Studio](../../../../../../../../altinn-studio/reference/configuration/authorization/).
+App-policyene gjelder for apper [opprettet i Altinn Studio](/nb/altinn-studio/v8/reference/configuration/authorization/).
 Policyen utvikles i Altinn Studio og migreres til Access Policy-komponenten når appen distribueres til test- eller produksjonsmiljø.
 
 En app-policy beskriver hvilke ressurser som finnes i appen, hvilke operasjoner som er tillatt, og for hvem.

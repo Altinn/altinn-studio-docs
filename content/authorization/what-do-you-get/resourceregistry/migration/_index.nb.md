@@ -24,11 +24,11 @@ I Altinn Studio kan du opprette nye ressurser basert på disse lenketjenestene.
 
 Velg "Importer ressurs".
 
-![Migration](/authorization/what-do-you-get/resourceregistry/migration/migrationstep1.png "Migration")
+![Migration](migrationstep1.png "Migration")
 
 Oppgi ID-en som skal brukes i Ressursregisteret. Denne ID-en blir den primære referansen til ressursen.
 
-![Migration](/authorization/what-do-you-get/resourceregistry/migration/migrationstep2.png "Migration")
+![Migration](migrationstep2.png "Migration")
 
 Når du klikker "Import", opprettes det en ny ressurs i Altinn Studio i organisasjonens repo.
 
