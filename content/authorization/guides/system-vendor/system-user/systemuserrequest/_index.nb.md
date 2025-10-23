@@ -35,7 +35,7 @@ Et eksempel på POST forespørsel kallet for *systembruker for eget system*:
 
 ```http
 POST https://platform.tt02.altinn.no/authentication/api/v1/systemuser/request/vendor
-Scope: altinn:authentication/systemuser.write
+Scope: altinn:authentication/systemuser.request.write
 ```
 
 I POST Bodyen så brukes følgende model:
@@ -138,8 +138,8 @@ En godkjent systembruker vil være aktiv inntil den blir slettet av sluttbruker,
 Et eksempel på POST forespørsel kallet for *systembruker for klientsystem*:
 
 ```http
-POST https://platform.tt02.altinn.no/authentication/api/v1/systemuser/agent/request
-Scope: altinn:authentication/systemuser.write
+POST https://platform.tt02.altinn.no/authentication/api/v1/systemuser/request/vendor/agent
+Scope: altinn:authentication/systemuser.request.write
 ```
 
 I POST Bodyen så brukes følgende model:
@@ -217,4 +217,15 @@ Som en respons vil de motta informasjon slik:
   "externalRef": "{bare dersom brukt}",
   "userType": "agent"
 }
+```
+
+### Slette forespørsel
+
+Det er også mulig å slette en forespørsel, dersom det skulle oppstå et behov for det (f.eks for å opprette en ny forespørsel for samme organisasjon og system)
+
+Et eksempel på kall for å slette en forespørsel:
+
+```http
+DELETE https://platform.tt02.altinn.no/authentication/api/v1/systemuser/request/vendor/{requestId}
+Scope: altinn:authentication/systemuser.request.write
 ```
