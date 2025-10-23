@@ -31,7 +31,7 @@ Dette er den foretrukne metoden hvor du som SBSL initierer opprettelsen via API.
       * **Test (TT02):** `https://platform.tt02.altinn.no/authentication/api/v1/systemuser/request/vendor`
       * **Produksjon:** `https://platform.altinn.no/authentication/api/v1/systemuser/request/vendor`
 
-2.  **Konfigurer Request Body:** Inkluder en JSON-body som spesifiserer system, kunde og tilganger. Det anbefales å bruke `accessPackages` fremfor `rights`.
+2.  **Konfigurer Request Body:** Inkluder en JSON-body som spesifiserer system, kunde og tilganger(`accesspackage`).
 
     ```json
     {
@@ -62,7 +62,7 @@ Dette er den foretrukne metoden hvor du som SBSL initierer opprettelsen via API.
 6.  **Sluttbruker godkjenner:** Sluttbrukeren må følge lenken for å [godkjenne SystemBruker](/nb/authorization/guides/end-user/system-user/accept-request/). Forespørselen får da status `Accepted`.
 
 
-### Metode B: [**Sluttbrukerstyrt Opprettelse**](https://docs.altinn.studio/nb/authorization/guides/system-vendor/system-user/#brukerstyrt-opprettelse)
+### Metode B: [**Brukerstyrt Opprettelse**](https://docs.altinn.studio/nb/authorization/guides/system-vendor/system-user/#brukerstyrt-opprettelse)
 
 Denne metoden er kun aktuell hvis du som SBSL *ikke* har et eget grensesnitt for å håndtere leverandørstyrt opprettelse.
 
@@ -124,7 +124,7 @@ Etter at en sluttbruker har godkjent en forespørsel (status `Accepted`), kan du
     `{{API_BASE_URL}}/authentication/api/v1/systemuser/vendor/byquery?system-id={systemId}&orgno={kundensOrgno}`
     *(Erstatt `{API_BASE_URL}`, `{systemId}` og `{kundensOrgno}`)*
 
-2.  En vellykket respons returnerer JSON med detaljer om systembrukeren, inkludert dens permanente `id` og `userType`.
+2.  En vellykket respons returnerer JSON med detaljer om systembrukeren, inkludert systembruker `id` og `userType`.
 
 ### Status på Forespørsler
 
@@ -135,3 +135,5 @@ En forespørsel (request) har en livssyklus definert av status:
   * **Rejected:** Sluttbruker har trykket «Ikke godkjenn».
   * **TimedOut:** Forespørselen er ikke besvart innen 10 dager og er utløpt. Den er ikke lenger tilgjengelig via API.
   * **Denied:** Ikke i bruk.
+
+For nærmere detaljer rundt relevante API'er se: [**OpenAPI**](https://docs.altinn.studio/nb/api/authentication/spec/#/RequestSystemUser)
