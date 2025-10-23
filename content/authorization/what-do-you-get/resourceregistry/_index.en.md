@@ -5,10 +5,6 @@ description: The resource registry contains information about resources where Al
 tags: [architecture, security, authorization, xacml, needstranslation]
 ---
 
-{{<notice warning>}}
-This is work in progress
-{{</notice>}}
-
 ## Type of resources
 
 There are different types of resources that can be registrated
