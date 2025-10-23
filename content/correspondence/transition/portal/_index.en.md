@@ -15,6 +15,8 @@ The display will be largely similar to the existing display of Altinn 2 Correspo
 - No "Archive" button
 - Different behavior with delete/trash functionality.
 
+For migrated correspondences Altinn 2 Portal will always show the Altinn 2 version of the message. Status changes are synchronized between the solutions, see [synchronization](../data-migration/#synchronization-of-status-changes-between-altinn-2-and-3) for details.
+
 The solution is in production, and the last major changes were in Altinn 2 25.4 release, but minor changes might still occur.
 
 ## Measures to ensure gradual increase of load
