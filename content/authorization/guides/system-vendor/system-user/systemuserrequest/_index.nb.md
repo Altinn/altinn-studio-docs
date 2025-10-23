@@ -138,8 +138,8 @@ En godkjent systembruker vil være aktiv inntil den blir slettet av sluttbruker,
 Et eksempel på POST forespørsel kallet for *systembruker for klientsystem*:
 
 ```http
-POST https://platform.tt02.altinn.no/authentication/api/v1/systemuser/agent/request
-Scope: altinn:authentication/systemuser.write
+POST https://platform.tt02.altinn.no/authentication/api/v1/systemuser/request/vendor/agent
+Scope: altinn:authentication/systemuser.request.write
 ```
 
 I POST Bodyen så brukes følgende model:
