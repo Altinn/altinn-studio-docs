@@ -1,117 +1,110 @@
 ---
-title: Migration of Linked Services to Resource Registry
-linktitle: Migration of Linked Services
-description: The resource registry is essential for those who want to use Altinn authorization for access control and management for services they operate outside of Altinn.
+title: Migrering av lenketjenester til ressursregister
+linktitle: Migrering lenketjenester
+description: Ressursregisteret er sentralt for de som ønsker å benytte Altinn autorisasjon til tilgangsstyring og kontroll for tjenester de drifter utenfor Altinn.
 tags: [architecture, security, authorization, xacml]
 weight: 1
 ---
 
-In the resource registry, you can create entirely new resources or base resources on Altinn 2 linked services.
+I ressursregisteret kan man opprette helt nye ressurser eller basere ressurser på Altinn 2 lenketjenester.
 
 {{% notice warning %}}
-Altinn 2 linked services where Altinn offers startup control will not be continued.
+Altinn 2 lenketjenester hvor Altinn tilbyr oppstartskontroll vil ikke videreføres.
 
-This means that those who currently use startup control must implement this in their own solutions and link the user directly to their solution, for example from the Altinn service catalog.
+Det betyr at de som i dag bruker oppstartskontroll må selv implementere dette i sine løsninger og lenke brukeren direkte til sin løsning, for eksempel fra Altinn tjenestekatalog.
 {{% /notice %}}
 
-### Import from Altinn 2 Linked Services
+### Import fra Altinn 2 lenketjenester
 
-If you have existing linked services in Altinn 2 used for external authorization, they must be moved to the resource registry in the Altinn 3 platform.
+Hvis man har eksisterende lenketjenester i Altinn 2 som benyttes for ekstern autorisasjon, må disse flyttes over til ressursregisteret i Altinn 3-plattformen.
 
-In Altinn Studio, you can choose to create new resources based on existing linked services.
+I Altinn Studio kan man velge å opprette nye ressurser basert på eksisterende lenketjenester.
 
-**This function is essential if you want to migrate existing delegations for an existing Altinn 2 service so that they also apply to the new resource in Altinn 3.**
+**Denne funksjonen er essensiell hvis man ønsker å migrere eksisterende delegeringer for eksisterende Altinn 2-tjeneste slik at de også gjelder for ny ressurs i Altinn 3.**
 
-Select "Import Resource".
+Velg "Importer ressurs".
 
-![Migration](/nb/authorization/what-do-you-get/resourceregistry/migration/migrationstep1.png "Migration")
+![Migration](/authorization/what-do-you-get/resourceregistry/migration/migrationstep1.png "Migration")
 
-Provide the ID to be used in the Altinn resource registry. This ID will be central.
+Gi ID som skal benyttes i Altinn ressursregisteret. Denne ID vil være sentral.
 
-![Migration](/nb/authorization/what-do-you-get/resourceregistry/migration/migrationstep2.png "Migration")
+![Migration](/authorization/what-do-you-get/resourceregistry/migration/migrationstep2.png "Migration")
 
-When you click "Import", a new resource is created in Altinn Studio in the organization's repository.
+Når man trykker "Import", opprettes det en ny ressurs i Altinn Studio i organisasjonens repository.
 
-Since the resource registry requires more complete data than was possible to set in Altinn 2, you must fill in additional values:
+Da ressursregisteret krever mer komplette data enn hva som var mulig å sette i Altinn 2, må du fylle ut ekstra verdier:
 
-- Title in Bokmål, Nynorsk, and English
-- Delegation text in Bokmål, Nynorsk, and English
-- Description in Bokmål, Nynorsk, and English
-- Contact information for the service (can be displayed in the service catalog)
+- Tittel på Bokmål, Nynorsk og Engelsk
+- Delegeringstekst på Bokmål, Nynorsk og Engelsk
+- Beskrivelse på Bokmål, Nynorsk og Engelsk
+- Kontaktinformasjon for tjenesten (vil kunne vises i tjenestekatalog)
 
 ![Migration](migrationstep3.png "Migration")
 
-#### Access Rules
+#### Tilgangsregler
 
-Upon import, access rules similar to those in Altinn 2 are created.
+Ved import opprettes det tilgangsregler lik de som var i Altinn 2.
 
-Relevant access packages should also be added to prepare the service for transition to access packages from Altinn roles.
+Det bør også legges til relevante tilgangspakker for å gjøre tjenesten klar for overgang til tilgangspakker fra Altinn roller.
 
 ![Migration](migrationstep4.png "Migration")
 
 {{% notice warning %}}
-For delegation migration to work, it is important that the policy contains the rules that exist in Altinn 2. For example, you cannot remove the signing rule if it was part of the service in Altinn 2.
+For at migrering av delegering skal fungere, er det viktig at policy inneholder de reglene som finnes i Altinn 2. Man kan for eksempel ikke fjerne signeringsregel hvis dette var en del av tjenesten i Altinn 2.
 {{% /notice %}}
 
-#### Publishing
+#### Publisering
 
-When the resource properties are complete, it can be published to the test environment or production.
+Når egenskaper med ressursen er komplett, kan den publiseres til testmiljø eller produksjon.
 
-#### Changing API Integration
+#### Endring av API-integrasjon
 
-To perform access control on users in external services, the service owner must make calls to Altinn access control (PDP) to check access. This is done via an API based on the XACML standard.
+For å gjøre tilgangskontroll på brukere i eksterne tjenester, må tjenesteeier gjøre kall mot Altinn tilgangskontroll (PDP) for å sjekke tilgang. Dette gjøres via et API basert på XACML-standarden.
 
-The request contains:
+Forespørselen inneholder:
 
-- Information about who wants to perform the request
-- What type of resource it is and who is the party for that resource
-- What operation the end user wants to perform
+- Informasjon om hvem som ønsker å utføre forespørselen
+- Hvilken type ressurs det er snakk om og hvem som er part for den ressursen
+- Hvilken operasjon sluttbruker ønsker å utføre
 
-In a request, you can ask about several things simultaneously if needed.
+I en forespørsel kan man spørre om flere ting samtidig ved behov.
 
-#### Migration of Delegations
+#### Migrering av delegeringer
 
+For de fleste lenketjenester finnes det [aktive delegeringer i Altinn 2](https://github.com/Altinn/altinn-access-management/issues/579). Dette er rettigheter som er gitt fra en aktør til en person eller organisasjon. For at disse brukerne skal ha fortsatt tilgang etter en overgang til ressursregisteret, må rettighetene migreres over.
 
-For most linked services, there are [active delegations in Altinn 2](https://github.com/Altinn/altinn-access-management/issues/579). These are rights granted from one actor to a person or organization.
+I Altinn Studio kan man på tjenester som er laget **basert på en importert ressurs fra Altinn 2** starte en batch som:
 
-For these users to continue to have access after transitioning to the resource registry, the rights must be migrated over.
+- Deaktiverer Altinn 2-tjenesten slik at ingen endring på delegering kan utføres.
+- Kopierer over delegeringene til ny ressurs i Altinn 3.
 
-In Altinn Studio, you can start a batch on services created **based on an imported resource from Altinn 2** that:
-
-- Deactivates the Altinn 2 service so that no changes to delegation can be made.
-- Copies the delegations to the new resource in Altinn 3.
-
-
-Currently, this function is hidden behind a feature flag in Altinn Studio.
+Foreløpig er denne funksjonen gjemt bak et feature flag i Altinn Studio.
 
 ```javascript
-localStorage.setItem('featureFlags', "[\"resourceMigration\"]")
+localStorage.setItem("featureFlags", '["resourceMigration"]');
 ```
 
-Run the command above in the browser console (available via developer tools).
+Kjør kommandoen over i konsollen på nettleseren (tilgjengelig via utviklerverktøy).
 
-Starting the batch job will take about 10 minutes before the job starts. The first thing the job does is deactivate the service before migrating to Altinn 3.
+Ved å starte batchjobben vil det ta ca. 10 minutter før jobben starter. Det første jobben gjør er å deaktivere tjenesten før den kjører migreringen til Altinn 3.
 
-The service must be migrated to the environment where you will migrate delegations. We strongly recommend testing this in TT02 before running the job in Altinn 3.
+Tjenesten må være migrert til det miljøet du skal migrere delegeringer i. Vi anbefaler på det sterkeste å teste dette i TT02 før jobben kjøres i Altinn 3.
 
-![Migrate](migrationstep5.png "Migration options in Altinn Studio")
+![Migrate](migrationstep5.png "Migrerings valg i Altinn Studio")
 
-![Migrate](migrationstep6.png "Migration options in Altinn Studio")
+I etterkant av kjøringen vil delegeringene være overført. Dette må foreløpig sjekkes manuelt da telling ikke er tilgjengelig enda.
 
-After running, the delegations will be transferred. This must currently be checked manually as counting is not yet available.
+Her håper vi på tilbakemeldinger fra tjenesteeiere for å tilpasse prosessen.
 
-We hope for feedback from service owners to adjust the process.
+##### Opprette referanse til Altinn 2-tjeneste
 
-##### Creating Reference to Altinn 2 Service
+Hvis man har opprettet en ressurs i Altinn 3 ressursregister uten å bruke importfunksjonaliteten, kan man legge på referanse manuelt.
 
-If you have created a resource in the Altinn 3 resource registry without using the import functionality, you can add the reference manually.
+Dette kan gjøres ved følgende fremgangsmåter:
 
+**Endre ressursfil i Gitea**
 
-This can be done by the following methods:
-
-**Edit Resource File in Gitea**
-
-The format of what needs to be added is as follows:
+Formatet på det som må legges til er som følger:
 
 ```json
 "resourceReferences": [
@@ -133,4 +126,56 @@ The format of what needs to be added is as follows:
 ]
 ```
 
-This can be added by editing the resource in Gitea. Remember to use the correct service codes and URL.
+Dette kan legges til ved å redigere ressursen i Gitea. Husk å bruke riktig tjenestekoder og URL.
+
+Foreløpig er denne funksjonen gjemt bak et feature flag i Altinn Studio.
+
+```javascript
+localStorage.setItem("featureFlags", '["resourceMigration"]');
+```
+
+Kjør kommandoen over i konsollen på nettleseren (tilgjengelig via utviklerverktøy).
+
+Ved å starte batchjobben vil det ta ca. 10 minutter før jobben starter. Det første jobben gjør er å deaktivere tjenesten før den kjører migreringen til Altinn 3.
+
+Tjenesten må være migrert til det miljøet du skal migrere delegeringer i. Vi anbefaler på det sterkeste å teste dette i TT02 før jobben kjøres i Altinn 3.
+
+![Migrate](migrationstep5.png "Migreringsvalg i Altinn Studio")
+
+![Migrate](migrationstep6.png "Migreringsvalg i Altinn Studio")
+
+I etterkant av kjøringen vil delegeringene være overført. Dette må foreløpig sjekkes manuelt da telling ikke er tilgjengelig enda.
+
+Her håper vi på tilbakemeldinger fra tjenesteeiere for å tilpasse prosessen.
+
+##### Opprette referanse til Altinn 2-tjeneste
+
+Hvis man har opprettet en ressurs i Altinn 3 ressursregister uten å bruke importfunksjonaliteten, kan man legge på referanse manuelt.
+
+Dette kan gjøres ved følgende fremgangsmåter:
+
+**Endre ressursfil i Gitea**
+
+Formatet på det som må legges til er som følger:
+
+```json
+"resourceReferences": [
+    {
+        "referenceSource": "Altinn2",
+        "reference": "5600",
+        "referenceType": "ServiceCode"
+    },
+    {
+        "referenceSource": "Altinn2",
+        "reference": "100",
+        "referenceType": "ServiceEditionCode"
+    },
+    {
+        "referenceSource": "Altinn2",
+        "reference": "https://test.landbruksdirektoratet.no/disko/soker",
+        "referenceType": "Uri"
+    }
+]
+```
+
+Dette kan legges til ved å redigere ressursen i Gitea. Husk å bruke riktig tjenestekoder og URL.
