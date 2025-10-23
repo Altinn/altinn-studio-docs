@@ -68,6 +68,7 @@ Altinn Autorisasjon er løsningen som inneholder informasjon om hvem som kan gj�
 Sluttbrukersystemleverandører registrerer her metadata om systemet, fullmakter systemet kan be om, samt hvilken Maskinporten-klient-ID systemet benytter.
 Sluttbrukersystemleverandør velger også om systemet kan opprettes via Altinn-portalen, eller om det skjer etter forespørsel fra sluttbrukersystemet.
 Systemer i systemregisteret kan sees på som en mal for en systembruker.
+
 **Systembruker** er en ikke-personlig bruker som får tildelt fullmakter på vegne av virksomheten som eier den.
 Systembrukeren kan opprettes på forespørsel fra en systemleverandør eller via Altinns brukerflate dersom sluttbrukersystemleverandøren har tilgjengeliggjort dette.
 

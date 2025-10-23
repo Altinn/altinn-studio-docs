@@ -5,17 +5,18 @@ description: Finn referanseimplementasjoner som bruker Altinn Autentiseringsfunk
 weight: 5
 ---
 
+## SmartCloud
+
+SmartCloud er en referanseimplementasjon som viser hvordan en systemleverandør kan bruke Altinn Systembruker API.
+
+[Les mer](./smartcloud/)
+
 ## Systembruker API
 
 Demonstrerer tokenvalidering for å autentisere en systembrukertoken fra Maskinporten og kallet til Altinn PDP for å autorisere tilgang.
 
 [Les mer](./systemuserapi/)
 
-## SmartCloud
-
-SmartCloud er en referanseimplementasjon som viser hvordan en systemleverandør kan bruke Altinn Systembruker API.
-
-[Les mer](./smartcloud/)
 
 ## Systemregister Admin
 

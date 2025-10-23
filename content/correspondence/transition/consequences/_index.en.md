@@ -13,6 +13,7 @@ Here is a brief summary of the consequences of the chosen transition and migrati
 
 - When creating the correspondence in the API, the correspondence is created in the environment being called ("home" of the element).
   - If created in Altinn 2, migration will occur to Altinn 3 shortly thereafter, but notification will be completed in A2 regardless of migration.
+    - The correspondence is still available in Altinn 2 after migration.
   - If in Altinn 3, the correspondence will be available in the Altinn 2 Portal.
     - A3 correspondences will not be available via A2 API.
 - Checking the status of a correspondence created in A2 must be done against A2 until it is migrated, and after migration you may check against either A3 or A2.
@@ -25,6 +26,7 @@ Here is a brief summary of the consequences of the chosen transition and migrati
 
 - Will get a full overview in the Altinn portal of both Altinn 2 and 3 elements.
 - When they open an Altinn 3 element, it is displayed in the Altinn 2 Portal, similar to an Altinn 2 element.
+- Altinn 2 Portal will **only** give access to the Altinn 2-version of a migrated correspondence.
 
 ### Via End-User System
 

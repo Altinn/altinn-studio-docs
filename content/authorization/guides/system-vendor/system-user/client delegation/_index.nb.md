@@ -1,6 +1,8 @@
 ---
-title: Klient delegering
+title: Klientdelegering for systemleverandør
 description: API for å håndtere kunder for et agentsystem
+linktitle: Klientdelegering
+weight: 5
 toc: true
 ---
 
@@ -10,20 +12,7 @@ Klientdelegerings-API-et tilbyr metoder for å administrere klienter for en agen
 
 Guide til å gjøre dette som sluttbruker: [Klientdelegering](/nb/authorization/guides/end-user/system-user/delegate-clients/)
 
-## Sikkerhetsoppsett
-
-API-et krever autentisering med et Bearer-token, som i dette tilfellet er et ID-porten-token med spesifikke scopes. Tokenet må veksles inn i et Altinn-token ved å bruke endepunktet /GET authentication/api/v1/exchange/id-porten.
-For testmiljø, legg til query-parameteren ?test=true.
-
-## API Methods
-
-- [List alle agent-systembrukere for organisasjon](#list-alle-agent-systembrukere-for-organisasjon)
-- [List alle tilgjengelige klienter for systembrukeren](#list-alle-tilgjengelige-klienter-for-systembrukeren)
-- [List alle delegerte klienter for systembrukeren](#list-alle-delegerte-klienter-for-systembrukeren)
-- [Deleger en klient til systembrukeren](#deleger-en-klient-til-systembrukeren)
-- [Fjern en klient fra systembrukeren](#fjern-en-klient-fra-systembrukeren)
-
-## List alle agent-systembrukere for organisasjon
+## 1 List alle agent-systembrukere for organisasjon
 
 Returnerer en liste over alle agentbrukere i systemet som er knyttet til organisasjon
 
@@ -39,7 +28,7 @@ Idporten token utvekslet som altinn token med scope <mark>altinn:clientdelegatio
 
 application/json
 
-## Query parametere
+### Query parametere
 
 #### party
 
@@ -51,7 +40,7 @@ orgnummer til eier systembruker
 
 ### Eksempel på respons
 
-```
+```json
 [
     {
         "id": "6af73152-3304-47d6-b418-01cf7f3cdfd5",
@@ -98,7 +87,7 @@ orgnummer til eier systembruker
 ]
 ```
 
-## List alle tilgjengelige klienter for systembrukeren
+## 2 List alle tilgjengelige klienter for systembrukeren
 
 Viser alle potensielle klienter for partiet som har tilgang til tilgangspakken for systembrukeren
 
@@ -114,7 +103,7 @@ Idporten token utvekslet som altinn token med scope <mark>altinn:clientdelegatio
 
 application/json
 
-## Query parametere
+### Query parametere
 
 #### agent
 
@@ -130,7 +119,7 @@ API-et har foreløpig ikke støtte for paginering, men dette planlegges implemen
 
 ### Eksempel på respons
 
-```
+```json
 {
     "links": {},
     "systemUserInformation": {
@@ -157,7 +146,7 @@ API-et har foreløpig ikke støtte for paginering, men dette planlegges implemen
 }
 ```
 
-## List alle delegerte klienter for systembrukeren
+## 3 List alle delegerte klienter for systembrukeren
 
 Viser alle de delegerte klientene for systembrukeren
 
@@ -173,7 +162,7 @@ Idporten token utvekslet som altinn token med scope <mark>altinn:clientdelegatio
 
 application/json
 
-## Query parametere
+### Query parametere
 
 #### agent
 
@@ -189,7 +178,7 @@ API-et har foreløpig ikke støtte for paginering, men dette planlegges implemen
 
 ### Eksempel på respons
 
-```
+```json
 {
     "links": {},
     "systemUserInformation": {
@@ -206,7 +195,7 @@ API-et har foreløpig ikke støtte for paginering, men dette planlegges implemen
 }
 ```
 
-## Deleger en klient til systembrukeren
+## 4 Deleger en klient til systembrukeren
 
 Delegerer en klient til systembrukeren
 
@@ -222,7 +211,7 @@ Idporten token utvekslet som altinn token med scope <mark>altinn:clientdelegatio
 
 application/json
 
-## Query parametere
+### Query parametere
 
 #### agent
 
@@ -238,14 +227,14 @@ Den unike identifikatoren til klienten som skal legges til systembrukeren
 
 ### Eksempel på respons
 
-```
+```json
 {
     "agent": "58cd5a57-ea49-4d04-bf7d-d48b338c68db",
     "client": "ff254c60-d02a-4ae8-bcd1-34cce38a823a"
 }
 ```
 
-## Fjern en klient fra systembrukeren
+## 5 Fjern en klient fra systembrukeren
 
 Fjerner en klient fra systembrukeren
 
@@ -261,7 +250,7 @@ Idporten token utvekslet som altinn token med scope <mark>altinn:clientdelegatio
 
 application/json
 
-## Query parametere
+### Query parametere
 
 #### agent
 
@@ -277,7 +266,7 @@ Den unike identifikatoren til klienten som skal fjernes fra systembrukeren
 
 ### Eksempel på respons
 
-```
+```json
 {
     "agent": "58cd5a57-ea49-4d04-bf7d-d48b338c68db",
     "client": "ff254c60-d02a-4ae8-bcd1-34cce38a823a"

@@ -1,15 +1,16 @@
 ---
 title: Bruk av Systembruker
-description: Beskrivelse av hvordan Systembrukeren brukes etter den er opprettet
+description: Denne veiledningen beskriver hvordan du bruker en systembruker etter at den er opprettet.
 linktitle: Bruk av Systembruker
 weight: 5
 ---
 
-### Request (JWT Grant)
+### Forespørsel (JWT Grant)
 
-Funksjonaliteten er basert på Oauth2-utvidelsen for fin-granulert autorisasjon (Rich Authorization Requests, RAR), der vi har definert en ny type urn:altinn:systemuser for systembruker-mønsteret.
+Funksjonaliteten bygger på OAuth2-utvidelsen for fin-granulert autorisasjon (Rich Authorization Requests, RAR). Vi har definert en ny type: **urn:altinn:systemuser** for systembruker-mønsteret.
 
-Leverandøren ber om å få et token for en påstått kunde ved å oppgi kundens organisasjonsnummer, og dersom en systembruker-delegering foreligger i Altinn, vil det returneres et Maskinporten-token med systembruker-identifikator som API-tilbyder i sin tur kan benytte til å konstruere spørringer mot Altinn Autorisasjon PDP for å finne detaljert ut hva leverandørens system er autorisert til å utføre.
+Leverandøren ber om et token for en spesifikk kunde ved å oppgi kundens organisasjonsnummer. Hvis det finnes en systembruker-delegering i Altinn, returneres et Maskinporten-token med systembruker-identifikator. 
+API-tilbyderen kan deretter bruke dette tokenet til å sende forespørsler til Altinn Autorisasjon PDP for å avgjøre hvilke handlinger leverandørens system er autorisert til å utføre.
 
 {{<mermaid>}}
 sequenceDiagram
@@ -23,7 +24,7 @@ Altinn Autorisasjon-->>API: AuthorizationResponse
 API-->>Sluttbrukersystem: API Resultat
 {{< /mermaid >}}
 
-Et fagsystem ber om å få systembruker-token på vegne av en part ved å inkludere en RAR-forespørsel av type urn:altinn:systemuser med partens organisasjonsidentifikator, i [JWT-grantet](https://docs.digdir.no/docs/Maskinporten/maskinporten_protocol_jwtgrant)
+Et fagsystem ber om å få systembruker-token på vegne av en part ved å inkludere en RAR-forespørsel av type urn:altinn:systemuser med partens organisasjonsnummer, i [JWT-grantet](https://docs.digdir.no/docs/Maskinporten/maskinporten_protocol_jwtgrant)
 
 ```http
 POST https://test.maskinporten.no/token
@@ -58,12 +59,12 @@ Content-Type: application/json
 ```
 
 {{%notice info%}}
-Man kan kun spørre på en part om gangen. Grantet må også alltid forespørre et eller flere Oauth2 scopes.
+**MERK:** Du kan kun forespørre én part om gangen. Grantet må alltid inkludere ett eller flere OAuth2-scopes.
 {{% /notice%}}
 
 ### Response (JWT Token)
 
-Tokenet vil innehold en liste med systembrukere som tilhører kundens organisasjonnummer, og er knyttet mot leverandørens fagsystem gjennom det autentiserte fagsystemet (client_id):
+Tokenet inneholder en liste med systembrukere som tilhører kundens organisasjonsnummer. Disse er knyttet til leverandørens fagsystem via det autentiserte fagsystemet (client_id):
 
 ```json
 {
@@ -94,13 +95,13 @@ Tokenet vil innehold en liste med systembrukere som tilhører kundens organisasj
 ```
 
 {{%notice info%}}
-Tokenet man får fra Maskinporten legges ved som et bearer token mot de API man skal kalle.
+**Merk:** Tokenet fra Maskinporten skal brukes som Bearer-token i API-kallene.
 {{% /notice%}}
 
-## Demoklient
+### Demoklient
 
-For en demo av hvordan leverandørstyrt opprettelsee kan se ut, så vår demolklient [SmartCloud](http://smartcloudaltinn.azurewebsites.net).
+For en demonstrasjon av leverandørstyrt opprettelse, se vår demoklient [SmartCloud](http://smartcloudaltinn.azurewebsites.net).
 
-Se kode med dokumentasjon [her](https://github.com/TheTechArch/altinn-systemuser).
+Kildekode med dokumentasjon finner du [her](https://github.com/TheTechArch/altinn-systemuser).
 
-For opprettelse av systembrukere kan testbrukere/organisasjoner fra Tenor benyttes.
+For opprettelse av systembrukere kan testbrukere og organisasjoner fra Tenor benyttes.

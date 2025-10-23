@@ -42,12 +42,14 @@ It is possible to request a manual import of delegations from an Altinn 2 corres
 
 Note: Make sure a new resource is established in the relevant environment(s) before ordering.
 
+{{% notice warning  %}}
+**Important:** Altinn does **NOT** recommend migrating rights without a thorough risk assessment beforehand. Our experience shows that not all organizations actively manage who has access in Altinn. This can result in multiple individuals having access without "need-to-know". We therefore believe it may pose a risk to blindly copy existing Altinn II delegations to the new Altinn 3 resources.
+{{% /notice %}}
+
 To order a delegation import, send an email:
-To: tjenesteeier@altinn.no  
-Subject: "Import of delegations from Altinn 2 Correspondence Service to Altinn 3 Resource"  
-In the body:
-Specify the environments and the time this should be executed, and:
-Specify per service: the Altinn 2 service code and edition code that will be the source, as well as the Altinn 3 resource that should receive the imported delegations.
+- To: tjenesteeier@altinn.no  
+- Subject: "Import of delegations from Altinn 2 Correspondence Service to Altinn 3 Resource"  
+- In the body: Specify the environments and the time this should be executed, and assign per service: the Altinn 2 service code and edition code that will be the source, as well as the Altinn 3 resource that should receive the imported delegations.
 Specify: "Ønsker at saken sendes til Altinn 2 Forvaltning." (Request that the case is sent to Altinn 2 Operations.)
 
 Our technicians will then perform a manual run of the DelegationSync job with the given parameters.

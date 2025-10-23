@@ -1,20 +1,25 @@
 ---
-title: Policy Information Point
+title: Policy Informasjonspunkt
 linktitle: PIP
-description: The Policy Information Point(s) are responsible for providing needed information to the context handler so it can enrich the context request.
-tags: [architecture, security, needstranslation]
+description: Policy Informasjonspunkt(er) er ansvarlige for å gi nødvendig informasjon til konteksthåndtereren slik at den kan berike kontekstforespørselen.
+tags: [arkitektur, sikkerhet, trengeroversettelse]
 weight: 1
 ---
 
-Without this information it would be impossible for the PDP to evaluate the context request in many scenarios.
+Uten denne informasjonen ville det vært umulig for PDP å evaluere kontekstforespørselen i mange scenarier.
 
-For the Altinn Platform there are serveral Policy Information Points:
+For Altinn-plattformen finnes det flere Policy Informasjonspunkt:
 
-- Altinn II Authorization - Get information about roles a user or system has for a given party
-- Storage PIP - Get attributes about the resource in the decision request. (what kind of app, who is the reportee of the data, what is the current process state)
+- Altinn II Autorisasjon – Hent informasjon om hvilke roller en bruker eller et system har for en gitt aktør
+- Storage PIP – Hent attributter om ressursen i beslutningsforespørselen. (hvilken type app, hvem er rapporteringsansvarlig for dataene, hva er nåværende prosessstatus)
 
-The number of PIP are expected to grow in the future.
+Antallet PIP-er forventes å øke i fremtiden.
 
-### Implementation details
+### Implementasjonsdetaljer
 
-See implementation details in the [construction components for PIP](/nb/authorization/reference/architecture/accesscontrol/#policy-information-point---roles).
+Se implementasjonsdetaljer i [konstruksjonskomponentene for PIP](/nb/authorization/reference/architecture/accesscontrol/#policy-information-point---roles).
+tags: [arkitektur, sikkerhet]
+weight: 1
+---
+Side 1 av 0
+Side 1 av 0
