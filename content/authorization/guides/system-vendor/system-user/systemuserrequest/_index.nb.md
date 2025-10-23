@@ -221,9 +221,9 @@ Som en respons vil de motta informasjon slik:
 
 ### Slette forespørsel
 
-Det er også mulig å slette en forespørsel, dersom det skulle det oppstå et behov for (f.eks for å opprette en ny forespørsel for samme organisasjon og system)
+Det er også mulig å slette en forespørsel, dersom det skulle det oppstå et behov for det (f.eks for å opprette en ny forespørsel for samme organisasjon og system)
 
-Et eksempel på en DELETE forespørsel for å slette en forespørsel:
+Et eksempel på kall for å slette en forespørsel:
 
 ```http
 DELETE https://platform.tt02.altinn.no/authentication/api/v1/systemuser/request/vendor/{requestId}
