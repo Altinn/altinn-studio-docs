@@ -21,8 +21,8 @@ Merk: Tidsintervallet for revarsel i test- og stagingmiljøer er for øyeblikket
 Varslinger kan sendes via enten e-post eller SMS. Mens e-post ikke har noe tidsvindu, vil SMS-varsler bli sendt mellom kl. 09:00 og 17:00.
 Hvis avsendingstidspunktet faller utenfor dette tidsvinduet, vil varselet bli sendt neste dag.
 {{% notice warning  %}}
-I testmiljøet kan varslinger via SMS kun sendes til telefonnumre som er hvitlistet internt.
-Ta kontakt med oss på [Altinn@Slack#produkt-melding](https://join.slack.com/t/altinn/shared_invite/zt-7c77c9si-ZnMFwGNtab1aFdC6H_vwog) hvis dette er nødvendig for din tjeneste.
+I testmiljøet kan du bare sende SMS-varsler til hvitlistede telefonnumre.  
+Send en e-post til [tjenesteeier@altinn.no](mailto:tjenesteeier@altinn.no?subject=Hvitlisting%20av%20telefonnummer) med telefonnummeret som skal hvitlistes.
 {{% /notice %}}
 
 En varslingsbestilling gjøres ved å legge til følgende når du initialiserer en melding:
@@ -61,6 +61,20 @@ En varslingsbestilling gjøres ved å legge til følgende når du initialiserer 
 }
 ```
 
+## Feltvalidering og tegnbegrensninger
+
+Når du oppretter varslinger, gjelder følgende valideringsregler og tegnbegrensninger. Disse grensene er anbefalt av Altinn Notifications-tjenesten for å sikre korrekt visning og levering:
+
+| Felt | Maksimal lengde | Beskrivelse |
+|------|----------------|-------------|
+| `emailSubject` | 128 tegn | Anbefalt av Altinn Notifications-tjenesten for å sikre at e-postemnet vises korrekt i e-postklienter |
+| `emailBody` | 10 000 tegn | Støtter detaljert innhold i både ren tekst og HTML-format |
+| `smsBody` | 2 144 tegn | Samsvarer med Altinn Notifications-tjenestens SMS-behandlingsgrenser. Tilsvarer 16 SMS-segmenter (16 × 134 tegn per segment) |
+| `reminderEmailSubject` | 128 tegn | Samme anbefaling som hovedvarslingens e-postemne |
+| `reminderEmailBody` | 10 000 tegn | Støtter detaljert innhold i både ren tekst og HTML-format |
+| `reminderSmsBody` | 2 144 tegn | Samme grense som hovedvarslingens SMS-innhold |
+
+**Merk:** Hvis du overskrider disse grensene, vil du motta en `400 Bad Request`-feilrespons med detaljer om hvilket felt som overskred grensen.
 
 ## Keyword støtte
 

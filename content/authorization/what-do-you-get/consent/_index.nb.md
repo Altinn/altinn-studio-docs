@@ -26,13 +26,13 @@ I Altinn 3 utstedes kun ett Maskinporten-token per samtykke. Dette tokenet ident
 {
     "authorization_details": [
         {
-            "type": "urn:altinn:concent",
+            "type": "urn:altinn:consent",
             "id": "b55b0a8c-46db-4239-a417-a89daabfabba",
             "from": "urn:altinn:person:identifier-no:01039012345",
             "to": "urn:altinn:organization:identifier-no:984851006",
-            "concented": "2024-06-01T00:00:00Z",
+            "consented": "2024-06-01T00:00:00Z",
             "validTo": "2024-12-10T00:00:00Z",
-            "concentrights": [
+            "consentRights": [
                 {
                     "action": ["read", "write"],
                     "resource": [

@@ -6,7 +6,7 @@ toc: false
 ---
  
 For å bruke Altinn Samtykke må du opprette samtykkeressurser for hvert sett med tjenester eller data som skal inngå i et samtykke.
-
+ 
 Eksempler på slike ressurser er Skatteetatens "inntekts-API" og skattegrunnlag, som banker bruker for innsyn i finansielle forhold ved lånesøknader.
  
 Denne veiledningen forklarer hvordan du setter opp en samtykkeressurs.

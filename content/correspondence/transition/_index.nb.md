@@ -19,7 +19,7 @@ For å forenkle overgangen fra Altinn 2 til Altinn 3 versjonen av melding-produk
 - Migrering av delegeringer gjøres som et separat steg, men bør utføres før meldinger tilgjengeliggjøres  for sluttbrukere i A3 API og Dialogporten/Arbeidsflate.
 - Migrering av historiske data vil ta tid (uker/måneder), og overgangsløsning bygges med dette i mente.
 - Til slutt vil migrerings-jobben «ta igjen» Live/Ferske data, slik at elementene kan tilgjengeliggjøres i Altinn 3 kort tid etter at de var opprettet i Altinn 2.
-- Siden endringer kan skje på migrerte elementer i Altinn 2 må disse endringene synkroniseres over til Altinn 3, men ikke tilbake.
+- Siden endringer kan skje på migrerte elementer i både Altinn 2 og Altinn 3 så må dette synkroniseres på tvers. Men det vil være visse begrensinger i hva som kan synkroniseres.
 
 ## Overgangsløsning
 
@@ -41,13 +41,26 @@ For å forenkle overgangen fra Altinn 2 til Altinn 3 versjonen av melding-produk
 4. **Synk av delegering periode:** når steg 1 og 3 er fullført, fortsetter til Altinn 2 skrus av.
    Kontinuerlig synk av endringer i delegeringer på tjeneste- og instansnivå.
 5. **Tilgjengeliggjøring av historiske meldinger i Altinn 3/Dialogporten/Arbeidsflate:** kan i teorien skje etter steg 1 er utført, men for best resultat; når man er i periode 4.
+   - Man tilgjengeliggjør først data fra 2025, og deretter jobber seg bakover.
 6. **Løpende migrering og tilgjengeliggjøring av meldinger** til slutt vil man være i en fase der alle nye meldinger i Altinn 2 nesten umiddelbart går gjennom steg 2,4 og 5 og dermed fortløpende er tilgjengelige i Dialogporten/Arbeidsflate.
 
-### Ansvarsdeling
+## Ansvarsdeling
 
 *"Flytt av Data" prosjektet* tar ansvar for utvikling av komponenter til, og utføring av steg 1 og 2, samt steg 3 og 4 i samarbeid med *Team Autorisasjon*.
 De tar også ansvar for å sette i gang steg 6, i nært samarbeid med de andre partene.
 
 *Team Dialogporten/Arbeidsflate* tar ansvar for når steg 5 skal skje, mens *Team Melding og Formidling* utfører de nødvendige aksjonene.
+
+## Tidsplan/datoer
+
+Per 09.10.2025 er dette status:
+
+I TT02/Staging:
+- Steg 1, 2, 3, 4 og 6 er utført.
+- Steg 5 er utført for meldinger nyere enn 01.08.2025, resten tas umiddelbart.
+
+I PROD/Produksjon:
+- Steg 1,2, 3,4 er utført.
+- Steg 5 og 6 avventer noe ytelsesoptimalisering, før man igangsetter steg 6 og 5 i parallel.
 
 {{<children />}}
