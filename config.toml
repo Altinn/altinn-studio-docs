@@ -62,5 +62,13 @@ noSearch = false # default is false
 showVisitedLinks = false # default is false
 enableMermaid = true # enable Mermaid diagrams
 
+[outputFormats.MD]
+name = "MARKDOWN"
+mediaType = "text/markdown"
+baseName = "index"
+isPlainText = true
+
 [outputs]
+page = ["HTML", "MARKDOWN"]
+section = ["HTML", "MARKDOWN"]
 home = ["HTML", "JSON"] # JSON generates index.json file used by search
