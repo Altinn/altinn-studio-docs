@@ -1,6 +1,6 @@
 ---
 title: Klientdelegering for systemleverandør
-description: Denne veiledningen viser hvordan systemleverandører kan sette opp klientdelegering i Altinn ved hjelp av API-er. Klientdelegering gjør det mulig for en systembruker å representere klienter (f.eks. klienter av regnskapsførere eller revisorer) i kommunikasjon med offentlige tjenester. Hvert funksjonelt steg er illustrert med konkrete API-eksempler, slik at du enkelt kan implementere løsningen i ditt system. 
+description: Denne veiledningen viser hvordan systemleverandører kan integrere støtte for klientdelegering i sine sluttbrukersystemer ved hjelp av Altinns API-er. Klientdelegering gjør det mulig for en systembruker å representere klienter (f.eks. klienter av regnskapsførere eller revisorer) i kommunikasjon med offentlige tjenester. Hvert funksjonelt steg er illustrert med konkrete API-eksempler, slik at du enkelt kan implementere løsningen i ditt system. 
 linktitle: Klientdelegering
 weight: 5
 toc: true
@@ -14,15 +14,15 @@ Egen guide for _klientdelegering_ som sluttbruker finner du her: [Klientdelegeri
 Finn alle systembrukere for klientsystem som er knyttet til din organisasjon.
 
 
-#### API endepunkt: GET authentication/api/v1/enduser/systemuser/agents
+**API endepunkt:** `GET authentication/api/v1/enduser/systemuser/agents`
 
-#### Scopes: Idporten token utvekslet som altinn token med scope <mark>altinn:clientdelegations.read</mark>
+**Scopes:** Idporten token utvekslet som altinn token med scope `altinn:clientdelegations.read`
 
-#### Innholdstype: application/json
+**Innholdstype:** `application/json`
 
-### Query parametere
+### Forespørselparametere
 
-#### party: orgnummer til eier systembruker
+**party:** orgnummer til eier systembruker
 
 ### Eksempel på forespørsel
 
@@ -82,17 +82,17 @@ Finn alle systembrukere for klientsystem som er knyttet til din organisasjon.
 
 Hent en liste over klienter som kan delegeres til systembrukeren for klientsystem.
 
-#### API endepunkt: GET authentication/api/v1/enduser/systemuser/clients/available
+**API endepunkt:** `GET authentication/api/v1/enduser/systemuser/clients/available`
 
-#### Scopes: Idporten token utvekslet som altinn token med scope <mark>altinn:clientdelegations.read</mark>
+**Scopes:** Idporten token utvekslet som altinn token med scope `altinn:clientdelegations.read`
 
-#### Innholdstype: application/json
+**Innholdstype:** `application/json`
 
-### Query parametere
+### Forespørselparametere
 
-#### agent: Den unike identifikatoren til systembruker for klientforhold
+**agent:** Den unike identifikatoren til systembruker for klientforhold
 
-#### Paginering: API-et har foreløpig ikke støtte for paginering, men dette planlegges implementert i en senere versjon. Vi har nå lagt grunnlaget for paginering i systemet.
+**paginering:** API-et har foreløpig ikke støtte for paginering, men dette planlegges implementert i en senere versjon. Vi har nå lagt grunnlaget for paginering i systemet.
 
 ### Eksempel på forespørsel
 
@@ -132,17 +132,17 @@ Hent en liste over klienter som kan delegeres til systembrukeren for klientsyste
 Se hvilke klienter som allerede er delegert til systembrukeren for klientforhold
 
 
-#### API endepunkt: GET authentication/api/v1/enduser/systemuser/clients/
+**API endepunkt:** `GET authentication/api/v1/enduser/systemuser/clients/`
 
-#### Scopes: Idporten token utvekslet som altinn token med scope <mark>altinn:clientdelegations.read</mark>
+**Scopes:** Idporten token utvekslet som altinn token med scope `altinn:clientdelegations.read`
 
-#### Innholdstype: application/json
+**Innholdstype:** `application/json`
 
-### Query parametere
+### Forespørselparametere
 
-#### agent: Den unike identifikatoren til systembruker for klientforhold
+**agent:** Den unike identifikatoren til systembruker for klientforhold
 
-#### Paginering: API-et har foreløpig ikke støtte for paginering, men dette planlegges implementert i en senere versjon. Vi har nå lagt grunnlaget for paginering i systemet.
+**paginering:** API-et har foreløpig ikke støtte for paginering, men dette planlegges implementert i en senere versjon. Vi har nå lagt grunnlaget for paginering i systemet.
 
 ### Eksempel på forespørsel
 
@@ -172,17 +172,17 @@ Se hvilke klienter som allerede er delegert til systembrukeren for klientforhold
 Delegerer tilgang fra en klient til systembrukeren for klientforhold
 
 
-#### API endepunkt: POST authentication/api/v1/enduser/systemuser/clients/
+**API endepunkt:** `POST authentication/api/v1/enduser/systemuser/clients/`
 
-#### Scopes: Idporten token utvekslet som altinn token med scope <mark>altinn:clientdelegations.read altinn:clientdelegations.write</mark>
+**Scopes:** Idporten token utvekslet som altinn token med scope `altinn:clientdelegations.read` `altinn:clientdelegations.write`
 
-#### Innholdstype: application/json
+**Innholdstype:** `application/json`
 
-### Query parametere
+### Forespørselparametere
 
-#### agent: Den unike identifikatoren til systembruker for klientforhold
+**agent:** Den unike identifikatoren til systembruker for klientforhold
 
-#### client: Den unike identifikatoren til klienten som skal legges til systembrukeren
+**client:** Den unike identifikatoren til klienten som skal legges til systembrukeren
 
 ### Eksempel på forespørsel
 
@@ -202,17 +202,17 @@ Delegerer tilgang fra en klient til systembrukeren for klientforhold
 Fjerner en eksisterende klient fra systembruker for klientforhold
 
 
-#### API endepunkt: DELETE authentication/api/v1/enduser/systemuser/clients/
+**API endepunkt:** `DELETE authentication/api/v1/enduser/systemuser/clients/`
 
-#### Scopes: Idporten token utvekslet som altinn token med scope <mark>altinn:clientdelegations.read altinn:clientdelegations.write</mark>
+**Scopes:** Idporten token utvekslet som altinn token med scope `altinn:clientdelegations.read` `altinn:clientdelegations.write`
 
-#### Innholdstype: application/json
+**Innholdstype:** `application/json`
 
-### Query parametere
+### Forespørselparametere
 
-#### agent: Den unike identifikatoren til systembruker for klientforhold
+**agent:** Den unike identifikatoren til systembruker for klientforhold
 
-#### client: Den unike identifikatoren til klienten som skal fjernes fra systembrukeren
+**client:** Den unike identifikatoren til klienten som skal fjernes fra systembrukeren
 
 ### Eksempel på forespørsel
 
@@ -228,4 +228,4 @@ Fjerner en eksisterende klient fra systembruker for klientforhold
 ```
 
 ## Utforsk API-dokumentasjonen
-For fullstendig teknisk dokumentasjon, inkludert detaljerte beskrivelser av parametere, responser og autentisering, gå til Altinns OpenAPI-grensesnitt her: 
+For fullstendig teknisk dokumentasjon, inkludert detaljerte beskrivelser av parametere, responser og autentisering, gå til Altinns OpenAPI-grensesnitt her: (kommer)
