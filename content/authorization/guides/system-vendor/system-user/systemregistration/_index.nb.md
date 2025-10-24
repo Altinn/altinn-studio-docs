@@ -43,15 +43,30 @@ Org-nummer i "id" og "ID" må matche, samt det som ligger i tokenet. Det er stø
           "value": "ske-krav-og-betalinger"
         }
       ]
+    },
+    {
+      "resource": [
+        {
+          "id": "urn:altinn:resource",
+          "value": "ske-innrapportering-boligselskap"
+        }
+      ]
     }
   ],
   "accessPackages": [
     {
       "urn": "urn:altinn:accesspackage:skattegrunnlag"
+    },
+    {
+      "urn": "urn:altinn:accesspackage:revisorattesterer"
     }
   ],
-  "clientId": ["32ef65ac-6e62-498d-880f-76c85c2052ae"],
-  "allowedredirecturls": ["https://smartcloudxxxx/receipt"],
+  "clientId": [
+    "32ef65ac-6e62-498d-880f-76c85c2052ae"
+  ],
+  "allowedredirecturls": [
+    "https://smartcloudxxxx/receipt"
+  ],
   "isVisible": true
 }
 ```

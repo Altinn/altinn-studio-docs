@@ -7,7 +7,7 @@ weight: 1
 
 ## Godkjenning
 
-Her godkjenner en sluttbruker en forespørsel om å opprette en Systembruker. I dette eksemplet mottar DRESs MINST en forespørsel om agentsystembruker og må godkjenne den i Altinn-portalen. Der oppretter DRESs MINST en systembruker, legger til sine kunder til systembrukeren, og gir dermed SmartCloud de nødvendige tilgangspakkene.
+Her godkjenner en sluttbruker en forespørsel om å opprette en Systembruker. I dette eksemplet mottar DRESs MINST en forespørsel om systembruker for klientforhold og må godkjenne den i Altinn-portalen. Der oppretter DRESs MINST en systembruker, legger til sine kunder til systembrukeren, og gir dermed SmartCloud de nødvendige tilgangspakkene.
 
 <img width="2177" height="1277" alt="image" src="https://docs.altinn.studio/nb/authorization/guides/end-user/system-user/systemtilgang-approve-1.png" />
 

@@ -15,6 +15,29 @@
     }
   ],
   "paths": {
+    "/users/current/party-groups": {
+      "get": {
+        "tags": [
+          "Favorites"
+        ],
+        "summary": "Retrieve all groups for a user",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GroupResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
     "/users/current/party-groups/favorites": {
       "get": {
         "tags": [
