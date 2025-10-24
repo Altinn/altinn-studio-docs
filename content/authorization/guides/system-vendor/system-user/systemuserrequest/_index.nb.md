@@ -11,7 +11,7 @@ weight: 2
 **Forutsetninger:**
 
   * Ditt system (SBSL) må være forhåndsregistrert i Altinn ([Registrer System](/nb/authorization/guides/system-vendor/system-user/systemregistration/)).
-  * Du må ha et gyldig Maskinporten-token med scopet `altinn:authentication/systemuser.write` (scopet opprettes i [Samarbeidsportalen](https://samarbeid.digdir.no/maskinporten/maskinporten/25)).
+  * Du må ha et gyldig Maskinporten-token med scopet `altinn:authentication/systemuser.request.write` (scopet opprettes i [Samarbeidsportalen](https://samarbeid.digdir.no/maskinporten/maskinporten/25)).
   * Du må kjenne organisasjonsnummeret (`partyOrgNo`) til sluttbrukerkunden.
   * Du må ha definert hvilke tilgangspakker (`accessPackages`) eller enkeltrettigheter (`rights`) systembrukeren trenger.
   * (Valgfritt) Hvis `redirectUrl` skal benyttes, må denne URL-en være forhåndsregistrert på systemet ditt.
@@ -28,26 +28,35 @@ Dette er den foretrukne metoden hvor du som SBSL initierer opprettelsen via API.
 
 1.  **Initier forespørsel:** Send en HTTP POST-forespørsel til API-endepunktet.
 
-      * **Test (TT02):** `https://platform.tt02.altinn.no/authentication/api/v1/systemuser/request/vendor`
-      * **Produksjon:** `https://platform.altinn.no/authentication/api/v1/systemuser/request/vendor`
+     * **Test (TT02):** `https://platform.tt02.altinn.no/authentication/api/v1/systemuser/request/vendor`
+     * **Produksjon:** `https://platform.altinn.no/authentication/api/v1/systemuser/request/vendor`
 
 2.  **Konfigurer Request Body:** Inkluder en JSON-body som spesifiserer system, kunde og tilganger(`accesspackage`).
 
-    ```json
+     ```json
     {
-      "systemId": "DITT_REGISTRERTE_SYSTEM_ID",
-      "partyOrgNo": "KUNDENS_ORG_NR",
-      "accessPackages": [
-        { "urn": "urn:altinn:accesspackage:..." }
-      ],
-      "rights": [],
-      "redirectUrl": "VALGFRI_REDIRECT_URL_HOS_DEG"
-    }
-    ```
+    "systemId": "991825827_smartcloud",
+    "partyOrgNo": "314248295",
+    "rights": [
+      {
+        "resource": [
+          {
+            "id": "urn:altinn:resource",
+            "value": "ske-krav-og-betalinger"
+          }
+      ]
+      }
+    ],
+    "accessPackages": [
+      {
+        "urn": "urn:altinn:accesspackage:skattegrunnlag"
+      }
+    ],
+    "redirectUrl": "https://smartcloudxxxx/receipt"
+  
 
-3.  **Motta respons:** API-et validerer forespørselen. Ved suksess mottar du en JSON-respons med `status: "New"`.
-
-4.  **Hent dyplenke:** Fra responsen, hent verdien av `confirmUrl`. Eksempel på respons:
+3. **Motta respons:** API-et validerer forespørselen. Ved suksess mottar du en JSON-respons med `status: "New"`.
+4. **Hent dyplenke:** Fra responsen, hent verdien av `confirmUrl`. Eksempel på respons:
 
       ```json
         {
@@ -87,22 +96,26 @@ Dette gjelder en systembruker for et system som skal handle på vegne av sluttbr
 
 ### Instruksjoner (Leverandørstyrt Opprettelse)
 
-1.  **Initier forespørsel:** Send en HTTP POST-forespørsel til det spesifikke endepunktet for klientsystemer (`/agent/request`).
+1. **Initier forespørsel:** Send en HTTP POST-forespørsel til det spesifikke endepunktet for klientsystemer (`/agent/request`).
 
       * **Test (TT02):** `POST https://platform.tt02.altinn.no/authentication/api/v1/systemuser/agent/request`
       * **Produksjon:** `POST https://platform.altinn.no/authentication/api/v1/systemuser/agent/request`
 
-2.  **Konfigurer Request Body:** Inkluder en JSON-body. ***Merk*** at `rights`-listen må være tom eller utelatt.
+2. **Konfigurer Request Body:** Inkluder en JSON-body. ***Merk*** at `rights`-listen må være tom eller utelatt.
 
     ```json
-    {
-      "systemId": "DITT_REGISTRERTE_SYSTEM_ID",
-      "partyOrgNo": "KUNDENS_ORG_NR",
-      "accessPackages": [
-        { "urn": "urn:altinn:accesspackage:..." }
-      ]
-    }
+      {
+    "systemId": "312605031_SuperRegnskap",
+    "partyOrgNo": "310495670",
+    "accessPackages": [
+      {
+        "urn": "urn:altinn:accesspackage:ansvarlig-revisor"
+      }
+    ],
+    "redirectUrl": "https://superregnskap.no"
     ```
+    Denne forespørselen forutsetter at det finnes et System i Systemregisteret med systemIden "312605031_SuperRegnskap" og tilgangspakken "ansvarlig revisor" fra før.
+    
 
 3. **Motta respons:** Motta en JSON-respons med `status: "New"` og en `confirmUrl`, tilsvarende prosessen for "eget system".
 
@@ -136,4 +149,6 @@ En forespørsel (request) har en livssyklus definert av status:
   * **TimedOut:** Forespørselen er ikke besvart innen 10 dager og er utløpt. Den er ikke lenger tilgjengelig via API.
   * **Denied:** Ikke i bruk.
 
-For nærmere detaljer rundt relevante API'er se: [**OpenAPI**](https://docs.altinn.studio/nb/api/authentication/spec/#/RequestSystemUser)
+
+## Utforsk API-dokumentasjonen
+For fullstendig teknisk dokumentasjon, inkludert detaljerte beskrivelser av parametere, responser og autentisering, gå til Altinns OpenAPI-grensesnitt her: [**OpenAPI**](https://docs.altinn.studio/nb/api/authentication/spec/#/RequestSystemUser)
