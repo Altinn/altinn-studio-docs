@@ -1,12 +1,12 @@
 ---
-title: Ordforklaringer for administrasjon og overvåking
-linktitle: Ordforklaringer
-description: Forklaringer på tekniske ord og begreper brukt i dokumentasjonen om administrasjon og overvåking av Altinn-tjenester.
+title: Ordliste for administrasjon og overvåking
+linktitle: Ordliste
+description: Forklaringer av tekniske ord og begreper som brukes i dokumentasjonen om administrasjon og overvåking av Altinn-tjenester.
 weight: 10
 tags: [needsReview]
 ---
 
-Denne siden inneholder forklaringer på tekniske ord og begreper som brukes i dokumentasjonen om administrasjon og overvåking av Altinn-tjenester. Ordene er sortert alfabetisk.
+Denne siden inneholder forklaringer av tekniske ord og begreper som brukes i dokumentasjonen om administrasjon og overvåking av Altinn-tjenester. Ordene er sortert alfabetisk.
 
 ## A
 

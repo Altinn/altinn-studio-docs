@@ -15,7 +15,17 @@ En tjeneste eller applikasjon utviklet i Altinn Studio. Brukes konsekvent i sted
 
 **Eksempel:** Du kan konfigurere appen til å sende e-postvarslinger.
 
+### Autorisasjonspolicy
+Regler som styrer hvem som har tilgang til å gjøre hva i en app.
+
+**Eksempel:** Du må oppdatere autorisasjonspolicyen for å gi tjenesteeier tilgang til beskyttede data.
+
 ## B
+
+### Beskyttede data
+Data som krever ekstra tilgangskontroll utover vanlig autorisasjon.
+
+**Eksempel:** Personopplysninger og klassifisert informasjon bør konfigureres som beskyttede data.
 
 ### Betaling
 Funksjonalitet for å integrere betalingsløsninger i en app.
@@ -44,6 +54,13 @@ Automatisk utfylling av skjemafelt med data fra registre eller andre kilder før
 ### Frontend
 Den delen av appen som brukeren ser og samhandler med i nettleseren.
 
+## H
+
+### Hemmelighet
+Sensitiv konfigurasjonsinformasjon (som passord eller API-nøkler) som lagres sikkert i Azure Key Vault.
+
+**Eksempel:** Du må lagre Maskinporten-nøklene som hemmeligheter i Azure Key Vault.
+
 ## I
 
 ### Instans
@@ -58,6 +75,13 @@ En liste med koder og tilhørende verdier, for eksempel landskoder eller kommune
 
 ### Layout
 Visningen og plasseringen av komponenter på en side i appen.
+
+## M
+
+### Maskinporten
+Digdirs autentiseringstjeneste for maskin-til-maskin-kommunikasjon.
+
+**Eksempel:** Du må konfigurere Maskinporten for at appen skal kunne utføre handlinger på vegne av tjenesteeier.
 
 ## O
 
@@ -81,6 +105,13 @@ En app som ikke lagrer data permanent, typisk brukt for innsynstjenester.
 
 ### Svaralternativer
 Valgmuligheter brukeren kan velge fra, for eksempel i en nedtrekksliste eller radioknapper.
+
+## T
+
+### Tjenesteeier
+Organisasjonen som eier og drifter en app i Altinn.
+
+**Eksempel:** Tjenesteeier kan gi tilgang til logger og hemmeligheter for sine ansatte.
 
 ## U
 
