@@ -53,7 +53,7 @@ Dette er den foretrukne metoden hvor du som SBSL initierer opprettelsen via API.
       }
     ],
     "redirectUrl": "https://smartcloudxxxx/receipt"
-  
+    }
 
 3. **Motta respons:** API-et validerer forespørselen. Ved suksess mottar du en JSON-respons med `status: "New"`.
 4. **Hent dyplenke:** Fra responsen, hent verdien av `confirmUrl`. Eksempel på respons:
@@ -113,6 +113,7 @@ Dette gjelder en systembruker for et system som skal handle på vegne av sluttbr
       }
     ],
     "redirectUrl": "https://superregnskap.no"
+    }
     ```
     Denne forespørselen forutsetter at det finnes et System i Systemregisteret med systemIden "312605031_SuperRegnskap" og tilgangspakken "ansvarlig revisor" fra før.
     
