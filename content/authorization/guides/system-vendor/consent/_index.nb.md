@@ -1,13 +1,11 @@
 ---
-
 title: Samtykke for datakonsument
 
 description: Denne veiledningen beskriver hvordan datakonsumenter kan be om, hente og administrere samtykker ved hjelp av Altinn 3 sin samtykkeløsning.
 
-linktitle: Samtykke for datakonsument
+linktitle: Samtykke
 
 toc: false
-
 ---
  
 
@@ -25,9 +23,9 @@ Legg til de nødvendige parameterene i forespørselen:
 - **Test**: `POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/`
 
 - **Produksjon**: `POST https://platform.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/`
- 
+
 #### Forespørsel (eksempel)
- 
+
 ```json
 
 {
@@ -97,9 +95,9 @@ Legg til de nødvendige parameterene i forespørselen:
 }
 
 ```
- 
+
 #### Svar (eksempel)
- 
+
 ```json
 
 {
@@ -201,11 +199,9 @@ Legg til de nødvendige parameterene i forespørselen:
 ## 2.1 Hente samtykke-token
  
 I Altinn 3 hentes samtykke-token som en del av Maskinporten-tokenet. Spesifiser følgende i JWT-en:
- 
+
 ```json
-
 {
-
   "aud": "https://test.maskinporten.no/",
 
   "scope": "altinn:consentrequests.read",
@@ -219,33 +215,27 @@ I Altinn 3 hentes samtykke-token som en del av Maskinporten-tokenet. Spesifiser 
   "jti": "<jti>",
 
   "authorization_details": [
-
     {
-
       "from": "urn:altinn:person:identifier-no:25922947409",
 
       "id": "77ed8698-e619-4066-9eb4-5c1eb3f165a1",
 
       "type": "urn:altinn:consent"
-
     }
-
   ]
-
 }
-
 ```
 
 ## 2.2 Samtykke på vegne av andre
  
 For å opprette samtykkeforespørsler på vegne av andre virksomheter må scope delegeres:
- 
+
 1. Virksomheten som skal være mottaker, delegerer nødvendige scop**e** i Altinn under API-delegering.
 
 2. Forespørselen opprettes som beskrevet over.
 
 3. Ved henting av token, oppgi i tillegg `consumer_org`:
- 
+
 ```json
 
 {
@@ -281,7 +271,7 @@ For å opprette samtykkeforespørsler på vegne av andre virksomheter må scope 
 }
 
 ```
- 
+
 ![Scope-delegering i Altinn](scopedelegation.jpg)
  
 
@@ -294,10 +284,9 @@ Etter dette er du klar for å ta i bruk samtykketjenesten.
 
 
 ## Ressurser
- 
+
 - [Maskinporten: API-konsument-guide](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument.html)
 
 - [GitHub: Testimplementasjon](https://github.com/TheTechArch/smartbank)
 
 - [Kjørende smartbank](https://smartbankdemo.azurewebsites.net/)
- 

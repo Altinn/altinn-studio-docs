@@ -13,7 +13,7 @@ Altinn 3 viderefører og forbedrer samtykkeløsningen fra Altinn 2. Denne dokume
 - **Nytt token-format:** API-tilbydere må oppdatere valideringskoden for å tolke det nye formatet.
 - **Bedre brukeropplevelse:** Sluttbrukere møter et oppgradert og mer brukervennlig grensesnitt.
 - **Støtte for leverandører:** Mulighet for å bruke tredjepartsleverandører til å håndtere samtykkeprosessen.
- 
+
 ## Slik fungerer samtykkeprosessen
  
 ### 1. Token fra Maskinporten
@@ -216,20 +216,20 @@ Respons samtykkeforespørsel
 Det er mulig å benytte leverandører (tredjepartsaktører) til å opprette samtykkeforespørsler og hente ut data på vegne av datakonsumenten.
  
 **Krav for bruk av leverandør:**
- 
+
 1. Scope `altinn:consentrequests.write` må delegeres til leverandøren.
 2. Scope for det aktuelle API-et må også delegeres til leverandøren (f.eks. [skatteetaten:inntekt](https://skatteetaten.github.io/api-dokumentasjon/api/inntekt)).
 3. Leverandøren oppretter forespørselen på vegne av datakonsumenten.
 4. Brukeren henter ut samtykketoken og kaller API-et for å hente data.
- 
+
 > **Merk:** Sluttbruker får informasjon i GUI om at samtykket håndteres av leverandør.
- 
-### 5. EBevis-løsningen
- 
+
+## EBevis-løsningen
+
 For Digdirs EBevis-løsning kan Digdir be om samtykke på vegne av datakonsument uten at scope er delegert til Digdir. Dette gjør det mulig for aktører som kommuner å bruke løsningen uten å ha fullt oppsett i Maskinporten.
- 
+
 EBevis-løsningen har et eget scope som tillater opprettelse av samtykkeforespørsler for alle virksomheter for sine ressurser.
- 
----
- 
-For mer informasjon, se [Altinn Studio-dokumentasjonen](https://docs.altinn.studio/) eller kontakt Altinn support.
+
+## Kom i gang
+
+Les konkrete steg du må gjennomføres under [Kom i gang](/nb/authorization/getting-started/consent/)
