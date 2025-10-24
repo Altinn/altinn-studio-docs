@@ -33,3 +33,10 @@ To authenticate and ensure that you can perform operations via the Correspondenc
 Please include all necessary scopes in your request. For example, beyond `altinn:correspondence.read`, your integration may require additional scopes. 
 You can find the complete list of available scopes here: [Complete list of scopes](https://docs.altinn.studio/api/authentication/digdirscopes/)
 {{% /expandlarge %}}
+
+
+### Contact:
+
+You can reach us on our Slack channel Digdir samarbeid: [produkt-dialogporten](https://digdir-samarbeid.slack.com/archives/C069J6N7S00)
+
+Or by sending a request to:: [servicedesk@altinn.no](servicedesk@altinn.no)

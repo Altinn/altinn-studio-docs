@@ -30,3 +30,9 @@ For å kunne autentisere og sikre at du kan utføre operasjoner via meldings-API
 - Oversikt over aktuelle scopes finner du [her](https://samarbeid.digdir.no/altinn/scopeoversikt-produkt-og-funksjonsomrade/3017).
 - For å få tilgang til scopes, send en forespørsel til: [servicedesk@altinn.no](mailto:servicedesk@altinn.no). Forespørselen må inneholde de scopes du trenger for ditt system.
 {{% /expandlarge %}}
+
+### Kontakt oss:
+
+Du når oss på vår Slack kanal Digdir samarbeid: [produkt-dialogporten](https://digdir-samarbeid.slack.com/archives/C069J6N7S00)
+
+Eller ved å sende forespørsel til: [servicedesk@altinn.no](servicedesk@altinn.no)

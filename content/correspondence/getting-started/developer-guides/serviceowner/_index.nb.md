@@ -150,3 +150,10 @@ For å kunne motta varsler om endringer eller hendelser knyttet til dine melding
 Dette trinnet er spesielt viktig for deg som ønsker å få automatiserte varsler om hendelser fra meldingstjenesten. Hvis du ikke trenger varsler, kan du hoppe over dette trinnet.
 Se [utviklerveiledningen for events](https://docs.altinn.studio/nb/correspondence/getting-started/developer-guides/events) for detaljerte instruksjoner om hvordan du setter opp abonnementet.
 {{% /expandlarge %}}
+
+
+### Kontakt oss:
+
+Du når oss på vår Slack kanal Digdir samarbeid: [produkt-melding](https://digdir-samarbeid.slack.com/archives/C068VA4SXFD)
+
+Eller ved å sende forespørsel til: [servicedesk@altinn.no](servicedesk@altinn.no)

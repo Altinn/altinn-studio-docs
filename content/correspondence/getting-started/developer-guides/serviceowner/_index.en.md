@@ -151,3 +151,10 @@ In order to use events/webhooks for a Correspondence resource, you need to set u
 
 See the [developer guide](https://docs.altinn.studio/correspondence/getting-started/developer-guides/events) for detailed instructions.
 {{% /expandlarge %}}
+
+
+### Contact:
+
+You can reach us on our Slack channel Digdir samarbeid: [produkt-melding](https://digdir-samarbeid.slack.com/archives/C068VA4SXFD)
+
+Or by sending a request to:: [servicedesk@altinn.no](servicedesk@altinn.no)
