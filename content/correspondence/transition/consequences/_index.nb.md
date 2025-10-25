@@ -12,6 +12,7 @@ Her er en kort oppsummering av hvilke konsekvenser valgt overgangs- og migrering
 
 - Ved opprettelse av Meldingen i API, blir den opprettet i miljøet som kalles («hjemstedet» til elementet).
   - Dersom den opprettes i Altinn 2, vil migrering skje til Altinn 3 etter kort tid, men varslingen vil fullføres i A2 uavhengig av migrering.
+    - Meldingen er fremdeles tilgjengelig i Altinn 2 etter migrering.
   - Dersom i Altinn 3, så vil Meldingen være tilgjengelig i Altinn 2 Portalen.
     - A3 Meldinger vil ikke være tilgjengelige via A2 API.
 - Sjekk av status på meldinger opprettet i A2 må gjøres mot A2 inntil melding er migrert, deretter kan man gå mot enten A2 eller A3.
@@ -24,6 +25,7 @@ Her er en kort oppsummering av hvilke konsekvenser valgt overgangs- og migrering
 
 - Får full oversikt i Altinn-portalen over både Altinn 2- og Altinn 3-meldinger.
 - Når de åpner et Altinn 3 element vises dette i Altinn 2 Portalen, tilnærmet likt som for et Altinn 2 element.
+- I Altinn 2 portalen vises **kun** Altinn 2-versjonen av en migrert melding.
 
 ### Via Sluttbrukersystem
 

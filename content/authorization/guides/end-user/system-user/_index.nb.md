@@ -42,11 +42,11 @@ toc: false
 2.  Godkjenning av forespørsel om systembruker
 
     - Som en del av programvareoppsettet må DRESs MINST godkjenne forespørselen om systembruker fra SmartCloud.
-    - I dette eksemplet mottar DRESs MINST en forespørsel om agentsystembruker og må godkjenne den i Altinn-portalen. Der oppretter DRESs MINST en systembruker, legger til sine kunder til systembrukeren, og gir dermed SmartCloud de nødvendige tilgangspakkene.
+    - I dette eksemplet mottar DRESs MINST en forespørsel om systembruker for klientforhold og må godkjenne den i Altinn-portalen. Der oppretter DRESs MINST en systembruker, legger til sine kunder til systembrukeren, og gir dermed SmartCloud de nødvendige tilgangspakkene.
 
-    Godkjenn agent systembruker forespørsel
+    Godkjenn systembruker for klientforhold forespørsel
 
-    ![godkjenn agent systembruker](systemtilgang-agent-approve.png)
+    ![godkjenn systembruker for klientforhold](systemtilgang-agent-approve.png)
 
     Etter at forespørselen er behandlet, blir sluttbrukeren sendt til leverandørens kvitteringsside.
     ![system leverandør kvitteringsside](systemtilgang-receipt-vendor.png)

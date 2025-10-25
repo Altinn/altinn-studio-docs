@@ -105,7 +105,7 @@ Merk: Navnene p책 hendelsene er ikke oversatt til norsk, for 책 unng책 misforst�
 Se ogs책:
 
 * [Funksjonalitet for notifikasjon om hendelser i Altinn 3](https://docs.altinn.studio/events/)
-* [Veiledning for oppsett av abonnement p책 notifikasjon om hendelser i Altinn 3](https://docs.altinn.studio/events/subscribe-to-events/developer-guides/setup-subscription/)
+* [Veiledning for oppsett av abonnement p책 notifikasjon om hendelser i Altinn 3](https://docs.altinn.studio/nb/events/subscribe-to-events/developer-guides/setup-subscription/)
 
 
 <!--
@@ -207,6 +207,6 @@ The following ... TBD ..
 
 
 <!-- References within this document: -->
-[Altinn 3 Broker OpenAPI specifications]: https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-v1.json
+[Altinn 3 Broker OpenAPI specifications]: https://docs.altinn.studio/nb/api/broker/spec/
 
 <!-- Erik, lenk til Swagger-spec. : -->
