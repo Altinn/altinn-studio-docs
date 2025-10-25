@@ -39,4 +39,4 @@ You can find the complete list of available scopes here: [Complete list of scope
 
 You can reach us on our Slack channel Digdir samarbeid: [produkt-dialogporten](https://digdir-samarbeid.slack.com/archives/C069J6N7S00)
 
-Or by sending a request to:: [servicedesk@altinn.no](servicedesk@altinn.no)
+Or by sending a request to:: [servicedesk@altinn.no](mailto:servicedesk@altinn.no)

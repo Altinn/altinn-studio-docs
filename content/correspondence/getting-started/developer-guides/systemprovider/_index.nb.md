@@ -35,4 +35,4 @@ For å kunne autentisere og sikre at du kan utføre operasjoner via meldings-API
 
 Du når oss på vår Slack kanal Digdir samarbeid: [produkt-dialogporten](https://digdir-samarbeid.slack.com/archives/C069J6N7S00)
 
-Eller ved å sende forespørsel til: [servicedesk@altinn.no](servicedesk@altinn.no)
+Eller ved å sende forespørsel til: [servicedesk@altinn.no](mailto:servicedesk@altinn.no)
