@@ -156,4 +156,4 @@ Se [utviklerveiledningen for events](https://docs.altinn.studio/nb/correspondenc
 
 Du når oss på vår Slack kanal Digdir samarbeid: [produkt-melding](https://digdir-samarbeid.slack.com/archives/C068VA4SXFD)
 
-Eller ved å sende forespørsel til: [servicedesk@altinn.no](servicedesk@altinn.no)
+Eller ved å sende forespørsel til: [servicedesk@altinn.no](mailto:servicedesk@altinn.no)
