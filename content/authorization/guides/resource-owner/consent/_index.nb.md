@@ -76,8 +76,7 @@ Angi status for tjenesten. Velg *Fullført* dersom tjenesten er i produksjon, og
 
 ### Brukertyper
 
-Definerer hvilke typer brukere som har tilgang. Disse innstillingene kan brukes til filtrering på et senere tidspunkt. For tiden
-dette er bare informasjon.
+Definerer hvilke typer brukere som har tilgang. Disse innstillingene kan brukes til filtrering på et senere tidspunkt. For tiden er dette bare informasjon.
 
 ![Create Resource](create_resource_8.png)
 
