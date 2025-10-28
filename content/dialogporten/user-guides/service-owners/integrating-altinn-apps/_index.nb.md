@@ -55,22 +55,22 @@ dp.{content_type}[.{task}[.{state}]]
 **Komponenter:**
 
 - **content_type** (obligatorisk): En av:
-    - `title` - Dialogtittel
-    - `summary` - Dialogsammendrag/beskrivelse
-    - `primaryactionlabel` - Primær handlingsknapptekst
-    - `secondaryactionlabel` - Sekundær handlingsknapptekst
-    - `tertiaryactionlabel` - Tertiær handlingsknapptekst
+  - `title` - Dialogtittel
+  - `summary` - Dialogsammendrag/beskrivelse
+  - `primaryactionlabel` - Primær handlingsknapptekst
+  - `secondaryactionlabel` - Sekundær handlingsknapptekst
+  - `tertiaryactionlabel` - Tertiær handlingsknapptekst
 
 - **task** (valgfritt): Enten:
-    - Et spesifikt oppgavenavn (alfanumerisk med interne bindestreker eller understreker)
-    - `_any_` for wildcard-matching
+  - Et spesifikt oppgavenavn (alfanumerisk med interne bindestreker eller understreker)
+  - `_any_` for wildcard-matching
 
 - **state** (valgfritt): Instansstatusen, for eksempel:
-    - `archivedunconfirmed`, `archivedconfirmed`
-    - `rejected`
-    - `awaitingserviceownerfeedback`, `awaitingconfirmation`
-    - `awaitingsignature`, `awaitingadditionaluserinput`
-    - `awaitinginitialuserinput`, `awaitinginitialuserinputfromprefill`
+  - `archivedunconfirmed`, `archivedconfirmed`
+  - `rejected`
+  - `awaitingserviceownerfeedback`, `awaitingconfirmation`
+  - `awaitingsignature`, `awaitingadditionaluserinput`
+  - `awaitinginitialuserinput`, `awaitinginitialuserinputfromprefill`
 
 ### Eksempler
 

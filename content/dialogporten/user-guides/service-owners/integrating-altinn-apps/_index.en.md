@@ -54,22 +54,22 @@ dp.{content_type}[.{task}[.{state}]]
 **Components:**
 
 - **content_type** (required): One of:
-    - `title` - Dialog title
-    - `summary` - Dialog summary/description
-    - `primaryactionlabel` - Primary action button text
-    - `secondaryactionlabel` - Secondary action button text
-    - `tertiaryactionlabel` - Tertiary action button text
+  - `title` - Dialog title
+  - `summary` - Dialog summary/description
+  - `primaryactionlabel` - Primary action button text
+  - `secondaryactionlabel` - Secondary action button text
+  - `tertiaryactionlabel` - Tertiary action button text
 
 - **task** (optional): Either:
     - A specific task name (alphanumeric with internal dashes or underscores)
     - `_any_` for wildcard matching
 
 - **state** (optional): The instance status, such as:
-    - `archivedunconfirmed`, `archivedconfirmed`
-    - `rejected`
-    - `awaitingserviceownerfeedback`, `awaitingconfirmation`
-    - `awaitingsignature`, `awaitingadditionaluserinput`
-    - `awaitinginitialuserinput`, `awaitinginitialuserinputfromprefill`
+  - `archivedunconfirmed`, `archivedconfirmed`
+  - `rejected`
+  - `awaitingserviceownerfeedback`, `awaitingconfirmation`
+  - `awaitingsignature`, `awaitingadditionaluserinput`
+  - `awaitinginitialuserinput`, `awaitinginitialuserinputfromprefill`
 
 ### Examples
 
@@ -77,7 +77,7 @@ dp.{content_type}[.{task}[.{state}]]
 
 * `dp.title` General dialog title
 * `dp.summary` General dialog summary
-* `dp.primaryactionlabel`General primary action text
+* `dp.primaryactionlabel` General primary action text
 
 **Task-specific:**
 
