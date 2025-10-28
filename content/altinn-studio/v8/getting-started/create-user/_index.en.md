@@ -39,7 +39,7 @@ You are now ready to create your first service.
 
 ## Connect existing user to Ansattporten
 
-If you have previously registered in Altinn Studio, via Github or email address, you can connect your Altinn Studio account
+If you have previously registered in Altinn Studio, via GitHub or email address, you can connect your Altinn Studio account
 to login via Ansattporten by following the steps below.
 
 1. Go to [altinn.studio](https://altinn.studio) and click "Log in".
@@ -57,7 +57,7 @@ to login via Ansattporten by following the steps below.
 4. Select the tab "Connect to existing account" and log in with username/password.
    - *Have you forgotten your username/password? You can reset these yourself by following the link on the login form.*
 
-  ![Connect to existing account](./link-to-existing-account.png "Connect to existing account")
+   ![Connect to existing account](./link-to-existing-account.png "Connect to existing account")
 
 Now your account is connected to Ansattporten, and you can use Ansattporten to log in to Altinn Studio.
 

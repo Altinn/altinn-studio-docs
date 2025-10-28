@@ -72,7 +72,7 @@ mot innlogging i Ansattporten ved å følge stegene under.
 4. Velg fanen "Koble til eksisterende konto" og logg inn med brukernavn/passord.
    - *Har du glemt brukernavn/passord? Du kan resette disse selv ved å følge lenken på innloggingsskjemaet.*
 
-  ![Koble til eksisterende konto](./link-to-existing-account.png "Koble til eksisterende konto")
+   ![Koble til eksisterende konto](./link-to-existing-account.png "Koble til eksisterende konto")
 
 Nå er kontoen din koblet mot Ansattporten, og du kan bruke Ansattporten til å logge deg inn i Altinn Studio.
 
