@@ -37,6 +37,30 @@ You are now ready to create your first service.
 
 ![Service dashboard upon first login](./empty-dashboard.png?width=500 "Service dashboard upon first login")
 
+## Connect existing user to Ansattporten
+
+If you have previously registered in Altinn Studio, via Github or email address, you can connect your Altinn Studio account
+to login via Ansattporten by following the steps below.
+
+1. Go to [altinn.studio](https://altinn.studio) and click "Log in".
+   ![Login](./velkommen.png "Welcome")
+
+2. Click the button "Log in with Ansattporten".
+   ![Log in with Ansattporten](./signin-with-ansattporten.png "Log in with Ansattporten")
+
+3. Log in through Ansattporten.
+   - *You can use Ansattporten for login/registration if you can log in with BankID, MinId or EntraID. 
+     There is currently no requirement for affiliation with a public sector organization.*
+
+   ![Ansattporten login](./ansattporten.png "Ansattporten login")
+
+4. Select the tab "Connect to existing account" and log in with username/password.
+  - *Have you forgotten your username/password? You can reset these yourself by following the link on the login form.*
+
+  ![Connect to existing account](./link-to-existing-account.png "Connect to existing account")
+
+Now your account is connected to Ansattporten, and you can use Ansattporten to log in to Altinn Studio.
+
 ## Join an organization
 
 Organizations in Altinn Studio own the applications and enable collaboration between people within the organization.

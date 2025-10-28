@@ -52,6 +52,30 @@ Du er nå klar til å lage din første tjeneste.
 
 ![Tjeneste-dashboard ved første innlogging](./empty-dashboard.png?width=500 "Tjeneste-dashboard ved første innlogging")
 
+## Koble eksisterende bruker til Ansattporten
+
+Hvis du har registrert deg i Altinn Studio tidligere, via Github eller epostadresse, kan du koble din konto i Altinn Studio
+mot innlogging i Ansattporten ved å følge stegene under.
+
+1. Gå til [altinn.studio](https://altinn.studio) og klikk på "Logg inn".
+   ![Innlogging](./velkommen.png "Velkommen")
+
+2. Klikk på knappen "Logg inn med Ansattporten".
+   ![Logg inn med Ansattporten](./signin-with-ansattporten.png "Logg inn med Ansattporten")
+
+3. Logg inn gjennom Ansattporten.
+   - *Du kan bruke ansattporten for innlogging/registrering om du kan logge inn med BankID, MinId eller EntraID. 
+     Det er foreløpig ikke et krav om knytning til en virksomhet i offentlig sektor.*
+
+   ![Ansattporten innlogging](./ansattporten.png "Ansattporten innlogging")
+
+4. Velg fanen "Koble til eksisterende konto" og logg inn med brukernavn/passord.
+  - *Har du glemt brukernavn/passord? Du kan resette disse selv ved å følge lenken på innloggingsskjemaet.*
+
+  ![Koble til eksisterende konto](./link-to-existing-account.png "Koble til eksisterende konto")
+
+Nå er kontoen din koblet mot Ansattporten, og du kan bruke Ansattporten til å logge deg inn i Altinn Studio.
+
 ## Bli del av en organisasjon
 
 Organisasjoner i Altinn Studio eier applikasjonene og gjør det mulig for flere innen samme organisasjon å samarbeide.
