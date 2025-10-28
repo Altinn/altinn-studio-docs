@@ -33,8 +33,7 @@ forsendelser og synkronisering med Altinn Innboks.
 
 ## Konvensjonsbasert bruk av applikasjonstekster
 
-Altinn Apps kan automatisk finne lokalisert tekstinnhold for dialoger ved å følge et konvensjonsbasert
-nøkkeloppslagssystem.
+Altinn Apps kan automatisk finne lokalisert tekstinnhold for dialoger ved å følge et konvensjonsbasert system.
 Dette systemet søker etter spesifikke nøkler i applikasjonstekstene dine med en fallback-mekanisme.
 
 ### Nøkkeloppslagsrekkefølge
@@ -47,7 +46,7 @@ denne rekkefølgen:
 3. **Enhver oppgave for status** - Statussspesifikt treff
 4. **Enhver oppgave og enhver status** - Mest generelle treff
 
-### Nøkkelformatstruktur
+### Format
 
 Alle nøkler følger dette mønsteret (ikke-sensitivt for store/små bokstaver, konvertert til små bokstaver):
 
@@ -94,7 +93,7 @@ dp.{content_type}[.{task}[.{state}]]
 * `dp.summary._any_.rejected` Sammendrag for enhver oppgave når den er avvist
 * `dp.primaryactionlabel.Sign.awaitingsignature` Handlingsetikett A for en Sign-oppgave som venter på signatur
 
-### Standard reserveverdier
+### Stardard Fallback-verdier
 
 Hvis ingen tilpassede applikasjonstekstnøkler blir funnet, gir systemet innebygde standardverdier for sammendrag basert
 på
