@@ -392,16 +392,6 @@
               }
             }
           },
-          "403": {
-            "description": "<ul>\r\n  <li>4008: Resource not whitelisted. Contact us on Slack or servicedesk@altinn.no</li>\r\n</ul>",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
           "404": {
             "description": "<ul>\r\n  <li>1029: Could not find partyId for the following recipients: {recipients}</li>\r\n  <li>3001: The requested notification template with the given language was not found</li>\r\n</ul>",
             "content": {
@@ -945,16 +935,6 @@
           },
           "401": {
             "description": "<ul>\r\n  <li>4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization</li>\r\n</ul>",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "<ul>\r\n  <li>4008: Resource not whitelisted. Contact us on Slack or servicedesk@altinn.no</li>\r\n</ul>",
             "content": {
               "application/json": {
                 "schema": {

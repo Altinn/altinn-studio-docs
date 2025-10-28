@@ -10,10 +10,12 @@ weight: 40
 For å raskt ha på plass en GUI-løsning for sluttbrukere uavhengig av leveransen av Arbeidsflate, utvides dagens Altinn 2 portal til å kunne hente ut og vise Altinn 3 Meldinger.
 Dette muliggjør en tilsvarende brukeropplevelse for sluttbrukere som ikke mottar Meldinger via sluttbrukersystem, ved at de får tilgang til meldingene sine i samme portal og visning som før.
 
-Visningen blir i stor grad lik som eksisterende visning av Altinn 2 Meldinger, og alle elementer blir vist i samme liste, men med enkelte differanser.
+Visningen er i stor grad lik som eksisterende visning av Altinn 2 Meldinger, og alle elementer blir vist i samme liste, men med enkelte differanser.
 
 - Ingen "Arkiver" knapp
 - Annerledes oppførsel med sletting/papirkurv-funksjonalitet.
+
+For migrerte meldinger vil Altinn 2 Portal alltid vise Altinn 2 versjonen av meldingen. Endringer synkroniseres på tvers, se [synkronisering](../data-migration/#synkronisering-av-statusendringer-mellom-altinn-2-og-3) for mer detaljer.
 
 Løsningen er i produksjon og siste større endringer var i Altinn 2 sin 25.4 release, men vi utelukker ikke flere (mindre) endringer.
 

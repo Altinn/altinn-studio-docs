@@ -1,190 +1,155 @@
 ---
 title: Opprette Systembruker
-description: Gjennomgang av hvordan du oppretter systembruker for eget og klientsystem
-linktitle: Opprette Systembruker
+description: "Denne veiledningen viser hvordan du som sluttbrukersystemleverandør oppretter systembruker for eget system og systembruker for klientsystem."
 weight: 2
 ---
 
-## Opprette Systembruker for eget system
 
-En SystemBruker for eget system kan opprettes på to forskjellige måter, ved brukerstyrt eller leverandørstyrt opprettelse.
 
-### Brukerstyrt Opprettelse
+**Målgruppe:** Utviklere og systemintegratorer hos en Sluttbrukersystemleverandør (SBSL) som skal integrere sitt system med Altinn-plattformen.
 
-Ved en brukerstyrt opprettelse kan bruker gå inn i Altinn-portalen og velge fra en nedtrekksliste hvilket system de ønsker å knytte en systembruker til. Sannsynligvis er de allerede kunde hos systemleverandøren, og får veiledning til å finne riktig system på nedtrekkslisten. Etter at de har opprettet systembrukeren kan SluttbrukerSystemLeverandøren (SBSL) hente ut Systembruker-Token fra oss, og bruke det for å integrere mot TjenesteEiere's API på vegne av sluttbruker. En Brukerstyrt opprettelse kan være aktuelt for SBSL som ikke har laget et brukergrensesnitt i sitt system for å opprette SystemBrukeren. I en brukerstyrt opprettelse så blir det ikke opprettet en forespørsel, i stedet for, vil sluttbrukeren direkte godkjenne alle tilgangene som er forhåndsdefinert i det registrerte systemet fra nedtrekksmenyen. Dersom det etterspørres en tilgang sluttbrukeren ikke kan delegere til Systembrukeren, så vil ikke opprettelsen kunne gå gjennom.
+**Forutsetninger:**
 
-### Leverandørstyrt Opprettelse
+  * Ditt system (SBSL) må være forhåndsregistrert i Altinn ([Registrer System](/nb/authorization/guides/system-vendor/system-user/systemregistration/)).
+  * Du må ha et gyldig Maskinporten-token med scopet `altinn:authentication/systemuser.request.write` (scopet opprettes i [Samarbeidsportalen](https://samarbeid.digdir.no/maskinporten/maskinporten/25)).
+  * Du må kjenne organisasjonsnummeret (`partyOrgNo`) til sluttbrukerkunden.
+  * Du må ha definert hvilke tilgangspakker (`accessPackages`) eller enkeltrettigheter (`rights`) systembrukeren trenger.
+  * (Valgfritt) Hvis `redirectUrl` skal benyttes, må denne URL-en være forhåndsregistrert på systemet ditt.
 
-Ved en leverandørstyrt opprettelse må SBSL sende et kall til vårt API for å opprette en Forespørsel (Request). Hvordan det initieres er opp til SBSL selv, for eksempel med Kunden sittende innlogget i SBSL’s eget program eller webside. SBSL gjør dette ved å sende et POST kall til vårt API ( se eksempel under).
+-----
 
-Forespørselen inneholder data om deres kunde samt en referanse til SBSL sitt registrerte system og et påkrevet utvalg av de tilganger som var forhånds-definert på det registrerte systemet. Merk at det er et OG-forhold på alle de påkrevde tilganger som etterspørres i Forespørselen. Dette betyr at Sluttbrukeren må kunne delegere alle TilgangsPakkene og EnkeltRettighetene til SystemBrukeren dersom de Godkjenner Forespørselen. Vi oppfordrer til å ikke etterspørre tilganger som ikke trengs.
+## 1. Opprette Systembruker for Eget System
 
-SBSL kan kalle på vårt API for å hente ut ventende Forespørsler, f.eks. dersom sluttbruker lukket den opprinnelige, og kan spørres på nytt. Forespørselen venter i vår db inntil Sluttbruker følger dyplenken for å Godkjenne eller Avvise Forespørselen. Etter 10 dager vil den gå ut på tid, og ikke lenger være gyldig å bruke. En Godkjent Systembruker vil være aktiv inntil den blir slettet av Sluttbruker, så den kan opprettes i forveien før systemet trenger den for innleveringer.
+Dette gjelder en systembruker for ditt eget system, hvor systemet handler på vegne av sluttbrukerorganisasjonen. Dette kan gjøres på to måter.
 
-Et eksempel på POST Forespørsel kallet:
+### Metode A: [**Leverandørstyrt Opprettelse**](https://docs.altinn.studio/nb/authorization/guides/system-vendor/system-user/#Leverandørstyrt-opprettelse)
 
-```http
-POST https://platform.tt02.altinn.no/authentication/api/v1/systemuser/request
-Scope: altinn:authentication/systemuser.write
-```
+Dette er den foretrukne metoden hvor du som SBSL initierer opprettelsen via API.
 
-I POST Bodyen så brukes følgende model:
+1.  **Initier forespørsel:** Send en HTTP POST-forespørsel til API-endepunktet.
 
-```json
-{
-  "systemId": "991825827_smartcloud",
-  "partyOrgNo": "310904473",
-  "externalRef": "bare_i_særtilfeller",
-  "rights": [
+     * **Test (TT02):** `https://platform.tt02.altinn.no/authentication/api/v1/systemuser/request/vendor`
+     * **Produksjon:** `https://platform.altinn.no/authentication/api/v1/systemuser/request/vendor`
+
+2.  **Konfigurer Request Body:** Inkluder en JSON-body som spesifiserer system, kunde og tilganger(`accesspackage`).
+
+     ```json
     {
-      "resource": [
-        {
-          "id": "urn:altinn:resource",
-          "value": "ske-krav-og-betalinger"
-        }
+    "systemId": "991825827_smartcloud",
+    "partyOrgNo": "314248295",
+    "rights": [
+      {
+        "resource": [
+          {
+            "id": "urn:altinn:resource",
+            "value": "ske-krav-og-betalinger"
+          }
       ]
+      }
+    ],
+    "accessPackages": [
+      {
+        "urn": "urn:altinn:accesspackage:skattegrunnlag"
+      }
+    ],
+    "redirectUrl": "https://smartcloudxxxx/receipt"
     }
-  ],
-  "accessPackages": [
-    {
-      "urn": "urn:altinn:accesspackage:kravogutlegg"
+
+3. **Motta respons:** API-et validerer forespørselen. Ved suksess mottar du en JSON-respons med `status: "New"`.
+4. **Hent dyplenke:** Fra responsen, hent verdien av `confirmUrl`. Eksempel på respons:
+
+      ```json
+        {
+          "id": "505f8488-3d48-4c15-8e21-35cb9432f815",
+          "status": "New",
+          "confirmUrl": "https://am.ui.tt02.altinn.no/accessmanagement/ui/systemuser/request?id=..."
+        }
+        ```
+
+5.  **Formidle lenke:** Gi `confirmUrl`-dyplenken til sluttbrukeren på en trygg måte (f.eks. direkte i din programvare).
+
+6.  **Sluttbruker godkjenner:** Sluttbrukeren må følge lenken for å [godkjenne SystemBruker](/nb/authorization/guides/end-user/system-user/accept-request/). Forespørselen får da status `Accepted`.
+
+
+### Metode B: [**Brukerstyrt Opprettelse**](https://docs.altinn.studio/nb/authorization/guides/system-vendor/system-user/#brukerstyrt-opprettelse)
+
+Denne metoden er kun aktuell hvis du som SBSL *ikke* har et eget grensesnitt for å håndtere leverandørstyrt opprettelse.
+
+1.  **Instruer sluttbruker:** Be sluttbrukeren utføre følgende:
+      * Gå til Altinn-portalen.
+      * Navigere til opprettelse av systembruker.
+      * Velge ditt system fra nedtrekkslisten. (Du må informere kunden om hva systemet ditt heter i listen).
+2.  **Automatisk godkjenning:** Når brukeren fullfører, godkjenner de automatisk alle de forhåndsdefinerte tilgangene systemet trenger.
+3.  **Hent token:** Etter at brukeren er opprettet, kan du (SBSL) hente ut systembruker-tokenet som trengs for integrasjonen.
+
+-----
+
+## 2\. Opprette Systembruker for Klientsystem
+
+Dette gjelder en systembruker for et system som skal handle på vegne av sluttbrukerens *klienter* (f.eks. et regnskapssystem).
+
+**Viktige forskjeller:**
+
+  * Kun **leverandørstyrt** opprettelse er mulig.
+  * Du kan *kun* angi påkrevde tilganger via `accessPackages`, ikke `rights`.
+  * Etter godkjenning kreves et ekstra, manuelt steg fra sluttbrukeren.
+
+### Instruksjoner (Leverandørstyrt Opprettelse)
+
+1. **Initier forespørsel:** Send en HTTP POST-forespørsel til det spesifikke endepunktet for klientsystemer (`/agent/request`).
+
+      * **Test (TT02):** `POST https://platform.tt02.altinn.no/authentication/api/v1/systemuser/agent/request`
+      * **Produksjon:** `POST https://platform.altinn.no/authentication/api/v1/systemuser/agent/request`
+
+2. **Konfigurer Request Body:** Inkluder en JSON-body. ***Merk*** at `rights`-listen må være tom eller utelatt.
+
+    ```json
+      {
+    "systemId": "312605031_SuperRegnskap",
+    "partyOrgNo": "310495670",
+    "accessPackages": [
+      {
+        "urn": "urn:altinn:accesspackage:ansvarlig-revisor"
+      }
+    ],
+    "redirectUrl": "https://superregnskap.no"
     }
-  ],
-  "redirectUrl": "https://smartcloud/landingpage/after/altinn/approve"
-}
-```
+    ```
+    Denne forespørselen forutsetter at det finnes et System i Systemregisteret med systemIden "312605031_SuperRegnskap" og tilgangspakken "ansvarlig revisor" fra før.
+    
 
-I eksempelet over er det oppgitt disse verdiene i Post Body:
+3. **Motta respons:** Motta en JSON-respons med `status: "New"` og en `confirmUrl`, tilsvarende prosessen for "eget system".
 
-- systemId : referansen til Systemet som SBSL har forhånds registrert i [Registrer System](/nb/authorization/guides/system-vendor/system-user/systemregistration/)
-- partyOrgNo : er organisasjonsnummeret til Sluttbruker, slik det er i Enhets Registeret (kun sifrene)
-- externalRef : skal normalt ikke brukes. Det er kun i spesielle tilfeller når det er behov for å ha flere SystemBrukere pr System pr Orgno. Det vanlige er å ikke oppgi.
-- rights : en liste av de Enkel Rettigheter som er påkrevet for at SystemBrukeren kan integrerere mot TE API (Foretrekk å bruke Tilgangspakker istedet.)
-- accessPackages: en liste av de Tilgangspakker som er påkrevet. (Det anbefales at tilgangspakker brukes fremfor Enkelt Rettigheter dersom det lar seg gjøre.)
-- redirectUrl : er en valgfri verdi. Kan oppgis dersom det ønskes at Sluttbruker skal redirectes til en intern side hos SBSL, etter godkjenning. MÅ være forhånds registrert på Systemet i så fall.
+4. **Formidle lenke:** Gi `confirmUrl`-dyplenken til sluttbrukeren på en trygg måte.
 
-Merk:
+5. **Sluttbruker godkjenner:** Sluttbrukeren følger lenken og godkjenner forespørselen. (Se [Godkjenn SystemBruker](/nb/authorization/guides/end-user/system-user/accept-request/)). Status settes til `Accepted`.
 
-- i url over så står det https://platform.tt02.altinn.no for TT02. For produksjon så vil det være https://platform.altinn.no som er roten.
-- scope som er oppgitt settes av Maskinporten i et claim, og blir opprettet i [Samarbeidsportalen](https://samarbeid.digdir.no/maskinporten/maskinporten/25)
+6. **(Påkrevd) Sluttbruker delegerer klienter:** Etter at systembrukeren er godkjent, må sluttbrukeren **manuelt logge inn i Altinn** og delegere de klientene (dvs. de organisasjonene det skal rapporteres på vegne av) til den nyopprettede systembrukeren. (Se [Delegeres Klienter](/nb/authorization/guides/end-user/system-user/delegate-clients/)).
 
-### Respons fra POST kall
+-----
 
-Etter at vårt API har validert at Forespørselen er korrekt, herunder alle Autorisasjons-Scope, felter i Request, enkelt rettigheter, tilgangspakker, samt sjekket at det ikke allerede er utstedt en tidligere SystemBruker for samme system og orgnr. Så vil vi sende i retur en Respons med en dyplenke til Godkjennings Siden. Den må så SystemLeverandøren gi til Kunden, enten direkte innlogget i deres programvare, eller kommunisert på annen trygg måte.
+## 3\. Verifisering og Status
 
-I responsen som kommer tilbake er det samme struktur som i POST, men i tillegg så kommer denne seksjonen:
+### Verifisere Opprettelse
 
-```http
-{
-  "id": "505f8488-3d48-4c15-8e21-35cb9432f815",
-  "status": "New",
-  "confirmUrl": "https://am.ui.tt02.altinn.no/accessmanagement/ui/systemuser/request?id=505f8488-3d48-4c15-8e21-35cb9432f815"
-}
-```
+Etter at en sluttbruker har godkjent en forespørsel (status `Accepted`), kan du som SBSL verifisere at systembrukeren eksisterer.
 
-confirmUrl: dyplenken SBSL må gi til sluttbruker på en trygg måte, der opprettelsen kan godkjennes (f.eks. direkte i innlogget webside/system).
+1.  Send en HTTP GET-forespørsel til:
+    `{{API_BASE_URL}}/authentication/api/v1/systemuser/vendor/byquery?system-id={systemId}&orgno={kundensOrgno}`
+    *(Erstatt `{API_BASE_URL}`, `{systemId}` og `{kundensOrgno}`)*
 
-- id: unik referanse til forespørselen, kan brukes ved oppslag i API for status.
-- status: første respons er alltid "New" (dersom det ikke feiler). Andre mulige verdier: "Accepted", "TimedOut", "Denied" og "Rejected".
-  - Accepted: status etter at sluttbruker har trykket «Godkjenn».
-  - TimedOut: skjer automatisk etter 10 dager; forespørselen er ikke lenger tilgjengelig via eksternt API.
-  - Rejected: når sluttbruker trykker «Ikke godkjenn».
-  - Denied: ikke i bruk for øyeblikket.
+2.  En vellykket respons returnerer JSON med detaljer om systembrukeren, inkludert systembruker `id` og `userType`.
 
-Fortsett på [Godkjenn SystemBruker](/nb/authorization/guides/end-user/system-user/accept-request/)
+### Status på Forespørsler
 
-# Opprette SystemBruker for Klient-Systemer
+En forespørsel (request) har en livssyklus definert av status:
 
-Sammenlignet med Opprettelse av Vanlig SystemBruker så er det fire forskjeller.
+  * **New:** Nyopprettet forespørsel, venter på brukerhandling.
+  * **Accepted:** Sluttbruker har godkjent forespørselen.
+  * **Rejected:** Sluttbruker har trykket «Ikke godkjenn».
+  * **TimedOut:** Forespørselen er ikke besvart innen 10 dager og er utløpt. Den er ikke lenger tilgjengelig via API.
+  * **Denied:** Ikke i bruk.
 
-1. Det er kun mulig med LeverandørStyrt Opprettelse
-2. Det er kun mulig å angi påkrevde Tilgangspakker, ikke Enkelt Rettigheter
-3. Etter at Sluttbruker har godkjent SystemBrukeren, må de inn i Altinn og delegere klienter/kunder/samarbeidspartnere til SystemBrukeren. Det er disse det så vil rapporteres på vegne av.
-4. Det er andre endepunkt for Opprettelse og Godkjenning
 
-## Kall for å Opprette SystemBruker for Klient-Systemer
-
-SluttBrukerSystemLeverandøren (SBSL) må sende et kall til vårt API for å opprette en Forespørsel (Request). Hvordan det initieres er opp til SBSL selv, for eksempel med Kunden sittende innlogget i SBSL’s eget program eller webside. SBSL gjør dette ved å sende et POST kall til vårt API ( se eksempel under).
-
-Forespørselen inneholder data om deres kunde samt en referanse til SBSL sitt registrerte system og et påkrevet utvalg av de TilgangsPakkene som var forhånds-definert på det registrerte systemet. Merk at det er et OG-forhold på alle de påkrevde TilgangsPakkene som etterspørres i Forespørselen. Dette betyr at Sluttbrukeren må kunne delegere alle TilgangsPakkene til SystemBrukeren dersom de Godkjenner Forespørselen. Vi oppfordrer til å ikke etterspørre TilgangsPakkene som ikke trengs.
-
-SBSL kan kalle på vårt API for å hente ut ventende Forespørsler, feks dersom sluttbruker lukket den opprinnelige, og kan spørres på nytt. Forespørselen venter inntil Sluttbruker følger dyplenken for å Godkjenne eller Avvise Forespørselen. Etter 10 dager vil den gå ut på tid, og ikke lenger være gyldig å bruke. En Godkjent Systembruker vil være aktiv inntil den blir slettet av kunden, så den kan opprettes i forveien før systemet trenger den for innleveringer.
-
-Et eksempel på POST Forespørsel kallet:
-
-```http
-POST https://platform.tt02.altinn.no/authentication/api/v1/systemuser/agent/request
-Scope: altinn:authentication/systemuser.write
-```
-
-I POST Bodyen så brukes følgende model:
-
-```json
-{
-  "systemId": "991825827_smartcloud",
-  "partyOrgNo": "310904473",
-  "rights": [],
-  "accessPackages": [
-    {
-      "urn": "urn:altinn:accesspackage:kravogutlegg"
-    }
-  ],
-  "redirectUrl": "https://smartcloud/landingpage/after/altinn/approve"
-}
-```
-
-I eksempelet over er det oppgitt disse verdiene:
-
-- systemId : referansen til Systemet som SBSL har forhånds registrert i [Registrer System](/nb/authorization/guides/system-vendor/system-user/systemregistration/)
-- partyOrgNo : er organisasjonsnummeret til Sluttbruker, slik det er i Enhets Registeret (kun sifrene)
-- externalRef : skal normalt ikke brukes. Det er kun i spesielle tilfeller når det er behov for å ha flere SystemBrukere pr System pr Orgno. Det vanlige er å ikke oppgi.
-- accessPackages: en liste av de Tilgangspakker som er påkrevet. (Det anbefales at tilgangspakker brukes fremfor Enkelt Rettigheter dersom det lar seg gjøre.)
-- redirectUrl : er en valgfri verdi. Kan oppgis dersom det ønskes at Sluttbruker skal redirectes til en intern side hos SBSL, etter godkjenning. MÅ være forhånds registrert på Systemet i så fall.
-
-Merk:
-
-- i url over så står det https://platform.tt02.altinn.no for TT02. For produksjon så vil det være https://platform.altinn.no som er roten.
-  Scope settes av Maskinporten (claim), og opprettes i [Samarbeidsportalen](https://samarbeid.digdir.no/maskinporten/maskinporten/25).
-
-### Respons fra POST kall
-
-Etter at vårt API har validert at Forespørselen er korrekt, herunder alle Autorisasjons-Scope, felter i Request, tilgangspakker, samt sjekket at det ikke allerede er utstedt en tidligere SystemBruker for samme system og orgnr. Så vil vi sende i retur en Respons med en dyplenke til Godkjennings Siden. Den må så SystemLeverandøren gi til Kunden, enten direkte innlogget i deres programvare, eller kommunisert på annen trygg måte.
-
-I responsen som kommer tilbake er det samme struktur som i POST, men i tillegg så kommer denne seksjonen:
-
-```json
-{
-  "id": "505f8488-3d48-4c15-8e21-35cb9432f815",
-  "status": "New",
-  "confirmUrl": "https://am.ui.tt02.altinn.no/accessmanagement/ui/systemuser/request?id=505f8488-3d48-4c15-8e21-35cb9432f815"
-}
-```
-
-confirmUrl: dyplenken som SBSL må gi til sluttbruker på en trygg måte, der opprettelsen kan godkjennes.
-
-- id: unik referanse til forespørselen, kan brukes ved oppslag i API for status.
-- status: første respons er alltid "New" (dersom det ikke feiler). Andre mulige verdier er "Accepted", "TimedOut", "Denied" og "Rejected".
-  - Accepted: etter at sluttbruker har trykket «Godkjenn».
-  - TimedOut: etter 10 dager er forespørselen ikke lenger tilgjengelig via eksternt API.
-  - Rejected: når sluttbruker trykker «Ikke godkjenn».
-  - Denied: ikke i bruk.
-
-Fortsett på [Godkjenn SystemBruker](/nb/authorization/guides/end-user/system-user/accept-request/)
-Etter at SystemBrukeren er Godkjent så må det [Delegeres Klienter](/nb/authorization/guides/end-user/system-user/delegate-clients/).
-
-Etter at en SystemBruker er godkjent kan SBSL enten sjekke om Request Status = Accepted, eller prøve på dette endepunktet for å se om det har blitt opprettet en SystemBruker:
-{{API_BASE_URL}}/authentication/api/v1/systemuser/vendor/byquery?system-id={system Id}&orgno={orngo for Sluttbruker}&external-ref={bare dersom brukt ved opprettelse}
-
-Og som response vil de få en SystemBruker DTO med litt informasjon slik:
-
-```json
-{
-  "id": "{en UUID som er SystemBrukers permanente Id}",
-  "systemId": "System Navnet",
-  "reporteeOrgNo": "{organisasjons nummer på 9 siffer for Sluttbruker}",
-  "created": "2025-10-01T09:50:41.059107Z",
-  "supplierOrgno": "{organisasjons nummer på 9 siffer for SBSL}",
-  "externalRef": "{bare dersom brukt}",
-  "userType": "agent"
-}
-```
+## Utforsk API-dokumentasjonen
+For fullstendig teknisk dokumentasjon, inkludert detaljerte beskrivelser av parametere, responser og autentisering, gå til Altinns OpenAPI-grensesnitt her: [**OpenAPI**](https://docs.altinn.studio/nb/api/authentication/spec/#/RequestSystemUser)

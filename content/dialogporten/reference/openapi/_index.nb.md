@@ -10,9 +10,7 @@ API-spesifikasjonen for Dialogporten er tilgjengelig på følgende adresser:
 | ----------- | ---------------------------------------------------------------------------------------------------- |
 | Test        | https://altinn-dev-api.azure-api.net/dialogporten/swagger/index.html                                 |
 | Staging     | https://platform.tt02.altinn.no/dialogporten/swagger/index.html                                      |
-| Production  | https://platform.altinn.no/dialogporten/swagger/index.html {{<footnote "Not currently available" >}} |
-
-{{<displayFootnotes>}}
+| Production  | https://platform.altinn.no/dialogporten/swagger/index.html                                           |
 
 
 **Les mer**

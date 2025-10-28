@@ -104,7 +104,7 @@ Summary:
 Also see:
 
 * [Description of the Events capabilities in Altinn 3](https://docs.altinn.studio/events/)
-* [How-to guide on setting up a subscription for events](https://docs.altinn.studio/events/subscribe-to-events/developer-guides/setup-subscription/)
+* [How-to guide on setting up a subscription for events](https://docs.altinn.studio/en/events/subscribe-to-events/developer-guides/setup-subscription/)
 
 
 <!--
@@ -198,6 +198,6 @@ The following ... TBD ..
 
 
 <!-- References within this document: -->
-[Altinn 3 Broker OpenAPI specifications]: https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-v1.json
+[Altinn 3 Broker OpenAPI specifications]: https://docs.altinn.studio/en/api/broker/spec/
 
 <!-- Erik, lenk til Swagger-spec. : -->

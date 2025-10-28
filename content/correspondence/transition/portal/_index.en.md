@@ -7,13 +7,15 @@ toc: false
 weight: 40
 ---
 
-To quickly have a GUI solution for end users independent of the delivery of Arbeidsflate, the current Altinn 2 portal is extended to fetch and display Altinn 3 Correspondences.
+To quickly have a GUI solution for end users independent of the delivery of Arbeidsflate, the current Altinn 2 portal has been extended to fetch and display Altinn 3 Correspondences.
 This enables a similar user experience for end users who do not receive Correspondences via end-user systems, by allowing them to access their Correspondences in the same portal and view as before.
 
 The display will be largely similar to the existing display of Altinn 2 Correspondences, and all elements will be shown in the same list, but with some differences.
 
 - No "Archive" button
 - Different behavior with delete/trash functionality.
+
+For migrated correspondences Altinn 2 Portal will always show the Altinn 2 version of the message. Status changes are synchronized between the solutions, see [synchronization](../data-migration/#synchronization-of-status-changes-between-altinn-2-and-3) for details.
 
 The solution is in production, and the last major changes were in Altinn 2 25.4 release, but minor changes might still occur.
 

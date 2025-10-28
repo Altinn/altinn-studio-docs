@@ -30,7 +30,7 @@
                 },
                 "org": {
                     "nb": "{CoveredBy} ønsker å hente opplysninger om {OfferedBy}",
-                    "nn": "{CoveredBy} ønskjer å hente opplysningar om  {OfferedBy}",
+                    "nn": "{CoveredBy} ønskjer å hente opplysningar om {OfferedBy}",
                     "en": "{CoveredBy} requests information about {OfferedBy}"
                 }
             },
@@ -48,8 +48,8 @@
             },
             "overriddenDelegationContext": null,
             "expiration": {
-                "nb": "Samtykket er tidsavgrenset og vil gå ut {Expiration}",
-                "nn": "Samtykket er tidsavgrensa og vil gå ut {Expiration}",
+                "nb": "Samtykket er tidsavgrenset og opphører {Expiration}",
+                "nn": "Samtykket er tidsavgrensa og opphøyrer {Expiration}",
                 "en": "The consent is time-limited, and will expire {Expiration}"
             },
             "expirationOneTime": {
@@ -80,13 +80,13 @@
                 }
             },
             "historyUsedBody": {
-                "nb": "{CoveredBy} har hentet data for {OfferedBy}. Samtykket utløper {Expiration}",
-                "nn": "{CoveredBy} har henta data for {OfferedBy}. Samtykket utløper {Expiration}",
+                "nb": "{CoveredBy} har hentet data for {OfferedBy}. Samtykket opphører {Expiration}",
+                "nn": "{CoveredBy} har henta data for {OfferedBy}. Samtykket opphøyrer {Expiration}",
                 "en": "{CoveredBy} has retrieved data for {OfferedBy}. The consent expires {Expiration}"
             },
             "historyUsedByHandledByBody": {
-                "nb": "{HandledBy} har, på vegne av {CoveredBy}, hentet data om {OfferedBy}. Samtykket utløper {Expiration}",
-                "nn": "{HandledBy} har, på vegne av {CoveredBy}, henta data om {OfferedBy}. Samtykket utløper {Expiration}",
+                "nb": "{HandledBy} har, på vegne av {CoveredBy}, hentet data om {OfferedBy}. Samtykket opphører {Expiration}",
+                "nn": "{HandledBy} har, på vegne av {CoveredBy}, henta data om {OfferedBy}. Samtykket opphøyrer {Expiration}",
                 "en": "{HandledBy} has, on behalf of {CoveredBy}, retrieved data about {OfferedBy}. The consent expires {Expiration}"
             }
         }
@@ -119,7 +119,7 @@
                 },
                 "org": {
                     "nb": "{CoveredBy} ønsker å hente opplysninger om {OfferedBy}",
-                    "nn": "{CoveredBy} ønskjer å hente opplysningar om  {OfferedBy}",
+                    "nn": "{CoveredBy} ønskjer å hente opplysningar om {OfferedBy}",
                     "en": "{CoveredBy} requests information about {OfferedBy}"
                 }
             },
@@ -137,8 +137,8 @@
             },
             "overriddenDelegationContext": null,
             "expiration": {
-                "nb": "Samtykket er tidsavgrenset og vil gå ut {Expiration}",
-                "nn": "Samtykket er tidsavgrensa og vil gå ut {Expiration}",
+                "nb": "Samtykket er tidsavgrenset og opphører {Expiration}",
+                "nn": "Samtykket er tidsavgrensa og opphøyrer {Expiration}",
                 "en": "The consent is time-limited, and will expire {Expiration}"
             },
             "expirationOneTime": {
@@ -169,13 +169,13 @@
                 }
             },
             "historyUsedBody": {
-                "nb": "{CoveredBy} har hentet data for {OfferedBy}. Samtykket utløper {Expiration}",
-                "nn": "{CoveredBy} har henta data for {OfferedBy}. Samtykket utløper {Expiration}",
+                "nb": "{CoveredBy} har hentet data for {OfferedBy}. Samtykket opphører {Expiration}",
+                "nn": "{CoveredBy} har henta data for {OfferedBy}. Samtykket opphøyrer {Expiration}",
                 "en": "{CoveredBy} has retrieved data for {OfferedBy}. The consent expires {Expiration}"
             },
             "historyUsedByHandledByBody": {
-                "nb": "{HandledBy} har, på vegne av {CoveredBy}, hentet data om {OfferedBy}. Samtykket utløper {Expiration}",
-                "nn": "{HandledBy} har, på vegne av {CoveredBy}, henta data om {OfferedBy}. Samtykket utløper {Expiration}",
+                "nb": "{HandledBy} har, på vegne av {CoveredBy}, hentet data om {OfferedBy}. Samtykket opphører {Expiration}",
+                "nn": "{HandledBy} har, på vegne av {CoveredBy}, henta data om {OfferedBy}. Samtykket opphøyrer {Expiration}",
                 "en": "{HandledBy} has, on behalf of {CoveredBy}, retrieved data about {OfferedBy}. The consent expires {Expiration}"
             }
         }
@@ -211,7 +211,7 @@
                 },
                 "org": {
                     "nb": "{CoveredBy} ønsker å hente opplysninger om {OfferedBy}",
-                    "nn": "{CoveredBy} ønskjer å hente opplysningar om  {OfferedBy}",
+                    "nn": "{CoveredBy} ønskjer å hente opplysningar om {OfferedBy}",
                     "en": "{CoveredBy} requests information about {OfferedBy}"
                 }
             },
@@ -229,12 +229,12 @@
             },
             "overriddenDelegationContext": {
                 "nb": "Ved å samtykke, gir du Skatteetaten rett til å utlevere opplysninger om deg direkte til {CoveredBy}. Banken får opplysningene for å behandle søknaden din om finansiering",
-                "nn": "Ved å samtykka, gir du Skatteetaten rett til å utlevera opplysningar om deg direkte til {CoveredBy}. Banken får opplysningane for å behandla søknaden din om finansiering.",
+                "nn": "Ved å samtykke, gir du Skatteetaten rett til å utlevere opplysningar om deg direkte til {CoveredBy}. Banken får opplysningane for å behandle søknaden din om finansiering.",
                 "en": "By consenting you grant the The Norwegian Tax Administration the right to disclose information about you directly to {CoveredBy}. The bank receives the information to process your application for financing"
             },
             "expiration": {
-                "nb": "Samtykket er tidsavgrenset og vil gå ut {Expiration}",
-                "nn": "Samtykket er tidsavgrensa og vil gå ut {Expiration}",
+                "nb": "Samtykket er tidsavgrenset og opphører {Expiration}",
+                "nn": "Samtykket er tidsavgrensa og opphøyrer {Expiration}",
                 "en": "The consent is time-limited, and will expire {Expiration}"
             },
             "expirationOneTime": {
@@ -265,13 +265,13 @@
                 }
             },
             "historyUsedBody": {
-                "nb": "{CoveredBy} har hentet data for {OfferedBy}. Samtykket utløper {Expiration}",
-                "nn": "{CoveredBy} har henta data for {OfferedBy}. Samtykket utløper {Expiration}",
+                "nb": "{CoveredBy} har hentet data for {OfferedBy}. Samtykket opphører {Expiration}",
+                "nn": "{CoveredBy} har henta data for {OfferedBy}. Samtykket opphøyrer {Expiration}",
                 "en": "{CoveredBy} has retrieved data for {OfferedBy}. The consent expires {Expiration}"
             },
             "historyUsedByHandledByBody": {
-                "nb": "{HandledBy} har, på vegne av {CoveredBy}, hentet data om {OfferedBy}. Samtykket utløper {Expiration}",
-                "nn": "{HandledBy} har, på vegne av {CoveredBy}, henta data om {OfferedBy}. Samtykket utløper {Expiration}",
+                "nb": "{HandledBy} har, på vegne av {CoveredBy}, hentet data om {OfferedBy}. Samtykket opphører {Expiration}",
+                "nn": "{HandledBy} har, på vegne av {CoveredBy}, henta data om {OfferedBy}. Samtykket opphøyrer {Expiration}",
                 "en": "{HandledBy} has, on behalf of {CoveredBy}, retrieved data about {OfferedBy}. The consent expires {Expiration}"
             }
         }
@@ -287,43 +287,43 @@
             "title": {
                 "person": {
                     "nb": "Fullmakt til å handle på dine vegne",
-                    "nn": "Fullmakt til å handla på dine vegne",
+                    "nn": "Fullmakt til å handle på dine vegne",
                     "en": "Power of attorney to act on your behalf"
                 },
                 "org": {
                     "nb": "Fullmakt til å handle på vegne av {OfferedBy}",
-                    "nn": "Fullmakt til å handla på vegne av {OfferedBy}",
+                    "nn": "Fullmakt til å handle på vegne av {OfferedBy}",
                     "en": "Power of attorney to act on behalf of {OfferedBy}"
                 }
             },
             "heading": {
                 "person": {
                     "nb": "{CoveredBy} ønsker å utføre tjenester på dine vegne",
-                    "nn": "{CoveredBy} ønsker å utføra tenester på dine vegne",
+                    "nn": "{CoveredBy} ønskjer å utføre tenester på dine vegne",
                     "en": "{CoveredBy} requests power of attorney from you"
                 },
                 "org": {
                     "nb": "{CoveredBy} ønsker å utføre tjenester på vegne av {OfferedBy}",
-                    "nn": "{CoveredBy} ønsker å utføra tenester på vegne av {OfferedBy}",
+                    "nn": "{CoveredBy} ønskjer å utføre tenester på vegne av {OfferedBy}",
                     "en": "{CoveredBy} requests power of attorney from {OfferedBy}"
                 }
             },
             "serviceIntro": {
                 "person": {
                     "nb": "Ved at du gir fullmakt, får {CoveredBy} tilgang til følgende tjenester på dine vegne",
-                    "nn": "Ved at du gjer fullmakt, får {CoveredBy} tilgang til følgjande tenester på dine vegne",
+                    "nn": "Ved at du gir fullmakt, får {CoveredBy} tilgang til følgjande tenester på dine vegne",
                     "en": "By granting power of attorney, {CoveredBy} gets access to the following services on your behalf"
                 },
                 "org": {
                     "nb": "Ved at du gir fullmakt, får {CoveredBy} tilgang til følgende tjenester på vegne av {OfferedBy}",
-                    "nn": "Ved at du gjer fullmakt, får {CoveredBy} tilgang til følgjande tenester på vegne av {OfferedBy}",
+                    "nn": "Ved at du gir fullmakt, får {CoveredBy} tilgang til følgjande tenester på vegne av {OfferedBy}",
                     "en": "By granting power of attorney, {CoveredBy} get access to the following services on behalf of {OfferedBy}"
                 }
             },
             "overriddenDelegationContext": null,
             "expiration": {
-                "nb": "Fullmakten er tidsavgrenset og vil gå ut {Expiration}",
-                "nn": "Fullmakta er tidsavgrensa og vil gå ut {Expiration}",
+                "nb": "Fullmakten er tidsavgrenset og opphører {Expiration}",
+                "nn": "Fullmakta er tidsavgrensa og opphøyrer {Expiration}",
                 "en": "The power of attorney is time-limited, and will expire {Expiration}"
             },
             "expirationOneTime": {
@@ -344,23 +344,23 @@
             "serviceIntroAccepted": {
                 "person": {
                     "nb": "Fullmakten gir {CoveredBy} tilgang til følgende tjenester på dine vegne",
-                    "nn": "Fullmakta gjer {CoveredBy} tilgang til følgjande tenester på dine vegne",
+                    "nn": "Fullmakta gir {CoveredBy} tilgang til følgjande tenester på dine vegne",
                     "en": "The power of attorney gives {CoveredBy} access to the following services on your behalf"
                 },
                 "org": {
                     "nb": "Fullmakten gir {CoveredBy} tilgang til følgende tjenester på vegne av {OfferedBy}",
-                    "nn": "Fullmakta gjer {CoveredBy} tilgang til følgjande tenester på vegne av {OfferedBy}",
+                    "nn": "Fullmakta gir {CoveredBy} tilgang til følgjande tenester på vegne av {OfferedBy}",
                     "en": "The power of attorney gives {CoveredBy} access to the following services on behalf of {OfferedBy}"
                 }
             },
             "historyUsedBody": {
-                "nb": "{CoveredBy} har handlet på vegne av {OfferedBy}. Fullmakten utløper {Expiration}",
-                "nn": "{CoveredBy} har handlet på vegne av {OfferedBy}. Fullmakten utløper {Expiration}",
+                "nb": "{CoveredBy} har handlet på vegne av {OfferedBy}. Fullmakten opphører {Expiration}",
+                "nn": "{CoveredBy} har handla på vegne av {OfferedBy}. Fullmakta opphøyrer {Expiration}",
                 "en": "{CoveredBy} has acted on behalf of {OfferedBy}. The authority expires {Expiration}"
             },
             "historyUsedByHandledByBody": {
-                "nb": "{HandledBy} har, på vegne av {CoveredBy}, handlet på vegne av {OfferedBy}. Fullmakten utløper {Expiration}",
-                "nn": "{HandledBy} har, på vegne av {CoveredBy}, handla på vegne av {OfferedBy}. Fullmakta utløper {Expiration}",
+                "nb": "{HandledBy} har, på vegne av {CoveredBy}, handlet på vegne av {OfferedBy}. Fullmakten opphører {Expiration}",
+                "nn": "{HandledBy} har, på vegne av {CoveredBy}, handla på vegne av {OfferedBy}. Fullmakta opphøyrer {Expiration}",
                 "en": "{HandledBy} has, on behalf of {CoveredBy}, acted on behalf of {OfferedBy}. The authority expires {Expiration}"
             }
         }
@@ -400,19 +400,19 @@
             "serviceIntro": {
                 "person": {
                     "nb": "Ved å godkjenne denne forespørselen samtykker du til følgende:",
-                    "nn": "Ved å godkjenna denne førespurnaden samtykke du til følgjande:",
+                    "nn": "Ved å godkjenne denne førespurnaden samtykker du til følgjande:",
                     "en": "By accepting this request you consent to the following:"
                 },
                 "org": {
                     "nb": "Ved å godkjenne denne forespørselen samtykker du på vegne av {OfferedBy} til følgende:",
-                    "nn": "Ved å godkjenna denne førespurnaden samtykke du på vegne av {OfferedBy} til følgjande:",
+                    "nn": "Ved å godkjenne denne førespurnaden samtykker du på vegne av {OfferedBy} til følgjande:",
                     "en": "By accepting this request you consent on behalf of {OfferedBy} to the following:"
                 }
             },
             "overriddenDelegationContext": null,
             "expiration": {
-                "nb": "Samtykket er tidsavgrenset og vil gå ut {Expiration}",
-                "nn": "Samtykket er tidsavgrensa og vil gå ut {Expiration}",
+                "nb": "Samtykket er tidsavgrenset og opphører {Expiration}",
+                "nn": "Samtykket er tidsavgrensa og opphøyrer {Expiration}",
                 "en": "The consent is time-limited, and will expire {Expiration}"
             },
             "expirationOneTime": {
@@ -443,13 +443,13 @@
                 }
             },
             "historyUsedBody": {
-                "nb": "{CoveredBy} har benyttet seg av samtykket fra {OfferedBy}. Samtykket utløper {Expiration}",
-                "nn": "{CoveredBy} har nytta seg av samtykke frå {OfferedBy}. Samtykket utløper {Expiration}",
+                "nb": "{CoveredBy} har benyttet seg av samtykket fra {OfferedBy}. Samtykket opphører {Expiration}",
+                "nn": "{CoveredBy} har nytta seg av samtykke frå {OfferedBy}. Samtykket opphøyrer {Expiration}",
                 "en": "{CoveredBy} has utilized the consent from {OfferedBy}. The consent expires {Expiration}"
             },
             "historyUsedByHandledByBody": {
-                "nb": "{HandledBy} har, på vegne av {CoveredBy}, benyttet samtykket fra {OfferedBy}. Samtykket utløper {Expiration}",
-                "nn": "{HandledBy} har, på vegne av {CoveredBy}, nytta samtykket frå {OfferedBy}. Samtykket utløper {Expiration}",
+                "nb": "{HandledBy} har, på vegne av {CoveredBy}, benyttet samtykket fra {OfferedBy}. Samtykket opphører {Expiration}",
+                "nn": "{HandledBy} har, på vegne av {CoveredBy}, nytta samtykket frå {OfferedBy}. Samtykket opphøyrer {Expiration}",
                 "en": "{HandledBy} has, on behalf of {CoveredBy}, utilized the consent from {OfferedBy}. The consent expires {Expiration}"
             }
         }

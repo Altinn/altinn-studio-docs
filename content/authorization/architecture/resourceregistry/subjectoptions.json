@@ -306,7 +306,7 @@
         "SubjectDescription": "Delegerbar rolle som gir  tilgang til å administrere tilgang til programmeringsgrensesnitt - API, på vegne av virksomheten."
     },
     {
-        "SubjectId": "apiadnuf",
+        "SubjectId": "apiadmnuf",
         "SubjectSource": "altinn:rolecode",
         "SubjectTitle": "Programmeringsgrensesnitt for NUF (API)",
         "SubjectDescription": "Delegerbar rolle som gir kontaktperson for norskregistrert utenlandsk foretak (NUF) tilgang til å administrere tilgang til programmeringsgrensesnitt - API, på vegne av virksomheten."

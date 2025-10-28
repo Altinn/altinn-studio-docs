@@ -5,11 +5,15 @@ toc: true
 ---
 
 ## Client Delegation API
+
 The client delegation API provides methods to manage clients for an agent system user from a third party system.
 
+Guide to doing this as an end user: [Client Delegation](/en/authorization/guides/end-user/system-user/delegate-clients/)
+
 ## Security Scheme
+
 Bearer authentication scheme is used to authenticate.
-System user api requires that the external authenticates with a bearer token which is an id porten token with specific scope. This token must be exchanged with the altinn token using the endpoint 
+System user api requires that the external authenticates with a bearer token which is an id porten token with specific scope. This token must be exchanged with the altinn token using the endpoint
 GET authentication/api/v1/exchange/id-porten (on test environment, add the query parameter ?test=true)
 
 ## API Methods
@@ -21,26 +25,33 @@ GET authentication/api/v1/exchange/id-porten (on test environment, add the query
 - [Remove a delegated client from the system user](#remove-a-client-from-the-system-user)
 
 ## List All Agent System Users For The Organisation
-Returns a list of all agent system users linked to the organisation 
+
+Returns a list of all agent system users linked to the organisation
 
 ### Endpoint
+
 GET authentication/api/v1/enduser/systemuser/agents
 
 ### Scopes
+
 The Id porten token exchanged into altinn token with scope <mark>altinn:clientdelegations.read</mark>
 
 ### Content type
+
 application/json
 
 ## Query Parameters
 
 #### party
+
 The organization number of the system user owner
 
 ### Example Request
+
 {{environmenturl}}/authentication/api/v1/enduser/systemuser/agents?party=314250052
 
 ### Example Response
+
 ```
 [
     {
@@ -89,29 +100,37 @@ The organization number of the system user owner
 ```
 
 ## List all the potential clients for the system user
+
 Lists all the potential clients for the party that has access to the accesspackage for the systemuser
 
 ### Endpoint
+
 GET authentication/api/v1/enduser/systemuser/clients/available
 
 ### Scopes
+
 Id porten token with scope <mark>altinn:clientdelegations.read</mark>
 
 ### Content types
+
 application/json
 
 ## Query Parameters
 
 #### agent
+
 The unique identifier of the agent system user
 
 ### Pagination
+
 The API currently does not support pagination, but this is planned for a future release. We have now laid the groundwork for pagination in the system.
 
 ### Example Request
+
 {{environmenturl}}/authentication/api/v1/enduser/systemuser/clients/available?agent=1b6cea43-f499-4aae-a633-51cf542795af
 
 ### Example Response
+
 ```
 {
     "links": {},
@@ -140,29 +159,37 @@ The API currently does not support pagination, but this is planned for a future 
 ```
 
 ## List all delegated clients for the system user
+
 Lists all the delegated clients for the system user
 
 ### Endpoint
+
 GET authentication/api/v1/enduser/systemuser/clients/
 
 ### Scopes
+
 Id porten token with scope <mark>altinn:clientdelegations.read</mark>
 
 ### Content types
+
 application/json
 
 ## Query Parameters
 
 #### agent
+
 The unique identifier of the agent system user
 
 ### Pagination
+
 The API currently does not support pagination, but this is planned for a future release. We have now laid the groundwork for pagination in the system.
 
 ### Example Request
+
 {{environmenturl}}/authentication/api/v1/enduser/systemuser/clients/?agent=d06fe261-c46b-4d8b-b54d-b87aa6711f4c
 
 ### Example Response
+
 ```
 {
     "links": {},
@@ -181,29 +208,37 @@ The API currently does not support pagination, but this is planned for a future 
 ```
 
 ## Delegate a client to the system user
+
 Delegates a client to the system user
 
 ### Endpoint
+
 POST authentication/api/v1/enduser/systemuser/clients/
 
 ### Scopes
+
 Id porten token with scope <mark>altinn:clientdelegations.read altinn:clientdelegations.write</mark>
 
 ### Content types
+
 application/json
 
 ## Query Parameters
 
 #### agent
+
 The unique identifier of the agent system user
 
 #### client
+
 The unique identifier of the client to be added to the system user
 
 ### Example Request
+
 {{environmenturl}}/authentication/api/v1/enduser/systemuser/clients/?agent=58cd5a57-ea49-4d04-bf7d-d48b338c68db&client=ff254c60-d02a-4ae8-bcd1-34cce38a823a
 
 ### Example Response
+
 ```
 {
     "agent": "58cd5a57-ea49-4d04-bf7d-d48b338c68db",
@@ -212,29 +247,37 @@ The unique identifier of the client to be added to the system user
 ```
 
 ## Remove a client from the system user
+
 Removes a delegated client from the system user
 
 ### Endpoint
+
 DELETE authentication/api/v1/enduser/systemuser/clients/
 
 ### Scopes
+
 Id porten token with scope <mark>altinn:clientdelegations.read altinn:clientdelegations.write</mark>
 
 ### Content types
+
 application/json
 
 ## Query Parameters
 
 #### agent
+
 The unique identifier of the agent system user
 
 #### client
+
 The unique identifier of the client to be removed from the system user
 
 ### Example Request
+
 {{environmenturl}}/authentication/api/v1/enduser/systemuser/clients/?agent=58cd5a57-ea49-4d04-bf7d-d48b338c68db&client=ff254c60-d02a-4ae8-bcd1-34cce38a823a
 
 ### Example Response
+
 ```
 {
     "agent": "58cd5a57-ea49-4d04-bf7d-d48b338c68db",

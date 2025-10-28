@@ -20,6 +20,10 @@ dvs. en melding fra en avsender til en enkelt mottaker.
 
 ![En-til-en meldingutveksling](./altinn3-correspondence-pattern-1-1-messaging.nb.png "En-til-en meldingutveksling")
 
-Altinn 3 Melding støtter også mønstre for en-til-mange meldingsutveksling.
+Altinn 3 Melding støtter også batch-utsending. Dette er det å sende den samme meldingen til flere mottakere i en forespørsel. 
+Ved batch-utsending oppretter og lagrer systemet en melding per mottaker. 
+Dette gjør det mulig å håndtere meldingsstatuser og hendelser separat for hver mottaker.
 
-![En-til-mange meldingsutveksling](./altinn3-correspondence-pattern-1-n-messaging.nb.png "En-til-mange meldingsutveksling")
+{{% notice warning  %}}
+**Merk**: Det er ikke støtte for å angi IdempotentKey på meldingene ved batch-utsending.
+{{% /notice %}}
