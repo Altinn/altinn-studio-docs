@@ -27,8 +27,8 @@ andre og få tilgang til eksisterende apper.
    ![Registrer via Ansattporten](./register-user.png "Registrer via Ansattporten")
 
 3. Logg inn gjennom Ansattporten.
-   - *Du kan bruke Ansattporten for innlogging/registrering om du kan logge inn i IDPorten. Det ikke et krav om knytning
-      til en virksomhet i offentlig sektor.*
+   - *Du kan bruke Ansattporten for innlogging/registrering om du kan logge inn med BankID, MinID eller EntraID. 
+      Det er ikke et krav om knytning til en virksomhet i offentlig sektor.*
 
    ![Ansattporten innlogging](./ansattporten.png "Ansattporten innlogging")
 
@@ -64,7 +64,7 @@ mot innlogging i Ansattporten ved å følge stegene under.
    ![Logg inn med Ansattporten](./signin-with-ansattporten.png "Logg inn med Ansattporten")
 
 3. Logg inn gjennom Ansattporten.
-   - *Du kan bruke Ansattporten for innlogging/registrering om du kan logge inn med BankID, MinId eller EntraID. 
+   - *Du kan bruke Ansattporten for innlogging/registrering om du kan logge inn med BankID, MinID eller EntraID. 
       Det er foreløpig ikke et krav om knytning til en virksomhet i offentlig sektor.*
 
    ![Ansattporten innlogging](./ansattporten.png "Ansattporten innlogging")
