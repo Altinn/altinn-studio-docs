@@ -62,5 +62,27 @@ noSearch = false # default is false
 showVisitedLinks = false # default is false
 enableMermaid = true # enable Mermaid diagrams
 
+[outputFormats.MD]
+name = "MARKDOWN"
+mediaType = "text/markdown"
+baseName = "index"
+isPlainText = true
+
+[outputFormats.LLMSFULL]
+name = "LLMSFULL"
+mediaType = "text/plain"
+baseName = "llms-full"
+isPlainText = true
+notAlternative = true
+
+[outputFormats.SITEMAPMD]
+name = "SITEMAPMD"
+mediaType = "application/xml"
+baseName = "sitemap-markdown"
+isPlainText = true
+notAlternative = true
+
 [outputs]
-home = ["HTML", "JSON"] # JSON generates index.json file used by search
+page = ["HTML", "MARKDOWN"]
+section = ["HTML", "MARKDOWN"]
+home = ["HTML", "JSON", "LLMSFULL", "SITEMAPMD"] # JSON generates index.json file used by search

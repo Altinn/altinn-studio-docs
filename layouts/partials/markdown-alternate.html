@@ -1,0 +1,5 @@
+{{- range .AlternativeOutputFormats -}}
+  {{- if eq .Name "MARKDOWN" -}}
+<link rel="alternate" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="Markdown version" />
+  {{- end -}}
+{{- end -}}
