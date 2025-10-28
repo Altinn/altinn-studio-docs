@@ -93,7 +93,7 @@ dp.{content_type}[.{task}[.{state}]]
 * `dp.summary._any_.rejected` Sammendrag for enhver oppgave når den er avvist
 * `dp.primaryactionlabel.Sign.awaitingsignature` Handlingsetikett A for en Sign-oppgave som venter på signatur
 
-### Stardard Fallback-verdier
+### Standard Fallback-verdier
 
 Hvis ingen tilpassede applikasjonstekstnøkler blir funnet, gir systemet innebygde standardverdier for sammendrag basert
 på
