@@ -33,9 +33,8 @@ transmissions and synchronization with Altinn Inbox.
 
 ## Convention-based use of application texts
 
-Altinn Apps can automatically resolve localized text content for dialogs by following a convention-based key lookup
-system.
-This system searches for specific keys in your application texts with a fallback mechanism.
+Altinn Apps can automatically resolve localized text content for dialogs by following a convention-based key lookup.
+It searches for specific keys in your application texts with a fallback mechanism.
 
 ### Key Resolution Order
 
@@ -43,8 +42,8 @@ The system attempts to find the most specific key first, then falls back to more
 
 1. **Active task for status** - Most specific match
 2. **Active task** - Task-specific match
-3. **Any task for derived status** - Status-specific match
-4. **Any task and any derived status** - Most general match
+3. **Any task for status** - Status-specific match
+4. **Any task and any status** - Most general match
 
 ### Key Format Structure
 
@@ -74,20 +73,20 @@ dp.{content_type}[.{task}[.{state}]]
 
 ### Examples
 
-**Basic content keys:**
+**Basic content:**
 
 * `dp.title` General dialog title
 * `dp.summary` General dialog summary
 * `dp.primaryactionlabel`General primary action text
 
-**Task-specific keys:**
+**Task-specific:**
 
 * `dp.title.DataEntry` Title for DataEntry task
 * `dp.summary.Review` Summary for a Review task
 * `dp.primaryactionlabel.Sign` Primary action for a Sign task
 * `dp.primaryactionlabel._any_` Primary action for any tasks
 
-**State-specific keys:**
+**State-specific:**
 
 * `dp.title.DataEntry.awaitinginitialuserinput` Title for DataEntry task awaiting input
 * `dp.summary._any_.rejected` Summary for any task when rejected
