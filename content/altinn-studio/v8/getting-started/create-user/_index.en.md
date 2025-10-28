@@ -55,7 +55,7 @@ to login via Ansattporten by following the steps below.
    ![Ansattporten login](./ansattporten.png "Ansattporten login")
 
 4. Select the tab "Connect to existing account" and log in with username/password.
-  - *Have you forgotten your username/password? You can reset these yourself by following the link on the login form.*
+   - *Have you forgotten your username/password? You can reset these yourself by following the link on the login form.*
 
   ![Connect to existing account](./link-to-existing-account.png "Connect to existing account")
 

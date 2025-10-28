@@ -27,7 +27,7 @@ andre og få tilgang til eksisterende apper.
    ![Registrer via Ansattporten](./register-user.png "Registrer via Ansattporten")
 
 3. Logg inn gjennom Ansattporten.
-   - *Du kan bruke ansattporten for innlogging/registrering om du kan logge inn i IDPorten. Det ikke et krav om knytning
+   - *Du kan bruke Ansattporten for innlogging/registrering om du kan logge inn i IDPorten. Det ikke et krav om knytning
       til en virksomhet i offentlig sektor.*
 
    ![Ansattporten innlogging](./ansattporten.png "Ansattporten innlogging")
@@ -64,13 +64,13 @@ mot innlogging i Ansattporten ved å følge stegene under.
    ![Logg inn med Ansattporten](./signin-with-ansattporten.png "Logg inn med Ansattporten")
 
 3. Logg inn gjennom Ansattporten.
-   - *Du kan bruke ansattporten for innlogging/registrering om du kan logge inn med BankID, MinId eller EntraID. 
-     Det er foreløpig ikke et krav om knytning til en virksomhet i offentlig sektor.*
+   - *Du kan bruke Ansattporten for innlogging/registrering om du kan logge inn med BankID, MinId eller EntraID. 
+      Det er foreløpig ikke et krav om knytning til en virksomhet i offentlig sektor.*
 
    ![Ansattporten innlogging](./ansattporten.png "Ansattporten innlogging")
 
 4. Velg fanen "Koble til eksisterende konto" og logg inn med brukernavn/passord.
-  - *Har du glemt brukernavn/passord? Du kan resette disse selv ved å følge lenken på innloggingsskjemaet.*
+   - *Har du glemt brukernavn/passord? Du kan resette disse selv ved å følge lenken på innloggingsskjemaet.*
 
   ![Koble til eksisterende konto](./link-to-existing-account.png "Koble til eksisterende konto")
 
