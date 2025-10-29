@@ -8,13 +8,9 @@ weight: 2
 
 **Målgruppe:** Utviklere og systemintegratorer hos en Sluttbrukersystemleverandør (SBSL) som skal integrere sitt system med Altinn-plattformen.
 
-**Forutsetninger:**
+## **Forutsetninger:**
 
-  * Ditt system (SBSL) må være forhåndsregistrert i Altinn ([Registrer System](/nb/authorization/guides/system-vendor/system-user/systemregistration/)).
-  * Du må ha et gyldig Maskinporten-token med scopet `altinn:authentication/systemuser.request.write` (scopet opprettes i [Samarbeidsportalen](https://samarbeid.digdir.no/maskinporten/maskinporten/25)).
-  * Du må kjenne organisasjonsnummeret (`partyOrgNo`) til sluttbrukerkunden.
-  * Du må ha definert hvilke tilgangspakker (`accessPackages`) eller enkeltrettigheter (`rights`) systembrukeren trenger.
-  * (Valgfritt) Hvis `redirectUrl` skal benyttes, må denne URL-en være forhåndsregistrert på systemet ditt.
+Du må ha noen forutsetninger på plass før du oppretter systembruker, se [Kom i gang-veiledningen](https://docs.altinn.studio/nb/authorization/getting-started/systemuser/).
 
 -----
 
@@ -25,6 +21,10 @@ Dette gjelder en systembruker for ditt eget system, hvor systemet handler på ve
 ### Metode A: [**Leverandørstyrt Opprettelse**](https://docs.altinn.studio/nb/authorization/guides/system-vendor/system-user/#Leverandørstyrt-opprettelse)
 
 Dette er den foretrukne metoden hvor du som SBSL initierer opprettelsen via API.
+
+  * Du må kjenne organisasjonsnummeret (`partyOrgNo`) til sluttbrukerkunden.
+  * Du må ha definert hvilke tilgangspakker (`accessPackages`) eller enkeltrettigheter (`rights`) systembrukeren trenger.
+  * (Valgfritt) Hvis `redirectUrl` skal benyttes, må denne URL-en være forhåndsregistrert på systemet ditt.
 
 1.  **Initier forespørsel:** Send en HTTP POST-forespørsel til API-endepunktet.
 
