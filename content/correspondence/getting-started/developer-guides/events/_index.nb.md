@@ -62,7 +62,8 @@ Hvis du ikke spesifiserer et *typeFilter*, vil du motta alle forskjellige typer 
 - `no.altinn.correspondence.correspondencepublishfailed`
 - `no.altinn.correspondence.correspondencereceiverread`
 - `no.altinn.correspondence.correspondencereceiverconfirmed`
-- `no.altinn.correspondence.Correspondencereceiverreserved`
+- `no.altinn.correspondence.correspondencereceiverreserved`
+- `no.altinn.correspondence.correspondencenotificationcreationfailed`
 
 
 **For både Avsendere og Mottakere:**
