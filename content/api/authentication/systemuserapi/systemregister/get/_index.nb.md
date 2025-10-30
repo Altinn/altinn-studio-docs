@@ -5,24 +5,31 @@ description: API for leverandøren for å hente systeminformasjon fra systemregi
 toc: false
 weight: 3
 ---
+
 ## Hent System
+
 Henter et system ved system-ID.
 
 ### Endepunkt
+
 GET authentication/api/v1/systemregister/vendor/{systemId}
 
 ### Scopes
+
 Maskinporten-token med scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
+
 application/json
 
 ## Argumenter
 
 #### systemId
-ID-en skal være i formatet {systemleverandørorgnr}_{navn valgt av leverandøren}. For eksempel '310547891_testprodukt'. Dette er en unik ID for å identifisere systemet.
+
+ID-en skal være i formatet {systemleverandørorgnr}\_{navn valgt av leverandøren}. For eksempel '310547891_testprodukt'. Dette er en unik ID for å identifisere systemet.
 
 ## Eksempel på responsmodell
+
 ```
 {
     "id": "312605031_b217b2f5-362f-4aa2-b919-ceaeaf9f15a1",
@@ -44,11 +51,15 @@ ID-en skal være i formatet {systemleverandørorgnr}_{navn valgt av leverandøre
             "resource": [
                 {
                     "id": "urn:altinn:resource",
-                    "value": "authentication-e2e-test"
-                },
+                    "value": "app_ttd_endring-av-navn-v2"
+                }
+            ]
+        },
+        {
+            "resource": [
                 {
                     "id": "urn:altinn:resource",
-                    "value": "authentication-e2e-test"
+                    "value": "ske-krav-og-betalinger"
                 }
             ]
         }
@@ -66,34 +77,44 @@ ID-en skal være i formatet {systemleverandørorgnr}_{navn valgt av leverandøre
 ```
 
 ## Hent rettigheter for et system
+
 Hent rettighetene som er definert for et system. Dette er et åpent API.
 
 ### Endepunkt
+
 GET authentication/api/v1/systemregister/vendor/{systemId}/rights
 
 ### Scopes
+
 Ingen autentisering kreves.
 
 ### Content types
+
 application/json
 
 ## Argumenter
 
 #### systemId
-ID-en skal være i formatet {systemleverandørorgnr}_{navn valgt av leverandøren}. For eksempel '310547891_testprodukt'. Dette er en unik ID for å identifisere systemet.
+
+ID-en skal være i formatet {systemleverandørorgnr}\_{navn valgt av leverandøren}. For eksempel '310547891_testprodukt'. Dette er en unik ID for å identifisere systemet.
 
 ## Eksempel på responsmodell
+
 ```
 [
     {
         "resource": [
             {
                 "id": "urn:altinn:resource",
-                "value": "authentication-e2e-test"
-            },
+                "value": "app_ttd_endring-av-navn-v2"
+            }
+        ]
+    },
+    {
+        "resource": [
             {
                 "id": "urn:altinn:resource",
-                "value": "authentication-e2e-test"
+                "value": "ske-krav-og-betalinger"
             }
         ]
     }
@@ -101,23 +122,29 @@ ID-en skal være i formatet {systemleverandørorgnr}_{navn valgt av leverandøre
 ```
 
 ## Hent tilgangspakker for et system
+
 Hent tilgangspakkene som er definert for et system. Dette er et åpent API.
 
 ### Endepunkt
+
 GET authentication/api/v1/systemregister/{systemId}/accesspackages
 
 ### Scopes
+
 Ingen autentisering kreves.
 
 ### Content types
+
 application/json
 
 ## Argumnenter
 
 #### systemId
-ID-en skal være i formatet {systemleverandørorgnr}_{navn valgt av leverandøren}. For eksempel '310547891_testprodukt'. Dette er en unik ID for å identifisere systemet.
+
+ID-en skal være i formatet {systemleverandørorgnr}\_{navn valgt av leverandøren}. For eksempel '310547891_testprodukt'. Dette er en unik ID for å identifisere systemet.
 
 ## Eksempel på responsmodell
+
 ```
 [
     {
