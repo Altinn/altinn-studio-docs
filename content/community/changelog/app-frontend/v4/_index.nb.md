@@ -5,5 +5,5 @@ weight: 99
 ---
 
 {{% notice info %}}
-Beklager, vi har ikke oversatt denne siden til norsk enda. Foreløpig kan du lese den [på engelsk](/nb/community/changelog/app-frontend/v4/).
+Beklager, vi har ikke oversatt denne siden til norsk enda. Foreløpig kan du lese den [på engelsk](/en/community/changelog/app-frontend/v4/).
 {{% /notice %}}
