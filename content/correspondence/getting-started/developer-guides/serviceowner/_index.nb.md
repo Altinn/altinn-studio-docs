@@ -45,8 +45,8 @@ Se [Ressursadministrasjon](https://docs.altinn.studio/nb/authorization/getting-s
    - "subscribe" for å registrere hendelsesabonnement i Altinn Events.
 4. Altinn II rollene erstattes av tilgangspakker i Altinn 3. Frem til juni 2026 anbefaler vi at man setter både roller og tilgangspakker på ressursen. Det er viktig å ta en grundig vurdering på hvilken tilgangspakke ressursen skal ha. 
    - **Vanlig post:** Den gamle Altinn II rollen "Post/arkiv" erstattes av tilgangspakken "Ordinær post til virksomheten".
-   - **Taushetsbelagt post:** Dersom ressursen skal være taushetsbelagt må dere: 
-      - velge tilgangspakken "Post til virksomheten med taushetsbelagt innhold"
+   - **Taushetsbelagt post:** Dersom ressursen skal være taushetsbelagt må du: 
+      - velge tilgangspakken [Eksplisitt tjenestedelegering](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/forholdvedvirksomheten/#eksplisitt-tjenestedelegering)
       - sende med flagget "IsConfidential" satt til: "true".
 
          Les mer om taushetsbelagt post [her](https://docs.altinn.studio/nb/correspondence/explanation/taushetsbelagt-post/).
