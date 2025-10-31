@@ -54,7 +54,7 @@ toc: false
     Sluttbruker logger inn i Altinn-portalen for å administrere Systemtilganger.
     ![list av systemtilganger](systemtilgang-overview-clientdelegation.png)
 
-    Klikker på den aktuelle Systembrukeren for å administrere eller se. Klikker på 'Legg til klient' for å legge til klienter.
+    Klikker på den aktuelle Systemtilgangen for å administrere eller se. Klikker på 'Legg til klient' for å legge til klienter.
     ![systemtilganger detalje](systemuser-agent.png)
 
     Legger til klientene
@@ -63,7 +63,7 @@ toc: false
     Klientene er lagt til
     ![kunder er lagt til systemtilgang](addclient-added.png)
 
-    Oversikt over Systembrukeren og klientene
+    Oversikt over Systemtilgangene og klientene
     ![systemtilgang med kunder](systemuser-withclients.png)
 
 3.  Tildel nødvendige tillatelser
