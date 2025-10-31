@@ -31,7 +31,7 @@ Registrering av et sluttbrukersystem gjøres ved å kalle Altinns systemregister
      * `vendor`: Inneholder organisasjonsnummeret til systemleverandøren.
          * **Format:** `ID` må settes til `0192:{orgnr}` for å angi referanse til Enhetsregisteret.
          * **Eksempel:** `"ID": "0192:991825827"`.
-     * **Viktig:** Organisasjonsnummeret som brukes i `id` og `vendor.ID` må samsvare med organisasjonsnummeret i autentiseringstokenet (Maskinporten eller Altinn). For å få opprettet et ekte organisasjonsnummer i TT02, må SBS kontakte servicedesk@altinn.no.
+     * **Viktig:** Organisasjonsnummeret som brukes i `id` og `vendor.ID` må samsvare med organisasjonsnummeret i autentiseringstokenet (Maskinporten eller Altinn). For å få opprettet et ekte organisasjonsnummer i TT02, må SBS kontakte <servicedesk@altinn.no>.
 
 3.  **Definer Synlige Tekster**
 
