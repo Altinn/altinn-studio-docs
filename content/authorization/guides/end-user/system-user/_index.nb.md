@@ -12,7 +12,7 @@ toc: false
    - Programvaren tilbyr en funksjon for å vise totale skatte- og avgiftskrav.
 2. Godkjenning av forespørsel om systemtilgang
 
-   - Som en del av programvareoppsettet, kan STADIG KONSERT enten opprette en systembruker i Altinn-portalen via sluttbrukerdrevet systembtilgangopprettelse, eller godkjenne en forespørsel om systemtilgang sendt av SmartCloud.
+   - Som en del av programvareoppsettet, kan STADIG KONSERT enten opprette en systembruker i Altinn-portalen via sluttbrukerdrevet systemtilgangopprettelse, eller godkjenne en forespørsel om systemtilgang sendt av SmartCloud.
    - I dette eksemplet mottar STADIG KONSERT en forespørsel om systemtilgang og må godkjenne den i Altinn-portalen, der STADIG KONSERT tildeler de nødvendige tilganger til SmartCloud for tjenesten "Krav og betalinger"
 
      Velg system
