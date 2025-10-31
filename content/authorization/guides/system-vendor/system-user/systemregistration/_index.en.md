@@ -32,7 +32,7 @@ Registration of an end-user system is done by calling Altinn's system registry A
       * `vendor`: Contains the organization number of the system supplier.
           * **Format:** `ID` must be set to `0192:{orgnr}` to specify a reference to the Brønnøysund Register Centre (Enhetsregisteret).
           * **Example:** `"ID": "0192:991825827"`.
-      * **Important:** The organization number used in `id` and `vendor.ID` must match the organization number in the authentication token (Maskinporten or Altinn). To get a real organization number created in TT02, the SBS must contact servicedesk@altinn.no.
+      * **Important:** The organization number used in `id` and `vendor.ID` must match the organization number in the authentication token (Maskinporten or Altinn). To get a real organization number created in TT02, the SBS must contact <servicedesk@altinn.no>.
 
 3.  **Define Visible Texts**
 
