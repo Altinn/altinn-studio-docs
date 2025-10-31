@@ -15,7 +15,7 @@
     }
   ],
   "paths": {
-    "/profile/api/v1/users/current/party-groups/favorites": {
+    "/users/current/party-groups/favorites": {
       "get": {
         "tags": [
           "Favorites"
@@ -38,7 +38,7 @@
         }
       }
     },
-    "/profile/api/v1/users/current/party-groups/favorites/{partyUuid}": {
+    "/users/current/party-groups/favorites/{partyUuid}": {
       "put": {
         "tags": [
           "Favorites"
@@ -102,7 +102,7 @@
         }
       }
     },
-    "/profile/api/v1/users/current/notificationsettings/parties/{partyUuid}": {
+    "/users/current/notificationsettings/parties/{partyUuid}": {
       "get": {
         "tags": [
           "NotificationsSettings"
@@ -221,7 +221,7 @@
         }
       }
     },
-    "/profile/api/v1/users/current/notificationsettings/parties": {
+    "/users/current/notificationsettings/parties": {
       "get": {
         "tags": [
           "NotificationsSettings"
@@ -253,7 +253,7 @@
         }
       }
     },
-    "/profile/api/v1/organizations/{organizationNumber}/notificationaddresses/mandatory": {
+    "/organizations/{organizationNumber}/notificationaddresses/mandatory": {
       "get": {
         "tags": [
           "Organizations"
@@ -349,7 +349,7 @@
         }
       }
     },
-    "/profile/api/v1/organizations/{organizationNumber}/notificationaddresses/mandatory/{notificationAddressId}": {
+    "/organizations/{organizationNumber}/notificationaddresses/mandatory/{notificationAddressId}": {
       "get": {
         "tags": [
           "Organizations"
@@ -509,7 +509,7 @@
         }
       }
     },
-    "/profile/api/v1/users/current/party-groups": {
+    "/users/current/party-groups": {
       "get": {
         "tags": [
           "PartyGroups"
@@ -535,7 +535,7 @@
         }
       }
     },
-    "/profile/api/v1/users/{userID}": {
+    "/users/{userID}": {
       "get": {
         "tags": [
           "Users"
@@ -570,7 +570,7 @@
         }
       }
     },
-    "/profile/api/v1/users/byuuid/{userUuid}": {
+    "/users/byuuid/{userUuid}": {
       "get": {
         "tags": [
           "Users"
@@ -605,7 +605,7 @@
         }
       }
     },
-    "/profile/api/v1/users/current": {
+    "/users/current": {
       "get": {
         "tags": [
           "Users"
@@ -628,7 +628,7 @@
         }
       }
     },
-    "/profile/api/v1/users": {
+    "/users": {
       "post": {
         "tags": [
           "Users"
@@ -661,7 +661,7 @@
         }
       }
     },
-    "/profile/api/v1/users/current/profilesettings": {
+    "/users/current/profilesettings": {
       "put": {
         "tags": [
           "Users"
