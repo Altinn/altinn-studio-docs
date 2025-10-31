@@ -9,22 +9,14 @@ weight: 1
 
 ## Forutsetninger
 
-Før du kan registrere et system, må følgende være på plass:
-
-  * Tilgang til systemregisteret og systembruker-scopes er innhentet fra Digdir. Prosedyren for dette er beskrevet på [Samarbeidsportalen](https://samarbeid.digdir.no/altinn/kom-i-gang/2868).
-  * For testing anbefales det at SBS-organisasjonsnummeret er lagt inn i testmiljøet TT02.
-  * For å få opprettet et ekte organisasjonsnummer i TT02, må SBS kontakte servicedesk@altinn.no.
-  * Et gyldig Maskinporten-token eller Altinn-token for å autentisere API-kallet mot systemregisteret.
-  * Tokenet som benyttes må ha blitt tildelt scopet: `altinn:authentication/systemregister.write`.
-  * En oversikt over hvilke tilgangspakker (`accessPackages`) eller ressurser (`rights`) tjeneste-API-et krever. Denne informasjonen må innhentes fra tjenesteeier.
-  * En eller flere gyldige `clientId` (UUID) generert for integrasjonen i Maskinporten.
-  
+Du må ha noen forutsetninger på plass før du registrer et system, se [Kom i gang-veiledningen](https://docs.altinn.studio/nb/authorization/getting-started/systemuser/).
 
 -----
 
 ## Instruksjoner
 
-Registrering av et sluttbrukersystem gjøres ved å kalle Altinns systemregister-API med en JSON-nyttelast som definerer systemet.
+Registrering av et sluttbrukersystem gjøres ved å kalle Altinns systemregister-API med en JSON-nyttelast som definerer systemet. 
+* **Merk:** Tokenet som benyttes må ha blitt tildelt scopet: `altinn:authentication/systemregister.write`.
 
 ### Steg-for-steg
 
@@ -39,7 +31,7 @@ Registrering av et sluttbrukersystem gjøres ved å kalle Altinns systemregister
      * `vendor`: Inneholder organisasjonsnummeret til systemleverandøren.
          * **Format:** `ID` må settes til `0192:{orgnr}` for å angi referanse til Enhetsregisteret.
          * **Eksempel:** `"ID": "0192:991825827"`.
-     * **Viktig:** Organisasjonsnummeret som brukes i `id` og `vendor.ID` må samsvare med organisasjonsnummeret i autentiseringstokenet (Maskinporten eller Altinn).
+     * **Viktig:** Organisasjonsnummeret som brukes i `id` og `vendor.ID` må samsvare med organisasjonsnummeret i autentiseringstokenet (Maskinporten eller Altinn). For å få opprettet et ekte organisasjonsnummer i TT02, må SBS kontakte servicedesk@altinn.no.
 
 3.  **Definer Synlige Tekster**
 

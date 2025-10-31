@@ -10,11 +10,7 @@ weight: 2
 
 **Prerequisites:**
 
-  * Your system (SBSL) must be pre-registered in Altinn ([Register System](/nb/authorization/guides/system-vendor/system-user/systemregistration/)).
-  * You must have a valid Maskinporten token with the scope `altinn:authentication/systemuser.request.write` (the scope is created in the [Cooperation Portal (Samarbeidsportalen)](https://samarbeid.digdir.no/maskinporten/maskinporten/25)).
-  * You must know the organization number (`partyOrgNo`) of the end-user customer.
-  * You must have defined which access packages (`accessPackages`) or individual rights (`rights`) the system user needs.
-  * (Optional) If `redirectUrl` is to be used, this URL must be pre-registered on your system.
+You must have some prerequisites in place before you create system user, see the [Getting Started guide](https://docs.altinn.studio/nb/authorization/getting-started/systemuser/).
 
 -----
 
