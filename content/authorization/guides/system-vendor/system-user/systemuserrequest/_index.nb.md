@@ -77,7 +77,7 @@ Denne metoden er kun aktuell hvis du som SBSL *ikke* har et eget grensesnitt for
 
 1.  **Instruer sluttbruker:** Be sluttbrukeren utføre følgende:
       * Gå til Altinn-portalen.
-      * Navigere til opprettelse av systembruker.
+      * Navigere til opprettelse av systemtilgang.
       * Velge ditt system fra nedtrekkslisten. (Du må informere kunden om hva systemet ditt heter i listen).
 2.  **Automatisk godkjenning:** Når brukeren fullfører, godkjenner de automatisk alle de forhåndsdefinerte tilgangene systemet trenger.
 3.  **Hent token:** Etter at brukeren er opprettet, kan du (SBSL) hente ut systembruker-tokenet som trengs for integrasjonen.
@@ -122,9 +122,9 @@ Dette gjelder en systembruker for et system som skal handle på vegne av sluttbr
 
 4. **Formidle lenke:** Gi `confirmUrl`-dyplenken til sluttbrukeren på en trygg måte.
 
-5. **Sluttbruker godkjenner:** Sluttbrukeren følger lenken og godkjenner forespørselen. (Se [Godkjenn SystemBruker](/nb/authorization/guides/end-user/system-user/accept-request/)). Status settes til `Accepted`.
+5. **Sluttbruker godkjenner:** Sluttbrukeren følger lenken og godkjenner forespørselen. (Se [Godkjenn Systemtilgang](/nb/authorization/guides/end-user/system-user/accept-request/)). Status settes til `Accepted`.
 
-6. **(Påkrevd) Sluttbruker delegerer klienter:** Etter at systembrukeren er godkjent, må sluttbrukeren **manuelt logge inn i Altinn** og delegere de klientene (dvs. de organisasjonene det skal rapporteres på vegne av) til den nyopprettede systembrukeren. (Se [Delegeres Klienter](/nb/authorization/guides/end-user/system-user/delegate-clients/)).
+6. **(Påkrevd) Sluttbruker delegerer klienter:** Etter at systemtilgangen er godkjent, må sluttbrukeren **manuelt logge inn i Altinn** og delegere de klientene (dvs. de organisasjonene det skal rapporteres på vegne av) til den nyopprettede systembrukeren. (Se [Delegeres Klienter](/nb/authorization/guides/end-user/system-user/delegate-clients/)).
 
 -----
 
