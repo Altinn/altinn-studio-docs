@@ -1,5 +1,5 @@
 ---
-title: 'Overføring'
+title: 'Forsendelse'
 description: 'Referanseinformasjon om forsendelses-entiteten'
 weight: 20
 ---
