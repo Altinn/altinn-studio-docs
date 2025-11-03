@@ -7,7 +7,7 @@ weight: 1
 
 ## Godkjenne systemtilgang for eget system
 
-1. Her godkjenner en sluttbruker en forespørsel om å opprette en Systemtilgang for eget system. For å godkjenne en systemtilgang-forespørsel må innlogget bruker ha rollen Tilgangsstyrer i valgt organisasjon (f.eks har Daglig leder har rollen Tilgangsstyrer). I dette eksemplet mottar DRESS MINST, daglig leder i DISKRET NÆR TIGER AS, en forespørsel om systemtilgang for eget system fra leverandøren SmartCloud. Denne forespørselen må godkjennes i Altinn-portalen.
+1. Her godkjenner en sluttbruker en forespørsel om å opprette en Systemtilgang for eget system. For å godkjenne en systemtilgang-forespørsel må innlogget bruker ha rollen Tilgangsstyrer i valgt organisasjon (f.eks har Daglig leder rollen Tilgangsstyrer). I dette eksemplet mottar DRESS MINST, daglig leder i DISKRET NÆR TIGER AS, en forespørsel om systemtilgang for eget system fra leverandøren SmartCloud. Denne forespørselen må godkjennes i Altinn-portalen.
 
 ![Godkjenningsbilde egen systemtilgang](https://docs.altinn.studio/nb/authorization/guides/end-user/system-user/standard-request.png)
 
@@ -19,7 +19,7 @@ weight: 1
 
 ## Godkjenne systemtilgang for klienter
 
-1. Her godkjenner en sluttbruker en forespørsel om å opprette en Systemtilgang for klienter. For å godkjenne en systemtilgang-forespørsel må innlogget bruker ha rollen Tilgangsstyrer i valgt organisasjon (f.eks har Daglig leder har rollen Tilgangsstyrer). I dette eksemplet mottar DRESS MINST, daglig leder i DISKRET NÆR TIGER AS, en forespørsel om systemtilgang for klienter fra leverandøren SmartCloud. Denne forespørselen må godkjennes i Altinn-portalen.
+1. Her godkjenner en sluttbruker en forespørsel om å opprette en Systemtilgang for klienter. For å godkjenne en systemtilgang-forespørsel må innlogget bruker ha rollen Tilgangsstyrer i valgt organisasjon (f.eks har Daglig leder rollen Tilgangsstyrer). I dette eksemplet mottar DRESS MINST, daglig leder i DISKRET NÆR TIGER AS, en forespørsel om systemtilgang for klienter fra leverandøren SmartCloud. Denne forespørselen må godkjennes i Altinn-portalen.
 
 ![Godkjenningsbilde systemtilgang for klienter](https://docs.altinn.studio/nb/authorization/guides/end-user/system-user/agent-request.png)
 
