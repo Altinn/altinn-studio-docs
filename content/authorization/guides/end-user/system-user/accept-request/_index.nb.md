@@ -11,7 +11,7 @@ weight: 1
 
 ![Godkjenningsbilde egen systemtilgang](https://docs.altinn.studio/nb/authorization/guides/end-user/system-user/standard-request.png)
 
-2. Etter at forespørselen er godkjent eller avvist, vil sluttbrukeren bli logget ut. Hvis leverandøren har satt opp en verifisert videresending i forespørselen, vil brukeren sendes til leverandørens kvitteringsside. Hvis ikke, blir sluttbrukeren bli sendt til Altinn sin utloggede side.
+2. Etter at forespørselen er godkjent eller avvist, vil sluttbrukeren bli logget ut. Hvis leverandøren har satt opp en verifisert videresending i forespørselen, vil brukeren sendes til leverandørens kvitteringsside. Hvis ikke, blir sluttbrukeren sendt til Altinn sin utloggede side.
 
 ![Kvitteringsside egen systemtilgang](https://docs.altinn.studio/nb/authorization/guides/end-user/system-user/systemtilgang-receipt-vendor.png)
 
@@ -23,7 +23,7 @@ weight: 1
 
 ![Godkjenningsbilde systemtilgang for klienter](https://docs.altinn.studio/nb/authorization/guides/end-user/system-user/agent-request.png)
 
-2. Etter at forespørselen er godkjent eller avvist, vil sluttbrukeren bli logget ut. Hvis leverandøren har satt opp en verifisert videresending i forespørselen, vil brukeren sendes til leverandørens kvitteringsside. Hvis ikke, blir sluttbrukeren bli sendt til Altinn sin utloggede side.
+2. Etter at forespørselen er godkjent eller avvist, vil sluttbrukeren bli logget ut. Hvis leverandøren har satt opp en verifisert videresending i forespørselen, vil brukeren sendes til leverandørens kvitteringsside. Hvis ikke, blir sluttbrukeren sendt til Altinn sin utloggede side.
 
 ![Kvitteringsside systemtilgang for klienter](https://docs.altinn.studio/nb/authorization/guides/end-user/system-user/systemtilgang-receipt-vendor.png)
 
