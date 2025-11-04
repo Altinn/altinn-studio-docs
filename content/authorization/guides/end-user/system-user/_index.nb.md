@@ -1,11 +1,15 @@
 ---
 title: Sluttbrukerveiledning for systemtilgang
 linktitle: Systemtilgang
-description: Finn omfattende informasjon om hva en sluttbruker må være oppmerksom på, samt hvilke trinn som må følges for å etablere en systemtilgangintegrasjon.
+description: Veiledning for sluttbruker av systemtilgang
 toc: false
 ---
+En systemtilgang kan opprettes på tre forskjellige måter, avhengig av behov og hvordan leverandøren har satt opp flyten for nye kunder. 
 
-### Veiledning for sluttbruker (STADIG KONSERT, Dagligleder til TILFELDIG SUBTIL APE)
+1. På Altinn Portal kan sluttbruker selv velge fra en liste av systemer som leverandører har valgt at skal være synlige der. 
+2. Inne i et leverandør system kan det være en knapp eller tilsvarende som skaper en forespørsel som sluttbruker må godkjenne.
+3. Systemtilganger for klientforhold trenger også at sluttbruker videredelegerer klienter til systemtilgangen for å bruke systemet.
+### Veiledning for opprettele fra Altinn portal
 
 1. Anskaffelse av regnskapssystemet
    - STADIG KONSERT, dagligleder til TILFELDIG SUBTIL APE, anskaffer SmartCloud for å håndtere selskapets skatte- og avgiftskrav
@@ -34,7 +38,7 @@ toc: false
    1. Tildele nødvendige tillatelser
       - Etter at STADIG KONSERT har godkjent forespørselen, omfatter systemtilgangen rettighetene til å vise skatte- og avgiftskravene for TILFELDIG SUBTIL APE. STADIG KONSERT har gitt SmartCloud nødvendige autorisasjoner for denne spesifikke tjenesten og har mulighet til å fjerne tilgangene når som helst via Altinn.
 
-#### Veiledning for sluttbruker (DRESs MINST, klientadministratør i TILBAKEHOLDEN USYMMETRISK TIGER AS )
+#### Veiledning for godkjenning av forespørsel sendt av leverandør system for klientforhold
 
 1.  Anskaffelse av regnskapssystemet
     - DRESs MINST, klientadministratør i TILBAKEHOLDEN USYMMETRISK TIGER AS, anskaffer SmartCloud for å håndtere ulike tjenester for kundene.
