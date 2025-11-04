@@ -8,11 +8,11 @@ aliases:
   - /authorization/modules/accessgroups
 ---
 
-| **Tilgangspakker i kategorien**                                     |
-| ------------------------------------------------------------------- |
-| [Delegerbare Maskinporten scopes](#maskinporten-scopes)             |
-| [Delegerbare Maskinporten scopes - NUF](#maskinporten-scopes---nuf) |
-| [Maskinlesbare hendelser](#maskinlesbare-hendelser)                 |
+| **Tilgangspakker i kategorien**                                                 |
+| ------------------------------------------------------------------------------- |
+| [Delegerbare Maskinporten scopes](#delegerbare-maskinporten-scopes)             |
+| [Delegerbare Maskinporten scopes - NUF](#delegerbare-maskinporten-scopes---nuf) |
+| [Maskinlesbare hendelser](#maskinlesbare-hendelser)                             |
 
 ### Delegerbare Maskinporten scopes
 
