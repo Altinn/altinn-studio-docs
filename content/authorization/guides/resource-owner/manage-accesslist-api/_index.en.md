@@ -41,7 +41,7 @@ Where owner is organization code and identifer is a choosen ID fo the
 
 Post to /access-lists/{owner}/{identifier}/members with a member.
 
-The member can be identifed with different ID. Only one can be given.
+The member can be identified with different ID. Only one can be given.
 
 ```json
 {
