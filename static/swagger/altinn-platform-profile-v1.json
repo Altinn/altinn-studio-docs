@@ -4,7 +4,7 @@
     "title": "Altinn Profile",
     "version": "v1"
   },
-  "servers": [
+    "servers": [
     {
       "url": "https://platform.tt02.altinn.no/profile/api/v1",
       "description": "TT02"
@@ -15,29 +15,6 @@
     }
   ],
   "paths": {
-    "/users/current/party-groups": {
-      "get": {
-        "tags": [
-          "Favorites"
-        ],
-        "summary": "Retrieve all groups for a user",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GroupResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        }
-      }
-    },
     "/users/current/party-groups/favorites": {
       "get": {
         "tags": [
@@ -532,6 +509,32 @@
         }
       }
     },
+    "/users/current/party-groups": {
+      "get": {
+        "tags": [
+          "PartyGroups"
+        ],
+        "summary": "Retrieve all groups for a user",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GroupResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
     "/users/{userID}": {
       "get": {
         "tags": [
@@ -657,6 +660,74 @@
           }
         }
       }
+    },
+    "/users/current/profilesettings": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Updates the profile settings of the current user based on the request context",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProfileSettingPreference"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileSettingPreference"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Updates the profile settings of the current user based on the request context",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProfileSettingsPatchRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileSettingPreference"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -664,6 +735,11 @@
       "GroupResponse": {
         "type": "object",
         "properties": {
+          "groupId": {
+            "type": "integer",
+            "description": "The unique identifier of the group",
+            "format": "int32"
+          },
           "name": {
             "type": "string",
             "description": "The name of the group",
@@ -685,6 +761,21 @@
         },
         "additionalProperties": false,
         "description": "GroupResponse is used to represent a group of parties"
+      },
+      "GuidNullableOptional": {
+        "type": "object",
+        "properties": {
+          "hasValue": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "value": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "NotificationAddressRequest": {
         "type": "object",
@@ -940,6 +1031,16 @@
               "$ref": "#/components/schemas/Party"
             },
             "nullable": true
+          },
+          "lastChangedInAltinn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lastChangedInExternalRegister": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1079,9 +1180,58 @@
           },
           "doNotPromptForParty": {
             "type": "boolean"
+          },
+          "preselectedPartyUuid": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "showClientUnits": {
+            "type": "boolean"
+          },
+          "shouldShowSubEntities": {
+            "type": "boolean"
+          },
+          "shouldShowDeletedEntities": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
+      },
+      "ProfileSettingsPatchRequest": {
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string",
+            "description": "The language the user has selected in Altinn portal.",
+            "nullable": true
+          },
+          "doNotPromptForParty": {
+            "type": "boolean",
+            "description": "Indicates whether the user should not be prompted for party selection.\r\nCan be set without using PreselectedPartyUuid.",
+            "nullable": true
+          },
+          "preselectedPartyUuid": {
+            "$ref": "#/components/schemas/GuidNullableOptional"
+          },
+          "showClientUnits": {
+            "type": "boolean",
+            "description": "Indicates whether client units should be shown.",
+            "nullable": true
+          },
+          "shouldShowSubEntities": {
+            "type": "boolean",
+            "description": "Indicates whether sub-entities should be shown.",
+            "nullable": true
+          },
+          "shouldShowDeletedEntities": {
+            "type": "boolean",
+            "description": "Indicates whether deleted entities should be shown.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents user-specific portal settings and preferences."
       },
       "UserProfile": {
         "type": "object",

@@ -1,111 +1,113 @@
 ---
-title: Creating and publishing API scheme in altinn Studio
-linktitle: Creating API Scheme
-description: This explaines how you can define a API scheme in Altinn
+title: Opprette og publisere delegerbare API ressurser i Altinn Studio
+linktitle: Opprette API Scheme
+description: Denne guiden forklarer hvordan du kan opprette og publisere delegerbare API ressurser i fra Ressursadministrasjon i Altinn Studio
 toc: false
 ---
 
-In Altinn Studio Resource admin, you can create resources to use as a basis for access control for services outside of the Altinn Platform.
+I Altinn Studio Resource admin kan du opprette ressurser som skal brukes som grunnlag for tilgangskontroll for tjenester utenfor Altinn-plattformen.
 
-## Prerequisites
+Denne guiden erstatter [denne guide](https://altinn.github.io/docs/utviklingsguider/api-delegering/api-eier/).
 
-You need to have access to resource administration for your organization. See [Getting started guide](/nb/authorization/getting-started/resource-admin-studio/)
+## Forutsetninger
 
-## Step 1 Create Resource
+Du må ha tilgang til ressursadministrasjon for organisasjonen din. Se [Kom i gang-veiledningen](../../../getting-started/resource-admin-studio)
 
-Log in to Altinn Studio
+## Trinn 1 Opprett ressurs
 
-Create Resource
+Logg inn i Altinn Studio
 
-The ID given for resource will be the one used in Altinn API for checking access. This need to be globally unique
+Opprett ressurs
 
-![Create Resource](create_resource_1.png)
-
-### Resource Type
-
-For api scheme resources, the type will be Api Scheme access resource.
+IDen som er gitt for ressursen vil være den som brukes i Altinn API for å sjekke tilgang. Denne må være globalt unik i Altinn.
 
 ![Create Resource](create_resource_1.png)
 
-### Title
+### Ressurstype
 
-The title will be shown in Access Management and in service catalogues like data.altinn.no
+For Api Scheme ressurser så
 
-You need to define the title in bokmål, nynorsk and english.
+![Create Resource](create_resource_2.png)
+
+### Tittel
+
+Tittelen vil vises i Access Management og i tjenestekataloger som data.altinn.no
+
+Du må definere tittelen på bokmål, nynorsk og engelsk.
 
 ![Create Resource](create_resource_3.png)
 
-### Description
+### Beskrivelse
 
-The description will be shown in Access Management and in service catalogues like data.altinn.no
+Beskrivelsen vil vises i Access Management og i tjenestekataloger som data.altinn.no
 
-You need to define the description in bokmål, nynorsk and english.
+Du må definere beskrivelsen på bokmål, nynorsk og engelsk.
 
 ![Create Resource](create_resource_4.png)
 
-### Delegation description
+### Delegasjonsbeskrivelse
 
-If the resource should be able to be delegated as resource delegation you need to enable the delegation and set delegation description in bokmål, nynorsk and english.
+Dersom ressursen skal kunne delegeres som ressursdelegering må du aktivere delegering og angi delegasjonsbeskrivelse på bokmål, nynorsk og engelsk.
 
 ![Create Resource](create_resource_5.png)
 
-### Keywords
+### Nøkkelord
 
-Keywords can be set for help. Currently not used but might be used for different service catalogues later
+Nøkkelord kan angis for hjelp. Foreløpig ikke brukt, men kan brukes til forskjellige tjenestekataloger senere
 
 ![Create Resource](create_resource_6.png)
 
 ### Status
 
-The status of the API that the API scheme is pointing to
+Statusen til API som API Scheme peker på.
 
 ![Create Resource](create_resource_7.png)
 
-### Scope
+### API Scope
 
-The scope that protects the API and is delegated.
+For API Scheme ressurser så må man oppgi maskinporten scope som skal beskytter API. Det er dette som blir delegert.
 
 ![Create Resource](create_resource_15.png)
 
-### Contact information
+### Kontaktinformasjon
 
-Contact information for the service. Might be presented in service cataloge on a later stage.
+Kontaktinformasjon for API. Kan bli presentert i servicekatalog på et senere tidspunkt.
 
 ![Create Resource](create_resource_10.png)
 
-## Create Policy
+## Opprett policy
 
-When resource is created you need to define the policy.
-The policy needs to contain a minimum of 1 rule.
+Når ressursen er opprettet, må du definere policyen.
+Policyen må inneholde minst én regel.
 
-Each rule contains of resource, subject and action
+Hver regel inneholder ressurs, emne og handling
 
-### Resource
+### Ressurs
 
-Define the resource for the rule
+Definer ressursen for regelen
 ![Create Resource](create_resource_11.png)
 
 ### Action
 
-Define the action for the rule
+For API Scheme er må man definere action "scopeaccess"
 
 ![Create Resource](create_resource_12.png)
 
 ### Subject
 
-Define the subject for the role. You can choose amongst ER roles, Altinn Roles, and Access Packages(todo)
+Subject for API Scheme er rollen som gir mulighet til å delegere API scheme. For Altinn dette er rollen "Programmeringsgrenssnitt"
 
 ![Create Resource](create_resource_13.png)
 
-## Publish
+## Publisere
 
-When you have finished setting the resource settings and policy you can publish.
-Before publish you need to set a new version ID and commit changes to the resource repository.
+Når du er ferdig med å angi ressursinnstillingene og policyen kan du publisere.
+Før publisering må du angi en ny versjons-ID og foreta endringer i ressurslageret.
 
 ![Create Resource](create_resource_14.png)
 
-## Verify
+## Bekrefte
 
-When the API Scheme is published you can delegate it from the Altinn Portal
+Når den er publisert, er det mulig å delegere API Ressurs fra Altinn Portal
 
 ![Create Resource](create_resource_16.png)

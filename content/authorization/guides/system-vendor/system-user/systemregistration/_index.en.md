@@ -4,25 +4,20 @@ description: This guide describes how you, as an end-user system vendor, registe
 linktitle: System Registration
 weight: 1
 ---
-
-**Target Audience:** Developers or technical integration managers at end-user system vendors (SBS).
+-----
+**Target Audience:** Developers or technical integration managers at end-user system suppliers (SBS).
 
 ## Prerequisites
 
-Before you can register a system, the following must be in place:
-
-* Access to the system registry and system user scopes has been obtained from Digdir. The procedure for this is described on the [Cooperation Portal (Samarbeidsportalen)](https://samarbeid.digdir.no/altinn/kom-i-gang/2868).
-* For testing, it is recommended that the SBS organization number is added to the TT02 test environment.
-* To get a real organization number created in TT02, the SBS must contact servicedesk@altinn.no.
-* An overview of which access packages (`accessPackages`) or resources (`rights`) the service API requires. This information must be obtained from the service owner.
-* One or more valid `clientId` (UUID) generated for the integration in Maskinporten.
-* A valid Maskinporten token or Altinn token to authenticate the API call to the system registry.
+You must have some prerequisites in place before you register a system, see the [Getting Started guide](https://docs.altinn.studio/nb/authorization/getting-started/systemuser/).
 
 -----
 
 ## Instructions
 
 Registration of an end-user system is done by calling Altinn's system registry API with a JSON payload that defines the system.
+
+  * **Note:** The token used must have been assigned the scope: `altinn:authentication/systemregister.write`.
 
 ### Step-by-step
 
@@ -32,12 +27,12 @@ Registration of an end-user system is done by calling Altinn's system registry A
 2.  **Define Identifiers**
 
       * `id`: A unique identifier for the system.
-        * **Format:** `{systemVendorOrgNo}_{chosenName}`.
-        * **Example:** `991825827_smartcloud`.
-      * `vendor`: Contains the organization number of the system vendor.
-        * **Format:** `ID` must be set to `0192:{orgnr}` to specify reference to the Brønnøysund Register Centre.
-        * **Example:** `"ID": "0192:991825827"`.
-      * **Important:** The organization number used in `id` and `vendor.ID` must match the organization number in the authentication token (Maskinporten or Altinn).
+          * **Format:** `{systemsupplier_orgnr}_{chosen_name}`.
+          * **Example:** `991825827_smartcloud`.
+      * `vendor`: Contains the organization number of the system supplier.
+          * **Format:** `ID` must be set to `0192:{orgnr}` to specify a reference to the Brønnøysund Register Centre (Enhetsregisteret).
+          * **Example:** `"ID": "0192:991825827"`.
+      * **Important:** The organization number used in `id` and `vendor.ID` must match the organization number in the authentication token (Maskinporten or Altinn). To get a real organization number created in TT02, the SBS must contact <servicedesk@altinn.no>.
 
 3.  **Define Visible Texts**
 
@@ -53,18 +48,23 @@ Registration of an end-user system is done by calling Altinn's system registry A
 
 5.  **Link Client ID (`clientId`)**
 
-      * Provide a list of `clientId` values (as UUIDs) that are generated in Maskinporten for this integration.
+      * Provide a list of `clientId` values (as UUIDs) that have been generated in Maskinporten for this integration.
       * A system can be linked to multiple client IDs.
       * This is the same client ID that will later be used when creating a system user towards Maskinporten.
 
 6.  **Set Visibility (`isVisible`)**
 
-      * `true`: The system is visible in the Altinn portal and can be used to create a system user from there.
-      * `false`: The system is not visible in the portal. In this case, the system user must be created through a vendor-controlled process.
+      * `true`: The system is visible in the Altinn portal and can be used to create a system user from there (user-managed creation).
+      * `false`: The system is not visible in the portal. In this case, the system user must be created through a supplier-managed process.
+      * **Important:** A system cannot be set to isVisible: true if it simultaneously has IsAssignable: false (a field that controls assignability, not shown in the JSON example).
 
-7.  **Specify Redirect URLs (`allowedredirecturls`)**
+7.  **Set Redirect URLs (Optional) (`allowedredirecturls`)**
 
-      * Define a list of exact URLs that are approved for redirection in the system user creation flow. A system user request must use a URL from this list (or a subset).
+      * This field is optional and can be omitted or set as an empty list (`[]`).
+
+      * *If* the field is used, it must contain a list of exact URLs that are approved for redirection in the system user creation flow.
+
+      * If the list is defined, a system user request must use a URL from this list (or a subset of it).
 
 8.  **Example JSON Payload**
     Use the following structure as a template for your JSON payload:
@@ -109,8 +109,13 @@ Registration of an end-user system is done by calling Altinn's system registry A
 
 9.  **Send the API call**
 
-      * Execute a POST or PUT request (for creation or modification) to Altinn's system registry API with the JSON payload.
-      * Remember to include your Maskinporten or Altinn token in the Authorization header for authentication.
+      * Use a POST request to create the system the first time.
+
+      * Use a PUT request to modify an existing system.
+
+      * **IMPORTANT:** A PUT request overwrites the entire system definition. When you need to make changes (e.g., add a new access package), you must retrieve the existing definition, make the changes, and then send the entire updated JSON payload in the PUT call. If you only send the new changes, all previous information will be deleted.
+
+      * Always include your valid Maskinporten or Altinn token in the Authorization header for authentication.
 
 -----
 

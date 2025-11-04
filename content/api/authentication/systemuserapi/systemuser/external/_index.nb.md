@@ -4,34 +4,46 @@ linktitle: Systembruker API
 description: API for å hente systembruker informasjon
 toc: true
 ---
+
 ## Verifiser Party-integrasjon
+
+**NB: KUN FOR MASKINPORTEN, denne skal ikke integreres mot av andre**
+
 Validerer om organisasjonen som ber om et token fra Maskinporten har en systembruker knyttet til de spesifiserte parameterene.
-For en detaljert beskrivelse av responsskjemaet, vennligst se [her](model) 
+For en detaljert beskrivelse av responsskjemaet, vennligst se [her](model)
 
 ### Endepunkt
+
 GET authentication/api/v1/systemuser/byExternalId?clientid=&systemproviderorgno=&systemuserownerorgno=&externalref=
 
 ### Scopes
+
 Maskinporten-token med scope <mark>altinn:maskinporten/systemuser.read</mark>
 
 ### Content types
+
 application/json
 
 ## Argumenter
 
 #### clientid
+
 Klient-ID-kredential fra Maskinporten-integrasjonen.
 
 #### systemproviderorgno
+
 Organisasjonsnummeret til systemleverandøren.
 
 #### systemownerorgno
+
 Organisasjonsnummeret til systembrukeren.
 
 #### externalref
+
 Den eksterne referansen oppgitt av systemleverandøren i systembrukerforespørselen. Dette er en valgfri parameter og settes automatisk til systembrukerens organisasjonsnummer.
 
 ### Eksempel Response
+
 ```
 {
     "id": "704013ee-e82a-433e-83c5-a40e6e00d746",
@@ -52,20 +64,25 @@ Den eksterne referansen oppgitt av systemleverandøren i systembrukerforespørse
 ## List opp alle systembrukere for en system.
 
 ### Endepunkt
+
 GET authentication/api/v1/systemuser/vendor/bysystem/{systemId}
 
 ### Scopes
+
 Maskinporten token med scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
+
 application/json
 
 ## Query Parameters
 
 #### systemid
+
 Den unike identifikatoren for det registrerte systemet.
 
 ### Eksempel Response
+
 ```
 {
     "links": {},
