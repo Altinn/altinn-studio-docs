@@ -7,7 +7,7 @@ toc: false
 weight: 10
 ---
 
-[XACML Standarden](ttps://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html) definerer et deklarativt, finmasket og attributtbasert språk for tilgangskontroll, en arkitektur og en prosesseringsmodell som beskriver hvordan autorisasjonsforespørsler skal evalueres mot reglene som er definert i policyene.
+[XACML Standarden](https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html) definerer et deklarativt, finmasket og attributtbasert språk for tilgangskontroll, en arkitektur og en prosesseringsmodell som beskriver hvordan autorisasjonsforespørsler skal evalueres mot reglene som er definert i policyene.
 
 Altinn Studio og Altinn Studio Apps bruker XACML-standarden til følgende:
 

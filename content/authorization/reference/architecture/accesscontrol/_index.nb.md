@@ -44,7 +44,7 @@ Policyene lagres som XACML (XML) dokumenter i en blob-lagring.
 
 Når PDP mottar en autorisasjonsforespørsel, identifiserer PRP riktig policydokument i lagringen.
 
-[See code](https://github.com/Altinn/altinn-authorization/blob/main/src/Authorization/Services/Implementation/PolicyRetrievalPoint.cs).
+[Se kode](https://github.com/Altinn/altinn-authorization/blob/main/src/Authorization/Services/Implementation/PolicyRetrievalPoint.cs).
 
 PRP er konfigurert som en tjeneste i autorisasjonskomponenten og kan enkelt erstattes med andre implementasjoner.
 
@@ -52,7 +52,7 @@ PRP er konfigurert som en tjeneste i autorisasjonskomponenten og kan enkelt erst
 
 Context Handler beriker autorisasjonsforespørselen med informasjon om brukeren og ressursen. Roller hentes fra SBL Bridge, mens ressursinformasjon hentes fra Instances i lagringen.
 
-[See code](https://github.com/Altinn/altinn-authorization/blob/main/src/Authorization/Services/Implementation/ContextHandler.cs).
+[Se kode](https://github.com/Altinn/altinn-authorization/blob/main/src/Authorization/Services/Implementation/ContextHandler.cs).
 
 Context Handler er konfigurert som en tjeneste i autorisasjonskomponenten og kan enkelt erstattes med andre implementasjoner.
 

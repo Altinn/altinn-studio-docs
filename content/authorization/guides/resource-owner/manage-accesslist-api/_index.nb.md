@@ -44,7 +44,7 @@ Eksempel på payload:
 
 Post til /access-lists/{owner}/{identifier}/members med et medlem.
 
-Medlemmet kan identifiseres med forskjellige ID-er. Bare én kan gis. Organisasjonsnummer ville
+Medlemmet kan identifiseres med forskjellige ID-er. Bare én kan gis.
 
 ```json
 {
