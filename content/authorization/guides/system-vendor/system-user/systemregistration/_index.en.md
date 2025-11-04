@@ -1,167 +1,125 @@
 ---
 title: System Registration
-description: This guide describes how you, as an end-user system provider, register a system in the system registry.
+description: This guide describes how you, as an end-user system vendor, register a system in the system registry.
 linktitle: System Registration
 weight: 1
 ---
+-----
+**Target Audience:** Developers or technical integration managers at end-user system suppliers (SBS).
 
 ## Prerequisites
 
-The system provider must contact Digdir to gain access to the system registry and system user scopes. The procedure is described at [Samarbeidsportalen](https://samarbeid.digdir.no/altinn/kom-i-gang/2868). 
-- We recommend that the SBS organization number is added to the TT02 test environment. 
-- SBS must contact [servicedesk@altinn.no](mailto:servicedesk@altinn.no) to create a real organization number in TT02.
-- Contact the service owner to find out which access packages the service API is associated with.
+You must have some prerequisites in place before you register a system, see the [Getting Started guide](https://docs.altinn.studio/nb/authorization/getting-started/systemuser/).
 
-## System registration in Systemregisteret
+-----
 
-The end-user system provider then registers the end-user system in Altinn's system registry via API. The necessary rights are defined to access a service by linking the client ID to the system.
+## Instructions
 
-The organization number in "id" and "ID" must match, as well as what is in the token. Both Maskinporten token and Altinn token are supported.
+Registration of an end-user system is done by calling Altinn's system registry API with a JSON payload that defines the system.
 
-```json
-{
-  "id": "991825827_smartcloud",
-  "vendor": {
-    "authority": "iso6523-actorid-upis",
-    "ID": "0192:991825827"
-  },
-  "name": {
-    "nb": "SmartCloud 1",
-    "en": "SmartCloud 1",
-    "nn": "Smart SKY"
-  },
-  "description": {
-    "nb": "SmartCloud er verdens beste system.",
-    "en": "SmartCloud Rocks.",
-    "nn": "SmartSky er vestlandets beste system"
-  },
-  "rights": [
+  * **Note:** The token used must have been assigned the scope: `altinn:authentication/systemregister.write`.
+
+### Step-by-step
+
+1.  **Structure the JSON payload**
+    Prepare a JSON payload to be sent to the API. Below is a detailed description of the fields.
+
+2.  **Define Identifiers**
+
+      * `id`: A unique identifier for the system.
+          * **Format:** `{systemsupplier_orgnr}_{chosen_name}`.
+          * **Example:** `991825827_smartcloud`.
+      * `vendor`: Contains the organization number of the system supplier.
+          * **Format:** `ID` must be set to `0192:{orgnr}` to specify a reference to the Brønnøysund Register Centre (Enhetsregisteret).
+          * **Example:** `"ID": "0192:991825827"`.
+      * **Important:** The organization number used in `id` and `vendor.ID` must match the organization number in the authentication token (Maskinporten or Altinn). To get a real organization number created in TT02, the SBS must contact <servicedesk@altinn.no>.
+
+3.  **Define Visible Texts**
+
+      * Specify the name and description to be displayed for the system in the Altinn portal.
+      * Texts must be provided for all supported languages: `nb` (Bokmål), `nn` (Nynorsk), and `en` (English).
+
+4.  **Define Rights (`rights` and `accessPackages`)**
+
+      * Specify which services or access packages the system requires access to.
+      * Use `rights` to specify individual resources (e.g., `urn:altinn:resource`).
+      * Use `accessPackages` to specify predefined access packages (e.g., `urn:altinn:accesspackage:skattegrunnlag`).
+      * **Note:** These rights **must** be defined correctly *before* a system user can be created for this system.
+
+5.  **Link Client ID (`clientId`)**
+
+      * Provide a list of `clientId` values (as UUIDs) that have been generated in Maskinporten for this integration.
+      * A system can be linked to multiple client IDs.
+      * This is the same client ID that will later be used when creating a system user towards Maskinporten.
+
+6.  **Set Visibility (`isVisible`)**
+
+      * `true`: The system is visible in the Altinn portal and can be used to create a system user from there (user-managed creation).
+      * `false`: The system is not visible in the portal. In this case, the system user must be created through a supplier-managed process.
+      * **Important:** A system cannot be set to isVisible: true if it simultaneously has IsAssignable: false (a field that controls assignability, not shown in the JSON example).
+
+7.  **Set Redirect URLs (Optional) (`allowedredirecturls`)**
+
+      * This field is optional and can be omitted or set as an empty list (`[]`).
+
+      * *If* the field is used, it must contain a list of exact URLs that are approved for redirection in the system user creation flow.
+
+      * If the list is defined, a system user request must use a URL from this list (or a subset of it).
+
+8.  **Example JSON Payload**
+    Use the following structure as a template for your JSON payload:
+
+    ```json
     {
-      "resource": [
+      "id": "991825827_smartcloud",
+      "vendor": {
+        "authority": "iso6523-actorid-upis",
+        "ID": "0192:991825827"
+      },
+      "name": {
+        "nb": "SmartCloud 1",
+        "en": "SmartCloud 1",
+        "nn": "Smart SKY"
+      },
+      "description": {
+        "nb": "SmartCloud er verdens beste system.",
+        "en": "SmartCloud Rocks.",
+        "nn": "SmartSky er vestlandets beste system"
+      },
+      "rights": [
         {
-          "id": "urn:altinn:resource",
-          "value": "ske-krav-og-betalinger"
+          "resource": [
+            {
+              "id": "urn:altinn:resource",
+              "value": "ske-krav-og-betalinger"
+            }
+          ]
         }
-      ]
+      ],
+      "accessPackages": [
+        {
+          "urn": "urn:altinn:accesspackage:skattegrunnlag"
+        }
+      ],
+      "clientId": ["32ef65ac-6e62-498d-880f-76c85c2052ae"],
+      "allowedredirecturls": ["https://smartcloudxxxx/receipt"],
+      "isVisible": true
     }
-  ],
-  "accessPackages": [
-    {
-      "urn": "urn:altinn:accesspackage:skattegrunnlag"
-    }
-  ],
-  "clientId": ["32ef65ac-6e62-498d-880f-76c85c2052ae"],
-  "allowedredirecturls": ["https://smartcloudxxxx/receipt"],
-  "isVisible": true
-}
-```
+    ```
 
-## Important Notes
+9.  **Send the API call**
 
-- The ClientId in the system registry is the same as used later when using system user against Maskinporten.
-- Systems can be changed and deleted afterwards.
+      * Use a POST request to create the system the first time.
 
-## Model for System Registry Information
+      * Use a PUT request to modify an existing system.
 
-Model for reading and writing system registry information.
+      * **IMPORTANT:** A PUT request overwrites the entire system definition. When you need to make changes (e.g., add a new access package), you must retrieve the existing definition, make the changes, and then send the entire updated JSON payload in the PUT call. If you only send the new changes, all previous information will be deleted.
 
-### Model Id
+      * Always include your valid Maskinporten or Altinn token in the Authorization header for authentication.
 
-**Format:** `{systemleverandørorgnr}_{valgt navn}`
+-----
 
-**Example:** `991825827_testprodukt`
+## Verification and Notes
 
-### Vendor
-
-The organization number of the system provider must include a reference to the Entity Register.
-
-For example:
-
-```json
-"vendor": {
-  "ID": "0192:991825827"
-}
-```
-
-«0192» is the reference indicating that it is a value for the Entity Register according to the Electronic Address Scheme, and 991825827 is the organization number of the Norwegian Digitalisation Agency.
-
-### Description and Name
-
-Used for display in the Altinn portal.
-
-**Language support:** nb, nn, en.
-
-```json
-"name": {
-  "nb": "The Matrix",
-  "en": "The Matrix",
-  "nn": "The Matrix"
-}
-
-"description": {
-  "nb": "Test system",
-  "en": "Test system",
-  "nn": "Test system"
-}
-```
-
-### Rights and AccessPackages
-
-Defines which services or access packages are required.  
-These **must** be set **before** the system user can be created.
-
-```json
-"rights": [
-  {
-    "resource": [
-      {
-        "id": "urn:altinn:resource",
-        "value": "app_ttd_endring-av-navn-v2"
-      }
-    ]
-  },
-  {
-    "resource": [
-      {
-        "id": "urn:altinn:resource",
-        "value": "ske-krav-og-betalinger"
-      }
-    ]
-  }
-]
-
-"accessPackages": [
-  {
-    "urn": "urn:altinn:accesspackage:skattnaering"
-  }
-]
-```
-
-### ClientId
-
-A system can be linked to multiple client IDs. These client IDs are generated for integrations in Maskinporten, each of them is unique and specifically linked to one system.
-
-```json
-"clientId": [
-  "32ef65ac-6e62-498d-880f-76c85c2052ae"
-]
-```
-
-### IsVisible
-
-- **True:** The system is visible in the Altinn portal and can be used to create a system user.
-- **False:** The system is not visible in the Altinn portal, and the system user must be created through supplier-controlled creation.
-
-```json
-"isVisible": true
-```
-
-### AllowedRedirectUrls
-
-You are allowed to create a system user request with a subset of the specified URLs.
-
-```json
-"allowedredirecturls": [
-  "https://smartcloudxxxx/receipt"
-]
-```
+  * **Verification:** After successful registration, the system will be available for creating system users. If `isVisible` is set to `true`, the system will also be visible in the Altinn portal.
+  * **Modification:** Systems that are registered can be modified and deleted afterwards via the API.

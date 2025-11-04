@@ -45,7 +45,7 @@ See [Resource Management](https://docs.altinn.studio/authorization/getting-start
 4. The roles in Altinn II will be replaced by access packages in Altinn 3. We recommend all our service owners use both roles and access packages until June 2026. It's important to thoroughly assess which access package to assign to each resource. 
    - **Ordinary mail:** The Altinn II role "Mail/Archive" this is now replaced by the access package "Ordinær post til virksomheten".
    - **Confidential mail:** If the resource is to be confidential, you have to:
-      - select the access package "Post til virksomheten med taushetsbelagt innhold"
+      - select the access package [Eksplisitt tjenestedelegering](https://docs.altinn.studio/en/authorization/what-do-you-get/accessgroups/accessgroups/forholdvedvirksomheten/#eksplisitt-tjenestedelegering)
       - include the flag "IsConfidential" set to: "true".
 
          Read about confidential mail [here](https://docs.altinn.studio/en/correspondence/explanation/taushetsbelagt-post/).
@@ -151,3 +151,10 @@ In order to use events/webhooks for a Correspondence resource, you need to set u
 
 See the [developer guide](https://docs.altinn.studio/correspondence/getting-started/developer-guides/events) for detailed instructions.
 {{% /expandlarge %}}
+
+
+### Contact:
+
+You can reach us on our Slack channel Digdir samarbeid: [produkt-melding](https://digdir-samarbeid.slack.com/archives/C068VA4SXFD)
+
+Or by sending a request to: [servicedesk@altinn.no](mailto:servicedesk@altinn.no)

@@ -8,20 +8,25 @@ toc: true
 ## List opp alle systembrukere for en system.
 
 ### Endepunkt
+
 GET authentication/api/v1/systemuser/vendor/bysystem/{systemId}
 
 ### Scopes
+
 Maskinporten token med scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
+
 application/json
 
 ## Query Parameters
 
 #### systemid
+
 Den unike identifikatoren for det registrerte systemet.
 
 ### Eksempel Response
+
 ```
 {
     "links": {},

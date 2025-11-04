@@ -5,24 +5,31 @@ description: API for the vendor to get system information from the system regist
 toc: false
 weight: 3
 ---
+
 ## Get a system
+
 Retrieves a system by the system id
 
 ### Endpoint
+
 GET authentication/api/v1/systemregister/vendor/{systemId}
 
 ### Scopes
+
 Maskinporten token with scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
+
 application/json
 
 ## Arguments
 
 #### systemId
-The id should be in the format of {systemvendororgno}_{name chosen by the vendor}. F.example "310547891_testproduct". This is a unique id to identify the product.
+
+The id should be in the format of {systemvendororgno}\_{name chosen by the vendor}. F.example "310547891_testproduct". This is a unique id to identify the product.
 
 ## Example of Response Model
+
 ```
 {
     "id": "312605031_b217b2f5-362f-4aa2-b919-ceaeaf9f15a1",
@@ -44,11 +51,15 @@ The id should be in the format of {systemvendororgno}_{name chosen by the vendor
             "resource": [
                 {
                     "id": "urn:altinn:resource",
-                    "value": "authentication-e2e-test"
-                },
+                    "value": "app_ttd_endring-av-navn-v2"
+                }
+            ]
+        },
+        {
+            "resource": [
                 {
                     "id": "urn:altinn:resource",
-                    "value": "authentication-e2e-test"
+                    "value": "ske-krav-og-betalinger"
                 }
             ]
         }
@@ -66,34 +77,44 @@ The id should be in the format of {systemvendororgno}_{name chosen by the vendor
 ```
 
 ## Get Rights of a system
+
 Get the rights defined for a system. This is an open api.
 
 ### Endpoint
+
 GET authentication/api/v1/systemregister/vendor/{systemId}/rights
 
 ### Scopes
+
 No authentication required
 
 ### Content types
+
 application/json
 
 ## Arguments
 
 #### systemId
-The id should be in the format of {systemvendororgno}_{name chosen by the vendor}. F.example "310547891_testproduct". This is a unique id to identify the product.
+
+The id should be in the format of {systemvendororgno}\_{name chosen by the vendor}. F.example "310547891_testproduct". This is a unique id to identify the product.
 
 ## Example of Response Model
+
 ```
 [
     {
         "resource": [
             {
                 "id": "urn:altinn:resource",
-                "value": "authentication-e2e-test"
-            },
+                "value": "app_ttd_endring-av-navn-v2"
+            }
+        ]
+    },
+    {
+        "resource": [
             {
                 "id": "urn:altinn:resource",
-                "value": "authentication-e2e-test"
+                "value": "ske-krav-og-betalinger"
             }
         ]
     }
@@ -101,23 +122,29 @@ The id should be in the format of {systemvendororgno}_{name chosen by the vendor
 ```
 
 ## Get AccessPackages of a system
+
 Get the accesspackages defined for a system. This is an open api.
 
 ### Endpoint
+
 GET authentication/api/v1/systemregister/{systemId}/accesspackages
 
 ### Scopes
+
 No authentication required
 
 ### Content types
+
 application/json
 
 ## Arguments
 
 #### systemId
-The id should be in the format of {systemvendororgno}_{name chosen by the vendor}. F.example "310547891_testproduct". This is a unique id to identify the product.
+
+The id should be in the format of {systemvendororgno}\_{name chosen by the vendor}. F.example "310547891_testproduct". This is a unique id to identify the product.
 
 ## Example of Response Model
+
 ```
 [
     {

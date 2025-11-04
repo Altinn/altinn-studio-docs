@@ -3,21 +3,27 @@ title: External API
 description: API for the vendor to manage the system user request
 toc: true
 ---
+
 ## Create a standard system user request
 
 ### Endpoint
+
 POST authentication/api/v1/systemuser/request/vendor
 
 ### Scopes
+
 Maskinporten token with scope <mark>altinn:authentication/systemuser.request.write</mark>
 
 ### Content types
+
 application/json
 
 ### Request Body
+
 For detailed description about each entity in the body, please refer the description [here](model#standard-system-user-request)
 
 ### Request Example
+
 ```
 {
   "externalReference": "dev-test-create_01",
@@ -28,19 +34,29 @@ For detailed description about each entity in the body, please refer the descrip
       "Resource": [
         {
           "id": "urn:altinn:resource",
-          "value": "authentication-e2e-test"
+          "value": "app_ttd_endring-av-navn-v2"
+        }
+      ]
+    },
+    {
+      "Resource": [
+        {
+          "id": "urn:altinn:resource",
+          "value": "ske-krav-og-betalinger"
         }
       ]
     }
   ],
   "redirectUrl": ""
-} 
+}
 ```
 
 ### Response
+
 For detailed description about each entity in the response body, please refer the description [here](model#standard-system-user-response)
 
 ### Response Example
+
 ```
 {
     "id": "bb4955d4-6c44-4716-841c-911205dadade",
@@ -52,7 +68,15 @@ For detailed description about each entity in the response body, please refer th
             "resource": [
                 {
                     "id": "urn:altinn:resource",
-                    "value": "authentication-e2e-test"
+                    "value": "app_ttd_endring-av-navn-v2"
+                }
+            ]
+        },
+        {
+            "resource": [
+                {
+                    "id": "urn:altinn:resource",
+                    "value": "ske-krav-og-betalinger"
                 }
             ]
         }
@@ -62,41 +86,46 @@ For detailed description about each entity in the response body, please refer th
     "confirmUrl": "https://am.ui.at22.altinn.cloud/accessmanagement/ui/systemuser/request?id=bb4955d4-6c44-4716-841c-911205dadade"
 }
 ```
+
 ### Error Codes
 
-| Error Code     | Status Code | Error Message      | Detailed Description   |
-|----------------|-------------|--------------------|------------------------|
-| AUTH-00011 | 400 | The Id does not refer to a Registered System. | No system with the system id found in altinn system register |
-| AUTH-00023 | 401 | Can't resolve the Organisation Number for the Vendor from the Token. | - |
-| AUTH-00004 | 400 | Failed to create new SystemUser, existing SystemUser tied to the given System-Id. | - |
-| AUTH-00006 | 400 | The combination of External Ids refer to an already Accepted SystemUser. | - |
-| AUTH-00007 | 400 | The combination of External Ids refer to a Pending Request, please reuse or delete. | - |
-| AUTH-00008 | 400 | The combination of External Ids refer to a Denied Request, please delete and renew the Request. | - |
-| AUTH-00009 | 400 | The combination of External Ids refer to a Rejected Request, please delete and renew the Request. | - |
-| AUTH-00000 | 400 | Can't resolve the Organisation Number from the logged in Reportee PartyId. | - |
-| AUTH-00026 | 400 | No redirect uris are set for the system | - |
-| AUTH-00021 | 400 | The RedirectUri was not found or not valid. | - |
-| AUTH-00001 | 400 | One or more Right not found or not delegable. | - |
-| AUTH-00012 | 400 | An error occured when storing the Request. | - |
-
+| Error Code | Status Code | Error Message                                                                                     | Detailed Description                                         |
+| ---------- | ----------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| AUTH-00011 | 400         | The Id does not refer to a Registered System.                                                     | No system with the system id found in altinn system register |
+| AUTH-00023 | 401         | Can't resolve the Organisation Number for the Vendor from the Token.                              | -                                                            |
+| AUTH-00004 | 400         | Failed to create new SystemUser, existing SystemUser tied to the given System-Id.                 | -                                                            |
+| AUTH-00006 | 400         | The combination of External Ids refer to an already Accepted SystemUser.                          | -                                                            |
+| AUTH-00007 | 400         | The combination of External Ids refer to a Pending Request, please reuse or delete.               | -                                                            |
+| AUTH-00008 | 400         | The combination of External Ids refer to a Denied Request, please delete and renew the Request.   | -                                                            |
+| AUTH-00009 | 400         | The combination of External Ids refer to a Rejected Request, please delete and renew the Request. | -                                                            |
+| AUTH-00000 | 400         | Can't resolve the Organisation Number from the logged in Reportee PartyId.                        | -                                                            |
+| AUTH-00026 | 400         | No redirect uris are set for the system                                                           | -                                                            |
+| AUTH-00021 | 400         | The RedirectUri was not found or not valid.                                                       | -                                                            |
+| AUTH-00001 | 400         | One or more Right not found or not delegable.                                                     | -                                                            |
+| AUTH-00012 | 400         | An error occured when storing the Request.                                                        | -                                                            |
 
 ## Get a system user request
 
 ### Endpoint
+
 GET authentication/api/v1/systemuser/request/vendor/{requestId}
 
 ### Scopes
+
 Maskinporten token with scope <mark>altinn:authentication/systemuser.request.read</mark>
 
 ### Content types
+
 application/json
 
 ### Arguments
 
 #### requestId
+
 The unique identifier of the request
 
 ### Example of Response Model
+
 ```
 {
     "id": "bb4955d4-6c44-4716-841c-911205dadade",
@@ -108,7 +137,15 @@ The unique identifier of the request
             "resource": [
                 {
                     "id": "urn:altinn:resource",
-                    "value": "authentication-e2e-test"
+                    "value": "app_ttd_endring-av-navn-v2"
+                }
+            ]
+        },
+        {
+            "resource": [
+                {
+                    "id": "urn:altinn:resource",
+                    "value": "ske-krav-og-betalinger"
                 }
             ]
         }
@@ -121,39 +158,45 @@ The unique identifier of the request
 
 ### Error Codes
 
-| Error Code     | Status Code | Error Message      | Detailed Description   |
-|----------------|-------------|--------------------|------------------------|
-| - | 400 | The value '{invalidrequestid}' is not valid | When the request id is not a valid guid |
-| - | 401 | unauthorized | - |
-| - | 404 | NotFound | - |
-| AUTH-00010 | 404 | The Id does not refer to a Request in our system. | - |
+| Error Code | Status Code | Error Message                                     | Detailed Description                    |
+| ---------- | ----------- | ------------------------------------------------- | --------------------------------------- |
+| -          | 400         | The value '{invalidrequestid}' is not valid       | When the request id is not a valid guid |
+| -          | 401         | unauthorized                                      | -                                       |
+| -          | 404         | NotFound                                          | -                                       |
+| AUTH-00010 | 404         | The Id does not refer to a Request in our system. | -                                       |
 
 ## Get a system user request by external reference
 
 ### Endpoint
+
 GET authentication/api/v1/systemuser/request/vendor/byexternalref/{systemid}/{orgno}/{externalref}
 
 ### Scopes
+
 Maskinporten token with scope <mark>altinn:authentication/systemuser.request.read</mark>
 
 ### Content types
+
 application/json
 
 ### Arguments
 
-
 ### Required Arguments
 
 #### systemid
+
 The id of the system that the request is referring to
 
 #### orgno
+
 The organisation number of the customer that has to handle the request
 
 #### externalref
+
 The unique external reference of the request provided by the vendor
 
 ### Example of Response Model
+
 ```
 {
     "id": "bb4955d4-6c44-4716-841c-911205dadade",
@@ -178,30 +221,37 @@ The unique external reference of the request provided by the vendor
 
 ### Error Codes
 
-| Error Code     | Status Code | Error Message      | Detailed Description   |
-|----------------|-------------|--------------------|------------------------|
-| - | 400 | The value '{invalidrequestid}' is not valid | When the request id is not a valid guid |
-| - | 401 | unauthorized | - |
-| - | 404 | NotFound | - |
-| AUTH-00010 | 404 | The Id does not refer to a Request in our system. | - |
+| Error Code | Status Code | Error Message                                     | Detailed Description                    |
+| ---------- | ----------- | ------------------------------------------------- | --------------------------------------- |
+| -          | 400         | The value '{invalidrequestid}' is not valid       | When the request id is not a valid guid |
+| -          | 401         | unauthorized                                      | -                                       |
+| -          | 404         | NotFound                                          | -                                       |
+| AUTH-00010 | 404         | The Id does not refer to a Request in our system. | -                                       |
 
 ## Get all system user requests for a vendor
+
 Returns apaginated list of requests
+
 ### Endpoint
+
 GET authentication/api/v1/systemuser/request/vendor/bysystem/{systemid}
 
 ### Scopes
+
 Maskinporten token with scope <mark>altinn:authentication/systemuser.request.read</mark>
 
 ### Content types
+
 application/json
 
 ### Arguments
 
 #### systemid
+
 The id of the system that the vendor is requesting a list for
 
 ### Example of Response Model
+
 ```
 {
     "links": {},
@@ -318,29 +368,35 @@ The id of the system that the vendor is requesting a list for
 
 ### Error Codes
 
-| Error Code     | Status Code | Error Message      | Detailed Description   |
-|----------------|-------------|--------------------|------------------------|
-| - | 400 | The value '{invalidrequestid}' is not valid | When the request id is not a valid guid |
-| - | 401 | unauthorized | - |
-| - | 404 | NotFound | - |
-| AUTH-00010 | 404 | The Id does not refer to a Request in our system. | - |
+| Error Code | Status Code | Error Message                                     | Detailed Description                    |
+| ---------- | ----------- | ------------------------------------------------- | --------------------------------------- |
+| -          | 400         | The value '{invalidrequestid}' is not valid       | When the request id is not a valid guid |
+| -          | 401         | unauthorized                                      | -                                       |
+| -          | 404         | NotFound                                          | -                                       |
+| AUTH-00010 | 404         | The Id does not refer to a Request in our system. | -                                       |
 
 ## Create an Agent System User Request
+
 This endpoint is used to create a system user request of type agent
 
 ### Endpoint
+
 POST authentication/api/v1/systemuser/request/vendor/agent
 
 ### Scopes
+
 Maskinporten token with scope <mark>altinn:authentication/systemuser.request.write</mark>
 
 ### Content types
+
 application/json
 
 ### Request Body
+
 For detailed description about each entity in the body, please refer the description [here](model#agent-request)
 
 #### Request Example
+
 ```
 {
   "externalRef": "at22_dhana_3103_02",
@@ -352,12 +408,15 @@ For detailed description about each entity in the body, please refer the descrip
     }
   ],
   "redirectUrl": ""
-} 
+}
 ```
+
 ### Response
+
 For detailed description about each entity in the response, please refer the description [here](model#agent-response)
 
 #### Response Example
+
 ```
 {
     "id": "bb4955d4-6c44-4716-841c-911205dadade",
@@ -374,40 +433,46 @@ For detailed description about each entity in the response, please refer the des
     "confirmUrl": "https://am.ui.at22.altinn.cloud/accessmanagement/ui/systemuser/request?id=bb4955d4-6c44-4716-841c-911205dadade"
 }
 ```
+
 ### Error Codes
 
-| Error Code     | Status Code | Error Message      | Detailed Description   |
-|----------------|-------------|--------------------|------------------------|
-| AUTH-00011 | 400 | The Id does not refer to a Registered System. | No system with the system id found in altinn system register |
-| AUTH-00023 | 401 | Can't resolve the Organisation Number for the Vendor from the Token. | - |
-| AUTH-00004 | 400 | Failed to create new SystemUser, existing SystemUser tied to the given System-Id. | - |
-| AUTH-00006 | 400 | The combination of External Ids refer to an already Accepted SystemUser. | - |
-| AUTH-00007 | 400 | The combination of External Ids refer to a Pending Request, please reuse or delete. | - |
-| AUTH-00008 | 400 | The combination of External Ids refer to a Denied Request, please delete and renew the Request. | - |
-| AUTH-00009 | 400 | The combination of External Ids refer to a Rejected Request, please delete and renew the Request. | - |
-| AUTH-00000 | 400 | Can't resolve the Organisation Number from the logged in Reportee PartyId. | - |
-| AUTH-00026 | 400 | No redirect uris are set for the system | - |
-| AUTH-00021 | 400 | The RedirectUri was not found or not valid. | - |
-| AUTH-00001 | 400 | One or more Right not found or not delegable. | - |
-| AUTH-00012 | 400 | An error occured when storing the Request. | - |
+| Error Code | Status Code | Error Message                                                                                     | Detailed Description                                         |
+| ---------- | ----------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| AUTH-00011 | 400         | The Id does not refer to a Registered System.                                                     | No system with the system id found in altinn system register |
+| AUTH-00023 | 401         | Can't resolve the Organisation Number for the Vendor from the Token.                              | -                                                            |
+| AUTH-00004 | 400         | Failed to create new SystemUser, existing SystemUser tied to the given System-Id.                 | -                                                            |
+| AUTH-00006 | 400         | The combination of External Ids refer to an already Accepted SystemUser.                          | -                                                            |
+| AUTH-00007 | 400         | The combination of External Ids refer to a Pending Request, please reuse or delete.               | -                                                            |
+| AUTH-00008 | 400         | The combination of External Ids refer to a Denied Request, please delete and renew the Request.   | -                                                            |
+| AUTH-00009 | 400         | The combination of External Ids refer to a Rejected Request, please delete and renew the Request. | -                                                            |
+| AUTH-00000 | 400         | Can't resolve the Organisation Number from the logged in Reportee PartyId.                        | -                                                            |
+| AUTH-00026 | 400         | No redirect uris are set for the system                                                           | -                                                            |
+| AUTH-00021 | 400         | The RedirectUri was not found or not valid.                                                       | -                                                            |
+| AUTH-00001 | 400         | One or more Right not found or not delegable.                                                     | -                                                            |
+| AUTH-00012 | 400         | An error occured when storing the Request.                                                        | -                                                            |
 
 ## Get An Agent system user request
 
 ### Endpoint
+
 GET authentication/api/v1/systemuser/request/vendor/agent/{requestId}
 
 ### Scopes
+
 Maskinporten token with scope <mark>altinn:authentication/systemuser.request.read</mark>
 
 ### Content types
+
 application/json
 
 ### Parameters
 
 #### requestId
+
 The unique identifier of the request
 
 ### Example of Response Model
+
 ```
 {
     "id": "bb4955d4-6c44-4716-841c-911205dadade",
@@ -427,36 +492,43 @@ The unique identifier of the request
 
 ### Error Codes
 
-| Error Code     | Status Code | Error Message      | Detailed Description   |
-|----------------|-------------|--------------------|------------------------|
-| - | 400 | The value '{requestid}' is not valid | When the request id is not a valid guid |
-| - | 401 | unauthorized | - |
-| - | 404 | NotFound | - |
-| AUTH-00010 | 404 | The Id does not refer to a Request in our system. | - |
+| Error Code | Status Code | Error Message                                     | Detailed Description                    |
+| ---------- | ----------- | ------------------------------------------------- | --------------------------------------- |
+| -          | 400         | The value '{requestid}' is not valid              | When the request id is not a valid guid |
+| -          | 401         | unauthorized                                      | -                                       |
+| -          | 404         | NotFound                                          | -                                       |
+| AUTH-00010 | 404         | The Id does not refer to a Request in our system. | -                                       |
 
 ## Get an Agent System User Request By External Reference
 
 ### Endpoint
+
 GET authentication/api/v1/systemuser/request/vendor/agent/byexternalref/{systemid}/{orgno}/{externalref}
 
 ### Scopes
+
 Maskinporten token with scope <mark>altinn:authentication/systemuser.request.read</mark>
 
 ### Content types
+
 application/json
 
 ### Parameters
 
 #### systemid
+
 The id of the system that the request is referring to
 
 #### orgno
+
 The organisation number of the customer that has to handle the request
 
 #### externalref
+
 The unique external reference of the request provided by the vendor
 
 ### Example of Response Model
+
 ```
 {
     "id": "bb4955d4-6c44-4716-841c-911205dadade",
@@ -476,31 +548,37 @@ The unique external reference of the request provided by the vendor
 
 ### Error Codes
 
-| Error Code     | Status Code | Error Message      | Detailed Description   |
-|----------------|-------------|--------------------|------------------------|
-| - | 400 | The value '{requestid}' is not valid | When the request id is not a valid guid |
-| - | 401 | unauthorized |  |
-| - | 404 | NotFound |  |
-| AUTH-00010 | 404 | The Id does not refer to a Request in our system. |  |
+| Error Code | Status Code | Error Message                                     | Detailed Description                    |
+| ---------- | ----------- | ------------------------------------------------- | --------------------------------------- |
+| -          | 400         | The value '{requestid}' is not valid              | When the request id is not a valid guid |
+| -          | 401         | unauthorized                                      |                                         |
+| -          | 404         | NotFound                                          |                                         |
+| AUTH-00010 | 404         | The Id does not refer to a Request in our system. |                                         |
 
 ## Get All Agent System User Requests For A Vendor
+
 Returns a paginated list of agent requests
 
 ### Endpoint
+
 GET authentication/api/v1/systemuser/request/vendor/agent/bysystem/{systemid}
 
 ### Scopes
+
 Maskinporten token with scope <mark>altinn:authentication/systemuser.request.read</mark>
 
 ### Content types
+
 application/json
 
 ### Parameters
 
 #### systemid
+
 The id of the system that the vendor is requesting a list for
 
 ### Example of Response Model
+
 ```
 {
     "links": {},
@@ -562,27 +640,33 @@ The id of the system that the vendor is requesting a list for
 ```
 
 ## Delete System User Request
+
 This endpoint is used by the internal system to delete the system user request
 
 ### Endpoint
+
 DELETE /authentication/api/v1/systemuser/request/vendor/{requestid}
 
 ### Scopes
+
 Maskinporten token with scope <mark>altinn:authentication/systemuser.request.write</mark>
 
 ### Content types
+
 application/json
 
 ### Parameters
 
 #### requestId
+
 The unique identifier of the request
 
 ### Response
+
 True - if the request is successfully deleted.
 
 ### Error Codes
 
-| Error Code     | Status Code | Error Message      | Detailed Description   |
-|----------------|-------------|--------------------|------------------------|
-| AUTH-00010 | 400 | The Id does not refer to a Request in our system. | - |
+| Error Code | Status Code | Error Message                                     | Detailed Description |
+| ---------- | ----------- | ------------------------------------------------- | -------------------- |
+| AUTH-00010 | 400         | The Id does not refer to a Request in our system. | -                    |
