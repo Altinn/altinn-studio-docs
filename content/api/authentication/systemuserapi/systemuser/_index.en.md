@@ -13,5 +13,4 @@ To get a Maskinporten token, the external must first establish a client in Maski
 
 ## API Methods
 
-- [Verify Party Integration](external#verify-party-integration)
 - [List all system users for a system](external#list-all-system-users-for-a-system)
