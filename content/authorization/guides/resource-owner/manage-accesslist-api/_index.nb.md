@@ -1,4 +1,4 @@
-itle: Administrere tilgangslister via API
+title: Administrere tilgangslister via API
 linktitle: Tilgangslisteadministrasjon i API
 description: I Altinn Studio kan du administrere tilgangslister for ressurser i Altinn Ressursregister.
 toc: false
