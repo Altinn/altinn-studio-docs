@@ -1,16 +1,16 @@
 ---
 title: Policy Retrieval Point
 linktitle: PRP
-description: The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve the policy defined for an app resource.
+description: Policy Retrieval Point er funksjonaliteten der Policy Decision Point (PDP) henter policyen som er definert for en appressurs.
 tags: [architecture, security, authorization, xacml]
 weight: 1
 ---
 
-During deployment of an app the rules for the app is added to the Altinn Storage.  
-The rules are defined as a XACML 3.0 Policy document.
+Ved deploy av en app legges reglene for appen inn i Altinn Storage.  
+Reglene defineres som et XACML 3.0-policydokument.
 
-For delegated rights Altinn II will provide the delegated policy.
+For delegerte rettigheter er det Altinn II som leverer den delegerte policyen.
 
-See [Policy Adminstration Point](/nb/authorization/what-do-you-get/accessmanagement/pap/) for details about how the policies are created.
+Se [Policy Administration Point](/nb/authorization/what-do-you-get/accessmanagement/pap/) for detaljer om hvordan policyene opprettes.
 
-See [construction components](/nb/authorization/reference/architecture/accesscontrol/#policy-retrieval-point---prp) how PRP is built.
+Se [komponentarkitekturen](/nb/authorization/reference/architecture/accesscontrol/#policy-retrieval-point---prp) for en gjennomgang av hvordan PRP er bygget.

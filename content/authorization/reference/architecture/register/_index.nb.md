@@ -1,28 +1,22 @@
 ---
 title: Register
-description: The Register micro service gives register information to Apps.
+description: Register-mikrotjenesten leverer registerinformasjon til apper.
 tags: [platform, register, needstranslation]
 ---
 
-
-
-The register component is supporting component that is part of the authorization area of Altinn, but it supported include register information
-to Apps and other components needing register information.
-
-
+Registerkomponenten er en støttekomponent i Altinn Autorisasjon, og gjør registerinformasjon tilgjengelig for apper og andre komponenter som har behov for dette.
 
 ## Architecture
 
-The register component itself is a .Net application exposing API.  Currently it just works as a proxy for Altinn 2 register
-but we are now working on adding local storage of data for better performance and to be able to turn of Altinn 2 in 2026.
+Registerkomponenten er en .NET-applikasjon som eksponerer API. Foreløpig fungerer den som en proxy mot Altinn 2-registeret,
+men vi arbeider med å legge til lokal lagring for bedre ytelse og for å kunne fase ut Altinn 2 i 2026.
 
-The planned design
+Planlagt design:
 
 ![Register design](registerdesign.drawio.svg)
 
-
 ## Database design
 
-Database design
+Databasedesign:
 
 ![Db design](dbdesignaltinn3.drawio.svg)

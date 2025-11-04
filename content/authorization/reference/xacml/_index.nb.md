@@ -1,41 +1,38 @@
 ---
-title: XACML - Altinn Studio 
-description: XACML stands for "eXtensible Access Control Markup Language".
+title: XACML - Altinn Studio
+description: XACML står for «eXtensible Access Control Markup Language».
 tags: [architecture, security, XACML]
 linktitle: XACML
 toc: false
 weight: 10
 ---
 
-The [standard] defines a declarative fine-grained, attribute-based access control policy language,
-an architecture, and a processing model describing how to evaluate access requests according to the rules defined in policies.
+[XACML Standarden](ttps://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html) definerer et deklarativt, finmasket og attributtbasert språk for tilgangskontroll, en arkitektur og en prosesseringsmodell som beskriver hvordan autorisasjonsforespørsler skal evalueres mot reglene som er definert i policyene.
 
-The Altinn Studio and Altinn Studio Apps solution uses the XACML standard for the following
+Altinn Studio og Altinn Studio Apps bruker XACML-standarden til følgende:
 
-- XACML Reference Architecture: Used as input for defining the Altinn Studio Apps authorization architecture
-- XACML Policy: Used to define the authorization rules for apps
-- XACML Request: Format used for PEP to call PDP
-- XACML Response: Format used for response from PDP to PEP.
+- XACML-referansearkitektur: brukes som grunnlag når vi definerer autorisasjonsarkitekturen for Altinn Studio Apps.
+- XACML-policy: brukes til å definere autorisasjonsreglene for apper.
+- XACML-forespørsel: formatet PEP bruker når den kaller PDP.
+- XACML-respons: formatet som PDP returnerer til PEP.
 
-[standard]: https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html
+## XACML-policy
 
-## XACML Policy
+I Altinn kan en XACML-policy beskrive:
 
-In Altinn a XACML Policy can describe the following
+- Tilgangsregler for en app som er laget i Altinn Studio.
+- Tilgangsregler for en ressurs i Altinn Resource Registry.
+- Tilgangsregler for en korrespondanse eller meglertjeneste i Altinn 3.
 
-- The Access rules for an APP created in Altinn Studio
-- The Access rules for a resource in Altinn Resource Registry
-- The Access rules for a correspondence or broker service in Altinn 3
+XACML-formatet i Altinn 3 følger XACML 3.0-standarden med et begrenset sett funksjoner.
 
-The XACML format in Altinn 3 follows XACML 3.0 standard with a limited feature set.
+En policy består av én eller flere regler. Hver regel består av tre deler:
 
-A Policy consist of 1-many rules. And each rule consist of three parts. 
+- **Resources** beskriver hvilken ressurs regelen gjelder for. Det kan være en app, en ressurs i ressursregisteret, en bestemt oppgave eller andre underressurser til en app eller ressurs.
+- **Action** beskriver hvilke operasjoner regelen gjelder for. Dette kan være handlinger som _read_, _write_, _sign_, _fire_, _Opendoor_ osv. En regel kan omfatte flere handlinger.
+- **Subject** beskriver hvem regelen gjelder for. Dette kan være en rolle, tilgangsgruppe, organisasjonsnummer, en bestemt bruker og mye mer. En regel kan omfatte flere subjekter.
 
-- Resources - describes the resource a rule applies to. It can be an app, a resource in the resource register, a specific task, or any other sub-resources to an app or resource in the rescource registry. A rule can combine multiple resources
-- Action - describes which action the rules apply to. This can be any action like read, write, sign, fire, Opendoor +++.   A rule can target multiple actions.
-- Subject - describes who the rules apply to. It can be a role, access group, an organization number or a specific user, and many more. A rule can target multiple subjects
-
-The example below show the structure of a XAMCL Policy. 
+Eksempelet under viser strukturen til en XACML-policy.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -46,23 +43,23 @@ The example below show the structure of a XAMCL Policy.
     <xacml:Target>
       <xacml:AnyOf>
         <xacml:AllOf>
-         // One set of possible subject attributes that rule is for is targeted for. See real examples below
+         // Ett sett med mulige subjektattributter som regelen gjelder for. Se faktiske eksempler under.
         </xacml:AllOf>
         <xacml:AllOf>
-          // Alternative set of possible subject attributes that rule is targeted for. See real examples below
-        </xacml:AllOf>
-      </xacml:AnyOf>
-      <xacml:AnyOf>
-        <xacml:AllOf>
-          // One set of possible resource attributes that rule is for is targeted for. See real examples below
+          // Alternativt sett med subjektattributter som regelen kan gjelde for. Se faktiske eksempler under.
         </xacml:AllOf>
       </xacml:AnyOf>
       <xacml:AnyOf>
         <xacml:AllOf>
-                  // One set of possible action attributes that rule is for is targeted for. See real examples below
+          // Ett sett med mulige ressursattributter som regelen gjelder for. Se faktiske eksempler under.
+        </xacml:AllOf>
+      </xacml:AnyOf>
+      <xacml:AnyOf>
+        <xacml:AllOf>
+                  // Ett sett med mulige handlingsattributter som regelen gjelder for. Se faktiske eksempler under.
              </xacml:AllOf>
         <xacml:AllOf>
-                  // Alternative set of possible action attributes that rule is targeted for. See real examples below
+                  // Alternativt sett med handlingsattributter som regelen kan gjelde for. Se faktiske eksempler under.
         </xacml:AllOf>
       </xacml:AnyOf>
     </xacml:Target>
@@ -76,7 +73,7 @@ The example below show the structure of a XAMCL Policy.
 
 ### Resource
 
-The resource describes the resource a rule applies to. It can be an app, a resource in the resource register, a specific task, or any other sub-resources to an app or resource in the rescource registry.
+Ressursdelen beskriver hvilken ressurs regelen gjelder for. Det kan være en app, en ressurs i ressursregisteret, en bestemt oppgave eller andre underressurser.
 
 ```xml
 <xacml:AnyOf>
@@ -94,36 +91,27 @@ The resource describes the resource a rule applies to. It can be an app, a resou
 
 ```
 
-
-
 ### Action
 
+- **Action** beskriver hvilke handlinger regelen gjelder for. Det kan være handlinger som _read_, _write_, _sign_, _fire_, _Opendoor_ osv.
+- **Subject** beskriver hvem regelen gjelder for. Det kan være en rolle, tilgangsgruppe, organisasjonsnummer, en spesifikk bruker osv.
+- **Obligation** beskriver tilleggsinformasjon, for eksempel krav til minimum autentiseringsnivå.
+- **Condition** beskriver ytterligere vilkår, for eksempel at avgiver må være registrert i SRR/RRR for den aktuelle ressursen/tjenesten.
 
-- Action - describes which action the rules apply to. This can be any action like read, write, sign, fire, Opendoor +++
-- Subject - describes who the rules apply to. It can be a role, access group, an organization number or a specific user, and many more
-- Obligation - describes additional information like minimum authentication level.
-- Condition - Describes additional conditions like the reportee needs to be registered in SRR/RRR for this resource/service.
+### Subjekt
 
+### Forpliktelse
 
+[Se eksempelpolicy fra applikasjon i produksjon](policysample.xml)
 
-### Subject
+## XACML-forespørsel
 
+XACML-forespørsler følger XACML 3.0 JSON-profilen.  
+[Se dokumentasjon](http://docs.oasis-open.org/xacml/xacml-json-http/v1.1/csprd01/xacml-json-http-v1.1-csprd01.html).
 
+### Enkel forespørsel
 
-### Obligation
-
-
-
-
-[See example policy from application in production](policysample.xml) 
-
-## XACML Request
-
-The XACML Request will follow XACML 3.0 JSON profile.
-[See documentation](http://docs.oasis-open.org/xacml/xacml-json-http/v1.1/csprd01/xacml-json-http-v1.1-csprd01.html).
-
-### Single request
-The below example show how a request try to verify that a user is allowed to read a given instance.
+Eksempelet under viser hvordan en forespørsel verifiserer at en bruker har lov til å lese en gitt instans.
 
 ```json {linenos=false,hl_lines=[2,14,25]}
 {
@@ -164,11 +152,10 @@ The below example show how a request try to verify that a user is allowed to rea
 }
 ```
 
+### Forespørsel om flere avgjørelser
 
-### Request for Multiple Decisions
-
-Policy Decision Point supports Request for Multiple Decisions.
-The below request show how you can request decision for both read an write for the same resource.
+Policy Decision Point støtter forespørsler som ber om flere avgjørelser.  
+Forespørselen under viser hvordan du kan be om beslutning for både _read_ og _write_ for samme ressurs.
 
 ```json {linenos=false,hl_lines=[21,32,69]}
 {
@@ -229,12 +216,10 @@ The below request show how you can request decision for both read an write for t
           {
             "AttributeId": "urn:altinn:partyid",
             "Value": "1000"
-
           },
           {
             "AttributeId": "urn:altinn:task",
             "Value": "formfilling"
-
           }
         ]
       }
@@ -242,18 +227,10 @@ The below request show how you can request decision for both read an write for t
     "MultiRequests": {
       "RequestReference": [
         {
-          "ReferenceId": [
-            "s1",
-            "a1",
-            "r1"
-          ]
+          "ReferenceId": ["s1", "a1", "r1"]
         },
         {
-          "ReferenceId": [
-            "s1",
-            "a2",
-            "r1"
-          ]
+          "ReferenceId": ["s1", "a2", "r1"]
         }
       ]
     }
@@ -261,12 +238,12 @@ The below request show how you can request decision for both read an write for t
 }
 ```
 
-## XACML Response
-The XACML Response will follow XACML 3.0 JSON profile.
-[See documentation](http://docs.oasis-open.org/xacml/xacml-json-http/v1.1/csprd01/xacml-json-http-v1.1-csprd01.html).
+## XACML-respons
 
+XACML-responser følger XACML 3.0 JSON-profilen.  
+[Se dokumentasjon](http://docs.oasis-open.org/xacml/xacml-json-http/v1.1/csprd01/xacml-json-http-v1.1-csprd01.html).
 
-### Response for single decision request
+### Respons for forespørsel med én avgjørelse
 
 ```json {linenos=false,hl_lines=[4]}
 {
@@ -282,7 +259,6 @@ The XACML Response will follow XACML 3.0 JSON profile.
         {
           "id": "urn:altinn:obligation:authenticationLevel1",
           "attributeAssignment": [
-
             {
               "attributeId": "urn:altinn:obligation1-assignment1",
               "value": "2",
@@ -310,8 +286,7 @@ The XACML Response will follow XACML 3.0 JSON profile.
 }
 ```
 
-
-### Response for multipe decision
+### Respons for forespørsel med flere avgjørelser
 
 ```json {linenos=false,hl_lines=[4,49]}
 {
@@ -327,7 +302,6 @@ The XACML Response will follow XACML 3.0 JSON profile.
         {
           "id": "urn:altinn:obligation:authenticationLevel1",
           "attributeAssignment": [
-
             {
               "attributeId": "urn:altinn:obligation1-assignment1",
               "value": "2",
@@ -372,7 +346,6 @@ The XACML Response will follow XACML 3.0 JSON profile.
         {
           "id": "urn:altinn:obligation:authenticationLevel1",
           "attributeAssignment": [
-
             {
               "attributeId": "urn:altinn:obligation1-assignment1",
               "value": "2",
@@ -404,7 +377,6 @@ The XACML Response will follow XACML 3.0 JSON profile.
             }
           ]
         }
-
       ]
     }
   ]

@@ -5,32 +5,34 @@ description: Dette fullmaktsområdet omfatter fullmakter til å sette opp og adm
 toc: true
 weight: 100
 aliases:
-- /authorization/modules/accessgroups
+  - /authorization/modules/accessgroups
 ---
 
-| **Tilgangspakker i kategorien**|
-|---|
-| [Delegable Maskinporten scopes](#delegable-maskinporten-scopes)|
-| [Delegable Maskinporten scopes - NUF](#delegable-maskinporten-scopes---nuf)|
-| [Maskinlesbare hendelser](#machine-readable-events)|
+| **Tilgangspakker i kategorien**                                     |
+| ------------------------------------------------------------------- |
+| [Delegerbare Maskinporten scopes](#maskinporten-scopes)             |
+| [Delegerbare Maskinporten scopes - NUF](#maskinporten-scopes---nuf) |
+| [Maskinlesbare hendelser](#maskinlesbare-hendelser)                 |
 
+### Delegerbare Maskinporten scopes
 
-### Delegable Maskinporten scopes
-This access package grants authority to manage access to data and programming interfaces (APIs) that use Maskinporten or equivalent solutions for API security. Changes to regulations or the introduction of new digital services may result in modifications to the access provided by this authority.  
-*urn:altinn:accesspackage:delegerbare-maskinporten-scopes*
+Denne tilgangspakken gir fullmakter til data og programmeringsgrensenitt (API) som benytter Maskinporten eller tilsvarende løsninger for APIsikring. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
+_urn:altinn:accesspackage:delegerbare-maskinporten-scopes_
 
-### Delegable Maskinporten scopes - NUF
-This access package grants authority to manage access to data and programming interfaces (APIs) that use Maskinporten or equivalent solutions for API security on behalf of Norwegian registered foreign business (NUF). Changes to regulations or the introduction of new digital services may result in modifications to the access provided by this authority.  
-*urn:altinn:accesspackage:delegerbare-maskinporten-scopes-NUF*
+### Delegerbare Maskinporten scopes - NUF
 
-### Machine-Readable Events
-This access package grants authority to manage access to machine-readable events. Changes to regulations or the introduction of new digital services may result in modifications to the access provided by this authority.  
-*urn:altinn:accesspackage:maskinlesbare-hendelser*
+Denne tilgangspakken gir fullmakter til data og programmeringsgrensenitt (API) som benytter Maskinporten eller tilsvarende løsninger for APIsikring på vegne av norskregistrerte utenlandske foretak (NUF). Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
+_urn:altinn:accesspackage:delegerbare-maskinporten-scopes-NUF_
 
+### Maskinlesbare hendelser
+
+Denne tilgangspakken gir fullmakter til maskinlesbare hendelser. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
+_urn:altinn:accesspackage:maskinlesbare-hendelser_
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
-|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
-|---|---|---|
-|Delegable Maskinporten Scopes|General Manager, Chairman of the Board, Owner, Partner with Unlimited Liability, Partner with Limited Liability, General Partner, Managing Shipowner, Bankruptcy Trustee|Yes|
-|Delegable Maskinporten Scopes - NUF|Contactperson NUF|Yes|
-|Machine readable events|General Manager, Chairman of the Board, Owner, Partner with Unlimited Liability, Partner with Limited Liability, General Partner, Managing Shipowner, Bankruptcy Trustee|Yes|
+
+| **Tilgangspakke**                     | **Enhetsregisterroller**                                                                                                     | **Delegerbar** |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| Delegerbare Maskinporten scopes       | Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer | Ja             |
+| Delegerbare Maskinporten scopes - NUF | Kontaktperson NUF                                                                                                            | Ja             |
+| Maskinlesbare hendelser               | Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer | Ja             |
