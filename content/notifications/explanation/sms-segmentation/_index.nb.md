@@ -16,13 +16,13 @@ SMS-meldinger har tekniske begrensninger på hvor mange tegn som kan sendes i é
 
 SMS-teknologien har to forskjellige måter å håndtere meldingslengde på:
 
-### Enkeltmelding (opptil 160 tegn)
+### Enkeltmelding (opp til 160 tegn)
 
 Hvis meldingen din inneholder **160 tegn eller mindre**, sendes den som én enkelt SMS. Dette er den mest effektive måten å sende korte meldinger på.
 
 ### Konkatenerte meldinger (over 160 tegn)
 
-Når meldingen er **lengre enn 160 tegn**, deles den automatisk opp i flere segmenter som sendes separat og settes sammen igjen på mottakerens telefon. Hvert segment i en konkatenert melding kan inneholde **opptil 134 tegn**.
+Når meldingen er **lengre enn 160 tegn**, deles den automatisk opp i flere segmenter som sendes separat og settes sammen igjen på mottakerens telefon. Hvert segment i en konkatenert melding kan inneholde **opp til 134 tegn**.
 
 {{% notice info %}}
 Grunnen til at segmentene er på 134 tegn i stedet for 160 tegn, er at noe plass brukes til metadata som forteller mottakerens telefon hvordan segmentene skal settes sammen igjen.
@@ -32,8 +32,8 @@ Grunnen til at segmentene er på 134 tegn i stedet for 160 tegn, er at noe plass
 
 Altinn Varslinger har følgende begrensninger for SMS-meldinger:
 
-- **Enkeltmelding**: opptil **160 tegn**
-- **Konkatenert melding**: opptil **134 tegn per segment**
+- **Enkeltmelding**: opp til **160 tegn**
+- **Konkatenert melding**: opp til **134 tegn per segment**
 - **Maksimalt antall segmenter**: **16 segmenter**
 - **Maksimal totallengde**: **2144 tegn** (16 × 134 tegn)
 
@@ -67,7 +67,7 @@ Følgende typer tegn kan påvirke den faktiske lengden av meldingen:
 
 ### Praktisk eksempel
 
-```
+```text
 Original melding: "Møte kl. 14:00 🕐"
 Lengde i tegn: 18 tegn
 URL-kodet lengde: Kan være betydelig lengre på grunn av emojien

@@ -67,7 +67,7 @@ The following types of characters can affect the actual length of the message:
 
 ### Practical example
 
-```
+```text
 Original message: "Meeting at 14:00 🕐"
 Character length: 20 characters
 URL-encoded length: Can be significantly longer due to emoji
