@@ -7,10 +7,8 @@ weight: 2
 
 # Tildeling av klienter til systemtilgang
 
-Dersom du oppretter en systemtilgang for klientsystemer, kan klienter tildeles enten i Altinn-portalen eller via API. Dette steget gjelder ikke dersom du oppretter en systemtilgang for eget system.
+Dersom du oppretter en systemtilgang for klientsystemer, kan klienter tildeles enten i Altinn-portalen. Dette steget gjelder ikke dersom du oppretter en systemtilgang for eget system.
 Om du utøver tjenester på vegne av en annen virksomhet og dette skal gjøres ved hjelp av Systemtilgang må klient-virksomheten gi fullmakt til dette til din virksomhet. Hvordan disse forholdene oppstår kan du lese mer om her: [Systemtilgang for klientsystem](/nb/authorization/guides/system-vendor/system-user/#systembruker-for-klientsystem).
-
-Del av denne prosessen kan gjøres ved hjelp av vårt API. Se [Klientdelegering API-dokumentasjonen](/nb/api/authentication/systemuserapi/clientdelegation/).
 
 ## I Altinn-portalen
 
@@ -41,7 +39,7 @@ Dette gjelder tilfeller der det ikke finnes et etablert klientforhold i Brønnø
 4. Skriv inn organisasjonsnummeret til virksomheten du ønsker å gi fullmakt til
 5. Trykk på "Gi fullmakt +"
    ![Steg 1 - Gi fullmakt](add_user1.png)
-6. Velg tilgangspakken(e) som systemtilgangen er satt opp med (eksempeldata), og gi fullmakt til disse
+6. Gi fullmakt til alle tilgangspakken(e) som systemtilgangen er satt opp med (eksempeldata). Klientforhold for tilgangspakkene for regnskapsfører, revisor og forretningsfører er etablert gjennom Brønnøysundregistrene, og fullmakt kan ikke gis i dette skjermbildet.
    ![Steg 2 - Deleger tilgangspakke](add_user2.png)
    Du har nå etablert et klientforhold som kan brukes for systemtilgangen. 
 7. Logg inn igjen som **Klientadministrator** eller **Daglig leder** i virksomheten som eier systemtilgangen (Varm Økonomisk Ape). Du skal nå kunne legge til klienten (EKSEMPEL)
