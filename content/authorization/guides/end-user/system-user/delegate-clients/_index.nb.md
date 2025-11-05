@@ -52,8 +52,8 @@ Dette gjelder tilfeller der det ikke finnes et etablert klientforhold i Brønnø
 6. Trykk på **Gi fullmakt +**. I dette eksempelet vil vi gi fullmakt til tilgangspakken "Skattegrunnlag" til DISKRET NÆR TIGER AS, så vi søker på "Skattegrunnlag".
    ![virksomhetsdelegering 5](virksomhetsdelegering5.png)
 7. Trykk på **Gi fullmakt** på tilgangspakken Skattegrunnlag. DISKRET NÆR TIGER AS har nå fått fullmakt til tilgangspakken Skattegrunnlag. Du har nå etablert et klientforhold som kan brukes for systemtilgangen.
-   ![virksomhetsdelegering 5](virksomhetsdelegering5.png)
+   ![virksomhetsdelegering 6](virksomhetsdelegering6.png)
 8. Logg inn igjen som **Klientadministrator** eller **Daglig leder** i virksomheten som eier systemtilgangen (DISKRET NÆR TIGER AS). Du skal nå kunne legge til klienten (Klientkunde AS) til systemtilgangen.
-   ![Steg 3 - Legg til klient](add_user3.png)
+   ![virksomhetsdelegering 7](virksomhetsdelegering7.png)
 
 Etter at du har etablert klientforholdet gjennom disse stegene, kan du fortsette med prosessen beskrevet over der du kan legge til kunder.
