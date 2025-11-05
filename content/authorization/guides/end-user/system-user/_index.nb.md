@@ -1,7 +1,7 @@
 ---
 title: Systemtilgang veiledning for sluttbruker
 linktitle: Systemtilgang
-description: Her under "guider" vil du finne enkle og trinnvise veiledninger som hjelper deg som sluttbruker med å gjennomføre oppgaene du må gjøre for åsette opp åbruker systemtilgang i Altinn.
+description: Her under "guider" vil du finne enkle og trinnvise veiledninger som hjelper deg som sluttbruker med å gjennomføre oppgavene du må gjøre for å sette opp å bruke systemtilgang i Altinn.
 toc: false
 ---
 
