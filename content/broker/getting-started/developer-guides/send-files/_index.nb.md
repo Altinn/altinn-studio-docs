@@ -11,7 +11,7 @@ weight: 10
 
 Her finner du detaljerte API-operasjoner og hendelser som brukes ved filoverføring, inkludert operasjoner som initialisering av filoverføring, opplasting av filer og innhenting av filoverføringsstatus.
 
-For mer informasjon, se vår [swagger-side](/nb/api/broker/spec/) og [GitHub-repo](https://github.com/Altinn/altinn-broker), som også inneholder en Bruno-samling med eksempler.
+For mer informasjon, se vår [swagger-side](/nb/api/broker/spec/) og [GitHub-repo](https://github.com/Altinn/altinn-broker), som også inneholder en Bruno-pakke med eksempler.
 
 ## Operasjon: Initialiser Filoverføring {#operation-initialize-filetransfer}
 

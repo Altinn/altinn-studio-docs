@@ -114,7 +114,7 @@ Vi ønsker bidrag til løsningen velkommen.
 
 Se [Readme-filen på GitHub](https://github.com/Altinn/altinn-correspondence/blob/main/README.md) for en introduksjon til Altinn 3 Melding, og kan kjøre koden lokalt sammen med Docker.
 
-Repoet inneholder også en [Bruno-samling](https://github.com/Altinn/altinn-correspondence/blob/main/.bruno/collection.bru) med eksempler.
+Repoet inneholder også en [Bruno-pakke](https://github.com/Altinn/altinn-correspondence/blob/main/.bruno/collection.bru) med eksempler.
 
 Swagger for meldings-APIet finner du [her](/nb/api/correspondence/spec/).
 {{% /expandlarge %}}
