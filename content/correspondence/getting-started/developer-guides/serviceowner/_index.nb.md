@@ -51,19 +51,9 @@ Se [Ressursadministrasjon](https://docs.altinn.studio/nb/authorization/getting-s
 
          Les mer om taushetsbelagt post [her](https://docs.altinn.studio/nb/correspondence/explanation/taushetsbelagt-post/).
 
-**Eksempelpolicy:**
-
-Merk at denne eksempelpolicyen angir en påkrevd brukerrolle "DAGL(daglig leder)" for brukeren som har tilgang til ressursen. Med en så åpen policy er det anbefalt å bruke [Ressursrettighetsregister](https://docs.altinn.studio/nb/authorization/what-do-you-get/resourceregistry/) (gå til engelsk språk for å se dokumentasjon for RRR) for å gi tilgang til spesifikke organisasjoner.
-En bruker med denne tilgangen kan deretter delegere tilgangen til virksomhetsbruker/systembruker.
-
 {{% notice warning  %}}
 **Viktig**: Som tjenesteeier trenger du kun å sette opp "read"-regler via tilgangspakker i GUI-et.
 {{% /notice %}}
-
-Her er [eksempelpolicyen](https://docs.altinn.studio/nb/correspondence/getting-started/ExamplePolicy.xml).
-
-**TIPS**: Verifiser konfigurasjonene dine ved hjelp av [Bruno-samlingen](https://github.com/Altinn/altinn-correspondence/blob/main/.bruno/collection.bru), og erstatt testtokenene med enten dine egne Altinn-tokens (se "Logg inn i Maskinporten (Initialiser)" forespørsel i Authenticator-mappen) eller dine Maskinporten-tokens, avhengig av hva du velger for autentiseringsmetode.
-{{% /expandlarge %}}
 
 {{% expandlarge id="get-access-to-scopes" header="5. Tilgang til scopes" %}}
 

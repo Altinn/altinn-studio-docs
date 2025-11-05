@@ -50,19 +50,9 @@ See [Resource Management](https://docs.altinn.studio/authorization/getting-start
 
          Read about confidential mail [here](https://docs.altinn.studio/en/correspondence/explanation/taushetsbelagt-post/).
 
-**Example policy:**
-
-Note that this example policy sets a required user role "DAGL" for the user who has access to the resource, and requires the use of [Resource Rights Registry](https://docs.altinn.studio/authorization/what-do-you-get/resourceregistry/rrr/) to grant access to specific organizations.
-A user with that access can then delegate the access to the enterprise user/system user.
-
 {{% notice warning  %}}
 **Important**: As a service owner, you only need to configure "read" rules via access packages in the GUI.
 {{% /notice %}}
-
-Here is the [example policy](https://docs.altinn.studio/correspondence/getting-started/ExamplePolicy.xml).
-
-**TIP**: Verify your configurations using the [Bruno-collection](https://github.com/Altinn/altinn-correspondence/blob/main/.bruno/collection.bru), substituting the test tokens with either your own Altinn tokens (see "Login to Maskinporten (Initialize)" request in Authenticator folder) or your Maskinporten tokens, depending on what you are choosing for authentication method.
-{{% /expandlarge %}}
 
 {{% expandlarge id="get-access-to-scopes" header="5. Access to scopes" %}}
 
