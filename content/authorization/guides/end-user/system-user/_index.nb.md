@@ -38,7 +38,7 @@ Hvis du bare har "Regnskapsfører"-rollen, men ikke "Lønnsinnsender", vil du ik
 Guidene åpnes i nye faner, slik at du enkelt kan følge dem steg for steg uten å miste oversikten. Velg den guiden som passer for deg og kom i gang med systemtilgang.
 
 ------
-### Veiledning for opprettele fra Altinn portal
+### Veiledning for opprettelse fra Altinn portal
 
 1. Anskaffelse av regnskapssystemet
    - STADIG KONSERT, dagligleder til TILFELDIG SUBTIL APE, anskaffer SmartCloud for å håndtere selskapets skatte- og avgiftskrav
