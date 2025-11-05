@@ -13,7 +13,7 @@ Om du utøver tjenester på vegne av en annen virksomhet og dette skal gjøres v
 ### Forutsetninger
 
 - Du må ha tilgang til Altinn som **Klientadministrator** eller **Daglig leder**.
-- Det finnes en systemtilgang for kunder [som er godkjent](nb/authorization/guides/end-user/system-user/accept-request/)
+- Det finnes en systemtilgang for kunder [som er godkjent](nb/authorization/guides/end-user/system-user/accept-request/#godkjenne-systemtilgang-for-klienter).
 
 ## I Altinn-portalen
 
@@ -36,7 +36,7 @@ Dette gjelder tilfeller der det ikke finnes et etablert klientforhold i Brønnø
 ### Forutsetninger
 
 - Du må ha tilgang til Altinn som **Klientadministrator** eller **Daglig leder**.
-- Det finnes en systemtilgang for kunder (som er godkjent)[nb/authorization/guides/end-user/system-user/accept-request/]
+- Det finnes en systemtilgang for kunder (som er godkjent)[nb/authorization/guides/end-user/system-user/accept-request/#godkjenne-systemtilgang-for-klienter].
 
 ### Prosess
 
