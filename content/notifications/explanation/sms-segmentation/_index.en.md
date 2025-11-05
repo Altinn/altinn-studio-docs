@@ -68,10 +68,12 @@ The following types of characters can affect the actual length of the message:
 ### Practical example
 
 ```text
-Original message: "Meeting at 14:00 🕐"
-Character length: 20 characters
-URL-encoded length: Can be significantly longer due to emoji
+Original message: "Meeting at 14:00"
+Character length: 16 characters
+URL-encoded length: 22 characters (38% longer)
 ```
+
+The example shows how spaces become "%20" (3 characters) and colons become "%3A" (3 characters) in URL encoding.
 
 {{% notice info %}}
 To be sure that your message does not exceed the limits, you should test with representative examples that contain the same types of special characters you plan to use.

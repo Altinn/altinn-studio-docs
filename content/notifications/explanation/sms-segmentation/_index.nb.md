@@ -68,10 +68,12 @@ Følgende typer tegn kan påvirke den faktiske lengden av meldingen:
 ### Praktisk eksempel
 
 ```text
-Original melding: "Møte kl. 14:00 🕐"
-Lengde i tegn: 18 tegn
-URL-kodet lengde: Kan være betydelig lengre på grunn av emojien
+Original melding: "Møte kl. 14:00"
+Lengde i tegn: 14 tegn
+URL-kodet lengde: 25 tegn (nesten dobbelt så lang)
 ```
+
+Eksempelet viser hvordan norske tegn som "ø" blir til "%C3%B8" (6 tegn) og mellomrom blir til "%20" (3 tegn) i URL-koding.
 
 {{% notice info %}}
 For å være sikker på at meldingen din ikke overstiger grensene, bør du teste med representative eksempler som inneholder de samme typene spesialtegn du planlegger å bruke.
