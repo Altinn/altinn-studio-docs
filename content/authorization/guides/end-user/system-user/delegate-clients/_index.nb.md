@@ -13,10 +13,11 @@ Om du utøver tjenester på vegne av en annen virksomhet og dette skal gjøres v
 ### Forutsetninger
 
 - Du må ha tilgang til Altinn som **Klientadministrator** eller **Daglig leder**.
+- Det finnes en systemtilgang for kunder [som er godkjent](nb/authorization/guides/end-user/system-user/accept-request/)
 
 ## I Altinn-portalen
 
-1. Gå til oversikten over systemtilganger. I dette eksempelet logger vi på som daglig leder i virksomheten "DISKRET NÆR TIGER AS".
+1. Gå til oversikten over systemtilganger [i testmiljøet](https://am.ui.tt02.altinn.no/accessmanagement/ui/systemuser/overview). I dette eksempelet logger vi på som daglig leder i virksomheten "DISKRET NÆR TIGER AS" og velger å representere virksomheten "DISKRET NÆR TIGER AS".
    ![klientdelegering steg 1](klientdelegering1.png)
 2. Velg en eksisterende systemtilgang for kunder. I dette eksempelet velger vi systemtilgangen "Revisor klientdelegering".
    ![klientdelegering steg 2](klientdelegering2.png)
@@ -35,6 +36,7 @@ Dette gjelder tilfeller der det ikke finnes et etablert klientforhold i Brønnø
 ### Forutsetninger
 
 - Du må ha tilgang til Altinn som **Klientadministrator** eller **Daglig leder**.
+- Det finnes en systemtilgang for kunder (som er godkjent)[nb/authorization/guides/end-user/system-user/accept-request/]
 
 ### Prosess
 
