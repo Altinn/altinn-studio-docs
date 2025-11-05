@@ -53,6 +53,7 @@ See [Resource Management](https://docs.altinn.studio/authorization/getting-start
 {{% notice warning  %}}
 **Important**: As a service owner, you only need to configure "read" rules via access packages in the GUI.
 {{% /notice %}}
+{{% /expandlarge %}}
 
 {{% expandlarge id="get-access-to-scopes" header="5. Access to scopes" %}}
 

@@ -55,6 +55,8 @@ Se [Ressursadministrasjon](https://docs.altinn.studio/nb/authorization/getting-s
 **Viktig**: Som tjenesteeier trenger du kun å sette opp "read"-regler via tilgangspakker i GUI-et.
 {{% /notice %}}
 
+{{% /expandlarge %}}
+
 {{% expandlarge id="get-access-to-scopes" header="5. Tilgang til scopes" %}}
 
 For å kunne autentisere og sikre at du kan utføre operasjoner via meldings-APIet, må Altinn gi deg tilgang på de scopes du trenger. Scope-kravene avhenger av din valgte autentiseringsmetode:
