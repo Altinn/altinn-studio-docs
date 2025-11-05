@@ -62,7 +62,7 @@ En bruker med denne tilgangen kan deretter delegere tilgangen til virksomhetsbru
 
 Her er [eksempelpolicyen](https://docs.altinn.studio/nb/correspondence/getting-started/ExamplePolicy.xml).
 
-**TIPS**: Verifiser konfigurasjonene dine ved hjelp av [Postman-samlingen](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json), og erstatt testtokenene med enten dine egne Altinn-tokens (se "Logg inn i Maskinporten (Initialiser)" forespørsel i Authenticator-mappen) eller dine Maskinporten-tokens, avhengig av hva du velger for autentiseringsmetode.
+**TIPS**: Verifiser konfigurasjonene dine ved hjelp av [Bruno-samlingen](https://github.com/Altinn/altinn-correspondence/blob/main/.bruno/collection.bru), og erstatt testtokenene med enten dine egne Altinn-tokens (se "Logg inn i Maskinporten (Initialiser)" forespørsel i Authenticator-mappen) eller dine Maskinporten-tokens, avhengig av hva du velger for autentiseringsmetode.
 {{% /expandlarge %}}
 
 {{% expandlarge id="get-access-to-scopes" header="5. Tilgang til scopes" %}}
@@ -124,7 +124,7 @@ Vi ønsker bidrag til løsningen velkommen.
 
 Se [Readme-filen på GitHub](https://github.com/Altinn/altinn-correspondence/blob/main/README.md) for en introduksjon til Altinn 3 Melding, og kan kjøre koden lokalt sammen med Docker.
 
-Repoet inneholder også en [Postman-samling](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json) med eksempler.
+Repoet inneholder også en [Bruno-samling](https://github.com/Altinn/altinn-correspondence/blob/main/.bruno/collection.bru) med eksempler.
 
 Swagger for meldings-APIet finner du [her](/nb/api/correspondence/spec/).
 {{% /expandlarge %}}
@@ -133,7 +133,7 @@ Swagger for meldings-APIet finner du [her](/nb/api/correspondence/spec/).
 
 Før produksjonssetting bør du verifisere at meldinger vises riktig for mottakere.
 
-1. Send en testmelding til en testmottaker via ønsket verktøy (Postman, SDK eller din integrasjon).
+1. Send en testmelding til en testmottaker via ønsket verktøy (Bruno, SDK eller din integrasjon).
 2. Verifiser i Arbeidsflate:
    - Logg inn som testmottaker på [af.tt.altinn.no](https://af.tt.altinn.no/).
    - Sjekk at innholdet i testmeldingen er formatert som tiltenkt.

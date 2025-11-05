@@ -36,14 +36,7 @@ Your policy must be configured in such a way that that they permit the actions:
 - "read" for recipients
 - "write" for senders.
 
-To setup a resource that works quickly, you can use our [Postman collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json) and run the requests "Create resource" and "Create resource policy" with a token that has the scope "altinn:resourceregistry/resource.write".
-
-Here is an [example policy](ExamplePolicy.xml).
-
-Note that this example policy sets a required user role "DAGL" for the user that has access to the resource, and requires the use of [Resource Rights Registry](/en/authorization/what-do-you-get/resourceregistry/rrr/) to grant access to specific organisations.
-A user with that access can then delegate the access to the enterprise user / system user
-
-**TIP**: Verify your configurations using the [Postman collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json), substituting the test tokens with your own Altinn tokens (See "Login to Maskinporten (Initialize)" request in Authenticator folder).
+**TIP**: Verify your configurations using the [Bruno collection](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru), substituting the test tokens with your own Altinn tokens (See "Login to Maskinporten (Initialize)" request in Authenticator folder).
 
 ## 4. Register yourself as a Service Owner in Broker API {#register-yourself-as-a-service-owner-in-broker-api}
 
@@ -59,7 +52,7 @@ Using the ID of the resource you created in step 3, call the API operation to [c
 
 ## 6. Configure system
 
-Systemuser is the typical authentication method used with the Broker service. [Consult the systemuser documentation for how to set this up](/en/authorization/guides/system-vendor/system-user/).
+Systemuser is the typical authentication method used with the Broker service. [Consult the systemuser documentation for how to set this up](/en/authorization/guides/system-vendor/system-user/). You can follow the steps in the [Bruno collection](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru) to set up and configure a system in the System Register.
 
 ## How to migrate from Altinn 2 to Altinn 3 {#how-to-migrate-from-Altinn-2-to-Altinn-3}
 

@@ -61,7 +61,7 @@ A user with that access can then delegate the access to the enterprise user/syst
 
 Here is the [example policy](https://docs.altinn.studio/correspondence/getting-started/ExamplePolicy.xml).
 
-**TIP**: Verify your configurations using the [Postman collection](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json), substituting the test tokens with either your own Altinn tokens (see "Login to Maskinporten (Initialize)" request in Authenticator folder) or your Maskinporten tokens, depending on what you are choosing for authentication method.
+**TIP**: Verify your configurations using the [Bruno-collection](https://github.com/Altinn/altinn-correspondence/blob/main/.bruno/collection.bru), substituting the test tokens with either your own Altinn tokens (see "Login to Maskinporten (Initialize)" request in Authenticator folder) or your Maskinporten tokens, depending on what you are choosing for authentication method.
 {{% /expandlarge %}}
 
 {{% expandlarge id="get-access-to-scopes" header="5. Access to scopes" %}}
@@ -125,7 +125,7 @@ We also welcome contributions to the solution.
 
 See the [readme file on GitHub](https://github.com/Altinn/altinn-correspondence/blob/main/README.md) for an introduction to Altinn 3 Correspondence, and how to build and run it in your dev environment.
 
-The Repo also contains a [Postman collection](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json) with examples.
+The Repo also contains a [Bruno-collection](https://github.com/Altinn/altinn-correspondence/blob/main/.bruno/collection.bru) with examples.
 
 Swagger for the correspondence API is hosted [here](https://docs.altinn.studio/api/correspondence/spec/).
 {{% /expandlarge %}}
@@ -134,7 +134,7 @@ Swagger for the correspondence API is hosted [here](https://docs.altinn.studio/a
 
 Before going live, verify that correspondences render as intended for recipients.
 
-1. Send a test correspondence to a test recipient using your preferred tool (Postman, SDK, or your integration).
+1. Send a test correspondence to a test recipient using your preferred tool (Bruno, SDK, or your integration).
 2. Verify in Arbeidsflate:
    - Log in with the test recipient in [af.tt.altinn.no](https://af.tt.altinn.no/).
    - Check that the test correspondence content is formatted as intended.
