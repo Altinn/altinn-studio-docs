@@ -36,8 +36,6 @@ Your policy must be configured in such a way that that they permit the actions:
 - "read" for recipients
 - "write" for senders.
 
-**TIP**: Verify your configurations using the [Bruno collection](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru), substituting the test tokens with your own Altinn tokens (See "Login to Maskinporten (Initialize)" request in Authenticator folder).
-
 ## 4. Register yourself as a Service Owner in Broker API {#register-yourself-as-a-service-owner-in-broker-api}
 
 Now the time has come to configure the Broker component itself, first by configuring your organization as a Service Owner in the Broker Config Store.

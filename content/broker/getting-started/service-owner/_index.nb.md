@@ -39,9 +39,7 @@ Ressurser registreres via Altinn Studio og brukes til å definere tilgangsregler
     - "subscribe" for alle, - dette brukes for hendelser.
     - "read" for mottakere
     - "write" for avsendere.
-
-**TIPS**: Verifiser konfigurasjonene dine ved hjelp av [Bruno-pakken](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru), og erstatt testtokenene med dine egne Altinn-token (Se forespørselen "Logg inn i Maskinporten (Initialiser)" i Authenticator-mappen).
-
+    
 ## 4. Registrer deg som tjenesteeier i Formidling API-et {#register-yourself-as-a-service-owner-in-broker-api}
 
 Nå er tiden inne for å konfigurere Formidlings-komponenten ved å registrere virksomheten din som en tjenesteeier i Altinn Formidlings-konfigurasjonslaget. 
