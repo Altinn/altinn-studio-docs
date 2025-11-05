@@ -46,10 +46,10 @@ Det er to valgfrie datoer som kan settes på en dialog som kontrollerer synlighe
 Utilgjengelige dialoger vil på dette tidspunktet _ikke_ bli sanert fra databasen, men dette kan endre seg i fremtiden der Dialogporten fjerner for lengst utløpte dialoger av personvern- og systemeffektivitetshensyn.
 {{</notice>}}
 
-* `visibleAt` definerer et fremtidig tidsstempel som, når det er nådd, gjør dialogen tilgjengelig i sluttbruker-API-et. Før dette tidspunktet vil ikke dialogen være tilgjengelig.
+* `visibleFrom` definerer et fremtidig tidsstempel som, når det er nådd, gjør dialogen tilgjengelig i sluttbruker-API-et. Før dette tidspunktet vil ikke dialogen være tilgjengelig.
 
 {{<notice warning>}}
-På grunn av en [kjent begrensning](https://github.com/Altinn/dialogporten/issues/110), vil hendelser knyttet til dialogopprettelser/-oppdateringer _ikke_ vurdere `visibleAt`. Dette betyr at når en dialog opprettes med en fremtidig `visibleAt`-dato, vil hendelsen bli produsert umiddelbart, men vil ikke tillate sluttbrukeren å få tilgang til dialogen.
+På grunn av en [kjent begrensning](https://github.com/Altinn/dialogporten/issues/110), vil hendelser knyttet til dialogopprettelser/-oppdateringer _ikke_ vurdere `visibleFrom`. Dette betyr at når en dialog opprettes med en fremtidig `visibleFrom`-dato, vil hendelsen bli produsert umiddelbart, men vil ikke tillate sluttbrukeren å få tilgang til dialogen.
 {{</notice>}}
 
 ### Levere en forfallsdato
