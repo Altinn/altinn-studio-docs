@@ -41,7 +41,7 @@ Guidene åpnes i nye faner, slik at du enkelt kan følge dem steg for steg uten 
 ### Veiledning for opprettelse fra Altinn portal
 
 1. Anskaffelse av regnskapssystemet
-   - STADIG KONSERT, dagligleder til TILFELDIG SUBTIL APE, anskaffer SmartCloud for å håndtere selskapets skatte- og avgiftskrav
+   - STADIG KONSERT, dagligleder i TILFELDIG SUBTIL APE, anskaffer SmartCloud for å håndtere selskapets skatte- og avgiftskrav
    - Programvaren tilbyr en funksjon for å vise totale skatte- og avgiftskrav.
 2. Godkjenning av forespørsel om systemtilgang
 
