@@ -16,7 +16,6 @@ The API supports both PUT (replaces the entire object) and PATCH (updates parts 
 ```json
 {
   "language": "nn",
-  "preSelectedPartyId": 0,
   "preselectedPartyUuid": null,
   "doNotPromptForParty": true,
   "showClientUnits": false,
@@ -26,8 +25,7 @@ The API supports both PUT (replaces the entire object) and PATCH (updates parts 
 ```
 
 * **language** (string) The user's language choice as a two-letter code. Valid values: "no", "nn", "en".
-* **preSelectedPartyId** (int) This field is deprecated. Use preSelectedPartyUuid instead.
-* **preSelectedPartyUuid** (GUID) Pre-selected party as a party UUID.
+* **preselectedPartyUuid** (GUID) Pre-selected party as a party UUID.
 * **doNotPromptForParty** (bool) If true, the user will not be prompted to select a party when starting a new form.
 * **showClientUnits** (bool) If true, show client units in the party list. Applies only to accountants and auditors.
 * **shouldShowSubEntities** (bool) If true, show sub-entities in the party list.

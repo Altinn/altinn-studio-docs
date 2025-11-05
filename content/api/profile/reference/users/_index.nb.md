@@ -16,7 +16,6 @@ API-et støtter både PUT (erstatter hele objektet) og PATCH (oppdaterer deler a
 ```json
 {
   "language": "nn",
-  "preSelectedPartyId": 0,
   "preselectedPartyUuid": null,
   "doNotPromptForParty": true,
   "showClientUnits": false,
@@ -26,8 +25,7 @@ API-et støtter både PUT (erstatter hele objektet) og PATCH (oppdaterer deler a
 ```
 
 * **language** (string) Brukerens språkvalg som en to-bokstavs kode. Gyldige alternativer: "no", "nn", "en".
-* **preSelectedPartyId** (int) Denne er deprektert. Bruk `preSelectedPartyUuid` i stedet.
-* **preSelectedPartyUuid** (GUID) Forhåndsvalgt aktør som partyUuid.
+* **preselectedPartyUuid** (GUID) Forhåndsvalgt aktør som partyUuid.
 * **doNotPromptForParty** (bool) Et flagg for å indikere om brukeren skal bli spurt om aktør hver gang den starter utfylling av et nytt skjema.
 * **showClientUnits** (bool) Et flagg for å indikere om klient-enheter skal vises i aktørlisten. Gjelder kun regnskapsførere og revisorer.
 * **shouldShowSubEntities** (bool)  Et flagg for å indikere om underenheter skal vises i aktørlisten.
