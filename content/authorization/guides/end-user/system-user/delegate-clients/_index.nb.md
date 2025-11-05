@@ -7,7 +7,7 @@ weight: 2
 
 ## Tildeling av klienter til systemtilgang
 
-Dersom du oppretter en systemtilgang for klientsystemer, kan klienter tildeles enten i Altinn-portalen. Dette steget gjelder ikke dersom du oppretter en systemtilgang for eget system.
+Dersom du oppretter en systemtilgang for klientsystemer, kan klienter tildeles i Altinn-portalen. Dette steget gjelder ikke dersom du oppretter en systemtilgang for eget system.
 Om du utøver tjenester på vegne av en annen virksomhet og dette skal gjøres ved hjelp av Systemtilgang må klient-virksomheten gi fullmakt til dette til din virksomhet. Hvordan disse forholdene oppstår kan du lese mer om her: [Systemtilgang for klientsystem](/nb/authorization/guides/system-vendor/system-user/#systembruker-for-klientsystem).
 
 ### Forutsetninger
