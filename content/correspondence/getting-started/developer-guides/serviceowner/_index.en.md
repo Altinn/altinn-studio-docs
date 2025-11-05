@@ -50,18 +50,9 @@ See [Resource Management](https://docs.altinn.studio/authorization/getting-start
 
          Read about confidential mail [here](https://docs.altinn.studio/en/correspondence/explanation/taushetsbelagt-post/).
 
-**Example policy:**
-
-Note that this example policy sets a required user role "DAGL" for the user who has access to the resource, and requires the use of [Resource Rights Registry](https://docs.altinn.studio/authorization/what-do-you-get/resourceregistry/rrr/) to grant access to specific organizations.
-A user with that access can then delegate the access to the enterprise user/system user.
-
 {{% notice warning  %}}
 **Important**: As a service owner, you only need to configure "read" rules via access packages in the GUI.
 {{% /notice %}}
-
-Here is the [example policy](https://docs.altinn.studio/correspondence/getting-started/ExamplePolicy.xml).
-
-**TIP**: Verify your configurations using the [Postman collection](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json), substituting the test tokens with either your own Altinn tokens (see "Login to Maskinporten (Initialize)" request in Authenticator folder) or your Maskinporten tokens, depending on what you are choosing for authentication method.
 {{% /expandlarge %}}
 
 {{% expandlarge id="get-access-to-scopes" header="5. Access to scopes" %}}
@@ -125,7 +116,7 @@ We also welcome contributions to the solution.
 
 See the [readme file on GitHub](https://github.com/Altinn/altinn-correspondence/blob/main/README.md) for an introduction to Altinn 3 Correspondence, and how to build and run it in your dev environment.
 
-The Repo also contains a [Postman collection](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json) with examples.
+The Repo also contains a [Bruno-collection](https://github.com/Altinn/altinn-correspondence/blob/main/.bruno/collection.bru) with examples.
 
 Swagger for the correspondence API is hosted [here](https://docs.altinn.studio/api/correspondence/spec/).
 {{% /expandlarge %}}
@@ -134,7 +125,7 @@ Swagger for the correspondence API is hosted [here](https://docs.altinn.studio/a
 
 Before going live, verify that correspondences render as intended for recipients.
 
-1. Send a test correspondence to a test recipient using your preferred tool (Postman, SDK, or your integration).
+1. Send a test correspondence to a test recipient using your preferred tool (Bruno, SDK, or your integration).
 2. Verify in Arbeidsflate:
    - Log in with the test recipient in [af.tt.altinn.no](https://af.tt.altinn.no/).
    - Check that the test correspondence content is formatted as intended.

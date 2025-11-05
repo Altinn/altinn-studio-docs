@@ -39,16 +39,7 @@ Ressurser registreres via Altinn Studio og brukes til å definere tilgangsregler
     - "subscribe" for alle, - dette brukes for hendelser.
     - "read" for mottakere
     - "write" for avsendere.
-
-Alternativt, for å sette opp en ressurs som fungerer raskt, kan du bruke vår [Postman-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json) og kjøre forespørslene "Create resource" og "Create resource policy" med en token som har scopet "altinn:resourceregistry/resource.write".
-
-Her er en [eksempelpolicy](ExamplePolicy.xml).
-
-Merk at denne eksempelpolicyen angir en påkrevd brukerrolle "DAGL(daglig leder)" for brukeren som har tilgang til ressursen, og krever bruk av [Ressursrettighetsregister](/nb/authorization/what-do-you-get/resourceregistry/) (gå til engelsk språk for å se dokumentasjon for RRR) for å gi tilgang til spesifikke organisasjoner.
-En bruker med denne tilgangen kan deretter delegere tilgangen til virksomhetsbrukeren/systembrukeren
-
-**TIPS**: Verifiser konfigurasjonene dine ved hjelp av [Postman-samlingen](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json), og erstatt testtokenene med dine egne Altinn-token (Se forespørselen "Logg inn i Maskinporten (Initialiser)" i Authenticator-mappen).
-
+    
 ## 4. Registrer deg som tjenesteeier i Formidling API-et {#register-yourself-as-a-service-owner-in-broker-api}
 
 Nå er tiden inne for å konfigurere Formidlings-komponenten ved å registrere virksomheten din som en tjenesteeier i Altinn Formidlings-konfigurasjonslaget. 
@@ -63,9 +54,9 @@ Bruk ID-en til ressursen du opprettet i trinn 3, og kall API-operasjonen for å 
 
  For detaljerte instruksjoner om hvordan du konfigurerer ressursen i Formidling, følg [denne lenken](/nb/broker/getting-started/developer-guides/service-owner/#operation-configure-resource-in-broker-api), som gir deg all nødvendig informasjon for å fullføre konfigurasjonen og sikre at ressursen din er riktig satt opp i formidlingstjenesten.
 
-## 6. Configure system
+## 6. Konfigurer system
 
-Systembruker er den typiske autentiseringsmetoden man bruker for formidlingstjenesten.  [Se systembrukerdokumentasjon for hvordan dette settes opp](/nb/authorization/guides/system-vendor/system-user/).
+Systembruker er den typiske autentiseringsmetoden man bruker for formidlingstjenesten.  [Se systembrukerdokumentasjon for hvordan dette settes opp](/nb/authorization/guides/system-vendor/system-user/). Du kan følge stegene i [Bruno-pakken](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru) for å sette opp og konfigurere system i systemregisteret.
 
 ## Hvordan migrere fra Altinn 2 til Altinn 3 {#how-to-migrate-from-Altinn-2-to-Altinn-3}
 
