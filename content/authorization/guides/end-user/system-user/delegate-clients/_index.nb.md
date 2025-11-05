@@ -21,7 +21,7 @@ Om du utøver tjenester på vegne av en annen virksomhet og dette skal gjøres v
    ![klientdelegering steg 1](klientdelegering1.png)
 2. Velg en eksisterende systemtilgang for kunder. I dette eksempelet velger vi systemtilgangen "Revisor klientdelegering".
    ![klientdelegering steg 2](klientdelegering2.png)
-3. Trykk **Legg til kunder**  
+3. Trykk **+ Legg til kunder**  
    ![klientdelegering steg 3](klientdelegering3.png)
 4. Legg til klienter til systemtilgangen, en av gangen, ved å trykke **Legg til i systemtilgang**. I dette eksempelet legger vi til "Revisorkunde AS". Hvis du ikke ser noen klienter i denne modalen, er ikke klientforholdet satt opp. Se [egen guide for å sette opp dette](/nb/authorization/guides/end-user/system-user/delegate-clients/#klientdelegering-der-klientforhold-ikke-eksisterer-fra-før).
 5. Trykk **Bekreft og lukk** etter klienter er lagt til. 
@@ -47,7 +47,7 @@ Dette gjelder tilfeller der det ikke finnes et etablert klientforhold i Brønnø
    ![virksomhetsdelegering 2](virksomhetsdelegering2.png)
 4. Skriv inn organisasjonsnummeret til virksomheten du ønsker å gi fullmakt til. I dette eksempelet skriver vi inn organisasjonsnummeret til DISKRET NÆR TIGER AS, som vi brukte i eksempelet over.
    ![virksomhetsdelegering 3](virksomhetsdelegering3.png)
-5. Trykk på **Legg til virksomhet**.
+5. Trykk på **Legg til virksomhet**. Du har nå opprettet et forhold mellom Klientkunde AS og DISKRET NÆR TIGER AS, men uten å ha gitt DISKRET NÆR TIGER AS noen fullmakter enda.
    ![virksomhetsdelegering 5](virksomhetsdelegering5.png)
 6. Trykk på **Gi fullmakt +**. I dette eksempelet vil vi gi fullmakt til tilgangspakken "Skattegrunnlag" til DISKRET NÆR TIGER AS, så vi søker på "Skattegrunnlag".
    ![virksomhetsdelegering 4](virksomhetsdelegering4.png)
