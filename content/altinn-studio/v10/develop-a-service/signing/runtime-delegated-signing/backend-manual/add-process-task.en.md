@@ -62,18 +62,18 @@ If the Altinn user interface is used by the application, these actions will be t
 ```
 
 #### Configure environment-specific correspondence resources
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/add-process-task-environments.en.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/backend-manual/add-process-task-environments.en.md" %}}
 
 #### Add data types for storing signing related data
 These data types should be added to `dataTypes` in `App/config/applicationmetadata.json`.
 
 This data type is used during the signing task to store the signatures.
 
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/add-process-task-code-01.en.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/backend-manual/add-process-task-code-01.en.md" %}}
 
 This data type is used to store information about the signers and their status.
 
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/add-process-task-code-02.en.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/backend-manual/add-process-task-code-02.en.md" %}}
 
 It is important to set `allowedContributors`, `actionRequiredToRead` og `actionRequiredToWrite` as illustrated in the examples above. This ensures that these data items cannot be edited via the app's API but only by the app itself.
 
@@ -96,7 +96,7 @@ Below is an example of a policy rule that accomplishes this. For the code to wor
 <!-- Dummy to force end of list rendering -->
 <span></span>
 
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/add-process-task-code-03.en.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/backend-manual/add-process-task-code-03.en.md" %}}
 
 #### Access control for service owners
 Give `signature-access` to service owners. This allows bearers of a service owner token to interact with the restricted data in signature objects.

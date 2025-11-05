@@ -1,33 +1,33 @@
 ---
 title: API-basert signering
 linktitle: API-basert signering
-description: Følg disse stegene for å implementere signering via API.
-tags: [signering]
+description: Slik implementerer du signering via API.
+tags: [signering, needsReview, translate]
 weight: 53
 aliases:
 - /nb/altinn-studio/guides/signing/api-signing
 ---
 
-## Hva betyr API-basert signering?
+## Hva er API-basert signering?
 
-{{% insert "content/altinn-studio/guides/development/signing/api-signing/intro.nb.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/signing/api-signing/intro.nb.md" %}}
 
 ## Avhengigheter
 
-Dersom appen skal kunne sende signeringskvittering til innboksen til den som signerer så må oppsett for bruk av meldingstjenesten i Altinn være satt opp.
+Hvis appen skal sende signeringskvittering til innboksen til den som signerer, må meldingstjenesten i Altinn være satt opp.
 
-## Oppsett av signering
+## Sette opp signering
 
-Oppsett av signering kan gjøres ved hjelp av de andre guidene som du finner [her](/nb/altinn-studio/v8/guides/development/signing/).
+Du setter opp signering ved hjelp av de andre veiledningene du finner [her](/nb/altinn-studio/v10/develop-a-service/signing/).
 API-basert signering har samme krav til oppsett, bortsett fra at layout-set for signeringssteget kan gjøres enklere.
 
 ## De sentrale API-kallene
 
 ### Utføre enkeltsignering
-Dersom kun én person skal signere i et signeringssteg så kan man benytte "process next"-endepunktet:
+Hvis bare én person skal signere i et signeringssteg, kan du bruke «process next»-endepunktet:
 
 `PUT /{org}/{app}/instances/{instanceOwnerPartyId}/{instanceGuid}/process/next`
-  
+
 Body:
 ```json
 {
@@ -35,12 +35,12 @@ Body:
 }
 ```
 
-Da vil prosessen automatisk gå videre etter at signaturen er lagret.
-Ved bruk av dette endepunktet må man ha flere signeringssteg dersom flere skal signere.
+Da går prosessen automatisk videre etter at signaturen er lagret.
+Hvis du bruker dette endepunktet, må du ha flere signeringssteg hvis flere skal signere.
 
 ### Utføre parallellsignering
 
-Dersom man ønsker at flere skal kunne signere i parallell, så må man benytte følgende endepunkt i stedet for "process next":
+Hvis du vil at flere skal signere parallelt, må du bruke følgende endepunkt i stedet for «process next»:
 
 `POST /{org}/{app}/instances/{instanceOwnerPartyId}/{instanceGuid}/actions`
 
@@ -51,16 +51,16 @@ Body:
 }
 ```
 
-Da blir prosessen fremdeles stående i signeringssteget, og flere kan eventuelt signere før prosessen dras videre med et "process next"-kall.
+Da blir prosessen stående i signeringssteget, og flere kan signere før prosessen dras videre med et «process next»-kall.
 
 ### Informasjon om signatarer og signaturer
 
-Dersom [brukerstyrt signering](/nb/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/) er satt opp, kan følgende endepunkt brukes for å hente ut en liste med signatarer og deres signeringsstatus.
-Endepunktet kan også brukes selv om man ikke benytter brukerstyrt signering, men da vil kun signatarer som allerede har signert listes ut. Det fungerer da som en signaturliste.
+Hvis [brukerstyrt signering](/nb/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/) er satt opp, kan du bruke følgende endepunkt for å hente ut en liste med signatarer og deres signeringsstatus.
+Du kan også bruke endepunktet selv om du ikke bruker brukerstyrt signering, men da listes bare signatarer som allerede har signert ut. Det fungerer da som en signaturliste.
 
 `GET /{org}/{app}/instances/{instanceOwnerPartyId}/{instanceGuid}/signing`
 
-Eksempel på respons før signering er utført, hvor en person og en virksomhet skal signere:
+Eksempel på respons før signering er utført, der en person og en virksomhet skal signere:
 ```json
 {
   "signeeStates": [
@@ -84,7 +84,7 @@ Eksempel på respons før signering er utført, hvor en person og en virksomhet 
 }
 ```
 
-Etter signering, hvor personen Bøylehest Matt har signert på vegne av seg selv, og personen Fisk Kunstig har signert på venge av organisasjonen Lydig Vennlig Katt Kjerne:
+Etter signering, der personen Bøylehest Matt har signert på vegne av seg selv, og personen Fisk Kunstig har signert på vegne av organisasjonen Lydig Vennlig Katt Kjerne:
 ```json
 {
   "signeeStates": [

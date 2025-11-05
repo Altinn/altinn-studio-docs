@@ -2,48 +2,48 @@
 title: Brukerstyrt signering
 linktitle: Brukerstyrt signering
 description: Slik setter du opp brukerstyrt signering i tjenesten din.
-tags: [signering]
+tags: [signering, needsReview, translate]
 weight: 50
 aliases:
   - /nb/altinn-studio/guides/signing/runtime-delegated-signing
 ---
 
-{{% insert "content/altinn-studio/guides/development/restricted-data/shared/style.css.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/restricted-data/shared/style.css.md" %}}
 
 {{%notice info%}}
 Tilgjengelig fra [v8.6.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.6.0)
 {{%/notice%}}
 
-## Hva betyr brukerstyrt signering?
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/intro.nb.md" %}}
+## Hva er brukerstyrt signering?
+{{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/intro.nb.md" %}}
 
 ## Avhengigheter
 
 ### Maskinporten
-Maskinporten kreves av både [meldingstjenesten](#meldingstjenesten) og for interaksjon med [beskyttede data](/nb/altinn-studio/v8/guides/development/restricted-data/).
+Maskinporten kreves av både [meldingstjenesten](#meldingstjenesten) og for interaksjon med [beskyttede data](/nb/altinn-studio/v10/develop-a-service/restricted-data/).
 
-Hvis du trenger hjelp med oppsett av Maskinporten i din app, finner du all informasjonen du trenger i [denne guiden](/nb/altinn-studio/v8/guides/integration/maskinporten/).
+Hvis du trenger hjelp med oppsett av Maskinporten i appen din, finner du all informasjonen du trenger i [denne veiledningen](/nb/altinn-studio/v10/develop-a-service/integrate-with-external-services/maskinporten/).
 
 ### Meldingstjenesten
-Brukerstyrt signering avhenger av Meldingstjenesten (Correspondence) i Altinn, som krever et separat oppsett.
+Brukerstyrt signering avhenger av meldingstjenesten (Correspondence) i Altinn, som krever et separat oppsett.
 
-Meldingstjenesten brukes for å gi beskjed til de som skal signere om at de må signere et skjema i Altinn, og for å sende en kvittering til innboksen deres når de har signert.
+Meldingstjenesten brukes til å gi beskjed til de som skal signere om at de må signere et skjema i Altinn, og til å sende en kvittering til innboksen deres når de har signert.
 
 [Slik kommer du i gang med meldingstjenesten](/nb/correspondence/getting-started/).
 
 ## Eksempel på konfigurasjon
-I dette [repoet](https://altinn.studio/repos/ttd/signering-brukerstyrt) ligger det et eksempel på en app som har brukerstyrt signering.
+I dette [repositoriet](https://altinn.studio/repos/ttd/signering-brukerstyrt) ligger et eksempel på en app som har brukerstyrt signering.
 
 Flyten i appen er slik:
 
-1. Den som fyller ut skjemaet oppgir fødselsnummer og etternavn, eller eventuelt organisasjonsnummer hvis den som skal signere representerer en virksomhet.
-2. Når skjemaet er ferdig utfylt, klikker den som fyller ut på "Til signering". Det beveger prosessen til neste steg, som er signeringssteget.
-3. Når signeringssteget blir startet, kaller appen opp en implementering av grensesnittet `ISigneeProvider` for å finne ut hvem som må få tillatelse til å signere.
-4. De som skal signere får delegert de rettighetene de trenger, og de blir varslet om at de har en signeringsoppgave.
-5. Skjemaet de skal signere kommer i innboksen slik at de kan åpne det, se over informasjonen og signere.
-6. Innsenderen signerer også, hvis appen er satt opp til det, og deretter blir skjemaet sendt inn.
+1. Den som fyller ut skjemaet oppgir fødselsnummer og etternavn, eller organisasjonsnummer hvis den som skal signere representerer en virksomhet.
+2. Når skjemaet er ferdig utfylt, klikker utfyller på **Til signering**. Det flytter prosessen til neste steg, som er signeringssteget.
+3. Når signeringssteget starter, kaller appen opp en implementering av grensesnittet `ISigneeProvider` for å finne ut hvem som må få tillatelse til å signere.
+4. De som skal signere får delegert rettighetene de trenger, og de blir varslet om at de har en signeringsoppgave.
+5. Skjemaet de skal signere kommer i innboksen, slik at de kan åpne det, se over informasjonen og signere.
+6. Innsenderen signerer også, hvis appen er satt opp til det, og deretter sendes skjemaet inn.
 
-**Merk:** Vi støtter ikke automatisk innsending enda.
+**Merk:** Vi støtter ikke automatisk innsending ennå.
 
 Følg trinnene under for å sette opp en slik app.
 
@@ -52,11 +52,11 @@ Følg trinnene under for å sette opp en slik app.
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Manuelt oppsett">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/add-process-task.nb.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/backend-manual/add-process-task.nb.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/add-process-task.nb.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/studio/add-process-task.nb.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}
@@ -66,39 +66,38 @@ Følg trinnene under for å sette opp en slik app.
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Manuelt oppsett">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/configure-layouts.nb.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/backend-manual/configure-layouts.nb.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/configure-layouts.nb.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/studio/configure-layouts.nb.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}
 
 ## 3. Valgfritt - Egendefinert validering
 
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/custom-validation.nb.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/backend-manual/custom-validation.nb.md" %}}
 
 ## 4. Oppgi hvem som skal signere
 
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Manuelt oppsett">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/signee-provider.nb.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/backend-manual/signee-provider.nb.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/signee-provider.nb.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/studio/signee-provider.nb.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}
 
 ## 5. Valgfritt - Legg til tekstressurser
 
-Denne seksjonen er kun relevant for deg dersom du ønsker å endre på standardtekstene i kommunikasjon med signatarer - de 
-som skal signere.
+Denne seksjonen er bare relevant hvis du vil endre standardtekstene i kommunikasjon med signatarer – de som skal signere.
 
-Standardverdiene som brukes dersom kommunikasjonstekstene ikke overstyres er som følger:
+Standardverdiene som brukes hvis kommunikasjonstekstene ikke overstyres er som følger:
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Standardtekster bokmål">}}
@@ -145,27 +144,24 @@ Standardverdiene som brukes dersom kommunikasjonstekstene ikke overstyres er som
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Manual setup">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/setup-text-resources.nb.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/backend-manual/setup-text-resources.nb.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/setup-text-resources.nb.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/studio/setup-text-resources.nb.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}
 
-## 6. Valgfritt - skreddersy hvordan signatarene varsles
+## 6. Valgfritt - Tilpasse hvordan signatarene varsles
 
-Legg merke til at `CommunicationConfig` er valgfritt. Her kan du overstyre standardtekster brukt i kommunikasjon med signatarene,
-som beskrevet i forrige punkt. Du kan også overstyre e-post adresse og telefonnummer for signatarene. 
+`CommunicationConfig` er valgfritt. Her kan du overstyre standardtekstene som brukes i kommunikasjon med signatarene, som beskrevet i forrige punkt. Du kan også overstyre e-postadresse og telefonnummer for signatarene.
 
 {{% notice info %}}
-Dersom ikke overstyrt, vil en
-melding sendes til signatarenes Altinn-innboks med en lenke til den relevante applikasjons­instansen, og en notifikasjon vil bli
-sendt via e-post.
+Hvis ikke overstyrt, sendes en melding til signatarenes Altinn-innboks med en lenke til den relevante applikasjonsinstansen, og en notifikasjon sendes via e-post.
 {{% /notice %}}
 
-Om ikke overstyrt, vil e-postadressene og telefonnumrene populeres som beskrevet i [Recipient lookup](/nb/notifications/explanation/recipient-lookup/) og [Address lookup](/nb/notifications/explanation/address-lookup/).
+Hvis ikke overstyrt, hentes e-postadressene og telefonnumrene som beskrevet i [Recipient lookup](/nb/notifications/explanation/recipient-lookup/) og [Address lookup](/nb/notifications/explanation/address-lookup/).
 
 Dette er de mulige overstyringskonfigurasjonene for kommunikasjon med signatarer:
 
@@ -189,14 +185,14 @@ Dette er de mulige overstyringskonfigurasjonene for kommunikasjon med signatarer
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Manuelt oppsett">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/communication-config.nb.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/backend-manual/communication-config.nb.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/communication-config.nb.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/studio/communication-config.nb.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}
 
 ## 7. Test brukerstyrt signering
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/test.nb.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/test.nb.md" %}}

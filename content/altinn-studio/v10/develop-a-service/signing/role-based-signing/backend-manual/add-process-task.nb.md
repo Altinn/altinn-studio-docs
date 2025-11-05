@@ -76,4 +76,4 @@ Vi anbefaler å sette opp [databeskyttelse](/nb/altinn-studio/guides/development
 #### Tilgangsstyring
 Gi `read`, `write` og eventuelt `sign` til den som fyller ut skjemaet. Andre som skal signere må også få `read` og `write`.
 
-Mer informasjon om action attributter finner du [her](/nb/altinn-studio/reference/configuration/authorization/#action-attributter).
+Mer informasjon om action attributter finner du [her](/nb/altinn-studio/v10/develop-a-service/reference/configuration/authorization/#action-attributter).

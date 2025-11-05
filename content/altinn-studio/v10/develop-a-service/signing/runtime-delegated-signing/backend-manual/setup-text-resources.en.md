@@ -5,7 +5,7 @@ hidden: true
 
 If you wish to override the standard texts:
 
-Add a [text resource file](/en/altinn-studio/v8/reference/ux/texts/) under 'App/config/texts' for each language you want to support.
+Add a [text resource file](/en/altinn-studio/v10/reference/ux/texts/) under 'App/config/texts' for each language you want to support.
 
 Here you define text resources to be used in communication with the user.
 
@@ -20,7 +20,7 @@ Please note that the text resources related to the [correspondence](#corresponde
 This placeholder will be replaced with a link to the form instance, which is crucial in order for the user to access the correct form.
 {{% /notice %}}
 
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/setup-text-resources-code-01.en.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/backend-manual/setup-text-resources-code-01.en.md" %}}
 
 Overriding the receipt is not possible on the signee level, but generally for all signees. Here the key of the text 
 resources must match the following keys in order to take effect.
@@ -29,4 +29,4 @@ resources must match the following keys in order to take effect.
 `signing.correspondence_receipt_summary` - summary
 `signing.correspondence_receipt_body` - content
 
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/setup-text-resources-code-02.en.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/backend-manual/setup-text-resources-code-02.en.md" %}}

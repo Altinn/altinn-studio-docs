@@ -1,8 +1,9 @@
 ---
 headless: true
 hidden: true
+tags: [needsReview, translate]
 ---
 
 {{%notice info%}}
-Signering er kun tilgjengelig for brukere og systembrukere. Andre parter, som f.eks. tjenesteeiere, kan ikke signere.
+Kun brukere og systembrukere kan signere. Andre parter, som tjenesteeiere, kan ikke signere.
 {{%/notice%}}

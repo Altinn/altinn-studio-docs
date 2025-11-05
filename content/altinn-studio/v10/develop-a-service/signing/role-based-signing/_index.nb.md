@@ -1,40 +1,40 @@
----
+]---
 title: Rolle- og tilgangspakkebasert signering
 linktitle: Rolle/tilgangspakke
-description: Følg disse stegene for å implementere rolle- og tilgangspakkebasert signering i din tjeneste.
-tags: [rollebasert, signering]
+description: Slik implementerer du rolle- og tilgangspakkebasert signering i tjenesten din.
+tags: [rollebasert, signering, needsReview, translate]
 weight: 51
 aliases:
 - /nb/altinn-studio/guides/signing/role-based-signing
 ---
 
-{{% insert "content/altinn-studio/guides/development/restricted-data/shared/style.css.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/restricted-data/shared/style.css.md" %}}
 
-## Hva betyr rolle- og tilgangspakkebasert signering?
-{{% insert "content/altinn-studio/guides/development/signing/role-based-signing/intro.nb.md" %}}
+## Hva er rolle- og tilgangspakkebasert signering?
+{{% insert "content/altinn-studio/v10/develop-a-service/signing/role-based-signing/intro.nb.md" %}}
 
 ## Avhengigheter
 
 ### Maskinporten
-Maskinporten er kreves hvis du ønsker å bruke [meldingstjenesten](#meldingstjenesten) og/eller legge [tilgangs­begrensninger](/nb/altinn-studio/v8/guides/development/restricted-data/) på signaturobjektene.
+Maskinporten kreves hvis du vil bruke [meldingstjenesten](#meldingstjenesten) og/eller legge [tilgangsbegrensninger](/nb/altinn-studio/v10/develop-a-service/restricted-data/) på signaturobjektene.
 
-Hvis du trenger hjelp med oppsett av Maskinporten i din app, finner du all informasjonen du trenger i [denne guiden](/nb/altinn-studio/v8/guides/integration/maskinporten/).
+Hvis du trenger hjelp med oppsett av Maskinporten i appen din, finner du all informasjonen du trenger i [denne veiledningen](/nb/altinn-studio/v10/develop-a-service/integrate-with-external-services/maskinporten/).
 
 ### Meldingstjenesten
-Hvis appen din er [konfigurert til å sende signaturkvitteringer](#utvid-app-prosessen-med-et-signeringssteg), må Altinns meldings­tjeneste (Correspondence) være aktivert.
+Hvis appen din er [konfigurert til å sende signaturkvitteringer](#legg-til-signeringsoppgave), må Altinns meldingstjeneste (Correspondence) være aktivert.
 
 [Slik kommer du i gang med meldingstjenesten](/nb/correspondence/getting-started/).
 
-## 1. Legg til en signeringsoppgave i appens prosess, med tilhørende konfigurasjon {#utvid-app-prosessen-med-et-signeringssteg}
+## 1. Legg til en signeringsoppgave i appens prosess, med tilhørende konfigurasjon {#legg-til-signeringsoppgave}
 
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Manual setup">}}
-{{% insert "content/altinn-studio/guides/development/signing/role-based-signing/backend-manual/add-process-task.nb.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/signing/role-based-signing/backend-manual/add-process-task.nb.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/signing/role-based-signing/studio/add-process-task.nb.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/signing/role-based-signing/studio/add-process-task.nb.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}
@@ -44,11 +44,11 @@ Hvis appen din er [konfigurert til å sende signaturkvitteringer](#utvid-app-pro
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Manual setup">}}
-{{% insert "content/altinn-studio/guides/development/signing/role-based-signing/backend-manual/configure-layouts.nb.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/signing/role-based-signing/backend-manual/configure-layouts.nb.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/signing/role-based-signing/studio/configure-layouts.nb.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/signing/role-based-signing/studio/configure-layouts.nb.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}

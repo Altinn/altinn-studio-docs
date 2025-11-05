@@ -1,7 +1,8 @@
 ---
 headless: true
 hidden: true
+tags: [needsReview, translate]
 ---
 
-> Dette steget må gjøres manuelt. Støtte for konfigurasjon i Altinn Studio kommer senere.
-> Se "Manuelt oppsett"-fanen for denne seksjonen for veiledning.
+> Dette steget må du gjøre manuelt. Støtte for konfigurasjon i Altinn Studio kommer senere.
+> Se fanen **Manuelt oppsett** for veiledning.

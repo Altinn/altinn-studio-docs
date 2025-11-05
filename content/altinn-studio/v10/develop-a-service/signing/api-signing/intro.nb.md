@@ -1,5 +1,6 @@
 ---
 hidden: true
+tags: [needsReview, translate]
 ---
 
-Det er mulig å bruke signeringsfunksjonaliteten via API-kall, uten å bruke Altinn sitt brukergrensesnitt.
+Du kan bruke signeringsfunksjonaliteten via API-kall, uten å bruke Altinns brukergrensesnitt.
