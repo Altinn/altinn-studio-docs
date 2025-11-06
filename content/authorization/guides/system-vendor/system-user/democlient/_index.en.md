@@ -15,12 +15,6 @@ Try the solution at [smartcloudaltinn.azurewebsites.net](http://smartcloudaltinn
 
 When testing system user creation you can rely on Tenor test users and organisations.
 
-## Prerequisites
-
-- System provider registered in Maskinporten (order via servicedesk@digdir.no).
-- System provider registered in Altinn (via the system vendor API).
-- Integration registered in Maskinporten’s TT02 environment.
-
 ## Test the system user flow in TT02
 
 The reference implementation is written in C# and runs as a console application. It:
@@ -39,17 +33,18 @@ Follow the guide for [setting up a Maskinporten client](/en/authorization/gettin
 {{< /stepcard >}}
 
 {{< stepcard step="2" title="Register the system in Altinn" >}}
-Register the system in the system register with the correct client ID and required resources or access packages. See the guide [Registering a system](/en/authorization/guides/system-vendor/system-user/systemregistration/) for details.
+Register the system in the system register with the correct client ID and required resources or access packages. See the guide [Registering a system](/en/authorization/guides/system-vendor/system-user/systemregistration/) for details.  
+Set `isVisible: true` during registration so the system appears as an option in step 3.
 {{< /stepcard >}}
 
-{{< stepcard step="3" title="Approve the request in Altinn" >}}
-Have a test user sign in at [tt02.altinn.no](https://tt02.altinn.no) with the Access Manager role for the test organisation and open [authfront/ui/auth/creation](https://authn.ui.tt02.altinn.no/authfront/ui/auth/creation).
+{{< stepcard step="3" title="User-driven creation in Altinn" >}}
+Have a test user sign in at [tt02.altinn.no](https://tt02.altinn.no) with the Access Manager role for the test organisation and open [API and system access](https://am.ui.tt02.altinn.no/accessmanagement/ui/systemuser/overview).
 
-![Select system in Altinn](delegering1.png)
+![Select the system you want to provision](delegering1.png)
 
-![Approve creation of system user with specified rights](delegering2.png)
+![Approve system access with the specified rights](delegering2.png)
 
-![Overview of system users in the test organisation](delegering3.png)
+![Overview of system accesses for the test organisation](delegering3.png)
 {{< /stepcard >}}
 
 {{< stepcard step="4" title="Configure the test application" >}}

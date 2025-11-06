@@ -15,12 +15,6 @@ Du kan teste løsningen på [smartcloudaltinn.azurewebsites.net](http://smartclo
 
 Når du tester opprettelse av systembruker, kan du bruke testbrukere og -organisasjoner fra Tenor.
 
-## Forutsetninger
-
-- Systemtilbyder registrert i Maskinporten (bestilles via servicedesk@digdir.no).
-- Systemtilbyder registrert i Altinn (opprettes via API for systemleverandør).
-- Systemintegrasjon registrert i Maskinporten testmiljø (TT02).
-
 ## Test systembruker i TT02
 
 Referanseimplementasjonen er skrevet i C# og kan kjøres som en konsollapplikasjon. Den:
@@ -39,17 +33,18 @@ Følg veiledningen for å [sette opp Maskinporten-klient](/nb/authorization/gett
 {{< /stepcard >}}
 
 {{< stepcard step="2" title="Registrer systemet i Altinn" >}}
-Registrer systemet i systemregisteret med korrekt klient-ID og kobling til nødvendige ressurser og tilgangspakker. Se veiledningen [Registrering av system](/nb/authorization/guides/system-vendor/system-user/systemregistration/) for detaljer.
+Registrer systemet i systemregisteret med korrekt klient-ID og kobling til nødvendige ressurser og tilgangspakker. Se veiledningen [Registrering av system](/nb/authorization/guides/system-vendor/system-user/systemregistration/) for detaljer.  
+Sett `isvisible: true` under opprettelsen slik at systemet kan velges under steg 3
 {{< /stepcard >}}
 
-{{< stepcard step="3" title="Godkjenn opprettelse i Altinn" >}}
-La en testbruker logge inn på [tt02.altinn.no](https://tt02.altinn.no) med tilgangsstyrer-rollen for testorganisasjonen og gå til [authfront/ui/auth/creation](https://authn.ui.tt02.altinn.no/authfront/ui/auth/creation).
+{{< stepcard step="3" title="Brukerstyrt opprettelse i Altinn" >}}
+La en testbruker logge inn på [tt02.altinn.no](https://tt02.altinn.no) med tilgangsstyrer-rollen for testorganisasjonen og gå til [API- og systemtilganger](https://am.ui.tt02.altinn.no/accessmanagement/ui/systemuser/overview).
 
-![Velg system i Altinn](delegering1.png)
+![Velg fagsystemet du ønkser det skal opprettes systemtilgang for](delegering1.png)
 
-![Godkjenn opprettelse av systembruker med angitte rettigheter](delegering2.png)
+![Godkjenn opprettelse av systemtilgang med angitte rettigheter](delegering2.png)
 
-![Oversikt over systembrukere i testorganisasjonen](delegering3.png)
+![Oversikt over systemtilganger i testorganisasjonen](delegering3.png)
 {{< /stepcard >}}
 
 {{< stepcard step="4" title="Konfigurer testapplikasjonen" >}}
