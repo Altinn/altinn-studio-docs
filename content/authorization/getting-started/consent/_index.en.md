@@ -41,8 +41,8 @@ Document:
 - who to contact to obtain access
   {{< /stepcard >}}
 
-{{< stepcard step="5" title="Validate consent" >}}
-The consent token is a thick token that contains everything you need to validate the consent. Validation can therefore be performed without calling Altinn Authorization. See the [validation guidance](/en/authorization/guides/resource-owner/consent/#validate-consent) for details.
+{{< stepcard step="6" title="Validate consent" >}}
+The consent token is a thick token that contains everything you need to validate the consent. Validation can therefore be performed without calling Altinn Authorization. See the [validation guidance](/en/authorization/guides/resource-owner/consent/#validate-consents) for details.
 {{< /stepcard >}}
 
 ## Data Consumer / End-User System
