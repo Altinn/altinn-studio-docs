@@ -55,7 +55,10 @@ Fill in the [registration form for end-user system vendors](https://forms.office
 - altinn:authentication/systemuser.request.write
 - altinn:authentication/systemregister.write
 
-<!-- altinn:clientdelegations.read for client delegation API -->
+If the enduser system will use client delegations API
+
+- altinn:clientdelegations.read
+- altinn:clientdelegations.write
 
 {{< /stepcard >}}
 

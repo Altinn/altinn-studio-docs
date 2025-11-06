@@ -57,7 +57,10 @@ Ved å fylle ut [Registreringsskjema for sluttbrukersystemleverandør](https://f
 - altinn:authentication/systemuser.request.write
 - altinn:authentication/systemregister.write
 
-<!-- altinn:clientdelegations.read for klientdelegering api -->
+Dersom sluttbrukersystemet skal gjøre klientdelegering via API
+
+- altinn:clientdelegations.read
+- altinn:clientdelegations.write
 
 {{< /stepcard >}}
 {{< stepcard step="3" title="Registrere system i systemregisteret" >}}
