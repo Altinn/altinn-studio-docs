@@ -34,13 +34,13 @@ Følg veiledningen for å [sette opp Maskinporten-klient](/nb/authorization/gett
 
 {{< stepcard step="2" title="Registrer systemet i Altinn" >}}
 Registrer systemet i systemregisteret med korrekt klient-ID og kobling til nødvendige ressurser og tilgangspakker. Se veiledningen [Registrering av system](/nb/authorization/guides/system-vendor/system-user/systemregistration/) for detaljer.  
-Sett `isvisible: true` under opprettelsen slik at systemet kan velges under steg 3
+Sett `isVisible: true` under opprettelsen slik at systemet kan velges under steg 3
 {{< /stepcard >}}
 
 {{< stepcard step="3" title="Brukerstyrt opprettelse i Altinn" >}}
 La en testbruker logge inn på [tt02.altinn.no](https://tt02.altinn.no) med tilgangsstyrer-rollen for testorganisasjonen og gå til [API- og systemtilganger](https://am.ui.tt02.altinn.no/accessmanagement/ui/systemuser/overview).
 
-![Velg fagsystemet du ønkser det skal opprettes systemtilgang for](delegering1.png)
+![Velg fagsystemet du ønsker det skal opprettes systemtilgang for](delegering1.png)
 
 ![Godkjenn opprettelse av systemtilgang med angitte rettigheter](delegering2.png)
 

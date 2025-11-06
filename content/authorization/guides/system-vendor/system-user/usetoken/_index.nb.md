@@ -21,9 +21,9 @@ Altinn Autorisasjon-->>API: AuthorizationResponse
 API-->>Sluttbrukersystem: API Resultat
 {{< /mermaid >}}
 
-## Be om sysetmbrukertoken (JWT Grant)
+## Be om systembrukertoken (JWT Grant)
 
-OAuth2 Rich Authorization Requests (RAR)-utvidelsen brukes til å be om sysetmbrukertoken. Altinn definerer typen **urn:altinn:systemuser** for dette formålet.
+OAuth2 Rich Authorization Requests (RAR)-utvidelsen brukes til å be om systembrukertoken. Altinn definerer typen **urn:altinn:systemuser** for dette formålet.
 
 Leverandøren ber om token for en bestemt kunde ved å oppgi kundens organisasjonsnummer.  
 Viktig at organisjasjonsnummer oppgis etter følgende standard:

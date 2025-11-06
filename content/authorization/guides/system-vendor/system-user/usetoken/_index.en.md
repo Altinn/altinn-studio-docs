@@ -35,7 +35,7 @@ It is important that the organization number is provided according to the follow
     }
 ```
 
-If a valid System USer exists in Altinn, a Maskinporten token is issued that contains the system user's identifier.
+If a valid System User exists in Altinn, a Maskinporten token is issued that contains the system user's identifier.
 
 ```http
 POST https://test.maskinporten.no/token

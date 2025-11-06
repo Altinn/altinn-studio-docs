@@ -33,9 +33,9 @@ The Resource Registry stores the description of the authorisation resource and i
 For services that run outside Altinn you must call Altinn Authorization for access decisions. See [the resource owner guides](../../guides/resource-owner/) for implementation details.
 {{< /stepcard >}}
 
-## End-user system vendor
+## System vendor
 
-{{< stepcard step="2" title="Maskinporten onboarding" >}}
+{{< stepcard step="1" title="Maskinporten onboarding" >}}
 System users build on Maskinporten, which lets the service owner secure authentication and manage access to the service through scopes. The Maskinporten token also carries the system-user information used when Altinn Authorization evaluates access.
 
 You need a Norwegian organisation number to get access to Maskinporten. See [Maskinporten](https://www.digdir.no/felleslosninger/maskinporten/869) for details.
@@ -46,7 +46,7 @@ By signing the [terms of use for Maskinporten and ID-porten](https://samarbeid.d
 2. Create a Maskinporten client. You can do this in Samarbeidsportalen or via the API. Creating a client requires that the Maskinporten connection is in place. See the [Maskinporten client guide](https://docs.altinn.studio/nb/correspondence/getting-started/developer-guides/maskinporten/).
    {{< /stepcard >}}
 
-{{< stepcard step="2" title="Gain access to the system-user APIs" >}}
+{{< stepcard step="2" title="Gain access to the System User APIs" >}}
 By signing the [terms of use for Altinn](https://samarbeid.digdir.no/altinn/bruksvilkar-sluttbrukersystemleverandorer-i-altinn/3002) you gain access to both the test and production environments.
 
 Fill in the [registration form for end-user system vendors](https://forms.office.com/Pages/ResponsePage.aspx?id=D1aOAK8I7EygVrNUR1A5kcdP2Xp78HZOttvolvmHfSJUOFFBMThaOTI1UlVEVU9VM0FaTVZLMzg0Vi4u) and tick off for system user to receive the required scopes:

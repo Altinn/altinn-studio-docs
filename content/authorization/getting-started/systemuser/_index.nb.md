@@ -15,8 +15,8 @@ Under følger en overordnet sjekkliste over de nødvendige stegene du må gå gj
 Tjenesteeier utvikler og dokumenterer tjenste som skal bruke Altinn Autorisasjon for tilgangskontroll
 {{< /stepcard >}}
 {{< stepcard step="2" title="Maskinporten og scopes" >}}
-Systemembruker bygger videre på [Maskinporten](https://samarbeid.digdir.no/maskinporten/dette-er-maskinporten/96) som lar tjenesteeier sikre autensitet og tilgang til tjenesten gjennom scopes.
-Maskinporten token brukes som informasjonsbærer for sytembruker informasjon, som gjør at tjenesteeier kan utføre tilangskontroll mot Altinn Autorisasjon.
+Systembruker bygger videre på [Maskinporten](https://samarbeid.digdir.no/maskinporten/dette-er-maskinporten/96) som lar tjenesteeier sikre autentisitet og tilgang til tjenesten gjennom scopes.
+Maskinporten token brukes som informasjonsbærer for Systembruker-informasjon, som gjør at tjenesteeier kan utføre tilangskontroll mot Altinn Autorisasjon.
 
 Det vil derfor være behov for at tjenesten støtter Maskinporten samt at det er satt minimum ett scopes på tjenesten.
 
@@ -35,7 +35,7 @@ For tjenester som kjøres utenfor Altinn må du gjøre autorisasjonsoppslag mot 
 
 ## Sluttbrukersystemleverandør
 
-{{< stepcard step="2" title="Maskinporten onboarding" >}}
+{{< stepcard step="1" title="Maskinporten onboarding" >}}
 Systemembruker bygger videre på Maskinporten som lar tjenesteeier sikre autensitet og tilgang til tjenesten gjennom scopes.
 Maskinporten token brukes som informasjonsbærer for sytembruker informasjon, som gjør at tjenesteeier kan utføre tilangskontroll mot Altinn Autorisasjon
 
@@ -82,7 +82,7 @@ En systembruker defineres ved at sluttbrukersystemleverandøren angir hvilke til
 Hvilke tilgangspakker som er mulig å velge er angitt av tilgangspakkene som systemet ble konfigurert med ved registrering av systemet i systemregisteret.
 For å vite hvilke tilgangspakker en systembruker skal ha, må du som systemleverandør vite hvilke tjenester dine brukere trenger for å utføre ulike arbeidsoppgaver.
 
-Under [Guider](./../../guides/system-vendor/system-user/) kan du lese hvordan du setter opp systembruker for forkjellige frormål
+Se [guider](/nb/authorization/guides/system-vendor/system-user/) for hvordan du setter opp systembruker for forkjellige formål.
 {{< /stepcard >}}
 {{< stepcard step="6" title="Oppkobling og bruk av tjenesteeiers tjenester" >}}
 
