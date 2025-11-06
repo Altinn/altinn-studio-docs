@@ -33,39 +33,33 @@ Kildekode og dokumentasjon: [TheTechArch/altinn-systemuser](https://github.com/T
 ### Steg-for-steg: konfigurer og kjør referanseimplementasjonen
 
 Repositoryet inneholder nødvendige testsertifikat. Følg stegene under for å sette opp en egen integrasjon:
-{.floating-bullet-numbers-sibling-ol}
 
-1. Logg inn på [Maskinportens onboarding-løsning](https://onboarding.test.maskinporten.no/) med en testidentitet som er daglig leder i en testvirksomhet.
+{{< stepcard step="1" title="Opprett integrasjon i Maskinporten" >}}
+Følg veiledningen for å [sette opp Maskinporten-klient](/nb/authorization/getting-started/maskinportenclient/). Sørg for å notere klient-ID, scopes og laste ned nøkkelmaterialet når integrasjonen er opprettet.
+{{< /stepcard >}}
 
-   ![Onboarding](onboarding1.png "Forenklet onboarding")
+{{< stepcard step="2" title="Registrer systemet i Altinn" >}}
+Registrer systemet i systemregisteret med korrekt klient-ID og kobling til nødvendige ressurser og tilgangspakker. Se veiledningen [Registrering av system](/nb/authorization/guides/system-vendor/system-user/systemregistration/) for detaljer.
+{{< /stepcard >}}
 
-   ![Onboarding](onboarding2.png "Velg virksomhet")
+{{< stepcard step="3" title="Godkjenn opprettelse i Altinn" >}}
+La en testbruker logge inn på [tt02.altinn.no](https://tt02.altinn.no) med tilgangsstyrer-rollen for testorganisasjonen og gå til [authfront/ui/auth/creation](https://authn.ui.tt02.altinn.no/authfront/ui/auth/creation).
 
-   ![Onboarding](onboarding3.png "Oversikt over integrasjoner i Maskinporten – legg til ny")
+![Velg system i Altinn](delegering1.png)
 
-   ![Onboarding](onboarding4.png "Opprett integrasjon og søk etter nødvendig scope")
+![Godkjenn opprettelse av systembruker med angitte rettigheter](delegering2.png)
 
-   ![Onboarding](onboarding5.png "Legg til eventuelle ekstra scope og beskriv integrasjonen")
+![Oversikt over systembrukere i testorganisasjonen](delegering3.png)
+{{< /stepcard >}}
 
-   ![Onboarding](onboarding6.png "Last ned genererte nøkler")
+{{< stepcard step="4" title="Konfigurer testapplikasjonen" >}}
+Sett opp nøkkel, sertifikat, klient-ID og scope i testapplikasjonen før du kjører den.
 
-   ![Onboarding](onboarding7.png "Integrasjon opprettet")
+```csharp
+string clientID = "7ee41fce-9f6e-4c32-8195-0fe2c1517f43";
+string scope = "altinn:systembruker.demo";
+string systemUserOrg = "210493352";
+string pemCertificatePath = @".\mp-key.pem";
+```
 
-2. Registrer systemet i systemregisteret med korrekt klient-ID og kobling til nødvendige ressurser og tilgangspakker.
-
-3. Logg inn med en testbruker på [tt02.altinn.no](https://tt02.altinn.no). Brukeren må ha tilgangsstyrer-rollen for en testorganisasjon og gå til [https://authn.ui.tt02.altinn.no/authfront/ui/auth/creation](https://authn.ui.tt02.altinn.no/authfront/ui/auth/creation).
-
-   ![Onboarding](delegering1.png "Velg system")
-
-   ![Onboarding](delegering2.png "Godkjenn opprettelse av systembruker med rettighetene som er angitt")
-
-   ![Onboarding](delegering3.png "Oversikt over systembrukere for testorganisasjonen")
-
-4. Konfigurer nøkkel, sertifikat, klient-ID og scope i testapplikasjonen før du kjører den.
-
-   ```csharp
-   string clientID = "7ee41fce-9f6e-4c32-8195-0fe2c1517f43";
-   string scope = "altinn:systembruker.demo";
-   string systemUserOrg = "210493352";
-   string pemCertificatePath = @".\mp-key.pem";
-   ```
+{{< /stepcard >}}

@@ -33,38 +33,32 @@ Source code and documentation: [TheTechArch/altinn-systemuser](https://github.co
 ### Step-by-step: configure and run the reference implementation
 
 The repository contains the test certificate you need. Follow these steps to set up your own integration:
-{.floating-bullet-numbers-sibling-ol}
 
-1. Sign in to [Maskinporten onboarding](https://onboarding.test.maskinporten.no/) with a test identity that represents the CEO of a test company.
+{{< stepcard step="1" title="Provision the integration in Maskinporten" >}}
+Follow the guide for [setting up a Maskinporten client](/en/authorization/getting-started/maskinportenclient/). Make sure you capture the client ID, scopes, and key material when the integration is created.
+{{< /stepcard >}}
 
-   ![Onboarding](onboarding1.png "Simplified onboarding")
+{{< stepcard step="2" title="Register the system in Altinn" >}}
+Register the system in the system register with the correct client ID and required resources or access packages. See the guide [Registering a system](/en/authorization/guides/system-vendor/system-user/systemregistration/) for details.
+{{< /stepcard >}}
 
-   ![Onboarding](onboarding2.png "Select entity")
+{{< stepcard step="3" title="Approve the request in Altinn" >}}
+Have a test user sign in at [tt02.altinn.no](https://tt02.altinn.no) with the Access Manager role for the test organisation and open [authfront/ui/auth/creation](https://authn.ui.tt02.altinn.no/authfront/ui/auth/creation).
 
-   ![Onboarding](onboarding3.png "Overview of integrations in Maskinporten – add a new one")
+![Select system in Altinn](delegering1.png)
 
-   ![Onboarding](onboarding4.png "Create integration, search for required scope")
+![Approve creation of system user with specified rights](delegering2.png)
 
-   ![Onboarding](onboarding5.png "Add any additional scope and describe the integration")
+![Overview of system users in the test organisation](delegering3.png)
+{{< /stepcard >}}
 
-   ![Onboarding](onboarding6.png "Download generated keys")
+{{< stepcard step="4" title="Configure the test application" >}}
+Set up key, certificate, client ID, and scope in the test application before running it.
 
-   ![Onboarding](onboarding7.png "Integration created")
-
-2. Register the system in the system register with the correct client ID and the required resources/access packages.
-
-3. Sign in with a test user at [tt02.altinn.no](https://tt02.altinn.no). The user must hold the Access Manager role in Altinn for a test organisation and open [https://authn.ui.tt02.altinn.no/authfront/ui/auth/creation](https://authn.ui.tt02.altinn.no/authfront/ui/auth/creation).
-
-   ![Onboarding](delegering1.png "Select system")
-
-   ![Onboarding](delegering2.png "Approve creation of the system user with the specified rights")
-
-   ![Onboarding](delegering3.png "Overview of system users for the test organisation")
-
-4. Configure key, certificate, client ID and scope in the test application before running it.
-   ```csharp
-   string clientID = "7ee41fce-9f6e-4c32-8195-0fe2c1517f43";
-   string scope = "altinn:systembruker.demo";
-   string systemUserOrg = "210493352";
-   string pemCertificatePath = @".\mp-key.pem";
-   ```
+```csharp
+string clientID = "7ee41fce-9f6e-4c32-8195-0fe2c1517f43";
+string scope = "altinn:systembruker.demo";
+string systemUserOrg = "210493352";
+string pemCertificatePath = @".\mp-key.pem";
+```
+{{< /stepcard >}}
