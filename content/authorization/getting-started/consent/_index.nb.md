@@ -24,6 +24,7 @@ Denne delen beskriver hva tjenesteeier må gjøre for å tilgjengeliggjøre data
 
 {{< stepcard step="3" title="Opprett samtykkeressurs i ressursregisteret" >}}  
  Ressursregisteret inneholder beskrivelse av autorisasjonsressursen samt tilgangsregler for denne. Sørg for å informere de som skal bruke tjenesten om nødvendige tilgangspakker (og eventuelle enkeltrettigheter) som kreves for å ta den i bruk.
+Under [guider](/nb/authorization/guides/resource-owner/consent/#opprett-ny-samtykkeressurs) kan du lese mer om de forskjellige feltene som må fylles ut
 {{< /stepcard >}}
 
 {{< stepcard step="4" title="Tilgangslister" >}}  
@@ -47,6 +48,7 @@ Beskrivelse av tilgangslister og hvordan disse brukes finner du [her](/nb/author
 
 {{< stepcard step="5" title="Valider samtykke" >}}
 Samtykketokenet er et tykt token som inneholder all informasjon du trenger for å validere samtykket. Dette betyr at all validering kan gjøres uten oppslag mot Altinn Autorisasjon.
+Beskrivelse av validering finnes [her](nb/authorization/guides/resource-owner/consent/#validering-av-samtykker)
 {{< /stepcard >}}
 
 ## Datakonsument/Sluttbrukersystem
