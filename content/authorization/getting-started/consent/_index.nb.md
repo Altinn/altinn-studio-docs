@@ -32,7 +32,7 @@ Under [guider](/nb/authorization/guides/resource-owner/consent/#opprett-ny-samty
 
 ![Flytdiagram som viser når flyten kan avbrytes av tilgangslister og scopes](samtykkeflyt_tilgang.png)
 
-Datakonumenter som ikke er ført opp på tilgangslisten vil ikke kunne opprette samtykkeforespørsel. Dette vil gjøre at flyten avsluttes før sluttbrukeren ev blir bedt om samtykke.
+Datakonumenter som ikke er ført opp på tilgangslisten vil ikke kunne opprette samtykkeforespørsel. Dette vil gjøre at flyten avsluttes før sluttbrukeren blir bedt om samtykke.
 
 Beskrivelse av tilgangslister og hvordan disse brukes finner du [her](/nb/authorization/guides/resource-owner/manage-accesslists-resource-admin/).
 
