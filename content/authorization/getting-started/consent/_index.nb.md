@@ -57,9 +57,8 @@ Denne delen beskriver hva datakonsumenten må gjøre for å ta i bruk samtykketj
 
 {{< stepcard step="1" title="Datakonsumenten må ha registrert en Maskinporten-klient" >}}
 
-- Maskinporten er en av grunnsteinene systembrukeren bygger videre på.
-- Maskinporten sikrer autentisitet og lar tjenesteeier gjøre grovkornet tilgangsstyring gjennom scopes.
-- Maskinporten-tokenet fungerer som informasjonsbærer for samtykket og gjør at tjenesteeier kan gjennomføre autorisasjon basert på innholdet i tokenet.
+Samtykketoken bygger videre på Maskinporten som lar tjenesteeier sikre autensitet og tilgang til tjenesten gjennom scopes.
+Maskinporten token brukes som informasjonsbærer for sytembruker informasjon, som gjør at tjenesteeier kan utføre tilangskontroll mot Altinn Autorisasjon
 
 For å kunne få tilgang til Maskinporten må du ha norsk organisasjonsnummer. For mer informasjon, se [Maskinporten](https://www.digdir.no/felleslosninger/maskinporten/869).
 
