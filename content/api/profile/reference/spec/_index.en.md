@@ -4,6 +4,6 @@ linktitle: API specification
 type: openapi
 spec: "/swagger/altinn-platform-profile-v1.json"
 tags: [swagger, openapi]
-weight: 50
+weight: 60
 ---
 
