@@ -11,31 +11,33 @@ Under følger en overordnet sjekkliste over de nødvendige stegene du må gå gj
 
 ## Tjenesteeier
 
-{{< expandsmall header="1 Lag tjeneste" id="lag_tjeneste">}}
+{{< stepcard step="1" title="Utvikle tjeneste">}}
+Tjenesteeier utvikler og dokumenterer tjenste som skal bruke Altinn Autorisasjon for tilgangskontroll
+{{< /stepcard >}}
+{{< stepcard step="2" title="Maskinporten og scopes" >}}
+Systemembruker bygger videre på [Maskinporten](https://samarbeid.digdir.no/maskinporten/dette-er-maskinporten/96) som lar tjenesteeier sikre autensitet og tilgang til tjenesten gjennom scopes.
+Maskinporten token brukes som informasjonsbærer for sytembruker informasjon, som gjør at tjenesteeier kan utføre tilangskontroll mot Altinn Autorisasjon.
 
-{{< /expandsmall >}}
-{{< expandsmall header="2 Velg autentisering" id="velg_autentisering">}}
-Maskinporten er en av grunnstenene systembruker bygger videre på.
-Maskinporten sikrer autentisitet og lar tjenesteeier gjøre en grovkornet tilgangsstyring gjennom scopes.
-Maskinporten-token brukes også som informasjonsbærer for systembruker-informasjon, som gjør at tjenesteeier kan utføre tilgangskontroll mot Altinn Autorisasjon.
+Det vil derfor være behov for at tjenesten støtter Maskinporten samt at det er satt minimum ett scopes på tjenesten.
 
-Maskinporten-tokenet med systembrukerinformasjon inneholder ingen informasjon som peker tilbake på sluttbrukere. Dersom det er behov for å se hvem som har utført en operasjon (sluttbruker), må ID-porten benyttes som autentiseringsmetode på tjenesten.
+Følg fremgangsmåten på [Samarbeidsportalen](https://samarbeid.digdir.no/maskinporten/tilbydar/141) for å etablere støtte for Maskinporten
 
-{{< /expandsmall >}}
-{{< expandsmall header="3 Registrer ressurs" id="registrere_ressurs">}}
-Ressursregisteret inneholder beskrivelse av autorisasjonsressursen, samt tilgangsregler for denne. Sørg for å informere de som skal benytte tjenesten om nødvendige tilgangspakker (og eventuelle enkeltrettigheter) som kreves for å benytte tjenesten.
+> Maskinporten-tokenet med systembrukerinformasjon inneholder ingen informasjon som peker tilbake på sluttbrukere. Dersom det er behov for å se hvem som har utført en operasjon (sluttbruker), må ID-porten benyttes som autentiseringsmetode på tjenesten.
 
-{{< /expandsmall >}}
-{{< expandsmall header="4 Integrer mot Altinn Autorisasjon" id="integrer_autorisasjon">}}
-For tjenester som kjøres utenfor Altinn må du gjøre autorisasjonsoppslag mot Altinn Autorisasjon. Hvordan dette gjøres kan du lese mer om [her](../../guides/resource-owner/).
-{{< /expandsmall >}}
+{{< /stepcard >}}
+{{< stepcard step="3" title="Registrer ressurs" >}}
+Ressursregisteret inneholder beskrivelse av autorisasjonsressursen, samt tilgangsregler for denne. Sørg for å informere de som skal benytte tjenesten om nødvendige tilgangspakker (og eventuelle enkeltrettigheter) som kreves for å benytte tjenesten.  
+Veiledning for opprettelse av ressurs finnes [her](/nb/authorization/guides/resource-owner/create-resource-resource-admin/)
+{{< /stepcard >}}
+{{< stepcard step="4" title="Integrer mot Altinn Autorisasjon" >}}
+For tjenester som kjøres utenfor Altinn må du gjøre autorisasjonsoppslag mot Altinn Autorisasjon. Hvordan dette gjøres kan du lese mer om [her](/nb/authorization/guides/resource-owner/).
+{{< /stepcard >}}
 
 ## Sluttbrukersystemleverandør
 
-{{< expandsmall header="Maskinporten onboarding" id="maskinporten_onboarding">}}
-Maskinporten er en av grunnstenene systembruker bygger videre på.
-Maskinporten sikrer autensitet og lar tjensteier gjøre en grovkornet tilgangsstyring gjennom scopes
-Maskinporten token brukes også som informasjonsbærer for sytembruker informasjon, som gjør at tjenesteeier kan utføre tilangskontroll mot Altinn Autorisasjon
+{{< stepcard step="2" title="Maskinporten onboarding" >}}
+Systemembruker bygger videre på Maskinporten som lar tjenesteeier sikre autensitet og tilgang til tjenesten gjennom scopes.
+Maskinporten token brukes som informasjonsbærer for sytembruker informasjon, som gjør at tjenesteeier kan utføre tilangskontroll mot Altinn Autorisasjon
 
 For å kunne få tilgang til Maskinporten må du ha norsk organisasjonsnummer. For mer informasjon, se [Maskinporten](https://www.digdir.no/felleslosninger/maskinporten/869).
 
@@ -44,12 +46,10 @@ Gjennom signering av [bruksvilkår for Maskinporten og ID-porten](https://samarb
 1. Oppkobling mot Maskinporten.  
    Følg fremgangsmåten for å koble opp til [Maskinporten](https://samarbeid.digdir.no/maskinporten/ta-i-bruk-maskinporten/97)
 2. Opprette en Maskinporten-klient.  
-   En Maskinporten-klient kan opprettes enten i Samarbeidsportalen eller ved bruk av API. Opprettelse av en Maskinporten-klient forutsetter oppkobling til Maskinporten. For mer informasjon, se [Maskinporten-klient](https://docs.altinn.studio/nb/correspondence/getting-started/developer-guides/maskinporten/).
-
-{{< /expandsmall >}}
-{{< expandsmall header="Få tilgang til systembruker-API" id="oppkobling_til_altinn">}}
-
-Gjennom signering av [bruksvilkår](https://samarbeid.digdir.no/altinn/bruksvilkar-sluttbrukersystemleverandorer-i-altinn/3002) for Altinn får man tilgang til både testmiljø og produksjonsmiljø hos Digdir.
+    En Maskinporten-klient kan opprettes enten i Samarbeidsportalen eller ved bruk av API. Opprettelse av en Maskinporten-klient forutsetter oppkobling til Maskinporten. For mer informasjon, se [Maskinporten-klient](https://docs.altinn.studio/nb/correspondence/getting-started/developer-guides/maskinporten/).
+   {{< /stepcard >}}
+   {{< stepcard step="2" title="Få tilgang til systembruker-API" >}}
+   Gjennom signering av [bruksvilkår](https://samarbeid.digdir.no/altinn/bruksvilkar-sluttbrukersystemleverandorer-i-altinn/3002) for Altinn får man tilgang til både testmiljø og produksjonsmiljø hos Digdir.
 
 Ved å fylle ut [Registreringsskjema for sluttbrukersystemleverandør](https://forms.office.com/Pages/ResponsePage.aspx?id=D1aOAK8I7EygVrNUR1A5kcdP2Xp78HZOttvolvmHfSJUOFFBMThaOTI1UlVEVU9VM0FaTVZLMzg0Vi4u) og krysse av for systembruker får du tilgang til nødvendige scopes for systembruker:
 
@@ -59,9 +59,8 @@ Ved å fylle ut [Registreringsskjema for sluttbrukersystemleverandør](https://f
 
 <!-- altinn:clientdelegations.read for klientdelegering api -->
 
-{{< /expandsmall >}}
-{{< expandsmall header="Registrere system i systemregisteret" id="registrere_system_i_systemregisteret">}}
-
+{{< /stepcard >}}
+{{< stepcard step="3" title="Registrere system i systemregisteret" >}}
 For å ta i bruk tjenester fra sluttbrukersystemet, må systemet registreres i Altinn sitt systemregister.
 
 Dette kan gjøres via [API](https://docs.altinn.studio/nb/api/authentication/systemuserapi/systemregister/create/). Systemet må knyttes til Maskinporten-klienten opprettet i steg 3.
@@ -70,13 +69,13 @@ Hvilke tilgangspakker og/eller enkelttjenester som systemet må ha avhenger av d
 
 > Dagens roller i Altinn skal erstattes av tilgangspakker. For mer informasjon se [tilgangspakker](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/).
 
-{{< /expandsmall >}}
-{{< expandsmall header="Be om tilgang til tjenesteeiers tjenester" id="be_om_tilgang_til_tjenesteeiers_tjenester">}}
+{{< /stepcard >}}
+{{< stepcard step="4" title="Be om tilgang til tjenesteeiers tjenester" >}}
 Tjenesteeier bestemmer selv hvilke scopes som benyttes for tilgangskontroll mot sine tjenester.
 Dette er ikke de samme scopene som benyttes for systembruker, og de må tildeles av tjenesteeier for tjenesten du skal benytte.
 For å finne ut hvilke scopes du må be om, se tjenesteeiers dokumentasjon eller ta kontakt med tjenesteeier.
-{{< /expandsmall >}}
-{{< expandsmall header="Tilpasse systemet for kundene" id="tilpasse_systemet_for_kundene">}}
+{{< /stepcard >}}
+{{< stepcard step="5" title="Tilpasse systemet for kundene" >}}
 Erfaringsmessig tar dette punktet noe tid, da det krever involvering av brukere. Vi oppfordrer derfor alle til å sette av nok tid til gjennomføringen av dette punktet.
 
 En systembruker defineres ved at sluttbrukersystemleverandøren angir hvilke tilgangspakker den skal gi tilgang til.
@@ -84,7 +83,7 @@ Hvilke tilgangspakker som er mulig å velge er angitt av tilgangspakkene som sys
 For å vite hvilke tilgangspakker en systembruker skal ha, må du som systemleverandør vite hvilke tjenester dine brukere trenger for å utføre ulike arbeidsoppgaver.
 
 Under [Guider](./../../guides/system-vendor/system-user/) kan du lese hvordan du setter opp systembruker for forkjellige frormål
-{{< /expandsmall >}}
-{{< expandsmall header="Oppkobling og bruk av tjenesteeiers tjenester" id="oppkobling_og_bruk_av_tjenesteeiers_tjenester">}}
+{{< /stepcard >}}
+{{< stepcard step="6" title="Oppkobling og bruk av tjenesteeiers tjenester" >}}
 
-{{< /expandsmall >}}
+{{< /stepcard >}}
