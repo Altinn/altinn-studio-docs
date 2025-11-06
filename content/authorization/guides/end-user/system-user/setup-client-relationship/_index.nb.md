@@ -16,7 +16,7 @@ Dette gjelder tilfeller der det ikke finnes et etablert klientforhold i Brønnø
 
 ### Prosess i Altinn-portalen
 
-1. Logg på som daglig leder i virksomheten som skal legges til som kunde i systemtilgang for kunder. I dette eksempelet er klienten (Klientkunde AS)
+1. Logg på som daglig leder i virksomheten som skal legges til som kunde i systemtilgang for kunder. I dette eksempelet bruker vi Klientkunde AS som klient.
 2. Gå til **Brukere** i menyen, hvis du ikke allerede er på denne siden.
    ![virksomhetsdelegering 1](virksomhetsdelegering1.png)
 3. Trykk på **+ Ny bruker** for å etablere et klientforhold.
