@@ -1,30 +1,41 @@
 ---
 title: Bruk av Systembruker
-description: Denne veiledningen beskriver hvordan du bruker en systembruker etter at den er opprettet.
+description: Denne veiledningen beskriver hvordan systembruker brukes etter at den er opprettet.
 linktitle: Bruk av Systembruker
 weight: 5
 ---
 
-### Forespørsel (JWT Grant)
+**Målgruppe:** Utviklere og systemintegratorer som allerede har opprettet en Systembruker og skal ta den i bruk i egne løsninger.
 
-Funksjonaliteten bygger på OAuth2-utvidelsen for fin-granulert autorisasjon (Rich Authorization Requests, RAR). Vi har definert en ny type: **urn:altinn:systemuser** for systembruker-mønsteret.
-
-Leverandøren ber om et token for en spesifikk kunde ved å oppgi kundens organisasjonsnummer. Hvis det finnes en systembruker-delegering i Altinn, returneres et Maskinporten-token med systembruker-identifikator.
-API-tilbyderen kan deretter bruke dette tokenet til å sende forespørsler til Altinn Autorisasjon PDP for å avgjøre hvilke handlinger leverandørens system er autorisert til å utføre.
+Bruken av Systembruker mot tjensester foregår på følgende måte:
 
 {{<mermaid>}}
 sequenceDiagram
 Sluttbrukersystem->>+Maskinporten: Forespørre token(client_id, systemUserOrgNo)
 Maskinporten->>Altinn Autorisasjon: GetSystemUser(client_id, systemUserOrgNo)
-Altinn Autorisasjon-->>Maskinporten: Systembrukerinformasjon
-Maskinporten-->>Sluttbrukersystem: Systembruker-token
+Altinn Autorisasjon-->>Maskinporten: systembrukerinformasjon
+Maskinporten-->>Sluttbrukersystem: systembruker-token
 Sluttbrukersystem->>API: API-kall m/systembrukertoken
 API->>Altinn Autorisasjon: Authorize(systemUserId, res, action, part)
 Altinn Autorisasjon-->>API: AuthorizationResponse
 API-->>Sluttbrukersystem: API Resultat
 {{< /mermaid >}}
 
-Et fagsystem ber om å få systembruker-token på vegne av en part ved å inkludere en RAR-forespørsel av type urn:altinn:systemuser med partens organisasjonsnummer, i [JWT-grantet](https://docs.digdir.no/docs/Maskinporten/maskinporten_protocol_jwtgrant)
+## Be om sysetmbrukertoken (JWT Grant)
+
+OAuth2 Rich Authorization Requests (RAR)-utvidelsen brukes til å be om sysetmbrukertoken. Altinn definerer typen **urn:altinn:systemuser** for dette formålet.
+
+Leverandøren ber om token for en bestemt kunde ved å oppgi kundens organisasjonsnummer.  
+Viktig at organisjasjonsnummer oppgis etter følgende standard:
+
+```
+"systemuser_org" : {
+      "authority" : "iso6523-actorid-upis",
+      "ID" : "0192:123456789"
+    }
+```
+
+Finnes det en gyldig systemtilgang i Altinn, utstedes et Maskinporten-token som inneholder systembrukerens identifikator.
 
 ```http
 POST https://test.maskinporten.no/token
@@ -59,10 +70,10 @@ Content-Type: application/json
 ```
 
 {{%notice info%}}
-**MERK:** Du kan kun forespørre én part om gangen. Grantet må alltid inkludere ett eller flere OAuth2-scopes.
+Du kan kun forespørre én kunde om gangen. Grantet må alltid inkludere ett eller flere OAuth2-scopes.
 {{% /notice%}}
 
-### Response (JWT Token)
+## Tokeninnhold
 
 Tokenet inneholder en liste med systembrukere som tilhører kundens organisasjonsnummer. Disse er knyttet til leverandørens fagsystem via det autentiserte fagsystemet (client_id):
 
@@ -95,5 +106,7 @@ Tokenet inneholder en liste med systembrukere som tilhører kundens organisasjon
 ```
 
 {{%notice info%}}
-**Merk:** Tokenet fra Maskinporten skal brukes som Bearer-token i API-kallene.
+Tokenet fra Maskinporten skal brukes som Bearer-token i API-kallene.
 {{% /notice%}}
+
+Tjenesteeier bruker deretter tokenet mot Altinn Autorisasjon (PDP) for å avgjøre hvilke operasjoner systemet er autorisert til å utføre.

@@ -1,30 +1,41 @@
 ---
 title: Using System User
-description: This guide describes how to use a system user after it has been created.
+description: Guidance for system vendors on how to use a System User after it has been created.
 linktitle: Using System User
 weight: 5
 ---
 
-### Request (JWT Grant)
+**Audience:** Developers and system integrators who already have a system access and need to use it in their solutions.
 
-The functionality is based on the OAuth2 extension for fine-grained authorization (Rich Authorization Requests, RAR). We have defined a new type: **urn:altinn:systemuser** for the system user pattern.
-
-The provider requests a token for a specific customer by providing the customer's organization number. If there is a system user delegation in Altinn, a Maskinporten token with a system user identifier is returned. 
-The API provider can then use this token to send requests to Altinn Authorization PDP to determine which actions the provider's system is authorized to perform.
+The use of System User towards services occurs in the following way:
 
 {{<mermaid>}}
 sequenceDiagram
-Sluttbrukersystem->>+Maskinporten: Forespørre token(client_id, systemUserOrgNo)
-Maskinporten->>Altinn Autorisasjon: GetSystemUser(client_id, systemUserOrgNo)
-Altinn Autorisasjon-->>Maskinporten: Systembrukerinformasjon
-Maskinporten-->>Sluttbrukersystem: Systembruker-token
-Sluttbrukersystem->>API: API-kall m/systembrukertoken
-API->>Altinn Autorisasjon: Authorize(systemUserId, res, action, part)
-Altinn Autorisasjon-->>API: AuthorizationResponse
-API-->>Sluttbrukersystem: API Resultat
+EndUserSystem->>+Maskinporten: Request token (client_id, systemUserOrgNo)
+Maskinporten->>AltinnAuthorization: GetSystemUser(client_id, systemUserOrgNo)
+AltinnAuthorization-->>Maskinporten: SystemUser details
+Maskinporten-->>EndUserSystem: SystemUser token
+EndUserSystem->>API: API request with SystemUser token
+API->>AltinnAuthorization: Authorize(systemUserId, resource, action, party)
+AltinnAuthorization-->>API: AuthorizationResponse
+API-->>EndUserSystem: API result
 {{< /mermaid >}}
 
-A business system requests a system user token on behalf of a party by including a RAR request of type urn:altinn:systemuser with the party's organization number, in [JWT-grant](https://docs.digdir.no/docs/Maskinporten/maskinporten_protocol_jwtgrant)
+## Request system access token (JWT Grant)
+
+The OAuth2 Rich Authorization Requests (RAR) extension is used to request a system access token. Altinn defines the type **urn:altinn:systemuser** for this purpose.
+
+The vendor requests a token for a specific customer by providing the customer's organization number.  
+It is important that the organization number is provided according to the following standard:
+
+```
+"systemuser_org" : {
+      "authority" : "iso6523-actorid-upis",
+      "ID" : "0192:123456789"
+    }
+```
+
+If a valid System USer exists in Altinn, a Maskinporten token is issued that contains the system user's identifier.
 
 ```http
 POST https://test.maskinporten.no/token
@@ -59,12 +70,12 @@ Content-Type: application/json
 ```
 
 {{%notice info%}}
-**NOTE:** You can only request one party at a time. The grant must always include one or more OAuth2 scopes.
+You can only request one organisation per grant. Include at least one OAuth2 scope.
 {{% /notice%}}
 
-### Response (JWT Token)
+## Token contents
 
-The token contains a list of system users belonging to the customer's organization number. These are linked to the provider's business system via the authenticated business system (client_id):
+The token returns all System Users that the customer has granted to the authenticated system. They are linked to the system through the `client_id`.
 
 ```json
 {
@@ -95,13 +106,7 @@ The token contains a list of system users belonging to the customer's organizati
 ```
 
 {{%notice info%}}
-**Note:** The token from Maskinporten must be used as a Bearer token in API calls.
+Use the Maskinporten token as a Bearer token in API calls to both the API provider and Altinn Authorization.
 {{% /notice%}}
 
-### Demo Client
-
-For a demonstration of vendor-controlled creation, see our demo client [SmartCloud](http://smartcloudaltinn.azurewebsites.net).
-
-Source code with documentation can be found [here](https://github.com/TheTechArch/altinn-systemuser).
-
-For creating system users; test users and organizations from Tenor can be used.
+The service owner then uses the token against Altinn Authorization (PDP) to determine which operations the system is authorized to perform.
