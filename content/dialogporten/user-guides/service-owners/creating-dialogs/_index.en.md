@@ -47,10 +47,10 @@ There a two optional dates that may be set on a dialog that controls visibility 
 Inaccessible dialogs will at this time _not_ be sanized from the database, but this may change in the future where Dialogporten remove long since expired dialogs for privacy and system efficiency reasons.
 {{</notice>}}
 
-- `visibleAt` defines a future timestamp that when reached, renders the dialog accessible in the end-user API. Prior to this time, the dialog will not be accessible.
+- `visibleFrom` defines a future timestamp that when reached, renders the dialog accessible in the end-user API. Prior to this time, the dialog will not be accessible.
 
 {{<notice warning>}}
-Due to a [known limitation](https://github.com/Altinn/dialogporten/issues/110), events associated with dialog creates/updates will _not_ consider `visibleAt`. This means that whenever a dialog is created with a future `visibleAt` date, the event will be produced immediately, but will not allow the end-user to access the dialog.
+Due to a [known limitation](https://github.com/Altinn/dialogporten/issues/110), events associated with dialog creates/updates will _not_ consider `visibleFrom`. This means that whenever a dialog is created with a future `visibleFrom` date, the event will be produced immediately, but will not allow the end-user to access the dialog.
 {{</notice>}}
 
 ### Supplying a due date

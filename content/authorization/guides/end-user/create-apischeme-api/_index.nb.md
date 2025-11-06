@@ -1,38 +1,38 @@
 ---
-title: Create and Publish Delegable API Scheme
+title: Opprette og publisere delegerbar API Scheme
 linktitle: API Scheme via API
-description: This guide explains how to create and publish API Scheme via API.
+description: Denne guiden forklarer hvordan du kan opprette og publisere API Scheme via API.
 toc: false
 ---
 
-Via the Resource Registry API, it is possible to register delegable API resources.
+Via ressursregisterets API er det mulig å registrere delegerbare API-ressurser.
 
-## Prerequisites
+## Forutsetninger
 
-- The organization must have a client in Maskinporten.
-- The organization must have received the scopes `altinn:resourceregistry/resource.write` and `altinn:resourceregistry/resource.read`.
-- The organization must have received the scope `altinn:maskinporten/delegationschemes.write`.
-- The organization must have created a Maskinporten client configured with these scopes.
+- Organisasjonen må ha en klient i Maskinporten.
+- Organisasjonen må ha fått scopene `altinn:resourceregistry/resource.write` og `altinn:resourceregistry/resource.read`.
+- Organisasjonen må ha fått scopet `altinn:maskinporten/delegationschemes.write`.
+- Organisasjonen må ha opprettet en Maskinporten-klient som er konfigurert med disse scopene.
 
-## Define Resource for Delegable API Scheme
+## Definere ressurs for delegerbart API Scheme
 
-The delegable API schemes are defined in the Altinn Resource Registry as a resource according to the resource model.
+De delegerbare API-schemene defineres i Altinn Ressursregister som en ressurs etter ressursmodellen.
 
-The following attributes are necessary:
+Følgende attributter er nødvendige:
 
-| Attribute             | Description                                                                                                                                             |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| identifier            | Globally unique ID for the resource. Also used in policy. Required.                                                                                     |
-| title                 | Title for the API Scheme. Displayed in the Altinn portal when delegating. Must be provided for en, nb, and nn (English, Bokmål, and Nynorsk). Required. |
-| description           | Description for the API Scheme. Must be provided for en, nb, and nn (English, Bokmål, and Nynorsk). Required.                                           |
-| rightDescription      | Delegation description for the API Scheme. Must be provided for en, nb, and nn (English, Bokmål, and Nynorsk). Required.                                |
-| resourceReferences    | A resource reference with reference type MaskinportenScope must be added.                                                                               |
-| delegable             | Must be set to true for the scope to be delegable to a provider.                                                                                        |
-| visible               | Must be set to true for the scope to be delegable to a provider.                                                                                        |
-| hasCompetentAuthority | Defines the service owner. Must be set with the organization number and correct service owner code (NAV, SKD, SVV, etc.).                               |
-| resourceType          | Must be set to MaskinportenSchema.                                                                                                                      |
+| Attributt             | Beskrivelse                                                                                                                         |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| identifier            | Globalt unik ID for ressurs. Brukes i policy også. Påkrevd.                                                                         |
+| title                 | Tittel for API Scheme. Vises i Altinn-portalen når man delegerer. Må oppgis for en, nb og nn (engelsk, bokmål og nynorsk). Påkrevd. |
+| description           | Beskrivelse for API Scheme. Må oppgis for en, nb og nn (engelsk, bokmål og nynorsk). Påkrevd.                                       |
+| rightDescription      | Delegeringsbeskrivelse for API Scheme. Må oppgis for en, nb og nn (engelsk, bokmål og nynorsk). Påkrevd.                            |
+| resourceReferences    | Det må legges inn en resource reference med referencetype MaskinportenScope.                                                        |
+| delegable             | Må settes til true for at scope skal kunne delegeres til leverandør.                                                                |
+| visible               | Må settes til true for at scope skal kunne delegeres til leverandør.                                                                |
+| hasCompetentAuthority | Definerer tjenesteeier. Må settes med organisasjonsnummer og riktig tjenesteeierkode (NAV, SKD, SVV +++).                           |
+| resourceType          | Må settes til MaskinportenSchema.                                                                                                   |
 
-Below is an example from production of an API resource. ([See the same via API](https://platform.altinn.no/resourceregistry/api/v1/resource/maskinportenschema-aquaportalapi-write))
+Nedenfor vises et eksempel fra produksjon på en API-ressurs. ([Se samme via API](https://platform.altinn.no/resourceregistry/api/v1/resource/maskinportenschema-aquaportalapi-write))
 
 ```json
 {
@@ -86,13 +86,13 @@ Below is an example from production of an API resource. ([See the same via API](
 }
 ```
 
-## Define Policy for API Scheme
+## Definere policy for API Scheme
 
-To support delegation of the API Scheme to a provider, the API Scheme resource must have a policy describing who has the right to delegate the API Scheme to a provider.
+For å kunne støtte delegering av API Scheme til leverandør, må API Scheme-ressursen ha en policy som beskriver hvem som har rettighet til å delegere API Scheme til leverandør.
 
-The policy must have a rule granting the APIADM role the right to action scopeaccess. If the contact person for NUF should be able to delegate, the APIADMNUF role must also be added.
+Policyen må ha en regel som gir APIADM-rollen rettighet til action scopeaccess. Hvis kontaktperson for NUF skal ha mulighet til å delegere, må rollen APIADMNUF også legges til.
 
-Below is the policy for the resource example. [Download from API](https://platform.altinn.no/resourceregistry/api/v1/resource/maskinportenschema-aquaportalapi-write/policy)
+Nedenfor vises policy for ressurs-eksempelet. [Last ned fra API](https://platform.altinn.no/resourceregistry/api/v1/resource/maskinportenschema-aquaportalapi-write/policy)
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -137,11 +137,11 @@ Below is the policy for the resource example. [Download from API](https://platfo
 </xacml:Policy>
 ```
 
-### Call API with Resource and Policy
+### Kalle API med ressurs og policy
 
-When the resource and policy are defined, you can call the Resource Registry to:
+Når ressurs og policy er definert, kan man kalle ressursregisteret for:
 
-1. Create the resource.
-2. Create the policy for the resource.
+1. Opprette ressurs.
+2. Opprette policy for ressurs.
 
-To do this, you must authenticate with Maskinporten and exchange the token for an Altinn token.
+For å gjøre dette må man autentisere seg med Maskinporten og veksle token inn i et Altinn-token.

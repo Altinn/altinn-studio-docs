@@ -11,7 +11,7 @@ weight: 10
 
 Her finner du detaljerte API-operasjoner og hendelser som brukes ved filoverføring, inkludert operasjoner som initialisering av filoverføring, opplasting av filer og innhenting av filoverføringsstatus.
 
-For mer informasjon, se vår [swagger-side](/nb/api/broker/spec/) og [GitHub-repo](https://github.com/Altinn/altinn-broker), som også inneholder en Postman-samling med eksempler.
+For mer informasjon, se vår [swagger-side](/nb/api/broker/spec/) og [GitHub-repo](https://github.com/Altinn/altinn-broker), som også inneholder en Bruno-pakke med eksempler.
 
 ## Operasjon: Initialiser Filoverføring {#operation-initialize-filetransfer}
 
@@ -27,7 +27,7 @@ Denne operasjonen initialiserer en filoverføring, inkludert validering av grunn
 
 - Når fullført, blir hendelsen [filetransferinitialized](#event-filetransferinitialized) publisert til avsenderen, noe som indikerer at filoverføringen har blitt vellykket initialisert.
 
-**Eksempel**: 'Broker\Intitialize' i vår [PostMan-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json)
+**Eksempel**: 'File Transfer\Initialize' i vår [Bruno-pakke](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru)
 
 ## Operasjon: Last opp strømmet {#operation-uploadStreamed}
 
@@ -45,7 +45,7 @@ Last opp fildataene som en strøm ved hjelp av FileTransferId mottatt i Initiali
 - Når opplastingsbehandlingen har blitt vellykket fullført, blir hendelsen [published](#event-published) publisert, og filen er tilgjengelig for nedlasting.
   - Hvis skadelig programvare ble oppdaget, blir hendelsen [uploadfailed](#event-uploadfailed) i stedet publisert.
 
-**Eksempel**: 'Broker\{fileTransferId}\upload' i vår [PostMan-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json)
+**Eksempel**: 'File Transfer\{fileTransferId}\Upload' i vår [Bruno-pakke](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru)
 
 ## Operasjon: Hent Filoverføringsoversikt {#operation-get-filetransfer-overview}
 
@@ -57,7 +57,7 @@ Få en enkel oversikt over filoverføringen med gjeldende status og mottakerstat
 
 **Utløste hendelser**: ingen.
 
-**Eksempel**: 'Broker\{fileTransferId}\overview' i vår [PostMan-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json)
+**Eksempel**: 'File Transfer\{fileTransferId}\Overview' i vår [Bruno-pakke](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru)
 
 ## Operasjon: Hent Filoverføringsdetaljer {#operation-get-filetransfer-details}
 
@@ -71,7 +71,7 @@ Få en detaljert visning av filoverføringen, inkludert detaljerte filoverførin
 
 **Utløste hendelser**: ingen.
 
-**Eksempel**: 'Broker\{fileTransferId}\details' i vår [PostMan-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json)
+**Eksempel**: 'File Transfer\{fileTransferId}\Details' i vår [Bruno-pakke](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru)
 
 ## Hendelse: no.altinn.broker.filetransferinitialized {#event-filetransferinitialized}
 
