@@ -70,7 +70,7 @@ Content-Type: application/json
 ```
 
 {{%notice info%}}
-You can only request one organisation per grant. Include at least one OAuth2 scope.
+You can only request one organization per grant. Include at least one OAuth2 scope.
 {{% /notice%}}
 
 ## Token contents
