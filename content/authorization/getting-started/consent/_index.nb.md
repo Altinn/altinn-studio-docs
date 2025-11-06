@@ -46,9 +46,9 @@ Beskrivelse av tilgangslister og hvordan disse brukes finner du [her](/nb/author
 - hvem som skal kontaktes for å få tilgang.
   {{< /stepcard >}}
 
-{{< stepcard step="5" title="Valider samtykke" >}}
+{{< stepcard step="6" title="Valider samtykke" >}}
 Samtykketokenet er et tykt token som inneholder all informasjon du trenger for å validere samtykket. Dette betyr at all validering kan gjøres uten oppslag mot Altinn Autorisasjon.
-Beskrivelse av validering finnes [her](/nb/authorization/guides/resource-owner/consent/#validering-av-samtykker)
+Beskrivelse av validering finnes [her](nb/authorization/guides/resource-owner/consent/#validering-av-samtykker)
 {{< /stepcard >}}
 
 ## Datakonsument/Sluttbrukersystem
