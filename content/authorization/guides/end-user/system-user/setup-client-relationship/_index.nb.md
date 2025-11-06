@@ -7,13 +7,12 @@ weight: 2
 
 ## Klientdelegering der klientforhold ikke eksisterer fra før
 
-Dersom du trenger å delegere klienter, men det ikke finnes et eksisterende klientforhold fra før, må dette forholdet etableres før du kan fortsette med delegeringsprosessen. 
-Dette gjelder tilfeller der det ikke finnes et etablert klientforhold i Brønnøysundregistrene. Det er kundene selv som gir denne fullmakten til virksomheten som eier systembrukeren.
+Dersom du trenger å delegere klienter, men det ikke finnes et eksisterende klientforhold fra før, må dette forholdet etableres før klient kan legges på en systemtilgang for kunder. 
+Dette gjelder tilfeller der det ikke finnes et etablert klientforhold i Brønnøysundregistrene. Det er kundene selv som gir denne fullmakten til virksomheten som eier systemtilgangen.
 
 ### Forutsetninger
 
 - Du må ha tilgang til Altinn som **Klientadministrator** eller **Daglig leder**.
-- Det finnes en systemtilgang for kunder [som er godkjent](/nb/authorization/guides/end-user/system-user/accept-request/#godkjenne-systemtilgang-for-klienter).
 
 ### Prosess i Altinn-portalen
 
@@ -30,3 +29,4 @@ Dette gjelder tilfeller der det ikke finnes et etablert klientforhold i Brønnø
    ![virksomhetsdelegering 4](virksomhetsdelegering4.png)
 7. Trykk på **Gi fullmakt** på tilgangspakken Skattegrunnlag. DISKRET NÆR TIGER AS har nå fått fullmakt til tilgangspakken Skattegrunnlag. Du har nå etablert et klientforhold som kan brukes for systemtilgangen.
    ![virksomhetsdelegering 6](virksomhetsdelegering6.png)
+8. Etter at du har etablert klientforholdet gjennom disse stegene, kan Klientkunde AS [legges til i systemtilgang for kunder](/nb/authorization/guides/end-user/system-user/delegate-clients/) som er satt opp med tilgangspakken "Skattegrunnlag". 
