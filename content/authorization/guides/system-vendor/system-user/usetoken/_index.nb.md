@@ -9,7 +9,7 @@ weight: 5
 
 Funksjonaliteten bygger på OAuth2-utvidelsen for fin-granulert autorisasjon (Rich Authorization Requests, RAR). Vi har definert en ny type: **urn:altinn:systemuser** for systembruker-mønsteret.
 
-Leverandøren ber om et token for en spesifikk kunde ved å oppgi kundens organisasjonsnummer. Hvis det finnes en systembruker-delegering i Altinn, returneres et Maskinporten-token med systembruker-identifikator. 
+Leverandøren ber om et token for en spesifikk kunde ved å oppgi kundens organisasjonsnummer. Hvis det finnes en systembruker-delegering i Altinn, returneres et Maskinporten-token med systembruker-identifikator.
 API-tilbyderen kan deretter bruke dette tokenet til å sende forespørsler til Altinn Autorisasjon PDP for å avgjøre hvilke handlinger leverandørens system er autorisert til å utføre.
 
 {{<mermaid>}}
@@ -97,11 +97,3 @@ Tokenet inneholder en liste med systembrukere som tilhører kundens organisasjon
 {{%notice info%}}
 **Merk:** Tokenet fra Maskinporten skal brukes som Bearer-token i API-kallene.
 {{% /notice%}}
-
-### Demoklient
-
-For en demonstrasjon av leverandørstyrt opprettelse, se vår demoklient [SmartCloud](http://smartcloudaltinn.azurewebsites.net).
-
-Kildekode med dokumentasjon finner du [her](https://github.com/TheTechArch/altinn-systemuser).
-
-For opprettelse av systembrukere kan testbrukere og organisasjoner fra Tenor benyttes.
