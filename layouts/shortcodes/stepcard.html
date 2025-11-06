@@ -1,0 +1,6 @@
+<details class="step-card" data-step='{{ .Get "step" }}'>
+  <summary>{{ .Get "title" }}</summary>
+  <div class="step-card__content">
+    {{ .Inner | markdownify }}
+  </div>
+</details>
