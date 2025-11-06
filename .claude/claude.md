@@ -29,6 +29,7 @@ This is a Hugo-based documentation site for Altinn products like Altinn Studio, 
 - Content changes should be made in the `content/` directory
 - The site uses Hugo static site generator
 - Always test changes with `hugo server` before committing
+- **v8 to v10 Migration**: See `V8_TO_V10_MIGRATION_TODO.md` in this directory for tracking which v8 content needs to be migrated to v10. Update this file when you find v8 links that need migration.
 
 ## Standard Documentation Procedures
 
@@ -45,6 +46,7 @@ This is a Hugo-based documentation site for Altinn products like Altinn Studio, 
 - **Mouse actions**: Use "klikk" for mouse clicks
 - **Keyboard actions**: Use "trykk" for keyboard actions
 - **Selections**: Use "velg" when choosing from lists or multiple options
+- **Navigation**: Use "gå til" (not "naviger til") for instructions about navigating to different parts of the UI
 - **Lists**: Use numbered lists ONLY when users must perform tasks in a specific order. If order doesn't matter (requirements, features, options, considerations), use bullet points
 
 ### Headings in Norwegian

@@ -46,10 +46,20 @@ Funksjonalitet som gjør at elementer i et skjema kan endres basert på brukeren
 
 ## F
 
+### Filtrering
+Funksjonalitet for å fjerne eller skjule visse svaralternativer basert på betingelser eller dynamiske uttrykk.
+
+**Eksempel:** Du kan filtrere bort kommuner som ikke ligger i det valgte fylket.
+
 ### Forhåndsutfylling
 Automatisk utfylling av skjemafelt med data fra registre eller andre kilder før brukeren begynner å fylle ut.
 
 **Også kjent som:** Prefill (teknisk term)
+
+### Forhåndsvalg
+Et svaralternativ som er automatisk valgt når komponenten vises for første gang.
+
+**Eksempel:** I en liste med leveringsalternativer kan "Hjemlevering" være forhåndsvalgt.
 
 ### Frontend
 Den delen av appen som brukeren ser og samhandler med i nettleseren.
@@ -69,12 +79,21 @@ Et konkret eksempel av en app som er opprettet for en spesifikk bruker eller org
 ## K
 
 ### Kodeliste
-En liste med koder og tilhørende verdier, for eksempel landskoder eller kommunenummer.
+En liste med koder og tilhørende verdier som brukes som kilde til svaralternativer. Kan være statiske (fra JSON-fil), dynamiske (generert fra C#-kode), fra repeterende strukturer i datamodellen, eller felles standard kodelister (som land, fylker, kommuner).
+
+**Eksempel:** Du kan hente kommunekodelisten fra SSB og bruke den i en nedtrekksliste.
+
+**Se også:** Svaralternativer
 
 ## L
 
 ### Layout
 Visningen og plasseringen av komponenter på en side i appen.
+
+### Ledetekst
+Teksten som vises til brukeren for et felt, en komponent eller et svaralternativ. Også kalt "label" i kode og konfigurasjon.
+
+**Eksempel:** For et svaralternativ med verdi "NO" kan ledeteksten være "Norge".
 
 ## M
 
@@ -91,7 +110,9 @@ En oversiktsside som viser all informasjon brukeren har fylt ut før innsending.
 ## R
 
 ### Repeterende gruppe
-En gruppe felt som kan gjentas flere ganger i et skjema, for eksempel for å legge til flere familiemedlemmer.
+En gruppe felt som kan gjentas flere ganger i et skjema, for eksempel for å legge til flere familiemedlemmer. Den repeterende strukturen i datamodellen kan også brukes som kilde til svaralternativer.
+
+**Eksempel:** En repeterende gruppe med kjæledyr kan brukes som kodeliste for å velge hvilket kjæledyr som skal vaksineres.
 
 ## S
 
@@ -104,7 +125,16 @@ En app som ikke lagrer data permanent, typisk brukt for innsynstjenester.
 **Også kjent som:** Tilstandsløs app, innsynstjeneste
 
 ### Svaralternativer
-Valgmuligheter brukeren kan velge fra, for eksempel i en nedtrekksliste eller radioknapper.
+Valgmuligheter brukeren kan velge fra, for eksempel i en nedtrekksliste eller radioknapper. Kan settes direkte i komponentkonfigurasjonen eller hentes fra en kodeliste. Hvert svaralternativ består av en verdi (som lagres i datamodellen) og en ledetekst (som vises til brukeren).
+
+**Eksempel:** En nedtrekksliste med fylker har svaralternativer der hver verdi er fylkesnummeret og ledeteksten er fylkesnavnet.
+
+**Se også:** Kodeliste
+
+### Spørringsparametre
+Verdier som sendes med når appen henter en kodeliste, brukes for å filtrere eller tilpasse innholdet i kodelisten basert på kontekst eller brukerens valg.
+
+**Eksempel:** Du kan sende fylkesnummer som spørringsparameter for å få bare kommunene i det valgte fylket.
 
 ## T
 

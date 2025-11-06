@@ -44,7 +44,7 @@ Et signeringssteg kan se omtrent slik ut:
         <!-- ISigneeProvider som skal benyttes for dette signeringssteget. -->
         <altinn:signeeProviderId>signees</altinn:signeeProviderId>
 
-        <!-- Her oppgis en correspondence resource, som brukes for å si fra til signatarene -->
+        <!-- Her oppgis en meldingsressurs, som brukes for å si fra til signatarene -->
         <!-- om at de må inn og signere, samt signeringskvittering. Påkrevd. -->
         <altinn:correspondenceResource>app-correspondence-resource</altinn:correspondenceResource>
 
@@ -64,7 +64,7 @@ Et signeringssteg kan se omtrent slik ut:
 </bpmn:task>
 ```
 
-#### Konfigurere miljø-spesifikke correspondence ressurser
+#### Konfigurere miljøspesifikke meldingsressurser
 {{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/backend-manual/add-process-task-environments.nb.md" %}}
 
 #### Legg til datatyper for å lagre signeringsdata

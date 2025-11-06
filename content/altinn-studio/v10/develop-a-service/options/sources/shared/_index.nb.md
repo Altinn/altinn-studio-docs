@@ -4,14 +4,15 @@ linktitle: Felles
 description: Delte standard kodelister som kan brukes i flere applikasjoner
 toc: false
 weight: 200
+tags: [needsReview, translate]
 aliases:
   - /nb/altinn-studio/guides/development/options/common-codelists
 ---
 
 ## Hva er felles standard kodelister?
-Felles standard kodelister er lister som land, fylker, kommuner, kjønn, sivilstatus etc som man kan benytte i sin applikasjon uten at man selv trenger å vedlikeholde disse kodelistene selv.
+Felles standard kodelister er lister som land, fylker, kommuner, kjønn, sivilstatus etc som du kan bruke i applikasjonen din uten at du selv trenger å vedlikeholde disse kodelistene.
 
-Kodelistene er laget som en egen [nuget pakke](https://www.nuget.org/packages/Altinn.Codelists) man kan importere inn i sin applikasjon. Dette er gjort for å holde kjernen i en Altinn 3 applikasjon så liten som mulig og for å kunne nye release og ta i bruke nye kodelister uten å være avhengig av å måtte oppgraddere applikasjonen (utover v7.8.0).
+Kodelistene er laget som en egen [nuget-pakke](https://www.nuget.org/packages/Altinn.Codelists) som du kan importere inn i applikasjonen din. Dette er gjort for å holde kjernen i en Altinn 3-applikasjon så liten som mulig og for å kunne nye release og ta i bruk nye kodelister uten å være avhengig av å måtte oppgradere applikasjonen (utover v7.8.0).
 
 ## Tilgjengelige kodelister
 
@@ -50,7 +51,7 @@ dotnet add package Altinn.Codelists
 ```
 Dette vil legge til den nyeste stabile versjonen av pakken i løsningen din.
 
-Som et alternativ kan du redigere applikasjonens App.csproj-fil direkte ved å legge til referansen nedenfor i `<itemgroup>` der du har pakke-referanser.
+Som et alternativ kan du redigere applikasjonens App.csproj-fil direkte ved å legge til referansen nedenfor i `<itemgroup>` der du har pakke-referanser:
 ```xml
 <PackageReference Include="Altinn.Codelists" Version="8.0.1" />
 ```
@@ -103,9 +104,7 @@ Dette registrerer `ICountryClient`-grensesnittet som gir detaljert informasjon o
 
 Bruk en av kodeliste-ID-ene fra de tilgjengelige kodelistene ovenfor.
 
-Du kan gjøre dette enten ved hjelp av [Altinn Studio](https://altinn.studio) og konfigurere *Kodeliste-ID* for komponenten din i brukergrensesnittet.
-
-Eller du kan konfigurere komponenten ved å redigere egenskapen `optionsId` på komponenten i layout-filen.
+Du kan gjøre dette enten ved hjelp av [Altinn Studio](https://altinn.studio) og konfigurere *Kodeliste-ID* for komponenten din i brukergrensesnittet, eller du kan konfigurere komponenten ved å redigere egenskapen `optionsId` på komponenten i layout-filen.
 
 ## Tilpasset konfigurasjon
 Mens konfigurasjonen nevnt ovenfor der du kaller `services.AddAltinnCodelists();` vil legge til alle tilgjengelige kodelister med standardverdier, kan det være tilfeller der du ønsker å tilpasse konfigurasjonen av en kodeliste. Eksemplene under vil variere noe avhengig av kilden til kodelisten siden de ulike kildene tilbyr ulike muligheter.
@@ -151,8 +150,8 @@ services.AddSSBClassificationCodelistProvider(
     new Dictionary<string, string>() { { "level", "1" } });
 ```
 
-### Legg til en kodeliste fra SSB som ikke er tilgjengelig i `Classification`-enumen.
-For øyeblikket er bare et lite utvalg av de tilgjengelige kodelistene fra SSB inkludert i `Classification`-enumen. Enumen er egentlig bare en mer lesbar versjon av den underliggende id'en som SSB benytter. Men i vårt tilfelle fungerer den også som en måte å fortelle hvilke kodelister vi har testet eksplisitt mot. Hvis du finner en kodeliste du vil bruke, kan du spesifisere id'en direkte i stedet for enumen.
+### Legg til en kodeliste fra SSB som ikke er tilgjengelig i `Classification`-enumen
+For øyeblikket er bare et lite utvalg av de tilgjengelige kodelistene fra SSB inkludert i `Classification`-enumen. Enumen er egentlig bare en mer lesbar versjon av den underliggende id'en som SSB bruker. Men i vårt tilfelle fungerer den også som en måte å fortelle hvilke kodelister vi har testet eksplisitt mot. Hvis du finner en kodeliste du vil bruke, kan du spesifisere id-en direkte i stedet for enumen.
 
 ```csharp
    services.AddSSBClassificationCodelistProvider("næring", 6);

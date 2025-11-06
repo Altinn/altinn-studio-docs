@@ -3,20 +3,22 @@ title: Kodelister fra repeterede strukturer
 linktitle: Fra datamodellen
 description: Kodelister hentet fra en repeterende struktur i datamodellen
 weight: 150
+tags: [needsReview, translate]
 aliases:
   - /nb/altinn-studio/guides/development/options/repeating-group-codelists
 ---
 
-I den forrige seksjonen om [dynamiske kodelister](/nb/altinn-studio/v8/guides/development/options/sources/dynamic/) beskrev vi hvordan man kan skrive kode på backend for å generere dynamiske kodelister. Du kunne også sende visse verdier fra datamodellen til backend for å generere denne kodelisten (via [spørringsparametre](/nb/altinn-studio/v8/guides/development/options/sources/dynamic#spørringsparametre)). Denne fremgangsmåten skalerer dårlig når kodelisten ender opp med å endre alternativene ofte, dvs. når alternativene er funksjonelt unike for en del av dataene i datamodellen.
+Når alternativene i en kodeliste endrer seg ofte basert på data i datamodellen, har du to hovedalternativer:
 
-En annen tilnærming er å sette opp en kodeliste basert på en 'repeterende gruppe' i datamodellen. En slik repeterende struktur i datamodellen kan også representere en liste over alternativer for en nedtrekksliste, radioknapper eller avmerkingsbokser. Dette er spesielt nyttig i kombinasjon med [RepeatingGroup](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)-komponenten, da det lar brukeren legge til og fjerne elementer fra listen, og alternativene vil automatisk oppdateres.
+- **Dynamiske kodelister med spørringsparametre** (beskrevet under [Dynamiske kodelister](/nb/altinn-studio/v8/guides/development/options/sources/dynamic/)): Du skriver kode på backend for å generere kodelisten og sender verdier fra datamodellen til backend via [spørringsparametre](/nb/altinn-studio/v8/guides/development/options/sources/dynamic#spørringsparametre). Ulempen er at denne fremgangsmåten skalerer dårlig når kodelisten endrer alternativene ofte.
 
-Denne funksjonaliteten krever ikke bruk av noen `RepeatingGroup`-komponent i layout-filen, men det krever at datamodellen inneholder en repeterende struktur.
+- **Kodelister fra repeterende strukturer** (anbefalt): Du setter opp en kodeliste basert direkte på en repeterende struktur i datamodellen. Datamodellen blir da selve kilden til alternativene. Dette er spesielt nyttig i kombinasjon med [RepeatingGroup](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)-komponenten, da brukeren kan legge til og fjerne elementer fra listen, og alternativene oppdateres automatisk.
+
+Du trenger ikke en `RepeatingGroup`-komponent for å bruke denne funksjonaliteten, men datamodellen må inneholde en repeterende struktur.
 
 ### Konfigurasjon
 
-For å sette opp kodelister som hentes ut fra datamodellen brukes egenskapen `source`.
-I dette objektet definerer man feltene `group`, `label` og `value`. Eksempel:
+For å sette opp kodelister som hentes ut fra datamodellen, bruker du egenskapen `source`. I dette objektet definerer du feltene `group`, `label` og `value`. Eksempel:
 
 ```json {hl_lines=["5-9"]}
 {
@@ -33,15 +35,14 @@ I dette objektet definerer man feltene `group`, `label` og `value`. Eksempel:
 
 Forklaring:
 
-- `group` - den repeterende strukturen i datamodellen man baserer kodelisten på.
-- `label` - en referanse til en tekstnøkkel som brukes som ledetekst for hvert svaralternativ. Se mer under.
-- `value` - en referanse til det feltet i den repeterende strukturen som skal bruke som verdi, og dermed lagres når brukeren gjør et valg. Legg merke til at vi har fyllt inn `[{0}]` som vil bli erstattet med indeksen til det repeterende elementet.
+- `group` - den repeterende strukturen i datamodellen som du baserer kodelisten på.
+- `label` - en referanse til en tekstnøkkel som du bruker som ledetekst for hvert svaralternativ. Se mer under.
+- `value` - en referanse til feltet i den repeterende strukturen som du bruker som verdi, og som lagres når brukeren gjør et valg. Legg merke til at vi har fylt inn `[{0}]`, som blir erstattet med indeksen til det repeterende elementet.
 
 
-Verdien hentet ut fra `value` må være unik for hvert repeterende element. Om man ikke har et felt som er unikt per rad, anbefales det å legge på et ekstra felt i datamodellen som kan benyttes som identifikator. For eksempel en GUID eller liknende. Dersom verdien ikke er unik vil den bli filtrert bort fra alle kodelister, og antallet svaralternativer tilgjengelige for brukeren kan da være noen færre enn forventet ut fra det som ligger i datamodellen.
+Verdien hentet ut fra `value` må være unik for hvert repeterende element. Hvis du ikke har et felt som er unikt per rad, anbefaler vi at du legger på et ekstra felt i datamodellen som kan brukes som identifikator. For eksempel en GUID eller liknende. Hvis verdien ikke er unik, blir den filtrert bort fra alle kodelister, og antallet svaralternativer tilgjengelige for brukeren kan da være noen færre enn forventet ut fra det som ligger i datamodellen.
 
-For `label`-feltet må vi definere en tekstressurs som kan bli brukt som ledetekst for hvert svaralternativ.
-I eksempelet under, brukes andre verdier fra den repeterende strukturen i ledeteksten via [variabler i tekst](/nb/altinn-studio/v8/reference/ux/texts/):
+For `label`-feltet må vi definere en tekstressurs som kan bli brukt som ledetekst for hvert svaralternativ. I eksempelet under, brukes andre verdier fra den repeterende strukturen i ledeteksten via [variabler i tekst](/nb/altinn-studio/v8/reference/ux/texts/):
 
 ```json
 {

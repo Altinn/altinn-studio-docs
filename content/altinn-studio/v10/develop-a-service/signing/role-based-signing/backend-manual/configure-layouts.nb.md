@@ -84,7 +84,7 @@ Eksempel på bruk av komponentene:
 }
 ```
 
-Du kan overstyre teksten som vises når listen er tom, før noen har signert, ved å legge til en tekst for text resource nøkkel `signee_list.no_signees` i text resource filene deres.
+Du kan overstyre teksten som vises når listen er tom, før noen har signert, ved å legge til en tekst for tekstressursnøkkelen `signee_list.no_signees` i tekstressursfilene.
 ```json
 {
   "id": "signee_list.no_signees",
