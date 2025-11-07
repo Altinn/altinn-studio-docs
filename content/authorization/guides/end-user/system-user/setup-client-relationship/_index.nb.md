@@ -1,6 +1,6 @@
 ---
 title: Sette opp klientforhold
-description:
+description: Denne veiledningen viser deg hvordan sluttbruker kan gi fullmakter til fagsystem-leverandør. Dette må gjøres der klientforhold ikke eksisterer fra før for å legge til klienten i systemtilgang for kunder.
 linktitle: Sette opp klientforhold
 weight: 2
 ---
