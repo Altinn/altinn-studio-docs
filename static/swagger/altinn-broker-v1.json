@@ -92,14 +92,14 @@
             "name": "status",
             "in": "query",
             "schema": {
-              "$ref": "#/components/schemas/FileTransferStatusExt"
+              "$ref": "#/components/schemas/FileTransferStatusExtNullable"
             }
           },
           {
             "name": "recipientStatus",
             "in": "query",
             "schema": {
-              "$ref": "#/components/schemas/RecipientFileTransferStatusExt"
+              "$ref": "#/components/schemas/RecipientFileTransferStatusExtNullable"
             }
           },
           {
@@ -309,15 +309,15 @@
                   },
                   "Metadata.PropertyList": {
                     "type": "object",
-                    "additionalProperties": false,
-                    "maxProperties": 10,
-                    "nullable": true,
-                    "patternProperties": {
-                      "^.{1,50}$": {
-                        "maxLength": 300,
-                        "type": "string"
-                      }
-                    },
+                      "additionalProperties": false,
+                      "maxProperties": 10,
+                      "nullable": true,
+                      "patternProperties": {
+                        "^.{1,50}$": {
+                          "maxLength": 300,
+                          "type": "string"
+                        }
+                      },
                     "description": "User-defined properties related to the file"
                   },
                   "Metadata.Checksum": {
@@ -1160,6 +1160,21 @@
         ],
         "type": "string"
       },
+      "FileTransferStatusExtNullable": {
+        "enum": [
+          "Initialized",
+          "UploadStarted",
+          "UploadProcessing",
+          "Published",
+          "Cancelled",
+          "AllConfirmedDownloaded",
+          "Purged",
+          "Failed",
+          null
+        ],
+        "type": "string",
+        "nullable": true
+      },
       "FileTransferUploadResponseExt": {
         "type": "object",
         "properties": {
@@ -1256,6 +1271,16 @@
           "DownloadConfirmed"
         ],
         "type": "string"
+      },
+      "RecipientFileTransferStatusExtNullable": {
+        "enum": [
+          "Initialized",
+          "DownloadStarted",
+          "DownloadConfirmed",
+          null
+        ],
+        "type": "string",
+        "nullable": true
       },
       "ResourceExt": {
         "type": "object",
