@@ -29,6 +29,22 @@ This operation initializes a File Transfer, including validating basic metadata 
 
 **Example:** 'File Transfer\Initialize' in our [Bruno collection](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru)
 
+## Operation: Initialize FileTransfer {#operation-initialize-filetransfer}
+
+**Endpoint:** POST /broker/api/v1/filetransfer/upload
+
+This operation initializes a File Transfer, including validating basic metadata and authorizing if the recipient(s) specified are valid.
+
+**Request**: An instance of [FileInitializeExt](https://github.com/Altinn/altinn-broker/blob/main/src/Altinn.Broker.API/Models/FileTransferInitializeExt.cs) serialized as form-data with the file in the form field "FileTransfer".
+
+**Return**: HTTP 200 with GUID FileTransferID which is the unique ID used to identify this File Transfer.
+
+**Events triggered**:
+
+- Once completed, the event [filetransferinitialized](#event-filetransferinitialized) is published to the sender, indicating the File Transfer has been successfully initialized.
+
+**Example:** 'File Transfer\Initialize and upload (form-data)' in our [Bruno collection](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru)
+
 ## Operation: UploadStreamed {#operation-uploadStreamed}
 
 **Endpoint:** POST /broker/api/v1/filetransfer/{fileTransferId}/Upload
