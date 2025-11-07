@@ -309,7 +309,6 @@
                   },
                   "Metadata.PropertyList": {
                     "type": "object",
-                    "additionalProperties": false,
                     "maxProperties": 10,
                     "nullable": true,
                     "patternProperties": {
@@ -905,8 +904,7 @@
                 "type": "string"
               }
             },
-            "description": "User-defined properties related to the file",
-            "nullable": true
+            "description": "User-defined properties related to the file"
           },
           "checksum": {
             "type": "string",
@@ -1019,8 +1017,7 @@
                 "type": "string"
               }
             },
-            "description": "Up to ten arbitrary key value pairs",
-            "nullable": true
+            "description": "Up to ten arbitrary key value pairs"
           }
         }
       },
@@ -1383,3 +1380,4 @@
     }
   }
 }
+,
