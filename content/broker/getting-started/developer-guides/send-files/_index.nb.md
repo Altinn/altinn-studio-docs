@@ -29,9 +29,9 @@ Denne operasjonen initialiserer en filoverføring, inkludert validering av grunn
 
 **Eksempel**: 'File Transfer\Initialize' i vår [Bruno-pakke](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru)
 
-## Operation: Initialiser og last opp filoverføring {#operation-initialize-and-upload-filetransfer}
+## Operasjon: Initialiser og last opp filoverføring {#operation-initialize-and-upload-filetransfer}
 
-**Endpoint:** POST /broker/api/v1/filetransfer/upload
+**Endepunkt:** POST /broker/api/v1/filetransfer/upload
 
 Denne operasjonen initialiserer en filoverføring og laster opp filen i en og samme form-data operasjon. Merk at denne operasjonen er begrenset til 2GB filstørrelse, og ytelsen er dårligere enn om man initialiserer og laster opp i to forskjellige operasjoner via strømme-endepunktet.
 
