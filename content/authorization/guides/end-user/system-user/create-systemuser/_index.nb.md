@@ -11,7 +11,7 @@ Oppretting i Altinn-portalen gjøres kun i de tilfellene det ikke er mulig å op
 
 ## Slik oppretter du systemtilgang i Altinn-portalen
 
-1. Logg inn til Altinn portalen og åpne oversikten over systemtilganger: https://am.ui.altinn.no/accessmanagement/ui/systemuser/overview
+1. Logg inn til Altinn portalen og åpne [oversikten over systemtilganger](https://am.ui.altinn.no/accessmanagement/ui/systemuser/overview).
 ![Opprett systemtilgang 1](create-systemuser1.png)
 2. Trykk på knappen **Lag ny systemtilgang**.
 ![Opprett systemtilgang 2](create-systemuser2.png)
