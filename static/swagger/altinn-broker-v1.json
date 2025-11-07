@@ -309,6 +309,7 @@
                   },
                   "Metadata.PropertyList": {
                     "type": "object",
+                    "additionalProperties": false,
                     "maxProperties": 10,
                     "nullable": true,
                     "patternProperties": {
