@@ -29,11 +29,11 @@ This operation initializes a File Transfer, including validating basic metadata 
 
 **Example:** 'File Transfer\Initialize' in our [Bruno collection](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru)
 
-## Operation: Initialize FileTransfer {#operation-initialize-filetransfer}
+## Operation: Initialize and upload FileTransfer {#operation-initialize-and-upload-filetransfer}
 
 **Endpoint:** POST /broker/api/v1/filetransfer/upload
 
-This operation initializes a File Transfer, including validating basic metadata and authorizing if the recipient(s) specified are valid.
+This operation initializes a file transfer and uploads the file in one and the same form-data operation. Note that this operation is limited to 2GB file size, and the performance is worse than if you initialize and upload in two separate operations with the streaming endpoint.
 
 **Request**: An instance of [FileInitializeExt](https://github.com/Altinn/altinn-broker/blob/main/src/Altinn.Broker.API/Models/FileTransferInitializeExt.cs) serialized as form-data with the file in the form field "FileTransfer".
 
