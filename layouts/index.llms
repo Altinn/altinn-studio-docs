@@ -21,7 +21,11 @@ Language: {{ .Language.LanguageName }} ({{ $lang }})
 {{- end }}
 {{- range .Site.Sections }}
 {{- if and (eq .Language.Lang $lang) (not (in .File.Path "_header")) }}
+{{- if eq $lang "nb" -}}
+- [{{ .Title }}]({{ .Permalink }}index.md): {{ with .Description }}{{ . }}{{ else }}{{ .Title }} dokumentasjon{{ end }}
+{{- else -}}
 - [{{ .Title }}]({{ .Permalink }}index.md): {{ with .Description }}{{ . }}{{ else }}{{ .Title }} documentation{{ end }}
+{{- end }}
 {{- end }}
 {{- end }}
 
