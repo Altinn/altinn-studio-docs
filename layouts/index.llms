@@ -10,7 +10,6 @@
 
 > Documentation for Altinn Studio
 
-Language: {{ .Language.LanguageName }} ({{ $lang }})
 {{- end }}
 
 {{- if eq $lang "nb" }}
