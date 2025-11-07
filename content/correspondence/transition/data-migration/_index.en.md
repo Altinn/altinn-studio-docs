@@ -51,6 +51,7 @@ Eventually, as full production for all components approaches, this will be handl
 
 - Only correspondences that have not been deleted. (added to "deleted items" or permanently deleted)
 - No correspondences for dead people.
+- Both non-archived and archived correspondences.
 - Correspondence content, including text and all attachments and metadata.
 - A limited form of notification history: Time and recipient address, but not text content.
 - Change history; including opening, read confirmation, and information about forwarding and instance delegation.
