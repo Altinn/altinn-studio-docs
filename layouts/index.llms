@@ -15,9 +15,12 @@
 {{- if eq $lang "nb" }}
 
 ## Hovedseksjoner
-{{- else }}
+
+{{ else }}
+
 ## Main sections
-{{- end }}
+
+{{ end -}}
 {{- range .Site.Sections }}
 {{- if and (eq .Language.Lang $lang) (not (in .File.Path "_header")) }}
 {{- if eq $lang "nb" -}}
@@ -25,22 +28,22 @@
 {{- else -}}
 - [{{ .Title }}]({{ .Permalink }}index.md): {{ with .Description }}{{ . }}{{ else }}{{ .Title }} documentation{{ end }}
 {{- end }}
-{{- end }}
+{{ end }}
 {{- end }}
 
 {{- if eq $lang "nb" }}
 
 ## Sider
 
-{{- else }}
+{{ else }}
 
 ## Pages
 
-{{- end }}
+{{ end -}}
 {{- range .Site.Pages }}
-{{- if and (eq .Language.Lang $lang) (not .Draft) (ne .Kind "home") (or (eq .Kind "section") (and .Parent (eq .Parent.Kind "section"))) }}
+{{- if and (eq .Language.Lang $lang) (not .Draft) (ne .Kind "home") (or (eq .Kind "section") (and .Parent (eq .Parent.Kind "section"))) -}}
 - [{{ .Title }}]({{ .Permalink }}index.md){{ with .Description }}: {{ . }}{{ end }}
-{{- end }}
+{{ end }}
 {{- end }}
 
 {{- if eq $lang "nb" }}
