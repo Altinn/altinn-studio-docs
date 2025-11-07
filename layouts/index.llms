@@ -1,0 +1,59 @@
+{{- $lang := .Language.Lang -}}
+{{- if eq $lang "nb" -}}
+# Altinn Studio Dokumentasjon
+
+> Dokumentasjon for Altinn Studio
+
+{{- else -}}
+
+# Altinn Studio Documentation
+
+> Documentation for Altinn Studio
+
+Language: {{ .Language.LanguageName }} ({{ $lang }})
+{{- end }}
+
+{{- if eq $lang "nb" }}
+
+## Hovedseksjoner
+{{- else }}
+## Main sections
+{{- end }}
+{{- range .Site.Sections }}
+{{- if and (eq .Language.Lang $lang) (not (in .File.Path "_header")) }}
+- [{{ .Title }}]({{ .Permalink }}index.md): {{ with .Description }}{{ . }}{{ else }}{{ .Title }} documentation{{ end }}
+{{- end }}
+{{- end }}
+
+{{- if eq $lang "nb" }}
+
+## Sider
+
+{{- else }}
+
+## Pages
+
+{{- end }}
+{{- range .Site.Pages }}
+{{- if and (eq .Language.Lang $lang) (not .Draft) (ne .Kind "home") (or (eq .Kind "section") (and .Parent (eq .Parent.Kind "section"))) }}
+- [{{ .Title }}]({{ .Permalink }}index.md){{ with .Description }}: {{ . }}{{ end }}
+{{- end }}
+{{- end }}
+
+{{- if eq $lang "nb" }}
+
+## Valgfritt
+
+- [GitHub Repository](https://github.com/altinn/altinn-studio): Kildekode for Altinn Studio
+- [Dokumentasjonskilde](https://github.com/altinn/altinn-studio-docs): Kilde for denne dokumentasjonssiden
+- [Altinn Studio Nettside](https://altinn.studio): Hovedportal for Altinn Studio
+- [Engelsk dokumentasjon]({{ .Site.BaseURL }}en/llms.txt): Engelsk versjon av denne llms.txt
+{{- else }}
+
+## Optional
+
+- [GitHub Repository](https://github.com/altinn/altinn-studio): Source code for Altinn Studio
+- [Documentation Source](https://github.com/altinn/altinn-studio-docs): Source for this documentation site
+- [Altinn Studio Website](https://altinn.studio): Main Altinn Studio portal
+- [Norwegian Documentation]({{ .Site.BaseURL }}nb/llms.txt): Norwegian version of this llms.txt
+{{- end }}
