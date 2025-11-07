@@ -35,7 +35,7 @@ Denne operasjonen initialiserer en filoverføring, inkludert validering av grunn
 
 Denne operasjonen initialiserer en filoverføring og laster opp filen i en og samme form-data operasjon. Merk at denne operasjonen er begrenset til 2GB filstørrelse, og ytelsen er dårligere enn om man initialiserer og laster opp i to forskjellige operasjoner via strømme-endepunktet.
 
-**Request**: En instans av [FileInitializeExt](https://github.com/Altinn/altinn-broker/blob/main/src/Altinn.Broker.API/Models/FileTransferInitializeExt.cs) serialized as form-data with the file in the form field "FileTransfer".
+**Forespørsel**: En instans av [FileInitializeExt](https://github.com/Altinn/altinn-broker/blob/main/src/Altinn.Broker.API/Models/FileTransferInitializeExt.cs) serialized as form-data with the file in the form field "FileTransfer".
 
 **Return**: HTTP 200 med GUID-en FileTransferID som er den unike ID-en brukt til å identifisere denne filoverføringen.
 
