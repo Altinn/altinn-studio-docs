@@ -92,14 +92,14 @@
             "name": "status",
             "in": "query",
             "schema": {
-              "$ref": "#/components/schemas/FileTransferStatusExtNullable"
+              "$ref": "#/components/schemas/FileTransferStatusExt"
             }
           },
           {
             "name": "recipientStatus",
             "in": "query",
             "schema": {
-              "$ref": "#/components/schemas/RecipientFileTransferStatusExtNullable"
+              "$ref": "#/components/schemas/RecipientFileTransferStatusExt"
             }
           },
           {
@@ -116,6 +116,20 @@
             "schema": {
               "type": "string",
               "format": "date-time"
+            }
+          },
+          {
+            "name": "orderAscending",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/RoleExt"
             }
           }
         ],
@@ -281,7 +295,7 @@
                     "description": "Used by senders and receivers to identify specific file using external identification methods."
                   },
                   "Metadata.Sender": {
-                    "pattern": "^\\d{4}:\\d{9}$",
+                    "pattern": "^(?:\\d{4}:\\d{9}|urn:altinn:organization:identifier-no:\\d{9})$",
                     "type": "string",
                     "description": "The sender organization of the file"
                   },
@@ -295,15 +309,15 @@
                   },
                   "Metadata.PropertyList": {
                     "type": "object",
-                      "additionalProperties": false,
-                      "maxProperties": 10,
-                      "nullable": true,
-                      "patternProperties": {
-                        "^.{1,50}$": {
-                          "maxLength": 300,
-                          "type": "string"
-                        }
-                      },
+                    "additionalProperties": false,
+                    "maxProperties": 10,
+                    "nullable": true,
+                    "patternProperties": {
+                      "^.{1,50}$": {
+                        "maxLength": 300,
+                        "type": "string"
+                      }
+                    },
                     "description": "User-defined properties related to the file"
                   },
                   "Metadata.Checksum": {
@@ -359,7 +373,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/FileTransferInitializeResponseExt"
                 }
               }
             }
@@ -829,54 +843,6 @@
   },
   "components": {
     "schemas": {
-      "AccessLevel": {
-        "enum": [
-          "Read",
-          "Write"
-        ],
-        "type": "string"
-      },
-      "CloudEvent": {
-        "type": "object",
-        "properties": {
-          "specversion": {
-            "type": "string"
-          },
-          "id": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "time": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "resource": {
-            "type": "string"
-          },
-          "resourceinstance": {
-            "type": "string",
-            "nullable": true
-          },
-          "source": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "additionalProperties": true,
-        "examples": [
-          {
-            "specversion": "1.0",
-            "id": "0b75b5da-7f19-4ab7-9711-ec0f6108d48c",
-            "type": "no.altinn.broker.filetransferinitialized",
-            "time": "2024-04-03T08:59:37.8552029Z",
-            "resource": "urn:altinn:resource:altinapp.ttd.apps-test",
-            "resourceinstance": "0850124f-6ae9-4821-b4f9-8ee7c937ecfc",
-            "source": "https://platform.tt02.altinn.no/broker/api/v1/file"
-          }
-        ]
-      },
       "DeploymentStatusExt": {
         "enum": [
           "NotStarted",
@@ -884,7 +850,7 @@
           "Ready"
         ],
         "type": "string",
-        "description": "In the context of Azure deployment, \"Prepared\" corresponds to resource group deployed and \"Ready\" corresponds to all resources ready"
+        "description": "The status of deployment of Azure resources for storage providers"
       },
       "FileTransferInitalizeExt": {
         "required": [
@@ -916,7 +882,7 @@
           },
           "sender": {
             "minLength": 1,
-            "pattern": "^\\d{4}:\\d{9}$",
+            "pattern": "^(?:\\d{4}:\\d{9}|urn:altinn:organization:identifier-no:\\d{9})$",
             "type": "string",
             "description": "The sender organization of the file"
           },
@@ -939,7 +905,8 @@
                 "type": "string"
               }
             },
-            "description": "User-defined properties related to the file"
+            "description": "User-defined properties related to the file",
+            "nullable": true
           },
           "checksum": {
             "type": "string",
@@ -1052,7 +1019,8 @@
                 "type": "string"
               }
             },
-            "description": "Up to ten arbitrary key value pairs"
+            "description": "Up to ten arbitrary key value pairs",
+            "nullable": true
           }
         }
       },
@@ -1194,21 +1162,6 @@
         ],
         "type": "string"
       },
-      "FileTransferStatusExtNullable": {
-        "enum": [
-          "Initialized",
-          "UploadStarted",
-          "UploadProcessing",
-          "Published",
-          "Cancelled",
-          "AllConfirmedDownloaded",
-          "Purged",
-          "Failed",
-          null
-        ],
-        "type": "string",
-        "nullable": true
-      },
       "FileTransferUploadResponseExt": {
         "type": "object",
         "properties": {
@@ -1306,16 +1259,6 @@
         ],
         "type": "string"
       },
-      "RecipientFileTransferStatusExtNullable": {
-        "enum": [
-          "Initialized",
-          "DownloadStarted",
-          "DownloadConfirmed",
-          null
-        ],
-        "type": "string",
-        "nullable": true
-      },
       "ResourceExt": {
         "type": "object",
         "properties": {
@@ -1360,9 +1303,15 @@
         "additionalProperties": false,
         "description": "A model representing the extended resource properties unique for the broker service."
       },
+      "RoleExt": {
+        "enum": [
+          "Recipient",
+          "Sender"
+        ],
+        "type": "string"
+      },
       "ServiceOwnerInitializeExt": {
         "required": [
-          "deletionTime",
           "name"
         ],
         "type": "object",
@@ -1370,11 +1319,6 @@
           "name": {
             "type": "string",
             "description": "The name of the service owner.",
-            "nullable": true
-          },
-          "deletionTime": {
-            "type": "string",
-            "description": "How long the service owner should keep files before they are deleted. \r\n\r\nMust be in ISO8601 Duration",
             "nullable": true
           }
         },
@@ -1434,7 +1378,7 @@
           "AltinnAzureWithoutVirusScan"
         ],
         "type": "string",
-        "description": "Represents the deployment status of a storage provider."
+        "description": "Represents the storage provider type."
       }
     }
   }
