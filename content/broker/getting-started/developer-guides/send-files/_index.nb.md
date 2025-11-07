@@ -43,7 +43,7 @@ Denne operasjonen initialiserer en filoverføring og laster opp filen i en og sa
 
 - Når fullført, blir hendelsen [filetransferinitialized](#event-filetransferinitialized) publisert til avsenderen, noe som indikerer at filoverføringen har blitt vellykket initialisert.
 
-**Eksempel:** 'File Transfer\Initialize and upload (form-data)' i vår [Bruno collection](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru)
+**Eksempel:** 'File Transfer\Initialize and upload (form-data)' i vår [Bruno-pakke](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru)
 
 ## Operasjon: Last opp strømmet {#operation-uploadStreamed}
 
