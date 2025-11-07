@@ -1,6 +1,6 @@
 ---
 title: Klientdelegering
-description:
+description: Denne veiledningen viser deg hvordan du som sluttbruker kan legge til klienter på en systemtilgang for kunder.
 linktitle: Klientdelegering
 weight: 2
 ---
