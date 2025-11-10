@@ -25,5 +25,8 @@ For å forenkle overgangen fra Altinn 2 til Altinn 3 versjon av Melding-produkte
 - Autorisasjonsmodellen er noe forenklet:
   - Rettighet for å være avsender kan settes i policy for aksjon "Write" og ikke lenger begrenset til kun være Tjenesteeieren.
   - Alle rettigheter for mottaker er forenklet fra Altinn 2 sin granulerte "Read, Write, ArchiveRead, ArchiveDelete" til kun "Read".
+- Arkivering er i utgangpunktet ikke støttet i Altinn 3
+  - Det nærmeste man kommer er [Systemetikett "archive"](/nb/dialogporten/getting-started/dialogs/#systemetiketter) i Dialogporten/Arbeidsflate, som vil kunne brukes til å filtrere vekk fra standard visninger/søk.
+  - Migrerte meldinger fra Altinn 2 som er/blir arkivert får "archive" systemetiketten satt. I tillegg får de logget den unike "Archived" statusen i StatusHistory, noe som ikke brukes for Altinn 3 meldinger.
 
 {{<children />}}

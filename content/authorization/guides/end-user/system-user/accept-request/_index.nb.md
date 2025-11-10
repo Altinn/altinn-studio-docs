@@ -1,6 +1,6 @@
 ---
 title: Godkjenne systemtilgang
-description:
+description: Denne veiledningen viser deg hvordan du som sluttbruker kan godkjenne en systemtilgang du har fått fra en fagsystem-leverandør.
 linktitle: Godkjenne
 weight: 1
 ---

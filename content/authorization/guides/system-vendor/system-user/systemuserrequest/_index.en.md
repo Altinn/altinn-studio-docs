@@ -92,10 +92,10 @@ This applies to a system user for a system that will act on behalf of the end-us
 
 ### Instructions (Vendor-controlled Creation)
 
-1. **Initiate request:** Send an HTTP POST request to the specific endpoint for client systems (`/agent/request`).
+1. **Initiate request:** Send an HTTP POST request to the specific endpoint for client systems (`vendor/agent/`).
 
-      * **Test (TT02):** `POST https://platform.tt02.altinn.no/authentication/api/v1/systemuser/agent/request`
-      * **Production:** `POST https://platform.altinn.no/authentication/api/v1/systemuser/agent/request`
+      * **Test (TT02):** `POST https://platform.tt02.altinn.no/authentication/api/v1/systemuser/request/vendor/agent/`
+      * **Production:** `POST https://platform.altinn.no/authentication/api/v1/systemuser/request/vendor/agent/`
 
 2. **Configure Request Body:** Include a JSON body. ***Note*** that the `rights` list must be empty or omitted.
 
