@@ -41,7 +41,7 @@ Følgende kodelister er tilgjengelige fra ulike kilder:
 |--------------|-------------|
 | poststed | Norske postnummer |
 
-## Hvordan legge til felles standard kodelister i applikasjonen?
+## Slik legger du til felles standard kodelister i applikasjonen
 ### 1. Legg til referanse til [Altinn.Codelists NuGet-pakken](https://www.nuget.org/packages/Altinn.Codelists)
    
 Åpne kommandolinjen til repoet for applikasjonen din og naviger til App-mappen der App.csproj-filen ligger, og kjør følgende kommando:

@@ -48,6 +48,12 @@ This is a Hugo-based documentation site for Altinn products like Altinn Studio, 
 - **Selections**: Use "velg" when choosing from lists or multiple options
 - **Navigation**: Use "gå til" (not "naviger til") for instructions about navigating to different parts of the UI
 - **Lists**: Use numbered lists ONLY when users must perform tasks in a specific order. If order doesn't matter (requirements, features, options, considerations), use bullet points
+- **Konsekvent vs konsistent**: Use "konsekvent" (not "konsistent") in everyday contexts when describing consistent behavior, design, or language. "Konsistent" is only appropriate in technical/academic contexts about logical coherence. See: https://sprakradet.no/spraksporsmal-og-svar/konsekvent-og-konsistent/
+- **Bullet point formatting** (from https://sprakradet.no/klarsprak/sprak-i-lover-og-forskrifter/skriverad/struktur-i-lover-og-forskrifter/punktlister/):
+  - **If bullet points continue the introductory sentence**: No colon after introduction, lowercase first letter, no period at end
+    - Example: "Innganger til skjema bør derfor" followed by "gjøre det tydelig..." and "la brukeren slippe..."
+  - **If bullet points are complete independent sentences**: Colon after introduction is OK, capitalize first letter, period at end of each point
+    - Example: "Følg disse stegene:" followed by "Last ned filen." and "Installer programmet."
 
 ### Headings in Norwegian
 - **Main headings**: Use infinitive form of verb. Example: "Opprette tjenesten"
@@ -65,6 +71,7 @@ This is a Hugo-based documentation site for Altinn products like Altinn Studio, 
 
 ### English Translation
 - Translate to British English (organisation, authorise, whilst, etc.)
+- **Style guides**: Follow Oxford Style Guide and Guardian Style Guide for British English conventions
 - **Headings in English**: Use sentence case - only capitalise the first word and proper nouns. Examples:
   - ✅ Correct: "Understand what a multi-app solution is"
   - ❌ Wrong: "Understand What a Multi-App Solution Is"
@@ -72,3 +79,7 @@ This is a Hugo-based documentation site for Altinn products like Altinn Studio, 
   - ❌ Wrong: "Integrate the App with Maskinporten"
 - **Important**: Since the product (Altinn Studio) is not available in English, keep all GUI element references in Norwegian when translating
 - Use "end user" (not "end-user") throughout
+- **Bullet points in English** (Oxford/Guardian style):
+  - Use lowercase after bullet point unless starting with proper noun or complete sentence
+  - No full stop at end of bullet points unless they are complete sentences
+  - Be consistent within each list

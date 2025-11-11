@@ -9,7 +9,7 @@ Noen svaralternativer for komponenter kan være dynamiske. Enten direkte via [dy
 
 Når svaralternativene er dynamiske, kan datamodellen inneholde verdier som ikke lenger er gyldige. Dette kan skje hvis brukeren (eller forhåndsutfyllingen) har valgt et alternativ som ikke lenger er tilgjengelig. I slike tilfeller fjernes ukjente svaralternativer automatisk for å forhindre at datamodellen inneholder ugyldige verdier.
 
-## Hvordan det fungerer
+## Slik fungerer det
 
 Når skjemaet lastes, hentes svaralternativene for alle komponenter og sammenlignes med verdiene i datamodellen. Selv om en komponent ikke er synlig (her mener vi at den er på en side som for øyeblikket ikke vises, _ikke_ at den er aktivt skjult via `hidden`-egenskapen), vil app-frontend fortsatt sjekke svaralternativene for den komponenten og fjerne eventuelle verdier som ikke er i svaralternativlisten.
 
