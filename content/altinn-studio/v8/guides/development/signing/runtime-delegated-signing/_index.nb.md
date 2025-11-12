@@ -22,6 +22,16 @@ Tilgjengelig fra [v8.6.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/
 ### Maskinporten
 Maskinporten kreves av både [meldingstjenesten](#meldingstjenesten) og for interaksjon med [beskyttede data](/nb/altinn-studio/v8/guides/development/restricted-data/).
 
+For brukerstyrt signering må Maskinporten-klienten din ha tilgang til følgende scopes:
+
+- `altinn:correspondence.read`
+- `altinn:correspondence.write`
+- `altinn:serviceowner/instances.read`
+- `altinn:serviceowner/instances.write`
+
+Scopes for correspondence brukes når appen sender meldinger til signatarer som et kall til handling.
+Tjenesteeier-scopes brukes for intern tilstands-føring i appen.
+
 Hvis du trenger hjelp med oppsett av Maskinporten i din app, finner du all informasjonen du trenger i [denne guiden](/nb/altinn-studio/v8/guides/integration/maskinporten/).
 
 ### Meldingstjenesten
