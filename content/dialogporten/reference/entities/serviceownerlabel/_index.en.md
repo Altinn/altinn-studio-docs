@@ -8,8 +8,10 @@ weight: 40
 {{<swaggerload>}}
 
 Service Owner Labels are custom tags used by service owners to categorize and manage dialogs.  
-Dialog search supports filtering by one or more service owner labels, requiring all specified labels to match a dialog.  
+[Dialog search]({{< relref "dialog.md" >}}#search) supports filtering by one or more service owner labels, requiring all specified labels to match a dialog.  
 Wildcard prefix searches are also supported (e.g., some-prefix*).  
+
+
 
 Each label must be unique and between 3 and 255 characters long.  
 A dialog can have up to 20 labels.  
