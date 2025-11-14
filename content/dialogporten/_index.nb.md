@@ -10,7 +10,7 @@ cascade:
 ---
 
 {{<notice warning>}}
-Vi migrerer gammle data fra Altinn 2 og Altinn 3 til Dialogporten. Se [Status Migrasjon](./status-migration/) siden for siste status.
+Vi migrerer gamle data fra Altinn 2 og Altinn 3 til Dialogporten. Se [Status migrering](./status-migration/) siden for siste status.
 {{</notice>}}
 
 

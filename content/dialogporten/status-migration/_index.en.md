@@ -55,7 +55,7 @@ Migrated back to 1st of May 2025. Older app instances will be migrated later.
 New app instances created in Altinn 3 are available in Dialogporten immediately. Changes are synced in real-time.
 
 ### ⚠ A2 Archived forms - Historic
-Migrated back to 1st of May 2025. Older app instances will be migrated later.
+Migrated back to 1st of May 2025. Older archived forms will be migrated later.
 
 ### ✔ A2 Archived forms - Live
 New app instances created in Altinn 2 are migrated in batches every 5 minutes.
