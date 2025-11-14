@@ -14,6 +14,7 @@ Livesynkronisering: Alle endringer[^1] (skjema, meldinger) vises i Dialogporten.
 [^1]: Med unntak av app-instanser fra Altinn 2 som ikke er fullført (f.eks. startet utfylling av et skjema, men ikke fullført)
 
 ### Historiske data
+
 | Kilde | Migrert tilbake til |
 |----------|----------|
 | A2-Melding | 08.04.2025 |

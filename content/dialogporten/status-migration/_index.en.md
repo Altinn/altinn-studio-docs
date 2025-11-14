@@ -14,6 +14,7 @@ Live sync: All changes[^1] (forms, messages) show up in Dialogporten.
 [^1]: Except for app instances from Altinn 2 which are not completed (e.g. started filling out a form, but not completed)
 
 ### Historic data
+
 | Source | Migrated back to |
 |----------|----------|
 | A2-Correspondence | 08.04.2025 |
