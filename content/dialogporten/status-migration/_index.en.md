@@ -17,7 +17,7 @@ Live sync: All changes[^1] (forms, messages) show up in Dialogporten.
 | Source | Migrated back to |
 |----------|----------|
 | A2-Correspondence | 08.04.2025 |
-| A2 archived forms / A3-app instances | 01.07.2025 |
+| A2 archived forms / A3-app instances | 01.05.2025 |
 
 ## Goals and plans
 
