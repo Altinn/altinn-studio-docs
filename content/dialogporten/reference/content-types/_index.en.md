@@ -37,9 +37,9 @@ For information on how to use these, see the [creating dialogs user guide](/en/d
 ### Summary
 
 | Attribute              |        Value |
-| ---------------------- | ------------:|
+| ---------------------- |-------------:|
 | Field name             |    `summary` |
-| Required               |          Yes |
+| Required               |           No |
 | Max length             |          255 |
 | Allowed formats        | `text/plain` |
 | Used in list?          |          Yes |
