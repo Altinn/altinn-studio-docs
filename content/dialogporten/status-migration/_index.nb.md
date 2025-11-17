@@ -50,13 +50,13 @@ Livesynkronisering er aktiv for både tt02 og prod.
 Alle nye meldinger opprettet i Altinn 3 Melding er tilgjengelig i Dialogporten umiddelbart. Ingen migrering nødvendig.
 
 ### ⚠ A3 App-instanser - Historisk
-Migrert tilbake til 1. mars 2025, med unntak for noen dager i mars. Eldre app-instanser vil bli migrert senere.
+Migrert tilbake til 1. mars 2025. Eldre app-instanser vil bli migrert senere.
 
 ### ✔ A3 App-instanser - Live
 Nye app-instanser opprettet i Altinn 3 er tilgjengelig i Dialogporten umiddelbart. Endringer synkroniseres i sanntid.
 
 ### ⚠ A2 Arkiverte skjema - Historisk
-Migrert tilbake til 1. mars 2025, med unntak for noen dager i mars. Eldre arkiverte skjema vil bli migrert senere.
+Migrert tilbake til 1. mars 2025. Eldre arkiverte skjema vil bli migrert senere.
 
 ### ✔ A2 Arkiverte skjema - Live
 Nye app-instanser opprettet i Altinn 2 migreres i puljer hvert 5. minutt.
