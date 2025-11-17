@@ -63,4 +63,6 @@ Nye app-instanser opprettet i Altinn 2 migreres i puljer hvert 5. minutt.
 
 ## Endringslogg
 
+17.11.2025: Mer historiske data migrert. Melding tilbake til 22.01.2025, app-instanser og arkiverte skjema tilbake til 01.03.2025 (med unntak for noen dager).
+
 14.11.2025: Første versjon av denne siden ble publisert.
