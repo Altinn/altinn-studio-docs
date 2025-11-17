@@ -27,6 +27,7 @@ Du kan motta varsler om hendelser knyttet til sendte formidlingstjenester, ved �
 
 ### Støtte for ulike meldingsformater
 - Mulighet for å sende meldinger med Markdown eller ren tekst.
+- Støtte for [numeriske tegnreferanser i HTML.](https://en.wikipedia.org/wiki/Numeric_character_reference)
 - Støtte for opptil 100 vedlegg per melding.
 - Støtte for mange filtyper: .doc, .xls, .docx, .xlsx, .ppt, .pps, .zip, .pdf, .html, .txt, .xml, .jpg, .gif, .bmp, .png og .json.
 - Støtte for vedlegg opptil 2 GB.
