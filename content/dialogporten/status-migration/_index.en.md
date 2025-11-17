@@ -17,8 +17,8 @@ Live sync: All changes[^1] (forms, messages) show up in Dialogporten.
 
 | Source | Migrated back to |
 |----------|----------|
-| A2-Correspondence | 08.04.2025 |
-| A2 archived forms / A3-app instances | 01.05.2025 |
+| A2-Correspondence | 22.01.2025 |
+| A2 archived forms / A3-app instances | 01.03.2025 with execption for some days |
 
 ## Goals and plans
 
@@ -38,7 +38,7 @@ All changes done directly to Dialogporten's API is available immediately.
 Typically used where the service owner either has their own platform, or handle dialogs outside the default functionality of Altinn Correspondence or Altinn Studio/apps.
 
 ### ⚠ A2 Correspondence - Historic
-Currently migrated back to 8th of April 2025. Older correspondence will be migrated later.
+Currently migrated back to 22nd of January 2025. Older correspondence will be migrated later.
 
 Manual process. Historic correspondence is migrated from Altinn 2 correspondence to Altinn 3 correspondence. The correspondences are then migrated to Dialogporten in a separate process.
 
@@ -50,17 +50,19 @@ Live sync is active for both tt02 and prod.
 All new messages created in Altinn 3 correspondence are available in Dialogporten immediately. No migration needed.
 
 ### ⚠ A3 App instances - Historic
-Migrated back to 1st of May 2025. Older app instances will be migrated later.
+Migrated back to 1st of March 2025, with exception for some days in March. Older app instances will be migrated later.
 
 ### ✔ A3 App instances - Live
 New app instances created in Altinn 3 are available in Dialogporten immediately. Changes are synced in real-time.
 
 ### ⚠ A2 Archived forms - Historic
-Migrated back to 1st of May 2025. Older archived forms will be migrated later.
+Migrated back to 1st of March 2025, with exception for some days in March. Older archived forms will be migrated later.
 
 ### ✔ A2 Archived forms - Live
 New app instances created in Altinn 2 are migrated in batches every 5 minutes.
 
 ## Changelog
+
+17.11.2025: More historic data migrated. Correspondence back to 22.01.2025, app instances and archived forms back to 01.03.2025 (with exception for some days).
 
 14.11.2025: First version of this page released.
