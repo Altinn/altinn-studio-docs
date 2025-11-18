@@ -4,50 +4,6 @@ linktitle: Systemuser API
 description: API to get system user information
 toc: true
 ---
-## Verify Party Integration
-Validates whether the organization requesting a token from Maskinporten has a system user associated with the specified credentials.
-For a detailed description of the response model, please refer to this [link](model) 
-
-### Endpoint
-GET authentication/api/v1/systemuser/byExternalId?clientid=&systemproviderorgno=&systemuserownerorgno=&externalref=
-
-### Scopes
-Maskinporten token with scope <mark>altinn:maskinporten/systemuser.read</mark>
-
-### Content types
-application/json
-
-## Query Parameters
-
-#### clientid
-The client id credential from the Maskinporten integration
-
-#### systemproviderorgno
-The organization number of the system vendor
-
-#### systemownerorgno
-The organisation numner of the system user
-
-#### externalref
-The external reference provided by the system vendor in the system user request. This is an optional parameter and defaults to system user organisation number.
-
-### Example Response
-```
-{
-    "id": "704013ee-e82a-433e-83c5-a40e6e00d746",
-    "integrationTitle": "SmartCloud",
-    "systemId": "991825827_smartcloud",
-    "productName": "991825827_smartcloud",
-    "systemInternalId": "6eeac941-8685-49ad-a195-e60542e72d45",
-    "partyId": "51655537",
-    "reporteeOrgNo": "313775429",
-    "created": "2024-11-15T09:36:50.451886Z",
-    "isDeleted": false,
-    "supplierName": "",
-    "supplierOrgno": "991825827",
-    "externalRef": "313775429"
-}
-```
 
 ## List all system users for a system
 

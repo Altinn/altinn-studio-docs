@@ -13,5 +13,4 @@ For å få et slikt token må du først opprette en klient i Maskinporten. Du ka
 
 ## API Metoder
 
-- [Verifiser party integrasjon](external#verifiser-party-integrasjon)
 - [List alle systembrukere for et system](external#list-opp-alle-systembrukere-for-en-system)
