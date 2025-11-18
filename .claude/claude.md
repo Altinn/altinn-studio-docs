@@ -31,6 +31,34 @@ This is a Hugo-based documentation site for Altinn products like Altinn Studio, 
 - Always test changes with `hugo server` before committing
 - **v8 to v10 Migration**: See `V8_TO_V10_MIGRATION_TODO.md` in this directory for tracking which v8 content needs to be migrated to v10. Update this file when you find v8 links that need migration.
 
+## Work in Progress
+Track ongoing work and files being edited here. Update this section as work progresses.
+
+### Current files
+- `content/altinn-studio/v10/plan-a-service/design/` - Reorganized design section (2025-01-18)
+  - Renamed from `retningslinjer` to `design`
+  - Removed duplicate `design/guidelines/` folder
+  - Moved `insight/`, `prototype/`, `usertest/` into `design/`
+  - Updated `design/tone-of-voice/_index.nb.md` with new text length recommendations
+- Note: Design team will review all content in this section to evaluate structure, add new content, and remove outdated material
+
+### Component documentation
+- **Updated (2025-01-18)**: Created new component structure based on Altinn Studio GUI
+  - Location: `plan-a-service/design/components/`
+  - **42 components** organized in 8 categories (matching GUI exactly)
+  - Old outdated list: `plan-a-service/design/components-old/` (hidden from navigation)
+  - Component categories: Skjema, Tekst, Flervalg, Informasjon, Knapper, Vedlegg, Gruppering, Avansert
+  - Created placeholder files for 3 components as examples (input, panel, checkboxes)
+  - Created `_template.md` for consistent placeholder structure
+  - All components tagged: [needsReview, translate-to-english, add-content]
+- Key corrections from GUI:
+  - "Informativ melding" = `Panel` (not Alert)
+  - "Avmerkingsbokser" (not "Avkrysningsbokser")
+  - No Audio component (removed from GUI)
+- TODO: Design team to create content for remaining 39 component pages
+- TODO: Copy relevant content from v8 documentation where applicable
+- TODO: Verify technical details with current Altinn Studio version
+
 ## Standard Documentation Procedures
 
 ### Always Remember
@@ -40,6 +68,8 @@ This is a Hugo-based documentation site for Altinn products like Altinn Studio, 
 - Follow guidelines from https://sprakradet.no/klarsprak/
 - Use conservative bokmål (e.g., "listen" and "hentet", not "lista" and "henta")
 - Check punctuation and spelling using Korrekturavdelingen (https://www.korrekturavdelingen.no/)
+- **Sentence length**: Aim for under 25 words per sentence to make the text easier to digest and understand
+- **Paragraph length**: Use 2–4 sentences per paragraph
 
 ### Writing Style and Terminology
 - **GUI references**: Use bold formatting for GUI elements. Example: "Klikk på **Lagre og lukk**"

@@ -38,6 +38,12 @@ Språket i tjenestene skal være **personlig, varmt og vennlig**, **ubyråkratis
 - Unngå innforstått jargong og juridiske uttrykk.
 - Vær kort og tydelig.
 
+### Lengde på tekst
+
+- **Overskrifter**: maks. 8 ord
+- **Setninger**: helst under 25 ord
+- **Avsnitt**: 2–4 setninger
+
 ## Skriv rett frem
 
 Formelt språk er ofte skrudd sammen slik at utsagnet (verbet) kommer sent i setningen. Det gjør at du må lese mange ord før du får verbet. Det krever mer av leseren, som må huske hva som stod tidlig i setningen.

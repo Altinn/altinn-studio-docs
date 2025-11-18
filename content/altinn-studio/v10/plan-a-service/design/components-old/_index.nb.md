@@ -1,10 +1,14 @@
 ---
-title: UI-komponenter
-description: De ulike komponentene er laget for at de skal passe sammen i en større helhet. Det er derfor viktig å følge retningslinjene for hvordan disse brukes for å oppnå et konsekvent og gjenkjennbart uttrykk. UI-komponenter som foreløpig inngår i Altinns bibliotek finner du her.
-weight: 10
-aliases:
-- /nb/app/design/guidelines/components/
+title: UI-komponenter (UTDATERT)
+description: UTDATERT - Denne komponentoversikten er erstattet av en nyere versjon.
+weight: 999
+hidden: true
+tags: [outdated]
 ---
+
+{{< notice warning >}}
+Denne komponentoversikten er utdatert og erstattet. Se [oppdatert komponentliste](../components/) for gjeldende informasjon.
+{{< /notice >}}
 
 {{% panel-contribute 
 src1="https://github.com/Altinn/altinn-studio/issues/new/choose" title1="Opprett en sak i github" 

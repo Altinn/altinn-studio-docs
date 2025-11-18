@@ -1,15 +1,14 @@
 ---
-title: Forstå brukerbehov og planlegge tjenesten
-linktitle: Design
-description: For at tjenesten din skal bli best mulig for de som skal bruke den, er det viktig å starte med å forstå hva brukerne trenger når de møter tjenesten din. 
-weight: 10
-aliases: 
-- /design/
-- /design/designsystem/
-- /nb/app/design/
+title: Design
+description: Vi ønsker å oppnå helhetlige og konsekvente brukeropplevelser ved å bruke gjenkjennbare og godt testede komponenter. For å oppnå dette ut i tjenestene, ber vi deg om å benytte retningslinjene på disse sidene.
+weight: 30
+tags: [needsReview, translate-to-english]
+aliases:
+- /nb/app/design/guidelines/
 ---
 
-Før du begynner å utvikle en tjeneste/app, bør du skaffe innsikt i hva brukerne trenger, 
-lage en prototype og gjennomføre brukertester. 
+Altinn har som mål å gjøre det enklere for innbyggere og næringsliv å være i kontakt med det offentlige uavhengig
+av digital kompetanse. Felles retningslinjer for design hjelper oss å skape konsistens på tvers av tjenester
+som lages i Altinn Studio. 
 
 {{<children />}}
