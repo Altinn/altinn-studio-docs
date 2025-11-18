@@ -1,7 +1,7 @@
 ---
 title: Tilgjengelighet
 description: God tilgjengelighet hjelper mennesker med funksjonshemninger å oppfatte innholdet på en meningsfull måte. Ved å bruke Altinn 3 får du mye på kjøpet, men noen ting må du fortsatt huske på selv.
-weight: 30
+weight: 10
 toc: true
 tags: [needsReview, translate-to-english]
 ---

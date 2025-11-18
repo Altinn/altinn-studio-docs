@@ -1,7 +1,7 @@
 ---
 title: Språk
 description: Følg disse retningslinjene for å få et ensrettet språk og forståelig innhold i tjenestene som lages i Altinn.
-weight: 20
+weight: 9
 tags: [needsReview, translate-to-english]
 ---
 

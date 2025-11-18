@@ -1,7 +1,7 @@
 ---
 title: Innhold i skjema
 description: Forklar brukeren hva som skal til for å fylle ut skjemaet riktig, og fordel innholdet i flere steg.
-weight: 10
+weight: 4
 tags: [needsReview, translate-to-english]
 ---
 

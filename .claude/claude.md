@@ -40,7 +40,18 @@ Track ongoing work and files being edited here. Update this section as work prog
   - Removed duplicate `design/guidelines/` folder
   - Moved `insight/`, `prototype/`, `usertest/` into `design/`
   - Updated `design/tone-of-voice/_index.nb.md` with new text length recommendations
+  - Alphabetized all design section items (weight: 1-10)
 - Note: Design team will review all content in this section to evaluate structure, add new content, and remove outdated material
+
+### Next session work area
+- **START HERE**: `content/altinn-studio/v10/manage-a-service/` - Administration/forvaltning section (2025-01-18)
+  - Copied three topics from v8/guides/administration/:
+    - `access-management/` (Tilgangsstyring)
+    - `maintainance/` (Vedlikehold)
+    - `monitor-and-instrument/` (Overvåking og instrumentering)
+  - TODO: Review and update content for v10
+  - TODO: Add Norwegian plain language review
+  - TODO: Add tags [needsReview, translate-to-english]
 
 ### Component documentation
 - **Updated (2025-01-18)**: Created new component structure based on Altinn Studio GUI

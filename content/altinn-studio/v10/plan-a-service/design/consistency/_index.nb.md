@@ -2,7 +2,7 @@
 title: Lag konsekvente tjenester
 linktitle: Konsekvente tjenester
 description: Følg samme interaksjonsmønstre på tvers av tjenester for å gjøre dem lette å bruke og unngå forvirring.
-weight: 10
+weight: 7
 tags: [needsReview, translate-to-english]
 ---
 

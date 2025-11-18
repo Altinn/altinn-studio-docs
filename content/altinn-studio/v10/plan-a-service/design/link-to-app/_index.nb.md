@@ -1,7 +1,7 @@
 ---
 title: Inngang til skjema
 description: Tenk over hvordan du lenker til Altinn-appen fra din etat for å gjøre opplevelsen til brukeren best mulig.
-weight: 10
+weight: 3
 tags: [needsReview, translate-to-english]
 ---
 

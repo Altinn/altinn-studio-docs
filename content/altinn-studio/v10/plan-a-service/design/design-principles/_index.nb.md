@@ -1,7 +1,7 @@
 ---
 title: Designprinsipper
 description: Følg disse prinsippene når du utvikler nye tjenester i Altinn Studio. De hjelper deg å lage brukervennlige løsninger for alle.
-weight: 10
+weight: 2
 tags: [needsReview, translate-to-english]
 ---
 

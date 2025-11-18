@@ -1,7 +1,7 @@
 ---
 title: Prototype
 description: Ved hjelp av Altinns Prototype-kit kan du lage en klikkbar prototype for å definere flyt og innhold i din tjeneste.
-weight: 3
+weight: 8
 ---
 
 ![Prototyping in Figma](figmaPrototype.gif "Prototyping in Figma")
