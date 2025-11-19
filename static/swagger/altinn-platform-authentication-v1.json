@@ -405,47 +405,6 @@
         }
       }
     },
-    "/systemuser/changerequest/{requestId}": {
-      "get": {
-        "tags": [
-          "ChangeRequestSystemUser"
-        ],
-        "summary": "Used by the BFF to authenticate the userId to retrieve the chosen Request by guid without partyId",
-        "parameters": [
-          {
-            "name": "requestId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChangeRequestResponseInternal"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChangeRequestResponseInternal"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChangeRequestResponseInternal"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/systemuser/changerequest/vendor/bysystem/{systemId}": {
       "get": {
         "tags": [
@@ -956,88 +915,6 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/RequestSystemResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/systemuser/request/{requestId}": {
-      "get": {
-        "tags": [
-          "RequestSystemUser"
-        ],
-        "summary": "Used by the BFF to retrieve the chosen Request by Guid Id alone,\r\nauthorized manually via pdp that the logged in user can access the request.",
-        "parameters": [
-          {
-            "name": "requestId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RequestSystemResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RequestSystemResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RequestSystemResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/systemuser/request/agent/{requestId}": {
-      "get": {
-        "tags": [
-          "RequestSystemUser"
-        ],
-        "summary": "Used by the BFF to authenticate the PartyId to retrieve the chosen Request by guid\r\nIs different from the Vendor endpoint, since this authenticates the Facilitator and not the Vendor",
-        "parameters": [
-          {
-            "name": "requestId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RequestSystemResponseInternal"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RequestSystemResponseInternal"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RequestSystemResponseInternal"
                 }
               }
             }
