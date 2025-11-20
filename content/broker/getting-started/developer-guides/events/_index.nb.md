@@ -38,10 +38,6 @@ Du må sette opp følgende filtre:
   - PROD: <https://api.altinn.no/broker/api/v1/filetransfer>
 - resourceFilter
   - "urn:altinn:resource:" + Ressurs-IDen for formidlingstjenesten
-- alternativesubjectfilter
-  - "/organisation/(organisasjonsnummer for din organisasjon)
-
-*Alternativesubjectfilter* brukes til å begrense Event til bare den autoriserte avsenderen eller mottakeren for den spesifikke hendelsen, dette sikrer innholdet og reduserer synlighet.
 
 *Resourceinstance* vil alltid være det samme som FileTransferId for Filoverføringen.
 
