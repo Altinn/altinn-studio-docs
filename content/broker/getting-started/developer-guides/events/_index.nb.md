@@ -22,8 +22,7 @@ Alle hendelser publisert av Altinn Formidling følger det samme mønsteret:
  "source": "https://platform.tt02.altinn.no/broker/api/v1/filetransfer",
  "specversion": "1.0",
  "type": "no.altinn.broker.Published",
- "subject": "/party/50015641",
- "alternativesubject": "/organisation/123456789",
+ "subject": "urn:altinn:organization:identifier-no:123456789",
  "time": "2024-04-19T07:22:19.438039Z"
 }
 ```
