@@ -1,7 +1,7 @@
 ---
 title: Tilgangsstyring
 linktitle: Tilgangsstyring-melding
-description: Oversikt over tilgnagsstyring for Altinn Melding.
+description: Oversikt over tilgangsstyring for Altinn Melding.
 tags: []
 toc: true
 weight: 14
