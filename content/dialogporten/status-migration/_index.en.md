@@ -9,7 +9,9 @@ cascade:
 
 ## Status
 
-Live sync: All changes[^1] (forms, messages) show up in Dialogporten.
+⚠ 25/11: Live-sync of Altinn 2 correspondence is temporarily paused due to technical issues. We are working on resolving this as soon as possible.
+
+Live sync: All other changes[^1] (forms, messages) show up in Dialogporten.
 
 [^1]: Except for app instances from Altinn 2 which are not completed (e.g. started filling out a form, but not completed)
 
@@ -18,11 +20,12 @@ Live sync: All changes[^1] (forms, messages) show up in Dialogporten.
 | Source | Migrated back to |
 |----------|----------|
 | A2-Correspondence | 22.01.2025 |
-| A2 archived forms / A3-app instances | 01.03.2025 with exception for some days |
+| A2 archived forms / A3-app instances | 01.02.2025 |
 
 ## Goals and plans
 
 By the end of 2025, all historic 2025-data will be migrated to Dialogporten.
+25/11: We will migrate data back to and including december 2024 as part of this.
 
 Older data will be migrated by Q2 2026, starting with the newest data first.
 
@@ -50,18 +53,22 @@ Live sync is active for both tt02 and prod.
 All new messages created in Altinn 3 correspondence are available in Dialogporten immediately. No migration needed.
 
 ### ⚠ A3 App instances - Historic
-Migrated back to 1st of March 2025, with exception for some days in March. Older app instances will be migrated later.
+Migrated back to 1st of February 2025. Older app instances will be migrated later.
 
 ### ✔ A3 App instances - Live
 New app instances created in Altinn 3 are available in Dialogporten immediately. Changes are synced in real-time.
 
 ### ⚠ A2 Archived forms - Historic
-Migrated back to 1st of March 2025, with exception for some days in March. Older archived forms will be migrated later.
+Migrated back to 1st of February 2025. Older archived forms will be migrated later.
 
 ### ✔ A2 Archived forms - Live
 New app instances created in Altinn 2 are migrated in batches every 5 minutes.
 
 ## Changelog
+
+25.11.2025: Live-sync of Altinn 2 correspondence is temporarily paused.
+
+18.11.2025: App instances and archived forms back to 01.02.2025.
 
 17.11.2025: More historic data migrated. Correspondence back to 22.01.2025, app instances and archived forms back to 01.03.2025 (with exception for some days).
 
