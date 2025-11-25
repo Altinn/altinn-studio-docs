@@ -23,8 +23,8 @@ Future instances which are related to the dialog can be grouped through transmis
         ...,
         "externalReferences":[
             {
-                "referenceValue": dialogId,
-                "referenceType": DialogportenDialogId
+                "referenceValue": string,
+                "referenceType" ReferenceType
             }
         ]
     }
@@ -43,7 +43,7 @@ Transmission type is Information (1) if not set on the correspondence. You can s
         "externalReferences":[
             {
                 "referenceValue": "Information",
-                "referenceType": DialogportenTransmissionType
+                "referenceType": "DialogportenTransmissionType"
             }
         ]
     }
@@ -58,7 +58,7 @@ Or using the numeric value:
         "externalReferences":[
             {
                 "referenceValue": 1,
-                "referenceType": DialogportenTransmissionType
+                "referenceType": "DialogportenTransmissionType"
             }
         ]
     }
@@ -91,11 +91,11 @@ The response should be of the following format:
         "externalReferences":[
             {
                 "referenceValue": dialogId,
-                "referenceType": DialogportenDialogId
+                "referenceType": "DialogportenDialogId"
             },
             {
                 "referenceValue": transmissionId,
-                "referenceType": DialogportenTransmissionId
+                "referenceType": "DialogportenTransmissionId"
             }
         ]
     }

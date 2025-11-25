@@ -92,11 +92,11 @@ Responsen skal være i følgende format:
         "externalReferences":[
             {
                 "referenceValue": dialogId,
-                "referenceType": DialogportenDialogId
+                "referenceType": "DialogportenDialogId"
             },
             {
                 "referenceValue": transmissionId,
-                "referenceType": DialogportenTransmissionId
+                "referenceType": "DialogportenTransmissionId"
             }
         ]
     }
