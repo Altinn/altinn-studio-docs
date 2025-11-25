@@ -1,176 +1,205 @@
 ---
-title: Instant-meldinger
-description: "Altinn Varslinger tilbyr dedikerte endepunkter for å sende SMS og e-post umiddelbart til én mottaker. Denne siden forklarer hvordan instant-meldinger fungerer, hvilke felter som må med i forespørselen, og hvordan du følger opp levering."
-linktitle: Instant-meldinger
-tags: [instant, sms, e-post, otp]
+title: Direktevarsling
+description: "Direktevarsling (instant messaging) er en funksjon i Altinn Varslinger som sender varsler umiddelbart til én enkelt mottaker. Dette er spesielt egnet for tidskritiske meldinger som engangskoder, varsler og andre situasjoner der forsinkelser ikke er akseptabelt."
+linktitle: Direktevarsling
+tags: [direktevarsling, instant messaging, OTP, engangskode]
 weight: 50
 ---
 
-## Introduksjon
+## Hva er direktevarsling?
 
-Instant-meldinger i Altinn Varslinger er laget for situasjoner der du må sende en melding med en gang, uten kø eller forsinkelse. Funksjonen leverer SMS eller e-post til én mottaker, og krever at avsenderen oppgir alle nødvendige kontaktopplysninger. Den brukes blant annet til engangskoder (OTP), varsling av sikkerhetshendelser og andre tidssensitive utsendelser.
+Direktevarsling er en spesialisert varslingstjeneste i Altinn Varslinger som sender meldinger **umiddelbart** til **én enkelt mottaker**. I motsetning til vanlige varslingsordre som settes i kø og behandles asynkront, sendes direktevarsler med en gang forespørselen mottas og behandles synkront.
 
-Instant-endepunktene er separate fra de vanlige ordre-endepunktene. Du må derfor velge dem eksplisitt i integrasjonen din.
+Denne funksjonaliteten er designet for brukstilfeller der **rask levering er kritisk**, og der du ikke har råd til forsinkelser som kan oppstå ved købasert behandling.
 
-## Når passer instant-meldinger
+## Når bør du bruke direktevarsling?
 
-- Engangskoder eller passord som utløper etter kort tid
-- Utsendelser som skal gå uavhengig av ordinære utsendelseskøer
-- Situasjoner der du allerede har verifisert kontaktopplysninger for mottakeren
-- Varsler som ikke skal påvirke reservasjonsstatus eller kanalpreferanser i Kontakt- og reservasjonsregisteret
+Direktevarsling er spesielt godt egnet for følgende situasjoner:
 
-{{% notice warning %}}
-Instant-meldinger støtter kun én mottaker per bestilling. Bruk de ordinære ordre-endepunktene når du skal varsle flere mottakere samtidig.
-{{% /notice %}}
+### Engangskoder (OTP)
 
-## Arkitektur og endepunkter
+Det vanligste brukstilfellet for direktevarsling er utsending av **engangskoder** (OTP - One-Time Password). Disse kodene:
 
-| Endepunkt | Beskrivelse |
-|-----------|-------------|
-| `POST /future/orders/instant/sms` | Send én SMS umiddelbart til en mottaker. |
-| `POST /future/orders/instant/email` | Send én e-post umiddelbart til en mottaker. |
-| `POST /future/orders/instant` | Tidligere generelt endepunkt for instant-SMS. Er merket som foreldet og beholdes kun for bakoverkompatibilitet. |
-| `GET /future/shipment/{shipmentId}` | Hent leveringsmanifest og status for bestillingen. |
+- Må leveres **umiddelbart** for god brukeropplevelse
+- Har kort **levetid** (time-to-live)
+- Brukes for **autentisering** og **verifisering**
+- Krever **rask levering** for å unngå at brukere må vente eller be om nye koder
 
-### Viktige egenskaper
+**Eksempler på OTP-bruk:**
+- Bekreftelse av mobilnummer eller e-postadresse
+- To-faktor autentisering (2FA)
+- Engangskoder for innlogging
+- Verifisering av sensitiv informasjon
 
-- **Idempotens**: Feltet `idempotencyId` sørger for at samme forespørsel ikke registreres to ganger. Gjenbruk samme verdi hvis klienten må prøve igjen.
-- **Tidsstyring**: For SMS må du alltid angi `timeToLiveInSeconds`. Systemet avslutter forsøket når tiden er utløpt og markerer statusen som `SMS_Failed_TTL` hvis meldingen ikke ble levert i tide.
-- **Egen kontaktdata**: Instant-endepunktene hopper over oppslag i Kontakt- og reservasjonsregisteret. Du må derfor lagre og validere mottakerens kontaktinformasjon selv.
-- **Asynkront svar**: Responsen inneholder `shipmentId` som du bruker for å hente status senere. Selve sendingen skjer i bakgrunnen.
+### Andre tidskritiske varsler
 
-## Send en SMS med en gang
+Direktevarsling kan også brukes for andre typer tidskritiske meldinger:
 
-### Eksempel på forespørsel
+- **Alarmer og kritiske varsler** som krever umiddelbar handling
+- **Sanntidsmeldinger** i interaktive tjenester
+- **Bekreftelser** som brukeren venter på i brukergrensesnittet
+- **Statusoppdateringer** som må vises umiddelbart
 
-```http
-POST https://platform.altinn.no/notifications/api/v1/future/orders/instant/sms
-Content-Type: application/json
-Authorization: Bearer <token>
+## Forskjeller mellom direktevarsling og vanlige varslingsordre
 
-{
-  "idempotencyId": "94e9d0f6-7a3d-4a20-b5a7-445fb207f9bb",
-  "sendersReference": "otp-login-2024-09-30-1234",
-  "recipientSms": {
-    "phoneNumber": "<telefonnummer i E.164-format>",
-    "timeToLiveInSeconds": 120,
-    "smsSettings": {
-      "sender": "Altinn",
-      "body": "Engangskoden din er 428516. Den er gyldig i 2 minutter."
-    }
-  }
-}
-```
+| Aspekt | Direktevarsling | Vanlige varslingsordre |
+|--------|----------------|------------------------|
+| **Levering** | Synkron - sendes umiddelbart | Asynkron - settes i kø |
+| **Antall mottakere** | Én enkelt mottaker | Én eller flere mottakere |
+| **Mottakerinformasjon** | Må oppgi konkret adresse (telefonnummer/e-post) | Støtter oppslag via KRR basert på fødselsnummer |
+| **Brukstilfelle** | Tidskritiske varsler (f.eks. OTP) | Generelle varsler og masseutsendelser |
+| **API-respons** | Returnerer leveringsstatus umiddelbart | Returnerer ordre-ID for senere oppfølging |
+| **Varslingskanaler** | SMS eller e-post | SMS, e-post, eller kombinasjoner |
 
-- `idempotencyId`: En unik verdi per melding. Serveren returnerer `200 OK` med samme `shipmentId` hvis du sender samme ID på nytt.
-- `sendersReference`: Valgfri nøkkel du kan bruke i egne logger.
-- `phoneNumber`: Må være i internasjonalt format med landkode.
-- `timeToLiveInSeconds`: Hvor lenge systemet skal forsøke å levere meldingen. Velg en verdi som matcher levetiden til engangskoden.
-- `smsSettings.sender`: Vises som avsendernavn når meldingen leveres. Bruk kun godkjente avsendernavn.
-- `smsSettings.body`: SMS-teksten. Hold den kort og unngå personopplysninger.
+### Detaljert sammenligning
+
+#### Mottakeroppsett
+
+**Direktevarsling:**
+- Du må oppgi **eksakt kontaktinformasjon** (telefonnummer eller e-postadresse)
+- **Ingen automatisk oppslag** i Kontakt- og Reservasjonsregisteret (KRR)
+- **Ingen validering** av om mottaker er reservert mot digital kommunikasjon
+
+**Vanlige varslingsordre:**
+- Støtter oppslag basert på **fødselsnummer** eller **organisasjonsnummer**
+- Henter automatisk kontaktinformasjon fra KRR
+- Respekterer **reservasjoner** mot digital kommunikasjon
+
+#### Behandlingsflyt
+
+**Direktevarsling:**
+1. API mottar forespørsel
+2. Validerer innhold
+3. Sender umiddelbart til SMS/e-post gateway
+4. Returnerer resultat til klient
+
+**Vanlige varslingsordre:**
+1. API mottar forespørsel
+2. Oppretter varslingsordre
+3. Setter ordre i behandlingskø
+4. Returnerer ordre-ID
+5. Behandler ordre asynkront (inkludert KRR-oppslag)
+6. Sender varsler basert på konfigurasjon
+
+## Tekniske egenskaper
+
+### Synkron behandling
+
+Direktevarsling behandles **synkront**, noe som betyr at:
+
+- API-kallet venter til meldingen er sendt til leverandøren
+- Du får **umiddelbar tilbakemelding** på om sendingen lyktes eller feilet
+- **Høyere responstid** på API-kall sammenlignet med vanlige varslingsordre
+- Ingen behov for å polle statusendepunkt for å sjekke leveringsstatus
+
+### Idempotens
+
+Direktevarsling støtter **idempotens** gjennom et obligatorisk `idempotencyId`-felt:
+
+- Forhindrer at samme melding sendes flere ganger ved gjentatte forespørsler
+- Nyttig ved nettverksproblemer eller timeout
+- Samme `idempotencyId` vil returnere samme resultat uten å sende meldingen på nytt
+
+### Levetid (Time-to-Live)
+
+For **SMS-baserte direktevarsler** må du oppgi et `timeToLiveInSeconds`-felt:
+
+- Definerer hvor lenge SMS-gatewayen skal prøve å levere meldingen
+- Viktig for OTP-brukstilfeller der koden utløper etter en viss tid
+- Forhindrer at utgåtte meldinger leveres for sent
 
 {{% notice info %}}
-Velg et `timeToLiveInSeconds` som er langt nok til at mottakeren rekker å bruke koden, men kort nok til å hindre misbruk. Vanlige verdier for OTP er 60–300 sekunder.
+Levetiden gjelder for SMS-leverandørens forsøk på levering. Hvis mottakerens telefon er avslått eller uten dekning, vil leverandøren fortsette å prøve til levetiden utløper.
 {{% /notice %}}
 
-### Respons
+## Begrensninger og hensyn
 
-En vellykket bestilling gir `201 Created` med følgende nyttelast:
+### Kapasitet
 
-```json
-{
-  "notificationOrderId": "caa7f1c0-9d7b-4e56-8d3f-5350f4eb932f",
-  "notification": {
-    "shipmentId": "2d4f1359-4c38-48a7-9a5c-c7b036f53f51",
-    "sendersReference": "otp-login-2024-09-30-1234"
-  }
-}
+Direktevarsling er **ikke optimalisert for høy throughput**:
+
+- Designet for **enkeltstående meldinger**, ikke masseutsendelser
+- Synkron behandling betyr at hver forespørsel tar lengre tid
+- Ved høye volum bør du vurdere vanlige varslingsordre i stedet
+
+### Kostnad
+
+Direktevarsling kan ha **andre kostnadsmål** enn vanlige varslingsordre:
+
+- Synkron behandling krever mer ressurser
+- Diskuter med Altinn om prismodell for ditt brukstilfelle
+
+### Sikkerhet og personvern
+
+Når du bruker direktevarsling må du være oppmerksom på:
+
+- **Ingen KRR-validering** - du er ansvarlig for å ha gyldig samtykke til å kontakte mottakeren
+- **Ingen reservasjonssjekk** - mottakere som er reservert mot digital kommunikasjon vil likevel motta meldingen
+- **Logging** - alle direktevarsler logges for revisjonsformål
+
+{{% notice warning %}}
+Ved bruk av direktevarsling har du selv ansvar for å sikre at du har rett til å kontakte mottakeren på den oppgitte adressen. Altinn utfører ingen validering mot KRR eller andre registre.
+{{% /notice %}}
+
+## Brukstilfelle: Sending av engangskode (OTP)
+
+La oss se på et komplett scenario for hvordan direktevarsling brukes for å sende en engangskode:
+
+### Scenario
+
+En bruker ønsker å bekrefte sitt mobilnummer i en tjeneste. Tjenesten må sende en 6-sifret engangskode som brukeren må oppgi innen 5 minutter.
+
+### Krav
+
+1. Koden må sendes **umiddelbart** når brukeren ber om det
+2. Koden har en **levetid på 5 minutter** (300 sekunder)
+3. Hvis brukeren ikke mottar koden, må de kunne **be om en ny kode**
+4. Systemet må **forhindre duplikate sendinger** hvis brukeren klikker flere ganger
+
+### Løsning med direktevarsling
+
+**Steg 1: Generer engangskode**
+```plaintext
+Tjenesten genererer en tilfeldig 6-sifret kode: 123456
+Lagrer koden i database med utløpstid (5 minutter fra nå)
 ```
 
-- `notificationOrderId` peker på ordre-kjeden i Altinn.
-- `shipmentId` er identifikatoren du bruker for å hente status.
-
-Hvis du gjenbruker `idempotencyId`, returnerer tjenesten `200 OK` med samme innhold.
-
-## Send en e-post med en gang
-
-### Eksempel på forespørsel
-
-```http
-POST https://platform.altinn.no/notifications/api/v1/future/orders/instant/email
-Content-Type: application/json
-Authorization: Bearer <token>
-
-{
-  "idempotencyId": "8f2a6a61-073b-4a52-9f42-52e9972af974",
-  "sendersReference": "otp-email-2024-09-30-1234",
-  "recipientEmail": {
-    "emailAddress": "<e-postadresse>",
-    "emailSettings": {
-      "subject": "Engangskode for pålogging",
-      "body": "<p>Engangskoden din er <strong>428516</strong>. Den er gyldig i 2 minutter.</p>",
-      "senderEmailAddress": "<avsenderadresse>",
-      "contentType": "Html"
-    }
-  }
-}
+**Steg 2: Send direkte SMS**
+```plaintext
+Kall til direktevarsel SMS-endepunkt med:
+- Mottakers telefonnummer
+- Melding: "Din engangskode er: 123456. Koden utløper om 5 minutter."
+- Levetid: 300 sekunder
+- Idempotens-ID: unik ID for denne sendingen
 ```
 
-- `emailAddress`: Må være en gyldig e-postadresse som du har lov til å bruke.
-- `emailSettings.subject`: Korte, beskrivende emnelinjer gir høyere leveringsgrad.
-- `emailSettings.body`: Kan være `Plain` tekst eller `Html`. Husk å inkludere tekstversjon hvis du sender HTML i produksjon.
-- `senderEmailAddress`: Valgfritt hvis organisasjonen har konfigurert avsendere i Altinn Varslinger. Bruk adresser som er godkjent for løsningen din.
+**Steg 3: Håndter resultat**
+```plaintext
+Hvis suksess:
+  - Vis melding til bruker: "Engangskode sendt til ditt mobilnummer"
+  - La brukeren taste inn koden
 
-### Respons
-
-Strukturen er den samme som for SMS og inneholder `notificationOrderId` og `shipmentId`.
-
-## Hente leveringsstatus
-
-Bruk `shipmentId` for å hente status for meldingen:
-
-```http
-GET https://platform.altinn.no/notifications/api/v1/future/shipment/2d4f1359-4c38-48a7-9a5c-c7b036f53f51
-Authorization: Bearer <token>
+Hvis feil:
+  - Vis feilmelding og tilby ny forsøk
 ```
 
-Eksempel på svar:
-
-```json
-{
-  "shipmentId": "2d4f1359-4c38-48a7-9a5c-c7b036f53f51",
-  "status": "SMS_Delivered",
-  "lastUpdate": "2024-09-30T08:25:14Z",
-  "recipients": [
-    {
-      "destination": "<telefonnummer i E.164-format>",
-      "status": "SMS_Delivered",
-      "lastUpdate": "2024-09-30T08:25:13Z"
-    }
-  ]
-}
+**Steg 4: Verifiser kode**
+```plaintext
+Når bruker taster inn kode:
+  - Valider mot lagret kode i database
+  - Sjekk at koden ikke er utløpt
+  - Marker koden som brukt
 ```
 
-### Tolk statusverdier
+### Fordeler med direktevarsling for OTP
 
-- `SMS_Delivered` / `Email_Delivered`: Meldingen ble bekreftet levert av kanal-leverandøren.
-- `SMS_Failed_TTL`: Tidsvinduet gikk ut før meldingen ble levert. Vurder om koden skal regenereres.
-- `SMS_Failed_InvalidRecipient` eller `Email_Failed_InvalidFormat`: Kontaktinformasjonen er ugyldig. Varsle brukeren og hent nye detaljer.
-- `Email_Failed_Bounced` eller `Email_Failed_FilteredSpam`: Leverandøren avviste meldingen. Følg opp manuelt ved behov.
+1. **Øyeblikkelig levering** - brukeren får koden mens de venter
+2. **Levetidskontroll** - koden sendes ikke hvis den allerede er utløpt
+3. **Idempotens** - forhindrer duplikate sendinger ved gjentatte klikk
+4. **Enkel implementasjon** - synkron API er enklere å implementere enn asynkron håndtering
 
-## Beste praksis for OTP
+## Neste steg
 
-1. Generer nye koder hver gang og logg kun referanser, ikke selve koden.
-2. Sett `timeToLiveInSeconds` lik levetiden for koden og informer mottakeren i meldingen.
-3. Bruk korte tekster uten ekstra informasjon som kan avsløre sikkerhetsdetaljer.
-4. Overvåk status-feeder for `Failed`-verdier og bygg inn automatikk for å tilby ny kode.
-5. Sørg for at klienten din gjenbruker `idempotencyId` ved nettverksfeil, slik at brukeren ikke mottar duplikater.
-
-## Begrensninger du må kjenne til
-
-- Kun én mottaker per bestilling.
-- Ingen vedlegg eller rike formater utover enkel HTML i e-post.
-- Du må alltid oppgi kontaktdata; endepunktet gjør ikke oppslag mot KRR.
-- Tjenesten validerer ikke reservasjonsstatus i offentlige registre.
-- SMS må ha `timeToLiveInSeconds` satt til en positiv verdi.
-- Du må ha gyldig tilgangstoken med korrekt scope for Altinn Varslinger.
+- Les [veiledningen for direktevarsling](/notifications/guides/instant-messaging/) for å lære hvordan du implementerer direktevarsling i din tjeneste
+- Se [API-referansen](/notifications/reference/api/) for detaljert beskrivelse av endepunktene
+- Utforsk [OpenAPI-spesifikasjonen](/notifications/reference/openapi/) for fullstendig API-dokumentasjon

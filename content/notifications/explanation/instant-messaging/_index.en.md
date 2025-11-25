@@ -1,176 +1,205 @@
 ---
 title: Instant Messaging
-description: "Altinn Notifications provides dedicated endpoints for sending SMS and email instantly to a single recipient. This page explains how instant messaging works, which fields each request requires, and how to follow up on delivery."
+description: "Instant messaging is a feature in Altinn Notifications that sends notifications immediately to a single recipient. This is especially suitable for time-critical messages such as one-time passwords, alerts, and other situations where delays are not acceptable."
 linktitle: Instant Messaging
-tags: [instant, sms, email, otp]
+tags: [instant messaging, OTP, one-time password]
 weight: 50
 ---
 
-## Introduction
+## What is Instant Messaging?
 
-Instant messaging in Altinn Notifications is designed for situations where you must deliver a message immediately, without queueing or delay. The feature delivers SMS or email to one recipient and requires the sender to supply all necessary contact details. It is used for one-time passwords (OTP), security alerts, and other time-sensitive deliveries.
+Instant messaging is a specialized notification service in Altinn Notifications that sends messages **immediately** to **a single recipient**. Unlike regular notification orders that are queued and processed asynchronously, instant notifications are sent as soon as the request is received and processed synchronously.
 
-The instant endpoints are separate from the ordinary order endpoints. Make sure you select them explicitly in your integration.
+This functionality is designed for use cases where **rapid delivery is critical**, and where you cannot afford delays that may occur with queue-based processing.
 
-## When to use instant messaging
+## When Should You Use Instant Messaging?
 
-- One-time passwords or passcodes that expire quickly
-- Deliveries that must bypass the standard sending queues
-- Situations where you have already verified the recipient's contact details
-- Alerts that must ignore reservation status or channel preferences held in the Norwegian contact and reservation register
+Instant messaging is particularly well-suited for the following situations:
 
-{{% notice warning %}}
-Instant messaging only supports one recipient per order. Use the ordinary order endpoints when you need to notify multiple recipients at once.
-{{% /notice %}}
+### One-Time Passwords (OTP)
 
-## Architecture and endpoints
+The most common use case for instant messaging is sending **one-time passwords** (OTP). These codes:
 
-| Endpoint | Description |
-|----------|-------------|
-| `POST /future/orders/instant/sms` | Send a single SMS instantly to one recipient. |
-| `POST /future/orders/instant/email` | Send a single email instantly to one recipient. |
-| `POST /future/orders/instant` | Former general endpoint for instant SMS. Marked as deprecated and kept for backwards compatibility only. |
-| `GET /future/shipment/{shipmentId}` | Retrieve the delivery manifest and status for the order. |
+- Must be delivered **immediately** for a good user experience
+- Have a short **time-to-live**
+- Are used for **authentication** and **verification**
+- Require **fast delivery** to avoid users having to wait or request new codes
 
-### Key characteristics
+**Examples of OTP use:**
+- Confirmation of mobile number or email address
+- Two-factor authentication (2FA)
+- One-time codes for login
+- Verification of sensitive information
 
-- **Idempotency**: The `idempotencyId` field ensures that identical requests are not registered twice. Reuse the same value if the client must retry.
-- **Time control**: For SMS you must always supply `timeToLiveInSeconds`. The system stops processing when the time window expires and marks the status as `SMS_Failed_TTL` if the message was not delivered in time.
-- **Own contact data**: The instant endpoints skip the contact and reservation register lookup. You are responsible for storing and validating the recipient's contact information.
-- **Asynchronous response**: The response includes a `shipmentId` that you use to retrieve the status later. The actual delivery happens in the background.
+### Other Time-Critical Notifications
 
-## Send an SMS instantly
+Instant messaging can also be used for other types of time-critical messages:
 
-### Request example
+- **Alarms and critical alerts** requiring immediate action
+- **Real-time messages** in interactive services
+- **Confirmations** that users are waiting for in the user interface
+- **Status updates** that must be displayed immediately
 
-```http
-POST https://platform.altinn.no/notifications/api/v1/future/orders/instant/sms
-Content-Type: application/json
-Authorization: Bearer <token>
+## Differences Between Instant Messaging and Regular Notification Orders
 
-{
-  "idempotencyId": "94e9d0f6-7a3d-4a20-b5a7-445fb207f9bb",
-  "sendersReference": "otp-login-2024-09-30-1234",
-  "recipientSms": {
-    "phoneNumber": "<phone number in E.164 format>",
-    "timeToLiveInSeconds": 120,
-    "smsSettings": {
-      "sender": "Altinn",
-      "body": "Your one-time code is 428516. It is valid for 2 minutes."
-    }
-  }
-}
-```
+| Aspect | Instant Messaging | Regular Notification Orders |
+|--------|------------------|----------------------------|
+| **Delivery** | Synchronous - sent immediately | Asynchronous - queued |
+| **Number of recipients** | Single recipient | One or more recipients |
+| **Recipient information** | Must provide specific address (phone number/email) | Supports lookup via KRR based on national identity number |
+| **Use case** | Time-critical notifications (e.g., OTP) | General notifications and mass mailings |
+| **API response** | Returns delivery status immediately | Returns order ID for later follow-up |
+| **Notification channels** | SMS or email | SMS, email, or combinations |
 
-- `idempotencyId`: A unique value per message. The server returns `200 OK` with the same `shipmentId` if you submit the same ID again.
-- `sendersReference`: Optional key that you can use in your own logs.
-- `phoneNumber`: Must be in international format including country code.
-- `timeToLiveInSeconds`: How long the system should attempt delivery. Choose a value that matches the lifetime of the one-time code.
-- `smsSettings.sender`: Displayed as the sender name when the message is delivered. Use approved sender names only.
-- `smsSettings.body`: The SMS text. Keep it short and avoid personal data.
+### Detailed Comparison
+
+#### Recipient Setup
+
+**Instant Messaging:**
+- You must provide **exact contact information** (phone number or email address)
+- **No automatic lookup** in the Contact and Reservation Register (KRR)
+- **No validation** of whether the recipient has reserved themselves against digital communication
+
+**Regular Notification Orders:**
+- Supports lookup based on **national identity number** or **organization number**
+- Automatically retrieves contact information from KRR
+- Respects **reservations** against digital communication
+
+#### Processing Flow
+
+**Instant Messaging:**
+1. API receives request
+2. Validates content
+3. Sends immediately to SMS/email gateway
+4. Returns result to client
+
+**Regular Notification Orders:**
+1. API receives request
+2. Creates notification order
+3. Places order in processing queue
+4. Returns order ID
+5. Processes order asynchronously (including KRR lookup)
+6. Sends notifications based on configuration
+
+## Technical Characteristics
+
+### Synchronous Processing
+
+Instant messaging is processed **synchronously**, which means:
+
+- The API call waits until the message is sent to the provider
+- You receive **immediate feedback** on whether the sending succeeded or failed
+- **Higher response time** on API calls compared to regular notification orders
+- No need to poll status endpoints to check delivery status
+
+### Idempotency
+
+Instant messaging supports **idempotency** through a mandatory `idempotencyId` field:
+
+- Prevents the same message from being sent multiple times upon repeated requests
+- Useful during network problems or timeout
+- The same `idempotencyId` will return the same result without resending the message
+
+### Time-to-Live
+
+For **SMS-based instant notifications**, you must specify a `timeToLiveInSeconds` field:
+
+- Defines how long the SMS gateway should attempt to deliver the message
+- Important for OTP use cases where the code expires after a certain time
+- Prevents expired messages from being delivered too late
 
 {{% notice info %}}
-Select a `timeToLiveInSeconds` long enough for the recipient to use the code, yet short enough to prevent misuse. Common OTP values range from 60 to 300 seconds.
+The time-to-live applies to the SMS provider's delivery attempts. If the recipient's phone is turned off or without coverage, the provider will continue trying until the time-to-live expires.
 {{% /notice %}}
 
-### Response
+## Limitations and Considerations
 
-A successful order returns `201 Created` with the following payload:
+### Capacity
 
-```json
-{
-  "notificationOrderId": "caa7f1c0-9d7b-4e56-8d3f-5350f4eb932f",
-  "notification": {
-    "shipmentId": "2d4f1359-4c38-48a7-9a5c-c7b036f53f51",
-    "sendersReference": "otp-login-2024-09-30-1234"
-  }
-}
+Instant messaging is **not optimized for high throughput**:
+
+- Designed for **individual messages**, not mass mailings
+- Synchronous processing means each request takes longer
+- For high volumes, you should consider regular notification orders instead
+
+### Cost
+
+Instant messaging may have **different cost metrics** than regular notification orders:
+
+- Synchronous processing requires more resources
+- Discuss with Altinn about the pricing model for your use case
+
+### Security and Privacy
+
+When using instant messaging, you must be aware of:
+
+- **No KRR validation** - you are responsible for having valid consent to contact the recipient
+- **No reservation check** - recipients who have reserved themselves against digital communication will still receive the message
+- **Logging** - all instant notifications are logged for audit purposes
+
+{{% notice warning %}}
+When using instant messaging, you are responsible for ensuring that you have the right to contact the recipient at the provided address. Altinn performs no validation against KRR or other registers.
+{{% /notice %}}
+
+## Use Case: Sending One-Time Passwords (OTP)
+
+Let's look at a complete scenario for how instant messaging is used to send a one-time password:
+
+### Scenario
+
+A user wants to confirm their mobile number in a service. The service must send a 6-digit one-time code that the user must provide within 5 minutes.
+
+### Requirements
+
+1. The code must be sent **immediately** when the user requests it
+2. The code has a **time-to-live of 5 minutes** (300 seconds)
+3. If the user does not receive the code, they must be able to **request a new code**
+4. The system must **prevent duplicate sends** if the user clicks multiple times
+
+### Solution with Instant Messaging
+
+**Step 1: Generate one-time code**
+```plaintext
+The service generates a random 6-digit code: 123456
+Stores the code in database with expiration time (5 minutes from now)
 ```
 
-- `notificationOrderId` points to the order chain inside Altinn.
-- `shipmentId` is the identifier you use to retrieve the status.
-
-If you reuse the `idempotencyId`, the service returns `200 OK` with the same content.
-
-## Send an email instantly
-
-### Request example
-
-```http
-POST https://platform.altinn.no/notifications/api/v1/future/orders/instant/email
-Content-Type: application/json
-Authorization: Bearer <token>
-
-{
-  "idempotencyId": "8f2a6a61-073b-4a52-9f42-52e9972af974",
-  "sendersReference": "otp-email-2024-09-30-1234",
-  "recipientEmail": {
-    "emailAddress": "<email address>",
-    "emailSettings": {
-      "subject": "One-time code for login",
-      "body": "<p>Your one-time code is <strong>428516</strong>. It is valid for 2 minutes.</p>",
-      "senderEmailAddress": "<sender address>",
-      "contentType": "Html"
-    }
-  }
-}
+**Step 2: Send instant SMS**
+```plaintext
+Call to instant SMS endpoint with:
+- Recipient's phone number
+- Message: "Your one-time code is: 123456. The code expires in 5 minutes."
+- Time-to-live: 300 seconds
+- Idempotency ID: unique ID for this sending
 ```
 
-- `emailAddress`: Must be a valid email address that you are authorised to use.
-- `emailSettings.subject`: Short, descriptive subject lines improve deliverability.
-- `emailSettings.body`: Can be `Plain` text or `Html`. Remember to include a text alternative when sending HTML in production.
-- `senderEmailAddress`: Optional when your organisation has configured senders in Altinn Notifications. Use addresses approved for your solution.
+**Step 3: Handle result**
+```plaintext
+If success:
+  - Show message to user: "One-time code sent to your mobile number"
+  - Let the user enter the code
 
-### Response
-
-The structure matches the SMS response and includes `notificationOrderId` and `shipmentId`.
-
-## Retrieve delivery status
-
-Use the `shipmentId` to fetch the message status:
-
-```http
-GET https://platform.altinn.no/notifications/api/v1/future/shipment/2d4f1359-4c38-48a7-9a5c-c7b036f53f51
-Authorization: Bearer <token>
+If error:
+  - Show error message and offer retry
 ```
 
-Sample response:
-
-```json
-{
-  "shipmentId": "2d4f1359-4c38-48a7-9a5c-c7b036f53f51",
-  "status": "SMS_Delivered",
-  "lastUpdate": "2024-09-30T08:25:14Z",
-  "recipients": [
-    {
-      "destination": "<phone number in E.164 format>",
-      "status": "SMS_Delivered",
-      "lastUpdate": "2024-09-30T08:25:13Z"
-    }
-  ]
-}
+**Step 4: Verify code**
+```plaintext
+When user enters code:
+  - Validate against stored code in database
+  - Check that the code has not expired
+  - Mark the code as used
 ```
 
-### Interpret status values
+### Benefits of Instant Messaging for OTP
 
-- `SMS_Delivered` / `Email_Delivered`: The channel provider confirmed delivery.
-- `SMS_Failed_TTL`: The delivery window expired before the message reached the recipient. Consider generating a new code.
-- `SMS_Failed_InvalidRecipient` or `Email_Failed_InvalidFormat`: The contact detail is invalid. Notify the user and capture updated details.
-- `Email_Failed_Bounced` or `Email_Failed_FilteredSpam`: The provider rejected the message. Follow up manually when needed.
+1. **Immediate delivery** - the user receives the code while waiting
+2. **Time-to-live control** - the code is not sent if it has already expired
+3. **Idempotency** - prevents duplicate sends upon repeated clicks
+4. **Simple implementation** - synchronous API is easier to implement than asynchronous handling
 
-## Best practices for OTP
+## Next Steps
 
-1. Generate new codes each time and log references only, never the actual code.
-2. Set `timeToLiveInSeconds` equal to the code lifetime and inform the recipient in the message.
-3. Keep the text short and avoid extra information that could expose security details.
-4. Monitor status feeds for `Failed` values and add automation to offer a new code.
-5. Ensure your client reuses the `idempotencyId` when network errors occur so the user does not receive duplicates.
-
-## Limitations to be aware of
-
-- Only one recipient per order.
-- No attachments or rich formats beyond basic HTML in email.
-- You must always supply the contact data; the endpoint does not query the Norwegian contact and reservation register.
-- The service does not validate reservation status held in public registers.
-- SMS requests must include a positive `timeToLiveInSeconds`.
-- You must hold a valid access token with the correct Altinn Notifications scope.
+- Read the [instant messaging guide](/notifications/guides/instant-messaging/) to learn how to implement instant messaging in your service
+- See the [API reference](/notifications/reference/api/) for a detailed description of the endpoints
+- Explore the [OpenAPI specification](/notifications/reference/openapi/) for complete API documentation
