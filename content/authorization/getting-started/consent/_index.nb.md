@@ -24,7 +24,7 @@ Denne delen beskriver hva tjenesteeier må gjøre for å tilgjengeliggjøre data
 
 {{< stepcard step="3" title="Opprett samtykkeressurs i ressursregisteret" >}}  
  Ressursregisteret inneholder beskrivelse av autorisasjonsressursen samt tilgangsregler for denne. Sørg for å informere de som skal bruke tjenesten om nødvendige tilgangspakker (og eventuelle enkeltrettigheter) som kreves for å ta den i bruk.
-Under [guider](/nb/authorization/guides/resource-owner/consent/#opprett-ny-samtykkeressurs) kan du lese mer om de forskjellige feltene som må fylles ut
+Under [guider](/nb/authorization/guides/resource-owner/consent/create-resource/#opprett-ny-samtykkeressurs) kan du lese mer om de forskjellige feltene som må fylles ut
 {{< /stepcard >}}
 
 {{< stepcard step="4" title="Tilgangslister" >}}  
