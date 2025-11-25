@@ -22,7 +22,7 @@ This section describes what the service owner must do to make data available thr
   {{< /stepcard >}}
 
 {{< stepcard step="3" title="Create a consent resource in the Resource Registry" >}}
-The Resource Registry stores the description of the authorisation resource and its access rules. Make sure potential consumers know which access packages (and any individual rights) are required to use the service. Read more about the required fields in the [consent resource guide](/en/authorization/guides/resource-owner/consent/#create-new-resource).  
+The Resource Registry stores the description of the authorisation resource and its access rules. Make sure potential consumers know which access packages (and any individual rights) are required to use the service. Read more about the required fields in the [consent resource guide](/en/authorization/guides/resource-owner/consent/create-resource/#create-new-resource).  
 {{< /stepcard >}}
 
 {{< stepcard step="4" title="Manage access lists" >}}
@@ -42,7 +42,7 @@ Document:
   {{< /stepcard >}}
 
 {{< stepcard step="6" title="Validate consent" >}}
-The consent token is a thick token that contains everything you need to validate the consent. Validation can therefore be performed without calling Altinn Authorization. See the [validation guidance](/en/authorization/guides/resource-owner/consent/#validate-consent) for details.
+The consent token is a thick token that contains everything you need to validate the consent. Validation can therefore be performed without calling Altinn Authorization. See the [validation guidance](/en/authorization/guides/resource-owner/consent/create-resource/#validate-consent) for details.
 {{< /stepcard >}}
 
 ## Data Consumer / End-User System
