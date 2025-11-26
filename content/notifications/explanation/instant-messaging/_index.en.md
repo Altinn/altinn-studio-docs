@@ -158,13 +158,13 @@ A user wants to confirm their mobile number in a service. The service must send 
 
 ### Solution with Instant Messaging
 
-**Step 1: Generate one-time code**
+### Step 1: Generate one-time code
 ```plaintext
 The service generates a random 6-digit code: 123456
 Stores the code in database with expiration time (5 minutes from now)
 ```
 
-**Step 2: Send instant SMS**
+### Step 2: Send instant SMS 
 ```plaintext
 Call to instant SMS endpoint with:
 - Recipient's phone number
@@ -173,7 +173,7 @@ Call to instant SMS endpoint with:
 - Idempotency ID: unique ID for this sending
 ```
 
-**Step 3: Handle result**
+### Step 3: Handle result
 ```plaintext
 If success:
   - Show message to user: "One-time code sent to your mobile number"
@@ -183,7 +183,7 @@ If error:
   - Show error message and offer retry
 ```
 
-**Step 4: Verify code**
+### Step 4: Verify code
 ```plaintext
 When user enters code:
   - Validate against stored code in database
