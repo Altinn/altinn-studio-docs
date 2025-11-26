@@ -19,7 +19,7 @@ Live sync: All other changes (A3 app instances)[^1] (forms, messages) show up in
 
 | Source | Migrated back to |
 |----------|----------|
-| A2-Correspondence | 01.01.2025 with some missing and errors |
+| A2-Correspondence | 01.01.2025 with missing messages and errors |
 | A2 archived forms / A3-app instances | 01.02.2025 |
 
 For A2-correspondence, some messages are missing, and some migrated messages have timestamp-errors resulting in the wrong date being displayed in the inbox.
@@ -27,7 +27,7 @@ For A2-correspondence, some messages are missing, and some migrated messages hav
 ## Goals and plans
 
 Phase 1: By the end of 2025, all historic 2025-data will be migrated to Dialogporten.
-25/11: We will migrate data back to and including december 2024 as part of this.
+25/11: We will migrate data back to and including December 2024 as part of this.
 
 Phase 2: Older data will be migrated by Q2 2026, starting with the newest data first.
 

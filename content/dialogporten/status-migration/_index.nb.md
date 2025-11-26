@@ -43,7 +43,7 @@ Alle endringer gjort direkte mot Dialogportens API er tilgjengelig umiddelbart.
 Brukes typisk der tjenesteeier enten har egen plattform, eller håndterer dialoger utenfor standardfunksjonaliteten til Altinn Melding eller Altinn Studio/apper.
 
 ### ⚠ A2 Melding - Historisk
-Foreløpig migrert tilbake til 22. januar 2025. Eldre meldinger vil bli migrert senere.
+Foreløpig migrert tilbake til 1. januar 2025. Eldre meldinger vil bli migrert senere.
 
 Manuell prosess. Historiske meldinger migreres fra Altinn 2 Melding til Altinn 3 Melding. Meldingene migreres deretter til Dialogporten i en separat prosess.
 
