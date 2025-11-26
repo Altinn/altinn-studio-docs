@@ -58,7 +58,7 @@ Eller ved å bruke den numeriske verdien:
         ...,
         "externalReferences":[
             {
-                "referenceValue": 1,
+                "referenceValue": "1",
                 "referenceType": "DialogportenTransmissionType"
             }
         ]
