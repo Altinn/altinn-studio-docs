@@ -1,22 +1,22 @@
 ---
-title: Sende direktevarsler
-description: "Lær hvordan du sender direktevarsler (instant messaging) via Altinn Varslinger API for tidskritiske meldinger som engangskoder (OTP), autentiseringsbekreftelser og andre umiddelbare varsler."
-linktitle: Direktevarsling
-tags: [direktevarsling, instant messaging, OTP, SMS, e-post]
+title: Sende umiddelbare varsler
+description: "Lær hvordan du sender umiddelbare varsler (instant messaging) via Altinn Varslinger API for tidskritiske meldinger som engangskoder (OTP), autentiseringsbekreftelser og andre varsler som ikke tåler forsinkelse."
+linktitle: Umiddelbar varsling
+tags: [umiddelbar varsling, instant messaging, OTP, SMS, e-post]
 weight: 30
 ---
 
 ## Introduksjon
 
-Denne veiledningen viser hvordan du sender direktevarsler via Altinn Varslinger API. Direktevarsler sendes umiddelbart til én enkelt mottaker og er spesielt egnet for tidskritiske meldinger som engangskoder (OTP).
+Denne veiledningen viser hvordan du sender umiddelbare varsler via Altinn Varslinger API. Umiddelbare varsler leveres med en gang til én enkelt mottaker og er spesielt egnet for tidskritiske meldinger som engangskoder (OTP).
 
 {{% notice info %}}
-Før du starter, sørg for at du har lest [forklaringen om direktevarsling](/nb/notifications/explanation/instant-messaging/) for å forstå når og hvordan du bør bruke denne funksjonen.
+Før du starter, sørg for at du har lest [forklaringen om umiddelbar varsling](/nb/notifications/explanation/instant-messaging/) for å forstå når og hvordan du bør bruke denne funksjonen.
 {{% /notice %}}
 
 ## Forutsetninger
 
-Før du kan sende direktevarsler, må du ha:
+Før du kan sende umiddelbare varsler, må du ha:
 
 1. **Maskinporten-klient** med scopet `altinn:serviceowner/notifications.create`
 2. **Altinn-token** for autentisering mot API-et
@@ -26,22 +26,22 @@ Se [veiledning for Maskinporten-integrasjon](/en/notifications/guides/#creating-
 
 ## API-endepunkter
 
-Altinn Varslinger tilbyr to endepunkter for direktevarsling:
+Altinn Varslinger tilbyr to endepunkter for umiddelbar varsling:
 
 | Endepunkt | Beskrivelse |
 |-----------|-------------|
-| `POST /future/orders/instant/sms` | Send direkte SMS-varsling |
-| `POST /future/orders/instant/email` | Send direkte e-postvarsling |
+| `POST /future/orders/instant/sms` | Send umiddelbar SMS-varsling |
+| `POST /future/orders/instant/email` | Send umiddelbar e-postvarsling |
 
 **Base URL:**
 - **Test (TT02):** `https://platform.tt02.altinn.no/notifications/api/v1`
 - **Produksjon:** `https://platform.altinn.no/notifications/api/v1`
 
-## Sende direkte SMS-varsling
+## Sende umiddelbar SMS-varsling
 
 ### Request-struktur
 
-For å sende en direkte SMS må du gjøre en POST-forespørsel til `/future/orders/instant/sms` med følgende struktur:
+For å sende en umiddelbar SMS må du gjøre en POST-forespørsel til `/future/orders/instant/sms` med følgende struktur:
 
 ```json
 {
@@ -146,11 +146,11 @@ Mulige feilkoder:
 | `403 Forbidden` | Mangler tilgang til API-et | Verifiser at Maskinporten-klienten har riktig scope |
 | `500 Internal Server Error` | Intern serverfeil | Prøv igjen eller kontakt Altinn support |
 
-## Sende direkte e-postvarsling
+## Sende umiddelbar e-postvarsling
 
 ### Request-struktur
 
-For å sende en direkte e-post må du gjøre en POST-forespørsel til `/future/orders/instant/email` med følgende struktur:
+For å sende en umiddelbar e-post må du gjøre en POST-forespørsel til `/future/orders/instant/email` med følgende struktur:
 
 ```json
 {
@@ -265,7 +265,7 @@ otp-verification-user12345-20240115103045
 
 ### 2. Håndter timeout
 
-Direktevarsling er synkron og kan ta noen sekunder. Sett en passende timeout i HTTP-klienten:
+Umiddelbar varsling er synkron og kan ta noen sekunder. Sett en passende timeout i HTTP-klienten:
 - **Anbefalt:** 10-15 sekunder
 - **Minimum:** 5 sekunder
 
@@ -308,7 +308,7 @@ Din engangskode er: 123456. Koden utløper om 5 minutter. Ikke del denne koden m
 
 ### 7. Logg sendinger
 
-Logg alle direktevarsler i ditt system for:
+Logg alle umiddelbare varsler i ditt system for:
 - **Feilsøking:** Spor problemer med levering
 - **Sikkerhet:** Oppdage misbruk (f.eks. mange OTP-forsøk)
 - **Revisjon:** Dokumentere hvem som fikk hvilke meldinger
@@ -321,7 +321,7 @@ Logg minimum:
 
 ## Komplett eksempel: OTP-implementasjon
 
-Her er et komplett eksempel på hvordan du kan implementere OTP-sending med direktevarsling:
+Her er et komplett eksempel på hvordan du kan implementere OTP-sending med umiddelbar varsling:
 
 ### Steg 1: Generer og lagre OTP
 
@@ -344,7 +344,7 @@ function generateAndStoreOTP(userId, phoneNumber) {
 }
 ```
 
-### Steg 2: Send OTP via direktevarsling
+### Steg 2: Send OTP via umiddelbar varsling
 
 ```javascript
 // Pseudo-kode
@@ -355,7 +355,7 @@ async function sendOTP(userId, phoneNumber) {
   // Generer unik idempotens-ID
   const idempotencyId = `otp-${userId}-${Date.now()}`;
 
-  // Send direkte SMS
+  // Send umiddelbar SMS
   const response = await fetch(
     'https://platform.tt02.altinn.no/notifications/api/v1/future/orders/instant/sms',
     {
@@ -443,11 +443,11 @@ For å teste SMS-varsling i TT02:
    - Sjekk spam-mappe hvis du ikke mottar e-post
 
 {{% notice info %}}
-Det er en forsinkelse på opptil 10 minutter før endringer i kontaktinformasjon i KRR trer i kraft. Dette gjelder ikke direktevarsling siden du oppgir kontaktinformasjon direkte.
+Det er en forsinkelse på opptil 10 minutter før endringer i kontaktinformasjon i KRR trer i kraft. Dette gjelder ikke umiddelbar varsling siden du oppgir kontaktinformasjon direkte.
 {{% /notice %}}
 
 ## Neste steg
 
-- Les mer om [direktevarsling-konseptet](/nb/notifications/explanation/instant-messaging/)
+- Les mer om [umiddelbar varsling-konseptet](/nb/notifications/explanation/instant-messaging/)
 - Utforsk [API-referansen](/nb/notifications/reference/api/) for fullstendig API-dokumentasjon
 - Se [OpenAPI-spesifikasjonen](/nb/notifications/reference/openapi/) for detaljert teknisk dokumentasjon

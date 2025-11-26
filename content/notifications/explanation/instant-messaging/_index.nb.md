@@ -1,24 +1,24 @@
 ---
-title: Direktevarsling
-description: "Direktevarsling (instant messaging) er en funksjon i Altinn Varslinger som sender varsler umiddelbart til én enkelt mottaker. Dette er spesielt egnet for tidskritiske meldinger som engangskoder, varsler og andre situasjoner der forsinkelser ikke er akseptabelt."
-linktitle: Direktevarsling
-tags: [direktevarsling, instant messaging, OTP, engangskode]
+title: Umiddelbar varsling
+description: "Umiddelbar varsling (instant messaging) er en funksjon i Altinn Varslinger som leverer varsler øyeblikkelig til én enkelt mottaker. Dette er spesielt egnet for tidskritiske meldinger som engangskoder, varsler og andre situasjoner der forsinkelser ikke er akseptabelt."
+linktitle: Umiddelbar varsling
+tags: [umiddelbar varsling, instant messaging, OTP, engangskode]
 weight: 50
 ---
 
-## Hva er direktevarsling?
+## Hva er umiddelbar varsling?
 
-Direktevarsling er en spesialisert varslingstjeneste i Altinn Varslinger som sender meldinger **umiddelbart** til **én enkelt mottaker**. I motsetning til vanlige varslingsordre som settes i kø og behandles asynkront, sendes direktevarsler med en gang forespørselen mottas og behandles synkront.
+Umiddelbar varsling er en spesialisert funksjon i Altinn Varslinger som leverer meldinger **straks** til **én bestemt mottaker**. I motsetning til vanlige varslingsordre som settes i kø og behandles asynkront, sendes umiddelbare varsler med en gang forespørselen mottas og behandles synkront.
 
 Denne funksjonaliteten er designet for brukstilfeller der **rask levering er kritisk**, og der du ikke har råd til forsinkelser som kan oppstå ved købasert behandling.
 
-## Når bør du bruke direktevarsling?
+## Når bør du bruke umiddelbar varsling?
 
-Direktevarsling er spesielt godt egnet for følgende situasjoner:
+Umiddelbar varsling er spesielt godt egnet for følgende situasjoner:
 
 ### Engangskoder (OTP)
 
-Det vanligste brukstilfellet for direktevarsling er utsending av **engangskoder** (OTP - One-Time Password). Disse kodene:
+Det vanligste brukstilfellet for umiddelbar varsling er utsending av **engangskoder** (OTP - One-Time Password). Disse kodene:
 
 - Må leveres **umiddelbart** for god brukeropplevelse
 - Har kort **levetid** (time-to-live)
@@ -33,16 +33,16 @@ Det vanligste brukstilfellet for direktevarsling er utsending av **engangskoder*
 
 ### Andre tidskritiske varsler
 
-Direktevarsling kan også brukes for andre typer tidskritiske meldinger:
+Umiddelbar varsling kan også brukes for andre typer tidskritiske meldinger:
 
 - **Alarmer og kritiske varsler** som krever umiddelbar handling
 - **Sanntidsmeldinger** i interaktive tjenester
 - **Bekreftelser** som brukeren venter på i brukergrensesnittet
 - **Statusoppdateringer** som må vises umiddelbart
 
-## Forskjeller mellom direktevarsling og vanlige varslingsordre
+## Forskjeller mellom umiddelbar varsling og vanlige varslingsordre
 
-| Aspekt | Direktevarsling | Vanlige varslingsordre |
+| Aspekt | Umiddelbar varsling | Vanlige varslingsordre |
 |--------|----------------|------------------------|
 | **Levering** | Synkron - sendes umiddelbart | Asynkron - settes i kø |
 | **Antall mottakere** | Én enkelt mottaker | Én eller flere mottakere |
@@ -55,7 +55,7 @@ Direktevarsling kan også brukes for andre typer tidskritiske meldinger:
 
 #### Mottakeroppsett
 
-**Direktevarsling:**
+**Umiddelbar varsling:**
 - Du må oppgi **eksakt kontaktinformasjon** (telefonnummer eller e-postadresse)
 - **Ingen automatisk oppslag** i Kontakt- og Reservasjonsregisteret (KRR)
 - **Ingen validering** av om mottaker er reservert mot digital kommunikasjon
@@ -67,7 +67,7 @@ Direktevarsling kan også brukes for andre typer tidskritiske meldinger:
 
 #### Behandlingsflyt
 
-**Direktevarsling:**
+**Umiddelbar varsling:**
 1. API mottar forespørsel
 2. Validerer innhold
 3. Sender umiddelbart til SMS/e-post gateway
@@ -85,7 +85,7 @@ Direktevarsling kan også brukes for andre typer tidskritiske meldinger:
 
 ### Synkron behandling
 
-Direktevarsling behandles **synkront**, noe som betyr at:
+Umiddelbar varsling behandles **synkront**, noe som betyr at:
 
 - API-kallet venter til meldingen er sendt til leverandøren
 - Du får **umiddelbar tilbakemelding** på om sendingen lyktes eller feilet
@@ -94,7 +94,7 @@ Direktevarsling behandles **synkront**, noe som betyr at:
 
 ### Idempotens
 
-Direktevarsling støtter **idempotens** gjennom et obligatorisk `idempotencyId`-felt:
+Umiddelbar varsling støtter **idempotens** gjennom et obligatorisk `idempotencyId`-felt:
 
 - Forhindrer at samme melding sendes flere ganger ved gjentatte forespørsler
 - Nyttig ved nettverksproblemer eller timeout
@@ -102,7 +102,7 @@ Direktevarsling støtter **idempotens** gjennom et obligatorisk `idempotencyId`-
 
 ### Levetid (Time-to-Live)
 
-For **SMS-baserte direktevarsler** må du oppgi et `timeToLiveInSeconds`-felt:
+For **SMS-baserte umiddelbare varsler** må du oppgi et `timeToLiveInSeconds`-felt:
 
 - Definerer hvor lenge SMS-gatewayen skal prøve å levere meldingen
 - Viktig for OTP-brukstilfeller der koden utløper etter en viss tid
@@ -116,7 +116,7 @@ Levetiden gjelder for SMS-leverandørens forsøk på levering. Hvis mottakerens 
 
 ### Kapasitet
 
-Direktevarsling er **ikke optimalisert for høy throughput**:
+Umiddelbar varsling er **ikke optimalisert for høy throughput**:
 
 - Designet for **enkeltstående meldinger**, ikke masseutsendelser
 - Synkron behandling betyr at hver forespørsel tar lengre tid
@@ -124,26 +124,26 @@ Direktevarsling er **ikke optimalisert for høy throughput**:
 
 ### Kostnad
 
-Direktevarsling kan ha **andre kostnadsmål** enn vanlige varslingsordre:
+Umiddelbar varsling kan ha **andre kostnadsmål** enn vanlige varslingsordre:
 
 - Synkron behandling krever mer ressurser
 - Diskuter med Altinn om prismodell for ditt brukstilfelle
 
 ### Sikkerhet og personvern
 
-Når du bruker direktevarsling må du være oppmerksom på:
+Når du bruker umiddelbar varsling må du være oppmerksom på:
 
 - **Ingen KRR-validering** - du er ansvarlig for å ha gyldig samtykke til å kontakte mottakeren
 - **Ingen reservasjonssjekk** - mottakere som er reservert mot digital kommunikasjon vil likevel motta meldingen
-- **Logging** - alle direktevarsler logges for revisjonsformål
+- **Logging** - alle umiddelbare varsler logges for revisjonsformål
 
 {{% notice warning %}}
-Ved bruk av direktevarsling har du selv ansvar for å sikre at du har rett til å kontakte mottakeren på den oppgitte adressen. Altinn utfører ingen validering mot KRR eller andre registre.
+Ved bruk av umiddelbar varsling har du selv ansvar for å sikre at du har rett til å kontakte mottakeren på den oppgitte adressen. Altinn utfører ingen validering mot KRR eller andre registre.
 {{% /notice %}}
 
 ## Brukstilfelle: Sending av engangskode (OTP)
 
-La oss se på et komplett scenario for hvordan direktevarsling brukes for å sende en engangskode:
+La oss se på et komplett scenario for hvordan umiddelbar varsling brukes for å sende en engangskode:
 
 ### Scenario
 
@@ -156,7 +156,7 @@ En bruker ønsker å bekrefte sitt mobilnummer i en tjeneste. Tjenesten må send
 3. Hvis brukeren ikke mottar koden, må de kunne **be om en ny kode**
 4. Systemet må **forhindre duplikate sendinger** hvis brukeren klikker flere ganger
 
-### Løsning med direktevarsling
+### Løsning med umiddelbar varsling
 
 ### Steg 1: Generer engangskode
 ```plaintext
@@ -164,9 +164,9 @@ Tjenesten genererer en tilfeldig 6-sifret kode: 123456
 Lagrer koden i database med utløpstid (5 minutter fra nå)
 ```
 
-### Steg 2: Send direkte SMS
+### Steg 2: Send umiddelbar SMS
 ```plaintext
-Kall til direktevarsel SMS-endepunkt med:
+Kall til API-et for umiddelbar varsling via SMS med:
 - Mottakers telefonnummer
 - Melding: "Din engangskode er: 123456. Koden utløper om 5 minutter."
 - Levetid: 300 sekunder
@@ -191,7 +191,7 @@ Når bruker taster inn kode:
   - Marker koden som brukt
 ```
 
-### Fordeler med direktevarsling for OTP
+### Fordeler med umiddelbar varsling for OTP
 
 1. **Øyeblikkelig levering** - brukeren får koden mens de venter
 2. **Levetidskontroll** - koden sendes ikke hvis den allerede er utløpt
@@ -200,6 +200,6 @@ Når bruker taster inn kode:
 
 ## Neste steg
 
-- Les [veiledningen for direktevarsling](/nb/notifications/guides/instant-messaging/) for å lære hvordan du implementerer direktevarsling i din tjeneste
+- Les [veiledningen for umiddelbar varsling](/nb/notifications/guides/instant-messaging/) for å lære hvordan du implementerer umiddelbar varsling i din tjeneste
 - Se [API-referansen](/nb/notifications/reference/api/) for detaljert beskrivelse av endepunktene
 - Utforsk [OpenAPI-spesifikasjonen](/nb/notifications/reference/openapi/) for fullstendig API-dokumentasjon
