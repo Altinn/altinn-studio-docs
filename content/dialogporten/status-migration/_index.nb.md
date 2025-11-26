@@ -9,7 +9,7 @@ cascade:
 
 ## Status
 
-⚠ 25/11: Live-synkronisering av melding (både fra Altinn 2 og Altinn 3) er midlertidig satt på pause på grunn av tekniske problemer. I tillegg mangler det noen historiske meldinger fra Altinn 2, og noen eksisterende meldinger har feil dato. Vi jobber med å løse disse tre problemene så snart som mulig.
+⚠ 25/11: Live-synkronisering av melding (både fra Altinn 2 og Altinn 3) er midlertidig satt på pause på grunn av tekniske problemer. I tillegg mangler det historiske meldinger fra Altinn 2, og noen eksisterende meldinger har feil dato. Vi jobber med å løse disse tre problemene så snart som mulig.
 
 Livesynkronisering: Alle andre endringer (A3-app-instanser) [^1] (skjema, meldinger) vises i Dialogporten.
 
@@ -48,12 +48,12 @@ Foreløpig migrert tilbake til 22. januar 2025. Eldre meldinger vil bli migrert 
 Manuell prosess. Historiske meldinger migreres fra Altinn 2 Melding til Altinn 3 Melding. Meldingene migreres deretter til Dialogporten i en separat prosess.
 
 ### ⚠ A2 Melding - Live
-25/11: Live-synkronisering er midlertidig satt på pause på grunn av tekniske problemer.
+25/11: Live-synkronisering er midlertidig satt på pause på grunn av migreringsfeil.
 <!-- Nye meldinger opprettet i Altinn 2 Melding migreres til Dialogporten i nær sanntid (hvert 5. minutt).
 Livesynkronisering er aktiv for både tt02 og prod. -->
 
 ### ⚠ A3 Melding
-25/11: Live-synkronisering er midlertidig satt på pause på grunn av tekniske problemer.
+25/11: Live-synkronisering er midlertidig satt på pause på grunn av migreringsfeil.
 <!-- Alle nye meldinger opprettet i Altinn 3 Melding er tilgjengelig i Dialogporten umiddelbart. Ingen migrering nødvendig. -->
 
 ### ⚠ A3 App-instanser - Historisk
@@ -75,7 +75,7 @@ Nye app-instanser opprettet i Altinn 2 migreres i puljer hvert 5. minutt.
 - Mål oppdatert for migreringsfase 1: vil migrere gamle data tilbake til og med desember 2024 innen 2025.
 - Livesynkronisering av A2 og A3 melding midlertidig satt på pause på grunn av tekniske problemer.
 - For A2-melding mangler noen meldinger i perioden som allerede er migrert. Vi jobber med å migrere disse også.
-- Noen historiske meldingsdialoger har feil datoer som vises i innboksen.
+- Noen historiske meldingsdialoger har feil datoer som vises i innboksen. Disse vil bli korrigert.
 
 18.11.2025: App-instanser og arkiverte skjema tilbake til 01.02.2025.
 

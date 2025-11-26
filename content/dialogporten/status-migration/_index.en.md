@@ -9,7 +9,7 @@ cascade:
 
 ## Status
 
-⚠ 25/11: Live-sync of correspondence (both from Altinn 2 and Altinn 3) is temporarily paused due to technical issues. Also, there are some missing historic messages from Altinn 2 correspondence, and wrong dates on existing ones. We are working to resolve these three issues as soon as possible.
+⚠ 25/11: Live-sync of correspondence (both from Altinn 2 and Altinn 3) is temporarily paused due to technical issues. For historic correspondence, there are missing historic messages from Altinn 2 correspondence, and wrong dates on existing ones. We are working to resolve these three issues as soon as possible.
 
 Live sync: All other changes (A3 app instances)[^1] (forms, messages) show up in Dialogporten.
 
@@ -22,7 +22,7 @@ Live sync: All other changes (A3 app instances)[^1] (forms, messages) show up in
 | A2-Correspondence | 01.01.2025 with some missing and errors |
 | A2 archived forms / A3-app instances | 01.02.2025 |
 
-For A2-correspondence, some messages are missing, and some of the migrated messages have timestamp-errors resulting in the wrong date being displayed in the inbox.
+For A2-correspondence, some messages are missing, and some migrated messages have timestamp-errors resulting in the wrong date being displayed in the inbox.
 
 ## Goals and plans
 
@@ -48,12 +48,12 @@ Currently migrated back to 1st of January 2025. Older correspondence will be mig
 Manual process. Historic correspondence is migrated from Altinn 2 correspondence to Altinn 3 correspondence. The correspondences are then migrated to Dialogporten in a separate process.
 
 ### ⚠ A2 Correspondence - Live
-25/11: Live-sync is temporarily paused due to technical issues.
+25/11: Live-sync is temporarily paused due to migration errors.
 <!-- New messages created in Altinn 2 correspondence are migrated to Dialogporten in near real-time (every 5 minutes).
 Live sync is active for both tt02 and prod. -->
 
 ### ⚠ A3 Correspondence
-25/11: Live-sync is temporarily paused due to technical issues.
+25/11: Live-sync is temporarily paused due to migration errors.
 <!-- All new messages created in Altinn 3 correspondence are available in Dialogporten immediately. No migration needed. -->
 
 ### ⚠ A3 App instances - Historic
@@ -73,9 +73,9 @@ New app instances created in Altinn 2 are migrated in batches every 5 minutes.
 25.11.2025: More data have been migrated, pause in correspondence live-sync, goal updated:
 - Historic A2-correspondence migrated further back to and including 01.01.2025, with exceptions mentioned below.
 - Goal updated on migration phase 1: will migrate old data back to and including December 2024 by 2025.
-- Live-sync of A2 and A3 correspondence temporarily paused due to technical issues.
+- Live-sync of A2 and A3 correspondence temporarily paused due to synchronization issues.
 - A2-correspondence messages are missing in the period already migrated. We are working to migrate these as well.
-- Historic correspondence-dialogs have some wrong dates displayed in inbox.
+- Historic correspondence-dialogs have some wrong dates displayed in inbox. These will be corrected.
 
 18.11.2025: App instances and archived forms back to 01.02.2025.
 
