@@ -1,14 +1,12 @@
 ---
-title: Design
-description: Vi ønsker å oppnå helhetlige og konsekvente brukeropplevelser ved å bruke gjenkjennbare og godt testede komponenter. For å oppnå dette ut i tjenestene, ber vi deg om å benytte retningslinjene på disse sidene.
+title: Tips og råd
+description: Få råd om hvordan du setter opp gode skjema, skriver brukervennlige tekster og sikrer tilgjengelighet for alle.
 weight: 30
 tags: [needsReview, translate-to-english]
 aliases:
 - /nb/app/design/guidelines/
 ---
 
-Altinn har som mål å gjøre det enklere for innbyggere og næringsliv å være i kontakt med det offentlige uavhengig
-av digital kompetanse. Felles retningslinjer for design hjelper oss å skape konsistens på tvers av tjenester
-som lages i Altinn Studio. 
+Her finner du praktiske råd for å lage brukervennlige tjenester i Altinn Studio. Du får tips om hvordan du setter opp skjema, skriver gode tekster i brukergrensesnittet, sikrer tilgjengelighet og velger riktige komponenter. Følg disse anbefalingene for å gi sluttbrukerne en god opplevelse. 
 
 {{<children />}}

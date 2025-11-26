@@ -5,6 +5,10 @@ weight: 4
 tags: [needsReview, translate-to-english]
 ---
 
+{{< notice warning >}}
+**Under arbeid** - Denne artikkelen er under oppdatering.
+{{< /notice >}}
+
 ## Vær tydelig på hva brukeren skal gjøre
 
 Brukeren skal ikke trenge å få feilmelding for å forstå hva som skal til for å fylle ut skjemaet riktig. Dette bør tydelig komme frem

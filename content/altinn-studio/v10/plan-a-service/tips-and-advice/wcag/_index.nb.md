@@ -6,6 +6,10 @@ toc: true
 tags: [needsReview, translate-to-english]
 ---
 
+{{< notice warning >}}
+**Under arbeid** - Denne artikkelen er under oppdatering.
+{{< /notice >}}
+
 Forskrift om universell utforming av IKT-løsninger stiller krav om at nettsider må oppfylle 35 av 61 suksesskriterier i standarden
 [Retningslinjer for tilgjengelig webinnhold (WCAG) 2.0](https://www.w3.org/Translations/WCAG20-no/).
 

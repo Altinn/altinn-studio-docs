@@ -5,6 +5,10 @@ weight: 3
 tags: [needsReview, translate-to-english]
 ---
 
+{{< notice warning >}}
+**Under arbeid** - Denne artikkelen er under oppdatering.
+{{< /notice >}}
+
 Brukertester har vist at når brukerne starter på etaten eller kommunens sider for å fylle ut et skjema og blir sendt videre til Altinn, får de ofte opplevelsen av at «plutselig var jeg i Altinn».
 
 Innganger til skjema bør derfor

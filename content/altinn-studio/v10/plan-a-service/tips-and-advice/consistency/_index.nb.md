@@ -6,6 +6,10 @@ weight: 7
 tags: [needsReview, translate-to-english]
 ---
 
+{{< notice warning >}}
+**Under arbeid** - Denne artikkelen er under oppdatering.
+{{< /notice >}}
+
 ## Hvorfor det er viktig å være konsekvent
 
 Når brukere møter en ny tjeneste, har de med seg forventninger fra tidligere opplevelser. Når disse forventningene møtes, kreves det mindre av brukeren for å samhandle med komponentene, og det bygges selvtillit. Ved å ikke trenge å lære nye interaksjoner vil brukerens fokus i større grad være på innholdet.
