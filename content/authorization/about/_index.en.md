@@ -17,7 +17,7 @@ A typical use case is when a public entity needs to control who can read or chan
 
 To use Altinn Authorization, the service owner registers the service in the **Resource Register**. There they describe the service and set access policies that state who can use it, on whose behalf, and with which operations.
 
-![Brukerscenario](om_autorisasjon.png "Altinn Autoriasjon")
+![Brukerscenario](om_autorisasjon.png "Altinn Autorisasjon")
 
 Businesses and private individuals can delegate rights through the Altinn Authorization user interface. They can see who has which rights on their behalf and revoke them when needed.
 
