@@ -15,7 +15,7 @@ Altinn Authorization offers a collection of components and services that public 
 
 A typical use case is when a public entity needs to control who can read or change data in a service. The service can run on the Altinn platform or on the owner’s own platform.
 
-To use Altinn Authorization, the servcie owner registers the service in the **Resource Register**. There they describe the service and set access policies that state who can use it, on whose behalf, and with which operations.
+To use Altinn Authorization, the service owner registers the service in the **Resource Register**. There they describe the service and set access policies that state who can use it, on whose behalf, and with which operations.
 
 ![Brukerscenario](om_autorisasjon.png "Altinn Autoriasjon")
 
