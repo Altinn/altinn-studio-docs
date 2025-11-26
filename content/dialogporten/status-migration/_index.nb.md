@@ -9,7 +9,9 @@ cascade:
 
 ## Status
 
-Livesynkronisering: Alle endringer[^1] (skjema, meldinger) vises i Dialogporten.
+⚠ 25/11: Live-synkronisering av melding (både fra Altinn 2 og Altinn 3) er midlertidig satt på pause på grunn av tekniske problemer. I tillegg mangler det historiske meldinger fra Altinn 2, og noen eksisterende meldinger har feil dato. Vi jobber med å løse disse tre problemene så snart som mulig.
+
+Livesynkronisering: Alle andre endringer (A3-app-instanser) [^1] (skjema, meldinger) vises i Dialogporten.
 
 [^1]: Med unntak av app-instanser fra Altinn 2 som ikke er fullført (f.eks. startet utfylling av et skjema, men ikke fullført)
 
@@ -17,14 +19,17 @@ Livesynkronisering: Alle endringer[^1] (skjema, meldinger) vises i Dialogporten.
 
 | Kilde | Migrert tilbake til |
 |----------|----------|
-| A2-Melding | 22.01.2025 |
+| A2-Melding | 01.01.2025 med mangler og feil |
 | A2 arkiverte skjema / A3-app-instanser | 01.02.2025 |
+
+For A2-melding mangler noen meldinger, og noen av de migrerte meldingene har feil tidsstempel som fører til at feil dato vises i innboksen.
 
 ## Mål og planer
 
-Innen utgangen av 2025 vil alle historiske 2025-data være migrert til Dialogporten.
+Fase 1: Innen utgangen av 2025 vil alle historiske 2025-data være migrert til Dialogporten.
+25/11: Vi vil migrere data tilbake til og med desember 2024 som en del av dette.
 
-Eldre data vil bli migrert innen Q2 2026. Vi starter med nyeste data og jobber bakover.
+Fase 2: Eldre data vil bli migrert ferdig i løpet av andre kvartal 2026. Vi starter med nyeste data og jobber bakover.
 
 ## Detaljer
 Dialoger i Dialogporten kommer fra tre kilder: direkte via Dialogportens API, fra Melding (correspondence), eller app-instanser (f.eks. utfylte skjema).
@@ -38,16 +43,18 @@ Alle endringer gjort direkte mot Dialogportens API er tilgjengelig umiddelbart.
 Brukes typisk der tjenesteeier enten har egen plattform, eller håndterer dialoger utenfor standardfunksjonaliteten til Altinn Melding eller Altinn Studio/apper.
 
 ### ⚠ A2 Melding - Historisk
-Foreløpig migrert tilbake til 22. januar 2025. Eldre meldinger vil bli migrert senere.
+Foreløpig migrert tilbake til 1. januar 2025. Eldre meldinger vil bli migrert senere.
 
 Manuell prosess. Historiske meldinger migreres fra Altinn 2 Melding til Altinn 3 Melding. Meldingene migreres deretter til Dialogporten i en separat prosess.
 
-### ✔ A2 Melding - Live
-Nye meldinger opprettet i Altinn 2 Melding migreres til Dialogporten i nær sanntid (hvert 5. minutt).
-Livesynkronisering er aktiv for både tt02 og prod.
+### ⚠ A2 Melding - Live
+25/11: Live-synkronisering er midlertidig satt på pause på grunn av migreringsfeil.
+<!-- Nye meldinger opprettet i Altinn 2 Melding migreres til Dialogporten i nær sanntid (hvert 5. minutt).
+Livesynkronisering er aktiv for både tt02 og prod. -->
 
-### ✔ A3 Melding
-Alle nye meldinger opprettet i Altinn 3 Melding er tilgjengelig i Dialogporten umiddelbart. Ingen migrering nødvendig.
+### ⚠ A3 Melding
+25/11: Live-synkronisering er midlertidig satt på pause på grunn av migreringsfeil.
+<!-- Alle nye meldinger opprettet i Altinn 3 Melding er tilgjengelig i Dialogporten umiddelbart. Ingen migrering nødvendig. -->
 
 ### ⚠ A3 App-instanser - Historisk
 Migrert tilbake til 1. februar 2025. Eldre app-instanser vil bli migrert senere.
@@ -62,6 +69,13 @@ Migrert tilbake til 1. februar 2025. Eldre arkiverte skjema vil bli migrert sene
 Nye app-instanser opprettet i Altinn 2 migreres i puljer hvert 5. minutt.
 
 ## Endringslogg
+
+25.11.2025: Mer data er migrert, pause i livesynkronisering av melding, mål oppdatert:
+- Historisk A2-melding migrert lenger tilbake til og med 01.01.2025, med unntak nevnt under.
+- Mål oppdatert for migreringsfase 1: vil migrere gamle data tilbake til og med desember 2024 innen 2025.
+- Livesynkronisering av A2 og A3 melding midlertidig satt på pause på grunn av tekniske problemer.
+- For A2-melding mangler noen meldinger i perioden som allerede er migrert. Vi jobber med å migrere disse også.
+- Noen historiske meldingsdialoger har feil datoer som vises i innboksen. Disse vil bli korrigert.
 
 18.11.2025: App-instanser og arkiverte skjema tilbake til 01.02.2025.
 
