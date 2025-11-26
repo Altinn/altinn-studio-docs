@@ -158,13 +158,13 @@ En bruker ønsker å bekrefte sitt mobilnummer i en tjeneste. Tjenesten må send
 
 ### Løsning med direktevarsling
 
-**Steg 1: Generer engangskode**
+### Steg 1: Generer engangskode
 ```plaintext
 Tjenesten genererer en tilfeldig 6-sifret kode: 123456
 Lagrer koden i database med utløpstid (5 minutter fra nå)
 ```
 
-**Steg 2: Send direkte SMS**
+### Steg 2: Send direkte SMS
 ```plaintext
 Kall til direktevarsel SMS-endepunkt med:
 - Mottakers telefonnummer
@@ -173,7 +173,7 @@ Kall til direktevarsel SMS-endepunkt med:
 - Idempotens-ID: unik ID for denne sendingen
 ```
 
-**Steg 3: Håndter resultat**
+### Steg 3: Håndter resultat
 ```plaintext
 Hvis suksess:
   - Vis melding til bruker: "Engangskode sendt til ditt mobilnummer"
@@ -183,7 +183,7 @@ Hvis feil:
   - Vis feilmelding og tilby ny forsøk
 ```
 
-**Steg 4: Verifiser kode**
+### Steg 4: Verifiser kode
 ```plaintext
 Når bruker taster inn kode:
   - Valider mot lagret kode i database
