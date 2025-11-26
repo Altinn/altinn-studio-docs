@@ -11,7 +11,7 @@ weight: 30
 Denne veiledningen viser hvordan du sender direktevarsler via Altinn Varslinger API. Direktevarsler sendes umiddelbart til én enkelt mottaker og er spesielt egnet for tidskritiske meldinger som engangskoder (OTP).
 
 {{% notice info %}}
-Før du starter, sørg for at du har lest [forklaringen om direktevarsling](/notifications/explanation/instant-messaging/) for å forstå når og hvordan du bør bruke denne funksjonen.
+Før du starter, sørg for at du har lest [forklaringen om direktevarsling](/nb/notifications/explanation/instant-messaging/) for å forstå når og hvordan du bør bruke denne funksjonen.
 {{% /notice %}}
 
 ## Forutsetninger
@@ -22,7 +22,7 @@ Før du kan sende direktevarsler, må du ha:
 2. **Altinn-token** for autentisering mot API-et
 3. **Mottakers kontaktinformasjon** (telefonnummer eller e-postadresse)
 
-Se [veiledning for Maskinporten-integrasjon](/notifications/guides/#opprette-en-ny-maskinporten-klient) for mer informasjon om oppsett.
+Se [veiledning for Maskinporten-integrasjon](/nb/notifications/guides/#opprette-en-ny-maskinporten-klient) for mer informasjon om oppsett.
 
 ## API-endepunkter
 
@@ -97,7 +97,7 @@ Telefonnummeret må være i internasjonalt format med landkode. Norske nummer st
 #### body (påkrevd)
 - **Type:** String
 - **Beskrivelse:** Innholdet i SMS-meldingen.
-- **Begrensninger:** Se [SMS-segmentering](/notifications/explanation/sms-segmentation/) for detaljer om tegnbegrensninger.
+- **Begrensninger:** Se [SMS-segmentering](/nb/notifications/explanation/sms-segmentation/) for detaljer om tegnbegrensninger.
 
 ### Eksempel: Send engangskode via SMS
 
@@ -448,6 +448,6 @@ Det er en forsinkelse på opptil 10 minutter før endringer i kontaktinformasjon
 
 ## Neste steg
 
-- Les mer om [direktevarsling-konseptet](/notifications/explanation/instant-messaging/)
-- Utforsk [API-referansen](/notifications/reference/api/) for fullstendig API-dokumentasjon
-- Se [OpenAPI-spesifikasjonen](/notifications/reference/openapi/) for detaljert teknisk dokumentasjon
+- Les mer om [direktevarsling-konseptet](/nb/notifications/explanation/instant-messaging/)
+- Utforsk [API-referansen](/nb/notifications/reference/api/) for fullstendig API-dokumentasjon
+- Se [OpenAPI-spesifikasjonen](/nb/notifications/reference/openapi/) for detaljert teknisk dokumentasjon

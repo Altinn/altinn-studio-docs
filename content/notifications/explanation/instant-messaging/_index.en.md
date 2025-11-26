@@ -200,6 +200,6 @@ When user enters code:
 
 ## Next Steps
 
-- Read the [instant messaging guide](/notifications/guides/instant-messaging/) to learn how to implement instant messaging in your service
-- See the [API reference](/notifications/reference/api/) for a detailed description of the endpoints
-- Explore the [OpenAPI specification](/notifications/reference/openapi/) for complete API documentation
+- Read the [instant messaging guide](/en/notifications/guides/instant-messaging/) to learn how to implement instant messaging in your service
+- See the [API reference](/en/notifications/reference/api/) for a detailed description of the endpoints
+- Explore the [OpenAPI specification](/en/notifications/reference/openapi/) for complete API documentation

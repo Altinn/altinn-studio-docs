@@ -200,6 +200,6 @@ Når bruker taster inn kode:
 
 ## Neste steg
 
-- Les [veiledningen for direktevarsling](/notifications/guides/instant-messaging/) for å lære hvordan du implementerer direktevarsling i din tjeneste
-- Se [API-referansen](/notifications/reference/api/) for detaljert beskrivelse av endepunktene
-- Utforsk [OpenAPI-spesifikasjonen](/notifications/reference/openapi/) for fullstendig API-dokumentasjon
+- Les [veiledningen for direktevarsling](/nb/notifications/guides/instant-messaging/) for å lære hvordan du implementerer direktevarsling i din tjeneste
+- Se [API-referansen](/nb/notifications/reference/api/) for detaljert beskrivelse av endepunktene
+- Utforsk [OpenAPI-spesifikasjonen](/nb/notifications/reference/openapi/) for fullstendig API-dokumentasjon

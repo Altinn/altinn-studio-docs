@@ -11,7 +11,7 @@ weight: 30
 This guide shows how to send instant notifications via the Altinn Notifications API. Instant notifications are sent immediately to a single recipient and are particularly suitable for time-critical messages such as one-time passwords (OTP).
 
 {{% notice info %}}
-Before you start, make sure you have read the [explanation of instant messaging](/notifications/explanation/instant-messaging/) to understand when and how you should use this feature.
+Before you start, make sure you have read the [explanation of instant messaging](/en/notifications/explanation/instant-messaging/) to understand when and how you should use this feature.
 {{% /notice %}}
 
 ## Prerequisites
@@ -22,7 +22,7 @@ Before you can send instant notifications, you must have:
 2. **Altinn token** for authentication against the API
 3. **Recipient's contact information** (phone number or email address)
 
-See the [Maskinporten integration guide](/notifications/guides/#opprette-en-ny-maskinporten-klient) for more information about setup.
+See the [Maskinporten integration guide](/en/notifications/guides/#creating-a-new-maskinporten-client) for more information about setup.
 
 ## API Endpoints
 
@@ -97,7 +97,7 @@ The phone number must be in international format with country code. Norwegian nu
 #### body (required)
 - **Type:** String
 - **Description:** Content of the SMS message.
-- **Limitations:** See [SMS segmentation](/notifications/explanation/sms-segmentation/) for details on character limitations.
+- **Limitations:** See [SMS segmentation](/en/notifications/explanation/sms-segmentation/) for details on character limitations.
 
 ### Example: Send One-Time Code via SMS
 
@@ -448,6 +448,6 @@ There is a delay of up to 10 minutes before changes in contact information in KR
 
 ## Next Steps
 
-- Read more about the [instant messaging concept](/notifications/explanation/instant-messaging/)
-- Explore the [API reference](/notifications/reference/api/) for complete API documentation
-- See the [OpenAPI specification](/notifications/reference/openapi/) for detailed technical documentation
+- Read more about the [instant messaging concept](/en/notifications/explanation/instant-messaging/)
+- Explore the [API reference](/en/notifications/reference/api/) for complete API documentation
+- See the [OpenAPI specification](/en/notifications/reference/openapi/) for detailed technical documentation
