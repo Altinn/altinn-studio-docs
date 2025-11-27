@@ -22,13 +22,11 @@ God mikrotekst skal
 
 Ledetekster i skjema kan være korte og rett frem. I stedet for «Oppgi fødselsnummeret ditt:» kan du skrive «Fødselsnummer:».
 
-Hvis brukeren trenger mer informasjon, kan du legge det til i en beskrivelse under ledeteksten: «Fødselsnummer, 11 siffer:».
-
 ## Oppmuntre brukeren til å fortsette
 
 Veiledningstekster som viser brukeren hvor langt de har kommet, gjør tjenesten mer brukervennlig.
 
-- ✅ «Da er du snart i mål! Bekreft at du godtar betingelsene og velg Kjøp.»
+- ✅ «Da er du snart i mål! Bekreft at du godtar betingelsene og velg Signer.»
 
 ## Lag gode ledetekster
 
