@@ -24,17 +24,23 @@ Med disse spørsmålene må vi som virksomhet tenke nøye over hvorfor vi ber br
 
 Så snart du har funnet ut hvilke spørsmål du må ha med, kan du begynne å tenke på hvordan du stiller dem.
 
-{{% panel %}}
-**NB:** Eventuelt vise et eksempel på hvordan en side med spørsmål skal se ut med våre komponenter (se eksempelet til gov.uk her
-[how a question page should look](https://design-system.service.gov.uk/patterns/question-pages/)).
-{{% /panel %}}
-
 ## Still spørsmål som brukerne lett forstår
 
 - **Bruk lukkede spørsmål fremfor åpne.** Det er lettere å svare på lukkede spørsmål enn åpne. Et lukket spørsmål er et spørsmål
   du ofte kan svare Ja eller Nei på, for eksempel «Bor du på mer enn en adresse?» Et åpent spørsmål i samme kategori kan være
   «Fortell oss hvordan du bor». Det er spesielt viktig at vi tenker over hvordan vi stiller spørsmål i det offentlige,
   fordi brukerne er ofte redde for å svare feil.
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
+    <div>
+      <p><strong>✅ Gjør dette</strong></p>
+      <img src="/images/tone-of-voice/good-question-closed-yes-no.png" alt="Eksempel på lukket spørsmål: Bor du på mer enn en adresse? med Ja/Nei-alternativer" style="max-width: 100%; border: 1px solid #ddd;">
+    </div>
+    <div>
+      <p><strong>❌ Ikke gjør dette</strong></p>
+      <img src="/images/tone-of-voice/bad-question-open-text.png" alt="Eksempel på åpent spørsmål: Fortell oss hvor du bor med tekstfelt" style="max-width: 100%; border: 1px solid #ddd;">
+    </div>
+  </div>
 - **Still flere enkle spørsmål fremfor ett sammensatt.** Det kan være enklere å svare på flere enkle spørsmål enn ett spørsmål
   som er sammensatt. Dette gjelder særlig hvis noen deler av spørsmålet kanskje ikke gjelder alle brukerne.
 - **Legg inn alternativer «Jeg er ikke sikker» eller «Vet ikke» hvis det trengs.**
@@ -52,14 +58,25 @@ samtidig som vi sjekker at vi har brukt klarspråk. Et enkelt grep kan være å 
 Du kan også prøve å legge til bedre ledetekster for alternativknapper (radio buttons) eller avmerkingsbokser (check boxes).
 Hvis brukerne for eksempel er usikre på om de kan svare Ja eller Nei, så kan en mer presis ledetekst hjelpe.
 
-<!-- TODO: Legg til et panel med eksempel på Ja/Nei-spørsmål fra Altinn 3-tjenester -->
+**Eksempel fra Altinn-tjeneste:**
 
-<!-- TODO: Lag et gjør dette/ikke gjør dette-eksempel med gode og dårlige ledetekster -->
+<img src="/images/tone-of-voice/good-question-closed-yes-no.png" alt="Ja/Nei-spørsmål: Bor du på mer enn en adresse?" style="max-width: 600px; border: 1px solid #ddd; margin-top: 0.5rem; margin-bottom: 3rem;">
 
 Det blir også krøll hvis vi formulerer ledetekster til alternativer på ulik måte, for eksempel hvis vi blander lange og korte svar.
 Da kan du gjøre det mer leselig for brukerne ved å skille lange svaralternativ fra de korte med et «eller».
 
-<!-- TODO: Lag eksempel som viser hvordan man skiller lange og korte svaralternativ med "eller" -->
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0 3rem 0;">
+  <div>
+    <p><strong>✅ Gjør dette</strong></p>
+    <img src="/images/tone-of-voice/good-question-eller-separation.png" alt="Godt eksempel: Korte alternativer, deretter 'Eller' før langt alternativ" style="max-width: 100%; border: 1px solid #ddd;">
+    <p style="font-size: 0.9em; margin-top: 0.5rem;">Skiller korte og lange alternativer med «Eller»</p>
+  </div>
+  <div>
+    <p><strong>❌ Ikke gjør dette</strong></p>
+    <img src="/images/tone-of-voice/bad-question-mixed-labels.png" alt="Dårlig eksempel: Blanding av korte og lange alternativer uten skilletegn" style="max-width: 100%; border: 1px solid #ddd;">
+    <p style="font-size: 0.9em; margin-top: 0.5rem;">Blander korte og lange alternativer uten «Eller»</p>
+  </div>
+</div>
 
 ## Gi veiledning der det trengs
 
@@ -75,13 +92,13 @@ Men vi må passe på at vi kun gjør dette hvis brukertester viser at brukerne t
 
 ### Plassere beskrivelser (hjelpetekster)
 
-- **Legg til en beskrivelse rett under overskriften til komponenten det gjelder.**
-- **Bruk en komponent som tillater brukerne å se detaljer**, for eksempel tekst under et spørsmålstegn eller et informasjonsikon,
+- Legg til en beskrivelse rett under overskriften til komponenten det gjelder.
+- Bruk en komponent som tillater brukerne å se detaljer, for eksempel tekst under et spørsmålstegn eller et informasjonsikon,
   eller en trekkspilliste. Dette er mest nyttig når informasjonen vi skal gi kun gjelder noen brukere, ikke alle.
   Hvis informasjonen gjelder alle bør den være synlig hele tiden, i en beskrivelse.
-- **Tenk kort og handlingsorientert.** Noen ganger må vi gi brukerne en lengre forklaring for å hjelpe dem med å ta vanskelige avgjørelser.
+- Tenk kort og handlingsorientert. Noen ganger må vi gi brukerne en lengre forklaring for å hjelpe dem med å ta vanskelige avgjørelser.
   Da er det viktig å huske på at brukerne ofte ikke leser mer enn tre linjer tekst, så tenk kort og handlingsorientert når du skriver teksten.
-- **Ikke bruk hjelpetekster til å forklare ting i grensesnittet.** Hvis du føler behov for det, har du kanskje lagd tjenesten for komplisert
+- Ikke bruk hjelpetekster til å forklare ting i grensesnittet. Hvis du føler behov for det, har du kanskje lagd tjenesten for komplisert
   og må heller gjøre noe med det?
 
 <!-- TODO: Lag eksempler på hvordan vi bruker hint i tekstfelt og under info-ikoner -->

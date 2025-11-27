@@ -78,7 +78,7 @@ Hvis et skjema har flere feil, vis en oppsummering med lenker til hvert felt som
 
 Plasser oppsummeringen nær **Neste**- eller **Send inn**-knappen, slik at brukeren forstår sammenhengen mellom feilene og hvorfor de ikke kommer videre.
 
-Vis oppsummeringen øverst på siden hvis:
+Vis oppsummeringen øverst på siden hvis
 - den tekniske løsningen laster siden på nytt når brukeren velger **Neste**
 - brukeren har gått ut av og inn i skjemaet igjen
 - løsningen ikke hindrer brukeren i å gå videre til neste side selv om det er feil
