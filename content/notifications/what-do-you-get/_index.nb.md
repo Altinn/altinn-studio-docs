@@ -34,9 +34,9 @@ Altinn SMS-varsler sikrer rettidig levering av konsise meldinger til brukernes m
 
 ### Sendevindu
 
-- SMS-varsler sendes daglig mellom **kl. 09.00 og 17.00 (norsk tid)**.
-- Varsler planlagt utenfor dette tidsrommet sendes **kl. 09.00 neste dag**.
-- Varslingsordrer kan legges inn når som helst.
+- SMS-varsler kan sendes **hele døgnet, alle dager**.
+- Planlagte varsler blir sendt på angitt tidspunkt, også utenfor arbeidstid (tolket i tidssonen Europe/Oslo).
+- Varslingsordrer kan legges inn og endres når som helst.
 
 ### Støttede mottakernummer
 

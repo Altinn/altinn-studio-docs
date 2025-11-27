@@ -34,9 +34,9 @@ Altinn SMS notifications ensure the timely delivery of concise messages to users
 
 ### Send Window
 
-- SMS notifications are sent daily between **9 AM and 5 PM (Norway time)**.
-- Notifications scheduled outside this timeframe are sent at **9 AM the following day**.
-- Notification orders can be placed at any time.
+- SMS notifications can be sent **around the clock, every day of the year**.
+- Scheduled notifications are delivered at the selected time, even outside office hours (interpreted in the Europe/Oslo time zone).
+- Notification orders can be placed and updated at any time.
 
 ### Supported Recipient Numbers
 
