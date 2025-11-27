@@ -1,8 +1,8 @@
 ---
-title: Access Control (PDP)
-linktitle: Access Control (PDP)
+title: Access Control
+linktitle: Access Control
 description: The Policy Decision Point is responsible to evaluate if users and systems is authorized to perform the requested operation on a resource.
-tags: [architecture, security, authorization, xacml]
+weight: 6
 ---
 
 The Policy Decision Point is implemented in the [access control component](/en/authorization/reference/architecture/accesscontrol/) that is deployed to Altinn Platform.

@@ -1,33 +1,44 @@
 ---
-title: Ressursregisteret
-linktitle: Ressursregisteret
-description: Ressursregisteret inneholder nødvendige metadata om tjenester som skal benytte Altinn til tilgangsstyring og tilgangskontroll.
-tags: [architecture, security, authorization, xacml]
+title: Ressursadministrasjon
+linktitle: Ressursadministrasjon
+description: Ressursregisteret i Altinn Autorisasjon er et sentralt register som inneholder definisjoner av digitale tjenester og ressurser som kan autoriseres.
+tags: [authorization]
+weight: 4
 ---
 
 Ressursregisteret lagrer informasjon om tjenesteressurser som bruker Altinn til autorisasjon. Registeret er et felles grunnlag for tilgangsstyring, tilgangskontroll og visning av tjenester i kataloger.
 
-Se også oppgave [GitHub #23](https://github.com/Altinn/altinn-resource-registry/issues/23).
+Det fungerer som en katalog hvor tjenesteeiere (offentlige etater og virksomheter) registrerer sine digitale tjenester og API-er. For hver ressurs defineres:
+
+Metadata om tjenesten - navn, beskrivelse, eier
+Tilgangsregler - hvilke roller, rettigheter eller krav som gir tilgang
+Delegeringsregler - om og hvordan tilganger kan delegeres videre til andre
+
+Dette gjør at Altinn kan håndtere autorisasjon på tvers av mange ulike tjenester på en standardisert måte. Når en bruker eller virksomhet skal få tilgang til en tjeneste, sjekker Altinn mot ressursregisteret for å se om de har nødvendige rettigheter.
+Ressursregisteret er spesielt viktig i den nye Altinn 3-plattformen, hvor det erstatter tidligere konsepter som "tjenester" og "roller" med en mer fleksibel ressursbasert tilgangsmodell. Det støtter også integrasjon med eksterne systemer gjennom API-er, slik at andre kan bygge løsninger som benytter Altinns autorisasjonsinfrastruktur.
 
 ## Ressurstypene
 
-Det finnes flere ressurstyper som kan registreres:
+### Generisk tilgangsressurs
 
-- **Altinn 3-apper** – identifiseres med `org/app`.
-- **Altinn 2-tjenester** – identifiseres med `externalServiceCode/serviceEditionCode`.
-- **Tjenesteressurser** – andre tjenester som eksponeres gjennom Altinn.
+Generisk tilgangsressurser er tjenester som bruker Altinn Autorsiasjon som autoriseringstjenste men som kjører på tjenesteeiers egen plattform. Tjenesteeier registrerer legger inn metadat og regler for ressursen i ressursregisteret og kaller Altinn Autorisasjon for autorisering fra egen tjeneste.
 
-### Altinn 3-apper
+### Maskinporten-skjema
 
-Apper som hostes i Altinn 3 registreres i Ressursregisteret. Referansen følger formatet `org/app`. Registreringen er nødvendig for å vise hvilke apper som inngår i rettighetene til en gruppe.
+Maskinporten-skjema gjør det mulig å gi annen virksomhet fullmakt til å benytte API på vegne av seg. Dette benyttes gjeren i leverandørforhold der det er en driftsleverandør som står for infrastrukturen og muliggjør at denne kan bruke eget virkrsomhetsertifikat eller jwk ved oppslag.
+I praksis deleregerer man her tilgang til scopes og må ikke forvekles med systembruker der man delegerer
 
-### Altinn 2-tjenester
+### Formidlingstjeneste
 
-Apper som hostes i Altinn 2-plattformen registreres også i Ressursregisteret. Referansen følger formatet `externalServiceCode/serviceEditionCode`.
+Benyttes for beskrivelse av og regler for [Altinn Formidling](/nb/broker/)
 
-### Altinn tjenesteressurs
+### Meldingstjeneste
 
-Tjenesteressurser omfatter alle typer tjenester levert av offentlige eller private virksomheter. Datamodellen tar utgangspunkt i [cpsv:PublicService](https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste).
+Benyttes for beskrivelse av og regler for [Altinn Melding](/nb/correspondence/)
+
+### Samtykkeressurs
+
+Benyttes for beskrivelse av og regler for [Altinn Samtykke](/nb/authorization/what-do-you-get/consent/)
 
 Eksempler:
 

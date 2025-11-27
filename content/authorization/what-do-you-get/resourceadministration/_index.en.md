@@ -1,8 +1,9 @@
 ---
-title: Resource Registry
-linktitle: Resource Registry
+title: Resource administration
+linktitle: Resource administration
 description: The resource registry contains information about resources where Altinn Authorization is used for access management and control.
 tags: [architecture, security, authorization, xacml, needstranslation]
+weight: 4
 ---
 
 ## Type of resources
