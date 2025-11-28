@@ -49,10 +49,13 @@ Currently migrated back to 1st of January 2025. Older correspondence will be mig
 
 Manual process. Historic correspondence is migrated from Altinn 2 correspondence to Altinn 3 correspondence. The correspondences are then migrated to Dialogporten in a separate process.
 
+See [correspondence data-migration](https://docs.altinn.studio/en/correspondence/transition/data-migration/) for details on the migration process.
+
 ### ⚠ A2 Correspondence - Live
 25/11: Live-sync is temporarily paused due to migration errors.
 <!-- New messages created in Altinn 2 correspondence are migrated to Dialogporten in near real-time (every 5 minutes).
 Live sync is active for both tt02 and prod. -->
+See [correspondence data-migration](https://docs.altinn.studio/en/correspondence/transition/data-migration/#synchronization-of-status-changes-between-altinn-2-and-3) for details on the synchronization process.
 
 ### ⚠ A3 Correspondence
 25/11: Live-sync is temporarily paused due to migration errors.
@@ -66,11 +69,9 @@ New app instances created in Altinn 3 are available in Dialogporten immediately.
 
 ### ⚠ A2 Archived forms - Historic
 Migrated back to 1st of January 2025. Older archived forms will be migrated later.
-See [correspondence data-migration](https://docs.altinn.studio/en/correspondence/transition/data-migration/) for details on the migration process.
 
 ### ✔ A2 Archived forms - Live
 New app instances created in Altinn 2 are migrated in batches every 5 minutes.
-See [correspondence data-migration](https://docs.altinn.studio/en/correspondence/transition/data-migration/) for details on the synchronization process.
 
 ## Changelog
 

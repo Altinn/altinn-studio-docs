@@ -49,10 +49,14 @@ Foreløpig migrert tilbake til 1. januar 2025. Eldre meldinger vil bli migrert s
 
 Manuell prosess. Historiske meldinger migreres fra Altinn 2 Melding til Altinn 3 Melding. Meldingene migreres deretter til Dialogporten i en separat prosess.
 
+Se [migrering av meldingsdata](https://docs.altinn.studio/nb/correspondence/transition/data-migration/) for detaljer om migreringsprosessen.
+
 ### ⚠ A2 Melding - Live
 25/11: Live-synkronisering er midlertidig satt på pause på grunn av migreringsfeil.
 <!-- Nye meldinger opprettet i Altinn 2 Melding migreres til Dialogporten i nær sanntid (hvert 5. minutt).
 Livesynkronisering er aktiv for både tt02 og prod. -->
+
+Se [migrering av meldingsdata](https://docs.altinn.studio/nb/correspondence/transition/data-migration/#synkronisering-av-statusendringer-mellom-altinn-2-og-3) for detaljer om synkroniseringsprosessen.
 
 ### ⚠ A3 Melding
 25/11: Live-synkronisering er midlertidig satt på pause på grunn av migreringsfeil.
@@ -66,11 +70,9 @@ Nye app-instanser opprettet i Altinn 3 er tilgjengelig i Dialogporten umiddelbar
 
 ### ⚠ A2 Arkiverte skjema - Historisk
 Migrert tilbake til 1. januar 2025. Eldre arkiverte skjema vil bli migrert senere.
-Se [migrering av meldingsdata](https://docs.altinn.studio/nb/correspondence/transition/data-migration/) for detaljer om migreringsprosessen.
 
 ### ✔ A2 Arkiverte skjema - Live
 Nye app-instanser opprettet i Altinn 2 migreres i puljer hvert 5. minutt.
-Se [migrering av meldingsdata](https://docs.altinn.studio/nb/correspondence/transition/data-migration/) for detaljer om synkroniseringsprosessen.
 
 ## Endringslogg
 
