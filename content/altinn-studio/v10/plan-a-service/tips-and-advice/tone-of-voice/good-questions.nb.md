@@ -119,7 +119,7 @@ Men du må passe på at du kun gjør dette hvis brukertester viser at brukerne t
 
 <!-- TODO: Lag eksempler på hvordan vi bruker hint i tekstfelt og under info-ikoner -->
 
-## Hjelp brukerne med å gi oss riktige opplysninger
+## Hjelp brukerne med å gi riktige opplysninger
 
 Du må gjøre det du kan for at brukerne ikke skal få valideringsfeil eller feilmeldinger. Sørg for at felt validerer på en slik måte
 at de godtar at brukerne gir opplysninger på ulike måter.
@@ -129,8 +129,9 @@ at de godtar at brukerne gir opplysninger på ulike måter.
 Felter for fødselsnummer eller telefonnummer bør godta at folk legger inn sifrene med mellomrom, uten mellomrom og med mellomrommene
 på feil plass. Koden på baksida skal fange opp og legge på riktig format.
 
-Ofte er det behov for flere ulike feilmeldinger for hvert felt. Da sikrer du at meldingene blir så spesifikke som mulig for det problemet
-som oppstår. Jobben til feilmeldingen er å fortelle brukerne hvordan de kommer videre, heller enn å fortelle dem hvilken feil som oppsto.
+Jobben til feilmeldingen er å fortelle brukerne hvordan de kommer videre, heller enn å fortelle dem hvilken feil som oppsto.
+Ofte trenger et felt ulike feilmeldinger for ulike situasjoner, for eksempel hvis feltet er tomt eller hvis formatet er feil.
+Da sikrer du at meldingene blir så spesifikke som mulig for det problemet som oppstår.
 
 Les mer om feilmeldinger og systemvarsler i Designsystemet:
 
