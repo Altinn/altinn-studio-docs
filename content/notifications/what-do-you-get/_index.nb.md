@@ -35,6 +35,9 @@ Altinn SMS-varsler sikrer rettidig levering av konsise meldinger til brukernes m
 ### Sendevindu
 
 - SMS-varsler kan sendes **hele døgnet, alle dager**.
+- Angi sendevindu ved å sette `smsSettings.sendingTimePolicy` i bestillingen:
+  - `Anytime` (standard) gir utsendelse hele døgnet.
+  - `Daytime` begrenser utsendelsen til Altinns dagtidsvindu (08:00-21:00 i tidssonen Europe/Oslo).
 - Planlagte varsler blir sendt på angitt tidspunkt, også utenfor arbeidstid (tolket i tidssonen Europe/Oslo).
 - Varslingsordrer kan legges inn og endres når som helst.
 
