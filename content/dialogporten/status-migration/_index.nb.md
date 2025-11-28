@@ -65,14 +65,19 @@ Migrert tilbake til 1. januar 2025. Eldre app-instanser vil bli migrert senere.
 Nye app-instanser opprettet i Altinn 3 er tilgjengelig i Dialogporten umiddelbart. Endringer synkroniseres i sanntid.
 
 ### ⚠ A2 Arkiverte skjema - Historisk
-Migrert tilbake til 1. januar 2025. Eldre arkiverte skjema vil bli migrert senere. Noen få aksjonærregisteroppgaver fra perioden februar-mai (SC/SEC 1051/221111) gjenstår. 
+Migrert tilbake til 1. januar 2025. Eldre arkiverte skjema vil bli migrert senere.
+Se [migrering av meldingsdata](https://docs.altinn.studio/nb/correspondence/transition/data-migration/) for detaljer om migreringsprosessen.
 
 ### ✔ A2 Arkiverte skjema - Live
 Nye app-instanser opprettet i Altinn 2 migreres i puljer hvert 5. minutt.
+Se [migrering av meldingsdata](https://docs.altinn.studio/nb/correspondence/transition/data-migration/) for detaljer om synkroniseringsprosessen.
 
 ## Endringslogg
 
-28.11.2025: A2 arkiverte skjema og A3 app-instanser historisk er migrert tilbake til 01.01.2025 (var 01.02.2025). Korrigeringer og migrering av data tilbake til og med desember 2024 er i gang.
+28.11.2025: 
+- A2 arkiverte skjema og A3 app-instanser historisk er migrert tilbake til 01.01.2025 (var 01.02.2025). 
+- Korrigeringer og migrering av data tilbake til og med desember 2024 er i gang.
+- Lagt til lenke til [migrering av meldingsdata](https://docs.altinn.studio/nb/correspondence/transition/data-migration/) for detaljer om migrerings-/synkroniseringsprosess.
 
 25.11.2025: Mer data er migrert, pause i livesynkronisering av melding, mål oppdatert:
 - Historisk A2-melding migrert lenger tilbake til og med 01.01.2025, med unntak nevnt under.
