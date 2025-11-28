@@ -162,7 +162,7 @@ Use the Maskinporten system user token as a Bearer token when calling Altinn API
 
 When calling PDP, provide `systemuser_id` in the attribute `urn:altinn:systemuser:uuid`. If the PDP decision is `Permit`, proceed with the API call; otherwise you must reject the request.
 
-For a complete PDP example, see [Authorising the system user](/en/authorization/guides/resource-owner/system-user/#authorisation-of-system-user).
+For a complete PDP example, see [Authorising the system user](/en/authorization/guides/resource-owner/system-user/#authorization-of-system-user).
 
 ## Common pitfalls and tips
 
