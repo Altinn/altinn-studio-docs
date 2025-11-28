@@ -140,7 +140,7 @@
     "/resourceowner/authorizedparties": {
       "post": {
         "tags": [
-          "ResourceOwnerAuthorizedParties"
+          "Authorized Parties"
         ],
         "parameters": [
           {
@@ -204,7 +204,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/AuthorizedPartyRequest"
+                "$ref": "#/components/schemas/AuthorizedPartiesRequest"
               }
             }
           }
@@ -217,7 +217,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/AuthorizedPartyExternal"
+                    "$ref": "#/components/schemas/AuthorizedParty"
                   }
                 }
               }
@@ -243,7 +243,7 @@
         "security": [
           {
             "oauth2": [
-              "ResourceOwnerAuthorizedParty"
+              "AuthorizedPartiesSOAuth"
             ]
           }
         ]
@@ -252,7 +252,19 @@
     "components": {
       "schemas": {
         "AuthorizedPartiesRequest": {
-          "$ref": "#/components/schemas/Subject"
+          "type": "object",
+          "properties": {
+            "subject": {
+              "$ref": "#/components/schemas/Subject"
+            },
+            "partyFilter": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/UrnAttribute"
+              },
+              "nullable": true
+            }
+          }
         },
         "MaskinportenDelegation": {
           "type": "object",
@@ -332,6 +344,11 @@
               "type": "string",
               "nullable": true,
               "example": "01017012345"
+            },
+            "dateOfBirth": {
+              "type": "string",
+              "nullable": true,
+              "example": "1981-06-29"
             },
             "type": {
               "$ref": "#/components/schemas/AuthorizedPartyType"
