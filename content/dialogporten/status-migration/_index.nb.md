@@ -11,6 +11,8 @@ cascade:
 
 ⚠ 25/11: Live-synkronisering av melding (både fra Altinn 2 og Altinn 3) er midlertidig satt på pause på grunn av tekniske problemer. I tillegg mangler det historiske meldinger fra Altinn 2, og noen eksisterende meldinger har feil dato. Vi jobber med å løse disse tre problemene så snart som mulig.
 
+28/11: Korrigeringer og migrering av data tilbake til og med desember 2024 er i gang.
+
 Livesynkronisering: Alle andre endringer (A3-app-instanser) [^1] (skjema, meldinger) vises i Dialogporten.
 
 [^1]: Med unntak av app-instanser fra Altinn 2 som ikke er fullført (f.eks. startet utfylling av et skjema, men ikke fullført)
@@ -20,7 +22,7 @@ Livesynkronisering: Alle andre endringer (A3-app-instanser) [^1] (skjema, meldin
 | Kilde | Migrert tilbake til |
 |----------|----------|
 | A2-Melding | 01.01.2025 med mangler og feil |
-| A2 arkiverte skjema / A3-app-instanser | 01.02.2025 |
+| A2 arkiverte skjema / A3-app-instanser | 01.01.2025 med få unntak |
 
 For A2-melding mangler noen meldinger, og noen av de migrerte meldingene har feil tidsstempel som fører til at feil dato vises i innboksen.
 
@@ -57,18 +59,20 @@ Livesynkronisering er aktiv for både tt02 og prod. -->
 <!-- Alle nye meldinger opprettet i Altinn 3 Melding er tilgjengelig i Dialogporten umiddelbart. Ingen migrering nødvendig. -->
 
 ### ⚠ A3 App-instanser - Historisk
-Migrert tilbake til 1. februar 2025. Eldre app-instanser vil bli migrert senere.
+Migrert tilbake til 1. januar 2025. Eldre app-instanser vil bli migrert senere.
 
 ### ✔ A3 App-instanser - Live
 Nye app-instanser opprettet i Altinn 3 er tilgjengelig i Dialogporten umiddelbart. Endringer synkroniseres i sanntid.
 
 ### ⚠ A2 Arkiverte skjema - Historisk
-Migrert tilbake til 1. februar 2025. Eldre arkiverte skjema vil bli migrert senere. Noen få aksjonærregisteroppgaver fra perioden februar-mai (SC/SEC 1051/221111) gjenstår. 
+Migrert tilbake til 1. januar 2025. Eldre arkiverte skjema vil bli migrert senere. Noen få aksjonærregisteroppgaver fra perioden februar-mai (SC/SEC 1051/221111) gjenstår. 
 
 ### ✔ A2 Arkiverte skjema - Live
 Nye app-instanser opprettet i Altinn 2 migreres i puljer hvert 5. minutt.
 
 ## Endringslogg
+
+28.11.2025: A2 arkiverte skjema og A3 app-instanser historisk er migrert tilbake til 01.01.2025 (var 01.02.2025). Korrigeringer og migrering av data tilbake til og med desember 2024 er i gang.
 
 25.11.2025: Mer data er migrert, pause i livesynkronisering av melding, mål oppdatert:
 - Historisk A2-melding migrert lenger tilbake til og med 01.01.2025, med unntak nevnt under.
