@@ -5,7 +5,7 @@ weight: 9
 tags: [needsReview, translate-to-english]
 ---
 
-Her finner du råd om hvordan du skriver godt for brukerne i tjenestene du lager. I tillegg kan du gjerne bruke rådene fra
+I tillegg kan du gjerne bruke rådene fra
 [Språkrådet](https://www.sprakradet.no/klarsprak/om-skriving/generelle-skriverad-bokmal/) og
 [Korrekturavdelingen](https://www.korrekturavdelingen.no/).
 
