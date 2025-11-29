@@ -6,7 +6,7 @@ tags: [migration, plan, authorization]
 
 ---
 
-Altinn will replace the roles that provide access to services in Altinn 2 when we move Altinn Authorization to Altinn 3. Instead of roles, there will be various access packages in Altinn 3 consisting of services that belong to a responsibility area. The access packages will function as templates for access managers in an organization, which they can use to give their employees access to a set of services that naturally belong together. Information about what this entails and which access packages we propose can be found [here:](/nb/authorization/what-do-you-get/accessgroups/type-accessgroups/)
+Altinn will replace the roles that provide access to services in Altinn 2 when we move Altinn Authorization to Altinn 3. Instead of roles, there will be various access packages in Altinn 3 consisting of services that belong to a responsibility area. The access packages will function as templates for access managers in an organization, which they can use to give their employees access to a set of services that naturally belong together. Information about what this entails and which access packages we propose can be found [here:](/en/authorization/what-do-you-get/accessgroups/type-accessgroups/)
 
 We are now sending this proposal for new templates for consultation. We particularly want feedback on:
 
