@@ -21,7 +21,7 @@ Livesynkronisering: Alle andre endringer (A3-app-instanser) [^1] (skjema, meldin
 
 | Kilde | Migrert tilbake til |
 |----------|----------|
-| A2-Melding | 01.01.2025 med mangler og feil |
+| A2-Melding | 01.12.2024 |
 | A2 arkiverte skjema / A3-app-instanser | 01.01.2025 med få unntak |
 
 For A2-melding mangler noen meldinger, og noen av de migrerte meldingene har feil tidsstempel som fører til at feil dato vises i innboksen.

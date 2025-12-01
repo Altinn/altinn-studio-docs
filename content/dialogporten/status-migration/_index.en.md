@@ -21,8 +21,8 @@ Live sync: All other changes (A3 app instances)[^1] (forms, messages) show up in
 
 | Source | Migrated back to |
 |----------|----------|
-| A2-Correspondence | 01.01.2025 with missing messages and errors |
-| A2 archived forms / A3-app instances | 01.01.2025 with few exceptions |
+| A2-Correspondence | 01.12.2024 |
+| A2 archived forms / A3-app instances | 01.01.2025 |
 
 For A2-correspondence, some messages are missing, and some migrated messages have timestamp-errors resulting in the wrong date being displayed in the inbox.
 
