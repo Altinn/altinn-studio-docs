@@ -202,4 +202,4 @@ Når bruker taster inn kode:
 
 - Les [veiledningen for umiddelbar varsling](/nb/notifications/guides/instant-messaging/) for å lære hvordan du implementerer umiddelbar varsling i din tjeneste
 - Se [API-referansen](/nb/notifications/reference/api/) for detaljert beskrivelse av endepunktene
-- Utforsk [OpenAPI-spesifikasjonen](/nb/notifications/reference/openapi/) for fullstendig API-dokumentasjon
+- Utforsk [OpenAPI-spesifikasjonen](/nb/notifications/reference/openapi/) for teknisk spesifikasjon og autentiseringsdetaljer

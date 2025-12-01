@@ -202,4 +202,4 @@ When user enters code:
 
 - Read the [instant messaging guide](/en/notifications/guides/instant-messaging/) to learn how to implement instant messaging in your service
 - See the [API reference](/en/notifications/reference/api/) for a detailed description of the endpoints
-- Explore the [OpenAPI specification](/en/notifications/reference/openapi/) for complete API documentation
+- Explore the [OpenAPI specification](/en/notifications/reference/openapi/) for technical specification and authentication details
