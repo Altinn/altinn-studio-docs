@@ -25,7 +25,7 @@ Denne fullmakten gir tilgang til all mottatt post som inneholder sensitiv/taushe
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
 |**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
 |---|---|---|
-|Ordinær post til virksomheten|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Ordinær post til virksomheten|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
 |Post til virksomheten med taushetsbelagt innhold||Ja*|
 
 *) Kan delegeres av Hovedadministrator

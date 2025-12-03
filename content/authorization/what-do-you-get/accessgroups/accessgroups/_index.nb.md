@@ -20,6 +20,7 @@ Fullmaktsområdene for tilgangsstyring er bygget på Statistisk sentralbyrå sin
 |[Bygg, anlegg og eiendom](./bygganleggeiendom/)|
 |[Energi, vann, avløp og avfall](./energivannavlopavfall/)|
 |[Forhold ved virksomheten](./forholdvedvirksomheten/)|
+|[Forretningsfører](./forretningsforer/)|
 |[Handel, overnatting og servering](./handelovernatting/)|
 |[Helse, pleie, omsorg og vern](./helsepleieomsorgvern/)|
 |[Industrier](./industrier/)|
