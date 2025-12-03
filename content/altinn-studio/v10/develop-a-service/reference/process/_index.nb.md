@@ -1,7 +1,7 @@
 ---
 title: Prosess
 description: Referansedokumentasjon for prosess-konfigurasjon i Altinn Studio.
-weight: 50
+weight: 40
 tags: [needsReview, translate-to-english, migrate-from-v8]
 ---
 

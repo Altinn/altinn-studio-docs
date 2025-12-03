@@ -1,7 +1,7 @@
 ---
 title: CLI
 description: Referansedokumentasjon for Altinn CLI (kommandolinjeverktøy).
-weight: 80
+weight: 10
 tags: [needsReview, translate-to-english, migrate-from-v8]
 ---
 
