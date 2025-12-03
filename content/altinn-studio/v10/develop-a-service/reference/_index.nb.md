@@ -1,5 +1,5 @@
 ---
-title: Referanse
+title: Teknisk referanse
 description: Teknisk referansedokumentasjon for tjenesteutvikling
 weight: 120
 ---
