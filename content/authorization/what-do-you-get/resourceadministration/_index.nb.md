@@ -17,6 +17,8 @@ Delegeringsregler - om og hvordan tilganger kan delegeres videre til andre
 Dette gjør at Altinn kan håndtere autorisasjon på tvers av mange ulike tjenester på en standardisert måte. Når en bruker eller virksomhet skal få tilgang til en tjeneste, sjekker Altinn mot ressursregisteret for å se om de har nødvendige rettigheter.
 Ressursregisteret er spesielt viktig i den nye Altinn 3-plattformen, hvor det erstatter tidligere konsepter som "tjenester" og "roller" med en mer fleksibel ressursbasert tilgangsmodell. Det støtter også integrasjon med eksterne systemer gjennom API-er, slik at andre kan bygge løsninger som benytter Altinns autorisasjonsinfrastruktur.
 
+Ressursregisteret tilbyr API for alle typer håndtering av ressurser. I tilegg kan man som del av Altinn studio kan administrere ressursene.
+
 ## Ressurstypene
 
 ### Generisk tilgangsressurs
