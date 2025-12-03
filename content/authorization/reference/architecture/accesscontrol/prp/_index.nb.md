@@ -11,6 +11,6 @@ Reglene defineres som et XACML 3.0-policydokument.
 
 For delegerte rettigheter er det Altinn II som leverer den delegerte policyen.
 
-Se [Policy Administration Point](/nb/authorization/what-do-you-get/accessmanagement/pap/) for detaljer om hvordan policyene opprettes.
+Se [Policy Administration Point](/nb/authorization/reference/architecture/accessmanagment/pap/) for detaljer om hvordan policyene opprettes.
 
 Se [komponentarkitekturen](/nb/authorization/reference/architecture/accesscontrol/#policy-retrieval-point---prp) for en gjennomgang av hvordan PRP er bygget.

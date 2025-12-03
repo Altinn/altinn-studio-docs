@@ -13,18 +13,20 @@ Denne siden gir deg en overordnet introduksjon til veiledningene i denne seksjon
 ## Veiledninger i denne seksjonen
 
 ### Opprett og konfigurer en samtykkeressurs
+
 - **Målgruppe:** Ressursadministratorer og tjenesteeiere som skal beskrive hvilke data som omfattes av samtykket.
 - **Innhold:** Viser hvordan du navngir ressursen, velger samtykkemal, konfigurerer metadata, tilgangsregler og delegering.
 - **Lenke:** [Gå til veiledningen for å opprette samtykkeressurs](./create-resource/).
 
 ### Valider samtykker i tjenesten din
+
 - **Målgruppe:** Utviklere og integrasjonsteam som bruker Maskinporten-tokenet i egen løsning.
 - **Innhold:** Forklarer hvordan `authorization_details` og `consentRights` tolkes, samt hvordan du bekrefter at riktige rettigheter er lagt ved et token.
 - **Lenke:** [Gå til veiledningen for å validere samtykker](./validate-concent/).
 
 ## Før du starter
 
-Du må ha tilgang til ressursadministrasjon for din virksomhet i Altinn Studio. Dersom du mangler dette, følger du stegene i [Kom i gang-veiledningen](../../../getting-started/resource-admin-studio).
+Du må ha tilgang til ressursadministrasjon for din virksomhet i Altinn Studio. Dersom du mangler dette, følger du stegene i [Kom i gang-veiledningen](/nb/authorization/getting-started/rresourceadministration/).
 
 ### Anbefalt arbeidsrekkefølge
 
