@@ -11,12 +11,12 @@ For certain services, restricting access to specific organizations is necessary.
 
 In Altinn 3, this functionality is handled by the Resource Rights Registry (RRR) through Access Lists.
 
-## Prerequistes
+## Prerequisites
 
 - Resource Registry Admin privileges
 - Membership in the AccessList group for a specified environment
 
-Refer to [Getting Started with Access Lists ](/en/authorization/getting-started/accesslist-admin-studio/) for more information.
+Refer to [Getting Started with Resource Administration](/en/authorization/what-do-you-get/resourceadministration/) for more information.
 
 ## Create new Access List
 

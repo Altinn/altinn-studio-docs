@@ -12,7 +12,7 @@ For certain services, restricting access to specific organizations is necessary.
 
 In Altinn 3, this functionality is handled by the Resource Rights Registry (RRR) through Access Lists. Access Lists allow you to define and manage which organizations have access to specific resources, ensuring a more secure and controlled environment.
 
-## Prerequistes
+## Prerequisites
 
 Client defined in Maskinporten with the following scopes
 

@@ -5,18 +5,16 @@ description: I Altinn Studio kan du administrere Tilgangsliste for Ressurser i A
 toc: false
 ---
 
-## Background
-
 For visse tjenester er det nødvendig å begrense tilgangen til bestemte organisasjoner. I Altinn 2 ble dette håndtert via Tjenesterettsregisteret (SRR).
 
 I Altinn 3 håndteres denne funksjonaliteten av Ressursrettsregisteret (RRR) gjennom Tilgangslister.
 
-## Prerequistes
+## Forutsetninger
 
 - Administrasjonsrettigheter for Ressursregisteret
 - Medlemskap i Tilgangsliste-gruppen for et spesifisert miljø
 
-Se [ Komme i gang med Tilgangslister](/nb/authorization/getting-started/accesslist-admin-studio/) for mer informasjon.
+Se [Komme i gang med ressursadministrasjon](/nb/authorization/what-do-you-get/resourceadministration/) for mer informasjon.
 
 ## Opprette ny Tilgangsliste
 
