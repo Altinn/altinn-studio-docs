@@ -43,6 +43,7 @@ Detailjert guide for opprettelse av ressuser finnes under [Guider]()
 {{< stepcard step="6" title="Opprette Tilgangslister (ikke påkrevd)" >}}
 I utgangspunktet får alle som har rolle eller tilgangsliste som tilfredstiller kravet til tjenesten, tilgang til tjenesten.
 Dersom det er behov for å begrense tilgangen til eneklte virksomheter kan man benytte tilgangslister.
+Dette er samme funsjonalitet som i Altinn 2 het Tjenesterettsregisteret (SRR)
 
 **Definere team for Tilgangsliste**
 
