@@ -1,13 +1,15 @@
 ---
-title: Administrer Tilgangslister i Altinn Studio
-linktitle: Admin av Tilgangsliste
-description: I Altinn Studio kan du administrere Tilgangsliste for Ressurser i Altinn Ressursregister.
+title: Administrer tilgangslister i Altinn Studio
+linktitle: Administrasjon av tilgangslister
+description: I Altinn Studio kan du administrere tilgangslister for ressurser i Altinn Ressursregister.
 toc: false
 ---
 
+## Bakgrunn
+
 For visse tjenester er det nødvendig å begrense tilgangen til bestemte organisasjoner. I Altinn 2 ble dette håndtert via Tjenesterettsregisteret (SRR).
 
-I Altinn 3 håndteres denne funksjonaliteten av Ressursrettsregisteret (RRR) gjennom Tilgangslister.
+I Altinn 3 håndteres denne funksjonaliteten av Ressursrettsregisteret (RRR) gjennom tilgangslister.
 
 ## Forutsetninger
 
@@ -16,19 +18,19 @@ I Altinn 3 håndteres denne funksjonaliteten av Ressursrettsregisteret (RRR) gje
 
 Se [Komme i gang med ressursadministrasjon](/nb/authorization/what-do-you-get/resourceadministration/) for mer informasjon.
 
-## Opprette ny Tilgangsliste
+## Opprette ny tilgangsliste
 
-Naviger til ressursadministrasjonsdashbordet og klikk på lenken for administrasjon av tilgangsliste.
+Naviger til ressursadministrasjonsdashbordet og klikk på lenken for administrasjon av tilgangslister.
 
 ![Access Lists](accesslist_0.png)
 
-Dette tar deg til oversiktssiden for Tilgangslister. Her vil du se en liste over miljøer tilgjengelig for din organisasjon.
+Dette tar deg til oversiktssiden for tilgangslister. Her ser du en liste over miljøer som er tilgjengelige for organisasjonen din.
 
 ![Access Lists](accesslist_1.png)
 
-Velg et miljø for å vise dets Tilgangslister.
+Velg et miljø for å vise tilgangslistene.
 
-Klikk “Opprett ny Tilgangsliste” og gi listen et unikt navn og ID.
+Klikk "Opprett ny tilgangsliste" og gi listen et unikt navn og ID.
 
 ![Access Lists](accesslist_1a.png)
 
@@ -40,19 +42,19 @@ Når listen er opprettet, kan du legge til en beskrivelse av listen din.
 
 Legg til organisasjoner som medlemmer i listen din.
 
-I produksjonsmiljøer, søk etter navn eller organisasjonsnummer. I TT02 må du bruke testorganisasjonens nummer da navn ikke vil vises.
+I produksjonsmiljøer søker du etter navn eller organisasjonsnummer. I TT02 må du bruke testorganisasjonens nummer siden navn ikke vises.
 
 ![Access Lists](accesslist_3.png)
 
-## Tildele Tilgangsliste til ressurs
+## Tildele tilgangsliste til ressurs
 
 For å tildele listen din til en ressurs:
 
 - Aktiver RRR for ressursen.
-- Velg en eller flere lister autorisert som rapportører for ressursen.
+- Velg en eller flere lister som er autorisert som rapportører for ressursen.
 
 ![Access Lists](accesslist_5.png)
 
 ![Access Lists](accesslist_4.png)
 
-Etter oppdatering, publiser ressursen til forskjellige miljøer. Merk: Hvis du aktiverer RRR før listen er satt opp, vil alle brukere miste tilgang.
+Etter oppdateringen publiserer du ressursen til de ulike miljøene. Merk: Hvis du aktiverer RRR før listen er satt opp, mister alle brukere tilgangen.

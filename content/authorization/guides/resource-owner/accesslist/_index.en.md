@@ -1,7 +1,7 @@
 ---
-title: Accesslists
-linktitle: Accesslists
-description: How to use and administrate accesslists
+title: Access lists
+linktitle: Access lists
+description: How to use and administer access lists
 ---
 
 {{<children />}}

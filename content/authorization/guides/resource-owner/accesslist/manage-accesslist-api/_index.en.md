@@ -1,8 +1,8 @@
 ---
-title: Manage Access Lists throug AP
+title: Manage Access Lists through API
 tags: [needstranslation]
-linktitle: Access List Admin in API
-description: In Altinn Studio you can manage Access List for Resources in Altinn Resource Registry.
+linktitle: Access List Admin via API
+description: In Altinn Studio you can manage Access Lists for resources in the Altinn Resource Registry.
 toc: false
 ---
 
@@ -14,34 +14,32 @@ In Altinn 3, this functionality is handled by the Resource Rights Registry (RRR)
 
 ## Prerequisites
 
-Client defined in Maskinporten with the following scopes
+You need a client defined in Maskinporten with the following scopes:
 
 - altinn:resourceregistry/access-list.read
 - altinn:resourceregistry/access-list.write
 - altinn:resourceregistry/resource.write
 
-[Full swagger documentation](https://docs.altinn.studio/api/resourceregistry/spec/#/)
+See the [full Swagger documentation](https://docs.altinn.studio/api/resourceregistry/spec/#/).
 
 ## Create new Access List
 
-The first step is to create the list.
+Use `PUT` on `/access-lists/{owner}/{identifier}` to create the list.
 
-Put for /access-lists/{owner}/{identifier}
-
-Where owner is organization code and identifer is a choosen ID fo the
+The `owner` is the organization code, and `identifier` is a chosen ID for the access list.
 
 ```json
 {
-  "name": "Godkjente banker",
-  "description": "Denne listen inneholder godkjente banker i henhold til regel 123"
+  "name": "Approved banks",
+  "description": "List of banks approved according to rule 123"
 }
 ```
 
-## Adding members to list
+## Adding members to the list
 
-Post to /access-lists/{owner}/{identifier}/members with a member.
+POST to `/access-lists/{owner}/{identifier}/members` with a member.
 
-The member can be identified with different ID. Only one can be given.
+The member can be identified in different ways, but only one identifier can be provided per request.
 
 ```json
 {
@@ -49,13 +47,13 @@ The member can be identified with different ID. Only one can be given.
 }
 ```
 
-## Assign Access List to resource
+## Assign Access List to a resource
 
-When a Access list to a resource can limit the action with a action filter. In cases where one AccessList should have read and another accessList should have read and write
+When you connect an access list to a resource, you can limit allowed actions with an action filter. This is useful when one access list should have read access and another should have both read and write.
 
-With null or empty list all actions is allowed. The actions need to match action in XACML Policy
+With a null or empty list all actions are allowed. The actions need to match the actions in the XACML policy.
 
-/access-lists/{owner}/{identifier}/resource-connections/{resourceIdentifier}
+`/access-lists/{owner}/{identifier}/resource-connections/{resourceIdentifier}`
 
 ```json
 {
@@ -63,4 +61,4 @@ With null or empty list all actions is allowed. The actions need to match action
 }
 ```
 
-After updating, publish the resource to various environments. Note: If you enable RRR before setting up the list, access will be lost for all.
+After updating, publish the resource to the relevant environments. Note: If you enable RRR before setting up the list, all users will lose access.

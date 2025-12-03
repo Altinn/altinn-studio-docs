@@ -1,7 +1,7 @@
 ---
 title: Manage Access Lists in Altinn Studio
 linktitle: Access List Admin
-description: In Altinn Studio you can manage Access List for Resources in Altinn Resource Registry.
+description: In Altinn Studio you can manage Access Lists for resources in the Altinn Resource Registry.
 toc: false
 ---
 
@@ -31,13 +31,14 @@ You’ll arrive at the overview page for Access Lists. Here, you’ll see a list
 Select an environment to view its Access Lists.
 
 Click “Create new Access List” and provide a unique name and ID for your list.
+
 ![Access Lists](accesslist_1a.png)
 
 Once created, you can add a description to your list.
 
 ![Access Lists](accesslist_2.png)
 
-## Adding members to list
+## Adding members to the list
 
 Add organizations as members to your list.
 
@@ -45,7 +46,7 @@ In production environments, search by name or organization number. In TT02, use 
 
 ![Access Lists](accesslist_3.png)
 
-## Assign Access List to resource
+## Assign Access List to a resource
 
 To assign your list to a resource:
 
@@ -56,4 +57,4 @@ To assign your list to a resource:
 
 ![Access Lists](accesslist_4.png)
 
-After updating, publish the resource to various environments. Note: If you enable RRR before setting up the list, access will be lost for all.
+After updating, publish the resource to the necessary environments. Note: If you enable RRR before setting up the list, all users will lose access.
