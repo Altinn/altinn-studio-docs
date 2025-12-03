@@ -9,7 +9,7 @@ weight: 10
 
 Due to a simplification of service configuration in Altinn 3 for Correspondences, migration in practice only consists of:
 
-- Creating a new resource in the [Resource Registry](../../../authorization/what-do-you-get/resourceregistry) based on the Altinn 2 service.
+- Creating a new resource in the [Resource Administration](../../../authorization/what-do-you-get/resourceadministration) based on the Altinn 2 service.
 - Translating authorization rules to xacml-policy for access control.
   - Note that there is a simplification of rights for Messages between the Altinn 2 and Altinn 3 versions.
 
@@ -24,7 +24,7 @@ The project will create this on behalf of Service Owners so that it can be used 
 Data migration is performed independently of service setup so that data can be migrated before the service must be fully established.
 
 The automatic migration will use the existing Altinn 2 roles specified in the old authorization rules, translated on a best-effort basis.
-These roles will eventually be phased out in favor of the new [AccessLists](../../../authorization/reference/architecture/resourceregistry/rrr/#access-lists) functionality, and there will be a future project to migrate all policies to the new standard. However, this is outside the scope of the Move Data project.
+These roles will eventually be phased out in favor of the new [AccessLists](../../../authorization/reference/architecture/resourceadministration/rrr/#access-lists) functionality, and there will be a future project to migrate all policies to the new standard. However, this is outside the scope of the Move Data project.
 
 **In general it is _not_ desirable for service owners to modify the created resources or to use them as new production Correspondence services in Altinn 3. They should remain largely unchanged until the migration process is finished and Altinn 2 is shut down. (One exception will be during the transition to AccessLists.)**
 
