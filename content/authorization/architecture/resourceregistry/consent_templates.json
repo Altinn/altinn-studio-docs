@@ -92,6 +92,98 @@
         }
     },
     {
+        "id": "bst_krav",
+        "version": 2,
+        "title": "Brukerstyrt tilgang til kravoversikt",
+        "isPoa": false,
+        "isMessageSetInRequest": true,
+        "restrictedToServiceOwners": [
+            "skd",
+            "ttd"
+        ],
+        "texts": {
+            "title": {
+                "person": {
+                    "nb": "Godkjenne deling med banken",
+                    "nn": "Godkjenne deling med banken",
+                    "en": "Consent to sharing with the bank"
+                },
+                "org": {
+                    "nb": "Godkjenne deling med banken",
+                    "nn": "Godkjenne deling med banken",
+                    "en": "Consent to sharing with the bank"
+                }
+            },
+            "heading": {
+                "person": {
+                    "nb": "{CoveredBy} ønsker å hente opplysninger om deg",
+                    "nn": "{CoveredBy} ønskjer å hente opplysningar om deg",
+                    "en": "{CoveredBy} requests information about you"
+                },
+                "org": {
+                    "nb": "{CoveredBy} ønsker å hente opplysninger om {OfferedBy}",
+                    "nn": "{CoveredBy} ønskjer å hente opplysningar om {OfferedBy}",
+                    "en": "{CoveredBy} requests information about {OfferedBy}"
+                }
+            },
+            "serviceIntro": {
+                "person": {
+                    "nb": "Skatteetaten har utviklet en løsning for å dele informasjon med banker. Det betyr at din virksomhet kan se opplysninger fra Skatteetaten i bankens kundeflater. BANK er en av disse bankene. For å se informasjonen i bankens kundeflater, må du godkjenne at Skatteetaten gir virksomhetens bankforbindelse tilgang til disse opplysningene. Denne godkjenningen har en varighet på 1 år. Godkjennelsen kan når som helst trekkes tilbake i Altinn.",
+                    "nn": "TODO",
+                    "en": "TODO"
+                },
+                "org": {
+                    "nb": "Skatteetaten har utviklet en løsning for å dele informasjon med banker. Det betyr at din virksomhet kan se opplysninger fra Skatteetaten i bankens kundeflater. BANK er en av disse bankene. For å se informasjonen i bankens kundeflater, må du godkjenne at Skatteetaten gir virksomhetens bankforbindelse tilgang til disse opplysningene. Denne godkjenningen har en varighet på 1 år. Godkjennelsen kan når som helst trekkes tilbake i Altinn.",
+                    "nn": "TODO",
+                    "en": "TODO"
+                }
+            },
+            "overriddenDelegationContext": null,
+            "expiration": {
+                "nb": "Samtykket er tidsavgrenset og opphører {Expiration}",
+                "nn": "Samtykket er tidsavgrensa og opphøyrer {Expiration}",
+                "en": "The consent is time-limited, and will expire {Expiration}"
+            },
+            "expirationOneTime": {
+                "nb": "Samtykket gjelder én gangs utlevering av opplysningene.",
+                "nn": "Samtykket gjeld ein gongs utlevering av opplysningane.",
+                "en": "The consent applies for one-time disclosure of information."
+            },
+            "handledBy": {
+                "nb": "{HandledBy} foretar dette oppslaget på vegne av {CoveredBy}.",
+                "nn": "{HandledBy} gjer dette oppslaget på vegne av {CoveredBy}.",
+                "en": "{HandledBy} performs the lookup on behalf of {CoveredBy}."
+            },
+            "titleAccepted": {
+                "nb": "Samtykke gitt til {CoveredBy}",
+                "nn": "Samtykke gitt til {CoveredBy}",
+                "en": "Consent given to {CoveredBy}"
+            },
+            "serviceIntroAccepted": {
+                "person": {
+                    "nb": "Samtykket gir {CoveredBy} tilgang til følgende opplysninger om deg",
+                    "nn": "Samtykket gir {CoveredBy} tilgang til følgjande opplysningar om deg",
+                    "en": "The consent gives {CoveredBy} access to the following information about you"
+                },
+                "org": {
+                    "nb": "Samtykket gir {CoveredBy} tilgang til følgende opplysninger om {OfferedBy}",
+                    "nn": "Samtykket gir {CoveredBy} tilgang til følgjande opplysningar om {OfferedBy}",
+                    "en": "The consent gives {CoveredBy} access to the following information about {OfferedBy}"
+                }
+            },
+            "historyUsedBody": {
+                "nb": "{CoveredBy} har hentet data for {OfferedBy}. Samtykket opphører {Expiration}",
+                "nn": "{CoveredBy} har henta data for {OfferedBy}. Samtykket opphøyrer {Expiration}",
+                "en": "{CoveredBy} has retrieved data for {OfferedBy}. The consent expires {Expiration}"
+            },
+            "historyUsedByHandledByBody": {
+                "nb": "{HandledBy} har, på vegne av {CoveredBy}, hentet data om {OfferedBy}. Samtykket opphører {Expiration}",
+                "nn": "{HandledBy} har, på vegne av {CoveredBy}, henta data om {OfferedBy}. Samtykket opphøyrer {Expiration}",
+                "en": "{HandledBy} has, on behalf of {CoveredBy}, retrieved data about {OfferedBy}. The consent expires {Expiration}"
+            }
+        }
+    },
+    {
         "id": "default",
         "version": 1,
         "title": "Samtykke til å dele data (standard)",
