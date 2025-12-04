@@ -4,7 +4,7 @@ description: Installasjonskommandoer for Altinn Studio CLI
 weight: 50
 ---
 
-**NB**: Altinn Studio CLI krever at .Net 8.0 eller senere er installert. Se [Microsofts dokumentasjon](https://dotnet.microsoft.com/en-us/download) for installasjon av .Net 8.0.
+**NB**: Altinn Studio CLI krever .Net 8.0 eller senere. Se [Microsofts dokumentasjon](https://dotnet.microsoft.com/en-us/download) for hvordan du installerer .Net 8.0.
 
 For å installere verktøyet, kjør følgende kommando i terminalen:
 
@@ -12,7 +12,7 @@ For å installere verktøyet, kjør følgende kommando i terminalen:
 dotnet tool install -g altinn.studio.cli
 ```
 
-For å verifisere at installasjonen var vellykket, kjør følgende kommando:
+For å kontrollere at installasjonen var vellykket, kjør følgende kommando:
 
 ```bash
 altinn-studio --version

@@ -43,7 +43,7 @@ Datavalidering er en del av standardlogikken i malen. Applikasjonsutviklere kan 
 
 En bekreftelsesoppgave er der sluttbrukeren som bruker applikasjonen gjennom nettleseren eller systemet gjennom API kan bekrefte data som er en del av prosessen.
 
-Når en bruker bekrefter en bekreftelsesoppgave opprettes en bekreftelseslogg for instansen som detaljerer at bruker/system X har bekreftet.
+Når en bruker bekrefter en bekreftelsesoppgave oppretter systemet en bekreftelseslogg for instansen som detaljerer at bruker/system X har bekreftet.
 
 Eksempel på en bekreftelsesoppgave:
 
@@ -78,7 +78,7 @@ Eksempel på en bekreftelsesoppgave:
 
 En signeringsoppgave er der sluttbrukeren som bruker applikasjonen gjennom nettleseren eller systemet gjennom API kan signere data som er en del av prosessen.
 
-Når en bruker utfører en signering genereres et signaturobjekt som inneholder brukerinformasjonen og en hash av dataelementene som er definert i prosessoppgaven. Samtidig opprettes en hendelseslogg for instansen som detaljerer at bruker/system X har signert.
+Når en bruker utfører en signering genererer systemet et signaturobjekt som inneholder brukerinformasjonen og en hash av dataelementene du har definert i prosessoppgaven. Samtidig oppretter systemet en hendelseslogg for instansen som detaljerer at bruker/system X har signert.
 
 Eksempel på en signeringsoppgave (bare tilgjengelig fra versjon 8):
 

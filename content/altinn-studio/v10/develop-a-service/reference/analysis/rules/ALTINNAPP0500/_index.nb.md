@@ -8,6 +8,7 @@ Denne diagnostikken påpeker at `IHttpContextAccessor.HttpContext` **ikke** bør
 i konstruktører. Denne typen misbruk har ført til lekking av persondata i tidligere hendelser.
 
 Se mer veiledning fra Microsoft her:
+
 https://learn.microsoft.com/en-us/aspnet/core/fundamentals/use-http-context?view=aspnetcore-8.0#httpcontext-isnt-thread-safe
 
 Tilgjengelig fra **v8.6**.
