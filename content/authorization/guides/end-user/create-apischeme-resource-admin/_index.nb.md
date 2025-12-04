@@ -11,7 +11,7 @@ Denne guiden erstatter [denne guide](https://altinn.github.io/docs/utviklingsgui
 
 ## Forutsetninger
 
-Du må ha tilgang til ressursadministrasjon for organisasjonen din. Se [Kom i gang-veiledningen](../../../getting-started/resource-admin-studio)
+Du må ha tilgang til ressursadministrasjon for organisasjonen din. Se [Kom i gang-veiledningen](/nb/authorization/getting-started/resourceadministration/)
 
 ## Trinn 1 Opprett ressurs
 

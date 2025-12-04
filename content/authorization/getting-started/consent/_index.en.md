@@ -30,7 +30,7 @@ You can use access lists to control which data consumers are allowed to use the 
 
 ![Flow diagram showing how access lists and scopes can stop the consent flow](samtykkeflyt_tilgang.png)
 
-Data consumers that are not included in the access list cannot create consent requests, and the flow stops before the end user is asked for consent. Learn more about access lists [here](/en/authorization/guides/resource-owner/manage-accesslists-resource-admin/).
+Data consumers that are not included in the access list cannot create consent requests, and the flow stops before the end user is asked for consent. Learn more about access lists [here](/en/authorization/guides/resource-owner/accesslist/manage-accesslists-resource-admin/).
 {{< /stepcard >}}
 
 {{< stepcard step="5" title="Provide information and documentation" >}}

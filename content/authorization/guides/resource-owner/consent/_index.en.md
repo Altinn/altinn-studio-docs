@@ -13,18 +13,20 @@ This page gives you a high-level introduction to the guides in this section and 
 ## Guides in this section
 
 ### Create and configure a consent resource
+
 - **Who:** Resource administrators and service owners who describe the data covered by the consent.
 - **What:** Explains how to name the resource, choose a consent template, configure metadata, access rules, and delegation.
 - **Link:** [Open the guide for creating a consent resource](./create-resource/).
 
 ### Validate consent inside your service
+
 - **Who:** Developers and integration teams that consume the Maskinporten token in their own solution.
 - **What:** Covers how to interpret `authorization_details` and `consentRights`, and how to verify that the token includes the rights your service requires.
 - **Link:** [Open the guide for validating consent](./validate-concent/).
 
 ## Before you start
 
-You must have resource administration access for your organization in Altinn Studio. If you do not, follow the steps in the [Getting Started guide](../../../getting-started/resource-admin-studio).
+You must have resource administration access for your organization in Altinn Studio. If you do not, follow the steps in the [Getting Started guide](/en/authorization/getting-started/resourceadministration/).
 
 ### Recommended order of work
 
