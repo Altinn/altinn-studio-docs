@@ -19,7 +19,7 @@ Altinn Melding sørger for at alle hendelser og prosesser blir nøye loggført, 
 - Tilpassede varslingsinnstillinger basert på brukerpreferanser. Dette innebærer varslingsmaler og egendefinerte varslingsadresser.
 
 ### Events (hendelsesabonnementer)
-Du kan motta varsler om hendelser knyttet til sendte formidlingstjenester, ved å sette opp et abonnement for den aktuelle tjenesten. Du kan for eksempel se om filen er kommet frem til mottaker og om den er åpnet.
+Du kan motta varsler om hendelser knyttet til sendte meldingstjenester, ved å sette opp et abonnement for den aktuelle tjenesten. Du kan for eksempel se om filen er kommet frem til mottaker og om den er åpnet.
 
 ### Tilgangsstyring
 - Avansert tilgangsstyring sikrer at du kan være trygg på at kun autoriserte brukere får tilgang til bestemte filoverføringer.
