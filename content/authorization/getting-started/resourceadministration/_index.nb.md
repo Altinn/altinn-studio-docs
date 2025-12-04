@@ -37,7 +37,7 @@ Lag opprettes fra organisasjonssiden i Gitea-delen av Altinn Studio.
 {{< /stepcard >}}
 
 {{< stepcard step="5" title="Opprette ressurs" >}}
-Detailjert guide for opprettelse av ressuser finnes under [Guider]()
+Detailjert guide for opprettelse av ressuser finnes under [Guider](/nb/authorization/guides/resource-owner/create-resource-resource-admin/)
 {{< /stepcard >}}
 
 {{< stepcard step="6" title="Opprette Tilgangslister (ikke påkrevd)" >}}
@@ -62,7 +62,7 @@ Under [Guider] kan du lese hvordan du definerer tilgangsliter som kan gjennbruke
 
 {{< stepcard step="7" title="Publisere" >}}
 Når all metadata, regler og ev tilgangslister er klare må ressursen publiseres
-Gjennomgang av publisering finnes under [Guider]()
+Gjennomgang av publisering finnes under [Guider](/nb/authorization/guides/resource-owner/create-resource-resource-admin/)
 {{< /stepcard >}}
 
 {{< stepcard step="8" title="Tilgangskontroll" >}}

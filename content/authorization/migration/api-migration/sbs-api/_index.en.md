@@ -1,166 +1,168 @@
 ---
-title: Migreringsstrategi for sluttbrukersystem-API
-linktitle: Sluttbrukersystem-API
-description: Siden er under konstruksjon - Her finner du foreløpig plan for hva som skjer med autorisasjons API for Sluttbrukersystem i overgangen mellom Altinn 2 og Altinn 3. Planen vil bli endret underveis.
+title: Migration strategy for the End‑User System API
+linktitle: End‑User System API
+description: This page is under construction — it contains the preliminary plan for the authorization API used by end‑user systems during the transition from Altinn 2 to Altinn 3. The plan will be updated over time.
 toc: true
 weight: 100
-tags: [architecture, plan, authorizaton, needstranslation]
+tags: [architecture, plan, authorization]
 ---
 
 _Siden er under konstruksjon_
 
+_This page is under construction_
+
 ## Token
 
-Lenke til dokumentasjon av eksisterende tjeneste
+Link to documentation for the existing service
 
-### Migreringsstrategi
+### Migration strategy
 
-#### Hvilke konsekvenser har dette for konsumenter
+#### What are the consequences for consumers
 
-### Tidsplan
+### Timeline
 
-### Tjenester og API i Altinn 3 som erstatter eksisterende API-tjeneste
+### Services and APIs in Altinn 3 that replace the existing API service
 
 ## RoleDefinitions
 
-Lenke til dokumentasjon av eksisterende tjeneste
+Link to documentation for the existing service
 
-### Migreringsstrategi
+### Migration strategy
 
-#### Hvilke konsekvenser har dette for konsumenter
+#### What are the consequences for consumers
 
-### Tidsplan
+### Timeline
 
-### Tjenester og API i Altinn 3 som erstatter eksisterende API-tjeneste
+### Services and APIs in Altinn 3 that replace the existing API service
 
 ## Rights
 
-Lenke til dokumentasjon av eksisterende tjeneste
+Link to documentation for the existing service
 
-### Migreringsstrategi
+### Migration strategy
 
-#### Hvilke konsekvenser har dette for konsumenter
+#### What are the consequences for consumers
 
-### Tidsplan
+### Timeline
 
-### Tjenester og API i Altinn 3 som erstatter eksisterende API-tjeneste
+### Services and APIs in Altinn 3 that replace the existing API service
 
 ## Roles
 
-Lenke til dokumentasjon av eksisterende tjeneste
+Link to documentation for the existing service
 
-### Migreringsstrategi
+### Migration strategy
 
-#### Hvilke konsekvenser har dette for konsumenter
+#### What are the consequences for consumers
 
-### Tidsplan
+### Timeline
 
-### Tjenester og API i Altinn 3 som erstatter eksisterende API-tjeneste
+### Services and APIs in Altinn 3 that replace the existing API service
 
 ## Reportee
 
-Lenke til dokumentasjon av eksisterende tjeneste
+Link to documentation for the existing service
 
-### Migreringsstrategi
+### Migration strategy
 
-#### Hvilke konsekvenser har dette for konsumenter
+#### What are the consequences for consumers
 
-### Tidsplan
+### Timeline
 
-### Tjenester og API i Altinn 3 som erstatter eksisterende API-tjeneste
+### Services and APIs in Altinn 3 that replace the existing API service
 
 ## Delegations
 
-Lenke til dokumentasjon av eksisterende tjeneste
+Link to documentation for the existing service
 
-### Migreringsstrategi
+### Migration strategy
 
-#### Hvilke konsekvenser har dette for konsumenter
+#### What are the consequences for consumers
 
-### Tidsplan
+### Timeline
 
-### Tjenester og API i Altinn 3 som erstatter eksisterende API-tjeneste
+### Services and APIs in Altinn 3 that replace the existing API service
 
 ## Authentication
 
-Lenke til dokumentasjon av eksisterende tjeneste
+Link to documentation for the existing service
 
-### Migreringsstrategi
+### Migration strategy
 
-#### Hvilke konsekvenser har dette for konsumenter
+#### What are the consequences for consumers
 
-### Tidsplan
+### Timeline
 
-### Tjenester og API i Altinn 3 som erstatter eksisterende API-tjeneste
+### Services and APIs in Altinn 3 that replace the existing API service
 
 ## Metadata
 
 [MetadataAPI](https://altinn.github.io/docs/api/rest/metadata/)
 
-### Migreringsstrategi
+### Migration strategy
 
-Metadata apiet i Altinn 2 viser hvilke tjenester som er tilgjengelig i løsnignen og metadata om disse.
-I Altinn 3 vil teneste-begrepet byttes ut med begrepet "ressurser" og ressursene vil finnes i et [ressursregister](/en/authorization/what-do-you-get/resourceadministration/)
+The Metadata API in Altinn 2 shows which services are available in the solution and metadata about them.
+In Altinn 3 the concept of "service" will be replaced by the concept of "resources" and the resources will be available in a [Resource Administration](/en/authorization/what-do-you-get/resourceadministration/).
 
-#### Hvilke konsekvenser har dette for konsumenter
+#### What are the consequences for consumers
 
-Dette API vil være tilgjenelig hele tiden, men etterhvert som tjenester flytter fra Altinn 2 til Altinn 3 så må man ta i bruk tilsvarende men nye API i Altinn 3
+This API will remain available, but as services are migrated from Altinn 2 to Altinn 3 you will need to adopt equivalent, new APIs in Altinn 3.
 
-### Tidsplan
+### Timeline
 
-Nytt API for Ressurs
+New API for Resource
 
-### Tjenester og API i Altinn 3 som erstatter eksisterende API-tjeneste
+### Services and APIs in Altinn 3 that replace the existing API service
 
-Følgene API finnes i Altinn 3 for å slå opp metadata om tjenester som er migrert
+The following APIs are available in Altinn 3 to look up metadata about migrated services
 
 - Test: https://platform.tt02.altinn.no/resourceregistry/api/v1/resource/search
 - Prod: https://platform.altinn.no/resourceregistry/api/v1/resource/search
 
 ## Organizations
 
-Lenke til dokumentasjon av eksisterende tjeneste
+Link to documentation for the existing service
 
-### Migreringsstrategi
+### Migration strategy
 
-#### Hvilke konsekvenser har dette for konsumenter
+#### What are the consequences for consumers
 
-### Tidsplan
+### Timeline
 
-### Tjenester og API i Altinn 3 som erstatter eksisterende API-tjeneste
+### Services and APIs in Altinn 3 that replace the existing API service
 
 ## ConsentRequest
 
-Lenke til dokumentasjon av eksisterende tjeneste
+Link to documentation for the existing service
 
-### Migreringsstrategi
+### Migration strategy
 
-#### Hvilke konsekvenser har dette for konsumenter
+#### What are the consequences for consumers
 
-### Tidsplan
+### Timeline
 
-### Tjenester og API i Altinn 3 som erstatter eksisterende API-tjeneste
+### Services and APIs in Altinn 3 that replace the existing API service
 
 ## DelegationRequest
 
-Lenke til dokumentasjon av eksisterende tjeneste
+Link to documentation for the existing service
 
-### Migreringsstrategi
+### Migration strategy
 
-#### Hvilke konsekvenser har dette for konsumenter
+#### What are the consequences for consumers
 
-### Tidsplan
+### Timeline
 
-### Tjenester og API i Altinn 3 som erstatter eksisterende API-tjeneste
+### Services and APIs in Altinn 3 that replace the existing API service
 
 ## EnterpriseUsers
 
-Lenke til dokumentasjon av eksisterende tjeneste
+Link to documentation for the existing service
 
-### Migreringsstrategi
+### Migration strategy
 
-#### Hvilke konsekvenser har dette for konsumenter
+#### What are the consequences for consumers
 
-### Tidsplan
+### Timeline
 
-### Tjenester og API i Altinn 3 som erstatter eksisterende API-tjeneste
+### Services and APIs in Altinn 3 that replace the existing API service

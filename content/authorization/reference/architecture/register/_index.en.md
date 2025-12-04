@@ -8,11 +8,10 @@ tags: [platform, register]
 - DSF - Det Sentrale Folkeregisteret - Information about citizens in Norway.
 
 ## ER - Enhetsregisteret
+
 ER registeret can be used to prefill information, retrieve information based on user input or for validation of input of users.
 
-
-During autumn 2024 the register component will be updated to have it own 
-
+During autumn 2025 the register component will be updated to have its own
 
 The register component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
 
@@ -26,22 +25,22 @@ Get information about an organisation:
 
 ### Organization type
 
-| Attribute | Type | Description |
-| --------- | ---- | ----------- |
-| OrgNumber | string  | the organisation number nine digits |
-| Name |  string | the registered name of the organisation |
-| UnitType | string  |    |
-| TelephoneNumber | string   | the telephone number |
-| MobileNumber |  string | the mobile number |
-| FaxNumber |  string | the fax number |
-| EMailAddress | string | the email adress  |
-| InternetAddress | string | the url for a web site |
-| MailingAddress | string | the adress for sending mail to the organisation |
-| MailingPostalCode | string | the postal code for sending mail to the organisation |
-| MailingPostalCity | string | the city for sending mail to the organisation  |
-| BusinessAddress | string | the address of the daily business |
-| BusinessPostalCode | string | the postal code for the daily business  |  
-| BusinessPostalCity | string | the city for the daily business|  
+| Attribute          | Type   | Description                                          |
+| ------------------ | ------ | ---------------------------------------------------- |
+| OrgNumber          | string | the organisation number nine digits                  |
+| Name               | string | the registered name of the organisation              |
+| UnitType           | string |                                                      |
+| TelephoneNumber    | string | the telephone number                                 |
+| MobileNumber       | string | the mobile number                                    |
+| FaxNumber          | string | the fax number                                       |
+| EMailAddress       | string | the email adress                                     |
+| InternetAddress    | string | the url for a web site                               |
+| MailingAddress     | string | the adress for sending mail to the organisation      |
+| MailingPostalCode  | string | the postal code for sending mail to the organisation |
+| MailingPostalCity  | string | the city for sending mail to the organisation        |
+| BusinessAddress    | string | the address of the daily business                    |
+| BusinessPostalCode | string | the postal code for the daily business               |
+| BusinessPostalCity | string | the city for the daily business                      |
 
 ### Operations
 
@@ -52,24 +51,25 @@ GET /organizations/{orgNr}
 ## /persons
 
 ### Person type
-| Attribute | Type | Description |
-| --------- | ---- | ----------- |
-| SSN | string |  Social security number |
-| Name | string | the person's full name |
-| FirstName | string | the person's first name |
-| MiddleName | string | the person's middle name |
-| LastName | string | the person's last name |
-| TelephoneNumber | string | telephone number |
-| MobileNumber | string  | mobile number |
-| MailingAddress | string |  mailing address |
-| MailingPostalCode | string | mailing postal code |
-| MailingPostalCity | string | mailing postal city |
-| AddressMunicipalNumber | string | adress municipal number |
-| AddressMunicipalName | string | adress municipal name |
-| AddressHouseNumber | string | address house number |
-| AddressHouseLetter | string | address house letter |
-| AddressPostalCode | string | address postal code |
-| AddressCity |string  | adress city  |
+
+| Attribute              | Type   | Description              |
+| ---------------------- | ------ | ------------------------ |
+| SSN                    | string | Social security number   |
+| Name                   | string | the person's full name   |
+| FirstName              | string | the person's first name  |
+| MiddleName             | string | the person's middle name |
+| LastName               | string | the person's last name   |
+| TelephoneNumber        | string | telephone number         |
+| MobileNumber           | string | mobile number            |
+| MailingAddress         | string | mailing address          |
+| MailingPostalCode      | string | mailing postal code      |
+| MailingPostalCity      | string | mailing postal city      |
+| AddressMunicipalNumber | string | adress municipal number  |
+| AddressMunicipalName   | string | adress municipal name    |
+| AddressHouseNumber     | string | address house number     |
+| AddressHouseLetter     | string | address house letter     |
+| AddressPostalCode      | string | address postal code      |
+| AddressCity            | string | adress city              |
 
 ### Operations
 
@@ -84,19 +84,19 @@ GET /persons
 
 ### Party type
 
-| Attribute | Type | Description |
-| --------- | ---- | ----------- |
-| PartyId | int | the party ID |  
-| PartyTypeName | PartyType | the type of the party; organisation or person |  
-| OrgNumber | string | the organisation number. Empty string if party is person. |  
-| SSN | string | the social security number. Empty string if party is organisation. |  
-| UnitType | string |  |  
-| Name | string | the full name of the person or name of the organisation |  
-| IsDeleted | bool | true is the organisation has been deleted from the registery |  
-| OnlyHiearhyElementWithNoAccess | bool | true if party is a parent unit with no access in current context|  
-| Person | Person | the person the party represents |  
-| Organization | Organization | the organisation the party represents |  
-| ChildParties | List<Party> | List of sub units if the party is an organisation |  
+| Attribute                      | Type         | Description                                                        |
+| ------------------------------ | ------------ | ------------------------------------------------------------------ |
+| PartyId                        | int          | the party ID                                                       |
+| PartyTypeName                  | PartyType    | the type of the party; organisation or person                      |
+| OrgNumber                      | string       | the organisation number. Empty string if party is person.          |
+| SSN                            | string       | the social security number. Empty string if party is organisation. |
+| UnitType                       | string       |                                                                    |
+| Name                           | string       | the full name of the person or name of the organisation            |
+| IsDeleted                      | bool         | true is the organisation has been deleted from the registery       |
+| OnlyHiearhyElementWithNoAccess | bool         | true if party is a parent unit with no access in current context   |
+| Person                         | Person       | the person the party represents                                    |
+| Organization                   | Organization | the organisation the party represents                              |
+| ChildParties                   | List<Party>  | List of sub units if the party is an organisation                  |
 
 ### Operations
 
