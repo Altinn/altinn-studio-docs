@@ -65,6 +65,6 @@ When all metadata, rules and any access lists are ready, the resource must be pu
 A review of the publishing process can be found under [Guides](/en/authorization/guides/resource-owner/create-resource-resource-admin/)
 {{< /stepcard >}}
 
-{{< stepcard step="8" title="Access control" >}}
+<!-- {{< stepcard step="8" title="Access control" >}}
 7
-{{< /stepcard >}}
+{{< /stepcard >}} -->

@@ -1,7 +1,7 @@
 ---
 title: Kom i gang med ressursadministrasjon
 linktitle: Ressursadministrasjon
-description: For å kunne bruke Atlinn Autorisasjon til må det gjennomfører noe oppsett på vegne av virksomheten
+description: For å kunne bruke Altinn Autorisasjon til må det gjennomfører noe oppsett på vegne av virksomheten
 ---
 
 {{< stepcard step="1" title="Signere avtale" >}}
@@ -37,12 +37,12 @@ Lag opprettes fra organisasjonssiden i Gitea-delen av Altinn Studio.
 {{< /stepcard >}}
 
 {{< stepcard step="5" title="Opprette ressurs" >}}
-Detailjert guide for opprettelse av ressuser finnes under [Guider](/nb/authorization/guides/resource-owner/create-resource-resource-admin/)
+Detaljert guide for opprettelse av ressurser finnes under [Guider](/nb/authorization/guides/resource-owner/create-resource-resource-admin/)
 {{< /stepcard >}}
 
 {{< stepcard step="6" title="Opprette Tilgangslister (ikke påkrevd)" >}}
 I utgangspunktet får alle som har rolle eller tilgangsliste som tilfredstiller kravet til tjenesten, tilgang til tjenesten.
-Dersom det er behov for å begrense tilgangen til eneklte virksomheter kan man benytte tilgangslister.
+Dersom det er behov for å begrense tilgangen til enkelte virksomheter kan man benytte tilgangslister.
 Dette er samme funsjonalitet som i Altinn 2 het Tjenesterettsregisteret (SRR)
 
 **Definere team for Tilgangsliste**
@@ -54,7 +54,7 @@ Din organisasjon bør opprette følgende team:
 
 Medlemmer av disse teamene kan administrere tilgangslister i sine respektive miljøer.
 
-Under [Guider] kan du lese hvordan du definerer tilgangsliter som kan gjennbrukes på tvers av tjenster.
+Under [Guider] kan du lese hvordan du definerer tilgangsliter som kan gjenbrukes på tvers av tjenster.
 
 ![Groups](groups.png)
 
@@ -65,6 +65,6 @@ Når all metadata, regler og ev tilgangslister er klare må ressursen publiseres
 Gjennomgang av publisering finnes under [Guider](/nb/authorization/guides/resource-owner/create-resource-resource-admin/)
 {{< /stepcard >}}
 
-{{< stepcard step="8" title="Tilgangskontroll" >}}
+<!-- {{< stepcard step="8" title="Tilgangskontroll" >}}
 7
-{{< /stepcard >}}
+{{< /stepcard >}} -->
