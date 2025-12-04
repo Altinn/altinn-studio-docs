@@ -54,7 +54,7 @@ Your organization should create the following teams:
 
 Members of these teams can manage access lists in their respective environments.
 
-Under [Guides] you can read how to define reusable access lists across services.
+Under [Guides](/en/authorization/guides/resource-owner/accesslist/) you can read how to define reusable access lists across services.
 
 ![Groups](groups.png)
 

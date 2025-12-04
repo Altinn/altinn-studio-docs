@@ -54,7 +54,7 @@ Din organisasjon bør opprette følgende team:
 
 Medlemmer av disse teamene kan administrere tilgangslister i sine respektive miljøer.
 
-Under [Guider] kan du lese hvordan du definerer tilgangsliter som kan gjenbrukes på tvers av tjenster.
+Under [Guider](/nb/authorization/guides/resource-owner/accesslist/) kan du lese hvordan du definerer tilgangsliter som kan gjenbrukes på tvers av tjenster.
 
 ![Groups](groups.png)
 
