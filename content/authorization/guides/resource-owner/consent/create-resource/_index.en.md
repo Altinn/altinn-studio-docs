@@ -13,7 +13,7 @@ This guide explains how to set up a consent resource.
 
 ## Prerequisites
 
-You must have access to resource administration for your organization. See the [Getting Started Guide](/en/authorization/getting-started/rresourceadministration/).
+You must have access to resource administration for your organization. See the [Getting Started Guide](/en/authorization/getting-started/resourceadministration/).
 
 ## Create New Resource
 

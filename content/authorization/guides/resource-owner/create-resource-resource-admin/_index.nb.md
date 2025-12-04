@@ -9,7 +9,7 @@ I Altinn Studio Resource admin kan du opprette ressurser som skal brukes som gru
 
 ## Forutsetninger
 
-Du må ha tilgang til ressursadministrasjon for organisasjonen din. Se [Kom i gang-veiledningen](/nb/authorization/getting-started/rresourceadministration/)
+Du må ha tilgang til ressursadministrasjon for organisasjonen din. Se [Kom i gang-veiledningen](/nb/authorization/getting-started/resourceadministration/)
 
 ## Trinn 1 Opprett ressurs
 

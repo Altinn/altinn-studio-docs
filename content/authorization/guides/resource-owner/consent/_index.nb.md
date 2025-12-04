@@ -26,7 +26,7 @@ Denne siden gir deg en overordnet introduksjon til veiledningene i denne seksjon
 
 ## Før du starter
 
-Du må ha tilgang til ressursadministrasjon for din virksomhet i Altinn Studio. Dersom du mangler dette, følger du stegene i [Kom i gang-veiledningen](/nb/authorization/getting-started/rresourceadministration/).
+Du må ha tilgang til ressursadministrasjon for din virksomhet i Altinn Studio. Dersom du mangler dette, følger du stegene i [Kom i gang-veiledningen](/nb/authorization/getting-started/resourceadministration/).
 
 ### Anbefalt arbeidsrekkefølge
 

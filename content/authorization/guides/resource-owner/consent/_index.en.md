@@ -26,7 +26,7 @@ This page gives you a high-level introduction to the guides in this section and 
 
 ## Before you start
 
-You must have resource administration access for your organization in Altinn Studio. If you do not, follow the steps in the [Getting Started guide](/en/authorization/getting-started/rresourceadministration/).
+You must have resource administration access for your organization in Altinn Studio. If you do not, follow the steps in the [Getting Started guide](/en/authorization/getting-started/resourceadministration/).
 
 ### Recommended order of work
 
