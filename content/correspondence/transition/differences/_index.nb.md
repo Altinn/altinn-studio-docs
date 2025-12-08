@@ -14,6 +14,7 @@ For å forenkle overgangen fra Altinn 2 til Altinn 3 versjon av Melding-produkte
 - Altinn 3 Melding har i stor grad lik datamodell som Altinn 2 for å muliggjøre mapping og migrering.
   - MessageSummary-feltet har blitt endret fra å støtte HTML formatering til kun å støtte ren tekst.
   - ReplyOptions har blitt forenklet til å kun være URL+beskrivende tekst, da dette er fleksibelt nok til å dekke behovene de separate typene i Altinn 2 tilbød.
+  - MessageBody må nå bruke Markdown, og HTML er ikke lenger støttet. 
 - Vedlegg lastes opp strømmet og i et separat steg før man lager Meldingen.
   - Vedlegg kan deles på tvers av flere Meldinger for å redusere databruk ved masseforsendelse av samme vedlegg til mange parter.
 - API tilrettelegger for masseforsendelser av Meldinger ved bruk av maler/keywords og mottakerlister samt nevnte delte vedlegg.
