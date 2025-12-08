@@ -18,7 +18,8 @@ Når du bruker Altinn Studio, vil dialoger automatisk opprettes for deg. En app 
 2. Utfør en POST-forespørsel og oppgi [create dialog DTO](/nb/dialogporten/reference/entities/dialog#opprett-post)
 
 ## Velge en tjenesteressurs
-Tjenesteressursen som leveres kan være hvilken som helst ressurs i [Altinn Ressursregister](/nb/dialogporten/user-guides/service-owners/creating-dialogs/../../../../authorization/what-do-you-get/resourceregistry/) med en `hasCompententAuthority`-egenskap som samsvarer med det autentiserte organisasjonsnummeret.
+
+Tjenesteressursen som leveres kan være hvilken som helst ressurs i [Altinn Ressursregister](/nb/dialogporten/user-guides/service-owners/creating-dialogs/../../../../authorization/what-do-you-get/resourceadministration/) med en `hasCompententAuthority`-egenskap som samsvarer med det autentiserte organisasjonsnummeret.
 
 {{<notice info>}}
 Støtte for å legge til ytterligere begrensninger (dvs. ekstra omfangskrav) til tjenesteressurser spores i [denne saken](https://github.com/Altinn/dialogporten/issues/40).
@@ -40,13 +41,13 @@ Som standard vil begge disse settes til gjeldende tidsstempel når du oppretter 
 
 Det er to valgfrie datoer som kan settes på en dialog som kontrollerer synlighet for sluttbrukere.
 
-* `expiresAt` definerer et fremtidig tidsstempel som, når det er nådd, gjør dialogen utilgjengelig i sluttbruker-API-et. Sluttbrukersystemer bør gjøre en innsats for å advare brukere om at innholdet er i ferd med å bli utilgjengelig. Utilgjengelige dialoger er fortsatt synlige i tjenesteeier-API-ene, bortsett fra når du [impersonerer en bruker](/nb/dialogporten/user-guides/service-owners/creating-dialogs/../impersonating-users/), og `expiresAt`-feltet kan når som helst settes til `null` eller en fremtidig verdi som vil gjøre det synlig for sluttbrukeren igjen (og en `dialogporten.dialog.updated`-hendelse vil bli sendt).
+- `expiresAt` definerer et fremtidig tidsstempel som, når det er nådd, gjør dialogen utilgjengelig i sluttbruker-API-et. Sluttbrukersystemer bør gjøre en innsats for å advare brukere om at innholdet er i ferd med å bli utilgjengelig. Utilgjengelige dialoger er fortsatt synlige i tjenesteeier-API-ene, bortsett fra når du [impersonerer en bruker](/nb/dialogporten/user-guides/service-owners/creating-dialogs/../impersonating-users/), og `expiresAt`-feltet kan når som helst settes til `null` eller en fremtidig verdi som vil gjøre det synlig for sluttbrukeren igjen (og en `dialogporten.dialog.updated`-hendelse vil bli sendt).
 
 {{<notice warning>}}
 Utilgjengelige dialoger vil på dette tidspunktet _ikke_ bli sanert fra databasen, men dette kan endre seg i fremtiden der Dialogporten fjerner for lengst utløpte dialoger av personvern- og systemeffektivitetshensyn.
 {{</notice>}}
 
-* `visibleFrom` definerer et fremtidig tidsstempel som, når det er nådd, gjør dialogen tilgjengelig i sluttbruker-API-et. Før dette tidspunktet vil ikke dialogen være tilgjengelig.
+- `visibleFrom` definerer et fremtidig tidsstempel som, når det er nådd, gjør dialogen tilgjengelig i sluttbruker-API-et. Før dette tidspunktet vil ikke dialogen være tilgjengelig.
 
 {{<notice warning>}}
 På grunn av en [kjent begrensning](https://github.com/Altinn/dialogporten/issues/110), vil hendelser knyttet til dialogopprettelser/-oppdateringer _ikke_ vurdere `visibleFrom`. Dette betyr at når en dialog opprettes med en fremtidig `visibleFrom`-dato, vil hendelsen bli produsert umiddelbart, men vil ikke tillate sluttbrukeren å få tilgang til dialogen.
@@ -97,25 +98,25 @@ Siden Dialogporten ikke inneholder noen innholdsdata, er fritekstsøk iboende be
 
 Dialogporten støtter flere generiske dialogstatuser, som indikerer forskjellige typiske tilstander i prosessen dialogen representerer. Disse statusene bør brukes av sluttbrukersystemer for å organisere og prioritere dialoglisten. Statusene er:
 
-| Status              | Beskrivelse                                                                                                                                                                                              |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `NotApplicable`     | Dialogen har ingen meningsfull status. Brukes vanligvis for enkle meldinger som ikke krever noen interaksjon. Dette er standard.                                                          |
-| `Draft`             | Brukes til å indikere brukerinitierte dialoger som ennå ikke er sendt og som kan kanselleres når som helst.                                                                                                            |
-| `InProgress`        | Indikerer at dialogen er startet, og blir jobbet med av parten og/eller tjenesteeieren. I en seriell prosess kan dette indikere at for eksempel et skjema fylles ut på et forhåndsutfylt skjema.   |
-| `Awaiting`          | Sendt av parten til tjenesteeieren og venter på et svar. I en seriell prosess brukes dette etter at en innsending er gjort.                                                                        |
-| `RequiresAttention` | Brukes til å indikere at dialogen er i gang/under arbeid, men er i en tilstand der brukeren må gjøre noe - for eksempel korrigere en feil, eller andre forhold som hindrer videre behandling.   |
-| `Completed`         | Dialogen ble fullført. Dette betyr vanligvis at dialogen har nådd en sluttilstand der ingen ytterligere oppdateringer vil bli gjort.                                                                     |
+| Status              | Beskrivelse                                                                                                                                                                                      |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `NotApplicable`     | Dialogen har ingen meningsfull status. Brukes vanligvis for enkle meldinger som ikke krever noen interaksjon. Dette er standard.                                                                 |
+| `Draft`             | Brukes til å indikere brukerinitierte dialoger som ennå ikke er sendt og som kan kanselleres når som helst.                                                                                      |
+| `InProgress`        | Indikerer at dialogen er startet, og blir jobbet med av parten og/eller tjenesteeieren. I en seriell prosess kan dette indikere at for eksempel et skjema fylles ut på et forhåndsutfylt skjema. |
+| `Awaiting`          | Sendt av parten til tjenesteeieren og venter på et svar. I en seriell prosess brukes dette etter at en innsending er gjort.                                                                      |
+| `RequiresAttention` | Brukes til å indikere at dialogen er i gang/under arbeid, men er i en tilstand der brukeren må gjøre noe - for eksempel korrigere en feil, eller andre forhold som hindrer videre behandling.    |
+| `Completed`         | Dialogen ble fullført. Dette betyr vanligvis at dialogen har nådd en sluttilstand der ingen ytterligere oppdateringer vil bli gjort.                                                             |
 
 ### Hvilke statuser skal brukes når
 
 Når du oppretter dialoger, bør tjenesteplattformen vurdere både tilstanden og omstendighetene til dialogen som opprettes. Det er ingen faste regler, men følgende retningslinjer kan hjelpe med å bestemme hvilken status som er passende.
 
-* Representerer dialogen et søknadsskjema, som ble "kaldt" initiert av brukeren uten åpenbar interaksjon med tjenesteeieren? **Draft**
-* Er dialogen initiert av tjenesteeieren (eventuelt forhåndsutfylt med data) for et rapporteringsskjema? **InProgress**
-* Er dialogen i en tilstand der brukeren har gjort en innsending, og venter på en form for tilbakemelding fra tjenesteeieren, dvs. "ballen er på tjenesteeierens banehalvdel"? **Awaiting**
-* Var dialogen tidligere i en **Draft**-tilstand, men var det på et tidspunkt åpenbar interaksjon med tjenesteeieren, dvs. innledende tilbakemelding/validering ble forespurt og gitt, og plasserte "ballen tilbake på partens banehalvdel"? **InProgress**
-* Var det en form for uoverensstemmelse, feiltilstand, viktig forfallsdato nærmer seg eller lignende som krever at brukeren foretar seg noe for at prosessen skal fortsette? **RequiresAttention**
-* Nådde dialogen en logisk konklusjon, dvs. en offisiell beslutning ble tatt som under normale omstendigheter (dvs. ikke medregnet ankeprosesser) representerer slutten på dialogen? **Completed**
+- Representerer dialogen et søknadsskjema, som ble "kaldt" initiert av brukeren uten åpenbar interaksjon med tjenesteeieren? **Draft**
+- Er dialogen initiert av tjenesteeieren (eventuelt forhåndsutfylt med data) for et rapporteringsskjema? **InProgress**
+- Er dialogen i en tilstand der brukeren har gjort en innsending, og venter på en form for tilbakemelding fra tjenesteeieren, dvs. "ballen er på tjenesteeierens banehalvdel"? **Awaiting**
+- Var dialogen tidligere i en **Draft**-tilstand, men var det på et tidspunkt åpenbar interaksjon med tjenesteeieren, dvs. innledende tilbakemelding/validering ble forespurt og gitt, og plasserte "ballen tilbake på partens banehalvdel"? **InProgress**
+- Var det en form for uoverensstemmelse, feiltilstand, viktig forfallsdato nærmer seg eller lignende som krever at brukeren foretar seg noe for at prosessen skal fortsette? **RequiresAttention**
+- Nådde dialogen en logisk konklusjon, dvs. en offisiell beslutning ble tatt som under normale omstendigheter (dvs. ikke medregnet ankeprosesser) representerer slutten på dialogen? **Completed**
 
 En bestemt dialog kan kreve en høyere oppløsning av statuser, dvs. ha flere distinkte tilstander av "InProgress" som er meningsfulle å formidle til sluttbrukeren. For disse formålene, se egenskapen `extendedStatus` og innholdstypen.
 
@@ -170,9 +171,9 @@ Vedlegg kan defineres både på dialogen og på individuelle forsendelser.
 
 Forsendelser kan inneholde et ekstra nivå av innhold og vedlegg som representerer en enkelt forekomst av kommunikasjon i en dialog, som kan være underlagt forskjellige autorisasjonsregler enn innholdet på dialognivå. Forsendelsen inneholder dermed
 
-* informasjon om hvem som sendte den; enten en representant for parten eller tjenesteeieren
-* typen forsendelse, som skal gi sluttbrukersystemer en ide om hvordan de skal vise den på en passende måte for sluttbrukere. En tjenestespesifikk, strukturert utvidet type kan også leveres som tilpassede sluttbrukersystemer kan bruke.
-* eventuelt en annen relatert forsendelse
+- informasjon om hvem som sendte den; enten en representant for parten eller tjenesteeieren
+- typen forsendelse, som skal gi sluttbrukersystemer en ide om hvordan de skal vise den på en passende måte for sluttbrukere. En tjenestespesifikk, strukturert utvidet type kan også leveres som tilpassede sluttbrukersystemer kan bruke.
+- eventuelt en annen relatert forsendelse
 
 Som med innhold på dialognivå, kan forsendelser inneholde en tittel, et sammendrag og en innholdsreferanse (front channel embed). Tjenesteeiere kan bruke front channel embeds til å spore om en bestemt forsendelse er åpnet eller ikke, noe som igjen kan f.eks. utløse en `transmissionOpened`-aktivitet som legges til.
 
@@ -211,15 +212,16 @@ For informasjon om hvordan du bruker HTTP-basert samtidighetkontroll via `ETag` 
 ## Stille dialogopprettelse
 
 I noen tilfeller, vanligvis i scenarier med historisk datamigrering, er det ønskelig å utføre en ikke-forretningsprosessrelatert oppdatering av en dialog. Disse oppdateringene fungerer akkurat som normale oppdateringer, men
-* Øker ikke `updatedAt` eller `contentUpdatedAt`
-* Fører ikke til at Altinn Events produseres
+
+- Øker ikke `updatedAt` eller `contentUpdatedAt`
+- Fører ikke til at Altinn Events produseres
 
 Denne oppførselen kan aktiveres ved å legge til spørringsparameteren `?isSilentUpdate=true` til URL-en for POST/PUT/PATCH-forespørselen.
 
 **Les mer**
 
-* {{<link "../updating-dialogs">}}
-* {{<link "../../../reference/openapi">}}
-* {{<link "../api-client">}}
+- {{<link "../updating-dialogs">}}
+- {{<link "../../../reference/openapi">}}
+- {{<link "../api-client">}}
 
 {{<children />}}
