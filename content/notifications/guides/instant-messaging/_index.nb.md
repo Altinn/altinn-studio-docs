@@ -139,12 +139,13 @@ Hvis du sender samme forespørsel på nytt med samme `idempotencyId`, får du HT
 
 Mulige feilkoder:
 
-| Status | Beskrivelse | Løsning |
-|--------|-------------|---------|
-| `400 Bad Request` | Ugyldig forespørsel (f.eks. manglende påkrevde felt) | Kontroller at alle påkrevde felt er med og har riktig format |
-| `401 Unauthorized` | Manglende eller ugyldig token | Sørg for gyldig Altinn-token i Authorization-header |
-| `403 Forbidden` | Mangler tilgang til API-et | Verifiser at Maskinporten-klienten har riktig scope |
-| `500 Internal Server Error` | Intern serverfeil | Prøv igjen eller kontakt Altinn support |
+| Status | Feilkode | Beskrivelse | Løsning |
+|--------|----------|-------------|---------||
+| `400 Bad Request` | - | Ugyldig forespørsel (f.eks. manglende påkrevde felt) | Kontroller at alle påkrevde felt er med og har riktig format |
+| `401 Unauthorized` | - | Manglende eller ugyldig token | Sørg for gyldig Altinn-token i Authorization-header |
+| `403 Forbidden` | - | Mangler tilgang til API-et | Verifiser at Maskinporten-klienten har riktig scope |
+| `422 Unprocessable Entity` | `NOT-00001` | Manglende kontaktinformasjon for mottaker(e) | Verifiser at telefonnummeret eller e-postadressen er gyldig og at mottakeren har registrert kontaktinformasjon i Altinn |
+| `499 Client Closed Request` | `NOT-00002` | Forespørselen ble avbrutt - Klienten koblet fra eller kansellerte før serveren fullførte behandlingen | Sjekk nettverkstilkoblingen og sørg for tilstrekkelige timeout-innstillinger i HTTP-klienten |
 
 ## Sende umiddelbar e-postvarsling
 
