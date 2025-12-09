@@ -1,10 +1,7 @@
 ---
 title: Tilgangspakker og roller
 linktitle: Tilgangspakker og roller
-description: Tilgangspakker samler tjenester og ressurser tematisk, basert på hva som ofte brukes eller løses sammen, slik at virksomheter kan gi nødvendige fullmakter til ansatte og systemer uten å måtte gi fullmakt til én og én tjeneste. I Altinn 3 fungerer tilgangspakkene erstatter i praksis de tidligere Altinn-rollene. 
-tags: [architecture, security, authorization, xacml]
----
-
+description: Tilgangspakker samler tjenester og ressurser tematisk, basert på hva som ofte brukes eller løses sammen, slik at virksomheter kan gi nødvendige fullmakter til ansatte og systemer uten å måtte gi fullmakt til én og én tjeneste. I Altinn 3 erstatter tilgangspakker de tidligere Altinn-rollene i praksis.
 ## Tilgangspakker bygges av tjenesteeiere – ikke av Digdir
 
 Tilgangspakker i Altinn er ikke forhåndsdefinert av Digdir. De er et resultat av tjenesteeiernes egne valg om hvilke tjenester de mener hører hjemme innenfor et bestemt bransjeområde eller et funksjonelt tema – for eksempel lønn, regnskap, landbruk eller bygg og eiendom.
