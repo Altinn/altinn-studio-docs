@@ -6,12 +6,12 @@ weight: 999
 tags: [needsReview, needsTranslation]
 ---
 
-Denne siden inneholder forklaringer av tekniske ord og begreper som brukes i dokumentasjonen om tjenesteutvikling i Altinn Studio. Ordene er sortert alfabetisk.
+Denne siden inneholder forklaringer av tekniske ord og begreper som vi bruker i dokumentasjonen om tjenesteutvikling i Altinn Studio. Ordene er sortert alfabetisk.
 
 ## A
 
 ### App
-En tjeneste eller applikasjon utviklet i Altinn Studio. Brukes konsekvent i stedet for "applikasjon" i dokumentasjonen.
+En tjeneste eller applikasjon utviklet i Altinn Studio. Vi bruker dette begrepet konsekvent i stedet for "applikasjon" i dokumentasjonen.
 
 **Eksempel:** Du kan konfigurere appen til å sende e-postvarslinger.
 
@@ -25,7 +25,7 @@ Regler som styrer hvem som har tilgang til å gjøre hva i en app.
 ### Beskyttede data
 Data som krever ekstra tilgangskontroll utover vanlig autorisasjon.
 
-**Eksempel:** Personopplysninger og klassifisert informasjon bør konfigureres som beskyttede data.
+**Eksempel:** Du bør konfigurere personopplysninger og klassifisert informasjon som beskyttede data.
 
 ### Betaling
 Funksjonalitet for å integrere betalingsløsninger i en app.
@@ -42,7 +42,7 @@ Strukturen som definerer hvilke data som kan lagres og behandles i en app.
 Automatisk behandling av data på serveren, for eksempel kalkuleringer eller validering.
 
 ### Dynamikk
-Funksjonalitet som gjør at elementer i et skjema kan endres basert på brukerens input, for eksempel at felt skjules eller vises.
+Funksjonalitet som gjør at elementer i et skjema endres basert på brukerens input, for eksempel at felt skjules eller vises.
 
 ## F
 
@@ -57,7 +57,7 @@ Automatisk utfylling av skjemafelt med data fra registre eller andre kilder før
 **Også kjent som:** Prefill (teknisk term)
 
 ### Forhåndsvalg
-Et svaralternativ som er automatisk valgt når komponenten vises for første gang.
+Et svaralternativ som velges automatisk når komponenten vises for første gang.
 
 **Eksempel:** I en liste med leveringsalternativer kan "Hjemlevering" være forhåndsvalgt.
 
@@ -74,12 +74,12 @@ Sensitiv konfigurasjonsinformasjon (som passord eller API-nøkler) som lagres si
 ## I
 
 ### Instans
-Et konkret eksempel av en app som er opprettet for en spesifikk bruker eller organisasjon.
+Et konkret eksempel av en app som opprettes for en spesifikk bruker eller organisasjon.
 
 ## K
 
 ### Kodeliste
-En liste med koder og tilhørende verdier som brukes som kilde til svaralternativer. Kan være statiske (fra JSON-fil), dynamiske (generert fra C#-kode), fra repeterende strukturer i datamodellen, eller felles standard kodelister (som land, fylker, kommuner).
+En liste med koder og tilhørende verdier som du bruker som kilde til svaralternativer. Kan være statiske (fra JSON-fil), dynamiske (genereres fra C#-kode), fra repeterende strukturer i datamodellen, eller felles standard kodelister (som land, fylker, kommuner).
 
 **Eksempel:** Du kan hente kommunekodelisten fra SSB og bruke den i en nedtrekksliste.
 
@@ -91,7 +91,7 @@ En liste med koder og tilhørende verdier som brukes som kilde til svaralternati
 Visningen og plasseringen av komponenter på en side i appen.
 
 ### Ledetekst
-Teksten som vises til brukeren for et felt, en komponent eller et svaralternativ. Også kalt "label" i kode og konfigurasjon.
+Teksten som du viser til brukeren for et felt, en komponent eller et svaralternativ. Også kalt "label" i kode og konfigurasjon.
 
 **Eksempel:** For et svaralternativ med verdi "NO" kan ledeteksten være "Norge".
 
@@ -110,9 +110,9 @@ En oversiktsside som viser all informasjon brukeren har fylt ut før innsending.
 ## R
 
 ### Repeterende gruppe
-En gruppe felt som kan gjentas flere ganger i et skjema, for eksempel for å legge til flere familiemedlemmer. Den repeterende strukturen i datamodellen kan også brukes som kilde til svaralternativer.
+En gruppe felt som du kan gjenta flere ganger i et skjema, for eksempel for å legge til flere familiemedlemmer. Du kan også bruke den repeterende strukturen i datamodellen som kilde til svaralternativer.
 
-**Eksempel:** En repeterende gruppe med kjæledyr kan brukes som kodeliste for å velge hvilket kjæledyr som skal vaksineres.
+**Eksempel:** Du kan bruke en repeterende gruppe med kjæledyr som kodeliste for å velge hvilket kjæledyr som skal vaksineres.
 
 ## S
 
@@ -125,14 +125,14 @@ En app som ikke lagrer data permanent, typisk brukt for innsynstjenester.
 **Også kjent som:** Tilstandsløs app, innsynstjeneste
 
 ### Svaralternativer
-Valgmuligheter brukeren kan velge fra, for eksempel i en nedtrekksliste eller radioknapper. Kan settes direkte i komponentkonfigurasjonen eller hentes fra en kodeliste. Hvert svaralternativ består av en verdi (som lagres i datamodellen) og en ledetekst (som vises til brukeren).
+Valgmuligheter brukeren kan velge fra, for eksempel i en nedtrekksliste eller radioknapper. Du kan sette dem direkte i komponentkonfigurasjonen eller hente dem fra en kodeliste. Hvert svaralternativ består av en verdi (som du lagrer i datamodellen) og en ledetekst (som du viser til brukeren).
 
 **Eksempel:** En nedtrekksliste med fylker har svaralternativer der hver verdi er fylkesnummeret og ledeteksten er fylkesnavnet.
 
 **Se også:** Kodeliste
 
 ### Spørringsparametre
-Verdier som sendes med når appen henter en kodeliste, brukes for å filtrere eller tilpasse innholdet i kodelisten basert på kontekst eller brukerens valg.
+Verdier som du sender med når appen henter en kodeliste. Du bruker dem for å filtrere eller tilpasse innholdet i kodelisten basert på kontekst eller brukerens valg.
 
 **Eksempel:** Du kan sende fylkesnummer som spørringsparameter for å få bare kommunene i det valgte fylket.
 
@@ -146,7 +146,7 @@ Organisasjonen som eier og drifter en app i Altinn.
 ## U
 
 ### Underskjema
-Et mindre skjema som kan gjenbrukes i flere apper eller flere steder i samme app.
+Et mindre skjema som du kan gjenbruke i flere apper eller flere steder i samme app.
 
 ### Utforming
 GUI-fanen i Altinn Studio der du designer og konfigurerer skjemaet.
@@ -156,4 +156,4 @@ GUI-fanen i Altinn Studio der du designer og konfigurerer skjemaet.
 ## V
 
 ### Validering
-Kontroll av at data som er fylt inn er korrekte og følger reglene som er satt opp.
+Kontroll av at data brukeren har fylt inn er korrekte og følger reglene du har satt opp.

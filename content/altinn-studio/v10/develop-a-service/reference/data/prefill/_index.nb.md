@@ -13,11 +13,11 @@ Les mer om [forhåndsutfylling](/nb/altinn-studio/v8/concepts/prefill/), og se [
 
 - **allowOverwrite** avgjør om forhåndsutfylling definert i denne filen kan overskrive et felt i datamodellen hvis det allerede har en verdi.
 
-- **ER** her legger du inn felter fra datamodellen som skal forhåndsutfylles med data fra Enhetsregisteret. Felt som forhåndsutfylles med ER-data får kun en verdi hvis du instansierer på vegne av en organisasjon. Instansiering vil feile hvis du forsøker å forhåndsutfylle ER-data, men ikke har en organisasjon tilgjengelig.
+- **ER** her legger du inn felter fra datamodellen som skal forhåndsutfylles med data fra Enhetsregisteret. Felter som forhåndsutfylles med ER-data får kun en verdi hvis du starter appen på vegne av en organisasjon. Det vil feile hvis du forsøker å forhåndsutfylle ER-data, men ikke har en organisasjon tilgjengelig.
 
-- **DSF** her legger du inn felter fra datamodellen som skal forhåndsutfylles med data fra Folkeregisteret. Feltet som forhåndsutfylles med DSF-data får kun en verdi hvis du instansierer på vegne av en person. Instansiering vil feile hvis du forsøker å forhåndsutfylle DSF-data, men ikke har en person tilgjengelig.
+- **DSF** her legger du inn felter fra datamodellen som skal forhåndsutfylles med data fra Folkeregisteret. Felter som forhåndsutfylles med DSF-data får kun en verdi hvis du starter appen på vegne av en person. Det vil feile hvis du forsøker å forhåndsutfylle DSF-data, men ikke har en person tilgjengelig.
 
-- **UserProfile** her legger du inn felter fra datamodellen som skal forhåndsutfylles med data fra brukerens profil i Altinn. Merk at det er den innloggede brukeren som instansierer, som du henter ut data for.
+- **UserProfile** her legger du inn felter fra datamodellen som skal forhåndsutfylles med data fra brukerens profil i Altinn. Merk at det er den innloggede brukeren som starter appen, som du henter ut data for.
 
 
 ## Tilgjengelige felter for forhåndsutfylling
@@ -26,7 +26,7 @@ JSON-schema-definisjonen av prefill-filen er også tilgjengelig [her](https://al
 
 ### Folkeregisteret (DSF)
 
-Persondata som eksponeres er tilknyttet personen som skjemaet instansieres på vegne av. Hvis Ola Nordmann instansierer et skjema på vegne av Kari Nordmann, vil det være Kari sine data som eksponeres. Tilgjengelige verdier for forhåndsutfylling inkluderer:
+Persondata som eksponeres er tilknyttet personen som appen startes på vegne av. Hvis Ola Nordmann starter en app på vegne av Kari Nordmann, vil det være Kari sine data som eksponeres. Tilgjengelige verdier for forhåndsutfylling inkluderer:
 
 - SSN
 - Name
@@ -48,7 +48,7 @@ Persondata som eksponeres er tilknyttet personen som skjemaet instansieres på v
 
 ### Enhetsregisteret (ER)
 
-Enheten som eksponeres er tilknyttet organisasjon som et skjema blir instansiert på vegne av.
+Enheten som eksponeres er tilknyttet organisasjonen som appen startes på vegne av.
 Tilgjengelige verdier for forhåndsutfylling inkluderer:
 
 - OrgNumber

@@ -6,22 +6,23 @@ weight: 30
 toc: true
 ---
 
-I versjon 8 av appen ble "nugets actions in tasks" introdusert. Dette gjør det mulig for utviklere å knytte ActionButtons i grensesnittet med UserActions i backenden.
-Det er mulig å autorisere hver handling i en oppgave separat i policy-filen.
+Versjon 8 av appen introduserte "nugets actions in tasks". Dette gjør det mulig for deg som utvikler å knytte ActionButtons i grensesnittet med UserActions i backenden.
+
+Du kan autorisere hver handling i en oppgave separat i policy-filen.
 
 ## Handlinger med spesiell Altinn-logikk knyttet til dem
 
 ### write
-Standard handling som utføres når en data- eller tilbakemeldingsoppgave sendes inn. Dette er også tillatelsen en bruker trenger for å oppdatere data i applikasjonen.
+Standard handling som systemet utfører når en data- eller tilbakemeldingsoppgave sendes inn. Dette er også tillatelsen en bruker trenger for å oppdatere data i applikasjonen.
 
 ### confirm
-Standard handling som utføres når en bekreftelsesoppgave sendes inn.
+Standard handling som systemet utfører når en bekreftelsesoppgave sendes inn.
 
 ### sign
 Handling som genererer et signaturobjekt basert på konfigurasjonen av oppgaven, se [Signatur](/nb/altinn-studio/v8/reference/process/tasks/signing/)
 
 ### reject
-Handling å bruke når du flytter tilbake fra en oppgave til en annen. Å utføre handlingen "reject" vil sikre at dataelementene i måloppgaven låses opp.
+Handling å bruke når du flytter tilbake fra en oppgave til en annen. Handlingen "reject" sikrer at dataelementene i måloppgaven låses opp.
 
 ## Egendefinerte handlinger og egendefinert logikk når handlingen utføres
 
@@ -70,7 +71,7 @@ The type-attributtet som er definert for handlingen _custom_ (processAction) er 
 
 ### Definer nødvendige autorisasjonspolicyer
 
-Brukere må gis rettighetene til å utføre handlingene _custom_ og _demo_ når de forlater _Task1_.
+Du må gi brukere rettighetene til å utføre handlingene _custom_ og _demo_ når de forlater _Task1_.
 
 Dette er definert i policy.xml:
 
@@ -135,11 +136,11 @@ Dette er definert i policy.xml:
 
 ### Skriving av tilpasset kode og registrering som tjeneste
 
-Den tilpassede koden assosiert med en prosesshandling utføres før prosessen flyttes til neste oppgave.
+Systemet utfører den tilpassede koden assosiert med en prosesshandling før prosessen flyttes til neste oppgave.
 
 For å skrive tilpasset logikk, opprett en ny klasse som implementerer `Altinn.App.Core.Models.UserAction.IUserAction`.
 
-Denne grensesnittet krever at du definerer en `Id` og en implementering av `public async Task<UserActionResult> HandleAction(UserActionContext context)`. Iden er brukt for å finne riktig C# implementasjon av det handlingen definert i prosessfilen.
+Dette grensesnittet krever at du definerer en `Id` og en implementering av `public async Task<UserActionResult> HandleAction(UserActionContext context)`. Systemet bruker Id-en for å finne riktig C# implementasjon av handlingen som er definert i prosessfilen.
 
 En svært enkel implementering av _custom_-handlingen som bare logger brukerens bruker-ID og instans-ID kan implementeres som følger:
 
@@ -171,4 +172,4 @@ public class MyDemoAction: IUserAction
 
 ```
 
-Hvis handlingen returnerer en `UserActionResult` med feltet "success" satt til true, flyttes prosessen til neste oppgave. Ellers vil ikke prosessen bli flyttet, og API-en vil returnere en feil til brukeren.
+Hvis handlingen returnerer en `UserActionResult` med feltet "success" satt til true, flytter systemet prosessen til neste oppgave. Ellers flytter ikke systemet prosessen, og API-en returnerer en feil til brukeren.

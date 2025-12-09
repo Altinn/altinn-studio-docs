@@ -29,7 +29,7 @@ Et AKS-cluster kjører på et antall noder (virtuelle maskiner) av en gitt type.
 Som standard setter vi opp minimum 3 noder både i TT02 og produksjon. Clusteret skalerer automatisk opp til 6 noder avhengig av trafikk. Clusteret har da 12 vCPU og 48 GiB minne som øvre kapasitet for å betjene applikasjonene som til enhver tid er distribuert. 
 
 {{%panel info%}}
-**Merk:** Et cluster kan skaleres automatisk opp til 1000 noder, men dette medfører tilsvarende kostnadsøkning. Hva som er det rette "taket" for den enkelte tjenesteeier avhenger av antall applikasjoner, hvor mye ressurser disse krever som minimum og trafikken som disse genererer. Ta kontakt med oss i Altinn om dere har behov for mer ressurser enn det som er satt opp som standard.
+**Merk:** Et cluster kan skaleres automatisk opp til 1000 noder, men dette øker kostnadene tilsvarende. Hva som er det rette "taket" for den enkelte tjenesteeier avhenger av antall applikasjoner, hvor mye ressurser disse krever som minimum og trafikken som disse genererer. Ta kontakt med oss i Altinn om dere har behov for mer ressurser enn det som er satt opp som standard.
 {{% /panel%}}
 
 
@@ -54,9 +54,9 @@ En Docker-container inneholder i vårt tilfelle den kjørende koden for en Altin
 ### Pods
 En pod er den minste kjørbare enheten i et Kubernetes-cluster og er det vi allokerer ressurser til. En pod kan bestå av en eller flere containere. En Altinn 3-applikasjon består typisk av en app-container og en såkalt sidecar-container som kjører Linkerd. Linkerd er komponenten som tar seg av kryptering/dekryptering av kommunikasjon mellom pods i et cluster. Denne krever også minne- og CPU-ressurser.
 
-### Deployments
+### Publiseringskonfigurasjon (Deployments)
 
-En deployment styrer levetiden til en applikasjon, hvor mange instanser den skal ha samt allokering av minne og CPU. I Altinn 3 spesifiserer du dette ved hjelp av såkalte Helm charts.
+En deployment-konfigurasjon styrer levetiden til en applikasjon, hvor mange instanser den skal ha samt allokering av minne og CPU. I Altinn 3 spesifiserer du dette ved hjelp av såkalte Helm charts.
 
 Du kan se på dette som en innpakking av en applikasjon med fornuftige standardverdier, men du kan overstyre standardkonfigurasjonen.
 

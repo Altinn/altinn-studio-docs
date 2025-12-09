@@ -11,9 +11,9 @@ toc: true
 
 {{% insert "content/altinn-studio/guides/development/signing/auth-requirements.nb.md" %}}
 
-Oppsett av en signeringoppgave i prosessfilen krever litt mer arbeid enn en vanlig data-, bekreftelses- eller tilbakemeldingsoppgave.
+En signeringsoppgave i prosessfilen krever litt mer arbeid enn en vanlig data-, bekreftelses- eller tilbakemeldingsoppgave.
 
-Denne siden vil veilede deg gjennom hva du trenger å konfigurere og hvordan det er koblet til andre deler av konfigurasjonen.
+Denne siden veileder deg gjennom hva du trenger å konfigurere og hvordan det er koblet til andre deler av konfigurasjonen.
 
 ## Definere og konfigurere en signeringoppgave
 En signeringoppgave i sin enkleste form ser omtrent slik ut:
@@ -40,7 +40,7 @@ En signeringoppgave i sin enkleste form ser omtrent slik ut:
 ```
 ### Gjøre signering tilgjengelig som handling
 
-Som med bekreftelsesoppgaver må vi definere de tilgjengelige handlingene. For å generere et signeringobjekt må brukeren kunne utføre handlingen "signer":
+Som med bekreftelsesoppgaver må du definere de tilgjengelige handlingene. For å generere et signeringobjekt må brukeren kunne utføre handlingen "signer":
 
 ```xml
 <altinn:actions>
@@ -52,15 +52,15 @@ Som med bekreftelsesoppgaver må vi definere de tilgjengelige handlingene. For �
 
 ### Konfigurere hvilke dataelementer som skal signeres
 
-Når en bruker utfører handlingen "sign", vil konfigurasjonen fra <altinn:signatureConfig> bli brukt til å opprette et signeringobjekt.
+Når en bruker utfører handlingen "sign", bruker systemet konfigurasjonen fra <altinn:signatureConfig> til å opprette et signeringobjekt.
 
-For øyeblikket definerer apputvikleren hvilke dataelementer som skal være en del av signeringobjektet ved å definere en liste over datatyper. Dette kan være skjemadata, vedlegg eller PDF-er.
+Som apputvikler definerer du hvilke dataelementer som skal være en del av signeringobjektet ved å definere en liste over datatyper. Dette kan være skjemadata, vedlegg eller PDF-er.
 
-Datatypene er definert i filen App/config/applicationmetadata.json.
+Du definerer datatypene i filen App/config/applicationmetadata.json.
 
 I eksemplet med signeringoppgaven ovenfor definerer den at alle dataelementer som er tilknyttet datatypen "Modell", skal være en del av signaturen.
 
-Hvis applikasjonen også har datatypen "attachments", der brukeren legger ved ekstra filer som utvikleren ønsker å være en del av signeringobjektet, bør <altinn:signatureConfig> se slik ut:
+Hvis applikasjonen også har datatypen "attachments", der brukeren legger ved ekstra filer som du ønsker å være en del av signeringobjektet, bør <altinn:signatureConfig> se slik ut:
 
 ```xml
 <altinn:signatureConfig>
@@ -74,7 +74,7 @@ Hvis applikasjonen også har datatypen "attachments", der brukeren legger ved ek
 
 ### Konfigurere hvor signaturobjektet skal lagres
 
-Et signaturobjekt krever også en datatype der det skal lagres når det er generert. Dette er definert i `<altinn:signatureDataType>`, og må også være definert i `App/config/applicationmetadata.json`.
+Et signaturobjekt krever også en datatype der du kan lagre det når systemet har generert det. Du definerer dette i `<altinn:signatureDataType>`, og må også definere det i `App/config/applicationmetadata.json`.
 
 Eksempel på en applicationmetadata.json-fil med en signaturdatatypen kalt "signatur":
 
@@ -140,13 +140,13 @@ Eksempel på en applicationmetadata.json-fil med en signaturdatatypen kalt "sign
 
 ### Design layout for signeringssteget
 
-Signeringssteget trenger en layout som definerer hva som skal vises til brukeren. Dette gjøres via en egen layoutset som i sin tur knyttes til signering prosesssteget (`Task_2 i vårt eksempel`)
+Signeringssteget trenger en layout som definerer hva som skal vises til brukeren. Du gjør dette via en egen layoutset som du knytter til signering prosesssteget (`Task_2 i vårt eksempel`)
 
-Hvis du har en v3 applikasjon uten layoutset se [Sider](/nb/altinn-studio/v8/reference/ux/pages/#oppsett) for hvordan dette settes opp.
+Hvis du har en v3 applikasjon uten layoutset se [Sider](/nb/altinn-studio/v8/reference/ux/pages/#oppsett) for hvordan du setter dette opp.
 
-Opprett en ny mappe i `App/ui/` med navnet som beskriver dette layoutsettet, f.eks. _signering_. I denne mappen oppretter du så filen `Settings.json` og en mappe med navn `layouts`. 
+Opprett en ny mappe i `App/ui/` med navnet som beskriver dette layoutsettet, f.eks. _signering_. I denne mappen oppretter du filen `Settings.json` og en mappe med navn `layouts`.
 
-I `layouts` mappen opprettes filer som definerer hvordan sider i dette layoutsettet skal se ut. Det eneste komponenten som en signering layout må ha er en [`ActionButton`](/nb/altinn-studio/v8/reference/ux/components/actionbutton/) med `"action": "sign"` som definerer at når brukeren trykker på denne så utfører han action sign når han flytter prosessen videre.
+I `layouts` mappen oppretter du filer som definerer hvordan sider i dette layoutsettet skal se ut. En signering layout må ha en [`ActionButton`](/nb/altinn-studio/v8/reference/ux/components/actionbutton/) med `"action": "sign"` som definerer at brukeren utfører action sign når brukeren trykker på den og flytter prosessen videre.
 
 Eksempel på en enkel layout med et read only tekst felt og en signeringsknapp kan se sånn her ut:
 
@@ -180,9 +180,9 @@ Eksempel på en enkel layout med et read only tekst felt og en signeringsknapp k
 
 ### Sett autorisasjons regel som gir bruker lov til å signere
 
-For at brukere skal få lov til å signere må det defineres en regel i `App/config/authorization/policy.xml` som gir brukerne rettigheter til på signere på det nye prosesssteget.
+For at brukere skal få lov til å signere må du definere en regel i `App/config/authorization/policy.xml` som gir brukerne rettigheter til å signere på det nye prosesssteget.
 
-Denne regelen må da definere at brukerene som skal kunne signere har rettighetene _read_, _write_ og _sign_ på steget der signering skal utføres.
+Regelen må definere at brukerene som skal kunne signere har rettighetene _read_, _write_ og _sign_ på steget der signering skal utføres.
 
 Eksempel på en autorisasjonsregel som gir disse tilgangene for _DAGL_-rollen på prosess steg med id _Task_2_:
 
@@ -244,7 +244,7 @@ Hvis en applikasjon har flere signeringstrinn, kan du sørge for at én person i
 
 For eksempel hvis to styremedlemmer skal signere, men samme person ikke kan utføre begge signeringstrinnene.
 
-For å konfigurere dette må vi legge til det første signaturdataobjektet i listen `<altinn:uniqueFromSignaturesInDataTypes>` for signeringoppgave to:
+For å konfigurere dette må du legge til det første signaturdataobjektet i listen `<altinn:uniqueFromSignaturesInDataTypes>` for signeringoppgave to:
 
 ```xml
 <bpmn:task id="Task_2" name="Signing">
@@ -300,15 +300,15 @@ I tillegg har Task_3s `<altinn:signatureConfig>` definert at den skal være unik
 
 ### Gjøre det mulig for signerer å avslå å signere
 
-Hvis det skal være mulig å avslå å signere og for eksempel sende instansen tilbake til forrige steg kan dette gjøres ved å legge til en `reject` action på dette prosesssteget.
+Hvis du vil at signerer skal kunne avslå å signere og for eksempel sende instansen tilbake til forrige steg, kan du legge til en `reject` action på dette prosesssteget.
 
-Denne legges da til i autorisasjonsregelen og det defineres en egen ActionButton som knyttes til action `reject`.
+Du legger denne til i autorisasjonsregelen og definerer en egen ActionButton som knyttes til action `reject`.
 
 Se [Kontroller proess flyt](/nb/altinn-studio/v8/reference/process/flowcontrol/) for mer informasjon.
 
 ### Lagring av signeringobjekt når brukeren signerer
 
-Når brukeren utfører signeringen, vil et signeringobjekt bli lagret som datatypen "signatur". Signeringobjektet vil se omtrent slik ut:
+Når brukeren utfører signeringen, lagrer systemet et signeringobjekt som datatypen "signatur". Signeringobjektet ser omtrent slik ut:
 
 ```json
 {
@@ -330,14 +330,18 @@ Når brukeren utfører signeringen, vil et signeringobjekt bli lagret som dataty
 }
 ```
 
-Hvis flere dataelementer er signert, vil de bli lagt til i listen `dataElementSignatures`.
+Hvis flere dataelementer er signert, legger systemet dem til i listen `dataElementSignatures`.
 
 Feltet `sha256Hash` inneholder en heksadesimal-kodet SHA256 hash generert fra dataene som er lagret i Altinn på tidspunktet for signeringen.
 Objektet `signeeInfo` inneholder informasjonen om hvem som utførte signeringen.
 
 ### Verifisering av SHA256 hash
-Også kalt en `digest`, denne verdien er resultatet fra SHA256 hash metoden. I eksempelet over har metoden blitt kjørt på en fil som tilhører et spesifikt dataelement, det vil si filen man har signert.
+Også kalt en `digest`, denne verdien er resultatet fra SHA256 hash metoden. I eksempelet over har metoden blitt kjørt på en fil som tilhører et spesifikt dataelement, det vil si filen som ble signert.
 
-Det å verifisere signaturen i etterkant går i prinsippet ut på å sammenligne oppgitt `sha256Hash` med en uavhengig SHA256 beregning av samme fil. Hvis verdiene er identiske betyr det at filen brukeren har signert ikke har endret seg, og at signaturen fremdeles er gyldig.
+Verifisering av signaturen i etterkant går i prinsippet ut på å sammenligne oppgitt `sha256Hash` med en uavhengig SHA256 beregning av samme fil. Hvis verdiene er identiske betyr det at filen brukeren har signert ikke har endret seg, og at signaturen fremdeles er gyldig.
 
-Mer informasjon om Altinn sin implementering av denne utregningen finnes på [Github](https://github.com/Altinn/altinn-storage/blob/afa8f921231afc485c17b8f4226f6d8e2333b3dd/src/Storage/Services/DataService.cs#L57). Kort oppsummert må man generere en SHA256 verdi av filen man vil sammenligne, deretter formattere denne verdien som en heksadesimal streng uten bindestreker og med kun små bokstaver. 
+Mer informasjon om Altinn sin implementering av denne utregningen finnes på [Github]
+
+https://github.com/Altinn/altinn-storage/blob/afa8f921231afc485c17b8f4226f6d8e2333b3dd/src/Storage/Services/DataService.cs#L57
+
+Kort oppsummert må du generere en SHA256 verdi av filen du vil sammenligne, deretter formattere denne verdien som en heksadesimal streng uten bindestreker og med kun små bokstaver. 
