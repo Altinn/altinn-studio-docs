@@ -22,15 +22,15 @@ Maskinporten-token med scope <mark>altinn:authentication/systemregister.write</m
 
 application/json
 
-## Argumenter
+### Argumenter
 
 #### systemId
 
 ID-en skal være i formatet {systemleverandørorgnr}\_{navn valgt av leverandøren}. For eksempel '310547891_testprodukt'. Dette er en unik ID for å identifisere systemet.
 
-## Eksempel på responsmodell
+### Eksempel på responsmodell
 
-```
+```json
 {
     "id": "312605031_b217b2f5-362f-4aa2-b919-ceaeaf9f15a1",
     "vendor": {
@@ -91,15 +91,15 @@ Maskinporten-token med scope <mark>altinn:authentication/systemregister.write</m
 
 application/json
 
-## Argumenter
+### Argumenter
 
 #### systemId
 
 ID-en skal være i formatet {systemleverandørorgnr}\_{navn valgt av leverandøren}. For eksempel '310547891_testprodukt'. Dette er en unik ID for å identifisere systemet.
 
-## Example of Response Model
+### Eksempel på responsmodell
 
-```
+```json
 [
     {
         "systemInternalId": "d66af1e2-afbd-482f-bb55-eb7c31fae385",

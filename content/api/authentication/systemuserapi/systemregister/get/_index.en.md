@@ -22,13 +22,13 @@ Maskinporten token with scope <mark>altinn:authentication/systemregister.write</
 
 application/json
 
-## Arguments
+### Arguments
 
 #### systemId
 
 The id should be in the format of {systemvendororgno}\_{name chosen by the vendor}. F.example "310547891_testproduct". This is a unique id to identify the product.
 
-## Example of Response Model
+### Example of Response Model
 
 ```
 {
@@ -91,13 +91,13 @@ Maskinporten token with scope <mark>altinn:authentication/systemregister.write</
 
 application/json
 
-## Arguments
+### Arguments
 
 #### systemId
 
 The id should be in the format of {systemvendororgno}\_{name chosen by the vendor}. F.example "310547891_testproduct". This is a unique id to identify the product.
 
-## Example of Response Model
+### Example of Response Model
 
 ```
 [
