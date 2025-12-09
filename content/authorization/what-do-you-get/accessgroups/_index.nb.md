@@ -39,7 +39,7 @@ Det betyr at:
 
 ## Forhåndstildelte og ikke-forhåndstildelte tilgangspakker
 
-Tilgangspakker skal brukes for å styre tilgang til tjenester og ressurser. De fleste er forhåndstildelt roller fra Enhetsregisteret som har fullmakt til å opptre på vegne av virksomheten og dermed kan dele tilgang videre. Noen pakker – særlig der innholdet er sensitivt – har ingen forhåndstildelte roller og må tildeles manuelt av virksomhetens hovedadministrator.
+Tilgangspakker skal brukes for å styre tilgang til tjenester og ressurser. De fleste har forhåndstildelte roller fra Enhetsregisteret som har fullmakt til å opptre på vegne av virksomheten og dermed kan dele tilgang videre. Noen pakker – særlig der innholdet er sensitivt – har ingen forhåndstildelte roller og må tildeles manuelt av virksomhetens hovedadministrator.
 
 
 ## Fullmaktsområder
