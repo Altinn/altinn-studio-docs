@@ -1,5 +1,5 @@
 ---
-title: Ressursadministrasjon i Altinn Studio 
+title: Ressursadministrasjon i Altinn Studio
 linktitle: Ressursadministrasjon
 description: For å aktivere ressursadministrasjon i Altinn Studio må du og din organisasjon følge noen få trinn.
 toc: usant
