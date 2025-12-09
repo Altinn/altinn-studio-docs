@@ -29,7 +29,7 @@ I Altinn Autorisasjon finnes følgende komponenter som fungerer som PAP:
 - Altinn Access Management for å definere delegerte regler
 - Altinn Resource Registry som gjør det mulig å administrere ressurspolicyer
 
-[Les mer](/nb/authorization/what-do-you-get/accessmanagement/pap/)
+[Les mer](/nb/authorization/reference/architecture/accessmanagment/pap/)
 
 ### PRP - Policy Retrieval Point
 
@@ -37,7 +37,7 @@ Policy Retrieval Point har ansvar for å finne riktig policy.
 
 I Altinn finnes det to kilder til policyer: Altinn Access Management for delegerte policyer og Altinn Resource Registry.
 
-[Les mer](/nb/authorization/what-do-you-get/resourceregistry/prp/)
+[Les mer](/nb/authorization/reference/architecture/accesscontrol/prp/)
 
 ### Context Handler - i produksjon
 

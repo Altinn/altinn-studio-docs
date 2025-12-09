@@ -22,7 +22,7 @@ This section describes what the service owner must do to make data available thr
   {{< /stepcard >}}
 
 {{< stepcard step="3" title="Create a consent resource in the Resource Registry" >}}
-The Resource Registry stores the description of the authorisation resource and its access rules. Make sure potential consumers know which access packages (and any individual rights) are required to use the service. Read more about the required fields in the [consent resource guide](/en/authorization/guides/resource-owner/consent/#create-new-resource).  
+The Resource Registry stores the description of the authorisation resource and its access rules. Make sure potential consumers know which access packages (and any individual rights) are required to use the service. Read more about the required fields in the [consent resource guide](/en/authorization/guides/resource-owner/consent/create-resource/#create-new-resource).  
 {{< /stepcard >}}
 
 {{< stepcard step="4" title="Manage access lists" >}}
@@ -30,7 +30,7 @@ You can use access lists to control which data consumers are allowed to use the 
 
 ![Flow diagram showing how access lists and scopes can stop the consent flow](samtykkeflyt_tilgang.png)
 
-Data consumers that are not included in the access list cannot create consent requests, and the flow stops before the end user is asked for consent. Learn more about access lists [here](/en/authorization/guides/resource-owner/manage-accesslists-resource-admin/).
+Data consumers that are not included in the access list cannot create consent requests, and the flow stops before the end user is asked for consent. Learn more about access lists [here](/en/authorization/guides/resource-owner/accesslist/manage-accesslists-resource-admin/).
 {{< /stepcard >}}
 
 {{< stepcard step="5" title="Provide information and documentation" >}}
@@ -42,7 +42,7 @@ Document:
   {{< /stepcard >}}
 
 {{< stepcard step="6" title="Validate consent" >}}
-The consent token is a thick token that contains everything you need to validate the consent. Validation can therefore be performed without calling Altinn Authorization. See the [validation guidance](/en/authorization/guides/resource-owner/consent/#validate-consent) for details.
+The consent token is a thick token that contains everything you need to validate the consent. Validation can therefore be performed without calling Altinn Authorization. See the [validation guidance](/en/authorization/guides/resource-owner/consent/validate-concent/) for details.
 {{< /stepcard >}}
 
 ## Data Consumer / End-User System

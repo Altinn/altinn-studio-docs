@@ -9,6 +9,7 @@ weight: 2
 ## Opprett et nytt system
 
 ### Endepunkt
+POST authentication/api/v1/systemregister/vendor
 
 ### Scopes
 

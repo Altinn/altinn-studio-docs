@@ -16,8 +16,6 @@ For å få en Maskinporten-token, må leverandøren først opprette en klient i 
 ## API Methods
 - [Opprett et nytt system](create)
 - [Hent et system](get)
-- [Hent rettigheter for et system](get#hent-rettigheter-for-et-system)
-- [Hent tilgangspakke for et system](get#hent-tilgangspakker-for-et-system)
 - [Oppdater et system](update)
 - [Oppdater Rettigheter for et system](update#oppdater-rettighet-for-et-system)
 - [Oppdater tilgangspakke for et system](update#oppdater-tilgangspakker-for-et-system)

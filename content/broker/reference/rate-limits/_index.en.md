@@ -11,7 +11,7 @@ weight: 40
 
 We have introduced the following rate limits to balance the resource usage per party and avoid overloading the infrastructure. Using Events/Webhooks in your solution should eliminate the need for polling many of these operations.
 
-Rate limit applies per subscription key (Ocp-Apim-Subscription-Key). Contact us for more capacity.
+Rate limit applies per Maskinporten integration. Contact us for more capacity.
 
 - `POST /broker/api/v1/filetransfer`
   - Description: Initialize a file transfer

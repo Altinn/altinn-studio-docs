@@ -33,6 +33,52 @@ Fremtidige instanser som er relatert til dialogen kan grupperes gjennom transmis
 ReferenceValue for en transmission må settes til dialogId for dialogen du refererer til.
 I tillegg må referenceType settes til DialogportenDialogId for å indikere at den nye meldingen er del av en eksisterende dialog.
 
+#### Sette transmission-type
+Transmission type er Information (1) dersom den ikke settes på meldingen. Du kan sette den ved å legge til en ekstern referanse med referenceType DialogportenTransmissionType når du initialiserer meldingen. Både enum-navn og numerisk verdi godtas. For eksempel:
+
+```json
+{
+    "correspondence":{
+        ...,
+        "externalReferences":[
+            {
+                "referenceValue": "Information",
+                "referenceType": "DialogportenTransmissionType"
+            }
+        ]
+    }
+}
+```
+
+Eller ved å bruke den numeriske verdien:
+
+```json
+{
+    "correspondence":{
+        ...,
+        "externalReferences":[
+            {
+                "referenceValue": "1",
+                "referenceType": "DialogportenTransmissionType"
+            }
+        ]
+    }
+}
+```
+
+Gyldige transmission-typer er:
+
+| Type        | Verdi |
+|-------------|:-----:|
+| Information | 1     |
+| Acceptance  | 2     |
+| Rejection   | 3     |
+| Request     | 4     |
+| Alert       | 5     |
+| Decision    | 6     |
+| Submission  | 7     |
+| Correction  | 8     |
+
 #### Transmission opprettet
 Når en transmission har blitt opprettet vil de eksterne referansene til den nyopprettede meldingen bestå av en referanse til dialogen som
 meldingen er relatert til, samt en referanse til en transmissionId som har blitt satt.
@@ -46,11 +92,11 @@ Responsen skal være i følgende format:
         "externalReferences":[
             {
                 "referenceValue": dialogId,
-                "referenceType": DialogportenDialogId
+                "referenceType": "DialogportenDialogId"
             },
             {
                 "referenceValue": transmissionId,
-                "referenceType": DialogportenTransmissionId
+                "referenceType": "DialogportenTransmissionId"
             }
         ]
     }

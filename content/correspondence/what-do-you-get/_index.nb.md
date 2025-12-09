@@ -19,7 +19,7 @@ Altinn Melding sørger for at alle hendelser og prosesser blir nøye loggført, 
 - Tilpassede varslingsinnstillinger basert på brukerpreferanser. Dette innebærer varslingsmaler og egendefinerte varslingsadresser.
 
 ### Events (hendelsesabonnementer)
-Du kan motta varsler om hendelser knyttet til sendte formidlingstjenester, ved å sette opp et abonnement for den aktuelle tjenesten. Du kan for eksempel se om filen er kommet frem til mottaker og om den er åpnet.
+Du kan motta varsler om hendelser knyttet til sendte meldingstjenester, ved å sette opp et abonnement for den aktuelle tjenesten. Du kan for eksempel se om filen er kommet frem til mottaker og om den er åpnet.
 
 ### Tilgangsstyring
 - Avansert tilgangsstyring sikrer at du kan være trygg på at kun autoriserte brukere får tilgang til bestemte filoverføringer.
@@ -27,6 +27,7 @@ Du kan motta varsler om hendelser knyttet til sendte formidlingstjenester, ved �
 
 ### Støtte for ulike meldingsformater
 - Mulighet for å sende meldinger med Markdown eller ren tekst.
+- Støtte for [numeriske tegnreferanser i HTML.](https://en.wikipedia.org/wiki/Numeric_character_reference)
 - Støtte for opptil 100 vedlegg per melding.
 - Støtte for mange filtyper: .doc, .xls, .docx, .xlsx, .ppt, .pps, .zip, .pdf, .html, .txt, .xml, .jpg, .gif, .bmp, .png og .json.
 - Støtte for vedlegg opptil 2 GB.

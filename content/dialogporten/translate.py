@@ -10,7 +10,7 @@ import time
 
 # --- Configuration ---
 API_KEY_FILE = "apikey.secret"
-MODEL_NAME = "gemini-2.0-flash" 
+MODEL_NAME = "gemini-2.5-flash" 
 API_RETRY_DELAY = 5  # Seconds to wait before retrying API call on error
 API_MAX_RETRIES = 3  # Maximum number of retries for API calls
 

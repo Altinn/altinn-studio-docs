@@ -7,7 +7,7 @@ toc: false
 
 ## Prerequisites
 
-You need to have access to resource administration for your organization. See [Getting started guide](/en/authorization/getting-started/resource-admin-studio/)
+You need to have access to resource administration for your organization. See [Getting started guide](/en/authorization/getting-started/resourceadministration/)
 
 ## Step 1 Create Resource
 
