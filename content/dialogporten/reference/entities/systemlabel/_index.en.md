@@ -15,7 +15,7 @@ System labels are predefined end-user context labels used by frontends to organi
 | **Bin**              | Mutually exclusive with Default/Archive                                                                                                                                                 |
 | **Archive**          | Mutually exclusive with Default/Bin                                                                                                                                                     |
 | **Sent**             | Automatically added by Dialogporten when a transmission of type <br/>`Submission` or `Correction` is added to the dialog.<br/>Cannot be added or removed by service owners or end users |
-| **MarkedAsUnopened** | Set dialog as unopened/unread. Can be set and removed by service owner and end users                                                                                                    |
+| **MarkedAsUnopened** | Marks a dialog as unopened/unread. Can be set and removed by service owners and end users                                                                                     |
 
 **Default**/**Bin**/**Archive** are required system labels. They are mutually exclusive, meaning that a dialog can only have one of these labels at a time.
 If you are bulk changing system labels, use "Add".
