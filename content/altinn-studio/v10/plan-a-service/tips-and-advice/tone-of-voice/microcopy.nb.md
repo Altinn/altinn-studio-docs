@@ -1,11 +1,11 @@
 ---
-title: Mikrotekster i tjenesten
+title: Tekster i tjenesten
 description: Mikrotekster er små, viktige tekster som hjelper brukerne gjennom tjenesten.
 weight: 5
 tags: [needsReview, translate-to-english]
 ---
 
-Mikrotekster er de små tekstene i en tjeneste som oppfordrer brukerne til å gjøre noe. Det kan være ledetekster i skjema, knappetekster, hjelpetekster og feilmeldinger. Disse tekstene er viktige fordi de veileder brukerne godt og raskt gjennom tjenesten.
+De små tekstene i en tjeneste som oppfordrer brukerne til å gjøre noe, kalles mikrotekster. Det kan være ledetekster i skjema, knappetekster, hjelpetekster og feilmeldinger. Mikrotekster er viktige fordi de veileder brukerne godt og raskt gjennom tjenesten.
 
 ## Slik skriver du gode mikrotekster
 
