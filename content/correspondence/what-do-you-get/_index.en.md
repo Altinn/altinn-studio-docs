@@ -26,8 +26,10 @@ The system offers advanced access control, ensuring that only authorized users c
 
 ### Support for Various Message Formats
 - Ability to send correspondences in Markdown or clean text.
-- Support for several attachments per correspondence, without limitation of type. PDF, XML and HTML will usually be the most common used.
-- Supports attachments up to 250 MB. 
+- Support for [HTML numeric character references.](https://en.wikipedia.org/wiki/Numeric_character_reference)
+- Support for up to 100 attachments per correspondence.
+- Support for many file types: .doc, .xls, .docx, .xlsx, .ppt, .pps, .zip, .pdf, .html, .txt, .xml, .jpg, .gif, .bmp, .png and .json.
+- Supports attachments up to 2 GB. 
 
 ### Advanced Support for Linking to Content and Attachments
 - As an alternative to sending correspondence content and attachments directly in the correspondences,
@@ -47,7 +49,8 @@ The system offers advanced access control, ensuring that only authorized users c
 - Possibility for automated message handling through integrated systems.
 
 ### Integration with Dialogporten and Arbeidsflate
-- An Altinn 3 Message automatically creates a dialogue in "Dialogporten". 
+- An Altinn 3 Message automatically creates a dialogue in "Dialogporten".
+- Messages with an existing dialogue as an external reference will create a transmission which provides a logical display of related messages.
 - The solution provides a unified user interface across the Altinn 3 workspace "Arbeidsflate" and "Dialogporten".
 
 ## Summary of advantages of Altinn Correspondence

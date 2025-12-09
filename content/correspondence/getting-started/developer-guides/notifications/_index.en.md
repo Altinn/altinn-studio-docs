@@ -22,8 +22,8 @@ Note: The reminder timing in test and staging environments is currently set to 1
 Notifications can be sent via either email or SMS. While email does not have a time window, SMS notifications are sent between 9:00 AM and 5:00 PM.
 If the sending time falls outside this window, the notification will be sent the following day.
 {{% notice warning  %}}
-In the test environment, Notifications via SMS can only be sent to phone numbers that are whitelisted internally.
-Contact us at [Altinn@Slack#produkt-melding](https://join.slack.com/t/altinn/shared_invite/zt-7c77c9si-ZnMFwGNtab1aFdC6H_vwog) if this is required for your service.
+In the test environment, you can only send SMS notifications to whitelisted phone numbers.  
+Send an email to [tjenesteeier@altinn.no](mailto:tjenesteeier@altinn.no?subject=Whitelist%20phone%20number) with the phone number that needs to be whitelisted.
 {{% /notice %}}
 
 A notification order is made by adding the following when initializing a message:
@@ -46,12 +46,15 @@ A notification order is made by adding the following when initializing a message
       "reminderEmailContentType": Plain(0) | Html(1),
       "reminderSmsBody": string?,
       "requestedSendTime": DateTimeOffset?,
-      "customRecipient": {
-        "organizationNumber": string?,
-        "nationalIdentityNumber": string?,
-        "mobileNumber": string?,
-        "emailAddress": string?
-      }
+      "customRecipients": [
+        {
+          "organizationNumber": string?,
+          "nationalIdentityNumber": string?,
+          "mobileNumber": string?,
+          "emailAddress": string?
+        }
+      ],
+      "overrideRegisteredContactInformation": boolean
     }
   },
   "Recipients": [],
@@ -59,9 +62,20 @@ A notification order is made by adding the following when initializing a message
 }
 ```
 
-{{% notice info %}}
-Note: The notification service uses a V2 API internally. The notification order will be automatically converted to the V2 format when processed.
-{{% /notice %}}
+## Field Validation and Character Limits
+
+When creating notifications, the following validation rules and character limits apply. These limits are recommended by the Altinn Notifications service to ensure proper display and delivery:
+
+| Field | Maximum Length | Description |
+|-------|---------------|-------------|
+| `emailSubject` | 128 characters | Recommended by Altinn Notifications service to ensure the email subject is displayed correctly in email clients |
+| `emailBody` | 10,000 characters | Supports detailed content in both plain text and HTML format |
+| `smsBody` | 2,144 characters | Aligns with the Altinn Notifications service SMS processing limits. Equivalent to 16 SMS segments (16 × 134 characters per segment) |
+| `reminderEmailSubject` | 128 characters | Same recommendation as main email subject |
+| `reminderEmailBody` | 10,000 characters | Supports detailed content in both plain text and HTML format |
+| `reminderSmsBody` | 2,144 characters | Same limit as main SMS body |
+
+**Note:** If you exceed these limits, you will receive a `400 Bad Request` error response with details about which field exceeded the limit.
 
 ## Keyword support
 
@@ -106,8 +120,8 @@ Supported notification channels:
 - **EmailPreferred:** Uses email as the main communication channel, and SMS as a fallback if email is not available.
 - **SmsPreferred:** Uses SMS as the main communication channel, and email as a fallback if SMS is not available.
 - **EmailAndSms:** Sends both email and SMS to the recipient simultaneously.
-The first notification and the reminder notification can use different notification channels. 
-For example, the first notification is sent by email, while the reminder notification seven days later is sent by SMS.
+  The first notification and the reminder notification can use different notification channels. 
+  For example, the first notification is sent by email, while the reminder notification seven days later is sent by SMS.
 
 ## Cancellation of Notification
 
@@ -123,11 +137,59 @@ Improvements are planned to provide feedback on this during the creation of a me
 ## Custom recipients for Notifications
 
 For all correspondences created with Notifications enabled, the notifications will be sent to the recipient specified in the creation of the correspondence.
-However, it is also possible to choose optional recipients of the notification that are not necessarily the recipient(s) of the correspondence. 
-In practice this means that custom recipients will override/replace the original recipient provided for the notification.
+However, it is also possible to choose additional recipients of the notification that are not necessarily the recipient(s) of the correspondence. 
+In practice this means that custom recipients will receive notifications **in addition to** the original correspondence recipient.
+
+### Using customRecipients (Recommended)
+The recommended approach is to use the `customRecipients` field under `notification` to specify multiple recipients:
+
+```json
+{
+  "notification": {
+    ...,
+    "customRecipients": [
+      {
+        "organizationNumber": "string",
+        "nationalIdentityNumber": "string",
+        "mobileNumber": "string",
+        "emailAddress": "string"
+      },
+      {
+        "organizationNumber": "string",
+        "nationalIdentityNumber": "string",
+        "mobileNumber": "string",
+        "emailAddress": "string"
+      }
+    ]
+  }
+}
+```
+
+**Note**: Notifications will be sent to both the default correspondence recipient AND all custom recipients listed above.
 
 {{% notice warning %}}
-⚠️ DEPRECATED: The `customNotificationRecipients` field is deprecated and will be removed in a future version. Please use `customRecipient` instead.
+⚠️ DEPRECATED: The `customRecipient` field is deprecated and will be removed in a future version. Please use `customRecipients` instead.
+{{% /notice %}}
+
+### Using customRecipient (Deprecated)
+For backward compatibility, you can still use the `customRecipient` field for a single recipient:
+
+```json
+{
+  "notification": {
+    ...,
+    "customRecipient": {
+      "organizationNumber": "string",
+      "nationalIdentityNumber": "string",
+      "mobileNumber": "string",
+      "emailAddress": "string"
+    }
+  }
+}
+```
+
+{{% notice warning %}}
+⚠️ DEPRECATED: The `customNotificationRecipients` field is deprecated and will be removed in a future version. Please use `customRecipients` instead.
 {{% /notice %}}
 
 ### Using customNotificationRecipients (Deprecated)
@@ -154,63 +216,54 @@ This can be achieved by populating the `customNotificationRecipients` field unde
 }
 ```
 
-### Using customRecipient (Recommended)
-The recommended approach is to use the `customRecipient` field under `notification` as follows:
-
-```json
-{
-  "notification": {
-    ...,
-    "customRecipient": {
-      "organizationNumber": "string",
-      "nationalIdentityNumber": "string",
-      "mobileNumber": "string",
-      "emailAddress": "string"
-    }
-  }
-}
-```
-
 ### Validation Rules for Custom Recipients
 
 When using custom recipients, the following validation rules apply:
 
-1. **Single Recipient Only**: Custom recipients can only be used when the correspondence has exactly one recipient. Multiple recipients are not allowed.
+1. **Additional Recipients**: Custom recipients are sent notifications **in addition to** the default correspondence recipient, not instead of them.
 
-2. **Single Identifier Required**: The custom recipient must have exactly one identifier field populated:
+2. **Single Recipient Only**: If custom recipients are specified, the correspondence must have only one default recipient (not multiple recipients).
+
+3. **Single Identifier Required**: Each custom recipient must have exactly one identifier field populated:
    - `organizationNumber` (for organizations)
    - `nationalIdentityNumber` (for persons)
    - `emailAddress` (for direct email notifications)
    - `mobileNumber` (for direct SMS notifications)
 
-3. **Keyword Restrictions**: When using `emailAddress` or `mobileNumber`, the `$recipientName$` keyword cannot be used in any notification content (email subject, email body, SMS body, reminder fields) because name lookup is not available for direct contact information.
+4. **Keyword Restrictions**: When using `emailAddress` or `mobileNumber`, the `$recipientName$` keyword cannot be used in any notification content (email subject, email body, SMS body, reminder fields) because name lookup is not available for direct contact information.
 
-4. **Format Validation**:
+5. **Format Validation**:
    - **Email addresses**: Must be in valid email format (e.g., `user@example.com`)
    - **Mobile numbers**: Must adhere to E.164 standard and be valid phone numbers. Can start with `+` or `00` for international format. Norwegian numbers starting with 4 or 9 will automatically get `+47` prefix if no country code is provided.
-
-5. **Organization Numbers**: Must be in format `0192:organizationnumber` or `urn:altinn:organizationnumber:organizationnumber`
-
-6. **National Identity Numbers**: Must be valid 11-digit Norwegian social security numbers
+   - **Organization Numbers**: Must be in format `0192:organizationnumber` or `urn:altinn:organizationnumber:organizationnumber`
+   - **National Identity Numbers**: Must be valid 11-digit Norwegian social security numbers
 
 ### How to use it
-For deprecated approach:
+For recommended approach (multiple recipients):
+```
+correspondence.notification.customRecipients[0].organizationNumber
+correspondence.notification.customRecipients[0].nationalIdentityNumber
+correspondence.notification.customRecipients[0].mobileNumber
+correspondence.notification.customRecipients[0].emailAddress
+correspondence.notification.customRecipients[1].organizationNumber
+// ... additional recipients
+```
+
+For deprecated single recipient approach:
+```
+correspondence.notification.customRecipient.organizationNumber
+correspondence.notification.customRecipient.nationalIdentityNumber
+correspondence.notification.customRecipient.mobileNumber
+correspondence.notification.customRecipient.emailAddress
+```
+
+For deprecated multiple recipients approach:
 ```
 correspondence.notification.customNotificationRecipients[0].recipientToOverride
 correspondence.notification.customNotificationRecipients[0].recipients[0].organizationNumber
 correspondence.notification.customNotificationRecipients[0].recipients[0].nationalIdentityNumber
 correspondence.notification.customNotificationRecipients[0].recipients[0].mobileNumber
 correspondence.notification.customNotificationRecipients[0].recipients[0].emailAddress
-
-```
-
-For recommended approach:
-```
-correspondence.notification.customRecipient.organizationNumber
-correspondence.notification.customRecipient.nationalIdentityNumber
-correspondence.notification.customRecipient.mobileNumber
-correspondence.notification.customRecipient.emailAddress
-
 ```
 
 {{% panel theme="warning" %}}
@@ -222,5 +275,64 @@ Both `notificationTemplate` and `notificationChannel` are applicable when using 
 
 Further details are provided [here](#notification-templates).
 {{% /panel %}}
+
+## Override Default Recipient Behavior
+
+By default, when using custom recipients, notifications are sent to both the default correspondence recipient AND all custom recipients. However, you can override this behavior using the `overrideRegisteredContactInformation` flag.
+
+### Using overrideRegisteredContactInformation
+
+The `overrideRegisteredContactInformation` flag allows you to control whether the default correspondence recipient should be included in notifications:
+
+```json
+{
+  "notification": {
+    ...,
+    "customRecipients": [
+      {
+        "organizationNumber": "string",
+        "nationalIdentityNumber": "string",
+        "mobileNumber": "string",
+        "emailAddress": "string"
+      }
+    ],
+    "overrideRegisteredContactInformation": true
+  }
+}
+```
+
+### Behavior
+
+- **`overrideRegisteredContactInformation: false` (default)**: Notifications are sent to the default correspondence recipient AND all custom recipients
+- **`overrideRegisteredContactInformation: true`**: Notifications are sent ONLY to custom recipients (default correspondence recipient is excluded)
+
+### Validation Rules
+
+1. **Custom Recipients Required**: The `overrideRegisteredContactInformation` flag can only be set to `true` when `customRecipients` is provided and not empty
+2. **Default Value**: If not specified, `overrideRegisteredContactInformation` defaults to `false`
+
+### Example Use Cases
+
+**Scenario 1: Additional Recipients (Default Behavior)**
+```json
+{
+  "notification": {
+    "customRecipients": [{"organizationNumber": "123456789"}],
+    "overrideRegisteredContactInformation": false
+  }
+}
+```
+Result: Notifications sent to both the default correspondence recipient AND the custom organization
+
+**Scenario 2: Override Default Recipient**
+```json
+{
+  "notification": {
+    "customRecipients": [{"organizationNumber": "123456789"}],
+    "overrideRegisteredContactInformation": true
+  }
+}
+```
+Result: Notifications sent ONLY to the custom organization (default correspondence recipient excluded)
 
 

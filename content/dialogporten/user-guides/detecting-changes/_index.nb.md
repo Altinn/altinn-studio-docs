@@ -8,7 +8,7 @@ weight: 40
 
 Denne veiledningen viser deg hvordan du kan sette opp et system for å oppdage endringer som er gjort i dialoger.
 
-For en funksjonell oversikt, se [komme i gang med hendelser]({{<relref "../../getting-started/events">}}).
+For en funksjonell oversikt, se [komme i gang med hendelser](/nb/dialogporten/user-guides/detecting-changes/../../getting-started/events/).
 
 Det er to forskjellige måter å oppdage endringer på; ved å bruke Altinn Events eller GraphQL-abonnementer.
 
@@ -29,9 +29,9 @@ Hvis du er usikker, vil du sannsynligvis bruke Altinn Events
 
 ## Hvordan abonnere på Altinn Events
 
-Se [Altinn Event komponentdokumentasjonen]({{<relref "../../../../events/subscribe-to-events/_index.md">}}) for en generell veiledning om hvordan du kommer i gang enten ved å abonnere via webhook (anbefales) eller ved å spørre Event API-et for hendelser.
+Se [Altinn Event komponentdokumentasjonen](/nb/events/subscribe-to-events/) for en generell veiledning om hvordan du kommer i gang enten ved å abonnere via webhook (anbefales) eller ved å spørre Event API-et for hendelser.
 
-For teknisk informasjon om de forskjellige hendelsestypene og formatene som produseres av Dialogporten, se [teknisk referanse for hendelser]({{<relref "../../reference/events">}}).
+For teknisk informasjon om de forskjellige hendelsestypene og formatene som produseres av Dialogporten, se [teknisk referanse for hendelser](/nb/dialogporten/user-guides/detecting-changes/../../reference/events/).
 
 ## Hvordan bruke GraphQL-abonnementer
 
@@ -42,7 +42,7 @@ Før du kan sette opp et GraphQL-abonnement, må du hente dialogdetaljene for å
 ### Trinn-for-trinn-guide
 
 1. **Hent dialogdetaljer**
-   Skaff deg dialogen du vil overvåke. Dette kan vanligvis gjøres gjennom en GraphQL-spørring eller ved å bruke et REST API-endepunkt. For mer informasjon om hvordan du gjør dette, se vår veiledning om [hente dialogdetaljer]({{<relref "../getting-dialog-details">}}).
+   Skaff deg dialogen du vil overvåke. Dette kan vanligvis gjøres gjennom en GraphQL-spørring eller ved å bruke et REST API-endepunkt. For mer informasjon om hvordan du gjør dette, se vår veiledning om [hente dialogdetaljer](/nb/dialogporten/user-guides/detecting-changes/../getting-dialog-details/).
 
 2. **Sett opp abonnementet**
    Når du har dialogtokenen, kan du sette opp abonnementet på `dialogEvents`. Bruk `dialogId`-en til dialogen du er interessert i for å abonnere på hendelser relatert til den. Slik kan du skrive abonnementsspørringen:

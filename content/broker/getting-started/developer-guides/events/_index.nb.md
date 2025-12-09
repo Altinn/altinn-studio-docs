@@ -10,7 +10,7 @@ weight: 40
 {{<children />}}
 
 For å bruke hendelser/webhooks for en formidlingstjeneste, må du sette opp et abonnement for den gitte ressursen.
-Dette abonnementet brukes til å konfigurere endepunktet der hendelsene som publiseres av megleren havner. [Du kan lese mer om hvordan du setter opp et hendelsesabonnement i Altinn Events her](/events/subscribe-to-events/developer-guides/setup-subscription/).
+Dette abonnementet brukes til å konfigurere endepunktet der hendelsene som publiseres av megleren havner. [Du kan lese mer om hvordan du setter opp et hendelsesabonnement i Altinn Events her](/nb/events/subscribe-to-events/developer-guides/setup-subscription/).
 
 Alle hendelser publisert av Altinn Formidling følger det samme mønsteret:
 
@@ -22,15 +22,14 @@ Alle hendelser publisert av Altinn Formidling følger det samme mønsteret:
  "source": "https://platform.tt02.altinn.no/broker/api/v1/filetransfer",
  "specversion": "1.0",
  "type": "no.altinn.broker.Published",
- "subject": "/party/50015641",
- "alternativesubject": "/organisation/123456789",
+ "subject": "urn:altinn:organization:identifier-no:123456789",
  "time": "2024-04-19T07:22:19.438039Z"
 }
 ```
 
 ## Hendelsesabonnement {#event-subcription}
 
-Dette abonnementet brukes til å konfigurere endepunktet der hendelsene som publiseres av Atlinn Formidling skal leveres. [Du kan lese mer om hvordan du setter opp et hendelsesabonnement i Altinn Events her](/events/subscribe-to-events/developer-guides/setup-subscription/).
+Dette abonnementet brukes til å konfigurere endepunktet der hendelsene som publiseres av Atlinn Formidling skal leveres. [Du kan lese mer om hvordan du setter opp et hendelsesabonnement i Altinn Events her](/nb/events/subscribe-to-events/developer-guides/setup-subscription/).
 
 Du må sette opp følgende filtre:
 
@@ -39,10 +38,6 @@ Du må sette opp følgende filtre:
   - PROD: <https://api.altinn.no/broker/api/v1/filetransfer>
 - resourceFilter
   - "urn:altinn:resource:" + Ressurs-IDen for formidlingstjenesten
-- alternativesubjectfilter
-  - "/organisation/(organisasjonsnummer for din organisasjon)
-
-*Alternativesubjectfilter* brukes til å begrense Event til bare den autoriserte avsenderen eller mottakeren for den spesifikke hendelsen, dette sikrer innholdet og reduserer synlighet.
 
 *Resourceinstance* vil alltid være det samme som FileTransferId for Filoverføringen.
 
@@ -63,4 +58,4 @@ Hvis du ikke spesifiserer et *typeFilter*, vil du motta alle forskjellige typer 
 - `no.altinn.broker.downloadconfirmed`
 - `no.altinn.broker.fileneverconfirmeddownloaded`
 
-For ytterligere beskrivelse av hendelser og deres bruk, se utviklerguider for [sende filer](../send-files/) og [motta filer](../receive-files/), da disse beskriver hendelsene for de respektive rollene/prosessene.
+For ytterligere beskrivelse av hendelser og deres bruk, se utviklerguider for [sende filer](/nb/broker/getting-started/developer-guides/send-files/) og [motta filer](/nb/broker/getting-started/developer-guides/receive-files/), da disse beskriver hendelsene for de respektive rollene/prosessene.

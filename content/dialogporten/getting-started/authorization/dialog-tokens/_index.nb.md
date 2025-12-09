@@ -27,12 +27,12 @@ TT->>SBS: Return response
 
 ## Front channel embeds og skriv handlinger
 
-Dialogtokenet er også det som muliggjør [front channel embeds]({{<relref "../../front-channel-embeds">}}) og [skrivehandlinger]({{<relref "../../write-actions">}}), som er punkt-til-punkt-interaksjoner mellom sluttbrukerens enhet/system og tjenesteleverandørsystemene, og unngår behovet for mellommenn for å håndtere dataoverføringer.
+Dialogtokenet er også det som muliggjør [front channel embeds](/nb/dialogporten/getting-started/authorization/dialog-tokens/../../front-channel-embeds/) og [skrivehandlinger](/nb/dialogporten/getting-started/authorization/dialog-tokens/../../write-actions/), som er punkt-til-punkt-interaksjoner mellom sluttbrukerens enhet/system og tjenesteleverandørsystemene, og unngår behovet for mellommenn for å håndtere dataoverføringer.
 
 ## Sikkerhet og tillit
 Dialogporten utsteder bearer tokens som JWT-er (JSON Web Tokens) signert ved hjelp av state-of-the-art kryptografistandarder. Det offentlige nøkkelmaterialet som brukes til å verifisere tokens utstedt av Dialogporten er publisert på en standard HTTPS-plassering, noe som muliggjør automatisk konfigurasjon ved hjelp av de fleste veletablerte kryptografiske applikasjonsbiblioteker.
 
 **Les mer**
-* [Teknisk referanse for dialogtokens]({{<relref "../../../reference/authorization/dialog-tokens">}})
+* [Teknisk referanse for dialogtokens](/nb/dialogporten/getting-started/authorization/dialog-tokens/../../../reference/authorization/dialog-tokens/)
 
 {{<children />}}

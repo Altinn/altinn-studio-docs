@@ -282,6 +282,12 @@
         "SubjectDescription": "Rollen gir bruker tilgang til å attestere tjenester for avgiver som revisor.  Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som rollen gir."
     },
     {
+        "SubjectId": "bobe",
+        "SubjectSource": "altinn:rolecode",
+        "SubjectTitle": "Bobestyrer",
+        "SubjectDescription": "Bestyrer av et konkursbo eller dødsbo som er under offentlig skiftebehandling"
+    },
+    {
         "SubjectId": "bobel",
         "SubjectSource": "altinn:rolecode",
         "SubjectTitle": "Konkursbo lesetilgang",
@@ -300,7 +306,7 @@
         "SubjectDescription": "Delegerbar rolle som gir  tilgang til å administrere tilgang til programmeringsgrensesnitt - API, på vegne av virksomheten."
     },
     {
-        "SubjectId": "apiadnuf",
+        "SubjectId": "apiadmnuf",
         "SubjectSource": "altinn:rolecode",
         "SubjectTitle": "Programmeringsgrensesnitt for NUF (API)",
         "SubjectDescription": "Delegerbar rolle som gir kontaktperson for norskregistrert utenlandsk foretak (NUF) tilgang til å administrere tilgang til programmeringsgrensesnitt - API, på vegne av virksomheten."

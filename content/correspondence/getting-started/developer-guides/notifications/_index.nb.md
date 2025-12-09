@@ -21,8 +21,8 @@ Merk: Tidsintervallet for revarsel i test- og stagingmiljøer er for øyeblikket
 Varslinger kan sendes via enten e-post eller SMS. Mens e-post ikke har noe tidsvindu, vil SMS-varsler bli sendt mellom kl. 09:00 og 17:00.
 Hvis avsendingstidspunktet faller utenfor dette tidsvinduet, vil varselet bli sendt neste dag.
 {{% notice warning  %}}
-I testmiljøet kan varslinger via SMS kun sendes til telefonnumre som er hvitlistet internt.
-Ta kontakt med oss på [Altinn@Slack#produkt-melding](https://join.slack.com/t/altinn/shared_invite/zt-7c77c9si-ZnMFwGNtab1aFdC6H_vwog) hvis dette er nødvendig for din tjeneste.
+I testmiljøet kan du bare sende SMS-varsler til hvitlistede telefonnumre.  
+Send en e-post til [tjenesteeier@altinn.no](mailto:tjenesteeier@altinn.no?subject=Hvitlisting%20av%20telefonnummer) med telefonnummeret som skal hvitlistes.
 {{% /notice %}}
 
 En varslingsbestilling gjøres ved å legge til følgende når du initialiserer en melding:
@@ -45,12 +45,15 @@ En varslingsbestilling gjøres ved å legge til følgende når du initialiserer 
       "reminderEmailContentType": Plain(0) | Html(1),
       "reminderSmsBody": string?,
       "requestedSendTime": DateTimeOffset?,
-      "customRecipient": {
-        "organizationNumber": string?,
-        "nationalIdentityNumber": string?,
-        "mobileNumber": string?,
-        "emailAddress": string?
-      }
+      "customRecipients": [
+        {
+          "organizationNumber": string?,
+          "nationalIdentityNumber": string?,
+          "mobileNumber": string?,
+          "emailAddress": string?
+        }
+      ],
+      "overrideRegisteredContactInformation": boolean
     }
   },
   "Recipients": [],
@@ -58,9 +61,20 @@ En varslingsbestilling gjøres ved å legge til følgende når du initialiserer 
 }
 ```
 
-{{% notice info %}}
-Merk: Varslingstjenesten bruker et V2 API internt. Varslingsbestillingen vil automatisk bli konvertert til V2-format når den behandles.
-{{% /notice %}}
+## Feltvalidering og tegnbegrensninger
+
+Når du oppretter varslinger, gjelder følgende valideringsregler og tegnbegrensninger. Disse grensene er anbefalt av Altinn Notifications-tjenesten for å sikre korrekt visning og levering:
+
+| Felt | Maksimal lengde | Beskrivelse |
+|------|----------------|-------------|
+| `emailSubject` | 128 tegn | Anbefalt av Altinn Notifications-tjenesten for å sikre at e-postemnet vises korrekt i e-postklienter |
+| `emailBody` | 10 000 tegn | Støtter detaljert innhold i både ren tekst og HTML-format |
+| `smsBody` | 2 144 tegn | Samsvarer med Altinn Notifications-tjenestens SMS-behandlingsgrenser. Tilsvarer 16 SMS-segmenter (16 × 134 tegn per segment) |
+| `reminderEmailSubject` | 128 tegn | Samme anbefaling som hovedvarslingens e-postemne |
+| `reminderEmailBody` | 10 000 tegn | Støtter detaljert innhold i både ren tekst og HTML-format |
+| `reminderSmsBody` | 2 144 tegn | Samme grense som hovedvarslingens SMS-innhold |
+
+**Merk:** Hvis du overskrider disse grensene, vil du motta en `400 Bad Request`-feilrespons med detaljer om hvilket felt som overskred grensen.
 
 ## Keyword støtte
 
@@ -121,11 +135,59 @@ Det er planlagt forbedringer for å gi tilbakemelding omkring dette under oppret
 ## Valgfri mottakere for varsling
 
 For meldinger som er opprettet med varsling aktivert vil mottakeren av varslingen være den samme som mottakeren av meldingen.
-Det er også mulig å legge til valgfrie mottakere av varselet som ikke nødvendigvis er mottaker(e) av meldingen. 
-I praksis betyr dette at valgfrie mottakere vil overstyre/erstatte den opprinnelige mottakeren som er angitt for varselet.
+Det er derimot mulig benytte valgfrie mottakere av varsling, som ikke nødvendigvis er mottaker av meldingen.
+I praksis betyr dette at valgfrie mottakere vil motta varsler **i tillegg til** den opprinnelige meldingsmottakeren.
+
+### Bruk av customRecipients (Anbefalt)
+Den anbefalte måten er å bruke `customRecipients`-feltet under `notification` for å spesifisere flere mottakere:
+
+```json
+{
+  "notification": {
+    ...,
+    "customRecipients": [
+      {
+        "organizationNumber": "string",
+        "nationalIdentityNumber": "string",
+        "mobileNumber": "string",
+        "emailAddress": "string"
+      },
+      {
+        "organizationNumber": "string",
+        "nationalIdentityNumber": "string",
+        "mobileNumber": "string",
+        "emailAddress": "string"
+      }
+    ]
+  }
+}
+```
+
+**Merk**: Varsler vil bli sendt til både standard meldingsmottaker OG alle valgfrie mottakere som er listet ovenfor.
 
 {{% notice warning %}}
-⚠️ UTGÅTT: Feltet `customNotificationRecipients` er utgått og vil bli fjernet i en fremtidig versjon. Vennligst bruk `customRecipient` i stedet.
+⚠️ UTGÅTT: Feltet `customRecipient` er utgått og vil bli fjernet i en fremtidig versjon. Vennligst bruk `customRecipients` i stedet.
+{{% /notice %}}
+
+### Bruk av customRecipient (Utgått)
+For bakoverkompatibilitet kan du fortsatt bruke `customRecipient`-feltet for en enkelt mottaker:
+
+```json
+{
+  "notification": {
+    ...,
+    "customRecipient": {
+      "organizationNumber": "string",
+      "nationalIdentityNumber": "string",
+      "mobileNumber": "string",
+      "emailAddress": "string"
+    }
+  }
+}
+```
+
+{{% notice warning %}}
+⚠️ UTGÅTT: Feltet `customNotificationRecipients` er utgått og vil bli fjernet i en fremtidig versjon. Vennligst bruk `customRecipients` i stedet.
 {{% /notice %}}
 
 ### Bruk av customNotificationRecipients (Utgått)
@@ -152,61 +214,54 @@ Dette gjøres ved å fylle ut `customNotificationRecipients`-feltet under `notif
 }
 ```
 
-### Bruk av customRecipient (Anbefalt)
-Den anbefalte måten er å bruke `customRecipient`-feltet under `notification` slik:
-
-```json
-{
-  "notification": {
-    ...,
-    "customRecipient": {
-      "organizationNumber": "string",
-      "nationalIdentityNumber": "string",
-      "mobileNumber": "string",
-      "emailAddress": "string"
-    }
-  }
-}
-```
-
 ### Valideringsregler for valgfrie mottakere
 
 Når du bruker valgfrie mottakere, gjelder følgende valideringsregler:
 
-1. **Kun én mottaker**: Valgfrie mottakere kan kun brukes når meldingen har nøyaktig én mottaker. Flere mottakere er ikke tillatt.
+1. **Tilleggsmottakere**: Valgfrie mottakere får varsler **i tillegg til** standard meldingsmottaker, ikke i stedet for dem.
 
-2. **Kun én identifikator påkrevd**: Den valgfrie mottakeren må ha nøyaktig ett identifikatorfelt fylt ut:
+2. **Kun én mottaker**: Hvis valgfrie mottakere er spesifisert, må meldingen ha kun én standard mottaker (ikke flere mottakere).
+
+3. **Kun én identifikator påkrevd**: Hver valgfrie mottaker må ha nøyaktig ett identifikatorfelt fylt ut:
    - `organizationNumber` (for organisasjoner)
    - `nationalIdentityNumber` (for personer)
    - `emailAddress` (for direkte e-postvarsler)
    - `mobileNumber` (for direkte SMS-varsler)
 
-3. **Keyword-begrensninger**: Når du bruker `emailAddress` eller `mobileNumber`, kan ikke `$recipientName$`-keywordet brukes i noe varslingsinnhold (e-postemne, e-postinnhold, SMS-innhold, revarselfelt) fordi navneoppslag ikke er tilgjengelig for direkte kontaktinformasjon.
+4. **Keyword-begrensninger**: Når du bruker `emailAddress` eller `mobileNumber`, kan ikke `$recipientName$`-keywordet brukes i noe varslingsinnhold (e-postemne, e-postinnhold, SMS-innhold, revarselfelt) fordi navneoppslag ikke er tilgjengelig for direkte kontaktinformasjon.
 
-4. **Formatvalidering**:
+5. **Formatvalidering**:
    - **E-postadresser**: Må være i gyldig e-postformat (f.eks. `bruker@eksempel.com`)
    - **Mobilnumre**: Må følge E.164-standarden og være gyldige telefonnumre. Kan starte med `+` eller `00` for internasjonalt format. Norske numre som starter med 4 eller 9 får automatisk `+47`-prefiks hvis ingen landskode er oppgitt.
-
-5. **Organisasjonsnumre**: Må være i format `0192:organisasjonsnummer` eller `urn:altinn:organisasjonsnummer:organisasjonsnummer`
-
-6. **Fødselsnumre**: Må være gyldige 11-sifrede norske fødselsnumre
+   - **Organisasjonsnumre**: Må være i format `0192:organisasjonsnummer` eller `urn:altinn:organisasjonsnummer:organisasjonsnummer`
+   - **Fødselsnumre**: Må være gyldige 11-sifrede norske fødselsnumre
 
 ### Hvordan bruke valgfri mottaker
-For utgått tilnærming:
+For anbefalt tilnærming (flere mottakere):
+```
+correspondence.notification.customRecipients[0].organizationNumber
+correspondence.notification.customRecipients[0].nationalIdentityNumber
+correspondence.notification.customRecipients[0].mobileNumber
+correspondence.notification.customRecipients[0].emailAddress
+correspondence.notification.customRecipients[1].organizationNumber
+// ... ytterligere mottakere
+```
+
+For utgått enkelt mottaker tilnærming:
+```
+correspondence.notification.customRecipient.organizationNumber
+correspondence.notification.customRecipient.nationalIdentityNumber
+correspondence.notification.customRecipient.mobileNumber
+correspondence.notification.customRecipient.emailAddress
+```
+
+For utgått flere mottakere tilnærming:
 ```
 correspondence.notification.customNotificationRecipients[0].recipientToOverride
 correspondence.notification.customNotificationRecipients[0].recipients[0].organizationNumber
 correspondence.notification.customNotificationRecipients[0].recipients[0].nationalIdentityNumber
 correspondence.notification.customNotificationRecipients[0].recipients[0].mobileNumber
 correspondence.notification.customNotificationRecipients[0].recipients[0].emailAddress
-```
-
-For anbefalt tilnærming:
-```
-correspondence.notification.customRecipient.organizationNumber
-correspondence.notification.customRecipient.nationalIdentityNumber
-correspondence.notification.customRecipient.mobileNumber
-correspondence.notification.customRecipient.emailAddress
 ```
 
 {{% panel theme="warning" %}}
@@ -218,5 +273,64 @@ Både `notificationTemplate` og `notificationChannel` er anvendelige når du bru
 
 Flere detaljer er gitt [her](#varslingsmaler).
 {{% /panel %}}
+
+## Overstyr standard mottaker oppførsel
+
+Som standard, når du bruker valgfrie mottakere, sendes varsler til både standard meldingsmottaker OG alle valgfrie mottakere. Du kan imidlertid overstyre denne oppførselen ved å bruke `overrideRegisteredContactInformation`-flagget.
+
+### Bruk av overrideRegisteredContactInformation
+
+`overrideRegisteredContactInformation`-flagget lar deg kontrollere om standard meldingsmottaker skal inkluderes i varsler:
+
+```json
+{
+  "notification": {
+    ...,
+    "customRecipients": [
+      {
+        "organizationNumber": "string",
+        "nationalIdentityNumber": "string",
+        "mobileNumber": "string",
+        "emailAddress": "string"
+      }
+    ],
+    "overrideRegisteredContactInformation": true
+  }
+}
+```
+
+### Oppførsel
+
+- **`overrideRegisteredContactInformation: false` (standard)**: Varsler sendes til standard meldingsmottaker OG alle valgfrie mottakere
+- **`overrideRegisteredContactInformation: true`**: Varsler sendes KUN til valgfrie mottakere (standard meldingsmottaker ekskluderes)
+
+### Valideringsregler
+
+1. **Valgfrie mottakere påkrevd**: `overrideRegisteredContactInformation`-flagget kan kun settes til `true` når `customRecipients` er oppgitt og ikke tom
+2. **Standardverdi**: Hvis ikke spesifisert, standardiserer `overrideRegisteredContactInformation` til `false`
+
+### Eksempel brukstilfeller
+
+**Scenario 1: Tilleggsmottakere (Standard oppførsel)**
+```json
+{
+  "notification": {
+    "customRecipients": [{"organizationNumber": "123456789"}],
+    "overrideRegisteredContactInformation": false
+  }
+}
+```
+Resultat: Varsler sendes til både standard meldingsmottaker OG den valgfrie organisasjonen
+
+**Scenario 2: Overstyr standard mottaker**
+```json
+{
+  "notification": {
+    "customRecipients": [{"organizationNumber": "123456789"}],
+    "overrideRegisteredContactInformation": true
+  }
+}
+```
+Resultat: Varsler sendes KUN til den valgfrie organisasjonen (standard meldingsmottaker ekskluderes)
 
 

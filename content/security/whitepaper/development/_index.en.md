@@ -14,12 +14,12 @@ The Security Coordinator also participates in the security group in the BOD depa
 The development process is continuously improved.
 
 <figure>
-<object title="Secure DevOps" data="devops.svg" type="image/svg+xml"></object>
+<object title="Secure DevOps" data="/en/security/whitepaper/development/devops.svg" type="image/svg+xml"></object>
 <figcaption>Figure 2 - Secure DevOps</figcaption>
 </figure>
 
 To be able to put the developers in focus, the use of security tools and automation is preferred where possible.
-This includes integration with [security tools](/community/contributing/handbook/securecoding/) in
+This includes integration with [security tools](/en/community/contributing/handbook/securecoding/) in
 the build and deploy processes where identified security flaws stop the processes.
 
 Altinn has several important architecture principles that support security:
@@ -32,11 +32,11 @@ Altinn has several important architecture principles that support security:
 - Prefer managed services (PaaS) over IaaS services
 - Defense in depth
 
-More information about the principles can be found at https://docs.altinn.studio/principles/
+More information about the principles can be found at https://docs.altinn.studio/technology/architecture/principles/
 
 ## Third-party vendors and supply chains
 
-![Frameworks and technologies](/technology/tools/tech-map.png "Figure 3 - Frameworks and technologies used in Altinn 3")
+![Frameworks and technologies](/en/technology/tools/tech-map.png "Figure 3 - Frameworks and technologies used in Altinn 3")
 
 Altinn 3 is based on open source code and uses several third-party libraries and products.
 These libraries, in turn, use other libraries, which again use other libraries, and so on.

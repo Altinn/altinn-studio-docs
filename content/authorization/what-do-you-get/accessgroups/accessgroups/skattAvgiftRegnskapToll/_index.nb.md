@@ -5,21 +5,22 @@ description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter 
 toc: true
 weight: 100
 aliases:
-- /authorization/modules/accessgroups/type-accessgroups
+- /authorization/modules/accessgroups
 ---
 
 | **Tilgangspakker i kategorien**|
 |---|
-| [Skatt næring](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/skattavgiftregnskaptoll/#skatt-næring)|
-| [Skattegrunnlag](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/skattavgiftregnskaptoll/#skattegrunnlag)|
-| [Merverdiavgift](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/skattavgiftregnskaptoll/#merverdiavgift)|
-| [Motorvognavgifter](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/skattavgiftregnskaptoll/#motorvognavgifter)|
-| [Særavgifter](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/skattavgiftregnskaptoll/#særavgifter)|
-| [Krav, betalinger og utlegg](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/skattavgiftregnskaptoll/#krav-betalinger-og-utlegg)|
-| [Kreditt- og oppgjørsordninger](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/skattavgiftregnskaptoll/#kreditt--og-oppgjørsordninger)|
-| [Regnskap og økonomirapportering](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/skattavgiftregnskaptoll/#regnskap-og-økonomirapportering)|
-| [Revisorattesterer](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/skattavgiftregnskaptoll/#revisorattesterer)|
-| [Toll](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/skattavgiftregnskaptoll/#toll)|
+| [Skatt næring](#skatt-næring)|
+| [Skattegrunnlag](#skattegrunnlag)|
+| [Merverdiavgift](#merverdiavgift)|
+| [Motorvognavgifter](#motorvognavgifter)|
+| [Særavgifter](#særavgifter)|
+| [Krav, betalinger og utlegg](#krav-betalinger-og-utlegg)|
+| [Kreditt- og oppgjørsordninger](#kreditt--og-oppgjørsordninger)|
+| [Regnskap og økonomirapportering](#regnskap-og-økonomirapportering)|
+| [Revisorattesterer](#revisorattesterer)|
+| [Toll](#toll)|
+| [Revisjon](#revisjon)|
 
 
 ### Skatt næring
@@ -52,18 +53,22 @@ Denne fullmakten gir tilgang til alle tjenester som krever revisorattestering. V
 ### Toll 
 Denne tilgangspakken gir fullmakter til tjenester knyttet til toll og fortolling. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:toll*
+### Revisjon
+Denne tilgangspakken gir fullmakter til tjenester knyttet til revisjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
+*urn:altinn:accesspackage:revisjon*
 
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
 |**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
 |---|---|---|
-|Skatt næring|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Skattegrunnlag|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Merverdiavgift|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Motorvognavgifter|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Særavgifter|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Krav, betalinger og utlegg|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Kreditt- og oppgjørsordninger|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Regnskap og økonomirapportering|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Revisorattesterer|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Toll|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Skatt næring|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Skattegrunnlag|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Merverdiavgift|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Motorvognavgifter|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Særavgifter|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Krav, betalinger og utlegg|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Kreditt- og oppgjørsordninger|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Regnskap og økonomirapportering|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Revisorattesterer|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Toll|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Revisjon|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|

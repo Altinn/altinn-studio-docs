@@ -10,7 +10,7 @@ weight: 40
 {{<children />}}
 
 In order to use events/webhooks for a Correspondence resource, you need to setup a subscription for the given resource.
-This subscription is used to configure the endpoint where the events published by correspondence end up. [You can read more about how to setup an Events subscription in Altinn Events here](/events/subscribe-to-events/developer-guides/setup-subscription/).
+This subscription is used to configure the endpoint where the events published by correspondence end up.
 
 All Events published by Altinn Correspondence follow the same pattern:
 
@@ -21,8 +21,8 @@ All Events published by Altinn Correspondence follow the same pattern:
  "resourceinstance": "da4ceacc-ad44-4e54-99b6-b58e3c13c785",
  "source": "https://platform.tt02.altinn.no/correspondence/api/v1/correspondence",
  "specversion": "1.0",
- "type": "no.altinn.correspondence.Published",
- "subject": "/party/50015641",
+ "type": "no.altinn.correspondence.correspondencepublished",
+ "subject": "urn:altinn:organization:identifier-no:123456789",
  "alternativesubject": "/organisation/123456789",
  "time": "2024-04-19T07:22:19.438039Z"
 }
@@ -30,7 +30,7 @@ All Events published by Altinn Correspondence follow the same pattern:
 
 ## Event Subscription {#event-subcription}
 
-This subscription is used to configure the endpoint where the events published by correspondence end up. [You can read more about how to setup an Events subscription in Altinn Events here](/events/subscribe-to-events/developer-guides/setup-subscription/).
+This subscription is used to configure the endpoint where the events published by correspondence end up. [You can read more about how to setup an Events subscription in Altinn Events here](/en/events/subscribe-to-events/developer-guides/setup-subscription/).
 
 You are required to set up the following filters:
 
@@ -49,7 +49,7 @@ You are required to set up the following filters:
 In addition you may wish to use filters for Type, so that you receive the event types you are interested in/can perform actions on.
 If you do not specify a Type Filter you will receive all the different types of events if you have access to them.
 
-**For Senders:**
+**For service owner:**
 - `no.altinn.correspondence.attachmentinitialized`
 - `no.altinn.correspondence.attachmentuploadprocessing`
 - `no.altinn.correspondence.attachmentpublished`
@@ -57,19 +57,13 @@ If you do not specify a Type Filter you will receive all the different types of 
 - `no.altinn.correspondence.attachmentpurged`
 - `no.altinn.correspondence.attachmentdownloaded`
 
-
 - `no.altinn.correspondence.correspondenceinitialized`
-- `no.altinn.correspondence.correspondencearchived`
+- `no.altinn.correspondence.correspondencepublished`
 - `no.altinn.correspondence.correspondencepurged`
 - `no.altinn.correspondence.correspondencepublishfailed`
+
+**For every recipient:**
+- `no.altinn.correspondence.correspondencepublished`
 - `no.altinn.correspondence.correspondencereceiverread`
 - `no.altinn.correspondence.correspondencereceiverconfirmed`
 - `no.altinn.correspondence.Correspondencereceiverreserved`
-
-
-**For both Senders And Recipients:**
-- `no.altinn.correspondence.correspondencepublished`
-- `no.altinn.correspondence.correspondencereceiverneverread`
-- `no.altinn.correspondence.correspondencereceiverneverconfirmed`
-
-

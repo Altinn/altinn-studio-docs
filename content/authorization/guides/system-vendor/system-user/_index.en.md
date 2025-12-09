@@ -1,331 +1,96 @@
 ---
-title: System user guide
-linktitle: System user
-description: A guide for the system vendor to set up integrate and setup system users for their systems.
-toc: true
+title: System User Guide
+linktitle: System User
+description: Guide for system vendors on integrating with and setting up system users in their end-user system.
+toc: false
 aliases:
-  - /authentication/guides/systemvendor/
+  - en/authentication/guides/systemvendor/
 ---
 
-## Actions by System Vendor (SmartCloud AS)
+A system user is a virtual user that an organization can create in Altinn. It gives systems and software, such as an accounting program, access to retrieve and submit data on behalf of the organization. Actions performed via a system user are registered as being done by the system user, and can therefore not be linked to a specific person. If personal responsibility is required, one must log in using a standard Altinn login.
 
-{.floating-bullet-numbers-sibling-ol}
+## Before you start
 
-1. Contact Digdir
-   - The System vendor must contact Digdir to get access to the system register, system user scopes. Procedures for this is described on [Samarbeisportalen](https://samarbeid.digdir.no/altinn/kom-i-gang/2868).
-2. Creating a Maskinporten Client for the System
-   - SmartCloud AS wants to integrates the system user into their accounting software, SmartCloud.
-   - To integrate, they must create a client in Maskinporten for system SmartCloud, which gets a client ID that will be used for authentication and authorization.
-   - On the [Collaboration Portal](https://samarbeid.digdir.no/altinn/kom-i-gang-i-testmiljoet-tt02/2868), you can read more about the steps that must be completed before you can begin integration and testing against our test environment (TT02).
-   - Refer the guide for establishing Maskinporten integration [Maskinporten as consumer](https://samarbeid.digdir.no/maskinporten/konsument/119)
-   - To consume public APIs with system users, you need to register at least one MaskinPorten integration. This can be done in the [collaboration portal](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web#opprette-klient-for-%C3%A5-konsumere-api) or via [API](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_api#registrere-klient).
-3. Delegated access to the scope for registering a system in the system register: `altinn:authentication/systemregister.write`
+Before you create a system user for your end-user system, you must decide how the system will be used by the end-users – i.e., whether the reporting will be for their own organization or on behalf of other organizations. This choice determines how the integration with the service owner's APIs is set up, and what permissions the system user will receive. The system can also be built to support both types of reporting. In such cases, you must create two separate system users: one for reporting on behalf of your own organization, and one for reporting on behalf of clients.
 
-   If you want to use the provider-controlled flow for creating a system user, you need the following scopes to create requests and check status:
+### Creating a system user
 
-   - `altinn:authentication/systemuser.request.read`
-   - `altinn:authentication/systemuser.request.write`
+The system user is created by the organization or service provider that wants to use an end-user system for integration with Altinn or other public services.
+Creation can be done via user-controlled creation or vendor-controlled creation.
 
-   Additionally, access to scopes for the APIs that the system will use is required. This information will be held by the service owner.
+#### User-controlled creation
 
-4. Registering the System in Altinn’s System Register
-   - The first step after gaining access to the system register is to register the system.
-   - The system is typically web-based software available in the market, which end customers (businesses) can use for communication with the public sector.
-   - SmartCloud AS then registers SmartCloud system in the Altinn System Register.
-   - They define the required rights for accessing "Krav og betalinger" by associating the client ID with the relevant permissions.
-   - Refer [here](../../../../api/authentication/systemuserapi/systemregister/model/) for the detailed description for information about each input.
-     ```json
-     {
-       "id": "991825827_smartcloud",
-       "systemVendorOrgNumber": "991825827",
-       "vendor": {
-         "authority": "iso6523-actorid-upis",
-         "ID": "0192:991825827"
-       },
-       "name": {
-         "nb": "SmartCloud 1",
-         "en": "SmartCloud 1",
-         "nn": "Smart SKY"
-       },
-       "description": {
-         "nb": "SmartCloud er verdens beste system.",
-         "en": "SmartCloud Rocks.",
-         "nn": "SmartSky er vestlandets beste system"
-       },
-       "rights": [
-         {
-           "resource": [
-             {
-               "id": "urn:altinn:resource",
-               "value": "ske-krav-og-betalinger"
-             }
-           ]
-         }
-       ],
-       "clientId": ["xxxxxx-xxxx-xxxx-xxxx-xxxxxxx"],
-       "allowedredirecturls": ["https://smartcloudxxxx/receipt"],
-       "isVisible": true
-     }
-     ```
-   - Registering the System with required access packages in Altinn’s System Register. In this example we register a system with the required access for an access package.
-     ```json
-     {
-       "id": "991825827_smartcloud_ap",
-       "systemVendorOrgNumber": "991825827",
-       "vendor": {
-         "authority": "iso6523-actorid-upis",
-         "ID": "0192:991825827"
-       },
-       "name": {
-         "nb": "Smartcloud TP",
-         "en": "SmartCloud AP",
-         "nn": "Smartcloud TP"
-       },
-       "description": {
-         "nb": "SmartCloud er verdens beste system.",
-         "en": "SmartCloud Rocks",
-         "nn": "SmartSky er vestlandets beste system"
-       },
-       "accessPackages": [
-         {
-           "urn": "urn:altinn:accesspackage:regnskapsforer-med-signeringsrettighet"
-         }
-       ],
-       "clientId": ["xxxxx-xxxx-xxx-xxx-xxx"],
-       "allowedredirecturls": ["https://smartcloudxxxx/receipt"],
-       "isVisible": true
-     }
-     ```
+With user-controlled creation, it is the end-user themselves who initiates the process by logging into Altinn. There, the user selects which system they want to create a system user for.
 
-Please refer to [this page](https://platform.tt02.altinn.no/accessmanagement/api/v1/meta/info/accesspackages/export) for a list of available access packages in the tt02 environment.
+The end-user is presented with the predefined permissions that the system requires. When these are accepted, the permissions are approved directly, and the system user is created without generating a separate request. This process requires that the end-user has the authority to delegate all the permissions the system requests.
 
-You will find additional details regarding all possible inputs, in the [system register model](../../../../api/authentication/systemuserapi/systemregister/model/). For all subsequent communication, the system vendor must reference the value specified in the `id` field.
+#### Vendor-controlled creation
 
-### Creating a System User For Standard System User
+With vendor-controlled creation, it is the end-user system vendor (SBSL) who initiates the process. This is done by the vendor, often from their own specialized system, sending a request to Altinn to create a system user.
 
-The system user can be created in two ways
-{.floating-bullet-numbers-sibling-ol}
+The request specifies which permissions the system user needs. This request must then be approved by the end-user (the customer) in Altinn for the system user to be created.
 
-1. End user driven
-   - Smartcloud As must request "TILFELDIG SUBTIL APE" (end user) to login to altinn portal and create a system user for their system SmartCloud
-2. Vendor driven
-   - SmartCloud AS creates a system user request (via altinn api for system user request) from within SmartCloud, which is sent to Altinn. For detailed information on each input field, refer the documentation [here](../../../../api/authentication/systemuserapi/systemuserrequest/external/model/)
-     ```json
-     {
-       "externalRef": "d5cc6e61-023e-4945-82cc-3f32d8ee28ee",
-       "systemId": "991825827_smartcloud",
-       "partyOrgNo": "310904473",
-       "rights": [
-         {
-           "resource": [
-             {
-               "id": "urn:altinn:resource",
-               "value": "ske-krav-og-betalinger"
-             }
-           ]
-         }
-       ],
-       "redirectUrl": "https://smartcloudxxxxxxx/receipt"
-     }
-     ```
-   - This request includes the necessary access rights to perform tasks related to the "Krav og betalinger" service on behalf of TILFELDIG SUBTIL APE (the company, end user).
-   - The response is for example
-     ```json
-     {
-       "id": "505f8488-3d48-4c15-8e21-35cb9432f815",
-       "externalRef": "smartcloud_demo_test",
-       "systemId": "991825827_smartcloud",
-       "partyOrgNo": "310904473",
-       "rights": [
-         {
-           "resource": [
-             {
-               "id": "urn:altinn:resource",
-               "value": "ske-krav-og-betalinger"
-             }
-           ]
-         }
-       ],
-       "status": "New",
-       "redirectUrl": "https://smartcloudxxxxxxxxx/receipt",
-       "confirmUrl": "https://am.ui.tt02.altinn.no/accessmanagement/ui/systemuser/request?id=505f8488-3d48-4c15-8e21-35cb9432f815"
-     }
-     ```
-   - The `confirmurl` is sent to the end user for approval. Follow the guide for end user for
-     - [Standard system user](../../end-user/system-user/#guide-for-end-user-stadig-konsert-dagligleder-of-tilfeldig-subtil-ape)
+This method is based on an "AND-relationship". This means that the end-user must have the authority to delegate all the permissions the vendor requests. If the user lacks authority for even one of the permissions, the request cannot be approved in its entirety.
 
-### Creating a System User For Agent System User
+## System user for own system
 
-- The system user for agent system user can be created only by system user request
-- SmartCloud AS creates a system user request (via altinn api for system user request) from within SmartCloud, which is sent to Altinn. For detailed information on each input field, refer the documentation [here](../../../../api/authentication/systemuserapi/systemuserrequest/external/model/)
-  ```json
-  {
-    "externalRef": "smartcloud_demo_agent_test",
-    "systemId": "991825827_smartcloud_ap",
-    "partyOrgNo": "314250052",
-    "accessPackages": [
-      {
-        "urn": "urn:altinn:accesspackage:regnskapsforer-med-signeringsrettighet"
-      }
-    ],
-    "redirectUrl": "https://smartcloudaltinn.azurewebsites.net/receipt"
-  }
-  ```
-- This request includes the necessary access packages to perform tasks related to the services that the access package gives access to.
-- The response is for example
-  ```json
-  {
-    "id": "605bb239-23b1-4d11-aae8-a40eb683aa1f",
-    "externalRef": "smartcloud_demo_agent_test",
-    "systemId": "991825827_smartcloud_ap",
-    "partyOrgNo": "314250052",
-    "accessPackages": [
-      {
-        "urn": "urn:altinn:accesspackage:regnskapsforer-med-signeringsrettighet"
-      }
-    ],
-    "status": "New",
-    "redirectUrl": "https://smartcloudxxxxx.azurewebsites.net/receipt",
-    "confirmUrl": "https://am.ui.tt02.altinn.no/accessmanagement/ui/systemuser/agentrequest?id=605bb239-23b1-4d11-aae8-a40eb683aa1f"
-  }
-  ```
-- The `confirmurl` is sent to the end user, here the auditing organisation for approval. Once approved, the end user can add clients to the system user. Follow the guide for end user for
-  - [Agent system user](../../end-user/system-user/#guide-for-end-user-dress-minst-client-administrator-for-tilbakeholden-usymmetrisk-tiger-as-)
+This option is suitable if the system will be used to retrieve or send data for your own organization.
+![Vendor-controlled creation of a customer-controlled system](eget_system.png)
+*The figure shows vendor-controlled creation for an own system*
 
-See [Samarbeisportalen](https://samarbeid.digdir.no/altinn/systembruker/2542) for illustration and webinar.
-{.mt-3}
+**Typical use for end-user:**
 
-Refer to [API documentation](../../../../api/authentication/systemuserapi/) for more information on available endpoints.
+- The end-user is an employee of the organization.
+- The system is used only for reporting for their own organization number.
+- No other organizations are involved.
 
-## Maskinporten authentication
+**Example:** An internal HR or accounting system that sends payroll reports (A-meldinger) or VAT returns for the organization.
 
-When the system needs to authenticate as the system user for the customer, the JWT grant request to Maskinporten must contain information about the customer.
+**Consequence for end-user:**
 
-### JWT Grant
+- Reporting is done only for their own organization.
+- Delegations from other organizations are not necessary.
+- Access control is simple and linked directly to their own organization.
 
-```json
-{
-  "aud": "https://maskinporten.no",
-  "sub": "fc9a8287-e7cb-45e5-b90e-123048d32d85",
-  "authorization_details": [
-    {
-      "systemuser_org": {
-        "authority": "iso6523-actorid-upis",
-        "ID": "0192:310385980"
-      },
-      "type": "urn:altinn:systemuser"
-    }
-  ],
-  "scope": "krr:global/kontaktinformasjon.read",
-  "iss": "fc9a8287-e7cb-45e5-b90e-123048d32d85",
-  "exp": 1718124835,
-  "iat": 1718124715,
-  "jti": "89365ecd-772b-4462-a4de-ac36af8ef3e2"
-}
-```
+> System user for own system can be created using either [**user-controlled or vendor-controlled creation.**](https://docs.altinn.studio/nb/authorization/guides/system-vendor/system-user/systemuserrequest/#1-opprette-systembruker-for-eget-system) 
 
-### JWT Token
 
-```json
-{
-  "authorization_details": [
-    {
-      "type": "urn:altinn:systemuser",
-      "systemuser_org": {
-        "authority": "iso6523-actorid-upis",
-        "id": "0192:314168267"
-      },
-      "systemuser_id": ["ebe4a681-0a8c-429e-a36f-8f9ca942b59f"],
-      "system_id": "matrix_test"
-    }
-  ],
-  "scope": "krr:global/kontaktinformasjon.read",
-  "iss": "https://test.maskinporten.no/",
-  "client_amr": "private_key_jwt",
-  "token_type": "Bearer",
-  "exp": 1718175135,
-  "iat": 1718175015,
-  "client_id": "fc9a8287-e7cb-45e5-b90e-123048d32d85",
-  "jti": "-SpfU--1Zn_Oqvkpjwu3oVn--VLcPzSAwjqyiP6zBEw",
-  "consumer": {
-    "authority": "iso6523-actorid-upis",
-    "ID": "0192:314330897"
-  }
-}
-```
+## System user for client system
 
-See also documentation at [Maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker).
+(previously agent-system user)
 
-### Using system user token against API
+This option is suitable if your system will enable end-users to report for other organizations – for example, customers, clients, or partners.
 
-The token received from Maskinporten is attached as a Bearer Token to the APIs being called.
+You can get authorizations for the client in two ways:
 
-### Testing system user in TT02
+1. **Via the Brønnøysund Register Centre (Enhetsregisteret):** The service provider receives rights automatically when a relationship is registered in the Brønnøysund Register Centre.
+This applies to the roles Accountant (REGN), Auditor (REVI), and Business Manager (FFØR).
+These authorizations can then be client-delegated to a system user with corresponding rights.
 
-To test system user in TT02, the following is required:
+2. **Delegation from organization to organization:** An access manager at the client gives authorization directly to the service provider's organization number.
+This happens by the client actively delegating one or more access packages.
+Once the service provider has received the authorization, their client administrator can further delegate this to a client system with corresponding authorizations.
 
-- System provider registered in Maskinporten. This is done via servicedesk@digdir.no.
-- System provider registered in Altinn. This is done via API for system vendor.
-- System integration registered in Maskinporten test.
+![Client system](klient_system.png)
+*Figure shows vendor-controlled creation for a client system*
 
-For creating system users, test users/organisations from Tenor can be used.
+**Typical use for end-user:**
 
-### Reference implementation and setup
+- The end-user is an accountant, consultant, or service provider.
+- They log into the system and can choose which client/organization they will report for.
+- The system must support multiple organization numbers and handle delegations via Altinn or an equivalent solution.
 
-A reference implementation has been developed to demonstrate the use of system user. It is developed in C# and can be run as a console application.
-It does the following:
+**Example:** An accounting firm that uses an accounting system to send VAT returns for its clients.
 
-1. Creates a token based on configured JSON Web Key, client ID, scope, and organization number of the system user creator.
-2. Based on the token received, it makes calls to reference APIs that require system user.
+**Consequence for end-user:**
 
-See code with documentation [here](https://github.com/TheTechArch/altinn-systemuser).
+- The user can report on behalf of multiple organizations.
+- The clients must have given the necessary rights/delegations.
+- The system must ensure correct access and identification of who is being reported for.
+- If the customer relationship is removed/deleted from the Brønnøysund Register Centre or the organization delegation is revoked by the client, all client delegations for that specific authorization will be automatically removed.
+- Client delegation to a system user can be done via GUI or a separate API
 
-### Setting up reference implementation with own configuration
+> System users for client systems can only be created using [**vendor-controlled creation**](https://docs.altinn.studio/nb/authorization/guides/system-vendor/system-user/systemuserrequest/#2-opprette-systembruker-for-klientsystem).
 
-A reference implementation has been developed to demonstrate the use of system user. It is developed in C# and can be run as a console application.
 
-It does the following:
-
-1. Creates a token based on configured JSON Web Key, client ID, scope, and organization number of the system user creator.
-2. Based on the token received, it makes calls to reference APIs that require system user.
-
-See code with documentation [here](https://github.com/TheTechArch/altinn-systemuser).
-
-### Setting up reference implementation with own configuration
-
-The repository contains the necessary test certificate to run the application. The following must be done to set up your own integration as a system provider:
-{.floating-bullet-numbers-sibling-ol}
-
-1. Log in to [onboarding Maskinporten](https://onboarding.test.maskinporten.no/). Here you can use a test ID that is the CEO of a test entity.
-
-   ![Onboarding](onboarding1.png "Simplified onboarding")
-
-   ![Onboarding](onboarding2.png "Select entity")
-
-   ![Onboarding](onboarding3.png "Overview of integrations in Maskinporten. Here you can add new ones")
-
-   ![Onboarding](onboarding4.png "Create integration, search for required scope")
-
-   ![Onboarding](onboarding5.png "Add any additional scope and describe the integration")
-
-   ![Onboarding](onboarding6.png "Download generated keys")
-
-   ![Onboarding](onboarding7.png "Integration created")
-
-2. Get the system registered in the System Register with the correct client ID and linkage to necessary resources/access packages.
-
-3. Log in with a test user at tt02.altinn.no. The user must have the access management role in Altinn for a test organization and go to the page [https://authn.ui.tt02.altinn.no/authfront/ui/auth/creation](https://authn.ui.tt02.altinn.no/authfront/ui/auth/creation).
-
-   ![Onboarding](delegering1.png "10. Select system")
-
-   ![Onboarding](delegering2.png "11. Accept creation of system user with rights to it")
-
-   ![Onboarding](delegering3.png "12. Overview of system users for test organization")
-
-4. Configure key, certificate, client ID, and scope in the test application.
-   ```csharp
-   string clientID = "7ee41fce-9f6e-4c32-8195-0fe2c1517f43";
-   string scope = "altinn:systembruker.demo";
-   string systemUserOrg = "210493352";
-   string pemCertificatePath = @".\mp-key.pem";
-   ```
+{{<children />}}

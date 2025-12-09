@@ -23,7 +23,7 @@ I dag er det ca. 50% av dataene som blir rapportert til Altinn som blir sendt p�
 
 En tjeneste består av en applikasjon som er tilgjengelig i Altinns infrastruktur. Denne applikasjonen har et sett med konfigurasjoner som beskriver data som tjenesten skal motta eller sende ut, samt hvilken prosess tjenesten har.
 
-Eksempler på tjenester utviklet på den nye Altinn 3-plattformen finner du [her](/altinn-studio/news/launched-apps/).
+Eksempler på tjenester utviklet på den nye Altinn 3-plattformen finner du [her](/nb/altinn-studio/v8/news/launched-apps/).
 
 ## Hvilke typer data eksponerer/mottar tjenestene via API?
 
@@ -53,7 +53,7 @@ Disse scopene gir mulighet for å kalle alle apper i Altinn 3.
 
 Som del av påloggingsprosessen vil sluttbrukersystemet få tilgang til et access_token med informasjon om sluttbruker.
 
-Se detaljert påloggingsprosess med ID-porten og skjermbildet som sluttbruker blir presentert for, [her](../../../../authorization/getting-started/authentication/id-porten/).
+Se detaljert påloggingsprosess med ID-porten og skjermbildet som sluttbruker blir presentert for, [her](/nb/authorization/getting-started/authentication/id-porten/).
 
 ### Innveksling av access_token til Altinn Token
 
@@ -61,11 +61,11 @@ Neste steg i prosessen er å veksle access_token fra ID-porten til et Altinn Tok
 
 Et Altinn Token kan benyttes mot alle tjenesteapplikasjoner og relevante felleskomponenter.
 
-Innveksling skjer mot [Autentiserings API](/api/authentication/spec/).
+Innveksling skjer mot [Autentiserings API](/nb/api/authentication/spec/).
 
 Innvekslingen skjer ved at man setter Access Token fra ID-porten som et Bearer token i authorization headeren og gjør et GET-kall mot innvekslingsendepunktet hvor "id-porten" er brukt som token provider.
 
-Detaljert beskrivelse av innveksling med ID-porten token finner du [her](../../../../authorization/getting-started/authentication/id-porten/).
+Detaljert beskrivelse av innveksling med ID-porten token finner du [her](/nb/authorization/getting-started/authentication/id-porten/).
 
 ### Instansiering og innsending av data
 
@@ -77,7 +77,7 @@ Det er i hovedsak to flyter man kan velge her.
 
 Ved instansiering uten skjemadata vil første kall mot Altinn kun inneholde informasjon om hvem som er avgiver og hvilken tjeneste man instansierer.
 
-Dette kallet går mot [Instance API](/api/apps/instances/#create-instance) på app. ([OpenAPI](/api/apps/spec))
+Dette kallet går mot [Instance API](/nb/api/apps/instances/#create-instance) på app. ([OpenAPI](/nb/api/apps/spec))
 
 ```json
 {
@@ -210,11 +210,11 @@ For et sluttbrukersystem betyr det at følgende operasjoner må gjennomføres f�
 
 #### Bekrefte Next på datasteg
 
-Ved å sende PUT på [NEXT](/api/apps/process/#complete-and-move-to-next-task) på prosess-API vil tjenesten validere data og sende prosessen videre til bekreftelse.
+Ved å sende PUT på [NEXT](/nb/api/apps/process/#complete-and-move-to-next-task) på prosess-API vil tjenesten validere data og sende prosessen videre til bekreftelse.
 
 Ved feil på data vil man få en feilmelding.
 
-Man kan da kalle [validerings-API](/api/apps/validation/#validate-stored-instance) for å få detaljer om feil.
+Man kan da kalle [validerings-API](/nb/api/apps/validation/#validate-stored-instance) for å få detaljer om feil.
 
 #### Bekrefte Next på bekreftelsesteg
 

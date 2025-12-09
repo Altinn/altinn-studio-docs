@@ -23,7 +23,7 @@ GET /app/party
 
 Dette API-et krever autentisering.
 
-Se [Autentisering og autorisasjon](../../../api/#autentisering-og-autorisasjon) for mer informasjon.
+Se [Autentisering og autorisasjon](/nb/events/api/#autentisering-og-autorisasjon) for mer informasjon.
 
 
 ## Forespørsel

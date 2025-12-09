@@ -16,7 +16,7 @@ Dialogporten API-et er delt inn i et tjenesteeier-API og et sluttbruker-API.
 
 {{<displayFootnotes>}}
 
-I tillegg støttes token utstedt av [Altinn Token Exchange](../../../authorization/what-do-you-get/authentication/#bytt-et-jwt-fra-en-ekstern-tokenleverandør), ved bruk av enten ID-porten eller Maskinporten som input.
+I tillegg støttes token utstedt av [Altinn Token Exchange](/nb/authorization/what-do-you-get/authentication/#bytt-et-jwt-fra-en-ekstern-tokenleverandør), ved bruk av enten ID-porten eller Maskinporten som input.
 
 ## Bruk for sluttbrukersystemer
 
@@ -36,7 +36,7 @@ Følgende generelle trinn må utføres for å få tilgang til sluttbruker-API-et
 2. Provisiones scope `digdir:dialogporten` på klienten, samt eventuelle tilleggs scope som kreves for tilgang til innholdsdata (dvs. `altinn:correspondence.read`)
 3. Omdiriger brukeren til autorisasjonsendepunktet i ID-porten, hvor de autentiserer seg og samtykker til at integrasjonen din får tilgang til å kalle Dialogporten på dine vegne
 4. På omdirigeringsendepunktet ditt bruker du autorisasjonskoden som er gitt mot ID-porten token-endepunktet for å få et tilgangstoken
-5. Utfør forespørsler til [sluttbruker-API](../../reference/openapi) ved hjelp av tilgangstokenet i en `Authorization: Bearer <token>` header.
+5. Utfør forespørsler til [sluttbruker-API](/nb/dialogporten/reference/openapi/) ved hjelp av tilgangstokenet i en `Authorization: Bearer <token>` header.
 
 ID-porten implementerer en standard OAuth2-protokoll, og utsteder refresh tokens som kan lagres og gjenbrukes for å få nye tilgangstokens på et senere tidspunkt. Autoriseringer (OAuth "samtykker") til `digdir:dialogporten` scope er gyldige i opptil 90 dager.
 
@@ -46,26 +46,17 @@ For detaljerte trinn om hvordan du oppretter en ID-porten-integrasjon og bruker 
 
 - [Om ID-porten (norsk)](https://samarbeid.digdir.no/id-porten/id-porten/18)
 - [Kom i gang med ID-porten](https://docs.digdir.no/docs/idporten/oidc/oidc_guide_english.html)
-- [Bruke Altinn Token Exchange](../../../authorization/what-do-you-get/authentication/#bytt-et-jwt-fra-en-ekstern-tokenleverandør)
+- [Bruke Altinn Token Exchange](/nb/authorization/what-do-you-get/authentication/#bytt-et-jwt-fra-en-ekstern-tokenleverandør)
 
 ### Maskinporten-autentisering med systembrukere
 
 Systembrukere er den nye og foretrukne autentiseringsmetoden der en organisasjon kan opprette en "virtuell bruker", delegere tjenesterettigheter til den og knytte den til et system - enten selveid eller levert av en tredjepart. Dette er etterfølgeren til "virksomhetsbruker" i Altinn 2, og gir en sikrere og mer brukervennlig onboarding-prosess for kunder og sluttbrukere.
 
-Følgende generelle trinn må utføres for å få tilgang til sluttbruker-API-et som systembruker:
-
-1. Logg inn i Altinn, og velg å representere organisasjonen du ønsker å opprette systembrukeren i.
-2. Naviger til profilinnstillinger, og seksjonen "Systembrukere"
-3. Opprett en ny systembruker, og knytt den enten til et leverandørlevert system, eller velg å opprette din egen Maskinporten-integrasjon
-4. Gi tjenesterettigheter til systembrukeren
-5. Opprett en JWT grant som identifiserer systembrukeren og `digdir:dialogporten` scope, samt eventuelle tilleggs scope som kreves for tilgang til innholdsdata (dvs. `altinn:correspondence.read`), signer den og send den til Maskinporten token-endepunktet for å få et tilgangstoken.
-6. Utfør forespørsler til [sluttbruker-API](../../reference/openapi) ved hjelp av tilgangstokenet i en `Authorization: Bearer <token>` header.
-
 For detaljerte trinn om hvordan du oppretter og bruker en systembruker, se lenken nedenfor.
 
 **Les mer**
 
-- [Autentisering med systembrukere](../../../authorization/guides/system-vendor/system-user/)
+- [Autentisering med systembrukere](/nb/authorization/guides/system-vendor/system-user/)
 
 {{<children />}}
 
@@ -75,11 +66,11 @@ Tjenesteeiersystemer må bruke Maskinporten-utstedte tokens, eventuelt utvekslet
 
 Det finnes flere scopes som definerer tilgang til forskjellige deler av tjenesteeier-APIet:
 
-| Scope                                                | Gir tilgang til                                                                                                                                                                                         |
-| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `digdir:dialogporten.serviceprovider`                | Alle tjenesteeier-APIer, unntatt søke/liste-API-et                                                                                                                                                      |
-| `digdir:dialogporten.serviceprovider.search`         | Alle tjenesteeier-APIer, inkludert søke/liste-API-et                                                                                                                                                    |
-| `digdir:dialogporten.serviceprovider.correspondence` | Opprett og oppdater dialoger som refererer en tjenesteressurs av typen `CorrespondenceService` i [Altinn Resource Registry](../../../authorization/what-do-you-get/resourceregistry/) (kun intern bruk) |
+| Scope                                                | Gir tilgang til                                                                                                                                                                                          |
+| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `digdir:dialogporten.serviceprovider`                | Alle tjenesteeier-APIer, unntatt søke/liste-API-et                                                                                                                                                       |
+| `digdir:dialogporten.serviceprovider.search`         | Alle tjenesteeier-APIer, inkludert søke/liste-API-et                                                                                                                                                     |
+| `digdir:dialogporten.serviceprovider.correspondence` | Opprett og oppdater dialoger som refererer en tjenesteressurs av typen `CorrespondenceService` i [Altinn Resource Registry](/nb/authorization/what-do-you-get/resourceadministration/) (kun intern bruk) |
 
 Bruk av disse scope krever at organisasjonen i `consumer` claim er registrert som en tjenesteeier ("org") i Altinn. Hvis ikke vil alle forespørsler mislykkes.
 
@@ -89,7 +80,7 @@ Følgende generelle trinn må utføres for å få tilgang til Dialogporten tjene
 2. Provisiones scope `digdir:dialogporten.serviceprovider` på klienten
 3. Generer en JWT grant som refererer til klient-ID-en din og scope, signer den og send den til Maskinporten token-endepunktet
 4. På omdirigeringsendepunktet ditt bruker du autorisasjonskoden som er gitt mot Maskinporten endepunktet for å få et tilgangstoken.
-5. Utfør forespørsler til [tjenesteeier API](../../reference/openapi) ved hjelp av tilgangstokenet i en `Authorization: Bearer <token>` header.
+5. Utfør forespørsler til [tjenesteeier API](/nb/dialogporten/reference/openapi/) ved hjelp av tilgangstokenet i en `Authorization: Bearer <token>` header.
 
 For detaljerte trinn om hvordan du bruker Maskinporten, se lenken nedenfor.
 

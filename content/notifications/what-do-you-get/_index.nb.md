@@ -34,9 +34,12 @@ Altinn SMS-varsler sikrer rettidig levering av konsise meldinger til brukernes m
 
 ### Sendevindu
 
-- SMS-varsler sendes daglig mellom **kl. 09.00 og 17.00 (norsk tid)**.
-- Varsler planlagt utenfor dette tidsrommet sendes **kl. 09.00 neste dag**.
-- Varslingsordrer kan legges inn når som helst.
+- SMS-varsler kan sendes **hele døgnet, alle dager**.
+- Angi sendevindu ved å sette `smsSettings.sendingTimePolicy` i bestillingen:
+  - `Anytime` (standard) gir utsendelse hele døgnet.
+  - `Daytime` begrenser utsendelsen til Altinns dagtidsvindu (09:00-17:00 i tidssonen Europe/Oslo).
+- Planlagte varsler blir sendt på angitt tidspunkt, også utenfor arbeidstid (tolket i tidssonen Europe/Oslo).
+- Varslingsordrer kan legges inn og endres når som helst.
 
 ### Støttede mottakernummer
 
@@ -67,7 +70,7 @@ Altinn tilbyr funksjonalitet for mottakeroppslag for å bestemme navn, kontaktde
 - **Tidspunkt**: Oppslag skjer ved bestilling og igjen på planlagt sendetidspunkt.
 - **Ansvar**: Det er avsenderens ansvar å sjekke sendestatus. Oppslagsresultater gis i bestillingsresponsen og detaljeres i de ferdige varslene.
 
-[Lær mer om mottakeroppslag i forklaringsdokumentasjonen.](/notifications/explanation/recipient-lookup)
+[Lær mer om mottakeroppslag i forklaringsdokumentasjonen.](/nb/notifications/explanation/recipient-lookup)
 
 ## Sendebetingelse
 
@@ -76,4 +79,4 @@ Sendebetingelsesfunksjonen sikrer at varsler kun sendes når spesifikke kriterie
 - **Bruksområde**: Ideelt for scenarier som påminnelser, der et varsel sendes kun hvis en påkrevd handling ikke er fullført.
 - **Evaluering**: Betingelser sjekkes av applikasjonen ved hjelp av betingelsesendepunktet som er oppgitt i varslingsordren.
 
-[Lær mer om sendebetingelser i forklaringsdokumentasjonen.](/notifications/explanation/send-condition)
+[Lær mer om sendebetingelser i forklaringsdokumentasjonen.](/nb/notifications/explanation/send-condition)

@@ -19,7 +19,7 @@ For å autentisere mot Formidlings-API-et, må du registrere Maskinporten-klient
 - `altinn:broker.write` - For klienter som sender filer.
 - `altinn:broker.read` - For klienter som mottar filer.
 
-Disse scopene vedlikeholdes av Altinn og må være autorisert for de riktige API-operasjonene, og er derfor uavhengige av [tilgangen satt av tjenesteeiere](../service-owner#register-a-resource-in-altinn-resource-registry) for den spesifikke formidlingstjenesten.
+Disse scopene vedlikeholdes av Altinn og må være autorisert for de riktige API-operasjonene, og er derfor uavhengige av [tilgangen satt av tjenesteeiere](/nb/broker/getting-started/service-owner#register-a-resource-in-altinn-resource-registry) for den spesifikke formidlingstjenesten.
 
 For å få tilgang til scopes må du sende en forespørsel til: servicedesk@altinn.no 
 Forespørselen må inneholde de scopes du trenger. Vær obs på at du kan trenge flere scopes for integrasjonen din enn bare altinn:broker-scopes. 
@@ -45,14 +45,14 @@ Oppgi følgende informasjon:
 Dette vil i fremtiden håndteres av Systembruker / Ressurssregister / Tilgangslister via GUI.
 {{% /notice %}}
 
-**Hvis du er en tjenesteeier som oppretter din første formidlingstjeneste, trenger du ikke følge dette steget. I stedet kan du gå videre til [Tjenesteeier](../service-owner/) for en detaljert beskrivelse av hvordan du oppretter og administrerer formidlingstjenester.**
+**Hvis du er en tjenesteeier som oppretter din første formidlingstjeneste, trenger du ikke følge dette steget. I stedet kan du gå videre til [Tjenesteeier](/nb/broker/getting-started/service-owner/) for en detaljert beskrivelse av hvordan du oppretter og administrerer formidlingstjenester.**
 
 ## 4. Integrer mot Formidlings-API-et {#integrate-against-broker-api}
 
-Du er nå klar til å begynne integreringen mot Formidlings API-ene. For neste trinn se [utviklerveiledningene](../developer-guides/).
+Du er nå klar til å begynne integreringen mot Formidlings API-ene. For neste trinn se [utviklerveiledningene](/nb/broker/getting-started/developer-guides/).
 
 ## 5. Sett opp hendelsesabonnementer {#set-up-event-subscriptions}
 
 For å kunne motta varsler om endringer eller hendelser knyttet til dine formidlingstjenester, må du sette opp et abonnement for den aktuelle tjenesten.
 Dette trinnet er spesielt viktig for deg som ønsker å få automatiserte varsler om hendelser fra formidlingstjenesten. Hvis du ikke trenger varsler, kan du hoppe over dette trinnet.
-Se [utviklerveiledningen for events](../developer-guides/events) for detaljerte instruksjoner om hvordan du setter opp abonnementet.
+Se [utviklerveiledningen for events](/nb/broker/getting-started/developer-guides/events/) for detaljerte instruksjoner om hvordan du setter opp abonnementet.

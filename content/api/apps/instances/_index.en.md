@@ -10,7 +10,7 @@ aliases:
 
 ## Overview
 
-An [instance](../../models/instance) can be regarded as an envelope or folder where data is collected and exchanged between the application user and owner. The instance document is a way for Altinn and external parties to track the state of one specific data exchange. How long an instance lives and how many interactions there are between the application owner and user will vary from one app to another. Advanced apps will have their own documentation.
+An [instance](/en/api/models/instance/) can be regarded as an envelope or folder where data is collected and exchanged between the application user and owner. The instance document is a way for Altinn and external parties to track the state of one specific data exchange. How long an instance lives and how many interactions there are between the application owner and user will vary from one app to another. Advanced apps will have their own documentation.
 
 **basePath**
 ```http
@@ -169,7 +169,7 @@ Note that prefill is a `Dictionary<string,string>`, so if you have recursive mod
 
 ## Update sub status
 
-The instance [sub status](../../../altinn-studio/reference/api/instance/#sub-status) is used to give an end user further details
+The instance [sub status](/en/altinn-studio/v8/reference/api/instance/#sub-status) is used to give an end user further details
 about the state of their instance. Currently, only application owner is allowed to update sub status for an instance.
 Include the new sub status in the body of the requests as a json.
 

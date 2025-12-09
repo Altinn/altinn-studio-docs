@@ -28,5 +28,5 @@
   {{ $content | markdownify}}
 {{ end }}
 {{ else }}
-  Could not find section content. File does not exist: {{ $filePath }}
+  {{ errorf "Could not find section content to be inserted in %s. File does not exist: %s" .Page.RelPermalink $filePath }}
 {{ end }}

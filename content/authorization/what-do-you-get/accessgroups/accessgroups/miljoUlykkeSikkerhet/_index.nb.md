@@ -10,12 +10,12 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Renovasjon](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/miljoulykkesikkerhet/#renovasjon)|
-|[Miljørydding, miljørensing og lignende](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/miljoulykkesikkerhet/#miljørydding-miljørensing-og-lignende)|
-|[Bærekraft](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/miljoulykkesikkerhet/#bærekraft)|
-|[Sikkerhet og internkontroll](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/miljoulykkesikkerhet/#sikkerhet-og-internkontroll)|
-|[Ulykke](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/miljoulykkesikkerhet/#ulykke)|
-|[Yrkesskade](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/miljoulykkesikkerhet/#yrkesskade)|
+|[Renovasjon](#renovasjon)|
+|[Miljørydding, miljørensing og lignende](#miljørydding-miljørensing-og-lignende)|
+|[Bærekraft](#bærekraft)|
+|[Sikkerhet og internkontroll](#sikkerhet-og-internkontroll)|
+|[Ulykke](#ulykke)|
+|[Yrkesskade](#yrkesskade)|
 
 ### Renovasjon
 Denne tilgangspakken gir fullmakter til tjenester knyttet til renovasjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
@@ -30,7 +30,7 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til tiltak og rapporte
 *urn:altinn:accesspackage:baerekraft*
 
 ### Sikkerhet og internkontroll
-Denne tilgangspakken gir fullmakter til tjenester knyttet til sikkerhet og internkontroll. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
+Denne tilgangspakken gir fullmakter til tjenester knyttet til sikkerhet, internkontroll og forebyggende tiltak. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:sikkerhet-og-internkontroll*
 
 ### Ulykke 
@@ -45,9 +45,9 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til yrkesskade. Ved re
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
 |**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
 |---|---|---|
-|Renovasjon|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Miljøryddung, miljørensing og lignende|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer, Kontaktperson NUF|Ja|
-|Bærekraft|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder|Ja|
-|Sikkerhet og internkontroll|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Ulykke|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Yrkesskade|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Renovasjon|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Miljøryddung, miljørensing og lignende|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Bærekraft|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder|Ja|
+|Sikkerhet og internkontroll|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Ulykke|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Yrkesskade|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|

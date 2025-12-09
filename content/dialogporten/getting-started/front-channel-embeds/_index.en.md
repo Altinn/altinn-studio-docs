@@ -12,13 +12,13 @@ Front channel embeds enable a more cohesive user experience, by avoiding having 
 {{<figure class="mx-xl-4" src="../../media/frontchannel-embeds-gui.png" alt="Figure showing a dialog with static content and one with a front channel embedded one side by side" caption="Dialog without front channel embed on left, displaying a link. Front channel embed on the right, showing the actual content">}}
 
 ## Usage
-Similar to displaying a simple link, content viewed via front channel embeds are **not stored in Dialogporten, nor fetched via or sent through it**. The "front channel", usually referring to the part of the end-user system running within the users web browser (typically a javascript application), handles the retrieval of the content and rendering of the content. By supplying the [dialog token]({{<relref "../authorization/dialog-tokens">}}), it is possible to do a single, direct request to a remote endpoint, which then can authenticate and authorize the request, and return the content directly back to the frontend to render and embed within the user interface.
+Similar to displaying a simple link, content viewed via front channel embeds are **not stored in Dialogporten, nor fetched via or sent through it**. The "front channel", usually referring to the part of the end-user system running within the users web browser (typically a javascript application), handles the retrieval of the content and rendering of the content. By supplying the [dialog token](/en/dialogporten/getting-started/front-channel-embeds/../authorization/dialog-tokens/), it is possible to do a single, direct request to a remote endpoint, which then can authenticate and authorize the request, and return the content directly back to the frontend to render and embed within the user interface.
 
 The service provider system will have to implement support for front channel embeds to handle front channel embeds and web browser security mechanisms ([CORS protocol](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)). More information about this in the reference section.
 
 
 **Read more**
-* [Handling front channel embeds in dialog details]({{<relref "../../user-guides/getting-dialog-details/#handling-front-channel-embeds">}})
+* [Handling front channel embeds in dialog details](/en/dialogporten/getting-started/front-channel-embeds/../../user-guides/getting-dialog-details/#handling-front-channel-embeds)
 * {{<link "../../reference/front-end/front-channel-embeds">}}
 
 {{<children />}}

@@ -10,7 +10,7 @@ Under are the attributes for the various types of content that can be set within
 
 ## Content types
 
-For information on how to use these, see the [creating dialogs user guide]({{<relref "../../user-guides/service-owners/creating-dialogs">}}).
+For information on how to use these, see the [creating dialogs user guide](/en/dialogporten/reference/content-types/../../user-guides/service-owners/creating-dialogs/).
 
 ### Title
 
@@ -37,9 +37,9 @@ For information on how to use these, see the [creating dialogs user guide]({{<re
 ### Summary
 
 | Attribute              |        Value |
-| ---------------------- | ------------:|
+| ---------------------- |-------------:|
 | Field name             |    `summary` |
-| Required               |          Yes |
+| Required               |           No |
 | Max length             |          255 |
 | Allowed formats        | `text/plain` |
 | Used in list?          |          Yes |

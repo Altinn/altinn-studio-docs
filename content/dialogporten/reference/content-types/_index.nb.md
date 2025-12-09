@@ -10,7 +10,7 @@ Nedenfor finner du attributtene for de forskjellige innholdstypene som kan angis
 
 ## Innholdstyper
 
-For informasjon om hvordan du bruker disse, se [brukerhåndboken for å opprette dialoger]({{<relref "../../user-guides/service-owners/creating-dialogs">}}).
+For informasjon om hvordan du bruker disse, se [brukerhåndboken for å opprette dialoger](/nb/dialogporten/reference/content-types/../../user-guides/service-owners/creating-dialogs/).
 
 ### Tittel
 

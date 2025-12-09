@@ -24,7 +24,7 @@ The following diagram shows the complete flow of a correspondence from initializ
 
 The system returns HTTP error responses for validation failures during initialization (no status is set):
 - **400 Bad Request**: Missing content, invalid format, empty message fields, invalid attachments, invalid dates, invalid language
-- **401 Unauthorized**: No access to resource, resource not whitelisted, incorrect resource type
+- **401 Unauthorized**: No access to resource, incorrect resource type
 
 ## Publishing Process Failures
 

@@ -8,14 +8,14 @@ aliases:
 - /authorization/modules/accessgroups
 ---
 
-|**TIlgangspakker i kategorien**|
+|**Tilgangspakker i kategorien**|
 |---|
-|[Kunst og underholdning](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/kulturfrivillighet/#kunst-og-underholdning)|
-|[Biblioteker, museer, arkiver og annen kultur](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/kulturfrivillighet/#biblioteker-museer-arkiver-og-annen-kultur)|
-|[Lotteri og spill](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/kulturfrivillighet/#lotteri-og-spill)|
-|[Sport og fritid](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/kulturfrivillighet/#sport-og-fritid)|
-|[Fornøyelser](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/kulturfrivillighet/#fornøyelser)|
-|[Politikk](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/kulturfrivillighet/#politikk)|
+|[Kunst og underholdning](#kunst-og-underholdning)|
+|[Biblioteker, museer, arkiver og annen kultur](#biblioteker-museer-arkiver-og-annen-kultur)|
+|[Lotteri og spill](#lotteri-og-spill)|
+|[Sport og fritid](#sport-og-fritid)|
+|[Fornøyelser](#fornøyelser)|
+|[Politikk](#politikk)|
 
 
 ### Kunst og underholdning
@@ -46,9 +46,9 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til aktiviteter i forb
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
 |**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
 |---|---|---|
-|Kunst og underholdning|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Biblioteker, museer, arkiver og annen kultur|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Lotteri og spill|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Sport og fritid|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Fornøyelser|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Politikk|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Kunst og underholdning|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Biblioteker, museer, arkiver og annen kultur|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Lotteri og spill|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Sport og fritid|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Fornøyelser|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Politikk|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|

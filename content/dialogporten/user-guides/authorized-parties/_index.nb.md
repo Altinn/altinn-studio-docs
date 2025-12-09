@@ -7,18 +7,18 @@ toc: true
 
 ## Introduksjon
 
-Dette viser hvordan du får en liste over [autoriserte parter]({{<relref "../../getting-started/authorization/parties#autoriserte-parter">}}) som den autentiserte brukeren kan representere.
+Dette viser hvordan du får en liste over [autoriserte parter](/nb/dialogporten/user-guides/authorized-parties/../../getting-started/authorization/parties#autoriserte-parter) som den autentiserte brukeren kan representere.
 
 ## Grunnleggende trinn (REST)
 
-1. [Autentiser som en sluttbruker]({{<relref "../authenticating#bruk-for-sluttbrukersystemer">}})
+1. [Autentiser som en sluttbruker](/nb/dialogporten/user-guides/authorized-parties/../authenticating#bruk-for-sluttbrukersystemer)
 2. Utfør en GET-forespørsel til `/api/v1/enduser/parties`
 
 ### Returnert informasjon
 
 Datastrukturen som returneres består av alle partene som sluttbrukeren kan representere, som som et minimum vil inkludere dem selv. Dette inkluderer
 * Navnet på parten (fullt navn for personer, eller organisasjonsnavn).
-* Identifikatoren for parten, som kan brukes når du [søker etter dialoger]({{<relref "../searching-for-dialogs">}})
+* Identifikatoren for parten, som kan brukes når du [søker etter dialoger](/nb/dialogporten/user-guides/authorized-parties/../searching-for-dialogs/)
 * Om parten er den nåværende brukeren
 * Om brukeren har noen spesielle roller for parten
 

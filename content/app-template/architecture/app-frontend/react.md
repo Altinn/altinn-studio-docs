@@ -13,7 +13,7 @@ components.
 
 The diagram below show the architecture:
 
-![React architecture](../frontend-react-architecture.svg "React architecture")
+![React architecture](/en/app-template/architecture/app-frontend/frontend-react-architecture.svg)
 
 ## Store
  A store holds the whole state tree of your application. The only way to change the state inside it is to dispatch an action

@@ -99,9 +99,8 @@ Tilgangspakken har følgende undergrupper:
   - Fullmakten gjelder endring av postadresse for person med verge
 - \*Melde flytting
   - Fullmakten gjelder endring av bostedsadresse
-- \*Skatt 
-  - Fullmakten gjelder innsyn i skattedata, og representasjon overfor skattemyndighetene i saker om skatt og avgift, herunder levering av skattemelding og endring av skattekort. Denne tilgangspakken tilsvarer Altinn 2-rolle Skatteforhold for privatpersoner. Pakken er forbeholdt Skatteetatens tjenester for privatpersoner.
-  
+- \*Skatt
+  - Fullmakten gjelder innsyn i skattedata, og representasjon overfor skattemyndighetene i saker om skatt og avgift, herunder levering av skattemelding og endring av skattekort
 
 ## Nivå 1: Statens Innkrevningssentral
 
