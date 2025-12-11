@@ -7,7 +7,23 @@ weight: 2
 
 ## Tildeling av klienter til systemtilgang
 
-Dersom du oppretter en systemtilgang for klientsystemer, kan klienter tildeles i Altinn-portalen. Dette steget gjelder ikke dersom du oppretter en systemtilgang for eget system. Om du utøver tjenester på vegne av en annen virksomhet og dette skal gjøres ved hjelp av Systemtilgang, må klient-virksomheten gi fullmakt til dette til din virksomhet.
+Dersom du oppretter en systembruker for klientforhold, kan klienter tildeles i Altinn-portalen. Dette steget gjelder ikke dersom du oppretter en systembruker for eget system. Om du utøver tjenester på vegne av en annen virksomhet og dette skal gjøres ved hjelp av Systembruker, må klient-virksomheten gi fullmakt til dette til din virksomhet.
+
+### Automatiske klientforhold
+
+Noen klientforhold opprettes automatisk basert på roller registrert i Enhetsregisteret. Disse forholdene gir deg tilgang til å bruke visse tilgangspakker når du oppretter en systembruker for klientforhold.
+
+Tabellen under viser hvilke tilgangspakker som er tilgjengelige basert på din rolle i Enhetsregisteret:
+
+| ER-rolle             | Tilgjengelige tilgangspakker                                                                                                                                                              |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Revisor**          | `urn:altinn:accesspackage:ansvarlig-revisor`<br>`urn:altinn:accesspackage:revisormedarbeider`                                                                                             |
+| **Regnskapsfører**   | `urn:altinn:accesspackage:regnskapsforer-med-signeringsrettighet`<br>`urn:altinn:accesspackage:regnskapsforer-uten-signeringsrettighet`<br>`urn:altinn:accesspackage:regnskapsforer-lonn` |
+| **Forretningsfører** | `urn:altinn:accesspackage:forretningsforer-eiendom`                                                                                                                                       |
+
+Når du oppretter en systembruker for klientforhold, må du spesifisere hvilke tilgangspakker systembrukeren skal ha tilgang til. Disse pakkene må være i tråd med rollene du har i Enhetsregisteret.
+
+> **NB:** Tilgangspakker for klientforhold fungerer kun for "AND"-tilfeller. Dette betyr at hvis en systembruker for klientforhold har flere tilgangspakker, må klienten ha **enten direkte delegert eller fått delegering gjennom ER-rollen** for **alle** pakkene for at systembrukeren skal fungere. For eksempel: Hvis systembrukeren for klientforhold har både jordbrukspakken og regnskapsfører-pakken, må klienten ha delegert jordbrukspakken eksplisitt (direkte delegert) i tillegg til å ha fått delegering for regnskapsfører-pakken gjennom ER-rollen (som kommer automatisk).
 
 ### Forutsetninger
 
@@ -23,5 +39,5 @@ Dersom du oppretter en systemtilgang for klientsystemer, kan klienter tildeles i
 3. Trykk **+ Legg til kunder**  
    ![klientdelegering steg 3](klientdelegering3.png)
 4. Legg til klienter til systemtilgangen, en av gangen, ved å trykke **Legg til i systemtilgang**. I dette eksempelet legger vi til "Revisorkunde AS". Hvis du ikke ser noen klienter i denne modalen, er ikke klientforholdet satt opp. Se [egen guide for å sette opp dette](/nb/authorization/guides/end-user/system-user/setup-client-relationship/).
-5. Trykk **Bekreft og lukk** etter klienter er lagt til. 
+5. Trykk **Bekreft og lukk** etter klienter er lagt til.
    ![klientdelegering steg 4](klientdelegering4.png)
