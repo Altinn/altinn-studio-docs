@@ -1,0 +1,141 @@
+---
+title: Fiks Arkiv
+description: How to configure integration with Fiks Arkiv for an app.
+tags: [fiks-arkiv, fiks, arkiv]
+toc: true
+weight: 15
+---
+
+In addition to the documentation below, we have created a [sample application](https://altinn.studio/repos/ttd/fiks-arkiv-test) showing the complete Fiks Arkiv setup.
+
+## Prerequisites
+
+Before setting up the Fiks Arkiv integration in your app you will need to have the following set up: 
+
+- **Fiks Protokoll** enabled in Fiks forvaltning portal for your organisation
+- **Samarbeidsportalen** access to configure Maskinporten clients (national ID provider)
+- An **archive system** that integrates with Fiks Arkiv (e.g., Public 360)
+
+## Integration architecture
+![fiks-arkitektur.svg](fiks-arkitektur.svg)
+## Configuration for sending messages from Altinn App
+
+1.  Create a Maskinporten client
+
+    - Set up a Maskinporten client with scopes: `ks:fiks`, `altinn:serviceowner/instances.read` and
+    `altinn:serviceowner/instances.write`
+
+    - Generate a **JWK keypair for Maskinporten authentication** and upload the public key to the newly generated Maskinporten client
+
+    -  Keep the following configuration values for the Altinn App setup
+        - Client id for the generated Maskinporten client
+        - Private key of the **Maskinporten JWK keypair** (base64 encoded)
+
+    
+    _This maskinporten client will be used to authenticate requests from the Altinn App both towards Altinn Platform 
+    and Fiks._
+
+
+    A more detailed explanation on how to set up a Maskinporten client in Samarbeidsportalen is available below.
+
+    {{% expandlarge id="guide-mp-int-samarbeid" header="Guide on how to register a new Maskinporten integration in Samarbeidsportalen" %}}
+    {{% insert "content/shared/maskinporten/maskinporten-client-create.en.md" %}}
+    {{% /expandlarge %}}
+
+
+2. Create a Fiks Arkiv account
+
+    - Generate a **separate JWK keypair for Fiks Arkiv encryption** (different from the Maskinporten keypair).
+     The public part should be in .pem format and saved to a file. 
+     The private part should be a base64 encoded string.
+
+    - In Fiks Forvaltning, set up a new system under Fiks Protokoll for your organisation.
+    - Create an account linked to this system. The account should be configured with the following properties
+
+        | Property          | Value             |
+        |-------------------|-------------------|
+        | Protokolltype     | no.ks.fiks.arkiv  |
+        | Versjon           | v1                |
+        | Protokollparter   | klient.arkivering /klient.full* |
+
+        \* _klient.arkivering_ should be used unless the account will be used for other tasks as well.
+
+    - Upload the public key (.PEM file) generated to the account
+
+    - Keep the following configuration values for the Altinn App setup
+        - Integration ID and password of the Fiks system
+                <img src="fiks-system-integration-values.png" alt="Screenshot illustrating where to find the system configuration values in Fiks Forvaltning" width="80%">
+        - The account ID of the Fiks account
+                <img src="fiks-account-id.png" alt="Screenshot illustrating where to find the account configuration values in Fiks Forvaltning" width="80%">
+        - Private part of the **Fiks Arkiv encryption JWK keypair** as a base64 string
+
+3. Configure and prepare the Altinn App
+
+    Hva må settes opp og hva blir håndtert automatisk av nugetpakken. Ref servicetask etc. 
+    - In App.csproj add a reference to the NuGet package
+    [Altinn.App.Clients.Fiks](https://www.nuget.org/packages/Altinn.App.Clients.Fiks/).
+   
+
+        ```xml
+            <PackageReference Include="Altinn.App.Api" Version="8.9.0">
+            <CopyToOutputDirectory>lib\$(TargetFramework)\*.xml</CopyToOutputDirectory>
+            </PackageReference>
+            <PackageReference Include="Altinn.App.Core" Version="8.9.0" />
+            <PackageReference Include="Altinn.App.Clients.Fiks" Version="8.9.0" />
+        ```
+
+        The package version should match the version of the _Altinn.App.Core_ and _Altinn.App.Api_ packages 
+            as shown below 
+
+    -  Define name of settings sections in Program.cs
+
+    - Business logic for identifying recipient
+        - programatisk som sjenkebevilling eller via skjemadata felter som testappen. 
+    
+    - Mulighet for overstyring av arkivmeldingen som genereres.
+
+    -  Upload configuration values in appsettings.json or Key Vault
+        -  "Soknad-bevillinger-FiksIOSettings"
+        -  "Soknad-bevillinger-FiksArkivSettings":
+
+    -  Update process flow of app
+        <img src="fiks-arkiv-process.png" alt="Illustration of recommended processs flow" width="80%">
+
+    - Update policy of app to match the new process flow
+
+## Configuration for receiving messages in archive system
+
+As Digdir does not offer the archive system or Fiks Arkiv, we do not have extensive documentation here, but recommend that 
+the application developer reference KS Digital's documentation along side the documentation of 
+the archive system provider. 
+
+However, as more application owners make use of the integration we have seen a few common pit falls.
+These along with solutions are listed below, to be used at your convenience. 
+
+### Create a Fiks Arkiv account
+
+1. For your organization, set up a new system under Fiks Protokoll 
+2. Create an account linked to this system
+
+    The account should be configured with the following properties
+
+    | Property          | Value             |
+    |-------------------|-------------------|
+    | Protokolltype     | no.ks.fiks.arkiv  |
+    | Versjon           | v1                |
+    | Protokollparter   | arkiv.full        |
+
+3. Please reference archive system documentation on requirements for the encryption key pair.
+
+4. Under the account, navigate to the _Søk etter systemer_ tab and look up the system created in the section for configuring sending of messages.
+Give this system permission to send messages to the recipient account by clickin _Gi tilang_.
+    <img src="fiks-system-whitelist.png" alt="Screenshot illustrating how to give access to a system from a Fiks account" width="80%">
+
+### Known issues in configuration of Public 360
+
+__The encryption key is not documented__
+
+The maskinporten token uploaded in P360 is used as the private part of the encryption key
+the Fiks Arkiv account that receives messages should upload the public part of this certificate
+as the encryption key. 
+
