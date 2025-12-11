@@ -99,6 +99,8 @@ Du kan også opprette en systembruker for klientforhold med vanlige tilgangspakk
 
 Et system kan være knyttet til flere klient-ID-er. Disse klient-ID-ene må være relevante klient-ID-er som er definert på Maskinporten-klienten til systemleverandøren eller de som skal hente systembrukertoken. Klient-ID-ene genereres for integrasjoner i Maskinporten, og hver av dem er unik, knyttet spesifikt til et system. Som et resultat kan en klient-ID ikke gjenbrukes for et annet system. Hvis systemet som er knyttet til en klient-ID blir slettet, kan klient-ID-en tildeles et nytt eller eksisterende system.
 
+**Viktig:** `clientId` er et påkrevd felt ved opprettelse av systemet, men innholdet kan dessverre ikke valideres. Disse klient-ID-ene må være relevante klient-ID-er som er definert på Maskinporten-klienten til systemleverandøren eller de som skal hente systembrukertoken. Uten en korrekt klient-ID kan du ikke hente systembrukertoken for systembrukeren.
+
 ```json
 "clientId": [
   "32ef65ac-6e62-498d-880f-76c85c2052ae"

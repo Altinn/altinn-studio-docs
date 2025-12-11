@@ -97,6 +97,8 @@ You can also create a system user for client relationships with regular access p
 
 A system can be associated with multiple client IDs. These client IDs must be relevant client IDs that are defined on the Maskinporten client of the system vendor or those who will retrieve the system user token. The client IDs are generated for integrations in Maskinporten, and each one is unique, tied specifically to a system. As a result, a client ID cannot be reused for a different system. If the system linked to a client ID is deleted, the client ID may be reassigned to a new or existing system.
 
+**Important:** `clientId` is a required field when creating a system, but unfortunately the content cannot be validated. These client IDs must be relevant client IDs that are defined on the Maskinporten client of the system vendor or those who will retrieve the system user token. Without a correct client ID, you cannot retrieve a system user token for the system user.
+
 ```json
 "clientId": [
   "32ef65ac-6e62-498d-880f-76c85c2052ae"
