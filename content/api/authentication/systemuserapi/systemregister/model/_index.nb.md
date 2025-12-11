@@ -109,7 +109,9 @@ Et system kan være knyttet til flere klient-ID-er. Disse klient-ID-ene må vær
 
 ### IsVisible
 
-Leverandøren kan bestemme om systemet skal være synlig i Altinn-portalen for sluttbrukere å opprette manuelt..
+Leverandøren kan bestemme om systemet skal være synlig i Altinn-portalen for sluttbrukere å opprette manuelt.
+
+**Viktig:** Du kan ikke sette `IsVisible = true` i kombinasjon med en tilgangspakke tiltenkt klientforhold. Se [tabellen over tilgangspakker for klientforhold](/nb/authorization/guides/end-user/system-user/delegate-clients/) for hvilke tilgangspakker dette gjelder.
 
 - True: Systemet er synlig i den brukerstyrte systembruker opprettingsprosessen i Altinn-portalen..
 - False: Systemet er ikke synlig i Altinn-portalen og kan kun opprettes av leverandøren gjennom den leverandørstyrte systembruker opprettelse.

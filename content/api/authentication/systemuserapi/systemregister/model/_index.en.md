@@ -28,7 +28,7 @@ for example
 
 ### Name
 
-Name of the system. This supports languages english(en), norwegian bokmål(nb) and nynorsk(nn). This is used on the display of th system in the user interface for manulaly creating the system user and also on approval of a system user request.
+Name of the system. This supports languages english(en), norwegian bokmål(nb) and nynorsk(nn). This is used on the display of the system in the user interface for manulaly creating the system user and also on approval of a system user request.
 
 ```json
 "name": {
@@ -52,7 +52,7 @@ A short text that describes the system. This is used to present to the end user 
 
 ### Rights
 
-This defines the services that the vendor's system requires access from the system user. This can be either altinn 3 app, service outside altinnn but is registered as a resource in Altinn. The example below defines an app "app_ttd_endring-av-navn-v2" in altinn and service "ske-krav-og-betalinger" outside altinn that is registered as a resource in Altinn. This is an optional argument to create a system but it must be set before the system user can be created.
+This defines the services that the vendor's system requires access from the system user. This can be either altinn 3 app, service outside altinn but is registered as a resource in Altinn. The example below defines an app "app_ttd_endring-av-navn-v2" in altinn and service "ske-krav-og-betalinger" outside altinn that is registered as a resource in Altinn. This is an optional argument to create a system but it must be set before the system user can be created.
 
 ```json
 "rights": [
@@ -83,7 +83,7 @@ An access package is a collection of rights and access permissions that are grou
 
 The access packages for client systems must be linked to the roles Accountant (REGN), Auditor (REVI), or Business Manager (FFOR). See [the table of available access packages based on ER roles](/en/authorization/guides/end-user/system-user/delegate-clients/) for an overview of these specific access packages.
 
-You can also create a system user for client relationships with regular access packages, as long as the client has delegated the access package to the organization that owns the system user. See [the guide on setting up client relationships](/en/authorization/guides/end-user/system-user/setup-client-relationship/) for more information.
+You can also create a system user for client relationships with regular access packages, as long as the client has delegated the access package to the organization that owns the system user.
 
 ```json
 "accessPackages": [
@@ -108,6 +108,8 @@ A system can be associated with multiple client IDs. These client IDs must be re
 ### IsVisible
 
 The vendor can decide whether the system should be visible in the Altinn portal for end users to manually create it.
+
+**Important:** You cannot set `IsVisible = true` in combination with an access package intended for client relationships. See [the table of access packages for client relationships](/en/authorization/guides/end-user/system-user/delegate-clients/) for which access packages this applies to.
 
 - True: The system is visible in the user-driven system creation process in the Altinn portal.
 - False: The system is not visible in the Altinn portal and can only be created by the vendor through the vendor-driven system creation process.
