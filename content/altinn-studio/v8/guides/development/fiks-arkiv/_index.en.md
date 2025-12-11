@@ -163,6 +163,59 @@ Todo: Si at dette burde bo i KV. Og format på secret navn i KV.
  | Documents       | Settings for documents sent to Fiks Arkiv, including the primary document and optional attachments.    | 
  | ErrorHandling   | Settings for error handling, such as progressing to the next task or sending a specific action on failure. | 
  | SuccessHandling | Settings for success handling, such as progressing to the next task, sending an action, or marking the instance as complete. |
+
+ FiksArkivSettings
+| Setting Name      | Description                                                                                   | 
+|-------------------|-----------------------------------------------------------------------------------------------| 
+| Receipt         | Settings related to the receipt for a successful shipment, including confirmation and archive records. |
+ | Recipient       | Settings related to the recipient of the Fiks Arkiv message, such as account, identifier, and name.   | 
+ | Metadata        | Settings related to shipment metadata, including system ID, rule ID, case file info, and titles.      | 
+ | Documents       | Settings for documents sent to Fiks Arkiv, including the primary document and optional attachments.    | 
+ | ErrorHandling   | Settings for error handling, such as progressing to the next task or sending a specific action on failure. | 
+ | SuccessHandling | Settings for success handling, such as progressing to the next task, sending an action, or marking the instance as complete. |
+---
+FiksArkivReceiptSettings
+| Setting Name         | Description                                                                                   |
+ |----------------------|-----------------------------------------------------------------------------------------------| 
+ | ConfirmationRecord | Settings for the storage of the confirmation record (arkivkvittering) after shipment.         | 
+ | ArchiveRecord      | Settings for the storage of the archive record (arkivmelding) after shipment.                 |
+---
+FiksArkivRecipientSettings
+| Setting Name         | Description                                                                                   | 
+|----------------------|-----------------------------------------------------------------------------------------------|
+ | FiksAccount        | The Fiks Arkiv recipient account (GUID) to ship messages to.                                  | 
+ | Identifier         | An optional identifier for the recipient (e.g., municipality number).                         | 
+ | Name               | An optional name for the recipient.                                                           | 
+ | OrganizationNumber | An optional organization number for the recipient.                                            |
+---
+FiksArkivMetadataSettings
+| Setting Name         | Description                                                                                   | 
+|----------------------|-----------------------------------------------------------------------------------------------| 
+| SystemId           | The system ID for the generated arkivmelding.xml. Defaults to "Altinn Studio" if not provided.| 
+| RuleId             | The rule ID for the generated arkivmelding.xml. Omitted if not provided.                      |
+ | CaseFileId         | The ID for the generated saksmappe (case file) element. Defaults to instance identifier if not provided. | 
+ | CaseFileTitle      | The title for the generated saksmappe (case file) element. Defaults to application title if not provided. |
+  | JournalEntryTitle  | The title for the generated journalpost (journal entry) element. Defaults to application title if not provided. |
+---
+FiksArkivDocumentSettings
+| Setting Name         | Description                                                                                   | 
+|----------------------|-----------------------------------------------------------------------------------------------|
+ | PrimaryDocument    | The settings for the primary document payload (main form data or PDF) sent as Hoveddokument.| 
+ | Attachments        | Optional settings for additional documents sent as Vedlegg (attachments).                   |
+---
+FiksArkivErrorHandlingSettings
+| Setting Name         | Description                                                                                   |
+ |----------------------|-----------------------------------------------------------------------------------------------| 
+ | MoveToNextTask     | Whether to automatically progress to the next task after failing to send the message.         | 
+ | Action             | The action to send when progressing to the next task after failure (default: "reject").       |
+---
+FiksArkivSuccessHandlingSettings
+| Setting Name         | Description                                                                                   | 
+|----------------------|-----------------------------------------------------------------------------------------------| 
+| MoveToNextTask     | Whether to automatically progress to the next task after successfully sending the message.    | 
+| Action             | The action to send when progressing to the next task after success.                          | 
+| MarkInstanceComplete | Whether to mark the instance as completed after successfully sending the message.         |
+---
 {{% /expandlarge %}}
         
 
