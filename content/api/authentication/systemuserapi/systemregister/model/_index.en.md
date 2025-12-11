@@ -77,7 +77,13 @@ This defines the services that the vendor's system requires access from the syst
 
 ### AccessPackages
 
-This defines the access packages that the vendor's system requires access from the system user. As of now, this is defined only for the client delegation case. The example below defines the accesspackage "skattnaering". The access package should be one of the roles "REGN/REVI/FFOR". This is an optional argument to create a system but it must be set before the system user can be created.
+An access package is a collection of rights and access permissions that are grouped together to make access management easier. Access packages define which services and resources the system user should have access to.
+
+**Important:** There are specific access packages for client systems (agent system users) that cannot be used for system users for your own system. These access packages are designed to handle delegations from clients to service providers (such as accountants, auditors, or business managers), and therefore require client relationships that are established via the Central Coordinating Register or direct delegation.
+
+The access packages for client systems must be linked to the roles Accountant (REGN), Auditor (REVI), or Business Manager (FFOR). See [the table of available access packages based on ER roles](/en/authorization/guides/end-user/system-user/delegate-clients/) for an overview of these specific access packages.
+
+You can also create a system user for client relationships with regular access packages, as long as the client has delegated the access package to the organization that owns the system user. See [the guide on setting up client relationships](/en/authorization/guides/end-user/system-user/setup-client-relationship/) for more information.
 
 ```json
 "accessPackages": [

@@ -79,7 +79,13 @@ Dette definerer tjenestene som leverandørens system krever tilgang til fra syst
 
 ### AccessPackages
 
-Dette definerer tilgangspakkene som leverandørens system krever tilgang til fra systembrukeren. Per i dag er dette kun definert for klientdelegasjons-tilfellet. Eksempelet nedenfor definerer tilgangspakken "skattnaering". Tilgangspakken bør være en av rollene "REGN/REVI/FFOR". Dette er et valgfrie argument for å opprette et system, men det må settes før systembrukeren kan opprettes.
+En tilgangspakke er en samling av rettigheter og tilganger som er gruppert sammen for å gjøre det enklere å administrere tilgang. Tilgangspakker definerer hvilke tjenester og ressurser systembrukeren skal ha tilgang til.
+
+**Viktig:** Det finnes spesifikke tilgangspakker for klientsystemer (systembrukere for klientforhold) som ikke kan brukes for systembrukere for eget system. Disse tilgangspakkene er designet for å håndtere delegeringer fra klienter til tjenesteytere (som regnskapsførere, revisorer eller forretningsførere), og krever derfor klientforhold som er etablert via Enhetsregisteret eller direkte delegering.
+
+Tilgangspakkene for klientsystemer må være knyttet til rollene Regnskapsfører (REGN), Revisor (REVI) eller Forretningsfører (FFOR). Se [tabellen over tilgjengelige tilgangspakker basert på ER-roller](/nb/authorization/guides/end-user/system-user/delegate-clients/) for en oversikt over disse spesifikke tilgangspakkene.
+
+Du kan også opprette en systembruker for klientforhold med vanlige tilgangspakker, så lenge klienten har delegert tilgangspakken til organisasjonen som eier systembrukeren. Se [veiledningen om å sette opp klientforhold](/nb/authorization/guides/end-user/system-user/setup-client-relationship/) for mer informasjon.
 
 ```json
 "accessPackages": [
