@@ -16,8 +16,10 @@ Before setting up the Fiks Arkiv integration in your app you will need to have t
 - **Samarbeidsportalen** access to configure Maskinporten clients (national ID provider)
 - An **archive system** that integrates with Fiks Arkiv (e.g., Public 360)
 
-## Integration architecture
-![fiks-arkitektur.svg](fiks-arkitektur.svg)
+## Integration architecture and flow
+
+![fiks-arkitektur.svg](fiks-arkitektur.svg "Flow chart for Fiks Arkiv integration for an Altinn app")
+
 ## Configuration for sending messages from Altinn App
 
 1.  Create a Maskinporten client
@@ -29,7 +31,7 @@ Before setting up the Fiks Arkiv integration in your app you will need to have t
 
     -  Keep the following configuration values for the Altinn App setup
         - Client id for the generated Maskinporten client
-        - Private key of the **Maskinporten JWK keypair** (base64 encoded)
+        - Public and private key of the **Maskinporten JWK keypair** (base64 encoded)
 
     
     _This maskinporten client will be used to authenticate requests from the Altinn App both towards Altinn Platform 
@@ -56,7 +58,7 @@ Before setting up the Fiks Arkiv integration in your app you will need to have t
         |-------------------|-------------------|
         | Protokolltype     | no.ks.fiks.arkiv  |
         | Versjon           | v1                |
-        | Protokollparter   | klient.arkivering /klient.full* |
+        | Protokollparter   | klient.arkivering / klient.full* |
 
         \* _klient.arkivering_ should be used unless the account will be used for other tasks as well.
 
@@ -69,14 +71,22 @@ Before setting up the Fiks Arkiv integration in your app you will need to have t
                 <img src="fiks-account-id.png" alt="Screenshot illustrating where to find the account configuration values in Fiks Forvaltning" width="80%">
         - Private part of the **Fiks Arkiv encryption JWK keypair** as a base64 string
 
-3. Configure and prepare the Altinn App
+        TODO: Link evt. til eksisterende doc for Konto-oppsett som KS digital selv har.
 
-    Hva må settes opp og hva blir håndtert automatisk av nugetpakken. Ref servicetask etc. 
+3. Configure and prepare the Altinn App
+    The Altinn Fiks package automatically handles a lot of the integration for you. The simplest setup for a Fiks Integration
+    involves setting up configuration values for connection to Maskinporten and Fiks, as well as specifying which 
+    data should be sent to Fiks and who the recipient is. 
+    
+    That being said, all interfaces can be overriden with custom logic should you wish to have more control yourself. 
+    The standard way is what is described here, but interfaces will be mentioned for those that wish for more control.
+
     - In App.csproj add a reference to the NuGet package
     [Altinn.App.Clients.Fiks](https://www.nuget.org/packages/Altinn.App.Clients.Fiks/).
-   
+    The package version should match the version of the
+     _Altinn.App.Core_ and _Altinn.App.Api_ packages.
 
-        ```xml
+        ```xml {hl_lines=[5]}
             <PackageReference Include="Altinn.App.Api" Version="8.9.0">
             <CopyToOutputDirectory>lib\$(TargetFramework)\*.xml</CopyToOutputDirectory>
             </PackageReference>
@@ -84,10 +94,79 @@ Before setting up the Fiks Arkiv integration in your app you will need to have t
             <PackageReference Include="Altinn.App.Clients.Fiks" Version="8.9.0" />
         ```
 
-        The package version should match the version of the _Altinn.App.Core_ and _Altinn.App.Api_ packages 
-            as shown below 
+    -  In Program.cs, register the required Fiks and Maskinporten services
 
-    -  Define name of settings sections in Program.cs
+        ```cs
+        void RegisterCustomAppServices(
+            IServiceCollection services,
+            IConfiguration config,
+            IWebHostEnvironment env
+        )
+        {           
+            // redacted code 
+
+            services
+                .AddFiksArkiv()
+                .WithFiksIOConfig("FiksIOSettings")
+                .WithFiksArkivConfig("FiksArkivSettings")
+                .WithMaskinportenConfig("MaskinportenSettings");
+        }
+        ```
+
+
+        __Todo: Skal vi si noe om hva hver av disse linjene registrerer???__
+
+        Please note the definition of the configuration section names _FiksIOSettings_, _FiksArkivSettings_, 
+        and _MaskinportenSettings_. You are free to select section names, but note that these must match 
+        the section names for the configuration values in appsettings.json and/or in Azure Key Vault.
+
+    - Set up configuration values in appsettings.json or Azure Key Vault. 
+
+        We strongly recommend that all sensitive values are registered in Azure Key Vault, and not checked 
+        in to appsettings.json, but for completeness of the example, all config values are included below.
+
+
+{{% expandlarge id="guide-mp-config-vals" header="Overview of Maskinporten configuration values and registration in app and Key Vault" %}}
+The client id for the Maskinporten client generated in step 1 and the base64 encoded public and private key
+should be added as _ClientId_ and _JwkBase64_ in the _MaskinportenSettings_ section. 
+
+{{% insert "content/shared/maskinporten/maskinporten-config-values.en.md" %}}
+{{% /expandlarge %}}
+
+{{% expandlarge id="guide-fiks-io-settings" header="Overview of FiksIOSettings" %}}
+
+| Setting Name                | Description                                                                                                   | 
+|-----------------------------|---------------------------------------------------------------------------------------------------------------| 
+| AccountId                   | The account ID for the FIKS IO account.                                                                      | 
+| IntegrationId               | The integration ID for the FIKS IO account.                                                                  |
+| IntegrationPassword         | The password for the Fiks Arkiv system integration                                                              |
+| AccountPrivateKeyBase64     | The account's private key, base64 encoded PEM format, used for authentication and decrypting messages.        |
+
+Todo: Si at dette burde bo i KV. Og format på secret navn i KV. 
+```json
+  "FiksIOSettings": {
+    "AccountId": "retrieved from secrets",
+    "IntegrationId": "retrieved from secrets",
+    "IntegrationPassword": "retrieved from secrets",
+    "AccountPrivateKeyBase64": "retrieved from secrets"
+  }
+```
+{{% /expandlarge %}}
+
+{{% expandlarge id="guide-fiks-arkiv-settings" header="Overview of FiksArkivSettings" %}}
+
+| Setting Name      | Description                                                                                   | 
+|-------------------|-----------------------------------------------------------------------------------------------| 
+| Receipt         | Settings related to the receipt for a successful shipment, including confirmation and archive records. |
+ | Recipient       | Settings related to the recipient of the Fiks Arkiv message, such as account, identifier, and name.   | 
+ | Metadata        | Settings related to shipment metadata, including system ID, rule ID, case file info, and titles.      | 
+ | Documents       | Settings for documents sent to Fiks Arkiv, including the primary document and optional attachments.    | 
+ | ErrorHandling   | Settings for error handling, such as progressing to the next task or sending a specific action on failure. | 
+ | SuccessHandling | Settings for success handling, such as progressing to the next task, sending an action, or marking the instance as complete. |
+{{% /expandlarge %}}
+        
+
+        
 
     - Business logic for identifying recipient
         - programatisk som sjenkebevilling eller via skjemadata felter som testappen. 
@@ -103,6 +182,7 @@ Before setting up the Fiks Arkiv integration in your app you will need to have t
 
     - Update policy of app to match the new process flow
 
+Må nevnes:  Hva må settes opp og hva blir håndtert automatisk av nugetpakken. Ref servicetask etc. 
 ## Configuration for receiving messages in archive system
 
 As Digdir does not offer the archive system or Fiks Arkiv, we do not have extensive documentation here, but recommend that 
