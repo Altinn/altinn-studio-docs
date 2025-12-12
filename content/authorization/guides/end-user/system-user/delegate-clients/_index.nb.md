@@ -15,11 +15,11 @@ Noen klientforhold opprettes automatisk basert på roller registrert i Enhetsreg
 
 Tabellen under viser hvilke tilgangspakker som er tilgjengelige basert på din rolle i Enhetsregisteret:
 
-| ER-rolle             | Tilgjengelige tilgangspakker                                                                                                                                                              |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Revisor**          | `urn:altinn:accesspackage:ansvarlig-revisor`<br>`urn:altinn:accesspackage:revisormedarbeider`                                                                                             |
-| **Regnskapsfører**   | `urn:altinn:accesspackage:regnskapsforer-med-signeringsrettighet`<br>`urn:altinn:accesspackage:regnskapsforer-uten-signeringsrettighet`<br>`urn:altinn:accesspackage:regnskapsforer-lonn` |
-| **Forretningsfører** | `urn:altinn:accesspackage:forretningsforer-eiendom`                                                                                                                                       |
+| ER-rolle             | Tilgjengelige tilgangspakker                                                                                                                                                              | Organisasjonsform |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| **Revisor**          | `urn:altinn:accesspackage:ansvarlig-revisor`<br>`urn:altinn:accesspackage:revisormedarbeider`                                                                                             | Alle              |
+| **Regnskapsfører**   | `urn:altinn:accesspackage:regnskapsforer-med-signeringsrettighet`<br>`urn:altinn:accesspackage:regnskapsforer-uten-signeringsrettighet`<br>`urn:altinn:accesspackage:regnskapsforer-lonn` | Alle              |
+| **Forretningsfører** | `urn:altinn:accesspackage:forretningsforer-eiendom`                                                                                                                                       | ESEK, BRL         |
 
 Når du oppretter en systembruker for klientforhold, må du spesifisere hvilke tilgangspakker systembrukeren skal ha tilgang til. Disse pakkene må være i tråd med rollene du har i Enhetsregisteret.
 
