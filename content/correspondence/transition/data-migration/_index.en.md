@@ -49,7 +49,7 @@ Eventually, as full production for all components approaches, this will be handl
 
 ## What Data is Migrated?
 
-- Only correspondences that have not been deleted. (added to "deleted items" or permanently deleted)
+- Only correspondences that have not been permanently deleted, correspondences in the recycle/trash bin are migrated.
 - No correspondences for dead people.
 - Both non-archived and archived correspondences.
 - Correspondence content, including text and all attachments and metadata.
