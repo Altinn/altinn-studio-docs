@@ -8,7 +8,8 @@ hidden: true
    - The client ID for the integration
 
    It is important that the name of these secrets in Azure Key Vault corresponds with the name of the section in the 
-   appsettings file in the application repository. E.g. if your appsettings section for the Maskinporten integration section looks like this:
+   appsettings file in the application repository.
+   E.g. if your appsettings section for the Maskinporten integration section looks like this:
 
    {{< code-title >}}
    App/appsettings.json

@@ -6,7 +6,8 @@ toc: true
 weight: 15
 ---
 
-In addition to the documentation below, we have created a [sample application](https://altinn.studio/repos/ttd/fiks-arkiv-test) showing the complete Fiks Arkiv setup.
+In addition to the documentation below, we have created a 
+[sample application](https://altinn.studio/repos/ttd/fiks-arkiv-test) showing the complete Fiks Arkiv setup in an app.
 
 ## Prerequisites
 
@@ -33,7 +34,7 @@ Before setting up the Fiks Arkiv integration in your app you will need to have t
         - Client id for the generated Maskinporten client
         - Public and private key of the **Maskinporten JWK keypair** (base64 encoded)
 
-    
+
     _This maskinporten client will be used to authenticate requests from the Altinn App both towards Altinn Platform 
     and Fiks._
 
@@ -81,10 +82,13 @@ Before setting up the Fiks Arkiv integration in your app you will need to have t
     That being said, all interfaces can be overriden with custom logic should you wish to have more control yourself. 
     The standard way is what is described here, but interfaces will be mentioned for those that wish for more control.
 
-    - In App.csproj add a reference to the NuGet package
-    [Altinn.App.Clients.Fiks](https://www.nuget.org/packages/Altinn.App.Clients.Fiks/).
-    The package version should match the version of the
-     _Altinn.App.Core_ and _Altinn.App.Api_ packages.
+    - Add a reference to the NuGet package
+    [Altinn.App.Clients.Fiks](https://www.nuget.org/packages/Altinn.App.Clients.Fiks/) in your project file.
+    The package version should match the version of the _Altinn.App.Core_ and _Altinn.App.Api_ packages.
+
+        {{< code-title >}}
+        App/App.csproj
+        {{< /code-title >}}
 
         ```xml {hl_lines=[5]}
             <PackageReference Include="Altinn.App.Api" Version="8.9.0">
@@ -94,7 +98,11 @@ Before setting up the Fiks Arkiv integration in your app you will need to have t
             <PackageReference Include="Altinn.App.Clients.Fiks" Version="8.9.0" />
         ```
 
-    -  In Program.cs, register the required Fiks and Maskinporten services
+    - Register the required Fiks and Maskinporten services in the program file.
+
+        {{< code-title >}}
+        App/Program.cs
+        {{< /code-title >}}
 
         ```cs
         void RegisterCustomAppServices(
@@ -113,17 +121,40 @@ Before setting up the Fiks Arkiv integration in your app you will need to have t
         }
         ```
 
-
         __Todo: Skal vi si noe om hva hver av disse linjene registrerer???__
 
-        Please note the definition of the configuration section names _FiksIOSettings_, _FiksArkivSettings_, 
-        and _MaskinportenSettings_. You are free to select section names, but note that these must match 
-        the section names for the configuration values in appsettings.json and/or in Azure Key Vault.
+        __Note:__ You are free to select section names for the configuration values, 
+        but these must match the section names used in appsettings.json and/or the applications secret management 
+        platform (e.g. Azure Key Vault).
+
+        E.g. if your appsettings section for the Maskinporten integration section looks like this:
+
+        {{< code-title >}}
+        App/appsettings.json
+        {{< /code-title >}}
+
+        ```json
+        {
+            "MaskinportenSettings": {
+            "Authority": "https://test.maskinporten.no/",
+            "ClientId": "",
+            "JwkBase64": ""
+            }
+        }
+        ```
+
+        The secrets in Azure Key Vault should have names like this:
+
+        ```
+        MaskinportenSettings--Authority
+        MaskinportenSettings--ClientId
+        MaskinportenSettings--JwkBase64
+        ```
 
     - Set up configuration values in appsettings.json or Azure Key Vault. 
 
-        We strongly recommend that all sensitive values are registered in Azure Key Vault, and not checked 
-        in to appsettings.json, but for completeness of the example, all config values are included below.
+        All sensitive values should be registered in Azure Key Vault, and not checked 
+        in to appsettings.json.
 
 
 {{% expandlarge id="guide-mp-config-vals" header="Overview of Maskinporten configuration values and registration in app and Key Vault" %}}
@@ -135,14 +166,21 @@ should be added as _ClientId_ and _JwkBase64_ in the _MaskinportenSettings_ sect
 
 {{% expandlarge id="guide-fiks-io-settings" header="Overview of FiksIOSettings" %}}
 
-| Setting Name                | Description                                                                                                   | 
-|-----------------------------|---------------------------------------------------------------------------------------------------------------| 
-| AccountId                   | The account ID for the FIKS IO account.                                                                      | 
-| IntegrationId               | The integration ID for the FIKS IO account.                                                                  |
-| IntegrationPassword         | The password for the Fiks Arkiv system integration                                                              |
-| AccountPrivateKeyBase64     | The account's private key, base64 encoded PEM format, used for authentication and decrypting messages.        |
+It is recommended that all FiksIO setting values are persisted in Azure Key Vault 
+or the secret management provider used by your application. 
+
+| Setting Name                | Description                                                                                            | 
+|-----------------------------|--------------------------------------------------------------------------------------------------------| 
+| AccountId                   | The account ID for the FIKS IO account.                                                                | 
+| IntegrationId               | The integration ID for the FIKS IO account.                                                            |
+| IntegrationPassword         | The password for the Fiks Arkiv system integration                                                     |
+| AccountPrivateKeyBase64     | The account's private key, base64 encoded PEM format, used for authentication and decrypting messages. |
 
 Todo: Si at dette burde bo i KV. Og format på secret navn i KV. 
+{{< code-title >}}
+App/appsettings.json
+{{< /code-title >}}
+
 ```json
   "FiksIOSettings": {
     "AccountId": "retrieved from secrets",
@@ -151,6 +189,32 @@ Todo: Si at dette burde bo i KV. Og format på secret navn i KV.
     "AccountPrivateKeyBase64": "retrieved from secrets"
   }
 ```
+
+ It is important that the name of these secrets in Azure Key Vault corresponds with the name of the section in the 
+   appsettings file in the application repository.
+   E.g. if your appsettings section for the Maskinporten integration section looks like this:
+
+   {{< code-title >}}
+   App/appsettings.json
+   {{< /code-title >}}
+
+   ```json
+   {
+     "MaskinportenSettings": {
+       "Authority": "https://test.maskinporten.no/",
+       "ClientId": "",
+       "JwkBase64": ""
+     }
+   }
+   ```
+
+   The secrets in Azure Key Vault should have names like this:
+
+   ```
+   MaskinportenSettings--Authority
+   MaskinportenSettings--ClientId
+   MaskinportenSettings--JwkBase64
+   ```
 {{% /expandlarge %}}
 
 {{% expandlarge id="guide-fiks-arkiv-settings" header="Overview of FiksArkivSettings" %}}
