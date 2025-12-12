@@ -6,8 +6,14 @@ toc: true
 weight: 15
 ---
 
+{{% notice info %}}
+Nuget version [v8.9.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.9.0) or 
+higher is required for an app to support Fiks Arkiv.
+{{% /notice %}}
+
 In addition to the documentation below, we have created a 
 [sample application](https://altinn.studio/repos/ttd/fiks-arkiv-test) showing the complete Fiks Arkiv setup in an app.
+
 
 ## Prerequisites
 
@@ -19,10 +25,13 @@ Before setting up the Fiks Arkiv integration in your app you will need to have t
 
 ## Integration architecture and flow
 
-![fiks-arkitektur.svg](fiks-arkitektur.svg "Flow chart for Fiks Arkiv integration for an Altinn app")
+![fiks-arkiv-flyt.png](fiks-arkiv-flyt.png "Principal of message transmission through Fiks Arkiv. Fagsystem in the sketch would in this case be an Altinn App.")
+Source of image: [KS Digital](https://github.com/ks-no/fiks-arkiv-specification)
 
-## Configuration for sending messages from Altinn App
+![fiks-arkitektur.svg](fiks-dataflyt.svg "Flow chart for Fiks Arkiv integration for an Altinn app")
 
+## Configuration for sending messages from Altinn App 
+{.floating-bullet-numbers-sibling-ol}
 1.  Create a Maskinporten client
 
     - Set up a Maskinporten client with scopes: `ks:fiks`, `altinn:serviceowner/instances.read` and
@@ -41,17 +50,21 @@ Before setting up the Fiks Arkiv integration in your app you will need to have t
 
     A more detailed explanation on how to set up a Maskinporten client in Samarbeidsportalen is available below.
 
-    {{% expandlarge id="guide-mp-int-samarbeid" header="Guide on how to register a new Maskinporten integration in Samarbeidsportalen" %}}
-    {{% insert "content/shared/maskinporten/maskinporten-client-create.en.md" %}}
-    {{% /expandlarge %}}
-
+{{% expandlarge id="guide-mp-int-samarbeid" header="Guide on how to register a new Maskinporten integration in Samarbeidsportalen" %}}
+{{% insert "content/shared/maskinporten/maskinporten-client-create.en.md" %}}
+{{% /expandlarge %}}
 
 2. Create a Fiks Arkiv account
 
-    - Generate a **separate JWK keypair for Fiks Arkiv encryption** (different from the Maskinporten keypair).
-     The public part should be in .pem format and saved to a file. 
-     The private part should be a base64 encoded string.
+    - Generate a **x509 certificate for Fiks Arkiv encryption**
+     Save the self signed certificate in .pem format and saved to a file. This is the public part of the certificate.
+     The private part should be  in .PEM format and base64 encoded as a string.
 
+    TODO: Legg inn kodeeksempel på hvordan disse kan deles opp. F.eks med openssl. 
+    
+    ```cmd
+    .\openssl req -x509 -newkey rsa:2048 -nodes -keyout fiksprivatekey.pem -out fikspublic.pem -days 720 -config .\openssl.cfg
+    ```
     - In Fiks Forvaltning, set up a new system under Fiks Protokoll for your organisation.
     - Create an account linked to this system. The account should be configured with the following properties
 
@@ -98,7 +111,7 @@ Before setting up the Fiks Arkiv integration in your app you will need to have t
             <PackageReference Include="Altinn.App.Clients.Fiks" Version="8.9.0" />
         ```
 
-    - Register the required Fiks and Maskinporten services in the program file.
+    - Register all Fiks Arkiv dependencies including required configuration in the program file.
 
         {{< code-title >}}
         App/Program.cs
@@ -120,8 +133,6 @@ Before setting up the Fiks Arkiv integration in your app you will need to have t
                 .WithMaskinportenConfig("MaskinportenSettings");
         }
         ```
-
-        __Todo: Skal vi si noe om hva hver av disse linjene registrerer???__
 
         __Note:__ You are free to select section names for the configuration values, 
         but these must match the section names used in appsettings.json and/or the applications secret management 
@@ -219,15 +230,6 @@ App/appsettings.json
 
 {{% expandlarge id="guide-fiks-arkiv-settings" header="Overview of FiksArkivSettings" %}}
 
-| Setting Name      | Description                                                                                   | 
-|-------------------|-----------------------------------------------------------------------------------------------| 
-| Receipt         | Settings related to the receipt for a successful shipment, including confirmation and archive records. |
- | Recipient       | Settings related to the recipient of the Fiks Arkiv message, such as account, identifier, and name.   | 
- | Metadata        | Settings related to shipment metadata, including system ID, rule ID, case file info, and titles.      | 
- | Documents       | Settings for documents sent to Fiks Arkiv, including the primary document and optional attachments.    | 
- | ErrorHandling   | Settings for error handling, such as progressing to the next task or sending a specific action on failure. | 
- | SuccessHandling | Settings for success handling, such as progressing to the next task, sending an action, or marking the instance as complete. |
-
  FiksArkivSettings
 | Setting Name      | Description                                                                                   | 
 |-------------------|-----------------------------------------------------------------------------------------------| 
@@ -240,9 +242,9 @@ App/appsettings.json
 ---
 FiksArkivReceiptSettings
 | Setting Name         | Description                                                                                   |
- |----------------------|-----------------------------------------------------------------------------------------------| 
- | ConfirmationRecord | Settings for the storage of the confirmation record (arkivkvittering) after shipment.         | 
- | ArchiveRecord      | Settings for the storage of the archive record (arkivmelding) after shipment.                 |
+|----------------------|-----------------------------------------------------------------------------------------------| 
+| ConfirmationRecord | Settings for the storage of the confirmation record (arkivkvittering) after shipment.         | 
+| ArchiveRecord      | Settings for the storage of the archive record (arkivmelding) after shipment.                 |
 ---
 FiksArkivRecipientSettings
 | Setting Name         | Description                                                                                   | 
@@ -252,14 +254,15 @@ FiksArkivRecipientSettings
  | Name               | An optional name for the recipient.                                                           | 
  | OrganizationNumber | An optional organization number for the recipient.                                            |
 ---
+
 FiksArkivMetadataSettings
 | Setting Name         | Description                                                                                   | 
 |----------------------|-----------------------------------------------------------------------------------------------| 
-| SystemId           | The system ID for the generated arkivmelding.xml. Defaults to "Altinn Studio" if not provided.| 
-| RuleId             | The rule ID for the generated arkivmelding.xml. Omitted if not provided.                      |
- | CaseFileId         | The ID for the generated saksmappe (case file) element. Defaults to instance identifier if not provided. | 
- | CaseFileTitle      | The title for the generated saksmappe (case file) element. Defaults to application title if not provided. |
-  | JournalEntryTitle  | The title for the generated journalpost (journal entry) element. Defaults to application title if not provided. |
+| SystemId*            | The system ID for the generated arkivmelding.xml. Defaults to "Altinn Studio" if not provided. _field is reflected in archive system when a message is received._| 
+| RuleId*             | The rule ID for the generated arkivmelding.xml. Omitted if not provided. Can be included if your archive system supports rule ids as a way to process the incoming message.       |
+| CaseFileId*         | The ID for the generated case file (saksmappe element). "Referanse ekstern nøkkel" Defaults to instance identifier if not provided. | 
+| CaseFileTitle*      | The title for the generated saksmappe tittel  element. "Saksmappe tittel" Defaults to application title if not provided. |
+| JournalEntryTitle*  | The title for the generated journalpost tittel element. "Journalpost " Defaults to application title if not provided. |
 ---
 FiksArkivDocumentSettings
 | Setting Name         | Description                                                                                   | 
@@ -280,26 +283,52 @@ FiksArkivSuccessHandlingSettings
 | Action             | The action to send when progressing to the next task after success.                          | 
 | MarkInstanceComplete | Whether to mark the instance as completed after successfully sending the message.         |
 ---
+
+To override default values, add a setting in appsetting and hard code a value or use datamodel binding. 
++ kodeeksempel på datamodellbinding.
+
+```json
+"JournalEntryTitle": {
+  "Value": "Hallo"
+},
+"CaseFileTitle": {
+  "DataModelBinding": {
+    "DataType": "HelperDataModel",
+    "Field": "CaseFileTitle"
+  }
+}
+```
 {{% /expandlarge %}}
-        
 
-        
 
-    - Business logic for identifying recipient
-        - programatisk som sjenkebevilling eller via skjemadata felter som testappen. 
-    
-    - Mulighet for overstyring av arkivmeldingen som genereres.
+- Business logic for identifying recipient
+    - programatisk som sjenkebevilling eller via skjemadata felter som testappen. 
 
-    -  Upload configuration values in appsettings.json or Key Vault
-        -  "Soknad-bevillinger-FiksIOSettings"
-        -  "Soknad-bevillinger-FiksArkivSettings":
+- Mulighet for overstyring av arkivmeldingen som genereres.
+-  Upload configuration values in appsettings.json or Key Vault
+    -  "Soknad-bevillinger-FiksIOSettings"
+    -  "Soknad-bevillinger-FiksArkivSettings":
+-  Update process flow of app
+   -  Must include a service task for Fiks Arkiv
+    <img src="fiks-arkiv-process.png" alt="Illustration of recommended processs flow" width="80%">
+- Update policy of app to match the new process flow
+- Update applicationmetadata 
 
-    -  Update process flow of app
-        <img src="fiks-arkiv-process.png" alt="Illustration of recommended processs flow" width="80%">
+If the standard archive message and functionality does not cover what you need in your archive message, 
+look in to the following interfaces to override 
+- archive message generation.. .WithPayloadGenerator<OverridePayloadGenerator>() // IFiksArkivPayloadGenerator
+- processing response from receiving fiks account..  .WithResponseHandler<OverrideResponseHandler>(); // IFiksArkivResponseHandler
 
-    - Update policy of app to match the new process flow
+```cs
+services
+.AddFiksArkiv()
+    .WithFiksIOConfig("Soknad-bevillinger-FiksIOSettings")
+    .WithFiksArkivConfig("Soknad-bevillinger-FiksArkivSettings")
+    .WithMaskinportenConfig("Soknad-bevillinger-MaskinportenSettings")
+    .WithPayloadGenerator<OverridePayloadGenerator>() // IFiksArkivPayloadGenerator
+    .WithResponseHandler<OverrideResponseHandler>(); // IFiksArkivResponseHandler
+```
 
-Må nevnes:  Hva må settes opp og hva blir håndtert automatisk av nugetpakken. Ref servicetask etc. 
 ## Configuration for receiving messages in archive system
 
 As Digdir does not offer the archive system or Fiks Arkiv, we do not have extensive documentation here, but recommend that 
@@ -310,7 +339,7 @@ However, as more application owners make use of the integration we have seen a f
 These along with solutions are listed below, to be used at your convenience. 
 
 ### Create a Fiks Arkiv account
-
+{.floating-bullet-numbers-sibling-ol}
 1. For your organization, set up a new system under Fiks Protokoll 
 2. Create an account linked to this system
 
@@ -336,3 +365,12 @@ The maskinporten token uploaded in P360 is used as the private part of the encry
 the Fiks Arkiv account that receives messages should upload the public part of this certificate
 as the encryption key. 
 
+
+
+For den som vil lære mer om Fiks: 
+https://developers.fiks.ks.no/felles/integrasjoner/
+https://github.com/ks-no/fiks-arkiv-specification/wiki
+
+
+Todo: 
+- Fikse punktliste. Daniel har en CSS
