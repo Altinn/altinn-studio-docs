@@ -149,6 +149,6 @@ I tillegg til de spesifikke feilkodene ovenfor returnerer API-et også standard 
 
 ## Relaterte ressurser
 
-- [Veiledning for umiddelbare varsler](/nb/notifications/guides/instant-messaging/)
+- [Veiledning for umiddelbare varsler](/nb/notifications/guides/instant-notifications/)
 - [Altinn Notifications API-referanse](/nb/notifications/reference/api/)
 - [OpenAPI-spesifikasjon](/nb/notifications/reference/openapi/)
