@@ -1,8 +1,8 @@
 ---
 title: Umiddelbar varsling
-description: "Umiddelbar varsling (instant messaging) er en funksjon i Altinn Varslinger som sender varsler øyeblikkelig til én enkelt mottaker. Dette er spesielt egnet for tidskritiske meldinger som engangskoder, varsler og andre situasjoner der forsinkelser ikke er akseptabelt."
+description: "Umiddelbar varsling (instant notifications) er en funksjon i Altinn Varslinger som sender varsler øyeblikkelig til én enkelt mottaker. Dette er spesielt egnet for tidskritiske meldinger som engangskoder, varsler og andre situasjoner der forsinkelser ikke er akseptabelt."
 linktitle: Umiddelbar varsling
-tags: [umiddelbar varsling, instant messaging, OTP, engangskode]
+tags: [umiddelbar varsling, instant notifications, OTP, engangskode]
 weight: 50
 ---
 
@@ -170,5 +170,5 @@ Når bruker taster inn kode:
 
 ## Neste steg
 
-- Les [veiledningen for umiddelbar varsling](/nb/notifications/guides/instant-messaging/) for å lære hvordan du implementerer umiddelbar varsling i din tjeneste
+- Les [veiledningen for umiddelbar varsling](/nb/notifications/guides/instant-notifications/) for å lære hvordan du implementerer umiddelbar varsling i din tjeneste
 - Utforsk [OpenAPI-spesifikasjonen](/nb/notifications/reference/openapi/) for tekniske spesifikasjonsdetaljer

@@ -1,25 +1,25 @@
 ---
-title: Instant Messaging
-description: "Instant messaging is a feature in Altinn Notifications that sends notifications immediately to a single recipient. This is especially suitable for time-critical messages such as one-time passwords, alerts, and other situations where delays are not acceptable."
-linktitle: Instant Messaging
-tags: [instant messaging, OTP, one-time password]
+title: Instant Notifications
+description: "Instant notifications is a feature in Altinn Notifications that sends notifications immediately to a single recipient. This is especially suitable for time-critical messages such as one-time passwords, alerts, and other situations where delays are not acceptable."
+linktitle: Instant Notifications
+tags: [instant notifications, OTP, one-time password]
 weight: 50
 ---
 
-## What is Instant Messaging?
+## What is Instant Notifications?
 
-Instant messaging is a specialized notification service in the Altinn Notifications API that sends messages **immediately** to **a single recipient** given a specific email address or phone number. 
+Instant notifications is a specialized notification service in the Altinn Notifications API that sends messages **immediately** to **a single recipient** given a specific email address or phone number. 
 Unlike regular notification orders that are queued before processing, instant notifications bypass the queue and are sent directly to the SMS/email service.
 
 This functionality is designed for use cases where **rapid delivery is critical**, and where you cannot afford delays that may occur with queue-based processing.
 
-## When Should You Use Instant Messaging?
+## When Should You Use Instant Notifications?
 
-Instant messaging is particularly well-suited for the following situations:
+Instant notifications is particularly well-suited for the following situations:
 
 ### One-Time Passwords (OTP)
 
-The most common use case for instant messaging is sending **one-time passwords** (OTP). These codes:
+The most common use case for instant notifications is sending **one-time passwords** (OTP). These codes:
 
 - Must be delivered **immediately** for a good user experience
 - Have a short **time-to-live**
@@ -34,16 +34,16 @@ The most common use case for instant messaging is sending **one-time passwords**
 
 ### Other Time-Critical Notifications
 
-Instant messaging can also be used for other types of time-critical messages:
+Instant notifications can also be used for other types of time-critical messages:
 
 - **Alarms and critical alerts** requiring immediate action
 - **Real-time messages** in interactive services
 - **Confirmations** that users are waiting for in the user interface
 - **Status updates** that must be displayed immediately
 
-## Differences Between Instant Messaging and Regular Notification Orders
+## Differences Between Instant Notifications and Regular Notification Orders
 
-| Aspect | Instant Messaging | Regular Notification Orders |
+| Aspect | Instant Notifications | Regular Notification Orders |
 |--------|------------------|----------------------------|
 | **Delivery** | No queue | Queued |
 | **Number of recipients** | Single recipient | One or more recipients |
@@ -54,7 +54,7 @@ Instant messaging can also be used for other types of time-critical messages:
 
 ### Recipient Setup
 
-**Instant Messaging:**
+**Instant Notifications:**
 - You must provide **exact contact information** (phone number or email address)
 - **No automatic lookup** in the Contact and Reservation Register (KRR)
 - **No validation** of whether the recipient has reserved themselves against digital communication
@@ -68,7 +68,7 @@ Instant messaging can also be used for other types of time-critical messages:
 
 ### Immediate Sending with Asynchronous Status Tracking
 
-Instant messaging works as follows:
+Instant notifications works as follows:
 
 - The API call registers the order and sends it immediately to the SMS/email service
 - The API returns `201 Created` or `200 OK` with order tracking information (`shipmentId` and `notificationOrderId`)
@@ -78,7 +78,7 @@ Instant messaging works as follows:
 
 ### Idempotency
 
-Instant messaging supports **idempotency** through a mandatory `idempotencyId` field:
+Instant notifications supports **idempotency** through a mandatory `idempotencyId` field:
 
 - Prevents the same message from being sent multiple times upon repeated requests
 - Useful during network problems or timeout
@@ -114,12 +114,12 @@ When using instant messaging, you must be aware of:
 - **No reservation check** - recipients who have reserved themselves against digital communication will still receive the message
 
 {{% notice warning %}}
-When using instant messaging, you are responsible for ensuring that you have the right to contact the recipient at the provided address. Altinn performs no validation against KRR or other registers.
+When using instant notifications, you are responsible for ensuring that you have the right to contact the recipient at the provided address. Altinn performs no validation against KRR or other registers.
 {{% /notice %}}
 
-## Use Case: Sending One-Time Passwords (OTP)
+## Use Case: Sending One-Time Password (OTP)
 
-Let's look at a complete scenario for how instant messaging is used to send a one-time password:
+Let's look at a complete scenario for how instant notifications is used to send a one-time password:
 
 ### Scenario
 
@@ -170,5 +170,5 @@ When user enters code:
 
 ## Next Steps
 
-- Read the [instant messaging guide](/en/notifications/guides/instant-messaging/) to learn how to implement instant messaging in your service
+- Read the [instant notifications guide](/en/notifications/guides/instant-notifications/) to learn how to implement instant notifications in your service
 - Explore the [OpenAPI specification](/en/notifications/reference/openapi/) for technical specification details
