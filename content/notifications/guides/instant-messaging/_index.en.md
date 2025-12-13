@@ -271,4 +271,4 @@ To test SMS notifications in TT02:
 ## Next Steps
 
 - Explore the [API reference](/en/notifications/reference/api/) to set up authentication
-- See the [OpenAPI specification](/en/notifications/reference/openaAPI/) for detailed technical documentation
+- See the [OpenAPI specification](/en/notifications/reference/openAPI/) for detailed technical documentation

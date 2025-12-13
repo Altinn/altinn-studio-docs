@@ -22,7 +22,7 @@ Før du kan sende umiddelbare varsler må du ha:
 2. **Altinn-token** for autentisering mot API-et
 3. **Mottakers kontaktinformasjon** (telefonnummer eller e-postadresse)
 
-Se [veiledningen for Maskinporten-integrasjon](/nb/notifications/guides/#creating-a-new-maskinporten-client) for mer informasjon om oppsett.
+Se [veiledningen for Maskinporten-integrasjon](/nb/notifications/guides/#opprette-en-ny-maskinporten-klient) for mer informasjon om oppsett.
 
 ## API-endepunkter
 
