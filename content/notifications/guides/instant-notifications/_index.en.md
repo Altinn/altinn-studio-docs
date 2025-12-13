@@ -1,8 +1,8 @@
 ---
 title: Send Instant Notifications
 description: "Learn how to send instant notifications via the Altinn Notifications API for time-critical messages such as one-time passwords (OTP), authentication confirmations, and other immediate alerts."
-linktitle: Instant Messaging
-tags: [instant messaging, OTP, SMS, email]
+linktitle: Instant Notifications
+tags: [instant notifications, OTP, SMS, email]
 weight: 30
 ---
 
@@ -11,7 +11,7 @@ weight: 30
 This guide shows how to send instant notifications via the Altinn Notifications API. Instant notifications are sent immediately to a single recipient and are particularly suitable for time-critical messages such as one-time passwords (OTP).
 
 {{% notice info %}}
-Before you start, make sure you have read the [explanation of instant messaging](/en/notifications/explanation/instant-messaging/) to understand when and how you should use this feature.
+Before you start, make sure you have read the [explanation of instant notifications](/en/notifications/explanation/instant-notifications/) to understand when and how you should use this feature.
 {{% /notice %}}
 
 ## Prerequisites
@@ -26,7 +26,7 @@ See the [Maskinporten integration guide](/en/notifications/guides/#creating-a-ne
 
 ## API Endpoints
 
-Altinn Notifications offers two endpoints for instant messaging:
+Altinn Notifications offers two endpoints for instant notifications:
 
 | Endpoint | Description |
 |----------|-------------|

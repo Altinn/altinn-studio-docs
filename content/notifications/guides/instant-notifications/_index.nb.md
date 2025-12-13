@@ -11,7 +11,7 @@ weight: 30
 Denne veiledningen viser hvordan du sender umiddelbare varsler via Altinn Varslinger API. Umiddelbare varsler sendes øyeblikkelig til én enkelt mottaker og er spesielt egnet for tidskritiske meldinger som engangskoder (OTP).
 
 {{% notice info %}}
-Før du begynner, sørg for at du har lest [forklaringen om umiddelbar varsling](/nb/notifications/explanation/instant-messaging/) for å forstå når og hvordan du bør bruke denne funksjonen.
+Før du begynner, sørg for at du har lest [forklaringen om umiddelbar varsling](/nb/notifications/explanation/instant-notifications/) for å forstå når og hvordan du bør bruke denne funksjonen.
 {{% /notice %}}
 
 ## Forutsetninger
