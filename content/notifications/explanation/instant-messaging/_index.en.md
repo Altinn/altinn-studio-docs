@@ -171,4 +171,4 @@ When user enters code:
 ## Next Steps
 
 - Read the [instant messaging guide](/en/notifications/guides/instant-messaging/) to learn how to implement instant messaging in your service
-- Explore the [OpenAPI specification](/en/notifications/reference/openAPI/) for technical specification details
+- Explore the [OpenAPI specification](/en/notifications/reference/openapi/) for technical specification details

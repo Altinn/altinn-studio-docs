@@ -271,4 +271,4 @@ For å teste SMS-varsler i TT02:
 ## Neste steg
 
 - Utforsk [API-referansen](/nb/notifications/reference/api/) for å sette opp autentisering
-- Se [OpenAPI-spesifikasjonen](/nb/notifications/reference/openAPI/) for detaljert teknisk dokumentasjon
+- Se [OpenAPI-spesifikasjonen](/nb/notifications/reference/openapi/) for detaljert teknisk dokumentasjon

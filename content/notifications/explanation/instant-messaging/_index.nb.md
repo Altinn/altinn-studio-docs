@@ -171,4 +171,4 @@ Når bruker taster inn kode:
 ## Neste steg
 
 - Les [veiledningen for umiddelbar varsling](/nb/notifications/guides/instant-messaging/) for å lære hvordan du implementerer umiddelbar varsling i din tjeneste
-- Utforsk [OpenAPI-spesifikasjonen](/nb/notifications/reference/openAPI/) for tekniske spesifikasjonsdetaljer
+- Utforsk [OpenAPI-spesifikasjonen](/nb/notifications/reference/openapi/) for tekniske spesifikasjonsdetaljer
