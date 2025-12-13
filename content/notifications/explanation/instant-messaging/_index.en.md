@@ -8,7 +8,8 @@ weight: 50
 
 ## What is Instant Messaging?
 
-Instant messaging is a specialized notification service in Altinn Notifications that sends messages **immediately** to **a single recipient**. Unlike regular notification orders that are queued and processed asynchronously, instant notifications are sent as soon as the request is received and processed synchronously.
+Instant messaging is a specialized notification service in the Altinn Notifications API that sends messages **immediately** to **a single recipient** given a specific email address or phone number. 
+Unlike regular notification orders that are queued before processing, instant notifications bypass the queue and are sent directly to the SMS/email service.
 
 This functionality is designed for use cases where **rapid delivery is critical**, and where you cannot afford delays that may occur with queue-based processing.
 
@@ -44,16 +45,14 @@ Instant messaging can also be used for other types of time-critical messages:
 
 | Aspect | Instant Messaging | Regular Notification Orders |
 |--------|------------------|----------------------------|
-| **Delivery** | Synchronous - sent immediately | Asynchronous - queued |
+| **Delivery** | No queue | Queued |
 | **Number of recipients** | Single recipient | One or more recipients |
 | **Recipient information** | Must provide specific address (phone number/email) | Supports lookup via KRR based on national identity number |
 | **Use case** | Time-critical notifications (e.g., OTP) | General notifications and mass mailings |
-| **API response** | Returns delivery status immediately | Returns order ID for later follow-up |
-| **Notification channels** | SMS or email | SMS, email, or combinations |
+| **Notification channels** | Either SMS or email | SMS, email, or combinations |
 
-### Detailed Comparison
 
-#### Recipient Setup
+### Recipient Setup
 
 **Instant Messaging:**
 - You must provide **exact contact information** (phone number or email address)
@@ -65,32 +64,17 @@ Instant messaging can also be used for other types of time-critical messages:
 - Automatically retrieves contact information from KRR
 - Respects **reservations** against digital communication
 
-#### Processing Flow
-
-**Instant Messaging:**
-1. API receives request
-2. Validates content
-3. Sends immediately to SMS/email gateway
-4. Returns result to client
-
-**Regular Notification Orders:**
-1. API receives request
-2. Creates notification order
-3. Places order in processing queue
-4. Returns order ID
-5. Processes order asynchronously (including KRR lookup)
-6. Sends notifications based on configuration
-
 ## Technical Characteristics
 
-### Synchronous Processing
+### Immediate Sending with Asynchronous Status Tracking
 
-Instant messaging is processed **synchronously**, which means:
+Instant messaging works as follows:
 
-- The API call waits until the message is sent to the provider
-- You receive **immediate feedback** on whether the sending succeeded or failed
-- **Higher response time** on API calls compared to regular notification orders
-- No need to poll status endpoints to check delivery status
+- The API call registers the order and sends it immediately to the SMS/email service
+- The API returns `201 Created` or `200 OK` with order tracking information (`shipmentId` and `notificationOrderId`)
+- The notification is sent to the SMS/email gateway immediately (bypassing the queue)
+- Delivery status must be retrieved asynchronously via the status feed (`/future/shipment/feed`) or by polling `/future/shipment/:id` 
+- **Note:** the initial `201 Created` response confirms the order was registered and accepted by the gateway, not that delivery succeeded
 
 ### Idempotency
 
@@ -118,16 +102,9 @@ The time-to-live applies to the SMS provider's delivery attempts. If the recipie
 
 Instant messaging is **not optimized for high throughput**:
 
-- Designed for **individual messages**, not mass mailings
-- Synchronous processing means each request takes longer
-- For high volumes, you should consider regular notification orders instead
-
-### Cost
-
-Instant messaging may have **different cost metrics** than regular notification orders:
-
-- Synchronous processing requires more resources
-- Discuss with Altinn about the pricing model for your use case
+- Designed for **individual, time-critical messages**, not mass mailings
+- Intended for single-recipient notifications that require immediate sending
+- For high volumes or bulk notifications, you should use regular notification orders instead
 
 ### Security and Privacy
 
@@ -135,7 +112,6 @@ When using instant messaging, you must be aware of:
 
 - **No KRR validation** - you are responsible for having valid consent to contact the recipient
 - **No reservation check** - recipients who have reserved themselves against digital communication will still receive the message
-- **Logging** - all instant notifications are logged for audit purposes
 
 {{% notice warning %}}
 When using instant messaging, you are responsible for ensuring that you have the right to contact the recipient at the provided address. Altinn performs no validation against KRR or other registers.
@@ -191,15 +167,8 @@ When user enters code:
   - Mark the code as used
 ```
 
-### Benefits of Instant Messaging for OTP
-
-1. **Immediate delivery** - the user receives the code while waiting
-2. **Time-to-live control** - the code is not sent if it has already expired
-3. **Idempotency** - prevents duplicate sends upon repeated clicks
-4. **Simple implementation** - synchronous API is easier to implement than asynchronous handling
 
 ## Next Steps
 
 - Read the [instant messaging guide](/en/notifications/guides/instant-messaging/) to learn how to implement instant messaging in your service
-- See the [API reference](/en/notifications/reference/api/) for a detailed description of the endpoints
-- Explore the [OpenAPI specification](/en/notifications/reference/openapi/) for technical specification and authentication details
+- Explore the [OpenAPI specification](/en/notifications/reference/openAPI/) for technical specification details

@@ -1,6 +1,6 @@
 ---
 title: Umiddelbar varsling
-description: "Umiddelbar varsling (instant messaging) er en funksjon i Altinn Varslinger som leverer varsler øyeblikkelig til én enkelt mottaker. Dette er spesielt egnet for tidskritiske meldinger som engangskoder, varsler og andre situasjoner der forsinkelser ikke er akseptabelt."
+description: "Umiddelbar varsling (instant messaging) er en funksjon i Altinn Varslinger som sender varsler øyeblikkelig til én enkelt mottaker. Dette er spesielt egnet for tidskritiske meldinger som engangskoder, varsler og andre situasjoner der forsinkelser ikke er akseptabelt."
 linktitle: Umiddelbar varsling
 tags: [umiddelbar varsling, instant messaging, OTP, engangskode]
 weight: 50
@@ -8,7 +8,8 @@ weight: 50
 
 ## Hva er umiddelbar varsling?
 
-Umiddelbar varsling er en spesialisert funksjon i Altinn Varslinger som leverer meldinger **straks** til **én bestemt mottaker**. I motsetning til vanlige varslingsordre som settes i kø og behandles asynkront, sendes umiddelbare varsler med en gang forespørselen mottas og behandles synkront.
+Umiddelbar varsling er en spesialisert varslingstjeneste i Altinn Varslinger API som sender meldinger **øyeblikkelig** til **én enkelt mottaker** gitt en spesifikk e-postadresse eller telefonnummer.
+I motsetning til vanlige varslingsordre som settes i kø før behandling, går umiddelbare varsler forbi køen og sendes direkte til SMS/e-post-tjenesten.
 
 Denne funksjonaliteten er designet for brukstilfeller der **rask levering er kritisk**, og der du ikke har råd til forsinkelser som kan oppstå ved købasert behandling.
 
@@ -44,16 +45,14 @@ Umiddelbar varsling kan også brukes for andre typer tidskritiske meldinger:
 
 | Aspekt | Umiddelbar varsling | Vanlige varslingsordre |
 |--------|----------------|------------------------|
-| **Levering** | Synkron - sendes umiddelbart | Asynkron - settes i kø |
+| **Levering** | Ingen kø | Settes i kø |
 | **Antall mottakere** | Én enkelt mottaker | Én eller flere mottakere |
 | **Mottakerinformasjon** | Må oppgi konkret adresse (telefonnummer/e-post) | Støtter oppslag via KRR basert på fødselsnummer |
 | **Brukstilfelle** | Tidskritiske varsler (f.eks. OTP) | Generelle varsler og masseutsendelser |
-| **API-respons** | Returnerer leveringsstatus umiddelbart | Returnerer ordre-ID for senere oppfølging |
-| **Varslingskanaler** | SMS eller e-post | SMS, e-post, eller kombinasjoner |
+| **Varslingskanaler** | Enten SMS eller e-post | SMS, e-post, eller kombinasjoner |
 
-### Detaljert sammenligning
 
-#### Mottakeroppsett
+### Mottakeroppsett
 
 **Umiddelbar varsling:**
 - Du må oppgi **eksakt kontaktinformasjon** (telefonnummer eller e-postadresse)
@@ -65,32 +64,17 @@ Umiddelbar varsling kan også brukes for andre typer tidskritiske meldinger:
 - Henter automatisk kontaktinformasjon fra KRR
 - Respekterer **reservasjoner** mot digital kommunikasjon
 
-#### Behandlingsflyt
-
-**Umiddelbar varsling:**
-1. API mottar forespørsel
-2. Validerer innhold
-3. Sender umiddelbart til SMS/e-post gateway
-4. Returnerer resultat til klient
-
-**Vanlige varslingsordre:**
-1. API mottar forespørsel
-2. Oppretter varslingsordre
-3. Setter ordre i behandlingskø
-4. Returnerer ordre-ID
-5. Behandler ordre asynkront (inkludert KRR-oppslag)
-6. Sender varsler basert på konfigurasjon
-
 ## Tekniske egenskaper
 
-### Synkron behandling
+### Umiddelbar sending med asynkron statusoppfølging
 
-Umiddelbar varsling behandles **synkront**, noe som betyr at:
+Umiddelbar varsling fungerer som følger:
 
-- API-kallet venter til meldingen er sendt til leverandøren
-- Du får **umiddelbar tilbakemelding** på om sendingen lyktes eller feilet
-- **Høyere responstid** på API-kall sammenlignet med vanlige varslingsordre
-- Ingen behov for å polle statusendepunkt for å sjekke leveringsstatus
+- API-kallet registrerer ordren og sender den umiddelbart til SMS/e-post-tjenesten
+- API-et returnerer `201 Created` eller `200 OK` med sporingsinformasjon for ordre (`shipmentId` og `notificationOrderId`)
+- Varslingen sendes til SMS/e-post-gatewayen umiddelbart (går forbi køen)
+- Leveringsstatus må hentes asynkront via statusfeed (`/future/shipment/feed`) eller ved å polle `/future/shipment/:id`
+- **Merk:** den opprinnelige `201 Created`-responsen bekrefter at ordren ble registrert og akseptert av gatewayen, ikke at leveringen lyktes
 
 ### Idempotens
 
@@ -118,16 +102,9 @@ Levetiden gjelder for SMS-leverandørens forsøk på levering. Hvis mottakerens 
 
 Umiddelbar varsling er **ikke optimalisert for høy throughput**:
 
-- Designet for **enkeltstående meldinger**, ikke masseutsendelser
-- Synkron behandling betyr at hver forespørsel tar lengre tid
-- Ved høye volum bør du vurdere vanlige varslingsordre i stedet
-
-### Kostnad
-
-Umiddelbar varsling kan ha **andre kostnadsmål** enn vanlige varslingsordre:
-
-- Synkron behandling krever mer ressurser
-- Diskuter med Altinn om prismodell for ditt brukstilfelle
+- Designet for **enkeltstående, tidskritiske meldinger**, ikke masseutsendelser
+- Ment for varsler til enkeltmottakere som krever umiddelbar sending
+- Ved høye volum eller masseutsendelser bør du bruke vanlige varslingsordre i stedet
 
 ### Sikkerhet og personvern
 
@@ -135,7 +112,6 @@ Når du bruker umiddelbar varsling må du være oppmerksom på:
 
 - **Ingen KRR-validering** - du er ansvarlig for å ha gyldig samtykke til å kontakte mottakeren
 - **Ingen reservasjonssjekk** - mottakere som er reservert mot digital kommunikasjon vil likevel motta meldingen
-- **Logging** - alle umiddelbare varsler logges for revisjonsformål
 
 {{% notice warning %}}
 Ved bruk av umiddelbar varsling har du selv ansvar for å sikre at du har rett til å kontakte mottakeren på den oppgitte adressen. Altinn utfører ingen validering mot KRR eller andre registre.
@@ -191,15 +167,8 @@ Når bruker taster inn kode:
   - Marker koden som brukt
 ```
 
-### Fordeler med umiddelbar varsling for OTP
-
-1. **Øyeblikkelig levering** - brukeren får koden mens de venter
-2. **Levetidskontroll** - koden sendes ikke hvis den allerede er utløpt
-3. **Idempotens** - forhindrer duplikate sendinger ved gjentatte klikk
-4. **Enkel implementasjon** - synkron API er enklere å implementere enn asynkron håndtering
 
 ## Neste steg
 
 - Les [veiledningen for umiddelbar varsling](/nb/notifications/guides/instant-messaging/) for å lære hvordan du implementerer umiddelbar varsling i din tjeneste
-- Se [API-referansen](/nb/notifications/reference/api/) for detaljert beskrivelse av endepunktene
-- Utforsk [OpenAPI-spesifikasjonen](/nb/notifications/reference/openapi/) for teknisk spesifikasjon og autentiseringsdetaljer
+- Utforsk [OpenAPI-spesifikasjonen](/nb/notifications/reference/openAPI/) for tekniske spesifikasjonsdetaljer
