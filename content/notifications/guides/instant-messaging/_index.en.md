@@ -133,7 +133,7 @@ Upon successful sending, you receive a response with HTTP status `201 Created`:
 }
 ```
 
-If you send the same request again with the same `idempotencyId`, you receive HTTP status `200 OK` with the same response content.
+If you send the same request again with the same `idempotencyId`, you receive HTTP status `200 OK` with the same response content, without resending the SMS.
 
 ### Error Handling
 
@@ -250,181 +250,6 @@ Upon successful sending, you receive a response with HTTP status `201 Created`:
 }
 ```
 
-## Best Practices
-
-### 1. Use Unique Idempotency IDs
-
-Generate a unique `idempotencyId` for each new sending. A good practice is to include:
-- User identifier
-- Timestamp
-- Type of action
-
-**Example:**
-```plaintext
-otp-verification-user12345-20240115103045
-```
-
-### 2. Handle Timeout
-
-Instant messaging is synchronous and may take a few seconds. Set an appropriate timeout in the HTTP client:
-- **Recommended:** 10-15 seconds
-- **Minimum:** 5 seconds
-
-### 3. Implement Retry Logic
-
-In case of network errors or timeout, you can retry with the same `idempotencyId`:
-```plaintext
-1. First attempt: Send request with idempotencyId
-2. If timeout or network error: Wait 2 seconds
-3. Try again with the same idempotencyId
-4. If still error: Show error message to user
-```
-
-### 4. Validate Phone Number
-
-Before sending SMS, validate that the phone number:
-- Is in international format (`+[country code][number]`)
-- Is a valid mobile number (not landline)
-- Belongs to the country you expect
-
-### 5. Set Correct Time-to-Live for OTP
-
-For one-time codes, set `timeToLiveInSeconds` to the same value as the code's time-to-live:
-- **Standard OTP:** 300 seconds (5 minutes)
-- **Short-lived OTP:** 180 seconds (3 minutes)
-- **Long-lived OTP:** 600 seconds (10 minutes)
-
-### 6. Use Clear Message
-
-Write clear and concise messages:
-- Start with the purpose: "Your one-time code is:"
-- Include the code clearly
-- Specify time-to-live: "The code expires in 5 minutes"
-- Add sender if relevant
-
-**Example of good SMS message:**
-```plaintext
-Your one-time code is: 123456. The code expires in 5 minutes. Do not share this code with others. From Altinn
-```
-
-### 7. Log Sendings
-
-Log all instant notifications in your system for:
-- **Troubleshooting:** Track delivery issues
-- **Security:** Detect abuse (e.g., many OTP attempts)
-- **Audit:** Document who received which messages
-
-Log at minimum:
-- Timestamp of sending
-- Recipient (anonymize or hash for privacy)
-- Result (success/error)
-- Idempotency ID
-
-## Complete Example: OTP Implementation
-
-Here is a complete example of how you can implement OTP sending with instant messaging:
-
-### Step 1: Generate and Store OTP
-
-```javascript
-// Pseudo-code
-function generateAndStoreOTP(userId, phoneNumber) {
-  // Generate 6-digit random code
-  const otp = generateRandomCode(6);
-
-  // Store in database with expiration time
-  database.save({
-    userId: userId,
-    otp: otp,
-    expiresAt: now() + 5 * 60, // 5 minutes
-    attempts: 0,
-    phoneNumber: phoneNumber
-  });
-
-  return otp;
-}
-```
-
-### Step 2: Send OTP via Instant Messaging
-
-```javascript
-// Pseudo-code
-async function sendOTP(userId, phoneNumber) {
-  // Generate OTP
-  const otp = generateAndStoreOTP(userId, phoneNumber);
-
-  // Generate unique idempotency ID
-  const idempotencyId = `otp-${userId}-${Date.now()}`;
-
-  // Send instant SMS
-  const response = await fetch(
-    'https://platform.tt02.altinn.no/notifications/api/v1/future/orders/instant/sms',
-    {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${altinnToken}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        idempotencyId: idempotencyId,
-        sendersReference: `otp-${userId}`,
-        recipientSms: {
-          phoneNumber: phoneNumber,
-          timeToLiveInSeconds: 300,
-          smsSettings: {
-            sender: 'Altinn',
-            body: `Your one-time code is: ${otp}. The code expires in 5 minutes.`
-          }
-        }
-      })
-    }
-  );
-
-  if (!response.ok) {
-    throw new Error('Failed to send OTP');
-  }
-
-  return response.json();
-}
-```
-
-### Step 3: Verify OTP
-
-```javascript
-// Pseudo-code
-function verifyOTP(userId, inputOTP) {
-  // Retrieve stored OTP
-  const stored = database.get(userId);
-
-  // Check if OTP exists
-  if (!stored) {
-    return { success: false, error: 'NO_OTP_FOUND' };
-  }
-
-  // Check if OTP has expired
-  if (now() > stored.expiresAt) {
-    return { success: false, error: 'OTP_EXPIRED' };
-  }
-
-  // Check for too many attempts
-  if (stored.attempts >= 3) {
-    return { success: false, error: 'TOO_MANY_ATTEMPTS' };
-  }
-
-  // Increment attempt counter
-  database.incrementAttempts(userId);
-
-  // Verify OTP
-  if (stored.otp === inputOTP) {
-    // Delete OTP after successful verification
-    database.delete(userId);
-    return { success: true };
-  }
-
-  return { success: false, error: 'INVALID_OTP' };
-}
-```
-
 ## Testing
 
 ### Test in TT02 Environment
@@ -443,12 +268,7 @@ To test SMS notifications in TT02:
    - Emails are sent normally in TT02
    - Check spam folder if you do not receive email
 
-{{% notice info %}}
-There is a delay of up to 10 minutes before changes in contact information in KRR take effect. This does not apply to instant messaging since you provide contact information directly.
-{{% /notice %}}
-
 ## Next Steps
 
-- Read more about the [instant messaging concept](/en/notifications/explanation/instant-messaging/)
-- Explore the [API reference](/en/notifications/reference/api/) for complete API documentation
-- See the [OpenAPI specification](/en/notifications/reference/openapi/) for detailed technical documentation
+- Explore the [API reference](/en/notifications/reference/api/) to set up authentication
+- See the [OpenAPI specification](/en/notifications/reference/openaAPI/) for detailed technical documentation
