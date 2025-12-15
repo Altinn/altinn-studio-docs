@@ -4,11 +4,11 @@ description: How to add library elements to the organisation library
 weight: 10
 ---
 
-### Library elements
-
 See [Organisation library](/en/altinn-studio/v8/concepts/organisation-library/) for more information about the concept.
 
-To publish a library element
+### Library elements
+
+How to publish a library element to the Altinn organisation library
 
 1. Navigate to [Altinn Studio Designer](https://altinn.studio/)
 2. Choose the `library` tab
@@ -17,3 +17,7 @@ To publish a library element
 5. Create your element
 6. Save your element
 7. Publish your element
+
+### Supported library elements
+
+[Code lists](/en/altinn-studio/v8/concepts/organisation-library/code-lists/)

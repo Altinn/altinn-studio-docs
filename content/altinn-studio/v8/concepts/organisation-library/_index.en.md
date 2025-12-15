@@ -1,12 +1,15 @@
 ---
-title: Library elements
+title: Organisation Library
 description: What are Altinn 3 library elements?
 weight: 10
 ---
 
-## The general concept
+Altinn Studio Designer organisation library is a store for publishing resources which may be used by multiple Altinn Applications. The published resources
+are referred to as library elements.
 
-A library element is an element which is published using the Altinn Studio Designer organisation library for the purpose of being used in multiple Altinn applications.
+## Library elements
+
+A library element is an element which is published using the Altinn Studio Designer organisation library for the purpose of being used in Altinn applications.
 The elements are saved to the organisation library repository and published to the service owner space in the Altinn Studio Designer organisation library.
 
 Library elements use sequential versioning in addition to a "latest" version.
