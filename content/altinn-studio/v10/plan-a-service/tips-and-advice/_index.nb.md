@@ -1,6 +1,5 @@
 ---
 title: Tips og råd
-description: Få råd om hvordan du setter opp gode skjema, skriver brukervennlige tekster og sikrer tilgjengelighet for alle.
 weight: 30
 tags: [needsReview, translate-to-english]
 aliases:

@@ -1,6 +1,5 @@
 ---
 title: Tekster i tjenesten
-description: Mikrotekster er små, viktige tekster som hjelper brukerne gjennom tjenesten.
 weight: 5
 tags: [needsReview, translate-to-english]
 ---
