@@ -1,17 +1,20 @@
 ---
-title: Code list from shared resources
-linktitle: Shared resources
+title: Code list from organisation library
+linktitle: Organisation library
 description: Use code lists published from the Altinn Studio Designer organisation library
 weight: 150
 ---
 
-### Shared resources
+### Library elements
 
-See [Shared Resources](/en/altinn-studio/v8/concepts/shared-resources/) for more information about the concept.
+See [Organisation library](/en/altinn-studio/v8/concepts/organisation-library/) for more information about the concept.
 
-### Using a shared resource code list
+### Using a library code list
 
-To use a shared resource code list published from the Altinn Studio Designer organisation library, use the following syntax for the `optionsId`:
+To use a code list published from the Altinn Studio Designer organisation library, you can
+
+* Pin a version - to make sure that the application will not change if a new version is published.
+* Use the latest version by setting version to `latest`
 
 `prefix[separator]{org}[separator]{id}[separator]{version}/latest`
 
