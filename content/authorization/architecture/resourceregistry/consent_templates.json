@@ -108,43 +108,43 @@
                 "person": {
                     "nb": "Godkjenne deling med banken",
                     "nn": "Godkjenne deling med banken",
-                    "en": "Consent to sharing with the bank"
+                    "en": "Consent to share information with the bank"
                 },
                 "org": {
                     "nb": "Godkjenne deling med banken",
                     "nn": "Godkjenne deling med banken",
-                    "en": "Consent to sharing with the bank"
+                    "en": "Consent to share information with the bank"
                 }
             },
             "heading": {
                 "person": {
                     "nb": "{CoveredBy} ønsker å hente opplysninger om deg",
                     "nn": "{CoveredBy} ønskjer å hente opplysningar om deg",
-                    "en": "{CoveredBy} requests information about you"
+                    "en": "{CoveredBy} wishes to collect your information"
                 },
                 "org": {
                     "nb": "{CoveredBy} ønsker å hente opplysninger om {OfferedBy}",
                     "nn": "{CoveredBy} ønskjer å hente opplysningar om {OfferedBy}",
-                    "en": "{CoveredBy} requests information about {OfferedBy}"
+                    "en": "{CoveredBy} wishes to collect information about {OfferedBy}"
                 }
             },
             "serviceIntro": {
                 "person": {
                     "nb": "Skatteetaten har utviklet en løsning for å dele informasjon med banker. Det betyr at din virksomhet kan se opplysninger fra Skatteetaten i bankens kundeflater. BANK er en av disse bankene. For å se informasjonen i bankens kundeflater, må du godkjenne at Skatteetaten gir virksomhetens bankforbindelse tilgang til disse opplysningene. Denne godkjenningen har en varighet på 1 år. Godkjennelsen kan når som helst trekkes tilbake i Altinn.",
-                    "nn": "TODO",
-                    "en": "TODO"
+                    "nn": "Skatteetaten har utvikla ei løysing for å dele informasjon med bankar. Det betyr at verksemda di kan sjå opplysningar frå Skatteetaten i banken sine kundeflater. BANK er ein av desse bankane. For å sjå informasjonen i banken sine kundeflater, må du godkjenne at Skatteetaten gir verksemda sin bank tilgang til desse opplysningane. Denne godkjenninga er gyldig i eitt år. Godkjenninga kan når som helst trekkjast tilbake i Altinn.",
+                    "en": "The Tax Administration has developed a solution for sharing information with banks. This means that your business can see information from the Tax Administration in the bank’s customer interfaces. BANK is one of these banks. To see the information in the bank’s customer interfaces, you must consent to the Tax Administration granting your bank access to this information. This consent is valid for one year. You can withdraw this consent at any time via Altinn."
                 },
                 "org": {
                     "nb": "Skatteetaten har utviklet en løsning for å dele informasjon med banker. Det betyr at din virksomhet kan se opplysninger fra Skatteetaten i bankens kundeflater. BANK er en av disse bankene. For å se informasjonen i bankens kundeflater, må du godkjenne at Skatteetaten gir virksomhetens bankforbindelse tilgang til disse opplysningene. Denne godkjenningen har en varighet på 1 år. Godkjennelsen kan når som helst trekkes tilbake i Altinn.",
-                    "nn": "TODO",
-                    "en": "TODO"
+                    "nn": "Skatteetaten har utvikla ei løysing for å dele informasjon med bankar. Det betyr at verksemda di kan sjå opplysningar frå Skatteetaten i banken sine kundeflater. BANK er ein av desse bankane. For å sjå informasjonen i banken sine kundeflater, må du godkjenne at Skatteetaten gir verksemda sin bank tilgang til desse opplysningane. Denne godkjenninga er gyldig i eitt år. Godkjenninga kan når som helst trekkjast tilbake i Altinn.",
+                    "en": "The Tax Administration has developed a solution for sharing information with banks. This means that your business can see information from the Tax Administration in the bank’s customer interfaces. BANK is one of these banks. To see the information in the bank’s customer interfaces, you must consent to the Tax Administration granting your bank access to this information. This consent is valid for one year. You can withdraw this consent at any time via Altinn."
                 }
             },
             "overriddenDelegationContext": null,
             "expiration": {
-                "nb": "Samtykket er tidsavgrenset og opphører {Expiration}",
-                "nn": "Samtykket er tidsavgrensa og opphøyrer {Expiration}",
-                "en": "The consent is time-limited, and will expire {Expiration}"
+                "nb": "Samtykket er tidsbegrenset og vil gå ut {Expiration}",
+                "nn": "Samtykket er tidsavgrensa og vi gå ut {Expiration}",
+                "en": "The consent is for a limited period and expires {Expiration}"
             },
             "expirationOneTime": {
                 "nb": "Samtykket gjelder én gangs utlevering av opplysningene.",
