@@ -143,7 +143,7 @@
             "overriddenDelegationContext": null,
             "expiration": {
                 "nb": "Samtykket er tidsbegrenset og vil gå ut {Expiration}",
-                "nn": "Samtykket er tidsavgrensa og vi gå ut {Expiration}",
+                "nn": "Samtykket er tidsavgrensa og vil gå ut {Expiration}",
                 "en": "The consent is for a limited period and expires {Expiration}"
             },
             "expirationOneTime": {
