@@ -54,6 +54,10 @@ Du kan motta varsler om hendelser knyttet til sendte meldingstjenester, ved å s
 - Meldinger med en eksisterende dialog som ekstern referanse vil opprette en transmission som gir en logisk fremstilling av relaterte meldinger.
 - Løsningen gir et enhetlig brukergrensesnitt på tvers gjennom Altinn 3 Arbeidsflate og Dialogporten.
 
+### Bekreftelse og frist
+- Mulighet til å kreve bekreftelse av melding fra mottakere.
+- Støtte for å sette en frist for når en melding må være bekreftet eller lest.
+
 ## Oppsummering av fordelene med Altinn Melding?
 Altinn Melding tilbyr flere unike fordeler som gjør den til et foretrukket valg for digital kommunikasjon 
 med offentlige etater i Norge:
