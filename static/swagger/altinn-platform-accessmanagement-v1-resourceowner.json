@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.0",
+  "openapi": "3.0.4",
   "info": {
     "title": "Access Management Resource Owner API",
     "description": "Work in progress API specification for access-management operations for resource owners",
@@ -164,7 +164,7 @@
           },
           {
             "name": "includeRoles",
-            "description": "Filter for whether 'authorizedRoles' is to be populated with access information for each authorized party. Note: Parties where the user has access through role access will still be included in the response. The filter will only exclude the detailed access information to be included in 'authorizedRoles'. Recommended: 'false', unless explisitly needed.\n",
+            "description": "Filter for whether 'authorizedRoles' is to be populated with access information for each authorized party. Note: Parties where the user has access through role access will still be included in the response. The filter will only exclude the detailed access information to be included in 'authorizedRoles'. Recommended: 'false', unless explicitly needed.\n",
             "in": "query",
             "schema": {
               "type": "boolean",
@@ -173,7 +173,7 @@
           },
           {
             "name": "includeAccessPackages",
-            "description": "Filter for whether 'authorizedAccessPackages' is to be populated with access information for each authorized party. Note: Parties where the user has access through delegated access packages will still be included in the response. The filter will only exclude the detailed access information to be included in 'authorizedAccessPackages'. Recommended: 'false', unless explisitly needed.\n",
+            "description": "Filter for whether 'authorizedAccessPackages' is to be populated with access information for each authorized party. Note: Parties where the user has access through delegated access packages will still be included in the response. The filter will only exclude the detailed access information to be included in 'authorizedAccessPackages'. Recommended: 'false', unless explicitly needed.\n",
             "in": "query",
             "schema": {
               "type": "boolean",
@@ -182,7 +182,7 @@
           },
           {
             "name": "includeResources",
-            "description": "Filter for whether 'authorizedResources' is to be populated with access information for each authorized party. Note: Parties where the user has access through delegated resource access will still be included in the response. The filter will only exclude the detailed access information to be included in 'authorizedResources'. Recommended: 'false', unless explisitly needed.\n",
+            "description": "Filter for whether 'authorizedResources' is to be populated with access information for each authorized party. Note: Parties where the user has access through delegated resource access will still be included in the response. The filter will only exclude the detailed access information to be included in 'authorizedResources'. Recommended: 'false', unless explicitly needed.\n",
             "in": "query",
             "schema": {
               "type": "boolean",
@@ -191,7 +191,7 @@
           },
           {
             "name": "includeInstances",
-            "description": "Filter for whether 'authorizedInstances' is to be populated with access information for each authorized party. Note: Parties where the user has access through delegated instance access will still be included in the response. The filter will only exclude the detailed access information to be included in 'authorizedInstances'. Recommended: 'false', unless explisitly needed.\n",
+            "description": "Filter for whether 'authorizedInstances' is to be populated with access information for each authorized party. Note: Parties where the user has access through delegated instance access will still be included in the response. The filter will only exclude the detailed access information to be included in 'authorizedInstances'. Recommended: 'false', unless explicitly needed.\n",
             "in": "query",
             "schema": {
               "type": "boolean",
@@ -200,7 +200,7 @@
           },
           {
             "name": "includePartiesViaKeyRoles",
-            "description": "Filter for whether parties where the user has access via their keyrole units, are to be included in the response. E.g. A general manager (dagligleder) of an organization will inheirit all party accesses provided to their organization. Setting filter to 'true' will impact performance negatively, especially for users having many keyroles or keyrole(s) for big auditor or accountant firms. If set to 'auto', the users selected preference in user profile will be used. Recommended: 'false', unless explisitly needed.\n",
+            "description": "Filter for whether parties where the user has access via their keyrole units, are to be included in the response. E.g. A general manager (dagligleder) of an organization will inherit all party accesses provided to their organization. Setting filter to 'true' will impact performance negatively, especially for users having many keyroles or keyrole(s) for big auditor or accountant firms. If set to 'auto', the users selected preference in user profile will be used. Recommended: 'false', unless explicitly needed.\n",
             "in": "query",
             "schema": {
               "$ref": "#/components/schemas/AuthorizedPartiesIncludeFilter"
@@ -304,7 +304,7 @@
             "example": "01017012345"
           },
           "partyFilter": {
-            "description": "Filter for fetching a single or a subset of parties from the subject users list of authorized parties. Recommeded used for all scenarios where checking for access on behalf of specific party/parties.\n",
+            "description": "Filter for fetching a single or a subset of parties from the subject users list of authorized parties. Recommended used for all scenarios where checking for access on behalf of specific party/parties.\n",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/UrnAttribute"
