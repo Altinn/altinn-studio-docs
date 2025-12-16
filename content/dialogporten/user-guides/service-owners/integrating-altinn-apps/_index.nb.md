@@ -17,7 +17,7 @@ full kontroll over integrasjonen ved behov.
 Som standard er synkroniseringen aktivert for alle applikasjoner. Oppdateringer av
 instansen, som statusendringer, lagt til aktiviteter eller vedlegg, vil bli
 reflektert i Dialogporten. Oppførselen kan finjusteres i appinnstillingene. Se
-referanseinformasjonen lenket nedenfor for detaljer.
+referanseinformasjonen som er lenket nedenfor for detaljer.
 
 **Les mer**
 
@@ -55,22 +55,23 @@ dp.{content_type}[.{task}[.{state}]]
 **Komponenter:**
 
 - **content_type** (obligatorisk): En av:
-  - `title` - Dialogtittel
-  - `summary` - Dialogsammendrag/beskrivelse
-  - `primaryactionlabel` - Primær handlingsknapptekst
-  - `secondaryactionlabel` - Sekundær handlingsknapptekst
-  - `tertiaryactionlabel` - Tertiær handlingsknapptekst
+    - `title` - Dialogtittel
+    - `summary` - Dialogsammendrag/beskrivelse
+    - `additionalinfo` - Dialog tilleggsinformasjon
+    - `primaryactionlabel` - Primær handlingsknapptekst
+    - `deleteactionlabel` - Slett handlingsknapptekst
+    - `copyactionlabel` - Kopier handlingsknapptekst
 
 - **task** (valgfritt): Enten:
-  - Et spesifikt oppgavenavn (alfanumerisk med interne bindestreker eller understreker)
-  - `_any_` for wildcard-matching
+    - Et spesifikt oppgavenavn (alfanumerisk med interne bindestreker eller understreker)
+    - `_any_` for wildcard-matching
 
 - **state** (valgfritt): Instansstatusen, for eksempel:
-  - `archivedunconfirmed`, `archivedconfirmed`
-  - `rejected`
-  - `awaitingserviceownerfeedback`, `awaitingconfirmation`
-  - `awaitingsignature`, `awaitingadditionaluserinput`
-  - `awaitinginitialuserinput`, `awaitinginitialuserinputfromprefill`
+    - `archivedunconfirmed`, `archivedconfirmed`
+    - `rejected`
+    - `awaitingserviceownerfeedback`, `awaitingconfirmation`
+    - `awaitingsignature`, `awaitingadditionaluserinput`
+    - `awaitinginitialuserinput`, `awaitinginitialuserinputfromprefill`
 
 ### Eksempler
 
@@ -123,13 +124,13 @@ Bruker tittelen på appen
 | **Archived** (alle arkiverte statuser)    | Se innsendt skjema     | Sjå innsendt skjema    | See submitted form    |
 | **Active** (alle ikke-arkiverte statuser) | Gå til skjemautfylling | Gå til skjemautfylling | Go to form completion |
 
-#### Standard sekundære handlingsetiketter
+#### Standard Slette handlingsetiketter
 
 | Status  | Bokmål (nb) | Nynorsk (nn) | Engelsk (en) |
 |---------|-------------|--------------|--------------|
 | **any** | Slett       | Slett        | Delete       |
 
-#### Standard tertiære handlingsetiketter
+#### Standard Kopier handlingsetiketter
 
 | Status  | Bokmål (nb) | Nynorsk (nn) | Engelsk (en)    |
 |---------|-------------|--------------|-----------------|

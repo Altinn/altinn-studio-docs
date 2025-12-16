@@ -56,9 +56,10 @@ dp.{content_type}[.{task}[.{state}]]
 - **content_type** (required): One of:
   - `title` - Dialog title
   - `summary` - Dialog summary/description
+  - `additionalinfo` - Dialog additional Infomation
   - `primaryactionlabel` - Primary action button text
-  - `secondaryactionlabel` - Secondary action button text
-  - `tertiaryactionlabel` - Tertiary action button text
+  - `deleteactionlabel` - Delete action button text
+  - `copyactionlabel` - Copy action button text
 
 - **task** (optional): Either:
     - A specific task name (alphanumeric with internal dashes or underscores)
@@ -121,13 +122,13 @@ Uses the Title of the app
 | **Archived** (any archived status)   | Se innsendt skjema     | Sjå innsendt skjema    | See submitted form    |
 | **Active** (any non-archived status) | Gå til skjemautfylling | Gå til skjemautfylling | Go to form completion |
 
-#### Secondary Action Label Defaults
+#### Delete Action Label Defaults
 
 | Status  | Norwegian Bokmål (nb) | Norwegian Nynorsk (nn) | English (en) |
 |---------|-----------------------|------------------------|--------------|
 | **any** | Slett                 | Slett                  | Delete       |
 
-#### Tertiary Action Label Defaults
+#### Copy Action Label Defaults
 
 | Status  | Norwegian Bokmål (nb) | Norwegian Nynorsk (nn) | English (en)    |
 |---------|-----------------------|------------------------|-----------------|
