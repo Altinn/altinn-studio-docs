@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.4",
+  "openapi": "3.0.0",
   "info": {
     "title": "Access Management Resource Owner API",
     "description": "Work in progress API specification for access-management operations for resource owners",
@@ -210,6 +210,7 @@
             "name": "includeSubParties",
             "description": "Note: not yet implemented. Filter for whether party hierarchy (subunits), are to be included in the response. If set to 'auto', the users selected preference in user profile will be used.\n",
             "in": "query",
+            "x-not-implemented": true,
             "schema": {
               "$ref": "#/components/schemas/AuthorizedPartiesIncludeFilter"
             }
@@ -218,6 +219,7 @@
             "name": "includeInactiveParties",
             "description": "Note: not yet implemented. Filter for whether inactive (isDeleted: true) parties, are to be included in the response. If set to 'auto', the users selected preference in user profile will be used.\n",
             "in": "query",
+            "x-not-implemented": true,
             "schema": {
               "$ref": "#/components/schemas/AuthorizedPartiesIncludeFilter"
             }
