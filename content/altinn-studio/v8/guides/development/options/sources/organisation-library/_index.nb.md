@@ -11,14 +11,15 @@ Se [Organisasjonsbibliotek](/nb/altinn-studio/v8/concepts/organisation-library/)
 
 ### Bruke en bibliotekskodeliste
 
-For å bruke en kodeliste publisert fra Altinn Studio Designer organisasjonsbibliotek, kan du
+Når du skal bruke en publisert kodeliste, kan du
 
-* Låse en versjon - for å sikre at applikasjonen ikke endres hvis en ny versjon publiseres.
-* Bruke den nyeste versjonen ved å sette version til `latest`
+* Låse en versjon for å sikre at applikasjonen ikke endres når en ny versjon av kodelisten publiseres
+* Bruke den nyeste versjonen ved å sette versjon til `latest`
 
-`prefix[separator]{org}[separator]{id}[separator]{version}/latest`
+`optionsId`-feltet i koden følger denne syntaksen:
+`prefix[separator]{organisasjon}[separator]{kodelistenavn}[separator]{{versjon}/latest}`
 
-Eksempel: Du har publisert to versjoner av en kodeliste `countries` for din organisasjon `ttd`, og du vil bruke den første versjonen
+Eksempel: Du har publisert to versjoner av en kodeliste med navnet `countries` for din organisasjon `ttd`, og du vil bruke den første versjonen. Slik skriver du koden:
 
 ```json {hl_lines=[10]}
 {
@@ -34,7 +35,7 @@ Eksempel: Du har publisert to versjoner av en kodeliste `countries` for din orga
 }
 ```
 
-Eksempel: Du vil alltid bruke den nyeste versjonen av samme kodeliste, uten å måtte publisere applikasjonen din på nytt
+Hvis du alltid vil bruke den nyeste versjonen av samme kodeliste uten å måtte publisere applikasjonen din på nytt, skriver du koden slik:
 
 ```json {hl_lines=[10]}
 {

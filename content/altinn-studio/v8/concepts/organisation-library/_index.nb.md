@@ -4,26 +4,24 @@ description: Hva er Altinn 3 bibliotekselementer?
 weight: 10
 ---
 
-Altinn Studio Designer organisasjonsbibliotek er et lager for publisering av ressurser som kan brukes av flere Altinn-applikasjoner. De publiserte ressursene
-omtales som bibliotekselementer.
+Organisasjonsbiblioteket i Altinn Studio Designer er et lager for deling av ressurser som kan brukes av flere Altinn-applikasjoner. Vi kaller disse ressursene bibliotekselementer.
 
-## Bibliotekselementer
+## Publiserte bibliotekselementer
 
-Et bibliotekselement er et element som publiseres ved hjelp av Altinn Studio Designer organisasjonsbibliotek for å kunne brukes i Altinn-applikasjoner.
-Elementene lagres i organisasjonsbiblioteket sitt repository og publiseres til tjenesteeierens område i Altinn Studio Designer organisasjonsbibliotek.
+Når et bibliotekselement blir publisert, kan det brukes i Altinn-applikasjoner.
+Det blir da tilgjengelig gjennom en åpen adresse på internett.
 
-Bibliotekselementer bruker sekvensiell versjonering i tillegg til en "latest"-versjon.
+Publiserte bibliotekselementer bruker sekvensiell versjonering. Det vil si at første versjon er `1`, andre versjon er `2` og så videre. Det er også mulig å referere til seneste versjon uten å spesifisere hvilket nummer den har.
 Dette er for å støtte to brukstilfeller:
 
 * Låse en versjon - for å sikre at applikasjonen ikke endres når en ny versjon publiseres.
-* Bruke den nyeste versjonen. Ved å bruke "latest"-versjonen vil applikasjonens kjøretid automatisk hente det oppdaterte elementet uten at applikasjonen må omdistribueres.
+* Bruke den nyeste versjonen. Ved å bruke "latest"-versjonen vil applikasjonen automatisk hente det oppdaterte elementet uten at applikasjonen må omdistribueres.
 
-### Når bør du bruke et bibliotekselement?
+### Når bør du bruke et publisert bibliotekselement?
 
-Hvis du vil gjenbruke et element mellom flere applikasjoner, er bibliotekselementer den foretrukne løsningen.
+Hvis du vil gjenbruke et element mellom flere applikasjoner, er publiserte bibliotekselementer den foretrukne løsningen.
 
-Hvis du vil håndtere et elements versjonering uavhengig av selve applikasjonen og foretrekker å publisere en ny versjon fremfor å omdistribuere applikasjonen, kan bruk av organisasjonsbiblioteket
-med "latest"-versjonen i applikasjonen være noe å vurdere.
+Hvis du ønsker at applikasjonen skal oppdateres automatisk når du oppdaterer et bibliotekselement, anbefaler vi å publisere elementet og henvise til den seneste versjonen i applikasjonen.
 
 Se undersidene for elementer som for øyeblikket støttes i Altinn Studio Designer organisasjonsbibliotek.
 

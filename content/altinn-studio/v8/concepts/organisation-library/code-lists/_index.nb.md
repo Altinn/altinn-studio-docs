@@ -1,17 +1,17 @@
 ---
-title: Bibliotekskodelister
-description: Hva er bibliotekskodelister?
+title: Publiserte bibliotekskodelister
+description: Hva er publiserte bibliotekskodelister?
 weight: 10
 ---
 
-Bibliotekskodelister er kodelister som publiseres ved hjelp av Altinn Studio Designer organisasjonsbibliotek.
+Publiserte bibliotekskodelister er kodelister som er gjort tilgjengelige ved hjelp av organisasjonsbiblioteket.
 
 For å publisere en kodeliste
 
 1. Naviger til [Altinn Studio Designer](https://altinn.studio/)
-2. Velg "library"-fanen
-3. Følg instruksjonene for å velge din organisasjon
-4. Velg kodeliste-alternativet fra ressursmenyen
+2. Velg "bibliotek"-fanen
+3. Følg instruksjonene for å velge din organisasjon hvis du ikke allerede har gjort det
+4. Velg "Kodelister" fra ressursmenyen
 5. Opprett din kodeliste
 6. Lagre din kodeliste
 7. Publiser din kodeliste
