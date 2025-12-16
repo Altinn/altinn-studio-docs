@@ -95,4 +95,4 @@ The serviceprovider-scopes are delegable via Altinn API delegation. Service owne
 
 **Read more**
 
-- {{<link "../../../authorization/guides/end-user/create-apischeme-resource-admin/" title>}}
+[](nb/authorization/guides/resource-owner/api-scheme/create-apischeme-resource-admin/)
