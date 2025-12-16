@@ -1,6 +1,6 @@
 ---
 title: Organisasjonsbibliotek
-description: Hva er Altinn 3 bibliotekselementer?
+description: Hva er organisasjonsbiblioteket og bibliotekselementer?
 weight: 10
 ---
 
@@ -23,6 +23,6 @@ Hvis du vil gjenbruke et element mellom flere applikasjoner, er publiserte bibli
 
 Hvis du ønsker at applikasjonen skal oppdateres automatisk når du oppdaterer et bibliotekselement, anbefaler vi å publisere elementet og henvise til den nyeste versjonen i applikasjonen.
 
-Se undersidene for elementer som for øyeblikket støttes i Altinn Studio Designer organisasjonsbibliotek.
+Se undersidene for elementer som for øyeblikket støttes.
 
 {{<children />}}

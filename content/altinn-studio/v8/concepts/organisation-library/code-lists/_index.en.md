@@ -4,9 +4,9 @@ description: What are library code lists?
 weight: 10
 ---
 
-Library code lists are code lists which are published using the Altinn Studio Designer organisation library.
+Library code lists are code lists published using the Altinn Studio Designer organisation library.
 
-To publish a code list
+### To publish a code list
 
 1. Navigate to [Altinn Studio Designer](https://altinn.studio/)
 2. Choose the "library" tab

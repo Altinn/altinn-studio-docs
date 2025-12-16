@@ -6,7 +6,7 @@ weight: 10
 
 Publiserte bibliotekskodelister er kodelister som er gjort tilgjengelige ved hjelp av organisasjonsbiblioteket.
 
-For å publisere en kodeliste
+### For å publisere en kodeliste
 
 1. Naviger til [Altinn Studio Designer](https://altinn.studio/)
 2. Velg "bibliotek"-fanen
