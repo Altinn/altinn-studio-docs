@@ -16,4 +16,4 @@ To publish a code list
 6. Save your code list
 7. Publish your code list
 
-You can now use the code list in your application by following the [shared codelist development guide](/en/altinn-studio/v8/guides/development/options/sources/organisation-library/)
+You can now use the code list in your application by following the [library codelist development guide](/en/altinn-studio/v8/guides/development/options/sources/organisation-library/)
