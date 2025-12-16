@@ -304,6 +304,7 @@
             "example": "01017012345"
           },
           "partyFilter": {
+            "description": "Filter for fetching a single or a subset of parties from the subject users list of authorized parties. Recommeded used for all scenarios where checking for access on behalf of specific party/parties.\n",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/UrnAttribute"
