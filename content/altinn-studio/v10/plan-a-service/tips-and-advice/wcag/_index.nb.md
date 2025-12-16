@@ -6,6 +6,10 @@ toc: true
 tags: [needsReview, translate-to-english]
 ---
 
+{{< notice warning >}}
+**Under omarbeiding** - Innholdet i denne artikkelen skal omarbeides.
+{{< /notice >}}
+
 Forskrift om universell utforming av IKT-løsninger krever at tjenester i Altinn Studio følger [WCAG-standarden](https://www.uutilsynet.no/wcag-standarden/). Du må også lage og publisere en [tilgjengelighetserklæring](https://uustatus.no/). 
 
 ## Hva får du med Altinn Studio? 

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>V10_MIGRATION_PRIORITY_REPORT</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5/github-markdown.min.css" />
+</head>
+<body>
+<h1 id="v10-dokumentasjon-veien-videre">V10 Dokumentasjon: Veien
+videre</h1>
+<p><strong>Dato:</strong> 16. desember 2025 <strong>Formål:</strong>
+Planlegge arbeidet med v10-dokumentasjon fra nyttår
+<strong>Målgruppe:</strong> Produkteiere og team</p>
+<hr />
+<h2 id="sammendrag">Sammendrag</h2>
+<p>V10 er en ny <strong>versjon av dokumentasjonen</strong> med bedre
+struktur og språk. Mye godt arbeid er allerede gjort med omstrukturering
+og språkvask. Denne rapporten anbefaler en strategisk tilnærming for
+resten av arbeidet.</p>
+<p><strong>Situasjonen i dag:</strong> - Mye innhold er allerede flyttet
+og omstrukturert fra v8 til v10 - Design, tips og råd er godt i gang -
+Signering, svaralternativer, betaling og prefill har innhold i v10 -
+Komponentoversikten er under arbeid (separalt prosjekt) - Noe teknisk
+referansedokumentasjon mangler fortsatt</p>
+<p><strong>Anbefaling:</strong> Ikke flytt alt fra v8. Behold v8 som
+arkiv, og bruk resten av ressursene på språkvask og kvalitetssikring av
+det som allerede er i v10.</p>
+<hr />
+<h2 id="hva-vi-har-oppnådd-så-langt">Hva vi har oppnådd så langt</h2>
+<h3 id="fullførte-områder-omstrukturert-og-språkvasket">✅ Fullførte
+områder (omstrukturert og språkvasket)</h3>
+<p><strong>Plan-a-Service</strong> - Tips og råd (design, klarspråk,
+tilgjengelighet) - Designprinsipper og tone of voice - Maler og
+retningslinjer</p>
+<p><strong>Develop-a-Service</strong> - Signering (API-basert,
+brukerstyrt, rolle/tilgangspakke) - Svaralternativer (kilder og
+funksjonalitet) - Betaling (oppsett og konfigurasjon) -
+Forhåndsutfylling (prefill) - Multi-app-løsninger - Underskjema</p>
+<p><strong>Manage-a-Service</strong> - Overvåking og instrumentering
+(delvis) - Tilgangsstyring</p>
+<p><strong>This-is-AS</strong> - Forklaringer om sentrale konsepter</p>
+<p><strong>Getting-started</strong> - Grunnleggende navigasjon og
+kom-i-gang</p>
+<p><strong>Status:</strong> ~260 filer flyttet og omstrukturert ✅</p>
+<hr />
+<h2 id="kritiske-områder-som-fortsatt-mangler-i-v10">Kritiske områder
+som fortsatt mangler i v10</h2>
+<p>Disse områdene er ikke godt dekket i v10 enda og bør vurderes for
+flytting:</p>
+<h3 id="prioritet-1-teknisk-referansedokumentasjon">🔴 PRIORITET 1:
+Teknisk referansedokumentasjon</h3>
+<p><strong>Område:</strong> Komponentbibliotek <strong>Status:</strong>
+Under separat arbeid med designteamet <strong>Handling:</strong>
+Koordiner med designteam om fremdrift</p>
+<p><strong>Område:</strong> Datamodeller og datalagring <strong>Hva
+mangler:</strong> - Grundig dokumentasjon om hvordan lage datamodeller -
+Hvordan data lagres og håndteres - Vedleggshåndtering - Koble til
+eksterne API-er</p>
+<p><strong>Hvorfor viktig:</strong> Grunnleggende for all apputvikling.
+Andre deler av dokumentasjonen henviser til dette.</p>
+<p><strong>Område:</strong> Konfigurasjon <strong>Hva kan
+mangle:</strong> - Autentisering og autorisasjon - Prosessoppsett -
+Meldingsboks-konfigurasjon - Hendelser (events) - Håndtering av
+hemmeligheter (secrets)</p>
+<p><strong>Hvorfor viktig:</strong> Utviklere slår ofte opp i
+konfigurasjonsdokumentasjon.</p>
+<hr />
+<h3 id="prioritet-2-repository-struktur-og-arkitektur">🟡 PRIORITET 2:
+Repository-struktur og arkitektur</h3>
+<p><strong>Område:</strong> Teknisk arkitektur <strong>Hva kan
+mangle:</strong> - Hvordan en Altinn-app er bygget opp - Mappestruktur
+og filorganisering - ServiceModel, metadata, layouts -
+Application-metadata</p>
+<p><strong>Hvorfor viktig:</strong> Nødvendig for å forstå hvordan apper
+fungerer teknisk.</p>
+<hr />
+<h3 id="prioritet-3-utrulling-og-drift">🟢 PRIORITET 3: Utrulling og
+drift</h3>
+<p><strong>Område:</strong> Deployment og testing <strong>Hva kan
+mangle:</strong> - Oppsett av kjøremiljø - Ressursallokering -
+Firewall-konfigurasjon - Testing (lokale API-tester, debugging)</p>
+<p><strong>Hvorfor nyttig:</strong> Viktig for produksjonssetting av
+apper.</p>
+<hr />
+<h3 id="prioritet-4-spesialiserte-funksjoner">🔵 PRIORITET 4:
+Spesialiserte funksjoner</h3>
+<p><strong>Område:</strong> Avanserte features
+<strong>Eksempler:</strong> - Dynamisk feltsynlighet - Beskyttede data -
+Lokal utvikling - eFormidling - Integrasjoner</p>
+<p><strong>Status:</strong> Vurder fra sak til sak om dette trengs i
+v10.</p>
+<hr />
+<h2 id="strategisk-anbefaling-ikke-migrer-alt">Strategisk anbefaling:
+Ikke migrer alt</h2>
+<h3 id="hvorfor-ikke-flytte-alt-fra-v8">Hvorfor ikke flytte alt fra
+v8?</h3>
+<p><strong>1. Massivt arbeid uten gevinst</strong> - ~490 gjenstående
+filer i v8 - Mange av disse er utdaterte, overlappende eller lite brukte
+- Bedre å bruke tiden på kvalitetssikring av v10</p>
+<p><strong>2. V8 fungerer som arkiv</strong> - Eksisterende brukere kan
+fortsatt bruke v8 - Alle lenker fungerer - Ingen hastverk med å flytte
+alt</p>
+<p><strong>3. La brukerbehov styre</strong> - Se hvilke v8-sider som
+faktisk besøkes - Flytt bare det som trengs - “Just-in-time”
+migrering</p>
+<hr />
+<h2 id="anbefalinger-for-veien-videre">Anbefalinger for veien
+videre</h2>
+<h3 id="fase-1-kvalitetssikring-januar-februar">Fase 1: Kvalitetssikring
+(januar-februar)</h3>
+<p><strong>Mål:</strong> Godkjenne og kvalitetssikre eksisterende
+v10-innhold</p>
+<p><strong>Konkrete oppgaver:</strong> 1. ✅ Gå gjennom alt innhold i
+v10 som er merket <code>needsReview</code> 2. ✅ Godkjenne språkvasket
+innhold (klarspråk er allerede gjort) 3. ✅ Sjekk at lenker fungerer 4.
+✅ Verifiser at eksempler er oppdaterte 5. ✅ Samarbeid med designteam
+om komponentoversikt</p>
+<p><strong>Merk:</strong> Språkvask er allerede gjort på alt migrert
+innhold. Fase 1 handler om godkjenning og kvalitetssikring.</p>
+<p><strong>Estimat:</strong> 3-5 uker med 1 person, eller 1.5-2.5 uker
+med 2 personer</p>
+<hr />
+<h3 id="fase-2-fylle-kritiske-hull-februar-mars">Fase 2: Fylle kritiske
+hull (februar-mars)</h3>
+<p><strong>Mål:</strong> Legge til manglende kritisk
+referansedokumentasjon</p>
+<p><strong>Konkrete oppgaver:</strong> 1. ✅ Vurder hva som faktisk
+mangler i hver prioritet 1-kategori 2. ✅ Flytt/skriv dokumentasjon om
+datamodeller og lagring 3. ✅ Flytt/skriv viktigste
+konfigurasjonsdokumentasjon 4. ✅ Vurder
+repository-strukturdokumentasjon</p>
+<p><strong>Tilnærming:</strong> - Ikke bare kopier fra v8 - vurder hva
+som faktisk trengs - Skriv om/forbedre underveis - Språkvask
+samtidig</p>
+<p><strong>Estimat:</strong> 3-5 uker med 1 person, eller 1.5-2.5 uker
+med 2 personer</p>
+<hr />
+<h3 id="fase-3-oversettelse-mars-april">Fase 3: Oversettelse
+(mars-april)</h3>
+<p><strong>Mål:</strong> Oversette godkjent norsk innhold til
+engelsk</p>
+<p><strong>Konkrete oppgaver:</strong> 1. ✅ Oversett alt godkjent norsk
+innhold 2. ✅ Bruk AI-assistanse + human review 3. ✅ Kvalitetssikring
+av oversettelser</p>
+<p><strong>Estimat:</strong> 4-6 uker med 1 person, eller 2-3 uker med 2
+personer</p>
+<hr />
+<h3 id="fase-4-just-in-time-migrering-løpende">Fase 4: Just-in-time
+migrering (løpende)</h3>
+<p><strong>Mål:</strong> Fylle på basert på faktisk behov</p>
+<p><strong>Tilnærming:</strong> - Overvåk hvilke v8-sider som besøkes
+mest - Når brukere spør om noe som bare finnes i v8, vurder å flytte det
+- Hold en liste over “vurdert og valgt bort” - Transparent om at v8 er
+arkiv for eldre innhold</p>
+<hr />
+<h2 id="tidsplan---samlet-oversikt">Tidsplan - samlet oversikt</h2>
+<table>
+<thead>
+<tr>
+<th>Fase</th>
+<th>Innhold</th>
+<th>Med 1 person</th>
+<th>Med 2 personer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fase 1</strong></td>
+<td>Kvalitetssikring av v10</td>
+<td>3-5 uker</td>
+<td>1.5-2.5 uker</td>
+</tr>
+<tr>
+<td><strong>Fase 2</strong></td>
+<td>Fylle kritiske hull</td>
+<td>3-5 uker</td>
+<td>1.5-2.5 uker</td>
+</tr>
+<tr>
+<td><strong>Fase 3</strong></td>
+<td>Oversettelse</td>
+<td>4-6 uker</td>
+<td>2-3 uker</td>
+</tr>
+<tr>
+<td><strong>TOTALT</strong></td>
+<td></td>
+<td><strong>10-16 uker</strong></td>
+<td><strong>5-8 uker</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Med 2 personer: Ferdig i løpet av Q1 2026</strong> 🚀</p>
+<hr />
+<h2 id="nøkkelvedtak-for-produkteiere">Nøkkelvedtak for
+produkteiere</h2>
+<h3 id="vedtak-1-behold-v8-som-arkiv">Vedtak 1: Behold v8 som arkiv
+✅</h3>
+<p><strong>Anbefaling:</strong> La v8 være tilgjengelig som “eldre
+dokumentasjon”</p>
+<p><strong>Begrunnelse:</strong> - Eksisterende brukere trenger fortsatt
+tilgang - Ikke nødvendig å flytte alt - Sparer betydelig arbeid</p>
+<p><strong>Implementering:</strong> - Banner på v8: “Dette er eldre
+dokumentasjon. Se v10 for oppdatert informasjon.” - V10 som standard
+startside - Alle v8-lenker fortsetter å fungere</p>
+<hr />
+<h3 id="vedtak-2-fokus-på-kvalitet-fremfor-kvantitet">Vedtak 2: Fokus på
+kvalitet fremfor kvantitet ✅</h3>
+<p><strong>Anbefaling:</strong> Bruk ressurser på kvalitetssikring, ikke
+masse-flytting</p>
+<p><strong>Begrunnelse:</strong> - Bedre med god dokumentasjon på det
+viktigste - Mindre vedlikehold fremover - Bedre brukeropplevelse</p>
+<p><strong>Implementering:</strong> - Gjennomgå og godkjenn eksisterende
+v10-innhold først - Flytt bare det som faktisk mangler og trengs - Skriv
+om/forbedre underveis</p>
+<hr />
+<h3 id="vedtak-3-la-brukerbehov-styre-prioritering">Vedtak 3: La
+brukerbehov styre prioritering ✅</h3>
+<p><strong>Anbefaling:</strong> Bruk analytics og bruker-feedback til å
+prioritere</p>
+<p><strong>Begrunnelse:</strong> - Effektiv ressursbruk - Dokumentasjon
+som faktisk brukes - Fleksibel tilnærming</p>
+<p><strong>Implementering:</strong> - Sett opp analytics på
+dokumentasjonen hvis ikke allerede gjort - Overvåk hvilke v8-sider som
+besøkes - Hold en “vurdert og valgt bort”-liste - Transparent
+kommunikasjon om strategi</p>
+<hr />
+<h2 id="risiko-og-avbøtende-tiltak">Risiko og avbøtende tiltak</h2>
+<h3 id="risiko-1-brukere-finner-ikke-det-de-trenger">Risiko 1: Brukere
+finner ikke det de trenger</h3>
+<p><strong>Avbøtende tiltak:</strong> - God søkefunksjon i v10 -
+Tydelige lenker fra v10 til v8 når relevant - Banner på v8 som forklarer
+situasjonen</p>
+<h3 id="risiko-2-dobbelt-vedlikehold-v8-v10">Risiko 2: Dobbelt
+vedlikehold (v8 + v10)</h3>
+<p><strong>Avbøtende tiltak:</strong> - V8 er arkiv - ikke aktiv
+vedlikehold - Alt nytt innhold kun i v10 - Tydelig kommunikasjon til
+bidragsytere</p>
+<h3 id="risiko-3-viktig-innhold-blir-oversett">Risiko 3: Viktig innhold
+blir oversett</h3>
+<p><strong>Avbøtende tiltak:</strong> - Systematisk gjennomgang av
+prioritet 1-områder - Involver fagpersoner i vurderingen - Hold løpende
+dialog med brukere</p>
+<hr />
+<h2 id="konkrete-neste-steg-fra-nyttår">Konkrete neste steg fra
+nyttår</h2>
+<h3 id="uke-1-2-januar-2026">Uke 1-2 (januar 2026)</h3>
+<p><strong>Oppgave 1:</strong> Planleggingsmøte med teamet - Gå gjennom
+denne rapporten - Bli enige om strategi og prioriteringer - Fordel
+ansvar</p>
+<p><strong>Oppgave 2:</strong> Kartlegg prioritet 1-områder - Gå
+systematisk gjennom hver prioritet 1-kategori - Identifiser konkret hva
+som mangler - Lag prioritert liste</p>
+<p><strong>Oppgave 3:</strong> Sett opp trackingsystem - Lag en
+todo-liste eller Kanban-board - Merk filer med status (godkjent, under
+review, mangler) - Etabler arbeidsflyt</p>
+<h3 id="uke-3-10-januar-mars-2026">Uke 3-10 (januar-mars 2026)</h3>
+<p><strong>Hovedfokus:</strong> Kvalitetssikring + fylle kritiske hull -
+Systematisk gjennomgang av v10-innhold - Språkvask underveis -
+Flytte/skrive manglende referansedokumentasjon</p>
+<h3 id="fra-uke-11-mars-april-2026">Fra uke 11 (mars-april 2026)</h3>
+<p><strong>Hovedfokus:</strong> Oversettelse - Alt godkjent norsk
+innhold oversettes - Kvalitetssikring av oversettelser - Forberede
+lansering av v10 som primærversjon</p>
+<hr />
+<h2 id="konklusjon">Konklusjon</h2>
+<p><strong>Situasjonen:</strong> Dere har gjort mye godt arbeid med
+omstrukturering og språkvask av v10. Mye av kjerneinnholdet er på plass,
+men noe teknisk referansedokumentasjon mangler fortsatt.</p>
+<p><strong>Anbefalingen:</strong> Ikke bruk tid på å flytte alt fra v8.
+Behold v8 som arkiv, og fokuser ressursene på: 1. Kvalitetssikre
+eksisterende v10-innhold 2. Fylle kritiske hull i teknisk
+referansedokumentasjon 3. Oversette til engelsk</p>
+<p><strong>Gevinsten:</strong> - ✅ Bedre dokumentasjon (kvalitet over
+kvantitet) - ✅ Raskere ferdig (10-16 uker vs. 24+ uker) - ✅ Enklere
+vedlikehold fremover - ✅ Mer effektiv ressursbruk - ✅ Språkvask
+allerede gjort på eksisterende innhold</p>
+<p><strong>Målet:</strong> Lansere v10 som primær dokumentasjon i løpet
+av Q1 2026, med v8 som arkiv for eldre innhold.</p>
+<hr />
+<p><strong>Rapport utarbeidet av:</strong> Claude Code
+<strong>Dato:</strong> 16. desember 2025 <strong>Versjon:</strong> 2.0
+(Revidert for produkteiere)</p>
+</body>
+</html>
