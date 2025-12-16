@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.3",
+  "openapi": "3.0.4",
   "info": {
     "title": "Altinn Profile",
     "version": "v1"
@@ -15,6 +15,376 @@
     }
   ],
   "paths": {
+    "/dashboard/organizations/{organizationNumber}/notificationaddresses": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "summary": "Endpoint that can retrieve a list of all Notification Addresses for the given organization",
+        "parameters": [
+          {
+            "name": "organizationNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DashboardNotificationAddressResponse"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/organizations/notificationaddresses/email/{emailAddress}": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "summary": "Endpoint that can retrieve a list of all Notification Addresses for the given email address",
+        "parameters": [
+          {
+            "name": "emailAddress",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DashboardNotificationAddressResponse"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/organizations/notificationaddresses/phonenumber/{phoneNumber}": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "summary": "Endpoint that can retrieve a list of all Notification Addresses for the given phone number",
+        "parameters": [
+          {
+            "name": "phoneNumber",
+            "in": "path",
+            "description": "The phone number to retrieve notification addresses for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "countrycode",
+            "in": "query",
+            "description": "The country code for the phone number (default: +47)",
+            "schema": {
+              "type": "string",
+              "default": "+47"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DashboardNotificationAddressResponse"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/organizations/{organizationNumber}/contactinformation": {
+      "get": {
+        "tags": [
+          "DashboardUserContactInformation"
+        ],
+        "summary": "Endpoint that can retrieve a list of all user contact information for the given organization.\r\nReturns the contact details that users have registered for acting on behalf of this organization.",
+        "parameters": [
+          {
+            "name": "organizationNumber",
+            "in": "path",
+            "description": "The organization number to retrieve contact information for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved user contact information. Returns an array of contacts (may be empty if organization exists but has no user contact info).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DashboardUserContactInformationResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters (model validation failed).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Caller does not have the required Dashboard Maskinporten scope (altinn:profile.support.admin).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organization number not found in the registry.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/organizations/contactinformation/email/{emailAddress}": {
+      "get": {
+        "tags": [
+          "DashboardUserContactInformation"
+        ],
+        "summary": "Endpoint that can retrieve a list of all user contact information for the given email address.\r\nReturns the contact details that users have registered with the specified email address.",
+        "parameters": [
+          {
+            "name": "emailAddress",
+            "in": "path",
+            "description": "The email address to retrieve contact information for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved user contact information. Returns an array of contacts for the specified email address (empty array if no contacts found)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DashboardUserContactInformationResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters (model validation failed).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Caller does not have the required Dashboard Maskinporten scope (altinn:profile.support.admin).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/organizations/contactinformation/phonenumber/{phoneNumber}": {
+      "get": {
+        "tags": [
+          "DashboardUserContactInformation"
+        ],
+        "summary": "Endpoint that can retrieve a list of all user contact information for the given phone number.\r\nReturns the contact details that users have registered with the specified phone number.",
+        "parameters": [
+          {
+            "name": "phoneNumber",
+            "in": "path",
+            "description": "The phone number to retrieve contact information for",
+            "required": true,
+            "schema": {
+              "pattern": "^[0-9]{5,15}$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "countrycode",
+            "in": "query",
+            "description": "The country code for the phone number",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved user contact information. Returns an array of contacts for the specified phone number (empty array if no contacts found)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DashboardUserContactInformationResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters (model validation failed).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Caller does not have the required Dashboard Maskinporten scope (altinn:profile.support.admin).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/users/current/party-groups/favorites": {
       "get": {
         "tags": [
@@ -732,6 +1102,89 @@
   },
   "components": {
     "schemas": {
+      "DashboardNotificationAddressResponse": {
+        "type": "object",
+        "properties": {
+          "notificationAddressId": {
+            "type": "integer",
+            "description": "Altinn.Profile.Models.DashboardNotificationAddressResponse.NotificationAddressId",
+            "format": "int32"
+          },
+          "countryCode": {
+            "type": "string",
+            "description": "Country code for phone number",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "description": "Email address",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "description": "Phone number",
+            "nullable": true
+          },
+          "sourceOrgNumber": {
+            "type": "string",
+            "description": "Source organization number",
+            "nullable": true
+          },
+          "requestedOrgNumber": {
+            "type": "string",
+            "description": "Requested organization number",
+            "nullable": true
+          },
+          "lastChanged": {
+            "type": "string",
+            "description": "Last changed timestamp",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a notification address"
+      },
+      "DashboardUserContactInformationResponse": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "nationalIdentityNumber": {
+            "type": "string",
+            "description": "Gets or sets the national identity number (SSN/D-number) of the user.",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "description": "Gets or sets the full name of the user.",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "description": "Gets or sets the email address registered by the user for this organization.\r\nMay be null if no email address is set.",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "description": "Gets or sets the phone number registered by the user for this organization.\r\nMay be null if no phone number is set.",
+            "nullable": true
+          },
+          "organizationNumber": {
+            "type": "string",
+            "description": "Gets or sets the organization number the user is acting on behalf of.\r\nMay be null if no organization number is set.",
+            "nullable": true
+          },
+          "lastChanged": {
+            "type": "string",
+            "description": "Gets or sets the timestamp when this contact information was last changed.\r\nThis timestamp applies to both email and phone number as they are stored together.\r\nTimestamps are stored and returned in UTC.",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Response model for user contact information registered for an organization in the Support Dashboard.\r\nRepresents a user's personal contact details they have registered for acting on behalf of an organization.\r\nThis also includes the organization number the user is acting on behalf of."
+      },
       "GroupResponse": {
         "type": "object",
         "properties": {
@@ -891,6 +1344,10 @@
             "type": "string",
             "description": "Id of the party",
             "format": "uuid"
+          },
+          "needsConfirmation": {
+            "type": "boolean",
+            "description": "An indication of whether the notification address needs confirmation from a user"
           }
         },
         "additionalProperties": false,
