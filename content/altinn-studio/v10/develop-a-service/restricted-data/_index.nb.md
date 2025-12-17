@@ -17,13 +17,13 @@ Beskyttede data er informasjon som krever ekstra tilgangskontroll, for eksempel 
 Les mer om konseptet
 [her](/nb/altinn-studio/v10/this-is-as/explanations/data-model/restricted-data/).
 
-## Konfigurasjon av Maskinporten
+## Konfigurere Maskinporten
 Du må konfigurere Maskinporten for at appen skal kunne utføre handlinger på vegne av tjenesteeier.
 
 Finn en detaljert veiledning for oppsettet
 [her](/nb/altinn-studio/v10/develop-a-service/reference/integration/maskinporten/).
 
-## Konfigurasjon av datatyper
+## Konfigurere datatyper
 [applicationmetadata.json-filen](https://github.com/Altinn/altinn-studio/blob/main/src/App/app-template-dotnet/src/App/config/applicationmetadata.json)
 definerer alle [datatyper](/nb/api/models/app-metadata/#datatype) (kun på engelsk foreløpig) i en app. Her angir du hvilke
 [handlinger](/nb/altinn-studio/v10/develop-a-service/reference/configuration/authorization/#action-attributter)
@@ -34,10 +34,10 @@ I dette eksempelet konfigurerer vi en ny datatype der vi spesifiserer egenskapen
 {{% insert "content/altinn-studio/v10/develop-a-service/restricted-data/shared/Applicationmetadata.json.md" %}}
 
 {{% notice warning %}}
-Vi deaktiverer auto-create fordi vår [oppdaterte autorisasjonspolicy](#konfigurasjon-av-autorisasjonspolicy) ikke gir lese- eller skrivetilgang til brukere. Forsøk på å opprette et dataelement av typen `restrictedDataModel` med en brukers autorisasjonstoken vil resultere i en 403-Forbidden-feil.
+Vi deaktiverer auto-create fordi vår [oppdaterte autorisasjonspolicy](#konfigurere-autorisasjonspolicy) ikke gir lese- eller skrivetilgang til brukere. Forsøk på å opprette et dataelement av typen `restrictedDataModel` med en brukers autorisasjonstoken vil resultere i en 403-Forbidden-feil.
 {{% /notice %}}
 
-## Konfigurasjon av autorisasjonspolicy
+## Konfigurere autorisasjonspolicy
 Ta utgangspunkt i [standard policy.xml-fil](https://github.com/Altinn/altinn-studio/blob/main/src/App/app-template-dotnet/src/App/config/authorization/policy.xml), og endre regel #2 for å gi tjenesteeier tilgang til de nye handlingene.
 
 {{% insert "content/altinn-studio/v10/develop-a-service/restricted-data/shared/Policy.xml.md" %}}
@@ -56,7 +56,7 @@ Denne tjensten kan registreres i `Program.cs` og brukes med [dependency injectio
 
 {{% insert "content/altinn-studio/v10/develop-a-service/restricted-data/shared/Program.cs.md" %}}
 
-### Skriving av data
+### Skrive data
 Som nevnt tidligere, må du manuelt opprette dataelementet når appen går inn i prosessteget `Task_1`.
 
 For å gjøre dette bruker du metoden `UpdateOrCreateData` fra [RestrictedDataHelper-tjenesten](#hjelpetjeneste).
@@ -65,7 +65,7 @@ Eksempelet under implementerer denne logikken i `IProcessTaskStart`-interfacet, 
 
 {{% insert "content/altinn-studio/v10/develop-a-service/restricted-data/shared/ProcessTaskStartHandler.cs.md" %}}
 
-### Lesing av data
+### Lese data
 I koden under har vi laget en implementasjon av `IDataWriteProcessor`-interfacet, der vi utfører en fiktiv skatteberegning. Denne beregningen krever informasjon vi tidligere har lagret i den beskyttede datamodellen, så vi bruker [RestrictedDataHelper.GetOrCreateData](#hjelpetjeneste) for å hente den.
 
 {{% insert "content/altinn-studio/v10/develop-a-service/restricted-data/shared/DataWriteHandler.cs.md" %}}
