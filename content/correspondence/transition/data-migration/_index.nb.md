@@ -62,7 +62,7 @@ Dette så det blir mulig for SluttbrukereSystemer å konsumere de ferske migrert
 
 ## Hvilke data blir migrert?
 
-- Kun meldinger som ikke er slettet (lagt i papirkurv eller permanent slettet)
+- Kun meldinger som ikke er slettet permanent, inkludert meldinger som er lagt i papirkurv blir migrert.
 - Ikke meldinger for døde personer.
 - Både ikke-arkiverte og arkiverte meldinger.
 - Meldingsinnholdet, inkludert tekst og alle vedlegg og metadata.

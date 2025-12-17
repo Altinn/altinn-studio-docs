@@ -95,4 +95,4 @@ Tjenesteleverandør-scope er delegerbare via Altinn API-delegering. Tjenesteeier
 
 **Les mer**
 
-- {{<link "../../../authorization/guides/end-user/create-apischeme-resource-admin/" title>}}
+[Opprette og publisere delegerbare API ressurser i Altinn Studio](/nb/authorization/guides/resource-owner/api-scheme/)
