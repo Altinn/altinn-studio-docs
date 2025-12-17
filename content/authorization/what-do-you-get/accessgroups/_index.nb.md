@@ -2,6 +2,7 @@
 title: Tilgangspakker og roller
 linktitle: Tilgangspakker og roller
 description: Tilgangspakker samler tjenester og ressurser tematisk, basert på hva som ofte brukes eller løses sammen, slik at virksomheter kan gi nødvendige fullmakter til ansatte og systemer uten å måtte gi fullmakt til én og én tjeneste. I Altinn 3 erstatter tilgangspakker de tidligere Altinn-rollene i praksis.
+weight: 3
 ---
 
 ## Tilgangspakker bygges av tjenesteeiere – ikke av Digdir
@@ -12,7 +13,7 @@ Dette betyr at:
 
 > Det er tjenesteeierne selv som avgjør hvilke tjenester som skal inngå i en tilgangspakke. Digdir definerer kun den tekniske strukturen. Innholdet bestemmes i fellesskap av tjenesteeierne.
 
-![Tilgangspakke](tilgangspakke.png "Sammenheng mellom regelbygging i Altinn Studio og tilgangsstyring i Altinn brukerflate")
+![Tilgangspakke](tilgangspakke-flytdiagram.jpg "Sammenheng mellom regelbygging i Altinn Studio og tilgangsstyring i Altinn brukerflate")
 
 ## Tilgangspakker er et felles økosystem
 
