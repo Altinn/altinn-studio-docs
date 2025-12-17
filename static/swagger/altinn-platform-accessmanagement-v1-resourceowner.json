@@ -200,7 +200,7 @@
           },
           {
             "name": "includePartiesViaKeyRoles",
-            "description": "Filter for whether parties where the user has access via their keyrole units, are to be included in the response. E.g. A general manager (dagligleder) of an organization will inherit all party accesses provided to their organization. Setting filter to 'true' will impact performance negatively, especially for users having many keyroles or keyrole(s) for big auditor or accountant firms. If set to 'auto', the users selected preference in user profile will be used. Recommended: 'false', unless explicitly needed.\n",
+            "description": "Filter for whether parties where the user has access via their keyrole units, are to be included in the response. E.g. A general manager (dagligleder) of an organization will inherit all party accesses provided to their organization. Setting filter to 'true' will impact performance negatively, especially for users having many keyroles or keyrole(s) for big auditor or accountant firms. If set to 'auto', the user's selected preference in user profile will be used. Recommended: 'false', unless explicitly needed.\n",
             "in": "query",
             "schema": {
               "$ref": "#/components/schemas/AuthorizedPartiesIncludeFilter"
@@ -208,7 +208,7 @@
           },
           {
             "name": "includeSubParties",
-            "description": "Note: not yet implemented. Filter for whether party hierarchy (subunits), are to be included in the response. If set to 'auto', the users selected preference in user profile will be used.\n",
+            "description": "Note: not yet implemented. Filter for whether party hierarchy (subunits), are to be included in the response. If set to 'auto', the user's selected preference in user profile will be used.\n",
             "in": "query",
             "x-not-implemented": true,
             "schema": {
@@ -217,7 +217,7 @@
           },
           {
             "name": "includeInactiveParties",
-            "description": "Note: not yet implemented. Filter for whether inactive (isDeleted: true) parties, are to be included in the response. If set to 'auto', the users selected preference in user profile will be used.\n",
+            "description": "Note: not yet implemented. Filter for whether inactive (isDeleted: true) parties, are to be included in the response. If set to 'auto', the user's selected preference in user profile will be used.\n",
             "in": "query",
             "x-not-implemented": true,
             "schema": {
@@ -280,7 +280,7 @@
   "components": {
     "schemas": {
       "AuthorizedPartiesIncludeFilter": {
-        "description": "Auto: the users selected preference in user profile will be used.\n",
+        "description": "Auto: the user's selected preference in user profile will be used.\n",
         "enum": [
           "false",
           "true",
@@ -306,7 +306,7 @@
             "example": "01017012345"
           },
           "partyFilter": {
-            "description": "Filter for fetching a single or a subset of parties from the subject users list of authorized parties. Recommended used for all scenarios where checking for access on behalf of specific party/parties.\n",
+            "description": "Filter for fetching a single or a subset of parties from the subject user's list of authorized parties. Recommended for use in all scenarios where checking for access on behalf of specific party/parties.\n",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/UrnAttribute"
