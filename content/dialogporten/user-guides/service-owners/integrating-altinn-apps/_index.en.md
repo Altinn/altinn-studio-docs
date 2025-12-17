@@ -56,7 +56,7 @@ dp.{content_type}[.{task}[.{state}]]
 - **content_type** (required): One of:
   - `title` - Dialog title
   - `summary` - Dialog summary/description
-  - `additionalinfo` - Dialog additional Infomation
+  - `additionalinfo` - Dialog additional Information
   - `primaryactionlabel` - Primary action button text
   - `deleteactionlabel` - Delete action button text
   - `copyactionlabel` - Copy action button text
@@ -104,7 +104,7 @@ Uses the Title of the app
 
 #### Summary Text Defaults
 
-| Status                                 | Norwegian (nb)                                                                                                                            | Nynorsk (nn)                                                                                                                            | English (en)                                                                                                                                    |
+| Status                                 | Norwegian Bokmål (nb)                                                                                                                     | Norwegian Nynorsk (nn)                                                                                                                  | English (en)                                                                                                                                    |
 |----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | **archivedunconfirmed**                | Innsendingen er maskinelt kontrollert og formidlet, venter på endelig bekreftelse. Du kan åpne dialogen for å se en foreløpig kvittering. | Innsendinga er maskinelt kontrollert og formidla, ventar på endeleg stadfesting. Du kan opne dialogen for å sjå ei førebels kvittering. | The submission has been automatically checked and forwarded, awaiting final confirmation. You can open the dialog to see a preliminary receipt. |
 | **archivedconfirmed**                  | Innsendingen er bekreftet mottatt. Du kan åpne dialogen for å se din kvittering.                                                          | Innsendinga er stadfesta motteken. Du kan opne dialogen for å sjå di kvittering.                                                        | The submission has been confirmed as received. You can open the dialog to see your receipt.                                                     |
@@ -117,7 +117,7 @@ Uses the Title of the app
 
 #### Primary Action Label Defaults
 
-| Instance Status                      | Norwegian (nb)         | Nynorsk (nn)           | English (en)          |
+| Instance Status                      | Norwegian Bokmål (nb)  | Norwegian Nynorsk (nn) | English (en)          |
 |--------------------------------------|------------------------|------------------------|-----------------------|
 | **Archived** (any archived status)   | Se innsendt skjema     | Sjå innsendt skjema    | See submitted form    |
 | **Active** (any non-archived status) | Gå til skjemautfylling | Gå til skjemautfylling | Go to form completion |
