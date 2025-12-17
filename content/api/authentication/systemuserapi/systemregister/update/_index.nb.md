@@ -135,7 +135,7 @@ For detaljert beskrivelse av hver felt i request, vennligst se beskrivelsen [her
 }
 ```
 
-### System meg tilgangspakke
+### System med tilgangspakke
 
 ```
 {

@@ -11,7 +11,7 @@ weight: 10
 
 In this section you will find detailed descriptions of API-operations and events for use during FileTranfers, icluding operations like; initialize filetransfer, upload files, and getting filetransfer status.
 
-For more information, see our [swagger-page](/en/api/broker/spec/) and [GitHub-repo](https://github.com/Altinn/altinn-broker), which also contains an Postman-collection with examples.
+For more information, see our [swagger-page](/en/api/broker/spec/) and [GitHub-repo](https://github.com/Altinn/altinn-broker), which also contains an Bruno-collection with examples.
 
 ## Operation: Initialize FileTransfer {#operation-initialize-filetransfer}
 
@@ -27,7 +27,23 @@ This operation initializes a File Transfer, including validating basic metadata 
 
 - Once completed, the event [filetransferinitialized](#event-filetransferinitialized) is published to the sender, indicating the File Transfer has been successfully initialized.
 
-**Example:** 'Broker\Intitialize' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json)
+**Example:** 'File Transfer\Initialize' in our [Bruno collection](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru)
+
+## Operation: Initialize and upload FileTransfer {#operation-initialize-and-upload-filetransfer}
+
+**Endpoint:** POST /broker/api/v1/filetransfer/upload
+
+This operation initializes a file transfer and uploads the file in one and the same form-data operation. Note that this operation is limited to 2GB file size, and the performance is worse than if you initialize and upload in two separate operations with the streaming endpoint.
+
+**Request**: An instance of [FileInitializeExt](https://github.com/Altinn/altinn-broker/blob/main/src/Altinn.Broker.API/Models/FileTransferInitializeExt.cs) serialized as form-data with the file in the form field "FileTransfer".
+
+**Return**: HTTP 200 with GUID FileTransferID which is the unique ID used to identify this File Transfer.
+
+**Events triggered**:
+
+- Once completed, the event [filetransferinitialized](#event-filetransferinitialized) is published to the sender, indicating the File Transfer has been successfully initialized.
+
+**Example:** 'File Transfer\Initialize and upload (form-data)' in our [Bruno collection](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru)
 
 ## Operation: UploadStreamed {#operation-uploadStreamed}
 
@@ -45,7 +61,7 @@ Upload the file data as a stream using the FileTransferId received in Initialize
 - Once upload processing has successfully completed, the event [published](#event-published) is published, and the file is available for download.
   - If malware was detected, the event [uploadfailed](#event-uploadfailed) is instead published.
 
-**Example:** 'Broker\{fileTransferId}\upload' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json)
+**Example:** 'File Transfer\{fileTransferId}\Upload' in our [Bruno collection](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru)
 
 ## Operation: Get FileTransfer Overview {#operation-get-filetransfer-overview}
 
@@ -57,7 +73,7 @@ Get a simple overview of the file transfer with current status and recipient sta
 
 **Events triggered:** none.
 
-**Example:** 'Broker\{fileTransferId}\overview' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json)
+**Example:** 'File Transfer\{fileTransferId}\Overview' in our [Bruno collection](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru)
 
 ## Operation: Get FileTransfer Details {#operation-get-filetransfer-details}
 
@@ -71,7 +87,7 @@ Get a detailed view of the file transfer, including detailed File Transfer and R
 
 **Events triggered:** none.
 
-**Example:** 'Broker\{fileTransferId}\details' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json)
+**Example:** 'File Transfer\{fileTransferId}\Details' in our [Bruno collection](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru)
 
 ## Event: no.altinn.broker.filetransferinitialized {#event-filetransferinitialized}
 

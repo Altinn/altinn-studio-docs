@@ -37,7 +37,7 @@ See [Resource Management](https://docs.altinn.studio/authorization/getting-start
 1. Log in to Altinn Studio and navigate to the resource dashboard.
    
    *Note: As part of Altinn's migration of existing messages, new resources are being created in your (service owner) resource dashboard. These message resources are intended only for use for Altinn II messages and must not be used for new correspondences. They can be identified by the inclusion of "migratedcorrespondence" in the resource ID. See [Transition Solution](https://docs.altinn.studio/en/correspondence/transition/) for more information.*
-2. Create a new resource, follow the guide, and fill in the necessary information and details about the service. See [Resource Registry](https://docs.altinn.studio/authorization/guides/resource-owner/create-resource-resource-admin/#step-1-create-resource) for a detailed instruction.
+2. Create a new correspondence resource (meldingsressurs).  Follow the guide, and fill in the necessary information and details about the service. See [Resource Registry](https://docs.altinn.studio/authorization/guides/resource-owner/create-resource-resource-admin/#step-1-create-resource) for a detailed instruction.
 3. Set policy rules for the resource. Your policy must be configured in such a way that they permit the actions:
    - "read" meant for recipients to open and read a message.
    - "write" meant for senders to send a message.
@@ -45,23 +45,14 @@ See [Resource Management](https://docs.altinn.studio/authorization/getting-start
 4. The roles in Altinn II will be replaced by access packages in Altinn 3. We recommend all our service owners use both roles and access packages until June 2026. It's important to thoroughly assess which access package to assign to each resource. 
    - **Ordinary mail:** The Altinn II role "Mail/Archive" this is now replaced by the access package "Ordinær post til virksomheten".
    - **Confidential mail:** If the resource is to be confidential, you have to:
-      - select the access package "Post til virksomheten med taushetsbelagt innhold"
+      - select the access package [Eksplisitt tjenestedelegering](https://docs.altinn.studio/en/authorization/what-do-you-get/accessgroups/accessgroups/forholdvedvirksomheten/#eksplisitt-tjenestedelegering)
       - include the flag "IsConfidential" set to: "true".
 
          Read about confidential mail [here](https://docs.altinn.studio/en/correspondence/explanation/taushetsbelagt-post/).
 
-**Example policy:**
-
-Note that this example policy sets a required user role "DAGL" for the user who has access to the resource, and requires the use of [Resource Rights Registry](https://docs.altinn.studio/authorization/what-do-you-get/resourceregistry/rrr/) to grant access to specific organizations.
-A user with that access can then delegate the access to the enterprise user/system user.
-
 {{% notice warning  %}}
 **Important**: As a service owner, you only need to configure "read" rules via access packages in the GUI.
 {{% /notice %}}
-
-Here is the [example policy](https://docs.altinn.studio/correspondence/getting-started/ExamplePolicy.xml).
-
-**TIP**: Verify your configurations using the [Postman collection](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json), substituting the test tokens with either your own Altinn tokens (see "Login to Maskinporten (Initialize)" request in Authenticator folder) or your Maskinporten tokens, depending on what you are choosing for authentication method.
 {{% /expandlarge %}}
 
 {{% expandlarge id="get-access-to-scopes" header="5. Access to scopes" %}}
@@ -125,7 +116,7 @@ We also welcome contributions to the solution.
 
 See the [readme file on GitHub](https://github.com/Altinn/altinn-correspondence/blob/main/README.md) for an introduction to Altinn 3 Correspondence, and how to build and run it in your dev environment.
 
-The Repo also contains a [Postman collection](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json) with examples.
+The Repo also contains a [Bruno-collection](https://github.com/Altinn/altinn-correspondence/blob/main/.bruno/collection.bru) with examples.
 
 Swagger for the correspondence API is hosted [here](https://docs.altinn.studio/api/correspondence/spec/).
 {{% /expandlarge %}}
@@ -134,7 +125,7 @@ Swagger for the correspondence API is hosted [here](https://docs.altinn.studio/a
 
 Before going live, verify that correspondences render as intended for recipients.
 
-1. Send a test correspondence to a test recipient using your preferred tool (Postman, SDK, or your integration).
+1. Send a test correspondence to a test recipient using your preferred tool (Bruno, SDK, or your integration).
 2. Verify in Arbeidsflate:
    - Log in with the test recipient in [af.tt.altinn.no](https://af.tt.altinn.no/).
    - Check that the test correspondence content is formatted as intended.

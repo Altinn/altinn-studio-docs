@@ -38,31 +38,23 @@ Se [Ressursadministrasjon](https://docs.altinn.studio/nb/authorization/getting-s
 1. Logg inn på Altinn Studio og naviger til ressursdashboardet.
 
       *Obs. I forbindelse med Altinns migrering av eksisterende meldinger, opprettes det nye ressurser i deres (tjenesteeiers) ressursdashboard. Disse meldingsressursene er altså kun til bruk for Altinn II meldinger og skal ikke benyttes for nye utsendelser. Ressursene kjennes igjen ved at de inneholder "migratedcorrespondence" i ressurs-id. Se [Overgangsløsning](https://docs.altinn.studio/nb/correspondence/transition/) for mer informasjon.*
-2. Opprett ny ressurs, følg veiledningen og fyll inn nødvendig informasjon og detaljer om tjenesten. Se [Ressursregister](https://docs.altinn.studio/nb/authorization/guides/resource-owner/create-resource-resource-admin/#trinn-1-opprett-ressurs) for en detaljert veiledning.
+2. Opprett ny meldingsressurs. Følg veiledningen og fyll inn nødvendig informasjon og detaljer om tjenesten. Se [Ressursregister](https://docs.altinn.studio/nb/authorization/guides/resource-owner/create-resource-resource-admin/#trinn-1-opprett-ressurs) for en detaljert veiledning.
 3. Opprett policy: her angis tilgangsregler for ressursen. Tilgangsregler for ressursen må konfigureres slik at de tillater følgende handlinger:
    - "read" ment for at mottakere skal kunne åpne og lese en melding.
    - "write" ment for at avsendere skal kunne sende en melding.
    - "subscribe" for å registrere hendelsesabonnement i Altinn Events.
 4. Altinn II rollene erstattes av tilgangspakker i Altinn 3. Frem til juni 2026 anbefaler vi at man setter både roller og tilgangspakker på ressursen. Det er viktig å ta en grundig vurdering på hvilken tilgangspakke ressursen skal ha. 
    - **Vanlig post:** Den gamle Altinn II rollen "Post/arkiv" erstattes av tilgangspakken "Ordinær post til virksomheten".
-   - **Taushetsbelagt post:** Dersom ressursen skal være taushetsbelagt må dere: 
-      - velge tilgangspakken "Post til virksomheten med taushetsbelagt innhold"
+   - **Taushetsbelagt post:** Dersom ressursen skal være taushetsbelagt må du: 
+      - velge tilgangspakken [Eksplisitt tjenestedelegering](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/forholdvedvirksomheten/#eksplisitt-tjenestedelegering)
       - sende med flagget "IsConfidential" satt til: "true".
 
          Les mer om taushetsbelagt post [her](https://docs.altinn.studio/nb/correspondence/explanation/taushetsbelagt-post/).
-
-**Eksempelpolicy:**
-
-Merk at denne eksempelpolicyen angir en påkrevd brukerrolle "DAGL(daglig leder)" for brukeren som har tilgang til ressursen. Med en så åpen policy er det anbefalt å bruke [Ressursrettighetsregister](https://docs.altinn.studio/nb/authorization/what-do-you-get/resourceregistry/) (gå til engelsk språk for å se dokumentasjon for RRR) for å gi tilgang til spesifikke organisasjoner.
-En bruker med denne tilgangen kan deretter delegere tilgangen til virksomhetsbruker/systembruker.
 
 {{% notice warning  %}}
 **Viktig**: Som tjenesteeier trenger du kun å sette opp "read"-regler via tilgangspakker i GUI-et.
 {{% /notice %}}
 
-Her er [eksempelpolicyen](https://docs.altinn.studio/nb/correspondence/getting-started/ExamplePolicy.xml).
-
-**TIPS**: Verifiser konfigurasjonene dine ved hjelp av [Postman-samlingen](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json), og erstatt testtokenene med enten dine egne Altinn-tokens (se "Logg inn i Maskinporten (Initialiser)" forespørsel i Authenticator-mappen) eller dine Maskinporten-tokens, avhengig av hva du velger for autentiseringsmetode.
 {{% /expandlarge %}}
 
 {{% expandlarge id="get-access-to-scopes" header="5. Tilgang til scopes" %}}
@@ -124,7 +116,7 @@ Vi ønsker bidrag til løsningen velkommen.
 
 Se [Readme-filen på GitHub](https://github.com/Altinn/altinn-correspondence/blob/main/README.md) for en introduksjon til Altinn 3 Melding, og kan kjøre koden lokalt sammen med Docker.
 
-Repoet inneholder også en [Postman-samling](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json) med eksempler.
+Repoet inneholder også en [Bruno-pakke](https://github.com/Altinn/altinn-correspondence/blob/main/.bruno/collection.bru) med eksempler.
 
 Swagger for meldings-APIet finner du [her](/nb/api/correspondence/spec/).
 {{% /expandlarge %}}
@@ -133,7 +125,7 @@ Swagger for meldings-APIet finner du [her](/nb/api/correspondence/spec/).
 
 Før produksjonssetting bør du verifisere at meldinger vises riktig for mottakere.
 
-1. Send en testmelding til en testmottaker via ønsket verktøy (Postman, SDK eller din integrasjon).
+1. Send en testmelding til en testmottaker via ønsket verktøy (Bruno, SDK eller din integrasjon).
 2. Verifiser i Arbeidsflate:
    - Logg inn som testmottaker på [af.tt.altinn.no](https://af.tt.altinn.no/).
    - Sjekk at innholdet i testmeldingen er formatert som tiltenkt.

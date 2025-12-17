@@ -1,6 +1,6 @@
 ---
-title: 'Søke etter dialoger'
-description: 'Hvordan søke etter og filtrere dialoger i Dialogporten'
+title: "Søke etter dialoger"
+description: "Hvordan søke etter og filtrere dialoger i Dialogporten"
 weight: 20
 ---
 
@@ -21,14 +21,14 @@ Merk at datastrukturen som returneres i søk er forskjellig fra den som returner
 
 {{<swaggerdisplayoperation "get" "/api/v1/enduser/dialogs">}}
 
-* Alle parametere av forskjellige typer er AND-et, dvs. hvis du oppgir `party` og `status`, vil bare dialogene med den angitte statusen som eies av den angitte parten, bli returnert.
-* Når du støtter flere verdier for samme parameter, er disse verdiene OR-et, dvs. hvis du oppgir to `status`-parametere, vil dialoger som har en av disse verdiene, bli returnert.
-* `org`-parametere må være tjenesteeierkoder som definert i den globale [altinn-orgs.json](https://altinncdn.no/orgs/altinn-orgs.json), f.eks. `digdir` eller `skd`.
-* `party`-parametere må ha ett av følgende formater
-    * `urn:altinn:person:identifier-no:<11 digit national identity numner>`
-    * `urn:altinn:organization:identifier-no:<9 digit CCR number>`
-* `serviceResource`-parametere må referere til en ressurs i [Ressursregisteret](/nb/authorization/what-do-you-get/resourceregistry/) og bruke følgende format:
-    * `urn:altinn:resource:<identifier>`
+- Alle parametere av forskjellige typer er AND-et, dvs. hvis du oppgir `party` og `status`, vil bare dialogene med den angitte statusen som eies av den angitte parten, bli returnert.
+- Når du støtter flere verdier for samme parameter, er disse verdiene OR-et, dvs. hvis du oppgir to `status`-parametere, vil dialoger som har en av disse verdiene, bli returnert.
+- `org`-parametere må være tjenesteeierkoder som definert i den globale [altinn-orgs.json](https://altinncdn.no/orgs/altinn-orgs.json), f.eks. `digdir` eller `skd`.
+- `party`-parametere må ha ett av følgende formater
+  - `urn:altinn:person:identifier-no:<11 digit national identity numner>`
+  - `urn:altinn:organization:identifier-no:<9 digit CCR number>`
+- `serviceResource`-parametere må referere til en ressurs i [Ressursregisteret](/nb/authorization/what-do-you-get/resourceadministration/) og bruke følgende format:
+  - `urn:altinn:resource:<identifier>`
 
 {{<notice warning>}}
 Vær oppmerksom på at sluttbruker-søke-APIet krever at minst én [`serviceResource`](/nb/dialogporten/getting-started/authorization/service-resource/) eller [`party`](/nb/dialogporten/getting-started/authorization/parties/) parameter er oppgitt. Opptil 20 distinkte verdier for hver av disse to typene kan leveres.
@@ -48,10 +48,10 @@ Søke-APIet er paginert ved hjelp av fortsettelsestokens, se `limit`-parameteren
 
 Sortering kan utføres på følgende kolonner:
 
-* CreatedAt
-* UpdatedAt
-* ContentUpdatedAt
-* DueAt
+- CreatedAt
+- UpdatedAt
+- ContentUpdatedAt
+- DueAt
 
 {{<notice warning>}}
 Siden `Id` er primærnøkkelkolonnen, er det også teknisk sett en sorterbar kolonne. Det anbefales imidlertid ikke å sortere etter `Id`, fordi denne kolonnen, selv om den er en leksikografisk sorterbar UUIDv7, kan leveres av tjenesteeieren eller inneholde en tidsstempeldel som indikerer tidspunktet for migrering, ikke opprettelse av dialog. Så for de fleste formål er `CreatedBy` kolonnen du vil ha i stedet for `Id`.
@@ -63,11 +63,10 @@ Kolonner kan sorteres i stigende og synkende (standard) rekkefølge, og flere ko
 
 Dette er eksempelverdier som kan oppgis i `OrderBy`-spørringsparameteren.
 
-* `createdat`
-* `createdat_asc`
-* `createdat_desc,duedate_asc`
-* `contentupdatedat_desc`
-
+- `createdat`
+- `createdat_asc`
+- `createdat_desc,duedate_asc`
+- `contentupdatedat_desc`
 
 Den gjeldende sorteringen finner du i [samlingsmodellen](/nb/dialogporten/user-guides/searching-for-dialogs/../../reference/entities/dialog/#søk), ved siden av feltene `continuationToken` og `hasNextPage`. Sorteringen er også innebygd i `continuationToken`, så når du paginerer, er det tilstrekkelig å oppgi fortsettelsestokenet alene for å bevare sorteringen.
 

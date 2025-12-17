@@ -20,7 +20,7 @@ Denne operasjonen konfigurerer organisasjonen din som en Tjenesteeier i Formidli
 
 **Utløste hendelser**: ingen.
 
-**Eksempel**: "Register Service Owner" i vår [PostMan-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
+**Eksempel**: "Service Owner/Configure service owner for Broker" i vår [Bruno-pakke](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru).
 
 ## Operasjon: Hent Tjenesteeierkonfigurasjon fra Formidling API {#operation-get-service-owner-config-from-broker-api}
 
@@ -34,7 +34,7 @@ Dette henter konfigurasjonen for organisasjonen din som en Tjenesteeier i Formid
 
 **Utløste hendelser**: ingen.
 
-**Eksempel**: "Registrer Tjenesteeier" i vår [PostMan-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
+**Eksempel**: "Service Owner/Get service owner configuration" i vår [Bruno-pakke](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru).
 
 ## Operasjon: Konfigurer ressurs i Formidling API {#operation-configure-resource-in-broker-api}
 
@@ -48,5 +48,5 @@ Denne operasjonen konfigurerer ressursen din i Altinn Formidling.
 
 **Utløste hendelser**: ingen.
 
-**Eksempel**: Eksempel "Update Resource" i vår [PostMan-samling](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
+**Eksempel**: "Resource/Configure resource for Broker" i vår [Bruno-pakke](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru).
 

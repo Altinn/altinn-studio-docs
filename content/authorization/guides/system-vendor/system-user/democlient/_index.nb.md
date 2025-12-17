@@ -1,74 +1,60 @@
 ---
 title: Demoklient
-description: For å vise hvordan leverandørstyrt opprettelse kan se ut, har vi utviklet demoklienten Smartcloud
+description: Demoklienten SmartCloud viser hvordan leverandørstyrt opprettelse av systembruker kan implementeres.
 linktitle: Demoklient
 hidden: false
 weight: 10
 ---
 
-## Demoklient
+**Målgruppe:** Utviklere og tekniske ansvarlige hos sluttbrukersystemleverandører som ønsker et praktisk eksempel på leverandørstyrt opprettelse av systembruker.
 
-For en demo av hvordan leverandørstyrt opprettelse kan se ut, se vår demoklient [SmartCloud](http://smartcloudaltinn.azurewebsites.net).
+## Om demoklienten SmartCloud
 
-Se kode med dokumentasjon [her](https://github.com/TheTechArch/altinn-systemuser).
+SmartCloud er en demoklient som demonstrerer hele flyten for leverandørstyrt opprettelse.  
+Du kan teste løsningen på [smartcloudaltinn.azurewebsites.net](http://smartcloudaltinn.azurewebsites.net) og se kildekode med dokumentasjon på GitHub: [TheTechArch/altinn-systemuser](https://github.com/TheTechArch/altinn-systemuser).
 
-For opprettelse av systembrukere kan testbrukere/organisasjoner fra Tenor benyttes.
+Når du tester opprettelse av systembruker, kan du bruke testbrukere og -organisasjoner fra Tenor.
 
-## Testing av systembruker i TT02
+## Test systembruker i TT02
 
-For å teste systembruker i TT02, kreves følgende:
+Referanseimplementasjonen er skrevet i C# og kan kjøres som en konsollapplikasjon. Den:
 
-- Systemtilbyder registrert i Maskinporten. Dette gjøres via servicedesk@digdir.no.
-- Systemtilbyder registrert i Altinn. Dette gjøres via API for systemleverandør.
-- Systemintegrasjon registrert i Maskinporten test.
+- genererer et token basert på konfigurert JSON Web Key, klient-ID, scope og organisasjonsnummeret til systemtilbyderen
+- kaller referanse-API-er som krever systembruker ved hjelp av tokenet
 
-## Oppsett av referanseimplementasjon med egen konfigurasjon
+Kildekode og dokumentasjon: [TheTechArch/altinn-systemuser](https://github.com/TheTechArch/altinn-systemuser).
 
-En referanseimplementasjon er utviklet for å demonstrere bruk av systembruker. Den er utviklet i C# og kan kjøres som en konsollapplikasjon.
+### Steg-for-steg: konfigurer og kjør referanseimplementasjonen
 
-Den gjør følgende:
+Repositoryet inneholder nødvendige testsertifikat. Følg stegene under for å sette opp en egen integrasjon:
 
-Oppretter et token basert på konfigurert JSON Web Key, klient-ID, scope og organisasjonsnummeret til systembrukeroppretteren.
+{{< stepcard step="1" title="Opprett integrasjon i Maskinporten" >}}
+Følg veiledningen for å [sette opp Maskinporten-klient](/nb/authorization/getting-started/maskinportenclient/). Sørg for å notere klient-ID, scopes og laste ned nøkkelmaterialet når integrasjonen er opprettet.
+{{< /stepcard >}}
 
-Basert på mottatt token, gjør den kall mot referanse-API-er som krever systembruker.
+{{< stepcard step="2" title="Registrer systemet i Altinn" >}}
+Registrer systemet i systemregisteret med korrekt klient-ID og kobling til nødvendige ressurser og tilgangspakker. Se veiledningen [Registrering av system](/nb/authorization/guides/system-vendor/system-user/systemregistration/) for detaljer.  
+Sett `isVisible: true` under opprettelsen slik at systemet kan velges under steg 3
+{{< /stepcard >}}
 
-Se kode med dokumentasjon [her](https://github.com/TheTechArch/altinn-systemuser).
+{{< stepcard step="3" title="Brukerstyrt opprettelse i Altinn" >}}
+La en testbruker logge inn på [tt02.altinn.no](https://tt02.altinn.no) med tilgangsstyrer-rollen for testorganisasjonen og gå til [API- og systemtilganger](https://am.ui.tt02.altinn.no/accessmanagement/ui/systemuser/overview).
 
-## Oppsett av referanseimplementasjon med egen konfigurasjon
+![Velg fagsystemet du ønsker det skal opprettes systemtilgang for](delegering1.png)
 
-Repositoryet inneholder nødvendig testsertifikat for å kjøre applikasjonen. Følgende må gjøres for å sette opp en egen integrasjon som systemtilbyder:
-{.floating-bullet-numbers-sibling-ol}
+![Godkjenn opprettelse av systemtilgang med angitte rettigheter](delegering2.png)
 
-1. Logg inn på [onboarding Maskinporten](https://onboarding.test.maskinporten.no/). Her kan du bruke en testidentitet som er daglig leder i en testvirksomhet.
+![Oversikt over systemtilganger i testorganisasjonen](delegering3.png)
+{{< /stepcard >}}
 
-   ![Onboarding](onboarding1.png "Forenklet onboarding")
+{{< stepcard step="4" title="Konfigurer testapplikasjonen" >}}
+Sett opp nøkkel, sertifikat, klient-ID og scope i testapplikasjonen før du kjører den.
 
-   ![Onboarding](onboarding2.png "Velg virksomhet")
+```csharp
+string clientID = "7ee41fce-9f6e-4c32-8195-0fe2c1517f43";
+string scope = "altinn:systembruker.demo";
+string systemUserOrg = "210493352";
+string pemCertificatePath = @".\mp-key.pem";
+```
 
-   ![Onboarding](onboarding3.png "Oversikt over integrasjoner i Maskinporten. Her kan du legge til nye")
-
-   ![Onboarding](onboarding4.png "Opprett integrasjon, søk etter nødvendig scope")
-
-   ![Onboarding](onboarding5.png "Legg til eventuelle ekstra scope og beskriv integrasjonen")
-
-   ![Onboarding](onboarding6.png "Last ned genererte nøkler")
-
-   ![Onboarding](onboarding7.png "Integrasjon opprettet")
-
-2. Få systemet registrert i Systemregisteret med korrekt klient-ID og kobling til nødvendige ressurser/tilgangspakker.
-
-3. Logg inn med en testbruker på tt02.altinn.no. Brukeren må ha tilgangsstyringsrollen i Altinn for en testorganisasjon og gå til siden [https://authn.ui.tt02.altinn.no/authfront/ui/auth/creation](https://authn.ui.tt02.altinn.no/authfront/ui/auth/creation).
-   ![Onboarding](delegering1.png "Velg et system")
-
-   ![Onboarding](delegering2.png "Godkjenn opprettelse av systembruker med spesifisert rettighet")
-
-   ![Onboarding](delegering3.png "Systembruker oversikt for test organisasjon")
-
-4. Konfigurer nøkkel, sertifikat, klient-ID og scope i testapplikasjonen.
-
-   ```csharp
-   string clientID = "7ee41fce-9f6e-4c32-8195-0fe2c1517f43";
-   string scope = "altinn:systembruker.demo";
-   string systemUserOrg = "210493352";
-   string pemCertificatePath = @".\mp-key.pem";
-   ```
+{{< /stepcard >}}

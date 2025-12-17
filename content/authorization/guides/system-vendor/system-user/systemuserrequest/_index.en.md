@@ -10,11 +10,7 @@ weight: 2
 
 **Prerequisites:**
 
-  * Your system (SBSL) must be pre-registered in Altinn ([Register System](/nb/authorization/guides/system-vendor/system-user/systemregistration/)).
-  * You must have a valid Maskinporten token with the scope `altinn:authentication/systemuser.request.write` (the scope is created in the [Cooperation Portal (Samarbeidsportalen)](https://samarbeid.digdir.no/maskinporten/maskinporten/25)).
-  * You must know the organization number (`partyOrgNo`) of the end-user customer.
-  * You must have defined which access packages (`accessPackages`) or individual rights (`rights`) the system user needs.
-  * (Optional) If `redirectUrl` is to be used, this URL must be pre-registered on your system.
+You must have some prerequisites in place before you create system user, see the [Getting Started guide](https://docs.altinn.studio/nb/authorization/getting-started/systemuser/).
 
 -----
 
@@ -96,10 +92,10 @@ This applies to a system user for a system that will act on behalf of the end-us
 
 ### Instructions (Vendor-controlled Creation)
 
-1. **Initiate request:** Send an HTTP POST request to the specific endpoint for client systems (`/agent/request`).
+1. **Initiate request:** Send an HTTP POST request to the specific endpoint for client systems (`vendor/agent/`).
 
-      * **Test (TT02):** `POST https://platform.tt02.altinn.no/authentication/api/v1/systemuser/agent/request`
-      * **Production:** `POST https://platform.altinn.no/authentication/api/v1/systemuser/agent/request`
+      * **Test (TT02):** `POST https://platform.tt02.altinn.no/authentication/api/v1/systemuser/request/vendor/agent/`
+      * **Production:** `POST https://platform.altinn.no/authentication/api/v1/systemuser/request/vendor/agent/`
 
 2. **Configure Request Body:** Include a JSON body. ***Note*** that the `rights` list must be empty or omitted.
 

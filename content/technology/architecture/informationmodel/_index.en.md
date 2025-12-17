@@ -19,7 +19,7 @@ aliases:
 | Rule  | A rule defines different operations on resources / apps.   |
 | Delegation | A delegation is when a user gives rights to a person, system, or organization. A delegation gives rights through delegated roles, delegated access Packages, or delegated single rights through a delegation policy. |
 | Delegation Policy | A policy created by end-users when they delegate rights to other users/organizations. | 
-| Resource | A resource is metadata about a digital or analog service that a resource owner wants to use [Altinn Authorization](/en/authorization/what-do-you-get/pdp/) for access control. When defining a service as a resource in [Altinn Resource Registry](/en/authorization/what-do-you-get/resourceregistry/) with a policy, resource owners can use Altinn PDP to control access to external solutions.  |
+| Resource | A resource is metadata about a digital or analog service that a resource owner wants to use [Altinn Authorization](/en/authorization/what-do-you-get/accesscontrol/) for access control. When defining a service as a resource in [Altinn Resource Administration](/en/authorization/what-do-you-get/resourceadministration/) with a policy, resource owners can use Altinn PDP to control access to external solutions.  |
 | Access List | An access list defines entities that can access a resource if the resource requires access list access. |
 
 ## Altinn Register

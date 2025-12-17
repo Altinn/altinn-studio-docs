@@ -25,7 +25,8 @@ You can receive notifications about events related to submitted messaging servic
 The system offers advanced access control, ensuring that only authorized users can access specific file transfers.
 
 ### Support for Various Message Formats
-- Ability to send correspondences in Markdown, HTML or clean text.
+- Ability to send correspondences in Markdown or clean text.
+- Support for [HTML numeric character references.](https://en.wikipedia.org/wiki/Numeric_character_reference)
 - Support for up to 100 attachments per correspondence.
 - Support for many file types: .doc, .xls, .docx, .xlsx, .ppt, .pps, .zip, .pdf, .html, .txt, .xml, .jpg, .gif, .bmp, .png and .json.
 - Supports attachments up to 2 GB. 
@@ -51,6 +52,10 @@ The system offers advanced access control, ensuring that only authorized users c
 - An Altinn 3 Message automatically creates a dialogue in "Dialogporten".
 - Messages with an existing dialogue as an external reference will create a transmission which provides a logical display of related messages.
 - The solution provides a unified user interface across the Altinn 3 workspace "Arbeidsflate" and "Dialogporten".
+
+### Confirmation and due date
+- Option to require confirmation of correspondence from recipients.
+- Support to set a due date for when a message must be confirmed or read.
 
 ## Summary of advantages of Altinn Correspondence
 Altinn Correspondence offers several unique benefits that make it the preferred choice for digital communication with public agencies in Norway:
