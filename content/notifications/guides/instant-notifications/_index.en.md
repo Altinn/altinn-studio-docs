@@ -1,14 +1,10 @@
 ---
 title: Send Instant Notifications
-description: "Learn how to send instant notifications via the Altinn Notifications API for time-critical messages such as one-time passwords (OTP), authentication confirmations, and other immediate alerts."
+description: "Learn how to send instant notifications via the Altinn Notifications API for time-critical messages such as one-time passwords (OTP)."
 linktitle: Instant Notifications
 tags: [instant notifications, OTP, SMS, email]
 weight: 30
 ---
-
-## Introduction
-
-This guide shows how to send instant notifications via the Altinn Notifications API. Instant notifications are sent immediately to a single recipient and are particularly suitable for time-critical messages such as one-time passwords (OTP).
 
 {{% notice info %}}
 Before you start, make sure you have read the [explanation of instant notifications](/en/notifications/explanation/instant-notifications/) to understand when and how you should use this feature.
@@ -19,10 +15,10 @@ Before you start, make sure you have read the [explanation of instant notificati
 Before you can send instant notifications, you must have:
 
 1. **Maskinporten client** with scope `altinn:serviceowner/notifications.create`
+2.   - See the [Maskinporten integration guide](/en/notifications/guides/#creating-a-new-maskinporten-client) for more information about setup.
 2. **Altinn token** for authentication against the API
 3. **Recipient's contact information** (phone number or email address)
 
-See the [Maskinporten integration guide](/en/notifications/guides/#creating-a-new-maskinporten-client) for more information about setup.
 
 ## API Endpoints
 
