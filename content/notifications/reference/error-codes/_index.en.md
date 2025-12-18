@@ -79,6 +79,10 @@ These error codes are returned in the `errorCode` field of the problem details r
 ```
 
 **Resolution:**
+
+This error is not expected during normal operation. It indicates that the client disconnected or cancelled the request before the server could complete processing, meaning the client no longer has an active connection to receive the response.
+
+If you receive this error:
 - Increase the timeout setting in your HTTP client (recommended: 10-15 seconds for instant notifications)
 - Check network connectivity and stability
 - Implement retry logic using the same `idempotencyId` to safely retry the request

@@ -79,6 +79,10 @@ Disse feilkodene returneres i `errorCode`-feltet i problemdetaljrespons når en 
 ```
 
 **Løsning:**
+
+Denne feilen er ikke forventet under normal drift. Feilen indikerer at klienten koblet fra eller avbrøt forespørselen før serveren kunne fullføre behandlingen, noe som betyr at klienten ikke lenger har en aktiv tilkobling for å motta responsen.
+
+Hvis du mottar denne feilen:
 - Øk timeout-innstillingen i HTTP-klienten din (anbefalt: 10-15 sekunder for umiddelbare varsler)
 - Sjekk nettverkstilkobling og stabilitet
 - Implementer retry-logikk ved å bruke samme `idempotencyId` for å trygt prøve forespørselen på nytt
