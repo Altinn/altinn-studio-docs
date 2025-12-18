@@ -139,7 +139,6 @@ Mulige feilkoder:
 | `400 Bad Request` | - | Ugyldig forespørsel (f.eks. manglende påkrevde felter) | Sjekk at alle påkrevde felter er inkludert og har riktig format |
 | `401 Unauthorized` | - | Manglende eller ugyldig token | Sørg for gyldig Altinn-token i Authorization-header |
 | `403 Forbidden` | - | Manglende tilgang til API-et | Verifiser at Maskinporten-klienten har riktig scope |
-| `422 Unprocessable Entity` | `NOT-00001` | Manglende kontaktinformasjon for mottaker(e) | Verifiser at telefonnummeret eller e-postadressen er gyldig og at mottaker har registrert kontaktinformasjon i Altinn |
 | `499 Client Closed Request` | `NOT-00002` | Forespørsel avbrutt - Klienten koblet fra eller avbrøt forespørselen | Sjekk nettverkstilkobling og sørg for tilstrekkelige timeout-innstillinger i HTTP-klienten din |
 
 ## Send umiddelbar e-postvarsling

@@ -140,7 +140,6 @@ Possible error codes:
 | `400 Bad Request` | - | Invalid request (e.g., missing required fields) | Check that all required fields are included and have the correct format |
 | `401 Unauthorized` | - | Missing or invalid token | Ensure valid Altinn token in Authorization header |
 | `403 Forbidden` | - | Missing access to the API | Verify that the Maskinporten client has the correct scope |
-| `422 Unprocessable Entity` | `NOT-00001` | Missing contact information for recipient(s) | Verify that the phone number or email address is valid and that the recipient has registered contact information in Altinn |
 | `499 Client Closed Request` | `NOT-00002` | Request terminated - The client disconnected or cancelled the request | Check network connectivity and ensure adequate timeout settings in your HTTP client |
 
 ## Send Instant Email Notification
