@@ -12,7 +12,7 @@ Denne siden gir en omfattende referanse for alle spesifikke feilkoder som return
 
 Altinn Notifications API bruker unike feilkoder i formatet `NOT-XXXXX` hvor `NOT` står for Notifications og `XXXXX` er et femsifret nummer.
 
-Disse feilkodene returneres i `errorCode`-feltet i problemdetaljrespons når en feil oppstår.
+Disse feilkodene returneres i `code`-feltet i problemdetaljresponsen. `code`-feltet er et utvidelsesmedlem som definert av [RFC 9457](https://tools.ietf.org/html/rfc9457) (Problem Details for HTTP APIs), som gir maskinlesbar feilidentifikasjon.
 
 ## Feilkoder
 
@@ -131,14 +131,14 @@ I tillegg til de spesifikke feilkodene ovenfor returnerer API-et også standard 
 
 ## Beste praksis
 
-1. **Sjekk alltid `errorCode`-feltet**: Når du mottar en feilrespons, undersøk `errorCode`-feltet i problemdetaljresponsen for å forstå det spesifikke problemet.
+1. **Sjekk alltid `code`-feltet**: Når du mottar en feilrespons, undersøk `code`-feltet i problemdetaljresponsen for å forstå det spesifikke problemet.
 
 2. **Implementer riktig feilhåndtering**: Applikasjonen din bør håndtere hver feilkode på riktig måte:
    - For `NOT-00001`: Informer brukeren om manglende kontaktinformasjon og gi veiledning om hvordan man registrerer den
    - For `NOT-00002`: Implementer retry-logikk med passende timeouts
    - For `NOT-00003`: Valider forsendelses-ID-en før du gjør forespørselen
 
-3. **Logg feildetaljer**: Logg alltid hele feilresponsen inkludert `errorCode`, `detail` og `instance`-feltene for feilsøkingsformål.
+3. **Logg feildetaljer**: Logg alltid hele feilresponsen inkludert `code`, `status` og `detail`-feltene for feilsøkingsformål.
 
 4. **Bruk idempotens**: For POST-forespørsler, bruk alltid en unik `idempotencyId` for å muliggjøre trygge nye forsøk ved nettverksfeil eller timeouts.
 

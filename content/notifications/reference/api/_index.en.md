@@ -37,24 +37,3 @@ The Altinn Notifications API uses standard HTTP status codes and provides detail
 The API returns unique error codes in the format `NOT-XXXXX` for specific error conditions. These error codes help you identify and handle specific error scenarios programmatically.
 
 For a complete reference of all error codes, see the [Error Codes Reference](/en/notifications/reference/error-codes/).
-
-### Common Error Codes
-
-| Error Code | HTTP Status | Description |
-|------------|-------------|-------------|
-| `NOT-00001` | 422 | Missing contact information for recipient(s) |
-| `NOT-00002` | 499 | Request terminated by client |
-| `NOT-00003` | 404 | Shipment not found |
-
-### Problem Details Response Format
-
-When an error occurs, the API returns a problem details response following [RFC 9110](https://tools.ietf.org/html/rfc9110):
-
-```json
-{
-  "status": 422,
-  "code": "NOT-00001",
-  "detail": "Missing contact information for recipient(s)"
-}
-```
-

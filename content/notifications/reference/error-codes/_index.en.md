@@ -12,7 +12,7 @@ This page provides a comprehensive reference for all specific error codes return
 
 Altinn Notifications API uses unique error codes in the format `NOT-XXXXX` where `NOT` stands for Notifications and `XXXXX` is a five-digit number.
 
-These error codes are returned in the `errorCode` field of the problem details response when an error occurs.
+These error codes are returned in the `code` field of the problem details response. The `code` field is an extension member as defined by [RFC 9457](https://tools.ietf.org/html/rfc9457) (Problem Details for HTTP APIs), providing machine-readable error identification.
 
 ## Error Codes
 
@@ -131,14 +131,14 @@ In addition to the specific error codes above, the API also returns standard HTT
 
 ## Best Practices
 
-1. **Always check the `errorCode` field**: When you receive an error response, examine the `errorCode` field in the problem details response to understand the specific issue.
+1. **Always check the `code` field**: When you receive an error response, examine the `code` field in the problem details response to understand the specific issue.
 
 2. **Implement proper error handling**: Your application should handle each error code appropriately:
    - For `NOT-00001`: Inform the user about missing contact information and provide guidance on how to register it
    - For `NOT-00002`: Implement retry logic with appropriate timeouts
    - For `NOT-00003`: Validate the shipment ID before making the request
 
-3. **Log error details**: Always log the complete error response including the `errorCode`, `detail`, and `instance` fields for debugging purposes.
+3. **Log error details**: Always log the complete error response including the `code`, `status`, and `detail` fields for debugging purposes.
 
 4. **Use idempotency**: For POST requests, always use a unique `idempotencyId` to enable safe retries in case of network errors or timeouts.
 
