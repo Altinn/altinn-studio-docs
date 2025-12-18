@@ -53,7 +53,7 @@ When an error occurs, the API returns a problem details response following [RFC 
 ```json
 {
   "status": 422,
-  "errorCode": "NOT-00001",
+  "code": "NOT-00001",
   "detail": "Missing contact information for recipient(s)"
 }
 ```

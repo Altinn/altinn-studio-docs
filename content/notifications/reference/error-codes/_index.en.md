@@ -36,7 +36,7 @@ These error codes are returned in the `errorCode` field of the problem details r
 ```json
 {
   "status": 422,
-  "errorCode": "NOT-00001",
+  "code": "NOT-00001",
   "detail": "Missing contact information for recipient(s)"
 }
 ```
@@ -67,7 +67,7 @@ These error codes are returned in the `errorCode` field of the problem details r
 ```json
 {
   "status": 499,
-  "errorCode": "NOT-00002",
+  "code": "NOT-00002",
   "detail": "The client disconnected or cancelled the request before the server could complete processing"
 }
 ```
@@ -103,7 +103,7 @@ If you receive this error:
 ```json
 {
   "status": 404,
-  "errorCode": "NOT-00003",
+  "code": "NOT-00003",
   "detail": "Shipment not found"
 }
 ```

@@ -36,7 +36,7 @@ Disse feilkodene returneres i `errorCode`-feltet i problemdetaljrespons når en 
 ```json
 {
   "status": 422,
-  "errorCode": "NOT-00001",
+  "code": "NOT-00001",
   "detail": "Missing contact information for recipient(s)"
 }
 ```
@@ -67,7 +67,7 @@ Disse feilkodene returneres i `errorCode`-feltet i problemdetaljrespons når en 
 ```json
 {
   "status": 499,
-  "errorCode": "NOT-00002",
+  "code": "NOT-00002",
   "detail": "The client disconnected or cancelled the request before the server could complete processing"
 }
 ```
@@ -103,7 +103,7 @@ Hvis du mottar denne feilen:
 ```json
 {
   "status": 404,
-  "errorCode": "NOT-00003",
+  "code": "NOT-00003",
   "detail": "Shipment not found"
 }
 ```

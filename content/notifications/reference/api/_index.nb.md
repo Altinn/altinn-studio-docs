@@ -53,7 +53,7 @@ Når en feil oppstår, returnerer API-et en problemdetaljrespons i henhold til [
 ```json
 {
   "status": 422,
-  "errorCode": "NOT-00001",
+  "code": "NOT-00001",
   "detail": "Missing contact information for recipient(s)"
 }
 ```
