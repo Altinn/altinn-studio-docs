@@ -29,8 +29,6 @@ These error codes are returned in the `code` field of the problem details respon
 
 **Affected Endpoints:**
 - `POST /future/orders` - Creating notification orders with recipient lookup
-- `POST /future/orders/instant/sms` - When using national identity numbers instead of direct phone numbers
-- `POST /future/orders/instant/email` - When using national identity numbers instead of direct email addresses
 
 **Example Response:**
 ```json

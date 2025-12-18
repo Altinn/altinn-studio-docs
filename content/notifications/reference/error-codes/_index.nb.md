@@ -29,8 +29,6 @@ Disse feilkodene returneres i `code`-feltet i problemdetaljresponsen. `code`-fel
 
 **Berørte endepunkter:**
 - `POST /future/orders` - Oppretting av varslingordrer med mottakeroppslag
-- `POST /future/orders/instant/sms` - Når man bruker fødselsnummer i stedet for direkte telefonnumre
-- `POST /future/orders/instant/email` - Når man bruker fødselsnummer i stedet for direkte e-postadresser
 
 **Eksempelrespons:**
 ```json
