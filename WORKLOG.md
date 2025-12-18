@@ -1,15 +1,25 @@
 # Arbeidsdagbok - Altinn Studio Dokumentasjon
 
-## Neste oppgave
-- **Mappe**: `/content/altinn-studio/v10/develop-a-service/multi-app-solution/`
-- **Oppgave**: Klarspråk på norsk først, deretter britisk engelsk oversettelse
-- **Fokus**:
-  - Fjerne "man" og bruke "du"
-  - Unngå passiv med "av + -ing"
-  - Aktivt språk
-  - GUI-elementer på norsk i engelsk versjon
+## Status 18. desember 2025
+- **Siste arbeid (tirsdag 17. des)**: Flettet inn komponentbeskrivelser fra v8 til v10
+- **Konkret oppgave**:
+  - **Målfil**: http://localhost:1313/nb/altinn-studio/v10/develop-a-service/components/
+  - **Kildefiler**: `/content/altinn-studio/v8/guides/design/guidelines/components`
+  - **Hva som flettes inn**: "Bruk", "Utseende (Anatomi)" og "Egenskaper" fra v8
+  - **For hvilke**: Alle komponenter som har disse seksjonene i v8
+- **Støttedokumentasjon**:
+  - `component-analysis-v8.md` inneholder oversikt over alle v8-komponenter
+  - v8-komponenter ligger også i `/content/altinn-studio/v8/reference/ux/components/`
+- **Neste i 2026**: Fortsette flettearbeidet - sjekk hvilke komponenter som er gjort og hvilke som mangler
 
-## Gjennomført i dag (2025-10-16)
+## Tidligere arbeid
+
+### multi-app-solution (ikke fullført)
+- **Mappe**: `/content/altinn-studio/v10/develop-a-service/multi-app-solution/`
+- **Status**: Ikke startet - for gammel informasjon
+- **Oppgave**: Klarspråk på norsk først, deretter britisk engelsk oversettelse
+
+### Gjennomført 16. oktober 2025
 
 ### eFormidling-dokumentasjon
 - **Filer**: `/content/altinn-studio/v10/develop-a-service/eFormidling/_index.nb.md` og `_index.en.md`
