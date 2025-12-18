@@ -40,6 +40,7 @@ Du kan motta varsler om hendelser knyttet til sendte meldingstjenester, ved å s
   Løsningen har en begrensning på max. 100 vedlegg pr. melding. 
 - Det er også mulig å lenke til innhold og vedlegg som er lagret andre steder, 
   f.eks. on-premise hos avsender eller i avsenders prefererte skyløsning.
+- Støtte for å angi utløpsdato på vedlegg. Når utløpsdatoen er nådd, blir vedlegget automatisk markert som slettet og filen fjernet fra meldingssystemet.
 
 ### Arkivering og oppbevaring
 - Alle meldinger lagres i brukerens meldingsboks i Altinn.

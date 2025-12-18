@@ -56,11 +56,14 @@ Hvis du ikke spesifiserer et *typeFilter*, vil du motta alle forskjellige typer 
 - `no.altinn.correspondence.attachmentuploadfailed`
 - `no.altinn.correspondence.attachmentpurged`
 - `no.altinn.correspondence.attachmentdownloaded`
+- `no.altinn.correspondence.attachmentexpired`
 
 - `no.altinn.correspondence.correspondenceinitialized`
 - `no.altinn.correspondence.correspondencepublished`
 - `no.altinn.correspondence.correspondencepurged`
 - `no.altinn.correspondence.correspondencepublishfailed`
+- `no.altinn.correspondence.notificationcreated`
+- `no.altinn.correspondence.correspondencenotificationcreationfailed`
 
 **For hver mottaker:**
 - `no.altinn.correspondence.correspondencepublished`
