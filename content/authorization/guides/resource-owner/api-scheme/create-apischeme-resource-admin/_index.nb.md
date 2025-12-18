@@ -2,7 +2,6 @@
 title: Opprette og publisere delegerbare API ressurser i Altinn Studio
 linktitle: Opprette API Scheme
 description: Denne guiden forklarer hvordan du kan opprette og publisere delegerbare API ressurser i fra Ressursadministrasjon i Altinn Studio
-toc: false
 ---
 
 I Altinn Studio Resource admin kan du opprette ressurser som skal brukes som grunnlag for tilgangskontroll for tjenester utenfor Altinn-plattformen.

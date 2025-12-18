@@ -1,14 +1,10 @@
 ---
 title: Send Instant Notifications
-description: "Learn how to send instant notifications via the Altinn Notifications API for time-critical messages such as one-time passwords (OTP), authentication confirmations, and other immediate alerts."
+description: "Learn how to send instant notifications via the Altinn Notifications API for time-critical messages such as one-time passwords (OTP)."
 linktitle: Instant Notifications
 tags: [instant notifications, OTP, SMS, email]
 weight: 30
 ---
-
-## Introduction
-
-This guide shows how to send instant notifications via the Altinn Notifications API. Instant notifications are sent immediately to a single recipient and are particularly suitable for time-critical messages such as one-time passwords (OTP).
 
 {{% notice info %}}
 Before you start, make sure you have read the [explanation of instant notifications](/en/notifications/explanation/instant-notifications/) to understand when and how you should use this feature.
@@ -19,10 +15,10 @@ Before you start, make sure you have read the [explanation of instant notificati
 Before you can send instant notifications, you must have:
 
 1. **Maskinporten client** with scope `altinn:serviceowner/notifications.create`
+   - See the [Maskinporten integration guide](/en/notifications/guides/#creating-a-new-maskinporten-client) for more information about setup.
 2. **Altinn token** for authentication against the API
 3. **Recipient's contact information** (phone number or email address)
 
-See the [Maskinporten integration guide](/en/notifications/guides/#creating-a-new-maskinporten-client) for more information about setup.
 
 ## API Endpoints
 
@@ -144,7 +140,6 @@ Possible error codes:
 | `400 Bad Request` | - | Invalid request (e.g., missing required fields) | Check that all required fields are included and have the correct format |
 | `401 Unauthorized` | - | Missing or invalid token | Ensure valid Altinn token in Authorization header |
 | `403 Forbidden` | - | Missing access to the API | Verify that the Maskinporten client has the correct scope |
-| `422 Unprocessable Entity` | `NOT-00001` | Missing contact information for recipient(s) | Verify that the phone number or email address is valid and that the recipient has registered contact information in Altinn |
 | `499 Client Closed Request` | `NOT-00002` | Request terminated - The client disconnected or cancelled the request | Check network connectivity and ensure adequate timeout settings in your HTTP client |
 
 ## Send Instant Email Notification

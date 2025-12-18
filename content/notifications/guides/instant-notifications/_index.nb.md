@@ -1,14 +1,10 @@
 ---
 title: Send umiddelbare varsler
-description: "Lær hvordan du sender umiddelbare varsler via Altinn Varslinger API for tidskritiske meldinger som engangskoder (OTP), autentiseringsbekreftelser og andre varsler som ikke tåler forsinkelse."
+description: "Lær hvordan du sender umiddelbare varsler via Altinn Varslinger API for tidskritiske meldinger som engangskoder (OTP)."
 linktitle: Umiddelbar varsling
 tags: [umiddelbar varsling, OTP, SMS, e-post]
 weight: 30
 ---
-
-## Introduksjon
-
-Denne veiledningen viser hvordan du sender umiddelbare varsler via Altinn Varslinger API. Umiddelbare varsler sendes øyeblikkelig til én enkelt mottaker og er spesielt egnet for tidskritiske meldinger som engangskoder (OTP).
 
 {{% notice info %}}
 Før du begynner, sørg for at du har lest [forklaringen om umiddelbar varsling](/nb/notifications/explanation/instant-notifications/) for å forstå når og hvordan du bør bruke denne funksjonen.
@@ -19,10 +15,9 @@ Før du begynner, sørg for at du har lest [forklaringen om umiddelbar varsling]
 Før du kan sende umiddelbare varsler må du ha:
 
 1. **Maskinporten-klient** med scopet `altinn:serviceowner/notifications.create`
+   - Se [veiledningen for Maskinporten-integrasjon](/nb/notifications/guides/#opprette-en-ny-maskinporten-klient) for mer informasjon om oppsett.
 2. **Altinn-token** for autentisering mot API-et
 3. **Mottakers kontaktinformasjon** (telefonnummer eller e-postadresse)
-
-Se [veiledningen for Maskinporten-integrasjon](/nb/notifications/guides/#opprette-en-ny-maskinporten-klient) for mer informasjon om oppsett.
 
 ## API-endepunkter
 
@@ -144,7 +139,6 @@ Mulige feilkoder:
 | `400 Bad Request` | - | Ugyldig forespørsel (f.eks. manglende påkrevde felter) | Sjekk at alle påkrevde felter er inkludert og har riktig format |
 | `401 Unauthorized` | - | Manglende eller ugyldig token | Sørg for gyldig Altinn-token i Authorization-header |
 | `403 Forbidden` | - | Manglende tilgang til API-et | Verifiser at Maskinporten-klienten har riktig scope |
-| `422 Unprocessable Entity` | `NOT-00001` | Manglende kontaktinformasjon for mottaker(e) | Verifiser at telefonnummeret eller e-postadressen er gyldig og at mottaker har registrert kontaktinformasjon i Altinn |
 | `499 Client Closed Request` | `NOT-00002` | Forespørsel avbrutt - Klienten koblet fra eller avbrøt forespørselen | Sjekk nettverkstilkobling og sørg for tilstrekkelige timeout-innstillinger i HTTP-klienten din |
 
 ## Send umiddelbar e-postvarsling
