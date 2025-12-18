@@ -20,10 +20,10 @@ Disse feilkodene returneres i `code`-feltet i problemdetaljresponsen. `code`-fel
 
 **HTTP-statuskode:** 422 Unprocessable Entity
 
-**Beskrivelse:** API-et kunne ikke behandle varslingordren fordi en eller flere mottakere ikke har påkrevd kontaktinformasjon registrert i Altinn.
+**Beskrivelse:** API-et kunne ikke behandle varslingsordren fordi én eller flere mottakere ikke har nødvendig kontaktinformasjon tilgjengelig for Altinn.
 
 **Vanlige årsaker:**
-- Mottaker har ikke registrert e-postadresse eller telefonnummer i sin Altinn-profil
+- Mottakeren har ikke registrert en e-postadresse eller et telefonnummer
 - Mottaker har registrert kontaktinformasjon, men den er ikke gyldig eller verifisert
 - For organisasjonsmottakere kan det hende at organisasjonen ikke har registrert kontaktdetaljer
 
@@ -42,8 +42,8 @@ Disse feilkodene returneres i `code`-feltet i problemdetaljresponsen. `code`-fel
 ```
 
 **Løsning:**
-- Verifiser at mottakerens fødselsnummer eller organisasjonsnummer er korrekt
-- Be mottakeren logge inn i Altinn og registrere sin kontaktinformasjon
+- Verifiser at mottakerens fødselsnummer eller organisasjonsnummer er riktig
+- Be mottakeren registrere sin kontaktinformasjon for å gjøre den tilgjengelig for Altinn
 - For umiddelbare varsler, vurder å bruke de direkte `emailAddress`- eller `phoneNumber`-feltene i stedet for å stole på mottakeroppslag
 
 ---
@@ -77,7 +77,7 @@ Disse feilkodene returneres i `code`-feltet i problemdetaljresponsen. `code`-fel
 Denne feilen er ikke forventet under normal drift. Feilen indikerer at klienten koblet fra eller avbrøt forespørselen før serveren kunne fullføre behandlingen, noe som betyr at klienten ikke lenger har en aktiv tilkobling for å motta responsen.
 
 Hvis du mottar denne feilen:
-- Øk timeout-innstillingen i HTTP-klienten din (anbefalt: 10-15 sekunder for umiddelbare varsler)
+- Øk timeout-innstillingen i HTTP-klienten din
 - Sjekk nettverkstilkobling og stabilitet
 - Implementer retry-logikk ved å bruke samme `idempotencyId` for å trygt prøve forespørselen på nytt
 - Hvis problemet vedvarer, kontakt Altinn support
@@ -127,20 +127,6 @@ I tillegg til de spesifikke feilkodene ovenfor returnerer API-et også standard 
 | `400 Bad Request` | Forespørselen er feilformatert eller inneholder ugyldige data |
 | `401 Unauthorized` | Autentisering er påkrevd eller har feilet |
 | `403 Forbidden` | Den autentiserte brukeren/organisasjonen har ikke tillatelse til å få tilgang til ressursen |
-| `500 Internal Server Error` | En uventet feil oppstod på serveren |
-
-## Beste praksis
-
-1. **Sjekk alltid `code`-feltet**: Når du mottar en feilrespons, undersøk `code`-feltet i problemdetaljresponsen for å forstå det spesifikke problemet.
-
-2. **Implementer riktig feilhåndtering**: Applikasjonen din bør håndtere hver feilkode på riktig måte:
-   - For `NOT-00001`: Informer brukeren om manglende kontaktinformasjon og gi veiledning om hvordan man registrerer den
-   - For `NOT-00002`: Implementer retry-logikk med passende timeouts
-   - For `NOT-00003`: Valider forsendelses-ID-en før du gjør forespørselen
-
-3. **Logg feildetaljer**: Logg alltid hele feilresponsen inkludert `code`, `status` og `detail`-feltene for feilsøkingsformål.
-
-4. **Bruk idempotens**: For POST-forespørsler, bruk alltid en unik `idempotencyId` for å muliggjøre trygge nye forsøk ved nettverksfeil eller timeouts.
 
 ## Relaterte ressurser
 

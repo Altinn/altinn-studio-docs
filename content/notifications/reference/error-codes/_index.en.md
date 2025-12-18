@@ -20,10 +20,10 @@ These error codes are returned in the `code` field of the problem details respon
 
 **HTTP Status Code:** 422 Unprocessable Entity
 
-**Description:** The API was unable to process the notification order because one or more recipients do not have the required contact information registered in Altinn.
+**Description:** The API was unable to process the notification order because one or more recipients do not have the required contact information available for Altinn.
 
 **Common Causes:**
-- Recipient has not registered an email address or phone number in their Altinn profile
+- Recipient has not registered an email address or phone number
 - Recipient has registered contact information, but it is not valid or verified
 - For organizational recipients, the organization may not have registered contact details
 
@@ -43,7 +43,7 @@ These error codes are returned in the `code` field of the problem details respon
 
 **Resolution:**
 - Verify that the recipient's national identity number or organization number is correct
-- Ask the recipient to log in to Altinn and register their contact information
+- Ask the recipient to register their contact information to make it available for Altinn
 - For instant notifications, consider using the direct `emailAddress` or `phoneNumber` fields instead of relying on recipient lookup
 
 ---
@@ -77,7 +77,7 @@ These error codes are returned in the `code` field of the problem details respon
 This error is not expected during normal operation. It indicates that the client disconnected or cancelled the request before the server could complete processing, meaning the client no longer has an active connection to receive the response.
 
 If you receive this error:
-- Increase the timeout setting in your HTTP client (recommended: 10-15 seconds for instant notifications)
+- Increase the timeout setting in your HTTP client
 - Check network connectivity and stability
 - Implement retry logic using the same `idempotencyId` to safely retry the request
 - If the problem persists, contact Altinn support
@@ -127,20 +127,6 @@ In addition to the specific error codes above, the API also returns standard HTT
 | `400 Bad Request` | The request is malformed or contains invalid data |
 | `401 Unauthorized` | Authentication is required or has failed |
 | `403 Forbidden` | The authenticated user/organization does not have permission to access the resource |
-| `500 Internal Server Error` | An unexpected error occurred on the server |
-
-## Best Practices
-
-1. **Always check the `code` field**: When you receive an error response, examine the `code` field in the problem details response to understand the specific issue.
-
-2. **Implement proper error handling**: Your application should handle each error code appropriately:
-   - For `NOT-00001`: Inform the user about missing contact information and provide guidance on how to register it
-   - For `NOT-00002`: Implement retry logic with appropriate timeouts
-   - For `NOT-00003`: Validate the shipment ID before making the request
-
-3. **Log error details**: Always log the complete error response including the `code`, `status`, and `detail` fields for debugging purposes.
-
-4. **Use idempotency**: For POST requests, always use a unique `idempotencyId` to enable safe retries in case of network errors or timeouts.
 
 ## Related Resources
 
