@@ -15,7 +15,7 @@ Before you start, make sure you have read the [explanation of instant notificati
 Before you can send instant notifications, you must have:
 
 1. **Maskinporten client** with scope `altinn:serviceowner/notifications.create`
-2.   - See the [Maskinporten integration guide](/en/notifications/guides/#creating-a-new-maskinporten-client) for more information about setup.
+   - See the [Maskinporten integration guide](/en/notifications/guides/#creating-a-new-maskinporten-client) for more information about setup.
 2. **Altinn token** for authentication against the API
 3. **Recipient's contact information** (phone number or email address)
 
