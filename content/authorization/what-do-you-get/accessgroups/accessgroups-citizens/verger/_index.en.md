@@ -163,7 +163,7 @@ Tilgangspakken har følgende undergrupper:
 Tilgangspakken har følgende undergrupper:
 
 - \*Refusjon av pasientreiser
-  - Fullmakten søknad om og/eller eventuell klage på vedtak om refusjon av reiseutgifter i forbindelse med behandlinger som dekkes av det offentlige
+  - Fullmakten gjelder søknad om og/eller eventuell klage på vedtak om refusjon av reiseutgifter i forbindelse med behandlinger som dekkes av det offentlige
 
 ## Nivå 1: Helfo
 
