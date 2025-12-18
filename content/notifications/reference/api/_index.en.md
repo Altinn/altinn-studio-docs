@@ -52,12 +52,9 @@ When an error occurs, the API returns a problem details response following [RFC 
 
 ```json
 {
-  "type": "https://tools.ietf.org/html/rfc9110#section-15.5.23",
-  "title": "Unprocessable Entity",
   "status": 422,
   "errorCode": "NOT-00001",
-  "detail": "Missing contact information for recipient(s)",
-  "instance": "/future/orders"
+  "detail": "Missing contact information for recipient(s)"
 }
 ```
 

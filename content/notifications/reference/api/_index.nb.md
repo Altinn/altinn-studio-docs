@@ -52,11 +52,8 @@ Når en feil oppstår, returnerer API-et en problemdetaljrespons i henhold til [
 
 ```json
 {
-  "type": "https://tools.ietf.org/html/rfc9110#section-15.5.23",
-  "title": "Unprocessable Entity",
   "status": 422,
   "errorCode": "NOT-00001",
-  "detail": "Missing contact information for recipient(s)",
-  "instance": "/future/orders"
+  "detail": "Missing contact information for recipient(s)"
 }
 ```

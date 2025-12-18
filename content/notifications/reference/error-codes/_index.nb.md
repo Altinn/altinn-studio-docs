@@ -35,12 +35,9 @@ Disse feilkodene returneres i `errorCode`-feltet i problemdetaljrespons når en 
 **Eksempelrespons:**
 ```json
 {
-  "type": "https://tools.ietf.org/html/rfc9110#section-15.5.23",
-  "title": "Unprocessable Entity",
   "status": 422,
   "errorCode": "NOT-00001",
-  "detail": "Missing contact information for recipient(s)",
-  "instance": "/future/orders"
+  "detail": "Missing contact information for recipient(s)"
 }
 ```
 
@@ -69,12 +66,9 @@ Disse feilkodene returneres i `errorCode`-feltet i problemdetaljrespons når en 
 **Eksempelrespons:**
 ```json
 {
-  "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
-  "title": "Client Closed Request",
   "status": 499,
   "errorCode": "NOT-00002",
-  "detail": "The client disconnected or cancelled the request before the server could complete processing",
-  "instance": "/future/orders/instant/sms"
+  "detail": "The client disconnected or cancelled the request before the server could complete processing"
 }
 ```
 
@@ -108,12 +102,9 @@ Hvis du mottar denne feilen:
 **Eksempelrespons:**
 ```json
 {
-  "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
-  "title": "Not Found",
   "status": 404,
   "errorCode": "NOT-00003",
-  "detail": "Shipment not found",
-  "instance": "/future/shipment/3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  "detail": "Shipment not found"
 }
 ```
 
