@@ -22,7 +22,7 @@ Tilgangspakken har følgende undergrupper:
 Tilgangspakken har følgende undergrupper:
 
 - \*Forvalte forsikringsavtaler
-  - Fullmakten Omfatter oppgaver knyttet til å etablere/endre/avslutte forsikringsavtaler og representasjon ved forsikringsoppgjør
+  - Fullmakten omfatter oppgaver knyttet til å etablere/endre/avslutte forsikringsavtaler og representasjon ved forsikringsoppgjør
 
 ## Nivå 1: Husbanken
 
@@ -179,7 +179,7 @@ Tilgangspakken har følgende undergrupper:
 Denne tilgangspakken er fortsatt under "kartlegging" og vil endres.
 Det er pr i dag ikke definert vergefullmakter for området som gjelder pasientopplysninger og -tjenester.
 
-Fullmaktene som finnes i dag innenfor pasientopplysnigner/pasienttjeneser er veldig app/system/helseforetak spesifikke.
+Fullmaktene som finnes i dag innenfor pasientopplysnigner/pasienttjenester er veldig app/system/helseforetak spesifikke.
 
 Fra Altinn autorisasjon sitt perspektiv representerer nivå 3 (merket \*) i listen nedenfor spesifikke tjenester/ressurser heller enn tilgangspakker som andre tjenester knyttes til.
 Behovet hos kommuner for tilsvarende fullmakter innen pasientopplysnigner/pasienttjeneser er ikke kartlagt.
@@ -192,10 +192,10 @@ Behovet hos kommuner for tilsvarende fullmakter innen pasientopplysnigner/pasien
   - \*Standardtilgang til Helsami
     - Fullmakten gir tilgang til å se kommende timeavtaler og helseopplysnigner samt sende meldinger og bestille timer. Fullmakten gir ikke tilgang til personlige notater, historikk eller tidligere timeavtaler
   - \*Full tilgang til Helsami
-    - Fullmakten gir tilgang til å se det samme som deg selv og gir anledning til å kommunisere med helsetjenesten på dine vegne.Det gir også tilgang til å svare på spørreskjema samt se og endre dine notater.
+    - Fullmakten gir tilgang til å se det samme som deg selv og gir anledning til å kommunisere med helsetjenesten på dine vegne. Det gir også tilgang til å svare på spørreskjema samt se og endre dine notater.
   - \*Lesetilgang til Helsami
-    - Fullmakten gir tilgang til å se dine helseopplysninger, men gir ikke fullmakt til å kommuneisere på dine vegne
-  - \*Bare kommuneisere
+    - Fullmakten gir tilgang til å se dine helseopplysninger, men gir ikke fullmakt til å kommunisere på dine vegne
+  - \*Bare kommunisere
     - Fullmakten gir tilgang til å se og administrere timer og til å sende meldinger på dine vegne.
 - Kommune (gjelder pasient og helseopplysninger hos kommuner)
   - Ikke definert videre tilgangspakker på nivå 3
