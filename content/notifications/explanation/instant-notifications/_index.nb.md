@@ -40,9 +40,9 @@ Umiddelbar varsling støtter **idempotens** gjennom et obligatorisk `idempotency
 
 - Forhindrer at samme melding sendes flere ganger ved gjentatte forespørsler
 - Nyttig ved nettverksproblemer eller timeout
-- Samme `idempotencyId` vil returnere samme resultat (`shipmentId`osv) uten å sende meldingen på nytt.
+- Samme `idempotencyId` vil returnere samme resultat (`shipmentId`osv.) uten å sende meldingen på nytt.
 - Det er ikke logikk/deteksjon av om innholdet er forskjellig fra tidligere kall
-- API-et returnerer `201 Created` ved første vellykkede kall, eller `200 OK` dersom kallet (med samme `idempotencyId`) tildligere har gått OK
+- API-et returnerer `201 Created` ved første vellykkede kall, eller `200 OK` dersom kallet (med samme `idempotencyId`) tidligere har gått OK
 
 ### Levetid (Time-to-Live)
 

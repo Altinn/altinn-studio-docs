@@ -16,8 +16,8 @@ This functionality is designed for use cases, such as login, where the user is w
 ## When Should You *NOT* Use Instant Notifications?
 
 {{% notice info %}}
-In most cases, using "regular" notifications is sufficient. It is possible to not specify `requestedSendTime` to indicate that the notification should be processed as soon as possible,
-and to use `sendingTimePolicy: "Anytime",` to allow sending at any time of day. This combination will usually result in (e.g.) an SMS to the user within a couple of minutes.
+In most cases, using "regular" notifications is best. It is possible to omitt `requestedSendTime`, to indicate that the notification should be processed as soon as possible,
+and for SMS to use `sendingTimePolicy: "Anytime"` to allow sending at any time of day. This combination will usually result in an SMS to the user within a couple of minutes.
 {{% /notice %}}
 
 ## Technical Characteristics
