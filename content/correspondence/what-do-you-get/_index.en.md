@@ -53,6 +53,10 @@ The system offers advanced access control, ensuring that only authorized users c
 - Messages with an existing dialogue as an external reference will create a transmission which provides a logical display of related messages.
 - The solution provides a unified user interface across the Altinn 3 workspace "Arbeidsflate" and "Dialogporten".
 
+### Confirmation and due date
+- Option to require confirmation of correspondence from recipients.
+- Support to set a due date for when a message must be confirmed or read.
+
 ## Summary of advantages of Altinn Correspondence
 Altinn Correspondence offers several unique benefits that make it the preferred choice for digital communication with public agencies in Norway:
 
