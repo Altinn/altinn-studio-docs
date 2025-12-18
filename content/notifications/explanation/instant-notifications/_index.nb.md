@@ -8,9 +8,9 @@ weight: 50
 
 ## Hva er umiddelbar varsling?
 
-Umiddelbar varsling er en spesialisert variant av varslingstjenesten i Altinn Varsling, som sender meldinger **øyeblikkelig** til **én enkelt mottaker** (kun til epostadresse eller telefonnummer).
+Umiddelbar varsling er en spesialisert variant av varslingstjenesten i Altinn Varsling, som sender meldinger **øyeblikkelig** til **én enkelt mottaker** (kun til e-postadresse eller telefonnummer).
 
-Denne funksjonaliteten er designet for brukstilfeller, som for eksempel pålogging, der brukeren venter på informasjon via SMS/epost for å komme videre i en pågående prosess.  
+Denne funksjonaliteten er designet for brukstilfeller, som for eksempel pålogging, der brukeren venter på informasjon via SMS/e-post for å komme videre i en pågående prosess.  
 
 
 ## Når bør du *IKKE* bruke umiddelbar varsling?
@@ -24,7 +24,7 @@ og å benytte `sendingTimePolicy: "Anytime",` for å tillate utsending når som 
 
 ### Umiddelbar sending med asynkron statusoppfølging
 
-Tjenesten er semi-synkron ved at bestillingen/utsendingen er synkron frem til overlevering til til epost/sms-leverandøren, mens leveranserapporter skjer asynkront som for vanlige bestillinger.
+Tjenesten er semi-synkron ved at bestillingen/utsendingen er synkron frem til overlevering til til e-post/sms-leverandøren, mens leveranserapporter skjer asynkront som for vanlige bestillinger.
 
 Umiddelbar varsling fungerer som følger:
 
@@ -32,7 +32,7 @@ Umiddelbar varsling fungerer som følger:
 - Varslingen sendes til SMS/e-post-gatewayen umiddelbart (går forbi køen)
 - API-et returnerer `201 Created` eller `200 OK` med sporingsinformasjon for ordre (`shipmentId` og `notificationOrderId`)
 - Leveringsstatus må hentes asynkront via statusfeed (`/future/shipment/feed`) eller ved å polle `/future/shipment/:id`
-- **Merk:** den opprinnelige `201 Created`-responsen bekrefter kun at ordren ble registrert og akseptert av gatewayen, ikke at leveringen lyktes (epost kan fortsatt feile av ulike årsaker eller mobiltelefonen er utenfor dekningsområdet etc)
+- **Merk:** den opprinnelige `201 Created`-responsen bekrefter kun at ordren ble registrert og akseptert av gatewayen, ikke at leveringen lyktes (e-post kan fortsatt feile av ulike årsaker eller mobiltelefonen er utenfor dekningsområdet etc)
 
 ### Idempotens
 
