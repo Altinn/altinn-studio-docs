@@ -10,14 +10,14 @@ weight: 50
 
 Umiddelbar varsling er en spesialisert variant av varslingstjenesten i Altinn Varsling, som sender meldinger **øyeblikkelig** til **én enkelt mottaker** (kun til e-postadresse eller telefonnummer).
 
-Denne funksjonaliteten er designet for brukstilfeller, som for eksempel pålogging, der brukeren venter på informasjon via SMS/e-post for å komme videre i en pågående prosess.  
+Denne funksjonaliteten er designet for brukstilfeller som for eksempel pålogging, der brukeren venter på informasjon via SMS/e-post for å komme videre i en pågående prosess.  
 
 
 ## Når bør du *IKKE* bruke umiddelbar varsling?
 
 {{% notice info %}}
-I de fleste tilfeller er bruken av "vanlig" varsling tilstrekkelig. Det er mulig å ikke spesifisere `requestedSendTime` for å indikere at varslet ønskes effektuert så snart som mulig, 
-og å benytte `sendingTimePolicy: "Anytime",` for å tillate utsending når som helst på døgnet. Denne kombinasjonen vil som regel resultere i (f.eks) en SMS til brukeren i løpet av et par minutter.
+I de fleste tilfeller er bruken av "vanlig" varsling tilstrekkelig. Det er mulig å utelate `requestedSendTime` for å indikere at varslet ønskes effektuert så snart som mulig, 
+og å benytte `sendingTimePolicy: "Anytime"` for å tillate utsending når som helst på døgnet. Denne kombinasjonen vil som regel resultere i (f.eks) en SMS til brukeren i løpet av et par minutter.
 {{% /notice %}}
 
 ## Tekniske egenskaper
@@ -32,7 +32,7 @@ Umiddelbar varsling fungerer som følger:
 - Varslingen sendes til SMS/e-post-gatewayen umiddelbart (går forbi køen)
 - API-et returnerer `201 Created` eller `200 OK` med sporingsinformasjon for ordre (`shipmentId` og `notificationOrderId`)
 - Leveringsstatus må hentes asynkront via statusfeed (`/future/shipment/feed`) eller ved å polle `/future/shipment/:id`
-- **Merk:** den opprinnelige `201 Created`-responsen bekrefter kun at ordren ble registrert og akseptert av gatewayen, ikke at leveringen lyktes (e-post kan fortsatt feile av ulike årsaker eller mobiltelefonen er utenfor dekningsområdet etc)
+- **Merk:** den opprinnelige `201 Created`-responsen bekrefter kun at ordren ble registrert og akseptert av gatewayen, ikke at leveringen lyktes (e-post kan fortsatt feile av ulike årsaker eller mobiltelefonen er utenfor dekningsområdet osv.)
 
 ### Idempotens
 
@@ -40,7 +40,7 @@ Umiddelbar varsling støtter **idempotens** gjennom et obligatorisk `idempotency
 
 - Forhindrer at samme melding sendes flere ganger ved gjentatte forespørsler
 - Nyttig ved nettverksproblemer eller timeout
-- Samme `idempotencyId` vil returnere samme resultat (`shipmentId`osv.) uten å sende meldingen på nytt.
+- Samme `idempotencyId` vil returnere samme resultat (`shipmentId` osv.) uten å sende meldingen på nytt
 - Det er ikke logikk/deteksjon av om innholdet er forskjellig fra tidligere kall
 - API-et returnerer `201 Created` ved første vellykkede kall, eller `200 OK` dersom kallet (med samme `idempotencyId`) tidligere har gått OK
 
@@ -49,7 +49,7 @@ Umiddelbar varsling støtter **idempotens** gjennom et obligatorisk `idempotency
 For **SMS-baserte umiddelbare varsler** må du oppgi et `timeToLiveInSeconds`-felt:
 
 - Definerer hvor lenge SMS-gatewayen skal prøve å levere meldingen
-- Viktig for OTP-brukstilfeller der koden utløper etter en viss tid, og at sen leveranse er meningsløs (dvs. nyttig å motta en kode etter gyldighetsperioden).
+- Viktig for OTP-brukstilfeller der koden utløper etter en viss tid, og at sen leveranse er meningsløs (dvs. ikke nyttig å motta en kode etter gyldighetsperioden)
 
 ### Kapasitet
 

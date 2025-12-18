@@ -16,7 +16,7 @@ This functionality is designed for use cases, such as login, where the user is w
 ## When Should You *NOT* Use Instant Notifications?
 
 {{% notice info %}}
-In most cases, using "regular" notifications is best. It is possible to omitt `requestedSendTime`, to indicate that the notification should be processed as soon as possible,
+In most cases, using "regular" notifications is best. It is possible to omit `requestedSendTime`, to indicate that the notification should be processed as soon as possible,
 and for SMS to use `sendingTimePolicy: "Anytime"` to allow sending at any time of day. This combination will usually result in an SMS to the user within a couple of minutes.
 {{% /notice %}}
 
@@ -32,7 +32,7 @@ Instant notifications works as follows:
 - The notification is sent to the SMS/email gateway immediately (bypasses the queue)
 - The API returns `201 Created` or `200 OK` with order tracking information (`shipmentId` and `notificationOrderId`)
 - Delivery status must be retrieved asynchronously via the status feed (`/future/shipment/feed`) or by polling `/future/shipment/:id`
-- **Note:** the initial `201 Created` response only confirms that the order was registered and accepted by the gateway, not that delivery succeeded (email can still fail for various reasons or the mobile phone is out of coverage area etc)
+- **Note:** the initial `201 Created` response only confirms that the order was registered and accepted by the gateway, not that delivery succeeded (email can still fail for various reasons or the mobile phone is out of coverage area etc.)
 
 ### Idempotency
 
@@ -40,7 +40,7 @@ Instant notifications supports **idempotency** through a mandatory `idempotencyI
 
 - Prevents the same message from being sent multiple times upon repeated requests
 - Useful during network problems or timeout
-- The same `idempotencyId` will return the same result (`shipmentId` etc) without resending the message
+- The same `idempotencyId` will return the same result (`shipmentId` etc.) without resending the message
 - There is no logic/detection of whether the content differs from previous calls
 - The API returns `201 Created` on the first successful call, or `200 OK` if the call (with the same `idempotencyId`) previously succeeded
 
@@ -49,7 +49,7 @@ Instant notifications supports **idempotency** through a mandatory `idempotencyI
 For **SMS-based instant notifications**, you must specify a `timeToLiveInSeconds` field:
 
 - Defines how long the SMS gateway should attempt to deliver the message
-- Important for OTP use cases where the code expires after a certain time, and late delivery is pointless (i.e. not useful to receive a code after the validity period).
+- Important for OTP use cases where the code expires after a certain time, and late delivery is pointless (i.e. not useful to receive a code after the validity period)
 
 ### Capacity
 
