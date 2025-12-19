@@ -1,28 +1,12 @@
 ---
-title: Forslag nye tilgangspakker for innbyggere
-tags: [needstranslation]
-linktitle: Innbyggere
-description: Her vil du finne forslag til nye tilgangspakker for innbyggere. Dette er et arbeid som pr nå ikke er påbegynt.
+title: Vergemål
+linktitle: Vergemal
+description: Altinn autorisasjon vil ta i bruk Sivilrettsforvaltningens inndeling av legitimasjoner for oppnevnte verger som ekstern autorisasjonskilde. De ulike legitimasjonene vil gi vergene fullmakt til å opptre på vegne av vergehaveren innefor de ulike områdene.
 toc: true
 ---
 
-_Denne siden er under arbeid. Nye tilgangspakker for innbyggere innføres tidligst i løpet av 2024._
-
-## Om tilgangspakker
-
-I forbindelse med migrering av Altinn Autorisasjon fra Altinn 2 til Altinn 3 plattformen skal dagens Altinn-roller erstattes med tilgangspakker.
-
-tilgangspakker for innbyggere bygger på en kategorisering av fullmakter gjennomført av Sivilrettsforvaltningen i forbindelse med innføring av nye vergemålsfullmakter. Dette arbeidet er gjort i samarbeid med offentlige etater og oversikt over fullmaktene finner du [her](https://www.vergemal.no/fullmaktstekst).
-
-Et vergemål vil fra Altinn Autorisasjon sitt perspektiv være en eksten kilde for representasjonsforhold.
-
-Det vil være mulig for innbygger å gi andre tilgang til å opptre på egne vegne ved å legge de til en tilgangspakke. Tillgangspakke for innbygger er i denne sammenheng synonymt med fullmakt eller rolle for innbygger.
-
-Den største forskjellen på rollene i 2.0 og tilgangspakkene i 3.0 blir:
-
-- tilgangspakker er potensielt delt inn i tre nivåer, slik at administrator kan gi tilgang til færre tjenester og det blir lettere å finne riktig mal.
-- Du må knytte tjenester til det laveste nivået. Disse er merket med \*
-- Mer findelte tilgangspakker gjør det lettere for tjenesteeiere å velge riktig målgruppe for sine tjenester.
+Vergemål oppnevnes av Statsforvalteren, og informasjon om verge, omfang og legitimasjoner lagres i Folkeregisteret. Altinn autorisasjon mottar informasjon om vergemål i overføringene fra FReg.
+For å gi verge fullmakt til å benytte en tjeneste eller ressurs, må tjenesteeier angi akuell(e) legitimasjon(er) i policy-filen til tjenesten.
 
 ## Nivå 1: Bank
 
@@ -179,7 +163,7 @@ Tilgangspakken har følgende undergrupper:
 Tilgangspakken har følgende undergrupper:
 
 - \*Refusjon av pasientreiser
-  - Fullmakten søknad om og/eller eventuell klage på vedtak om refusjon av reiseutgifter i forbindelse med behandlinger som dekkes av det offentlige
+  - Fullmakten gjelder søknad om og/eller eventuell klage på vedtak om refusjon av reiseutgifter i forbindelse med behandlinger som dekkes av det offentlige
 
 ## Nivå 1: Helfo
 
