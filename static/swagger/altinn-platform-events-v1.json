@@ -399,6 +399,7 @@
             "name": "after",
             "in": "query",
             "description": "Retrieve events that were registered after this event Id",
+            "required": true,
             "schema": {
               "type": "string"
             },
