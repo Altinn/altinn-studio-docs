@@ -25,7 +25,7 @@ I Studio kan du bytte mellom grener med grenvelgeren øverst til høyre i bruker
 
 1. Klikk på **Ny gren** for å lage en ny gren.
 
-2. I vinduet som vises, skriver du navnet på grenen din skal hete, for eksempel `feature/payment` eller `bugfix/hide-input-field`.
+2. I vinduet som vises, skriver du navnet på grenen din, for eksempel `feature/payment` eller `bugfix/hide-input-field`.
 
 3. Hvis du har endringer i appen som du ikke har delt, får du en advarsel. Her kan du velge mellom å slette endringene dine, eller å gå tilbake for å dele dem.
 

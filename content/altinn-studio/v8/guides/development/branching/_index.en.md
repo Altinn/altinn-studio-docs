@@ -7,13 +7,13 @@ weight: 10
 Branches allow you to create a separate development line for your app. You can think of it as a copy of the code where you can make changes without affecting the main version.
 
 ## How do branches work in Altinn Studio?
-When you create a new app, it automatically gets a `master` branch. This is the main version of your app. When you want to develop new features or make changes, you can
+When you create a new app, it automatically gets a `master` branch. This is the main version of your app. When you want to develop new features or make changes, you can:
 
-- create a new branch from `master` - this gives you a working copy
+- Create a new branch from `master` - this gives you a working copy
 
-- save changes in the new branch without affecting `master`
+- Save changes in the new branch without affecting `master`
 
-- merge the branch back to `master` when you're satisfied
+- Merge the branch back to `master` when you're satisfied
 
 ## Benefits of branches
 Branches allow you to work on multiple things simultaneously, for example one branch for new functionality and another for bug fixes. Different team members can also work in their own branches without interfering with each other's work. If something goes wrong, the `master` branch remains safe and unchanged.
@@ -33,7 +33,7 @@ In Studio, you can switch between branches using the branch selector at the top 
 ### Merging branches to `master`
 #### Pull request
 1. Share the changes from your development branch by clicking **Del dine endringer**.
-2. Go to Gitea using the **Repository** button in the dropdown menu on the right:
+2. Go to Gitea using the **Repositorium** button in the dropdown menu on the right:
 ![Link to Gitea](gitea-link.png)
 3. In Gitea you'll get a prompt to create a pull request from the development branch:
 ![Gitea main view](gitea-main-pr-alert.png)
