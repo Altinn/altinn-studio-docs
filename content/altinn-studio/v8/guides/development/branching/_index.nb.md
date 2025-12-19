@@ -1,7 +1,7 @@
 ---
 title: Grener
 description: Slik lager du flere utviklingslinjer av appen din
-weight: 10
+weight: 20
 ---
 
 Grener lar deg lage en egen utviklingslinje av appen din. Du kan tenke på det som en kopi av koden, der du kan gjøre endringer uten å påvirke hovedversjonen.
