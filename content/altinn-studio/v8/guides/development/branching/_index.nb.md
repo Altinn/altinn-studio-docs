@@ -7,16 +7,16 @@ weight: 10
 Grener lar deg lage en egen utviklingslinje av appen din. Du kan tenke på det som en kopi av koden, der du kan gjøre endringer uten å påvirke hovedversjonen.
 
 ## Hvordan fungerer grener i Altinn Studio?
-Når du oppretter en ny app, får den automatisk en master-gren. Dette er hovedversjonen av appen din. Når du vil utvikle nye funksjoner eller gjøre endringer, kan du
+Når du oppretter en ny app, får den automatisk en `master`-gren. Dette er hovedversjonen av appen din. Når du vil utvikle nye funksjoner eller gjøre endringer, kan du
 
-- opprette en ny gren fra master - dette gir deg en arbeidskopi
+- opprette en ny gren fra `master` - dette gir deg en arbeidskopi
 
-- lagre endringer i den nye grenen uten å påvirke master
+- lagre endringer i den nye grenen uten å påvirke `master`
 
-- flette grenen tilbake til master når du er fornøyd
+- flette grenen tilbake til `master` når du er fornøyd
 
 ## Fordeler med grener
-Grener gir deg mulighet til å jobbe på flere ting samtidig, for eksempel én gren for ny funksjonalitet og en annen for feilrettinger. Ulike team-medlemmer kan også jobbe i hver sine grener, uten at de forstyrrer hverandres arbeid. Hvis noe går galt, er master-grenen trygg og uendret.
+Grener gir deg mulighet til å jobbe på flere ting samtidig, for eksempel én gren for ny funksjonalitet og en annen for feilrettinger. Ulike team-medlemmer kan også jobbe i hver sine grener, uten at de forstyrrer hverandres arbeid. Hvis noe går galt, er `master`-grenen trygg og uendret.
 
 ## Slik kan du bruke grener i Studio
 I Studio kan du bytte mellom grener med grenvelgeren øverst til høyre i brukergrensesnittet. Her kan du også lage nye grener.
