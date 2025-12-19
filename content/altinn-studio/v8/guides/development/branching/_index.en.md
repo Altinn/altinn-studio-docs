@@ -1,7 +1,7 @@
 ---
 title: Branches
 description: How to create multiple development lines for your app
-weight: 10
+weight: 20
 ---
 
 Branches allow you to create a separate development line for your app. You can think of it as a copy of the code where you can make changes without affecting the main version.
