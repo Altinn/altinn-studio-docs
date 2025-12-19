@@ -32,7 +32,7 @@ Denne tilgangspakken gir fullmakter til tjenester relatert til samliv. Ved innf�
 *urn:altinn:accesspackage:innbygger:samliv*
 
 ### Fritidsaktiviteter og friluftsliv
-Denne tilgangspakken gir fullmakter til tjenester knyttet til fritidsaktiviteter og friluftslilv. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
+Denne tilgangspakken gir fullmakter til tjenester knyttet til fritidsaktiviteter og friluftsliv. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:innbygger:fritidsaktiviteter-friluftsliv*
 
 

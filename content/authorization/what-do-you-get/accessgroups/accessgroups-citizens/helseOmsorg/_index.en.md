@@ -20,15 +20,15 @@ Denne tilgangspakken gir fullmakter til tjenester som berører avlastning og st�
 *urn:altinn:accesspackage:innbygger:avlastning-støtte*
 
 ### Behandling
-Denne tilgangspakken gir fullmakter til tjenester knyttet til fullmakter. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
+Denne tilgangspakken gir fullmakter til tjenester knyttet til behandling. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:innbygger:behandling*
 
 ### Helsetjenester
-Denne tilgangspakken gir fullmakter til tjenester knyttet til barnehage, SFO og skole. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
+Denne tilgangspakken gir fullmakter til tjenester knyttet til helsetjenester. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:innbygger:helsetjenester*
 
 ### Pleie og omsorg
-Denne tilgangspakken gir fullmakter til tjenester relatert til samliv. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
+Denne tilgangspakken gir fullmakter til tjenester relatert til pleie og omsorg. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:innbygger:pleie-omsorg*
 
 
@@ -41,3 +41,4 @@ Denne tilgangspakken gir fullmakter til tjenester relatert til samliv. Ved innf�
 |Behandling|Privatperson|Ja|
 |Helsetjenester|Privatperson|Ja|
 |Pleie og omsorg|Privatperson|Ja|
+

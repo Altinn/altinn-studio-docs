@@ -35,3 +35,4 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til frivillighet. Ved 
 |Kultur|Privatperson|Ja|
 |Frivillighet|Privatperson|Ja|
 
+

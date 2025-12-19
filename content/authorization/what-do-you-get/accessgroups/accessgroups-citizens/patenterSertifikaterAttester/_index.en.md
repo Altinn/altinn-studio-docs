@@ -39,3 +39,5 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til all korrespondanse
 |Sertifisering|Privatperson|Ja|
 |Attester|Privatperson|Ja|
 |Design og varemerke|Privatperson|Ja|
+
+
