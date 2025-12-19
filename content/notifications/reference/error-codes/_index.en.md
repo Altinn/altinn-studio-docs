@@ -46,7 +46,7 @@ These error codes are returned in the `code` field of the problem details respon
 
 ---
 
-### NOT-00002: Request Terminated
+### NOT-00002: Request Cancelled by Client
 
 **HTTP Status Code:** 499 Client Closed Request
 
@@ -72,13 +72,16 @@ These error codes are returned in the `code` field of the problem details respon
 
 **Resolution:**
 
-This error is not expected during normal operation. It indicates that the client disconnected or cancelled the request before the server could complete processing, meaning the client no longer has an active connection to receive the response.
 
 If you receive this error:
 - Increase the timeout setting in your HTTP client
 - Check network connectivity and stability
 - Implement retry logic using the same `idempotencyId` to safely retry the request
 - If the problem persists, contact Altinn support
+
+{{% notice info %}}
+This error is not expected during normal operation. It indicates that the client disconnected or cancelled the request before the server could complete processing, meaning the client no longer has an active connection to receive the response.
+{{% /notice %}}
 
 ---
 

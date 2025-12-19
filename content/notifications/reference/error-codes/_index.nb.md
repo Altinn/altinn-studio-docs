@@ -46,7 +46,7 @@ Disse feilkodene returneres i `code`-feltet i problemdetaljresponsen. `code`-fel
 
 ---
 
-### NOT-00002: Forespørsel avbrutt
+### NOT-00002: Forespørsel avbrutt av klient
 
 **HTTP-statuskode:** 499 Client Closed Request
 
@@ -72,14 +72,15 @@ Disse feilkodene returneres i `code`-feltet i problemdetaljresponsen. `code`-fel
 
 **Løsning:**
 
-Denne feilen er ikke forventet under normal drift. Feilen indikerer at klienten koblet fra eller avbrøt forespørselen før serveren kunne fullføre behandlingen, noe som betyr at klienten ikke lenger har en aktiv tilkobling for å motta responsen.
-
 Hvis du mottar denne feilen:
 - Øk timeout-innstillingen i HTTP-klienten din
 - Sjekk nettverkstilkobling og stabilitet
 - Implementer retry-logikk ved å bruke samme `idempotencyId` for å trygt prøve forespørselen på nytt
 - Hvis problemet vedvarer, kontakt Altinn support
 
+{{% notice info %}}
+Denne feilen er ikke forventet under normal drift. Feilen indikerer at klienten koblet fra eller avbrøt forespørselen før serveren kunne fullføre behandlingen, noe som betyr at klienten ikke lenger har en aktiv tilkobling for å motta responsen.
+{{% /notice %}}
 ---
 
 ### NOT-00003: Forsendelse ikke funnet
