@@ -46,7 +46,7 @@ Depending on how you or your team works, you can choose to merge the pull reques
 
 When you're ready to merge the branch, you'll get the following options:
 ![Merge options](merge-choices.png)
-1. Select **Create merge commit** if you want to keep the message history from the commits in your branch. If you prefer to combine the entire history into one message, choose **Create squash commit**.
+1. Select **Create merge commit** if you want to keep the message history from all the commits in your branch. If you prefer to combine all commits into one message, choose **Create squash commit**.
 2. After selecting the type of merge commit, click on **Create merge commit**. This performs the actual merge to `master`.
 
 You'll now get the message `Pull request successfully merged and closed`, and a question about whether you want to delete your branch. It can be useful to delete the branch so that unused branches don't pile up.

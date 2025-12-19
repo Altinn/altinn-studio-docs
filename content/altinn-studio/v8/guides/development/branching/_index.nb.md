@@ -46,9 +46,7 @@ Avhengig av hvordan du eller teamet ditt jobber, kan du velge å flette inn trek
 
 Når du er klar til å flette inn grenen, får du følgende valg:
 ![Flette-valg](merge-choices.png)
-1. Velg **Create merge commit** hvis du vil beholde meldingshistorikken fra commitene i grenen din. Hvis du heller vil slå sammen hele historikken i én melding, velger du **Create squash commit**. 
-2. Etter at du har valgt type merge commit, trykker du på **Create merge commit**. Da skjer selve flettingen til `master`.
-
+1. Velg **Create merge commit** hvis du vil beholde meldingshistorikken fra alle commitene i grenen din. Hvis du heller vil kombinere alle commitene til én melding, velger du **Create squash commit**.
 Du får nå beskjeden `Pull request successfully merged and closed`, og et spørsmål om du vil slette grenen din. Det kan være greit å slette grenen, slik at det ikke hoper seg opp med ubrukte grener. 
 
 ### Slette en gren
