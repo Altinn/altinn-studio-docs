@@ -72,8 +72,7 @@ These error codes are returned in the `code` field of the problem details respon
 
 **Resolution:**
 
-
-If you receive this error:
+If you experience many timeouts and similar types of errors:
 - Increase the timeout setting in your HTTP client
 - Check network connectivity and stability
 - Implement retry logic using the same `idempotencyId` to safely retry the request

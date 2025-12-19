@@ -72,7 +72,7 @@ Disse feilkodene returneres i `code`-feltet i problemdetaljrespons. `code`-felte
 
 **Løsning:**
 
-Hvis du mottar denne feilen:
+Hvis du får mange timeouts og lignende typer feil:
 - Øk timeout-innstillingen i HTTP-klienten din
 - Sjekk nettverkstilkobling og stabilitet
 - Implementer retry-logikk ved å bruke samme `idempotencyId` for å trygt prøve forespørselen på nytt
