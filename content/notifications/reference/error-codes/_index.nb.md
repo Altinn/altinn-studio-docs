@@ -12,7 +12,7 @@ Denne siden gir en omfattende referanse for alle spesifikke feilkoder som return
 
 Altinn Notifications API bruker unike feilkoder i formatet `NOT-XXXXX` hvor `NOT` står for Notifications og `XXXXX` er et femsifret nummer.
 
-Disse feilkodene returneres i `code`-feltet i problemdetaljresponsen. `code`-feltet er et utvidelsesmedlem som definert av [RFC 9457](https://tools.ietf.org/html/rfc9457) (Problem Details for HTTP APIs), som gir maskinlesbar feilidentifikasjon.
+Disse feilkodene returneres i `code`-feltet i problemdetaljrespons. `code`-feltet er et utvidelsesmedlem som definert av [RFC 7807](https://tools.ietf.org/html/rfc7807) (Problem Details for HTTP APIs), som gir maskinlesbar feilidentifikasjon.
 
 ## Feilkoder
 

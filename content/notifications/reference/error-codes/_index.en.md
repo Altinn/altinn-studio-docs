@@ -12,7 +12,7 @@ This page provides a comprehensive reference for all specific error codes return
 
 Altinn Notifications API uses unique error codes in the format `NOT-XXXXX` where `NOT` stands for Notifications and `XXXXX` is a five-digit number.
 
-These error codes are returned in the `code` field of the problem details response. The `code` field is an extension member as defined by [RFC 9457](https://tools.ietf.org/html/rfc9457) (Problem Details for HTTP APIs), providing machine-readable error identification.
+These error codes are returned in the `code` field of the problem details response. The `code` field is an extension member as defined by [RFC 7807](https://tools.ietf.org/html/rfc7807) (Problem Details for HTTP APIs), providing machine-readable error identification.
 
 ## Error Codes
 
