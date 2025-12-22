@@ -93,6 +93,14 @@ Registrering av et sluttbrukersystem gjøres ved å kalle Altinns systemregister
               "value": "ske-krav-og-betalinger"
             }
           ]
+        },
+        {
+          "resource": [
+            {
+              "id": "urn:altinn:resource",
+              "value": "ske-innrapportering-amelding"
+            }
+          ]
         }
       ],
       "accessPackages": [
