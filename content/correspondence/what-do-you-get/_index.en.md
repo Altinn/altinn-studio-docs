@@ -40,6 +40,7 @@ The system offers advanced access control, ensuring that only authorized users c
 - It is also possible to link to content and attachments stored elsewhere,
   e.g., on-premises at the sender or in the sender's preferred cloud solution.
 - Support for setting an expiry date on attachments. When the expiry date is reached, the attachment is automatically marked as purged and the file is deleted from the correspondence system.
+- Support for setting access management on an attachment that differs from the access management of the message it is attached to.
 
 ### Archiving and Storage
 - All correspondences are stored in the user's inbox in Altinn.
