@@ -20,7 +20,7 @@ aliases:
 Avkrysningsbokser brukes ofte i skjemaer for å samle input fra brukeren,
  slik at de kan velge ett eller flere alternativer fra en liste.
  
- #### Bruk avkrysningsbokser når:
+ ### Bruk avkrysningsbokser når:
  * Brukere kan velge flere alternativer fra en liste.
  * Det må gjøres et eksplisitt valg for å bruke innstillingene (f.eks. bekrefte at brukeren har lest et dokument).
 
