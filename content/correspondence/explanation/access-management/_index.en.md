@@ -14,7 +14,7 @@ Resources belong to an organization and can be created and managed in [Altinn st
 
 On the resource you can set which access packages and roles a user needs in order to read the correspondence, and more.
 Resources used for correspondences should use the resource type `correspondence service`.
-You can read about resources and access management [here](https://docs.altinn.studio/nb/authorization/)
+You can read about resources and access management here: [Authorization](https://docs.altinn.studio/nb/authorization/)
 
 ## Access Management for attachments
 Our solution allows you to control the access to attachments on a Correspondence. In some cases, the person responsible for distributing incoming mail within the organization should not be able to view the attachment. A typical example is when the Police send their Correspondence "Straffesaksforsendelse".

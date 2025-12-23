@@ -14,7 +14,7 @@ Ressurser tilhører en organisasjon og kan opprettes og forvaltes i [Altinn Stud
 
 På ressursen kan du definere hvilke tilgangspakker og roller en bruker må ha for å kunne lese meldingen, og mer.
 Ressurser som brukes for meldinger bør ha ressurstypen `correspondence service`.
-Du kan lese om ressurser og tilgangsstyring [her](https://docs.altinn.studio/nb/authorization/).
+Du kan lese om ressurser og tilgangsstyring her: [Autorisasjon](https://docs.altinn.studio/nb/authorization/).
 
 ## Tilgangsstyring for vedlegg
 
