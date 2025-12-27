@@ -236,7 +236,7 @@ Users can preview a full-size version of an uploaded image by clicking on the im
 
 3. Create a new data element for the thumbnail:<br>
     Call `AddBinaryDataElement()` from `IInstanceDataMutator` with:
-    - The `dataTypeId` dedikated for thumbnails.
+    - The `dataTypeId` dedicated for thumbnails.
     - The mime-type (`contentType`)
     - `filename`
     - The generated thumbnail image (`ReadOnlyMemory<Byte>`).
