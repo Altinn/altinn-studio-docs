@@ -37,13 +37,14 @@ EKSEMPLER
 <!-- Kort beskrivelse av komponenten og hvordan den brukes. -->
 
 ### Anatomi
+
 <iframe style="border: 0px solid rgba(0, 0, 0, 1);" width="100%" height="450" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1-34873&viewport=1020%2C-1913%2C1.35&scaling=contain&content-scaling=responsive&starting-point-node-id=1%3A34873&show-proto-sidebar=0&embed-host=share" allowfullscreen></iframe>
 
-<!-- 
+<!--
 
 Nummerert skjermbilde av komponenten
 1. Ta et skjermbilde av basis-versjonen av komponenten.
-2. Bruk PowerPoint-filen (components/numbered-callouts-anatomy.pptx) for å legge til nummerering på skjermbildet 
+2. Bruk PowerPoint-filen (components/numbered-callouts-anatomy.pptx) for å legge til nummerering på skjermbildet
 3. Grupper skjermbilde og nummerering, lagre som bilde og legg det til i dokumentasjonen.
 4. Legg til nummerert liste med beskrivelser, bruk anatomy-list shortcode (se eksempel for format).
 
@@ -54,11 +55,11 @@ Eksempel:
 {{% anatomy-list %}}
 1. **Bilde**: Foto, skjermbilde, illustrasjon, eller grafikk.
 2. **Alternativ tekst**: Brukes av skjermlesere og vises dersom bildet ikke er tilgjengelig.
-{{% /anatomy-list %}} 
+{{% /anatomy-list %}}
 
 -->
 
-<!-- 
+<!--
 Legg til seksjoner dersom de er relevante:
 
 ### Oppførsel
@@ -111,7 +112,7 @@ Hvis komponenten ikke har JSON schema, kommenter ut tekst og shortcode i denne d
 
 {{% notice warning %}}
 Vi oppdaterer for øyeblikket Altinn Studio med flere muligheter for innstillinger!
- Dokumentasjonen oppdateres fortløpende, men det kan være flere innstillinger tilgjengelig enn det som beskrives her og noen innstillinger kan være i betaversjon.
+Dokumentasjonen oppdateres fortløpende, men det kan være flere innstillinger tilgjengelig enn det som beskrives her og noen innstillinger kan være i betaversjon.
 {{% /notice %}}
 
 ### Legg til komponent
@@ -149,7 +150,7 @@ App/ui/layouts/{page}.json
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-<!-- 
+<!--
 Legg til seksjoner som beskriver konfigurasjonen av egenskaper som er spesifikke for komponenten.
 - Bruk nedenstående shortcode for Designer/Kode-faner for å vise innstillingene.
 - Inkluder skjermbilder og eksempler der det er hensiktsmessig.
@@ -185,6 +186,101 @@ App/ui/layouts/{page}.json
 
 -->
 
-## Eksempler
+<!--## Eksempler
 
-<!-- Ett eller flere eksempler på konfigurasjon (hvis relevant) -->
+Ett eller flere eksempler på konfigurasjon (hvis relevant) -->
+
+## Forhåndsvisning av bilder
+
+{{% notice warning %}}
+<b>Forutsetninger og krav:</b><br>
+En NuGet-pakke eller egendefinert kode som kan komprimere og konvertere bilder til thumbnails. Hvis du bruker en ekstern NuGet-pakke, kontroller at den oppfyller organisasjonens retningslinjer for lisensiering og sikkerhet.
+{{% /notice %}}
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Anatomi">}}
+
+![Visning av bilder i fileUpload komponenten](image.png)
+
+{{</content-version-container>}}
+{{<content-version-container version-label="Forhåndsvisning">}}
+
+Du kan forhåndsvise en fullstørrelsesversjon av et opplastet bilde ved å klikke på miniatyrbildet i fileopplastingskomponenten.
+
+![Forhåndsvisning](image-3.png)
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+### For å vise forhåndsvisning av bilder i fileopplastingskomponenten kreves følgende implementering:
+
+1. Opprett en egen dataType for thumbnails. `id` må være `thumbnail`.
+  {{< code-title >}}
+  App/config/applicationmetadata.json
+  {{< /code-title >}}
+
+    ```json
+    {
+      "id": "thumbnail",
+      "taskId": "Task_1",
+      "allowedContentTypes": ["image/png", "image/jpeg", "image/jpg"],
+      "maxCount": 100,
+      "maxSize": 10,
+      "minCount": 0,
+      "enablePdfCreation": true,
+      "enableFileScan": false,
+      "validationErrorOnPendingFileScan": false,
+      "enabledFileAnalysers": [],
+      "enabledFileValidators": []
+    }
+    ```
+2. Opprett en klasse som implementerer `IDataWriteProcessor`-interfacet for thumbnail generering og lagring. Du får tilgang til alle nylig opplastede vedlegg gjennom `BinaryDataChanges` i `DataElementChanges`.
+
+3. Opprett et nytt dataelement for thumbnail:<br>
+    Lagre thumbnails i en dedikert dataType (opprettet i applicationmetadata.json). Kall `AddBinaryDataElement()` fra `IInstanceDataMutator` med
+    - `dataTypeId` for thumbnails som første parameter
+    - Filtype (`contentType`)
+    - Filnavn (`filename`)
+    - Det genererte bildet (`ReadOnlyMemory<Byte>`).
+
+4. Link originalbildet og thumbnailbildet med metadata:
+
+   - Generer en unik identifikator (GUID) som lenke mellom bildene
+   - Legg til metadata `thumbnailLink` på det opprinnelige dataelementet med GUID som verdi
+   - Legg til metadata `attachmentLink` på dataelementet tilhørende thumbnail med samme GUID som verdi
+
+   Dette sikrer at frontend vet hvilket thumbnail som tilhører hvilket originalbilde.
+
+Kode eksempel:
+
+```csharp
+public class DataWriteProcessor() : IDataWriteProcessor
+{
+    public async Task ProcessDataWrite(IInstanceDataMutator instanceDataMutator, string taskId, DataElementChanges changes, string language)
+    {
+        foreach (var binaryDataChange in changes.BinaryDataChanges)
+        {
+            if (!binaryDataChange.ContentType.StartsWith("image/") || binaryDataChange.Type != ChangeType.Created) continue;
+
+            var generatedThumbnail = await RenderThumbnail(instanceDataMutator.Instance, binaryDataChange.CurrentBinaryData);
+
+            var newElement = instanceDataMutator.AddBinaryDataElement(
+              "thumbnail",
+              binaryDataChange.ContentType,
+              binaryDataChange.FileName,
+              generatedThumbnail);
+
+            var guid = Guid.NewGuid().ToString();
+
+            newElement.AddMetadata("attachmentLink", guid);
+            binaryDataChange.AddMetadata("thumbnailLink", guid);
+        }
+        return;
+    }
+
+    private async Task<ReadOnlyMemory<byte>> RenderThumbnail(Instance instance, ReadOnlyMemory<byte> elementBinaryData)
+    {
+        //generate thumbnail from nuget package
+    }
+}
+```
