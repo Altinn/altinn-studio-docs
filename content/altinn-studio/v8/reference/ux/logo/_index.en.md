@@ -125,7 +125,7 @@ App/config/applicationmetadata.json
 Specifies where the source of the logo should be fetched from. It has two valid values:
 
 - `"org"`: The logo is fetched from altinn-orgs.json.
-- `"resource"`: The logo is fetched from text resource files. Fetches the value with the id `"appLogo.url"`
+- `"resource"`: The logo is fetched from text resource files. Fetches the value with the id `"appLogo.url"`.
 
 ### displayAppOwnerNameInHeader
 

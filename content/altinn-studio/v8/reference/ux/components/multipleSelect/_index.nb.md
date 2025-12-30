@@ -20,7 +20,7 @@ MultipleSelect brukes ofte i skjemaer for å samle input fra brukeren,
  MultipleSelect tilbyr også støtte for lokalt søk/filtrering.
  Som `Checkbox`-komponenten lagrer MultipleSelect valgene som en komma-separert liste.
  
- ### Bruk MultipleSelect når:
+### Bruk MultipleSelect når:
  * Brukere kan velge flere alternativer fra en liste.
  * Når listen med alternativer er for lang til å vises som avkrysningsbokser.
 
