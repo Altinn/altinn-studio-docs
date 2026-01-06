@@ -685,6 +685,6 @@ as the encryption key.
 ## External documentation 
 
 More on Fiks Arkiv:
-- https://developers.fiks.ks.no/felles/integrasjoner/
-- https://github.com/ks-no/fiks-arkiv-specification/wiki
+- <https://developers.fiks.ks.no/felles/integrasjoner/>
+- <https://github.com/ks-no/fiks-arkiv-specification/wiki>
 
