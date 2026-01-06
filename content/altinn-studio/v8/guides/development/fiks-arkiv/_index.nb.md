@@ -631,7 +631,7 @@ services
 
 #### Overstyr behandling av responsmelding 
 
-Grensesnittet som skal implementeres er `IFiksArkivPayloadGenerator`.
+Grensesnittet som skal implementeres er `IFiksArkivResponseHandler`.
 
 Hvis din implementerte klasse heter `OverrideResponseHandler`, vil tjenesteregistreringen være som følger:
 

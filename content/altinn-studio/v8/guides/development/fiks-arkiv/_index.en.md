@@ -141,7 +141,7 @@ The package version should match the version of the _Altinn.App.Core_ and _Altin
 
 {{% expandlarge id="guide-mp-config-vals" header="Overview of Maskinporten configuration" %}}
 
-The client id for the Maskinporten client generated in step 1 and the base64 encoded public and private key
+The client id for the Maskinporten client generated in step 1 and the base64-encoded public and private key
 should be added as _ClientId_ and _JwkBase64_ in the _MaskinportenSettings_ section. 
 
 
@@ -594,8 +594,8 @@ Use **`Value`** when you know the text upfront; use **`DataModelBinding`** when 
 
 - Define desired process flow for the application
   
-  The recommended process flow for an application using Fiks Arkiv is depticed below. 
-  The feedback step is nessesary to allow for a respons from the asynchronous process of sending the archive message
+  The recommended process flow for an application using Fiks Arkiv is depicted below. 
+  The feedback step is necessary to allow for a response from the asynchronous process of sending the archive message
   and receiving a response before confirming to the user that the sending was successful. 
 
   <img src="fiks-arkiv-process.png" alt="Illustration of recommended processs flow" width="80%">
@@ -615,7 +615,7 @@ processing the response from the the receiving Fiks account.
 
 The interface to implement `IFiksArkivPayloadGenerator`.
 
-If your implemted class is called `OverridePayloadGenerator`, the service registration will be as follows:
+If your implemented class is called `OverridePayloadGenerator`, the service registration will be as follows:
 
 {{< code-title >}}
 App/Program.cs
@@ -631,7 +631,7 @@ services
 
 The interface to implement `IFiksArkivResponseHandler`.
 
-If your implemted class is called `OverrideResponseHandler`, the service registration will be as follows:
+If your implemented class is called `OverrideResponseHandler`, the service registration will be as follows:
 
 
 {{< code-title >}}
@@ -670,7 +670,7 @@ These along with solutions are listed below, to be used at your convenience.
 3. Please reference archive system documentation on requirements for the encryption key pair.
 
 4. Under the account, navigate to the _Søk etter systemer_ tab and look up the system created to send messages.
-Grant this system permission to send messages to the recipient account by clicking _Gi tilang_.
+Grant this system permission to send messages to the recipient account by clicking _Gi tilgang_.
     <img src="fiks-system-whitelist.png" alt="Screenshot illustrating how to give access to a system from a Fiks account" width="80%">
 
 ### Known issues in configuration of Public 360
