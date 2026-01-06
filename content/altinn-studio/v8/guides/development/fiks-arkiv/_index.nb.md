@@ -41,8 +41,8 @@ Kilde: [KS Digital](https://github.com/ks-no/fiks-arkiv-specification)
 `altinn:serviceowner/instances.write`
 - Generer et **JWK-nøkkelpar for Maskinporten authentication** og last opp den offentlige nøkkelen til den nyopprettede Maskinporten-klienten
 - Ta vare på følgende konfigurasjonsverdier for Altinn App-oppsettet
-    - Klient-id for den genererte Maskinporten-klienten
-    - Offentlig og privat nøkkel for **Maskinporten JWK-nøkkelparet** (base64-enkodet)
+  - Klient-id for den genererte Maskinporten-klienten
+  - Offentlig og privat nøkkel for **Maskinporten JWK-nøkkelparet** (base64-enkodet)
 _Denne Maskinporten-klienten vil bli brukt til å autentisere forespørsler fra Altinn-appen både mot Altinn Platform 
 og Fiks._
 
@@ -132,7 +132,7 @@ Pakkeversjonen bør samsvare med versjonen av _Altinn.App.Core_ og _Altinn.App.A
             .WithMaskinportenConfig("MaskinportenSettings");
     }
     ```
-    __Merk:__ Du kan fritt velge seksjonsnavn for konfigurasjonsverdiene, 
+    **Merk:** Du kan fritt velge seksjonsnavn for konfigurasjonsverdiene, 
     men disse må samsvare med seksjonsnavnene som brukes i appsettings.json og/eller applikasjonens hemmelighetsadministrasjons-
     plattform (f.eks. Azure Key Vault).
 
@@ -198,6 +198,7 @@ må du re-deploye applikasjonen for at de skal tre i kraft._
 {{% /expandlarge %}}
 
 {{% expandlarge id="guide-fiks-io-settings" header="Oversikt over FiksIOSettings" %}}
+
 | **Innstillingsnavn**        | **Beskrivelse**                                                                                       |
 |-----------------------------|-------------------------------------------------------------------------------------------------------|
 | **AccountId**               | Unik identifikator for FIKS IO-kontoen.                                                          |
@@ -677,7 +678,7 @@ Gi dette systemet tillatelse til å sende meldinger til mottakerkontoen ved å k
 
 ### Kjente problemer i konfigurasjon av Public 360
 
-__Krypteringsnøkkelen er ikke dokumentert__
+#### Krypteringsnøkkelen er ikke dokumentert
 
 Maskinporten-tokenet som lastes opp i P360 brukes som den private delen av krypteringsnøkkelen
 Fiks Arkiv-kontoen som mottar meldinger skal laste opp den offentlige delen av dette sertifikatet
@@ -687,6 +688,6 @@ som krypteringsnøkkelen.
 ## Ekstern dokumentasjon 
 
 Mer om Fiks Arkiv:
-- https://developers.fiks.ks.no/felles/integrasjoner/
-- https://github.com/ks-no/fiks-arkiv-specification/wiki
+- <https://developers.fiks.ks.no/felles/integrasjoner/>
+- <https://github.com/ks-no/fiks-arkiv-specification/wiki>
 

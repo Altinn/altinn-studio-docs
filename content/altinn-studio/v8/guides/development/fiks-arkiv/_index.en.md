@@ -39,8 +39,8 @@ Source of image: [KS Digital](https://github.com/ks-no/fiks-arkiv-specification)
 `altinn:serviceowner/instances.write`
 - Generate a **JWK keypair for Maskinporten authentication** and upload the public key to the newly generated Maskinporten client
 -  Keep the following configuration values for the Altinn App setup
-    - Client id for the generated Maskinporten client
-    - Public and private key of the **Maskinporten JWK keypair** (base64 encoded)
+  - Client id for the generated Maskinporten client
+  - Public and private key of the **Maskinporten JWK keypair** (base64 encoded)
 _This maskinporten client will be used to authenticate requests from the Altinn App both towards Altinn Platform 
 and Fiks._
 
@@ -130,7 +130,7 @@ The package version should match the version of the _Altinn.App.Core_ and _Altin
             .WithMaskinportenConfig("MaskinportenSettings");
     }
     ```
-    __Note:__ You are free to select section names for the configuration values, 
+    **Note**: You are free to select section names for the configuration values, 
     but these must match the section names used in appsettings.json and/or the applications secret management 
     platform (e.g. Azure Key Vault).
 
@@ -196,6 +196,7 @@ you will need to redeploy the application for them to come into effect._
 {{% /expandlarge %}}
 
 {{% expandlarge id="guide-fiks-io-settings" header="Overview of FiksIOSettings" %}}
+
 | **Setting Name**            | **Description**                                                                                       |
 |-----------------------------|-------------------------------------------------------------------------------------------------------|
 | **AccountId**               | Unique identifier for the FIKS IO account.                                                          |
@@ -675,7 +676,7 @@ Grant this system permission to send messages to the recipient account by clicki
 
 ### Known issues in configuration of Public 360
 
-__The encryption key is not documented__
+#### The encryption key is not documented
 
 The maskinporten token uploaded in P360 is used as the private part of the encryption key
 the Fiks Arkiv account that receives messages should upload the public part of this certificate
