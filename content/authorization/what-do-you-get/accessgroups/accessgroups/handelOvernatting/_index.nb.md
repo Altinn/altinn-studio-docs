@@ -10,9 +10,9 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Varehandel](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/handelovernatting/#varehandel)|
-|[Overnatting](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/handelovernatting/#overnatting)|
-|[Servering](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/handelovernatting/#servering)|
+|[Varehandel](#varehandel)|
+|[Overnatting](#overnatting)|
+|[Servering](#servering)|
 
 
 ### Varehandel
@@ -31,6 +31,6 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til serveringsvirksomh
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
 |**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
 |---|---|---|
-|Varehandel|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Overnatting|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Servering|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Varehandel|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Overnatting|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Servering|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|

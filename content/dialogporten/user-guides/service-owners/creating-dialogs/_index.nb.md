@@ -9,24 +9,25 @@ weight: 20
 Denne veiledningen viser hvordan du kan bruke tjenesteeier-API-et til å opprette dialoger for dine digitale tjenesteinstanser og/eller meldinger.
 
 {{<notice info>}}
-Når du bruker Altinn Studio, vil dialoger automatisk opprettes for deg. En app kan velge å ikke bruke dette, se [veiledningen for integrering av Altinn Apps](../integrating-altinn-apps) for mer informasjon.
+Når du bruker Altinn Studio, vil dialoger automatisk opprettes for deg. En app kan velge å ikke bruke dette, se [veiledningen for integrering av Altinn Apps](/nb/dialogporten/user-guides/service-owners/integrating-altinn-apps/) for mer informasjon.
 {{</notice>}}
 
 ## Grunnleggende trinn
 
-1. Autentiser som en [tjenesteeier](../../authenticating/#bruk-for-tjenesteeiersystemer)
-2. Utfør en POST-forespørsel og oppgi [create dialog DTO](../../../reference/entities/dialog#opprett-post)
+1. Autentiser som en [tjenesteeier](/nb/dialogporten/user-guides/authenticating/#bruk-for-tjenesteeiersystemer)
+2. Utfør en POST-forespørsel og oppgi [create dialog DTO](/nb/dialogporten/reference/entities/dialog#opprett-post)
 
 ## Velge en tjenesteressurs
-Tjenesteressursen som leveres kan være hvilken som helst ressurs i [Altinn Ressursregister]({{<relref "../../../../authorization/what-do-you-get/resourceregistry">}}) med en `hasCompententAuthority`-egenskap som samsvarer med det autentiserte organisasjonsnummeret.
+
+Tjenesteressursen som leveres kan være hvilken som helst ressurs i [Altinn Ressursregister](/nb/dialogporten/user-guides/service-owners/creating-dialogs/../../../../authorization/what-do-you-get/resourceadministration/) med en `hasCompententAuthority`-egenskap som samsvarer med det autentiserte organisasjonsnummeret.
 
 {{<notice info>}}
 Støtte for å legge til ytterligere begrensninger (dvs. ekstra omfangskrav) til tjenesteressurser spores i [denne saken](https://github.com/Altinn/dialogporten/issues/40).
 {{</notice>}}
 
-Ressurs med type `CorrespondenceService` kan ikke refereres, da disse er reservert for bruk med [Altinn Melding]({{<relref "../../../../correspondence">}}).
+Ressurs med type `CorrespondenceService` kan ikke refereres, da disse er reservert for bruk med [Altinn Melding](/nb/dialogporten/user-guides/service-owners/creating-dialogs/../../../../correspondence/).
 
-Som med [søk]({{<relref "../../searching-for-dialogs">}}), refererer `serviceResource`-feltet til en ressurs i Ressursregisteret og bruker formatet `urn:altinn:resource:<identifier>`.
+Som med [søk](/nb/dialogporten/user-guides/service-owners/creating-dialogs/../../searching-for-dialogs/), refererer `serviceResource`-feltet til en ressurs i Ressursregisteret og bruker formatet `urn:altinn:resource:<identifier>`.
 
 ## Datoer
 
@@ -40,16 +41,16 @@ Som standard vil begge disse settes til gjeldende tidsstempel når du oppretter 
 
 Det er to valgfrie datoer som kan settes på en dialog som kontrollerer synlighet for sluttbrukere.
 
-* `expiresAt` definerer et fremtidig tidsstempel som, når det er nådd, gjør dialogen utilgjengelig i sluttbruker-API-et. Sluttbrukersystemer bør gjøre en innsats for å advare brukere om at innholdet er i ferd med å bli utilgjengelig. Utilgjengelige dialoger er fortsatt synlige i tjenesteeier-API-ene, bortsett fra når du [impersonerer en bruker]({{<relref "../impersonating-users">}}), og `expiresAt`-feltet kan når som helst settes til `null` eller en fremtidig verdi som vil gjøre det synlig for sluttbrukeren igjen (og en `dialogporten.dialog.updated`-hendelse vil bli sendt).
+- `expiresAt` definerer et fremtidig tidsstempel som, når det er nådd, gjør dialogen utilgjengelig i sluttbruker-API-et. Sluttbrukersystemer bør gjøre en innsats for å advare brukere om at innholdet er i ferd med å bli utilgjengelig. Utilgjengelige dialoger er fortsatt synlige i tjenesteeier-API-ene, bortsett fra når du [impersonerer en bruker](/nb/dialogporten/user-guides/service-owners/creating-dialogs/../impersonating-users/), og `expiresAt`-feltet kan når som helst settes til `null` eller en fremtidig verdi som vil gjøre det synlig for sluttbrukeren igjen (og en `dialogporten.dialog.updated`-hendelse vil bli sendt).
 
 {{<notice warning>}}
 Utilgjengelige dialoger vil på dette tidspunktet _ikke_ bli sanert fra databasen, men dette kan endre seg i fremtiden der Dialogporten fjerner for lengst utløpte dialoger av personvern- og systemeffektivitetshensyn.
 {{</notice>}}
 
-* `visibleAt` definerer et fremtidig tidsstempel som, når det er nådd, gjør dialogen tilgjengelig i sluttbruker-API-et. Før dette tidspunktet vil ikke dialogen være tilgjengelig.
+- `visibleFrom` definerer et fremtidig tidsstempel som, når det er nådd, gjør dialogen tilgjengelig i sluttbruker-API-et. Før dette tidspunktet vil ikke dialogen være tilgjengelig.
 
 {{<notice warning>}}
-På grunn av en [kjent begrensning](https://github.com/Altinn/dialogporten/issues/110), vil hendelser knyttet til dialogopprettelser/-oppdateringer _ikke_ vurdere `visibleAt`. Dette betyr at når en dialog opprettes med en fremtidig `visibleAt`-dato, vil hendelsen bli produsert umiddelbart, men vil ikke tillate sluttbrukeren å få tilgang til dialogen.
+På grunn av en [kjent begrensning](https://github.com/Altinn/dialogporten/issues/110), vil hendelser knyttet til dialogopprettelser/-oppdateringer _ikke_ vurdere `visibleFrom`. Dette betyr at når en dialog opprettes med en fremtidig `visibleFrom`-dato, vil hendelsen bli produsert umiddelbart, men vil ikke tillate sluttbrukeren å få tilgang til dialogen.
 {{</notice>}}
 
 ### Levere en forfallsdato
@@ -58,7 +59,7 @@ Tidsstempelet ´dueAt´ er et hint til sluttbrukersystemer for å indikere for b
 
 ## Sette innhold
 
-Dialogporten støtter flere innholdsfelter som brukes til forskjellige formål. Disse kan settes på både dialog og forsendelser. For teknisk informasjon om feltnavn, tillatte formater osv., se [innholdstype-referansen]({{<relref "../../../reference/content-types">}}).
+Dialogporten støtter flere innholdsfelter som brukes til forskjellige formål. Disse kan settes på både dialog og forsendelser. For teknisk informasjon om feltnavn, tillatte formater osv., se [innholdstype-referansen](/nb/dialogporten/user-guides/service-owners/creating-dialogs/../../../reference/content-types/).
 
 ### Tittel
 
@@ -82,7 +83,7 @@ Vanligvis bruker sluttbrukersystemer `org`-feltet for å indikere for sluttbruke
 
 ### Innholdsreferanse
 
-Dette er innholdstypen for [front channel embeds]({{<relref "../../../getting-started/front-channel-embeds">}}), og kan settes på både dialoger og forsendelser i dialoger.
+Dette er innholdstypen for [front channel embeds](/nb/dialogporten/user-guides/service-owners/creating-dialogs/../../../getting-started/front-channel-embeds/), og kan settes på både dialoger og forsendelser i dialoger.
 
 **Les mer**
 
@@ -97,25 +98,25 @@ Siden Dialogporten ikke inneholder noen innholdsdata, er fritekstsøk iboende be
 
 Dialogporten støtter flere generiske dialogstatuser, som indikerer forskjellige typiske tilstander i prosessen dialogen representerer. Disse statusene bør brukes av sluttbrukersystemer for å organisere og prioritere dialoglisten. Statusene er:
 
-| Status              | Beskrivelse                                                                                                                                                                                              |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `NotApplicable`     | Dialogen har ingen meningsfull status. Brukes vanligvis for enkle meldinger som ikke krever noen interaksjon. Dette er standard.                                                          |
-| `Draft`             | Brukes til å indikere brukerinitierte dialoger som ennå ikke er sendt og som kan kanselleres når som helst.                                                                                                            |
-| `InProgress`        | Indikerer at dialogen er startet, og blir jobbet med av parten og/eller tjenesteeieren. I en seriell prosess kan dette indikere at for eksempel et skjema fylles ut på et forhåndsutfylt skjema.   |
-| `Awaiting`          | Sendt av parten til tjenesteeieren og venter på et svar. I en seriell prosess brukes dette etter at en innsending er gjort.                                                                        |
-| `RequiresAttention` | Brukes til å indikere at dialogen er i gang/under arbeid, men er i en tilstand der brukeren må gjøre noe - for eksempel korrigere en feil, eller andre forhold som hindrer videre behandling.   |
-| `Completed`         | Dialogen ble fullført. Dette betyr vanligvis at dialogen har nådd en sluttilstand der ingen ytterligere oppdateringer vil bli gjort.                                                                     |
+| Status              | Beskrivelse                                                                                                                                                                                      |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `NotApplicable`     | Dialogen har ingen meningsfull status. Brukes vanligvis for enkle meldinger som ikke krever noen interaksjon. Dette er standard.                                                                 |
+| `Draft`             | Brukes til å indikere brukerinitierte dialoger som ennå ikke er sendt og som kan kanselleres når som helst.                                                                                      |
+| `InProgress`        | Indikerer at dialogen er startet, og blir jobbet med av parten og/eller tjenesteeieren. I en seriell prosess kan dette indikere at for eksempel et skjema fylles ut på et forhåndsutfylt skjema. |
+| `Awaiting`          | Sendt av parten til tjenesteeieren og venter på et svar. I en seriell prosess brukes dette etter at en innsending er gjort.                                                                      |
+| `RequiresAttention` | Brukes til å indikere at dialogen er i gang/under arbeid, men er i en tilstand der brukeren må gjøre noe - for eksempel korrigere en feil, eller andre forhold som hindrer videre behandling.    |
+| `Completed`         | Dialogen ble fullført. Dette betyr vanligvis at dialogen har nådd en sluttilstand der ingen ytterligere oppdateringer vil bli gjort.                                                             |
 
 ### Hvilke statuser skal brukes når
 
 Når du oppretter dialoger, bør tjenesteplattformen vurdere både tilstanden og omstendighetene til dialogen som opprettes. Det er ingen faste regler, men følgende retningslinjer kan hjelpe med å bestemme hvilken status som er passende.
 
-* Representerer dialogen et søknadsskjema, som ble "kaldt" initiert av brukeren uten åpenbar interaksjon med tjenesteeieren? **Draft**
-* Er dialogen initiert av tjenesteeieren (eventuelt forhåndsutfylt med data) for et rapporteringsskjema? **InProgress**
-* Er dialogen i en tilstand der brukeren har gjort en innsending, og venter på en form for tilbakemelding fra tjenesteeieren, dvs. "ballen er på tjenesteeierens banehalvdel"? **Awaiting**
-* Var dialogen tidligere i en **Draft**-tilstand, men var det på et tidspunkt åpenbar interaksjon med tjenesteeieren, dvs. innledende tilbakemelding/validering ble forespurt og gitt, og plasserte "ballen tilbake på partens banehalvdel"? **InProgress**
-* Var det en form for uoverensstemmelse, feiltilstand, viktig forfallsdato nærmer seg eller lignende som krever at brukeren foretar seg noe for at prosessen skal fortsette? **RequiresAttention**
-* Nådde dialogen en logisk konklusjon, dvs. en offisiell beslutning ble tatt som under normale omstendigheter (dvs. ikke medregnet ankeprosesser) representerer slutten på dialogen? **Completed**
+- Representerer dialogen et søknadsskjema, som ble "kaldt" initiert av brukeren uten åpenbar interaksjon med tjenesteeieren? **Draft**
+- Er dialogen initiert av tjenesteeieren (eventuelt forhåndsutfylt med data) for et rapporteringsskjema? **InProgress**
+- Er dialogen i en tilstand der brukeren har gjort en innsending, og venter på en form for tilbakemelding fra tjenesteeieren, dvs. "ballen er på tjenesteeierens banehalvdel"? **Awaiting**
+- Var dialogen tidligere i en **Draft**-tilstand, men var det på et tidspunkt åpenbar interaksjon med tjenesteeieren, dvs. innledende tilbakemelding/validering ble forespurt og gitt, og plasserte "ballen tilbake på partens banehalvdel"? **InProgress**
+- Var det en form for uoverensstemmelse, feiltilstand, viktig forfallsdato nærmer seg eller lignende som krever at brukeren foretar seg noe for at prosessen skal fortsette? **RequiresAttention**
+- Nådde dialogen en logisk konklusjon, dvs. en offisiell beslutning ble tatt som under normale omstendigheter (dvs. ikke medregnet ankeprosesser) representerer slutten på dialogen? **Completed**
 
 En bestemt dialog kan kreve en høyere oppløsning av statuser, dvs. ha flere distinkte tilstander av "InProgress" som er meningsfulle å formidle til sluttbrukeren. For disse formålene, se egenskapen `extendedStatus` og innholdstypen.
 
@@ -125,11 +126,11 @@ Handlinger er ikke obligatoriske, men de fleste dialoger bør indikere hvordan b
 
 ### Autorisere handlinger
 
-Handlinger har selv en `action`-egenskap som tilsvarer en [XACML-handling](../../../../authorization/reference/xacml/#action) definert i den refererte tjenesteressursens [policy](../../../../authorization/reference/xacml/#xacml-policy). Dialogporten vil sjekke om den autentiserte brukeren har lov til å utføre den spesifiserte handlingen på den refererte tjenesteressursen for dialogens part, og hvis ikke, vil den flagge handlingen som `isAuthorized: false` og fjerne den medfølgende URL-en. Sluttbrukersystemer bør indikere for sluttbrukeren at handlingen eksisterer, men at tilgang mangler - og om mulig gi informasjon om hvordan du ber om tilgang (som er utenfor omfanget for Dialogporten).
+Handlinger har selv en `action`-egenskap som tilsvarer en [XACML-handling](/nb/authorization/reference/xacml/#action) definert i den refererte tjenesteressursens [policy](/nb/authorization/reference/xacml/#xacml-policy). Dialogporten vil sjekke om den autentiserte brukeren har lov til å utføre den spesifiserte handlingen på den refererte tjenesteressursen for dialogens part, og hvis ikke, vil den flagge handlingen som `isAuthorized: false` og fjerne den medfølgende URL-en. Sluttbrukersystemer bør indikere for sluttbrukeren at handlingen eksisterer, men at tilgang mangler - og om mulig gi informasjon om hvordan du ber om tilgang (som er utenfor omfanget for Dialogporten).
 
 {{<notice warning>}}Selv om Dialogporten vil sjekke autorisasjon for handlingen og fjerne URL-en hvis sjekken mislykkes, MÅ tjenesteeiersystemet utføre sin egen autorisasjon basert på den samme policyen{{</notice>}}
 
-For ekstra kontroll kan et [autorisasjonsattributt](../../../getting-started/authorization/attributes) leveres, som lar tjenesteeiere referere til spesifikke regler i policyen eller andre tjenesteressurser (som tjenesteeieren kontrollerer) fullstendig.
+For ekstra kontroll kan et [autorisasjonsattributt](/nb/dialogporten/getting-started/authorization/attributes/) leveres, som lar tjenesteeiere referere til spesifikke regler i policyen eller andre tjenesteressurser (som tjenesteeieren kontrollerer) fullstendig.
 
 ### Definere GUI-handlinger
 
@@ -137,7 +138,7 @@ For mange dialoger vil en enkelt GUI-handling med en tittel med noe som "Start s
 
 #### Skrivehandlinger
 
-Hvis `httpMethod` som leveres for en GUI-handling er noe annet enn `GET`, anses det som en [skrivehandling]({{<relref "../../../getting-started/write-actions">}}), og det nettleserbaserte sluttbrukersystemet må bruke [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) eller lignende for å konstruere forespørselen ved hjelp av nettleserens skriptfunksjoner. Siden dette gjør GET-basert omdirigert SSO med ID-porten umulig, vil sluttbrukersystemet inkludere [dialogtoken]({{<relref "../../../getting-started/authorization/dialog-tokens">}}) som et Authorization-header for at tjenesteeieren skal kunne starte en økt. Tjenesteeiersystemet på URL-en må også fullt ut støtte [CORS-protokollen](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
+Hvis `httpMethod` som leveres for en GUI-handling er noe annet enn `GET`, anses det som en [skrivehandling](/nb/dialogporten/user-guides/service-owners/creating-dialogs/../../../getting-started/write-actions/), og det nettleserbaserte sluttbrukersystemet må bruke [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) eller lignende for å konstruere forespørselen ved hjelp av nettleserens skriptfunksjoner. Siden dette gjør GET-basert omdirigert SSO med ID-porten umulig, vil sluttbrukersystemet inkludere [dialogtoken](/nb/dialogporten/user-guides/service-owners/creating-dialogs/../../../getting-started/authorization/dialog-tokens/) som et Authorization-header for at tjenesteeieren skal kunne starte en økt. Tjenesteeiersystemet på URL-en må også fullt ut støtte [CORS-protokollen](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
 
 #### Slettehandlinger
 
@@ -151,7 +152,7 @@ Merk at Dialogporten ikke vil vurdere gyldigheten eller semantikken til API-hand
 
 **Les mer**
 
-- [Lær mer om handlinger i dialoger](../../../getting-started/dialogs#handlinger)
+- [Lær mer om handlinger i dialoger](/nb/dialogporten/getting-started/dialogs#handlinger)
 - {{<link "../../../reference/entities/action">}}
 - {{<link "../../../getting-started/write-actions">}}
 - {{<link "../../../getting-started/authorization/dialog-tokens">}}
@@ -164,15 +165,15 @@ Vedlegg kan defineres både på dialogen og på individuelle forsendelser.
 
 **Les mer**
 
-- [Lær mer om vedlegg i dialoger](../../../getting-started/dialogs#vedlegg)
+- [Lær mer om vedlegg i dialoger](/nb/dialogporten/getting-started/dialogs#vedlegg)
 
 ## Definere forsendelser
 
 Forsendelser kan inneholde et ekstra nivå av innhold og vedlegg som representerer en enkelt forekomst av kommunikasjon i en dialog, som kan være underlagt forskjellige autorisasjonsregler enn innholdet på dialognivå. Forsendelsen inneholder dermed
 
-* informasjon om hvem som sendte den; enten en representant for parten eller tjenesteeieren
-* typen forsendelse, som skal gi sluttbrukersystemer en ide om hvordan de skal vise den på en passende måte for sluttbrukere. En tjenestespesifikk, strukturert utvidet type kan også leveres som tilpassede sluttbrukersystemer kan bruke.
-* eventuelt en annen relatert forsendelse
+- informasjon om hvem som sendte den; enten en representant for parten eller tjenesteeieren
+- typen forsendelse, som skal gi sluttbrukersystemer en ide om hvordan de skal vise den på en passende måte for sluttbrukere. En tjenestespesifikk, strukturert utvidet type kan også leveres som tilpassede sluttbrukersystemer kan bruke.
+- eventuelt en annen relatert forsendelse
 
 Som med innhold på dialognivå, kan forsendelser inneholde en tittel, et sammendrag og en innholdsreferanse (front channel embed). Tjenesteeiere kan bruke front channel embeds til å spore om en bestemt forsendelse er åpnet eller ikke, noe som igjen kan f.eks. utløse en `transmissionOpened`-aktivitet som legges til.
 
@@ -180,7 +181,7 @@ Som med innhold på dialognivå, kan forsendelser inneholde en tittel, et sammen
 
 **Les mer**
 
-- [Lær mer om overføringer i dialoger](../../../getting-started/dialogs#forsendelser)
+- [Lær mer om overføringer i dialoger](/nb/dialogporten/getting-started/dialogs#forsendelser)
 - {{<link "../../../reference/entities/transmission">}}
 - {{<link "../../../reference/content-types">}}
 
@@ -205,21 +206,22 @@ Dialogporten tilbyr to valgfrie mekanismer for å sikre at en gitt dialog bare o
 Det første alternativet er en enkel mekanisme som for de fleste tjenesteeiersystemer kan være tilstrekkelig, mens det andre lettere kan brukes til å implementere vilkårlige forretningsregler (f.eks. enhver gitt dialog skal være knyttet til bare én tupel av rapporteringspart, rapporteringstjeneste og år/måned).
 
 {{<notice info>}}
-For informasjon om hvordan du bruker HTTP-basert samtidighetkontroll via `ETag` / `If-Match`-headere, se veiledningen for [oppdatering av dialoger]({{<relref "../updating-dialogs">}}).
+For informasjon om hvordan du bruker HTTP-basert samtidighetkontroll via `ETag` / `If-Match`-headere, se veiledningen for [oppdatering av dialoger](/nb/dialogporten/user-guides/service-owners/creating-dialogs/../updating-dialogs/).
 {{</notice>}}
 
 ## Stille dialogopprettelse
 
 I noen tilfeller, vanligvis i scenarier med historisk datamigrering, er det ønskelig å utføre en ikke-forretningsprosessrelatert oppdatering av en dialog. Disse oppdateringene fungerer akkurat som normale oppdateringer, men
-* Øker ikke `updatedAt` eller `contentUpdatedAt`
-* Fører ikke til at Altinn Events produseres
+
+- Øker ikke `updatedAt` eller `contentUpdatedAt`
+- Fører ikke til at Altinn Events produseres
 
 Denne oppførselen kan aktiveres ved å legge til spørringsparameteren `?isSilentUpdate=true` til URL-en for POST/PUT/PATCH-forespørselen.
 
 **Les mer**
 
-* {{<link "../updating-dialogs">}}
-* {{<link "../../../reference/openapi">}}
-* {{<link "../api-client">}}
+- {{<link "../updating-dialogs">}}
+- {{<link "../../../reference/openapi">}}
+- {{<link "../api-client">}}
 
 {{<children />}}

@@ -10,161 +10,7 @@
       "url": "https://platform.tt02.altinn.no",
       "description": "TT02"
     }
-  ],  
-  "webhooks": {
-    "no.altinn.broker.filetransferinitialized": {
-      "post": {
-        "requestBody": {
-          "description": "Information about a new file transfer",
-          "content": {
-            "application/cloudevents+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CloudEvent"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Ok"
-          }
-        }
-      },
-      "no.altinn.broker.filepurged": {
-        "post": {
-          "requestBody": {
-            "description": "The file has been purged from Broker",
-            "content": {
-              "application/cloudevents+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CloudEvent"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Ok"
-            }
-          }
-        }
-      },
-      "no.altinn.broker.fileneverconfirmeddownloaded": {
-        "post": {
-          "requestBody": {
-            "description": "File was never confirmed downloaded by a recipient",
-            "content": {
-              "application/cloudevents+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CloudEvent"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Ok"
-            }
-          }
-        }
-      }
-    },
-    "no.altinn.broker.uploadprocessing": {
-      "post": {
-        "requestBody": {
-          "description": "File has been uploaded and is being processed",
-          "content": {
-            "application/cloudevents+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CloudEvent"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Ok"
-          }
-        }
-      }
-    },
-    "no.altinn.broker.published": {
-      "post": {
-        "requestBody": {
-          "description": "File has finished processing and is ready for download",
-          "content": {
-            "application/cloudevents+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CloudEvent"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Ok"
-          }
-        }
-      }
-    },
-    "no.altinn.broker.uploadfailed": {
-      "post": {
-        "requestBody": {
-          "description": "An upload failed either during upload or processing",
-          "content": {
-            "application/cloudevents+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CloudEvent"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Ok"
-          }
-        }
-      }
-    },
-    "no.altinn.broker.downloadconfirmed": {
-      "post": {
-        "requestBody": {
-          "description": "A recipient confirmed their download",
-          "content": {
-            "application/cloudevents+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CloudEvent"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Ok"
-          }
-        }
-      }
-    },
-    "no.altinn.broker.allconfirmeddownloaded": {
-      "post": {
-        "requestBody": {
-          "description": "All recipients have confirmed the download",
-          "content": {
-            "application/cloudevents+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CloudEvent"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Ok"
-          }
-        }
-      }
-    }
-  },
+  ],
   "paths": {
     "/broker/api/v1/filetransfer": {
       "post": {
@@ -270,6 +116,20 @@
             "schema": {
               "type": "string",
               "format": "date-time"
+            }
+          },
+          {
+            "name": "orderAscending",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/RoleExt"
             }
           }
         ],
@@ -435,7 +295,7 @@
                     "description": "Used by senders and receivers to identify specific file using external identification methods."
                   },
                   "Metadata.Sender": {
-                    "pattern": "^\\d{4}:\\d{9}$",
+                    "pattern": "^(?:\\d{4}:\\d{9}|urn:altinn:organization:identifier-no:\\d{9})$",
                     "type": "string",
                     "description": "The sender organization of the file"
                   },
@@ -513,7 +373,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/FileTransferInitializeResponseExt"
                 }
               }
             }
@@ -983,54 +843,6 @@
   },
   "components": {
     "schemas": {
-      "AccessLevel": {
-        "enum": [
-          "Read",
-          "Write"
-        ],
-        "type": "string"
-      },
-      "CloudEvent": {
-        "type": "object",
-        "properties": {
-          "specversion": {
-            "type": "string"
-          },
-          "id": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "time": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "resource": {
-            "type": "string"
-          },
-          "resourceinstance": {
-            "type": "string",
-            "nullable": true
-          },
-          "source": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "additionalProperties": true,
-        "examples": [
-          {
-            "specversion": "1.0",
-            "id": "0b75b5da-7f19-4ab7-9711-ec0f6108d48c",
-            "type": "no.altinn.broker.filetransferinitialized",
-            "time": "2024-04-03T08:59:37.8552029Z",
-            "resource": "urn:altinn:resource:altinapp.ttd.apps-test",
-            "resourceinstance": "0850124f-6ae9-4821-b4f9-8ee7c937ecfc",
-            "source": "https://platform.tt02.altinn.no/broker/api/v1/file"
-          }
-        ]
-      },
       "DeploymentStatusExt": {
         "enum": [
           "NotStarted",
@@ -1038,7 +850,7 @@
           "Ready"
         ],
         "type": "string",
-        "description": "In the context of Azure deployment, \"Prepared\" corresponds to resource group deployed and \"Ready\" corresponds to all resources ready"
+        "description": "The status of deployment of Azure resources for storage providers"
       },
       "FileTransferInitalizeExt": {
         "required": [
@@ -1070,7 +882,7 @@
           },
           "sender": {
             "minLength": 1,
-            "pattern": "^\\d{4}:\\d{9}$",
+            "pattern": "^(?:\\d{4}:\\d{9}|urn:altinn:organization:identifier-no:\\d{9})$",
             "type": "string",
             "description": "The sender organization of the file"
           },
@@ -1514,9 +1326,15 @@
         "additionalProperties": false,
         "description": "A model representing the extended resource properties unique for the broker service."
       },
+      "RoleExt": {
+        "enum": [
+          "Recipient",
+          "Sender"
+        ],
+        "type": "string"
+      },
       "ServiceOwnerInitializeExt": {
         "required": [
-          "deletionTime",
           "name"
         ],
         "type": "object",
@@ -1524,11 +1342,6 @@
           "name": {
             "type": "string",
             "description": "The name of the service owner.",
-            "nullable": true
-          },
-          "deletionTime": {
-            "type": "string",
-            "description": "How long the service owner should keep files before they are deleted. \r\n\r\nMust be in ISO8601 Duration",
             "nullable": true
           }
         },
@@ -1588,7 +1401,7 @@
           "AltinnAzureWithoutVirusScan"
         ],
         "type": "string",
-        "description": "Represents the deployment status of a storage provider."
+        "description": "Represents the storage provider type."
       }
     }
   }

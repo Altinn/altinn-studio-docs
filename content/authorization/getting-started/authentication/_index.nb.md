@@ -4,7 +4,6 @@ linktitle: Autentisering
 description: Autentiseringskomponenten tilbyr funksjonalitet for å autentisere brukere og systemer som får tilgang til Altinn Apps og Altinn-plattformen.
 tags: [platform, authentication]
 toc: true
-weight: 100
 ---
 
 Autentiseringskomponenten er ikke en ID-leverandør og oppretter kun autentiseringssesjoner basert på eksterne
@@ -73,5 +72,5 @@ GET /exchange/{tokenProvider}?test={bool}
 
 ## Arkitektur
 
-Se [applikasjonsutvikling komponenter](../../reference/architecture/)
+Se [applikasjonsutvikling komponenter](/nb/authorization/reference/architecture/)
 For detaljer om hvordan denne komponenten er konstruert.

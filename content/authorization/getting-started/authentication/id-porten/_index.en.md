@@ -22,11 +22,11 @@ The system must request a set of scopes in ID-porten that the end-user must acce
 
 Relevant scopes for Altinn 3 are:
 
-- **altinn:instances.meta** - View inbox and archive overview in Altinn
-- **altinn:instances.read** - Read the content of the inbox and archive in Altinn for all items the end-user is authorized for
-- **altinn:instances.write** - Fill out, sign, and submit forms in Altinn for all items the end-user is authorized for
-- **altinn:lookup** - Use lookup services in Altinn
-- **altinn:reportees** - See who you can represent in Altinn
+- `altinn:instances.meta` - View inbox and archive overview in Altinn
+- `altinn:instances.read` - Read the content of the inbox and archive in Altinn for all items the end-user is authorized for
+- `altinn:instances.write` - Fill out, sign, and submit forms in Altinn for all items the end-user is authorized for
+- `altinn:lookup` - Use lookup services in Altinn
+- `altinn:reportees` - See who you can represent in Altinn
 
 The image below shows how the end-user must confirm access.
 
@@ -56,7 +56,7 @@ The flowchart below shows how the token is exchanged.
 
 ![Token exchange](eus_login_process_updated.svg "Token exchange")
 
-See details in [Altinn's API documentation](/api/authentication/spec) under the method `GET /exchange/{tokenProvider}`.
+See details in [Altinn's API documentation](/en/api/authentication/spec/) under the method `GET /exchange/{tokenProvider}`.
 
 End-users in Altinn have the ability to get an overview of all systems and their accesses. This way, long-term accesses can be revoked. The system will then be rejected the next time it tries to renew the access token.
 

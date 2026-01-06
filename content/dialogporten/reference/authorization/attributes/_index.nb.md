@@ -6,7 +6,7 @@ weight: 10
 
 ## Introduksjon
 
-Se [komme i gang med autorisasjonsattributter]({{<relref "../../../getting-started/authorization/attributes/"  >}}) for en funksjonell oversikt over autorisasjonsattributter og hva de kan brukes til.
+Se [komme i gang med autorisasjonsattributter](/nb/dialogporten/reference/authorization/attributes/../../../getting-started/authorization/attributes/) for en funksjonell oversikt over autorisasjonsattributter og hva de kan brukes til.
 
 Autorisasjonsattributter er en måte å kontrollere hvordan XACML-forespørselen er konstruert for en gitt dialog, noe som gjør det mulig å ha mer finkornede regler og til og med referere til flere distinkte ressurspolicyer.
 
@@ -259,7 +259,7 @@ Vil resultere i `Permit`, fordi forespørselen tilfredsstiller alle begrensninge
 
 Hvis autorisasjonsattributtverdien starter med enten `urn:altinn:resource` eller `urn:altinn:app`, og hele verdien avviker fra hva `ServiceResource` for den gitte dialogen er satt til, anses autorisasjonsattributtet som å referere til forskjellige ressurser i Resource Registry. På denne måten kan tilgang til de forskjellige delene av en dialog styres av forskjellige policyer.
 
-Et typisk brukstilfelle er å ha dialoger som alle refererer til forskjellige ressurser/policyer, men innenfor dem inneholder [forsendelser]({{<relref "../../entities/transmission">}}) som representerer en felles type kommunikasjon (dvs. varsel om tvangsgebyr) som styres av samme autorisasjonspolicy, uavhengig av dialogen der den brukes.
+Et typisk brukstilfelle er å ha dialoger som alle refererer til forskjellige ressurser/policyer, men innenfor dem inneholder [forsendelser](/nb/dialogporten/reference/authorization/attributes/../../entities/transmission/) som representerer en felles type kommunikasjon (dvs. varsel om tvangsgebyr) som styres av samme autorisasjonspolicy, uavhengig av dialogen der den brukes.
 
 Eksempel:
 ```json

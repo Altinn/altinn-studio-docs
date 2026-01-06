@@ -3,10 +3,11 @@ title: Autentisering med Virksomhetsbrukere
 linktitle: Virksomhetsbrukere
 description: Konseptet med virksomhetsbrukere ble introdusert med Altinn 2.
 toc: true
-weight: 100
 aliases:
-- /nb/api/authentication/enterpriseusers/
+  - /nb/api/authentication/enterpriseusers/
 ---
+
+{{% notice warning%}} Virksomhetsbruker videreføres ikke i Altinn 3 og vil ha sin siste dag på jobben 19. juni 2026 <br /> Virksomhetsbruker vil erstattes av [Systembruker](/nb/authorization/what-do-you-get/systemuser/). {{% /notice %}}
 
 ## Oversikt
 
@@ -30,4 +31,4 @@ Videre bruk med Altinn App API og Platform API er lik bruk av en Altinn-token ba
 
 ## Overgang til Systembrukere
 
-Støtte for virksomhetsbrukere forventes å avsluttes i 2026 sammen med Altinn 2. [Systembrukere vil erstatte dette konseptet](../systemuser/).
+Støtte for virksomhetsbrukere forventes å avsluttes i 2026 sammen med Altinn 2. [Systembrukere vil erstatte dette konseptet](/nb/authorization/getting-started/systemuser/).

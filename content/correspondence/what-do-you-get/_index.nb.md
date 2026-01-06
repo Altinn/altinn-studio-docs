@@ -19,7 +19,7 @@ Altinn Melding sørger for at alle hendelser og prosesser blir nøye loggført, 
 - Tilpassede varslingsinnstillinger basert på brukerpreferanser. Dette innebærer varslingsmaler og egendefinerte varslingsadresser.
 
 ### Events (hendelsesabonnementer)
-Du kan motta varsler om hendelser knyttet til sendte formidlingstjenester, ved å sette opp et abonnement for den aktuelle tjenesten. Du kan for eksempel se om filen er kommet frem til mottaker og om den er åpnet.
+Du kan motta varsler om hendelser knyttet til sendte meldingstjenester, ved å sette opp et abonnement for den aktuelle tjenesten. Du kan for eksempel se om filen er kommet frem til mottaker og om den er åpnet.
 
 ### Tilgangsstyring
 - Avansert tilgangsstyring sikrer at du kan være trygg på at kun autoriserte brukere får tilgang til bestemte filoverføringer.
@@ -27,8 +27,10 @@ Du kan motta varsler om hendelser knyttet til sendte formidlingstjenester, ved �
 
 ### Støtte for ulike meldingsformater
 - Mulighet for å sende meldinger med Markdown eller ren tekst.
-- Støtte for flere vedlegg per melding uten begrensing av type, der PDF, XML og HTML vil være de mest vanlige.
-- Støtte for vedlegg opp til 250 MB.
+- Støtte for [numeriske tegnreferanser i HTML.](https://en.wikipedia.org/wiki/Numeric_character_reference)
+- Støtte for opptil 100 vedlegg per melding.
+- Støtte for mange filtyper: .doc, .xls, .docx, .xlsx, .ppt, .pps, .zip, .pdf, .html, .txt, .xml, .jpg, .gif, .bmp, .png, .csv og .json.
+- Støtte for vedlegg opptil 2 GB.
 
 ### Avansert støtte for lenking til innhold og vedlegg
 - Som alternativ til å sende meldingsinnhold og vedlegg direkte i meldingene,
@@ -38,6 +40,8 @@ Du kan motta varsler om hendelser knyttet til sendte formidlingstjenester, ved �
   Løsningen har en begrensning på max. 100 vedlegg pr. melding. 
 - Det er også mulig å lenke til innhold og vedlegg som er lagret andre steder, 
   f.eks. on-premise hos avsender eller i avsenders prefererte skyløsning.
+- Støtte for å angi utløpsdato på vedlegg. Når utløpsdatoen er nådd, blir vedlegget automatisk markert som slettet og filen fjernet fra meldingssystemet.
+- Støtte for å sette tilgangstyring på et vedlegg som er forskjellig fra tilgangstyringen til meldingen den tilhører.
 
 ### Arkivering og oppbevaring
 - Alle meldinger lagres i brukerens meldingsboks i Altinn.
@@ -48,8 +52,13 @@ Du kan motta varsler om hendelser knyttet til sendte formidlingstjenester, ved �
 - Mulighet for automatisert meldingshåndtering via integrerte systemer.
 
 ### Integrasjon med Dialogporten og Arbeidsflate
-- En Altinn 3 Melding oppretter automatisk en dialog i Dialogporten. 
+- En Altinn 3 Melding oppretter automatisk en dialog i Dialogporten.
+- Meldinger med en eksisterende dialog som ekstern referanse vil opprette en transmission som gir en logisk fremstilling av relaterte meldinger.
 - Løsningen gir et enhetlig brukergrensesnitt på tvers gjennom Altinn 3 Arbeidsflate og Dialogporten.
+
+### Bekreftelse og frist
+- Mulighet til å kreve bekreftelse av melding fra mottakere.
+- Støtte for å sette en frist for når en melding må være bekreftet eller lest.
 
 ## Oppsummering av fordelene med Altinn Melding?
 Altinn Melding tilbyr flere unike fordeler som gjør den til et foretrukket valg for digital kommunikasjon 

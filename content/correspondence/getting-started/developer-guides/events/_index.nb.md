@@ -10,7 +10,7 @@ weight: 40
 {{<children />}}
 
 For å bruke hendelser/webhooks for en meldingstjeneste, må du sette opp et abonnement for den gitte ressursen.
-Dette abonnementet brukes til å konfigurere endepunktet der hendelsene som publiseres av megleren havner. [Du kan lese mer om hvordan du setter opp et hendelsesabonnement i Altinn Events her](/events/subscribe-to-events/developer-guides/setup-subscription/).
+Dette abonnementet brukes til å konfigurere endepunktet der hendelsene som publiseres av megleren havner.
 
 Alle hendelser publisert av Altinn Melding følger det samme mønsteret:
 
@@ -21,8 +21,8 @@ Alle hendelser publisert av Altinn Melding følger det samme mønsteret:
  "resourceinstance": "da4ceacc-ad44-4e54-99b6-b58e3c13c785",
  "source": "https://platform.tt02.altinn.no/correspondence/api/v1/correspondence",
  "specversion": "1.0",
- "type": "no.altinn.correspondence.Published",
- "subject": "/party/50015641",
+ "type": "no.altinn.correspondence.correspondencepublished",
+ "subject": "urn:altinn:organization:identifier-no:123456789",
  "alternativesubject": "/organisation/123456789",
  "time": "2024-04-19T07:22:19.438039Z"
 }
@@ -30,7 +30,7 @@ Alle hendelser publisert av Altinn Melding følger det samme mønsteret:
 
 ## Hendelsesabonnement {#event-subcription}
 
-Dette abonnementet brukes til å konfigurere endepunktet der hendelsene som publiseres av Atlinn Melding skal leveres. [Du kan lese mer om hvordan du setter opp et hendelsesabonnement i Altinn Events her](/events/subscribe-to-events/developer-guides/setup-subscription/).
+Dette abonnementet brukes til å konfigurere endepunktet der hendelsene som publiseres av Atlinn Melding skal leveres. [Du kan lese mer om hvordan du setter opp et hendelsesabonnement i Altinn Events her](/nb/events/subscribe-to-events/developer-guides/setup-subscription/).
 
 Du må sette opp følgende filtre:
 
@@ -49,23 +49,24 @@ Du må sette opp følgende filtre:
 I tillegg kan du ønske å bruke *typeFilter*, slik at du mottar hendelsestypene du er interessert i/kan utføre handlinger på.
 Hvis du ikke spesifiserer et *typeFilter*, vil du motta alle forskjellige typer hendelser, gitt at du har tilgang til dem.
 
-**For Avsender:**
+**For tjeneste-eier:**
 - `no.altinn.correspondence.attachmentinitialized`
 - `no.altinn.correspondence.attachmentuploadprocessing`
 - `no.altinn.correspondence.attachmentpublished`
 - `no.altinn.correspondence.attachmentuploadfailed`
 - `no.altinn.correspondence.attachmentpurged`
+- `no.altinn.correspondence.attachmentdownloaded`
+- `no.altinn.correspondence.attachmentexpired`
 
 - `no.altinn.correspondence.correspondenceinitialized`
-- `no.altinn.correspondence.correspondencearchived`
+- `no.altinn.correspondence.correspondencepublished`
 - `no.altinn.correspondence.correspondencepurged`
 - `no.altinn.correspondence.correspondencepublishfailed`
+- `no.altinn.correspondence.notificationcreated`
+- `no.altinn.correspondence.correspondencenotificationcreationfailed`
+
+**For hver mottaker:**
+- `no.altinn.correspondence.correspondencepublished`
 - `no.altinn.correspondence.correspondencereceiverread`
 - `no.altinn.correspondence.correspondencereceiverconfirmed`
 - `no.altinn.correspondence.Correspondencereceiverreserved`
-
-
-**For både Avsendere og Mottakere:**
-- `no.altinn.correspondence.correspondencepublished`
-- `no.altinn.correspondence.correspondencereceiverneverread`
-- `no.altinn.correspondence.correspondencereceiverneverconfirmed`

@@ -5,19 +5,26 @@ description: API for the vendor to create a system in the system register
 toc: false
 weight: 2
 ---
+
 ## Create a new system
 
 ### Endpoint
+
 POST authentication/api/v1/systemregister/vendor
 
 ### Scopes
+
 Maskinporten token with scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
+
 application/json
 
 ## Request Body
-For detailed description about each entity in the body, please refer the description [here](../model)
+
+For detailed description about each entity in the body, please refer the description [here](/en/api/authentication/systemuserapi/systemregister/model/)
+
+> **Important:** `clientId` must be a relevant client ID that is defined on the Maskinporten client of the system vendor or those who will retrieve the system user token. `clientId` is **required** for you to be able to create a System User that you can retrieve a system user token for.
 
 ```
 {
@@ -64,25 +71,25 @@ For detailed description about each entity in the body, please refer the descrip
 }
 ```
 
-
 ## Error Codes
 
-| Error Code     | Status Code | Error Message      | Detailed Description   |
-|----------------|-------------|--------------------|------------------------|
-| AUTH.VLD-00000 | 400 | the org number identifier is not valid ISO6523 identifier | The organization identifier must be 0192, f.ex 0192:991825827 |
-| AUTH.VLD-00001 | 400 | The system id does not match the format orgnumber_xxxx...  | The systemid is expected to be in the format vendororgnumber_xxxxxx |
-| AUTH.VLD-00002 | 400 | The system id already exists | The system id is already taken |
-| AUTH.VLD-00003 | 400 | One or all the resources in rights is not found in altinn's resource register | Any service outside altinn must be registered as a resource in altinn's resource register. Either the service provider has failed to register the resource or is specified wrong in the system register request. 
-| AUTH.VLD-00004 | 400 | One of the client id is already tagged with an existing system | The ClientId can be tied to only one organisation. The vendor must use a different client id for the new system.
-| AUTH.VLD-00005 | 400 | One or more of the redirect urls format is not valid. The valid format is https://xxx.xx | - |
-| AUTH.VLD-00006 | 400 | One or more duplicate rights found | Cehck your rights section and eliminate any duplicate app/resource |
-| AUTH.VLD-00007 | 400 | One or more duplicate access package(s) found | The system id is already taken |
-| AUTH.VLD-00008 | 400 | One or all the accesspackage(s) is not found in altinn's access packages or is not a part of REGN/REVI/Forretningsfører roller | The system id is already taken |
-| AUTH.VLD-00009 | 400 | One or more resource id is in wrong format. The vlaid format is urn:altinn:resource | - |
+| Error Code     | Status Code | Error Message                                                                                                                  | Detailed Description                                                                                                                                                                                             |
+| -------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AUTH.VLD-00000 | 400         | the org number identifier is not valid ISO6523 identifier                                                                      | The organization identifier must be 0192, f.ex 0192:991825827                                                                                                                                                    |
+| AUTH.VLD-00001 | 400         | The system id does not match the format orgnumber_xxxx...                                                                      | The systemid is expected to be in the format vendororgnumber_xxxxxx                                                                                                                                              |
+| AUTH.VLD-00002 | 400         | The system id already exists                                                                                                   | The system id is already taken                                                                                                                                                                                   |
+| AUTH.VLD-00003 | 400         | One or all the resources in rights is not found in altinn's resource register                                                  | Any service outside altinn must be registered as a resource in altinn's resource register. Either the service provider has failed to register the resource or is specified wrong in the system register request. |
+| AUTH.VLD-00004 | 400         | One of the client id is already tagged with an existing system                                                                 | The ClientId can be tied to only one organisation. The vendor must use a different client id for the new system.                                                                                                 |
+| AUTH.VLD-00005 | 400         | One or more of the redirect urls format is not valid. The valid format is https://xxx.xx                                       | -                                                                                                                                                                                                                |
+| AUTH.VLD-00006 | 400         | One or more duplicate rights found                                                                                             | Cehck your rights section and eliminate any duplicate app/resource                                                                                                                                               |
+| AUTH.VLD-00007 | 400         | One or more duplicate access package(s) found                                                                                  | The system id is already taken                                                                                                                                                                                   |
+| AUTH.VLD-00008 | 400         | One or all the accesspackage(s) is not found in altinn's access packages or is not a part of REGN/REVI/Forretningsfører roller | The system id is already taken                                                                                                                                                                                   |
+| AUTH.VLD-00009 | 400         | One or more resource id is in wrong format. The vlaid format is urn:altinn:resource                                            | -                                                                                                                                                                                                                |
 
 ## Examples
 
 ### System with app and resource defined
+
 ```
 {
   "id": "991825827_systemwithappandresource",
@@ -131,6 +138,7 @@ For detailed description about each entity in the body, please refer the descrip
 ```
 
 ### System with access package
+
 ```
 {
   "id": "991825827_systemwithaccesspackageandresource",
@@ -159,6 +167,14 @@ For detailed description about each entity in the body, please refer the descrip
         {
           "id": "urn:altinn:resource",
           "value": "ske-krav-og-betalinger"
+        }
+      ]
+    },
+    {
+      "resource": [
+        {
+          "id": "urn:altinn:resource",
+          "value": "app_ttd_endring-av-navn-v2"
         }
       ]
     }

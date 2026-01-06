@@ -11,16 +11,13 @@ aliases:
 - API for tjenesteeiere i sammenheng med data for Altinn Apps
 - API for systemleverandører i sammenheng med systembruker
 
-Beskrivelse av hvordan tjenesteeieres systemer kan benytte Maskinporten for å få tilgang til API-er.
+## Forutsetninger
 
-## Samarbeidsportalen
+For å ta i bruk autentisering med Maskinporten må man først ha tilgang til en Maskinporten-klient. Du finner en detaljert guide som omhandler denne registreringen i lenken under.
 
-I [Min profil](https://minside-samarbeid.digdir.no) i [Samarbeidsportalen](https://samarbeid.digdir.no/) har du tilgang til selvbetjening for [Maskinporten](https://samarbeid.digdir.no/maskinporten/maskinporten/25), hvor du kan opprette nye integrasjoner (klienter).
-
-- https://tt02.altinn.no er testmiljøet for apper i Altinn, og det er koblet mot **Ver 2**-miljøet i Maskinporten.
-- https://www.altinn.no er koblet mot **Produksjon**.
-
-![Miljøer i Maskinporten](environments-idporten.png "Miljøer i Maskinporten")
+{{% expandlarge id="guide-mp-int-samarbeid" header="Veiledning om hvordan du registrerer en ny Maskinporten-integrasjon i Samarbeidsportalen" %}}
+{{% insert "content/shared/maskinporten/maskinporten-client-create.nb.md" %}}
+{{% /expandlarge %}}
 
 ## Tilgang som tjenesteeier
 
@@ -28,31 +25,14 @@ For å kunne hente data fra Storage i Altinn 3 via API som tjenesteeier, må du 
 
 Følgende scopes er opprettet av Altinn og delegert til tjenesteeier. Disse scopene er nødvendige for å benytte API-ene relatert til instanser som tjenesteeier:
 
-```js
-altinn: serviceowner / instances.read;
-altinn: serviceowner / instances.write;
-```
+- `altinn:serviceowner/instances.read`
+- `altinn:serviceowner/instances.write`
+{.correspondence-custom-list}
 
-Klienter med _write_ scope kan blant annet instansiere apper på vegne av brukere via appens eget API, laste opp data, oppdatere metadata og prosess-status.
-Klienter med _read_ scope kan kun lese data, metadata og hendelser.
+Klienter med `write` scope kan blant annet instansiere apper på vegne av brukere via appens eget API, laste opp data, oppdatere metadata og prosess-status.
+Klienter med `read` scope kan kun lese data, metadata og hendelser.
 
 I de fleste tilfeller vil en klient for tjenesteeier ha behov for begge scopene.
-
-Oppretting av klient kan gjøres via API eller i Samarbeidsportalen.
-
-```http
-POST https://integrasjon.difi.no/clients/
-{
-    "integration_type": "maskinporten",
-    "client_name": "DIHE testklient for instanser",
-    "client_type": "CONFIDENTIAL",
-    "description": "Klient for å hente data fra mine apper",
-    "scopes": [ "altinn:serviceowner/instances.read", "altinn:serviceowner/instances.write" ],
-    "token_reference": "SELF_CONTAINED"
-}
-```
-
-![Ny integrasjon](new-integration.png "Opprette ny integrasjon (klient) i Samarbeidsportalen. Husk å velge riktig miljø.")
 
 ## Veksle til Altinn-token
 
@@ -61,4 +41,4 @@ Altinn godtar ikke Maskinporten-token direkte. Disse må veksles inn i Altinn-to
 ## Mer informasjon
 
 - For mer informasjon, se [dokumentasjon for API-konsument](https://docs.digdir.no/maskinporten_guide_apikonsument.html#prosedyre-for-api-konsument) fra Maskinporten.
-- Se også [scenario for autentisering](/api/scenarios/authentication/) for flere detaljer (på engelsk).
+- Se også [scenario for autentisering](/nb/api/scenarios/authentication/) for flere detaljer (på engelsk).

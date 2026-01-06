@@ -29,7 +29,7 @@ Prosessen overordnet:
 2. Skjema fylles ut og eventuelle vedleggsdata lastes opp.
 3. Sluttbruker validerer data og eventuelle vedlegg og sender applikasjonsprosessen videre til bekreftelse.
 4. Sluttbruker ser over data og bekrefter at de er ferdige med prosessen.
-5. Applikasjon publiserer en hendelse om at sluttbruker er ferdig med utfyllingsprosessen. (Forutsetter at publisering er [slått på](/nb/altinn-studio/getting-started/app-dev-course/modul5/))
+5. Applikasjon publiserer en hendelse om at sluttbruker er ferdig med utfyllingsprosessen. (Forutsetter at publisering er [slått på](/nb/altinn-studio/v8/getting-started/app-dev-course/modul5/))
 6. Tjenesteeier mottar informasjon om hendelsen på sitt hendelsesmottak.
 7. Tjenesteeier kaller Altinn API for å laste ned data for instansen.
 8. Tjenesteeier bekrefter at data er nedlastet ok.
@@ -40,7 +40,7 @@ Prosessen overordnet:
 
 Utvikling av applikasjon er dekket i Guide for applikasjonsutvikling. Aktivering av publisering av hendelser fra applikasjon er beskrevet i guide.
 
-Krav til webhook for mottak av events finner du [her](/events/subscribe-to-events/developer-guides/setup-subscription/#request).
+Krav til webhook for mottak av events finner du [her](/nb/events/subscribe-to-events/developer-guides/setup-subscription/#request).
 
 Tjenesteeier må ha registrert en integrasjon i Maskinporten. Opprettelse av integrasjon er beskrevet i Guide [her](/nb/authorization/getting-started/authentication/maskinporten/#tilgang-som-tjenesteeier)).
 
@@ -48,7 +48,7 @@ Tjenesteeier må ha registrert en integrasjon i Maskinporten. Opprettelse av int
 
 ### Tjenesteeiersystem mottar Event fra Altinn Events
 
-Første steget i prosessen er at mottaksendepunktet mottar informasjon om Event fra Applikasjon kjørende i Altinn. Dette forutsetter at [abonnement er satt opp](/events/subscribe-to-events/developer-guides/setup-subscription/).
+Første steget i prosessen er at mottaksendepunktet mottar informasjon om Event fra Applikasjon kjørende i Altinn. Dette forutsetter at [abonnement er satt opp](/nb/events/subscribe-to-events/developer-guides/setup-subscription/).
 
 ```json
 {
@@ -67,7 +67,7 @@ Første steget i prosessen er at mottaksendepunktet mottar informasjon om Event 
 
 Tjenesteeiersystem kaller Maskinporten API med korrekt Scopes for tjenesteeier. Dette er beskrevet i detaljer [her](/nb/authorization/getting-started/authentication/maskinporten/#tilgang-som-tjenesteeier).
 
-Deretter må tjenesteeiersystem kalle Altinns [innvekslingsendepunkt](/api/authentication/spec/) med sitt maskinportentoken som bearer token.
+Deretter må tjenesteeiersystem kalle Altinns [innvekslingsendepunkt](/nb/api/authentication/spec/) med sitt maskinportentoken som bearer token.
 
 ```http
 http://platform.altinn.no/authenticaiton/api/v1/exchange/maskinporten/
@@ -156,7 +156,7 @@ Det anbefales at tjenesteeier benytter app-endepunktet for nedlasting. På denne
 
 ### Tjenesteiersystem kaller endepunkt for å bekrefte data
 
-Når instance-data og dataelementer er lastet ned og verifisert ok, må tjenesteeier bekrefte ok nedlasting. Dette gjøres ved å kalle [Complete-endepunktet](/api/apps/instances/#complete-instance) på Applikasjon.
+Når instance-data og dataelementer er lastet ned og verifisert ok, må tjenesteeier bekrefte ok nedlasting. Dette gjøres ved å kalle [Complete-endepunktet](/nb/api/apps/instances/#complete-instance) på Applikasjon.
 
 ## Referansesystem
 

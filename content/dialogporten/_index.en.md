@@ -1,12 +1,14 @@
 ---
-title: 'Dialogporten'
-linktitle: 'Dialogporten'
+title: Dialogporten
 description: 'Dialogporten is a solution that allows messages and dialogs implemented on Altinn 3 and other digital service platforms accessible to end-user systems in a common format.'
 weight: 1
+cascade:
+  params:
+    product: product_dialogporten
 ---
 
 {{<notice warning>}}
-This entire section is under construction, and several subsections are not yet written. Please check back later, and consider watching our [Github repository](https://github.com/altinn/altinn-studio-docs/) for the latest updates
+We are migrating old data from Altinn 2 and Altinn 3 to Dialogporten. See the [Status Migration](./status-migration/) page for the latest status.
 {{</notice>}}
 
 

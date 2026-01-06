@@ -17,7 +17,7 @@ En ressurs i dette tilfellet kan være både en Altinn App eller en ressurs (tje
 For Altinn Apps må du også sørge for at tilgangssubjektet har `lese`-tilgang for __alle__ relevante oppgaver og hendelser.
 
 En ny Altinn-ressurs kan registreres i Altinn Studio eller via et API.
-[Vennligst se Altinn Ressursregister for instruksjoner om hvordan du oppretter en ny ressurs.](/authorization/what-do-you-get/resourceregistry/)
+[Vennligst se Altinn Ressursadministrasjon for instruksjoner om hvordan du oppretter en ny ressurs.](/nb/authorization/what-do-you-get/resourceadministration/)
 
 Policyen for både Altinn Apps og andre Altinn-ressurser kan administreres i Altinn Studio.
-[Vennligst se Altinn Studio-dokumentasjonen for hvordan du gjør dette.](/altinn-studio)
+[Vennligst se Altinn Studio-dokumentasjonen for hvordan du gjør dette.](/nb/altinn-studio)

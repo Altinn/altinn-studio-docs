@@ -142,5 +142,5 @@ Environmental and Operational Conditions:
 
 Also see:
 
-1. [Altinn Studio Non-Functional Requirements](https://docs.altinn.studio/technology/architecture/requirements/non_functional/)
+1. [Altinn Studio Non-Functional Requirements](https://docs.altinn.studio/en/technology/architecture/requirements/non_functional/)
 2. Further descriptions regarding information security in separate sections.

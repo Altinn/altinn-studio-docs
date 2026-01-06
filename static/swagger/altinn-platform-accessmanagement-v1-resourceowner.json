@@ -142,33 +142,91 @@
         "tags": [
           "Authorized Parties"
         ],
-        "description": "Query to find all authorized parties of a given subject (person or organization). An authorized party is a person or organization for which the subject have received one or more accesses, through roles or single rights delegation.\n",
+        "description": "Query to find all authorized parties of a given subject (person or organization). An authorized party is a person or organization for which the subject have received one or more accesses, through roles, access packages, resource/service delegation or instance delegation.\n",
         "parameters": [
           {
             "name": "includeAltinn2",
+            "description": "Filter for whether parties with access information from Altinn 2 should be included. This includes Altinn 2 roles and services, as well as roles through Central Coordinating Register for Legal Entities (Enhetsregisteret).\n",
             "in": "query",
-            "required": false,
-            "style": "form",
-            "explode": true,
             "schema": {
               "type": "boolean",
               "default": false
             }
           },
           {
-            "name": "Ocp-Apim-Subscription-Key",
-            "in": "header",
-            "required": true,
-            "style": "simple",
-            "explode": false,
+            "name": "includeAltinn3",
+            "description": "Filter for whether parties with access information from Altinn 3 should be included. This includes access packages as well as Altinn 3 resources, apps or instance delegations.\n",
+            "in": "query",
             "schema": {
-              "type": "string"
-            },
-            "example": ""
+              "type": "boolean",
+              "default": true
+            }
+          },
+          {
+            "name": "includeRoles",
+            "description": "Filter for whether 'authorizedRoles' is to be populated with access information for each authorized party. Note: Parties where the user has access through role access will still be included in the response. The filter will only exclude the detailed access information to be included in 'authorizedRoles'. Recommended: 'false', unless explicitly needed.\n",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          },
+          {
+            "name": "includeAccessPackages",
+            "description": "Filter for whether 'authorizedAccessPackages' is to be populated with access information for each authorized party. Note: Parties where the user has access through delegated access packages will still be included in the response. The filter will only exclude the detailed access information to be included in 'authorizedAccessPackages'. Recommended: 'false', unless explicitly needed.\n",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "includeResources",
+            "description": "Filter for whether 'authorizedResources' is to be populated with access information for each authorized party. Note: Parties where the user has access through delegated resource access will still be included in the response. The filter will only exclude the detailed access information to be included in 'authorizedResources'. Recommended: 'false', unless explicitly needed.\n",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          },
+          {
+            "name": "includeInstances",
+            "description": "Filter for whether 'authorizedInstances' is to be populated with access information for each authorized party. Note: Parties where the user has access through delegated instance access will still be included in the response. The filter will only exclude the detailed access information to be included in 'authorizedInstances'. Recommended: 'false', unless explicitly needed.\n",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          },
+          {
+            "name": "includePartiesViaKeyRoles",
+            "description": "Filter for whether parties where the user has access via their keyrole units, are to be included in the response. E.g. A general manager (dagligleder) of an organization will inherit all party accesses provided to their organization. Setting filter to 'true' will impact performance negatively, especially for users having many keyroles or keyrole(s) for big auditor or accountant firms. If set to 'auto', the user's selected preference in user profile will be used. Recommended: 'false', unless explicitly needed.\n",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/AuthorizedPartiesIncludeFilter"
+            }
+          },
+          {
+            "name": "includeSubParties",
+            "description": "Note: not yet implemented. Filter for whether party hierarchy (subunits), are to be included in the response. If set to 'auto', the user's selected preference in user profile will be used.\n",
+            "in": "query",
+            "x-not-implemented": true,
+            "schema": {
+              "$ref": "#/components/schemas/AuthorizedPartiesIncludeFilter"
+            }
+          },
+          {
+            "name": "includeInactiveParties",
+            "description": "Note: not yet implemented. Filter for whether inactive (isDeleted: true) parties, are to be included in the response. If set to 'auto', the user's selected preference in user profile will be used.\n",
+            "in": "query",
+            "x-not-implemented": true,
+            "schema": {
+              "$ref": "#/components/schemas/AuthorizedPartiesIncludeFilter"
+            }
           }
         ],
         "requestBody": {
-          "$ref": "#/components/requestBodies/AuthorizedPartiesRequest"
+          "$ref": "#/components/requestBodies/AuthorizedPartyRequest"
         },
         "responses": {
           "200": {
@@ -221,8 +279,42 @@
   },
   "components": {
     "schemas": {
-      "AuthorizedPartiesRequest": {
-        "$ref": "#/components/schemas/Subject"
+      "AuthorizedPartiesIncludeFilter": {
+        "description": "Auto: the user's selected preference in user profile will be used.\n",
+        "enum": [
+          "false",
+          "true",
+          "auto"
+        ],
+        "type": "string"
+      },
+      "AuthorizedPartyRequest": {
+        "required": [
+          "type",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "minLength": 1,
+            "type": "string",
+            "example": "urn:altinn:person:identifier-no"
+          },
+          "value": {
+            "minLength": 1,
+            "type": "string",
+            "example": "01017012345"
+          },
+          "partyFilter": {
+            "description": "Filter for fetching a single or a subset of parties from the subject user's list of authorized parties. Recommended for use in all scenarios where checking for access on behalf of specific party/parties.\n",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UrnAttribute"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "MaskinportenDelegation": {
         "type": "object",
@@ -275,8 +367,8 @@
           }
         },
         "example": {
-          "type": "urn:altinn:person:identifier-no",
-          "value": "01017012345"
+          "type": "urn:altinn:organization:identifier-no",
+          "value": "991825827"
         }
       },
       "Subject": {
@@ -303,6 +395,11 @@
             "nullable": true,
             "example": "01017012345"
           },
+          "dateOfBirth": {
+            "type": "string",
+            "nullable": true,
+            "example": "1970-01-01"
+          },
           "type": {
             "$ref": "#/components/schemas/AuthorizedPartyType"
           },
@@ -328,14 +425,31 @@
             "items": {
               "type": "string",
               "example": ["app_org_appname", "someresourceid"]
-            }
+            },
+            "nullable": true
+          },
+          "authorizedAccessPackages": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "regnskapsforer-lonn"
+            },
+            "nullable": true
           },
           "authorizedRoles": {
             "type": "array",
             "items": {
               "type": "string",
               "example": "PRIV"
-            }
+            },
+            "nullable": true
+          },
+          "authorizedInstances": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AuthorizedResource"
+            },
+            "nullable": true
           },
           "subunits": {
             "type": "array",
@@ -354,6 +468,22 @@
           "Organization",
           "SelfIdentified"
         ]
+      },
+      "AuthorizedResource": {
+        "type": "object",
+        "properties": {
+          "resourceId": {
+            "type": "string",
+            "nullable": true,
+            "example": "myresource"
+          },
+          "instanceId": {
+            "type": "string",
+            "nullable": true,
+            "example": "8c37834d-4fb6-4ea3-8a59-dc0a4cae16ce"
+          }
+        },
+        "additionalProperties": false
       },
       "ProblemDetails": {
         "type": "object",
@@ -429,12 +559,12 @@
       }
     },
     "requestBodies": {
-      "AuthorizedPartiesRequest": {
+      "AuthorizedPartyRequest": {
         "description": "A JSON object containing information for a lookup request of a given party's list of authorized parties (parties where the lookup party have received roles, access groups or rights)",
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/AuthorizedPartiesRequest"
+              "$ref": "#/components/schemas/AuthorizedPartyRequest"
             }
           }
         },

@@ -45,7 +45,7 @@ Se flere detaljer i utviklerguidene
 
 ### IP for utgående trafikk
 {{% notice info %}}
-En statisk IP brukes når hendelser pushes for å la abonnenter hviteliste IP-adressen. </br> </br>
+En statisk IP brukes når hendelser pushes for å la abonnenter hviteliste IP-adressen. Adressene er oppgitt i CIDR-notasjon. </br> </br>
 __TT02__: 20.100.24.41/32  </br> </br>
 __Produksjon__: 20.100.46.139/32
 {{% /notice %}}

@@ -2,19 +2,19 @@
 title: Fullmakter fra Enhetsregisteret som knytter virksomheter sammen
 linktitle: Virksomhetsknytninger
 description: Virksomheter som tildeles roller i Enhetsregisteret kan også få fullmakter på vegne av virksomheten i Altinn. Her forklares hvordan dette gjøres. 
-tags: [architecture, security, authorization, ]
+tags: [architecture, security, authorization]
 toc: true
 weight: 1
 ---
-*Innhold på siden er under arbeid. Innholdet vil ikke være gjeldende før nye [tilgangspakker](/authorization/what-do-you-get/accessgroups/type-accessgroups/) trer i kraft. Dette må derfor ikke ansees som en fasit pr nå*
+*Innhold på siden er under arbeid. Innholdet vil ikke være gjeldende før nye [tilgangspakker](/nb/authorization/what-do-you-get/accessgroups/type-accessgroups/) trer i kraft. Dette må derfor ikke ansees som en fasit pr nå*
 
 
-I mange tilfeller er det mulig å registrere andre organisasjoner i en eller flere roller på virksomeheten. 
+I mange tilfeller er det mulig å registrere andre organisasjoner i en eller flere roller på virksomheten. 
 Altinn vil i mange tilfeller da sørge for en knytning mellom disse virksomhetene slik at person som har bestemte roller i tilknyttet organisasjon da få fullmakter på vegne av den aktuelle virksomheten. 
 Vi kaller dette nøsting av fullmakter. 
 
 ## Hvem får fullmakt på vegne av tilknyttet virksomhet
-Det er tilknyttet virksomhet og personer reigstrert med nøkkelroller i denne som får fullmakter på vegne av den aktuelle virksomheten. I tabeller på [denne siden](/authorization/what-do-you-get/accessgroups/register_er/) finner du oversikt over hvilke nøkkelroller som finnes på ulike organisasjonsformer. 
+Det er tilknyttet virksomhet og personer reigstrert med nøkkelroller i denne som får fullmakter på vegne av den aktuelle virksomheten. I tabeller på [denne siden](/nb/authorization/what-do-you-get/accessgroups/register_er/) finner du oversikt over hvilke nøkkelroller som finnes på ulike organisasjonsformer. 
 
 Eksempel 1 på hvordan det fungerer: 
 

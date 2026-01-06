@@ -1,11 +1,14 @@
 ---
 title: Varslinger
-linktitle: Varslinger
 description: Altinn Varslinger tilbyr funksjonalitet for enveis kommunikasjon med innbyggere og virksomheter i Norge.
 toc: false
 weight: 20
 aliases:
+  - /notifications/ 
   - /altinn-notifications/
+cascade:
+  params:
+    product: product_notifications
 ---
 
  <div class="row adocs-featuredBlocks">

@@ -11,3 +11,5 @@ public
 hugo
 *.swp
 hyperlink*
+.claude/settings.local.json
+apikey.secret

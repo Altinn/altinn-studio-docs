@@ -20,7 +20,7 @@ This operation configures your organization as a Service Owner in the Broker Con
 
 **Events triggered**: none.
 
-**Example:** "Register Service Owner" in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
+**Example:** "Service Owner/Configure service owner for Broker" in our [Bruno collection](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru).
 
 ## Operation: Get Service Owner Config from Broker API {#operation-get-service-owner-config-from-broker-api}
 
@@ -34,7 +34,7 @@ This gets the configuration of your as a Service Owner in the Broker Config Stor
 
 **Events triggered**: none.
 
-**Example:** "Register Service Owner" in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
+**Example:** "Service Owner/Get service owner configuration for Broker" in our [Bruno collection](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru).
 
 ## Operation: Configure resource in Broker API {#operation-configure-resource-in-broker-api}
 
@@ -48,5 +48,5 @@ This operation configures your resource in Altinn Broker.
 
 **Events triggered**: none.
 
-**Example:** Example "Update Resource" in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
+**Example:** "Resource/Configure resource for Broker" in our [Bruno collection](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru).
 

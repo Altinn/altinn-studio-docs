@@ -1,11 +1,13 @@
 ---
 title: Notifications
-linktitle: Notifications
 description: Altinn Notifications offers capabilities for one way communication with citizens and businesses operating in Norway.
 toc: false
 weight: 20
 aliases:
   - /altinn-notifications/
+cascade:
+  params:
+    product: product_notifications
 ---
 
  <div class="row adocs-featuredBlocks">

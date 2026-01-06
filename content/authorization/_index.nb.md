@@ -1,12 +1,14 @@
 ---
 title: Autorisasjon
-linktitle: Autorisasjon
 description: Altinn Autorisasjon er en samling løsninger som gir tilgangsstyring og tilgangskontroll for digitale og analoge tjenester som kjører i Altinn-plattformen eller andre steder.
-tags: [architecture, solution]
 toc: false
 weight: 1
 aliases:
+  - /authorization/
   - /technology/solutions/altinn-platform/authorization/
+cascade:
+  params:
+    product: product_authorization
 ---
 
 {{<children />}}

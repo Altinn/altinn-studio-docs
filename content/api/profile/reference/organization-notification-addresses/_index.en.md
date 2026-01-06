@@ -11,7 +11,7 @@ These are also used by the Brønnøysund Register Centre and are kept in sync th
 The update usually runs every ten minutes.
 
 ## How do you use the API?
-There are endpoints for reading, adding, and deleting notification addresses.
+There are endpoints for adding, reading, updating, and deleting notification addresses.
 All endpoints require authentication. To use the API, you must be a logged-in end user. It is important that the access token used contains `userId` to indicate who the logged-in user is.
 The end user must also have one of a set of valid roles to manage the organization's notification addresses.
 
@@ -43,3 +43,10 @@ In the path for managing notification addresses, you must include the organizati
     * **email** (string) Email address used for notifications to the organization. It is null if the address is a phone number.
     * **phone** (string) Phone number used for notifications to the organization. It is null if the address is an email.
     * **countryCode** (string) Country code belonging to the phone number.
+
+{{% notice warning  %}}
+**Updating an address may result in a new ID**
+If you update an address to a value (email or phone number) that has been used before for the selected organization, you may receive the old `notificationAddressId` in return. 
+Therefore, it is important to always check the response when you have changed a notification address.
+{{% / notice %}}
+

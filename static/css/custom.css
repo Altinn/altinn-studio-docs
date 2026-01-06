@@ -151,11 +151,94 @@ a[href^=http]:not([href*='localhost']):not([href*='docs.altinn.studio']):not([hr
 }
 
 @media (min-width: 576px) {
-    .adocs-logo-text {
+.adocs-logo-text {
         display: inline-flex;
         max-width: 220px;
         white-space: nowrap; 
     }
+}
+
+/* Numbered step cards */
+
+.step-card {
+    position: relative;
+    border: 1px solid #d4d7d9;
+    border-radius: 12px;
+    background: #f7f9fb;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 20px rgba(2, 47, 81, 0.08);
+}
+
+.step-card::before {
+    content: attr(data-step);
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: #022F51;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 12px rgba(2, 47, 81, 0.2);
+}
+
+.step-card summary {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 700;
+    color: #022F51;
+    padding: 1.5rem 3rem 1.5rem 5.25rem;
+    margin: 0;
+    list-style: none;
+    position: relative;
+}
+
+.step-card summary::-webkit-details-marker {
+    display: none;
+}
+
+.step-card summary::after {
+    content: "";
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 0.5rem solid transparent;
+    border-top-color: #022F51;
+    transition: transform 0.2s ease;
+}
+
+.step-card[open] summary::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.step-card summary:focus-visible {
+    outline: 2px solid #022F51;
+    outline-offset: 4px;
+}
+
+.step-card__content {
+    padding: 0 1.5rem 1.5rem 5.25rem;
+}
+
+.step-card__content p:last-child {
+    margin-bottom: 0;
+}
+
+.step-card__content img {
+    margin: 1rem 0;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.step-card:last-of-type {
+    margin-bottom: 0;
 }
 
 .adocs-logo-text span {
@@ -497,11 +580,11 @@ figure {
     position: relative;
     top: 30px;
     background-color:#222;
-    padding: 15px;
-    padding-top: 0px;
+    padding: 15px 15px 25px 15px;
     margin-top: -30px;
     border: 0;
     border-radius: 7px;
+    line-height: 1;
     box-shadow: 5px 0 5px rgba(68, 68, 68, 0.6);
 }
 
@@ -510,6 +593,7 @@ figure {
     color: #707880;
     border: 0;
     font-size: 75%;
+    white-space: nowrap !important;
 }
 
 .code-title .copy-to-clipboard {
@@ -611,4 +695,9 @@ margin-bottom: 0 !important;
 }
 #notice-paragraph-fix p:last-child {
     margin-bottom: 0;
+}
+
+/* Remove border bottom for last expander */
+#content .adocs-expand:last-of-type {
+    border-bottom: none;
 }

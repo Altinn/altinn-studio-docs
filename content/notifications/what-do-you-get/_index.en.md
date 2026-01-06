@@ -34,9 +34,12 @@ Altinn SMS notifications ensure the timely delivery of concise messages to users
 
 ### Send Window
 
-- SMS notifications are sent daily between **9 AM and 5 PM (Norway time)**.
-- Notifications scheduled outside this timeframe are sent at **9 AM the following day**.
-- Notification orders can be placed at any time.
+- SMS notifications can be sent **around the clock, every day of the year**.
+- Control the send window by setting `smsSettings.sendingTimePolicy` in the order:
+  - `Anytime` (default) keeps delivery available 24/7.
+  - `Daytime` limits delivery to Altinn's daytime window (09:00-17:00 in the Europe/Oslo time zone).
+- Scheduled notifications are delivered at the selected time, even outside office hours (interpreted in the Europe/Oslo time zone).
+- Notification orders can be placed and updated at any time.
 
 ### Supported Recipient Numbers
 
@@ -67,7 +70,7 @@ Altinn offers recipient lookup functionality to determine names, contact details
 - **Timing**: Lookup occurs during order placement and again at the scheduled send time.
 - **Responsibility**: It is the sender's responsibility to check the send status. Lookup results are provided in the order response and detailed in the finished notifications.
 
-[Learn more about recipient lookup in the explanation documentation.](/notifications/explanation/recipient-lookup)
+[Learn more about recipient lookup in the explanation documentation.](/en/notifications/explanation/recipient-lookup)
 
 ## Send Condition
 
@@ -76,4 +79,4 @@ The send condition feature ensures notifications are sent only when specific cri
 - **Use Case**: Ideal for scenarios like reminders, where a notification is sent only if a required action has not been completed.
 - **Evaluation**: Conditions are checked by the application using the condition endpoint provided in the notification order.
 
-[Learn more about send conditions in the explanation documentation.](/notifications/explanation/send-condition)
+[Learn more about send conditions in the explanation documentation.](/en/notifications/explanation/send-condition)

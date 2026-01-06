@@ -10,7 +10,7 @@ weight: 40
 {{<children />}}
 
 In order to use events/webhooks for a Broker resource, you need to setup a subscription for the given resource.
-This subscription is used to configure the endpoint where the events published by broker end up. [You can read more about how to setup an Events subscription in Altinn Events here](/events/subscribe-to-events/developer-guides/setup-subscription/).
+This subscription is used to configure the endpoint where the events published by broker end up. [You can read more about how to setup an Events subscription in Altinn Events here](/en/events/subscribe-to-events/developer-guides/setup-subscription/).
 
 All Events published by Altinn Broker follow the same pattern:
 
@@ -22,15 +22,14 @@ All Events published by Altinn Broker follow the same pattern:
  "source": "https://platform.tt02.altinn.no/broker/api/v1/filetransfer",
  "specversion": "1.0",
  "type": "no.altinn.broker.Published",
- "subject": "/party/50015641",
- "alternativesubject": "/organisation/123456789",
+ "subject": "urn:altinn:organization:identifier-no:123456789",
  "time": "2024-04-19T07:22:19.438039Z"
 }
 ```
 
 ## Event Subscription {#event-subcription}
 
-This subscription is used to configure the endpoint where the events published by broker end up. [You can read more about how to setup an Events subscription in Altinn Events here](/events/subscribe-to-events/developer-guides/setup-subscription/).
+This subscription is used to configure the endpoint where the events published by broker end up. [You can read more about how to setup an Events subscription in Altinn Events here](/en/events/subscribe-to-events/developer-guides/setup-subscription/).
 
 You are required to set up the following filters:
 
@@ -39,10 +38,6 @@ You are required to set up the following filters:
   - PROD: <https://api.altinn.no/broker/api/v1/filetransfer>
 - resourceFilter
   - "urn:altinn:resource:" + The Resource Id for the Broker Resource
-- alternativesubjectfilter
-  - "/organisation/(organisation number for your organisation)
-
-*Alternativesubjectfilter* is used to restrict the event to only the authorized sender or recipient for that particular event, this ensures security and reduces visibility.
 
 *Resourceinstance* will always be the same as the FileTransferId of the FileTransfer.
 
@@ -63,5 +58,5 @@ If you do not specify a Type Filter you will receive all the different types of 
 - `no.altinn.broker.downloadconfirmed`
 - `no.altinn.broker.fileneverconfirmeddownloaded`
 
-For further description of events and their usage, see [send files](../send-files/) and [receive files](../receive-files/) developer guides, as these describe the events in relation to the respective roles/process.
+For further description of events and their usage, see [send files](/en/broker/getting-started/developer-guides/send-files/) and [receive files](/en/broker/getting-started/developer-guides/receive-files/) developer guides, as these describe the events in relation to the respective roles/process.
 

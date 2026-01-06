@@ -12,18 +12,22 @@ For å forenkle overgangen fra Altinn 2 til Altinn 3 versjon av Melding-produkte
 ## Her er de største differansene
 
 - Altinn 3 Melding har i stor grad lik datamodell som Altinn 2 for å muliggjøre mapping og migrering.
-  - Feltene for MessageBody og MessageSummary har blitt endret fra å støtte ren tekst eller html til å lagres som Markdown. Dersom man angir HTML vil opprettelsen av Meldingen feile.
+  - MessageSummary-feltet har blitt endret fra å støtte HTML formatering til kun å støtte ren tekst.
   - ReplyOptions har blitt forenklet til å kun være URL+beskrivende tekst, da dette er fleksibelt nok til å dekke behovene de separate typene i Altinn 2 tilbød.
+  - MessageBody må nå bruke Markdown, og HTML er ikke lenger støttet. 
 - Vedlegg lastes opp strømmet og i et separat steg før man lager Meldingen.
   - Vedlegg kan deles på tvers av flere Meldinger for å redusere databruk ved masseforsendelse av samme vedlegg til mange parter.
 - API tilrettelegger for masseforsendelser av Meldinger ved bruk av maler/keywords og mottakerlister samt nevnte delte vedlegg.
   - Dette gjør det enkelt å sende 1 request med liste av mottakere og få laget opp til 200 Meldinger som resultat.
 - Varslingsmaler har blitt kraftig forenklet fra Altinn 2; det støttes kun predefinerte maler som representerer "majoritetsbruk".
-  - Trenger man mer avansert funksjonalitet oppfordres man til å integrere seg direkte med [Altinn-Notifications](../../../notifications/)
+  - Trenger man mer avansert funksjonalitet oppfordres man til å integrere seg direkte med [Altinn-Notifications](/nb/notifications/)
 - Prosessen er mer asynkron enn før, men publiserer Altinn-Events ved viktige prosess-steg slik at både sluttbruker-systemer som henter Meldinger for brukere, og avsender av Meldingene kan følge løpet uten å måtte polle webservicer for status.
 - Alle Meldinger blir opprettet i Dialogporten og dermed tilgjengelig for Arbeidsflate og andre systemer som integreres seg mot Dialogporten, uten at avsender av Meldingene trenger å utføre bestemte aksjoner.
 - Autorisasjonsmodellen er noe forenklet:
   - Rettighet for å være avsender kan settes i policy for aksjon "Write" og ikke lenger begrenset til kun være Tjenesteeieren.
   - Alle rettigheter for mottaker er forenklet fra Altinn 2 sin granulerte "Read, Write, ArchiveRead, ArchiveDelete" til kun "Read".
+- Arkivering er i utgangpunktet ikke støttet i Altinn 3
+  - Det nærmeste man kommer er [Systemetikett "archive"](/nb/dialogporten/getting-started/dialogs/#systemetiketter) i Dialogporten/Arbeidsflate, som vil kunne brukes til å filtrere vekk fra standard visninger/søk.
+  - Migrerte meldinger fra Altinn 2 som er/blir arkivert får "archive" systemetiketten satt. I tillegg får de logget den unike "Archived" statusen i StatusHistory, noe som ikke brukes for Altinn 3 meldinger.
 
 {{<children />}}

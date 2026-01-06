@@ -26,8 +26,10 @@ The system offers advanced access control, ensuring that only authorized users c
 
 ### Support for Various Message Formats
 - Ability to send correspondences in Markdown or clean text.
-- Support for several attachments per correspondence, without limitation of type. PDF, XML and HTML will usually be the most common used.
-- Supports attachments up to 250 MB. 
+- Support for [HTML numeric character references.](https://en.wikipedia.org/wiki/Numeric_character_reference)
+- Support for up to 100 attachments per correspondence.
+- Support for many file types: .doc, .xls, .docx, .xlsx, .ppt, .pps, .zip, .pdf, .html, .txt, .xml, .jpg, .gif, .bmp, .png, .csv and .json.
+- Supports attachments up to 2 GB. 
 
 ### Advanced Support for Linking to Content and Attachments
 - As an alternative to sending correspondence content and attachments directly in the correspondences,
@@ -37,6 +39,8 @@ The system offers advanced access control, ensuring that only authorized users c
   The solution has a limitation of a maximum of 100 attachments per correspondence.
 - It is also possible to link to content and attachments stored elsewhere,
   e.g., on-premises at the sender or in the sender's preferred cloud solution.
+- Support for setting an expiry date on attachments. When the expiry date is reached, the attachment is automatically marked as purged and the file is deleted from the correspondence system.
+- Support for setting access management on an attachment that differs from the access management of the message it is attached to.
 
 ### Archiving and Storage
 - All correspondences are stored in the user's inbox in Altinn.
@@ -47,8 +51,13 @@ The system offers advanced access control, ensuring that only authorized users c
 - Possibility for automated message handling through integrated systems.
 
 ### Integration with Dialogporten and Arbeidsflate
-- An Altinn 3 Message automatically creates a dialogue in "Dialogporten". 
+- An Altinn 3 Message automatically creates a dialogue in "Dialogporten".
+- Messages with an existing dialogue as an external reference will create a transmission which provides a logical display of related messages.
 - The solution provides a unified user interface across the Altinn 3 workspace "Arbeidsflate" and "Dialogporten".
+
+### Confirmation and due date
+- Option to require confirmation of correspondence from recipients.
+- Support to set a due date for when a message must be confirmed or read.
 
 ## Summary of advantages of Altinn Correspondence
 Altinn Correspondence offers several unique benefits that make it the preferred choice for digital communication with public agencies in Norway:

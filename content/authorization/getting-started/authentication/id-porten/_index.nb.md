@@ -22,11 +22,11 @@ Systemet må forespørre et sett med scopes i ID-porten som sluttbruker må akse
 
 Relevante scopes for Altinn 3 er:
 
-- **altinn:instances.meta** - Se oversikt over innboks og arkiv i Altinn
-- **altinn:instances.read** - Lese innholdet i innboks og arkiv i Altinn for alle elementer sluttbruker er autorisert for
-- **altinn:instances.write** - Fylle ut, signere og sende inn skjema i Altinn for alle elementer sluttbruker er autorisert for
-- **altinn:lookup** - Benytte innsynstjenester i Altinn
-- **altinn:reportees** - Se hvem du kan representere i Altinn
+- `altinn:instances.meta` - Se oversikt over innboks og arkiv i Altinn
+- `altinn:instances.read` - Lese innholdet i innboks og arkiv i Altinn for alle elementer sluttbruker er autorisert for
+- `altinn:instances.write` - Fylle ut, signere og sende inn skjema i Altinn for alle elementer sluttbruker er autorisert for
+- `altinn:lookup` - Benytte innsynstjenester i Altinn
+- `altinn:reportees` - Se hvem du kan representere i Altinn
 
 Bildet nedenfor viser hvordan sluttbruker må bekrefte tilgangen.
 
@@ -56,7 +56,7 @@ Flytdiagrammet nedenfor viser hvordan tokenet veksles inn.
 
 ![Innveksling av token](eus_login_process_updated.svg "Innveksling av token")
 
-Se detaljer i [Altinns API dokumentasjon](/api/authentication/spec) under metoden `GET /exchange/{tokenProvider}`.
+Se detaljer i [Altinns API dokumentasjon](/nb/api/authentication/spec/) under metoden `GET /exchange/{tokenProvider}`.
 
 Sluttbrukere har i Altinn mulighet til å få oversikt over alle systemer og hvilke tilganger de har. På denne måten kan man trekke langvarige tilganger. Systemet vil da bli avvist neste gang det prøver å fornye access-token.
 

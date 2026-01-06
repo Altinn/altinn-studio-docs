@@ -5,6 +5,9 @@ description: Her finner du guider for hvordan man kan integrere seg med Altinn A
 tags: [architecture, devops, integration]
 toc: false
 hidden: false
+cascade:
+  params:
+    diataxis: diataxis_how-to-guides
 ---
 
 Vi har delt guidene inn i to hovedområder basert på bruksområder.

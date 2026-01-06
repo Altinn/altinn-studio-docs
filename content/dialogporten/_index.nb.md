@@ -1,12 +1,16 @@
 ---
-title: 'Dialogporten'
-linktitle: 'Dialogporten'
+title: Dialogporten
 description: 'Dialogporten er en løsning som tillater meldinger og dialoger implementert på Altinn 3 og andre digitale tjenesteplattformer tilgjengelig for sluttbruker-systemer i et felles format.'
 weight: 1
+aliases: 
+- /dialogporten/
+cascade:
+  params:
+    product: product_dialogporten
 ---
 
 {{<notice warning>}}
-Hele denne seksjonen er under konstruksjon, og flere underseksjoner er ikke skrevet ennå. Vennligst kom tilbake senere, og vurder å følge med på vårt [Github repository](https://github.com/altinn/altinn-studio-docs/) for de siste oppdateringene
+Vi migrerer gamle data fra Altinn 2 og Altinn 3 til Dialogporten. Se [Status migrering](./status-migration/) siden for siste status.
 {{</notice>}}
 
 

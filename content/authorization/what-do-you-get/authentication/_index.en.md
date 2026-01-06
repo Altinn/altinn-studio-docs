@@ -4,7 +4,7 @@ linktitle: Authentication
 description: The authentication component provides functionality to authenticate users and systems accessing Altinn Apps and Altinn platform.
 tags: [platform, authentication]
 toc: true
-weight: 2
+weight: 1
 ---
 
 ## Token exchange for Altinn Portal
@@ -61,5 +61,5 @@ GET /exchange/{tokenProvider}?test={bool}
 
 ## Architecture
 
-See [application construction components](../../reference/architecture/)
+See [application construction components](/en/authorization/reference/architecture/)
 for details how this component is constructued.

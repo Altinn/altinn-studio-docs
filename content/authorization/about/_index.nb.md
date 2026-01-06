@@ -1,30 +1,25 @@
 ---
 title: Om Altinn Autorisasjon
 linktitle: Om Altinn Autorisasjon
-description: Autorisasjonskomponentene gir tilgangsstyring og tilgangskontroll for digitale og analoge tjenester som kjører i Altinn-plattformen eller andre steder.
+description: Altinn Autorisasjon styrer hvem som skal kunne gjøre hva med hvilke data i det offentlige og i samspillet mellom offentlig og privat.
 tags: [architecture, solution]
 toc: false
 weight: 1
 aliases:
   - /technology/solutions/altinn-platform/authorization/
+cascade:
+  params:
+    diataxis: diataxis_explanation
 ---
 
-Det typiske scenariet er at en hendelse vil bli utløst, eller data vil bli lest, oppdatert eller opprettet av en digital eller analog tjeneste. En tjenesteeier eier denne tjenesten og har definert noen forretningsregler for hvem som har lov til å bruke tjenesten.
+Altinn Autorisasjon tilbyr en samling av komponenter og tjenester som offentlige virksomheter, systemleverandører, virksomheter og innbyggere kan bruke til tilgangsstyring og tilgangskonroll.
 
-Denne tjenesten må kontrollere hvem som kan få tilgang til og endre data.
+Et typisk scenario er at en offentlig virksomhet vil styre hvem som kan lese eller endre data i en tjeneste. Tjenesten kan kjøre på Altinn-plattformen eller på ressurseiers egen plattform.
 
-Altinn Autorisasjon gir mulighet til å verifisere og håndheve dette.
+For å ta i bruk Altinn Autorisasjon registrerer tjenesteeier tjenesten i **Ressursregisteret**. Der beskriver de tjenesten og setter tilgangsregler/policyer som sier hvem som kan bruke tjenesten, på vegne av hvem, og med hvilke operasjoner.
 
-![Brukerscenario](userscenario.drawio.svg "Brukerscenario")
+![Brukerscenario](om_autorisasjon.png "Altinn Autoriasjon")
 
-Brukere og organisasjoner får rettigheter til å få tilgang til en tjeneste fra definerte regler og retningslinjer.
+Virksomheter og privatpersoner kan gi fullmakter i Altinn Autorisasjon sin brukerflate. De kan se hvem som har rettigheter på deres vegne og trekke dem tilbake ved behov.
 
-Tegningen nedenfor viser alle aspekter som styrer hvem og hvilke rettigheter en bruker eller organisasjon har.
-
-![Regler](rules.drawio.svg "Aspekter for tilgangskontroll")
-
-- Ressurser - beskriver ressursen en regel gjelder for. Det kan være en app, en ressurs i ressursregisteret, en spesifikk oppgave eller andre underressurser til en app eller ressurs i ressursregisteret.
-- Handling - beskriver hvilken handling reglene gjelder. Dette kan være hvilken som helst handling som lese, skrive, signere, bekrefte, åpne ++
-- Emne - beskriver hvem reglene gjelder for. Det kan være en rolle, tilgangsgruppe, et organisasjonsnummer eller en spesifikk bruker, og mange flere
-- Obligasjon - beskriver tilleggsinformasjon som minimum autentiseringsnivå.
-- Tilstand - Beskriver tilleggsforhold som at rapporteringsmottakeren må være registrert i SRR/RRR for denne ressursen/tjenesten.
+For sluttbrukersystem, som for eksempel et regnskapssystem, tilbyr vi API-er. Systemleverandører kan da bygge inn samme delegering og tilgangskontroll i sine egne løsninger, mens Altinn står for sikker autorisasjon.

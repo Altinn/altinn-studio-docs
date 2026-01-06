@@ -6,17 +6,17 @@ weight: 20
 
 ## Introduction
 
-See [getting started with dialog tokens]({{<relref "../../../getting-started/authorization/dialog-tokens/">}}) for a functional overview of dialog tokens and what they can be used for.
+See [getting started with dialog tokens](/en/dialogporten/reference/authorization/dialog-tokens/../../../getting-started/authorization/dialog-tokens/) for a functional overview of dialog tokens and what they can be used for.
 
 Dialog tokens allows for unproxied frontend requests to endpoints requiring authentication and authorization, without having to rely on ID-porten SSO and redirects.
 
 ## Usage for end-user systems (OAuth clients)
 
-Dialog tokens are embedded withing the [single dialog response model]({{<relref "../../entities/dialog">}}) (see `dialogToken`), and is a self-contained, signed JWT containing claims from the authenticated user and the dialog itself, including what actions and authorization attributes the user is authorized for.
+Dialog tokens are embedded withing the [single dialog response model](/en/dialogporten/reference/authorization/dialog-tokens/../../entities/dialog/) (see `dialogToken`), and is a self-contained, signed JWT containing claims from the authenticated user and the dialog itself, including what actions and authorization attributes the user is authorized for.
 
 The dialog tokens should be transferred as-is as a bearer token in a `Authorization` HTTP header. The contents of the dialog token should normally not be considered by the clients, ie. the token should be treated as an opaque string. 
 
-The altinn.no-portal will be using dialog tokens on all URLs associated with [write actions]({{<relref "../../front-end/write-actions">}}) and [front channel embeds]({{<relref "../../front-end/write-actions">}}). Other end user systems might also use the dialog token for API actions, subject to service specific protocols defined by the respective service owner.
+The altinn.no-portal will be using dialog tokens on all URLs associated with [write actions](/en/dialogporten/reference/authorization/dialog-tokens/../../front-end/write-actions/) and [front channel embeds](/en/dialogporten/reference/authorization/dialog-tokens/../../front-end/write-actions/). Other end user systems might also use the dialog token for API actions, subject to service specific protocols defined by the respective service owner.
 
 ### Dialog token lifetime
 
@@ -32,10 +32,10 @@ Note that for clients that are browser-based, including the Altinn.no-portal, th
 
 | Claim            | Description                                                                                                                                                        | Example                                                                           |
 |------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| c                | Authenticated as a consumer of Dialogporten. The prefix for either individuals (typically ID-porten), organizations (typically Maskinporten), or self-registered users. | `"urn:altinn:person:identifier-no::12018212345` `"urn:altinn:organization:identifier-no::991825827"` `"urn:altinn:party-identifier:username::someemail@example.com"` |
+| c                | Authenticated as a consumer of Dialogporten. The prefix for either individuals (typically ID-porten), organizations (typically Maskinporten), or self-registered users. | `"urn:altinn:person:identifier-no:12018212345` `"urn:altinn:organization:identifier-no:991825827"` `"urn:altinn:party-identifier:username:someemail@example.com"` |
 | l                | Security level of authentication (4)                                                                                                                                | `4`                                                                               |
-| u                | Optional. If a provider token in Maskinporten has been used, the authenticated provider's organization number will be given here.                                     | `"urn:altinn:organization:identifier-no::991825827"`                                                                  |
-| p                | Whom the consumer is acting on behalf of (if not themselves), i.e., who owns the relevant dialogue.                                                                 | `"urn:altinn:person:identifier-no::12018212345"` `"urn:altinn:organization:identifier-no::991825827"`  `"urn:altinn:party-identifier:username::someemail@example.com"` |
+| u                | Optional. If a provider token in Maskinporten has been used, the authenticated provider's organization number will be given here.                                     | `"urn:altinn:organization:identifier-no:991825827"`                                                                  |
+| p                | Whom the consumer is acting on behalf of (if not themselves), i.e., who owns the relevant dialogue.                                                                 | `"urn:altinn:person:identifier-no:12018212345"` `"urn:altinn:organization:identifier-no:991825827"`  `"urn:altinn:party-identifier:username:someemail@example.com"` |
 | i                | Unique identifier of the dialogue.                                                                                                                                  | `"e0300961-85fb-4ef2-abff-681d77f9960e"`                                           |
 | s                | The service resource that the dialogue refers to.                                                                                                                   | `"urn:altinn:resource:super-simple-service"`                                      |
 | a                | Authorized actions/authorization attributes.                                                                                                                        | `"read;write;sign;elementread,urn:altinn:subresource:authorizationattribute1"`                                    |
@@ -50,10 +50,10 @@ Note that for clients that are browser-based, including the Altinn.no-portal, th
 }
 // .
 {
-  "c": "urn:altinn:person:identifier-no::12018212345", 
+  "c": "urn:altinn:person:identifier-no:12018212345", 
   "l": 4,  
-  "u": "urn:altinn:organization:identifier-no::825827991",
-  "p": "urn:altinn:organization:identifier-no::991825827", 
+  "u": "urn:altinn:organization:identifier-no:825827991",
+  "p": "urn:altinn:organization:identifier-no:991825827", 
   "i": "e0300961-85fb-4ef2-abff-681d77f9960e",
   "s": "urn:altinn:resource:super-simple-service",
   "a": "read;write;sign;elementread,urn:altinn:subresource:autorisasjonsattributt1",
@@ -72,7 +72,7 @@ Dialog tokens utilizes a [Edwards-Curve Digital Signature Algorithm (EdDSA)](htt
 
 ### Well-known endpoints
 
-Dialogporten provides [OAuth 2.0 Authorization Server Metadata (RFC8414)](https://datatracker.ietf.org/doc/html/rfc8414) allowing for runtime key discovery, rotation and token validation. Consult the [OpenAPI specification]({{<relref "../../openapi/">}}) (tag "Metadata") for the well-known URLs for the given environment.
+Dialogporten provides [OAuth 2.0 Authorization Server Metadata (RFC8414)](https://datatracker.ietf.org/doc/html/rfc8414) allowing for runtime key discovery, rotation and token validation. Consult the [OpenAPI specification](/en/dialogporten/reference/authorization/dialog-tokens/../../openapi/) (tag "Metadata") for the well-known URLs for the given environment.
 
 ### Key sets and rotations
 The JSON Web Key sets published on the well-known-endpoints will always contain at least two JWKs. All endpoints that accepts and verifies dialog tokens issued by Dialogporten, should allow tokens signed by any of the keys present in the key set for the given environment. 
