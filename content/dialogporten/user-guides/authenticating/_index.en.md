@@ -66,11 +66,11 @@ Service owner systems must use Maskinporten-issued tokens, optionally exchanged 
 
 There are several scopes defining access to various parts of the service owner API:
 
-| Scope                                                | Grants access to                                                                                                                                                                                   |
-| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `digdir:dialogporten.serviceprovider`                | All service owner APIs, except the search/list API                                                                                                                                                 |
-| `digdir:dialogporten.serviceprovider.search`         | All service owner APIs, including the search/list API                                                                                                                                              |
-| `digdir:dialogporten.serviceprovider.correspondence` | Create and update dialogs referring a service resource of type `CorrespondenceService` in [Altinn Resource Registry](/en/authorization/what-do-you-get/resourceregistry/) (internal use only) |
+| Scope                                                | Grants access to                                                                                                                                                                                    |
+| ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `digdir:dialogporten.serviceprovider`                | All service owner APIs, except the search/list API                                                                                                                                                  |
+| `digdir:dialogporten.serviceprovider.search`         | All service owner APIs, including the search/list API                                                                                                                                               |
+| `digdir:dialogporten.serviceprovider.correspondence` | Create and update dialogs referring a service resource of type `CorrespondenceService` in [Altinn Resource Registry](/en/authorization/what-do-you-get/resourceadministration/) (internal use only) |
 
 Using these scopes requires the organization in the `consumer` claim of the to be registered as a service owner ("org") in Altinn. Failing that will cause any requests to fail.
 
@@ -95,4 +95,4 @@ The serviceprovider-scopes are delegable via Altinn API delegation. Service owne
 
 **Read more**
 
-- {{<link "../../../authorization/guides/end-user/create-apischeme-resource-admin/" title>}}
+[Creating and publishing resources in Altinn Studio](/en/authorization/guides/resource-owner/api-scheme/)

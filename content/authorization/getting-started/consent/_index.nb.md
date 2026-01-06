@@ -34,7 +34,7 @@ Under [guider](/nb/authorization/guides/resource-owner/consent/create-resource/#
 
 Datakonumenter som ikke er ført opp på tilgangslisten vil ikke kunne opprette samtykkeforespørsel. Dette vil gjøre at flyten avsluttes før sluttbrukeren blir bedt om samtykke.
 
-Beskrivelse av tilgangslister og hvordan disse brukes finner du [her](/nb/authorization/guides/resource-owner/manage-accesslists-resource-admin/).
+Beskrivelse av tilgangslister og hvordan disse brukes finner du [her](/nb/authorization/guides/resource-owner/accesslist/manage-accesslists-resource-admin/).
 
 {{< /stepcard >}}
 

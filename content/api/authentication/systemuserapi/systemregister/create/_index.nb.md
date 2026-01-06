@@ -10,6 +10,8 @@ weight: 2
 
 ### Endepunkt
 
+POST authentication/api/v1/systemregister/vendor
+
 ### Scopes
 
 Maskinporten-token med scope <mark style="background-color:lightgrey">altinn:authentication/systemregister.write</mark>
@@ -21,6 +23,8 @@ application/json
 ## Request Body
 
 For detaljert beskrivelse av hver enhet i request, vennligst se beskrivelsen [her](/nb/api/authentication/systemuserapi/systemregister/model/)
+
+> **Viktig:** `clientId` må være en relevant klient-ID som er definert på Maskinporten-klienten til systemleverandøren eller de som skal hente systembrukertoken. `clientId` er **påkrevd** for at du kan opprette en Systembruker du kan hente systembrukertoken for.
 
 ```
 {

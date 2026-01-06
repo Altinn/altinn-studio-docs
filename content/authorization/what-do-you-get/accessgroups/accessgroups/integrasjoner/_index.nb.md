@@ -33,6 +33,6 @@ _urn:altinn:accesspackage:maskinlesbare-hendelser_
 
 | **Tilgangspakke**                     | **Enhetsregisterroller**                                                                                                     | **Delegerbar** |
 | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| Delegerbare Maskinporten scopes       | Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer | Ja             |
+| Delegerbare Maskinporten scopes       | Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer | Ja             |
 | Delegerbare Maskinporten scopes - NUF | Kontaktperson NUF                                                                                                            | Ja             |
-| Maskinlesbare hendelser               | Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer | Ja             |
+| Maskinlesbare hendelser               | Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer | Ja             |

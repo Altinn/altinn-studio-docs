@@ -19,3 +19,4 @@ For å få en Maskinporten-token, må leverandøren først opprette en klient i 
 - [Oppdater et system](update)
 - [Oppdater Rettigheter for et system](update#oppdater-rettighet-for-et-system)
 - [Oppdater tilgangspakke for et system](update#oppdater-tilgangspakker-for-et-system)
+- [Hent endringslogg for et system](get#hent-endringslogg-for-et-system)

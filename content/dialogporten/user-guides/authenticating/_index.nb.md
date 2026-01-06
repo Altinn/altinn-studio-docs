@@ -66,11 +66,11 @@ Tjenesteeiersystemer må bruke Maskinporten-utstedte tokens, eventuelt utvekslet
 
 Det finnes flere scopes som definerer tilgang til forskjellige deler av tjenesteeier-APIet:
 
-| Scope                                                | Gir tilgang til                                                                                                                                                                                         |
-| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `digdir:dialogporten.serviceprovider`                | Alle tjenesteeier-APIer, unntatt søke/liste-API-et                                                                                                                                                      |
-| `digdir:dialogporten.serviceprovider.search`         | Alle tjenesteeier-APIer, inkludert søke/liste-API-et                                                                                                                                                    |
-| `digdir:dialogporten.serviceprovider.correspondence` | Opprett og oppdater dialoger som refererer en tjenesteressurs av typen `CorrespondenceService` i [Altinn Resource Registry](/nb/authorization/what-do-you-get/resourceregistry/) (kun intern bruk) |
+| Scope                                                | Gir tilgang til                                                                                                                                                                                          |
+| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `digdir:dialogporten.serviceprovider`                | Alle tjenesteeier-APIer, unntatt søke/liste-API-et                                                                                                                                                       |
+| `digdir:dialogporten.serviceprovider.search`         | Alle tjenesteeier-APIer, inkludert søke/liste-API-et                                                                                                                                                     |
+| `digdir:dialogporten.serviceprovider.correspondence` | Opprett og oppdater dialoger som refererer en tjenesteressurs av typen `CorrespondenceService` i [Altinn Resource Registry](/nb/authorization/what-do-you-get/resourceadministration/) (kun intern bruk) |
 
 Bruk av disse scope krever at organisasjonen i `consumer` claim er registrert som en tjenesteeier ("org") i Altinn. Hvis ikke vil alle forespørsler mislykkes.
 
@@ -95,4 +95,4 @@ Tjenesteleverandør-scope er delegerbare via Altinn API-delegering. Tjenesteeier
 
 **Les mer**
 
-- {{<link "../../../authorization/guides/end-user/create-apischeme-resource-admin/" title>}}
+[Opprette og publisere delegerbare API ressurser i Altinn Studio](/nb/authorization/guides/resource-owner/api-scheme/)

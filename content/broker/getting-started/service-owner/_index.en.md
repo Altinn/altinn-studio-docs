@@ -28,7 +28,7 @@ Perform steps 1 and 2 of the [Common Get started steps](/en/broker/getting-start
 
 ## 3. Register a Resource in Altinn Resource Registry {#register-a-resource-in-altinn-resource-registry}
 
-All files sent using Broker is associated with a resource/service/"tjenesteressurs". See [Resource Registry](/en/authorization/what-do-you-get/resourceregistry/).
+All files sent using Broker is associated with a resource/service/"tjenesteressurs". See [Resource Administration](/en/authorization/what-do-you-get/resourceadministration/).
 Resources can be registered through Altinn Studio, and are used for access rules and access lists.
 Your policy must be configured in such a way that that they permit the actions:
 
