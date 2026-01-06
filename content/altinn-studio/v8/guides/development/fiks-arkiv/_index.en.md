@@ -19,7 +19,7 @@ In addition to the documentation below, we have created a
 
 Before setting up the Fiks Arkiv integration in your app you will need to have the following set up: 
 
-- **Fiks Protokoll** enabled in Fiks forvaltning portal for your organisation
+- **Fiks Protokoll** enabled in Fiks forvaltning portal for your organization
 - **Samarbeidsportalen** access to configure Maskinporten clients (national ID provider)
 - An **archive system** that integrates with Fiks Arkiv (e.g., Public 360)
 
@@ -60,7 +60,7 @@ A detailed guide on how to set up a Maskinporten client in Samarbeidsportalen is
 
   Use your preferred tool to generate the certificate. A guide is available at the end of this section.
 
-- In Fiks Forvaltning, set up a new system under Fiks Protokoll for your organisation.
+- In Fiks Forvaltning, set up a new system under Fiks Protokoll for your organization.
   [KS Digital's system setup guide](https://developers.fiks.ks.no/tjenester/fiksprotokoll/veiledning_3_opprette_system/)
    
 
@@ -309,7 +309,7 @@ If you want an exact depiction of the available settings, please reference the [
   Settings related to the records created after a successful shipment.
    
   {{% notice info %}}
-  Note: The data types defined here must have corresponding entries in the datateype definition in applicationmetadata. 
+  Note: The data types defined here must have corresponding entries in the datatype definition in applicationmetadata. 
   {{% /notice %}}
     
     | Setting Name           | Purpose                                                   | Format |
