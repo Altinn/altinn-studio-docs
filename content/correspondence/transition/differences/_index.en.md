@@ -14,6 +14,7 @@ To simplify the transition from Altinn 2 to the Altinn 3 version of the Correspo
 - Altinn 3 Correspondence largely has the same data model as Altinn 2 to enable mapping and migration.
   - The MessageSummary field has changed from supporting HTML formatting to supporting only plain text.
   - ReplyOptions have been simplified to only be URL + descriptive text, as this is flexible enough to cover the needs that the separate types in Altinn 2 offered.
+  - MessageBody must now be in Markdown and HTML is no longer supported.
 - Attachments are uploaded streamed and in a separate step before creating the Correspondence.
   - Attachments can be shared across multiple messages to reduce data usage when mass sending the same attachment to many parties.
 - The API facilitates mass sending of Correspondences using templates/keywords and recipient lists as well as the mentioned shared attachments.

@@ -54,11 +54,11 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til elektronisk tingly
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
 |**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
 |---|---|---|
-|Byggesøknad|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Plansak|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Motta nabo- og planvarsel|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Oppføring av bygg og anlegg|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Kjøp og salg av eiendom|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Utleie av eiendom|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Eiendomsmegler|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Tinglysing eiendom|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Byggesøknad|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Plansak|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Motta nabo- og planvarsel|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Oppføring av bygg og anlegg|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Kjøp og salg av eiendom|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Utleie av eiendom|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Eiendomsmegler|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Tinglysing eiendom|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
