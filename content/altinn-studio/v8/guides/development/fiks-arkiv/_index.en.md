@@ -613,7 +613,7 @@ processing the response from the the receiving Fiks account.
 
 #### Override archive message generation
 
-The interface to implement `IFiksArkivPayloadGenerator`.
+The interface to implement is `IFiksArkivPayloadGenerator`.
 
 If your implemented class is called `OverridePayloadGenerator`, the service registration will be as follows:
 
@@ -629,7 +629,7 @@ services
 
 #### Override response message processing 
 
-The interface to implement `IFiksArkivResponseHandler`.
+The interface to implement is `IFiksArkivResponseHandler`.
 
 If your implemented class is called `OverrideResponseHandler`, the service registration will be as follows:
 
