@@ -83,7 +83,7 @@ A detailed guide on how to set up a Maskinporten client in Samarbeidsportalen is
             <img src="fiks-account-id.png" alt="Screenshot illustrating where to find the account configuration values in Fiks Forvaltning" width="80%">
     - Private part of the **x509 certificate** as a base64 string
 
-{{% expandlarge id="guide-x509-cert" header="Guide on how to generate an x509 self signed certificate" %}}
+{{% expandlarge id="guide-x509-cert" header="Guide on how to generate an x509 self-signed certificate" %}}
 {{% insert "content/shared/x509/cert-generation.en.md" %}}
 {{% /expandlarge %}}
 
@@ -629,7 +629,7 @@ services
 
 #### Override response message processing 
 
-The interface to implement `IFiksArkivPayloadGenerator`.
+The interface to implement `IFiksArkivResponseHandler`.
 
 If your implemted class is called `OverrideResponseHandler`, the service registration will be as follows:
 
