@@ -1,6 +1,6 @@
 ---
-title: Prosessoppgaver
-description: Definere prosessoppgaver
+title: Prosess oppgaver
+description: Definere prosess oppgaver
 tags: [altinn-apps, process, bpmn, task]
 weight: 10
 ---

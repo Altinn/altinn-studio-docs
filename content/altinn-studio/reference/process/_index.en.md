@@ -1,6 +1,6 @@
 ---
-title: Process
-description: The application has a process that can be modified according to needs
+title: Process handling
+description: The Application template supports defining a business process for the digital service.
 tags: [altinn-apps, process, bpmn]
 weight: 60
 aliases:
