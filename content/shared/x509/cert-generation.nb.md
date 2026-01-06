@@ -39,7 +39,7 @@ __Forutsetninger__
     Bruk `certutil` til å kode privatnøkkelen:
 
     ```cmd
-    certutil -encodehex -f "private.pem" "privatebase64.txt"
+    certutil -encode -f "private.pem" "privatebase64.txt"
     ```
 
     Dette genererer en fil `privatebase64.txt` som inneholder privatnøkkelen som en Base64-kodet streng.

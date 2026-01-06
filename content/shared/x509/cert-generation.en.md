@@ -39,7 +39,7 @@ __Prerequisites__
     Use `certutil` to encode the private key:
 
     ```cmd
-    certutil -encodehex -f "private.pem" "privatebase64.txt"
+    certutil -encode -f "private.pem" "privatebase64.txt"
     ```
 
     This generates a file `privatebase64.txt` containing the private key as a Base64-encoded string.

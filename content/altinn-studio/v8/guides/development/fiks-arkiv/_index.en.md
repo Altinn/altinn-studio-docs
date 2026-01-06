@@ -93,7 +93,7 @@ The Altinn Fiks package automatically handles a lot of the integration for you. 
 involves setting up configuration values for connection to Maskinporten and Fiks, as well as specifying which 
 data should be sent to Fiks and who the recipient is. 
 
-That being said, all interfaces can be overriden with custom logic should you wish to have more control yourself. 
+That being said, all interfaces can be overridden with custom logic should you wish to have more control yourself. 
 The standard way is what is described here, but interfaces will be mentioned for those that wish for more control.
 
 -  Add a reference to the NuGet package
@@ -206,7 +206,7 @@ you will need to redeploy the application for them to come into effect._
 ### Configuration Example
 {.floating-bullet-numbers-sibling-ol}
 
-It is recommended to store all sensitve FiksIO setting values securely in **Azure Key Vault**
+It is recommended to store all sensitive FiksIO setting values securely in **Azure Key Vault**
 or the secret management provider used by your application.
 
 - **Section name:** `FiksIOSettings`
@@ -298,7 +298,7 @@ and provides a complete `appsettings.json` example.
 
 {{% notice info %}}
 As the code is subject to change, the settings are documented after best effort. 
-If you want and exact depiction of the available settings, please reference the [source code](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Clients.Fiks/FiksArkiv/Models/FiksArkivSettings.cs#L55).
+If you want an exact depiction of the available settings, please reference the [source code](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Clients.Fiks/FiksArkiv/Models/FiksArkivSettings.cs#L55).
 {{% /notice %}}
 
 
