@@ -63,9 +63,9 @@ Determines whether the "Delete" button is displayed when a group element is in e
 
 ## toggle text for edit and delete buttons
 A new opt-in property `compactButtons` in the RepeatingGroup component's edit configuration lets you display only icons for edit and delete buttons (without text labels) in view mode when you set `compactButtons:` ``true``, while still showing full text labels when a row is in edit mode.
-you can add compactButtons: true to the edit property of your RepeatingGroup configuration in the layout JSON:
+You can add compactButtons: true to the edit property of your RepeatingGroup configuration in the layout JSON:
 
-Eksempel:
+Example:
 
 ```json
 {
