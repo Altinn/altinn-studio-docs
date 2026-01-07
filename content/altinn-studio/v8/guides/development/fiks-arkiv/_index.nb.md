@@ -54,6 +54,11 @@ En detaljert veiledning for hvordan du setter opp en Maskinporten-klient i Samar
 
 ### Steg 2: Opprett en Fiks Arkiv-konto
 
+{{% notice warning %}}
+For å sikre at kvittering for arkivmelding blir sendt til rett applikasjons, kan ikke flere apper dele på én konto.
+Det er derfor anbefalt at man i produksjon setter opp én konto per unike Altinn app.
+{{% /notice %}}
+
 - Generer et **x509-sertifikat for Fiks Arkiv-kryptering**.
  
   Formatkrav:

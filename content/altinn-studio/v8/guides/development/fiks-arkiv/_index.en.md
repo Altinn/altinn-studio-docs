@@ -52,6 +52,11 @@ A detailed guide on how to set up a Maskinporten client in Samarbeidsportalen is
 
 ### Step 2: Create a Fiks Arkiv account
 
+{{% notice warning %}}
+To ensure that receipts for archive messages are sent to the correct application, multiple apps cannot share one account.
+It is therefore recommended to set up one account per unique Altinn app in production.
+{{% /notice %}}
+
 - Generate an **x509 certificate for Fiks Arkiv encryption**.
  
   Format requirements:
