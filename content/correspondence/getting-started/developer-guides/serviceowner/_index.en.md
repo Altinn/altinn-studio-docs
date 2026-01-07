@@ -45,10 +45,10 @@ See [Resource Management](https://docs.altinn.studio/authorization/getting-start
    - "read" meant for recipients to open and read a message.
    - "write" meant for senders to send a message.
    - "subscribe" to register event subscriptions in Altinn Events.
-4. The roles in Altinn II will be replaced by access packages in Altinn 3. We recommend all our service owners use both roles and access packages until June 2026. It's important to thoroughly assess which access package to assign to each resource. 
+4. The roles in Altinn II will be replaced by access packages in Altinn 3. We recommend all our service owners use both roles and access packages until June 2026. It's important to thoroughly assess which access package to assign to each resource. Here you will find information about [access packages](https://docs.altinn.studio/en/authorization/what-do-you-get/accessgroups/accessgroups/).
    - **Ordinary mail:** The Altinn II role "Mail/Archive" this is now replaced by the access package "Ordinær post til virksomheten".
    - **Confidential mail:** If the resource is to be confidential, you have to:
-      - select the access package [Eksplisitt tjenestedelegering](https://docs.altinn.studio/en/authorization/what-do-you-get/accessgroups/accessgroups/forholdvedvirksomheten/#eksplisitt-tjenestedelegering)
+      - select the access package "Post til virksomheten med taushetsbelagt innhold".
       - include the flag "IsConfidential" set to: "true".
 
          Read about confidential mail [here](https://docs.altinn.studio/en/correspondence/explanation/taushetsbelagt-post/).
