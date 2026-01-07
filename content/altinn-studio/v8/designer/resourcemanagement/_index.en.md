@@ -18,7 +18,7 @@ The resource document contains the title, description, and other relevant metada
 In Altinn Studio the service owners can do the following for standalone Resource
 
 - List their resources.
-- Create new and update existing resources and register all relevant [attributes](/en/authorization/what-do-you-get/resourceregistry/#resource-attributes) for that resource.
+- Create new and update existing resources and register all relevant [attributes](/en/authorization/what-do-you-get/resourceadministration/#resource-attributes) for that resource.
 - Set and update the authorization policy with the various required rules for each resource
 - Validate resources metadata and authorization policy if they follow the required standards
 - Publish new resources to TT02 or the production environment
@@ -26,7 +26,7 @@ In Altinn Studio the service owners can do the following for standalone Resource
 
 ## Functionality in Altinn Studio Designer for Resource metadata for App created in Altinn Studio
 
-- Create new and update existing all relevant [attributes](/en/authorization/what-do-you-get/resourceregistry/#resource-attributes) for that resource.
+- Create new and update existing all relevant [attributes](/en/authorization/what-do-you-get/resourceadministration/#resource-attributes) for that resource.
 - Set and update the authorization policy with the various required rules for each resource
 - Validate resources metadata and authorization policy if they follow the required standards
 - Publish new resources to TT02 or the production environment
@@ -34,13 +34,11 @@ In Altinn Studio the service owners can do the following for standalone Resource
 
 ## Migrate resources from Altinn 2
 
-
 ## Screenshots
 
 ![Sketch](screen1.png "Screenshot")
 
 ![Sketch](screen2.png "Screenshot")
-
 
 ## Concept
 

@@ -94,6 +94,14 @@ Registration of an end-user system is done by calling Altinn's system registry A
               "value": "ske-krav-og-betalinger"
             }
           ]
+        },
+        {
+          "resource": [
+            {
+              "id": "urn:altinn:resource",
+              "value": "ske-innrapportering-amelding"
+            }
+          ]
         }
       ],
       "accessPackages": [

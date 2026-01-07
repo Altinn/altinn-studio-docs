@@ -7,6 +7,8 @@ aliases:
   - /nb/api/authentication/enterpriseusers/
 ---
 
+{{% notice warning%}} Virksomhetsbruker videreføres ikke i Altinn 3 og vil ha sin siste dag på jobben 19. juni 2026 <br /> Virksomhetsbruker vil erstattes av [Systembruker](/nb/authorization/what-do-you-get/systemuser/). {{% /notice %}}
+
 ## Oversikt
 
 Virksomhetsbrukere muliggjør bruk av et virksomhetssertifikat kombinert med brukernavn og passord.
