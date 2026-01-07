@@ -38,7 +38,10 @@ Se [Ressursadministrasjon](https://docs.altinn.studio/nb/authorization/getting-s
 1. Logg inn på Altinn Studio og naviger til ressursdashboardet.
 
       *Obs. I forbindelse med Altinns migrering av eksisterende meldinger, opprettes det nye ressurser i deres (tjenesteeiers) ressursdashboard. Disse meldingsressursene er altså kun til bruk for Altinn II meldinger og skal ikke benyttes for nye utsendelser. Ressursene kjennes igjen ved at de inneholder "migratedcorrespondence" i ressurs-id. Se [Overgangsløsning](https://docs.altinn.studio/nb/correspondence/transition/) for mer informasjon.*
-2. Opprett ny meldingsressurs. Følg veiledningen og fyll inn nødvendig informasjon og detaljer om tjenesten. Se [Ressursregister](https://docs.altinn.studio/nb/authorization/guides/resource-owner/create-resource-resource-admin/#trinn-1-opprett-ressurs) for en detaljert veiledning.
+2. Opprett ny meldingsressurs. Følg veiledningen og fyll inn nødvendig informasjon og detaljer om tjenesten. 
+   - *Ressurs-ID* skal bestå av tjenesteeierkode etterfulgt av en beskrivelse av tjenesten, for eksempel: «digdir-dokumentbestilling». Ressurs-ID kan ikke endres senere. Vær oppmerksom på at samme ressurs brukes både i test- og produksjonsmiljø, og gi den et korrekt og gjennomtenkt navn fra start. 
+   - *Navn på tjenesten* er det sluttbrukeren ser. Velg et tydelig og beskrivende navn, slik at det er lett å forstå hvilken type melding dette er. Feks. "Post fra det offentlige via eFormidling" eller "Meldingstjeneste for Regnskapsregisteret".
+   - Se [Ressursregister](https://docs.altinn.studio/nb/authorization/guides/resource-owner/create-resource-resource-admin/#trinn-1-opprett-ressurs) for en detaljert veiledning.
 3. Opprett policy: her angis tilgangsregler for ressursen. Tilgangsregler for ressursen må konfigureres slik at de tillater følgende handlinger:
    - "read" ment for at mottakere skal kunne åpne og lese en melding.
    - "write" ment for at avsendere skal kunne sende en melding.

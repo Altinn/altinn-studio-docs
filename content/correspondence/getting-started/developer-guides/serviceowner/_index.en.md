@@ -37,7 +37,10 @@ See [Resource Management](https://docs.altinn.studio/authorization/getting-start
 1. Log in to Altinn Studio and navigate to the resource dashboard.
    
    *Note: As part of Altinn's migration of existing messages, new resources are being created in your (service owner) resource dashboard. These message resources are intended only for use for Altinn II messages and must not be used for new correspondences. They can be identified by the inclusion of "migratedcorrespondence" in the resource ID. See [Transition Solution](https://docs.altinn.studio/en/correspondence/transition/) for more information.*
-2. Create a new correspondence resource (meldingsressurs).  Follow the guide, and fill in the necessary information and details about the service. See [Resource Registry](https://docs.altinn.studio/authorization/guides/resource-owner/create-resource-resource-admin/#step-1-create-resource) for a detailed instruction.
+2. Create a new correspondence resource (meldingsressurs).  Follow the guide, and fill in the necessary information and details about the service. 
+   - *Resource-ID* must consist of the service owner code followed by a description of the service, for example: «digdir-dokumentbestilling». The Resource-ID cannot be changed later. Note that the same resource is used in both test and production environments, so make sure to choose a correct and well-considered name from the start. 
+   - *Navn på tjenesten*: Service name is what the end user sees. Choose a clear and descriptive name so it is easy to understand what type of message this is, for example: "Post from the public sector via eFormidling" or "Correspondence services for the Register of Company Accounts".
+   - See [Resource Registry](https://docs.altinn.studio/authorization/guides/resource-owner/create-resource-resource-admin/#step-1-create-resource) for a detailed instruction.
 3. Set policy rules for the resource. Your policy must be configured in such a way that they permit the actions:
    - "read" meant for recipients to open and read a message.
    - "write" meant for senders to send a message.
