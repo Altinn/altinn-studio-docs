@@ -56,11 +56,14 @@ If you do not specify a Type Filter you will receive all the different types of 
 - `no.altinn.correspondence.attachmentuploadfailed`
 - `no.altinn.correspondence.attachmentpurged`
 - `no.altinn.correspondence.attachmentdownloaded`
+- `no.altinn.correspondence.attachmentexpired`
 
 - `no.altinn.correspondence.correspondenceinitialized`
 - `no.altinn.correspondence.correspondencepublished`
 - `no.altinn.correspondence.correspondencepurged`
 - `no.altinn.correspondence.correspondencepublishfailed`
+- `no.altinn.correspondence.notificationcreated`
+- `no.altinn.correspondence.correspondencenotificationcreationfailed`
 
 **For every recipient:**
 - `no.altinn.correspondence.correspondencepublished`

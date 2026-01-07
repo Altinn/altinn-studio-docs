@@ -2,8 +2,7 @@
 title: Systembruker
 linktitle: Systembruker
 description: Systembruker er en ny standard for tilgangsstyring ved utveksling av data mellom sluttbruker (for eksempel regnskapsfører), sluttbrukersystem (for eksempel regnskapssystem) og offentlig sektor (for eksempel Skatteetaten) som overtar for dagens virksomhetsbruker.
-tags: [architecture, solution]
-toc: false
+weight: 8
 ---
 
 En stor del av kommunikasjonen mellom det offentlige og næringslivet skjer via API i Altinn og hos andre plattformleverandører i det offentlige. Mye av denne kommunikasjonen skjer på vegne av virksomheten og trenger ikke utføres av en spesifikk person.

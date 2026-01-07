@@ -19,7 +19,7 @@ When using Altinn Studio, dialogs will be automatically created for you. An app 
 
 ## Selecting a service resource
 
-The service resource supplied can be any resource in the [Altinn Resource Registry](/en/authorization/what-do-you-get/resourceregistry/) with a `hasCompententAuthority` property matching the authenticated organization number.
+The service resource supplied can be any resource in the [Altinn Resource Registry](/en/authorization/what-do-you-get/resourceadministration/) with a `hasCompententAuthority` property matching the authenticated organization number.
 
 {{<notice info>}}
 Adding support for additional constraints (ie. extra scope requirements) to service resources is tracked in [this issue](https://github.com/Altinn/dialogporten/issues/40).
@@ -102,7 +102,7 @@ Dialogporten supports several generic dialog statuses, that indicate various typ
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `NotApplicable`     | The dialogue does not have any meaningful status. Typically used for simple messages that do not require any interaction. This is the default.                                                          |
 | `Draft`             | Used to indicate user-initiated dialogs not yet sent and that may be cancelled at any point.                                                                                                            |
-| `InProgress`        | Indicates that the dialog is started, is being worked on by the party and/or service owner. In a serial process, this might indicate that, for example, a form filling is ongoing on a pre-filled form.   |
+| `InProgress`        | Indicates that the dialog is started, is being worked on by the party and/or service owner. In a serial process, this might indicate that, for example, a form filling is ongoing on a pre-filled form. |
 | `Awaiting`          | Sent by the party to the service owner and is awaiting a response. In a serial process, this is used after a submission is made.                                                                        |
 | `RequiresAttention` | Used to indicate that the dialogue is in progress/under work, but is in a state where the user must do something - for example, correct an error, or other conditions that hinder further processing.   |
 | `Completed`         | The dialogue was completed. This typically means that the dialogue has reached and end-state where no further updates will be made.                                                                     |
@@ -111,12 +111,12 @@ Dialogporten supports several generic dialog statuses, that indicate various typ
 
 When creating dialogs, the service platform should consider both the state and circumstances of the dialog being created. There are no set rules, but the following guidelines can help with deciding on what status is appropiate.
 
-* Does the dialog represent an application form, that was "cold" initiated by the user without any obvious interaction with the service owner? **Draft**
-* Is the dialog initated by the service owner (optionally pre-filled with data) for a reporting form?  **InProgress**
-* Is the dialog in state where the user has made an submission, and awaiting some sort of feedback from the service owner, ie "the ball is in the service owners court"? **Awaiting**
-* Was the dialog previously in a **Draft** state, but was there at some point obvious interaction with the service owner, ie. initial feedback/validation was requested and given, placing the "ball back in the partys court"? **InProgress**
-* Was there some sort of discrepancy, error condidtion, important due date approaching or similar requiring the user to take action in order for the process to proceed? **RequiresAttention**
-* Did the dialog reach a logical conclusion, ie. an official decision was made which in normal circumstances (ie. not counting appeal processes) representes the end of the dialog? **Completed**
+- Does the dialog represent an application form, that was "cold" initiated by the user without any obvious interaction with the service owner? **Draft**
+- Is the dialog initated by the service owner (optionally pre-filled with data) for a reporting form? **InProgress**
+- Is the dialog in state where the user has made an submission, and awaiting some sort of feedback from the service owner, ie "the ball is in the service owners court"? **Awaiting**
+- Was the dialog previously in a **Draft** state, but was there at some point obvious interaction with the service owner, ie. initial feedback/validation was requested and given, placing the "ball back in the partys court"? **InProgress**
+- Was there some sort of discrepancy, error condidtion, important due date approaching or similar requiring the user to take action in order for the process to proceed? **RequiresAttention**
+- Did the dialog reach a logical conclusion, ie. an official decision was made which in normal circumstances (ie. not counting appeal processes) representes the end of the dialog? **Completed**
 
 A particular dialog may demand a higher resolution of statuses, ie. having several distinct states of "InProgress" that is meaningfull to onvey to the end-user. For these purposes, see the `extendedStatus` property and content type.
 
@@ -205,22 +205,23 @@ Dialogporten offers two optional mechanisms to ensure that any given dialog is o
 
 The first option is a simple mechanism which for most service owner systems might be sufficient, while the other can more easily used to implement arbitrary business rules (eg. any given dialog should be associated with only one tuple of reporting party, reporting service and year/month).
 
-
 {{<notice info>}}
 For information on how to use HTTP-based concurrency control via `ETag` / `If-Match`-headers, see the guide for [updating dialogs](/en/dialogporten/user-guides/service-owners/creating-dialogs/../updating-dialogs/).
 {{</notice>}}
 
 ## Silent dialog creation
 
-In some cases, typically in historical data migration scenarious, it is desirable to perform a non-business-process related update to a dialog. These updates work exactly like normal updates, but 
-* Does not bump `updatedAt` or `contentUpdatedAt`
-* Does not cause Altinn Events to be produced
+In some cases, typically in historical data migration scenarious, it is desirable to perform a non-business-process related update to a dialog. These updates work exactly like normal updates, but
+
+- Does not bump `updatedAt` or `contentUpdatedAt`
+- Does not cause Altinn Events to be produced
 
 This behaviour can be enabled by added the query parameter `?isSilentUpdate=true` to the URL for the POST/PUT/PATCH request.
 
 **Read more**
-* {{<link "../updating-dialogs">}}
-* {{<link "../../../reference/openapi">}}
-* {{<link "../api-client">}}
+
+- {{<link "../updating-dialogs">}}
+- {{<link "../../../reference/openapi">}}
+- {{<link "../api-client">}}
 
 {{<children />}}

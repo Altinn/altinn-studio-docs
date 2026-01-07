@@ -1,8 +1,8 @@
 ---
 title: Access Packages
 linktitle: Access Packages
-description: Access Packages replaces roles from Altinn 2
-tags: [architecture, security, authorization, xacml]
+description: Access Packages replaces roles
+weight: 3
 ---
 
 {{<notice warning>}}
