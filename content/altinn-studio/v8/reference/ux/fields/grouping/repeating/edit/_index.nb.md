@@ -60,6 +60,21 @@ gruppe-elementet. Dataene lagres uansett.
 
 Bestemmer om "Slett"-knappen vises når et gruppeelement er i redigeringsmodus. Standard oppførsel om parameteren ikke er satt er at "Slett"-knapp vises.
 
+## Vis/skjul tekst for rediger og slett knapper
+En ny valgfri egenskap `compactButtons` i RepeatingGroup-komponentens redigeringskonfigurasjon lar deg vise kun ikoner for rediger og slett knapper (uten tekstetiketter) i visningsmodus når du setter `compactButtons:` `true`, mens du fortsatt viser fullstendige tekstetiketter når en rad er i redigeringsmodus.
+Du kan legge til compactButtons: true i edit-egenskapen til RepeatingGroup-konfigurasjonen i layout-JSON:
+
+Eksempel:
+
+```json
+{
+  ...
+  "edit": {
+    "compactButtons": true
+  }
+}
+```
+
 ## multiPage
 
 Sier at redigering/utfylling av gruppe kan gjøres over flere "sider"/visninger. Krever mer oppsett for å fungere,

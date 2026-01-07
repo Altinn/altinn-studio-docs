@@ -61,6 +61,21 @@ the group-element. The data is still saved.
 
 Determines whether the "Delete" button is displayed when a group element is in editing mode. The default behaviour if the parameter is not set is for the "Delete" button to be displayed.
 
+## toggle text for edit and delete buttons
+A new opt-in property `compactButtons` in the RepeatingGroup component's edit configuration lets you display only icons for edit and delete buttons (without text labels) in view mode when you set `compactButtons:` ``true``, while still showing full text labels when a row is in edit mode.
+you can add compactButtons: true to the edit property of your RepeatingGroup configuration in the layout JSON:
+
+Eksempel:
+
+```json
+{
+  ...
+  "edit": {
+    "compactButtons": true
+  }
+}
+```
+
 ## multiPage
 
 Editing/filling out pages can be performed over multiple "pages"/displays. Requires more setup to work,
