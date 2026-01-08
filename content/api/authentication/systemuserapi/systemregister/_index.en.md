@@ -19,6 +19,7 @@ To get a Maskinporten token, the vendor must first establish a client in Maskinp
 - [Update a system](update)
 - [Update Rights for a system](update#update-rights-for-a-system)
 - [Update accesspackages for a system](update#update-accesspackages-for-a-system)
+- [Delete a system](update#delete-a-system)
 - [Get System Change Log for a System](get#get-changelog-for-a-system)
 
 

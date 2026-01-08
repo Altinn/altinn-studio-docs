@@ -233,3 +233,12 @@ Maskinporten-token med scope <mark>altinn:authentication/systemregister.write</m
 
 ### Content types
 application/json
+
+## Slett et system
+Systemeieren kan slette sitt system.
+
+### Endepunkt
+DELETE authentication/api/v1/systemregister/vendor/{systemid}/
+
+### Scopes
+Maskinporten-token med scope <mark>altinn:authentication/systemregister.write</mark>
