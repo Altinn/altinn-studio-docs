@@ -67,10 +67,10 @@ Når du oppretter varslinger, gjelder følgende valideringsregler og tegnbegrens
 
 | Felt | Maksimal lengde | Beskrivelse |
 |------|----------------|-------------|
-| `emailSubject` | 128 tegn | Anbefalt av Altinn Notifications-tjenesten for å sikre at e-postemnet vises korrekt i e-postklienter |
+| `emailSubject` | 512 tegn | Øvre grensen for e-postemner i varslinger. Altinn Notifications-tjenesten anbefaler å holde e-postemnet kortere enn 128 tegn for å sikre at emnet vises korrekt i e-postklienter |
 | `emailBody` | 10 000 tegn | Støtter detaljert innhold i både ren tekst og HTML-format |
 | `smsBody` | 2 144 tegn | Samsvarer med Altinn Notifications-tjenestens SMS-behandlingsgrenser. Tilsvarer 16 SMS-segmenter (16 × 134 tegn per segment) |
-| `reminderEmailSubject` | 128 tegn | Samme anbefaling som hovedvarslingens e-postemne |
+| `reminderEmailSubject` | 512 tegn | Samme grense og anbefaling som hovedvarslingens e-postemne |
 | `reminderEmailBody` | 10 000 tegn | Støtter detaljert innhold i både ren tekst og HTML-format |
 | `reminderSmsBody` | 2 144 tegn | Samme grense som hovedvarslingens SMS-innhold |
 
