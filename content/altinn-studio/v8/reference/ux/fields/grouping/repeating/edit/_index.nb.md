@@ -61,9 +61,9 @@ gruppe-elementet. Dataene lagres uansett.
 Bestemmer om "Slett"-knappen vises når et gruppeelement er i redigeringsmodus. Standard oppførsel om parameteren ikke er satt er at "Slett"-knapp vises.
 
 ## Vis/skjul tekst for rediger og slett knapper
-Med den nye valgfrie egenskapen `compactButtons` i RepeatingGroup-komponentens redigeringskonfigurasjon kan du vise kun ikoner for knappene Rediger og Slett i visningsmodus, når du setter `compactButtons:` `true`, Brukerne vil fortsatt se hele knappeteksten når en rad er i redigeringsmodus.
+Med den nye valgfrie egenskapen `compactButtons` i RepeatingGroup-komponentens redigeringskonfigurasjon kan du vise kun ikoner for knappene Rediger og Slett i visningsmodus, når du setter `compactButtons:true`, Brukerne vil fortsatt se hele knappeteksten når en rad er i redigeringsmodus.
 
-Du kan legge til `compactButtons: true` i edit-egenskapen til RepeatingGroup-konfigurasjonen i layout-JSON:
+Du kan legge til `compactButtons:true` i edit-egenskapen til RepeatingGroup-konfigurasjonen i layout-JSON:
 
 Eksempel:
 
