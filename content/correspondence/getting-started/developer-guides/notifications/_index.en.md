@@ -68,7 +68,7 @@ When creating notifications, the following validation rules and character limits
 
 | Field | Maximum Length | Description |
 |-------|---------------|-------------|
-| `emailSubject` | 512 characters | The upper limit for email subjects in notifications. The Altinn Notifications service recommend keeping the email subject shorter than 128 characters to ensure the subject is displayed correctly in email clients |
+| `emailSubject` | 512 characters | The upper limit for email subjects in notifications. The Altinn Notifications service recommends keeping the email subject shorter than 128 characters to ensure the subject is displayed correctly in email clients |
 | `emailBody` | 10,000 characters | Supports detailed content in both plain text and HTML format |
 | `smsBody` | 2,144 characters | Aligns with the Altinn Notifications service SMS processing limits. Equivalent to 16 SMS segments (16 × 134 characters per segment) |
 | `reminderEmailSubject` | 512 characters | Same limit and recommendation as main email subject |
