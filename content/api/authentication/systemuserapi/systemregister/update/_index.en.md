@@ -234,3 +234,12 @@ Maskinporten token with scope <mark>altinn:authentication/systemregister.write</
 
 ### Content types
 application/json
+
+## Delete A System
+The system owner can delete the system.
+
+### Endpoint
+DELETE authentication/api/v1/systemregister/vendor/{systemid}/
+
+### Scopes
+Maskinporten-token with scope <mark>altinn:authentication/systemregister.write</mark>
