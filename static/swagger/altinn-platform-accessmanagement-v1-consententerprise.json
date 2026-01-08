@@ -1,0 +1,345 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Altinn.AccessManagement",
+    "version": "1.0"
+  },
+  "paths": {
+    "/accessmanagement/api/v1/enterprise/consentrequests": {
+      "post": {
+        "tags": [
+          "Consent"
+        ],
+        "operationId": "enterprisecreateconsentrequest",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AMCoreModels.ConsentRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AMCoreModels.ConsentRequestDetailsDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "CONSENTREQUEST_WRITE"
+            ]
+          }
+        ]
+      }
+    },
+    "/accessmanagement/api/v1/enterprise/consentrequests/{consentRequestId}": {
+      "get": {
+        "tags": [
+          "Consent"
+        ],
+        "operationId": "enterprisegetconsentrequest",
+        "parameters": [
+          {
+            "name": "consentRequestId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AMCoreModels.ConsentRequestDetailsDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "CONSENTREQUEST_READ"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AMCoreModels.ConsentRequestDto": {
+        "required": [
+          "from",
+          "to",
+          "validTo",
+          "consentRights"
+        ],
+        "type": "object",
+        "properties": {
+          "from": {
+            "$ref": "#/components/schemas/AMCoreModels.ConsentPartyUrn"
+          },
+          "to": {
+            "$ref": "#/components/schemas/AMCoreModels.ConsentPartyUrn"
+          },
+          "requiredDelegator": {
+            "$ref": "#/components/schemas/AMCoreModels.ConsentPartyUrn"
+          },
+          "validTo": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "consentRights": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AMCoreModels.ConsentRightDto"
+            },
+            "nullable": true
+          },
+          "requestMessage": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "redirectUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "AMCoreModels.ConsentRequestDetailsDto": {
+        "required": [
+          "consentRequestEvents",
+          "consentRights",
+          "from",
+          "id",
+          "redirectUrl",
+          "to",
+          "validTo"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "from": {
+            "$ref": "#/components/schemas/AMCoreModels.ConsentPartyUrn"
+          },
+          "to": {
+            "$ref": "#/components/schemas/AMCoreModels.ConsentPartyUrn"
+          },
+          "requiredDelegator": {
+            "$ref": "#/components/schemas/AMCoreModels.ConsentPartyUrn"
+          },
+          "handledBy": {
+            "$ref": "#/components/schemas/AMCoreModels.ConsentPartyUrn"
+          },
+          "validTo": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "consentRights": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AMCoreModels.ConsentRightDto"
+            },
+            "nullable": true
+          },
+          "requestMessage": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "redirectUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "consentRequestEvents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AMCoreModels.ConsentEventDto"
+            },
+            "nullable": true
+          }
+        }
+      },
+      "AMCoreModels.ConsentPartyUrn": {
+        "required": [
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "$ref": "#/components/schemas/AMCoreModels.UrnType"
+          }
+        }
+      },
+      "AMCoreModels.ConsentRightDto": {
+        "required": [
+          "resource"
+        ],
+        "type": "object",
+        "properties": {
+          "resource": {
+            "type": "string",
+            "nullable": true
+          },
+          "actions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        }
+      },
+      "AMCoreModels.ConsentEventDto": {
+        "required": [
+          "eventType",
+          "occurredAt"
+        ],
+        "type": "object",
+        "properties": {
+          "eventType": {
+            "$ref": "#/components/schemas/AMCoreModels.ConsentEventType"
+          },
+          "occurredAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "performedBy": {
+            "$ref": "#/components/schemas/AMCoreModels.ConsentPartyUrn"
+          }
+        }
+      },
+      "AMCoreModels.UrnType": {
+        "enum": [
+          "urn:altinn:person:identifier-no",
+          "urn:altinn:organization:identifier-no",
+          "urn:altinn:organization:uuid",
+          "urn:altinn:person:uuid"
+        ],
+        "type": "string"
+      },
+      "AMCoreModels.ConsentEventType": {
+        "enum": [
+          "ConsentRequestCreated",
+          "ConsentRequestAccepted",
+          "ConsentRequestRejected",
+          "ConsentRevoked"
+        ],
+        "type": "string"
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": {}
+      }
+    },
+    "securitySchemes": {
+      "oauth2": {
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "https://platform.altinn.no/authentication/api/v1/openid/authorization",
+            "scopes": {
+              "CONSENTREQUEST_WRITE": "Scope for writing consent requests",
+              "CONSENTREQUEST_READ": "Scope for reading consent requests"
+            }
+          }
+        }
+      }
+    }
+  }
+}
