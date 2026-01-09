@@ -12,7 +12,7 @@ aliases:
 Det må defineres minimum én oppgave i denne prosessen, og nyopprettede apps kommer med en "data"-oppgave som standard.
 Det er en oppgave hvor man skal samle inn data, enten via skjema i appen eller via API-kall.
 
-Mer om prosessen i [referansedokumentasjonen](/nb/altinn-studio/reference/process).
+Mer om prosessen i [referansedokumentasjonen](/nb/altinn-studio/v8/reference/process).
 
 ## Prosessoppgave (task)
 Det er mulig å opprette sine egne prosessoppgaver, men det er sannsynlig at det kommer relativt store breaking changes på interfacet i neste major versjon (9.0).
