@@ -7,7 +7,10 @@ weight: 1
 
 ## Godkjenne systemtilgang for eget system
 
-1. Her godkjenner en sluttbruker en forespørsel om å opprette en Systemtilgang for eget system. For å godkjenne en systemtilgang-forespørsel må innlogget bruker ha rollen Tilgangsstyrer i valgt organisasjon (f.eks har Daglig leder rollen Tilgangsstyrer), samt ha de forespurte fullmaktene. I dette eksemplet mottar DRESS MINST, daglig leder i DISKRET NÆR TIGER AS, en forespørsel om systemtilgang for eget system fra leverandøren SmartCloud. Denne forespørselen må godkjennes i Altinn-portalen. ![Godkjenningsbilde egen systemtilgang](https://docs.altinn.studio/nb/authorization/guides/end-user/system-user/standard-request.png)
+{{% notice warning%}} For å godkjenne en systemtilgang-forespørsel må innlogget bruker ha rollen Tilgangsstyrer i valgt organisasjon (f.eks har Daglig leder rollen Tilgangsstyrer), samt ha de forespurte fullmaktene.  {{% /notice %}}  
+
+
+1. Her godkjenner en sluttbruker en forespørsel om å opprette en Systemtilgang for eget system. I dette eksemplet mottar DRESS MINST, daglig leder i DISKRET NÆR TIGER AS, en forespørsel om systemtilgang for eget system fra leverandøren SmartCloud. Denne forespørselen må godkjennes i Altinn-portalen. ![Godkjenningsbilde egen systemtilgang](https://docs.altinn.studio/nb/authorization/guides/end-user/system-user/standard-request.png)
 2. Etter at forespørselen er godkjent eller avvist, vil sluttbrukeren bli logget ut. Hvis leverandøren har satt opp en verifisert videresending i forespørselen, vil brukeren sendes til leverandørens kvitteringsside. Hvis ikke, blir sluttbrukeren sendt til Altinn sin utloggede side. ![Kvitteringsside egen systemtilgang](https://docs.altinn.studio/nb/authorization/guides/end-user/system-user/systemtilgang-receipt-vendor.png)
 3. Etter godkjenning er systemtilgangen opprettet.
 
