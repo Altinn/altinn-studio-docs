@@ -2,7 +2,6 @@
 title: Custom
 tags: [altinn-apps, process, bpmn, task, service task, systemoppgave]
 weight: 10
-alias:
 ---
 
 A custom service task requires:

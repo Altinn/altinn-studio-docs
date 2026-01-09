@@ -2,7 +2,6 @@
 title: Egendefinert
 tags: [altinn-apps, process, bpmn, task, service task, systemoppgave]
 weight: 10
-alias: 
 ---
 
 En egendefinert systemoppgave krever:
