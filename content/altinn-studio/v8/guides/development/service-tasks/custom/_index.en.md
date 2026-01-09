@@ -1,16 +1,16 @@
 ---
-title: Egendefinert
+title: Custom
 tags: [altinn-apps, process, bpmn, task, service task, systemoppgave]
 weight: 10
-alias: 
+alias:
 ---
 
-En egendefinert systemoppgave krever:
-- En C#-implementasjon av interfacet `IServiceTask`
-- Et nytt steg i prosessen
-- Tilgangsstyring
+A custom service task requires:
+- A C# implementation of the `IServiceTask` interface
+- A new step in the process
+- Access control
 
-### Implementasjon i C#
+### C# implementation
 
 ```C#
 using System.Threading.Tasks;
@@ -42,11 +42,11 @@ public class ExampleServiceTask : IServiceTask
 
 ```
 
-### Legg til en serviceTask-node i BPMN-prosessen. 
-Verdien i taskType må være like Type-property på C#-implementasjonen.
+### Add a serviceTask node in the BPMN process
+The value in taskType must match the Type property in the C# implementation.
 
-```xml
-<bpmn:serviceTask id="ExampleServiceTask" name="Example service task">
+```
+<bpmn:serviceTask id="ExampleServiceTask" name="Greeting">
     <bpmn:extensionElements>
         <altinn:taskExtension>
             <altinn:taskType>exampleServiceTask</altinn:taskType>
@@ -57,11 +57,11 @@ Verdien i taskType må være like Type-property på C#-implementasjonen.
 </bpmn:serviceTask>
 ```
 
-### Tilgangsstyring
-Systemoppgaver kjører med rettighetene til den brukeren som driver prosessen videre (process next). Standard systemoppgaver autoriseres som `write`-operasjoner. For at brukeren skal ha rettigheter til å kjøre en egendefinert systemoppgave må `Type` fra implementasjonen legges inn som en action i policy.xml.
+### Access control
+Service tasks run with the permissions of the user who advances the process (process next). Standard service tasks are authorized as `write` operations. For a user to have the rights to run a custom service task, the `Type` from the implementation must be added as an action in policy.xml.
 
-Legg den på samme sted som andre actions den relevante brukeren skal ha tilgang til.
-```xml
+Place it in the same location as other actions that the relevant user should have access to.
+```
 <xacml:AllOf>
     <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
     <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">exampleServiceTask</xacml:AttributeValue>

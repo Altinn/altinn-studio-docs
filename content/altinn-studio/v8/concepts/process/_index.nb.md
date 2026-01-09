@@ -20,6 +20,6 @@ Prosessoppgavene som følger med som standard, implementerer interfacet `IProces
 Det anbefales at man kontakter oss dersom dette anses som aktuelt.
 
 ## Systemoppgave (service task)
-{{% insert "content/altinn-studio/guides/development/service-tasks/intro.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/service-tasks/intro.nb.md" %}}
 
-[Slik gjør du det](/nb/altinn-studio/guides/development/service-tasks)
+[Slik gjør du det](/nb/altinn-studio/v8/guides/development/service-tasks)
