@@ -1,5 +1,5 @@
 ---
-title: Underskjema PDF
+title: PDF underskjema
 description: Hvordan sette opp PDF-generering for underskjema
 weight: 100
 ---
