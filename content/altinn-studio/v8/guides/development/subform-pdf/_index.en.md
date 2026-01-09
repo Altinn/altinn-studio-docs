@@ -1,7 +1,7 @@
 ---
 title: PDF subform
 description: How to set up PDF generation for subforms
-weight: 100
+weight: 16
 ---
 
 ## Overview
