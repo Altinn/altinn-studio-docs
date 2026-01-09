@@ -12,7 +12,7 @@ aliases:
 At least one task must be defined in this process, and newly created apps come with a "data" task by default.
 This is a task where data is to be collected, either through forms in the app or via API calls.
 
-More about the process in the [reference documentation](/en/altinn-studio/reference/process).
+More about the process in the [reference documentation](/en/altinn-studio/v8/reference/process).
 
 ## Process task (task)
 It is possible to create your own process tasks, but there are likely to be relatively large breaking changes to the interface in the next major version (9.0).
