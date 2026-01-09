@@ -604,7 +604,7 @@ Use **`Value`** when you know the text upfront; use **`DataModelBinding`** when 
   The feedback step is necessary to allow for a response from the asynchronous process of sending the archive message
   and receiving a response before confirming to the user that the sending was successful. 
 
-  <img src="fiks-arkiv-process.png" alt="Illustration of recommended processs flow" width="80%">
+  <img src="fiks-arkiv-process.png" alt="Illustration of recommended process flow" width="80%">
 
 - Define the policy for the application
 
