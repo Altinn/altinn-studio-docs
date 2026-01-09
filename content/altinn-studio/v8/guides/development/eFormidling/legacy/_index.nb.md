@@ -2,7 +2,6 @@
 title: eFormidling legacy
 description: Hvordan konfigurere integrasjon med eFormidling for en app.
 tags: [eFormidling]
-toc: true
 weight: 15
 ---
 
