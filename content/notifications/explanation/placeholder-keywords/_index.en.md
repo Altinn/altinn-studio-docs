@@ -9,12 +9,12 @@ weight: 35
 Placeholders are variables that start and end with dollar signs (`$`). Add them to your message template, and Altinn replaces them by looking up the recipient in public registers (name/organisation number) when the notification is sent.
 
 Example:
-```
+```text
 Hi $recipientName$, you have received a message.
 ```
 
 This becomes:
-```
+```text
 Hi Ola Nordmann, you have received a message.
 ```
 

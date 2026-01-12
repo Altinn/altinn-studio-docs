@@ -9,12 +9,12 @@ weight: 35
 Plassholdere er variabler som starter og slutter med dollartegn (`$`). Du skriver dem inn i meldingsmalen, og Altinn erstatter dem ved å slå opp mottakeren i offentlige registre (navn/organisasjonsnummer) når varslet sendes.
 
 Eksempel:
-```
+```text
 Hei $recipientName$, du har mottatt en melding.
 ```
 
 Dette blir til:
-```
+```text
 Hei Ola Nordmann, du har mottatt en melding.
 ```
 
