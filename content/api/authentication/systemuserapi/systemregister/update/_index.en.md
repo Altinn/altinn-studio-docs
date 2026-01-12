@@ -5,13 +5,17 @@ description: API for the vendor to update a system in the system register
 toc: false
 weight: 4
 ---
+
 ## Update a registered system
-System owners or administrators from the Digitalization Directorate can update a system. The update request follows a similar model to the create request. The update endpoint replaces the existing system information with the data provided in the update request. For example, the existing list of rights will be entirely replaced by the list specified in the update request.
+
+System owners or administrators from the Norwegian Digitalisation Agency can update a system. The update request follows a similar model to the create request. The update endpoint replaces the existing system information with the data provided in the update request. For example, the existing list of rights will be entirely replaced by the list specified in the update request.
 
 ### Endpoint
+
 PUT authentication/api/v1/systemregister/vendor/{systemid}
 
 ### Request Body
+
 For detailed description about each entity in the body, please refer the description [here](/en/api/authentication/systemuserapi/systemregister/model/)
 
 ```
@@ -22,14 +26,14 @@ For detailed description about each entity in the body, please refer the descrip
     "ID": ""
   },
   "name": {
-    "nb": "",
-    "en": "",
-    "nn": ""
+    "nb": "Testsystem",
+    "en": "Testsystem",
+    "nn": "Testsystem"
   },
   "description": {
-    "nb": "",
-    "en": "",
-    "nn": ""
+    "nb": "Testsystem",
+    "en": "Testsystem",
+    "nn": "Testsystem"
   },
   "rights": [
     {
@@ -49,21 +53,25 @@ For detailed description about each entity in the body, please refer the descrip
       ]
     }
   ],
+  "accessPackages": [],
+  "isDeleted": false,
   "clientId": [
-    ""
+    "824234239-e8cf-4fe1-b3434335-42423482349fbdc"
   ],
-  "allowedredirecturls": [
-    "",
-  ],
-  "isVisible": 
+  "isVisible": true,
+  "allowedRedirectUrls": [
+    "https://altinn.no/",
+    "https://altinn.studio/"
+  ]
 }
 ```
 
-
 ### Scopes
+
 Maskinporten token with scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
+
 application/json
 
 ## Arguments
@@ -73,22 +81,23 @@ The id should be in the format of {systemvendororgno}_{name chosen by the vendor
 
 ## Error Codes
 
-| Error Code     | Status Code | Error Message      | Detailed Description   |
-|----------------|-------------|--------------------|------------------------|
-| AUTH.VLD-00000 | 400 | the org number identifier is not valid ISO6523 identifier | The organization identifier must be 0192, f.ex 0192:991825827 |
-| AUTH.VLD-00001 | 400 | The system id does not match the format orgnumber_xxxx...  | The systemid is expected to be in the format vendororgnumber_xxxxxx |
-| AUTH.VLD-00002 | 400 | The system id already exists | The system id is already taken |
-| AUTH.VLD-00003 | 400 | One or all the resources in rights is not found in altinn's resource register | Any service outside altinn must be registered as a resource in altinn's resource register. Either the service provider has failed to register the resource or is specified wrong in the system register request. 
-| AUTH.VLD-00004 | 400 | One of the client id is already tagged with an existing system | The ClientId can be tied to only one organisation. The vendor must use a different client id for the new system.|
-| AUTH.VLD-00005 | 400 | One or more of the redirect urls format is not valid. The valid format is https://xxx.xx | - |
-| AUTH.VLD-00006 | 400 | One or more duplicate rights found | Cehck your rights section and eliminate any duplicate app/resource |
-| AUTH.VLD-00007 | 400 | One or more duplicate access package(s) found | The system id is already taken |
-| AUTH.VLD-00008 | 400 | One or all the accesspackage(s) is not found in altinn's access packages or is not a part of REGN/REVI/Forretningsfører roller | The system id is already taken |
-| AUTH.VLD-00009 | 400 | One or more resource id is in wrong format. The vlaid format is urn:altinn:resource | - |
+| Error Code     | Status Code | Error Message                                                                                                                  | Detailed Description                                                                                                                                                                                             |
+| -------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AUTH.VLD-00000 | 400         | the org number identifier is not valid ISO6523 identifier                                                                      | The organization identifier must be 0192, f.ex 0192:991825827                                                                                                                                                    |
+| AUTH.VLD-00001 | 400         | The system id does not match the format orgnumber_xxxx...                                                                      | The systemid is expected to be in the format vendororgnumber_xxxxxx                                                                                                                                              |
+| AUTH.VLD-00002 | 400         | The system id already exists                                                                                                   | The system id is already taken                                                                                                                                                                                   |
+| AUTH.VLD-00003 | 400         | One or all the resources in rights is not found in altinn's resource register                                                  | Any service outside altinn must be registered as a resource in altinn's resource register. Either the service provider has failed to register the resource or is specified wrong in the system register request. |
+| AUTH.VLD-00004 | 400         | One of the client id is already tagged with an existing system                                                                 | The ClientId can be tied to only one organisation. The vendor must use a different client id for the new system.                                                                                                 |
+| AUTH.VLD-00005 | 400         | One or more of the redirect urls format is not valid. The valid format is https://xxx.xx                                       | -                                                                                                                                                                                                                |
+| AUTH.VLD-00006 | 400         | One or more duplicate rights found                                                                                             | Check your rights section and eliminate any duplicate app/resource                                                                                                                                               |
+| AUTH.VLD-00007 | 400         | One or more duplicate access package(s) found                                                                                  | The system id is already taken                                                                                                                                                                                   |
+| AUTH.VLD-00008 | 400         | One or all the accesspackage(s) is not found in altinn's access packages or is not a part of REGN/REVI/Forretningsfører roller | The system id is already taken                                                                                                                                                                                   |
+| AUTH.VLD-00009 | 400         | One or more resource id is in wrong format. The vlaid format is urn:altinn:resource                                            | -                                                                                                                                                                                                                |
 
 ## Examples
 
 ### System with app and resource defined
+
 ```
 {
   "id": "991825827_systemwithappandresource",
@@ -137,6 +146,7 @@ The id should be in the format of {systemvendororgno}_{name chosen by the vendor
 ```
 
 ### System with access package
+
 ```
 {
   "id": "991825827_systemwithaccesspackageandresource",
@@ -182,39 +192,50 @@ The id should be in the format of {systemvendororgno}_{name chosen by the vendor
 ```
 
 ## Update rights for a system
-The system owner or the digitaliseringsdirectorate admin can update rights of a system. The update rights request takes just the rights information
+
+The system owner or the Norwegian Digitalisation Agency admin can update rights of a system. The update rights request takes just the rights information.
 
 ### Endpoint
+
 PUT authentication/api/v1/systemregister/vendor/{systemid}/rights
 
 ### Request Body
 
 ```
 [
-    {
-        "resource": [
-            {
-                "id": "urn:altinn:resource",
-                "value": "authentication-e2e-test"
-            },
-            {
-                "id": "urn:altinn:resource",
-                "value": "authentication-e2e-test"
-            }
-        ]
-    }
+  {
+    "resource": [
+      {
+        "id": "urn:altinn:resource",
+        "value": "authentication-e2e-test"
+      }
+    ]
+  },
+  {
+    "resource": [
+      {
+        "id": "urn:altinn:resource",
+        "value": "vegardtestressurs"
+      }
+    ]
+  }
 ]
 ```
+
 ### Scopes
+
 Maskinporten token with scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
+
 application/json
 
 ## Update accesspackages for a system
-The system owner or the digitaliseringsdirectorate admin can update accesspackages of a system. The update accesspackages request takes just the accesspackage information
+
+The system owner or the Norwegian Digitalisation Agency admin can update accesspackages of a system. The update accesspackages request takes just the accesspackage information
 
 ### Endpoint
+
 PUT authentication/api/v1/systemregister/vendor/{systemid}/accesspackages
 
 ### Request Body
@@ -229,8 +250,11 @@ PUT authentication/api/v1/systemregister/vendor/{systemid}/accesspackages
     }
 ]
 ```
+
 ### Scopes
+
 Maskinporten token with scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
+
 application/json
