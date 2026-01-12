@@ -29,7 +29,7 @@ Denne tilgangspakken gir fullmakter til tjenester og korrespondanse knyttet til 
 
 ### Toll og avgift
 Denne tilgangspakken gir fullmakter til tjenester og korrespondanse knyttet til toll og avgift. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.  
-*urn:altinn:accesspackage:innbygger:toll-avgfit*
+*urn:altinn:accesspackage:innbygger:toll-avgift*
 
 ### Støtte og tilskudd
 Denne tilgangspakken gir fullmakter til tjenester og korrespondanse knyttet til ulike støtte- og tilskuddsordninger. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.    
@@ -42,4 +42,5 @@ Denne tilgangspakken gir fullmakter til tjenester og korrespondanse knyttet til 
 |Skatteforhold for privatpersoner|Privatperson|Ja|
 |Bank og finans|Privatperson|Ja|
 |Forsikring|Privatperson|Ja|
-|Design og varemerke|Privatperson|Ja|
+|Toll og avgift|Privatperson|Ja|
+|Støtte og tilskudd|Privatperson|Ja|
