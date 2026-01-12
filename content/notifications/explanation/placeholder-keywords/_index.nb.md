@@ -28,13 +28,13 @@ Hei Ola Nordmann, du har mottatt en melding.
 ## Hvor kan du bruke plassholdere?
 
 Du kan bruke plassholdere i:
-- E-postemne 
-- E-postinnhold 
+- E-postemne
+- E-postinnhold
 - SMS-innhold
 
 ## Begrensninger
 
-Når du sender varsel direkte til e-postadresse eller telefonnummer (uten fødselsnummer eller organisasjonsnummer), kan du ikke bruke plassholdere. Altinn kan ikke slå opp navn eller organisasjonsnummer ved varsel direkte til e-post eller sms. 
+Når du sender varsel direkte til e-postadresse eller telefonnummer (uten fødselsnummer eller organisasjonsnummer), kan du ikke bruke plassholdere. Altinn kan ikke slå opp navn eller organisasjonsnummer ved varsel direkte til e-post eller sms.
 
 ## Eksempler
 
