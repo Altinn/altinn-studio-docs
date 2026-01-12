@@ -6,7 +6,7 @@ tags: [notifications, message templates, personalization]
 weight: 35
 ---
 
-Placeholders are variables that start and end with dollar signs (`$`). Add them to your message template, and Altinn replaces them with recipient information when the notification is sent.
+Placeholders are variables that start and end with dollar signs (`$`). Add them to your message template, and Altinn replaces them by looking up the recipient in public registers (name/organisation number) when the notification is sent.
 
 Example:
 ```

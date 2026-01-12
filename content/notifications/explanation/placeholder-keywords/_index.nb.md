@@ -6,7 +6,7 @@ tags: [varslinger, meldingsmaler, personalisering]
 weight: 35
 ---
 
-Plassholdere er variabler som starter og slutter med dollartegn (`$`). Du skriver dem inn i meldingsmalen din, og Altinn erstatter dem med informasjon om mottakeren når varslet sendes.
+Plassholdere er variabler som starter og slutter med dollartegn (`$`). Du skriver dem inn i meldingsmalen, og Altinn erstatter dem ved å slå opp mottakeren i offentlige registre (navn/organisasjonsnummer) når varslet sendes.
 
 Eksempel:
 ```
