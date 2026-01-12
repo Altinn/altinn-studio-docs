@@ -1,59 +1,44 @@
 ---
-title: Plassholdernøkkelord i meldingsmaler
-description: "Plassholdernøkkelord lar deg personalisere varslinger ved å erstatte spesielle koder med informasjon om mottaker. Denne artikkelen forklarer hvilke nøkkelord som er tilgjengelige og hvordan de brukes."
-linktitle: Plassholdernøkkelord
+title: Plassholdere i meldingsmaler
+description: "Plassholdere lar deg personalisere varslinger ved å erstatte variabler med informasjon om mottaker."
+linktitle: Plassholdere
 tags: [varslinger, meldingsmaler, personalisering]
 weight: 35
 ---
 
-Plassholdernøkkelord er spesielle koder du kan bruke i meldingsmalene dine for å personalisere varslinger. Når varslet sendes, erstatter Altinn automatisk disse kodene med faktisk informasjon om mottakeren.
+Plassholdere er variabler som starter og slutter med dollartegn (`$`). Du skriver dem inn i meldingsmalen din, og Altinn erstatter dem med informasjon om mottakeren når varslet sendes.
 
-## Hva er plassholdernøkkelord?
-
-Plassholdernøkkelord er tokens som starter og slutter med dollartegn (`$`). Du skriver dem inn i meldingsmalen din, og Altinn bytter dem ut med riktig informasjon når varslet sendes.
-
-For eksempel kan du skrive:
+Eksempel:
 ```
 Hei $recipientName$, du har mottatt en melding.
 ```
 
-Når varslet sendes, blir dette til:
+Dette blir til:
 ```
 Hei Ola Nordmann, du har mottatt en melding.
 ```
 
-## Tilgjengelige plassholdernøkkelord
+## Tilgjengelige plassholdere
 
-Du kan bruke følgende plassholdernøkkelord i meldingsmalene dine:
-
-| Nøkkelord | Hva det erstattes med | Når kan det brukes |
+| Plassholder | Hva det erstattes med | Når kan det brukes |
 |-----------|----------------------|-------------------|
-| `$recipientName$` | Varslingens mottakers navn (organisasjonsnavn eller personnavn) | Ikke når varsel sendes direkte til e-postadresse eller telefonnummer |
-| `$recipientNumber$` | Organisasjonsnummer hvis mottaker er en organisasjon. Tomt hvis mottaker er en privatperson | Ikke når varsel sendes direkte til e-postadresse eller telefonnummer |
+| `$recipientName$` | Varslingens mottakers navn (organisasjonsnavn eller personnavn) | Til virksomehter eller privatpersoner. Ikke når varsel sendes direkte til e-postadresse eller telefonnummer |
+| `$recipientNumber$` | Organisasjonsnummer hvis mottaker er en organisasjon. Tomt hvis mottaker er en privatperson | Til virksomheter. Ikke når varsel sendes direkte til e-postadresse eller telefonnummer |
 
-## Hvor kan du bruke plassholdernøkkelord?
+## Hvor kan du bruke plassholdere?
 
-Du kan bruke plassholdernøkkelord i alle tekstfeltene i meldingsmalen:
-
+Du kan bruke plassholdere i:
 - E-postemne 
 - E-postinnhold 
 - SMS-innhold
 
 ## Begrensninger
 
-Noen plassholdernøkkelord har begrensninger:
-
-### Varsler sendt direkte til e-post eller telefonnummer
-
-Hvis du sender varsel direkte til en e-postadresse eller telefonnummer (uten å oppgi fødselsnummer eller organisasjonsnummer), kan du ikke bruke:
-
-- `$recipientName$` – fordi Altinn ikke kan slå opp navnet basert på e-postadresse eller telefonnummer
-- `$recipientNumber$` – fordi Altinn ikke kan slå opp organisasjonsnummeret basert på e-postadresse eller telefonnummer
-
+Når du sender varsel direkte til e-postadresse eller telefonnummer (uten fødselsnummer eller organisasjonsnummer), kan du ikke bruke plassholdere. Altinn kan ikke slå opp navn eller organisasjonsnummer ved varsel direkte til e-post eller sms. 
 
 ## Eksempler
 
-### Eksempel 1: E-post med personalisering
+### E-post
 
 ```json
 {
@@ -64,7 +49,7 @@ Hvis du sender varsel direkte til en e-postadresse eller telefonnummer (uten å 
 }
 ```
 
-### Eksempel 2: SMS med personalisering
+### SMS
 
 ```json
 {
@@ -74,8 +59,7 @@ Hvis du sender varsel direkte til en e-postadresse eller telefonnummer (uten å 
 }
 ```
 
-## Tips for bruk
+## Tips
 
-- **Test meldingsmalene dine**: Sjekk at plassholdernøkkelordene fungerer som forventet før du sender varsler til mange mottakere.
-- **Vurder tomme verdier**: Hvis `$recipientNumber$` er tom (for privatpersoner), kan teksten din bli litt rar. Vurder å bruke betinget tekst eller unngå å referere direkte til nummeret.
-- **Bruk riktig nøkkelord**: Husk at `$recipientName$` og `$recipientNumber$` ikke fungerer når du sender direkte til e-postadresse eller telefonnummer.
+- Test meldingsmalene før du sender til mange mottakere
+- Hvis `$recipientNumber$` er tom (for privatpersoner), kan teksten bli rar. Vurder å unngå direkte referanse til nummeret
