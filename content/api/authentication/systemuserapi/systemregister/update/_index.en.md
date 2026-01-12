@@ -8,7 +8,7 @@ weight: 4
 
 ## Update a registered system
 
-System owners or administrators from the Digitalization Directorate can update a system. The update request follows a similar model to the create request. The update endpoint replaces the existing system information with the data provided in the update request. For example, the existing list of rights will be entirely replaced by the list specified in the update request.
+System owners or administrators from the Norwegian Digitalisation Agency can update a system. The update request follows a similar model to the create request. The update endpoint replaces the existing system information with the data provided in the update request. For example, the existing list of rights will be entirely replaced by the list specified in the update request.
 
 ### Endpoint
 
@@ -233,7 +233,7 @@ application/json
 
 ## Update accesspackages for a system
 
-The system owner or the digitaliseringsdirectorate admin can update accesspackages of a system. The update accesspackages request takes just the accesspackage information
+The system owner or the Norwegian Digitalisation Agency admin can update accesspackages of a system. The update accesspackages request takes just the accesspackage information
 
 ### Endpoint
 
