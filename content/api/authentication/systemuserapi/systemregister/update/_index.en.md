@@ -26,14 +26,14 @@ For detailed description about each entity in the body, please refer the descrip
     "ID": ""
   },
   "name": {
-    "nb": "",
-    "en": "",
-    "nn": ""
+    "nb": "Testsystem",
+    "en": "Testsystem",
+    "nn": "Testsystem"
   },
   "description": {
-    "nb": "",
-    "en": "",
-    "nn": ""
+    "nb": "Testsystem",
+    "en": "Testsystem",
+    "nn": "Testsystem"
   },
   "rights": [
     {
@@ -53,13 +53,16 @@ For detailed description about each entity in the body, please refer the descrip
       ]
     }
   ],
+  "accessPackages": [],
+  "isDeleted": false,
   "clientId": [
-    ""
+    "824234239-e8cf-4fe1-b3434335-42423482349fbdc"
   ],
-  "allowedredirecturls": [
-    "",
-  ],
-  "isVisible":
+  "isVisible": true,
+  "allowedRedirectUrls": [
+    "https://altinn.no/",
+    "https://altinn.studio/"
+  ]
 }
 ```
 
