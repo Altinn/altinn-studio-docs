@@ -156,11 +156,11 @@ The scopes is copied. The `orgNumber` and `org` is added by the token converter.
 End user systems should be authentication with [ID-porten](https://difi.github.io/felleslosninger/idporten_overordnet.html).
 When authenticated the system may exchange an access token provided by ID-porten with an Altinn token by instructions below.
 
-#### Exchange of JWT token
+### Exchange of JWT token
 
 This token has to be validated and replaced with an *Altinn JWT access token* which should be used to access the apis.
 
-##### ID-porten JWT access token (input)
+#### ID-porten JWT access token (input)
 
 ```http
 Autorization: Bearer eyJraWQiOiJjWmswME1rbTVIQzRnN3Z0NmNwUDVGSFpMS0pzdzhmQkFJdUZiUzRSVEQ0IiwiYWxnIjoiUlMyNTYifQ.eyJhdF9 ...
@@ -197,7 +197,7 @@ The token looks something like this (after decoding):
 <<signature>>
 ```
 
-##### The Altinn JWT Access token (output)
+#### The Altinn JWT Access token (output)
 
 The exchange operation validates the incoming token and generates a new JWT token that contains user data
 retrieved from the database using the provided pid (person identification number) and pre-existing data from the ID-porten token.

@@ -76,9 +76,8 @@ application/json
 
 ## Arguments
 
-#### systemId
-
-The id should be in the format of {systemvendororgno}\_{name chosen by the vendor}. F.example "310547891_testproduct". This is a unique id to identify the product.
+### systemId
+The id should be in the format of {systemvendororgno}_{name chosen by the vendor}. F.example "310547891_testproduct". This is a unique id to identify the product.
 
 ## Error Codes
 
