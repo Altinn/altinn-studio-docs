@@ -15,7 +15,7 @@ Hei $recipientName$, du har mottatt en melding.
 
 Dette blir til:
 ```text
-Hei Ola Nordmann, du har mottatt en melding.
+Hei NORDMANN OLA, du har mottatt en melding.
 ```
 
 ## Tilgjengelige plassholdere

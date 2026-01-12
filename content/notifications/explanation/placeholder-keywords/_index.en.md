@@ -15,7 +15,7 @@ Hi $recipientName$, you have received a message.
 
 This becomes:
 ```text
-Hi Ola Nordmann, you have received a message.
+Hi NORDMANN OLA, you have received a message.
 ```
 
 ## Available placeholders
