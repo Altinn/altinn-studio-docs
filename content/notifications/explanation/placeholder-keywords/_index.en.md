@@ -62,4 +62,4 @@ When you send directly to an email address or phone number (without national ID 
 ## Tips
 
 - Test message templates before sending to many recipients
-- If `$recipientNumber$` is empty (for individuals), the text can read oddly. Consider avoiding a direct reference to the number
+- If `$recipientNumber$` is empty (for individuals), the text can read oddly. Consider avoiding a direct reference to the number.

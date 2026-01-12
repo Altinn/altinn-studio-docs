@@ -42,7 +42,7 @@ weight: 15
     } 
   ```
   
-  Her er et eksempel på en varslingsordre med [plassholdernøkkelord](/notifications/explanation/placeholder-keywords/):
+  Her er et eksempel på en varslingsordre med [plassholdernøkkelord](/nb/notifications/explanation/placeholder-keywords/):
   ```json{linenos=false,hl_lines="18 19"}
     {
       "id": "e1a439bf-0ac6-41f6-978f-f22f4bd9b8a0",

@@ -22,7 +22,7 @@ Hei Ola Nordmann, du har mottatt en melding.
 
 | Plassholder | Hva det erstattes med | Når kan det brukes |
 |-----------|----------------------|-------------------|
-| `$recipientName$` | Varslingens mottakers navn (organisasjonsnavn eller personnavn) | Til virksomehter eller privatpersoner. Ikke når varsel sendes direkte til e-postadresse eller telefonnummer |
+| `$recipientName$` | Mottakers navn (organisasjonsnavn eller personnavn) | Til virksomheter eller privatpersoner. Ikke når varsel sendes direkte til e-postadresse eller telefonnummer |
 | `$recipientNumber$` | Organisasjonsnummer hvis mottaker er en organisasjon. Tomt hvis mottaker er en privatperson | Til virksomheter. Ikke når varsel sendes direkte til e-postadresse eller telefonnummer |
 
 ## Hvor kan du bruke plassholdere?
@@ -62,4 +62,4 @@ Når du sender varsel direkte til e-postadresse eller telefonnummer (uten fødse
 ## Tips
 
 - Test meldingsmalene før du sender til mange mottakere
-- Hvis `$recipientNumber$` er tom (for privatpersoner), kan teksten bli rar. Vurder å unngå direkte referanse til nummeret
+- Hvis `$recipientNumber$` er tom (for privatpersoner), kan teksten bli rar. Vurder å unngå direkte referanse til nummeret.
