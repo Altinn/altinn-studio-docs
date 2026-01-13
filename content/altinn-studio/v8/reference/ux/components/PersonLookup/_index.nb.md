@@ -63,10 +63,10 @@ Få personens fulle navn med `dataModelBindings.person_lookup_name` egenskapen, 
 | `id`                                          | string   | Komponent-ID-en. Må være unik innenfor alle oppsett/sider i et oppsett-sett. Kan ikke slutte med <bindestrek><tall>. |
 | `type`                                        | string   | "PersonLookup"                                                                                                       |
 | `dataModelBindings.person_lookup_ssn`         | string   | Hvor i datamodellen resultatet (fnr) skal lagres.                                                                    |
-| `dataModelBindings.person_lookup_name`        | string   | Hvor i datamodellen fullt navn skal lagres.           (valgfritt)                                                    |
-| `dataModelBindings.person_lookup_last_name`   | string   | Hvor i datamodellen etternavn skal lagres.            (valgfritt)                                                    |
-| `dataModelBindings.person_lookup_middle_name` | string   | Hvor i datamodellen mellomnavn skal lagres.           (valgfritt)                                                    |
-| `dataModelBindings.person_lookup_first_name`  | string   | Hvor i datamodellen fornavn skal lagres.              (valgfritt)                                                    |
+| `dataModelBindings.person_lookup_name`        | string   | Hvor i datamodellen det fulle navnet skal lagres.     (valgfritt)                                                    |
+| `dataModelBindings.person_lookup_last_name`   | string   | Hvor i datamodellen etternavnet skal lagres.          (valgfritt)                                                    |
+| `dataModelBindings.person_lookup_middle_name` | string   | Hvor i datamodellen mellomnavnet skal lagres.         (valgfritt)                                                    |
+| `dataModelBindings.person_lookup_first_name`  | string   | Hvor i datamodellen fornavnet skal lagres.            (valgfritt)                                                    |
 | `textResourceBindings.title`                  | string   | Ledetekst                                             (valgfritt)                                                    |
 | `textResourceBindings.description`            | string   | Beskrivelse                                           (valgfritt)                                                    |
 | `textResourceBindings.help`                   | string   | Hjelpetekst                                           (valgfritt)                                                    |
