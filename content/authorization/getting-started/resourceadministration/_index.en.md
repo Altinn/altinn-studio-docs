@@ -5,7 +5,7 @@ description: Getting started with resource administration
 ---
 
 {{< stepcard step="1" title="Sign the agreement" >}}
-1
+Contact [servicedesk@altinn.no](servicedesk@altinn.no) to sign agreements and be registered as a service owner in Altinn.
 {{< /stepcard >}}
 
 {{< stepcard step="2" title="Create user and organization" >}}

@@ -1,11 +1,11 @@
 ---
 title: Kom i gang med ressursadministrasjon
 linktitle: Ressursadministrasjon
-description: For å kunne bruke Altinn Autorisasjon til må det gjennomfører noe oppsett på vegne av virksomheten
+description: For å bruke Altinn Autorisasjon til må det gjennomfører noe oppsett på vegne av virksomheten
 ---
 
 {{< stepcard step="1" title="Signere avtale" >}}
-1
+Kontakt [servicedesk@altinn.no](servicedesk@altinn.no) for å signre avtaler og bli opprettet som tjenesteier i Altinn.
 {{< /stepcard >}}
 
 {{< stepcard step="2" title="Opprett bruker og organisasjon" >}}
