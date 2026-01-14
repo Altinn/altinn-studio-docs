@@ -70,7 +70,7 @@ Dette kan gjøres via [API](https://docs.altinn.studio/nb/api/authentication/sys
 
 Hvilke tilgangspakker og/eller enkelttjenester som systemet må ha avhenger av den enkelte tjeneste og beskrevet i den enkelte tjenestes dokumentasjon.
 
-> Dagens roller i Altinn skal erstattes av tilgangspakker. For mer informasjon se [tilgangspakker](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/).
+> Dagens roller i Altinn skal erstattes av tilgangspakker. For mer informasjon se [tilgangspakker](/nb/authorization/what-do-you-get/accessgroups/).
 
 {{< /stepcard >}}
 {{< stepcard step="4" title="Be om tilgang til tjenesteeiers tjenester" >}}
