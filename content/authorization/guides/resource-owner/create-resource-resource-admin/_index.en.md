@@ -98,7 +98,8 @@ Define the action for the rule
 
 ### Subject
 
-Define the subject for the role. You can choose amongst ER roles, Altinn Roles, and Access Packages(todo)
+Define the subject for the role. You can choose amongst ER roles, Altinn Roles, and Access Packages
+Les mer om tilgangspakker og roller [her](/en/authorization/what-do-you-get/accessgroups/).
 
 ![Create Resource](create_resource_13.png)
 
