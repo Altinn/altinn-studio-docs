@@ -28,7 +28,7 @@ The system offers advanced access control, ensuring that only authorized users c
 - Ability to send correspondences in Markdown or clean text.
 - Support for [HTML numeric character references.](https://en.wikipedia.org/wiki/Numeric_character_reference)
 - Support for up to 100 attachments per correspondence.
-- Support for many file types: .doc, .xls, .docx, .xlsx, .ppt, .pps, .zip, .pdf, .html, .txt, .xml, .jpg, .gif, .bmp, .png and .json.
+- Support for many file types: .doc, .xls, .docx, .xlsx, .ppt, .pps, .zip, .pdf, .html, .txt, .xml, .jpg, .gif, .bmp, .png, .csv and .json.
 - Supports attachments up to 2 GB. 
 
 ### Advanced Support for Linking to Content and Attachments
@@ -39,6 +39,8 @@ The system offers advanced access control, ensuring that only authorized users c
   The solution has a limitation of a maximum of 100 attachments per correspondence.
 - It is also possible to link to content and attachments stored elsewhere,
   e.g., on-premises at the sender or in the sender's preferred cloud solution.
+- Support for setting an expiry date on attachments. When the expiry date is reached, the attachment is automatically marked as purged and the file is deleted from the correspondence system.
+- Support for setting access management on an attachment that differs from the access management of the message it is attached to.
 
 ### Archiving and Storage
 - All correspondences are stored in the user's inbox in Altinn.

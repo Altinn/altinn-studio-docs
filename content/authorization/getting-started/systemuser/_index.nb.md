@@ -66,11 +66,11 @@ Dersom sluttbrukersystemet skal gjøre klientdelegering via API
 {{< stepcard step="3" title="Registrere system i systemregisteret" >}}
 For å ta i bruk tjenester fra sluttbrukersystemet, må systemet registreres i Altinn sitt systemregister.
 
-Dette kan gjøres via [API](https://docs.altinn.studio/nb/api/authentication/systemuserapi/systemregister/create/). Systemet må knyttes til Maskinporten-klienten opprettet i steg 3.
+Dette kan gjøres via [API](https://docs.altinn.studio/nb/api/authentication/systemuserapi/systemregister/create/). Systemet må knyttes til Maskinporten-klienten opprettet i steg 1.
 
 Hvilke tilgangspakker og/eller enkelttjenester som systemet må ha avhenger av den enkelte tjeneste og beskrevet i den enkelte tjenestes dokumentasjon.
 
-> Dagens roller i Altinn skal erstattes av tilgangspakker. For mer informasjon se [tilgangspakker](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/).
+> Dagens roller i Altinn skal erstattes av tilgangspakker. For mer informasjon se [tilgangspakker](/nb/authorization/what-do-you-get/accessgroups/).
 
 {{< /stepcard >}}
 {{< stepcard step="4" title="Be om tilgang til tjenesteeiers tjenester" >}}
