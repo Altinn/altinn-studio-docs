@@ -21,7 +21,6 @@ før du følger denne veiledningen.
 - [Be om samtykke](request/)
 - [Hente samtykke-token](retrieve-token/)
 - [På vegne av andre](behalf-of/)
-- [Bruke samtykke](use-consent/)
 
 ## Ressurser
 

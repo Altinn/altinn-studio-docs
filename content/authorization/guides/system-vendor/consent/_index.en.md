@@ -19,7 +19,6 @@ Before you follow this guide, complete [Getting started with consent](/en/author
 - [Request consent](request/)
 - [Retrieve consent token](retrieve-token/)
 - [Consent on behalf of others](behalf-of/)
-- [Use consent](use-consent/)
 
 ## Resources
 
