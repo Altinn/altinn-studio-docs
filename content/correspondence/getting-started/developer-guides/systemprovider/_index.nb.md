@@ -9,7 +9,7 @@ weight: 20
 
 {{<children />}}
 
-Vi anbefaler systemleverandører å integrere seg mot Dialogportens APIer for å hente Altinn melding. Da vil man også få andre type brev (dialoger/transmissions) som ikke sendes med Altinn Melding APIer. Dette gjelder for eksempel brev fra Skatteetaten, Nav og andre avsendere. Skatteetaten har allerede tatt i bruk dialoger. (Disse brevene når man ikke dersom man integrerer seg kun mot Meldings APIer.)
+**Vi anbefaler systemleverandører å integrere seg mot Dialogportens APIer for å hente Altinn melding**. Da vil man også få andre type brev (dialoger/transmissions) som ikke sendes med Altinn Melding APIer. Dette gjelder for eksempel brev fra Skatteetaten, Nav og andre avsendere. Skatteetaten har allerede tatt i bruk dialoger. (Disse brevene når man ikke dersom man integrerer seg kun mot Meldings APIer.)
 
 
 {{% expandlarge id="onboarding-process" header="Onboarding prosess" %}}
