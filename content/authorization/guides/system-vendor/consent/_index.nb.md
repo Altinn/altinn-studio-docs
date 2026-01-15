@@ -13,7 +13,7 @@ Det er tjenesteeieren som fastsetter hvilke data som kan deles, hvor lenge samty
 
 ### Forutsetning
 
-Du må ha gjennomført stegene beskrevet i Kom i gang med samtykke for datakonsumenter
+Du må ha gjennomført stegene beskrevet i [Kom i gang med samtykke for datakonsumenter](/nb/authorization/getting-started/consent/)
 før du følger denne veiledningen.
 
 ## Innhold

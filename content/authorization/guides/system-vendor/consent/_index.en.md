@@ -10,6 +10,10 @@ toc: false
 
 This documentation describes how data consumers can request, retrieve, and manage consent using Altinn 3's consent solution. Consent gives data consumers access to specific data resources for individuals or organizations, as defined by the API provider.
 
+### Prerequisites
+
+Before you follow this guide, complete [Getting started with consent](/en/authorization/getting-started/consent/).
+
 ## Contents
 
 - [Request consent](request/)

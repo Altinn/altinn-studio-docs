@@ -5,7 +5,10 @@ weight: 20
 toc: false
 ---
 
-In Altinn 3, the consent token is retrieved as part of the Maskinporten token. You request it from Maskinporten using a JWT assertion (RFC 7523) and include the consent reference in `authorization_details`.
+In Altinn 3, the consent token is retrieved as part of the Maskinporten token.
+Find the required scopes in the API provider’s documentation or by contacting the API provider. The scope shown below is only an example (chosen because the Maskinporten client in the example is configured with this scope).
+
+You request it from Maskinporten using a JWT assertion (RFC 7523) and include the consent reference in `authorization_details`.
 
 ```jsonc
 {
@@ -49,7 +52,7 @@ Example of the contents of the returned token (decoded JWT payload):
               "value": "standard-samtykke-for-dele-data"
             }
           ],
-          "metadata": {
+          "metaData": {
             "inntektsaar": "2028"
           }
         }

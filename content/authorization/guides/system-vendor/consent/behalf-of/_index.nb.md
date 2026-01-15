@@ -73,7 +73,7 @@ Selve samtykkeforespørselen opprettes til Sparebank Super sitt orgnr, men kalle
 
 Du får tilbake en respons som blant annet inneholder `id` (samtykkeforespørselen) og ofte `viewUri` (lenke til UI for å godkjenne).
 
-## 2.2.4 Privatperson: godkjenner samtykkeforespørselen
+## 2.2.4 Privatperson godkjenner samtykkeforespørselen
 
 ![Godkjenning av samtykkeforespørsel i Altinn](../../images/behalfOfNB.png)
 

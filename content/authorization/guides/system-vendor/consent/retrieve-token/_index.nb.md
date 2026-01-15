@@ -5,7 +5,10 @@ weight: 20
 toc: false
 ---
 
-I Altinn 3 hentes samtykke-token som en del av Maskinporten-tokenet. Spesifiser følgende i JWT-en:
+I Altinn 3 hentes samtykke-token som en del av Maskinporten-tokenet.
+Finn nødvendige scopes i tjenesteeiers dokumentasjon eller ved å ta kontakt med tjenesteeier. Scopet under er kun et eksempel (valgt fordi Maskinporten-klienten i eksempelet er satt opp med dette scopet).
+
+Spesifiser følgende i JWT-en:
 
 ```json
 {
@@ -49,7 +52,7 @@ Eksempel på innholdet i tokenet du får tilbake (dekodet JWT payload):
               "value": "standard-samtykke-for-dele-data"
             }
           ],
-          "metadata": {
+          "metaData": {
             "inntektsaar": "2028"
           }
         }
