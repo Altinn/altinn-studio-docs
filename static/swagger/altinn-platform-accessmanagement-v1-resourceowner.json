@@ -223,6 +223,27 @@
             "schema": {
               "$ref": "#/components/schemas/AuthorizedPartiesIncludeFilter"
             }
+          },
+          {
+            "name": "orgCode",
+            "description": "Filter for only getting authorized parties relevant for resources owned by the specified service owner org code. Token authenticated service owner (consumer organization) must be owner of the org code. Currently optional, but will in the future be made mandatory for service owners authorized through scope: 'altinn:accessmanagement/authorizedparties.resourceowner'\n",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "digdir"
+            }
+          },
+          {
+            "name": "anyOfResourceIds",
+            "description": "Filter for only returning authorized parties where the subject has access to any of the provided resource ids. This includes indirect access to resource through authorized roles or accesspackages, as well as where access exist for only individual resource instances. Invalid resource ids are ignored.\n",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "example": ["app_org_appname", "someresourceid"]
+            }
           }
         ],
         "requestBody": {
