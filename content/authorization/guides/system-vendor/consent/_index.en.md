@@ -61,27 +61,15 @@ Altinn itself offers APIs for requesting consent and retrieving the status of co
       "resource": [
         {
           "type": "urn:altinn:resource",
-          "value": "samtykke-test-vegard"
-        }
-      ],
-      "metadata": {
-        "inntektsaar": "2023"
-      }
-    },
-    {
-      "action": ["consent"],
-      "resource": [
-        {
-          "type": "urn:altinn:resource",
           "value": "standard-samtykke-for-dele-data"
         }
       ],
-      "metadata": {
+      "metaData": {
         "inntektsaar": "2023"
       }
     }
   ],
-  "redirectUrl": "https://smartbankdemo.azurewebsites.net/private/loanapplication/consentresult?requestId=77ed8698-e619-4066-9eb4-5c1eb3f165a1\u0026environment=tt02"
+  "redirectUrl": "https://altinn.no"
 }
 ```
 
@@ -101,29 +89,17 @@ Altinn itself offers APIs for requesting consent and retrieving the status of co
       "resource": [
         {
           "type": "urn:altinn:resource",
-          "value": "samtykke-test-vegard"
-        }
-      ],
-      "metadata": {
-        "inntektsaar": "2023"
-      }
-    },
-    {
-      "action": ["consent"],
-      "resource": [
-        {
-          "type": "urn:altinn:resource",
           "value": "standard-samtykke-for-dele-data"
         }
       ],
-      "metadata": {
+      "metaData": {
         "inntektsaar": "2023"
       }
     }
   ],
   "requestMessage": null,
   "consented": null,
-  "redirectUrl": "https://smartbankdemo.azurewebsites.net/private/loanapplication/consentresult?requestId=77ed8698-e619-4066-9eb4-5c1eb3f165a1&environment=tt02",
+  "redirectUrl": "https://altinn.no",
   "consentRequestEvents": [
     {
       "consentEventID": "01981c2f-1de4-7b9f-a7c7-854f1dd4f115",
@@ -139,46 +115,123 @@ Altinn itself offers APIs for requesting consent and retrieving the status of co
 
 ## 2. Retrieve Consent Token
 
-In Altinn 3, the consent token is retrieved as part of the Maskinporten token. Specify the following in the JWT:
+In Altinn 3, the consent token is retrieved as part of the Maskinporten token. You request it from Maskinporten using a JWT assertion (RFC 7523) and include the consent reference in `authorization_details`.
 
-```jsonc
+```json
 {
-  "aud": "https://ver2.maskinporten.no/",
-  "scope": "<scope>",
-  "iss": "<client_id>",
-  "exp": 1584693183,
-  "iat": 1584693063,
-  "jti": "<jti>",
-  "type": "urn:altinn:consent",
-  "id": "<consent_request_id>",
-  "from": "urn:altinn:person:identifier-no:<pid>"
+  "aud": "https://test.maskinporten.no/",
+  "iss": "<MASKINPORTEN_CLIENT_ID>",
+  "scope": "altinn:consentrequests.read",
+  "iat": 1736938000,
+  "exp": 1736938120,
+  "jti": "<UNIQUE_JTI>",
+  "authorization_details": [
+    {
+      "type": "urn:altinn:consent",
+      "id": "<CONSENT_REQUEST_ID>",
+      "from": "urn:altinn:person:identifier-no:<PID>"
+    }
+  ]
 }
 ```
 
 ## 3. Consent on Behalf of Others
 
-To create consent requests on behalf of other organizations, the scope must be delegated:
+To create consent requests on behalf of another organization, you must distinguish between:
 
-1. The organization that will be the recipient delegates the necessary scope(s) in Altinn under API delegation.
-2. The request is created as described above.
-3. When retrieving the token, also specify `consumer_org`:
+- The data consumer (consumer): the organization that should be the recipient of the consent (e.g. Sparebank Super).
+- The organization that owns the Maskinporten client: the supplier/operations organization that makes the API calls (e.g. Sparebank Super - Drift).
+
+The examples below use fictional actors (TT02):
+
+- Sparebank Super org no (consumer): `313876144`
+- Sparebank Super - Drift org no (Maskinporten client is owned here): `310149942`
+- Person: `03867199348`
+
+### 3.1 Delegate the required scopes in Altinn (API delegation)
+
+Sparebank Super delegates the required scopes (minimum `altinn:consentrequests.write` and `altinn:consentrequests.read`) to Sparebank Super - Drift in Altinn under API delegation.
+
+![Scope delegation in Altinn](scopedelegation.jpg)
+
+### 3.2 Sparebank Super - Drift: get a Maskinporten token to create the consent request
+
+Sparebank Super - Drift requests a Maskinporten access token with scope `altinn:consentrequests.write`, but with `consumer_org` set to Sparebank Super’s organization number.
+
+#### JWT assertion claims (example)
 
 ```jsonc
 {
-  "aud": "https://ver2.maskinporten.no/",
-  "scope": "<scope>",
-  "iss": "<client_id>",
-  "exp": 1584693183,
-  "iat": 1584693063,
-  "jti": "<jti>",
-  "type": "urn:altinn:consent",
-  "id": "<consent_request_id>",
-  "from": "urn:altinn:person:identifier-no:<pid>",
-  "consumer_org": "<customer_orgnr>"
+  "aud": "https://test.maskinporten.no/",
+  "iss": "<MASKINPORTEN_CLIENT_ID_FOR_SPAREBANK_SUPER_DRIFT>",
+  "scope": "altinn:consentrequests.write",
+  "iat": 1736938000,
+  "exp": 1736938120,
+  "jti": "<UNIQUE_JTI>",
+  "consumer_org": "313876144" // Sparebank Super
 }
 ```
 
-![Scope delegation in Altinn](scopedelegation.jpg)
+### 3.3 Sparebank Super - Drift: create the consent request (from person, to Sparebank Super)
+
+The consent request is created to Sparebank Super’s org no, but the call is performed using Sparebank Super - Drift’s Maskinporten token (with `consumer_org=313876144`).
+
+#### Request payload (example)
+
+```jsonc
+{
+  "id": "a005e4e7-78b3-42b4-ce69-dc68cc5349eb",
+  "from": "urn:altinn:person:identifier-no:03867199348",
+  "to": "urn:altinn:organization:identifier-no:313876144", // The bank
+  "validTo": "2026-07-07T13:45:00.0000000+00:00",
+  "consentRights": [
+    {
+      "action": ["consent"],
+      "resource": [
+        {
+          "type": "urn:altinn:resource",
+          "value": "enkelt-samtykke"
+        }
+      ],
+      "metaData": {
+        "simpletag": "2026"
+      }
+    }
+  ],
+  "redirectUrl": "https://altinn.no"
+}
+```
+
+### 3.4 Person: approve the consent request
+
+![Approve the consent request in Altinn](../images/behalfOfEN.png)
+
+### 3.5 Sparebank Super - Drift: retrieve the consent token (Maskinporten token with consent in `authorization_details`)
+
+After approval, Sparebank Super - Drift requests a Maskinporten token with scope `altinn:consentrequests.read` and `authorization_details`. Remember to set `consumer_org` to Sparebank Super’s org no.
+
+#### JWT assertion claims (example)
+
+```jsonc
+{
+  "aud": "https://test.maskinporten.no/",
+  "iss": "<MASKINPORTEN_CLIENT_ID_FOR_SPAREBANK_SUPER_DRIFT>",
+  "scope": "altinn:consentrequests.read",
+  "iat": 1736938000,
+  "exp": 1736938120,
+  "jti": "<UNIQUE_JTI>",
+  "consumer_org": "313876144", // Sparebank Super
+  "authorization_details": [
+    {
+      "type": "urn:altinn:consent",
+      "id": "<CONSENT_REQUEST_ID>",
+      "from": "urn:altinn:person:identifier-no:03867199348"
+    }
+  ]
+}
+```
+
+The returned token from Maskinporten is used as the consent token towards the API provider (as described in “Use consent”).
 
 ## Resources
 
