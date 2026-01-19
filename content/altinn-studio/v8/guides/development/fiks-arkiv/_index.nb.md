@@ -668,11 +668,13 @@ Disse sammen med løsninger er listet opp nedenfor, til din disposisjon.
     Kontoen skal konfigureres med følgende egenskaper
 
     | Egenskap          | Verdi             |
-    |-------------------|-----------------|
+    |-------------------|-------------------|
     | Protokolltype     | no.ks.fiks.arkiv  |
     | Versjon           | v1                |
     | Protokollparter   | arkiv.full        |
 
+    Velg gjerne et navn på kontoen som gjenspeiler appen, da det er anbefalt at det settes opp én konto per Altinn app man skal integrere mot.
+    
 3. Vennligst se arkivsystemdokumentasjonen for krav til krypteringsnøkkelparet.
 
 4. Under kontoen, naviger til fanen _Søk etter systemer_ og slå opp systemet som ble opprettet for å sende meldinger.
