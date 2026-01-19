@@ -9,7 +9,7 @@ weight: 20
 
 {{<children />}}
 
-We recommend that system providers integrate with Dialogporten’s APIs to retrieve Altinn Correspondence. This way, they will also receive other types of letters (dialogs/transmissions) that are not sent via the Altinn Correspondence APIs. This applies, for example, to letters from the Norwegian Tax Administration (Skatteetaten), some letters from the Norwegian Labour and Welfare Administration (Nav), and other letters from senders/service owners. The Norwegian Tax Administration has already started sending dialogs. (These letters will not be received if you integrate only with the Correspondence APIs.)
+**We recommend that system providers integrate with Dialogporten’s APIs to retrieve Altinn Correspondence.** This way, they will also receive other types of letters (dialogs/transmissions) that are not sent via the Altinn Correspondence APIs. This applies, for example, to letters from the Norwegian Tax Administration (Skatteetaten), some letters from the Norwegian Labour and Welfare Administration (Nav), and other letters from senders/service owners. The Norwegian Tax Administration has already started sending dialogs. (These letters will not be received if you integrate only with the Correspondence APIs.)
 
 
 {{% expandlarge id="onboarding-process" header="Onboarding process" %}}

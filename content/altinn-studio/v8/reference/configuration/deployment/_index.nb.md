@@ -5,7 +5,7 @@ toc: true
 weight: 600
 ---
 
-#### Helm Chart
+### Helm Chart
 
 Altinn-applikasjoner publiseres til et Kubernetes-cluster og benytter seg av et såkalt 'deployment Helm chart'.
  Et Helm chart inneholder nødvendige ressurser for å kunne publisere en app, inkludert YAML konfigurasjonsfiler.
@@ -17,7 +17,7 @@ Disse verdiene kan endre seg etter hvert som vi får mer erfaring.
 Fra versjon [2.0.0](/nb/community/changelog/deployment/v2/) av 'deployment Helm chart' er autoskalering tilgjengelig og aktivert som standard.
 {{% /notice %}}
 
-#### Egendefinerte verdier
+### Egendefinerte verdier
 
 Egne innstillinger konfigureres i filen `App/deployment/valus.yaml` ved å legge til ønsket egenskap under seksjonen `deployment`.
  Disse innstillingene vil overskrive tilsvarende innstillinger i Helm chart (for unntak, se [her](#innstillinger-som-blir-overskrevet-ved-publisering)).
@@ -157,7 +157,7 @@ deplyoment:
 ...
 ``` 
 
-#### `deployment.resources.requests`
+### `deployment.resources.requests`
 
 `requests` fastsetter ressursene som vil bli reservert for hver pod i appen og brukes når Kubernetes-planleggeren bestemmer hvilken node poden skal kjøre på.
  Basert på disse innstillingene beregnes maksimalt antall pods som kan kjøre på en node.
@@ -177,7 +177,7 @@ Gitt et cluster med noder som hver har 2 cores (2000 millicores) og 4Gi minne og
 `requests` begrenser ikke hvor mye CPU eller minne en applikasjon kan bruke dersom mer er tilgjengelig.
  En pod kan imidlertid blir "kastet ut" av noden dersom det er lite tilgjengelige ressurser og poden bruker mer enn angitt i `requests`.
 
-#### `deployment.resources.limits`
+### `deployment.resources.limits`
 
 `limits` definerer hvor mye ressurser en pod kan maksimalt bruke.
 
