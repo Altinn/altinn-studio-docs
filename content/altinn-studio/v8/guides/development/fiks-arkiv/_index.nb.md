@@ -31,8 +31,7 @@ Kilde: [KS Digital](https://github.com/ks-no/fiks-arkiv-specification)
 
 ![fiks-arkitektur.svg](fiks-dataflyt.svg "Flytdiagram for Fiks Arkiv integrasjon for en Altinn app")
 
-## Konfigurasjon for sending av meldinger fra Altinn-app
-
+## Konfigurasjon for sending av meldinger fra Altinn App
 {.floating-bullet-numbers-sibling-ol}
 
 ### Steg 1: Opprett en Maskinporten-klient
@@ -55,8 +54,8 @@ En detaljert veiledning for hvordan du setter opp en Maskinporten-klient i Samar
 ### Steg 2: Opprett en Fiks Arkiv-konto
 
 {{% notice warning %}}
-For å sikre at kvittering for arkivmelding blir sendt til rett applikasjons, kan ikke flere apper dele på én konto.
-Det er derfor anbefalt at man i produksjon setter opp én konto per unike Altinn app.
+For å sikre at kvittering for arkivmelding blir sendt til rett applikasjon, kan ikke flere apper dele på én konto.
+Det er derfor anbefalt at man setter opp én konto per unike Altinn app.
 {{% /notice %}}
 
 - Generer et **x509-sertifikat for Fiks Arkiv-kryptering**.
@@ -198,8 +197,8 @@ For at applikasjonen skal kunne lese hemmelighetene fra Azure Key Vault, må den
    Se [hemmeligheter-seksjonen](/nb/altinn-studio/v8/reference/configuration/secrets/) for å oppnå dette.
 
 
-_Merk: Hemmelighetene leses av applikasjonen ved oppstart, så hvis du gjør endringer etter at applikasjonen er deployet, 
-må du re-deploye applikasjonen for at de skal tre i kraft._
+_Merk: Hemmelighetene leses av applikasjonen ved oppstart, så hvis du gjør endringer etter at applikasjonen er publisert, 
+må du publisere applikasjonen på nytt for at de skal tre i kraft._
 {{% /expandlarge %}}
 
 {{% expandlarge id="guide-fiks-io-settings" header="Oversikt over FiksIOSettings" %}}
@@ -257,7 +256,7 @@ App/appsettings.json
 
 #### Service-registrering 
 
-- **Seksjonsnavn:**: FiksArkivSettings
+- **Seksjonsnavn:** `FiksArkivSettings`
 - **Service-registrering:**
 
   
@@ -536,7 +535,7 @@ App/appsettings.json
 Hva applikasjonen skal gjøre når et sendingsforsøk lykkes.
 
 | Innstillingsnavn         | Formål                                                             | Type    |
-|--------------------------|--------------------------------------------------------------------|---------||
+|--------------------------|--------------------------------------------------------------------|---------|
 | **MoveToNextTask**       | Om applikasjonen automatisk skal gå videre til neste oppgave ved suksess. | bool    |
 | **Action**               | Handlingen som skal sendes ved videregang i prosess etter suksess. | string  |
 | **MarkInstanceComplete** | Om instansen skal markeres som fullført etter suksess.            | bool    |
@@ -566,9 +565,9 @@ App/appsettings.json
 
 
 #### Hvordan verdier oppgis
-{.floating-bullet-numbers-sibling-ol}
 
 Hver innstilling kan oppgis på en av to måter:
+{.floating-bullet-numbers-sibling-ol}
 
 1. **Statisk (hardkodet) verdi**
    
@@ -577,7 +576,6 @@ Hver innstilling kan oppgis på en av to måter:
      "Value": "Hallo"
    }
    ```
-
 2. **Dynamisk verdi via datamodell-binding**
   
    ```json
@@ -596,7 +594,7 @@ Bruk **`Value`** når du kjenner teksten på forhånd; bruk **`DataModelBinding`
 
 - **Manglende titler**: Hvis journalpost- eller saksmappetitler er tomme, sjekk at din `DataModelBinding` peker til eksisterende felt, eller oppgi en `Value`.
 - **Feil mottaker**: Bekreft at `FiksAccount` inneholder en gyldig GUID og samsvarer med den tiltenkte mottakeren.
-- **Vedleggsoppløsning**: Sørg for at hver vedleggs `DataType` er definert i applikasjonsmetadata.
+- **Vedleggsoppløsning**: Sørg for at hver vedleggs `DataType` er definert i applicationmetadata.
 
 {{% /expandlarge %}}
 
@@ -610,7 +608,7 @@ Bruk **`Value`** når du kjenner teksten på forhånd; bruk **`DataModelBinding`
 
 - Definer policy for applikasjonen
 
-Sørg for at hver oppgave i prosessflyten har autorisasjonsregler knyttet til seg som spesifiserer hvilke enheter som har lov til 
+  Sørg for at hver oppgave i prosessflyten har autorisasjonsregler knyttet til seg som spesifiserer hvilke enheter som har lov til 
 å fullføre hvilke handlinger gitt en bestemt tilstand. 
 
 ### Overstyre standardatferd
@@ -656,7 +654,7 @@ services
 ## Konfigurasjon for mottak av meldinger i arkivsystem
 
 Ettersom Digdir ikke tilbyr arkivsystemet eller Fiks Arkiv, har vi ikke omfattende dokumentasjon her, men anbefaler at 
-aplikasjonsutvikleren refererer til KS Digitals dokumentasjon sammen med dokumentasjonen fra 
+applikasjonsutvikleren refererer til KS Digitals dokumentasjon sammen med dokumentasjonen fra 
 arkivsystemleverandøren. 
 
 Imidlertid, ettersom flere applikasjonseiere tar i bruk integrasjonen har vi sett noen vanlige fallgruver.

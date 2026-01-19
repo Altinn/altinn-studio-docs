@@ -37,11 +37,11 @@ Source of image: [KS Digital](https://github.com/ks-no/fiks-arkiv-specification)
 
 - Set up a Maskinporten client with scopes: `ks:fiks`, `altinn:serviceowner/instances.read` and
 `altinn:serviceowner/instances.write`
-- Generate a **JWK keypair for Maskinporten authentication** and upload the public key to the newly generated Maskinporten client
+- Generate a **JWK key pair for Maskinporten authentication** and upload the public key to the newly generated Maskinporten client
 -  Keep the following configuration values for the Altinn App setup
-  - Client id for the generated Maskinporten client
-  - Public and private key of the **Maskinporten JWK keypair** (base64 encoded)
-_This maskinporten client will be used to authenticate requests from the Altinn App both towards Altinn Platform 
+   -  Client id for the generated Maskinporten client
+   -  Public and private key of the **Maskinporten JWK key pair** (base64 encoded)
+_This Maskinporten client will be used to authenticate requests from the Altinn App both towards Altinn Platform 
 and Fiks._
 
 A detailed guide on how to set up a Maskinporten client in Samarbeidsportalen is available below.
@@ -54,10 +54,10 @@ A detailed guide on how to set up a Maskinporten client in Samarbeidsportalen is
 
 {{% notice warning %}}
 To ensure that receipts for archive messages are sent to the correct application, multiple apps cannot share one account.
-It is therefore recommended to set up one account per unique Altinn app in production.
+It is therefore recommended to set up one account per unique Altinn app.
 {{% /notice %}}
 
-- Generate an **x509 certificate for Fiks Arkiv encryption**.
+- Generate a **x509 certificate for Fiks Arkiv encryption**.
  
   Format requirements:
   - Public part: .PEM file, to be uploaded in Fiks Forvaltning
@@ -88,7 +88,7 @@ It is therefore recommended to set up one account per unique Altinn app in produ
             <img src="fiks-account-id.png" alt="Screenshot illustrating where to find the account configuration values in Fiks Forvaltning" width="80%">
     - Private part of the **x509 certificate** as a base64 string
 
-{{% expandlarge id="guide-x509-cert" header="Guide on how to generate an x509 self-signed certificate" %}}
+{{% expandlarge id="guide-x509-cert" header="Guide on how to generate a x509 self-signed certificate" %}}
 {{% insert "content/shared/x509/cert-generation.en.md" %}}
 {{% /expandlarge %}}
 
@@ -255,7 +255,7 @@ App/appsettings.json
 
 #### Service registration 
 
-- **Section name:**: FiksArkivSettings
+- **Section name:** `FiksArkivSettings`
 - **Service registration:**
 
   
@@ -564,9 +564,9 @@ App/appsettings.json
 
 
 #### How Values Are Provided
-{.floating-bullet-numbers-sibling-ol}
 
 Each setting can be supplied in one of two ways:
+{.floating-bullet-numbers-sibling-ol}
 
 1. **Static (hard-coded) value**
    
@@ -594,7 +594,7 @@ Use **`Value`** when you know the text upfront; use **`DataModelBinding`** when 
 
 - **Missing titles**: If journal or case file titles are empty, check that your `DataModelBinding` points to existing fields, or provide a `Value`.
 - **Incorrect recipient**: Verify that `FiksAccount` contains a valid GUID and matches the intended recipient.
-- **Attachment resolution**: Ensure each attachment `DataType` is defined in application metadata.
+- **Attachment resolution**: Ensure each attachment `DataType` is defined in applicationmetadata.
 
 {{% /expandlarge %}}
 
@@ -606,16 +606,16 @@ Use **`Value`** when you know the text upfront; use **`DataModelBinding`** when 
 
   <img src="fiks-arkiv-process.png" alt="Illustration of recommended process flow" width="80%">
 
-- Define the policy for the application
-
-Ensure that each task in the process flow has authorization rules linked to them specifying which entities are allowed 
+- Define the policy for the application  
+  
+  Ensure that each task in the process flow has authorization rules linked to them specifying which entities are allowed 
 to complete which actions given a specific state. 
 
 ### Overriding standard behavior
 
 If the standard archive message and functionality does not cover what you need in your archive message, 
 it is possible to override the implementation of functionality for archive message generation and 
-processing the response from the the receiving Fiks account.
+processing the response from the receiving Fiks account.
 
 #### Override archive message generation
 

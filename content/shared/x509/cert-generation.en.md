@@ -18,7 +18,7 @@ __Prerequisites__
     ```
 
     __Explanation of Flags__
-    - **`req -x509`**: Generate an X.509 certificate.
+    - **`req -x509`**: Generate a X.509 certificate.
     - **`-newkey rsa:2048`**: Create a new RSA key with 2048-bit encryption.
     - **`-nodes`**: Do not encrypt the private key.
     - **`-keyout private.pem`**: Output private key to `private.pem`.
