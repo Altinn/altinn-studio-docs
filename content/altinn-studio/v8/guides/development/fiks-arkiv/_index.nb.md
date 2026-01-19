@@ -157,7 +157,7 @@ bør legges til som _ClientId_ og _JwkBase64_ i _MaskinportenSettings_-seksjonen
 | **ClientId**      | Klient-ID som er registrert hos Maskinporten. Typisk en uuid4-streng.  |
 | **JwkBase64**     | Privatnøkkelen som brukes til å autentisere med Maskinporten, i Base64-kodet JWK-format. |
 
-### Configuration Example
+### Konfigurasjonseksempel
 {.floating-bullet-numbers-sibling-ol}
 
 - **Seksjonsnavn:** `MaskinportenSettings`
