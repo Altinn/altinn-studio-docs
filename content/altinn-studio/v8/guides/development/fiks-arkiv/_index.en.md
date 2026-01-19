@@ -180,7 +180,7 @@ App/appsettings.json
 
 ```json
 "MaskinportenSettings": {
-    "Authority": "https://test.maskinporten.no/",
+    "Authority": "https://[test.]maskinporten.no/",
     "ClientId": "retrieved from secrets",
     "JwkBase64": "retrieved from secrets"
 }
