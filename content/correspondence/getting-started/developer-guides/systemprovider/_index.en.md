@@ -34,6 +34,16 @@ Please include all necessary scopes in your request. For example, beyond `altinn
 You can find the complete list of available scopes here: [Complete list of scopes](https://docs.altinn.studio/api/authentication/digdirscopes/)
 {{% /expandlarge %}}
 
+{{% expandlarge id="test-end-user-system" header="Test end-user system" %}}
+
+Only service owners have access to send correspondences using the Correspondence API.
+To test the end-user system, you can send a request to [servicedesk@altinn.no](mailto:servicedesk@altinn.no) and ask if they can send correspondences to a specific recipient in our test environment. 
+In the request you should specify which recipient the servicedesk should send test correspondences to, how many correspondences and any requirements for the message content.
+
+Correspondences sent to the test environment can be seen from [af.tt02.altinn.no](https://af.tt02.altinn.no/). 
+
+Test recipients can be retrieved from [Tenor test data](https://www.skatteetaten.no/en/testdata/).
+{{% /expandlarge %}}
 
 ### Contact:
 

@@ -31,6 +31,17 @@ For å kunne autentisere og sikre at du kan utføre operasjoner via meldings-API
 - For å få tilgang til scopes, send en forespørsel til: [servicedesk@altinn.no](mailto:servicedesk@altinn.no). Forespørselen må inneholde de scopes du trenger for ditt system.
 {{% /expandlarge %}}
 
+{{% expandlarge id="test-end-user-system" header="Test sluttbrukersystem" %}}
+
+Bare tjenesteeiere har tilgang til å sende meldinger med Correspondence API-et.
+For å teste sluttbrukersystemet kan du sende en forespørsel til [servicedesk@altinn.no](mailto:servicedesk@altinn.no) og spørre om de kan sende meldinger til en bestemt mottaker i testmiljøet.
+I forespørselen bør du oppgi hvilken mottaker servicedesk skal sende testmeldinger til, hvor mange testmeldinger og eventuelle føringer til meldingsinnholdet.
+
+Meldinger sendt til testmiljøet kan leses på [af.tt02.altinn.no](https://af.tt02.altinn.no/).
+
+Testmottakere kan hentes hos [Tenor testdata](https://www.skatteetaten.no/testdata/).
+{{% /expandlarge %}}
+
 ### Kontakt oss:
 
 Du når oss på vår Slack kanal Digdir samarbeid: [produkt-dialogporten](https://digdir-samarbeid.slack.com/archives/C069J6N7S00)
