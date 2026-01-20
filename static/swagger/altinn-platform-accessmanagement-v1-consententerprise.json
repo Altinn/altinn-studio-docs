@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.4",
+  "openapi": "3.0.1",
   "info": {
     "title": "Altinn.AccessManagement.Api.Enterprise | v1",
     "version": "1.0.0"
