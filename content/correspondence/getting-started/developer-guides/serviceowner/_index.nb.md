@@ -130,7 +130,7 @@ Før produksjonssetting bør du verifisere at meldinger vises riktig for mottake
 
 1. Send en testmelding til en testmottaker via ønsket verktøy (Bruno, SDK eller din integrasjon).
 2. Verifiser i Arbeidsflate:
-   - Logg inn som testmottaker på [af.tt.altinn.no](https://af.tt.altinn.no/).
+   - Logg inn som testmottaker på [af.tt02.altinn.no](https://af.tt02.altinn.no/).
    - Sjekk at innholdet i testmeldingen er formatert som tiltenkt.
 3. Verifiser i Altinn 2-innboks:
    - Logg inn som testmottaker på [info.tt02.altinn.no](https://info.tt02.altinn.no/).

@@ -130,7 +130,7 @@ Before going live, verify that correspondences render as intended for recipients
 
 1. Send a test correspondence to a test recipient using your preferred tool (Bruno, SDK, or your integration).
 2. Verify in Arbeidsflate:
-   - Log in with the test recipient in [af.tt.altinn.no](https://af.tt.altinn.no/).
+   - Log in with the test recipient in [af.tt02.altinn.no](https://af.tt02.altinn.no/).
    - Check that the test correspondence content is formatted as intended.
 3. Verify in Altinn 2 inbox:
    - Log in with the test recipient in [info.tt02.altinn.no](https://info.tt02.altinn.no/).
