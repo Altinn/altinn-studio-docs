@@ -33,13 +33,13 @@ For å kunne autentisere og sikre at du kan utføre operasjoner via meldings-API
 
 {{% expandlarge id="test-end-user-system" header="Test sluttbrukersystem" %}}
 
-Bare tjenesteeiere har tilgang til å sende meldinger med correspondence api-et.
-For å teste sluttbrukersystemet kan du sende en forespørsel til [servicedesk@altinn.no](mailto:servicedesk@altinn.no) og spørre om de kan sende meldinger til en bestemt mottaker i test miljøet.
-I forespørselen bør du oppgi hvilken mottaker servicedesk skal sende test-meldinger til, hvor mange test-meldinger og eventuelle føringer til meldings-innholdet.
+Bare tjenesteeiere har tilgang til å sende meldinger med Correspondence API-et.
+For å teste sluttbrukersystemet kan du sende en forespørsel til [servicedesk@altinn.no](mailto:servicedesk@altinn.no) og spørre om de kan sende meldinger til en bestemt mottaker i testmiljøet.
+I forespørselen bør du oppgi hvilken mottaker servicedesk skal sende testmeldinger til, hvor mange testmeldinger og eventuelle føringer til meldingsinnholdet.
 
-Meldinger sendt til test miljøet kan leses på [af.tt02.altinn.no](https://af.tt02.altinn.no/).
+Meldinger sendt til testmiljøet kan leses på [af.tt02.altinn.no](https://af.tt02.altinn.no/).
 
-Test mottakere kan hentes hos [Tenor testdata](https://www.skatteetaten.no/testdata/).
+Testmottakere kan hentes hos [Tenor testdata](https://www.skatteetaten.no/testdata/).
 {{% /expandlarge %}}
 
 ### Kontakt oss:
