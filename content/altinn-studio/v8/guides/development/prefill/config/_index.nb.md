@@ -42,7 +42,8 @@ Trenger du data fra andre kilder? Gå til [forhåndsutfylling med egendefinert k
       "allowOverwrite": true,
       "ER": {},
       "DSF": {},
-      "UserProfile": {}
+      "UserProfile": {},
+      "DAN":{}
    }
    ```
 
@@ -52,6 +53,7 @@ Trenger du data fra andre kilder? Gå til [forhåndsutfylling med egendefinert k
    - `ER` - Enhetsregisteret
    - `DSF` - Folkeregisteret
    - `UserProfile` - Brukerens Altinn-profil
+   - `DAN` - Datasett fra data.altinn.no
 
    Du velger hvilke av kildene du ønsker å bruke. Om en (eller flere) av kildene ikke skal brukes, lar du de stå tomme.
 
@@ -101,3 +103,40 @@ Dette fyller ut feltet `Bruker.Epost` med e-post hentet fra brukerens Altinn-pro
   "Email": "Bruker.Epost"
 }
 ```
+
+### Eksempel: Hente ut datasett fra data.altinn.no
+
+Dette fyller ut feltet `Organization.OrgNo` med organisasjonsnummer fra UnitBasicInformation datasettet fra dan.
+
+````json
+"DAN": {
+    "datasets": [
+      {
+        "name": "UnitBasicInformation",
+        "mappings": [
+          { "OrganizationNumber": "Organization.OrgNo" },
+        ]
+      }
+    ]
+  }
+````
+Dan kan bruke flere datasett samtidig. Hvis du vil bruke flere datasett, kan du gjøre dette slik.
+
+````json
+"DAN": {
+    "datasets": [
+      {
+        "name": "UnitBasicInformation",
+        "mappings": [
+          { "OrganizationNumber": "Organization.OrgNo" }
+        ]
+      },
+      {"name": "nameOfAnotherDataset",
+         "mappings":[
+            {"SSN": "Person.PersonNr"},
+            {"Email": "User.Email"}
+         ]
+      }
+    ]
+  }
+````
