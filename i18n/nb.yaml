@@ -48,7 +48,7 @@
 - id: product_dialogporten
   translation: Dialogporten
 - id: product_events
-  translation: Hendelser
+  translation: Events
 - id: product_notifications
   translation: Varsling
 
@@ -165,6 +165,14 @@
   translation: Samarbeid, del og lær av andre etater. Alt vi gjør er åpen kildekode på GitHub, og vi setter stor pris på dine tilbakemeldinger og bidrag!
 - id: caseblock-link
   translation: Community
+
+# Product version switcher
+- id: version
+  translation: Versjon
+- id: select-version
+  translation: Velg versjon
+- id: nav-instructions
+  translation: Bruk piltastene for å navigere mellom versjoner og Enter for å velge
 
 # Help
 - id: what-can-we-help-you-with

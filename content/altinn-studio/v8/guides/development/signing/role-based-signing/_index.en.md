@@ -8,11 +8,11 @@ aliases:
   - /altinn-studio/guides/signing/role-based-signing
 ---
 
-{{% insert "content/altinn-studio/guides/development/restricted-data/shared/style.css.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/restricted-data/shared/style.css.md" %}}
 
 ## What is role and access package based signing?
 
-{{% insert "content/altinn-studio/guides/development/signing/role-based-signing/intro.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/role-based-signing/intro.en.md" %}}
 
 ## Prerequisites
 
@@ -31,11 +31,11 @@ See how to get started in [this guide](/en/correspondence/getting-started/).
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Manual setup">}}
-{{% insert "content/altinn-studio/guides/development/signing/role-based-signing/backend-manual/add-process-task.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/role-based-signing/backend-manual/add-process-task.en.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/signing/role-based-signing/studio/add-process-task.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/role-based-signing/studio/add-process-task.en.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}
@@ -45,11 +45,11 @@ See how to get started in [this guide](/en/correspondence/getting-started/).
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Manual setup">}}
-{{% insert "content/altinn-studio/guides/development/signing/role-based-signing/backend-manual/configure-layouts.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/role-based-signing/backend-manual/configure-layouts.nb.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/signing/role-based-signing/studio/configure-layouts.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/role-based-signing/studio/configure-layouts.nb.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}

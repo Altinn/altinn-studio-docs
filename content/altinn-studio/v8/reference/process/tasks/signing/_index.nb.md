@@ -9,7 +9,7 @@ toc: true
 ⚠️ Signing task krever versjon 8.0.0 eller nyere av app-libs
 {{% /panel %}}
 
-{{% insert "content/altinn-studio/guides/development/signing/auth-requirements.nb.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/auth-requirements.nb.md" %}}
 
 Oppsett av en signeringoppgave i prosessfilen krever litt mer arbeid enn en vanlig data-, bekreftelses- eller tilbakemeldingsoppgave.
 

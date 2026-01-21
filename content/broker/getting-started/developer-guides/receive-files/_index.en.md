@@ -40,7 +40,7 @@ When searching for files you have not downloaded as a recipient specify the foll
 
 **Example:**
 
-'Broker\search' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
+'File Transfer\Search' in our [Bruno collection](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru).
 
 **Events triggered:** None.
 
@@ -55,7 +55,7 @@ You can use either the FileTransferId from the [published](#event-published) eve
 
 **Events triggered:** none.
 
-**Example:** 'Broker\{fileTransferId}\overview' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
+**Example:** 'File Transfer\{fileTransferId}\Overview' in our [Bruno collection](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru).
 
 ## Operation: DownloadFile {#operation-downloadfile}
 
@@ -69,7 +69,7 @@ Download the file data as a stream using the FileTransferId received from overvi
 
 **Events triggered**: none
 
-**Example:** 'Broker\{fileTransferId}\download' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
+**Example:** 'File Transfer\{fileTransferId}\Download' in our [Bruno collection](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru).
 
 ## Operation: ConfirmDownloaded {#operation-confirmdownloaded}
 
@@ -88,7 +88,7 @@ Upload the file data as a stream using the FileTransferId received in Initialize
 
 - [downloadconfirmed](#event-downloadconfirmed).
 
-**Example:** 'Broker\{fileTransferId}\confirm download' in our [PostMan collection](https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-postman-collection.json).
+**Example:** 'File Transfer\{fileTransferId}\Confirm download' in our [Bruno collection](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru).
 
 ## Event: no.altinn.broker.published {#event-published}
 

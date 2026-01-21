@@ -1,59 +1,52 @@
 ---
 title: System Interfaces
 linktitle: System Interfaces
-description: Altinn 3 Broker System Interfaces 
+description: Altinn 3 Broker System Interfaces
 tags: []
 toc: true
 weight: 20
 ---
 
-
-
-
 ## Overview of Altinn 3 Broker external interfaces
+
 The following figure indicates the main system interfaces of Altinn 3 Broker:
 
 ![Altinn 3 Broker Standalone Interfaces Overview](altinn3-broker-standalone-interfaces-overview.en.png "Altinn 3 Broker Standalone Interfaces Overview")
-
 
 <!--
 *TIP: The details of the interfaces are not shown by the image as
 such, however the image hyperlinks to a clickable web version with further details.*
 -->
 
-__Interfaces for design time configuration of services and options:__
+**Interfaces for design time configuration of services and options:**
 
 <!-- Erik, lenke til API/Swagger-spec. også for API for configuration of Altinn Broker -->
 
-* API for configuration of Altinn Broker
-* API for configuration of Maskinporten (authentication and course-grained authorization)
-* API for configuration of Altinn Authorization (fine-grained authorization)
-* API for setup of event subscriptions via Altinn Events
-* GUI for configuration of Altinn Broker
-* GUI for configuration of  Maskinporten
-* GUI for configuration of Altinn Authorization
+- API for configuration of Altinn Broker
+- API for configuration of Maskinporten (authentication and course-grained authorization)
+- API for configuration of Altinn Authorization (fine-grained authorization)
+- API for setup of event subscriptions via Altinn Events
+- GUI for configuration of Altinn Broker
+- GUI for configuration of Maskinporten
+- GUI for configuration of Altinn Authorization
 
-<!--  
+<!--
 * Erik [13:39] Fatland, Ragnar Inge
-https://docs.altinn.studio/authorization/what-do-you-get/resourceregistry/studio/
+https://docs.altinn.studio/authorization/what-do-you-get/resourceadministration/studio/
 Ressurs Admin Altinn Studio – Altinn
 Ressursregisteret tilbyr API for alle typer håndtering av ressurser. I tilegg kan man  som del av Altinn studio kan administrere ressursene.
 -->
 
-_Note: Altinn 3 Broker does not currently provide a GUI for file transfer operations, 
+_Note: Altinn 3 Broker does not currently provide a GUI for file transfer operations,
 but relies om End User System GUIs._
 
-__Interfaces for runtime operation:__
+**Interfaces for runtime operation:**
 
-* API for individual file transfers, including upload, download and status monitoring
+- API for individual file transfers, including upload, download and status monitoring
 
-__Interfaces for historical data and statistics:__
+**Interfaces for historical data and statistics:**
 
-* API for historical data and statistics
-
-
-
-
+- API for historical data and statistics
 
 <!--
 
@@ -75,7 +68,6 @@ Altinn 3 Broker does not currently provide a GUI for file transfer operations, b
 
 -->
 
-
 ## API operations {#altinn-3-broker-application-services}
 
 An overview of the application services of Altinn 3 Broker is given in the following figure:
@@ -84,28 +76,25 @@ An overview of the application services of Altinn 3 Broker is given in the follo
 
 Each of these application services correspond to a _path_ in the [Altinn 3 Broker OpenAPI specification][Altinn 3 Broker OpenAPI specifications].
 
-
 ## Event notifications (machine-to-machine)
 
-Notifications about new messages and other events are delivered to webhook subscribers. 
-The specific events are specified as part of the [Altinn 3 Broker OpenAPI specification][Altinn 3 Broker OpenAPI specifications]. 
+Notifications about new messages and other events are delivered to webhook subscribers.
+The specific events are specified as part of the [Altinn 3 Broker OpenAPI specification][Altinn 3 Broker OpenAPI specifications].
 
 Summary:
 
-* filetransferinitialized: Information about a new file transfer
-* filedeleted: The file has been deleted from Broker
-* fileneverconfirmeddownloaded: File was never confirmed downloaded by a recipient
-* uploadprocessing: File has been uploaded and is being processed
-* published: File has finished processing and is ready for download
-* uploadfailed: An upload failed either during upload or processing
-* downloadconfirmed: A recipient confirmed their download
-* allconfirmeddownloaded: All recipients have confirmed the download
-* 
-Also see:
+- filetransferinitialized: Information about a new file transfer
+- filedeleted: The file has been deleted from Broker
+- fileneverconfirmeddownloaded: File was never confirmed downloaded by a recipient
+- uploadprocessing: File has been uploaded and is being processed
+- published: File has finished processing and is ready for download
+- uploadfailed: An upload failed either during upload or processing
+- downloadconfirmed: A recipient confirmed their download
+- allconfirmeddownloaded: All recipients have confirmed the download
+- Also see:
 
-* [Description of the Events capabilities in Altinn 3](https://docs.altinn.studio/events/)
-* [How-to guide on setting up a subscription for events](https://docs.altinn.studio/events/subscribe-to-events/developer-guides/setup-subscription/)
-
+- [Description of the Events capabilities in Altinn 3](https://docs.altinn.studio/events/)
+- [How-to guide on setting up a subscription for events](https://docs.altinn.studio/en/events/subscribe-to-events/developer-guides/setup-subscription/)
 
 <!--
 Webhooks are a way for an app or a service to provide real-time information to other apps or services. They are used to trigger automatic reactions or notifications when specific events occur. Essentially, a webhook sends an HTTP POST request to a specified URL in response to an event — for example, when a new record is added to a database, or a user completes a purchase.
@@ -127,20 +116,19 @@ Considerations:
 * Infrastructure: The server that receives the webhook must be set up to handle potentially high volumes of incoming HTTP requests and process them efficiently.
 -->
 
-
 ## End user notifications (email, SMS)
+
 Notifications to end users about new messages, files, and other events are sent via the Altinn Notification Service.
 
 Also see:
 
-* [Description of notification capabilities in Altinn 3](https://docs.altinn.studio/notifications/)
-
+- [Description of notification capabilities in Altinn 3](https://docs.altinn.studio/notifications/)
 
 ## Scenario descriptions
 
 ### End-to-end typical sequence
 
-The follow sequence diagram shows the typical "happy path" message sequence:  
+The follow sequence diagram shows the typical "happy path" message sequence:
 
 ![Altinn 3 Broker File Transfer Sequence Diagram](altinn3-broker-file-transfer-sequence-diagram.en.png "Altinn 3 Broker File Transfer Sequence Diagram")
 
@@ -152,7 +140,7 @@ Issue: How to link to the specific OpenAPI specification of this particular API 
 For a summary of each message in the sequence diagram; see [Altinn 3 application services (paths)](#altinn-3-broker-application-services).
 
 Note that, in the sequence diagram, only some of the message parameters are indicated.
-Refer to the [Altinn 3 Broker OpenAPI specification][Altinn 3 Broker OpenAPI specifications] 
+Refer to the [Altinn 3 Broker OpenAPI specification][Altinn 3 Broker OpenAPI specifications]
 for the complete documentation of parameters.
 
 <!--
@@ -171,10 +159,10 @@ authorization not shown here.</span>
 6. FileList (fileIds):
 7. DownloadRequest (fileId):
 8. DownloadConfirmation:
-9.  TransferCompleted (fileId): 
+9.  TransferCompleted (fileId):
 10. GetFileStatus (fileId):
 11. FileStatusOverview (fileId):
-12. GetFileStatusDetailed: 
+12. GetFileStatusDetailed:
 13. FileStatusDetails (fileId):
 -->
 
@@ -196,8 +184,8 @@ The following ... TBD ..
 
 -->
 
-
 <!-- References within this document: -->
-[Altinn 3 Broker OpenAPI specifications]: https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-v1.json
+
+[Altinn 3 Broker OpenAPI specifications]: https://docs.altinn.studio/en/api/broker/spec/
 
 <!-- Erik, lenk til Swagger-spec. : -->

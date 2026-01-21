@@ -48,6 +48,7 @@ Example.:
 - Check if there is any [breaking changes](/en/community/changelog/app-nuget/) with the new version,
   make necessary changes if there are any issues.
 - Build and deploy a new version of your app.
+- (If you upgrade past 8.6.0, you will get an error that is fixed by removing the line <PackageReference Include="Swashbuckle.AspNetCore")
 {{</content-version-container>}}
 
 {{<content-version-container version-label="v6.1.0 and older">}}

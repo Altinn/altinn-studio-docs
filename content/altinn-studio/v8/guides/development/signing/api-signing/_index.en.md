@@ -10,7 +10,7 @@ aliases:
 
 ## What do we mean by API-based signing?
 
-{{% insert "content/altinn-studio/guides/development/signing/api-signing/intro.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/api-signing/intro.en.md" %}}
 
 ## Prerequisites
 

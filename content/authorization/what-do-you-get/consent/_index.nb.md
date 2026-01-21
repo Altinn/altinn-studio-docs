@@ -1,158 +1,108 @@
 ---
-title: Consent
-description: Altinn consent is renewed as part of the upgrade to Altinn 3
-tags: [platform, register]
+title: Samtykke
+description: Samtykkefunksjonaliteten i Altinn er en teknisk løsning for deling av data fra tjenesteeier til datakonsument ved bruk av samtykke fra personen eller virksomheten som opplysningene gjelder
+weight: 7
 ---
 
-# Consent in Altinn 3
+![Samtykke](samtykke_overordnet.png)
 
-Altinn 3 continues and improves the consent solution from Altinn 2. This documentation provides an overview of the most important changes, how the consent process works, and what is required from both data consumers and API providers.
+Avhengig av samtykkets formål og innhold, kan dette gi tjenesteeier både nødvendig rettslig grunnlag/behandlingsgrunnlag for deling av data i henhold til personopplysningsloven/GDPR, og samtykke til eksempelvis oppheving av taushetsplikt.
 
-## What's new in Altinn 3?
+## Hva får du med Samtykke?
 
-- **Simplified token handling:** Only one Maskinporten token is used, containing all necessary information about the consent.
-- **New token format:** API providers must update their validation code to interpret the new format.
-- **Improved user experience:** End users encounter an upgraded and more user-friendly interface.
-- **Support for vendors:** Possibility to use third-party vendors to handle the consent process.
+- Helhetlig samtykkeprosess hvor Altinn håndterer dialogen mellom sluttbruker, datakonsument og tjenesteeier.
+- Ett samtykketoken fra Maskinporten som samler all informasjon du trenger for å validere og loggføre delegeringen.
+- Bedre sluttbrukeropplevelse med oppgradert samtykkeskjerm og tydeligere informasjonsflyt.
+- Fleksibel støtte for tredjepartsleverandører som kan administrere samtykke på vegne av datakonsument.
+- Innebygd styring av tilgangslister, varighet og tilbakekall slik at brukere og tjenesteeiere beholder kontrollen over delte data.
 
-## How the consent process works
+## Hva er nytt i Samtykke?
 
-### 1. Token from Maskinporten
+Dagens samtykkeprosess i Altinn 2 fungerer i utgangspunktet veldig bra, og vi har derfor tilstrebet å endre den minst mulig for å gjøre overgangen til Altinn 3 så enkel som mulig. For å gjøre prosessen enda mer smidig for alle parter har vi likevel gjort noen forbedringer.
 
-In Altinn 3, only one Maskinporten token is issued per consent. This token identifies the data consumer and contains all details about the consent, simplifying validation and integration.
+- **Forenklet token-håndtering:** Kun ett Maskinporten-token benyttes, som inneholder all nødvendig informasjon om samtykket. Dette gjøre det enklere for Datakonsument som kun trenger etterspørre ett token, samt for tjenesteier som mottar både autentisering- og autorisasjonsinsinformasjon i samme token.
+- **Nytt token-format:** API-tilbydere må oppdatere valideringskoden for å tolke det nye formatet. Nytt format er beskrevet under Guider for både [Tjenesteeier](/nb/authorization/guides/resource-owner/consent/) og [Datakonsument](/nb/authorization/guides/system-vendor/consent/)
+- **Bedre brukeropplevelse:** Sluttbrukere møter et oppgradert og mer brukervennlig grensesnitt.
+- **Støtte for leverandører:** Mulighet for å bruke tredjepartsleverandører til å håndtere samtykkeprosessen.
 
-**Example of the new token format:**
+## Slik fungerer samtykkeprosessen
 
-```json
-{
-    "authorization_details": [
-        {
-            "type": "urn:altinn:concent",
-            "id": "b55b0a8c-46db-4239-a417-a89daabfabba",
-            "from": "urn:altinn:person:identifier-no:01039012345",
-            "to": "urn:altinn:organization:identifier-no:984851006",
-            "concented": "2024-06-01T00:00:00Z",
-            "validTo": "2024-12-10T00:00:00Z",
-            "concentrights": [
-                {
-                    "action": ["read", "write"],
-                    "resource": [
-                        {
-                            "id": "urn:altinn:resource",
-                            "value": "skd_inntektsapi"
-                        }
-                    ],
-                    "metadata": {
-                        "fraOgMed": "2017-06",
-                        "tilOgMed": "2017-08"
-                    }
-                },
-                {
-                    "action": ["read", "write"],
-                    "resource": [
-                        {
-                            "id": "urn:altinn:resource",
-                            "value": "skd_skattegrunnlag"
-                        }
-                    ],
-                    "metadata": {
-                        "inntektsaar": "2016"
-                    }
-                }
-            ]
-        }
-    ],
-    "scope": "scope:global/kontaktinformasjon.read",
-    "iss": "https://test.maskinporten.no/",
-    "client_amr": "private_key_jwt",
-    "token_type": "Bearer",
-    "exp": 1718175135,
-    "iat": 1718175015,
-    "client_id": "fc9a8287-e7cb-45e5-b90e-123048d32d85",
-    "jti": "-SpfU--1Zn_Oqvkpjwu3oVn--VLcPzSAwjqyiP6zBEw",
-    "consumer": {
-        "authority": "iso6523-actorid-upis",
-        "ID": "0192:984851006"
-    }
-}
-```
+### Aktører
 
-### 2. For API providers
+**Sluttbruker** Privatperson eller virksomhet som skal gi samtykke.  
+**Datakonsument** Organisasjon (f.eks. bank) som ønsker tilgang til data.  
+**Tjenesteeier** (Datakilde) Offentlig virksomhet som eier dataene.  
+**Altinn Autorisasjon** Altinns system for samtykke, delegering og autorisasjon.  
+**Maskinporten** Felles infrastruktur for autentisering og tokens (OAuth2).
 
-API providers must define their APIs as resources in the Altinn Resource Registry via Altinn Studio. This makes it possible to link consent to specific APIs.
+![Samtykke flyt](samtykke_flyt.png)
 
-- See the [Altinn Studio documentation](https://docs.altinn.studio/) for guidance on resource management.
+### Prosessflyt
 
-### 3. For data consumers
+1. Sluttbruker starter en tjeneste der datakonsument må hente data fra offentlig tjeneste → initierer samtykkeflyten.
+2. Datakonsument sender samtykkeforespørsel til Altinn.
+3. Altinn returnerer en redirect_url → brukeren sendes dit for å godkjenne.
+4. Brukeren autentiserer seg og gir samtykke (delegering).
+5. Datakonsument henter samtykketoken (consent_id).
+6. Datakonsument bruker tokenet til å hente data fra tjenesteeier (datakilde).
 
-Data consumers initiate the process by creating a consent request. This contains information about who is being asked for consent, the duration, and which data access is requested.
+{{< expandsmall header="Detaljert beskrevet prosessflyt" id="prosessflyt">}}
 
-**Requirements for creating a consent request:**
+| Steg                     | Beskrivelse                                                                       | Teknisk handling                                                                  | Kommentar                                       |
+| ------------------------ | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ----------------------------------------------- |
+| 1. Starter tjenesten     | Sluttbruker starter samtykkeprosessen via datakonsument (f.eks. bankens nettside) | Bruker klikker "Innhent samtykke"                                                 | Datakonsument initierer flyten                  |
+| 2. Oppretter forespørsel | Datakonsument oppretter en samtykkeforespørsel i Altinn                           | POST /api/consentRequests med parametre (CoveredBy, OfferedBy, RedirectUrl, osv.) | Krever virksomhetsautentisering (Maskinporten)  |
+| 3. Redirect til Altinn   | Datakonsument sender sluttbrukeren til Altinns samtykkeskjema                     | Redirect til GUI-lenke som inneholder consentRequestId                            | Brukeren ser og godkjenner forespørselen        |
+| 4. Utfører delegering    | Brukeren godkjenner samtykke i Altinn                                             | Altinn registrerer delegering og oppdaterer samtykkestatus                        | Brukeren logger inn via ID-porten               |
+| 5. Hent samtykketoken    | Datakonsument henter et samtykketoken etter godkjenning                           | GET /api/consentTokens/{consent_id}                                               | Token bekrefter at samtykke er gitt             |
+| 6. Hent data             | Datakonsument bruker samtykketoken til å hente data fra tjenesteeier              | API-kall mot tjenesteeier med token i header                                      | Tjenesteeier validerer token og returnerer data |
 
-1. The organization must have been assigned the scope `altinn:consentrequests.write`.
-2. The organization must have created a client and granted this scope.
-3. The organization must have access to the relevant API.
+{{< /expandsmall >}}
 
-**Example of a consent request:**
+## Tekniske krav
 
-```json
-{
-    "id": "01972f77-c6ec-7b16-85b9-df016b6f90a7",
-    "from": "urn:altinn:person:identifier-no:01025161013",
-    "requiredDelegator": null,
-    "to": "urn:altinn:organization:identifier-no:810419512",
-    "validTo": "2025-06-03T07:07:48.3377702+00:00",
-    "consentRights": [
-        {
-            "action": ["read"],
-            "resource": [
-                {
-                    "type": "urn:altinn:resource",
-                    "value": "ttd_inntektsopplysninger"
-                }
-            ],
-            "metaData": {
-                "INNTEKTSAAR": "ADSF"
-            }
-        }
-    ],
-    "requestmessage": {
-        "en": "Please approve this consent request"
-    },
-    "redirectUrl": "https://www.dnb.no"
-}
-```
+### Virksomhetsautentisering:
 
-| Parameter        | Description                                                                 |
-|------------------|-----------------------------------------------------------------------------|
-| `id`             | Required: Unique generated UUID                                             |
-| `from`           | Required: Party from whom consent is requested (person or organization)     |
-| `to`             | Required: Recipient of the consent request                                  |
-| `validTo`        | Required: Date/time the consent is valid until                              |
-| `consentRights`  | Required: Rights and resources for which access is requested                |
-| `requestmessage` | Optional: Message to the user. Depends on the service.                     |
-| `redirectUrl`    | Optional: URL for redirect after consent. Must be provided if user is redirected. |
+Datakonsumenter må autentisere seg via Maskinporten med gyldige scopes.
+For å benytte samtykke trenger datakonsument følgende token:
 
-### 4. Use of vendors
+- altinn:consentrequests.read
+- altinn:consentrequests.write
 
-It is possible to use vendors (third-party actors) to create consent requests and retrieve data on behalf of the data consumer.
+I tillegg til dette må den enkelte tjesteeier tildele nødvndige token for sin tjeneste.
+Tjenesteeier er ansvarlig for å dokumentere nødvendige token for sin tjenste, samt hvordan datakonsument kan få tildelt disse.
 
-**Requirements for using a vendor:**
+### Tilgangslister
 
-1. The scope `altinn:consentrequests.write` must be delegated to the vendor.
-2. The scope for the relevant API must also be delegated to the vendor (e.g. [skatteetaten:inntekt](https://skatteetaten.github.io/api-dokumentasjon/api/inntekt)).
-3. The vendor creates the request on behalf of the data consumer.
-4. The user retrieves the consent token and calls the API to fetch data.
+Tjenesteeier kan styre hvilke virksomheter som kan bruke tjenesten ved hjelp av tilgangslister.
 
-> **Note:** The end user is informed in the GUI that the consent is handled by a vendor.
+### Gyldighet:
 
-### 5. EBevis solution
+Samtykker skal ha en definert varighet.
 
-For Digdir's EBevis solution, Digdir can request consent on behalf of the data consumer without the scope being delegated to Digdir. This makes it possible for actors such as municipalities to use the solution without a full setup in Maskinporten.
+### Tilbakekall/Revokering:
 
-The EBevis solution has its own scope that allows the creation of consent requests for all organizations for their resources.
+Brukeren kan når som helst trekke tilbake samtykket i Altinn-portalen.
 
----
+## Bruk av leverandører
 
-For more information, see the [Altinn Studio documentation](https://docs.altinn.studio/) or contact Altinn support.
+For datakonsument er mulig å benytte leverandører (tredjepartsaktører) til å opprette samtykkeforespørsler og hente ut data på vegne av datakonsumenten.
 
+**Krav for bruk av leverandør:**
+
+1. Scope `altinn:consentrequests.write` må delegeres til leverandøren.
+2. Scope for det aktuelle API-et må også delegeres til leverandøren (f.eks. [skatteetaten:inntekt](https://skatteetaten.github.io/api-dokumentasjon/api/inntekt)).
+3. Leverandøren oppretter forespørselen på vegne av datakonsumenten.
+4. Brukeren henter ut samtykketoken og kaller API-et for å hente data.
+
+> **Merk:** Sluttbruker får informasjon i GUI om at samtykket håndteres av leverandør.
+
+## EBevis-løsningen
+
+For Digdirs EBevis-løsning kan Digdir be om samtykke på vegne av datakonsument uten at scope er delegert til Digdir. Dette gjør det mulig for aktører som kommuner å bruke løsningen uten å ha fullt oppsett i Maskinporten.
+
+EBevis-løsningen har et eget scope som tillater opprettelse av samtykkeforespørsler for alle virksomheter for sine ressurser.
+
+## Kom i gang
+
+Les konkrete steg du må gjennomføres under [Kom i gang](/nb/authorization/getting-started/consent/)

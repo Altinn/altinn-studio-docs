@@ -46,7 +46,7 @@ Signing normally uses two user actions. If the Altinn user interface is used by 
 </bpmn:task>
 ```
 
-If you have chosen to send signing receipts by specifying a correspondence resource, you can find additional details regarding that configuration [here](/altinn-studio/guides/development/signing/runtime-delegated-signing/#configure-environment-specific-correspondence-resources).
+If you have chosen to send signing receipts by specifying a correspondence resource, you can find additional details regarding that configuration [here](/en/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/#configure-environment-specific-correspondence-resources).
 
 #### Add data types for storing signing related data
 The value of the node `<altinn:signatureDataType>signatures</altinn:signatureDataType>` must match the ID of the data type you configured in the previous step.
@@ -74,9 +74,9 @@ The value of the `id` property _must_ match the value specified in the [signing 
 
 It is important to set `allowedContributors` to `"app:owned"`. This ensures that these data items cannot be edited via the app’s API but only by the app itself. Before version 8.6, this was misspelled `allowedContributers`.
 
-We recommend placing [access restrictions](/altinn-studio/guides/development/restricted-data/) on the signature objects, by specifying the `actionRequiredToRead` and `actionRequiredToWrite` properties on the data type definition. If this is not something you wish to do, those properties can be removed from the configuration.
+We recommend placing [access restrictions](/en/altinn-studio/v8/guides/development/restricted-data/) on the signature objects, by specifying the `actionRequiredToRead` and `actionRequiredToWrite` properties on the data type definition. If this is not something you wish to do, those properties can be removed from the configuration.
 
 #### Access control
 Give `read`, `write` and alternatively `sign` to the instance owner. Others who should sign also need `read` and `write`.
 
-More information about action attributes can be found [here](/altinn-studio/reference/configuration/authorization/#action-attributes).
+More information about action attributes can be found [here](/en/altinn-studio/v8/reference/configuration/authorization/#action-attributes).

@@ -32,7 +32,7 @@ Tidsplan
 
 - Oppstart utvikling av løsning: Pågående
 - Klart for migrering av tjenester: Se plan over
-- Migrering tjenester avsluttet: senest Q1 2026
+- Migrering tjenester avsluttet: 31. mai 2026 (tidligere migrering anbefales)
 
 ## Lenketjenester
 
@@ -62,7 +62,7 @@ Beskrivelse av de nye APIene for sluttbrukersystem finnes i [swagger](https://ap
 
 ### Konsekvenser for Lokale roller i Altinn 2
 
-Lokale roller fungerer i dag kun for tjenester som finnes på Altinn 2 plattformen. Vi har undersøkt utbredelse og bruk av disse og ser at funksjonaliteten er tatt i bruk av svært få virksomheter. I tillegg tror vi behovet for lokale roller vil forsvinne når man innfører [nye tilgangspakker](/en/authorization/what-do-you-get/accessgroups/type-accessgroups/) i Altinn 3.
+Lokale roller fungerer i dag kun for tjenester som finnes på Altinn 2 plattformen. Vi har undersøkt utbredelse og bruk av disse og ser at funksjonaliteten er tatt i bruk av svært få virksomheter. I tillegg tror vi behovet for lokale roller vil forsvinne når man innfører [nye tilgangspakker](/nb/authorization/what-do-you-get/accessgroups/accessgroups/) i Altinn 3.
 
 Det er derfor tatt en beslutning om at man ikke vil videreføre lokale roller i Altinn 3, men at vi inntill videre lar de lokale rollene som er opprettet og i bruk bestå. I praksis betyr dette at etterhvert som flere og flere tjenester migreres fra Altinn 2 til Altinn 3 så vil de lokale roller ha færre og færre tjenester de gjelder for.
 
@@ -70,7 +70,7 @@ Det er derfor tatt en beslutning om at man ikke vil videreføre lokale roller i 
 
 - Oppstart utvikling: 01.01.2023
 - Klart for migrering av lenketjenester: Q2 2024
-- Migrering må være gjort innen: ikke besluttet, men senest Q1 2026
+- Migrering må være gjort innen: 18. juni 2026 (tidligere migrering anbefales, support avsluttes 31. mai)
 
 ## Samtykketjenester
 
@@ -87,9 +87,9 @@ Det er fortsatt ikke utredet hvilke konsekvenser dette får for API som tilhøre
 
 ### Tidsplan
 
-- Oppstart utvikling: ikke besluttet
-- Klart for migrering av samtykketjenester: ikke besluttet
-- Migrering må være gjort innen: ikke besluttet, men senest Q1 2026
+- Oppstart utvikling: Q2 2025
+- Klart for migrering av samtykketjenester: Q3 2025
+- Migrering må være gjort innen: 18. juni 2026 (tidligere migrering anbefales, support avsluttes 31. mai)
 
 ## Formidlingstjenester
 
@@ -107,7 +107,7 @@ Det vil i en overgangsfase være mulig å benytte de gamle API-ene.
 
 - Oppstart utvikling: Q3 2023
 - Klart for migrering av tjenester: Q2 2024
-- Migrering av tjenester må være gjort innen: ikke besluttet, men senest Q1 2026
+- Migrering av tjenester må være gjort innen: 31. mai 2026 (tidligere migrering anbefales)
 
 ## Meldingstjenester
 
@@ -125,7 +125,7 @@ Det er ikke utredet hvilke konsekvenser dette har på tilhørende API
 
 - Oppstart utvikling: Q1 2024
 - Klart for migrering av tjenester: Q3 2024
-- Migrering av tjenester må være gjort innen: ikke besluttet, men senest Q1 2026
+- Migrering av tjenester må være gjort innen: 31. mai 2026 (tidligere migrering anbefales)
 
 ## Delegerbare API ressurser (ferdig migrert)
 

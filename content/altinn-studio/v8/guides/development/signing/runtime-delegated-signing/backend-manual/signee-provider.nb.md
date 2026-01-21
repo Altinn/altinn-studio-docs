@@ -10,4 +10,4 @@ Den må returnere et sett med personer og/eller virksomheter som skal få rettig
 
 Når en organisasjon er oppgitt som signatar så vil de som har en [nøkkelrolle](/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_er/#nøkkelroller) i organisasjonen få `read` og `sign` rettigheter til instansen.
 
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/signee-provider-code.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/backend-manual/signee-provider-code.en.md" %}}

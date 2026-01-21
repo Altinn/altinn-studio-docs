@@ -127,4 +127,15 @@ Eksempel med autentiseringsnivå 2
   </xacml:ObligationExpressions>
 ```
 
+
+## API Scopes
+
+API-scopes brukes for å autorisere tilgang til API-ene selv, nærmere bestemt APIene som har med "instans"-ressursen å gjøre. 
+Det finnes innebygde scopes for brukere og tjenesteeiere:
+* `altinn:instances.read` og `altinn:instances.write` for brukere (og systembrukere)
+* `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write` for tjenesteeiere.
+
+Disse scopene kan også skreddersys spesifikt fra app til app.
+Lær mer om [API Scopes-konfigurasjon](api-scopes).
+
 {{<children />}}

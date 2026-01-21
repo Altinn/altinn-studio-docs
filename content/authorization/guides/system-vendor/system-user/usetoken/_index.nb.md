@@ -1,30 +1,41 @@
 ---
-title: Bruk av systembrukertoken
-description: Bruk av systembrukertoken
-linktitle: Bruk
-hidden: true
+title: Bruk av Systembruker
+description: Denne veiledningen beskriver hvordan systembruker brukes etter at den er opprettet.
+linktitle: Bruk av Systembruker
+weight: 5
 ---
 
+**Målgruppe:** Utviklere og systemintegratorer som allerede har opprettet en Systembruker og skal ta den i bruk i egne løsninger.
 
-### Request (JWT Grant)
-
-Funksjonaliteten er basert på Oauth2-utvidelesen for fin-granulert autorisasjon (Rich Authorization Requests, RAR), der vi har definert en ny type urn:altinn:systemuser for systembruker-mønsteret.
-
-Leverandøren ber om å få et token for en påstått kunde ved å oppgi kundens organisasjonsnummer, og dersom en systembruker-delegering foreligger i Altinn, vil det returneres et Maskinporten-token med systembruker-identifikator som API-tilbyder i sin tur kan benytte til å konstruere spørringer mot Altinn Autorisasjon PDP for å finne detaljert ut hva leverandørens system er autorisert til å utføre.
+Bruken av Systembruker mot tjensester foregår på følgende måte:
 
 {{<mermaid>}}
 sequenceDiagram
 Sluttbrukersystem->>+Maskinporten: Forespørre token(client_id, systemUserOrgNo)
 Maskinporten->>Altinn Autorisasjon: GetSystemUser(client_id, systemUserOrgNo)
-Altinn Autorisasjon-->>Maskinporten: Systembrukerinformasjon
-Maskinporten-->>Sluttbrukersystem: Systembruker-token
+Altinn Autorisasjon-->>Maskinporten: systembrukerinformasjon
+Maskinporten-->>Sluttbrukersystem: systembruker-token
 Sluttbrukersystem->>API: API-kall m/systembrukertoken
 API->>Altinn Autorisasjon: Authorize(systemUserId, res, action, part)
 Altinn Autorisasjon-->>API: AuthorizationResponse
 API-->>Sluttbrukersystem: API Resultat
 {{< /mermaid >}}
 
-Et fagsystem ber om å få systembruker-token på vegne av en part ved å inkludere en RAR-forespørsel av type urn:altinn:systemuser med partens organisasjonsidentifikator, i [JWT-grantet](https://docs.digdir.no/docs/Maskinporten/maskinporten_protocol_jwtgrant)
+## Be om systembrukertoken (JWT Grant)
+
+OAuth2 Rich Authorization Requests (RAR)-utvidelsen brukes til å be om systembrukertoken. Altinn definerer typen **urn:altinn:systemuser** for dette formålet.
+
+Leverandøren ber om token for en bestemt kunde ved å oppgi kundens organisasjonsnummer.  
+Viktig at organisjasjonsnummer oppgis etter følgende standard:
+
+```
+"systemuser_org" : {
+      "authority" : "iso6523-actorid-upis",
+      "ID" : "0192:123456789"
+    }
+```
+
+Finnes det en gyldig systemtilgang i Altinn, utstedes et Maskinporten-token som inneholder systembrukerens identifikator.
 
 ```http
 POST https://test.maskinporten.no/token
@@ -59,12 +70,12 @@ Content-Type: application/json
 ```
 
 {{%notice info%}}
-Man kan kun spørre på en part om gangen. Grantet må også alltid forespørre et eller flere Oauth2 scopes.
+Du kan kun forespørre én kunde om gangen. Grantet må alltid inkludere ett eller flere OAuth2-scopes.
 {{% /notice%}}
 
-### Response (JWT Token)
+## Tokeninnhold
 
-Tokenet vil innehold en liste med systembrukere som tilhører kundens organisasjonnummer, og er knyttet mot leverandørens fagsystem gjennom det autentiserte fagsystemet (client_id):
+Tokenet inneholder en liste med systembrukere som tilhører kundens organisasjonsnummer. Disse er knyttet til leverandørens fagsystem via det autentiserte fagsystemet (client_id):
 
 ```json
 {
@@ -95,13 +106,7 @@ Tokenet vil innehold en liste med systembrukere som tilhører kundens organisasj
 ```
 
 {{%notice info%}}
-Tokenet man får fra Maskinporten legges ved som et bearer token mot de API man skal kalle.
+Tokenet fra Maskinporten skal brukes som Bearer-token i API-kallene.
 {{% /notice%}}
 
-## Demoklient
-
-For en demo av hvordan leverandørstyrt opprettelsee kan se ut, så vår demolklient [SmartCloud](http://smartcloudaltinn.azurewebsites.net).
-
-Se kode med dokumentasjon [her](https://github.com/TheTechArch/altinn-systemuser).
-
-For opprettelse av systembrukere kan testbrukere/organisasjoner fra Tenor benyttes.
+Tjenesteeier bruker deretter tokenet mot Altinn Autorisasjon (PDP) for å avgjøre hvilke operasjoner systemet er autorisert til å utføre.

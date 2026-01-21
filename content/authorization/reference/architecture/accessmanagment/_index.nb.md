@@ -1,42 +1,42 @@
 ---
-title: Application construction components - Altinn Access Management
-linktitle: Tilgangskontroll
-description: The Access Management component in the Altinn platform is an asp.net core 6 web API application with a REACT frontend deployed as a docker container to the Altinn Platform Kubernetes cluster.
+title: Komponentarkitektur - Tilgangsstyring
+linktitle: Tilgangsstyring
+description: Tilgangsstyringskomponenten i Altinn-plattformen er en ASP.NET Core 6 web-API-applikasjon med et React-grensesnitt som driftes som en Docker-kontainer i Altinn-plattformens Kubernetes-klynge.
 tags: [architecture, solution]
 toc: false
 ---
 
-See [solutions](/nb/authorization/what-do-you-get/accessmanagement/) for details about the functionality provided by this component.
+Se [løsningssiden](/nb/authorization/what-do-you-get/accessmanagement/) for en funksjonell beskrivelse av komponenten.
 
-![Access Management](accessmanagement.drawio.svg "Construction Components Altinn Resource Registry")
+![Access Management](accessmanagement.drawio.svg "Konstruksjonskomponenter Altinn Resource Registry")
 
 ## Frontend
 
-The frontend is created with REACT as a standalone REACT application.
+Frontend er utviklet som en frittstående React-applikasjon.
 
-It uses the following frameworks
+Den benytter følgende rammeverk:
 
-- Axios : For
-- Redux :
-- Redux Toolkit :
-- Redux Query :
+- Axios
+- Redux
+- Redux Toolkit
+- Redux Query
 
 ### Build & Deploy
 
-We use GitHub Actions and Azure DevOps to build Frontend applications.
-The code is located in [altinn-access-mangement-frontend](https://github.com/Altinn/altinn-access-management-frontend) repo
+Vi bruker GitHub Actions og Azure DevOps til å bygge frontend-applikasjonene.  
+Kildekoden ligger i repoet [altinn-access-mangement-frontend](https://github.com/Altinn/altinn-access-management-frontend).
 
-- [Github Action](https://github.com/Altinn/altinn-access-management-frontend/actions)
-- Azure DevOps Pipeline
+- [GitHub Actions](https://github.com/Altinn/altinn-access-management-frontend/actions)
+- Azure DevOps-pipeline
 
 ### Hosting
 
-The backend hosts the compiled frontend application.
-Files is located in [wwwroot](https://github.com/Altinn/altinn-access-management/tree/main/backend/src/Altinn.Authorizationadmin/Altinn.Authorizationadmin/wwwroot/AuthorizationAdmin) folder in the backend.
+Backend-en hoster den bygde frontend-applikasjonen.  
+Filene ligger i mappen [wwwroot](https://github.com/Altinn/altinn-access-management/tree/main/backend/src/Altinn.Authorizationadmin/Altinn.Authorizationadmin/wwwroot/AuthorizationAdmin) i backend-prosjektet.
 
 ## Backend
 
-The following API controllers is available in component
+Følgende API-kontrollere inngår i komponenten:
 
 - [DelegationAPI](https://github.com/Altinn/altinn-access-management/blob/main/src/Altinn.AccessManagement/Controllers/DelegationsController.cs)
 - [DelegationRequestAPI](https://github.com/Altinn/altinn-access-management/blob/main/src/Altinn.AccessManagement/Controllers/DelegationRequestsController.cs)
@@ -45,39 +45,39 @@ The following API controllers is available in component
 
 ## Database
 
-The data for delegation is stored in postgreSQL and Azure blob storage.
+Data om delegasjoner lagres i PostgreSQL og Azure Blob Storage.
 
-- Delegationchange - contains delegation info for app delegations
-- ResourceDelegationChange - contains delegation change info for resoruce delegations
-- AuthorizationResources - Extract from resource registry with the most important resource information
+- `DelegationChange` – inneholder delegasjonsinformasjon for app-delegeringer
+- `ResourceDelegationChange` – lagrer endringer for delegasjoner knyttet til ressurser
+- `AuthorizationResources` – uttrekk fra ressursregisteret med de viktigste ressursopplysningene
 
-![Database](dbmodel.drawio.svg "Access management Database")
+![Database](dbmodel.drawio.svg "Access Management-database")
 
 ## API
 
-The following API is identifed
+Følgende API-er er identifisert.
 
 ### Rights
 
-Rights API List rights between two parties. (organizations/users/persons).
+Rights-API-et viser rettigheter mellom to parter (organisasjoner, brukere eller personer).
 
-Rights is based on rules defined by resource owner or rights defined by reportee as part of a rights delegation
+Rettighetene bygger på regler definert av tjenesteeier eller rettigheter som en avgiver har delegert videre.
 
-There is different consumers of API
+Eksempler på konsumenter av API-et:
 
-- End user wondering which rights he/she have for the reportee
-- Administrator for reportee
-- Resource owner needing to know which rights A have for B
+- Sluttbruker som vil se hvilke rettigheter vedkommende har på vegne av en avgiver
+- Administrator for avgiveren
+- Ressurseier som trenger oversikt over hvilke rettigheter part A har overfor part B
 
 #### Outbound Rights
 
-The outbound API is targeted for administrators of the reportee.
+Outbound-API-et er rettet mot administratorer hos avgiveren.
 
 ```http
 /accessmanagement/api/v1/{who}/rights/outbound/?resource={resource}&recevingParty={receivingparty}
 ```
 
-**Example**
+**Eksempel**
 
 ```http
 /accessmanagement/api/v1/234234/rights/outbound/?resource=app:skd_flyttemelding&recevingParty=556677
@@ -89,18 +89,18 @@ The outbound API is targeted for administrators of the reportee.
 /accessmanagement/api/v1/{who}/rights/inbound/?resource={resource}&recevingParty={receivingparty}
 ```
 
-**Example**
+**Eksempel**
 
 ```http
 /accessmanagement/api/v1/234234/rights/inbound/?resource=app_skd_flyttemelding&recevingParty=556677
 ```
 
-#### Response
+#### Respons
 
-The list of rights for all types of relations is returned
+Responsen inneholder alle rettigheter for relevante relasjoner:
 
-- Rights from policy defined by resource owner (service owner) defining ER roles or Altinn roles
-- Rights from delegated polices
+- Rettigheter fra policy definert av tjenesteeier (f.eks. ER-roller eller Altinn-roller)
+- Rettigheter fra delegerte policyer
 
 ```json
 [
@@ -217,15 +217,13 @@ The list of rights for all types of relations is returned
 
 ### Rights delegations
 
-#### List
+#### Liste
 
-Delegations list the existence of some rights between two parties for a specific resource or resource type
+Delegations-API-et viser at det finnes rettigheter mellom to parter for en spesifikk ressurs eller ressurstype.
 
-In first iteration we will expose a specific endpoint for maskinportenschemes.
+I første iterasjon eksponerer vi et eget endepunkt for Maskinporten-skjemaer for å utsette behovet for et generisk endepunkt.
 
-This to delay the need for a generic endpoint
-
-Endpoint for enduser using the portal
+Endepunkt for sluttbrukere i portalen:
 
 ```http
 /accessmanagement/api/v1/{who}/delegations/maskinportenscheme/outbound/
@@ -235,7 +233,7 @@ Endpoint for enduser using the portal
 /accessmanagement/api/v1/admin/delegations/maskinportenscheme/outbound/?supplierORg=234234&consumerOrg&scope=www.navn.no
 ```
 
-Returns a list of delegations. Contains receiver, top resource and information about time.
+Responsen er en liste over delegasjoner med mottaker, toppressurs og tidsinformasjon.
 
 ```json
 [
@@ -270,11 +268,11 @@ Returns a list of delegations. Contains receiver, top resource and information a
 
 **POST**
 
-Delegates new rights with adding new rules
+Oppretter nye rettigheter ved å legge til nye regler.
 
 ### Rights delegation
 
-List details of a specific delegation.
+Gir detaljer om en spesifikk delegasjon.
 
 ```http
 /accessmanagement/api/v1/admin/delegations/rules/?offeredByPartyId=2324
@@ -359,17 +357,19 @@ List details of a specific delegation.
 
 ##### Access Groups
 
+```
 /accessmanagement/api/v1/accessgroups
-
 /accessmanagement/api/v1/accessgroups/offeredBy/{partyId}/coveredBy/{partyId}
+```
 
-GET - List groups
+`GET` – Liste over grupper
 
+```
 /accessmanagement/api/v1/accessgroups/{group}/resorucerights/
-
 /accessmanagement/api/v1/accessgroups/{group}/resorucerights/{resourceid}/
+```
 
-GET
+`GET`
 
 ```json
 [
@@ -448,46 +448,46 @@ GET
 
 ####
 
-### Security
+### Sikkerhet
 
-#### Authentication
+#### Autentisering
 
-Apis are protected and require an authenticated user or organization.
+API-ene er beskyttet og krever at bruker eller virksomhet er autentisert.
 
-The token is provided through a cookie for users using the React frontend or through a bearer token header.
+Token leveres via informasjonskapsel for brukere av React-grensesnittet, eller som Bearer-token i headeren.
 
-Altinn Access Management has configured the JWTCookie authentication method created for Altinn. This support validation of both JWTCookie and JTW bearer token.
+Altinn Access Management benytter JWTCookie-autentisering som støtter validering av både JWT-cookie og JWT-bearer-token.
 
-Needs to be clarified: Do we support Maskinporten tokens directly?
+Avklaring: Støtter vi Maskinporten-token direkte?
 
-#### CSRF protection
+#### CSRF-beskyttelse
 
-The API endpoints will have CSRF protection.
+API-endepunktene er sikret mot CSRF.
 
-#### API Management subscription
+#### API Management-abonnement
 
-Some functionality will require a specific API management subscription.
-This requires external consumers to follow SLA and have an agreement for API usage.
+Noe funksjonalitet krever et spesifikt abonnement i API Management.  
+Eksterne konsumenter må følge SLA og ha en avtale for bruk av API-et.
 
-### Authorization
+### Autorisasjon
 
-The API exposed will require authorization for the usage of different levels.
+Tilgangen til API-ene krever autorisasjon på ulike nivåer.
 
-Some APIs will require general access to a resource. This will be processed by the standard Policy Enforcement Point or a possible custom enforcement point.
+Noen API-er krever generell tilgang til en ressurs. Dette håndteres av standard Policy Enforcement Point eller en tilpasset variant.
 
-In addition, the APIS will often have its internal logic to filter data based on business rules. These are custom implementations
+I tillegg har API-ene ofte intern logikk som filtrerer data basert på forretningsregler. Dette er egne implementasjoner.
 
-### Db Repository
+### Database-repositorium
 
-Access Manamgent owns the delegated rights.
+Access Management eier de delegerte rettighetene.
 
-- PostgreSQL is used to store information about a delegated policy
-- Azure Blob Storage is used
+- PostgreSQL lagrer informasjon om delegerte policyer
+- Azure Blob Storage benyttes i tillegg
 
-See [migration scripts](https://github.com/Altinn/altinn-access-management/tree/main/backend/src/Altinn.Authorizationadmin/Altinn.Authorizationadmin/Migration) for table structure and stored procedures.
+Se [migreringsskript](https://github.com/Altinn/altinn-access-management/tree/main/backend/src/Altinn.Authorizationadmin/Altinn.Authorizationadmin/Migration) for tabellstruktur og lagrede prosedyrer.
 
 ## Build & Deploy
 
-- Build and Code analysis are done by an [Github action](https://github.com/Altinn/altinn-resource-registry/actions)
-- Build of the image is done in [Azure Devops](https://dev.azure.com/brreg/altinn-studio/_build?definitionId=385)
-- Deploy of the Image is done in [Azure Devops](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=all&definitionId=36)
+- Bygg og kodeanalyse kjøres via en [GitHub Action](https://github.com/Altinn/altinn-resource-registry/actions)
+- Bygg av container-image gjøres i [Azure DevOps](https://dev.azure.com/brreg/altinn-studio/_build?definitionId=385)
+- Deploy av imaget gjøres i [Azure DevOps](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=all&definitionId=36)

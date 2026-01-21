@@ -8,19 +8,29 @@ aliases:
   - /altinn-studio/guides/signing/runtime-delegated-signing
 ---
 
-{{% insert "content/altinn-studio/guides/development/restricted-data/shared/style.css.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/restricted-data/shared/style.css.md" %}}
 
 {{%notice info%}}
 Available from [v8.6.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.6.0)
 {{%/notice%}}
 
 ## What is runtime delegated signing?
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/intro.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/intro.en.md" %}}
 
 ## Prerequisites
 
 ### Maskinporten
 Maskinporten is required both for the [messaging service](#correspondence) and the interaction with [restricted data](/en/altinn-studio/v8/guides/development/restricted-data/).
+
+For runtime delegated signing, your Maskinporten client must have access to the following scopes:
+
+- `altinn:correspondence.read`
+- `altinn:correspondence.write`
+- `altinn:serviceowner/instances.read`
+- `altinn:serviceowner/instances.write`
+
+The correspondence-scopes are used when the app sends correspondence messages to signees as a call to action.
+The serviceowner scopes are used for internal state and bookkeeping in the app.
 
 If you need help setting up a Maskinporten integration for your app, you can find all the information you need in [this guide](/en/altinn-studio/v8/guides/integration/maskinporten/).
 
@@ -50,11 +60,11 @@ Below are the key configuration steps for setting up such an application.
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Manual setup">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/add-process-task.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/backend-manual/add-process-task.en.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/add-process-task.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/studio/add-process-task.en.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}
@@ -64,29 +74,29 @@ Below are the key configuration steps for setting up such an application.
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Manual setup">}} 
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/configure-layouts.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/backend-manual/configure-layouts.en.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/configure-layouts.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/studio/configure-layouts.en.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}
 
 ## 3. Optional - Custom validation
 
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/custom-validation.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/backend-manual/custom-validation.en.md" %}}
 
 ## 4. Tell the app who the signees are
 
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Manual setup">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/signee-provider.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/backend-manual/signee-provider.en.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/signee-provider.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/studio/signee-provider.en.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}
@@ -142,11 +152,11 @@ The standard values for the communication texts are as follows:
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Manual setup">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/setup-text-resources.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/backend-manual/setup-text-resources.en.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/setup-text-resources.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/studio/setup-text-resources.en.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}
@@ -187,14 +197,14 @@ These are the possible override configurations for the signee communication:
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Manual setup">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/backend-manual/communication-config.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/backend-manual/communication-config.en.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/studio/communication-config.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/studio/communication-config.en.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}
 
 ## 7. Testing
-{{% insert "content/altinn-studio/guides/development/signing/runtime-delegated-signing/test.en.md" %}}
+{{% insert "content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/test.en.md" %}}

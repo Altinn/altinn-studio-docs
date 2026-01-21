@@ -37,7 +37,7 @@ The solution is flexible and supports both structured and unstructured files. Th
 The sender determines how long the file will be available for download by the recipient. After this period, the file will become inaccessible.
 
 - 'PurgeFileTransferAfterAllRecipientsConfirmed': Whether the file is deleted once all recipients have confirmed receipt.
-- 'PurgeFileTransferGracePeriod': If the above field is set to "false", this parameter specifies how long the file will remain available for download after confirmation (default is 2 hours, maximum is 24 hours).
+- 'PurgeFileTransferGracePeriod': If the above field is set to "true", this parameter specifies how long the file will remain available for download after confirmation (default is 2 hours, maximum is 24 hours).
 - 'FileTransferTimeToLive': How long a file is available for download (default is 30 days, maximum is one year).
 
 ### API access

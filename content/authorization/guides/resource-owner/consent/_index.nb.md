@@ -1,103 +1,37 @@
 ---
 title: Samtykke for tjenesteeier
 linktitle: Samtykke
-description: Veiledningen forklarer tjenesteeiers oppgaver i ved bruke av Altinn Samtykke.
+description: Oversikt og innledning til veiledningene om Altinn Samtykke for tjenesteeiere.
 toc: false
 ---
 
-For å bruke Altinn Samtykke må du opprette samtykkeressurser for hvert sett med tjenester eller data som skal inngå i et samtykke.
+Altinn Samtykke lar en tjenesteeier be andre parter om et eksplisitt samtykke før data deles eller prosesser settes i gang.  
+Som tjenesteeier må du både kunne etablere selve samtykkeressursen i Altinn og sikre at tjenesten din klarer å lese og verifisere samtykket som utstedes via Maskinporten.
 
-Eksempler på slike ressurser er Skatteetatens "inntekts-API" og skattegrunnlag, som banker bruker for innsyn i finansielle forhold ved lånesøknader.
+Denne siden gir deg en overordnet introduksjon til veiledningene i denne seksjonen og hjelper deg å velge riktig løype.
 
-Denne veiledningen forklarer hvordan du setter opp en samtykkeressurs.
+## Veiledninger i denne seksjonen
 
-## Forutsetninger
+### Opprett og konfigurer en samtykkeressurs
 
-Du må ha tilgang til ressursadministrasjon for din organisasjon. Se [Kom i gang-veiledningen](/nb/authorization/getting-started/resource-admin-studio/).
+- **Målgruppe:** Ressursadministratorer og tjenesteeiere som skal beskrive hvilke data som omfattes av samtykket.
+- **Innhold:** Viser hvordan du navngir ressursen, velger samtykkemal, konfigurerer metadata, tilgangsregler og delegering.
+- **Lenke:** [Gå til veiledningen for å opprette samtykkeressurs](./create-resource/).
 
-## Opprett ny samtykkeressurs
+### Valider samtykker i tjenesten din
 
-Velg **Opprett ressurs** øverst til høyre.
+- **Målgruppe:** Utviklere og integrasjonsteam som bruker Maskinporten-tokenet i egen løsning.
+- **Innhold:** Forklarer hvordan `authorization_details` og `consentRights` tolkes, samt hvordan du bekrefter at riktige rettigheter er lagt ved et token.
+- **Lenke:** [Gå til veiledningen for å validere samtykker](./validate-concent/).
 
-ID for ressursen bør navngis på formen `{tjenesteeierkode}-{forståeligressursid}`.
+## Før du starter
 
-![consentresource](consentresource1.png)
+Du må ha tilgang til ressursadministrasjon for din virksomhet i Altinn Studio. Dersom du mangler dette, følger du stegene i [Kom i gang-veiledningen](/nb/authorization/getting-started/resourceadministration/).
 
-### Navn og beskrivelse
+### Anbefalt arbeidsrekkefølge
 
-Gi samtykkeressursen et navn og en beskrivelse. Dette vises til brukere når de skal delegere tilgang til å gi samtykke på vegne av virksomheter.
+1. Les veiledningen om å [opprette samtykkeressurs](./create-resource/) og konfigurer ressursen i testmiljø (TT02).
+2. Implementer og [valider samtykket i tjenesten](./validate-concent/) før du går videre til produksjon.
+3. Gjør en ende-til-ende-test med både ressursadministrator og tjenesteintegrasjon for å verifisere at samtykket dekker riktig datasett og at tokenet tolkes korrekt.
 
-![consentresource](consentresource2.png)
-
-### Samtykkemal
-
-Valg av samtykkemal avgjør hvordan samtykket presenteres i Altinn for brukeren som skal akseptere det.
-
-For eksempel avgjør malen om du kan legge til egen tekst for samtykke.
-
-![consentresource](consentresource3.png)
-
-### Metadata og samtykketekst
-
-Metadata brukes for samtykketjenester hvor det er behov for informasjon utover selve tjenesten. Dette kan for eksempel være en begrensning på hvilke data eller hvilket år samtykket gjelder for.
-
-Disse metadataene kan presenteres som en del av samtykketeksten som vises til sluttbruker.
-
-![consentresource](consentresource4.png)
-
-### Engangssamtykke
-
-Hvis man ønsker at tjenesten skal kun være tilgjengelig via engangsamtykke kan man sette dette.
-
-Dette betyr at den som ber om samtykke bare kan hente ut data 1 gang uansett periodelengde.
-
-## Validering av samtykker
-
-I den nye samtykkeløsningen for Altinn 3 er det **Maskinporten** som utsteder samtykketoken.  
-Tokenet utstedes som et vanlig Maskinporten-token, men inneholder i tillegg `authorization_details`-attributter med informasjon om hvilke rettigheter samtykket gir.
-
-Eksempelet under viser et token fra demoapplikasjonen **Smartbank** i testmiljøet TT02:
-
-```json
-{
-  "authorization_details": [
-    {
-      "type": "urn:altinn:consent",
-      "id": "93413201-b7e8-4ec3-a899-580fc02c6aeb",
-      "from": "urn:altinn:person:identifier-no:25922947409",
-      "to": {
-        "authority": "iso6523-actorid-upis",
-        "ID": "0192:991825827"
-      },
-      "consented": "2025-07-18T07:57:30.409251+00:00",
-      "validTo": "2026-07-18T07:57:15.639509+00:00",
-      "consentRights": [
-        {
-          "action": ["consent"],
-          "resource": [
-            {
-              "type": "urn:altinn:resource",
-              "value": "samtykke-test-vegard"
-            }
-          ],
-          "metadata": {
-            "inntektsaar": "2022"
-          }
-        }
-      ]
-    }
-  ],
-  "scope": "altinn:consentrequests.read",
-  "iss": "https://test.maskinporten.no/",
-  "client_amr": "private_key_jwt",
-  "token_type": "Bearer",
-  "exp": 1752825571,
-  "iat": 1752825451,
-  "client_id": "107c6f58-e06b-44e9-be7a-11ea44c7ad8b",
-  "jti": "T2KUt3ufgIPycdoGPMEFU87pNm9e9nPB1ODkJj5wH0k",
-  "consumer": {
-    "authority": "iso6523-actorid-upis",
-    "ID": "0192:991825827"
-  }
-}
-```
+Når begge veiledningene er fulgt, er du klar til å publisere samtykkeressursen og begynne å motta samtykkeforespørsler fra sluttbrukere.

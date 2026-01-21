@@ -5,6 +5,9 @@ weight: 10
 cascade:
   params:
     diataxis: diataxis_explanation
+aliases:
+- /altinn-studio/about
+- /nb/altinn-studio/about
 ---
 
 Plattformen kjører på en sikker, isolert og skalerbar infrastruktur, og er ferdig integrert mot en rekke fellesløsninger og åpne API-er.

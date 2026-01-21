@@ -1,110 +1,131 @@
 ---
 title: Registrering av system
-description: Hvordan kan du registrere system
+description: Denne veiledningen beskriver hvordan du som sluttbrukersystemleverandør registrerer et system i systemregisteret.
 linktitle: Registrering av system
-hidden: true
+weight: 1
 ---
 
-En systembruker kan bare ta i bruk ressurser (eller tilgangspakker) hvis selve systemet først er registrert i Altinns systemregister. Registreringen etablerer en teknisk identitet som kobler sammen:
-- Hvem som er systemleverandør (organisasjonsnummer)
-- Hvilket system (unikt id-felt)
-- Hvilke rettigheter (resources) eller tilgangspakker (accessPackages) systemet skal kunne be om
-- Hvilken klient (clientId) som brukes ved autentisering
-- Godkjente redirect-URL-er (for interaktive OAuth2-strømmer)
-- Synlighet (isVisible) for eventuelle sluttbrukervalg
+**Målgruppe:** Utviklere eller tekniske integrasjonsansvarlige hos sluttbrukersystemleverandører (SBS).
 
-Formål:
-- Sikre at bare godkjente systemer kan få token for spesifikke Altinn‑ressurser
-- Skille mellom flere systemer hos samme leverandør
-- Gi grunnlag for revisjon og sporing
+## Forutsetninger
 
-Minimum før registrering:
-1. Avklar hvilke API-ressurser eller tilgangspakker som trengs.
-2. Tildel/eller opprett en klient (clientId) via riktig forvaltningsprosess.
-3. Fastsett unikt system-id (anbefalt mønster: <orgnr>_<systemnavn>).
-4. Forbered språkversjoner for navn og beskrivelse (nb/en/nn ved behov).
-5. Velg enten rights (resources) eller accessPackages (ikke begge samtidig for samme formål).
+Du må ha noen forutsetninger på plass før du registrer et system, se [Kom i gang-veiledningen](https://docs.altinn.studio/nb/authorization/getting-started/systemuser/).
 
-Hovedfeltene du sender inn:
-- id: Unik nøkkel som brukes videre i alle kall.
-- systemVendorOrgNumber og vendor: Identifiserer leverandøren.
-- name og description: Presentasjonsdata.
-- rights eller accessPackages: Tilgangsgrunnlag.
-- clientId: Referanse til registrert klient.
-- allowedredirecturls: Påkrevd hvis autorisasjonskodeflyt skal brukes.
-- isVisible: Styrer om systemet kan eksponeres i brukerflater.
+-----
 
-Etter registrering brukes verdien i id-feltet når systembruker knyttes til rettigheter og når tokens skal innhentes. Endringer i tilgang (nye resources/tilgangspakker) krever oppdatering av systemobjektet. Hold informasjonen konsistent for å unngå avviste autorisasjonsforespørsler.
+## Instruksjoner
 
+Registrering av et sluttbrukersystem gjøres ved å kalle Altinns systemregister-API med en JSON-nyttelast som definerer systemet. 
+* **Merk:** Tokenet som benyttes må ha blitt tildelt scopet: `altinn:authentication/systemregister.write`.
 
-- SmartCloud AS registrerer deretter SmartCloud-systemet i Altinn systemregister.
-  - De definerer nødvendige rettigheter for å få tilgang til "Krav og betalinger" ved å knytte klient-ID-en til systemet.
+### Steg-for-steg
 
-```json
-{
-  "id": "991825827_smartcloud",
-  "systemVendorOrgNumber": "991825827",
-  "vendor": {
-    "authority": "iso6523-actorid-upis",
-    "ID": "0192:991825827"
-  },
-  "name": {
-    "nb": "SmartCloud 1",
-    "en": "SmartCloud 1",
-    "nn": "Smart SKY"
-  },
-  "description": {
-    "nb": "SmartCloud er verdens beste system.",
-    "en": "SmartCloud Rocks.",
-    "nn": "SmartSky er vestlandets beste system"
-  },
-  "rights": [
+1.  **Strukturér JSON-nyttelasten**
+    Klargjør en JSON-nyttelast (payload) som skal sendes til API-et. Nedenfor følger en detaljert beskrivelse av feltene.
+
+2.  **Definer Identifikatorer**
+
+     * `id`: En unik identifikator for systemet.
+         * **Format:** `{systemleverandørorgnr}_{valgt navn}`.
+         * **Eksempel:** `991825827_smartcloud`.
+     * `vendor`: Inneholder organisasjonsnummeret til systemleverandøren.
+         * **Format:** `ID` må settes til `0192:{orgnr}` for å angi referanse til Enhetsregisteret.
+         * **Eksempel:** `"ID": "0192:991825827"`.
+     * **Viktig:** Organisasjonsnummeret som brukes i `id` og `vendor.ID` må samsvare med organisasjonsnummeret i autentiseringstokenet (Maskinporten eller Altinn). For å få opprettet et ekte organisasjonsnummer i TT02, må SBS kontakte <servicedesk@altinn.no>.
+
+3.  **Definer Synlige Tekster**
+
+     * Angi navn og beskrivelse som skal vises for systemet i Altinn-portalen.
+     * Tekster må oppgis for alle støttede språk: `nb` (bokmål), `nn` (nynorsk) og `en` (engelsk).
+
+4.  **Definer Rettigheter (`rights` og `accessPackages`)**
+
+     * Angi hvilke tjenester eller tilgangspakker systemet krever tilgang til.
+     * Bruk `rights` for å spesifisere individuelle ressurser (f.eks. `urn:altinn:resource`).
+     * Bruk `accessPackages` for å spesifisere forhåndsdefinerte tilgangspakker (f.eks. `urn:altinn:accesspackage:skattegrunnlag`).
+     * **Merk:** Disse rettighetene **må** være definert korrekt *før* en systembruker kan opprettes for dette systemet.
+
+5.  **Knytt Klient-ID (`clientId`)**
+
+     * Oppgi en liste med `clientId`-verdier (som UUIDs) som er generert i Maskinporten for denne integrasjonen.
+     * Et system kan være knyttet til flere klient-ID-er.
+     * Dette er den samme klient-ID-en som senere skal brukes ved opprettelse av systembruker mot Maskinporten.
+
+6.  **Angi Synlighet (`isVisible`)**
+
+     * `true`: Systemet er synlig i Altinn-portalen og kan benyttes for å opprette en systembruker derfra (brukerstyrt opprettelse).
+     * `false`: Systemet er ikke synlig i portalen. Systembruker må i dette tilfellet opprettes gjennom en leverandørstyrt prosess.
+     * **Viktig:** Et system kan ikke settes til isVisible: true dersom det samtidig har IsAssignable: false (et felt som styrer tildelbarhet, ikke vist i JSON-eksempelet).
+
+7. **Angi Omdirigerings-URLer (Valgfritt) (`allowedredirecturls`)**
+
+    * Dette feltet er valgfritt og kan utelates eller settes som en tom liste (`[]`).
+
+    * *Hvis* feltet benyttes, må det inneholde en liste over nøyaktige URL-er som er godkjent for omdirigering i flyten for opprettelse av systembruker.
+
+    * Dersom listen er definert, må en systembrukerforespørsel bruke en URL fra denne listen (eller et subsett av den).
+
+8.  **Eksempel på JSON-nyttelast**
+    Bruk følgende struktur som mal for din JSON-nyttelast:
+
+    ```json
     {
-      "resource": [
+      "id": "991825827_smartcloud",
+      "vendor": {
+        "authority": "iso6523-actorid-upis",
+        "ID": "0192:991825827"
+      },
+      "name": {
+        "nb": "SmartCloud 1",
+        "en": "SmartCloud 1",
+        "nn": "Smart SKY"
+      },
+      "description": {
+        "nb": "SmartCloud er verdens beste system.",
+        "en": "SmartCloud Rocks.",
+        "nn": "SmartSky er vestlandets beste system"
+      },
+      "rights": [
         {
-          "id": "urn:altinn:resource",
-          "value": "ske-krav-og-betalinger"
+          "resource": [
+            {
+              "id": "urn:altinn:resource",
+              "value": "ske-krav-og-betalinger"
+            }
+          ]
+        },
+        {
+          "resource": [
+            {
+              "id": "urn:altinn:resource",
+              "value": "ske-innrapportering-amelding"
+            }
+          ]
         }
-      ]
+      ],
+      "accessPackages": [
+        {
+          "urn": "urn:altinn:accesspackage:skattegrunnlag"
+        }
+      ],
+      "clientId": ["32ef65ac-6e62-498d-880f-76c85c2052ae"],
+      "allowedredirecturls": ["https://smartcloudxxxx/receipt"],
+      "isVisible": true
     }
-  ],
-  "clientId": ["xxxxxx-xxxx-xxxx-xxxx-xxxxxxx"],
-  "allowedredirecturls": ["https://smartcloudxxxx/receipt"],
-  "isVisible": true
-}
-```
+    ```
 
-- Registrering av systemet med nødvendige tilgangspakker i Altinns systemregister. I dette eksempelet registreres et system med nødvendig tilgang til én tilgangspakke. Leverandører må registrere systemet med tilgangspakker dersom brukerne deres for eksempel er et regnskapsfirma som representerer sine kunder.
+9.  **Send API-kallet**
 
-```json
-{
-  "id": "991825827_smartcloud_ap",
-  "systemVendorOrgNumber": "991825827",
-  "vendor": {
-    "authority": "iso6523-actorid-upis",
-    "ID": "0192:991825827"
-  },
-  "name": {
-    "nb": "Smartcloud TP",
-    "en": "SmartCloud AP",
-    "nn": "Smartcloud TP"
-  },
-  "description": {
-    "nb": "SmartCloud er verdens beste system.",
-    "en": "SmartCloud Rocks",
-    "nn": "SmartSky er vestlandets beste system"
-  },
-  "accessPackages": [
-    {
-      "urn": "urn:altinn:accesspackage:regnskapsforer-med-signeringsrettighet"
-    }
-  ],
-  "clientId": ["xxxxx-xxxx-xxx-xxx-xxx"],
-  "allowedredirecturls": ["https://smartcloudxxxx/receipt"],
-  "isVisible": true
-}
-```
+    * Bruk en POST-forespørsel for å opprette systemet første gang.
 
-Se [her](https://platform.tt02.altinn.no/accessmanagement/api/v1/meta/info/accesspackages/export) for liste over tilgjengelige tilgangspakker i tt02-miljøet.
+    * Bruk en PUT-forespørsel for å endre et eksisterende system.
 
-Se [her](../../../../../api/authentication/systemuserapi/systemregister/model/) for en detaljert beskrivelse av hvert enkelt felt. Ved videre kommunikasjon må systemleverandøren referere til verdien angitt i feltet "id".
+    * **VIKTIG:** En PUT-forespørsel overskriver hele systemdefinisjonen. Når du skal endre (f.eks. legge til en ny tilgangspakke), må du hente den eksisterende definisjonen, gjøre endringene, og deretter sende hele den oppdaterte JSON-nyttelasten i PUT-kallet. Hvis du kun sender de nye endringene, vil all tidligere informasjon bli slettet.
+
+    * Inkluder alltid ditt gyldige Maskinporten- eller Altinn-token i Authorization-headeren for autentisering.
+-----
+
+## Verifisering og Merknader
+
+  * **Verifisering:** Etter vellykket registrering vil systemet være tilgjengelig for opprettelse av systembrukere. Hvis `isVisible` er satt til `true`, vil systemet også være synlig i Altinn-portalen.
+  * **Endring:** Systemer som er registrert kan endres og slettes i etterkant via API-et.
