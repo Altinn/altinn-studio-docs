@@ -17,7 +17,7 @@ Når du skal bruke en publisert kodeliste, kan du
 * Bruke den nyeste versjonen ved å sette versjon til `latest`
 
 `optionsId`-feltet i koden følger denne syntaksen:
-`lib**{organisasjon}**{kodelistenavn}**{{versjon}/latest}`
+`lib**{organisasjon}**{kodelistenavn}**{versjon}`
 
 Eksempel: Du har publisert to versjoner av en kodeliste med navnet `countries` for din organisasjon `ttd`, og du vil bruke den første versjonen. Slik skriver du koden:
 

@@ -18,7 +18,7 @@ To use a code list published from the Altinn Studio Designer organisation librar
 
 The `optionsId` field follows this syntax:
 
-`lib**{org}**{id}**{version}/latest`
+`lib**{org}**{id}**{version}`
 
 Example: You have published two versions of a code list `countries` for your organisation `ttd`, and you want to use the first version
 
