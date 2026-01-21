@@ -43,7 +43,7 @@ Trenger du data fra andre kilder? Gå til [forhåndsutfylling med egendefinert k
       "ER": {},
       "DSF": {},
       "UserProfile": {},
-      "DAN":{}
+      "DAN": {}
    }
    ```
 
@@ -106,21 +106,22 @@ Dette fyller ut feltet `Bruker.Epost` med e-post hentet fra brukerens Altinn-pro
 
 ### Eksempel: Hente ut datasett fra data.altinn.no
 
-Dette fyller ut feltet `Organization.OrgNo` med organisasjonsnummer fra UnitBasicInformation datasettet fra dan.
+Dette fyller ut feltet `Organization.OrgNo` med organisasjonsnummer fra UnitBasicInformation datasettet fra DAN.
 
 ````json
 "DAN": {
     "datasets": [
       {
         "name": "UnitBasicInformation",
-        "mappings": [
-          { "OrganizationNumber": "Organization.OrgNo" },
+        "mappings": 
+        [
+          { "OrganizationNumber": "Organization.OrgNo" }
         ]
       }
     ]
   }
 ````
-Dan kan bruke flere datasett samtidig. Hvis du vil bruke flere datasett, kan du gjøre dette slik.
+DAN kan bruke flere datasett samtidig. Hvis du vil bruke flere datasett, kan du gjøre dette slik.
 
 ````json
 "DAN": {
@@ -131,11 +132,12 @@ Dan kan bruke flere datasett samtidig. Hvis du vil bruke flere datasett, kan du 
           { "OrganizationNumber": "Organization.OrgNo" }
         ]
       },
-      {"name": "nameOfAnotherDataset",
-         "mappings":[
-            {"SSN": "Person.PersonNr"},
-            {"Email": "User.Email"}
-         ]
+      {
+        "name": "nameOfAnotherDataset",
+        "mappings":[
+          {"SSN": "Person.PersonNr"},
+          {"Email": "User.Email"}
+        ]
       }
     ]
   }

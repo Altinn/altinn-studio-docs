@@ -43,7 +43,7 @@ Do you need data from other sources? Go to [prefilling data using custom code](/
       "ER": {},
       "DSF": {},
       "UserProfile": {},
-      "DAN":{}
+      "DAN": {}
    }
    ```
 
@@ -53,7 +53,7 @@ Do you need data from other sources? Go to [prefilling data using custom code](/
    - `ER` - The Business Register  
    - `DSF` - The Population Register  
    - `UserProfile` - The user's Altinn profile  
-   - `DAN`- Datasets from data.altinn.no
+   - `DAN` - Datasets from data.altinn.no
 
    Choose which sources you want to use. If any (or all) of the sources should not be used, leave them empty.
 
@@ -105,7 +105,7 @@ This will fill the `User.Email` field with the email retrieved from the user's A
 ```
 
 ### Example: Retrieve from Data.altinn.no (DAN)
-This will fill the `Organization.OrgNo` field with organization number from the UnitBasicInformation dataset from dan.
+This will fill the `Organization.OrgNo` field with organization number from the UnitBasicInformation dataset from DAN.
 
 ````json
 "DAN": {
@@ -113,7 +113,7 @@ This will fill the `Organization.OrgNo` field with organization number from the 
       {
         "name": "UnitBasicInformation",
         "mappings": [
-          { "OrganizationNumber": "Organization.OrgNo" },
+          { "OrganizationNumber": "Organization.OrgNo" }
         ]
       }
     ]
