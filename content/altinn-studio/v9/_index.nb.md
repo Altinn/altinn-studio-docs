@@ -96,6 +96,3 @@ cascade:
         </div>
     </div>
 </div>
-
-## Nyheter - kommende
-{{% insert "content/altinn-studio/news/upcoming/_index.nb.md" %}}
