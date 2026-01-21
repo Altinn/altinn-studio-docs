@@ -18,7 +18,7 @@ To use a code list published from the Altinn Studio Designer organisation librar
 
 The `optionsId` field follows this syntax:
 
-`prefix**{org}**{id}**{version}/latest`
+`lib**{org}**{id}**{version}`
 
 Example: You have published two versions of a code list `countries` for your organisation `ttd`, and you want to use the first version
 
@@ -32,7 +32,7 @@ Example: You have published two versions of a code list `countries` for your org
   "dataModelBindings": {
     "simpleBinding": "some.field"
   },
-  "optionsId": "prefix**ttd**countries**1"
+  "optionsId": "lib**ttd**countries**1"
 }
 ```
 
@@ -48,6 +48,6 @@ Example: You want to always use the latest version of the same code list, withou
   "dataModelBindings": {
     "simpleBinding": "some.field"
   },
-  "optionsId": "prefix**ttd**countries**latest"
+  "optionsId": "lib**ttd**countries**latest"
 }
 ```
