@@ -1,7 +1,7 @@
 ---
-title: Integrations with Dialogporten and Arbeidsflate
-linktitle: Dialogporten/Arbeidsflate
-description: How to get started with the integrations towards Dialogporten and Arbeidsflate
+title: Transmissions Dialogporten and Arbeidsflate
+linktitle: Transmissions
+description: How to get started with Transmissions in Dialogporten and Arbeidsflate
 tags: [Correspondence, transmission, guide]
 toc: true
 weight: 40
@@ -11,6 +11,14 @@ weight: 40
 
 ## Transmissions
 A transmission can be created through the Altinn 3 Correspondence API to group multiple related instances within the same dialog.
+
+#### Transmissions in arbeidsflate
+
+Example Dialog with transmission:
+![Dialog with an indicated transmission](./af-transmission1.png)
+
+Transmission at the bottom, marked with type "information".
+![Dialog with a transmission](./af-transmission2.png)
 
 ### How to get started
 
@@ -102,8 +110,3 @@ The response should be of the following format:
 }
 ```
 
-#### Transmissions in arbeidsflate
-
-![Dialog with an indicated transmission](./af-transmission1.png)
-
-![Dialog with a transmission](./af-transmission2.png)
