@@ -12,7 +12,7 @@ weight: 40
 ## Transmissions
 En transmission kan opprettes gjennom Altinn 3 Melding API for å gruppere flere relaterte instanser innenfor samme dialog.
 
-#### Transmissions i arbeidsflate
+### Transmissions i arbeidsflate
 
 Eksempel på en dialog med transmission: 
 ![Dialog med en indikert transmission](./af-transmission1.png)
