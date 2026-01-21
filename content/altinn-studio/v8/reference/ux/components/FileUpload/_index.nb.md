@@ -1,6 +1,6 @@
 ---
-title: FileUpload
-linktitle: FileUpload
+title: File Upload (Filopplaster)
+linktitle: File Upload (Filopplaster)
 description: # Kort beskrivelse av komponenten
 schemaname: FileUpload # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk

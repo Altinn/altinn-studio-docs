@@ -1,5 +1,6 @@
 ---
-title: Image
+title: Image (Bilde)
+linktitle: Image (Bilde)
 description: Display visual content such as pictures, screenshots, illustrations, or graphics
 toc: true
 schemaname: Image

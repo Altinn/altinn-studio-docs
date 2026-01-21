@@ -1,6 +1,6 @@
 ---
-title: OrganisationLookup
-linktitle: OrganisationLookup
+title: OrganizationLookup (Finn virksomhet)
+linktitle: OrganizationLookup (Finn virksomhet)
 description: OrganisationLookup-komponenten kan brukes til å slå opp en organisasjon i Enhetsregisteret vha. organisasjonsnummer.
 schemaname: OrganisationLookup
 weight: 10

@@ -1,6 +1,6 @@
 ---
-title: Cards
-linktitle: Cards
+title: Cards (Cards)
+linktitle: Cards (Cards)
 description: Displays content structured as one or more cards.
 weight: 10 # Do not change, the components will be sorted alphabetically
 toc: true

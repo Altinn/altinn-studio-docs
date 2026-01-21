@@ -1,6 +1,6 @@
 ---
-title: Text
-linktitle: Text
+title: Label (Tekst)
+linktitle: Label (Tekst)
 description: En komponent som lar deg vise tekst med eller uten label.
 schemaname: Text # Component schema name used to autogenerate list of properties from json schema (replace with appropriate component name)
 weight: 10 # Do not change, the components will be sorted alphabetically

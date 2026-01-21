@@ -1,5 +1,6 @@
 ---
-title: Likert
+title: Likert (Likert-skala)
+linktitle: Likert (Likert-skala)
 description: Likert-komponenten lar brukeren svare på spørsmål ved å velge et av flere alternativer ved hjelp av radioknapper.
 toc: false
 weight: 10

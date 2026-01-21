@@ -1,5 +1,6 @@
 ---
-title: Panel
+title: Panel (Informativ melding)
+linktitle: Panel (Informativ melding)
 description: The panel component can be used to display important information to the user.
 toc: false
 weight: 10

@@ -1,5 +1,6 @@
 ---
-title: Link
+title: Link (Lenke)
+linktitle: Link (Lenke)
 description: Button or link to redirect the user to an external page.
 weight: 10
 ---

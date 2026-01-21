@@ -1,6 +1,6 @@
 ---
-title: Datepicker
-linktitle: Datepicker
+title: Datepicker (Dato)
+linktitle: Datepicker (Dato)
 description: # Kort beskrivelse av komponenten
 schemaname: Datepicker # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk

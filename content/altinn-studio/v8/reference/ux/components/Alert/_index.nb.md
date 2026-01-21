@@ -1,6 +1,6 @@
 ---
 title: Alert (Varsel)
-linktitle: Alert
+linktitle: Alert (Varsel)
 description: Med Varsel kan du vise meldinger til brukerne med ulike alvorlighetsgrader.
 schemaname: Alert # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk

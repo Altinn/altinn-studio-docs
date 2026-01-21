@@ -1,6 +1,6 @@
 ---
-title: Skillelinje
-linktitle: Skillelinje
+title: Divider (Delelinje)
+linktitle: Divider (Delelinje)
 description: Skillelinje komponent for å dele opp innhold på en side.
 schemaname: Divider # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk

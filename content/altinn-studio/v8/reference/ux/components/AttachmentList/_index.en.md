@@ -1,7 +1,8 @@
 ---
-title: AttachmentList
-linktitle: AttachmentList
+title: AttachmentList (Liste over vedlegg)
+linktitle: AttachmentList (Liste over vedlegg)
 description: Shows a list of all (or some) attachments uploaded in the form
+schemaname: AttachmentList # Component schema name used to autogenerate list of properties from json schema (replace with appropriate component name)
 weight: 10 # Do not change, the components will be sorted alphabetically
 toc: true
 ---

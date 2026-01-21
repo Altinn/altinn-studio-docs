@@ -1,6 +1,6 @@
 ---
-title: Map
-linktitle: Map
+title: Map (Stedfeste i kart)
+linktitle: Map (Stedfeste i kart)
 description: # Brief description of what the component does
 schemaname: Map # Component schema name used to autogenerate list of properties from json schema (replace with appropriate component name)
 weight: 10 # Do not change, the components will be sorted alphabetically

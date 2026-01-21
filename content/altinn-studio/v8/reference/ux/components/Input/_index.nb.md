@@ -1,6 +1,6 @@
 ---
-title: Input
-linktitle: Input
+title: Text field (Lite tekstfelt)
+linktitle: Text field (Lite tekstfelt)
 description: # Kort beskrivelse av komponenten
 schemaname: Input # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk

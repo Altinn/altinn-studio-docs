@@ -1,7 +1,8 @@
 ---
 title: AttachmentList (Liste over vedlegg)
-linktitle: AttachmentList
+linktitle: AttachmentList (Liste over vedlegg)
 description: Viser en liste over alle (eller noen) vedlegg som er lastet opp i skjemaet, for den oppgaven de jobber på.
+schemaname: AttachmentList # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk
 toc: true
 ---

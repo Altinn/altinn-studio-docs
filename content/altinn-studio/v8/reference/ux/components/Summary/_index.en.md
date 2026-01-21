@@ -1,6 +1,6 @@
 ---
-title: Summary
-linktitle: Summary
+title: Summary (Oppsummering)
+linktitle: Summary (Oppsummering)
 description: # Brief description of what the component does
 schemaname: Summary # Component schema name used to autogenerate list of properties from json schema (replace with appropriate component name)
 weight: 10 # Do not change, the components will be sorted alphabetically

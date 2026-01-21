@@ -1,6 +1,6 @@
 ---
-title: TimePicker
-linktitle: TimePicker
+title: TimePicker (Tid)
+linktitle: TimePicker (Tid)
 description: En komponent som lar brukeren velge et klokkeslett i et skjema.
 schemaname: TimePicker
 weight: 10

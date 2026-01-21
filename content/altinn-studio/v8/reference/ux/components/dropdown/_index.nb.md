@@ -1,6 +1,6 @@
 ---
-title: Nedtrekksliste
-linktitle: Nedtrekksliste
+title: Dropdown (Nedtrekksliste)
+linktitle: Dropdown (Nedtrekksliste)
 description: Inndataelement som lar brukeren velge kun ett alternativ i en liste med flere alternativer.
 schemaname: Dropdown
 toc: true

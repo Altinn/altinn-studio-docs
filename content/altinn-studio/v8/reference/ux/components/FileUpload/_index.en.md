@@ -1,6 +1,6 @@
 ---
-title: FileUpload
-linktitle: FileUpload
+title: File Upload (Filopplaster)
+linktitle: File Upload (Filopplaster)
 description: # Brief description of what the component does
 schemaname: FileUpload # Component schema name used to autogenerate list of properties from json schema (replace with appropriate component name)
 weight: 10 # Do not change, the components will be sorted alphabetically

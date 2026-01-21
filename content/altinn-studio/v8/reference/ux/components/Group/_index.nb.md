@@ -1,6 +1,6 @@
 ---
-title: Group
-linktitle: Group
+title: Repeating Group (Repeterende gruppe)
+linktitle: Repeating Group (Repeterende gruppe)
 description: # Kort beskrivelse av komponenten
 schemaname: Group # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk

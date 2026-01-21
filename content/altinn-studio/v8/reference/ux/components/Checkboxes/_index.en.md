@@ -1,6 +1,6 @@
 ---
-title: Checkboxes
-linktitle: Checkboxes
+title: Checkbox (Avmerkingsbokser)
+linktitle: Checkbox (Avmerkingsbokser)
 description: Input element that allows the user to select or deselect choices for one or more options.
 schemaname: Checkboxes # Component schema name used to autogenerate list of properies from json schema (replace with appropriate component name)
 weight: 10 # Do not change, the componets will be sorted alphabetically

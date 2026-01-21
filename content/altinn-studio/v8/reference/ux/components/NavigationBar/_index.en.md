@@ -1,6 +1,6 @@
 ---
-title: NavigationBar
-linktitle: NavigationBar
+title: Navigation (Navigasjon)
+linktitle: Navigation (Navigasjon)
 description: # Brief description of what the component does
 schemaname: NavigationBar # Component schema name used to autogenerate list of properties from json schema (replace with appropriate component name)
 weight: 10 # Do not change, the components will be sorted alphabetically

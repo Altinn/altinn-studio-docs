@@ -1,5 +1,5 @@
 ---
-title: MultipleSelect
+title: MultipleSelect (Nedtrekksliste med flere valg)
 description: MultipleSelect can be used when the user must choose one or more values
 schemaname: Checkboxes # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
 toc: true

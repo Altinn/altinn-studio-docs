@@ -1,6 +1,6 @@
 ---
-title: Header
-linktitle: Header
+title: Heading (Tittel)
+linktitle: Heading (Tittel)
 description: # Brief description of what the component does
 schemaname: Header # Component schema name used to autogenerate list of properties from json schema (replace with appropriate component name)
 weight: 10 # Do not change, the components will be sorted alphabetically

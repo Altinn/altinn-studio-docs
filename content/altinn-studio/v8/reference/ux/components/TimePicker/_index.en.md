@@ -1,6 +1,6 @@
 ---
-title: TimePicker
-linktitle: TimePicker
+title: TimePicker (Tid)
+linktitle: TimePicker (Tid)
 description: A component that allows users to select a time value in a form.
 schemaname: TimePicker
 weight: 10

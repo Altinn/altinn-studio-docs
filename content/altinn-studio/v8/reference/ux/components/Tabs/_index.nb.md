@@ -1,6 +1,6 @@
 ---
-title: Tabs
-linktitle: Tabs
+title: Tabs (Tabs)
+linktitle: Tabs (Tabs)
 description: En komponent som lar deg organisere og velge mellom forskjellig innhold.
 schemaname: Tabs # Component schema name used to autogenerate list of properties from json schema (replace with appropriate component name)
 weight: 10 # Do not change, the components will be sorted alphabetically

@@ -1,5 +1,6 @@
 ---
-title: Panel
+title: Panel (Informativ melding)
+linktitle: Panel (Informativ melding)
 description: Panelkomponenten kan brukes til å vise viktig informasjon til brukeren.
 toc: false
 weight: 10

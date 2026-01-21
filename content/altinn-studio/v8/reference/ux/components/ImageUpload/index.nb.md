@@ -1,6 +1,6 @@
 ---
-title: Bildeopplaster
-linktitle: Bildeopplaster
+title: Studio.ImageUpload (Bildeopplaster)
+linktitle: Studio.ImageUpload (Bildeopplaster)
 description: Komponent som lar brukeren laste opp et bilde og beskjære det før det lagres
 schemaname: ImageUpload
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk

@@ -1,6 +1,6 @@
 ---
-title: Image Uploader
-linktitle: Image Uploader
+title: Studio.ImageUpload (Bildeopplaster)
+linktitle: Studio.ImageUpload (Bildeopplaster)
 description: Component that allows users to upload an image and crop it before it is saved
 schemaname: ImageUpload
 weight: 10 # Do not change, components are sorted alphabetically

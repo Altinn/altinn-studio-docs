@@ -1,6 +1,6 @@
 ---
-title: Cards
-linktitle: Cards
+title: Cards (Cards)
+linktitle: Cards (Cards)
 description: Viser innhold strukturert som en eller flere kort.
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk
 toc: true

@@ -1,6 +1,6 @@
 ---
-title: Dropdown
-linktitle: Dropdown
+title: Dropdown (Nedtrekksliste)
+linktitle: Dropdown (Nedtrekksliste)
 description: Input element that allows a user to select only one option from a number of choices
 schemaname: Dropdown
 toc: true

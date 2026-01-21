@@ -1,6 +1,6 @@
 ---
-title: Paragraph
-linktitle: Paragraph
+title: Paragraph (Avsnitt)
+linktitle: Paragraph (Avsnitt)
 description: # Kort beskrivelse av komponenten
 schemaname: Paragraph # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk

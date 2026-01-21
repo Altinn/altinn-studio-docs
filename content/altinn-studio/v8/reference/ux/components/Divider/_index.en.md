@@ -1,6 +1,6 @@
 ---
-title: Divider
-linktitle: Divider
+title: Divider (Delelinje)
+linktitle: Divider (Delelinje)
 description: Divider component for separating content on a page.
 schemaname: Divider # Component schema name used to autogenerate list of properties from json schema (replace with appropriate component name)
 weight: 10 # Do not change, the components will be sorted alphabetically

@@ -1,5 +1,6 @@
 ---
-title: Link
+title: Link (Lenke)
+linktitle: Link (Lenke)
 description: Knapp eller lenke for å sende brukeren til en ekstern side.
 weight: 10
 ---

@@ -1,6 +1,6 @@
 ---
-title: Header
-linktitle: Header
+title: Heading (Tittel)
+linktitle: Heading (Tittel)
 description: # Kort beskrivelse av komponenten
 schemaname: Header # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk

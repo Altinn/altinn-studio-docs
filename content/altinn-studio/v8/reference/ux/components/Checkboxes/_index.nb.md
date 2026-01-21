@@ -1,6 +1,6 @@
 ---
-title: Avkrysningsbokser
-linktitle: Avkrysningsbokser
+title: Checkbox (Avmerkingsbokser)
+linktitle: Checkbox (Avmerkingsbokser)
 description: Inndataelement som lar brukeren velge eller fjerne valg for ett eller flere alternativer.
 schemaname: Checkboxes # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk

@@ -1,6 +1,6 @@
 ---
-title: RadioButtons
-linktitle: RadioButtons
+title: Radio (Radioknapper)
+linktitle: Radio (Radioknapper)
 description: Input element that allows the user to choose one of several options.
 schemaname: RadioButtons # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk

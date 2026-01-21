@@ -1,6 +1,6 @@
 ---
-title: OrganisationLookup
-linktitle: OrganisationLookup
+title: OrganizationLookup (Finn virksomhet)
+linktitle: OrganizationLookup (Finn virksomhet)
 description: The OrganisationLookup component lets you look up an organization within The Central Coordinating Register for Legal Entities by its organization number.
 schemaname: OrganisationLookup
 weight: 10

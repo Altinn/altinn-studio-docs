@@ -1,6 +1,6 @@
 ---
-title: Bilde
-linktitle: Bilde
+title: Image (Bilde)
+linktitle: Image (Bilde)
 description: Vis visuelt innhold som bilder, skjermbilder, illustrasjoner og grafikk
 schemaname: Image # Komponentens schema-navn, brukes for å automatisk generere liste med egenskaper fra komponentens JSON schema (erstatt med riktig navn i henhold til schema)
 weight: 10 # Ikke endre, komponentene sorteres alfabetisk
