@@ -16,7 +16,7 @@ To use a code list published from the Altinn Studio Designer organisation librar
 * Pin a version - to make sure that the application will not change if a new version is published.
 * Use the latest version by setting version to `latest`
 
-`prefix[separator]{org}[separator]{id}[separator]{version}/latest`
+`prefix**{org}**{id}**{version}/latest`
 
 Example: You have published two versions of a code list `countries` for your organisation `ttd`, and you want to use the first version
 
@@ -30,7 +30,7 @@ Example: You have published two versions of a code list `countries` for your org
   "dataModelBindings": {
     "simpleBinding": "some.field"
   },
-  "optionsId": "prefix[separator]ttd[separator]countries[separator]1"
+  "optionsId": "prefix**ttd**countries**1"
 }
 ```
 
@@ -46,6 +46,6 @@ Example: You want to always use the latest version of the same code list, withou
   "dataModelBindings": {
     "simpleBinding": "some.field"
   },
-  "optionsId": "prefix[separator]ttd[separator]countries[separator]latest"
+  "optionsId": "prefix**ttd**countries**latest"
 }
 ```
