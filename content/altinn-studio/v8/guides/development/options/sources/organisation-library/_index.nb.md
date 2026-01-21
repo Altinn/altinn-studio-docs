@@ -17,7 +17,7 @@ Når du skal bruke en publisert kodeliste, kan du
 * Bruke den nyeste versjonen ved å sette versjon til `latest`
 
 `optionsId`-feltet i koden følger denne syntaksen:
-`prefix**{organisasjon}**{kodelistenavn}**{{versjon}/latest}`
+`lib**{organisasjon}**{kodelistenavn}**{{versjon}/latest}`
 
 Eksempel: Du har publisert to versjoner av en kodeliste med navnet `countries` for din organisasjon `ttd`, og du vil bruke den første versjonen. Slik skriver du koden:
 
@@ -31,7 +31,7 @@ Eksempel: Du har publisert to versjoner av en kodeliste med navnet `countries` f
   "dataModelBindings": {
     "simpleBinding": "some.field"
   },
-  "optionsId": "prefix**ttd**countries**1"
+  "optionsId": "lib**ttd**countries**1"
 }
 ```
 
@@ -47,6 +47,6 @@ Hvis du alltid vil bruke den nyeste versjonen av samme kodeliste uten å måtte 
   "dataModelBindings": {
     "simpleBinding": "some.field"
   },
-  "optionsId": "prefix**ttd**countries**latest"
+  "optionsId": "lib**ttd**countries**latest"
 }
 ```
