@@ -16,6 +16,8 @@ To use a code list published from the Altinn Studio Designer organisation librar
 * Pin a version - to make sure that the application will not change if a new version is published.
 * Use the latest version by setting version to `latest`
 
+The `optionsId` field follows this syntax:
+
 `prefix**{org}**{id}**{version}/latest`
 
 Example: You have published two versions of a code list `countries` for your organisation `ttd`, and you want to use the first version
