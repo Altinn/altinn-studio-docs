@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Konfigurere signering i Altinn-appen din
 linktitle: Signering
 description: Her finner du veiledninger for de vanligste signeringsoppsettene.

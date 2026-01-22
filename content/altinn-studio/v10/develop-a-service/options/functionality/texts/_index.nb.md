@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Tekster
 description: De ulike tekstegenskapene som kan brukes for svaralternativer
 weight: 150

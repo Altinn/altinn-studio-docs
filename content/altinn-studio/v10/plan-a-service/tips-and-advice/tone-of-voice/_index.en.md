@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Language
 description: Guidelines should ensure common language and understandability across services in Altinn. 
 weight: 20

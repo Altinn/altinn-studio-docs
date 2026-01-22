@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Altinn Studio tilganger
 linktitle: Studio
 description: Hvordan konfigurere tilganger for team i Altinn Studio.

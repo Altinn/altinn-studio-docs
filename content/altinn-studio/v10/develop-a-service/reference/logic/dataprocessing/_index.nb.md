@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Dataprosessering
 description: Hvordan legge til kalkuleringer og annen dataprosessering?
 tags: [needsReview, needsTranslation]

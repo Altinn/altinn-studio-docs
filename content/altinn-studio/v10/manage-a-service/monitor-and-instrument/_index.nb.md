@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Monitorer og instumenter
 linktitle: Monitorer og instumenter
 description: Kom i gang med verktøyene for instrumentering og monitorering i Altinn

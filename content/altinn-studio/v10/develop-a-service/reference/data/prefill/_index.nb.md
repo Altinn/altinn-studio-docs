@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Forhåndsutfylling - referanse
 linktitle: Forhåndsutfylling
 description: Oversikt over tilgjengelige felter for forhåndsutfylling med konfigurasjonsfil

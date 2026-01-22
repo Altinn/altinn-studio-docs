@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Beskyttede data
 description: Hvordan sette opp ekstra databeskyttelse for en app
 tags: [needsReview, needsTranslation]

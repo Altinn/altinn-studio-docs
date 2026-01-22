@@ -1,4 +1,5 @@
 ---
+draft: true
 title: API-based signing
 linktitle: API-based signing
 description: Follow these steps to implement API-based signing in your app.

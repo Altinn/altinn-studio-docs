@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Forhåndsutfylle data automatisk - konfigurasjonsfil
 linktitle: Konfigurasjon
 description: Slik setter du opp automatisk utfylling av skjemadata med konfigurasjonsfil.

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Static options
 linktitle: Static
 description: Lists of options that does not change, but can be filtered

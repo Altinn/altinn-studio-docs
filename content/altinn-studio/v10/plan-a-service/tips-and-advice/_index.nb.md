@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Tips og råd
 weight: 30
 tags: [needsReview, translate-to-english]

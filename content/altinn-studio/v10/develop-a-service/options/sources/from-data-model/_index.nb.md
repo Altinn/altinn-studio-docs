@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Kodelister fra repeterede strukturer
 linktitle: Fra datamodellen
 description: Kodelister hentet fra en repeterende struktur i datamodellen

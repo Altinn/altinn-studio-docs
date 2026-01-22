@@ -1,4 +1,5 @@
 ---
+draft: true
 hidden: true
 ---
 > This step needs to be done manually. Support for configuration in Altinn Studio Designer will come during autumn 2024. 

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Innsiktsfase
 description: Først av alt bør du samle prosjektgruppen og starte med å definere problemet. Hva er det dere skal løse og hvem skal det løses for?
 weight: 5

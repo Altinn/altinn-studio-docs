@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Process actions
 description: Extended authorization, custom logic for process actions
 tags: [altinn-apps, process, bpmn, gateway, action, acitons]

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Avpublisere apper
 linktitle: Avpublisering
 description: Forklarer hvordan du kan avpublisere apper i Altinn Studio.

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Firewall & IP Configuration
 description: Firewall & IP Configuration with Altinn Studio
 weight: 24

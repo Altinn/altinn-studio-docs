@@ -1,4 +1,5 @@
 ---
+draft: true
 title: UI-komponenter (UTDATERT)
 description: UTDATERT - Denne komponentoversikten er erstattet av en nyere versjon.
 weight: 999

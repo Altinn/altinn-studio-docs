@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Designer
 description: Slik navigerer du i Altinn Studio Designer.
 toc: true

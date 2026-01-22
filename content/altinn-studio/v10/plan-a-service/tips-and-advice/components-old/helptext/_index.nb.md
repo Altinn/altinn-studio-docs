@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Hjelpetekst
 description: Hjelpetekster er små tekstsnutter som kan benyttes for å gi brukeren ekstra veiledning i utfylling av skjemafelter. 
 weight: 80

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Apps infrastruktur tilganger
 linktitle: Apps
 description: Hvordan bestille tilganger til app logger og hemmeligheter.

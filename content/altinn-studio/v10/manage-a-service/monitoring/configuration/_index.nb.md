@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Sette opp overvåking
 linktitle: Sette opp overvåking
 description: Slik setter du opp overvåking i Altinn-appen din.

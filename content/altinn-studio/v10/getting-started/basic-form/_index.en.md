@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Create a simple form
 description: This guide teaches you how to create and publish an app in Altinn Studio, for example a simple form.
 weight: 10

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Ordliste
 linktitle: Ordliste
 description: Forklaringer av tekniske ord og begreper som brukes i dokumentasjonen om administrasjon og overvåking av Altinn-tjenester

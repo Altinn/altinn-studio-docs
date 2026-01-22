@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Lage et enkelt skjema
 description: I denne veiledningen lærer du hvordan du lager og publiserer en app i Altinn Studio, for eksempel et enkelt skjema.
 weight: 90

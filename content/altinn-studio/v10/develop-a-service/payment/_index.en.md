@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Payment
 linktitle: Payment
 description: Follow these steps to implement Payment in your App

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Accessibility
 description: Good accessibility helps people with disabilities access our services in a meaningful way. By using Altinn 3 large parts of your service is handled by us, but you still have to remember some things yourself.
 weight: 30

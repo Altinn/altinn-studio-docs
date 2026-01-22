@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Test av app lokalt
 linktitle: Lokalt
 description: Testing av app lokalt på egen maskin

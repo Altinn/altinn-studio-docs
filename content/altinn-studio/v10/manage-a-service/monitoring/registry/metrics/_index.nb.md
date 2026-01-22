@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Målinger
 linktitle: Målinger
 description: Innebygde målinger i Altinn-appen din.

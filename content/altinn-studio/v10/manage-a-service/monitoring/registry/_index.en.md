@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Telemetry Registry
 linktitle: Telemetry Registry
 description: Overview of which telemetry is built into your Altinn app.

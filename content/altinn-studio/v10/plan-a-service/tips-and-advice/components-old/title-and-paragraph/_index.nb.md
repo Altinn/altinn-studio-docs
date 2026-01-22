@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Typografi
 description: Det bør som hovedregel alltid være en header (H2) og et avsnitt i starten på en skjamaside for å oppsummere brukerens oppgave.
 weight: 10

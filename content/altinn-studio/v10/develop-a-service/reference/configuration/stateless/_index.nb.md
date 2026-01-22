@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Stateless app (innsynstjeneste)
 linktitle: Stateless
 description: Slik konfigurerer du en stateless app

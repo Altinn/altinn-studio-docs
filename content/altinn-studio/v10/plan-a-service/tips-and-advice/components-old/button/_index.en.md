@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Buttons and links
 description: Primary button (blue) is used to send the user to the next step.
 weight: 20

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Tall og datoer
 description: Slik skriver du tall, telefonnummer, datoer og klokkeslett i tjenestene.
 weight: 4

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Stil og tone
 description: Skriv personlig, varmt, vennlig og tydelig. Bruk ord som brukerne forstår.
 weight: 2

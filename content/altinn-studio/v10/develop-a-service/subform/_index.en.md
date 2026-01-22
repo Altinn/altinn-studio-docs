@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Configure subform in an app
 linktitle: Subform
 description: Follow these steps to get started with integrating subforms in your Altinn App.

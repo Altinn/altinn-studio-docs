@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Ordliste
 description: Forklaring av fagtermer i teknisk referansedokumentasjon
 weight: 1000

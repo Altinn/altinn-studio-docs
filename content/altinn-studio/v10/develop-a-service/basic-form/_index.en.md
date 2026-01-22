@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Simple Form
 description: User guide for creating a simple form in Altinn Studio
 weight: 10

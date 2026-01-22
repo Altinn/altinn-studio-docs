@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Sources
 description: The different sources for options in Altinn Studio
 weight: 10

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Slik konfigurerer du betaling i din Altinn-app
 linktitle: Betaling
 description: Følg disse grunnleggende stegene for å komme i gang med å integrere betaling i din Altinn App.

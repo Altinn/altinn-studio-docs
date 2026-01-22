@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Set Up Monitoring
 linktitle: Set Up Monitoring
 description: How to set up monitoring in your Altinn app.

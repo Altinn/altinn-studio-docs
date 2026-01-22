@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Signerings task
 description: Definer signerings prosess tasks
 tags: [altinn-apps, process, bpmn, task, sign, signing]

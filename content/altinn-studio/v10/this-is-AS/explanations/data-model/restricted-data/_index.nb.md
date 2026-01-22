@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Beskyttede data
 description: Beskyttede data krever ekstra tilgangskontroll utover vanlig autorisasjon.
 tags: [needsReview]

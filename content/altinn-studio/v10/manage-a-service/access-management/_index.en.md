@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Access management
 description: How to get access to Altinn Studio, app secrets and app logs.
 weight: 200

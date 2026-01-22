@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Checkboxes
 description: Check boxes are used in cases where the user can select multiple alternatives in a list of options.
 weight: 50

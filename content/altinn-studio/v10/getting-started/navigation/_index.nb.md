@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Bruke de ulike delene av Altinn Studio
 linktitle: De ulike delene av Altinn Studio
 description: Slik bruker du de ulike delene av Altinn Studio.

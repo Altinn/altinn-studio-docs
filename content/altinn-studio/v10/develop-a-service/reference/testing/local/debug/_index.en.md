@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Debugging of app
 linktitle: Debugging
 description: When running the apps locally one can debug using various tools.

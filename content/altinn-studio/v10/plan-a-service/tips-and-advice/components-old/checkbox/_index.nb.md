@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Avkrysningsboks
 description: Avkrysningsbokser brukes i tilfeller der brukeren kan huke av ett eller flere alternativer fra en liste. 
 weight: 50

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: How to configure signing in your Altinn app
 linktitle: Signing
 description: Below you will find guides for common configurations of signing.

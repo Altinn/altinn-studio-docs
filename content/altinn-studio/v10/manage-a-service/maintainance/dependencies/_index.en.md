@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Update dependencies in app
 linktitle: Dependencies
 description: How to update dependencies in an app.

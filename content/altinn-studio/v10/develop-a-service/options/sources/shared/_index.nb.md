@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Felles standard kodelister
 linktitle: Felles
 description: Delte standard kodelister som kan brukes i flere applikasjoner

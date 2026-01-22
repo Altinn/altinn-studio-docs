@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Vedlikehold av app i produksjon
 linktitle: Vedlikehold
 description: Applikasjoner i produksjon krever jevnlig vedlikehold og oppdateringer.

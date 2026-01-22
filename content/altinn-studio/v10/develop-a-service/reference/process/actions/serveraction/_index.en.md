@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Server Action
 linktitle: Server Action
 description: How to write custom server side actions that can be triggered by a API-client or a generic button

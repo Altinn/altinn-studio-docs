@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Forhåndsutfylling
 description: Forhåndsutfylling lar deg fylle ut skjema med data som allerede finnes.
 weight: 40

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Test-user for local testing
 linktitle: Test users
 description: We have defined a small set of test users available for local test.

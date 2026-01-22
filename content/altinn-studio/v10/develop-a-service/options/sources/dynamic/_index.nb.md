@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Dynamiske kodelister
 linktitle: Dynamisk
 description: Generert ved kjøring fra C#-kode

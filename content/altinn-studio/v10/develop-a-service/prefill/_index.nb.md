@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Forhåndsutfylling
 linktitle: Forhåndsutfylling
 description: Forhåndsutfylle data i appen

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Filopplasting
 description: Filopplasting tillater brukere å laste opp en eller flere filer.
 weight: 100

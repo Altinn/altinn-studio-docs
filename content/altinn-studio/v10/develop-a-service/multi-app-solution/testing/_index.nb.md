@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Teste en flerappsløsning i Altinn
 linktitle: Testing
 description: Slik tester du flerappsløsningen under utvikling

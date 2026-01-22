@@ -1,4 +1,5 @@
 ---
+draft: true
 title: App A
 linktitle: App A
 description: How to set up app A

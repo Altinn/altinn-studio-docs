@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Test a multi-app solution in Altinn
 linktitle: Testing
 description: How to test the multi-app solution whilst developing

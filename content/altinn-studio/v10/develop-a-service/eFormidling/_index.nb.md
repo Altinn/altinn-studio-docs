@@ -1,4 +1,5 @@
 ---
+draft: true
 title: eFormidling
 description: Slik setter du opp eFormidling-integrasjon for appen din.
 tags: [eFormidling, needsReview]

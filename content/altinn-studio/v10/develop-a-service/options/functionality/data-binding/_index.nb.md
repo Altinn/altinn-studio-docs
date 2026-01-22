@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Dataknytning
 description: Hva kan lagres i datamodellen
 weight: 50

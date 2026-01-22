@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Brukerstyrt signering
 linktitle: Brukerstyrt signering
 description: Slik setter du opp brukerstyrt signering i tjenesten din.

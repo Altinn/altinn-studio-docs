@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Vanlige spørsmål om Application Insights
 linktitle: Vanlige spørsmål
 description: Spørsmål og svar om Application Insights.

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Ressursfordeling
 description: Hvilke ressurser fordeles i et cluster og hvordan?
 toc: true

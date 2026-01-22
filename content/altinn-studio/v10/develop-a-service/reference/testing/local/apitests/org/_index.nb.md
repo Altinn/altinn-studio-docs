@@ -1,4 +1,5 @@
 ---
+draft: true
 title: API test org
 linktitle: Org
 description: Når du kjører applikasjonene lokalt sammen med den lokale testplattformen kan du teste API som applikasjon eksponerer.

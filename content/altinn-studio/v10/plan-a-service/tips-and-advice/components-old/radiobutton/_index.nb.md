@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Radioknapp
 description: Radioknapper brukes i tilfeller der brukeren skal velge et alternativ blant flere. Det samme gjelder nedtrekksliste, så vær bevisst på når du bruker hvilken.  
 weight: 60

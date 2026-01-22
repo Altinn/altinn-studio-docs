@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Typography
 description: In most cases, there should be a header (H2) and a paragraph at the start of form pages to summarize the task of the user.
 weight: 10

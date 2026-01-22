@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Open source and collaboration
 description: How you can contribute to the development of Altinn Studio.
 weight: 2

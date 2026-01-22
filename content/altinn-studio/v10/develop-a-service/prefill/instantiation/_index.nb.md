@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Forhåndsutfylle data med http post
 linktitle: Http post
 description: Slik konfigurerer du forhåndsutfylling for en app ved bruk av http post requests.

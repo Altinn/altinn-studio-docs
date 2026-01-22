@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Restricted data
 description: How to set up additional data protections for an app
 weight: 50

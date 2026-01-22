@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Test app in test environment
 linktitle: In test environment
 description: Description of how test in test environment can be performed.

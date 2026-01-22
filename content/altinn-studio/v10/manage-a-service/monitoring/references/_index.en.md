@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Resources
 linktitle: Resources
 description: Useful resources related to monitoring tools.

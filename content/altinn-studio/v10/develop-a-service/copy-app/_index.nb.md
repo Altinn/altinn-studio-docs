@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Kopiere app i Altinn Studio
 linktitle: Kopiere app
 description: Slik kopierer du en app i Altinn Studio.

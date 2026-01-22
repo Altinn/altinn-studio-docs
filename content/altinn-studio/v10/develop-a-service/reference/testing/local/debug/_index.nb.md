@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Debugging av app
 linktitle: Debugging
 description: Når man kjører appene lokalt kan man debugge ved hjelp av ulike verktøy.

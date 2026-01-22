@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Automatisk opprydding
 description: Slik fjernes ukjente svaralternativer automatisk fra datamodellen
 weight: 100
