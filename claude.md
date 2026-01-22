@@ -1,6 +1,8 @@
 # Instrukser for dokumentasjonsarbeid - Altinn Studio Dokumentasjon
 
-## PROSEDYRE: Flytte bilder fra v8 til v10
+## Gjelder for innholdet i Altinn Studio docs
+
+### PROSEDYRE: Flytte bilder fra v8 til v10
 
 **KRITISK FORSTÅELSE: Hugo Page Bundles**
 
@@ -60,14 +62,14 @@ Hugo har to typer content-organisering:
 - Vanlige markdown-filer MÅ være `index.md` i sin egen mappe for å danne en leaf bundle
 - Uten korrekt bundle-struktur finner ikke Hugo bildene, selv med riktig `./` referanse
 
-## VIKTIG: Alltid legg til needsReview-tag
+### VIKTIG: Alltid legg til needsReview-tag
 
 **Når du vasker/migrerer filer fra v8 til v10:**
 - Legg ALLTID til `tags: [needsReview]` i frontmatter
 - Dette er kritisk for å holde oversikt over hva som er klart til gjennomgang
 - Gjelder alle nye eller språkvaskede filer
 
-## VIKTIG: Alltid sjekk lenker og bilder
+### VIKTIG: Alltid sjekk lenker og bilder
 
 **Når du vasker/migrerer/redigerer filer:**
 - **Sjekk alle lenker**: Kontroller at lenker fungerer og peker til riktig sted
@@ -81,7 +83,7 @@ Hugo har to typer content-organisering:
   - Sjekk at alt-tekst er beskrivende
 - **Test lokalt**: Bruk Hugo Server for å verifisere før du committer
 
-## Språkregler for overskrifter
+### Språkregler for overskrifter
 
 **Regel for imperative vs. infinitive overskrifter:**
 
@@ -99,9 +101,9 @@ Hugo har to typer content-organisering:
 
 **Beskrivende overskrifter** bruker "Slik..." (f.eks. "Slik lager og redigerer du datamodeller").
 
-## Viktige retningslinjer
+### Viktige retningslinjer
 
-### Målgruppe
+#### Målgruppe
 **Ikke-tekniske tjenesteeiere**: Skriv for tjenesteeiere i offentlige virksomheter som har eller planlegger tjenester i Altinn (for eksempel prosesser som data, data->signing, data->signing->payment eller mer komplekse løp).
 
 **De har fag- og virksomhetsansvar, ikke teknisk ansvar**. De:
@@ -118,7 +120,7 @@ Hugo har to typer content-organisering:
 - Hvilke valg som er trygge standardvalg og hvilke som krever ekstra oppfølging/testing (komplekse prosesser, Camunda, egen frontend)
 - Gi heller eksempler på spørsmål tjenesteeier kan stille til utviklerne, enn teknisk detalj
 
-### Språk og stil
+#### Språk og stil
 - Bruk konservativ bokmål ("listen", "hentet" - ikke "lista", "henta")
 - Hovedoverskrifter: Infinitiv ("Opprette tjenesten")
 - Steg-for-steg underoverskrifter: Imperativ ("Opprett ny tjeneste")
@@ -128,14 +130,14 @@ Hugo har to typer content-organisering:
 - Tall under 12: Skriv med bokstaver i løpende tekst ("fire filer", "tre alternativer")
   - Unntak: Statistikk, tabeller, eller når tallet er spesielt viktig ("maks 10 filer tillatt")
 
-### Formatering
+#### Formatering
 - GUI-elementer: Bold formatting ("Klikk på **Lagre**")
 - Mushandlinger: "klikk"
 - Tastaturhandlinger: "trykk"
 - Valg fra lister: "velg"
 - URLs: Soft line break før URL
 
-### Listeregler (punktlister)
+#### Listeregler (punktlister)
 
 **⚠️ ALLTID SJEKK LISTER NÅR DU SPRÅKVASKER - Dette er en vanlig feilkilde!**
 
@@ -239,13 +241,13 @@ Du kan lage datamodeller på to måter:
 - Last opp en XSD-fil
 ```
 
-### Struktur
+#### Struktur
 - Alfabetiser emnene i hver mappe
 
-### Metadata
+#### Metadata
 - Alltid legg til `tags: [needsReview]` i frontmatter
 
-### Kilder
+#### Kilder
 - Klarspråk: https://språkrådet.no/
 - Tegnsetting og språkbruk: https://korrekturavdelingen.no/
 - Dokumentasjonsstruktur: https://diataxis.fr/
