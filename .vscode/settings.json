@@ -33,5 +33,9 @@
     "cSpell.language": "en,nb",
     "cSpell.words": [
         "navigasjonsmenyen"
-    ]
+    ],
+    "chat.tools.terminal.autoApprove": {
+        "git commit": true,
+        "git push": true
+    }
 }
