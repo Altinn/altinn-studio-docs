@@ -111,8 +111,8 @@ Templates/min-mal/content/
 │   │   ├── layouts/
 │   │   └── Settings.json
 │   └── logic/
-|   ├── config/
-│   |   └── applicationmetadata.json
+│   ├── config/  
+│   │   └── applicationmetadata.json  
 └── README.md
 ```
 

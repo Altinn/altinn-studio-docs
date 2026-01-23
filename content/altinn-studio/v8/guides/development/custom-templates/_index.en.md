@@ -103,7 +103,7 @@ this folder contains all files that will be copied to the target application rep
 
 **Structure example:**
 
-```json
+```text
 Templates/my-template/content/
 ├── App/
 │   ├── models/
@@ -111,8 +111,8 @@ Templates/my-template/content/
 │   │   ├── layouts/
 │   │   └── Settings.json
 │   └── logic/
-|   ├── config/
-│   |   └── applicationmetadata.json
+│   ├── config/  
+│   │   └── applicationmetadata.json  
 └── README.md
 ```
 
