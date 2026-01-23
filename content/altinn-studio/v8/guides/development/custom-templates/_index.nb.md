@@ -11,7 +11,7 @@ Maler lagres i et dedikert innholdsrepo i Gitea med navnekonvensjonen `{org}-con
 
 Innholdsrepoet ditt må følge denne strukturen:
 
-```
+```text
 {org}-content/
 └── Templates/
     ├── templatemanifest.json   # Liste over alle tilgjengelige maler
@@ -103,7 +103,7 @@ denne mappen inneholder alle filer som kopieres til mål-applikasjonsrepoet når
 
 **Struktureksempel:**
 
-```
+```text
 Templates/min-mal/content/
 ├── App/
 │   ├── models/
