@@ -60,8 +60,7 @@ Full details and validation rules for each template are defined in the correspon
 **Requirements:**
 - Must be a valid JSON array
 - Each template entry must include: `id`, `owner`, `name`, and `description`
-- `name` and `description` must include entries for `nb`(norsk bokmål).
-
+- `name` and `description` must include entries for `nb` (Norwegian Bokmål).
 ### 2. template.json
 
 Located at `Templates/{template-id}/template.json` for each template. 
