@@ -673,6 +673,8 @@ These along with solutions are listed below, to be used at your convenience.
     | Versjon           | v1                |
     | Protokollparter   | arkiv.full        |
 
+    Pick a name for the account that reflects the Altinn app, as it is recommended that a new account is set up for each Altinn App one wants to integrate with the archive system. 
+
 3. Please reference archive system documentation on requirements for the encryption key pair.
 
 4. Under the account, navigate to the _Søk etter systemer_ tab and look up the system created to send messages.
