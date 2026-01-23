@@ -10,9 +10,44 @@ Denne siden gir en omfattende referanse for alle spesifikke feilkoder som return
 
 ## Feilkodeformat
 
-Altinn Notifications API bruker unike feilkoder i formatet `NOT-XXXXX` hvor `NOT` står for Notifications og `XXXXX` er et femsifret nummer.
+Altinn Notifications API bruker to typer feilkoder:
 
-Disse feilkodene returneres i `code`-feltet i problemdetaljrespons. `code`-feltet er et utvidelsesmedlem som definert av [RFC 7807](https://tools.ietf.org/html/rfc7807) (Problem Details for HTTP APIs), som gir maskinlesbar feilidentifikasjon.
+### Forretningsfeil
+Format: `NOT-XXXXX` hvor `NOT` står for Notifications og `XXXXX` er et femsifret nummer.
+
+Disse feilkodene returneres i `code`-feltet i problemdetaljrespons for forretningslogikkfeil (f.eks. manglende kontaktinformasjon, ressurs ikke funnet).
+
+### Valideringsfeil
+Format: `NOT.VLD-XXXXX` hvor `VLD` indikerer en valideringsfeil.
+
+Valideringsfeil returneres når forespørselen inneholder ugyldig data. Responsen inneholder:
+- En overordnet `code` med verdi `STD-00000`
+- Et `validationErrors`-array med individuelle valideringsfeil, hver med sin egen `code`
+
+**Eksempelrespons for valideringsfeil:**
+```json
+{
+  "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+  "title": "Bad Request",
+  "status": 400,
+  "detail": "One or more validation errors occurred.",
+  "code": "STD-00000",
+  "validationErrors": [
+    {
+      "code": "NOT.VLD-00001",
+      "detail": "IdempotencyId cannot be null or empty.",
+      "paths": ["IdempotencyId"]
+    },
+    {
+      "code": "NOT.VLD-00010",
+      "detail": "The requested send time value must have specified a time zone.",
+      "paths": ["RequestedSendTime"]
+    }
+  ]
+}
+```
+
+Disse feilkodene er definert ved hjelp av [RFC 7807](https://tools.ietf.org/html/rfc7807) (Problem Details for HTTP APIs), som gir maskinlesbar feilidentifikasjon.
 
 ## Feilkoder
 
@@ -112,6 +147,107 @@ Denne feilen er ikke forventet under normal drift. Feilen indikerer at klienten 
 - Forsikre deg om at du spør i riktig miljø (test eller produksjon)
 - Verifiser at den autentiserte organisasjonen har tilgang til forsendelsen
 - Sjekk at forsendelsen ble vellykket opprettet før du prøver å hente den
+
+---
+
+## Valideringsfeilkoder
+
+Følgende tabell viser alle valideringsfeilkoder som kan returneres av API-et. Disse returneres i `validationErrors`-arrayet i responsen.
+
+### Grunnleggende forespørselsvalidering
+
+| Kode | Beskrivelse |
+|------|-------------|
+| `NOT.VLD-00001` | IdempotencyId kan ikke være null eller tom |
+
+### Sendetidsvalidering
+
+| Kode | Beskrivelse |
+|------|-------------|
+| `NOT.VLD-00010` | Ønsket sendetid må ha spesifisert tidssone |
+| `NOT.VLD-00011` | Sendetid kan ikke være i fortiden |
+
+### Betingelsesendepunkt-validering
+
+| Kode | Beskrivelse |
+|------|-------------|
+| `NOT.VLD-00020` | ConditionEndpoint må være en gyldig absolutt URI eller null |
+| `NOT.VLD-00021` | ConditionEndpoint må bruke http eller https-skjema |
+
+### Mottakervalidering
+
+| Kode | Beskrivelse |
+|------|-------------|
+| `NOT.VLD-00030` | Må ha nøyaktig én mottaker |
+| `NOT.VLD-00031` | Mottakerspesifikasjon kan ikke være null |
+| `NOT.VLD-00032` | Én eller flere mottakere er påkrevd |
+| `NOT.VLD-00033` | Ugyldig e-postadresseformat |
+| `NOT.VLD-00034` | Ugyldig avsender-e-postadresseformat |
+| `NOT.VLD-00035` | Mobilnummer kan kun inneholde '+' og numeriske tegn, og må følge E.164-standarden |
+| `NOT.VLD-00036` | Fødselsnummer må være 11 siffer |
+| `NOT.VLD-00037` | Organisasjonsnummer må være 9 siffer |
+| `NOT.VLD-00038` | OrgNumber kan ikke være null eller tom |
+| `NOT.VLD-00039` | ResourceId må ha gyldig syntaks |
+| `NOT.VLD-00040` | Fødselsnummer kan ikke kombineres med andre identifikatorer |
+| `NOT.VLD-00041` | Organisasjonsnummer kan ikke kombineres med andre identifikatorer |
+| `NOT.VLD-00042` | Mottaker mangler kontaktinformasjon for foretrukket kanal |
+| `NOT.VLD-00043` | Mottaker mangler kontaktinformasjon for SMS-kanal |
+| `NOT.VLD-00044` | Mottaker mangler kontaktinformasjon for e-postkanal |
+
+### E-postinnstillinger-validering
+
+| Kode | Beskrivelse |
+|------|-------------|
+| `NOT.VLD-00050` | E-postsendingsalternativer kan ikke være null |
+| `NOT.VLD-00051` | E-postemne kan ikke være tomt |
+| `NOT.VLD-00052` | E-postinnhold kan ikke være tomt |
+| `NOT.VLD-00053` | E-postinnholdstype må være enten Plain eller HTML |
+| `NOT.VLD-00054` | E-post støtter kun sendetidspolicy «Anytime» |
+
+### SMS-innstillinger-validering
+
+| Kode | Beskrivelse |
+|------|-------------|
+| `NOT.VLD-00060` | SMS-innhold kan ikke være null eller tomt |
+| `NOT.VLD-00061` | SMS støtter kun sendetidspolicy «Daytime» og «Anytime» |
+
+### Påminnelsesvalidering
+
+| Kode | Beskrivelse |
+|------|-------------|
+| `NOT.VLD-00070` | Enten DelayDays eller RequestedSendTime må være definert, men ikke begge |
+| `NOT.VLD-00071` | DelayDays må være minst 1 dag |
+| `NOT.VLD-00072` | RequestedSendTime må være null når DelayDays er satt |
+| `NOT.VLD-00073` | DelayDays må være null når RequestedSendTime er satt |
+| `NOT.VLD-00074` | Påminnelsens sendetid må ha spesifisert tidssone |
+| `NOT.VLD-00075` | Påminnelsens sendetid kan ikke være i fortiden |
+
+### Kanalskjema-validering
+
+| Kode | Beskrivelse |
+|------|-------------|
+| `NOT.VLD-00080` | Ugyldig kanalskjemaverdi |
+| `NOT.VLD-00081` | EmailSettings må settes når ChannelSchema er EmailAndSms |
+| `NOT.VLD-00082` | SmsSettings må settes når ChannelSchema er EmailAndSms |
+| `NOT.VLD-00083` | EmailSettings må settes når ChannelSchema er SmsPreferred eller EmailPreferred |
+| `NOT.VLD-00084` | SmsSettings må settes når ChannelSchema er SmsPreferred eller EmailPreferred |
+| `NOT.VLD-00085` | SmsSettings må settes når ChannelSchema er Sms |
+| `NOT.VLD-00086` | EmailSettings må settes når ChannelSchema er Email |
+
+### Statusfeed-validering
+
+| Kode | Beskrivelse |
+|------|-------------|
+| `NOT.VLD-00090` | Sekvensnummer kan ikke være mindre enn 0 |
+
+### Dialogporten-validering
+
+Disse valideringene kontrollerer kun at GUID-formatet er korrekt. Det gjøres ingen verifisering mot Dialogporten for å sjekke om dialogen eller forsendelsen faktisk eksisterer.
+
+| Kode | Beskrivelse |
+|------|-------------|
+| `NOT.VLD-00100` | DialogId må være en gyldig ikke-tom GUID |
+| `NOT.VLD-00101` | TransmissionId må være en gyldig ikke-tom GUID |
 
 ---
 
