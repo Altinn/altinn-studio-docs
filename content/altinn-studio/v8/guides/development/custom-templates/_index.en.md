@@ -95,7 +95,7 @@ All `template.json` files must comply with [`customtemplate.schema.json`](https:
 Review the schema file for required fields, types, and validation rules or paste your template below
 for quick confirmation of whether it complies with the schema.
 
-{{< jsonschema-validator label="Your template:" schemaUrl="https://raw.githubusercontent.com/Altinn/altinn-studio/b150c94002b98df4b4230d8622096ce8c9bd5189/src/Designer/backend/src/Designer/Schemas/customtemplate.schema.json" >}}
+{{< jsonschema-validator label="Your template:" schemaUrl="https://raw.githubusercontent.com/Altinn/altinn-studio/refs/heads/main/src/Designer/backend/src/Designer/Schemas/customtemplate.schema.json" >}}
 
 ### 3. content/ folder
 
