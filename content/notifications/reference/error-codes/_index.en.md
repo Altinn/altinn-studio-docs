@@ -243,6 +243,8 @@ The following table shows all validation error codes that can be returned by the
 
 ### Dialogporten Validation
 
+These validations only check that the GUID format is correct. No verification is performed against Dialogporten to check whether the dialog or transmission actually exists.
+
 | Code | Description |
 |------|-------------|
 | `NOT.VLD-00100` | DialogId must be a valid non-empty GUID |

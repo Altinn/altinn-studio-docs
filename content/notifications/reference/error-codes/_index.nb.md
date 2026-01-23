@@ -242,6 +242,8 @@ Følgende tabell viser alle valideringsfeilkoder som kan returneres av API-et. D
 
 ### Dialogporten-validering
 
+Disse valideringene kontrollerer kun at GUID-formatet er korrekt. Det gjøres ingen verifisering mot Dialogporten for å sjekke om dialogen eller forsendelsen faktisk eksisterer.
+
 | Kode | Beskrivelse |
 |------|-------------|
 | `NOT.VLD-00100` | DialogId må være en gyldig ikke-tom GUID |
