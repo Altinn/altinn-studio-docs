@@ -4,7 +4,7 @@ Denne veiledningen forklarer hvordan du manuelt setter opp tilpassede maler i et
 
 ## Oversikt
 
-tilpassede maler lar organisasjoner lage gjenbrukbare applikasjonsmaler.
+Tilpassede maler lar organisasjoner lage gjenbrukbare applikasjonsmaler.
 Maler lagres i et dedikert innholdsrepo i Gitea med navnekonvensjonen `{org}-content` (f.eks. `digdir-content`).
 
 ## Repostruktur
