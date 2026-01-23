@@ -11,7 +11,7 @@ Templates are stored in a dedicated content repository in Gitea following the na
 
 Your content repository must follow this structure:
 
-```
+```text
 {org}-content/
 └── Templates/
     ├── templatemanifest.json   # List of all available templates
@@ -103,7 +103,7 @@ this folder contains all files that will be copied to the target application rep
 
 **Structure example:**
 
-```
+```json
 Templates/my-template/content/
 ├── App/
 │   ├── models/
