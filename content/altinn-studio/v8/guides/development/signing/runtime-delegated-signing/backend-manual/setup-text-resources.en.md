@@ -11,12 +11,12 @@ Here you define text resources to be used in communication with the user.
 
 With the `CommunicationConfig` property on the provided signee in your implementation of the `ISigneeProvider` interface, 
 you may **override** the content sent to the Altinn inbox, in addition to notifications sent the signer of a signing task.
-You can name these whatever you want and connect them to `CommunicationConfig` in the next step (step 4).
+You can name these whatever you want and connect them to `CommunicationConfig` in the next step (step 6).
 
 Example of text resources for notifications with custom texts for email, as well as receipt:
 
 {{% notice warning %}}
-Please note that the text resources related to the [correspondence](#correspondence) contains an `$instanceUrl$` placeholder.
+Please note that the text resources for the Altinn inbox message contains an `$instanceUrl$` placeholder.
 This placeholder will be replaced with a link to the form instance, which is crucial in order for the user to access the correct form.
 {{% /notice %}}
 
