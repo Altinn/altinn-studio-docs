@@ -5,7 +5,7 @@ hidden: true
 
 Dersom du ønsker å overstyre standardtekstene:
 
-Legg til en [tektsressurs-fil](/nb/altinn-studio/v8/reference/ux/texts/) under ´App/config/texts´ for hvert språk du vil støtte.
+Legg til en [tekstsressurs-fil](/nb/altinn-studio/v8/reference/ux/texts/) under ´App/config/texts´ for hvert språk du vil støtte.
 
 Med `CommunicationConfig` oppsettet for en oppgitt signatar i implementasjonen din av `ISigneeProvider` interfacet, kan
 du knytte opp tekstressurser for å **overstyre** innholdet i melding til innboksen i Altinn, samt sms og e-post som sendes
