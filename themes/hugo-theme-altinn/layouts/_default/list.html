@@ -25,4 +25,9 @@
 	{{ partial "pagination.html" $paginator }}
 {{- end -}}
 
+{{ if .Page.Store.Get "needsAjv" }}
+  {{ partial "ajv.html" . }}
+{{ end }}
+
+
 {{ partial "footer.html" . }}
