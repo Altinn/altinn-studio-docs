@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Telemetri-register
 linktitle: Telemetri-register
 description: Oversikt over hvilken telemetri som er innebygd i Altinn-appen din.

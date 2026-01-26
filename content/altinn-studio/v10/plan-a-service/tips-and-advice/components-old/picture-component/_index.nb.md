@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Bilde
 description: Bruk bilder og illustrasjoner for å fremheve poenger eller illustrere konsepter som er vanskelig å beskrive med tekst
 weight: 110

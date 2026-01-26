@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Forklaringer av viktige funksjoner og konsepter
 linktitle: Forklaringer
 description: Utdypende forklaringer av sentrale funksjoner og tekniske konsepter i Altinn Studio.

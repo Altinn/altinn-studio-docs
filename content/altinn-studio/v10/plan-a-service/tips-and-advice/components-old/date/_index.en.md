@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Date
 description: The date picker can be used when selecting a (relatively) recent date. To select dates that are far in the past (or future) a date field can be used instead.
 weight: 40

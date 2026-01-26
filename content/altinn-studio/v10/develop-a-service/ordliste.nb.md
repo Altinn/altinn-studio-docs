@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Ordliste for tjenesteutvikling
 linktitle: Ordliste
 description: Forklaringer av tekniske ord og begreper som brukes i dokumentasjonen om tjenesteutvikling i Altinn Studio.

@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Repositorier
 description: Slik navigerer du i Altinn Studios repositorier.
 toc: true

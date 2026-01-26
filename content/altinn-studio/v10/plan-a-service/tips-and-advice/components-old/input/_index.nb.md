@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Input
 description: Inputfelt brukes når brukeren skal føre inn tekst eller tall. 
 weight: 30

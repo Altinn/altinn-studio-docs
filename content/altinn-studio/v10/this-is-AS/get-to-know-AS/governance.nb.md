@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Oversikt over komponenter, versjonering og forvaltningsansvar
 linktitle: Komponenter, versjoner og ansvar
 description: Oversikt over komponenter, versjonering og forvaltningsansvar i Altinn Studio.

@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Nedtrekksliste
 description: Nedtrekksliste brukes i tilfeller der brukeren skal velge et alternativ blant flere. Det samme gjelder radioknapper, så vær bevisst på når du bruker hvilken.  
 weight: 70

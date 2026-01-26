@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Slik brukertester du
 weight: 2
 tags: [needsReview, translate-to-english, add-content]

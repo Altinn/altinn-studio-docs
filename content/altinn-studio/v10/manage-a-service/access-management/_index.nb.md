@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Tilgangsstyring
 description: Hvordan man får tilganger til Altinn Studio, hemmeligheter og applikasjonslogger.
 weight: 200

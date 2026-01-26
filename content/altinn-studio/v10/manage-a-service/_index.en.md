@@ -1,6 +1,6 @@
 ---
-draft: true
+draft: false
 title: Manage services
 description: Monitor and manage your digital service in production
-weight: 30
+weight: 60
 ---

@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Data Model
 description: A data model describes the structure of data collected in an app.
 weight: 30

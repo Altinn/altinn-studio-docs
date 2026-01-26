@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Oppdatere avhengigheter i app
 linktitle: Avhengigheter
 description: Hvordan oppdatere avhengigheter i en app.

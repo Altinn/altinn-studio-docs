@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Protected Data
 description: Protected data requires extra access control beyond normal authorisation.
 tags: [needsReview]

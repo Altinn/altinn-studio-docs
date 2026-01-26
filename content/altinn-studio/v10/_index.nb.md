@@ -1,12 +1,13 @@
 ---
-title: Altinn Studio V10
+title: Altinn Studio V8 (ny)
+breadcrumbText: Ny (V8)
 description: Altinn Studio - Ditt verktøy for å utvikle digitale tjenester til innbyggere og næringsliv
 weight: 1
-draft: true
+draft: false
 cascade:
   params:
     product: product_studio
-    version: v10
+    version: v8
 ---
  <div class="row adocs-featuredBlocks">
     <div class="col-12 col-lg-6 mb-5">
@@ -84,7 +85,7 @@ cascade:
                     </a>
                 </li>
                 <li class="a-dotted a-clickable a-list-hasRowLink">
-                    <a href="guides/development/basic-form" class="a-list-rowLink">
+                    <a href="getting-started/basic-form" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
                                 Brukerveiledning - enkelt skjema

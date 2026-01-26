@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Beskyttede data
 description: Beskyttede data krever ekstra tilgangskontroll utover vanlig autorisasjon.
 tags: [needsReview]
@@ -34,6 +34,6 @@ Du bør legge til ekstra tilgangskontroller hvis appen din
 - inneholder data som kun skal være lesbare
 
 ### Les mer
-- [Veiledning for å konfigurere beskyttede datatyper](/nb/altinn-studio/v10/develop-a-service/restricted-data/)
+- [Veiledning for å konfigurere beskyttede datatyper](/nb/altinn-studio/v10/develop-a-service/_temp/restricted-data/)
 - [Mer om applicationmetadata.json](/nb/api/models/app-metadata/#complete-example) (kun på engelsk foreløpig)
-- [Mer om autorisasjonspolicy og action-attributter](/nb/altinn-studio/v10/develop-a-service/reference/configuration/authorization/#action-attributter)
+- [Mer om autorisasjonspolicy og action-attributter](/nb/altinn-studio/v10/develop-a-service/_temp/reference/configuration/authorization/#action-attributter)

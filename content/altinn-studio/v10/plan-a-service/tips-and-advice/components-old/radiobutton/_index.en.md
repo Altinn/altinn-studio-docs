@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Radio button
 description: Radio buttons are used in cases where the user is picking one of a group of options. The same applies to drop-down lists, so be conscious about which you choose to use. 
 weight: 60

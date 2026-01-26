@@ -1,6 +1,6 @@
 ---
-draft: true
+draft: false
 title: Plan a service
 description: Plan and prepare your digital service
-weight: 2
+weight: 20
 ---

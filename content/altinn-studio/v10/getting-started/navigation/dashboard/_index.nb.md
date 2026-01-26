@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Dashboard i Altinn Studio
 linktitle: Dashboard
 description: Hvordan bruke dashboardet i Altinn Studio

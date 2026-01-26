@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Knapp og lenke
 description: Hovedknapp (blå) brukes for å sende brukeren til neste steg. 
 weight: 20

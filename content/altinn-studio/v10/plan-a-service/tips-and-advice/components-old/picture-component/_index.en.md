@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Image 
 description: Use images and illustrations to emphasize points or illustrate concepts which are difficult to explain using text
 weight: 110

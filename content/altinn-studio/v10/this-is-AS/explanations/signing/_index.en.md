@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Signing
 description: Signing allows users to confirm data with authenticated electronic signatures.
 weight: 50

@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Prototype
 description: By using the Figma Community file Altinn Studio Komponenter you can create a clickable prototype where you can design the flow and content for your service.
 weight: 3

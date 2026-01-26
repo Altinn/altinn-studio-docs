@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Altinn Studio access
 linktitle: Studio
 description: How to configure access for teams in Altinn Studio.

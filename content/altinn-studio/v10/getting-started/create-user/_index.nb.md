@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Lage en bruker i Altinn Studio
 linktitle: Lage en bruker
 description: Slik lager du deg en bruker i Altinn Studio

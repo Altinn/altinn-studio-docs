@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Dato
 description: Datovelger benyttes i forbindelse med planlegging eller for datoer i nærliggende tid. For datoer lengre tilbake i tid brukes datofelt.
 weight: 40

@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Ressurser
 linktitle: Ressurser
 description: Nyttige ressurser knyttet til overvåkingsverktøy.

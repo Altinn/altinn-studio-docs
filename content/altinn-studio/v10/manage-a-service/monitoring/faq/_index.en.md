@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Frequently Asked Questions About Application Insights
 linktitle: FAQ
 description: Questions and answers about Application Insights.

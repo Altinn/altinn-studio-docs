@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Avpublisere apper
 linktitle: Avpublisering
 description: Avpublisering gjør en app utilgjengelig ved å fjerne den fra et miljø.

@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Prototype
 description: Ved hjelp av Altinns Prototype-kit kan du lage en klikkbar prototype for å definere flyt og innhold i din tjeneste.
 weight: 8

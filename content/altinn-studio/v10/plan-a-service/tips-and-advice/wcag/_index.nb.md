@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Tilgjengelighet
 description: God tilgjengelighet gjør at mennesker med funksjonsnedsettelser kan bruke digitale tjenester.  Med Altinn Studio får du mye gratis, men du har ansvar for innhold, testing og tilgjengelighetserklæring.
 weight: 10

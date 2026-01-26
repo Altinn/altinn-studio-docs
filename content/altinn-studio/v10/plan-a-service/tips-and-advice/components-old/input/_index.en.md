@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Input
 description: Input fields are used when the user is submitting text or a number. 
 weight: 30

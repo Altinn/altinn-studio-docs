@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Create a user in Altinn Studio
 linktitle: Create a user
 description: How to create a user in Altinn Studio

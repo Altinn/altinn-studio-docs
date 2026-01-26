@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Åpen kildekode og samarbeid
 description: Slik kan du bidra til utviklingen av Altinn Studio.
 weight: 2

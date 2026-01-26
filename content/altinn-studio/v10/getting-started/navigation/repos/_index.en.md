@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Repos
 description: How to navigate in Altinn Studio Repos.
 toc: true

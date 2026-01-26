@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Betaling
 description: Betaling er et prosessteg som lar brukere betale for tjenester eller gebyrer i appen.
 weight: 20

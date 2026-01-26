@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Help texts
 description: Help texts are small text boxes that can be used to provide explanations to the user. 
 weight: 80

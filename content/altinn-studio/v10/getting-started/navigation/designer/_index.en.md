@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Designer
 description: How to navigate in Altinn Studio Designer.
 toc: true

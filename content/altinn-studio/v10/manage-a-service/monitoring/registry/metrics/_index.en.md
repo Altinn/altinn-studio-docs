@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Metrics
 linktitle: Metrics
 description: Built-in metrics in your Altinn app.

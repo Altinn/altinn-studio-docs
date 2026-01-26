@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Feilmeldinger
 description: Feilmeldinger forklarer brukeren hva som gikk galt og hvordan det kan rettes opp i.
 weight: 90

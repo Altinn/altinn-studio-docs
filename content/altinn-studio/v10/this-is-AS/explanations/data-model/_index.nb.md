@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Datamodell
 description: En datamodell beskriver strukturen på data som samles inn i en app.
 weight: 30
