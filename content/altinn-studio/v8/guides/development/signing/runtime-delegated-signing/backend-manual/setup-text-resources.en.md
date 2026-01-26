@@ -10,7 +10,7 @@ Add a [text resource file](/en/altinn-studio/v8/reference/ux/texts/) under 'App/
 Here you define text resources to be used in communication with the user.
 
 With the `CommunicationConfig` property on the provided signee in your implementation of the `ISigneeProvider` interface, 
-you may **override** the content sent to the Altinn inbox, in addition to notifications sent the signer of a signing task.
+you may **override** the content sent to the Altinn inbox, in addition to notifications sent to the signer of a signing task.
 You can name these whatever you want and connect them to `CommunicationConfig` in the next step (step 6).
 
 Example of text resources for notifications with custom texts for email, as well as receipt:
