@@ -16,7 +16,7 @@ You can name these whatever you want and connect them to `CommunicationConfig` i
 Example of text resources for notifications with custom texts for email, as well as receipt:
 
 {{% notice warning %}}
-Please note that the text resources for the Altinn inbox message contains an `$instanceUrl$` placeholder.
+Please note that the text resources for the Altinn inbox message contain an `$instanceUrl$` placeholder.
 This placeholder will be replaced with a link to the form instance, which is crucial in order for the user to access the correct form.
 {{% /notice %}}
 
