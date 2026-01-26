@@ -105,7 +105,7 @@ This will fill the `User.Email` field with the email retrieved from the user's A
 ```
 
 ### Example: Retrieve from Data.altinn.no (DAN)
-This will fill the `Organization.OrgNo` field with organization number from the UnitBasicInformation dataset from DAN.
+This will fill the `Organization.OrgNo` field with the organization number from the UnitBasicInformation dataset from DAN.
 
 ````json
 "DAN": {
@@ -119,7 +119,8 @@ This will fill the `Organization.OrgNo` field with organization number from the 
     ]
   }
 ````
-Dan is able to retrieve more than one dataset. If you want to use more than one dataset you can add it to the json.
+DAN is able to retrieve more than one dataset. If you want to use more than one dataset you can add it to the json like this.
+Datasets from DAN can be found at https://docs.data.altinn.no/datasett/
 
 ````json
 "DAN": {
@@ -140,3 +141,4 @@ Dan is able to retrieve more than one dataset. If you want to use more than one 
     ]
   }
 ````
+

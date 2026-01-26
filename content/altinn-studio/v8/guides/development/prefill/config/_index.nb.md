@@ -107,6 +107,7 @@ Dette fyller ut feltet `Bruker.Epost` med e-post hentet fra brukerens Altinn-pro
 ### Eksempel: Hente ut datasett fra data.altinn.no
 
 Dette fyller ut feltet `Organization.OrgNo` med organisasjonsnummer fra UnitBasicInformation datasettet fra DAN.
+Datasett fra DAN kan finnes her https://docs.data.altinn.no/datasett/
 
 ````json
 "DAN": {
