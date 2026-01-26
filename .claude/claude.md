@@ -221,6 +221,22 @@ Du kan lage datamodeller på to måter:
 - Last opp en XSD-fil
 ```
 
+### English Translation
+When translating to English, the following applies:
+- Use British English (organisation, authorise, whilst, etc.)
+- **Style guides**: Follow Oxford Style Guide and Guardian Style Guide for British English conventions
+- **Headings in English**: Use sentence case - only capitalise the first word and proper nouns. Examples:
+  - ✅ Correct: "Understand what a multi-app solution is"
+  - ❌ Wrong: "Understand What a Multi-App Solution Is"
+  - ✅ Correct: "Integrate the app with Maskinporten"
+  - ❌ Wrong: "Integrate the App with Maskinporten"
+- **Important**: Since the product (Altinn Studio) is not available in English, keep all GUI element references in Norwegian when translating
+- Use "end user" (not "end-user") throughout
+- **Bullet points in English** (Oxford/Guardian style):
+  - Use lowercase after bullet point unless starting with proper noun or complete sentence
+  - No full stop at end of bullet points unless they are complete sentences
+  - Be consistent within each list
+
 ## Hugo Page Bundles - CRITICAL UNDERSTANDING
 
 **When migrating an article from v8 to v10 that contains images:**
