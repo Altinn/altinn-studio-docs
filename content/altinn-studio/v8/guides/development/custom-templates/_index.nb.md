@@ -110,8 +110,8 @@ Templates/min-mal/content/
 │   ├── ui/
 │   │   ├── layouts/
 │   │   └── Settings.json
-│   └── logic/
-│   ├── config/  
+│   ├── logic/  
+│   └── config/  
 │   │   └── applicationmetadata.json  
 └── README.md
 ```

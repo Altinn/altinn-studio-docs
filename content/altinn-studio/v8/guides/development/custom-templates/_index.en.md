@@ -110,8 +110,8 @@ Templates/my-template/content/
 │   ├── ui/
 │   │   ├── layouts/
 │   │   └── Settings.json
-│   └── logic/
-│   ├── config/  
+│   ├── logic/  
+│   └── config/   
 │   │   └── applicationmetadata.json  
 └── README.md
 ```
