@@ -73,9 +73,7 @@ Datamodelleringsverktøyet i Altinn Studio bruker datamodeller i JSON schema-for
 ### Åpne datamodelleringsverktøyet
 
 1. Logg inn i Altinn Studio. Hvis du ikke er i [Altinn Studio Dashboard]({{< relref "/altinn-studio/v10/getting-started/navigation/dashboard" >}}), klikk på logoen øverst i venstre hjørne eller gå til [altinn.studio/dashboard](https://altinn.studio/dashboard).
-2. Velg **Rediger** (blått blyant-ikon) ved enten:
-   - En app under «Mine applikasjoner», eller
-   - Datamodellerings-repoet for organisasjonen din.
+2. Velg **Rediger** (blått blyant-ikon) ved enten en app under «Mine applikasjoner», eller datamodellerings-repoet for organisasjonen din.
 3. Velg fanen **Datamodell** i toppmenyen.
 
 ## Laste opp og vise datamodell
@@ -156,7 +154,7 @@ Et felt kan konverteres til en type ved å klikke på referanse-ikonet til høyr
 ### Redigere type
 
 1. Klikk på typen du ønsker å redigere. En trevisning for typen vises i midten.
-2. Egenskaper for typen kan redigeres i panelet til høyre.
+2. Rediger egenskaper for typen i panelet til høyre.
 3. Klikk **Legg til** øverst for å legge til felter på typen.
 4. Velg felter fra typen for å redigere egenskaper for disse i høyre-panelet.
 5. Lukk redigering av typer ved å klikke på **Tilbake til datamodell** øverst i modell-panelet.
