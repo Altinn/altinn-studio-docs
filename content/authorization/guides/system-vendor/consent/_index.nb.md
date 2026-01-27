@@ -35,7 +35,7 @@ Altinn-->>-Databehandler:
 Note over Altinn, Databehandler: Status på forespørsel <br/> consentRequestEvents med eventType Accepted/Denied
 End
 Databehandler->>+Maskinporten: POST /token
-Note over Databehandler, Maskinporten: JWT med authorization_details <br/> "type": "urn:altinn:consent" <br/> "from":"sluttbrukerid"<br/> "id":"consentRequuestId"
+Note over Databehandler, Maskinporten: JWT med authorization_details <br/> "type": "urn:altinn:consent" <br/> "from":"sluttbrukerid"<br/> "id":"consentRequestId"
 Maskinporten-->>-Databehandler:
 Note over Maskinporten,Databehandler: Samtykketoken
 Databehandler->>+Tjenesteeier: Get /tjenesteSomKreverSamtykke
