@@ -44,9 +44,9 @@ Tjenesteeier -->>- Databehandler:
 Databehandler-->>-Sluttbruker:
 {{< /mermaid >}}
 
-Ved bruk av samtykke føleger man flyten over
-Etter bruker har behandlet samtykkeforespørselen og blir redirected tilbake til datakonsument kam man slå opp for å hente status, eller eventuelt bare hente samtykketokenet og forsøke dette mot tjenesten.  
-Dersom bruker ikke har godtatt samtykket vil man da få feilmelding fra tjenesten man bruker samtykketokenet mot
+Ved bruk av samtykke følger man flyten over.
+Etter at brukeren har behandlet samtykkeforespørselen og blir omdirigert tilbake til datakonsumenten, kan man slå opp for å hente status, eller bare hente samtykketokenet og prøve dette mot tjenesten.
+Dersom brukeren ikke har godtatt samtykket, vil man få en feilmelding fra tjenesten man bruker samtykketokenet mot.
 
 ## Innhold
 
