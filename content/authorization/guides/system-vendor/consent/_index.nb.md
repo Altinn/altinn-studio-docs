@@ -18,7 +18,6 @@ før du følger denne veiledningen.
 
 ## Flyt
 
-{{<mermaid>}}
 {{< mermaid >}}
 sequenceDiagram
 participant Sluttbruker
