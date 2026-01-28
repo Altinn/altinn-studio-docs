@@ -1,13 +1,12 @@
 ---
-title: .NET Core
+title: .NET
 description: Server side development framework.
 tags: [tech, programming, needstranslation]
 ---
 
-![dotnet logo](dotnet-logo.png ".NET Core logo")
+![dotnet logo](dotnet-logo.png ".NET logo")
 
-.NET Core is the cross-platform and open source development framework used in Altinn 3.
-ASP.NET Core is used for developing APIs.
+.NET is the cross-platform and open source development framework used in Altinn 3 for backend APIs.
 
 We've also published [a few packages](https://www.nuget.org/profiles/altinn) on nuget.org.
 
