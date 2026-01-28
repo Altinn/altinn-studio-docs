@@ -14,6 +14,7 @@ Complete the steps described in [Getting started with consent for data consumers
 before you follow this guide.
 
 ## Flow
+
 {{< mermaid >}}
 sequenceDiagram
 participant Sluttbruker
