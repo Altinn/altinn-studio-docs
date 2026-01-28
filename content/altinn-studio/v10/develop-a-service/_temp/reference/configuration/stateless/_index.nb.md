@@ -167,8 +167,8 @@ App/config/applicationmetadata.json
 Når du bruker en stateless datatype, kan du populere datamodellen når app-frontend spør om skjemadataen.
 
 Datapopuleringen skjer i to steg på det første kallet fra frontend (GET):
-1. [Forhåndsutfylling](/nb/altinn-studio/v10/develop-a-service/_temp/reference/data/prefill/)
-2. [Dataprosessering](/nb/altinn-studio/v10/develop-a-service/_temp/reference/logic/dataprocessing/)
+1. [Forhåndsutfylling](/nb/altinn-studio/v10/develop-a-service/form-design/data/prefill/)
+2. [Dataprosessering](/nb/altinn-studio/v10/develop-a-service/custom-code/logic/dataprocessing/)
 
 På påfølgende oppdateringer av samme skjemadata (POST) kjøres ikke prefill på nytt, men kalkuleringen trigges. Dette gjør det mulig å endre dataen basert på brukerens input, selv i en stateless tilstand.
 

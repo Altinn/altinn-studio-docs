@@ -9,7 +9,7 @@ aliases:
 - /nb/altinn-studio/guides/signing/role-based-signing
 ---
 
-{{% insert "content/altinn-studio/v10/develop-a-service/_temp/restricted-data/shared/style.css.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/datamodelling/restricted-data/shared/style.css.md" %}}
 
 ## Hva er rolle- og tilgangspakkebasert signering?
 {{% insert "content/altinn-studio/v10/develop-a-service/flow/signing/role-based-signing/intro.nb.md" %}}
@@ -19,7 +19,7 @@ aliases:
 ### Maskinporten
 Maskinporten kreves hvis du vil bruke [meldingstjenesten](#meldingstjenesten) og/eller legge [tilgangsbegrensninger](/nb/altinn-studio/v10/develop-a-service/restricted-data/) på signaturobjektene.
 
-Hvis du trenger hjelp med oppsett av Maskinporten i appen din, finner du all informasjonen du trenger i [denne veiledningen](/nb/altinn-studio/v10/develop-a-service/_temp/reference/integration/maskinporten/).
+Hvis du trenger hjelp med oppsett av Maskinporten i appen din, finner du all informasjonen du trenger i [denne veiledningen](/nb/altinn-studio/v10/develop-a-service/custom-code/integration/maskinporten/).
 
 ### Meldingstjenesten
 Hvis appen din er [konfigurert til å sende signaturkvitteringer](#legg-til-signeringsoppgave), må Altinns meldingstjeneste (Correspondence) være aktivert.

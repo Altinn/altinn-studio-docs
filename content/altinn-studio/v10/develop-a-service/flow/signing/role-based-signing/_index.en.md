@@ -9,7 +9,7 @@ aliases:
   - /altinn-studio/guides/signing/role-based-signing
 ---
 
-{{% insert "content/altinn-studio/v10/develop-a-service/_temp/restricted-data/shared/style.css.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/datamodelling/restricted-data/shared/style.css.md" %}}
 
 ## What is role and access package based signing?
 

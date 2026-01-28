@@ -9,7 +9,7 @@ aliases:
   - /altinn-studio/guides/signing/runtime-delegated-signing
 ---
 
-{{% insert "content/altinn-studio/v10/develop-a-service/_temp/restricted-data/shared/style.css.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/datamodelling/restricted-data/shared/style.css.md" %}}
 
 {{%notice info%}}
 Available from [v8.6.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.6.0)
