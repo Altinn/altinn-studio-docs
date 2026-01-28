@@ -8,7 +8,7 @@ tags: [tech, containers, needstranslation]
 
 Docker is used as the container technology for hosting all products.
 
-In [Altinn Apps](/nb/technology/solutions/altinn-apps/) it is used to host the different apps created in Altinn Studio as seperate containers.
+In [Altinn Apps](/nb/technology/solutions/altinn-apps/) it is used to host the different apps created in Altinn Studio as separate containers.
 
 Altinn ❤️ containers.
 

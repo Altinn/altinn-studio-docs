@@ -6,8 +6,8 @@ tags: [tech, programming]
 
 ![TypeScript logo](typescript-logo.png "TypeScript logo")
 
-Typescript kompileres til JavaScript, så klienten kjører aldri TypeScript koden.
-Typescript er til for at utvikleren ikke skal lage bugs ved å endre typer på variabler.
+TypeScript kompileres til JavaScript, så klienten kjører aldri TypeScript koden.
+TypeScript er til for at utvikleren ikke skal lage feil ved å endre typer på variabler.
 
 
 ## Links
