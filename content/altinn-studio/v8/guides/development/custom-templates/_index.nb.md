@@ -64,7 +64,19 @@ Fullstendige detaljer og valideringsregler for hver mal defineres i tilhørende 
 ### 2. template.json
 
 Ligger i `Templates/{template-id}/template.json` for hver mal.
+
 Denne filen inneholder komplett konfigurasjon for én mal.
+
+#### Felter i `template.json`
+
+| Felt               | Type     | Påkrevd | Beskrivelse                                                                        |
+|--------------------|----------|---------|------------------------------------------------------------------------------------|
+| id                 | string   | Ja      | Unik ID for malen.                                                                 |
+| owner              | string   | Ja      | Eier av malen (kortnavn på organisasjon).                                          |
+| name               | object   | Ja      | Navn på malen, med støtte for flere språk (f.eks. nb).                             |
+| description        | object   | Ja      | Beskrivelse av malen, med støtte for flere språk (f.eks. nb).                      |
+| remove             | array    | Nei     | Liste over relative filbaner eller globs som skal fjernes fra applikasjonsrepoet.  |
+| packageReferences  | array    | Nei     | Liste over NuGet-pakker som skal legges til i angitte prosjektfiler (.csproj).     |
 
 **Format:**
 
@@ -83,6 +95,13 @@ Denne filen inneholder komplett konfigurasjon for én mal.
     "remove": [
         "App/TestDummy.cs",
         ".editorconfig"
+    ],    
+    "packageReferences": [
+        {
+            "project": "App/*.csproj",
+            "include": "Altinn.App.Clients.Fiks",
+            "version": "8.10.0"
+        }
     ]
 }
 ```
@@ -91,7 +110,7 @@ Denne filen inneholder komplett konfigurasjon for én mal.
 
 Alle `template.json`-filer må være i samsvar med [`customtemplate.schema.json`](https://raw.githubusercontent.com/Altinn/altinn-studio/refs/heads/main/src/Designer/backend/src/Designer/Schemas/customtemplate.schema.json).
 
-Se skjemaet for påkrevde felt, typer og valideringsregler, eller lim inn malen din under
+Se schemaet for påkrevde felt, typer og valideringsregler, eller lim inn malen din under
 for rask bekreftelse på om den er gyldig.
 
 {{< jsonschema-validator label="Din mal:" schemaUrl="https://raw.githubusercontent.com/Altinn/altinn-studio/refs/heads/main/src/Designer/backend/src/Designer/Schemas/customtemplate.schema.json" >}}

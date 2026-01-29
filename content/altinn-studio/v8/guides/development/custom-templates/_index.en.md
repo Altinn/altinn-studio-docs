@@ -64,7 +64,20 @@ Full details and validation rules for each template are defined in the correspon
 ### 2. template.json
 
 Located at `Templates/{template-id}/template.json` for each template. 
+
 This file contains the complete configuration for a single template.
+
+#### Properties in `template.json`
+
+| Property           | Type     | Required | Description                                                               |
+|--------------------|----------|----------|---------------------------------------------------------------------------|
+| id                 | string   | Yes      | Unique ID for the template.                                               |
+| owner              | string   | Yes      | Owner of the template (organization short name).                          |
+| name               | object   | Yes      | Name of the template, supports multiple languages (e.g., nb).             |
+| description        | object   | Yes      | Description of the template, supports multiple languages (e.g., nb).      |
+| remove             | array    | No       | List of relative file paths or globs to remove from the application repo. |
+| packageReferences  | array    | No       | List of NuGet packages to add to specified project files (.csproj).       |
+
 
 **Format:**
 
@@ -83,7 +96,14 @@ This file contains the complete configuration for a single template.
     "remove": [
         "App/TestDummy.cs",
         ".editorconfig"
-    ]
+    ],
+    "packageReferences": [
+        {
+            "project": "App/*.csproj",
+            "include": "Altinn.App.Clients.Fiks",
+            "version": "8.10.0"
+        }
+    ]    
 }
 ```
 
