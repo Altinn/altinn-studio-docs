@@ -232,8 +232,8 @@ It is optional to include `<altinn:filenameTextResourceKey>`. Here you can speci
   "value": "My filename {0}",
   "variables": [
     {
-      "key": "DataModelFieldName",    //The field on the datamodel to use
-      "dataSource": "dataModel.model" //The data model
+      "key": "DataModelFieldName",
+      "dataSource": "dataModel.model"
     }
   ]
 }

@@ -232,8 +232,8 @@ Det er frivillig å inkludere `<altinn:filenameTextResourceKey`>. Her kan du opp
   "value": "Mitt filnavn {0}",
   "variables": [
     {
-      "key": "EtDatamodellfelt",      //Feltet på datamodellen som skal brukes
-      "dataSource": "dataModel.model" //Datamodellen
+      "key": "EtDatamodellfelt",
+      "dataSource": "dataModel.model"
     }
   ]
 }
