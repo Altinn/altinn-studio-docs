@@ -228,15 +228,15 @@ It is optional to include `<altinn:filenameTextResourceKey>`. Here you can speci
 
 ```json
 {
-      "id": "pdfFileName",
-      "value": "My filename {0}",
-      "variables": [
-        {
-          "key": "form",
-          "dataSource": "dataModel.MyField"
-        }
-      ]
+  "id": "pdfFileName",
+  "value": "My filename {0}",
+  "variables": [
+    {
+      "key": "DataModelFieldName",    //The field on the datamodel to use
+      "dataSource": "dataModel.model" //The data model
     }
+  ]
+}
 ```
 
 ## Testing
