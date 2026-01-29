@@ -1,330 +1,275 @@
-# Claude Code Configuration
+# Claude Code - Altinn Studio Dokumentasjon
 
-This is the configuration file for Claude Code in the Altinn Studio docs project.
+## Prosjektoversikt
 
-## Project Overview
-This is a Hugo-based documentation site for Altinn products like Altinn Studio, Altinn Authorization etc. The project uses Hugo with a custom theme to generate static documentation.
+Dette er en Hugo-basert dokumentasjonsside for Altinn-produkter som Altinn Studio, Altinn Authorization osv.
 
-## Development Commands
-- **Start development server**: `hugo server --navigateToChanged -D` (the `-D` flag shows draft content)
-- **Build site**: `hugo --minify`
-- **Clean build**: `rm -rf public && hugo --minify`
+### Utviklingskommandoer
 
-## Project Structure
-- `content/` - Documentation content in Markdown
-- `static/` - Static assets
-- `layouts/` - Hugo templates
-- `themes/` - Hugo theme
-- `config.toml` - Hugo configuration
-- `public/` - Generated site output
+- **Start utviklingsserver**: `hugo server --navigateToChanged -D` (`-D` viser draft-innhold)
+- **Bygg nettstedet**: `hugo --minify`
+- **Ren bygging**: `rm -rf public && hugo --minify`
 
-## Key Features
-- Multi-language support (Norwegian Bokmål and English).
-- Mermaid diagrams enabled
-- GitHub integration for editing
-- Auto-deployment via GitHub Actions
+### Prosjektstruktur
 
-## Notes for Claude
-- This is a documentation project, not an application
-- Content changes should be made in the `content/` directory
-- The site uses Hugo static site generator
-- Always test changes with `hugo server -D` before committing
+- `content/` - Dokumentasjonsinnhold i Markdown
+- `static/` - Statiske ressurser
+- `layouts/` - Hugo-maler
+- `themes/` - Hugo-tema
+- `config.toml` - Hugo-konfigurasjon
+- `public/` - Generert nettsted
 
-## Workflow
-**IMPORTANT: Always follow this workflow when working on tasks:**
+### Nøkkelfunksjoner
 
-1. **Create a new branch** for each task/feature
-   - Use descriptive branch names (e.g., `feature/add-authentication-docs`, `fix/broken-links`)
-   - Branch from `master` unless otherwise specified
-
-2. **Make changes** in the feature branch
-   - Test changes locally with `hugo server -D` to view draft content
-   - Ensure all changes are working as expected
-
-3. **Commit changes** with clear, descriptive commit messages
-
-4. **Merge back to master** when task is complete
-   - Create a pull request if working in a team environment
-   - Or merge directly if appropriate
-
-## Draft Content
-- Many articles in v10 are marked with `draft: true` in the frontmatter
-- The `-D` flag in the development server command ensures draft content is visible during development
-- Draft content will not be published in production builds
+- Flerspråkstøtte (norsk bokmål og engelsk)
+- Mermaid-diagrammer aktivert
+- GitHub-integrasjon for redigering
+- Auto-deploy via GitHub Actions
 
 ---
 
-# Documentation Guidelines
+## Arbeidsflyt
 
-## Documentation Framework
-**When writing new articles or language-washing guides and explanations, check [Diátaxis](https://diataxis.fr/) for guidance on documentation structure and approach.**
+**VIKTIG: Følg alltid denne arbeidsflyten:**
 
-Diátaxis helps distinguish between:
-- **Tutorials** (learning-oriented)
-- **How-to guides** (task-oriented)
-- **Reference** (information-oriented)
-- **Explanation** (understanding-oriented)
+1. **Lag ny branch** for hver oppgave
+   - Bruk beskrivende branchnavn (f.eks. `feature/add-authentication-docs`, `fix/broken-links`)
+   - Branch fra `master` med mindre annet er spesifisert
 
-## Target Audience
-**Non-technical service owners**: Write for service owners in public organizations who have or plan services in Altinn (e.g., processes like data, data→signing, data→signing→payment, or more complex flows).
+2. **Gjør endringer** i feature-branchen
+   - Test lokalt med `hugo server -D` for å se draft-innhold
+   - Sørg for at alle endringer fungerer som forventet
 
-**They have professional and business responsibility, not technical responsibility**. They:
-- collaborate with developers/vendors and Digdir/Altinn
-- need to understand consequences for users, responsibility, quality, risk, cost, and legal requirements (especially universal design/accessibility)
+3. **Commit endringer** med klare, beskrivende meldinger
 
-**Assume limited technical competence**:
-- Avoid technical jargon
-- When technical terms must be used (e.g., data→signing, Camunda, process.bpmn, custom frontend, eFormidling, Fiks arkiv), explain them briefly in everyday language and relate them to what it means for the service owner and users
+4. **Merge tilbake til master** når oppgaven er ferdig
+   - Lag pull request hvis du jobber i team
+   - Eller merge direkte hvis passende
 
-**Focus on**:
-- What the Altinn platform offers "out of the box"
-- What the service owner is responsible for (content, process choices, attachments/PDF, testing, accessibility)
-- Which choices are safe standard options and which require extra follow-up/testing (complex processes, Camunda, custom frontend)
-- Rather provide examples of questions the service owner can ask developers than technical details
+### Draft-innhold
 
-## Language and Style
-- Use conservative Bokmål ("listen", "hentet" - not "lista", "henta")
-- Main headings: Infinitive ("Opprette tjenesten")
-- Step-by-step subheadings: Imperative ("Opprett ny tjeneste")
-- Avoid passive constructions
-- Avoid "av + -ing" constructions
-- Links should preferably be complete sentences
-- Numbers under 12: Write with letters in running text ("fire filer", "tre alternativer")
-  - Exception: Statistics, tables, or when the number is particularly important ("maks 10 filer tillatt")
-
-## Formatting
-- GUI elements: Bold formatting ("Klikk på **Lagre**")
-- Mouse actions: "klikk"
-- Keyboard actions: "trykk"
-- Choices from lists: "velg"
-- URLs: Soft line break before URL
-
-## Heading Rules
-
-**Rule for imperative vs. infinitive headings:**
-
-- **Imperative** (command form): Used when the heading comes **right before a procedure** (numbered list).
-  - Example: "Lag en ny type" (followed directly by steps 1, 2, 3...)
-  - Example: "Rediger en type" (followed directly by steps 1, 2, 3...)
-  - Example: "Åpne datamodelleringsverktøyet" (followed directly by steps 1, 2, 3...)
-
-- **Infinitive** (base form): Used when the heading is at a higher level, or when there is **introductory text/paragraph before the procedure**.
-  - Example: "Laste opp en datamodell" (introductory text: "Hvis du allerede har en datamodell...")
-  - Example: "Generere og laste ned modellfiler" (introductory text: "Når datamodellen er klar:")
-  - Example: "Velge modell fra nedtrekkslisten" (explanatory text: "Nedtrekkslisten viser...")
-
-**Article headings** always use infinitive (e.g., "Lage en datamodell").
-
-**Descriptive headings** use "Slik..." (e.g., "Slik lager og redigerer du datamodeller").
-
-## List Rules (Bullet Points)
-
-**⚠️ ALWAYS CHECK LISTS WHEN LANGUAGE-WASHING - This is a common source of errors!**
-
-**HOW TO DETERMINE TYPE 1 vs TYPE 2:**
-- Read the introduction + first bullet point aloud
-- If it makes sense as one continuous sentence → **Type 1**
-- If the point stands alone as its own sentence → **Type 2**
+- Mange artikler i v10 er merket med `draft: true` i frontmatter
+- `-D`-flagget i utviklingsserveren sørger for at draft-innhold vises under utvikling
+- Draft-innhold publiseres ikke i produksjonsbygg
 
 ---
 
-**Type 1: Bullets grammatically continue the introduction**
+## Dokumentasjonsrammeverk
 
-**Characteristics:**
-- The bullets complete the sentence that the introduction starts
-- You can read introduction + bullet as one continuous sentence
-- **NO colon** after the introduction
-- **Lowercase initial letter** in each bullet
-- **NO period** at the end of bullets
+**Bruk [Diátaxis](https://diataxis.fr/) for veiledning om dokumentasjonsstruktur:**
 
-**Test:** Read "introduction + bullet" aloud - does it make sense as one sentence?
+- **Tutorials** (læringsorientert)
+- **How-to guides** (oppgaveorientert)
+- **Reference** (informasjonsorientert)
+- **Explanation** (forståelsesorientert)
 
-Examples:
+---
+
+## Målgruppe
+
+**Ikke-tekniske tjenesteeiere**: Skriv for tjenesteeiere i offentlige virksomheter som har eller planlegger tjenester i Altinn.
+
+**De har fag- og virksomhetsansvar, ikke teknisk ansvar.** De:
+
+- samarbeider med utviklere/leverandører og Digdir/Altinn
+- vil forstå konsekvenser for brukere, ansvar, kvalitet, risiko, kostnad og lovkrav (særlig universell utforming/tilgjengelighet)
+
+**Anta begrenset teknisk kompetanse:**
+
+- Unngå teknisk sjargong
+- Når tekniske begreper må brukes (f.eks. data→signing, Camunda, process.bpmn, custom frontend, eFormidling, Fiks arkiv), forklar dem kort i dagligspråk og knytt dem til hva det betyr for tjenesteeier og brukerne
+
+**Vinkle på:**
+
+- Hva Altinn-plattformen tilbyr "out of the box"
+- Hva tjenesteeier selv har ansvar for (innhold, prosessvalg, vedlegg/PDF, testing, tilgjengelighet)
+- Hvilke valg som er trygge standardvalg og hvilke som krever ekstra oppfølging/testing
+- Gi heller eksempler på spørsmål tjenesteeier kan stille til utviklerne, enn teknisk detalj
+
+---
+
+## Språk og stil (norsk)
+
+- Bruk konservativ bokmål ("listen", "hentet" - ikke "lista", "henta")
+- Unngå passive konstruksjoner
+- Unngå "av + -ing" konstruksjoner
+- Lenker skal helst være fullstendige setninger
+- Tall under 12: Skriv med bokstaver i løpende tekst ("fire filer", "tre alternativer")
+  - Unntak: Statistikk, tabeller, eller når tallet er spesielt viktig ("maks 10 filer tillatt")
+
+### Formatering
+
+- GUI-elementer: Bold (**Klikk på **Lagre****)
+- Mushandlinger: "klikk"
+- Tastaturhandlinger: "trykk"
+- Valg fra lister: "velg"
+- URLs: Soft line break før URL
+
+---
+
+## Overskriftsregler
+
+### Imperativ vs. infinitiv
+
+- **Imperativ** (befalingsform): Brukes når overskriften kommer **rett før en prosedyre** (nummerert liste)
+  - Eksempel: "Lag en ny type" (følges direkte av punktene 1, 2, 3...)
+  - Eksempel: "Åpne datamodelleringsverktøyet" (følges direkte av punktene 1, 2, 3...)
+
+- **Infinitiv** (grunnform): Brukes når overskriften er på et høyere nivå, eller når det er **innledende tekst/avsnitt før prosedyren**
+  - Eksempel: "Laste opp en datamodell" (innledende tekst: "Hvis du allerede har en datamodell...")
+  - Eksempel: "Generere og laste ned modellfiler" (innledende tekst: "Når datamodellen er klar:")
+
+**Artikkeloverskrifter** bruker alltid infinitiv (f.eks. "Lage en datamodell").
+
+**Beskrivende overskrifter** bruker "Slik..." (f.eks. "Slik lager og redigerer du datamodeller").
+
+---
+
+## Listeregler
+
+**ALLTID SJEKK LISTER NÅR DU SPRÅKVASKER - Dette er en vanlig feilkilde!**
+
+### Slik avgjør du Type 1 vs Type 2
+
+Les innledningen + første punkt høyt:
+- Hvis det gir mening som én sammenhengende setning → **Type 1**
+- Hvis punktet står alene som egen setning → **Type 2**
+
+### Type 1: Punktene fortsetter setningen grammatisk
+
+**Kjennetegn:**
+- Punktene fullfører setningen som innledningen starter
+- **INGEN kolon** etter innledningen
+- **Liten forbokstav** i hvert punkt
+- **IKKE punktum** på slutten av punktene
+
+**Eksempel:**
 ```
-✓ CORRECT:
 Du trenger en datamodell til å
 
 - samle inn data fra brukere
 - lagre data fra tjenesten
 - validere informasjon
-
-✓ CORRECT:
-Bruk minimum lagringstid når
-
-- du må behandle eller kontrollere innsendte data
-- du har juridiske krav om oppbevaring
-- du trenger tid til å arkivere data
-
-✗ WRONG (has colon and capital letters):
-Du trenger en datamodell til å:
-
-- Samle inn data fra brukere.
-- Lagre data fra tjenesten.
 ```
 
----
+### Type 2: Punktene er selvstendige setninger
 
-**Type 2: Bullets are independent sentences**
+**Kjennetegn:**
+- Hvert punkt er en komplett, uavhengig setning
+- **Kolon** (eller punktum) etter innledningen
+- **Stor forbokstav** i hvert punkt
+- **Punktum** på slutten av hvert punkt
 
-**Characteristics:**
-- Each bullet is a complete, independent sentence
-- Bullets cannot be read as continuation of the introduction
-- **Colon** (or period) after the introduction
-- **Capital initial letter** in each bullet
-- **Period** at the end of each bullet
-
-**Test:** Can the bullet stand alone as its own sentence?
-
-Examples:
+**Eksempel:**
 ```
-✓ CORRECT:
 Slik gjør du det:
 
 - Gi brukeren en tydelig inngang til tjenesten.
 - Unngå mellomliggende sider.
 - Gjør det klart at brukeren kommer inn i Altinn-tjenesten.
-
-✓ CORRECT:
-**I lagringsperioden:**
-
-- Brukere kan **ikke** slette sine egne innsendte data.
-- Tjenesteeier kan **ikke** slette data.
-- Data er beskyttet mot utilsiktet sletting.
-
-✗ WRONG (missing colon, capital letters, and periods):
-Slik gjør du det
-
-- gi brukeren en tydelig inngang til tjenesten
-- unngå mellomliggende sider
 ```
+
+### Nummererte lister vs. kulepunkter
+
+- **Nummererte lister**: Kun for prosedyrer/steg som må følges i rekkefølge
+- **Kulepunkter**: For alternativer, valg, eller punkter uten bestemt rekkefølge
 
 ---
 
-**Numbered lists vs. bullet points:**
-- **Numbered lists**: Only for procedures/steps that must be followed in order
-- **Bullet points**: For alternatives, choices, or points without a specific order
+## Retningslinjer for engelsk oversettelse
 
-Example numbered list (procedure):
-```
-Slik logger du inn:
+- Bruk British English (organisation, authorise, whilst, etc.)
+- **Stilguider**: Følg Oxford Style Guide og Guardian Style Guide
+- **Overskrifter på engelsk**: Bruk sentence case - kun stor forbokstav på første ord og egennavn
+  - ✅ Riktig: "Understand what a multi-app solution is"
+  - ❌ Feil: "Understand What a Multi-App Solution Is"
+- **Viktig**: Siden produktet (Altinn Studio) ikke er tilgjengelig på engelsk, behold alle GUI-elementreferanser på norsk ved oversettelse
+- Bruk "end user" (ikke "end-user") gjennomgående
+- **Kulepunkter på engelsk** (Oxford/Guardian-stil):
+  - Bruk liten forbokstav etter kulepunkt med mindre det starter med egennavn eller er en fullstendig setning
+  - Ingen punktum på slutten av kulepunkter med mindre de er fullstendige setninger
+  - Vær konsekvent innen hver liste
 
-1. Åpne Altinn Studio.
-2. Klikk på **Logg inn**.
-3. Skriv inn brukernavn og passord.
-```
+---
 
-Example bullet point list (alternatives):
-```
-Du kan lage datamodeller på to måter:
+## Hugo Page Bundles
 
-- I Altinn Studio
-- Last opp en XSD-fil
-```
+**KRITISK FORSTÅELSE for bilder:**
 
-### English Translation
-When translating to English, the following applies:
-- Use British English (organisation, authorise, whilst, etc.)
-- **Style guides**: Follow Oxford Style Guide and Guardian Style Guide for British English conventions
-- **Headings in English**: Use sentence case - only capitalise the first word and proper nouns. Examples:
-  - ✅ Correct: "Understand what a multi-app solution is"
-  - ❌ Wrong: "Understand What a Multi-App Solution Is"
-  - ✅ Correct: "Integrate the app with Maskinporten"
-  - ❌ Wrong: "Integrate the App with Maskinporten"
-- **Important**: Since the product (Altinn Studio) is not available in English, keep all GUI element references in Norwegian when translating
-- Use "end user" (not "end-user") throughout
-- **Bullet points in English** (Oxford/Guardian style):
-  - Use lowercase after bullet point unless starting with proper noun or complete sentence
-  - No full stop at end of bullet points unless they are complete sentences
-  - Be consistent within each list
+Hugo har to typer content-organisering:
+- **Branch bundle**: En mappe med `_index.md` (kan ha undersider)
+- **Leaf bundle**: En mappe med `index.md` (ingen undersider, men kan ha ressurser som bilder)
 
-## Hugo Page Bundles - CRITICAL UNDERSTANDING
+**Hvis filen heter noe annet enn `_index.md`, MÅ den ligge i sin egen mappe som `index.md` for at bilder skal fungere!**
 
-**When migrating an article from v8 to v10 that contains images:**
+### Prosedyre for å flytte bilder fra v8 til v10
 
-Hugo has two types of content organization:
-- **Branch bundle**: A folder with `_index.md` (can have subpages)
-- **Leaf bundle**: A folder with `index.md` (no subpages, but can have resources like images)
+1. **Sjekk filnavnet:**
+   - Hvis filen heter `_index.nb.md` → bilder kan ligge i samme mappe
+   - Hvis filen heter noe annet (f.eks. `vedlegg.nb.md`) → SE TRINN 2
 
-**If the file is named something other than `_index.md`, it MUST be in its own folder as `index.md` for images to work!**
-
-1. **Check the filename:**
-   - If the file is named `_index.nb.md` → images can be in the same folder
-   - If the file is named something else (e.g., `vedlegg.nb.md`) → SEE STEP 2
-
-2. **Create page bundle structure for non-_index files:**
+2. **Lag page bundle-struktur for ikke-_index filer:**
    ```bash
-   # Instead of:
+   # I stedet for:
    datamodell/
      vedlegg.nb.md
      bilde1.png
-     bilde2.png
 
-   # You must have:
+   # Må du ha:
    datamodell/
      vedlegg/
-       index.nb.md    # (content from vedlegg.nb.md)
+       index.nb.md    # (innholdet fra vedlegg.nb.md)
        bilde1.png
-       bilde2.png
    ```
 
-3. **Move files:**
+3. **Flytt filer:**
    ```bash
    mkdir vedlegg
    mv vedlegg.nb.md vedlegg/index.nb.md
-   mv bilde1.png bilde2.png vedlegg/
+   mv bilde1.png vedlegg/
    ```
 
-4. **Update image references:**
-   - Use `./` before the image filename
-   - Format: `![Alt text](./filename.png "Title")`
-   - Not `../` or just `filename.png`
+4. **Oppdater bildereferanser:**
+   - Bruk `./` foran bildefilnavnet
+   - Format: `![Alt tekst](./filnavn.png "Tittel")`
+   - Ikke `../` eller bare `filnavn.png`
 
-5. **Example of correct reference:**
-   ```markdown
-   ![Oversikt over datamodell-repo](./datamodels-dashboard.png "Oversikt over datamodell-repo")
-   ```
+5. **Test at bildene vises:**
+   - Hugo rebuilder automatisk når filer flyttes
+   - Sjekk i nettleseren (evt. hard refresh med Cmd+Shift+R)
+   - Sjekk nettleserkonsollen (F12) for eventuelle 404-feil
 
-6. **Test that images display:**
-   - Hugo rebuilds automatically when files are moved
-   - Check in browser (or hard refresh with Cmd+Shift+R)
-   - Check browser console (F12) for any 404 errors
+---
 
-**WHY this is important:**
-- Hugo can only find resources (images) that are part of a "page bundle"
-- `_index.md` files automatically form a branch bundle with their folder
-- Regular markdown files MUST be `index.md` in their own folder to form a leaf bundle
-- Without correct bundle structure, Hugo won't find images, even with correct `./` reference
+## Kvalitetssjekkliste
 
-## Quality Checklist
+### Alltid legg til needsReview-tag
 
-**IMPORTANT: Always add needsReview tag**
+Når du vasker/migrerer filer fra v8 til v10:
+- Legg ALLTID til `tags: [needsReview]` i frontmatter
+- Dette er kritisk for å holde oversikt over hva som er klart til gjennomgang
 
-When washing/migrating files from v8 to v10:
-- ALWAYS add `tags: [needsReview]` in frontmatter
-- This is critical for keeping track of what's ready for review
-- Applies to all new or language-washed files
+### Alltid sjekk lenker og bilder
 
-**IMPORTANT: Always check links and images**
+- **Sjekk alle lenker**: Kontroller at lenker fungerer og peker til riktig sted
+  - Interne lenker skal bruke relref-shortcode: `{{< relref "path/to/file" >}}`
+  - Eksterne lenker skal være komplette og fungerende
+  - Sjekk at lenketeksten er meningsfull og beskrivende
+- **Sjekk alle bilder**: Kontroller at bilder finnes og vises riktig
+  - Bildestier skal bruke `./` for bilder i samme page bundle
+  - Verifiser at page bundle-strukturen er korrekt
+  - Test at bildene faktisk vises i nettleseren
+  - Sjekk at alt-tekst er beskrivende
+- **Test lokalt**: Bruk Hugo Server for å verifisere før du committer
 
-When washing/migrating/editing files:
-- **Check all links**: Verify that links work and point to the right place
-  - Internal links should use relref shortcode: `{{< relref "path/to/file" >}}`
-  - External links should be complete and working
-  - Verify that link text is meaningful and descriptive
-- **Check all images**: Verify that images exist and display correctly
-  - Image paths should use `./` for images in the same page bundle
-  - Verify that page bundle structure is correct (see PROCEDURE above)
-  - Test that images actually display in the browser
-  - Check that alt text is descriptive
-- **Test locally**: Use Hugo Server to verify before committing
+### Struktur
 
-## Structure
-- Alphabetize topics in each folder
+- Alfabetiser emnene i hver mappe
 
-## Metadata
-- Always add `tags: [needsReview]` in frontmatter
+---
 
-## Sources
+## Kilder
+
 - Klarspråk: https://språkrådet.no/
 - Tegnsetting og språkbruk: https://korrekturavdelingen.no/
-- Documentation framework: https://diataxis.fr/
+- Dokumentasjonsrammeverk: https://diataxis.fr/
