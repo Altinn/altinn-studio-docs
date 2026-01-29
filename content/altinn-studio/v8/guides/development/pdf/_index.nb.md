@@ -188,33 +188,55 @@ Denne layout-filen vises hvis PDF-genereringen feiler. Den kan inneholde feilmel
 
 ```json
 {
-  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       {
         "size": "L",
-        "id": "Header-IIkZPf",
+        "id": "service-task-title",
         "type": "Header",
         "textResourceBindings": {
-          "title": "Uff da! Her tryna PDF service-tasken, det var sikkert ikke med vilje!"
+            "title": "service_task.title"
         }
       },
       {
-        "id": "Button-BddG51",
+        "id": "service-task-body",
+        "type": "Paragraph",
+        "textResourceBindings": {
+            "title": "service_task.body"
+        }
+      },
+      {
+        "id": "service-task-help-text",
+        "type": "Paragraph",
+        "textResourceBindings": {
+            "title": "service_task.help_text"
+        }
+      },
+      {
+        "id": "service-task-button-group",
+        "type": "ButtonGroup",
+        "children": [
+            "service-task-retry-button",
+            "service-task-back-button"
+        ]
+      },
+      {
+        "id": "service-task-retry-button",
         "type": "Button",
         "textResourceBindings": {
-          "title": "Prøv igjen"
+            "title": "service_task.retry_button"
         }
       },
       {
-        "id": "reject-button",
+        "id": "service-task-back-button",
         "type": "ActionButton",
         "textResourceBindings": {
-          "title": "Gå tilbake"
+            "title": "service_task.back_button"
         },
         "action": "reject",
         "buttonStyle": "secondary"
-      }
+      },
     ]
   }
 }

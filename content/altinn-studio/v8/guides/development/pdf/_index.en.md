@@ -188,33 +188,55 @@ This layout file is displayed if PDF generation fails. It can contain error mess
 
 ```json
 {
-  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       {
         "size": "L",
-        "id": "Header-IIkZPf",
+        "id": "service-task-title",
         "type": "Header",
         "textResourceBindings": {
-          "title": "Oops! The PDF service task failed, that was probably not intentional!"
+            "title": "service_task.title"
         }
       },
       {
-        "id": "Button-BddG51",
+        "id": "service-task-body",
+        "type": "Paragraph",
+        "textResourceBindings": {
+            "title": "service_task.body"
+        }
+      },
+      {
+        "id": "service-task-help-text",
+        "type": "Paragraph",
+        "textResourceBindings": {
+            "title": "service_task.help_text"
+        }
+      },
+      {
+        "id": "service-task-button-group",
+        "type": "ButtonGroup",
+        "children": [
+            "service-task-retry-button",
+            "service-task-back-button"
+        ]
+      },
+      {
+        "id": "service-task-retry-button",
         "type": "Button",
         "textResourceBindings": {
-          "title": "Try again"
+            "title": "service_task.retry_button"
         }
       },
       {
-        "id": "reject-button",
+        "id": "service-task-back-button",
         "type": "ActionButton",
         "textResourceBindings": {
-          "title": "Go back"
+            "title": "service_task.back_button"
         },
         "action": "reject",
         "buttonStyle": "secondary"
-      }
+      },
     ]
   }
 }
