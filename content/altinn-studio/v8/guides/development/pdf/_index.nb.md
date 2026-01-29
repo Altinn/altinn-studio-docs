@@ -180,7 +180,7 @@ I denne filen defineres innholdet i PDF-en. Ofte brukes komponenten Summary2, en
 
 #### ServiceTask.json
 
-Denne layout-filen vises hvis PDF-genereringen feiler. Den kan inneholde feilmeldinger eller instruksjoner til brukeren.
+Denne layout-filen vises hvis PDF-genereringen feiler. Den kan inneholde feilmeldinger eller instruksjoner til brukeren. Tilpass gjerne.
 
 {{< code-title >}}
   App/ui/Pdf/layouts/ServiceTask.json
@@ -238,6 +238,10 @@ Det er frivillig å inkludere `<altinn:filenameTextResourceKey`>. Her kan du opp
   ]
 }
 ```
+
+{{<notice warning>}}
+  Ved bruk av autogenerert PDF kan man ikke bruke `datamodel.default`. Man må bruke faktisk ID for datamodellen, feks. `dataModel.model`.
+{{</notice>}}
 
 ## Test
 

@@ -180,7 +180,7 @@ In this file, the content of the PDF is defined. The Summary2 component is often
 
 #### ServiceTask.json
 
-This layout file is displayed if PDF generation fails. It can contain error messages or instructions for the user.
+This layout file is displayed if PDF generation fails. It can contain error messages or instructions for the user. Feel free to customize.
 
 {{< code-title >}}
   App/ui/Pdf/layouts/ServiceTask.json
@@ -238,6 +238,10 @@ It is optional to include `<altinn:filenameTextResourceKey>`. Here you can speci
   ]
 }
 ```
+
+{{<notice warning>}}
+  When using auto generated PDF `datamodel.default` doesn't work. Use the ID of the datamodel, for instance like this: `dataModel.model`.
+{{</notice>}}
 
 ## Testing
 
