@@ -142,7 +142,7 @@ App/ui/
   "pages": {
     "pdfLayoutName": "PdfLayout",
     "order": [
-      "ServiceTask.json"
+      "ServiceTask"
     ]
   }
 }
