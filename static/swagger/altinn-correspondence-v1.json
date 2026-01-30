@@ -2255,14 +2255,9 @@
         "type": "string"
       },
       "ErrorCode": {
-        "type": "object",
-        "properties": {
-          "hasValue": {
-            "type": "boolean",
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
+        "type": "integer",
+        "description": "A machine readable error code.",
+        "format": "int32"
       },
       "ExternalReferenceExt": {
         "required": [
