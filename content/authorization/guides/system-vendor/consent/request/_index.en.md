@@ -51,9 +51,22 @@ toc: false
       }
     }
   ],
-  "redirectUrl": "https://altinn.no"
+  "redirectUrl": "https://bankenmin.no/huslaan?consentId=77ed8698-e619-4066-9eb4-5c1eb3f165a1"
 }
 ```
+
+#### Redirect URL
+
+As part of the consent request, the consumer specifies which URL the user should be returned to after the consent process is completed.
+
+If there is a need to receive an identifier back in the response, this can be added as a query parameter in the redirect URL with the desired parameter name. For example, `authorizationCode` can be used, which was the terminology used in Altinn 2.
+
+**Example of redirect URL with parameter:**
+
+```
+https://bankenmin.no/huslaan/?consentId=77ed8698-e619-4066-9eb4-5c1eb3f165a1&authorizationCode={id}
+```
+
 
 ### Response (example)
 
