@@ -197,18 +197,49 @@ ui/underskjemaPDf/layout/ServiceTask.json
       "layout": [
          {
             "size": "L",
-            "id": "Header-IIkZPf",
+            "id": "service-task-title",
             "type": "Header",
             "textResourceBindings": {
-               "title": "Det oppsto en feil ved generering av PDF. Vennligst prøv igjen."
+               "title": "service_task.title"
             }
          },
          {
-            "id": "Button-BddG51",
+            "id": "service-task-body",
+            "type": "Paragraph",
+            "textResourceBindings": {
+               "title": "service_task.body"
+            }
+         },
+         {
+            "id": "service-task-help-text",
+            "type": "Paragraph",
+            "textResourceBindings": {
+               "title": "service_task.help_text"
+            }
+         },
+         {
+            "id": "service-task-button-group",
+            "type": "ButtonGroup",
+            "children": [
+               "service-task-retry-button",
+               "service-task-back-button"
+            ]
+         },
+         {
+            "id": "service-task-retry-button",
             "type": "Button",
             "textResourceBindings": {
-               "title": "Prøv igjen"
+               "title": "service_task.retry_button"
             }
+         },
+         {
+            "id": "service-task-back-button",
+            "type": "ActionButton",
+            "textResourceBindings": {
+               "title": "service_task.back_button"
+            },
+            "action": "reject",
+            "buttonStyle": "secondary"
          },
          {
             "id": "mySubformComponentId",

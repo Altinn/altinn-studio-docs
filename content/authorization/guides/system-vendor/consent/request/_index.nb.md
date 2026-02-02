@@ -44,8 +44,20 @@ Legg til de nødvendige parameterene i forespørselen:
       }
     }
   ],
-  "redirectUrl": "https://altinn.no"
+  "redirectUrl": "https://bankenmin.no/huslaan/?consentId=77ed8698-e619-4066-9eb4-5c1eb3f165a1"
 }
+```
+
+#### Redirect URL
+
+Som del av samtykkeforespørselen spesifiserer konsumenten hvilken URL brukeren skal returneres til etter at samtykkebehandlingen er fullført. 
+
+Dersom det er behov for å motta en identifikator tilbake i responsen, kan denne legges til som en query-parameter i redirect URL-en med ønsket parameternavn. For eksempel kan `authorizationCode` brukes, som var terminologien fra Altinn 2.
+
+**Eksempel på redirect URL med parameter:**
+
+```
+https://bankenmin.no/huslaan/?consentId=77ed8698-e619-4066-9eb4-5c1eb3f165a1
 ```
 
 ### Svar (eksempel)
