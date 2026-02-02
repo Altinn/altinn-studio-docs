@@ -1,3 +1,12 @@
+---
+title: Tilpassede maler
+description:  Hvordan sette opp tilpassede maler i Altinn Studio for enklere opprettelse av apper
+weight: 20
+aliases:
+- /altinn-studio/guides/custom-templates/
+---
+
+
 # Veiledning for oppsett av tilpassede maler
 
 Denne veiledningen forklarer hvordan du manuelt setter opp tilpassede maler i et Altinn Studio innholdsrepo.
@@ -44,13 +53,15 @@ Fullstendige detaljer og valideringsregler for hver mal defineres i tilhørende 
 ```json
 [
     {
-        "id": "min-mal",
+        "id": "my-template",
         "owner": "digdir",
         "name": {
-            "nb": "Min første mal"
+             "nb": "Min første mal",
+             "en": "My first template"
         },
         "description": {
-            "nb": "Dette er en detaljert beskrivelse av hva malen gjør og hva den inneholder"
+            "nb": "Dette er en detaljert beskrivelse av hva malen gjør og hva den inneholder",
+            "en": "This is a detailed description of what the template does and contains"
         }
     }
 ]
@@ -82,6 +93,7 @@ Denne filen inneholder komplett konfigurasjon for én mal.
 
 ```json
 {
+    "schemaVersion": "0.1",
     "id": "min-mal",
     "owner": "digdir",
     "name": {
@@ -113,7 +125,7 @@ Alle `template.json`-filer må være i samsvar med [`customtemplate.schema.json`
 Se schemaet for påkrevde felt, typer og valideringsregler, eller lim inn malen din under
 for rask bekreftelse på om den er gyldig.
 
-{{< jsonschema-validator label="Din mal:" schemaUrl="https://raw.githubusercontent.com/Altinn/altinn-studio/refs/heads/main/src/Designer/backend/src/Designer/Schemas/customtemplate.schema.json" >}}
+{{< jsonschema-validator label="Din mal:" schemaUrl="https://raw.githubusercontent.com/Altinn/altinn-studio/bba86039984f1949260b4c3552a1d279bc6b157e/src/Designer/backend/src/Designer/Schemas/customtemplate.schema.json" >}}
 
 ### 3. content/-mappe
 

@@ -1,3 +1,12 @@
+---
+title: Custom Templates
+description: How to set up custom templates in Altinn Studio for app creation
+weight: 20
+aliases:
+- /altinn-studio/guides/custom-templates/
+---
+
+
 # Custom Template Setup Guide
 
 This guide explains how to manually set up custom templates in an Altinn Studio content repository.
@@ -48,10 +57,12 @@ Full details and validation rules for each template are defined in the correspon
         "id": "my-template",
         "owner": "digdir",
         "name": {
-            "nb": "Min første mal"
+             "nb": "Min første mal",
+             "en": "My first template"
         },
         "description": {
-            "nb": "Dette er en detaljert beskrivelse av hva malen gjør og hva den inneholder"
+            "nb": "Dette er en detaljert beskrivelse av hva malen gjør og hva den inneholder",
+            "en": "This is a detailed description of what the template does and contains"
         }
     }
 ]
@@ -69,20 +80,22 @@ This file contains the complete configuration for a single template.
 
 #### Properties in `template.json`
 
-| Property           | Type     | Required | Description                                                               |
-|--------------------|----------|----------|---------------------------------------------------------------------------|
-| id                 | string   | Yes      | Unique ID for the template.                                               |
-| owner              | string   | Yes      | Owner of the template (organization short name).                          |
-| name               | object   | Yes      | Name of the template, supports multiple languages (e.g., nb).             |
-| description        | object   | Yes      | Description of the template, supports multiple languages (e.g., nb).      |
-| remove             | array    | No       | List of relative file paths or globs to remove from the application repo. |
-| packageReferences  | array    | No       | List of NuGet packages to add to specified project files (.csproj).       |
+| Property           | Type     | Required | Description                                                                        |
+|--------------------|----------|----------|------------------------------------------------------------------------------------|
+| schemaVersion      | string   | Yes      | Which JSON Schema version the template follows Currently, only `0.1` is supported    |
+| id                 | string   | Yes      | Unique ID for the template.                                                        |
+| owner              | string   | Yes      | Owner of the template (organization short name).                                   |
+| name               | object   | Yes      | Name of the template, supports multiple languages (e.g., nb).                      |
+| description        | object   | Yes      | Description of the template, supports multiple languages (e.g., nb).               |
+| remove             | array    | No       | List of relative file paths or globs to remove from the application repo.          |
+| packageReferences  | array    | No       | List of NuGet packages to add to specified project files (.csproj).                |
 
 
 **Format:**
 
 ```json
 {
+    "schemaVersion": "0.1",
     "id": "my-template",
     "owner": "digdir",
     "name": {
@@ -114,7 +127,7 @@ All `template.json` files must comply with [`customtemplate.schema.json`](https:
 Review the schema file for required fields, types, and validation rules or paste your template below
 for quick confirmation of whether it complies with the schema.
 
-{{< jsonschema-validator label="Your template:" schemaUrl="https://raw.githubusercontent.com/Altinn/altinn-studio/refs/heads/main/src/Designer/backend/src/Designer/Schemas/customtemplate.schema.json" >}}
+{{< jsonschema-validator label="Your template:" schemaUrl="https://raw.githubusercontent.com/Altinn/altinn-studio/bba86039984f1949260b4c3552a1d279bc6b157e/src/Designer/backend/src/Designer/Schemas/customtemplate.schema.json" >}}
 
 ### 3. content/ folder
 
