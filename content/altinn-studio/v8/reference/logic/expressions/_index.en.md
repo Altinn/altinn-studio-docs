@@ -68,6 +68,8 @@ to `7.2.0` or later:
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
+From version 8.9.0 onwards, it is possible to mark components with the `"removeWhenHidden"` property, which is an expression that is evaluated together with `"hidden"` when we remove hidden data. It can be true, false, or null (or an expression that evaluates to one of these). For the time being, it only makes sense to set `"removeWhenHidden": false`, but in the future we may remove data when it is true even if no global RemoveHiddenData setting is configured in appsettings.
+
 ### Structure and syntax
 
 Structure and syntax:
