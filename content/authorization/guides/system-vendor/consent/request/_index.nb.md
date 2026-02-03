@@ -123,10 +123,9 @@ https://bankenmin.no/huslaan/?consentId=77ed8698-e619-4066-9eb4-5c1eb3f165a1
 
 ### Konkret eksempel innteksopplysninger og skattegrunnlag
 
-Nedenfor vises eksempel for samtykke for [inntektsopplysninger](https://skatteetaten.github.io/api-dokumentasjon/api/inntekt)
-og skattegrunnlag. De mest brukte [samtykketjenestene](https://skatteetaten.github.io/api-dokumentasjon/api/summertskattegrunnlag) i Altinn
+Skattetaten har detaljert eksempel på bruk av samtykke for skattegrunnlag og inntektsgrunnlag.  Disse eksemplene finner du [her](https://skatteetaten.github.io/api-dokumentasjon/om/samtykke)
 
-
+Nedenfor viser vi en sammensatt forespørsel av de mest vanlige tjenstene for lånesøknader. 
 
 
 ```jsonc
