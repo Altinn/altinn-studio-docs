@@ -6,6 +6,12 @@ Dette er en Hugo-basert dokumentasjonsside for Altinn-produkter som Altinn Studi
 
 ### Utviklingskommandoer
 
+**VIKTIG: Start Hugo fra brukerens terminal i starten av hver økt**
+- Bruker må åpne terminal og kjøre: `cd /Users/gorilddohl/altinn-studio-docs && hugo server -D`
+- La Hugo-serveren kjøre i terminalen
+- Åpne nettleser på: http://localhost:1313/
+
+Andre kommandoer:
 - **Start utviklingsserver**: `hugo server --navigateToChanged -D` (`-D` viser draft-innhold)
 - **Bygg nettstedet**: `hugo --minify`
 - **Ren bygging**: `rm -rf public && hugo --minify`
@@ -93,6 +99,12 @@ Dette er en Hugo-basert dokumentasjonsside for Altinn-produkter som Altinn Studi
 - Bruk konservativ bokmål ("listen", "hentet" - ikke "lista", "henta")
 - Unngå passive konstruksjoner
 - Unngå "av + -ing" konstruksjoner
+- **Unngå substantiveringer** - bruk verb i stedet for substantiverte verb
+  - ❌ Feil: "Verifisering av signatur", "Lagring av data", "Behandling av personopplysninger"
+  - ✅ Riktig: "Slik verifiserer du signaturen", "Slik lagres data", "Slik behandles personopplysninger"
+- **Bruk etterstilte pronomen** på norsk
+  - ❌ Feil: "ditt system", "din tjeneste", "dine data"
+  - ✅ Riktig: "systemet ditt", "tjenesten din", "dataene dine"
 - Lenker skal helst være fullstendige setninger
 - Tall under 12: Skriv med bokstaver i løpende tekst ("fire filer", "tre alternativer")
   - Unntak: Statistikk, tabeller, eller når tallet er spesielt viktig ("maks 10 filer tillatt")

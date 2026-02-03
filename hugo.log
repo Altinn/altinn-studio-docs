@@ -1,0 +1,233 @@
+Watching for changes in /Users/gorilddohl/altinn-studio-docs/{assets,content,i18n,layouts,static,themes}
+Watching for config changes in /Users/gorilddohl/altinn-studio-docs/config.toml
+Start building sites … 
+hugo v0.150.1+extended+withdeploy darwin/arm64 BuildDate=2025-09-25T10:26:04Z VendorInfo=brew
+
+INFO  build:  step process substep collect files 3936 files_total 3936 pages_total 2495 resources_total 1441 duration 748.150791ms
+INFO  build:  step process duration 748.343792ms
+INFO  build:  step assemble duration 46.966916ms
+INFO  static: syncing static files to / duration 7.795512666s
+INFO  build:  step render substep pages site nb outputFormat html duration 17.535655125s
+INFO  build:  step render substep pages site nb outputFormat json duration 424.131125ms
+INFO  build:  step render substep pages site en outputFormat html duration 16.434246792s
+INFO  build:  step render substep pages site en outputFormat json duration 401.597208ms
+INFO  build:  step render pages 2362 content 2704 duration 34.803476542s
+INFO  build:  step render deferred count 0 duration 1.708µs
+INFO  build:  step postProcess duration 13.833µs
+INFO  build:  duration 35.599613834s
+
+                  │  NB  │  EN  
+──────────────────┼──────┼──────
+ Pages            │ 1219 │ 1157 
+ Paginator pages  │    0 │    0 
+ Non-page files   │ 1395 │ 1369 
+ Static files     │  241 │  241 
+ Processed images │    0 │    0 
+ Aliases          │  217 │  221 
+ Cleaned          │    0 │    0 
+
+Built in 35600 ms
+Environment: "development"
+Serving pages from disk
+Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1) 
+Press Ctrl+C to stop
+INFO  build:  step render substep pages site nb outputFormat html duration 761.084µs
+INFO  build:  step render substep pages site nb outputFormat json duration 893.625µs
+INFO  build:  step render substep pages site en outputFormat html duration 511.25µs
+INFO  build:  step render substep pages site en outputFormat json duration 2.5315ms
+INFO  build:  step render pages 0 content 0 duration 9.080417ms
+INFO  build:  step render deferred count 0 duration 1.333µs
+INFO  build:  step postProcess duration 18.083µs
+INFO  build:  duration 9.436292ms
+INFO  build:  step render substep pages site nb outputFormat html duration 1.470291ms
+INFO  build:  step render substep pages site nb outputFormat json duration 2.997125ms
+INFO  build:  step render substep pages site en outputFormat html duration 803.416µs
+INFO  build:  step render substep pages site en outputFormat json duration 1.527167ms
+INFO  build:  step render pages 0 content 0 duration 17.035375ms
+INFO  build:  step render deferred count 0 duration 1.5µs
+INFO  build:  step postProcess duration 15.5µs
+INFO  build:  duration 17.359834ms
+
+Change detected, rebuilding site (#1).
+2026-02-03 13:07:58.137 +0100
+Source changed /altinn-studio/v10/develop-a-service/signing/_index.nb.md
+INFO  build:  step process substep gc dynacache duration 4.670167ms
+INFO  build:  step process substep resolve page output change set changes 1 checked 11777 matches 594 duration 19.61875ms
+INFO  build:  step process substep collect files 8 files_total 8 pages_total 8 resources_total 0 duration 1.383333ms
+INFO  build:  step process duration 26.5485ms
+INFO  build:  step assemble duration 31.615666ms
+INFO  build: render recently touched URL "/nb/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/" (html) step render
+INFO  build:  step render substep pages site nb outputFormat html duration 10.44425ms
+INFO  build:  step render substep pages site nb outputFormat json duration 2.186792ms
+INFO  build:  step render substep pages site en outputFormat html duration 8.22275ms
+INFO  build:  step render substep pages site en outputFormat json duration 2.226709ms
+INFO  build:  step render pages 5 content 4 duration 28.282917ms
+INFO  build:  step render deferred count 0 duration 1.042µs
+INFO  build:  step postProcess duration 9.125µs
+INFO  build:  duration 86.604959ms
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 86 ms
+INFO  livereload: build changed 5 files: ["/en/altinn-studio/v10/develop-a-service/signing/index.html" "/en/altinn-studio/v10/develop-a-service/signing/sensitive-data-warning/index.html" "/nb/altinn-studio/v10/develop-a-service/signing/index.html" "/nb/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/index.html" "/nb/altinn-studio/v10/develop-a-service/signing/sensitive-data-warning/index.html"]
+INFO  livereload: no page to navigate to, force refresh
+
+Change detected, rebuilding site (#2).
+2026-02-03 13:08:05.636 +0100
+Source changed /altinn-studio/v10/develop-a-service/signing/_index.nb.md
+INFO  build:  step process substep gc dynacache duration 2.808375ms
+INFO  build:  step process substep resolve page output change set changes 1 checked 11771 matches 584 duration 17.75625ms
+INFO  build:  step process substep collect files 8 files_total 8 pages_total 8 resources_total 0 duration 968.708µs
+INFO  build:  step process duration 22.11875ms
+INFO  build:  step assemble duration 27.400333ms
+INFO  build: render recently touched URL "/nb/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/" (html) step render
+INFO  build:  step render substep pages site nb outputFormat html duration 9.112667ms
+INFO  build:  step render substep pages site nb outputFormat json duration 1.6105ms
+INFO  build:  step render substep pages site en outputFormat html duration 6.877583ms
+INFO  build:  step render substep pages site en outputFormat json duration 1.625166ms
+INFO  build:  step render pages 5 content 4 duration 23.482791ms
+INFO  build:  step render deferred count 0 duration 1µs
+INFO  build:  step postProcess duration 12.084µs
+INFO  build:  duration 73.130959ms
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 73 ms
+INFO  livereload: build changed 3 files: ["/en/altinn-studio/v10/develop-a-service/signing/index.html" "/en/altinn-studio/v10/develop-a-service/signing/sensitive-data-warning/index.html" "/nb/altinn-studio/v10/develop-a-service/signing/index.html"]
+INFO  livereload: no page to navigate to, force refresh
+
+Change detected, rebuilding site (#3).
+2026-02-03 13:08:14.637 +0100
+Source changed /altinn-studio/v10/develop-a-service/signing/_index.nb.md
+INFO  build:  step process substep gc dynacache duration 2.829333ms
+INFO  build:  step process substep resolve page output change set changes 1 checked 11771 matches 584 duration 18.966458ms
+INFO  build:  step process substep collect files 8 files_total 8 pages_total 8 resources_total 0 duration 1.06775ms
+INFO  build:  step process duration 23.4895ms
+INFO  build:  step assemble duration 28.829583ms
+INFO  build: render recently touched URL "/nb/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/" (html) step render
+INFO  build:  step render substep pages site nb outputFormat html duration 8.569166ms
+INFO  build:  step render substep pages site nb outputFormat json duration 2.235042ms
+INFO  build:  step render substep pages site en outputFormat html duration 6.643125ms
+INFO  build:  step render substep pages site en outputFormat json duration 1.979292ms
+INFO  build:  step render pages 5 content 4 duration 24.155792ms
+INFO  build:  step render deferred count 0 duration 1.5µs
+INFO  build:  step postProcess duration 8.708µs
+INFO  build:  duration 76.6305ms
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 76 ms
+INFO  livereload: build changed 3 files: ["/nb/altinn-studio/v10/develop-a-service/signing/index.html" "/nb/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/index.html" "/nb/altinn-studio/v10/develop-a-service/signing/sensitive-data-warning/index.html"]
+INFO  livereload: no page to navigate to, force refresh
+
+Change detected, rebuilding site (#4).
+2026-02-03 13:08:22.636 +0100
+Source changed /altinn-studio/v10/develop-a-service/signing/_index.nb.md
+INFO  build:  step process substep gc dynacache duration 3.286125ms
+INFO  build:  step process substep resolve page output change set changes 1 checked 11771 matches 584 duration 18.905916ms
+INFO  build:  step process substep collect files 8 files_total 8 pages_total 8 resources_total 0 duration 1.094666ms
+INFO  build:  step process duration 23.919708ms
+INFO  build:  step assemble duration 28.977041ms
+INFO  build: render recently touched URL "/nb/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/" (html) step render
+INFO  build:  step render substep pages site nb outputFormat html duration 8.312791ms
+INFO  build:  step render substep pages site nb outputFormat json duration 2.1595ms
+INFO  build:  step render substep pages site en outputFormat html duration 6.468167ms
+INFO  build:  step render substep pages site en outputFormat json duration 2.0775ms
+INFO  build:  step render pages 5 content 4 duration 23.561417ms
+INFO  build:  step render deferred count 0 duration 1.042µs
+INFO  build:  step postProcess duration 7.958µs
+INFO  build:  duration 76.57575ms
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 76 ms
+INFO  livereload: build changed 1 files: ["/nb/altinn-studio/v10/develop-a-service/signing/index.html"]
+INFO  livereload: no page to navigate to, force refresh
+
+Change detected, rebuilding site (#5).
+2026-02-03 13:08:52.636 +0100
+Source changed /altinn-studio/v10/develop-a-service/signing/_index.nb.md
+INFO  build:  step process substep gc dynacache duration 3.66475ms
+INFO  build:  step process substep resolve page output change set changes 1 checked 11771 matches 584 duration 19.903792ms
+INFO  build:  step process substep collect files 8 files_total 8 pages_total 8 resources_total 0 duration 844.459µs
+INFO  build:  step process duration 25.775791ms
+INFO  build:  step assemble duration 31.092833ms
+INFO  build: render recently touched URL "/nb/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/" (html) step render
+INFO  build:  step render substep pages site nb outputFormat html duration 8.621792ms
+INFO  build:  step render substep pages site nb outputFormat json duration 2.438875ms
+INFO  build:  step render substep pages site en outputFormat html duration 6.761ms
+INFO  build:  step render substep pages site en outputFormat json duration 2.2145ms
+INFO  build:  step render pages 5 content 4 duration 24.824333ms
+INFO  build:  step render deferred count 0 duration 1.083µs
+INFO  build:  step postProcess duration 11.917µs
+INFO  build:  duration 81.844583ms
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 82 ms
+INFO  livereload: build changed 0 files: []
+
+Change detected, rebuilding site (#6).
+2026-02-03 13:08:57.635 +0100
+Source changed /altinn-studio/v10/develop-a-service/signing/_index.nb.md
+INFO  build:  step process substep gc dynacache duration 2.973833ms
+INFO  build:  step process substep resolve page output change set changes 1 checked 11771 matches 584 duration 18.188334ms
+INFO  build:  step process substep collect files 8 files_total 8 pages_total 8 resources_total 0 duration 914.083µs
+INFO  build:  step process duration 22.72575ms
+INFO  build:  step assemble duration 28.603875ms
+INFO  build: render recently touched URL "/nb/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/" (html) step render
+INFO  build:  step render substep pages site nb outputFormat html duration 8.29175ms
+INFO  build:  step render substep pages site nb outputFormat json duration 2.321459ms
+INFO  build:  step render substep pages site en outputFormat html duration 6.856375ms
+INFO  build:  step render substep pages site en outputFormat json duration 1.933459ms
+INFO  build:  step render pages 5 content 4 duration 24.119041ms
+INFO  build:  step render deferred count 0 duration 1.167µs
+INFO  build:  step postProcess duration 9.333µs
+INFO  build:  duration 75.59125ms
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 75 ms
+INFO  livereload: build changed 0 files: []
+
+Change detected, rebuilding site (#7).
+2026-02-03 13:09:04.135 +0100
+Source changed /altinn-studio/v10/develop-a-service/signing/_index.nb.md
+INFO  build:  step process substep gc dynacache duration 2.914958ms
+INFO  build:  step process substep resolve page output change set changes 2 checked 23402 matches 556 duration 35.428667ms
+INFO  build:  step process substep collect files 72 files_total 72 pages_total 72 resources_total 0 duration 9.488667ms
+INFO  build:  step process duration 48.494625ms
+INFO  build:  step assemble duration 28.643125ms
+INFO  build:  step render substep pages site nb outputFormat html duration 26.592458ms
+INFO  build:  step render substep pages site nb outputFormat json duration 1.89925ms
+INFO  build:  step render substep pages site en outputFormat html duration 51.592708ms
+INFO  build:  step render substep pages site en outputFormat json duration 1.976208ms
+INFO  build:  step render pages 14 content 14 duration 87.233042ms
+INFO  build:  step render deferred count 0 duration 2.5µs
+INFO  build:  step postProcess duration 21.125µs
+INFO  build:  duration 164.600542ms
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 165 ms
+INFO  livereload: build changed 10 files
+INFO  livereload: no page to navigate to, force refresh
+
+Change detected, rebuilding site (#8).
+2026-02-03 13:13:35.627 +0100
+Source changed /altinn-studio/v10/develop-a-service/signing/_setup.nb.md
+INFO  build:  step process substep gc dynacache duration 4.206541ms
+INFO  build:  step process substep resolve page output change set changes 15 checked 168329 matches 584 duration 235.139792ms
+INFO  build:  step process substep collect files 1 files_total 1 pages_total 1 resources_total 0 duration 417.458µs
+INFO  build:  step process duration 240.4815ms
+INFO  build:  step assemble duration 25.317083ms
+INFO  build: render recently touched URL "/nb/altinn-studio/v10/develop-a-service/signing/" (html) step render
+INFO  build: render recently touched URL "/nb/altinn-studio/v10/develop-a-service/signing/api-signing/" (html) step render
+INFO  build: render recently touched URL "/nb/altinn-studio/v10/develop-a-service/signing/role-based-signing/" (html) step render
+INFO  build: render recently touched URL "/nb/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/" (html) step render
+INFO  build: render recently touched URL "/nb/altinn-studio/v10/develop-a-service/signing/sensitive-data-warning/" (html) step render
+INFO  build: render recently touched URL "/nb/altinn-studio/v10/develop-a-service/signing/sign-and-submit/" (html) step render
+INFO  build:  step render substep pages site nb outputFormat html duration 18.58625ms
+INFO  build:  step render substep pages site nb outputFormat json duration 1.99925ms
+INFO  build: render recently touched URL "/en/altinn-studio/v10/develop-a-service/signing/api-signing/" (html) step render
+INFO  build: render recently touched URL "/en/altinn-studio/v10/develop-a-service/signing/role-based-signing/" (html) step render
+INFO  build: render recently touched URL "/en/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/" (html) step render
+INFO  build: render recently touched URL "/en/altinn-studio/v10/develop-a-service/signing/sensitive-data-warning/" (html) step render
+INFO  build: render recently touched URL "/en/altinn-studio/v10/develop-a-service/signing/sign-and-submit/" (html) step render
+INFO  build:  step render substep pages site en outputFormat html duration 24.879833ms
+INFO  build:  step render substep pages site en outputFormat json duration 2.173708ms
+INFO  build:  step render pages 12 content 11 duration 52.45675ms
+INFO  build:  step render deferred count 0 duration 2.916µs
+INFO  build:  step postProcess duration 16.458µs
+INFO  build:  duration 318.517875ms
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Total in 318 ms
+INFO  livereload: build changed 12 files
+INFO  livereload: no page to navigate to, force refresh
