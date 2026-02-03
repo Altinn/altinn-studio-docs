@@ -15,20 +15,20 @@ aliases:
 Tilgjengelig fra [v8.6.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.6.0)
 {{%/notice%}}
 
-## Hva er brukerstyrt signering?
+## Slik fungerer brukerstyrt signering
 {{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/intro.nb.md" %}}
 
 ## Avhengigheter
 
 ### Maskinporten
-Maskinporten kreves av både [meldingstjenesten](#meldingstjenesten) og for interaksjon med [beskyttede data](/nb/altinn-studio/v10/develop-a-service/restricted-data/).
+Du trenger Maskinporten både for [meldingstjenesten](#meldingstjenesten) og for å jobbe med [beskyttede data](/nb/altinn-studio/v10/develop-a-service/restricted-data/).
 
-Hvis du trenger hjelp med oppsett av Maskinporten i appen din, finner du all informasjonen du trenger i [denne veiledningen](/nb/altinn-studio/v10/develop-a-service/reference/integration/maskinporten/).
+Hvis du trenger hjelp med å sette opp Maskinporten i appen din, finner du all informasjonen du trenger i [denne veiledningen](/nb/altinn-studio/v10/develop-a-service/reference/integration/maskinporten/).
 
 ### Meldingstjenesten
-Brukerstyrt signering avhenger av meldingstjenesten (Correspondence) i Altinn, som krever et separat oppsett.
+Brukerstyrt signering bruker meldingstjenesten (Correspondence) i Altinn. Denne tjenesten krever et separat oppsett.
 
-Meldingstjenesten brukes til å gi beskjed til de som skal signere om at de må signere et skjema i Altinn, og til å sende en kvittering til innboksen deres når de har signert.
+Meldingstjenesten sender beskjed til de som skal signere om at de må signere et skjema i Altinn. Den sender også en kvittering til innboksen deres når de har signert.
 
 [Slik kommer du i gang med meldingstjenesten](/nb/correspondence/getting-started/).
 
@@ -37,12 +37,12 @@ I dette [repositoriet](https://altinn.studio/repos/ttd/signering-brukerstyrt) li
 
 Flyten i appen er slik:
 
-1. Den som fyller ut skjemaet oppgir fødselsnummer og etternavn, eller organisasjonsnummer hvis den som skal signere representerer en virksomhet.
-2. Når skjemaet er ferdig utfylt, klikker utfyller på **Til signering**. Det flytter prosessen til neste steg, som er signeringssteget.
+1. Brukeren som fyller ut skjemaet oppgir fødselsnummer og etternavn til de som skal signere. Hvis noen skal signere på vegne av en virksomhet, oppgir brukeren organisasjonsnummer.
+2. Når skjemaet er ferdig utfylt, klikker brukeren på **Til signering**. Det flytter prosessen til signeringssteget.
 3. Når signeringssteget starter, kaller appen opp en implementering av grensesnittet `ISigneeProvider` for å finne ut hvem som må få tillatelse til å signere.
-4. De som skal signere får delegert rettighetene de trenger, og de blir varslet om at de har en signeringsoppgave.
-5. Skjemaet de skal signere kommer i innboksen, slik at de kan åpne det, se over informasjonen og signere.
-6. Innsenderen signerer også, hvis appen er satt opp til det, og deretter sendes skjemaet inn.
+4. De som skal signere får de rettighetene de trenger, og de får varsel om at de har en signeringsoppgave.
+5. Skjemaet de skal signere kommer i innboksen. De kan åpne det, se over informasjonen og signere.
+6. Brukeren som sendte inn signerer også, hvis appen er satt opp til det. Deretter sendes skjemaet inn.
 
 **Merk:** Vi støtter ikke automatisk innsending ennå.
 
@@ -96,7 +96,7 @@ Følg trinnene under for å sette opp en slik app.
 
 ## 5. Valgfritt - Legg til tekstressurser
 
-Denne seksjonen er bare relevant hvis du vil endre standardtekstene i kommunikasjon med signatarer – de som skal signere.
+Denne seksjonen er bare relevant hvis du vil endre standardtekstene i kommunikasjon med de som skal signere.
 
 Standardverdiene som brukes hvis kommunikasjonstekstene ikke overstyres er som følger:
 
@@ -154,17 +154,17 @@ Standardverdiene som brukes hvis kommunikasjonstekstene ikke overstyres er som f
 
 {{</content-version-selector>}}
 
-## 6. Valgfritt - Tilpasse hvordan signatarene varsles
+## 6. Valgfritt - Tilpass hvordan de som skal signere varsles
 
-`CommunicationConfig` er valgfritt. Her kan du overstyre standardtekstene som brukes i kommunikasjon med signatarene, som beskrevet i forrige punkt. Du kan også overstyre e-postadresse og telefonnummer for signatarene.
+`CommunicationConfig` er valgfritt. Her kan du overstyre standardtekstene som brukes i kommunikasjon med de som skal signere, som beskrevet i forrige punkt. Du kan også overstyre e-postadresse og telefonnummer for de som skal signere.
 
 {{% notice info %}}
-Hvis ikke overstyrt, sendes en melding til signatarenes Altinn-innboks med en lenke til den relevante applikasjonsinstansen, og en notifikasjon sendes via e-post.
+Hvis du ikke overstyrer disse innstillingene, sendes en melding til innboksen i Altinn med en lenke til applikasjonsinstansen. En notifikasjon sendes også via e-post.
 {{% /notice %}}
 
-Hvis ikke overstyrt, hentes e-postadressene og telefonnumrene som beskrevet i [Recipient lookup](/nb/notifications/explanation/recipient-lookup/) og [Address lookup](/nb/notifications/explanation/address-lookup/).
+Hvis du ikke overstyrer e-postadresser og telefonnumre, hentes de som beskrevet i [Recipient lookup](/nb/notifications/explanation/recipient-lookup/) og [Address lookup](/nb/notifications/explanation/address-lookup/).
 
-Dette er de mulige overstyringskonfigurasjonene for kommunikasjon med signatarer:
+Dette er de mulige overstyringskonfigurasjonene for kommunikasjon med de som skal signere:
 
 | Property                                                      | Description                                         | Type                              |
 | ------------------------------------------------------------- | --------------------------------------------------- | --------------------------------- |

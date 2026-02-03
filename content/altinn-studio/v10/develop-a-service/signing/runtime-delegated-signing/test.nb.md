@@ -2,18 +2,18 @@
 draft: true
 headless: true
 hidden: true
+tags: [needsReview, translate]
 ---
 
 {{%notice warning%}}
-SMS varsler er ikke tilgjengelige i TT02 eller andre testmiljøer. Dersom brukt vil det lede til en "varsling mislyktes"
-status i SigneeList komponenten. Signataren vil allikevel motta en melding i altinn innboksen.
+SMS-varsler er ikke tilgjengelige i TT02 eller andre testmiljøer. Hvis du bruker SMS, vil det føre til en "varsling mislyktes"-status i SigneeList-komponenten. Den som skal signere vil likevel motta en melding i Altinn-innboksen.
 {{%/notice%}}
 
-Det er caching i autorisasjonslaget som gjør at det kan ta tid før en bruker som har fått delegert tilgang til et skjema via brukerstyrt signering ser skjemaet i sin Altinn innboks.
+Det er caching i autorisasjonslaget som gjør at det kan ta tid før en bruker som har fått delegert tilgang til et skjema via brukerstyrt signering ser skjemaet i Altinn-innboksen.
 
-Men dette vil altså bare inntreffe for:
+Dette gjelder bare for brukere som
 
-- De brukerne som er aktivt pålogget Altinn når instansdelegeringen skjer
-- Ikke allerede har annen tilgang for InstanceOwner
+- er aktivt pålogget Altinn når delegeringen skjer
+- ikke allerede har annen tilgang for InstanceOwner
 
-For å unngå å oppleve dette under testing kan man delegere til en person man ikke har brukt i testing den siste timen.
+For å unngå dette under testing kan du delegere til en person du ikke har brukt i testing den siste timen.

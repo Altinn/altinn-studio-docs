@@ -1,3 +1,10 @@
+---
+draft: true
+headless: true
+hidden: true
+tags: [needsReview, translate]
+---
+
 ## Sette opp signering i tjenesten din
 
 {{% insert "content/altinn-studio/v10/develop-a-service/signing/auth-requirements.nb.md" %}}
