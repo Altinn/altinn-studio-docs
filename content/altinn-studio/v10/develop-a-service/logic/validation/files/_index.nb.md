@@ -31,7 +31,7 @@ Utvidet filvalidering gir deg mulighet til å analysere bytestrømmen til de opp
 Altinn.App.Core NuGet-pakken definerer grensesnittene som kreves, i tillegg til å sikre at systemet kaller koden. Analyseimplementeringene er tilgjengelige som en separat [NuGet-pakke](https://www.nuget.org/packages/Altinn.FileAnalyzers) som du kan importere i appen din. Grunnen til denne separasjonen er å holde kjernen til en Altinn 3-applikasjon så liten som mulig, og å kunne lansere og bruke nye analyser uten å måtte oppgradere appen (utover v7.10.0).
 
 
-## Konfigurere og aktivere standard MIME-type-validering i appen din
+## Konfigurer og aktiver standard MIME-type-validering i appen din
 
 1. **Legg til en referanse til [Altinn.FileAnalyzers NuGet-pakken](https://www.nuget.org/packages/Altinn.FileAnalyzers)**
    Åpne kommandolinjen til applikasjonsrepoet og naviger til mappen App der App.csproj-filen er plassert. Kjør følgende kommando:
@@ -65,7 +65,7 @@ Altinn.App.Core NuGet-pakken definerer grensesnittene som kreves, i tillegg til 
       }
     ```
 
-## Skrive din egen analyse
+## Skriv din egen analyse
 
 Hvis du vil skrive din egen validator, må du implementere to grensesnitt: `IFileAnalyser` og `IFileValidator`. `IFileAnalyser` analyserer filen for eventuelle metadata du vil validere på og returnerer disse i en `FileAnalysisResult`. Systemet sender deretter resultatet til valideringslogikken. Resultatet inneholder noen navngitte egenskaper som filnavn, MIME-type og ID-en til analysatoren som opprettet resultatet. Du sender eventuelle tilleggsmetadata som nøkkel/verdi-par i Metadata-propertyen. Denne separasjonen gjør det mulig å gjenbruke analysatoren for å ekstrahere metadata om filen for andre formål.
 
