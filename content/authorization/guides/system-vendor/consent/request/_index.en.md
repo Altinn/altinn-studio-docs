@@ -8,7 +8,7 @@ toc: false
 ### Prerequisites
 
 1. The data consumer must have a registered Maskinporten client.
-2. The data consumer must have been delegated the consent scope from Digdir.
+2. The data consumer must have been delegated the consent scope and API Key from Digdir.
 3. The necessary scopes must be added to the Maskinporten client.
 4. Access to request consent for the relevant resource(s) must be granted.
 

@@ -5,7 +5,15 @@ weight: 10
 toc: false
 ---
 
-Legg til de nødvendige parameterene i forespørselen:
+### Forutsetninger
+
+1. Datakonsumenten må ha en registrert Maskinporten-klient.
+2. Datakonsumenten må ha fått delegert samtykke-scope og API-nøkkel fra Digdir.
+3. De nødvendige scopene må legges til i Maskinporten-klienten.
+4. Tilgang til å be om samtykke for relevante ressurs(er) må være gitt.
+
+
+### API Endpoint
 
 - **Test**: `POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/`
 - **Produksjon**: `POST https://platform.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/`
