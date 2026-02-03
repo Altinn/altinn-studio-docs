@@ -87,6 +87,8 @@ Keywords is a list of tokens which enable personalization in notifications. Thes
 | \$correspondenceRecipientName\$ | Will be supplied with the correspondence recipient's name, which will be either the organization's name or a person's name            | Supported for all scenarios                                                               |
 | \$recipientName\$               | Will be supplied with the notification recipient's name, which will be either the organization's name or a person's name              | Is not supported when notifications is sent directly to an email adress or a phone number |
 | \$recipientNumber\$             | If the recipient is a organization, it will be supplied with the organization number, otherwise it will be left empty                 | Is not supported when notifications is sent directly to an email adress or a phone number |
+| \$messageTitle\$                | Will be supplied with the title of the correspondence                                                                                 | Supported for all scenarios                                                               |
+| \$resourceName\$                | Will be supplied with the name of the resource                                                                                        | Supported for all scenarios                                                               |
 
 ## Notification Templates
 
