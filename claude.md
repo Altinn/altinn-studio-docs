@@ -273,3 +273,4 @@ Når du vasker/migrerer filer fra v8 til v10:
 - Klarspråk: https://språkrådet.no/
 - Tegnsetting og språkbruk: https://korrekturavdelingen.no/
 - Dokumentasjonsrammeverk: https://diataxis.fr/
+- Designsystemet (skjemadesign og UX): https://designsystemet.no/
