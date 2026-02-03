@@ -218,6 +218,9 @@ og skattegrunnlag. De mest brukte [samtykketjenestene](https://skatteetaten.gith
 ```
 
 
+Skjermbildet nedenfor viser hvordan samtykkeforespørsel for disse ressursene presenteres til sluttbruker.
+
+
 ![Request "Forespørsel vist til bruker basert på forespørsel" ](request.jpg)
 
 
