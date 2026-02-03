@@ -3,11 +3,11 @@ draft: true
 title: Validering med uttrykk
 description: Slik konfigurerer du valideringer ved hjelp av dynamiske uttrykk.
 toc: true
-tags: [needsReview]
+tags: [needsReview, needsTranslation]
 ---
 
-Validering med uttrykk er en metode for å definere valideringer på en datamodell som gir større fleksibilitet enn begrensninger i datamodellen, samtidig som det er enklere å utvikle enn valideringer i backend-kode.
-Dette fungerer ved å definere regler ved hjelp av [dynamiske uttrykk]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}}).
+Validering med uttrykk gir deg mulighet til å definere valideringsregler som er mer fleksible enn begrensninger i datamodellen, men enklere å utvikle enn valideringer i backend-kode.
+Du definerer regler ved hjelp av [dynamiske uttrykk]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}}).
 
 ## Konfigurere validering med uttrykk
 
@@ -67,9 +67,9 @@ Datamodellstien bruker akkurat samme format som `dataModelBindings` på en kompo
 
 En regel består av følgende felter:
 
-- **message**: Valideringsmeldingen som vises hvis regelen er brutt. Dette bør være en referanse til en tekstressurs.
-- **severity**: Hva slags type valideringsfeil det er. Kan være en av: `error`, `warning`, `info` eller `success`. Hvis feltet utelates, brukes `error`. Se [myke valideringer]({{< relref "/altinn-studio/v10/develop-a-service/logic/validation/#myke-valideringer" >}}) for mer informasjon.
-- **condition**: Et dynamisk uttrykk som returnerer `true` hvis feilen skal vises, og `false` ellers. Se [dynamiske uttrykk]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}}) for mer informasjon.
+- **message** – Valideringsmeldingen som vises hvis regelen er brutt. Dette bør være en referanse til en tekstressurs.
+- **severity** – Typen valideringsfeil: `error`, `warning`, `info` eller `success`. Hvis feltet utelates, brukes `error`. Se [myke valideringer]({{< relref "/altinn-studio/v10/develop-a-service/logic/validation/#myke-valideringer" >}}).
+- **condition** – Et dynamisk uttrykk som returnerer `true` hvis feilen skal vises, og `false` ellers. Se [dynamiske uttrykk]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}}).
 
 ### Gjenbruke regler
 

@@ -1,14 +1,12 @@
 ---
 draft: true
 title: Validering
-description: Slik legger du til logikk for å validere skjemadata.
+description: Slik validerer du skjemadata på klient- og serversiden.
 toc: true
-tags: [needsReview]
+tags: [needsReview, needsTranslation]
 ---
 
-## Introduksjon
-
-Valideringer sikrer at brukerens input er gyldig i henhold til datamodellen og eventuelle egendefinerte regler du setter opp for applikasjonen.
+Valideringer sikrer at brukerens inndata er gyldige i henhold til datamodellen og eventuelle egendefinerte regler du setter opp.
 Du kan kjøre valideringer enten på klientsiden (i nettleseren) eller på serversiden.
 
 Du kan også sette opp validering til å [kjøre ved sidebytte]({{< relref "/altinn-studio/v8/reference/ux/pages/navigation/#angi-validering-ved-sidebytte" >}}).
@@ -17,13 +15,11 @@ Du kan også sette opp validering til å [kjøre ved sidebytte]({{< relref "/alt
 
 Klientside-validering kjører i nettleseren FØR data sendes til serveren for lagring. Dette gjør det mulig å gi raske tilbakemeldinger til brukeren underveis i utfyllingen.
 
-Klientside-validering baserer seg på datamodellen som hører til skjemaet og bruker denne til å avgjøre hva som er gyldig input i et felt.
-Konkret bruker valideringen JSON Schema-utgaven av datamodellen. Denne genereres automatisk når du laster opp XSD.
+Klientside-validering baserer seg på datamodellen som hører til skjemaet og bruker denne til å avgjøre hva som er gyldige inndata i et felt.
+Konkret bruker valideringen JSON Schema-utgaven av datamodellen. Systemet oppretter denne automatisk når du laster opp XSD.
 Du kan gjøre endringer i JSON Schema direkte for å tilpasse valideringen ved behov.
 
-**Merk at hvis du gjør tilpasninger i JSON Schema manuelt og deretter oppdaterer XSD og laster inn på nytt, vil nytt
-JSON Schema også genereres. Da må du gjøre alle manuelle tilpasninger på nytt. Vi anbefaler derfor å gjøre endringer i XSD og/eller datamodelleringsverktøyet
-slik at endringene reflekteres i JSON Schema.**
+**Merk at hvis du gjør tilpasninger i JSON Schema manuelt og deretter oppdaterer XSD og laster inn på nytt, oppretter systemet et nytt JSON Schema. Da må du gjøre alle manuelle tilpasninger på nytt. Vi anbefaler derfor å gjøre endringer i XSD eller datamodelleringsverktøyet slik at JSON Schema får med endringene.**
 
 Et eksempel på hvordan du kan definere et felt i JSON Schema datamodellen:
 
@@ -34,7 +30,7 @@ Et eksempel på hvordan du kan definere et felt i JSON Schema datamodellen:
 }
 ```
 
-Input i dette feltet valideres mot begrensningene du har satt opp. En feilmelding vises hvis begrensningene ikke er oppfylt – i dette tilfellet hvis input er en tekst med mer enn fire tegn.
+Systemet validerer inndata i dette feltet mot begrensningene du har satt opp. Brukeren får en feilmelding hvis inndata ikke oppfyller begrensningene – i dette tilfellet hvis teksten har mer enn fire tegn.
 
 ### Standard feilmeldinger
 
@@ -51,19 +47,17 @@ Det er satt opp standard feilmeldinger for alle valideringene som kjører på kl
 | required  | 'Du må fylle ut {0}'          | 'Du må fylle ut {0}'          | 'You have to fill out {0}'            |
 | enum      | 'Kun verdiene {0} er tillatt' | 'Kun verdiene {0} er tillatt' | 'Only the values {0} are permitted'   |
 
-### Standard feilmelding for påkrevde felter
+### Standard feilmelding for obligatoriske felter
 
-For en smidigere brukeropplevelse vises ikke feilmeldinger for manglende utfylling av påkrevde felter under
-utfylling av et skjema, med mindre validering trigges [på et enkeltfelt](#enkeltfeltvalidering), ved lagring
-av [en rad i en repeterende gruppe](#gruppevalidering) eller
-[ved navigering til en annen side]({{< relref "/altinn-studio/v8/reference/ux/pages/navigation/#angi-validering-ved-sidebytte" >}}).
+Brukeren ser ikke feilmeldinger for tomme obligatoriske felter mens de fyller ut skjemaet.
+Feilmeldingene dukker først opp når systemet kjører validering – det vil si ved [enkeltfeltvalidering](#enkeltfeltvalidering), ved [lagring av en rad i en repeterende gruppe](#gruppevalidering) eller ved [navigering til en annen side]({{< relref "/altinn-studio/v8/reference/ux/pages/navigation/#angi-validering-ved-sidebytte" >}}).
 
-Feilmeldingen for påkrevde felter er _"Du må fylle ut {0}"_. Her erstattes `{0}` med feltet som feilmeldingen gjelder for.
-Dette skjer på følgende måte:
+Feilmeldingen for obligatoriske felter er _"Du må fylle ut {0}"_. Her erstatter systemet `{0}` med feltet feilmeldingen gjelder.
+Systemet finner feltnavn på følgende måte:
 
-- Bruker feltets `shortName`-tekst. Dette er en tekst du kan sette opp per komponent på samme måte som ledetekst (`title`). _Denne teksten brukes foreløpig KUN i forbindelse med feilmeldingen for påkrevde felter._
+- Bruker feltets `shortName`-tekst. Dette er en tekst du kan sette opp per komponent på samme måte som ledetekst (`title`). _Denne teksten brukes foreløpig kun i forbindelse med feilmeldingen for obligatoriske felter._
 - Hvis `shortName` ikke er definert, bruker systemet feltets `title`-tekst (ledeteksten for feltet). Teksten gjøres om til en tekst med liten forbokstav (med mindre teksten ser ut som en forkortelse).
-- I noen spesialtilfeller (Adresse-komponenten) der det er flere felter i ett, brukes standardtekstene som er definert for feltene i komponenten.
+- I noen spesialtilfeller (Adresse-komponenten) der det er flere felter i ett, bruker systemet standardtekstene som er definert for feltene i komponenten.
 
 #### Eksempel: Felt med kun `title`
 
@@ -123,7 +117,9 @@ Og tekster i ressursfil:
 
 Da blir valideringsmeldingen `"Du må fylle ut fornavnet ditt"`.
 
-### Erstatte feilmelding for påkrevde felter helt
+[Se hvordan du merker felter i brukergrensesnittet på designsystemet.no.](https://designsystemet.no/no/patterns/required-and-optional-fields)
+
+### Erstatte feilmelding for obligatoriske felter helt
 
 Hvis du ønsker å erstatte standardfeilmeldingen for obligatoriske felt fullstendig, kan du legge til
 tekstnøkkelen `requiredValidation` i komponentens `textResourceBindings`-objekt. Dette erstatter standardfeilmeldingen
@@ -189,16 +185,15 @@ du skal kunne sette opp egendefinerte feilmeldinger via datamodelleringsverktøy
 
 Serverside-validering kan deles i to kategorier:
 
-- **Valideringer mot datamodell** – Disse kjører automatisk når brukeren prøver å sende inn skjemadata.
-- **Egendefinerte valideringer** – Disse skriver applikasjonsutvikleren selv.
-  De kjører når brukeren prøver å sende inn skjemadata eller flytte prosessen til et nytt steg.
+- **Valideringer mot datamodell** kjører automatisk når brukeren prøver å sende inn skjemadata.
+- **Egendefinerte valideringer** skriver applikasjonsutvikleren selv. De kjører når brukeren prøver å sende inn skjemadata eller flytte prosessen til et nytt steg.
 
 ## Legge til egendefinert validering
 
-Egendefinerte valideringer kan deles i to kategorier: task-validering og data-validering.
+Egendefinerte valideringer kan deles i to kategorier:
 
-- Task-validering kjører hver gang validering trigges, enten manuelt fra applikasjonen eller når brukeren prøver å flytte seg fremover i prosessen.
-- Data-validering kjører hvis brukeren står på et steg som har definerte dataelementer knyttet til seg.
+- **Task-validering** kjører hver gang validering trigges, enten manuelt fra appen eller når brukeren prøver å flytte seg fremover i prosessen.
+- **Data-validering** kjører hvis brukeren står på et steg som har definerte dataelementer knyttet til seg.
 
 Validering for flytting til et nytt steg kjører _etter_ eventuell handling som gjøres i flyttingen. Dette er fordi resultatet
 av handlingen kan være avgjørende for at valideringen skal bli godkjent. Hvis validering hadde skjedd før handlingen, ville det
@@ -206,10 +201,12 @@ ført til en programlåsning (soft-lock).
 
 Du skriver valideringer i C#. Avhengig av hvilken versjon av applikasjonsmalen og NuGet-pakkene du bruker, varierer implementeringen litt. I tidligere versjoner er det en forhåndsdefinert fil med metoder der du legger inn logikken. Fra versjon 7 og fremover implementerer du et grensesnitt i en klasse du selv velger. Grensesnittet er tilfeldigvis likt den forhåndsdefinerte filen. Eksemplene som refererer til metoder er derfor de samme for alle versjoner.
 
-{{<content-version-selector classes="border-box">}}
+{{< content-version-selector classes="border-box" >}}
 
-{{<content-version-container version-label="v7">}}
-I versjon 7 har vi endret måten du gjør preutfylling med egendefinert kode. Vi bruker nå _dependency injection_ i stedet for overstyring av metoder. Hvis du tidligere plasserte koden din i _ValidationHandler_ og _ValidateTask_-metodene i _ValidationHandler.cs_-klassen, vil du se at det er mer eller mindre det samme som nå gjøres.
+{{< content-version-container version-label="v7" >}}
+
+Fra versjon 7 bruker vi *dependency injection* for validering.
+Dette erstatter den tidligere metoden med overstyring i `ValidationHandler.cs`.
 
 1. Opprett en klasse som implementerer `IInstanceValidator`-grensesnittet som ligger i `Altinn.App.Core.Features.Validation`-navnerommet.
    Du kan navngi og plassere filene i den mappestrukturen du selv ønsker i prosjektet ditt. Vi anbefaler at du bruker meningsfulle navnerom som i et hvilket som helst annet .NET-prosjekt.
@@ -217,16 +214,18 @@ I versjon 7 har vi endret måten du gjør preutfylling med egendefinert kode. Vi
    ```C#
    services.AddTransient<IInstanceValidator, InstanceValidator>();
    ```
-   Dette sørger for at koden din er kjent for applikasjonen og at den kjører når den skal.
-{{</content-version-container>}}
+   Dette sørger for at koden din er kjent for appen og at den kjører når den skal.
+{{< /content-version-container >}}
 
-{{<content-version-container version-label="v4, v5, v6">}}
+{{< content-version-container version-label="v4, v5, v6" >}}
+
 Legg til valideringer i `ValidationHandler.cs`-filen i applikasjonsmalen.
-Du kan åpne og endre filen i Altinn Studio via logikkmenyen ved å velge _Rediger valideringer_,
+Du kan åpne og endre filen i Altinn Studio via logikkmenyen ved å velge **Rediger valideringer**,
 eller direkte i applikasjonsrepoet der filen ligger i `logic/Validation`-mappen.
-{{</content-version-container>}}
 
-{{</content-version-selector>}}
+{{< /content-version-container >}}
+
+{{< /content-version-selector >}}
 
 Fra dette punktet er eksemplene de samme for alle versjoner.
 
@@ -285,8 +284,8 @@ public async Task ValidateTask(Instance instance, string taskId, ModelStateDicti
 
 Enkeltfeltvalidering vises umiddelbart når brukeren har fylt ut et felt.
 
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="v4 (App Frontend)">}}
+{{< content-version-selector classes="border-box" >}}
+{{< content-version-container version-label="v4 (App Frontend)" >}}
 
 Ved å sette `showValidations`-egenskapen på en komponent gjør du valideringsfeil synlige umiddelbart når de oppstår.
 
@@ -300,24 +299,17 @@ Ved å sette `showValidations`-egenskapen på en komponent gjør du valideringsf
 }
 ```
 
-Hvor `showValidations` inneholder et sett med valideringstyper som skal sjekkes. Dette kan være én eller flere av:
+`showValidations` inneholder et sett med valideringstyper som skal sjekkes:
+`Schema`, `Component`, `Expression`, `CustomBackend`, `Required`, `AllExceptRequired` eller `All`.
 
-- `Schema`
-- `Component`
-- `Expression`
-- `CustomBackend`
-- `Required`
-- `AllExceptRequired`
-- `All`
-
-**NB**: `"showValidations": ["AllExceptRequired"]` brukes som standard hvis egenskapen ikke er satt.
+`"showValidations": ["AllExceptRequired"]` brukes som standard hvis egenskapen ikke er satt.
 For å unngå å vise noen valideringer umiddelbart kan du sette `showValidations` til en tom liste `[]`.
-{{</content-version-container>}}
-{{<content-version-container version-label="v3 (App Frontend)">}}
+{{< /content-version-container >}}
+{{< content-version-container version-label="v3 (App Frontend)" >}}
 
-{{%notice warning%}}
-**MERK**: Det er foreløpig ikke støtte for å sette opp trigger for validering av enkeltfelter for Stateless-apper.
-{{%/notice%}}
+{{% notice warning %}}
+Det er foreløpig ikke støtte for å sette opp trigger for validering av enkeltfelter for Stateless-apper.
+{{% /notice %}}
 
 Merk at i versjon 3 av app frontend kjører JSON Schema og komponentspesifikk validering automatisk som standard. Å legge til en valideringstrigger fører til at custom backend-validering kjører i tillegg.
 
@@ -500,18 +492,18 @@ private void ValidateFullName(Datamodell model, ModelStateDictionary validationR
 
 Hvis du har problemer med å få dette til å fungere og ser valideringsmeldinger med `*FIXED*` foran meldingen i stedet for at meldingen forsvinner,
 bør du dobbeltsjekke at du har `"FixedValidationPrefix": "*FIXED*"` satt under `GeneralSettings` i `appsettings.json`.
-{{</content-version-container>}}
-{{</content-version-selector>}}
+{{< /content-version-container >}}
+{{< /content-version-selector >}}
 
 ## Myke valideringer
 
 Myke valideringer er valideringsmeldinger som ikke stopper brukeren fra å sende inn eller gå videre til neste steg i prosessen, men som brukes til å gi brukeren ulike former for informasjon.
-Denne typen valideringer kan du for eksempel bruke til å be brukeren om å verifisere input som virker feil eller rart, men som strengt tatt ikke er ugyldig, eller gi nyttig informasjon for videre utfylling.
+Denne typen valideringer kan du for eksempel bruke til å be brukeren om å verifisere inndata som virker feil eller rart, men som strengt tatt ikke er ugyldige, eller gi nyttig informasjon for videre utfylling.
 
 Meldinger basert på myke valideringer vises én gang, men brukeren kan velge å klikke seg videre uten å utføre endringer.
 
 Du legger til myke valideringer fra serversiden i valideringslogikken, på samme måte som vanlige valideringsfeil. Forskjellen er at valideringsmeldingen
-må ha en prefiks med typen validering du ønsker å gi, for eksempel `*WARNING*`. Dette tolkes da som en myk validering. Prefiksen `*WARNING*` blir ikke synlig for sluttbruker.
+må ha et prefiks med typen validering du ønsker å gi, for eksempel `*WARNING*`. Dette tolkes da som en myk validering. Prefikset `*WARNING*` blir ikke synlig for sluttbruker.
 
 De tilgjengelige typene myke valideringer er `WARNING`, `INFO` og `SUCCESS`.
 
@@ -554,11 +546,11 @@ Du kan også overstyre tittelen på meldingene ved å legge til nøklene `soft_v
 
 ## Gruppevalidering
 
-Du kan gjøre valideringer på en repeterende gruppe når brukeren ønsker å lagre en gitt rad.
-Hvis det er valideringsfeil i raden, hindres brukeren fra å lukke raden til feilene er fikset.
+Du kan kjøre valideringer på en repeterende gruppe når brukeren lagrer en rad.
+Hvis det er valideringsfeil i raden, kan ikke brukeren lukke raden før feilene er fikset.
 
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="v4 (App Frontend)">}}
+{{< content-version-selector classes="border-box" >}}
+{{< content-version-container version-label="v4 (App Frontend)" >}}
 
 ```json {hl_lines=[7]}
 {
@@ -571,17 +563,11 @@ Hvis det er valideringsfeil i raden, hindres brukeren fra å lukke raden til fei
 }
 ```
 
-Hvor `validateOnSaveRow` inneholder et sett med valideringstyper som skal sjekkes. Dette kan være én eller flere av:
+`validateOnSaveRow` inneholder et sett med valideringstyper som skal sjekkes:
+`Schema`, `Component`, `Expression`, `CustomBackend`, `Required`, `AllExceptRequired` eller `All`.
 
-- `Schema`
-- `Component`
-- `Expression`
-- `CustomBackend`
-- `Required`
-- `AllExceptRequired`
-- `All`
-{{</content-version-container>}}
-{{<content-version-container version-label="v3 (App Frontend)">}}
+{{< /content-version-container >}}
+{{< content-version-container version-label="v3 (App Frontend)" >}}
 
 ```json {hl_lines=[7]}
 {
@@ -640,7 +626,7 @@ public async Task ValidateData(object data, ModelStateDictionary validationResul
 }
 ```
 
-{{</content-version-container>}}
-{{</content-version-selector>}}
+{{< /content-version-container >}}
+{{< /content-version-selector >}}
 
 For tips til hvordan du løser komplekse valideringer, se eksemplene under [enkeltfeltvalidering](#enkeltfeltvalidering).
