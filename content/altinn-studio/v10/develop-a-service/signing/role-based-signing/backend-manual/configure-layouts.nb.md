@@ -2,6 +2,7 @@
 draft: true
 headless: true
 hidden: true
+tags: [needsReview, translate]
 ---
 
 Legg til en ny mappe under `App/ui` for signeringsoppgaven din. Kall den f.eks. `signing`.

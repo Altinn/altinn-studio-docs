@@ -2,6 +2,7 @@
 draft: true
 headless: true
 hidden: true
+tags: [needsReview, translate]
 ---
 
 Dersom du ønsker å overstyre standardtekstene:

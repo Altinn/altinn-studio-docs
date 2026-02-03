@@ -2,6 +2,7 @@
 draft: true
 headless: true
 hidden: true
+tags: [needsReview, translate]
 ---
 
 #### Utvid app-prosessen med et signeringssteg
