@@ -69,7 +69,7 @@ En regel består av følgende felter:
 
 - **message** – Valideringsmeldingen som vises hvis regelen er brutt. Dette bør være en referanse til en tekstressurs.
 - **severity** – Typen valideringsfeil: `error`, `warning`, `info` eller `success`. Hvis feltet utelates, brukes `error`. Se [myke valideringer]({{< relref "/altinn-studio/v10/develop-a-service/logic/validation/" >}}).
-- **condition** – Et dynamisk uttrykk som returnerer `true` hvis feilen skal vises, og `false` ellers. Se [dynamiske uttrykk]({{< relref "/altinn-studio/v8/reference/logic/expressions" >}}).
+- **condition** – Et dynamisk uttrykk som returnerer `true` hvis feilen skal vises, og `false` ellers. Se [dynamiske uttrykk]({{< relref "/altinn-studio/v10/reference/logic/expressions" >}}).
 
 ### Gjenbruke regler
 
