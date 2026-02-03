@@ -40,7 +40,7 @@ Det finnes et sett med ferdige komponenter for å bygge opp layout for et signer
 - SigningDocumentList:
   - Lister ut dataene som blir signert på. Feks. vedlegg, xml-data eller PDF-oppsummering fra tidligere steg.
 - SigneeList:
-  - Lister ut signatarer og tilhørende signeringsstatus. 
+  - Lister ut de som skal signere (signatarer) og tilhørende signeringsstatus. 
   - Per nå støtter ikke denne listen å vise roller som skal signere, kun personer som har fått brukerstyrt delegert tilgang. Men i det øyeblikket en person utfører en signering vil de dukke opp, så vi kan bruke den som en "Signaturer"-liste.
 - SigningStatusPanel: 
   - Utleder status for signeringssteget og viser relevante knapper til sluttbruker, feks. "Signer"-knappen.

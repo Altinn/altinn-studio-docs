@@ -98,7 +98,7 @@ Følg trinnene under for å sette opp en slik app.
 
 Denne seksjonen er bare relevant hvis du vil endre standardtekstene i kommunikasjon med de som skal signere.
 
-Standardverdiene som brukes hvis kommunikasjonstekstene ikke overstyres er som følger:
+Standardverdiene som brukes hvis kommunikasjonstekstene ikke overstyres er som følger (signatar = den som skal signere):
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Standardtekster bokmål">}}

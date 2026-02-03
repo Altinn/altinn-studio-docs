@@ -39,7 +39,7 @@ Du velger hvilke dataelementer sluttbruker skal signere på. Du velger også hvi
 
 #### Altinn oppretter et signaturobjekt når noen signerer
 
-Når en bruker signerer, oppretter Altinn et signaturobjekt. Dette objektet inneholder
+Når en bruker signerer, oppretter Altinn et signaturobjekt. Signaturobjektet inneholder
 
 - hvilke dataelementer som ble signert
 - en hash-kode av dataene

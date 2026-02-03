@@ -18,7 +18,7 @@ Mappestrukturen skal se slik ut:
 Det finnes et sett med ferdige komponenter for å bygge opp layout for et signeringssteg. Vi anbefaler å bruke disse, men de er ikke obligatoriske.
 
 - SigneeList:
-  - Lister ut signatarer og tilhørende signeringsstatus. Les mer [her](/nb/altinn-studio/v10/reference/ux/components/signeelist/).
+  - Lister ut de som skal signere (signatarer) og tilhørende signeringsstatus. Les mer [her](/nb/altinn-studio/v10/reference/ux/components/signeelist/).
 - SigningDocumentList:
   - Lister ut dataene som blir signert på. Feks. vedlegg, xml-data eller PDF-oppsummering fra tidligere steg. Les mer [her](/nb/altinn-studio/v10/reference/ux/components/signingdocumentlist/).
 - SigningActions:

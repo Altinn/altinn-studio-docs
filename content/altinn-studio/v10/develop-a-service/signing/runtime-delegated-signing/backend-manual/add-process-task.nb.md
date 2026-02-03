@@ -34,17 +34,17 @@ Et signeringssteg kan se omtrent slik ut:
           <altinn:dataType>ref-data-as-pdf</altinn:dataType>
         </altinn:dataTypesToSign>
 
-        <!-- Denne datatypen brukes for lagre signaturene. -->
+        <!-- Signature-datatypen brukes for å lagre signaturene. -->
         <altinn:signatureDataType>signatures</altinn:signatureDataType>
 
-        <!-- Denne datatypen brukes for lagre signatarene og tilhørende informasjon. -->
+        <!-- SigneeStates-datatypen brukes for å lagre de som skal signere (signatarer) og tilhørende informasjon. -->
         <altinn:signeeStatesDataTypeId>signeeState</altinn:signeeStatesDataTypeId>
 
         <!-- Denne ID-en angir hvilken implementasjon av C# interface-et -->
         <!-- ISigneeProvider som skal benyttes for dette signeringssteget. -->
         <altinn:signeeProviderId>signees</altinn:signeeProviderId>
 
-        <!-- Her oppgis en meldingsressurs, som brukes for å si fra til signatarene -->
+        <!-- Her oppgis en meldingsressurs, som brukes for å si fra til de som skal signere -->
         <!-- om at de må inn og signere, samt signeringskvittering. Påkrevd. -->
         <altinn:correspondenceResource>app-correspondence-resource</altinn:correspondenceResource>
 
@@ -70,11 +70,11 @@ Et signeringssteg kan se omtrent slik ut:
 #### Legg til datatyper for å lagre signeringsdata
 Du må legge til disse datatypene i `dataTypes` i `App/config/applicationmetadata.json`.
 
-Den første datatypen brukes i signeringssteget til å lagre signaturene.
+Signature-datatypen brukes i signeringssteget til å lagre signaturene.
 
 {{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/backend-manual/add-process-task-code-01.en.md" %}}
 
-Denne datatypen brukes for å lagre informasjon om de som skal signere og statusen deres.
+SigneeStates-datatypen brukes for å lagre informasjon om de som skal signere og statusen deres.
 
 {{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/backend-manual/add-process-task-code-02.en.md" %}}
 

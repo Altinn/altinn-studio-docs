@@ -37,7 +37,7 @@ Body:
 ```
 
 Da går prosessen automatisk videre etter at signaturen er lagret.
-Hvis du bruker dette endepunktet, må du ha flere signeringssteg hvis flere skal signere.
+Hvis du bruker dette API-endepunktet, må du ha flere signeringssteg hvis flere skal signere.
 
 ### Utføre parallellsignering
 
@@ -54,10 +54,10 @@ Body:
 
 Da blir prosessen stående i signeringssteget, og flere kan signere før prosessen dras videre med et «process next»-kall.
 
-### Informasjon om signatarer og signaturer
+### Informasjon om de som skal signere og signaturer
 
-Hvis [brukerstyrt signering](/nb/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/) er satt opp, kan du bruke følgende endepunkt for å hente ut en liste med signatarer og deres signeringsstatus.
-Du kan også bruke endepunktet selv om du ikke bruker brukerstyrt signering, men da listes bare signatarer som allerede har signert ut. Det fungerer da som en signaturliste.
+Hvis [brukerstyrt signering](/nb/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/) er satt opp, kan du bruke følgende API-endepunkt for å hente ut en liste med de som skal signere (signatarer) og deres signeringsstatus.
+Du kan også bruke API-endepunktet selv om du ikke bruker brukerstyrt signering, men da listes bare de som allerede har signert ut. Det fungerer da som en signaturliste.
 
 `GET /{org}/{app}/instances/{instanceOwnerPartyId}/{instanceGuid}/signing`
 
