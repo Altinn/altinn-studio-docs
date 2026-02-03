@@ -85,6 +85,8 @@ Keywords er en liste tokens som lar deg personalisere varslingene med for eksemp
 | \$correspondenceRecipientName\$ | Blir byttet ut med melding mottakers navn. Dette vil være enten organisasjonsnavn eller personens navn.                                | Støttes for alle scenarioer                                                          |
 | \$recipientName\$               | Blir byttet ut med varsling mottakers navn. Dette vil være enten organisasjonsnavn eller personens navn.                               | Støttes ikke dersom varsel blir sendt direkte til e-post adresse eller telefonnummer |
 | \$recipientNumber\$             | Dersom mottaker er en organisasjon vises Organisasjonsnummer. Dersom mottaker er en privatperson vises ingenting                       | Støttes ikke dersom varsel blir sendt direkte til e-post adresse eller telefonnummer |
+| \$messageTitle\$                | Blir byttet ut med tittelen på meldingen                                                                                               | Støttes for alle scenarioer                                                          |
+| \$resourceName\$                | Blir byttet ut med navnet på ressursen                                                                                                 | Støttes for alle scenarioer                                                          |
 
 ## Varslingsmaler
 
