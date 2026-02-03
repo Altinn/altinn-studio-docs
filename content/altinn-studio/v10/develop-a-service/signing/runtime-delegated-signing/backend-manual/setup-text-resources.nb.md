@@ -21,7 +21,7 @@ Altinn erstatter den automatisk med en lenke til skjemaet. Hvis du overstyrer de
 
 {{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/backend-manual/setup-text-resources-code-01.en.md" %}}
 
-Overstyring av kvittering er ikke mulig å gjøre per person som skal signere, det gjøres generelt for alle som skal signere. Her må navnet på tekstressursene være de følgende nøklene for at overstyringen skal skje:
+Du kan ikke overstyre kvitteringen per person som skal signere, bare generelt for alle. Her må tekstressursene ha følgende nøkler for at overstyringen skal fungere:
 tekstressursene være de følgende nøklene for at overstyringen skal skje:
 
 `signing.correspondence_receipt_title` - tittel på kvitteringsmelding

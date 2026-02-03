@@ -47,7 +47,7 @@ Signering består av to brukerhandlinger (user actions). Dersom Altinn-brukergre
 </bpmn:task>
 ```
 
-Hvis du har valgt å sende signeringskvitteringer ved å spesifisere en correspondence-ressurs, finner du flere detaljer om denne konfigurasjonen [her](/nb/altinn-studio/guides/development/signing/runtime-delegated-signing/#konfigurere-milj%C3%B8-spesifikke-correspondence-ressurser)
+Hvis du har valgt å sende signeringskvitteringer ved å spesifisere en correspondence-ressurs, [les om hvordan du konfigurerer miljøspesifikke correspondence-ressurser](/nb/altinn-studio/guides/development/signing/runtime-delegated-signing/#konfigurere-milj%C3%B8-spesifikke-correspondence-ressurser).
 
 #### Legg til datatyper for å lagre signeringsdata
 Denne datatypen legges til i `dataTypes` i `App/config/applicationmetadata.json`.
@@ -78,4 +78,4 @@ Vi anbefaler å sette opp [databeskyttelse](/nb/altinn-studio/guides/development
 #### Tilgangsstyring
 Gi `read`, `write` og eventuelt `sign` til den som fyller ut skjemaet. Andre som skal signere må også få `read` og `write`.
 
-Mer informasjon om action attributter finner du [her](/nb/altinn-studio/v10/develop-a-service/reference/configuration/authorization/#action-attributter).
+[Les om action-attributter i tilgangsstyring](/nb/altinn-studio/v10/develop-a-service/reference/configuration/authorization/#action-attributter).

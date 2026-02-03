@@ -46,7 +46,7 @@ Ferdig konvertert eksempel i `process.xml`:
 
         <!-- Vi har laget en standard validator som kan slås på her. -->
         <!-- Den validerer at påkrevd antall signaturer (minCount på signatur-datatypen) er oppfylt. -->
-        <!-- Om denne ikke slås på, bør man skrive egen validering av signaturer. -->
+        <!-- Om denne ikke slås på, bør du skrive en egen validator som validerer signaturer. -->
         <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
 
       </altinn:signatureConfig>
