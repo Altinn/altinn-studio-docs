@@ -305,11 +305,11 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`displayValue`](#func-displayValue)      | [Streng](#strenger)                                           | [Streng](#strenger) | ✅        | ❌      |
 | [`round`](#func-round)                    | [Tall](#tall), valgfritt [Tall](#tall)                        | [Streng](#strenger) | ✅        | ✅      |
 | [`formatDate`](#func-formatDate)          | [Dato/tid](#datoer), valgfri [Streng](#strenger)              | [Streng](#strenger) | ✅        | ✅      |
-| [`plus`](#func-plus)                      | [Tall](#tall), et eller flere valgfrie [Tall]($tall)          | [Tall](#tall)       | ✅        | ✅      |
-| [`minus`](#func-minus)                    | [Tall](#tall), et eller flere valgfrie [Tall]($tall)          | [Tall](#tall)       | ✅        | ✅      |
-| [`multiply`](#func-multiply)              | [Tall](#tall), et eller flere [Tall]($tall)                   | [Tall](#tall)       | ✅        | ✅      |
-| [`divide`](#func-divide)                  | [Tall](#tall), et eller flere [Tall]($tall)                   | [Tall](#tall)       | ✅        | ✅      |
-| [`average`](#func-average)                | [Tall](#tall), et eller flere [Tall]($tall)                   | [Tall](#tall)       | ✅        | ✅      |
+| [`plus`](#func-plus)                      | [Tall](#tall), et eller flere valgfrie [Tall](#tall)          | [Tall](#tall)       | ✅        | ✅      |
+| [`minus`](#func-minus)                    | [Tall](#tall), et eller flere valgfrie [Tall](#tall)          | [Tall](#tall)       | ✅        | ✅      |
+| [`multiply`](#func-multiply)              | [Tall](#tall), et eller flere [Tall](#tall)                   | [Tall](#tall)       | ✅        | ✅      |
+| [`divide`](#func-divide)                  | [Tall](#tall), et eller flere [Tall](#tall)                   | [Tall](#tall)       | ✅        | ✅      |
+| [`average`](#func-average)                | [Tall](#tall), et eller flere [Tall](#tall)                   | [Tall](#tall)       | ✅        | ✅      |
 
 ### Oppslag, komponenter og data
 
@@ -1082,7 +1082,7 @@ gir dette uttrykket en feilmelding.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-plus" header="plus" %}}
-Funksjonen `plus` forventer minst to tall, enten desimaltall eller heltall. 
+Funksjonen `plus` forventer minst et tall, enten desimaltall eller heltall. 
 
 Eksempel:
 ```json
@@ -1092,7 +1092,7 @@ Resulterer i tallverdien `31.2`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-minus" header="minus" %}}
-Funksjonen `minus` forventer minst to tall, enten desimaltall eller heltall.
+Funksjonen `minus` forventer minst et tall, enten desimaltall eller heltall.
 
 Eksempel:
 ```json
