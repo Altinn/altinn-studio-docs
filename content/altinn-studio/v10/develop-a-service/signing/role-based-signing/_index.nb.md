@@ -28,28 +28,8 @@ Hvis appen din er [konfigurert til å sende signaturkvitteringer](#legg-til-sign
 
 ## 1. Legg til en signeringsoppgave i appens prosess, med tilhørende konfigurasjon {#legg-til-signeringsoppgave}
 
-{{<content-version-selector classes="border-box">}}
-
-{{<content-version-container version-label="Manuelt oppsett">}}
 {{% insert "content/altinn-studio/v10/develop-a-service/signing/role-based-signing/backend-manual/add-process-task.nb.md" %}}
-{{</content-version-container>}}
-
-{{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/v10/develop-a-service/signing/role-based-signing/studio/add-process-task.nb.md" %}}
-{{</content-version-container>}}
-
-{{</content-version-selector>}}
 
 ## 2. Legg til layout-set for signering
 
-{{<content-version-selector classes="border-box">}}
-
-{{<content-version-container version-label="Manuelt oppsett">}}
 {{% insert "content/altinn-studio/v10/develop-a-service/signing/role-based-signing/backend-manual/configure-layouts.nb.md" %}}
-{{</content-version-container>}}
-
-{{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/v10/develop-a-service/signing/role-based-signing/studio/configure-layouts.nb.md" %}}
-{{</content-version-container>}}
-
-{{</content-version-selector>}}
