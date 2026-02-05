@@ -101,7 +101,7 @@ Det tilbys to typer varslingsmaler når du bruker varsling gjennom Meldings-API`
 - En generisk Altinn-tekst med mulighet for å supplere med ekstra tekst. Foreløpig støttede språk er norsk, nynorsk og engelsk. Språk velges basert på språket definert i meldingen
 - Denne varslingsteksten er utarbeidet av Altinn brukerservice og inneholder informasjon som vil være verdifull for sluttbrukeren. Altinn anbefaler derfor tjenesteeiere å bruke denne malen. 
 
-**Tittel:** Ny melding tilgjengelig i Altinn for $correspondenceRecipientName$
+**Tittel:** En ny melding er tilgjengelig i Altinn for $correspondenceRecipientName$
 **Innhold:** Hei. $correspondenceRecipientName$ $recipientNumber$ har mottatt meldingen $messageTitle$ fra $sendersName$. (For å se denne meldingen kreves tilgang til $resourceName$.) Logg inn i Altinn for å se meldingen.
 
 **Revarsel tittel:** Påminnelse - en ny melding er tilgjengelig i Altinn for $correspondenceRecipientName$
@@ -109,7 +109,7 @@ Det tilbys to typer varslingsmaler når du bruker varsling gjennom Meldings-API`
 
 
 - SMS bruker kun innholdet, ikke tittelen. 
-- Se https://docs.altinn.studio/nb/correspondence/getting-started/developer-guides/notifications/#keyword-støtte for hvilken informasjon keywords veksles inn i.
+- Se [keyword-støtte](https://docs.altinn.studio/nb/correspondence/getting-started/developer-guides/notifications/#keyword-støtte) for hva keywords veksles inn i.
  
 NB! Hyperlenke til nettsider skal ALDRI sendes i varslingen!
 
