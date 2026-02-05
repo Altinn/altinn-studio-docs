@@ -215,6 +215,8 @@ In this file, you define the content of the PDF. You typically use the Summary2 
 
 This layout file shows content to the user if PDF generation fails, such as error messages or instructions. Feel free to customise.
 
+If you want to allow the user to abort the service task, for example to go back to the previous task, you must add the `reject` action to the process definition (see the XML examples above) and grant rights to the action in the app's access policy. Where the user is redirected depends on the sequence flows in the BPMN process.
+
 {{< code-title >}}
   App/ui/Pdf/layouts/ServiceTask.json
 {{< /code-title >}}

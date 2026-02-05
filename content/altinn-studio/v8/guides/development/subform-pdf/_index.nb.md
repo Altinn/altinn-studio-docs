@@ -191,6 +191,8 @@ ui/underskjemaPdf/Settings.json
 
 Denne layout-filen viser innhold til brukeren dersom PDF-genereringen feiler, for eksempel feilmeldinger eller instruksjoner.
 
+Dersom du vil la brukeren avbryte systemoppgaven, f.eks. for å gå tilbake til forrige oppgave, må du legge til `reject`-handlingen i prosessdefinisjonen (se XML-eksempelet over) og gi rettigheter til handlingen i appens tilgangspolicy. Hvor brukeren sendes videre, avhenger av sekvensflytene i BPMN-prosessen.
+
 **NB!** Du må også legge til en skjult kopi av underskjemakomponenten i denne layouten for at PDF-genereringen skal fungere korrekt. Se `mySubformComponentId` nedenfor. Vi håper å kunne fjerne dette kravet i en fremtidig versjon, men foreløpig er det påkrevd.
 
 {{< code-title >}}

@@ -215,6 +215,8 @@ I denne filen definerer du innholdet i PDF-en. Du bruker typisk Summary2-kompone
 
 Denne layout-filen viser innhold til brukeren dersom PDF-genereringen feiler, for eksempel feilmeldinger eller instruksjoner. Tilpass gjerne.
 
+Dersom du vil la brukeren avbryte systemoppgaven, f.eks. for å gå tilbake til forrige oppgave, må du legge til `reject`-handlingen i prosessdefinisjonen (se XML-eksemplene over) og gi rettigheter til handlingen i appens tilgangspolicy. Hvor brukeren sendes videre, avhenger av sekvensflytene i BPMN-prosessen.
+
 {{< code-title >}}
   App/ui/Pdf/layouts/ServiceTask.json
 {{< /code-title >}}

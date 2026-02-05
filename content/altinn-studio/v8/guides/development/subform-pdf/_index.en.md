@@ -191,6 +191,8 @@ ui/underskjemaPdf/Settings.json
 
 This layout file shows content to the user if PDF generation fails, such as error messages or instructions.
 
+If you want to allow the user to abort the service task, for example to go back to the previous task, you must add the `reject` action to the process definition (see the XML example above) and grant rights to the action in the app's access policy. Where the user is redirected depends on the sequence flows in the BPMN process.
+
 **Note:** You must also add a hidden copy of the subform component to this layout for PDF generation to work correctly. See `mySubformComponentId` below. We hope to remove this requirement in a future version, but it is currently required.
 
 {{< code-title >}}
