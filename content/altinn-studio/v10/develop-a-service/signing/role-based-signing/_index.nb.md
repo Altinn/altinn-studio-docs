@@ -2,7 +2,7 @@
 draft: true
 title: Rolle- og tilgangspakkebasert signering
 linktitle: Rolle/tilgangspakke
-description: Slik implementerer du rolle- og tilgangspakkebasert signering i tjenesten din.
+description: Slik setter du opp signering basert på rolle eller tilgangspakke.
 tags: [rollebasert, signering, needsReview, translate]
 weight: 51
 aliases:
