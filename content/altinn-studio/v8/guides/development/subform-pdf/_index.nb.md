@@ -41,7 +41,7 @@ Dette sikrer at sekvensflyter og diagrammet blir korrekt.
         <altinn:taskExtension>
             <altinn:taskType>subformPdf</altinn:taskType>
             <altinn:actions>
-              <altinn:action>reject</altinn:action> <!-- Legges til via Handlinger, dersom man skal kunne feks. gå tilbake. -->
+              <altinn:action>reject</altinn:action> <!-- Legges til via Handlinger, dersom man skal kunne f.eks. gå tilbake. -->
             </altinn:actions>
             <altinn:subformPdfConfig>
                 <altinn:filenameTextResourceKey>subformPdfFileName</altinn:filenameTextResourceKey>

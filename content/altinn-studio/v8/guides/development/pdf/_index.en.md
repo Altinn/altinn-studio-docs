@@ -293,7 +293,7 @@ It is optional to include `<altinn:filenameTextResourceKey>`. Here you can speci
 ```
 
 {{<notice warning>}}
-  When using standard PDF `dataModel.default` doesn't work. Use the ID of the datamodel, for instance like this: `dataModel.model`.
+  When using standard PDF, `dataModel.default` doesn't work. Use the ID of the datamodel, for instance like this: `dataModel.model`.
 {{</notice>}}
 
 ## Testing

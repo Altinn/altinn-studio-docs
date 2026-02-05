@@ -53,7 +53,7 @@ En systemoppgave vil bli satt inn i `process.bpmn`. Kan avvike noe fra eksempele
         <altinn:taskExtension>
             <altinn:taskType>pdf</altinn:taskType>
             <altinn:actions>
-              <altinn:action>reject</altinn:action> <!-- Legges til via Handlinger, dersom man skal kunne feks. gå tilbake. -->
+              <altinn:action>reject</altinn:action> <!-- Legges til via Handlinger, dersom man skal kunne f.eks. gå tilbake. -->
             </altinn:actions>
             <altinn:pdfConfig>
                 <altinn:filenameTextResourceKey>pdfFileName</altinn:filenameTextResourceKey>
@@ -74,7 +74,7 @@ En systemoppgave vil bli satt inn i `process.bpmn`. Kan avvike noe fra eksempele
 
 Ved valg av dette alternativet så kan du selv bestemme innholdet i PDF-en ved å definere et layout-set for PDF-systemoppgaven.
 
-Du blir først bedt om å oppgi et navn for layout-set til systemoppgaven, og så må du velge en datamodell som default datamodell for settet. Her kan du feks. velge modellen til en av oppgavene som er i PDF-en.
+Du blir først bedt om å oppgi et navn for layout-set til systemoppgaven, og så må du velge en datamodell som default datamodell for settet. Her kan du f.eks. velge modellen til en av oppgavene som er i PDF-en.
 
 ![Eksempeloppsett manuell PDF](manual-pdf.png "Eksempeloppsett manuell PDF")
 
@@ -90,7 +90,7 @@ En systemoppgave vil bli satt inn i `process.bpmn` og layout-set filene vil bli 
         <altinn:taskExtension>
         <altinn:taskType>pdf</altinn:taskType>
         <altinn:actions>
-          <altinn:action>reject</altinn:action> <!-- Legges til via Handlinger, dersom man skal kunne feks. gå tilbake. -->
+          <altinn:action>reject</altinn:action> <!-- Legges til via Handlinger, dersom man skal kunne f.eks. gå tilbake. -->
         </altinn:actions>
         <altinn:pdfConfig>
             <altinn:filenameTextResourceKey>pdfFileName</altinn:filenameTextResourceKey>
@@ -293,7 +293,7 @@ Det er frivillig å inkludere `<altinn:filenameTextResourceKey`>. Her kan du opp
 ```
 
 {{<notice warning>}}
-  Ved bruk av standard PDF kan man ikke bruke `dataModel.default`. Man må bruke faktisk ID for datamodellen, feks. `dataModel.model`.
+  Ved bruk av standard PDF, kan man ikke bruke `dataModel.default`. Man må bruke faktisk ID for datamodellen, f.eks. `dataModel.model`.
 {{</notice>}}
 
 ## Test
