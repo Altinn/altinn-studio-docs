@@ -12,6 +12,10 @@ The subform PDF service task allows you to generate separate PDF documents for e
 This functionality attempts to generate multiple PDFs during the processing of an HTTP request to the app backend. There are certain limitations on how many PDFs should be generated simultaneously in this way. In the future, this will be able to run as a background job, and that limit will disappear. Test with a realistic number of PDFs in a test environment to see if the limit has been reached.
 {{</notice>}}
 
+{{%notice info%}}
+Requires at least version 8.9.0 of the Altinn NuGet packages.
+{{%/notice%}}
+
 ## Prerequisites
 - You have an application with one or more subforms. This guide does not show how to set up subforms.
 
@@ -21,10 +25,10 @@ This functionality attempts to generate multiple PDFs during the processing of a
 
 To enable PDF generation for subforms, you must add a `serviceTask` of type `subformPdf` to your workflow.
 
-**NB!** Eventually, it will be possible to drag in subform PDF directly via the Workflow editor in Altinn Studio, but this functionality is unfortunately not available yet.
+**NB!** Eventually, it will be possible to drag in subform PDF directly via the Arbeidsflyt-editor in Altinn Studio, but this functionality is unfortunately not available yet.
 
 Until then, the following approach is recommended:
-1. Drag in a regular data task in the Workflow editor
+1. Drag in a regular data task in the Arbeidsflyt-editor
 2. Share the changes in Studio
 3. Edit `process.bpmn` manually on your own machine
 4. Convert the data task to a `bpmn:serviceTask` (see example below)
@@ -36,6 +40,9 @@ This ensures that sequence flows and the diagram are correct.
     <bpmn:extensionElements>
         <altinn:taskExtension>
             <altinn:taskType>subformPdf</altinn:taskType>
+            <altinn:actions>
+              <altinn:action>reject</altinn:action> <!-- Added using "Handlinger", if the user should be able, for instance, go backwards in the process. -->
+            </altinn:actions>
             <altinn:subformPdfConfig>
                 <altinn:filenameTextResourceKey>subformPdfFileName</altinn:filenameTextResourceKey>
                 <altinn:subformComponentId>mySubformComponentId</altinn:subformComponentId>
@@ -67,7 +74,7 @@ Example of text resource for filename with variable:
       "variables": [
         {
           "key": "MySubformProperty",
-          "dataSource": "datamodel.SubformModel"
+          "dataSource": "dataModel.SubformModel"
         }
       ]
     }

@@ -1,8 +1,11 @@
 ---
 title: PDF
+description: How to set up PDF generation as a service task
 tags: [altinn-apps, process, bpmn, task, service task, pdf, systemoppgave]
 weight: 15
 ---
+
+## Overview
 
 PDF generation is included with the app as a standard service task that can be added as a step in the process.
 
@@ -17,26 +20,45 @@ Benefits of migrating to a service task are:
 - In the future: Run PDF generation as a background job with automatic retries and better scaling.
 {{</notice>}}
 
-You can use the workflow tab in Altinn Studio to add a PDF service task. There are two options:
+{{%notice info%}}
+Requires at least version 8.9.0 of the Altinn NuGet packages.
+{{%/notice%}}
 
-{{% expandlarge id="auto-generated-pdf" header="Auto-generated PDF based on previous tasks" %}}
+## Setup
 
-The following service task will be inserted into `process.bpmn`. The content will be based on the components in the form, but in "summary mode". This function does not respect the pdfLayoutName configuration in Settings.json.
+You can use the Arbeidsflyt-editor in Altinn Studio to add a PDF service task.
+
+![Add PDF service task](add-pdf-step.png "Add PDF service task")
+
+Drag and drop the PDF service task where in the process you want to generate a PDF, often right after a data task.
+
+Once this is done, a configuration panel will open on the right side of the screen.
+There you have two alternative approaches to setting up the PDF: standard or custom.
+
+{{% expandlarge id="auto-generated-pdf" header="Standard PDF based on previous tasks" %}}
+
+When selecting this option, you will be asked to choose which previous tasks should be included in the PDF. The content will be based on the components in the selected tasks, but in "summary mode". This function does not respect the pdfLayoutName configuration in Settings.json.
+
+![Example setup standard PDF](auto-pdf.png "Example setup standard PDF")
+
+A service task will be inserted into `process.bpmn`. May differ slightly from the example below.
 
 {{< code-title >}}
   App/config/process/process.bpmn
 {{< /code-title >}}
 
 ```xml
-<bpmn:serviceTask id="Pdf_auto" name="PDF">
+<bpmn:serviceTask id="Pdf" name="PDF">
     <bpmn:extensionElements>
         <altinn:taskExtension>
             <altinn:taskType>pdf</altinn:taskType>
+            <altinn:actions>
+              <altinn:action>reject</altinn:action> <!-- Added using "Handlinger", if the user should be able, for instance, go backwards in the process. -->
+            </altinn:actions>
             <altinn:pdfConfig>
                 <altinn:filenameTextResourceKey>pdfFileName</altinn:filenameTextResourceKey>
                 <altinn:autoPdfTaskIds>
-                    <altinn:taskId>Form1</altinn:taskId>
-                    <altinn:taskId>Form2</altinn:taskId>
+                    <altinn:taskId>Task_Utfylling1</altinn:taskId>
                 </altinn:autoPdfTaskIds>
             </altinn:pdfConfig>
         </altinn:taskExtension>
@@ -50,7 +72,13 @@ The following service task will be inserted into `process.bpmn`. The content wil
 
 {{% expandlarge id="custom-pdf-layout" header="Custom PDF with its own layout-set" %}}
 
-The following service task will be inserted into `process.bpmn`. With this option, you can define the content of the PDF yourself in a layout-set for the PDF service task.
+When selecting this option, you can determine the content of the PDF yourself by defining a layout-set for the PDF service task.
+
+You will first be asked to provide a name for the layout-set of the service task, and then you must choose a data model as the default data model for the set. Here you can, for example, choose the model of one of the tasks that is in the PDF.
+
+![Example setup custom PDF](manual-pdf.png "Example setup custom PDF")
+
+A service task will be inserted into `process.bpmn` and the layout-set files will be generated, however without content in PdfLayout.json.
 
 {{< code-title >}}
   App/config/process/process.bpmn
@@ -60,10 +88,13 @@ The following service task will be inserted into `process.bpmn`. With this optio
 <bpmn:serviceTask id="Pdf" name="PDF">
     <bpmn:extensionElements>
         <altinn:taskExtension>
-            <altinn:taskType>pdf</altinn:taskType>
-            <altinn:pdfConfig>
-                <altinn:filenameTextResourceKey>pdfFileName</altinn:filenameTextResourceKey>
-            </altinn:pdfConfig>
+        <altinn:taskType>pdf</altinn:taskType>
+        <altinn:actions>
+          <altinn:action>reject</altinn:action> <!-- Added using "Handlinger", if the user should be able, for instance, go backwards in the process. -->
+        </altinn:actions>
+        <altinn:pdfConfig>
+            <altinn:filenameTextResourceKey>pdfFileName</altinn:filenameTextResourceKey>
+        </altinn:pdfConfig>
         </altinn:taskExtension>
     </bpmn:extensionElements>
     <bpmn:incoming>SequenceFlow_0c458hu</bpmn:incoming>
@@ -73,7 +104,7 @@ The following service task will be inserted into `process.bpmn`. With this optio
 
 ### Layout-set
 
-A new layout-set is needed for the PDF service task to define the content. This will be automatically generated if you use the workflow editor. Then you only need to edit the content in `PdfLayout.json`.
+A new layout-set is needed for the PDF service task to define the content. This will be automatically generated if you use the Arbeidsflyt-editor. Then you only need to edit the content in `PdfLayout.json`.
 
 The files and folder structure should look approximately like this:
 
@@ -105,7 +136,7 @@ App/ui/
       "id": "form",
       "dataType": "model",
       "tasks": [
-        "Task_Utfylling"
+        "Task_Utfylling1"
       ]
     },
     {
@@ -119,7 +150,7 @@ App/ui/
   "uiSettings": {
     "taskNavigation": [
       {
-        "taskId": "Task_Utfylling",
+        "taskId": "Task_Utfylling1",
         "name": "Utfylling"
       },
       {
@@ -166,11 +197,11 @@ In this file, the content of the PDF is defined. The Summary2 component is often
         "type": "InstanceInformation"
       },
       {
-        "id": "Summary_form",
+        "id": "SummaryTaskUtfylling1",
         "type": "Summary2",
         "target": {
           "type": "layoutSet",
-          "taskId": "form"
+          "taskId": "Task_Utfylling1"
         }
       }
     ]
@@ -196,47 +227,47 @@ This layout file is displayed if PDF generation fails. It can contain error mess
         "id": "service-task-title",
         "type": "Header",
         "textResourceBindings": {
-            "title": "service_task.title"
+          "title": "service_task_custom_pdf_default.title"
         }
       },
       {
         "id": "service-task-body",
         "type": "Paragraph",
         "textResourceBindings": {
-            "title": "service_task.body"
+          "title": "service_task_custom_pdf_default.body"
         }
       },
       {
         "id": "service-task-help-text",
         "type": "Paragraph",
         "textResourceBindings": {
-            "title": "service_task.help_text"
+          "title": "service_task_custom_pdf_default.help_text"
         }
       },
       {
         "id": "service-task-button-group",
         "type": "ButtonGroup",
         "children": [
-            "service-task-retry-button",
-            "service-task-back-button"
+          "service-task-retry-button",
+          "service-task-back-button"
         ]
       },
       {
         "id": "service-task-retry-button",
         "type": "Button",
         "textResourceBindings": {
-            "title": "service_task.retry_button"
+          "title": "service_task_custom_pdf_default.retry_button"
         }
       },
       {
         "id": "service-task-back-button",
         "type": "ActionButton",
         "textResourceBindings": {
-            "title": "service_task.back_button"
+          "title": "service_task_custom_pdf_default.back_button"
         },
         "action": "reject",
         "buttonStyle": "secondary"
-      },
+      }
     ]
   }
 }
@@ -262,7 +293,7 @@ It is optional to include `<altinn:filenameTextResourceKey>`. Here you can speci
 ```
 
 {{<notice warning>}}
-  When using auto generated PDF `datamodel.default` doesn't work. Use the ID of the datamodel, for instance like this: `dataModel.model`.
+  When using standard PDF, `dataModel.default` doesn't work. Use the ID of the datamodel, for instance like this: `dataModel.model`.
 {{</notice>}}
 
 ## Testing

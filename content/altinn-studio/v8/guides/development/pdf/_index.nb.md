@@ -1,8 +1,11 @@
 ---
 title: PDF
+description: Hvordan sette opp PDF-generering som systemoppgave
 tags: [altinn-apps, process, bpmn, task, service task, pdf, systemoppgave]
 weight: 15
 ---
+
+## Oversikt
 
 Generering av PDF følger med appen som en standard systemoppgave som kan legges til som et steg i prosessen.
 
@@ -17,26 +20,45 @@ Fordeler med å migrere til systemoppgave er:
 - I fremtiden: Kjøre PDF-generering som bakgrunnsjobb med automatiske retries og bedre skalering.
 {{</notice>}}
 
-Du kan bruke arbeidsflyt-fanen i Altinn Studio for å legge til en PDF-systemoppgave. Det finnes to alternativer:
+{{%notice info%}}
+Krever minst versjon 8.9.0 av Altinn NuGet-pakkene.
+{{%/notice%}}
 
-{{% expandlarge id="auto-generated-pdf" header="Autogenerert PDF basert på tidligere oppgaver" %}}
+## Oppsett
 
-Følgende systemoppgave vil bli satt inn i `process.bpmn`. Innholdet vil da basere seg på komponentene i skjemaet, men i "oppsummeringsmodus". Denne funksjonen respekterer ikke pdfLayoutName-konfigurasjon i Settings.json.
+Du kan bruke arbeidsflyt-fanen i Altinn Studio for å legge til en PDF-systemoppgave. 
+
+![Legg til PDF-systemoppgave](add-pdf-step.png "Legg til PDF-systemoppgave")
+
+Dra og slipp PDF-systemoppgaven der i prosessen du ønsker å generere en PDF, ofte rett etter en data-oppgave.
+
+Når det er utført vil et konfigurasjonspanel åpne seg til høyre i skjermbildet.
+Der har man to alternative tilnærminger til oppsett av PDF: standard eller egendefinert.
+
+{{% expandlarge id="auto-generated-pdf" header="Standard PDF basert på tidligere oppgaver" %}}
+
+Ved valg av dette alternativet blir du bedt om å velge hvilke tidligere oppgaver som skal være med i PDF-en. Innholdet vil da basere seg på komponentene i de valgte oppgavene, men i "oppsummeringsmodus". Denne funksjonen respekterer ikke pdfLayoutName-konfigurasjon i Settings.json.
+
+![Eksempeloppsett standard PDF](auto-pdf.png "Eksempeloppsett standard PDF")
+
+En systemoppgave vil bli satt inn i `process.bpmn`. Kan avvike noe fra eksempelet nedenfor. 
 
 {{< code-title >}}
   App/config/process/process.bpmn
 {{< /code-title >}}
 
 ```xml
-<bpmn:serviceTask id="Pdf_auto" name="PDF">
+<bpmn:serviceTask id="Pdf" name="PDF">
     <bpmn:extensionElements>
         <altinn:taskExtension>
             <altinn:taskType>pdf</altinn:taskType>
+            <altinn:actions>
+              <altinn:action>reject</altinn:action> <!-- Legges til via Handlinger, dersom man skal kunne f.eks. gå tilbake. -->
+            </altinn:actions>
             <altinn:pdfConfig>
                 <altinn:filenameTextResourceKey>pdfFileName</altinn:filenameTextResourceKey>
                 <altinn:autoPdfTaskIds>
-                    <altinn:taskId>Form1</altinn:taskId>
-                    <altinn:taskId>Form2</altinn:taskId>
+                    <altinn:taskId>Task_Utfylling1</altinn:taskId>
                 </altinn:autoPdfTaskIds>
             </altinn:pdfConfig>
         </altinn:taskExtension>
@@ -50,7 +72,13 @@ Følgende systemoppgave vil bli satt inn i `process.bpmn`. Innholdet vil da base
 
 {{% expandlarge id="custom-pdf-layout" header="Egendefinert PDF med eget layout-set" %}}
 
-Følgende systemoppgave vil bli satt inn i `process.bpmn`. Med dette alternativet så kan du selv definere innholdet i PDF-en i et layout-set for PDF-systemoppgaven.
+Ved valg av dette alternativet så kan du selv bestemme innholdet i PDF-en ved å definere et layout-set for PDF-systemoppgaven.
+
+Du blir først bedt om å oppgi et navn for layout-set til systemoppgaven, og så må du velge en datamodell som default datamodell for settet. Her kan du f.eks. velge modellen til en av oppgavene som er i PDF-en.
+
+![Eksempeloppsett manuell PDF](manual-pdf.png "Eksempeloppsett manuell PDF")
+
+En systemoppgave vil bli satt inn i `process.bpmn` og layout-set filene vil bli generert, dog uten innhold i PdfLayout.json.
 
 {{< code-title >}}
   App/config/process/process.bpmn
@@ -60,10 +88,13 @@ Følgende systemoppgave vil bli satt inn i `process.bpmn`. Med dette alternative
 <bpmn:serviceTask id="Pdf" name="PDF">
     <bpmn:extensionElements>
         <altinn:taskExtension>
-            <altinn:taskType>pdf</altinn:taskType>
-            <altinn:pdfConfig>
-                <altinn:filenameTextResourceKey>pdfFileName</altinn:filenameTextResourceKey>
-            </altinn:pdfConfig>
+        <altinn:taskType>pdf</altinn:taskType>
+        <altinn:actions>
+          <altinn:action>reject</altinn:action> <!-- Legges til via Handlinger, dersom man skal kunne f.eks. gå tilbake. -->
+        </altinn:actions>
+        <altinn:pdfConfig>
+            <altinn:filenameTextResourceKey>pdfFileName</altinn:filenameTextResourceKey>
+        </altinn:pdfConfig>
         </altinn:taskExtension>
     </bpmn:extensionElements>
     <bpmn:incoming>SequenceFlow_0c458hu</bpmn:incoming>
@@ -105,7 +136,7 @@ App/ui/
       "id": "form",
       "dataType": "model",
       "tasks": [
-        "Task_Utfylling"
+        "Task_Utfylling1"
       ]
     },
     {
@@ -119,7 +150,7 @@ App/ui/
   "uiSettings": {
     "taskNavigation": [
       {
-        "taskId": "Task_Utfylling",
+        "taskId": "Task_Utfylling1",
         "name": "Utfylling"
       },
       {
@@ -166,11 +197,11 @@ I denne filen defineres innholdet i PDF-en. Ofte brukes komponenten Summary2, en
         "type": "InstanceInformation"
       },
       {
-        "id": "Summary_form",
+        "id": "SummaryTaskUtfylling1",
         "type": "Summary2",
         "target": {
           "type": "layoutSet",
-          "taskId": "form"
+          "taskId": "Task_Utfylling1"
         }
       }
     ]
@@ -196,47 +227,47 @@ Denne layout-filen vises hvis PDF-genereringen feiler. Den kan inneholde feilmel
         "id": "service-task-title",
         "type": "Header",
         "textResourceBindings": {
-            "title": "service_task.title"
+          "title": "service_task_custom_pdf_default.title"
         }
       },
       {
         "id": "service-task-body",
         "type": "Paragraph",
         "textResourceBindings": {
-            "title": "service_task.body"
+          "title": "service_task_custom_pdf_default.body"
         }
       },
       {
         "id": "service-task-help-text",
         "type": "Paragraph",
         "textResourceBindings": {
-            "title": "service_task.help_text"
+          "title": "service_task_custom_pdf_default.help_text"
         }
       },
       {
         "id": "service-task-button-group",
         "type": "ButtonGroup",
         "children": [
-            "service-task-retry-button",
-            "service-task-back-button"
+          "service-task-retry-button",
+          "service-task-back-button"
         ]
       },
       {
         "id": "service-task-retry-button",
         "type": "Button",
         "textResourceBindings": {
-            "title": "service_task.retry_button"
+          "title": "service_task_custom_pdf_default.retry_button"
         }
       },
       {
         "id": "service-task-back-button",
         "type": "ActionButton",
         "textResourceBindings": {
-            "title": "service_task.back_button"
+          "title": "service_task_custom_pdf_default.back_button"
         },
         "action": "reject",
         "buttonStyle": "secondary"
-      },
+      }
     ]
   }
 }
@@ -262,7 +293,7 @@ Det er frivillig å inkludere `<altinn:filenameTextResourceKey`>. Her kan du opp
 ```
 
 {{<notice warning>}}
-  Ved bruk av autogenerert PDF kan man ikke bruke `datamodel.default`. Man må bruke faktisk ID for datamodellen, feks. `dataModel.model`.
+  Ved bruk av standard PDF, kan man ikke bruke `dataModel.default`. Man må bruke faktisk ID for datamodellen, f.eks. `dataModel.model`.
 {{</notice>}}
 
 ## Test
