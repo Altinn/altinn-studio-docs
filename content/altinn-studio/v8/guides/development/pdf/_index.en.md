@@ -7,17 +7,19 @@ weight: 15
 
 ## Overview
 
-PDF generation is included with the app as a standard service task that can be added as a step in the process.
+The app can generate PDFs as a standard service task that you add as a step in the process.
 
 {{<notice warning>}}
-Previously, this functionality was not in a service task but was built into the general code for changing process steps. If your app was set up before version 8.9, you should disable the functionality running outside the process definition.
+Previously, this functionality was not in a service task but was built into the general code for changing process steps. If you set up the app before version 8.9, you should disable the functionality that runs outside the process definition.
 
 You do this by turning off "enablePdfGeneration" on all data types.
 
-Benefits of migrating to a service task are:
-- Ability to retry if PDF generation fails, without having to run a full process next again, which can have unintended side effects.
-- Ability to create many PDFs based on one task, or combine many tasks into one PDF.
-- In the future: Run PDF generation as a background job with automatic retries and better scaling.
+<br />
+Benefits of migrating to a service task:
+
+- You can retry if PDF generation fails, without running "process next" again. This avoids unintended side effects.
+- You can create multiple PDFs from one task, or combine multiple tasks into one PDF.
+- In the future, PDF generation can run as a background job with automatic retries and better scaling.
 {{</notice>}}
 
 {{%notice info%}}
@@ -26,22 +28,22 @@ Requires at least version 8.9.0 of the Altinn NuGet packages.
 
 ## Setup
 
-You can use the Arbeidsflyt-editor in Altinn Studio to add a PDF service task.
+You can use the Arbeidsflyt tab in Altinn Studio to add a PDF service task.
 
 ![Add PDF service task](add-pdf-step.png "Add PDF service task")
 
-Drag and drop the PDF service task where in the process you want to generate a PDF, often right after a data task.
+Drag and drop the PDF service task to where in the process you want to generate a PDF, often right after a data task.
 
-Once this is done, a configuration panel will open on the right side of the screen.
-There you have two alternative approaches to setting up the PDF: standard or custom.
+Once you have placed the task, a configuration panel opens on the right side of the screen.
+There you choose between two approaches: standard or custom PDF.
 
 {{% expandlarge id="auto-generated-pdf" header="Standard PDF based on previous tasks" %}}
 
-When selecting this option, you will be asked to choose which previous tasks should be included in the PDF. The content will be based on the components in the selected tasks, but in "summary mode". This function does not respect the pdfLayoutName configuration in Settings.json.
+If you select this option, you specify which previous tasks should be included in the PDF. The content is based on the components in the selected tasks, displayed in summary mode. This function does not respect the pdfLayoutName configuration in Settings.json.
 
 ![Example setup standard PDF](auto-pdf.png "Example setup standard PDF")
 
-A service task will be inserted into `process.bpmn`. May differ slightly from the example below.
+Altinn Studio inserts a service task into `process.bpmn`. The result may differ slightly from the example below.
 
 {{< code-title >}}
   App/config/process/process.bpmn
@@ -72,13 +74,13 @@ A service task will be inserted into `process.bpmn`. May differ slightly from th
 
 {{% expandlarge id="custom-pdf-layout" header="Custom PDF with its own layout-set" %}}
 
-When selecting this option, you can determine the content of the PDF yourself by defining a layout-set for the PDF service task.
+If you select this option, you can determine the content of the PDF yourself by defining your own layout set for the PDF service task.
 
-You will first be asked to provide a name for the layout-set of the service task, and then you must choose a data model as the default data model for the set. Here you can, for example, choose the model of one of the tasks that is in the PDF.
+You first provide a name for the layout set and then choose a data model as the default model for the set. You can, for example, choose the model of one of the tasks included in the PDF.
 
 ![Example setup custom PDF](manual-pdf.png "Example setup custom PDF")
 
-A service task will be inserted into `process.bpmn` and the layout-set files will be generated, however without content in PdfLayout.json.
+Altinn Studio inserts a service task into `process.bpmn` and generates the layout-set files, but without content in PdfLayout.json.
 
 {{< code-title >}}
   App/config/process/process.bpmn
@@ -104,7 +106,7 @@ A service task will be inserted into `process.bpmn` and the layout-set files wil
 
 ### Layout-set
 
-A new layout-set is needed for the PDF service task to define the content. This will be automatically generated if you use the Arbeidsflyt-editor. Then you only need to edit the content in `PdfLayout.json`.
+The PDF service task needs its own layout set to define the content. If you use the Arbeidsflyt-editor, Altinn Studio generates this automatically. You then only need to edit the content in `PdfLayout.json`.
 
 The files and folder structure should look approximately like this:
 
@@ -181,7 +183,7 @@ App/ui/
 
 #### PdfLayout.json
 
-In this file, the content of the PDF is defined. The Summary2 component is often used, either against individual components or against entire pages/layout-sets.
+In this file, you define the content of the PDF. You typically use the Summary2 component, either against individual components or against entire pages and layout sets.
 
 {{< code-title >}}
   App/ui/Pdf/layouts/PdfLayout.json
@@ -211,7 +213,7 @@ In this file, the content of the PDF is defined. The Summary2 component is often
 
 #### ServiceTask.json
 
-This layout file is displayed if PDF generation fails. It can contain error messages or instructions for the user. Feel free to customize.
+This layout file shows content to the user if PDF generation fails, such as error messages or instructions. Feel free to customise.
 
 {{< code-title >}}
   App/ui/Pdf/layouts/ServiceTask.json
@@ -277,7 +279,7 @@ This layout file is displayed if PDF generation fails. It can contain error mess
 
 ## Filename
 
-It is optional to include `<altinn:filenameTextResourceKey>`. Here you can specify a text resource key that will be used as the filename, with language and variable support. If it is missing, the PDF will get the application name as the filename.
+Including `<altinn:filenameTextResourceKey>` is optional. Here you specify a text resource key to use as the filename, with support for languages and variables. If you omit it, the PDF uses the application name as the filename.
 
 ```json
 {
@@ -293,13 +295,13 @@ It is optional to include `<altinn:filenameTextResourceKey>`. Here you can speci
 ```
 
 {{<notice warning>}}
-  When using standard PDF, `dataModel.default` doesn't work. Use the ID of the datamodel, for instance like this: `dataModel.model`.
+  When using standard PDF, you cannot use `dataModel.default`. You must use the actual ID of the data model, e.g. `dataModel.model`.
 {{</notice>}}
 
 ## Testing
 
-Fill out the form and proceed. When you reach the service task for PDF in the workflow, the PDF should be generated and automatically proceed to the next element in the BPMN process, for example the receipt.
+Fill out the form and proceed. When you reach the PDF service task in the workflow, the app generates the PDF and automatically proceeds to the next step in the process, for example the receipt.
 
 ## Troubleshooting
 
-If you get an error message that the service task failed during PDF generation, it can be helpful to open the form in the app and add the query param pdf=1. Then you will see the same content that the PDF should have contained, and possibly the same error messages in the frontend.
+If you get an error message that the service task failed during PDF generation, you can open the form in the app and add the query parameter `pdf=1`. You will then see the same content the PDF should have displayed, and any error messages.
