@@ -17,9 +17,9 @@ aliases:
 ## Avhengigheter
 
 ### Maskinporten
-Maskinporten kreves hvis du vil bruke [meldingstjenesten](#meldingstjenesten) og/eller legge [tilgangsbegrensninger](/nb/altinn-studio/v10/develop-a-service/restricted-data/) på signaturobjektene.
+Du trenger Maskinporten hvis du vil bruke [meldingstjenesten](#meldingstjenesten) og/eller begrense tilgangen på signaturobjektene.
 
-Hvis du trenger hjelp med oppsett av Maskinporten i appen din, finner du all informasjonen du trenger i [denne veiledningen](/nb/altinn-studio/v10/develop-a-service/reference/integration/maskinporten/).
+Hvis du trenger hjelp med å sette opp Maskinporten i appen din, finner du det du trenger i [denne veiledningen](/nb/altinn-studio/v10/develop-a-service/reference/integration/maskinporten/).
 
 ### Meldingstjenesten
 Hvis appen din er [konfigurert til å sende signaturkvitteringer](#legg-til-signeringsoppgave), må Altinns meldingstjeneste (Correspondence) være aktivert.
