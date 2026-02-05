@@ -12,6 +12,10 @@ Underskjema-PDF systemoppgaven lar deg generere separate PDF-dokumenter for hver
 Denne funksjonaliteten forsøker å generere flere PDF-er i løpet av behandlingen av en http request til appens backend. Det er visse begrensninger rundt hvor mange PDF-er man bør forsøke å generere samtidig på denne måten. I fremtiden vil dette kunne kjøre som en bakgrunnsjobb, og da vil den grensen forsvinne. Test med et realistisk antall PDF-er i testmiljø for å se om grensen er nådd.
 {{</notice>}}
 
+{{%notice info%}}
+Krever minst versjon 8.9.0 av Altinn NuGet-pakkene.
+{{%/notice%}}
+
 ## Forutsetninger
 - Du har en applikasjon med ett eller flere underskjema. Denne guiden viser ikke oppsett av underskjema.
 
@@ -36,6 +40,9 @@ Dette sikrer at sekvensflyter og diagrammet blir korrekt.
     <bpmn:extensionElements>
         <altinn:taskExtension>
             <altinn:taskType>subformPdf</altinn:taskType>
+            <altinn:actions>
+              <altinn:action>reject</altinn:action> <!-- Legges til via Handlinger, dersom man skal kunne feks. gå tilbake. -->
+            </altinn:actions>
             <altinn:subformPdfConfig>
                 <altinn:filenameTextResourceKey>subformPdfFileName</altinn:filenameTextResourceKey>
                 <altinn:subformComponentId>mySubformComponentId</altinn:subformComponentId>
@@ -67,7 +74,7 @@ Eksempel på tekstressurs for filnavn med variabel:
       "variables": [
         {
           "key": "MySubformProperty",
-          "dataSource": "datamodel.SubformModel"
+          "dataSource": "dataModel.SubformModel"
         }
       ]
     }
