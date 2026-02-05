@@ -144,7 +144,7 @@ Disse standardverdiene brukes hvis du ikke endrer kommunikasjonstekstene:
 
 {{<content-version-selector classes="border-box">}}
 
-{{<content-version-container version-label="Manual setup">}}
+{{<content-version-container version-label="Manuelt oppsett">}}
 {{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/backend-manual/setup-text-resources.nb.md" %}}
 {{</content-version-container>}}
 

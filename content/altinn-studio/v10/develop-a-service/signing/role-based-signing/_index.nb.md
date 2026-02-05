@@ -3,7 +3,7 @@ draft: true
 title: Rolle- og tilgangspakkebasert signering
 linktitle: Rolle/tilgangspakke
 description: Slik setter du opp signering basert på rolle eller tilgangspakke.
-tags: [rollebasert, signering, needsReview, translate]
+tags: [rollebasert, signering, needsReview, translate, missingDesignerDocs]
 weight: 51
 aliases:
 - /nb/altinn-studio/guides/signing/role-based-signing
@@ -30,7 +30,7 @@ Hvis appen din er [konfigurert til å sende signaturkvitteringer](#legg-til-sign
 
 {{<content-version-selector classes="border-box">}}
 
-{{<content-version-container version-label="Manual setup">}}
+{{<content-version-container version-label="Manuelt oppsett">}}
 {{% insert "content/altinn-studio/v10/develop-a-service/signing/role-based-signing/backend-manual/add-process-task.nb.md" %}}
 {{</content-version-container>}}
 
@@ -44,7 +44,7 @@ Hvis appen din er [konfigurert til å sende signaturkvitteringer](#legg-til-sign
 
 {{<content-version-selector classes="border-box">}}
 
-{{<content-version-container version-label="Manual setup">}}
+{{<content-version-container version-label="Manuelt oppsett">}}
 {{% insert "content/altinn-studio/v10/develop-a-service/signing/role-based-signing/backend-manual/configure-layouts.nb.md" %}}
 {{</content-version-container>}}
 
