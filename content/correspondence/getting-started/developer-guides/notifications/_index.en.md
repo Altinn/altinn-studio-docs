@@ -108,7 +108,7 @@ Two types of notification templates are offered when using notifications through
 **Content:** Hi. $correspondenceRecipientName$ $recipientNumber$ has received a new message $messageTitle$ from $sendersName$. (To see this message you need access to $resourceName$.) Log in to Altinn to see this message.
 
 **Reminder Title:** Reminder - a message is available in Altinn for $correspondenceRecipientName$
-**Reminder Content:** Hi. This is a reminder that $correspondenceRecipientName$ $recipientNumber$ has received a message $messageTitle$ from $sendersName$. (To see this message you need access to $resourceName$.)  Log in to Altinn to see this message.
+**Reminder Content:** Hi. This is a reminder that $correspondenceRecipientName$ $recipientNumber$ has received a message $messageTitle$ from $sendersName$. (To see this message you need access to $resourceName$.) Log in to Altinn to see this message.
 
 - SMS uses only the content, not the title.
 
