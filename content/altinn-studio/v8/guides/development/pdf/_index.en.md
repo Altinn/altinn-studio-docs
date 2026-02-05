@@ -26,7 +26,7 @@ Requires at least version 8.9.0 of the Altinn NuGet packages.
 
 ## Setup
 
-You can use the workflow tab in Altinn Studio to add a PDF service task.
+You can use the Arbeidsflyt-editor in Altinn Studio to add a PDF service task.
 
 ![Add PDF service task](add-pdf-step.png "Add PDF service task")
 
