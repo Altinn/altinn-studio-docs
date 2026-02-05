@@ -174,7 +174,7 @@ Dette kan du endre i kommunikasjonen med de som skal signere:
 | CommunicationConfig.InboxMessage.SummaryTextResourceKey       | Tekstressursnøkkelen for innboksmeldingssammendrag  | String                            |
 | CommunicationConfig.InboxMessage.BodyTextResourceKey          | Tekstressursnøkkelen for innboksmeldingsinnhold     | String                            |
 | CommunicationConfig.Notification                              | Objektet for varslingskonfigurasjon                 | Object                            |
-| CommunicationConfig.Notification.Email                        | Objektet for e-postvarselingskonfigurasjon          | Object                            |
+| CommunicationConfig.Notification.Email                        | Objektet for e-postmeldingsvarsling                 | Object                            |
 | CommunicationConfig.Notification.Email.EmailAddress           | Tekstressursnøkkelen for e-postadresse              | String                            |
 | CommunicationConfig.Notification.Email.SubjectTextResourceKey | Tekstressursnøkkelen for e-postemne                 | String                            |
 | CommunicationConfig.Notification.Email.BodyTextResourceKey    | Tekstressursnøkkelen for e-postinnhold              | String                            |
