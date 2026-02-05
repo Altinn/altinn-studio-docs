@@ -9,7 +9,7 @@ tags: [needsReview, needsTranslation]
 Valideringer sikrer at brukerens inndata er gyldige i henhold til datamodellen og eventuelle egendefinerte regler du setter opp.
 Du kan kjøre valideringer enten på klientsiden (i nettleseren) eller på serversiden.
 
-Du kan også sette opp validering til å [kjøre ved sidebytte]({{< relref "/altinn-studio/v10/reference/ux/pages/navigation/#angi-validering-ved-sidebytte" >}}).
+Du kan også sette opp validering til å [kjøre ved sidebytte](/altinn-studio/v10/reference/ux/pages/navigation/#angi-validering-ved-sidebytte").
 
 ## Klientside-validering
 
@@ -262,7 +262,7 @@ public void ValidateData(object data, ModelStateDictionary validationResults)
 
 Se kommentarer i koden over for en forklaring på hva de ulike delene gjør.
 
-I det andre parameteret til metoden `AddModelError`, der det står "_Error: First name cannot contain the value '1337'_", kan du bruke en tekstnøkkel for en [tekst definert i ressursfilene]({{< relref "/altinn-studio/v10/reference/ux/texts/" >}}) for språkstøtte.
+I det andre parameteret til metoden `AddModelError`, der det står "_Error: First name cannot contain the value '1337'_", kan du bruke en tekstnøkkel for en [tekst definert i ressursfilene](/altinn-studio/v10/reference/ux/texts/< relref) for språkstøtte.
 
 Et eksempel på en enkel task-validering som sjekker hvor lang tid brukeren har brukt på Task_1 og returnerer en feil hvis det har tatt lenger enn tre dager:
 
