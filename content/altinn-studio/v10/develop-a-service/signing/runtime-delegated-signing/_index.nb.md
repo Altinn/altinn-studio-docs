@@ -159,7 +159,7 @@ Disse standardverdiene brukes hvis du ikke endrer kommunikasjonstekstene:
 `CommunicationConfig` er valgfritt. Her kan du endre standardtekstene som brukes i kommunikasjon med de som skal signere, som beskrevet i forrige punkt. Du kan også endre e-postadresse og telefonnummer for de som skal signere.
 
 {{% notice info %}}
-Hvis du ikke endrer disse innstillingene, sendes en melding til innboksen i Altinn med en lenke til applikasjonsinstansen. En notifikasjon sendes også via e-post.
+Hvis du ikke endrer disse innstillingene, sendes en melding til innboksen i Altinn med en lenke til applikasjonsinstansen. En notifikasjon sendes også på e-postadresse.
 {{% /notice %}}
 
 Hvis du ikke endrer e-postadresser og telefonnumre, hentes de som beskrevet i [Recipient lookup](/nb/notifications/explanation/recipient-lookup/) og [Address lookup](/nb/notifications/explanation/address-lookup/).
