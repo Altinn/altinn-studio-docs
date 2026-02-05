@@ -4,6 +4,26 @@ Denne filen holder oversikt over artikler som mangler dokumentasjon for hvordan 
 
 Filer som er merket med taggen `missingDesignerDocs` trenger nye veiledninger for Designer-funksjonalitet.
 
+---
+
+## 📋 Status for prosjektet
+
+**Fase 1 (nåværende):** Pilot i signering-seksjonen  
+**Fase 2 (fremtidig):** Rulles ut globalt på hele Altinn Studio docs
+
+Dette systemet er først implementert i signering-dokumentasjonen som et proof-of-concept. Målet er å senere gå gjennom hele dokumentasjonen og:
+- Identifisere alle steder hvor Designer-funksjonalitet mangler
+- Merke filene med `missingDesignerDocs`-taggen
+- Liste dem opp i denne filen
+- Fjerne forvirrende tomme faner
+
+**Hjelp gjerne til!** Hvis du finner artikler som mangler Designer-dokumentasjon, kan du:
+1. Legge til `missingDesignerDocs` i frontmatter-tags
+2. Legge til en oppføring her i filen
+3. Fjerne Designer-faner som bare viser placeholder-meldinger
+
+---
+
 ## Signering
 
 ### Rolle- og tilgangspakkebasert signering
